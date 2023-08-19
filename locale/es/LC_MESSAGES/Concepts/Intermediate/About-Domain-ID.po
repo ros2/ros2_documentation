@@ -1,0 +1,276 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Concepts/Intermediate/About-Domain-ID.rst:6
+#: 1073c8a3ee0f4d308bda2cd8d2ab084a
+msgid "The ROS_DOMAIN_ID"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Domain-ID.rst:9
+#: d2253386a148418eabc0ada015b82721
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Domain-ID.rst:12
+#: 8cfa0b82412f4595922b792dbc2a14be
+msgid "Overview"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Domain-ID.rst:14
+#: eb4c02305a1547a6a27036becc9f3863
+msgid ""
+"As explained elsewhere, the default middleware that ROS 2 uses for "
+"communication is DDS. In DDS, the primary mechanism for having different "
+"logical networks share a physical network is known as the Domain ID. ROS "
+"2 nodes on the same domain can freely discover and send messages to each "
+"other, while ROS 2 nodes on different domains cannot. All ROS 2 nodes use"
+" domain ID 0 by default. To avoid interference between different groups "
+"of computers running ROS 2 on the same network, a different domain ID "
+"should be set for each group."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Domain-ID.rst:21
+#: ddef570a843846cf83513a0c2d99a7b3
+msgid "Choosing a domain ID (short version)"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Domain-ID.rst:23
+#: 35eac25aa4b34569831a300fde1508e1
+msgid ""
+"The text below explains the derivation of the range of domain IDs that "
+"should be used in ROS 2. To skip that background and just choose a safe "
+"number, simply choose a domain ID between 0 and 101, inclusive."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Domain-ID.rst:28
+#: 7ddcc220dd93417b88899cf1e9ce1586
+msgid "Choosing a domain ID (long version)"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Domain-ID.rst:30
+#: bf7b9e7891164a348c149abd4ef3c434
+msgid ""
+"The domain ID is used by DDS to compute the UDP ports that will be used "
+"for discovery and communication. See `this article "
+"<https://community.rti.com/content/forum-topic/statically-configure-"
+"firewall-let-omg-dds-traffic-through>`__ for details on how the ports are"
+" computed. Remembering our basic networking, the UDP port is an `unsigned"
+" 16-bit integer "
+"<https://en.wikipedia.org/wiki/User_Datagram_Protocol#Ports>`__. Thus, "
+"the highest port number that can be allocated is 65535. Doing some math "
+"with the formula in the article above, this means that the highest domain"
+" ID that can possibly be assigned is 232, while the lowest that can be "
+"assigned is 0."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Domain-ID.rst:37
+#: c84825f9c6c74fce9eae19552f478061
+msgid "Platform-specific constraints"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Domain-ID.rst:39
+#: cc119a0b4bc9429393554e727d033ded
+msgid ""
+"For maximum compatibility, some additional platform-specific constraints "
+"should be followed when choosing a domain ID. In particular, it is best "
+"to avoid allocating domain IDs in the operating system's `ephemeral port "
+"range <https://en.wikipedia.org/wiki/Ephemeral_port>`__. This avoids "
+"possible conflicts between the ports used by the ROS 2 nodes and other "
+"networking services on the computers."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Domain-ID.rst:43
+#: fbc2ff85c81944bf851998e22d5c5725
+msgid "Here are some platform-specific notes about ephemeral ports."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Domain-ID.rst:47
+#: 783de7520b394400b212563c5303ce04
+msgid "Linux"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Domain-ID.rst:49
+#: 65d18180f97f426c8c1ef8c8e583994a
+msgid ""
+"By default, the Linux kernel uses ports 32768-60999 for ephemeral ports. "
+"This means that domain IDs 0-101 and 215-232 can be safely used without "
+"colliding with ephemeral ports. The ephemeral port range is configurable "
+"in Linux by setting custom values in "
+"``/proc/sys/net/ipv4/ip_local_port_range``. If a custom ephemeral port "
+"range is used, the above numbers may have to be adjusted accordingly."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Domain-ID.rst:54
+#: f2ed7ee4210b4c51960fa4f2514ad859
+msgid "macOS"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Domain-ID.rst:56
+#: 6e6cda642aa6486380f022e5b3c0b38c
+msgid ""
+"By default, the ephemeral port range on macOS is 49152-65535. This means "
+"that domain IDs 0-166 can be safely used without colliding with ephemeral"
+" ports. The ephemeral port range is configurable in macOS by setting "
+"custom sysctl values for ``net.inet.ip.portrange.first`` and "
+"``net.inet.ip.portrange.last``. If a custom ephemeral port range is used,"
+" the above numbers may have to be adjusted accordingly."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Domain-ID.rst:61
+#: 9ab4c7827e5d4869bd45c7da9c23fc0b
+msgid "Windows"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Domain-ID.rst:63
+#: 3cb253ff16794960bfe5be9fcd54ac02
+msgid ""
+"By default, the ephemeral port range on Windows is 49152-65535. This "
+"means that domain IDs 0-166 can be safely used without colliding with "
+"ephemeral ports. The ephemeral port range is configurable in Windows by "
+"`using netsh <https://docs.microsoft.com/en-us/troubleshoot/windows-"
+"server/networking/default-dynamic-port-range-tcpip-chang>`__. If a custom"
+" ephemeral port range is used, the above numbers may have to be adjusted "
+"accordingly."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Domain-ID.rst:69
+#: 088412dbcd9947b48e59208b189c97fc
+msgid "Participant constraints"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Domain-ID.rst:71
+#: 690225438fa84825ab05cb6f0c1e815b
+msgid ""
+"For each ROS 2 process running on a computer, one DDS \"participant\" is "
+"created. Since each DDS participant takes up two ports on the computer, "
+"running more than 120 ROS 2 processes on one computer may spill over into"
+" other domain IDs or the ephemeral ports."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Domain-ID.rst:74
+#: 60cf16b3ed6c4d278cb9b25c255cd489
+msgid "To see why, consider the domain IDs 1 and 2."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Domain-ID.rst:76
+#: cdd6568ab9a64b428175ff6db1803812
+msgid "Domain ID 1 uses port 7650 and 7651 for multicast."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Domain-ID.rst:77
+#: bed6fd4e10d54b178e341e13f43a86e5
+msgid "Domain ID 2 uses port 7900 and 7901 for multicast."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Domain-ID.rst:78
+#: e4ef4ae3ac904223bd85f89e192a60b9
+msgid ""
+"When creating the 1st process (zeroth participant) in domain ID 1, the "
+"ports 7660 and 7661 are used for unicast."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Domain-ID.rst:79
+#: 79392a6828a145a292088f3f134a37c9
+msgid ""
+"When creating the 120th process (119th participant) in domain ID 1, the "
+"ports 7898 and 7899 are used for unicast."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Domain-ID.rst:80
+#: 4b7ca36eaba44a4bb3af1f8f92f3b671
+msgid ""
+"When creating the 121st process (120th participant) in domain ID 1, the "
+"ports 7900 and 7901 are used for unicast and overlap with domain ID 2."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Domain-ID.rst:82
+#: 1d415c81492a4e27b50cb9bc6679a050
+msgid ""
+"If it is known that the computer will only ever be on a single domain ID "
+"at a time, and the domain ID is low enough, it is safe to create more ROS"
+" 2 processes than this."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Domain-ID.rst:84
+#: 8305928903134d4b94a401254d3daadc
+msgid ""
+"When choosing a domain ID that is near the top of the range of platform-"
+"specific domain IDs, one additional constraint should be considered."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Domain-ID.rst:86
+#: 6edc6603fbd244ceba946384e330e536
+msgid "For instance, assume a Linux computer with a domain ID of 101:"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Domain-ID.rst:88
+#: b5688bbf96b14483b81d6cf8ed8494b1
+msgid ""
+"The zero'th ROS 2 process on the computer will connect to ports 32650, "
+"32651, 32660, and 32661."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Domain-ID.rst:89
+#: 687944e61b794efabfcd90f9e066696a
+msgid ""
+"The first ROS 2 process on the computer will connect to ports 32650, "
+"32651, 32662, and 32663."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Domain-ID.rst:90
+#: c68a0dcc73734b3f8ba06bf601f8df2a
+msgid ""
+"The 53rd ROS 2 process on the computer will connect to ports 32650, "
+"32651, 32766, and 32767."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Domain-ID.rst:91
+#: ae399065eb1a4f138d2856a8750c5333
+msgid ""
+"The 54th ROS 2 process on the computer will connect to ports 32650, "
+"32651, 32768, and 32769, running into the ephemeral port range."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Domain-ID.rst:93
+#: f422d7905f714331a6897f1047ee20de
+msgid ""
+"Thus the maximum number of processes that should be created when using "
+"domain ID 101 on Linux is 54. Similarly, the maximum number of processes "
+"that should be created when using domain ID 232 on Linux is 63, as the "
+"maximum port number is 65535."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Domain-ID.rst:96
+#: bfffd675324a41af8af3f6dad3026aa6
+msgid ""
+"The situation is similar on macOS and Windows, though the numbers are "
+"different. On macOS and Windows, when choosing a domain ID of 166 (the "
+"top of the range), the maximum number of ROS 2 processes that can be "
+"created on a computer before running into the ephemeral port range is "
+"120."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Domain-ID.rst:100
+#: 14a457efdeca40139c2a747744eedcdb
+msgid "Domain ID to UDP Port Calculator"
+msgstr ""
+

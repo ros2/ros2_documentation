@@ -1,0 +1,519 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:2
+#: 6feba28500d64298984aa267e4a03282
+msgid "Using Callback Groups"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:4
+#: 06b510418ec14e98a6a0f10019f1a60a
+msgid ""
+"When running a node in a Multi-Threaded Executor, ROS 2 offers callback "
+"groups as a tool for controlling the execution of different callbacks. "
+"This page is meant as a guide on how to use callback groups efficiently. "
+"It is assumed that the reader has a basic understanding about the concept"
+" of :doc:`executors <../Concepts/Intermediate/About-Executors>`."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:11
+#: 3faffdd96cb44fc885f568100022bdad
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:14
+#: 9762d240824244bfb91b062c665f2629
+msgid "Basics of callback groups"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:16
+#: fffffb3f173a4f6a96d7cfdf057d5ecb
+msgid ""
+"When running a node in a Multi-Threaded Executor, ROS 2 offers two "
+"different types of callback groups for controlling execution of "
+"callbacks:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:20
+#: 078f11f6f57043439777412f69f1bcc4
+msgid "Mutually Exclusive Callback Group"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:21
+#: 8ebd33450cd54693b53af17214c482e9
+msgid "Reentrant Callback Group"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:23
+#: ff094d66e452473087b5ef8d338babaf
+msgid ""
+"These callback groups restrict the execution of their callbacks in "
+"different ways. In short:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:27
+#: d0eceb5538fd4c6d96d3d8d82825dbb0
+msgid ""
+"Mutually Exclusive Callback Group prevents its callbacks from being "
+"executed in parallel - essentially making it as if the callbacks in the "
+"group were executed by a SingleThreadedExecutor."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:30
+#: 290628e0abf54e8eb5282d98da054385
+msgid ""
+"Reentrant Callback Group allows the executor to schedule and execute the "
+"group's callbacks in any way it sees fit, without restrictions. This "
+"means that, in addition to different callbacks being run parallel to each"
+" other, different instances of the same callback may also be executed "
+"concurrently."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:35
+#: 12d9f047b54443b5bd945e42b7696157
+msgid ""
+"Callbacks belonging to different callback groups (of any type) can always"
+" be executed parallel to each other."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:38
+#: 13ff08d457904bb58ed3a56828192751
+msgid ""
+"It is also important to keep in mind that different ROS 2 entities relay "
+"their callback group to all callbacks they spawn. For example, if one "
+"assigns a callback group to an action client, all callbacks created by "
+"the client will be assigned to that callback group."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:43
+#: 8253b30cf2f64ecbb41187f2df433bbf
+msgid ""
+"Callback groups can be created by a node's ``create_callback_group`` "
+"function in rclcpp and by calling the constructor of the group in rclpy. "
+"The callback group can then be passed as argument/option when creating a "
+"subscription, timer, etc."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:49
+#: ../../source/How-To-Guides/Using-callback-groups.rst:196
+#: ../../source/How-To-Guides/Using-callback-groups.rst:282
+#: ../../source/How-To-Guides/Using-callback-groups.rst:448
+#: ../../source/How-To-Guides/Using-callback-groups.rst:502
+#: ../../source/How-To-Guides/Using-callback-groups.rst:525
+#: 0566017f66ba41b6b1a82020d9bb420e 2d44e3d53b57493781189cc214fa58e3
+#: 4e42df794e5a4caeb6d5563ff79a784c 595ce65be3864d7ca908d0bf2885e694
+#: b34c9f466900444693bb6a2d1b4fcba9 e69758f95a5042fdbffa6822af0e5111
+msgid "C++"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:61
+#: ../../source/How-To-Guides/Using-callback-groups.rst:248
+#: ../../source/How-To-Guides/Using-callback-groups.rst:347
+#: ../../source/How-To-Guides/Using-callback-groups.rst:455
+#: ../../source/How-To-Guides/Using-callback-groups.rst:509
+#: ../../source/How-To-Guides/Using-callback-groups.rst:553
+#: 74470462168541cbab0334ebe93571a0 7ae9b57aa4e14c058cc1a4994d8c733d
+#: ba2438a7a46d48a79a4acff3a70412ae c6d0808cbc3c4c728bb688d169cea1aa
+#: d2796eb525ec4eada03ff1f527d7bf40 d4c233e546fa46ad9ae77a1b0999a133
+msgid "Python"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:69
+#: 960dc6fad7cb4e0cb95ac18a92558b3e
+msgid ""
+"If the user does not specify any callback group when creating a "
+"subscription, timer, etc., this entity will be assigned to the node's "
+"default callback group. The default callback group is a Mutually "
+"Exclusive Callback Group and it can be queried via "
+"``NodeBaseInterface::get_default_callback_group()`` in rclcpp and via "
+"``Node.default_callback_group`` in rclpy."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:76
+#: 151f579f20384f9bafa50d1086967922
+msgid "About callbacks"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:78
+#: 923071238a8242dfb8dbdbe6421127f2
+msgid ""
+"In the context of ROS 2 and executors, a callback means a function whose "
+"scheduling and execution is handled by an executor. Examples of callbacks"
+" in this context are"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:82
+#: b463397672a044fd889318b33bfe6f2a
+msgid "subscription callbacks (receiving and handling data from a topic),"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:83
+#: f2adcec5e1df4bfe862d5d7a5109eec3
+msgid "timer callbacks,"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:84
+#: 3ddc3f5faf574d6fbb3b00de886c447b
+msgid "service callbacks (for executing service requests in a server),"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:85
+#: 0e359dae5acf44b18179e063af10be11
+msgid "different callbacks in action servers and clients,"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:86
+#: 783c3a233c924461895f7b3967ffab6b
+msgid "done-callbacks of Futures."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:88
+#: 025c7e8a986f4196aa2e881e9df13ae4
+msgid ""
+"Below are a couple important points about callbacks that should be kept "
+"in mind when working with callback groups."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:91
+#: ad07a2cd55d648f68373059f1bbfd340
+msgid ""
+"Almost everything in ROS 2 is a callback! Every function that is run by "
+"an executor is, by definition, a callback. The non-callback functions in "
+"a ROS 2 system are found mainly at the edge of the system (user and "
+"sensor inputs etc)."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:95
+#: 018e053f33194de09225f1fecf0d972f
+msgid ""
+"Sometimes the callbacks are hidden and their presence may not be obvious "
+"from the user/developer API. This is the case especially with any kind of"
+" “synchronous” call to a service or an action (in rclpy). For example, "
+"the synchronous call ``Client.call(request)`` to a service adds a "
+"Future's done-callback that needs to be executed during the execution of "
+"the function call, but this callback is not directly visible to the user."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:106
+#: cee61b8ec2594309ae49ba5a5e7125e2
+msgid "Controlling execution"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:108
+#: bb41ada5a23345b99c9bdbda8ee606bc
+msgid ""
+"In order to control execution with callback groups, one can consider the "
+"following guidelines."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:111
+#: f59f4da59f084a759497bdeda6280f4a
+msgid "For the interaction of an individual callback with itself:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:113
+#: c140209ca7084b5dbf9caa07536b0a26
+msgid ""
+"Register it to a Reentrant Callback Group if it should be executed in "
+"parallel to itself. An example case could be an action/service server "
+"that needs to be able to process several action calls in parallel to each"
+" other."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:117
+#: aa0937447c534d3bbd33717c19b91470
+msgid ""
+"Register it to a Mutually Exclusive Callback Group if it should **never**"
+" be executed in parallel to itself. An example case could be a timer "
+"callback that runs a control loop that publishes control commands."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:120
+#: b9e111644782433d8d95ea5be5d59152
+msgid "For the interaction of different callbacks with each other:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:122
+#: 0857177ca27a4f75befaadb0bc499292
+msgid ""
+"Register them to the same Mutually Exclusive Callback Group if they "
+"should **never** be executed in parallel. An example case could be that "
+"the callbacks are accessing shared critical and non-thread-safe "
+"resources."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:125
+#: 7d31e4f373524558ac55466bf90e00ff
+msgid ""
+"If they should be executed in parallel, you have two options, depending "
+"on whether the individual callbacks should be able to overlap themselves "
+"or not:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:128
+#: 709002650c164055a7d71d2847100659
+msgid ""
+"Register them to different Mutually Exclusive Callback Groups (no overlap"
+" of the individual callbacks)"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:130
+#: 2a56781d27d34d3a82009bed93ca12dc
+msgid ""
+"Register them to a Reentrant Callback Group (overlap of the individual "
+"callbacks)"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:132
+#: d9b14454a8c14fa5b1907b031a6268d9
+msgid ""
+"An example case of running different callbacks in parallel is a Node that"
+" has a synchronous service client and a timer calling this service. See "
+"the detailed example below."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:137
+#: 9b062f6c59264a6a995b3c067b57f2cd
+msgid "Avoiding deadlocks"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:139
+#: f2cd8bb8fa444db0a5ce636e898a972a
+msgid ""
+"Setting up callback groups of a node incorrectly can lead to deadlocks "
+"(or other unwanted behavior), especially if one desires to use "
+"synchronous calls to services or actions. Indeed, even the API "
+"documentation of ROS 2 mentions that synchronous calls to actions or "
+"services should not be done in callbacks, because it can lead to "
+"deadlocks. While using asynchronous calls is indeed safer in this regard,"
+" synchronous calls can also be made to work. On the other hand, "
+"synchronous calls also have their advantages, such as making the code "
+"simpler and easier to understand. Hence, this section provides some "
+"guidelines on how to set up a node's callback groups correctly in order "
+"to avoid deadlocks."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:152
+#: 712b91f95e934060a4a94bba28f76a83
+msgid ""
+"First thing to note here is that every node's default callback group is a"
+" Mutually Exclusive Callback Group. If the user does not specify any "
+"other callback group when creating a timer, subscription, client etc., "
+"any callbacks created then or later by these entities will use the node's"
+" default callback group. Furthermore, if everything in a node uses the "
+"same Mutually Exclusive Callback Group, that node essentially acts as if "
+"it was handled by a Single-Threaded Executor, even if a multi-threaded "
+"one is specified! Thus, whenever one decides to use a Multi-Threaded "
+"Executor, some callback group(s) should always be specified in order for "
+"the executor choice to make sense."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:164
+#: 483f9b64a3604756b6467faf6d76c65f
+msgid ""
+"With the above in mind, here are a couple guidelines to help avoid "
+"deadlocks:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:166
+#: 6f5c3fee4d3f4df4b63e977e330fac2b
+msgid ""
+"If you make a synchronous call in any type of a callback, this callback "
+"and the client making the call need to belong to"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:169
+#: bf5d3a0dc9884000b09abd63d54df603
+msgid "different callback groups (of any type), or"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:170
+#: bb935235ff7d4ac69c8fd9efd895b666
+msgid "a Reentrant Callback Group."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:172
+#: 6cb73a1317d6440abfcf5e6f5bf753db
+msgid ""
+"If the above configuration is not possible due to other requirements - "
+"such as thread-safety and/or blocking of other callbacks while waiting "
+"for the result (or if you want to make absolutely sure that there is "
+"never a possibility of a deadlock), use asynchronous calls."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:177
+#: 11569b25c05b455087445d1e6114186c
+msgid ""
+"Failing the first point will always cause a deadlock. An example of such "
+"a case would be making a synchronous service call in a timer callback "
+"(see the next section for an example)."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:183
+#: 998e8c58a3ad44eeb7f418b02fd2177a
+msgid "Examples"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:185
+#: cc2257ef35344893b29b373ac84f29c9
+msgid ""
+"Let us look at some simple examples of different callback group setups. "
+"The following demo code considers calling a service synchronously in a "
+"timer callback."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:190
+#: 96a71e1f0d054a91be80d2c66befa01e
+msgid "Demo code"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:192
+#: 83ef3ee5e1834c13a57a4e2158e46c08
+msgid "We have two nodes - one providing a simple service:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:277
+#: 1200bccd0415407f82cc91b1244944c0
+msgid ""
+"and another containing a client to the service along with a timer for "
+"making service calls:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:284
+#: d886044add6c49ba8985d2c350760874
+msgid ""
+"*Note:* The API of service client in rclcpp does not offer a synchronous "
+"call method similar to the one in rclpy, so we wait on the future object "
+"to simulate the effect of a synchronous call."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:387
+#: bb9c4b9f689f4709be0df050ee89aa9a
+msgid ""
+"The client node's constructor contains options for setting the callback "
+"groups of the service client and the timer. With the default setting "
+"above (both being ``nullptr`` / ``None``), both the timer and the client "
+"will use the node's default Mutually Exclusive Callback Group."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:394
+#: f3f93905dfaa44369bc39d3a2b53d273
+msgid "The problem"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:396
+#: 81e0f47656584ad6b3cb1f09d2647614
+msgid ""
+"Since we are making service calls with a 1 second timer, the expected "
+"outcome is that the service gets called once a second, the client always "
+"gets a response and prints ``Received response``. If we try running the "
+"server and client nodes in terminals, we get the following outputs."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:404
+#: ../../source/How-To-Guides/Using-callback-groups.rst:467
+#: 00768f4489c84d7e8cdfeea1e2e320bd 68bc96927b5c40f090f9746e41c1711a
+msgid "Client"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:412
+#: ../../source/How-To-Guides/Using-callback-groups.rst:482
+#: 3896703bebed415a87fa0c86065cc09b 87ed00a9004542159becbd47af7c198d
+msgid "Server"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:420
+#: 96c4707554f64b6ca09b06d9f30594fd
+msgid ""
+"So, it turns out that instead of the service being called repeatedly, the"
+" response of the first call is never received, after which the client "
+"node seemingly gets stuck and does not make further calls. That is, the "
+"execution stopped at a deadlock!"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:425
+#: 7de0681221f4499ab628076ed99d0f69
+msgid ""
+"The reason for this is that the timer callback and the client are using "
+"the same Mutually Exclusive Callback Group (the node's default). When the"
+" service call is made, the client then passes its callback group to the "
+"Future object (hidden inside the call-method in the Python version) whose"
+" done-callback needs to execute for the result of the service call to be "
+"available. But because this done-callback and the timer callback are in "
+"the same Mutually Exclusive group and the timer callback is still "
+"executing (waiting for the result of the service call), the done-callback"
+" never gets to execute. The stuck timer callback also blocks any other "
+"executions of itself, so the timer does not fire for a second time."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:439
+#: ff279d4f41c441179831dc0e9401a6fe
+msgid "Solution"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:441
+#: a3af48977da04c2794f82afcfabbea3d
+msgid ""
+"We can fix this easily - for example - by assigning the timer and client "
+"to different callback groups. Thus, let us change the first two lines of "
+"the client node's constructor to be as follows (everything else shall "
+"stay the same):"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:462
+#: 77622275c46746bda5c4ad7878b5ea88
+msgid ""
+"Now we get the expected result, i.e. the timer fires repeatedly and each "
+"service call gets the result as it should:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:493
+#: 4ad7fc84aa22499db644ad789282e6e4
+msgid ""
+"One might consider if just avoiding the node's default callback group is "
+"enough. This is not the case: replacing the default group by a different "
+"Mutually Exclusive group changes nothing. Thus, the following "
+"configuration also leads to the previously discovered deadlock."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:516
+#: a7010b64e1374b2fb20d606dde6603ba
+msgid ""
+"In fact, the exact condition with which everything works in this case is "
+"that the timer and client must not belong to the same Mutually Exclusive "
+"group. Hence, all of the following configurations (and some others as "
+"well) produce the desired outcome where the timer fires repeatedly and "
+"service calls are completed."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-callback-groups.rst:532
+#: ../../source/How-To-Guides/Using-callback-groups.rst:539
+#: ../../source/How-To-Guides/Using-callback-groups.rst:546
+#: ../../source/How-To-Guides/Using-callback-groups.rst:560
+#: ../../source/How-To-Guides/Using-callback-groups.rst:567
+#: ../../source/How-To-Guides/Using-callback-groups.rst:574
+#: 39e0a830db694d9aa26b6ea82b5ff33c 758631c4fde8412aad64b6983552942b
+#: bb03b6c13ad5451986ca1d53267027b1 cec701d97d9847f59082bafbc7a66479
+#: d49ff2f2b1554d37ab489fca133d9c78 de59465c38b74c4a91d43b27e3e96dc3
+msgid "or"
+msgstr ""
+

@@ -1,0 +1,479 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:2
+#: 7dae184765844d689e07b2807e709323
+msgid "First Time Release"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:4
+#: b27ab7a0ddb746598336a3d293f32995
+msgid ""
+"This guide explains how to release ROS 2 packages that you have not "
+"released before. Due to numerous options available when releasing ROS "
+"packages, this guide intends to cover the most common scenario and does "
+"not cover every corner-case."
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:9
+#: d77324beff994ff3a75ef138d6fa4676
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:12
+#: 809ed2208df544c88f4a8b758ee09ce8
+msgid "Be part of a release team"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:14
+#: d5e85de6173944aca76117afc7beecab
+msgid ""
+"You must be part of a :ref:`release team <what-is-a-release-team>`. If "
+"you are not part of a release team yet, follow either:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:17
+#: 8a4a56dd843a4f95a70f684d24ee2e5d
+msgid ":ref:`Join a release team <join-a-release-team>`"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:18
+#: 924e841fb0a640eebdcde4de363c84fa
+msgid ":ref:`Start a new release team <start-a-new-release-team>`"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:21
+#: e49b195ee8fc4dd097519555465fd8ce
+msgid "Create a new release repository"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:23
+#: 06b5ba31825243dfb15e669c487bd0c2
+msgid ""
+"You need a :ref:`release repository <what-is-a-release-repository>` to "
+"release a package. Follow :ref:`Create a new release repository <create-a"
+"-new-release-repository>`."
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:27
+#: f15d5a7c019a405c8a0183a2c664d5ef
+msgid "Install dependencies"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/_Install-Dependencies.rst:1
+#: 793e4fa8a05d4d6282e0cd4028c008a1
+msgid ""
+"Install tools that you will use in the upcoming steps according to your "
+"platform:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/_Install-Dependencies.rst:5
+#: 1452915672954064856570896b703c82
+msgid "Debian (eg. Ubuntu)"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/_Install-Dependencies.rst:11
+#: b5fa5230f8e94e2b9784781a390b9a45
+msgid "RPM (eg. RHEL)"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/_Install-Dependencies.rst:17
+#: a87ede8f0df048c9bf035444390ffc46
+msgid "Other"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:32
+#: fd8ad91d2ef04c6abf872d2d2c851e5a
+msgid "Set Up a Personal Access Token"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/_Personal-Access-Token.rst:3
+#: d8f7c9702e894a68a0d36abddf539fd7
+msgid ""
+"If the file ``~/.config/bloom`` exists on your computer, it is likely "
+"that you have done this before so you should skip this section."
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/_Personal-Access-Token.rst:5
+#: 2d2f18e8aace4514864de0222a03b30d
+msgid ""
+"During the release process, multiple HTTPS Git operations will be "
+"performed that require password authentication. To avoid being repeatedly"
+" asked for a password, a `Personal Access Token (PAT) "
+"<https://docs.github.com/en/authentication/keeping-your-account-and-data-"
+"secure/creating-a-personal-access-token>`_ will be set up. If you have "
+"multi-factor authentication setup on your GitHub account, you **must** "
+"setup a Personal Access Token."
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/_Personal-Access-Token.rst:9
+#: f4960658d6444d0eaa542eab3bf7e504
+msgid "Create a Personal Access Token by:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/_Personal-Access-Token.rst:11
+#: 8b44e016e4894e3c9228e526687c4ac0
+msgid ""
+"Log in to GitHub and go to `Personal access tokens "
+"<https://github.com/settings/tokens>`_."
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/_Personal-Access-Token.rst:12
+#: f973d40d1aa34d69b010ca753e4ca9da
+msgid "Click the **Generate new token** button."
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/_Personal-Access-Token.rst:13
+#: 91962aabb8354cd5a383b462edc369e0
+msgid "Set **Note** to something like ``Bloom token``."
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/_Personal-Access-Token.rst:14
+#: 117904f610d94583b022adb7963c7bf1
+msgid "Set **Expiration** to **No expiration**."
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/_Personal-Access-Token.rst:15
+#: 0aac180661af47bfa900c2628f6c30db
+msgid "Tick the ``public_repo`` and ``workflow`` checkboxes."
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/_Personal-Access-Token.rst:16
+#: 7ebc5ff1145e4547864ac571efc2f0fb
+msgid "Click the **Generate token** button."
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/_Personal-Access-Token.rst:18
+#: b4b9668ba82247de98405320a6b4046e
+msgid ""
+"After you have created the token, you will end up back at the *Personal "
+"access tokens* page. **Copy the alphanumeric token** that is highlighted "
+"in green."
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/_Personal-Access-Token.rst:21
+#: 4cfdf5fcb85044abad41fdcec4f26b7b
+msgid ""
+"Save your GitHub username and PAT to a new file called "
+"``~/.config/bloom``, with the format below:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:37
+#: 7a0a4cc6bc924abcb7c6910be60f0fe7
+msgid "Ensure repositories are up-to-date"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/_Ensure-Repositories-Are-Up-To-Date.rst:1
+#: 8ceebb7a876c4905a2a460369269df92
+msgid "Make sure that:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/_Ensure-Repositories-Are-Up-To-Date.rst:3
+#: b4b0212b2db1400d92baf5b1147cbe97
+msgid "Your repository is hosted on a remote such as GitHub."
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/_Ensure-Repositories-Are-Up-To-Date.rst:4
+#: 9c6763fc7ca94c8b9d24f6b1cd014ca7
+msgid ""
+"You have a clone of the repository on your computer and are on the right "
+"branch."
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/_Ensure-Repositories-Are-Up-To-Date.rst:5
+#: 15b6fddf79cd4d8a88ceb9af29198d92
+msgid "Both the remote repository and your clone are up-to-date."
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:42
+#: 13c03526da6d43deafaed66d9c593dea
+msgid "Generate Changelog"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:44
+#: 90251795edc84cc29e8daa70b8690181
+msgid ""
+"Generate a ``CHANGELOG.rst`` file per package in your repo using the "
+"following command:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/_Clean-Up-Changelog.rst:1
+#: fc7f9fb0cc404968b087b2e7ec1ca683
+msgid ""
+"Open all ``CHANGELOG.rst`` files in an editor. You will see that "
+"``catkin_generate_changelog`` has auto-generated a forthcoming section "
+"with notes from commit messages:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/_Clean-Up-Changelog.rst:15
+#: 9e2ae9195dc9492ca458332ab6f065ee
+msgid ""
+"Clean up the list of commit messages to concisely convey the notable "
+"changes that have been made to the packages since the last release, and "
+"**commit all the CHANGELOG.rst files.** Do not modify the ``Forthcoming``"
+" header."
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:53
+#: 9f460ae34fb8463c940c0c488cdc5753
+msgid "Bump the package version"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/_Bump-Package-Version.rst:1
+#: 246fd2fa939a47e482f774b13abccfd4
+msgid ""
+"Every release of the package must have a unique version number higher "
+"than the previous release. Run:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/_Bump-Package-Version.rst:8
+#: 930fc68d40e8432cb98002e4c5ab6567
+msgid "which performs the following:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/_Bump-Package-Version.rst:10
+#: de0a1a36eb1d4a1288146efd4695370f
+msgid "increases the package version in ``package.xml``"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/_Bump-Package-Version.rst:11
+#: b3169ef43ea94d9f9655b9fae45ba5d9
+msgid ""
+"replaces the heading ``Forthcoming`` with ``version (date)`` (eg. ``0.0.1"
+" (2022-01-08)``) in ``CHANGELOG.rst``"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/_Bump-Package-Version.rst:12
+#: ac8bb61157d842f3a506762aa2a7cba8
+msgid "commits those changes"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/_Bump-Package-Version.rst:13
+#: 91bc3392d2394e549972a35d5764235a
+msgid "creates a tag (eg. ``0.0.1``)"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/_Bump-Package-Version.rst:14
+#: 298b3dcca5944c7d8f11af8bd60c5294
+msgid "pushes the changes and the tag to your remote repository"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/_Bump-Package-Version.rst:18
+#: 82e805445fc84a6999182a9de3e15aa6
+msgid ""
+"By default the patch version of the package is incremented, such as from "
+"``0.0.0`` to ``0.0.1``. To increment the minor or major version instead, "
+"run ``catkin_prepare_release --bump minor`` or ``catkin_prepare_release "
+"--bump major``. For more details, see ``catkin_prepare_release --help``."
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:58
+#: 1a3f22b92bc54f8f95b92e9e112f3729
+msgid "Bloom Release"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:60
+#: c94c152f68e3458580cb21838bdb79c9
+msgid ""
+"Run the following command, replacing ``my_repo`` with the name of your "
+"repository:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:68
+#: c20b608aae4345c8b9c2eca8f1863c34
+msgid ""
+"``--new-track`` tells bloom to create a new :ref:`track <what-"
+"is-a-track>` and configure it."
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:69
+#: cdb7b9801ab14cffbdac14536fcdf50a
+msgid ""
+"``--rosdistro rolling`` indicates that this release is for the "
+"``rolling`` distro"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:70
+#: 68b8d90e34f54c499c7a64e965c0e74b
+msgid ""
+"``--track rolling`` indicates that you want the track name to be "
+"``rolling``"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:73
+#: 22d2b0b8634f45b5a876e2929c4e1419
+msgid ""
+"You will be prompted to enter information to configure a new track. In a "
+"common scenario such as:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:76
+#: 485e0ef4cfe04be8bb0dd0271227a0a4
+msgid "Your packages are in a repository called ``my_repo``"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:77
+#: 7464cd4590a0455594c9c791fe6967be
+msgid "You are releasing a branch called ``main``"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:78
+#: b426f1519512460e8de773a42376bd54
+msgid ""
+"The repository is hosted on GitHub at "
+"``https://github.com/my_organization/my_repo.git``"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:79
+#: d7387633297341508b65238d2c9dd3bf
+msgid ""
+"Your release repository is at ``https://github.com/ros2-gbp/my_repo-"
+"release.git``"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:81
+#: acfe2e2adca64176b8b6302f1f5fe3eb
+msgid "You should respond to the prompts as following:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:87
+#: 577cbc730d6b41d9bb5c76fe7b15b5a7
+msgid "Configuration"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:88
+#: c01d2e62152d49c6aef224e62d0c3cc8
+msgid "Value"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:89
+#: 2300c4ff04804ad392912eef47de5d42
+msgid ":ref:`Release Repository url <release-repository-url>`"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:90
+#: 6a9162b5c08d4dadb9c80b9549b1b9c8
+msgid "``https://github.com/ros2-gbp/my_repo-release.git``"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:91
+#: 99468b3786c54483b428d9f4ff6b9a90
+msgid ":ref:`Repository Name <repository-name>`"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:92
+#: cdc72fcab0f24f2a877684a9c6a6b853
+msgid "``my_repo``"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:93
+#: c4720910385f45a4998b3eea41fd4bed
+msgid ":ref:`Upstream Repository URI <upstream-repository-uri>`"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:94
+#: be848c220d0e431685d748feceda698d
+msgid "``https://github.com/my_organization/my_repo.git``"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:95
+#: 2bd2bc2edf3e442180a581dc516f11cc
+msgid ":ref:`Upstream VCS Type <upstream-vcs-type>`"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:97
+#: 8c46eaad1ca94ff3b7717b500fdfe900
+msgid ":ref:`Version <version>`"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:99
+#: 4e91c25da1e9440d88286ae38c292dc7
+msgid ":ref:`Release Tag <release-tag>`"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:101
+#: 266dae5b4fce4deea5a486ebc01a358c
+msgid ":ref:`Upstream Devel Branch <upstream-devel-branch>`"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:102
+#: 677548d2addd486682bdc2967f13ac11
+msgid "``main``"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:103
+#: 63494546554442cea542c5bf174bf3aa
+msgid ":ref:`ROS Distro <ros-distro>`"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:105
+#: fac79b13ae9440f2a30806b1da9e77af
+msgid ":ref:`Patches Directory <patches-directory>`"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:107
+#: 41f514334aca430fadc4de82caf1ce2d
+msgid ":ref:`Release Repository Push URL <release-repository-push-url>`"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:112
+#: 4e59b3539a0f47aaadf375cb3a226542
+msgid ""
+"An empty cell in the table indicates that the default value should be "
+"used. Simply respond to the prompt by pressing Enter."
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:115
+#: 1f382e83cd1847b99f731dcd5d756f78
+msgid ""
+"Bloom will automatically create a pull request for you against `rosdistro"
+" <https://github.com/ros/rosdistro>`_."
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/First-Time-Release.rst:118
+#: 7705865a90f8403583e28f218a0cc14d
+msgid "Next Steps"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/_Next-Steps.rst:1
+#: b54dec59a95540dc8de09fd94d2147cc
+msgid ""
+"Once your pull request has been submitted, usually within one or two "
+"days, one of the maintainers of rosdistro will review and merge your Pull"
+" Request. If your package build is successful, in 24-48 hours your "
+"packages will become available in the **ros-testing** repository, where "
+"you can :doc:`test your pre-release binaries "
+"<../../../Installation/Testing>`."
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/_Next-Steps.rst:4
+#: 6eb2419216fe48b5a899063ed60bb310
+msgid ""
+"Approximately every two to four weeks, the distribution's release manager"
+" manually synchronizes the contents of ros-testing into the main ROS "
+"repository. This is when your packages actually become available to the "
+"rest of the ROS community. To get updates on when the next "
+"synchronization (sync) is coming, subscribe to the `Packaging and Release"
+" Management Category on ROS Discourse "
+"<https://discourse.ros.org/c/release/16>`_."
+msgstr ""
+

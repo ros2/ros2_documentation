@@ -1,0 +1,186 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Intermediate/Testing/Testing-Main.rst:4
+#: df2dbce636c843d0b7d43264cb7b5028
+msgid "Testing"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Testing-Main.rst:7
+#: 36179e50e2754466b951b743319bd28e
+msgid "Why automatic tests?"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Testing-Main.rst:9
+#: 942202553e484f029fd37383520382e5
+msgid "Here are some of the many good reasons why should we have automated tests:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Testing-Main.rst:11
+#: 5b558f4975c64aa88726434c95d82353
+msgid ""
+"You can make incremental updates to your code more quickly. ROS has "
+"hundreds of packages with many interdependencies, so it can be hard to "
+"anticipate the problems a small change might cause. If your change passes"
+" the unit tests, you can be more confident that you haven't introduced "
+"problems — or at least the problems aren't your fault."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Testing-Main.rst:12
+#: b815f22ab8cc44e29bf87a14d9fcd965
+msgid ""
+"You can refactor your code with greater confidence. Passing the unit "
+"tests verifies that you haven't introduced any bugs while refactoring. "
+"This gives you this wonderful freedom from change fear!"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Testing-Main.rst:13
+#: bcecb7aa8ba546279ac5e03cbc0f4a9e
+msgid ""
+"It leads to better designed code. Unit tests force you to write your code"
+" so that it can be more easily tested. This often means keeping your "
+"underlying functions and framework separate, which is one of our design "
+"goals with ROS code."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Testing-Main.rst:14
+#: a57cde7727be495aa2821323355b9791
+msgid ""
+"They prevent recurring bugs (bug regressions). It's a good practice to "
+"write a unit test for every bug you fix. In fact, write the unit test "
+"before you fix the bug. This will help you to precisely, or even "
+"deterministically, reproduce the bug, and much more precisely understand "
+"what the problem is. As a result, you will also create a better patch, "
+"which you can then test with your regression test to verify that the bug "
+"is fixed. That way the bug won't accidentally get reintroduced if the "
+"code gets modified later on. It also means that it will be easier to "
+"convince the reviewer of the patch that the problem is solved, and the "
+"contribution is of high quality."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Testing-Main.rst:15
+#: 8b0dc78b71024e61b23e09284c0c8035
+msgid ""
+"Other people can work on your code more easily (an automatic form of "
+"documentation). It can be hard to figure out whether or not you've broken"
+" someone else's code when you make a change. The unit tests are a tool "
+"for other developers to validate their changes. Automatic tests document "
+"your coding decisions, and communicate to other developers automatically "
+"about their violation. Thus tests become documentation for your code — a "
+"documentation that does not need to be read for the most time, and when "
+"it does need to be inspected the test system will precisely indicate what"
+" to read (which tests fail). By writing automatic tests you make other "
+"contributors faster. This improves the entire ROS project."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Testing-Main.rst:16
+#: 7c63c92691894c37b5e925148889b31f
+msgid ""
+"It is much easier to become a contributor to ROS if we have automated "
+"unit tests. It is very difficult for new external developers to "
+"contribute to your components. When they make changes to code, they are "
+"often doing it in the blind, driven by a lot of guesswork. By providing a"
+" harness of automated tests, you help them in the task. They get "
+"immediate feedback for their changes. It becomes easier to contribute to "
+"a project, and new contributors to join more easily. Also their first "
+"contributions are of higher quality, which decreases the workload on "
+"maintainers. A win-win!"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Testing-Main.rst:17
+#: 9c2a119fccea4268bd3123c35b1b9e0d
+msgid ""
+"Automatic tests simplify maintainership. Especially for mature packages, "
+"which change more slowly, and mostly need to be updated to new "
+"dependencies, an automatic test suite helps to very quickly establish "
+"whether the package still works. This makes it much easier to decide "
+"whether the package is still supported or not."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Testing-Main.rst:18
+#: 9c4edd40d04b415489dff3aea90fa10f
+msgid ""
+"Automatic tests amplify the value of Continuous Integration. Regression "
+"tests, along with normal scenario-based requirements tests, contribute to"
+" overall body of automated tests for your component. Your component is "
+"better tested against evolution of other APIs that it depends on (CI "
+"servers will tell you better and more precisely what problems develop in "
+"your code)."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Testing-Main.rst:20
+#: 4128e77e2dc542fb92d1533fc56e6a6b
+msgid ""
+"Perhaps the most important benefit of writing tests is that tests make "
+"you a good citizen. Tests influence quality in the long term. It is a "
+"well accepted practice in many open-source projects. By writing "
+"regressions tests, you are contributing to long term quality of the ROS "
+"ecosystem."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Testing-Main.rst:26
+#: 65ae8f9c175047eb93b7368932fa1801
+msgid "Is this all coming for free?"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Testing-Main.rst:28
+#: fedd42f27a704005839d0a74d9153fba
+msgid ""
+"Of course, there is never free lunch. To get the benefits of testing, "
+"some investment is necessary."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Testing-Main.rst:31
+#: 2ddf4b2a64264ba79f961ce41d8c4078
+msgid ""
+"You need to develop a test, which sometimes may be difficult or costly. "
+"Sometimes it might also be nontrivial, as the test should be automatic. "
+"Things get particularly hairy if your tests should involve special "
+"hardware (they should not: try to use simulation, mock the hardware, or "
+"narrow down the test to a smaller software problem) or require external "
+"environment, for instance human operators."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Testing-Main.rst:32
+#: 210dfef6f3ff4fc1b19b7889ba923b68
+msgid ""
+"Regression tests and other automatic tests need to be maintained. When "
+"the design of the component changes, a lot of tests become invalidated "
+"(for instance they no longer compile, or throw runtime exceptions related"
+" to the API design). These tests fail not only because the redesign re-"
+"introduced bugs but also because they need to be updated to the new "
+"design. Occasionally, with bigger redesigns, old regression tests should "
+"be dropped."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Testing-Main.rst:33
+#: ce27d0850b2b4ef093294ba43fadc14d
+msgid ""
+"Large bodies of tests can take a long time to run, which can increase "
+"Continuous Integration server costs."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Testing-Main.rst:36
+#: c338d3eea9a941c6a0b8a71a58c0226f
+msgid "Available Tutorials:"
+msgstr ""
+

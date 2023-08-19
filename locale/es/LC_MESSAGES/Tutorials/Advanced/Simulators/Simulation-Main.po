@@ -1,0 +1,44 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Advanced/Simulators/Simulation-Main.rst:8
+#: b4ef4e52cf554cd6b5b9c444768d87d6
+msgid "Simulators"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Simulation-Main.rst:10
+#: ecda1481645147b5901d82a5ada85a75
+msgid ""
+"Several advanced robot simulators can be used with ROS 2, such as Gazebo,"
+" Webots, etc. Unlike turtlesim, they provide fairly realistic results "
+"relying on physics-based models for robots, sensors, actuators and "
+"objects. Hence, what you observe in simulation is very close to what you "
+"will get when transferring your ROS 2 controllers to a real robot."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Simulation-Main.rst:14
+#: 66dc42302ab042a19a724d7fa4485777
+msgid ""
+"This set of tutorials will teach you how to configure different "
+"simulators with ROS 2."
+msgstr ""
+

@@ -1,0 +1,337 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:2
+#: 4e9025362eef4548849919e02d8ced85
+msgid "Setting up a robot simulation (Advanced)"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:4
+#: 633fdd29e96049719930a8f6b9ad8d0a
+msgid "**Goal:** Extend a robot simulation with an obstacle avoider node."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:6
+#: fb2743eb3da944bc9575f2239ca632da
+msgid "**Tutorial level:** Advanced"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:8
+#: 84a24dd96b8448b2b5216a518b8675fa
+msgid "**Time:** 20 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:12
+#: 958a68130ecd4dcc9ea4c0417a7598ec
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:15
+#: 121d31a97d844a01b202c70763649db9
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:17
+#: 9732614b427e4261a46a675c30224c4c
+msgid ""
+"In this tutorial you will extend the package created in the first part of"
+" the tutorial: :doc:`./Setting-Up-Simulation-Webots-Basic`. The aim is to"
+" implement a ROS 2 node that avoids obstacles using the robot's distance "
+"sensors. This tutorial focuses on using robot devices with the "
+"``webots_ros2_driver`` interface."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:22
+#: af3f53aa9b664fadbb402598ae9a57cb
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:24
+#: 57081790611743c08895bbafe4bf7aa7
+msgid ""
+"This is a continuation of the first part of the tutorial: :doc"
+":`./Setting-Up-Simulation-Webots-Basic`. It is mandatory to start with "
+"the first part to set up the custom packages and necessary files."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:27
+#: a28f55b957a349a6a872c2a9236aac06
+msgid ""
+"This tutorial is compatible with version 2023.1.0 of ``webots_ros2`` and "
+"Webots R2023b, as well as upcoming versions."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:30
+#: a0ea64f1641a4cfa9323b260593d2e42
+msgid "Tasks"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:33
+#: 3ea6dd6b76e14a31a426de2aba99ba54
+msgid "1 Updating ``my_robot.urdf``"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:35
+#: d04753642b1d4b5eb206df923633319e
+msgid ""
+"As mentioned in :doc:`./Setting-Up-Simulation-Webots-Basic`, "
+"``webots_ros2_driver`` contains plugins to interface most of Webots "
+"devices with ROS 2 directly. These plugins can be loaded using the "
+"``<device>`` tag in the URDF file of the robot. The ``reference`` "
+"attribute should match the Webots device ``name`` parameter. The list of "
+"all existing interfaces and the corresponding parameters can be found `on"
+" the devices reference page "
+"<https://github.com/cyberbotics/webots_ros2/wiki/References-Devices>`_. "
+"For available devices that are not configured in the URDF file, the "
+"interface will be automatically created and default values will be used "
+"for ROS parameters (e.g. ``update rate``, ``topic name``, and ``frame "
+"name``)."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:41
+#: ad7897cf6f1243dabe015bbdff3e90ef
+msgid "In ``my_robot.urdf`` replace the whole contents with:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:45
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:63
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:135
+#: 221ddc35dee34562a708ad19cb689e38 5f6910b30e6d44fe939f8e914bd56ff0
+#: d734ac734e424345bd6f8241eb270070
+msgid "Python"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:50
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:94
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:146
+#: 0f8cebbdcf5d496193effefdc074f937 4e5ac153347b4793a3bcbe1761e684b5
+#: 6218811dead340f2ad0f6442d20f0934
+msgid "C++"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:56
+#: 9ac875c3f410440bbc65329fbf6bf041
+msgid ""
+"In addition to your custom plugin, the ``webots_ros2_driver`` will parse "
+"the ``<device>`` tags referring to the **DistanceSensor** nodes and use "
+"the standard parameters in the ``<ros>`` tags to enable the sensors and "
+"name their topics."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:59
+#: be1f23feaf4f4833927d255a4737e977
+msgid "2 Creating a ROS node to avoid obstacles"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:65
+#: 3efe2b4cd2804153aa1562728b194698
+msgid ""
+"The robot will use a standard ROS node to detect the wall and send motor "
+"commands to avoid it. In the ``my_package/my_package/`` folder, create a "
+"file named ``obstacle_avoider.py`` with this code:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:71
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:107
+#: 8e03c3110262415697c3f7fe2ff55b23 d9ef7f3f80f94254b6d98fe5b6cfd4d2
+msgid ""
+"This node will create a publisher for the command and subscribe to the "
+"sensors topics here:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:78
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:113
+#: d1c6a7d445c84698bdfd95d7cbfa693b d551757fb9d74828b263f863864c2610
+msgid ""
+"When a measurement is received from the left sensor it will be copied to "
+"a member field:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:85
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:119
+#: 1f95e0e7875047039ed4248192f96f19 82e5a4a9e221495891af4e5a04bc3360
+msgid ""
+"Finally, a message will be sent to the ``/cmd_vel`` topic when a "
+"measurement from the right sensor is received. The ``command_message`` "
+"will register at least a forward speed in ``linear.x`` in order to make "
+"the robot move when no obstacle is detected. If any of the two sensors "
+"detect an obstacle, ``command_message`` will also register a rotational "
+"speed in ``angular.z`` in order to make the robot turn right."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:96
+#: fad1bec2cd384a608497791134cdad3c
+msgid ""
+"The robot will use a standard ROS node to detect the wall and send motor "
+"commands to avoid it. In the ``my_package/include/my_package`` folder, "
+"create a header file named ``ObstacleAvoider.hpp`` with this code:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:102
+#: e3ff31a6a62e465b8aec0f6a2daf78eb
+msgid ""
+"In the ``my_package/src`` folder, create a source file named "
+"``ObstacleAvoider.cpp`` with this code:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:129
+#: 079e357f1e6745418ce57f5e353be50f
+msgid "3 Updating additional files"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:131
+#: f6ec4e70d023401eb1706c2ad343ddc6
+msgid "You have to modify these two other files to launch your new node."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:137
+#: d92e5354b0f44211acb3fbf2db6a4f7b
+msgid "Edit ``setup.py`` and replace ``'console_scripts'`` with:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:144
+#: 1a6c60460f8b4b109ea1e93d1ffcaeec
+msgid "This will add an entry point for the ``obstacle_avoider`` node."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:148
+#: bef1f07f854744378a007072d576949c
+msgid ""
+"Edit ``CMakeLists.txt`` and add the compilation and installation of the "
+"``obstacle_avoider``:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:154
+#: 589f10385f8e475c87df09653377806d
+msgid ""
+"Go to the file ``robot_launch.py`` and replace ``def "
+"generate_launch_description():`` with:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:160
+#: 55fd841a0bf3461392601213cd40f2c8
+msgid ""
+"This will create an ``obstacle_avoider`` node that will be included in "
+"the ``LaunchDescription``."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:163
+#: 385a874c39704f4e80484f2724622db4
+msgid "4 Test the obstacle avoidance code"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:165
+#: fb40f6b2ba52424d92f180f2deb6a112
+msgid "Launch the simulation from a terminal in your ROS 2 workspace:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:169
+#: 43bc952b836e4d679b8296dc4d6f7311
+msgid "Linux"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:171
+#: cfdfe18f02ff41989cf82cbfee576dfa
+msgid "From a terminal in your ROS 2 workspace run:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:179
+#: cb19358141154078a4175cb1c4d81f07
+msgid "Windows"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:181
+#: 462c7548b56a4ca7adfbd64b18135e42
+msgid "From a terminal in your WSL ROS 2 workspace run:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:190
+#: 100c993b8b7e4a9baa2741749a0c63b1
+msgid ""
+"Be sure to use the ``/mnt`` prefix in front of your path to the Webots "
+"installation folder to access the Windows file system from WSL."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:192
+#: f0c38c312f094e21b0c4aa1f9f771c78
+msgid "macOS"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:194
+#: 5bf7cacf96e4437ca1f2126478de8b9a
+msgid ""
+"In a terminal of the host machine (not in the VM), if not done already, "
+"specify the Webots installation folder (e.g. "
+"``/Applications/Webots.app``) and start the server using the following "
+"commands:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:201
+#: ef53fb8819dc44ada592444896541d44
+msgid ""
+"Note that the server keeps running once the ROS 2 nodes are ended. You "
+"don't need to restart it every time you want to launch a new simulation. "
+"From a terminal in the Linux VM in your ROS 2 workspace, build and launch"
+" your custom package with:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:212
+#: e06dee00f0fb4bf5a838674411b47da3
+msgid ""
+"Your robot should go forward and before hitting the wall it should turn "
+"clockwise. You can press ``Ctrl+F10`` in Webots or go to the ``View`` "
+"menu, ``Optional Rendering`` and ``Show DistanceSensor Rays`` to display "
+"the range of the distance sensors of the robot."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:218
+#: d5bbfbaa40ad4090bbe7a9c10fd5aad6
+msgid "Summary"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:220
+#: 73705ede34ef427dabec38c893764479
+msgid ""
+"In this tutorial, you extended the basic simulation with a obstacle "
+"avoider ROS 2 node that publishes velocity commands based on the distance"
+" sensor values of the robot."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:223
+#: b05d3f2402454fcda173e9462b0edd88
+msgid "Next steps"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:225
+#: ad65c5f591be44b28e6c710bd18ce5a7
+msgid ""
+"You might want to improve the plugin or create new nodes to change the "
+"behavior of the robot. You can also implement a reset handler to "
+"automatically restart your ROS nodes when the simulation is reset from "
+"the Webots interface:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst:228
+#: 3c2fc657032349eaadb252d7c68a6d2a
+msgid ":doc:`./Simulation-Reset-Handler`."
+msgstr ""
+

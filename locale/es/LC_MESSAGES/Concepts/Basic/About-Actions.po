@@ -1,0 +1,124 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Concepts/Basic/About-Actions.rst:2
+#: f569e418c7c145d59a3b1f53a339c43f
+msgid "Actions"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Actions.rst:5
+#: 570f3308e49142e78281851b926ed403
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Actions.rst:7
+#: bea5c5963b754850b51e20c15eb886c9
+msgid ""
+"In ROS 2, an action refers to a long-running remote procedure call with "
+"feedback and the ability to cancel or preempt the goal. For instance, the"
+" high-level state machine running a robot may call an action to tell the "
+"navigation subsystem to travel to a waypoint, which may take several "
+"seconds (or minutes) to do. Along the way, the navigation subsystem can "
+"provide feedback on how far along it is, and the high-level state machine"
+" has the option to cancel or preempty the travel to that waypoint."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Actions.rst:11
+#: 200ab16196d34a9f8a7449fb5c6d12ac
+msgid "This structure is reflected in how an action message definition loks:"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Actions.rst:21
+#: 6c2aae69b423423188d58a2fa398e0bb
+msgid ""
+"In ROS 2, actions are expected to be long running procedures, as there is"
+" overhead in setting up and monitoring the connection. If you need a "
+"short running remote procedure call, consider using a :doc:`service "
+"<About-Services>` instead."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Actions.rst:24
+#: 42e06585b57e40939c04fa8c056ccb18
+msgid ""
+"Actions are identified by an action name, which looks much like a topic "
+"name (but is in a different namespace)."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Actions.rst:26
+#: d26d7a311830429fae982ed6536014f7
+msgid "An action consists of two parts: the action server and the action client."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Actions.rst:29
+#: 689d41c67b3c4c40a9f809ebff9ba698
+msgid "Action server"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Actions.rst:31
+#: 53840b03522b4809865539b88879656f
+msgid ""
+"The action server is the entity that will accept the remote procedure "
+"request and perform some procedure on it. It is also responsible for "
+"sending out feedback as the action progresses, and should react to "
+"cancellation/preemption requests. For instance, suppose the action is "
+"supposed to calculate the Fibonacci sequence, and the message contains "
+"the following:"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Actions.rst:43
+#: 23ee22dafcf24423870c0f2670850995
+msgid ""
+"The action server is the entity that receives this message, starts "
+"calculating the sequence up to ``order`` (providing feedback along the "
+"way), and finally returning a full result in ``sequence``."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Actions.rst:47
+#: 995880b7be2e48afbf1be726ade4dbbe
+msgid ""
+"There should only ever be one action server per action name. It is "
+"undefined which action server will receive client requests in the case of"
+" multiple action servers on the same action name."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Actions.rst:51
+#: 36dbed03c9724e3f815b6bc57e0b292c
+msgid "Action client"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Actions.rst:53
+#: e435d131bd3b45948c4fc84a49497655
+msgid ""
+"An action client is an entity that will request a remote action server to"
+" perform a procedure on its behalf. Following from the example above, the"
+" action client is the entity that creates the initial message containing "
+"the ``order``, and waits for the action server to compute the sequence "
+"and return it (with feedback along the way)."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Actions.rst:56
+#: c0e9a397b29b494584dc3ca732a36ae1
+msgid ""
+"Unlike the action server, there can be arbitrary numbers of actions "
+"clients using the same action name."
+msgstr ""
+

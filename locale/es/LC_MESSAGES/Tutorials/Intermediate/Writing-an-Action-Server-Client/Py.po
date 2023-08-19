@@ -1,0 +1,529 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:8
+#: 73a6ce482c0841b0b2b79e032b3b9ff1
+msgid "Writing an action server and client (Python)"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:10
+#: fbe0d3f14b994efeafefacd45aa1e00a
+msgid "**Goal:** Implement an action server and client in Python."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:12
+#: 11681212f5e74b8faabb3b8e1d2b509f
+msgid "**Tutorial level:** Intermediate"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:14
+#: 3eef3c089ef1442b9a77d402ac9a1a72
+msgid "**Time:** 15 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:18
+#: 31c2626543104b5e968f4b68f0502560
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:21
+#: d5822927a4384dc582fdf3e8fa47dcda
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:23
+#: da4f43165ffd49a88d6d803862db6849
+msgid ""
+"Actions are a form of asynchronous communication in ROS 2. *Action "
+"clients* send goal requests to *action servers*. *Action servers* send "
+"goal feedback and results to *action clients*."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:28
+#: f93ad34c70e14d358756a0a0662fc39b
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:30
+#: ed943eb5b0854170a077b5975bee6c13
+msgid ""
+"You will need the ``custom_action_interfaces`` package and the "
+"``Fibonacci.action`` interface defined in the previous tutorial, :doc"
+":`../Creating-an-Action`."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:34
+#: 40dc89d56691422e89125540801c5913
+msgid "Tasks"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:37
+#: b80cba2196b2415889e7a68565b47550
+msgid "1 Writing an action server"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:39
+#: 510e9009b47c4e739ee36226ede03ccb
+msgid ""
+"Let's focus on writing an action server that computes the Fibonacci "
+"sequence using the action we created in the :doc:`../Creating-an-Action` "
+"tutorial."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:42
+#: afe5889289d946eb8afb9d1725d235c9
+msgid ""
+"Until now, you've created packages and used ``ros2 run`` to run your "
+"nodes. To keep things simple in this tutorial, however, we’ll scope the "
+"action server to a single file. If you'd like to see what a complete "
+"package for the actions tutorials looks like, check out `action_tutorials"
+" <https://github.com/ros2/demos/tree/rolling/action_tutorials>`__."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:47
+#: b54964d5101a4d1b900c00ab90ce501c
+msgid ""
+"Open a new file in your home directory, let's call it "
+"``fibonacci_action_server.py``, and add the following code:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:53
+#: 7ebe2b96e6ab41f8bb2c89e2f39b0aca
+msgid ""
+"Line 8 defines a class ``FibonacciActionServer`` that is a subclass of "
+"``Node``. The class is initialized by calling the ``Node`` constructor, "
+"naming our node ``fibonacci_action_server``:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:60
+#: bd69aea8d22e4012bf754ae290e7d710
+msgid "In the constructor we also instantiate a new action server:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:66
+#: 18f2018acdb04cc18d6309ec911ed243
+msgid "An action server requires four arguments:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:68
+#: 1c9668253b8b4c0f99062548df4b78ad
+msgid "A ROS 2 node to add the action client to: ``self``."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:69
+#: f3f6ea66ad874f15bcb0e021d9b4973c
+msgid "The type of the action: ``Fibonacci`` (imported in line 5)."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:70
+#: e36c964aecee41dab5f8e802d8712ca3
+msgid "The action name: ``'fibonacci'``."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:71
+#: d4a2be9794794cf9bc10b81b5670e6fb
+msgid ""
+"A callback function for executing accepted goals: "
+"``self.execute_callback``. This callback **must** return a result message"
+" for the action type."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:74
+#: de7b624dd65248a5a2be1df79aff8f04
+msgid "We also define an ``execute_callback`` method in our class:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:80
+#: 61fa023bbc38470ca3095df5fe37a853
+msgid ""
+"This is the method that will be called to execute a goal once it is "
+"accepted."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:82
+#: b3611e27fbc349d1a5e6eb0d2893d2d9
+msgid "Let's try running our action server:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:86
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:202
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:224
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:302
+#: 83a333052bf7458f8356317ccee91fcd 88147df6ed6248999fb34532d3497588
+#: b227ab209e5f4244a77709542ee681a4 f5d2f1e4990a44a98fbeaaa5a96f707f
+msgid "Linux"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:92
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:208
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:230
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:308
+#: 35b3e6adbb8a423a946c218f1b922740 495a86719e4948a294029456359a3f7a
+#: 4bfaebd3bed84400be3427487bd4085b 59b1869face6466894850bcc4abfc799
+msgid "macOS"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:98
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:214
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:236
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:314
+#: 1ef6953b25c8430d846a002a436e994a 534d7af340a54999816837d456722242
+#: b953212328e74810899a1169e605dd6b d1b88437cef84f2da9e6c63b7416819d
+msgid "Windows"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:104
+#: 61056af538bd463aaaf1c753b62b13fb
+msgid "In another terminal, we can use the command line interface to send a goal:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:110
+#: 7ff3f561394f4c8497b0989c59baf6a6
+msgid ""
+"In the terminal that is running the action server, you should see a "
+"logged message \"Executing goal...\" followed by a warning that the goal "
+"state was not set. By default, if the goal handle state is not set in the"
+" execute callback it assumes the *aborted* state."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:113
+#: ca852893eeb94bc3875f62c4ceb82430
+msgid ""
+"We can use the method `succeed() "
+"<http://docs.ros2.org/latest/api/rclpy/api/actions.html#rclpy.action.server.ServerGoalHandle.succeed>`_"
+" on the goal handle to indicate that the goal was successful:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:120
+#: 0eb7b5830015403e8ace03c2d39c6dbc
+msgid ""
+"Now if you restart the action server and send another goal, you should "
+"see the goal finished with the status ``SUCCEEDED``."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:122
+#: 7134916199a74a35bb6635d79409a453
+msgid ""
+"Now let's make our goal execution actually compute and return the "
+"requested Fibonacci sequence:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:129
+#: 3adc5c0cf5d54361b674cbd34995a9ad
+msgid ""
+"After computing the sequence, we assign it to the result message field "
+"before returning."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:131
+#: 9d3d1d23979b4f85968e4ff2388ca706
+msgid ""
+"Again, restart the action server and send another goal. You should see "
+"the goal finish with the proper result sequence."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:135
+#: 448c784db3544962b6298df598786ecd
+msgid "1.2 Publishing feedback"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:137
+#: 21d4507590d74c7abeb94ad150f1d391
+msgid ""
+"One of the nice things about actions is the ability to provide feedback "
+"to an action client during goal execution. We can make our action server "
+"publish feedback for action clients by calling the goal handle's "
+"`publish_feedback() "
+"<http://docs.ros2.org/latest/api/rclpy/api/actions.html#rclpy.action.server.ServerGoalHandle.publish_feedback>`_"
+" method."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:140
+#: 353eaa5183c44163804958c66f99ce41
+msgid ""
+"We'll replace the ``sequence`` variable, and use a feedback message to "
+"store the sequence instead. After every update of the feedback message in"
+" the for-loop, we publish the feedback message and sleep for dramatic "
+"effect:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:147
+#: 96c108ab1e5a4025865b246f89f0a83f
+msgid ""
+"After restarting the action server, we can confirm that feedback is now "
+"published by using the command line tool with the ``--feedback`` option:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:154
+#: dd9e572da789459abc040083bf8898a9
+msgid "2 Writing an action client"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:156
+#: 1ee8d64b1b76424ba55b63de8d193727
+msgid ""
+"We'll also scope the action client to a single file. Open a new file, "
+"let's call it ``fibonacci_action_client.py``, and add the following "
+"boilerplate code:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:162
+#: 8c2be552260043ab8749ef7224079584
+msgid ""
+"We've defined a class ``FibonacciActionClient`` that is a subclass of "
+"``Node``. The class is initialized by calling the ``Node`` constructor, "
+"naming our node ``fibonacci_action_client``:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:169
+#: a529a963441b444393ab653f3e5822e6
+msgid ""
+"Also in the class constructor, we create an action client using the "
+"custom action definition from the previous tutorial on :doc:`../Creating-"
+"an-Action`:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:175
+#: 2293e25ad26c45c99e026861613b5d3a
+msgid "We create an ``ActionClient`` by passing it three arguments:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:177
+#: 1a440117a15b438a95175176160933ad
+msgid "A ROS 2 node to add the action client to: ``self``"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:178
+#: 4cccccb23aec450b8cb942a290b11e69
+msgid "The type of the action: ``Fibonacci``"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:179
+#: a987fb7179d84ab6a1cea039e3078eee
+msgid "The action name: ``'fibonacci'``"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:181
+#: 08b2c18b4a354d719a6b3b1ec35583df
+msgid ""
+"Our action client will be able to communicate with action servers of the "
+"same action name and type."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:183
+#: 81dd8723695441e397fd087294657c51
+msgid ""
+"We also define a method ``send_goal`` in the ``FibonacciActionClient`` "
+"class:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:189
+#: b2a85a522cf6413f920898798968adf9
+msgid ""
+"This method waits for the action server to be available, then sends a "
+"goal to the server. It returns a future that we can later wait on."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:192
+#: 609227699ac5413db6c8f6eaed47b45e
+msgid ""
+"After the class definition, we define a function ``main()`` that "
+"initializes ROS 2 and creates an instance of our "
+"``FibonacciActionClient`` node. It then sends a goal and waits until that"
+" goal has been completed."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:196
+#: 749e8d29b3b64e1bac9ec779c74e6285
+msgid "Finally, we call ``main()`` in the entry point of our Python program."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:198
+#: 6704c23d97854245aa650d4e69a78860
+msgid ""
+"Let's test our action client by first running the action server built "
+"earlier:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:220
+#: f3dba42179ca463a973c0691e69d8676
+msgid "In another terminal, run the action client:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:242
+#: 587625a1002b4145a57e3178ae42e4ed
+msgid ""
+"You should see messages printed by the action server as it successfully "
+"executes the goal:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:253
+#: d882b825b8d14b61bea84176920bafea
+msgid ""
+"The action client should start up, and then quickly finish. At this "
+"point, we have a functioning action client, but we don't see any results "
+"or get any feedback."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:257
+#: 1063368ce62b462da8dc27c8a4070153
+msgid "2.1 Getting a result"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:259
+#: 6c4621a6939a4e03a2dc1f29184dfbb2
+msgid ""
+"So we can send a goal, but how do we know when it is completed? We can "
+"get the result information with a couple steps. First, we need to get a "
+"goal handle for the goal we sent. Then, we can use the goal handle to "
+"request the result."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:264
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:329
+#: 9c3923b5f62b482e8f3d07789ed81775 c794f60d05b849b3a4f92821fa7d59b5
+msgid "Here's the complete code for this example:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:269
+#: 3b5f83c31ecb4772b6f5e5b6821ac3df
+msgid ""
+"The `ActionClient.send_goal_async() "
+"<http://docs.ros2.org/latest/api/rclpy/api/actions.html#rclpy.action.client.ActionClient.send_goal_async>`_"
+" method returns a future to a goal handle. First we register a callback "
+"for when the future is complete:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:276
+#: 65ebf583f5294db8b56d9e74ba806b50
+msgid ""
+"Note that the future is completed when an action server accepts or "
+"rejects the goal request. Let's look at the ``goal_response_callback`` in"
+" more detail. We can check to see if the goal was rejected and return "
+"early since we know there will be no result:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:284
+#: 90cb27b147044f4aae2b47c3c19c171d
+msgid ""
+"Now that we've got a goal handle, we can use it to request the result "
+"with the method `get_result_async() "
+"<http://docs.ros2.org/latest/api/rclpy/api/actions.html#rclpy.action.client.ClientGoalHandle.get_result_async>`_."
+" Similar to sending the goal, we will get a future that will complete "
+"when the result is ready. Let's register a callback just like we did for "
+"the goal response:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:292
+#: d2ba8ca4ebd84ef98eadd45e68570e7e
+msgid ""
+"In the callback, we log the result sequence and shutdown ROS 2 for a "
+"clean exit:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:298
+#: 2e0724f61b334c7a91c7a71a2d887674
+msgid ""
+"With an action server running in a separate terminal, go ahead and try "
+"running our Fibonacci action client!"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:320
+#: 936b3f6eaf2c40f085148e69101aade5
+msgid ""
+"You should see logged messages for the goal being accepted and the final "
+"result."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:323
+#: c7783dbe87ed414fb7fd50dbae7f72d5
+msgid "2.2 Getting feedback"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:325
+#: cf27715c4bfe48fdbc15dd80e1e35baf
+msgid ""
+"Our action client can send goals. Nice! But it would be great if we could"
+" get some feedback about the goals we send from the action server."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:334
+#: 13278aa0c6a34324942e47be7867bde3
+msgid "Here's the callback function for feedback messages:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:340
+#: 1363646fe6a04dda962ad99df9afa06c
+msgid ""
+"In the callback we get the feedback portion of the message and print the "
+"``partial_sequence`` field to the screen."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:342
+#: 8edad31623f0482aad1b6129a6c21a90
+msgid ""
+"We need to register the callback with the action client. This is achieved"
+" by additionally passing the callback to the action client when we send a"
+" goal:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:349
+#: d126cb66a98644cdbdd41c9a8563e6e1
+msgid ""
+"We're all set. If we run our action client, you should see feedback being"
+" printed to the screen."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:352
+#: 9d28c959907a4a009da9840504fe2a95
+msgid "Summary"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:354
+#: 46c13ca5773945e0b88dd79aa571fa7f
+msgid ""
+"In this tutorial, you put together a Python action server and action "
+"client line by line, and configured them to exchange goals, feedback, and"
+" results."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:357
+#: b564ea560e4a43d38b7960d9a0454208
+msgid "Related content"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:359
+#: 291ab513a0a0483997d2962659daacc7
+msgid ""
+"There are several ways you could write an action server and client in "
+"Python; check out the ``minimal_action_server`` and "
+"``minimal_action_client`` packages in the `ros2/examples "
+"<https://github.com/ros2/examples/tree/rolling/rclpy/actions>`_ repo."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.rst:361
+#: 7b5713b9ed1747819726540d5562f9c3
+msgid ""
+"For more detailed information about ROS actions, please refer to the "
+"`design article <http://design.ros2.org/articles/actions.html>`__."
+msgstr ""
+

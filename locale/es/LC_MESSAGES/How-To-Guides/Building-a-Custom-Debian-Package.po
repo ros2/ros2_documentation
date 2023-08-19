@@ -1,0 +1,100 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/How-To-Guides/Building-a-Custom-Debian-Package.rst:6
+#: 6f7c9770407f4543a1e5d1975c53d36e
+msgid "Building a custom Debian package"
+msgstr ""
+
+#: ../../source/How-To-Guides/Building-a-Custom-Debian-Package.rst:8
+#: 7881e4e1fbcd456d8fea91551caa1662
+msgid ""
+"Many Ubuntu users install ROS 2 on their system by installing "
+":doc:`debian packages <../Installation/Ubuntu-Install-Debians>`. This "
+"guide gives a short set of instructions to build local, custom Debian "
+"packages."
+msgstr ""
+
+#: ../../source/How-To-Guides/Building-a-Custom-Debian-Package.rst:12
+#: f9f8189491b64ceab1e1a19863144641
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/How-To-Guides/Building-a-Custom-Debian-Package.rst:15
+#: 0a7ae3a35d6e448baa80e371d405bc3b
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/How-To-Guides/Building-a-Custom-Debian-Package.rst:17
+#: 2d44406503da479384468827b0665d63
+msgid ""
+"To successfully build a custom package, all of the dependencies of the "
+"package to be built must be available locally or in rosdep. Additionally,"
+" all of the dependencies of the package should be properly declared in "
+"the ``package.xml`` file of the package."
+msgstr ""
+
+#: ../../source/How-To-Guides/Building-a-Custom-Debian-Package.rst:21
+#: 49064fd680d14e78bb83e81dfab499a3
+msgid "Install dependencies"
+msgstr ""
+
+#: ../../source/How-To-Guides/Building-a-Custom-Debian-Package.rst:23
+#: 3596fce5f7f542d4b1b36851bfbacf90
+msgid "Run the following command to install utilities needed for the build:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Building-a-Custom-Debian-Package.rst:30
+#: 7098c8411def4763963c21410f938f21
+msgid "Initialize rosdep"
+msgstr ""
+
+#: ../../source/How-To-Guides/Building-a-Custom-Debian-Package.rst:32
+#: ab7728cae75c49f78d7afc14d25287fd
+msgid "Initialize the rosdep database by calling:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Building-a-Custom-Debian-Package.rst:39
+#: a8424cc54d394dc19b125c836b83acb3
+msgid ""
+"Note that the ``rosdep init`` command may fail if it has already been "
+"initialized in the past; this can safely be ignored."
+msgstr ""
+
+#: ../../source/How-To-Guides/Building-a-Custom-Debian-Package.rst:42
+#: b4828d3505cb4f85be4ebf2b26cc003a
+msgid "Build the debian from the package"
+msgstr ""
+
+#: ../../source/How-To-Guides/Building-a-Custom-Debian-Package.rst:44
+#: 02b5c30cfe5549719fab2609f3f3e52d
+msgid "Run the following commands to build the debian:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Building-a-Custom-Debian-Package.rst:52
+#: 6194f3b4419441b5a283a04099e7741e
+msgid ""
+"Assuming that all required dependencies are available and that "
+"compilation succeeds, the new package will be available in the parent "
+"directory of this directory."
+msgstr ""
+

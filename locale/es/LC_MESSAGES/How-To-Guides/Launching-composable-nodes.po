@@ -1,0 +1,166 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/How-To-Guides/Launching-composable-nodes.rst:2
+#: 750482ba18a442d4bd6ac9828ddd8470
+msgid "Using ROS 2 launch to launch composable nodes"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launching-composable-nodes.rst:6
+#: a351b4af1490454cb2bd92d33057caa5
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launching-composable-nodes.rst:8
+#: f1129e01d91043cd855014a2bf90011b
+msgid ""
+"In the :doc:`Composition tutorial "
+"<../Tutorials/Intermediate/Composition>`, you learned about composable "
+"nodes and how to use them from the command-line. In the :doc:`Launch "
+"tutorials <../Tutorials/Intermediate/Launch/Launch-Main>`, you learned "
+"about launch files and how to use them to manage multiple nodes."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launching-composable-nodes.rst:11
+#: 1413bf31c5284825a1204460e6d33f6b
+msgid ""
+"This guide will combine the above two topics and teach you how to write "
+"launch files for composable nodes."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launching-composable-nodes.rst:14
+#: a26502a7916243efb79e5265333781dc
+msgid "Setup"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launching-composable-nodes.rst:16
+#: 9f88c6c4a84b46268cdae07b43d04173
+msgid ""
+"See the :doc:`installation instructions <../Installation>` for details on"
+" installing ROS 2."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launching-composable-nodes.rst:18
+#: e756e62fd31743f797fc8c8c17e5e567
+msgid ""
+"If you've installed ROS 2 from packages, ensure that you have ``ros-"
+"rolling-image-tools`` installed. If you downloaded the archive or built "
+"ROS 2 from source, it will already be part of the installation."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launching-composable-nodes.rst:22
+#: e10444167cfc49cb927df01a602b39b8
+msgid "Launch file examples"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launching-composable-nodes.rst:24
+#: c20e918269f548919c1b1a8fbeeff0c4
+msgid ""
+"Below is a launch file that launches composable nodes in Python, XML, and"
+" YAML. The launch files all do the following:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launching-composable-nodes.rst:27
+#: 96a8ce40b5424a6fb1941b736d0b62be
+msgid ""
+"Instantiate a cam2image composable node with remappings, custom "
+"parameters, and extra arguments"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launching-composable-nodes.rst:28
+#: a096183de26041868d389dfa72f1d18d
+msgid ""
+"Instantiate a showimage composable node with remappings, custom "
+"parameters, and extra arguments"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launching-composable-nodes.rst:32
+#: ../../source/How-To-Guides/Launching-composable-nodes.rst:148
+#: 586714ec52174c89a0f101064496cfa1 dc6b2699c3dc4fad954c61b00135c62b
+msgid "Python"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launching-composable-nodes.rst:69
+#: ../../source/How-To-Guides/Launching-composable-nodes.rst:188
+#: 5ec4bb8c1efc4e839bd46132b92cd02b f7f4ef7d5f08416db415a0ff75f0dc78
+msgid "XML"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launching-composable-nodes.rst:91
+#: ../../source/How-To-Guides/Launching-composable-nodes.rst:212
+#: b3d9cda922784081b9459858ebaace1a d05a326936044c07a4c20c868633f45a
+msgid "YAML"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launching-composable-nodes.rst:139
+#: 9f66fb40435d4d09a7e4c38fbd0cbbfe
+msgid "Loading composable nodes into an existing container"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launching-composable-nodes.rst:141
+#: ec7b979d7ac94e8abc1a64f84e035b86
+msgid ""
+"Containers can sometimes be launched by other launch files or from a "
+"commandline. In that case, you need to add your components to an existing"
+" container. For this, you may use ``LoadComposableNodes`` to load "
+"components into a given container. The below example launches the same "
+"nodes as above."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launching-composable-nodes.rst:259
+#: 0add548cef74403aaea1ad139d9058d6
+msgid "Using the Launch files from the command-line"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launching-composable-nodes.rst:261
+#: 47c210455f6e4aa289a29486a35c4302
+msgid ""
+"Any of the launch files above can be run with ``ros2 launch``. Copy the "
+"data into a local file, and then run:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launching-composable-nodes.rst:269
+#: b0e2e2fac7ae4a67b4b8a889fe7ce9ae
+msgid "Intra-process communications"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launching-composable-nodes.rst:271
+#: b9fe48ce4be549fe9cded3bc6b49f11b
+msgid ""
+"All of the above examples use an extra argument to setup intra-process "
+"communication between the nodes. For more information on what intra-"
+"process communications are, see the :doc:`intra-process comms tutorial "
+"<../Tutorials/Demos/Intra-Process-Communication>`."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launching-composable-nodes.rst:275
+#: 1857e13803c84f508f8cf35c63ab58f2
+msgid "Python, XML, or YAML: Which should I use?"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launching-composable-nodes.rst:277
+#: 200c386ab18b4cc9a9d42732f77f4410
+msgid ""
+"See the discussion in :doc:`Launch-file-different-formats` for more "
+"information."
+msgstr ""
+

@@ -1,0 +1,234 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.rst:8
+#: 432c510f34da46bfba840f5ad1fd90a7
+msgid "Using URDF with ``robot_state_publisher``"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.rst:10
+#: ad2cf9903079436fb1fb42116944dad3
+msgid "**Goal:** Simulate a walking robot modeled in URDF and view it in Rviz."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.rst:12
+#: bdf521cc79b6473a99292026f3e4b8ad
+msgid "**Tutorial level:** Intermediate"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.rst:14
+#: 7e9e399f9d2742aa9ada74f809a9d6b9
+msgid "**Time:** 15 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.rst:18
+#: d487767473b84beb9b83053b7b91848a
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.rst:21
+#: da4a79bd83534fefa0d0562d897a55da
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.rst:23
+#: 4c273e0a835e4732b085928e42e4944e
+msgid ""
+"This tutorial will show you how to model a walking robot, publish the "
+"state as a `tf2 <https://wiki.ros.org/tf2>`__ message and view the "
+"simulation in Rviz. First, we create the URDF model describing the robot "
+"assembly. Next we write a node which simulates the motion and publishes "
+"the JointState and transforms. We then use ``robot_state_publisher`` to "
+"publish the entire robot state to ``/tf2``."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.rst:31
+#: efcaf5eb32534109908c095ee9d5550b
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.rst:33
+#: a6702a34d93944bb8437e470e3a8da45
+msgid "`rviz2 <https://index.ros.org/p/rviz2/>`__"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.rst:35
+#: 62f269e8bf6747f5bd4f9ca96cc46103
+msgid ""
+"As always, don’t forget to source ROS 2 in :doc:`every new terminal you "
+"open <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>`."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.rst:38
+#: d5e59fcc5e2042c08afbd1c33e8a21c1
+msgid "Tasks"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.rst:41
+#: f746982c8d494bca8f62a99f3a892e32
+msgid "1 Create a package"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.rst:50
+#: 02a0b7a0810a4c7799241a119204edb6
+msgid ""
+"You should now see a ``urdf_tutorial_r2d2`` folder. Next you will make "
+"several changes to it."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.rst:54
+#: 7d03922b53d24ebfacace264ddc592b0
+msgid "2 Create the URDF File"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.rst:56
+#: c6f51c297188440a9ade29c70cbdfc91
+msgid "Create the directory where we will store some assets:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.rst:62
+#: 63858b08b48948f8be854c40e938233f
+msgid ""
+"Download the :download:`URDF file <documents/r2d2.urdf.xml>` and save it "
+"as ``~/second_ros2_ws/src/urdf_tutorial_r2d2/urdf/r2d2.urdf.xml``. "
+"Download the :download:`Rviz configuration file <documents/r2d2.rviz>` "
+"and save it as "
+"``~/second_ros2_ws/src/urdf_tutorial_r2d2/urdf/r2d2.rviz``."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.rst:66
+#: 3ae98bc771084b3a8ad9afe647a8c751
+msgid "3 Publish the state"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.rst:68
+#: ef1a7129febd467588a1a311e5f0fef8
+msgid ""
+"Now we need a method for specifying what state the robot is in. To do "
+"this, we must specify all three joints and the overall odometry."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.rst:71
+#: 2bbe9f6d8c7945ea8eee26597e5b9aa5
+msgid ""
+"Fire up your favorite editor and paste the following code into "
+"``~/second_ros2_ws/src/urdf_tutorial_r2d2/urdf_tutorial_r2d2/state_publisher.py``"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.rst:165
+#: 3818cfe16e82415fa56e17369a8f9977
+msgid "4 Create a launch file"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.rst:167
+#: adc103a852854e15997acce7d3a5ed7e
+msgid ""
+"Create a new ``~/second_ros2_ws/src/urdf_tutorial_r2d2/launch`` folder. "
+"Open your editor and paste the following code, saving it as "
+"``~/second_ros2_ws/src/urdf_tutorial_r2d2/launch/demo_launch.py``"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.rst:211
+#: 60509a8ef2404c7d940886ca223a074f
+msgid "5 Edit the setup.py file"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.rst:213
+#: f469299422b54d64acb1e33a4544e2c7
+msgid ""
+"You must tell the **colcon** build tool how to install your Python "
+"package. Edit the ``~/second_ros2_ws/src/urdf_tutorial_r2d2/setup.py`` "
+"file as follows:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.rst:216
+#: c7a489097d784e4784b528bdd7221e12
+msgid "include these import statements"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.rst:225
+#: 63ddbfa3b64e4e02b4f52a58f6eda6ce
+msgid "append these 2 lines inside ``data_files``"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.rst:235
+#: 29596a53296240eea233b6ea7eba8231
+msgid ""
+"modify the ``entry_points`` table so you can later run 'state_publisher' "
+"from a console"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.rst:243
+#: ecbea97e2a0f47fdbac16de410669265
+msgid "Save the ``setup.py`` file with your changes."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.rst:246
+#: 343b8fa6f956486db0b90a5aa20dc0f3
+msgid "6 Install the package"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.rst:256
+#: 617d98a7df6e4301a29cd389906f0d19
+msgid "7 View the results"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.rst:258
+#: 796b57dce5e645c29ed343ad6f3708f8
+msgid "Launch the package"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.rst:264
+#: e8dfb36182144c75acfec42934e475f4
+msgid "Open a new terminal, the run Rviz using"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.rst:270
+#: ec35e46f7e644cc9b28fb3e31726efb8
+msgid ""
+"See the `User Guide <http://wiki.ros.org/rviz/UserGuide>`__ for details "
+"on how to use Rviz."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.rst:273
+#: 42599cceb73144d282d58862a2e51e11
+msgid "Summary"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.rst:275
+#: d1f9f4fe6f1d4e3db04eda982da04c3d
+msgid ""
+"You created a ``JointState`` publisher node and coupled it with "
+"``robot_state_publisher`` to simulate a walking robot. The code used in "
+"these examples is originally from `here "
+"<https://github.com/benbongalon/ros2-migration/tree/master/urdf_tutorial>`__."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher.rst:278
+#: 5acc1ff14ae245589ec1298738d64f9d
+#, python-format
+msgid ""
+"Credit is given to the authors of this `ROS 1 tutorial "
+"<http://wiki.ros.org/urdf/Tutorials/Using%20urdf%20with%20robot_state_publisher>`__"
+" from which some content was reused."
+msgstr ""
+

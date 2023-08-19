@@ -1,0 +1,395 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:2
+#: a6d6f432bee64b2895973d4430701696
+msgid "Installation (macOS)"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:4
+#: e28a71ad9d8a49458e175fb2ee45f3e4
+msgid ""
+"**Goal:** Install the ``webots_ros2`` package and run simulation examples"
+" on macOS."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:6
+#: d279fa34ba354440af11514ee5ac5572
+msgid "**Tutorial level:** Advanced"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:8
+#: 5d085257c966418c927379c553a2bcac
+msgid "**Time:** 10 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:12
+#: 14aa386df9264dbba5df9efa442275ce
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:15
+#: 764065bb8dbd436ea100dc9fc4c4098e
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:17
+#: 73b0a1749a38408fae0275686e70c4cb
+msgid ""
+"The ``webots_ros2`` package provides an interface between ROS 2 and "
+"Webots. It includes several sub-packages, including "
+"``webots_ros2_driver``, which allows you to start Webots and communicate "
+"with it. Other sub-packages are mainly examples that show multiple "
+"possible implementations using the interface. In this tutorial, you are "
+"going to install the package and learn how to run one of these examples."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:23
+#: ddfce141bde54a42b358b945e675f428
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:25
+#: 8ab9f546c14340da9e08a6fb23868632
+msgid ""
+"It is recommended to understand basic ROS principles covered in the "
+"beginner :doc:`../../../../Tutorials`. In particular, :doc"
+":`../../../Beginner-Client-"
+"Libraries/Creating-A-Workspace/Creating-A-Workspace` and :doc"
+":`../../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package` "
+"are useful prerequisites."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:28
+#: 4ccb5e0147794d53b87b2fca619f423a
+msgid ""
+"It is necessary to install Webots natively on the mac in order to use the"
+" ``webots_ros2`` package in the virtual machine as explained below. You "
+"can follow the `installation procedure <https://cyberbotics.com/doc/guide"
+"/installation-procedure>`_ or `build it from sources "
+"<https://github.com/cyberbotics/webots/wiki/macOS-installation/>`_."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:32
+#: c4431eef2a89455c890d942d97ebb9cb
+msgid "Tasks"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:34
+#: 3b24d64c35824ffb9eb7ad6f3a036303
+msgid ""
+"On macOS, a solution based on UTM virtual machines provides an improved "
+"user experience with ROS 2 compared to native macOS installation, as it "
+"runs ROS in a Linux environment. However, Webots should be installed "
+"natively on macOS and it will be able to communicate with the ROS nodes "
+"running in the Virtual Machine (VM). This solution allows for native 3D "
+"hardware acceleration for Webots. The VM runs all the ROS part (including"
+" RViz) and connects to the host machine through TCP to start Webots. A "
+"shared folder allows the script to transfer the world and other resource "
+"files from the VM to macOS where Webots is running."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:40
+#: 09b9ef569e4e4757b3551de602c4551b
+msgid ""
+"The following steps explain how to create the VM image with the "
+"installation of the ``webots_ros2`` released package. It is also possible"
+" to install it from sources."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:44
+#: b9dfce1c926b4291afaaa603ea3b96ea
+msgid "1 Create the VM image"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:46
+#: 91192854e9364ab78a6d24440d60d594
+msgid ""
+"Install UTM on your macOS machine. The link can be found on the `official"
+" UTM website <https://mac.getutm.app/>`_."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:49
+#: c255d07ba7704809b6f0c100775ece3a
+msgid ""
+"Download the .iso image of `Ubuntu 22.04 "
+"<https://cdimage.ubuntu.com/jammy/daily-live/current/>`_ for Humble and "
+"Rolling or `Ubuntu 20.04 <https://cdimage.ubuntu.com/focal/daily-"
+"live/pending/>`_ for Foxy. Be sure to download the image corresponding to"
+" your CPU architecture."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:52
+#: bfe53fd968b74b1a923d5fbea65d2528
+msgid "In the UTM software:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:54
+#: d46e8e34195444d4b5b07e1caa380786
+msgid "Create a new image and choose ``Virtualize`` option."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:55
+#: f3a8d1aa6d8a4c2496a7fe288abce1df
+msgid "Select the ISO image you have downloaded in the ``Boot ISO Image`` field."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:56
+#: 6d1a8ca9484847d4a9f088b70eed78e6
+msgid ""
+"Leave all hardware settings at default (including hardware acceleration "
+"disabled)."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:57
+#: 22a9f59f4bc248878541a8e03ae818c8
+msgid ""
+"In the ``Shared Directory`` window, select a folder that will be used by "
+"``webots_ros2`` to transfer all the Webots assets to the host. In this "
+"example, the selected folder is ``/Users/username/shared``."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:59
+#: c72f905e6cda4ff1b276785cbcbdf5e3
+msgid "Leave all the remaining parameters as default."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:60
+#: bb4fe25edb7643078e6ffde8c4630b29
+msgid ""
+"Start the VM. Note that you can select another shared folder each time "
+"you start the VM."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:62
+#: 4ff6ef80304b4e578c93426bcf7b1a75
+msgid ""
+"During the first launch of the VM, install Ubuntu and choose a username "
+"for your account. In this example, the username is ``ubuntu``."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:63
+#: 94b3a9d589d9454e923f582b8b100db2
+msgid ""
+"Once Ubuntu is installed, close the VM, remove the iso image from the "
+"CD/DVD field and restart the VM."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:66
+#: 3220586a849b4bd3ac07c08f5e8eef48
+msgid "2 Configure the VM"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:67
+#: fa74dcb8cf524bc6b54548d9e32e3b02
+msgid ""
+"In this section, ROS 2 is installed in the VM and the shared folder is "
+"configured. The following instructions and commands are all run inside "
+"the VM."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:70
+#: 58346c390d4041bea8f1447f85a6729e
+msgid ""
+"Open a terminal in the started VM and install the ROS 2 distribution you "
+"need by following the instructions in :doc:`../../../../Installation"
+"/Ubuntu-Install-Debians`:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:71
+#: bc86764ad7b54e44b5ef14f1ccdf4d78
+msgid ""
+"Create a folder in the VM to use as a shared folder. In this example, the"
+" shared folder in the VM is ``/home/ubuntu/shared``."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:78
+#: bacdc33e21e849b0bf15b0d346816006
+msgid ""
+"To mount this folder to the host, execute the following command. Don't "
+"forget to modify the path to the shared folder, if it is different in "
+"your case."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:85
+#: 1c7c03ca673f46f29a104ff4088513ff
+msgid ""
+"To automatically mount this folder to the host when starting the VM, add "
+"the following line to ``/etc/fstab``. Don't forget to modify the path to "
+"the shared folder, if it is different in your case."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:92
+#: 36ff255f56744f0990333453f55c097a
+msgid ""
+"The environment variable ``WEBOTS_SHARED_FOLDER`` must always be set in "
+"order for the package to work properly in the VM. This variable specifies"
+" the location of the shared folder that is used to exchange data between "
+"the host machine and the virtual machine (VM) to the ``webots_ros2`` "
+"package. The value to use for this variable should be in the format of "
+"``<host shared folder>:<VM shared folder>``, where ``<host shared "
+"folder>`` is the path to the shared folder on the host machine and ``<VM "
+"shared folder>`` is the path to the same shared folder on the VM."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:96
+#: 80cc6ca2744b40e98e59272e8ba0181e
+msgid "In this example:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:102
+#: 47c1ee36b75943108d63c86fa2be17ac
+msgid ""
+"You can add this command line to the ``~/.bashrc`` file to automatically "
+"set this environment variable when starting a new terminal."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:105
+#: d1226562202d463a9fb2fe029b15bbf7
+msgid "3 Install ``webots_ros2``"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:107
+#: 1fd72c9b20674e2982cf1e8757a94aca
+msgid ""
+"You can either install ``webots_ros2`` from the official released "
+"package, or install it from the latest up-to-date sources from `Github "
+"<https://github.com/cyberbotics/webots_ros2>`_."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:111
+#: 458ccd8b2c864d929815d320bacb9a22
+msgid "Install ``webots_ros2`` distributed package"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:113
+#: 2af6af53423f4abfb806ef1fc3dff104
+msgid "Run the following command in the VM terminal."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:119
+#: 05aaab585b0c407482beff5ad94c13c5
+msgid "Install ``webots_ros2`` from sources"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:121
+#: 02c080fa24bf4461a4bf6b23b72279e4
+msgid "Install git."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:127
+#: 7530ad46fba74a7e903945885140fa38
+msgid "Create a ROS 2 workspace with its ``src`` directory."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:133
+#: 2c5988998e114fa8ac281f8da0cb3906
+msgid "Source the ROS 2 environment."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:139
+#: 2e0c4db23832410c9fd072ba0c1a8fba
+msgid "Retrieve the sources from Github."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:146
+#: 1464036306924a6f924934b45327cce9
+msgid "Install the package dependencies."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:154
+#: eea86bd5cc4a4ddaae5ae7587caf4aed
+msgid "Build the package using ``colcon``."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:160
+#: bb4beea2797145e7a6cb7104070603d4
+msgid "Source this workspace."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:167
+#: 8d004b28280e43b8968340e94a865410
+msgid "4 Launch the ``webots_ros2_universal_robot`` example"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:169
+#: e9210147c43a4b8eb7f96442c82fa990
+msgid ""
+"As mentioned in previous sections, the package uses the shared folder to "
+"communicate with Webots from the VM to the host. In order for Webots to "
+"be started on the host from the VM's ROS package, a local TCP simulation "
+"server must be run."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:172
+#: f8e71b73b6cf415f90652e627f7b955f
+msgid ""
+"The server can be downloaded here: `local_simulation_server.py "
+"<https://github.com/cyberbotics/webots-"
+"server/blob/main/local_simulation_server.py>`_. Specify the Webots "
+"installation folder in ``WEBOTS_HOME`` environment variable (e.g. "
+"``/Applications/Webots.app``) and run the server using the following "
+"commands in a new terminal on the host (not in the VM):"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:180
+#: 29648670758a4c01b1fc533b55b64bb0
+msgid ""
+"In the VM, open a terminal and execute the following commands to start a "
+"package:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:182
+#: 95d87c4414304575a72cce25b86b6375
+msgid "First source the ROS 2 environment, if not done already."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:188
+#: 5f3a3635eea54254ac64c7ba8e3d73d4
+msgid ""
+"If installed from sources, source your ROS 2 workspace, if not done "
+"already."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:195
+#: a6502653e8e442c59f75c3f59b5f5f30
+msgid ""
+"If not already set in ``~/.bashrc``, set ``WEBOTS_SHARED_FOLDER`` (see "
+"previous sections for details). Be sure to change the paths according to "
+"the location of your respective directories."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:202
+#: c682f577c6694e09a7d6c8fd33efb551
+msgid ""
+"Use the ROS 2 launch command to start demo packages (e.g. "
+"``webots_ros2_universal_robot``)."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst:208
+#: 8de84b0f0cfc4c56b0b6032627f1c2f8
+msgid ""
+"If Webots is closed or the ROS 2 process is interrupted, the local server"
+" will automatically wait for a new package launch and the shared folder "
+"will be cleaned for the next run."
+msgstr ""
+

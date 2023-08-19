@@ -1,0 +1,746 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:7
+#: 8583b3dcb2044f0fa15ecc19b287e9d0
+msgid ""
+"Using Fast DDS Discovery Server as discovery protocol [community-"
+"contributed]"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:9
+#: b6508ca8b39f4ca895267aeeeb735f3a
+msgid ""
+"**Goal:** This tutorial will show how to launch ROS 2 Nodes using the "
+"**Fast DDS Discovery Server** discovery protocol."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:11
+#: 2389fac25b8140cd82e162b62e7613ca
+msgid "**Tutorial level:** Advanced"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:13
+#: 933bccb2d03b4efbb49c8c9b5442b7fb
+msgid "**Time:** 20 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:17
+#: 371dadb309e542ce90a0c66b1b244c53
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:20
+#: 9b56d7d0dfba4d458528698ac51eebf6
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:22
+#: 6cdabcb8cef146d9a1d90331f0ba48cd
+msgid ""
+"Starting from ROS 2 Eloquent Elusor, the **Fast DDS Discovery Server** "
+"protocol is a feature that offers a centralized dynamic discovery "
+"mechanism, as opposed to the distributed mechanism used in DDS by "
+"default. This tutorial explains how to run some ROS 2 examples using the "
+"Fast DDS Discovery Server feature as discovery communication."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:25
+#: a7b5ec94ae654525b33af1f46daad0a6
+msgid ""
+"In order to get more information about the available discovery "
+"configuration, please check the `following documentation <https://fast-"
+"dds.docs.eprosima.com/en/v2.1.0/fastdds/discovery/discovery.html>`_ or "
+"read the `Fast DDS Discovery Server specific documentation <https://fast-"
+"dds.docs.eprosima.com/en/v2.1.0/fastdds/discovery/discovery_server.html"
+"#discovery-server>`__."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:27
+#: a8df7e23365e41b5921c2805b120250c
+msgid ""
+"The `Simple Discovery Protocol <https://fast-"
+"dds.docs.eprosima.com/en/v2.1.0/fastdds/discovery/simple.html>`__ is the "
+"standard protocol defined in the `DDS standard <https://www.omg.org/omg-"
+"dds-portal/>`__. However, it has known disadvantages in some scenarios."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:30
+#: 455143fff257441c8b55be7a4f7b77f8
+msgid ""
+"It does not **Scale** efficiently, as the number of exchanged packets "
+"increases significantly as new nodes are added."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:31
+#: eb61b2a07bdb4cf1b4720e1ad1c74cea
+msgid ""
+"It requires **multicasting** capabilities that may not work reliably in "
+"some scenarios, e.g. WiFi."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:33
+#: da3ce22f040b4f4b885cc832b742220c
+msgid ""
+"The **Fast DDS Discovery Server** provides a Client-Server Architecture "
+"that allows nodes to connect with each other using an intermediate "
+"server. Each node functions as a *discovery client*, sharing its info "
+"with one or more *discovery servers* and receiving discovery information "
+"from it. This reduces discovery-related network traffic and it does not "
+"require multicasting capabilities."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:40
+#: 2a6e5b8358cd40a39b74b00c32ff55d0
+msgid ""
+"These discovery servers can be independent, duplicated or connected with "
+"each other in order to create redundancy over the network and avoid "
+"having a single point of failure."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:43
+#: de82d27a47cc4285a2dcfcdaf9b90855
+msgid "Fast DDS Discovery Server v2"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:45
+#: d7acacd296f24254a251ad20ffc37dbf
+msgid ""
+"The latest ROS 2 Foxy Fitzroy release (December 2020) included a new "
+"version, version 2 of the Fast DDS Discovery Server. This version "
+"includes a new filter feature that further reduces the number of "
+"discovery messages sent. This version uses the topic of the different "
+"nodes to decide if two nodes wish to communicate, or if they can be left "
+"unmatched (i.e. not discovering each other). The following figure shows "
+"the decrease in discovery messages:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:53
+#: 01f96f7b989848f28b8952e6bbd36a8a
+msgid ""
+"This architecture reduces the number of messages sent between the server "
+"and clients dramatically. In the following graph, the reduction in "
+"network traffic over the discovery phase for the `RMF Clinic "
+"demonstration <https://github.com/open-rmf/rmf_demos#Clinic-World>`__ is "
+"shown:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:60
+#: 5758a39ee6ff4d96a787b6ab756f0e7f
+msgid ""
+"In order to use this functionality, the discovery server can be "
+"configured using the `XML configuration for Participants <https://fast-"
+"dds.docs.eprosima.com/en/v2.1.0/fastdds/discovery/discovery_server.html"
+"#discovery-server>`__. It is also possible to configure the discovery "
+"server using the ``fastdds`` `tool <https://fast-"
+"dds.docs.eprosima.com/en/v2.1.0/fastddscli/cli/cli.html#discovery>`__ and"
+" an `environment variable <https://fast-"
+"dds.docs.eprosima.com/en/v2.1.0/fastdds/env_vars/env_vars.html>`__, which"
+" is the approach used in this tutorial. For a more detailed explanation "
+"about the configuration of the discovery server, visit `the Fast DDS "
+"Discovery Server documentation <https://fast-"
+"dds.docs.eprosima.com/en/v2.1.0/fastdds/discovery/discovery_server.html"
+"#discovery-server>`__."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:66
+#: 72e7236228944d0b9eb20c865d3e8a0a
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:68
+#: 718fbfcc55fa44ac8a7a8020957324c2
+msgid ""
+"This tutorial assumes you have a ROS 2 Foxy (or newer) :doc:`installation"
+" <../../../Installation>`. If your installation is using a ROS 2 version "
+"lower than Foxy, you cannot use the ``fastdds`` tool. Thus, in order to "
+"use the Discovery Server, you can update your repository to use a "
+"different Fast DDS version, or configure the discovery server using the "
+"`Fast DDS XML QoS configuration <https://fast-"
+"dds.docs.eprosima.com/en/v2.1.0/fastdds/discovery/discovery_server.html"
+"#discovery-server>`__."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:74
+#: 7f5a3da70dc14041b876eabbfe421cbb
+msgid "Run this tutorial"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:76
+#: 02e4dccbe3204b1584ee8b3b02d7eebc
+msgid ""
+"The ``talker-listener`` ROS 2 demo creates a ``talker`` node that "
+"publishes a \"hello world\" message every second, and a ``listener`` node"
+" that listens to these messages."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:78
+#: c9bd88b233a645459ee74967e2714ca3
+msgid ""
+"By :doc:`sourcing ROS 2 <../../Beginner-CLI-Tools/Configuring-"
+"ROS2-Environment>` you will get access to the CLI tool ``fastdds``. This "
+"tool gives access to the `discovery tool <https://fast-"
+"dds.docs.eprosima.com/en/v2.1.0/fastddscli/cli/cli.html#discovery>`__, "
+"which can be used to launch a discovery server. This server will manage "
+"the discovery process for the nodes that connect to it."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:83
+#: 2e9ecaf5892549cc8a2878b1214fa5fc
+msgid ""
+"Do not forget to :doc:`source ROS 2 <../../Beginner-CLI-Tools"
+"/Configuring-ROS2-Environment>` in every new terminal opened."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:87
+#: 02c462bc59954e4fbae8670848b508da
+msgid "Setup Discovery Server"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:89
+#: 0de3194dba2a48c8a96c0f6b41451de8
+msgid ""
+"Start by launching a discovery server with id 0, port 11811 (default "
+"port) and listening on all available interfaces."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:91
+#: 50f1b10375a84bab94cc642c7ef01a7f
+msgid "Open a new terminal and run:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:99
+#: 5a1d9c56a49047e7ba3c5ae13b49fc03
+msgid "Launch listener node"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:101
+#: cc819ee13aaf4f9a9c36e176cd0ad61c
+msgid "Execute the listener demo, to listen to the ``/chatter`` topic."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:103
+#: 5db4a44b82854a879a3208b905b9fb9f
+msgid ""
+"In a new terminal, set the environment variable ``ROS_DISCOVERY_SERVER`` "
+"to the location of the discovery server. (Do not forget to source ROS 2 "
+"in every new terminal)"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:110
+#: 03bd83617a4f4336931b9216a01fde40
+msgid ""
+"Launch the listener node. Use the argument ``--remap "
+"__node:=listener_discovery_server`` to change the node's name for this "
+"tutorial."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:116
+#: 1061ed7f2aeb4fffbcc023a99e2b1482
+msgid ""
+"This will create a ROS 2 node, that will automatically create a client "
+"for the discovery server and connect to the server created previously to "
+"perform discovery, rather than using multicast."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:120
+#: 3a560cbb756948358a27a0ae8933868a
+msgid "Launch talker node"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:122
+#: 323c03c838f44f179f668fcf10999f20
+msgid ""
+"Open a new terminal and set the ``ROS_DISCOVERY_SERVER`` environment "
+"variable as before so that the node starts a discovery client."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:129
+#: a0d0129523e04d72bac2859d8aec03e7
+msgid ""
+"You should now see the talker publishing \"hello world\" messages, and "
+"the listener receiving these messages."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:133
+#: 8896449e114c46c5a687296ec96f1fc0
+msgid "Demonstrate Discovery Server execution"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:135
+#: 6c0243fb8f2c4171a83bac2c72cb55a7
+msgid ""
+"So far, there is no evidence that this example and the standard talker-"
+"listener example are running differently. To clearly demonstrate this, "
+"run another node that is not connected to the discovery server. Run a new"
+" listener (listening in ``/chatter`` topic by default) in a new terminal "
+"and check that it is not connected to the talker already running."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:143
+#: a421db417a2743baab2ac6f42620ef91
+msgid ""
+"The new listener node should not be receiving the \"hello world\" "
+"messages."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:145
+#: 00ef29d4c78d4664b211155c55a6678d
+msgid ""
+"To finally verify that everything is running correctly, a new talker can "
+"be created using the simple discovery protocol (the default DDS "
+"distributed discovery mechanism) for discovery."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:151
+#: 8ad288ea21ed473ea746145919a004aa
+msgid ""
+"Now you should see the ``simple_listener`` node receiving the \"hello "
+"world\" messages from ``simple_talker`` but not the other messages from "
+"``talker_discovery_server``."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:155
+#: 9dda28e689a248de96096ba4d9a7347b
+msgid "Visualization tool ``rqt_graph``"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:157
+#: d6e8b5d2cb494088a388c7b02a230f74
+msgid ""
+"The ``rqt_graph`` tool can be used to verify the nodes and structure of "
+"this example. Remember, in order to use ``rqt_graph`` with the discovery "
+"server protocol (i.e., to see the ``listener_discovery_server`` and "
+"``talker_discovery_server`` nodes) the ``ROS_DISCOVERY_SERVER`` "
+"environment variable must be set before launching it."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:162
+#: 253e76a1b70a49c6b0a08e99354c5509
+msgid "Advance use cases"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:164
+#: 90f2361c92174a41b81448b3c289f648
+msgid ""
+"The following sections show different features of the discovery server "
+"that allow you to build a robust discovery server over the network."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:167
+#: 49978afa109a470da9574ffeb753fc9f
+msgid "Server Redundancy"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:169
+#: cb12a29634334fcb8421e918e69c2f76
+msgid ""
+"By using ``fastdds`` tool, multiple discovery servers can be created. "
+"Discovery clients (ROS nodes) can connect to as many servers as desired. "
+"This allows to have a redundant network that will work even if some "
+"servers or nodes shut down unexpectedly. The figure below shows a simple "
+"architecture that provides server redundancy."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:177
+#: 022814239b134d45a03cdfc37bfa8e5f
+msgid ""
+"In several terminals, run the following code to establish a communication"
+" with redundant servers."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:187
+#: 0e6660e5dd844b919864dfcdf06e3096
+msgid ""
+"``--server-id N`` means server with id N. When referencing the servers "
+"with ``ROS_DISCOVERY_SERVER``, server ``0`` must be in first place and "
+"server ``1`` in second place."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:199
+#: 638d7c86154749cdb0bbd254bdd139ca
+msgid ""
+"Now, if one of these servers fails, there will still be discovery "
+"capability available and nodes will still discover each other."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:203
+#: 0c9d14d57dce418abffd27164525605f
+msgid "Backup Server"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:205
+#: e1045c93897f4e92b252a6698696be00
+msgid ""
+"The Fast DDS Discovery Server allows creating a server with backup "
+"functionality. This allows the server to restore the last state it saved "
+"in case of a shutdown."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:211
+#: de87883c78b74d989ed212f230b70d52
+msgid ""
+"In different terminals, run the following code to establish a "
+"communication with a backed-up server."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:227
+#: e112ef65bd6b4d6db5d60a03d4f32a65
+msgid ""
+"Several backup files are created in the discovery server's working "
+"directory (the directory it was launched in). The two ``SQLite`` files "
+"and two ``json`` files contain the information required to start a new "
+"server and restore the failed server's state in case of failure, avoiding"
+" the need for the discovery process to happen again, and without losing "
+"information."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:232
+#: ee19f1ebe82c454a9fa32673ab0910a6
+msgid "Discovery partitions"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:234
+#: 11c7286489314f9f9d841a8880b3dd4b
+msgid ""
+"Communication with discovery servers can be split to create virtual "
+"partitions in the discovery information. This means that two endpoints "
+"will only know about each other if there is a shared discovery server or "
+"a network of discovery servers between them. We are going to execute an "
+"example with two independent servers. The following figure shows the "
+"architecture."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:242
+#: df1b155fa5bb4158b6ab33b4260148c9
+msgid ""
+"With this schema ``Listener 1`` will be connected to ``Talker 1`` and "
+"``Talker 2``, as they share ``Server 1``. ``Listener 2`` will connect "
+"with ``Talker 1`` as they share ``Server 2``. But ``Listener 2`` will not"
+" hear the messages from ``Talker 2`` because they do not share any "
+"discovery server or discovery servers, including indirectly via "
+"connections between redundant discovery servers."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:246
+#: 6d0ba4112d4f4cbc8071fd37b0a80cca
+msgid ""
+"Run the first server listening on localhost with the default port of "
+"11811."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:252
+#: 2e03740f10664cdd9f85e3f37b7355ad
+msgid ""
+"In another terminal run the second server listening on localhost using "
+"another port, in this case port 11888."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:258
+#: b07b9ce4098240539ad04c0198259c78
+msgid ""
+"Now, run each node in a different terminal. Use ``ROS_DISCOVERY_SERVER`` "
+"environment variable to decide which server they are connected to. Be "
+"aware that the `ids must match <https://fast-"
+"dds.docs.eprosima.com/en/v2.1.0/fastdds/env_vars/env_vars.html>`__."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:280
+#: b6032363bd91456b98d523b921209fef
+msgid ""
+"We should see how ``Listener 1`` is receiving messages from both talker "
+"nodes, while ``Listener 2`` is in a different partition from ``Talker 2``"
+" and so does not receive messages from it."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:284
+#: ff1bfbe9d65c4723b3ed6d15da5aa0dd
+msgid ""
+"Once two endpoints (ROS nodes) have discovered each other, they do not "
+"need the discovery server network between them to listen to each other's "
+"messages."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:289
+#: 5adc3c170da84d3eb04f851d4a5e5308
+msgid "ROS 2 Introspection"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:291
+#: 125d5b28cfaa4dd0b16a3d11b2d0ccc5
+msgid ""
+"The `ROS 2 Command Line Interface <https://github.com/ros2/ros2cli>`__ "
+"supports several introspection tools to analyze the behavior of a ROS 2 "
+"network. These tools (i.e. ``ros2 bag record``, ``ros2 topic list``, "
+"etc.) are very helpful to understand a ROS 2 working network."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:294
+#: a864699ea78e405d925da7dc6a5b8b96
+msgid ""
+"Most of these tools use DDS simple discovery to exchange topic "
+"information with every existing participant (using simple discovery, "
+"every participant in the network is connected with each other). However, "
+"the new Discovery Server v2 implements a network traffic reduction scheme"
+" that limits the discovery data between participants that do not share a "
+"topic. This means that nodes will only receive topic's discovery data if "
+"it has a writer or a reader for that topic. As most ROS 2 CLIs need a "
+"node in the network (some of them rely on a running ROS 2 daemon, and "
+"some create their own nodes), using the Discovery Server v2 these nodes "
+"will not have all the network information, and thus their functionality "
+"will be limited."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:299
+#: c34bdbb290b444e99d711ee856b486aa
+msgid ""
+"The Discovery Server v2 functionality allows every Participant to run as "
+"a **Super Client**, a kind of **Client** that connects to a **Server**, "
+"from which it receives all the available discovery information (instead "
+"of just what it needs). In this sense, ROS 2 introspection tools can be "
+"configured as **Super Client**, thus being able to discover every entity "
+"that is using the Discovery Server protocol within the network."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:304
+#: ad6608e8050c4318bc0984d03caa7a26
+msgid ""
+"In this section we use the term *Participant* as a DDS entity. Each DDS "
+"*Participant* corresponds with a ROS 2 *Context*, a ROS 2 abstraction "
+"over DDS. `Nodes <ROS2Nodes>` are ROS 2 entities that rely on DDS "
+"communication interfaces: ``DataWriter`` and ``DataReader``. Each "
+"*Participant* can hold multiple ROS 2 Nodes. For further details about "
+"these concepts, please visit the `Node to Participant mapping design "
+"document "
+"<http://design.ros2.org/articles/Node_to_Participant_mapping.html>`__"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:311
+#: 7525422238ce4402bafaa53da6140415
+msgid "Daemon's related tools"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:313
+#: d85b80da26a04c66802135eaa8e3889b
+msgid ""
+"The ROS 2 Daemon is used in several ROS 2 CLI introspection tools. It "
+"creates its own Participant to add a ROS 2 Node to the network graph, in "
+"order to receive all the data sent. In order for the ROS 2 CLI to work "
+"when using Discovery Server mechanism, the ROS 2 Daemon needs to be "
+"configured as **Super Client**. Therefore, this section is devoted to "
+"explain how to use ROS 2 CLI with ROS 2 Daemon running as a **Super "
+"Client**. This will allow the Daemon to discover the entire Node graph, "
+"and to receive all topic and endpoint information. To do so, a Fast DDS "
+"XML configuration file is used to configure the ROS 2 Daemon and CLI "
+"tools."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:321
+#: ebc9f410e7864d898c3416ed44bf6edc
+msgid ""
+"Below you can find a XML configuration profile, which for this tutorial "
+"should be saved in the working directory as "
+"```super_client_configuration_file.xml``` file. This file will configure "
+"every new participant using it, as a **Super Client**."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:356
+#: 9cf2323810b24d6a8c4ffb3e8f643992
+msgid ""
+"Under the *RemoteServer* tag, the *prefix* attribute value should be "
+"updated according to the server ID passed on the CLI (see `Fast DDS CLI "
+"<https://fast-"
+"dds.docs.eprosima.com/en/latest/fastddscli/cli/cli.html#discovery>`__). "
+"The value specified in the shown XML snippet corresponds to an ID of "
+"value 0."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:359
+#: 2384a91ff58b43b1bbef6dbef38ddbc9
+msgid ""
+"First of all, instantiate a Discovery Server using `Fast DDS CLI <https"
+"://fast-"
+"dds.docs.eprosima.com/en/latest/fastddscli/cli/cli.html#discovery>`__ "
+"specifying an ID of value 0."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:365
+#: 29ecec1224f74989959e4d515ed8871b
+msgid ""
+"Run a talker and a listener that will discover each other through the "
+"Server (notice that ``ROS_DISCOVERY_SERVER`` configuration is the same as"
+" the one in ``super_client_configuration_file.xml``)."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:377
+#: 05711697b4f94c67b7514054e58d6d6b
+msgid ""
+"Then, instantiate a ROS 2 Daemon using the **Super Client** configuration"
+" (remember to source ROS 2 installation in every new terminal)."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:389
+#: 521e3386646044b286ca831172c366f9
+msgid ""
+"We can also see the Node's Graph using the ROS 2 tool ``rqt_graph`` as "
+"follows (you may need to press the refresh button):"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:398
+#: 12d9503027ab40dda9794b943932edce
+msgid "No Daemon tools"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:400
+#: 947c6d9b927344048dcfd17896436966
+msgid ""
+"Some ROS 2 CLI tools do not use the ROS 2 Daemon. In order for these "
+"tools to connect with a Discovery Server and receive all the topics "
+"information they need to be instantiated as a **Super Client** that "
+"connects to the **Server**."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:403
+#: 5ea483f447c943bfb0e7d96855fbef55
+msgid ""
+"Following the previous configuration, build a simple system with a talker"
+" and a listener. First, run a **Server**:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:410
+#: d9313564402349959dda89fb41f0688f
+msgid "Then, run the talker and listener in separate terminals:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:422
+#: e5c0616dd85741fbaafd7027d805dcc1
+msgid ""
+"Continue using the ROS 2 CLI with ``--no-daemon`` option with the new "
+"configuration. New nodes will connect with the existing Server and will "
+"know every topic. Exporting ``ROS_DISCOVERY_SERVER`` is not needed as the"
+" ROS 2 tools will be configured through the "
+"``FASTRTPS_DEFAULT_PROFILES_FILE``."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:434
+#: d5c417d4637a4db38692d9936f8e8e31
+msgid "Compare Fast DDS Discovery Server with Simple Discovery Protocol"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:436
+#: e4619071f00e4b0bb46be24029db3477
+msgid ""
+"In order to compare executing nodes using the *Simple Discovery* Protocol"
+" (the default DDS mechanism for distributed discovery) or the *Discovery "
+"Server*, two scripts that execute a talker and many listeners and analyze"
+" the network traffic during this time are provided. For this experiment, "
+"``tshark`` is required to be installed on your system. The configuration "
+"file is mandatory in order to avoid using intraprocess mode."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:442
+#: 4cb0a5c19dfc49728a2fa73c4df7ce46
+msgid ""
+"These scripts require a discovery server closure feature that is only "
+"available from versions newer than the version provided in ROS 2 Foxy. In"
+" order to use this functionality, compile ROS 2 with Fast DDS v2.1.0 or "
+"higher."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:445
+#: a1f366b9a21f4cb5bc3f384b1b9165a4
+msgid ""
+"These scripts' features are references for advanced purposes and their "
+"study is left to the user."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:447
+#: a8a21e0a74ab459e81cb153de0f37caa
+msgid ""
+":download:`bash network traffic generator "
+"<scripts/generate_discovery_packages.bash>`"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:449
+#: 1a998a30ea6b43068c3195fa28fdce07
+msgid ":download:`python3 graph generator <scripts/discovery_packets.py>`"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:451
+#: 15ab033562154a4bafe7047928d11721
+msgid ":download:`XML configuration <scripts/no_intraprocess_configuration.xml>`"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:453
+#: 03c8c303ef88445a9e089ee16fae2df6
+msgid ""
+"Run the bash script with the path to ``setup.bash`` file to source ROS 2 "
+"as an argument. This will generate the traffic trace for simple "
+"discovery. Execute the same script with second argument ``SERVER``. It "
+"will generate the trace for using the discovery server."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:460
+#: 9e6fe5b7edb348e89af45e4efdc79fd7
+msgid ""
+"Depending on your configuration of ``tcpdump``, this script may require "
+"``sudo`` privileges to read traffic across your network device."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:462
+#: 805abd50ebbd40c780fddddc34317592
+msgid ""
+"After both executions are done, run the Python script to generate a graph"
+" similar to the one below."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:474
+#: b3a98db5276f400ab484f276f2c0c924
+msgid ""
+"This graph is the result of a specific run of the experiment. The reader "
+"can execute the scripts and generate their own results for comparison. It"
+" can easily be seen that network traffic is reduced when using discovery "
+"service."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:478
+#: 439f1d907a7a4eda9afbad026be437e1
+msgid ""
+"The reduction in traffic is a result of avoiding every node announcing "
+"itself and waiting a response from every other node on the network. This "
+"creates a huge amount of traffic in large architectures. The reduction "
+"from this method increases with the number of nodes, making this "
+"architecture more scalable than the Simple Discovery Protocol approach."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Discovery-Server/Discovery-Server.rst:482
+#: 2782a059cacb4820a7f505ad00f7b41e
+msgid ""
+"The new Fast DDS Discovery Server v2 is available since *Fast DDS* "
+"v2.0.2, replacing the old discovery server. In this new version, those "
+"nodes that do not share topics will automatically not discover each "
+"other, saving the whole discovery data required to connect them and their"
+" endpoints. The experiment above does not show this case, but even so the"
+" massive reduction in traffic can be appreciated due to the hidden "
+"infrastructure topics of ROS 2 nodes."
+msgstr ""
+

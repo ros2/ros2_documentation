@@ -1,0 +1,228 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:8
+#: b4346ee3a522406aa5a90e39a17a1a5e
+msgid "Introspection with command line tools"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:11
+#: 002a5fc338ef415b946286292726eccf
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:13
+#: db6a64c3a9ec48a9be4eaa66019e86a0
+msgid ""
+"ROS 2 includes a suite of command-line tools for introspecting a ROS 2 "
+"system."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:16
+#: bd6df294b8984afbb5cf1eacb2e4b69a
+msgid "Usage"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:18
+#: c7f9234889604229bf11877d887c9e40
+msgid ""
+"The main entry point for the tools is the command ``ros2``, which itself "
+"has various sub-commands for introspecting and working with nodes, "
+"topics, services, and more."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:20
+#: c1d7f84ec754450d9d8b11971e633430
+msgid "To see all available sub-commands run:"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:26
+#: 900bf106f17646d8a6c075375d27fe57
+msgid "Examples of sub-commands that are available include:"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:28
+#: 7ceca059e1e549f38fd9a15ebc85ed0f
+msgid "``action``: Introspect/interact with ROS actions"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:29
+#: 8c5dd18b215741f8bc040e55b051c155
+msgid "``bag``: Record/play a rosbag"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:30
+#: 78e5e509996345ab8f508300fb61db8f
+msgid "``component``: Manage component containers"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:31
+#: 2938281e949c43818dd1250cab670f6d
+msgid "``daemon``: Introspect/configure the ROS 2 daemon"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:32
+#: 779d0db72db64180a3312b69280aa502
+msgid "``doctor``: Check ROS setup for potential issues"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:33
+#: ff5f13539cf24c6eb9345bb44f8464fd
+msgid "``interface``: Show information about ROS interfaces"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:34
+#: 096cbd76e7e14d63ba918784e747685c
+msgid "``launch``: Run/introspect a launch file"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:35
+#: a4ecb9b9043a495796e03b2d2dc41082
+msgid "``lifecycle``: Introspect/manage nodes with managed lifecycles"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:36
+#: fa13a591f33d4c78b2e2479eca904db5
+msgid "``multicast``: Multicast debugging commands"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:37
+#: 9b31eb5eea934187baa7a3e5ec879e31
+msgid "``node``: Introspect ROS nodes"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:38
+#: 4f51fab011474a37af228b2432395c60
+msgid "``param``: Introspect/configure parameters on a node"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:39
+#: fe49bf38d89b4c9aaf7020a80352ce10
+msgid "``pkg``: Introspect ROS packages"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:40
+#: 89ec01cce66c41d692ca6d5a0563abbd
+msgid "``run``: Run ROS nodes"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:41
+#: e50b794a506e4e1d9acb84b97aa03b0b
+msgid "``security``: Configure security settings"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:42
+#: 0170785d18e94b16b0c47f85246a99ab
+msgid "``service``: Introspect/call ROS services"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:43
+#: 7f53037ee2ff4439b09b60611dde9218
+msgid "``test``: Run a ROS launch test"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:44
+#: 8db6e3e0712446b2ae2b1e2ce4ae058b
+msgid "``topic``: Introspect/publish ROS topics"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:45
+#: e8e6f1bfcb824b578e69f7a363b5f76b
+msgid ""
+"``trace``: Tracing tools to get information on ROS nodes execution (only "
+"available on Linux)"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:46
+#: 834d53ce26e74ad5aa1356d63ba52a38
+msgid "``wtf``: An alias for ``doctor``"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:49
+#: 5e9d001ce34e468584681b71b743f20b
+msgid "Example"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:51
+#: fcd774d4512b4569ae57f6c6a389f143
+msgid ""
+"To produce the typical talker-listener example using command-line tools, "
+"the ``topic`` sub-command can be used to publish and echo messages on a "
+"topic."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:53
+#: 1f49189610eb4f08bb9fe34de3aa2863
+msgid "Publish messages in one terminal with:"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:63
+#: ecac4794aedc4cf09857a39d49563dd8
+msgid "Echo messages received in another terminal with:"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:73
+#: 265c0ee1ebff4ed382762c0b752a2bbf
+msgid "Behind the scenes"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:75
+#: eff9ecb48e2b49708a94cfc934f6fbb2
+msgid ""
+"ROS 2 uses a distributed discovery process for nodes to connect to each "
+"other. As this process purposefully does not use a centralized discovery "
+"mechanism, it can take time for ROS nodes to discover all other "
+"participants in the ROS graph. Because of this, there is a long-running "
+"daemon in the background that stores information about the ROS graph to "
+"provide faster responses to queries, e.g. the list of node names."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:79
+#: 5556b21b25a84e9b992947092ba7720c
+msgid ""
+"The daemon is automatically started when the relevant command-line tools "
+"are used for the first time. You can run ``ros2 daemon --help`` for more "
+"options for interacting with the daemon."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:83
+#: c8bd11972c9b4c759b17c06f4ecc257e
+msgid "Implementation"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:85
+#: d2746f91960e42a6a2592a63faa670c4
+msgid ""
+"The source code for the ``ros2`` command is available at "
+"https://github.com/ros2/ros2cli."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Command-Line-Tools.rst:87
+#: 5ef523167d8249caa317043a10b0d509
+msgid ""
+"The ``ros2`` tool has been implemented as a framework that can be "
+"extended via plugins. For example, the `sros2 "
+"<https://github.com/ros2/sros2>`__ package provides a ``security`` sub-"
+"command that is automatically detected by the ``ros2`` tool if the "
+"``sros2`` package is installed."
+msgstr ""
+

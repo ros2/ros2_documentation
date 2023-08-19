@@ -1,0 +1,571 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:8
+#: a080227dca6541c7bbd24930b647e9c3
+msgid "Writing a simple publisher and subscriber (Python)"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:10
+#: b7ae56a3595a46aa955fc9b10bbf49c4
+msgid "**Goal:** Create and run a publisher and subscriber node using Python."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:12
+#: d3ac66f607994111b41d46a8edf68d28
+msgid "**Tutorial level:** Beginner"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:14
+#: 6638e02e21754666afb2ea1d964fc2b8
+msgid "**Time:** 20 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:18
+#: 10ee99e333fe4c60816755ac5f25a6d3
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:21
+#: fd1adbf7630a471e90885f6c96aeccda
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:23
+#: e15de4909be14285b351690807e08aab
+msgid ""
+"In this tutorial, you will create :doc:`nodes <../Beginner-CLI-Tools"
+"/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` that pass "
+"information in the form of string messages to each other over a "
+":doc:`topic <../Beginner-CLI-Tools/Understanding-ROS2-Topics"
+"/Understanding-ROS2-Topics>`. The example used here is a simple "
+"\"talker\" and \"listener\" system; one node publishes data and the other"
+" subscribes to the topic so it can receive that data."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:27
+#: 4e561eb0403f46779f3199559f202afc
+msgid ""
+"The code used in these examples can be found `here "
+"<https://github.com/ros2/examples/tree/rolling/rclpy/topics>`__."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:30
+#: e6c42492d0064f4f83567edc68b5b7f5
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:32
+#: dc3f6425a2184ff6a20b3623f3bc4920
+msgid ""
+"In previous tutorials, you learned how to :doc:`create a workspace "
+"<./Creating-A-Workspace/Creating-A-Workspace>` and :doc:`create a package"
+" <./Creating-Your-First-ROS2-Package>`."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:34
+#: 832cb5d8d6ff4806aa3fcd6796a18d4c
+msgid ""
+"A basic understanding of Python is recommended, but not entirely "
+"necessary."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:37
+#: 03666d4f04494dab83cfa8c0409c924e
+msgid "Tasks"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:40
+#: f2bd49b4462c42b0b0b83645ee8062e5
+msgid "1 Create a package"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:42
+#: 0269f40f9bb844a8ae9ff48daf67e354
+msgid ""
+"Open a new terminal and :doc:`source your ROS 2 installation "
+"<../Beginner-CLI-Tools/Configuring-ROS2-Environment>` so that ``ros2`` "
+"commands will work."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:44
+#: cb7a68e01e4941e48c4ef15047886c93
+msgid ""
+"Navigate into the ``ros2_ws`` directory created in a :ref:`previous "
+"tutorial <new-directory>`."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:46
+#: 651670dd89e8493e8158c0b4d3a64ebc
+msgid ""
+"Recall that packages should be created in the ``src`` directory, not the "
+"root of the workspace. So, navigate into ``ros2_ws/src``, and run the "
+"package creation command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:53
+#: c014f2ee67af450ea5e3ec7d6468a671
+msgid ""
+"Your terminal will return a message verifying the creation of your "
+"package ``py_pubsub`` and all its necessary files and folders."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:56
+#: 90ae13bb311e4caaa4cb9fb85b6ab274
+msgid "2 Write the publisher node"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:58
+#: f5a394b67f4d4ada89f973facda2ff0e
+msgid ""
+"Navigate into ``ros2_ws/src/py_pubsub/py_pubsub``. Recall that this "
+"directory is a `Python package "
+"<https://docs.python.org/3/tutorial/modules.html#packages>`__ with the "
+"same name as the ROS 2 package it's nested in."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:61
+#: e2e80889e74041bfb996d400c8a17bd6
+msgid "Download the example talker code by entering the following command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:65
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:286
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:422
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:441
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:463
+#: 33c89c53164441889a52bca1ee010bb7 45ae29cf0dff41dba72bf0e67738db1b
+#: b1af9833687146ffa4d6987d4d5a1351 d0304faf3bf5456ab7cb8e3dffeff620
+#: e5c115aeeb3b420f9d57805b2bfac509
+msgid "Linux"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:71
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:292
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:428
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:447
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:469
+#: 248d100d33d54d0dbb7ecfc8722e60f4 514e130ed80444e79de513af72af1458
+#: 7cdf0c2bb6a44b76bc66351fb3715045 d748ec1a309d41c7ad990401443923b4
+#: e38950aec9204203aef7ee74afe3b940
+msgid "macOS"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:77
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:298
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:432
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:453
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:475
+#: 01ce74d957144db9baab0f0656a2862a 43d3a4bf5aea4f09b195927aaa32243e
+#: 86908432d91f446bb0b1e890c6966164 e3bf0cd7598b4942a213cc1372b63e03
+#: f1d7cd66abcb4c22907366b8acd5bf47
+msgid "Windows"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:79
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:300
+#: d25de301004e4a1f8d078b8f031940f2 e1a3f7cfcb5b478e8163eba36cc32a23
+msgid "In a Windows command line prompt:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:85
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:306
+#: 6ca71f921399468ba532ad129c1916b3 7d028e83ebcf4d2b82a9c6bb6752e16d
+msgid "Or in powershell:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:91
+#: fbb35d80ed15418bbc1bbd56ae6a7a20
+msgid ""
+"Now there will be a new file named ``publisher_member_function.py`` "
+"adjacent to ``__init__.py``."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:93
+#: fedd44689a9640e283dd4049294082c1
+msgid "Open the file using your preferred text editor."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:139
+#: 31608943006f45e0a39434d3df52350b
+msgid "2.1 Examine the code"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:141
+#: e67643c2e7b646458d77c7369491bb1c
+msgid ""
+"The first lines of code after the comments import ``rclpy`` so its "
+"``Node`` class can be used."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:148
+#: 6a7ad67864624ffd8bb8c6624af734dd
+msgid ""
+"The next statement imports the built-in string message type that the node"
+" uses to structure the data that it passes on the topic."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:154
+#: a34596c982eb48609ac20e48310356af
+msgid ""
+"These lines represent the node's dependencies. Recall that dependencies "
+"have to be added to ``package.xml``, which you'll do in the next section."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:157
+#: 61465b2345df44d39b34d17a730054c2
+msgid ""
+"Next, the ``MinimalPublisher`` class is created, which inherits from (or "
+"is a subclass of) ``Node``."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:163
+#: 949ae42f4a0944b99dcd1e89e750eea8
+msgid ""
+"Following is the definition of the class's constructor. "
+"``super().__init__`` calls the ``Node`` class's constructor and gives it "
+"your node name, in this case ``minimal_publisher``."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:166
+#: ee928186a4b54dc5a753f1676293f893
+msgid ""
+"``create_publisher`` declares that the node publishes messages of type "
+"``String`` (imported from the ``std_msgs.msg`` module), over a topic "
+"named ``topic``, and that the \"queue size\" is 10. Queue size is a "
+"required QoS (quality of service) setting that limits the amount of "
+"queued messages if a subscriber is not receiving them fast enough."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:169
+#: cf66c3182cc444ad9ecc940cd68e9daf
+msgid ""
+"Next, a timer is created with a callback to execute every 0.5 seconds. "
+"``self.i`` is a counter used in the callback."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:181
+#: 8d135b84bc3947769d2233eff960e9df
+msgid ""
+"``timer_callback`` creates a message with the counter value appended, and"
+" publishes it to the console with ``get_logger().info``."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:192
+#: 1698307d71d64aa5bc579d491634aaa4
+msgid "Lastly, the main function is defined."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:209
+#: 020ad59d39ea4aeea72c29048378e0f1
+msgid ""
+"First the ``rclpy`` library is initialized, then the node is created, and"
+" then it \"spins\" the node so its callbacks are called."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:212
+#: 130490da191a45179ad72030787f9622
+msgid "2.2 Add dependencies"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:214
+#: d470bfca9c8641ac90a5751440e9e4cd
+msgid ""
+"Navigate one level back to the ``ros2_ws/src/py_pubsub`` directory, where"
+" the ``setup.py``, ``setup.cfg``, and ``package.xml`` files have been "
+"created for you."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:216
+#: 27f924eabe05458091f9c5792bc5bfd0
+msgid "Open ``package.xml`` with your text editor."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:218
+#: 093cb7e6c1124dee887223eff14ba452
+msgid ""
+"As mentioned in the :doc:`previous tutorial <./Creating-Your-First-"
+"ROS2-Package>`, make sure to fill in the ``<description>``, "
+"``<maintainer>`` and ``<license>`` tags:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:226
+#: fdcf4710a3bf44ef946ca87ee73f3ccd
+msgid ""
+"After the lines above, add the following dependencies corresponding to "
+"your node's import statements:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:233
+#: 1ce4b46b3f6f460a96bc854386bd16e6
+msgid ""
+"This declares the package needs ``rclpy`` and ``std_msgs`` when its code "
+"is executed."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:235
+#: 4a538f003008475bbf208a33d6e91994
+msgid "Make sure to save the file."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:238
+#: 3fe82fb9c0ce40bd884c8c15b248e42f
+msgid "2.3 Add an entry point"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:240
+#: d7de1df1693746808bb61c449ee6bcd4
+msgid ""
+"Open the ``setup.py`` file. Again, match the ``maintainer``, "
+"``maintainer_email``, ``description`` and ``license`` fields to your "
+"``package.xml``:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:250
+#: cf2debf90d7545fcbb2c57227dea7098
+msgid ""
+"Add the following line within the ``console_scripts`` brackets of the "
+"``entry_points`` field:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:260
+#: 77353f361e274670b2b196de6a1a32d6
+msgid "Don't forget to save."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:263
+#: 7bdc83efbd154d7cb02e0faa681dda8e
+msgid "2.4 Check setup.cfg"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:265
+#: e683df6ba7184f4097a93e587a89b6c0
+msgid ""
+"The contents of the ``setup.cfg`` file should be correctly populated "
+"automatically, like so:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:274
+#: 1f9d795f91054c838372e74f95f8920e
+msgid ""
+"This is simply telling setuptools to put your executables in ``lib``, "
+"because ``ros2 run`` will look for them there."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:276
+#: 9a3b02397f674283ace5209c72667b4a
+msgid ""
+"You could build your package now, source the local setup files, and run "
+"it, but let's create the subscriber node first so you can see the full "
+"system at work."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:279
+#: a6d79b749455444eb92e6549f0cdddc5
+msgid "3 Write the subscriber node"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:281
+#: 1952e340975b4552a7522d8725db5135
+msgid ""
+"Return to ``ros2_ws/src/py_pubsub/py_pubsub`` to create the next node. "
+"Enter the following code in your terminal:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:312
+#: 52e7d58dbff047cb9c24c204f58127e0
+msgid "Now the directory should have these files:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:319
+#: 651c9dea8c254dda92f291fb70aca554
+msgid "3.1 Examine the code"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:321
+#: 04f9e41202164b3887bf29c1e24286d2
+msgid "Open the ``subscriber_member_function.py`` with your text editor."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:363
+#: 00ba9b63acd8479ab8c28457a7f80c7a
+msgid ""
+"The subscriber node's code is nearly identical to the publisher's. The "
+"constructor creates a subscriber with the same arguments as the "
+"publisher. Recall from the :doc:`topics tutorial <../Beginner-CLI-Tools"
+"/Understanding-ROS2-Topics/Understanding-ROS2-Topics>` that the topic "
+"name and message type used by the publisher and subscriber must match to "
+"allow them to communicate."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:375
+#: 8fb62d0071ea4427a808f6c2c26b1f52
+msgid ""
+"The subscriber's constructor and callback don't include any timer "
+"definition, because it doesn't need one. Its callback gets called as soon"
+" as it receives a message."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:378
+#: c91bc1b0fc3641519cc78f0842223343
+#, python-format
+msgid ""
+"The callback definition simply prints an info message to the console, "
+"along with the data it received. Recall that the publisher defines "
+"``msg.data = 'Hello World: %d' % self.i``"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:386
+#: 7243b62ab04b430f850c856b501ce303
+msgid ""
+"The ``main`` definition is almost exactly the same, replacing the "
+"creation and spinning of the publisher with the subscriber."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:394
+#: 287c6f8f561b47528fbb34be93da33b5
+msgid ""
+"Since this node has the same dependencies as the publisher, there's "
+"nothing new to add to ``package.xml``. The ``setup.cfg`` file can also "
+"remain untouched."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:399
+#: 0f7c03194ff14e90838450fd8a8d8ca4
+msgid "3.2 Add an entry point"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:401
+#: a25e83c616454e6faf7152e9f7a6736b
+msgid ""
+"Reopen ``setup.py`` and add the entry point for the subscriber node below"
+" the publisher's entry point. The ``entry_points`` field should now look "
+"like this:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:413
+#: 4043edc51ad54f268912ae6f3b860f63
+msgid "Make sure to save the file, and then your pub/sub system should be ready."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:416
+#: 9796949f8f094eaf821ddffc5540aa7d
+msgid "4 Build and run"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:417
+#: 022db5d124ab478fb38d2b7be212163f
+msgid ""
+"You likely already have the ``rclpy`` and ``std_msgs`` packages installed"
+" as part of your ROS 2 system. It's good practice to run ``rosdep`` in "
+"the root of your workspace (``ros2_ws``) to check for missing "
+"dependencies before building:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:430
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:434
+#: 5dc1200af3274e54bd9f9f9faab63428 804dd235df53451c95fe808010524870
+msgid "rosdep only runs on Linux, so you can skip ahead to next step."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:437
+#: 2482dfb144314f19afeab6c218690a1f
+msgid "Still in the root of your workspace, ``ros2_ws``, build your new package:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:459
+#: a0c13e1b5b43483aa04d07cb166d3f8c
+msgid "Open a new terminal, navigate to ``ros2_ws``, and source the setup files:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:481
+#: 36a5d15bd8a84d2e8d4e0a443e594125
+msgid "Now run the talker node:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:487
+#: ea39981f7b424c17b736528e654c6fdb
+msgid ""
+"The terminal should start publishing info messages every 0.5 seconds, "
+"like so:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:498
+#: b6c75d5156df4b48a0d12fdff784ac7c
+msgid ""
+"Open another terminal, source the setup files from inside ``ros2_ws`` "
+"again, and then start the listener node:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:504
+#: 855e714fb95741bb9ff80b29403dee4e
+msgid ""
+"The listener will start printing messages to the console, starting at "
+"whatever message count the publisher is on at that time, like so:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:514
+#: c7505eaf5107476a9fb4a0087203da87
+msgid "Enter ``Ctrl+C`` in each terminal to stop the nodes from spinning."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:517
+#: 63e9a9191d3f468a83bb23d4a154f53f
+msgid "Summary"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:519
+#: 649ddf94c1a34842b09815ba2092e064
+msgid ""
+"You created two nodes to publish and subscribe to data over a topic. "
+"Before running them, you added their dependencies and entry points to the"
+" package configuration files."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:523
+#: b50c76864f5744ec89cebf979a490042
+msgid "Next steps"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:525
+#: 4cdbc036938f4fd1a80471c9ee0f1630
+msgid ""
+"Next you'll create another simple ROS 2 package using the service/client "
+"model. Again, you can choose to write it in either :doc:`C++ <./Writing-A"
+"-Simple-Cpp-Service-And-Client>` or :doc:`Python <./Writing-A-Simple-Py-"
+"Service-And-Client>`."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:529
+#: effbfa096ae8429587f7085868eec280
+msgid "Related content"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.rst:531
+#: c801868a5ae54470b33b288606f63389
+msgid ""
+"There are several ways you could write a publisher and subscriber in "
+"Python; check out the ``minimal_publisher`` and ``minimal_subscriber`` "
+"packages in the `ros2/examples "
+"<https://github.com/ros2/examples/tree/rolling/rclpy/topics>`_ repo."
+msgstr ""
+

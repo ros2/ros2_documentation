@@ -1,0 +1,291 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:7
+#: b488cf6fe4064be38fe9186b6ef96d48
+msgid "Using Eclipse Oxygen with ``rviz2`` [community-contributed]"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:11
+#: e3eb72ecbcf74808869ebfbc06cf84a1
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:14
+#: 153ff24b52f848f59c061029abbd92f6
+msgid "Setup"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:16
+#: 961d69e98a4040b0a0299c8c6f4a6076
+msgid ""
+"This tutorial assumes Eclipse Oxygen, git, and Egit "
+"(http://www.eclipse.org/egit/download/) are already installed."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:18
+#: e89c1a00ab80485bbb396f3edc0c8e39
+msgid ""
+"Throughout the tutorial we name the eclipse workspace the same name as "
+"the ros2 package, but this is not required."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:20
+#: 3c10dac8002e4d0db259f7da4515ce07
+msgid ""
+"HINT: We use nested projects and one Eclipse Workspace for each ROS-2 "
+"package."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:25
+#: 9f218b9fe0a84b9b87f1aa5601446dc3
+msgid "Create a C++ Project."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:34
+#: e87ebbb58be8437f9dbdbfaa083068c8
+msgid ""
+"Choose the ROS 2 package name as the Project Name. Choose a Makefile "
+"Project and Other Toolchain."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:40
+#: 2f0e1905df6e416d99d9224841beb660
+msgid "Click on Finish"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:45
+#: c668ac49603944f59d9faf5cf1210d00
+msgid "Our project should be shown in the \"Project Explorer\"."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:50
+#: 1e5c099d75f649c7b4923f6276977ddb
+msgid "Inside our Project create a folder called \"src\"."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:55
+#: 046dbfaf698c4d68a6f22b1675be9c01
+msgid "Import a git repository."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:60
+#: 5919916a9bea4650a1c6d072db6014b4
+msgid "Put in the repository URL."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:65
+#: 4e2dbd6c8b964d928ff1f7634403230a
+msgid ""
+"IMPORTANT: Use the source folder of the project we created before as the "
+"destination folder."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:67
+#: 238c90ba37b648408e34839af9105105
+msgid ""
+"HINT: If you ran into problems choosing the destination folder path, the "
+"Eclipse Dialog needs a name in the name field."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:72
+#: e2d0454b2a0b4b5eb4c7a45090959fb8
+msgid "Import using the new project wizard."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:77
+#: 78fc0d4f4b1b49afac63b8ea3899d578
+msgid "Create a General->Project."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:82
+#: 47133a7b253542028c7d089dc0677a7b
+msgid ""
+"Use the git repository name as the project name. IMPORTANT: Use the "
+"folder we cloned the git repository in as the \"Location\"."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:88
+#: 7825a3336d034bae8efaaa898b2434f4
+msgid ""
+"The git project and the new project should be visible in the Project "
+"Explorer view. The same files are listed multiple times, but only one "
+"project is linked with Egit."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:94
+#: e746d682a21d424c8b90849dcbfa9568
+msgid "Repeat this procedure again. Import git repository pluginlib."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:100
+#: 1457f934a4d847aa96987c99b6b7b31a
+msgid ""
+"IMPORTANT: Use a folder inside the source folder as "
+"\"Destination->Directory\"."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:105
+#: 621e372a67b9476ebfc8e17574cbfe9d
+msgid ""
+"IMPORTANT: Use the folder we cloned the git repository in as the location"
+" for the new project."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:110
+#: a764374338564fdba9536b5107ef90c5
+msgid "Run the same procedure with the tinyxml2_vendor git repository."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:115
+#: 2e30be00d71943da8b49eddb22dd9647
+msgid "IMPORTANT: Again use a folder inside the source folder."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:120
+#: 412b409dbe364445a64d3a34d7f8d59f
+msgid ""
+"IMPORTANT: Use the location of the folder we cloned as the new project "
+"folder."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:125
+#: 1f225c3f80574fce9bb07c6a03648a23
+msgid "Now all four Projects should be visible in the Project Explorer view."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:130
+#: 295acdb0a33e4c9daf3269d21ae8313a
+msgid ""
+"Clicking in the top right cornder for the Project Explorer view allows us"
+" to change the Project Presentation to Hierarchical view. Now it looks "
+"like a ROS-2 project as it is on the hard drive. But this view loses the "
+"linkage to Egit, so use the Flat Project Presentation. The Egit linkage "
+"is good if you want to see e.g. which author wrote which code-line, etc."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:138
+#: 9291088aef8e45fd8e742fab69fb3a59
+msgid "Go to \"C/C++ build\"-section and put \"ament\" into \"Build command\"."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:143
+#: c9f1675c36b24f58bbd9b4bca1f5dc42
+msgid ""
+"Go to \"Behavior\" tab and unselect \"clean\" and put \"build\" into "
+"Build textbox."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:148
+#: 505094abda85487382c6638a4beb365d
+msgid ""
+"Before \"Build project\" will work, we need to close Eclipse. Open a "
+"shell and source the ROS-2 setup.bash file, then cd into the directory of"
+" the eclipse project (here: /home/ubu/rviz2_ws/rviz2_ws) and start "
+"Eclipse from inside this directory."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:154
+#: 5d106b617ffa4c6a8d74c463b2708229
+msgid ""
+"Now code completion, egit annotations, eclipse C/C++ Tools, etc. should "
+"all work."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:160
+#: 5fe1710da2e3436ebf948612f754b39d
+msgid "Eclipse-indexer"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:162
+#: e6100e5aef784b44bedd4707ee2dc815
+msgid ""
+"Opening the main.cpp of rviz2 may show a lot of \"unresolved inclusion\" "
+"warnings. To fix this, go to Project->Properties->C++ General->Path and "
+"Symbols. Click on the \"References\" tab and select \"ros2_ws\"."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:170
+#: 60327c32226548eaaa75e0391c271ccc
+msgid ""
+"Go to C/C++-General->Path-and-Symbols, click on the \"Source locations\" "
+"tab and click on \"Link folder\". Choose the location of qt5 includes."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:177
+#: 01a8edd43c134e7f87c56225a78b8d62
+msgid ""
+"The next image should be shown. It is a good idea to add excludes to the "
+"source locations, so that some directories (like \"Build\" and "
+"\"Install\") don't get indexed."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:184
+#: 5ee3c311de684fbaa7ac48689a6f0d30
+msgid ""
+"Go to C++General->Preprocessor includes, select \"CDT GCC Built in "
+"compiler settings [Shared]\" and enter in the \"command to get compiler "
+"specs\" text box the following:"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:194
+#: 4b5a37e1b95143b6916a80ebab35665b
+msgid ""
+"Go to \"C/C++-General->Indexer\" and select the following in the image. "
+"E.g \"index unused headers as c files\" to resolve e.g. QApplication, "
+"because the QApplication headers content is only \"#include "
+"\"qapplication.h\"."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:201
+#: b698c202927949cc8aece5fad4c6a08a
+msgid ""
+"After running the indexer (which happens later, so you will see this also"
+" later), you can see what it added"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:207
+#: 05c338487b7c4143820060267f2f1aa7
+msgid ""
+"After that right-click on the rviz2 project and select "
+"\"Indexer->Rebuild\", which will start rebuilding the index (there is an "
+"icon in the lower right showing progress). Once the index is finished "
+"rebuilding, it should be able to resolve all includes."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:215
+#: d7e9fdbfe0df4f6dafddd041cad29996
+msgid "Debugging with eclipse"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:217
+#: a1c106055f934f0da6823016e3d7817a
+msgid "Go to \"C/C++-Build\" and add to the build command:"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Eclipse-Oxygen-with-ROS-2-and-rviz2.rst:227
+#: 0e22a07c26464dbb80e2b7ccda79e85d
+msgid ""
+"Then in eclipse go to \"Run->Debug Configurations\" and add the following"
+" and click on \"Debug\"."
+msgstr ""
+

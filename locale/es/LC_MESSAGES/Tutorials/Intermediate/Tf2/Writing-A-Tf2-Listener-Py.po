@@ -1,0 +1,304 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:8
+#: fbb821575c4146dd8170ebd5d1bbbf4a
+msgid "Writing a listener (Python)"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:10
+#: aa8fe8ead08540009327f2aa2927e0d6
+msgid "**Goal:** Learn how to use tf2 to get access to frame transformations."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:12
+#: 9d17d13d2d174a34964cf4b7f8c87736
+msgid "**Tutorial level:** Intermediate"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:14
+#: d305ea5aad4a41888856bb38ee0f5a8e
+msgid "**Time:** 10 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:18
+#: 2a4f893b675f4e029279acc47ca49696
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:21
+#: faa3a292a1004527b139b528bc5d4036
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:23
+#: ad66824c0d314fdf9a9b26b1e02a5c89
+msgid ""
+"In previous tutorials we created a tf2 broadcaster to publish the pose of"
+" a turtle to tf2."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:25
+#: b12f16e14a86451dbf588cb0f99a8a54
+msgid "In this tutorial we'll create a tf2 listener to start using tf2."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:28
+#: 3ddadddc46a148008e4cfd19dab92387
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:30
+#: 7505e2fdc2bb4a1ebc2733760718d590
+msgid ""
+"This tutorial assumes you have completed the :doc:`tf2 broadcaster "
+"tutorial (Python) <./Writing-A-Tf2-Broadcaster-Py>`. In the previous "
+"tutorial, we created a ``learning_tf2_py`` package, which is where we "
+"will continue working from."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:34
+#: 29166a4f45a04541923bfceedded693e
+msgid "Tasks"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:37
+#: 821f25e51d2f4d9dbe3ac52e739c1343
+msgid "1 Write the listener node"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:39
+#: be6513780f9845f5b5631099d61e3930
+msgid ""
+"Let's first create the source files. Go to the ``learning_tf2_py`` "
+"package we created in the previous tutorial. Inside the "
+"``src/learning_tf2_py/learning_tf2_py`` directory download the example "
+"listener code by entering the following command:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:44
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:287
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:305
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:327
+#: 10b2e7093f214e88a80c54b907735c2b 555d5c4cb2db41719aef57062b3d95e8
+#: c9d91ef8292a4508842af4fb306e61a8 f0c23ca05f424fd7b86b7ec013ef1209
+msgid "Linux"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:50
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:293
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:311
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:333
+#: 3f9039cc33f94ad98a9b8a33fa69e19b 766c8321beca4fe5bbc2cae22b12ae8e
+#: 9aabc16e37cf4ddb90e842b3c3e98784 a17e5a75980649eb9bae955a9e6a5c16
+msgid "macOS"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:56
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:297
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:317
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:339
+#: 42c38822ffa84f31a4a5bf4d584600a8 5be22ca6b2ea4718a9c7fca8b66c11f6
+#: cc177656a0a94f92af0bcacc56dea683 ed3651ff44cb4456953fec0846487221
+msgid "Windows"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:58
+#: 1589e33464fb4ea4b85b068c8a33088c
+msgid "In a Windows command line prompt:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:64
+#: e58662d480eb4acab16783d2ac8e8e4d
+msgid "Or in powershell:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:70
+#: 8625cc98e908413d912edcd8ab5f9a21
+msgid "Open the file using your preferred text editor."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:181
+#: e15fee4b517844738ecca61be655be88
+msgid "1.1 Examine the code"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:183
+#: c98a8e94399140c7badaffdc8f3001fc
+msgid ""
+"To understand how the service behind spawning turtle works, please refer "
+"to :doc:`writing a simple service and client (Python) <../../Beginner-"
+"Client-Libraries/Writing-A-Simple-Py-Service-And-Client>` tutorial."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:185
+#: ea8314c2208b498fb0e47ab98e73ad74
+msgid ""
+"Now, let's take a look at the code that is relevant to get access to "
+"frame transformations. The ``tf2_ros`` package provides an implementation"
+" of a ``TransformListener`` to help make the task of receiving transforms"
+" easier."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:192
+#: b3b46b8516714c40bf3ceb2065ee31bc
+msgid ""
+"Here, we create a ``TransformListener`` object. Once the listener is "
+"created, it starts receiving tf2 transformations over the wire, and "
+"buffers them for up to 10 seconds."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:198
+#: 39a6643c8bc44af6a5b2c71feb4de193
+msgid ""
+"Finally, we query the listener for a specific transformation. We call "
+"``lookup_transform`` method with following arguments:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:200
+#: 017ac32a6ab444e2b7f801c0cfae9eb8
+msgid "Target frame"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:202
+#: d8d32076715f4a13bb10a7eb2eb794e0
+msgid "Source frame"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:204
+#: c58c17a64ee54a5689fb2996513d6ee4
+msgid "The time at which we want to transform"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:206
+#: 841b25c511fa4b4fa16a0ed64e4ddcab
+msgid ""
+"Providing ``rclpy.time.Time()`` will just get us the latest available "
+"transform. All this is wrapped in a try-except block to handle possible "
+"exceptions."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:217
+#: 1185dfbd88f84568bd272ce9a6474d28
+msgid "1.2 Add an entry point"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:219
+#: a28720e856e74e418359447eb00ef9d3
+msgid ""
+"To allow the ``ros2 run`` command to run your node, you must add the "
+"entry point to ``setup.py`` (located in the ``src/learning_tf2_py`` "
+"directory)."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:227
+#: bc3fe72eecbe4f6abce84bc5598808a1
+msgid "2 Update the launch file"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:229
+#: e0c861256fa941d7a0c834988fb4b096
+msgid ""
+"Open the launch file called ``turtle_tf2_demo_launch.py`` with your text "
+"editor, add two new nodes to the launch description, add a launch "
+"argument, and add the imports. The resulting file should look like:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:277
+#: 648a8796d4214bb5b37e264bc44764e2
+msgid ""
+"This will declare a ``target_frame`` launch argument, start a broadcaster"
+" for second turtle that we will spawn and listener that will subscribe to"
+" those transformations."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:281
+#: 356705bee3384e349821f8ce069c06e9
+msgid "3 Build"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:283
+#: c24f011754ba4938a18f36e89a6dea93
+msgid ""
+"Run ``rosdep`` in the root of your workspace to check for missing "
+"dependencies."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:295
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:299
+#: 0f8a1a835b074598a7394b0b7cc4eef2 76112b0712c5449cbc61a2457cfa01fd
+msgid ""
+"rosdep only runs on Linux, so you will need to install ``geometry_msgs`` "
+"and ``turtlesim`` dependencies yourself"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:301
+#: a5d744f0e32c435292cab85a8d2a33b8
+msgid "Still in the root of your workspace, build your package:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:323
+#: 3e0f3507886142afb6a290a11254aa49
+msgid ""
+"Open a new terminal, navigate to the root of your workspace, and source "
+"the setup files:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:350
+#: 9cfaa4a89fd549988deef930525ed9ec
+msgid "4 Run"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:352
+#: a9adca0d399349d1867ad9de0300e20b
+msgid "Now you're ready to start your full turtle demo:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:358
+#: 55e8042764414e339970a1122389351b
+msgid ""
+"You should see the turtle sim with two turtles. In the second terminal "
+"window type the following command:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:365
+#: 3c77d91af29a48b785d895554245f3e7
+msgid ""
+"To see if things work, simply drive around the first turtle using the "
+"arrow keys (make sure your terminal window is active, not your simulator "
+"window), and you'll see the second turtle following the first one!"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:368
+#: e66f0915724340eb900fe4203214c765
+msgid "Summary"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py.rst:370
+#: 537815a1d9d5485eab248b336ad87367
+msgid ""
+"In this tutorial you learned how to use tf2 to get access to frame "
+"transformations. You also have finished writing your own turtlesim demo "
+"that you first tried in :doc:`Introduction to tf2 <./Introduction-To-"
+"Tf2>` tutorial."
+msgstr ""
+

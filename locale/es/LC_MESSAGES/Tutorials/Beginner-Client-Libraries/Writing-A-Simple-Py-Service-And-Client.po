@@ -1,0 +1,452 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:8
+#: 29988ea2be334812bc47314a684a9d1a
+msgid "Writing a simple service and client (Python)"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:10
+#: dbe38fbcb227469884c75e7065a2b5c8
+msgid "**Goal:** Create and run service and client nodes using Python."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:12
+#: 3b9c9c003ee840049e920944e0b8f306
+msgid "**Tutorial level:** Beginner"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:14
+#: a6aef08a9e34488f8bb47f1f980f9da1
+msgid "**Time:** 20 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:18
+#: 43c1f4cb32f74036af55935979b620ff
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:21
+#: 271ee12ecca645f7bbb376db5297330f
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:23
+#: 9de165d061f04d8abf6df37e4d054a31
+msgid ""
+"When :doc:`nodes <../Beginner-CLI-Tools/Understanding-ROS2-Nodes"
+"/Understanding-ROS2-Nodes>` communicate using :doc:`services "
+"<../Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-"
+"ROS2-Services>`, the node that sends a request for data is called the "
+"client node, and the one that responds to the request is the service "
+"node. The structure of the request and response is determined by a "
+"``.srv`` file."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:26
+#: 5d5d5e7dbbcc46aea89900b55bc426f7
+msgid ""
+"The example used here is a simple integer addition system; one node "
+"requests the sum of two integers, and the other responds with the result."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:29
+#: 65b01ad84d854528b90fa6eab87759ef
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:31
+#: 31dc9baa5d034894be19385be6b74417
+msgid ""
+"In previous tutorials, you learned how to :doc:`create a workspace "
+"<./Creating-A-Workspace/Creating-A-Workspace>` and :doc:`create a package"
+" <./Creating-Your-First-ROS2-Package>`."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:34
+#: 062c300bd5e8463fa999f1d87fa53e96
+msgid "Tasks"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:37
+#: 0d3875f03ee54775b10271051aa2cd0b
+msgid "1 Create a package"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:39
+#: fad6964c479d42cbbc6a26298e800e04
+msgid ""
+"Open a new terminal and :doc:`source your ROS 2 installation "
+"<../Beginner-CLI-Tools/Configuring-ROS2-Environment>` so that ``ros2`` "
+"commands will work."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:41
+#: 2de48d13b7e54f48b481ef27c4b44536
+msgid ""
+"Navigate into the ``ros2_ws`` directory created in a :ref:`previous "
+"tutorial <new-directory>`."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:43
+#: fe85d375dc7e4bba9fe7f007c9baa726
+msgid ""
+"Recall that packages should be created in the ``src`` directory, not the "
+"root of the workspace. Navigate into ``ros2_ws/src`` and create a new "
+"package:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:50
+#: b9c640fe527449fab1be1a4a25b45154
+msgid ""
+"Your terminal will return a message verifying the creation of your "
+"package ``py_srvcli`` and all its necessary files and folders."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:52
+#: 0c546b4f70ec4daaa14cd5e3c3712088
+msgid ""
+"The ``--dependencies`` argument will automatically add the necessary "
+"dependency lines to ``package.xml``. ``example_interfaces`` is the "
+"package that includes `the .srv file "
+"<https://github.com/ros2/example_interfaces/blob/rolling/srv/AddTwoInts.srv>`__"
+" you will need to structure your requests and responses:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:62
+#: 7e427503d2ca408c807eb172d7a5d046
+msgid ""
+"The first two lines are the parameters of the request, and below the "
+"dashes is the response."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:65
+#: 7fe847706c5444608b22b63926b67e69
+msgid "1.1 Update ``package.xml``"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:67
+#: 86473670f6c94a548ebad483a7044312
+msgid ""
+"Because you used the ``--dependencies`` option during package creation, "
+"you don't have to manually add dependencies to ``package.xml``."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:69
+#: fd0feaa2707e4812a1e59b07ae78424d
+msgid ""
+"As always, though, make sure to add the description, maintainer email and"
+" name, and license information to ``package.xml``."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:78
+#: ec3aaa840d054e52bb8c0c3c1b1ec2f7
+msgid "1.2 Update ``setup.py``"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:80
+#: 00884bc2a28f4a2a9d142d1612e41ebe
+msgid ""
+"Add the same information to the ``setup.py`` file for the ``maintainer``,"
+" ``maintainer_email``, ``description`` and ``license`` fields:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:90
+#: 0499019155c641c193a11d9b7649c601
+msgid "2 Write the service node"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:92
+#: eded33a5ab6944c29ffbde4e402dfa1a
+msgid ""
+"Inside the ``ros2_ws/src/py_srvcli/py_srvcli`` directory, create a new "
+"file called ``service_member_function.py`` and paste the following code "
+"within:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:129
+#: 5616a3467d904557b0d8d5684dc025d9
+msgid "2.1 Examine the code"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:131
+#: 78ff88f4ad03413e9d0f1074032b1970
+msgid ""
+"The first ``import`` statement imports the ``AddTwoInts`` service type "
+"from the ``example_interfaces`` package. The following ``import`` "
+"statement imports the ROS 2 Python client library, and specifically the "
+"``Node`` class."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:141
+#: 68ce8d4379a84955ac7c735f0f095cae
+msgid ""
+"The ``MinimalService`` class constructor initializes the node with the "
+"name ``minimal_service``. Then, it creates a service and defines the "
+"type, name, and callback."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:150
+#: e9b906a1eb42450faba85c162570511c
+msgid ""
+"The definition of the service callback receives the request data, sums "
+"it, and returns the sum as a response."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:160
+#: 3c300e1cb264457fbc257ef986a29721
+msgid ""
+"Finally, the main class initializes the ROS 2 Python client library, "
+"instantiates the ``MinimalService`` class to create the service node and "
+"spins the node to handle callbacks."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:163
+#: 794da795acd34adfbe29a97df45016aa
+msgid "2.2 Add an entry point"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:165
+#: 3ba07d5a97b5451dbb8d45569ebce017
+msgid ""
+"To allow the ``ros2 run`` command to run your node, you must add the "
+"entry point to ``setup.py`` (located in the ``ros2_ws/src/py_srvcli`` "
+"directory)."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:167
+#: ba7bd8c09e8641ad86580f37ec2fd1fd
+msgid "Add the following line between the ``'console_scripts':`` brackets:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:174
+#: ce0c1a16b2b84d8eb01db8703002334d
+msgid "3 Write the client node"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:176
+#: 7d79d778684f461884870693175a74a2
+msgid ""
+"Inside the ``ros2_ws/src/py_srvcli/py_srvcli`` directory, create a new "
+"file called ``client_member_function.py`` and paste the following code "
+"within:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:222
+#: cc015146cdab419584c5c509527b099c
+msgid "3.1 Examine the code"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:224
+#: eb0a0b41964148be91548c30f7c4ed85
+msgid ""
+"The only different ``import`` statement for the client is ``import sys``."
+" The client node code uses `sys.argv "
+"<https://docs.python.org/3/library/sys.html#sys.argv>`__ to get access to"
+" command line input arguments for the request."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:227
+#: 3bc075c3a2e049a282ebc958ef969ad8
+msgid ""
+"The constructor definition creates a client with the same type and name "
+"as the service node. The type and name must match for the client and "
+"service to be able to communicate."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:230
+#: 8ea090341d974889a769ea1f170c708d
+msgid ""
+"The ``while`` loop in the constructor checks if a service matching the "
+"type and name of the client is available once a second."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:232
+#: 0259a7ac957a4a7eb5b9a398c5f81c56
+msgid "Below the constructor is the request definition, followed by ``main``."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:234
+#: da53c212cbdb4233b37c3bf58eb431df
+msgid ""
+"The only significant difference in the client's ``main`` is the ``while``"
+" loop. The loop checks the ``future`` to see if there is a response from "
+"the service, as long as the system is running. If the service has sent a "
+"response, the result will be written in a log message."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:240
+#: cb533ad560704d5585222428daec5ed2
+msgid "3.2 Add an entry point"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:242
+#: 55c82968e97b48829e9b7d3026c4c370
+msgid ""
+"Like the service node, you also have to add an entry point to be able to "
+"run the client node."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:244
+#: 51b8fa769d2343e28951a3040d3d1b81
+msgid ""
+"The ``entry_points`` field of your ``setup.py`` file should look like "
+"this:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:256
+#: beb5bd1aa5e94799b32298beda26d7b3
+msgid "4 Build and run"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:258
+#: f05c8d1ed87b4afeafcbb30024a59de1
+msgid ""
+"It's good practice to run ``rosdep`` in the root of your workspace "
+"(``ros2_ws``) to check for missing dependencies before building:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:262
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:287
+#: 8389bea384ae469fbb79d76e2cb7fc8e ea7f3bde814942c197866cdcb9a4f3b7
+msgid "Linux"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:268
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:293
+#: 4b58f43d21184b2bacb1f37d37ebc3cc b49d9c0783d04bca83c9c59f116f9071
+msgid "macOS"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:270
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:274
+#: 541dc4298dbf4402995e70295519b3b1 98583d73078c486ca728b21380e28ee4
+msgid "rosdep only runs on Linux, so you can skip ahead to next step."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:272
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:299
+#: 3d1ceace54574b31a097155ad1a98562 9022a007f596453490c92948b8c754f1
+msgid "Windows"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:277
+#: 136f84c944e048f7845d5bebd663b8e7
+msgid ""
+"Navigate back to the root of your workspace, ``ros2_ws``, and build your "
+"new package:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:283
+#: 1578c9c465c947eb9277240a7628f778
+msgid "Open a new terminal, navigate to ``ros2_ws``, and source the setup files:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:305
+#: d1f60d6edef443e99e05d9f6bfb9ae6a
+msgid "Now run the service node:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:311
+#: 840cd07e2cf24aa3af69415fd5bcf672
+msgid "The node will wait for the client's request."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:313
+#: 1ad4ddd713534c44a6988bfec6d3921e
+msgid ""
+"Open another terminal and source the setup files from inside ``ros2_ws`` "
+"again. Start the client node, followed by any two integers separated by a"
+" space:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:320
+#: 0220b9ecf82b4c08b7f83292943fabd5
+msgid ""
+"If you chose ``2`` and ``3``, for example, the client would receive a "
+"response like this:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:326
+#: daa9f7cafdf8463ebc583bf23c1c919c
+msgid ""
+"Return to the terminal where your service node is running. You will see "
+"that it published log messages when it received the request:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:334
+#: 42030ec65ad1423faa80d61c127a64aa
+msgid "Enter ``Ctrl+C`` in the server terminal to stop the node from spinning."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:338
+#: 6269dc4096784443b5472ade50f9801f
+msgid "Summary"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:340
+#: 83fa5bd7c1ae4a569861ccacce56f68f
+msgid ""
+"You created two nodes to request and respond to data over a service. You "
+"added their dependencies and executables to the package configuration "
+"files so that you could build and run them, allowing you to see a "
+"service/client system at work."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:344
+#: e4b3c2d00e21433ab1de48d30c8339fd
+msgid "Next steps"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:346
+#: 53c687b491a64e55bfda723bb0728f6c
+msgid ""
+"In the last few tutorials you've been utilizing interfaces to pass data "
+"across topics and services. Next, you'll learn how to :doc:`create custom"
+" interfaces <./Custom-ROS2-Interfaces>`."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:350
+#: 16c7fcef76c34d9493f92c9cbb9f2e2e
+msgid "Related content"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:352
+#: 9675f15b5e8a4aaf83eac4fb5722e56a
+msgid ""
+"There are several ways you could write a service and client in Python; "
+"check out the ``minimal_client`` and ``minimal_service`` packages in the "
+"`ros2/examples "
+"<https://github.com/ros2/examples/tree/rolling/rclpy/services>`_ repo."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.rst:354
+#: ac98ed26d2f34d24af3555e61a890469
+msgid ""
+"In this tutorial, you used the ``call_async()`` API in your client node "
+"to call the service. There is another service call API available for "
+"Python called synchronous calls. We do not recommend using synchronous "
+"calls, but if you'd like to learn more about them, read the guide to "
+":doc:`Synchronous vs. asynchronous clients <../../How-To-Guides/Sync-Vs-"
+"Async>`."
+msgstr ""
+

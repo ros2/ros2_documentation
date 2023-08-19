@@ -1,0 +1,331 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:7
+#: 76e349082617435487b72971b701d5f7
+msgid "Implementing a custom memory allocator"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:9
+#: 16e4c648c45249b3ad8adf1fd575e15e
+msgid ""
+"**Goal:** This tutorial will show how to use a custom memory allocator "
+"when writing ROS 2 C++ code."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:11
+#: e218d0dc9ecc4f1a8663d01b501ab751
+msgid "**Tutorial level:** Advanced"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:13
+#: 2726b075f83448258d472f38148f81b1
+msgid "**Time:** 20 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:17
+#: a6e8dab3c3944686a0cca05940de791d
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:19
+#: e85daa56df744203991724d518ed3403
+msgid ""
+"This tutorial will teach you how to integrate a custom allocator for "
+"publishers and subscribers so that the default heap allocator is never "
+"called while your ROS nodes are executing. The code for this tutorial is "
+"available `here "
+"<https://github.com/ros2/demos/blob/rolling/demo_nodes_cpp/src/topics/allocator_tutorial.cpp>`__."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:23
+#: f314449ee95c45c8a391f5aadf597caf
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:25
+#: cb0d1cb7ecf94f069e3c1aba197de203
+msgid ""
+"Suppose you want to write real-time safe code, and you've heard about the"
+" many dangers of calling \"new\" during the real-time critical section, "
+"because the default heap allocator on most platforms is nondeterministic."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:27
+#: 0982852f3ab345be9c906e9b6f806f2b
+msgid ""
+"By default, many C++ standard library structures will implicitly allocate"
+" memory as they grow, such as ``std::vector``. However, these data "
+"structures also accept an \"Allocator\" template argument. If you specify"
+" a custom allocator to one of these data structures, it will use that "
+"allocator for you instead of the system allocator to grow or shrink the "
+"data structure. Your custom allocator could have a pool of memory "
+"preallocated on the stack, which might be better suited to real-time "
+"applications."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:29
+#: c5d114e87f3845f88e9b2578d9d86a45
+msgid ""
+"In the ROS 2 C++ client library (rclcpp), we are following a similar "
+"philosophy to the C++ standard library. Publishers, subscribers, and the "
+"Executor accept an Allocator template parameter that controls allocations"
+" made by that entity during execution."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:32
+#: 66285a6a1cd349bf8e5f7b119530dab6
+msgid "Writing an allocator"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:34
+#: 6d4137fec9f5476e861943c9a2dfc811
+msgid ""
+"To write an allocator compatible with ROS 2's allocator interface, your "
+"allocator must be compatible with the C++ standard library allocator "
+"interface."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:36
+#: 655eef00d5524a10bfb1ff432b7f7aca
+msgid ""
+"The C++11 library provides something called ``allocator_traits``. The "
+"C++11 standard specifies that a custom allocator only needs to fulfil a "
+"minimal set of requirements to be used to allocate and deallocate memory "
+"in a standard way. ``allocator_traits`` is a generic structure that fills"
+" out other qualities of an allocator based on an allocator written with "
+"the minimal requirements."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:38
+#: db56e79eeca34d04bb645d2037174e8d
+msgid ""
+"For example, the following declaration for a custom allocator would "
+"satisfy ``allocator_traits`` (of course, you would still need to "
+"implement the declared functions in this struct):"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:57
+#: 650c7f0ffc734f1cabb1bea6f5ecef81
+msgid ""
+"You could then access other functions and members of the allocator filled"
+" in by ``allocator_traits`` like so: "
+"``std::allocator_traits<custom_allocator<T>>::construct(...)``"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:59
+#: aef6b3e673114913a8dfe9e8081fc4cc
+msgid ""
+"To learn about the full capabilities of ``allocator_traits``, see "
+"https://en.cppreference.com/w/cpp/memory/allocator_traits ."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:61
+#: 7f67b9cb6a8c4fc090cb5fc42edca5b7
+msgid ""
+"However, some compilers that only have partial C++11 support, such as GCC"
+" 4.8, still require allocators to implement a lot of boilerplate code to "
+"work with standard library structures such as vectors and strings, "
+"because these structures do not use ``allocator_traits`` internally. "
+"Therefore, if you're using a compiler with partial C++11 support, your "
+"allocator will need to look more like this:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:111
+#: 67717679bcaf417cb12f12798a16be67
+msgid "Writing an example main"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:113
+#: 912f4bbd6fb1480fbf577ae4d89ad982
+msgid ""
+"Once you have written a valid C++ allocator, you must pass it as a shared"
+" pointer to your publisher, subscriber, and executor."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:137
+#: 82fa927eb41841799930d10189a7e19d
+msgid ""
+"You will also need to use your allocator to allocate any messages that "
+"you pass along the execution codepath."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:143
+#: d25338b47e3840f190a442d4a623a2d1
+msgid ""
+"Once you've instantiated the node and added the executor to the node, "
+"it's time to spin:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:157
+#: dcb7cfc5c8d045e197bf7ca69a2d59f8
+msgid "Passing an allocator to the intra-process pipeline"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:159
+#: ce13509d6d2c4f8e88eb37a97aa078e0
+msgid ""
+"Even though we instantiated a publisher and subscriber in the same "
+"process, we aren't using the intra-process pipeline yet."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:161
+#: 8e7ef84d747b47329412bc47d5432f8e
+msgid ""
+"The IntraProcessManager is a class that is usually hidden from the user, "
+"but in order to pass a custom allocator to it we need to expose it by "
+"getting it from the rclcpp Context. The IntraProcessManager makes use of "
+"several standard library structures, so without a custom allocator it "
+"will call the default new."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:171
+#: 0160d7cdde304c00ba35b09071637134
+msgid ""
+"Make sure to instantiate publishers and subscribers AFTER constructing "
+"the node in this way."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:174
+#: 400faef75c834f31bdc6604eddd45125
+msgid "Testing and verifying the code"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:176
+#: 6caeb85f8cb8436c9e3eeba5ee96e4e7
+msgid "How do you know that your custom allocator is actually getting called?"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:178
+#: b5ab5ddb8d214528ac4fb2d2568f602a
+msgid ""
+"The obvious thing to do would be to count the calls made to your custom "
+"allocator's ``allocate`` and ``deallocate`` functions and compare that to"
+" the calls to ``new`` and ``delete``."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:180
+#: ef2d105face646b0b1b29641c46129d0
+msgid "Adding counting to the custom allocator is easy:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:196
+#: 28d925a4c0b14f10a2bbf7092807d692
+msgid "You can also override the global new and delete operators:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:220
+#: a5218d35620d43aeb2bc2c201c315fa1
+msgid ""
+"where the variables we are incrementing are just global static integers, "
+"and ``is_running`` is a global static boolean that gets toggled right "
+"before the call to ``spin``."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:222
+#: 1c4a2cc578b144eda53dcb12f176f638
+msgid ""
+"The `example executable "
+"<https://github.com/ros2/demos/blob/rolling/demo_nodes_cpp/src/topics/allocator_tutorial.cpp>`__"
+" prints the value of the variables. To run the example executable, use:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:228
+#: 36aec6ee690b457fb686a26f93334f25
+msgid "or, to run the example with the intra-process pipeline on:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:234
+#: a0dc96cc15be426487f33d70678be0ab
+msgid "You should get numbers like:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:243
+#: 2b00d20c588047a980e43be346a019aa
+msgid ""
+"We've caught about 2/3 of the allocations/deallocations that happen on "
+"the execution path, but where do the remaining 1/3 come from?"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:245
+#: 4a11e512fda549309bbbe1f6d3725c0f
+msgid ""
+"As a matter of fact, these allocations/deallocations originate in the "
+"underlying DDS implementation used in this example."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:247
+#: 857aadcff2b348b08d28bf7154006589
+msgid ""
+"Proving this is out of the scope of this tutorial, but you can check out "
+"the test for the allocation path that gets run as part of the ROS 2 "
+"continuous integration testing, which backtraces through the code and "
+"figures out whether certain function calls originate in the rmw "
+"implementation or in a DDS implementation:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:249
+#: 760c4eebd7c84597a731dd899c230d42
+msgid "https://github.com/ros2/realtime_support/blob/rolling/tlsf_cpp/test/test_tlsf.cpp#L41"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:251
+#: b6e72769e70d49fb8f4df843f1cfc6f1
+msgid ""
+"Note that this test is not using the custom allocator we just created, "
+"but the TLSF allocator (see below)."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:254
+#: cf7289a914aa457aa62c63ae1f048e07
+msgid "The TLSF allocator"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:256
+#: 1d2edc578c3b4ab8bccc2d5c9d4caaa4
+msgid ""
+"ROS 2 offers support for the TLSF (Two Level Segregate Fit) allocator, "
+"which was designed to meet real-time requirements:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:258
+#: 05a4c158e5394d03a0e22dfd0bb750a5
+msgid "https://github.com/ros2/realtime_support/tree/rolling/tlsf_cpp"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:260
+#: 17d50f429c994f5eb0d865b44f0f854e
+msgid "For more information about TLSF, see http://www.gii.upv.es/tlsf/"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:262
+#: abed49135ffc4f668445390ee5c0bc85
+msgid "Note that the TLSF allocator is licensed under a dual-GPL/LGPL license."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Allocator-Template-Tutorial.rst:264
+#: a64e31349c2f479aa16875ef01fb91f7
+msgid ""
+"A full working example using the TLSF allocator is here: "
+"https://github.com/ros2/realtime_support/blob/rolling/tlsf_cpp/example/allocator_example.cpp"
+msgstr ""
+

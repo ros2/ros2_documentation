@@ -1,0 +1,342 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:8
+#: 1193e333edbd4bb988b9ff6110f0be1a
+msgid "ROS 2 TSC applicant intake process"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:11
+#: 162876c2cf5c4f90a816f2ac799e00ab
+msgid "Objectives"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:13
+#: 067fa4c9411448c9a9bb14af6b14dbe1
+msgid "Increase the pool of high quality applicants"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:14
+#: 7ce49fae776f4cf19a623697c8ac9a74
+msgid "Help applicants understand what the ROS 2 TSC expects from an application"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:15
+#: d3cd22741d1240ba9c98aa9a63aea7ff
+msgid "Help ROS 2 TSC better evaluate the applicants"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:18
+#: 7fb790f9d8b84d1d9461e173cfe2fbdb
+msgid "Process"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:20
+#: 3039652d2f554aa3b57c07a2149a04c2
+msgid ""
+"Applicant inquires about joining TSC via info@openrobotics.org per "
+":doc:`ROS 2 Governance <../Governance>`."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:21
+#: be1a9bcdeaaa4d9bbe898b8ea1b0cc97
+msgid "Open Robotics responds with the application questions (below)."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:22
+#: 00edc186b74140b99bc2d334756be97e
+msgid "Applicant completes and sends application to info@openrobotics.org."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:23
+#: 365dd1cc566a4d0eaeae43836dc85e4d
+msgid ""
+"Open Robotics does an initial review and gives applicant feedback if "
+"warranted. For example:"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:25
+#: e87c8227bad843f298d36e3d6d881917
+msgid ""
+"\"consider developing your track record of contribution and then re-"
+"apply.\""
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:26
+#: fdf96d50a34045d3aed11e60ad998ccd
+msgid ""
+"\"What you contribute to is not part of ROS 2 Common Packages (REP 2005)."
+" Consider getting it added before proceeding with application for more "
+"favorable reception.\""
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:28
+#: 39d2f46a405a4848a7c49b8e30b7e1d0
+msgid ""
+"If application seems worthwhile, Open Robotics passes it to TSC member to"
+" \"sponsor\"."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:30
+#: 49692512571e4d21a50a492d38991c2c
+msgid ""
+"Open Robotics can ask TSC for volunteer(s) per applicant or Open Robotics"
+" could have list of TSC members who already volunteered to support this "
+"function."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:32
+#: 5988f19ee796422599fb36732e8a0710
+msgid ""
+"Sponsor arranges short 1:1 with applicant to talk about ROS 2 TSC role "
+"and responsibilities.  Afterwards the applicant can:"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:34
+#: 3414321faa1b4a6aa5bcbf852d803eab
+msgid "proceed with application as-is"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:35
+#: 1d0c111e9539421d88e411e48f775ece
+msgid "revise application"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:36
+#: 9525d97677094e2181b0ea070b8d98d7
+msgid "delay submission e.g. to develop their contribution track record"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:37
+#: d8dcebabca314922a5ea491cba4e7bda
+msgid "decide not to proceed."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:39
+#: 5f62d8a469fd4ef1b10efd517bb3d089
+msgid ""
+"[two weeks before TSC meeting]: applications are distributed to TSC "
+"members for independent review"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:42
+#: 0e6e1a9f847940eea4fadb224191f461
+msgid ""
+"If 2 TSC members respond agreeing to \"sponsor\" applicant then these "
+"proceed to the next step. Applicant should \"minimally meet\" TSC member "
+"criteria before addressing TSC."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:43
+#: e999da38a8e54d22b3747a4825ae82c9
+msgid ""
+"Otherwise Open Robotics informs applicant \"Not at this time, please "
+"consider applying again later with more contribution history.\""
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:45
+#: 037dc2125c7c4f56a316bfe9473ae5ed
+msgid ""
+"[in TSC meeting] Applicant or Sponsor can address TSC. 5 minute "
+"presentation with up to 5 additional minutes of Q&A."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:46
+#: ab1f888fb99f4767ac2c47c40ae29a16
+msgid ""
+"[in TSC meeting]: Synchronous private/unsharable discussion of the "
+"applications after applicant(s) leave the call. TSC members are to be "
+"discrete about what has been discussed."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:47
+#: 56688cab02ac455296a5cda308f83693
+msgid ""
+"[after TSC meeting]: Asynchronous vote on the applicants completed in "
+"around 10 days"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:48
+#: 30eb2fe2d3e540c89cb77887d0014ea3
+msgid "Open Robotics notifies applicant(s) of TSC decision."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:51
+#: 8ec9e42f7c8440b38163213a987ceb9f
+msgid "Questionnaire for the applicant"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:53
+#: dfc596b0e1c34b218dcccb1f320bad68
+msgid ""
+"The following is to be provided to the applicant by Open Robotics via "
+"email in response to them expressing interest in joining the ROS 2 TSC."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:55
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:80
+#: 5e4bb1b7d2b44b03b64600c1d3180020 e651e258890641419e5846bb5dfcc302
+msgid "To which aspect(s) of ROS 2 do you plan to make open source contributions?"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:57
+#: 5f3012e03b094681abec6b14891e46ef
+msgid ""
+"For example contributions to `ROS 2 Common Packages "
+"<https://www.ros.org/reps/rep-2005.html>`__."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:58
+#: 4800a23e24194caf829666f7d21608c6
+msgid ""
+"Are you already making those contributions? Since when? Please explain "
+"your history of contribution. If you have none, consider applying after "
+"developing some history of contribution."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:59
+#: 6e86f7c2da73467d8efa2e8c25806d58
+msgid ""
+"Are there any other kinds of contributions that you are already making or"
+" plan? Education, evangelism, et al.?"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:61
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:85
+#: 77ad8d588339484eba0a012a164775df d8e083a135944c6e8cfa1ece5a17c3bf
+msgid ""
+"What level of effort do you plan to dedicate to making those "
+"contributions?"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:63
+#: 5baf201d81ef49e8ab7c5dc471c716ff
+msgid ""
+"How many FTE (full time equivalent) people will be making those "
+"contributions?"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:64
+#: 0c45710ef8c946aeb446e1df4322dba8
+msgid "How many FTE are already doing so?"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:66
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:90
+#: 02f0b8936abc4e8c982f1a28c4a06258 58be6f9ffd0740648f1013200d1b421e
+msgid ""
+"Are these contributions already happening now, and if so, can you point "
+"to results produced so far?"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:68
+#: 0660f3540f86458d82de8802f40fd12f
+msgid ""
+"For example describe or attach details of your contributions to `ROS 2 "
+"Common Packages <https://www.ros.org/reps/rep-2005.html>`__."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:69
+#: b654cd5c667a445da46667c5c53cf217
+msgid "Links to your contributions are helpful."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:71
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:96
+#: 9a2cb36729cc475a87f1ffc0cf3173f0 deb0c7ba5a73433ea8abe2cf6745b023
+msgid "How do these contributions benefit your business or organization?"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:73
+#: 0ccf4d8bbad0490e8beabc2e6abc5bad
+msgid "Why do you do this?"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:76
+#: 182548e7044145bc9eedfee70d65a5a7
+msgid "Evaluation Guide for TSC members"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:78
+#: 780c6006c1db440dafcc497be80e81ea
+msgid ""
+"The following is suggested guidance for TSC members to evaluate "
+"applicants:"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:82
+#: ade523d4ed124ba78a2ac7d4469700c6
+msgid "Are the contributions useful to the community?"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:83
+#: 8487424001a24089a13b925da00fd171
+msgid ""
+"Are the contributions to `ROS 2 Common Packages "
+"<https://www.ros.org/reps/rep-2005.html>`__?"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:87
+#: d2900ea40dcb4c64bb007b2e00846018
+msgid "Give more credence to past contributions"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:88
+#: 7b5bd6c42fce4e4ca38a25498fb7e709
+msgid ""
+"Proposed future contributions are important but consider past "
+"contribution to evaluate how credible those plans are."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:92
+#: 945c18075e254bfeb2f72bc266cbdbf5
+msgid "Are the contributions ones that the community and TSC values?"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:93
+#: 10fb713f170e44288bf792b47c161e6c
+msgid "Are the contributions to ROS 2 Common Packages (REP 2005)?"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:94
+#: 3d3125bd1f7549bfa53e9e95666bd575
+msgid ""
+"Emphasis is on what they’ve contributed already, not what they promise to"
+" do. If they don’t have enough evidence of contribution, encourage them "
+"to apply after developing their contribution track record."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:98
+#: 42f2d426c15446fc98f884bc437a5171
+msgid ""
+"This answer helps you evaluate how much focus and investment it already "
+"has and whether it seems likely to continue."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/ROS2-TSC-Intake-process.rst:99
+#: 00f9b8c199514b6684f91c1a2262bfc0
+msgid ""
+"Do you see that the applicant has a vested interest in this work and the "
+"success of ROS 2? Or does it seem they seek to join merely for prestige "
+"and marketing?"
+msgstr ""
+

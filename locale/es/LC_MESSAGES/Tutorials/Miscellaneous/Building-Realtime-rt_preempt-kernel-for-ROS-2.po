@@ -1,0 +1,147 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Miscellaneous/Building-Realtime-rt_preempt-kernel-for-ROS-2.rst:7
+#: 69d56a1aa88347e98724f5c1f53de37d
+msgid "Building a real-time Linux kernel [community-contributed]"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Building-Realtime-rt_preempt-kernel-for-ROS-2.rst:9
+#: c36cfb060b3c4416b233fbff774f068b
+msgid ""
+"This tutorial begins with a clean Ubuntu 20.04.1 install on Intel x86_64."
+" Actual kernel is 5.4.0-54-generic, but we will install the Latest Stable"
+" RT_PREEMPT Version. To build the kernel you need at least 30GB free disk"
+" space."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Building-Realtime-rt_preempt-kernel-for-ROS-2.rst:11
+#: c8aee12835a943ce9a3e557a9734d54b
+msgid ""
+"Check https://wiki.linuxfoundation.org/realtime/start for the latest "
+"stable version, at the time of writing this is \"Latest Stable Version "
+"5.4-rt\". If we click on the `link "
+"<http://cdn.kernel.org/pub/linux/kernel/projects/rt/5.4/>`_, we get the "
+"exact version. Currently it is patch-5.4.78-rt44.patch.gz."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Building-Realtime-rt_preempt-kernel-for-ROS-2.rst:17
+#: 55314445dac3410da11493ce7cdad60b
+msgid "We create a directory in our home dir with"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Building-Realtime-rt_preempt-kernel-for-ROS-2.rst:23
+#: 6b43f6db4999462cb971b8a8c1eeb163
+msgid "and switch into it with"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Building-Realtime-rt_preempt-kernel-for-ROS-2.rst:29
+#: f83ae7da305d41aa90949524d2544d29
+msgid ""
+"We can go with a browser to "
+"https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/ and see if the "
+"version is there. You can download it from the site and move it manually "
+"from /Downloads to the /kernel folder, or download it using wget by right"
+" clicking the link using \"copy link location\". Example:"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Building-Realtime-rt_preempt-kernel-for-ROS-2.rst:35
+#: ../../source/Tutorials/Miscellaneous/Building-Realtime-rt_preempt-kernel-for-ROS-2.rst:47
+#: b7f80c1e198c4cebb79cc80af91cc6ed ec16afdb3a784704a21f0ad95b707df5
+msgid "unpack it with"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Building-Realtime-rt_preempt-kernel-for-ROS-2.rst:41
+#: b05914da7d1b4a15944d3060ec1c13d6
+msgid ""
+"download rt_preempt patch matching the Kernel version we just downloaded "
+"over at http://cdn.kernel.org/pub/linux/kernel/projects/rt/5.4/"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Building-Realtime-rt_preempt-kernel-for-ROS-2.rst:53
+#: 484316a68ecd4e5b9e323590c224238c
+msgid "Then switch into the linux directory with"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Building-Realtime-rt_preempt-kernel-for-ROS-2.rst:59
+#: 5ec604be579445f2ad9d257d58c11b7c
+msgid "and patch the kernel with the realtime patch"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Building-Realtime-rt_preempt-kernel-for-ROS-2.rst:65
+#: ef077d95337f463cb11c96a880cd0780
+msgid ""
+"We simply want to use the config of our Ubuntu installation, so we get "
+"the Ubuntu config with"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Building-Realtime-rt_preempt-kernel-for-ROS-2.rst:71
+#: fdb8b2ec6bd54f40be08f1536f59f863
+msgid ""
+"Open Software & Updates. in the Ubuntu Software menu tick the 'Source "
+"code' box"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Building-Realtime-rt_preempt-kernel-for-ROS-2.rst:73
+#: 176f596457d74cdeb944c1554ffefb63
+msgid "We need some tools to build kernel, install them with"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Building-Realtime-rt_preempt-kernel-for-ROS-2.rst:80
+#: 9e9be61664a3417dad4f476f21fd5245
+msgid "To enable all Ubuntu configurations, we simply use"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Building-Realtime-rt_preempt-kernel-for-ROS-2.rst:86
+#: 7f161e1bd6f645fa8c45768f8e614ffb
+msgid "Then we need to enable rt_preempt in the kernel. We call"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Building-Realtime-rt_preempt-kernel-for-ROS-2.rst:92
+#: ab15df43c8344a4da988670b322a7edd
+msgid "and set the following"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Building-Realtime-rt_preempt-kernel-for-ROS-2.rst:124
+#: 7f2288147f2244b99999a77e03e8d2a8
+msgid ""
+"Save and exit menuconfig. Now we're going to build the kernel which will "
+"take quite some time. (10-30min on a modern cpu)"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Building-Realtime-rt_preempt-kernel-for-ROS-2.rst:130
+#: 263a794959e94c9fa6913711d1d3d813
+msgid "After the build is finished check the debian packages"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Building-Realtime-rt_preempt-kernel-for-ROS-2.rst:138
+#: c5a8f7c860ed4202942860bd891753c8
+msgid "Then we install all kernel debian packages"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Building-Realtime-rt_preempt-kernel-for-ROS-2.rst:144
+#: ab26432135344a9b867396bf053e455e
+msgid ""
+"Now the real time kernel should be installed. Reboot the system and check"
+" the new kernel version"
+msgstr ""
+

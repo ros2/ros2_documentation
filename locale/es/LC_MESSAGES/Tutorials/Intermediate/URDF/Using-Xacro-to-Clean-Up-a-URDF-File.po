@@ -1,0 +1,357 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:8
+#: 21ab32a4b70048e08ccfc81ab11fd73a
+msgid "Using Xacro to clean up your code"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:10
+#: 59217392cdf44daa874cc95d67ae392e
+msgid ""
+"**Goal:** Learn some tricks to reduce the amount of code in a URDF file "
+"using Xacro"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:12
+#: fd23f2d586d44a679bf53222d48427d8
+msgid "**Tutorial level:** Intermediate"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:14
+#: 0774be0ce0f8479cb8975fcd3971a12b
+msgid "**Time:** 20 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:18
+#: a1fa021728844158a127f9bcb4379ea7
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:20
+#: 23b4f3e6d30b4e97b0a35a20de642c45
+msgid ""
+"By now, if you’re following all these steps at home with your own robot "
+"design, you might be sick of doing all sorts of math to get very simple "
+"robot descriptions to parse correctly. Fortunately, you can use the "
+"`xacro <https://index.ros.org/p/xacro>`_ package to make your life "
+"simpler. It does three things that are very helpful."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:24
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:66
+#: 09ee6cd1727c44669412e152edcea872 1585c94ef9c642339e301ea3b2950dd4
+msgid "Constants"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:25
+#: f633398e9cea429db65d79b16212ec5a
+msgid "Simple Math"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:26
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:145
+#: 63c69f041ce545b58a819d0e9cc26f36 abf4c348c27b4429a4114fcef2f6c863
+msgid "Macros"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:28
+#: f13828e942744191b37a1962f3be9510
+msgid ""
+"In this tutorial, we take a look at all these shortcuts to help reduce "
+"the overall size of the URDF file and make it easier to read and "
+"maintain."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:31
+#: d6e6119d6565465dae3617850eb31068
+msgid "Using Xacro"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:32
+#: e9635068ea3c4a6a8bf556ebc0aa1ada
+msgid ""
+"As its name implies, `xacro <https://index.ros.org/p/xacro>`_ is a macro "
+"language for XML. The xacro program runs all of the macros and outputs "
+"the result. Typical usage looks something like this:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:40
+#: 46a7ff4e282d46ef8df8704deda5614c
+msgid ""
+"You can also automatically generate the urdf in a launch file. This is "
+"convenient because it stays up to date and doesn’t use up hard drive "
+"space. However, it does take time to generate, so be aware that your "
+"launch file might take longer to start up."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:57
+#: b804f39095d34102b40adbf376bdb0d4
+msgid ""
+"At the top of the URDF file, you must specify a namespace in order for "
+"the file to parse properly. For example, these are the first two lines of"
+" a valid xacro file:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:67
+#: bd19468dca02459e917a76c4ce7d1e7a
+msgid "Let’s take a quick look at our base_link in R2D2."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:85
+#: 9751733a23ed427eab9465f26ea73e05
+msgid ""
+"The information here is a little redundant. We specify the length and "
+"radius of the cylinder twice. Worse, if we want to change that, we need "
+"to do so in two different places."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:89
+#: 3dd393f1d8714c1da2dd579a79116002
+msgid ""
+"Fortunately, xacro allows you to specify properties which act as "
+"constants. Instead, of the above code, we can write this."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:110
+#: 9db12df6a94f4d758ddc4cf9748ca996
+msgid ""
+"The two values are specified in the first two lines. They can be defined "
+"just about anywhere (assuming valid XML), at any level, before or after "
+"they are used. Usually they go at the top."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:113
+#: 22242fa33cb04e868779831138982128
+msgid ""
+"Instead of specifying the actual radius in the geometry element, we use a"
+" dollar sign and curly brackets to signify the value."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:114
+#: ab2d42d526444ea2bfbc4eaf1020e7e2
+msgid "This code will generate the same code shown above."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:116
+#: 36d3ab7d954d4b87b6e436f25336d957
+msgid ""
+"The value of the contents of the ${} construct are then used to replace "
+"the ${}. This means you can combine it with other text in the attribute."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:124
+#: 8428641afc4b4e838868dd2d815ac71d
+msgid "This will generate"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:130
+#: 66c02ad1dc8b4cc991177568ef3a352e
+msgid ""
+"However, the contents in the ${} don’t have to only be a property, which "
+"brings us to our next point..."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:133
+#: f94c0d94021e42368bbf5d9dc789c9e3
+msgid "Math"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:134
+#: cd040d67764a463d8340ff59ee7e6292
+msgid ""
+"You can build up arbitrarily complex expressions in the ${} construct "
+"using the four basic operations (+,-,*,/), the unary minus, and "
+"parenthesis. Examples:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:142
+#: a224e2bb167e46efaaeef121fa800019
+msgid ""
+"You can also use more than the basic mathematical operations, like "
+"``sin`` and ``cos``."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:146
+#: 630b558b5aea48c38e55962b2817962a
+msgid "Here’s the biggest and most useful component to the xacro package."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:149
+#: eced92be334848df91125af490dbd8f1
+msgid "Simple Macro"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:150
+#: 7dff18cc04d24ecc99b855d36b813c25
+msgid "Let’s take a look at a simple useless macro."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:159
+#: 91ea7e50c5324bb1b904d033b34679fa
+msgid ""
+"(This is useless, since if the origin is not specified, it has the same "
+"value as this.) This code will generate the following."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:165
+#: 272f12969ee84c548f6719f62dfc3f3e
+msgid ""
+"The name is not technically a required element, but you need to specify "
+"it to be able to use it."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:166
+#: 1618252acaac43c0a2ce1539dbf51efb
+msgid ""
+"Every instance of the ``<xacro:$NAME />`` is replaced with the contents "
+"of the ``xacro:macro`` tag."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:167
+#: 81831426d5f0443ea4b5765d0b8a9600
+msgid ""
+"Note that even though its not exactly the same (the two attributes have "
+"switched order), the generated XML is equivalent."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:168
+#: f38e2b6a8cbc40e79567c108d0687511
+msgid ""
+"If the xacro with a specified name is not found, it will not be expanded "
+"and will NOT generate an error."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:171
+#: 4b498571c0e44dc1a7f5555811158b30
+msgid "Parameterized Macro"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:172
+#: a120f8031e6b42d68e5074e85bedeb13
+msgid ""
+"You can also parameterize macros so that they don’t generate the same "
+"exact text every time. When combined with the math functionality, this is"
+" even more powerful."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:175
+#: 63ce9fe1a720406a9861e16649b6756d
+msgid "First, let’s take an example of a simple macro used in R2D2."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:188
+#: ec334c9ff00d4770905bce054462ea64
+msgid "This can be used with the code"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:194
+#: f8003f92e80e4c65887e32f4530033bc
+msgid ""
+"The parameters act just like properties, and you can use them in "
+"expressions"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:196
+#: 19fe7ee3781b41b49f7c61bd2ae667b9
+msgid "You can also use entire blocks as parameters too."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:220
+#: dc7134ef7ef845108a86043219ac0df1
+msgid ""
+"To specify a block parameter, include an asterisk before its parameter "
+"name."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:221
+#: 5d4905f1a3c84af4b50a3092435c7bab
+msgid "A block can be inserted using the insert_block command"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:222
+#: d121062cb8c545579398163e5209ce2b
+msgid "Insert the block as many times as you wish."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:225
+#: 074489d039584859a0ddf51e8a6c9c10
+msgid "Practical Usage"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:226
+#: 946c9fdf5e234b1b8cfa09412109dc78
+msgid ""
+"The xacro language is rather flexible in what it allows you to do. Here "
+"are a few useful ways that xacro is used in the `R2D2 model "
+"<https://github.com/ros/urdf_tutorial/blob/master/urdf/08-macroed.urdf.xacro>`_,"
+" in addition to the default inertial macro shown above."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:229
+#: 50d9006c57324253bd71e2d2a9014545
+msgid ""
+"To see the model generated by a xacro file, run the same command as with "
+"previous tutorials:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:235
+#: 893c477f72e847d39ddb6636dbccea9a
+msgid ""
+"(The launch file has been running the xacro command this whole time, but "
+"since there were no macros to expand, it didn't matter)"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:238
+#: 007367e57a6d4551bf6b424c15e72dc9
+msgid "Leg macro"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:239
+#: 77a9e0244cab4a10893a5655e3b75331
+msgid ""
+"Often you want to create multiple similar looking objects in different "
+"locations. You can use a macro and some simple math to reduce the amount "
+"of code you have to write, like we do with R2’s two legs."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:272
+#: 977e7f363e29470c8b81cf01f0e269ca
+msgid "Common Trick 1: Use a name prefix to get two similarly named objects."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:273
+#: 9cba65b21687468f9f91dcc52868a921
+msgid ""
+"Common Trick 2: Use math to calculate joint origins. In the case that you"
+" change the size of your robot, changing a property with some math to "
+"calculate the joint offset will save a lot of trouble."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.rst:275
+#: d36c1c21066e49e1b17167cfbe41ffd3
+msgid ""
+"Common Trick 3: Using a reflect parameter, and setting it to 1 or -1. See"
+" how we use the reflect parameter to put the legs on either side of the "
+"body in the base_to_${prefix}_leg origin."
+msgstr ""
+

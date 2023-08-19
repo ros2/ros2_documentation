@@ -1,0 +1,81 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/The-ROS2-Project/Contributing/Migration-Guide-Python.rst:6
+#: 36ff491139c64dcb9a67053fa0adf964
+msgid "Python migration guide from ROS 1"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Migration-Guide-Python.rst:9
+#: ff182d34712241b3ad86db2e96155eeb
+msgid "Node Initialization"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Migration-Guide-Python.rst:11
+#: ../../source/The-ROS2-Project/Contributing/Migration-Guide-Python.rst:32
+#: ../../source/The-ROS2-Project/Contributing/Migration-Guide-Python.rst:60
+#: ../../source/The-ROS2-Project/Contributing/Migration-Guide-Python.rst:76
+#: ../../source/The-ROS2-Project/Contributing/Migration-Guide-Python.rst:92
+#: ../../source/The-ROS2-Project/Contributing/Migration-Guide-Python.rst:108
+#: 1b87e47e857340a7a1263fb6e22decbd 5f0827793b6b43aba07de491817994c5
+#: 6aecec5551284a6fafd181c6f2f46a73 6f36dbd918c24bbab1acf3fa45a6d6c5
+#: c5dc17bd3f3d4a408dd21199368f9189 dce0dfe89e804864a6d9c2c1ee822a5e
+msgid "In ROS 1:"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Migration-Guide-Python.rst:19
+#: ../../source/The-ROS2-Project/Contributing/Migration-Guide-Python.rst:44
+#: ../../source/The-ROS2-Project/Contributing/Migration-Guide-Python.rst:66
+#: ../../source/The-ROS2-Project/Contributing/Migration-Guide-Python.rst:82
+#: ../../source/The-ROS2-Project/Contributing/Migration-Guide-Python.rst:98
+#: ../../source/The-ROS2-Project/Contributing/Migration-Guide-Python.rst:116
+#: 581931212dde43cf8e5c5d428f86d09f 5c34308ce0334f7cb3d66bd309e5e703
+#: 68a88a4842fd4a1a96788e01eb6a4d83 7bb5bf582daa4ad9847180b03439603f
+#: 86bfe7e07f354ddbaf94ffd80313d9e6 c0510228d8034b1b8afb94bb901c66b9
+msgid "In ROS 2:"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Migration-Guide-Python.rst:30
+#: ced5ee5915a649318a4e75fef47fa79d
+msgid "ROS Parameters"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Migration-Guide-Python.rst:58
+#: c3bbca65708e4306bbb1bfba3440603a
+msgid "Creating a Publisher"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Migration-Guide-Python.rst:74
+#: 75c22441ea4b4164a7621b082cadaa3d
+msgid "Creating a Subscriber"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Migration-Guide-Python.rst:90
+#: 71eee6339e58480aab17c31d179119cf
+msgid "Creating a Service"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Migration-Guide-Python.rst:106
+#: 421935c7ed1841978dc3322bf4f41a06
+msgid "Creating a Service Client"
+msgstr ""
+

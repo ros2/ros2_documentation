@@ -1,0 +1,785 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:7
+#: 702e2dd1bbc74deaa06571d2de593235
+msgid "Setting up a robot simulation (Basic)"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:9
+#: 78e12963cec0461795087776409bf98a
+msgid "**Goal:** Setup a robot simulation and control it from ROS 2."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:11
+#: 7ffe27e6a8094652ab6bc75f94b09a4c
+msgid "**Tutorial level:** Advanced"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:13
+#: a4654eddf8124ac49f7a043da97b08db
+msgid "**Time:** 30 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:17
+#: 3a828daa95124931978d5f85ba4c0452
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:20
+#: d00b1fb7df1e42959ade7ecec7979025
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:22
+#: 3e7380e634cf4870a639fa82114656c3
+msgid ""
+"In this tutorial, you are going to use the Webots robot simulator to set-"
+"up and run a very simple ROS 2 simulation scenario."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:24
+#: e5172dcf133646749e9987c61947f57e
+msgid ""
+"The ``webots_ros2`` package provides an interface between ROS 2 and "
+"Webots. It includes several sub-packages, but in this tutorial, you are "
+"going to use only the ``webots_ros2_driver`` sub-package to implement a "
+"Python or C++ plugin controlling a simulated robot. Some other sub-"
+"packages contain demos with different robots such as the TurtleBot3. They"
+" are documented in the `Webots ROS 2 examples "
+"<https://github.com/cyberbotics/webots_ros2/wiki/Examples>`_ page."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:30
+#: 64e15a06d8ff409bb6cca24b655233e9
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:32
+#: 8e15bd322c5849a9a8a169e5375cd007
+msgid ""
+"It is recommended to understand basic ROS principles covered in the "
+"beginner :doc:`../../../../Tutorials`. In particular, :doc"
+":`../../../Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-"
+"Turtlesim`, :doc:`../../../Beginner-CLI-Tools/Understanding-ROS2-Topics"
+"/Understanding-ROS2-Topics`, :doc:`../../../Beginner-Client-"
+"Libraries/Creating-A-Workspace/Creating-A-Workspace`, :doc"
+":`../../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package` "
+"and :doc:`../../../Intermediate/Launch/Creating-Launch-Files` are useful "
+"prerequisites."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:37
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:356
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:441
+#: 02d4ac67da6c4ac99c52b38047bd4cf6 44949a0cb44a4aaba50cb0f1d994bcfc
+#: f374371dba854f358582f9aece33cc73
+msgid "Linux"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:39
+#: 057db7716aab4ed18a59a4d7fc78b385
+msgid ""
+"The Linux and ROS commands of this tutorial can be run in a standard "
+"Linux terminal. The following page :doc:`./Installation-Ubuntu` explains "
+"how to install the ``webots_ros2`` package on Linux."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:42
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:360
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:454
+#: 4ed8beaf7ee14bcea87d3eb78df1814f e9b7ebc79ea84e539efc5dab72be6ee4
+#: ea98c9a235df484c831cf5460f584111
+msgid "Windows"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:44
+#: cc7a36e494824b02a66b09c768b96d60
+msgid ""
+"The Linux and ROS commands of this tutorial must be run in a WSL (Windows"
+" Subsystem for Linux) environment. The following page :doc"
+":`./Installation-Windows` explains how to install the ``webots_ros2`` "
+"package on Windows."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:47
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:364
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:470
+#: a56b74d7fa2e413a81990e26045794c7 cc9731da3aa7432cae634ee3b59d2a5a
+#: df1e68dfd48e4eb3bdb5f5e575ece6cc
+msgid "macOS"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:49
+#: a18d2092597e46e8baae0466a12057fd
+msgid ""
+"The Linux and ROS commands of this tutorial must be run in a pre-"
+"configured Linux Virtual Machine (VM). The following page :doc"
+":`./Installation-MacOS` explains how to install the ``webots_ros2`` "
+"package on macOS."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:52
+#: d21d50178b52440c9f5f7d533fee0b64
+msgid ""
+"This tutorial is compatible with version 2023.1.0 of ``webots_ros2`` and "
+"Webots R2023b, as well as upcoming versions."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:55
+#: eb369412fe69472a961cc6b6e003bdba
+msgid "Tasks"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:58
+#: a27cc6bb3d494d449b32c75087dd1419
+msgid "1 Create the package structure"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:60
+#: a1580ada7e1a4018a21c9dfd8ce53962
+msgid ""
+"Let's organize the code in a custom ROS 2 package. Create a new package "
+"named ``my_package`` from the ``src`` folder of your ROS 2 workspace. "
+"Change the current directory of your terminal to ``ros2_ws/src`` and run:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:66
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:179
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:288
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:315
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:403
+#: 05f9b2996d954b6297f33926c0a78752 49e7814b1f34445887d236a9f6c57457
+#: af7f298cac9041929836f79a9096446e d97387e900334709912f6ab3745e0b99
+#: f9ef449409b742828d6e6328187b6802
+msgid "Python"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:72
+#: bad22c60eee245e9a3a3403105628094
+msgid ""
+"The ``--node-name my_robot_driver`` option will create a "
+"``my_robot_driver.py`` template Python plugin in the ``my_package`` "
+"subfolder that you will modify later. The ``--dependencies rclpy "
+"geometry_msgs webots_ros2_driver`` option specifies the packages needed "
+"by the ``my_robot_driver.py`` plugin in the ``package.xml`` file."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:75
+#: 01fefac336cc4935aa02efb37cfa88f8
+msgid ""
+"Let's add a ``launch`` and a ``worlds`` folder inside the ``my_package`` "
+"folder."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:83
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:130
+#: 26d7626a4f384ec38f87a9763726cb67 48a83d99d5604a95b40b8e048d2a652b
+msgid "You should end up with the following folder structure:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:104
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:221
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:296
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:323
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:413
+#: 049f859f01b14d23bef5596b5891712b 744add08e3a74e20a396f21c8747f00c
+#: 7d40e4f50b0142ebaf63b03cf825c893 861f3b828e2448549c506751bb6a7e8f
+#: efe598b0bb2c493e8792647fb19abd54
+msgid "C++"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:110
+#: 61f654c6778d400e8d42e79fe473461b
+msgid ""
+"The ``--node-name MyRobotDriver`` option will create a "
+"``MyRobotDriver.cpp`` template C++ plugin in the ``my_package/src`` "
+"subfolder that you will modify later. The ``--dependencies rclcpp "
+"geometry_msgs webots_ros2_driver pluginlib`` option specifies the "
+"packages needed by the ``MyRobotDriver`` plugin in the ``package.xml`` "
+"file."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:114
+#: f35964ce088741f0beec2e4da2360e36
+msgid ""
+"Let's add a ``launch``, a ``worlds`` and a ``resource`` folder inside the"
+" ``my_package`` folder."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:123
+#: 11bcecd1a6ed45b5a6e87c94386976b7
+msgid ""
+"Two additional files must be created: the header file for "
+"``MyRobotDriver`` and the ``my_robot_driver.xml`` pluginlib description "
+"file."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:149
+#: b2e375e30c7e48b3b588397af72e5daa
+msgid "2 Setup the simulation world"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:151
+#: e4c25d342d604d189f6482a8b54abdee
+msgid ""
+"You will need a world file containing a robot to launch your simulation. "
+":download:`Download this world file <Code/my_world.wbt>` and move it "
+"inside ``my_package/worlds/``."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:154
+#: ba8712a4bc55435c96c8732ac704f5c9
+msgid ""
+"This is actually a fairly simple text file you can visualize in a text "
+"editor. A simple robot is already included in this ``my_world.wbt`` world"
+" file."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:159
+#: 98a0c5dc5a5d4ae5ab91c0cdf8147988
+msgid ""
+"In case you want to learn how to create your own robot model in Webots, "
+"you can check this `tutorial "
+"<https://cyberbotics.com/doc/guide/tutorial-6-4-wheels-robot>`_."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:162
+#: 87874aab45f24c10a4b094f41bb05da1
+msgid "3 Edit the ``my_robot_driver`` plugin"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:164
+#: eb54ab9153124cae86d5ec196d570d7b
+msgid ""
+"The ``webots_ros2_driver`` sub-package automatically creates a ROS 2 "
+"interface for most sensors. More details on existing device interfaces "
+"and how to configure them is given in the second part of the tutorial: "
+":doc:`./Setting-Up-Simulation-Webots-Advanced`. In this task, you will "
+"extend this interface by creating your own custom plugin. This custom "
+"plugin is a ROS node equivalent to a robot controller. You can use it to "
+"access the `Webots robot API  "
+"<https://cyberbotics.com/doc/reference/robot?tab-language=python>`_ and "
+"create your own topics and services to control your robot."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:172
+#: d10acfb13289404ebeecbb7f1e714334
+msgid ""
+"The purpose of this tutorial is to show a basic example with a minimum "
+"number of dependencies. However, you could avoid the use of this plugin "
+"by using another ``webots_ros2`` sub-package named "
+"``webots_ros2_control``, introducing a new dependency. This other sub-"
+"package creates an interface with the ``ros2_control`` package that "
+"facilitates the control of a differential wheeled robot."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:181
+#: e46ea4c70edb4cdca2e1a77780c466bb
+msgid ""
+"Open ``my_package/my_package/my_robot_driver.py`` in your favorite editor"
+" and replace its contents with the following:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:186
+#: 088fb358111d4225ae4cd0be2f00790f
+msgid "As you can see, the ``MyRobotDriver`` class implements three methods."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:188
+#: 8fb4b42ae07b415cb742486f151efad8
+msgid ""
+"The first method, named ``init(self, ...)``, is actually the ROS node "
+"counterpart of the Python ``__init__(self, ...)`` constructor. The "
+"``init`` method always takes two arguments:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:191
+#: 2d31a95f88eb44eab1e7d1b3f0f18993
+msgid "The ``webots_node`` argument contains a reference on the Webots instance."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:192
+#: 4fea7c3394534db7a7eec7aa591b5306
+msgid ""
+"The ``properties`` argument is a dictionary created from the XML tags "
+"given in the URDF files (:ref:`4 Create the my_robot.urdf file`) and "
+"allows you to pass parameters to the controller."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:194
+#: da629ae9d8e74d25b657da5ba1ff4b73
+msgid ""
+"The robot instance from the simulation ``self.__robot`` can be used to "
+"access the `Webots robot API <https://cyberbotics.com/doc/reference/robot"
+"?tab-language=python>`_. Then, it gets the two motor instances and "
+"initializes them with a target position and a target velocity. Finally a "
+"ROS node is created and a callback method is registered for a ROS topic "
+"named ``/cmd_vel`` that will handle ``Twist`` messages."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:203
+#: fa0366d407f3437f8ba07ea2c89aa5b0
+msgid ""
+"Then comes the implementation of the ``__cmd_vel_callback(self, twist)`` "
+"callback private method that will be called for each ``Twist`` message "
+"received on the ``/cmd_vel`` topic and will save it in the "
+"``self.__target_twist`` member variable."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:210
+#: eea769e0b52744c1b32a59972705a4a3
+msgid ""
+"Finally, the ``step(self)`` method is called at every time step of the "
+"simulation. The call to ``rclpy.spin_once()`` is needed to keep the ROS "
+"node running smoothly. At each time step, the method will retrieve the "
+"desired ``forward_speed`` and ``angular_speed`` from "
+"``self.__target_twist``. As the motors are controlled with angular "
+"velocities, the method will then convert the ``forward_speed`` and "
+"``angular_speed`` into individual commands for each wheel. This "
+"conversion depends on the structure of the robot, more specifically on "
+"the radius of the wheel and the distance between them."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:223
+#: d6cab195ee904fd5a5838daebfc7258f
+msgid ""
+"Open ``my_package/src/MyRobotDriver.hpp`` in your favorite editor and "
+"replace its contents with the following:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:228
+#: 3ba4952fa5234eebadeea9f7f4d1a102
+msgid ""
+"The class ``MyRobotDriver`` is defined, which inherits from the "
+"``webots_ros2_driver::PluginInterface`` class. The plugin has to override"
+" ``step(...)`` and ``init(...)`` functions. More details are given in the"
+" ``MyRobotDriver.cpp`` file. Several helper methods, callbacks and member"
+" variables that will be used internally by the plugin are declared "
+"privately."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:233
+#: d636cf06c7234d439f90aa49d6b25872
+msgid ""
+"Then, open ``my_package/src/MyRobotDriver.cpp`` in your favorite editor "
+"and replace its contents with the following:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:238
+#: 9a4f58044cf848869601c4dc41c84bb8
+msgid ""
+"The ``MyRobotDriver::init`` method is executed once the plugin is loaded "
+"by the ``webots_ros2_driver`` package. It takes two arguments:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:241
+#: 32f5de456f044a488621ace927294b5a
+msgid ""
+"A pointer to the ``WebotsNode`` defined by ``webots_ros2_driver``, which "
+"allows to access the ROS 2 node functions."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:242
+#: 41da4ed6f8e44b7d9709ea0f425f539f
+msgid ""
+"The ``parameters`` argument is an unordered map of strings, created from "
+"the XML tags given in the URDF files (:ref:`4 Create the my_robot.urdf "
+"file`) and allows to pass parameters to the controller. It is not used in"
+" this example."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:244
+#: 10c49306f09a434da82fdbcbcf45001c
+msgid ""
+"It initializes the plugin by setting up the robot motors, setting their "
+"positions and velocities, and subscribing to the ``/cmd_vel`` topic."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:250
+#: 6368ccb1734542c0bb765f6ddf9d4ca1
+msgid ""
+"Then comes the implementation of the ``cmdVelCallback()`` callback "
+"function that will be called for each Twist message received on the "
+"``/cmd_vel`` topic and will save it in the ``cmd_vel_msg`` member "
+"variable."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:256
+#: 88bd55e96ea74a2d82a2cc10d7e662d8
+msgid ""
+"The ``step()`` method is called at every time step of the simulation. At "
+"each time step, the method will retrieve the desired ``forward_speed`` "
+"and ``angular_speed`` from ``cmd_vel_msg``. As the motors are controlled "
+"with angular velocities, the method will then convert the "
+"``forward_speed`` and ``angular_speed`` into individual commands for each"
+" wheel. This conversion depends on the structure of the robot, more "
+"specifically on the radius of the wheel and the distance between them."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:265
+#: d5bba226dd5b46dfbd2ffb2b3362df3b
+msgid ""
+"The final lines of the file define the end of the ``my_robot_driver`` "
+"namespace and include a macro to export the ``MyRobotDriver`` class as a "
+"plugin using the ``PLUGINLIB_EXPORT_CLASS`` macro. This allows the plugin"
+" to be loaded by the Webots ROS2 driver at runtime."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:274
+#: 4675e291518f4396984b564a30efe3fe
+msgid ""
+"While the plugin is implemented in C++, the C API must be used to "
+"interact with the Webots controller library."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:279
+#: b5cd37c666394055a53124112dc3e45f
+msgid "4 Create the ``my_robot.urdf`` file"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:281
+#: bf09a2b9330a4a4590e9eb918a604d28
+msgid ""
+"You now have to create a URDF file to declare the ``MyRobotDriver`` "
+"plugin. This will allow the ``webots_ros2_driver`` ROS node to launch the"
+" plugin and connect it to the target robot."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:284
+#: ef55ea4d5b1e464e97351d3db4b873cb
+msgid ""
+"In the ``my_package/resource`` folder create a text file named "
+"``my_robot.urdf`` with this content:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:293
+#: 4e31dd603ba44bd08f8fc0e080a9e26d
+msgid ""
+"The ``type`` attribute specifies the path to the class given by the "
+"hierarchical structure of files. ``webots_ros2_driver`` is responsible "
+"for loading the class based on the specified package and modules."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:301
+#: 37a98cebf5f6450b836573da8a652585
+msgid ""
+"The ``type`` attribute specifies the namespace and class name to load. "
+"``pluginlib`` is responsible for loading the class based on the specified"
+" information."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:306
+#: 2df9d84763154ff29a76f344e92aead8
+msgid ""
+"This simple URDF file doesn't contain any link or joint information about"
+" the robot as it is not needed in this tutorial. However, URDF files "
+"usually contain much more information as explained in the "
+":doc:`../../../Intermediate/URDF/URDF-Main` tutorial."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:311
+#: 7d06d0549dd944e189e54ac0fe43a200
+msgid ""
+"Here the plugin does not take any input parameter, but this can be "
+"achieved with a tag containing the parameter name."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:332
+#: 19eb368ccc5844a99c830804f56cc69a
+msgid ""
+"This is namely used to pass parameters to existing Webots device plugins "
+"(see :doc:`./Setting-Up-Simulation-Webots-Advanced`)."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:335
+#: 545b92210e6540958259d3c225127011
+msgid "5 Create the launch file"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:337
+#: ff9a690f6291441ca4b2a6eccc3d3183
+msgid ""
+"Let's create the launch file to easily launch the simulation and the ROS "
+"controller with a single command. In the ``my_package/launch`` folder "
+"create a new text file named ``robot_launch.py`` with this code:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:343
+#: 62e36a16158f4bfc9dbc16da99bd9c6e
+msgid ""
+"The ``WebotsLauncher`` object is a custom action that allows you to start"
+" a Webots simulation instance. You have to specify in the constructor "
+"which world file the simulator will open."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:351
+#: 016de324954e4fbaa1b875820b3c6603
+msgid ""
+"Then, the ROS node interacting with the simulated robot is created. This "
+"node, named ``WebotsController``, is located in the "
+"``webots_ros2_driver`` package."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:358
+#: 655cf3d0cd4f41acb5e2520afcdf376c
+msgid ""
+"The node will be able to communicate with the simulated robot by using a "
+"custom protocol based on IPC and shared memory."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:362
+#: 0d9fe05d248c47f69a1b7b8c51be3558
+msgid ""
+"The node (in WSL) will be able to communicate with the simulated robot "
+"(in Webots on native Windows) through a TCP connection."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:366
+#: 80ae142f314740ec8049e93066d0f683
+msgid ""
+"The node (in the docker container) will be able to communicate with the "
+"simulated robot (in Webots on native macOS) through a TCP connection."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:369
+#: 16af94cabe0e4e629370cabada2dd214
+msgid ""
+"In your case, you need to run a single instance of this node, because you"
+" have a single robot in the simulation. But if you had more robots in the"
+" simulation, you would have to run one instance of this node per robot. "
+"The ``robot_name`` parameter is used to define the name of the robot the "
+"driver should connect to. The ``robot_description`` parameter holds the "
+"path to the URDF file which refers to the ``MyRobotDriver`` plugin. You "
+"can see the ``WebotsController`` node as the interface that connects your"
+" controller plugin to the target robot."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:380
+#: e357652d53414100b89e00e758c04b14
+msgid ""
+"After that, the two nodes are set to be launched in the "
+"``LaunchDescription`` constructor:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:387
+#: 4f536b370a1749b9b1ffe6562f841f49
+msgid ""
+"Finally, an optional part is added in order to shutdown all the nodes "
+"once Webots terminates (e.g., when it gets closed from the graphical user"
+" interface)."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:396
+#: 9dfde681aac14ecabec16337455c83b7
+msgid ""
+"More details on ``WebotsController`` and ``WebotsLauncher`` arguments can"
+" be found `on the nodes reference page "
+"<https://github.com/cyberbotics/webots_ros2/wiki/References-Nodes>`_."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:399
+#: dbfe094de07c4f1f9634ed31f321fc1a
+msgid "6 Edit additional files"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:405
+#: 2ce0af113335419eb6905af957dba4f8
+msgid ""
+"Before you can start the launch file, you have to modify the ``setup.py``"
+" file to include the extra files you added. Open ``my_package/setup.py`` "
+"and replace its contents with:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:411
+#: 836a920fa4574e80964a51141abeca51
+msgid ""
+"This sets-up the package and adds in the ``data_files`` variable the "
+"newly added files: ``my_world.wbt``, ``my_robot.urdf`` and "
+"``robot_launch.py``."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:415
+#: c9ca9551676f4991aceb1d0034036492
+msgid ""
+"Before you can start the launch file, you have to modify "
+"``CMakeLists.txt`` and ``my_robot_driver.xml`` files:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:417
+#: d050b8a6bb8e496cbba4e7c848d23b8c
+msgid "``CMakeLists.txt`` defines the compilation rules of your plugin."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:418
+#: 7978b020c9f84412a49d436522d130e6
+msgid ""
+"``my_robot_driver.xml`` is necessary for the pluginlib to find your "
+"Webots ROS 2 plugin."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:420
+#: 75a6a9a2c2a44a239632e0330afb5f47
+msgid "Open ``my_package/my_robot_driver.xml`` and replace its contents with:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:425
+#: eb33495cf1fd480c82ba4e3625e2dc4f
+msgid "Open ``my_package/CMakeLists.txt`` and replace its contents with:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:430
+#: 725bbc41f3924a3a86ba294daa36453d
+msgid ""
+"The CMakeLists.txt exports the plugin configuration file with the "
+"``pluginlib_export_plugin_description_file()``, defines a shared library "
+"of the C++ plugin ``src/MyRobotDriver.cpp``, and sets the include and "
+"library dependencies using ``ament_target_dependencies()``."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:432
+#: a4a1b2761d094322870ec106837cedf5
+msgid ""
+"The file then installs the library, the directories ``launch``, "
+"``resource``, and ``worlds`` to the ``share/my_package`` directory. "
+"Finally, it exports the include directories and libraries using "
+"``ament_export_include_directories()`` and ``ament_export_libraries()``, "
+"respectively, and declares the package using ``ament_package()``."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:437
+#: e2ee1ee47d0a4898857f70d25641d86f
+msgid "7 Test the code"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:443
+#: 758a7ed04d5946b1850fc8e780414bc3
+msgid "From a terminal in your ROS 2 workspace run:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:451
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:467
+#: 77bdbf9bdee94b76bbdc4464b0d0d4de bdde03059850493294a307538cbff184
+msgid ""
+"This will launch the simulation. Webots will be automatically installed "
+"on the first run in case it was not already installed."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:456
+#: 7ff3a0b9887b4f7bbd836b870437c47b
+msgid "From a terminal in your WSL ROS 2 workspace run:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:465
+#: 1014d6d827f94cf88380d277e6423614
+msgid ""
+"Be sure to use the ``/mnt`` prefix in front of your path to the Webots "
+"installation folder to access the Windows file system from WSL."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:472
+#: 463fbe1381114249b22e9c679c75995a
+msgid ""
+"On macOS, a local server must be started on the host to start Webots from"
+" the VM. The local server can be downloaded `on the webots-server "
+"repository <https://github.com/cyberbotics/webots-"
+"server/blob/main/local_simulation_server.py>`_."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:475
+#: d79a84c24c8f4ec5a30b79317ee1e932
+msgid ""
+"In a terminal of the host machine (not in the VM), specify the Webots "
+"installation folder (e.g. ``/Applications/Webots.app``) and start the "
+"server using the following commands:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:482
+#: 807f2bc9c8454696bf87042a843fbbde
+msgid ""
+"From a terminal in the Linux VM in your ROS 2 workspace, build and launch"
+" your custom package with:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:493
+#: f89970d319e44f809ceeb20b3ff42bd7
+msgid ""
+"If you want to install Webots manually, you can download it `here "
+"<https://github.com/cyberbotics/webots/releases/latest>`_."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:496
+#: 39e11c73b72142a496a8b7a4089fa4c0
+msgid "Then, open a second terminal and send a command with:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:502
+#: 2ee8be41fad248629927bd16db8c1e41
+msgid "The robot is now moving forward."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:506
+#: a4be998cddd8434a8afdbc64693ee97d
+msgid ""
+"At this point, the robot is able to blindly follow your motor commands. "
+"But it will eventually bump into the wall as you order it to move "
+"forwards."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:511
+#: 341ac05a56d040aabc747607e649d467
+msgid ""
+"Close the Webots window, this should also shutdown your ROS nodes started"
+" from the launcher. Close also the topic command with ``Ctrl+C`` in the "
+"second terminal."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:515
+#: 0a91d43bc3634a289028558af5c16946
+msgid "Summary"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:517
+#: 87efbbec8ba849008b28b2d577938097
+msgid ""
+"In this tutorial, you set-up a realistic robot simulation with Webots and"
+" implemented a custom plugin to control the motors of the robot."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:520
+#: 5e23098484e5486e865597cc1d103790
+msgid "Next steps"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:522
+#: 7e8daee051934600b2f01f9a2e4b252d
+msgid ""
+"To improve the simulation, the robot's sensors can be used to detect "
+"obstacles and avoid them. The second part of the tutorial shows how to "
+"implement such behaviour:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic.rst:525
+#: 87b083eb3dcf4bee8b0c8b82a9f4b962
+msgid ":doc:`./Setting-Up-Simulation-Webots-Advanced`."
+msgstr ""
+

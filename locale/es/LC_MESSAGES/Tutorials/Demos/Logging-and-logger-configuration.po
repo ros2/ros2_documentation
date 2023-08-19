@@ -1,0 +1,544 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:7
+#: a8ebbd836946450e921c9b454a1f466f
+msgid "Logging"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:11
+#: f8a726c8a01e43938619abd45ea8b8ad
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:13
+#: eead5959b22d48e2bad3179fd6da114f
+msgid ""
+"See `the logging page <../../Concepts/Intermediate/About-Logging>` for "
+"details on available functionality."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:16
+#: eac2b5a06796448784823383ffe3c326
+msgid "Using log statements in code"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:19
+#: 785dcd20bb4f4e9f8c77b018b77a39c1
+msgid "Basic logging"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:21
+#: dbad2582a47f4c12b31525e6fb9866f5
+msgid ""
+"The following code will output a log message from a ROS 2 node at "
+"``DEBUG`` severity:"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:25
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:50
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:74
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:100
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:127
+#: 1ed22f500290475d8d91144051936a67 90250097117040a0b49810189b303271
+#: a5144f5d407c4eb4ad85f92c92238761 bd848d587b9640478170ace820885362
+#: db39a10971524564a5ca49d49cc890ea
+msgid "C++"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:35
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:60
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:84
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:113
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:136
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:248
+#: 303e5674db064ac1934f6820f2aaf7ef 5769af11f242473881e9439d0c42b60b
+#: 5910935053f0467ba7adffe6e6afb541 738829b7b11f4c94ae628aac9be8d938
+#: 9873292b96a949fd8a7fd1a4989ef720 e4e10c9b519a4fa18f33af6f84951767
+msgid "Python"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:41
+#: 9325e0ce1d374b7c8016e2b18eceb9a2
+msgid ""
+"Note that in both cases, no trailing newline is added, as the logging "
+"infrastructure will automatically add one."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:44
+#: a6260312878146339ca5c2bcfe80149c
+msgid "Logging only the first time"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:46
+#: e72cc4d581f547fc93c3738b5c271121
+msgid ""
+"The following code will output a log message from a ROS 2 node at "
+"``INFO`` severity, but only the first time it is hit:"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:68
+#: e4d271c931cd439288380497411c1421
+msgid "Logging all but the first time"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:70
+#: 137ae086fb7e4e23ab109ef0ff329c2d
+msgid ""
+"The following code will output a log message from a ROS 2 node at "
+"``WARN`` severity, but not the very first time it is hit:"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:92
+#: 4c68e2d769554dab8fc7368b675b53f4
+msgid "Logging throttled"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:94
+#: bdf8320fb131429cabde3c48171f815d
+msgid ""
+"The following code will output a log message from a ROS 2 node at "
+"``ERROR`` severity, but no more than once per second."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:96
+#: 292faec9386c4ef3a646525f0a6637b7
+msgid ""
+"The interval parameter specifying milliseconds between messages should "
+"have an integer data type so it can be converted to a "
+"``rcutils_duration_value_t`` (an ``int64_t``):"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:121
+#: c34d0f1775d94a15b2b9e6f9fa6e5ac3
+msgid "Logging throttled all but the first time"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:123
+#: 8c7c8660ebf84a649dc68987c77e6c56
+msgid ""
+"The following code will output a log message from a ROS 2 node at "
+"``DEBUG`` severity, no more than once per second, skipping the very first"
+" time it is hit:"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:144
+#: 0a74f9f07c314312a47c6ee57cba2d05
+msgid "Logging demo"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:146
+#: 8c7f7367956041c7913125b026dceb11
+msgid ""
+"In this `demo "
+"<https://github.com/ros2/demos/tree/rolling/logging_demo>`_, different "
+"types of log calls are shown and the severity level of different loggers "
+"is configured locally and externally."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:148
+#: ecd1f0049f0a4e9d95c02ed88767d3c1
+msgid "Start the demo with:"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:154
+#: fa47248683564652834714c9e5264156
+msgid ""
+"Over time you will see output from various log calls with different "
+"properties. To start with you will only see output from log calls with "
+"severity ``INFO`` and above (``WARN``, ``ERROR``, ``FATAL``). Note that "
+"the first message will only be logged once, though the line is reached on"
+" each iteration, as that is a property of the log call used for that "
+"message."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:159
+#: 2a31c2a83c884399a4965d49fb4147ca
+msgid "Logging directory configuration"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:161
+#: 58661a8b0ee0477e892adf33c75e30b0
+msgid ""
+"The logging directory can be configured through two environment "
+"variables: ``ROS_LOG_DIR`` and ``ROS_HOME``. The logic is as follows:"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:164
+#: 0003e6922bbe48b8aecc7f27cc261977
+msgid "Use ``$ROS_LOG_DIR`` if ``ROS_LOG_DIR`` is set and not empty."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:165
+#: eb874922d472493ba6f6be020ebfcce8
+msgid ""
+"Otherwise, use ``$ROS_HOME/log``, using ``~/.ros`` for ``ROS_HOME`` if "
+"not set or if empty."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:167
+#: ae820bbb41b24ec297f39d9d8d52fab6
+msgid "For example, to set the logging directory to ``~/my_logs``:"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:171
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:201
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:241
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:385
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:416
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:452
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:481
+#: 0d04107510e04387a98f51facf9f2436 25935dbb979c4f5b832d4df2a422ae9a
+#: 96c4e15b8b4e4bb8b1004a131fa0f94e 99bfdc65ff564f37a912f9f876dda5b2
+#: b9a0667f5819472e98ed1fa865ed6c3a e1c09cf8d22649deb2354eb59fbbca95
+#: eb8fe304171a4bb8b21dfe27a3198383
+msgid "Linux"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:178
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:208
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:391
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:422
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:458
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:487
+#: 04bf5bcc72c345bd95c72d8335820515 0efbdb05af294fbbafcd798324765e46
+#: 1787ae5a35874c3098beb252f41f01e9 8930c70a5dc44317954997f404d11bfb
+#: a21712794cd14d4db9ca381723b54775 aa91203c0bce40898463c22390c463cd
+msgid "macOS"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:185
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:215
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:397
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:428
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:464
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:493
+#: 206463d2092a44679e0854c077dcef6d 39a328d74b3f46b8be0bfc5b65f00520
+#: 650757a8b6e546198b851086ac458713 8bd033cf63ed48cfa63fde4c45342947
+#: d5f7991b2b4748a9820152df10855dcb f1c871d79bdd4e089dc16db74c62ea58
+msgid "Windows"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:192
+#: c35a492c041949e5b19de86f373531e7
+msgid "You will then find the logs under ``~/my_logs/``."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:194
+#: 2df3f8dd90ed471f94aaf3d3bd061167
+msgid ""
+"Alternatively, you can set ``ROS_HOME`` and the logging directory will be"
+" relative to it (``$ROS_HOME/log``). ``ROS_HOME`` is intended to be used "
+"by anything that needs a base directory. Note that ``ROS_LOG_DIR`` has to"
+" be either unset or empty. For example, with ``ROS_HOME`` set to "
+"``~/my_ros_home``:"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:222
+#: 22925911453748a7adff450121c6143d
+msgid "You will then find the logs under ``~/my_ros_home/log/``."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:225
+#: b57087aa80f94eb8b719cb345c74243d
+msgid "Logger level configuration: programmatically"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:227
+#: bdf7f54542844688b2ec3169d7e3d7d6
+msgid ""
+"After 10 iterations the level of the logger will be set to ``DEBUG``, "
+"which will cause additional messages to be logged."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:229
+#: d4896e38a128477ead43cb81f2519da3
+msgid ""
+"Some of these debug messages cause additional functions/expressions to be"
+" evaluated, which were previously skipped as ``DEBUG`` log calls were not"
+" enabled. See `the source code "
+"<https://github.com/ros2/demos/blob/rolling/logging_demo/src/logger_usage_component.cpp>`__"
+" of the demo for further explanation of the calls used, and see the "
+"rclcpp logging documentation for a full list of supported logging calls."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:233
+#: e1383436f8374a90a534931ba058851d
+msgid "Logger level configuration: externally"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:235
+#: 1c49182d76bd4e4ea9fd9de7ebf8116e
+msgid ""
+"ROS 2 nodes have services available to configure the logging level "
+"externally at runtime. These services are disabled by default. The "
+"following code shows how to enable the logger service while creating the "
+"node."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:255
+#: ba918d2732d14c9ebe021314cc741229
+msgid ""
+"If you run one of the nodes as configured above, you will find 2 services"
+" when running ``ros2 service list``:"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:265
+#: 177ae8158c6541d28b73621efa5ae178
+msgid "get_logger_levels"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:267
+#: eee397f4a2cc4e8b8bbac44ff69af36b
+msgid "Use this service to get logger levels for specified logger names."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:269
+#: 59fd92a55f2349c8a57cd94f494a2424
+msgid ""
+"Run ``ros2 service call`` to get logger levels for "
+"``NodeWithLoggerService`` and ``rcl``."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:280
+#: 5fb0c524732b4d0d975bfc003e9542f6
+msgid "set_logger_levels"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:282
+#: a50ea087bf7a4ec5897f3cfa0ae00356
+msgid "Use this service to set logger levels for specified logger names."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:284
+#: cf1b9ee078294a469ab61233f6ba4024
+msgid ""
+"Run ``ros2 service call`` to set logger levels for "
+"``NodeWithLoggerService`` and ``rcl``."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:296
+#: aceb9dcd5d464d43b61537c1110dca40
+msgid ""
+"There is also demo code showing how to set or get the logger level via "
+"the logger service."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:298
+#: 501aedcc2b4e4b2897140322c4b0cdb3
+msgid ""
+"rclcpp: `demo code "
+"<https://github.com/ros2/demos/tree/rolling/demo_nodes_cpp/src/logging/use_logger_service.cpp>`__"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:304
+#: b866f0fc8bfb4c64b101530a0efd49bf
+msgid ""
+"rclpy: `demo code "
+"<https://github.com/ros2/demos/tree/rolling/demo_nodes_py/demo_nodes_py/logging/use_logger_service.py>`__"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:312
+#: 92313f86995c4c3f9e14f34f3da357a4
+msgid ""
+"Currently, there is a limitation that ``get_logger_levels`` and "
+"``set_logger_levels`` services are not thread-safe. This means that you "
+"need to ensure that only one thread is calling the services at a time. "
+"Please see the details in https://github.com/ros2/rcutils/issues/397"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:317
+#: d8ad5121a192454580af10c52f1ada7d
+msgid "Using the logger config component"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:319
+#: b941f60f10d34dd2b27bac6ceab19674
+msgid ""
+"The server that responds to the logger configuration requests has been "
+"developed as a component so that it may be added to an existing "
+"composition-based system. For example, if you are using `a container to "
+"run your nodes <../Intermediate/Composition>`, to be able to configure "
+"your loggers you only need to request that it additionally load the "
+"``logging_demo::LoggerConfig`` component into the container."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:322
+#: 25b3d056b13d4777bb4893e5dee580dd
+msgid ""
+"As an example, if you want to debug the ``composition::Talker`` demo, you"
+" can start the talker as normal with:"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:324
+#: 0779a2726dea4b77a9d1ce6090e8a0fb
+msgid "Shell 1:"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:330
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:347
+#: 057445b5d04f422e947455c8d10353ef 113316c0b3814abb8f6260007604b559
+msgid "Shell 2:"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:336
+#: f895293472234165b7cfc4e839fd3f2b
+msgid ""
+"And then when you want to enable debug logging, load the ``LoggerConfig``"
+" component with:"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:338
+#: a96842c17d95437d87243552c23a71ad
+msgid "Shell 2"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:344
+#: 2331c97306e149e78cbd31874ba640a0
+msgid ""
+"And finally, configure all unset loggers to the debug severity by "
+"addressing the empty-named logger. Note that loggers that have been "
+"specifically configured to use a particular severity will not be affected"
+" by this call."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:353
+#: 07e279165cf5442483e9eaa017140024
+msgid ""
+"You should see debug output from any previously unset loggers in the "
+"process start to appear, including from the ROS 2 core."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:356
+#: 0d6bbe5a993e4a33aa2f93748abb82ae
+msgid "Logger level configuration: command line"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:358
+#: 56301502075940c78f20a5e352ca5697
+msgid ""
+"As of the Bouncy ROS 2 release, the severity level for loggers that have "
+"not had their severity set explicitly can be configured from the command "
+"line. Restart the demo including the following command line argument:"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:366
+#: 341a04365b15412cb9614f091f0a4ea9
+msgid ""
+"This configures the default severity for any unset logger to the debug "
+"severity level. You should see debug output from loggers from the demo "
+"itself and from the ROS 2 core."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:369
+#: dc36d41768684514a3f7a7689d82cd32
+msgid ""
+"The severity level for individual loggers can be configured from the "
+"command-line. Restart the demo including the following command line "
+"arguments:"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:378
+#: e90eb7d0657640ae9c08b9373a43f296
+msgid "Console output formatting"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:380
+#: c4ce84fcc6d54f57be5c19aaa7b36339
+msgid ""
+"If you would like more or less verbose formatting, you can use "
+"RCUTILS_CONSOLE_OUTPUT_FORMAT environment variable. For example, to "
+"additionally get the timestamp and location of the log calls, stop the "
+"demo and restart it with the environment variable set:"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:404
+#: d2d7c2d7e402419da748d3edabfd0dcc
+msgid ""
+"You should see the timestamp in seconds and the function name, filename "
+"and line number additionally printed with each message. *The ``time`` "
+"option is only supported as of the ROS 2 Bouncy release.*"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:408
+#: 3dfb8957ee3246fab7ef03a96e76c999
+msgid "Console output colorizing"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:410
+#: ef67cbd5299f4cdab24053354db28af2
+msgid ""
+"By default, the output is colorized when it's targeting a terminal. If "
+"you would like to force enabling or disabling it, you can use the "
+"``RCUTILS_COLORIZED_OUTPUT`` environment variable. For example:"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:435
+#: 43b110aa78374b01a2bc087c5ab4167b
+msgid ""
+"You should see that debug, warn, error and fatal logs aren't colorized "
+"now."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:439
+#: 71679ef7a46049f2b9828c3dc2198eb4
+msgid ""
+"In Linux and MacOS forcing colorized output means that if you redirect "
+"the output to a file, the ansi escape color codes will appear on it. In "
+"windows the colorization method relies on console APIs. If it is forced "
+"you will get a new warning saying that colorization failed. The default "
+"behavior already checks if the output is a console or not, so forcing "
+"colorization is not recommended."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:445
+#: e294a9f90a164712a72e68997e2cdd45
+msgid "Default stream for console output"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:447
+#: 64bbfb1377774c83897120f01df69807
+msgid ""
+"In Foxy and later, the output from all debug levels goes to stderr by "
+"default.  It is possible to force all output to go to stdout by setting "
+"the ``RCUTILS_LOGGING_USE_STDOUT`` environment variable to ``1``. For "
+"example:"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:472
+#: 257d2d7da7f54101924d749c8e94a6be
+msgid "Line buffered console output"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:475
+#: 8e4110332f1740b19a0e6e7703bb3cec
+msgid ""
+"By default, all logging output is unbuffered. You can force it to be "
+"buffered by setting the ``RCUTILS_LOGGING_BUFFERED_STREAM`` environment "
+"variable to 1. For example:"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Logging-and-logger-configuration.rst:499
+#: 5c21d47c52c547d79cd8820597d4772a
+msgid "Then run:"
+msgstr ""
+

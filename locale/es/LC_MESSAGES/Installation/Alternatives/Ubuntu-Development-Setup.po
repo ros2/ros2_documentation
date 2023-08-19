@@ -1,0 +1,326 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:7
+#: e9b7eddb3f0e4a6abd71ed5fb3eecf72
+msgid "Ubuntu (source)"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:12
+#: 296ff83c0ef840d18d45c2334da27267
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:15
+#: 5bd0cbf8c70e4589b627ae2ef0c4fe1d
+msgid "System requirements"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:16
+#: 75383689e3704431a6c799cb8ae4265e
+msgid "The current Debian-based target platforms for Rolling Ridley are:"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:18
+#: 194b4ec566f94f958bffa823c4e574e1
+msgid "Tier 1: Ubuntu Linux - Jammy (22.04) 64-bit"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:19
+#: b7ff99293f054b699e06a8caac9255b9
+msgid "Tier 3: Debian Linux - Bullseye (11) 64-bit"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:21
+#: 63288bbff3364d819bf7613480e3b6f6
+msgid "As defined in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`_."
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:24
+#: 0754adf968cd4f7caa40b556cde499d4
+msgid "System setup"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:27
+#: 37edd90e20414c768f207044de239ab1
+msgid "Set locale"
+msgstr ""
+
+#: ../../source/Installation/_Ubuntu-Set-Locale.rst:1
+#: 1feb5817d4f946c49989454efbbe3fa6
+msgid ""
+"Make sure you have a locale which supports ``UTF-8``. If you are in a "
+"minimal environment (such as a docker container), the locale may be "
+"something minimal like ``POSIX``. We test with the following settings. "
+"However, it should be fine if you're using a different UTF-8 supported "
+"locale."
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:32
+#: cbba1fc441ae4255bf20c123cce10f8c
+msgid "Enable required repositories"
+msgstr ""
+
+#: ../../source/Installation/_Apt-Repositories.rst:1
+#: d8b5dad4a94a4e51bfc95006aeeb207e
+msgid "You will need to add the ROS 2 apt repository to your system."
+msgstr ""
+
+#: ../../source/Installation/_Apt-Repositories.rst:3
+#: 51de5a9dccba44ff968ad5f3ee43f7b7
+msgid ""
+"First ensure that the `Ubuntu Universe repository "
+"<https://help.ubuntu.com/community/Repositories/Ubuntu>`_ is enabled."
+msgstr ""
+
+#: ../../source/Installation/_Apt-Repositories.rst:10
+#: f0f526c73f094e43b426f2fe3cfe9312
+msgid "Now add the ROS 2 GPG key with apt."
+msgstr ""
+
+#: ../../source/Installation/_Apt-Repositories.rst:17
+#: afd16d89b9d14429ac18b3e1646dde2e
+msgid "Then add the repository to your sources list."
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:37
+#: e076d9fc21254c4cae36de071ff1cdd8
+msgid "Install development tools"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:57
+#: 545d60125497454d8e220fdc9455bcf8
+msgid "Build ROS 2"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:60
+#: a979e099772d4006b3fc5842eb55d9b6
+msgid "Get ROS 2 code"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:62
+#: 0f5b7fd812634bb59f80f9a1e2decf3b
+msgid "Create a workspace and clone all repos:"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:73
+#: 5c1b04c034dc4480b119771d25b56086
+msgid "Install dependencies using rosdep"
+msgstr ""
+
+#: ../../source/Installation/_Apt-Upgrade-Admonition.rst:1
+#: 6e4b5eafd95a48a0b52363881affe586
+msgid ""
+"ROS 2 packages are built on frequently updated Ubuntu systems. It is "
+"always recommended that you ensure your system is up to date before "
+"installing new packages."
+msgstr ""
+
+#: ../../source/Installation/_rosdep_Linux_Mint.rst:1
+#: ffd0ec0ffc5b4f9cb341da763bae569c
+msgid ""
+"**Note**: If you're using a distribution that is based on Ubuntu (like "
+"Linux Mint) but does not identify itself as such, you'll get an error "
+"message like ``Unsupported OS [mint]``. In this case append "
+"``--os=ubuntu:jammy`` to the above command."
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:86
+#: 1fcaa500aa1c46739a50a2d8358fa73a
+msgid "Install additional RMW implementations (optional)"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:88
+#: 4efbf796607643cdba0dc455ac59eee5
+msgid ""
+"The default middleware that ROS 2 uses is ``Fast DDS``, but the "
+"middleware (RMW) can be replaced at build or runtime. See the :doc:`guide"
+" <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how "
+"to work with multiple RMWs."
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:92
+#: 08c71e9e0856422dad5be24b5dfe9725
+msgid "Build the code in the workspace"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:94
+#: 2464741e83084a54a376c8b3c74b4486
+msgid ""
+"If you have already installed ROS 2 another way (either via Debians or "
+"the binary distribution), make sure that you run the below commands in a "
+"fresh environment that does not have those other installations sourced. "
+"Also ensure that you do not have ``source "
+"/opt/ros/${ROS_DISTRO}/setup.bash`` in your ``.bashrc``. You can make "
+"sure that ROS 2 is not sourced with the command ``printenv | grep -i "
+"ROS``. The output should be empty."
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:99
+#: 303becbb7b184cd3ba68e2ae7661b487
+msgid ""
+"More info on working with a ROS workspace can be found in :doc:`this "
+"tutorial <../../Tutorials/Beginner-Client-Libraries/Colcon-Tutorial>`."
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:108
+#: c49f30d6680c4b98b29798d901032975
+msgid ""
+"If you are having trouble compiling all examples and this is preventing "
+"you from completing a successful build, you can use the ``--packages-"
+"skip`` colcon flag to ignore the package that is causing problems. For "
+"instance, if you don't want to install the large OpenCV library, you "
+"could skip building the packages that depend on it using the command:"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:116
+#: a207614812f6429797a4088101f13bc8
+msgid "Setup environment"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:118
+#: e64d957dae854fa997ce5b207237ef5f
+msgid "Set up your environment by sourcing the following file."
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:129
+#: 80c908e0e4a841639ed8fdfefcd5b449
+msgid "Try some examples"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:131
+#: 7d424c353d5241eda66bc8c348b3f325
+msgid "In one terminal, source the setup file and then run a C++ ``talker``\\ :"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:138
+#: 856b710ea8e847fd90ab69a3afb38852
+msgid ""
+"In another terminal source the setup file and then run a Python "
+"``listener``\\ :"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:145
+#: 443730b2846a4de9b2f6274c253d8642
+msgid ""
+"You should see the ``talker`` saying that it's ``Publishing`` messages "
+"and the ``listener`` saying ``I heard`` those messages. This verifies "
+"both the C++ and Python APIs are working properly. Hooray!"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:150
+#: 0c3533913e9f439fb857fd3b50c8058e
+msgid "Next steps"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:152
+#: d1a5bba54af847958770bfbcd33b1858
+msgid ""
+"Continue with the :doc:`tutorials and demos <../../Tutorials>` to "
+"configure your environment, create your own workspace and packages, and "
+"learn ROS 2 core concepts."
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:155
+#: 10067b7da9c14440923d7b9667393607
+msgid "Use the ROS 1 bridge (optional)"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:157
+#: fe3e0bdfbf71490686b722c5b0d65498
+msgid ""
+"The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa. "
+"See the dedicated :doc:`document <../../How-To-Guides/Using-ros1_bridge-"
+"Jammy-upstream>` on how to build and use the ROS 1 bridge."
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:161
+#: 7e3f1d3d4c9b44f7b8042c9340d6cced
+msgid "Alternate compilers"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:163
+#: fbc87ef06c0c4cea8b6afd37454d992e
+msgid ""
+"Using a different compiler besides gcc to compile ROS 2 is easy. If you "
+"set the environment variables ``CC`` and ``CXX`` to executables for a "
+"working C and C++ compiler, respectively, and retrigger CMake "
+"configuration (by using ``--force-cmake-config`` or by deleting the "
+"packages you want to be affected), CMake will reconfigure and use the "
+"different compiler."
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:166
+#: 439b29f795c5486b91bf72c369fe0945
+msgid "Clang"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:168
+#: 1e5c0b02aaa04ddf92c94764cf2fa93e
+msgid "To configure CMake to detect and use Clang:"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:178
+#: 4ef4f2619c9641b6a0c83b55f2401c76
+msgid "Stay up to date"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:180
+#: 719906a9710842709fabdacd36262d23
+msgid ""
+"See :doc:`../Maintaining-a-Source-Checkout` to periodically refresh your "
+"source installation."
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:183
+#: ddaa5ca9f4c04455b37af12c19aae6c1
+msgid "Troubleshoot"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:185
+#: 88a1321b69214fcda3ce5a4d6f720ce8
+msgid ""
+"Troubleshooting techniques can be found :ref:`here <linux-"
+"troubleshooting>`."
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:188
+#: b2feb5df2fa54033929fea8999900165
+msgid "Uninstall"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:190
+#: b0171324c2c442ffaeef93eac6c05dcf
+msgid ""
+"If you installed your workspace with colcon as instructed above, "
+"\"uninstalling\" could be just a matter of opening a new terminal and not"
+" sourcing the workspace's ``setup`` file. This way, your environment will"
+" behave as though there is no Rolling install on your system."
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:193
+#: 865da7d0ddde4519bf6f6639c9aada2a
+msgid ""
+"If you're also trying to free up space, you can delete the entire "
+"workspace directory with:"
+msgstr ""
+

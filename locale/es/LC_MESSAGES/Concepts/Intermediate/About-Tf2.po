@@ -1,0 +1,185 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Concepts/Intermediate/About-Tf2.rst:6
+#: 1e8b586501684a2c94813d92a178a9c0
+msgid "Tf2"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Tf2.rst:9
+#: 83690ca024d64f888fe3e17c62026b91
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Tf2.rst:12
+#: 346c26c3d34a483689f545cdd35c3459
+msgid "Overview"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Tf2.rst:14
+#: 10f9bc29c8014aadafaa8b2cd5f70f20
+msgid ""
+"tf2 is the transform library, which lets the user keep track of multiple "
+"coordinate frames over time. tf2 maintains the relationship between "
+"coordinate frames in a tree structure buffered in time and lets the user "
+"transform points, vectors, etc. between any two coordinate frames at any "
+"desired point in time."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Tf2.rst:20
+#: 416e51ef0a414dd2a20d4d4589898e23
+msgid "Properties of tf2"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Tf2.rst:22
+#: 3b0f620764e64da9831d78b0938625b2
+msgid ""
+"A robotic system typically has many 3D coordinate frames that change over"
+" time, such as a world frame, base frame, gripper frame, head frame, etc."
+" tf2 keeps track of all these frames over time, and allows you to ask "
+"questions like:"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Tf2.rst:25
+#: a9b7711962fa41439635189f7b35c9d6
+msgid "Where was the head frame relative to the world frame 5 seconds ago?"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Tf2.rst:26
+#: 1817c5477cd4460b998340f3507e2e66
+msgid "What is the pose of the object in my gripper relative to my base?"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Tf2.rst:27
+#: 788efb1266734b8786c360b5e3990289
+msgid "What is the current pose of the base frame in the map frame?"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Tf2.rst:29
+#: 06b82b7508dd4321b6a9d63bcdea5f55
+msgid ""
+"tf2 can operate in a distributed system. This means all the information "
+"about the coordinate frames of a robot is available to all ROS 2 "
+"components on any computer in the system. tf2 can have every component in"
+" your distributed system build its own transform information database or "
+"have a central node that gathers and stores all transform information."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Tf2.rst:34
+#: d5eb1ce85faa485a974fabaa27495580
+msgid "Tutorials"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Tf2.rst:36
+#: 97a9b51eaeb44bd18f58ec8226e83eda
+msgid ""
+"We created a set of :doc:`tutorials "
+"<../../Tutorials/Intermediate/Tf2/Tf2-Main>` that walks you through using"
+" tf2, step by step. You can get started on the :doc:`introduction to tf2 "
+"<../../Tutorials/Intermediate/Tf2/Introduction-To-Tf2>` tutorial. For a "
+"complete list of all tf2 and tf2-related tutorials check out the "
+":doc:`tutorials <../../Tutorials/Intermediate/Tf2/Tf2-Main>` page."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Tf2.rst:40
+#: 51f5acbadff447b09c2e519f18459370
+msgid ""
+"There are essentially two main tasks that any user would use tf2 for, "
+"listening for transforms and broadcasting transforms."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Tf2.rst:42
+#: aea96badf0c24faab3c29b1e5e95d3ee
+msgid ""
+"If you want to use tf2 to transform between coordinate frames, your nodes"
+" will need to listen for transforms. What you will do is receive and "
+"buffer all coordinate frames that are broadcasted in the system, and "
+"query for specific transforms between frames. Check out the \"Writing a "
+"listener\" tutorial :doc:`(Python) "
+"<../../Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py>` :doc:`(C++)"
+" <../../Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp>` to learn "
+"more."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Tf2.rst:46
+#: 0afd5c7838484d8aab8563d2601129e6
+msgid ""
+"To extend the capabilities of a robot, you will need to start "
+"broadcasting transforms. Broadcasting transforms means to send out the "
+"relative pose of coordinate frames to the rest of the system. A system "
+"can have many broadcasters that each provide information about a "
+"different part of the robot. Check out the \"Writing a broadcaster\" "
+"tutorial :doc:`(Python) <../../Tutorials/Intermediate/Tf2/Writing-A-Tf2"
+"-Broadcaster-Py>` :doc:`(C++) "
+"<../../Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp>` to "
+"learn more."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Tf2.rst:51
+#: 503328f9c7d145d598051e14a980a733
+msgid ""
+"In addition to that, tf2 can broadcast static transforms that do not "
+"change over time. This mainly saves storage and lookup time, but also "
+"reduces the publishing overhead. You should note that static transforms "
+"are published once and assumed to not change, so no history is stored. If"
+" you want to define static transforms in your tf2 tree, take a look at "
+"the \"Writing a static broadcaster\" :doc:`(Python) "
+"<../../Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Py>` "
+":doc:`(C++) <../../Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-"
+"Broadcaster-Cpp>` tutorial."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Tf2.rst:56
+#: 005dffa048e248f2ac038e6254089364
+msgid ""
+"You can also learn how to add fixed and dynamic frames to your tf2 tree "
+"in the \"Adding a frame\" :doc:`(Python) "
+"<../../Tutorials/Intermediate/Tf2/Adding-A-Frame-Py>` :doc:`(C++) "
+"<../../Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp>` tutorial."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Tf2.rst:58
+#: 27608df4c9aa47ec9c5d79c17891c9d4
+msgid ""
+"Once you are finished with the basic tutorials, you can move on to learn "
+"about tf2 and time. The tf2 and time tutorial :doc:`(Python) "
+"<../../Tutorials/Intermediate/Tf2/Learning-About-Tf2-And-Time-Py>` "
+":doc:`(C++) <../../Tutorials/Intermediate/Tf2/Learning-About-Tf2-And-"
+"Time-Cpp>` teaches the basic principles of tf2 and time. The advanced "
+"tutorial about tf2 and time :doc:`(Python) "
+"<../../Tutorials/Intermediate/Tf2/Time-Travel-With-Tf2-Py>` :doc:`(C++) "
+"<../../Tutorials/Intermediate/Tf2/Time-Travel-With-Tf2-Cpp>` teaches the "
+"principles of time traveling with tf2."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Tf2.rst:63
+#: 8bdda608c92b4633a04c8c15e8a59df9
+msgid "Paper"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Tf2.rst:65
+#: a31036f48075477681004869a87f2c3d
+msgid ""
+"There is a paper on tf2 presented at TePRA 2013: `tf: The transform "
+"library <https://ieeexplore.ieee.org/abstract/document/6556373>`_."
+msgstr ""
+

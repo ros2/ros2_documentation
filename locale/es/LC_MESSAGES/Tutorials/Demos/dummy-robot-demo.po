@@ -1,0 +1,137 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Demos/dummy-robot-demo.rst:7
+#: dcc7403873ca49d0855e4cc576012b0c
+msgid "Experimenting with a dummy robot"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/dummy-robot-demo.rst:9
+#: ca8e545143b34661a23239e1962e526d
+msgid ""
+"In this demo, we present a simple demo robot with all components from "
+"publishing joint states over publishing fake laser data until visualizing"
+" the robot model on a map in RViz."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/dummy-robot-demo.rst:12
+#: 8351ab830a0342a7a6a90527a29d6e19
+msgid "Launching the demo"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/dummy-robot-demo.rst:14
+#: e1bd36557c194cb98e7284e0944fcfef
+msgid ""
+"We assume your ROS 2 installation dir as ``~/ros2_ws``. Please change the"
+" directories according to your platform."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/dummy-robot-demo.rst:16
+#: b3d2c2ee403d4ad9bcc423f76919f555
+msgid ""
+"To start the demo, we execute the demo bringup launch file, which we are "
+"going to explain in more details in the next section."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/dummy-robot-demo.rst:23
+#: d46735306c4041bca38e4ad96182db66
+msgid ""
+"You should see some prints inside your terminal along the lines of the "
+"following:"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/dummy-robot-demo.rst:53
+#: 9b9f19ec07ab448bace91a595c834ee3
+msgid "If you now open in a next terminal your RViz, you'll see your robot. 🎉"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/dummy-robot-demo.rst:60
+#: fa9a296aa185409fa357ffff9f027c62
+msgid ""
+"This opens RViz2. Assuming you have your dummy_robot_bringup still "
+"launched, you can now add the TF display plugin and configure your global"
+" frame to ``world``. Once you did that, you should see a similar picture:"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/dummy-robot-demo.rst:67
+#: 4bc11c94c09b49f0b44689f3c8557cf4
+msgid "What's happening?"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/dummy-robot-demo.rst:69
+#: a2d2a619c9a44ed4b8ea166114e36de1
+msgid ""
+"If you have a closer look at the launch file, we start a couple of nodes "
+"at the same time."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/dummy-robot-demo.rst:72
+#: 0d1d27c1bff84cc58e23c331350769cb
+msgid "dummy_map_server"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/dummy-robot-demo.rst:73
+#: a64ca79db71c47fba50ab8e6d185a6b0
+msgid "dummy_laser"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/dummy-robot-demo.rst:74
+#: 4631a740ca62423ea7f39e347093c7e5
+msgid "dummy_joint_states"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/dummy-robot-demo.rst:75
+#: 2964fd8314484e21980b47a1f712ebf5
+msgid "robot_state_publisher"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/dummy-robot-demo.rst:77
+#: 4314d96648144733b6b4620e7fe1aa1e
+msgid ""
+"The first two packages are relatively simple. The ``dummy_map_server`` "
+"constantly publishes an empty map with a periodic update. The "
+"``dummy_laser`` does basically the same; publishing dummy fake laser "
+"scans."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/dummy-robot-demo.rst:79
+#: ecdf887dac3c409a8f948eae431bf421
+msgid ""
+"The ``dummy_joint_states`` node is publishing fake joint state data. As "
+"we are publishing a simple RRbot with only two joints, this node "
+"publishes joint states values for these two joints."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/dummy-robot-demo.rst:81
+#: 7e17c2f947d8410dbe39d2623dd7cd8b
+msgid ""
+"The ``robot_state_publisher`` is doing the actual interesting work. It "
+"parses the given URDF file, extracts the robot model and listens to the "
+"incoming joint states. With this information, it publishes TF values for "
+"our robot which we visualize in RViz."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/dummy-robot-demo.rst:83
+#: 0e71260090b3441ea2fef5f1963a2aaa
+msgid "Hooray!"
+msgstr ""
+

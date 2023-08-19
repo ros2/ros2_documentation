@@ -1,0 +1,655 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:7
+#: d3e41e5d861d48b48baaa2bdfcc45dcf
+msgid "Interfaces"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:10
+#: 0308c899fcaa41d5b1ede3a271f12534
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:13
+#: 4e15b97715ae4cd893ef2508560f791d
+msgid "Background"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:15
+#: c360e67c8323418d887cbde1d847d34b
+msgid ""
+"ROS applications typically communicate through interfaces of one of three"
+" types: :doc:`topics <About-Topics>`, :doc:`services <About-Services>`, "
+"or :doc:`actions <About-Actions>`. ROS 2 uses a simplified description "
+"language, the interface definition language (IDL), to describe these "
+"interfaces. This description makes it easy for ROS tools to automatically"
+" generate source code for the interface type in several target languages."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:19
+#: bdf3e7ee453a46c0910590e597cd13dc
+msgid "In this document we will describe the supported types:"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:21
+#: ade8428483364c8e9426a130d58b0444
+msgid ""
+"msg: ``.msg`` files are simple text files that describe the fields of a "
+"ROS message. They are used to generate source code for messages in "
+"different languages."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:22
+#: 2fb5ce924f694cc38c476a8cecc42d32
+msgid ""
+"srv: ``.srv`` files describe a service. They are composed of two parts: a"
+" request and a response. The request and response are message "
+"declarations."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:23
+#: 35449b9ff30c475d951cbfbf4c55a8aa
+msgid ""
+"action: ``.action`` files describe actions. They are composed of three "
+"parts: a goal, a result, and feedback. Each part is a message declaration"
+" itself."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:27
+#: 28fa8d9b99e540e78544f1d4e48bc247
+msgid "Messages"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:29
+#: 6db143023cf64137a432d1368add47b5
+msgid ""
+"Messages are a way for a ROS 2 node to send data on the network to other "
+"ROS nodes, with no response expected. For instance, if a ROS 2 node reads"
+" temperature data from a sensor, it can then publish that data on the ROS"
+" 2 network using a ``Temperature`` message. Other nodes on the ROS 2 "
+"network can subscribe to that data and receive the ``Temperature`` "
+"message."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:33
+#: ed8c65dce08e43b2b1f414a08e40ba54
+msgid ""
+"Messages are described and defined in ``.msg`` files in the ``msg/`` "
+"directory of a ROS package. ``.msg`` files are composed of two parts: "
+"fields and constants."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:37
+#: 9b6ef8afdb97486581607263c9c5f68e
+msgid "Fields"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:39
+#: 4a414cc6df1145fc83a7826787ca1742
+msgid "Each field consists of a type and a name, separated by a space, i.e:"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:47
+#: ../../source/Concepts/Basic/About-Interfaces.rst:193
+#: ../../source/Concepts/Basic/About-Interfaces.rst:217
+#: 6b09b855231646cb9e5340c7fbbfdf13 9f32754699414b938f4b1061277e2ba3
+#: a27dc0df60ad42389c99a069f85777ce
+msgid "For example:"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:55
+#: 00301f6c7000469d9c4262d4269af695
+msgid "Field types"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:57
+#: fe8c5568170d4567bbf5f25414953c4a
+msgid "Field types can be:"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:59
+#: 204a00baa0d6439bb254da19ee9f71ac
+msgid "a built-in-type"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:60
+#: 97f44fe951cc48e29a91c1f8af56e837
+msgid ""
+"names of Message descriptions defined on their own, such as "
+"\"geometry_msgs/PoseStamped\""
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:62
+#: d04b6870622744b7978ab3c1bf11bc11
+msgid "*Built-in-types currently supported:*"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:67
+#: ../../source/Concepts/Basic/About-Interfaces.rst:137
+#: 05ad2fb353d841c2a53544721bad2180 89e2a41d7d674c9dade1f23b77b2f830
+msgid "Type name"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:68
+#: ../../source/Concepts/Basic/About-Interfaces.rst:138
+#: 429fdddca58d4da699a2493a10fb03b8 4f5720d360214df2a03e4f0eadee71d1
+msgid "`C++ <https://design.ros2.org/articles/generated_interfaces_cpp.html>`__"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:69
+#: ../../source/Concepts/Basic/About-Interfaces.rst:139
+#: 70c8eae102d74d97b5c1eb8dd3e0eaef a8e46f36b87f451f914610fe7cf72eae
+msgid ""
+"`Python "
+"<https://design.ros2.org/articles/generated_interfaces_python.html>`__"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:70
+#: ../../source/Concepts/Basic/About-Interfaces.rst:140
+#: b78d3e0354f94f5c9d5cd7264217167e f69963c31b3f422d90bf930a4c5b0d63
+msgid "`DDS type <https://design.ros2.org/articles/mapping_dds_types.html>`__"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:71
+#: ../../source/Concepts/Basic/About-Interfaces.rst:72
+#: 546361c1130648cdb4225e815af4de31 ff5384366220434cbd52db43d099a4e2
+msgid "bool"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:73
+#: c5bc31e598554763965a813ff2c8ec8a
+msgid "builtins.bool"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:74
+#: faf4a662db1a44418979a910bedbbf33
+msgid "boolean"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:75
+#: 61c969757efa49e68e9b749ad288f516
+msgid "byte"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:76
+#: ../../source/Concepts/Basic/About-Interfaces.rst:96
+#: 36adfdcfa253415fa206295e46653f10 ad867357b1f14f6696886f6961b31eb3
+msgid "uint8_t"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:77
+#: 7a26cc23310a48dd8b3501c9466ebfcc
+msgid "builtins.bytes*"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:78
+#: ../../source/Concepts/Basic/About-Interfaces.rst:94
+#: ../../source/Concepts/Basic/About-Interfaces.rst:98
+#: 1b504f08a91246d8942f509377ed878b 6c1e02d501764eb49b4772aa0ccce959
+#: d34f37435a5b4f32b7899a827f72496a
+msgid "octet"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:79
+#: ../../source/Concepts/Basic/About-Interfaces.rst:80
+#: ../../source/Concepts/Basic/About-Interfaces.rst:82
+#: 246d451a7ae342daa637462dd22e1892 3e258f120ff3420ab02ae684908e9067
+#: 661d0849c73142ed9e8497aed365a430
+msgid "char"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:81
+#: ../../source/Concepts/Basic/About-Interfaces.rst:155
+#: aa1a4b8c4edb43528925baade41af54c b9c1488ddfb740b8b80b2cc62d9a7aa7
+msgid "builtins.str*"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:83
+#: 854387ad2ee045a48a16418ffadc015b
+msgid "float32"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:84
+#: ../../source/Concepts/Basic/About-Interfaces.rst:86
+#: 6223dd90b6e14cb291c3fa354ddb7a88 64ea668bc18648008e1ad4ffe54eae26
+msgid "float"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:85
+#: ../../source/Concepts/Basic/About-Interfaces.rst:89
+#: 64b0a8ef1c5542c4a44efa19acdab22c e4b807ed7c9348a5bd4c6e34eb07644d
+msgid "builtins.float*"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:87
+#: 7007a2ff2dbc4ea1ab8d1685869a572e
+msgid "float64"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:88
+#: ../../source/Concepts/Basic/About-Interfaces.rst:90
+#: 24ba0ca077fb493689014cebbec46db9 a01f54451ec0407498c5046a39d877b9
+msgid "double"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:91
+#: 192738548c674442b9e85e1b77a3491b
+msgid "int8"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:92
+#: a58b493a1d6b45aca55c019330e433aa
+msgid "int8_t"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:93
+#: ../../source/Concepts/Basic/About-Interfaces.rst:97
+#: ../../source/Concepts/Basic/About-Interfaces.rst:101
+#: ../../source/Concepts/Basic/About-Interfaces.rst:105
+#: ../../source/Concepts/Basic/About-Interfaces.rst:109
+#: ../../source/Concepts/Basic/About-Interfaces.rst:113
+#: ../../source/Concepts/Basic/About-Interfaces.rst:117
+#: ../../source/Concepts/Basic/About-Interfaces.rst:121
+#: 2171fd8265ca44ac9e7113e9b8bb45e2 37d8329bfa754ea7bac43045dc5412db
+#: 4da5e4d04b60472ea227fcc3a5b18ea2 4eeb07a490da4ce786665cf0d54c134d
+#: 67a6d47ccd5b467aad0ef5d06eb2ea12 7c7e95669011456f809ce497b08dd3ce
+#: e34ce2819ad44650a576daa77e7f15b4 fee3362f79ba43198e61a40c1eb7a74e
+msgid "builtins.int*"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:95
+#: 2f31385634f84acd8cab9542b898171e
+msgid "uint8"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:99
+#: e80d0c6e32304440804c04dbe19479a1
+msgid "int16"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:100
+#: 3bfa30dbb5a541d38ae7086d4041e3ba
+msgid "int16_t"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:102
+#: 6dc273825c024701a5e8432a820af0b7
+msgid "short"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:103
+#: 0599e74da99c4731ad0f979e0170947c
+msgid "uint16"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:104
+#: 613ecd4186f944c999ae470ee1b03db9
+msgid "uint16_t"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:106
+#: 0148ec21863641219d02794d87cbf505
+msgid "unsigned short"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:107
+#: c9b12697a5aa4420994d020edb8c879a
+msgid "int32"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:108
+#: eac5d35aa5814c6c97950c9312f2e7e0
+msgid "int32_t"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:110
+#: 4d2145487c4d4d8b8d0dc3467e41f033
+msgid "long"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:111
+#: 0a8e21a04c1748769b30bdcb7222eb9e
+msgid "uint32"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:112
+#: b64acbae204640c0a144e236fdfe4a68
+msgid "uint32_t"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:114
+#: d02af9ae7e3241ccbbd7adb408396fff
+msgid "unsigned long"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:115
+#: 061dfd335448447ba1cec9bfcb5b78d4
+msgid "int64"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:116
+#: d5d2f3a25be9435386594fd036bc3b7e
+msgid "int64_t"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:118
+#: a632468ef24944e799634d859d1ae45d
+msgid "long long"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:119
+#: dce3ca7cb6f44a00be2a9f69997833af
+msgid "uint64"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:120
+#: 30d01a6c23be474a95fa8a4713b3dd7b
+msgid "uint64_t"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:122
+#: eb749b7614194160847da99df07a99cc
+msgid "unsigned long long"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:123
+#: ../../source/Concepts/Basic/About-Interfaces.rst:126
+#: ../../source/Concepts/Basic/About-Interfaces.rst:156
+#: 1fe2e934c2354eb6ac72586bbb54a7a4 53057c4002f64c9cbdb3af8ff9a83284
+#: dbde8fadc0f743e496f7bc9b1c3c69b5
+msgid "string"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:124
+#: ../../source/Concepts/Basic/About-Interfaces.rst:154
+#: 74ef86d229934ea3b35fd3880ef29985 930f099d39a742b399ba235bde31cd1e
+msgid "std::string"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:125
+#: ../../source/Concepts/Basic/About-Interfaces.rst:129
+#: 1a7f88c76f9c46b8aad7016b329aa18b 9ce41288e0b34ba6bdabed5f733ccbab
+msgid "builtins.str"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:127
+#: ../../source/Concepts/Basic/About-Interfaces.rst:130
+#: 28170a982f4c4badb4f595386ac0cb97 623dab48d40e4eb1afa1d6f52aff41b4
+msgid "wstring"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:128
+#: 707dd2e5f65a4b57b10c14732e62310a
+msgid "std::u16string"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:132
+#: 1a20a7f0229e4b138777429846bb3855
+msgid "*Every built-in-type can be used to define arrays:*"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:141
+#: 33dfb62acc2f4e7492a69d50ea087ca5
+msgid "static array"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:142
+#: fd2523a0d8b94b71afa5fbae50e07c8e
+msgid "std::array<T, N>"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:143
+#: ../../source/Concepts/Basic/About-Interfaces.rst:151
+#: 1a7c564a5bc64f79b03591b30049c422 29a7e915f0f14219b105117d516bfd6f
+msgid "builtins.list*"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:144
+#: 81bc4a142c254cd7aaea3caeb4333fca
+msgid "T[N]"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:145
+#: 42015cb41f0e4336a38ba64be6820a41
+msgid "unbounded dynamic array"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:146
+#: 276d3007331344d880fa16ccfc4a2a18
+msgid "std::vector"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:147
+#: c6d326d24e024fb09d89e4ec75fdaab2
+msgid "builtins.list"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:148
+#: fdd2b60ddd5e4d9c95e281d35e680249
+msgid "sequence"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:149
+#: 5d32e34e3fb14aa28b6f20d2e4b791e8
+msgid "bounded dynamic array"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:150
+#: a1c1ad244ef2473e9b6f59748ebdeb43
+msgid "custom_class<T, N>"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:152
+#: 844061809f44435eba8124209fbde3d9
+msgid "sequence<T, N>"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:153
+#: 77d6f40838b34197a0703d4790e7dcdd
+msgid "bounded string"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:158
+#: 6685f6979e1541c1b551c5f0010c8480
+msgid ""
+"All types that are more permissive than their ROS definition enforce the "
+"ROS constraints in range and length by software."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:160
+#: 8517b7e4cd6342baae0d2a092e5268cf
+msgid "*Example of message definition using arrays and bounded types:*"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:176
+#: 6e3a7f88fa1c4b34a5c5f2dad3fb0f0f
+msgid "Field names"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:178
+#: e820e160e5ab45f5b1ef60e3fde496d9
+msgid ""
+"Field names must be lowercase alphanumeric characters with underscores "
+"for separating words. They must start with an alphabetic character, and "
+"they must not end with an underscore or have two consecutive underscores."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:182
+#: e63d0c2938ac42ef9868f6c98c404351
+msgid "Field default value"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:184
+#: 9ba2ca242e234e17b4421558fa2f42c2
+msgid ""
+"Default values can be set to any field in the message type. Currently "
+"default values are not supported for string arrays and complex types "
+"(i.e. types not present in the built-in-types table above; that applies "
+"to all nested messages)."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:187
+#: 0ecc5c725cef41daaef6d0cc229df7f0
+msgid ""
+"Defining a default value is done by adding a third element to the field "
+"definition line, i.e:"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:204
+#: 471842558a86474db08d99705f5c8ab8
+msgid "string values must be defined in single ``'`` or double ``\"`` quotes"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:205
+#: a1a60d040557472099d8e9d7388388d4
+msgid "currently string values are not escaped"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:208
+#: 456908f3a42d4582a7b99a7f22e6230b
+msgid "Constants"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:210
+#: 26ecbc70d5674373be83648c2ce6eb81
+msgid ""
+"Each constant definition is like a field description with a default "
+"value, except that this value can never be changed programatically. This "
+"value assignment is indicated by use of an equal '=' sign, e.g."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:228
+#: 2d4adae187a246809b65c1aa1c4b52f7
+msgid "Constants names have to be UPPERCASE"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:231
+#: d346f0525fd94756b59c451be38b1e94
+msgid "Services"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:233
+#: 61f38bbc61fe4f47a1d8b94461c9e256
+msgid ""
+"Services are a request/response communication, where the client "
+"(requester) is waiting for the server (responder) to make a short "
+"computation and return a result."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:235
+#: 4e4554c367b54e1284ff5acf565bbb12
+msgid ""
+"Services are described and defined in ``.srv`` files in the ``srv/`` "
+"directory of a ROS package."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:237
+#: ef10052951364e008fe69a5aa9b8bbc3
+msgid ""
+"A service description file consists of a request and a response msg type,"
+" separated by ``---``. Any two ``.msg`` files concatenated with a ``---``"
+" are a legal service description."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:240
+#: e8630d97811b47c6be614bc012d0c7da
+msgid ""
+"Here is a very simple example of a service that takes in a string and "
+"returns a string:"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:248
+#: c56fa2fff4584503a4f448aac2a8dc79
+msgid ""
+"We can of course get much more complicated (if you want to refer to a "
+"message from the same package you must not mention the package name):"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:266
+#: c9dcb9c681e24fda9cfa00fb7c79f95d
+msgid "You cannot embed another service inside of a service."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:269
+#: 7ab0941c6da8402e925fadf817b7ad37
+msgid "Actions"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:271
+#: c2e317e4cfe7482dbdb7ca922eae7e3e
+msgid ""
+"Actions are a long-running request/response communication, where the "
+"action client (requester) is waiting for the action server (the "
+"responder) to take some action and return a result. In contrast to "
+"services, actions can be long-running (many seconds or minutes), provide "
+"feedback while they are happening, and can be interrupted."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:274
+#: 3d2ac93d68ef409aa50be13b32328dcd
+msgid "Action definitions have the following form:"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:284
+#: a1e773d70cd94cd98c17375ca072b5c1
+msgid ""
+"Like services, the request fields are before and the response fields are "
+"after the first triple-dash (``---``), respectively. There is also a "
+"third set of fields after the second triple-dash, which is the fields to "
+"be sent when sending feedback."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:287
+#: 40778c3d23784facb647e1aa00a73a5e
+msgid ""
+"There can be arbitrary numbers of request fields (including zero), "
+"arbitrary numbers of response fields (including zero), and arbitrary "
+"numbers of feedback fields (including zero)."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:289
+#: 86160f70b4db496293b42447aec055b7
+msgid ""
+"The ``<request_type>``, ``<response_type>``, and ``<feedback_type>`` "
+"follow all of the same rules as the ``<type>`` for a message. The "
+"``<request_fieldname>``, ``<response_fieldname>``, and "
+"``<feedback_fieldname>`` follow all of the same rules as the "
+"``<fieldname>`` for a message."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:292
+#: e8aa32fca9c54447af16c5ef94a5e74a
+msgid "For instance, the ``Fibonacci`` action definition contains the following:"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Interfaces.rst:302
+#: 39466399bc004fe6ac1c344f58094e54
+msgid ""
+"This is an action definition where the action client is sending a single "
+"``int32`` field representing the number of Fibonacci steps to take, and "
+"expecting the action server to produce an array of ``int32`` containing "
+"the complete steps. Along the way, the action server may also provide an "
+"intermediate array of ``int32`` contains the steps accomplished up until "
+"a certain point."
+msgstr ""
+

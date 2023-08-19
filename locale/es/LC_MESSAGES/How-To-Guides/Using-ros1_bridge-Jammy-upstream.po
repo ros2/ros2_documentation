@@ -1,0 +1,152 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/How-To-Guides/Using-ros1_bridge-Jammy-upstream.rst:2
+#: c067894f349548139a272d7d818cb50d
+msgid "Using ``ros1_bridge`` with upstream ROS on Ubuntu 22.04"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros1_bridge-Jammy-upstream.rst:6
+#: e038d21d9f29406ea49f5adddda4eeb2
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros1_bridge-Jammy-upstream.rst:8
+#: 99782287240e455faff5436705dafd81
+msgid ""
+"The release of ROS 2 Humble (and Rolling) on Ubuntu 22.04 Jammy Jellyfish"
+" marks the first ROS 2 release on a platform with no official ROS 1 "
+"release. While ROS 1 Noetic will continue to be supported through the "
+"duration of its `long term support window "
+"<https://www.ros.org/reps/rep-0003.html#noetic-ninjemys-"
+"may-2020-may-2025>`__, it will only target Ubuntu 20.04. Alternatively, "
+"there are `upstream variants of ROS 1 packages "
+"<https://packages.ubuntu.com/jammy/ros-desktop>`__ in Debian and Ubuntu "
+"that are not maintained as an official distribution by the ROS "
+"maintainers."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros1_bridge-Jammy-upstream.rst:12
+#: 7b065745ab03482b8d707a7ea2b7122e
+msgid ""
+"This guide outlines the current mechanism for bridging ROS 2 releases "
+"with these upstream packages on Ubuntu 22.04 Jammy Jellyfish. This "
+"provides a migration path for users who still depend on ROS 1, but desire"
+" moving to newer ROS 2 and Ubuntu releases."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros1_bridge-Jammy-upstream.rst:16
+#: d398fd446a1045779feb93a46eb8b1ba
+msgid "ROS 2 via Debian packages"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros1_bridge-Jammy-upstream.rst:18
+#: 6c311c34353049e18a261e1d242dd312
+msgid ""
+"Installing :doc:`ROS 2 from Debian packages <../Installation/Ubuntu-"
+"Install-Debians>` currently does not work for ROS 2 on Ubuntu Jammy. The "
+"version of ``catkin-pkg-modules`` available in the Ubuntu repository "
+"conflicts with that in the ROS 2 package repository."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros1_bridge-Jammy-upstream.rst:21
+#: c2b8f228f17e4756a9cff287cb142502
+msgid ""
+"If the ROS 2 apt repository is in the available apt repositories "
+"(``/etc/apt/sources.list.d``), no ROS 1 packages will be installable. The"
+" error will be:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros1_bridge-Jammy-upstream.rst:40
+#: 6de29548578c4ffcb4a757da6a24bb67
+msgid ""
+"To correct this, remove packages.ros.org from your ``sources.list``. If "
+"you were following the ROS 2 installation guide, simply remove "
+"``/etc/apt/sources.list.d/ros2.list``"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros1_bridge-Jammy-upstream.rst:43
+#: a8e21ca113ee486a998be1edb570c1a4
+msgid ""
+"For now, to support ``ros1_bridge``, follow the instructions below for "
+"building ROS 2 from source."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros1_bridge-Jammy-upstream.rst:46
+#: 03cb3ece8ee6454cb2e008924790d99c
+msgid "ROS 2 from source"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros1_bridge-Jammy-upstream.rst:48
+#: d07aca1097144d2a9a67d46a5dc80a7b
+msgid ""
+"Installing :doc:`ROS 2 from Source <../Installation/Alternatives/Ubuntu-"
+"Development-Setup>` is the only configuration that works for ROS 2 on "
+"Ubuntu Jammy."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros1_bridge-Jammy-upstream.rst:50
+#: 9b229efa19264b079da56232e6431cd6
+msgid ""
+"Below is a summary of the necessary instructions from the source build "
+"instructions. The substantial deviation is that we skip using the ROS 2 "
+"apt repositories because of conflicting packages."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros1_bridge-Jammy-upstream.rst:54
+#: 78ad779b6e2e432cab5f89841e77c25d
+msgid "Install development tools and ROS tools"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros1_bridge-Jammy-upstream.rst:56
+#: d7989bb2a4084e48b9c701970e061737
+msgid ""
+"Since we aren't using the ROS 2 apt repositories, ``colcon`` must be "
+"installed via ``pip``."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros1_bridge-Jammy-upstream.rst:85
+#: 88050007fb2143e3bca5b01d5435eb6d
+msgid ""
+"From here, continue with the :doc:`source install guide "
+"<../Installation/Alternatives/Ubuntu-Development-Setup>` to build ROS 2."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros1_bridge-Jammy-upstream.rst:88
+#: 0c095c84b5724a129e6efc7c1307087f
+msgid "Install ROS 1 from Ubuntu packages"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros1_bridge-Jammy-upstream.rst:96
+#: 84b228bb47934ae3a73e3d78788b8a7b
+msgid "Build ``ros1_bridge``"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros1_bridge-Jammy-upstream.rst:112
+#: 698300f48c254dd0a4682e64b2d44927
+msgid ""
+"After building all of ``ros1_bridge``, the remainder of the `ros1_bridge "
+"examples <https://github.com/ros2/ros1_bridge#example-1-run-the-bridge-"
+"and-the-example-talker-and-listener>`__ should work with your new "
+"installation"
+msgstr ""
+

@@ -1,0 +1,220 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Advanced/Security/Access-Controls.rst:8
+#: 21acb008e3e643a79bc23d7e81ac23ef
+msgid "Setting access controls"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Access-Controls.rst:10
+#: 536e8f5d48754c7cb3f2e8a170e3d3df
+msgid "**Goal:** Limit the topics a node can use."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Access-Controls.rst:12
+#: 3af5dd9db6d0474499aeb75ab42054e5
+msgid "**Tutorial level:** Advanced"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Access-Controls.rst:14
+#: 0666fe3359ac458ba6b691523fefd759
+msgid "**Time:** 20 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Access-Controls.rst:19
+#: 5209b411d74a42d5a4bbe23902030f13
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Access-Controls.rst:22
+#: 0580531abc97400da452646264378380
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Access-Controls.rst:24
+#: 1f1271c0561049d8a80e7294eb0b0912
+msgid ""
+"Before proceeding ensure you have completed the :doc:`Introducing-"
+"ros2-security` tutorial."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Access-Controls.rst:26
+#: 6a1d3a5275e9469fb95c55701f3fab12
+msgid ""
+"Permissions are quite flexible and can be used to control many behaviors "
+"within the ROS graph."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Access-Controls.rst:28
+#: 117af4a33ef24ca3ba5858e457d17786
+msgid ""
+"For this tutorial, we demonstrate a policy which only allows publishing "
+"messages on the default ``chatter`` topic. This would prevent, for "
+"instance, remapping the topic when launching the listener or using the "
+"same security enclaves for another purpose."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Access-Controls.rst:31
+#: cfd67998fd9f4f478a2dcd54ad69b021
+msgid ""
+"In order to enforce this policy, we need to update the "
+"``permissions.xml`` file and re-sign it before launching the node. This "
+"can be done by modifying the permissions file by hand, or by using XML "
+"templates."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Access-Controls.rst:36
+#: d7251ad9c2764354bd76169493edb970
+msgid "Modify ``permissions.xml``"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Access-Controls.rst:38
+#: 68a4599362ac49b9b381f600139a7c22
+msgid ""
+"Begin by making a backup of your permissions files, and open "
+"``permissions.xml`` for editing:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Access-Controls.rst:47
+#: 4900a1bcd5ff4501bbcb91f905f03ff6
+msgid ""
+"We will be modifying the ``<allow_rule>`` for ``<publish>`` and "
+"``<subscribe>``. The topics in this XML file use the DDS naming format, "
+"not the ROS name. Find details on mapping topic names between ROS and DDS"
+" in the `Topic and Service Names design document "
+"<https://design.ros2.org/articles/topic_and_service_names.html#mapping-"
+"of-ros-2-topic-and-service-names-to-dds-concepts>`_."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Access-Controls.rst:51
+#: de57971e3f644c81bd7ed5f5358a8fd4
+msgid ""
+"Paste the following XML content into ``permission.xml``, save the file "
+"and exit the text editor. This shows the ``chatter`` and ``rosout`` ROS "
+"topics renamed to the DDS ``rt/chatter`` and ``rt/rosout`` topics, "
+"respectively:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Access-Controls.rst:104
+#: b2097dba9afd4de8b48c798d4de3b71b
+msgid ""
+"This policy allows the talker to publish on the ``chatter`` and the "
+"``rosout`` topics. It also allows includes publish and subscribe "
+"permissions needed for the talker node to manage parameters (a "
+"requirement for all nodes). Discovery permissions remain unchanged from "
+"the original template."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Access-Controls.rst:110
+#: c34f79cb59dd4bca9be3c11ed3d90ab2
+msgid "Sign the policy file"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Access-Controls.rst:112
+#: 80e235d91d2f45dfa07ccb76d06e2511
+msgid ""
+"This next command creates the new S/MIME signed policy file "
+"``permissions.p7s`` from the updated XML file ``permissions.xml``. The "
+"file must be signed with the Permissions CA certificate, **which requires"
+" access to the Permission CA private key**. If the private key has been "
+"protected, additional steps may be required to unlock and use it accoring"
+" to your security plan."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Access-Controls.rst:124
+#: 788f6b83191243d0b3863d3ea9d43762
+msgid "Launch the node"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Access-Controls.rst:126
+#: bc2972f12ce64851af2e6a5b7ea2696c
+msgid ""
+"With the updated permissions in place, we can launch the node "
+"successfully using the same command used in prior tutorials:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Access-Controls.rst:132
+#: 8fef52e8ddfd465da1d9d50714624b14
+msgid ""
+"However, attempting to remap the ``chatter`` topic prevents the node from"
+" launching (note that this requires the ``ROS_SECURITY_STRATEGY`` set to "
+"``Enforce``)."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Access-Controls.rst:141
+#: 092d187e8b604272a9c57abc49c62729
+msgid "Use the templates"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Access-Controls.rst:143
+#: 28047835027e46258060f2caf954b04c
+msgid ""
+"Security policies can quickly become confusing, so the ``sros2`` "
+"utilities add the ability to create policies from templates. Do this by "
+"using the `sample policy file "
+"<https://github.com/ros2/sros2/blob/rolling/sros2/test/policies/sample.policy.xml#L1>`_"
+" provided in the ``sros2`` repository. Let's creates a policy for both "
+"the ``talker`` and the ``listener`` to only use the ``chatter`` topic."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Access-Controls.rst:147
+#: 9ad2f07be7fe4217884e4fc7789688f6
+msgid ""
+"Begin by downloading the ``sros2`` repository with the sample policy "
+"files:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Access-Controls.rst:153
+#: 35f1885e888a46e88a0cf2b5f579aaba
+msgid ""
+"Then use the ``create_permission`` verb while pointing to the sample "
+"policy to generate the XML permission files:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Access-Controls.rst:164
+#: ce583c00cd8c40f3ad69c28b834a246d
+msgid ""
+"These permission files allow nodes to only publish or subscribe to the "
+"``chatter`` topic, and enable communications required for parameters."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Access-Controls.rst:166
+#: ad58e6ba16454f1c97b0da2c6ab5535c
+msgid ""
+"In one terminal with security enabled as in previous security tutorials, "
+"run the ``talker`` demo program:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Access-Controls.rst:172
+#: baf8fd8b1dbf4a3d8d3ef9fdb548dc9c
+msgid "In another terminal do the same with the ``listener`` program:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Access-Controls.rst:178
+#: 9142c8e0bdcf41d490127241de030906
+msgid ""
+"At this point, your ``talker`` and ``listener`` nodes will be "
+"communicating securely using explicit access control lists. However, the "
+"following attempt for the ``listener`` node to subscribe to a topic other"
+" than ``chatter`` will fail:"
+msgstr ""
+

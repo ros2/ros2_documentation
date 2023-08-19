@@ -1,0 +1,112 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Installation/DDS-Implementations/Working-with-Eclipse-CycloneDDS.rst:6
+#: 954f15c7556349a3a691667b5142a3d2
+msgid "Eclipse Cyclone DDS"
+msgstr ""
+
+#: ../../source/Installation/DDS-Implementations/Working-with-Eclipse-CycloneDDS.rst:8
+#: d554a5c0427c49d385785bf148b62d28
+msgid ""
+"Eclipse Cyclone DDS is a very performant and robust open-source DDS "
+"implementation. Cyclone DDS is developed completely in the open as an "
+"Eclipse IoT project. See also: "
+"https://projects.eclipse.org/projects/iot.cyclonedds"
+msgstr ""
+
+#: ../../source/Installation/DDS-Implementations/Working-with-Eclipse-CycloneDDS.rst:14
+#: 2005c24473704ef4be151f0a3387b9b7
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/Installation/DDS-Implementations/Working-with-Eclipse-CycloneDDS.rst:16
+#: 99ae72c5b5c243cc86c634827c69cd97
+msgid "Have `rosdep installed  <https://wiki.ros.org/rosdep#Installing_rosdep>`__"
+msgstr ""
+
+#: ../../source/Installation/DDS-Implementations/Working-with-Eclipse-CycloneDDS.rst:19
+#: 4461c268bdb744b1a7ea349e36fe6662
+msgid "Install packages"
+msgstr ""
+
+#: ../../source/Installation/DDS-Implementations/Working-with-Eclipse-CycloneDDS.rst:21
+#: a0a9fc4e63f04f4a93a390df6eb1eda8
+msgid "The easiest way is to install from ROS 2 apt repository."
+msgstr ""
+
+#: ../../source/Installation/DDS-Implementations/Working-with-Eclipse-CycloneDDS.rst:28
+#: 3a0e8786ef4147e486ce1b94c63125ea
+msgid "Build from source code"
+msgstr ""
+
+#: ../../source/Installation/DDS-Implementations/Working-with-Eclipse-CycloneDDS.rst:30
+#: 958ab8e886104185a625d97233ebb61e
+msgid "Building from source code is also another way to install."
+msgstr ""
+
+#: ../../source/Installation/DDS-Implementations/Working-with-Eclipse-CycloneDDS.rst:32
+#: 6671a3ab4dd046a4a85fdc98a77bc5ac
+msgid ""
+"First, clone Cyclone DDS and rmw_cyclonedds in the ROS 2 workspace source"
+" directory."
+msgstr ""
+
+#: ../../source/Installation/DDS-Implementations/Working-with-Eclipse-CycloneDDS.rst:40
+#: 77fda14936ac41dcaee58a30e9012b71
+msgid "Then, install necessary packages for Cyclone DDS."
+msgstr ""
+
+#: ../../source/Installation/DDS-Implementations/Working-with-Eclipse-CycloneDDS.rst:47
+#: 4ee9b23c16f54973a654e17eee3d518e
+msgid "Finally, run colcon build."
+msgstr ""
+
+#: ../../source/Installation/DDS-Implementations/Working-with-Eclipse-CycloneDDS.rst:54
+#: 6c9ead26bf394935bd0df993c16ee539
+msgid "Switch to rmw_cyclonedds"
+msgstr ""
+
+#: ../../source/Installation/DDS-Implementations/Working-with-Eclipse-CycloneDDS.rst:56
+#: 39aeaa563821441aaa0163731c1050f7
+msgid ""
+"Switch from other rmw to rmw_cyclonedds by specifying the environment "
+"variable."
+msgstr ""
+
+#: ../../source/Installation/DDS-Implementations/Working-with-Eclipse-CycloneDDS.rst:62
+#: 823b93cbe5bc486783e81d83f3aeeb19
+msgid ""
+"See also: :doc:`Working with multiple RMW implementations <../../How-To-"
+"Guides/Working-with-multiple-RMW-implementations>`"
+msgstr ""
+
+#: ../../source/Installation/DDS-Implementations/Working-with-Eclipse-CycloneDDS.rst:65
+#: 90771e21ad2142c5865dfeacdca4b284
+msgid "Run the talker and listener"
+msgstr ""
+
+#: ../../source/Installation/DDS-Implementations/Working-with-Eclipse-CycloneDDS.rst:67
+#: c9dc66f223f24897a5465886d715bd59
+msgid "Now run ``talker`` and ``listener`` to test Cyclone DDS."
+msgstr ""
+

@@ -1,0 +1,354 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:8
+#: e4d823b7fd1a49acb1e2cc6a174389ab
+msgid "Using ``ros2doctor`` to identify issues"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:10
+#: e298588952d24caf9f5061eb41f20d79
+msgid ""
+"**Goal:** Identify issues in your ROS 2 setup using the ``ros2doctor`` "
+"tool."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:12
+#: 78f2b442ccd24eb683bca2aa4b4012e4
+msgid "**Tutorial level:** Beginner"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:14
+#: c568208f7752410984e38e1ccb696791
+msgid "**Time:** 10 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:18
+#: c1a3e0f52664404698ae19a2ecccb5da
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:21
+#: b5d34689c5b6475a8d8cee626032eda4
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:23
+#: cbed8bd1aa0e4e93a2c4f2b0e9418d2c
+msgid ""
+"When your ROS 2 setup is not running as expected, you can check its "
+"settings with the ``ros2doctor`` tool."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:25
+#: a44d8713927e4676b9bb8abffe0ac9c4
+msgid ""
+"``ros2doctor`` checks all aspects of ROS 2, including platform, version, "
+"network, environment, running systems and more, and warns you about "
+"possible errors and reasons for issues."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:28
+#: f2fcbf6f91be43cba1acf1e21032f705
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:30
+#: 715d61b917324561b2b360e8362d4cf6
+msgid ""
+"``ros2doctor`` is part of the ``ros2cli`` package. As long as you have "
+"``ros2cli`` installed (which any normal install should have), you will be"
+" able to use ``ros2doctor``."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:33
+#: ef398ac48eaf42a2b5cf07ec71dd6c4c
+msgid ""
+"This tutorial uses :doc:`turtlesim <../Beginner-CLI-Tools/Introducing-"
+"Turtlesim/Introducing-Turtlesim>` to illustrate some of the examples."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:36
+#: 9c162a9e7f8b4929a633fb68c7bb9969
+msgid "Tasks"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:39
+#: b30140676d8e48d582c2e872ed1f1662
+msgid "1 Check your setup"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:41
+#: 195997e4cfcf499595ee1287caf0327b
+msgid ""
+"Let's examine your general ROS 2 setup as a whole with ``ros2doctor``. "
+"First, source ROS 2 in a new terminal, then enter the command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:48
+#: c77786e9a5c9434eae5d9d3a938c0362
+msgid ""
+"This will conduct checks over all your setup modules and return warnings "
+"and errors."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:50
+#: 411e67e6915a402ead57cb3c2d75c87a
+msgid ""
+"If your ROS 2 setup is in perfect shape, you'll see a message similar to "
+"this:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:56
+#: a60a32ae9f314dd2a3a54839b04671d9
+msgid ""
+"However, it's not unusual to have a few warnings returned. A "
+"``UserWarning`` doesn't mean your setup is unusable; it's more likely "
+"just an indication that something is configured in a way that's not "
+"ideal."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:59
+#: 538819fd3ce841509320bee367405882
+msgid "If you do receive a warning, it will look something like this:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:65
+#: 878f8391bd02465cb8b9e47af6d29ec6
+msgid ""
+"For example, ``ros2doctor`` will find this warning if you're using an "
+"unstable ROS 2 distribution:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:71
+#: cb7f156342bd4ff7a937c4c1b0bcda9b
+msgid ""
+"If ``ros2doctor`` only finds warnings in your system, you will still "
+"receive the ``All <n> checks passed`` message."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:73
+#: 1317c40ca96f4f74985e2e55d14d6753
+msgid ""
+"Most checks are categorized as warnings as opposed to errors. It's mostly"
+" up to you, the user, to determine the importance of the feedback "
+"``ros2doctor`` returns. If it does find a rare error in your setup, "
+"indicated by ``UserWarning: ERROR:``, the check is considered failed."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:77
+#: ebbd60a1f6e4489a9060e33b78d96a85
+msgid "You will see a message similar to the following list of issue feedback:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:85
+#: b860571ee8aa42b88dd7a19b32a9e210
+msgid ""
+"An error indicates the system is missing important settings or functions "
+"that are crucial to ROS 2. Errors should be addressed to ensure the "
+"system functions properly."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:89
+#: bfab13bd06394ead8f6b04812e67bce6
+msgid "2 Check a system"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:91
+#: 3e84b86a382448b1b48dea9a2110e1fb
+msgid ""
+"You can also examine a running ROS 2 system to identify possible causes "
+"for issues. To see ``ros2doctor`` working on a running system, let's run "
+"turtlesim, which has nodes actively communicating with each other."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:94
+#: a8bdf92ee6904ec0ac4cfac422cc9174
+msgid ""
+"Start up the system by opening a new terminal, sourcing ROS 2, and "
+"entering the command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:100
+#: c3390ecb2c1d4aa190a04c34d1c5b625
+msgid "Open another terminal and source ROS 2 to run the teleop controls:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:106
+#: 9ce2434cc12344b6b82aa1382d76251d
+msgid ""
+"Now run ``ros2doctor`` again in its own terminal. You will see the "
+"warnings and errors you had the last time you ran ``ros2doctor`` on your "
+"setup if you had any. Following those will be a couple new warnings "
+"relating to the system itself:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:115
+#: 52c5d4d67acb4e278af9253dcc78f283
+msgid ""
+"It seems that the ``/turtlesim`` node publishes data to two topics that "
+"aren't being subscribed to, and ``ros2doctor`` thinks this could possibly"
+" lead to issues."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:117
+#: 0b27d97f11c0433fbe7bd72e3641fb78
+msgid ""
+"If you run commands to echo the ``/color_sensor`` and ``/pose`` topics, "
+"those warnings will disappear because the publishers will have "
+"subscribers."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:119
+#: a80fa3700962494aa3456db0a95ba1f3
+msgid ""
+"You can try this by opening two new terminals while turtlesim is still "
+"running, sourcing ROS 2 in each, and running each of the following "
+"commands in their own terminal:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:129
+#: 565bf745149d4b889f074061f15a0a1b
+msgid ""
+"Then run ``ros2doctor`` in its terminal again. The ``publisher without "
+"subscriber`` warnings will be gone. (Make sure to enter ``Ctrl+C`` in the"
+" terminals where you ran ``echo``)."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:133
+#: 9dbadfdad2244a008d3c045753c7b270
+msgid ""
+"Now try exiting either the turtlesim window or quitting the teleop and "
+"running ``ros2doctor`` again. You'll see more warnings indicating "
+"``publisher without subscriber`` or ``subscriber without publisher`` for "
+"different topics, now that one node in the system isn't available."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:136
+#: eafbd79e22484401ba25b9fc23b3ef9c
+msgid ""
+"In a complex system with many nodes, ``ros2doctor`` would be invaluable "
+"for identifying possible reasons for communication issues."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:139
+#: 60a5a98c8f9d41f5855bf1523dbf449e
+msgid "3 Get a full report"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:141
+#: 2ebdad5b69c747ca9fe89872c41fa97c
+msgid ""
+"While ``ros2doctor`` will let you know warnings about your network, "
+"system, etc., running it with the ``--report`` argument will give you "
+"much more detail to help you analyze issues."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:143
+#: a06021ba1ce84d22b67e16d0049207ff
+msgid ""
+"You might want to use ``--report`` if you get a warning about your "
+"network setup and want to find out exactly what part of your "
+"configuration is causing the warning."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:145
+#: 71b0a156f8904f1aa1a63f9bd7b89fa7
+msgid ""
+"It's also very helpful when you need to open a support ticket to get help"
+" with ROS 2. You can copy and paste the relevant parts of your report "
+"into the ticket so the people helping you can better understand your "
+"environment and provide better assistance."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:148
+#: ff43bab9ad8142fda0831fdee4e127bf
+msgid "To get a full report, enter the following command in the terminal:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:154
+#: d3e9f7bd126a413cbf3f2ee4af735caf
+msgid "Which will return a list of information categorized into five groups:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:173
+#: ad9b10f3970c48aca4c735e9d3d5938d
+msgid ""
+"You can crosscheck the information here against the warnings you get when"
+" running ``ros2 doctor``. For example, if ``ros2doctor`` returned the "
+"warning (mentioned earlier) that your distribution is “not fully "
+"supported or tested”, you might take a look at the ``ROS 2 INFORMATION`` "
+"section of the report:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:183
+#: 11d63eb929ca4c06928ad4c688580d8e
+msgid ""
+"Here you can see the ``distribution status`` is ``prerelease``, which "
+"explains why it's not fully supported."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:187
+#: 3481e73da3e64802a74771b1ddf49f2e
+msgid "Summary"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:189
+#: cbd3fa99b43645beb60e7154db7429e4
+msgid ""
+"``ros2doctor`` will inform you of problems in your ROS 2 setup and "
+"running systems. You can get a deeper look at information behind those "
+"warnings by using the ``--report`` argument."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:192
+#: 3cdee3a0d1154511be1b5e328d85dbba
+msgid ""
+"Keep in mind, ``ros2doctor`` is not a debug tool; it won't help with "
+"errors in your code or on the implementation side of your system."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:196
+#: 237211318b634d079210f8e2811e2148
+msgid "Related content"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:198
+#: f6fd26de5cae48fa9457f7efbaa17690
+msgid ""
+"`ros2doctor's README "
+"<https://github.com/ros2/ros2cli/tree/rolling/ros2doctor>`__ will tell "
+"you more about different arguments. You might want to take a look around "
+"the ``ros2doctor`` repo as well, since it's fairly beginner friendly and "
+"a great place to get started with contributing."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:202
+#: 4be8cd7c5764436cab375c01e4154045
+msgid "Next steps"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.rst:204
+#: 57d682d7bdd846978a85073d3e348e5c
+msgid "You've completed the beginner level tutorials!"
+msgstr ""
+

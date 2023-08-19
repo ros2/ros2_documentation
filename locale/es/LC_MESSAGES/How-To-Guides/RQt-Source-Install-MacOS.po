@@ -1,0 +1,80 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/How-To-Guides/RQt-Source-Install-MacOS.rst:7
+#: c9ea6fd01d47440988b0dbea7b3a39b4
+msgid "Building RQt from source on macOS"
+msgstr ""
+
+#: ../../source/How-To-Guides/RQt-Source-Install-MacOS.rst:9
+#: 6f1ff7f48d1549e4a4d132a3b1fc250e
+msgid ""
+"This page provides specific information to building RQt from source on "
+"macOS. Follow these instructions before proceeding with :doc:`RQt Source "
+"Install <RQt-Source-Install>` page."
+msgstr ""
+
+#: ../../source/How-To-Guides/RQt-Source-Install-MacOS.rst:13
+#: 67b84e1ba484429b9c2f79c6d7b4be20
+msgid "System Requirements"
+msgstr ""
+
+#: ../../source/How-To-Guides/RQt-Source-Install-MacOS.rst:15
+#: 81de2e98f31a4a10a1593b5dcce50fdc
+msgid "RQt is supported on macOS 10.12, but 10.13 also seems to work."
+msgstr ""
+
+#: ../../source/How-To-Guides/RQt-Source-Install-MacOS.rst:18
+#: bf6a9229cb1c43bfa53808c5bf12e9a2
+msgid "Dependencies"
+msgstr ""
+
+#: ../../source/How-To-Guides/RQt-Source-Install-MacOS.rst:20
+#: 95539d76285c41d8942e2fd5c40f9ef6
+msgid ""
+"The primary dependencies of the RQt package are sip and PyQt5. PySide2 "
+"may be supported in the future."
+msgstr ""
+
+#: ../../source/How-To-Guides/RQt-Source-Install-MacOS.rst:24
+#: 084fa9d0bf1045e78857a44d80a54785
+msgid "Install dependencies"
+msgstr ""
+
+#: ../../source/How-To-Guides/RQt-Source-Install-MacOS.rst:33
+#: 914ec7b2d4aa4d69bc3d9d9a5ea90276
+msgid ""
+"This is the quickest solution but may cause issues when upgrading Qt or "
+"if other packages are expecting Qt 4. Another option is to update your "
+"``PATH`` and ``CMAKE_PREFIX_PATH`` to include the Qt install location:"
+msgstr ""
+
+#: ../../source/How-To-Guides/RQt-Source-Install-MacOS.rst:42
+#: 053c11f423f94085b89d15628f1ef106
+msgid "Install RQt by source"
+msgstr ""
+
+#: ../../source/How-To-Guides/RQt-Source-Install-MacOS.rst:44
+#: f312e57177ed4740a4073f03c282fd45
+msgid "Continue with the :doc:`RQt source install page <RQt-Source-Install>`."
+msgstr ""
+

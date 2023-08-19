@@ -1,0 +1,335 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Contact.rst:4 fcff1636e1a94c52a2f79b81c287d0da
+msgid "Contact"
+msgstr ""
+
+#: ../../source/Contact.rst:9 4fd50d4d6849428b892869cacb2114c5
+msgid "Support"
+msgstr ""
+
+#: ../../source/Contact.rst:11 8213442dcf344a16b5843f07a0e2f93a
+msgid ""
+"Different types of questions or discussions correspond to different "
+"avenues of communication; check the descriptions below to ensure you "
+"choose the right method."
+msgstr ""
+
+#: ../../source/Contact.rst:14 0fe95325462b440a81c6aee4cd07f199
+msgid ""
+"Need help troubleshooting your system? First, search `ROS Answers "
+"<https://answers.ros.org>`__ to see if others have had similar issues, "
+"and if their solution works for you."
+msgstr ""
+
+#: ../../source/Contact.rst:17 75528d7120ee48dab7381c0fb351d5b8
+msgid ""
+"If not, ask a new question on `ROS Answers <https://answers.ros.org>`__. "
+"Make sure to add tags, at the very least the ``ros2`` tag and the distro "
+"version you are running, e.g. ``rolling``. If your question is related to"
+" the documentation here, add a tag like ``docs``, or more specifically, "
+"``tutorials``."
+msgstr ""
+
+#: ../../source/Contact.rst:22 7c7615e5f9494c14a56ce9620d4743a2
+msgid "Contributing support"
+msgstr ""
+
+#: ../../source/Contact.rst:24 a2cec8d7b755479a9dbd4ae293dc8945
+msgid ""
+"ROS 2 users come from a wide range of technical backgrounds, use a "
+"variety of different operating systems, and don’t necessarily have any "
+"prior experience with ROS (1 or 2). So, it's important for users with any"
+" amount of experience to contribute support."
+msgstr ""
+
+#: ../../source/Contact.rst:27 7774bfbbdbde4e3f888b81bf212e2528
+msgid ""
+"If you see an issue on `ROS Answers "
+"<https://answers.ros.org/questions/tags:ros2/>`__ that is similar to "
+"something you’ve run into yourself, please consider providing some "
+"pointers to what helped in your situation. Don’t worry if you aren't sure"
+" if your response is correct. Simply say so, and other community members "
+"will jump in if necessary."
+msgstr ""
+
+#: ../../source/Contact.rst:32 8d89dbdf0c7c4b76b392a6ecf53081ce
+msgid "Issues"
+msgstr ""
+
+#: ../../source/Contact.rst:34 f7e8cd3996cf4e0c8ec701be21c124f8
+msgid ""
+"If you identify bugs, have suggestions for improvements, or a question "
+"specific to one package, you can open an issue on GitHub."
+msgstr ""
+
+#: ../../source/Contact.rst:36 5af76adcbe8f4f6799898904b60a72a9
+msgid ""
+"For example, if you are following the :doc:`tutorials here <Tutorials>` "
+"and come across an instruction that doesn't work on your system, you can "
+"open an issue in the `ros2_documentation "
+"<https://github.com/ros2/ros2_documentation>`__ repo."
+msgstr ""
+
+#: ../../source/Contact.rst:39 6c3520ce64e244259581366a73357216
+msgid ""
+"You can search for individual ROS 2 repositories on `ROS 2's GitHub "
+"<https://github.com/ros2>`__."
+msgstr ""
+
+#: ../../source/Contact.rst:41 f00a2eec07b44f12b9deaac118d1198f
+msgid ""
+"Before opening an issue, check if other users have reported similar "
+"issues by searching across the ros2 and ament GitHub organizations: "
+"`example search query "
+"<https://github.com/search?q=user%3Aros2+user%3Aament+turtlesim&type=Issues>`__."
+msgstr ""
+
+#: ../../source/Contact.rst:43 7748dc3253084616b2de51660a897e3b
+msgid ""
+"Next, check `ROS Answers <https://answers.ros.org/>`__ to see if someone "
+"else has asked your question or reported your issue."
+msgstr ""
+
+#: ../../source/Contact.rst:45 525d26a516f84abba52e499d1b6fa697
+msgid ""
+"If it has not been reported, feel free to open an issue in the "
+"appropriate repository tracker. If it's not clear which tracker to use "
+"for a particular issue, file it in the `ros2/ros2 repository "
+"<https://github.com/ros2/ros2/issues>`__ and we'll have a look at it."
+msgstr ""
+
+#: ../../source/Contact.rst:48 49bee8d877354c8e9e2543815b4b296b
+msgid "When filing an issue, please make sure to:"
+msgstr ""
+
+#: ../../source/Contact.rst:50 80b8274290254e5b95a06a89bcf4bd91
+msgid "Include enough information for another person to understand the issue."
+msgstr ""
+
+#: ../../source/Contact.rst:52 130cc894c81a4d50978a636adf7b36cd
+msgid ""
+"Describe exactly what you were doing or are trying to do, and exactly "
+"what, if anything, went wrong. If following a tutorial or online "
+"instructions provide a link to the specific instructions."
+msgstr ""
+
+#: ../../source/Contact.rst:55 2e1045e7a8314ab0b9bd16307dcec196
+msgid ""
+"Use a descriptive headline or subject line. Bad: \"rviz doesn't work\". "
+"Good: \"Rviz crashing looking for missing .so after latest apt update\""
+msgstr ""
+
+#: ../../source/Contact.rst:56 3fbd34a7694b47ed9a3277db6141f475
+msgid ""
+"Include information about the exact platform, software, versions, and "
+"environment relevant to the problem. This includes how you installed the "
+"software (from binaries or from source) and which ROS middleware/DDS "
+"vendor you are using (if you know it)."
+msgstr ""
+
+#: ../../source/Contact.rst:57 fc84d66365fa48afac3b75c13044a9d9
+msgid ""
+"Any warnings or errors. Cut and paste them directly from the terminal "
+"window to which they were printed. Please do not re-type or include a "
+"screenshot."
+msgstr ""
+
+#: ../../source/Contact.rst:58 dea5816151b648b382f4a7a70662220b
+msgid ""
+"In case of a bug consider providing a `short, self contained, correct "
+"(compilable), example <http://sscce.org/>`__."
+msgstr ""
+
+#: ../../source/Contact.rst:59 cb7b240662464c6998b4c49543e7a1b3
+msgid ""
+"When discussing any compiling/linking/installation issues, also provide "
+"the compiler version"
+msgstr ""
+
+#: ../../source/Contact.rst:61 cc6aaca940a346a7a80fef67477c8951
+msgid "As appropriate, also include your:"
+msgstr ""
+
+#: ../../source/Contact.rst:63 862ec63b01f64c63997401cd6ff7d304
+msgid "ROS environment variables (env | grep ROS)"
+msgstr ""
+
+#: ../../source/Contact.rst:64 7666751b1fc7402b967d92b514ee69ae
+msgid "Backtraces"
+msgstr ""
+
+#: ../../source/Contact.rst:65 4d7cf101cab445b28399e5802a4730dc
+msgid "Relevant config files"
+msgstr ""
+
+#: ../../source/Contact.rst:66 545b5bcf6ddb4821923fb50a4b1f79a2
+msgid "Graphics card model and driver version"
+msgstr ""
+
+#: ../../source/Contact.rst:67 05778bf76656407f8fffb3e4f0839d74
+msgid "Ogre.log for rviz, if possible (run with rviz -l)"
+msgstr ""
+
+#: ../../source/Contact.rst:68 6731ff4fdc0945859fce06408797d60f
+msgid "Bag files and code samples that can reproduce the problem"
+msgstr ""
+
+#: ../../source/Contact.rst:69 fbb460137ae643a0b62a176e71926f37
+msgid "Gifs or movies to demonstrate the problem"
+msgstr ""
+
+#: ../../source/Contact.rst:73 9b5bd9c7118a4bdaa6b362c9da87e3ab
+msgid "Pull requests"
+msgstr ""
+
+#: ../../source/Contact.rst:75 64e73f78e4af40c6ab7a8823cf0c8d32
+msgid ""
+"When you feel comfortable enough to suggest a specific change directly to"
+" the code, you can submit a pull request. Pull requests are welcome for "
+"any of `the ros2 repositories <https://github.com/ros2>`__. See the "
+":doc:`Contributing <The-ROS2-Project/Contributing>` page for more details"
+" and etiquette on how to contribute."
+msgstr ""
+
+#: ../../source/Contact.rst:82 80457e08238a47aaae968adf97be1fd9
+msgid "Discussion"
+msgstr ""
+
+#: ../../source/Contact.rst:84 25594582dc784d8e9bbc43698c6ba8c3
+msgid ""
+"To start a discussion with other ROS 2 community members, visit the "
+"official `ROS Discourse <https://discourse.ros.org/>`__. Content on the "
+"Discourse should be high-level; it's not a place to get *questions* about"
+" code answered, but it would be suitable to start a conversation about "
+"best practices or improving standards."
+msgstr ""
+
+#: ../../source/Contact.rst:88 b4258f2c64074e4cba47854bea4264a8
+msgid ""
+"Discussions about ROS 2 development and plans are happening on the `“Next"
+" Generation ROS” Discourse category <https://discourse.ros.org/c/ng-"
+"ros>`__. Participating in these discussions is an important way to have a"
+" say on how different features of ROS 2 will work and be implemented."
+msgstr ""
+
+#: ../../source/Contact.rst:91 3a72f53e5d2949f6a912bb1a4c8a50fa
+msgid ""
+"The diverse community behind the ROS ecosystem is one of its greatest "
+"assets. We encourage all members of the ROS community to participate in "
+"these design discussions so that we can leverage the experience of "
+"community members, and keep the varied use cases of ROS in mind."
+msgstr ""
+
+#: ../../source/Contact.rst:95 230f7a6e90ec4adfb5baa382512ed27d
+msgid "Etiquette"
+msgstr ""
+
+#: ../../source/Contact.rst:97 3ecb3d8830f149778ca879fafd443b8a
+msgid ""
+"Assume 'good faith': It's easy to mis-interpret the meaning or tone of "
+"comments on the internet. Assuming good faith gives the benefit of the "
+"doubt to those trying to help you, avoiding: insulting well meaning "
+"community members, and poisoning the mood. Assuming 'good faith' when "
+"responding almost always works better even if the original response was "
+"not in fact in good faith."
+msgstr ""
+
+#: ../../source/Contact.rst:101 f574df84c4f241948504e47fa475e98b
+msgid ""
+"Please don't send your question more than once: The question was seen. If"
+" you didn't get a response then likely nobody has had time to answer you."
+" Alternatively, it could be that nobody knows the answer. In any case, "
+"sending it again is poor form and akin to shouting and is likely to "
+"aggravate a large number of people. This also applies to crossposting. "
+"Try to pick the forum which you think matches best and ask there. If you "
+"are referred to a new forum, provide a link to the old discussion."
+msgstr ""
+
+#: ../../source/Contact.rst:109 2782b78b9fd14f11bb94a23071c48bdf
+msgid ""
+"On https://answers.ros.org you can edit your question to provide more "
+"details. The more details that you include in your question the easier it"
+" is for others to help you find your solution which makes it more likely "
+"for you to get a response."
+msgstr ""
+
+#: ../../source/Contact.rst:112 cce5eba9ef8045289439224d67fc9464
+msgid ""
+"It's considered bad form to list your personal deadlines; community "
+"members answering questions also have them."
+msgstr ""
+
+#: ../../source/Contact.rst:114 ac09066ad3e642459d752f5c4a8c9d07
+msgid ""
+"Do not beg for help. If there is someone willing and able to help with "
+"your problem, you usually get a response. Asking for faster answers will "
+"mostly have a negative effect."
+msgstr ""
+
+#: ../../source/Contact.rst:118 5f0071020198409483446f3a452816b1
+msgid ""
+"Do not add unrelated content to posts. The content of posts should be "
+"focused on the topic at hand and not include unrelated content. Content, "
+"links, and images unrelated to the topic are considered spam."
+msgstr ""
+
+#: ../../source/Contact.rst:122 c465f02dd02b4732b07576376f519495
+msgid ""
+"For commercial posts, see also `this discussion "
+"<https://discourse.ros.org/t/sponsorship-notation-in-posts-on-ros-"
+"org/2078>`_."
+msgstr ""
+
+#: ../../source/Contact.rst:124 3682191964874682bfe641e2db827b9f
+msgid ""
+"Minimize references to content behind pay walls. The content posted on "
+"`ROS Discourse <https://discourse.ros.org/>`__ and `ROS Answers "
+"<https://answers.ros.org/>`__ should \"generally\" be free and open to "
+"all users. Links to content behind pay walls such as private journal "
+"articles, text books, and paid news websites, while helpful and relevant,"
+" may not be accessible to all users. Where possible primary sources "
+"should be free and open with paid content playing a supporting role."
+msgstr ""
+
+#: ../../source/Contact.rst:129 f2fcc1287eff457c84ffd26e3dfe8b75
+msgid ""
+"Single link posts are to be avoided. Generally speaking, posting a single"
+" link answer is less helpful and can be easily confused with spam. "
+"Moreover, links may degrade over time or be replaced. Paraphrasing a "
+"link's content along with some contextual information and attribution is "
+"often much more helpful."
+msgstr ""
+
+#: ../../source/Contact.rst:135 ce014eac40ec404288bf254adeb4bcf4
+msgid "Private contact"
+msgstr ""
+
+#: ../../source/Contact.rst:137 f18186c03059448b8c1a01ccb7563489
+msgid ""
+"If you'd like to contact us privately (e.g., if your question contains "
+"information sensitive to your organization or project, or if it's "
+"regarding a security issue), you can email us directly at "
+"``ros@osrfoundation.org``."
+msgstr ""
+

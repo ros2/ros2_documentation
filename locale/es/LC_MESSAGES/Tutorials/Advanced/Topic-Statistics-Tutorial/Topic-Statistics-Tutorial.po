@@ -1,0 +1,465 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:7
+#: 503e84edcced4dbca7c1646fd469fadb
+msgid "Enabling topic statistics (C++)"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:9
+#: bd13a0dfad264d16abdd970069d7493c
+msgid ""
+"**Goal:** Enable ROS 2 Topic Statistics and view the output statistics "
+"data."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:11
+#: b1875b0de0ec4627a5db6bfd61757eee
+msgid "**Tutorial level:** Advanced"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:13
+#: bf521eee19fd47ae91623f685335854d
+msgid "**Time:** 10 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:16
+#: e89daefc6c4d4cf49be5c16acb6524e4
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:19
+#: af0b4afb737a44a69f36dd5caad3eca0
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:21
+#: 9b53079cc0e74c5fb357b223ede96bc9
+msgid ""
+"This is a short tutorial on how to enable topic statistics in ROS 2 and "
+"view the published statistics output using command line tools "
+"(:doc:`ros2topic <../../Beginner-CLI-Tools/Understanding-ROS2-Topics"
+"/Understanding-ROS2-Topics>`)."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:23
+#: 362430cd1b0545ce9cdd6a6f8ab6e03f
+msgid ""
+"ROS 2 provides the integrated measurement of statistics for messages "
+"received by any subscription, called Topic Statistics. With Topic "
+"Statistics enabled for your subscription, you can characterize the "
+"performance of your system or use the data to help diagnose any present "
+"issues."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:28
+#: 34e3c16b14154e099f15adec3b0c0027
+msgid ""
+"For more details please see the :doc:`Topic Statistics Concepts Page "
+"<../../../Concepts/Intermediate/About-Topic-Statistics>`."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:31
+#: 4158b8dd74074116b81cdcfabc907b5d
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:33
+#: cac40fdc024445b4887f166799dba4d7
+msgid "An installation from either binaries or source."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:35
+#: 6b5c6a6e9c5f4ddd96899d30d183e251
+msgid ""
+"In previous tutorials, you learned how to :doc:`create a workspace "
+"<../../Beginner-Client-"
+"Libraries/Creating-A-Workspace/Creating-A-Workspace>`, :doc:`create a "
+"package <../../Beginner-Client-Libraries/Creating-Your-First-"
+"ROS2-Package>`, and create a :doc:`C++ <../../Beginner-Client-"
+"Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber>` publisher and "
+"subscriber."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:38
+#: 26c40193626a427baf13626ae4e4b008
+msgid ""
+"This tutorial assumes that you still have your ``cpp_pubsub`` package "
+"from the :doc:`C++ <../../Beginner-Client-Libraries/Writing-A-Simple-Cpp-"
+"Publisher-And-Subscriber>` tutorial."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:41
+#: 6b8e01045a224411a17b088a27e1a76e
+msgid "Tasks"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:44
+#: cd78a709b76f44248c9b673f6b6a3c5f
+msgid "1 Write the subscriber node with statistics enabled"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:46
+#: bd83763ab3034617bb61cd987c0bdcb5
+msgid ""
+"Navigate into the ``ros2_ws/src/cpp_pubsub/src`` folder, created in the "
+":doc:`previous tutorial <../../Beginner-Client-Libraries/Writing-A"
+"-Simple-Cpp-Publisher-And-Subscriber>`, and download the example talker "
+"code by entering the following command:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:51
+#: 6cf754cdde0d400cac4766a04b73aeec
+msgid "Linux"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:57
+#: 950fa8638ea64a2e94ebe2d94659126c
+msgid "macOS"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:63
+#: 3cdf08e526fd4e3fb297e8f695d503b1
+msgid "Windows"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:65
+#: 8c760efef18c4abbb3e60b99d16ad257
+msgid ""
+"Right click this link and select Save As "
+"``publisher_member_function.cpp``:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:67
+#: cef1085682944608bfc14845afb56832
+msgid "https://raw.githubusercontent.com/ros2/examples/rolling/rclcpp/topics/minimal_subscriber/member_function_with_topic_statistics.cpp"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:69
+#: 758f588a0fd94a10a1256c26de551671
+msgid ""
+"Now there will be a new file named "
+"``member_function_with_topic_statistics.cpp``. Open the file using your "
+"preferred text editor."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:123
+#: bd2347461819428c83e47bcb4b9db57a
+msgid "1.1 Examine the code"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:125
+#: efa28778b8a948ddbf23da8324fd1cee
+msgid ""
+"As in the :doc:`C++ <../../Beginner-Client-Libraries/Writing-A-Simple-"
+"Cpp-Publisher-And-Subscriber>` tutorial, we have a subscriber node which "
+"receives string messages from the ``topic`` topic from the "
+"``topic_callback`` function. However, we've now added options to "
+"configure the subscription to enable topic statistics with the "
+"``rclcpp::SubscriptionOptions()`` options struct."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:136
+#: 20bce6305cec475bacb3a6626a67a01e
+msgid ""
+"Optionally, fields such as the statistics collection/publish period and "
+"the topic used to publish statistics can be configured as well."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:147
+#: e6218c66bb2f4bdc8ababb5a6af63e17
+msgid "The configurable fields are described in the following table:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:150
+#: c44992865e32403fae1047d5af3d0c5a
+msgid "Subscription Config Field"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:150
+#: 85f2fed13ff74c399805b9eac79d14a3
+msgid "Purpose"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:152
+#: 1264bd20dabe453b89c3e55cb99707b0
+msgid "topic_stats_options.state"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:152
+#: 221c693e676449518aa9ac0a77c14d90
+msgid ""
+"Enable or disable topic statistics (default "
+"``rclcpp::TopicStatisticsState::Disable``)"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:153
+#: 54e14e42b17241dc88eafa346595a3e4
+msgid "topic_stats_options.publish_period"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:153
+#: 434f3a04517445cca4d9d393203523f6
+msgid ""
+"The period in which to collect statistics data and publish a statistics "
+"message (default ``1s``)"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:154
+#: 20cb24b2d6de4787ad3dc4dc70ef1f10
+msgid "topic_stats_options.publish_topic"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:154
+#: ae7b3ad1e7aa4c2fb731c85a25500101
+msgid "The topic to use when publishing statistics data (default ``/statistics``)"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:158
+#: a00f485ddd054b988aa6aeb388315e2c
+msgid "1.2 CMakeLists.txt"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:160
+#: dc793aa442994aa184e5ee5033b4c06f
+msgid "Now open the ``CMakeLists.txt`` file."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:162
+#: 179cc04461f94cbb96bebb530f02478e
+msgid ""
+"Add the executable and name it ``listener_with_topic_statistics`` so you "
+"can run your node using ``ros2 run``:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:175
+#: 060c92168fad4c328435336874213703
+msgid ""
+"Make sure to save the file, and then your pub/sub system, with topic "
+"statistics enabled, should be ready for use."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:179
+#: 7a4edd43b2bf48f79c6a8e38fb4494da
+msgid "2 Build and run"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:181
+#: 2ba18bdf875b4a84be122f8c1d4b2b26
+msgid ""
+"To build, see the :ref:`Build and run <cpppubsub-build-and-run>` section "
+"in the pub/sub tutorial."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:183
+#: 7db3c2a07da04841959ecb969b674673
+msgid "Run the subscriber with statistics enabled node:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:189
+#: ab2e29d49f3c4524811ca16408dcacf2
+msgid "Now run the talker node:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:195
+#: b0a2e8b5c35645eca577ac8332190cf7
+msgid ""
+"The terminal should start publishing info messages every 0.5 seconds, "
+"like so:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:205
+#: 229c2525c73348a2985306acdb570a7f
+msgid ""
+"The listener will start printing messages to the console, starting at "
+"whatever message count the publisher is on at that time, like so:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:215
+#: 465880ceb9d4461e95422023b24a52be
+msgid ""
+"Now that the subscriber node is receiving messages, it will periodically "
+"publish statistics messages. We will observe these messages in the next "
+"section."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:219
+#: ff65886d84494cb4835b5bcd50b45b47
+msgid "3 Observe published statistic data"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:221
+#: be6cd375872a4003b0f0ac55f600be3a
+msgid ""
+"While the nodes are running, open a new terminal window. Execute the "
+"following command:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:228
+#: ea3b3a3ce4f3400e9cc163ecc3531b5a
+msgid "This will list all currently active topics. You should see the following:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:238
+#: 51c9ec9776ba4fda9d2a266a60624587
+msgid ""
+"If you optionally changed the ``topic_stats_options.publish_topic`` field"
+" earlier in the tutorial, then you will see that name instead of "
+"``/statistics``."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:241
+#: 45428277833d4c06ba1b14f946b28361
+msgid ""
+"The subscriber node you created is publishing statistics, for the topic "
+"``topic``, to the output topic ``/statistics``."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:244
+#: 7600b50d2b584aacb2373bf7561e05e1
+msgid ""
+"We can visualize this using :doc:`RQt <../../../Concepts/Intermediate"
+"/About-RQt>`"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:248
+#: a93324e2b8954a0687f0564bcf05fdf7
+msgid ""
+"Now we can view the statistics data published to this topic with the "
+"following command:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:254
+#: 64bcba9036894af2a230ce38a689278f
+msgid ""
+"The terminal should start publishing statistics messages every 10 "
+"seconds, because the ``topic_stats_options.publish_period`` subscription "
+"configuration was optionally changed earlier in the tutorial."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:303
+#: f19629f800ea4b8ea0b96a90bb84fb18
+msgid ""
+"From the `message definition "
+"<https://github.com/ros2/rcl_interfaces/tree/rolling/statistics_msgs>`__ "
+"the ``data_types`` are as follows"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:307
+#: 2dcfcfc96c36455e9dcd1ffa3fffce7b
+msgid "data_type value"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:307
+#: f9ab1f5b39fb4e6397f63a4768edb9e3
+msgid "statistics"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:309
+#: 106bf61efc7a49239d9919bff2b7d298
+msgid "1"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:309
+#: 0fd2e445576041d5b6c6df42c02d1013
+msgid "average"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:310
+#: 9ff2eddd90324046b836379008370092
+msgid "2"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:310
+#: 76643d99daa14c3dbab84e1068dff8ed
+msgid "minimum"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:311
+#: fb77ca7ddc5c45f2ba335586c2d81c75
+msgid "3"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:311
+#: de25f9b9aaf34014a6c6ef06045b3d66
+msgid "maximum"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:312
+#: e0a304da8e5e4fea81137c720ceff31e
+msgid "4"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:312
+#: dbd471fe8ddd4fa8805ad32d6d7f6fa8
+msgid "standard deviation"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:313
+#: 024426e2d70d4acdbfc9d9d3aea9b24b
+msgid "5"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:313
+#: 3f99be8b046d45489ddc7c9b1ed9e40d
+msgid "sample count"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:316
+#: c416149c368443bfbfe1bb0f19029890
+msgid ""
+"Here we see the two currently possible calculated statistics for the "
+"``std_msgs::msg::String`` message published to ``/topic`` by the "
+"``minimal_publisher``. Because the ``std_msgs::msg::String`` does not "
+"have a message header, the ``message_age`` calculation cannot be "
+"performed, so NaNs are returned. However, the ``message_period`` can be "
+"calculated and we see the statistics populated in the message above."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:324
+#: e29e716454a542bab48ee8688b7198bb
+msgid "Summary"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:326
+#: c780c590bf7d4dd28d7c6e16d2fbbe86
+msgid ""
+"You created a subscriber node with topic statistics enabled, which "
+"published statistics data from the :doc:`C++ <../../Beginner-Client-"
+"Libraries/Writing-A-Simple-Cpp-Service-And-Client>`'s publisher node. You"
+" were able to compile and run this node. While running, you were able to "
+"observe the statistics data."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:331
+#: bd413e2f7325443499343b57f0d8661a
+msgid "Related content"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial.rst:333
+#: a6621b9609864b538b05bc0065c992b1
+msgid ""
+"To observe how the ``message_age`` period is calculated please see the "
+"`ROS 2 Topic Statistics demo "
+"<https://github.com/ros2/demos/tree/rolling/topic_statistics_demo>`__."
+msgstr ""
+

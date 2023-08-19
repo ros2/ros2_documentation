@@ -1,0 +1,445 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:8
+#: e175b93616e845a78ae99a1482ace9c8
+msgid "Writing a static broadcaster (C++)"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:10
+#: 5776731d771b4786b5778dda223d68fb
+msgid "**Goal:** Learn how to broadcast static coordinate frames to tf2."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:12
+#: e1224873604c4d099f11058b763f88e7
+msgid "**Tutorial level:** Intermediate"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:14
+#: fac08316a415456c962a249905ccb825
+msgid "**Time:** 15 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:18
+#: e3ce824608fe4cda915142d75b7dbf5a
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:21
+#: 5405084e3f324c5c8bb79e7ced7f46d5
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:23
+#: 884badab02f7498ea763d782343dd285
+msgid ""
+"Publishing static transforms is useful to define the relationship between"
+" a robot base and its sensors or non-moving parts. For example, it is "
+"easiest to reason about laser scan measurements in a frame at the center "
+"of the laser scanner."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:26
+#: 1f72732d651a4d468df64fefd81b2b82
+msgid ""
+"This is a standalone tutorial covering the basics of static transforms, "
+"which consists of two parts. In the first part we will write code to "
+"publish static transforms to tf2. In the second part we will explain how "
+"to use the commandline ``static_transform_publisher`` executable tool in "
+"``tf2_ros``."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:30
+#: f19c6ce78931484088bbd862cc2ae317
+msgid ""
+"In the next two tutorials we will write the code to reproduce the demo "
+"from the :doc:`Introduction to tf2 <./Introduction-To-Tf2>` tutorial. "
+"After that, the following tutorials focus on extending the demo with more"
+" advanced tf2 features."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:34
+#: c0f6d1a801c7473f960e22f53613011f
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:36
+#: cc1802a96d9f415eb54d4e544ca347e0
+msgid ""
+"In previous tutorials, you learned how to :doc:`create a workspace "
+"<../../Beginner-Client-"
+"Libraries/Creating-A-Workspace/Creating-A-Workspace>` and :doc:`create a "
+"package <../../Beginner-Client-Libraries/Creating-Your-First-"
+"ROS2-Package>`."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:39
+#: 3f8fbb118d4543c88dfc09ceb6f5cddb
+msgid "Tasks"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:42
+#: a6b90b03358445229cf0308e6c0e177c
+msgid "1 Create a package"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:44
+#: 390483cd7b664946ad69a2664d54689a
+msgid ""
+"First we will create a package that will be used for this tutorial and "
+"the following ones. The package called ``learning_tf2_cpp`` will depend "
+"on ``geometry_msgs``, ``rclcpp``, ``tf2``, ``tf2_ros``, and "
+"``turtlesim``. Code for this tutorial is stored `here "
+"<https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/static_turtle_tf2_broadcaster.cpp>`_."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:48
+#: 6cbc273eb632409e9d5579a6108a0f02
+msgid ""
+"Open a new terminal and :doc:`source your ROS 2 installation "
+"<../../Beginner-CLI-Tools/Configuring-ROS2-Environment>` so that ``ros2``"
+" commands will work. Navigate to workspace's ``src`` folder and create a "
+"new package:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:55
+#: d34ca5d038cb45859def7bb26b08b0b8
+msgid ""
+"Your terminal will return a message verifying the creation of your "
+"package ``learning_tf2_cpp`` and all its necessary files and folders."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:58
+#: 75d3df022ccd43b3a6eaaa4e031d472b
+msgid "2 Write the static broadcaster node"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:60
+#: caa83d32b1e64c8f94c1a6c3122c29a7
+msgid ""
+"Let's first create the source files. Inside the "
+"``src/learning_tf2_cpp/src`` directory download the example static "
+"broadcaster code by entering the following command:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:65
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:291
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:309
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:331
+#: 0bebf7c088564b6ba3d408439b62b7e4 12a3a353c0fb4c84b5b507f949190e78
+#: 269eb7e685ba4dfdbcf15399ef70405b c9ce6a110cc946a58f076bf8d58ee68e
+msgid "Linux"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:71
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:297
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:315
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:337
+#: 10b881b852d349cc81df0ccbe73efef8 2b09a4d6322f4486b0c3f4ba0bb96a65
+#: 5a1ee043ba2c4a40b3a69cffdd19d905 b201552fa231480c89c7972f0ba87d44
+msgid "macOS"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:77
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:301
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:321
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:343
+#: 6ff60131ce9f42ac98abbdba57b9cbac 8d6807f4b90c457ea8ccf9f44185eb8e
+#: 98bd7ee5355a45a1ba6bc82a338a7611 bdb5e842a4d74fdb8bcf1764badbef1c
+msgid "Windows"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:79
+#: 27bc1b4a1c734b019f8e62b05b65d83a
+msgid "In a Windows command line prompt:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:85
+#: d87ceaae47254ffdbba7a8e3298b15fc
+msgid "Or in powershell:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:91
+#: 021a9b70ceeb4dbf82f1f9aae83f5a17
+msgid "Open the file using your preferred text editor."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:170
+#: 2ed4801c3e9b4a1a8abf20bcddd756ee
+msgid "2.1 Examine the code"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:172
+#: 17eadb173c3947d89e4b42f03ce31dc9
+msgid ""
+"Now let's look at the code that is relevant to publishing the static "
+"turtle pose to tf2. The first lines include the required header files. "
+"First we include ``geometry_msgs/msg/transform_stamped.hpp`` to access "
+"the ``TransformStamped`` message type, which we will publish to the "
+"transformation tree."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:180
+#: e4505406b99547a799fd7d5487db7b61
+msgid ""
+"Afterward, ``rclcpp`` is included so its ``rclcpp::Node`` class can be "
+"used."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:186
+#: d9a8f8d143ff4cb7a666c97a03901feb
+msgid ""
+"``tf2::Quaternion`` is a class for a quaternion that provides convenient "
+"functions for converting Euler angles to quaternions and vice versa. We "
+"also include ``tf2_ros/static_transform_broadcaster.h`` to use the "
+"``StaticTransformBroadcaster`` to make the publishing of static "
+"transforms easy."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:194
+#: 6e3e9e5c75ab4ca9935a6f91c92875b9
+msgid ""
+"The ``StaticFramePublisher`` class constructor initializes the node with "
+"the name ``static_turtle_tf2_broadcaster``. Then, "
+"``StaticTransformBroadcaster`` is created, which will send one static "
+"transformation upon the startup."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:203
+#: ffb31ac2350b479b9d5946bf92409036
+msgid ""
+"Here we create a ``TransformStamped`` object, which will be the message "
+"we will send over once populated. Before passing the actual transform "
+"values we need to give it the appropriate metadata."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:206
+#: 07d5f681c2d34a43b8546ba969a59e08
+msgid ""
+"We need to give the transform being published a timestamp and we'll just "
+"stamp it with the current time, ``this->get_clock()->now()``"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:208
+#: c3d61a60e51e4e22828ae1b344219f35
+msgid ""
+"Then we need to set the name of the parent frame of the link we're "
+"creating, in this case ``world``"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:210
+#: 13f51ec48f8c4f9fb43970bf5aa88a6f
+msgid ""
+"Finally, we need to set the name of the child frame of the link we're "
+"creating"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:220
+#: e38e94570a3e4b729ad2a976476cd0b9
+msgid "Here we populate the 6D pose (translation and rotation) of the turtle."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:237
+#: 48e2ff30ed834410aa45f26192198785
+msgid ""
+"Finally, we broadcast static transform using the ``sendTransform()`` "
+"function."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:244
+#: e111c47f1e1f4ccc98156909fb49e26d
+msgid "2.2 Add dependencies"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:246
+#: 080fc4b081434b71866d0331072311e7
+msgid ""
+"Navigate one level back to the ``src/learning_tf2_cpp`` directory, where "
+"the ``CMakeLists.txt`` and ``package.xml`` files have been created for "
+"you."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:248
+#: 03b1dcf4def0436888fa7418b1403637
+msgid "Open ``package.xml`` with your text editor."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:250
+#: c5c6176e96964c669bee8dca77720b2e
+msgid ""
+"As mentioned in the :doc:`Create a package <../../Beginner-Client-"
+"Libraries/Creating-Your-First-ROS2-Package>` tutorial, make sure to fill "
+"in the ``<description>``, ``<maintainer>`` and ``<license>`` tags:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:258
+#: 5286882e386143cc861031faf19d2269
+msgid "Make sure to save the file."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:261
+#: 8f17b02b04f64f769814c2a49d61d189
+msgid "2.3 CMakeLists.txt"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:263
+#: 4fb83cc663b342da8715beb548a04867
+msgid ""
+"Add the executable to the CMakeLists.txt and name it "
+"``static_turtle_tf2_broadcaster``, which you'll use later with ``ros2 "
+"run``."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:276
+#: 7dbe36d403d84d2282e0494139bfc696
+msgid ""
+"Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find "
+"your executable:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:285
+#: b992eaad13364beeadf825a267edf049
+msgid "3 Build"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:287
+#: 45fdbba3fd96426a96f69352894485b4
+msgid ""
+"It's good practice to run ``rosdep`` in the root of your workspace to "
+"check for missing dependencies before building:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:299
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:303
+#: 4e1ee2c3ec58467e9d935275cb79917d b9fcdc4c8498498ab018d3004ce64f4d
+msgid ""
+"rosdep only runs on Linux, so you will need to install ``geometry_msgs`` "
+"and ``turtlesim`` dependencies yourself"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:305
+#: 8beca2a423cf4055ba2439503f4a2224
+msgid "Still in the root of your workspace, build your new package:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:327
+#: f5f4899a05964de0aedbc38704d54e46
+msgid ""
+"Open a new terminal, navigate to the root of your workspace, and source "
+"the setup files:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:354
+#: e2779930fac542eaa8eacea1d8df09ce
+msgid "4 Run"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:356
+#: b9977ef8f99047638bd178d8395d0f1e
+msgid "Now run the ``static_turtle_tf2_broadcaster`` node:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:362
+#: 34a6a97f43bd426eb8ff35b3e65a61f8
+msgid ""
+"This sets a turtle pose broadcast for ``mystaticturtle`` to float 1 meter"
+" above the ground."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:364
+#: cbbddbed13924de19d27a27553700450
+msgid ""
+"We can now check that the static transform has been published by echoing "
+"the ``tf_static`` topic"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:370
+#: 163b5c66c1174539aa2f8106c0de1ea6
+msgid "If everything went well you should see a single static transform"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:393
+#: 63584e394e6b482eb608be014e0e3581
+msgid "The proper way to publish static transforms"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:395
+#: 1ce3974273c547f791b4902b841c0a5c
+msgid ""
+"This tutorial aimed to show how ``StaticTransformBroadcaster`` can be "
+"used to publish static transforms. In your real development process you "
+"shouldn't have to write this code yourself and should use the dedicated "
+"``tf2_ros`` tool to do so. ``tf2_ros`` provides an executable named "
+"``static_transform_publisher`` that can be used either as a commandline "
+"tool or a node that you can add to your launchfiles."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:399
+#: 71693c43bbd04bd2979b0603187321a1
+msgid ""
+"Publish a static coordinate transform to tf2 using an x/y/z offset in "
+"meters and roll/pitch/yaw in radians. In our case, roll/pitch/yaw refers "
+"to rotation about the x/y/z-axis, respectively."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:406
+#: 4256bbc81147413b94ae4f4093132e03
+msgid ""
+"Publish a static coordinate transform to tf2 using an x/y/z offset in "
+"meters and quaternion."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:412
+#: 1b210fed344b4e389c7d6c3d99a6b5fd
+msgid ""
+"``static_transform_publisher`` is designed both as a command-line tool "
+"for manual use, as well as for use within ``launch`` files for setting "
+"static transforms. For example:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:428
+#: ad24bdb2c0034988a603fb77bf05ade6
+msgid ""
+"Note that all arguments except for ``--frame-id`` and ``--child-frame-"
+"id`` are optional; if a particular option isn't specified, then the "
+"identity will be assumed."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:431
+#: 232c2b63c4bb4570ab5129396597fb2c
+msgid "Summary"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp.rst:433
+#: dce82187058944be944b152892d1113c
+msgid ""
+"In this tutorial you learned how static transforms are useful to define "
+"static relationships between frames, like ``mystaticturtle`` in relation "
+"to the ``world`` frame. In addition, you learned how static transforms "
+"can be useful for understanding sensor data, such as from laser scanners,"
+" by relating the data to a common coordinate frame. Finally, you wrote "
+"your own node to publish static transforms to tf2 and learned how to "
+"publish required static transformations using "
+"``static_transform_publisher`` executable and launch files."
+msgstr ""
+

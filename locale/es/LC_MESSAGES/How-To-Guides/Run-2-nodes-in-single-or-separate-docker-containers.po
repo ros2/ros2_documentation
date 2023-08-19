@@ -1,0 +1,101 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/How-To-Guides/Run-2-nodes-in-single-or-separate-docker-containers.rst:8
+#: 807c28c71257460b8d7cbe488e7827ad
+msgid "Running ROS 2 nodes in Docker [community-contributed]"
+msgstr ""
+
+#: ../../source/How-To-Guides/Run-2-nodes-in-single-or-separate-docker-containers.rst:11
+#: bdcb6a0e3dcb43bca28156caab8b3db2
+msgid "Run two nodes in a single docker container"
+msgstr ""
+
+#: ../../source/How-To-Guides/Run-2-nodes-in-single-or-separate-docker-containers.rst:13
+#: eef70acedfb24cbaa0a06859954624f8
+msgid "Pull the ROS docker image with tag \"rolling-desktop\"."
+msgstr ""
+
+#: ../../source/How-To-Guides/Run-2-nodes-in-single-or-separate-docker-containers.rst:20
+#: 41417d15c1804f23a355679ebb0c548e
+msgid "Run the image in a container in interactive mode."
+msgstr ""
+
+#: ../../source/How-To-Guides/Run-2-nodes-in-single-or-separate-docker-containers.rst:28
+#: c93405fc8dc8475c9a40a813aa46c40d
+msgid "Your best friend is the ``ros2`` command line help now."
+msgstr ""
+
+#: ../../source/How-To-Guides/Run-2-nodes-in-single-or-separate-docker-containers.rst:35
+#: 73c5b72cc6c3480aa113adabbdc1af20
+msgid "E.g. list all installed packages."
+msgstr ""
+
+#: ../../source/How-To-Guides/Run-2-nodes-in-single-or-separate-docker-containers.rst:43
+#: 3649133ade0d429fa8fae0e1b7e3257c
+msgid "E.g. list all executables:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Run-2-nodes-in-single-or-separate-docker-containers.rst:51
+#: 184429ee4dad437c9bca3a2faf8060e3
+msgid ""
+"Run a minimal example of 2 C++ nodes (1 topic subscriber ``listener``, 1 "
+"topic publisher ``talker``) from the package ``demo_nodes_cpp`` in this "
+"container:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Run-2-nodes-in-single-or-separate-docker-containers.rst:59
+#: 5e1f4f4017e347499d4d66f55d3d8acc
+msgid "Run two nodes in two separate docker containers"
+msgstr ""
+
+#: ../../source/How-To-Guides/Run-2-nodes-in-single-or-separate-docker-containers.rst:61
+#: 4dbe8fa2a12646bd98fd1fcc76e4ee6a
+msgid ""
+"Open a terminal. Run the image in a container in interactive mode and "
+"launch a topic publisher (executable ``talker`` from the package "
+"``demo_nodes_cpp``) with ``ros2 run``:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Run-2-nodes-in-single-or-separate-docker-containers.rst:67
+#: 3656e92945844a6a8eca5f6da8ebed74
+msgid ""
+"Open a second terminal. Run the image in a container in interactive mode "
+"and launch a topic subscriber (executable ``listener`` from the package "
+"``demo_nodes_cpp``)  with ``ros2 run``:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Run-2-nodes-in-single-or-separate-docker-containers.rst:73
+#: 0df3c2df25dd408ea084dd77b074df71
+msgid ""
+"As an alternative to the command line invocation, you can create a "
+"``docker-compose.yml`` file (here version 2) with the following (minimal)"
+" content:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Run-2-nodes-in-single-or-separate-docker-containers.rst:89
+#: 20e232e01e1d4432a9d9c09b2a51b32e
+msgid ""
+"To run the containers call ``docker compose up`` in the same directory. "
+"You can close the containers with ``Ctrl+C``."
+msgstr ""
+

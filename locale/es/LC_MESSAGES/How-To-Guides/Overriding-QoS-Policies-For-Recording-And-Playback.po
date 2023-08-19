@@ -1,0 +1,128 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/How-To-Guides/Overriding-QoS-Policies-For-Recording-And-Playback.rst:9
+#: a14ef6321a064fe882ea2ba40dd61b15
+msgid "rosbag2: Overriding QoS Policies"
+msgstr ""
+
+#: ../../source/How-To-Guides/Overriding-QoS-Policies-For-Recording-And-Playback.rst:11
+#: c6bff203b6454d83a7228ef806be91db
+msgid ""
+"**Goal:** Override Ros2Bag QoS profile settings for recording and "
+"playback."
+msgstr ""
+
+#: ../../source/How-To-Guides/Overriding-QoS-Policies-For-Recording-And-Playback.rst:16
+#: adb3afe1b83b44008c18577f3230670e
+msgid "Contents"
+msgstr ""
+
+#: ../../source/How-To-Guides/Overriding-QoS-Policies-For-Recording-And-Playback.rst:19
+#: 610a03b4216d43c1b0e85d2ef611082c
+msgid "Background"
+msgstr ""
+
+#: ../../source/How-To-Guides/Overriding-QoS-Policies-For-Recording-And-Playback.rst:21
+#: 6244c9c4cebd4046ac4674701c15b330
+msgid ""
+"With the introduction of DDS in ROS 2, Quality of Service (QoS) "
+"compatibility for publisher/subscriber nodes needs to be considered when "
+"recording and playing back data. More detail on how QoS works can be "
+"found :doc:`here <../Concepts/Intermediate/About-Quality-of-Service-"
+"Settings>`. For the purposes of this guide, it is sufficient to know that"
+" only the reliability and durability policies affect whether "
+"publishers/subscribers are compatible and can receive data from one "
+"other."
+msgstr ""
+
+#: ../../source/How-To-Guides/Overriding-QoS-Policies-For-Recording-And-Playback.rst:25
+#: 62bd5226a8da4c0d946619e34d2e2a6b
+msgid ""
+"Ros2Bag adapts its requested/offered QoS profile when recording/playing "
+"data from a topic to prevent dropped messages. During playback, Ros2bag "
+"also attempts to preserve the policy originally offered by the topic. "
+"Certain situations may require specifying explicit QoS profile settings "
+"so Ros2Bag can record/playback topics. These QoS profile overrides can be"
+" specified via the CLI using the ``--qos-profile-overrides-path`` flag."
+msgstr ""
+
+#: ../../source/How-To-Guides/Overriding-QoS-Policies-For-Recording-And-Playback.rst:31
+#: a96ef99b950c4387a470c80f740ca526
+msgid "Using QoS Overrides"
+msgstr ""
+
+#: ../../source/How-To-Guides/Overriding-QoS-Policies-For-Recording-And-Playback.rst:33
+#: 603ff8c0a1e84aaeb7824ec7979786cb
+msgid ""
+"The YAML schema for the profile overrides is a dictionary of topic names "
+"with key/value pairs for each QoS policy:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Overriding-QoS-Policies-For-Recording-And-Playback.rst:44
+#: dcd2aa3b11914428b14e8894e5429704
+msgid ""
+"If a policy value is not specified, the value will fallback to the "
+"default used by Ros2Bag. If you specify a Duration based policy such as "
+"``deadline`` or ``lifespan``, you will need to specify both seconds and "
+"nanoseconds. Policy values are determined by the policy’s short keys "
+"which can be found using ``ros2topic`` verbs such as ``ros2 topic pub "
+"--help``. All values are replicated below for reference."
+msgstr ""
+
+#: ../../source/How-To-Guides/Overriding-QoS-Policies-For-Recording-And-Playback.rst:68
+#: ee7a939fec054e24a0eadd516bc53243
+msgid "Example"
+msgstr ""
+
+#: ../../source/How-To-Guides/Overriding-QoS-Policies-For-Recording-And-Playback.rst:70
+#: 9932f4c4233e427daa5f2e7cc36133e2
+msgid ""
+"Consider a topic ``/talker`` offering a ``transient_local`` Durability "
+"policy. ROS 2 publishers by default request ``volatile`` Durability."
+msgstr ""
+
+#: ../../source/How-To-Guides/Overriding-QoS-Policies-For-Recording-And-Playback.rst:77
+#: b2b04fd46474493da2b888953eba0c22
+msgid ""
+"In order for Ros2Bag to record the data, we would want to override the "
+"recording policy for that specific topic like so:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Overriding-QoS-Policies-For-Recording-And-Playback.rst:86
+#: ../../source/How-To-Guides/Overriding-QoS-Policies-For-Recording-And-Playback.rst:101
+#: d47d218df2ec4bfb81051d33665f723a f3129eca904d403ab477a98eb89b8f5c
+msgid "And call it from the CLI:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Overriding-QoS-Policies-For-Recording-And-Playback.rst:92
+#: e565fdea7eb44ef09e1b4c4a37357a22
+msgid ""
+"If we want to playback the bag file but with a different Reliability "
+"policy, we can specify one as such;"
+msgstr ""
+
+#: ../../source/How-To-Guides/Overriding-QoS-Policies-For-Recording-And-Playback.rst:107
+#: 87f848a776aa48949ef247929019070f
+msgid "We can see the results with ``ros2 topic``"
+msgstr ""
+

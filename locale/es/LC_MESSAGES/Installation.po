@@ -1,0 +1,172 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Installation.rst:5 e9ac7643ded8499cabca00e06487a9cd
+msgid "Installation"
+msgstr ""
+
+#: ../../source/Installation.rst:7 96925f6390464c18bb711e41e2ac8b96
+msgid "Options for installing ROS 2 Rolling Ridley:"
+msgstr ""
+
+#: ../../source/Installation.rst:22 7ee592f86bbc4715bea911b0d9380c08
+msgid "Binary packages"
+msgstr ""
+
+#: ../../source/Installation.rst:24 516655943a0d406ea650d16fc0923a67
+msgid ""
+"Binaries are only created for the Tier 1 operating systems listed in "
+"`REP-2000 <https://www.ros.org/reps/rep-2000.html#rolling-ridley-"
+"june-2020-ongoing>`__. Given the nature of Rolling, this list may be "
+"updated at any time. If you are not running any of the following "
+"operating systems you may need to build from source or use a "
+":doc:`container solution <How-To-Guides/Run-2-nodes-in-single-or-"
+"separate-docker-containers>` to run ROS 2 on your platform."
+msgstr ""
+
+#: ../../source/Installation.rst:28 3c914d4d731d45299b23d951ca77ba4c
+msgid "We provide ROS 2 binary packages for the following platforms:"
+msgstr ""
+
+#: ../../source/Installation.rst:30 ff7b45bca80a47efafe3602aef235011
+msgid "Ubuntu Linux - Jammy Jellyfish (22.04)"
+msgstr ""
+
+#: ../../source/Installation.rst:32 67c65e70214747108bb0d24bbe7c410f
+msgid ":doc:`Debian packages <Installation/Ubuntu-Install-Debians>` (recommended)"
+msgstr ""
+
+#: ../../source/Installation.rst:33 fb6aa386bc344aa68a8867c80f43f1e6
+msgid ":doc:`\"fat\" archive <Installation/Alternatives/Ubuntu-Install-Binary>`"
+msgstr ""
+
+#: ../../source/Installation.rst:35 dbd8c226cadc47c5885c53b2f51704c1
+msgid "RHEL 9"
+msgstr ""
+
+#: ../../source/Installation.rst:37 9c7c88b264fc4f8ea521d3fb1e8bea09
+msgid ":doc:`RPM packages <Installation/RHEL-Install-RPMs>` (recommended)"
+msgstr ""
+
+#: ../../source/Installation.rst:38 6d210de85f644d5eb7a166f4abbd170f
+msgid ":doc:`\"fat\" archive <Installation/Alternatives/RHEL-Install-Binary>`"
+msgstr ""
+
+#: ../../source/Installation.rst:40 2641e7cfbb6a47179bfcba4bbe614ff7
+msgid ":doc:`Windows (VS 2019) <Installation/Windows-Install-Binary>`"
+msgstr ""
+
+#: ../../source/Installation.rst:46 25f0234748b74f698405d10466ed4a1c
+msgid "Building from source"
+msgstr ""
+
+#: ../../source/Installation.rst:48 6c1070caab834124957023d42484c33f
+msgid "We support building ROS 2 from source on the following platforms:"
+msgstr ""
+
+#: ../../source/Installation.rst:51 8269747ad0244667ac69ab75530460d8
+msgid ":doc:`Ubuntu Linux <Installation/Alternatives/Ubuntu-Development-Setup>`"
+msgstr ""
+
+#: ../../source/Installation.rst:52 00e4b267a0f5494aa1526e627e652c1d
+msgid ":doc:`Windows <Installation/Alternatives/Windows-Development-Setup>`"
+msgstr ""
+
+#: ../../source/Installation.rst:53 52c111a9e2ab40358e5bc6d833f6c6ea
+msgid ":doc:`RHEL/Fedora <Installation/Alternatives/RHEL-Development-Setup>`"
+msgstr ""
+
+#: ../../source/Installation.rst:54 cc91dc762f4448c0905ca1f773b118ca
+msgid ":doc:`macOS <Installation/Alternatives/macOS-Development-Setup>`"
+msgstr ""
+
+#: ../../source/Installation.rst:58 a9286113199c46659d681ea02a488191
+msgid "Which install should you choose?"
+msgstr ""
+
+#: ../../source/Installation.rst:60 c09e75d5bec7463e8cd47091f8cd1a69
+msgid ""
+"Installing from binary packages or from source will both result in a "
+"fully-functional and usable ROS 2 install. Differences between the "
+"options depend on what you plan to do with ROS 2."
+msgstr ""
+
+#: ../../source/Installation.rst:63 1e34869883764caca48f513061f25db0
+msgid ""
+"**Binary packages** are for general use and provide an already-built "
+"install of ROS 2. This is great for people who want to dive in and start "
+"using ROS 2 as-is, right away."
+msgstr ""
+
+#: ../../source/Installation.rst:66 e5fc531d43df4d3a8f7f324ecfc5e391
+msgid "Linux users have two options for installing binary packages:"
+msgstr ""
+
+#: ../../source/Installation.rst:68 195d8837cada45c9bca1eab830884eda
+msgid "Debian packages"
+msgstr ""
+
+#: ../../source/Installation.rst:69 e75877bb4963403ea87aec7b99632778
+msgid "\"fat\" archive"
+msgstr ""
+
+#: ../../source/Installation.rst:71 110f619fd15f442f8fb716a251965aac
+msgid ""
+"Installing from Debian packages is the recommended method. It's more "
+"convenient because it installs its necessary dependencies automatically. "
+"It also updates alongside regular system updates."
+msgstr ""
+
+#: ../../source/Installation.rst:75 50c8fd5bb4924f00afd0e3fcdd54b469
+msgid ""
+"However, you need root access in order to install Debian packages. If you"
+" don't have root access, the \"fat\" archive is the next best choice."
+msgstr ""
+
+#: ../../source/Installation.rst:78 1be8e8039ff649cbbba0af941f3be9cc
+msgid ""
+"macOS and Windows users who choose to install from binary packages only "
+"have the \"fat\" archive option (Debian packages are exclusive to "
+"Ubuntu/Debian)."
+msgstr ""
+
+#: ../../source/Installation.rst:81 9711141fa6ad40e5a5025da2051515b4
+msgid ""
+"**Building from source** is meant for developers looking to alter or "
+"explicitly omit parts of ROS 2's base. It is also recommended for "
+"platforms that don't support binaries. Building from source also gives "
+"you the option to install the absolute latest version of ROS 2."
+msgstr ""
+
+#: ../../source/Installation.rst:86 2f0110c9c9274a34a469e9a0ef2d167f
+msgid "Contributing to ROS 2 core?"
+msgstr ""
+
+#: ../../source/Installation.rst:87 435acdb3ea744a40860eb52821fe6087
+msgid ""
+"If you plan to contribute directly to ROS 2 core packages, you can "
+"install the :doc:`latest development from source "
+"<Installation/Alternatives/Latest-Development-Setup>` which shares "
+"installation instructions with the :ref:`Rolling distribution "
+"<rolling_distribution>`."
+msgstr ""
+

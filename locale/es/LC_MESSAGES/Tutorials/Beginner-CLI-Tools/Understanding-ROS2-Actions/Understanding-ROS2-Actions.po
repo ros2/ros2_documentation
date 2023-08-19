@@ -1,0 +1,466 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:8
+#: 038691ce6b7c4f46a6fa71681e18f1b4
+msgid "Understanding actions"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:10
+#: b9fd7a4c4be64a31ab09f3f7cef2f6b0
+msgid "**Goal:** Introspect actions in ROS 2."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:12
+#: 76c531f200744539b470ee50a2a19622
+msgid "**Tutorial level:** Beginner"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:14
+#: b46ee99267c84e12a7fdca171bf31cbf
+msgid "**Time:** 15 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:18
+#: 30a31b71704f4c6ba744e81e87e0e55a
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:21
+#: cabe06fff487490eadb52ffbb5c880ad
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:23
+#: 55f8dad7dcc04799a0c5b3b5d8a1df5f
+msgid ""
+"Actions are one of the communication types in ROS 2 and are intended for "
+"long running tasks. They consist of three parts: a goal, feedback, and a "
+"result."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:26
+#: fd4a0142d9444e288a19e8d5dd49cf7f
+msgid ""
+"Actions are built on topics and services. Their functionality is similar "
+"to services, except actions can be canceled. They also provide steady "
+"feedback, as opposed to services which return a single response."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:30
+#: 7801019054c54bb9a08d56db68466312
+msgid ""
+"Actions use a client-server model, similar to the publisher-subscriber "
+"model (described in the :doc:`topics tutorial <../Understanding-"
+"ROS2-Topics/Understanding-ROS2-Topics>`). An \"action client\" node sends"
+" a goal to an \"action server\" node that acknowledges the goal and "
+"returns a stream of feedback and a result."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:36
+#: 5e6bd9d5f9f74584999a2c25e8758d7d
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:38
+#: 7bfdab00c2254894a8dd687d8e1f13fa
+msgid ""
+"This tutorial builds off concepts, like :doc:`nodes <../Understanding-"
+"ROS2-Nodes/Understanding-ROS2-Nodes>` and :doc:`topics <../Understanding-"
+"ROS2-Topics/Understanding-ROS2-Topics>`, covered in previous tutorials."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:40
+#: 723516e202264b54b74468c9fcdba105
+msgid ""
+"This tutorial uses the :doc:`turtlesim package <../Introducing-Turtlesim"
+"/Introducing-Turtlesim>`."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:42
+#: e1c24a2dd9f24aa5816155736119fea8
+msgid ""
+"As always, don't forget to source ROS 2 in :doc:`every new terminal you "
+"open <../Configuring-ROS2-Environment>`."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:45
+#: 044ba1e5df624c948d76ea52abed56bb
+msgid "Tasks"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:48
+#: e672f123c0b946959bb1f456451dc434
+msgid "1 Setup"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:50
+#: a3757b35f984494caed25776fb944c1c
+msgid "Start up the two turtlesim nodes, ``/turtlesim`` and ``/teleop_turtle``."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:52
+#: a1a7eb42fb9343ae83ea6f727b725e87
+msgid "Open a new terminal and run:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:58
+#: ab318344d0fa470fada8df5452a6c4e8
+msgid "Open another terminal and run:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:66
+#: 81d9fca822604579805d918f01759487
+msgid "2 Use actions"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:68
+#: b25fffc1a48743b9b7884304ce9aaa59
+msgid ""
+"When you launch the ``/teleop_turtle`` node, you will see the following "
+"message in your terminal:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:75
+#: 8f141f31097d44499a72dddf12289934
+msgid ""
+"Let's focus on the second line, which corresponds to an action. (The "
+"first instruction corresponds to the \"cmd_vel\" topic, discussed "
+"previously in the :doc:`topics tutorial <../Understanding-ROS2-Topics"
+"/Understanding-ROS2-Topics>`.)"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:78
+#: 745f392b5c104bd2bc85e28d25ff448a
+msgid ""
+"Notice that the letter keys ``G|B|V|C|D|E|R|T`` form a \"box\" around the"
+" ``F`` key on a US QWERTY keyboard (if you are not using a QWERTY "
+"keyboard, see `this link "
+"<https://upload.wikimedia.org/wikipedia/commons/d/da/KB_United_States.svg>`__"
+" to follow along). Each key's position around ``F`` corresponds to that "
+"orientation in turtlesim. For example, the ``E`` will rotate the turtle's"
+" orientation to the upper left corner."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:82
+#: 1f808de7df1b4dbe9bfbf3c03ddb99ab
+msgid ""
+"Pay attention to the terminal where the ``/turtlesim`` node is running. "
+"Each time you press one of these keys, you are sending a goal to an "
+"action server that is part of the ``/turtlesim`` node. The goal is to "
+"rotate the turtle to face a particular direction. A message relaying the "
+"result of the goal should display once the turtle completes its rotation:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:91
+#: 069fe94d6d144b068e44867432f3b8af
+msgid "The ``F`` key will cancel a goal mid-execution."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:93
+#: 5ff108a5da5c4c9880fe9fcc0993af9c
+msgid ""
+"Try pressing the ``C`` key, and then pressing the ``F`` key before the "
+"turtle can complete its rotation. In the terminal where the "
+"``/turtlesim`` node is running, you will see the message:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:100
+#: 93ccb059870046dcac19f85aaa514658
+msgid ""
+"Not only can the client-side (your input in the teleop) stop a goal, but "
+"the server-side (the ``/turtlesim`` node) can as well. When the server-"
+"side chooses to stop processing a goal, it is said to \"abort\" the goal."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:103
+#: b32fa8a310044308a6eba6190c01abbc
+msgid ""
+"Try hitting the ``D`` key, then the ``G`` key before the first rotation "
+"can complete. In the terminal where the ``/turtlesim`` node is running, "
+"you will see the message:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:110
+#: 2fe1719264a149e3884ecdb63b65ef26
+msgid ""
+"This action server chose to abort the first goal because it got a new "
+"one. It could have chosen something else, like reject the new goal or "
+"execute the second goal after the first one finished. Don't assume every "
+"action server will choose to abort the current goal when it gets a new "
+"one."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:115
+#: c21bc671b8dd43839b1e616d7d3fa75b
+msgid "3 ros2 node info"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:117
+#: c9eb9843c4914deabb3a79505ade73da
+msgid ""
+"To see the list of actions a node provides, ``/turtlesim`` in this case, "
+"open a new terminal and run the command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:123
+#: eaf65aa3e16b470bb9d7b60e15dc6274
+msgid ""
+"Which will return a list of ``/turtlesim``'s subscribers, publishers, "
+"services, action servers and action clients:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:156
+#: 893d449b27d14102a18db152148af5ae
+msgid ""
+"Notice that the ``/turtle1/rotate_absolute`` action for ``/turtlesim`` is"
+" under ``Action Servers``. This means ``/turtlesim`` responds to and "
+"provides feedback for the ``/turtle1/rotate_absolute`` action."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:159
+#: 71704a77be4c400d8dfbf02557e0eb2f
+msgid ""
+"The ``/teleop_turtle`` node has the name ``/turtle1/rotate_absolute`` "
+"under ``Action Clients`` meaning that it sends goals for that action "
+"name. To see that, run:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:166
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:200
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:220
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:264
+#: 2819ee840b334424b8a5c93df28267b0 842fcb8749484f3caadb6ae55d2a4922
+#: a4bafeec25c24a589bf55b763e3f8dbc d0fe277345b44e92b12a929b6f4b1fe5
+msgid "Which will return:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:192
+#: fe8b991d1d174280a06e469025b906f5
+msgid "4 ros2 action list"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:194
+#: 8c54be79e75e435faa348bd767413d81
+msgid "To identify all the actions in the ROS graph, run the command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:206
+#: 55a3f1459aa8421b9c84c49a9166f6bd
+msgid ""
+"This is the only action in the ROS graph right now. It controls the "
+"turtle's rotation, as you saw earlier. You also already know that there "
+"is one action client (part of ``/teleop_turtle``) and one action server "
+"(part of ``/turtlesim``) for this action from using the ``ros2 node info "
+"<node_name>`` command."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:211
+#: 13e75ceba6354899bd8bb176ef04efaf
+msgid "4.1 ros2 action list -t"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:213
+#: d7610a62c3404ae185ec7f4aba505a7a
+msgid ""
+"Actions have types, similar to topics and services. To find "
+"``/turtle1/rotate_absolute``'s type, run the command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:226
+#: 6aabc560cfdf4e858ea1c2b139baaf7c
+msgid ""
+"In brackets to the right of each action name (in this case only "
+"``/turtle1/rotate_absolute``) is the action type, "
+"``turtlesim/action/RotateAbsolute``. You will need this when you want to "
+"execute an action from the command line or from code."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:230
+#: af2e7d9806d44c469913a2972703dc13
+msgid "5 ros2 action info"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:232
+#: 95edd965327442da9d124210a69535b5
+msgid ""
+"You can further introspect the ``/turtle1/rotate_absolute`` action with "
+"the command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:238
+#: 6e41994d8ecb43ada54dcecf70267e8b
+msgid "Which will return"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:248
+#: 335da331962d453dab7d35ce72abd678
+msgid ""
+"This tells us what we learned earlier from running ``ros2 node info`` on "
+"each node: The ``/teleop_turtle`` node has an action client and the "
+"``/turtlesim`` node has an action server for the "
+"``/turtle1/rotate_absolute`` action."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:253
+#: 0ab35094323643448036417755e50520
+msgid "6 ros2 interface show"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:255
+#: 6940c1fd52994151a350d92dcd1595b7
+msgid ""
+"One more piece of information you will need before sending or executing "
+"an action goal yourself is the structure of the action type."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:257
+#: 1f1c96eabbf04bfb8b8caba2835c43a4
+msgid ""
+"Recall that you identified ``/turtle1/rotate_absolute``'s type when "
+"running the command ``ros2 action list -t``. Enter the following command "
+"with the action type in your terminal:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:277
+#: d981433f08bd456f9e544c61103f7e38
+msgid ""
+"The section of this message above the first ``---`` is the structure "
+"(data type and name) of the goal request. The next section is the "
+"structure of the result. The last section is the structure of the "
+"feedback."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:282
+#: 2ad11156123c4f558e916b5cf091af33
+msgid "7 ros2 action send_goal"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:284
+#: 2b516007440143be87b758aa5f1ed5fc
+msgid ""
+"Now let's send an action goal from the command line with the following "
+"syntax:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:290
+#: 7267756f921747c28da563b3664f6039
+msgid "``<values>`` need to be in YAML format."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:292
+#: a4733c10044b47a388e8476ae0cbe102
+msgid ""
+"Keep an eye on the turtlesim window, and enter the following command into"
+" your terminal:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:298
+#: 7ff2c80383824ae0b186b6aaadc20fa7
+msgid ""
+"You should see the turtle rotating, as well as the following message in "
+"your terminal:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:313
+#: 23109c407f654a9a976c0dffd12fcdb5
+msgid ""
+"All goals have a unique ID, shown in the return message. You can also see"
+" the result, a field with the name ``delta``, which is the displacement "
+"to the starting position."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:316
+#: 04734f369b1d4b05b50048b6cd7fdfed
+msgid ""
+"To see the feedback of this goal, add ``--feedback`` to the ``ros2 action"
+" send_goal`` command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:322
+#: 961def1c2be547a4b0d7c07b91c14eba
+msgid "Your terminal will return the message:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:344
+#: 5bdd704900e846b687aa759818578844
+msgid ""
+"You will continue to receive feedback, the remaining radians, until the "
+"goal is complete."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:347
+#: 3f6eff5048b44e65b9947bb983fc4b33
+msgid "Summary"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:349
+#: 1571ce1f4a5b4544ad2f219d988bcd39
+msgid ""
+"Actions are like services that allow you to execute long running tasks, "
+"provide regular feedback, and are cancelable."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:351
+#: 3923f7cd7f8943eb8a2e2c89379b847f
+msgid ""
+"A robot system would likely use actions for navigation. An action goal "
+"could tell a robot to travel to a position. While the robot navigates to "
+"the position, it can send updates along the way (i.e. feedback), and then"
+" a final result message once it's reached its destination."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:355
+#: f168a3cf267d48b98714f5970a1ca453
+msgid ""
+"Turtlesim has an action server that action clients can send goals to for "
+"rotating turtles. In this tutorial, you introspected that action, "
+"``/turtle1/rotate_absolute``, to get a better idea of what actions are "
+"and how they work."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:359
+#: e6f88035818747edbb9e45bae8b55fba
+msgid "Next steps"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:361
+#: da2ba372112a48ecba810486ffab1e06
+msgid ""
+"Now you've covered all of the core ROS 2 concepts. The last few tutorials"
+" in the \"Users\" set will introduce you to some tools and techniques "
+"that will make using ROS 2 easier, starting with :doc:`../Using-Rqt-"
+"Console/Using-Rqt-Console`."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:365
+#: 258d1cd1172c41138c05256ac9b4b3ad
+msgid "Related content"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.rst:367
+#: 975e1c8b72a9459696cc7a46dddd21d9
+msgid ""
+"You can read more about the design decisions behind actions in ROS 2 "
+"`here <https://design.ros2.org/articles/actions.html>`__."
+msgstr ""
+

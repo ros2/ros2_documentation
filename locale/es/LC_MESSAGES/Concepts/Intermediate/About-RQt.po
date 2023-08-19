@@ -1,0 +1,192 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Concepts/Intermediate/About-RQt.rst:8
+#: 50de80a36fff4819b08b82a702694562
+msgid "Overview and usage of RQt"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-RQt.rst:11
+#: 2b3a4dac1b5d41eda6ca167b8afc0fcc
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-RQt.rst:14
+#: b4784aa21a05452fb703983ff3ff459e
+msgid "Overview"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-RQt.rst:16
+#: d081343d8c3e41d0880f62c34e623430
+msgid ""
+"RQt is a graphical user interface framework that implements various tools"
+" and interfaces in the form of plugins. One can run all the existing GUI "
+"tools as dockable windows within RQt. The tools can still run in a "
+"traditional standalone method, but RQt makes it easier to manage all the "
+"various windows in a single screen layout."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-RQt.rst:20
+#: e9be1e3781c345a4a79213463e26a8ad
+msgid "You can run any RQt tools/plugins easily by:"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-RQt.rst:26
+#: f330b58214684b80b9de1f6a982627ec
+msgid ""
+"This GUI allows you to choose any available plugins on your system. You "
+"can also run plugins in standalone windows. For example, RQt Python "
+"Console:"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-RQt.rst:34
+#: a4ab08275b11422e847b23cc72bf547b
+msgid ""
+"Users can create their own plugins for RQt with either ``Python`` or "
+"``C++``. To see what RQt plugins are available for your system, run:"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-RQt.rst:41
+#: 4c32448e93964b1d9859da6fabd7d178
+msgid "And then look for packages that start with ``rqt_``."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-RQt.rst:44
+#: 1453964f931446dcb552ee718e5fb326
+msgid "System setup"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-RQt.rst:47
+#: 8c100976e7de40149b371d10083c26b5
+msgid "Installing From Debian"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-RQt.rst:55
+#: b3583d5173ab41a19998cf8ea8d24152
+msgid "Building From Source"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-RQt.rst:57
+#: 859f6d0a89be47779025835ba3e35ba0
+msgid ""
+"See :doc:`Building RQt from Source <../../How-To-Guides/RQt-Source-"
+"Install>`."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-RQt.rst:60
+#: fb22816319c242cc834b4da0f73989bf
+msgid "RQt Components Structure"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-RQt.rst:62
+#: 6df7aecc6feb4717bb32c7bfc58d66a1
+msgid "RQt consists of two metapackages:"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-RQt.rst:64
+#: 98a81cdfd42247f3bdeb96c184f91212
+msgid "*rqt* - core infrastucture modules."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-RQt.rst:65
+#: 550521414b684f0b807bd1e8c0b7a638
+msgid "*rqt_common_plugins* - Commonly useful debugging tools."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-RQt.rst:68
+#: d3d0bbf15f6c48b69c99da88ebe613c9
+msgid "Advantage of RQt framework"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-RQt.rst:70
+#: 0b521ffc7fdc4f1fabfd6e0cf8036bd1
+msgid "Compared to building your own GUIs from scratch:"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-RQt.rst:72
+#: 41dde63c568a49969294b5a9131ed456
+msgid ""
+"Standardized common procedures for GUI (start-shutdown hook, restore "
+"previous states)."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-RQt.rst:73
+#: 2223b100201c43cb8249aaccd82ea076
+msgid "Multiple widgets can be docked in a single window."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-RQt.rst:74
+#: dd790e5737a44cb98118c8ad9b9982a2
+msgid "Easily turn your existing Qt widgets into RQt plugins."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-RQt.rst:75
+#: 0f712e316fe6493090b9292b2cf33cf6
+msgid ""
+"Expect support at `ROS Answers <https://answers.ros.org>`__ (ROS "
+"community website for the questions)."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-RQt.rst:77
+#: 5da61ee1a0ca499f83ce8477da01ceb9
+msgid "From system architecture's perspective:"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-RQt.rst:79
+#: 04abf6a4a1b24f9e9848d3bef92ddbef
+msgid ""
+"Support multi-platform (basically wherever `QT <http://qt-"
+"project.org/>`__ and ROS run) and multi-language (``Python``, ``C++``)."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-RQt.rst:80
+#: 123113d69b134a03bfffa8fe5f22851a
+msgid ""
+"Manageable lifecycle: RQt plugins using a common API makes maintainance &"
+" reuse easier."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-RQt.rst:84
+#: 0b26c29476a94e06aaeb782a6e08c28b
+msgid "Further Reading"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-RQt.rst:86
+#: ba3a0a1b14f6488f9a62ccc3c8495a04
+msgid ""
+"ROS 2 Discourse `announcement of porting to ROS 2 "
+"<https://discourse.ros.org/t/rqt-in-ros2/6428>`__)"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-RQt.rst:87
+#: bbd4151e97ee431db7bcb0d1e2340071
+msgid "`RQt for ROS 1 documentation <https://wiki.ros.org/rqt>`__"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-RQt.rst:88
+#: 60014935da1f421284bf06b3eaff0702
+msgid ""
+"Brief overview of RQt (from `a Willow Garage intern blog post "
+"<http://web.archive.org/web/20130518142837/http://www.willowgarage.com/blog/2012/10/21"
+"/ros-gui>`__)"
+msgstr ""
+

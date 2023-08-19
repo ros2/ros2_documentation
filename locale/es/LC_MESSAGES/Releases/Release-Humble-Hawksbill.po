@@ -1,0 +1,1714 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:4
+#: 3bc9ae88b1d94aafa3f259a431ee4aa5
+msgid "Humble Hawksbill (``humble``)"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:13
+#: 180f54fc4a384c138acea4bbb135b331
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:15
+#: 970d0d230e5d47528b69f72ab1e893bb
+msgid ""
+"*Humble Hawksbill* is the eighth release of ROS 2. What follows is "
+"highlights of the important changes and features in Humble Hawksbill "
+"since the last release. For a list of all of the changes since Galactic, "
+"see the `long form changelog <Humble-Hawksbill-Complete-Changelog>`."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:20
+#: 58419969b7de4e279c0e62728a8ceb6b
+msgid "Supported Platforms"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:22
+#: 8143051667954828bd4f2c12122a27d0
+msgid "Humble Hawksbill is primarily supported on the following platforms:"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:24
+#: 287617721f304f8a89f9e93b084c0fbf
+msgid "Tier 1 platforms:"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:26
+#: 00a0af4f81e04715988effbdaae4ca09
+msgid "Ubuntu 22.04 (Jammy): ``amd64`` and ``arm64``"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:27
+#: 34401f84955744e4a6d984215d6f34e2
+msgid "Windows 10 (Visual Studio 2019): ``amd64``"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:29
+#: e4df5c369d1f48a99cb55dfc93d3edca
+msgid "Tier 2 platforms:"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:31
+#: 4695b59201db40df9abea0de2ca494c0
+msgid "RHEL 8: ``amd64``"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:33
+#: 9f89d631d4324e45b04e21e1409f7f5e
+msgid "Tier 3 platforms:"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:35
+#: 7bf2abdeccfb43a0add51238cdb11556
+msgid "Ubuntu 20.04 (Focal): ``amd64``"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:36
+#: e1b59a8f56954372b67ba713a0243b77
+msgid "macOS: ``amd64``"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:37
+#: 2a6bfb3995264f1e9dc8ca749074caf8
+msgid "Debian Bullseye: ``amd64``"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:39
+#: 2e7443d04f6f485e969bb374476644d4
+msgid ""
+"For more information about RMW implementations, compiler / interpreter "
+"versions, and system dependency versions see `REP 2000 "
+"<https://www.ros.org/reps/rep-2000.html>`__."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:42
+#: 8768a377f74e4125bebc3a71de2e1592
+msgid "Installation"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:44
+#: 44bda6005f1849a7866519d9e064116e
+msgid "`Install Humble Hawksbill <../../humble/Installation.html>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:47
+#: e11d49d3bbd143edabcb6cfc5f4bfd97
+msgid "Changes in Patch Release 1 (2022-11-23)"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:50
+#: 6750873874b0447981728b2f76e9280f
+msgid "ros2topic"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:53
+#: 8384ee0425564eeeb043e26c2cc28ac8
+msgid ""
+"``now`` as keyword for ``builtin_interfaces.msg.Time`` and ``auto`` for "
+"``std_msgs.msg.Header``"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:54
+#: 054041d3df724440938d32c1eac36dae
+msgid ""
+"``ros2 topic pub`` now allows to set a ``builtin_interfaces.msg.Time`` "
+"message to the current time via the ``now`` keyword. Similarly, a "
+"``std_msg.msg.Header`` message will be automatically generated when "
+"passed the keyword ``auto``. This behavior matches that of ROS 1's "
+"``rostopic`` "
+"(http://wiki.ros.org/ROS/YAMLCommandLine#Headers.2Ftimestamps)"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:58
+#: feaf3fc498c348c8b61bba7490841663
+msgid "Related PR: `ros2/ros2cli#751 <https://github.com/ros2/ros2cli/pull/751>`_"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:61
+#: 5302113054a64c1096c6aa45e35ca394
+msgid "New features in this ROS 2 release"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:64
+#: 0447b43d4ee349cd918f414bec2dcabc
+msgid "ament_cmake_gen_version_h"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:67
+#: 639c460e76b644e5b901eaefae6716d0
+msgid "Generating a C/C++ header with version info"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:68
+#: 6a4643b252414f1196e6e55391eb597c
+msgid ""
+"A new CMake function to generate a header with the package version info "
+"was added to the ``ament_cmake_gen_version_h`` in `ament/ament_cmake#377 "
+"<https://github.com/ament/ament_cmake/pull/377>`__. Here's the simplest "
+"use case:"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:77
+#: aa4d0584566a4e3cb3de6fdbf245ed12
+msgid ""
+"It will generate a header with version info from the ``package.xml`` and "
+"make it available to targets that link against the ``my_lib`` library."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:79
+#: bc3593857c104e5f920769600d423d55
+msgid "How to include the header:"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:85
+#: 6bd03d1b8fec48b2ab3027c36fccda09
+msgid "Where the header is installed to:"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:92
+#: fbd413a6b74c4b5c92daa6b171d6531a
+msgid "launch"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:95
+#: 32f50b3f18c94a5297d9c5fce1cabc48
+msgid "Scoping environment variables in group actions"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:97
+#: 9d39e66b474442f3a3865a5cf60688c3
+msgid ""
+"Similar to launch configurations, now by default, the state of "
+"environment variables are scoped to group actions."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:99
+#: a7a5c3c6fbe7461086c44a68fcb5dd49
+msgid ""
+"For example, in the following launch files the executed processe will "
+"echo the value ``1`` (before Humble it would echo ``2``):"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:103
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:210
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:253
+#: 33256ce8e8db4256a42cf9aa4519368e 9d2948341e9445f8adaf38d790df4541
+#: a99229910df44685a9d4c99a99f09aa3
+msgid "XML"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:115
+#: 6d0c6ce3a7d9449ea318fbc2d87f5bab
+msgid "Python"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:131
+#: ac733569cc7f43699006409245dc3248
+msgid ""
+"If you would like disable scoping for launch configurations and and "
+"environment variables you can set the ``scoped`` argument (or attribute) "
+"to false."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:133
+#: 12a504b3a7874f3d897e392e0ed5748b
+msgid "Related PR: `ros2/launch#601 <https://github.com/ros2/launch/pull/601>`_"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:136
+#: de049f1b37074ba992894b3db1ccb412
+msgid "launch_pytest"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:138
+#: aa8e399adc1944e9bd62ae6b152e7421
+msgid ""
+"We've added a new package, ``launch_pytest``, that acts as an alternative"
+" to ``launch_testing``. ``launch_pytest`` is a simple pytest plugin that "
+"provides pytest fixtures to manage the lifetime of a launch service."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:141
+#: 02de33994716401fba1a3e4778084424
+msgid ""
+"Check out the `package README for details and examples. "
+"<https://github.com/ros2/launch/tree/humble/launch_pytest>`_"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:143
+#: 2817573354d944f28c5c32e928551ea8
+msgid "Related PR: `ros2/launch#528 <https://github.com/ros2/launch/pull/528>`_"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:146
+#: c31dcda5db4342a9bb626502704ffb7e
+msgid "Allow matching target actions with a callable"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:148
+#: 05143b48f3be4a59bfd4f436e15a9e74
+msgid ""
+"Event handlers that take a target action object to match can now also "
+"take a callable instead to do the matching."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:150
+#: 7eb57c39402942bd8314da414dadb0dc
+msgid "Related PR: `ros2/launch#540 <https://github.com/ros2/launch/pull/540>`_"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:153
+#: 482092b4aba645be81c1f19b8c6b8f55
+msgid "Access to math module when evaluating Python expressions"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:155
+#: 5ed28c847a4949a9b08b3cfd081d2ec7
+msgid ""
+"Inside ``PythonExpression`` substitutions (``eval``) we can now use "
+"symbols from Python's math module. For example,"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:164
+#: f8e59df84a4b43f3a66535d8b2c1bcdf
+msgid "Related PR: `ros2/launch#557 <https://github.com/ros2/launch/pull/557>`_"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:167
+#: 56917c56e9a4448a933a02df84db21f5
+msgid "Boolean substitutions"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:169
+#: 6a555a570043468ab7b2c4512e8a308b
+msgid ""
+"New substitutions ``NotSubstitution``, ``AndSubstitution``, and "
+"``OrSubstitution`` provide a convenient way to perform logical "
+"operations, for example"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:187
+#: 8ce5460f487b451c9a494e35910a4b80
+msgid "Related PR: `ros2/launch#598 <https://github.com/ros2/launch/pull/598>`_"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:190
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:305
+#: 098b39440dd744d3a74952d6da38205f 1be1552888b645daa5bf0af683cdae8d
+msgid "New actions"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:192
+#: 54759fb8ca8d4326823f5fd79e2478aa
+msgid ""
+"``AppendEnvironmentVariable`` appends a value to an existing environment "
+"variable."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:194
+#: e6f96e56d56e47fd84be5d1cb4a2bc1a
+msgid "Related PR: `ros2/launch#543 <https://github.com/ros2/launch/pull/543>`_"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:196
+#: 53f82434d48f4faaa7ecf383f6adabf8
+msgid ""
+"``ResetLaunchConfigurations`` resets any configuration applied to the "
+"launch configuration."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:198
+#: 8cec8e0abe8a451cb8ba24010cf446cb
+msgid "Related PR: `ros2/launch#515 <https://github.com/ros2/launch/pull/515>`_"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:201
+#: 3cefd7d48b9e48f5be515f1a69297957
+msgid "launch_ros"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:204
+#: 111a151b702b429dbb0833576123bec7
+msgid "Passing ROS arguments to node actions"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:206
+#: 67cbd19881954900943888ff7e4855e0
+msgid ""
+"It is now possible to provide `ROS-specific node arguments <../../How-To-"
+"Guides/Node-arguments>` directly, without needing to use ``args`` with a "
+"leading ``--ros-args`` flag:"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:218
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:266
+#: 42738eb248414c41b2a803f440b2f1f1 9cab2523c9ee4ed0871ac0baa2644883
+msgid "YAML"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:228
+#: 72c01d8624df4a61bbf0d5cb5a34e423
+msgid ""
+"The corresponding parameter for the ``Node`` action in Python launch "
+"files is ``ros_arguments``:"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:244
+#: ca2ac21046a74b1bab0523df23dd8943
+msgid ""
+"Related PRs: `ros2/launch_ros#249 "
+"<https://github.com/ros2/launch_ros/pull/249>`_ and `ros2/launch_ros#253 "
+"<https://github.com/ros2/launch_ros/pull/253>`_."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:247
+#: a73ea2c4899d4b4bb7adf5418aab0e92
+msgid "Frontend support for composable nodes"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:249
+#: cd726c8457dd41bcba282609efb6aff4
+msgid ""
+"We can now start node containers and load components into them from "
+"frontend launch files, for example:"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:287
+#: 0b416dd8e4a74f31ac4fce6ff0526b58
+msgid ""
+"Related PR: `ros2/launch_ros#235 "
+"<https://github.com/ros2/launch_ros/pull/235>`_"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:290
+#: 6891b19fa85945b0b276badc09f767df
+msgid "Parameter substitution"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:292
+#: 7c2406e312354636a9021a96d0c92dcd
+msgid ""
+"The new ``ParameterSubstitution`` lets you substitute the value of a "
+"parameter set previously in launch with the ``SetParameter`` action. For "
+"example,"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:302
+#: fb3bf3bf50cd4f9fa465942eda6d2562
+msgid ""
+"Related PR: `ros2/launch_ros#297 "
+"<https://github.com/ros2/launch_ros/pull/297>`_"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:307
+#: a5a95ff451e64543ac32fdc802dc3ff4
+msgid ""
+"``RosTimer`` acts like the launch ``TimerAction``, but uses a ROS clock "
+"(so it can use simulation time, for example)."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:309
+#: a13c8dd299f34c2d9083388ab6b7c685
+msgid ""
+"Related PRs: `ros2/launch_ros#244 "
+"<https://github.com/ros2/launch_ros/pull/244>`_ and `ros2/launch_ros#264 "
+"<https://github.com/ros2/launch_ros/pull/264>`_"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:311
+#: 43aa07a32656448ea5555a44aa4f0ac2
+msgid ""
+"``SetParametersFromFile`` passes a ROS parameters file to all nodes in a "
+"launch file (including node components)."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:313
+#: 25569bf13d22428ebcfd2320fba6d684
+msgid ""
+"Related PRs: `ros2/launch_ros#260 "
+"<https://github.com/ros2/launch_ros/pull/260>`_ and `ros2/launch_ros#281 "
+"<https://github.com/ros2/launch_ros/pull/281>`_"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:316
+#: 3392f6b395c946379f11788465e274dd
+msgid "SROS2 Security enclaves support Certificate Revocation Lists"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:318
+#: 79d3b9e50651402b9ad67f1be181ab57
+msgid ""
+"Certificate Revocation Lists (CRLs) are a concept where particular "
+"certificates can be revoked before their expiration. As of Humble, it is "
+"now possible to put a CRL in an SROS2 security enclave and have it be "
+"honored. See `the SROS2 tutorials "
+"<https://github.com/ros2/sros2/blob/humble/SROS2_Linux.md#certificate-"
+"revocation-lists>`__ for an example of how to use it."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:323
+#: d94d7ded80b2421c81a602dc08fb04a6
+msgid "Content Filtered Topics"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:325
+#: bc542259c3b748dd82ac3d0a948355f9
+msgid ""
+"Content Filtered Topics supports a more sophisticated subscription that "
+"indicates the subscriber does not want to necessarily see all values of "
+"each instance published under the Topic. Content Filtered Topics can be "
+"used to request content-based subscriptions when underlying RMW "
+"implementation supports this feature."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:328
+#: 2b43d80b652e40a49fc54b6be60bc662
+msgid "RMW Content Filtered Topics support"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:331
+#: 7210b868a99f4989ae1b1d45bd87c654
+msgid "rmw_fastrtps"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:332
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:334
+#: 2cfc60d7898d4953b30dda94a0843ef9 c8db11ecb95643a599baa713119e4b2a
+msgid "supported"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:333
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:544
+#: 306972a37f0044a9ac76877fbeca07c0 417fcd8b4e2c4735a9665a88f5ade231
+msgid "rmw_connextdds"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:335
+#: fa62582ee3ad48e891975a0f7b279424
+msgid "rmw_cyclonedds"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:336
+#: fd052b2e3f6641e4aac0e55f8cc624eb
+msgid "not supported"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:338
+#: 922f0d466ae94b5090f8f503a6e0c39e
+msgid ""
+"To learn more, see the `content_filtering "
+"<https://github.com/ros2/examples/blob/humble/rclcpp/topics/minimal_subscriber/content_filtering.cpp>`_"
+" examples."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:340
+#: 0f70922e56774e3699b5482bbf21eae4
+msgid ""
+"Related design PR: `ros2/design#282 "
+"<https://github.com/ros2/design/pull/282>`_."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:343
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:748
+#: 6a98317e5022436db361030b11f36581 f9a5b31a935b48a4b49d2ef845844f81
+msgid "ros2cli"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:346
+#: a78d3fba6a944f12b77188989ba40a4f
+msgid "``ros2 launch`` has a ``--launch-prefix`` argument"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:348
+#: 347702d23cac4b99862dced43fabb1c7
+msgid ""
+"This allows passing a prefix to all executables in a launch file, which "
+"is useful in many debugging situations. See the associated `pull request "
+"<https://github.com/ros2/launch_ros/pull/254>`__, as well as the "
+":ref:`tutorial <launch-prefix-example>` for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:351
+#: 8799ef5df6674a1ab111256ad62caef8
+msgid ""
+"Relatedly, the ``--launch-prefix-filter`` command-line option was added "
+"to selectively add the prefix from ``--launch-prefix`` to executables. "
+"See the `pull request <https://github.com/ros2/launch_ros/pull/261>`__ "
+"for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:355
+#: 42158f1c38894cf384920361abb91458
+msgid "``ros2 topic echo`` has a ``--flow-style`` argument"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:357
+#: b8b6e53ddea847c1849b70d26e34d924
+msgid ""
+"This allows the user to force ``flow style`` for the YAML representation "
+"of data on a topic. Without this option, the output from ``ros2 topic "
+"echo /tf_static`` could look something like:"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:380
+#: 34e2353fd0664ee9a031273da93f427b
+msgid "With this option, the output would look something like:"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:386
+#: 14a558fd50db4d61b240a641243f0813
+msgid ""
+"See the `PyYAML documentation "
+"<https://pyyaml.docsforge.com/master/documentation/#dictionaries-without-"
+"nested-collections-are-not-dumped-correctly>`__ for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:389
+#: a4e09bc91083464f81b6280997157a52
+msgid "``ros2 topic echo`` can filter data based on message contents"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:391
+#: 37b45325411f4607b3e8840f380af2d7
+msgid ""
+"This allows the user to only print out data on a topic that matches a "
+"certain Python expression. For instance, using the following argument "
+"will only print out string messages that start with 'foo':"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:398
+#: c67f3378697049309d1f15a2c3c85c18
+msgid ""
+"See the `pull request <https://github.com/ros2/ros2cli/pull/654>`__ for "
+"more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:402
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:848
+#: c49440db8c3e42adadb87a51d981ccbc f952be3aa5184777b3abac5bffc22a25
+msgid "rviz2"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:405
+#: 00e56a205a9b4dbe9b512af5f274d7f8
+msgid "Apply textures to arbitrary triangle lists"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:407
+#: 54e9bdcfa25843588cfb5aa910c9047e
+msgid ""
+"We've added `the ability to apply textures defined via URI to arbitrary "
+"triangle lists using UV Coordinates "
+"<https://github.com/ros2/rviz/pull/719>`__. Now we can create a gradient "
+"pull from a texture map instead of the default grayscale. This will "
+"enable complex coloring of markers. To use this, you should use the "
+"``visualization_msgs/Marker.msg`` and fill the ``texture_resource``, "
+"``texture``, ``uv_coordinates`` and ``mesh_file`` fields. You can find "
+"more information `here "
+"<https://github.com/ros2/common_interfaces/pull/153>`__."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:416
+#: 9e8a7b333abe4bb98b4c7b17afc3822c
+msgid "Visualization of mass properties (including inertia)"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:418
+#: 42a080e4ecc242af92da01fe3b9eb5c4
+msgid ""
+"We also added the ability to visualize inertias. To do this, you select "
+"enable 'Inertia' in the 'Mass Properties' under the robot model:"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:422
+#: 7a996ec45ade449ba440885e67b613eb
+msgid "You can see an image of an inertia below."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:427
+#: 024f86a167c14e94bf3aa5227af7e25d
+msgid "Visualize YUV images in RViz"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:429
+#: c3bd3f554a124cd995425fa229c42df5
+msgid ""
+"It is now possible to directly visualize YUV images inside of RViz, "
+"rather than having to convert to RGB first. See `ros2/rviz#701 "
+"<https://github.com/ros2/rviz/pull/701>`__ for details."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:433
+#: 50ed3b6e05334a6f96975b6602cd5ac1
+msgid "Allow rendering of objects > 100 meters"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:435
+#: 30dc1ba383f44b188edaecd92726c086
+msgid ""
+"By default, RViz only renders objects that are within 100 meters of a "
+"camera. A new configuration property called \"Far Plane Distance\" in the"
+" rviz camera plugin allows that rendering distance to be configured."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:440
+#: 927b408715c44705918039056c59ad34
+msgid ""
+"See `ros2/rviz#849 <https://github.com/ros2/rviz/pull/849>`__ for more "
+"information."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:443
+#: 6bc23d0d283d418e89b07c963d625b0b
+msgid "Changes since the Galactic release"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:446
+#: 8c25bbdfaeff4e18b0ec7845de95fbeb
+msgid "C++ headers are installed in a subdirectory"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:448
+#: 227320669df3482e9a7b7d711ca30f6e
+msgid ""
+"In ROS 2 releases prior to Humble, C++ headers for all packages were "
+"installed into a single include directory. For instance, in Galactic, the"
+" directory structure looks like this (reduced for brevity):"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:460
+#: 5460eed205ad498692e6ddec799c0cd2
+msgid ""
+"This structure can cause serious problems when trying to use overlays. "
+"That is, it is very possible to get the wrong set of header files due to "
+"include directory order. See "
+"https://colcon.readthedocs.io/en/released/user/overriding-packages.html "
+"for a detailed explanation of the problems."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:464
+#: d282fece7ba547fc8f852644c17ff842
+msgid ""
+"To help combat this, in Humble (and in all ROS 2 releases going forward),"
+" the directory structure has changed:"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:476
+#: 579e5833544a4b33b08b07b74b7e05b7
+msgid ""
+"Note that downstream packages that use these headers do *not* have to "
+"change; using ``#include <rclcpp/node.hpp>`` works as it always did "
+"before. However, when using IDEs that are looking for include "
+"directories, it may be necessary to add the individual include "
+"directories to the search path."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:479
+#: 5afefe8d28f54e35bf158e2e2311e4d4
+msgid ""
+"See https://github.com/ros2/ros2/issues/1150 for more information, "
+"including the reasoning behind this change."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:482
+#: bfb5a269447540c3b1da311a08a1a912
+msgid "common_interfaces"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:485
+#: dfd93c7830c948558582ec984585a9d5
+msgid "Support Textures and Embedded Meshes for Marker Messages"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:487
+#: 8448651d3ce74276a76b90f2ce61516a
+msgid ""
+"These two additions will improve the ability to both visualize data in "
+"new ways with standard messages and, simultaneously, enable the ability "
+"to track this data in rosbag."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:489
+#: 5b943f767b7a42de946bff51f0cff8db
+msgid "**Textures** bring the addition of three new fields to markers:"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:504
+#: b3d9959e5b794eefb905f00ec4daafef
+msgid "RViz will fully support texture rendering through the embedded format."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:506
+#: 183ccd0de09b441cb5f00f59d99ea12f
+msgid ""
+"To those familiar with ``mesh_resource``, ``resource_retriever`` should "
+"be familiar. This will allow the programmer to choose where they want to "
+"load data from, either a local file or a networked file. In the interest "
+"of being able to record all data in a rosbag, the ability to embed the "
+"texture image is included."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:510
+#: f99321cae78d4d43a0d77e51838cf56a
+msgid ""
+"**Meshes** were modified in a similar way to add the ability to embed a "
+"raw Mesh file for the purpose of recording and are modified in a similar "
+"way. The Meshfile message has two fields:"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:521
+#: 16a6d62314d54cafbe772dd8687def51
+msgid "The embedded ``Meshfile`` message is not yet supported in implementation."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:523
+#: c66dcf5925a8417b87420b4721e43da2
+msgid ""
+"Related PRs: `ros2/common_interfaces#153 "
+"<https://github.com/ros2/common_interfaces/pull/153>`_ `ros2/rviz#719 "
+"<https://github.com/ros2/rviz/pull/719>`_"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:526
+#: 2311ed8ae0724550b7cd08e49dc57aa3
+msgid "Added ``PRISM`` type to SolidPrimitive"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:528
+#: 1d74486f87fc4c638b17bf4ce079557b
+msgid ""
+"The ``SolidPrimitive`` message had a new ``PRISM`` type added, along with"
+" the appropriate metadata. See `ros2/common_interfaces#167 "
+"<https://github.com/ros2/common_interfaces/pull/167>`_ for more "
+"information."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:532
+#: c883ecde858047dd9cf1962d2d02638c
+msgid "rmw"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:535
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:556
+#: 6c6f98f511fb44ada41cb4857f196192 78401b3467c845219f0b8c3449e9b3cd
+msgid "``struct`` type name suffix changed from ``_t`` to ``_s``"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:537
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:558
+#: 4e415aa7af2741709654091103a264e2 9d445dcab25449608756b86c01dfb030
+msgid ""
+"To avoid type name duplication errors between ``struct`` type names and "
+"their ``typedef``-ed aliases when generating code documentation, the "
+"suffix for all ``struct`` type names has been changed from ``_t`` to "
+"``_s``. Aliases with ``_t`` suffixes remain in place. Thus, this change "
+"is a breaking change only for code that uses full ``struct`` type "
+"specifiers i.e. ``struct type_name_t``."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:541
+#: 9187a724dd314128a6229e60e4e1a989
+msgid ""
+"See `ros2/rmw#313 <https://github.com/ros2/rmw/pull/313>`__ for more "
+"details."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:547
+#: fe0f5906ba1c433587bf56eeb600909c
+msgid "Use Connext 6 by default"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:549
+#: 7e4273134990476ca7681a3e0956fc3d
+msgid ""
+"By default, Humble Hawksbill uses Connext 6.0.1 as the DDS implementation"
+" for ``rmw_connextdds``. It is still possible to use Connext 5.3.1 with "
+"``rmw_connextdds``, but it must be rebuilt from source."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:553
+#: 45e9eea119394575b270566e9435d02a
+msgid "rcl"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:562
+#: 450f2eb64aa24948a200cbf2c7c0aefb
+msgid ""
+"See `ros2/rcl#932 <https://github.com/ros2/rcl/pull/932>`__ for more "
+"details."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:565
+#: 25aeccd04fbe4e069f536ccf99fcafef
+msgid "ROS_DISABLE_LOANED_MESSAGES environment variable added"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:567
+#: 27436dddc39f408eb2af98467ecce553
+msgid ""
+"This environment variable can be used to disable loaned messages support,"
+" independently if the rmw supports them or not. For more details, see the"
+" guide :doc:`Disabling Zero Copy Loaned Messages <../How-To-Guides"
+"/Disabling-ZeroCopy-loaned-messages>`."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:571
+#: 49910a3faebb43d0954c8e5540441b72
+msgid "rclcpp"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:574
+#: c1e468295b664428b2f8a6b19487d100
+msgid "Support Type Adaption for Publishers and Subscriptions"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:576
+#: 0d2a7e73435c4b24a0243b729680c99b
+msgid ""
+"After defining a type adapter, custom data structures can be used "
+"directly by publishers and subscribers, which helps to avoid additional "
+"work for the programmer and potential sources of errors. This is "
+"especially useful when working with complex data types, such as when "
+"converting OpenCV's ``cv::Mat`` to ROS's ``sensor_msgs/msg/Image`` type."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:579
+#: 2c3270755dba4dd3900656da0c472575
+msgid ""
+"Here is an example of a type adapter that converts "
+"``std_msgs::msg::String`` to ``std::string``:"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:612
+#: a95384d1cb0c46d295fa80b926a32d78
+msgid "And an example of how the type adapter can be used:"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:629
+#: f8eab8dd467f4d6d999b161fb8208cb0
+msgid ""
+"To learn more, see the `publisher "
+"<https://github.com/ros2/examples/blob/b83b18598b198b4a5ba44f9266c1bb39a393fa17/rclcpp/topics/minimal_publisher/member_function_with_type_adapter.cpp>`_"
+" and `subscription "
+"<https://github.com/ros2/examples/blob/b83b18598b198b4a5ba44f9266c1bb39a393fa17/rclcpp/topics/minimal_subscriber/member_function_with_type_adapter.cpp>`_"
+" examples, as well as a more complex `demo "
+"<https://github.com/ros2/demos/pull/482>`_. For more details, see `REP "
+"2007 <https://ros.org/reps/rep-2007.html>`_."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:633
+#: 50aafae7a2ae40b18abf65e7df906248
+msgid ""
+"``Client::asnyc_send_request(request)`` returns a ``std::future`` instead"
+" of a ``std::shared_future``"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:635
+#: e78e9c5b236145259081337980a24e37
+msgid ""
+"This change was implemented in `rclcpp#1734 "
+"<https://github.com/ros2/rclcpp/pull/1734>`_. This breaks API, as "
+"``std::future::get()`` methods extracts the value from the future. That "
+"means, if that method is called for a second time it will throw an "
+"exception. That doesn't happen with a ``std::shared_future``, as its "
+"``get()`` method returns a ``const &``. Example:"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:649
+#: 80acc762dfdc44a7b02744b9b60b0bf1
+msgid "should be updated to:"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:660
+#: fbcaf0f6b17a4154a20966848b4dfa77
+msgid ""
+"If a shared future is needed, the ``std::future::share()`` method can be "
+"used."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:663
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:730
+#: bbff78fe00304c21b6375850ca0b328a c171df9e84c045b0a10bb87b987f3e08
+msgid "``wait_for_all_acked`` method added to ``Publisher``"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:665
+#: eebe593dec2e4b49b77dc0af7ab97b58
+msgid ""
+"This new method will block until all messages in the publisher queue are "
+"acked by the matching subscriptions or the specified timeout expires. It "
+"is only useful for reliable publishers, as in the case of best effort QoS"
+" there's no acking. Examples:"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:677
+#: 7e49fc58b5d74613954bdb6594cf8db3
+msgid ""
+"For a more complete example, see `here "
+"<https://github.com/ros2/examples/blob/humble/rclcpp/topics/minimal_publisher/member_function_with_wait_for_all_acked.cpp>`__."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:680
+#: d4c0189b032b4b41a75b90d7576319a4
+msgid ""
+"``get_callback_groups`` method removed from ``NodeBase`` and ``Node`` "
+"classes"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:682
+#: 7a1e403ea1a246ec9933f4da4af7a072
+msgid ""
+"``for_each_callback_group()`` method has replaced "
+"``get_callback_groups()`` by providing a thread-safe way to access "
+"``callback_groups_`` vector. ``for_each_callback_group()`` accepts a "
+"function as an argument, iterates over the stored callback groups, and "
+"calls the passed function to ones that are valid."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:685
+#: 804e053fe9f8408b81e669ac1c9b7f59
+msgid ""
+"For more details, please refer to this `pull request "
+"<https://github.com/ros2/rclcpp/pull/1723>`_."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:688
+#: 090c77bc76d94d3d8237e8f46d62f1cb
+msgid ""
+"``add_to_wait_set`` method from ``Waitable`` class changes its return "
+"type from ``bool`` to ``void``"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:689
+#: 1c15ba50c5f4463097e2ccb3ea1aee2f
+msgid ""
+"Before, classes derived from ``Waitable`` overriding ``add_to_wait_set`` "
+"were returning false when failing to add elements to the wait set, so the"
+" caller had to check this return value and throw or handle the error. "
+"This error handling should now be done directly on ``add_to_wait_set`` "
+"method, throwing if necessary. It is not required to return anything if "
+"no errors happened. Thus, this is a breaking change for downstream uses "
+"of ``Waitable``."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:694
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:701
+#: d3d540db17f54e1bb292aa1636571f7c e8f9cf3b0f724de7be69db60ed544f47
+msgid ""
+"See `ros2/rclcpp#1612 <https://github.com/ros2/rclcpp/pull/1612>`__ for "
+"more details."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:697
+#: 5096c0bc2cbe4c679b2e83a30b42b7f6
+msgid ""
+"``get_notify_guard_condition`` method return type from "
+"``NodeBaseInterface`` class changed"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:698
+#: cbb4bc01e8124541a0ed08cf4fc407a2
+msgid ""
+"Now ``rclcpp`` uses the ``GuardCondition`` class wrapper around "
+"``rcl_guard_condition_t``, so ``get_notify_guard_condition`` returns a "
+"reference to the node's ``rclcpp::GuardCondition``. Thus, this is a "
+"breaking change for downstream uses of ``NodeBaseInterface`` and "
+"``NodeBase``."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:704
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:735
+#: 5c309354a8b04291b184121918c30ca6 9ce6995ba96e4a6fab2429106aa939bf
+msgid "``sleep_until`` and ``sleep_for`` methods added to ``Clock``"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:705
+#: 20ab822ebb7f4bb7b8a31a1fb2421ed6
+msgid ""
+"Two new methods were added to allow sleeping on a particular clock in "
+"`ros2/rclcpp#1814 <https://github.com/ros2/rclcpp/pull/1814>`__ and "
+"`ros2/rclcpp#1828 <https://github.com/ros2/rclcpp/pull/1828>`__. "
+"``Clock::sleep_until`` will suspend the current thread until the clock "
+"reaches a particular time. ``Clock::sleep_for`` will suspend the current "
+"thread until the clock advances a certain amount of time from when the "
+"method was called. Both methods will wake early if the ``Context`` is "
+"shutdown."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:711
+#: b1e3ddf2d8ed4680b7bc7ee39b2fef72
+msgid "rclcpp_lifecycle"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:714
+#: e6b83fa1532247c3ae4c764911ba9f13
+msgid ""
+"Active and deactivate transitions of publishers will be triggered "
+"automatically"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:716
+#: e6c513595c4f4b55bc0a79e53c220c13
+msgid ""
+"Before, users needed to override ``LifecylceNode::on_activate()`` and "
+"``LifecylceNode::on_deactivate()`` and call the similarly named methods "
+"on ``LifecyclePublisher`` to make the transition actually happen. Now, "
+"``LifecylceNode`` provides a default interface of these methods that "
+"already do this. See the implementation of the ``lifecycle_talker`` node "
+"`here <https://github.com/ros2/demos/tree/humble/lifecycle>`__."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:721
+#: fa56ba1ef6614309b870315ed66e9c3c
+msgid "rclpy"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:724
+#: c0bd3eda522a4800942022ed969aa8a7
+msgid "Managed nodes"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:726
+#: b7f5a54ea0ab498cb5c2c1b5e1309539
+msgid ""
+"Lifecycle nodes support was added to rclpy. A complete demo can be found "
+"`here <https://github.com/ros2/demos/tree/humble/lifecycle_py>`__."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:732
+#: 409a1e22b8794ddca94b721d4c3f1f0c
+msgid "Similar to the feature added to rclcpp."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:736
+#: 2a7f753798da4e6fa5b5a02aab1ef4ce
+msgid ""
+"Two new methods were added to allow sleeping on a particular clock in "
+"`ros2/rclpy#858 <https://github.com/ros2/rclpy/pull/858>`__ and "
+"`ros2/rclpy#864 <https://github.com/ros2/rclpy/pull/864>`__. "
+"``sleep_until`` will suspend the current thread until the clock reaches a"
+" particular time. ``sleep_for`` will suspend the current thread until the"
+" clock advances a certain amount of time from when the method was called."
+" Both methods will wake early if the ``Context`` is shutdown."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:742
+#: 27cf72b9257d4d3a95bca0007654592f
+msgid "ros1_bridge"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:744
+#: 11072c648ea8434ebc799e75c952469a
+msgid ""
+"Since there is no official ROS 1 distribution on Ubuntu Jammy and "
+"forward, ``ros1_bridge`` is now compatible with the Ubuntu-packaged "
+"versions of ROS 1. More details about using ``ros1_bridge`` with Jammy "
+"packages are available in :doc:`the how-to guides <../How-To-Guides"
+"/Using-ros1_bridge-Jammy-upstream>`."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:751
+#: c87e5b553feb408e9c930440f0145c36
+msgid "``ros2`` commands disable output buffering by default"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:753
+#: f186b5cc73e945008678bffca1146640
+msgid "Prior to this release, running a command like"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:759
+#: 17f4e5fa14bf4bc4ab47f06a3dac5346
+msgid ""
+"would not print any data until the output buffer was full. Users could "
+"work around this by setting ``PYTHONUNBUFFERED=1``, but that was not very"
+" user friendly."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:762
+#: 34fc833dd17a438798a48fd1e0a5531e
+msgid ""
+"Instead, all ``ros2`` commands now do line-buffering by default, so "
+"commands like the above work as soon as a newline is printed. To disable "
+"this behavior and use default python buffering rules, use the option "
+"``--use-python-default-buffering``. See the `original issue "
+"<https://github.com/ros2/ros2cli/issues/595>`__ and the `pull request "
+"<https://github.com/ros2/ros2cli/pull/659>`__ for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:767
+#: 54b16fc2db92401a9ac7deefb60b49e0
+msgid ""
+"``ros2 topic pub`` will wait for one matching subscription when using "
+"``--times/--once/-1``"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:769
+#: 3aad0e2cc9014795b999d526173a3300
+msgid ""
+"When using ``--times/--once/-1`` flags, ``ros2 topic pub`` will wait for "
+"one matching subscription to be found before starting to publish. This "
+"avoids the issue of the ros2cli node starting to publish before "
+"discovering a matching subscription, which results in some of the first "
+"messages being lost. This is particularly unexpected when using a "
+"reliable qos profile."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:773
+#: 7e0ce829063442178ced8bd2fbce8173
+msgid ""
+"The number of matching subscriptions to wait before starting publishing "
+"can be configured with the ``-w/--wait-matching-subscriptions`` flags, "
+"e.g.:"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:779
+#: d5e386cfeb3a4d96a0c59469c5513c53
+msgid "to wait for three matching subscriptions before starting to publish."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:781
+#: f20e8c7f759d4cef9e8461495507db9d
+msgid ""
+"``-w`` can also be used independently of ``--times/--once/-1`` but it "
+"only defaults to one when combined with them, otherwise the ``-w`` "
+"default is zero."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:783
+#: 765156391c77411ab53d28fac660253e
+msgid "See https://github.com/ros2/ros2cli/pull/642 for more details."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:786
+#: ba9665d38c634227854cf07c90eadb27
+msgid "``ros2 param dump`` default output changed"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:788
+#: dd493f9db0ff4978bceb4e9494f7f816
+msgid ""
+"``--print`` option for dump command was `deprecated "
+"<https://github.com/ros2/ros2cli/pull/638>`_."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:790
+#: 66cdcd07278443b98ae6d4721391593e
+msgid "It prints to stdout by default:"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:796
+#: 76639af9afb54e798977e86dfff4070e
+msgid ""
+"``--output-dir`` option for dump command was `deprecated "
+"<https://github.com/ros2/ros2cli/pull/638>`_."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:798
+#: f48e79c720274e26adec8723e62ce6eb
+msgid "To dump parameters to a file, run:"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:805
+#: b67e5e173d1848789c1bc6c91b115bcb
+msgid "``ros2 param set`` now accepts more YAML syntax"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:807
+#: d70c9c07e21143c9bf7e65f2bfb1b106
+msgid ""
+"Previously, attempting to set a string like \"off\" to a parameter that "
+"was of string type did not work. That's because ``ros2 param set`` "
+"interprets the command-line arguments as YAML, and YAML considers \"off\""
+" to be a boolean type. As of https://github.com/ros2/ros2cli/pull/684 , "
+"``ros2 param set`` now accepts the YAML escape sequence of \"!!str off\" "
+"to ensure that the value is considered a string."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:812
+#: 3a7d6a18f12f48438ff262d56cc91d15
+msgid "``ros2 pkg create`` can automatically generate a LICENSE file"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:814
+#: b548399934854a74b1da8f729e8f693f
+msgid ""
+"If the ``--license`` flag is passed to ``ros2 pkg create``, and the "
+"license is one of the known licenses, ``ros2 pkg create`` will now "
+"automatically generate a LICENSE file in the root of the package. For a "
+"list of known licenses, run ``ros2 pkg create --license ? "
+"<package_name>``. See the associated `pull request "
+"<https://github.com/ros2/ros2cli/pull/650>`__ for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:819
+#: 1e6e649e011d438188e07468cff99276
+msgid "robot_state_publisher"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:822
+#: 502a8e47802f4440a89c0904af7d219c
+msgid "Added ``frame_prefix`` parameter"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:823
+#: 86bd28eed67544e0984eeac6a0b8b666
+msgid ""
+"A new parameter ``frame_prefix`` was added in "
+"`ros/robot_state_publisher#159 "
+"<https://github.com/ros/robot_state_publisher/pull/159>`__. This "
+"parameter is a string which is prepended to all frame names published by "
+"``robot_state_publisher``. Similar to ``tf_prefix`` in the original "
+"``tf`` library in ROS 1, this parameter can be used to publish the same "
+"robot description multiple times with different frame names."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:828
+#: 112cc04de6934b9aa0ee23382cfd7356
+msgid "Removal of deprecated ``use_tf_static`` parameter"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:830
+#: 80f65649677f489f95080b76399527af
+msgid ""
+"The deprecated ``use_tf_static`` parameter has been removed from "
+"``robot_state_publisher``. This means that static transforms are "
+"unconditionally published to the ``/tf_static`` topic, and that the "
+"static transforms are published in a ``transient_local`` Quality of "
+"Service. This was the default behavior, and the behavior which the "
+"``tf2_ros::TransformListener`` class expected before, so most code will "
+"not have to be changed. Any code that was relying on "
+"``robot_state_publisher`` to periodically publish static transforms to "
+"``/tf`` will have to be updated to subscribe to ``/tf_static`` as a "
+"``transient_local`` subscription instead."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:837
+#: de95effb0cd74b88bf11f54b308ae569
+msgid "rosidl_cmake"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:840
+#: 4d127662f70540e38d2946d3a1a800ca
+msgid "Deprecation of ``rosidl_target_interfaces()``"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:842
+#: be331949b31f40009b8b98f7cf735447
+msgid ""
+"The CMake function ``rosidl_target_interfaces()`` has been deprecated, "
+"and now issues a CMake warning when called. Users wanting to use "
+"messages/services/actions in the same ROS package that generated them "
+"should instead call ``rosidl_get_typesupport_target()`` and then "
+"``target_link_libraries()`` to make their targets depend on the returned "
+"typesupport target. See https://github.com/ros2/rosidl/pull/606 for more "
+"details, and https://github.com/ros2/demos/pull/529 for an example of "
+"using the new function."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:850
+#: 3c7e0b5b1ab04b4bb595005bf9a0d56f
+msgid ""
+"`improved the efficiency of 3-bytes pixel formats "
+"<https://github.com/ros2/rviz/pull/743>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:851
+#: 3c049f46ae4948a8a83e70f78c7fc648
+msgid ""
+"`changed the way inertias are computed to use ignition math rather than "
+"Ogre's math libraries <https://github.com/ros2/rviz/pull/751>`__."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:855
+#: 2921489e1f014db89c510ee919724536
+msgid "geometry2"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:858
+#: a8b43e3e88a14615b6ae11f4994cd79c
+msgid "Deprecation of TF2Error::NO_ERROR, etc"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:860
+#: 22668ffd158e4ffc93212af4bc1c1348
+msgid ""
+"The ``tf2`` library uses an enumeration called ``TF2Error`` to return "
+"errors. Unfortunately, one of the enumerators in there is called "
+"``NO_ERROR``, which conflicts with a macro on Windows. To remedy this, a "
+"new set of enumerators in ``TF2Error`` were created, each with a ``TF2`` "
+"prefix. The previous enumerators are still available, but are now "
+"deprecated and will print a deprecation warning if used. All code that "
+"uses the ``TF2Error`` enumerator should be updated to use the new ``TF2``"
+" prefixed errors. See https://github.com/ros2/geometry2/pull/349 for more"
+" details."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:868
+#: aa52028ca93841668802e47fb82ad889
+msgid "More intuitive command-line arguments for static_transform_publisher"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:870
+#: f7790f4f235a4fcb9babb4222be5a1dc
+msgid ""
+"The ``static_transform_publisher`` program used to take arguments like: "
+"``ros2 run tf2_ros static_transform_publisher 0 0 0 0 0 0 1 foo bar``. "
+"The first three numbers are the translation x, y, and z, the next 4 are "
+"the quaternion x, y, z, and w, and the last two arguments are the parent "
+"and child frame IDs. While this worked, it had a couple of problems:"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:874
+#: 6cef7fbb4e2b4f7c986e6c5aeb53d45a
+msgid ""
+"The user had to specify *all* of the arguments, even if only setting one "
+"number"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:875
+#: d6c40d01d1444500a885d9502eb13e0b
+msgid "Reading the command-line to figure out what it was publishing was tricky"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:877
+#: c68abeeeecf04ad68df25442efc7052e
+msgid ""
+"To fix both of these issues, the command-line handling has been changed "
+"to use flags instead, and all flags except for ``--frame-id`` and "
+"``--child-frame-id`` are optional. Thus, the above command-line can be "
+"simplified to: ``ros2 run tf2_ros static_transform_publisher --frame-id "
+"foo --child-frame-id bar`` To change just the translation x, the command-"
+"line would be: ``ros2 run tf2_ros static_transform_publisher --x 1.5 "
+"--frame-id foo --child-frame-id bar``."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:881
+#: 2a23d2fb49f1479ba7b1028334556fa8
+msgid ""
+"The old-style arguments are still allowed in this release, but are "
+"deprecated and will print a warning. They will be removed in future "
+"releases. See https://github.com/ros2/geometry2/pull/392 for more "
+"details."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:886
+#: e7960e3a1efe4a6ebe3838b51dba3ed8
+msgid "Transform listener spin thread no longer executes node callbacks"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:888
+#: 409231771424419581ea3b2d8e02f92d
+msgid ""
+"``tf2_ros::TransformListener`` no longer spins on the provided node "
+"object. Instead, it creates a callback group to execute callbacks on the "
+"entities it creates internally. This means if you have set the parameter "
+"``spin_thread=true`` when creating a transform listener, you can no "
+"longer depend on your own callbacks to be executed. You must call a "
+"``spin`` function on your node (e.g. ``rclcpp::spin``), or add your node "
+"to your own executor."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:894
+#: c8f93c8518cb46ea9ed90852f1ae69d8
+msgid ""
+"Related pull request: `geometry2#442 "
+"<https://github.com/ros2/geometry2/pull/442>`_"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:897
+#: 60852442d5a144fd8e82b7eee1f2a560
+msgid "rosbag2"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:900
+#: 897c697067d74597af85eb7dfeda00c7
+msgid "New playback and recording controls"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:902
+#: e738ea29db8c4fcabaa9ef7ad8db8e3c
+msgid ""
+"Several pull requests have been added to enhance the user's control over "
+"playback of bags. Pull request `931 "
+"<https://github.com/ros2/rosbag2/pull/931>`_ adds the ability to specify "
+"a time stamp to begin playing from. Due to pull request `789 "
+"<https://github.com/ros2/rosbag2/pull/789>`_ it is now possible to delay "
+"the start of playback by a specified interval."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:906
+#: fae4afd839044768ae9846ac75ba9611
+msgid ""
+"Relatedly, ``rosbag2`` has gained new ways for users to control playback "
+"as it is happening. Pull request `847 "
+"<https://github.com/ros2/rosbag2/pull/847>`_ adds keyboard controls for "
+"pausing, resuming, and playing the next message during playback from a "
+"terminal. It is also possible to start playback paused thanks to pull "
+"requests `905 <https://github.com/ros2/rosbag2/pull/905>`_ and `904 "
+"<https://github.com/ros2/rosbag2/pull/904>`_, which makes it easy for the"
+" user to initiate playback and then step through messages, such as when "
+"debugging a pipeline. Pull request `836 "
+"<https://github.com/ros2/rosbag2/pull/836>`_ adds an interface for "
+"seeking within bags, allowing the user to move around within a bag during"
+" playback."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:911
+#: d6d0f3b2d35c4975b63019fb7c2a44b0
+msgid ""
+"Finally, a new snapshot mode has been added to recording in pull request "
+"`851 <https://github.com/ros2/rosbag2/pull/851>`_. This mode, useful for "
+"incident recording, allows recording to begin filling up buffers, but not"
+" begin writing data to disc until a service is called."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:915
+#: 6786540277db43e8a53b55de8e1c2067
+msgid "Burst-mode playback"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:917
+#: 329ecbcee79043d0b6edbe054cf27c84
+msgid ""
+"While the playback of data from a bag in real-time is the most well-known"
+" use case for bag files, there are situations where you want the data in "
+"the bag as fast as possible. With pull request `977 "
+"<https://github.com/ros2/rosbag2/pull/977>`_, ``rosbag2`` has gained the "
+"ability to \"burst\" data from the bag. In burst mode, the data is played"
+" back as fast as possible. This is useful in applications such as machine"
+" learning."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:923
+#: 82e1040aa0b1444e8221671505b1de60
+msgid "Zero-Copy playback"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:925
+#: 0910bd4287844ac794a2ec3fab44e796
+msgid ""
+"By default, if loaned message can be used, playback messages are "
+"published as loaned message. This can help to reduce the number of data "
+"copies, so there is a greater benefit for sending big data. Pull request "
+"`981 <https://github.com/ros2/rosbag2/pull/981>`_ adds ``--disable-loan-"
+"message`` option for playback."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:930
+#: 35cdd7eaa4634e71bee432250f2fa647
+msgid "Wait for an acknowledgment"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:932
+#: 3b1b59375b3149ea9d6921e730fb9bf3
+msgid ""
+"This new option will wait until all published messages are acknowledged "
+"by all subscribers or until the timeout elapses in millisecond before "
+"play is terminated. Especially for the case of sending message with big "
+"size in a short time. This option is valid only if the publisher's QOS "
+"profile is RELIABLE. Pull request `951 "
+"<https://github.com/ros2/rosbag2/pull/951>`_ adds ``--wait-for-all-"
+"acked`` option for playback."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:938
+#: 1f06d527925045f5a94121e7241e04f5
+msgid "Bag editing"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:940
+#: 99422ab0adeb4f818e33b99129ab8fb2
+msgid ""
+"``rosbag2`` is taking steps towards enabling the editing of bags, such as"
+" removing all messages for one topic or merging multiple bags into a "
+"single bag. Pull request `921 "
+"<https://github.com/ros2/rosbag2/pull/921>`_ adds bag rewriting and the "
+"``ros2 bag convert`` verb."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:944
+#: 5503a6cde0ab48789130cf230b0f755c
+msgid "Other changes"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:946
+#: fbf934c5e3a0413f86179808e5c7d2ca
+msgid ""
+"Pull request `925 <https://github.com/ros2/rosbag2/pull/925>`_ makes "
+"``rosbag2`` ignore \"leaf topics\" (topics without a publisher) when "
+"recording. These topics will no longer be automatically added to the bag."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:950
+#: 75f35a6bac2243a3baf971675de3b8cb
+msgid "Known Issues"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:952
+#: 22347861fe1843cb8d6cf919a8720663
+msgid ""
+"When `installing ROS 2 on an Ubuntu 22.04 Jammy host "
+"<../../humble/Installation/Ubuntu-Install-Debians.html>`__ it is "
+"important to update your system before installing ROS 2 packages. It is "
+"*particularly* important to make sure that ``systemd`` and ``udev`` are "
+"updated to the latest available version otherwise installing ``ros-"
+"humble-desktop``, which depends on ``libudev1``, could cause the removal "
+"of system critical packages. Details can be found in `ros2/ros2#1272 "
+"<https://github.com/ros2/ros2/issues/1272>`_ and `Launchpad #1974196 "
+"<https://bugs.launchpad.net/ubuntu/+source/systemd/+bug/1974196>`_"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:956
+#: e7fb545aa4254299af60a37e97fe3e0c
+msgid ""
+"When ROS 2 apt repositories are available, ROS 1 packages in Ubuntu are "
+"not installable.  See the :doc:`ros1_bridge on Ubuntu Jammy <../How-To-"
+"Guides/Using-ros1_bridge-Jammy-upstream>` document for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:958
+#: 35139f9f88424c67b1ae6012f60a95c0
+msgid ""
+"Some major Linux distributions have started patching Python to install "
+"packages to ``/usr/local``, which is breaking some parts of "
+"``ament_package`` and builds with ``colcon``. In particular, using Ubuntu"
+" Jammy with ``setuptools`` installed from pip will manifest this "
+"misbehavior, and is therefore not recommended. There is currently a "
+"`proposed solution <https://github.com/colcon/colcon-core/pull/512>`_ "
+"which requires further testing before widespread release."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:962
+#: 90bae8f00e254a5b9b77ca12bdd4b696
+msgid ""
+"ROS 2 bags that are split by size or duration are not played correctly. "
+"Only the last bag recorded is played. It is recommended to avoid "
+"splitting bags by size or duration. Details can be found in "
+"`ros2/rosbag2#966 <https://github.com/ros2/rosbag2/issues/966>`__."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:968
+#: e28e1125229b4462ae556f02b887281c
+msgid "Release Timeline"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:971
+#: 8991d07019764cf5a58fd9df9cc25dcb
+msgid "Mon. March 21, 2022 - Alpha + RMW freeze"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:971
+#: c7cfe31c28a04857b33b9826d592b436
+msgid ""
+"Preliminary testing and stabilization of ROS Base [1]_ packages, and API "
+"and feature freeze for RMW provider packages."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:976
+#: 993bddae57b94d6e84d2e84de15e6717
+msgid "Mon. April 4, 2022 - Freeze"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:974
+#: 9b7a3b9f92d14d9ea686f112c5eaa8f2
+msgid ""
+"API and feature freeze for ROS Base [1]_ packages in Rolling Ridley. Only"
+" bug fix releases should be made after this point. New packages can be "
+"released independently."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:981
+#: fd8d1ed901824cd7a1be0a6d0d99d34a
+msgid "Mon. April 18, 2022 - Branch"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:979
+#: bbeb6d2b59624ce4aa050c1938376cfb
+msgid ""
+"Branch from Rolling Ridley. ``rosdistro`` is reopened for Rolling PRs for"
+" ROS Base [1]_ packages. Humble development shifts from ``ros-rolling-*``"
+" packages to ``ros-humble-*`` packages."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:985
+#: a7d2ad3f011541f08d73098c20aac304
+msgid "Mon. April 25, 2022 - Beta"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:984
+#: 3502e222633d4c1790fb4684616a46f0
+msgid ""
+"Updated releases of ROS Desktop [2]_ packages available. Call for general"
+" testing."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:989
+#: 24b56481f6b6403ca8bc9d2436d30abd
+msgid "Mon. May 16, 2022 - Release Candidate"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:988
+#: 077138b2c20e4b28b3a86048bfaa8118
+msgid ""
+"Release Candidate packages are built. Updated releases of ROS Desktop "
+"[2]_ packages available."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:993
+#: 7e852d3ae2d240138648e85534eb67a9
+msgid "Thu. May 19, 2022 - Distro Freeze"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:992
+#: 5e3869cf474e49fe84a08fe767f34ad7
+msgid ""
+"Freeze rosdistro. No PRs for Humble on the ``rosdistro`` repo will be "
+"merged (reopens after the release announcement)."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:997
+#: 671446418aa14cb5a3bacb4aa1d7cd02
+msgid "Mon. May 23, 2022 - General Availability"
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:996
+#: 76821a0f03cc4d9cb809d5c8a43d0a9f
+msgid "Release announcement. ``rosdistro`` is reopened for Humble PRs."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:999
+#: 689d646abda240f5bb9e367a02852369
+msgid ""
+"The ``ros_base`` variant is described in `REP 2001 (ros-base) "
+"<https://www.ros.org/reps/rep-2001.html#ros-base>`_."
+msgstr ""
+
+#: ../../source/Releases/Release-Humble-Hawksbill.rst:1000
+#: 2fde62592c7b4c40924afea66d8d33d4
+msgid ""
+"The ``desktop`` variant is described in `REP 2001 (desktop-variants) "
+"<https://www.ros.org/reps/rep-2001.html#desktop-variants>`_."
+msgstr ""
+

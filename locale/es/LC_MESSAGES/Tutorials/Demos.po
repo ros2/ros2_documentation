@@ -1,0 +1,68 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Demos.rst:2 5b397fc664f74d1fb3a2b56d3cd7bf32
+msgid "Demos"
+msgstr ""
+
+#: ../../source/Tutorials/Demos.rst:17 fc6a4ba177054622858dee1d0e457afa
+msgid "External resources"
+msgstr ""
+
+#: ../../source/Tutorials/Demos.rst:19 adf30445e37e4e00affff03ebc3d9a64
+msgid ""
+"`Bridging communication between ROS 1 and ROS 2 "
+"<https://github.com/ros2/ros1_bridge/blob/master/README.md>`__"
+msgstr ""
+
+#: ../../source/Tutorials/Demos.rst:20 9de59c8228654b31824be1644b0b83a1
+msgid ""
+"`Motion planning for a MoveIt 2 arm "
+"<https://moveit.picknik.ai/main/index.html>`__"
+msgstr ""
+
+#: ../../source/Tutorials/Demos.rst:21 d7d5ad86f15a4bc790db8255da5394ab
+msgid "Using Turtlebot 3 (community-contributed)"
+msgstr ""
+
+#: ../../source/Tutorials/Demos.rst:23 e068d74546024d01ae0fae11e1545344
+msgid ""
+"`Getting started <https://emanual.robotis.com/docs/en/platform/turtlebot3"
+"/quick-start/>`__"
+msgstr ""
+
+#: ../../source/Tutorials/Demos.rst:24 2e2f602d3e9241fc83394b3174295aa8
+msgid "`Simulating <https://ubuntu.com/blog/simulate-the-turtlebot3>`__"
+msgstr ""
+
+#: ../../source/Tutorials/Demos.rst:25 4cf51ed8831b4424831bb9a138e85663
+msgid ""
+"`Navigating in simulation "
+"<https://github.com/cyberbotics/webots_ros2/wiki/Navigate-TurtleBot3>`__"
+msgstr ""
+
+#: ../../source/Tutorials/Demos.rst:26 2198c865ce6744dea3a8e9717667bc0e
+msgid ""
+"`Learning SLAM in simulation "
+"<https://github.com/cyberbotics/webots_ros2/wiki/SLAM-with-TurtleBot3>`__"
+msgstr ""
+

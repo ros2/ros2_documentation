@@ -1,0 +1,187 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Releases/Beta1-Overview.rst:6 ce6b65bd2d8c465bba7533a241bf7256
+msgid "Beta 1 (``Asphalt``)"
+msgstr ""
+
+#: ../../source/Releases/Beta1-Overview.rst:10 d885d3795f2c45e3b592a9ca7d0dbf02
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Releases/Beta1-Overview.rst:13 77ff563a7e40414490dfbad477e98fec
+msgid "Supported Platforms"
+msgstr ""
+
+#: ../../source/Releases/Beta1-Overview.rst:15 031817f717b34c8191d33ab4ab298215
+msgid ""
+"We support ROS 2 Beta 1 on three platforms: Ubuntu 16.04 (Xenial), Mac OS"
+" X 10.11 (El Capitan), and Windows 8.1 and 10. We provide both binary "
+"packages and instructions for how to compile from source for all 3 "
+"platforms."
+msgstr ""
+
+#: ../../source/Releases/Beta1-Overview.rst:18 810ef54618cd4e68b18eea407f015cfc
+msgid "Features"
+msgstr ""
+
+#: ../../source/Releases/Beta1-Overview.rst:21 f79075f2daa143f68dab564cd6eac477
+msgid "Improvements since Alpha 8 release"
+msgstr ""
+
+#: ../../source/Releases/Beta1-Overview.rst:23 adab4d37e7f141c9a4d7159ec620a1a1
+msgid "Support for node composition at compile, link, or runtime."
+msgstr ""
+
+#: ../../source/Releases/Beta1-Overview.rst:24 fb087de1156f4a2888896be0de492064
+msgid "A standard lifecycle for managed nodes."
+msgstr ""
+
+#: ../../source/Releases/Beta1-Overview.rst:25 493087310005418fad7d0e5a6777cccf
+msgid "Improved support for Quality of Service tuning and tests."
+msgstr ""
+
+#: ../../source/Releases/Beta1-Overview.rst:26 52ab100d55b4453587383cd911e86058
+msgid "`New and updated design documents <https://design.ros2.org/>`__"
+msgstr ""
+
+#: ../../source/Releases/Beta1-Overview.rst:27 900c9aef323e4c73be1dc2c84645ddd1
+msgid ""
+"More `tutorials <../../Tutorials>` and `examples "
+"<https://github.com/ros2/examples>`__"
+msgstr ""
+
+#: ../../source/Releases/Beta1-Overview.rst:28 abe3ee01a14e4c6580859d2c3e1b237b
+msgid "Bridging services to / from ROS 1 (in addition to topics)"
+msgstr ""
+
+#: ../../source/Releases/Beta1-Overview.rst:31 877b67b2594047888d0cd62ff82f155c
+msgid "Selected features from previous Alpha releases"
+msgstr ""
+
+#: ../../source/Releases/Beta1-Overview.rst:33 8fd0ecd7a1aa481985d719c8989742fc
+msgid "For the complete list, see `earlier release notes <../index>`."
+msgstr ""
+
+#: ../../source/Releases/Beta1-Overview.rst:36 7cac936b64214b018efce68e417e38b1
+msgid ""
+"C++ and Python implementations of ROS 2 client libraries including APIs "
+"for:"
+msgstr ""
+
+#: ../../source/Releases/Beta1-Overview.rst:38 f437ad46632148e38f6d2b1155bd4911
+msgid "Publishing and subscribing to ROS topics"
+msgstr ""
+
+#: ../../source/Releases/Beta1-Overview.rst:39 503a6c3887b94a96b20bff49805755e5
+msgid ""
+"Requesting and replying ROS services (synchronous (C++ only) and "
+"asynchronous)"
+msgstr ""
+
+#: ../../source/Releases/Beta1-Overview.rst:40 71e1519577e14cf2a9a5b81a58ac3e5a
+msgid ""
+"Getting and setting ROS parameters (C++ only, synchronous and "
+"asynchronous)"
+msgstr ""
+
+#: ../../source/Releases/Beta1-Overview.rst:41 f32cd766c3ab434ba71571e510c97ff9
+msgid "Timer callbacks"
+msgstr ""
+
+#: ../../source/Releases/Beta1-Overview.rst:42 73a8c23a4bd14b4898684c9548e36cbb
+msgid "Support for interoperability between multiple DDS/RTPS implementations"
+msgstr ""
+
+#: ../../source/Releases/Beta1-Overview.rst:43 6fa73a6b1c21422180c430d4ca65cd94
+msgid ""
+"eProsima Fast RTPS is our default implementation, and is included in the "
+"binary packages"
+msgstr ""
+
+#: ../../source/Releases/Beta1-Overview.rst:44 461fb1ab41904b5b9f81d4147c0d94ea
+msgid "RTI Connext is supported: build from source to try it out"
+msgstr ""
+
+#: ../../source/Releases/Beta1-Overview.rst:45 95d5af0de073408998ce9a6172d9e0c7
+msgid ""
+"We initially supported PrismTech OpenSplice but eventually decided to "
+"drop it"
+msgstr ""
+
+#: ../../source/Releases/Beta1-Overview.rst:47 2d8b7a0965b246eea050af3263affa8d
+msgid "A graph API for network events"
+msgstr ""
+
+#: ../../source/Releases/Beta1-Overview.rst:48 38e56420acfe4b9aa21e3d824a875ec9
+msgid "Distributed discovery"
+msgstr ""
+
+#: ../../source/Releases/Beta1-Overview.rst:49 a3f07e4981054a4cb1dc6d0cf45eeb63
+msgid ""
+"Realtime safe code paths for publish and subscribe with compatible DDS "
+"implementation (only Connext at the moment)"
+msgstr ""
+
+#: ../../source/Releases/Beta1-Overview.rst:51 bef021b3c31d43ff90150bf2cc7b58bc
+msgid "Support for custom allocators"
+msgstr ""
+
+#: ../../source/Releases/Beta1-Overview.rst:53 1f2c5757cbca490cb66e97fdf092610a
+msgid "ROS 1 <-> ROS 2 dynamic bridge node"
+msgstr ""
+
+#: ../../source/Releases/Beta1-Overview.rst:54 a75ce05671f4488aba11dcf3f8d43f83
+msgid "Executor threading model in C++"
+msgstr ""
+
+#: ../../source/Releases/Beta1-Overview.rst:55 f122ff23db9d4059b87643e7323620b4
+msgid "Extended ``.msg`` format with new features:"
+msgstr ""
+
+#: ../../source/Releases/Beta1-Overview.rst:57 fa2f15938c5943c0a92aceb5624ddd1c
+msgid "Bounded arrays"
+msgstr ""
+
+#: ../../source/Releases/Beta1-Overview.rst:58 fe243dce326d412183da65f51fd61f3d
+msgid "Default values"
+msgstr ""
+
+#: ../../source/Releases/Beta1-Overview.rst:61 182f2657eefc49ec89d83b51c5aac7b7
+msgid "Known issues"
+msgstr ""
+
+#: ../../source/Releases/Beta1-Overview.rst:63 7fe7bf82459846689ed1c905d3d8e3d0
+msgid ""
+"We’re tracking issues in various repositories, but the main entry point "
+"is the `ros2/ros2 issue tracker <https://github.com/ros2/ros2/issues>`__"
+msgstr ""
+
+#: ../../source/Releases/Beta1-Overview.rst:64 78a885ca711d4ad3a6279d705b95b020
+msgid ""
+"We’d like to highlight a `known issue "
+"<https://github.com/ros2/rmw_fastrtps/issues/81>`__ that we are working "
+"with eProsima to fix that results in significantly degrated performance "
+"for large messages under FastRTPS. This will be observed when running "
+"some of the demos with larger image resolutions."
+msgstr ""
+

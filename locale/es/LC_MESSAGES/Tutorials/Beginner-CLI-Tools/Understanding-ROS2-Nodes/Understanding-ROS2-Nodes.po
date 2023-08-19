@@ -1,0 +1,323 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:8
+#: b90c98add95b42e981bf65264eb55177
+msgid "Understanding nodes"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:10
+#: 3ae0ca9df6f84722a5a2e1450c97447a
+msgid ""
+"**Goal:** Learn about the function of nodes in ROS 2, and the tools to "
+"interact with them."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:12
+#: dc58e2a339d8474aad6e89a6439f61e9
+msgid "**Tutorial level:** Beginner"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:14
+#: 26740739b17247189e8d7377e76f68ec
+msgid "**Time:** 10 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:18
+#: 77e27fd4ba634173ae4fbce84e022741
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:21
+#: dfd26023b6e14825ae752520d3cdf92b
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:24
+#: 4d1fe80cb364491787ee1c5bc0c58e88
+msgid "1 The ROS 2 graph"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:26
+#: 9332d04c0fec4e7cb2be4dfcf063fd0d
+msgid ""
+"Over the next few tutorials, you will learn about a series of core ROS 2 "
+"concepts that make up what is referred to as the “ROS (2) graph”."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:28
+#: cebf50d5c8fb445b80997a9a2f55916d
+msgid ""
+"The ROS graph is a network of ROS 2 elements processing data together at "
+"the same time. It encompasses all executables and the connections between"
+" them if you were to map them all out and visualize them."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:32
+#: 6ceb4ee52c84419785f8262c2943130d
+msgid "2 Nodes in ROS 2"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:34
+#: a819fbd50ddf43d0a05e660fce9a6c83
+msgid ""
+"Each node in ROS should be responsible for a single, modular purpose, "
+"e.g. controlling the wheel motors or publishing the sensor data from a "
+"laser range-finder. Each node can send and receive data from other nodes "
+"via topics, services, actions, or parameters."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:39
+#: 71abc310b27946df94f0fa9ada983312
+msgid ""
+"A full robotic system is comprised of many nodes working in concert. In "
+"ROS 2, a single executable (C++ program, Python program, etc.) can "
+"contain one or more nodes."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:43
+#: d5d3f0047472436d83c31bc7583f1127
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:45
+#: 754bf446274b4f64984a9ff655120948
+msgid ""
+"The :doc:`previous tutorial <../Introducing-Turtlesim/Introducing-"
+"Turtlesim>` shows you how to install the ``turtlesim`` package used here."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:47
+#: e4363c1a82ac4eca9c34326ee6a58ddf
+msgid ""
+"As always, don't forget to source ROS 2 in :doc:`every new terminal you "
+"open <../Configuring-ROS2-Environment>`."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:50
+#: 18849f39cd4840598d8c158a2f9064a7
+msgid "Tasks"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:53
+#: de83adcb62fb417da17db003d851d5f4
+msgid "1 ros2 run"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:55
+#: 1686f85bb0824a19a33d1fb397a335eb
+msgid "The command ``ros2 run`` launches an executable from a package."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:61
+#: bb637068ba7840ce8ec4325dc62ce225
+msgid "To run turtlesim, open a new terminal, and enter the following command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:67
+#: 56bbf3b1d1a64960ae7691acffc4958d
+msgid ""
+"The turtlesim window will open, as you saw in the :doc:`previous tutorial"
+" <../Introducing-Turtlesim/Introducing-Turtlesim>`."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:69
+#: cd14de0286b04702856a6d41ca850d45
+msgid ""
+"Here, the package name is ``turtlesim`` and the executable name is "
+"``turtlesim_node``."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:71
+#: 26cfe89f77d746dd9c132a7e6a7e7972
+msgid ""
+"We still don't know the node name, however. You can find node names by "
+"using ``ros2 node list``"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:75
+#: d793f92440f34d8cb5b8d393ee838d83
+msgid "2 ros2 node list"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:77
+#: b2792b01411a433cad62f9971fcc55a5
+msgid ""
+"``ros2 node list`` will show you the names of all running nodes. This is "
+"especially useful when you want to interact with a node, or when you have"
+" a system running many nodes and need to keep track of them."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:80
+#: d2429e22352c467dab30323e488d3995
+msgid ""
+"Open a new terminal while turtlesim is still running in the other one, "
+"and enter the following command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:86
+#: 5f736134950a4a8e94646172071d252f
+msgid "The terminal will return the node name:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:92
+#: 297d4764f14149db9e12f34fe20b7808
+msgid "Open another new terminal and start the teleop node with the command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:98
+#: 5289858953854106b9ee65f4a63ed1fe
+msgid ""
+"Here, we are referring to the ``turtlesim`` package again, but this time "
+"we target the executable named ``turtle_teleop_key``."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:100
+#: 8261ab3fe6c54235bf1721f9a7e472c5
+msgid ""
+"Return to the terminal where you ran ``ros2 node list`` and run it again."
+" You will now see the names of two active nodes:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:109
+#: 1f089604d65246b9ae48c93c0f6920bd
+msgid "2.1 Remapping"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:111
+#: b74bf111e750408fac4fd6f83da9f64f
+msgid ""
+"`Remapping "
+"<https://design.ros2.org/articles/ros_command_line_arguments.html#name-"
+"remapping-rules>`__ allows you to reassign default node properties, like "
+"node name, topic names, service names, etc., to custom values. In the "
+"last tutorial, you used remapping on ``turtle_teleop_key`` to change the "
+"cmd_vel topic and target **turtle2**."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:114
+#: d3f46eb6146b4f45838a21949e051a8e
+msgid ""
+"Now, let's reassign the name of our ``/turtlesim`` node. In a new "
+"terminal, run the following command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:121
+#: 0169d8bbed7c46acb12d23ee8de12adb
+msgid ""
+"Since you're calling ``ros2 run`` on turtlesim again, another turtlesim "
+"window will open. However, now if you return to the terminal where you "
+"ran ``ros2 node list``, and run it again, you will see three node names:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:131
+#: 42774a0a188145e2b98e62842a641db4
+msgid "3 ros2 node info"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:133
+#: e7999d23389544008d022b565657fadd
+msgid ""
+"Now that you know the names of your nodes, you can access more "
+"information about them with:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:139
+#: 367ba1e99a7b4dbca8c3fa93edd14a72
+msgid "To examine your latest node, ``my_turtle``, run the following command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:145
+#: 7a4a63282552469a9f757c9814d0ab19
+msgid ""
+"``ros2 node info`` returns a list of subscribers, publishers, services, "
+"and actions. i.e. the ROS graph connections that interact with that node."
+" The output should look like this:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:179
+#: 71fffc2c699a42c0a85c4a8598afb6b1
+msgid ""
+"Now try running the same command on the ``/teleop_turtle`` node, and see "
+"how its connections differ from ``my_turtle``."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:181
+#: 2aa9b3227dc742c3b469989d9f02464b
+msgid ""
+"You will learn more about the ROS graph connection concepts including the"
+" message types in the upcoming tutorials."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:184
+#: 28cde8c690ae41a3869a7d298859b832
+msgid "Summary"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:186
+#: b99c0d31f0c94d73abe192ad058dd96b
+msgid ""
+"A node is a fundamental ROS 2 element that serves a single, modular "
+"purpose in a robotics system."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:188
+#: cc17498f72fe47c1af0e18f5a4c505aa
+msgid ""
+"In this tutorial, you utilized nodes created in the ``turtlesim`` package"
+" by running the executables ``turtlesim_node`` and ``turtle_teleop_key``."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:190
+#: 774d5047752a4de9927f372100c92dda
+msgid ""
+"You learned how to use ``ros2 node list`` to discover active node names "
+"and ``ros2 node info`` to introspect a single node. These tools are vital"
+" to understanding the flow of data in a complex, real-world robot system."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:194
+#: 6c12cab8a49643edae038cd98f1847dd
+msgid "Next steps"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:196
+#: 3d3c209711c54b5c95e255ada19fed61
+msgid ""
+"Now that you understand nodes in ROS 2, you can move on to the "
+":doc:`topics tutorial <../Understanding-ROS2-Topics/Understanding-"
+"ROS2-Topics>`. Topics are one of the communication types that connects "
+"nodes."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:200
+#: 6d600151bb394dacbb332c1e4e414885
+msgid "Related content"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.rst:202
+#: 1459cfd4508745989748c960d0edbe58
+msgid ""
+"The :doc:`../../../Concepts` page adds some more detail to the concept of"
+" nodes."
+msgstr ""
+

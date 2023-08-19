@@ -1,0 +1,164 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Intermediate/Tf2/Learning-About-Tf2-And-Time-Py.rst:8
+#: 6225aa64efd24aaea30918fd17e320f9
+msgid "Using time (Python)"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Learning-About-Tf2-And-Time-Py.rst:10
+#: c4c0910c9a59489d8c9460535e0e3e84
+msgid ""
+"**Goal:** Learn to use the ``timeout`` in ``lookup_transform`` function "
+"to wait for a transform to be available on the tf2 tree."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Learning-About-Tf2-And-Time-Py.rst:12
+#: 1b573a01d84d48958a42be9326d112c5
+msgid "**Tutorial level:** Intermediate"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Learning-About-Tf2-And-Time-Py.rst:14
+#: 003059ae38084372a825f263f24a9dd7
+msgid "**Time:** 10 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Learning-About-Tf2-And-Time-Py.rst:18
+#: c34df834ed99440e83af3558f8c860a0
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Learning-About-Tf2-And-Time-Py.rst:21
+#: 6987650244374675b3612a469edfb531
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Learning-About-Tf2-And-Time-Py.rst:23
+#: 1b2e3d28b70f4c3e94b38ada4eb3e996
+msgid ""
+"In previous tutorials, we recreated the turtle demo by writing a "
+":doc:`tf2 broadcaster <./Writing-A-Tf2-Broadcaster-Py>` and a :doc:`tf2 "
+"listener <./Writing-A-Tf2-Listener-Py>`. We also learned how to :doc:`add"
+" a new frame to the transformation tree <./Adding-A-Frame-Py>`. Now we "
+"will learn more about the ``timeout`` argument which makes the "
+"``lookup_transform`` wait for the specified transform for up to the "
+"specified duration before throwing an exception. This tool can be useful "
+"to listen for transforms that are published at varying rates or those "
+"incoming source with unreliable networking and non negligible latency. "
+"This tutorial will teach you how use the timeout in ``lookup_transform`` "
+"function to wait for a transform to be available on the tf2 tree."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Learning-About-Tf2-And-Time-Py.rst:30
+#: 2081372e22fc4f3bb89a77f60123fd39
+msgid "Tasks"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Learning-About-Tf2-And-Time-Py.rst:33
+#: 2ac9af17f74d4d9fa1de3643bd98e2e3
+msgid "1 Update the listener node"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Learning-About-Tf2-And-Time-Py.rst:35
+#: 3ba9cdca109d479ea3119a54a1ccc4c8
+msgid ""
+"Edit ``turtle_tf2_listener.py`` and remove the "
+"``timeout=Duration(seconds=1.0)`` parameter that is passed to the "
+"``lookup_transform()`` call on line 76. It should look like shown below:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Learning-About-Tf2-And-Time-Py.rst:45
+#: c97359cb68444a26a5e80d79aca0456c
+msgid ""
+"Moreover, import additional exceptions that we will handle in the "
+"beginning of the file:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Learning-About-Tf2-And-Time-Py.rst:51
+#: 86c384794c9f41e38b6cfbc3660e9b3f
+msgid ""
+"Edit the exception handling on line 81 by adding newly imported "
+"exceptions and ``raise`` statement to see the exception:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Learning-About-Tf2-And-Time-Py.rst:60
+#: d65f62e3ae7748cebf083717ee9d1e33
+msgid "If you now try to run the launch file, you will notice that it is failing:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Learning-About-Tf2-And-Time-Py.rst:67
+#: 791d71c34e45453b937f39221c451df9
+msgid "2 Fix the listener node"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Learning-About-Tf2-And-Time-Py.rst:69
+#: 5206edf4be274a029c3595db5588c7d8
+msgid ""
+"You now should notice that ``lookup_transform()`` is failing. It tells "
+"you that the frame does not exist or that the data is in the future. To "
+"fix this, edit your code on line 76 as shown below (return the "
+"``timeout`` parameter):"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Learning-About-Tf2-And-Time-Py.rst:80
+#: 8e8baca515fc4ff2972049c6a115b57b
+msgid ""
+"The ``lookup_transform`` can take four arguments, where the last one is "
+"an optional timeout. It will block for up to that duration waiting for it"
+" to timeout."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Learning-About-Tf2-And-Time-Py.rst:85
+#: b952978ae64d41dd820734d0b2dc5c1c
+msgid ""
+"Once this change is made, remove the ``raise`` line from the ``except()``"
+" block that we added above or the code will continue to fail."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Learning-About-Tf2-And-Time-Py.rst:87
+#: e71eec14cf4d4a9d952d430e27493c98
+msgid "You can now run the launch file."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Learning-About-Tf2-And-Time-Py.rst:93
+#: 819f87c19f134d699679aea98c468913
+msgid ""
+"You should notice that ``lookup_transform()`` will actually block until "
+"the transform between the two turtles becomes available (this will "
+"usually take a few milli-seconds). Once the timeout has been reached (one"
+" second in this case), an exception will be raised only if the transform "
+"is still not available."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Learning-About-Tf2-And-Time-Py.rst:97
+#: 98e8be1386d2431b96d9679d68deb148
+msgid "Summary"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Learning-About-Tf2-And-Time-Py.rst:99
+#: bd50c2211afc404297e0e0a70a064642
+msgid ""
+"In this tutorial you learned more about the ``lookup_transform`` function"
+" and its timeout features. You also learned how to catch and handle "
+"additional exceptions that can be thrown by tf2."
+msgstr ""
+

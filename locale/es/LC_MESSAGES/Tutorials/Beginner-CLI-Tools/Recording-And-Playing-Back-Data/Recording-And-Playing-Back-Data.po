@@ -1,0 +1,456 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:8
+#: ea741f09677a4543809b97d13a938a5a
+msgid "Recording and playing back data"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:10
+#: cd823b6b0d5040638e5dfe7df4380a2e
+msgid ""
+"**Goal:** Record data published on a topic so you can replay and examine "
+"it any time."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:12
+#: 2d2579c2a1874a54a28c8b39c80b7fe6
+msgid "**Tutorial level:** Beginner"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:14
+#: 7408dd13c78c47e784fd64fc6939b3d1
+msgid "**Time:** 10 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:18
+#: be821c83f2a2449db343746d76584d46
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:21
+#: 3976c6e4b9ea4cbd9581fa58a1467c90
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:23
+#: b35ef139976e41c99172117d7d052352
+msgid ""
+"``ros2 bag`` is a command line tool for recording data published on "
+"topics in your system. It accumulates the data passed on any number of "
+"topics and saves it in a database. You can then replay the data to "
+"reproduce the results of your tests and experiments. Recording topics is "
+"also a great way to share your work and allow others to recreate it."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:30
+#: 48cc4626b8374185a745f9a217166b6d
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:32
+#: e3f5ce1b02e840c3ba538aeadffb710a
+msgid ""
+"You should have ``ros2 bag`` installed as a part of your regular ROS 2 "
+"setup."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:34
+#: b832d97c89d041ef887b150d9354cc2c
+msgid ""
+"If you installed ROS from Debian packages on Linux and your system "
+"doesn't recognize the command, install it like so:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:41
+#: 4959c436c3fd4d55b6cc70d9eff356ba
+msgid ""
+"This tutorial talks about concepts covered in previous tutorials, like "
+":doc:`nodes <../Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` and "
+":doc:`topics <../Understanding-ROS2-Topics/Understanding-ROS2-Topics>`. "
+"It also uses the :doc:`turtlesim package <../Introducing-Turtlesim"
+"/Introducing-Turtlesim>`."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:44
+#: 892801faf5e64cc5b5f1d72baf7012b6
+msgid ""
+"As always, don't forget to source ROS 2 in :doc:`every new terminal you "
+"open <../Configuring-ROS2-Environment>`."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:48
+#: b637212f873b4c2a8826a43ef0ce37d7
+msgid "Tasks"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:51
+#: 7b0cec27f8f4475cab10e023c8102248
+msgid "1 Setup"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:52
+#: 3d421e2cf2db4c258c96c7139509efe0
+msgid ""
+"You'll be recording your keyboard input in the ``turtlesim`` system to "
+"save and replay later on, so begin by starting up the ``/turtlesim`` and "
+"``/teleop_turtle`` nodes."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:54
+#: a55f2e3e326745d98b2b9dc805b99250
+msgid "Open a new terminal and run:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:60
+#: c4716a2c2d7a44edab18e195e430b02a
+msgid "Open another terminal and run:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:66
+#: 419682d0991841a09ab295a44c3f6a6c
+msgid ""
+"Let's also make a new directory to store our saved recordings, just as "
+"good practice:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:74
+#: 2680c943bc92442cb7bd390fffc4ad9f
+msgid "2 Choose a topic"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:76
+#: 326701630ae24b848d3cc5905af6765d
+msgid ""
+"``ros2 bag`` can only record data from published messages in topics. To "
+"see the list of your system's topics, open a new terminal and run the "
+"command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:83
+#: f4f95d4be2564bcbbf96ac1364ad6f2e
+msgid "Which will return:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:93
+#: f07ca5993ede48ffb89e0a0715cda7b0
+msgid ""
+"In the topics tutorial, you learned that the ``/turtle_teleop`` node "
+"publishes commands on the ``/turtle1/cmd_vel`` topic to make the turtle "
+"move in turtlesim."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:95
+#: 1ed09fb5c918414d854f093d3929bf06
+msgid "To see the data that ``/turtle1/cmd_vel`` is publishing, run the command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:101
+#: f8600269ec5d4674b63e3745f8a843ca
+msgid ""
+"Nothing will show up at first because no data is being published by the "
+"teleop. Return to the terminal where you ran the teleop and select it so "
+"it's active. Use the arrow keys to move the turtle around, and you will "
+"see data being published on the terminal running ``ros2 topic echo``."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:120
+#: 3a95505f8b8b4ccdbaddc36268ea153f
+msgid "3 ros2 bag record"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:123
+#: 1a71de2376d44cd88557b4f8ddd64dfa
+msgid "3.1 Recording formats"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:125
+#: cf0325d9f530420da2e32cdb53463d97
+msgid ""
+"By default, ``ros2 bag record`` will record data files using the `MCAP "
+"file format <https://mcap.dev>`_ (``.mcap``)."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:127
+#: 4195c0e572d14c828ee0a220a5624888
+msgid ""
+"To record files using the `SQLite3 file format "
+"<https://www.sqlite.org/index.html>`_ (``.db3``), add the ``--storage "
+"sqlite3`` flag (or ``-s sqlite3``) to your ``ros2 bag record`` commands."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:129
+#: e3ed9368b7414e95a9c18dc83bbcc0ad
+msgid ""
+"For more information on `ROS 2 storage plugin options "
+"<https://github.com/ros2/rosbag2/tree/rolling/#storage-format-plugin-"
+"architecture>`_, check out the following resources:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:131
+#: b5092acd6f8045028dadc6bb3a042cfb
+msgid ""
+"`MCAP "
+"<https://github.com/ros2/rosbag2/blob/rolling/rosbag2_storage_mcap/README.md"
+"#writer-configuration>`_"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:132
+#: a93c20d7ea5243b39a71039298dc702c
+msgid ""
+"`SQLite3 "
+"<https://github.com/ros2/rosbag2/blob/rolling/rosbag2_storage_sqlite3/README.md"
+"#storage-configuration-file>`_"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:136
+#: 8a4746d45a4d44eba1ad9c6b1a8d1a20
+msgid "3.2 Record a single topic"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:138
+#: d7539990e8624ce2942d73b06125985a
+msgid "To record the data published to a topic use the command syntax:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:144
+#: 8923e3f5e00e4a58ad2d61c4749755af
+msgid ""
+"Before running this command on your chosen topic, open a new terminal and"
+" move into the ``bag_files`` directory you created earlier, because the "
+"rosbag file will save in the directory where you run it."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:146
+#: fa15c59815044a3ab8200cfbd58a258d
+msgid "Run the command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:152
+#: 60df94b31fa34023ae692b3ec7dd7be7
+msgid ""
+"You will see the following messages in the terminal (the date and time "
+"will be different):"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:161
+#: c7d5e732ae09457bbfda3e01ddc55a57
+msgid ""
+"Now ``ros2 bag`` is recording the data published on the "
+"``/turtle1/cmd_vel`` topic. Return to the teleop terminal and move the "
+"turtle around again. The movements don't matter, but try to make a "
+"recognizable pattern to see when you replay the data later."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:167
+#: e449f908e69e4b38a510e4fd1844c78b
+msgid "Press ``Ctrl+C`` to stop recording."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:169
+#: 4d6cceeba4d242929879c4db64ccd54a
+msgid ""
+"The data will be accumulated in a new bag directory with a name in the "
+"pattern of ``rosbag2_year_month_day-hour_minute_second``. This directory "
+"will contain a ``metadata.yaml`` along with the bag file in the recorded "
+"format."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:173
+#: 844e6f769d474b95a9d728a406ff436e
+msgid "3.3 Record multiple topics"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:175
+#: 24b12c48074f4f55981e8e85beaae621
+msgid ""
+"You can also record multiple topics, as well as change the name of the "
+"file ``ros2 bag`` saves to."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:177
+#: 0635f57e656b4b228ad56791fd145e01
+msgid "Run the following command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:183
+#: 41f2679b82444d8ca7f7ca899c31bfb8
+msgid ""
+"The ``-o`` option allows you to choose a unique name for your bag file. "
+"The following string, in this case ``subset``, is the file name."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:186
+#: 91a4b91353384f9bb82cd802be406a8d
+msgid ""
+"To record more than one topic at a time, simply list each topic separated"
+" by a space."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:188
+#: 878cc23a177843cc9602bec635f55eeb
+msgid ""
+"You will see the following message, confirming that both topics are being"
+" recorded."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:198
+#: da86cc825bfa452c95440fbc8b298857
+msgid "You can move the turtle around and press ``Ctrl+C`` when you're finished."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:202
+#: c56785483e0943daabd6b87e05bd5c8f
+msgid ""
+"There is another option you can add to the command, ``-a``, which records"
+" all the topics on your system."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:205
+#: 8c2c5ab265114be588fbd5fb2d123c54
+msgid "4 ros2 bag info"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:207
+#: 3584e8eda9a444258eaf790e8df7236a
+msgid "You can see details about your recording by running:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:213
+#: 61353102efc246ba8a9c0c9fa498d96f
+msgid ""
+"Running this command on the ``subset`` bag file will return a list of "
+"information on the file:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:231
+#: 27fee6299998481aa7ecb42d75a8e94d
+msgid ""
+"To view the individual messages, you would have to open up the database, "
+"in this case sqlite3, to examine it, which is beyond the scope of ROS 2."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:234
+#: c8b4a2855d4c4efb8b1b999e0efab3f7
+msgid "5 ros2 bag play"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:236
+#: 4d3fbc358413463db4c4f5aa571eaa33
+msgid ""
+"Before replaying the bag file, enter ``Ctrl+C`` in the terminal where the"
+" teleop is running. Then make sure your turtlesim window is visible so "
+"you can see the bag file in action."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:239
+#: cde66736d0f24bfbbc3a9ab8c997b646
+msgid "Enter the command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:245
+#: 6f174cc613314e459cf98317d1c68f4f
+msgid "The terminal will return the message:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:251
+#: 22e269ae2e7f467a98810e1c9fc40b72
+#, python-format
+msgid ""
+"Your turtle will follow the same path you entered while recording (though"
+" not 100% exactly; turtlesim is sensitive to small changes in the "
+"system's timing)."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:255
+#: 8a3d87cf92104f9bae01981a89d88bb6
+msgid ""
+"Because the ``subset`` file recorded the ``/turtle1/pose`` topic, the "
+"``ros2 bag play`` command won't quit for as long as you had turtlesim "
+"running, even if you weren't moving."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:257
+#: 226454488e6e4f77a1331c4d03718a45
+msgid ""
+"This is because as long as the ``/turtlesim`` node is active, it "
+"publishes data on the  ``/turtle1/pose`` topic at regular intervals. You "
+"may have noticed in the ``ros2 bag info`` example result above that the  "
+"``/turtle1/cmd_vel`` topic's ``Count`` information was only 9; that's how"
+" many times we pressed the arrow keys while recording."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:260
+#: 9fab290efb644ee1a06f6d8e2a43c4ce
+msgid ""
+"Notice that ``/turtle1/pose`` has a ``Count`` value of over 3000; while "
+"we were recording, data was published on that topic 3000 times."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:262
+#: 22536c8b400d4da4a5a63e00fe714568
+msgid ""
+"To get an idea of how often position data is published, you can run the "
+"command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:269
+#: cb9ed1eefdb7473e9e13b2a5b79c1a58
+msgid "Summary"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:271
+#: e7ce0092ed124fe8826315a83d0c7de6
+msgid ""
+"You can record data passed on topics in your ROS 2 system using the "
+"``ros2 bag`` command. Whether you're sharing your work with others or "
+"introspecting your own experiments, it's a great tool to know about."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:275
+#: 90abed02f89046cabc7e63349cbf696b
+msgid "Next steps"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:277
+#: d4c11437d0124e28b793f64b25825375
+msgid ""
+"You've completed the \"Beginner: CLI Tools\" tutorials! The next step is "
+"tackling the \"Beginner: Client Libraries\" tutorials, starting with :doc"
+":`../../Beginner-Client-"
+"Libraries/Creating-A-Workspace/Creating-A-Workspace`."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:281
+#: 8c328da261644ede96402f91c631c0c4
+msgid "Related content"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.rst:283
+#: 803536bc6b484df4a57c09b1ab37ded5
+msgid ""
+"A more thorough explanation of ``ros2 bag`` can be found in the README "
+"`here <https://github.com/ros2/rosbag2>`__. For more information on QoS "
+"compatibility and ``ros2 bag``, see :doc:`../../../How-To-Guides"
+"/Overriding-QoS-Policies-For-Recording-And-Playback`."
+msgstr ""
+

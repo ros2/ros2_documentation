@@ -1,0 +1,1171 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:8
+#: 5b1d9c7fb43b4bb489649ceee4c0bdce
+msgid "ROSCon Talks"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:10
+#: 3a1e5f96b08d4fdb93aa45ef51835561
+msgid ""
+"The following `ROSCon <https://roscon.ros.org>`__ talks have been given "
+"on ROS 2 and provide information about the workings of ROS 2 and various "
+"demos:"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:14
+#: 3bdcb1c3810a46cb83037c3268f00904
+msgid "2022"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:19
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:81
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:143
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:185
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:228
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:240
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:250
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:262
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:276
+#: 065ef85086af42238add94d30025c25f 0f036f901562425cb331656459717721
+#: 20be7187dbf14858a4687e98af352e36 2564a701e09d4cec9dda208980fd5b85
+#: 55d804ae18d24c009b056517c901b823 5a5b611a2cfa45f4a6fddf0f0f1a231e
+#: 72de75ca8c11464fb5500009bc40df00 ee10ac15a0ca4e90b58373fc31a3dfd2
+#: fc55a6f4067c4f30bfc5578f202b90f1
+msgid "Title"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:20
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:82
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:144
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:186
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:229
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:241
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:251
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:263
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:277
+#: 04c41ac74b63430a8fd93c6694c4ba10 06b794eb30734b478eb007eb1b5aa36a
+#: 3ecf1f7222664e0eb26e805600ea481d 95004d4718014c58aa65f6a43de24d27
+#: 9e5686b46baa457c8a54cbab63e642f7 a4fe618b63704de9964558551e97165f
+#: ac55c8d399794321835a59e4a4ab7406 e530b6a30e12431f86fab2d920780f40
+#: e72d1f53cd9841e59f4bfbf0a42e0c7a
+msgid "Links"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:21
+#: dc098e1c14cb479cbfa8a09d589f93b9
+msgid "Panel: The ROS 2 Developer Experience"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:22
+#: 7bd5083b6aa7435b8b4a2b993250a355
+msgid "`video <https://vimeo.com/showcase/9954564/video/767155188>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:23
+#: f248611c2508414186d9719915a664bd
+msgid "Wearable ROS: Development of wearable robot system using ROS 2"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:24
+#: 53d2183de4284c01b09ad7be50cafdeb
+msgid "`video <https://vimeo.com/showcase/9954564/video/767140298>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:25
+#: a80dca820a8a40d4b2edef928299e116
+msgid "Building ROS 2 enabled Android apps with C++"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:26
+#: 1c8a5e054e594a589a3d19a88cac5bb5
+msgid "`video <https://vimeo.com/showcase/9954564/video/767161955>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:27
+#: a89440f566264950b31755fd7698a167
+msgid "Distributed Robotics Simulator with Unreal Engine"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:28
+#: e02bd566cd024ba7a5f43e45744a997d
+msgid "`video <https://vimeo.com/showcase/9954564/video/767139975>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:29
+#: 7a7d76acdf8348af854bf72ab2dd92de
+msgid "Tools and processes for improving the certifiability of ROS 2"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:30
+#: 9cfb6482ad404e46bdc3f2a192ddd6e4
+msgid "`video <https://vimeo.com/showcase/9954564/video/767150613>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:31
+#: 2d64441fe9a94c889060080d1612ff5c
+msgid "Failover ROS Framework : Consensus-based node redundancy"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:32
+#: 27d0b1d248c34fad84db2029927ba878
+msgid "`video <https://vimeo.com/showcase/9954564/video/767156308>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:33
+#: 42899c9d7e5047029c409615ff8ae43a
+msgid "ROS 2 and Gazebo Integration Best Practices"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:34
+#: d09b9a3acb094cda8a95a2cac83476fb
+msgid "`video <https://vimeo.com/showcase/9954564/video/767127300>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:35
+#: c57f1569b6394a058c1a584f2b6ad210
+msgid "Chain-Aware ROS Evaluation Tool (CARET)"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:36
+#: dc5cd15f4c814251bc74c935dee49f90
+msgid "`video <https://vimeo.com/showcase/9954564/video/767150288>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:37
+#: 379e0761fc0e4cf38ba6a83a400e20a0
+msgid "ROS 2 network monitoring"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:38
+#: 46556200dde94a9e889642bcd14489f5
+msgid "`video <https://vimeo.com/showcase/9954564/video/767140681>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:39
+#: e4b55d2badc64cfca470af5739493cf4
+msgid "How custom tasks are defined, assigned, and executed in Open-RMF"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:40
+#: ce5e7cc2dbe64b19bd8aa5c3586b0487
+msgid "`video <https://vimeo.com/showcase/9954564/video/767157210>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:41
+#: 8cdb5d6e2f4a4627ab033910f5dcd177
+msgid "A practitioner's guide to ros2_control"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:42
+#: adec68cac80e4eceb14fbe55f040405d
+msgid "`video <https://vimeo.com/showcase/9954564/video/767139648>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:43
+#: a71252dbed5a4210945528d5dd240963
+msgid "Zenoh: How to Make ROS 2 Work at any Scale and Integrate with Anything"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:44
+#: 8f7b35cad81b4806946fd7f8e229f1b4
+msgid "`video <https://vimeo.com/769972405>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:45
+#: 34d12b7d57294450b82400dd1a6d6fcc
+msgid "A case study in optics manufacturing with MoveIt2 and ros2_control"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:46
+#: 8f9a79d5921f4a6aa1219303ac2c95d2
+msgid "`video <https://vimeo.com/showcase/9954564/video/767140351>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:47
+#: bdedf974b2194611b895c547587ce026
+msgid ""
+"20/20 Robot Vision - How to setup cameras in ROS 1 & ROS 2 using "
+"camera_aravis"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:48
+#: 46c414669458488b8240e7aeb583fd9d
+msgid "`video <https://vimeo.com/showcase/9954564/video/767140329>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:49
+#: 40db0f8816024ac792e6d658450e6b89
+msgid "Filter your ROS 2 content"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:50
+#: 5d5428e8960847e9a736dbab18ec1716
+msgid "`video <https://vimeo.com/767166447>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:51
+#: a41340c0df4b489181e48bfdf58907ae
+msgid "Evolving Message Types, and Other Interfaces, Over Time"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:52
+#: c2e654c8766744e782f3686d6a2976e2
+msgid "`video <https://vimeo.com/showcase/9954564/video/767140015>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:53
+#: 935646dcfe5e4670ae65f9ca712c267d
+msgid "Migrating from ROS1 to ROS 2 - choosing the right bridge"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:54
+#: b454798ef86e4d5291e10b4c8d74f529
+msgid "`video <https://vimeo.com/showcase/9954564/video/767140113>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:55
+#: 56383c4836bc48ce8d034214e5b305b8
+msgid "On Use of Nav2 Smac Planners"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:56
+#: 58df427430274ebabbdf2b0c4cbea415
+msgid "`video <https://vimeo.com/showcase/9954564/video/767157646>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:57
+#: dcd3ad02e0524448913bc0d69e017f92
+msgid "Bazel and ROS 2 – building large scale safety applications"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:58
+#: 336f7d4f840748018ddf177e68226f4a
+msgid "`video <https://vimeo.com/showcase/9954564/video/767139879>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:59
+#: b7f738d11178443b80b84ccf23753ec5
+msgid "Native Rust components for ROS 2"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:60
+#: bcfc0a261e3f458892ee8df5e0d1cb0e
+msgid "`video <https://vimeo.com/showcase/9954564/video/767140150>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:61
+#: 5e1f251c95f84e3294d7b44d55bb8270
+msgid ""
+"The ROS build farm and you: How ROS packages you release become binary "
+"packages."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:62
+#: 9698960359f045cabee38b932548c048
+msgid "`video <https://vimeo.com/showcase/9954564/video/767169376>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:63
+#: 097dd3a53f67462ba44fe551d3e056ad
+msgid "mROS 2: yet another runtime environment onto embedded devices"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:64
+#: 99106bd6233a4a7594fe45079e87f562
+msgid "`video <https://vimeo.com/showcase/9954564/video/767150435>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:65
+#: 988f307f969f49b2a7fb9b7406ff09a5
+msgid "ROS 2 & Edge Impulse: Embedded AI in robotics applications"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:66
+#: b0bca95295944de9b8afd47e3d69ac12
+msgid "`video <https://vimeo.com/showcase/9954564/video/767140724>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:67
+#: a407f50080d6482c84705a62179fe034
+msgid "micro-ROS goes Automotive: supporting AUTOSAR-based microcontrollers"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:68
+#: 0280458960eb4bf39950f4f63bac7e74
+msgid "`video <https://vimeo.com/769963507>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:69
+#: af6c2a9f16654045883183311c027658
+msgid "An open architecture for Hardware Acceleration in ROS 2"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:70
+#: 66715b0a29294cbd97e9acdce4fef55f
+msgid "`video <https://vimeo.com/769967795>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:71
+#: 1233d797500a4eb9a21d1bdcbc51f514
+msgid ""
+"ROS 2 and the Crazyflie: Aerial swarms and Autonomy with a tiny flying "
+"robot"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:72
+#: 57a5e5db91484794849abf8b723b98d0
+msgid "`video <https://vimeo.com/showcase/9954564/video/767140197>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:73
+#: 7681f7ca5dcf4ed8897ecd4ae1e8e1ec
+msgid "A Raspberry Pi image with ROS 2 + RT and a customizable image builder"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:74
+#: 48c8707635824a699eb05dd5983585a2
+msgid "`video <https://vimeo.com/showcase/9954564/video/767139709>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:76
+#: 11323e4cb3d346ea890b0c8f889605c3
+msgid "2021"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:83
+#: 3ddf22b8ee3c42c18bbec67c43a2486d
+msgid "SMACC2"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:84
+#: 6d2bfaab5cb644f88f5f91a2fdaeaf98
+msgid "`video <https://vimeo.com/649655394/f9b25be7f9>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:85
+#: e9198f98840b4eb6a88f6f02575d5494
+msgid "rospy2: Convert a ROS1 node to ROS2 by changing only one line of code"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:86
+#: a708c19625204bcf9c35f0672652bd32
+msgid "`video <https://vimeo.com/649655340/127d801385>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:87
+#: 85bc462a4b0a422a9b43866656f94cfa
+msgid "Hello Robot: Democratizing Mobile Manipulation with ROS"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:88
+#: 2038427672e7451d975333f8ee635505
+msgid "`video <https://vimeo.com/649649087/b1a3a67369>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:89
+#: c70ba46635ff4b86957e40730d6dcb5e
+msgid "Challenges for ROS2 in Autonomous Agricultural Applications"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:90
+#: 88dcbf50f658441385cae25400f70575
+msgid "`video <https://vimeo.com/649646777>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:91
+#: ceab056c802148dd93bd800830afb1a5
+msgid "ESP32 microcontroller robot with Navigation 2 ROS 2 running in the Cloud"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:92
+#: fec290c305cc4ded882681c2cdf98b30
+msgid "`video <https://vimeo.com/649648283>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:93
+#: a9b9af534597476c8b569d9c840ba601
+msgid "Middleware interconnecting ROS/ROS2 with the EtherCAT protocol"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:94
+#: 16443c567c2146a590546597e480dcfd
+msgid "`video <https://vimeo.com/649651918>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:95
+#: 8c1a4dfb00c5470c8b115093f65e08b1
+msgid "Build and Manage Cloud-enhanced ROS Robots with AWS IoT Greengrass 2.0"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:96
+#: c34be737a39944b181f2162ae3ec65d7
+msgid "`video <https://vimeo.com/649647971/0f36010e6e>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:97
+#: f9220390cff043fe92e727353b8f77b6
+msgid "Driving Autonomy in Mobile Robotics with ROS2 and PX4"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:98
+#: fa6582ccc00044328d65c164664140c0
+msgid "`video <https://vimeo.com/649648867/c524ae57fd>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:99
+#: b5104d5f1f9f40f1a82f28a6b0eb3c00
+msgid "Integrating ROS 2 with existing DDS networks"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:100
+#: d1e62273003b41508fdb72eb3abc7a10
+msgid "`video <https://vimeo.com/649649793/31032f6fba>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:101
+#: 7b4022562f8f4ccabb41dbd50705fbed
+msgid "VIPER: Volatiles Investigating Polar Exploration Rover"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:102
+#: 761b8decb78142c4a8f3e0d68c461a5d
+msgid "`video <https://vimeo.com/649657650/ce9245dc22>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:103
+#: a37a551409f74a848979dff0f68f2ddb
+msgid "Chronicles of Caching and Containerising CI for Nav2"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:104
+#: 0c92652abafb4301a9ea47f7a8cafc40
+msgid "`video <https://vimeo.com/649647161/5b0c278e6c>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:105
+#: b3e93b39cf02494780dd7c3b3fec4d76
+msgid "A New Way to Interact with PointCloud2 Messages"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:106
+#: 847500e5a7644ee8bf89e029d0989d64
+msgid "`video <https://vimeo.com/649643457/7ba0e85107>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:107
+#: 57063bca410a47048e7958869e417db0
+msgid "ROS 2 Grasp Library – Acceleration for 3D Object Pose Detection"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:108
+#: 50efa317c7584153ae55c8ec1068e787
+msgid "`video <https://vimeo.com/649654728/25bef7e247>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:109
+#: 6f442fe50adf4536962d208a69b98625
+msgid "ros2_control: The future of ros_control"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:110
+#: 47b99e912de74abb8b7efb169fd8e859
+msgid "`video <https://vimeo.com/649654948>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:111
+#: 9853937eeb9444bbbcb62583603d6598
+msgid "ROS 2 Rolling Ridley"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:112
+#: 3e3207a134624553a0d81defab28fed2
+msgid "`video <https://vimeo.com/649650919>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:113
+#: 8bfcc90ca8d44116a53a8e08064f427d
+msgid "Hybrid Planning - Enabling Reactive Manipulation with MoveIt 2"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:114
+#: b7b1285cb3f94671be1093049b50b6e1
+msgid "`video <https://vimeo.com/649649286/17fb9b9f4d>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:115
+#: c5366c5423ec46b98f81397ef51ea4db
+msgid "Apex.OS Cert: Taking ROS 2 from prototype into production"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:116
+#: c50a7e780ad740a2b6c4151befd6b177
+msgid "`video <https://vimeo.com/649645295/67e0a6569f>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:117
+#: 0163513188b842449c866b9cd7a74feb
+msgid "Making a robot ROS 2 powered - a case study using the UR manipulators"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:118
+#: 66a2a3f277ee4905a7c20486747cb272
+msgid "`video <https://vimeo.com/649651707/46a3be27ed>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:119
+#: 26620da6aa754a4a882e83f170e6f814
+msgid "Online Trajectory Generation and Admittance Control in ROS2"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:120
+#: e25eb335b89444a797335fb6e3fbfa65
+msgid "`video <https://vimeo.com/649652452/682bd92e95>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:121
+#: da8439a1673045ee988bce7fb57168e0
+msgid "VSCode, Docker and ROS2"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:122
+#: 1fbe69cad7fe4041908705493a824236
+msgid "`video <https://vimeo.com/649658020/9ef0b5ec32>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:123
+#: 3756ca5a98fa4cffa2d8cfe69f1d0224
+msgid "ROS 2 Content Filtered Topics"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:124
+#: becf3b5feea94ee38e79a5b746521c77
+msgid "`video <https://vimeo.com/649654533/c8104829db>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:125
+#: 5962efcf2e65487dbd6edf45b25cffa8
+msgid "Rosbag2 for Power Users"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:126
+#: fc6d7ed28e1541d5a331cfd601f10c46
+msgid "`video <https://vimeo.com/649655219/75630c8cff>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:127
+#: a76f944e82104ce79f85bcc63cd47531
+msgid "We Have Ignition: The Next Generation of Gazebo Simulation"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:128
+#: 4b34180a0c134ab7b1db63a1554e43f4
+msgid "`video <https://vimeo.com/649658182>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:129
+#: 9552608b764d4c6faefadbf423a268c9
+msgid "Using NVIDIA Isaac Sim For Synthetic Data Generation & ROS Development"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:130
+#: a10ebf49654f484d8509c5f2cc55e122
+msgid "`video <https://vimeo.com/649656932/3d8d5abb53>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:131
+#: 4d89ebd8267843fba78b8e65e81cc121
+msgid "Augmented Reality and Robotics"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:132
+#: 41257419d08d4dcd8d1c075b2481352e
+msgid "`video <https://vimeo.com/649645502/9be46e9ff8>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:133
+#: bad3439d6c734707a05d07bf6c7d8476
+msgid "Modeling sensors for simulation of ROS applications in Unity"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:134
+#: 55a16f04fb244e8e9f1d86469f17c684
+msgid "`video <https://vimeo.com/649652075/295c92d323>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:135
+#: c58eff84a96e476bbbfd37871510a652
+msgid "Panel: Simulation Tools for ROS"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:136
+#: 53c9cff018284c32bdc12d84021661f9
+msgid "`video <https://vimeo.com/649653566/9d02eac6cb>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:138
+#: 85885b4fdc48455f8d16892aa91a9277
+msgid "2020"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:145
+#: b5e0852809cc4d7aa409172cf353ca64
+msgid "Accelerating Innovation with ROS: Lessons in Healthcare"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:146
+#: 435968a0ef4b4b668ea5611b04f7857d
+msgid "`video <https://vimeo.com/showcase/7812155/video/480611811>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:147
+#: 7dc31dd4feab4abda4ebe2c6bc4a3183
+msgid "Panel: Software Quality in Robotics"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:148
+#: ff43aca670fe4b4dbcb13950b923eb14
+msgid "`video <https://vimeo.com/showcase/7812155/video/480586443>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:149
+#: 95df8fec2f0f4ab68d6487ee4bebfe00
+msgid "Panel: ROS Agriculture"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:150
+#: d58b05301fba41c3b3a62afc1942daeb
+msgid "`video <https://vimeo.com/showcase/7812155/video/480592013>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:151
+#: ce08fbaa1263468884c2ba08afdc92c1
+msgid "Achieving Generality and Robustness in Semantic Segmentation"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:152
+#: 65b39d9a61ed4be598ed57c78a01022b
+msgid "`video <https://vimeo.com/showcase/7812155/video/480600107>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:153
+#: 57cd2cb6007a4e6392cf4d91e90256e6
+msgid "Navigation2: The Next Generation Navigation System"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:154
+#: bed294ce91ea4cd686d52392c52ec087
+msgid "`video <https://vimeo.com/showcase/7812155/video/480604621>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:155
+#: ba93e350489a44a8bded1aa8dc168aef
+msgid "CHAMP Quadruped Control"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:156
+#: b2321fadf1294b659f67f911c6e0ed27
+msgid "`video <https://vimeo.com/showcase/7812155/video/480603868>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:157
+#: 84bba97b94094e87b25ba288dafe3c3b
+msgid "Kiwibot: ROS2 in the atoms delivery industry"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:158
+#: f7e2651ed3f146388420b16ff632fd7e
+msgid "`video <https://vimeo.com/showcase/7812155/video/480601709>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:159
+#: a6714078c2fa4161b99d55df5d61bfa4
+msgid "MoveItWorld"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:160
+#: e52a46e7072848f19fcb66b732324bdd
+msgid "`video <https://vimeo.com/showcase/7812155/video/480482977>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:161
+#: 8aa95a5cee444dc2b18a95e2cb33a693
+msgid "OpenCV"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:162
+#: 58fd1b4d67424a4aadb80fe7175d9df1
+msgid "`video <https://vimeo.com/showcase/7812155/video/480465027>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:163
+#: a0ada53c783d41c1b73554d47c3ebb50
+msgid "ROBOTIS TurtleBot3"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:164
+#: 80d7a264837c414d807d78e84ca55299
+msgid "`video <https://vimeo.com/showcase/7812155/video/480460365>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:165
+#: 0a19af0d5af14628aff3856f60b6a917
+msgid "Autoware"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:166
+#: f0bb5104ccba47258dcaa760a1417ec6
+msgid "`video <https://vimeo.com/showcase/7812155/video/480450941>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:167
+#: 0d2c47c78add486d8dc2eaca4662ee27
+msgid "Dronecode"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:168
+#: 131c0b3b84e742f1a58e62d6552f78cc
+msgid "`video <https://vimeo.com/showcase/7812155/video/480477960>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:169
+#: dedb79cb02c5426faa053702919ad0d3
+msgid "FIWARE"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:170
+#: 7c5f0d734bf44291835cf3b3427e4ce6
+msgid "`video <https://vimeo.com/showcase/7812155/video/480473016>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:171
+#: 17a9740229254a51a90d0e87c8c78bf5
+msgid "Lightning Talks and Sponsor Videos 1"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:172
+#: 8f67d054e96f48d69201ced46c65ebc7
+msgid "`video <https://vimeo.com/showcase/7812155/video/480530126>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:173
+#: 2ba9f73db23149f290f3623cc5b0b738
+msgid "Lightning Talks and Sponsor Videos 2"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:174
+#: ec644adf362f4f56a394bfdcfc3ab063
+msgid "`video <https://vimeo.com/showcase/7812155/video/480435216>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:175
+#: 8c05771988f047e8b07528f81948804c
+msgid "Lightning Talks and Sponsor Videos 3"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:176
+#: a37de70f51cb41909514d2b433821e02
+msgid "`video <https://vimeo.com/showcase/7812155/video/480436954>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:177
+#: eaca3bca98244ed58df2d3128908f69c
+msgid "Lightning Talks and Sponsor Videos 4"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:178
+#: 11caa3d378844815b953a9e1d7701705
+msgid "`video <https://vimeo.com/showcase/7812155/video/490004991>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:180
+#: b28ed5d386fe4a38a4e2cad122199000
+msgid "2019"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:187
+#: 6a494de694ce4ca2b0d0fa2a4992daee
+msgid "Migrating a large ROS 1 codebase to ROS 2"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:188
+#: 02df9446b04c438abc1e3c07838b3eea
+msgid ""
+"`slides "
+"<https://roscon.ros.org/2019/talks/roscon2019_migrating_a_large_ros_1_codebase_to_ros_2.pdf>`__"
+" / `video <https://vimeo.com/378682692>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:189
+#: c77057f40e694f26867dc82ae34ef53c
+msgid "The New Architecture of Gazebo Wrappers for ROS 2"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:190
+#: 7c76187f428746a385b7cac79f6fe47a
+msgid ""
+"`slides <https://roscon.ros.org/2019/talks/roscon2019_gazebo_ros2.pdf>`__"
+" / `video <https://vimeo.com/378683414>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:191
+#: a2c1eb77ef4e425a84e4dc1ed34827e7
+msgid "Migrating to ROS 2: Advice from Rover Robotics"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:192
+#: 923d38ea5c2440c7841620501d079347
+msgid ""
+"`slides "
+"<https://roscon.ros.org/2019/talks/roscon2019_migrating_to_ros_2.pdf>`__ "
+"/ `video <https://vimeo.com/378682068>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:193
+#: 8b9a3aa4776744c685679081d39c0bdd
+msgid "ROS 2 on VxWorks"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:194
+#: 7a88e27d5fe04e48bb335cc30ab07b3c
+msgid ""
+"`slides "
+"<https://roscon.ros.org/2019/talks/roscon2019_ros2onvxworks.pdf>`__ / "
+"`video <https://vimeo.com/378682144>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:195
+#: e98b2f9589044eb5825b8502c71b3ff1
+msgid "Navigation2 Overview"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:196
+#: e36abe858e104c97a952890efd723797
+msgid ""
+"`slides "
+"<https://roscon.ros.org/2019/talks/roscon2019_navigation2_overview_final.pdf>`__"
+" / `video <https://vimeo.com/378682188>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:197
+#: 529896bf26874fa78b6056671da81ada
+msgid "Launch Testing - Launch description and integration testing for ros2"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:198
+#: b290bff83f82491ba5bac6057dc45e1a
+msgid ""
+"`slides "
+"<https://roscon.ros.org/2019/talks/roscon2019_launch_testing_presentation.pdf>`__"
+" / `video <https://vimeo.com/378683186>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:199
+#: 3f7c344944a245218118634eeacdaf45
+msgid "ROS 2 for Consumer Robotics: : The iRobot use-case"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:200
+#: 622d44217b0242dfa9e8184af9f70320
+msgid ""
+"`slides "
+"<https://roscon.ros.org/2019/talks/roscon2019_irobot_usecase.pdf>`__ / "
+"`video <https://vimeo.com/378916114>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:201
+#: a0987f263656405d9af548e6e438381a
+msgid "Composable Nodes in ROS2"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:202
+#: db2aa15dcd494491a390e288be771d7f
+msgid ""
+"`slides "
+"<https://roscon.ros.org/2019/talks/roscon2019_composablenodes.pdf>`__ / "
+"`video <https://vimeo.com/378916125>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:203
+#: 3c13874dd30d4593960679e296e9bf49
+msgid "Concurrency in ROS 1 and ROS 2"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:204
+#: 91c9de0c17b7466a8b3dbeb85153d4c8
+msgid ""
+"`slides <https://roscon.ros.org/2019/talks/roscon2019_concurrency.pdf>`__"
+" / `video <https://vimeo.com/379127709>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:205
+#: ef60d979de5c45c1943e0140a7b88040
+msgid "A True Zero-Copy RMW Implementation for ROS2"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:206
+#: 4468dfe9577b4da7a494030e11f2873b
+msgid ""
+"`slides "
+"<https://roscon.ros.org/2019/talks/roscon2019_truezerocopy.pdf>`__ / "
+"`video <https://vimeo.com/379127778>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:207
+#: eaedd93e2cbe4d2fa60d42f1eeabdf45
+msgid "ROS2 Real-Time Behavior: Static Memory Allocation"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:208
+#: 8931ddc8a98a40af9c59df709acfbff5
+msgid "`video <https://vimeo.com/379127767>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:209
+#: bbf87f05c6714ad3822f3084bdae6d73
+msgid ""
+"PackML2: State Machine Based System Programming, Monitoring and Control "
+"in ROS2"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:210
+#: d8360cb8023e4c0798d34d620eee3c30
+msgid ""
+"`slides <https://roscon.ros.org/2019/talks/roscon2019_packml2.pdf>`__ / "
+"`video <https://vimeo.com/378683073>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:211
+#: 62671d13976041b88571d7c8e03790e3
+msgid "Quality of Service Policies for ROS2 Communications"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:212
+#: fff12f2a29174fb3bc0507bfc398264a
+msgid ""
+"`slides <https://roscon.ros.org/2019/talks/roscon2019_qos.pdf>`__ / "
+"`video <https://vimeo.com/379127762>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:213
+#: 5b08a3ea2fa248df81194ad24bc561f2
+msgid "Micro-ROS: ROS2 on Microcontrollers"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:214
+#: c73d82c5873545059f0269f6995852d9
+msgid ""
+"`slides <https://roscon.ros.org/2019/talks/roscon2019_microros.pdf>`__ / "
+"`video <https://vimeo.com/379127756>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:215
+#: 4ee69fff7caf45ba87154df78f1da5fc
+msgid "ROS2 on Large Scale Systems: Discovery Server"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:216
+#: 47d3b25a36b24aad95ae9747b0aa2ac3
+msgid "`video <https://vimeo.com/379127745>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:217
+#: c199d922762b485d96010ad87376461a
+msgid "Bridging Your Transitions from ROS 1 to ROS 2"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:218
+#: 4469bf95fd91491f90528d14a21d2861
+msgid ""
+"`slides "
+"<https://roscon.ros.org/2019/talks/roscon2019_bridging_ros1_to_ros2.pdf>`__"
+" / `video <https://vimeo.com/379127737>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:219
+#: 60fecbb41b7b4e27a07312ea5d024679
+msgid "Markup Extensions for ROS 2 Launch"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:220
+#: b6902b835f184ade8ed37a767017c020
+msgid ""
+"`slides "
+"<https://roscon.ros.org/2019/talks/roscon2019_markupextensionsforros2launch.pdf>`__"
+" / `video <https://vimeo.com/379127678>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:223
+#: 67748f37f4cf4b488d72a4dcd0af3dfd
+msgid "2018"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:230
+#: a190e79cbbb44fc5ad843a3829034508
+msgid "Hands-on ROS 2: A Walkthrough"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:231
+#: 0f9cf41c9270455199c1e483dc8a227e
+msgid ""
+"`slides "
+"<https://roscon.ros.org/2018/presentations/ROSCon2018_ROS2HandsOn.pdf>`__"
+" / `video <https://vimeo.com/292693129>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:232
+#: 3e347a032b6140fe9e388128101ba5c7
+msgid "Launch for ROS 2"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:233
+#: 9837a1bea6874990975a21bd0f932612
+msgid ""
+"`slides "
+"<https://roscon.ros.org/2018/presentations/ROSCon2018_launch.pdf>`__ / "
+"`video <https://vimeo.com/292699162>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:235
+#: 85d8e5ffe7914ba68ce3cf1b376d0960
+msgid "2017"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:242
+#: ae46a8aa50d24f9b862fcd8b80b7dd20
+msgid "The ROS 2 vision for advancing the future of robotics development"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:243
+#: 08ef2de723cb4b7c8ac1bc35a0f6873e
+#, python-format
+msgid ""
+"`slides "
+"<https://roscon.ros.org/2017/presentations/ROSCon%202017%20ROS2%20Vision.pdf>`__"
+" / `video <https://vimeo.com/236161417>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:245
+#: fd1118cf734d422491aabbcc10a790f0
+msgid "2016"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:252
+#: 769c51533c424800b0dc783ddaf195c8
+msgid "ROS 2 Update - summary of alpha releases, architectural overview"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:253
+#: 5136b8e79858423a92b76d4ad1465b5b
+#, python-format
+msgid ""
+"`slides "
+"<https://roscon.ros.org/2016/presentations/ROSCon%202016%20-%20ROS%202%20Update.pdf>`__"
+" / `video <https://vimeo.com/187696091>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:254
+#: 908e9f92c8ff414c8e2392f8e3f37d59
+msgid "Evaluating the resilience of ROS2 communication layer"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:255
+#: 6b12d6bcaded4dfebbe32a6b519d40a1
+msgid ""
+"`slides <https://roscon.ros.org/2016/presentations/rafal.kozik-"
+"ros2evaluation.pdf>`__ / `video <https://vimeo.com/187705229>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:257
+#: ba3dc4cb9dbc427aa6357eeabacf6029
+msgid "2015"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:264
+#: f93fc6d2ec4a4ddea25954f621d41c4d
+msgid "State of ROS 2 - demos and the technology behind"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:265
+#: fbaea0de366347a7b1871481b55e6d07
+msgid ""
+"`slides <https://roscon.ros.org/2015/presentations/state-of-ros2.pdf>`__ "
+"/ `video <https://vimeo.com/142151734>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:266
+#: dd8712816e7e49539816954e3f967413
+msgid "ROS 2 on \"small\" embedded systems"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:267
+#: b89e9ef434e94d0bbd53350d4223eff3
+msgid ""
+"`slides "
+"<https://roscon.ros.org/2015/presentations/ros2_on_small_embedded_systems.pdf>`__"
+" / `video <https://vimeo.com/142150576>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:268
+#: b117e673f84746e1b413ad5e6e2e0745
+msgid "Real-time control in ROS and ROS 2"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:269
+#: 7827ce5d61284be79d438f96bbfecfb7
+msgid ""
+"`slides <https://roscon.ros.org/2015/presentations/RealtimeROS2.pdf>`__ /"
+" `video <https://vimeo.com/142621778>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:271
+#: a38c8a14547a4de098fff183b8ce3758
+msgid "2014"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:278
+#: e00e9cf377bf4dabae4e8da6987a037f
+msgid "Why you want to use ROS 2"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:279
+#: 3d7da1671ae4441cbf4c43305761ad22
+msgid ""
+"`slides <https://www.osrfoundation.org/wordpress2/wp-"
+"content/uploads/2015/04/ROSCON-2014-Why-you-want-to-use-ROS-2.pdf>`__ / "
+"`video <https://vimeo.com/107531013>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:280
+#: 2fabc3af78f8407782a49dff10c19164
+msgid "Next-generation ROS: Building on DDS"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/ROSCon-Content.rst:281
+#: ddf460b7cac345a68cdf5a218985ffb9
+msgid ""
+"`slides <https://roscon.ros.org/2014/wp-"
+"content/uploads/2014/07/ROSCON-2014-Next-Generation-of-ROS-on-top-of-"
+"DDS.pdf>`__ / `video <https://vimeo.com/106992622>`__"
+msgstr ""
+

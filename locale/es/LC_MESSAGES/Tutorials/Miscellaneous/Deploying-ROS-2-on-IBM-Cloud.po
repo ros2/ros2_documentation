@@ -1,0 +1,626 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:7
+#: aa69362b330a40b984952630abdd944f
+msgid "Deploying on IBM Cloud Kubernetes [community-contributed]"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:12
+#: f870571548db4ee292dbbc9c91de3865
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:15
+#: 809f05dd5d8a45d4a9f898b959c3b8fc
+msgid "About"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:17
+#: 404aee68cf80487581c6c197a06d40b2
+msgid ""
+"This article describes how to get ROS2 running on IBM Cloud using Docker "
+"files. It first gives a brief overview of docker images and how they work"
+" locally and then explores IBM Cloud and how the user can deploy their "
+"containers on it. Afterwards, a short description of how the user can use"
+" their own custom packages for ROS2 from github on IBM Cloud is provided."
+" A walkthrough of how to create a cluster and utilize Kubernetes on IBM "
+"Cloud is provided and finally the Docker image is deployed on the "
+"cluster. Originally published `here <https://github.com/mm-"
+"nasr/ros2_ibmcloud>`__ and `here <https://medium.com/@mahmoud-nasr"
+"/running-ros2-on-ibm-cloud-1b1284cbd487>`__."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:23
+#: 7f79f9a32bf04e95b935471f25b9a561
+msgid "ROS2 on IBM Cloud"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:25
+#: 0a5f09da14fc40beb78cafea0487ee3b
+msgid ""
+"In this tutorial, we show how you can easily integrate and run ROS2 on "
+"IBM Cloud with your custom packages."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:28
+#: 0b18e985611b4388818555d5b5e14952
+msgid ""
+"ROS2 is the new generation of ROS which gives more control over multi-"
+"robot formations. With the advancements of cloud computing, cloud "
+"robotics are becoming more important in today's age. In this tutorial, we"
+" will go through a short introduction on running ROS2 on IBM Cloud. By "
+"the end of the tutorial, you will be able to create your own packages in "
+"ROS2 and deploy them to the cloud using docker files."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:35
+#: 96b2bdbd7fb54913bf094dc320ac87ab
+msgid ""
+"The following instructions assume you're using Linux and have been tested"
+" with Ubuntu 18.04 (Bionic Beaver)."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:39
+#: 211dbed2ab874cb0a1847e80c770f81b
+msgid "Step 1: Setting up your system"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:41
+#: cac599a6e3bb44e6b0ee58ac897277a2
+msgid ""
+"Before we go into how the exact process works, lets first make sure all "
+"the required software is properly installed. We'll point you towards the "
+"appropriate sources to set up your system and only highlight the details "
+"that pertain to our use-case."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:47
+#: 56ccf8de123b4c6cbef5c8b5192ee7e4
+msgid "a) Docker files?"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:49
+#: 6f1e7af6a04745cb8395f6bcfbbaefb4
+msgid ""
+"Docker files are a form of containers that can run separate from your "
+"system, this way, you can set-up potentially hundreds of different "
+"projects without affecting one another. You can even set-up different "
+"versions of Linux on one machine, without the need for virtual machine. "
+"Docker files have an advantage of saving space and only utilizing your "
+"system resources when running. In addition, dockers are versatile and "
+"transferable. They contain all the required pre-requisites to run "
+"separately, meaning that you can easily use a docker file for a specific "
+"system or service without any cubersome steps!"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:59
+#: 4951ef50d99344debff4331ff2c1614d
+msgid ""
+"Excited yet? Let's start off by installing docker to your system by "
+"following the following `link <https://docs.docker.com/get-docker/>`__. "
+"From the tutorial, you should have done some sanity checks to make sure "
+"docker is properly set-up. Just in case, however, let's run the following"
+" command once again that uses the hello-world docker image:"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:69
+#: ab47d7311a70499295354a1d5544482e
+msgid "You should obtain the following output:"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:95
+#: fbd0e4d1764147d284afd7b333e60eef
+msgid "b) ROS2 Image"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:97
+#: 10df67484cf240f08af5e77eb91fbd74
+msgid ""
+"ROS `announced <https://discourse.ros.org/t/announcing-official-docker-"
+"images-for-ros2/7381/2>`__ image containers for several ROS distributions"
+" in January 2019. More detailed instructions on the use of ROS2 docker "
+"images can be found `here <https://hub.docker.com/_/ros/>`__."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:103
+#: 9063478a30be49d083ee764ddc09ba57
+msgid ""
+"Let's skip through that and get to real-deal right away; creating a local"
+" ROS2 docker. We'll create our own Dockerfile (instead of using a ready "
+"Image) since we'll need this method for deployment on IBM Cloud. First, "
+"we create a new directory which will hold our Dockerfile and any other "
+"files we need later on and navigate to it. Using your favorite $EDITOR of"
+" choice, open a new file named *Dockerfile* (make sure the file naming is"
+" correct):"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:119
+#: ac80585e80cd4d5b811b40f8518684a1
+msgid ""
+"Insert the following in the *Dockerfile*, and save it (also found `here "
+"<https://github.com/mm-"
+"nasr/ros2_ibmcloud/blob/main/dockers/ros2_basic/Dockerfile>`__):"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:137
+#: 96da61f952c5455183770052fd73b8d7
+msgid "**FROM**: creates a layer from the ros:foxy Docker image"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:138
+#: 256a1eae62624997b25ce7f12d7a9c71
+msgid ""
+"**RUN**: builds your container by installing vim into it and creating a "
+"directory called /ros2_home"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:140
+#: 6d710b91bbee45e2b2e7482e51825771
+msgid ""
+"**WORKDIR**: informs the container where the working directory should be "
+"for it"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:143
+#: f39f0bc298d342ba86a814b4333e42fd
+#, python-format
+msgid ""
+"Of course, you are free to change the ROS distribution (*foxy* is used "
+"here) or change the directory name. The above docker file sets up ROS-"
+"foxy and installs the demo nodes for C++ and Python. Then it launches a "
+"file which runs a talker and a listener node. We will see it in action in"
+" just a few, but they act very similar to the publisher-subscriber "
+"example found in the `ROS wiki "
+"<https://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29>`__"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:151
+#: 9673a7e7c3d54dc4a8c3acc69de657ee
+msgid ""
+"Now, we are ready to build the docker image to run ROS2 in it (yes, it is"
+" THAT easy!)."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:154
+#: d54670059b2f423985dfbcb88d17f5ef
+msgid ""
+"**Note**: if you have errors due to insufficient privileges or "
+"*permission denied*, try running the command with *sudo* privileges:"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:164
+#: eec02fe4d93b4219a9c44f13e005e70c
+msgid ""
+"*0dc6ce7cb487* will most probably be different for you, so keep note of "
+"it and copy it somewhere for reference. You can always go back and check "
+"the docker images you have on your system using:"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:172
+#: dba817627aea435491c56d3f44749ff5
+msgid "Now, run the docker file using:"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:194
+#: 3899c12b89c04a5daa81f59a233d1d9c
+msgid ""
+"If it works correctly, you should see something similar to what is shown "
+"above. As can be seen, there are two ROS nodes (a publisher and a "
+"subscriber) running and their output is provided to us through ROS INFO."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:199
+#: f50f1676c7bb47ecb95262437436f60d
+msgid "Step 2: Running the image on IBM Cloud"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:201
+#: b62113a0352943eb947118a8e13f4a7e
+msgid ""
+"The following steps assume you have an IBM cloud account and have "
+"ibmcloud CLI installed. If not, please check this `link "
+"<https://cloud.ibm.com/docs/cli/reference/ibmcloud/download_cli.html>`__ "
+"out to get that done first."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:206
+#: be2aa8071ffa4d19adb1a0fb8a81b4ab
+msgid ""
+"We also need to make sure that the CLI plug-in for the IBM Cloud "
+"Container Registry is installed by running the command"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:213
+#: bd2e1f20a63f4d6ba79eaf71d31dc6e0
+msgid "Afterwards, login to your ibmcloud account through the terminal:"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:219
+#: 582945d1588e4893a90ef6a5686ce053
+msgid ""
+"From here, let's create a container registry name-space. Make sure you "
+"use a unique name that is also descriptive as to what it is. Here, I used"
+" *ros2nasr*."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:227
+#: 27e87f93980f4559a0fb5d50226511f4
+msgid ""
+"IBM cloud has a lot of shortcuts that would help us get our container "
+"onto the cloud right away. The command below builds the container and "
+"tags it with the name **ros2foxy** and the version of **1**. Make sure "
+"you use the correct registry name you created and you are free to change "
+"the container name as you wish. The **.** at the end indicates that the "
+"*Dockerfile* is in the current directory (and it is important), if not, "
+"change it to point to the directory containing the Dockerfile."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:239
+#: b6d5703c2c1a4788ab3b032b1613cd44
+msgid ""
+"You can now make sure that the container has been pushed to the registry "
+"you created by running the following command"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:252
+#: 8c9ecd94e8ad4c109a9afa160467166f
+msgid ""
+"Next, it is important to log-in to your registry to run the docker image."
+" Again, if you face a *permission denied* error, perform the command with"
+" sudo privileges. Afterwards, run your docker file as shown below."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:269
+#: 389c4047f48a424abcf79bdd5f422c8a
+msgid ""
+"Where *ros2nasr* is the name of the registry you created and *ros2foxy:1*"
+" is the tag of the docker container and the version as explained "
+"previously."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:273
+#: 4b744e95c8af48cba606a79df783e516
+msgid ""
+"You should now see your docker file running and providing similar output "
+"to that you saw when you ran it locally on your machine."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:277
+#: 4e31db08549f45d4ba190a537b12478f
+msgid "Step 3: Using Custom ROS2 Packages"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:279
+#: 85aa7547abcd4376992651da7a329a2e
+msgid ""
+"So now we have the full pipeline working, from creating the Dockerfile, "
+"all the way to deploying it and seeing it work on IBM Cloud. But, what if"
+" we want to use a custom set of packages we (or someone else) created?"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:283
+#: a5c7ee01f90148b59c7675d441203092
+msgid ""
+"Well that all has to do with how you set-up your Dockerfile. Lets use the"
+" example provided by ROS2 `here <https://hub.docker.com/_/ros/>`__. "
+"Create a new directory with a new Dockerfile (or overwrite the existing "
+"one) and add the following in it (or download the file `here "
+"<https://github.com/mm-"
+"nasr/ros2_ibmcloud/blob/main/dockers/git_pkgs_docker/Dockerfile>`__)"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:351
+#: e850337559b14d28ae24bc7bb2f0d6ed
+msgid ""
+"Going through the lines shown, we can see how we can add custom packages "
+"from github in 4 steps:"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:354
+#: 6497a1d0bf5c4f9bb861653f495d6046
+msgid "Create an overlay with custom packages cloned from Github:"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:369
+#: 45d861bb11f6436c8ca1e43dae5e43b8
+msgid "Install package dependencies using rosdep"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:385
+#: 0a46a08cef8a4f42831055d434659341
+msgid "Build the packages *you need*"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:399
+#: 2d6894bea35742a7bc25a9b6ffb34df9
+msgid "Running the launch file"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:406
+#: 6495a1f919c045d3983c5de2924bcddf
+msgid ""
+"Likewise, we can change the packages used, install their dependencies, "
+"and then run them."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:409
+#: 78a8e7077a0744d7a87064ae3d4595b0
+msgid "**Back to IBM Cloud**"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:411
+#: f9b8729b2e6a4a18a829067baee22036
+msgid ""
+"With this Dockerfile, we can follow the same steps we did before to "
+"deploy it on IBM Cloud. Since we already have our registry created, and "
+"we're logged in to IBM Cloud, we directly build our new Dockerfile. "
+"Notice how I kept the tag the same but changed the version, this way I "
+"can update the docker image created previously. (You are free to create a"
+" completely new one if you want)"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:422
+#: 6f623d1801f44a05b76c3b663b623f29
+msgid ""
+"Then, make sure you are logged in to the registry and run the new docker "
+"image:"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:437
+#: d3a9e1b94306467cb2bede68ce24f55c
+msgid ""
+"You should see, again, the same output. However, this time we did it "
+"through custom packages from github, which allows us to utilize our "
+"personally created packages for ROS2 on IBM Cloud."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:442
+#: 2493141d65264cf3b5ff50303c15a020
+msgid "Extra: Deleting Docker Images"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:444
+#: aa160517bd644d72b6296d4d620b9d7c
+msgid ""
+"As you may find yourself in need of deleting a specific docker image(s) "
+"from IBM Cloud, this is how you should go about it!"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:447
+#: 80a95660005941f0aa9bc02af67aaf82
+msgid ""
+"List all the images you have and find all the ones that share the *IMAGE*"
+" name corresponding to *registry.ng.bluemix.net/ros2nasr/ros2foxy:2* (in "
+"my case). Then delete them using their *NAMES*"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:456
+#: 7b30a2a69b0f4cf6aaf770031b21c03f
+msgid "Delete the docker image from IBM Cloud using its *IMAGE* name"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:463
+#: a0611ad2779d43e79c12c947421b7b2f
+msgid "Step 4: Kubernetes"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:466
+#: a9fb68066fc549a9a2c02858933dc0d0
+msgid "a) Creating the Cluster"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:468
+#: 273604134ff342c6964271ba73620799
+msgid ""
+"Create a cluster using the Console. The instructions are found `here "
+"<https://cloud.ibm.com/docs/containers?topic=containers-"
+"clusters#clusters_ui>`__. The settings used are detailed below. These are"
+" merely suggestions and can be changed if you need to. However, make sure"
+" you understand the implications of your choices:"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:474
+#: 72bede1f68e84a96b8d98edc9ed529bb
+msgid "Plan: *Standard*"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:476
+#: 818e44a0706d46d998410f337a576d8e
+msgid "Orchestration Service: *Kubernetes v1.18.10*"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:478
+#: 5526a19a8a6842c481932cd944b0af2e
+msgid "Infrastructure: *Classic*"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:480
+#: 7c2c207906f84845a8b729e19c842f97
+msgid "Location:"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:482
+#: a029301677324749a65c4fc2a2e574eb
+msgid "Resource group: *Default*"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:484
+#: 75cda9d8adb846adb724c9b3fb83fc74
+msgid "Geography: *North America* (you are free to change this)"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:486
+#: e7f20bbaa4474e8d837d0c76a2337cb3
+msgid ""
+"Availability: *Single zone* (you are free to change this but make sure "
+"you understand the impact of your choices by checking the IBM Cloud "
+"documentation.)"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:490
+#: 8651956a41704b728d6701d2f1ef11df
+msgid ""
+"Worker Zone: *Toronto 01* (choose the location that is physically closest"
+" to you)"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:493
+#: cc2da0845eab447783b6189d8c423fdc
+msgid "Worker Pool:"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:495
+#: ad9c68e36b83474e9806493d740941d5
+msgid "Virtual - shared, Ubuntu 18"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:497
+#: 845ca4b3d8984275bacb19fa86a4d229
+msgid "Memory: 16 GB"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:499
+#: f6ad34d62f354ca0baed5b9516ad0993
+msgid "Worker nodes per zone: *1*"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:501
+#: cfce946785b240f9ad3c31d222bec415
+msgid "Master service endpoint: *Both private & public endpoints*"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:503
+#: a1427c2777bc44cc831531401dee378c
+msgid "Resource details (Totally flexible):"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:505
+#: 1eed2706b69c46ccafe37c340e7570b1
+msgid "Cluster name: *mycluster-tor01-rosibm*"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:507
+#: d0e78ecf2952403f8710b2178820ba50
+msgid "Tags: *version:1*"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:509
+#: 00be1da879394c5b82f686f319887d7a
+msgid ""
+"After you create your cluster, you will be redirected to a page which "
+"details how you can set up the CLI tools and access your cluster. Please "
+"follow these instructions (or check the instructions `here "
+"<https://github.com/mm-nasr/ros2_ibmcloud/blob/main/Kubernetes-Cluster-"
+"Set-up.md>`__)and wait for the progress bar to show that the worker nodes"
+" you created are ready by indicating *Normal* next to the cluster name. "
+"You can also reach this screen from the IBM Cloud Console inside the "
+"Kubernetes."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:518
+#: 7cd79a3a63e54d2ab445e9edf6aec830
+msgid "b) Deploying your Docker Image *Finally!*"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:520
+#: 2ce389841ff44e68a893aafef19478d0
+msgid ""
+"Create a deployment configuration yaml file named *ros2-deployment.yaml* "
+"using your favorite $EDITOR and insert the following in it:"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:544
+#: 91d18147c0a1409592d9bf39b92f55f8
+msgid ""
+"You should replace the tags shown between *\"<\" \">\"* as described "
+"`here <https://cloud.ibm.com/docs/containers?topic=containers-"
+"images#namespace>`__. The file in my case would look something like this:"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:568
+#: 90d894cf6e7d464182965786dea48b9e
+msgid "Deploy the file using the following command"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:575
+#: 832708acb52643d7a082bd23c151fe4b
+msgid "Now your docker image is fully deployed on your cluster!"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:578
+#: cb8a47c1cb3447a39993f120c76832ff
+msgid "Step 5: Using CLI for your Docker Image"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:580
+#: b725dbd1a2c647bdb5140533e74d4829
+msgid "Navigate to your cluster through the IBM Cloud console Kubernetes."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:582
+#: d3e73f2d44034032889b083be20ced6f
+msgid "Click on *Kubernetes dashboard* on the top right corner of the page."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:584
+#: 8d6a19a4257541718171b7782ca2b147
+msgid ""
+"You should now be able to see a full list of all the different parameters"
+" of your cluster as well as its CPU and Memory Usage."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:587
+#: 999ed225afed437cbea5635f53399eda
+msgid "Navigate to *Pods* and click on your deployment."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:589
+#: 164c824467324c33ae43091743fd6f57
+msgid "On the top right corner, click on *Exec into pod*"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:591
+#: 75713b5624514dfcab1d032f91ad562e
+msgid ""
+"Now you are inside your docker image! You can source your workspace (if "
+"needed) and run ROS2! For example:"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:600
+#: 1cf2ce2958a540dca026564cdf61559a
+msgid "Final Remarks"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud.rst:602
+#: a054c6ba14d34d6ca2fab508513eb3ae
+msgid ""
+"At this point, you are capable of creating your own docker image using "
+"ROS2 packages on github. It is also possible, with little changes to "
+"utilize local ROS2 packages as well. This could be the topic of another "
+"article. However, you are encouraged to check out the following "
+"`Dockerfile <https://github.com/mm-"
+"nasr/ros2_ibmcloud/tree/main/dockers/local_pkgs_docker>`__ which uses a "
+"local copy of the demos repository. Similarly, you can use your own local"
+" package."
+msgstr ""
+

@@ -1,0 +1,362 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:2
+#: 0aca59cfcb9745439d421a2d5e88e673
+msgid "Installation (Windows)"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:4
+#: 5a36f13ea49c4bb6958c1de5b318eb1c
+msgid ""
+"**Goal:** Install the ``webots_ros2`` package and run simulation examples"
+" on Windows."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:6
+#: 9b417dd53662442f9744fcf9b1b5dd96
+msgid "**Tutorial level:** Advanced"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:8
+#: b2e714774437411fbd3406ebedf15fea
+msgid "**Time:** 10 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:12
+#: 83cc7b6b3944452eb21df4d3c41567d4
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:15
+#: 3486346c4c0448bdb42d94721c90e227
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:17
+#: 2b2078e09cf344e1b037376647092f94
+msgid ""
+"The ``webots_ros2`` package provides an interface between ROS 2 and "
+"Webots. It includes several sub-packages, including "
+"``webots_ros2_driver``, which allows ROS nodes to communicate with "
+"Webots. Other sub-packages are mainly examples that show multiple "
+"possible implementations using the interface. In this tutorial, you are "
+"going to install the package and learn how to run one of these examples."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:23
+#: f7bde65a2c3f4f5fada239410cbf9575
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:25
+#: 778da8f8fbc449e0bff8b9d715e01c29
+msgid ""
+"It is recommended to understand basic ROS principles covered in the "
+"beginner :doc:`../../../../Tutorials`. In particular, :doc"
+":`../../../Beginner-Client-"
+"Libraries/Creating-A-Workspace/Creating-A-Workspace` and :doc"
+":`../../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package` "
+"are useful prerequisites."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:28
+#: 4a990935606b4bef82cb4d834b49b046
+msgid ""
+"Webots is a prerequisite to use the ``webots_ros2`` package. You can "
+"follow the `installation procedure <https://cyberbotics.com/doc/guide"
+"/installation-procedure>`_ or `build it from sources "
+"<https://github.com/cyberbotics/webots/wiki/Windows-installation/>`_."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:31
+#: c55a1d5942784b14bbdfab9bcc01caa4
+msgid ""
+"Alternatively, you can also let ``webots_ros2`` download Webots "
+"automatically. This option appears when you launch an example of the "
+"package and no Webots installation is found."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:35
+#: 04b9f52473ff4a7cb7488658e980ee29
+msgid "Multiple Installations of Webots"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:37
+#: 4b822eb7badf47c8aa55ec418b365559
+msgid ""
+"If you have more than one installation of Webots, ROS 2 will look for "
+"Webots at the following locations (in this order):"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:39
+#: 6bfe7fb06b7a4d19accbb20063e06ad3
+msgid ""
+"If the ``ROS2_WEBOTS_HOME`` environment variable is set, ROS 2 will use "
+"the Webots in this folder, regardless of its version."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:40
+#: 0865ac59af0646959689ca369693426d
+msgid ""
+"If the ``WEBOTS_HOME`` environment variable is set, ROS 2 will use the "
+"Webots in this folder, regardless of its version."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:41
+#: 34c8dcc7d7e04342bd8e145fd7dbe32c
+msgid ""
+"If none of the previous points is set/installed ROS 2 will look for "
+"Webots in the default installation paths for a compatible version: "
+"``C:\\Program Files\\Webots``."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:42
+#: a56bc5f673304891a67425becb2ea175
+msgid ""
+"If Webots couldn't be found, ``webots_ros2`` will show a window and offer"
+" automatic Webots installation of the last compatible version."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:45
+#: 0f740214ba1d4a658010892796af9ca6
+msgid "Tasks"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:48
+#: 14c074f41dd34704b4f8e23162299c83
+msgid "1 Install WSL2"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:50
+#: 4f0a681617f74c40a8263e2e2c24fcb2
+msgid ""
+"On Windows, WSL (Windows Subsystem for Linux) improves the user "
+"experience with ROS 2 compared to native Windows installation, as it runs"
+" on a Linux platform. Install WSL with an Ubuntu version which is "
+"compatible with your ROS distribution and upgrade to WSL2 following the "
+"`official Microsoft tutorial <https://learn.microsoft.com/en-"
+"us/windows/wsl/install>`_."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:54
+#: f05242f6005d4293956010fb4c9a5803
+msgid "2 Install ROS 2 in WSL"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:56
+#: 46df490753ae456fb62cb17edaeea209
+msgid ""
+"Install ROS 2 inside Ubuntu WSL, following :doc:`../../../../Installation"
+"/Ubuntu-Install-Debians`."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:59
+#: 07e9c37de72d41ca8d9031b2dac44f84
+msgid "3 Install ``webots_ros2``"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:60
+#: 3cd72b75e94049b3bde3d5fe448b839e
+msgid ""
+"You can then either install ``webots_ros2`` from the official released "
+"package, or install it from the latest up-to-date sources from `Github "
+"<https://github.com/cyberbotics/webots_ros2>`_."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:62
+#: 3ddb477c291442a0a4017b53c8c4a7cf
+msgid "The following commands must be run inside the WSL environment."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:66
+#: 2fa54bded0a043dbbfcfb17b854bff0d
+msgid "Install ``webots_ros2`` distributed package"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:68
+#: 6aee15ed36684657816aa56fa726f658
+msgid "Run the following command in a terminal."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:74
+#: 2118627e45b143bd955534836c911c15
+msgid "Install ``webots_ros2`` from sources"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:76
+#: 9f839bc393314bf69587360c2886f4bd
+msgid "Create a ROS 2 workspace with its ``src`` directory."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:82
+#: 00cd2ee80ecf446e8b1ee3788fc23142
+msgid "Source the ROS 2 environment."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:88
+#: 2c2c4fc874cf450ba63970321352167e
+msgid "Retrieve the sources from Github."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:95
+#: 46fe68d4030c4995bf021fac1613e069
+msgid "Install the package dependencies."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:103
+#: 2b8342a7962c4446b11d5b3d368962ee
+msgid "Build the package using ``colcon``."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:109
+#: bf98ee1a03e14b1093070faa18b89602
+msgid "Source this workspace."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:117
+#: d21229d016464351aa06b69815aa5d97
+msgid "4 Launch the ``webots_ros2_universal_robot`` example"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:119
+#: 85e4699980c64e20be49072507a9b8c9
+msgid ""
+"WSL doesn't support hardware acceleration (yet). Therefore, Webots should"
+" be started on Windows, while the ROS part is running inside WSL. To do "
+"so, the following commands must be run inside the WSL environment."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:123
+#: 144d8b0933624f96b058f927d92d36ab
+msgid "First source the ROS 2 environment, if not done already."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:129
+#: e1b3e0234275460b98151daa7f3cbeb4
+msgid ""
+"Setting the ``WEBOTS_HOME`` environment variable allows you to start a "
+"specific Webots installation (e.g. ``C:\\Program Files\\Webots``). Use "
+"the mount point \"/mnt\" to refer to a path on native Windows."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:136
+#: ebfc73fa2086423fb00e5050deb9ad91
+msgid ""
+"If installed from sources, source your ROS 2 workspace, if not done "
+"already."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:143
+#: 532a8ceb8120436d8010e2338e51f0f2
+msgid ""
+"Use the ROS 2 launch command to start demo packages (e.g. "
+"``webots_ros2_universal_robot``)."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:151
+#: 4192f716f5e14772ac5ddc17d60dc9ef
+msgid "5 RViz troubleshooting"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:153
+#: aa708d37e3034630a35627c0e6563fd9
+msgid "With recent versions of WSL2, RViz should work out of the box."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:155
+#: 3c6629efe8e24e0791e6cfa5abe1bad2
+msgid ""
+"You can check if it works correctly by running any example that uses "
+"RViz, for example:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:162
+#: a5751317b387458f8e822bae4a6f893f
+msgid "The Tiago robot can be controlled using:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:168
+#: a920ea16c84e43c4a9d265f594db8f9d
+msgid ""
+"With older WSL versions, RViz2 may not work directly, as no display is "
+"available. To use RViz, you can either upgrade WSL or enable X11 "
+"forwarding."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:171
+#: 092f8626136b4496b3b527082100686f
+msgid "Upgrade WSL"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:173
+#: b70b10e3bd344d0e9c082f9f18e588da
+msgid "In a Windows shell:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:179
+#: 71c2dc13dd234aa1b54965ceaa706030
+msgid "Enable X11 forwarding"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:181
+#: 0c91582213f1493e9da1d2a6f807b02a
+msgid "For older versions of WSL, the following steps can be followed:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:183
+#: a1ee4385129b46aca9f94093a0b02415
+msgid "Install `VcXsrv <https://sourceforge.net/projects/vcxsrv/>`_."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:184
+#: affa084758d34bcca7cc1a2703a73475
+msgid ""
+"Launch VcXsrv. You can leave most of the parameters default, except the "
+"``Extra settings`` page, where you must set ``Clipboard``, ``Primary "
+"Selection`` and ``Disable access control`` and unset ``Native opengl``."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:185
+#: 6ff2b515d32549dc938412e1e04f5ee7
+msgid "You can save the configuration for future launches."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:186
+#: bd56e9f2967745ffab16e36d894a2f40
+msgid ""
+"Click on ``Finish``, you will see that the X11 server is running in the "
+"icon tray."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:187
+#: 7d4509b9a752403e9b13d4638532cf6e
+msgid "In your WSL environment, export the ``DISPLAY`` variable."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Windows.rst:193
+#: 5be1d47878ea401095089218f0484fa0
+msgid ""
+"You can add this to your ``.bashrc``, so that it is set for every future "
+"WSL environment."
+msgstr ""
+

@@ -1,0 +1,148 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:4
+#: a2083add3a2243528a4ff1b2a0ce9211
+msgid "Maintain source checkout"
+msgstr ""
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:17
+#: e7b36236d686474ea9d80ae76fc7f081
+msgid ""
+"If you have installed ROS 2 from source, there may have been changes made"
+" to the source code since the time that you checked it out. To keep your "
+"source checkout up to date, you will have to periodically update your "
+"``ros2.repos`` file, download the latest sources, and rebuild your "
+"workspace."
+msgstr ""
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:21
+#: 997b9a447862415c95ebec3a174914ac
+msgid "Update your repository list"
+msgstr ""
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:23
+#: e3014b338f694da499a74bbdc913082e
+msgid ""
+"Each ROS 2 release includes a ``ros2.repos`` file that contains the list "
+"of repositories and their version for that release."
+msgstr ""
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:27
+#: 4ec10b84c07c438caa8f6571eec2cf11
+msgid "Latest ROS 2 Rolling branches"
+msgstr ""
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:29
+#: c576f763b0294fbeaa972d68eb451d1a
+msgid ""
+"If you wish to checkout the latest code for ROS 2 Rolling, you can get "
+"the relevant repository list by running:"
+msgstr ""
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:33
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:80
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:123
+#: 0c21beea88014b8bafbbd487b0eae016 5c649bf82e00452192256d8e37a80cd3
+#: daa87151246a4ebe9b8aa6aee7424522
+msgid "Linux"
+msgstr ""
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:41
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:87
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:130
+#: 0b216c4eaed049df86487401627a85ef 80aad5cc88f04dcbb7b0af471b5c872b
+#: 9d53b9b0e0ce42da81846bf68c1f547f
+msgid "macOS"
+msgstr ""
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:49
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:94
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:137
+#: 3552323d61c94e74bad9909466e8b735 7e7c488d3bda4aeca390234eeff96ac6
+#: e8dea14f69ef436ba0f7c4b0571efec2
+msgid "Windows"
+msgstr ""
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:63
+#: ac33b098eab544c5acb6d4e9fada66c9
+msgid "Update your repositories"
+msgstr ""
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:65
+#: f3ad6e7160924673bad911978ba330af
+msgid ""
+"You will notice that in the `ros2.repos "
+"<https://raw.githubusercontent.com/ros2/ros2/rolling/ros2.repos>`__ file,"
+" each repository has a ``version`` associated with it that points to a "
+"particular commit hash, tag, or branch name. It is possible that these "
+"versions refer to new tags/branches that your local copy of the "
+"repositories will not recognize as they are out-of-date. Because of this,"
+" you should update the repositories that you have already checked out "
+"with the following command:"
+msgstr ""
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:74
+#: 9a77167d0adc43a7a9617cc28db71e23
+msgid "Download the new source code"
+msgstr ""
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:76
+#: 8ff0ac7dafdc47c996dc217664e3c447
+msgid ""
+"You should now be able to download the sources associated with the new "
+"repository list with:"
+msgstr ""
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:107
+#: 7810aeebd5b64504af2d9e41602f685a
+msgid "Rebuild your workspace"
+msgstr ""
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:109
+#: 18e501fc218e4cd68c33ef45dc4e6506
+msgid ""
+"Now that the workspace is up to date with the latest sources, remove your"
+" previous install and rebuild your workspace with, for example:"
+msgstr ""
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:116
+#: 08865476fae1483981a4463c1a64b32e
+msgid "Inspect your source checkout"
+msgstr ""
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:118
+#: 8df5c0a660ba4349ae8096a106cf4717
+msgid ""
+"During your development you may have deviated from the original state of "
+"your workspace from when you imported the repository list. If you wish to"
+" know the versions of the set of repositories in your workspace, you can "
+"export the information using the following command:"
+msgstr ""
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:144
+#: cdd183156f5b4de8990bda2ae2e1e4ad
+msgid ""
+"This ``my_ros2.repos`` file can then be shared with others so that they "
+"can reproduce the state of the repositories in your workspace."
+msgstr ""
+

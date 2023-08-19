@@ -1,0 +1,624 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/The-ROS2-Project/Governance.rst:8
+#: 6cbbe33ee5bd42348708958d397b2609
+msgid "Project Governance"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:12
+#: 05162f05dadb489d8f3f4451f72be725
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:15
+#: 08666eb8da9840378d53286b4917f94c
+msgid "Technical Steering Committee (TSC)"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:16
+#: 5332db0a65464d648446e45a096d645f
+msgid ""
+"Since the beginning of ROS, the project has been overseen and prioritized"
+" primarily by one organization, first Willow Garage and now Open "
+"Robotics. That approach has worked well enough, as evidenced by the "
+"widespread adoption of ROS around the world."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:19
+#: ced4fa95f19d4a4c92cc50a8aab714d6
+msgid ""
+"But with ROS 2, we want to broaden participation to accelerate ROS 2 "
+"delivery, starting with these areas: determining the roadmap, developing "
+"core tools and libraries, and establishing working groups to focus on "
+"important topics. To that end, we've established a Technical Steering "
+"Committee (TSC). As described in the :doc:`charter <Governance/ROS2-TSC-"
+"Charter>`, the TSC comprises representatives of organizations that are "
+"contributing to the development of ROS 2, and it has the responsibility "
+"to set the technical direction for the project."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:23
+#: 6afb4cc594c94b8ea5792fd9fed80d0d
+msgid ""
+"Packages relevant to this ROS 2 TSC are listed in `REP 2005 "
+"<https://www.ros.org/reps/rep-2005.html>`_."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:25
+#: 276cf13525364c868f45d7c2ee32dde3
+msgid ""
+"Meeting notes can be found on `ROS Discourse "
+"<https://discourse.ros.org/tag/tsc>`_."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:27
+#: bee1eea3870341f2866b7f37e108414f
+msgid "The current members of the ROS 2 TSC are (23 as of 2022-02-01):"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:29
+#: e3ec586979ca490fb0dbc04570de9ef8
+msgid "amazon"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:30
+#: e460f36aaf374036a4a1c543bed49df1
+msgid "apex"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:31
+#: 8fd3c42aa66446af935adee4bac41640
+msgid "bosch"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:32
+#: a6756218f0fd46b2abf8f865c032dc55
+msgid "canonical"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:33
+#: 389b9f53447a4d8b937ca2cfb654ac03
+msgid "eprosima"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:34
+#: 5299a7b4b5d0424d82278410b2fe2d76
+msgid "gvsc"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:35
+#: acb7b2ea6cf74e519b064acfe6d88383
+msgid "intel"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:36
+#: a80e80f3987742c786ed0993f10a2563
+msgid "intrinsic"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:37
+#: de9dc304ca7c4bcfbbaddae5ce644493
+msgid "irobot"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:38
+#: 4fd9a0078c4a483b942d702c7bb00fa8
+msgid "microsoft"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:39
+#: 53d17175ec3a41d38a8dc9331eb6f1b3
+msgid "openrobotics"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:40
+#: 673774925fba462c84d9489541418182
+msgid "picknik"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:41
+#: 280b23fe5c8b48c1a4946ff27fb30fc0
+msgid "robotis"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:42
+#: 0d4bb6995bba47b39b87efbdb64d6e48
+msgid "ros2"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:43
+#: 0aa0670ffa9e4fe7bee00aeefab5e1d0
+msgid "rosindustrial"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:44
+#: 3e67c605f8674375bf3940cdfd494d2c
+msgid "samsung"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:45
+#: a8f93235697c4e1eb6732902c013a338
+msgid "sony"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:46
+#: 44ee6d561acf47379fc77ec6d8ef266c
+msgid "tri"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:47
+#: 0f6bd00c345b437d99ad1e0fd4f1bb83
+msgid "windriver"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:48
+#: 6c44851165d54d2692c991efb82c76ce
+msgid "foxglove"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:49
+#: e3c364023d694a38a726d10d66d07da9
+msgid "zettascale"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:196
+#: cda14e215cd44a889ee02c94857bb5b9
+msgid ""
+"If you are interested in joining the ROS 2 TSC, please inquire via "
+"info@openrobotics.org."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:206
+#: 1ad021757f494c9b8dbebd99d33754af
+msgid "Working Groups (WGs)"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:208
+#: 49921066b5f7479f9e51da7f2628938c
+msgid ""
+"As described in its :doc:`charter <Governance/ROS2-TSC-Charter>`, the TSC"
+" establishes working groups (WGs) to discuss and make progress on "
+"specific topics."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:210
+#: 19afeedaadd34994bba4ee70eebb907d
+msgid "The current WGs are (12 as of 2021-01-12):"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:213
+#: bb9fe109e5b34357b828059e0b438578
+msgid "Client Libraries"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:215
+#: aad89cc494494e4db635f391b0704e00
+msgid "Lead(s): Geoffrey Biggs, Alberto Soragna"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:216
+#: 3ee3f119618a4428867ae7e49e4fec8f
+msgid ""
+"Note: **This working group is currently on hiatus. Meetings will resume "
+"at some point in the future TBD.**"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:217
+#: ../../source/The-ROS2-Project/Governance.rst:228
+#: ../../source/The-ROS2-Project/Governance.rst:238
+#: ../../source/The-ROS2-Project/Governance.rst:249
+#: ../../source/The-ROS2-Project/Governance.rst:258
+#: ../../source/The-ROS2-Project/Governance.rst:271
+#: ../../source/The-ROS2-Project/Governance.rst:283
+#: ../../source/The-ROS2-Project/Governance.rst:297
+#: ../../source/The-ROS2-Project/Governance.rst:308
+#: 111b1c86f9a24e8bab9847d8c5fd6968 32ac002bb7f44edca8f31c6bb6299d1a
+#: 6444f78ee1e64fc0953339dd2f0ea58e 669cf7af3da74dd3901c5574868255ad
+#: 785573f8a6614ecfbe06c6d8358a3780 aa791b69854d4b2c9aaebdbab55e4620
+#: d30714746f364cb0b0e912bb799c1dad de3b287e53d445ba9701c6129f3f1016
+#: fcde416ebd964e228f76b61c8f224b1e
+msgid "Resources:"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:219
+#: 001e01f350d84aa8a8b7fdfd7e6c8973
+msgid ""
+"Meeting invite group: `ros-client-libraries-working-group-"
+"invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-"
+"client-libraries-working-group-invites>`_"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:220
+#: cc181dc3c6824550845fc8816746b7bf
+msgid ""
+"`Meeting minutes and agendas "
+"<https://docs.google.com/document/d/1MAMQisfbITOR4eDyCBhTEaFJ3QBNW38S7Z7RpBBSSvg/edit>`_"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:221
+#: 767ff804592f49a4a7ad138f67586291
+msgid ""
+"Working group charter: https://github.com/ros2-client-libraries-"
+"wg/community"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:222
+#: 6c83f78ebeec45a087911da5be54bd57
+msgid ""
+"Discourse tag: `wg-client-libraries <https://discourse.ros.org/tags/wg-"
+"client-libraries>`_"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:225
+#: 4c6a329f562a4b24ac4d6482be4f1c71
+msgid "Control"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:227
+#: 786e937d487a4b86bde4352e62df4767
+msgid "Lead(s): Bence Magyar"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:230
+#: 31894e7bacc34b968675ead4e1d86888
+msgid "Webite link: https://control.ros.org"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:231
+#: 2ba6d282146c4243abc4f1d01e2a566a
+msgid ""
+"Meeting invite group `ros-control-working-group-invites@googlegroups.com "
+"<https://groups.google.com/forum/#!forum/ros-control-working-group-"
+"invites>`_"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:232
+#: a4aeb88dfe234bc199f1a5a20de8b182
+msgid ""
+"Discourse tag: `wg-ros2-control <https://discourse.ros.org/tags/wg-"
+"ros2-control>`_"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:235
+#: 1aa63b2f788240ce9338e8284acf56db
+msgid "Embedded Systems"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:237
+#: bae151b526754ae0861fd9d855d3e25e
+msgid "Lead(s): Lara Moreno, Pablo Garrido"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:240
+#: f5c37987bfa94a0fb3efe3cedf50d9ed
+msgid ""
+"`2019-07-29 meeting notes <https://discourse.ros.org/uploads/short-"
+"url/z1caIm7m5IVP4cPJUwg3Chq36wO.pdf>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:241
+#: acd81e6a42d54f519f6b0b63761f4a9c
+msgid ""
+"`2019-01-15 meeting notes <https://discourse.ros.org/t/ros2-embedded-sig-"
+"meeting-2/7243/5>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:242
+#: 411121986db748c2a6aef8317e1f233c
+msgid ""
+"Meeting invite group `ros-embedded-working-group-invites@googlegroups.com"
+" <https://groups.google.com/forum/#!forum/ros-embedded-working-group-"
+"invites>`_"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:243
+#: 4a3c0fb1e7fd4fbabafbff48bd405ce4
+msgid "Discourse tag: `wg-embedded <https://discourse.ros.org/tag/wg-embedded>`_"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:246
+#: 8d0534fa90ed4c8bbdc0c2c1b3790f67
+msgid "Middleware"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:248
+#: 6fe8c86770d0409da83dfce009a8318d
+msgid "Lead(s): William Woodall"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:251
+#: 5eae8c37e40b43bba9b21ebb737d963b
+msgid ""
+"Meeting invite group `ros-middleware-working-group-"
+"invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-"
+"middleware-working-group-invites>`_"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:252
+#: dd44b36bdfcf49888581d12e56f047ad
+msgid ""
+"Discourse tag: `wg-middleware <https://discourse.ros.org/tag/wg-"
+"middleware>`_"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:255
+#: 3ce9c3ee7c7a46b1a6f54f81f40975d0
+msgid "Navigation"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:257
+#: a04d6fc3bbbe4d33a366b260cd0c1a35
+msgid "Lead(s): Steve Macenski"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:260
+#: 3c835985586e4e53b6379baf40fa01aa
+msgid ""
+"`2019-03-17 meeting notes <https://discourse.ros.org/t/ros2-navigation-"
+"wg-thursday-3-00-pm-pacific-gmt-7-00/7586/9>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:262
+#: f1624715d104494facc531c12e515b1f
+msgid ""
+"Meeting invite group `ros-navigation-working-group-"
+"invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-"
+"navigation-working-group-invites>`_"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:263
+#: e8f0d61b16364663b59df3889205ccba
+msgid ""
+"Discourse tag: `wg-navigation <https://discourse.ros.org/tag/wg-"
+"navigation>`_"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:264
+#: acb4cdb5c82f46d984fd93169d398a54
+msgid ""
+"Discourse Channel: `Navigation Stack "
+"<https://discourse.ros.org/c/navigation/44>`_"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:265
+#: 8a71dbfeb906409dae155b3f8d9a632a
+msgid ""
+"Slack Group: `Nav2 Slack "
+"<https://join.slack.com/t/navigation2/shared_invite/zt-uj428p0x-"
+"jKx8U7OzK1IOWp5TnDS2rA>`_"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:268
+#: 65e97ab1bb414cacb3a43e3ae2603750
+msgid "Manipulation"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:270
+#: d1b7cd4fc81a44edab3223dca041b9b2
+msgid "Lead(s): Henning Kayser"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:273
+#: eb9a4fa68fd440eebafea7e85b4b6293
+msgid ""
+"`About our working group meetings <https://discourse.ros.org/t/moveit-"
+"maintainer-meeting-all-invited-july-25th/9899>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:275
+#: 78605d82a82e4cf5bcb7bf3c0a5404ee
+msgid ""
+"Meeting invite group `ros-manipulation-working-group-"
+"invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-"
+"manipulation-working-group-invites>`_"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:276
+#: 9b6e2c433a3e4414943aaff8210694cf
+msgid "Discourse tag: `wg-moveit <https://discourse.ros.org/tag/moveit2>`_"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:277
+#: a1697bb4d76a44f19c40d93209319f1d
+msgid "Discourse Channel: `MoveIt <https://discourse.ros.org/c/moveit>`_"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:280
+#: 14eba6a0b7614b7aad62bf9c9ee53d9d
+msgid "Real-time"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:282
+#: 3a1c3e07122e4b6fb94ffd3596ced0ee
+msgid "Lead(s): Andrei Kholodnyi, Carlos San Vicente"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:285
+#: cac688e25fb44ee3a9d6f5da8f217f78
+msgid ""
+"`Working group website <https://real-time-working-"
+"group.readthedocs.io/>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:286
+#: 6119ca83197440ab8925bb6de9895353
+msgid "`Working Group Community <https://github.com/ros-realtime/community>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:287
+#: ab884b0cab3b4cf5b626d3869d968527
+msgid ""
+"Meeting invite group `ros-real-time-working-group-"
+"invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-"
+"real-time-working-group-invites>`_"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:288
+#: fc829c5b1fb446bc9056c45235e09319
+msgid ""
+"Discourse tag: `wg-real-time <https://discourse.ros.org/tag/wg-real-"
+"time>`_"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:289
+#: a515fa5d89d048f0a4d0de8360e8fe3a
+msgid ""
+"Matrix chat `+ros-realtime:matrix.org <https://matrix.to/#/+ros-"
+"realtime:matrix.org>`_"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:294
+#: 82a6321eb05c47bb9a451c0017655292
+msgid "Security"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:296
+#: 9648cb5826dc41058c2e26dc16ab2393
+msgid "Lead(s): Florencia Cabral"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:299
+#: 5a7353876b2b45e9aeda7a88d3981e28
+msgid ""
+"`ROS 2 Security Working Group Community <https://github.com/ros-"
+"security/community>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:300
+#: 9ac1c437e9564564a27c049b7af89027
+msgid ""
+"Meeting invite group `ros-security-working-group-invites@googlegroups.com"
+" <https://groups.google.com/forum/#!forum/ros-security-working-group-"
+"invites>`_"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:301
+#: 993b9cad7ee44531b661f5a6463c5565
+msgid "Discourse tag: `wg-security <https://discourse.ros.org/tag/wg-security>`_"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:302
+#: 6edf2a2d6e76481aaeace5f5cc7a92c9
+msgid ""
+"Matrix chat `+rosorg-security:matrix.org <https://matrix.to/#/+rosorg-"
+"security:matrix.org>`_"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:305
+#: 0444a85a864e428f91e48f76c8dd7f83
+msgid "Rosbag2 and Tooling"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:307
+#: 2e21b0cc7c9e485c936335331c093acd
+msgid "Lead(s): Michael Orlov"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:310
+#: de78c0e5050749de98d3ba2f61eb1712
+msgid "`Charter <https://github.com/ros-tooling/community>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:311
+#: 03fd75cea4de47fcb7d936b0c350cf4c
+msgid ""
+"`Meeting Notes "
+"<https://docs.google.com/document/d/1Dsg_9XZQPhihpKQGQWMYTz2doGH4P2cAaNqr60cuNgw/edit>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:312
+#: e2e5af87f5f846b296c275f5800c680e
+msgid ""
+"Meeting invite group `ros-tooling-working-group-invites@googlegroups.com "
+"<https://groups.google.com/forum/#!forum/ros-tooling-working-group-"
+"invites>`_"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:313
+#: 5a86b5ccedc040e2896c99c4362eabc6
+msgid "Discourse tag: `wg-tooling <https://discourse.ros.org/tag/wg-tooling>`_"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:314
+#: 6304773add574ed98527c4ad25938f06
+msgid ""
+"Matrix chat `+ros-tooling:matrix.org <https://matrix.to/#/+ros-"
+"tooling:matrix.org>`_"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:317
+#: 3ff82f569ccc4a9aaa1a331f82fa4d4e
+msgid ""
+"If you'd like to join an existing ROS 2 WG, please contact the "
+"appropriate group lead(s) directly. If you'd like to create a new WG, "
+"please inquire via info@openrobotics.org."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:322
+#: 9ad2650da8ae425bbddfd901a7ece961
+msgid "Working Group Policies"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:324
+#: 6bb6da18d014428aad83d34ca9f12197
+msgid ""
+"Meetings should be posted to the Google calendar as well as announced on "
+"Discourse."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:325
+#: 4ba0cea5f62d48d79d5aa2b6c782e6d8
+msgid ""
+"Meetings should have notes and be posted to Discourse using appropriate "
+"working group tag."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:326
+#: 6bcbb3a1e7454b4db751663d93f25f1a
+msgid ""
+"For attending the groups meetings please join the associated google group"
+" to get invites automatically."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:329
+#: a21f1ea3b8ac45d19c690df27039b396
+msgid "Upcoming ROS Events"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:331
+#: 640527627f644a8cb908e2039223e42a
+#, python-format
+msgid ""
+"Upcoming Working group meetings can be found in this `Google Calendar "
+"<https://calendar.google.com/calendar/embed?src=agf3kajirket8khktupm9go748%40group.calendar.google.com&ctz=America%2FLos_Angeles>`_."
+" It can be accessed via `iCal "
+"<https://calendar.google.com/calendar/ical/agf3kajirket8khktupm9go748%40group.calendar.google.com/public/basic.ics>`_."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance.rst:369
+#: 47b0f10a979e491b96f50455f73ab90f
+msgid ""
+"If you have an individual event or series of events that you'd like to "
+"post please contact info@openrobotics.org"
+msgstr ""
+

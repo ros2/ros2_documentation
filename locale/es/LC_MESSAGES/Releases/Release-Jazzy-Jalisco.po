@@ -1,0 +1,260 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:6
+#: 0010e9e637964c67a5889d59cb47c9c5
+msgid "Jazzy Jalisco (``jazzy``)"
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:10
+#: a89d4371659e4acdb5c966e0dbe9ecc5
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:12
+#: 0ec70231262240dc9f935fdca28ead12
+msgid ""
+"*Jazzy Jalisco* is the tenth release of ROS 2. What follows is highlights"
+" of the important changes and features in Jazzy Jalisco since the last "
+"release."
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:16
+#: 314bd9b566ae4fc0b6de2a68cc3abd66
+msgid "Supported Platforms"
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:18
+#: 93d679f15ca74526b1d4e345b5577895
+msgid "Jazzy Jalisco is primarily supported on the following platforms:"
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:20
+#: b7936714003f4eb6a468b5e951991e1f
+msgid "Tier 1 platforms:"
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:22
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:26
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:30
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:37
+#: 47b7149f509647628ebea82e8820892c 69e531fa00e8405e8c0a1adface84d0a
+#: c0e364be5e8b4a6aa0ec718995a0f3c3 fdddea6255214fa49487ffb2159b4b76
+msgid "TODO"
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:24
+#: 18a5bb002cae467bae161bbf57d46589
+msgid "Tier 2 platforms:"
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:28
+#: cbd732021711462ab7558b18f6b332d7
+msgid "Tier 3 platforms:"
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:32
+#: 82cdd52ddab249b08313c94aacfd7c20
+msgid ""
+"For more information about RMW implementations, compiler / interpreter "
+"versions, and system dependency versions see `REP 2000 "
+"<https://www.ros.org/reps/rep-2000.html>`__."
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:35
+#: 1d564544c16b43878aa17db0f2b15302
+msgid "Installation"
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:40
+#: 45ce058e6fe34eae993d306738528618
+msgid "New features in this ROS 2 release"
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:43
+#: 109971f7fb8643b5816d676d2051c7a9
+msgid "Development progress"
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:45
+#: c3672bdc1429489487996e6cb6d7e072
+msgid ""
+"For progress on the development of Jazzy Jalisco, see `this project board"
+" <https://github.com/orgs/ros2/projects/52>`__."
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:47
+#: 388b64044c014a079539c9a3b21e17e1
+msgid ""
+"For the broad process followed by Jazzy Jalisco, see the :doc:`process "
+"description page <Release-Process>`."
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:50
+#: 26e9ae65088b4668980f20629a3fd9d2
+msgid "Known Issues"
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:52
+#: dd01d218478e4dce9368d055eb9d5b74
+msgid "To come."
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:55
+#: d4cb7d7212214705ac421846d40e9006
+msgid "Release Timeline"
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:58
+#: 6d24c89ea028433fab8cfa0c6af6cf2c
+msgid "November, 2023 - Platform decisions"
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:58
+#: 71186890b36e4936ad31b4d6b0735c30
+msgid ""
+"REP 2000 is updated with the target platforms and major dependency "
+"versions."
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:61
+#: a048e7513e5b47cfb51a0b518d05f8a1
+msgid "By January, 2024 - Rolling platform shift"
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:61
+#: 1504730b32184d21aba352724c18da94
+msgid ""
+"Build farm is updated with the new platform versions and dependency "
+"versions for Jazzy Jalisco."
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:64
+#: fb14919891024b33a5a61c3111e7001c
+msgid "Mon. April 8, 2024 - Alpha + RMW freeze"
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:64
+#: 8c81329599c6433da698a0eb8ea777e5
+msgid ""
+"Preliminary testing and stabilization of ROS Base [1]_ packages, and API "
+"and feature freeze for RMW provider packages."
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:69
+#: bcd9814632f54edb98278a5aedc202e7
+msgid "Mon. April 15, 2024 - Freeze"
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:67
+#: 66933cbe8f734290a98120eb8531b73e
+msgid ""
+"API and feature freeze for ROS Base [1]_ packages in Rolling Ridley. Only"
+" bug fix releases should be made after this point. New packages can be "
+"released independently."
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:74
+#: add6b6ec87eb42b5b003e01d37c335a3
+msgid "Mon. April 22, 2024 - Branch"
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:72
+#: bb4645d7f92649b48f24b22a68ca8381
+msgid ""
+"Branch from Rolling Ridley. ``rosdistro`` is reopened for Rolling PRs for"
+" ROS Base [1]_ packages. Jazzy development shifts from ``ros-rolling-*`` "
+"packages to ``ros-jazzy-*`` packages."
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:78
+#: 4c69205373b9401da49acbbe3f914981
+msgid "Mon. April 29, 2024 - Beta"
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:77
+#: adc3952caf42472a894137c915aa4232
+msgid ""
+"Updated releases of ROS Desktop [2]_ packages available. Call for general"
+" testing."
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:81
+#: a9c83f5531d34ecaaa343e52fbc18914
+msgid "Wed, May 1, 2024 - Kick off of Tutorial Party"
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:81
+#: b2f192d6911c4351a0ff8a91ff5f2e0d
+msgid ""
+"Tutorials hosted at https://github.com/osrf/ros2_test_cases are open for "
+"community testing."
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:85
+#: 4bb2400978104653aafed0145ae92fd5
+msgid "Mon. May 13, 2024 - Release Candidate"
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:84
+#: 38d2948be82c4953be5bb93f5fc73de3
+msgid ""
+"Release Candidate packages are built. Updated releases of ROS Desktop "
+"[2]_ packages available."
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:89
+#: 8ee26884b34b4b0db1d2076f77606ae0
+msgid "Mon. May 20, 2024 - Distro Freeze"
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:88
+#: 4da39ef48dbd44e083c09ec31732c0e4
+msgid ""
+"Freeze rosdistro. No PRs for Jazzy on the ``rosdistro`` repo will be "
+"merged (reopens after the release announcement)."
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:93
+#: 37fa0f87525844d482058150e23d129d
+msgid "Thu. May 23, 2024 - General Availability"
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:92
+#: 2ed2ed61b2064b95b3312594b9314049
+msgid "Release announcement. ``rosdistro`` is reopened for Jazzy PRs."
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:95
+#: e191452da7154490b582757449853358
+msgid ""
+"The ``ros_base`` variant is described in `REP 2001 (ros-base) "
+"<https://www.ros.org/reps/rep-2001.html#ros-base>`_."
+msgstr ""
+
+#: ../../source/Releases/Release-Jazzy-Jalisco.rst:96
+#: 8b6b987ab57d4355b0e7d8357842baff
+msgid ""
+"The ``desktop`` variant is described in `REP 2001 (desktop-variants) "
+"<https://www.ros.org/reps/rep-2001.html#desktop-variants>`_."
+msgstr ""
+

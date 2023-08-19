@@ -1,0 +1,234 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Concepts/Intermediate/About-Security.rst:6
+#: 0ca3a0a9563f4e5097781285a89d90ba
+msgid "ROS 2 Security"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Security.rst:9
+#: 279c2c5ea5014593bfb1cf46dfe09f7a
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Security.rst:12
+#: 822cd2e3da6c4807bca96c77a6e44668
+msgid "Overview"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Security.rst:14
+#: 25b5ea03ac7542f29e99a844ef054c9c
+msgid ""
+"ROS 2 includes the ability to secure communications among nodes within "
+"the ROS 2 computational graph. Similar to discovery, security happens "
+"through the underlying ROS 2 middleware (provided it has support for the "
+"corresponding security plugins). No additional software installation is "
+"needed to enable security; however, the middleware requires configuration"
+" files for each ROS graph participant. These files enable encryption and "
+"authentication, and define policies both for individual nodes and for the"
+" overall ROS graph. ROS 2 also adds a master \"on/off\" switch to control"
+" security behavior."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Security.rst:20
+#: aa73074396884c438754289e2a5bbacc
+msgid ""
+"ROS utilities can create the authoritative `trust anchor "
+"<https://en.wikipedia.org/wiki/Trust_anchor>`_ for a ROS application, or "
+"an external certificate authority can be used."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Security.rst:22
+#: 1a94ad60d83a4374b89581cc40bc1656
+msgid ""
+"Built-in ROS 2 security features enable control over communications "
+"throughout the ROS graph. This not only allows for encrypting data in "
+"transit between ROS domain participants, but also enables authentication "
+"of participants sending data, ensures the integrity of data being sent, "
+"and enables domain-wide access controls."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Security.rst:25
+#: 0980797120cc4872bb6d83507b44214b
+msgid ""
+"ROS 2 security services are provided by the underlying `Data Distribution"
+" Service (DDS) <https://www.omg.org/spec/DDS/>`_ which is used for "
+"communications between nodes. DDS vendors provide open source and "
+"commercial DDS implementations that work with ROS. However, in order to "
+"create a specification-compliant implementation of DDS, all vendors must "
+"include security plugins as outlined in the `DDS Security Specification "
+"<https://www.omg.org/spec/DDS-SECURITY/About-DDS-SECURITY/>`_. ROS "
+"security features take advantage of these DDS security plugins to provide"
+" policy-based encryption, authentication and access control. DDS and ROS "
+"security is enabled through predefined configuration files and "
+"environment variables."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Security.rst:33
+#: 49a70c34ee4640a7bdf69f9318a8c902
+msgid "The Security Enclave"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Security.rst:35
+#: 46dac9c61ea84c77a97b661a6ca03aec
+msgid ""
+"A security enclave encapsulates a single policy for protecting ROS "
+"communications. The enclave may set policy for multiple nodes, for an "
+"entire ROS graph, or any combination of protected ROS processes and "
+"devices. Security enclaves can be flexibly mapped to processes, users, or"
+" devices at deployment. Adjusting this default behavior becomes important"
+" for optimizing communications and for complex systems. See the ROS 2 "
+"Security Enclaves `design document "
+"<https://design.ros2.org/articles/ros2_security_enclaves.html>`_ for "
+"additional details."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Security.rst:43
+#: 4ac2c1c085f04a3a8bf3e93dda687ea5
+msgid "Security Files"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Security.rst:45
+#: 5a4f21ee16bd4181b65b860fc5ddc6b3
+msgid ""
+"A `ROS 2 security enclave "
+"<https://design.ros2.org/articles/ros2_security_enclaves.html>`_ is "
+"established with six files as outlined by the DDS specification. Three of"
+" these files define an enclave's identity, while three other files define"
+" the permissions to be granted to the enclave. All six files reside in a "
+"single directory, and nodes launched without a qualified enclave path use"
+" files in the default root level enclave."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Security.rst:50
+#: cd2a964cab354847884b43d68940bdd2
+msgid "Enclave Identity"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Security.rst:52
+#: a52f0c99d2db45f4b21c17168502c0f9
+msgid ""
+"The Identity Certificate Authority file ``identity_ca.cert.pem`` acts as "
+"the trust anchor used to identify participants. Each enclave also holds "
+"its unique identifying certificate in the file ``cert.pem``, and the "
+"associated private key in the file ``key.pem``. Because the ``cert.pem`` "
+"certificate has been signed by identity certificate, when a participant "
+"presents this certificate to other domain members, they are able to "
+"validate the participant's identity using their own copy of the identity "
+"certificate. This valid certificate exchange allows the enclave to "
+"securely establish trusted communications with other participants. The "
+"enclave does not not share the ``key.pem`` private key, but only uses it "
+"for decryption and message signing."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Security.rst:59
+#: 23a6845d010d47089638c9b900beb895
+msgid "Enclave Permissions"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Security.rst:61
+#: 4c5ac0ac2e254b0f9bdd3a10076e3cbc
+msgid ""
+"The Permissions Certificate Authority file ``permissions_ca.cert.pem`` "
+"serves as the trust anchor to grant permissions to security enclaves. "
+"This certificate is used to create the signed file ``governance.p7s``, an"
+" XML document which defines domain-wide protection policies. Similarly "
+"the XML file ``permissions.p7s`` outlines permissions of this particular "
+"enclave and has been signed by the Permissions CA. Domain members use a "
+"copy of the permissions CA to validate these signed files and grant the "
+"requested access."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Security.rst:66
+#: 72134dff9c2844ffa0ac15f208fd3909
+msgid ""
+"Although these two certificate authorities enable separate workflows for "
+"identity and permissions, often the same certificate serves as both the "
+"identity and the permissions authority."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Security.rst:69
+#: f5c9b8678303477b8d471df0949f2d8a
+msgid "Private Keys"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Security.rst:71
+#: 08b9e47bc94c4cb4967fff8a93d7a236
+msgid ""
+"The identity and permissions certificates also have associated private "
+"key files. Add new enclaves to the domain by signing their Certificate "
+"Signing Request (CSR) with the identity certificate's private key. "
+"Similarly, grant permissions for a new enclave by signing a permissions "
+"XML document with the permission certificate's private key."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Security.rst:77
+#: 0ed08c973b7d4f80a5a35a38f49aa349
+msgid "Security Environment Variables"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Security.rst:79
+#: ecdbe4f91a134e66bfbce593c25ecc5d
+msgid ""
+"The environment variable ``ROS_SECURITY_ENABLE`` acts as the enclave's "
+"master \"on/off\" switch for ROS 2 security features. Security has been "
+"turned off by default, so security features will not be enabled even when"
+" the proper security files are present. In order to enable ROS 2 "
+"security, set this environment variable to ``true`` (case sensitive)."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Security.rst:83
+#: d83e88e3d8f447ae917651eaacb85eaf
+msgid ""
+"Once security has been enabled, the environment variable "
+"``ROS_SECURITY_STRATEGY`` defines how domain participants handle problems"
+" when launching participants. Security features depend on certificates "
+"and properly signed configuration files, yet by default, an improperly "
+"configured participant will still launch successfully but without "
+"security features. In order to enforce strict compliance with security "
+"settings and fail to launch non-compliant enclaves, set this environment "
+"variable to ``Enforce`` (case sensitive)."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Security.rst:87
+#: 8b1141e6ee5b43aea64c000a94c20015
+msgid ""
+"Additional security-related environment variables can be found in the "
+"`ROS 2 DDS-Security Integration design document "
+"<https://design.ros2.org/articles/ros2_dds_security.html>`_. These "
+"variables generally assist ROS in managing enclaves and locating the "
+"security files."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Security.rst:92
+#: bf9265ba10fd4377aac9ac70dc30fb69
+msgid "Learn More"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Security.rst:94
+#: c92937c20df8451296c7cd22b37b9e14
+msgid ""
+"For more information and hands-on exercises enabling ROS 2 communications"
+" security, see the :doc:`../../Tutorials/Advanced/Security/Introducing-"
+"ros2-security`."
+msgstr ""
+

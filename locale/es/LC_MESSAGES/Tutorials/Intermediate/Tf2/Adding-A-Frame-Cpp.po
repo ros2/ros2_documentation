@@ -1,0 +1,441 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:8
+#: 2a24c14a0f2642128b19a007b5f9c8de
+msgid "Adding a frame (C++)"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:10
+#: 24fec3db6d9c49a884663eb707074e58
+msgid "**Goal:** Learn how to to add an extra frame to tf2."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:12
+#: 907c4a8a002549279894dfa48ca15864
+msgid "**Tutorial level:** Intermediate"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:14
+#: 096afffffe9b4762b58bc0d1a7691327
+msgid "**Time:** 15 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:18
+#: 64e870ab087f4e048cd3af806ea8b614
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:21
+#: 54601e5048a047aab07ceea7801f7c0e
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:23
+#: c5166293f52942e48e794ee8f03e34ed
+msgid ""
+"In previous tutorials, we recreated the turtle demo by writing a "
+":doc:`tf2 broadcaster <./Writing-A-Tf2-Broadcaster-Cpp>` and a :doc:`tf2 "
+"listener <Writing-A-Tf2-Listener-Cpp>`. This tutorial will teach you how "
+"to add extra fixed and dynamic frames to the transformation tree. In "
+"fact, adding a frame in tf2 is very similar to creating the tf2 "
+"broadcaster, but this example will show you some additional features of "
+"tf2."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:27
+#: bdc685fc933e49e28a652e766555648c
+msgid ""
+"For many tasks related to transformations, it is easier to think inside a"
+" local frame. For example, it is easiest to reason about laser scan "
+"measurements in a frame at the center of the laser scanner. tf2 allows "
+"you to define a local frame for each sensor, link, or joint in your "
+"system. When transforming from one frame to another, tf2 will take care "
+"of all the hidden intermediate frame transformations that are introduced."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:33
+#: 91f0e342e9d7456ab3e94475c240e400
+msgid "tf2 tree"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:35
+#: 668dd973eb4a4029889cd9fb2617cfe2
+msgid ""
+"tf2 builds up a tree structure of frames and, thus, does not allow a "
+"closed loop in the frame structure. This means that a frame only has one "
+"single parent, but it can have multiple children. Currently, our tf2 tree"
+" contains three frames: ``world``, ``turtle1`` and ``turtle2``. The two "
+"turtle frames are children of the ``world`` frame. If we want to add a "
+"new frame to tf2, one of the three existing frames needs to be the parent"
+" frame, and the new one will become its child frame."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:44
+#: 08f78bcb21004851a6c6107f72b03fca
+msgid "Tasks"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:47
+#: 3dd92bae6bbc43dab18d0c502c4a2d8d
+msgid "1 Write the fixed frame broadcaster"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:49
+#: cea2d7b090954243a3f2cfd8819ff832
+msgid ""
+"In our turtle example, we'll add a new frame ``carrot1``, which will be "
+"the child of the ``turtle1``. This frame will serve as the goal for the "
+"second turtle."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:52
+#: fdb43dff7ff046048ae8a61737a6d05c
+msgid ""
+"Let's first create the source files. Go to the ``learning_tf2_cpp`` "
+"package we created in the previous tutorials. Download the fixed frame "
+"broadcaster code by entering the following command:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:57
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:239
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:257
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:279
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:350
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:515
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:533
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:555
+#: 1863fbf3329b46ccafc9173c07e8b025 2163e7a8a2e744d09576293bed7e26a3
+#: 2e105e2c86214039932ee187702b222f 4681a4c374684dc4b0c3c8ef6c9cef1c
+#: 5e546913c92d439d83df1b47cb0bf154 d7004deeed934bc1bbdb6d1ea4b4ebde
+#: ea882ad090964ca9bbca50f9e379aa21 ee947eeb193040db96451bae86cea503
+msgid "Linux"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:63
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:245
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:263
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:285
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:356
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:521
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:539
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:561
+#: 1b94429cbd224a249ed2ba23f8e36416 27b9b55483ff4dd2b5ed6891b8c75eb6
+#: 4d5995f958f6409ba7190b1f271acd85 5e0eb9e0601f4a05835a9f2b2085e261
+#: 87bf9b77859340e0834aebb574da8944 947e4d3c66904b35871e8ae37b486a17
+#: c8bd3d9147d948fc91553d48cb660619 e8677ed80464460791f4b91eae17db31
+msgid "macOS"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:69
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:249
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:269
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:291
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:362
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:525
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:545
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:567
+#: 3548ce35c86c488a8d28afeec613cd56 65ced5495a3046c1bff6a68edd0927fc
+#: 6f186687f8e04ec9b759a6c93152155a 6f7d9045bcaf4eca819da3b3e115a894
+#: bca522ae54974fa6b36dca12efe55fe4 e67a08de20d94fe5a66e8e8d6c5d7e1e
+#: f2e44f27f9ca435083c9cc2af5f52f0d f35ce20860f44d3c9dada5789186d54e
+msgid "Windows"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:71
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:364
+#: 50356bc044a7400e83ba1822cb9f1639 cc24dda5249d409883217b472d32e20f
+msgid "In a Windows command line prompt:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:77
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:370
+#: 900609ef2c3f4e36ab842c24702c96b1 fb7814f4d7e541b89ab258d5de9b1b60
+msgid "Or in powershell:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:83
+#: b924a5ee3573434fb407fed97e79e634
+msgid "Now open the file called ``fixed_frame_tf2_broadcaster.cpp``."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:139
+#: 879e7adf54d742d1ae0269cf7fef5a53
+msgid ""
+"The code is very similar to the tf2 broadcaster tutorial example and the "
+"only difference is that the transform here does not change over time."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:142
+#: d4e1544caab844bcae2dc3d54f8ca81e
+msgid "1.1 Examine the code"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:144
+#: a5cf21dab02849ef8588068963a7fcb0
+msgid ""
+"Let's take a look at the key lines in this piece of code. Here we create "
+"a new transform, from the parent ``turtle1`` to the new child "
+"``carrot1``. The ``carrot1`` frame is 2 meters offset in y axis in terms "
+"of the ``turtle1`` frame."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:160
+#: 44ada242ad0746e2a39313ee6b0d7f28
+msgid "1.2 CMakeLists.txt"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:162
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:451
+#: 0391283a020b4caf8c3d73caf49cdd3b 7d5b8a80dc0d4aea8824b6ba3e2a880c
+msgid ""
+"Navigate one level back to the ``learning_tf2_cpp`` directory, where the "
+"``CMakeLists.txt`` and ``package.xml`` files are located."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:164
+#: e2c5746ce11042879ce0e41d901f453b
+msgid ""
+"Now open the ``CMakeLists.txt`` add the executable and name it "
+"``fixed_frame_tf2_broadcaster``."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:176
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:465
+#: 1c6cd97b28814c7089fb043115be9105 63cb9176e42048a0833b17ea42ea3bd1
+msgid ""
+"Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find "
+"your executable:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:185
+#: de644f8b50044d40b95e99e1fa9b2b92
+msgid "1.3 Write the launch file"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:187
+#: adbe64df3d2446df9f0079d7d67101fc
+msgid ""
+"Now let's create a launch file for this example. With your text editor, "
+"create a new file called ``turtle_tf2_fixed_frame_demo_launch.py``, and "
+"add the following lines:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:220
+#: 251a341588984fee91adcfb98e7ca72a
+msgid ""
+"This launch file imports the required packages and then creates a "
+"``demo_nodes`` variable that will store nodes that we created in the "
+"previous tutorial's launch file."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:222
+#: 364be7ff9a6c4b438370e0777264f809
+msgid ""
+"The last part of the code will add our fixed ``carrot1`` frame to the "
+"turtlesim world using our ``fixed_frame_tf2_broadcaster`` node."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:233
+#: 313b02a9e0664bab83d85160236b00a5
+msgid "1.4 Build"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:235
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:511
+#: 322abfd49ea6491783c1fdd1fb66fc03 4732768d15864679b2e1f0d60cba1301
+msgid ""
+"Run ``rosdep`` in the root of your workspace to check for missing "
+"dependencies."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:247
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:251
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:523
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:527
+#: 1fd1226498b341ed8648f87db1fcc7d3 2e72fb550b464e5599c9a13fb077190b
+#: 7d2080563eb343cd8eca4f96e6cb79c4 8da19847f7b74198a6a16e60001eea01
+msgid ""
+"rosdep only runs on Linux, so you will need to install ``geometry_msgs`` "
+"and ``turtlesim`` dependencies yourself"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:253
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:529
+#: 113094240eb5455a8ae596048d24be7f ea72e3659f64474ca7cfb3d02934dcf9
+msgid "From the root of your workspace, build your updated package:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:275
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:551
+#: 3a7041e5aa444317bb8293e9e781ae71 41d06baed3214a12a230021937d28670
+msgid ""
+"Open a new terminal, navigate to the root of your workspace, and source "
+"the setup files:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:302
+#: fba5cceb519c4bafbb14f88ef97a34cd
+msgid "1.5 Run"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:304
+#: d54676b1c44847ffa9cfd5c705871f12
+msgid "Now you can start the turtle broadcaster demo:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:310
+#: 427d57fb7d1045f1a55d59bb88093614
+msgid ""
+"You should notice that the new ``carrot1`` frame appeared in the "
+"transformation tree."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:314
+#: 1395c69afd914b30a85f31aee5a43bc7
+msgid ""
+"If you drive the first turtle around, you should notice that the behavior"
+" didn't change from the previous tutorial, even though we added a new "
+"frame. That's because adding an extra frame does not affect the other "
+"frames and our listener is still using the previously defined frames."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:317
+#: 34ba99eada604ee198f3a2c11bfc3a78
+msgid ""
+"Therefore if we want our second turtle to follow the carrot instead of "
+"the first turtle, we need to change value of the ``target_frame``. This "
+"can be done two ways. One way is to pass the ``target_frame`` argument to"
+" the launch file directly from the console:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:325
+#: f0cec6f0d44141c2b6056acdfd239649
+msgid ""
+"The second way is to update the launch file. To do so, open the "
+"``turtle_tf2_fixed_frame_demo_launch.py`` file, and add the "
+"``'target_frame': 'carrot1'`` parameter via ``launch_arguments`` "
+"argument."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:336
+#: 3da5ae115d274a7e999f229e4cf3d0d7
+msgid ""
+"Now rebuild the package, restart the "
+"``turtle_tf2_fixed_frame_demo_launch.py``, and you'll see the second "
+"turtle following the carrot instead of the first turtle!"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:341
+#: bea534b179194c0cb16f0626e3b181d8
+msgid "2 Write the dynamic frame broadcaster"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:343
+#: 4b8023b6138e4625a223537e81364785
+msgid ""
+"The extra frame we published in this tutorial is a fixed frame that "
+"doesn't change over time in relation to the parent frame. However, if you"
+" want to publish a moving frame you can code the broadcaster to change "
+"the frame over time. Let's change our ``carrot1`` frame so that it "
+"changes relative to ``turtle1`` frame over time. Now download the dynamic"
+" frame broadcaster code by entering the following command:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:376
+#: 9f691b0022604f669ccc8bd0524f7c93
+msgid "Now open the file called ``dynamic_frame_tf2_broadcaster.cpp``:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:437
+#: a5708888b59d4677963160f21e03e319
+msgid "2.1 Examine the code"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:439
+#: 65061340c6b642258341ed55cf000a99
+msgid ""
+"Instead of a fixed definition of our x and y offsets, we are using the "
+"``sin()`` and ``cos()`` functions on the current time so that the offset "
+"of ``carrot1`` is constantly changing."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:449
+#: a5cf094b62744253a0f45ee754361386
+msgid "2.2 CMakeLists.txt"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:453
+#: f18a87f706b94a64870929c5fe64745d
+msgid ""
+"Now open the ``CMakeLists.txt`` add the executable and name it "
+"``dynamic_frame_tf2_broadcaster``."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:474
+#: d1306256d969458d88e765fb8badfc65
+msgid "2.3 Write the launch file"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:476
+#: b32a4ff022ef4893abb99c4b1b4b48e9
+msgid ""
+"To test this code, create a new launch file "
+"``turtle_tf2_dynamic_frame_demo_launch.py`` and paste the following code:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:509
+#: 439659c269244afab634b60503c6a7a8
+msgid "2.4 Build"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:578
+#: 48964a851d7449ab8cfa87538606bb35
+msgid "2.5 Run"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:580
+#: 0201f4a53ba24905b2e6215f1b559ec9
+msgid "Now you can start the dynamic frame demo:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:586
+#: 5c2296b8ce7649f0a83d649ee14b511f
+msgid ""
+"You should see that the second turtle is following the carrot's position "
+"that is constantly changing."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:592
+#: bffe0d4ede6e4f769b815bfe6633783a
+msgid "Summary"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst:594
+#: efff8060785c421dbfb57794db933e5d
+msgid ""
+"In this tutorial, you learned about the tf2 transformation tree, its "
+"structure, and its features. You also learned that it is easiest to think"
+" inside a local frame, and learned to add extra fixed and dynamic frames "
+"for that local frame."
+msgstr ""
+

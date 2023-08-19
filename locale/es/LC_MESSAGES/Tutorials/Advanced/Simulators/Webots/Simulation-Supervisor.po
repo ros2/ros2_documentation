@@ -1,0 +1,294 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:2
+#: 67b88509f6714e67b305a0db6ce99295
+msgid "The Ros2Supervisor Node"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:4
+#: 8beed2c3b5294780902b79d50cd29dcc
+msgid ""
+"**Goal:** Extend the interface with a default Supervisor robot, named "
+"``Ros2Supervisor``."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:6
+#: 595c63b33a2d4c1babe3bdaa17446d24
+msgid "**Tutorial level:** Advanced"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:8
+#: 43290549fa0346f587961f18a2d4b66f
+msgid "**Time:** 10 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:12
+#: 910c2a60c64c4547aa1fd2271297d0f7
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:15
+#: dad3b24551b341d6a990051bb40779ee
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:17
+#: 9157ed41e46d450aa2d64edddc54964e
+msgid ""
+"In this tutorial, you will learn how to enable the ``Ros2Supervisor`` "
+"node which enhances the interface by creating additional services and "
+"topics to interact with the simulation. You can, for example, record "
+"animations or spawn Webots nodes directly from the ROS 2 interface while "
+"the simulation is running. These instructions list in details the current"
+" implemented features and how to use them."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:22
+#: 5878b3cba5864342a94e7c92e4f34abc
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:24
+#: a7773e6395b04c02bd2fa903a4f7a561
+msgid ""
+"Before proceeding with this tutorial, make sure you have completed the "
+"following:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:26
+#: d8f636bb76f24fb1802e676d1410db36
+msgid ""
+"Understanding of ROS 2 nodes and topics covered in the beginner "
+":doc:`../../../../Tutorials`."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:27
+#: 01133bd58703462b9b7f54ac99c19dbf
+msgid "Knowledge of Webots and ROS 2 and its interface package."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:28
+#: 253d3253604d4353b256e72ef9cd39a5
+msgid "Familiarity with :doc:`./Setting-Up-Simulation-Webots-Basic`."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:31
+#: 92ef39ee6507497a8eb7350c4d70df6b
+msgid "The ``Ros2Supervisor``"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:33
+#: c8677f19fddc4aa5a3cb93b07371c57e
+msgid "The ``Ros2Supervisor`` is made of two main parts:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:35
+#: 7a7ce4490a684ef9a80a91771ee9bb31
+msgid ""
+"A Webots Robot node added to the simulation world. Its ``supervisor`` "
+"field is set to TRUE."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:36
+#: a542cf455b0145c6bc4415450f9714c8
+msgid ""
+"A ROS 2 node that connects to the Webots Robot as an extern controller "
+"(in a similar way to your own robot plugin)."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:38
+#: ea72e12ee31641e0b6fce3dcd3a1c5ac
+msgid ""
+"The ROS 2 node acts as a controller that calls Supervisor API functions "
+"to control or interact with the simulation world. User interactions with "
+"the ROS 2 node are mainly performed through services and topics."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:41
+#: f1fa83bf97e04d2990362e836c17679d
+msgid ""
+"These nodes can be automatically created at the Webots launch using the "
+"``ros2_supervisor`` parameter in the ``WebotsLauncher``."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:51
+#: a2df9ac83920498a94680245aaf75075
+msgid ""
+"The ``webots._supervisor`` object must also be included in the "
+"``LaunchDescription`` returned by the launch file."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:70
+#: 7f9badf23a984a6f9c06fed5db99900c
+msgid ""
+"More information about launch files for ``webots_ros2`` projects can be "
+"found in :doc:`./Setting-Up-Simulation-Webots-Basic`."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:73
+#: 3f48f371ac3b46309b01d07af6d6dffa
+msgid "Clock topic"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:75
+#: 87028408243d475185d67b4077608fca
+msgid ""
+"The ``Ros2Supervisor`` node is responsible to get the time of the Webots "
+"simulation and publish it to the ``/clock`` topic. This means that it is "
+"mandatory to spawn the ``Ros2Supervisor`` if some other nodes have their "
+"``use_sim_time`` parameter set to ``true``. More information about the "
+"``/clock`` topic can be found in the `ROS wiki "
+"<http://wiki.ros.org/Clock>`_."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:80
+#: 96f75723a01a45538dada7f2cb690081
+msgid "Import a Webots node"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:82
+#: c739b603a17b40a19a88160e383b31a5
+msgid ""
+"The ``Ros2Supervisor`` node also allows you to spawn Webots nodes from "
+"strings through a service."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:84
+#: f67861fe6a934f7c8c3e98687236a37b
+msgid ""
+"The service is named ``/Ros2Supervisor/spawn_node_from_string`` and is of"
+" type ``webots_ros2_msgs/srv/SpawnNodeFromString``. The "
+"``SpawnNodeFromString`` type expects a ``data`` string as input and "
+"returns a ``success`` boolean."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:87
+#: afbf8911f39b44968d1da6c24cf04cfd
+msgid ""
+"From the given string, the Supervisor node is getting the name of the "
+"imported node and adding it to an intern list for potential later removal"
+" (see :ref:`Remove a Webots imported node`)."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:89
+#: 684c6e7102a84b42acc8b5d7aab8cbbb
+msgid ""
+"The node is imported using the ``importMFNodeFromString(nodeString)`` "
+"`API function <https://cyberbotics.com/doc/reference/supervisor?tab-"
+"language=python#wb_supervisor_field_import_mf_node_from_string>`_."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:91
+#: 607622dbb1f34354838ed03c00da75bb
+msgid "Here is an example to import a simple Robot named ``imported_robot``:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:98
+#: cba2ee3eb61b478199611891fa9022d0
+msgid ""
+"If you try to import some PROTOs in the node string, their respective "
+"URLs must be declared in the .wbt world file as EXTERNPROTO or as "
+"IMPORTABLE EXTERNPROTO."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:103
+#: 0b37bf666f7a4903b6e3935914ba4da9
+msgid "Remove a Webots imported node"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:105
+#: 86f05506ac1f4c0f96f0d127a0732e60
+msgid ""
+"Once a node has been imported with the "
+"``/Ros2Supervisor/spawn_node_from_string`` service, it can also be "
+"removed."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:107
+#: 6809b08413fc46739e51022b8b96186f
+msgid ""
+"This can be achieved by sending the name of the node to the topic named "
+"``/Ros2Supervisor/remove_node`` of type ``std_msgs/msg/String``."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:109
+#: bc5b6d4b7b3041acb99ab27fd48cbee9
+msgid ""
+"If the node is indeed in the imported list, it is removed with the "
+"``remove()`` `API method "
+"<https://cyberbotics.com/doc/reference/supervisor?tab-"
+"language=python#wb_supervisor_node_remove>`_."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:111
+#: 13829c7b2cd04ad2a69a359c96dda2b9
+msgid "Here is an example on how to remove the ``imported_robot`` Robot:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:118
+#: 46e6ebc95da54edd872bd24cbb753ccf
+msgid "Record animations"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:120
+#: 00a96b73ea5d432585e1aab68fb39e5f
+msgid ""
+"The ``Ros2Supervisor`` node also creates two additional services to "
+"record HTML5 animations."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:122
+#: 72a8263f5bb346e4bd324005c0d92897
+msgid ""
+"The ``/Ros2Supervisor/animation_start_recording`` service is of type "
+"``webots_ros2_msgs/srv/SetString`` and allows to start the animation. The"
+" ``SetString`` type expects a ``value`` string as input and returns a "
+"``success`` boolean. The input ``value`` represents the absolute path to "
+"the directory where the animations files should be saved."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:126
+#: 198f1c01caf4497c80015be0e4e5c821
+msgid "Here is an example on how to start an animation:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:133
+#: 6e36a41b619f427db461242aa85e8d17
+msgid ""
+"The ``/Ros2Supervisor/animation_stop_recording`` service is of type "
+"``webots_ros2_msgs/srv/GetBool`` and allows to stop the animation."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:141
+#: d7c6e92964f34a3a81cf874d0f350657
+msgid "Summary"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst:143
+#: c85bbd3c43d142d59ae84f0b5636c1b2
+msgid ""
+"In this tutorial, you learned how to enable the ``Ros2Supervisor`` and "
+"how to extend the interface with the Webots simulation. The node creates "
+"multiple services and topics to interact with and modify the simulation."
+msgstr ""
+

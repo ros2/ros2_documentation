@@ -1,0 +1,502 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:8
+#: 6c096a44553543689b83ae0ac6438b12
+msgid "Using ``turtlesim``, ``ros2``, and ``rqt``"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:10
+#: 692f6ad82e7440e29b00c0a2a3308500
+msgid ""
+"**Goal:** Install and use the turtlesim package and rqt tools to prepare "
+"for upcoming tutorials."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:12
+#: 30478f6cb1b3417680e4268ee3777dbb
+msgid "**Tutorial level:** Beginner"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:14
+#: 09019b7af7184e57a2ef095823d2727c
+msgid "**Time:** 15 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:18
+#: 4de8eda26a0a43e9b84be7bae5d28ceb
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:21
+#: c956bc0d3cbb4d44b2221ad45e214dc0
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:23
+#: b992e6195c954f4a9f5fb5508c24939d
+msgid ""
+"Turtlesim is a lightweight simulator for learning ROS 2. It illustrates "
+"what ROS 2 does at the most basic level to give you an idea of what you "
+"will do with a real robot or a robot simulation later on."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:26
+#: 38f7f368cb0e4cd199617885ce4c0e70
+msgid ""
+"The ros2 tool is how the user manages, introspects, and interacts with a "
+"ROS system. It supports multiple commands that target different aspects "
+"of the system and its operation. One might use it to start a node, set a "
+"parameter, listen to a topic, and many more. The ros2 tool is part of the"
+" core ROS 2 installation."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:31
+#: b08296d47897425189c3807b48bed844
+msgid ""
+"rqt is a graphical user interface (GUI) tool for ROS 2. Everything done "
+"in rqt can be done on the command line, but rqt provides a more user-"
+"friendly way to manipulate ROS 2 elements."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:34
+#: 8f134b6c237f45f1b3c73b3a717f4c2b
+msgid ""
+"This tutorial touches upon core ROS 2 concepts, like nodes, topics, and "
+"services. All of these concepts will be elaborated on in later tutorials;"
+" for now, you will simply set up the tools and get a feel for them."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:38
+#: 2d86e4a066754cb7a046c65cb087ec15
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:40
+#: 340a3947ce28430196535e8741fa68ad
+msgid ""
+"The previous tutorial, :doc:`../Configuring-ROS2-Environment`, will show "
+"you how to set up your environment."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:43
+#: 34afdf2018364959afb12455a4beddae
+msgid "Tasks"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:46
+#: e1c1d6977f904904a53d61d41ebbdaca
+msgid "1 Install turtlesim"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:48
+#: 3691874449c3456ca33c93c2d1d284db
+msgid ""
+"As always, start by sourcing your setup files in a new terminal, as "
+"described in the :doc:`previous tutorial <../Configuring-"
+"ROS2-Environment>`."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:50
+#: 6f1824bc64f744dfa5edecd4c57d38b4
+msgid "Install the turtlesim package for your ROS 2 distro:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:54
+#: 0b4a5efbe743440a9cc1b20be47e60ea
+msgid "Linux"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:62
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:162
+#: 426abf3253b149cc97688e7379c9973b f7c1df6ef6c94701bd19cbe762d510fe
+msgid "macOS"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:64
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:68
+#: d749340a15574284a064f68c51d2f411 f22878f6afe74995b89d3711d68eb624
+msgid ""
+"As long as the archive you installed ROS 2 from contains the "
+"``ros_tutorials`` repository, you should already have turtlesim "
+"installed."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:66
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:166
+#: 705cae953cbb4762af8d36cfedb4d5a1 a99c2108c88b4e74b73f74d6f2ee1f69
+msgid "Windows"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:70
+#: 696bf8a0e2614304997366d720456f8a
+msgid "Check that the package is installed:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:76
+#: 8471d99f5e7245bf9a6ab908d25783bf
+msgid "The above command should return a list of turtlesim's executables:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:86
+#: 96e01bb723db43b1ac45946f9ac40510
+msgid "2 Start turtlesim"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:88
+#: e6bc228c90814dcb87dbfd5ff4657680
+msgid "To start turtlesim, enter the following command in your terminal:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:94
+#: 19a3475541f74144bac6631bf77cb4f9
+msgid "The simulator window should appear, with a random turtle in the center."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:98
+#: 8716d1bee46844f7a2cbc061e7b521ad
+msgid "In the terminal, under the command, you will see messages from the node:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:105
+#: 55a5558ea4004b5d8f3664d43aa8566d
+msgid ""
+"There you can see the default turtle's name and the coordinates where it "
+"spawns."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:108
+#: ea778b2b1bc245af98801194c35b1c05
+msgid "3 Use turtlesim"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:110
+#: 64f2435a76834298b083767e6ed0560e
+msgid "Open a new terminal and source ROS 2 again."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:112
+#: e43aa846d585460d8cc42977878ba76c
+msgid "Now you will run a new node to control the turtle in the first node:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:118
+#: caf1caa8f3c24d39afe9dc7de7d7a436
+msgid ""
+"At this point you should have three windows open: a terminal running "
+"``turtlesim_node``, a terminal running ``turtle_teleop_key`` and the "
+"turtlesim window. Arrange these windows so that you can see the turtlesim"
+" window, but also have the terminal running ``turtle_teleop_key`` active "
+"so that you can control the turtle in turtlesim."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:121
+#: 5be40657193744f2b99f472144dedb47
+msgid ""
+"Use the arrow keys on your keyboard to control the turtle. It will move "
+"around the screen, using its attached \"pen\" to draw the path it "
+"followed so far."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:126
+#: 1cd1e5d1dd8a4d7b96dae3625d6e8d6f
+msgid ""
+"Pressing an arrow key will only cause the turtle to move a short distance"
+" and then stop. This is because, realistically, you wouldn't want a robot"
+" to continue carrying on an instruction if, for example, the operator "
+"lost the connection to the robot."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:129
+#: 44e5e840f50c42ab89df804fad98fbe1
+msgid ""
+"You can see the nodes, and their associated topics, services, and "
+"actions, using the ``list`` subcommands of the respective commands:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:138
+#: 98664813f8d24c3cb8be80fc89d1367a
+msgid ""
+"You will learn more about these concepts in the coming tutorials. Since "
+"the goal of this tutorial is only to get a general overview of turtlesim,"
+" you will use rqt to call some of the turtlesim services and interact "
+"with ``turtlesim_node``."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:142
+#: 7ae7df66c36c4698bc1d8b4b247b3d7f
+msgid "4 Install rqt"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:144
+#: 751d7d0d5a92418681922e4c7167ab50
+msgid "Open a new terminal to install ``rqt`` and its plugins:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:148
+#: 8230080e747a4dbeb60a5d17681f20b9
+msgid "Ubuntu"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:156
+#: 1f83ca270e8342619cc534d53afdb3e8
+msgid "RHEL"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:164
+#: 9bd94db93e9f47e1a612b6af489881a9
+msgid ""
+"The standard archive for installing ROS 2 on macOS contains ``rqt`` and "
+"its plugins, so you should already have ``rqt`` installed."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:168
+#: 29fdbb087836480389cf8ba88e15066f
+msgid ""
+"The standard archive for installing ROS 2 on Windows contains ``rqt`` and"
+" its plugins, so you should already have ``rqt`` installed."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:170
+#: f9d5992a5a0a44f8a575cd96131c4bdc
+msgid "To run rqt:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:177
+#: 83ad3ce1492c440087ce279c4237e378
+msgid "5 Use rqt"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:179
+#: f1b23509ac9e479998af1b085e979ced
+msgid ""
+"When running rqt for the first time, the window will be blank. No "
+"worries; just select **Plugins** > **Services** > **Service Caller** from"
+" the menu bar at the top."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:184
+#: 6ddff7c578f64541a1d0d5d0cca5359d
+msgid ""
+"It may take some time for rqt to locate all the plugins. If you click on "
+"**Plugins** but don't see **Services** or any other options, you should "
+"close rqt and enter the command ``rqt --force-discover`` in your "
+"terminal."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:189
+#: 789b5085b9714df39a9a6473cfef0db4
+msgid ""
+"Use the refresh button to the left of the **Service** dropdown list to "
+"ensure all the services of your turtlesim node are available."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:191
+#: 7a91ce72d00841059b122cf0904ae231
+msgid ""
+"Click on the **Service** dropdown list to see turtlesim's services, and "
+"select the ``/spawn`` service."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:194
+#: 834bfaabcce14d2eafae570a888d2359
+msgid "5.1 Try the spawn service"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:196
+#: fd1ccd8c9d8d48d086603ff046a99f02
+msgid ""
+"Let's use rqt to call the ``/spawn`` service. You can guess from its name"
+" that ``/spawn`` will create another turtle in the turtlesim window."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:199
+#: 121d8a7135864cfea8501f05b2ba3857
+msgid ""
+"Give the new turtle a unique name, like ``turtle2``, by double-clicking "
+"between the empty single quotes in the **Expression** column. You can see"
+" that this expression corresponds to the value of **name** and is of type"
+" **string**."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:202
+#: c87b91d54ad34ee79ca11369b1923aa3
+msgid ""
+"Next enter some valid coordinates at which to spawn the new turtle, like "
+"``x = 1.0`` and ``y = 1.0``."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:208
+#: c5d465a86cd249a6a656fb588430eda0
+msgid ""
+"If you try to spawn a new turtle with the same name as an existing "
+"turtle, like the default ``turtle1``, you will get an error message in "
+"the terminal running ``turtlesim_node``:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:214
+#: bf9e2863858747b5aa7818d698541061
+msgid ""
+"To spawn ``turtle2``, you then need to call the service by clicking the "
+"**Call** button on the upper right side of the rqt window."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:216
+#: 4f94d9ab14e84d338c587c514eab2a4f
+msgid ""
+"If the service call was successful, you should see a new turtle (again "
+"with a random design) spawn at the coordinates you input for **x** and "
+"**y**."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:218
+#: e53e347a40424ad2bf7a5a338a1c8957
+msgid ""
+"If you refresh the service list in rqt, you will also see that now there "
+"are services related to the new turtle, ``/turtle2/...``, in addition to "
+"``/turtle1/...``."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:221
+#: 81214990d8064a29b88de3a56c2579e4
+msgid "5.2 Try the set_pen service"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:223
+#: ca1732ded56b435c8623d9db2892996c
+msgid "Now let's give ``turtle1`` a unique pen using the ``/set_pen`` service:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:227
+#: 2e7aa8db4eb040d8a7c31f411f7c9eb9
+msgid ""
+"The values for **r**, **g** and **b**, which are between 0 and 255, set "
+"the color of the pen ``turtle1`` draws with, and **width** sets the "
+"thickness of the line."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:229
+#: c226e1f224b74267b8571beecad04a73
+msgid ""
+"To have ``turtle1`` draw with a distinct red line, change the value of "
+"**r** to 255, and the value of **width** to 5. Don't forget to call the "
+"service after updating the values."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:232
+#: 38cd763adaf14cb086d4618db7455cab
+msgid ""
+"If you return to the terminal where ``turtle_teleop_key`` is running and "
+"press the arrow keys, you will see ``turtle1``'s pen has changed."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:236
+#: d920cc2af677458db87b5e5038cd53ff
+msgid ""
+"You've probably also noticed that there's no way to move ``turtle2``. "
+"That's because there is no teleop node for ``turtle2``."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:240
+#: 43e1ed69fd4c435992b21f7b6977a67a
+msgid "6 Remapping"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:242
+#: 267dd5deceb44cdba11804d3d18ac111
+msgid ""
+"You need a second teleop node in order to control ``turtle2``. However, "
+"if you try to run the same command as before, you will notice that this "
+"one also controls ``turtle1``. The way to change this behavior is by "
+"remapping the ``cmd_vel`` topic."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:246
+#: e6662aa295204cbc9a34f977728f62a7
+msgid "In a new terminal, source ROS 2, and run:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:253
+#: b3a62ad8b0fc47699cf66a49932abcb8
+msgid ""
+"Now, you can move ``turtle2`` when this terminal is active, and "
+"``turtle1`` when the other terminal running ``turtle_teleop_key`` is "
+"active."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:258
+#: 025544bf2c18470e9d3b468c523a1686
+msgid "7 Close turtlesim"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:260
+#: da057611bdf3414687a4ad80e0eda80d
+msgid ""
+"To stop the simulation, you can enter ``Ctrl + C`` in the "
+"``turtlesim_node`` terminal, and ``q`` in the ``turtle_teleop_key`` "
+"terminals."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:263
+#: 4a289894081843909bb0ad4f7a8f676e
+msgid "Summary"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:265
+#: 33fcab7dbf97492bb7271447452e2902
+msgid ""
+"Using turtlesim and rqt is a great way to learn the core concepts of ROS "
+"2."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:268
+#: 655f8062ac2345a592455d6c437f7f5f
+msgid "Next steps"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:270
+#: eba50af75003476dac0717aae96fae1f
+msgid ""
+"Now that you have turtlesim and rqt up and running, and an idea of how "
+"they work, let's dive into the first core ROS 2 concept with the next "
+"tutorial, :doc:`../Understanding-ROS2-Nodes/Understanding-ROS2-Nodes`."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:273
+#: ccaa8f88f3bf4964b82b8c1b305d3f4f
+msgid "Related content"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:275
+#: d9c29c5db6b84ab79960441aa3885ebf
+msgid ""
+"The turtlesim package can be found in the `ros_tutorials "
+"<https://github.com/ros/ros_tutorials/tree/rolling/turtlesim>`_ repo."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.rst:277
+#: af1ec1c717a64b7aad4eeae36f46ae78
+msgid ""
+"`This community contributed video <https://youtu.be/xwT7XWflMdc>`_ "
+"demonstrates many of the items covered in this tutorial."
+msgstr ""
+

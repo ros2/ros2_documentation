@@ -1,0 +1,230 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Intermediate/Tf2/Quaternion-Fundamentals.rst:8
+#: 7575fc129617442dae4133f4d16a0ada
+msgid "Quaternion fundamentals"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Quaternion-Fundamentals.rst:10
+#: cbb1947b500b4cffab5aa2bae61bc6f1
+msgid "**Goal:** Learn the basics of quaternion usage in ROS 2."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Quaternion-Fundamentals.rst:12
+#: 257bbf6bb0f040088735acb1a8e498cc
+msgid "**Tutorial level:** Intermediate"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Quaternion-Fundamentals.rst:14
+#: 60d04f8f5608437abfa07bd79ff91159
+msgid "**Time:** 10 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Quaternion-Fundamentals.rst:18
+#: 646fe0a557954bb0a1f9b704d84f5edf
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Quaternion-Fundamentals.rst:21
+#: c65317639245431cab1b90ac6fcffa36
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Quaternion-Fundamentals.rst:23
+#: bc08bbae17ee472487a51e768390e42e
+msgid ""
+"A quaternion is a 4-tuple representation of orientation, which is more "
+"concise than a rotation matrix. Quaternions are very efficient for "
+"analyzing situations where rotations in three dimensions are involved. "
+"Quaternions are used widely in robotics, quantum mechanics, computer "
+"vision, and 3D animation."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Quaternion-Fundamentals.rst:27
+#: 0b10b61636324216bc5f96dd072f8f3d
+msgid ""
+"You can learn more about the underlying mathematical concept on "
+"`Wikipedia <https://en.wikipedia.org/wiki/Quaternion>`_. You can also "
+"take a look at an explorable video series `Visualizing quaternions "
+"<https://eater.net/quaternions>`_ made by `3blue1brown "
+"<https://www.youtube.com/3blue1brown>`_."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Quaternion-Fundamentals.rst:30
+#: 58f8d7fbfcc648b5ad672f224312a3e2
+msgid ""
+"In this tutorial, you will learn how quaternions and conversion methods "
+"work in ROS 2."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Quaternion-Fundamentals.rst:33
+#: 56f06a5dfc4d452296187cf28d183976
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Quaternion-Fundamentals.rst:35
+#: b6b1b7cc02ac4470a363cb7ee78fa5c0
+msgid ""
+"However, this is not a hard requirement and you can stick to any other "
+"geometric transfromation library that suit you best. You can take a look "
+"at libraries like `transforms3d <https://github.com/matthew-"
+"brett/transforms3d>`_, `scipy.spatial.transform "
+"<https://github.com/scipy/scipy/tree/master/scipy/spatial/transform>`_, "
+"`pytransform3d <https://github.com/rock-learning/pytransform3d>`_, "
+"`numpy-quaternion <https://github.com/moble/quaternion>`_ or "
+"`blender.mathutils "
+"<https://docs.blender.org/api/master/mathutils.html>`_."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Quaternion-Fundamentals.rst:39
+#: 185ab56ca8d84449ad8ea3ffae503583
+msgid "Components of a quaternion"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Quaternion-Fundamentals.rst:41
+#: 6f74174962fb494daffd8e2ad8539d6d
+msgid ""
+"ROS 2 uses quaternions to track and apply rotations. A quaternion has 4 "
+"components ``(x, y, z, w)``. In ROS 2, ``w`` is last, but in some "
+"libraries like Eigen, ``w`` can be placed at the first position. The "
+"commonly-used unit quaternion that yields no rotation about the x/y/z "
+"axes is ``(0, 0, 0, 1)``, and can be created in a following way:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Quaternion-Fundamentals.rst:58
+#: 974dbe930d5e4ba0b1b725ca7dc193bd
+msgid ""
+"The magnitude of a quaternion should always be one. If numerical errors "
+"cause a quaternion magnitude other than one, ROS 2 will print warnings. "
+"To avoid these warnings, normalize the quaternion:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Quaternion-Fundamentals.rst:67
+#: 26e192635e984a42b5662dd15bee033c
+msgid "Quaternion types in ROS 2"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Quaternion-Fundamentals.rst:69
+#: c68bb829c89848cb91c155f13a36604a
+msgid ""
+"ROS 2 uses two quaternion datatypes: ``tf2::Quaternion`` and its "
+"equivalent ``geometry_msgs::msg::Quaternion``. To convert between them in"
+" C++, use the methods of ``tf2_geometry_msgs``."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Quaternion-Fundamentals.rst:72
+#: ../../source/Tutorials/Intermediate/Tf2/Quaternion-Fundamentals.rst:126
+#: 0e37e627e6d3419fb2e1dd10d81a4de1 2c6aef03b2b64128b8f849c6cb4c00d2
+msgid "C++"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Quaternion-Fundamentals.rst:90
+#: ../../source/Tutorials/Intermediate/Tf2/Quaternion-Fundamentals.rst:141
+#: 6f7e641ac92440a882d643f1fbefe140 e1d8ca7fe9dd46d59b70723f66092736
+msgid "Python"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Quaternion-Fundamentals.rst:105
+#: 919039c38bf549409ab5e12e5416f457
+msgid "Quaternion operations"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Quaternion-Fundamentals.rst:108
+#: b0df86fe45a4405983201bac282b9565
+msgid "1 Think in RPY then convert to quaternion"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Quaternion-Fundamentals.rst:110
+#: 56217cbd08604ec2988fd40687c5e15a
+msgid ""
+"It's easy for us to think of rotations about axes, but hard to think in "
+"terms of quaternions. A suggestion is to calculate target rotations in "
+"terms of roll (about an X-axis), pitch (about the Y-axis), and yaw (about"
+" the Z-axis), and then convert to a quaternion."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Quaternion-Fundamentals.rst:121
+#: ec8dda83630043e8b1230486aee78211
+msgid "2 Applying a quaternion rotation"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Quaternion-Fundamentals.rst:123
+#: c1f84b33d3a74340bc37af440a59a63a
+msgid ""
+"To apply the rotation of one quaternion to a pose, simply multiply the "
+"previous quaternion of the pose by the quaternion representing the "
+"desired rotation. The order of this multiplication matters."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Quaternion-Fundamentals.rst:152
+#: c0eaa6637da64a63baa44cf1db10bc59
+msgid "3 Inverting a quaternion"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Quaternion-Fundamentals.rst:154
+#: a957c3a204fd4d979f4d8cfd8529e292
+msgid "An easy way to invert a quaternion is to negate the w-component:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Quaternion-Fundamentals.rst:161
+#: 507f85feb3c5437f9ad1e2a4d53d24c4
+msgid "4 Relative rotations"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Quaternion-Fundamentals.rst:163
+#: c57f3ed68d1a4242b111478015833517
+msgid ""
+"Say you have two quaternions from the same frame, ``q_1`` and ``q_2``. "
+"You want to find the relative rotation, ``q_r``, that converts ``q_1`` to"
+" ``q_2`` in a following manner:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Quaternion-Fundamentals.rst:170
+#: f0647c90853543878f9b7d3854ac412e
+msgid ""
+"You can solve for ``q_r`` similarly to solving a matrix equation. Invert "
+"``q_1`` and right-multiply both sides. Again, the order of multiplication"
+" is important:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Quaternion-Fundamentals.rst:177
+#: b99585a032f64e3ea08bcc8e44a1a2ac
+msgid ""
+"Here's an example to get the relative rotation from the previous robot "
+"pose to the current robot pose in python:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Quaternion-Fundamentals.rst:230
+#: 0c82e1ca295143b38103a45a242c1d7a
+msgid "Summary"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Quaternion-Fundamentals.rst:232
+#: 9e5b30eb958e4552a80ea2270faa21b7
+msgid ""
+"In this tutorial, you learned about the fundamental concepts of a "
+"quaternion and its related mathematical operations, like inversion and "
+"rotation. You also learned about its usage examples in ROS 2 and "
+"conversion methods between two separate Quaternion classes."
+msgstr ""
+

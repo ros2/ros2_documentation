@@ -1,0 +1,2045 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:6
+#: 0778bf4edce54034b2d7de521a72bfc2
+msgid "Iron Irwini (``iron``)"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:15
+#: ab7bf4e973f34bc58c500a1a1ad942d2
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:17
+#: 0e87f7c96da841939b496c16d59c0de8
+msgid ""
+"*Iron Irwini* is the ninth release of ROS 2. What follows is highlights "
+"of the important changes and features in Iron Irwini since the last "
+"release. For a list of all of the changes since Humble, see the "
+":doc:`long form changelog <Iron-Irwini-Complete-Changelog>`."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:22
+#: 71a2386e6ce74c4f895f1465022069fe
+msgid "Supported Platforms"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:24
+#: 3cac8aa3f5294a5c98c71d8033a825b4
+msgid "Iron Irwini is primarily supported on the following platforms:"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:26
+#: f236a2ee54884867bde360ad7b6d3786
+msgid "Tier 1 platforms:"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:28
+#: 37623233560e4f6b80d6c068639073e5
+msgid "Ubuntu 22.04 (Jammy): ``amd64`` and ``arm64``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:29
+#: 2bd6f2c525a044a4956d3c0dc8c7e4f0
+msgid "Windows 10 (Visual Studio 2019): ``amd64``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:31
+#: 3f43fb997ee3453db713360c6a9f07af
+msgid "Tier 2 platforms:"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:33
+#: 432f2f69522043afb385a88402215d88
+msgid "RHEL 9: ``amd64``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:35
+#: 6f8b380e66594e8f99d1322d565bdeb8
+msgid "Tier 3 platforms:"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:37
+#: cd7619d808b24a88a8f96cc31d001a87
+msgid "macOS: ``amd64``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:38
+#: 9dbea1ae987444db911150fb8b2cd31f
+msgid "Debian Bullseye: ``amd64``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:40
+#: 2b8173108c4646fa9cca901fc7d97ca2
+msgid ""
+"For more information about RMW implementations, compiler / interpreter "
+"versions, and system dependency versions see `REP 2000 "
+"<https://www.ros.org/reps/rep-2000.html>`__."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:43
+#: f8798a4a7893460d88ce687958e5cebe
+msgid "Installation"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:45
+#: b0683c6567024332b3e35f04361c02b8
+msgid "`Install Iron Irwini <../../iron/Installation.html>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:48
+#: 04f14974630243b8a9f2974f38185eab
+msgid "New features in this ROS 2 release"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:51
+#: b5a7b7195c234e71913666145d3f1461
+msgid "API documentation generation for Python packages"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:53
+#: f98c104e9a9c454da1d16de0a16632af
+msgid ""
+"ROS 2 has had automatic API documentation for C++ packages for several "
+"releases, e.g. "
+"https://docs.ros.org/en/rolling/p/rclcpp/generated/index.html. Iron adds "
+"automatic API documentation for Python packages as well, e.g. "
+"https://docs.ros.org/en/rolling/p/rclpy/rclpy.html."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:56
+#: 12f2826c23ed4cb6989600cf2caec229
+msgid ""
+"See https://github.com/ros-infrastructure/rosdoc2/pull/28, "
+"https://github.com/ros-infrastructure/rosdoc2/pull/49, https://github.com"
+"/ros-infrastructure/rosdoc2/pull/51, and https://github.com/ros-"
+"infrastructure/rosdoc2/pull/52 for more details."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:59
+#: 95cb30cf1ca6451a9be4da592ee559c1
+msgid "Service introspection"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:61
+#: a75439eaa0fb4bcda884d2ddaa383821
+msgid ""
+"It is now possible to enable service introspection on a per-service "
+"basis. When enabled, this allows users to see the metadata associated "
+"with the client requesting a service, the server accepting the request, "
+"the server sending the response, and the client accepting the response. "
+"Optionally, the contents of the client/server requests/responses can also"
+" be introspected. All of the information is published on a hidden topic "
+"generated from the name of the service. So if the service is called "
+"``/myservice``, then the information will be published on "
+"``/myservice/_service_event``."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:67
+#: f36915c7bd044c72ac14c9ab649b6e39
+msgid ""
+"Note that this functionality is disabled by default; to enable it, users "
+"must call ``configure_introspection`` after creating a server client or "
+"server. There are examples showing how to do this in "
+"https://github.com/ros2/demos/tree/iron/demo_nodes_cpp/src/services (C++)"
+" and "
+"https://github.com/ros2/demos/blob/iron/demo_nodes_py/demo_nodes_py/services/introspection.py"
+" (Python)."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:70
+#: cf9ea9d35d314936b2c7517934e09d27
+msgid ""
+"See `REP 2012 <https://github.com/ros-infrastructure/rep/pull/360>`__ and"
+" the tracking bug at https://github.com/ros2/ros2/issues/1285 for more "
+"information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:73
+#: 44a74f0175844c9187549cf3419261f3
+msgid "Pre and post set parameter callback support"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:75
+#: 2907524103ed4772bf57e203d3e92aad
+msgid ""
+"For many releases now, users could register a callback to be called when "
+"parameters on a node were changed by an external entity (like ``ros2 "
+"param set``). This callback could examine the changed parameter types and"
+" values, and reject the whole lot if one of them didn't meet certain "
+"criteria. However, it could not modify the parameter list, nor should it "
+"have modified state (since there might be other callbacks after the set "
+"one that would reject the parameters)."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:79
+#: 0c381f8fc8054a5fbfd201a4ee431c90
+msgid ""
+"This release adds in a pre and post callback. The callbacks are called in"
+" this order:"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:82
+#: 137457267ffe4ba0802cb753ad7b6c24
+msgid ""
+"The \"pre\" set parameter callback, which can modify the list of "
+"parameters based on arbitrary criteria."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:83
+#: dbea2ab8ed1442159e325af9cdeb1e15
+msgid ""
+"The \"set\" parameter callback, which cannot modify the list and should "
+"only accept or reject the parameters based on their type and value (this "
+"is the existing callback)."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:84
+#: b38f0bdbda9648caac09cb77a23cf754
+msgid ""
+"The \"post\" set parameter callback, which can make state changes based "
+"on parameters and is only called if the previous two callbacks are "
+"successful."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:86
+#: a034e89fc31440c1bcdaff38d62fd527
+msgid ""
+"There are examples of this in action in "
+"https://github.com/ros2/demos/blob/iron/demo_nodes_cpp/src/parameters/set_parameters_callback.cpp"
+" (C++) and "
+"https://github.com/ros2/demos/blob/iron/demo_nodes_py/demo_nodes_py/parameters/set_parameters_callback.py"
+" (Python)."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:88
+#: 4022165579f045f0928c26b1cd7b810d
+msgid ""
+"See https://github.com/ros2/rclcpp/pull/1947, "
+"https://github.com/ros2/rclpy/pull/966, and "
+"https://github.com/ros2/demos/pull/565 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:91
+#: bdfb991c91544acfb44d6b9395f9c146
+msgid "Improved discovery options"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:93
+#: 8c681f50f6464fba83e80d62204f4d5f
+msgid ""
+"Previous ROS 2 versions offered limited discovery options. The default "
+"behavior for DDS based RMW implementations was to discover any node "
+"reachable via multicast. It could be limited to the same machine by "
+"setting the environment variable ``ROS_LOCALHOST_ONLY``, but any "
+"additional configuration required configuring the middleware directly, "
+"usually via middleware specific XML files and environment variables. ROS "
+"Iron retains the same default discovery behavior, but deprecates "
+"``ROS_LOCALHOST_ONLY`` in favor of more granular options."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:98
+#: 17ea01c1c3b743d9a48f5054e03c2c9d
+msgid ""
+"``ROS_AUTOMATIC_DISCOVERY_RANGE`` controls how far ROS nodes will try to "
+"discover each other. Valid options are:"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:100
+#: cc70a5c1adfa44a38f3f1bb411c6dc82
+msgid ""
+"``SUBNET`` - The default, and for DDS-based middlewares it will discover "
+"any node reachable via multicast."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:101
+#: a1702908e0dd488dbcbf6b12eaa3bdd6
+msgid "``LOCALHOST`` - Will only try to discover other nodes on the same machine."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:102
+#: 132e23d931214dcf8f8ac3348f65041f
+msgid ""
+"``OFF`` - Will not attempt to discover any other nodes automatically, "
+"even on the same machine."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:103
+#: 09f01a27683d4d7abe5f3b275cabdc22
+msgid ""
+"``SYSTEM_DEFAULT`` - Will not change any discovery settings.  This is "
+"useful when you already have custom settings for your middleware and "
+"don't want ROS to change them."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:105
+#: 65c4ab7d4caf49f6857ce64809f31faf
+msgid ""
+"``ROS_STATIC_PEERS`` - A semicolon (``;``) separated list of addresses "
+"that ROS should try to discover nodes on.  This allows the user to "
+"connect to nodes on specifc machines (as long as their discovery range is"
+" not set to ``OFF``)."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:107
+#: f49a4e9d43d944478f571d2712e86441
+msgid ""
+"For example, you might have several robots with "
+"``ROS_AUTOMATIC_DISCOVERY_RANGE`` set to ``LOCALHOST`` so they don't "
+"communicate with each other. When you want to connect RViz to one of "
+"them, you add it's address to ``ROS_STATIC_PEERS`` in your terminal. Now "
+"you can use ROS 2 CLI and visualization tools to interact with the robot."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:111
+#: dd481c9e0f294e27951bb211dbebb9d8
+msgid ""
+"See https://github.com/ros2/ros2/issues/1359 for more information about "
+"this feature."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:114
+#: 78e75707133c41a682e6e313d283241e
+msgid "Matched events"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:116
+#: 9a162237616c467b9481e9e0ef212d61
+msgid ""
+"In addition to QoS events, matched events can be generated when any "
+"publisher and subscription establishes or drops the connection between "
+"them. Users can provide each publisher and subscription with callback "
+"functions that are triggered by matched events and handle them in a way "
+"they see fit, similar to how messages received on a topic are handled."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:119
+#: 63ee50bfb7c640829ef6f6580ff4d8ab
+msgid ""
+"publisher: this event happens when it finds a subscription which matches "
+"the topic and has compatible QoS or a connected subscription is "
+"disconnected."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:120
+#: 68bb32fd4a724463b7b2a917d4b4621b
+msgid ""
+"subscription: this event happens when it finds a publisher which matches "
+"the topic and has compatible QoS or a connected publisher is "
+"disconnected."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:122
+#: 0c7533ecbd794c04b3c5189371f6e753
+msgid ""
+"See the tracking issue at https://github.com/ros2/rmw/issues/330 for more"
+" information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:124
+#: b6ed2a8e00614a26a29fa112b6fc30ab
+msgid ""
+"C++ Demo of Matched Events: "
+"https://github.com/ros2/demos/blob/iron/demo_nodes_cpp/src/events/matched_event_detect.cpp"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:125
+#: d39ec36612b24229940d2a23ce8d6786
+msgid ""
+"Python Demo of Matched Events: "
+"https://github.com/ros2/demos/blob/iron/demo_nodes_py/demo_nodes_py/events/matched_event_detect.py"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:128
+#: 8ec51cd1cb0545d4a3fea8d978234363
+msgid "External configuration services of loggers"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:130
+#: 417ec3ab742e424c925ee3456c7e5763
+msgid ""
+"It is now possible to configure node logger levels remotely via a "
+"service. When the ``enable_logger_service`` option is enabled during node"
+" creation, the ``set_logger_levels`` and ``get_logger_levels`` services "
+"will be available."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:133
+#: 0a6e3a71c07649e0b53c8646923065a8
+msgid ""
+"Be advised that the ``enable_logger_service`` option is disabled by "
+"default, so the user needs to enable this option on node creation."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:135
+#: f46c01a644104a37aab511db67f6baa2
+msgid "See https://github.com/ros2/ros2/issues/1355 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:138
+#: 212d649cc9a54f989c2166c980ae8f36
+msgid "Type Description Distribution"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:140
+#: 36af82cff6d748789548b7dd069369f2
+msgid ""
+"It is now possible to communicate information about the types of ROS 2 "
+"messages, so that systems with potentially-different types of the same "
+"name may discover their compatibility more transparently. This umbrella "
+"of capabilities, which is defined by a subset of REP-2011: Evolving "
+"Message Types, has had many parts land in Iron."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:143
+#: 097f940f5177406d8ca308eec932184c
+msgid ""
+"First, the introduction of the new package `type_description_interfaces "
+"<https://index.ros.org/p/type_description_interfaces/github-"
+"ros2-rcl_interfaces/#iron>`__ provides a common way to communicate the "
+"descriptions of ROS 2 communication interface types (msg, srv, action)."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:145
+#: 68fa48b66f024aae80504b84a8c02381
+msgid ""
+"Next, a method to hash type descriptions has been decided on, the ROS "
+"Interface Hashing Standard (RIHS) - starting with the first version "
+"RIHS01. RIHS hashes are automatically calculated for all compiled ROS "
+"types at build time, and baked into the generated code so that they can "
+"be inspected. These hashes are also communicated automatically during "
+"discovery, and included in ``rmw_topic_endpoint_info_t`` for graph "
+"introspection queries such as ``get_publishers_info_by_topic``."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:149
+#: 16c7727795834a88ba150a0ba405a15a
+msgid ""
+"The full ``TypeDescription`` data structure, as well as the raw source "
+"text (such as ``.msg`` file) that were used to generate it are now baked "
+"in by default to the message libraries, so they can be used by "
+"``typesupport`` or end users. While we expect this data to provide value "
+"to most users, some users trying to minimize bytes in their install space"
+" can disable the feature when building ROS 2 Core by defining the CMake "
+"variable ``ROSIDL_GENERATOR_C_DISABLE_TYPE_DESCRIPTION_CODEGEN``."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:152
+#: 7acf68e0fe3b4a0fa40820e80456c8e3
+msgid ""
+"Finally, the new service "
+"``type_description_interfaces/GetTypeDescription.srv`` has been defined "
+"to allow nodes, on encountering an unknown RIHS type hash, to request the"
+" full definition from the node advertising that type. Work is in progress"
+" to provide this feature natively in ROS 2 Nodes, as an optional switch "
+"on node construction. This feature has not yet shipped, but is expected "
+"to be backported into Iron sometime mid-2023. Meanwhile, user nodes could"
+" implement this service indepedently, using the stable service interface."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:157
+#: f8be3ccddbe04909b5ecc113c9c66e9f
+msgid ""
+"See `REP 2011 <https://github.com/ros-infrastructure/rep/pull/358>`__ for"
+" the design proposal. See `Type Description Distribution "
+"<https://github.com/ros2/ros2/issues/1159>`__ for tracking development on"
+" the feature set."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:161
+#: 1bb0038fb8cd442fb49c9a6d983af3ea
+msgid "Dynamic Types and Dynamic Messages"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:163
+#: a6b6c32c8a694575bd0c042bfab7bfb8
+msgid ""
+"Alongside the type description distribution feature mentioned above, is "
+"the ability to construct and access dynamically created types at runtime "
+"(i.e., dynamic types). This feature is available in Iron for Fast DDS and"
+" ``rcl``, with new ``rmw`` interfaces for supporting the taking of "
+"messages as dynamic messages (i.e., messages built from or following the "
+"structure of the dynamic type)."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:166
+#: 39347a36fd8348648dd3150e34fee48d
+msgid ""
+"First, utilities were introduced into `rosidl "
+"<https://index.ros.org/r/rosidl/github-ros2-rosidl/#iron>`__ to aid in "
+"the construction and manipulation of type descriptions."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:168
+#: eeec6948faf546669e48c7c3f1d4eb68
+msgid ""
+"Next, the `rosidl_dynamic_typesupport "
+"<https://index.ros.org/r/rosidl_dynamic_typesupport/github-"
+"ros2-rosidl_dynamic_typesupport/#iron>`__ package was written and "
+"provides a middleware-agnostic interface to construct dynamic types and "
+"dynamic messages at runtime. Types can be constructed at runtime either "
+"programmatically, or by parsing a "
+"``type_description_interfaces/TypeDescription`` message."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:173
+#: e73cf9303b5140ebbe64454d1d0586a9
+msgid ""
+"The ``rosidl_dynamic_typesupport`` library requires serialization support"
+" libraries to implement the middleware-specific dynamic type behavior. A "
+"serialization support library for Fast DDS was implemented in "
+"`rosidl_dynamic_typesupport_fastrtps "
+"<https://index.ros.org/r/rosidl_dynamic_typesupport_fastrtps/github-"
+"ros2-rosidl_dynamic_typesupport_fastrtps/#iron>`__. Ideally more "
+"middlewares will implement support libraries, expanding the number of "
+"middlewares that support this feature."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:177
+#: 4283ecf2296c46e298262f879773c07f
+msgid ""
+"Finally, to support the use of dynamic types and dynamic messages, new "
+"methods were added to `rmw <https://index.ros.org/r/rmw/github-"
+"ros2-rmw/#iron>`__ and `rcl <https://index.ros.org/r/rcl/github-"
+"ros2-rcl/#iron>`__ that support:"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:179
+#: 60fd946a61954d1e92452e0c0e44c34a
+msgid "The ability to obtain of middleware-specific serialization support"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:180
+#: 64952e3d3c71499ca7101e695103c100
+msgid ""
+"The ability to construct message type support at runtime that use dynamic"
+" types"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:181
+#: 00cabb28f7934ef29c06239e52e20a66
+msgid "The ability to take dynamic messages using dynamic type"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:183
+#: cbe55af9ebf647739f6581f3eb10eacb
+msgid ""
+"Work is in progress to enable the use of dynamic types to create "
+"subscriptions in the client libraries (see the ``rclcpp`` issue below), "
+"though it is uncertain when the feature will land or be backported. This "
+"will allow users to subscribe to topics whose type descriptions are only "
+"known at runtime. In the meantime, users may write their own "
+"subscriptions that subscribe to dynamic types by using the new ``rmw`` "
+"and ``rcl`` features introduced as part of this feature set."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:187
+#: 9ee49244b4c94ef78ca2d0e1a83cfd97
+msgid ""
+"See `REP 2011 <https://github.com/ros-infrastructure/rep/pull/358>`__ for"
+" the design proposal. See `Dynamic Subscription "
+"<https://github.com/ros2/ros2/issues/1374>`__ for tracking development on"
+" the feature set, with `rclcpp "
+"<https://github.com/ros2/rclcpp/pull/2176>`__ needing the bulk of the "
+"work."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:191
+#: ../../source/Releases/Release-Iron-Irwini.rst:498
+#: 39dd8bcd1c574323afbf469d0c4a5309 825849b7993b4d95af905aeb3debff39
+msgid "``launch``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:194
+#: 4cb8ba676e1d4b489a6f44ec17967516
+msgid "``PythonExpression`` now supports importing modules"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:196
+#: 87b50a5e425a46d3856bf5db46e34f6f
+msgid ""
+"It is now possible to have a launch ``PythonExpression`` import modules "
+"before performing the evaluation. This can be useful for pulling in "
+"additional functionality to be used when evaluating an expression."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:199
+#: 1972ce37ad0d42b2a780b0c68d877ad8
+msgid "See https://github.com/ros2/launch/pull/655 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:202
+#: 2fb5758256e64c47b1446e9260914b48
+msgid "``ReadyToTest`` can be called from an event handler"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:204
+#: 7143492875874feb8df7f81cd9a916b6
+msgid ""
+"It is now possible to register an event handler that uses ``ReadyToTest``"
+" in its output. This can be useful for doing things like downloading an "
+"asset before allowing a test to run."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:207
+#: 232434566b1a4688b6530e2fb8e3fa27
+msgid "See https://github.com/ros2/launch/pull/665 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:210
+#: 0dc3e6065f5a4e05bda2f00833b5df87
+msgid "Addition of ``AnySubstitution`` and ``AllSubstitution``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:212
+#: 1bf9a0766ee1433fa49462509ca6f9e2
+msgid ""
+"It is now possible to specify a substitution to happen when any of the "
+"input arguments are true (``AnySubstitution``), or when all of the input "
+"arguments are true (``AllSubstitution``)."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:214
+#: ../../source/Releases/Release-Iron-Irwini.rst:506
+#: 05175f608567424ba0c0b9a795faa8e4 da0916565a3c4c1c9dc5d47f9f818531
+msgid "See https://github.com/ros2/launch/pull/649 for more details."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:217
+#: 54c7385110e743e8a5183c99fc38e7cc
+msgid "Addition of a new substitution to get the launch logging directory"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:219
+#: 38967fdbc1274dc6b23a8b17a59c0455
+msgid ""
+"It is now possible to use a substitution called ``LaunchLogDir`` to get "
+"the current logging directory for launch."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:221
+#: 4a7d5c123fa64361b2a3b6b80b4275ae
+msgid "See https://github.com/ros2/launch/pull/652 for more details."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:224
+#: ../../source/Releases/Release-Iron-Irwini.rst:509
+#: 592fc5f2d0eb41af9bd2f2ae4b031c5b f41931977b3d47d2a455d9dc7b0d3096
+msgid "``launch_ros``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:227
+#: 87ab6c92e9c04b278e5d29f239209c12
+msgid "Add a ``LifecycleTransition`` action"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:229
+#: 7d1af1fa0add405da934e4a24fe74f46
+msgid ""
+"It is now possible to send a transition signal to a lifecycle node via "
+"the new ``LifeCycleTransition`` action."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:231
+#: d8dc0a68f26347329b31dd425817403d
+msgid "See https://github.com/ros2/launch_ros/pull/317 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:234
+#: eae27f35e063420eb1b20f2dc02d5a73
+msgid "Add a ``SetROSLogDir`` action"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:236
+#: da65248eec47473787829c1a57114cc6
+msgid ""
+"It is now possible to configure the directory used for logging via the "
+"``SetROSLogDir`` action."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:238
+#: cdff1f4c9281410a890e6cd033117d74
+msgid "See https://github.com/ros2/launch_ros/pull/325 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:241
+#: aff688fdce0246499cd688ef96862d10
+msgid "Ability to specify a condition to a ``ComposableNode``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:243
+#: 3f0f041a3b6246098b3046bc69ca829b
+msgid ""
+"It is now possible to specify a condition that must be satisfied in order"
+" for a ``ComposableNode`` to be inserted into its container."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:245
+#: 219794c967c648608c7952bd74fce672
+msgid "See https://github.com/ros2/launch_ros/pull/311 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:248
+#: a80933411e17466da2a6a47f52ad7ee9
+msgid "``launch_testing``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:251
+#: 6ee0eba0495146e29bf500d99cd67fe0
+msgid "Timeout for process startup is now configurable"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:253
+#: 98aba700440947689c096344bd11fd5a
+msgid ""
+"Prior to this release, the ``ReadyToTest`` action would wait exactly 15 "
+"seconds for processes to start up. If the processes took longer than "
+"that, they would fail. There is now a new decorator called "
+"``ready_to_test_action_timeout`` that allows the user to configure the "
+"amount of time to wait for the processes to start."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:257
+#: 0626b7abe0944f9b885bc996834be9d5
+msgid "See https://github.com/ros2/launch/pull/625 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:260
+#: ../../source/Releases/Release-Iron-Irwini.rst:588
+#: 1eba38355c6d4fe6adebfb5fa1547d2e d151dd8669fe4750b5878b2b922687e1
+msgid "``rclcpp``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:263
+#: e364e76bfc59478bb9ccc117bf4262a6
+msgid "Addition of a new paradigm for handling ``Node`` and ``LifecycleNode``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:265
+#: ea0e131a71794c9bb1715e329a44b188
+msgid ""
+"The ``Node`` and ``LifecycleNode`` classes are related in that they both "
+"provide the same base set of methods (though ``LifecycleNode`` provides "
+"additional methods as well). Due to various implementation "
+"considerations, they are not derived from a common base class."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:268
+#: e2b2e53e786e48e195a3784a59dca9f6
+msgid ""
+"This has led to some trouble for downstream code that wants to accept "
+"either a ``Node`` or a ``LifecycleNode``. One solution is to have two "
+"method signatures, one that accepts a ``Node`` and one that accepts a "
+"``LifecycleNode``. The other, recommended solution is to have a method "
+"that accepts the \"node interfaces\" pointers that can be accessed from "
+"both classes, e.g."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:289
+#: 28040bbce1a44ec79f2d848e20d3289a
+msgid ""
+"This works, but can get a bit unwieldy when many node interfaces are "
+"needed. To make this a bit better, there is now a new ``NodeInterfaces`` "
+"class that can be constructed to contain the interfaces, and then be used"
+" by other code."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:292
+#: 5eadd3b6fab04cacb5f5ebbd048ae0ca
+msgid ""
+"There are examples on how to use this in "
+"https://github.com/ros2/rclcpp/pull/2041."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:295
+#: f3d3c1e7e5b0468c81924311bbc3f6ec
+msgid "Introduction of a new executor type: the Events Executor"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:297
+#: af320868d23c44a0b2afcb5c92e89a2a
+msgid ""
+"The ``EventsExecutor`` from iRobot has been merged into the main "
+"``rclcpp`` codebase. This alternative executor implementation uses event-"
+"driven callbacks from the middleware implementations to fire callbacks at"
+" the ``rclcpp`` layer. In addition to the push-based model, the "
+"``EventsExecutor`` also moves timer management into a separate thread, "
+"which can allow for more accurate results and lower overhead, especially "
+"with many timers."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:301
+#: bad269207974460e9238e347c85c3b56
+msgid ""
+"The ``EventsExecutor`` has a substantial set of documentation and use-in-"
+"practice that make it a strong candidate for inclusion in the ``rclcpp`` "
+"codebase. For information about the initial implementation proposal as "
+"well as performance benchmarks, see https://discourse.ros.org/t/ros2"
+"-middleware-change-proposal/15863. For more information about the design,"
+" see the design PR: https://github.com/ros2/design/pull/305."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:305
+#: 07bf8829962c4e27bd192d0b7dce3858
+msgid ""
+"Since the API is the same, trying the ``EventsExecutor`` is as "
+"straightforward as replacing your current Executor implementation (eg. "
+"``SingleThreadedExecutor``):"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:316
+#: ad3ed274c50e4fdabc2f282c08139a45
+msgid ""
+"**Note** The ``EventsExecutor`` and ``TimersManager`` are currently in "
+"the ``experimental`` namespace. While it has been used as a standalone "
+"implementation for some time https://github.com/irobot-ros/events-"
+"executor, it was decided to use the ``experimental`` namespace for at "
+"least one release to give latitude in changing the API within the "
+"release. Use caution as it will not be subject to the same API/ABI "
+"guarantees that the non-experimental code has."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:321
+#: ../../source/Releases/Release-Iron-Irwini.rst:613
+#: 0beaf3fe38c94c518a809aa64aeda92f 70e4b268741d463c9d33b5e9d4474e83
+msgid "``rclpy``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:324
+#: 8323b11d0202448e8438c2e37401266d
+msgid "Ability to wait for another node to join the graph"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:326
+#: 8b02771015f24ac3890505b70631fd1f
+msgid ""
+"It is now possible to wait for another node to join the network graph "
+"with code like the following:"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:332
+#: 67b1306acc0e40d49d64c258a3bb2aaa
+msgid "See https://github.com/ros2/rclpy/pull/930 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:335
+#: 53abfacb31694e71a5ec8e0addc400bb
+msgid "Implementation of ``AsyncParameterClient``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:337
+#: aea5002ae9f24b74b97df979acc9c3bc
+msgid ""
+"``rclpy`` now has an ``AsyncParameterClient`` class, bringing it to "
+"feature parity with ``rclcpp``. This class is used to perform parameter "
+"actions on a remote node without blocking the calling node."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:340
+#: 2f30bba2868b469eba9d19102c48030f
+msgid ""
+"See https://github.com/ros2/rclpy/pull/959 for more information and "
+"examples."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:343
+#: 1880bcd973d444b78cb6741a8df17f49
+msgid "Subscription callbacks can now optionally get the message info"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:345
+#: 061f0f11183b4902a7faa6b64730fe47
+msgid ""
+"It is now possible to register for a subscription callback with a "
+"function signature that takes both the message, and the message info, "
+"like:"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:354
+#: 5791c966a8f24f5b8a996576fe783d2b
+msgid ""
+"The message info structure contains various pieces of information like "
+"the sequence number of the message, the source and received timestamps, "
+"and the GID of the publisher."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:356
+#: 8d329a8800a24159ba2c82875675e870
+msgid "See https://github.com/ros2/rclpy/pull/922 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:359
+#: cedbd87f66264d18955477232d3670ff
+msgid "Optional argument that hides assertions for messages class"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:360
+#: b42f6c429743430e9f531811049abb25
+msgid ""
+"All message classes now include a new optional argument that allows the "
+"hiding of assertions for each field type from the message. By default, "
+"assertions are hidden, which provides a performance improvement during "
+"runtime. In order to enable the assertions for development/debugging "
+"purposes, you are given two choices:"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:364
+#: 328460ecf50549eea111de5f7ebfcfa3
+msgid ""
+"Define the environment variable ``ROS_PYTHON_CHECK_FIELDS`` to ``'1'`` "
+"(this would affect all the messages in your project):"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:374
+#: 91170a72bb844e4a80491e826b6e5470
+msgid ""
+"Select the specific behavior for a single message by explicitly defining "
+"the new argument in the constructor:"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:382
+#: ../../source/Releases/Release-Iron-Irwini.rst:788
+#: 9041bf110c5c4efa8daf7186fe6dba26 a6123ff61e9f408c8da880435c791f0d
+msgid "See https://github.com/ros2/rosidl_python/pull/194 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:385
+#: 0d96502b19e24c55ac91c80746434745
+msgid "``ros2param``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:388
+#: 03be18bc1a7a4e099f84479bf4a75fd1
+msgid "Option to timeout when waiting for a node with ``ros2 param``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:390
+#: a6cdc13ccd074d67acb3d8aec40d9615
+msgid ""
+"It is now possible to have the various ``ros2 param`` commands timeout by"
+" passing ``--timeout`` to the command."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:392
+#: 6015cad1f622427290fed74a0fe11ebd
+msgid "See https://github.com/ros2/ros2cli/pull/802 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:395
+#: 7b2da2376d4c4bc58fe99f06b03a0709
+msgid "Deprecated options were removed"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:397
+#: 3d9eacb22c6641988712e15a30533cec
+msgid ""
+"``--output-dir`` and ``--print`` options with ``dump`` command have been "
+"removed."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:399
+#: ../../source/Releases/Release-Iron-Irwini.rst:433
+#: 63a8274123fc42538e9cd136693cd845 e353fd33a926470e82701bc9b33790fb
+msgid "See https://github.com/ros2/ros2cli/pull/824 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:402
+#: ../../source/Releases/Release-Iron-Irwini.rst:684
+#: 7bbfe534aac24ba89fa87a68f2327081 e3c170ab1736492d8a53f78c6d06fbd7
+msgid "``ros2topic``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:405
+#: 9e7adc1ba5754d82b0af3ee7b7aa25df
+msgid ""
+"``now`` as keyword for ``builtin_interfaces.msg.Time`` and ``auto`` for "
+"``std_msgs.msg.Header``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:407
+#: aeb413c2e7994f72bd22c4a2faea77b9
+msgid ""
+"``ros2 topic pub`` now allows to set a ``builtin_interfaces.msg.Time`` "
+"message to the current time via the ``now`` keyword. Similarly, a "
+"``std_msg.msg.Header`` message will be automatically generated when "
+"passed the keyword ``auto``. This behavior matches that of ROS 1's "
+"``rostopic`` "
+"(http://wiki.ros.org/ROS/YAMLCommandLine#Headers.2Ftimestamps)"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:411
+#: 04957775b4824b6c9e324534c8d4438c
+msgid "Related PR: `ros2/ros2cli#749 <https://github.com/ros2/ros2cli/pull/749>`_"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:414
+#: e7b2d463ba92443a86d6f3fa2b3414cb
+msgid "``ros2 topic pub`` can be configured to wait a maximum amount of time"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:416
+#: 8030d899fdb7403fb10b4779ac059563
+msgid ""
+"The command ``ros2 topic pub -w 1`` will wait for at least that number of"
+" subscribers before publishing a message. This release adds in a ``--max-"
+"wait-time`` option so that the command will only wait a maximum amount of"
+" time before quitting if no subscribers are seen."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:419
+#: 7cd680ee798f4f84961f17fe287142e8
+msgid "See https://github.com/ros2/ros2cli/pull/800 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:422
+#: ecdc9a9f89044aafa2af26a3e3ce1a90
+msgid "``ros2 topic echo`` can be configured to wait a maximum amount of time"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:424
+#: 201dbf4bffe84e26b69deb6c6fc7fcda
+msgid ""
+"The command ``ros2 topic echo`` now accepts a ``--timeout`` option, which"
+" controls the maximum amount of time that the command will wait for a "
+"publication to happen."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:426
+#: f3c71e5657fa48be944542e673463c69
+msgid "See https://github.com/ros2/ros2cli/pull/792 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:429
+#: 92c34aaaaabf405989ac035c4ef25924
+msgid "Deprecated option was removed"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:431
+#: a85cf23c5e254ceba2d0ada56eed3917
+msgid "``--lost-messages`` option with ``echo`` command has been removed."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:436
+#: 65265eff69b94b3885dd374f9da09b69
+msgid "Changes since the Humble release"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:439
+#: aba96a4baa9a4ea99b0aa5f6a7c0d86e
+msgid "Change to the default console logging file flushing behavior"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:441
+#: 449f29ba755b46c3b8349267ea949c78
+msgid ""
+"This specifically applies to the default ``spdlog`` based logging backend"
+" in ROS 2, implemented in ``rcl_logging_spdlog``. Log file flushing was "
+"changed to flush every time an \"error\" log message is used, e.g. each "
+"``RCLCPP_ERROR()`` call, and also periodically every five seconds."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:444
+#: 75703027a6e440a2921dbb702d3f4e9e
+msgid ""
+"Previously, ``spdlog`` was used without configuring anything other than "
+"creating the sink for logging to a file."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:446
+#: 7758e29eb5c04814af9d212367eb88f0
+msgid ""
+"We tested the change and did not find that the CPU overhead was "
+"significant, even on machines with slow disks (e.g. sd cards). However, "
+"if this change is causing you problems, you can get the old behavior by "
+"setting the ``RCL_LOGGING_SPDLOG_EXPERIMENTAL_OLD_FLUSHING_BEHAVIOR=1`` "
+"environment variable."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:449
+#: 77053b2981f5478f9e0eaac6b5b79323
+msgid ""
+"Later we would like to have support for a full configuration file (see: "
+"https://github.com/ros2/rcl_logging/issues/92), giving you more "
+"flexibility in how the logging is done, but that is work that is only "
+"planned right now."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:451
+#: fc39cf89a2a64579a5963a352fc6f9b0
+msgid ""
+"Therefore, **this environment variable should be considered experimental "
+"and subject to removal without deprecation in the future**, when we add "
+"config file support for the ``rcl_logging_spdlog`` logging backend."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:453
+#: 2ac64d79c4f640a7a53c0575e4d7c22e
+msgid ""
+"See this pull request for more details about the change: "
+"https://github.com/ros2/rcl_logging/pull/95"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:456
+#: 633d50937c6c4311b9a6a76e10ec3bf3
+msgid "``ament_cmake_auto``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:459
+#: 82f80c8889464e948e6925db18c8dbf9
+msgid "Include dependencies are now marked as SYSTEM"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:461
+#: bfdf0503676e4fbf9c2cc492e639809a
+msgid ""
+"When using ``ament_auto_add_executable`` or ``ament_auto_add_library``, "
+"dependencies are now automatically added as ``SYSTEM``. This means that "
+"warnings in the header files of the dependencies will not be reported."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:464
+#: da56496002f644ec84679e85fa362efb
+msgid "See https://github.com/ament/ament_cmake/pull/385 for more details."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:467
+#: 4836e9a0e4af467fbeb47b0a34376301
+msgid "``ament_cmake_nose``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:470
+#: 124fde9d886644a5a41e34030f6853b2
+msgid "Package has been deprecated and removed"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:472
+#: cfc99d3bba7040d6b956f4ebd302152c
+msgid ""
+"The Python ``nose`` package has long been deprecated. Since none of the "
+"open-source packages currently released into Humble or Rolling currently "
+"depend on it, this release deprecates and removes the ament wrapper "
+"around it."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:475
+#: 29340980f1c6443a872b1beb768321a1
+msgid "See https://github.com/ament/ament_cmake/pull/415 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:478
+#: f12c2aa918184f91af2f08b86f6562c4
+msgid "``ament_lint``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:481
+#: 3a75b72717c54665ba6df3d586f6bf35
+msgid "Files can be excluded from linter checks"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:483
+#: 4198427014f24e49be60ea97867bd977
+msgid ""
+"Certain files can now be excluded from linter checks by setting the "
+"``AMENT_LINT_AUTO_FILE_EXCLUDE`` CMake variable before calling "
+"``ament_lint_auto_find_test_dependencies``."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:485
+#: 08ed5e289120456193ddc39daabfef7b
+msgid "See https://github.com/ament/ament_lint/pull/386 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:488
+#: 80d1dabf4b594662b79b0a76cd89c6ad
+msgid "``camera_info_manager``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:491
+#: e3e1e49319434df88a272e6ea367aa89
+msgid "Lifecycle node support"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:493
+#: 528b74cd089549269e2fa53498e204b3
+msgid ""
+"``camera_info_manager`` now supports lifecycle nodes in additional to "
+"regular ROS 2 nodes."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:495
+#: c3027b96ffec43b78ecf602ae09f2496
+msgid ""
+"See https://github.com/ros-perception/image_common/pull/190 for more "
+"information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:501
+#: 089f25022b1a487988fe57e3c7a3d1a4
+msgid ""
+"``LaunchConfigurationEquals`` and ``LaunchConfigurationNotEquals`` are "
+"deprecated"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:503
+#: e40952bd4adc4c918f5437fd7162d8ce
+msgid ""
+"The ``LaunchConfigurationEquals`` and ``LaunchConfigurationNotEquals`` "
+"conditions are deprecated, and will be removed in a future release. "
+"Instead, the more universal ``Equals`` and ``NotEquals`` substitutions "
+"should be used instead."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:512
+#: 3b618dfa1ee244928db84f77402161ab
+msgid ""
+"Renamed classes which used ``Ros`` in the name to use ``ROS`` in line "
+"with PEP8"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:514
+#: 04fb230040314237801ec4373ac6886d
+msgid "Classes that were changed:"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:516
+#: bf62cd86cde14076b753151002493c60
+msgid "``launch_ros.actions.RosTimer`` -> ``launch_ros.actions.ROSTimer``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:517
+#: 920e90ab8a0644cabc44e535a02473f3
+msgid ""
+"``launch_ros.actions.PushRosNamespace`` -> "
+"``launch.actions.PushROSNamespace``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:519
+#: 8cd82d8900c04ab391b33142269f2b72
+msgid "The old class names are still there, but will be deprecated."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:521
+#: 5608bf94d9e7416a8eb06f519ae8f68c
+msgid "See https://github.com/ros2/launch_ros/pull/326 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:524
+#: 70700651ed994e399897e5910d2d41c0
+msgid "``launch_xml``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:527
+#: 3da5586f590e4e6bbd69e4cc1505b685
+msgid "Expose ``emulate_tty`` to XML frontend"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:529
+#: 90d63d58b91b41a4b144aa467c210866
+msgid ""
+"It has been possible for several releases to have the ``launch`` Python "
+"code use pseudo-terminals to emulate a TTY (and hence do things like "
+"print colors). That functionality is now available in the XML frontend by"
+" passing the ``emulate_tty`` argument to an executable command."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:532
+#: ../../source/Releases/Release-Iron-Irwini.rst:551
+#: 2f106755c5c740ce9c0ca64f1432abd5 fe602ba70ae5449cbbce4b6a1ae5332b
+msgid "See https://github.com/ros2/launch/pull/669 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:535
+#: fd74f5ae78da42dc88b7b86b719a3e33
+msgid "Expose ``sigterm_timeout`` and ``sigkill_timeout`` to XML frontend"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:537
+#: 9cfac5698fe14919a23decfbd0d51c48
+msgid ""
+"It has been possible for several releases to configure the maximum "
+"timeout value for the SIGTERM and SIGKILL signals in the ``launch`` "
+"Python code. That functionality is now available in the XML frontend by "
+"passing the ``sigterm_timeout`` or ``sigkill_timeout`` argument to an "
+"executable command."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:540
+#: ../../source/Releases/Release-Iron-Irwini.rst:559
+#: c552c1bb4bf6418ea98b357351aeb431 e1562b0a961f41b0991e9e44506ffdc9
+msgid "See https://github.com/ros2/launch/pull/667 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:543
+#: ad7fd614243d460b96f7906373983e3c
+msgid "``launch_yaml``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:546
+#: e54a08507b4a49b0bab39bc84251f698
+msgid "Expose ``emulate_tty`` to YAML frontend"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:548
+#: 8c2d1a7c6eb34577ab8e5307ad22124b
+msgid ""
+"It has been possible for several releases to have the ``launch`` Python "
+"code use pseudo-terminals to emulate a TTY (and hence do things like "
+"print colors). That functionality is now available in the YAML frontend "
+"by passing the ``emulate_tty`` argument to an executable command."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:554
+#: cfe421f15a0e442893bf5a5f77c05904
+msgid "Expose ``sigterm_timeout`` and ``sigkill_timeout`` to YAML frontend"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:556
+#: f749daa3e0974c279517db9b7b64bc24
+msgid ""
+"It has been possible for several releases to configure the maximum "
+"timeout value for the SIGTERM and SIGKILL signals in the ``launch`` "
+"Python code. That functionality is now available in the YAML frontend by "
+"passing the ``sigterm_timeout`` or ``sigkill_timeout`` argument to an "
+"executable command."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:562
+#: dd3720e498274517a0de0820eaa45189
+msgid "``message_filters``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:565
+#: e254e19f58194569a6bacf267a624c30
+msgid "New approximate time policy"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:567
+#: 0a363925e94f4eef85605e03ba70e140
+msgid ""
+"Add in a simpler approximate time policy called "
+"``ApproximateEpsilonTime``. This time policy works like ``ExactTime``, "
+"but allows timestamps being within a epsilon tolerance. See "
+"https://github.com/ros2/message_filters/pull/84 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:572
+#: abb969ab301048adbebb23e77817f2b9
+msgid "New upsampling time policy"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:574
+#: 7773f67734fd4fe39d5bef5170416e26
+msgid ""
+"Adds in a new time policy called ``LatestTime``. It can synchronize up to"
+" 9 messages by their rates with upsampling via zero-order-hold. See "
+"https://github.com/ros2/message_filters/pull/73 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:579
+#: 4a996ccc567a498a97b6c42ad81d72ec
+msgid "``rcl_yaml_param_parser``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:582
+#: 0c563a9a1eb84029beea1c0a4121aa10
+msgid "Support for YAML ``!!str`` syntax in parameter files"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:584
+#: 76d9448544624cee8d128627e3d43ca6
+msgid ""
+"It is now possible to force the ROS parameter file parser to interpret a "
+"field as a string using the YAML ``!!str`` syntax. See "
+"https://github.com/ros2/rcl/pull/999 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:591
+#: ../../source/Releases/Release-Iron-Irwini.rst:616
+#: 391de6290336443ea7ff8801c81b1bae a1c8e5bef684492bb36816b955dd36fc
+msgid "Default number of threads for multi-threaded executor has been changed"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:593
+#: ../../source/Releases/Release-Iron-Irwini.rst:618
+#: 3d32b86dc22346cfb3f67f0b503f0ccc 6bf84a02108b43a3b655c268d3eb421a
+msgid ""
+"If the user doesn't specify otherwise, the default number of threads for "
+"the multi-threaded executor will be set to the number of CPUs on the "
+"machine. If the underlying OS doesn't support getting this information, "
+"it will be set to 2."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:596
+#: eb2fab70528b498ab59a1f133a9868d0
+msgid "See https://github.com/ros2/rclcpp/pull/2032 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:599
+#: ../../source/Releases/Release-Iron-Irwini.rst:624
+#: 2a27dd5b1cec4f829ee0496050c55859 ce09a14de0664212b5364a6952e5b938
+msgid ""
+"A warning is now printed when QoS of KEEP_LAST is specified with a depth "
+"of 0"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:601
+#: e3d8bc5d03f1473ebea341ea72307468
+msgid ""
+"Specifying a QoS of KEEP_LAST with a depth of 0 is a nonsensical "
+"arrangement, since the entity wouldn't be able to send or receive any "
+"data. ``rclcpp`` will now print a warning if this combination is "
+"specified, but will still continue on and let the underlying middleware "
+"choose a sane value (generally a depth of 1)."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:604
+#: 37c6ec8f28a14df08bb5c9e38a278824
+msgid "See https://github.com/ros2/rclcpp/pull/2048 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:607
+#: ab04c4a1a15740ea9e07897632245338
+msgid "Deprecated ``RCLCPP_SCOPE_EXIT`` macro was removed"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:609
+#: 39d2ac1a71fb4e65bab17aeaa29b8b41
+msgid ""
+"In Humble, the macro ``RCLCPP_SCOPE_EXIT`` was deprecated in favor of "
+"``RCPPUTILS_SCOPE_EXIT``. In Iron, the ``RCLCPP_SCOPE_EXIT`` macro has "
+"been completely removed."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:621
+#: 73e7e020b1574b1fbc190d4f6a5908f9
+msgid "See https://github.com/ros2/rclpy/pull/1031 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:626
+#: 615b251464344c139aa49c0ebe1e8b90
+msgid ""
+"Specifying a QoS of KEEP_LAST with a depth of 0 is a nonsensical "
+"arrangement, since the entity wouldn't be able to send or receive any "
+"data. ``rclpy`` will now print a warning if this combination is "
+"specified, but will still continue on and let the underlying middleware "
+"choose a sane value (generally a depth of 1)."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:629
+#: bdd8f37349764a0ebdb7bb2bd403bec8
+msgid "See https://github.com/ros2/rclpy/pull/1048 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:632
+#: 14b9fd7374ae4d26b499f572a7150050
+msgid "Time and Duration no longer raise exception when compared to another type"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:634
+#: fc76e03424ef4bbdb0ef71f99aa7407b
+msgid ""
+"It is now possible to compare ``rclpy.time.Time`` and "
+"``rclpy.duration.Duration`` to other types without getting exceptions. If"
+" the types are not comparable, the comparison returns ``False``. Note "
+"that this is a behavior change from previous releases."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:642
+#: 776a750515434b76905d2e15948e7319
+msgid "See https://github.com/ros2/rclpy/pull/1007 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:645
+#: 4283f50d381a46f39538bd1d52cfeecb
+msgid "``rcutils``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:648
+#: b03a49d5fc9548c691072779360a64dc
+msgid "Improve the performance of message logging"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:650
+#: d5e029db6bcd4ebeaf25b965ba76b782
+msgid ""
+"The code used to output a log message when ``RCUTILS_LOG_*`` or "
+"``RCLCPP_*`` was optimized to reduce overhead. These log messages should "
+"now be more efficient, though they should still not be called at high "
+"rates. See https://github.com/ros2/rcutils/pull/381, "
+"https://github.com/ros2/rcutils/pull/372, "
+"https://github.com/ros2/rcutils/pull/369, and "
+"https://github.com/ros2/rcutils/pull/367 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:655
+#: 1153f018b6ae4231bee9847b8a6f0b53
+msgid "Deprecated ``rcutils/get_env.h`` header was removed"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:657
+#: 898b420dba3540cea5157c1365d423d3
+msgid ""
+"In Humble, the header ``rcutils/get_env.h`` was deprecated in favor of "
+"``rcutils/env.h``. In Iron, the ``rcutils/get_env.h`` header been "
+"completely removed."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:661
+#: c2a8227dc57b4385a829f562e1c1fc9e
+msgid "``rmw``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:664
+#: ../../source/Releases/Release-Iron-Irwini.rst:677
+#: 34f87ffe226c4a6f8d968b3afbd2cd08 46b6a69cc7fb4a03a8c98b1ea6c3a3be
+msgid "Change the GID storage to 16 bytes"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:666
+#: 3bc3bfcbc9174e5999eb3eba3959a2b5
+msgid ""
+"The GID in the RMW layer is meant to be a globally unique identifier for "
+"writers in the ROS graph. Previously, this was erroneously set to 24 "
+"bytes based on a bug in an old RMW implementation. But the ``rmw`` "
+"package should define this, and all of the implementations should conform"
+" to that. Thus, this release defines it as 16 bytes (the DDS standard), "
+"and changes all implementations to use that definition."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:671
+#: 2a1aefa8d3d841ffb694f08af3d57fc1
+msgid ""
+"See https://github.com/ros2/rmw/pull/345 and the (closed, but relevant) "
+"https://github.com/ros2/rmw/pull/328 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:674
+#: 30dd3fb221b54e448d74448777d985e4
+msgid "``rmw_dds_common``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:679
+#: a5bc7ba96a6f406dbf5a2cfd6cfb74e3
+msgid ""
+"Along with the change in the ``rmw`` layer, change the message that sends"
+" out GID information to 16 bytes."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:681
+#: d17af0495b62429490e08f6a0dbd5b4b
+msgid "See https://github.com/ros2/rmw_dds_common/pull/68 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:687
+#: 3e4bb2e99a6e4f69b07545ca17be45f9
+msgid "``ros2 topic hz/bw/pub`` now respect ``use_sim_time``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:689
+#: f9c8f6f0353b4241901d9f7b3e8e0328
+msgid ""
+"When running under simulation, the ROS 2 ecosystem generally gets its "
+"time from a ``/clock`` topic published by the simulator (rather than "
+"using the system clock). ROS 2 nodes are typically informed of this "
+"change by setting the ``use_sim_time`` parameter on the node. The node "
+"created by the ``ros2 topic`` commands ``hz``, ``bw``, and ``pub`` now "
+"respect that parameter and will use simulation time as appropriate."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:693
+#: b08c21feb7eb4aa38d6d6de362ed86dc
+msgid "See https://github.com/ros2/ros2cli/pull/754 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:696
+#: b705b55df1a449a3a5f80927a1c61d0c
+msgid "``rosbag2``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:699
+#: 8fd110de2b9c4b4f9c2ace3f6bdfea57
+msgid "Change default bag file type to ``mcap``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:701
+#: 7db3503aa7284a8f8c2b3752010d4115
+msgid ""
+"Prior to this release, by default rosbag2 would record data into sqlite3 "
+"databases. During testing, it was found that in many cases this was not "
+"performant enough and lacked certain features desirable for offline "
+"processing."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:704
+#: 1f574daa88bf4ee680959e6c0748dbdd
+msgid ""
+"To meet these needs, a new bag format (influenced by the original ROS 1 "
+"bag file format) called ``mcap`` was developed. This bag file format has "
+"many of the missing features from the sqlite3 file format, and should "
+"also be more performant."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:707
+#: 8006b14df27f4cf48a5643dba5f2140c
+msgid ""
+"This release switches to using ``mcap`` as the default file format for "
+"writing new bags. The old ``sqlite3`` file format is still available and "
+"can be selected by the user for writing if desired. This release also "
+"allows playing back data from either the ``sqlite3`` file format or the "
+"``mcap`` file format."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:711
+#: adb45fb5138543d18d79a8d7f79a0a77
+msgid "See https://github.com/ros2/rosbag2/pull/1160 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:714
+#: 0bcfd71ab1b1456cb291c8aa91156f3b
+msgid "Store message definitions in bag files with SQLite3 plugin"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:716
+#: 531abd842bd04e978597e21905735db5
+msgid ""
+"Now we support saving message definitions to the ``sqlite3`` database "
+"file in the same format as we are saving it to the ``mcap`` file. This "
+"opens an opportunity for third-party tools to have the ability to "
+"deserialize rosbag2 files without having the correct version of all the "
+"original .msg files on the machine that is decoding the bag file recorded"
+" with ``sqlite3`` plugin."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:722
+#: 7523999745594abb938d1ff154739f37
+msgid ""
+"See https://github.com/ros2/rosbag2/issues/782 and "
+"https://github.com/ros2/rosbag2/pull/1293 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:727
+#: 01d2484e148b4293932db78b356bde01
+msgid "New playback and recording controls"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:729
+#: e89633d3c00347dfafea3b85488d1e4c
+msgid ""
+"Several pull requests have been added to enhance the user's control over "
+"playback of bags. Pull request `960 "
+"<https://github.com/ros2/rosbag2/pull/960>`_ adds the ability to play bag"
+" for a specified number of seconds. And pull request `1005 "
+"<https://github.com/ros2/rosbag2/pull/1005>`_ allows to play bag until "
+"specified timestamp. Another pull request `1007 "
+"<https://github.com/ros2/rosbag2/pull/1007>`_ adds the ability to stop "
+"playback remotely via service call. Stop will unpause player if it was in"
+" pause mode, stop playback and force exit from play() method if it was in"
+" progress."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:738
+#: 79d89b0086154df5bcedab3bc4376d70
+msgid "Managing recording via service calls"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:740
+#: 42f08bf1e75240ccb138597bb2a042e0
+msgid ""
+"There are new options to control the recording process from remote nodes."
+" The pull request `1131 <https://github.com/ros2/rosbag2/pull/1131>`_ "
+"adds the ability to pause and resume recording via service calls. Another"
+" pull request `1115 <https://github.com/ros2/rosbag2/pull/1115>`_ adds "
+"the ability to split bags during recording by sending service call."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:747
+#: 37f27ecb3aa942a8aa1a3ef2674326de
+msgid "Filtering topics via regular expression during playback"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:749
+#: 6c9bb3621df14105bc576dd1cec511b9
+msgid ""
+"Users sometimes need to replay only a subset of topics from recorded bags"
+" and the following two pull request adds such capability. Pull request "
+"`1034 <https://github.com/ros2/rosbag2/pull/1034>`_ adds a new option "
+"``--topics-regex`` that allows filtering topics via regular expressions. "
+"The ``--topics-regex`` option accepts multiple regular expressions "
+"separated by space. And pull request `1046 "
+"<https://github.com/ros2/rosbag2/pull/1046>`_ adds the ability to exclude"
+" some certain topics from being replayed by providing regular expression "
+"in a new ``--exclude`` (and ``-x``) option."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:759
+#: 1e43f203df71428e8f6caded39072880
+msgid "Allow plugins to register their own CLI verb arguments"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:761
+#: a719429a32f8449f92680816447868fc
+msgid ""
+"Pull request `1209 <https://github.com/ros2/rosbag2/pull/1209>`_ adds the"
+" ability for ``rosbag2`` plugins to register an optional Python "
+"entrypoint providing plugin-specific CLI argument values. As a result the"
+" command line option ``--storage-preset-profile`` for ``ros2 bag record``"
+" verb will have different valid options depending on the underlying "
+"storage plugin."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:767
+#: f652d4dc316344c8812b948fae0d6bdc
+msgid "Other changes"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:769
+#: 1605bb7b59ea49daa700c30d5deffe5b
+msgid ""
+"The pull request `1038 <https://github.com/ros2/rosbag2/pull/1038>`_ adds"
+" the ability to record any key/value pair in 'custom' field in "
+"metadata.yaml file. It is useful when users need to save some hardware "
+"specific id or coordinates where the recording was captured. And pull "
+"request `1180 <https://github.com/ros2/rosbag2/pull/1180>`_ adds an "
+"option to change the underlying node name for the recorder via providing "
+"the new command line ``--node-name`` option. This option might be used "
+"for creating remote distributed recording with multiple rosbag2 recorder "
+"instances. It provides the ability to send service calls for managing the"
+" recording process to the dedicated rosbag2 recorder instances."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:779
+#: 278027c4a30742e29f74d5c49e35b954
+msgid "``rosidl_python``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:782
+#: 54ebfcb705c846289b3ee2d2080a575d
+msgid "Modification of content of ``__slots__`` attribute"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:784
+#: 796ab5781bde442090f41e963b92f1f0
+msgid ""
+"So far, the attribute ``__slots__`` from the python message classes, have"
+" been used as the member that contains the field names of the message. In"
+" Iron, this attribute no longer contains only the field names from the "
+"message structure, but the field names for all the class members. "
+"Therefore, users shouldn't rely on this attribute to retrieve the field "
+"names information, instead, users should retrieve it using the method "
+"``get_field_and_field_types()``."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:791
+#: 891d754db8504986847a5e578de65665
+msgid "``rviz``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:794
+#: 14960036b81c4ebfbdde8d49ea86b632
+msgid "Map display can now be shown as binary"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:796
+#: 6e9f37d033674eddae2fb6eecc2c3b24
+msgid ""
+"The RViz map display can now display the map as binary, with a settable "
+"threshold. This is useful in some cases to inspect maps or in combination"
+" with planners that have a settable threshold."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:799
+#: 241d3c6a3a71468090546713826a2eca
+msgid "See https://github.com/ros2/rviz/pull/846 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:802
+#: fd4e45a28db0490ea3a6a316b73d2396
+msgid "Camera display plugin respects the ROI in the CameraInfo message"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:804
+#: e1cbcdf9433e4c59b622c1b37a4a9f69
+msgid ""
+"The CameraDisplay plugin now honors the region-of-interest (ROI) settings"
+" in the CameraInfo message, if it is provided. This accounts for the fact"
+" that an image was cropped by the camera driver to reduce the bandwidth."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:807
+#: 4cecc1f489374bee9c5c3f79fa2ee427
+msgid "See https://github.com/ros2/rviz/pull/864 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:810
+#: 438826114c5e4900a1a735d3f2d4f6e3
+msgid "Binary STL files from SOLIDWORKS work without error"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:812
+#: 436bd7ec08f8487baa34ba424254b263
+msgid ""
+"A change was made to the STL loader such that it accepts binary STL files"
+" from SOLIDWORKS that have the word \"solid\" in them. This technically "
+"violates the STL specification, but is common enough that a special case "
+"is added to handle these files."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:815
+#: f1da4826a9c2490ea40dfcf3ec400939
+msgid "See https://github.com/ros2/rviz/pull/917 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:818
+#: 985d4b4d51454bc5bf1b992561d05036
+msgid "``tracetools``"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:821
+#: 24aa49b6f2c14e84b8c9e88080d90ba9
+msgid "Tracing instrumentation is now included by default on Linux"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:823
+#: 9e906d27b6e547fcbf426fade1a7e7a5
+msgid ""
+"The ROS 2 core has had tracing instrumentation for a while now. However, "
+"it was compiled out by default. To get the instrumentation, the LTTng "
+"tracer had to be manually installed before rebuilding ROS 2 from source. "
+"In Iron, the tracing instrumentation and tracepoints are included by "
+"default; the LTTng tracer is therefore now a ROS 2 dependency."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:828
+#: 2a43b628896c4ed0ba47688af73dad01
+msgid "Note that this only applies to Linux."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:830
+#: adb1f4b3c9454f7d9159b6aa6500306e
+msgid ""
+"See https://github.com/ros2/ros2_tracing/pull/31 and "
+"https://github.com/ros2/ros2/issues/1177 for more information. See "
+":doc:`this how-to guide to remove the instrumentation (or add the "
+"instrumentation with Humble and older) <../How-To-Guides/Building-ROS-2"
+"-with-Tracing>`."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:834
+#: b0f8dd14eaf44a90bb456339949d672a
+msgid "New tracepoints for ``rclcpp`` intra-process are added"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:836
+#: b58a5c0bf3c54bab891dc705d4e41ceb
+msgid ""
+"New tracepoints have been added to support ``rclcpp`` intra-process "
+"communication. This allows the evaluation of the time between the message"
+" publishing and the callback start in intra-process communication."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:839
+#: d9e13cde16294f68a011d1afe95abd6a
+msgid ""
+"See https://github.com/ros2/ros2_tracing/pull/30 and "
+"https://github.com/ros2/rclcpp/pull/2091 for more information."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:842
+#: 4d1febc430274281aebf5d1aa7cc529d
+msgid "Known Issues"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:844
+#: 2adccb01a7da4e8cb32d65e7a888f367
+msgid ""
+"``rmw_connextdds`` does not work with Windows Binary release packages. "
+"RTI is not longer distributing ``RTI ConnextDDS 6.0.1`` which was used by"
+" the packaging jobs to create the binaries for Windows. Instead they now "
+"distribute ``RTI ConnextDDS 6.1.0`` which is ABI incompatible with the "
+"generated binaries. The solution is to rely on source builds of ROS 2 and"
+" ``rmw_connextdds`` on Windows."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:849
+#: b8e1f281771d419ca2e12ebf863809c5
+msgid ""
+"``sros2`` on Windows requires users to downgrade the ``cryptography`` "
+"python module to ``cryptography==38.0.4`` as discussed `here "
+"<https://github.com/ros2/sros2/issues/285>`_."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:851
+#: c501c8554594475684555dc8f744b9a9
+msgid ""
+"``ros1_bridge`` does not work with ROS Noetic packages from `upstream "
+"Ubuntu <https://packages.ubuntu.com/jammy/ros-core-dev>`_.  The suggested"
+" workaround is to build ROS Noetic from sources, then build the "
+"``ros1_bridge`` using that."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:854
+#: 781852ce88cf4acd977e50a6d81116cc
+msgid "Release Timeline"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:857
+#: 7e30defb72ba4d12840a4bb41b022a34
+msgid "November, 2022 - Platform decisions"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:857
+#: 4c5cdf3be6034fbdbc398dfa3491b91e
+msgid ""
+"REP 2000 is updated with the target platforms and major dependency "
+"versions."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:860
+#: cb871f20c097431f881a28970160fdea
+msgid "By January, 2023 - Rolling platform shift"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:860
+#: 1737015446c648fa9251c9520976de30
+msgid ""
+"Build farm is updated with the new platform versions and dependency "
+"versions for Iron Irwini (if necessary)."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:863
+#: 8e462a2de5604f55bb998717d882dc0a
+msgid "Mon. April 10, 2023 - Alpha + RMW freeze"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:863
+#: 674dbcf45f014311bd24db003aec4394
+msgid ""
+"Preliminary testing and stabilization of ROS Base [1]_ packages, and API "
+"and feature freeze for RMW provider packages."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:868
+#: 2fd5716c191a402080ab862f13363a04
+msgid "Mon. April 17, 2023 - Freeze"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:866
+#: 8b9c34be0b6a46f09e6b73a98c569b13
+msgid ""
+"API and feature freeze for ROS Base [1]_ packages in Rolling Ridley. Only"
+" bug fix releases should be made after this point. New packages can be "
+"released independently."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:873
+#: b046e82d970e42449d3d31d7a48510b4
+msgid "Mon. April 24, 2023 - Branch"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:871
+#: 6f12fa615ef742258338bbe0895b4921
+msgid ""
+"Branch from Rolling Ridley. ``rosdistro`` is reopened for Rolling PRs for"
+" ROS Base [1]_ packages. Iron development shifts from ``ros-rolling-*`` "
+"packages to ``ros-iron-*`` packages."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:877
+#: 56848ac4704d442c9a7280b89c7de698
+msgid "Mon. May 1, 2023 - Beta"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:876
+#: a3e9446a594b4b05a790ffe3c1130d16
+msgid ""
+"Updated releases of ROS Desktop [2]_ packages available. Call for general"
+" testing."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:881
+#: 03bb1e78c9394d74bf37b325411ed683
+msgid "Mon. May 15, 2023 - Release Candidate"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:880
+#: 6c61db1f66c143f29002d538abc8ad92
+msgid ""
+"Release Candidate packages are built. Updated releases of ROS Desktop "
+"[2]_ packages available."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:885
+#: 2357631f6c8c4c0f9438b1289c1db30b
+msgid "Thu. May 18, 2023 - Distro Freeze"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:884
+#: 44b7fbce42c848fb937c441a09b1836d
+msgid ""
+"Freeze rosdistro. No PRs for Iron on the ``rosdistro`` repo will be "
+"merged (reopens after the release announcement)."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:889
+#: 29bd66abce4b44c987f942d01bd7d416
+msgid "Tue. May 23, 2023 - General Availability"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:888
+#: 18323dfaf2124e12826ba06773db2213
+msgid "Release announcement. ``rosdistro`` is reopened for Iron PRs."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:891
+#: ca088b796bf8403b98f8cf5c7aa7856a
+msgid ""
+"The ``ros_base`` variant is described in `REP 2001 (ros-base) "
+"<https://www.ros.org/reps/rep-2001.html#ros-base>`_."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:892
+#: 112b39bf03d14af6bd538e921086d00f
+msgid ""
+"The ``desktop`` variant is described in `REP 2001 (desktop-variants) "
+"<https://www.ros.org/reps/rep-2001.html#desktop-variants>`_."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:895
+#: e8cc606b2eb94536aebc6bfc51485c19
+msgid "Development progress"
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:897
+#: 85710e3f9bff4c6c8b448c662fa7819c
+msgid ""
+"For progress on the development and release of Iron Irwini, see `the "
+"tracking GitHub issue <https://github.com/ros2/ros2/issues/1298>`__."
+msgstr ""
+
+#: ../../source/Releases/Release-Iron-Irwini.rst:899
+#: d9ac95097d854422aba49dde226396eb
+msgid ""
+"For the broad process followed by Iron Irwini, see the :doc:`process "
+"description page <Release-Process>`."
+msgstr ""
+

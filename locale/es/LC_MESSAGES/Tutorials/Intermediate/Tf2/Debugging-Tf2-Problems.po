@@ -1,0 +1,299 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:8
+#: 51ff321fc77b4cd29a9c8c26f899806a
+msgid "Debugging"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:10
+#: 88c5ec5ae14041abad53f8d72fbbafca
+msgid ""
+"**Goal:** Learn how to use a systematic approach for debugging tf2 "
+"related problems."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:12
+#: 170aac0394ad46828ab689fa4c1046cb
+msgid "**Tutorial level:** Intermediate"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:14
+#: ce5329bef6f6449491b6bf1440349fc3
+msgid "**Time:** 10 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:18
+#: 675cc8a31d25413dbcc0665e64723b82
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:21
+#: 1d20dfe3b3de45caa65ab06c841193ff
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:23
+#: d7afb6bf4a414c6b9e77ad5c5f795d4f
+msgid ""
+"This tutorial walks you through the steps to debug a typical tf2 problem."
+" It will also use many of the tf2 debugging tools, such as ``tf2_echo``, "
+"``tf2_monitor``, and ``view_frames``. This tutorial assumes you have "
+"completed the :doc:`learning tf2 <./Tf2-Main>` tutorials."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:28
+#: 197c1390a08c49c5b3b3a77b042ce5c7
+msgid "Debugging example"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:31
+#: 7efa4ff5e6d44c7da46cc7a8c2c1b580
+msgid "1 Setting and starting the example"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:33
+#: 16aa49718e1246f792b6731d5f80c22a
+msgid ""
+"For this tutorial we will set up a demo application that has a number of "
+"problems. The goal of this tutorial is to apply a systematic approach to "
+"find and tackle these problems. First, let's create the source file."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:37
+#: 5b7660e5fe204d968be44a7c8a148257
+msgid ""
+"Go to the ``learning_tf2_cpp`` package we created in :doc:`tf2 tutorials "
+"<./Tf2-Main>`. Inside the ``src`` directory make a copy of the source "
+"file ``turtle_tf2_listener.cpp`` and rename it to "
+"``turtle_tf2_listener_debug.cpp``."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:40
+#: 98449697c7494e1f82f4dfbbf00bb976
+msgid "Open the file using your preferred text editor, and change line 65 from"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:46
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:62
+#: 9b409d4ef6284277adc30f589012be40 b2c8ed1255144429a2e7f213f8ebac6e
+msgid "to"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:52
+#: b2567a17b2ae45f0acfcab35094de3dc
+msgid "and change ``lookupTransform()`` call in lines 73-77 from"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:72
+#: c6b4481f4f3c4c28a0117558bbf0cacc
+msgid ""
+"And save changes to the file. In order to run this demo, we need to "
+"create a launch file ``start_tf2_debug_demo_launch.py`` in the ``launch``"
+" subdirectory of package ``learning_tf2_cpp``:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:121
+#: 1c5c9d38e7724cc39c19f355a96afa3f
+msgid ""
+"Don't forget to add the ``turtle_tf2_listener_debug`` executable to the "
+"``CMakeLists.txt`` and build the package."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:123
+#: 62f1dfb4bb0d4a6fb4f33f6864a1c177
+msgid "Now let's run it to see what happens:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:129
+#: ed551eefbbb2484f963326860d61f375
+msgid ""
+"You will now see that the turtlesim came up. At the same time, if you run"
+" the ``turtle_teleop_key`` in another terminal window, you can use the "
+"arrow keys to drive the ``turtle1`` around."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:136
+#: 4061d67129184e6ea95b01641beb9abf
+msgid ""
+"You will also notice that there is a second turtle in the lower, left "
+"corner. If the demo would be working correctly, this second turtle should"
+" be following the turtle you can command with the arrow keys. However, it"
+" is not the case because we have to solve some problems first. You should"
+" notice the following message:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:148
+#: 6be3a7b6704641ab86e8bc4b8307af5c
+msgid "2 Finding the tf2 request"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:150
+#: a751dcf07e97458c9bc0f1fc6a3c6b50
+msgid ""
+"Firstly, we need to find out what exactly we are asking tf2 to do. "
+"Therefore, we go into the part of the code that is using tf2. Open the "
+"``src/turtle_tf2_listener_debug.cpp`` file, and take a look at line 65:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:158
+#: 15e7da5789154373b6ba22e5d1a068c1
+msgid "and lines 73-77:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:168
+#: 23bb7a2874754a2a86f9d12e1bc54d96
+msgid ""
+"Here we do the actual request to tf2. The three arguments tell us "
+"directly what we are asking tf2: transform from frame ``turtle3`` to "
+"frame ``turtle1`` at time ``now``."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:171
+#: 49fbc28c6b014d288553a4bab57e7b1e
+msgid "Now, let's take a look at why this request to tf2 is failing."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:174
+#: 0385766f64b94f5e8258b7c7c7c62198
+msgid "3 Checking the frames"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:176
+#: bb8ece03de7c40c381fb25228e9fa192
+msgid ""
+"Firstly, to find out if tf2 knows about our transform between ``turtle3``"
+" and ``turtle1``, we will use ``tf2_echo`` tool."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:182
+#: cf4509141df14bea9649ff78c88279aa
+msgid "The output tells us that frame ``turtle3`` does not exist:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:190
+#: b5fa5485c7f541e4879c7630932e9f40
+msgid ""
+"Then what frames do exist? If you like to get a graphical representation "
+"of this, use ``view_frames`` tool."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:197
+#: cc33bde1793549619d9891e1cc0f6dc2
+msgid "Open the generated ``frames.pdf`` file to see the following output:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:201
+#: 90a22f4810304de8b2b44306a3c2d796
+msgid ""
+"So obviously the problem is that we are requesting transform from frame "
+"``turtle3``, which does not exist. To fix this bug, just replace "
+"``turtle3`` with ``turtle2`` in line 65."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:204
+#: 66623d451d5f411a90a9c09ca1fbf9e9
+msgid "And now stop the running demo, build it, and run it again:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:210
+#: 8e68c3aa670049b1a2ba92427108b75d
+msgid "And right away we run into the next problem:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:220
+#: de29c7a1af944cd2a8d1e2256f8e9ded
+msgid "4 Checking the timestamp"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:222
+#: c166ede6ce4b485abaf9c7cddbd48022
+msgid ""
+"Now that we solved the frame name problem, it is time to look at the "
+"timestamps. Remember, we are trying to get the transform between "
+"``turtle2`` and ``turtle1`` at the current time (i.e., ``now``). To get "
+"statistics on the timing, call ``tf2_monitor`` with corresponding frames."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:230
+#: a595693515134db58df04106dc47f690
+msgid "The result should look something like this:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:244
+#: 52a4352329964e4abb6e3eddd97df37c
+msgid ""
+"The key part here is the delay for the chain from ``turtle2`` to "
+"``turtle1``. The output shows there is an average delay of about 3 "
+"milliseconds. This means that tf2 can only transform between the turtles "
+"after 3 milliseconds are passed. So, if we would be asking tf2 for the "
+"transformation between the turtles 3 milliseconds ago instead of ``now``,"
+" tf2 would be able to give us an answer sometimes. Let's test this "
+"quickly by changing lines 73-77 to:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:258
+#: 1aef4e0ece9d436ea60633db0a96afa6
+msgid ""
+"In the new code we are asking for the transform between the turtles 100 "
+"milliseconds ago. It is usual to use a longer periods, just to make sure "
+"that the transform will arrive. Stop the demo, build and run:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:266
+#: 14db9973489146589d37c89b1312eeee
+msgid "And you should finally see the turtle move!"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:270
+#: b301489ecf424f14851cb8a1bd0679d3
+msgid ""
+"That last fix we made is not really what you want to do, it was just to "
+"make sure that was our problem. The real fix would look like this:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:281
+#: 21b5fa19b50347059f48e45ce8139b7a
+msgid "Or like this:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:291
+#: c294d5fa95054105aad320f4a49b6982
+msgid ""
+"You can learn more about timeouts in the :doc:`Using time <./Learning-"
+"About-Tf2-And-Time-Cpp>` tutorial, and use them as below:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:303
+#: 44e4008809a14775a6f18c17f0621f68
+msgid "Summary"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems.rst:305
+#: bf679fdec1b64e5b90b7843e15d5ac3d
+msgid ""
+"In this tutorial you learned how to use a systematic approach for "
+"debugging tf2 related problems. You also learned how to use tf2 debugging"
+" tools, such as ``tf2_echo``, ``tf2_monitor``, and ``view_frames`` to "
+"help you debug those tf2 problems."
+msgstr ""
+

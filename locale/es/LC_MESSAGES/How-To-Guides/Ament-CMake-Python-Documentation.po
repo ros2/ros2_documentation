@@ -1,0 +1,162 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/How-To-Guides/Ament-CMake-Python-Documentation.rst:6
+#: 7addf9a01a934cb5991baa311375d907
+msgid "ament_cmake_python user documentation"
+msgstr ""
+
+#: ../../source/How-To-Guides/Ament-CMake-Python-Documentation.rst:8
+#: 47461bbaca904dd3a04d25d4426e590f
+msgid ""
+"``ament_cmake_python`` is a package that provides CMake functions for "
+"packages of the ``ament_cmake`` build type that contain Python code. See "
+"the :doc:`ament_cmake user documentation <Ament-CMake-Documentation>` for"
+" more information."
+msgstr ""
+
+#: ../../source/How-To-Guides/Ament-CMake-Python-Documentation.rst:13
+#: 204234a037d7409ab5a5a49dd5e24fee
+msgid ""
+"Pure Python packages should use the ``ament_python`` build type in most "
+"cases. To create an ``ament_python`` package, see :doc:`Creating your "
+"first ROS 2 package <../Tutorials/Beginner-Client-Libraries/Creating-"
+"Your-First-ROS2-Package>`. ``ament_cmake_python`` should only be used in "
+"cases where that is not possible, like when mixing C/C++ and Python code."
+msgstr ""
+
+#: ../../source/How-To-Guides/Ament-CMake-Python-Documentation.rst:20
+#: 6a01c7f7ed274114945a9e47a7ae95a4
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/How-To-Guides/Ament-CMake-Python-Documentation.rst:23
+#: f6713eed59c2412593e3e90c591c6f81
+msgid "Basics"
+msgstr ""
+
+#: ../../source/How-To-Guides/Ament-CMake-Python-Documentation.rst:26
+#: a9d6f2c5d8314806a3dfaefc465bd340
+msgid "Basic project outline"
+msgstr ""
+
+#: ../../source/How-To-Guides/Ament-CMake-Python-Documentation.rst:28
+#: b07b6335af6d49cf8f9a9e48e8eea3a8
+msgid ""
+"The outline of a package called \"my_project\" with the ``ament_cmake`` "
+"build type that uses ``ament_cmake_python`` looks like:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Ament-CMake-Python-Documentation.rst:40
+#: 31946dd400894aa6addc73d4a9eaa681
+msgid ""
+"The ``__init__.py`` file can be empty, but it is needed to `make Python "
+"treat the directory containing it as a package "
+"<https://docs.python.org/3/tutorial/modules.html#packages>`__. There can "
+"also be a ``src`` or ``include`` directory alongside the "
+"``CMakeLists.txt`` which holds C/C++ code."
+msgstr ""
+
+#: ../../source/How-To-Guides/Ament-CMake-Python-Documentation.rst:44
+#: e7a3e1f0c2324746b7036c21ec1d22cc
+msgid "Using ament_cmake_python"
+msgstr ""
+
+#: ../../source/How-To-Guides/Ament-CMake-Python-Documentation.rst:46
+#: aeea8e2ec7e9420d9e335137626a0d38
+msgid ""
+"The package must declare a dependency on ``ament_cmake_python`` in its "
+"``package.xml``."
+msgstr ""
+
+#: ../../source/How-To-Guides/Ament-CMake-Python-Documentation.rst:52
+#: ../../source/How-To-Guides/Ament-CMake-Python-Documentation.rst:100
+#: 090ba0a5a0d04691ae1b362916bd9fd9 bacf53af0b6a4f4e881ef1a358877031
+msgid "The ``CMakeLists.txt`` should contain:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Ament-CMake-Python-Documentation.rst:60
+#: c85ef733c69a447ba52a8b810372067b
+msgid ""
+"The argument to ``ament_python_install_package()`` is the name of the "
+"directory alongside the ``CMakeLists.txt`` that contains the Python file."
+" In this case, it is ``my_project``, or ``${PROJECT_NAME}``."
+msgstr ""
+
+#: ../../source/How-To-Guides/Ament-CMake-Python-Documentation.rst:65
+#: d94e4b33ebb4475aabb1bf4f4bdce65c
+msgid ""
+"Calling ``rosidl_generate_interfaces`` and "
+"``ament_python_install_package`` in the same CMake project does not work."
+" See this `Github issue "
+"<https://github.com/ros2/rosidl_python/issues/141>`_ for more info. It is"
+" best practice to instead separate out the message generation into a "
+"separate package."
+msgstr ""
+
+#: ../../source/How-To-Guides/Ament-CMake-Python-Documentation.rst:69
+#: dfa50ef43331437a99b764c243d45f9e
+msgid ""
+"Then, another Python package that correctly depends on ``my_project`` can"
+" use it as a normal Python module:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Ament-CMake-Python-Documentation.rst:75
+#: 603e3f05e12b47e2b0b08b8c6aacd879
+msgid "Assuming ``my_script.py`` contains a function called ``my_function()``."
+msgstr ""
+
+#: ../../source/How-To-Guides/Ament-CMake-Python-Documentation.rst:78
+#: f580b6d794994083944b9e84652f3c0e
+msgid "Using ament_cmake_pytest"
+msgstr ""
+
+#: ../../source/How-To-Guides/Ament-CMake-Python-Documentation.rst:80
+#: fc8843e45c4a4d168bc50dbe879673b3
+msgid ""
+"The package ``ament_cmake_pytest`` is used to make tests discoverable to "
+"``cmake``. The package must declare a test dependency on "
+"``ament_cmake_pytest`` in its ``package.xml``."
+msgstr ""
+
+#: ../../source/How-To-Guides/Ament-CMake-Python-Documentation.rst:87
+#: 5d510d2399914c229733f74cdf170310
+msgid ""
+"Say the package has a file structure like below, with tests in the "
+"``tests`` folder."
+msgstr ""
+
+#: ../../source/How-To-Guides/Ament-CMake-Python-Documentation.rst:121
+#: cdf16bf464ea4bc297ee5c7c2da437dc
+msgid ""
+"Compared to the usage of ament_python, which supports automatic test "
+"discovery, ament_cmake_pytest must be called with the path to each test "
+"file. The timeout can be reduced as needed."
+msgstr ""
+
+#: ../../source/How-To-Guides/Ament-CMake-Python-Documentation.rst:124
+#: 91429bcb9a6741209baeda57c075088a
+msgid ""
+"Now, you can invoke your tests with the :doc:`standard colcon testing "
+"commands <../Tutorials/Intermediate/Testing/CLI>`."
+msgstr ""
+

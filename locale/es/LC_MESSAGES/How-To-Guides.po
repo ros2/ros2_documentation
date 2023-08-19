@@ -1,0 +1,48 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/How-To-Guides.rst:8 0ff55c2a92c34d0e9b725d754997108a
+msgid "How-to Guides"
+msgstr ""
+
+#: ../../source/How-To-Guides.rst:10 3c178d2b792b4d2692e08e5694ae5581
+msgid ""
+"How-to Guides provide direct and modular answers to \"How-to\" questions "
+"regarding key aspects of ROS 2. They contain succinct steps to help you "
+"accomplish important tasks quickly."
+msgstr ""
+
+#: ../../source/How-To-Guides.rst:13 edf5c1bd52544f2ea0740d3dbb13f9ab
+msgid ""
+"How-to Guides are meant for users who already have some knowledge of ROS "
+"2 and just want to find out how to implement something specific. They "
+"will not go in-depth by providing background information or teaching how "
+"a concept ties into the greater ROS 2 ecosystem."
+msgstr ""
+
+#: ../../source/How-To-Guides.rst:16 8ce078d721cc4f6cb3a2417288f66bc7
+msgid ""
+"If you are new and looking to learn the ropes, start with the "
+":doc:`Tutorials <Tutorials>` for a more well-rounded progression through "
+"ROS 2."
+msgstr ""
+

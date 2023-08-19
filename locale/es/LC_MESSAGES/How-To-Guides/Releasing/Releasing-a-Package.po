@@ -1,0 +1,86 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/How-To-Guides/Releasing/Releasing-a-Package.rst:9
+#: 590fffeb247b4ea699e4de2b79f301ed
+msgid "Releasing a Package"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/Releasing-a-Package.rst:19
+#: aaad5aeacc0c4d3c912fac730aff3b68
+msgid ""
+"**Releasing a package makes your package available on the public ROS 2 "
+"buildfarm.** This will:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/Releasing-a-Package.rst:22
+#: 4542b86dda374410bef2789cd409f032
+msgid ""
+"Make your package available to be installed via package managers (eg. "
+"``apt`` on Ubuntu) for all supported Linux platforms in a ROS "
+"distribution as described in `REP 2000 "
+"<https://ros.org/reps/rep-2000.html>`_."
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/Releasing-a-Package.rst:23
+#: e90592a7bdaa4a8cb6c44b9038446f39
+msgid "Allow your package to have API documentation automatically generated."
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/Releasing-a-Package.rst:24
+#: d0cff592eb9a4077875ca8d8f7586e54
+msgid "Make your package part of the `ROS Index <https://index.ros.org>`_."
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/Releasing-a-Package.rst:25
+#: b54d90dbddd149b5b51c38a23f3a1095
+msgid ""
+"(Optionally) Allow you to have automatic CI run for pull requests in your"
+" repository."
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/Releasing-a-Package.rst:27
+#: 5a8f2313ed51488eac4daab2c56bc9ee
+msgid "**Follow one of the guides below to get your package released:**"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/Releasing-a-Package.rst:29
+#: c431454e36ee4de497acaa9dce098a4e
+msgid ""
+":doc:`First Time Release <First-Time-Release>` - if this is the first "
+"release for the package"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/Releasing-a-Package.rst:30
+#: 61926ae8054e4cdcb875f6b39cd0c04f
+msgid ""
+":doc:`Subsequent Releases <Subsequent-Releases>` - if you are releasing a"
+" new version of a package that has already been released"
+msgstr ""
+
+#: ../../source/How-To-Guides/Releasing/Releasing-a-Package.rst:32
+#: ec3065f603ac4b3a8e762bf78f365c53
+msgid ""
+"After successfully following the instructions, your package will be "
+"released into the ROS ecosystem on the next distro synchronization!"
+msgstr ""
+

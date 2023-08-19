@@ -1,0 +1,245 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Releases/Release-Bouncy-Bolson.rst:6
+#: d91d48d1d0ca47e5acb3b02d35a2d857
+msgid "Bouncy Bolson (``bouncy``)"
+msgstr ""
+
+#: ../../source/Releases/Release-Bouncy-Bolson.rst:10
+#: 65b8acf91e804441a83e3fd061cc4a65
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Releases/Release-Bouncy-Bolson.rst:12
+#: 329642e2642f4e69a26d82c04a85126b
+msgid "*Bouncy Bolson* is the second release of ROS 2."
+msgstr ""
+
+#: ../../source/Releases/Release-Bouncy-Bolson.rst:15
+#: b13c20e7eca84d379dd360faaf700567
+msgid "Supported Platforms"
+msgstr ""
+
+#: ../../source/Releases/Release-Bouncy-Bolson.rst:17
+#: 6070bded09984e4696d8de9fa632bf60
+msgid ""
+"This version of ROS 2 is supported on four platforms (see `REP 2000 "
+"<https://www.ros.org/reps/rep-2000.html#bouncy-bolson-"
+"june-2018-june-2019>`__ for full details):"
+msgstr ""
+
+#: ../../source/Releases/Release-Bouncy-Bolson.rst:20
+#: e6339208fde14e16b96c2087c26e9f28
+msgid "Ubuntu 18.04 (Bionic)"
+msgstr ""
+
+#: ../../source/Releases/Release-Bouncy-Bolson.rst:22
+#: f01a22fdbab84b2a8de04031cd975f58
+msgid "Debian packages for amd64 as well as arm64"
+msgstr ""
+
+#: ../../source/Releases/Release-Bouncy-Bolson.rst:24
+#: 5acb9f46232740879febf330845670fb
+msgid "Ubuntu 16.04 (Xenial)"
+msgstr ""
+
+#: ../../source/Releases/Release-Bouncy-Bolson.rst:26
+#: d2f0c4745f034afbbf8d2b6367dd2e6d
+msgid "no Debian packages but building from source is supported"
+msgstr ""
+
+#: ../../source/Releases/Release-Bouncy-Bolson.rst:28
+#: 5cc8b78ed74c4db09fcfbcedf50b9012
+msgid "Mac macOS 10.12 (Sierra)"
+msgstr ""
+
+#: ../../source/Releases/Release-Bouncy-Bolson.rst:29
+#: 67d7464b2ee14583a19e9712f81e6466
+msgid "Windows 10 with Visual Studio 2017"
+msgstr ""
+
+#: ../../source/Releases/Release-Bouncy-Bolson.rst:31
+#: 7292c0fbee1942ba89a65e8caa5345c3
+msgid ""
+"Binary packages as well as instructions for how to compile from source "
+"are provided (see `install instructions <../../Installation>` as well as "
+"`documentation <https://docs.ros2.org/bouncy/>`__)."
+msgstr ""
+
+#: ../../source/Releases/Release-Bouncy-Bolson.rst:34
+#: f8430a4a801e4b869aa154eb0fae9644
+msgid "Features"
+msgstr ""
+
+#: ../../source/Releases/Release-Bouncy-Bolson.rst:37
+#: 925e5597ac0241109bdaf79f14d459f0
+msgid "New features in this ROS 2 release"
+msgstr ""
+
+#: ../../source/Releases/Release-Bouncy-Bolson.rst:40
+#: 6aaaa3a4bd2842c1a2a2c0ead3133b68
+msgid ""
+"`New launch system <../Tutorials/Intermediate/Launch/Launch-system>` "
+"featuring a much more capable and flexible Python API."
+msgstr ""
+
+#: ../../source/Releases/Release-Bouncy-Bolson.rst:41
+#: a78fb57dd767479a9d499c625d0d221d
+msgid ""
+"Parameters can be passed as `command line arguments <../How-To-Guides"
+"/Node-arguments>` to C++ executables."
+msgstr ""
+
+#: ../../source/Releases/Release-Bouncy-Bolson.rst:42
+#: b4a10c11f43f4acabbe481df1ff955c9
+msgid ""
+"Static remapping via `command line arguments <../How-To-Guides/Node-"
+"arguments>`."
+msgstr ""
+
+#: ../../source/Releases/Release-Bouncy-Bolson.rst:43
+#: 28e1c9608f9f4850a47042b360b12902
+msgid "Various improvements to the Python client library."
+msgstr ""
+
+#: ../../source/Releases/Release-Bouncy-Bolson.rst:44
+#: 7b9063b0251345158ce1512df9961da7
+msgid ""
+"Support for publishing and subscribing to serialized data. This is the "
+"foundation for the upcoming work towards a native rosbag implementation."
+msgstr ""
+
+#: ../../source/Releases/Release-Bouncy-Bolson.rst:46
+#: 2cd50ad5615145c7be7b324f1d922d99
+msgid ""
+"More `command line tools <../../Concepts/Basic/About-Command-Line-"
+"Tools>`\\ , e.g. for working with parameters and lifecycle states."
+msgstr ""
+
+#: ../../source/Releases/Release-Bouncy-Bolson.rst:47
+#: e0f6155b57f94c918b8f1701588d5769
+msgid ""
+"Binary packages / fat archives support three RMW implementations by "
+"default (without the need to build from source):"
+msgstr ""
+
+#: ../../source/Releases/Release-Bouncy-Bolson.rst:49
+#: 8b342d01be58485b9cc4ff3389b6b39c
+msgid "eProsima's Fast RTPS (default)"
+msgstr ""
+
+#: ../../source/Releases/Release-Bouncy-Bolson.rst:50
+#: 710e265bc717439e93a55cecd3f1a969
+msgid "RTI's Connext"
+msgstr ""
+
+#: ../../source/Releases/Release-Bouncy-Bolson.rst:51
+#: 96d81f8f09ce43d3aea1f97f31a8eba4
+msgid "ADLINK's OpenSplice"
+msgstr ""
+
+#: ../../source/Releases/Release-Bouncy-Bolson.rst:53
+#: 13168e7506924a7d9914122f13150319
+msgid ""
+"For an overview of all features available, including those from earlier "
+"releases, please see the `Features <../../The-ROS2-Project/Features>` "
+"page."
+msgstr ""
+
+#: ../../source/Releases/Release-Bouncy-Bolson.rst:56
+#: 9fc4a62c81374ac98ef5e5ff4bc55f90
+msgid "Changes since the Ardent release"
+msgstr ""
+
+#: ../../source/Releases/Release-Bouncy-Bolson.rst:58
+#: d70b7e2852354e7086988c187f3e297f
+msgid "Changes since the `Ardent Apalone <Release-Ardent-Apalone>` release:"
+msgstr ""
+
+#: ../../source/Releases/Release-Bouncy-Bolson.rst:61
+#: 2cae9609721c423692fd29ce08645c33
+msgid ""
+"The Python package ``launch`` has been redesigned. The previous Python "
+"API has been moved into a submodule ``launch.legacy``. You can update "
+"existing launch files to continue to use the legacy API if a transition "
+"to the new Python API is not desired."
+msgstr ""
+
+#: ../../source/Releases/Release-Bouncy-Bolson.rst:64
+#: 1c7b95cc08cd4d6b954a035e0cb0b47a
+msgid ""
+"The ROS topic names containing namespaces are mapped to DDS topics "
+"including their namespaces. DDS partitions are not being used anymore for"
+" this."
+msgstr ""
+
+#: ../../source/Releases/Release-Bouncy-Bolson.rst:66
+#: 19a73beac8e2499a8cf83fb0f930cf45
+msgid ""
+"The recommended build tool is now ``colcon`` instead of ``ament_tools``. "
+"This switch has no `implications "
+"<https://design.ros2.org/articles/build_tool.html#implications>`__ for "
+"the code in each ROS 2 package. The install instructions have been "
+"updated and the `read-the-docs page "
+"<https://colcon.readthedocs.io/en/main/migration/ament_tools.html>`__ "
+"describes how to map an existing ``ament_tools`` call to ``colcon``."
+msgstr ""
+
+#: ../../source/Releases/Release-Bouncy-Bolson.rst:69
+#: a93c03085c5248c09015c74eaa95c547
+msgid ""
+"The argument order of `this rclcpp::Node::create_subscription() signature"
+" "
+"<https://docs.ros2.org/bouncy/api/rclcpp/classrclcpp_1_1_node.html#a283fb006c46470cf43a4ae5ef4a16ccd>`__"
+" has been modified."
+msgstr ""
+
+#: ../../source/Releases/Release-Bouncy-Bolson.rst:72
+#: bd7f94ed70d74995815bf8087d78bf86
+msgid "Known Issues"
+msgstr ""
+
+#: ../../source/Releases/Release-Bouncy-Bolson.rst:75
+#: 5bc73e2737eb4b74a8ba01187cbf245d
+msgid ""
+"New-style launch files `may hang on shutdown "
+"<https://github.com/ros2/launch/issues/89>`__ for some combinations of "
+"platform and RMW implementation."
+msgstr ""
+
+#: ../../source/Releases/Release-Bouncy-Bolson.rst:76
+#: 2192da2854dd4608a2aa5485cfb2cd68
+msgid ""
+"Static remapping of namespaces `not working correctly "
+"<https://github.com/ros2/rcl/issues/262>`__ when addressed to a "
+"particular node."
+msgstr ""
+
+#: ../../source/Releases/Release-Bouncy-Bolson.rst:77
+#: 73c509d153584c44900f06014f355887
+msgid ""
+"`Opensplice error messages may be printed "
+"<https://github.com/ros2/rmw_opensplice/issues/237>`__ when using ``ros2 "
+"param`` and ``ros2 lifecycle`` command-line tools."
+msgstr ""
+

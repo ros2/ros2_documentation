@@ -1,0 +1,167 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/The-ROS2-Project/Roadmap.rst:8 ae06e6bac32f48b597327d51d3f3257f
+msgid "Roadmap"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Roadmap.rst:12
+#: 97e9ef5ebc9c478792937cd623171de5
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Roadmap.rst:14
+#: f8178ad7eded49b799056290501e843f
+msgid ""
+"This page describes planned work for ROS 2. The set of planned features "
+"and development efforts should provide insight into the overall direction"
+" of ROS 2. If you would like to see other features on the roadmap, please"
+" get in touch with us at info@openrobotics.org."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Roadmap.rst:19
+#: 76fbd79e2b3043ed829ac19d8c192f8e
+msgid "Jazzy Roadmap"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Roadmap.rst:21
+#: 1c747687e0414891be9176feff821496
+msgid ""
+"Jazzy Jalisco is the ROS 2 release expected in May 2024. See the "
+":doc:`release page <../Releases/Release-Jazzy-Jalisco>` for a detailed "
+"timeline."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Roadmap.rst:24
+#: 83013a1bc12642fd8b7efe21304d8208
+msgid ""
+"The items in the roadmap below are the major features being worked on by "
+"the ROS 2 community. The \"Size\" is an estimated size of the task, where"
+" *Small* means person-days to complete, *Medium* means person-weeks to "
+"complete, and *Large* means person-months to complete."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Roadmap.rst:27
+#: fd5de53adac54fa5bcd5d6cb00453414
+msgid ""
+"If you are working on a feature for ROS 2 and would like to have it "
+"listed, please open a pull request to `ROS 2 Documentation "
+"<https://github.com/ros2/ros2_documentation>`__. If you'd like to take on"
+" one of these tasks, please :doc:`get in touch with us <../Contact>`."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Roadmap.rst:42
+#: e441bc2a3c8f4bab8a3cf261de3b8d9c
+msgid "Task"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Roadmap.rst:43
+#: be4d2682e0614398b7e4776766c00f3d
+msgid "Size"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Roadmap.rst:44
+#: a04e87f79a3a4aea87a532416d0b45a3
+msgid "Owner"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Roadmap.rst:45
+#: d7383226d658455fae9921049b9713de
+msgid "Expected Completion"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Roadmap.rst:46
+#: ../../source/The-ROS2-Project/Roadmap.rst:47
+#: ../../source/The-ROS2-Project/Roadmap.rst:48
+#: ../../source/The-ROS2-Project/Roadmap.rst:49
+#: 220eb700b308488c99d893ee472ba2c3 7d727b5444eb4f81809c47cf429a7af9
+#: 86acc43794e3436aadd1262645d797e0 ce58c58f21de40d2aaf19b482a2745be
+msgid "TBD"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Roadmap.rst:52
+#: 81acd73be953429f882ac5fb3432bd89
+msgid "Planned releases"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Roadmap.rst:54
+#: 9316675dd87d4463b182ddedd4e37f15
+msgid ""
+"Please see the :doc:`Distributions page <../Releases>` for the timeline "
+"of and information about future distributions."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Roadmap.rst:57
+#: 6209c46cbc5e42e292146c6446606f2d
+msgid "Contributing to ROS 2"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Roadmap.rst:59
+#: f8fcf889083e4a8f9cd4fbb25a3f946f
+msgid ""
+"Looking for something to work on, or just want to help out? Here are a "
+"few resources to get you going."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Roadmap.rst:61
+#: f1306fe955964d61b2798f64d92b16ab
+msgid ""
+"The :doc:`Contributing <Contributing>` guide describes how to make a "
+"contribution to ROS 2."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Roadmap.rst:62
+#: e97fbc43884e437690cc34a9b56ff045
+msgid ""
+"Check out the list of :doc:`Feature Ideas <Feature-Ideas>` for "
+"inspiration."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Roadmap.rst:63
+#: f4889b68b4d647288dd207dcb8d6a7bd
+msgid ""
+"For more information on the design of ROS 2 please see `design.ros2.org "
+"<https://design.ros2.org>`__."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Roadmap.rst:64
+#: e79854361cb54ba7bb22ad00f92a144b
+msgid ""
+"The core code for ROS 2 is in the `ros2 GitHub organization "
+"<https://github.com/ros2>`__."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Roadmap.rst:65
+#: eb356ca9f870484fbde21f078de38105
+msgid ""
+"The Discourse forum/mailing list for discussing ROS 2 design is `ng-ros "
+"<https://discourse.ros.org/c/ng-ros>`__."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Roadmap.rst:66
+#: 5f8dcf634e8e428f8fda043fa0e37081
+msgid ""
+"Questions should be asked on `ROS answers <https://answers.ros.org>`__\\ "
+", make sure to include at least the ``ros2`` tag and the rosdistro "
+"version you are running, e.g. ``rolling``."
+msgstr ""
+

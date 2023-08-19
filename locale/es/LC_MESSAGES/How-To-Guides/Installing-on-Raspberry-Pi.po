@@ -1,0 +1,161 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/How-To-Guides/Installing-on-Raspberry-Pi.rst:2
+#: fd333b44e9fb461faca7bf5c9e3a2526
+msgid "ROS 2 on Raspberry Pi"
+msgstr ""
+
+#: ../../source/How-To-Guides/Installing-on-Raspberry-Pi.rst:4
+#: 035399cc80d0480bbbb8c07a55704c58
+msgid ""
+"ROS 2 is supported on both 32 bit (arm32) and 64 bit (arm64) ARM "
+"processors. However, you can see `here "
+"<https://www.ros.org/reps/rep-2000.html>`__ that arm64 receives Tier 1 "
+"support, while arm32 is Tier 3. Tier 1 support means distribution "
+"specific packages and binary archives are available, while Tier 3 "
+"requires the user to compile ROS 2 from source."
+msgstr ""
+
+#: ../../source/How-To-Guides/Installing-on-Raspberry-Pi.rst:8
+#: 3c28a9de7b0642d59d9fc8ccf233a6fb
+msgid ""
+"The fastest and simplest way to use ROS 2 is to use a Tier 1 supported "
+"configuration."
+msgstr ""
+
+#: ../../source/How-To-Guides/Installing-on-Raspberry-Pi.rst:10
+#: 17dbd1acb77c4e44acdd94a3f0cc282c
+msgid ""
+"This would mean either installing 64 bit Ubuntu on to the Raspberry Pi, "
+"or using the 64 bit version of Raspberry Pi OS and running ROS 2 in "
+"Docker."
+msgstr ""
+
+#: ../../source/How-To-Guides/Installing-on-Raspberry-Pi.rst:13
+#: c6654a6fa2b64be29ea5be90823b4955
+msgid "Ubuntu Linux on Raspberry Pi with binary ROS 2 install"
+msgstr ""
+
+#: ../../source/How-To-Guides/Installing-on-Raspberry-Pi.rst:15
+#: 17e928a6b2b34bf8a85eab0347f40b6c
+msgid ""
+"Ubuntu for Raspberry Pi is available `here <https://ubuntu.com/download"
+"/raspberry-pi>`__."
+msgstr ""
+
+#: ../../source/How-To-Guides/Installing-on-Raspberry-Pi.rst:17
+#: a4b3a93bb5344a9690240d6747ae1cba
+msgid ""
+"Make sure to confirm that you have selected the correct version as "
+"described in `REP-2000 <https://www.ros.org/reps/rep-2000.html>`__."
+msgstr ""
+
+#: ../../source/How-To-Guides/Installing-on-Raspberry-Pi.rst:19
+#: 9df072a63fcd4adb97f54dadc90ecb57
+msgid ""
+"You can now install ROS 2 using the normal binary installation "
+"instructions for Ubuntu Linux."
+msgstr ""
+
+#: ../../source/How-To-Guides/Installing-on-Raspberry-Pi.rst:22
+#: 29b54f51daa3429993a7088f65d8ebf0
+msgid "Raspberry Pi OS with ROS 2 in docker"
+msgstr ""
+
+#: ../../source/How-To-Guides/Installing-on-Raspberry-Pi.rst:24
+#: 20e5cff826424892b6f70f1f824ddba5
+msgid ""
+"Raspberry Pi OS 64 bit version is `available here "
+"<https://www.raspberrypi.com/software/operating-systems/>`__."
+msgstr ""
+
+#: ../../source/How-To-Guides/Installing-on-Raspberry-Pi.rst:26
+#: d848208914af4cfa8674d550038fe343
+msgid ""
+"Raspberry Pi OS is based on Debian which receives Tier 3 support, but it "
+"can run Ubuntu docker containers for Tier 1 support."
+msgstr ""
+
+#: ../../source/How-To-Guides/Installing-on-Raspberry-Pi.rst:28
+#: 3f7034b76fe24b21b8be9c35719dcaf1
+msgid ""
+"After flashing the OS, `install Docker "
+"<https://docs.docker.com/engine/install/debian/#install-using-the-"
+"convenience-script>`__."
+msgstr ""
+
+#: ../../source/How-To-Guides/Installing-on-Raspberry-Pi.rst:30
+#: dbefa082c2f24a8c87692e9455519c76
+msgid ""
+"The official OSRF ROS 2 Docker container definitions can be found `here "
+"<https://github.com/osrf/docker_images/>`__."
+msgstr ""
+
+#: ../../source/How-To-Guides/Installing-on-Raspberry-Pi.rst:32
+#: 49566fc87ac14edabc7ad9d838afe349
+msgid ""
+"You may choose from ros-core, ros-base, or ros-desktop. See `here "
+"<https://www.ros.org/reps/rep-2001.html>`__ for more information on these"
+" variants."
+msgstr ""
+
+#: ../../source/How-To-Guides/Installing-on-Raspberry-Pi.rst:34
+#: fea3b2a1fbc4436596e0db0eb776951a
+msgid ""
+"Clone the `docker_images git repo "
+"<https://github.com/osrf/docker_images>`__ onto the Raspberry Pi, change "
+"in to the directory linked above, then to the directory with your "
+"preferred variant."
+msgstr ""
+
+#: ../../source/How-To-Guides/Installing-on-Raspberry-Pi.rst:36
+#: 3527d9ec5ac449c49243f0b18d7e0755
+msgid "Inside of the directory, build the container with:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Installing-on-Raspberry-Pi.rst:42
+#: 5c4651c3f4a74e4e9d8cb3963f48d625
+msgid ""
+"On a supported system it will only take a minute or two to build the "
+"docker containers, as the source code is already built in to binaries."
+msgstr ""
+
+#: ../../source/How-To-Guides/Installing-on-Raspberry-Pi.rst:45
+#: ac022a26762e4ed8b64c9f06a2556277
+msgid "Pre-built Docker container"
+msgstr ""
+
+#: ../../source/How-To-Guides/Installing-on-Raspberry-Pi.rst:47
+#: 2ee82b01afd84f13835c21305e812936
+msgid ""
+"A pre-built container for the desktop variant is available as well, which"
+" only requires a docker pull command."
+msgstr ""
+
+#: ../../source/How-To-Guides/Installing-on-Raspberry-Pi.rst:49
+#: 2220806ec08446c7bd11bd44ccc2c060
+msgid ""
+"See :doc:`this page <Run-2-nodes-in-single-or-separate-docker-"
+"containers>` for more information."
+msgstr ""
+

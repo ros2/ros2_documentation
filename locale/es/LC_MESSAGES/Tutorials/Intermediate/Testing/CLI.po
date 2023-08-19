@@ -1,0 +1,74 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Intermediate/Testing/CLI.rst:4
+#: 8e874b45f7ac48a186c1dce6938a4805
+msgid "Running Tests in ROS 2 from the Command Line"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/CLI.rst:7
+#: 1c9c7f74d5ff40b59173ee54b35592e6
+msgid "Build and run your tests"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/CLI.rst:9
+#: aa150c0214874551a6a672c9eac245cf
+msgid ""
+"To compile and run the tests, simply run the `test "
+"<https://colcon.readthedocs.io/en/released/reference/verb/test.html>`__ "
+"verb from ``colcon``."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/CLI.rst:15
+#: 1af432f9d6504b68b6c3aa7190be339a
+msgid ""
+"(where ``package_selection_args`` are optional package selection "
+"arguments for ``colcon`` to limit which packages are built and run)"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/CLI.rst:17
+#: e43f485184f04afea2d3e595c85cafd3
+msgid ""
+":ref:`Sourcing the workspace <colcon-tutorial-source-the-environment>` "
+"before testing should not be necessary. ``colcon test`` makes sure that "
+"the tests run with the right environment, have access to their "
+"dependencies, etc."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/CLI.rst:21
+#: 74b3e2da1bcf486082fe4aa0716b9be2
+msgid "Examine Test Results"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/CLI.rst:23
+#: b17f635dd0f442f799ecd151e3ff8f97
+msgid ""
+"To see the results, simply run the `test-result "
+"<https://colcon.readthedocs.io/en/released/reference/verb/test-"
+"result.html>`__ verb from ``colcon``."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/CLI.rst:29
+#: 467c36ea7b444aefba0084f636dfc917
+msgid "To see the exact test cases which fail, use the ``--verbose`` flag:"
+msgstr ""
+

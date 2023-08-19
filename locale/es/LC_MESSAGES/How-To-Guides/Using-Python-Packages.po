@@ -1,0 +1,162 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/How-To-Guides/Using-Python-Packages.rst:9
+#: e8f2d6f0815a432b80f85cbc810bf615
+msgid "Using Python Packages with ROS 2"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-Python-Packages.rst:11
+#: 8cdde50e87b94c3bb998e9894f0408b6
+msgid ""
+"**Goal:** Explain how to interoperate with other Python packages from the"
+" ROS 2 ecosystem."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-Python-Packages.rst:15
+#: 9cf8c4ddddcb48f9bb060eda48a3777a
+msgid "Contents"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-Python-Packages.rst:19
+#: da132f9da01e4d9da8db2ee990fd3a0d
+msgid ""
+"A cautionary note, if you intended to use pre-packaged binaries (either "
+"``deb`` files, or the “fat” binary distributions), the Python interpreter"
+" must match what was used to build the original binaries. If you intend "
+"to use something like ``virtualenv`` or ``pipenv``\\, make sure to use "
+"the system interpreter. If you use something like ``conda``, it is very "
+"likely that the interpreter will not match the system interpreter and "
+"will be incompatible with ROS 2 binaries."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-Python-Packages.rst:24
+#: 05dc77ba1f9a46eda8161fb4fa17bbdf
+msgid "Installing via ``rosdep``"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-Python-Packages.rst:26
+#: b0b232b68c1e4d6d896981f24be8a06c
+msgid ""
+"The fastest way to include third-party python packages is to use their "
+"corresponding rosdep keys, if available.  ``rosdep`` keys can be checked "
+"via:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-Python-Packages.rst:28
+#: 552780df74b34b83802555b02a27bb45
+msgid "https://github.com/ros/rosdistro/blob/master/rosdep/base.yaml"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-Python-Packages.rst:29
+#: 68d992c6c17f4f2aa70a4ceb4018b3ad
+msgid "https://github.com/ros/rosdistro/blob/master/rosdep/python.yaml"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-Python-Packages.rst:31
+#: 037ba843e7404ca292cd48424c8a9997
+msgid ""
+"These ``rosdep`` keys can be added to your ``package.xml`` file, which "
+"indicates to the build system that your package (and dependent packages) "
+"depend on those keys. In a new workspace, you can also quickly install "
+"all rosdep keys with:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-Python-Packages.rst:38
+#: 97528559d074409396717c9a81875540
+msgid ""
+"If there aren’t currently ``rosdep`` keys for the package that you are "
+"interested in, it is possible to add them by following the `rosdep key "
+"contribution guide`_."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-Python-Packages.rst:40
+#: a149e94bb068436baedc43551696314f
+msgid ""
+"To learn more about the ``rosdep`` tool and how it works, consult the "
+"`rosdep documentation`_."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-Python-Packages.rst:43
+#: 52f77e318afc4818a81d2924d6963dc2
+msgid "Installing via a package manager"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-Python-Packages.rst:45
+#: 70145fc1177143a5b2657e4fe2a862dc
+msgid ""
+"If you don’t want to make a rosdep key, but the package is available in "
+"your system package manager (eg ``apt``), you can install and use the "
+"package that way:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-Python-Packages.rst:51
+#: 734c9840aa354ef886b7cfced929a93c
+msgid ""
+"If the package is available on `The Python Package Index (PyPI) "
+"<https://pypi.org/>`_ and you want to install globally on your system:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-Python-Packages.rst:57
+#: 33606bfd795447f5b8cd800bb2faf531
+msgid ""
+"If the package is available on PyPI and you want to install locally to "
+"your user:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-Python-Packages.rst:64
+#: 7227843b66c04c63995f507c1f8b0d9a
+msgid "Installing via a virtual environment"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-Python-Packages.rst:66
+#: d2579f7dd8a54eb680d96a4c4cbe2dca
+msgid "First, create a Colcon workspace:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-Python-Packages.rst:73
+#: 615c4231744a4b16a70d72eefcd5c1da
+msgid "Then setup your virtual environment:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-Python-Packages.rst:83
+#: a2200e23e0d7441e85e03f10143a49b5
+msgid ""
+"Next, install the Python packages that you want in your virtual "
+"environment:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-Python-Packages.rst:89
+#: 0f4f8694ff624e6a8b729c59b2891526
+msgid ""
+"Now you can build your workspace and run your python node that depends on"
+" packages installed in your virtual environment."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-Python-Packages.rst:99
+#: c845414ba50e44bca0420e59fed24a65
+msgid ""
+"If you want to release your package using Bloom, you should add the "
+"packages you require to ``rosdep``, see the `rosdep key contribution "
+"guide`_."
+msgstr ""
+

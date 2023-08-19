@@ -1,0 +1,159 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Related-Projects/Intel-ROS2-Projects.rst:6
+#: ca8bba77bcbd4b31906d04cf5bf754f2
+msgid "Intel ROS 2 Projects"
+msgstr ""
+
+#: ../../source/Related-Projects/Intel-ROS2-Projects.rst:8
+#: 713a23ed608c4313a2ae7e90a97e6d25
+msgid ""
+"Intel® Robotics Open Source Project (Intel® ROS Project) to enable object"
+" detection/location/tracking, people detection, vehicle detection, "
+"industry robot arm grasp point analysis with kinds of Intel technologies "
+"and platforms, including CPU, GPU, `Intel® Movidius™ NCS "
+"<https://www.intel.com/content/www/us/en/developer/tools/neural-compute-"
+"stick/overview.html>`__ optimized deep learning backend, FPGA, `Intel® "
+"RealSense™ <https://www.intel.com/content/www/us/en/architecture-and-"
+"technology/realsense-overview.html>`__ camera, etc."
+msgstr ""
+
+#: ../../source/Related-Projects/Intel-ROS2-Projects.rst:11
+#: 28555315a3fb4226a5ec3e7984babbd4
+msgid "Key Projects"
+msgstr ""
+
+#: ../../source/Related-Projects/Intel-ROS2-Projects.rst:13
+#: 2a69c68f25cd453ea4e6c90a06d3f57f
+msgid ""
+"We are working on below ROS 2 projects and publish source code through "
+"https://github.com/intel/ or ROS 2 GitHub repo gradually."
+msgstr ""
+
+#: ../../source/Related-Projects/Intel-ROS2-Projects.rst:15
+#: 751021be259a403598859c08e782028d
+msgid ""
+"`ROS2 OpenVINO <https://github.com/intel/ros2_openvino_toolkit>`__: ROS 2"
+" package for Intel® Visual Inference and Neural Network Optimization "
+"Toolkit to develop multiplatform computer vision solutions."
+msgstr ""
+
+#: ../../source/Related-Projects/Intel-ROS2-Projects.rst:16
+#: 5e0ed53525044f23a9c172985cf322a6
+msgid ""
+"`ROS2 RealSense Camera <https://github.com/IntelRealSense/realsense-"
+"ros>`__: ROS 2 package for Intel® RealSense™ D400 serial cameras"
+msgstr ""
+
+#: ../../source/Related-Projects/Intel-ROS2-Projects.rst:17
+#: eac281afa04049d08d589cf95abfb0d9
+msgid ""
+"`ROS2 Movidius NCS <https://github.com/intel/ros2_intel_movidius_ncs>`__:"
+" ROS 2 package for object detection with Intel® Movidius™ Neural "
+"Computing Stick (NCS)."
+msgstr ""
+
+#: ../../source/Related-Projects/Intel-ROS2-Projects.rst:18
+#: 346e95568588416999d95a860056a9ef
+msgid ""
+"`ROS2 Object Messages <https://github.com/intel/ros2_object_msgs>`__: ROS"
+" 2 messages for object."
+msgstr ""
+
+#: ../../source/Related-Projects/Intel-ROS2-Projects.rst:19
+#: 9af3684ac4954506be4b2fd991563902
+msgid ""
+"`ROS2 Object Analytics "
+"<https://github.com/intel/ros2_object_analytics>`__: ROS 2 package for "
+"object detection, tracking and 2D/3D localization."
+msgstr ""
+
+#: ../../source/Related-Projects/Intel-ROS2-Projects.rst:20
+#: 60973dfd6dd34afa931568e8bc2af8a4
+msgid ""
+"`ROS2 Message Filters <https://github.com/ros2/message_filters>`__: ROS 2"
+" package for message synchronization with time stamp."
+msgstr ""
+
+#: ../../source/Related-Projects/Intel-ROS2-Projects.rst:21
+#: d0e76e4f75a14cb49f4904a692e4cced
+msgid ""
+"`ROS2 CV Bridge <https://github.com/ros-"
+"perception/vision_opencv/tree/ros2/cv_bridge>`__: ROS 2 package to bridge"
+" with openCV."
+msgstr ""
+
+#: ../../source/Related-Projects/Intel-ROS2-Projects.rst:22
+#: 1f0dc52d19c940aab2c17c860ec28d0b
+msgid ""
+"`ROS2 Object Map <https://github.com/intel/ros2_object_map>`__: ROS 2 "
+"package to mark tag of objects on map when SLAM based on information "
+"provided by ROS 2 object analytics."
+msgstr ""
+
+#: ../../source/Related-Projects/Intel-ROS2-Projects.rst:23
+#: be34e81caf9d4830be75fed207aa7061
+msgid ""
+"`ROS2 Moving Object <https://github.com/intel/ros2_moving_object>`__: ROS"
+" 2 package to provide object motion information (like object velocity on "
+"x, y, z axis) based on information provided by ROS 2 object analytics."
+msgstr ""
+
+#: ../../source/Related-Projects/Intel-ROS2-Projects.rst:24
+#: a8fde63be82f4341af584242027c0d32
+msgid ""
+"`ROS2 Grasp Library <https://github.com/intel/ros2_grasp_library>`__: ROS"
+" 2 package for grasp position analysis, and compatible with `MoveIt "
+"<https://github.com/ros-planning/moveit2.git>`__ grasp interfaces."
+msgstr ""
+
+#: ../../source/Related-Projects/Intel-ROS2-Projects.rst:25
+#: b8608e8989da42d7b43dc8af54c3c3d1
+msgid ""
+"`ROS2 Navigation <https://github.com/ros-planning/navigation2>`__: ROS 2 "
+"package for robot navigation, it's already integrated to ROS 2 Crystal "
+"release."
+msgstr ""
+
+#: ../../source/Related-Projects/Intel-ROS2-Projects.rst:26
+#: 2e90d92eed33409db13c3a55f4beb1f5
+msgid ""
+"`Intel Robot DevKit (SDK) <https://github.com/intel/robot_devkit>`__: An "
+"open source project which enables developers to easily and efficiently "
+"create, customize, optimize, and deploy a robot software stack to an "
+"Autonomous Mobile Robot (AMR) platform based on the Robot Operating "
+"System 2 (ROS 2) framework."
+msgstr ""
+
+#: ../../source/Related-Projects/Intel-ROS2-Projects.rst:29
+#: 2602dbc3948e4599a364f506d1665254
+msgid "Reference"
+msgstr ""
+
+#: ../../source/Related-Projects/Intel-ROS2-Projects.rst:31
+#: 2ba83255ec86424186e49a488e1323af
+msgid ""
+"ROS components at: https://wiki.ros.org/IntelROSProject shows the "
+"relationship among those packages, which also applies to ROS 2."
+msgstr ""
+

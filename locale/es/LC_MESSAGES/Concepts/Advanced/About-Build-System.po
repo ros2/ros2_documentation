@@ -1,0 +1,439 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:6
+#: 7ec5fd4c98584eb0b1e318a3cf8830ee
+msgid "The build system"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:9
+#: 1d710f4bfb0b48d896843fd0aae636ae
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:13
+#: 7d556b9241434a30af3898706fef1f96
+msgid ""
+"The build system is what allows developers to build their ROS 2 code as "
+"needed. ROS 2 relies heavily on the division of code into packages, with "
+"each package containing a manifest file (``package.xml``). This manifest "
+"file contains essential metadata about the package, including its "
+"dependencies on other packages. This manifest is required for the meta-"
+"build tool to function."
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:18
+#: 505e94f7d4e04db1aa19b0088bdfae52
+msgid "The ROS 2 build system consists of 3 major concepts."
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:21
+#: 696d45c054504a9cbe04e5131f2587c0
+msgid "Build tool"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:23
+#: aaf857070dd3481ab745106fdf554922
+msgid ""
+"This is the software that controls the compilation and testing of a "
+"single package. In ROS 2 this is usually CMake for C++, and setuptools "
+"for Python, but other build tools are supported."
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:27
+#: d49f47e72120428b9ec13d48ae525edd
+msgid "Build helpers"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:29
+#: 33a5aa45f1824df181942ec100d67d06
+msgid ""
+"These are helper functions that hook into the build tool to developer "
+"experience. ROS 2 packages typically rely on the ``ament`` series of "
+"packages for this. ``ament`` consists of a few important repositories "
+"which are all in the `GitHub organization <https://github.com/ament>`_."
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:34
+#: e3053d534eac40fea3e01eecc2e9675c
+msgid "The ``ament_package`` package"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:36
+#: 1af51752e3e64a3b8e7e87ecbcd71229
+msgid ""
+"Located on |GitHub|_ at `ament/ament_package "
+"<https://github.com/ament/ament_package>`_, this repository contains a "
+"single :term:`ament Python package` that provides various utilities for "
+"|ament packages|, e.g. templates for environment hooks."
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:38
+#: 72e06521a4f54502bd3cb32a87fb2561
+msgid ""
+"All |ament packages| must contain a single :term:`package.xml` file at "
+"the root of the package regardless of their underlying build system. The "
+":term:`package.xml` \"manifest\" file contains information that is "
+"required in order to process and operate on a |package|. This |package| "
+"information includes things like the |package|'s name, which is globally "
+"unique, and the package's dependencies. The :term:`package.xml` file also"
+" serves as the marker file which indicates the location of the |package| "
+"on the file system."
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:43
+#: b0c5d857ab0947a09e6967a796d18ab2
+msgid ""
+"Parsing of the :term:`package.xml` files is provided by ``catkin_pkg`` "
+"(as in ROS 1), while functionality to locate |packages| by searching the "
+"file system for these :term:`package.xml` files is provided by build "
+"tools such as ``colcon``."
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:46
+#: d52d1139efd9481a860ee75cb59e38e4
+msgid "package.xml"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:48
+#: cc1f0f570b7a45caa30338aaa0b4083d
+msgid ""
+"Package manifest file which marks the root of a :term:`package` and "
+"contains meta information about the :term:`package` including its name, "
+"version, description, maintainer, license, dependencies, and more. The "
+"contents of the manifest are in machine readable XML format and the "
+"contents are described in the |REPs| `127 "
+"<http://www.ros.org/reps/rep-0127.html>`_ and `140 "
+"<http://www.ros.org/reps/rep-0140.html>`_, with the possibility of "
+"further modifications in future |REPs|."
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:51
+#: a1895094f9644e22bf3ecbea37e5b677
+msgid ""
+"So anytime some |package| is referred to as an :term:`ament package`, it "
+"means that it is a single unit of software (source code, build files, "
+"tests, documentation, and other resources) which is described using a "
+":term:`package.xml` manifest file."
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:54
+#: 8449245860944d39a50b9c980cb967aa
+msgid "ament package"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:56
+#: efc8f6659f444b9b9319642ca9d7c0ec
+msgid ""
+"Any |package| which contains a :term:`package.xml` and follows the "
+"packaging guidelines of ``ament``, regardless of the underlying build "
+"system."
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:58
+#: 7d16fd4ec3dd42b49aafe2e8f058734a
+msgid ""
+"Since the term :term:`ament package` is build system agnostic, there can "
+"be different kinds of |ament packages|, e.g. :term:`ament CMake package`,"
+" :term:`ament Python package`, etc."
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:60
+#: 2980a5bd25a04e2886e1a9ec3f7865f8
+msgid ""
+"Here is a list of common package types that you might run into in this "
+"software stack:"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:63
+#: 48d459e332574bb5981a6799eb0b3ee9
+msgid "CMake package"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:65
+#: f2c724b9a6c24f8189ccf7b4adb2a1b9
+msgid ""
+"Any |package| containing a plain CMake project and a :term:`package.xml` "
+"manifest file."
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:66
+#: ca93603341b346f996f76fbd1cd99365
+msgid "ament CMake package"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:68
+#: ed9e00e960e84ee984243bbaaf408337
+msgid ""
+"A :term:`CMake package` that also follows the ``ament`` packaging "
+"guidelines."
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:69
+#: 2214a2cc3f644d4582f1eafb15239a29
+msgid "Python package"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:71
+#: 30b3603c1fe54923ad749561e8b17193
+msgid ""
+"Any |package| containing a `setuptools "
+"<https://pypi.org/project/setuptools/>`_ based Python project and a "
+":term:`package.xml` manifest file."
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:72
+#: 700b6ce1ac814f5aaa8cfe014b7db3ed
+msgid "ament Python package"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:74
+#: 02167bc9b3a7482e8abfced609f70494
+msgid ""
+"A :term:`Python package` that also follows the ``ament`` packaging "
+"guidelines."
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:77
+#: b5141678e0444009a7adfcbe31086649
+msgid "The ``ament_cmake`` repository"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:79
+#: 71ec4d212f914f559ff4540257b8fe2d
+msgid ""
+"Located on |GitHub|_ at `ament/ament_cmake "
+"<https://github.com/ament/ament_cmake>`_, this repository contains many "
+"\"ament CMake\" and pure CMake packages which provide the infrastructure "
+"in CMake that is required to create \"ament CMake\" packages. In this "
+"context \"ament CMake\" packages means: ``ament`` packages that are built"
+" using CMake. So the |packages| in this repository provide the necessary "
+"CMake functions/macros and CMake Modules to facilitate creating more "
+"\"ament CMake\" (or ``ament_cmake``) packages. Packages of this type are "
+"identified with the ``<build_type>ament_cmake</build_type>`` tag in the "
+"``<export>`` tag of the :term:`package.xml` file."
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:84
+#: c8c888c9f4214d54b75a389aaeaa33a9
+msgid ""
+"The |packages| in this repository are extremely modular, but there is a "
+"single \"bottleneck\" |package| called ``ament_cmake``. Anyone can depend"
+" on the ``ament_cmake`` |package| to get all of the aggregate "
+"functionality of the |packages| in this repository. Here a list of the "
+"|packages| in the repository along with a short description:"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:88
+#: f609653d8212479f9141f0e736e3ae43
+msgid "``ament_cmake``"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:90
+#: 8863e0919a694334b28de674baeea98c
+msgid ""
+"aggregates all other |packages| in this repository, users need only to "
+"depend on this"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:92
+#: 5c0c458b76b94e8e84dee3f64a4d0c2f
+msgid "``ament_cmake_auto``"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:94
+#: d1d13f20cecf42c6bc8c8da6cce88820
+msgid ""
+"provides convenience CMake functions which automatically handle a lot of "
+"the tedious parts of writing a |package|'s ``CMakeLists.txt`` file"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:96
+#: d509c7e79b744732ae2263acfbcd6ebd
+msgid "``ament_cmake_core``"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:98
+#: 5a1de8651bc6471db8babf858f64d79b
+msgid ""
+"provides all built-in core concepts for ``ament``, e.g. environment "
+"hooks, resource indexing, symbolic linking install and others"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:100
+#: 4787b667cc434eeba31a5fd66322e7b0
+msgid "``ament_cmake_gmock``"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:102
+#: 809010fbc62f48a983f963c36e88842e
+msgid "adds convenience functions for making gmock based unit tests"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:104
+#: 069ddb4398ce4beaabd5421e7924a652
+msgid "``ament_cmake_gtest``"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:106
+#: b27daa1384f74295ae49205a31e60451
+msgid "adds convenience functions for making gtest based automated tests"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:108
+#: 920bd1505ea247ef9889ba77aea2f476
+msgid "``ament_cmake_nose``"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:110
+#: ff03269dc78e4927b009981c76c7433f
+msgid ""
+"adds convenience functions for making nosetests based python automated "
+"tests"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:112
+#: b99f5cdc129041359626706b2157e0ba
+msgid "``ament_cmake_python``"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:114
+#: c319dd59896e497c9eb29b4de9a11883
+msgid "provides CMake functions for |packages| that contain Python code"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:115
+#: 35e8825e903446f98993a06f04749135
+msgid ""
+"see the :doc:`ament_cmake_python user documentation <../../How-To-Guides"
+"/Ament-CMake-Python-Documentation>`"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:117
+#: 11b166f827bf4f95b07589a796b12243
+msgid "``ament_cmake_test``"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:119
+#: 4c9ecb7c614944529106a738f5923f0d
+msgid ""
+"aggregates different kinds of tests, e.g. gtest and nosetests, under a "
+"single target using `CTest "
+"<https://cmake.org/Wiki/CMake/Testing_With_CTest>`_"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:121
+#: d44a42dab4114efaa195854a92d48944
+msgid ""
+"The ``ament_cmake_core`` |package| contains a lot of the CMake "
+"infrastructure that makes it possible to cleanly pass information between"
+" |packages| using conventional interfaces. This makes the |packages| have"
+" more decoupled build interfaces with other |packages|, promoting their "
+"reuse and encouraging conventions in the build systems of different "
+"|packages|. For instance, it provides a standard way to pass include "
+"directories, libraries, definitions, and dependencies between |packages| "
+"so that consumers of this information can access this information in a "
+"conventional way."
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:125
+#: cc8aecc173854f5eace1418b8967f290
+msgid ""
+"The ``ament_cmake_core`` |package| also provides features of the "
+"``ament`` build system like symbolic link installation, which allows you "
+"to symbolically link files from either the source space or the build "
+"space into the install space rather than copying them. This allows you to"
+" install once and then edit non-generated resources like Python code and "
+"configuration files without having to rerun the install step for them to "
+"take effect. This feature essentially replaces the \"devel space\" from "
+"``catkin`` because it has most of the advantages with few of the "
+"complications or drawbacks."
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:129
+#: 2d129f8d540d42158d384f8d094b4c16
+msgid ""
+"Another feature provided by ``ament_cmake_core`` is the |package| "
+"resource indexing which is a way for |packages| to indicate that they "
+"contain a resource of some type. The design of this feature makes it much"
+" more efficient to answer simple questions like what |packages| are in "
+"this prefix (e.g. ``/usr/local``) because it only requires that you list "
+"the files in a single possible location under that prefix. You can read "
+"more about this feature in the `design docs "
+"<https://github.com/ament/ament_cmake/blob/rolling/ament_cmake_core/doc/resource_index.md>`_"
+" for the resource index."
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:133
+#: 01ef5d956a8d4d4cb81bfaef7dc59a09
+msgid ""
+"Like ``catkin``, ``ament_cmake_core`` also provides environment setup "
+"files and |package| specific environment hooks. The environment setup "
+"files, often named something like ``setup.bash``, are a place for "
+"|package| developers to define changes to the environment that are needed"
+" to utilize their |package|. The developers are able to do this using an "
+"\"environment hook\" which is basically an arbitrary bit of shell code "
+"that can set or modify environment variables, define shell functions, "
+"setup auto-completion rules, etc... This feature is how, for example, ROS"
+" 1 set the ``ROS_DISTRO`` environment variable without ``catkin`` knowing"
+" anything about the ROS distribution."
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:139
+#: 996f3934a77c404e871a3f255613794f
+msgid "The ``ament_lint`` repository"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:141
+#: da854f314f7447b9a4d9f2a46b6dea87
+msgid ""
+"Located on |GitHub|_ at `ament/ament_lint "
+"<https://github.com/ament/ament_lint>`_, this repository provides several"
+" |packages| which provide linting and testing services in a convenient "
+"and consistent manner. Currently there are |packages| to support C++ "
+"style linting using ``uncrustify``, static C++ code checks using "
+"``cppcheck``, checking for copyright in source code, Python style linting"
+" using ``pep8``, and other things. The list of helper packages will "
+"likely grow in the future."
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:146
+#: 7602f0853e0a4114aa7d30b6d4cad5ca
+msgid "Meta-build tool"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:148
+#: 2a1248e255cd457c96e2c8ecc2e36c92
+msgid ""
+"This is a piece of software that knows how to topologically order a group"
+" of packages, and build or test them in the correct dependency order. "
+"This software will call into the Build Tool to do the actual work of "
+"compiling, testing, and installing the package."
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Build-System.rst:151
+#: c9d69855d31a4e599d6a273ff698b473
+msgid ""
+"In ROS 2, the tool named `colcon "
+"<https://colcon.readthedocs.io/en/released/>`__ is used for this."
+msgstr ""
+

@@ -1,0 +1,467 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:6
+#: 638c07e8fb5047af8c79d1d55d09da66
+msgid "ROS 2 Package Maintainer Guide"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:8
+#: b06dfd65ddaf42a199f0c77b73732b90
+msgid ""
+"Each package in the ROS 2 core has one or more maintainers that are "
+"responsibile for the general health of the package. This guide gives some"
+" information about the responsibilities of a ROS 2 core package "
+"maintainer."
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:12
+#: 2d131db857894fe1bf85a3e16078cca7
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:15
+#: b173753ecf204b729ed4a4accda104aa
+msgid "Reviews"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:17
+#: fe1435d16df3438cb62c2961bffc34fe
+msgid ""
+"All incoming code to ROS 2 core repositories must be reviewed. The review"
+" is looking for:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:20
+#: c0cab57dca1f4dfbb8243cf80152e51c
+msgid "Suitability in the package"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:21
+#: ca01187536fe49ac8364d9f51f18542c
+msgid "Correct code"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:22
+#: 86314992187241d28afe0a486f90fc79
+msgid "Conforms to developer guidelines:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:24
+#: ba5d94ddcc9241fd9a40e2ef5ad076b2
+msgid ":doc:`Developer Guide <../The-ROS2-Project/Contributing/Developer-Guide>`"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:25
+#: 5e88ec7817a44560bbedc08948eb6bcd
+msgid ""
+":doc:`Code Style Guide <../The-ROS2-Project/Contributing/Code-Style-"
+"Language-Versions>`"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:27
+#: 3d3130f8135c49a2acb6c4646983de66
+msgid "Adds tests for the bug/feature"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:28
+#: a636708e848e436fa054b33c3a2d0c59
+msgid "Adds documentation for new features"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:29
+#: bf697cc6317543399ee958a0ff16f0cf
+msgid "Clean Continuous Integration run"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:30
+#: 505304802c894a48b477e07d81014eba
+msgid "Targets default branch (usually \"rolling\")"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:31
+#: a0cb39f4d3af44a0bf452122c6b5ee6e
+msgid "Has at least one approval from a maintainer that is not the author"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:34
+#: 727dc3c9fccc44b8b07ef6a51469dac3
+msgid "Continuous Integration"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:36
+#: a8c45e32eefb42c4a732ae2c671789f1
+msgid ""
+"All incoming code to ROS 2 core repositories must be run through "
+"Continuous Integration. ROS 2 currently has two separate CI systems, and "
+"it is required that PRs pass both of them before merging."
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:40
+#: a6f40c5bba9d4462aceda2b7b37974bf
+msgid "PR builds (https://build.ros2.org/view/Rpr)"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:42
+#: 8129daf6851743798e59de2b38545ad6
+msgid ""
+"ROS 2 PR (Pull Request) builds run automatically every time a pull "
+"request is opened. These builds run a build and test of this package, and"
+" this package only. This means that it does not build any dependencies, "
+"and it also does not build any packages that depend upon this package. "
+"These builds are good for quick feedback to see if the change passes "
+"linters, unit tests, etc. There are two major problems with them:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:48
+#: fb7ccb13ec06419fbd8482f0f1909b26
+msgid ""
+"These builds do not work across multiple repositories (so won't work for "
+"adding or changing an API, etc)"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:49
+#: 27872acead3649a2b6072ab6f979487f
+msgid "These tests only run on Linux (they won't run on macOS or Windows)"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:51
+#: 4620bd3d75eb4ec4b93606e740516bf5
+msgid "To address these two problems, there is also the CI builds."
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:54
+#: f0f0cb1bf47b432cb334ccd15444ad8f
+msgid "CI builds (https://ci.ros2.org)"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:56
+#: 7dcc581d52d4422797b1e36c3d2206c8
+msgid ""
+"CI builds do not run automatically when a pull request is opened. One of "
+"the maintainers of the package must manually request that a CI build is "
+"done by going to https://ci.ros2.org/job/ci_launcher/ ."
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:59
+#: bb7bbaffc16845198a7ce3dcbc95c13a
+msgid ""
+"By default, running a job in this way will build and run tests for all "
+"packages (> 300 currently) on all platforms (Linux, macOS, and Windows). "
+"As a full run can take many hours and tie up the CI machines, it is "
+"recommended that all runs here restrict the number of packages that are "
+"built and tested. This can be accomplished by using the colcon arguments "
+"``--packages-up-to``, ``--packages-select``, ``--packages-above-and-"
+"dependencies``, ``--packages-above``, amongst others. See the `colcon "
+"documentation <https://colcon.readthedocs.io/en/released/user/how-to.html"
+"#build-only-a-single-package-or-selected-packages>`__ for more examples "
+"on the flags that can be used. Further documentation on how to use the CI"
+" machinery is available at "
+"https://github.com/ros2/ci/blob/master/CI_BUILDERS.md."
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:66
+#: eec158f933114bcca632800727940497
+msgid "Merging Pull Requests"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:68
+#: f83f008e85be403b80c596b0360cc761
+msgid "A pull request can be merged if all of the following are true:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:70
+#: e8796a835037450d9599e5b66578932a
+msgid "The DCO bot reports a passing result"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:71
+#: 6f774f3598334d5c9d7ee7aaa0331bc6
+msgid "The PR build reports a passing result"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:72
+#: 0668b015d2334188b6ee7b858db62877
+msgid "The CI build reports a passing result on all platforms"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:73
+#: 6762ff5964474885a5e14f13cdfa7a5f
+msgid "The code has been reviewed and approved by at least one maintainer"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:75
+#: 5c160e912fa24b909eb0e45ee73c02e0
+msgid ""
+"After a PR is merged, it will automatically get built with the next "
+"`nightlies <https://ci.ros2.org/view/nightly>`__. It is highly "
+"recommended to check the nightlies after merging pull requests to ensure "
+"no regressions have occurred."
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:79
+#: a890f2e4c3e14e088a35588f16d43e4d
+msgid "Keeping CI green"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:81
+#: e85fdcf55f294732b920b09f550d50d9
+msgid ""
+"The nightly jobs that run tests are typically much more comprehensive "
+"than what is done for individual pull requests. For this reason, there "
+"can be regressions that occur in the nightlies that were not seen in the "
+"CI jobs. It is a package maintainers responsibility to check for "
+"regressions in their packages at the following locations:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:85
+#: 51ba33ada73b462b95d09544a0a67671
+msgid "https://ci.ros2.org/view/nightly"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:86
+#: 32b5db20a9a7484d8347dcefe6c47e38
+msgid "https://ci.ros2.org/view/packaging"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:87
+#: 5be4b0c82982445683f6233b0d2ab2d8
+msgid "https://build.ros2.org/view/Rci"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:88
+#: 99f2255c47c84c3fbfd3bfe7d7664cce
+msgid "https://build.ros2.org/view/Rdev"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:90
+#: 44c5babcf6c94300bead44ec7b045faa
+msgid ""
+"For any problems that are found, new issues and/or pull requests on the "
+"relevant repositories should be opened."
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:93
+#: 2dd020d3b123450f9afd4631cfb59cf7
+msgid "Making releases"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:95
+#: c372c910c0e0440bbbb56291b538ba01
+msgid ""
+"In order to get new features and bugfixes out to end users, the package "
+"maintainers must periodically do a release of the package (a release may "
+"also be requested on-demand from other maintainers)."
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:97
+#: c4c9e4b0893e4e36a5193db157095d21
+msgid ""
+"As outlined in the :ref:`developer guide <semver>`, ROS 2 packages follow"
+" semver for version numbers."
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:99
+#: 9b9ff0449c674c37b37c399fdca4d94f
+msgid ""
+"A release in ROS terms consists of two distinct steps: making a source "
+"release, and then making a binary release."
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:102
+#: 9479d245865f4fd4988bf02046cdf4dc
+msgid "Source release"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:104
+#: 5f2302f400404ca9b4403cc4614f5db9
+msgid "A source release creates a changelog and a tag in the relevant repository."
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:106
+#: e78ea77b907f4cca90bee56f20c00585
+msgid ""
+"The process starts by generating or updating CHANGELOG.rst files with the"
+" following command:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:112
+#: 33ac4c3aa47d4eb392407f1749154cdf
+msgid ""
+"If one or more packages in the repository don't have contain "
+"CHANGELOG.rst, add the ``--all`` option to populate all of the previous "
+"commits for each package. The ``catkin_generate_changelog`` command will "
+"simply populate the files with the commit logs from the repository. Since"
+" those commit logs aren't always appropriate for a changelog, it is "
+"recommended to edit CHANGELOG.rst and edit it to make it more readable. "
+"Once editing is done, it is important to commit the updated CHANGELOG.rst"
+" file to the repository."
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:117
+#: 602bbb1314d24240853126b10b2c85b7
+msgid ""
+"The next step is to bump the version in the package.xml and the changelog"
+" files with the following command:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:123
+#: 9316e8c11ce94313810cb5452002c1c7
+msgid ""
+"This command will find all of the packages in the repository, check that "
+"the changelogs exist, check that there are no uncommitted local changes, "
+"increment the version in the package.xml files, and commit/tag the "
+"changes with a bloom-compatible tag. Using this command is the best way "
+"to ensure the release versions are consistent and compatible with bloom. "
+"By default, ``catkin_prepare_release`` will bump the patch version of the"
+" packages, e.g. 0.1.1 -> 0.1.2 . However, it can also bump the minor or "
+"major number, or even have an exact version set. See the help output from"
+" ``catkin_prepare_release`` for more information."
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:129
+#: 434a53f2559d4b18beec03240040b90b
+msgid "Assuming the above was successful, a source release has been made."
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:132
+#: 3539b8f7a4e54fffa0c7968071ae4d7f
+msgid "Binary release"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:134
+#: 770d1722d8084f04a1feccc6e4c4b86e
+msgid ""
+"The next step is to use the ``bloom-release`` command to create a binary "
+"release. For full instructions on how to use bloom, please see "
+"http://wiki.ros.org/bloom. To do a binary release of a package, run:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:142
+#: 49b6c4a67347417980b0cbabc79f3b3e
+msgid ""
+"For instance, to release the ``rclcpp`` repository to the Rolling "
+"distribution, the command would be:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:148
+#: 20fbf3f6d98c4c0da25831f384c816f3
+msgid ""
+"This command will fetch the release repository, make the necessary "
+"changes to make the release, push the changes to the release repository, "
+"and finally open a pull request to https://github.com/ros/rosdistro ."
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:151
+#: e44b8c373227498f916268dce1f0593c
+msgid "Backporting to released distributions"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:153
+#: c4ad3c5fe0de405eb71d1d475bbc5073
+msgid ""
+"All incoming changes should first land on the development branch. Once a "
+"change has been merged onto the development branch, it can be considered "
+"for backporting to released distributions. However, any backported code "
+"must not break `API <https://en.wikipedia.org/wiki/API>`__ or `ABI "
+"<https://en.wikipedia.org/wiki/Application_binary_interface>`__ in a "
+"released distribution. If a change can be backported without breaking API"
+" or ABI, then a new pull request targeting the appropriate branch should "
+"be created. The new pull request should be added to the appropriate "
+"distributions project board at https://github.com/orgs/ros2/projects. The"
+" new pull request should have all of the steps run as before, but making "
+"sure to target the distribution in question for CI, etc."
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:161
+#: 9bb64df6a775482da47c0eaecc0320f3
+msgid "Responding to issues"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:163
+#: b9b03fbddb1b4cd58996a7bebd102df2
+msgid ""
+"Package maintainers should also look at incoming issues on the repository"
+" and triage the problems that users are having."
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:165
+#: ce39558fa9b44d9b91d6080ea3dfef0f
+msgid ""
+"For issues that look like questions, the issue should be closed and the "
+"user redirected to https://answers.ros.org."
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:167
+#: 9975dffd3fad4c51b0b278ef68a24af2
+msgid ""
+"If an issue looks like a problem, but is not relevant to this particular "
+"repository, it should be moved to the appropriate repository with the "
+"GitHub \"Transfer issue\" button."
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:169
+#: c7d0e8a6b6f34d1f8d233994fa049c5d
+msgid ""
+"If the reporter has not provided enough information to determine the "
+"cause of the problem, more information should be requested from the "
+"reporter."
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:171
+#: eda4a530f6874ce9b79043be01a86a1c
+msgid "If this is a new feature, tag the issue with \"help-wanted\"."
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:173
+#: 000cffca77f141e890869913ba50f467
+msgid ""
+"Any remaining issues should be reproduced, and determined if they are "
+"truly a bug. If it is a bug, fixes are highly appreciated."
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:177
+#: 39fe43c9b53d45d99dad36a73b6957ce
+msgid "Getting help"
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:179
+#: f3c379606e254c2f978f68c90afbc918
+msgid ""
+"While doing maintenance on a package, questions about general procedures "
+"or individual issues may come up."
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:181
+#: 453f6ed8d2354863811be6ad58ac7869
+msgid ""
+"For general questions, please follow the :doc:`contributing guidelines "
+"<../The-ROS2-Project/Contributing>`."
+msgstr ""
+
+#: ../../source/How-To-Guides/Package-maintainer-guide.rst:183
+#: 70b8b9f6591c4abda001d653a8a9b451
+msgid ""
+"For questions on individual issues, please tag the ROS 2 GitHub team "
+"(@ros/team), and someone on the team will take a look."
+msgstr ""
+

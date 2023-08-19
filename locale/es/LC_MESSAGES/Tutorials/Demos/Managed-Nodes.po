@@ -1,0 +1,36 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Demos/Managed-Nodes.rst:7
+#: 7aa48a9cae2a42458b2eef36f39eba6a
+msgid "Managing nodes with managed lifecycles"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Managed-Nodes.rst:9
+#: 70dc0f8ab0804f3fba85013450b70838
+msgid ""
+"This page lives now directly side-by-side with the `code "
+"<https://github.com/ros2/demos/blob/rolling/lifecycle/README.rst>`__. For"
+" more information about the ``lifecycle`` package, refer to `rosindex "
+"<https://index.ros.org/p/lifecycle/github-ros2-demos/>`__."
+msgstr ""
+

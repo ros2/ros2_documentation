@@ -1,0 +1,345 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:7
+#: 03706536b82542589d663f725857f958
+msgid "macOS (source)"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:11
+#: d1195d52c99f4345a934f52a2f3708b1
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:14
+#: e4487544f2b04210bd1ba152c0d987a9
+msgid "System requirements"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:16
+#: 9e3c2599b6664a42a8d7d540e1cbdb82
+msgid ""
+"We currently support macOS Mojave (10.14). The Rolling Ridley "
+"distribution will change target platforms from time to time as new "
+"platforms become available. Most people will want to use a stable ROS "
+"distribution."
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:21
+#: 12f5a9906e534749a6e73dbdf2771668
+msgid "System setup"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:24
+#: abd43d9e73a14317854ca358420904e7
+msgid "Install prerequisites"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:26
+#: b6545e3c8fb240c4a7c25793b7b6c285
+msgid "You need the following things installed to build ROS 2:"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:30
+#: 7a2f5a918cd64a0fbb23f9990eaa098f
+msgid "**Xcode**"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:32
+#: 633400dd9f664f29b43506c2ccc1aaaf
+msgid ""
+"If you don't already have it installed, install "
+"[Xcode](https://apps.apple.com/app/xcode/id497799835)."
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:33
+#: f30fb385dc044a2d9e5a535904eaec34
+msgid ""
+"Note: Versions of Xcode later than 11.3.1 can no longer be installed on "
+"macOS Mojave, so you will need to install an older version manually, see:"
+" https://stackoverflow.com/a/61046761"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:34
+#: a46a51da7e024f079ae01656d826cf7d
+msgid ""
+"Also, if you don't already have it installed, install the Command Line "
+"Tools:"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:46
+#: ae5c2e8e53604b91bb64a0008e21a66a
+msgid "**brew** *(needed to install more stuff; you probably already have this)*:"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:49
+#: 44ad6a9bda5b435da11a3bddb2f6124c
+msgid "Follow installation instructions at http://brew.sh/"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:51
+#: b1a62b10b9e54f48ad8c0d455c0e07d9
+msgid ""
+"*Optional*: Check that ``brew`` is happy with your system configuration "
+"by running:"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:57
+#: 4f08ce30cd4443beba3b852f27294ea0
+msgid "Fix any problems that it identifies."
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:60
+#: 771d514d7c634932acff9c40e1dc9de0
+msgid "Use ``brew`` to install more stuff:"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:69
+#: 8c5cc346c52d4bdcaa76b36a7dfc3319
+msgid "Setup some environment variables:"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:82
+#: 3eb629096d0948279314039a022b2688
+msgid ""
+"Use ``python3 -m pip`` (just ``pip`` may install Python3 or Python2) to "
+"install more stuff:"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:95
+#: 48f779f05ca64775b0a850a1c8d7fe2e
+msgid ""
+"Please ensure that the ``$PATH`` environment variable contains the "
+"install location of the binaries (``$(brew --prefix)/bin``)"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:98
+#: 2c19929c67d24b068b7dc0fb69cab846
+msgid ""
+"*Optional*: if you want to build the ROS 1<->2 bridge, then you must also"
+" install ROS 1:"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:101
+#: f95706b59f2b47bca988b21b86966ffc
+msgid ""
+"Start with the normal install instructions: "
+"http://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:103
+#: 616e70a1d0d84d54ba4f1da1db88698e
+msgid ""
+"When you get to the step where you call ``rosinstall_generator`` to get "
+"the source code, here's an alternate invocation that brings in just the "
+"minimum required to produce a useful bridge:"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:111
+#: 1a53d0af7c17475f9c8dfb737fc941a6
+msgid ""
+"Otherwise, just follow the normal instructions, then source the resulting"
+" ``install_isolated/setup.bash`` before proceeding here to build ROS 2."
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:114
+#: b69f6c19199547218d2b02b26e33e27b
+msgid "Disable System Integrity Protection (SIP)"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:116
+#: 93234897e6c74be58e3676872d5e174f
+msgid ""
+"macOS/OS X versions >=10.11 have System Integrity Protection enabled by "
+"default. So that SIP doesn't prevent processes from inheriting dynamic "
+"linker environment variables, such as ``DYLD_LIBRARY_PATH``, you'll need "
+"to disable it `following these instructions "
+"<https://developer.apple.com/library/content/documentation/Security/Conceptual/System_Integrity_Protection_Guide/ConfiguringSystemIntegrityProtection/ConfiguringSystemIntegrityProtection.html>`__."
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:120
+#: eb2276c6673b48428e58f9e7d22c6462
+msgid "Build ROS 2"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:123
+#: 1df2c26605d745daa12b745317850c74
+msgid "Get ROS 2 code"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:125
+#: 43eac6ff92d540c983d2ff1004d08bdb
+msgid "Create a workspace and clone all repos:"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:134
+#: 8844ee55a0c145af864dc71cfcecbdde
+msgid "Install additional RMW implementations (optional)"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:136
+#: ca2488da70cb45acb1fd52a4c67d2427
+msgid ""
+"The default middleware that ROS 2 uses is ``Fast DDS``, but the "
+"middleware (RMW) can be replaced at build or runtime. See the :doc:`guide"
+" <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how "
+"to work with multiple RMWs."
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:140
+#: 35912899acaa470d90aed8adbcfeaee8
+msgid "Build the code in the workspace"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:142
+#: bf02396babb644428f155bc18c1bf117
+msgid ""
+"Run the ``colcon`` tool to build everything (more on using ``colcon`` in "
+":doc:`this tutorial <../../Tutorials/Beginner-Client-Libraries/Colcon-"
+"Tutorial>`):"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:149
+#: 523e4fc55a32415c8634012b683f4a17
+msgid ""
+"Note: due to an unresolved issue with SIP, Qt@5, and PyQt5, we need to "
+"disable ``python_qt_binding`` to have the build succeed. This will be "
+"removed when the issue is resolved, see: https://github.com/ros-"
+"visualization/python_qt_binding/issues/103"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:153
+#: fa82291c9515449bb20ab6ec17d298f9
+msgid "Setup environment"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:155
+#: cf815305b649426abcd57c282dd63819
+msgid "Source the ROS 2 setup file:"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:161
+#: 29db44c6b3cb40ef8954f503a56a4731
+msgid ""
+"This will automatically set up the environment for any DDS vendors that "
+"support was built for."
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:164
+#: a0e2f5674aa447d396912c672a04afb3
+msgid "Try some examples"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:166
+#: 28dd55711c364ec981142fb1ae4c175d
+msgid ""
+"In one terminal, set up the ROS 2 environment as described above and then"
+" run a C++ ``talker``:"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:172
+#: 64d48ae6b05e47a28f014dc5924694a9
+msgid ""
+"In another terminal source the setup file and then run a Python "
+"``listener``:"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:178
+#: 073b49df864544618b4965cb588d5e4c
+msgid ""
+"You should see the ``talker`` saying that it's ``Publishing`` messages "
+"and the ``listener`` saying ``I heard`` those messages. This verifies "
+"both the C++ and Python APIs are working properly. Hooray!"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:183
+#: a42e72d61759444fa4117238528ad2f4
+msgid "Next steps"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:185
+#: 6f74f7acfed74e529a8273cb0f33dc4a
+msgid ""
+"Continue with the `tutorials and demos <../../Tutorials>` to configure "
+"your environment, create your own workspace and packages, and learn ROS 2"
+" core concepts."
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:188
+#: 38b108c921db4a89b990e42ad1ab5765
+msgid "Use the ROS 1 bridge (optional)"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:190
+#: e3e22ea919d24720a10edb3ffa83ab65
+msgid ""
+"The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa. "
+"See the dedicated `documentation "
+"<https://github.com/ros2/ros1_bridge/blob/master/README.md>`__ on how to "
+"build and use the ROS 1 bridge."
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:194
+#: ba1a02c087164325b597b7d8562ec6cf
+msgid "Stay up to date"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:196
+#: a68e60bcc7b241ab982ee3692a7e3cec
+msgid ""
+"See :doc:`../Maintaining-a-Source-Checkout` to periodically refresh your "
+"source installation."
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:199
+#: 458963e256f8463e82a1002a1b0438f0
+msgid "Troubleshoot"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:201
+#: 3a36dbdf47994369b0aa9a854e3481cf
+msgid ""
+"Troubleshooting techniques can be found :ref:`here <macOS-"
+"troubleshooting>`."
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:204
+#: e7fe36a3c49f45e38b5bc889c777dacb
+msgid "Uninstall"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:206
+#: 72b53c44a13a4e4091ea09eb8909cfef
+msgid ""
+"If you installed your workspace with colcon as instructed above, "
+"\"uninstalling\" could be just a matter of opening a new terminal and not"
+" sourcing the workspace's ``setup`` file. This way, your environment will"
+" behave as though there is no Rolling install on your system."
+msgstr ""
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:209
+#: 252f824c2bfc411baf0956b783309fab
+msgid ""
+"If you're also trying to free up space, you can delete the entire "
+"workspace directory with:"
+msgstr ""
+

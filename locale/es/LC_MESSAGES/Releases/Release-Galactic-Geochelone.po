@@ -1,0 +1,1461 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:4
+#: 85f024fa084549d1aade3262f700ca3d
+msgid "Galactic Geochelone (``galactic``)"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:13
+#: c0ac8597a2984a51adecd351dbc5e3ab
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:15
+#: d7798f4d8f5a46b19c8919893b8f8945
+msgid ""
+"*Galactic Geochelone* is the seventh release of ROS 2. What follows is "
+"highlights of the important changes and features in Galactic Geochelone "
+"since the last release. For a list of all of the changes since Foxy, see "
+"the `long form changelog <Galactic-Geochelone-Complete-Changelog>`."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:20
+#: f0d0ae6f5f0c497a825124e40e946d16
+msgid "Supported Platforms"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:22
+#: 840d97a0663d49dd982d2a00bbb43a07
+msgid "Galactic Geochelone is primarily supported on the following platforms:"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:24
+#: 8ae2c5699b5845ec99e6a1aa9626d2ab
+msgid "Tier 1 platforms:"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:26
+#: 79650cc8a3e94610ae805656d7bbd091
+msgid "Ubuntu 20.04 (Focal): ``amd64`` and ``arm64``"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:27
+#: 1e686f5786d64bb7a2de77063aca200b
+msgid "Windows 10 (Visual Studio 2019): ``amd64``"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:29
+#: 06fbb7093a464e2688faf2abec3c8fe2
+msgid "Tier 2 platforms:"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:31
+#: acb9a64852ef4c1c9a74b661c685400c
+msgid "RHEL 8: ``amd64``"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:33
+#: 4e73d7c8e9734db883275e061c3a7e3c
+msgid "Tier 3 platforms:"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:35
+#: b079b03d77c54566b925109ad8a4f0e1
+msgid "Ubuntu 20.04 (Focal): ``arm32``"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:36
+#: 8010292ecc614d489ee1bdecd2af24f9
+msgid "Debian Bullseye (11): ``amd64``, ``arm64`` and ``arm32``"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:37
+#: 4dbe83b5d37749d8a8139923d26d9888
+msgid "OpenEmbedded Thud (2.6) / webOS OSE: ``arm32`` and ``arm64``"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:38
+#: 5b62eb7de7a743b5a2ecfac4f1d98137
+msgid "Mac macOS 10.14 (Mojave): ``amd64``"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:40
+#: 40524a0107ab4696b43543ebdb933140
+msgid ""
+"For more information about RMW implementations, compiler / interpreter "
+"versions, and system dependency versions see `REP 2000 "
+"<https://www.ros.org/reps/rep-2000.html>`__."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:43
+#: 18b742d2971940199e7a11ba5a699bbf
+msgid "Installation"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:45
+#: af9f9cca64184d82859847386317f1cb
+msgid "`Install Galactic Geochelone <../../../galactic/Installation.html>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:48
+#: 3b5ed1dc58fc478f971209afb0ef23ed
+msgid "New features in this ROS 2 release"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:51
+#: b100179003d34a6eb5ce4a16754d32f7
+msgid "Ability to specify per-logger log levels"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:53
+#: 90fc870e99564a74bacf5c4a9f64fc8d
+msgid ""
+"It is now possible to specify different logging levels for different "
+"loggers on the command line:"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:59
+#: c0bd981a89d84ec0a1ccf27e6cb79458
+msgid ""
+"The above command sets a global log level of WARN, but sets the log level"
+" of the talker node messages to DEBUG. The ``--log-level`` command-line "
+"option can be passed an arbitrary number of times to set different log "
+"levels for each logger."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:63
+#: 74433aa19e1244d0bc1016ae39c31bdb
+msgid "Ability to configure logging directory through environment variables"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:65
+#: b05a08139e3c4aec889dc5af57cee10e
+msgid ""
+"It is now possible to configure the logging directory through two "
+"environment variables: ``ROS_LOG_DIR`` and ``ROS_HOME``. The logic is as "
+"follows:"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:68
+#: c15c78f428954f9ab1cbc52059af9e8c
+msgid "Use ``$ROS_LOG_DIR`` if ``ROS_LOG_DIR`` is set and not empty."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:69
+#: 6916d0d3e60a4344b88d75630b1699d1
+msgid ""
+"Otherwise, use ``$ROS_HOME/log``, using ``~/.ros`` for ``ROS_HOME`` if "
+"not set or if empty."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:71
+#: b17cb90ccb4945708c86b92194c220a0
+msgid "Thus the default value stays the same: ``~/.ros/log``."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:73
+#: 7ccd4a2bdf504d68a09b12e1c55cbb6d
+msgid ""
+"Related PRs: `ros2/rcl_logging#53 "
+"<https://github.com/ros2/rcl_logging/pull/53>`_ and `ros2/launch#460 "
+"<https://github.com/ros2/launch/pull/460>`_."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:75
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:580
+#: 20309b3c56224fea8a4d0f736f78d33c 8186e81f399f497db7a1e68baa61ada7
+msgid "For example:"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:81
+#: 1195deda245d4731a0c7c4d1cc4b284a
+msgid "Will place all logs in ``/tmp/foo``."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:87
+#: c034e557d0e44f239befff07f02c613e
+msgid "Will place all logs in ``/path/to/home/log``."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:90
+#: 1cc25df42a1e405fb169eb6d88a8b1f4
+msgid "Ability to invoke ``rosidl`` pipeline outside CMake"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:92
+#: 92879fee0795445a83a2e4335e082abc
+msgid ""
+"It is now straightforward to invoke the ``rosidl`` interface generation "
+"pipeline outside CMake. Source code generators and interface definition "
+"translators are accessible through a unified command line interface."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:95
+#: 90d93385d5794607ae37fe5c873d2465
+msgid "For example, given a ``Demo`` message in some ``demo`` package like:"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:107
+#: 3f2a54b6d36843bca5113198a20a8ba2
+msgid "it is easy to generate C, C++, and Python support source code:"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:114
+#: 61c78e78123c4048a9cbaeaeaaaa816d
+msgid "Generated source code will be put in the ``gen`` directory."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:116
+#: f9cef804918545359d2612159e135824
+msgid ""
+"One may also translate the message definition to a different format for a"
+" third-party code generation tool to consume:"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:123
+#: b37e370ac4754714a40ce0fe39ef47a3
+msgid "The translated message definition will be put in the ``gen`` directory."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:125
+#: 667e9b1bf4764b5e9d8e2f5a0282559a
+msgid ""
+"Note that these tools generate sources but do not build it -- that "
+"responsibility is still on the caller. This is a first step towards "
+"enabling ``rosidl`` interface generation in build systems other than "
+"CMake. See the `design document "
+"<https://github.com/ros2/design/pull/310>`_ for further reference and "
+"next steps."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:130
+#: 62ccbc67b5574160a3bf362b0cecbaf1
+msgid "Externally configure QoS at start-up"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:132
+#: b1f5c1e346a640fe8a8a9801ca34e49e
+msgid ""
+"It is now possible to externally configure the QoS settings for a node at"
+" start-up time. QoS settings are **not** configurable during runtime; "
+"they are only configurable at start-up. Node authors must opt-in to "
+"enable changing QoS settings at start-up. If the feature is enabled on a "
+"node, then QoS settings can be set with ROS parameters when a node first "
+"starts."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:137
+#: ad086457acf04ab38812b81395a9292a
+msgid ""
+"`Demos in C++ and Python can be found here. "
+"<https://github.com/ros2/demos/tree/a66f0e894841a5d751bce6ded4983acb780448cf/quality_of_service_demo"
+"#qos-overrides>`_"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:139
+#: bb1d6573fc224b1ea0b25e42b117b4ec
+msgid ""
+"See the `design document for more details "
+"<http://design.ros2.org/articles/qos_configurability.html>`_."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:141
+#: 87dd61ceea8340b7840f11c19918a381
+msgid ""
+"Note, user code handling parameter changes with registered callbacks "
+"should avoid rejecting updates for unknown parameters. It was considered "
+"bad practice prior to Galactic, but with externally configurable QoS "
+"enabled it will result in a hard failure."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:144
+#: 295240829db54278821e5448fc2fe281
+msgid ""
+"Related PRs: `ros2/rclcpp#1408 "
+"<https://github.com/ros2/rclcpp/pull/1408>`_ and `ros2/rclpy#635 "
+"<https://github.com/ros2/rclpy/pull/635>`_"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:147
+#: 260c5927c93248ccb9e91c0dcd379069
+msgid "Python point_cloud2 utilities available"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:149
+#: e9b542ac3c244a74af2043b69ccc7f6b
+msgid ""
+"Several utilities for interacting with `PointCloud2 messages "
+"<https://github.com/ros2/common_interfaces/blob/galactic/sensor_msgs/msg/PointCloud2.msg>`__"
+" in Python were `ported to ROS 2 "
+"<https://github.com/ros2/common_interfaces/pull/128>`__. These utilities "
+"allow one to get a list of points from a PointCloud2 message "
+"(``read_points`` and ``read_points_list``), and to create a PointCloud2 "
+"message from a list of points (``create_cloud`` and "
+"``create_cloud_xyz32``)."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:152
+#: 79ee9b7631dd4f208473e7d610d5cb48
+msgid "An example of creating PointCloud 2 message, then reading it back:"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:167
+#: 6bdb57af64a44748b720ec770d3ac1a6
+msgid "RViz2 Time Panel"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:169
+#: 4165beb56f22469c8f5157e17638c027
+msgid ""
+"The Rviz2 Time Panel, which shows the current Wall and ROS time, along "
+"with the elapsed Wall and ROS time, has been `ported to RViz2 "
+"<https://github.com/ros2/rviz/pull/599>`__. To enable the Time Panel, "
+"click on Panels -> Add New Panel, and select \"Time\". A panel that looks"
+" like the following will appear:"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:176
+#: 524da0b665004aee91e17acb68dcc4cf
+msgid "ros2 topic echo can print serialized data"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:178
+#: 717af516092e4c9fa510cbea1aded2da
+msgid ""
+"When debugging middleware issues, it can be useful to see the raw "
+"serialized data that the RMW is sending. The `--raw command-line flag "
+"<https://github.com/ros2/ros2cli/pull/470>`__ was added to ``ros2 topic "
+"echo`` to show this data. To see this in action, run the following "
+"commands."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:182
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:223
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:245
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:329
+#: 17ccc71c17a5468eb17c9e37d5967cb5 1fbdbb506d4444558505fde734220257
+#: 660f8c80fe84401488df5f4f12a5690f 75f0ad9de6ae4aabba5395e2cc8bac58
+msgid "Terminal 1:"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:188
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:229
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:251
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:336
+#: 32b29a61351f456faff37356ae9a6132 4bc400e190fd4176bd24fa0104267d17
+#: 642c3429b0394285a604b93831c6e968 acd1decc22d24ebbad3cf260a55f014a
+msgid "Terminal 2:"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:197
+#: 0d12aba210fb47b59f25cc103e05bd34
+msgid "Get the YAML representation of messages"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:199
+#: 04286a2b3dc7413596032ae36e5ba676
+msgid ""
+"It is now possible to get a YAML representation of all messages in C++ "
+"using the `to_yaml <https://github.com/ros2/rosidl/issues/523>`__ "
+"function. An example of code that prints out the YAML representation:"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:217
+#: 476f4af9383b44b48b7fa7bd356f9bb3
+msgid "Ability to load parameter files at runtime through the ros2 command"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:219
+#: fbb5889129b94614b8083ad551552f6b
+msgid ""
+"ROS 2 has long had the ability to specify parameter values at startup "
+"(through command-line arguments or a YAML file), and to dump current "
+"parameters out to a file (through ``ros2 param dump``). Galactic adds the"
+" ability to `load parameter values at runtime "
+"<https://github.com/ros2/ros2cli/pull/590>`__ from a YAML file using the "
+"``ros2 param load`` verb. For example:"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:239
+#: 0ec2a2a22872480abc0d2529fde42ba7
+msgid "Tools to check for QoS incompatibilities"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:241
+#: b94efcc54ac74219b7e455240bc9300e
+msgid ""
+"Built on top of new QoS compatibility check APIs, ``ros2doctor`` and "
+"``rqt_graph`` can now detect and report QoS incompatibilities between "
+"publishers and subscriptions."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:243
+#: 7c3c6b97c32543b79973c8b167b52bd3
+msgid ""
+"Given a publisher and a subscription with `incompatible QoS settings "
+"<../../Concepts/Intermediate/About-Quality-of-Service-Settings>`:"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:257
+#: dbac62f9103e4b108d261137f3277feb
+msgid "``ros2doctor`` reports:"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:270
+#: e8e039d2e0b14d0da4b2e1d2f821a99e
+msgid "while ``rqt_graph`` shows:"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:274
+#: 22b55f05c0a540eca7f20d83adbef94f
+msgid ""
+"Related PRs: `ros2/ros2cli#621 "
+"<https://github.com/ros2/ros2cli/pull/621>`_, `ros-"
+"visualization/rqt_graph#61 <https://github.com/ros-"
+"visualization/rqt_graph/pull/61>`_"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:277
+#: 91e24fc360f84bbd89b5457aa518d263
+msgid "Use launch substitutions in parameter files"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:279
+#: 256b4bb3f18c4cf7a2aab33ebc94e17c
+msgid ""
+"Just like ``rosparam`` tags in ROS 1 ``roslaunch``, ``launch_ros`` can "
+"now evaluate substitutions in parameter files."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:281
+#: 463fb73baaff4e3694d5d0cb54b50da5
+msgid ""
+"For example, given some ``parameter_file_with_substitutions.yaml`` like "
+"the following:"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:289
+#: 82a76ad90e804186900ce112dd78aee6
+msgid ""
+"Set ``allow_substs`` to ``True`` to get substitutions evaluated upon "
+"``Node`` launch:"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:310
+#: 35ca3ef78b40411a99df0294a579e541
+msgid "XML launch files also support this."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:320
+#: 2adf05aec9e54b3f86c2aacedf3368cf
+msgid ""
+"Related PR: `ros2/launch_ros#168 "
+"<https://github.com/ros2/launch_ros/pull/168>`_"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:323
+#: 80a82e830e8b424d811995536a47cef1
+msgid "Support for unique network flows"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:325
+#: ab6da2d4b0444983a835ab4959342db2
+msgid ""
+"Applications may now require UDP/TCP and IP-based RMW implementations to "
+"provide unique *network flows* (i.e. unique `Differentiated Services Code"
+" Points <https://tools.ietf.org/html/rfc2474>`_ and/or unique `IPv6 Flow "
+"Labels <https://tools.ietf.org/html/rfc6437>`_ and/or unique ports in IP "
+"packet headers) for publishers and subscriptions, enabling QoS "
+"specifications for these IP streams in network architectures that support"
+" such a feature, like 5G networks."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:327
+#: f80da7d185704491bb1fc4d3def478d3
+msgid ""
+"To see this in action, you may run these C++ examples (to be found in the"
+" `ros2/examples <https://github.com/ros2/examples>`__ repository):"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:343
+#: 912ef694c7ee434295cd95b106db316a
+msgid ""
+"See the `Unique Network Flows design document "
+"<https://github.com/ros2/design/pull/304>`_ for further reference."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:346
+#: b07e8e789a984ac7b78091d01d748559
+msgid "Rosbag2 New Features"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:349
+#: 73c680bade63424f9179c2ace2d5b129
+msgid "Split recording by time"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:351
+#: ed48a106adfb492e8dca407444804cd8
+msgid ""
+"In Foxy, you could only split bags as they were recording by the size of "
+"the bag, now you can also split by the elapsed time. The following "
+"command will split bagfiles into 100-second chunks."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:359
+#: 979864a592e8408b8fb50d63662b11c1
+msgid "ros2 bag list"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:361
+#: 8239ae92935041cb97fed540ee84c036
+msgid ""
+"This new command lists installed plugins of various types that rosbag2 "
+"uses."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:374
+#: 8ade58e1340843f489c0ed323497baa0
+msgid "Compression implementation is a plugin"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:376
+#: 78bfbcf8fb604f9c80e229c3704c4d29
+msgid ""
+"In Foxy, rosbag2 compression was hardcoded with a Zstd library "
+"implementation. This has been rearchitected so that compression "
+"implementations are a plugin, and can be swapped out without modifying "
+"the core rosbag2 codebase. The default plugin that ships with ``ros-"
+"galactic-rosbag2`` is still the Zstd plugin - but now more can be "
+"released and used, and by selectively installing packages Zstd could be "
+"excluded from an installation."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:382
+#: 729996f7407a496ca0de2c9d8cc434c7
+msgid "Compress per-message"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:384
+#: 8335dbbc591844b1a3f9d8df3229b02c
+msgid ""
+"In Foxy, you could automatically compress each rosbag file as it was "
+"split (per-file compression), but now you can also specify per-message "
+"compression."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:392
+#: 4a87df33e66441fc9b43f39221712f21
+msgid "Rosbag2 Python API"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:394
+#: 9f2730f5242f4b4aa33b262b089a0e10
+msgid ""
+"A new package ``rosbag2_py`` has been released in Galactic, which "
+"provides a Python API. This package is a ``pybind11`` binding around the "
+"C++ API. As of the initial Galactic release, it does not yet expose all "
+"functionality available via the ``rosbag2_cpp`` API, but it is the sole "
+"connection for the ``ros2 bag`` CLI tool, so a good deal of functionality"
+" is available."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:400
+#: b90af3950ed84de2801d891e2656fa6b
+msgid "performance testing package and performance improvements"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:402
+#: 22d94415a44b4a8297974f12d0051314
+msgid ""
+"A thorough performance analysis project was performed on rosbag2 since "
+"the Foxy release. The full initial report is available at "
+"https://github.com/ros2/rosbag2/blob/galactic/rosbag2_performance/rosbag2_performance_benchmarking/docs/rosbag2_performance_improvements.pdf"
+" . The package ``rosbag2_performance_benchmarking`` provides tools to run"
+" performance analyses, especially on recording, which helps us maintain "
+"and improve the performance of rosbag2."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:406
+#: 8b831e37e1db43f98f4915d755812adf
+#, python-format
+msgid ""
+"Following this report, key work was done do improve the performance to a "
+"much more usable state for actual robot workflows. To highlight a key "
+"metric - in a high bandwidth stress test (200Mbps), the Foxy release "
+"dropped up to 70% of messages, whereas the Galactic version was "
+"approximately 100% retention. Please see the linked report for more "
+"details."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:411
+#: 3254892da5334baba3d6fd53e9b8d817
+msgid "``--regex`` and ``--exclude`` options for topic selection"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:413
+#: 7016c88112dc4768937a54e5c77869f4
+msgid ""
+"The new recording options ``--regex`` and ``--exclude`` allow for fine-"
+"tuning the topics recorded in a bag, without having to explicitly list "
+"all topics. These options may be used together or separately, and in "
+"conjunction with ``--all``"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:416
+#: 8f4bfc73b14c483a88701bbde399ddf7
+msgid "The following command will record only topics with \"scan\" in the name."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:422
+#: 47d035896ad2462286eab69d6d6176fa
+msgid ""
+"The following command will record all topics except for ones in "
+"``/my_namespace/``"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:430
+#: dc8dec0630a844b18580e5be7c2c9f2a
+msgid "``ros2 bag reindex``"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:432
+#: 9949260d420d40b4b3c82dcdcb3b35a1
+msgid ""
+"ROS 2 bags are represented by a directory, instead of a single file. This"
+" directory contains a ``metadata.yaml`` file, and one or more bag files. "
+"When the ``metadata.yaml`` file is lost or missing, ``ros2 bag reindex "
+"$bag_dir`` will attempt to reconstruct it by reading all the bag files in"
+" the directory."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:437
+#: 7472353eee0a44fd80935028e1e1d653
+msgid "Playback time control"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:439
+#: 2e630fdb1ff844b0a9ee50025ceb9d63
+msgid ""
+"New controls have been added for rosbag2 playback - pause & resume, "
+"change rate, and play-next. As of the Galactic release, these controls "
+"are exposed only as services on the rosbag2 player node. Development is "
+"in progress to expose them to keyboard controls as well in ``ros2 bag "
+"play``, but until then a user application with buttons or keyboard "
+"controls may be trivially implemented to call these services."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:481
+#: 75d8777ee2a449bda2e643d3321ec1a3
+msgid "Playback publishes /clock"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:483
+#: 971707d1e0484c3ba0ef2ac3cf470e5c
+msgid ""
+"Rosbag2 can also dictate \"simulation time\" by publishing to the "
+"``/clock`` topic during playback. The following commands will publish the"
+" clock message at a regular interval."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:495
+#: d110ef36ef8e4e2a87d5c31b5555d27b
+msgid "Changes since the Foxy release"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:498
+#: e3ec036dbb4743fdb71b55ed668d92fe
+msgid "Default RMW changed to Eclipse Cyclone DDS"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:500
+#: f671345ad0584be8ba8c6a5f160388de
+msgid ""
+"During the Galactic development process, the ROS 2 Technical Steering "
+"Committee `voted <https://discourse.ros.org/t/ros-2-galactic-default-"
+"middleware-announced/18064>`__ to change the default ROS middleware (RMW)"
+" to `Eclipse Cyclone DDS <https://github.com/eclipse-"
+"cyclonedds/cyclonedds>`__ project of `Eclipse Foundation "
+"<https://www.eclipse.org>`__. Without any configuration changes, users "
+"will get Eclipse Cyclone DDS by default. Fast DDS and Connext are still "
+"Tier-1 supported RMW vendors, and users can opt-in to use one of these "
+"RMWs at their discretion by using the ``RMW_IMPLEMENTATION`` environment "
+"variable. See the `Working with multiple RMW implementations guide "
+"<../../How-To-Guides/Working-with-multiple-RMW-implementations>` for more"
+" information."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:506
+#: 20b6eec0ad60483398bf787251617231
+msgid "Connext RMW changed to rmw_connextdds"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:508
+#: 56c610fc8b4c41fca64874a8cdb8b6ec
+msgid ""
+"A new RMW for Connext called `rmw_connextdds "
+"<https://github.com/ros2/rmw_connextdds>`_ was merged for Galactic. This "
+"RMW has better performance and fixes many of the issues with the older "
+"RMW ``rmw_connext_cpp``."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:512
+#: 4c6b1f9face24bfd902c7bffc576dad5
+msgid "Large improvements in testing and overall quality"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:514
+#: d5f9cc2dbb53466dbe7b1695efc41a22
+msgid ""
+"Galactic contains many changes that fix race conditions, plug memory "
+"leaks, and fix user reported problems. Besides these changes, there was a"
+" concerted effort during Galactic development to improve overall quality "
+"of the system by implementing `REP 2004 "
+"<https://www.ros.org/reps/rep-2004.html>`__. The ``rclcpp`` package and "
+"all of its dependencies (which include most of the ROS 2 non-Python core "
+"packages) were brought up to `Quality Level 1 "
+"<https://www.ros.org/reps/rep-2004.html#quality-level-1>`__ by:"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:518
+#: 84b100505f624b4fb83774e7ec870c2a
+msgid "Having a version policy (QL1 requirement 1)"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:519
+#: fabeb44807aa4597a30b656d2c170d69
+msgid "Having a documented change control process (QL1 requirement 2)"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:520
+#: 06a0626c2bc3447188524aabcfca2cc6
+msgid "Documenting all features and public APIs (QL1 requirement 3)"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:521
+#: 2fddc67f3a334b1f80d882bd09d48bd0
+msgid "Adding many additional tests (QL1 requirement 4):"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:523
+#: 525fefa08d8241e99b43912d8eac2c87
+msgid "System tests for all features"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:524
+#: ff6bf98b739d40ccbeb4c95e10a97311
+msgid "Unit tests for all public APIs"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:525
+#: 08cbd366dd56465f819ba8603daa776d
+msgid "Nightly performance tests"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:526
+#: 6cd55cf12ef5462f98200bdb4ee62731
+msgid "Code coverage at 95%"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:528
+#: 2009231ba9a64589ae81199a1366c2c8
+msgid ""
+"Having all runtime dependencies of packages be at least as high as the "
+"package (QL1 requirement 5)"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:529
+#: c3b0bfb10c0c467e94ed893cf3fb5aa0
+msgid "Supporting all of the REP-2000 platforms (QL1 requirement 6)"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:530
+#: 6258856f5d7f43389fd35a7596e596f0
+msgid "Having a vulnerability disclosure policy (QL1 requirement 7)"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:533
+#: ea01f3a97b0c40b9a33d66eb286c34e3
+msgid "rmw"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:536
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:704
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:780
+#: 051af42d09ec4562b21c649849941d74 78b9be1e3754495284d50cded8e3d42a
+#: f7fd386a5bc24a4587194b1b006a9f8c
+msgid "New API for checking QoS profile compatibility"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:538
+#: c87385bc4ada42b2845779970b263bbb
+msgid ""
+"``rmw_qos_profile_check_compatible`` is a new function for checking the "
+"compatibility of two QoS profiles."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:540
+#: 6af7e22524c14e04970b29ade9e5773b
+msgid ""
+"RMW vendors should implement this API for QoS debugging and introspection"
+" features in tools such as ``rqt_graph`` to work correctly."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:542
+#: e87ab0e1b6034befb7e1daaa580f0898
+msgid "Related PR: `ros2/rmw#299 <https://github.com/ros2/rmw/pull/299>`_"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:545
+#: f767e69c68674d91a2a36930db611c12
+msgid "ament_cmake"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:548
+#: bd151a9954f74a3c8389d143e932581b
+msgid "``ament_install_python_package()`` now installs a Python egg"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:550
+#: 340d60f164e44d199bdf56c0a9075193
+msgid ""
+"By installing a flat Python egg, Python packages installed using "
+"``ament_install_python_package()`` can be discovered using modules such "
+"as ``pkg_resources`` and ```importlib.metadata``. Also, additional "
+"metadata can be provided in a ``setup.cfg`` file (including entry "
+"points)."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:552
+#: 2158a6b39c7e44afa84c89098664bb07
+msgid ""
+"Related PR: `ament/ament_cmake#326 "
+"<https://github.com/ament/ament_cmake/pull/326>`_"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:555
+#: d7720ed9c2724659b665dc3d112f6f51
+msgid "``ament_target_dependencies()`` handles SYSTEM dependencies"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:557
+#: 76fa4f3d8ad849a585d77b37caacafe5
+msgid ""
+"Some package dependencies can now be marked as SYSTEM dependencies, "
+"helping to cope with warnings in external code. Typically, SYSTEM "
+"dependencies are also excluded from dependency calculations -- use them "
+"with care."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:559
+#: f5b903529fa846d187b53649d1dce481
+msgid ""
+"Related PR: `ament/ament_cmake#297 "
+"<https://github.com/ament/ament_cmake/pull/297>`_"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:562
+#: a78438809a4642b8a8d5b85e270b8e61
+msgid "nav2"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:564
+#: 154880dfc4114435a7f5bda4599b4677
+msgid ""
+"Changes include, but are not limited to, a number of stability "
+"improvements, new plugins, interface changes, costmap filters. See "
+"`Migration Guides <https://navigation.ros.org/migration/Foxy.html>`_ for "
+"full list"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:568
+#: 075f5c96e97a4c92ba20083c14c4d8e4
+msgid "tf2_ros Python split out of tf2_ros"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:570
+#: 69d365fde94c42f0b54cbc868676f201
+msgid ""
+"The Python code that used to live in tf2_ros has been moved into its own "
+"package named tf2_ros_py. Any existing Python code that depends on "
+"tf2_ros will continue to work, but the package.xml of those packages "
+"should be amended to ``exec_depend`` on tf2_ros_py."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:574
+#: 22f9a4419e8a43509de9120c5d5a7654
+msgid "tf2_ros Python TransformListener uses global namespace"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:576
+#: d43a08c5308844cb87e36575af5553e1
+msgid ""
+"The Python ``TransformListener`` now subscribes to ``/tf`` and "
+"``/tf_static`` in the global namespace. Previously, it was susbcribing in"
+" the node's namespace. This means that the node's namespace will no "
+"longer have an effect on the ``/tf`` and ``/tf_static`` subscriptions."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:586
+#: bf73052d7f5c49bb9ddbc68c62a9f144
+msgid ""
+"will subscribe to ``/tf`` and ``/tf_static``, as ``ros2 topic list`` will"
+" show."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:588
+#: cc20a49f91a2429fb71c355de647335f
+msgid ""
+"Related PR: `ros2/geometry2#390 "
+"<https://github.com/ros2/geometry2/pull/390>`_"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:591
+#: 9a5629a24b6f43bd9e2a7fe2c451c24a
+msgid "rclcpp"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:594
+#: b5b923c8231d4a5292dde4cb68764a32
+msgid "Change in spin_until_future_complete template parameters"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:596
+#: 75d55222c11541d88aa9679c51e3c1ef
+msgid ""
+"The first template parameter of ``Executor::spin_until_future_complete`` "
+"was the future result type ``ResultT``, and the method only accepted a "
+"``std::shared_future<ResultT>``. In order to accept other types of "
+"futures (e.g.: ``std::future``), that parameter was changed to the future"
+" type itself."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:599
+#: 5dee004f6be84120acc27ddd9c2ae0b5
+msgid ""
+"In places where a ``spin_until_future_complete`` call was relying on "
+"template argument deduction, no change is needed. If not, this is an "
+"example diff:"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:610
+#: 04a81e6943924654aeaae8be7b74bc92
+msgid ""
+"For more details, see `ros2/rclcpp#1160 "
+"<https://github.com/ros2/rclcpp/pull/1160>`_. For an example of the "
+"needed changes in user code, see `ros-"
+"visualization/interactive_markers#72 <https://github.com/ros-"
+"visualization/interactive_markers/pull/72>`_."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:614
+#: a2c871ef4c8640a683775e831c2739c3
+msgid "Change in default ``/clock`` subscription QoS profile"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:616
+#: 2a0c8413be5c4da8b8a0a893e8a41c37
+msgid ""
+"The default was changed from a reliable communication with history depth "
+"10 to a best effort communication with history depth 1. See "
+"`ros2/rclcpp#1312 <https://github.com/ros2/rclcpp/pull/1312>`_."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:620
+#: be647920bece45bca4d9e1c1fee14b19
+msgid "Waitable API"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:622
+#: fa5a0acd5da943c6be865c1786c67229
+msgid ""
+"Waitable API was modified to avoid issues with the "
+"``MultiThreadedExecutor``. This only affects users implementing a custom "
+"waitable. See `ros2/rclcpp#1241 "
+"<https://github.com/ros2/rclcpp/pull/1241>`_ for more details."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:627
+#: 37a401d763524e3abf5352acc3498b63
+msgid "Change in ``rclcpp``'s logging macros"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:628
+#: 214721741f7945b2a8b862b2b92fc739
+msgid ""
+"Previously, the logging macros were vulnerable to a `format string attack"
+" <https://owasp.org/www-community/attacks/Format_string_attack>`_, where "
+"the format string is evaluated and can potentially execute code, read the"
+" stack, or cause a segmentation fault in the running program. To address "
+"this security issue, the logging macro now accepts only string literals "
+"for it's format string argument."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:631
+#: 21a0e610d8d342e6b79c5ef26a720f8c
+msgid "If you previously had code like:"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:638
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:662
+#: 1d8afc7b041544f1879af70b462c2330 ce60e89aef41401aa0b2342b48c3fa11
+msgid "you should now replace it with:"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:645
+#: edcbab5bf455444f8acb1d671ea4c25f
+msgid "or:"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:652
+#: 890a49f8b23e455e8b9c81fa66586c0a
+msgid ""
+"This change removes some convenience from the logging macros, as "
+"``std::string``\\s are no longer accepted as the format argument."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:655
+#: f0c97cdf031742968891523bd35d4efa
+msgid "If you previously had code with no format arguments like:"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:670
+#: 7dcd9c8363a347a5b2f4c257dd35db99
+msgid ""
+"If you are using a ``std::string`` as a format string with format "
+"arguments, converting that string to a ``char *`` and using it as the "
+"format string will yield a format security warning. That's because the "
+"compiler has no way at compile to introspect into the ``std::string`` to "
+"verify the arguments.  To avoid the security warning, we recommend you "
+"build the string manually and pass it in with no format arguments like "
+"the previous example."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:672
+#: dafe412f525248a0965850bb9b8356a8
+msgid ""
+"``std::stringstream`` types are still accepted as arguments to the stream"
+" logging macros. See `ros2/rclcpp#1442 "
+"<https://github.com/ros2/rclcpp/pull/1442>`_ for more details."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:676
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:749
+#: 38b70da5d6ea437088d5fa6eab8dbc0a b0e24e7d051e4baba5ebbd4503980a22
+msgid "Parameter types are now static by default"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:678
+#: 272c4560f3f74153b1bec8ed87a00988
+msgid ""
+"Previously, the type of a parameter could be changed when a parameter was"
+" set. For example, if a parameter was declared as an integer, a later "
+"call to set the parameter could change that type to a string. This "
+"behavior could lead to bugs, and is rarely what the user wants. As of "
+"Galactic parameter types are static by default, and attempts to change "
+"the type will fail. If the previous dynamic behavior is desired, there is"
+" an mechanism to opt it in (see the code below)."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:701
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:777
+#: 05170efb558a4065854ceeea0863a269 dcceba8857da4874a40a79874ee86bb5
+msgid ""
+"For more details see "
+"https://github.com/ros2/rclcpp/blob/galactic/rclcpp/doc/notes_on_statically_typed_parameters.md."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:706
+#: 29e07569cf3148f2a21dc5dfbe07a80c
+msgid ""
+"``qos_check_compatible`` is a new function for checking the compatibility"
+" of two QoS profiles."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:708
+#: d53b34e153304483ae926b42b63216ff
+msgid "Related PR: `ros2/rclcpp#1554 <https://github.com/ros2/rclcpp/pull/1554>`_"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:711
+#: cc4e1275dd62482b8933c566679f8565
+msgid "rclpy"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:714
+#: a28e3df9e5274df2b672fda5fd1c4997
+msgid "Removal of deprecated Node.set_parameters_callback"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:716
+#: c25d8da726164afbbb673dc63abd7a08
+msgid ""
+"The method ``Node.set_parameters_callback`` was `deprecated in ROS Foxy "
+"<https://github.com/ros2/rclpy/pull/504>`_ and has been `removed in ROS "
+"Galactic <https://github.com/ros2/rclpy/pull/633>`_. Use "
+"``Node.add_on_set_parameters_callback()`` instead. Here is some example "
+"code using it."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:742
+#: 4e3f1b89ae8b4148b9848e110f49aee5
+msgid "Run this command to see the parameter callback in action."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:751
+#: 312f6bbbf99b4173923ca13fb0880565
+msgid ""
+"In Foxy and earlier a call to set a parameter could change its type. As "
+"of Galactic parameter types are static and cannot be changed by default. "
+"If the previous behavior is desired, then set ``dynamic_typing`` to true "
+"in the parameter descriptor. Here is an example."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:768
+#: c10b65fed6cd4d95985b136487f95b07
+msgid ""
+"Run these commands to see how statically and dynamically typed parameters"
+" are different."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:782
+#: 2f34ad2febd44021acce1ae80d0004f6
+msgid ""
+"``rclpy.qos.qos_check_compatible`` is `a new function "
+"<https://github.com/ros2/rclpy/pull/708>`_ for checking the compatibility"
+" of two QoS profiles. If the profiles are compatible, then a publisher "
+"and subscriber using them will be able to talk to each other."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:800
+#: 27bf86e474014c509a43056e4075107b
+msgid "rclcpp_action"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:803
+#: b16cfb9dc1c342a9ad934550179fab86
+msgid "Action client goal response callback signature changed"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:805
+#: a99cb40f43244a1ca635f1f133451c5f
+msgid ""
+"The goal response callback should now take a shared pointer to a goal "
+"handle, instead of a future."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:807
+#: 6127e2ba93ec4604bb6f1fe63430458b
+msgid "For `example <https://github.com/ros2/examples/pull/291>`_, old signature:"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:813
+#: 9d280d2ba2d046218d9dd0ea889ac737
+msgid "New signature:"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:819
+#: 1d049f3d754045f3940a44949a3d5902
+msgid "Related PR: `ros2/rclcpp#1311 <https://github.com/ros2/rclcpp/pull/1311>`_"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:822
+#: 9cac430c5b0940abaea87f0b2306e9e0
+msgid "rosidl_typesupport_introspection_c"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:825
+#: f000bbb738e240478e3f61cc6105bc45
+msgid "API break in function that gets an element from an array"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:827
+#: 4a7d2fea81a94977b769cf0355e4b3bd
+msgid ""
+"The signature of the function was changed because it was semantically "
+"different to all the other functions used to get an element from an array"
+" or sequence. This only affects authors of rmw implementations using the "
+"introspection typesupport."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:830
+#: 3c957117fe054bb4b79911c7c8a2b364
+msgid ""
+"For further details, see `ros2/rosidl#531 "
+"<https://github.com/ros2/rosidl/pull/531>`_."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:833
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:885
+#: 0356697c760b4868b3be63c061f1f5e1 44ca3e949c0f4b519c330520ec11f089
+msgid "rcl_lifecycle and rclcpp_lifecycle"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:836
+#: c35b486cc1f642cb8cc1857ccd354bd5
+msgid "RCL's lifecycle state machine gets new init API"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:838
+#: 46e28db942f74f739a645fbc659aabad
+msgid ""
+"The lifecycle state machine in rcl_lifecycle was modified to expect a "
+"newly introduced options struct, combining general configurations for the"
+" state machine. The option struct allows to indicate whether the state "
+"machine shall be initialized with default values, whether its attached "
+"services are active and which allocator to be used."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:856
+#: 0db9152ccf784b0c9c885618a72cf89e
+msgid "RCL's lifecycle state machine stores allocator instance"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:858
+#: f0ddde7990e94c9cac50ec45075ee872
+msgid ""
+"The options struct (discussed above) entails an instance of the allocator"
+" being used for initializing the state machine. This options struct and "
+"there the embodied allocator are being stored within the lifecycle state "
+"machine. As a direct consequence, the ``rcl_lifecycle_fini function`` no "
+"longer expects an allocator in its fini function but rather uses the "
+"allocator set in the options struct for deallocating its internal data "
+"structures."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:870
+#: 5ee070485edc4e6899e33c0cfceb8c75
+msgid "RCLCPP's lifecycle node exposes option to not instantiate services"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:872
+#: 04e9dc9d73ba499a9f441f636f368c10
+msgid ""
+"In order to use rclcpp's lifecycle nodes without exposing its internal "
+"services such as ``change_state``, ``get_state`` et. al., the constructor"
+" of a lifecycle node has a newly introduced parameter indicating whether "
+"or not the services shall be available. This boolean flag is set to true "
+"by default, not requiring any changes to existing API if not wished."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:882
+#: 52417629c65843dea80427f2e5efc14a
+msgid ""
+"Related PRs: `ros2/rcl#882 <https://github.com/ros2/rcl/pull/882>`_ and "
+"`ros2/rclcpp#1507 <https://github.com/ros2/rclcpp/pull/1507>`_"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:888
+#: 6785634edb59477f836dbe19622e5e3d
+msgid "Recording - Split by time"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:893
+#: 1597aca2cc7f4715a48703220fd5de47
+msgid "Known Issues"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:896
+#: b43451cbed27475c8a78286817a41470
+msgid "ros2cli"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:899
+#: 789db4ba8c86486a97e71f01ad44f466
+msgid "Daemon slows down CLI on Windows"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:901
+#: 311b01c030f44ffeb78b3336b8b0d58c
+msgid "As a workaround, CLI commands may be used without a daemon e.g.:"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:908
+#: 229ca35fd8044dd1b7f87e9d44a77f5c
+msgid ""
+"Issue is tracked by `ros2/ros2cli#637 "
+"<https://github.com/ros2/ros2cli/issues/637>`_."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:911
+#: c95502d4ddf54e54a96b9ccd99a09500
+msgid "rqt"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:914
+#: b071c34b062542b290900c2cf7dcfdbe
+msgid "Some rqt_bag icons are missing"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:916
+#: 2a61b780b0954de6bf10678a507ffc18
+msgid ""
+"The icons to \"Zoom In\", \"Zoom Out\", \"Zoom Home\", and \"Toggle "
+"Thumbnails\" are missing in ``rqt_bag``. The issue is tracked in `ros-"
+"visualization/rqt_bag#102 <https://github.com/ros-"
+"visualization/rqt_bag/issues/102>`_"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:920
+#: c261c71c96e64605a9a19b6e93f1c087
+msgid "Most rqt utilities don't work standalone on Windows"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:922
+#: cbfd3990164e496fb083338bbc51ee78
+msgid ""
+"Launching the rqt utilities \"standalone\" on Windows (like ``ros2 run "
+"rqt_graph rqt_graph``) generally doesn't work. The workaround is to "
+"launch the rqt container process (``rqt``), and then insert the plugins "
+"to be used."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:926
+#: ab655e8d15d3436f9f9feec4aabd87b5
+msgid "rviz2"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:929
+#: c5775338fc8e47baa2d92c0ed4b59a4c
+msgid "RViz2 panel close buttons are blank"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:931
+#: dba600d7774942eabb0c4720a09785cc
+msgid ""
+"The upper right-hand corner of every RViz2 panel should contain an \"X\" "
+"to allow one to close the panel. Those buttons are there, but the \"X\" "
+"inside of them is missing on all platforms. The issue is being tracked in"
+" `ros2/rviz2#692 <https://github.com/ros2/rviz/issues/692>`__."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:936
+#: 2bc88bf0a7064b53940e54dcd0a2cdb6
+msgid "Timeline before the release"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:939
+#: 6855ccc365e7421ca22c68dbcf575b21
+msgid "Mon. March 22, 2021 - Alpha"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:939
+#: ebef5e9a889742419a817bfdf9e4658d
+msgid "Preliminary testing and stabilization of ROS Core [1]_ packages."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:945
+#: 2d31744e35c24e488c9eb48655da3f26
+msgid "Mon. April 5, 2021 - Freeze"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:942
+#: 11b7c68e734d41d9a6fd273a40e71ba7
+msgid ""
+"API and feature freeze for ROS Core [1]_ packages in Rolling Ridley. Note"
+" that this includes ``rmw``, which is a recursive dependency of "
+"``ros_core``. Only bug fix releases should be made after this point. New "
+"packages can be released independently."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:950
+#: b037f2b4029244ba96943002c3086a1c
+msgid "Mon. April 19, 2021 - Branch"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:948
+#: 4990b2d9761b40d68a3067d298873ffe
+msgid ""
+"Branch from Rolling Ridley. ``rosdistro`` is reopened for Rolling PRs for"
+" ROS Core [1]_ packages. Galactic development shifts from ``ros-"
+"rolling-*`` packages to ``ros-galactic-*`` packages."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:954
+#: b79a3d0e5c8e4ff6bc7bd1b614cda660
+msgid "Mon. April 26, 2021 - Beta"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:953
+#: 16aa5ae453ce431295149116cd35687a
+msgid ""
+"Updated releases of ROS Desktop [2]_ packages available. Call for general"
+" testing."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:958
+#: f2f655e6c5824129bf1d52cc75f996fe
+msgid "Mon. May 17, 2021 - RC"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:958
+#: bdeb8ae9a5794619b6520946b0367014
+msgid "Release Candidate packages are built."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:958
+#: fd3a2751d1ea428f9c2e46d1e2a4cf5a
+msgid "Updated releases of ROS Desktop [2]_ packages available."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:962
+#: 669867ba154b4586927c00b463c81e2f
+msgid "Thu. May 20, 2021 - Distro Freeze"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:961
+#: 08c22569def94efda2c12f38733adb0d
+msgid ""
+"Freeze rosdistro. No PRs for Galactic on the ``rosdistro`` repo will be "
+"merged (reopens after the release announcement)."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:966
+#: 28f0f463861444e6834f88b1b2149029
+msgid "Sun. May 23, 2021 - General Availability"
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:966
+#: ceb81de5db7d45acb5c5553fb93f8c5e
+msgid "Release announcement."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:966
+#: 812331cb797d419c9bc1f7eeb26ea72d
+msgid "``rosdistro`` is reopened for Galactic PRs."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:968
+#: 042d8622de924e6da8f486d2fb0fcb33
+msgid ""
+"The ``ros_core`` variant is described in `REP 2001 (ros-core) "
+"<https://www.ros.org/reps/rep-2001.html#ros-core>`_."
+msgstr ""
+
+#: ../../source/Releases/Release-Galactic-Geochelone.rst:969
+#: fb3e9e72ba5f42feae4f0711711e82f0
+msgid ""
+"The ``desktop`` variant is described in `REP 2001 (desktop-variants) "
+"<https://www.ros.org/reps/rep-2001.html#desktop-variants>`_."
+msgstr ""
+

@@ -1,0 +1,663 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:7
+#: 3c6a59e386f344d1b339f9da2710a826
+msgid "Logging and logger configuration"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:10
+#: fc83c14d3ec543a881ebfc90487c9159
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:13
+#: d0bace4f9b8e45a1afeb041665ed8878
+msgid "Overview"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:15
+#: 44410bda7cbc416cb1b66ca7979521c2
+msgid ""
+"The logging subsystem in ROS 2 aims to deliver logging messages to a "
+"variety of targets, including:"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:17
+#: 35fa82d2a39b4646a961538a8bfa3aae
+msgid "To the console (if one is attached)"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:18
+#: c5d95d00d7974a66a0aae44b604a071a
+msgid "To log files on disk (if local storage is available)"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:19
+#: 84e7b7c433a046b3805f6331e660c523
+msgid "To the ``/rosout`` topic on the ROS 2 network"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:21
+#: bc31747a5d9e453abdc3121b01554d0f
+msgid ""
+"By default, log messages in ROS 2 nodes will go out to the console (on "
+"stderr), to log files on disk, and to the ``/rosout`` topic on the ROS 2 "
+"network. All of the targets can be individually enabled or disabled on a "
+"per-node basis."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:24
+#: 7f2af03693bd423984523328875394af
+msgid ""
+"The rest of this document will go over some of the ideas behind the "
+"logging subsystem."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:27
+#: 6d3a2bb24cd84d819d9b0264f181d232
+msgid "Severity level"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:29
+#: d925b53defb44a9abbe50d15a06c740a
+msgid ""
+"Log messages have a severity level associated with them: ``DEBUG``, "
+"``INFO``, ``WARN``, ``ERROR`` or ``FATAL``, in ascending order."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:31
+#: 46d9feadb248470fa637f6d654be9144
+msgid ""
+"A logger will only process log messages with severity at or higher than a"
+" specified level chosen for the logger."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:33
+#: f60453ad2a854ca7bea12d8a3151a2ed
+msgid ""
+"Each node has a logger associated with it that automatically includes the"
+" node's name and namespace. If the node's name is externally remapped to "
+"something other than what is defined in the source code, it will be "
+"reflected in the logger name. Non-node loggers can also be created that "
+"use a specific name."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:37
+#: 24d96897956d414c80b4757b8034926c
+msgid ""
+"Logger names represent a hierarchy. If the level of a logger named "
+"\"abc.def\" is unset, it will defer to the level of its parent named "
+"\"abc\", and if that level is also unset, the default logger level will "
+"be used. When the level of logger \"abc\" is changed, all of its "
+"descendants (e.g. \"abc.def\", \"abc.ghi.jkl\") will have their level "
+"impacted unless their level has been explicitly set."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:42
+#: 7c87597c1724465aa7a89d28911f14ab
+msgid "APIs"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:44
+#: b95491ea38784c1d8e4a2917023e53ca
+msgid ""
+"These are the APIs that end users of the ROS 2 logging infrastructure "
+"should use, split up by client library."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:48
+#: ../../source/Concepts/Intermediate/About-Logging.rst:184
+#: 997d5486e1ff424ba032c3f88a203fe4 9a8de2e62f8842fd95b207fc03bcd2bb
+msgid "C++"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:50
+#: 005ce940f5f243b998e011f65aa9ed7b
+msgid ""
+"``RCLCPP_{DEBUG,INFO,WARN,ERROR,FATAL}`` - output the given printf-style "
+"message every time this line is hit"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:51
+#: 30e8dccdf2f3405ea3fc41b4fe23af2e
+msgid ""
+"``RCLCPP_{DEBUG,INFO,WARN,ERROR,FATAL}_ONCE`` - output the given printf-"
+"style message only the first time this line is hit"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:52
+#: 1bb3c13883c249d0a728c75fe27dcb75
+msgid ""
+"``RCLCPP_{DEBUG,INFO,WARN,ERROR,FATAL}_EXPRESSION`` - output the given "
+"printf-style message only if the given expression is true"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:53
+#: 4f9f9f1bec1c4bff93c7ce417659900a
+msgid ""
+"``RCLCPP_{DEBUG,INFO,WARN,ERROR,FATAL}_FUNCTION`` - output the given "
+"printf-style message only if the given function returns true"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:54
+#: 06e7e101962e49b4a5293c5ba1cea59a
+msgid ""
+"``RCLCPP_{DEBUG,INFO,WARN,ERROR,FATAL}_SKIPFIRST`` - output the given "
+"printf-style message all but the first time this line is hit"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:55
+#: 690e389044d9423abaebf2c95c036371
+msgid ""
+"``RCLCPP_{DEBUG,INFO,WARN,ERROR,FATAL}_THROTTLE`` - output the given "
+"printf-style message no more than the given rate in integer milliseconds"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:56
+#: 7e52d5c5c9e14d85b1a141aa87443e92
+msgid ""
+"``RCLCPP_{DEBUG,INFO,WARN,ERROR,FATAL}_SKIPFIRST_THROTTLE`` - output the "
+"given printf-style message no more than the given rate in integer "
+"milliseconds, but skip the first"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:57
+#: e3d1e16ea8e24470b0b811de581c7785
+msgid ""
+"``RCLCPP_{DEBUG,INFO,WARN,ERROR,FATAL}_STREAM`` - output the given C++ "
+"stream-style message every time this line is hit"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:58
+#: 2d723e6c31364487bcacca20ec91a996
+msgid ""
+"``RCLCPP_{DEBUG,INFO,WARN,ERROR,FATAL}_STREAM_ONCE`` - output the given "
+"C++ stream-style message only the first time this line is hit"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:59
+#: b4d0162c5a5849448476132c8e4819b2
+msgid ""
+"``RCLCPP_{DEBUG,INFO,WARN,ERROR,FATAL}_STREAM_EXPRESSION`` - output the "
+"given C++ stream-style message only if the given expression is true"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:60
+#: e9f0f82756a8418ab406d6b5d83461b4
+msgid ""
+"``RCLCPP_{DEBUG,INFO,WARN,ERROR,FATAL}_STREAM_FUNCTION`` - output the "
+"given C++ stream-style message only if the given function returns true"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:61
+#: b3cadedc242a4a4ab7ec99463eb2f4d1
+msgid ""
+"``RCLCPP_{DEBUG,INFO,WARN,ERROR,FATAL}_STREAM_SKIPFIRST`` - output the "
+"given C++ stream-style message all but the first time this line is hit"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:62
+#: 38e5d3cb9d384cb1aac5b9b8a08d42a3
+msgid ""
+"``RCLCPP_{DEBUG,INFO,WARN,ERROR,FATAL}_STREAM_THROTTLE`` - output the "
+"given C++ stream-style message no more than the given rate in integer "
+"milliseconds"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:63
+#: 82a13bf1d12d494a95cf9ae9ed4dfd85
+msgid ""
+"``RCLCPP_{DEBUG,INFO,WARN,ERROR,FATAL}_STREAM_SKIPFIRST_THROTTLE`` - "
+"output the given C++ stream-style message no more than the given rate in "
+"integer milliseconds, but skip the first"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:65
+#: 23efc585c167432b8fa442353380be13
+msgid ""
+"Each of the above APIs takes an ``rclcpp::Logger`` object as the first "
+"argument. This can be pulled from the node API by calling "
+"``node->get_logger()`` (recommended), or by constructing a stand-alone "
+"``rclcpp::Logger`` object."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:68
+#: be7d7f8b61834889be62ebb4bab78edf
+msgid ""
+"``rcutils_logging_set_logger_level`` - Set the logging level for a "
+"particular logger name to the given severity level"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:69
+#: 61ac1da366b24203a698b44d20debca9
+msgid ""
+"``rcutils_logging_get_logger_effective_level`` - Given a logger name, "
+"return the logger level (which may be unset)"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:71
+#: ../../source/Concepts/Intermediate/About-Logging.rst:190
+#: 39502ff08f1043b58392309437b97c6a f10ee61c947a4ecc82483f3324bef6cb
+msgid "Python"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:73
+#: 097022c7c3234b79b3c26fe88ef0d0b2
+msgid ""
+"``logger.{debug,info,warning,error,fatal}`` - output the given Python "
+"string to the logging infrastructure.  The calls accept the following "
+"keyword args to control behavior:"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:75
+#: 13b643706425444cbabc0d5586196f9c
+msgid ""
+"``throttle_duration_sec`` - if not None, the duration of the throttle "
+"interval in floating-point seconds"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:76
+#: fa1e764fd8f5493abb5dc9901e0b0c93
+msgid ""
+"``skip_first`` - if True, output the message all but the first time this "
+"line is hit"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:77
+#: c6736af090a644c18ead741abd362f82
+msgid ""
+"``once`` - if True, only output the message the first time this line is "
+"hit"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:79
+#: 41195ac1d4ed4386b8a8684ab01f77e6
+msgid ""
+"``rclpy.logging.set_logger_level`` - Set the logging level for a "
+"particular logger name to the given severity level"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:80
+#: f67999188ff249ee85525a7d0aebc17c
+msgid ""
+"``rclpy.logging.get_logger_effective_level`` - Given a logger name, "
+"return the logger level (which may be unset)"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:83
+#: f0e2f635651a4256b917002c1d5035bd
+msgid "Configuration"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:85
+#: ba7e2dd1bb894950835c1223067bd13b
+msgid ""
+"Since ``rclcpp`` and ``rclpy`` use the same underlying logging "
+"infrastructure, the configuration options are the same."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:88
+#: c300e8c355f940f1ae9042a7cfbb13f6
+msgid "Environment variables"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:90
+#: 4d25837596674116bde2015cc03cb63a
+msgid ""
+"The following environment variables control some aspects of the ROS 2 "
+"loggers. For each of the environment settings, note that this is a "
+"process-wide setting, so it applies to all nodes in that process."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:93
+#: 7ec671de9ac14d2f98db789bd33f33a5
+msgid ""
+"``ROS_LOG_DIR`` - Control the logging directory that is used for writing "
+"logging messages to disk (if that is enabled).  If non-empty, use the "
+"exact directory as specified in this variable.  If empty, use the "
+"contents of the ``ROS_HOME`` environment variable to construct a path of "
+"the form ``$ROS_HOME/.log``.  In all cases, the ``~`` character is "
+"expanded to the user's HOME directory."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:94
+#: 57357f54242f47b1b79cd0a3f5c05267
+msgid ""
+"``ROS_HOME`` - Control the home directory that is used for various ROS "
+"files, including logging and config files.  In the context of logging, "
+"this variable is used to construct a path to a directory for log files.  "
+"If non-empty, use the contents of this variable for the ROS_HOME path.  "
+"In all cases, the ``~`` character is expanded to the users's HOME "
+"directory."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:95
+#: 96a7d3be932d4c249ab1a4ca1ecf1893
+msgid ""
+"``RCUTILS_LOGGING_USE_STDOUT`` - Control what stream output messages go "
+"to.  If this is unset or 0, use stderr.  If this is 1, use stdout."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:96
+#: 180227bbfd1b4a0f96f562594fa90041
+msgid ""
+"``RCUTILS_LOGGING_BUFFERED_STREAM`` - Control whether the logging stream "
+"(as configured in ``RCUTILS_LOGGING_USE_STDOUT``) should be line buffered"
+" or unbuffered.  If this is unset, use the default of the stream "
+"(generally line buffered for stdout, and unbuffered for stderr).  If this"
+" is 0, force the stream to be unbuffered.  If this is 1, force the stream"
+" to be line buffered."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:97
+#: 2f878132dc8945fda8dfea72b093a2ad
+msgid ""
+"``RCUTILS_COLORIZED_OUTPUT`` - Control whether colors are used when "
+"outputting messages.  If unset, automatically determine based on the "
+"platform and whether the console is a TTY.  If 0, force disable using "
+"colors for output.  If 1, force enable using colors for output."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:98
+#: 2faee970bce84db2aa2311d58a73b10d
+msgid ""
+"``RCUTILS_CONSOLE_OUTPUT_FORMAT`` - Control the fields that are output "
+"for each log message.  The available fields are:"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:100
+#: 49faa6ab8e7846638dc7ece052519387
+msgid "``{severity}`` - The severity level."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:101
+#: 3501cb5d9c5446d4a10c9a13f48d8c6f
+msgid "``{name}`` - The name of the logger (may be empty)."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:102
+#: 1df41a34780d4644950ab7bc67fdcced
+msgid "``{message}`` - The log message (may be empty)."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:103
+#: f80551ce43674d70b6a940ebedccbff5
+msgid ""
+"``{function_name}`` - The function name this was called from (may be "
+"empty)."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:104
+#: 76e57c695d1c42bf8443a5b2ab75449f
+msgid "``{file_name}`` - The file name this was called from (may be empty)."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:105
+#: 42287d2f73c64088a55c2973907cd466
+msgid "``{time}`` - The time in seconds since the epoch."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:106
+#: 0132753f26844dd6b9901c9bfe7969ec
+msgid "``{time_as_nanoseconds}`` - The time in nanoseconds since the epoch."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:107
+#: 5570f44a23c7456d895eb0f727e9de19
+msgid "``{line_number}`` - The line number this was called from (may be empty)."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:109
+#: 2bec791bd45a415db675f8abe501a339
+msgid ""
+"If no format is given, a default of ``[{severity}] [{time}] [{name}]: "
+"{message}`` is used."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:113
+#: bab6878e1db74d01a5777c93e3bdf9c1
+msgid "Node creation"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:115
+#: 751198ffd76e4f859a9ad456ad7967c3
+msgid ""
+"When initializing a ROS 2 node, it is possible to control some aspects of"
+" the behavior via node options. Since these are per-node options, they "
+"can be set differently for different nodes even when the nodes are "
+"composed into a single process."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:118
+#: 99bb9e485f1f48c1a86db9330d08d714
+msgid ""
+"``log_levels`` - The log level to use for a component within this "
+"particular node.  This can be set with the following: ``ros2 run "
+"demo_nodes_cpp talker --ros-args --log-level talker:=DEBUG``"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:119
+#: 660f3fe8a9ef4f37973650951f031703
+msgid ""
+"``external_log_config_file`` - The external file to use to configure the "
+"backend logger.  If it is NULL, the default configuration will be used.  "
+"Note that the format of this file is backend-specific (and is currently "
+"unimplemented for the default backend logger of spdlog).  This can be set"
+" with the following: ``ros2 run demo_nodes_cpp talker --ros-args --log-"
+"config-file log-config.txt``"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:120
+#: 4960267aff75478984af271b3aef88db
+msgid ""
+"``log_stdout_disabled`` - Whether to disable writing log messages to the "
+"console.  This can be done with the following: ``ros2 run demo_nodes_cpp "
+"talker --ros-args --disable-stdout-logs``"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:121
+#: c99c6ad4c9c54853bbbf32f1328627b0
+msgid ""
+"``log_rosout_disabled`` - Whether to disable writing log messages out to "
+"``/rosout``.  This can significantly save on network bandwidth, but "
+"external observers will not be able to monitor logging.  This can be done"
+" with the following: ``ros2 run demo_nodes_cpp talker --ros-args "
+"--disable-rosout-logs``"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:122
+#: 1adb55cb769649e48a471ab36c6b1496
+msgid ""
+"``log_ext_lib_disabled`` - Whether to completely disable the use of an "
+"external logger.  This may be faster in some cases, but means that logs "
+"will not be written to disk.  This can be done with the following: ``ros2"
+" run demo_nodes_cpp talker --ros-args --disable-external-lib-logs``"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:125
+#: bbdbd1746141444591fc7c08db99127a
+msgid "Logging subsystem design"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:127
+#: d02dbb05fa7a4da281f8d2dd694acb14
+msgid ""
+"The image below shows the five main pieces to the logging subsystem and "
+"how they interact."
+msgstr ""
+
+#: 98f7cc622da54b778a87ebb9db744380
+msgid "ROS 2 logging architecture"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:135
+#: 169e934c482b4851b061b0bb11649ccd
+msgid "rcutils"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:137
+#: 484152ee94e44437a8574796e7f3aede
+msgid ""
+"``rcutils`` has a logging implementation that can format log messages "
+"according to a certain format (see ``Configuration`` above), and output "
+"those log messages to a console. ``rcutils`` implements a complete "
+"logging solution, but allows higher-level components to insert themselves"
+" into the logging infrastructure in a dependency-injection model. This "
+"will become more evident when we talk about the ``rcl`` layer below."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:141
+#: 1d73e46564d54c828b7cec7f9237c872
+msgid ""
+"Note that this is a *per-process* logging implementation, so anything "
+"that is configured at this level will affect the entire process, not just"
+" individual nodes."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:144
+#: c823202bd82d42dda81d37574ab2b9db
+msgid "rcl_logging_spdlog"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:146
+#: aca8569757054f259e29278f58977c30
+msgid ""
+"``rcl_logging_spdlog`` implements the ``rcl_logging_interface`` API, and "
+"thus provides external logging services to the ``rcl`` layer. In "
+"particular, the ``rcl_logging_spdlog`` implementation takes formatted log"
+" messages and writes them out to log files on disk using the ``spdlog`` "
+"library, typically within ``~/.ros/log`` (though this is configurable; "
+"see ``Configuration`` above)."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:150
+#: 19263b675e50413ab49f51401c2de764
+msgid "rcl"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:152
+#: 5535582f3e42437896770e647f26485c
+msgid ""
+"The logging subsystem in ``rcl`` uses ``rcutils`` and "
+"``rcl_logging_spdlog`` to provide the bulk of the ROS 2 logging services."
+" When log messages come in, ``rcl`` decides where to send them. There are"
+" 3 main places that logging messages can be delivered; an individual node"
+" may have any combination of them enabled:"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:156
+#: 0f274994549544f2a14621d3c5d01599
+msgid "To the console via the ``rcutils`` layer"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:157
+#: 2073f223b357469d90cb565da16c597f
+msgid "To disk via the ``rcl_logging_spdlog`` layer"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:158
+#: 8f184ba5e73745ed8e80c7227e8fe522
+msgid "To the ``/rosout`` topic on the ROS 2 network via the RMW layer"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:161
+#: f15246bff6264dd1a5ef5815ea087756
+msgid "rclcpp"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:163
+#: f88f8598455345ccb66d0a1d8d49b1fe
+msgid ""
+"This is the main ROS 2 C++ API which sits atop the ``rcl`` API. In the "
+"context of logging, ``rclcpp`` provides the ``RCLCPP_`` logging macros; "
+"see ``APIs`` above for a complete list. When one of the ``RCLCPP_`` "
+"macros runs, it checks the current severity level of the node against the"
+" severity level of the macro. If the severity level of the macro is "
+"greater than or equal to the node severity level, the message will be "
+"formatted and output to all of the places that are currently configured. "
+"Note that ``rclcpp`` uses a global mutex for log calls, so all logging "
+"calls within the same process end up being single-threaded."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:171
+#: aa0f27947b364bd4a927b14b83a8ab9f
+msgid "rclpy"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:173
+#: 8385812636d04998a89092fa7793909a
+msgid ""
+"This is the main ROS 2 Python API which sits atop the ``rcl`` API. In the"
+" context of logging, ``rclpy`` provides the ``logger.debug``-style "
+"functions; see ``APIs`` above for a complete list. When one of the "
+"``logger.debug`` functions runs, it checks the current severity level of "
+"the node against the severity level of the macro. If the severity level "
+"of the macro is greater than or equal to the node severity level, the "
+"message will be formatted and output to all of the places that are "
+"currently configured."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:180
+#: d8b4f98b46c84aebb065519c068aa6a8
+msgid "Logging usage"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:186
+#: eec58a50cfbf4e1bb5ba8c11cdecf0ce
+msgid ""
+"See the `rclcpp logging demo "
+"<https://github.com/ros2/demos/tree/rolling/logging_demo>`_ for some "
+"simple examples."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:187
+#: 15db1645432447a6a1eb1314e31a743d
+msgid ""
+"See the :doc:`logging demo <../../Tutorials/Demos/Logging-and-logger-"
+"configuration>` for example usage."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:188
+#: 6440cc33c3bb47aa9f97237ec4853f9b
+msgid ""
+"See the `rclcpp documentation "
+"<https://docs.ros2.org/latest/api/rclcpp/logging_8hpp.html>`__ for an "
+"extensive list of functionality."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:192
+#: cfe06c3c456343e5ade6990f892fde30
+msgid ""
+"See the `rclpy examples "
+"<https://github.com/ros2/examples/blob/rolling/rclpy/services/minimal_client/examples_rclpy_minimal_client/client.py>`__"
+" for example usage of a node's logger."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Logging.rst:193
+#: 1342310aed8243bcbe326763652f20c5
+msgid ""
+"See the `rclpy tests "
+"<https://github.com/ros2/rclpy/blob/rolling/rclpy/test/test_logging.py>`__"
+" for example usage of keyword arguments (e.g. ``skip_first``, ``once``)."
+msgstr ""
+

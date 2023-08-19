@@ -1,0 +1,221 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Intermediate/Tf2/Time-Travel-With-Tf2-Cpp.rst:8
+#: 4ecef9520d18492f899e2c0da7558d79
+msgid "Traveling in time (C++)"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Time-Travel-With-Tf2-Cpp.rst:10
+#: b84683a498864bb3ae1f5b9a5ec9e11c
+msgid "**Goal:** Learn about advanced time travel features of tf2."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Time-Travel-With-Tf2-Cpp.rst:12
+#: ffddcfd32a8f416ba14f4e2049333206
+msgid "**Tutorial level:** Intermediate"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Time-Travel-With-Tf2-Cpp.rst:14
+#: ac9946fb1b4143019eb4f75e97982b34
+msgid "**Time:** 10 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Time-Travel-With-Tf2-Cpp.rst:18
+#: 41880901a86a425dbc85384636c5c72a
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Time-Travel-With-Tf2-Cpp.rst:21
+#: 9743253f7c8f460792eb108ab82b7ae0
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Time-Travel-With-Tf2-Cpp.rst:23
+#: 23176a121082489d8fba689212d86cd7
+msgid ""
+"In the previous tutorial, we discussed the :doc:`basics of tf2 and time "
+"<./Learning-About-Tf2-And-Time-Cpp>`. This tutorial will take us one step"
+" further and expose a powerful tf2 trick: the time travel. In short, one "
+"of the key features of tf2 library is that it is able to transform data "
+"in time as well as in space."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Time-Travel-With-Tf2-Cpp.rst:27
+#: 88c35cb6ef61453489a227abd1674873
+msgid ""
+"This tf2 time travel feature can be useful for various tasks, like "
+"monitoring the pose of the robot for a long period of time or building a "
+"follower robot that will follow the \"steps\" of the leader. We will use "
+"that time travel feature to look up transforms back in time and program "
+"``turtle2`` to follow 5 seconds behind ``carrot1``."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Time-Travel-With-Tf2-Cpp.rst:31
+#: c61f52f72e8249dea235dd97f26a1f8d
+msgid "Time travel"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Time-Travel-With-Tf2-Cpp.rst:33
+#: 3b88b65f8e9541bd9dfbaf0b0b3430c9
+msgid ""
+"First, let's go back to where we ended in the previous tutorial "
+":doc:`Using time <./Learning-About-Tf2-And-Time-Cpp>`. Go to your "
+"``learning_tf2_cpp`` package."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Time-Travel-With-Tf2-Cpp.rst:36
+#: 7c60c965ca6b443fab52aeb7a063149f
+msgid ""
+"Now, instead of making the second turtle go to where the carrot is now, "
+"we will make the second turtle go to where the first carrot was 5 seconds"
+" ago. Edit the ``lookupTransform()`` call in ``turtle_tf2_listener.cpp`` "
+"file to"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Time-Travel-With-Tf2-Cpp.rst:50
+#: 8c1e50346e144c85834a08cd6186ff98
+msgid ""
+"Now if you run this, during the first 5 seconds, the second turtle would "
+"not know where to go because we do not yet have a 5-second history of "
+"poses of the carrot. But what happens after these 5 seconds? Build the "
+"package then let's just give it a try:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Time-Travel-With-Tf2-Cpp.rst:59
+#: 675b7e326335462ab6bed30e67f34910
+msgid ""
+"You should now notice that your turtle is driving around uncontrollably "
+"like in this screenshot. Let's try to understand reason behind that "
+"behavior."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Time-Travel-With-Tf2-Cpp.rst:61
+#: f77822257aae46aa983f582d38bd9c4b
+msgid ""
+"In our code we asked tf2 the following question: \"What was the pose of "
+"``carrot1`` 5 seconds ago, relative to ``turtle2`` 5 seconds ago?\". This"
+" means we are controlling the second turtle based on where it was 5 "
+"seconds ago as well as where the first carrot was 5 seconds ago."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Time-Travel-With-Tf2-Cpp.rst:63
+#: 1ee96a8f768b4f68aadfe23154405576
+msgid ""
+"However, what we really want to ask is: \"What was the pose of "
+"``carrot1`` 5 seconds ago, relative to the current position of the "
+"``turtle2``?\"."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Time-Travel-With-Tf2-Cpp.rst:66
+#: db6dd33f125d482eb6a555562a65bc39
+msgid "Advanced API for lookupTransform()"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Time-Travel-With-Tf2-Cpp.rst:68
+#: 9aa360736a0742cc85ceac90dd0bd9e6
+msgid ""
+"To ask the tf2 that particular question, we will use an advanced API that"
+" gives us the power to say explicitly when to acquire the specified "
+"transformations. This is done by calling the ``lookupTransform()`` method"
+" with additional parameters. Your code now would look like this:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Time-Travel-With-Tf2-Cpp.rst:86
+#: 149940641ecb43d3b252ad9488356c4a
+msgid "The advanced API for ``lookupTransform()`` takes six arguments:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Time-Travel-With-Tf2-Cpp.rst:88
+#: 929dfbf4883a4c28bfa3ff91760e487e
+msgid "Target frame"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Time-Travel-With-Tf2-Cpp.rst:90
+#: 9b94b87d6dc445c6b07949b8ddc73ab3
+msgid "The time to transform to"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Time-Travel-With-Tf2-Cpp.rst:92
+#: b24030b99d3b4f15a77752bee79adcfe
+msgid "Source frame"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Time-Travel-With-Tf2-Cpp.rst:94
+#: 751994607b264df0a8920ba78dd13849
+msgid "The time at which source frame will be evaluated"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Time-Travel-With-Tf2-Cpp.rst:96
+#: 4bc26cb8353e4cce89595b07434a2c36
+msgid "Frame that does not change over time, in this case the ``world`` frame"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Time-Travel-With-Tf2-Cpp.rst:98
+#: 56e301d751ba4d7297b439c0565c08ea
+msgid "Time to wait for the target frame to become available"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Time-Travel-With-Tf2-Cpp.rst:100
+#: ca60f5fefb9f492fb8ef156aa822a317
+msgid ""
+"To sum up, tf2 does the following in the background. In the past, it "
+"computes the transform from the ``carrot1`` to the ``world``. In the "
+"``world`` frame, tf2 time travels from the past to now. And at the "
+"current time, tf2 computes the transform from the ``world`` to the "
+"``turtle2``."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Time-Travel-With-Tf2-Cpp.rst:106
+#: b93a494ab07d4ac89030df859c8a7e7f
+msgid "Checking the results"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Time-Travel-With-Tf2-Cpp.rst:108
+#: aab4b2147ae440ef87ad7b4200659f41
+msgid ""
+"Build the package then let's run the simulation again, this time with the"
+" advanced time-travel API:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Time-Travel-With-Tf2-Cpp.rst:116
+#: cb7a276eec724c10b9ee5d242f8e4d2a
+msgid ""
+"And yes, the second turtle is directed to where the first carrot was 5 "
+"seconds ago!"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Time-Travel-With-Tf2-Cpp.rst:119
+#: c0cc36fa1bd54d49a0b30cc0b4cf7c6f
+msgid "Summary"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Time-Travel-With-Tf2-Cpp.rst:121
+#: 3098234fd7ef497984bd30e2c5769667
+msgid ""
+"In this tutorial, you have seen one of the advanced features of tf2. You "
+"learned that tf2 can transform data in time and learned how to do that "
+"with turtlesim example. tf2 allowed you to go back in time and make frame"
+" transformations between old and current poses of turtles by using the "
+"advanced ``lookupTransform()`` API."
+msgstr ""
+

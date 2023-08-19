@@ -1,0 +1,288 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:6
+#: 4771c2a8870b4c03a56d8af83e210a3f
+msgid "Ardent Apalone (``ardent``)"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:10
+#: dada678bbfbc4e4392d9902144d9c70a
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:12
+#: 5068f3929c484224a8f31f96b56d8855
+msgid ""
+"Welcome to the first non-beta release of ROS 2 software named *Ardent "
+"Apalone*!"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:15
+#: 7c6782dbbbf2412cbd43d0a5536df358
+msgid "Supported Platforms"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:17
+#: b706d56d96524dcda1d588468b306130
+msgid "This version of ROS 2 is supported on three platforms:"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:20
+#: 8bfcb6be115b4fe491bd0f3bafddeec5
+msgid "Ubuntu 16.04 (Xenial)"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:21
+#: bc29354673ad4a6daa548ab5b6906267
+msgid "Mac macOS 10.12 (Sierra)"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:22
+#: a12dbfa625be47baaf6304e9da7d618e
+msgid "Windows 10"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:24
+#: 26d8c426cc2548be9c1212cfd4f296b7
+msgid ""
+"Binary packages as well as instructions for how to compile from source "
+"are provided for all 3 platforms (see `install instructions "
+"<../../Installation>` as well as `documentation "
+"<https://docs.ros2.org/ardent/>`__)."
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:27
+#: fd782bc99baa48d7aa8b68e0c48cd94b
+msgid "Features"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:30
+#: 546232ed2c1a4186966f2aa32a6cb992
+msgid "New features in this ROS 2 release"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:33
+#: 18bb6155a19a4718bd1883945ab228b2
+msgid ""
+"Distributed discovery, publish / subscribe, request / response "
+"communication"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:35
+#: 000d1e0b9cd84dcca8954f12f7201fa5
+msgid "Provided by a C API"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:36
+#: 9955b384443c4ff2a7616dbac560c46e
+msgid "Implemented using different vendors:"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:38
+#: dba53f2a61b142919e815f70c17e55b4
+msgid ""
+"eProsima's Fast RTPS as well as ADLINK's OpenSplice (from binary and "
+"source)"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:39
+#: 37bf153659b340e9bfed7085e8609de1
+msgid "RTI's Connext (only from source)"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:41
+#: 0ac177717ec04adfab83a6e6bdec6cbb
+msgid "Numerous quality of service settings for handling non-ideal networks"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:42
+#: fcbb2b5664fe4dbf87be78fc92a71548
+msgid "DDS Security support (with Connext and Fast RTPS)"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:44
+#: c52ad47177a74e13b8da1a41034a1474
+msgid "C++ and Python 3 client libraries"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:46
+#: de53186e19374cbb882bac6e8c9ff161
+msgid "Sharing common code in C to unify the implementation"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:47
+#: 0d4b4656c876441894cb386898596c82
+msgid "Execution model separated from the nodes, composable nodes"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:48
+#: b3c18ec9fb9245118c88850d9e3082a5
+msgid "Node-specific parameters (only in C++ atm)"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:49
+#: 9602b3c3f4924306a00efab473698acb
+msgid "Life cycle (only in C++ atm)"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:50
+#: 0dbf8819ec8c4ce3a2e612fb264d5059
+msgid "Optionally intra-process communication using the same API (only in C++)"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:52
+#: 120b9da602f444a38770f3b67d682e05
+msgid ""
+"Message definitions (with bounded arrays and strings as well as default "
+"values)"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:53
+#: bc971707019c4653b55262b7bd7463aa
+msgid "Command line tools (e.g. ``ros2 run``)"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:54
+#: 9bcc3d5f05524cbcbdb71999adfa16a9
+msgid ""
+"``rviz`` with a few display types (the Windows version will likely follow"
+" in a few weeks)"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:55
+#: 9a0f066c34f7455c8ffd1bef3df0a002
+msgid ""
+"File system-based resource index (querying information without recursive "
+"crawling)"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:56
+#: fdb9e0a4c0974217a00b8b35993e246d
+msgid ""
+"Realtime safe code paths for pub / sub (with compatible DDS "
+"implementations only)"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:57
+#: 75a694cf6764488a903fd672dfb6a1fb
+msgid "Bridge between ROS 1 and ROS 2"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:58
+#: 39657cf1604b498b8c52321ad51b0793
+msgid "HSR demo `see Beta 3 <Beta3-Overview>`"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:59
+#: c0d9dbff616a4f07a9406ef8ac5998ca
+msgid "Turtlebot demo `see Beta 2 <Beta2-Overview>`"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:61
+#: 19fbabd1e01a47d29ada1fbb3d38675f
+msgid ""
+"For a more detailed description please see the `Features <../../The-"
+"ROS2-Project/Features>` page."
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:64
+#: b4d1b1aa158949f4ac8c3c0794fec7cf
+msgid "Changes since Beta 3 release"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:66
+#: fbb987a36eb34b028214ae82427789f8
+msgid "Improvements since the Beta 3 release:"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:69
+#: 022b110b3dd145aa89e22f8689dc93d1
+msgid "``rviz``"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:70
+#: f7efff08494043dbbb36cb7147a5afaa
+msgid ""
+"Different initialization options for message data structures in C++ (see "
+"`design doc "
+"<https://design.ros2.org/articles/generated_interfaces_cpp.html#constructors>`__)"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:71
+#: dcef05631b2245adaea717651d00cf21
+msgid "Logging API improvements, now also used in the demos"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:72
+#: babaa07b9cd449b0943b35346dc50b8b
+msgid "Time support in C++ with different clocks"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:73
+#: fa4dde62012b4d41ae5a2dc094448839
+msgid "wait-for-service support in the Python client library"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:74
+#: c84c38f8a3314b3ab5f5386352e949fe
+msgid ""
+"Draft implementation of `REP 149 "
+"<https://www.ros.org/reps/rep-0149.html>`__ specifying format 3 of the "
+"package manifest files"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:77
+#: 6736337b2a8b4b7594bfcfd90eee90fc
+msgid "Known Issues"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:80
+#: ae0d5dd7bfcc459cba24181b8f3d512a
+msgid "Fast RTPS performance with larger data like the image demo"
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:81
+#: 3798282aa1a04badabe521113b5ae071
+msgid ""
+"Using Connext it is currently not allowed for two topics with the same "
+"base name but different namespaces to have a different type (see `issue "
+"<https://github.com/ros2/rmw_connext/issues/234>`__)."
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:82
+#: 448fe82616f8478cb082346362fcd822
+msgid ""
+"Listing of node names (e.g. using ``ros2 node list``) does not work "
+"across some rmw implementations."
+msgstr ""
+
+#: ../../source/Releases/Release-Ardent-Apalone.rst:83
+#: 6b0ddd99dba942ee844cff0f1a8625df
+msgid ""
+"On Windows Python launch files might hang when trying to abort using "
+"``Ctrl-C`` (see `issue <https://github.com/ros2/launch/issues/64>`__). In"
+" order to continue using the shell which is blocked by the hanging "
+"command you might want to end the hanging Python process using the "
+"process monitor."
+msgstr ""
+

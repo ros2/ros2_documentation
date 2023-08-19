@@ -1,0 +1,242 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.rst:2
+#: d02ceb1c4bc74df7a4a44762745b13f4
+msgid "Installation (Ubuntu)"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.rst:4
+#: 0fb6f0ae2df84013a9e0c99b172d42cb
+msgid ""
+"**Goal:** Install the ``webots_ros2`` package and run simulation examples"
+" on Ubuntu."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.rst:6
+#: 72fe8d5cab87480bbe02407e0d2a1ace
+msgid "**Tutorial level:** Advanced"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.rst:8
+#: e42abf965a134921940389056094bfe0
+msgid "**Time:** 10 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.rst:12
+#: 1036fc621a424d3bb74f8a2e99d6cdf5
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.rst:15
+#: fde76b24d7794a37bd86a7e3f69dbbc7
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.rst:17
+#: f7cc2652d11e4fe186319b63c41876ce
+msgid ""
+"The ``webots_ros2`` package provides an interface between ROS 2 and "
+"Webots. It includes several sub-packages, including "
+"``webots_ros2_driver``, which allows you to start Webots and communicate "
+"with it. This interface is used in most of the following tutorials, so it"
+" is required to install it beforehand. Other sub-packages are mainly "
+"examples that show multiple possible implementations using the interface."
+" In this tutorial, you are going to install the package and learn how to "
+"run one of these examples."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.rst:24
+#: 049f9e754a41481e996f2e2b654482bd
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.rst:26
+#: 819d7261f989428698d7e8c645834ce6
+msgid ""
+"It is recommended to understand basic ROS principles covered in the "
+"beginner :doc:`../../../../Tutorials`. In particular, :doc"
+":`../../../Beginner-Client-"
+"Libraries/Creating-A-Workspace/Creating-A-Workspace` and :doc"
+":`../../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package` "
+"are useful prerequisites."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.rst:29
+#: 8cc3dbc1abe943d8a8e0d6254e9c7d4a
+msgid ""
+"The Webots software should be installed in order to use the "
+"``webots_ros2`` interface. You can follow the `installation procedure "
+"<https://cyberbotics.com/doc/guide/installation-procedure>`_ or `build it"
+" from sources <https://github.com/cyberbotics/webots/wiki/Linux-"
+"installation/>`_."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.rst:32
+#: 3f33acc5082847b0a5205283e917400a
+msgid ""
+"Alternatively, you can also let ``webots_ros2`` download and install "
+"Webots automatically. This option appears when you launch an example of "
+"the package and no Webots installation is found."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.rst:36
+#: cc0f2fc27bf0412ca2bb0f53faea37d3
+msgid "Multiple Installations of Webots"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.rst:38
+#: 426142d6960b45898dc478e8f8638a62
+msgid ""
+"If you have installed different versions of Webots on your computer, "
+"``webots_ros2`` will look for Webots at the following locations (in this "
+"order):"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.rst:40
+#: efeb578895ef4d039244d157ebd2a7c8
+msgid ""
+"If the ``ROS2_WEBOTS_HOME`` environment variable is set, ROS 2 will use "
+"the Webots in this folder, regardless of its version."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.rst:41
+#: c37b068b2c1648768f007ee5ee95a7ef
+msgid ""
+"If the ``WEBOTS_HOME`` environment variable is set, ROS 2 will use the "
+"Webots in this folder, regardless of its version."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.rst:42
+#: 5eb7193b3c294a60a3ff9b663d843b0d
+msgid ""
+"If none of these variables is set, ``webots_ros2`` will look for Webots "
+"in the default installation paths for a compatible version: "
+"``/usr/local/webots`` and ``/snap/webots/current/usr/share/webots``."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.rst:43
+#: 0722b24794684effb3153ecaf3dbe0bb
+msgid ""
+"If Webots couldn't be found, ``webots_ros2`` will show a window offering "
+"the automatic installation of the latest compatible version of Webots."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.rst:46
+#: e773b009c5dc49e5865f5b4d687cf5b1
+msgid "Tasks"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.rst:49
+#: 0ffb9a8447444d18a976bc9a5188d408
+msgid "1 Install ``webots_ros2``"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.rst:50
+#: 0a7b8746e11b43ce8854541db91ecad3
+msgid ""
+"You can either install the official released package, or install it from "
+"the latest up-to-date sources from `Github "
+"<https://github.com/cyberbotics/webots_ros2>`_."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.rst:54
+#: c9acf8bc6efe4ba5b0610b2936fe1a33
+msgid "Install ``webots_ros2`` distributed package"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.rst:56
+#: 0d175bb36e1a4ae79772c37d3756b2f7
+msgid "Run the following command in a terminal."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.rst:62
+#: d3aea44ee35d4c2189ab36ee9f2ba4cb
+msgid "Install ``webots_ros2`` from sources"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.rst:64
+#: e6420ab7c7a94e98a2473619e06b4a92
+msgid "Create a ROS 2 workspace with its ``src`` directory."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.rst:70
+#: 7c5a3ff0c5ad46c7a646bf1a33128bec
+msgid "Source the ROS 2 environment."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.rst:76
+#: fcab45d467714ceda12b77184a28ffab
+msgid "Retrieve the sources from Github."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.rst:83
+#: c612a0df6d56433e81a2c7fb9e3f9462
+msgid "Install the package dependencies."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.rst:91
+#: 6835811ebcc84eafab666ed2ab159d78
+msgid "Build the package using ``colcon``."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.rst:97
+#: a9bfb6ac6c414589aec25cbaeb912570
+msgid "Source this workspace."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.rst:104
+#: 6de43a23e4b14456a43b111596d4abcb
+msgid "2 Launch the ``webots_ros2_universal_robot`` example"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.rst:106
+#: a7d5e9c391f446278e341a6a94295537
+msgid "The following instructions explain how to start a provided example."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.rst:108
+#: 3f547badbc104f9884ff08564e85e452
+msgid "First source the ROS 2 environment, if not done already."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.rst:114
+#: ab40972f5d6143b08699958a5e59206c
+msgid ""
+"Setting the ``WEBOTS_HOME`` environment variable allows you to start a "
+"specific Webots installation."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.rst:120
+#: 21f50b12c4fb4cf7a2eb1653a7e8432d
+msgid ""
+"If installed from sources, source your ROS 2 workspace, if not done "
+"already."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.rst:127
+#: a149697c3c0a4668bea781f91d1e4893
+msgid ""
+"Use the ROS 2 launch command to start demo packages (e.g. "
+"``webots_ros2_universal_robot``)."
+msgstr ""
+

@@ -1,0 +1,584 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Releases/Alpha-Overview.rst:6 fc73c87330ba4430995f1a57772626be
+msgid "Alphas"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:10
+#: ../../source/Releases/Alpha-Overview.rst:52
+#: ../../source/Releases/Alpha-Overview.rst:85
+#: ../../source/Releases/Alpha-Overview.rst:121
+#: ../../source/Releases/Alpha-Overview.rst:148
+#: ../../source/Releases/Alpha-Overview.rst:210
+#: ../../source/Releases/Alpha-Overview.rst:280
+#: ../../source/Releases/Alpha-Overview.rst:345
+#: 08c0a25bc15f4a4db1dc865e34a80679 148a51651ff04e4386145679386616bf
+#: 29c88004192341758cad54953359a25f 2a9fe2b2de7a4513a10689e930a5a311
+#: 4b9d0a6be18748d5938839686de80c59 5980af8707c7434b94de48a9afcb5b5e
+#: 8bce0fc92a9146e3ac07d0ca7d12c482 b358268254174727a198a45a3be94440
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:12 52a394a2427f4fa9b9d89be53771db2f
+msgid ""
+"This is a merged version of the previously separated pages for the 8 "
+"alpha releases of ROS 2."
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:14 3b0c1ebc9a54442f89f2a8c625d5902d
+msgid "We hope that you try them out and `provide feedback <../../Contact>`."
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:17 37f45de030b04ee4b0abbf252a3a4cf7
+msgid "ROS 2 alpha8 release (code name *Hook-and-Loop*; October 2016)"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:20 ed7dc6ae86964d43814ea2ca14b97eff
+msgid "Changes to supported DDS vendors"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:22 c0da73dfad5b44b79750c7086af5df18
+msgid ""
+"ROS 2 supports multiple middleware implementations (see `this page "
+"<../../Concepts/Intermediate/About-Different-Middleware-Vendors>` for "
+"more details). Until Alpha 8, ROS 2 was supporting ROS middleware "
+"implementations for eProsima's Fast RTPS, RTI's Connext and PrismTech's "
+"OpenSplice. To streamline our efforts, as of Alpha 8, Fast RTPS and "
+"Connext (static) will be supported, with Fast RTPS (`now Apache "
+"2.0-licensed <http://www.eprosima.com/index.php/company-all/news/61"
+"-eprosima-goes-apache>`__) shipped as the default."
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:27
+#: ../../source/Releases/Alpha-Overview.rst:60
+#: ../../source/Releases/Alpha-Overview.rst:88
+#: ../../source/Releases/Alpha-Overview.rst:124
+#: ../../source/Releases/Alpha-Overview.rst:183
+#: ../../source/Releases/Alpha-Overview.rst:245
+#: ../../source/Releases/Alpha-Overview.rst:320
+#: ../../source/Releases/Alpha-Overview.rst:387
+#: 240c08bbf42e43c5b9291f4730826a1a 251b6eb9cf2c42eab0d86e0072f247cc
+#: 6a4f55ee7951423c8c1a238c71e4233d 73dba1377537445ebc6cfebc9dc2ae81
+#: 924b6c3116aa4f1f8141705acac98699 d771364b29694845869fd9e984f877dc
+#: d94193e7b60a4e14aff79a3162bbf5c8 e12bef757f0044b7b2b22232e6f81c9d
+msgid "Scope"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:29
+#: ../../source/Releases/Alpha-Overview.rst:62
+#: ../../source/Releases/Alpha-Overview.rst:90
+#: ../../source/Releases/Alpha-Overview.rst:126
+#: ../../source/Releases/Alpha-Overview.rst:185
+#: ../../source/Releases/Alpha-Overview.rst:247
+#: ../../source/Releases/Alpha-Overview.rst:322
+#: ../../source/Releases/Alpha-Overview.rst:389
+#: 2d822820c8db410e890b3ce3b8923050 4f718d7a79254f9baa8d836ad9bdb9a9
+#: 57558074c5334adf8e02c9e6c3d0f0ce ab442fa48af2474b8d3f4ac876940d1e
+#: c67c77671ce84340a9ecc32f7bd828e4 eaaee531a8c14408a945781640aed129
+#: eeb67fc5ae0847faabe0de264248fada fd1f1a516bfa43bcb0d53084fa2a992d
+msgid ""
+"As the \"alpha\" qualifier suggests, this release of ROS 2 is far from "
+"complete. You should not expect to switch from ROS 1 to ROS 2, nor should"
+" you expect to build a new robot control system with ROS 2. Rather, you "
+"should expect to try out some demos, explore the code, and perhaps write "
+"your own demos."
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:33 978535e666074427b1e8d13cb0cd3a02
+msgid "The improvements included in this release are:"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:36 cc374ef930224b8e8433a6fc65e42853
+msgid "Several improvements to Fast RTPS and its rmw implementation"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:38 c82ff608bfd74f8ebb2ef382221222e8
+msgid "Support for large (image) messages in Fast RTPS"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:39 36b8dd5c777443b3857228da2236dd99
+msgid "``wait_for_service`` functionality in Fast RTPS"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:41 72b2875e551b4839a568df91aecda374
+msgid "Support for all ROS 2 message types in Python and C"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:42 6d4b5932dabc405983841cd8a5203fbc
+msgid "Added support for Quality of Service (QoS) settings in Python"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:43 5cc25e1186b44bdc89b2a6663c0a3471
+msgid "Fixed various bugs with the previous alpha release"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:45
+#: ../../source/Releases/Alpha-Overview.rst:78
+#: ../../source/Releases/Alpha-Overview.rst:113
+#: ../../source/Releases/Alpha-Overview.rst:141
+#: ../../source/Releases/Alpha-Overview.rst:202
+#: ../../source/Releases/Alpha-Overview.rst:273
+#: ../../source/Releases/Alpha-Overview.rst:338
+#: ../../source/Releases/Alpha-Overview.rst:410
+#: 442444166597464395d0b24d0012049a 4c471b0ee4ca40f6bbcfc44a90b72425
+#: 727a7ba439a740feaf4c2e5a3d360b9b 75d5c7b682bd4045943ceaeaf3d02b4e
+#: b3ee0f5b38a34fc9abe83632b54cdef1 b80a9df0fd684d268b6718c69b9e190b
+#: f13a2f65e35b4e9ab86e44381247a7fd fa4050e1387443809e03a2d31c5c36af
+msgid ""
+"Pretty much anything not listed above is not included in this release. "
+"The next steps are described in the `Roadmap <../../The-"
+"ROS2-Project/Roadmap>`."
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:49 09807578a61a4a25b22e21d4160819dd
+msgid "ROS 2 alpha7 release (code name *Glue Gun*\\ ; July 2016)"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:55 d4ea4bb1ab6b45688768e38f0c424a10
+msgid "New version of Ubuntu required"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:57 8d8946930e47418fb530e0b903853e4a
+msgid ""
+"Until Alpha 6 ROS 2 was targeting Ubuntu Trusty Tahr (14.04). As of this "
+"Alpha ROS 2 is targeting Ubuntu Xenial Xerus (16.04) to benefit from "
+"newer versions of the compiler, CMake, Python, etc."
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:66
+#: ../../source/Releases/Alpha-Overview.rst:98
+#: ../../source/Releases/Alpha-Overview.rst:134
+#: ../../source/Releases/Alpha-Overview.rst:193
+#: ../../source/Releases/Alpha-Overview.rst:255
+#: ../../source/Releases/Alpha-Overview.rst:330
+#: ../../source/Releases/Alpha-Overview.rst:397
+#: 0c64d56ccbda4c3480d5fa52d395463f 20ba66508e434ed0b796279bb974ead7
+#: 3af881c30d2244f79c91be462b930b21 5d3cbe61e127436d951a062834f69745
+#: 7761fa276a9e4d5b837516c36e70ad56 a5622de41a204392a989205d227b5c77
+#: ac7e68479a3e464baf91fa1fb6f21d5a
+msgid "The major features included in this release are:"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:69
+#: ../../source/Releases/Alpha-Overview.rst:101
+#: 43082bb4ee844986b41b1163729cc9e0 bcba92b88cc940ad895007debd24a1e4
+msgid "Graph API functionality: wait_for_service"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:71 4f29f5f0fdf84884a5e7a8886c876e77
+msgid ""
+"Added interfaces in rclcpp and make use of them in examples, demos, and "
+"tests"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:73 cd38aca7032646e79f40a4bdeb037226
+msgid ""
+"Improved support for large messages in both Connext and Fast-RTPS "
+"(partial for Fast-RTPS)"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:74 35256fcd757948bfa2f6950802f9597e
+msgid "Turtlebot demo using ported code from ROS 1"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:76 4d8890603bc94ece8949e7e1951a1f69
+msgid "See: https://github.com/ros2/turtlebot2_demo"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:82 d61754a53da34e9b8ff554f5b5a36b00
+msgid "ROS 2 alpha6 release (code name *Fastener*; June 2016)"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:103
+#: 4beda2c123a44d6f8449cb04716ec489
+msgid "Added graph guard condition to nodes for waiting on graph changes"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:104
+#: b2c609665ac541e7a9fe86488d0361d6
+msgid ""
+"Added ``rmw_service_server_is_available`` for verifying if a service is "
+"available"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:106
+#: d04f4805a10e477bbade2fb4260ed378
+msgid "Refactored ``rclcpp`` to use ``rcl``"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:107
+#: e05b4b59c32240318496856ef214aa3e
+msgid "Improved support for complex message types in Python"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:109
+#: 3c3650502eda4d3b951c788d1c1137c1
+msgid "Nested messages"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:110
+#: ed0706d20a46472091ab71cda95abd05
+msgid "Arrays"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:111
+#: 2fa5799d5fed4803b0515c1c06c016f8
+msgid "Strings"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:117
+#: 5f586020fd7c4f138f6f44df4a625ef1
+msgid "ROS 2 alpha5 release (code name *Epoxy*; April 2016)"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:137
+#: 78c7172c2e2f4593b65ebd7814ef91d6
+msgid ""
+"Support for C data structures in Fast RTPS and Connext Dynamic rmw "
+"implementations."
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:138
+#: b4edf6aff8764c3380b2ef1462f2481d
+msgid "Support services in C."
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:139
+#: 5af48ade1f924a57aee282f110f36837
+msgid "Added 32-bit and 64-bit ARM as experimentally supported platforms."
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:145
+#: eb99cec2f63245dc82fcb267d2a902bb
+msgid "ROS 2 alpha4 release (code name *Duct tape*; February 2016)"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:151
+#: ../../source/Releases/Alpha-Overview.rst:213
+#: ../../source/Releases/Alpha-Overview.rst:283
+#: ../../source/Releases/Alpha-Overview.rst:348
+#: 199b3cb100ab4dd2b201dd7c7c1d37e1 53d5cbfb6c7b428fa74a36619a2561bd
+#: 6a2e1f5832ae4971a5d31d04e63105ed fa374c20a0434488a9458fbfe0cd72a0
+msgid "Background"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:153
+#: ../../source/Releases/Alpha-Overview.rst:215
+#: ../../source/Releases/Alpha-Overview.rst:285
+#: ../../source/Releases/Alpha-Overview.rst:350
+#: 2c375c0c31914ea4bcb3c21c8dd266b3 2cc3608b393243ffae62c0822be75c43
+#: 4c2a01678e7f4cd487810d47bbbb5e11 b2d1a3a7049f4b01a005415e18bc2431
+msgid ""
+"As explained in a `design article "
+"<https://design.ros2.org/articles/why_ros2.html>`__, we are engaged in "
+"the development of a new major version of ROS, called \"ROS 2.\" While "
+"the underlying concepts (e.g., publish / subscribe messaging) and goals "
+"(e.g., flexibility and reusability) are the same as for ROS 1, we are "
+"taking this opportunity to make substantial changes to the system, "
+"including changing some of the core APIs. For a deeper treatment of those"
+" changes and their rationale, consult the other `ROS 2 design articles "
+"<https://design.ros2.org>`__."
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:163
+#: ../../source/Releases/Alpha-Overview.rst:225
+#: ../../source/Releases/Alpha-Overview.rst:298
+#: ../../source/Releases/Alpha-Overview.rst:363
+#: 02c4c2ad683b466fa65a0cb91b0863b4 277c94e8d479409d86f7f0fdd95c22c0
+#: b4272f2ce68848498bcc8a92b566402f e4a1a0df65e94166bf41a5e3071bf357
+msgid "Status"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:165
+#: a348198c156042f09bb192309f380d01
+msgid ""
+"On February 17, 2016, we are releasing ROS 2 alpha4, code-named **Duct "
+"tape**. Our primary goal with this release is to add more features, while"
+" also addressing the feedback we received for the previous releases. To "
+"that end, we built a set of `demos <../../Tutorials>` that show some of "
+"the key features of ROS 2. We encourage you to try out those demos, look "
+"at the code that implements them, and `provide feedback <../../Contact>`."
+" We're especially interested to know how well (or poorly) we're "
+"addressing use cases that are important to you."
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:177
+#: ../../source/Releases/Alpha-Overview.rst:239
+#: ../../source/Releases/Alpha-Overview.rst:313
+#: ../../source/Releases/Alpha-Overview.rst:380
+#: 4a5fdbf5eacc4d53957ee9dd3b7f9c56 6766ee45918a4dfe9b3724fe97a74b0a
+#: abaaef8efbea4c83a5bca6837b8757cd e79e6a86bd97424d97f6e00104f45d5b
+msgid "Intended audience"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:179
+#: ../../source/Releases/Alpha-Overview.rst:241
+#: ../../source/Releases/Alpha-Overview.rst:315
+#: ../../source/Releases/Alpha-Overview.rst:382
+#: 06194a63223b47408e1c18d7958486b0 6e35fd3c958d40849e3d860063a5ad63
+#: 7bb9be24f9e442dfaebfa81c131d36b0 917bed1bd1a5479591c8374dfefb0ee9
+msgid ""
+"While everyone is welcome to try out the demos and look through the code,"
+" we're aiming this release at people who are already experienced with ROS"
+" 1 development. At this point, the ROS 2 documentation is pretty sparse "
+"and much of the system is explained by way of how it compares to ROS 1."
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:196
+#: e23276715c0845b4993f18784d3d4571
+msgid "Improved type support infrastructure, including support for C"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:197
+#: 54fdc709fdc241dd8b291b7393640d26
+msgid ""
+"Preliminary Python client library, only publishers and subscriptions are "
+"supported. Beware, the API is subject to change and is far from complete!"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:198
+#: 6c9c02aca3e242dea27219bb1aa88c4a
+msgid "Added structures for ROS time in C API (still needs C++ API)"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:200
+#: 79fc4ce75a3c4a53968ae28df8067a22
+msgid ""
+"New concept of extensible \"time sources\" for ROS Time, the default time"
+" source will be like ROS 1 (implementation pending)"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:206
+#: 0b01aaff764c4a2ea6c969e070d8efe3
+msgid "ROS 2 alpha3 release (code name *Cement*; December 2015)"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:227
+#: 406b71d85755480baa7ceabd0afc0f79
+msgid ""
+"On December 18, 2015, we are releasing ROS 2 alpha3, code-named "
+"**Cement**. Our primary goal with this release is to add more features, "
+"while also addressing the feedback we received for the previous releases."
+" To that end, we built a set of `demos <../../Tutorials>` that show some "
+"of the key features of ROS 2. We encourage you to try out those demos, "
+"look at the code that implements them, and `provide feedback "
+"<../../Contact>`. We're especially interested to know how well (or "
+"poorly) we're addressing use cases that are important to you."
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:258
+#: 4fdbe737eb5d46558e11fe0865eeaf4a
+msgid "Updated ``rcl`` interface."
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:260
+#: 84a8fa06134b4de1a55bb79f810b9116
+msgid ""
+"This interface will be wrapped in order to create language bindings, e.g."
+" ``rclpy``."
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:261
+#: 785838b6292f4ae5b6c505fc44eb6f6b
+msgid ""
+"This interface has improved documentation and test coverage over existing"
+" interfaces we currently have, e.g. ``rmw`` and ``rclcpp``."
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:262
+#: 9e229bfb518d458fad68da171824e2d5
+msgid ""
+"See `rcl headers <https://github.com/ros2/rcl/tree/release-"
+"alpha3/rcl/include/rcl>`__."
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:264
+#: 5a3ab35b61ea418d88409213f08bd923
+msgid ""
+"Added support in rclcpp for using the TLSF (two-level segregate fit) "
+"allocator, a memory allocator design for embedded and real-time systems."
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:265
+#: f50a3e98b27947ce87ce6fc85fe0a214
+msgid ""
+"Improved efficiency of MultiThreadedExecutor and fixed numerous bugs with"
+" multi-threaded execution, which is now test on CI."
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:266
+#: 3c973dac33a3403089df72232138a314
+msgid "Added ability to cancel an Executor from within a callback called in spin."
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:267
+#: 3dbf4b42d7514188bf8942ce753ab562
+msgid ""
+"Added ability for a timer to cancel itself by supporting a Timer callback"
+" that accepts a reference to itself as a function parameter."
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:268
+#: c6947827517f41cdba01896f4bc5cc5b
+msgid "Added checks for disallowing multiple threads to enter Executor::spin."
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:269
+#: 9595263bf80740988cdf0c99f42c6cd5
+msgid "Improved reliability of numerous tests that had been sporadically failing."
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:270
+#: bc387e93ef6349878064e6b727c3e776
+msgid ""
+"Added support for using Fast RTPS (instead of, e.g., OpenSplice or "
+"Connext)."
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:271
+#: d521f432617b42c68d70f966ddea9086
+msgid ""
+"A partial port of tf2 including the core libraries and core command line "
+"tools."
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:277
+#: a3aa543d08e545bfb4e9e0ed35e237bd
+msgid "ROS 2 alpha2 release (code name *Baling wire*; October 2015)"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:300
+#: 8882da77d02a4210948f5b109aa1c356
+msgid ""
+"On November 3, 2015, we are releasing ROS 2 alpha2, code-named **Baling "
+"wire**. Our primary goal with this release is to add more features, while"
+" also addressing the feedback we received for the previous alpha 1 "
+"release. To that end, we built a set of `demos <../../Tutorials>` that "
+"show some of the key features of ROS 2. We encourage you to try out those"
+" demos, look at the code that implements them, and `provide feedback "
+"<../../Contact>`. We're especially interested to know how well (or "
+"poorly) we're addressing use cases that are important to you."
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:333
+#: 8d94701f30b447d9ac739b4401b77ca8
+msgid "Support for custom allocators in rclcpp, useful for real-time messaging"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:334
+#: 639acc69904e4df8ac48c36f9978b996
+msgid ""
+"Feature parity of Windows with Linux/OSX, including workspace management,"
+" services and parameters"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:335
+#: 4091f654c9af4584b9e45682053b3992
+msgid "rclcpp API improvements"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:336
+#: f8da1da923fe4de09bafad39f4dba0a9
+msgid "FreeRTPS improvements"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:342
+#: 46174fa0d8774c42b2dddc99397b7274
+msgid "ROS 2 alpha1 release (code name *Anchor*; August 2015)"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:365
+#: 1e117585310443c6a47603bc0f3bf340
+msgid ""
+"On August 31, 2015, we are releasing ROS 2 alpha1, code-named **Anchor**."
+" Our primary goal with this release is to give you the opportunity to "
+"understand how ROS 2 works, in particular how it differs from ROS 1. To "
+"that end, we built a set of `demos <../../Tutorials>` that show some of "
+"the key features of ROS 2. We encourage you to try out those demos, look "
+"at the code that implements them, and `provide feedback <../../Contact>`."
+" We're especially interested to know how well (or poorly) we're "
+"addressing use cases that are important to you."
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:400
+#: 37f1bc5c2051434d8dc435fa9675ec4d
+msgid ""
+"Discovery, transport, and serialization `use DDS "
+"<https://design.ros2.org/articles/ros_on_dds.html>`__"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:401
+#: da7cd7ca62594bbeb03c2bd73245ad37
+msgid ""
+"Support `multiple DDS vendors "
+"<https://design.ros2.org/articles/ros_on_dds.html#vendors-and-"
+"licensing>`__"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:402
+#: f23b11e81df24d4281f3f168e25d4c5c
+msgid ""
+"Support messaging primitives: topics (publish / subscribe), services "
+"(request / response), and parameters"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:403
+#: fa82ca8101234c498e93dc19d6f53a48
+msgid "Support Linux (Ubuntu Trusty), OS X (Yosemite) and Windows (8)"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:404
+#: 3f30d307399642d6a9919f0d8f4d37e6
+msgid ""
+"`Use quality-of-service settings to handle lossy networks "
+"<../Tutorials/Demos/Quality-of-Service>`"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:405
+#: 5e32434500ac4604a580365e2fe9095c
+msgid ""
+"`Communicate inter-process or intra-process with the same API "
+"<../Tutorials/Demos/Intra-Process-Communication>`"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:406
+#: e0c6713e0a0042abbc0a4602a8ffb299
+msgid ""
+"`Write real-time safe code that uses the ROS 2 APIs <../Tutorials/Demos"
+"/Real-Time-Programming>`"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:407
+#: b7713beade48476c9616c045fd48cfcd
+msgid ""
+"`Run ROS 2 on \"bare-metal\" microcontrollers (no operating system) "
+"<https://github.com/ros2/freertps/wiki>`__"
+msgstr ""
+
+#: ../../source/Releases/Alpha-Overview.rst:408
+#: 978735beaaa54ce1ae9a9eeb73dbebed
+msgid ""
+"`Bridge communication between ROS 1 and ROS 2 "
+"<https://github.com/ros2/ros1_bridge/blob/master/README.md>`__"
+msgstr ""
+

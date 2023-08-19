@@ -1,0 +1,249 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:8
+#: b882cab62d674ad69037a563386e8837
+msgid "Setting up a robot simulation (Gazebo)"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:10
+#: ad2a6c579fd34d33b7926e3736028861
+msgid "**Goal:** Launch a Simulation with Gazebo and ROS 2"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:12
+#: 30b694358d264f60b39aeadb9d68c963
+msgid "**Tutorial level:** Advanced"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:14
+#: bceef988536d47e9ab5807957e78fb17
+msgid "**Time:** 20 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:18
+#: b5f3d1cff897456aba50c820d2bd4896
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:21
+#: e7ab65e57fff48f9bb8cc23bd0ac4a5c
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:23
+#: 666b43e8232b40d0909e211c5072cea1
+msgid "First of all you should install ROS 2 and Gazebo. You have two options:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:26
+#: dc6ddab270274936a40bd4b7c3cc7b4c
+msgid ""
+"Install from deb packages. To check which versions are available from deb"
+" packages please check this `table "
+"<https://github.com/gazebosim/ros_ign>`__."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:27
+#: 9c9825bcbbd24ace8b858daf1e903f94
+msgid "Compile from sources:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:29
+#: 9b927dc3fdcb45588c32cc33673ebeff
+msgid ":doc:`ROS 2 install instructions <../../../../Installation>`"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:30
+#: b642b5e22b9f414e8495150aaa69f59f
+msgid "`Gazebo install instructions <https://gazebosim.org/docs>`__"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:33
+#: a22c9cb7b41248439148d04f7956af93
+msgid "Tasks"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:36
+#: 5ff01353110f4b608430cff2bcdb3d95
+msgid "1 Launch the simulation"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:38
+#: 2f3509422fb8497b81f28c02603da6e4
+msgid ""
+"In this demo you are going to simulate a simple diff drive robot in "
+"Gazebo. You are going to use one of the worlds defined in the Gazebo "
+"examples called `visualize_lidar.sdf <https://github.com/gazebosim/gz-"
+"sim/blob/main/examples/worlds/visualize_lidar.sdf>`__. To run this "
+"example you should execute the following command in a terminal:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:46
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:58
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:88
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:110
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:121
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:137
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:147
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:158
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:206
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:217
+#: 17947e8a9e9c4229a666c0dc5cd708b5 29b7455b6cba47f2ba236544b9566856
+#: 3f1dcfca378040b2a181d26f0f3aff1e 4da99e652312477688c5445f19a41aa2
+#: 57e0de8bb41c48fcbfe379db2ae01c73 ac3b642ca0a04876bdba10eb7fe53679
+#: b1bd45bbe932414a8cac952fcd4ac11e ba40c75cccc54ed3b7f6b779fce58324
+#: cd252eb553714de5a13132457358ddf9 f63623096c1c4c288d1f94e9f3ac11ab
+msgid "Linux"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:54
+#: 3a5735dcd4364edb99f961b798fff252
+msgid ""
+"When the simulation is running you can check the topics provided by "
+"Gazebo with the ``ign`` command line tool:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:64
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:94
+#: 4c74ac14c0c9499296f40cac63ff3d06 c23aa5b9debd445d876f23049c10be17
+msgid "Which should show:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:83
+#: f684a312d56f431d932d28f7475cb9a0
+msgid ""
+"Since you have not launched an ROS 2 nodes yet, the output from ``ros2 "
+"topic list`` should be free of any robot topics:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:102
+#: dc3e8d246cac468c9863440191cca64f
+msgid "2 Configuring ROS 2"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:104
+#: 927f3c7541f94bc5804c80c9badeb91f
+msgid ""
+"To be able to communicate our simulation with ROS 2 you need to use a "
+"package called ``ros_gz_bridge``. This package provides a network bridge "
+"which enables the exchange of messages between ROS 2 and Gazebo "
+"Transport. You can install this package by typing:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:116
+#: 09f078f60d6b4f4d8bc3f52a485bb51d
+msgid ""
+"At this point you are ready to launch a bridge from ROS to Gazebo. In "
+"particular you are going to create a bridge for the topic "
+"``/model/vehicle_blue/cmd_vel``:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:128
+#: b147464381874db8b7e6d27cca46b0ee
+msgid ""
+"For more details about the ``ros_gz_bridge`` please check this `README "
+"<https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_bridge>`__ ."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:130
+#: 511c94ca9458496b9fb02671e02cb10a
+msgid ""
+"Once the bridge is running the robot is able to follow your motor "
+"commands. There are two options:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:133
+#: b8d8ca3390c042da962eab58279cf437
+msgid "Send a command to the topic using ``ros2 topic pub``"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:143
+#: 50449aaceae04929b71f186eb187ea29
+msgid ""
+"``teleop_twist_keyboard`` package. This node takes keypresses from the "
+"keyboard and publishes them as Twist messages. You can install it typing:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:153
+#: 6d98e09f38aa4f5e8d68e63c2f9249b8
+msgid ""
+"The default topic where ``teleop_twist_keyboard`` is publishing Twist "
+"messages is ``/cmd_vel`` but you can remap this topic to make use of the "
+"topic used in the bridge:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:165
+#: ec7a9e604f2249a29784c42acc9a55b1
+msgid "Which will show:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:197
+#: 50dd4e6efc8442719ba813e6699f809e
+msgid "3 Visualizing lidar data in ROS 2"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:199
+#: 0238354f67e949a1a28321f98db9db5a
+msgid ""
+"The diff drive robot has a lidar. To send the data generated by Gazebo to"
+" ROS 2, you need to launch another bridge. In the case the data from the "
+"lidar is provided in the Gazebo Transport topic ``/lidar2``, which you "
+"are going to remap in the bridge. This topic will be available under the "
+"topic ``/lidar_scan``:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:213
+#: 393dea080f8b4aaa92db1a366ce7050a
+msgid "To visualize the data from the lidar in ROS 2 you can use Rviz2:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:224
+#: 877feae3b85c4613a5fa6b1b8a6d9809
+msgid "Then you need to configure the ``fixed frame``:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:228
+#: ac42a42a1fc94766abf7b8bdbf50454f
+msgid ""
+"And then click in the button \"Add\" to include a display to visualize "
+"the lidar:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:232
+#: 346e538fb85942cf877ba6b782f57194
+msgid "Now you should see the data from the lidar in Rviz2:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:237
+#: 10966f008faf47c69afdb0a8f62ccc7c
+msgid "Summary"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Simulators/Gazebo/Gazebo.rst:239
+#: 8996e796ba9c4406ab6d696e0b47b766
+msgid ""
+"In this tutorial, you launched a robot simulation with Gazebo, launched "
+"bridges with actuators and sensors, visualized data from a sensor, and "
+"moved a diff drive robot."
+msgstr ""
+

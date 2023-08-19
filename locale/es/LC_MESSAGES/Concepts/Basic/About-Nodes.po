@@ -1,0 +1,59 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Concepts/Basic/About-Nodes.rst:2
+#: b259f14f355b451682b94026426caf79
+msgid "Nodes"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Nodes.rst:7
+#: 96a2a5cfc51045f0a95e55c8ca3a4f76
+msgid ""
+"A node is a participant in the ROS 2 graph, which uses a :doc:`client "
+"library <About-Client-Libraries>` to communicate with other nodes. Nodes "
+"can communicate with other nodes within the same process, in a different "
+"process, or on a different machine. Nodes are typically the unit of "
+"computation in a ROS graph; each node should do one logical thing."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Nodes.rst:11
+#: 057c3ca6ae834a68b8563f959c3bf21d
+msgid ""
+"Nodes can :doc:`publish <About-Topics>` to named topics to deliver data "
+"to other nodes, or :doc:`subscribe <About-Topics>` to named topics to get"
+" data from other nodes. They can also act as a :doc:`service client "
+"<About-Services>` to have another node perform a computation on their "
+"behalf, or as a :doc:`service server <About-Services>` to provide "
+"functionality to other nodes. For long-running computations, a node can "
+"act as an :doc:`action client <About-Actions>` to perform it, or as an "
+":doc:`action server <About-Actions>` to have another node perform it. "
+"Nodes can provide configurable :doc:`parameters <About-Parameters>` to "
+"change behavior during run-time."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Nodes.rst:16
+#: 262c012db985421ca002d2c595c0a760
+msgid ""
+"Connections between nodes are established through a distributed "
+":doc:`discovery <About-Discovery>` process."
+msgstr ""
+

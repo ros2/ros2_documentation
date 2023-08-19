@@ -1,0 +1,522 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:8
+#: e184a2b4fe14445096fd6fa883c0055c
+msgid "Feature Ideas"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:12
+#: 4fbfe99bb53a4060899cd320902241d4
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:14
+#: ad7a82f68f324c69bc967a50a9d37c5d
+msgid ""
+"The following are feature ideas in no specific order. This list contains "
+"features that we think are important and can make for good contributions "
+"to ROS 2. :doc:`Please get in touch with us <../Contact>` before digging "
+"into a new feature. We can offer guidance, and connect you with other "
+"developers."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:20
+#: c7486c6e1b614372a1542388fd2d467d
+msgid "Design / Concept"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:22
+#: 941eac6060d146258175bbdc314d25e7
+msgid "IDL format"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:24
+#: 0703f77967044471b519d980ca795d8a
+msgid "Leverage new features like grouping constants into enums"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:25
+#: c1eee7de8abc443eb931a94f201b1d69
+msgid ""
+"Extend usage to ``.idl`` files with just constants and/or declare "
+"parameters with ranges"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:26
+#: a668d9d1f0fb4295bdd592d776475871
+msgid ""
+"Revisit constraints of IDL interface naming, see `ros2/design#220 "
+"<https://github.com/ros2/design/pull/220>`_"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:28
+#: 1ff09a1b3312457db750a3b326f80dd1
+msgid "Create migration plan for ROS 1 -> ROS 2 transition"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:29
+#: 55ff0910bcf64104a95b36b450236dcd
+msgid ""
+"Uniqueness of node names, see `ros2/design#187 "
+"<https://github.com/ros2/design/issues/187>`_"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:30
+#: 5434ff54e0c54c48965dee58a132d481
+msgid ""
+"Specific \"API\" of a node in terms of topics / services / etc. in a "
+"descriptive format, see `ros2/design#266 "
+"<https://github.com/ros2/design/pull/266>`_"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:33
+#: fb61f076fadb46438a79f59c550f586c
+msgid "Infrastructure and tools"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:35
+#: 00fd9e5ea70c4eb1873b2b0f4a04f37e
+msgid "Building"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:37
+#: 414b3d19e11a4876bf87be6bf311b555
+msgid "Consolidate https://build.ros2.org and https://ci.ros2.org"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:38
+#: 3e1e2b6fed2444c9857414740a274538
+msgid "Provision macOS"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:39
+#: 5ff370d56ce34df9a2e4714042653360
+msgid "Windows and macOS packages"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:40
+#: 59c20bd4d98b44549c6ed4ddf5ca7253
+msgid "Support profiles in ``colcon``"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:42
+#: 3fcb2164eff8456491ab65404f5a2d8e
+msgid "Documentation"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:44
+#: b7c0aa3e71c84d9d8224952807847b07
+msgid ""
+"Deprecate https://design.ros2.org.  Content should move to either an REP,"
+" to https://github.com/ros2/ros2_documentation, or be removed."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:45
+#: 6dd3402c95db46eeaf07c70bc879763f
+msgid ""
+"Fix per-package documentation builder to be able to document build "
+"artifacts, i.e. messages, services, actions, etc."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:46
+#: 2439b3e0008b41199a5222572b18b1c5
+msgid ""
+"Make https://docs.ros.org/en/ros2_documentation automatically rebuild on "
+"changes to https://github.com/ros2/ros2_documentation."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:47
+#: 6aa469fa280e43f58406e5f7661227ce
+msgid "``ament`` documentation"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:48
+#: be39ef9486534d5195b41ee090abb3f1
+msgid "Add documentation examples of using ROS 2 with Jupyter notebooks."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:49
+#: 1809e7b22c8c4e9285cae21c6dbd68d5
+msgid "Add documentation for implementing a new RMW."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:50
+#: ef9c465f900f4b15bba8edccb0413de3
+msgid "Provide three different kinds of content:"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:52
+#: 9828f1f5725b488ba7bb3dc867f8f166
+msgid "\"demos\" to show features and cover them with tests"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:53
+#: 096196df094f4991a81dec161bf1afa2
+msgid ""
+"\"examples\" to show a simple/minimalistic usage which might have "
+"multiple ways to do something"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:54
+#: 64cfafe4de484906aa904b87a409f72c
+msgid ""
+"\"tutorials\" which contain more comments and anchors for the wiki "
+"(teaching one recommended way)"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:57
+#: c1849afce4ae4442b59d9840793d3494
+msgid "New features"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:59
+#: 9ecbab9ea5c74d62964853faa001332e
+msgid ""
+"The trailing stars indicate the rough effort: 1 star for small, 2 stars "
+"for medium, 3 stars for large."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:62
+#: 96007bc462594c1a9514a38fa2593d3c
+msgid "Logging improvements [\\* / \\*\\*]"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:64
+#: 3d057518ba5a456e90d6e2b646c1b705
+msgid "Configuration specified in a file"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:65
+#: 4db8ea73967e49e2b8062f10460e8abf
+msgid "Per-logger configuration (enabling e.g. ``rqt_logger_level``)"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:67
+#: 00e7aefb62664a60be41c56b1bb88391
+msgid "Time related"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:69
+#: 3632e621080c48dbb1487532aa53bc99
+msgid "Support rate and sleep based on clock"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:71
+#: dcecc54c01e34e42849e09fad1bb0b28
+msgid "Additional Graph API features [\\*\\* / \\*\\*\\*]"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:73
+#: 9e44f63805094f69a60a80401ffaed46
+msgid "Introspect QoS setting for all (especially remote) topics"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:74
+#: cc90ba6c7d0c453f987fed62402272b5
+msgid "a la ROS 1 Master API: https://wiki.ros.org/ROS/Master_API"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:75
+#: 8e46b223bb844f259e9e19968fc6d7cb
+msgid "Event-based notification"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:76
+#: 0b7e7391cce44e1bb61440e9eefc623b
+msgid "Requires knowledge of the rmw interface which needs to be extended"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:78
+#: 36bdf1d193be40bb9bf6acf8d2ba411b
+msgid "Executor"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:80
+#: 60b6a4b25dcc47beae1a734d83a1ad50
+msgid "Performance improvements (mostly around the waitset)"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:81
+#: 9b252a1d26864c56b9b68c4f9abde08f
+msgid "Deterministic ordering (fair scheduling)"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:82
+#: d797ed3eea1b44699cbe1b95f527be94
+msgid "Decouple waitables"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:84
+#: 143445e270b54aaea133f2d2a5eddafa
+msgid "Message generation"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:86
+#: 165cd43c56114de7877bdf0b9ec97b4a
+msgid "Catch-up message generation for languages not supported out-of-the-box"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:87
+#: 1a8f7080ca084b7585e0e018c6369a8c
+msgid "Mangle field names in message to avoid language specific keywords"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:88
+#: 3ad1c687037341428f858b29c99f007f
+msgid ""
+"Improve generator performance by running them in the same Python "
+"interpreter"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:90
+#: 4cabed61183c49bcb1a54de7d5e9cc6c
+msgid "Launch"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:92
+#: 0581fc824d4f4a3e8bf03e1a9953d453
+msgid "Support for launching multi-node executables (i.e. manual composition)"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:93
+#: 104d77f9e3734ccf858e03320d73b3be
+msgid ""
+"Extend launch XML/YAML support: events and event handlers, tag namespaces"
+" and aliasing"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:95
+#: 23c84f2c79c841fda93c6197ab8fbc3e
+msgid "Rosbag"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:97
+#: 1d1e757d91ed47ffb4d8d1f4416b81e8
+msgid "Support recording services (and actions)"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:99
+#: 0a88612264bf4610908d0a44fdb5e2a7
+msgid "ros1_bridge"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:101
+#: eb375ce71f7648dbb97078cde969f041
+msgid "Support bridging actions"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:103
+#: ecb8bf8649294503bbf268b2bfb25fd2
+msgid "RMW configuration"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:105
+#: 0c2bda9abeab44778cf21110bc80d821
+msgid "Unified standard way of configuring the middleware"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:107
+#: c20ba4e0d5d14b439017982a84013062
+msgid "Remapping [\\*\\* / \\*\\*\\*]"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:109
+#: 62207a47e2734859bde0dfdd52803eb7
+msgid "Dynamic remapping and aliasing through a Service interface"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:111
+#: 0919ccde3c41421585ebf764f4b41337
+msgid "Type masquerading [\\*\\*\\*]"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:113
+#: 11b03b378ca34bd587ef83e089e4ea5c
+msgid ""
+"a la ROS 1's message traits: "
+"https://wiki.ros.org/roscpp/Overview/MessagesSerializationAndAdaptingTypes"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:114
+#: fd9078e422a34618a19fcca17d31b8f0
+msgid "Requires knowledge of the typesupport system"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:116
+#: ca89ce0f61d5471ebbe50f784cb61b8b
+msgid "Expand on real-time safety [\\*\\*\\*]"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:118
+#: 3f57d2e7fd05438d9e974c3c1a423e85
+msgid "For services, clients, and parameters"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:119
+#: 53f0b86967e743ee9397cc12482778f2
+msgid "Expose more quality of service parameters related to real-time performance"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:120
+#: 05a06bfb0fc44eecb8278b474ac1100d
+msgid "Real-time-safe intra-process messaging"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:122
+#: 9796bc20464546f687cb55131de411b8
+msgid "Multi-robot supporting features and demos [\\*\\*\\*]"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:124
+#: d94687a3bfd6439d88e71bf9117a5c49
+msgid ""
+"Undesired that all nodes across all robots share the same domain (and "
+"discover each other)"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:125
+#: 89af75de0b4c49eab9772a6076358192
+msgid "Design how to “partition” the system"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:127
+#: 55f712fc258f455892bc20868152fa89
+msgid "Support more DDS / RTPS implementations:"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:129
+#: 0ca6825e913944f78bb9fec61e4a2a93
+msgid ""
+"RTI Connext DDS Micro (implemented, not enabled by default or officially "
+"supported)."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:131
+#: a3c6859b5467424c8de1172a36d02155
+msgid "Security improvements:"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:133
+#: 68482a4765ba404e8e4c74949dc703bf
+msgid ""
+"More granularity in security configuration (allow authentication only, "
+"authentication and encryption, etc.) [\\*]"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:134
+#: c539361eff5f43d3b21ab9f929fc9fcb
+msgid ""
+"Integrate DDS-Security logging plugin (unified way to aggregate security "
+"events and report them to the users through a ROS interface) [\\*\\*]"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:135
+#: 205637466ded42bba25c672c062afd31
+msgid ""
+"Key storage security (right now, keys are just stored in the filesystem) "
+"[\\*\\*]"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:136
+#: 2cc7fa30dc2f41f5810430e67289a8c1
+msgid ""
+"More user friendly interface (make it easier to specify security config)."
+" Maybe a Qt GUI? This GUI could also assist in distributing keys somehow."
+" [\\*\\*\\*]"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:137
+#: efc88ece2e534697bad69e2d17ce900d
+msgid ""
+"A way to say \"please secure this running system\" with some UI that "
+"would auto-generate keys and policies for everything that is currently "
+"running. [\\*\\*\\*]"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:138
+#: f4a66709cf5a4087b9f87d7fd85d4ca8
+msgid ""
+"If there are hardware-specific features for securing keys or accelerating"
+" encryption/signing messages, that could be interesting to add to "
+"DDS/RTPS implementations that don't use it already. [\\*\\*\\*]"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:141
+#: dddb6fbf496d4552aeead8f6fe174fb4
+msgid "Reducing Technical Debt"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:143
+#: 4f6c663f8b534e0d9831f664a7491ad8
+msgid "Fix flaky tests on https://ci.ros2.org/view/nightly."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:144
+#: d4f0f93d336c48609dab6921c0a78a54
+msgid ""
+"Ability to run (all) unit tests with tools e.g. valgrind, clang-tidy, "
+"clang static analysis (scan-build), ASAN, TSAN, UBSAN, etc."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:145
+#: c6425f6db2744e2ba3e2cc6b262c7a15
+msgid "API review, specifically user-facing APIs in rclcpp and rclpy"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:146
+#: 39635f8be3de4b969aeefa1b6c6610d4
+msgid ""
+"Refactor the rclcpp API into separate packages focused on a single "
+"aspect, rclcpp should afterward still provide the combined user-facing "
+"API"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:147
+#: a6c476ee8408494285f6610a5d01dfef
+msgid ""
+"Revisit message allocators, consider using std::polymorphic_allocator to "
+"address problems"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:148
+#: c9180bd0141d411c98a9d45ce4d5ab49
+msgid ""
+"Synchronize / reconcile `design docs <https://design.ros2.org>`__ with "
+"the implementation."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:149
+#: 546a87238c8f4da9bec0f1f4832c571e
+msgid "Address / classify pending tickets"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:150
+#: f6d6e289d10f45d8877ea8cad3ca4124
+msgid "Address TODOs in code / docs"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Feature-Ideas.rst:151
+#: fa063bd0e729411299530d9ffe98e393
+msgid "Remove tinyxml as a dependency"
+msgstr ""
+

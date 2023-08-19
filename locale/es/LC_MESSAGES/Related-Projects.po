@@ -1,0 +1,105 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Related-Projects.rst:3 7be43efd81094d5286d898a78c9550e0
+msgid "Related Projects"
+msgstr ""
+
+#: ../../source/Related-Projects.rst:6 8322c0879d6e404d815f12cb9835e0ca
+msgid "Gazebo"
+msgstr ""
+
+#: ../../source/Related-Projects.rst:8 4249c9e7747b41fd85e982b69ac98e02
+msgid ""
+"**Gazebo** `(gazebosim.org) <http://gazebosim.org/>`_ and its predecessor"
+" Gazebo Classic are the first open source choice for 3D physics "
+"simulation of ROS-based robots."
+msgstr ""
+
+#: ../../source/Related-Projects.rst:11 bebb88565bdf438b906bfc42786d5280
+msgid "Large Community Projects"
+msgstr ""
+
+#: ../../source/Related-Projects.rst:13 64e6befe0ad94a8ea27c2bf9b51c3654
+msgid ""
+"Large community projects involve multiple developers from all over the "
+"globe and are typically backed by a dedicated working group (cf. :doc"
+":`The-ROS2-Project/Governance`)."
+msgstr ""
+
+#: ../../source/Related-Projects.rst:15 52e03cb7f1c14f4886b42b737afb0e19
+msgid ""
+"**ros2_control** `(control.ros.org) <https://control.ros.org/>`_: "
+"Flexible framework for real-time control of robots implemented with ROS "
+"2."
+msgstr ""
+
+#: ../../source/Related-Projects.rst:16 53a1e7d80af5411997ca244c1dcea4a6
+msgid ""
+"**Navigation2** `(navigation.ros.org) <https://navigation.ros.org/>`_: "
+"Comprehensive and flexible navigation stack for mobile robots using ROS "
+"2."
+msgstr ""
+
+#: ../../source/Related-Projects.rst:17 ac56be0abc7e418a8085a161eafc6760
+msgid ""
+"**MoveIt** `(moveit.ros.org) <https://moveit.ros.org/>`_: A rich platform"
+" for building manipulation applications featuring advanced kinematics, "
+"motion planning, control, collision checking, and much more."
+msgstr ""
+
+#: ../../source/Related-Projects.rst:18 4ef4eaf326a34e299991e887e6b245af
+msgid ""
+"**micro-ROS** `(micro.ros.org) <https://micro.ros.org/>`_: A platform for"
+" putting ROS 2 onto microcontrollers, starting at less than 100 kB of "
+"RAM."
+msgstr ""
+
+#: ../../source/Related-Projects.rst:21 d88f1b2191d34300bf0ec76c7c27bcbf
+msgid "Further Community Projects"
+msgstr ""
+
+#: ../../source/Related-Projects.rst:23 9ee893fb41984ecca312be7fb1e4964e
+msgid ""
+"The global ROS community develops and maintains hundreds of further "
+"packages on top of the core ROS 2 stack. Some of them come with their own"
+" websites for documentation. Your best entry point to discover these "
+"works is the **ROS Index** `(index.ros.org) "
+"<https://index.ros.org/packages/>`_."
+msgstr ""
+
+#: ../../source/Related-Projects.rst:27 22df6abf0bac4b1ba064009fd2c95215
+msgid ""
+"*Hint for developers:* If you maintain a ``README.md`` file in the root "
+"of your package folder (which is not necessarily the root of your "
+"repository), this file is rendered into the overview page of your package"
+" at `index.ros.org <https://index.ros.org/packages/>`_. The file may be "
+"used for documenting your package and supersedes the package "
+"documentation pages in the ROS Wiki from ROS 1. See the `fmi_adapter "
+"package <https://index.ros.org/p/fmi_adapter/github-boschresearch-"
+"fmi_adapter/#foxy>`_ as an example."
+msgstr ""
+
+#: ../../source/Related-Projects.rst:32 d36e2857d84842b89309d929a9d0c944
+msgid "Company-driven Projects"
+msgstr ""
+

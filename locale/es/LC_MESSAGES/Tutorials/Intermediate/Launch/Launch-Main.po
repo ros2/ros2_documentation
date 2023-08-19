@@ -1,0 +1,103 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Intermediate/Launch/Launch-Main.rst:9
+#: 31e0ef062f1c428e9be0235b628282c7
+msgid "Launch"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Launch/Launch-Main.rst:11
+#: 10739eada4684740897ff805ebf41184
+msgid ""
+"ROS 2 Launch files allow you to start up and configure a number of "
+"executables containing ROS 2 nodes simultaneously."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Launch/Launch-Main.rst:22
+#: 0d5ccafc55824023b7c06f1d15ceec3d
+msgid ":doc:`Creating a launch file <./Creating-Launch-Files>`."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Launch/Launch-Main.rst:24
+#: a54f7b85da18492d89b1efe493cf93f0
+msgid ""
+"Learn how to create a launch file that will start up nodes and their "
+"configurations all at once."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Launch/Launch-Main.rst:26
+#: 4464ca2a0bb447d780124ace3d2a43fc
+msgid ":doc:`Launching and monitoring multiple nodes <./Launch-system>`."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Launch/Launch-Main.rst:28
+#: 5a0b74b5573548bab6a406aadff68781
+msgid "Get a more advanced overview of how launch files work."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Launch/Launch-Main.rst:30
+#: 81031995d29845228252ea84281a49ba
+msgid ":doc:`Using substitutions <./Using-Substitutions>`."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Launch/Launch-Main.rst:32
+#: 7f7673b155ca411384749495126c8f25
+msgid ""
+"Use substitutions to provide more flexibility when describing reusable "
+"launch files."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Launch/Launch-Main.rst:34
+#: 6f450ef2c4554409bef5e518752e0aea
+msgid ":doc:`Using event handlers <./Using-Event-Handlers>`."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Launch/Launch-Main.rst:36
+#: e1b28e2507df47ed999ac542242c3fc2
+msgid ""
+"Use event handlers to monitor the state of processes or to define a "
+"complex set of rules that can be used to dynamically modify the launch "
+"file."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Launch/Launch-Main.rst:38
+#: c3fe5f9dd3174c33954d8b0bdcafb9e7
+msgid ":doc:`Managing large projects <./Using-ROS2-Launch-For-Large-Projects>`."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Launch/Launch-Main.rst:40
+#: 24da567ab7424a2891af1fb53414b249
+msgid ""
+"Structure launch files for large projects so they may be reused as much "
+"as possible in different situations. See usage examples of different "
+"launch tools like parameters, YAML files, remappings, namespaces, default"
+" arguments, and RViz configs."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Launch/Launch-Main.rst:45
+#: 3d775ff53a664632a37386c11b32e63c
+msgid ""
+"If you are coming from ROS 1, you can use the :doc:`ROS Launch Migration "
+"guide <../../../How-To-Guides/Launch-files-migration-guide>` to help you "
+"migrate your launch files to ROS 2."
+msgstr ""
+

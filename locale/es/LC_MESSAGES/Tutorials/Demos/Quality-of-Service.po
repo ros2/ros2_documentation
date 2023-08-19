@@ -1,0 +1,260 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Demos/Quality-of-Service.rst:7
+#: 341852bc4b7a444cac0111d85b06e2aa
+msgid "Using quality-of-service settings for lossy networks"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Quality-of-Service.rst:11
+#: 51c99718dab0471584ded2b417a707d0
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Quality-of-Service.rst:14
+#: b5b8caa03f3543feb97ba5ae6636996a
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Quality-of-Service.rst:16
+#: fedc3ef419eb4c5c8edf6e00e79e82a4
+msgid ""
+"Please read the documentation page `about QoS settings "
+"<../../Concepts/Intermediate/About-Quality-of-Service-Settings>` for "
+"background information on available support in ROS 2."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Quality-of-Service.rst:18
+#: 0cddccb3e389431c84ba1bc7c383229d
+msgid ""
+"In this demo, we will spawn a node that publishes a camera image and "
+"another that subscribes to the image and shows it on the screen. We will "
+"then simulate a lossy network connection between them and show how "
+"different quality of service settings handle the bad link."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Quality-of-Service.rst:23
+#: 7ae27a447c944ce298b6e3ab56426802
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Quality-of-Service.rst:24
+#: daa67243aa2d412392fe7135bc8bfdd0
+msgid ""
+"This tutorial assumes you have a :doc:`working ROS 2 installation "
+"<../../Installation>` and OpenCV. See the `OpenCV documentation "
+"<http://docs.opencv.org/doc/tutorials/introduction/table_of_content_introduction/table_of_content_introduction.html"
+"#table-of-content-introduction>`__ for its installation instructions. You"
+" will also need the ROS package ``image_tools``."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Quality-of-Service.rst:30
+#: 15feecbb7b214f369e8279321322f480
+msgid "Linux Binaries"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Quality-of-Service.rst:36
+#: 9e12db7f6c1b43e38c3d2c041eec2e4c
+msgid "From Source"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Quality-of-Service.rst:45
+#: 27699b0c9dd546f3823983f3f1ccfd08
+msgid "Run the demo"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Quality-of-Service.rst:47
+#: 0d6c1353a92d4ac2862b5910823bc439
+msgid ""
+"Before running the demo, make sure you have a working webcam connected to"
+" your computer."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Quality-of-Service.rst:49
+#: de6ae53d6c0d48c4852735d8511e4a26
+msgid "Once you've installed ROS 2, source your setup file:"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Quality-of-Service.rst:53
+#: 5bf93c3a6a10408b8b61d6ad12ea4a0b
+msgid "Linux"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Quality-of-Service.rst:59
+#: 3183302603c44a1a96410c52733d98a7
+msgid "macOS"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Quality-of-Service.rst:65
+#: 8f7f239ad0e04a58addd0640e4ab3fc0
+msgid "Windows"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Quality-of-Service.rst:71
+#: aff1f2ede8f5486c8cfa98c6902d3054
+msgid "Then run:"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Quality-of-Service.rst:77
+#: bb537063ee994417b167c7abaefe3255
+msgid ""
+"Nothing will happen yet. ``showimage`` is a subscriber node that is "
+"waiting for a publisher on the ``image`` topic."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Quality-of-Service.rst:80
+#: 73d9927c71294273b6d099adc1532d60
+msgid ""
+"Note: you have to close the ``showimage`` process with ``Ctrl-C`` later. "
+"You can't just close the window."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Quality-of-Service.rst:83
+#: 72a290963ef443fd95b2263c271ac6cf
+msgid ""
+"In a separate terminal, source the install file and run the publisher "
+"node:"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Quality-of-Service.rst:89
+#: 30cd42dd9a36430aa3707436db46c0fc
+msgid ""
+"This will publish an image from your webcam. In case you don't have a "
+"camera attached to your computer, there is a commandline option which "
+"publishes predefined images."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Quality-of-Service.rst:98
+#: c7dc3f31e266445fa31d8080a4dfa922
+msgid "In this window, you'll see terminal output:"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Quality-of-Service.rst:107
+#: f0d20a7b95f240b1b864b55b0c552736
+msgid ""
+"A window will pop up with the title \"view\" showing your camera feed. In"
+" the first window, you'll see output from the subscriber:"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Quality-of-Service.rst:119
+#: c6486c0722ad4dabb1d156c1b56e88c4
+msgid ""
+"macOS users: If these examples do not work or you receive an error like "
+"``ddsi_conn_write failed -1`` then you'll need to increase your system "
+"wide UDP packet size:"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Quality-of-Service.rst:126
+#: 48d6a72dad8849a9a17cab5dc5c54d55
+msgid ""
+"These changes will not persist a reboot. If you want the changes to "
+"persist, add these lines to ``/etc/sysctl.conf`` (create the file if it "
+"doesn't exist already):"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Quality-of-Service.rst:134
+#: c10008c8a5154ac9b231bf2eb0c27c46
+msgid "Command line options"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Quality-of-Service.rst:136
+#: d3b3e3cc30f74042b288c39a52d4a253
+msgid "In one of your terminals, add a -h flag to the original command:"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Quality-of-Service.rst:146
+#: 3dddaa95023e4131aa6abe8172b1a118
+msgid "Add network traffic"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Quality-of-Service.rst:150
+#: 9b2e2b0d330c4c2b8e808c2d8552bcec
+msgid ""
+"This section of the demo won't work on RTI's Connext DDS. When running "
+"multiple nodes in the same host, the RTI Connext DDS implementation uses "
+"shared memory along with the loopback interface. Degrading the loopback "
+"interface throughput won't affect shared memory, thus traffic between the"
+" two nodes won't be affected."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Quality-of-Service.rst:156
+#: 54c6daf792484715b2fc51cc685b2504
+msgid "This next section is Linux-specific."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Quality-of-Service.rst:158
+#: 7a61edb7d1274a25b106f266549d1357
+msgid ""
+"However, for macOS and Windows you can achieve a similar effect with the "
+"utilities \"Network Link Conditioner\" (part of the xcode tool suite) and"
+" \"Clumsy\" (http://jagt.github.io/clumsy/index.html), respectively, but "
+"they will not be covered in this tutorial."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Quality-of-Service.rst:160
+#: c4d424ec04404b079d0de6d9c523b83a
+msgid ""
+"We are going to use the Linux network traffic control utility, ``tc`` "
+"(http://linux.die.net/man/8/tc)."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Quality-of-Service.rst:166
+#: 519c686ffa7c446db94c8ce4e9662f49
+msgid ""
+"This magical incantation will simulate 5% packet loss over the local "
+"loopback device. If you use a higher resolution of the images (e.g. "
+"``--ros-args -p width:=640 -p height:=480``) you might want to try a "
+"lower packet loss rate (e.g. ``1%``)."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Quality-of-Service.rst:169
+#: a0344d3cc80349838a9ca2b7c2fb5476
+msgid ""
+"Next we start the ``cam2image`` and ``showimage``, and we'll soon notice "
+"that both programs seem to have slowed down the rate at which images are "
+"transmitted. This is caused by the behavior of the default QoS settings. "
+"Enforcing reliability on a lossy channel means that the publisher (in "
+"this case, ``cam2image``) will resend the network packets until it "
+"receives acknowledgement from the consumer (i.e. ``showimage``)."
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Quality-of-Service.rst:173
+#: d850e15f94f549d9946ca89056db6041
+msgid ""
+"Let's now try running both programs, but with more suitable settings. "
+"First of all, we'll use the ``-p reliability:=best_effort`` option to "
+"enable best effort communication. The publisher will now just attempt to "
+"deliver the network packets, and don't expect acknowledgement from the "
+"consumer. We see now that some of the frames on the ``showimage`` side "
+"were dropped, so the frame numbers in the shell running ``showimage`` "
+"won't be consecutive anymore:"
+msgstr ""
+
+#: 4f5d07f38c9742f2b63a18baf48f725f
+msgid "Best effort image transfer"
+msgstr ""
+
+#: ../../source/Tutorials/Demos/Quality-of-Service.rst:184
+#: dca8a8b2c6c94751ba03618c04879778
+msgid "When you're done, remember to delete the queueing discipline:"
+msgstr ""
+

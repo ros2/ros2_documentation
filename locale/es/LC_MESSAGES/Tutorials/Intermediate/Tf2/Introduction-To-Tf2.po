@@ -1,0 +1,229 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Intermediate/Tf2/Introduction-To-Tf2.rst:8
+#: fb83be3dcd55447b95986a4dddb1472c
+msgid "Introducing ``tf2``"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Introduction-To-Tf2.rst:10
+#: 1b0c09071dc34361b7debf099e4b7370
+msgid ""
+"**Goal:** Run a turtlesim demo and see some of the power of tf2 in a "
+"multi-robot example using turtlesim."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Introduction-To-Tf2.rst:12
+#: 3958a6684a6d4ebcb3a0e711f0056fb1
+msgid "**Tutorial level:** Intermediate"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Introduction-To-Tf2.rst:14
+#: 3ae249b5afaa413aad0d695edc7a64b4
+msgid "**Time:** 10 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Introduction-To-Tf2.rst:18
+#: 282b0efdb0244be3ade68dc091cac318
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Introduction-To-Tf2.rst:21
+#: e63cadb6d591408e97c810592f376427
+msgid "Installing the demo"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Introduction-To-Tf2.rst:23
+#: f46ce0c2e8cf41148135be95cb40b684
+msgid "Let's start by installing the demo package and its dependencies."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Introduction-To-Tf2.rst:27
+#: 6414abe7506d4a6d837dc5caf4d925f3
+msgid "Linux Binaries"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Introduction-To-Tf2.rst:33
+#: 6fc512181b23479bb7505e9ef4da0f26
+msgid "From Source"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Introduction-To-Tf2.rst:41
+#: f835152f4b1f49ad80b7273ed71e2b1d
+msgid "Running the demo"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Introduction-To-Tf2.rst:43
+#: 78808f1dcdaa4be8b1587ddd8b394bfd
+msgid ""
+"Now that we've installed the ``turtle_tf2_py`` tutorial package let's run"
+" the demo. First, open a new terminal and :doc:`source your ROS 2 "
+"installation <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>` so "
+"that ``ros2`` commands will work. Then run the following command:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Introduction-To-Tf2.rst:51
+#: b9a4756980174101b083663c9c55cd77
+msgid "You will see the turtlesim start with two turtles."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Introduction-To-Tf2.rst:55
+#: 9e0e4c640843430cac76743b3b9ac5ba
+msgid "In the second terminal window type the following command:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Introduction-To-Tf2.rst:61
+#: 5809fa54d464439eb82c38a4371f0053
+msgid ""
+"Once the turtlesim is started you can drive the central turtle around in "
+"the turtlesim using the keyboard arrow keys, select the second terminal "
+"window so that your keystrokes will be captured to drive the turtle."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Introduction-To-Tf2.rst:66
+#: b92db6bd50e14e569a31edc2079a1b49
+msgid ""
+"You can see that one turtle continuously moves to follow the turtle you "
+"are driving around."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Introduction-To-Tf2.rst:69
+#: 2c8f278fa9694bb1a4b9c056a7342cca
+msgid "What is happening?"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Introduction-To-Tf2.rst:71
+#: a54bbace5a68490786a6d044ec7595b0
+msgid ""
+"This demo is using the tf2 library to create three coordinate frames: a "
+"``world`` frame, a ``turtle1`` frame, and a ``turtle2`` frame. This "
+"tutorial uses a tf2 broadcaster to publish the turtle coordinate frames "
+"and a tf2 listener to compute the difference in the turtle frames and "
+"move one turtle to follow the other."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Introduction-To-Tf2.rst:75
+#: 6441a9a20a994dbc99d0a08d19ca743b
+msgid "tf2 tools"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Introduction-To-Tf2.rst:77
+#: b56e206d80144eb38a0ce381e1466df7
+msgid ""
+"Now let's look at how tf2 is being used to create this demo. We can use "
+"``tf2_tools`` to look at what tf2 is doing behind the scenes."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Introduction-To-Tf2.rst:81
+#: af8c0a7e119d4a33a6697024472aea58
+msgid "1 Using view_frames"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Introduction-To-Tf2.rst:83
+#: eaa632d88e614decaaafc71ccddd37f6
+msgid ""
+"``view_frames`` creates a diagram of the frames being broadcast by tf2 "
+"over ROS."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Introduction-To-Tf2.rst:89
+#: e924340858874c90be24bd062e42aefe
+msgid "You will see:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Introduction-To-Tf2.rst:96
+#: 2376222dc3b246febf1a36bf3283d56c
+msgid ""
+"Here a tf2 listener is listening to the frames that are being broadcast "
+"over ROS and drawing a tree of how the frames are connected. To view the "
+"tree, open the resulting ``frames.pdf`` with your favorite PDF viewer."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Introduction-To-Tf2.rst:101
+#: 1e1a8dfa2d9f477e9ea3dfafe903f040
+msgid ""
+"Here we can see three frames that are broadcasted by tf2: ``world``, "
+"``turtle1``, and ``turtle2``. The ``world`` here is the parent of the "
+"``turtle1`` and ``turtle2`` frames. ``view_frames`` also report some "
+"diagnostic information about when the oldest and most recent frame "
+"transforms were received and how fast the tf2 frame is published to tf2 "
+"for debugging purposes."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Introduction-To-Tf2.rst:107
+#: c9584eb553f6473889b17f7b430a80d1
+msgid "2 Using tf2_echo"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Introduction-To-Tf2.rst:109
+#: cc12d126e64641578aaf99909bb43aab
+msgid ""
+"``tf2_echo`` reports the transform between any two frames broadcasted "
+"over ROS."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Introduction-To-Tf2.rst:111
+#: da234949833b4b47968617d35f1c4243
+msgid "Usage:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Introduction-To-Tf2.rst:117
+#: 9d3e8a446c4846c5b6f9ea2c7fbc81a5
+msgid ""
+"Let's look at the transform of the ``turtle2`` frame with respect to "
+"``turtle1`` frame which is equivalent to:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Introduction-To-Tf2.rst:123
+#: 87a2f2e430f04af0a2fc64c92174c11c
+msgid ""
+"You will see the transform displayed as the ``tf2_echo`` listener "
+"receives the frames broadcasted over ROS 2."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Introduction-To-Tf2.rst:148
+#: 072c679227c54045940abbd3792e25d4
+msgid ""
+"As you drive your turtle around you will see the transform change as the "
+"two turtles move relative to each other."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Introduction-To-Tf2.rst:151
+#: c0c2451111bb417cbbe70a63ea5a6d24
+msgid "rviz and tf2"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Introduction-To-Tf2.rst:153
+#: 3547af3d278d4393a05952bbbb5594f9
+msgid ""
+"``rviz`` is a visualization tool that is useful for examining tf2 frames."
+" Let's look at our turtle frames using rviz. Let's start rviz with the "
+"``turtle_rviz.rviz`` configuration file using the ``-d`` option:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Introduction-To-Tf2.rst:163
+#: fff07239e096415ab260410338d0edd5
+msgid ""
+"In the side bar you will see the frames broadcasted by tf2. As you drive "
+"the turtle around you will see the frames move in rviz."
+msgstr ""
+

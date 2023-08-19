@@ -1,0 +1,343 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:8
+#: fe9ab4938ae140f48a4ad222a30a6958
+msgid "Understanding parameters"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:10
+#: c5fef063f96943688c67a2c4d766574c
+msgid "**Goal:** Learn how to get, set, save and reload parameters in ROS 2."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:12
+#: 1ad8944e22374c67a511383371c6bc80
+msgid "**Tutorial level:** Beginner"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:14
+#: 784423e0417b40dd9fafe427f7a53383
+msgid "**Time:** 5 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:18
+#: 1df03e598bda4b1787a24b6467e1ad85
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:21
+#: 3986cf16b9f246efa2ad4376e3e97109
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:23
+#: 15f1565487ca46d28b3c7bf184f75c99
+msgid ""
+"A parameter is a configuration value of a node. You can think of "
+"parameters as node settings. A node can store parameters as integers, "
+"floats, booleans, strings, and lists. In ROS 2, each node maintains its "
+"own parameters. For more background on parameters, please see :doc:`the "
+"concept document <../../../Concepts/Basic/About-Parameters>`."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:30
+#: d3a68999db4244708d6a89f171fc6b91
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:32
+#: bc54024ff50848889f776985bc300c99
+msgid ""
+"This tutorial uses the :doc:`turtlesim package <../Introducing-Turtlesim"
+"/Introducing-Turtlesim>`."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:34
+#: 04976d75af8a40cd8a70b2633dbcb936
+msgid ""
+"As always, don't forget to source ROS 2 in :doc:`every new terminal you "
+"open <../Configuring-ROS2-Environment>`."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:37
+#: 9d062d7e10b140db8d08c291d5f64ce8
+msgid "Tasks"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:40
+#: 9b5d1b9c2dfe451f8cb42f300fe3f2bc
+msgid "1 Setup"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:42
+#: 6fcd8ff832e74d4eb1e81126e6d1e9a7
+msgid "Start up the two turtlesim nodes, ``/turtlesim`` and ``/teleop_turtle``."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:44
+#: 2721ee90b40c4baaa18bccd70876f338
+msgid "Open a new terminal and run:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:50
+#: 4d57cb3a954d440eac06970ad7ad4378
+msgid "Open another terminal and run:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:58
+#: d6f87962c084460999e6176e946499cf
+msgid "2 ros2 param list"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:60
+#: ead96a1e4d8a48fd806ebb92f2a7de54
+msgid ""
+"To see the parameters belonging to your nodes, open a new terminal and "
+"enter the command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:66
+#: cf7d5628c87d489a9fdb0d9ac2096229
+msgid ""
+"You will see the node namespaces, ``/teleop_turtle`` and ``/turtlesim``, "
+"followed by each node's parameters:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:88
+#: b16551714bd8455cb992268671ea755d
+msgid ""
+"Every node has the parameter ``use_sim_time``; it's not unique to "
+"turtlesim."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:90
+#: 9fb0fed6726a41e28d5a4d8ebf06dc92
+msgid ""
+"Based on their names, it looks like ``/turtlesim``'s parameters determine"
+" the background color of the turtlesim window using RGB color values."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:92
+#: 1bdfe3269d774c53a07e28986333983e
+msgid "To determine a parameter's type, you can use ``ros2 param get``."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:96
+#: 6b8e11f66d1f438cbcfd0c596300f51e
+msgid "3 ros2 param get"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:98
+#: 712154e48d1c4307b36527d7bf82f82d
+msgid "To display the type and current value of a parameter, use the command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:104
+#: cbbc693e2b9b4026a9409934245bed8f
+msgid ""
+"Let's find out the current value of ``/turtlesim``'s parameter "
+"``background_g``:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:110
+#: 4b8a169b16a44f0083ac50a0982c6988
+msgid "Which will return the value:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:116
+#: 9c988c5a3b824e55936fb81ca3a022d3
+msgid "Now you know ``background_g`` holds an integer value."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:118
+#: 22a4cdfcb3d040e4b01cfd3429a16e2c
+msgid ""
+"If you run the same command on ``background_r`` and ``background_b``, you"
+" will get the values ``69`` and ``255``, respectively."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:121
+#: 2a6c6d5a44a748e9a706caa030d8f51a
+msgid "4 ros2 param set"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:123
+#: b9d5aa0c40d24be1ad451feb66e27c2d
+msgid "To change a parameter's value at runtime, use the command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:129
+#: 33cfd8ec55f5425aa82c04da101c993d
+msgid "Let's change ``/turtlesim``'s background color:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:135
+#: 2bb58f7e623a44f1a5e430b16c3069e8
+msgid "Your terminal should return the message:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:141
+#: 6f9f35f5e0ac405f84dc8fa247556c47
+msgid "And the background of your turtlesim window should change colors:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:145
+#: 9e83f974483a4c928caee0037aab3f09
+msgid ""
+"Setting parameters with the ``set`` command will only change them in your"
+" current session, not permanently. However, you can save your settings "
+"and reload them the next time you start a node."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:149
+#: 1729891264d74472bda2af2ca43320b1
+msgid "5 ros2 param dump"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:151
+#: a4925e2477534254bbb1c624a0937a38
+msgid ""
+"You can view all of a node's current parameter values by using the "
+"command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:157
+#: 1e65f27b895a40adb67f1a52a56585e7
+msgid ""
+"The command prints to the standard output (stdout) by default but you can"
+" also redirect the parameter values into a file to save them for later. "
+"To save your current configuration of ``/turtlesim``'s parameters into "
+"the file ``turtlesim.yaml``, enter the command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:164
+#: 97bfe458f16c4cf99956c0c6d38affa9
+msgid ""
+"You will find a new file in the current working directory your shell is "
+"running in. If you open this file, you'll see the following content:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:183
+#: ce708a010e814980bed99f03a92fa748
+msgid ""
+"Dumping parameters comes in handy if you want to reload the node with the"
+" same parameters in the future."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:186
+#: 7419b51428cb4f20a6af4345af4d2a5b
+msgid "6 ros2 param load"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:188
+#: 0e09b1d98f244fe29b5e55024d04c460
+msgid ""
+"You can load parameters from a file to a currently running node using the"
+" command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:194
+#: a07ce8bc110640a5875903f3344a455f
+msgid ""
+"To load the ``turtlesim.yaml`` file generated with ``ros2 param dump`` "
+"into ``/turtlesim`` node's parameters, enter the command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:200
+#: 3b05033ca4334b32af443917720c2983
+msgid "Your terminal will return the message:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:215
+#: f4d9e3b58993434baab790a50c549f6d
+msgid ""
+"Read-only parameters can only be modified at startup and not afterwards, "
+"that is why there are some warnings for the \"qos_overrides\" parameters."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:218
+#: 688a711db1f148fd8a241d16f74cc3d2
+msgid "7 Load parameter file on node startup"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:220
+#: 967aba7a0c43492b9b31b2136c725d0e
+msgid "To start the same node using your saved parameter values, use:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:226
+#: 417f89e53641483784c7c1440bc60161
+msgid ""
+"This is the same command you always use to start turtlesim, with the "
+"added flags ``--ros-args`` and ``--params-file``, followed by the file "
+"you want to load."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:228
+#: a1c8015bbc2d4cd3916cd1e4b342512a
+msgid ""
+"Stop your running turtlesim node, and try reloading it with your saved "
+"parameters, using:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:234
+#: 5e07f569b94e43aea16319e6e23cede3
+msgid ""
+"The turtlesim window should appear as usual, but with the purple "
+"background you set earlier."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:238
+#: a1b277a6c94e4264a8cfa06c869d437b
+msgid ""
+"When a parameter file is used at node startup, all parameters, including "
+"the read-only ones, will be updated."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:241
+#: 1b6346e401d848eaba7c4bae97b08195
+msgid "Summary"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:243
+#: 78fb9bcfb59249539ee903faad0268ec
+msgid ""
+"Nodes have parameters to define their default configuration values. You "
+"can ``get`` and ``set`` parameter values from the command line. You can "
+"also save the parameter settings to a file to reload them in a future "
+"session."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:248
+#: b15fd1817eb34b65809802d993b088b9
+msgid "Next steps"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters.rst:250
+#: 08653e025858487fb74c88a56fc91397
+msgid ""
+"Jumping back to ROS 2 communication methods, in the next tutorial you'll "
+"learn about :doc:`actions <../Understanding-ROS2-Actions/Understanding-"
+"ROS2-Actions>`."
+msgstr ""
+

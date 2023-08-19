@@ -1,0 +1,122 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Releases/Release-Rolling-Ridley.rst:2
+#: b413cbfc071845f3920b749d3c198d49
+msgid "Rolling Ridley (``rolling``)"
+msgstr ""
+
+#: ../../source/Releases/Release-Rolling-Ridley.rst:6
+#: 08b31ba9ee444f548a05f2ce6a4bdab5
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Releases/Release-Rolling-Ridley.rst:8
+#: 2f1a18f1cb1e4c87a9f89969e5ad6452
+msgid "*Rolling Ridley* is a rolling development release of ROS 2."
+msgstr ""
+
+#: ../../source/Releases/Release-Rolling-Ridley.rst:12
+#: 33ae01da994d494899f326b4258bbde0
+msgid ""
+"Rolling Ridley is continuously updated and is subject to in-place updates"
+" which will at times include breaking changes. It is used for ROS 2 "
+"development and by maintainers who want their packages released and ready"
+" for the next stable distribution. We recommend that most users of ROS 2 "
+"use the latest `stable distribution <latest_release>`."
+msgstr ""
+
+#: ../../source/Releases/Release-Rolling-Ridley.rst:16
+#: 181806bfab5c4e81b0096be2651e849d
+msgid ""
+"For more information see `REP-2002 "
+"<https://www.ros.org/reps/rep-2002.html>`_"
+msgstr ""
+
+#: ../../source/Releases/Release-Rolling-Ridley.rst:19
+#: b67a02cdb86f48b8a442dcf11a40bcde
+msgid "Currently Supported Platforms"
+msgstr ""
+
+#: ../../source/Releases/Release-Rolling-Ridley.rst:21
+#: 791a27314b1a45f49ecdea1bf140dca1
+msgid "Rolling Ridley is currently supported on the following platforms:"
+msgstr ""
+
+#: ../../source/Releases/Release-Rolling-Ridley.rst:23
+#: 6d1c2a5eebbc4aa6b7ee3920f87c1c74
+msgid "Tier 1 platforms:"
+msgstr ""
+
+#: ../../source/Releases/Release-Rolling-Ridley.rst:25
+#: 18cb29960a7846cb9ceb18d9fb88c8a1
+msgid "Ubuntu 22.04 (Jammy): ``amd64`` and ``arm64``"
+msgstr ""
+
+#: ../../source/Releases/Release-Rolling-Ridley.rst:26
+#: bdd5459ff12541148fb2215d75264992
+msgid "Windows 10 (Visual Studio 2019)"
+msgstr ""
+
+#: ../../source/Releases/Release-Rolling-Ridley.rst:28
+#: f727043f18074400bf361479dc2e4fdc
+msgid "Tier 3 platforms:"
+msgstr ""
+
+#: ../../source/Releases/Release-Rolling-Ridley.rst:30
+#: 6b1f9fbbb05d46bdb9565b124d77e9c5
+msgid "Debian Buster (10): ``amd64``, ``arm64`` and ``arm32``"
+msgstr ""
+
+#: ../../source/Releases/Release-Rolling-Ridley.rst:31
+#: c0024b4445d44de2949b7513a0400411
+msgid "Mac macOS 10.14 (Mojave)"
+msgstr ""
+
+#: ../../source/Releases/Release-Rolling-Ridley.rst:32
+#: 8788fdfdfb274e54922322f1710e5e5f
+msgid "OpenEmbedded Thud (2.6) / webOS OSE: ``arm32`` and ``x86``"
+msgstr ""
+
+#: ../../source/Releases/Release-Rolling-Ridley.rst:35
+#: 2d6394fa9e624378b2e93dd5d4ce44f5
+msgid "Installation"
+msgstr ""
+
+#: ../../source/Releases/Release-Rolling-Ridley.rst:37
+#: 906945e786414e2da709b30ae993701a
+msgid "`Install Rolling Ridley <../../Installation>`"
+msgstr ""
+
+#: ../../source/Releases/Release-Rolling-Ridley.rst:40
+#: 7faf2cadcc85421bb33a03244c5d843a
+msgid "New features and changes in this release"
+msgstr ""
+
+#: ../../source/Releases/Release-Rolling-Ridley.rst:42
+#: 80a1f815641247debb5cc186e76d6a6e
+msgid ""
+"Rolling Ridley is an ongoing development distribution. Changes between "
+"the current stable release and the upcoming one can be found on the page "
+"for the `upcoming release <upcoming-release>`."
+msgstr ""
+

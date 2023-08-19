@@ -1,0 +1,300 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:7
+#: 4f134937552245df94f94e54f5a49554
+msgid "Different ROS 2 middleware vendors"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:10
+#: a1a0290a91144f6d9b08a8827aa4f423
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:12
+#: b5dc4acd2f834b919bf9d6ae655c3f19
+msgid ""
+"ROS 2 is built on top of DDS/RTPS as its middleware, which provides "
+"discovery, serialization and transportation. `This article "
+"<https://design.ros2.org/articles/ros_on_dds.html>`__ explains the "
+"motivation behind using DDS implementations, and/or the RTPS wire "
+"protocol of DDS, in detail. In summary, DDS is an end-to-end middleware "
+"that provides features which are relevant to ROS systems, such as "
+"distributed discovery (not centralized like in ROS 1) and control over "
+"different \"Quality of Service\" options for the transportation."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:16
+#: f9e4599ef6e9417fadae1bd7c6e77cdd
+msgid ""
+"`DDS <https://www.omg.org/omg-dds-portal>`__ is an industry standard "
+"which is implemented by a range of vendors, such as RTI's `Connext DDS "
+"<https://www.rti.com/products/>`__, eProsima's `Fast DDS <https://fast-"
+"dds.docs.eprosima.com/>`__, Eclipse's `Cyclone DDS "
+"<https://projects.eclipse.org/projects/iot.cyclonedds>`__, or "
+"GurumNetworks's `GurumDDS <https://gurum.cc/index_eng>`__. RTPS (a.k.a. "
+"`DDSI-RTPS <https://www.omg.org/spec/DDSI-RTPS/About-DDSI-RTPS/>`__\\ ) "
+"is the wire protocol used by DDS to communicate over the network."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:19
+#: 2dc43df6973a4ae5a8e0f935713ae816
+msgid ""
+"ROS 2 supports multiple DDS/RTPS implementations because it is not "
+"necessarily \"one size fits all\" when it comes to choosing a "
+"vendor/implementation. There are many factors you might consider while "
+"choosing a middleware implementation: logistical considerations like the "
+"license, or technical considerations like platform availability, or "
+"computation footprint. Vendors may provide more than one DDS or RTPS "
+"implementation targeted at meeting different needs. For example, RTI has "
+"a few variations of their Connext implementation that vary in purpose, "
+"like one that specifically targets microcontrollers and another which "
+"targets applications requiring special safety certifications (we only "
+"support their standard desktop version at this time)."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:24
+#: 1528120740dc497687b3cef732674a34
+msgid ""
+"In order to use a DDS/RTPS implementation with ROS 2, a \"\\ **R**\\ OS "
+"**M**\\ iddle\\ **w**\\ are interface\" (a.k.a. ``rmw`` interface or just"
+" ``rmw``\\ ) package needs to be created that implements the abstract ROS"
+" middleware interface using the DDS or RTPS implementation's API and "
+"tools. It's a lot of work to implement and maintain RMW packages for "
+"supporting DDS implementations, but supporting at least a few "
+"implementations is important for ensuring that the ROS 2 codebase is not "
+"tied to any one particular implementation, as users may wish to switch "
+"out implementations depending on their project's needs."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:28
+#: 952db692096942368064fa6d249357b4
+msgid "Supported RMW implementations"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:33
+#: 30642c90dcec4b73bad743887faa892e
+msgid "Product name"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:34
+#: afa39893c68f481d86ea58c4100500ad
+msgid "License"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:35
+#: 6ea2d21f46f24d7eba9313dba3814a01
+msgid "RMW implementation"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:36
+#: 38ed78cd052f49d0afc8b1fbdf42bca4
+msgid "Status"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:37
+#: 9f0ff702aebe443ea082d94d6fedf357
+msgid "eProsima *Fast DDS*"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:38
+#: 17df8bedfb004dcdbe819adcda36fa08
+msgid "Apache 2"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:39
+#: 75a46aac18e2440b96142e2a09efdac0
+msgid "``rmw_fastrtps_cpp``"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:40
+#: 9d987648f2f84d4f81ecb2c1a0aa4553
+msgid "Full support. Default RMW. Packaged with binary releases."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:41
+#: 3510213ae08a4778bd8aff7328c54582
+msgid "Eclipse *Cyclone DDS*"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:42
+#: 61d7d024b41a4f5fbdd5460d12a52caf
+msgid "Eclipse Public License v2.0"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:43
+#: eee4353cbc464e2994f909e299e82220
+msgid "``rmw_cyclonedds_cpp``"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:44
+#: a7361481935c4c969578bec180f3bb55
+msgid "Full support. Packaged with binary releases."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:45
+#: d74336dc75c447f9b10483cae5921d21
+msgid "RTI *Connext DDS*"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:46
+#: 9363724a813845c3a6f68bf51fa9109d
+msgid "commercial, research"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:47
+#: 9bf37f6f79d7402dbffa9b8ba74112f2
+msgid "``rmw_connextdds``"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:48
+#: 2b2c5a5d1fe541b89e7b1a94ac99f214
+msgid ""
+"Full support. Support included in binaries, but Connext installed "
+"separately."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:49
+#: 0895559cbb5e4ebb9471ce5ff111a79e
+msgid "GurumNetworks *GurumDDS*"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:50
+#: 4c17b41202314ae79fd8fb1859489aa7
+msgid "commercial"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:51
+#: b30ddd0765954173a76a0f2e5ae803b9
+msgid "``rmw_gurumdds_cpp``"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:52
+#: 28bedcd0857d49cd9e23cfc4125fa0cf
+msgid ""
+"Community support. Support included in binaries, but GurumDDS installed "
+"separately."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:54
+#: 463502d569874dd58fe3228f140bb209
+msgid ""
+"For practical information on working with multiple RMW implementations, "
+"see the :doc:`\"Working with multiple RMW implementations\" <../../How-"
+"To-Guides/Working-with-multiple-RMW-implementations>` tutorial."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:57
+#: 195ebd973c54432f92edbbede65d1e38
+msgid "Multiple RMW implementations"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:59
+#: a284f25dc9b1432f8572e65a4ac92377
+msgid ""
+"The ROS 2 binary releases for currently active distros have built-in "
+"support for several RMW implementations out of the box (Fast DDS, RTI "
+"Connext Pro, Eclipse Cyclone DDS, GurumNetworks GurumDDS). The default is"
+" Fast DDS, which works without any additional installation steps because "
+"we distribute it with our binary packages."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:62
+#: 377b412c78ef4de7af53924bc4fcd72f
+msgid ""
+"Other RMWs like Cyclone DDS, Connext or GurumDDS can be enabled by "
+":doc:`installing additional packages <../../Installation/DDS-"
+"Implementations>`, but without having to rebuild anything or replace any "
+"existing packages."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:64
+#: 4ac36d7359994355bb67053e92499ae8
+msgid ""
+"A ROS 2 workspace that has been built from source may build and install "
+"multiple RMW implementations simultaneously. While the core ROS 2 code is"
+" being compiled, any RMW implementation that is found will be built if "
+"the relevant DDS/RTPS implementation has been installed properly and the "
+"relevant environment variables have been configured. For example, if the "
+"code for the `RMW package for RTI Connext DDS "
+"<https://github.com/ros2/rmw_connextdds>`__ is in the workspace, it will "
+"be built if an installation of RTI's Connext Pro can also be found."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:68
+#: 7c25852a098d47748584f483a484b827
+msgid ""
+"For many cases you will find that nodes using different RMW "
+"implementations are able to communicate, however this is not true under "
+"all circumstances. Here is a list of inter-vendor communication "
+"configurations that are not supported:"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:71
+#: a388cf2f2c674d71b1035b23aed5089e
+msgid "Fast DDS <-> Connext"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:72
+#: 2c2695b1e02f4539b5cb8e8688cb7d97
+msgid ""
+"``WString`` published by Fast DDS can't be received correctly by Connext "
+"on macOS"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:74
+#: 956538ef96e24d528e8ae19196152a71
+msgid "Connext <-> Cyclone DDS"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:74
+#: 1f776bd239cf4525ae774d5e7593e3f3
+msgid "does not support pub/sub communication for ``WString``"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:77
+#: 87ce61d579954f6b8a0989efbbbdfbed
+msgid "Default RMW implementation"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:79
+#: b87250123e3d49dcb0cb25b1c94dc9a3
+msgid ""
+"If a ROS 2 workspace has multiple RMW implementations, Fast DDS is "
+"selected as the default RMW implementation if it is available. If the "
+"Fast DDS RMW implementation is not installed, the RMW implementation with"
+" the first RMW implementation identifier in alphabetical order will be "
+"used. The implementation identifier is the name of the ROS package that "
+"provides the RMW implementation, e.g. ``rmw_cyclonedds_cpp``. For "
+"example, if both ``rmw_cyclonedds_cpp`` and ``rmw_connextdds`` ROS "
+"packages are installed, ``rmw_connextdds`` would be the default. If "
+"``rmw_fastrtps_cpp`` is ever installed, it would be the default."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Different-Middleware-Vendors.rst:85
+#: 2f9031f71e3c4cbbb36df1c25ccb2b73
+msgid ""
+"See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-"
+"implementations>` for how to specify which RMW implementation is to be "
+"used when running the ROS 2 examples."
+msgstr ""
+

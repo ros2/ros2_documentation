@@ -1,0 +1,94 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Intermediate/Testing/Cpp.rst:4
+#: 7fbb37a118004857b3e7561cb1554895
+msgid "Writing Basic Tests with C++ with GTest"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Cpp.rst:6
+#: 42fa4893e0154c00b7ca0c4701c5a873
+msgid ""
+"Starting point: we'll assume you have a :ref:`basic ament_cmake "
+"package<CreatePkg>` set up already and you want to add some tests to it."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Cpp.rst:8
+#: ef80706642a642b998103881015dd129
+msgid ""
+"In this tutorial, we'll be using `gtest "
+"<https://google.github.io/googletest/primer.html>`__."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Cpp.rst:11
+#: 1aa492ebcc634fc897f3562f45ebec22
+msgid "Package Setup"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Cpp.rst:14
+#: af488611eb0646c8928a5696a045fa66
+msgid "Source Code"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Cpp.rst:15
+#: f76fb9fcc5114dcca56841d016999d37
+msgid "We'll start off with our code in a file called ``test/tutorial_test.cpp``"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Cpp.rst:34
+#: 2903f3557d15473cb6446989b02d2a64
+msgid "package.xml"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Cpp.rst:35
+#: 200bb68b26f7477eb7e3976c9b7214fa
+msgid "Add the following line to ``package.xml``"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Cpp.rst:42
+#: 9d925854b0f74ec58372538529f043f9
+msgid "CMakeLists.txt"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Cpp.rst:59
+#: e0315c8387a34232a4c8e32c6320de5a
+msgid ""
+"The testing code is wrapped in the ``if/endif`` block to avoid building "
+"tests where possible. ``ament_add_gtest`` functions much like "
+"``add_executable`` so you'll need to call ``target_include_directories``,"
+" ``ament_target_dependencies`` and ``target_link_libraries`` as you "
+"normally would."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Cpp.rst:63
+#: c11b41cb780e4625806060f034d604f3
+msgid "Running Tests"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Cpp.rst:65
+#: f46e10b553c443d0bc428d46e57af9ef
+msgid ""
+"See the :doc:`tutorial on how to run tests from the command line <CLI>` "
+"for more information on running the tests and inspecting the test "
+"results."
+msgstr ""
+

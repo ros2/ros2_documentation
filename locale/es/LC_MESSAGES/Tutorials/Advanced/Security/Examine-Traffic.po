@@ -1,0 +1,287 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:8
+#: 3a69bc61e2514dc09f12efab3c358e97
+msgid "Examining network traffic"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:10
+#: cf9306e4be2b4c7d9c4f67755f548746
+msgid "**Goal:** Capture and examine raw ROS 2 network traffic."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:12
+#: 5af58eff8e434e8cb4cfb6e2c9879578
+msgid "**Tutorial level:** Advanced"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:14
+#: 821336a7ed09468aa06418073c4f473e
+msgid "**Time:** 20 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:19
+#: 4cd3addf6692433095d91900ce6e3967
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:22
+#: 7cbb840550dc47d9ae0003ef98c37e92
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:24
+#: ff7c9f00c2e14ef398e9b5d131faa525
+msgid ""
+"ROS 2 communications security is all about protecting communications "
+"between nodes. Prior tutorials enabled security, but how can you "
+"**really** tell if traffic is being encrypted? In this tutorial we'll "
+"take a look at capturing live network traffic to show the difference "
+"between encrypted and unencrypted traffic."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:30
+#: 61e7b3244bfa43a08e8ca505c87e1285
+msgid ""
+"``rmw_fastrtps_cpp`` uses `Shared Memory Transport <https://fast-"
+"dds.docs.eprosima.com/en/latest/fastdds/transport/shared_memory/shared_memory.html>`_"
+" by default to improve the performance in the transport layer when the "
+"endpoints are in the same host system. Security enclaves are still "
+"applied, and data will be encrypted. However, you cannot capture live "
+"network traffic since the data will not be on the network interface. If "
+"you are using  ``rmw_fastrtps_cpp``, you need to either go through this "
+"tutorial and use a different host system between the publisher and "
+"subscriber, or disable shared memory transport with `Enabling UDP "
+"Transport <https://fast-"
+"dds.docs.eprosima.com/en/latest/fastdds/transport/udp/udp.html#enabling-"
+"udp-transport>`_ and `How to set Fast-DDS XML configuration "
+"<https://github.com/ros2/rmw_fastrtps#full-qos-configuration>`_."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:36
+#: e1a1edec452a47e0851e92824a72af23
+msgid "Run the demo"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:39
+#: bf972869384f42449897d714d6664f33
+msgid "Install ``tcpdump``"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:41
+#: c0332c463fb04f46944105699bec340c
+msgid ""
+"Begin in a new terminal window by installing `tcpdump "
+"<https://www.tcpdump.org/manpages/tcpdump.1.html>`_, a command-line tool "
+"for capturing and displaying network traffic. Although this tutorial "
+"describes ``tcpdump`` commands, you can also use `Wireshark "
+"<https://www.wireshark.org/>`_, a similar graphical tool for capturing "
+"and analyzing traffic."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:49
+#: d3896068b4e6479d8106404496164dc1
+msgid ""
+"Run following commands on a single machine through multiple ``ssh`` "
+"sessions."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:52
+#: 42b04284dc464e6894daf93cc95481fe
+msgid "Start the talker and listener"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:54
+#: 1b05cca4a17e4e519ff188acb5920108
+msgid ""
+"Start both the talker and the listener again, each in its own terminal. "
+"The security environment variables are not set so security is not enabled"
+" for these sessions."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:70
+#: c8d20f3e941f4cfeb03c472ce3508def
+msgid "Display unencrypted discovery packets"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:72
+#: e7220d86a1a04ecbab0be3a694fed37d
+msgid ""
+"With the talker and listener running, open another terminal and start "
+"``tcpdump`` to look at the network traffic. You need to use ``sudo`` "
+"since reading raw network traffic is a privileged operation."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:75
+#: 7639808029e24904a5bb3396c7af9f66
+msgid ""
+"The command below uses the ``-X`` option to print packet contents, the "
+"``-i`` option to listen for packets on any interface, and captures only "
+"`UDP <https://en.wikipedia.org/wiki/User_Datagram_Protocol>`_ port 7400 "
+"traffic."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:81
+#: 3cb9929d52b74d208ef43a4b6163de2c
+msgid "You should see packets like the following::"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:94
+#: de2975e8ab6040dfa0747c0387987219
+msgid ""
+"This is a discovery datagram--the talker looking for subscribers. As you "
+"can see, the node name (``/talker_listener/talker``) and the enclave "
+"(also ``/talker_listener/talker``) are passed in plain text. You should "
+"also see similar discovery datagrams from the ``listener`` node. Some "
+"other features of a typical discovery packet:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:99
+#: 4757d4112e704a30b04792c1c9051b10
+msgid ""
+"The destination address is 239.255.0.1, which is a multicast IP address; "
+"ROS 2 uses multicast traffic for discovery by default."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:100
+#: 4327854863c64048b55c963a92b84fca
+msgid ""
+"UDP 7400 is the destination port, as per the `DDS-RTPS specification "
+"<https://www.omg.org/spec/DDSI-RTPS/About-DDSI-RTPS/>`_."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:101
+#: 0293805f42d14768b48fe2235030c007
+msgid ""
+"The packet contains the \"RTPS\" tag, also as defined to the DDS-RTPS "
+"specification."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:105
+#: 83219d6f98264e408040f6076f4eb516
+msgid "Display unencrypted data packets"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:107
+#: 0b401e9f540d4ebdb62a061b3dafcff7
+msgid ""
+"Use ``tcpdump`` to capture non-discovery RTPS packets by filtering on UDP"
+" ports above 7400:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:113
+#: f078006d0948453586c44de468be85b1
+msgid ""
+"You will see few different types of packets, but watch for something like"
+" the following which is obviously data being sent from a talker to a "
+"listener::"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:124
+#: 7374c25091a84407b2624455989c52e5
+msgid "Some features to note about this packet:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:126
+#: 81576dd7b50f4e08a1001f704975b387
+msgid "The message contents, \"Hello World: 2135\", are sent in clear text"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:127
+#: dd5bec05ecee438aaf32de58499301ec
+msgid ""
+"The source and destination IP address is ``localhost``: since both nodes "
+"are running on the same machine, the nodes discovered each other on the "
+"``localhost`` interface"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:131
+#: cacbee47fe234deb810744925e404563
+msgid "Enable encryption"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:133
+#: a425f72740184c8d862d78e635133119
+msgid ""
+"Stop both the talker and the listener nodes. Enable encryption for both "
+"by setting the security environment variables and run them again."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:152
+#: 5dc5cb6a694047029ffb8f4d195b458f
+msgid "Display encrypted discovery packets"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:154
+#: 09590611399346119670bf772f824447
+msgid ""
+"Run the same ``tcpdump`` command used earlier to examine the output of "
+"discovery traffic with encryption enabled:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:160
+#: c8c953ec74164abf8752d6bda50c7ec9
+msgid "The typical discovery packet looks somewhat like the following::"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:181
+#: 083beb3ea651415ca5ad3f41dfdf8b12
+msgid ""
+"This packet is much larger and includes information which can be used to "
+"set up encryption among ROS nodes. As we will see shortly, this actually "
+"includes some of the security configuration files that were created when "
+"we enabled security. Interested in learning more? Take a look at the "
+"excellent paper `Network Reconnaissance and Vulnerability Excavation of "
+"Secure DDS Systems <https://arxiv.org/abs/1908.05310>`_ to understand why"
+" this matters."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:187
+#: 9fc892803c504ee3b25181f79169db34
+msgid "Display encrypted data packets"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:189
+#: c319ecaabc00429a8720bdc71d449fe1
+msgid "Now use ``tcpdump`` to capture data packets:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:195
+#: 52be72fa5a344b5b91a2820aa1778836
+msgid "A typical data packet looks like the following::"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:210
+#: 69085ba9962d4f50b2205de69ed51f04
+msgid "The data in this RTPS packet is all encrypted."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Examine-Traffic.rst:212
+#: c59741bece464b879a47d8dab2635b17
+msgid ""
+"In addition to this data packet, you should see additional packets with "
+"node and enclave names; these support other ROS features such as "
+"parameters and services. Encryption options for these packets can also be"
+" controlled by security policy."
+msgstr ""
+

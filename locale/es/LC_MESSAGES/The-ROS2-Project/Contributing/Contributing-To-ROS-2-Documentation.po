@@ -1,0 +1,490 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:6
+#: 8fa08befbc22405caac6bfe8ec577b7d
+msgid "Contributing to ROS 2 Documentation"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:10
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:135
+#: 79e9d7aacf84444985e6cf16eb72ea9c a5fbc4c3654140d3a50b55f2b860d061
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:12
+#: 48cd5a7b50bb4597bcce5cdb7b7015d4
+msgid ""
+"Contributions to this site are most welcome. This page explains how to "
+"contribute to ROS 2 Documentation. Please be sure to read the below "
+"sections carefully before contributing."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:16
+#: 9f0e458b7ca94314abe317d7780a0ebe
+msgid ""
+"The site is built using `Sphinx <https://www.sphinx-"
+"doc.org/en/master/>`_, and more particularly using `Sphinx multiversion "
+"<https://holzhaus.github.io/sphinx-multiversion/master/index.html>`_."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:19
+#: e417e78ae7ef4710b07d1dcc979977c9
+msgid "Branch structure"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:21
+#: 7a860df68750413a87ed481784a2dc87
+msgid ""
+"The source code of documentation is located in the `ROS 2 Documentation "
+"GitHub repository <https://github.com/ros2/ros2_documentation>`_. This "
+"repository is set up with one branch per ROS 2 distribution to handle "
+"differences between the distributions. If a change is common to all ROS 2"
+" distributions, it should be made to the ``rolling`` branch (and then "
+"will be backported as appropriate). If a change is specific to a "
+"particular ROS 2 distribution, it should be made to the respective "
+"branch."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:27
+#: 6202a39a479d4d42a315ea6e2b038252
+msgid "Source structure"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:29
+#: 5036bdd3428b4826b5c6f42a635129ba
+msgid ""
+"The source files for the site are all located under the ``source`` "
+"subdirectory. Templates for various sphinx plugins are located under "
+"``source/_templates``. The root directory contains configuration and "
+"files required to locally build the site for testing."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:34
+#: effcb98209814ae3b712ffd96f03dbc4
+msgid "Building the site locally"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:36
+#: 84ca9cb5d70a47649f85528ca05dd440
+msgid "Start by installing requirements located in the ``requirements.txt`` file:"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:40
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:64
+#: 394cdfab25404454aaffade727c12cd1 79ce0fd9bf354ec48b2530c7e16d2cbc
+msgid "Linux"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:42
+#: c0addde2356c4bf585c481a9e4ab8a72
+msgid ""
+"The next command does a user-specific install, which requires "
+"``~/.local/bin/`` to be added to ``$PATH``:"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:48
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:70
+#: 9c6e1f3f9c3a4ca9a907b7515bb51b03 cf42efd2a239407e9a4a04859440c525
+msgid "macOS"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:54
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:76
+#: 32cf41c8799a4d4da4d47ea9894042ca 73aa2e949098403da312e6c4ed0a4988
+msgid "Windows"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:60
+#: f15d589dd57c4557a23c1344ccd5c17d
+msgid ""
+"In order for Sphinx to be able to generate diagrams, the ``dot`` command "
+"must be available."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:78
+#: a6f75fb38c3b42c9839cc149529def3f
+msgid ""
+"Download an installer from `the Graphviz Download page "
+"<https://graphviz.gitlab.io/_pages/Download/Download_windows.html>`__ and"
+" install it. Make sure to allow the installer to add it to the Windows "
+"``%PATH%``, otherwise Sphinx will not be able to find it."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:82
+#: 792b6f4c0c2849aa90a83fc253d92eed
+msgid "Building the site for one branch"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:84
+#: 76a1b730e621461282f581b9bf2c2516
+msgid ""
+"To build the site for just this branch, type ``make html`` at the top-"
+"level of the repository. This is the recommended way to test out local "
+"changes."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:91
+#: 8d2710418db34ccaaf9af242b99674ee
+msgid ""
+"The build process can take some time. To see the output, open "
+"``build/html/index.html`` in your browser."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:94
+#: 3d2f420e99d44001b82aca6784e9fe4b
+msgid ""
+"You can also run the documentation tests locally (using `doc8 "
+"<https://github.com/PyCQA/doc8>`_) with the following command:"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:101
+#: 7db6b0734ee843e493d641e4e121a6b5
+msgid "Building the site for all branches"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:103
+#: 9aab6309a72147d3b7030fd7eaefd6d6
+msgid ""
+"To build the site for all branches, type ``make multiversion`` from the "
+"``rolling`` branch. This has two drawbacks:"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:106
+#: b6f8595cf5b5416ba74d1e88887ede79
+msgid ""
+"The multiversion plugin doesn't understand how to do incremental builds, "
+"so it always rebuilds everything. This can be slow."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:109
+#: b0ea7bc0d92b4f478adff74fb9b481d1
+msgid ""
+"When typing ``make multiversion``, it will always check out exactly the "
+"branches listed in the ``conf.py`` file. That means that local changes "
+"will not be shown."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:112
+#: 98ec5cd004f949f7b3774964e3ca3634
+msgid ""
+"To show local changes in the multiversion output, you must first commit "
+"the changes to a local branch. Then you must edit the `conf.py "
+"<https://github.com/ros2/ros2_documentation/blob/rolling/conf.py>`_ file "
+"and change the ``smv_branch_whitelist`` variable to point to your branch."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:116
+#: 88ba46f6caaf4953b60810e3852eaaa0
+msgid "Checking for broken links"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:118
+#: 8946bdd638e340a682fcf640868a4ec4
+msgid "To check for broken links on the site, run:"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:124
+#: f994402ce1f64ab49b26d6956f72f42a
+msgid ""
+"This will check the entire site for broken links, and output the results "
+"to the screen and ``build/linkcheck``."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:127
+#: 33c817d7719b476dba76855fc55339df
+msgid "Writing pages"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:129
+#: 524f35d80552419db15ead32131dea94
+msgid ""
+"The ROS 2 documentation website uses the ``reStructuredText`` format, "
+"which is the default plaintext markup language used by Sphinx. This "
+"section is a brief introduction to ``reStructuredText`` concepts, syntax,"
+" and best practices."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:132
+#: 13dde3392d44483bae608e393c260dc0
+msgid ""
+"You can refer to `reStructuredText User Documentation "
+"<https://docutils.sourceforge.io/rst.html>`_ for a detailed technical "
+"specification."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:137
+#: 486b169928fc446cb5e1cf62fcfe6eee
+msgid ""
+"There are two types of directives used for the generation of a table of "
+"contents, ``.. toctree::`` and ``.. contents::``. The ``.. toctree::`` is"
+" used in top-level pages like ``Tutorials.rst`` to set ordering and "
+"visibility of its child pages. This directive creates both left "
+"navigation panel and in-page navigation links to the child pages listed. "
+"It helps readers to understand the structure of separate documentation "
+"sections and navigate between pages."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:147
+#: 85336729174643ea95cdacef2fe3f547
+msgid ""
+"The ``.. contents::`` directive is used for the generation of a table of "
+"contents for that particular page. It parses all present headings in a "
+"page and builds an in-page nested table of contents. It helps readers to "
+"see an overview of the content and navigate inside a page."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:151
+#: f8fbe0b0a1194610a74e88d48c41b215
+msgid ""
+"The ``.. contents::`` directive supports the definition of maximum depth "
+"of nested sections. Using ``:depth: 2`` will only show Sections and "
+"Subsections in the table of contents."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:161
+#: d6d7e3b69edf4982bd65de92e72b08f8
+msgid "Headings"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:163
+#: 4e50c98d5d184358b29c3bde3deb3739
+msgid ""
+"There are four main Heading types used in the documentation. Note that "
+"the number of symbols has to match the length of the title."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:180
+#: 1d327bedcf464825a20ab90c1b7dbefa
+msgid ""
+"We usually use one digit for numbering subsections and two digits (dot "
+"separated) for numbering subsubsections in Tutorials and How-To-Guides."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:183
+#: 0829272e76134c4eb3631d72603176c4
+msgid "Lists"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:185
+#: 8eaf9e3d4def4964807f6afbfcea62fe
+msgid ""
+"Stars ``*`` are used for listing unordered items with bullet points and "
+"number sign ``#.``  is used for listing numbered items. Both of them "
+"support nested definitions and will render accordingly."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:203
+#: 813bb4530a8f4a328bf47a0afc61e44f
+msgid "Code Formatting"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:205
+#: fd891204f80f4f4bae929581022494e6
+msgid ""
+"In-text code can be formatted using ``backticks`` for showing "
+"``highlighted`` code."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:211
+#: 32c411c268b9453bb0eee1781651bc0b
+msgid ""
+"Code blocks inside a page need to be captured using ``.. code-block::`` "
+"directive. ``.. code-block::`` supports code highlighting for syntaxes "
+"like ``C++``, ``YAML``, ``console``, ``bash``, and more. Code inside the "
+"directive needs to be indented."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:228
+#: d5ce519ffe374774b7173aff0a5add23
+msgid "Images"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:230
+#: 518e2c7a211642c480bc0da2f9a0d30a
+msgid "Images can be inserted using the ``.. image::`` directive."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:237
+#: b7824852f297423d881951368e7d2136
+msgid "References and Links"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:240
+#: 03df0140d98847738e18d224bfa94378
+msgid "External links"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:242
+#: 4066f62cfd0a4d5d857799cf7bb80001
+msgid "The syntax of creating links to external web pages is shown below."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:248
+#: 13147d2d398a442a8f615b8a200155aa
+msgid ""
+"The above link will appear as `ROS Docs <https://docs.ros.org>`_. Note "
+"the underscore after the final single quote."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:252
+#: 54b3d8a878ac4434a3031c94fced9db6
+msgid "Internal links"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:254
+#: 3a941f1683254d3895b8a5ba917d7243
+msgid "The ``:doc:`` directive is used to create in-text links to other pages."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:260
+#: a8ee30acc05c4d05a72aa16f181927fb
+msgid "Note that the relative path to the file is used."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:262
+#: 556a0dd7ad0e40a4a4b33ca8342964eb
+msgid ""
+"The ``ref`` directive is used to make links to specific parts of a page. "
+"These could be headings, images or code sections inside the current or "
+"different page."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:265
+#: 26c1b30042ee4e599e7bfcf5a8dd76cb
+msgid ""
+"Definition of explicit target right before the desired object is "
+"required. In the example below, the target is defined as ``_talker-"
+"listener`` one line before the heading ``Try some examples``."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:275
+#: a2f45cc4b2d04fccbf2b722328fce5aa
+msgid ""
+"Now the link from any page in the documentation to that header can be "
+"created."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:281
+#: 2d639ccbba5a4c9f8f40f7fbdd644cda
+msgid ""
+"This link will navigate a reader to the target page with an HTML anchor "
+"link ``#talker-listener``."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:284
+#: e50788ee7ccb481d8565bdbe3a6d756e
+msgid "Macros"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:286
+#: b48783d1bcc14f66ad04eee18f4fb76c
+msgid ""
+"Macros can be used to simplify writing documentation that targets "
+"multiple distributions."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:288
+#: a78ce983d14240a586e4f57f63fb6fbe
+msgid ""
+"Use a macro by including the macro name in curly braces. For example, "
+"when generating the docs for Rolling on the ``rolling`` branch:"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:293
+#: 69c9a5b25b154ffcb73edc90f79644d3
+msgid "Use"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:293
+#: b9d4c5e0cba74620a5bd5ec077972ee7
+msgid "Becomes (for Rolling)"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:293
+#: fe0904802f93469ca690c5e637ed948e
+msgid "Example"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:295
+#: 83a1a1297f7243b78af3066a68a46510
+msgid "\\{DISTRO\\}"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:295
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:298
+#: 40dce9d051ba45f5939689f3dc4d43a4 dd20ea19d3754ffb8f2912e656042d61
+msgid "rolling"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:295
+#: 354e111fb46848858af003727820c4e1
+msgid "ros-\\{DISTRO\\}-pkg"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:296
+#: 7278d613d4ee4147a7939292484f2348
+msgid "\\{DISTRO_TITLE\\}"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:296
+#: 2cc40f3cee85415c957554c4f8204e74
+msgid "Rolling"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:296
+#: 0da3a56d39d245578cd73df4eb646228
+msgid "ROS 2 \\{DISTRO_TITLE\\}"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:297
+#: 3af4086e4c844b55a3d7479e8fabf675
+msgid "\\{DISTRO_TITLE_FULL\\}"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:297
+#: 3a6cf747fdbc40029ce7a9b5bcbece4a
+msgid "Rolling Ridley"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:297
+#: 2d9e839c8b9d4ddfae30a01128afe1f0
+msgid "ROS 2 \\{DISTRO_TITLE_FULL\\}"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:298
+#: 8b3a5e8e42df4424b2ff851863e31cf7
+msgid "\\{REPOS_FILE_BRANCH\\}"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:298
+#: 0aaae7f9058041309eeeb734d148a670
+msgid "git checkout \\{REPOS_FILE_BRANCH\\}"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.rst:301
+#: 6b4850a3eda44e36b2eeffb144d668b8
+msgid ""
+"The same file can be used on multiple branches (i.e., for multiple "
+"distros) and the generated content will be distro-specific."
+msgstr ""
+

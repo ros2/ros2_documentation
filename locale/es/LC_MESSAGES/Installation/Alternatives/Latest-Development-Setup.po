@@ -1,0 +1,93 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Installation/Alternatives/Latest-Development-Setup.rst:2
+#: d81abc4e09444c99ba5439bda7e48f2c
+msgid "Latest development (source)"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Latest-Development-Setup.rst:4
+#: b9f72d9a5dca46fe8227989226cd040d
+msgid ""
+"If you plan to contribute directly to the latest ROS 2 development, you "
+"can install ROS 2 by building it from source or installing testing "
+"binaries. This will give you the latest bug fixes and features."
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Latest-Development-Setup.rst:8
+#: 20211446ef5f46078dad06a82e048dda
+msgid "Testing binaries"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Latest-Development-Setup.rst:10
+#: d681998f99eb48999862af4d5c38bceb
+msgid "See :doc:`Testing <../Testing>`."
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Latest-Development-Setup.rst:13
+#: 92e89a08d8b847f8bbb525582e1031dc
+msgid "Build from source"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Latest-Development-Setup.rst:17
+#: a2e58f7e08ff43319992ac7218bab0e0
+msgid ""
+"The latest development does not go through the same rigorous testing as "
+"releases and is not recommended if you are looking for a stable version "
+"of ROS 2. Instead, choose a :doc:`ROS distribution <../../Installation>` "
+"that has already been released."
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Latest-Development-Setup.rst:20
+#: ba0ee60a17a74356a0aaf4188323865d
+msgid ""
+"Follow the links below for the latest setup instructions for your "
+"platform:"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Latest-Development-Setup.rst:22
+#: 818b80bce8a443299a07727b3079d51f
+msgid ":doc:`Ubuntu Linux <Ubuntu-Development-Setup>`"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Latest-Development-Setup.rst:23
+#: 7b5f5f3902f04471b24b309264fccc1f
+msgid ":doc:`Windows <Windows-Development-Setup>`"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Latest-Development-Setup.rst:24
+#: 3341a2d8aa084c81b80b2955f8e2447e
+msgid ":doc:`RHEL <RHEL-Development-Setup>`"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Latest-Development-Setup.rst:25
+#: 1bda4f31732e45afbcca4a57653341d6
+msgid ":doc:`macOS <macOS-Development-Setup>`"
+msgstr ""
+
+#: ../../source/Installation/Alternatives/Latest-Development-Setup.rst:27
+#: 9b084d1e76fa49fcaed1d28bd1123865
+msgid ""
+"For keeping your source code up-to-date, see :doc:`Maintain a source "
+"checkout <../Maintaining-a-Source-Checkout>`."
+msgstr ""
+

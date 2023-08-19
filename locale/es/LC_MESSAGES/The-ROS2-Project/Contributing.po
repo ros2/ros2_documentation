@@ -1,0 +1,296 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/The-ROS2-Project/Contributing.rst:8
+#: b9efedb20d054169a9a5b53eb153209c
+msgid "Contributing"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:12
+#: 7e51e1552ab94aaab071368c3e29e97f
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:14
+#: 80a21c774bbe4b299283aab0fee6d040
+msgid ""
+"A few things to remember before you start contributing to the ROS 2 "
+"project."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:17
+#: d9c5db078ae649369a6f1cc038418e99
+msgid "Tenets"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:19
+#: e5c1c71a0c1c43fdae7f3aad160c8ec8
+msgid "Respect what came before"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:21
+#: 6e1cddf4aad84bf396bd0f7724dcc538
+msgid ""
+"ROS has been around for more than a decade and is used by developers and "
+"across the world. Keep a humble attitude and an open mindset while "
+"contributing."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:24
+#: 30022b8bcf204dd88e348fab153cac9b
+msgid "Engage Open Robotics as early as possible"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:26
+#: a83a699018304351b37ee171bfa32fd7
+msgid ""
+"Open Robotics acts as a gate-keeper and advocate for the ROS community. "
+"Rely on their expertise and technical judgement from the design phase."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:28
+#: 093c6df9ee4843bcad7c1b664002160d
+msgid ""
+"Start discussions with Open Robotics and the community early. Long time "
+"ROS contributors may have a clearer vision of the bigger picture. If you "
+"implement a feature and send a pull request without discussing with the "
+"community first, you are taking the risk of it being rejected, or you may"
+" be asked to largely rethink your design."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:31
+#: 12a63874992a4244861beec01ecf9d57
+msgid ""
+"Opening issues or using Discourse to socialize an idea before starting "
+"the implementation is generally preferable."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:33
+#: d8cab2e41581481b96848934ac03e3d4
+msgid ""
+"Adopt community best-practices whenever possible instead of ad-hoc "
+"processes"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:35
+#: 3e860e8847b5455fb213b53e48451a16
+msgid ""
+"Think about your end-user's experience when developing and contributing. "
+"Avoid using non-standard tools or libraries that may not be accessible to"
+" everyone."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:38
+#: c69e67b9b0c24f779764042c31103f64
+msgid "Think about the community as a whole"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:40
+#: db47fae08a814cb2b92e3b5bf7a072a6
+msgid ""
+"Think about the bigger picture. There are developers building different "
+"robots with different constraints. ROS needs to accommodate requirements "
+"of the whole community."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:44
+#: 1bb41814be004f2ab4fc45e50275fbd2
+msgid "There are a number of ways you can contribute to the ROS 2 project."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:47
+#: 30f2abd6f1dd45a2ac7fa3d4ac111d41
+msgid "Discussions and support"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:49
+#: f981adb6ee334cd7ac4a86fdc6e12093
+msgid ""
+"Some of the easiest ways to contribute to ROS 2 involve engaging in "
+"community discussions and support. You can find more information on how "
+"to pitch in on the :doc:`Contact <../../Contact>` page."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:53
+#: a5660321cdef4b0cab098cfe36ed01b9
+msgid "Contributing code"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:56
+#: 764b37d26ef5421f8985713fa7514c7c
+msgid "Setting up your development environment"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:58
+#: c40a918532174496bba61556b94be81d
+msgid ""
+"To get started, you'll want to install from source; follow :ref:`the "
+"source installation instructions <building-from-source>` for your "
+"platform."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:61
+#: fc492391cf154d5e8dc167b792702156
+msgid "Development Guides"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:76
+#: f83b55485c4d4e1bba1c2a1294f0dfea
+msgid "What to work on"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:78
+#: 2376e2eb7adb4906bb2a111c1d9495f6
+msgid ""
+"We have identified a number of tasks that could be worked on by community"
+" members: they can be listed by `searching across the ROS 2 repositories "
+"for issues labeled as \"help wanted\" "
+"<https://github.com/search?q=user%3Aament+user%3Aros2+is%3Aopen+label%3A\"help+wanted\"&type=Issues>`__."
+" If you see something on that list that you would like to work on, please"
+" comment on the item to let others know that you are looking into it."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:81
+#: f167c1b71984470192fbb0b05c2e34c8
+#, python-format
+msgid ""
+"We also have a label for issues that we think should be more accessible "
+"for first-time contributors, `labeled “good first issue” "
+"<https://github.com/search?q=user%3Aament+user%3Aros2+is%3Aopen+label%3A%22good+first+issue%22&type=Issues>`__."
+" If you are interested in contributing to the ROS 2 project, we encourage"
+" you to take a look at those issues first. If you’d like to cast a wider "
+"net, we welcome contributions on any open issue (or others that you might"
+" propose), particularly tasks that have a milestone signifying they’re "
+"targeted for the next ROS 2 release (the milestone will be the next "
+"release's e.g. 'crystal')."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:85
+#: 4010a224fd994e439265a2745de0ef83
+msgid ""
+"If you have some code to contribute that fixes a bug or improves "
+"documentation, please submit it as a pull request to the relevant "
+"repository. For larger changes, it is a good idea to discuss the proposal"
+" `on the ROS 2 forum <https://discourse.ros.org/c/ng-ros>`__ before you "
+"start to work on it so that you can identify if someone else is already "
+"working on something similar. If your proposal involves changes to the "
+"APIs, it is especially recommended that you discuss the approach before "
+"starting work."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:90
+#: 7cbd799d357040c4ba2dd643cf5b9dbc
+msgid "Submitting your code changes"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:92
+#: 8166f07a3f8c4d1a874fe649476a88c9
+msgid ""
+"Code contributions should be made via pull requests to `the appropriate "
+"ros2 repositories <https://github.com/ros2>`__."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:94
+#: 6b36cc13afec42f9adeec5a56db655e0
+msgid ""
+"We ask all contributors to follow the practices explained in :doc:`the "
+"developer guide <Contributing/Developer-Guide>`."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:96
+#: 12331bd38c7b4a068fb921344aeca9e5
+msgid ""
+"Please be sure to :ref:`run tests <colcon-run-the-tests>` for your code "
+"changes because most packages have tests that check that the code "
+"complies with our style guidelines."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:99
+#: f46967458cef4778950e725151e18838
+msgid "Becoming a core maintainer"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:101
+#: 07ee805002b642b4b93dbe3b844d5d7a
+msgid ""
+"The ROS 2 maintainers ensure that the project is generally making "
+"progress. The responsibilities of the maintainers include:"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:104
+#: 2a7b2685eccb40efb30d1d3022ffd2ef
+msgid ""
+"Reviewing incoming code contributions for style, quality, and overall fit"
+" into the goals of the repository/ROS 2."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:105
+#: dd55077198f444bcb048b9242dab6e62
+msgid "Ensuring that CI continues to stay green."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:106
+#: f5961c20764d45d9acf0c770057a8831
+msgid "Merging pull requests that meet the quality and CI standards above."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:107
+#: 25a41fb8a14042818ab011c3acc3591d
+msgid "Addressing issues opened up by users."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:109
+#: c37b96b17fd04047b0273a5902f8f2ad
+msgid ""
+"Each repository in the `ros2 <https://github.com/ros2>`__ and `ament "
+"<https://github.com/ament>`__ organizations has a separate set of "
+"maintainers. Becoming a maintainer of one or more of those repositories "
+"is an invitation-only process, and generally involves the following "
+"steps:"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:112
+#: 98e8041a3235460487c1fa693e739778
+msgid ""
+"Within the last year, have a substantial number of code contributions to "
+"the repository."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:113
+#: c0afd94177e64ee1a2cd31f457fbc251
+msgid ""
+"Within the last year, do a substantial number of reviews on incoming pull"
+" requests to the repository."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing.rst:115
+#: 309f66a83a8b440b91c6d5e802bba7cd
+msgid ""
+"Approximately every 3 months, the ROS 2 team will review the "
+"contributions in all of the repositories and send out invitations to new "
+"maintainers. Once the invitation is accepted, the new maintainer will be "
+"asked to go through a short training process on the mechanisms and "
+"policies of the ROS 2 repositories. After that training process is "
+"completed, the new maintainer will be given write access to the "
+"appropriate repositories."
+msgstr ""
+

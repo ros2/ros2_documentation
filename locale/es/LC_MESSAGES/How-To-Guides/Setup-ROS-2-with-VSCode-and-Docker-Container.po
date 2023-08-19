@@ -1,0 +1,210 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.rst:2
+#: 391def9026c140f39d2e9acf11e92aa5
+msgid "Setup ROS 2 with VSCode and Docker [community-contributed]"
+msgstr ""
+
+#: ../../source/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.rst:8
+#: 89a0566f4c694e43881b84de5e3c2212
+msgid "Contents"
+msgstr ""
+
+#: ../../source/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.rst:11
+#: 3e5d6c0bc2934eb6a6fb611f68c3e3e0
+msgid "Install VS Code and Docker"
+msgstr ""
+
+#: ../../source/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.rst:14
+#: 476d41b509ef48a1a077faf93f816e5a
+msgid ""
+"Using Visual Studio Code and Docker Containers will enable you to run "
+"your favorite ROS 2 Distribution without the necessity to change your "
+"operating system or use a virtual machine. With this tutorial you can set"
+" up a docker container, which can be used for your future ROS 2 projects."
+msgstr ""
+
+#: ../../source/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.rst:19
+#: dbc46a61a8fa4613bc68a590ce6db77e
+msgid "Install Docker"
+msgstr ""
+
+#: ../../source/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.rst:22
+#: e65566e26c334f5cb31ebdf1c200138d
+msgid ""
+"To install docker and set the correct user rights please use the "
+"following commands."
+msgstr ""
+
+#: ../../source/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.rst:34
+#: 9535b095bb994a1c8f7edc5e83b07149
+msgid ""
+"Now you can check if the installation was successful by running the "
+"following command:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.rst:40
+#: eeb6d2e14e4c4bc89a0029ac819a6b24
+msgid ""
+"You might need to start the Docker Daemon first, if you cannot run hello-"
+"world out of the box:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.rst:47
+#: 66c5b0bddf504976becb0d1ef262f7f9
+msgid "Install VS Code"
+msgstr ""
+
+#: ../../source/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.rst:49
+#: ca248b34c1394c0b8adf476a12e1ce00
+msgid "To install VS Code please use the following commands:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.rst:60
+#: 5289d3fe233d4e28a108dfe7fc63c0af
+msgid "You can run VS Code by typing ``code`` in a terminal."
+msgstr ""
+
+#: ../../source/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.rst:64
+#: 015ecc2a7b7f49ab9420b25a0288ec3e
+msgid "Install Remote Development Extension"
+msgstr ""
+
+#: ../../source/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.rst:67
+#: fb0df0fd969f4cf6a0bc359b0fc65759
+msgid ""
+"Within VS Code search in Extensions (CTRL+SHIFT+X) for the \"Remote "
+"Development\" Extension and install it."
+msgstr ""
+
+#: ../../source/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.rst:71
+#: b3eb0a59f48f47c1a35064f6f1cf7103
+msgid "Configure workspace in Docker and VS Code"
+msgstr ""
+
+#: ../../source/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.rst:74
+#: 3922c11042a24cccbb7039237d051cef
+msgid "Add your ROS 2 workspace"
+msgstr ""
+
+#: ../../source/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.rst:77
+#: 6b58b389ffc14c1bb2a8c08ba70dafe6
+msgid "Add a workspace in order to build and open them in a container, e.g.:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.rst:86
+#: 825476045455494f93535c35ca2210ff
+msgid ""
+"Now create a .devcontainer folder in the root of your workspace and add a"
+" devcontainer.json and Dockerfile to this .devcontainer folder. "
+"Additionally, you need to create a cache folder in which you can cache "
+"the build and install folders for different ROS 2 distros. The workspace "
+"structure should look like this:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.rst:108
+#: 47224069e53a469c81014da430b3a056
+msgid ""
+"With ``File->Open Folder...`` or ``Ctrl+K Ctrl+O``, open the ``src`` "
+"folder of your workspace in VS Code."
+msgstr ""
+
+#: ../../source/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.rst:111
+#: caf04ba1d81a4791b4985d79dcb3d7bb
+msgid "Edit devcontainer.json for your environment"
+msgstr ""
+
+#: ../../source/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.rst:113
+#: 624859a59bbc489fabffc95e1a0b43ae
+msgid ""
+"For the Dev Container to function properly, we have to build it with the "
+"correct user. Therefore add the following to "
+"``.devcontainer/devcontainer.json``:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.rst:163
+#: 0a2bc28829e34ee488c4698760379e1f
+msgid ""
+"Use ``Ctrl+F`` to open the search and replace menu. Search for "
+"``USERNAME`` and replace it with your ``Linux username``. If you do not "
+"know your username, you can find it by running ``echo $USERNAME`` in the "
+"terminal. Also replace ``ROS_DISTRO``, with the ROS 2 distribution that "
+"you want to use and added to the cache previously, for example, "
+"\"humble\" or \"foxy\"."
+msgstr ""
+
+#: ../../source/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.rst:171
+#: f94762dee49b4057b178cd74686ca38f
+msgid "Edit Dockerfile"
+msgstr ""
+
+#: ../../source/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.rst:173
+#: d55672be93d949949ab946319d660688
+msgid "Open the Dockerfile and add the following contents:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.rst:204
+#: f473596d97234d9699f6eb0a544cc0dc
+msgid ""
+"Search here also for the ``USERNAME`` and replace it with your ``Linux "
+"username`` and the ``ROS_DISTRO`` with the ROS 2 distribution you wish to"
+" use and added to the cache previously."
+msgstr ""
+
+#: ../../source/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.rst:208
+#: 8f9e331a4dff4af1b718b2a847132931
+msgid "Open and Build Development Container"
+msgstr ""
+
+#: ../../source/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.rst:210
+#: e98b135379cc480aa5cb93963361bcb8
+msgid ""
+"Use ``View->Command Palette...`` or ``Ctrl+Shift+P`` to open the command "
+"palette. Search for the command ``Dev Containers: (Re-)build and Reopen "
+"in Container`` and execute it. This will build your development docker "
+"container for your. It will take a while - sit back or go for a coffee."
+msgstr ""
+
+#: ../../source/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.rst:216
+#: 5fd477eacf8d4370a35c4d41bc61aadc
+msgid "Test Container"
+msgstr ""
+
+#: ../../source/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.rst:218
+#: fcafef515c39402d8550ec59f30d57a1
+msgid ""
+"To test if everything worked correctly, open a terminal in the container "
+"using ``View->Terminal`` or ``Ctrl+Shift+``` and ``New Terminal`` in VS "
+"Code. Inside the terminal do the following:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container.rst:227
+#: 6d7502f3c7b644b19b28134005e62f1a
+msgid ""
+"There might be a problem with displaying RVIZ. If no window pops up, then"
+" check the value of ``echo $DISPLAY`` - if the output is 1, you can fix "
+"this problem with ``echo \"export DISPLAY=unix:1\" >> /etc/bash.bashrc`` "
+"and then test it again. You can also change the DISPLAY value in the "
+"devcontainer.json and rebuild it."
+msgstr ""
+

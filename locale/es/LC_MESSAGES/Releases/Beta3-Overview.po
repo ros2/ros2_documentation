@@ -1,0 +1,241 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Releases/Beta3-Overview.rst:6 0a716fed52f54895b63a58d2f0910e92
+msgid "Beta 3 (``r2b3``)"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:10 1926070fbe49456da6b96793c091960c
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:13 1e5ed2d65aa84e739b27d74b917a41d6
+msgid "Supported Platforms"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:15 88a89765cf354a6bbd48420fb5cbe42a
+msgid ""
+"We support ROS 2 Beta 3 on three platforms: Ubuntu 16.04 (Xenial), macOS "
+"10.12 (Sierra), and Windows 10. We provide both binary packages and "
+"instructions for how to compile from source for all 3 platforms (see "
+"`install instructions <../../Installation>` as well as `documentation "
+"<https://docs.ros2.org/beta3/>`__)."
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:19 3673ed8f6d8f473ea2b34198cd9f6d5e
+msgid "Features"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:22 633245ef0fc3474894426539fb5b2f64
+msgid "Improvements since Beta 2 release"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:24 63e62c5a9251477e9c8d0253732ed60f
+msgid ""
+"Execution model in Python, many fixes to memory management in Python C "
+"extension"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:25 4f306f268ff942bf890c3b794e56ea89
+msgid ""
+"Experimental rewrite of `ros_control "
+"<https://github.com/ros2/ros2_control>`__"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:26 2216fc64e6da4404972b107b391d91cf
+msgid ""
+"Exposure of DDS implementation-specific symbols to users (for Fast RTPS "
+"and Connext) (see `example "
+"<https://github.com/ros2/demos/blob/6363be2efe2fea799d92bc22a66e776b2ca9c5d0/demo_nodes_cpp_native/src/talker.cpp>`__)"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:27 d07a47bd77634ab4afc15fbf2128c6f6
+msgid ""
+"Logging `API "
+"<https://github.com/ros2/rclpy/blob/1ef2924ef8e154c0553edf0fdba4840b08b728f8/rclpy/rclpy/logging.py>`__"
+" in Python"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:28 b0d3b3a80c9040eebfdd0736f25b8960
+msgid "Fixed several memory leaks and race conditions in various packages"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:29 6365975dc26f44e1a95d342f97375a34
+msgid ""
+"Readded support for OpenSplice (on Linux and Windows atm) provided by "
+"PrismTech"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:30 327c3394f611499c97cfb65e3a657391
+msgid "Use bloom (without patches) to make ROS 2 releases"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:33 487a9be2b90f412ea8fc8ffe0e6cea7a
+msgid "New demo application"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:35 0b2372182a9b4c958a6acb24c75142bf
+msgid "`HSR demo <https://github.com/ruffsl/hsr_demo>`__"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:37 e9280f5cb0aa4304b66a91b83ac42fce
+msgid "Remote control a HSR robot using a ROS 2 joystick controller"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:38 a260818de02a47e599f365306b8f489e
+msgid ""
+"Running the ``ros1_bridge`` in a Docker container on the HSR (since the "
+"robot is running ROS 1 on Ubuntu Trusty)"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:39 cc403a45a65649b9aced57a119eaad8b
+msgid ""
+"Run a ROS 2 development version of `rviz "
+"<https://github.com/ros2/rviz>`__ to visualize sensor data from the robot"
+" etc. (see `video <https://vimeo.com/237016358>`__)"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:42 80605cd6f5e04f9aa75a5ee50d9ff4c8
+msgid "Selected features from previous Alpha/Beta releases"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:44 5c16fa746cd541818ecf6d8316da1157
+msgid "For the complete list, see `earlier release notes <../index>`."
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:46 821efd1779f04e98baa88369b8487604
+msgid ""
+"C++ and Python implementations of ROS 2 client libraries including APIs "
+"for:"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:48 d893763cfcfd427da32c3760a87c0fb4
+msgid "Publishing and subscribing to ROS topics"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:49 0f96ce94ea78475382325cb31c69d074
+msgid ""
+"Requesting and replying ROS services (synchronous (C++ only) and "
+"asynchronous)"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:50 a630a0b2737a4ea18b83d9edb85bade1
+msgid ""
+"Getting and setting ROS parameters (C++ only, synchronous and "
+"asynchronous)"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:51 85b217252e65421c94991d6798730216
+msgid "Timer callbacks"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:53 bb71c87351d8418db0af9b081634b137
+msgid "Support for interoperability between multiple DDS/RTPS implementations"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:55 83f4ce0dc5294f32953d6ce0a618be14
+msgid ""
+"eProsima Fast RTPS is our default implementation, and is included in the "
+"binary packages"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:56 b8002136a08f4afbb38f37366a754513
+msgid "RTI Connext is supported: build from source to try it out"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:57 22930b9661074be78ab92b04545bf112
+msgid "PrismTech OpenSplice: see limitations below"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:59 cc54dd916fc14ad5b34bf06a6c349ca7
+msgid "A graph API for network events"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:60 0647be094843477181d6e40049978288
+msgid "Distributed discovery"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:61 fc64de643ab64ad9b2b5fdd1bc61f543
+msgid ""
+"Realtime safe code paths for publish and subscribe with compatible DDS "
+"implementation (only Connext at the moment)"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:63 91ef8d8a9e804ae0ba29ab7800f0c897
+msgid "Support for custom allocators"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:65 a35ef5d4511d4580bf967206993cf70e
+msgid "ROS 1 <-> ROS 2 dynamic bridge node"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:66 e2c90f55d3514e8982ad4cb40e3c54a8
+msgid "Executor threading model (C++ and Python)"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:67 f853b235320442d4a4fa21c054d1ca08
+msgid "Component model to compose nodes at compile / link / runtime"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:68 91e5016631084e8ab2ebce5c33b737db
+msgid "Managed component using a standard lifecycle"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:69 702da36445e540619597eb27814fa186
+msgid "Extended ``.msg`` format with new features:"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:71 6cce4dc62d93460495e62d84d0427adb
+msgid "Bounded arrays"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:72 a502adfd10bb4f2d8585fd12a12b2b44
+msgid "Default values"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:75 505f89c909594678bb370fdac6f161ab
+msgid "Known issues"
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:77 20e27a3bb89f4d249f0641d2d8246c32
+msgid ""
+"On Windows Python launch files might hang when trying to abort using "
+"``Ctrl-C`` (see `issue <https://github.com/ros2/launch/issues/64>`__). In"
+" order to continue using the shell which is blocked by the hanging "
+"command you might want to end the hanging Python process using the "
+"process monitor."
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:78 3021942e59f04c3f9d9ecb846791985f
+msgid ""
+"OpenSplice support is currently not available for MacOS. Also `access to "
+"native handles <https://github.com/ros2/rmw_opensplice/issues/182>`__ is "
+"not yet implemented."
+msgstr ""
+
+#: ../../source/Releases/Beta3-Overview.rst:79 c549f2be21eb4bb3813bb7bdda2c1724
+msgid ""
+"Using Connext it is currently not allowed for two topics with the same "
+"base name but different namespaces to have a different type (see `issue "
+"<https://github.com/ros2/rmw_connext/issues/234>`__)."
+msgstr ""
+

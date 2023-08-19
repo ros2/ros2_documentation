@@ -1,0 +1,201 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Concepts/Intermediate/About-Composition.rst:6
+#: ea134f0bc944416181839253615d6ce1
+msgid "Composition"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Composition.rst:9
+#: b76e7008d52640c28b7cea69c3b95eb5
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Composition.rst:12
+#: bdf27fd0ada2428db5301312c3d26c50
+msgid "ROS 1 - Nodes vs. Nodelets"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Composition.rst:14
+#: 907912f418fd48d49db18c93e1e5b8fa
+msgid ""
+"In ROS 1 you can write your code either as a `ROS node "
+"<https://wiki.ros.org/Nodes>`__ or as a `ROS nodelet "
+"<https://wiki.ros.org/nodelet>`__. ROS 1 nodes are compiled into "
+"executables. ROS 1 nodelets on the other hand are compiled into a shared "
+"library which is then loaded at runtime by a container process."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Composition.rst:19
+#: a43edd9340cc4765a1247c2f16ff8355
+msgid "ROS 2 - Unified API"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Composition.rst:21
+#: 833a71db58914a42bc113ccbe40acf3b
+msgid ""
+"In ROS 2 the recommended way of writing your code is similar to a nodelet"
+" - we call it a ``Component``. This makes it easy to add common concepts "
+"to existing code, like a `life cycle "
+"<https://design.ros2.org/articles/node_lifecycle.html>`__. Having "
+"different APIs, which was the biggest drawback in ROS 1, is avoided in "
+"ROS 2 since both approaches use the same API."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Composition.rst:27
+#: fccf543ee4a044aa8f89ea5af8d9d011
+msgid ""
+"It is still possible to use the node-like style of \"writing your own "
+"main\" but for the common case it is not recommended."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Composition.rst:29
+#: f37046a108684f87a967d4a26cee69da
+msgid ""
+"By making the process layout a deploy-time decision the user can choose "
+"between:"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Composition.rst:31
+#: f8ffd0d5732a4260b508c359ac206a19
+msgid ""
+"running multiple nodes in separate processes with the benefits of "
+"process/fault isolation as well as easier debugging of individual nodes "
+"and"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Composition.rst:32
+#: bd31def707c04452901321dc6228da84
+msgid ""
+"running multiple nodes in a single process with the lower overhead and "
+"optionally more efficient communication (see :doc:`Intra Process "
+"Communication <../../Tutorials/Demos/Intra-Process-Communication>`)."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Composition.rst:34
+#: dd979c11694d4c7089d01b30f24cb238
+msgid ""
+"Additionally ``ros2 launch`` can be used to automate these actions "
+"through specialized launch actions."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Composition.rst:37
+#: 7b155cafe85d4184a59bdd3f5324eaa2
+msgid "Writing a Component"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Composition.rst:39
+#: 895a5cf02cf64867a67b7e0fa24141a6
+msgid ""
+"Since a component is only built into a shared library, it doesn't have a "
+"``main`` function (see `Talker source code "
+"<https://github.com/ros2/demos/blob/rolling/composition/src/talker_component.cpp>`__)."
+" A component is commonly a subclass of ``rclcpp::Node``. Since it is not "
+"in control of the thread, it shouldn't perform any long running or "
+"blocking tasks in its constructor. Instead, it can use timers to get "
+"periodic notifications. Additionally, it can create publishers, "
+"subscriptions, servers, and clients."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Composition.rst:45
+#: ac728fcfc6074ecd98dd0d3708adde0e
+msgid ""
+"An important aspect of making such a class a component is that the class "
+"registers itself using macros from the package ``rclcpp_components`` (see"
+" the last line in the source code). This makes the component discoverable"
+" when its library is being loaded into a running process - it acts as "
+"kind of an entry point."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Composition.rst:48
+#: 0db2aba7fd5048a4b40335f5395a18d2
+msgid ""
+"Additionally, once a component is created, it must be registered with the"
+" index to be discoverable by the tooling."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Composition.rst:59
+#: dcd8e00a77fc439c9a2343e1b693e51f
+msgid ""
+"In order for the component_container to be able to find desired "
+"components, it must be executed or launched from a shell that has sourced"
+" the corresponding workspace."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Composition.rst:62
+#: f28a5ea4ead24d779acba8507d41797a
+msgid "Using Components"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Composition.rst:64
+#: ebbd33f6b41040ff8fdb472c083996ec
+msgid ""
+"The `composition "
+"<https://github.com/ros2/demos/tree/rolling/composition>`__ package "
+"contains a couple of different approaches on how to use components. The "
+"three most common ones are:"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Composition.rst:67
+#: 925f9ca26f0f4521ba1e318981bde0e2
+msgid ""
+"Start a (`generic container process "
+"<https://github.com/ros2/rclcpp/blob/rolling/rclcpp_components/src/component_container.cpp>`__)"
+" and call the ROS service `load_node "
+"<https://github.com/ros2/rcl_interfaces/blob/rolling/composition_interfaces/srv/LoadNode.srv>`__"
+" offered by the container. The ROS service will then load the component "
+"specified by the passed package name and library name and start executing"
+" it within the running process. Instead of calling the ROS service "
+"programmatically you can also use a `command line tool "
+"<https://github.com/ros2/ros2cli/tree/rolling/ros2component>`__ to invoke"
+" the ROS service with the passed command line arguments"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Composition.rst:70
+#: 5b7bdb9bed5c4b138b983c705b9a507b
+msgid ""
+"Create a `custom executable "
+"<https://github.com/ros2/demos/blob/rolling/composition/src/manual_composition.cpp>`__"
+" containing multiple nodes which are known at compile time. This approach"
+" requires that each component has a header file (which is not strictly "
+"needed for the first case)."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Composition.rst:72
+#: e985e9bd824340b9bf7998e51eb43219
+msgid ""
+"Create a launch file and use ``ros2 launch`` to create a container "
+"process with multiple components loaded."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Composition.rst:75
+#: 8eaa12a7a96e4ab4a2a94579dc0aa5c8
+msgid "Practical application"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Composition.rst:77
+#: dbaefd50d21146268a72aa2140990fd3
+msgid ""
+"Try the :doc:`Composition demos "
+"<../../Tutorials/Intermediate/Composition>`."
+msgstr ""
+

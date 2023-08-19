@@ -1,0 +1,196 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Concepts/Advanced/About-Middleware-Implementations.rst:6
+#: 24f3fcee1e584360a650eaca0b44e91d
+msgid "ROS 2 middleware implementations"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Middleware-Implementations.rst:9
+#: a9bb25b91149454cacc3803adcadb521
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Middleware-Implementations.rst:13
+#: e7d4d071c5d544b9bb52c3a9e2c35cee
+msgid ""
+"ROS middleware implementations are sets of |packages| that implement some"
+" of the internal ROS interfaces, e.g. the ``rmw``, ``rcl``, and "
+"``rosidl`` |APIs|."
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Middleware-Implementations.rst:16
+#: 40e31c7d73ed43f99f60ffcd9dbcd7cb
+msgid "Common Packages for DDS Middleware Packages"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Middleware-Implementations.rst:18
+#: d07d0e5cfa7d4a55aeaa3e360c287019
+msgid ""
+"All of the current ROS middleware implementations are based on full or "
+"partial DDS implementations. For example, there is a middleware "
+"implementation that uses RTI's Connext DDS and an implementation which "
+"uses eProsima's Fast DDS. Because of this, there are some shared "
+"|packages| amongst most DDS based middleware implementations."
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Middleware-Implementations.rst:22
+#: bdec1d2500f8491e9a41294d0b7fa7f1
+msgid ""
+"In the `ros2/rosidl_dds <https://github.com/ros2/rosidl_dds>`_ repository"
+" on |GitHub|_, there is the following |package|:"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Middleware-Implementations.rst:24
+#: b37ebc5af6a2450d8b4cc31b49a49d68
+msgid ""
+"``rosidl_generator_dds_idl``: provides tools to generate DDS ``.idl`` "
+"files from ``rosidl`` files, e.g. ``.msg`` files, ``.srv`` files, etc."
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Middleware-Implementations.rst:26
+#: a39492e188b14d9e8edd0ab1f238e67f
+msgid ""
+"The ``rosidl_generator_dds_idl`` |package| generates a DDS ``.idl`` file "
+"for each ``rosidl`` file, e.g. ``.msg`` file, defined by |packages| "
+"containing messages. Currently DDS based ROS middleware implementations "
+"make use of this generator's output ``.idl`` files to generate pre-"
+"compiled type support that is vendor specific."
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Middleware-Implementations.rst:30
+#: 3270b06cc6a14983993c9aeebed58b0a
+msgid "Structure of ROS Middleware Implementations"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Middleware-Implementations.rst:32
+#: e3ac917aa335495bbddf9f4809c5c9ed
+msgid ""
+"A ROS middleware implementation is typically made up of a few |packages| "
+"in a single repository:"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Middleware-Implementations.rst:34
+#: 0e04360f4d2a41809ae223eec135bbdb
+msgid ""
+"``<implementation_name>_cmake_module``: contains CMake Module for "
+"discovering and exposing required dependencies"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Middleware-Implementations.rst:35
+#: b4627afd4d3b43dc9f7ff34ba19a984f
+msgid ""
+"``rmw_<implementation_name>_<language>``: contains the implementation of "
+"the ``rmw`` |API| in a particular language, typically C++"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Middleware-Implementations.rst:36
+#: 4952da02b1484d168d5679ec30bdaaf5
+msgid ""
+"``rosidl_typesupport_<implementation_name>_<language>``: contains tools "
+"to generate static type support code for ``rosidl`` files, tailored to "
+"the implementation in a particular language, typically C or C++"
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Middleware-Implementations.rst:38
+#: a95b49b0bf574884a4cd24b4f583ee37
+msgid ""
+"The ``<implementation_name>_cmake_module`` |package| contains any CMake "
+"Modules and functions needed to find the supporting dependencies for the "
+"middleware implementation. For example, ``rti_connext_dds_cmake_module`` "
+"provides wrapper logic around the CMake Module shipped with RTI Connext "
+"DDS to make sure that all packages that depend on it will select the same"
+" installation of RTI Connext DDS. Similarly, ``fastrtps_cmake_module`` "
+"includes a CMake Module to find eProsima's Fast DDS and "
+"``gurumdds_cmake_module`` includes a CMake Module to find GurumNetworks "
+"GurumDDS. Not all implementations will have a package like this: for "
+"example, Eclipe's Cyclone DDS already provides a CMake Module which is "
+"used directly by its RMW implementation without the need of additional "
+"wrappers."
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Middleware-Implementations.rst:43
+#: 37415e339dfe4246a36157efafd31159
+msgid ""
+"The ``rmw_<implementation_name>_<language>`` |package| implements the "
+"``rmw`` C |API| in a particular language. The implementation itself can "
+"be C++, it just must expose the header's symbols as ``extern \"C\"`` so "
+"that C applications can link against it."
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Middleware-Implementations.rst:46
+#: 4db04ef8158540d98a5e2c365671c50e
+msgid ""
+"The ``rosidl_typesupport_<implementation_name>_<language>`` |package| "
+"provides a generator which generates DDS code in a particular language. "
+"This is done using the ``.idl`` files generated by the "
+"``rosidl_generator_dds_idl`` |package| and the DDS IDL code generator "
+"provided by the DDS vendor. It also generates code for converting ROS "
+"message structures to and from DDS message structures. This generator is "
+"also responsible for creating a shared library for the message package it"
+" is being used in, which is specific to the messages in the message "
+"package and to the DDS vendor being used."
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Middleware-Implementations.rst:51
+#: d2f7997a7910448ea22e1df8a0336eaf
+msgid ""
+"As mentioned above, the ``rosidl_typesupport_introspection_<language>`` "
+"may be used instead of a vendor specific type support package if an rmw "
+"implementation supports runtime interpretation of messages. This ability "
+"to programmatically send and receive types over topics without generating"
+" code beforehand is achieved by supporting the `DDS X-Types Dynamic Data "
+"standard <http://www.omg.org/spec/DDS-XTypes>`_. As such, rmw "
+"implementations may provide support for the X-Types standard, and/or "
+"provide a package for type support generated at compile time specific to "
+"their DDS implementation."
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Middleware-Implementations.rst:55
+#: 3d8cab8be0b14e938b802d7051329c67
+msgid ""
+"As an example of an rmw implementation repository, the ``Eclipse Cyclone "
+"DDS`` ROS middleware implementation is on |GitHub|_ at "
+"`ros2/rmw_cyclonedds <https://github.com/ros2/rmw_cyclonedds>`_."
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Middleware-Implementations.rst:57
+#: 4bdbc53692f548faaee205e394e596db
+msgid ""
+"The rmw implementation for ``Fast DDS`` is on |GitHub|_ at "
+"`ros2/rmw_fastrtps_cpp <https://github.com/ros2/rmw_fastrtps_cpp>`_."
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Middleware-Implementations.rst:59
+#: 03a34cfc1d194a56b703fd63e17303bd
+msgid ""
+"The rmw implementation for ``Connext DDS`` is on |GitHub|_ at "
+"`ros2/rmw_connextdds <https://github.com/ros2/rmw_connextdds>`_."
+msgstr ""
+
+#: ../../source/Concepts/Advanced/About-Middleware-Implementations.rst:61
+#: 3c9e28a4d42c4bd79dba6bbeb06d2b82
+msgid ""
+"The rmw implementation for ``GurumDDS`` is on |GitHub|_ at "
+"`ros/rmw_gurumdds <https://github.com/ros2/rmw_gurumdds>`_."
+msgstr ""
+

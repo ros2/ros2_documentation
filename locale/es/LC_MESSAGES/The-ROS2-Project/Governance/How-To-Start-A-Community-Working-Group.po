@@ -1,0 +1,226 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/The-ROS2-Project/Governance/How-To-Start-A-Community-Working-Group.rst:6
+#: 59afdb25e0b94d5ba44ad5e151866134
+msgid "How to Start a Community Working Group"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/How-To-Start-A-Community-Working-Group.rst:13
+#: a793eda8a8f443048be5bd2cca6d8802
+msgid ""
+"A ROS working group is a great way to get a bunch of like minded people "
+"together to make regular progress towards a shared goal. So what are the "
+"steps to making a working group?"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/How-To-Start-A-Community-Working-Group.rst:17
+#: dbd8733d53544926a8a437d318d2cefd
+msgid ""
+"First try to find a couple of like-minded individuals who are willing to "
+"regularly commit their time to a particular area of ROS development. We "
+"suggest having at minimum three people who can help orchestrate the "
+"working group."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/How-To-Start-A-Community-Working-Group.rst:22
+#: ee3d8dd959d44cab87704624db72bf61
+msgid ""
+"Draft up a one page summary of your working group. This summary should "
+"broadly cover what topics you would like to cover and what goals you "
+"would like to accomplish. Take a look at the other working groups and "
+"make sure that you don’t overlap too much."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/How-To-Start-A-Community-Working-Group.rst:27
+#: 986de5af400d476aa866d07866a654c3
+msgid ""
+"Once you have your ideas roughly distilled take it to the ROS community "
+"to find more like minded members. We generally recommend making a post on"
+" `ROS discourse <https://discourse.ros.org>`__ on the general channel "
+"with the title “Proposal for ROS X Working Group”. Include your summary "
+"and your current collaborators. You should use this thread to:"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/How-To-Start-A-Community-Working-Group.rst:33
+#: 77c95490d7964993b50dfdaa32209ef9
+msgid "Finalize the subjects covered by your working group."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/How-To-Start-A-Community-Working-Group.rst:34
+#: fd5c46a9cd084222a3c5ed901edbf8c1
+msgid "Recruit members for your working group."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/How-To-Start-A-Community-Working-Group.rst:35
+#: 63e406ae4bf3495eaa77eebe4e65ffb7
+msgid "Set the agenda for your first couple of working group meetings."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/How-To-Start-A-Community-Working-Group.rst:36
+#: 847e88c5546c4e0f912b0200752c3811
+msgid ""
+"Pick a regular time for your working group meetings (we find that early "
+"in the morning PST, generally works for most of the world).  At this "
+"point you should also make a discourse tag (you use these when you make "
+"your post.  We suggest something like: “wg-<topic>”."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/How-To-Start-A-Community-Working-Group.rst:41
+#: cf67c042c5cf4cdb9f08174588b7154a
+msgid ""
+"Once you have recruited your working group members you’ll have some leg "
+"work to do. At this point you should have a list of working group "
+"members. Create a google group by going to Google groups "
+"(https://groups.google.com/my-groups) and adding your members. This "
+"mailing list should be named ``<dashed-name>-working-group-"
+"invites@googlegroups.com``. It should be setup such that:"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/How-To-Start-A-Community-Working-Group.rst:48
+#: c0fb44c0574a410dac97356630a0ec68
+msgid "Anyone can join"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/How-To-Start-A-Community-Working-Group.rst:49
+#: 8fda45980a6e40aa8f19beda48f8f5f8
+msgid "No one can post (aka only owners)"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/How-To-Start-A-Community-Working-Group.rst:50
+#: 3a4e4b62fe2047d2b7c8f63020c89ffa
+msgid "Anyone can view members"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/How-To-Start-A-Community-Working-Group.rst:52
+#: 0a9d1500fd2c47a0835309b333c76e88
+msgid ""
+"The mailing list will be used to distribute the invitations only, any "
+"communications should use `ROS discourse <https://discourse.ros.org>`__ "
+"with the working group's tag. Please add tfoote@osrfoundation.org as an "
+"owner of the mailing list to help with administration."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/How-To-Start-A-Community-Working-Group.rst:55
+#: 66bd3f05f9ba4c0f870d9b77be3ec60d
+msgid ""
+"Now that you have an e-mail group you can associate that group with the "
+"ROS events calendar. The calendar is where you will schedule your working"
+" group meetings. To join the calendar, send an e-mail request to Kat "
+"(kat@openrobotics.org) or Tully (tfoote@openrobotics.org)."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/How-To-Start-A-Community-Working-Group.rst:60
+#: 381a86694e3e4ce48ce6cc4d411e02fd
+msgid ""
+"To formalize your group you need to create a working group charter and a "
+"git repository to keep your documents and code. We have a working group "
+"template that can be found `here "
+"<https://github.com/ros2/tsc_working_group_governance_template>`_. Anyone"
+" in the group can host the template or you can request that your group be"
+" added to the Open Robotics / OSRF organization. The decision is up to "
+"the working group."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/How-To-Start-A-Community-Working-Group.rst:67
+#: 32235d10c2a44a268b3dbd31607a67a2
+msgid ""
+"Now that you have a working group charter, e-mail group, and source "
+"repository, you can add all of that information to the :doc:`ROS 2 "
+"project governance website <../Governance>` by sending a pull request to "
+"https://github.com/ros2/ros2_documentation."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/How-To-Start-A-Community-Working-Group.rst:71
+#: 111f0d3eaaac43cb946a074323b56983
+msgid ""
+"Now it is time to schedule your first official working group meeting! We "
+"recommend announcing the meeting on ROS Discourse approximately one week "
+"before the meeting date. Please include the following in your an "
+"announcement:"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/How-To-Start-A-Community-Working-Group.rst:75
+#: cd943086a7474ffa9c28ee8f562c2d03
+msgid "An agenda for the meeting."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/How-To-Start-A-Community-Working-Group.rst:76
+#: f717767a7fd54a19bc239ebb6682f9e7
+msgid ""
+"The date and time for the meeting (protip: discourse has a date/time "
+"feature that can auto adjust for each user’s timezone)."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/How-To-Start-A-Community-Working-Group.rst:78
+#: 348d58156c38407db9f17eba2dde781d
+msgid ""
+"URLs / Links / Contact Info for the meeting. Open Robotics uses Google "
+"Hangouts, but you can use whatever technology you would like."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/How-To-Start-A-Community-Working-Group.rst:81
+#: c368ac493b624165877f2bd606e91395
+msgid ""
+"When you schedule your meeting, create an event on the ROS Calendar and "
+"invite the Google group so that anyone interested can sign up for "
+"automatic invitations."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/How-To-Start-A-Community-Working-Group.rst:83
+#: 56b433a1b75549cbb90a51a8ea819469
+msgid "Have your meetings! Regularly!"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/How-To-Start-A-Community-Working-Group.rst:85
+#: f55441e8da8f48848af26c962b07f361
+msgid ""
+"Since we are a global community it can help to record your meetings. If "
+"you have an invited lecture we highly recommend recording it for the "
+"benefit of the whole community. Make sure the group / lecturer consents "
+"to being recorded, and it is wise to do a test run before the event."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/How-To-Start-A-Community-Working-Group.rst:90
+#: 6a7c3a7e5eae446384b5fc7747b99ba2
+msgid ""
+"On Linux SimpleScreenRecorder works well but you may need to iterate to "
+"find the best combination of video conferencing platform, screen "
+"recorder, and settings."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/How-To-Start-A-Community-Working-Group.rst:94
+#: 30f916c91d5f40f786f66f1416d6ae14
+msgid ""
+"Once your meeting is over, find somewhere online to save the video. Feel "
+"free to use your own Youtube channel to post the video; alternatively "
+"Open Robotics can host the video on their Vimeo account by sending a "
+"download link to kat@openrobotics.org."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Governance/How-To-Start-A-Community-Working-Group.rst:99
+#: e29f901a97184f9bacec62ac515e3e0b
+msgid ""
+"Make sure to take notes! You should nominate a scribe or note taker who "
+"summarizes the meeting and posts the results of the meeting to discourse."
+msgstr ""
+

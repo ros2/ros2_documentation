@@ -1,0 +1,284 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:8
+#: 5c143087a2bf48478e07f7d9bf09e959
+msgid "Using ``rqt_console`` to view logs"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:10
+#: aed49b57f7f840bd83d8d8d731987e3a
+msgid ""
+"**Goal:** Get to know ``rqt_console``, a tool for introspecting log "
+"messages."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:12
+#: 90fb94a3694a4a6d912a4c6451bbbce3
+msgid "**Tutorial level:** Beginner"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:14
+#: 673c6fdd8f2047f89d8c8fe6148668ba
+msgid "**Time:** 5 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:18
+#: 2f69ff1792f54f578f7aa6781534984d
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:21
+#: d99256df3e6348bdbab2fb2b3ec5460f
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:23
+#: 12f882dead0d449da69af251348ba4c7
+msgid ""
+"``rqt_console`` is a GUI tool used to introspect log messages in ROS 2. "
+"Typically, log messages show up in your terminal. With ``rqt_console``, "
+"you can collect those messages over time, view them closely and in a more"
+" organized manner, filter them, save them and even reload the saved files"
+" to introspect at a different time."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:27
+#: 3da7f90d444c43c188057c8a137ab414
+msgid ""
+"Nodes use logs to output messages concerning events and status in a "
+"variety of ways. Their content is usually informational, for the sake of "
+"the user."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:31
+#: e80fe5492d474b50bcdf6208614a32fe
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:33
+#: e9090c2c38d344e6a75627b5bef3f087
+msgid ""
+"You will need :doc:`rqt_console and turtlesim <../Introducing-Turtlesim"
+"/Introducing-Turtlesim>` installed."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:35
+#: 8bb8cb2d4a664151b379877ee388ec0b
+msgid ""
+"As always, don't forget to source ROS 2 in :doc:`every new terminal you "
+"open <../Configuring-ROS2-Environment>`."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:39
+#: a6b71922cb774ac486e674e5fb3b9e43
+msgid "Tasks"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:42
+#: 2b63eb9be9b94da281d9fd91874502c6
+msgid "1 Setup"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:44
+#: c13ec4eb73a244999ad3b1932eebe8dc
+msgid "Start ``rqt_console`` in a new terminal with the following command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:50
+#: 14f150b6fc0e438fbac5ac9d7c01474a
+msgid "The ``rqt_console`` window will open:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:54
+#: 0fe4e4f7eb394c7a9c086f0a1a157057
+msgid ""
+"The first section of the console is where log messages from your system "
+"will display."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:56
+#: e62bb5070bdd47ae989824bf15390c6e
+msgid ""
+"In the middle you have the option to filter messages by excluding "
+"severity levels. You can also add more exclusion filters using the plus-"
+"sign button to the right."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:59
+#: 0620a075c0e44220841b5c72391da036
+msgid ""
+"The bottom section is for highlighting messages that include a string you"
+" input. You can add more filters to this section as well."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:62
+#: 59dd9f944d5b4688b689ff2f213f3d3c
+msgid "Now start ``turtlesim`` in a new terminal with the following command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:69
+#: 548dd2ab23bf4855b3386f325abd3e5d
+msgid "2 Messages on rqt_console"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:71
+#: 5ba758e18b4c4758b110bb2eca04e60e
+msgid ""
+"To produce log messages for ``rqt_console`` to display, let's have the "
+"turtle run into the wall. In a new terminal, enter the ``ros2 topic pub``"
+" command (discussed in detail in the :doc:`topics tutorial "
+"<../Understanding-ROS2-Topics/Understanding-ROS2-Topics>`) below:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:78
+#: 0c53f62e51d2492d803172142de976ee
+msgid ""
+"Since the above command is publishing the topic at a steady rate, the "
+"turtle is continuously running into the wall. In ``rqt_console`` you will"
+" see the same message with the ``Warn`` severity level displayed over and"
+" over, like so:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:83
+#: 0987a0a63d864c549bf07ec2165ab20b
+msgid ""
+"Press ``Ctrl+C`` in the terminal where you ran the ``ros2 topic pub`` "
+"command to stop your turtle from running into the wall."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:86
+#: 558bc56d85f44301a7cdf4b09718444b
+msgid "3 Logger levels"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:88
+#: 7368439d314c4913bda234a135eb5701
+msgid "ROS 2's logger levels are ordered by severity:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:98
+#: be56e0f16d3e46e5843dff9f25aa96d0
+msgid ""
+"There is no exact standard for what each level indicates, but it's safe "
+"to assume that:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:100
+#: 4732f5d63b734162ab4ef3cfb0d4d532
+msgid ""
+"``Fatal`` messages indicate the system is going to terminate to try to "
+"protect itself from detriment."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:101
+#: a1e881c2731d48598a70d305f8d2a89c
+msgid ""
+"``Error`` messages indicate significant issues that won't necessarily "
+"damage the system, but are preventing it from functioning properly."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:102
+#: 02bbd6d020254f9cb69248f297685bdc
+msgid ""
+"``Warn`` messages indicate unexpected activity or non-ideal results that "
+"might represent a deeper issue, but don't harm functionality outright."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:103
+#: b364f5d7815c47428fa86511e0142db0
+msgid ""
+"``Info`` messages indicate event and status updates that serve as a "
+"visual verification that the system is running as expected."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:104
+#: 72acbad5ce53444182a5c313d86a6ef3
+msgid ""
+"``Debug`` messages detail the entire step-by-step process of the system "
+"execution."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:106
+#: a3d74cfb1d374b9cb940c5a98bd2dcb2
+msgid ""
+"The default level is ``Info``. You will only see messages of the default "
+"severity level and more-severe levels."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:109
+#: ea575317b98d410987385879988b80a0
+msgid ""
+"Normally, only ``Debug`` messages are hidden because they're the only "
+"level less severe than ``Info``. For example, if you set the default "
+"level to ``Warn``, you would only see messages of severity ``Warn``, "
+"``Error``, and ``Fatal``."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:113
+#: 1977c7ace49d44ba8c9c9ccb2a841c42
+msgid "3.1 Set the default logger level"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:115
+#: b07255ce8aa24ae8973514f51cef70f8
+msgid ""
+"You can set the default logger level when you first run the "
+"``/turtlesim`` node using remapping. Enter the following command in your "
+"terminal:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:122
+#: 59be4b65cd124c078c87f9cde0e4e94a
+msgid ""
+"Now you won't see the initial ``Info`` level messages that came up in the"
+" console last time you started ``turtlesim``. That's because ``Info`` "
+"messages are lower priority than the new default severity, ``Warn``."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:126
+#: 98d1622c24714defa91ce617781fe24d
+msgid "Summary"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:128
+#: 55c791bf78b14e6b8bf9de7ffd601975
+msgid ""
+"``rqt_console`` can be very helpful if you need to closely examine the "
+"log messages from your system. You might want to examine log messages for"
+" any number of reasons, usually to find out where something went wrong "
+"and the series of events leading up to that."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:132
+#: 6d116a093cbe45d99ea4da3f3e96bd67
+msgid "Next steps"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console.rst:134
+#: d7a8915e1e5b4f8e9e00cf968a4f9497
+msgid ""
+"The next tutorial will teach you about starting multiple nodes at once "
+"with :doc:`ROS 2 Launch <../Launching-Multiple-Nodes/Launching-Multiple-"
+"Nodes>`."
+msgstr ""
+

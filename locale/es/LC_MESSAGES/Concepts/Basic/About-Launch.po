@@ -1,0 +1,65 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Concepts/Basic/About-Launch.rst:2
+#: 5d1b4e4980144979a8fa86f064f1d091
+msgid "Launch"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Launch.rst:7
+#: b3ae84f2ccc94cba82737ad733a411e9
+msgid ""
+"A ROS 2 system typically consists of many nodes running across many "
+"different processes (and even different machines). While it is possible "
+"to run each of these nodes separately, it gets cumbersome quite quickly."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Launch.rst:10
+#: 34c9109d7f6240e0b8e5df9149a7b52d
+msgid ""
+"The launch system in ROS 2 is meant to automate the running of many nodes"
+" with a single command. It helps the user describe the configuration of "
+"their system and then executes it as described. The configuration of the "
+"system includes what programs to run, where to run them, what arguments "
+"to pass them, and ROS-specific conventions which make it easy to reuse "
+"components throughout the system by giving them each a different "
+"configuration. It is also responsible for monitoring the state of the "
+"processes launched, and reporting and/or reacting to changes in the state"
+" of those processes."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Launch.rst:15
+#: f1ee71954c70468aac9c0089e56bd29c
+msgid ""
+"All of the above is specified in a launch file, which can be written in "
+"Python, XML, or YAML. This launch file can then be run using the ``ros2 "
+"launch`` command, and all of the nodes specified will be run."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Launch.rst:18
+#: 8e606440dc6349be9524d355d24361da
+msgid ""
+"The `design document <https://design.ros2.org/articles/roslaunch.html>`__"
+" details the goal of the design of ROS 2's launch system (not all "
+"functionality is currently available)."
+msgstr ""
+

@@ -1,0 +1,131 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/The-ROS2-Project/Marketing.rst:8
+#: 8331049046024e359a327c2d9cbbea36
+msgid "Marketing"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Marketing.rst:11
+#: 7b1c13e22e0843ba813d967b10b8300d
+msgid "General Use ROS Artwork"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Marketing.rst:13
+#: 6831de2030d44e38b261d93ea74646db
+msgid ""
+"The ROS 2 media kit, which includes branding language, high resolution "
+"ROS logo graphics, and release images, can be found in the `ROS art "
+"repository. <https://github.com/ros-infrastructure/artwork>`__ Please "
+"refer to this repository for ROS art work and our branding guidelines."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Marketing.rst:19
+#: 7a6ad460bdb344d19eaab484540db8f9
+msgid "Stickers, Posters, and Canvas Prints"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Marketing.rst:21
+#: 2b870c10622b452c9bd5806956debae3
+msgid ""
+"Open Robotics hosts an online storefront on `Zazzle.com "
+"<https://www.zazzle.com/store/openrobotics?rf=238583394320947238>`__ with"
+" artwork available in various formats."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Marketing.rst:23
+#: 17bff375e91547bda5ecaf225ea848b4
+msgid ""
+"`Posters "
+"<https://www.zazzle.com/store/openrobotics/products?dp=0&cg=196892405499231339&rf=238583394320947238>`__"
+" Printed on paper with selectable sizes."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Marketing.rst:24
+#: 3836239dc44a4b2ea3cc8587f45011e6
+msgid ""
+"`Canvas Prints "
+"<https://www.zazzle.com/store/openrobotics/products?dp=0&cg=196964974640243022&rf=238583394320947238>`__"
+" Printed on wrapped canvas with selectable sizes."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Marketing.rst:25
+#: 1976bb9d917e4b509ae4c9205e4056ed
+msgid ""
+"`Sticker Sheets "
+"<https://www.zazzle.com/store/openrobotics/products?dp=0&cg=196936312033387169&rf=238583394320947238>`__"
+" Printed on a sheet, 20 per sheet for the small, 6 per sheet in the large"
+" size."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Marketing.rst:28
+#: 16c3fa6384ea444894c43ab6acb4631b
+msgid "Brochure: Why ROS 2?"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Marketing.rst:30
+#: 53f6b5e04acf44ba9aaceec8c5b05bf0
+msgid ""
+"Use this brochure to promote the goals and features of ROS 2 and "
+"encourage adoption."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Marketing.rst:32
+#: 554f44094f7d4f6898c57cbcccd63f4e
+msgid ""
+"License: `CC BY-ND 4.0 <https://creativecommons.org/licenses/by-"
+"nd/4.0/>`__"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Marketing.rst:34
+#: 415d44a4f1f7492b95c984c59eeaa150
+msgid "Available formats:"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Marketing.rst:36
+#: 5bb1c5339889407ea5b3a94adcc74904
+msgid ""
+":download:`A4 (for web/email) "
+"<Marketing/documents/ros2-brochure-a4-web.pdf>`"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Marketing.rst:37
+#: 99a879e14ee6496ab96ab788aa5ee407
+msgid ""
+":download:`A4 (for print) "
+"<Marketing/documents/ros2-brochure-a4-print.pdf>`"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Marketing.rst:38
+#: 2b8a5bb3b804414da7a0acae6320688d
+msgid ""
+":download:`US Letter (for web/email) <Marketing/documents/ros2-brochure-"
+"ltr-web.pdf>`"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Marketing.rst:39
+#: e9bb313ab37244c0bae9b8b1fa9301c3
+msgid ""
+":download:`US Letter (for print) <Marketing/documents/ros2-brochure-ltr-"
+"print.pdf>`"
+msgstr ""
+

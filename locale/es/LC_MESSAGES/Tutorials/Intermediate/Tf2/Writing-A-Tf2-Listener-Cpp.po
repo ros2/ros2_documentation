@@ -1,0 +1,317 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:8
+#: 5a97a0eb22454f198d7d60c72216ab7b
+msgid "Writing a listener (C++)"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:10
+#: dae6a51580854ebdbc94093c75d2f5de
+msgid "**Goal:** Learn how to use tf2 to get access to frame transformations."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:12
+#: 34ed6596a7f9414a9baf00d9e6a3fdff
+msgid "**Tutorial level:** Intermediate"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:14
+#: 4e2d9d1ddace47c5a5ad1fbdc09d20db
+msgid "**Time:** 10 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:18
+#: 6ee1da21fe404ff599f306f139f0e202
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:21
+#: e4f4108002464724b570e9a2a03b459a
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:23
+#: 0cef7a61573447899d5fd0d859524575
+msgid ""
+"In previous tutorials we created a tf2 broadcaster to publish the pose of"
+" a turtle to tf2."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:25
+#: b4b666cfe0fa40f284008c9960b6d1d7
+msgid "In this tutorial we'll create a tf2 listener to start using tf2."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:28
+#: 39ae9ab4a50a4f4aa477745a63d28502
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:30
+#: 7e2d92da700e4153b4ea706ce280b5f3
+msgid ""
+"This tutorial assumes you have completed the :doc:`tf2 static broadcaster"
+" tutorial (C++) <./Writing-A-Tf2-Static-Broadcaster-Cpp>` and the "
+":doc:`tf2 broadcaster tutorial (C++) <./Writing-A-Tf2-Broadcaster-Cpp>`. "
+"In the previous tutorial, we created a ``learning_tf2_cpp`` package, "
+"which is where we will continue working from."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:34
+#: 029b74879e4a45f0819a7b95da4cab70
+msgid "Tasks"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:37
+#: a02c83978ff24972aa5c195f4a5b4d48
+msgid "1 Write the listener node"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:39
+#: 09b8f8e6a08044109608b6f5abe5df70
+msgid ""
+"Let's first create the source files. Go to the ``learning_tf2_cpp`` "
+"package we created in the previous tutorial. Inside the ``src`` directory"
+" download the example listener code by entering the following command:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:44
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:334
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:352
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:374
+#: 2943f14f6a8944adb611ea843988d716 6653f47d699c48cc946bcbef03982673
+#: b3ebdf02fa734043abc901b94ecc61e3 c1568b7dfa5e4903a034ba6f0549740e
+msgid "Linux"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:50
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:340
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:358
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:380
+#: 2a1cb3b5dc8e480c90637d4d0499d27b aff3e93f5d634d8cafab5cbd6239f37f
+#: db2454bf9d7b4a1298b28df969196a59 f1daf3b24c824a80afda6b8df7128f96
+msgid "macOS"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:56
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:344
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:364
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:386
+#: 71c5fe12bd8b410d808f5c153937c677 8a869abfc8bd4c08800e442b9b3edeae
+#: 99b4ff478fe4451790c7940932b8a1f2 ea2cb4c82ed74e04a69c79edd82e060e
+msgid "Windows"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:58
+#: a7042297d7e949e4994e25f2dcd7a598
+msgid "In a Windows command line prompt:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:64
+#: ce09af4a28664c04afab221208080efc
+msgid "Or in powershell:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:70
+#: a5a79d6a90ff47abb386385fffd91663
+msgid "Open the file using your preferred text editor."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:211
+#: 9b6f7ddf1c23447aa8fb392deba3b089
+msgid "1.1 Examine the code"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:213
+#: cc3dda9794c54c44b80383af7a680ce2
+msgid ""
+"To understand how the service behind spawning turtle works, please refer "
+"to :doc:`writing a simple service and client (C++) <../../Beginner-"
+"Client-Libraries/Writing-A-Simple-Cpp-Service-And-Client>` tutorial."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:215
+#: c5dc40da227747099d76471f09ee4904
+msgid ""
+"Now, let's take a look at the code that is relevant to get access to "
+"frame transformations. The ``tf2_ros`` contains a ``TransformListener`` "
+"header file implementation that makes the task of receiving transforms "
+"easier."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:222
+#: 8eee55e7a465431c81de450cdb38c8c7
+msgid ""
+"Here, we create a ``TransformListener`` object. Once the listener is "
+"created, it starts receiving tf2 transformations over the wire, and "
+"buffers them for up to 10 seconds."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:229
+#: e0922e943ee74c73ad0fcd32d2c8ece5
+msgid ""
+"Finally, we query the listener for a specific transformation. We call "
+"``lookup_transform`` method with following arguments:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:231
+#: 9f08df5055464ad98bf65459bdf5a2c4
+msgid "Target frame"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:233
+#: 659c0acd0a8d4b838fbe44c3920d2a16
+msgid "Source frame"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:235
+#: 4ce30c28670c4674b528e5ae2a0128e2
+msgid "The time at which we want to transform"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:237
+#: 7e6ba3decaca4a78a8965e8107a96f87
+msgid ""
+"Providing ``tf2::TimePointZero()`` will just get us the latest available "
+"transform. All this is wrapped in a try-catch block to handle possible "
+"exceptions."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:247
+#: e8d64ae082a44cd7805616d8433af4cb
+msgid "1.2 CMakeLists.txt"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:249
+#: 5bae0916dce74b49b7d565f355c69390
+msgid ""
+"Navigate one level back to the ``learning_tf2_cpp`` directory, where the "
+"``CMakeLists.txt`` and ``package.xml`` files are located."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:251
+#: 3865d5a86ad7497b8a5d514ea9d78d16
+msgid ""
+"Now open the ``CMakeLists.txt`` add the executable and name it "
+"``turtle_tf2_listener``, which you'll use later with ``ros2 run``."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:265
+#: d87dbb093528480baa6b2811a3c28e4f
+msgid ""
+"Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find "
+"your executable:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:274
+#: f9a4163a77ae426a9e5dde66f09058bc
+msgid "2 Update the launch file"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:276
+#: 71b410f285fe4830a23a48c97add8fcd
+msgid ""
+"Open the launch file called ``turtle_tf2_demo_launch.py`` with your text "
+"editor, add two new nodes to the launch description, add a launch "
+"argument, and add the imports. The resulting file should look like:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:325
+#: 5dd5db3ecfbf4355b0c6a423ae6b7e97
+msgid ""
+"This will declare a ``target_frame`` launch argument, start a broadcaster"
+" for second turtle that we will spawn and listener that will subscribe to"
+" those transformations."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:328
+#: 0c81abb3d2924e9e85f8a077151f22d1
+msgid "3 Build"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:330
+#: 7af348149483481ca0c827a275326fe4
+msgid ""
+"Run ``rosdep`` in the root of your workspace to check for missing "
+"dependencies."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:342
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:346
+#: 40f8f21143d54761a44cfe2ca90f6425 f71c0a1f735942e3b5cdb5da6281e0fd
+msgid ""
+"rosdep only runs on Linux, so you will need to install ``geometry_msgs`` "
+"and ``turtlesim`` dependencies yourself"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:348
+#: d9628ad613e842dfb3f2633e995e925e
+msgid "From the root of your workspace, build your updated package:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:370
+#: 01964c88f19d43e690d8c9887ceabad5
+msgid ""
+"Open a new terminal, navigate to the root of your workspace, and source "
+"the setup files:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:397
+#: 1e5a3e23d2bb46fc8033e8c5795d59f9
+msgid "4 Run"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:399
+#: 5afc682465724952b0003cc9d612a893
+msgid "Now you're ready to start your full turtle demo:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:405
+#: bbce599309a541ddadbeb3718a0756a8
+msgid ""
+"You should see the turtle sim with two turtles. In the second terminal "
+"window type the following command:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:412
+#: 7cca5de5248f4668858f7b141fe2eadf
+msgid ""
+"To see if things work, simply drive around the first turtle using the "
+"arrow keys (make sure your terminal window is active, not your simulator "
+"window), and you'll see the second turtle following the first one!"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:415
+#: 507d84b4f77a4909bcfbc54eebf46de5
+msgid "Summary"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp.rst:417
+#: afea0f4371df4a67875ccc04919d2ef3
+msgid ""
+"In this tutorial you learned how to use tf2 to get access to frame "
+"transformations. You also have finished writing your own turtlesim demo "
+"that you first tried in :doc:`Introduction to tf2 <./Introduction-To-"
+"Tf2>` tutorial."
+msgstr ""
+

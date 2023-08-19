@@ -1,0 +1,819 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:7
+#: 55722cd5f61844b5b630ec41023e8cb2
+msgid "Quality of Service settings"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:10
+#: 89525e0d9d0646e18aa83081051531db
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:13
+#: 06e29624186f41a78d2223d033478478
+msgid "Overview"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:15
+#: 76976ddacc984f6196171ee3f435b665
+msgid ""
+"ROS 2 offers a rich variety of Quality of Service (QoS) policies that "
+"allow you to tune communication between nodes. With the right set of "
+"Quality of Service policies, ROS 2 can be as reliable as TCP or as best-"
+"effort as UDP, with many, many possible states in between. Unlike ROS 1, "
+"which primarily only supported TCP, ROS 2 benefits from the flexibility "
+"of the underlying DDS transport in environments with lossy wireless "
+"networks where a \"best effort\" policy would be more suitable, or in "
+"real-time computing systems where the right Quality of Service profile is"
+" needed to meet deadlines."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:19
+#: e17f964e99f34aa783849f81ed0f2403
+msgid ""
+"A set of QoS \"policies\" combine to form a QoS \"profile\". Given the "
+"complexity of choosing the correct QoS policies for a given scenario, ROS"
+" 2 provides a set of predefined QoS profiles for common use cases (e.g. "
+"sensor data). At the same time, developers are given the flexibility to "
+"control specific policies of the QoS profiles."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:23
+#: 26a8ce4900e54444ab4e1ffa75d63969
+msgid ""
+"QoS profiles can be specified for publishers, subscriptions, service "
+"servers and clients. A QoS profile can be applied independently to each "
+"instance of the aforementioned entities, but if different profiles are "
+"used, it is possible that they will be incompatible, preventing the "
+"delivery of messages."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:28
+#: 5fba0693f27c4c86a43025814a5cd57f
+msgid "QoS policies"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:30
+#: b5d7b7515be1406abbd8d7a73bd19c14
+msgid ""
+"The base QoS profile currently includes settings for the following "
+"policies:"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:32
+#: 3d6d267fab9d4032977651e7517d8d6f
+msgid "History"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:34
+#: a346e0ff4d7b4004b0004ba584582fbf
+msgid ""
+"*Keep last*: only store up to N samples, configurable via the queue depth"
+" option."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:35
+#: 0e6a510718f9475bb106353539c69607
+msgid ""
+"*Keep all*: store all samples, subject to the configured resource limits "
+"of the underlying middleware."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:37
+#: f226eb9a14b34bbd8afa519a38c3796f
+msgid "Depth"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:39
+#: b41c4c7263234e90a171b3c8488efc66
+msgid ""
+"*Queue size*: only honored if the \"history\" policy was set to \"keep "
+"last\"."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:41
+#: bbc9eabdf2554fa49726179c4ec70925
+msgid "Reliability"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:43
+#: 638ed929d868407aa23891d565de6f82
+msgid ""
+"*Best effort*: attempt to deliver samples, but may lose them if the "
+"network is not robust."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:44
+#: d594c8f8a5e84e3c862cd3a15b6c5e12
+msgid ""
+"*Reliable*: guarantee that samples are delivered, may retry multiple "
+"times."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:46
+#: 55e761de44684ade936ac673403d336c
+msgid "Durability"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:48
+#: f32a48a41eb04eb7a17c533a27f44415
+msgid ""
+"*Transient local*: the publisher becomes responsible for persisting "
+"samples for \"late-joining\" subscriptions."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:49
+#: d7fa12703e214d24a46f6145072d058a
+msgid "*Volatile*: no attempt is made to persist samples."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:51
+#: ba46c7bccab14ad2b55ea9ab1f00b457
+msgid "Deadline"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:53
+#: 6d7faf3803e44fc09a8eb57c54d1a16e
+msgid ""
+"*Duration*: the expected maximum amount of time between subsequent "
+"messages being published to a topic"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:55
+#: 592b53b6219f454d9ae631375c1305fe
+msgid "Lifespan"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:57
+#: 80dbe646039c420fa7d8f2477a082169
+msgid ""
+"*Duration*: the maximum amount of time between the publishing and the "
+"reception of a message without the message being considered stale or "
+"expired (expired messages are silently dropped and are effectively never "
+"received)."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:59
+#: 337d674b70fe4cdbb68308f51f853431
+msgid "Liveliness"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:61
+#: e3a9acef09fe49b7a3df0cef404c7b39
+msgid ""
+"*Automatic*: the system will consider all of the node’s publishers to be "
+"alive for another \"lease duration\" when any one of its publishers has "
+"published a message."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:62
+#: a25ffc61621b4f9f8630ff0f1070ea7c
+msgid ""
+"*Manual by topic*: the system will consider the publisher to be alive for"
+" another \"lease duration\" if it manually asserts that it is still alive"
+" (via a call to the publisher API)."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:64
+#: 4a39e17ab7ea49f281979880a8101f0f
+msgid "Lease Duration"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:66
+#: 12e4c0aa0a1d4d21a9580321decffc9d
+msgid ""
+"*Duration*: the maximum period of time a publisher has to indicate that "
+"it is alive before the system considers it to have lost liveliness "
+"(losing liveliness could be an indication of a failure)."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:68
+#: 0c7af6688b184ffeb93ab9c3bf4d6394
+msgid ""
+"For each of the policies that is not a duration, there is also the option"
+" of \"system default\", which uses the default of the underlying "
+"middleware. For each of the policies that is a duration, there also "
+"exists a \"default\" option that means the duration is unspecified, which"
+" the underlying middleware will usually interpret as an infinitely long "
+"duration."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:72
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:276
+#: 70d373d724184e8f839193cb98fc401f 94c3d2c6c69c4982a1d90272c2a79f18
+msgid "Comparison to ROS 1"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:74
+#: 01e88cd94e654f5c825e2b33a73c13cb
+msgid ""
+"The \"history\" and \"depth\" policies in ROS 2 combine to provide "
+"functionality akin to the queue size in ROS 1."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:76
+#: f9604417ff8e4cc2af5df0a062a20c82
+msgid ""
+"The \"reliability\" policy in ROS 2 is akin to the use of either UDPROS "
+"(only in ``roscpp``) for \"best effort\", or TCPROS (ROS 1 default) for "
+"\"reliable\". Note however that even the reliable policy in ROS 2 is "
+"implemented using UDP, which allows for multicasting if appropriate."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:79
+#: 4495430e64c84ae9855c5b1633d6f942
+msgid ""
+"The \"durability\" policy \"transient local\", combined with any depth, "
+"provides functionality similar to that of \"latching\" publishers. The "
+"remaining policies in ROS 2 are not akin to anything that is available in"
+" ROS 1, meaning that ROS 2 is more featureful than ROS 1 in this respect."
+" It is possible that in the future, even more QoS policies will be "
+"available in ROS 2."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:85
+#: 2f28040aff584192bffeec21b2bbff0e
+msgid "QoS profiles"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:87
+#: f6924dae945c45b1adf1813808b8dfda
+msgid ""
+"Profiles allow developers to focus on their applications without worrying"
+" about every QoS setting possible. A QoS profile defines a set of "
+"policies that are expected to go well together for a particular use case."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:90
+#: aef50336d2f14174b250e622dbc8528a
+msgid "The currently defined QoS profiles are:"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:92
+#: 9efc364802f5478eb925061caf05a702
+msgid "Default QoS settings for publishers and subscriptions"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:94
+#: 2cbb39e3723544ee8c8be4a4f44e0ffd
+msgid ""
+"In order to make the transition from ROS 1 to ROS 2 easier, exercising a "
+"similar network behavior is desirable. By default, publishers and "
+"subscriptions in ROS 2 have \"keep last\" for history with a queue size "
+"of 10, \"reliable\" for reliability, \"volatile\" for durability, and "
+"\"system default\" for liveliness. Deadline, lifespan, and lease "
+"durations are also all set to \"default\"."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:98
+#: 0ac24a1f248744e59710e7aa31f3de38
+msgid "Services"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:100
+#: f28cfa8b4f4348aba96714da9b5cd2b2
+msgid ""
+"In the same vein as publishers and subscriptions, services are reliable. "
+"It is especially important for services to use volatile durability, as "
+"otherwise service servers that re-start may receive outdated requests. "
+"While the client is protected from receiving multiple responses, the "
+"server is not protected from side-effects of receiving the outdated "
+"requests."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:104
+#: 5dcee03c60b145cf96dff828f6c68f79
+msgid "Sensor data"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:106
+#: 5278c8cf5e6146288d3a71e39f137a55
+msgid ""
+"For sensor data, in most cases it’s more important to receive readings in"
+" a timely fashion, rather than ensuring that all of them arrive. That is,"
+" developers want the latest samples as soon as they are captured, at the "
+"expense of maybe losing some. For that reason the sensor data profile "
+"uses best effort reliability and a smaller queue size."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:110
+#: 3c92042bc7ca47f7a67b75888db10ad3
+msgid "Parameters"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:112
+#: fe4df4cf22164e6da0bb8651c90b311c
+msgid ""
+"Parameters in ROS 2 are based on services, and as such have a similar "
+"profile. The difference is that parameters use a much larger queue depth "
+"so that requests do not get lost when, for example, the parameter client "
+"is unable to reach the parameter service server."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:115
+#: e3fa358b1ca9445da3fc4042b8ce16eb
+msgid "System default"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:117
+#: fb7fae55ea7c47ca99640e1b3289a9c3
+msgid ""
+"This uses the RMW implementation’s default values for all of the "
+"policies. Different RMW implementations may have different defaults."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:120
+#: 47bfbee44aae4ae6851eab234e3d1573
+msgid ""
+"`Click here "
+"<https://github.com/ros2/rmw/blob/rolling/rmw/include/rmw/qos_profiles.h>`__"
+" for the specific policies in use for the above profiles. The settings in"
+" these profiles are subject to further tweaks, based on the feedback from"
+" the community."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:125
+#: 2db353998e6245cebcec89e671ab602a
+msgid "QoS compatibilities"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:127
+#: b6c65e18bd9548b297a15b823367b2da
+msgid ""
+"**Note:** This section refers to publishers and subscriptions but the "
+"content applies to service servers and clients in the same manner."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:129
+#: 2bf93acf87784d3d9b2642b5e847e576
+msgid ""
+"QoS profiles may be configured for publishers and subscriptions "
+"independently. A connection between a publisher and a subscription is "
+"only made if the pair has compatible QoS profiles."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:132
+#: cac27b3319b24f2ba89844f82e599bef
+msgid ""
+"QoS profile compatibility is determined based on a \"Request vs Offered\""
+" model. Subscriptions *request* a QoS profile that is the \"minimum "
+"quality\" that it is willing to accept, and publishers *offer* a QoS "
+"profile that is the \"maximum quality\" that it is able to provide. "
+"Connections are only made if every policy of the requested QoS profile is"
+" not more stringent than that of the offered QoS profile. Multiple "
+"subscriptions can be connected to a single publisher simultaneously even "
+"if their requested QoS profiles are different. The compatibility between "
+"a publisher and a subscription is unaffected by the presence of other "
+"publishers and subscriptions."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:138
+#: db3bd5c8561b459099df870c9f79fcd0
+msgid ""
+"The following tables show the compatibility of the different policy "
+"settings and the result:"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:140
+#: 699a498972a3406c9c0d38ac58ab89ab
+msgid "*Compatibility of reliability QoS policies:*"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:145
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:166
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:197
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:224
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:247
+#: 2e905087ec7449959e4229060acaa5e5 3ae75c7d08ec4ec7a76d6af0aa1c0561
+#: 463314eb84ee471c893ee1a286d35992 555385567d8448f0aa6b3a410e349cd2
+#: 7dc1c1f0e574455fb6f44c9cf2914eb8
+msgid "Publisher"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:146
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:167
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:198
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:225
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:248
+#: 0b6ffb628ed44b22aa28b310d9503c50 17f54bc243b14b68a0ab53dbc5cba41e
+#: 488d238eb8fa42d0b2f2844950d2cc6d d4957aa01ae84662a2958b8a651ea66d
+#: fb0f2a7beb0042eb960c49397fcafb30
+msgid "Subscription"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:147
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:168
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:199
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:226
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:249
+#: 081af749b55a47399b3ad3710df64766 112de1bedf82411490c61bd602ea2341
+#: 1afd04f7809a45d3ac9585fb89e719b8 8e8ba09bf6c34ca0b466d3cd258aba5a
+#: 9b93a05dfc8a466299f8293209a42a03
+msgid "Compatible"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:148
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:149
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:151
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:155
+#: 1c5c1ea15b2a4c72ba8f6ca47fff9c77 63a0478408fe476a8d06efc277fe8cee
+#: 68fd96cc7a114c6cba5f4203b4965f85 bce5335c7ccf42b0a3f0c7aedea65875
+msgid "Best effort"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:150
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:156
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:159
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:172
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:180
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:184
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:202
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:208
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:211
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:214
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:229
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:235
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:238
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:252
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:258
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:261
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:264
+#: 0f09a0c1031b41859f4c2f20036aa7d6 25322e41468d4c4dba056bd061fabcd6
+#: 28093f394b3144fcbf5d98ff8ff402f1 4ddde09648d74c71b7d8c2822d0aba43
+#: 4e40d5fc1b4b45b3afd84164b4b49537 68e12ed310fc4951afa6ac78b24343e7
+#: 6bbad9801150424d8fcbb152a6853a65 8a2dc11168614a9891fe311dc6c08163
+#: a8522a04456e4748aa178f97e2c51566 aeddf0fe080248a1978e0cb2e5d4a660
+#: b742de856cf34074af74f229d9d653bc bf08d903edbe46b8bfa34f1b91bb1f6d
+#: d413c6ce3aea4f619dc2f0e0e9920fd1 dcea8ec2364c4fc2bbe3d4bcf686d9ea
+#: e96cfb96ce894dfba20071d01d7af5db ec4f2585d40341beb56637101d02aa95
+#: fef443a991034403a1a31c8af153424a
+msgid "Yes"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:152
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:154
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:157
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:158
+#: 8257dbd0cac148078b4d439ac211c2b9 84556164a9a846449d672fc50513e606
+#: aea8b1d56c59436da872da479616ee16 f01aed64bc9c4db4bd24916345d3345b
+msgid "Reliable"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:153
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:176
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:205
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:217
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:232
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:255
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:267
+#: 0a6af2df1dbb4d309403d3476d87b45e 0d237547c05e45deabf46bc34f193ef4
+#: 56cba4d61b7a459ebb76161d4a4e8e73 656bbbacb70c44db8e9a6eb51adbf4f5
+#: 71e6612b5afc4cb9b95f3abd57c8bf99 a24ee063b0d644e68f80f53d2eb4dd09
+#: b869dad041e2425dbbbbe3369bf1e17c
+msgid "No"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:161
+#: 14301162ef3b43088d1e55740cc2c15c
+msgid "*Compatibility of durability QoS policies:*"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:169
+#: 71fd7047e2cf4679b1d0096ad83d8f19
+msgid "Result"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:170
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:171
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:174
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:179
+#: 1cc174b17e8549849199ed2d3d4f66a2 24721d844be34975b824f466dfd6f328
+#: c4460838ec9f41e0a241dcfaeb99f9bb eb93939239f84ab0bd71059d34c7c2ad
+msgid "Volatile"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:173
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:181
+#: 86e63a749d324f8faea5578b380d5016 e93a82daf3ba4a21ad4321dff18b6496
+msgid "New messages only"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:175
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:178
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:182
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:183
+#: 006303a8776741a0a1a776705aea4dbd 6a3624001a014bdeb6ef9426835b5440
+#: 85981c7766ac431795352520bf1dfce8 ca2d92d6ee32452fb9d0101c0cc94c00
+msgid "Transient local"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:177
+#: 7f0d8fd6808c453ba51cadd01693b750
+msgid "No communication"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:185
+#: d2863f37b42145dab8f60efaf3aa8588
+msgid "New and old messages"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:187
+#: 4d461022aae44bec8246ad3a53946c39
+msgid ""
+"To achieve a \"latched\" topic that is visible to late subscribers, both "
+"the publisher and subscriber must agree to use 'Transient Local'."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:190
+#: e13eabd4a83d4846aabf0af15b6dc73b
+msgid "*Compatibility of deadline QoS policies:*"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:192
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:242
+#: 09999c96a7c54f6a868e9109cbb73b44 9269379d62f649b5bdb76610d860110b
+msgid "Assume *x* and *y* are arbitrary valid duration values."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:200
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:201
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:203
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:207
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:250
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:251
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:253
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:257
+#: 1925e9afe32943a8be70846ea22fbcfc 5bf4604aef8e404286da7908a086c211
+#: 8457f931d798498185aeb1eba6278bed 8c71a3d8325b445e92edec16503999b0
+#: cc8b533aa7744d15b7a54c0260748c40 d4c44d5df03e4c74a3c56575229dfc60
+#: d552142680574bd2ab65580c8bf7019c e698dd3edfdd4c7b981b254ed9e1288d
+msgid "Default"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:204
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:206
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:209
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:210
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:212
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:215
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:254
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:256
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:259
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:260
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:262
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:265
+#: 0525192a4df143ac923a5e5a6c12d931 255e6d2aeb1a415aadaa499e0e222d3a
+#: 34165fa3141c49ff834788d442eefa40 3d2ee3b3ceff485eba02ff48d871b332
+#: 4d924ae8559447babbc562bbd3120d57 6a120b3bf1874f6bb1a07db39fdfc297
+#: 7be08bb2ed984b0ebfa0d4331a9aca49 8bd9f7dc34894d8aa29cdbb6de2a51bf
+#: 90a960f7f3c841138d11ebacab2d0e6f d3b1fd6c35d54f158f32444d74ce69d2
+#: d8ade278bcac4d22950409178e1f0902 f2484bfa475e44adaaafdace2a81ea6d
+msgid "*x*"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:213
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:263
+#: 2d0a301e3f0c433782726298e28bd128 4abb687a6f0b48008ef9e05577a4b65b
+msgid "*y* (where *y* > *x*)"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:216
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:266
+#: 3b0ea2ce01094754bbdd52109828f761 d75c337a34304dccb0cef5443bef67a4
+msgid "*y* (where *y* < *x*)"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:219
+#: 0cfee2617cd540d09f673a3f8b28522f
+msgid "*Compatibility of liveliness QoS policies:*"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:227
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:228
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:230
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:234
+#: 11f2f35067e548d0b3c91178ee777c37 17d306a54b9244f0b7e035f67ee43cee
+#: 9e7428dd02284752b0c28fd0e9496d16 b56c722ec9034cae893bfc131719f5bd
+msgid "Automatic"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:231
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:233
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:236
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:237
+#: 38a2c684ebcc400ab5b64cb5e85d10b6 b40d3610891346b19af7eb4ee4ccebd4
+#: c3cba516a97a4fd7acb1bff704f37b67 c8dbe37c29544c398d3985dbd9a0a399
+msgid "Manual by topic"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:240
+#: bddf6ac1986d4fb8af64877ee2a052cb
+msgid "*Compatibility of lease duration QoS policies:*"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:269
+#: 832eab23123d4b39899ec98fe04a4bbd
+msgid ""
+"In order for a connection to be made, all of the policies that affect "
+"compatibility must be compatible. For example, even if a requested and "
+"offered QoS profile pair has compatible reliability QoS policies, but "
+"they have incompatible durability QoS policies, a connection will still "
+"not be made."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:272
+#: 79c7c8e75c0e496f8923cf56a10fcf00
+msgid ""
+"When connections are not made, no messages will be passed between the "
+"publisher and subscription. There are mechanisms to detect this "
+"situation, which will be covered in a later section."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:278
+#: 2ce6caadad7f4f908bc1cfbd4c9baafc
+msgid ""
+"Historically in ROS 1, any publisher and subscriber with the same message"
+" type on the same topic would be connected. The possibility of "
+"incompatible requested and offered QoS profiles is something new to be "
+"aware of when using ROS 2."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:283
+#: 38f6185f50804a588588e5e2de6172d7
+msgid "QoS events"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:285
+#: 635fe472bed349a9ac58196e0efe2b60
+msgid ""
+"Some QoS policies have possible events related to them. Developers may "
+"provide each publisher and subscription with callback functions that are "
+"triggered by these QoS events and handle them in a way they see fit, "
+"similar to how messages received on a topic are handled."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:288
+#: 7a7c8d7f8b2a42b78d1ec08a8522900f
+msgid ""
+"Developers may subscribe to the following QoS events that are associated "
+"with a publisher:"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:290
+#: 9e35ddea88124c849891e96f640b7273
+msgid "Offered deadline missed"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:292
+#: d3cac578bfca465bb4c94f7ab3bcab64
+msgid ""
+"The publisher has not published a message within the expected duration "
+"that was set out by the deadline QoS policy."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:294
+#: 6f689807a3fb423a821445017cbe3450
+msgid "Liveliness lost"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:296
+#: 00cd4bc33b5b4fd6b2d8cbf06bec88d3
+msgid ""
+"The publisher has failed to indicate its liveliness within the lease "
+"duration."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:298
+#: f8a4fd4e14bc43cdbe153263ec02009a
+msgid "Offered incompatible QoS"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:300
+#: 87065b6d99fb41f6a6cb737473907794
+msgid ""
+"The publisher has encountered a subscription on the same topic that is "
+"requesting a QoS profile that the offered QoS profile cannot satisfy, "
+"resulting in no connection between the publisher and that subscription."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:302
+#: 353c4118b41e480e83c355eec375ca87
+msgid ""
+"Developers may subscribe to the following QoS events that are associated "
+"with a subscription:"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:304
+#: 360f306411fe4b29a896edd9c89c83be
+msgid "Requested deadline missed"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:306
+#: 65b2c8c453334ebfb7eeb0a26fe4dede
+msgid ""
+"The subscription has not received a message within the expected duration "
+"that was set out by the deadline QoS policy."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:308
+#: b4be0b74129c407087dcea3573fc4141
+msgid "Liveliness changed"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:310
+#: 6cc260f24a6b4368bedece4a6793288c
+msgid ""
+"The subscription has noticed that one or more publishers on the "
+"subscribed topic has failed to indicate their liveliness within the lease"
+" duration."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:312
+#: 39759882c1c6467e9eb44c6a723bd9dc
+msgid "Requested incompatible QoS"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:314
+#: 78d07d14d1294fcba68e93153aaab767
+msgid ""
+"The subscription has encountered a publisher on the same topic that is "
+"offering a QoS profile that does not satisfy the requested QoS profile, "
+"resulting in no connection between the subscription and that publisher."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:318
+#: ce15c9199de74e13b28d071dade11676
+msgid "Matched events"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:320
+#: 4b6a1ea668394ea4b9d7351b1c1500dd
+msgid ""
+"In addition to QoS events, matched events can be generated when any "
+"publisher and subscription establishes or drops the connection between "
+"them. Developers may provide each publisher and subscription with "
+"callback functions that are triggered by matched events and handle them "
+"in a way they see fit, similar to how messages received on a topic are "
+"handled."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:323
+#: f5013d2c696c4eb389d90ab18fffce3e
+msgid "Developers can subscribe to this event with a publisher or a subscription."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:325
+#: d90abf5cbf8445ab9d99741ff1d03569
+msgid ""
+"publisher: this event happens when it finds a subscription which matches "
+"the topic and has compatible QoS or a connected subscription is "
+"disconnected"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:326
+#: 09f3bc86af064673a5cb41c7fc18e1f7
+msgid ""
+"subscription: this event happens when it finds a publisher which matches "
+"the topic and has compatible QoS or a connected publisher is disconnected"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:328
+#: d22cbe6db637470f868106867cc6e2db
+msgid "There are demos showing how to use the event:"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:330
+#: e200739a33024f1a860b06ef44790d9e
+msgid ""
+"rclcpp: `demo code "
+"<https://github.com/ros2/demos/blob/rolling/demo_nodes_cpp/src/events/matched_event_detect.cpp>`__"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Quality-of-Service-Settings.rst:331
+#: 156bd093d5f24ac5aa9716f4b9966b31
+msgid ""
+"rclpy: `demo code "
+"<https://github.com/ros2/demos/blob/rolling/demo_nodes_py/demo_nodes_py/events/matched_event_detect.py>`__"
+msgstr ""
+

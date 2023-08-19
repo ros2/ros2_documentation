@@ -1,0 +1,421 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Releases/Release-Process.rst:2 130afa5f2bcc4b11a628a3f815517606
+msgid "Development process for a release"
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:8 1b671c522d4b4fc793ad304e8aafb4ee
+msgid ""
+"Each ROS 2 distribution goes through a process of development more than a"
+" year long that begins prior to the release of the previous distribution."
+" Below is a high-level view of this development process. There is no "
+"specific due date for the items in this process, but in general earlier "
+"items should be completed before later items can be completed."
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:12
+#: 0c73b8877dcf42618e8dbf5cdc2347cc
+msgid ""
+"For the progress through this process for a specific release, see that "
+"release's documentation page."
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:19
+#: bb0ff97925954f8787ce677f510e40f4
+msgid "Item"
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:20
+#: 19ba602c333c4a14b753ee5fd95104ce
+msgid "Notes"
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:21
+#: 7969ccaceedd40918d6a51902b44562b
+msgid "Find the ROS Boss"
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:22
+#: aa5a856b04de4186ab5b8ccfedc29573
+msgid ""
+"The \"ROS Boss\" is the person in charge of shepherding a distribution "
+"through the development, release, update, and EOL'ing stages of its life."
+" They are chosen from the internal ROS 2 team at Open Robotics."
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:23
+#: 12734d4beea442978410302e0b34c18e
+msgid "Run process to choose the distribution name"
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:24
+#: 93fb52d20c6f4e838c4bc5b500da41a3
+msgid ""
+"The ROS Boss curates the process of choosing the distribution's name, "
+"using input from sources such as the community and potential naming "
+"conflicts."
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:25
+#: 4897bd2f065943aba8fc0f3664bef7ac
+msgid "Create distribution's documentation page"
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:26
+#: bb894a68aec44cff988ab8cbcdfa37e3
+msgid ""
+"Every distribution has a documentation page that lists its vital "
+"statistics, such as planned release date, EOL date, and significant "
+"changes since the previous release."
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:27
+#: c64889ad50a1462ab153a2ee2c030fe7
+msgid "Set release timeline"
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:28
+#: 929fd2ec424944f7a1bfc603e41cc688
+msgid ""
+"The final weeks leading up to release day (usually, World Turtle Day) are"
+" hectic and full of deadlines, such as when to freeze the default RMW "
+"implementation. These deadlines must be planned well in advance."
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:29
+#: d87adc95af504e99bb784034f7f4657f
+msgid "Produce roadmap"
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:30
+#: c7a2071fcce54bc38bfd22f3bd8208e2
+msgid ""
+"While every contributor to ROS has their own planned features for each "
+"distribution, we try to maintain an overall roadmap of the new features "
+"and significant changes we expect to see in the distribution. The ROS "
+"Boss and the leader of the ROS 2 development team at Open Robotics work "
+"together with the ROS 2 TSC and other interested parties to produce a "
+"roadmap that is achievable in the time available and meets the needs of "
+"the ROS community."
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:31
+#: 1f9579fa16c64b6eb4231c85374b9a33
+msgid "Announce roadmap"
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:32
+#: 34574057445648cfbc6840b1070273e9
+msgid ""
+"The list of planned features and significant changes is made public, via "
+"a GitHub issue that will track the progress on developing each item in "
+"the roadmap. Of course, this does not mean that the roadmap is fixed at "
+"this point, as development plans can change and we always (and frequently"
+" do) welcome new contributions even if they are not on the planned "
+"roadmap."
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:33
+#: 9e2decf4110f444ba5a7de6824086cb9
+msgid "Set target platforms and major dependencies"
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:34
+#: 9394940655ad4af593265888a50e3692
+msgid ""
+"The target platforms, in terms of operating system, distribution and "
+"version, must be set far enough in advance for development work on the "
+"infrastructure (such as support in the build farm) to proceed. Similarly,"
+" the versions of each major dependency (which Python version, which "
+"compiler(s), which version of Eigen, etc.) must also be fixed. This is "
+"done via an update to `REP-2000 <https://ros.org/reps/rep-2000.html>`__."
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:35
+#: 5bc6d9a37e70442cb1c423ae5389a89f
+msgid "Add platform support to the build farm"
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:36
+#: e2ed7d8024524e48b2a350afef695569
+msgid ""
+"The build farm is a critical part of the infrastructure supporting a ROS "
+"2 distribution. It provides continuous integration facilities that help "
+"us maintain quality, and it builds the binary packages the community "
+"relies on to avoid building ROS 2 and packages from source. If the target"
+" platforms differ from the previous ROS 2 distribution, then the "
+"necessary support must be added to the build farm."
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:37
+#: 32d3c7fffce14822b95d7f32a4af5e07
+msgid "Commission logo and related artwork"
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:38
+#: d67a7dea3b2f45129bf5c0051af4aab3
+msgid ""
+"A well-loved part of every ROS 2 distribution (and ROS distribution!) is "
+"the logo. The logo is commissioned from a professional artist based on "
+"the chosen distribution name. Based on the logo, other artwork such as "
+"the turtlesim icon are also produced."
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:39
+#: 9f79298f1ae3441b91871a658821b27e
+msgid "Create mailing list for the distribution"
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:40
+#: 2d20079ee7c54cd9b5de193ce31dfbae
+msgid ""
+"Vital for making critical announcements, a mailing list must be set up to"
+" contact people interested in knowing something about the distribution, "
+"such as that their package is failing to build into a binary on the build"
+" farm."
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:41
+#: 07eddd844c1c4828bfcc84040fc22922
+msgid "Create test cases"
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:42
+#: 26c99b9e8921484c938327eb62bf802d
+msgid ""
+"As the development process enters the final few months, testing begins in"
+" earnest. The integration test cases that will be used during the final "
+"stages of development must be produced and provided to the release team "
+"who will be responsible for executing them."
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:43
+#: b3eab15f8a8e444f819ab82e912ecdf0
+msgid "Announce upcoming RMW freeze"
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:44
+#: 94505ac9f8e34911a87fb4177e687fba
+msgid ""
+"The RMW freeze is the point at which the default RMW implementation for "
+"the new distribution is feature-frozen. This gives developers a stable "
+"target to test their packages with, which is particularly important for "
+"the client library developers, who need to know what features of the RMW "
+"layer will be available for use by client libraries."
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:45
+#: 147f10e8575748c69905af2ce5f33640
+msgid "Upgrade dependency packages"
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:46
+#: 8453a9e4138d483cb182551e5b6aa53e
+msgid ""
+"Packages depended on by ROS but not ROS software and not available in the"
+" platform package manager (such as aptitude for Ubuntu), the so-called "
+"\"vendor packages\", must be updated to the versions specified in "
+"REP-2000 (or an appropriate version, for those not listed in REP-2000). "
+"This is particularly important on Windows."
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:47
+#: 958ce806088942ec99090262f9728114
+msgid "Create a detailed release plan"
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:48
+#: ee87c4d831a14934b6602355b0b3f3fa
+msgid ""
+"Planning for the final two months of the development process is "
+"performed. This produces a detailed test plan, timelines of when certain "
+"packages must be available, and so on. It enables the finding of "
+"dependencies between steps in the release process and finding people to "
+"perform each of those steps."
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:49
+#: 0cb5e2dfd1aa468ab2b83d77a73b7893
+msgid "Freeze RMW"
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:50
+#: 89cf7b6542f240e1aff5273ba39a0fda
+msgid ""
+"The RMW implementation is now feature-frozen. In theory, it can now be "
+"exhaustively tested to ensure it is working correctly by release day."
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:51
+#: 6a94e9df45d74c6ab7614bbe046d1a6f
+msgid "Announce upcoming overall freeze"
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:52
+#: 4a3e64813cda4e36bb72db141bfd6862
+msgid ""
+"The next freeze after freezing the RMW implementation is to freeze the "
+"distribution as a whole. This is the point at which the core ROS packages"
+" become feature-frozen, giving developers of non-core packages a stable "
+"target to test their packages against, and giving distribution testers "
+"something to test that won't change right after they've tested it."
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:53
+#: cae069f2e7144982ae97b329cb28c4a1
+msgid "Freeze distribution"
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:54
+#: ddfc6231ccc142ce98a2cb50fcbcca33
+msgid ""
+"From this point on, no new features can be added to any of the core ROS "
+"packages. Only bug fixes for the (inevitable) bugs found during the "
+"intensive integration test phases of development can be incorporated into"
+" the codebase. This means that Rolling Ridley is effectively frozen, "
+"temperarily."
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:55
+#: 08b5a38271524534bb9151c0fa394f3d
+msgid "Announce upcoming branch"
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:56
+#: 9548a8704a984b649461688a6e026a11
+msgid ""
+"The branching of the new ROS 2 distribution from Rolling Ridley is an "
+"important moment. It is worth preparing for."
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:57
+#: d5522ce18e2042b492360c3f8a1be24a
+msgid "Announce upcoming beta"
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:58
+#: 557ce8543bb446d8a797038b280b684d
+msgid ""
+"When the distribution enters beta, it is ready for wider testing by the "
+"ROS community. This beta happens soon after the distribution is branched "
+"from Rolling Ridely."
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:59
+#: ed003cabe0e74093bf33384c751b3507
+msgid "Branch from Rolling Ridley"
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:60
+#: 99a6ed3896344f05888d9d90f4583f3b
+msgid ""
+"The new ROS 2 distribution is created by making a new branch from Rolling"
+" Ridley. In effect, the new distribution is born at this point in time. "
+"Meanwhile, Rolling Ridley is free from the development process and can "
+"roll on into the future, once again receiving new features."
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:61
+#: 897987d050444902be07291ab5984849
+msgid "Add distribution to CI"
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:62
+#: 93c50c28dd974f89a1ff48c1b54d4a7b
+msgid ""
+"The continuous integration system is updated to allow building using the "
+"new distribution's branches and core ROS packages. This means that "
+"package developers can run CI for their packages against the new "
+"distribution, rather than Rolling Ridley."
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:63
+#: 7a1a259da06549b8966488f1633d7402
+msgid "Begin building interim testing tarballs"
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:64
+#: 32f647971fa141c6bef3671bdb567233
+msgid ""
+"The elite team of testers who will put the new distribution through its "
+"paces need something to test without compiling ROS 2 from source "
+"constantly. The build farm is used to produce a set of tarballs "
+"containing the distribution at a point in time for the testers to test."
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:65
+#: 2f3d1b1931f64070ab06a498af75f6fa
+msgid "Add distribution documentation"
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:66
+#: c7feda3cd50041c199d1766c1d75bfb4
+msgid ""
+"Detailed documentation about the distribution, such as the significant "
+"changes since the previous distribution, is added to the ROS 2 "
+"documentation site."
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:67
+#: cafd32990aa74cbd861e3a4c5bc8535e
+msgid "Announce beta"
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:68
+#: 9b1b11d8036846908822c056d0ca4bd2
+msgid ""
+"The beta release of the distribution is made and the ROS community as a "
+"whole is invited to contribute to testing it (for those who aren't "
+"already doing so). At this point, the more testers the better, because "
+"the distribution needs to be put through as wide a range of scenarios as "
+"possible to find bugs before the release."
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:69
+#: 04a3d84ccaa141b38ef9b41c5d071064
+msgid "Final release preparations"
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:70
+#: 26e815a993fd46d6b4c190499fa0aef8
+msgid ""
+"As the new distribution enters is absolutely-completely-everything-frozen"
+" phase, the final preparations are made for the release. These include "
+"things like producing binary packages using the build farm so there will "
+"be something to release."
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:71
+#: 5e050d5e3901488eb8a6f20f1d106f0d
+msgid "Release"
+msgstr ""
+
+#: ../../source/Releases/Release-Process.rst:72
+#: 501808f0fa484743ad5265d16d1eff0e
+msgid ""
+"The big day, which if all goes to plan coincides with World Turtle Day on"
+" May 23rd. The distribution's binary packages are made available in the "
+"release repository, and an announcement is made. Parties are held and the"
+" ROS 2 development team takes a well-earned break."
+msgstr ""
+

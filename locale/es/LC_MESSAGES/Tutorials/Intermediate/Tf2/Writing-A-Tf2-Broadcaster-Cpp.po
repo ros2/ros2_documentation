@@ -1,0 +1,415 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:8
+#: f535f742ad6e40a6b39eb6917aa6862b
+msgid "Writing a broadcaster (C++)"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:10
+#: 814bc681af704e85981207bc9c7f30c3
+msgid "**Goal:** Learn how to broadcast the state of a robot to tf2."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:12
+#: 2a86138fb570481cb13ce0fa361476fc
+msgid "**Tutorial level:** Intermediate"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:14
+#: e19bb9312aa44afda2f81b650c3199bb
+msgid "**Time:** 15 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:18
+#: 2399d0c595444555b1762c395e90a0b3
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:21
+#: 43ba1367bc1e427d8149cdcfefe5dbd4
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:23
+#: be3e6a2509ed43bab4c474d69d298745
+msgid ""
+"In the next two tutorials we will write the code to reproduce the demo "
+"from the :doc:`Introduction to tf2 <./Introduction-To-Tf2>` tutorial. "
+"After that, following tutorials focus on extending the demo with more "
+"advanced tf2 features, including the usage of timeouts in transformation "
+"lookups and time travel."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:27
+#: 85da2a6be9f6436a9251e452ff224d4e
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:29
+#: c8afd74ff6ba4b5b9570a57247ed074f
+msgid ""
+"This tutorial assumes you have a working knowledge of ROS 2 and you have "
+"completed the :doc:`Introduction to tf2 tutorial <./Introduction-To-Tf2>`"
+" and :doc:`tf2 static broadcaster tutorial (C++) <./Writing-A-Tf2-Static-"
+"Broadcaster-Cpp>`. In previous tutorials, you learned how to :doc:`create"
+" a workspace <../../Beginner-Client-"
+"Libraries/Creating-A-Workspace/Creating-A-Workspace>` and :doc:`create a "
+"package <../../Beginner-Client-Libraries/Creating-Your-First-"
+"ROS2-Package>`. You also have created the ``learning_tf2_cpp`` "
+":doc:`package <./Writing-A-Tf2-Static-Broadcaster-Cpp>`, which is where "
+"we will continue working from."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:34
+#: 9fa1e6e0d7ff421d801c337380a9dc6d
+msgid "Tasks"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:37
+#: 0a28818a8526417d8672ca5c214490de
+msgid "1 Write the broadcaster node"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:39
+#: 7ef199058a6341cbacf588d0f78f60d3
+msgid ""
+"Let's first create the source files. Go to the ``learning_tf2_cpp`` "
+"package we created in the previous tutorial. Inside the ``src`` directory"
+" download the example broadcaster code by entering the following command:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:45
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:340
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:358
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:380
+#: 0949899e00cc4dbcb8782d3ee77e8d93 2415a622cd1e48f98d317887b8b594f9
+#: 702640a0574a432f8bb2201368bafadd ba1b36b809a84e1bae01e934b51aa693
+msgid "Linux"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:51
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:346
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:364
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:386
+#: 58799d54c4a044c9b94358f8f0af1940 80cf458116304953aea42180bb190c00
+#: 8a2a7bb72a714c18a81abcfc2ec54abf b70315827ac64516aa2fde7560fab154
+msgid "macOS"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:57
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:350
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:370
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:392
+#: 308a4db5d5c84c94926f31eb7042a886 b6793a9501324e04a87b051731cadd14
+#: ba3683ad52b94bbc961b1580d46ee288 d2854738331c4f508b2ede00d111e3ce
+msgid "Windows"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:59
+#: c541e307f0124b8092dd33449ea16694
+msgid "In a Windows command line prompt:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:65
+#: 02823127059e4f48ad3b82d249bafb7d
+msgid "Or in powershell:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:71
+#: 5dcf71a945014199ae9c168d4ceadda6
+msgid "Open the file using your preferred text editor."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:155
+#: 23b7a3ba801641e29bbc074e10ac6064
+msgid "1.1 Examine the code"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:157
+#: 5a57cc6b1447428799b68438bce3faff
+msgid ""
+"Now, let's take a look at the code that is relevant to publishing the "
+"turtle pose to tf2. Firstly, we define and acquire a single parameter "
+"``turtlename``, which specifies a turtle name, e.g. ``turtle1`` or "
+"``turtle2``."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:164
+#: 8d3b457a2e4f42da9e1eab2127d88c24
+msgid ""
+"Afterward, the node subscribes to topic ``turtleX/pose`` and runs "
+"function ``handle_turtle_pose`` on every incoming message."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:172
+#: ac6f249197474e74b7f2200dc1240ba9
+msgid ""
+"Now, we create a ``TransformStamped`` object and give it the appropriate "
+"metadata."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:174
+#: 16e095ebc22b41da82a95e14d8832865
+msgid ""
+"We need to give the transform being published a timestamp, and we'll just"
+" stamp it with the current time by calling ``this->get_clock()->now()``. "
+"This will return the current time used by the ``Node``."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:176
+#: 567564c167fb4b22866340bde562a9a5
+msgid ""
+"Then we need to set the name of the parent frame of the link we're "
+"creating, in this case ``world``."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:178
+#: 5b303d4618244af289106f64de33f8b9
+msgid ""
+"Finally, we need to set the name of the child node of the link we're "
+"creating, in this case this is the name of the turtle itself."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:180
+#: 3df069611fcc4e8098265545c83a1895
+msgid ""
+"The handler function for the turtle pose message broadcasts this turtle's"
+" translation and rotation, and publishes it as a transform from frame "
+"``world`` to frame ``turtleX``."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:192
+#: ba7190331d9b40dcac248340addb96da
+msgid ""
+"Here we copy the information from the 3D turtle pose into the 3D "
+"transform."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:212
+#: c060420517ce4950bf85a2018bb8c186
+msgid ""
+"Finally we take the transform that we constructed and pass it to the "
+"``sendTransform`` method of the ``TransformBroadcaster`` that will take "
+"care of broadcasting."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:220
+#: aee836f33cc0481489ff05cf1b699bc7
+msgid "1.2 CMakeLists.txt"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:222
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:307
+#: dc8e8a2f39e14683af6f3e9f3c38fe7e f53879f1289c4f229275722b8b9253fb
+msgid ""
+"Navigate one level back to the ``learning_tf2_cpp`` directory, where the "
+"``CMakeLists.txt`` and ``package.xml`` files are located."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:224
+#: 3195d80d5313408498b171f560e32dea
+msgid ""
+"Now open the ``CMakeLists.txt`` add the executable and name it "
+"``turtle_tf2_broadcaster``, which you'll use later with ``ros2 run``."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:238
+#: 0d2bdebd10434daf8c3daa7419ff8c65
+msgid ""
+"Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find "
+"your executable:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:247
+#: 4eb50e1edcf046788f5b346c71fc2c6e
+msgid "2 Write the launch file"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:249
+#: 943cdbdcd2aa47b3b0207bea9d783b46
+msgid ""
+"Now create a launch file for this demo. With your text editor, create a "
+"new file called ``turtle_tf2_demo_launch.py`` in the ``launch`` folder, "
+"and add the following lines:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:276
+#: 80fcd957dad5454581c427fce26ca048
+msgid "2.1 Examine the code"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:278
+#: 744b48a812714efcbe33430e1d3f2966
+msgid ""
+"First we import required modules from the ``launch`` and ``launch_ros`` "
+"packages. It should be noted that ``launch`` is a generic launching "
+"framework (not ROS 2 specific) and ``launch_ros`` has ROS 2 specific "
+"things, like nodes that we import here."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:286
+#: 32200de09d664bc197b32038ff3ae0ba
+msgid ""
+"Now we run our nodes that start the turtlesim simulation and broadcast "
+"``turtle1`` state to the tf2 using our ``turtle_tf2_broadcaster`` node."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:305
+#: b1404a77f0984daea9e7ef38f7ddf5fb
+msgid "2.2 Add dependencies"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:309
+#: dd3a0ec38b1d422da6569cc56ffbf12e
+msgid ""
+"Open ``package.xml`` with your text editor. Add the following "
+"dependencies corresponding to your launch file's import statements:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:317
+#: 06cc0403b6e24531a109c4a789eda984
+msgid ""
+"This declares the additional required ``launch`` and ``launch_ros`` "
+"dependencies when its code is executed."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:319
+#: cd5f4489645e489985bcb396a3296c00
+msgid "Make sure to save the file."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:322
+#: fa8e689408d041ee82d63d824efe6494
+msgid "2.3 CMakeLists.txt"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:324
+#: 828191a9b86b4119a8ee135c31dfa8f8
+msgid ""
+"Reopen ``CMakeLists.txt`` and add the line so that the launch files from "
+"the ``launch/`` folder would be installed."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:331
+#: 0b7d69cfad074f668785467341c74153
+msgid ""
+"You can learn more about creating launch files in :doc:`this tutorial "
+"<../Launch/Creating-Launch-Files>`."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:334
+#: 85d66106ba68431f9eca6a45723d38f4
+msgid "3 Build"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:336
+#: e9cc8c7e54ed4740805444f722220895
+msgid ""
+"Run ``rosdep`` in the root of your workspace to check for missing "
+"dependencies."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:348
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:352
+#: ad867d1bf2aa44688af05597e9564091 e2100236f6264099bd0ae596a887178e
+msgid ""
+"rosdep only runs on Linux, so you will need to install ``geometry_msgs`` "
+"and ``turtlesim`` dependencies yourself"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:354
+#: 7f3f4e01d550468aa92635a992e61e47
+msgid "From the root of your workspace, build your updated package:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:376
+#: 566de4bb3d8a470f9569ce05bf0f8631
+msgid ""
+"Open a new terminal, navigate to the root of your workspace, and source "
+"the setup files:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:403
+#: 0255f149730c4109910caf1457967b13
+msgid "4 Run"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:405
+#: 5b105b82a01740c99fc2cc9459d7e300
+msgid ""
+"Now run the launch file that will start the turtlesim simulation node and"
+" ``turtle_tf2_broadcaster`` node:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:411
+#: 6f1f937e1b8d45abaf9ebcb2553cfe73
+msgid "In the second terminal window type the following command:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:417
+#: 81ab9552edb94cbf88f0afa4ac7bd1d9
+msgid ""
+"You will now see that the turtlesim simulation have started with one "
+"turtle that you can control."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:421
+#: 14d6d3b3938d4215b8152a89aa57447f
+msgid ""
+"Now, use the ``tf2_echo`` tool to check if the turtle pose is actually "
+"getting broadcast to tf2:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:427
+#: 19c21b3d37a2442e89b06a908555634f
+msgid ""
+"This should show you the pose of the first turtle. Drive around the "
+"turtle using the arrow keys (make sure your ``turtle_teleop_key`` "
+"terminal window is active, not your simulator window). In your console "
+"output you will see something similar to this:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:446
+#: 0807bbc1875744248a5e94aced7d733e
+msgid ""
+"If you run ``tf2_echo`` for the transform between the ``world`` and "
+"``turtle2``, you should not see a transform, because the second turtle is"
+" not there yet. However, as soon as we add the second turtle in the next "
+"tutorial, the pose of ``turtle2`` will be broadcast to tf2."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:450
+#: 7d9e4f7a8adf4f108d048f6ced727ddb
+msgid "Summary"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp.rst:452
+#: 907c6e608a844692a5e587b7912e6643
+msgid ""
+"In this tutorial you learned how to broadcast the pose of the robot "
+"(position and orientation of the turtle) to tf2 and how to use the "
+"``tf2_echo`` tool. To actually use the transforms broadcasted to tf2, you"
+" should move on to the next tutorial about creating a :doc:`tf2 listener "
+"<./Writing-A-Tf2-Listener-Cpp>`."
+msgstr ""
+

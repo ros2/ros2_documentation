@@ -1,0 +1,448 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/index.rst:6 e77a496581154ab0a910837b0dfd716a
+msgid "ROS 2 Documentation"
+msgstr "Documentación de ROS 2"
+
+#: ../../source/index.rst:25 f100af418c274747957f505384008fd3
+msgid ""
+"**The Robot Operating System (ROS) is a set of software libraries and "
+"tools for building robot applications.** From drivers and state-of-the-"
+"art algorithms to powerful developer tools, ROS has the open source tools"
+" you need for your next robotics project."
+msgstr ""
+
+#: ../../source/index.rst:28 150c072b85654ee39da35ed2f3f98eb5
+msgid ""
+"Since ROS was started in 2007, a lot has changed in the robotics and ROS "
+"community. The goal of the ROS 2 project is to adapt to these changes, "
+"leveraging what is great about ROS 1 and improving what isn’t."
+msgstr ""
+
+#: ../../source/index.rst:31 4f31fb0a47e842fba687c30aa6f29d7d
+msgid ""
+"This site contains the documentation for ROS 2. If you are looking for "
+"ROS 1 documentation, check out the `ROS wiki <https://wiki.ros.org>`__."
+msgstr ""
+
+#: ../../source/index.rst:34 4bab026a0a4e480d839ed4f0cbf3f6d6
+msgid ""
+"If you use ROS 2 in your work, please see :doc:`Citations <Citations>` to"
+" cite ROS 2."
+msgstr ""
+
+#: ../../source/index.rst:37 9c4124011ca0447f8e3de28528161281
+msgid "Getting started"
+msgstr ""
+
+#: ../../source/index.rst:39 1e191c404cfa4491a7fc5423c5e062d2
+msgid ":doc:`Installation <Installation>`"
+msgstr ""
+
+#: ../../source/index.rst:41 26e0f015997e4eea9003d991c2a7a638
+msgid "Instructions to set up ROS 2 for the first time"
+msgstr ""
+
+#: ../../source/index.rst:43 d38e387849874c6b99c1c4e61e7190a2
+msgid ":doc:`Tutorials <Tutorials>`"
+msgstr ""
+
+#: ../../source/index.rst:45 bfcf1b35a85b4a6b942abe4f0da18e20
+msgid "The best place to start for new users!"
+msgstr ""
+
+#: ../../source/index.rst:46 ee02863f74cd4709803cfcf7ecebcce2
+msgid ""
+"Hands-on sample projects that help you build a progression of necessary "
+"skills"
+msgstr ""
+
+#: ../../source/index.rst:48 6876623f582a40a6b778a1c94f45a194
+msgid ":doc:`How-To-Guides`"
+msgstr ""
+
+#: ../../source/index.rst:50 6c92e946c19a44908ffea136a0bf698b
+msgid ""
+"Quick answers to your \"How do I...?\" questions without working through "
+"the :doc:`Tutorials <Tutorials>`"
+msgstr ""
+
+#: ../../source/index.rst:52 54b09b5037dd443f9daecc509a5f0509
+msgid ":doc:`Concepts <Concepts>`"
+msgstr ""
+
+#: ../../source/index.rst:54 cb62bf522d0745298b835b54ac72181b
+msgid ""
+"High-level explanations of core ROS 2 concepts covered in the "
+":doc:`Tutorials <Tutorials>`"
+msgstr ""
+
+#: ../../source/index.rst:56 d26c75ddacec4770a38d71e749dc5746
+msgid ":doc:`Contact <Contact>`"
+msgstr ""
+
+#: ../../source/index.rst:58 08be4785f0b541d0afb73d3132f543c9
+msgid "Answers to your questions or a forum to start a discussion"
+msgstr ""
+
+#: ../../source/index.rst:62 0f550b8bb9424b90b411235a523b6b84
+msgid "The ROS 2 project"
+msgstr ""
+
+#: ../../source/index.rst:64 1ddbae64d6d04cef9123c20f4f71f71b
+msgid "If you're interested in the advancement of the ROS 2 project:"
+msgstr ""
+
+#: ../../source/index.rst:66 1d4da139178940f89eb51745ea6c19ca
+msgid ":doc:`Contributing <The-ROS2-Project/Contributing>`"
+msgstr ""
+
+#: ../../source/index.rst:68 7119fa4ddb064f668c1c6ae65911f860
+msgid ""
+"Best practices and methodology for contributing to ROS 2, as well as "
+"instructions for migrating existing ROS 1 content to ROS 2"
+msgstr ""
+
+#: ../../source/index.rst:70 a1212a0c96b3487685baeaf4e3987a16
+msgid ":doc:`Distributions <Releases>`"
+msgstr ""
+
+#: ../../source/index.rst:72 fb3180b03c8749ebb2af0cdbda69f654
+msgid "Past, present and future ROS 2 distributions"
+msgstr ""
+
+#: ../../source/index.rst:74 a129c9b68c5c430e98b021eb3f7ed91f
+msgid ":doc:`Features Status <The-ROS2-Project/Features>`"
+msgstr ""
+
+#: ../../source/index.rst:76 f987bc42c3d94fdea8ee27327351ac96
+msgid "Features in the current release"
+msgstr ""
+
+#: ../../source/index.rst:78 cae4876cf2a54ae8b262f108a2e84bc7
+msgid ":doc:`Feature Ideas <The-ROS2-Project/Feature-Ideas>`"
+msgstr ""
+
+#: ../../source/index.rst:80 4b3e84ae9e534f0483250dcee3b6eb4b
+msgid "Ideas for nice-to-have features that are not under active development"
+msgstr ""
+
+#: ../../source/index.rst:82 457d787ba5cb4ec787be7f645d223ae8
+msgid ":doc:`Roadmap <The-ROS2-Project/Roadmap>`"
+msgstr ""
+
+#: ../../source/index.rst:84 0fed9df53cbd430aa8a6765f4f5a3767
+msgid "Planned work for ROS 2 development"
+msgstr ""
+
+#: ../../source/index.rst:86 a0a75fc9b2ec46018c28877503d679a1
+msgid ":doc:`ROSCon Talks <The-ROS2-Project/ROSCon-Content>`"
+msgstr ""
+
+#: ../../source/index.rst:88 3cb7f1a6359a430b81a4cb0d1afdcec0
+msgid "Presentations by the community on ROS 2"
+msgstr ""
+
+#: ../../source/index.rst:90 a82c9cf0788541209ebcfd6416eedd78
+msgid ":doc:`Project Governance <The-ROS2-Project/Governance>`"
+msgstr ""
+
+#: ../../source/index.rst:92 a83cc20b910446f8bd688a2df81dc738
+msgid ""
+"Information about the ROS Technical Steering Committee, Working Groups, "
+"and upcoming events"
+msgstr ""
+
+#: ../../source/index.rst:94 2bf2743ec0814dfdbae8e741d3e16380
+msgid ":doc:`Marketing <The-ROS2-Project/Marketing>`"
+msgstr ""
+
+#: ../../source/index.rst:96 2711322635a547c68fbe7fb99a5cae16
+msgid "Downloadable marketing materials"
+msgstr ""
+
+#: ../../source/index.rst:97 0eb5f578407948fc81da63bdc36a97d0
+msgid "`Information about the ROS trademark <https://www.ros.org/blog/media/>`__"
+msgstr ""
+
+#: ../../source/index.rst:100 fb19bfdd3a664e6fa56f3e08cae61b72
+msgid "ROS community resources"
+msgstr ""
+
+#: ../../source/index.rst:102 9a604b52821d42d4a865610dfb996559
+msgid ""
+"If you need help, have an idea, or would like to contribute to the "
+"project, please visit our ROS community resources."
+msgstr ""
+
+#: ../../source/index.rst:104 68541049f2804144a2b8e5259e7751b2
+msgid ""
+"`Official ROS Discord Channel for discussion and support "
+"<https://discord.com/servers/open-robotics-1077825543698927656>`__ (ROS "
+"1, ROS 2)"
+msgstr ""
+
+#: ../../source/index.rst:106 a98f2cc9ce614902ae3c2e0cf181a4cd
+msgid ""
+"`Robotics Stack Exchange - community Q&A website "
+"<https://robotics.stackexchange.com/>`__ (ROS 1, ROS 2)"
+msgstr ""
+
+#: ../../source/index.rst:108 56bbd40064f04be0a35830cf2df3cfc9
+msgid ""
+"See :ref:`Contact Page <Using Robotics Stack Exchange>` for more "
+"information"
+msgstr ""
+
+#: ../../source/index.rst:110 ea00aa4b5ccc47fdb97863cfdc21ca2b
+msgid "`ROS Discourse <https://discourse.ros.org/>`__ (ROS 1, ROS 2)"
+msgstr ""
+
+#: ../../source/index.rst:112 78aa131d1c564012b8901c0428905ec8
+msgid "Forum for general discussions and announcements for the ROS community"
+msgstr ""
+
+#: ../../source/index.rst:113 7c6ed3c9e9f6433cb7dd2da520e44cb8
+msgid "See the :ref:`Contact Page <Using ROS Discourse>` for more information"
+msgstr ""
+
+#: ../../source/index.rst:115 c3a1df9894604a9680166cc868c792d6
+msgid "`ROS Index <https://index.ros.org/>`__ (ROS 1, ROS 2)"
+msgstr ""
+
+#: ../../source/index.rst:117 9686aceb4344480c93353b3e869a43b1
+msgid ""
+"Indexed list of all packages (i.e. `Python Package Index (PyPI) "
+"<https://pypi.org/>`_ for ROS packages)"
+msgstr ""
+
+#: ../../source/index.rst:118 7eec8442c033410690283090df996c11
+msgid "See which ROS distributions a package supports"
+msgstr ""
+
+#: ../../source/index.rst:119 c2d6da158b7844c1ab203a51f86e2f4a
+msgid "Link to a package's repository, API documentation, or website"
+msgstr ""
+
+#: ../../source/index.rst:120 cee5b6db7a4e44ecac94bbf2b437454a
+msgid ""
+"Inspect a package's license, build type, maintainers, status, and "
+"dependencies"
+msgstr ""
+
+#: ../../source/index.rst:121 22ce3e01614c43658fb4d6955014a3d6
+msgid ""
+"Get more info for a package on `ROS Answers "
+"<https://answers.ros.org/questions/>`__"
+msgstr ""
+
+#: ../../source/index.rst:123 207cce02cad54e48a005eb3bb7ab0504
+msgid ""
+"`ROS resource status page <https://status.openrobotics.org/>`__ (ROS 1, "
+"ROS 2)"
+msgstr ""
+
+#: ../../source/index.rst:125 d722e4d734d749459a8bad6654682c4d
+msgid ""
+"Check the current status of ROS resources like Discourse or the ROS build"
+" farm."
+msgstr ""
+
+#: ../../source/index.rst:128 6ebc08d4910b4e61b1708f90191b0150
+msgid "General ROS project resources"
+msgstr ""
+
+#: ../../source/index.rst:130 c8a0a7d40a644a32b73fa7936c488787
+msgid ""
+"`ROS Enhancement Proposals (REPs) <https://ros.org/reps/rep-0000.html>`__"
+" (ROS 1, ROS 2)"
+msgstr ""
+
+#: ../../source/index.rst:132 293c944985d24185a83173f05d1a4be6
+msgid "Proposals for new designs and conventions"
+msgstr ""
+
+#: ../../source/index.rst:134 e7cbacc7dd47499ca1e6474db16bac27
+msgid "`ROS Robots <https://robots.ros.org/>`__ (ROS 1, ROS 2)"
+msgstr ""
+
+#: ../../source/index.rst:136 d7e2ae3647674ab88aba913610b20435
+msgid "Showcases robots projects from the community"
+msgstr ""
+
+#: ../../source/index.rst:137 518890203bda47eba941591fc9377548
+msgid "Instructions on how to contribute a robot"
+msgstr ""
+
+#: ../../source/index.rst:139 9783c6c7c9f640d0abdec1cd24fe4a67
+msgid "`ROS Wiki <http://wiki.ros.org/>`__ (ROS 1)"
+msgstr ""
+
+#: ../../source/index.rst:141 dcc46c4e65164586878c24a639fb81b7
+msgid "ROS 1 documentation and user modifiable content"
+msgstr ""
+
+#: ../../source/index.rst:142 b9bafc55179048799e901a0b8c15afdb
+msgid "Active until at least the last ROS 1 distribution is EOL"
+msgstr ""
+
+#: ../../source/index.rst:144 d5f0d269e31b420181343cdf71094bca
+msgid "`ROS.org <https://www.ros.org/>`__ (ROS 1, ROS 2)"
+msgstr ""
+
+#: ../../source/index.rst:146 c4860f72da8e402da91752c58f6bc6ea
+msgid ""
+"ROS 1 and ROS 2 product landing page, with high-level description of ROS "
+"and links to other ROS sites"
+msgstr ""
+
+#: ../../source/index.rst:149 a68eb09ea332457e977ecfc9e2767d99
+msgid "Events"
+msgstr ""
+
+#: ../../source/index.rst:151 b928254317f4448c89229b40d4cc537c
+msgid ""
+"`Official ROS Vimeo Channel <https://vimeo.com/osrfoundation>`__ (ROS 1, "
+"ROS 2)"
+msgstr ""
+
+#: ../../source/index.rst:153 f81dadc0bdb24d309639b98707d1798a
+msgid ""
+"Videos of ROSCon Talks, community and working group meetings, and project"
+" demos."
+msgstr ""
+
+#: ../../source/index.rst:155 3efa7516e30b46de8fa62287971ada8e
+msgid "`ROSCon website <https://roscon.ros.org/>`__ (ROS 1, ROS 2)"
+msgstr ""
+
+#: ../../source/index.rst:157 d9adc10bb5bf40868f1c38a4fa9bb6f2
+msgid "ROSCon is our annual ROS developer conference."
+msgstr ""
+
+#: ../../source/index.rst:158 2b365a384f0047e986797043c74bacd7
+msgid "This page also lists regional ROS events like ROSConJP and ROSConFr."
+msgstr ""
+
+#: ../../source/index.rst:160 96568db076e541e687c9e6c525b3e386
+msgid ""
+"`Open Source Robotics Foundation official events calendar "
+"<https://calendar.google.com/calendar/u/0/embed?src=agf3kajirket8khktupm9go748@group.calendar.google.com&ctz=America/Los_Angeles>`__"
+msgstr ""
+
+#: ../../source/index.rst:162 5c60aece8d3a4002a3499eba31cb2dfb
+msgid "This calendar is for official OSRF Events and working group meetings."
+msgstr ""
+
+#: ../../source/index.rst:163 2ba3c48514d94ef0872983f210a825c9
+msgid "`Submit your events here <https://bit.ly/OSRFCalendarForm>`__."
+msgstr ""
+
+#: ../../source/index.rst:165 3e3b006733e4476783d0463ade8f432a
+#, python-format
+msgid ""
+"`Open Source Robotics Foundation community calendar "
+"<https://calendar.google.com/calendar/embed?src=c_3fc5c4d6ece9d80d49f136c1dcd54d7f44e1acefdbe87228c92ff268e85e2ea0%40group.calendar.google.com&ctz=America%2FLos_Angeles>`__"
+msgstr ""
+
+#: ../../source/index.rst:167 fb76dc7f65bb4959b4078e1537f64a39
+msgid "This calendar is for unofficial ROS community events."
+msgstr ""
+
+#: ../../source/index.rst:168 8966c32c09394899a337df88c6eb0a2a
+msgid "`Submit your events here <https://bit.ly/OSRFCommunityCalendar>`__ ."
+msgstr ""
+
+#: ../../source/index.rst:171 764276d8c9634dae8b25aa1bf21adb4a
+msgid "Miscellaneous"
+msgstr ""
+
+#: ../../source/index.rst:172 6bfd3c51e1cb41cfb491271b1fa36d26
+msgid "`Purchase official ROS swag <https://spring.ros.org/>`__"
+msgstr ""
+
+#: ../../source/index.rst:174 e26ae27925f64fdb972434ef5dd7e571
+msgid "ROS on social media"
+msgstr ""
+
+#: ../../source/index.rst:176 3654fb49b4034b4095cbdb67294b4232
+msgid ""
+"`@OpenRoboticsOrg <https://twitter.com/OpenRoboticsOrg>`__ and `@ROSOrg "
+"<https://twitter.com/ROSOrg>`__ on Twitter"
+msgstr ""
+
+#: ../../source/index.rst:177 7da3f806c5a7404499e35de63f697359
+msgid ""
+"`Open Robotics on LinkedIn <https://www.linkedin.com/company/open-source-"
+"robotics-foundation>`__"
+msgstr ""
+
+#: ../../source/index.rst:179 6d28b60b7c9a42e29d79d0217764dea5
+msgid ""
+"Visit the `Open Source Robotics Foundation website "
+"<https://www.openrobotics.org/>`__"
+msgstr ""
+
+#: ../../source/index.rst:181 0b57a8a23f0c4691b40a8194aef0b484
+msgid ""
+"Tax deductible charitable donations to the Open Source Robotics "
+"Foundation can be sent via `DonorBox. <https://donorbox.org/support-open-"
+"robotics?utm_medium=qrcode&utm_source=qrcode>`__"
+msgstr ""
+
+#: ../../source/index.rst:184 8f5780693e2f4fea8d52b90a285625e6
+msgid "Deprecated"
+msgstr ""
+
+#: ../../source/index.rst:185 1336441c181b4ea7ba213d906c35e601
+msgid "`ROS Answers <https://answers.ros.org/questions/>`__ (ROS 1, ROS 2)"
+msgstr ""
+
+#: ../../source/index.rst:187 13059f9a8ad845e7a21841f22cffd5d5
+msgid ""
+"ROS Answers was the ROS community Q&A website, until August, 2023. ROS "
+"Answers is currently available as a read-only resource."
+msgstr ""
+
+#: ../../source/index.rst:189 b6a37040491d4ef6aa3f93702b61d5bb
+msgid "`ROS 2 Docs <https://docs.ros2.org>`_"
+msgstr ""
+
+#: ../../source/index.rst:191 a580c6fedf6a432680c53f3d246bc376
+msgid "API documentation up to and including Galactic"
+msgstr ""
+
+#: ../../source/index.rst:193 0f6556af9e3b453b8a64fb639c642413
+msgid "`ROS 2 Design <http://design.ros2.org/>`__"
+msgstr ""
+
+#: ../../source/index.rst:195 1f0b0ebcd17c4737b1b606c18da26881
+msgid "Early design decisions behind ROS 2 development"
+msgstr ""
+
+#: ../../source/index.rst:196 86bd891511df435a9bca06cb38df74e3
+msgid ""
+"New design proposals should be submitted via `ROS Enhancement Proposals "
+"(REPs) <https://ros.org/reps/rep-0000.html>`__"
+msgstr ""
+

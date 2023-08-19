@@ -1,0 +1,432 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:8
+#: f65124e11afe4459a7fde52fd3daf4bf
+msgid "Writing a broadcaster (Python)"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:10
+#: 44c78e56a27b4d1c840ea57a581b5b5c
+msgid "**Goal:** Learn how to broadcast the state of a robot to tf2."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:12
+#: ec21e1ef8d3c4c8099583aede60e40be
+msgid "**Tutorial level:** Intermediate"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:14
+#: 92fb3ad7112e49ffaef3f3943f07a6b2
+msgid "**Time:** 15 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:18
+#: 467e2f7ed2484127aec3e1cc7cffe45d
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:21
+#: fdff37d3585241fa9456e4409aee3b1f
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:23
+#: 29fde03fa1d647f8b55b9d50a9defe53
+msgid ""
+"In the next two tutorials we will write the code to reproduce the demo "
+"from the :doc:`Introduction to tf2 <./Introduction-To-Tf2>` tutorial. "
+"After that, following tutorials focus on extending the demo with more "
+"advanced tf2 features, including the usage of timeouts in transformation "
+"lookups and time travel."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:27
+#: 52faab86b218493e84ae87f359008a96
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:29
+#: 52558fdb27cd4203a4aa8f0fee0702d7
+msgid ""
+"This tutorial assumes you have a working knowledge of ROS 2 and you have "
+"completed the :doc:`Introduction to tf2 tutorial <./Introduction-To-"
+"Tf2>`. In previous tutorials, you learned how to :doc:`create a workspace"
+" <../../Beginner-Client-"
+"Libraries/Creating-A-Workspace/Creating-A-Workspace>` and :doc:`create a "
+"package <../../Beginner-Client-Libraries/Creating-Your-First-"
+"ROS2-Package>`. You also have created the ``learning_tf2_py`` "
+":doc:`package <./Writing-A-Tf2-Static-Broadcaster-Py>`, which is where we"
+" will continue working from."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:34
+#: 01dbe049756740858d32f174b137efa2
+msgid "Tasks"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:37
+#: e089b274a2df44f9b3a04ea278688498
+msgid "1 Write the broadcaster node"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:39
+#: 4a53eee395e3437b821ced3e5bd1345c
+msgid ""
+"Let's first create the source files. Go to the ``learning_tf2_py`` "
+"package we created in the previous tutorial. Inside the "
+"``src/learning_tf2_py/learning_tf2_py`` directory download the example "
+"broadcaster code by entering the following command:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:45
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:361
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:379
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:401
+#: 86a1beb6171d4e1792337002af1926d9 872b5e1c2c504718838701a1c489e222
+#: c066ffa2b018457d82622f5f2e384d72 cd54b7f723ca454e8b3ea0889d222ca8
+msgid "Linux"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:51
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:367
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:385
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:407
+#: 883d7421d2a549c7af0254744355aa45 a8af787fec4c4422af8ac5c4765a3286
+#: d95e6c65d7e24097af39db47ba36bc03 df209bf4d8f34d7ab8befbe3e5e559ee
+msgid "macOS"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:57
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:371
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:391
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:413
+#: 1b74fe234e934e35951986afd29697ad 73e23bc073de4c86b9439effee81d442
+#: 84eff4e35ba8430893073a986fda767b ae9d2ab0ea9249758e67331985a26aa1
+msgid "Windows"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:59
+#: d378303853614ca1af39a532a907cd08
+msgid "In a Windows command line prompt:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:65
+#: 4f125ce59a894d1a830606e6fc60c810
+msgid "Or in powershell:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:71
+#: 3d38037c4d514749ae2c866dd465b1cd
+msgid "Open the file using your preferred text editor."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:173
+#: 8ea378a833df490194cff3967b460259
+msgid "1.1 Examine the code"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:175
+#: 809281186d2548738240527394d53d83
+msgid ""
+"Now, let's take a look at the code that is relevant to publishing the "
+"turtle pose to tf2. Firstly, we define and acquire a single parameter "
+"``turtlename``, which specifies a turtle name, e.g. ``turtle1`` or "
+"``turtle2``."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:183
+#: c77178940523476ab391d609dd1b7291
+msgid ""
+"Afterward, the node subscribes to topic ``turtleX/pose`` and runs "
+"function ``handle_turtle_pose`` on every incoming message."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:193
+#: f9df51adade148aab3856bb2e00e15ac
+msgid ""
+"Now, we create a ``TransformStamped`` object and give it the appropriate "
+"metadata."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:195
+#: 2100cd13e43546f490290b85e3ccec72
+msgid ""
+"We need to give the transform being published a timestamp, and we'll just"
+" stamp it with the current time by calling ``self.get_clock().now()``. "
+"This will return the current time used by the ``Node``."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:197
+#: 59df5210c2c04bd1beeb2d5c32f9688f
+msgid ""
+"Then we need to set the name of the parent frame of the link we're "
+"creating, in this case ``world``."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:199
+#: f954ec9d0d2449ed8f626e42e486be82
+msgid ""
+"Finally, we need to set the name of the child node of the link we're "
+"creating, in this case this is the name of the turtle itself."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:201
+#: a61e7ec58cf449508d33229b98e007f4
+msgid ""
+"The handler function for the turtle pose message broadcasts this turtle's"
+" translation and rotation, and publishes it as a transform from frame "
+"``world`` to frame ``turtleX``."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:213
+#: 86d7d190e4d841e5a71b5c9153466325
+msgid ""
+"Here we copy the information from the 3D turtle pose into the 3D "
+"transform."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:232
+#: 5ae788648c4c45129d2f867669cb4974
+msgid ""
+"Finally we take the transform that we constructed and pass it to the "
+"``sendTransform`` method of the ``TransformBroadcaster`` that will take "
+"care of broadcasting."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:241
+#: 2b7004a649d64246a3fc0d9e0d1b1987
+msgid ""
+"You can also publish static transforms with the same pattern by "
+"instantiating a ``tf2_ros.StaticTransformBroadcaster`` instead of a "
+"``tf2_ros.TransformBroadcaster``. The static transforms will be published"
+" on the ``/tf_static`` topic and will be sent only when required, not "
+"periodically. For more details see :doc:`here <./Writing-A-Tf2-Static-"
+"Broadcaster-Py>`."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:246
+#: e9d74ab1057c4333b4287a689bd92d78
+msgid "1.2 Add an entry point"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:248
+#: eadddbbf0fde444a90284c5ef7004e15
+msgid ""
+"To allow the ``ros2 run`` command to run your node, you must add the "
+"entry point to ``setup.py`` (located in the ``src/learning_tf2_py`` "
+"directory)."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:251
+#: b383a1d3a597483ebf4cdba8ca5049b9
+msgid ""
+"Finally, add the following line between the ``'console_scripts':`` "
+"brackets:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:258
+#: 21abf3ea8a2045ea8ea41b503ba13e5c
+msgid "2 Write the launch file"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:260
+#: 68075d8bdca44aa9af037a4248cf848b
+msgid ""
+"Now create a launch file for this demo. With your text editor, create a "
+"new file called ``turtle_tf2_demo_launch.py`` in the ``launch`` folder, "
+"and add the following lines:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:287
+#: 5741d5b6f25341bf89d812266fae2955
+msgid "2.1 Examine the code"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:289
+#: c236dfada42c458e8263053ecf154a50
+msgid ""
+"First we import required modules from the ``launch`` and ``launch_ros`` "
+"packages. It should be noted that ``launch`` is a generic launching "
+"framework (not ROS 2 specific) and ``launch_ros`` has ROS 2 specific "
+"things, like nodes that we import here."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:297
+#: 65500e15fe594e66bae7ff3a56598c4c
+msgid ""
+"Now we run our nodes that start the turtlesim simulation and broadcast "
+"``turtle1`` state to the tf2 using our ``turtle_tf2_broadcaster`` node."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:316
+#: 70a2d4d3ba804c35ab6eb33fabc52016
+msgid "2.2 Add dependencies"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:318
+#: 58996bece1264e5e9138ba59a5622b33
+msgid ""
+"Navigate one level back to the ``src/learning_tf2_py`` directory, where "
+"the ``setup.py``, ``setup.cfg``, and ``package.xml`` files are located."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:320
+#: 047a56dd5ce540f79bb4a21f2bf83ee0
+msgid ""
+"Open ``package.xml`` with your text editor. Add the following "
+"dependencies corresponding to your launch file's import statements:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:328
+#: 8b0b93932dd0435ab8472a0fbd68d660
+msgid ""
+"This declares the additional required ``launch`` and ``launch_ros`` "
+"dependencies when its code is executed."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:330
+#: 2389f008424d44458edd9cc4efbca877
+msgid "Make sure to save the file."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:333
+#: dfea34af899742aaabce99b33764ab82
+msgid "2.3 Update setup.py"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:335
+#: 225efebf818c4a94a6b78ce42ee13674
+msgid ""
+"Reopen ``setup.py`` and add the line so that the launch files from the "
+"``launch/`` folder would be installed. The ``data_files`` field should "
+"now look like this:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:345
+#: 6b8316deae8f46c7b451030a65d274a9
+msgid "Also add the appropriate imports at the top of the file:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:352
+#: 46001ada57bb466db0203818ad43eb9e
+msgid ""
+"You can learn more about creating launch files in :doc:`this tutorial "
+"<../Launch/Creating-Launch-Files>`."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:355
+#: 32501ba2cc9c49f8acb7730020722396
+msgid "3 Build"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:357
+#: 858bb219dc62476a83b1a918bfb3c415
+msgid ""
+"Run ``rosdep`` in the root of your workspace to check for missing "
+"dependencies."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:369
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:373
+#: 5e2e9164239e46bf9f6409557bd70524 a08252010af848eebd33a918036f3384
+msgid ""
+"rosdep only runs on Linux, so you will need to install ``geometry_msgs`` "
+"and ``turtlesim`` dependencies yourself"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:375
+#: 85e3f0e517d149688d3e633b72dd4d34
+msgid "Still in the root of your workspace, build your package:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:397
+#: 7594c7b9bdf74e3baa8c1a2af7abb78c
+msgid ""
+"Open a new terminal, navigate to the root of your workspace, and source "
+"the setup files:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:424
+#: 7c812e1e08ca455fb27d98c5f72a7370
+msgid "4 Run"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:426
+#: ee94309bb77845f79543407698391cf9
+msgid ""
+"Now run the launch file that will start the turtlesim simulation node and"
+" ``turtle_tf2_broadcaster`` node:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:432
+#: fb86b20732c3471caecbb452672498f5
+msgid "In the second terminal window type the following command:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:438
+#: d85e8e6c468c4892962531946f9d5d02
+msgid ""
+"You will now see that the turtlesim simulation have started with one "
+"turtle that you can control."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:442
+#: fc1000467a53444ea75965d49a4dde64
+msgid ""
+"Now, use the ``tf2_echo`` tool to check if the turtle pose is actually "
+"getting broadcast to tf2:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:448
+#: 09b2d05b3b6d48e2901b22d862050ed0
+msgid ""
+"This should show you the pose of the first turtle. Drive around the "
+"turtle using the arrow keys (make sure your ``turtle_teleop_key`` "
+"terminal window is active, not your simulator window). In your console "
+"output you will see something similar to this:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:467
+#: d18aad6059954b3f8c6e22ce0579c776
+msgid ""
+"If you run ``tf2_echo`` for the transform between the ``world`` and "
+"``turtle2``, you should not see a transform, because the second turtle is"
+" not there yet. However, as soon as we add the second turtle in the next "
+"tutorial, the pose of ``turtle2`` will be broadcast to tf2."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:471
+#: b99836c9f750400c9c1c1bebe6d7fa4c
+msgid "Summary"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py.rst:473
+#: 745a76c7ccaf43b7b5deced02fd2acce
+msgid ""
+"In this tutorial you learned how to broadcast the pose of the robot "
+"(position and orientation of the turtle) to tf2 and how to use the "
+"``tf2_echo`` tool. To actually use the transforms broadcasted to tf2, you"
+" should move on to the next tutorial about creating a :doc:`tf2 listener "
+"<./Writing-A-Tf2-Listener-Py>`."
+msgstr ""
+

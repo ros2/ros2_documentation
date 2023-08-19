@@ -1,0 +1,579 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:6
+#: db32665adc434b31adb3e6859ec902d1
+msgid "Crystal Clemmys (``crystal``)"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:10
+#: ac97da12d19f41cc8c28803416fe855e
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:12
+#: 62c36e5a269341779124014d1c517f18
+msgid "*Crystal Clemmys* is the third release of ROS 2."
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:15
+#: a180540a23584e48b0677bb76d157641
+msgid "Supported Platforms"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:17
+#: 042f76ec0d404079b3e4463d371ac8fd
+msgid ""
+"Crystal Clemmys is primarily supported on the following platforms (see "
+"`REP 2000 <https://www.ros.org/reps/rep-2000.html#crystal-clemmys-"
+"december-2018-december-2019>`__ for full details):"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:19
+#: 1b9483913bc54880ab1608bf35c3bbdc
+msgid "Tier 1 platforms:"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:21
+#: 6f0a264d84754f36a4ffd9f88ec1d4a9
+msgid "Ubuntu 18.04 (Bionic)"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:22
+#: d7081770e67f4d1ba0ca5c3935185873
+msgid "Mac macOS 10.12 (Sierra)"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:23
+#: 6dedcbc74e5941308cf3cf60b5b51ecd
+msgid "Windows 10"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:25
+#: 821ea894659f4ddea10e62f9fca240da
+msgid "Tier 2 platforms:"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:27
+#: f185cd9c2f8c4c51bc1ba0a8f50b5f20
+msgid "Ubuntu 16.04 (Xenial)"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:31
+#: 976bc9d285b6496fa64bc3160c8e1ae1
+msgid "New features in this ROS 2 release"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:33
+#: 2a5f2cd52a454b7db1818b206a72d053
+msgid ""
+"Actions in C / C++ (`server "
+"<https://github.com/ros2/examples/tree/af08e6f7ac50f7808dbe6165f1adfd8e6cd3a79c/rclcpp/minimal_action_server>`__"
+" / `client "
+"<https://github.com/ros2/examples/tree/af08e6f7ac50f7808dbe6165f1adfd8e6cd3a79c/rclcpp/minimal_action_client>`__"
+" examples)"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:34
+#: e70a2e31d72d46efade4a4f85c4817d7
+msgid "`gazebo_ros_pkgs <http://gazebosim.org/tutorials?tut=ros2_overview>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:35
+#: 5a2014d245e24b1eb54d4e060e841709
+msgid ""
+"`image_transport <https://github.com/ros-"
+"perception/image_common/wiki/ROS2-Migration>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:36
+#: c46c6ac712e34e24a5b96e2b86d17666
+msgid ""
+"`navigation2 <https://github.com/ros-"
+"planning/navigation2/blob/master/README.md>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:37
+#: 4f8d3672f97f4ab2929aeec94b2cd550
+msgid "`rosbag2 <https://index.ros.org/r/rosbag2/github-ros2-rosbag2/#crystal>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:38
+#: 04cfee8ab52c4c3aa085811daa026553
+msgid "`rqt <../../Concepts/Intermediate/About-RQt>`"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:39
+#: 30a878a0435443e0a141f52b2bed4980
+msgid "Improvement in memory management"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:40
+#: c116abac9d5f4c2396a93b7cce45e285
+msgid "Introspection information about nodes"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:41
+#: 5c6a8fb9cc9c47dcac309d327d7fb7c8
+msgid "Launch system improvements"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:43
+#: f37bc0b7f66d4c3a97910bb756017aed
+msgid "`Arguments <https://github.com/ros2/launch/pull/123>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:44
+#: e92db76c714b4efe95fe5c7471b43a88
+msgid "`Nested launch files <https://github.com/ros2/launch/issues/116>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:45
+#: ae02ab0bbebf4386a4b232410cddb53a
+msgid "`Conditions <https://github.com/ros2/launch/issues/105>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:46
+#: 47bb3626dde9460caa7e8de3f562dea5
+msgid "`Pass params to Nodes <https://github.com/ros2/launch/issues/117>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:48
+#: 47c5d6e6a74b4b5587c25f74d0248117
+msgid ""
+"Laid the groundwork for `file-based logging and /rosout publishing "
+"<https://github.com/ros2/rcl/pull/327>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:49
+#: 105f061209004661a9488ede3546b45f
+msgid ""
+"`Time and Duration API in Python "
+"<https://github.com/ros2/rclpy/issues/186>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:50
+#: f79cd072860d4908a1aba87db05429de
+msgid ""
+"`Parameters work with Python nodes "
+"<https://github.com/ros2/rclpy/issues/202>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:54
+#: e305ea28d0da4e10befa1595e1abe3e7
+msgid "Changes since the Bouncy release"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:56
+#: c8133263d7f443b19ab6d2a2f1c3bd01
+msgid "Changes since the `Bouncy Bolson <Release-Bouncy-Bolson>` release:"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:58
+#: b0f7dde6bcdb4e078a8c39d31d5f23e6
+msgid "geometry2 - ``tf2_ros::Buffer`` API Change"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:60
+#: 5e59482ed4034915b1334f57477f5975
+msgid ""
+"``tf2_ros::Buffer`` now uses ``rclcpp::Time``, with the constructor "
+"requiring a ``shared_ptr`` to a ``rclcpp::Clock`` instance. See "
+"https://github.com/ros2/geometry2/pull/67 for details, with example "
+"usage:"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:72
+#: f56f892d62c54f9ca458258c76018259
+msgid "All ``rclcpp`` and ``rcutils`` logging macros require semicolons."
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:74
+#: ff3b5ef0a4f8467886d8b85ef7bad67e
+msgid "See https://github.com/ros2/rcutils/issues/113 for details."
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:76
+#: cc0470d6bb854e538894be0c16c973b9
+msgid ""
+"``rcutils_get_error_string_safe()`` and ``rcl_get_error_string_safe()`` "
+"have been replaced with ``rcutils_get_error_string().str`` and "
+"``rcl_get_error_string().str``."
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:78
+#: 00d5a9dce32c46babe8fca3e082ed121
+msgid "See https://github.com/ros2/rcutils/pull/121 for details."
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:80
+#: 92d9bf84e04e4495abfaf6d8a7cdfeb4
+msgid "rmw - ``rmw_init`` API Change"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:82
+#: f357980c58a5472081a6f01f24a66a2c
+msgid ""
+"There are two new structs, the ``rcl_context_t`` and the "
+"``rcl_init_options_t``, which are used with ``rmw_init``. The init "
+"options struct is used to pass options down to the middleware and is an "
+"input to ``rmw_init``. The context is a handle which is an output of "
+"``rmw_init`` function is used to identify which init-shutdown cycle each "
+"entity is associated with, where an \"entity\" is anything created like a"
+" node, guard condition, etc."
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:86
+#: 422e42767044472680ab7a43c6546a00
+msgid ""
+"This is listed here because maintainers of alternative rmw "
+"implementations will need to implement these new functions to have their "
+"rmw implementation work in Crystal."
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:88
+#: fddd547748e94a5aae24839689afabae
+msgid "This is the function that had a signature change:"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:90
+#: 2333ff73dc4645bea314499b5b6c4549
+msgid ""
+"`rmw_init "
+"<https://github.com/ros2/rmw/blob/b7234243588a70fce105ea20b073f5ef6c1b685c/rmw/include/rmw/init.h#L54-L82>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:92
+#: f2e19f5546a040ebb6cb24166eab9403
+msgid ""
+"Additionally, there are these new functions which need to be implemented "
+"by each rmw implementation:"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:94
+#: 57d0ff6db17d4259b2182fcd5d15745e
+msgid ""
+"`rmw_shutdown "
+"<https://github.com/ros2/rmw/blob/b7234243588a70fce105ea20b073f5ef6c1b685c/rmw/include/rmw/init.h#L84-L109>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:95
+#: 4890d0f31f9047ae8fee620098efdc2f
+msgid ""
+"`rmw_init_options_init "
+"<https://github.com/ros2/rmw/blob/b7234243588a70fce105ea20b073f5ef6c1b685c/rmw/include/rmw/init_options.h#L62-L92>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:96
+#: bb116ee7d21945359d1925aa2679caef
+msgid ""
+"`rmw_init_options_copy "
+"<https://github.com/ros2/rmw/blob/b7234243588a70fce105ea20b073f5ef6c1b685c/rmw/include/rmw/init_options.h#L94-L128>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:97
+#: 8cd5c9ed8dca4c22b36d04ef9ca752c4
+msgid ""
+"`rmw_init_options_fini "
+"<https://github.com/ros2/rmw/blob/b7234243588a70fce105ea20b073f5ef6c1b685c/rmw/include/rmw/init_options.h#L130-L153>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:99
+#: a6a430a4e51f484d87d0f8454c758253
+msgid ""
+"Here's an example of what minimally needs to be changed in an rmw "
+"implementation to adhere to this API change:"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:101
+#: e63f16552bf942de90454481219934bb
+msgid "`rmw_fastrtps pr <https://github.com/ros2/rmw_fastrtps/pull/237/files>`_"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:103
+#: d8f67dae1eff47fab2182f90ff62deec
+msgid "rcl - ``rcl_init`` API Change"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:105
+#: 7e750de8ac344c85b835d03b4e3bacb2
+msgid ""
+"Like the ``rmw`` change above, there's two new structs in ``rcl`` called "
+"``rcl_context_t`` and ``rcl_init_options_t``. The init options are passed"
+" into ``rcl_init`` as an input and the context is passed in as an output."
+" The context is used to associate all other rcl entities to a specific "
+"init-shutdown cycle, effectively making init and shutdown no longer "
+"global functions, or rather those functions no longer use an global state"
+" and instead encapsulate all state within the context type."
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:109
+#: 0eb966518a734d2ba9194bf696ec54ab
+msgid ""
+"Any maintainers of a client library implementation (that also uses "
+"``rcl`` under the hood) will need to make changes to work with Crystal."
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:111
+#: 1e578050813a44b48ac25c0b7836b8ee
+msgid "These functions were removed:"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:113
+#: 6f9721e99a564c5e87597de43495bbd1
+msgid "``rcl_get_global_arguments``"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:114
+#: e4bdac9f11024dc88cdbe040e811a01f
+msgid "``rcl_get_instance_id``"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:115
+#: aed419fb29354c8abc49a6d8df551f54
+msgid "``rcl_ok``"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:117
+#: dee21d647515436ab870129966ec196b
+msgid "These functions had signature changes:"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:119
+#: 91fb802a20b545aeb3449277f4f74b6b
+msgid ""
+"`rcl_init "
+"<https://github.com/ros2/rcl/blob/657d9e84c73e4268176efd163e96fda73c1a76d9/rcl/include/rcl/init.h#L30-L82>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:120
+#: c4d8928b8310457795a98f52d21654a0
+msgid ""
+"`rcl_shutdown "
+"<https://github.com/ros2/rcl/blob/657d9e84c73e4268176efd163e96fda73c1a76d9/rcl/include/rcl/init.h#L84-L111>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:121
+#: f101eeaeb9c04638aae13aad275bb1d7
+msgid ""
+"`rcl_guard_condition_init "
+"<https://github.com/ros2/rcl/blob/657d9e84c73e4268176efd163e96fda73c1a76d9/rcl/include/rcl/guard_condition.h#L54-L99>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:122
+#: b2b18fcff130433fb17f0621ce1fafea
+msgid ""
+"`rcl_guard_condition_init_from_rmw "
+"<https://github.com/ros2/rcl/blob/657d9e84c73e4268176efd163e96fda73c1a76d9/rcl/include/rcl/guard_condition.h#L101-L140>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:123
+#: 4b6f4a76c15f4d8f8ce2e2b943e3dce3
+msgid ""
+"`rcl_node_init "
+"<https://github.com/ros2/rcl/blob/657d9e84c73e4268176efd163e96fda73c1a76d9/rcl/include/rcl/node.h#L100-L194>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:124
+#: 2e28a8d5a3d34a919254bb104f4d08b0
+msgid ""
+"`rcl_timer_init "
+"<https://github.com/ros2/rcl/blob/657d9e84c73e4268176efd163e96fda73c1a76d9/rcl/include/rcl/timer.h#L64-L159>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:126
+#: dbf64df97d3a4a2abaa5a054c489700d
+msgid "These are the new functions and types:"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:128
+#: bb38476c2d7e44de9f16dedc27e97a7a
+msgid ""
+"`rcl_context_t "
+"<https://github.com/ros2/rcl/blob/657d9e84c73e4268176efd163e96fda73c1a76d9/rcl/include/rcl/context.h#L36-L136>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:129
+#: 8c6ef9155fcb4913bcd3c0f6b682c2b8
+msgid ""
+"`rcl_get_zero_initialized_context "
+"<https://github.com/ros2/rcl/blob/657d9e84c73e4268176efd163e96fda73c1a76d9/rcl/include/rcl/context.h#L138-L142>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:130
+#: 0f69c2283a4442ec83bc4970af983e02
+msgid ""
+"`rcl_context_fini "
+"<https://github.com/ros2/rcl/blob/657d9e84c73e4268176efd163e96fda73c1a76d9/rcl/include/rcl/context.h#L146-L171>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:131
+#: 3beed2c06a274884820b304ceb492089
+msgid ""
+"`rcl_context_get_init_options "
+"<https://github.com/ros2/rcl/blob/657d9e84c73e4268176efd163e96fda73c1a76d9/rcl/include/rcl/context.h#L175-L205>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:132
+#: e9fd5ba2d0c6421f950fc51d754dc8d2
+msgid ""
+"`rcl_context_get_instance_id "
+"<https://github.com/ros2/rcl/blob/657d9e84c73e4268176efd163e96fda73c1a76d9/rcl/include/rcl/context.h#L207-L233>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:133
+#: 88ee28bda2784bc0937000d7845e5e38
+msgid ""
+"`rcl_context_is_valid "
+"<https://github.com/ros2/rcl/blob/657d9e84c73e4268176efd163e96fda73c1a76d9/rcl/include/rcl/context.h#L235-L255>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:134
+#: 9421e00e50e749949266a36218f2d594
+msgid ""
+"`rcl_init_options_t "
+"<https://github.com/ros2/rcl/blob/657d9e84c73e4268176efd163e96fda73c1a76d9/rcl/include/rcl/init_options.h#L32-L37>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:135
+#: 269cce9c391447b0a782f5391162f5ae
+msgid ""
+"`rcl_get_zero_initialized_init_options "
+"<https://github.com/ros2/rcl/blob/657d9e84c73e4268176efd163e96fda73c1a76d9/rcl/include/rcl/init_options.h#L39-L43>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:136
+#: ddfe0a02509b41d78f57c320521375cb
+msgid ""
+"`rcl_init_options_init "
+"<https://github.com/ros2/rcl/blob/657d9e84c73e4268176efd163e96fda73c1a76d9/rcl/include/rcl/init_options.h#L45-L73>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:137
+#: c3388ec0b6344badb6a390284fbd0eb4
+msgid ""
+"`rcl_init_options_copy "
+"<https://github.com/ros2/rcl/blob/657d9e84c73e4268176efd163e96fda73c1a76d9/rcl/include/rcl/init_options.h#L75-L105>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:138
+#: 99cf57ddb71446b98a2d977eafa5d2e6
+msgid ""
+"`rcl_init_options_fini "
+"<https://github.com/ros2/rcl/blob/657d9e84c73e4268176efd163e96fda73c1a76d9/rcl/include/rcl/init_options.h#L107-L128>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:139
+#: 58a7250dcf5c4c7d9678acbfe4136023
+msgid ""
+"`rcl_init_options_get_rmw_init_options "
+"<https://github.com/ros2/rcl/blob/657d9e84c73e4268176efd163e96fda73c1a76d9/rcl/include/rcl/init_options.h#L130-L153>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:140
+#: 24c8d34cde694f22b026d7d42670daf2
+msgid ""
+"`rcl_node_is_valid_except_context "
+"<https://github.com/ros2/rcl/blob/657d9e84c73e4268176efd163e96fda73c1a76d9/rcl/include/rcl/node.h#L288-L299>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:141
+#: a70c35b02dd64532ba0b4d466e3ce32f
+msgid ""
+"`rcl_publisher_get_context "
+"<https://github.com/ros2/rcl/blob/657d9e84c73e4268176efd163e96fda73c1a76d9/rcl/include/rcl/publisher.h#L378-L404>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:142
+#: 0c488bd9b98d4c58a3c3fc1659597596
+msgid ""
+"`rcl_publisher_is_valid_except_context "
+"<https://github.com/ros2/rcl/blob/657d9e84c73e4268176efd163e96fda73c1a76d9/rcl/include/rcl/publisher.h#L428-L439>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:144
+#: 3028d9b1dc854178b9e2ffc6f0502088
+msgid ""
+"These new and changed functions will impact how you handle init and "
+"shutdown in your client library. For examples, look at the following "
+"``rclcpp`` and ``rclpy`` PR's:"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:147
+#: d2c25ab64fc049f1b20d5d6cde961d5d
+msgid "`rclcpp <https://github.com/ros2/rclcpp/pull/587>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:148
+#: c9fc0e69b0404b558f70d3b5f078960e
+msgid "`rclpy <https://github.com/ros2/rclpy/pull/249>`__"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:150
+#: 8f337c20cde04735a5729317d87d0281
+msgid ""
+"However, you may just continue to offer a single, global init and "
+"shutdown in your client library, and just store a single global context "
+"object."
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:153
+#: 6f8efebbf81c425aa4d40b6ef44a26c3
+msgid "Known Issues"
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:155
+#: 75a2622df1004e47b271560f0b882b67
+msgid ""
+"A race condition in Fast-RTPS 1.7.0 may cause messages to drop under "
+"stress (`Issue <https://github.com/ros2/rmw_fastrtps/issues/258>`__)."
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:156
+#: e362a14370864114ae968b626259874e
+msgid ""
+"Using the TRANSIENT_LOCAL QoS setting with rmw_fastrtps_cpp can crash "
+"applications with large messages (`Issue "
+"<https://github.com/ros2/rmw_fastrtps/issues/257>`__)."
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:157
+#: fdd8b2e9aa334a598dc21062fd98b5ca
+msgid ""
+"Cross-vendor communication between rmw_fastrtps_cpp and other "
+"implementations is not functioning on Windows (`Issue "
+"<https://github.com/ros2/rmw_fastrtps/issues/246>`__)."
+msgstr ""
+
+#: ../../source/Releases/Release-Crystal-Clemmys.rst:158
+#: 79b5c73d035e4d01a58a87a795621963
+msgid ""
+"When using OpenSplice (version < 6.9.190227) on macOS and Windows you "
+"might experience naming conflicts when when referencing field types with "
+"names from other packages if the same name also exist in the current "
+"package (`Issue <https://github.com/ros2/rmw_opensplice/issues/259>`__). "
+"By updating to a newer OpenSplice version as well as at least the third "
+"patch release of Crystal the problem should be resolved. On Linux "
+"updating to the latest Debian packages will include the newest OpenSplice"
+" version."
+msgstr ""
+

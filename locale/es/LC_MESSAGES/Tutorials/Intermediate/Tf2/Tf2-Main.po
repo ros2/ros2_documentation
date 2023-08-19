@@ -1,0 +1,196 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Intermediate/Tf2/Tf2-Main.rst:8
+#: ca82b8f85ccb47ff8c44e697a71cc79b
+msgid "``tf2``"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Tf2-Main.rst:10
+#: 46449b3261e84cea9a72424e409ab00d
+msgid ""
+"Many of the tf2 tutorials are available for both C++ and Python. The "
+"tutorials are streamlined to complete either the C++ track or the Python "
+"track. If you want to learn both C++ and Python, you should go through "
+"the tutorials once for C++ and once for Python."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Tf2-Main.rst:16
+#: 7f6c6d32cd5c4b8c8c90780cb490254d
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Tf2-Main.rst:39
+#: 172296ed1a7e4a88a8bd2c94aaaba3de
+msgid "Workspace setup"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Tf2-Main.rst:41
+#: 53291828803d40c7b3345ae26054a08e
+msgid ""
+"If you have not yet created a workspace in which to complete the "
+"tutorials, :doc:`follow this tutorial <../../Beginner-Client-"
+"Libraries/Creating-A-Workspace/Creating-A-Workspace>`."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Tf2-Main.rst:44
+#: 9cdef48682484fdbb314107d8a9973cf
+msgid "Learning tf2"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Tf2-Main.rst:46
+#: e7f17d27086e4687865da132c2667960
+msgid ":doc:`Introduction to tf2 <./Introduction-To-Tf2>`."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Tf2-Main.rst:48
+#: cb337c7b61fc4b899a2a07acac125e87
+msgid ""
+"This tutorial will give you a good idea of what tf2 can do for you. It "
+"shows off some of the tf2 power in a multi-robot example using turtlesim."
+" This also introduces using ``tf2_echo``, ``view_frames``, and ``rviz``."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Tf2-Main.rst:52
+#: d6ee0565d7ba4eef9b45e9de798b8fe7
+msgid ""
+"Writing a static broadcaster :doc:`(Python) <./Writing-A-Tf2-Static-"
+"Broadcaster-Py>` :doc:`(C++) <./Writing-A-Tf2-Static-Broadcaster-Cpp>`."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Tf2-Main.rst:54
+#: c90e91ca36b245cc9484dd4e3629c63a
+msgid ""
+"This tutorial teaches you how to broadcast static coordinate frames to "
+"tf2."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Tf2-Main.rst:56
+#: f0ba09fb0e004961b10400cfdc678fc5
+msgid ""
+"Writing a broadcaster :doc:`(Python) <./Writing-A-Tf2-Broadcaster-Py>` "
+":doc:`(C++) <Writing-A-Tf2-Broadcaster-Cpp>`."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Tf2-Main.rst:58
+#: af367d46d3034a22b10778ab82451f7c
+msgid "This tutorial teaches you how to broadcast the state of a robot to tf2."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Tf2-Main.rst:60
+#: 3ff29a335edc4ecda97550371ec3eecc
+msgid ""
+"Writing a listener :doc:`(Python) <./Writing-A-Tf2-Listener-Py>` "
+":doc:`(C++) <./Writing-A-Tf2-Listener-Cpp>`."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Tf2-Main.rst:62
+#: 51d3a74c64174607b54f48193f51b4ea
+msgid ""
+"This tutorial teaches you how to use tf2 to get access to frame "
+"transformations."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Tf2-Main.rst:64
+#: 9a2a2e4b4aad4660a9c4d1d201e4bb31
+msgid ""
+"Adding a frame :doc:`(Python) <./Adding-A-Frame-Py>` :doc:`(C++) "
+"<Adding-A-Frame-Cpp>`."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Tf2-Main.rst:66
+#: e9f27bdf8445476fa92330833bf7f185
+msgid "This tutorial teaches you how to add an extra fixed frame to tf2."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Tf2-Main.rst:68
+#: df8e2f1ac02e427fb49d9a8776c15dac
+msgid ""
+"Using time :doc:`(Python) <Learning-About-Tf2-And-Time-Py>` :doc:`(C++) "
+"<Learning-About-Tf2-And-Time-Cpp>`."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Tf2-Main.rst:70
+#: e40bc8c6791c480da8428fdd0ce06b15
+msgid ""
+"This tutorial teaches you to use the timeout in ``lookup_transform`` "
+"function to wait for a transform to be available on the tf2 tree."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Tf2-Main.rst:73
+#: ae9d2a544ef14546a0e03ac35e0b52a8
+msgid ""
+"Traveling in time :doc:`(Python) <./Time-Travel-With-Tf2-Py>` :doc:`(C++)"
+" <./Time-Travel-With-Tf2-Cpp>`."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Tf2-Main.rst:75
+#: 249a1a6f14f148c08bcc5c635664a362
+msgid "This tutorial teaches you about advanced time travel features of tf2."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Tf2-Main.rst:78
+#: da48a1655e76405e9d5c2cc693122d62
+msgid "Debugging tf2"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Tf2-Main.rst:80
+#: 87ca35147d8442a0bc9ca5584a2556a7
+msgid ":doc:`Quaternion fundamentals <./Quaternion-Fundamentals>`."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Tf2-Main.rst:82
+#: 1c851afd687746738fae5ff7b5d0c7e8
+msgid "This tutorial teaches you basics of quaternion usage in ROS 2."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Tf2-Main.rst:84
+#: 213c7105ea164f8eb9d1a20aed7b17b0
+msgid ":doc:`Debugging tf2 problems <./Debugging-Tf2-Problems>`."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Tf2-Main.rst:86
+#: ca89b043f6c5471b9a97555adf1bfe82
+msgid ""
+"This tutorial teaches you about a systematic approach for debugging tf2 "
+"related problems."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Tf2-Main.rst:89
+#: 193e265250d7477d948a84428a729357
+msgid "Using sensor messages with tf2"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Tf2-Main.rst:91
+#: 325754bb163a4088bd29c55de8070efa
+msgid ""
+":doc:`Using stamped datatypes with tf2_ros::MessageFilter <./Using-"
+"Stamped-Datatypes-With-Tf2-Ros-MessageFilter>`."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Tf2/Tf2-Main.rst:93
+#: df5d1d25544d41dc9db9be5a2397d913
+msgid ""
+"This tutorial teaches you how to use ``tf2_ros::MessageFilter`` to "
+"process stamped datatypes."
+msgstr ""
+

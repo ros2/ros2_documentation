@@ -1,0 +1,170 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Miscellaneous/Building-ROS2-Package-with-eclipse-2021-06.rst:6
+#: 833d58b9f92f48bf9a119eae8f4f0b04
+msgid "Building a package with Eclipse 2021-06"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Building-ROS2-Package-with-eclipse-2021-06.rst:12
+#: a30cbe9034d344d3976c14994a641524
+msgid ""
+"You cannot create a ROS 2 package with eclipse, you need to create it "
+"with commandline tools. Follow the :doc:`Create a package <../Beginner-"
+"Client-Libraries/Creating-Your-First-ROS2-Package>` tutorial."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Building-ROS2-Package-with-eclipse-2021-06.rst:15
+#: bf9dbf8b1c56477eb641a100f9f9a5d4
+msgid ""
+"After you created your project, you can edit the source code and build it"
+" with eclipse."
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Building-ROS2-Package-with-eclipse-2021-06.rst:17
+#: bfd4f8b2d2464f749754587937e159c5
+msgid "We start eclipse and select a eclipse-workspace."
+msgstr ""
+
+#: 3c8b823d890f424fb80888eb26589ce1
+msgid "eclipse_work_dir"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Building-ROS2-Package-with-eclipse-2021-06.rst:23
+#: 67f6ddb605e64942a43543d79a40939e
+msgid "We create a C++ project"
+msgstr ""
+
+#: b9e5e66b54e847f6884c1b9de475fdff
+msgid "eclipse_create_c++_project"
+msgstr ""
+
+#: 82e192d3e67b4666a3586e3c0ebc27c8
+msgid "eclipse_c++_project_select_type"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Building-ROS2-Package-with-eclipse-2021-06.rst:34
+#: 4aca69b1a6bc4e63baf664c9b2761576
+msgid "We see that we got C++ includes."
+msgstr ""
+
+#: b8dbaec6213a4a5e8780c31b83896b70
+msgid "eclipse_c++_project_includes"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Building-ROS2-Package-with-eclipse-2021-06.rst:41
+#: 54571d64a9bc437fbd49422d74a65e01
+msgid "We now import our ROS 2 project. The code is still in the old place."
+msgstr ""
+
+#: c30ade596935447281c20bb156a2e33e
+msgid "eclipse_import_project"
+msgstr ""
+
+#: d2a48c95db444c038fc7f64ba36a702c
+msgid "eclipse_import_filesystem"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Building-ROS2-Package-with-eclipse-2021-06.rst:51
+#: 5a35dab3dea2400a938d0150203e5b8f
+msgid ""
+"Click the Advanced in the Options and check the **Create links in "
+"worksapce**."
+msgstr ""
+
+#: 31e6bed64c664c1da1a955aab9a9af11
+msgid "eclipse_import_select_my_package"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Building-ROS2-Package-with-eclipse-2021-06.rst:59
+#: 356f70efa0e649199e7745bbf19676bb
+msgid ""
+"We see in the source code that the C++ includes got resolved but not the "
+"ROS 2 ones."
+msgstr ""
+
+#: b0170e6b2c0b499dbe35c7db72af2798
+msgid "eclipse_c++_wo_ros_includes"
+msgstr ""
+
+#: 340fc2ef7e5a4dac823bda15bbcff29c
+msgid "eclipse_c++_path_and_symbols"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Building-ROS2-Package-with-eclipse-2021-06.rst:70
+#: 04e8c9c313e541d2ac2704df2dc5d76b
+msgid ""
+"Add include paths of needed packages. (e.g. "
+"**/opt/ros/iron/include/rclcpp**, **/opt/ros/iron/include/std_msgs**, "
+"etc.)"
+msgstr ""
+
+#: a8832181349641cab99bf2e8ebd45de9
+msgid "eclipse_c++_add_directory_path"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Building-ROS2-Package-with-eclipse-2021-06.rst:78
+#: 68eef0f507174d07bbe399ffbd9a079a
+msgid "We now see that the ROS 2 includes got resolved too."
+msgstr ""
+
+#: 0cf1b1f6d39e432ab0ad6c5ae29953c6
+msgid "eclipse_c++_indexer_ok"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Building-ROS2-Package-with-eclipse-2021-06.rst:85
+#: 89765f374ef541be9379221ca406ec4a
+msgid ""
+"Adding Builder colcon, so that we can build with right-click on project "
+"and \"Build project\"."
+msgstr ""
+
+#: 5c718545a74b4378b11795231ec8f008
+msgid "eclipse_c++_properties_builders"
+msgstr ""
+
+#: 8ba254d6b17c46bd975b26e1c7e38992
+msgid "eclipse_c++_builder_main"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Building-ROS2-Package-with-eclipse-2021-06.rst:97
+#: 96afcb169607462fb1edf2d9b8d65452
+msgid "With PYTHONPATH you can also build python projects."
+msgstr ""
+
+#: 0881b113446944198e0acb6314108609
+msgid "eclipse_c++_builder_env"
+msgstr ""
+
+#: c52a8e188622457eaed1da61f42393e8
+msgid "eclipse_c++_properties_builders_with_colcon"
+msgstr ""
+
+#: ../../source/Tutorials/Miscellaneous/Building-ROS2-Package-with-eclipse-2021-06.rst:109
+#: bc566a1936564e2fae44642aa9b85db4
+msgid "Right-click on the project and select \"Build Project\"."
+msgstr ""
+
+#: 84cc770ec52745f19d985ce2221a3848
+msgid "eclipse_c++_build_project_with_colcon"
+msgstr ""
+

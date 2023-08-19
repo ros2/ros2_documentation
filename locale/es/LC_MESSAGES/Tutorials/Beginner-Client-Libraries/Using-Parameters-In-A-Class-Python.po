@@ -1,0 +1,468 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:8
+#: 38e3c96432ac4031a6be212fe79b56bb
+msgid "Using parameters in a class (Python)"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:10
+#: 5c5619aa384a433e958cc58c5b61030a
+msgid "**Goal:** Create and run a class with ROS parameters using Python."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:12
+#: adad44d3cb674dd08cb1db56f0bc26d1
+msgid "**Tutorial level:** Beginner"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:14
+#: 33f432c086af4e689ea838511909555d
+msgid "**Time:** 20 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:18
+#: d45c631b7a78455a83ef6731df34a409
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:21
+#: d3638df5712f4877a1e55fdfba9255e2
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:23
+#: 6d11254539c14555b031ff90ff9ff12b
+msgid ""
+"When making your own :doc:`nodes <../Beginner-CLI-Tools/Understanding-"
+"ROS2-Nodes/Understanding-ROS2-Nodes>` you will sometimes need to add "
+"parameters that can be set from the launch file."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:25
+#: 203aa7edbea341a1bc11f1f31978a36e
+msgid ""
+"This tutorial will show you how to create those parameters in a Python "
+"class, and how to set them in a launch file."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:28
+#: 25bbf68d87c14c15aea5501886431b81
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:30
+#: 4b6a8dc54cd0462d92c6398692521466
+msgid ""
+"In previous tutorials, you learned how to :doc:`create a workspace "
+"<./Creating-A-Workspace/Creating-A-Workspace>` and :doc:`create a package"
+" <./Creating-Your-First-ROS2-Package>`. You have also learned about "
+":doc:`parameters <../Beginner-CLI-Tools/Understanding-ROS2-Parameters"
+"/Understanding-ROS2-Parameters>` and their function in a ROS 2 system."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:34
+#: 24d94b149e034d5fbd1f906f494fb423
+msgid "Tasks"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:37
+#: fc41498ad64841ce9b19c2206c00650b
+msgid "1 Create a package"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:39
+#: 18c8f883f01b4fdc9760595de8d60a06
+msgid ""
+"Open a new terminal and :doc:`source your ROS 2 installation "
+"<../Beginner-CLI-Tools/Configuring-ROS2-Environment>` so that ``ros2`` "
+"commands will work."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:41
+#: 7d0cc5b29ac74f039b6312891f51d399
+msgid ""
+"Follow :ref:`these instructions <new-directory>` to create a new "
+"workspace named ``ros2_ws``."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:43
+#: 8ed8a6b90d9b41fea3d87e7f5371c33f
+msgid ""
+"Recall that packages should be created in the ``src`` directory, not the "
+"root of the workspace. Navigate into ``ros2_ws/src`` and create a new "
+"package:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:50
+#: c27f46cc4f5344f19f0b4e1582df5459
+msgid ""
+"Your terminal will return a message verifying the creation of your "
+"package ``python_parameters`` and all its necessary files and folders."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:52
+#: 1f05bce3ae634156ac8f1f906e1dc5bc
+msgid ""
+"The ``--dependencies`` argument will automatically add the necessary "
+"dependency lines to ``package.xml`` and ``CMakeLists.txt``."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:55
+#: c8169d3db42b45b981bd0fe235b7bf0c
+msgid "1.1 Update ``package.xml``"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:57
+#: d6476fe2b56b414fb7d056ab5942e42a
+msgid ""
+"Because you used the ``--dependencies`` option during package creation, "
+"you don't have to manually add dependencies to ``package.xml`` or "
+"``CMakeLists.txt``."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:59
+#: 3ba450ba29ce4955ad4e8e72774b89ed
+msgid ""
+"As always, though, make sure to add the description, maintainer email and"
+" name, and license information to ``package.xml``."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:68
+#: 51c271c0cd1b4330a720979b55617a2f
+msgid "2 Write the Python node"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:70
+#: 09bff4d6912945669d72103629541f88
+msgid ""
+"Inside the ``ros2_ws/src/python_parameters/python_parameters`` directory,"
+" create a new file called ``python_parameters_node.py`` and paste the "
+"following code within:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:109
+#: 1811be8f49f04f0892238facac2bbd68
+msgid "2.1 Examine the code"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:110
+#: 287f2cb133ea48cca2aee20abf5e6718
+msgid ""
+"The ``import`` statements at the top are used to import the package "
+"dependencies."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:112
+#: 18815912218347eb8abcc0ef35a9226c
+msgid ""
+"The next piece of code creates the class and the constructor. The line "
+"``self.declare_parameter('my_parameter', 'world')`` of the constructor "
+"creates a parameter with the name ``my_parameter`` and a default value of"
+" ``world``. The parameter type is inferred from the default value, so in "
+"this case it would be set to a string type. Next the ``timer`` is "
+"initialized with a period of 1, which causes the ``timer_callback`` "
+"function to be executed once a second."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:127
+#: 38517709d15146af9d7b9a2475422629
+msgid ""
+"The first line of our ``timer_callback`` function gets the parameter "
+"``my_parameter`` from the node, and stores it in ``my_param``. Next the "
+"``get_logger`` function ensures the event is logged. The "
+"``set_parameters`` function then sets the parameter ``my_parameter`` back"
+" to the default string value ``world``. In the case that the user changed"
+" the parameter externally, this ensures it is always reset back to the "
+"original."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:147
+#: 55b401d3f86548cb9b9658c93d7962e9
+msgid ""
+"Following the ``timer_callback`` is our ``main``. Here ROS 2 is "
+"initialized, an instance of the ``MinimalParam`` class is constructed, "
+"and ``rclpy.spin`` starts processing data from the node."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:162
+#: acdba09a338741a5a3284d8642d54103
+msgid "2.1.1 (Optional) Add ParameterDescriptor"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:163
+#: ef357920553b4fb79e05890844dd62e7
+msgid ""
+"Optionally, you can set a descriptor for the parameter. Descriptors allow"
+" you to specify a text description of the parameter and its constraints, "
+"like making it read-only, specifying a range, etc. For that to work, the "
+"``__init__`` code has to be changed to:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:183
+#: 1f71a5eedf664160ae536a019e26598e
+msgid ""
+"The rest of the code remains the same. Once you run the node, you can "
+"then run ``ros2 param describe /minimal_param_node my_parameter`` to see "
+"the type and description."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:187
+#: 777698dbf07d494c82bd21b373038e9c
+msgid "2.2 Add an entry point"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:189
+#: 3d1554a8e3104f0caaa0504ffd5951b0
+msgid ""
+"Open the ``setup.py`` file. Again, match the ``maintainer``, "
+"``maintainer_email``, ``description`` and ``license`` fields to your "
+"``package.xml``:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:199
+#: 51d2adc34d564020a1a783aa0d2e9f77
+msgid ""
+"Add the following line within the ``console_scripts`` brackets of the "
+"``entry_points`` field:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:209
+#: c73f09e8b63b4a84bddfe1fc83dc7070
+msgid "Don't forget to save."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:213
+#: 2b474e492e3142e4bb4459a4634897c5
+msgid "3 Build and run"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:215
+#: 6bd83b70c42d4b7eb7dfe7f72342366d
+msgid ""
+"It's good practice to run ``rosdep`` in the root of your workspace "
+"(``ros2_ws``) to check for missing dependencies before building:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:219
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:237
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:259
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:376
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:398
+#: 0e00257fb1ea44d889eba047c4976cd0 29f53372c58c4698b86afb401228a1ed
+#: 35e6e7f2905a448b8e10ceb215bcfbf0 aca3cc99294b46d7841f3e2593dc29b9
+#: cc8f8cd503c14c6a99b6d4a8bd641481
+msgid "Linux"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:225
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:243
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:265
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:382
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:404
+#: 31a96344028c48d28a20a1d46a7aff51 668cd710925344a4a22cd2f24aea65eb
+#: 8b82e451d528433bbac095dee8a83a79 904cc914ac1b4af29004eb568ac91b1a
+#: ea047287160d44eb9c3228526523e312
+msgid "macOS"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:227
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:231
+#: 69a10aefacc241478cc7d16e5f72b3b9 71affd2a78b64b329f4e0ba32c84d413
+msgid "rosdep only runs on Linux, so you can skip ahead to next step."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:229
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:249
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:271
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:388
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:410
+#: 1d26b01924bc4d97b4387152e06dc87d 49956b49abeb49faafb51ef24d0203df
+#: 76bb0d763bc744828e3e61ceb2a446a0 895bba9d9f5349248b3ec2c1df0c27f6
+#: e72d99af3ee048d0b699fe13dfc21d70
+msgid "Windows"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:233
+#: 883ce8f2f2704b8ca5dab8f9c70ae685
+msgid ""
+"Navigate back to the root of your workspace, ``ros2_ws``, and build your "
+"new package:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:255
+#: 656f0b7deef44c5eb6f066a41db81d4a
+msgid "Open a new terminal, navigate to ``ros2_ws``, and source the setup files:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:277
+#: 7208c90c663f4cd59f16c4dacf5e5fcd
+msgid "Now run the node:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:283
+#: 7a8ed0a351894b45977e95fb82927fe6
+msgid "The terminal should return the following message every second:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:289
+#: f7b185a334b1428d9c3a8470d4d04dae
+msgid ""
+"Now you can see the default value of your parameter, but you want to be "
+"able to set it yourself. There are two ways to accomplish this."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:293
+#: a27fd1332ef149b4b6e744c1ce622bef
+msgid "3.1 Change via the console"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:295
+#: 2b4e89d349304bfb980447375986d4d8
+msgid ""
+"This part will use the knowledge you have gained from the :doc:`tutoral "
+"about parameters <../Beginner-CLI-Tools/Understanding-ROS2-Parameters"
+"/Understanding-ROS2-Parameters>` and apply it to the node you have just "
+"created."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:297
+#: e0145dcc03b8457f8ced51852a3b636c
+msgid "Make sure the node is running:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:303
+#: 68b03c8b9ecc40dea266d19c019ce3c3
+msgid ""
+"Open another terminal, source the setup files from inside ``ros2_ws`` "
+"again, and enter the following line:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:309
+#: b1ff208e2b7541faaac0e61c30eb4901
+msgid ""
+"There you will see the custom parameter ``my_parameter``. To change it, "
+"simply run the following line in the console:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:316
+#: 04787f915f454a3dba054fd351b8fdfe
+msgid ""
+"You know it went well if you get the output ``Set parameter successful``."
+" If you look at the other terminal, you should see the output change to "
+"``[INFO] [minimal_param_node]: Hello earth!``"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:319
+#: c4d6381f67094985a54fd4c8b745c6af
+msgid ""
+"Since the node afterwards set the parameter back to ``world``, further "
+"outputs show  ``[INFO] [minimal_param_node]: Hello world!``"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:322
+#: a96e41df1eab441bbbf6862e80f5068f
+msgid "3.2 Change via a launch file"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:324
+#: 9521de3f09a34c5885f5fa841c6a106a
+msgid ""
+"You can also set parameters in a launch file, but first you will need to "
+"add a launch directory. Inside the ``ros2_ws/src/python_parameters/`` "
+"directory, create a new directory called ``launch``. In there, create a "
+"new file called ``python_parameters_launch.py``"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:347
+#: 90742d2cc43146678a7baa1da18b54b6
+msgid ""
+"Here you can see that we set ``my_parameter`` to ``earth`` when we launch"
+" our node ``parameter_node``. By adding the two lines below, we ensure "
+"our output is printed in our console."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:355
+#: b9f932de010f4bbaa6a1cf0d9af3759e
+msgid ""
+"Now open the ``setup.py`` file. Add the ``import`` statements to the top "
+"of the file, and the other new statement to the ``data_files`` parameter "
+"to include all launch files:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:372
+#: 408dccdd74c74875a39a18b0d9c1dc01
+msgid ""
+"Open a console and navigate to the root of your workspace, ``ros2_ws``, "
+"and build your new package:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:394
+#: 2e37b996abfa4af4a9df2945a44c7555
+msgid "Then source the setup files in a new terminal:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:416
+#: 154d582d4c1a477d807c39121a4f9e97
+msgid "Now run the node using the launch file we have just created:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:422
+#: 27d596f7c62c4ce39feab543868b7128
+msgid "The terminal should return the following message the first time:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:428
+#: 6d049fe3bb9c46f7b8f0171841e8466a
+msgid ""
+"Further outputs should show  ``[INFO] [minimal_param_node]: Hello "
+"world!`` every second."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:431
+#: 7828acef18ac4bf79ce4e4679d67f987
+msgid "Summary"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:433
+#: 20bda9159d7746eb9d99f7f6d64b1565
+msgid ""
+"You created a node with a custom parameter that can be set either from a "
+"launch file or the command line. You added the dependencies, executables,"
+" and a launch file to the package configuration files so that you could "
+"build and run them, and see the parameter in action."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:437
+#: 878b175cce674375a6e2b79da2f0862d
+msgid "Next steps"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python.rst:439
+#: e145d881d4ff4308a62678ac3168192b
+msgid ""
+"Now that you have some packages and ROS 2 systems of your own, the "
+":doc:`next tutorial <./Getting-Started-With-Ros2doctor>` will show you "
+"how to examine issues in your environment and systems in case you have "
+"problems."
+msgstr ""
+

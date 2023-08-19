@@ -1,0 +1,452 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:2
+#: bb29577f39a04c7c8aede1ccda6fbd08
+msgid "Deployment Guidelines"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:4
+#: 492b743a55964232b8482caf10ff3e1f
+msgid ""
+"**Goal:** Understand the best practices when deploying security artifacts"
+" into production systems."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:6
+#: e75e8e12f92a45309cb986f23d2557e7
+msgid "**Tutorial level:** Advanced"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:8
+#: cc9e609fa4ce4892afdfe9330bd7323d
+msgid "**Time:** 20 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:13
+#: 72491455309b4998a75f8b964f6ccdfe
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:16
+#: cdcc0e4ed4664619a1a3029affc092de
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:18
+#: 2e4ed0ac65334d0eb56ab1405589f027
+msgid ""
+"Typical deployment scenarios often involve shipping containerized "
+"applications, or packages, into remote systems. Special attention should "
+"be payed when deploying security enabled applications, requiring users to"
+" reason about the sensitivity of packaged files."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:21
+#: fbf048af2e5b48438793b08f637b6b9b
+msgid ""
+"Complying with the `DDS Security standard <https://www.omg.org/spec/DDS-"
+"SECURITY/1.1/About-DDS-SECURITY/>`_, the ``sros2`` package provides a "
+"collection of utilities for managing security under ROS 2 environments in"
+" a highly modular and flexible fashion."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:24
+#: 8c30c79253934f9f8fc9d992e38d34d1
+msgid ""
+"Basic core guidelines on how to organize the different certificates, keys"
+" and directories remains a critical factor to avoid compromising the "
+"security of the system. This includes protection-awareness and criteria "
+"for selecting the minimum set of necessary files to be deployed upon "
+"remote production systems for minimizing security exposure."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:28
+#: d86cda0d820a4180b8b6c60c7a8bcf3b
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:30
+#: fac143cd65384825a54f31198fa33fb2
+msgid ""
+"A docker installation with the compose plugin. Please refer to the "
+"installation steps detailed in `Docker installation "
+"<https://docs.docker.com/engine/install/>`_ and `Compose Plugin "
+"<https://docs.docker.com/compose/install>`_."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:32
+#: 8930b62eb0e34e20b37bb5a4865e4bf8
+msgid ""
+"(Recommended) A basic understanding on `ROS 2 Security design "
+"<https://design.ros2.org/articles/ros2_dds_security.html>`_."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:33
+#: 1db18bb44af54fe18e8f60a4c1b5897c
+msgid "(Recommended) Previous security tutorials completion. In particular:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:35
+#: 31c4e2e73e2b4b6abec0618867e7cc74
+msgid ":doc:`Introducing-ros2-security`"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:36
+#: b3d6e8ca06ba43f5bc1de1e8f5f703bb
+msgid ":doc:`The-Keystore`"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:37
+#: 969a824af7b94c85ac20f1e3c413bdf8
+msgid ":doc:`Access-Controls`"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:40
+#: 8bee0a42f93a433d914b2bd33483b5cd
+msgid "General Guidelines"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:42
+#: 4e6de78285874a988abbab99cd340549
+msgid ""
+"ROS 2 leverages DDS Security extensions to ensure security on message "
+"exchanges within the same enclave. The different signed files and "
+"certificates within an enclave are generated from the private keys and "
+"certificates of a `Certificate Authority (CA) "
+"<https://en.wikipedia.org/wiki/Certificate_authority>`_ trusted entity. "
+"In fact, two different CA's can be selected for identity and permissions,"
+" per enclave. Those CA artifacts are stored inside ``private/`` and "
+"``public/`` sub-directories of a `Keystore "
+"<https://design.ros2.org/articles/ros2_security_enclaves.html>`_ with the"
+" following folder structure:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:58
+#: 804c334f054a4925b45fc1e9de27151c
+msgid ""
+"A good practice for the creation and usage of a certain Certificate "
+"Authority on a typical deployment for a production system, is to:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:60
+#: aabe0c8ee6624a3f97bb406ed2a36b21
+msgid "Create it within the organization system intended for internal use only."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:61
+#: 2c05a6963ee948dbabeed1992cbe0d92
+msgid "Generate/modify desired enclaves bearing in mind that:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:63
+#: facda6523c534958a1f30b4d583e1e37
+msgid "Not all the generated enclaves should be deployed to all target devices."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:64
+#: 6b78c92bf7584c29ba1ab3d359bba977
+msgid ""
+"A reasonable way to proceed would be having one enclave per application, "
+"allowing for a separation of concerns."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:66
+#: b4fd85eeee714b3f8a8b38d31ad85ec0
+msgid ""
+"Ship ``public/`` alongside with corresponding ``enclaves/`` into the "
+"different remote production devices during setup."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:67
+#: 714c157513e84e4f966aae6495702f20
+msgid ""
+"Keep and protect ``private/`` keys and/or certification requests in the "
+"organization."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:69
+#: 5b5286f9cb9c4cbca7234d176c7ec706
+msgid ""
+"It is important to note that if ``private/`` files are lost, it won't be "
+"possible to change access permissions, add or modify security profiles "
+"anymore."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:71
+#: 8342cd36d2fe46949f7e9f1440be8a4d
+msgid "In addition, further practices may be taken into consideration:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:73
+#: ee8d50b36f2941eeb5f76a660d0dda67
+msgid "Granting read-only permissions to the ``enclaves/`` directory contents."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:74
+#: 825c79262c964c32ac9527fbfa1ba09c
+msgid ""
+"If a PKCS#11 compliant URI is given for generating enclave's private "
+"keys, a `Hardware Security Module (HSM) "
+"<https://en.wikipedia.org/wiki/Hardware_security_module>`_ could be used "
+"to store them."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:76
+#: 7f03dd08932b4558918119dd5e41ea26
+msgid ""
+"The following table depicts a summary of the previous statements relating"
+" the Keystore directory with the Recommended location:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:79
+#: 672b860434ed403a94b1cd69776523bc
+msgid "Directory / Location"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:79
+#: f1cc7792a02c4b5da4bc9a5aaa342d3d
+msgid "Organization"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:79
+#: 7462f4f79c914553af32ba4420337ad5
+msgid "Target Device"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:79
+#: 1a8679704018469988521048e161e706
+msgid "Material Sensitivity"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:81
+#: 065b28709a074526889b63d6675ac274
+msgid "public"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:81
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:83
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:85
+#: 28e0f7f47c6047408d1de309e61f8b46 abd9e646d7c146e1827ad8b07d321b02
+#: ba6d2ae5a7d0458ba44fdfe6ad4a89a4 d82659b462ae4ddc9330537466bb7c5b
+#: dca564f159604c62868737697b4d24aa
+msgid "✓"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:81
+#: 6cfd95d0f69d4eea872b707cfc46353b
+msgid "Low"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:83
+#: edad62374623437e976805a46f2ddf04
+msgid "private"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:83
+#: 0c39ecddc7204c9cb390801624739c5d
+msgid "✕"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:83
+#: 34c0646a673247e1914d3f9968828cdd
+msgid "High"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:85
+#: c2df00d2ab4e46c68927fa0ad75e4e4b
+msgid "enclaves"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:85
+#: f12280b3cfe94c24aeafff089c555d49
+msgid "Medium"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:90
+#: 748ee4f53ab6466b990ee64ee330ce9e
+msgid "Building a deployment scenario"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:92
+#: 78e9009b54314ddd98c1d6fb0ab13a7e
+msgid ""
+"To illustrate a simple deployment scenario, a new docker image will be "
+"built on top of the one provided by ``ros:<DISTRO>``. Starting from the "
+"image, three containers will be created with the aim of:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:95
+#: 607d0109b3da41da9235bb81cc57fc8b
+msgid "Initializing the keystore in a local host's shared volume."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:96
+#: febaa8794ef7492c83bbae1cb9e96c73
+msgid ""
+"Simulating two deployed remote devices that interact with each other in a"
+" secure way."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:98
+#: 0cbe1d2b8d724b42881afa7ae2871d7a
+msgid ""
+"In this example, the local host serves as the organization's system. Let "
+"us start by creating a workspace folder:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:107
+#: beefff1e764841fd8eece75f950843a5
+msgid "Generating the Docker Image"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:109
+#: 121a94866ac74c1185dce4f8c93fe753
+msgid ""
+"In order to build a new docker image, a Dockerfile is required. The one "
+"proposed for this tutorial can be retrieved with the following command:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:117
+#: 6b0e86ed3a7745e08ad32e8889a87ecd
+msgid "Now, build the docker image with the command:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:125
+#: 0a8839c15dab4d8b96a4b52b9180797e
+msgid "Understanding the compose file"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:127
+#: 8b6110997bb546c18960183f81ce4a37
+msgid ""
+"A compose configration file takes an image to create containers as "
+"services. In this tutorial, three services are defined within the "
+"configuration:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:130
+#: b7f38540181c4ffda0311da594b9ac89
+msgid ""
+"*keystore-creator*: That, similarly to previous tutorials, it internally "
+"initializes a new keystore tree directory. This will create *enclaves/* "
+"*public/* and *private/*, which are explained in more detail in `ROS 2 "
+"Security enclaves "
+"<https://design.ros2.org/articles/ros2_security_enclaves.html>`_. The "
+"``keystore`` directory is configured to be a shared volume across "
+"containers."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:134
+#: d78cdd993fd2449fa4c92716dc54b6c0
+msgid ""
+"*listener* and *talker*: Act as the remote device actors in this "
+"tutorial. Required ``Security`` environment variables are sourced as well"
+" as the necessary keystore files from the shared volume."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:137
+#: cd91af8a9e2048c0b7ab4a124b743747
+msgid "The compose configuration yaml file can be downloaded with:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:145
+#: 632a68864cc7489aba0127b35aa66c64
+msgid "Running the example"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:147
+#: ce0e8fd474bc4a76aa934b1e6b45d9cb
+msgid "In the same working directory ``~/security_gd_tutorial``, run:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:154
+#: 66e0ad3e452e43b28fb9a49f56f9afa5
+msgid "This should result in the following output:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:156
+#: abc549b8b89c46a08d306f57206eb517
+msgid ""
+"*tutorial-listener-1*: ``Found security directory: "
+"/keystore/enclaves/talker_listener/listener``"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:157
+#: 656a9d11fb6e452fa01149a115539dcf
+msgid ""
+"*tutorial-talker-1*: ``Found security directory: "
+"/keystore/enclaves/talker_listener/talker``"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:158
+#: dd49ae1d671244c9983d5512074a93c7
+msgid "*tutorial-listener-1*: ``Publishing: 'Hello World: <number>'``"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:159
+#: f4321578f2544271abdee53a8a2e6e5d
+msgid "*tutorial-talker-1*: ``I heard: [Hello World: <number>]``"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:162
+#: 75568678d375465486537bd3fe1a45d1
+msgid "Examining the containers"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:164
+#: 2b8fd051e2d64333847f8e7de853568f
+msgid ""
+"While having the containers running that simulate the two remote devices "
+"for this tutorial, attach to each of them by opening two different "
+"terminals and enter:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:178
+#: e171549b27f149f0acbaed11368034e8
+msgid "A similar output to the one depicted below should be obtained:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:220
+#: 8e0f87fa74de4cf688ced7c975f2db52
+msgid "Note that:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:222
+#: 43e968dbe36648f7be245d38fd122c84
+msgid "*private/* folder is not moved but left in the local host (organization)."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:223
+#: 29cebb3b522c45b08d3da37e09caeb06
+msgid ""
+"Each one of the deployed devices contain its own minimum enclave required"
+" for its application."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Deployment-Guidelines.rst:227
+#: a5955878d3d3448db5165a3a47e2854b
+msgid ""
+"For the sake of simplicity, the same CA is used within this enclave for "
+"both identity and permissions."
+msgstr ""
+

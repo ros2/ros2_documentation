@@ -1,0 +1,393 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:8
+#: f6f029d13027452da76272271031ad31
+msgid "Building a visual robot model from scratch"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:10
+#: 865d5000feae4874b64ddaf2b7a5d498
+msgid ""
+"**Goal:** Learn how to build a visual model of a robot that you can view "
+"in Rviz"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:12
+#: 9ffe4984893f4b78986dc5274fc43fe0
+msgid "**Tutorial level:** Intermediate"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:14
+#: 676b38f2322e4ebab1657582dac73f29
+msgid "**Time:** 20 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:18
+#: 6d7800273db440738fd87d571c24c578
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:20
+#: 6603a9811e82441690b10d0ba8c18a79
+msgid "This tutorial assumes you know how to write well-formatted XML code"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:22
+#: 117cda724ecd46a89a7bb9168be862ae
+msgid ""
+"In this tutorial, we’re going to build a visual model of a robot that "
+"vaguely looks like R2D2. In later tutorials, you’ll learn how to "
+":doc:`articulate the model <./Building-a-Movable-Robot-Model-with-URDF>`,"
+" :doc:`add in some physical properties <./Adding-Physical-and-Collision-"
+"Properties-to-a-URDF-Model>`, and :doc:`generate neater code with xacro "
+"<./Using-Xacro-to-Clean-Up-a-URDF-File>`, but for now, we’re going to "
+"focus on getting the visual geometry correct."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:25
+#: 51bc37bf90b04c10b420b2c9b0d6158a
+msgid ""
+"Before continuing, make sure you have the `joint_state_publisher "
+"<https://index.ros.org/p/joint_state_publisher>`_ package installed. If "
+"you installed `urdf_tutorial <https://index.ros.org/p/urdf_tutorial>`_ "
+"binaries, this should already be the case. If not, please update your "
+"installation to include that package (use ``rosdep`` to check)."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:29
+#: 92426bb01a1d430caf244106a2801f20
+msgid ""
+"All of the robot models mentioned in this tutorial (and the source files)"
+" can be found in the `urdf_tutorial "
+"<https://index.ros.org/p/urdf_tutorial>`_ package."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:32
+#: 9d39d056c24e4193b7f65f2ce60e79c7
+msgid "One Shape"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:34
+#: 5c6bc6ca207140ac95aea2131cc06bfd
+msgid ""
+"First, we’re just going to explore one simple shape. Here’s about as "
+"simple as a urdf as you can make. `[Source: 01-myfirst.urdf] "
+"<https://github.com/ros/urdf_tutorial/blob/ros2/urdf/01-myfirst.urdf>`_"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:51
+#: 5b1462c52e4045418720e954a5eaa2db
+msgid ""
+"To translate the XML into English, this is a robot with the name "
+"``myfirst``, that contains only one link (a.k.a. part), whose visual "
+"component is just a cylinder 0.6 meters long with a 0.2 meter radius. "
+"This may seem like a lot of enclosing tags for a simple “hello world” "
+"type example, but it will get more complicated, trust me."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:54
+#: 19fa2cad6fff43c8967a6ee8215f97ad
+msgid "To examine the model, launch the ``display.launch.py`` file:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:60
+#: f444553a85a349fb817341fa5f64a0b1
+msgid "This does three things:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:62
+#: 1c070f47a4614343a9767395f818d2b0
+msgid "Loads the specified model and saves it as a parameter"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:63
+#: 0c56e5e6d8154b6ab6209a1e3a1c7288
+msgid ""
+"Runs nodes to publish `sensor_msgs/msg/JointState "
+"<https://github.com/ros2/common_interfaces/blob/eloquent/sensor_msgs/msg/JointState.msg>`_"
+" and transforms (more on these later)"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:64
+#: 76305839196c441b9bc2bf9affab530a
+msgid "Starts Rviz with a configuration file"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:66
+#: 678ab763fcd14f0180af01a8a053ca05
+msgid ""
+"Note that the launch command above assumes that you are executing it from"
+" the `urdf_tutorial <https://index.ros.org/p/urdf_tutorial>`_ package "
+"directory (ie: the ``urdf`` directory is a direct child of the current "
+"working directory). If that is not the case, the relative path to "
+"``01-myfirst.urdf`` will not be valid, and you'll receive an error as "
+"soon as the launcher tries to load the urdf as a parameter."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:69
+#: d2588f6261d34c5f8066a91c7b97fbcc
+msgid ""
+"A slightly modified argument allows this to work regardless of the "
+"current working directory:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:75
+#: 16b4a80ee7024d1493cb247d539e8a6e
+msgid ""
+"You'll have to change all example launch commands given in these "
+"tutorials if you are not running them from the ``urdf_tutorial`` package "
+"location."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:77
+#: 53d1ff0cf076439db52c23858191db00
+msgid ""
+"After launching ``display.launch.py``, you should end up with RViz "
+"showing you the following:"
+msgstr ""
+
+#: 0c14af99cd884c5aac5d3270dcf4b115
+msgid "my first image"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:87
+#: 6014539495dd449dbcfe0e705a2d15cd
+msgid "Things to note:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:84
+#: 63922d4478254461af466c99256b9ef3
+msgid ""
+"The fixed frame is the transform frame where the center of the grid is "
+"located. Here, it’s a frame defined by our one link, base_link."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:86
+#: 9206fb7dfd6e4cfdbc36d6d58822d362
+msgid ""
+"The visual element (the cylinder) has its origin at the center of its "
+"geometry as a default. Hence, half the cylinder is below the grid."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:90
+#: 003d290ef968427a8a46e10bfa27f2a2 b9735a498eed4980ab82145518c62c43
+msgid "Multiple Shapes"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:92
+#: e8082c4661864a7db2a5188b53ee0eb5
+msgid ""
+"Now let’s look at how to add multiple shapes/links. If we just add more "
+"link elements to the urdf, the parser won’t know where to put them. So, "
+"we have to add joints. Joint elements can refer to both flexible and "
+"inflexible joints. We’ll start with inflexible, or fixed joints. "
+"`[Source: 02-multipleshapes.urdf] "
+"<https://github.com/ros/urdf_tutorial/blob/ros2/urdf/02-multipleshapes.urdf>`_"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:126
+#: 80a7729160354a0b9288cad74aff74ae
+msgid "Note how we defined a 0.6m x 0.1m x 0.2m box"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:127
+#: 0b4b1d6d241945ea83814c9c20c9f502
+msgid ""
+"The joint is defined in terms of a parent and a child. URDF is ultimately"
+" a tree structure with one root link. This means that the leg’s position "
+"is dependent on the base_link’s position."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:139
+#: d914001e0e0442668a6084f89d9d9a2d
+msgid ""
+"Both of the shapes overlap with each other, because they share the same "
+"origin. If we want them not to overlap we must define more origins."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:143
+#: c5b25e6212c7400c885beb1a36edf8b9
+msgid "Origins"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:145
+#: da99fd61c55144b59403bc6185f1a29f
+msgid ""
+"R2D2’s leg attaches to the top half of his torso, on the side. So that’s "
+"where we specify the origin of the JOINT to be. Also, it doesn’t attach "
+"to the middle of the leg, it attaches to the upper part, so we must "
+"offset the origin for the leg as well. We also rotate the leg so it is "
+"upright. `[Source: 03-origins.urdf] "
+"<https://github.com/ros/urdf_tutorial/blob/ros2/urdf/03-origins.urdf>`_"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:180
+#: ce77563a6679464881fa43fde7db2c77
+msgid ""
+"Let’s start by examining the joint’s origin. It is defined in terms of "
+"the parent’s reference frame. So we are -0.22 meters in the y direction "
+"(to our left, but to the right relative to the axes) and 0.25 meters in "
+"the z direction (up). This means that the origin for the child link will "
+"be up and to the right, regardless of the child link’s visual origin tag."
+" Since we didn’t specify a rpy (roll pitch yaw) attribute, the child "
+"frame will be default have the same orientation as the parent frame."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:185
+#: 9125873d39094c95a00e9f1c53fd86e5
+msgid ""
+"Now, looking at the leg’s visual origin, it has both a xyz and rpy "
+"offset. This defines where the center of the visual element should be, "
+"relative to its origin. Since we want the leg to attach at the top, we "
+"offset the origin down by setting the z offset to be -0.3 meters. And "
+"since we want the long part of the leg to be parallel to the z axis, we "
+"rotate the visual part PI/2 around the Y axis."
+msgstr ""
+
+#: f74c89dfddea4e90ae14dc87c04a2d6c
+msgid "Origins Screenshot"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:198
+#: 341b7be5d8d54b0ab7472ad129022cb8
+msgid ""
+"The launch file runs packages that will create TF frames for each link in"
+" your model based on your URDF. Rviz uses this information to figure out "
+"where to display each shape."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:200
+#: 84c172f6c52c431db140cddd8e889fd3
+msgid ""
+"If a TF frame does not exist for a given URDF link, then it will be "
+"placed at the origin in white (ref. `related question "
+"<http://answers.ros.org/question/207947/how-do-you-use-externally-"
+"defined-materials-in-a-urdfxacro-file/>`_)."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:203
+#: 1e6939055c344b4c92aef6a105d09c80
+msgid "Material Girl"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:205
+#: b0f74499f2b64810aeab973cd58fcfa3
+msgid ""
+"“Alright,” I hear you say. “That’s very cute, but not everyone owns a "
+"B21. My robot and R2D2 are not red!” That’s a good point. Let’s take a "
+"look at the material tag. `[Source: 04-materials.urdf] "
+"<https://github.com/ros/urdf_tutorial/blob/ros2/urdf/04-materials.urdf>`_"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:268
+#: 8e6ac389fb7f4b8ab3831c561b4e4cb1
+msgid ""
+"The body is now blue. We’ve defined a new material called “blue”, with "
+"the red, green, blue and alpha channels defined as 0,0,0.8 and 1 "
+"respectively. All of the values can be in the range [0,1]. This material "
+"is then referenced by the base_link's visual element. The white material "
+"is defined similarly."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:273
+#: 9d594cc6d99a4392bd1039a1456b6d9b
+msgid ""
+"You could also define the material tag from within the visual element, "
+"and even reference it in other links. No one will even complain if you "
+"redefine it though."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:275
+#: 42ffe9fff8094141b30ff7ad41f2fc8e
+msgid ""
+"You can also use a texture to specify an image file to be used for "
+"coloring the object"
+msgstr ""
+
+#: a79972f0face496c84edafaea254def7
+msgid "Materials Screenshot"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:286
+#: f176c157f8ec4a209b4f6f1f1efe21f3
+msgid "Finishing the Model"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:288
+#: 2821c9c9b78e4dc7950a9278e3d6d6d1
+msgid ""
+"Now we finish the model off with a few more shapes: feet, wheels, and "
+"head. Most notably, we add a sphere and a some meshes. We’ll also add few"
+" other pieces that we’ll use later. `[Source: 05-visual.urdf] "
+"<https://github.com/ros/urdf_tutorial/blob/ros2/urdf/05-visual.urdf>`_"
+msgstr ""
+
+#: 033244425e03497abe5877f7a274e8c2
+msgid "Visual Screenshot"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:549
+#: 92ebed5785ad41398c39042517c4996c
+msgid "How to add the sphere should be fairly self explanatory:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:562
+#: 2eac77ccecbe494485609dbff9f9d5f9
+msgid ""
+"The meshes here were borrowed from the PR2. They are separate files which"
+" you have to specify the path for. You should use the "
+"``package://NAME_OF_PACKAGE/path`` notation. The meshes for this tutorial"
+" are located within the ``urdf_tutorial`` package, in a folder called "
+"meshes."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:578
+#: 6ad05770e53e4e30a68811e8f6c38971
+msgid ""
+"The meshes can be imported in a number of different formats. STL is "
+"fairly common, but the engine also supports DAE, which can have its own "
+"color data, meaning you don’t have to specify the color/material. Often "
+"these are in separate files. These meshes reference the ``.tif`` files "
+"also in the meshes folder."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:582
+#: a5a655db7e774b51a12a57df88fe6b7d
+msgid ""
+"Meshes can also be sized using relative scaling parameters or a bounding "
+"box size."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:583
+#: c6bc0895b2f14ba7b64ea097f29441f0
+msgid "We could have also referred to meshes in a completely different package."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.rst:585
+#: 4e52582c14cc4d6a93ae6f0a2ed9698c
+msgid ""
+"There you have it. A R2D2-like URDF model. Now you can continue on to the"
+" next step, :doc:`making it move <./Building-a-Movable-Robot-Model-with-"
+"URDF>`."
+msgstr ""
+

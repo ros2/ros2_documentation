@@ -1,0 +1,60 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Concepts.rst:2 7dcbbacb177547fda8ac0ebfc956979f
+msgid "Concepts"
+msgstr ""
+
+#: ../../source/Concepts.rst:4 072679a06f9f49729a3675f2471d54c3
+msgid ""
+"Conceptual overviews provide relatively high-level, general background "
+"information about key aspects of ROS 2."
+msgstr ""
+
+#: ../../source/Concepts.rst:15 d121360f29084b29a477492a074c8789
+msgid "Related Content"
+msgstr ""
+
+#: ../../source/Concepts.rst:17 3ce6f56590d246fe95f5566e3a35af7f
+msgid ""
+":doc:`See the ROS 2 citations <Citations>` for more explanation of "
+"concepts and citable resources."
+msgstr ""
+
+#: ../../source/Concepts.rst:19 4ba6b9610d7a42e0b3c3b56dde3494db
+msgid ""
+"For a brief video introduction to ROS 2, see this community contributed "
+"content:"
+msgstr ""
+
+#: ../../source/Concepts.rst:21 6e59d1505e414eb981d6cdaa3812d42d
+msgid ""
+"`Getting started with ROS Part 1: Nodes, Parameters and Topics "
+"<https://youtu.be/46TPAKXBOF8>`_"
+msgstr ""
+
+#: ../../source/Concepts.rst:22 a45d2962607a4dc094a7dc85df903724
+msgid ""
+"`Getting started with ROS Part 2: Services and Actions "
+"<https://youtu.be/keZAJ83eEoM>`_"
+msgstr ""
+

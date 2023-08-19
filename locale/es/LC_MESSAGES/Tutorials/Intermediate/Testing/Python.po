@@ -1,0 +1,130 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Intermediate/Testing/Python.rst:4
+#: 3243ae7fc26b443cbe766b7bf0703b18
+msgid "Writing Basic Tests with Python"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Python.rst:6
+#: 09b4bf37fac54f11a75e392ea6ef8eb1
+msgid ""
+"Starting point: we'll assume you have a :ref:`basic ament_python "
+"package<CreatePkg>` set up already and you want to add some tests to it."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Python.rst:8
+#: bb43bcd63e924071b4be3294c099b94f
+msgid ""
+"If you are using ament_cmake_python, refer to the the "
+":doc:`ament_cmake_python docs<../../../How-To-Guides/Ament-CMake-Python-"
+"Documentation>` for how to make tests dicoverable. The test contents and "
+"invocation with ``colcon`` remain the same."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Python.rst:12
+#: 90b6a44934f84f2ba858a0c284cdbe46
+msgid "Package Setup"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Python.rst:15
+#: ce870549fa64423381b90a356a28b50e
+msgid "setup.py"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Python.rst:17
+#: 3921f89799d643b8bfc4796099d6dced
+msgid ""
+"Your ``setup.py`` must a test dependency on ``pytest`` within the call to"
+" ``setup(...)``:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Python.rst:24
+#: 714fa73f26054c71bdf47f6ac4a794e8
+msgid "Test Files and Folders"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Python.rst:26
+#: 332e9090e0ae49d8a418812196f48ad5
+msgid ""
+"Your test code needs to go in a folder named ``tests`` in the root of "
+"your package."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Python.rst:28
+#: 0bd311888ab24f308a9945a6a39484b9
+msgid ""
+"Any file that contains tests that you want to run must have the pattern "
+"``test_FOO.py`` where ``FOO`` can be replaced with anything."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Python.rst:31
+#: 46f07280b36344239b720413bd3e7f13
+msgid "Example package layout:"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Python.rst:49
+#: 290f3a572d1e4c75867984d86bb747e4
+msgid "Test Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Python.rst:51
+#: df76b06d4ca8443e8173e63a45f5a38f
+msgid ""
+"You can now write tests to your heart's content. There are `plenty of "
+"resources on pytest <https://docs.pytest.org>`__, but in short, you can "
+"write functions with the ``test_`` prefix and include whatever assert "
+"statements you'd like."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Python.rst:60
+#: a7b1d9ad6a9a45b0b963d599da8cea67
+msgid "Running Tests"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Python.rst:62
+#: 91ac60cf3edc4e50a806df15e800367e
+msgid ""
+"See the :doc:`tutorial on how to run tests from the command line <CLI>` "
+"for more information on running the tests and inspecting the test "
+"results."
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Python.rst:65
+#: 112c50a360b74d7083bb7115a42e1abe
+msgid "Special Commands"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Python.rst:67
+#: 3ed4ebd9b5734910b9e3ecd1dfe62857
+msgid ""
+"Beyond the :doc:`standard colcon testing commands <CLI>` you can also "
+"specify arguments to the ``pytest`` framework from the command line with "
+"the ``--pytest-args`` flag. For example, you can specify the name of the "
+"function to run with"
+msgstr ""
+
+#: ../../source/Tutorials/Intermediate/Testing/Python.rst:75
+#: bedaca73f843484e81631618f8d55387
+msgid "To see the pytest output while running the tests, use these flags:"
+msgstr ""
+

@@ -1,0 +1,177 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/How-To-Guides/RQt-Source-Install-Windows10.rst:7
+#: ff04aa9e639f410d916981f5d9152cf9
+msgid "Building RQt from source on Windows 10"
+msgstr ""
+
+#: ../../source/How-To-Guides/RQt-Source-Install-Windows10.rst:9
+#: 4b9bbe2523b9471c99fead549d54cdd9
+msgid ""
+"This page provides specific information to building RQt from source on "
+"Windows. Follow these instructions before proceeding with the :doc:`RQt "
+"Source Install <RQt-Source-Install>` page."
+msgstr ""
+
+#: ../../source/How-To-Guides/RQt-Source-Install-Windows10.rst:12
+#: 7c3537e9b4fc484fb6ab278271b8726d
+msgid ""
+"If you have not done so, follow the :doc:`ROS 2 Windows Development Setup"
+" guide <../Installation/Alternatives/Windows-Development-Setup>` before "
+"continuing."
+msgstr ""
+
+#: ../../source/How-To-Guides/RQt-Source-Install-Windows10.rst:15
+#: cd935097496f408b97d3ca53fdabc162
+msgid "System Requirements"
+msgstr ""
+
+#: ../../source/How-To-Guides/RQt-Source-Install-Windows10.rst:17
+#: 42bb5da716c64583b829061b586d1808
+msgid "Windows 10"
+msgstr ""
+
+#: ../../source/How-To-Guides/RQt-Source-Install-Windows10.rst:18
+#: 8b9a7120ac4f46f8bcc574e7e86b2318
+msgid "Visual Studio 15.7.6"
+msgstr ""
+
+#: ../../source/How-To-Guides/RQt-Source-Install-Windows10.rst:20
+#: 59e6ca58be5242d3bd6992779e496217
+msgid ""
+"Currently Visual Studio 15.8 fails to build ROS 2 (`see issue "
+"<https://github.com/osrf/osrf_testing_tools_cpp/issues/15>`__). Older "
+"versions of VS can be found `here <https://docs.microsoft.com/en-"
+"us/visualstudio/productinfo/installing-an-earlier-release-of-vs2017>`__."
+msgstr ""
+
+#: ../../source/How-To-Guides/RQt-Source-Install-Windows10.rst:25
+#: 5c82e97c976345658b11774bd8afc017
+msgid "Dependencies"
+msgstr ""
+
+#: ../../source/How-To-Guides/RQt-Source-Install-Windows10.rst:27
+#: e4bf1b474f9b4dec9b23c32d60fe91ed
+msgid ""
+"The primary dependencies of the RQt package are sip and PyQt5. PySide2 "
+"may be supported in the future. Even though they are provided through "
+"PyPI and chocolatey, you must install them by source to get compatible "
+"versions."
+msgstr ""
+
+#: ../../source/How-To-Guides/RQt-Source-Install-Windows10.rst:32
+#: a82d026e61414d5387c1552acc248120
+msgid "Install sip by source"
+msgstr ""
+
+#: ../../source/How-To-Guides/RQt-Source-Install-Windows10.rst:34
+#: 123d9876d1094021ab0cd2d84b578e17
+msgid "Download from https://www.riverbankcomputing.com/software/sip/download"
+msgstr ""
+
+#: ../../source/How-To-Guides/RQt-Source-Install-Windows10.rst:36
+#: ff794a15578944c1921a671bb30f1fbf
+msgid ""
+"Run the x64 Native Tools Command Prompt as Administrator, and ``cd`` to "
+"the uncompressed source directory."
+msgstr ""
+
+#: ../../source/How-To-Guides/RQt-Source-Install-Windows10.rst:38
+#: 19e029335bd344a885e71a958c80acd2
+msgid "Run:"
+msgstr ""
+
+#: ../../source/How-To-Guides/RQt-Source-Install-Windows10.rst:46
+#: 80645f97a1784247a12c204d76ac1836
+msgid ""
+"If ``python3`` is installed on your system as ``python``, be sure to use "
+"that program name instead."
+msgstr ""
+
+#: ../../source/How-To-Guides/RQt-Source-Install-Windows10.rst:49
+#: 9f190fc0f7fa4bf187b4a792bf3ea547
+msgid "Install PyQt5 by source"
+msgstr ""
+
+#: ../../source/How-To-Guides/RQt-Source-Install-Windows10.rst:51
+#: 6e9f282836be4d52ad871b05be47aa6a
+msgid "Download from https://www.riverbankcomputing.com/software/pyqt/download5"
+msgstr ""
+
+#: ../../source/How-To-Guides/RQt-Source-Install-Windows10.rst:53
+#: 5e7e61c03b9e4c8aa34b507ef9ba5100
+msgid ""
+"Run the x64 Native Tools Command Prompt as Administrator, and ``cd`` to "
+"the uncompressed source directory. I ran into trouble with Qt 5.11.3 and "
+"PyQt5 compiling QtNfc, but it can be easily disabled."
+msgstr ""
+
+#: ../../source/How-To-Guides/RQt-Source-Install-Windows10.rst:63
+#: 20b7d8eb5d334973ae56865badc2a13f
+msgid "Test that it works"
+msgstr ""
+
+#: ../../source/How-To-Guides/RQt-Source-Install-Windows10.rst:65
+#: c92b574d70f647299e09aba5da8df835
+msgid ""
+"If install occurred without failure, try the commands below. They should "
+"run without issue and you should see 4.19.13 as your ``sip.exe`` version."
+msgstr ""
+
+#: ../../source/How-To-Guides/RQt-Source-Install-Windows10.rst:75
+#: 263f7f352b7b49298445d20860b19f69
+msgid "Other dependencies"
+msgstr ""
+
+#: ../../source/How-To-Guides/RQt-Source-Install-Windows10.rst:77
+#: d6a800c2553e449ea45a50ae9208eb9b
+msgid ""
+"Install GraphViz from "
+"https://graphviz.gitlab.io/_pages/Download/Download_windows.html."
+msgstr ""
+
+#: ../../source/How-To-Guides/RQt-Source-Install-Windows10.rst:79
+#: f04dbd7e5f4644e2ac8a1fd4372a7b5f
+msgid "Install ``pydot`` and ``pyparsing``:"
+msgstr ""
+
+#: ../../source/How-To-Guides/RQt-Source-Install-Windows10.rst:86
+#: 68f3c05849da4cef97b3881090f86a2c
+msgid ""
+"PyGraphViz is a test dependency of ``qt_dotgraph``, but it is currently "
+"unsupported on Windows and building by source is not straight forward. "
+"Manually merging this patch is the currently recommended solution (not "
+"verified): `pygraphviz patch "
+"<https://github.com/Kagami/pygraphviz/commit/fe442dc16accb629c3feaf157af75f67ccabbd6e>`__"
+msgstr ""
+
+#: ../../source/How-To-Guides/RQt-Source-Install-Windows10.rst:92
+#: a31089aad7194f0f9f14d847ad9d7eba
+msgid "Install RQt by source"
+msgstr ""
+
+#: ../../source/How-To-Guides/RQt-Source-Install-Windows10.rst:94
+#: 60985e968e00454fb9b55ba7f5a239fe
+msgid "Continue with the :doc:`RQt source install page <RQt-Source-Install>`."
+msgstr ""
+

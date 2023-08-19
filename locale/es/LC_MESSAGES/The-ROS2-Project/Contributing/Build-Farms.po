@@ -1,0 +1,368 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:9
+#: 28f80644b30b4c008db595432050cceb
+msgid "ROS Build Farms"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:13
+#: 45a64572b82649c98eb85229d27fa46d
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:15
+#: 9c6e42e262a54bb4a3a32da43b68897f
+msgid ""
+"The ROS build farms are an important infrastructure to support the ROS "
+"ecosystem, provided and maintained by `Open Robotics`_. They provide "
+"building of source and binary packages, continuous integration, testing, "
+"and analysis for ROS 1 and ROS 2 packages. There are two hosted instance "
+"for open source packages:"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:20
+#: 97a6d1539c0446119642255ef4eac7ac
+msgid "https://build.ros.org/ for ROS 1 packages"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:21
+#: 9d011596c7994a9d89aef6b57ea4dfc3
+msgid "https://build.ros2.org/ for ROS 2 packages"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:23
+#: 7b5ccd6443db4856ae916d8fcec9520c
+msgid ""
+"If you are going to use any of the provided infrastructure please "
+"consider signing up for the `build farm discussion forum "
+"<http://discourse.ros.org/c/buildfarm>`__ in order to receive "
+"notifications, e.g., about any upcoming changes."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:29
+#: 25c3c8814d294005a4e88b4186a5bcdc
+msgid "Jobs and Deployment"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:31
+#: c24ad0b5b6ce436b803ddc5eb8be7804
+msgid ""
+"The ROS build farms perform several different jobs. For each job type you"
+" will find a detailed description of what they do and how they work:"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:34
+#: 7b6a79b4f5704daba1c97fb3461c1962
+msgid "`release jobs`_ generate binary packages, e.g., debian packages"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:35
+#: 1efb0594d78541bf8d4725529a539e69
+msgid ""
+"`devel jobs`_ build and test ROS packages within a single repository on a"
+" polling basis"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:36
+#: 576996218fc048a78a7e25fd29c03d30
+msgid ""
+"`pull_request jobs`_ build and test ROS packages within a single "
+"repository triggered by webhooks"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:37
+#: e295c07f61c044708a2e5e611012cc45
+msgid ""
+"`CI jobs`_ build and test ROS packages across repositories with the "
+"option of using artifacts from other CI jobs to speed up the build"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:39
+#: f7e057ee23aa43108b7d26d97bbc028d
+msgid ""
+"`doc jobs`_ generate the API documentation of packages and extract "
+"information from the manifests"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:40
+#: 67c17e20b0ae46aa94b483118b7a12a1
+msgid ""
+"`miscellaneous jobs`_ perform maintenance tasks and generate "
+"informational data to visualize the status of the build farm and its "
+"generated artifacts"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:44
+#: ebdaaf5558f9483aa7b2585df88a437a
+msgid "Creation and Deployment"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:46
+#: 6a439f4809444634990ea2499a7f67f7
+msgid ""
+"The above jobs are created and deployed when packages are bloomed_, i.e. "
+"released for ROS 1 or ROS 2. Once blooming is successful and a package is"
+" incorporated in one of the ROS distributions (via pull request to "
+"rosdistro_), the according jobs will be spawned. The names of the jobs "
+"encode their type and purpose: [1]_"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:52
+#: 521d02db19444a608787724a33a159f8
+msgid "release jobs:"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:54
+#: ce5484f138af4f43bb5488a1a94a4f56
+msgid ""
+"``{distro}src_{platf}__{package}__{platform}__source`` build source "
+"packages of releases"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:55
+#: 13043648827449dfa4bb39b8f86cffec
+msgid ""
+"``{distro}bin_{platf}__{package}__{platform}__binary`` build binary "
+"packages of releases"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:57
+#: e19927eef79d48ee87b57731b308d82f
+msgid ""
+"For instance, the binary packaging job of rclcpp on ROS 2 Iron (running "
+"on Ubuntu Jammy amd64) is named "
+"``Ibin_uJ64__rclcpp__ubuntu_jammy_amd64__binary``."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:59
+#: 60533df19b95472ca014c0b41ad401ee
+msgid "devel jobs:"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:61
+#: 882d63c522894ea69c0c193dd18b7db2
+msgid ""
+"``{distro}dev__{package}__{platform}`` perform a CI build for the "
+"releasing branch"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:63
+#: 109f7bfb29034b6dad2b3143b2cb5e33
+msgid "pull_request jobs"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:65
+#: 1581ddfbf16a47eea77ff931dd2d387b
+msgid ""
+"``{distro}pr__{package}__{platform}`` perform a CI build for a pull "
+"request"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:67
+#: 436a92fade144e6eac6ca025a8d8bb10
+msgid ""
+"For instance, the PR job for rclcpp on ROS 2 Iron (running on Ubuntu "
+"Jammy amd64) is named ``Ipr__rclcpp__ubuntu_jammy_amd64``."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:70
+#: 63c5b1593aa640f1b7fb2a38e6731025
+msgid "Execution"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:72
+#: 9d9657f7704146db90f2e292a3b25356
+msgid "Execution of the jobs depends on the type of the job:"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:74
+#: 6509370ef4f04b71a4a90154d1963c62
+msgid ""
+"`devel jobs`_ will be triggered every time a commit is done to the "
+"respective branch polling based on a configured frequency."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:75
+#: 2c7c9bdbeb3546e7a86e3264f00fb755
+msgid ""
+"`pull_request jobs`_ will be triggered by webhooks from respective pull "
+"request of the upstream [2]_ repository"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:76
+#: eae9c11616104d5dad9d9de0a87b9775
+msgid ""
+"`release jobs`_ will be triggered once every time a new package version "
+"is released, i.e. a new rosdistro_ pull request was accepted for this "
+"package. The source jobs are triggered by a version change in the "
+"rosdistro distribution file, the binary jobs are triggered by their "
+"source counterpart."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:82
+#: 106604318e7c474f9d5549cd0c981132
+msgid "Frequency Asked Questions (FAQ) and Troubleshooting"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:84
+#: d43d833ef8f746d7b53150096f4a950b
+msgid "**I get Jenkins mails from failing build farm jobs. What do I do?**"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:86
+#: bbcad11bd1bc4e6791a876d8ac8b3c0c
+msgid ""
+"Go to the job that raised the issue. You find the link on top of the "
+"Jenkins email. Once you followed the link to the build job, click "
+"*Console Output* on the left, then click *Full Log*. This will give you "
+"the full console output of the failing build. Try to find the top-most "
+"error as it is usually the most important and other errors might be "
+"follow-ups."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:91
+#: 021e3d58ba864e28be68711533108cf2
+msgid ""
+"The bottom of the email might read ``'apt-src build [...]' failed. This "
+"is usually because of an error building the package.`` This usually hints"
+" at missing dependencies, see 2."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:94
+#: 18875facf1a3425491634981fbc84748
+msgid "**I seem to be missing a dependency, how do I find out which one?**"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:96
+#: 2416b96aaad44895952a1ecc4a3d799d
+msgid ""
+"You basically have two options, a. is easier but may take several "
+"iterations, b. is more elaborate and gives you the full insight as well "
+"as local debugging."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:99
+#: 1cc256492f2a4a98ad5e7503a0e8e536
+msgid ""
+"Inspect the release job that raised the issue (see 1.) and localize the "
+"cmake dependency issue. To do so, browse to the cmake section, e.g., "
+"navigate to the *build binarydeb* section through the menu on the left in"
+" case of a ubuntu/debian build job. The *CMake Error* will typically hint"
+" at a dependency required by the cmake configuration but missing in the "
+"`package manifest`_. Once you have fixed the dependency in the manifest, "
+"do a new release of your package and wait for feedback from the build "
+"farms or..."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:105
+#: 22a1d807b90942328aa7dc16058857e9
+msgid ""
+"To get the full insight and faster, local debugging, you can `run the "
+"release jobs locally`_. This allows to iterate the manifest locally until"
+" all dependencies are fixed."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:108
+#: 7ed666ef52dc40a7adcdf1be577040ab
+msgid ""
+"**Why do release jobs fail when devel jobs / my github actions / my local"
+" builds succeed?**"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:110
+#: 77aa334c6aaf411cb71ae7b745ca6174
+msgid ""
+"There are several potential reasons for this. First, release jobs build "
+"against a minimal ROS installation to check if all dependencies are "
+"properly declared in the `package manifest`_. Devel jobs / github actions"
+" / local builds may be performed in an environment that has the "
+"dependencies already installed, therefore does not notice dependency "
+"issues. Second, they might build different versions of the source code. "
+"While devel jobs / github actions / local builds usually build the latest"
+" version from the *upstream* [2]_ repository, `release jobs`_ build the "
+"source code of the latest release, i.e. the source code in the respective"
+" *upstream* branches of the *release* repository [3]_."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:121
+#: ab4c842eec094967b1c50ebfd9635bef
+msgid "Further Reading"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:123
+#: 8d6dacc932e540f4b3761165a2e1899b
+msgid ""
+"The following links provide more details and insights into the build "
+"farms:"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:125
+#: 04b7b3a59a70469290bbdabf6e6333db
+msgid ""
+"https://github.com/ros-"
+"infrastructure/ros_buildfarm/blob/master/doc/index.rst - General "
+"documentation of the build farm infrastructure and the generated build "
+"jobs"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:127
+#: 26e9a02fac9b4a918ec77617a5321fef
+msgid "http://wiki.ros.org/regression_tests#Setting_up_Your_Computer_for_Prerelease"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:128
+#: 5a70341c4a11453894aac6bbc4185be2
+msgid ""
+"http://wiki.ros.org/buildfarm - ROS wiki entry for the ROS 1 build farm "
+"(partially *outdated*)"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:129
+#: e9702bbd0fad4105b0b2214e31ea4b91
+msgid ""
+"https://github.com/ros-infrastructure/cookbook-ros-buildfarm - Installs "
+"and configures ROS build farm machines"
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:133
+#: 47021186464d45d08ef6d04c6d327d48
+msgid ""
+"``{distro}`` is the first letter of the ROS distribution, ``{platform}`` "
+"(``{platf}``) names the platform the package is built for (and its short "
+"code), and ``{package}`` is the name of the ROS package being built."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:136
+#: 97c935b5def549a787ccd0e828090133
+msgid ""
+"The *upstream* repository is the repository containing the original "
+"source code of the respective ROS 1 / ROS 2 package."
+msgstr ""
+
+#: ../../source/The-ROS2-Project/Contributing/Build-Farms.rst:138
+#: 78d954fd42fa40c28ee64f8b0728f8df
+msgid ""
+"The *release* repository is the repository that ROS 2 infrastructure uses"
+" for releasing packages, see https://github.com/ros2-gbp/."
+msgstr ""
+

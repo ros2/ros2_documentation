@@ -1,0 +1,381 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:4
+#: 2ed8c99c015440f78c97884e463ba964
+msgid "Improved Dynamic Discovery"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:6
+#: 63e01715a0544ee386ef4fc53d6a00f8
+msgid ""
+"**Goal:** This tutorial will show how to use the improved dynamic "
+"discovery configuration."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:8
+#: e0010e1601e54146b54f736d956b5995
+msgid "**Tutorial level:** Advanced"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:10
+#: bf1e4d501cb44f3cbd9a54a293c45afa
+msgid "**Time:** 15 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:14
+#: 83b84f1296fe4119bf52ccd178b61bd9
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:17
+#: 37a98cb861fe498bba2d40f2f2576f91
+msgid "Overview"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:19
+#: 66fd98f20e684f98929f3f333fe93882
+msgid ""
+"By default, ROS 2 will attempt to find all nodes on all hosts on the same"
+" subnet automatically. However, the following options are available to "
+"control the ROS 2 discovery range."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:24
+#: b04426b6f7c9473a963714eb837f4df9
+msgid "Configuration Parameters"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:26
+#: 378a09c876d04f55a5c574fa73fda008
+msgid ""
+"``ROS_AUTOMATIC_DISCOVERY_RANGE``: controls how far ROS nodes will try to"
+" discover each other."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:28
+#: 53619daa0e6e4d0fb28aafd5e73ff2dc
+msgid "Valid options are:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:30
+#: 23129f811a6d4262b426bcd3bc800355
+msgid ""
+"``SUBNET`` is the default, and for DDS based middleware it means it will "
+"discover any node reachable via multicast."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:31
+#: fbec31f8451a4b03aebfc28d5b236daf
+msgid ""
+"``LOCALHOST`` means a node will only try to discover other nodes on the "
+"same machine."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:32
+#: 4b186e2fc38e400eaa481846bc6e59ad
+msgid ""
+"``OFF`` means the node won't discover any other nodes, even on the same "
+"machine."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:33
+#: c34b07610fe44c7296d5f76f8f5e198b
+msgid "``SYSTEM_DEFAULT`` means \"don't change any discovery settings\"."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:35
+#: a26682cd50564c4896c47794648dc10c
+msgid ""
+"``ROS_STATIC_PEERS``: is a semicolon (``;``) separated list of addresses "
+"that ROS should try to discover nodes on. This allows connecting to nodes"
+" on specific machines (as long as their discovery range is not set to "
+"``OFF``)."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:38
+#: 67f86295b57948c6a39b27112cee4c2a
+msgid ""
+"The combination of these two environment variables for local and remote "
+"nodes will enable and control the ROS 2 communication discovery range. "
+"The following tables highlight the discovery range behavior for possible "
+"combination."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:41
+#: 9aa0adae9477475cb245501a186e4f9f
+msgid ""
+"A ``X`` indicates that nodes A and B will not discover each other and "
+"communicate. A ``O`` indicates that nodes A and B will discover each "
+"other and communicate."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:44
+#: 2d1cc820e94f4bdf9ed9b8c52dad4209
+msgid "Node A and B running in the same host"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:48
+#: 12bcdf21bddb450aaf992c1395746b5f
+msgid "Same host"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:51
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:138
+#: 25abed95c7b64d639ae8986d2c2a69b1 b661dd68bc6b4f5eaa1ac08a3fe42d38
+msgid "Node B setting"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:60
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:76
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:147
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:163
+#: 6658aa7ce4074080bc52099c570c9053 81ff692cb1544f928033c7241df8eff3
+#: edb8e607dc0743a28a5fe6ee5ca117e0 f1fe67785199405aac70ed7517e51733
+msgid "No static peer"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:63
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:103
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:150
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:190
+#: 126952704c164ab780bb9c4b94629588 447bd4a176404e4b82edbb5491c219f6
+#: e26fee4dda1a471faec8384812cfcaa0 fb2fbbd2693541a7b341b654bfefe8d4
+msgid "With static peer"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:69
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:72
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:77
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:104
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:156
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:159
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:164
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:191
+#: 1a2130faaeb441458af8b182392e6e96 1f39222c64b84fe5a7bea7c460744652
+#: 3f90f86f33174711bfddffa19337c57e 55817739b68249e79171352fed1ef0d5
+#: 6d67bb98ea4845a5934cceafdee99d40 e31f180fb2a044ebad75a95f8fe6b99d
+#: f26b0a1bc8c24c15aa29081f30323a66 fda1279dc14f4cf3a8288282e398624e
+msgid "Off"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:70
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:73
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:86
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:113
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:157
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:160
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:173
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:200
+#: 205fa712e3424652bf9d50697ca99950 7c3b3c32e2bf4a36b8c35d80c2811e88
+#: be2fd91eaddb49a787cfc20e6fe37b50 c9858d66c5e64a2cb8b9d4fdd9880fc4
+#: dce3198c9f304659ac6437e63eb758bb ed86a193b78e40c49ca9efb034d59679
+#: eefc13a21f9a4a2984efd53a69c106a2 f2bd7ba8abc342128081f558526d726f
+msgid "Localhost"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:71
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:74
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:95
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:122
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:158
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:161
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:182
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:209
+#: 01090407014043d6a8e0385a60c7b176 36050b95e4a94d92a119292ca604c470
+#: 40bf4f03e6a442fc964a324c55aeeccb 464eab84c36749d3916cff13ab491bda
+#: 542a552ce7cb47c19ca189faec459d34 5bfaeb57a2dd4f46b4593cce1278d8b1
+#: 738e0bb9deef464bae30753bef0df9b7 fa35484057be469ea6fa733aef3becb5
+msgid "Subnet"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:75
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:162
+#: 5ef4bc1d9dd041c083bf68086e278210 fe6abee349b04a9995c053dcb7e1fd7c
+msgid "Node A setting"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:78
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:79
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:80
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:81
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:82
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:83
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:87
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:90
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:96
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:99
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:105
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:106
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:107
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:108
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:109
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:110
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:114
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:117
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:123
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:126
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:165
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:166
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:167
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:168
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:169
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:170
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:174
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:175
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:176
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:177
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:183
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:184
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:186
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:192
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:193
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:194
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:195
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:196
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:197
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:201
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:204
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:210
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:213
+#: 030cf96553cf4883866ff7c652448293 11a3d79d3e3a468ca8f355bc1df061aa
+#: 2298934894654cff99119521b79c3815 26679bb4a6f643ffae317c983402ae96
+#: 3aaca1edec0443a897646e5404ae7c2c 3c0802517d584e7fa74ef2b008f95e1c
+#: 47a97b11024841f3b3f25a9d3e685059 51e792014a4b43ef967f65a14fdd1343
+#: 54a098ea722148029c15aa118416e28e 562860d3fc0942b991dada7edc0afe0a
+#: 5b3021dc03d84770ac65a0cca19b1119 60b84098234843a08b4642040401a796
+#: 6516077d556a450bb0dffef315c9bed3 6a100dbefca44436af81268a678b51d1
+#: 6c1df3490cdb4622b0c856a7c98f756d 6d62b930c85045e7842a5d5c710ff855
+#: 70caf17155dd4e1cb267ec1912d0ab2a 9355e64e7be6461ba4242bcf52537d09
+#: 946b76f06fb34f66be1d577298495d2f 9652247b98af4d05bdac1139541c155b
+#: 96b6ebbd709e44ec80e65d5ca64c18cf 9817bb07eb4f49b0b9ea0a66781db9c0
+#: 9833b8061043465e9515982ec7a063b3 996ad9eada4c46e28103f995e1c09052
+#: 9c6a57b6364c44e79a479fe157e45b10 9eea85b0b0b245f88a9870ebf603c351
+#: a38b5b1adbaa43e29c289c44a4e19f67 a5182426e120470ba38d84a071c27b50
+#: adf4162269084b668674ac8388998fb3 ae41a4a1082741eb918a9705a86e56b5
+#: c0c974443e974255aa227ae808b67e0d c20e957843834b3e801306be5ac44b9d
+#: c2fa7e217582432382003b901dfae07a c41e14d2dcc340918e912e4c84217f01
+#: c52a4e6f8e874a1f886ffd49b28cfb56 cd1c9f28d17c45f8bc4262395afa1c10
+#: d0b03f86b22f4b1eaebf6429acef95b0 d3806886c1424a4c99cfc2b1db69e460
+#: ede1e08752064209b6b86b96d53c3481 f195a1bcd3bf4f95a352a30c0ece7fb0
+#: f3971712a6c14ae2878adff3bd04d77c f4a3c25d26a748d397c9a9eb14d8c287
+#: fbdb68e7d24b41f0b181f2f4dae6986c
+msgid "``X``"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:88
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:89
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:91
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:92
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:97
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:98
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:100
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:101
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:115
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:116
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:118
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:119
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:124
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:125
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:127
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:128
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:178
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:179
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:185
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:187
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:188
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:202
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:203
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:205
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:206
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:211
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:212
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:214
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:215
+#: 0bf0ee8bd42f4e768099deffd155fbfa 1281a660c04b4b07b31c2efa6e39d6b0
+#: 2a124ff723ca4502a74e85a1df3c9b3e 35b65ae9879843e3b7e47b7e47a077cc
+#: 45e04672fa7b4a7198bce555f346867b 461356befb4e40488af568958585497f
+#: 4b67094de854487cadefc320d0079151 4cb7d187488a4b35a8b12e0a69b417b0
+#: 6d5eaa8eaab84c60acb3929288c28355 7009fbc4fdd4470694b1417dc5416d8b
+#: 727651c8e24046df9c7c130254e207ca 748b1c1eb34344258fb37c6d36cf530b
+#: 8422d4efbab1419abe11cdae09daa87e 88e9e48571cd4ada86979379eb92bda9
+#: a1c460f56747426abdfd7844031799ec a8fd8370994f488fa3568935b112bdb3
+#: ac9911f4f00d4e34bb562b3b41ddbd5e b0c1f9bd3e6f47c9bb38eba60ed962e3
+#: b7d21e133b754f0fb035acb31b89848b bdd33e50e7064294961d09db881aeb02
+#: c5077eef08024df6ab38cf240f6a7d02 c933d7b9dc614131b52c2d6ead0b77be
+#: d182e70efe6b498cb8eb53e4e2a5c788 d445817e4a614a8d8e4a9c05bb96aaf5
+#: dc0ef3d63cf94d198ed21ad5a9d693ce e72c94aee1684482928304b65701558f
+#: e9ecf9b8fb0c4a66b4154e81ddcd80eb f38819185e244494b20c1fece0ad3fda
+#: fffb65fd23224370aeba622a2f790ad9
+msgid "``O``"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:131
+#: 6f50eb0c19d44317ab329b23c78813be
+msgid "Node A and B running in the different hosts"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:135
+#: 865d223dcadc4d1ea98de3a4e8278298
+msgid "Different hosts"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:219
+#: 45200d0efb73472f8c45df3a473dbc9b
+msgid "Examples"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:221
+#: f3c806e04af04fc3bc55ad35d8412414
+msgid ""
+"For example, the following commands will limit the ROS 2 communication "
+"only with localhost and specific peers:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:225
+#: 63e190b768a14bde85138c1cf7c8f1c7
+msgid "Linux"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:232
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:246
+#: 7a3abd053ea644b2a499c12212841126 af86c5f59b6b4014a66ced48364f7eb9
+msgid ""
+"To maintain this setting between shell sessions, you can add the command "
+"to your shell startup script:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:239
+#: 80923023ab58433e933c9313adec768b
+msgid "macOS"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:253
+#: 1fcc739dcd364504ad7d57db00fb9872
+msgid "Windows"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Improved-Dynamic-Discovery.rst:260
+#: a28cbe7c51ad4d24975dd8edf8a92fec
+msgid "If you want to make this permanent between shell sessions, also run:"
+msgstr ""
+

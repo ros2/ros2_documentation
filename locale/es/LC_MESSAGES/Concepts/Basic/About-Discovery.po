@@ -1,0 +1,80 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Concepts/Basic/About-Discovery.rst:2
+#: a99a1275486f4f54bcf74ec9c89157a7
+msgid "Discovery"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Discovery.rst:7
+#: 82d949ae10ce4ff29ac4fe589beefbb8
+msgid ""
+"Discovery of nodes happens automatically through the underlying "
+"middleware of ROS 2. It can be summarized as follows:"
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Discovery.rst:10
+#: e5ff15a57232405f8b8c4847081fbb34
+msgid ""
+"When a node is started, it advertises its presence to other nodes on the "
+"network with the same ROS domain (set with the ROS_DOMAIN_ID environment "
+"variable). Nodes respond to this advertisement with information about "
+"themselves so that the appropriate connections can be made and the nodes "
+"can communicate."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Discovery.rst:12
+#: 512182adfee444aeb600732d9cde3da3
+msgid ""
+"Nodes periodically advertise their presence so that connections can be "
+"made with new-found entities, even after the initial discovery period."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Discovery.rst:13
+#: d1d5c589360946bea69488b74cc9193f
+msgid "Nodes advertise to other nodes when they go offline."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Discovery.rst:15
+#: 1b0e654d006c4f528c7525bbdc7dff03
+msgid ""
+"Nodes will only establish connections with other nodes if they have "
+"compatible :doc:`Quality of Service <../../Tutorials/Demos/Quality-of-"
+"Service>` settings."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Discovery.rst:17
+#: c3ba750327fd4f858565a545620ad9f1
+msgid ""
+"Take the :ref:`talker-listener demo <talker-listener>` for example. "
+"Running the C++ talker node in one terminal will publish messages on a "
+"topic, and the Python listener node running in another terminal  will "
+"subscribe to messages on the same topic."
+msgstr ""
+
+#: ../../source/Concepts/Basic/About-Discovery.rst:21
+#: 97d1c97f9ca34653964cf7359cc726f6
+msgid ""
+"You should see that these nodes discover each other automatically, and "
+"begin to exchange messages."
+msgstr ""
+

@@ -1,0 +1,165 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Advanced/Security/Security-on-Two.rst:8
+#: 1e355d232fe94027b169e0411c52a1b1
+msgid "Ensuring security across machines"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Security-on-Two.rst:10
+#: 9adf65bfd94c452a83922d463c7424fc
+msgid "**Goal:** Make two different machines communicate securely."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Security-on-Two.rst:12
+#: 3bcd15b6022c46b382e1b6103f3a8578
+msgid "**Tutorial level:** Advanced"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Security-on-Two.rst:14
+#: 61f9ce8618a941a283c8806c99393b8f
+msgid "**Time:** 5 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Security-on-Two.rst:19
+#: eae50689873a4defba63a0bdd75dfd95
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Security-on-Two.rst:22
+#: 416d87fe8a824723b9935f30b55fa312
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Security-on-Two.rst:24
+#: 4d741049092e4c9aa127e5d51c0791ac
+msgid ""
+"Before proceeding ensure you have completed the :doc:`Introducing-"
+"ros2-security` tutorial."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Security-on-Two.rst:26
+#: 10f5aa2e652d4b67950b57703f164e1f
+msgid ""
+"The previous tutorials have used two ROS nodes on the same machine "
+"sending all network communications over the localhost interface. Let's "
+"extend that scenario to involve multiple machines, since the benefits of "
+"authentication and encryption then become more obvious."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Security-on-Two.rst:29
+#: d01cc754ef264e51bb9506d62fd4a829
+msgid ""
+"Suppose that the machine with the keystore created in the previous demo "
+"has a hostname ``Alice``, and that we want to also use another machine "
+"with hostname ``Bob`` for our multi-machine ``talker/listener`` demo. We "
+"need to move some keys from ``Alice`` to ``Bob`` to allow SROS 2 to "
+"authenticate and encrypt the transmissions."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Security-on-Two.rst:34
+#: 619749922edb4a57b8c63a9a512db704
+msgid "Create the second keystore"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Security-on-Two.rst:36
+#: 5b03ad3912094c9a85d94a073eef35d7
+msgid ""
+"Begin by creating an empty keystore on ``Bob``; the keystore is actually "
+"just an empty directory:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Security-on-Two.rst:40
+#: ../../source/Tutorials/Advanced/Security/Security-on-Two.rst:73
+#: 260604fafb894fe393b8e333d4d0c45a 83f18fc949bc4bb8a96f04855c6b8e3c
+msgid "Linux"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Security-on-Two.rst:48
+#: ../../source/Tutorials/Advanced/Security/Security-on-Two.rst:80
+#: 01d43e7e59794b5d9bdb33a4d94f8571 9a2d50cec6fd4e67ae55d8f9d47ac751
+msgid "MacOS"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Security-on-Two.rst:56
+#: ../../source/Tutorials/Advanced/Security/Security-on-Two.rst:87
+#: 26676d9f1ec74eba80aeed0714c045a6 e40a54014cfe477a80f5bd6d02c7efce
+msgid "Windows"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Security-on-Two.rst:66
+#: 2a07063ac79b4b0aa4b9f552a0781607
+msgid "Copy files"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Security-on-Two.rst:68
+#: a90ef6c8e5f64429a5e2fc8e47515ead
+msgid ""
+"Next copy the keys and certificates for the ``talker`` program from "
+"``Alice`` to ``Bob``. Since the keys are just text files, we can use "
+"``scp`` to copy them."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Security-on-Two.rst:96
+#: bdde186edc8741c9a8f172612bb98ca6
+msgid ""
+"Note that in this case the entire keystore is shared across the different"
+" machines which may not be the desired behavior, as it may result in a "
+"security risk. Please refer to :doc:`Deployment-Guidelines` for more "
+"information in this regard."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Security-on-Two.rst:99
+#: c44ab1b5360c461285e85e4e216f013d
+msgid ""
+"That will be very quick, since it's just copying some very small text "
+"files. Now, we're ready to run a multi-machine talker/listener demo!"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Security-on-Two.rst:104
+#: f7d6af81eccb42a496103acd28ffc125
+msgid "Launch the nodes"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Security-on-Two.rst:106
+#: d6f071cfea1c473981a1b38303e2e97a
+msgid "Once the environment is set up, run the talker on ``Bob``:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Security-on-Two.rst:112
+#: 5cbc48e898b44a36adf545173f7c9615
+msgid "and launch the listener on ``Alice``:"
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Security-on-Two.rst:118
+#: de3faa6e6656459f9c3e9b1803ff9ef4
+msgid "Alice will now be receiving encrypted messages from Bob."
+msgstr ""
+
+#: ../../source/Tutorials/Advanced/Security/Security-on-Two.rst:120
+#: dfe3ab25dabf459ab0625d3a789b606c
+msgid ""
+"With two machines successfully communicating using both encryption and "
+"authentication, you can use the same procedure to add more machines to "
+"your ROS graph."
+msgstr ""
+

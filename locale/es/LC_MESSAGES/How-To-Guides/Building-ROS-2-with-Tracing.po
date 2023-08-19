@@ -1,0 +1,168 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/How-To-Guides/Building-ROS-2-with-Tracing.rst:6
+#: 1aa21f066fb54556a4a455bfd8380884
+msgid "Building ROS 2 with tracing"
+msgstr ""
+
+#: ../../source/How-To-Guides/Building-ROS-2-with-Tracing.rst:10
+#: 6062478e246f4c48aa9446528e0c3bd0
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/How-To-Guides/Building-ROS-2-with-Tracing.rst:12
+#: 4855f8d32891465992ab0e06e7b49dcb
+msgid ""
+"Tracing instrumentation is included in the ROS 2 source code, and Linux "
+"installations of ROS 2 include the LTTng tracer as a dependency. "
+"Therefore, ROS 2 can be traced out-of-the-box on Linux."
+msgstr ""
+
+#: ../../source/How-To-Guides/Building-ROS-2-with-Tracing.rst:15
+#: 29f18be3bce643c2bc665cbae9abe32f
+msgid ""
+"However, ROS 2 can be built from source to remove the tracepoints or "
+"completely remove the instrumentation. This guide shows how to do that. "
+"For more information, see `the repository "
+"<https://github.com/ros2/ros2_tracing>`__."
+msgstr ""
+
+#: ../../source/How-To-Guides/Building-ROS-2-with-Tracing.rst:21
+#: 53d5d08bed9543c0bdf365ea3c8da238
+msgid "This guide only applies to Linux systems."
+msgstr ""
+
+#: ../../source/How-To-Guides/Building-ROS-2-with-Tracing.rst:24
+#: 3e7e6ebf213d4d10b8fd62a8cc367668
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/How-To-Guides/Building-ROS-2-with-Tracing.rst:26
+#: 0eee4fc0c3f6415581411b7b1273e53a
+msgid ""
+"Set up your system to build ROS 2 from source. See :doc:`the source "
+"installation page <../Installation/Alternatives/Ubuntu-Development-"
+"Setup>` for more information."
+msgstr ""
+
+#: ../../source/How-To-Guides/Building-ROS-2-with-Tracing.rst:30
+#: 4ab02aed34524fc790802e653f91869b
+msgid "Build configurations"
+msgstr ""
+
+#: ../../source/How-To-Guides/Building-ROS-2-with-Tracing.rst:32
+#: 086a7d1c0c9948fab4409c130cb9027a
+msgid ""
+"The ROS 2 tracing instrumentation is split into two components: function "
+"instrumentation and tracepoints. First, a ROS 2 core package (e.g., "
+"``rclcpp``) calls a function provided by the ``tracetools`` package. "
+"Then, that function triggers a tracepoint, which records data if the "
+"tracepoint is enabled at runtime."
+msgstr ""
+
+#: ../../source/How-To-Guides/Building-ROS-2-with-Tracing.rst:36
+#: d6e63be6ea3f4b0bbdbf3f418b134884
+msgid ""
+"By default, if the tracer is not `configured to trace or if the "
+"tracepoints are not enabled "
+"<https://github.com/ros2/ros2_tracing#tracing>`__, they will have "
+"virtually no impact on the execution. However, the tracepoints can still "
+"be removed through a CMake option. Furthermore, the functions can be "
+"completely removed through a CMake option, which implies that tracepoints"
+" are also removed."
+msgstr ""
+
+#: ../../source/How-To-Guides/Building-ROS-2-with-Tracing.rst:41
+#: bc50be9a11c9496cb5cd4c5ae25ea105
+msgid "Building without tracepoints"
+msgstr ""
+
+#: ../../source/How-To-Guides/Building-ROS-2-with-Tracing.rst:43
+#: a05640dcaeba4da38bd80b58e34422ab
+msgid ""
+"This step depends on whether you are :doc:`building ROS 2 from source "
+"<../Installation/Alternatives/Ubuntu-Development-Setup>` or using ROS 2 "
+"binaries (:doc:`Debian packages <../Installation/Ubuntu-Install-Debians>`"
+" or :doc:`\"fat\" archive <../Installation/Alternatives/Ubuntu-Install-"
+"Binary>`). To remove the tracepoints, (re)build ``tracetools`` and set "
+"the ``TRACETOOLS_TRACEPOINTS_EXCLUDED`` CMake option to ``ON``:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Building-ROS-2-with-Tracing.rst:48
+#: c0e2d758898c4aa1b4a98775b9bf4a8d
+msgid "Source installation"
+msgstr ""
+
+#: ../../source/How-To-Guides/Building-ROS-2-with-Tracing.rst:55
+#: 0eb2aa4cf94c42679f510308bc7c5b6f
+msgid "Binary installation"
+msgstr ""
+
+#: ../../source/How-To-Guides/Building-ROS-2-with-Tracing.rst:57
+#: 379ff36f6d774b13917012820068f0ed
+msgid "Clone the ``ros2_tracing`` repository into your workspace and build:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Building-ROS-2-with-Tracing.rst:66
+#: 512099d6f53244cb9d7fb297b7ef73c2
+msgid "Building without instrumentation"
+msgstr ""
+
+#: ../../source/How-To-Guides/Building-ROS-2-with-Tracing.rst:68
+#: ad1be2cabcc84f4fafc4a237f286b099
+msgid ""
+"To completely remove both tracepoints and function calls, :doc:`build ROS"
+" 2 from source <../Installation/Alternatives/Ubuntu-Development-Setup>` "
+"and set the ``TRACETOOLS_DISABLED`` CMake option to ``ON``:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Building-ROS-2-with-Tracing.rst:76
+#: 03cd81f3e80d4455834d0a20fcc37728
+msgid "Validating"
+msgstr ""
+
+#: ../../source/How-To-Guides/Building-ROS-2-with-Tracing.rst:78
+#: 709687622051405eb1c1ee811841b0e6
+msgid "Validate that tracing is disabled:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Building-ROS-2-with-Tracing.rst:86
+#: bfcfcf3ec7be4e73bb240867ecb4bc67
+msgid "It should print out:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Building-ROS-2-with-Tracing.rst:90
+#: c3bc4bdc8e8d4a458a1adb05e6427173
+msgid "Without tracepoints"
+msgstr ""
+
+#: ../../source/How-To-Guides/Building-ROS-2-with-Tracing.rst:96
+#: 284de8e081404b78a4320b79c9e8fd8b
+msgid "Without instrumentation"
+msgstr ""
+
+#: ../../source/How-To-Guides/Building-ROS-2-with-Tracing.rst:102
+#: 02efbf06062e4cceb004bbad999bb040
+msgid "If something else is printed, then something went wrong."
+msgstr ""
+

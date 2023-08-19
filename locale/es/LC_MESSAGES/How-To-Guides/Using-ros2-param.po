@@ -1,0 +1,187 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/How-To-Guides/Using-ros2-param.rst:2
+#: e7f2cfa85fe04bf9b56242ee8c57e551
+msgid "Using the ``ros2 param`` command-line tool"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros2-param.rst:6
+#: 822664fb8a6a4b8e81149e66fd60bfe4
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros2-param.rst:8
+#: d21f65e8b94e480badb8b016c769623e
+msgid ""
+"Parameters in ROS 2 can be get, set, listed, and described through a set "
+"of services as described in :doc:`the concept document <../Concepts/Basic"
+"/About-Parameters>`. The ``ros2 param`` command-line tool is a wrapper "
+"around these service calls that makes it easy to manipulate parameters "
+"from the command-line."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros2-param.rst:12
+#: 6c8b114671ac432d8a9f02133b2a53a0
+msgid "``ros2 param list``"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros2-param.rst:14
+#: 5ee251f6b25944708594ab25ef9f5525
+msgid ""
+"This command will list all of the available parameters on a given node, "
+"or on all discoverable nodes if no node is given."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros2-param.rst:16
+#: b36baaa209ce40e59cc3183bdbcc6e89
+msgid "To get all of the parameters on a given node:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros2-param.rst:22
+#: 95ece15ca66c476cb6534a38cebe68a0
+msgid ""
+"To get all of the parameters on all nodes in the system (this can take a "
+"long time on a complicated network):"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros2-param.rst:29
+#: 1e2ee56eb652453cb59907009d016c3f
+msgid "``ros2 param get``"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros2-param.rst:31
+#: 2ddeb5eac48a47208fa0c20c1720c994
+msgid ""
+"This command will get the value of a particular parameter on a particular"
+" node."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros2-param.rst:33
+#: 71b5603775284f1a9367cf93a7e7203a
+msgid "To get the value of a parameter on a node:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros2-param.rst:40
+#: 562ce291f57e4bab9252a39d540d444d
+msgid "``ros2 param set``"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros2-param.rst:42
+#: a0d588dc9a074001a22bd122bfd4e236
+msgid ""
+"This command will set the value of a particular parameter on a particular"
+" node. For most parameters, the type of the new value must be the same as"
+" the existing type."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros2-param.rst:45
+#: 9d788863997d4f8b89d521a37c614b65
+msgid "To set the value of a parameter on a node:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros2-param.rst:51
+#: 7fc1590134834a119ff43514d09c0eb7
+msgid ""
+"The value that is passed on the command-line is in YAML, which allows "
+"arbitrary YAML expressions to be used. However, it also means that "
+"certain expressions will be interpreted differently than might be "
+"expected. For instance, if the parameter ``my_string`` on node "
+"``my_node`` is of type string, the following will not work:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros2-param.rst:59
+#: 0a9bc0b53f8547908e850aabdff3e945
+msgid ""
+"That's because YAML is interpreting \"off\" as a boolean, and "
+"``my_string`` is a string type. This can be worked around by using the "
+"YAML syntax for explicitly setting strings, e.g.:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros2-param.rst:66
+#: d089f010135944aebb8fdbb519a07861
+msgid ""
+"Additionally, YAML supports heterogeneous lists, containing (say) a "
+"string, a boolean, and an integer. However, ROS 2 parameters do not "
+"support heterogenous lists, so any YAML list that has multiple types will"
+" be interpreted as a string. Assuming that the parameter ``my_int_array``"
+" on node ``my_node`` is of type integer array, the following will not "
+"work:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros2-param.rst:74
+#: dee09d6309e34c01b1dcf6c5d44abfcf
+msgid "The following string typed parameter would work:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros2-param.rst:81
+#: 38edb859cddb4f858fb6dbf1f0dce08f
+msgid "``ros2 param delete``"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros2-param.rst:83
+#: a49e96fe94fc4e6fa3bf1393b593ad6a
+msgid ""
+"This command will remove a parameter from a particular node. However, "
+"note that this can only remove dynamic parameters (not declared "
+"parameters). See :doc:`the concept document <../Concepts/Basic/About-"
+"Parameters>` for more information."
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros2-param.rst:92
+#: e6f6ec56229b47e886ec0ff0efcec844
+msgid "``ros2 param describe``"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros2-param.rst:94
+#: 04ab0bfbd9e34acf802202adb25792a2
+msgid ""
+"This command will provide a textual description of a particular parameter"
+" on a particular node:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros2-param.rst:101
+#: 8f9157e26a28417abccc2651133c195f
+msgid "``ros2 param dump``"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros2-param.rst:103
+#: b230a5cf04044a92b779ed284e225e0f
+msgid ""
+"This command will print out all of the parameters on a particular node in"
+" a YAML file format. The output of this command can then be used to re-"
+"run the node with the same parameters later:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros2-param.rst:111
+#: 3f5ea397473948e293dcb0fa3b326234
+msgid "``ros2 param load``"
+msgstr ""
+
+#: ../../source/How-To-Guides/Using-ros2-param.rst:113
+#: c921edc1faf84530ad826dfbecabc1bb
+msgid ""
+"This command will load the values of the parameters from a YAML file into"
+" a particular node. That is, this command can reload values at runtime "
+"that were dumped out by ``ros2 param dump``:"
+msgstr ""
+

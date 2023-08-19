@@ -1,0 +1,390 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:8
+#: feeff663d64f4f6b8d27272aa7a4ec10
+msgid "Understanding services"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:10
+#: bcfface63d6d456f88c72ba67b2c052b
+msgid "**Goal:** Learn about services in ROS 2 using command line tools."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:12
+#: 24ab22e264874634a78e61cee909c19b
+msgid "**Tutorial level:** Beginner"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:14
+#: 0ccf0c46716b413fb5c28f6bcb8f6ea6
+msgid "**Time:** 10 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:18
+#: edabd8d369384300bbd5a60870fd8a89
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:21
+#: 53eed339758e46aaaaf0ab0dfa979924
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:23
+#: 3dcb7b19e8674203a4db3da6b0f76b65
+msgid ""
+"Services are another method of communication for nodes in the ROS graph. "
+"Services are based on a call-and-response model versus the publisher-"
+"subscriber model of topics. While topics allow nodes to subscribe to data"
+" streams and get continual updates, services only provide data when they "
+"are specifically called by a client."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:32
+#: 7acf0292ac42443cb88778ed83d8fcb2
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:34
+#: 140f4e547a404132aee40b838b76bb28
+msgid ""
+"Some concepts mentioned in this tutorial, like :doc:`Nodes "
+"<../Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` and :doc:`Topics "
+"<../Understanding-ROS2-Topics/Understanding-ROS2-Topics>`, were covered "
+"in previous tutorials in the series."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:36
+#: cc90da8e9ee142a19c79b73e16b565d1
+msgid ""
+"You will need the :doc:`turtlesim package <../Introducing-Turtlesim"
+"/Introducing-Turtlesim>`."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:38
+#: 10c6f0c820534375a9e48810993625e0
+msgid ""
+"As always, don't forget to source ROS 2 in :doc:`every new terminal you "
+"open <../Configuring-ROS2-Environment>`."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:41
+#: 2719c5d73b144d53be64868313449969
+msgid "Tasks"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:44
+#: d00153bbece04bb2a69e9753ede40553
+msgid "1 Setup"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:45
+#: 2be4c7ad75494de3a31a5b277dca018b
+msgid "Start up the two turtlesim nodes, ``/turtlesim`` and ``/teleop_turtle``."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:47
+#: a5240fbb50e747b886d543c263643f72
+msgid "Open a new terminal and run:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:53
+#: 953fe6d32e2f4705996883887d2138e2
+msgid "Open another terminal and run:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:60
+#: 174803af787646f8b25964b2e049fdf5
+msgid "2 ros2 service list"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:62
+#: 5f5f19f10d5c466588bfef271734b8ef
+msgid ""
+"Running the ``ros2 service list`` command in a new terminal will return a"
+" list of all the services currently active in the system:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:86
+#: 72dd404a73474ce380715e22fab9b069
+msgid ""
+"You will see that both nodes have the same six services with "
+"``parameters`` in their names. Nearly every node in ROS 2 has these "
+"infrastructure services that parameters are built off of. There will be "
+"more about parameters in the next tutorial. In this tutorial, the "
+"parameter services will be omitted from the discussion."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:91
+#: 150815e23bd34d00b892592737fd1fce
+msgid ""
+"For now, let's focus on the turtlesim-specific services, ``/clear``, "
+"``/kill``, ``/reset``, ``/spawn``, ``/turtle1/set_pen``, "
+"``/turtle1/teleport_absolute``, and ``/turtle1/teleport_relative``. You "
+"may recall interacting with some of these services using rqt in the "
+":doc:`Use turtlesim, ros2, and rqt <../Introducing-Turtlesim/Introducing-"
+"Turtlesim>` tutorial."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:96
+#: f658c1fa11ee4df59902ed7cc6f4132e
+msgid "3 ros2 service type"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:98
+#: 438e4929721e49f58750579aee1629ec
+msgid ""
+"Services have types that describe how the request and response data of a "
+"service is structured. Service types are defined similarly to topic "
+"types, except service types have two parts: one message for the request "
+"and another for the response."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:101
+#: 19250280642f44d9bdd980f92c2f9651
+msgid "To find out the type of a service, use the command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:107
+#: 0af0c8fb90be4383bdf2f1d14d4d0b43
+msgid ""
+"Let's take a look at turtlesim's ``/clear`` service. In a new terminal, "
+"enter the command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:114
+#: bb0a3a19ef3b4c07955aef801c6de5d0
+msgid "Which should return:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:120
+#: 3d30b35267544e62a01799d97c5c579b
+msgid ""
+"The ``Empty`` type means the service call sends no data when making a "
+"request and receives no data when receiving a response."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:123
+#: 44ea8c197b414c90aad2dafbcbac6ef4
+msgid "3.1 ros2 service list -t"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:125
+#: 183cf6f0754f4f859e5716220d261e91
+msgid ""
+"To see the types of all the active services at the same time, you can "
+"append the ``--show-types`` option, abbreviated as ``-t``, to the "
+"``list`` command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:131
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:160
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:182
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:201
+#: 2afa448ccf164f21b2b1681b398e1375 31b2b339599344b48b77591ed7db4cc1
+#: 6d403a3b03134fb78b02f79dbfa436c8 e91b7d11b326450c8f06674ad79c37cf
+msgid "Which will return:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:146
+#: 208403c1b8924f958a669fb479b33dd0
+msgid "4 ros2 service find"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:148
+#: 884831e32db249b6a0076f0d906f9d16
+msgid ""
+"If you want to find all the services of a specific type, you can use the "
+"command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:154
+#: 54d4b8fd667043af8c2ddaad0ce1a473
+msgid "For example, you can find all the ``Empty`` typed services like this:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:168
+#: a6632bc2db5b4ed6bcd9832df0f1b246
+msgid "5 ros2 interface show"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:170
+#: 4f781d0d8be04951adedc32d555bff76
+msgid ""
+"You can call services from the command line, but first you need to know "
+"the structure of the input arguments."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:176
+#: 94acfd4fe90d4e9eb58d04d15998dd68
+msgid "Try this on the ``/clear`` service's type, ``Empty``:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:188
+#: ee0ec27335f444dc8244995107914430
+msgid ""
+"The ``---`` separates the request structure (above) from the response "
+"structure (below). But, as you learned earlier, the ``Empty`` type "
+"doesn't send or receive any data. So, naturally, its structure is blank."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:192
+#: c4a6586c862a47d89e939b42462884bd
+msgid ""
+"Let's introspect a service with a type that sends and receives data, like"
+" ``/spawn``. From the results of ``ros2 service list -t``, we know "
+"``/spawn``'s type is ``turtlesim/srv/Spawn``."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:195
+#: c1d34fa9faa9458f91719356da5e19e0
+msgid ""
+"To see the request and response arguments of the ``/spawn`` service, run "
+"the command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:212
+#: 5e14e757921d49418d6d10adaddeeb78
+msgid ""
+"The information above the ``---`` line tells us the arguments needed to "
+"call ``/spawn``. ``x``, ``y`` and ``theta`` determine the 2D pose of the "
+"spawned turtle, and ``name`` is clearly optional."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:215
+#: 845089f2ab804b6e8544c680cf181b56
+msgid ""
+"The information below the line isn't something you need to know in this "
+"case, but it can help you understand the data type of the response you "
+"get from the call."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:218
+#: c9b72dcacce34cf8b5623fa866f7374c
+msgid "6 ros2 service call"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:220
+#: 83d070e849a04495b7daf0a91fd46fa8
+msgid ""
+"Now that you know what a service type is, how to find a service's type, "
+"and how to find the structure of that type's arguments, you can call a "
+"service using:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:226
+#: 914b408e14aa4d1092c041626af6fa70
+msgid ""
+"The ``<arguments>`` part is optional. For example, you know that "
+"``Empty`` typed services don't have any arguments:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:233
+#: c4afb83b04c545b998660fe461f9aa9b
+msgid ""
+"This command will clear the turtlesim window of any lines your turtle has"
+" drawn."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:237
+#: 0ca00d45a3ba4e90b13d9e06d6934662
+msgid ""
+"Now let's spawn a new turtle by calling ``/spawn`` and setting arguments."
+" Input ``<arguments>`` in a service call from the command-line need to be"
+" in YAML syntax."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:240
+#: 0bba887337714b419ff7f4bc5235bd25
+msgid "Enter the command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:246
+#: 975d7cf6187f4254a533bd35927e089b
+msgid ""
+"You will get this method-style view of what's happening, and then the "
+"service response:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:255
+#: 8a7d661f581145158a958c19658bea29
+msgid ""
+"Your turtlesim window will update with the newly spawned turtle right "
+"away:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:260
+#: ac8d19ed1d4e4696854a9a2653506d4c
+msgid "Summary"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:262
+#: 07d5944b9bcd48789443695a2fb58a16
+msgid ""
+"Nodes can communicate using services in ROS 2. Unlike a topic - a one way"
+" communication pattern where a node publishes information that can be "
+"consumed by one or more subscribers - a service is a request/response "
+"pattern where a client makes a request to a node providing the service "
+"and the service processes the request and generates a response."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:265
+#: dd2f70036f96400f9d4d1fbf61a10293
+msgid ""
+"You generally don't want to use a service for continuous calls; topics or"
+" even actions would be better suited."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:267
+#: b40f66eb92134c6cbf70ab4929e9ae44
+msgid ""
+"In this tutorial you used command line tools to identify, introspect, and"
+" call services."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:270
+#: 0a12ced75f5e4af0a52cebe82744d7a8
+msgid "Next steps"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:272
+#: 78d1be53be7449cba357efa95cf7a7d4
+msgid ""
+"In the next tutorial, :doc:`../Understanding-ROS2-Parameters"
+"/Understanding-ROS2-Parameters`, you will learn about configuring node "
+"settings."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:275
+#: 0dae5fc2e1634d969896164caf562246
+msgid "Related content"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.rst:277
+#: caba6b455b504c6c9cdfa366c6f60165
+msgid ""
+"Check out `this tutorial <https://discourse.ubuntu.com/t/call-services-"
+"in-ros-2/15261>`_; it's an excellent realistic application of ROS "
+"services using a Robotis robot arm."
+msgstr ""
+

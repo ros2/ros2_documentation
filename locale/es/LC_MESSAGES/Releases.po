@@ -1,0 +1,387 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Releases.rst:4 f4a840563cac4e919332c9ad8ba0fc83
+msgid "Distributions"
+msgstr ""
+
+#: ../../source/Releases.rst:7 79880543f99249a3a4270d0a58e5b2f4
+msgid "What is a Distribution?"
+msgstr ""
+
+#: ../../source/Releases.rst:9 d6e07b680a79460ba98dbcbff98e492b
+msgid ""
+"A ROS distribution is a versioned set of ROS packages. These are akin to "
+"Linux distributions (e.g. Ubuntu). The purpose of the ROS distributions "
+"is to let developers work against a relatively stable codebase until they"
+" are ready to roll everything forward. Therefore once a distribution is "
+"released, we try to limit changes to bug fixes and non-breaking "
+"improvements for the core packages (every thing under ros-desktop-full). "
+"That generally applies to the whole community, but for \"higher\" level "
+"packages, the rules are less strict, and so it falls to the maintainers "
+"of a given package to avoid breaking changes."
+msgstr ""
+
+#: ../../source/Releases.rst:18 ad1b17922c1b4d56a95c2005ebcae7b2
+msgid "List of Distributions"
+msgstr ""
+
+#: ../../source/Releases.rst:20 4efda77ae51b40afa100dc64f881660a
+msgid ""
+"Below is a list of current and historic ROS 2 distributions. Rows in the "
+"table marked in green are the currently supported distributions."
+msgstr ""
+
+#: ../../source/Releases.rst:53 b0189eb9d5ec441b87a530c065c94cb4
+msgid "Rolling logo"
+msgstr ""
+
+#: ../../source/Releases.rst:56 293a80bee57d4c9d8944bb2280c1c8ac
+#: 91d28502908140629e3a2c47aa3061ef
+msgid "Iron logo"
+msgstr ""
+
+#: ../../source/Releases.rst:59 24f1aac451904ccaa85b60d2c54d106a
+#: 67137d760ba248a79d8f10e6b3e6b297
+msgid "Humble logo"
+msgstr ""
+
+#: ../../source/Releases.rst:62 9eb69a83b865457aa92ad2c51f543e8b
+#: dfdb7c9e53db406e880623b6d2cb9c58
+msgid "Galactic logo"
+msgstr ""
+
+#: ../../source/Releases.rst:65 72e631ccb8ae49bf8c42069a8ea57dc3
+#: a05998ee21fb4f1b9e86eb0077f6adea
+msgid "Foxy logo"
+msgstr ""
+
+#: ../../source/Releases.rst:68 4a30067c5374459e876e748ce7c2523b
+#: 97232cc617c8487084417082d48ae9d9
+msgid "Eloquent logo"
+msgstr ""
+
+#: ../../source/Releases.rst:71 13b4a115b43546c1a397bb0d1eb3d589
+#: 3a1331ab67624c05ba1aae38fa0199bd
+msgid "Dashing logo"
+msgstr ""
+
+#: ../../source/Releases.rst:74 1760b660f15a4ad3b65ba6a3831dcf32
+#: 1c801545f08e47b0b07521fab1f58434
+msgid "Crystal logo"
+msgstr ""
+
+#: ../../source/Releases.rst:77 d71570aabaee46d7822dd1d4ad943773
+#: ebc2d28de4074aada61e2028ce5a8eec
+msgid "Bouncy logo"
+msgstr ""
+
+#: ../../source/Releases.rst:80 027d7d1114a2422e9b30319edb6e0f8e
+#: d5de184f75904e6e9352f441b149331f
+msgid "Ardent logo"
+msgstr ""
+
+#: ../../source/Releases.rst:88 ../../source/Releases.rst:157
+#: 18afb9d1b1ef40eda9c20e93b8f57c4b 21d6722227a34d3d9edfdbbdd0219a76
+msgid "Distro"
+msgstr ""
+
+#: ../../source/Releases.rst:89 ../../source/Releases.rst:158
+#: 09cb691fc991432fa981b8f601fce230 1822ee181acf4bfab0ad649e16d91779
+msgid "Release date"
+msgstr ""
+
+#: ../../source/Releases.rst:90 ../../source/Releases.rst:159
+#: 232d343236a0460089c932eec48fdccd 2f9fe0b4f83c4ba88077e05fcd528cdf
+msgid "Logo"
+msgstr ""
+
+#: ../../source/Releases.rst:91 ../../source/Releases.rst:160
+#: 3c8d44ae90bc4d069c1c34af6e07127d 8ebe4a4aedd949f8b3077efb0b7bc97b
+msgid "EOL date"
+msgstr ""
+
+#: ../../source/Releases.rst:92 2825b383c2864e03ba968f15bdd94532
+msgid ":doc:`Iron Irwini <Releases/Release-Iron-Irwini>`"
+msgstr ""
+
+#: ../../source/Releases.rst:93 6aab4821bc4840cca20eab6042be7855
+msgid "May 23rd, 2023"
+msgstr ""
+
+#: ../../source/Releases.rst:94 7caa3ce2443549b786a6e6c3179c89f3
+msgid "|iron|"
+msgstr ""
+
+#: ../../source/Releases.rst:95 fb22f8fb2cb748b99028bf74c84e8972
+msgid "November 2024"
+msgstr ""
+
+#: ../../source/Releases.rst:96 ab85e06d725d4453aec83bc462609480
+msgid ":doc:`Humble Hawksbill <Releases/Release-Humble-Hawksbill>`"
+msgstr ""
+
+#: ../../source/Releases.rst:97 1f36263d728b40e7ba82f9c7d0abb13e
+msgid "May 23rd, 2022"
+msgstr ""
+
+#: ../../source/Releases.rst:98 663dde9e418c4b0184aae602135866b3
+msgid "|humble|"
+msgstr ""
+
+#: ../../source/Releases.rst:99 98e9b70ba7cd4e7cb7366bd92e829032
+msgid "May 2027"
+msgstr ""
+
+#: ../../source/Releases.rst:100 4b5194f09a8e44119194b783c7b5ca81
+msgid ":doc:`Galactic Geochelone <Releases/Release-Galactic-Geochelone>`"
+msgstr ""
+
+#: ../../source/Releases.rst:101 1f351f5ccfa348e28135f2e2393acbef
+msgid "May 23rd, 2021"
+msgstr ""
+
+#: ../../source/Releases.rst:102 030d3ddf68af458688d1fdbb28216764
+msgid "|galactic|"
+msgstr ""
+
+#: ../../source/Releases.rst:103 6614ad82e92b479a82b3fdc4c2a1f1de
+msgid "December 9th, 2022"
+msgstr ""
+
+#: ../../source/Releases.rst:104 33a7855feb834a02b19e3e0cb8694efc
+msgid ":doc:`Foxy Fitzroy <Releases/Release-Foxy-Fitzroy>`"
+msgstr ""
+
+#: ../../source/Releases.rst:105 cc5d7e1d3c8f4fc5b6c528ad7ffc6c37
+msgid "June 5th, 2020"
+msgstr ""
+
+#: ../../source/Releases.rst:106 779c4ccc74734b259cd79163252fa19b
+msgid "|foxy|"
+msgstr ""
+
+#: ../../source/Releases.rst:107 6cd5a5705b6045168bd230652b5cfce2
+msgid "June 20th, 2023"
+msgstr ""
+
+#: ../../source/Releases.rst:108 a355937339c14fd69c2bd508dc68860a
+msgid ":doc:`Eloquent Elusor <Releases/Release-Eloquent-Elusor>`"
+msgstr ""
+
+#: ../../source/Releases.rst:109 3a7d2f07b4e545f79426d4306e4cba35
+msgid "November 22nd, 2019"
+msgstr ""
+
+#: ../../source/Releases.rst:110 2beaec7c2b474e54a3c73edc0815fd16
+msgid "|eloquent|"
+msgstr ""
+
+#: ../../source/Releases.rst:111 86098e43308c4b58bdcd585264730825
+msgid "November 2020"
+msgstr ""
+
+#: ../../source/Releases.rst:112 7e0057fd8c64491dadc94e97ae32b918
+msgid ":doc:`Dashing Diademata <Releases/Release-Dashing-Diademata>`"
+msgstr ""
+
+#: ../../source/Releases.rst:113 0f5e414e3fe3489ba03c38d8c4991e1e
+msgid "May 31st, 2019"
+msgstr ""
+
+#: ../../source/Releases.rst:114 9b59ee635c584699809d98099fc7288c
+msgid "|dashing|"
+msgstr ""
+
+#: ../../source/Releases.rst:115 e30b136bfe9146fba89d518506805dec
+msgid "May 2021"
+msgstr ""
+
+#: ../../source/Releases.rst:116 2b89375549a74ba688bedbfdd84f3ace
+msgid ":doc:`Crystal Clemmys <Releases/Release-Crystal-Clemmys>`"
+msgstr ""
+
+#: ../../source/Releases.rst:117 9de485df7722445996c12e48799f07d8
+msgid "December 14th, 2018"
+msgstr ""
+
+#: ../../source/Releases.rst:118 9596b6475d2a4e838521aa7196cfee4f
+msgid "|crystal|"
+msgstr ""
+
+#: ../../source/Releases.rst:119 8cc653dbf9a540e5ae101fe7e41d5c59
+msgid "December 2019"
+msgstr ""
+
+#: ../../source/Releases.rst:120 898f057557074cd7a795d2a5f9b55ea9
+msgid ":doc:`Bouncy Bolson <Releases/Release-Bouncy-Bolson>`"
+msgstr ""
+
+#: ../../source/Releases.rst:121 923590205e6d4a42809d5d573109c3e2
+msgid "July 2nd, 2018"
+msgstr ""
+
+#: ../../source/Releases.rst:122 f52309bb6f1941c08935c19ed7019d07
+msgid "|bouncy|"
+msgstr ""
+
+#: ../../source/Releases.rst:123 094aa67f6a0748739f09f05a9e2e5e66
+msgid "July 2019"
+msgstr ""
+
+#: ../../source/Releases.rst:124 e354f28d4da14de4ab000bf47de531b9
+msgid ":doc:`Ardent Apalone <Releases/Release-Ardent-Apalone>`"
+msgstr ""
+
+#: ../../source/Releases.rst:125 af59f8fd1a6b4f12ac6298436f763712
+msgid "December 8th, 2017"
+msgstr ""
+
+#: ../../source/Releases.rst:126 d4435b52fe814f57aeef48ee63816669
+msgid "|ardent|"
+msgstr ""
+
+#: ../../source/Releases.rst:127 c246d6e8ddfe420994f931d6ce40195c
+msgid "December 2018"
+msgstr ""
+
+#: ../../source/Releases.rst:128 78ffcbb73e084666a3cf0ad13b46128e
+msgid ":doc:`beta3 <Releases/Beta3-Overview>`"
+msgstr ""
+
+#: ../../source/Releases.rst:129 111a660cbebd4df9908da4ad6b5422bf
+msgid "September 13th, 2017"
+msgstr ""
+
+#: ../../source/Releases.rst:131 80e1f58d4b5c46d298fba636b1385ea4
+msgid "December 2017"
+msgstr ""
+
+#: ../../source/Releases.rst:132 73fe203dbac2402eba0a0804328cde58
+msgid ":doc:`beta2 <Releases/Beta2-Overview>`"
+msgstr ""
+
+#: ../../source/Releases.rst:133 ac87512d7a8a4e859e9d3574671a9237
+msgid "July 5th, 2017"
+msgstr ""
+
+#: ../../source/Releases.rst:135 7fac15fc0b274f2897de0456b69f27e0
+msgid "September 2017"
+msgstr ""
+
+#: ../../source/Releases.rst:136 ca5f260b203d4bc8add29dea34a0aae3
+msgid ":doc:`beta1 <Releases/Beta1-Overview>`"
+msgstr ""
+
+#: ../../source/Releases.rst:137 901486687861425e9b362e13156ee51f
+msgid "December 19th, 2016"
+msgstr ""
+
+#: ../../source/Releases.rst:139 43de2499321b439ab641b8d67ba8ef55
+msgid "Jul 2017"
+msgstr ""
+
+#: ../../source/Releases.rst:140 1942c2630a5a4991835ad4d76a91969e
+msgid ":doc:`alpha1 - alpha8 <Releases/Alpha-Overview>`"
+msgstr ""
+
+#: ../../source/Releases.rst:141 f96048fa313e434ba0f7b4df31b026b6
+msgid "August 31th, 2015"
+msgstr ""
+
+#: ../../source/Releases.rst:143 e7a44f14b4a64462af7cb3bfbe9500c8
+msgid "December 2016"
+msgstr ""
+
+#: ../../source/Releases.rst:146 695349845e7340ae961ffdd0672f99f4
+msgid "Future Distributions"
+msgstr ""
+
+#: ../../source/Releases.rst:148 32ab56dbd0a64aa188dfd0ecd678065a
+msgid ""
+"For details on upcoming features see the :doc:`roadmap <The-"
+"ROS2-Project/Roadmap>`."
+msgstr ""
+
+#: ../../source/Releases.rst:150 5f1c2d2daaf54b478d58083f1e1b44dd
+msgid ""
+"There is a new ROS 2 distribution released yearly on May 23rd (`World "
+"Turtle Day <https://www.worldturtleday.org/>`_)."
+msgstr ""
+
+#: ../../source/Releases.rst:161 36ee76a7550f456c870013f9f06baa90
+msgid ":doc:`Jazzy Jalisco <Releases/Release-Jazzy-Jalisco>`"
+msgstr ""
+
+#: ../../source/Releases.rst:162 03251f30ffe6489ca5add4a83e0e033f
+msgid "May 2024"
+msgstr ""
+
+#: ../../source/Releases.rst:163 f3c6eab7660340398f4047bf29f2947d
+msgid "TBD"
+msgstr ""
+
+#: ../../source/Releases.rst:164 15fea18c1de64dfb9c4c90e97e111a91
+msgid "May 2029"
+msgstr ""
+
+#: ../../source/Releases.rst:170 cc72c19d461248118783d3434f43d1ea
+msgid "Rolling Distribution"
+msgstr ""
+
+#: ../../source/Releases.rst:172 91e163c295704ec79d123f38e61277d5
+msgid ""
+":doc:`ROS 2 Rolling Ridley <Releases/Release-Rolling-Ridley>` is the "
+"rolling development distribution of ROS 2. It is described in `REP 2002 "
+"<https://www.ros.org/reps/rep-2002.html>`_ and was first introduced in "
+"June 2020."
+msgstr ""
+
+#: ../../source/Releases.rst:175 27d9427821634964a0b55cd329992eb1
+msgid "The Rolling distribution of ROS 2 serves two purposes:"
+msgstr ""
+
+#: ../../source/Releases.rst:177 1824571cdabc46f1a6f40279428b24bb
+msgid "it is a staging area for future stable distributions of ROS 2, and"
+msgstr ""
+
+#: ../../source/Releases.rst:178 a176902be94a4af9a88de74a9972f699
+msgid "it is a collection of the most recent development releases."
+msgstr ""
+
+#: ../../source/Releases.rst:180 4cffafb7e5e14e7ca4d61022f5f419a2
+msgid ""
+"As the name implies, Rolling is continuously updated and **can have in-"
+"place updates that include breaking changes**. We recommend that most "
+"people use the most recent stable distribution instead (see "
+":ref:`list_of_distributions`)."
+msgstr ""
+
+#: ../../source/Releases.rst:183 5469568684f94ef3ad2b0e7e8f5a183b
+msgid ""
+"Packages released into the Rolling distribution will be automatically "
+"released into future stable distributions of ROS 2. :doc:`Releasing a ROS"
+" 2 package <../How-To-Guides/Releasing/Releasing-a-Package>` into the "
+"Rolling distribution follows the same procedures as all other ROS 2 "
+"distributions."
+msgstr ""
+

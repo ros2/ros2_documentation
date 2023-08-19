@@ -1,0 +1,604 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:9
+#: 9ad1ac71b11a4e70b38989c1f0f4e3e8
+msgid "Migrating launch files from ROS 1 to ROS 2"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:13
+#: 58b075f5edc14b1d9af66f74246c7595
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:15
+#: aa8abf0f0c0945d1af3001e86d0f27fd
+msgid ""
+"This guide describes how to write XML launch files for an easy migration "
+"from ROS 1."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:18
+#: b6d72f70aa4a4445a79b2034b72aeb16
+msgid "Background"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:20
+#: e43b7e47a4c74cbd86885b2c6f31d192
+msgid ""
+"A description of the ROS 2 launch system and its Python API can be found "
+"in :doc:`Launch System tutorial <../Tutorials/Intermediate/Launch/Launch-"
+"system>`."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:24
+#: 9760cea076474e0b92273fae0cc18c1f
+msgid "Migrating tags from ROS 1 to ROS 2"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:27
+#: 85c326fe637342ccba2815f2262d83dd
+msgid "launch"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:29
+#: 6993697e036f40e9864038ad95241914
+msgid "`Available in ROS 1 <https://wiki.ros.org/roslaunch/XML/launch>`__."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:30
+#: 5002758803604cf69738eb6ea9e6ab39
+msgid "``launch`` is the root element of any ROS 2 launch XML file."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:33
+#: d0c06e10e2b042149ca65a612ef56da3
+msgid "node"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:35
+#: 80a6ff5d85ff4d87ae907afee113b8df
+msgid "`Available in ROS 1 <https://wiki.ros.org/roslaunch/XML/node>`__."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:36
+#: 280e0653bd4c48099de27b9db1a339b1
+msgid "Launches a new node."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:37
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:176
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:198
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:271
+#: 651fd2cea0a148c1bd7e66a398b9f124 8769c017e280427d949ead7ca0186102
+#: a3724923661f466bb15c55e0e8a82b46 edc5be6d0b134bfd8cde851bd5f1f716
+msgid "Differences from ROS 1:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:39
+#: 049a16d30aa24fe584bc3ac9df2ac9f5
+msgid "``type`` attribute is now ``exec``."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:40
+#: 6da004d1314f4c4288be7b61bb4b6897
+msgid "``ns`` attribute is now ``namespace``."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:41
+#: e2e1139599284b0595469f982e57ba1b
+msgid ""
+"The following attributes aren't available: ``machine``, "
+"``respawn_delay``, ``clear_params``."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:44
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:63
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:142
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:158
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:206
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:247
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:281
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:354
+#: 121a50535fbe450ebb138b083f7ada99 2be26d665cab44ccafab2d25b6a680e0
+#: 4a5d2f1bab09414a83bfcacec5d0c29f 92ed8b40248c4e54aeb3928628aaa04e
+#: 9c55ccb3ef92429eaa0844c010422850 b8d30808f7e34a089ae15b70f3b70e3e
+#: dabb8e69401d45e0a488c77a00a9065e f16124054c7e43b9bb8c883a141029af
+msgid "Example"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:54
+#: 8ad11a5b07c64dea8f14e73c16ba9c6d
+msgid "param"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:56
+#: 7dee37683573427eba3b52113fe80665
+msgid "`Available in ROS 1 <https://wiki.ros.org/roslaunch/XML/param>`__."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:57
+#: c7f91c45b17248c8bb3c937f68b22b76
+msgid "Used for passing a parameter to a node."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:58
+#: 00529635ceb041faa616e532091c38e1
+msgid ""
+"There's no global parameter concept in ROS 2. For that reason, it can "
+"only be used nested in a ``node`` tag. Some attributes aren't supported "
+"in ROS 2: ``type``, ``textfile``, ``binfile``, ``executable``, "
+"``command``."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:74
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:406
+#: 447bdec2aba241a3bc30f82657c322c4 81ffacc2260c4c2a903224daf125b301
+msgid "Type inference rules"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:76
+#: b2745b5cdada47088254dc5e5db12b6a
+msgid "Here are some examples of how to write parameters:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:104
+#: a7e294d6ef894648818b2ffc5cec10fc
+msgid "Parameter grouping"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:106
+#: 0cdcb088bf7b44c8ac0f89c2546e3c75
+msgid "In ROS 2, ``param`` tags are allowed to be nested. For example:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:120
+#: 5cea635547824e3b856cfaa10a6ab341
+msgid "That will create two parameters:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:122
+#: d0c7be3c462a4eb287b72e3f71a343cd
+msgid ""
+"A ``group1.group2.my_param`` of value ``1``, hosted by node "
+"``/an_absolute_ns/my_node``."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:123
+#: 0809a5abbbe44e5492249983daec0b46
+msgid ""
+"A ``group1.another_param`` of value ``2`` hosted by node "
+"``/an_absolute_ns/my_node``."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:125
+#: d07e49dd0e024315beada1c292c4ed2b
+msgid "It's also possible to use full parameter names:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:135
+#: e6155383384d47a696455324a64fcb68
+msgid "rosparam"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:137
+#: 751ad2733fa24b9a8f569e75f1ed4e9c
+msgid "`Available in ROS 1 <https://wiki.ros.org/roslaunch/XML/rosparam>`__."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:138
+#: a0edad105fdd4da895b1914799ec64f1
+msgid "Loads parameters from a yaml file."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:139
+#: fca6c1b0d069431989dff14c06d7daed
+msgid "It has been replaced with a ``from`` attribute in ``param`` tags."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:151
+#: 8239fc7011a342d49f12aaa243e38dc7
+msgid "remap"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:153
+#: dc38373437194b6a9526733456b99791
+msgid "`Available in ROS 1 <https://wiki.ros.org/roslaunch/XML/remap>`__."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:154
+#: 7e724ba33ae84242888999da28e54a3c
+msgid "Used to pass remapping rules to a node."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:155
+#: 3d6f2413489548bab99608ebd6af9bb9
+msgid "It can only be used within ``node`` tags."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:172
+#: 9f6159877ffe4ac4bef84c700482ba82
+msgid "include"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:174
+#: b8d136a8899a436a8147fde2a253bd10
+msgid "`Available in ROS 1 <https://wiki.ros.org/roslaunch/XML/include>`__."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:175
+#: fba3eff7d8234adda3f27ecc483e650e
+msgid "Allows including another launch file."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:178
+#: af203faf253f48198079e47b802bb050
+msgid ""
+"Available in ROS 1, included content was scoped. In ROS 2, it's not. Nest"
+" includes in ``group`` tags to scope them."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:181
+#: 56c2bb42c34645b7a7c45d63b4a4a2f1
+msgid ""
+"``ns`` attribute is not supported. See example of ``push_ros_namespace`` "
+"tag for a workaround."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:183
+#: c853b22a4ea441c49a6d78b09eb2a5f5
+msgid ""
+"``arg`` tags nested in an ``include`` tag don't support conditionals "
+"(``if`` or ``unless``)."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:184
+#: 70089a5117b34d67b37eff7066d832c1
+msgid ""
+"There is no support for nested ``env`` tags. ``set_env`` and "
+"``unset_env`` can be used instead."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:186
+#: 5d07f7c14c154a5292953be7ad64d516
+msgid "Both ``clear_params`` and ``pass_all_args`` attributes aren't supported."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:189
+#: 1150155a26a646868dbc408a9a073690
+msgid "Examples"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:191
+#: 797c7739948b48d3b546234b859b306b
+msgid "See `Replacing an include tag`_."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:194
+#: b86081e8cc594eb984eee82efbdb02e0
+msgid "arg"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:196
+#: 6c317c9a78f746bead9f2bfff0b9daca
+msgid "`Available in ROS 1 <https://wiki.ros.org/roslaunch/XML/arg>`__."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:197
+#: 769398fa28cc4a73b5ddb9311a2800c0
+msgid ""
+"``arg`` is used for declaring a launch argument, or to pass an argument "
+"when using ``include`` tags."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:200
+#: 2e3fc6870c43499b9c198d4ee562ffa0
+msgid "``value`` attribute is not allowed. Use ``let`` tag for this."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:202
+#: d878d599eb2f467b909bfc4c398120e2
+msgid "``doc`` is now ``description``."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:203
+#: eb7ae55f39024b1fbe7baad7b9f56f5e
+msgid ""
+"When nested within an ``include`` tag, ``if`` and ``unless`` attributes "
+"aren't allowed."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:221
+#: 0f511bc447a24c76a5e73b98b0518d52
+msgid "Passing an argument to the launch file"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:223
+#: d516b33e50cb4566bdad94b996f2767d
+msgid ""
+"In the XML launch file above, the ``topic_name`` defaults to the name "
+"``chatter``, but can be configured on the command-line. Assuming the "
+"above launch configuration is in a file named ``mylaunch.xml``, a "
+"different topic name can be used by launching it with the following:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:230
+#: 190ddb515a1c4778a1340b3323a673d4
+msgid ""
+"There is some additional information about passing command-line arguments"
+" in :doc:`Using Substitutions <../Tutorials/Intermediate/Launch/Using-"
+"Substitutions>`."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:233
+#: 3cacd1032f464448a33f2f52d991ffe1
+msgid "env"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:235
+#: 6c39e35c19a4480083b6fa41ad8411c9
+msgid "`Available in ROS 1 <https://wiki.ros.org/roslaunch/XML/env>`__."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:236
+#: 736f57e7fde54b5f9bded81d46faddcc
+msgid "Sets an environment variable."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:237
+#: d690abfa62714b05a9d4b7b8f778823a
+msgid "It has been replaced with ``env``, ``set_env`` and ``unset_env``:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:239
+#: 716e228388a94c1e8d855a3f14153a7c
+msgid ""
+"``env`` can only be used nested in a ``node`` or ``executable`` tag. "
+"``if`` and ``unless`` tags aren't supported."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:241
+#: 221632c35a4d458fa347c7d14332ba67
+msgid ""
+"``set_env`` can be nested within the root tag ``launch`` or in ``group`` "
+"tags. It accepts the same attributes as ``env``, and also ``if`` and "
+"``unless`` tags."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:243
+#: c241a5361ad14b31a75d003fec388576
+msgid ""
+"``unset_env`` unsets an environment variable. It accepts a ``name`` "
+"attribute and conditionals."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:266
+#: b08ceb31ac1c4a09b96e3ea4fc705508
+msgid "group"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:268
+#: 15f9cf56ccfb4392b8d6b43a3ab84442
+msgid "`Available in ROS 1 <https://wiki.ros.org/roslaunch/XML/group>`__."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:269
+#: b3a0dc1bf93443e093e98df25b2dbdd7
+msgid ""
+"Allows limiting the scope of launch configurations. Usually used together"
+" with ``let``, ``include`` and ``push_ros_namespace`` tags."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:273
+#: 72958a9c1d3c41e592e56b531186059d
+msgid ""
+"There is no ``ns`` attribute. See the new ``push_ros_namespace`` tag as a"
+" workaround."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:275
+#: f9012ee64c234acea48f7afcd172b44f
+msgid "``clear_params`` attribute isn't available."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:276
+#: 75072bab8300483a988ae7ec677692ec
+msgid "It doesn't accept ``remap`` nor ``param`` tags as children."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:283
+#: f74ebb3c1e0543d4b239e53061a98d85
+msgid ""
+"``launch-prefix`` configuration affects both ``executable`` and ``node`` "
+"tags' actions. This example will use ``time`` as a prefix if "
+"``use_time_prefix_in_talker`` argument is ``1``, only for the talker."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:298
+#: 4ed3b083bb3c46918de0311a03baa64a
+msgid "machine"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:300
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:305
+#: 7b381a692484453a8eff750f7ec42c47 b0b5a257163f40f4a3d7ba2543e8fe01
+msgid "It is not supported at the moment."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:303
+#: 4623744488894d08a06a0d3a5e048901
+msgid "test"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:308
+#: 3692db8875ca454496438e1529c7c11a
+msgid "New tags in ROS 2"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:311
+#: 1845b027cd834fc8889996c37bc55224
+msgid "set_env and unset_env"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:313
+#: 3ef392c506144a4eabb8a19454107225
+msgid "See `env`_ tag decription."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:316
+#: a2f4fd5100524d74b7b75fe0dc782eda
+msgid "push_ros_namespace"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:318
+#: 84f5640112384eba84300c3a22709ae3
+msgid ""
+"``include`` and ``group`` tags don't accept an ``ns`` attribute. This "
+"action can be used as a workaround:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:340
+#: 8430400a9330402d837d61c128c42ba5
+msgid "let"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:342
+#: 570c8d5969964165a1a38301b7fb1409
+msgid "It's a replacement of ``arg`` tag with a value attribute."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:349
+#: 370691a1094d4de4a18b6f1e3b13a8e8
+msgid "executable"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:351
+#: 7788dea545b245e18cb69ce1e57d09d8
+msgid "It allows running any executable."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:363
+#: a1d751125c2141569c05d0151b1bb075
+msgid "Replacing an include tag"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:365
+#: ed12060b897f4f78b73056c7d98ed58f
+msgid ""
+"In order to include a launch file under a **namespace** as in ROS 1 then "
+"the ``include`` tags must be nested in a ``group`` tag."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:373
+#: ac2b117b0f3a4e76981202531eb2bb3c
+msgid ""
+"Then, instead of using the ``ns`` attribute, add the "
+"``push_ros_namespace`` action tag to specify the namespace:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:382
+#: f151e877b17c48edac443072533ac0f8
+msgid ""
+"Nesting ``include`` tags under a ``group`` tag is only required when "
+"specifying a namespace"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:385
+#: 971b694ed2a9438b9358f4e838e48e9a
+msgid "Substitutions"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:387
+#: eabb6d1388e0485b9b276f763cf8d820
+msgid ""
+"Documentation about ROS 1's substitutions can be found in `roslaunch XML "
+"wiki <https://wiki.ros.org/roslaunch/XML>`__. Substitutions syntax hasn't"
+" changed, i.e. it still follows the ``$(substitution-name arg1 arg2 "
+"...)`` pattern. There are, however, some changes w.r.t. ROS 1:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:391
+#: 29bf22c3436b42ee8a434d84568f60da
+msgid ""
+"``env`` and ``optenv`` tags have been replaced by the ``env`` tag. "
+"``$(env <NAME>)`` will fail if the environment variable doesn't exist. "
+"``$(env <NAME> '')`` does the same as ROS 1's ``$(optenv <NAME>)``. "
+"``$(env <NAME> <DEFAULT>)`` does the same as ROS 1's ``$(env <NAME> "
+"<DEFAULT>)`` or ``$(optenv <NAME> <DEFAULT>)``."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:395
+#: b4421c11faef4a18ace862c26cbef3c9
+msgid ""
+"``find`` has been replaced with ``find-pkg-share`` (substituting the "
+"share directory of an installed package). Alternatively ``find-pkg-"
+"prefix`` will return the root of an installed package."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:397
+#: 93f4a87f590c458ab215b6a2d521eb1c
+msgid ""
+"There is a new ``exec-in-pkg`` substitution. e.g.: ``$(exec-in-pkg "
+"<package_name> <exec_name>)``."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:399
+#: 80d0d8a2f6a347579c8867600b3fb81f
+msgid "There is a new ``find-exec`` substitution."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:400
+#: f700be84d0f840eb881c3ccef52d7a83
+msgid ""
+"``arg`` has been replaced with ``var``. It looks at configurations "
+"defined either with ``arg`` or ``let`` tag."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:402
+#: 45ca410aa1c54403bacbd8acfa025ad6
+msgid ""
+"``eval`` and ``dirname`` substitutions require escape characters for "
+"string values, e.g. ``if=\"$(eval 'variable == \\'val1\\'')\"``."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:403
+#: 9dfebce3927b4f929b82339f132913f7
+msgid "``anon`` substitution is not supported."
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:408
+#: aa6ac6c8198d4d84933a8ad533f95201
+msgid ""
+"The rules that were shown in ``Type inference rules`` subsection of "
+"``param`` tag applies to any attribute. For example:"
+msgstr ""
+
+#: ../../source/How-To-Guides/Launch-files-migration-guide.rst:426
+#: 56e0c9346f5d4685a977cda8bc6d2c7e
+msgid ""
+"Some attributes accept more than a single type, for example ``value`` "
+"attribute of ``param`` tag. It's usual that parameters that are of type "
+"``int`` (or ``float``) also accept an ``str``, that will be later "
+"substituted and tried to convert to an ``int`` (or ``float``) by the "
+"action."
+msgstr ""
+

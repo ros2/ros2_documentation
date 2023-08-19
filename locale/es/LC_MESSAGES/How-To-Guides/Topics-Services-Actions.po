@@ -1,0 +1,127 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/How-To-Guides/Topics-Services-Actions.rst:4
+#: 1e7ed853d3bc435aa6d2f1b095121d9b
+msgid "Topics vs Services vs Actions"
+msgstr ""
+
+#: ../../source/How-To-Guides/Topics-Services-Actions.rst:8
+#: 0f22eca354384b6b9bbe24bb9700f47e
+msgid "Contents"
+msgstr ""
+
+#: ../../source/How-To-Guides/Topics-Services-Actions.rst:10
+#: 1892767103f845f68dde819f6a0180ad
+msgid ""
+"When designing a system there are three primary styles of interfaces. The"
+" specifications for the content is in the :doc:`Interfaces Overview "
+"<../Concepts/Basic/About-Interfaces>`. This is written to provide the "
+"reader with guidelines about when to use each type of interface."
+msgstr ""
+
+#: ../../source/How-To-Guides/Topics-Services-Actions.rst:15
+#: bd5218fe26ee414f9d46fcd363498e3b
+msgid "Topics"
+msgstr ""
+
+#: ../../source/How-To-Guides/Topics-Services-Actions.rst:17
+#: 7ca79337280c44549064bd3bd16b1fa4
+msgid ""
+"Should be used for continuous data streams (sensor data, robot state, "
+"...)."
+msgstr ""
+
+#: ../../source/How-To-Guides/Topics-Services-Actions.rst:18
+#: 14ee91b30d3b45148fab0b596a49092e
+msgid ""
+"Are for continuous data flow. Data might be published and subscribed at "
+"any time independent of any senders/receivers. Many to many connection. "
+"Callbacks receive data once it is available. The publisher decides when "
+"data is sent."
+msgstr ""
+
+#: ../../source/How-To-Guides/Topics-Services-Actions.rst:21
+#: 5f6e7f9e2b5241539beac00faa88c1db
+msgid "Services"
+msgstr ""
+
+#: ../../source/How-To-Guides/Topics-Services-Actions.rst:23
+#: 0f89a38146b24435b9c5cec0902fe8e0
+msgid ""
+"Should be used for remote procedure calls that terminate quickly, e.g. "
+"for querying the state of a node or doing a quick calculation such as IK."
+" They should never be used for longer running processes, in particular "
+"processes that might be required to preempt if exceptional situations "
+"occur and they should never change or depend on state to avoid unwanted "
+"side effects for other nodes."
+msgstr ""
+
+#: ../../source/How-To-Guides/Topics-Services-Actions.rst:24
+#: 8b0c969f5f2841f8b803120e90cae2b6
+msgid ""
+"Simple blocking call. Mostly used for comparably fast tasks as requesting"
+" specific data. Semantically for processing requests."
+msgstr ""
+
+#: ../../source/How-To-Guides/Topics-Services-Actions.rst:27
+#: a51e07148093413b8178be91776d887a
+msgid "Actions"
+msgstr ""
+
+#: ../../source/How-To-Guides/Topics-Services-Actions.rst:29
+#: bcae847bcc3a4a0894e17db219bbfd11
+msgid ""
+"Should be used for any discrete behavior that moves a robot or that runs "
+"for a longer time but provides feedback during execution."
+msgstr ""
+
+#: ../../source/How-To-Guides/Topics-Services-Actions.rst:30
+#: 5e0514c50c1848e885983c130ec2f4bd
+msgid ""
+"The most important property of actions is that they can be preempted and "
+"preemption should always be implemented cleanly by action servers."
+msgstr ""
+
+#: ../../source/How-To-Guides/Topics-Services-Actions.rst:31
+#: 17dc14f45495456095e41fd4c975754b
+msgid ""
+"Actions can keep state for the lifetime of a goal, i.e. if executing two "
+"action goals in parallel on the same server, for each client a separate "
+"state instance can be kept since the goal is uniquely identified by its "
+"id."
+msgstr ""
+
+#: ../../source/How-To-Guides/Topics-Services-Actions.rst:32
+#: ad08cb2cb8f74ae4839f0713a410242e
+msgid ""
+"Slow perception routines which take several seconds to terminate or "
+"initiating a lower-level control mode are good use cases for actions."
+msgstr ""
+
+#: ../../source/How-To-Guides/Topics-Services-Actions.rst:33
+#: 9f94ace6912b4742b0f2ad9703b2dbab
+msgid ""
+"More complex non-blocking background processing. Used for longer tasks "
+"like execution of robot actions. Semantically for real-world actions."
+msgstr ""
+

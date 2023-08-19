@@ -1,0 +1,543 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:8
+#: a3536db6395342acbed786b3ada08efd
+msgid "Creating a package"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:10
+#: 02c2706834fe411299b46e80155b7f8e
+msgid ""
+"**Goal:** Create a new package using either CMake or Python, and run its "
+"executable."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:12
+#: 2b34d056ac6a473b8f199b4af2697175
+msgid "**Tutorial level:** Beginner"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:14
+#: aaa55f1ca24d4d29af64dc8a3e65d044
+msgid "**Time:** 15 minutes"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:18
+#: febb04f7be6c489a89a89681ead0f4f3
+msgid "Contents"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:21
+#: ced4eef8e75447a6b6adfdad9a233bff
+msgid "Background"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:24
+#: 933083ac6fc64b9ea5d2e8c57c785163
+msgid "1 What is a ROS 2 package?"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:26
+#: 18b99ac3a0a243f29d20a4ef4ec3d11a
+msgid ""
+"A package is an organizational unit for your ROS 2 code. If you want to "
+"be able to install your code or share it with others, then you'll need it"
+" organized in a package. With packages, you can release your ROS 2 work "
+"and allow others to build and use it easily."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:30
+#: 17b033f1e0d244f39bd23499dfa4b291
+msgid ""
+"Package creation in ROS 2 uses ament as its build system and colcon as "
+"its build tool. You can create a package using either CMake or Python, "
+"which are officially supported, though other build types do exist."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:34
+#: 5fb115a7be6a4926b8e18511c30f87c4
+msgid "2 What makes up a ROS 2 package?"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:36
+#: c6da50fe3b8a4a969854bc0dd1e220e8
+msgid ""
+"ROS 2 Python and CMake packages each have their own minimum required "
+"contents:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:40
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:59
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:160
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:179
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:197
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:356
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:375
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:404
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:478
+#: 1e45130eea404b709db19cdb69ef995e 691124d2619a4c5fb36d68ff563f31eb
+#: 8c418fa333164de585df05d2667e15c9 9a945560906a45d49ac4adf184980a50
+#: c1813cbb531742079d1a6d8bdc4980e8 c4c9f7dcb9fd4e2690132c06cbdb398a
+#: d669094ae32548a4bdc0a30cb5ade0c3 e67013fd45f944dc986e0a36429184d5
+#: e84e2b8570414c849d5e30999b893d96
+msgid "CMake"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:42
+#: 42195c5a03e842f9911aa5890dc1645d
+msgid ""
+"``CMakeLists.txt`` file that describes how to build the code within the "
+"package"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:43
+#: 1160e1c71db74564a8ee3485c2b91445
+msgid ""
+"``include/<package_name>`` directory containing the public headers for "
+"the package"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:44
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:49
+#: d8fa9347a4cd4aaf85267d014802d302 f4bfff6369ff42689aa505236c53b517
+msgid "``package.xml`` file containing meta information about the package"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:45
+#: 9060dbbf271e47fdacf356ed7031b94f
+msgid "``src`` directory containing the source code for the package"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:47
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:69
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:166
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:185
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:220
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:362
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:384
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:429
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:482
+#: 0561437c35a34d4e8a50d0840e95e5fc 1175d7696f134988a633af5ea6acd9e1
+#: 41d31b197051485cbbbf7657206e12cc 5d7c8d83fa444df1a84fd06b14a2f26b
+#: 613c18b6bc374865a82cfac952b888ea 98c40d964a3745d79bacbc8ecaee326b
+#: 9d70c981805c4f599d040e0c0da71afa a4291254f811400da5ff43b21e17356c
+#: b8a2db278b5e4404a61a42ef9cc020c0
+msgid "Python"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:50
+#: 124db9e0a55d4841be1fe902a3bb1abf
+msgid "``resource/<package_name>`` marker file for the package"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:51
+#: c961955815174c7eb54a5374a0e0841b
+msgid ""
+"``setup.cfg`` is required when a package has executables, so ``ros2 run``"
+" can find them"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:52
+#: 30798f2969d84b1c880058ca4f45a0f2
+msgid "``setup.py`` containing instructions for how to install the package"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:53
+#: 55e1c1fae52c4e04a8ecf883d0e9c312
+msgid ""
+"``<package_name>`` - a directory with the same name as your package, used"
+" by ROS 2 tools to find your package, contains ``__init__.py``"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:55
+#: 21c48def557b4025b377271d532f8946
+msgid "The simplest possible package may have a file structure that looks like:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:82
+#: f1f541bc8a564a6182c992f3fcbb34ce
+msgid "3 Packages in a workspace"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:84
+#: 35bf1092c52f491fb1f4e6e767bd0639
+msgid ""
+"A single workspace can contain as many packages as you want, each in "
+"their own folder. You can also have packages of different build types in "
+"one workspace (CMake, Python, etc.). You cannot have nested packages."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:88
+#: 5fc7e96326974264adb417d0132afb98
+msgid ""
+"Best practice is to have a ``src`` folder within your workspace, and to "
+"create your packages in there. This keeps the top level of the workspace "
+"“clean”."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:91
+#: 5c21be6c5d774bdabb153fdfd4309a87
+msgid "A trivial workspace might look like:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:118
+#: fcb580ed8f154b409673ddba795b2dec
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:120
+#: 3ea0b635ed68422d9664c4553452c796
+msgid ""
+"You should have a ROS 2 workspace after following the instructions in the"
+" :doc:`previous tutorial <./Creating-A-Workspace/Creating-A-Workspace>`. "
+"You will create your package in this workspace."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:125
+#: e8367618d39a4820b164dd3d749114d9
+msgid "Tasks"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:128
+#: 268eed1438d743c19cd58c1c6dfdbbf8
+msgid "1 Create a package"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:130
+#: c2de6731aea142d7ac7f0d79c5dfc3ff
+msgid ""
+"First, :doc:`source your ROS 2 installation <../Beginner-CLI-Tools"
+"/Configuring-ROS2-Environment>`."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:132
+#: 598133fef15145668917439168faff99
+msgid ""
+"Let's use the workspace you created in the :ref:`previous tutorial <new-"
+"directory>`, ``ros2_ws``, for your new package."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:134
+#: 466e668341ef476889dfad72b91f0488
+msgid ""
+"Make sure you are in the ``src`` folder before running the package "
+"creation command."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:138
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:262
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:284
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:323
+#: a48611ac361d43d7ac1726319d752af6 c36802e1964a48c59b869b7a2220397c
+#: cafaf555020a4a0ca1cfc037216368c7 dd7ddca6eed446e08e2899c88e334bf4
+msgid "Linux"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:144
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:268
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:290
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:329
+#: 112d80e1efce4d71914cad2ada9773b6 620b5b244f4c47e792045b864dd7888f
+#: 7f533e7d002a480caff0a6946507f273 eb1527d3dbaa42bf8f3e5bd7d25342bf
+msgid "macOS"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:150
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:274
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:296
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:335
+#: 06e95225283548529c48bb05829c91cb 46ddaa149ffd4114bf783245b23eb015
+#: b6778da3c9ae4001b382f1c43ca37574 f7add34a4b5942e3929231c9de830059
+msgid "Windows"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:156
+#: cdc116f747474a3e855b5c1a03a2e1ce
+msgid "The command syntax for creating a new package in ROS 2 is:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:172
+#: e9c63a02779e4e229896ce4ee4ef7701
+msgid ""
+"For this tutorial, you will use the optional arguments ``--node-name`` "
+"and ``--license``. ``--node-name`` option creates a simple Hello World "
+"type executable in the package, and ``--license`` declares the license "
+"information for the package."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:175
+#: 99c75526d9d84189937426fe375b623a
+msgid "Enter the following command in your terminal:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:191
+#: c04721726f1f4f58aa1ce8fd9ebe75fb
+msgid ""
+"You will now have a new folder within your workspace's ``src`` directory "
+"called ``my_package``."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:193
+#: 02b7e8de678447e483c41358c99798ba
+msgid "After running the command, your terminal will return the message:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:250
+#: 583180f3f0124bc8945b9161fca49253
+msgid "You can see the automatically generated files for the new package."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:253
+#: 38c62447f39f4270a453497e7408fb15
+msgid "2 Build a package"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:255
+#: ec829675834f4e319fe5e3c3d44ea813
+msgid ""
+"Putting packages in a workspace is especially valuable because you can "
+"build many packages at once by running ``colcon build`` in the workspace "
+"root. Otherwise, you would have to build each package individually."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:258
+#: 1f96bcff979f478e9d28eb8f7c3fd6d3
+msgid "Return to the root of your workspace:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:280
+#: c2f5652b0a16494986a06464a48d22d4
+msgid "Now you can build your packages:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:302
+#: d6ee65bc5e034d229ffc185c7e232363
+msgid ""
+"Windows doesn't allow long paths, so ``merge-install`` will combine all "
+"the paths into the ``install`` directory."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:304
+#: 913f02d9c2de4fe3a86f1b990ddba435
+msgid ""
+"Recall from the last tutorial that you also have the ``ros_tutorials`` "
+"packages in your ``ros2_ws``. You might have noticed that running "
+"``colcon build`` also built the ``turtlesim`` package. That's fine when "
+"you only have a few packages in your workspace, but when there are many "
+"packages, ``colcon build`` can take a long time."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:308
+#: 9a337097a70f47e2aa70550709a9f37b
+msgid "To build only the ``my_package`` package next time, you can run:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:315
+#: a210f95039084b4fa1540293ca7b8fbe
+msgid "3 Source the setup file"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:317
+#: 50c137322e984136a016a42ca8808a8b
+msgid ""
+"To use your new package and executable, first open a new terminal and "
+"source your main ROS 2 installation."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:319
+#: fd2b7652391e4b8c93198ec810330f4b
+msgid ""
+"Then, from inside the ``ros2_ws`` directory, run the following command to"
+" source your workspace:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:341
+#: 73f8f72faacd42b89f37124387e18e40
+msgid ""
+"Now that your workspace has been added to your path, you will be able to "
+"use your new package's executables."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:344
+#: 09115f3779a14e69afc5edf155144355
+msgid "4 Use the package"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:346
+#: d45f2c6cdfbb47f8ba373df122522941
+msgid ""
+"To run the executable you created using the ``--node-name`` argument "
+"during package creation, enter the command:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:352
+#: 976199621cf345f29a2f4e4e9b156e54
+msgid "Which will return a message to your terminal:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:369
+#: bee496f87227480a8124f6f4a6634b92
+msgid "5 Examine package contents"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:371
+#: d45f17676d2e472b8461d6df4cc1dd9e
+msgid ""
+"Inside ``ros2_ws/src/my_package``, you will see the files and folders "
+"that ``ros2 pkg create`` automatically generated:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:381
+#: bb8e4763b44e4b3da1ee1dace1c610c2
+msgid ""
+"``my_node.cpp`` is inside the ``src`` directory. This is where all your "
+"custom C++ nodes will go in the future."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:390
+#: 1814af113ca540e4846c6ec1f26283b7
+msgid ""
+"``my_node.py`` is inside the ``my_package`` directory. This is where all "
+"your custom Python nodes will go in the future."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:394
+#: 64a3cd987a34428182aa7633d48ce3e4
+msgid "6 Customize package.xml"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:396
+#: 0ab90e9dde834568a2e9b0345c30f799
+msgid ""
+"You may have noticed in the return message after creating your package "
+"that the fields ``description`` and ``license`` contain ``TODO`` notes. "
+"That's because the package description and license declaration are not "
+"automatically set, but are required if you ever want to release your "
+"package. The ``maintainer`` field may also need to be filled in."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:400
+#: 7f9c7b177b31428ca2bbf7080eb59616
+msgid ""
+"From ``ros2_ws/src/my_package``, open ``package.xml`` using your "
+"preferred text editor:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:454
+#: 735dcee099774230919046f34b7d2243
+msgid ""
+"Input your name and email on the ``maintainer`` line if it hasn't been "
+"automatically populated for you. Then, edit the ``description`` line to "
+"summarize the package:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:461
+#: f3cc90b0b1294514ae8b4871c1a4d5e8
+msgid ""
+"Then, update the ``license`` line. You can read more about open source "
+"licenses `here <https://opensource.org/licenses/alphabetical>`__. Since "
+"this package is only for practice, it's safe to use any license. We'll "
+"use ``Apache License 2.0``:"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:470
+#: 1efbdcc861bb4dbeac253de48a4fa3dd
+msgid "Don't forget to save once you're done editing."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:472
+#: d605edfbfd694d588b6efbb632a3aeaf
+msgid ""
+"Below the license tag, you will see some tag names ending with "
+"``_depend``. This is where your ``package.xml`` would list its "
+"dependencies on other packages, for colcon to search for. ``my_package`` "
+"is simple and doesn't have any dependencies, but you will see this space "
+"being utilized in upcoming tutorials."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:480
+#: 74a89b93b4434fee98ac3b3b3f44191c
+msgid "You're all done for now!"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:484
+#: 7bd39795caa74328832ee46e40a72c04
+msgid ""
+"The ``setup.py`` file contains the same description, maintainer and "
+"license fields as ``package.xml``, so you need to set those as well. They"
+" need to match exactly in both files. The version and name "
+"(``package_name``) also need to match exactly, and should be "
+"automatically populated in both files."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:488
+#: 78252deabdda4dffa13ca4d9ea1240ab
+msgid "Open ``setup.py`` with your preferred text editor."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:519
+#: e8685eb93f53428da5fc17867b1dded6
+msgid ""
+"Edit the ``maintainer``, ``maintainer_email``, and ``description`` lines "
+"to match ``package.xml``."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:521
+#: 06b581dbe6624f3ab74be652184555d7
+msgid "Don't forget to save the file."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:525
+#: 8c7db35e3f134513adad28356e5c4b0d
+msgid "Summary"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:527
+#: c808fbb749bf460d8ca1e8b3c4b7a9cf
+msgid ""
+"You've created a package to organize your code and make it easy to use "
+"for others."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:529
+#: 242f94985f8c437db00caf478eab0805
+msgid ""
+"Your package was automatically populated with the necessary files, and "
+"then you used colcon to build it so you can use its executables in your "
+"local environment."
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:532
+#: e7aff3b835aa4978a3eb91fada7d3648
+msgid "Next steps"
+msgstr ""
+
+#: ../../source/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.rst:534
+#: 5e0f689c2f5c4d58b58a2db570243a7a
+msgid ""
+"Next, let's add something meaningful to a package. You'll start with a "
+"simple publisher/subscriber system, which you can choose to write in "
+"either :doc:`C++ <./Writing-A-Simple-Cpp-Publisher-And-Subscriber>` or "
+":doc:`Python <./Writing-A-Simple-Py-Publisher-And-Subscriber>`."
+msgstr ""
+

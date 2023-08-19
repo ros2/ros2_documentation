@@ -1,0 +1,224 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Related-Projects/Nvidia-ROS2-Projects.rst:2
+#: bc3d637acd7a45428cddd3b6bfd9e9e1
+msgid "NVIDIA ROS 2 Projects"
+msgstr ""
+
+#: ../../source/Related-Projects/Nvidia-ROS2-Projects.rst:4
+#: bb0e80b93c7d4fae80156dc7d58c93c6
+msgid ""
+"NVIDIA Jetson is working towards developing ROS 2 packages to ease the "
+"development of AI applications for robotics."
+msgstr ""
+
+#: ../../source/Related-Projects/Nvidia-ROS2-Projects.rst:8
+#: f34c317dd0fb45bd887a1ad1efcc626d
+msgid "ROS Projects"
+msgstr ""
+
+#: ../../source/Related-Projects/Nvidia-ROS2-Projects.rst:9
+#: 8c82dadc9e5440a295176e05d796241e
+msgid ""
+"`Isaac ROS Nvblox <https://github.com/NVIDIA-ISAAC-"
+"ROS/isaac_ros_nvblox>`__ : Hardware-accelerated 3D scene reconstruction "
+"and Nav2 local costmap provider using nvblox."
+msgstr ""
+
+#: ../../source/Related-Projects/Nvidia-ROS2-Projects.rst:10
+#: e16b050c876947c28149c4d7ff15ac7c
+msgid ""
+"`Isaac ROS Object Detection <https://github.com/NVIDIA-ISAAC-"
+"ROS/isaac_ros_object_detection>`__ : Deep learning model support for "
+"object detection including DetectNet."
+msgstr ""
+
+#: ../../source/Related-Projects/Nvidia-ROS2-Projects.rst:11
+#: 742cf5da033440be8b7dd9e95aae81be
+msgid ""
+"`Isaac ROS DNN Inference <https://github.com/NVIDIA-ISAAC-"
+"ROS/isaac_ros_dnn_inference>`__ : This repository provides two NVIDIA "
+"GPU-accelerated ROS 2 nodes that perform deep learning inference using "
+"custom models. One node uses the TensorRT SDK, while the other uses the "
+"Triton SDK."
+msgstr ""
+
+#: ../../source/Related-Projects/Nvidia-ROS2-Projects.rst:12
+#: 4a9feef130274254a60f454b872a6f0c
+msgid ""
+"`Isaac ROS Visual SLAM <https://github.com/NVIDIA-ISAAC-"
+"ROS/isaac_ros_visual_slam>`__ : This repository provides a ROS 2 package "
+"that estimates stereo visual inertial odometry using the Isaac Elbrus "
+"GPU-accelerated library."
+msgstr ""
+
+#: ../../source/Related-Projects/Nvidia-ROS2-Projects.rst:13
+#: d692e732ac824b66a49c4145713184c2
+msgid ""
+"`Isaac ROS Argus Camera <https://github.com/NVIDIA-ISAAC-"
+"ROS/isaac_ros_argus_camera>`__ : This repository provides monocular and "
+"stereo nodes that enable ROS developers to use cameras connected to "
+"Jetson platforms over a CSI interface."
+msgstr ""
+
+#: ../../source/Related-Projects/Nvidia-ROS2-Projects.rst:14
+#: 5ec948d1e9d74a0684ebde8c5640c187
+msgid ""
+"`Isaac ROS image_pipeline <https://github.com/NVIDIA-ISAAC-"
+"ROS/isaac_ros_image_pipeline>`__ : This metapackage offers similar "
+"functionality as the standard, CPU-based image_pipeline metapackage, but "
+"does so by leveraging the Jetson platform's specialized computer vision "
+"hardware."
+msgstr ""
+
+#: ../../source/Related-Projects/Nvidia-ROS2-Projects.rst:15
+#: cb01d10748f34a9a98b960328d5ed240
+msgid ""
+"`Isaac ROS Common <https://github.com/NVIDIA-ISAAC-"
+"ROS/isaac_ros_common>`__ : Isaac ROS common utilities for use in "
+"conjunction with the Isaac ROS suite of packages."
+msgstr ""
+
+#: ../../source/Related-Projects/Nvidia-ROS2-Projects.rst:16
+#: 59baf79c08744fba973453a54e90d29c
+msgid ""
+"`Isaac ROS AprilTags <https://github.com/NVIDIA-ISAAC-"
+"ROS/isaac_ros_apriltag>`__ : ROS 2 node uses the NVIDIA GPU-accelerated "
+"AprilTags library to detect AprilTags in images and publish their poses, "
+"ids, and additional metadata."
+msgstr ""
+
+#: ../../source/Related-Projects/Nvidia-ROS2-Projects.rst:17
+#: d94b9263cd244134b70fa6d57ca25be5
+msgid ""
+"`ROS and ROS 2 Docker Images <https://github.com/NVIDIA-AI-"
+"IOT/ros2_jetson/tree/main/docker>`__ : Docker images for easy deployment "
+"on the NVIDIA Jetson platform, consisting of ROS 2, PyTorch, and other "
+"important machine learning libraries."
+msgstr ""
+
+#: ../../source/Related-Projects/Nvidia-ROS2-Projects.rst:18
+#: f402169309af4f6da8ca9e27e382fc2c
+msgid ""
+"`ROS and ROS 2 DockerFiles <https://github.com/dusty-nv/jetson-"
+"containers>`__: Dockerfiles for ROS 2 based on l4t which all you to build"
+" your own Docker image."
+msgstr ""
+
+#: ../../source/Related-Projects/Nvidia-ROS2-Projects.rst:19
+#: 81ed1a727e4547a8896925b3a29e10b8
+msgid ""
+"`ROS 2 Packages for PyTorch and TensorRT <https://github.com/NVIDIA-AI-"
+"IOT/ros2_torch_trt>`__: ROS 2 packageis for classification and object "
+"detection tasks using PyTorch and NVIDIA TensorRT. This tutorial is a "
+"good starting point AI integration with ROS 2 on NVIDIA Jetson."
+msgstr ""
+
+#: ../../source/Related-Projects/Nvidia-ROS2-Projects.rst:20
+#: a124d48588984832bfd58419e3f70c33
+msgid ""
+"`ROS / ROS 2 Packages for Accelerated Deep Learning Nodes "
+"<https://github.com/dusty-nv/ros_deep_learning>`__: Deep learning image "
+"recognition, object detection, and semantic segmentation inference nodes "
+"and camera/video streaming nodes for ROS/ROS 2 using the `jetson-"
+"inference <https://github.com/dusty-nv/jetson-inference>`__ library and "
+"`NVIDIA Hello AI World tutorial "
+"<https://developer.nvidia.com/embedded/twodaystoademo>`__."
+msgstr ""
+
+#: ../../source/Related-Projects/Nvidia-ROS2-Projects.rst:21
+#: f9725d5b3fbc4efc9f3b215cb68982ab
+msgid ""
+"`ROS 2 Package for Human Pose Estimation <https://github.com/NVIDIA-AI-"
+"IOT/ros2_trt_pose>`__: A ROS 2 package for human pose estimation."
+msgstr ""
+
+#: ../../source/Related-Projects/Nvidia-ROS2-Projects.rst:22
+#: d72876450d2442baa61a971fbc533d8e
+msgid ""
+"`ROS 2 Package for Hand Pose Estimation and Gesture Classification "
+"<https://github.com/NVIDIA-AI-IOT/ros2_trt_pose_hand>`__: A ROS 2 package"
+" for real-time hand pose estimation and gesture classification using "
+"TensorRT."
+msgstr ""
+
+#: ../../source/Related-Projects/Nvidia-ROS2-Projects.rst:23
+#: 7d79187abf2c41209d3e9ee5b9ac8c80
+msgid ""
+"`GPU accelerated ROS 2 Packages for Monocular Depth Estimation "
+"<https://github.com/NVIDIA-AI-IOT/ros2_torch2trt_examples>`__: ROS 2 "
+"package for NVIDIA GPU-accelerated torch2trtxb examples such as monocular"
+" depth estimation and text detection."
+msgstr ""
+
+#: ../../source/Related-Projects/Nvidia-ROS2-Projects.rst:24
+#: 5be55dd1eff2428399aa901224f76118
+msgid ""
+"`ROS 2 Package for Jetson stats <https://github.com/NVIDIA-AI-"
+"IOT/ros2_jetson_stats>`__: ROS 2 package for monitoring and controlling "
+"your NVIDIA Jetson [Xavier NX, Nano, AGX Xavier, TX1, TX2]."
+msgstr ""
+
+#: ../../source/Related-Projects/Nvidia-ROS2-Projects.rst:25
+#: 7434abde7c4a4599a5d6137a89d707a7
+msgid ""
+"`ROS 2 Packages for DeepStream SDK <https://github.com/NVIDIA-AI-"
+"IOT/ros2_deepstream>`__: ROS 2 package for NVIDIA DeepStream SDK."
+msgstr ""
+
+#: ../../source/Related-Projects/Nvidia-ROS2-Projects.rst:28
+#: 7abbac00244446e3b712b1dbac8398d7
+msgid "Simulation Projects"
+msgstr ""
+
+#: ../../source/Related-Projects/Nvidia-ROS2-Projects.rst:29
+#: 14e1f228cfa1425f81f121294b2f74bc
+msgid ""
+"`Isaac Sim Nav2 "
+"<https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_ros2_navigation.html>`__"
+" : In this ROS 2 sample, we are demonstrating Omniverse Isaac Sim "
+"integrated with the ROS 2 Nav2 project."
+msgstr ""
+
+#: ../../source/Related-Projects/Nvidia-ROS2-Projects.rst:30
+#: b4b907871b804136a7eabfd152d76e47
+msgid ""
+"`Isaac Sim Multiple Robot ROS 2 Navigation "
+"<https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_ros2_multi_navigation.html>`__"
+" : In this ROS 2 sample, we are demonstrating Omniverse Isaac Sim "
+"integrated with the ROS 2 Nav2 stack to perform simultaneous multiple "
+"robot navigation."
+msgstr ""
+
+#: ../../source/Related-Projects/Nvidia-ROS2-Projects.rst:33
+#: 0a87c7e7d0144e97a4c21f1473b11aa7
+msgid "References"
+msgstr ""
+
+#: ../../source/Related-Projects/Nvidia-ROS2-Projects.rst:34
+#: 187004c175b04709a001b0857ca5d42a
+msgid ""
+"More updates on NVIDIA Jetson ROS 2 can be found `here <https://nvidia-"
+"ai-iot.github.io/ros2_jetson/>`__."
+msgstr ""
+

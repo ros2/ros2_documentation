@@ -1,0 +1,104 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-University-Eval.rst:2
+#: 6eea6f0851a34d55b9cd002f12ec9fea
+msgid "RTI Connext DDS"
+msgstr ""
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-University-Eval.rst:4
+#: ab098e18d917410e89f817371810de8e
+msgid ""
+"A libraries-only version of RTI Connext DDS 6.0.1 may be installed per "
+"the :doc:`installation instructions <../../Installation>` for "
+"Debian/Ubuntu Linux (amd64) platforms only, under a `non-commercial "
+"license <https://www.rti.com/ncl>`__."
+msgstr ""
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-University-Eval.rst:7
+#: 955bd3190d624be99c1d439dfbb20627
+msgid ""
+"A full-suite installation of RTI Connext DDS is available for many "
+"additional platforms, for universities, evaluation, or purchase. This "
+"installation includes diagnostic tools, layered services, and security.  "
+"See below for installation details."
+msgstr ""
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-University-Eval.rst:11
+#: 50982f96f2d14bbfba4d947f1cb5865c
+msgid "RTI University Program"
+msgstr ""
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-University-Eval.rst:13
+#: 7a88d22979e3429ab3e3ee7608a99482
+msgid ""
+"University researchers and classroom users may be eligible for a free "
+"academic license through the `RTI University Program <https://www.rti.com"
+"/free-trial/university-program>`__. This includes a one-year (renewable) "
+"license to the unabridged version of Connext DDS Secure, which includes "
+"diagnostic tools and layered services. The university license application"
+" can be found `here <https://www.rti.com/free-trial/university-"
+"program>`__."
+msgstr ""
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-University-Eval.rst:19
+#: 92f03227c0a04ad6af77298166641cac
+msgid "RTI Connext DDS Evaluation"
+msgstr ""
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-University-Eval.rst:25
+#: c7bef0cb3e094d96a2af73932a0bc437
+msgid "To install RTI Connext DDS **version 6.0.1** Evalution:"
+msgstr ""
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-University-Eval.rst:22
+#: 6e6e2b32131b405ca163b0375f89e16c
+msgid ""
+"Visit the `RTI Free Trial (6.0.1) site <https://www.rti.com/free-"
+"trial>`__."
+msgstr ""
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-University-Eval.rst:23
+#: ff596105b3c049368ca345fefa81bcc5
+msgid "Download the version(s) to match your environment."
+msgstr ""
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-University-Eval.rst:24
+#: 564495e9fc5247c586f2d2c1a67fb17e
+msgid "Contact license@rti.com for an evaluation license."
+msgstr ""
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-University-Eval.rst:25
+#: 6eea66d2ad6141cd9a8a8d04fe6a7264
+msgid ""
+"Install RTI Connext 6.0.1 by running the installation program.  When "
+"finished, it will run the RTI Launcher."
+msgstr ""
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-University-Eval.rst:26
+#: 2f18f2e42fdd4159808c07d0c1cd2acd
+msgid ""
+"Use the RTI Launcher to install the license file (rti_license.dat) if "
+"needed.  The launcher may also be used to launch the diagnostic tools and"
+" services."
+msgstr ""
+

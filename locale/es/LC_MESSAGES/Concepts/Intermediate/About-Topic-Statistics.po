@@ -1,0 +1,179 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Concepts/Intermediate/About-Topic-Statistics.rst:7
+#: 5089fa02726b4f85abf4334c28b6c8c0
+msgid "Topic statistics"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Topic-Statistics.rst:10
+#: 995586c6532e4d6da6a851d719893573
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Topic-Statistics.rst:13
+#: cd08a225531340889fda748551582238
+msgid "Overview"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Topic-Statistics.rst:15
+#: 447ec525a10e42849dca1e9b313318f9
+msgid ""
+"ROS 2 provides integrated measurement of statistics for messages received"
+" by any subscription. Allowing a user to collect subscription statistics "
+"enables them to characterize the performance of their system or aid in "
+"diagnosis of any present issues."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Topic-Statistics.rst:18
+#: 8f66707eb0e648fbb91f4f702e94c6e6
+msgid ""
+"The measurements provided are the received message age and received "
+"message period. For each measurement the statistics provided are the "
+"average, maximum, minimum, standard deviation, and sample count. These "
+"statistics are calculated in a moving window."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Topic-Statistics.rst:23
+#: cf9a4eb5f6e14cda97760b786bbdf305
+msgid "How statistics are calculated"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Topic-Statistics.rst:25
+#: 63714510caf945e88b8ddc5547898f27
+msgid ""
+"Each statistic set is calculated in constant time and constant memory by "
+"using the utilities implemented in the `libstatistics_collector "
+"<https://github.com/ros-tooling/libstatistics_collector>`__ package. When"
+" a new message is received by a subscription, this is a new sample for "
+"calculation in the current measurement window. The average calculated is "
+"simply a `moving average "
+"<https://en.wikipedia.org/wiki/Moving_average>`__. The maximum, minimum, "
+"and sample count are updated upon receipt of each new sample, whereas the"
+" standard deviation is calculated using `Welford's online algorithm "
+"<https://en.wikipedia.org/wiki/Algorithms_for_calculating_variance#Welford's_online_algorithm>`__."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Topic-Statistics.rst:31
+#: 20176f86cfc945dcaecc20b2bca80881
+msgid "Types of statistics calculated"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Topic-Statistics.rst:33
+#: 4f20a9dc56b14542929ae20529cd13bd
+msgid "Received message period"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Topic-Statistics.rst:35
+#: ../../source/Concepts/Intermediate/About-Topic-Statistics.rst:40
+#: c191b11fc6854c3592a7cb1d32ea3c53 c7a3f88e41224787b422eae9ec24d1c2
+msgid "Units: milliseconds"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Topic-Statistics.rst:36
+#: a860fa278aa14e3f91c60593e1671c96
+msgid "Uses the system clock to measure the period between received messages"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Topic-Statistics.rst:38
+#: ada478ac21694591964df1cd4a5ff474
+msgid "Received message age"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Topic-Statistics.rst:41
+#: 40acc1e561ae4895963f8b28e7040804
+msgid ""
+"Requires a message to have a timestamp populated in the header field in "
+"order to calculate the age of the message as sent from a publisher"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Topic-Statistics.rst:44
+#: f8dab79915ff4ab4a40090ab9c220bb4
+msgid "Behavior"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Topic-Statistics.rst:46
+#: a703e14189ca497eb2e62bc2591f8719
+msgid ""
+"By default, Topic Statistics measurements are not enabled. After enabling"
+" this feature for a specific node via the subscription configuration "
+"options, both received message age and received message period "
+"measurements are enabled for that specific subscription."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Topic-Statistics.rst:49
+#: f0bd69364157463ab8b74ef9da7c4e02
+msgid ""
+"The data is published as a `statistics_msg/msg/MetricsMessage "
+"<https://github.com/ros2/rcl_interfaces/blob/rolling/statistics_msgs/msg/MetricsMessage.msg>`__"
+" at a configurable period (default 1 second) to a configurable topic "
+"(default ``/statistics``). Note that the publishing period also serves as"
+" the sample collection window period."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Topic-Statistics.rst:53
+#: b63bb66b25114431bd4eeae17efc24d9
+msgid ""
+"Since received message period requires a message timestamp in a header "
+"field, empty data is published. That is, all statistics values are NaN if"
+" no timestamp is found. Publishing NaN values instead of not publishing "
+"at all avoids the absence of a signal problem and is meant to explicitly "
+"show that a measurement could not be made."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Topic-Statistics.rst:57
+#: bbca05368bac4b2e8404a3e32346f014
+msgid ""
+"The first sample of each window for the received message period statistic"
+" does not yield a measurement. This is because calculating this statistic"
+" requires knowing the time the previous message arrived, so subsequent "
+"samples in the window yield measurements."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Topic-Statistics.rst:61
+#: 755e1e4e09aa414188a9758688755730
+msgid "Comparison to ROS 1"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Topic-Statistics.rst:63
+#: 28bb5753aad84104ba0735475593ed6f
+msgid ""
+"Similar to ROS 1 `Topic Statistics "
+"<https://wiki.ros.org/Topics#Topic_statistics>`__, both message age and "
+"message period are calculated, albeit from the subscription side. Other "
+"ROS 1 metrics, e.g., the number of dropped messages or traffic volume, "
+"are currently not provided."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Topic-Statistics.rst:67
+#: e1f5f622b6434194a9a5c5fa804324f1
+msgid "Support"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Topic-Statistics.rst:69
+#: ce0b5a1f73a943e793c21a3bce49b3fc
+msgid ""
+"This feature is currently supported in ROS 2 Foxy for C++ only (rclcpp). "
+"Future work and improvements, such as Python support, can be found `here "
+"<https://github.com/ros2/ros2/issues/917>`__."
+msgstr ""
+

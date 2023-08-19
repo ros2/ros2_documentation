@@ -1,0 +1,133 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Concepts/Intermediate/About-Cross-Compilation.rst:6
+#: d7cdfaf6f77a472ea2315a99d83b1c4f
+msgid "Cross-compilation"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Cross-Compilation.rst:9
+#: 61f2dac8d165409dae20d766e34ca73a
+msgid "Table of Contents"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Cross-Compilation.rst:12
+#: 1b186b522e444aa1bdbcb8ed9ed4dab6
+msgid "Overview"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Cross-Compilation.rst:17
+#: 7e46966ba34a41869969b4f8d9face63
+msgid ""
+"Open Robotics provides pre-built ROS 2 packages for multiple platforms, "
+"but a number of developers still rely on `cross-compilation "
+"<https://en.wikipedia.org/wiki/Cross_compiler>`__ for different reasons "
+"such as:"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Cross-Compilation.rst:15
+#: 4188adfee0744bd9a1933de5bf88da0c
+msgid "The development machine does not match the target system."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Cross-Compilation.rst:16
+#: 218b9676d7fb4b35a6ddfed092ff5fb6
+msgid ""
+"Tuning the build for specific core architecture (e.g. setting "
+"-mcpu=cortex-a53 -mfpu=neon-fp-armv8 when building for Raspberry Pi3)."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Cross-Compilation.rst:17
+#: 39701bb1097a431e94314483c17573e8
+msgid ""
+"Targeting a file system other than the ones supported by the pre-built "
+"images released by Open Robotics."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Cross-Compilation.rst:20
+#: f4e7302bf0354f51b80e68b7bb9661c6
+msgid "How does it work ?"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Cross-Compilation.rst:22
+#: 860294d10dc043b9a9888c9861d902c9
+msgid ""
+"Cross-compiling simple software (e.g. no dependencies on external "
+"libraries) is relatively simple and only requiring a cross-compiler "
+"toolchain to be used instead of the native toolchain."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Cross-Compilation.rst:27
+#: 71c8a88d845b47bc8e036e62a3c2a434
+msgid "There are a number of factors which make this process more complex:"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Cross-Compilation.rst:25
+#: 905dfb9dd48c45758e6b9ebb7bf34680
+msgid ""
+"The software being built must support the target architecture. "
+"Architecture specific code must be properly isolated and enabled during "
+"the build according to the target architecture. Examples include assembly"
+" code."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Cross-Compilation.rst:26
+#: f61450e80e75438daae4ec98380c7171
+msgid ""
+"All dependencies (e.g. libraries) must be present, either as pre-built or"
+" cross-compiled packages, before the target software using them is cross-"
+"compiled."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Cross-Compilation.rst:27
+#: 3825a23d695d4f288641ba0aa8325cbb
+msgid ""
+"When building software stacks (as opposed to standalone software) using "
+"build tools (e.g. colcon), it is expected that the build tool provides a "
+"mechanism to allow the developer to enable cross-compilation on the "
+"underlying build system used by each piece of software in the stack."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Cross-Compilation.rst:30
+#: 4258edf5f8dc4259acf2f332cddb2a5b
+msgid "Cross-compiling ROS 2"
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Cross-Compilation.rst:32
+#: 69c4f99945ec42a58a95d80e9a586a37
+msgid ""
+"The ROS 2 cross-compile tool is under shared ownership of Open Robotics "
+"and ROS Tooling Working Group. It is a Python script that compiles ROS 2 "
+"source files for supported target architectures using an emulator in a "
+"docker container. Detailed design of the tool can be found on `ROS 2 "
+"design <https://design.ros2.org/articles/cc_build_tools.html>`__. "
+"Instructions to use the tool are in the `cross_compile package "
+"<https://github.com/ros-tooling/cross_compile>`__."
+msgstr ""
+
+#: ../../source/Concepts/Intermediate/About-Cross-Compilation.rst:37
+#: 6455e4c5feb44adeb48c41e89d196bf4
+msgid ""
+"If you are using an older version, please follow the :doc:`cross-"
+"compilation guide <../../How-To-Guides/Cross-compilation>`."
+msgstr ""
+
