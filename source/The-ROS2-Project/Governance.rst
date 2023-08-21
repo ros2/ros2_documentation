@@ -222,8 +222,9 @@ Control
 * Lead(s): Bence Magyar
 * Resources:
 
- * Webite link: https://control.ros.org
+ * Website link: https://control.ros.org
  * Meeting invite group `ros-control-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-control-working-group-invites>`_
+ * `Meeting notes rolling document <https://docs.google.com/document/d/1818AoYucI2z82awL_-8sAA5pMCV_g_wXCJiM6SQmhSQ/edit?usp=sharing>`_
  * Discourse tag: `wg-ros2-control <https://discourse.ros.org/tags/wg-ros2-control>`_
 
 Embedded Systems
