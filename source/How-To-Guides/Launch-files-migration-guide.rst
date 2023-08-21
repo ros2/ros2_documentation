@@ -57,7 +57,8 @@ param
 * Used for passing a parameter to a node.
 * There's no global parameter concept in ROS 2.
   For that reason, it can only be used nested in a ``node`` tag.
-  Some attributes aren't supported in ROS 2: ``type``, ``textfile``, ``binfile``, ``executable``, ``command``.
+  Some attributes aren't supported in ROS 2: ``type``, ``textfile``, ``binfile``, ``executable``.
+* The ``command`` attribute is now ``value="$(command '...' )"``.
 
 Example
 ~~~~~~~
@@ -180,7 +181,7 @@ include
      Nest includes in ``group`` tags to scope them.
    * ``ns`` attribute is not supported.
      See example of ``push_ros_namespace`` tag for a workaround.
-   * ``arg`` tags nested in an ``include`` tag don't support conditionals (``if`` or ``unless``).
+   * ``arg`` tags nested in an ``include`` tag don't support conditionals (``if``, ``unless``) or the ``description`` attribute.
    * There is no support for nested ``env`` tags.
      ``set_env`` and ``unset_env`` can be used instead.
    * Both ``clear_params`` and ``pass_all_args`` attributes aren't supported.
@@ -200,7 +201,7 @@ arg
    * ``value`` attribute is not allowed.
      Use ``let`` tag for this.
    * ``doc`` is now ``description``.
-   * When nested within an ``include`` tag, ``if`` and ``unless`` attributes aren't allowed.
+   * When nested within an ``include`` tag, ``if``, ``unless``, and ``description`` attributes aren't allowed.
 
 Example
 ~~~~~~~
