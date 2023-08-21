@@ -43,10 +43,10 @@ If you'd like to take on one of these tasks, please :doc:`get in touch with us <
      - Size
      - Owner
      - Expected Completion
-   * - TBD
-     - TBD
-     - TBD
-     - TBD
+   * - ``rmw_alternate`` development
+     - Large
+     - Intrinsic
+     - May 2024
 
 Planned releases
 ----------------
