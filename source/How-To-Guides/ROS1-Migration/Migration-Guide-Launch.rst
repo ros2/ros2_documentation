@@ -1,11 +1,12 @@
 .. redirect-from::
 
-  Guides/Launch-files-migration-guide
-  Tutorials/Launch-files-migration-guide
+   Guides/Launch-files-migration-guide
+   Tutorials/Launch-files-migration-guide
+   How-To-Guides/Launch-files-migration-guide
 
 .. _MigratingLaunch:
 
-Migrating launch files from ROS 1 to ROS 2
+Launch File Migration Guide from ROS 
 ==========================================
 
 .. contents:: Table of Contents
@@ -17,7 +18,7 @@ This guide describes how to write XML launch files for an easy migration from RO
 Background
 ----------
 
-A description of the ROS 2 launch system and its Python API can be found in :doc:`Launch System tutorial <../Tutorials/Intermediate/Launch/Launch-system>`.
+A description of the ROS 2 launch system and its Python API can be found in :doc:`Launch System tutorial <../../../Tutorials/Intermediate/Launch/Launch-system>`.
 
 
 Migrating tags from ROS 1 to ROS 2
@@ -228,7 +229,7 @@ Assuming the above launch configuration is in a file named ``mylaunch.xml``, a d
 
    ros2 launch mylaunch.xml topic_name:=custom_topic_name
 
-There is some additional information about passing command-line arguments in :doc:`Using Substitutions <../Tutorials/Intermediate/Launch/Using-Substitutions>`.
+There is some additional information about passing command-line arguments in :doc:`Using Substitutions <../../../Tutorials/Intermediate/Launch/Using-Substitutions>`.
 
 env
 ^^^

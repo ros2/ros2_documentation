@@ -1,11 +1,12 @@
 .. redirect-from::
-
-  Guides/Parameters-YAML-files-migration-guide
-  Tutorials/Parameters-YAML-files-migration-guide
+   
+   Guides/Parameters-YAML-files-migration-guide
+   Tutorials/Parameters-YAML-files-migration-guide
+   How-To-Guides/Parameters-YAML-files-migration-guide
 
 .. _yaml-ros1-ros2:
 
-Migrating YAML parameter files from ROS 1 to ROS 2
+YAML Parameter File Migration Guide from ROS 1
 ==================================================
 
 This guide describes how to adapt ROS 1 parameters files for ROS 2.

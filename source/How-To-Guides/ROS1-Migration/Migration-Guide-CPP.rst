@@ -1,10 +1,11 @@
 .. redirect-from::
 
-    Migration-Guide
-    Contributing/Migration-Guide
+   Migration-Guide
+   Contributing/Migration-Guide
+   The-ROS2-Project/Contributing/Migration-Guide
 
-Migration guide from ROS 1
-==========================
+C++ Migration Guide from ROS 1
+==============================
 
 .. contents:: Table of Contents
    :depth: 2
@@ -92,30 +93,6 @@ Build tool
 ~~~~~~~~~~
 
 Instead of using ``catkin_make``, ``catkin_make_isolated`` or ``catkin build`` ROS 2 uses the command line tool `colcon <https://design.ros2.org/articles/build_tool.html>`__ to build and install a set of packages.
-
-Pure Python package
-~~~~~~~~~~~~~~~~~~~
-
-If the ROS 1 package uses CMake only to invoke the ``setup.py`` file and does not contain anything beside Python code (e.g. also no messages, services, etc.) it should be converted into a pure Python package in ROS 2:
-
-
-*
-  Update or add the build type in the ``package.xml`` file:
-
-  .. code-block:: xml
-
-     <export>
-       <build_type>ament_python</build_type>
-     </export>
-
-*
-  Remove the ``CMakeLists.txt`` file
-
-*
-  Update the ``setup.py`` file to be a standard Python setup script
-
-ROS 2 supports Python 3 only.
-While each package can choose to also support Python 2 it must invoke executables with Python 3 if it uses any API provided by other ROS 2 packages.
 
 Update the *CMakeLists.txt* to use *ament_cmake*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -240,7 +217,7 @@ Linters
 ~~~~~~~
 
 In ROS 2 we are working to maintain clean code using linters.
-The styles for different languages are defined in our `Developer Guide <Developer-Guide>`.
+The styles for different languages are defined in our `Developer Guide <../../The-ROS2-Project/Contributing/Developer-Guide>`.
 
 If you are starting a project from scratch it is recommended to follow the style guide and turn on the automatic linter unit tests by adding these lines just below ``if(BUILD_TESTING)`` (until alpha 5 this was ``AMENT_ENABLE_TESTING``).
 
@@ -340,16 +317,6 @@ Usages of ros::Rate
 
 There is an equivalent type ``rclcpp::Rate`` object which is basically a drop in replacement for ``ros::Rate``.
 
-ROS client library
-~~~~~~~~~~~~~~~~~~
-
-.. toctree::
-   :titlesonly:
-
-   Migration-Guide-Python
-
-
-**NOTE: Others to be written**
 
 Boost
 ~~~~~
@@ -410,13 +377,13 @@ In ROS 2, parameters are associated per node and are configurable at runtime wit
 
 * See :doc:`ROS 2 CLI usage <../../Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters>` for a better understanding of how the CLI tools work and its differences with ROS 1 tooling.
 
-* See :doc:`../../How-To-Guides/Parameters-YAML-files-migration-guide` to see how YAML parameter files are parsed in ROS 2 and their differences with ROS implementation.
+* See :doc:`Migration-Guide-Parameters-YAML` to see how YAML parameter files are parsed in ROS 2 and their differences with ROS implementation.
 
 Launch files
 ------------
 
 While launch files in ROS 1 are always specified using `.xml <https://wiki.ros.org/roslaunch/XML>`__ files, ROS 2 supports Python scripts to enable more flexibility (see `launch package <https://github.com/ros2/launch/tree/{REPOS_FILE_BRANCH}/launch>`__) as well as XML and YAML files.
-See `separate tutorial <../../How-To-Guides/Launch-files-migration-guide>` on migrating launch files from ROS 1 to ROS 2.
+See `separate tutorial <Migration-Guide-Launch>` on migrating launch files from ROS 1 to ROS 2.
 
 Example: Converting an existing ROS 1 package to use ROS 2
 ----------------------------------------------------------
@@ -776,9 +743,6 @@ Putting it all together, our ``package.xml`` now looks like this:
      </export>
    </package>
 
-**TODO: show simpler version of this file just using the ``<depend>`` tag, which is
-enabled by version 2 of the package format (also supported in ``catkin`` so,
-strictly speaking, orthogonal to ROS 2).**
 
 Changing the CMake code
 ~~~~~~~~~~~~~~~~~~~~~~~

@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Contributing/Windows-Tips-and-Tricks
+    The-ROS2-Project/Contributing/Windows-Tips-and-Tricks
 
 Windows Tips and Tricks
 =======================

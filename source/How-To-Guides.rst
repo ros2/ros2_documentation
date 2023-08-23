@@ -24,10 +24,9 @@ If you are new and looking to learn the ropes, start with the :doc:`Tutorials <T
    How-To-Guides/Developing-a-ROS-2-Package
    How-To-Guides/Ament-CMake-Documentation
    How-To-Guides/Ament-CMake-Python-Documentation
-   How-To-Guides/Launch-files-migration-guide
+   How-To-Guides/ROS1-Migration
    How-To-Guides/Launch-file-different-formats
    How-To-Guides/Launching-composable-nodes
-   How-To-Guides/Parameters-YAML-files-migration-guide
    How-To-Guides/Node-arguments
    How-To-Guides/Sync-Vs-Async
    How-To-Guides/DDS-tuning
@@ -50,6 +49,7 @@ If you are new and looking to learn the ropes, start with the :doc:`Tutorials <T
    How-To-Guides/Installing-on-Raspberry-Pi
    How-To-Guides/Using-callback-groups
    How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container
+   How-To-Guides/Windows-Tips-and-Tricks
 
 .. toctree::
   :hidden:
