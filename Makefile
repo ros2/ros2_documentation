@@ -3,7 +3,7 @@
 SOURCE     = source
 OUT        = build
 LINKCHECKDIR  = $(OUT)/linkcheck
-BUILD      = python3 -m sphinx
+BUILD      = python -m sphinx
 OPTS       =-c .
 
 help:
