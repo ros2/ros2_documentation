@@ -6,7 +6,7 @@
 
 .. _MigratingLaunch:
 
-Launch File Migration Guide from ROS 
+Launch File Migration Guide from ROS 1
 ==========================================
 
 .. contents:: Table of Contents
