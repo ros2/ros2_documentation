@@ -1,5 +1,5 @@
 .. redirect-from::
-   
+
    Guides/Parameters-YAML-files-migration-guide
    Tutorials/Parameters-YAML-files-migration-guide
    How-To-Guides/Parameters-YAML-files-migration-guide
