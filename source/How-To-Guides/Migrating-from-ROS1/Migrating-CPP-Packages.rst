@@ -727,8 +727,7 @@ like ``Boost``, or a library being built in the same ``CMakeLists.txt``, use
    target_link_libraries(target ${Boost_LIBRARIES})
 
 For installation, ``catkin`` defines variables like ``CATKIN_PACKAGE_BIN_DESTINATION``.
-With ``ament_cmake``, we just give a path relative to the installation root, like ``bin``
-for executables:
+With ``ament_cmake``, we just give a path relative to the installation root:
 
 .. code-block:: cmake
 
@@ -802,11 +801,10 @@ package using ``colcon build``:
 Running the ROS 2 node
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Because we installed the ``talker`` executable into ``bin``, after sourcing the
-setup file, from our install tree, we can invoke it by name directly
-(also, there is not yet a ROS 2 equivalent for ``rosrun``):
+Because we installed the ``talker`` executable into the correct directory, after sourcing the
+setup file, from our install tree, we can invoke it by running:
 
 .. code-block:: bash
 
    . ~/ros2_ws/install/setup.bash
-   talker
+   ros2 run talker talker
