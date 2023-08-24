@@ -4,8 +4,8 @@
    Contributing/Migration-Guide
    The-ROS2-Project/Contributing/Migration-Guide
 
-C++ Migration Guide from ROS 1
-==============================
+Migrating C++ Packages from ROS 1 to ROS 2
+==========================================
 
 .. contents:: Table of Contents
    :depth: 2
@@ -377,13 +377,13 @@ In ROS 2, parameters are associated per node and are configurable at runtime wit
 
 * See :doc:`ROS 2 CLI usage <../../Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters>` for a better understanding of how the CLI tools work and its differences with ROS 1 tooling.
 
-* See :doc:`Migration-Guide-Parameters-YAML` to see how YAML parameter files are parsed in ROS 2 and their differences with ROS implementation.
+* See :doc:`Migrating-YAML-Parameter-Files` to see how YAML parameter files are parsed in ROS 2 and their differences with ROS implementation.
 
 Launch files
 ------------
 
 While launch files in ROS 1 are always specified using `.xml <https://wiki.ros.org/roslaunch/XML>`__ files, ROS 2 supports Python scripts to enable more flexibility (see `launch package <https://github.com/ros2/launch/tree/{REPOS_FILE_BRANCH}/launch>`__) as well as XML and YAML files.
-See `separate tutorial <Migration-Guide-Launch>` on migrating launch files from ROS 1 to ROS 2.
+See `separate tutorial <Migrating-Launch-Files>` on migrating launch files from ROS 1 to ROS 2.
 
 Example: Converting an existing ROS 1 package to use ROS 2
 ----------------------------------------------------------

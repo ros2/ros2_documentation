@@ -6,7 +6,7 @@
 
 .. _MigratingLaunch:
 
-Launch File Migration Guide from ROS 1
+Migrating Launch Files from ROS 1 to ROS 2
 ==========================================
 
 .. contents:: Table of Contents

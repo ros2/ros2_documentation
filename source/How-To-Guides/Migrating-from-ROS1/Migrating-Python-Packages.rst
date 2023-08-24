@@ -3,8 +3,8 @@
    Migration-Guide-Python
    The-ROS2-Project/Contributing/Migration-Guide-Python
 
-Python Migration Guide from ROS 1
-=================================
+Migrating Python Packages from ROS 1 to ROS 2
+=============================================
 
 Pure Python package
 ~~~~~~~~~~~~~~~~~~~
