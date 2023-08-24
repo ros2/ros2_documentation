@@ -222,7 +222,29 @@ The console will return the following message:
   * ``--symlink-install`` saves you from having to rebuild every time you tweak python scripts
   * ``--event-handlers console_direct+`` shows console output while building (can otherwise be found in the ``log`` directory)
 
-Once the build is finished, enter ``ls`` in the workspace root (``~/ros2_ws``) and you will see that colcon has created new directories:
+Once the build is finished, enter the command in the workspace root (``~/ros2_ws``):
+
+.. tabs::
+
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+        ls
+
+   .. group-tab:: macOS
+
+      .. code-block:: console
+
+        ls
+
+   .. group-tab:: Windows
+
+      .. code-block:: console
+
+        dir
+
+And you will see that colcon has created new directories:
 
 .. code-block:: console
 
