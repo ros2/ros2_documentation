@@ -14,14 +14,14 @@ Migrating C++ Packages from ROS 1 to ROS 2
 Build system
 ^^^^^^^^^^^^
 
-The build system in ROS 2 is called `ament <https://design.ros2.org/articles/ament.html>`__
-and the build tool is :doc:`colcon <../../Tutorials/Beginner-Client-Libraries/Colcon-Tutorial>`.
+The build system in ROS 2 is called `ament <https://design.ros2.org/articles/ament.html>`__.
 Ament is built on CMake: ``ament_cmake`` provides CMake functions to make writing ``CMakeLists.txt`` files easier.
 
 Build tool
 ~~~~~~~~~~
 
 Instead of using ``catkin_make``, ``catkin_make_isolated`` or ``catkin build`` ROS 2 uses the command line tool `colcon <https://design.ros2.org/articles/build_tool.html>`__ to build and install a set of packages.
+See the :doc:`beginner tutorial <../../Tutorials/Beginner-Client-Libraries/Colcon-Tutorial>` to get started with ``colcon``.
 
 Update the *CMakeLists.txt* to use *ament_cmake*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -62,9 +62,6 @@ Apply the following changes to use ``ament_cmake`` instead of ``catkin``:
     * Instead of passing ``CATKIN_DEPENDS ...`` call ``ament_export_dependencies(...)`` before.
     * Instead of passing ``INCLUDE_DIRS ...`` call ``ament_export_include_directories(...)`` before.
     * Instead of passing ``LIBRARIES ...`` call ``ament_export_libraries(...)`` before.
-
-  *
-    **TODO document ament_export_targets (``ament_export_interfaces`` in Eloquent and older)?**
 
 *
   Replace the invocation of ``add_message_files``, ``add_service_files`` and ``generate_messages`` with `rosidl_generate_interfaces <https://github.com/ros2/rosidl/blob/{REPOS_FILE_BRANCH}/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake>`__.
@@ -148,7 +145,7 @@ Linters
 In ROS 2 we are working to maintain clean code using linters.
 The styles for different languages are defined in our :doc:`Developer Guide <../../The-ROS2-Project/Contributing/Developer-Guide>`.
 
-If you are starting a project from scratch it is recommended to follow the style guide and turn on the automatic linter unit tests by adding these lines just below ``if(BUILD_TESTING)`` (until alpha 5 this was ``AMENT_ENABLE_TESTING``).
+If you are starting a project from scratch it is recommended to follow the style guide and turn on the automatic linter unit tests by adding these lines just below ``if(BUILD_TESTING)``:
 
 .. code-block:: cmake
 
@@ -161,15 +158,6 @@ You will also need to add the following dependencies to your ``package.xml``:
 
    <test_depend>ament_lint_auto</test_depend>
    <test_depend>ament_lint_common</test_depend>
-
-Continue to use ``catkin`` in CMake
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-ROS 2 uses ament as the build system but for backward compatibility ROS 2 has a package called ``catkin`` which provides almost the same API as catkin in ROS 1.
-In order to use this backward compatibility API the ``CMakeLists.txt`` must only be updated to call the function ``catkin_ament_package()`` *after* all targets.
-
-**NOTE: This has not been implemented yet and is only an idea at the moment.
-Due to the number of changes related to dependencies it has not yet been decided if this compatibility API is useful enough to justify the effort.**
 
 Update source code
 ^^^^^^^^^^^^^^^^^^
@@ -296,11 +284,10 @@ Replace:
 * ``#include <boost/function.hpp>``  with ``#include <functional>``
 * ``boost::function`` with ``std::function``
 
-Example: Converting an existing ROS 1 package to use ROS 2
-----------------------------------------------------------
+Example: Converting an existing ROS 1 package to ROS 2
+------------------------------------------------------
 
-Let's say that we have simple ROS 1 package called ``talker`` that uses ``roscpp``
-in one node, called ``talker``.
+Let's say that we have simple ROS 1 package called ``talker`` that uses ``roscpp`` in one node, called ``talker``.
 This package is in a catkin workspace, located at ``~/ros1_talker``.
 
 The ROS 1 code
@@ -460,8 +447,7 @@ Changing C++ library calls
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Instead of passing the node's name to the library initialization call, we do
-the initialization, then pass the node name to the creation of the node object
-(we can use the ``auto`` keyword because now we're requiring a C++14 compiler):
+the initialization, then pass the node name to the creation of the node object:
 
 .. code-block:: cpp
 
@@ -576,14 +562,6 @@ Putting it all together, the new ``talker.cpp`` looks like this:
 Changing the ``package.xml``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-ROS 2 doesn't support format 1 of the package specification but only newer format versions (2 and higher).
-We start by specifying the format version in the ``package`` tag:
-
-.. code-block:: xml
-
-   <!-- <package> -->
-   <package format="2">
-
 ROS 2 uses a newer version of ``catkin``, called ``ament_cmake``, which we specify in the
 ``buildtool_depend`` tag:
 
@@ -592,8 +570,7 @@ ROS 2 uses a newer version of ``catkin``, called ``ament_cmake``, which we speci
    <!--  <buildtool_depend>catkin</buildtool_depend> -->
      <buildtool_depend>ament_cmake</buildtool_depend>
 
-In our build dependencies, instead of ``roscpp`` we use ``rclcpp``, which provides
-the C++ API that we use.
+In our build dependencies, instead of ``roscpp`` we use ``rclcpp``, which provides the C++ API that we use.
 
 .. code-block:: xml
 
@@ -601,8 +578,7 @@ the C++ API that we use.
      <build_depend>rclcpp</build_depend>
 
 We make the same addition in the run dependencies and also update from the
-``run_depend`` tag to the ``exec_depend`` tag (part of the upgrade to version 2 of
-the package format):
+``run_depend`` tag to the ``exec_depend`` tag (part of the upgrade to version 2 of the package format):
 
 .. code-block:: xml
 
@@ -665,22 +641,20 @@ ROS 2 relies on a higher version of CMake:
    #cmake_minimum_required(VERSION 2.8.3)
    cmake_minimum_required(VERSION 3.5)
 
-ROS 2 relies on the C++14 standard.
-Depending on what compiler you're using, support for C++14 might not be enabled
-by default.
-Using ``gcc`` 5.3 (which is what is used on Ubuntu Xenial), we need to enable it
-explicitly, which we do by adding this line near the top of the file:
+ROS 2 relies on the C++17 standard.
+Depending on what compiler you're using, support for C++17 might not be enabled by default.
+Enable C++17 support explicitly by adding this line near the top of the file:
 
 .. code-block:: cmake
 
-   set(CMAKE_CXX_STANDARD 14)
+   set(CMAKE_CXX_STANDARD 17)
 
 The preferred way to work on all platforms is this:
 
 .. code-block:: cmake
 
    if(NOT CMAKE_CXX_STANDARD)
-     set(CMAKE_CXX_STANDARD 14)
+     set(CMAKE_CXX_STANDARD 17)
    endif()
    if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
      add_compile_options(-Wall -Wextra -Wpedantic)
@@ -785,7 +759,7 @@ Putting it all together, the new ``CMakeLists.txt`` looks like this:
    cmake_minimum_required(VERSION 3.5)
    project(talker)
    if(NOT CMAKE_CXX_STANDARD)
-     set(CMAKE_CXX_STANDARD 14)
+     set(CMAKE_CXX_STANDARD 17)
    endif()
    if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
      add_compile_options(-Wall -Wextra -Wpedantic)
@@ -811,8 +785,6 @@ Putting it all together, the new ``CMakeLists.txt`` looks like this:
    ament_export_include_directories(include)
    ament_export_dependencies(std_msgs)
    ament_package()
-
-**TODO: Show what this would look like with ``ament_auto``.**
 
 Building the ROS 2 code
 ~~~~~~~~~~~~~~~~~~~~~~~
