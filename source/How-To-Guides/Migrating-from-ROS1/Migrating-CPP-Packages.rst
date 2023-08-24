@@ -296,12 +296,6 @@ Replace:
 * ``#include <boost/function.hpp>``  with ``#include <functional>``
 * ``boost::function`` with ``std::function``
 
-Launch files
-------------
-
-While launch files in ROS 1 are always specified using `.xml <https://wiki.ros.org/roslaunch/XML>`__ files, ROS 2 supports Python scripts to enable more flexibility (see `launch package <https://github.com/ros2/launch/tree/{REPOS_FILE_BRANCH}/launch>`__) as well as XML and YAML files.
-See :doc:`separate tutorial <Migrating-Launch-Files>` on migrating launch files from ROS 1 to ROS 2.
-
 Example: Converting an existing ROS 1 package to use ROS 2
 ----------------------------------------------------------
 
