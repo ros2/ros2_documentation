@@ -147,3 +147,25 @@ ROS 2 doesn't have a special package type for metapackages.
 Metapackages can still exist as regular packages that only contain runtime dependencies.
 When migrating metapackages from ROS 1, simply remove the ``<metapackage />`` tag in your package manifest.
 See :doc:`Using variants <../Using-Variants>` for more information on metapackages/variants.
+
+Licensing
+---------
+
+In ROS 1 our recommended license was the `3-Clause BSD License <https://opensource.org/licenses/BSD-3-Clause>`__.
+In ROS 2 our recommended license is the `Apache 2.0 License <https://www.apache.org/licenses/LICENSE-2.0>`__.
+
+For any new project we recommend using the Apache 2.0 License, whether ROS 1 or ROS 2.
+
+However, when migrating code from ROS 1 to ROS 2 we cannot simply change the license.
+The existing license must be preserved for any preexisting contributions.
+
+To that end if a package is being migrated we recommend keeping the existing license and continuing to contribute to that package under the existing OSI license, which we expect to be the BSD license for core elements.
+
+This will keep things clear and easy to understand.
+
+Changing the License
+^^^^^^^^^^^^^^^^^^^^
+
+It is possible to change the license, however you will need to contact all the contributors and get permission.
+For most packages this is likely to be a significant effort and not worth considering.
+If the package has a small set of contributors then this may be feasible.
