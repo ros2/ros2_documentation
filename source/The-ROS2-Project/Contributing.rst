@@ -68,6 +68,7 @@ Development Guides
    Contributing/Code-Style-Language-Versions
    Contributing/Quality-Guide
    Contributing/Build-Farms
+   Contributing/Windows-Tips-and-Tricks
    Contributing/Contributing-To-ROS-2-Documentation
 
 What to work on
