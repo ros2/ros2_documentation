@@ -119,7 +119,7 @@ Migrating from ROS 1
 
 The :doc:`Launch file migration guide <../../How-To-Guides/Migrating-from-ROS1/Migrating-Launch-Files>` explains how to migrate ``param`` and ``rosparam`` launch tags from ROS 1 to ROS 2.
 
-The :doc:`YAML parameter file migration guide <../../How-To-Guides/Migrating-from-ROS1/Migrating-YAML-Parameter-Files>` explains how to migrate parameter files from ROS 1 to ROS 2.
+The :doc:`YAML parameter file migration guide <../../How-To-Guides/Migrating-from-ROS1/Migrating-Parameters>` explains how to migrate parameter files from ROS 1 to ROS 2.
 
 In ROS 1, the ``roscore`` acted like a global parameter blackboard where all nodes could get and set parameters.
 Since there is no central ``roscore`` in ROS 2, that functionality no longer exists.

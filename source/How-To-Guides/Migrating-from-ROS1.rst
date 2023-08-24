@@ -12,4 +12,4 @@ If you are stuck, use the tutorials (:doc:`Developing a ROS 2 package<Developing
    Migrating-from-ROS1/Migrating-CPP-Packages
    Migrating-from-ROS1/Migrating-Python-Packages
    Migrating-from-ROS1/Migrating-Launch-Files
-   Migrating-from-ROS1/Migrating-YAML-Parameter-Files
+   Migrating-from-ROS1/Migrating-Parameters
