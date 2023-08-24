@@ -14,12 +14,12 @@ Migrating C++ Packages from ROS 1 to ROS 2
 There are two different kinds of package migrations:
 
 * Migrating the source code of an existing package from ROS 1 to ROS 2 with the intent that a significant part of the source code will stay the same or at least similar.
-  An example for this could be `pluginlib <https://github.com/ros/pluginlib>`_ where the source code is maintained in different branches within the same repository and commonly patches can be ported between those branches when necessary.
+  An example for this is `pluginlib <https://github.com/ros/pluginlib>`_ where the source code is maintained in different branches within the same repository and common patches can be ported between those branches when necessary.
 * Implementing the same or similar functionality of a ROS 1 package for ROS 2 but with the assumption that the source code will be significantly different.
-  An example for this could be `roscpp <https://github.com/ros/ros_comm/tree/melodic-devel/clients/roscpp>`_ in ROS 1 and `rclcpp <https://github.com/ros2/rclcpp/tree/rolling/rclcpp>`_ in ROS 2 which are separate repositories and don't share any code.
+  An example for this is `roscpp <https://github.com/ros/ros_comm/tree/melodic-devel/clients/roscpp>`_ in ROS 1 and `rclcpp <https://github.com/ros2/rclcpp/tree/rolling/rclcpp>`_ in ROS 2 which are separate repositories and don't share any code.
 
 This article focuses on the former case and describes the high-level steps to migrate a ROS 1 package to ROS 2.
-It does not aim to be a step-by-step migration instruction and is not considered the *final* "solution".
+It does not aim to be a step-by-step migration instruction and is not considered a complete solution.
 Future versions will aim to make migration smoother and less effort up to the point of maintaining a single package from the same branch for ROS 1 as well as ROS 2.
 
 Prerequisites
@@ -217,7 +217,7 @@ Linters
 ~~~~~~~
 
 In ROS 2 we are working to maintain clean code using linters.
-The styles for different languages are defined in our `Developer Guide <../../The-ROS2-Project/Contributing/Developer-Guide>`.
+The styles for different languages are defined in our :doc:`Developer Guide <../../The-ROS2-Project/Contributing/Developer-Guide>`.
 
 If you are starting a project from scratch it is recommended to follow the style guide and turn on the automatic linter unit tests by adding these lines just below ``if(BUILD_TESTING)`` (until alpha 5 this was ``AMENT_ENABLE_TESTING``).
 
@@ -383,7 +383,7 @@ Launch files
 ------------
 
 While launch files in ROS 1 are always specified using `.xml <https://wiki.ros.org/roslaunch/XML>`__ files, ROS 2 supports Python scripts to enable more flexibility (see `launch package <https://github.com/ros2/launch/tree/{REPOS_FILE_BRANCH}/launch>`__) as well as XML and YAML files.
-See `separate tutorial <Migrating-Launch-Files>` on migrating launch files from ROS 1 to ROS 2.
+See :doc:`separate tutorial <Migrating-Launch-Files>` on migrating launch files from ROS 1 to ROS 2.
 
 Example: Converting an existing ROS 1 package to use ROS 2
 ----------------------------------------------------------
@@ -472,12 +472,12 @@ Here is the content of those three files:
 Building the ROS 1 code
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-We source an environment setup file (in this case for Jade using bash), then we
+We source an environment setup file (in this case for Noetic using bash), then we
 build our package using ``catkin_make install``:
 
 .. code-block:: bash
 
-   . /opt/ros/jade/setup.bash
+   . /opt/ros/noetic/setup.bash
    cd ~/ros1_talker
    catkin_make install
 
@@ -486,7 +486,7 @@ Running the ROS 1 node
 
 If there's not already one running, we start a ``roscore``, first sourcing the
 setup file from our ``catkin`` install tree (the system setup file at
-``/opt/ros/jade/setup.bash`` would also work here):
+``/opt/ros/noetic/setup.bash`` would also work here):
 
 .. code-block:: bash
 
@@ -575,7 +575,7 @@ To further control how message delivery is handled, a quality of service
 The default profile is ``rmw_qos_profile_default``.
 For more details, see the
 `design document <https://design.ros2.org/articles/qos.html>`__
-and `concept overview <../../Concepts/Intermediate/About-Quality-of-Service-Settings>`.
+and :doc:`concept overview <../../Concepts/Intermediate/About-Quality-of-Service-Settings>`.
 
 The creation of the outgoing message is different in the namespace:
 
@@ -934,7 +934,7 @@ Update scripts
 ROS CLI arguments
 ~~~~~~~~~~~~~~~~~
 
-Since `ROS Eloquent <../../Releases/Release-Eloquent-Elusor>`, ROS arguments should be scoped with ``--ros-args`` and a trailing ``--`` (the trailing double dash may be elided if no arguments follow it).
+ROS 2 arguments should be scoped with ``--ros-args`` and a trailing ``--`` (the trailing double dash may be elided if no arguments follow it).
 
 Remapping names is similar to ROS 1, taking on the form ``from:=to``, except that it must be preceded by a ``--remap`` (or ``-r``) flag.
 For example:
@@ -944,7 +944,6 @@ For example:
    ros2 run some_package some_ros_executable --ros-args -r foo:=bar
 
 We use a similar syntax for parameters, using the ``--param`` (or ``-p``) flag:
-
 
 .. code-block:: bash
 
@@ -994,8 +993,7 @@ More examples and tools
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 - Launch File migrator that converts a ROS 1 XML launch file to a ROS 2 Python launch file: https://github.com/aws-robotics/ros2-launch-file-migrator
--  Amazon has exposed their tools for porting ROS 1 robots to ROS 2
-   https://github.com/awslabs/ros2-migration-tools/tree/master/porting\_tools
+- Amazon has made their tools for porting from ROS 1 to ROS 2 available at: https://github.com/awslabs/ros2-migration-tools/tree/master/porting\_tools
 
 
 Licensing
