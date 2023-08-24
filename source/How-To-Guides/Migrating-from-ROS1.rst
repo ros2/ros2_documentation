@@ -13,6 +13,7 @@ If you are new to porting between ROS 1 and ROS 2, it is recommended to read thr
    Migrating-from-ROS1/Migrating-Python-Packages
    Migrating-from-ROS1/Migrating-Launch-Files
    Migrating-from-ROS1/Migrating-Parameters
+   Migrating-from-ROS1/Migrating-Scripts
 
 Automatic tools
 ---------------

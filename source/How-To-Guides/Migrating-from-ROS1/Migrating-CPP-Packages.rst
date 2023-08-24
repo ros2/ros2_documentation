@@ -12,19 +12,19 @@ Migrating C++ Packages from ROS 1 to ROS 2
    :local:
 
 Build system
-^^^^^^^^^^^^
+------------
 
 The build system in ROS 2 is called `ament <https://design.ros2.org/articles/ament.html>`__.
 Ament is built on CMake: ``ament_cmake`` provides CMake functions to make writing ``CMakeLists.txt`` files easier.
 
 Build tool
-~~~~~~~~~~
+----------
 
 Instead of using ``catkin_make``, ``catkin_make_isolated`` or ``catkin build`` ROS 2 uses the command line tool `colcon <https://design.ros2.org/articles/build_tool.html>`__ to build and install a set of packages.
 See the :doc:`beginner tutorial <../../Tutorials/Beginner-Client-Libraries/Colcon-Tutorial>` to get started with ``colcon``.
 
 Update the *CMakeLists.txt* to use *ament_cmake*
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Apply the following changes to use ``ament_cmake`` instead of ``catkin``:
 
@@ -104,7 +104,7 @@ Apply the following changes to use ``ament_cmake`` instead of ``catkin``:
   * ``CATKIN_PACKAGE_SHARE_DESTINATION``: ``share/${PROJECT_NAME}``
 
 Unit tests
-~~~~~~~~~~
+^^^^^^^^^^
 
 If you are using gtest:
 
@@ -140,7 +140,7 @@ Add ``<test_depend>ament_cmake_gtest</test_depend>`` to your ``package.xml``.
    +   <test_depend>ament_cmake_gtest</test_depend>
 
 Linters
-~~~~~~~
+^^^^^^^
 
 In ROS 2 we are working to maintain clean code using linters.
 The styles for different languages are defined in our :doc:`Developer Guide <../../The-ROS2-Project/Contributing/Developer-Guide>`.
@@ -160,10 +160,10 @@ You will also need to add the following dependencies to your ``package.xml``:
    <test_depend>ament_lint_common</test_depend>
 
 Update source code
-^^^^^^^^^^^^^^^^^^
+------------------
 
 Messages, services, and actions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The namespace of ROS 2 messages, services, and actions use a subnamespace (``msg``, ``srv``, or ``action``, respectively) after the package name.
 Therefore an include looks like: ``#include <my_interfaces/msg/my_message.hpp>``.
@@ -192,7 +192,7 @@ The migration requires includes to change by:
 The migration requires code to insert the ``msg`` namespace into all instances.
 
 Use of service objects
-~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^
 
 Service callbacks in ROS 2 do not have boolean return values.
 Instead of returning false on failures, throwing exceptions is recommended.
@@ -215,7 +215,7 @@ Instead of returning false on failures, throwing exceptions is recommended.
    }
 
 Usages of ros::Time
-~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^
 
 For usages of ``ros::Time``:
 
@@ -230,19 +230,19 @@ For usages of ``ros::Time``:
   * Convert all instances using the std_msgs::Time field ``nsec`` to the builtin_interfaces::msg::Time field ``nanosec``
 
 Usages of ros::Rate
-~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^
 
 There is an equivalent type ``rclcpp::Rate`` object which is basically a drop in replacement for ``ros::Rate``.
 
 
 Boost
-~~~~~
+^^^^^
 
 Much of the functionality previously provided by Boost has been integrated into the C++ standard library.
 As such we would like to take advantage of the new core features and avoid the dependency on boost where possible.
 
 Shared Pointers
-"""""""""""""""
+~~~~~~~~~~~~~~~
 
 To switch shared pointers from boost to standard C++ replace instances of:
 
@@ -257,7 +257,7 @@ Also it is recommended practice to use ``using`` instead of ``typedef``.
 For details `see here <https://stackoverflow.com/questions/10747810/what-is-the-difference-between-typedef-and-using-in-c11>`__
 
 Thread/Mutexes
-""""""""""""""
+~~~~~~~~~~~~~~
 
 Another common part of boost used in ROS codebases are mutexes in ``boost::thread``.
 
@@ -267,7 +267,7 @@ Another common part of boost used in ROS codebases are mutexes in ``boost::threa
 * Replace ``#include <boost/thread/mutex.hpp>`` with ``#include <mutex>``
 
 Unordered Map
-"""""""""""""
+~~~~~~~~~~~~~
 
 Replace:
 
@@ -276,7 +276,7 @@ Replace:
 * ``boost::unordered_map`` with ``std::unordered_map``
 
 function
-""""""""
+~~~~~~~~
 
 Replace:
 
@@ -810,67 +810,6 @@ setup file, from our install tree, we can invoke it by name directly
 
    . ~/ros2_ws/install/setup.bash
    talker
-
-Update scripts
-^^^^^^^^^^^^^^
-
-ROS CLI arguments
-~~~~~~~~~~~~~~~~~
-
-ROS 2 arguments should be scoped with ``--ros-args`` and a trailing ``--`` (the trailing double dash may be elided if no arguments follow it).
-
-Remapping names is similar to ROS 1, taking on the form ``from:=to``, except that it must be preceded by a ``--remap`` (or ``-r``) flag.
-For example:
-
-.. code-block:: bash
-
-   ros2 run some_package some_ros_executable --ros-args -r foo:=bar
-
-We use a similar syntax for parameters, using the ``--param`` (or ``-p``) flag:
-
-.. code-block:: bash
-
-   ros2 run some_package some_ros_executable --ros-args -p my_param:=value
-
-Note, this is different than using a leading underscore in ROS 1.
-
-To change a node name use ``__node`` (the ROS 1 equivalent is ``__name``):
-
-.. code-block:: bash
-
-   ros2 run some_package some_ros_executable --ros-args -r __node:=new_node_name
-
-Note the use of the ``-r`` flag.
-The same remap flag is needed for changing the namespace ``__ns``:
-
-.. code-block:: bash
-
-   ros2 run some_package some_ros_executable --ros-args -r __ns:=/new/namespace
-
-There is no equivalent in ROS 2 for the following ROS 1 keys:
-
-- ``__log`` (but ``--log-config-file`` can be used to provide a logger configuration file)
-- ``__ip``
-- ``__hostname``
-- ``__master``
-
-For more information, see the `design document <https://design.ros2.org/articles/ros_command_line_arguments.html>`_.
-
-Quick reference
-"""""""""""""""
-
-+------------+-------------+----------------+
-| Feature    | ROS 1       | ROS 2          |
-+============+=============+================+
-| remapping  | foo:=bar    | -r foo:=bar    |
-+------------+-------------+----------------+
-| parameters | _foo:=bar   | -p foo:=bar    |
-+------------+-------------+----------------+
-| node name  | __name:=foo | -r __node:=foo |
-+------------+-------------+----------------+
-| namespace  | __ns:=foo   | -r __ns:=foo   |
-+------------+-------------+----------------+
-
 
 Licensing
 ---------
