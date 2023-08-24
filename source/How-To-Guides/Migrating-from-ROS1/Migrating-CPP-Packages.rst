@@ -977,13 +977,6 @@ Quick reference
 +------------+-------------+----------------+
 
 
-More examples and tools
-^^^^^^^^^^^^^^^^^^^^^^^
-
-- Launch File migrator that converts a ROS 1 XML launch file to a ROS 2 Python launch file: https://github.com/aws-robotics/ros2-launch-file-migrator
-- Amazon has made their tools for porting from ROS 1 to ROS 2 available at: https://github.com/awslabs/ros2-migration-tools/tree/master/porting\_tools
-
-
 Licensing
 ---------
 
