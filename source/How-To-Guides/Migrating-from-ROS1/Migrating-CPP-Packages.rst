@@ -11,38 +11,6 @@ Migrating C++ Packages from ROS 1 to ROS 2
    :depth: 2
    :local:
 
-Message, service, and action definitions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Message files must end in ``.msg`` and must be located in the subfolder ``msg``.
-Service files must end in ``.srv`` and must be located in the subfolder ``srv``.
-Actions files must end in ``.action`` and must be located in the subfolder ``action``.
-
-These files might need to be updated to comply with the `ROS Interface definition <https://design.ros2.org/articles/interface_definition.html>`__.
-Some primitive types have been removed and the types ``duration`` and ``time`` which were builtin types in ROS 1 have been replaced with normal message definitions and must be used from the `builtin_interfaces <https://github.com/ros2/rcl_interfaces/tree/{REPOS_FILE_BRANCH}/builtin_interfaces>`__ package.
-Also some naming conventions are stricter than in ROS 1.
-
-In your ``package.xml``:
-
-
-* Add ``<buildtool_depend>rosidl_default_generators</buildtool_depend>``.
-* Add ``<exec_depend>rosidl_default_runtime</exec_depend>``.
-* For each dependent message package, add ``<depend>message_package</depend>``.
-
-In your ``CMakeLists.txt``:
-
-* Start by enabling C++14
-
-.. code-block:: cmake
-
-   set(CMAKE_CXX_STANDARD 14)
-
-
-* Add ``find_package(rosidl_default_generators REQUIRED)``
-* For each dependent message package, add ``find_package(message_package REQUIRED)`` and replace the CMake function call to ``generate_messages`` with ``rosidl_generate_interfaces``.
-
-This will replace ``add_message_files`` and ``add_service_files`` listing of all the message and service files, which can be removed.
-
 Build system
 ^^^^^^^^^^^^
 
