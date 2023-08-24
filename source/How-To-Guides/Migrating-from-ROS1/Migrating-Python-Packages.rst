@@ -6,6 +6,10 @@
 Migrating Python Packages from ROS 1 to ROS 2
 =============================================
 
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
+
 Pure Python package
 ~~~~~~~~~~~~~~~~~~~
 

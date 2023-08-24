@@ -2,10 +2,12 @@ Migrating from ROS 1 to ROS 2
 =============================
 
 These guides show how to convert existing ROS 1 packages to ROS 2.
+If you are new to porting between ROS 1 and ROS 2, it is recommended to read through the guides in order.
 
 .. toctree::
    :maxdepth: 1
 
+   Migrating-from-ROS1/Migrating-Packages
    Migrating-from-ROS1/Migrating-CPP-Packages
    Migrating-from-ROS1/Migrating-Python-Packages
    Migrating-from-ROS1/Migrating-Launch-Files
