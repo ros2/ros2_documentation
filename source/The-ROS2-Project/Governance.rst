@@ -275,7 +275,7 @@ Manipulation
 Real-time
 ^^^^^^^^^
 
-* Lead(s): Andrei Kholodnyi, Carlos San Vicente
+* Lead(s): Andrei Kholodnyi, Jan Staschulat
 * Resources:
 
  * `Working group website <https://real-time-working-group.readthedocs.io/>`__
