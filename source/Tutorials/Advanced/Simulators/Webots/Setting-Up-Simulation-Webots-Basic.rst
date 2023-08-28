@@ -220,7 +220,7 @@ You can use it to access the `Webots robot API  <https://cyberbotics.com/doc/ref
 
     .. group-tab:: C++
 
-        Open ``my_package/src/MyRobotDriver.hpp`` in your favorite editor and replace its contents with the following:
+        Open ``my_package/include/my_package/MyRobotDriver.hpp`` in your favorite editor and replace its contents with the following:
 
         .. literalinclude:: Code/MyRobotDriver.hpp
             :language: cpp
