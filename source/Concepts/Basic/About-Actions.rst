@@ -8,7 +8,7 @@ In ROS 2, an action refers to a long-running remote procedure call with feedback
 For instance, the high-level state machine running a robot may call an action to tell the navigation subsystem to travel to a waypoint, which may take several seconds (or minutes) to do.
 Along the way, the navigation subsystem can provide feedback on how far along it is, and the high-level state machine has the option to cancel or preempty the travel to that waypoint.
 
-This structure is reflected in how an action message definition loks:
+This structure is reflected in how an action message definition looks:
 
 .. code::
 
