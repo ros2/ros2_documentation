@@ -63,7 +63,7 @@ As always, though, make sure to add the description, maintainer email and name, 
 
   <description>C++ bag reading tutorial</description>
   <maintainer email="you@email.com">Your Name</maintainer>
-  <license>Apache License 2.0</license>
+  <license>Apache-2.0</license>
 
 2 Write the C++ Reader
 ^^^^^^^^^^^^^^^^^^^^^^
