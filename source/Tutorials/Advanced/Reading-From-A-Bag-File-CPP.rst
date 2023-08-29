@@ -152,7 +152,7 @@ The next line creates the node which will read from the bag file and play back t
     class PlaybackNode : public rclcpp::Node 
 
 Now, we can create a timer callback which will run at 10 hz.
-Our goal is to replay one message each time the callback is run to the topic ``/turtle1/pose``.
+Our goal is to replay one message to the ``/turtle1/pose`` topic each time the callback is run .
 Note the constructor takes a path to the bag file as a parameter.
 
 .. code-block:: C++
