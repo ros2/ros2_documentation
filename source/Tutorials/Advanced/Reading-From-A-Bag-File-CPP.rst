@@ -86,7 +86,7 @@ Inside your package's ``src`` directory, create a new file called ``simple_bag_r
     class PlaybackNode : public rclcpp::Node 
     {
       public:
-        PlaybackNode(const std::string& bag)
+        PlaybackNode(const std::string & bag_filename)
         : Node("playback_node")
         {
           publisher_ = this->create_publisher<turtlesim::msg::Pose>("/turtle1/pose", 10);
