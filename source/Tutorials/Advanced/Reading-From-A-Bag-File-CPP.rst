@@ -175,7 +175,7 @@ We also open the bag in the constructor.
       reader_.open(bag_filename);
 
 Now, inside our timer callback, we loop through messages in the bag until we read a message recorded from our desired topic.
-Note that the serialized message also has a timestamp metadata in addition to the topic name.
+Note that the serialized message has timestamp metadata in addition to the topic name.
 
 .. code-block:: C++
 
