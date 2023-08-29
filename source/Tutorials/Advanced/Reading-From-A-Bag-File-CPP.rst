@@ -93,7 +93,7 @@ Inside your package's ``src`` directory, create a new file called ``simple_bag_r
           timer_ = this->create_wall_timer(
               100ms, std::bind(&PlaybackNode::timer_callback, this));
 
-          reader_.open(bag);
+          reader_.open(bag_filename);
         }
 
       private:
