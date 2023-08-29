@@ -1,6 +1,12 @@
 name: Test
 
-on: [push, pull_request]
+on: 
+  push:
+    branches: 
+      - '!mergify/bp/*'
+  pull_request:
+    branches: 
+      - '!mergify/bp/*'
 
 jobs:
   test:
