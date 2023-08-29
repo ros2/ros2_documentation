@@ -168,12 +168,11 @@ Note the constructor takes a path to the bag file as a parameter.
             100ms, std::bind(&PlaybackNode::timer_callback, this));
 
 
-Finally, we also open the bag in the constructor.
+We also open the bag in the constructor.
 
 .. code-block:: C++
 
-      reader_.open(bag);
-    }
+      reader_.open(bag_filename);
 
 Now, inside our timer callback, we loop through messages in the bag until we read a message recorded from our desired topic.
 Note that the serialized message also has a timestamp metadata in addition to the topic name.
