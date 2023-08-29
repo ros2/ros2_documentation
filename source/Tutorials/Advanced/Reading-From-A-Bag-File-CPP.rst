@@ -72,9 +72,11 @@ Inside your package's ``src`` directory, create a new file called ``simple_bag_r
 
 .. code-block:: C++
 
-    #include <iostream>
     #include <chrono>
+    #include <functional>
+    #include <iostream>
     #include <memory>
+    #include <string>
 
     #include "rclcpp/rclcpp.hpp"
     #include "rclcpp/serialization.hpp"
