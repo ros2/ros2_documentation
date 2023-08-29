@@ -10,7 +10,7 @@ There are two types of ROS 2 working groups, TSC sanctioned working groups and c
 Functionally, there is little distinction between the two types of working groups, the primary distinction being that TSC sanctioned working groups were created by the ROS 2 TSC and deliver regular reports to it.
 Community working groups are created and administered by the ROS 2 community for the ROS community, and are not officially sanctioned by the ROS 2 TSC.
 Community working groups can become TSC working groups can become by simple vote of the ROS 2 TSC.
-Community working groups can be created using the process outlined in :doc:`this tutorial. <How-To-Start-A-Community-Working-Group>`: 
+Community working groups can be created using the process outlined in :doc:`this tutorial. <How-To-Start-A-Community-Working-Group>`.
 
 If you'd like to join an existing ROS 2 working group, please contact the appropriate group lead(s) directly.
 If you'd like to create a new working group, please inquire via info@openrobotics.org.
@@ -52,16 +52,6 @@ Control
  * `Meeting notes rolling document <https://docs.google.com/document/d/1818AoYucI2z82awL_-8sAA5pMCV_g_wXCJiM6SQmhSQ/edit?usp=sharing>`_
  * Discourse tag: `wg-ros2-control <https://discourse.ros.org/tags/wg-ros2-control>`_
 
-Embedded Systems
-^^^^^^^^^^^^^^^^
-
-* Lead(s): Lara Moreno, Pablo Garrido
-* Resources:
-
- * `2019-07-29 meeting notes <https://discourse.ros.org/uploads/short-url/z1caIm7m5IVP4cPJUwg3Chq36wO.pdf>`__
- * `2019-01-15 meeting notes <https://discourse.ros.org/t/ros2-embedded-sig-meeting-2/7243/5>`__
- * Meeting invite group `ros-embedded-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-embedded-working-group-invites>`_
- * Discourse tag: `wg-embedded <https://discourse.ros.org/tag/wg-embedded>`_
 
 Middleware
 ^^^^^^^^^^
@@ -143,6 +133,7 @@ Aerial Robotics (AerialRoboticsWG)
 
 * Lead(s): Kimberly McGuire
 * Resources:
+
   * Discourse tag: `wg-aerial-robotics <https://discourse.ros.org/tag/wg-aerial-robotics>`_
 
 AI Integration
@@ -150,13 +141,25 @@ AI Integration
 
 * Lead(s): Lara Moreno
 * Resources:
+
   * `Discussion thread: <https://discourse.ros.org/t/ros-2-ai-integration-working-group/26119/35>`_
+
+Deliberation (DeliberationWG)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Lead(s) Christian Henkel
+* Resources:
+
+  * `Minutes <https://docs.google.com/document/d/13TCHp3ycbDa2agGs0SjP3CpTllUeguAcXqih5LlCVDg/edit>`_
+  * `Google Group <https://groups.google.com/g/ros-wg-deliberation>`_
+  * Discourse tag: `wg-delib <https://discourse.ros.org/tag/wg-delib>`_
 
 Education (EdWG)
 ^^^^^^^^^^^^^^^^
 
 * Lead(s): Katherine Scott
 * Resources:
+
   * Discourse tag: `wg-education <https://discourse.ros.org/tag/wg-education>`_
 
 Maritime (MaritimeWG)
@@ -164,6 +167,7 @@ Maritime (MaritimeWG)
 
 * Lead(s): Yuri Oliveira, Mabel Zhang
 * Resources:
+
   * Discourse tag: `wg-maritime-robotics <https://discourse.ros.org/tag/wg-maritime-robotics>`_
 
 Rust (RustWG)
@@ -171,6 +175,7 @@ Rust (RustWG)
 
 * Lead(s): Jacob Hassold
 * Resources:
+
   * Discourse tag: `wg-rust <https://discourse.ros.org/tag/wg-rust>`_
 
 SMACC (SMACCWG)
@@ -178,4 +183,5 @@ SMACC (SMACCWG)
 
 * Lead(s): Brett Aldrich
 * Resources:
+
   * Discourse tag: `wg-smacc <https://discourse.ros.org/tag/wg-smacc>`_
