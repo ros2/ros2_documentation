@@ -158,7 +158,7 @@ Note the constructor takes a path to the bag file as a parameter.
 .. code-block:: C++
 
     public:
-      PlaybackNode(const std::string& bag)
+      PlaybackNode(const std::string & bag_filename)
       : Node("playback_node")
       {
         publisher_ = this->create_publisher<turtlesim::msg::Pose>("/turtle1/pose", 10);
