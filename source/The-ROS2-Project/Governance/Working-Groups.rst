@@ -165,7 +165,7 @@ Education (EdWG)
 Maritime (MaritimeWG)
 ^^^^^^^^^^^^^^^^^^^^^
 
-* Lead(s): Yuri Oliveira, Mabel Zhang
+* Lead(s): Mabel Zhang, Arjo Chakravarty
 * Resources:
 
   * Discourse tag: `wg-maritime-robotics <https://discourse.ros.org/tag/wg-maritime-robotics>`_
