@@ -102,12 +102,16 @@ In ROS 1:
 .. code-block:: python
 
    pub = rospy.Publisher('chatter', String)
+   # or
+   pub = rospy.Publisher('chatter', String, queue_size=10)
 
 In ROS 2:
 
 .. code-block:: python
 
-   pub = node.create_publisher(String, 'chatter')
+   pub = node.create_publisher(String, 'chatter', rclpy.qos.QoSProfile())
+   # or
+   pub = node.create_publisher(String, 'chatter', 10)
 
 Creating a Subscriber
 ^^^^^^^^^^^^^^^^^^^^^
@@ -117,12 +121,16 @@ In ROS 1:
 .. code-block:: python
 
    sub = rospy.Subscriber('chatter', String, callback)
+   # or
+   sub = rospy.Subscriber('chatter', String, callback, queue_size=10)
 
 In ROS 2:
 
 .. code-block:: python
 
-   sub = node.create_subscription(String, 'chatter', callback)
+   sub = node.create_subscription(String, 'chatter', callback, rclpy.qos.QoSProfile())
+   # or
+   sub = node.create_subscription(String, 'chatter', callback, 10)
 
 Creating a Service
 ^^^^^^^^^^^^^^^^^^
