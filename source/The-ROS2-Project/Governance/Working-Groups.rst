@@ -1,9 +1,3 @@
-.. redirect-from::
-
-  Working Groups
-
-.. _WorkingGroups:
-
 About Working Groups
 ====================
 There are two types of ROS 2 working groups, TSC sanctioned working groups and community working groups.
