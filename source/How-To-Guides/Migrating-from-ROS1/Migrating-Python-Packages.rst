@@ -1,12 +1,54 @@
 .. redirect-from::
 
-    Migration-Guide-Python
+   Migration-Guide-Python
+   The-ROS2-Project/Contributing/Migration-Guide-Python
 
-Python migration guide from ROS 1
-=================================
+Migrating Python Packages
+=========================
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
+
+Build tool
+----------
+
+Instead of using ``catkin_make``, ``catkin_make_isolated`` or ``catkin build`` ROS 2 uses the command line tool `colcon <https://design.ros2.org/articles/build_tool.html>`__ to build and install a set of packages.
+See the :doc:`beginner tutorial <../../Tutorials/Beginner-Client-Libraries/Colcon-Tutorial>` to get started with ``colcon``.
+
+Build system
+------------
+
+For pure Python packages, ROS 2 uses the standard ``setup.py`` installation mechanism familiar to Python developers.
+
+Update the files to use *setup.py*
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If the ROS 1 package uses CMake only to invoke the ``setup.py`` file and does not contain anything beside Python code (e.g. no messages, services, etc.) it should be converted into a pure Python package in ROS 2:
+
+*
+  Update or add the build type in the ``package.xml`` file:
+
+  .. code-block:: xml
+
+     <export>
+       <build_type>ament_python</build_type>
+     </export>
+
+*
+  Remove the ``CMakeLists.txt`` file
+
+*
+  Update the ``setup.py`` file to be a standard Python setup script
+
+ROS 2 supports Python 3 only.
+While each package can choose to also support Python 2 it must invoke executables with Python 3 if it uses any API provided by other ROS 2 packages.
+
+Update source code
+------------------
 
 Node Initialization
--------------------
+^^^^^^^^^^^^^^^^^^^
 
 In ROS 1:
 
@@ -25,9 +67,8 @@ In ROS 2:
 
    node.get_logger().info('Created node')
 
-
 ROS Parameters
---------------
+^^^^^^^^^^^^^^
 
 In ROS 1:
 
@@ -53,9 +94,8 @@ In ROS 2:
 
    node.get_logger().warn('port: ' + port)
 
-
 Creating a Publisher
---------------------
+^^^^^^^^^^^^^^^^^^^^
 
 In ROS 1:
 
@@ -69,9 +109,8 @@ In ROS 2:
 
    pub = node.create_publisher(String, 'chatter')
 
-
 Creating a Subscriber
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 In ROS 1:
 
@@ -85,9 +124,8 @@ In ROS 2:
 
    sub = node.create_subscription(String, 'chatter', callback)
 
-
 Creating a Service
-------------------
+^^^^^^^^^^^^^^^^^^
 
 In ROS 1:
 
@@ -101,9 +139,8 @@ In ROS 2:
 
    srv = node.create_service(AddTwoInts, 'add_two_ints', add_two_ints_callback)
 
-
 Creating a Service Client
--------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In ROS 1:
 
