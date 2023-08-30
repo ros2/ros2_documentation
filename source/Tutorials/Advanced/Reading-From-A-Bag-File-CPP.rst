@@ -85,7 +85,7 @@ Inside your package's ``src`` directory, create a new file called ``simple_bag_r
 
     using namespace std::chrono_literals;
 
-    class PlaybackNode : public rclcpp::Node 
+    class PlaybackNode : public rclcpp::Node
     {
       public:
         PlaybackNode(const std::string & bag_filename)
@@ -99,7 +99,7 @@ Inside your package's ``src`` directory, create a new file called ``simple_bag_r
         }
 
       private:
-        void timer_callback() 
+        void timer_callback()
         {
           while (reader_.has_next()) {
             rosbag2_storage::SerializedBagMessageSharedPtr msg = reader_.read_next();
@@ -127,7 +127,7 @@ Inside your package's ``src`` directory, create a new file called ``simple_bag_r
         rosbag2_cpp::Reader reader_;
     };
 
-    int main(int argc, char ** argv) 
+    int main(int argc, char ** argv)
     {
       if (argc != 2) {
         std::cerr << "Usage: " << argv[0] << " <bag>" << std::endl;
@@ -151,10 +151,10 @@ The next line creates the node which will read from the bag file and play back t
 
 .. code-block:: C++
 
-    class PlaybackNode : public rclcpp::Node 
+    class PlaybackNode : public rclcpp::Node
 
 Now, we can create a timer callback which will run at 10 hz.
-Our goal is to replay one message to the ``/turtle1/pose`` topic each time the callback is run .
+Our goal is to replay one message to the ``/turtle1/pose`` topic each time the callback is run.
 Note the constructor takes a path to the bag file as a parameter.
 
 .. code-block:: C++
@@ -167,7 +167,6 @@ Note the constructor takes a path to the bag file as a parameter.
         timer_ = this->create_wall_timer(
             100ms, std::bind(&PlaybackNode::timer_callback, this));
 
-
 We also open the bag in the constructor.
 
 .. code-block:: C++
@@ -179,7 +178,7 @@ Note that the serialized message has timestamp metadata in addition to the topic
 
 .. code-block:: C++
 
-    void timer_callback() 
+    void timer_callback()
     {
       while (reader_.has_next()) {
         rosbag2_storage::SerializedBagMessageSharedPtr msg = reader_.read_next();
@@ -188,8 +187,8 @@ Note that the serialized message has timestamp metadata in addition to the topic
           continue;
         }
 
-We then construct an ``rclcpp::SerializedMessage`` object from the serialized data we just read. 
-Additionally, we need to create a ROS 2 deserialized message which will hold the result of our deserialization. 
+We then construct an ``rclcpp::SerializedMessage`` object from the serialized data we just read.
+Additionally, we need to create a ROS 2 deserialized message which will hold the result of our deserialization.
 Then, we can pass both these objects to the ``rclcpp::Serialization::deserialize_message`` method.
 
 .. code-block:: C++
@@ -225,7 +224,7 @@ Lastly, we create the main function which will check that the user passes an arg
 
 .. code-block:: C++
 
-    int main(int argc, char ** argv) 
+    int main(int argc, char ** argv)
     {
       if (argc != 2) {
         std::cerr << "Usage: " << argv[0] << " <bag>" << std::endl;
@@ -315,5 +314,5 @@ You should see the (x, y) coordinates of the turtle printed to the console.
 Summary
 -------
 
-You created a C++ executable that reads data from a bag. 
+You created a C++ executable that reads data from a bag.
 You then compiled and ran the executable which printed some information from the bag to the console.
