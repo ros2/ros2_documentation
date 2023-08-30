@@ -168,7 +168,10 @@ Maritime (MaritimeWG)
 * Lead(s): Mabel Zhang, Arjo Chakravarty
 * Resources:
 
+  * `Working Group Community <https://github.com/ros-maritime/community>`__
+  * Meeting invite group `maritime-robotics-working-group-invites@googlegroups.com <https://groups.google.com/g/maritime-robotics-working-group-invites>`_
   * Discourse tag: `wg-maritime-robotics <https://discourse.ros.org/tag/wg-maritime-robotics>`_
+  * Matrix chat `#ros-maritime-general:matrix.org <https://matrix.to/#/#ros-maritime-general:matrix.org>`_
 
 Rust (RustWG)
 ^^^^^^^^^^^^^
