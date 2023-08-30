@@ -25,6 +25,7 @@ Building interfaces
 The way in which interfaces are built in ROS 2 differs substantially from ROS 1.
 Interfaces can only be built from packages containing a ``CMakeLists.txt``.
 If you are developing a pure Python package, then the interfaces should be placed in a different package containing only the interfaces (which is best practice anyway).
+See the :doc:`custom interfaces tutorial<../../Tutorials/Beginner-Client-Libraries/Custom-ROS2-Interfaces>` for more information.
 
 Migrating interface package to ROS 2
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -33,6 +34,7 @@ In your ``package.xml``:
 
 * Add ``<buildtool_depend>rosidl_default_generators</buildtool_depend>``.
 * Add ``<exec_depend>rosidl_default_runtime</exec_depend>``.
+* Add ``<member_of_group>rosidl_interface_packages</member_of_group>``
 * For each dependent message package, add ``<depend>message_package</depend>``.
 
 In your ``CMakeLists.txt``:

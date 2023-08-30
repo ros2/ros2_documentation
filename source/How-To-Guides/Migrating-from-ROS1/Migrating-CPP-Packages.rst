@@ -11,17 +11,17 @@ Migrating C++ Packages from ROS 1 to ROS 2
    :depth: 2
    :local:
 
-Build system
-------------
-
-The build system in ROS 2 is called `ament <https://design.ros2.org/articles/ament.html>`__.
-Ament is built on CMake: ``ament_cmake`` provides CMake functions to make writing ``CMakeLists.txt`` files easier.
-
 Build tool
 ----------
 
 Instead of using ``catkin_make``, ``catkin_make_isolated`` or ``catkin build`` ROS 2 uses the command line tool `colcon <https://design.ros2.org/articles/build_tool.html>`__ to build and install a set of packages.
 See the :doc:`beginner tutorial <../../Tutorials/Beginner-Client-Libraries/Colcon-Tutorial>` to get started with ``colcon``.
+
+Build system
+------------
+
+The build system in ROS 2 is called `ament <https://design.ros2.org/articles/ament.html>`__.
+Ament is built on CMake: ``ament_cmake`` provides CMake functions to make writing ``CMakeLists.txt`` files easier.
 
 Update the *CMakeLists.txt* to use *ament_cmake*
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
