@@ -17,8 +17,6 @@ Working Group Policies
  * Meetings should have notes and be posted to Discourse using an appropriate working group tag.
  * For attending the groups meetings please join the associated google group to get invites automatically.
 
-
-
 TSC Working Groups
 ------------------
 
