@@ -202,7 +202,7 @@ Working Groups (WGs)
 --------------------
 
 As described in its :doc:`charter <Governance/ROS2-TSC-Charter>`, the TSC establishes working groups (WGs) to discuss and make progress on specific topics.
-More information about working groups, along with a list of active ROS 2 working groups `can be found here <Governance/Working-Groups>`.
+More information about working groups, along with a list of active ROS 2 working groups :doc:`can be found here <Governance/Working-Groups>`.
 
 Upcoming ROS Events
 -------------------
