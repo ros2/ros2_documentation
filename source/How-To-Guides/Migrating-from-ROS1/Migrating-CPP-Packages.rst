@@ -1,124 +1,30 @@
 .. redirect-from::
 
-    Migration-Guide
-    Contributing/Migration-Guide
+   Migration-Guide
+   Contributing/Migration-Guide
+   The-ROS2-Project/Contributing/Migration-Guide
 
-Migration guide from ROS 1
-==========================
+Migrating C++ Packages
+======================
 
 .. contents:: Table of Contents
    :depth: 2
    :local:
 
-There are two different kinds of package migrations:
-
-* Migrating the source code of an existing package from ROS 1 to ROS 2 with the intent that a significant part of the source code will stay the same or at least similar.
-  An example for this could be `pluginlib <https://github.com/ros/pluginlib>`_ where the source code is maintained in different branches within the same repository and commonly patches can be ported between those branches when necessary.
-* Implementing the same or similar functionality of a ROS 1 package for ROS 2 but with the assumption that the source code will be significantly different.
-  An example for this could be `roscpp <https://github.com/ros/ros_comm/tree/melodic-devel/clients/roscpp>`_ in ROS 1 and `rclcpp <https://github.com/ros2/rclcpp/tree/rolling/rclcpp>`_ in ROS 2 which are separate repositories and don't share any code.
-
-This article focuses on the former case and describes the high-level steps to migrate a ROS 1 package to ROS 2.
-It does not aim to be a step-by-step migration instruction and is not considered the *final* "solution".
-Future versions will aim to make migration smoother and less effort up to the point of maintaining a single package from the same branch for ROS 1 as well as ROS 2.
-
-Prerequisites
--------------
-
-Before being able to migrate a ROS 1 package to ROS 2 all of its dependencies must be available in ROS 2.
-
-Migration steps
----------------
-
-.. contents::
-   :depth: 1
-   :local:
-
-Package manifests
-^^^^^^^^^^^^^^^^^
-
-ROS 2 doesn't support format 1 of the package specification but only newer format versions (2 and higher).
-Therefore the ``package.xml`` file must be updated to at least format 2 if it uses format 1.
-Since ROS 1 supports all formats it is safe to perform that conversion in the ROS 1 package.
-
-Some packages might have different names in ROS 2 so the dependencies might need to be updated accordingly.
-
-Metapackages
-^^^^^^^^^^^^
-
-ROS 2 doesn't have a special package type for metapackages.
-Metapackages can still exist as regular packages that only contain runtime dependencies.
-When migrating metapackages from ROS 1, simply remove the ``<metapackage />`` tag in your package manifest.
-
-Message, service, and action definitions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Message files must end in ``.msg`` and must be located in the subfolder ``msg``.
-Service files must end in ``.srv`` and must be located in the subfolder ``srv``.
-Actions files must end in ``.action`` and must be located in the subfolder ``action``.
-
-These files might need to be updated to comply with the `ROS Interface definition <https://design.ros2.org/articles/interface_definition.html>`__.
-Some primitive types have been removed and the types ``duration`` and ``time`` which were builtin types in ROS 1 have been replaced with normal message definitions and must be used from the `builtin_interfaces <https://github.com/ros2/rcl_interfaces/tree/{REPOS_FILE_BRANCH}/builtin_interfaces>`__ package.
-Also some naming conventions are stricter than in ROS 1.
-
-In your ``package.xml``:
-
-
-* Add ``<buildtool_depend>rosidl_default_generators</buildtool_depend>``.
-* Add ``<exec_depend>rosidl_default_runtime</exec_depend>``.
-* For each dependent message package, add ``<depend>message_package</depend>``.
-
-In your ``CMakeLists.txt``:
-
-* Start by enabling C++14
-
-.. code-block:: cmake
-
-   set(CMAKE_CXX_STANDARD 14)
-
-
-* Add ``find_package(rosidl_default_generators REQUIRED)``
-* For each dependent message package, add ``find_package(message_package REQUIRED)`` and replace the CMake function call to ``generate_messages`` with ``rosidl_generate_interfaces``.
-
-This will replace ``add_message_files`` and ``add_service_files`` listing of all the message and service files, which can be removed.
-
-Build system
-^^^^^^^^^^^^
-
-The build system in ROS 2 is called `ament <https://design.ros2.org/articles/ament.html>`__
-and the build tool is :doc:`colcon <../../Tutorials/Beginner-Client-Libraries/Colcon-Tutorial>`.
-Ament is built on CMake: ``ament_cmake`` provides CMake functions to make writing ``CMakeLists.txt`` files easier.
-
 Build tool
-~~~~~~~~~~
+----------
 
 Instead of using ``catkin_make``, ``catkin_make_isolated`` or ``catkin build`` ROS 2 uses the command line tool `colcon <https://design.ros2.org/articles/build_tool.html>`__ to build and install a set of packages.
+See the :doc:`beginner tutorial <../../Tutorials/Beginner-Client-Libraries/Colcon-Tutorial>` to get started with ``colcon``.
 
-Pure Python package
-~~~~~~~~~~~~~~~~~~~
+Build system
+------------
 
-If the ROS 1 package uses CMake only to invoke the ``setup.py`` file and does not contain anything beside Python code (e.g. also no messages, services, etc.) it should be converted into a pure Python package in ROS 2:
-
-
-*
-  Update or add the build type in the ``package.xml`` file:
-
-  .. code-block:: xml
-
-     <export>
-       <build_type>ament_python</build_type>
-     </export>
-
-*
-  Remove the ``CMakeLists.txt`` file
-
-*
-  Update the ``setup.py`` file to be a standard Python setup script
-
-ROS 2 supports Python 3 only.
-While each package can choose to also support Python 2 it must invoke executables with Python 3 if it uses any API provided by other ROS 2 packages.
+The build system in ROS 2 is called `ament <https://design.ros2.org/articles/ament.html>`__.
+Ament is built on CMake: ``ament_cmake`` provides CMake functions to make writing ``CMakeLists.txt`` files easier.
 
 Update the *CMakeLists.txt* to use *ament_cmake*
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Apply the following changes to use ``ament_cmake`` instead of ``catkin``:
 
@@ -156,9 +62,6 @@ Apply the following changes to use ``ament_cmake`` instead of ``catkin``:
     * Instead of passing ``CATKIN_DEPENDS ...`` call ``ament_export_dependencies(...)`` before.
     * Instead of passing ``INCLUDE_DIRS ...`` call ``ament_export_include_directories(...)`` before.
     * Instead of passing ``LIBRARIES ...`` call ``ament_export_libraries(...)`` before.
-
-  *
-    **TODO document ament_export_targets (``ament_export_interfaces`` in Eloquent and older)?**
 
 *
   Replace the invocation of ``add_message_files``, ``add_service_files`` and ``generate_messages`` with `rosidl_generate_interfaces <https://github.com/ros2/rosidl/blob/{REPOS_FILE_BRANCH}/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake>`__.
@@ -201,7 +104,7 @@ Apply the following changes to use ``ament_cmake`` instead of ``catkin``:
   * ``CATKIN_PACKAGE_SHARE_DESTINATION``: ``share/${PROJECT_NAME}``
 
 Unit tests
-~~~~~~~~~~
+^^^^^^^^^^
 
 If you are using gtest:
 
@@ -237,12 +140,12 @@ Add ``<test_depend>ament_cmake_gtest</test_depend>`` to your ``package.xml``.
    +   <test_depend>ament_cmake_gtest</test_depend>
 
 Linters
-~~~~~~~
+^^^^^^^
 
 In ROS 2 we are working to maintain clean code using linters.
-The styles for different languages are defined in our `Developer Guide <Developer-Guide>`.
+The styles for different languages are defined in our :doc:`Developer Guide <../../The-ROS2-Project/Contributing/Developer-Guide>`.
 
-If you are starting a project from scratch it is recommended to follow the style guide and turn on the automatic linter unit tests by adding these lines just below ``if(BUILD_TESTING)`` (until alpha 5 this was ``AMENT_ENABLE_TESTING``).
+If you are starting a project from scratch it is recommended to follow the style guide and turn on the automatic linter unit tests by adding these lines just below ``if(BUILD_TESTING)``:
 
 .. code-block:: cmake
 
@@ -256,20 +159,11 @@ You will also need to add the following dependencies to your ``package.xml``:
    <test_depend>ament_lint_auto</test_depend>
    <test_depend>ament_lint_common</test_depend>
 
-Continue to use ``catkin`` in CMake
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-ROS 2 uses ament as the build system but for backward compatibility ROS 2 has a package called ``catkin`` which provides almost the same API as catkin in ROS 1.
-In order to use this backward compatibility API the ``CMakeLists.txt`` must only be updated to call the function ``catkin_ament_package()`` *after* all targets.
-
-**NOTE: This has not been implemented yet and is only an idea at the moment.
-Due to the number of changes related to dependencies it has not yet been decided if this compatibility API is useful enough to justify the effort.**
-
 Update source code
-^^^^^^^^^^^^^^^^^^
+------------------
 
 Messages, services, and actions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The namespace of ROS 2 messages, services, and actions use a subnamespace (``msg``, ``srv``, or ``action``, respectively) after the package name.
 Therefore an include looks like: ``#include <my_interfaces/msg/my_message.hpp>``.
@@ -298,7 +192,7 @@ The migration requires includes to change by:
 The migration requires code to insert the ``msg`` namespace into all instances.
 
 Use of service objects
-~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^
 
 Service callbacks in ROS 2 do not have boolean return values.
 Instead of returning false on failures, throwing exceptions is recommended.
@@ -321,7 +215,7 @@ Instead of returning false on failures, throwing exceptions is recommended.
    }
 
 Usages of ros::Time
-~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^
 
 For usages of ``ros::Time``:
 
@@ -336,29 +230,19 @@ For usages of ``ros::Time``:
   * Convert all instances using the std_msgs::Time field ``nsec`` to the builtin_interfaces::msg::Time field ``nanosec``
 
 Usages of ros::Rate
-~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^
 
 There is an equivalent type ``rclcpp::Rate`` object which is basically a drop in replacement for ``ros::Rate``.
 
-ROS client library
-~~~~~~~~~~~~~~~~~~
-
-.. toctree::
-   :titlesonly:
-
-   Migration-Guide-Python
-
-
-**NOTE: Others to be written**
 
 Boost
-~~~~~
+^^^^^
 
 Much of the functionality previously provided by Boost has been integrated into the C++ standard library.
 As such we would like to take advantage of the new core features and avoid the dependency on boost where possible.
 
 Shared Pointers
-"""""""""""""""
+~~~~~~~~~~~~~~~
 
 To switch shared pointers from boost to standard C++ replace instances of:
 
@@ -373,7 +257,7 @@ Also it is recommended practice to use ``using`` instead of ``typedef``.
 For details `see here <https://stackoverflow.com/questions/10747810/what-is-the-difference-between-typedef-and-using-in-c11>`__
 
 Thread/Mutexes
-""""""""""""""
+~~~~~~~~~~~~~~
 
 Another common part of boost used in ROS codebases are mutexes in ``boost::thread``.
 
@@ -383,7 +267,7 @@ Another common part of boost used in ROS codebases are mutexes in ``boost::threa
 * Replace ``#include <boost/thread/mutex.hpp>`` with ``#include <mutex>``
 
 Unordered Map
-"""""""""""""
+~~~~~~~~~~~~~
 
 Replace:
 
@@ -392,7 +276,7 @@ Replace:
 * ``boost::unordered_map`` with ``std::unordered_map``
 
 function
-""""""""
+~~~~~~~~
 
 Replace:
 
@@ -400,29 +284,10 @@ Replace:
 * ``#include <boost/function.hpp>``  with ``#include <functional>``
 * ``boost::function`` with ``std::function``
 
-Parameters
-----------
+Example: Converting an existing ROS 1 package to ROS 2
+------------------------------------------------------
 
-In ROS 1, parameters are associated with a central server that allowed retrieving parameters at runtime through the use of the network APIs.
-In ROS 2, parameters are associated per node and are configurable at runtime with ROS services.
-
-* See `ROS 2 Parameter design document <https://design.ros2.org/articles/ros_parameters.html>`_ for more details about the system model.
-
-* See :doc:`ROS 2 CLI usage <../../Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters>` for a better understanding of how the CLI tools work and its differences with ROS 1 tooling.
-
-* See :doc:`../../How-To-Guides/Parameters-YAML-files-migration-guide` to see how YAML parameter files are parsed in ROS 2 and their differences with ROS implementation.
-
-Launch files
-------------
-
-While launch files in ROS 1 are always specified using `.xml <https://wiki.ros.org/roslaunch/XML>`__ files, ROS 2 supports Python scripts to enable more flexibility (see `launch package <https://github.com/ros2/launch/tree/{REPOS_FILE_BRANCH}/launch>`__) as well as XML and YAML files.
-See `separate tutorial <../../How-To-Guides/Launch-files-migration-guide>` on migrating launch files from ROS 1 to ROS 2.
-
-Example: Converting an existing ROS 1 package to use ROS 2
-----------------------------------------------------------
-
-Let's say that we have simple ROS 1 package called ``talker`` that uses ``roscpp``
-in one node, called ``talker``.
+Let's say that we have simple ROS 1 package called ``talker`` that uses ``roscpp`` in one node, called ``talker``.
 This package is in a catkin workspace, located at ``~/ros1_talker``.
 
 The ROS 1 code
@@ -505,12 +370,12 @@ Here is the content of those three files:
 Building the ROS 1 code
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-We source an environment setup file (in this case for Jade using bash), then we
+We source an environment setup file (in this case for Noetic using bash), then we
 build our package using ``catkin_make install``:
 
 .. code-block:: bash
 
-   . /opt/ros/jade/setup.bash
+   . /opt/ros/noetic/setup.bash
    cd ~/ros1_talker
    catkin_make install
 
@@ -519,7 +384,7 @@ Running the ROS 1 node
 
 If there's not already one running, we start a ``roscore``, first sourcing the
 setup file from our ``catkin`` install tree (the system setup file at
-``/opt/ros/jade/setup.bash`` would also work here):
+``/opt/ros/noetic/setup.bash`` would also work here):
 
 .. code-block:: bash
 
@@ -582,8 +447,7 @@ Changing C++ library calls
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Instead of passing the node's name to the library initialization call, we do
-the initialization, then pass the node name to the creation of the node object
-(we can use the ``auto`` keyword because now we're requiring a C++14 compiler):
+the initialization, then pass the node name to the creation of the node object:
 
 .. code-block:: cpp
 
@@ -608,7 +472,7 @@ To further control how message delivery is handled, a quality of service
 The default profile is ``rmw_qos_profile_default``.
 For more details, see the
 `design document <https://design.ros2.org/articles/qos.html>`__
-and `concept overview <../../Concepts/Intermediate/About-Quality-of-Service-Settings>`.
+and :doc:`concept overview <../../Concepts/Intermediate/About-Quality-of-Service-Settings>`.
 
 The creation of the outgoing message is different in the namespace:
 
@@ -698,14 +562,6 @@ Putting it all together, the new ``talker.cpp`` looks like this:
 Changing the ``package.xml``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-ROS 2 doesn't support format 1 of the package specification but only newer format versions (2 and higher).
-We start by specifying the format version in the ``package`` tag:
-
-.. code-block:: xml
-
-   <!-- <package> -->
-   <package format="2">
-
 ROS 2 uses a newer version of ``catkin``, called ``ament_cmake``, which we specify in the
 ``buildtool_depend`` tag:
 
@@ -714,8 +570,7 @@ ROS 2 uses a newer version of ``catkin``, called ``ament_cmake``, which we speci
    <!--  <buildtool_depend>catkin</buildtool_depend> -->
      <buildtool_depend>ament_cmake</buildtool_depend>
 
-In our build dependencies, instead of ``roscpp`` we use ``rclcpp``, which provides
-the C++ API that we use.
+In our build dependencies, instead of ``roscpp`` we use ``rclcpp``, which provides the C++ API that we use.
 
 .. code-block:: xml
 
@@ -723,8 +578,7 @@ the C++ API that we use.
      <build_depend>rclcpp</build_depend>
 
 We make the same addition in the run dependencies and also update from the
-``run_depend`` tag to the ``exec_depend`` tag (part of the upgrade to version 2 of
-the package format):
+``run_depend`` tag to the ``exec_depend`` tag (part of the upgrade to version 2 of the package format):
 
 .. code-block:: xml
 
@@ -776,9 +630,6 @@ Putting it all together, our ``package.xml`` now looks like this:
      </export>
    </package>
 
-**TODO: show simpler version of this file just using the ``<depend>`` tag, which is
-enabled by version 2 of the package format (also supported in ``catkin`` so,
-strictly speaking, orthogonal to ROS 2).**
 
 Changing the CMake code
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -790,22 +641,20 @@ ROS 2 relies on a higher version of CMake:
    #cmake_minimum_required(VERSION 2.8.3)
    cmake_minimum_required(VERSION 3.5)
 
-ROS 2 relies on the C++14 standard.
-Depending on what compiler you're using, support for C++14 might not be enabled
-by default.
-Using ``gcc`` 5.3 (which is what is used on Ubuntu Xenial), we need to enable it
-explicitly, which we do by adding this line near the top of the file:
+ROS 2 relies on the C++17 standard.
+Depending on what compiler you're using, support for C++17 might not be enabled by default.
+Enable C++17 support explicitly by adding this line near the top of the file:
 
 .. code-block:: cmake
 
-   set(CMAKE_CXX_STANDARD 14)
+   set(CMAKE_CXX_STANDARD 17)
 
 The preferred way to work on all platforms is this:
 
 .. code-block:: cmake
 
    if(NOT CMAKE_CXX_STANDARD)
-     set(CMAKE_CXX_STANDARD 14)
+     set(CMAKE_CXX_STANDARD 17)
    endif()
    if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
      add_compile_options(-Wall -Wextra -Wpedantic)
@@ -878,8 +727,7 @@ like ``Boost``, or a library being built in the same ``CMakeLists.txt``, use
    target_link_libraries(target ${Boost_LIBRARIES})
 
 For installation, ``catkin`` defines variables like ``CATKIN_PACKAGE_BIN_DESTINATION``.
-With ``ament_cmake``, we just give a path relative to the installation root, like ``bin``
-for executables:
+With ``ament_cmake``, we just give a path relative to the installation root:
 
 .. code-block:: cmake
 
@@ -910,7 +758,7 @@ Putting it all together, the new ``CMakeLists.txt`` looks like this:
    cmake_minimum_required(VERSION 3.5)
    project(talker)
    if(NOT CMAKE_CXX_STANDARD)
-     set(CMAKE_CXX_STANDARD 14)
+     set(CMAKE_CXX_STANDARD 17)
    endif()
    if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
      add_compile_options(-Wall -Wextra -Wpedantic)
@@ -937,8 +785,6 @@ Putting it all together, the new ``CMakeLists.txt`` looks like this:
    ament_export_dependencies(std_msgs)
    ament_package()
 
-**TODO: Show what this would look like with ``ament_auto``.**
-
 Building the ROS 2 code
 ~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -955,103 +801,10 @@ package using ``colcon build``:
 Running the ROS 2 node
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Because we installed the ``talker`` executable into ``bin``, after sourcing the
-setup file, from our install tree, we can invoke it by name directly
-(also, there is not yet a ROS 2 equivalent for ``rosrun``):
+Because we installed the ``talker`` executable into the correct directory, after sourcing the
+setup file, from our install tree, we can invoke it by running:
 
 .. code-block:: bash
 
    . ~/ros2_ws/install/setup.bash
-   talker
-
-Update scripts
-^^^^^^^^^^^^^^
-
-ROS CLI arguments
-~~~~~~~~~~~~~~~~~
-
-Since `ROS Eloquent <../../Releases/Release-Eloquent-Elusor>`, ROS arguments should be scoped with ``--ros-args`` and a trailing ``--`` (the trailing double dash may be elided if no arguments follow it).
-
-Remapping names is similar to ROS 1, taking on the form ``from:=to``, except that it must be preceded by a ``--remap`` (or ``-r``) flag.
-For example:
-
-.. code-block:: bash
-
-   ros2 run some_package some_ros_executable --ros-args -r foo:=bar
-
-We use a similar syntax for parameters, using the ``--param`` (or ``-p``) flag:
-
-
-.. code-block:: bash
-
-   ros2 run some_package some_ros_executable --ros-args -p my_param:=value
-
-Note, this is different than using a leading underscore in ROS 1.
-
-To change a node name use ``__node`` (the ROS 1 equivalent is ``__name``):
-
-.. code-block:: bash
-
-   ros2 run some_package some_ros_executable --ros-args -r __node:=new_node_name
-
-Note the use of the ``-r`` flag.
-The same remap flag is needed for changing the namespace ``__ns``:
-
-.. code-block:: bash
-
-   ros2 run some_package some_ros_executable --ros-args -r __ns:=/new/namespace
-
-There is no equivalent in ROS 2 for the following ROS 1 keys:
-
-- ``__log`` (but ``--log-config-file`` can be used to provide a logger configuration file)
-- ``__ip``
-- ``__hostname``
-- ``__master``
-
-For more information, see the `design document <https://design.ros2.org/articles/ros_command_line_arguments.html>`_.
-
-Quick reference
-"""""""""""""""
-
-+------------+-------------+----------------+
-| Feature    | ROS 1       | ROS 2          |
-+============+=============+================+
-| remapping  | foo:=bar    | -r foo:=bar    |
-+------------+-------------+----------------+
-| parameters | _foo:=bar   | -p foo:=bar    |
-+------------+-------------+----------------+
-| node name  | __name:=foo | -r __node:=foo |
-+------------+-------------+----------------+
-| namespace  | __ns:=foo   | -r __ns:=foo   |
-+------------+-------------+----------------+
-
-
-More examples and tools
-^^^^^^^^^^^^^^^^^^^^^^^
-
-- Launch File migrator that converts a ROS 1 XML launch file to a ROS 2 Python launch file: https://github.com/aws-robotics/ros2-launch-file-migrator
--  Amazon has exposed their tools for porting ROS 1 robots to ROS 2
-   https://github.com/awslabs/ros2-migration-tools/tree/master/porting\_tools
-
-
-Licensing
----------
-
-In ROS 2 our recommended license is the `Apache 2.0 License <https://www.apache.org/licenses/LICENSE-2.0>`__.
-In ROS 1 our recommended license was the `3-Clause BSD License <https://opensource.org/licenses/BSD-3-Clause>`__.
-
-For any new project we recommend using the Apache 2.0 License, whether ROS 1 or ROS 2.
-
-However, when migrating code from ROS 1 to ROS 2 we cannot simply change the license.
-The existing license must be preserved for any preexisting contributions.
-
-To that end if a package is being migrated we recommend keeping the existing license and continuing to contribute to that package under the existing OSI license, which we expect to be the BSD license for core elements.
-
-This will keep things clear and easy to understand.
-
-Changing the License
-^^^^^^^^^^^^^^^^^^^^
-
-It is possible to change the license, however you will need to contact all the contributors and get permission.
-For most packages this is likely to be a significant effort and not worth considering.
-If the package has a small set of contributors then this may be feasible.
+   ros2 run talker talker

@@ -291,7 +291,7 @@ Python, XML, or YAML: Which should I use?
 .. note::
 
   Launch files in ROS 1 were written in XML, so XML may be the most familiar to people coming from ROS 1.
-  To see what's changed, you can visit :doc:`Launch-files-migration-guide`.
+  To see what's changed, you can visit :doc:`Migrating-from-ROS1/Migrating-Launch-Files`.
 
 For most applications the choice of which ROS 2 launch format comes down to developer preference.
 However, if your launch file requires flexibility that you cannot achieve with XML or YAML, you can use Python to write your launch file.

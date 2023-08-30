@@ -24,10 +24,9 @@ If you are new and looking to learn the ropes, start with the :doc:`Tutorials <T
    How-To-Guides/Developing-a-ROS-2-Package
    How-To-Guides/Ament-CMake-Documentation
    How-To-Guides/Ament-CMake-Python-Documentation
-   How-To-Guides/Launch-files-migration-guide
+   How-To-Guides/Migrating-from-ROS1
    How-To-Guides/Launch-file-different-formats
    How-To-Guides/Launching-composable-nodes
-   How-To-Guides/Parameters-YAML-files-migration-guide
    How-To-Guides/Node-arguments
    How-To-Guides/Sync-Vs-Async
    How-To-Guides/DDS-tuning
