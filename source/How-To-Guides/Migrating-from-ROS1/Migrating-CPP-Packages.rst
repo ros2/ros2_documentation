@@ -4,8 +4,8 @@
    Contributing/Migration-Guide
    The-ROS2-Project/Contributing/Migration-Guide
 
-Migrating C++ Packages from ROS 1 to ROS 2
-==========================================
+Migrating C++ Packages
+======================
 
 .. contents:: Table of Contents
    :depth: 2

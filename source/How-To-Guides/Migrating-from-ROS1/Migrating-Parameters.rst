@@ -4,8 +4,8 @@
    Tutorials/Parameters-YAML-files-migration-guide
    How-To-Guides/Parameters-YAML-files-migration-guide
 
-Migrating Parameters From ROS 1 to ROS 2
-========================================
+Migrating Parameters
+====================
 
 .. contents:: Table of Contents
    :depth: 2
@@ -18,8 +18,8 @@ In ROS 2, parameters are associated per node and are configurable at runtime wit
 
 * See :doc:`ROS 2 CLI usage <../../Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters>` for a better understanding of how the CLI tools work and its differences with ROS 1 tooling.
 
-Migrating YAML Parameter Files from ROS 1 to ROS 2
---------------------------------------------------
+Migrating YAML Parameter Files
+------------------------------
 
 This guide describes how to adapt ROS 1 parameters files for ROS 2.
 

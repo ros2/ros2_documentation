@@ -1,5 +1,5 @@
-Migrating Packages from ROS 1 to ROS 2
-======================================
+Migrating Packages
+==================
 
 .. contents:: Table of Contents
    :depth: 2

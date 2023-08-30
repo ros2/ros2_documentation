@@ -6,8 +6,8 @@
 
 .. _MigratingLaunch:
 
-Migrating Launch Files from ROS 1 to ROS 2
-==========================================
+Migrating Launch Files
+======================
 
 .. contents:: Table of Contents
    :depth: 1
@@ -23,8 +23,8 @@ Background
 A description of the ROS 2 launch system and its Python API can be found in :doc:`Launch System tutorial <../../../Tutorials/Intermediate/Launch/Launch-system>`.
 
 
-Migrating tags from ROS 1 to ROS 2
-----------------------------------
+Migrating tags
+--------------
 
 launch
 ^^^^^^

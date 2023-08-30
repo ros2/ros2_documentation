@@ -1,5 +1,5 @@
-Migrating Interfaces from ROS 1 to ROS 2
-========================================
+Migrating Interfaces
+====================
 
 .. contents:: Table of Contents
    :depth: 2

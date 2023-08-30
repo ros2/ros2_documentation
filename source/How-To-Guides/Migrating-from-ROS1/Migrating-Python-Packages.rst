@@ -3,8 +3,8 @@
    Migration-Guide-Python
    The-ROS2-Project/Contributing/Migration-Guide-Python
 
-Migrating Python Packages from ROS 1 to ROS 2
-=============================================
+Migrating Python Packages
+=========================
 
 .. contents:: Table of Contents
    :depth: 2
