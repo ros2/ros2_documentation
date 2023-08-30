@@ -3,7 +3,7 @@ About Working Groups
 
 There are two types of ROS 2 working groups, TSC sanctioned working groups and community working groups.
 Functionally, there is little distinction between the two types of working groups, the primary distinction being that TSC sanctioned working groups were created by the ROS 2 TSC and deliver regular reports to it.
-Community working groups are created and administered by the ROS 2 community for the ROS community, and are not officially sanctioned by the ROS 2 TSC.
+Community working groups are created and administered by the ROS community for the ROS community, and are not officially sanctioned by the ROS 2 TSC.
 Community working groups can become TSC working groups by a simple vote of the ROS 2 TSC.
 Community working groups can be created using the process outlined in :doc:`this tutorial. <How-To-Start-A-Community-Working-Group>`.
 
