@@ -1,4 +1,4 @@
-Migrating interfaces from ROS 1 to ROS 2
+Migrating Interfaces from ROS 1 to ROS 2
 ========================================
 
 .. contents:: Table of Contents
