@@ -121,7 +121,7 @@ Rosbag2 and Tooling
 Community Working Groups
 ------------------------
 
-Community working groups are created and maintained by ROS community to support ongoing efforts.
+Community working groups are created and maintained by the ROS community to support ongoing efforts.
 
 Aerial Robotics (AerialRoboticsWG)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
