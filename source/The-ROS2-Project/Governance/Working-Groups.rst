@@ -22,7 +22,7 @@ Working Group Policies
 TSC Working Groups
 ------------------
 
-The current WGs are (12 as of 2023-08-30):
+The current TSC WGs are (12 as of 2023-08-30):
 
 Client Libraries
 ^^^^^^^^^^^^^^^^
