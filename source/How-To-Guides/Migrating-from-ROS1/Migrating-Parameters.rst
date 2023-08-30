@@ -1,17 +1,30 @@
 .. redirect-from::
 
-  Guides/Parameters-YAML-files-migration-guide
-  Tutorials/Parameters-YAML-files-migration-guide
+   Guides/Parameters-YAML-files-migration-guide
+   Tutorials/Parameters-YAML-files-migration-guide
+   How-To-Guides/Parameters-YAML-files-migration-guide
 
-.. _yaml-ros1-ros2:
+Migrating Parameters
+====================
 
-Migrating YAML parameter files from ROS 1 to ROS 2
-==================================================
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
+
+In ROS 1, parameters are associated with a central server that allowed retrieving parameters at runtime through the use of the network APIs.
+In ROS 2, parameters are associated per node and are configurable at runtime with ROS services.
+
+* See `ROS 2 Parameter design document <https://design.ros2.org/articles/ros_parameters.html>`_ for more details about the system model.
+
+* See :doc:`ROS 2 CLI usage <../../Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters>` for a better understanding of how the CLI tools work and its differences with ROS 1 tooling.
+
+Migrating YAML Parameter Files
+------------------------------
 
 This guide describes how to adapt ROS 1 parameters files for ROS 2.
 
 YAML file example
------------------
+^^^^^^^^^^^^^^^^^
 
 YAML is used to write parameters files in both ROS 1 and ROS 2.
 The main difference in ROS 2 is that node names must be used to address parameters.
@@ -48,7 +61,7 @@ We would construct our ROS 2 parameters file as follows:
 Note the use of wildcards (``/**``) to indicate that the parameter ``debug`` should be set on any node in any namespace.
 
 Feature parity
---------------
+^^^^^^^^^^^^^^
 
 Some features of ROS 1 parameters files do not exist in ROS 2:
 
