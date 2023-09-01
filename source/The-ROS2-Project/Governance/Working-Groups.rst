@@ -124,10 +124,13 @@ Community working groups are created and maintained by the ROS community to supp
 Aerial Robotics (AerialRoboticsWG)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Lead(s): Kimberly McGuire
+* Lead(s): Kimberly McGuire, Ramón Roche
 * Resources:
 
+  * `Working group community <https://github.com/ROS-Aerial/>`_
+  * `Recordings and Meeting notes <https://github.com/ROS-Aerial/community/blob/master/meetings.md>`_
   * Discourse tag: `wg-aerial-robotics <https://discourse.ros.org/tag/wg-aerial-robotics>`_
+  * OSRF Discord channel: `#cwg-aerial <https://discord.com/channels/1077825543698927656/1141902822254850128>`_
 
 AI Integration
 ^^^^^^^^^^^^^^
