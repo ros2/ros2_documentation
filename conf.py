@@ -311,7 +311,8 @@ def github_link_rewrite_branch(app, pagename, templatename, context, doctree):
 def expand_macros(app, docname, source):
     result = source[0]
     for key, value in app.config.macros.items():
-        result = result.replace(f'{{{key}}}', value)
+        if app.builder.name != 'gettext':
+            result = result.replace(f'{{{key}}}', value)
     source[0] = result
 
 def setup(app):
