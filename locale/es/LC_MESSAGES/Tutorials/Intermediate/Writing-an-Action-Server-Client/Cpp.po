@@ -1,57 +1,55 @@
-# SOME DESCRIPTIVE TITLE.
+# Archivo de traducción al español para la documentación de ROS 2.
 # Copyright (C) 2023, Open Robotics
 # This file is distributed under the same license as the ROS 2 documentation
 # package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+# Cristian Chitiva <cychitivav@unal.edu.co>, 2023.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: ROS 2 documentation \n"
+"Project-Id-Version: ROS 2 documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-19 11:55+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: es\n"
 "Language-Team: es <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "Generated-By: Babel 2.8.0\n"
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:8
-#: bdbef8a43de248e2a4922e9bb17c9d4a
+#: 3fb9ce6d4ee141e5b1dce0d873b31d0f
 msgid "Writing an action server and client (C++)"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:10
-#: c98a7d375f6f4d5ba2ccdfc85a7f46a2
+#: 174b11c8dd854cee8f10b1b1fe5728d5
 msgid "**Goal:** Implement an action server and client in C++."
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:12
-#: 18b62d6a3e93488f8edf90df485d26b6
+#: bc4919e8c4a14635a86c24dd824a3302
 msgid "**Tutorial level:** Intermediate"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:14
-#: 99edb73ff3e8494aa7d8f2a89943c1ed
+#: f003a82149794294b9ea5a1d8ceb81d4
 msgid "**Time:** 15 minutes"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:18
-#: ad64ada84ae14b45b8598d9ecfd1f0ae
+#: 74d66effd7d8476192661d64f1284e13
 msgid "Contents"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:21
-#: c637099b97df47fe8b2f65117d4ff1c3
+#: 347c2d44c1cb4e4ebbdc046e9b35d2cf
 msgid "Background"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:23
-#: 6cfa9c31ce264ce38ce2906f84ee1d9a
+#: 1aa6d8dfa5a84f3aaad2dc1cf6408571
 msgid ""
 "Actions are a form of asynchronous communication in ROS. *Action clients*"
 " send goal requests to *action servers*. *Action servers* send goal "
@@ -59,12 +57,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:28
-#: d69745bdb3eb4ddf83deef2a5a4ccbbc
+#: 0858031a196a49c2881b7c77335a294c
 msgid "Prerequisites"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:30
-#: d6a470df44ac44ae9f638c8e07e5023e
+#: d86add64be7d4d4b8564e485a1c80e3d
 msgid ""
 "You will need the ``custom_action_interfaces`` package and the "
 "``Fibonacci.action`` interface defined in the previous tutorial, :doc"
@@ -72,17 +70,17 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:34
-#: c5583e4d4c314c2988a8101c9d4767f0
+#: 8e767c9a6944448d957a2ce26f1800f5
 msgid "Tasks"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:37
-#: 93eab90306ee45a1a63a673b9e7dbfcb
+#: 8e1dd56472b142c6b7379f193e79a602
 msgid "1 Creating the custom_action_cpp package"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:39
-#: 12954487244445788cdf6e52785607e3
+#: 6ee30946b30b444b8683bf6f0de25b86
 msgid ""
 "As we saw in the :doc:`../../Beginner-Client-Libraries/Creating-Your-"
 "First-ROS2-Package` tutorial, we need to create a new package to hold our"
@@ -90,12 +88,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:42
-#: ee8518a6869e4bd6ba45aa1a97fe6415
+#: 09239195b3544ff795fc7ce71e80716c
 msgid "1.1 Creating the custom_action_cpp package"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:44
-#: 170d60e3acc948ac84a3672b6ef122f8
+#: dac58590b0674b96ac471b550e70eb3c
 msgid ""
 "Go into the action workspace you created in the :doc:`previous tutorial "
 "<../Creating-an-Action>` (remember to source the workspace), and create a"
@@ -103,27 +101,27 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:49
-#: 82e8d57d50564fe0a09f2247b1cbe0e6
+#: ac706a7606104c7791ea1701e25cbe09
 msgid "Linux"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:56
-#: d229a71728524effb75f6f6d8ba87fe0
+#: abbdf93ec45349e4a855a6f8a72496d0
 msgid "macOS"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:63
-#: 74f800d3ecf24d2a83574bf7c023b5b8
+#: 3dd5573591174ca3908161b6adadf5f7
 msgid "Windows"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:71
-#: 51cc5653ec4842cfb210f2fce8bf634a
+#: a268aeb79c1549b49ba0821b6f1c9107
 msgid "1.2 Adding in visibility control"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:73
-#: dc08085d6b514580bfa7233466bd3299
+#: 2eefa9d1f4bd423fb79266e49dfbb087
 msgid ""
 "In order to make the package compile and work on Windows, we need to add "
 "in some \"visibility control\". For more details, see :ref:`Windows "
@@ -132,7 +130,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:76
-#: e0d8b580b6da4f3e89cbbe9ea29f10ea
+#: 35c7a0a5016e47d0b457d70a69ece675
 msgid ""
 "Open up "
 "``custom_action_cpp/include/custom_action_cpp/visibility_control.h``, and"
@@ -140,12 +138,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:126
-#: e4a8c88f2e7f435f8ed6fcd72a3660ba
+#: d646f240210d49e6b68ce6e5803af2d2
 msgid "2 Writing an action server"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:128
-#: 2ee92f5ca7ea4ecab725f3db3978eb0e
+#: 60cab28ad80544fc83c3512481b09dde
 msgid ""
 "Let's focus on writing an action server that computes the Fibonacci "
 "sequence using the action we created in the :doc:`../Creating-an-Action` "
@@ -153,12 +151,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:131
-#: d1f47ba16fd04e9aa01b6adf752ceefb
+#: 052e2c0b6d124fe4b0b6655b4dbda808
 msgid "2.1 Writing the action server code"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:133
-#: 837c59314d83414b9478e2a8c574f1ff
+#: c0aadfff9f0f4fe7a0798b7e1f988c5a
 msgid ""
 "Open up ``custom_action_cpp/src/fibonacci_action_server.cpp``, and put "
 "the following code in:"
@@ -166,67 +164,67 @@ msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:138
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:264
-#: a305f98f42b34765a36ad27c5184b796 d6ffc894106345718831ee93e8d2764b
+#: 471cea1b69ce45bba10e66a4c38da4f8 e9f03bd46ea841259810a80662ba18d9
 msgid "The first few lines include all of the headers we need to compile."
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:140
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:266
-#: bfd1a07b19064834b7a7019d5db686b7 d5586a8446504f5e90da65373ae04a65
+#: 0f7d2d3687dc4692b28980a2efe810e3 4745ecf4ae414036a9d0f737b8590d72
 msgid "Next we create a class that is a derived class of ``rclcpp::Node``:"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:146
-#: 68c1e77a71a8458597060e0225a17a58
+#: 4973c8e787d64ce79b06683c7b3efb24
 msgid ""
 "The constructor for the ``FibonacciActionServer`` class initializes the "
 "node name as ``fibonacci_action_server``:"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:152
-#: 4b52ece99c2340259ad5ff1f2809d75d
+#: deb69be02bec4cfc844bb53914396897
 msgid "The constructor also instantiates a new action server:"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:158
-#: b0bd544e29fe47fc9f9685c38c4ca57a
+#: 7fbfc28dad464225a7d1a7c8dea6651b
 msgid "An action server requires 6 things:"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:160
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:286
-#: 114222ae128e4b82bbbede7248b5fc5a cfcf40af869f4168a5e3c9c2d56c7c94
+#: 97e851300b6745758a27b3c186e7acbe ec2af795c68d482e9f6b3537f77e65a2
 msgid "The templated action type name: ``Fibonacci``."
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:161
-#: 9c7231d711b6490585272b2974898a77
+#: 37dbcfe425a64a7ab891e10ba80ac04f
 msgid "A ROS 2 node to add the action to: ``this``."
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:162
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:288
-#: 19f3e03963c243a485973d99de3965b6 3a3b983f64bb441c9a52b59319eae6e9
+#: 7c2d4cbec3854705a67a32ce2d241ed6 f02410b88f6c4c08b96676c1df67ce4a
 msgid "The action name: ``'fibonacci'``."
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:163
-#: 2f2bce6270304de0a8f0d8244d3c80d0
+#: b52c5cefe2a445a69e4d009bd6469b51
 msgid "A callback function for handling goals: ``handle_goal``"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:164
-#: be72483d333d4958aa664c293cca98a9
+#: b3a2d6e1daac4836b9ea7068acfd377a
 msgid "A callback function for handling cancellation: ``handle_cancel``."
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:165
-#: cf8f0fbe085843f4853b83aeab2bb7a5
+#: 482a77a4aefb4303addafff1b4138dca
 msgid "A callback function for handling goal accept: ``handle_accept``."
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:167
-#: a44dd66171ee48ae924b83fd4e1d52ec
+#: 05d701debd8d4a999966cdf914ba695a
 msgid ""
 "The implementation of the various callbacks is next in the file. Note "
 "that all of the callbacks need to return quickly, otherwise we risk "
@@ -234,48 +232,48 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:170
-#: 89c53366a6a443e88dae60b883da1c6c
+#: 34aa56e07aea4f25a5279e0b4f7487e2
 msgid "We start with the callback for handling new goals:"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:176
-#: 3d3860cf1f744616824d4684eae34f65
+#: 3e8c1ff6e90e4adf986b3a4d440b5366
 msgid "This implementation just accepts all goals."
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:178
-#: f4b95a00bdd049688aef6704e29e5822
+#: 15f60909d7a24c58975333e83b194afa
 msgid "Next up is the callback for dealing with cancellation:"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:184
-#: 87aeef3665e6462b921db3527fdc2ca6
+#: 784cc768f02946cea3292f5b4f0ed1a3
 msgid ""
 "This implementation just tells the client that it accepted the "
 "cancellation."
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:186
-#: 275629c111214db6a7e8b067dc248960
+#: 47785726a9eb41f389a880a8d8a356a9
 msgid "The last of the callbacks accepts a new goal and starts processing it:"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:192
-#: 8701f77bc8c246a0b9512c50bbfeaafa
+#: dba8c46450514ddc9852205bcc562ba2
 msgid ""
 "Since the execution is a long-running operation, we spawn off a thread to"
 " do the actual work and return from ``handle_accepted`` quickly."
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:194
-#: f5d20817fd974dec8c499cc2257bd5af
+#: cdc940ad888c41e8b5e740ea218e6569
 msgid ""
 "All further processing and updates are done in the ``execute`` method in "
 "the new thread:"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:200
-#: 468c7382319f4c0da348ef7d8ad54955
+#: fbf406fdcd6847169ecb0d9ff383b39f
 msgid ""
 "This work thread processes one sequence number of the Fibonacci sequence "
 "every second, publishing a feedback update for each step. When it has "
@@ -284,26 +282,26 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:203
-#: 7efefcbceb014d09acdecc819517ffeb
+#: 0e8a78f3d7ba462ba013af32bd9d8b01
 msgid ""
 "We now have a fully functioning action server.  Let's get it built and "
 "running."
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:206
-#: fcf2725dc2d440eda896922d0914faee
+#: 005ec610fb7d41bb818570991bd12732
 msgid "2.2 Compiling the action server"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:208
-#: b0b98837d6f8405eab9f45157e7b4e19
+#: 34de585c69af4ab784b9bf6d87309951
 msgid ""
 "In the previous section we put the action server code into place. To get "
 "it to compile and run, we need to do a couple of additional things."
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:211
-#: 03adae12ca1a4eceb2bf5533282f8d6e
+#: 96fdc90f87384c5894d766d4380d6a2d
 msgid ""
 "First we need to setup the CMakeLists.txt so that the action server is "
 "compiled. Open up ``custom_action_cpp/CMakeLists.txt``, and add the "
@@ -312,154 +310,154 @@ msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:235
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:363
-#: 5bd9f3158d974f2bba2efcc51ebe4f08 9d11e9b118fe44b0bcfeabb16a33b4f3
+#: 50a99c0016fd4cf392c4ed4825224c1e d1d6fd4cc33a48e4b77307de54b247f9
 msgid ""
 "And now we can compile the package.  Go to the top-level of the "
 "``ros2_ws``, and run:"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:241
-#: 0c4890cb03c14ba3980779bf6ea8c0b1
+#: e47d898d595d48649ede155b0c0bfab6
 msgid ""
 "This should compile the entire workspace, including the "
 "``fibonacci_action_server`` in the ``custom_action_cpp`` package."
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:244
-#: 82eebd305b1e439da8db0a72239da587
+#: 8688d7d33d2a49438b1de677b64015c8
 msgid "2.3 Running the action server"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:246
-#: 248302b1d0b243658cfaa06a2d3a0785
+#: a584f82ff1084dc28b5d62fd7118ce8a
 msgid ""
 "Now that we have the action server built, we can run it. Source the "
 "workspace we just built (``ros2_ws``), and try to run the action server:"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:254
-#: 64893f3bd1c147489b23d881f173c65c
+#: 64edd4257f544ea79d9c037b07b0a6d2
 msgid "3 Writing an action client"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:257
-#: 932af775e86d4142970bfaa052bfbf7c
+#: a77eb360b04c44c7bb6c1901f379c269
 msgid "3.1 Writing the action client code"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:259
-#: 5fa8c04ab201415f9bfb8f7889d8a384
+#: eb3af450d71041ff93410286df6d536b
 msgid ""
 "Open up ``custom_action_cpp/src/fibonacci_action_client.cpp``, and put "
 "the following code in:"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:272
-#: 69c7797d562e423298a1350ae53b60e2
+#: d0859a18acf448aca1fd0e7c85f4bbab
 msgid ""
 "The constructor for the ``FibonacciActionClient`` class initializes the "
 "node name as ``fibonacci_action_client``:"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:278
-#: 2abb15e2252b466bbade75501a9791f7
+#: e8320d27ad854a90a1ab3477f0d6f84b
 msgid "The constructor also instantiates a new action client:"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:284
-#: d1b046e98b6443d48860a96e74e6235a
+#: 9c4711498db94e82afc7615e79ebece8
 msgid "An action client requires 3 things:"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:287
-#: 088c7040b2c646928c0dc5dc8e8dbe96
+#: 74bfa2635184462ea7572559eeeb3748
 msgid "A ROS 2 node to add the action client to: ``this``."
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:290
-#: a07ff0ba4ac44209940784862e6e7b67
+#: 3878143747b24476bb0f858c3f1dcdaf
 msgid ""
 "We also instantiate a ROS timer that will kick off the one and only call "
 "to ``send_goal``:"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:296
-#: 0a44d0a734764d8291356e565e254cd0
+#: f52eba8719c04b688c93e6ef528f740e
 msgid "When the timer expires, it will call ``send_goal``:"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:302
-#: 084ce3082b8e4d5fbe789e97ee735061
+#: f2e3427d027f45fc96a6a893b37b2a77
 msgid "This function does the following:"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:304
-#: e6f09992e4d74826b60c9fb451930cf9
+#: 1a50da601995476ba206d5f33daa792b
 msgid "Cancels the timer (so it is only called once)."
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:305
-#: e6ac707fd86e44c1b71a0532ce56e277
+#: 932b6eafafdc472394dd41603a877755
 msgid "Waits for the action server to come up."
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:306
-#: a49e09945e594584a65f3a23fbaa5763
+#: e10c471d951c43908ea1e24353a2cabb
 msgid "Instantiates a new ``Fibonacci::Goal``."
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:307
-#: 33d293dbe4de4691ab5f489f8ec27165
+#: 5fbaaae6fa684a38a75077e092bef732
 msgid "Sets the response, feedback, and result callbacks."
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:308
-#: e9b19da8d0db4d10b63c8c14d26bf1d8
+#: d23d6c57343d43af9c8eb1b8d293ae67
 msgid "Sends the goal to the server."
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:310
-#: 5e3d8e83a892462e907ed994066ff866
+#: ea686c7782bd4b8896abf950319b0734
 msgid ""
 "When the server receives and accepts the goal, it will send a response to"
 " the client. That response is handled by ``goal_response_callback``:"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:317
-#: 4cdb9d2f8425434c902bb7d9a99de2a4
+#: 89b98ed0c5f444d3adea62e748b2518e
 msgid ""
 "Assuming the goal was accepted by the server, it will start processing. "
 "Any feedback to the client will be handled by the ``feedback_callback``:"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:324
-#: ac15eb76d2084d038d7e9c17849ac04b
+#: 73865972c6fb49d9991468c6d6113614
 msgid ""
 "When the server is finished processing, it will return a result to the "
 "client. The result is handled by the ``result_callback``:"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:331
-#: 4d7b0ca485d94fde99efd2feb163ed7f
+#: 64b772c2ae0f4f0ab3d3be68c2e0f04b
 msgid ""
 "We now have a fully functioning action client.  Let's get it built and "
 "running."
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:334
-#: a2b4432dfefd40b58b3ba681f3fc4af8
+#: b71df9e8363a4f179abf37fafac4a620
 msgid "3.2 Compiling the action client"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:336
-#: 872846a79a9a4689a7fc6536ef76259b
+#: 7edbe0dcd94342d5bb73ebd4d695c0d8
 msgid ""
 "In the previous section we put the action client code into place. To get "
 "it to compile and run, we need to do a couple of additional things."
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:339
-#: c1001f0ef81a482f9bf92ef24d66e123
+#: 01dde266a110446da9e6552034124712
 msgid ""
 "First we need to setup the CMakeLists.txt so that the action client is "
 "compiled. Open up ``custom_action_cpp/CMakeLists.txt``, and add the "
@@ -467,19 +465,19 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:369
-#: dc1fd79f75d74907953670a5573d23c1
+#: bf2630ce2f84410980792b4a7d176df6
 msgid ""
 "This should compile the entire workspace, including the "
 "``fibonacci_action_client`` in the ``custom_action_cpp`` package."
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:372
-#: 8cd9948d0fa946349dc377c18b5b5e89
+#: 1e265d5340064b4383fa0e91226a07e0
 msgid "3.3 Running the action client"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:374
-#: ae4b6b58210b40128640ca00144f0623
+#: 82e0b214aaa541d882796ac5382a43b3
 msgid ""
 "Now that we have the action client built, we can run it. First make sure "
 "that an action server is running in a separate terminal. Now source the "
@@ -487,19 +485,19 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:382
-#: 4f4111ce912249479ee9c3398287c5bf
+#: c31caab150af4d11a9889a47ad8bc7ac
 msgid ""
 "You should see logged messages for the goal being accepted, feedback "
 "being printed, and the final result."
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:385
-#: 0aeebb2abf374f2089317ac092e6437a
+#: 035863682f3240199d3c88edf641b6db
 msgid "Summary"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:387
-#: e82189c033684983a524f4b71f367200
+#: f909b46278ca47b0ad0060d75572010a
 msgid ""
 "In this tutorial, you put together a C++ action server and action client "
 "line by line, and configured them to exchange goals, feedback, and "
@@ -507,23 +505,33 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:390
-#: df55e07f12994221bfedf160a8415bd0
+#: 3932e50ac1544cf09da6464c799b96f8
 msgid "Related content"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:392
-#: 749b49b83a414c93888c5f04c8afe6d5
+#: 00f9d7870ace40588de24e9082f4f4bd
 msgid ""
 "There are several ways you could write an action server and client in "
 "C++; check out the ``minimal_action_server`` and "
 "``minimal_action_client`` packages in the `ros2/examples "
-"<https://github.com/ros2/examples/tree/rolling/rclcpp>`_ repo."
+"<https://github.com/ros2/examples/tree/{REPOS_FILE_BRANCH}/rclcpp>`_ "
+"repo."
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp.rst:394
-#: 0d4c0a04ed1e414b8bfa76f797f10fd2
+#: 2b83aff0d9734bce92b2cdb1865ebd96
 msgid ""
 "For more detailed information about ROS actions, please refer to the "
 "`design article <http://design.ros2.org/articles/actions.html>`__."
 msgstr ""
+
+#~ msgid ""
+#~ "There are several ways you could "
+#~ "write an action server and client "
+#~ "in C++; check out the "
+#~ "``minimal_action_server`` and ``minimal_action_client``"
+#~ " packages in the `ros2/examples "
+#~ "<https://github.com/ros2/examples/tree/rolling/rclcpp>`_ repo."
+#~ msgstr ""
 

@@ -1,58 +1,56 @@
-# SOME DESCRIPTIVE TITLE.
+# Archivo de traducción al español para la documentación de ROS 2.
 # Copyright (C) 2023, Open Robotics
 # This file is distributed under the same license as the ROS 2 documentation
 # package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+# Cristian Chitiva <cychitivav@unal.edu.co>, 2023.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: ROS 2 documentation \n"
+"Project-Id-Version: ROS 2 documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-19 11:55+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: es\n"
 "Language-Team: es <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "Generated-By: Babel 2.8.0\n"
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:7
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:39
-#: 02f8a79d88ba4c16af61cde5775af775 345efc99db374a0a82247e4dd08751b0
+#: 51096d8de17d49fc9a466321cc8c45b2 e62091bf83aa44358ac0386d60dd1122
 msgid "Using event handlers"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:9
-#: ce731e83add64a0ca0125b750171c605
+#: 1ed718dca0ce44859f5ec83d30cd87d1
 msgid "**Goal:** Learn about event handlers in ROS 2 launch files"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:11
-#: 75fa45e3bad949f1a9aa4343c850485f
+#: eea1f27f17604741ad5b86562051b02b
 msgid "**Tutorial level:** Intermediate"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:13
-#: deb16c5d5e314a03bb93ed7562b4f822
+#: 65ca92a46030469dabe4cb95e2ff1df2
 msgid "**Time:** 15 minutes"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:17
-#: d9dbef222d384db3b191503948b99965
+#: 3a3772fa2c0b45f48e024ce308d8c423
 msgid "Table of Contents"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:20
-#: 00189016a5c943c3b4da978d814c9d35
+#: 0b09ef3878b0446fb0d91ea842b91ffe
 msgid "Background"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:22
-#: cefa72c515c94aed89dabdcce357a1cb
+#: 451a3264b45e4cd49e04bdf3390c36c5
 msgid ""
 "Launch in ROS 2 is a system that executes and manages user-defined "
 "processes. It is responsible for monitoring the state of processes it "
@@ -65,19 +63,19 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:28
-#: f87b4a602e3046a482018d023aa5ae97
+#: cd6076458f9849b681691ce60afdc8eb
 msgid ""
 "This tutorial shows usage examples of event handlers in ROS 2 launch "
 "files."
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:31
-#: cbfe5bfaaadf490ba0f4bded5e047ab0
+#: 3676e5db12e746ae9f724d185912fd11
 msgid "Prerequisites"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:33
-#: 2aabfb5260b544a9a1a21d9ea91a924c
+#: 103baf9aebcf47b6b0babcd06190578a
 msgid ""
 "This tutorial uses the :doc:`turtlesim <../../Beginner-CLI-Tools"
 "/Introducing-Turtlesim/Introducing-Turtlesim>` package. This tutorial "
@@ -87,26 +85,26 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:36
-#: 6b2083a25c5145c3b55a9ba23110c8a2
+#: f65f85d7321147da8fed7dd84942b905
 msgid ""
 "This tutorial extends the code shown in the :doc:`Using substitutions in "
 "launch files <./Using-Substitutions>` tutorial."
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:42
-#: 809ead05f03e49c697d39d994924a641
+#: 05598802809c49fe8c079edc51e2399c
 msgid "1 Event handlers example launch file"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:44
-#: 8e5d3e8da445450597520c6b212c1aaa
+#: d2f317d19b7f4b17afdc23f622fd965a
 msgid ""
 "Create a new file called ``example_event_handlers_launch.py`` file in the"
 " ``launch`` folder of the ``launch_tutorial`` package."
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:183
-#: 975214508c474307ba84ea782fa5a636
+#: a2db9e754de24583b20895faf78ef79e
 msgid ""
 "``RegisterEventHandler`` actions for the ``OnProcessStart``, "
 "``OnProcessIO``, ``OnExecutionComplete``, ``OnProcessExit``, and "
@@ -114,7 +112,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:185
-#: b63b5919895c43fdb009c12f57274732
+#: ca4be727581c4828ab7322dd7dabf8b2
 msgid ""
 "The ``OnProcessStart`` event handler is used to register a callback "
 "function that is executed when the turtlesim node starts. It logs a "
@@ -123,7 +121,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:200
-#: fea460b45277446098c5c657fd4b47ae
+#: 1dfddca644044b13a41d7738da620fc9
 msgid ""
 "The ``OnProcessIO`` event handler is used to register a callback function"
 " that is executed when the ``spawn_turtle`` action writes to its standard"
@@ -131,7 +129,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:215
-#: 87528a547c3d4e5fb173957c0c95b985
+#: 6b021ac3ddb349f09623a10d061609d8
 msgid ""
 "The ``OnExecutionComplete`` event handler is used to register a callback "
 "function that is executed when the ``spawn_turtle`` action completes. It "
@@ -141,7 +139,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:234
-#: 97b46ebd2a5a4c819556d8d22213833e
+#: 48b08ea64cc049fc89b7b1e10c5af532
 msgid ""
 "The ``OnProcessExit`` event handler is used to register a callback "
 "function that is executed when the turtlesim node exits. It logs a "
@@ -151,7 +149,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:252
-#: 2ee9dac27ebb4fb59fb77059b7e1363e
+#: 4e150d84eb424fb999c17a50dfd68887
 msgid ""
 "Finally, the ``OnShutdown`` event handler is used to register a callback "
 "function that is executed when the launch file is asked to shutdown. It "
@@ -161,54 +159,54 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:268
-#: 9cddb6c893924a838b4ea4214ee43292
+#: 1414a7a771ed4317b399082cdd2bf957
 msgid "Build the package"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:270
-#: 6dd421814c5b4254b9d29a6773db35ff
+#: 2ff930b5a1c0411ca02d5a18ad4c9790
 msgid "Go to the root of the workspace, and build the package:"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:276
-#: 8ea3ce2139894b81846141acd294eba2
+#: baf7a7a364e14e74a610350c21eb8384
 msgid "Also remember to source the workspace after building."
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:279
-#: 5156d1d5d5be48fcbfb708271e8a8969
+#: c6f23eb0f5e84d48b76b63d17d6e5990
 msgid "Launching example"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:281
-#: c999bc9f31d2451b81b3726ae8a8a93e
+#: 0532d1af22484ea99e17eabd431f9da7
 msgid ""
 "Now you can launch the ``example_event_handlers_launch.py`` file using "
 "the ``ros2 launch`` command."
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:287
-#: ec633344966d468cb54f134acf1839b7
+#: a15b66564bfe4ef2aa75bde9f5486d67
 msgid "This will do the following:"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:289
-#: e388c60bec5a435db9a642333e13c2e4
+#: 64e3648bec544a529616b3da33055f1a
 msgid "Start a turtlesim node with a blue background"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:290
-#: 3f6c8f31053148138c53c6d76cd84ed6
+#: 847a7d3ee1ad4f91ae32cb30b7355c67
 msgid "Spawn the second turtle"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:291
-#: ed8ec84b84694f928f53d08e6e29df56
+#: d3aeb347cb8c479c8b61a9f6136add9d
 msgid "Change the color to purple"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:292
-#: 9fe1725cf3e647a6909fdc9e2d0f7bb1
+#: 39fe555f01eb4375aff6f0a44998ba7b
 msgid ""
 "Change the color to pink after two seconds if the provided "
 "``background_r`` argument is ``200`` and ``use_provided_red`` argument is"
@@ -216,68 +214,75 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:293
-#: 5849f3673b5e4981a47e5b52d81a552d
+#: e2e9fe062c2945aabefc866ba5562319
 msgid "Shutdown the launch file when the turtlesim window is closed"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:295
-#: 51a2b58fc2ae469f815f1e7dff99ff5e
+#: 955c24a96d674de194207c919971767c
 msgid "Additionally, it will log messages to the console when:"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:297
-#: 9195d6c510d34e46a0b71e8c5b9fbeb6
+#: 7ba1ff1cecda46078c3a617489d4f619
 msgid "The turtlesim node starts"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:298
-#: a8e216839a674fa8852b7c311c7bb9bc
+#: ced761b42b6b44ff9f4869f1a410073f
 msgid "The spawn action is executed"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:299
-#: 2f61e7de02c541dd91a8dece74b9750c
+#: 0a7cd52889a4406b96a6c48f583c9bea
 msgid "The ``change_background_r`` action is executed"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:300
-#: f198c44004ff46de88f4ec600a3dbe07
+#: c97cb7abc73e4bc6b50c9e6fa5fd3056
 msgid "The ``change_background_r_conditioned`` action is executed"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:301
-#: 9d0223c866ca458bb94b064cb4360efa
+#: d84a6c1dda2c41248b18662096801ae6
 msgid "The turtlesim node exits"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:302
-#: eb6eda22326545158ecf5f8f38e861cc
+#: cb4675ebc06247f8b13526058113484b
 msgid "The launch process is asked to shutdown."
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:305
-#: 0980699df80048708a4f2d8c982d14de
+#: f3aab9ae515f4ccc9b896f07b4e49c53
 msgid "Documentation"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:307
-#: 7882d4037b534cb79b4051362597a5c8
+#: 3101de7f5d204ae696c7b36c3b116a2f
 msgid ""
 "`The launch documentation "
-"<https://github.com/ros2/launch/blob/rolling/launch/doc/source/architecture.rst>`_"
+"<https://github.com/ros2/launch/blob/{REPOS_FILE_BRANCH}/launch/doc/source/architecture.rst>`_"
 " provides detailed information about available event handlers."
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:310
-#: 18d6b806d5524964a0d484bca7414cef
+#: d9f9255bd456453c8b7db6c481b22e59
 msgid "Summary"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Using-Event-Handlers.rst:312
-#: d317c989de9a4ffeb73de1db8186af0e
+#: 3783181ba75143b89901f6945d44ad13
 msgid ""
 "In this tutorial, you learned about using event handlers in launch files."
 " You learned about their syntax and usage examples to define a complex "
 "set of rules to dynamically modify launch files."
 msgstr ""
+
+#~ msgid ""
+#~ "`The launch documentation "
+#~ "<https://github.com/ros2/launch/blob/rolling/launch/doc/source/architecture.rst>`_"
+#~ " provides detailed information about "
+#~ "available event handlers."
+#~ msgstr ""
 

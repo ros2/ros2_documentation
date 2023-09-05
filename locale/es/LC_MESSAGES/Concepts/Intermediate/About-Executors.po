@@ -1,69 +1,67 @@
-# SOME DESCRIPTIVE TITLE.
+# Archivo de traducción al español para la documentación de ROS 2.
 # Copyright (C) 2023, Open Robotics
 # This file is distributed under the same license as the ROS 2 documentation
 # package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+# Cristian Chitiva <cychitivav@unal.edu.co>, 2023.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: ROS 2 documentation \n"
+"Project-Id-Version: ROS 2 documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-19 11:55+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: es\n"
 "Language-Team: es <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "Generated-By: Babel 2.8.0\n"
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:6
-#: 221085e0e5654080a028c0afbc8cb459
+#: 973e27ad070f4b6ca760661fd2566126
 msgid "Executors"
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:9
-#: a42c65cad7b94bf7ae8f418c469d1601
+#: fe92a2b8c6f44b52af51c921442fda29
 msgid "Table of Contents"
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:12
-#: 50986457c4d743038043d32d1406b2c8
+#: 1f8fb2fba2ef4ca1a9234c62e7da4866
 msgid "Overview"
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:14
-#: 47189587d14d4157ac07d9bf6abfb1d8
+#: 5e4f9f7e0e6f4982af843ed3f1c531ed
 msgid ""
 "Execution management in ROS 2 is handled by Executors. An Executor uses "
 "one or more threads of the underlying operating system to invoke the "
 "callbacks of subscriptions, timers, service servers, action servers, etc."
 " on incoming messages and events. The explicit Executor class (in "
 "`executor.hpp "
-"<https://github.com/ros2/rclcpp/blob/rolling/rclcpp/include/rclcpp/executor.hpp>`_"
+"<https://github.com/ros2/rclcpp/blob/{REPOS_FILE_BRANCH}/rclcpp/include/rclcpp/executor.hpp>`_"
 " in rclcpp, in `executors.py "
-"<https://github.com/ros2/rclpy/blob/rolling/rclpy/rclpy/executors.py>`_ "
-"in rclpy, or in `executor.h "
+"<https://github.com/ros2/rclpy/blob/{REPOS_FILE_BRANCH}/rclpy/rclpy/executors.py>`_"
+" in rclpy, or in `executor.h "
 "<https://github.com/ros2/rclc/blob/master/rclc/include/rclc/executor.h>`_"
 " in rclc) provides more control over execution management than the spin "
 "mechanism in ROS 1, although the basic API is very similar."
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:18
-#: 4efe7f7cd83543d4a151f21b749d4204
+#: 6588527a9ab845d78b69cfcd34427e49
 msgid "In the following, we focus on the C++ Client Library *rclcpp*."
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:21
-#: 1a3e126b2ec8453ca160b6e3af8878ac
+#: 71d79e19eba84d4aa29aad2a292a6f76
 msgid "Basic use"
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:23
-#: 2f36811ffaca4efdbd4c610b1dc27b17
+#: 78b5cc3a56b6412ab5ac9cbf1911dc94
 msgid ""
 "In the simplest case, the main thread is used for processing the incoming"
 " messages and events of a Node by calling ``rclcpp::spin(..)`` as "
@@ -71,7 +69,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:44
-#: 7ccb62e0115c4e828134b799b63c51ca
+#: e97f28ea3e2d4aa5866f0704fe754639
 msgid ""
 "The call to ``spin(node)`` basically expands to an instantiation and "
 "invocation of the Single-Threaded Executor, which is the simplest "
@@ -79,7 +77,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:52
-#: f291b036b65d45c1ae87160386738c99
+#: 2ef7ba8742bc413d820ed03c67f7d39d
 msgid ""
 "By invoking ``spin()`` of the Executor instance, the current thread "
 "starts querying the rcl and middleware layers for incoming messages and "
@@ -94,7 +92,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:60
-#: 4059467897c14e0aa57adeba3b91d282
+#: d54caafee4e54b9c9aaf8ee43e30f2eb
 msgid ""
 "The Single-Threaded Executor is also used by the container process for "
 ":doc:`components <./About-Composition>`, i.e. in all cases where nodes "
@@ -102,19 +100,19 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:63
-#: 7578561fb0954a6e8fe561816bbcd73c
+#: e94f2553303c440fa2d101748dd7cc4a
 msgid "Types of Executors"
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:65
-#: 0ca3954ca30e4829a1713d76558835bd
+#: fd7e57489bf74199a450ffe14712bf24
 msgid ""
 "Currently, rclcpp provides three Executor types, derived from a shared "
 "parent class:"
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:81
-#: d043c192be7d41099abb5a73c6df0140
+#: ed83289be546448bbad4d2a89ad88292
 msgid ""
 "The *Multi-Threaded Executor* creates a configurable number of threads to"
 " allow for processing multiple messages or events in parallel. The "
@@ -128,14 +126,14 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:86
-#: 9723fc3b07624793a833c137d0771aef
+#: 4d2211b743ef4d02a3927107e6992a8c
 msgid ""
 "All three executors can be used with multiple nodes by calling "
 "``add_node(..)`` for each node."
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:100
-#: 526db6dd92214dbcb9e5b3c94c777f8f
+#: 3098a5c32c9a469da320d8e2b1625e8f
 msgid ""
 "In the above example, the one thread of a Static Single-Threaded Executor"
 " is used to serve three nodes together. In case of a Multi-Threaded "
@@ -143,12 +141,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:104
-#: 9aaba8d99be045f5b86141189b7f6078
+#: 06ff74eb344b4ac5898c7b0861ee97fd
 msgid "Callback groups"
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:106
-#: 832751d2bcac4022bc28570c5df79fbd
+#: f51f526beb9d41f3aaa7b8923a55366f
 msgid ""
 "ROS 2 allows organizing the callbacks of a node in groups. In rclcpp, "
 "such a *callback group* can be created by the ``create_callback_group`` "
@@ -161,17 +159,17 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:114
-#: 7aa0318172bd4ed69a75b34a979e30fe
+#: 6f8faad6cd6c42fbac8c7acfc1d3125d
 msgid "C++"
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:125
-#: ce37d68a4b014a508810c95053ca59ef
+#: f5368a582d0940ebb08bcfa60aa4783c
 msgid "Python"
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:133
-#: 1d45329da8db4ef2874062b2e19bfccf
+#: 68bdee8fb1f24b04a49066159b013ec4
 msgid ""
 "All subscriptions, timers, etc. that are created without the indication "
 "of a callback group are assigned to the *default callback group*. The "
@@ -181,26 +179,26 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:137
-#: 12cbedbf50214f8fbf8a22b6d5f4385b
+#: 68a24d0508c04b40aeb63085ce4c117e
 msgid ""
 "There are two types of callback groups, where the type has to be "
 "specified at instantiation time:"
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:139
-#: 67f1dffd86ef484ab252733e93a698ad
+#: bcd09e8f4529460d8cad7607fb23f266
 msgid ""
 "*Mutually exclusive:* Callbacks of this group must not be executed in "
 "parallel."
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:140
-#: 1c476601754e493b9acdce3ead1ead3d
+#: 65e5ddfc046d44fc9f2a512e509af792
 msgid "*Reentrant:* Callbacks of this group may be executed in parallel."
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:142
-#: 7ba654fb4d5e407fac453db2cd3fa746
+#: 1874b8dc64d24c3b9331fed3b38378b2
 msgid ""
 "Callbacks of different callback groups may always be executed in "
 "parallel. The Multi-Threaded Executor uses its threads as a pool to "
@@ -210,7 +208,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:146
-#: bbb00596485748ed953956c9a7a2a443
+#: 8e61763a6fd441a8b3c5c7ceb470885e
 msgid ""
 "The Executor base class in rclcpp also has the function "
 "``add_callback_group(..)``, which allows distributing callback groups to "
@@ -219,17 +217,17 @@ msgid ""
 "other callbacks. For example, the subscriptions and timers of a control "
 "loop can be prioritized over all other subscriptions and standard "
 "services of a node. The `examples_rclcpp_cbg_executor package "
-"<https://github.com/ros2/examples/tree/rolling/rclcpp/executors/cbg_executor>`_"
+"<https://github.com/ros2/examples/tree/{REPOS_FILE_BRANCH}/rclcpp/executors/cbg_executor>`_"
 " provides a demo of this mechanism."
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:152
-#: 6ac0c119be054ac898d2d426efbcd770
+#: d7941c98c2fd4af1b001fe5a45e003da
 msgid "Scheduling semantics"
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:154
-#: 305e59e5db0446e1a4213cc1391ce05f
+#: aa710856299a4828b5b9b30da4d3480a
 msgid ""
 "If the processing time of the callbacks is shorter than the period with "
 "which messages and events occur, the Executor basically processes them in"
@@ -244,7 +242,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:163
-#: e879453a189b42e4a7813b52bc658ac6
+#: ffbf5c07f36c4d0eb80530e17679b7d8
 msgid ""
 "This semantics was first described in a `paper by Casini et al. at ECRTS "
 "2019 <https://drops.dagstuhl.de/opus/volltexte/2019/10743/pdf/LIPIcs-"
@@ -254,12 +252,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:168
-#: 7b3262d2cffd44808a05f657926f54fe
+#: 8d104e19d001467c82b6f0396421bc2f
 msgid "Outlook"
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:170
-#: 34d01e917ef642f5add4cf43a94f7b33
+#: f54a952c163744f9b544c3a13630c656
 msgid ""
 "While the three Executors of rclcpp work well for most applications, "
 "there are some issues that make them not suitable for real-time "
@@ -269,31 +267,31 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:173
-#: 4c5c7f00f52d4cfe954ced2bf88b1526
+#: 0cb580c04a2f46cabd08d9ae1c584ffd
 msgid ""
 "Complex and mixed scheduling semantics. Ideally you want well defined "
 "scheduling semantics to perform a formal timing analysis."
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:175
-#: 7fb89d659e1b4035bc3bc2872f83ca3e
+#: 5a8b79fd2f864497a226211db2d36369
 msgid ""
 "Callbacks may suffer from priority inversion. Higher priority callbacks "
 "may be blocked by lower priority callbacks."
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:177
-#: c3f6518051054356ac9353936258f268
+#: e393cfd058034cf8b5be360392e46b3a
 msgid "No explicit control over the callbacks execution order."
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:178
-#: 159f0500aadc47ef835d940f90aaf91b
+#: a0ae9a7e9bce4ed3be2491ce9e431647
 msgid "No built-in control over triggering for specific topics."
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:180
-#: 3002f209f7a646afb803f6196b262f10
+#: f1c967cd1d594c5ea05371c8c8234148
 msgid ""
 "Additionally, the executor overhead in terms of CPU and memory usage is "
 "considerable. The Static Single-Threaded Executor reduces this overhead "
@@ -301,27 +299,27 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:183
-#: a7e57a7e8807489c90525b9e8333eb7d
+#: b04259488e654c34949f9a856c974ab8
 msgid "These issues have been partially addressed by the following developments:"
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:185
-#: 01557195d66f48b384dbeaddeeddc9ac
+#: afd9c0227ddd4b71be4843cca60ffdcd
 msgid ""
 "`rclcpp WaitSet "
-"<https://github.com/ros2/rclcpp/blob/rolling/rclcpp/include/rclcpp/wait_set.hpp>`_:"
+"<https://github.com/ros2/rclcpp/blob/{REPOS_FILE_BRANCH}/rclcpp/include/rclcpp/wait_set.hpp>`_:"
 " The ``WaitSet`` class of rclcpp allows waiting directly on "
 "subscriptions, timers, service servers, action servers, etc. instead of "
 "using an Executor. It can be used to implement deterministic, user-"
 "defined processing sequences, possibly processing multiple messages from "
 "different subscriptions together. The `examples_rclcpp_wait_set package "
-"<https://github.com/ros2/examples/tree/rolling/rclcpp/wait_set>`_ "
-"provides several examples for the use of this user-level wait set "
+"<https://github.com/ros2/examples/tree/{REPOS_FILE_BRANCH}/rclcpp/wait_set>`_"
+" provides several examples for the use of this user-level wait set "
 "mechanism."
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:188
-#: e5cf48b4a9964f42a5eed51abbc5504e
+#: 8b2c6b11f383474992d63fe19d6c1030
 msgid ""
 "`rclc Executor "
 "<https://github.com/ros2/rclc/blob/master/rclc/include/rclc/executor.h>`_:"
@@ -333,12 +331,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:192
-#: 93d3b17577ad4887acf8b2dd07d7d044
+#: fca2d78835f94328994457aeddb8b7b0
 msgid "Further information"
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:194
-#: f3cd8c4b91154efbb1f8134162c453f6
+#: 67cac022c87e4c4fa9ead718a8bd9479
 msgid ""
 "Michael Pöhnl et al.: `\"ROS 2 Executor: How to make it efficient, real-"
 "time and deterministic?\" <https://www.apex.ai/roscon-21>`_. Workshop at "
@@ -346,7 +344,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:195
-#: 25a7095bb8e046a195b8fc4e0de53c38
+#: 93b0a58718d24ef48101f4cf2724f7f4
 msgid ""
 "Ralph Lange: `\"Advanced Execution Management with ROS 2\" "
 "<https://www.youtube.com/watch?v=Sz-nllmtcc8&t=109s>`_. ROS Industrial "
@@ -354,7 +352,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Intermediate/About-Executors.rst:196
-#: e9632e3345ee4320a58778e8b043d925
+#: fb2007361ff847b38df6ce7a97f70a86
 msgid ""
 "Daniel Casini, Tobias Blass, Ingo Lütkebohle, and Björn Brandenburg: "
 "`“Response-Time Analysis of ROS 2 Processing Chains under Reservation-"
@@ -363,4 +361,60 @@ msgid ""
 "ECRTS-2019-6.pdf>`_, Proc. of 31st ECRTS 2019, Stuttgart, Germany, July "
 "2019."
 msgstr ""
+
+#~ msgid ""
+#~ "Execution management in ROS 2 is "
+#~ "handled by Executors. An Executor uses"
+#~ " one or more threads of the "
+#~ "underlying operating system to invoke "
+#~ "the callbacks of subscriptions, timers, "
+#~ "service servers, action servers, etc. on"
+#~ " incoming messages and events. The "
+#~ "explicit Executor class (in `executor.hpp "
+#~ "<https://github.com/ros2/rclcpp/blob/rolling/rclcpp/include/rclcpp/executor.hpp>`_"
+#~ " in rclcpp, in `executors.py "
+#~ "<https://github.com/ros2/rclpy/blob/rolling/rclpy/rclpy/executors.py>`_"
+#~ " in rclpy, or in `executor.h "
+#~ "<https://github.com/ros2/rclc/blob/master/rclc/include/rclc/executor.h>`_"
+#~ " in rclc) provides more control over"
+#~ " execution management than the spin "
+#~ "mechanism in ROS 1, although the "
+#~ "basic API is very similar."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The Executor base class in rclcpp "
+#~ "also has the function "
+#~ "``add_callback_group(..)``, which allows "
+#~ "distributing callback groups to different "
+#~ "Executors. By configuring the underlying "
+#~ "threads using the operating system "
+#~ "scheduler, specific callbacks can be "
+#~ "prioritized over other callbacks. For "
+#~ "example, the subscriptions and timers of"
+#~ " a control loop can be prioritized"
+#~ " over all other subscriptions and "
+#~ "standard services of a node. The "
+#~ "`examples_rclcpp_cbg_executor package "
+#~ "<https://github.com/ros2/examples/tree/rolling/rclcpp/executors/cbg_executor>`_"
+#~ " provides a demo of this mechanism."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`rclcpp WaitSet "
+#~ "<https://github.com/ros2/rclcpp/blob/rolling/rclcpp/include/rclcpp/wait_set.hpp>`_:"
+#~ " The ``WaitSet`` class of rclcpp "
+#~ "allows waiting directly on subscriptions, "
+#~ "timers, service servers, action servers, "
+#~ "etc. instead of using an Executor. "
+#~ "It can be used to implement "
+#~ "deterministic, user-defined processing "
+#~ "sequences, possibly processing multiple "
+#~ "messages from different subscriptions "
+#~ "together. The `examples_rclcpp_wait_set package "
+#~ "<https://github.com/ros2/examples/tree/rolling/rclcpp/wait_set>`_ "
+#~ "provides several examples for the use"
+#~ " of this user-level wait set "
+#~ "mechanism."
+#~ msgstr ""
 

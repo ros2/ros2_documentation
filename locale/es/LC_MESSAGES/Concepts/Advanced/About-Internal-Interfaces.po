@@ -1,37 +1,35 @@
-# SOME DESCRIPTIVE TITLE.
+# Archivo de traducción al español para la documentación de ROS 2.
 # Copyright (C) 2023, Open Robotics
 # This file is distributed under the same license as the ROS 2 documentation
 # package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+# Cristian Chitiva <cychitivav@unal.edu.co>, 2023.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: ROS 2 documentation \n"
+"Project-Id-Version: ROS 2 documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-19 11:55+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: es\n"
 "Language-Team: es <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "Generated-By: Babel 2.8.0\n"
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:6
-#: 3278de0da28845ffaa141c59593c58c1
+#: 9d95c5a26c91433fbd6be98db50655d1
 msgid "Internal ROS 2 interfaces"
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:9
-#: b25dd0cb52d64f17bac320c946ed7d12
+#: baff6fc4f2624a0283b2bd9e43233910
 msgid "Table of Contents"
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:13
-#: 7b536f1da4cb4d7d888353d75185aba2
+#: 7cd3f815cc7d4d4e8d409b06cdf0e9b7
 msgid ""
 "The internal ROS interfaces are public C |APIs| that are intended for use"
 " by developers who are creating |client libraries| or adding a new "
@@ -42,27 +40,27 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:17
-#: 454eb7bed9514c6285842469f0026e3b
+#: 4b3bf46b0b9148d7937d40c058c8ed06
 msgid "Internal API Architecture Overview"
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:19
-#: 98670fc95f2a47dea785e8f63537390f
+#: 2c7dea034a1c4a57841759f4cb3b3f86
 msgid "There are two main internal interfaces:"
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:21
-#: 750aef109b1c4dfc9ab5deb50c73265d
+#: 1b3ea1d7d62c46b28b432c37b57c53dd
 msgid "the ROS middleware interface (``rmw`` |API|)"
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:22
-#: bcf16e01ba294782a0a40501dbd5399e
+#: c684852771aa4818a41d7c629bbf54b4
 msgid "the ROS client library interface (``rcl`` |API|)"
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:24
-#: 5d54e25ce0924ace93cf2fd821710dec
+#: 635ee9981dbe4e5e961ad6769acf71b2
 msgid ""
 "The ``rmw`` |API| is the interface between the ROS 2 software stack and "
 "the underlying middleware implementation. The underlying middleware used "
@@ -72,7 +70,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:27
-#: 69801a0d37ed494c9010dad350db1269
+#: a04c760fbd414f2985f67dc4c07356f3
 msgid ""
 "The ``rcl`` |API| is a slightly higher level |API| which is used to "
 "implement the |client libraries| and does not touch the middleware "
@@ -80,12 +78,12 @@ msgid ""
 "interface (``rmw`` |API|) abstraction."
 msgstr ""
 
-#: a149f19488974934bbe2d771ef4d6be3
+#: a141f36bd6c344b4a2e54ad0c2001fc2
 msgid "ros2 software stack"
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:32
-#: ab3cf42872b948c18da64c294f31fdaf
+#: 91db994150364a198ba4742838c04042
 msgid ""
 "As the diagram shows, these |APIs| are stacked such that the typical ROS "
 "user will use the |client library| |API|, e.g. ``rclcpp``, to implement "
@@ -105,7 +103,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:39
-#: 2795479ded5940b4a8e03d9e28d9aaa3
+#: e1dd06a9ef4644378096cf9b2d23dcc6
 msgid ""
 "In the diagram above there is also a box labeled ``ros_to_dds``, and the "
 "purpose of this box is to represent a category of possible packages which"
@@ -124,12 +122,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:48
-#: 0ab63e80a1264533bdf565d6f9ef85da
+#: fb16962f8bf140b88a29cc3dde5df582
 msgid "Type Specific Interfaces"
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:50
-#: e2f71ecfb264421b974d44302762e255
+#: 9657498c25d3463c808136cd62b13eef
 msgid ""
 "All along the way there are some parts of the |APIs| that are necessarily"
 " specific to the message types being exchanged, e.g. publishing a message"
@@ -140,19 +138,19 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:56
-#: 918649dbc6ab4b2d888ca0548ebbf2ab
+#: c5a9439b5dc34ad8be7c6b5c622d8021
 msgid "ros2 idl static type support stack"
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:56
-#: b6f3c23685a54edf9ccf6627b86a6b82
+#: ae65737d4f384396b7866e06150375b9
 msgid ""
 "Figure: flow chart of \"static\" type support generation, from ``rosidl``"
 " files to user facing code."
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:58
-#: c7ea39aefc344f45aba8d489a8ef188d
+#: fcab33e3cf6347df994d34c9ed360242
 msgid ""
 "The right hand side of the diagram shows how the ``.msg`` files are "
 "passed directly to language specific code generators, e.g. "
@@ -168,7 +166,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:63
-#: 89e17bbbf56346a09fd2b709cdd6517d
+#: 19380b78339d4283affe932cbb9419db
 msgid ""
 "Separately, the ``.msg`` files are used to generate type support code for"
 " each type. In this context, type support means: meta data or functions "
@@ -180,12 +178,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:69
-#: 01d1db1fefd64d63a124e90e1bfb8f76
+#: dc4bf1d3264545449d26d8ebdce94b72
 msgid "Static Type Support"
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:71
-#: cf77ca64ceb341a08b600ef917d73341
+#: 98fee14a8da44b9e9744e78e143c9586
 msgid ""
 "When the type support references code to do particular functions for a "
 "specific message type, that code sometimes needs to do middleware "
@@ -200,12 +198,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:77
-#: d834eae8f410475ba71d57dc969fa034
+#: 73849809d29140b39c0bd268ff552754
 msgid "Static Type Support with DDS"
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:79
-#: 5fcae13c857d413e8d36cb0b619222c5
+#: 39cf30cfd57d433eb41389501212e3f0
 msgid ""
 "For middleware vendors based on DDS, and specifically those which "
 "generate code based on the OMG IDL files (``.idl`` files), the user "
@@ -220,7 +218,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:83
-#: 5e5fcb581f41489e9ee14b9aa7cb7e39
+#: 13e6bc85340a422099c07df7f431f5b7
 msgid ""
 "For example, consider the Fast DDS implementation, which has a package "
 "called ``rosidl_typesupport_fastrtps_cpp``. This package is responsible "
@@ -231,12 +229,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:88
-#: 17c076fcb0a4417082e70b0b2212317e
+#: b7aad23ab8994be1b628ec179edc04f3
 msgid "Dynamic Type Support"
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:90
-#: 370432a77276456299e88e09259124de
+#: 23a830d51e0541f6a7f6d9a98f9426a7
 msgid ""
 "Another way to implement type support is to have generic functions for "
 "things like publishing to a topic, rather than generating a version of "
@@ -252,19 +250,19 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:98
-#: eb5002d85ce8455ea799eb1c21688818
+#: a679502703a947b8a39a5ef7c4a1e1b7
 msgid "ros2 idl dynamic type support stack"
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:98
-#: f8503201e0b84fbca183797502957a51
+#: 9a1cc4af0c8e4953b994395c2d8f17da
 msgid ""
 "Figure: flow chart of \"dynamic\" type support generation, from "
 "``rosidl`` files to user facing code."
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:100
-#: 2d4874fdef65465bbdb9c4b93fca49e4
+#: 3d6790f4121b4be98854cf35fe5c65e2
 msgid ""
 "The above diagram shows the flow from user defined ``rosidl`` files to "
 "generated user facing code. It is very similar to the diagram for static "
@@ -274,7 +272,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:104
-#: a0278573379043b89decc4656b144a53
+#: aeb431dcc48f4695b1724db7e5e8b436
 msgid ""
 "This code is also middleware agnostic, because it only contains meta "
 "information about the messages. The function to actually do the work, "
@@ -291,7 +289,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:110
-#: 561a6a751b6d49b5997d8d87ae91eb0e
+#: d92735a62a14443dbae015d77d5007b5
 msgid ""
 "This approach has the advantage that all generated code is middleware "
 "agnostic, which means it can be reused for different middleware "
@@ -300,7 +298,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:113
-#: 2354239f9a964c5a9aa509c051f66447
+#: 18d625ad6fc04e509dc98c9361c294b7
 msgid ""
 "However, dynamic type support requires that the underlying middleware "
 "support a similar form of dynamic type support. In the case of DDS the "
@@ -315,12 +313,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:120
-#: d3c986b0848545e8bd27177d267f9ca4
+#: 6a2d29d5ceda4b4d8b1d705bc6f55a0a
 msgid "The ``rcl`` repository"
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:122
-#: e1275fe8433b4db4b2d779584ffa00c2
+#: 76a4ef04f30a4a9ca37724756d2fd7f0
 msgid ""
 "The ROS Client Library interface (``rcl`` |API|) can be used by |client "
 "libraries| (e.g. ``rclc``, ``rclcpp``, ``rclpy``, etc.) in order to avoid"
@@ -337,7 +335,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:129
-#: fe7cb7e56c994ea5a3ad9107306202e0
+#: 3da85a651e72488e8779a62fd60da605
 msgid ""
 "The ``rcl`` |API| is located in the `ros2/rcl "
 "<https://github.com/ros2/rcl>`_ repository on |GitHub|_ and contains the "
@@ -348,19 +346,19 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:133
-#: c182c4ad41f84531ba12f69e35c85b9c
+#: 19ec48450323412298534f7b2a54a040
 msgid ""
 "For a complete definition of the ``rcl`` |API|, see `the rcl docs "
-"<http://docs.ros.org/en/rolling/p/rcl/>`_."
+"<http://docs.ros.org/en/{DISTRO}/p/rcl/>`_."
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:136
-#: b118a85267694649b36c51323e60cd2a
+#: a469b3cf65274d66be9bb0e6e0287124
 msgid "The ``rmw`` repository"
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:138
-#: 1e56c5ab535343b6a9192b8d1a4e79e6
+#: 771725a11fe54d55a55b780923fded08
 msgid ""
 "The ROS middleware interface (``rmw`` |API|) is the minimal set of "
 "primitive middleware capabilities needed to build ROS on top. Providers "
@@ -370,7 +368,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:142
-#: e1fabc4610e9486ba5a53852a6d3f068
+#: 7f34b17951d14cf8bfa99caf7154add2
 msgid ""
 "The ``rmw`` |API| is located in the `ros2/rmw "
 "<https://github.com/ros2/rmw>`_ repository. The ``rmw`` |package| "
@@ -380,19 +378,19 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:145
-#: 2f28a1d95a104391bb369896870eda53
+#: fcec4fb916cf401ea5192470bd8bd892
 msgid ""
 "For a definition of the ``rmw`` |API|, see `the rmw docs "
-"<http://docs.ros.org/en/rolling/p/rmw/>`_."
+"<http://docs.ros.org/en/{DISTRO}/p/rmw/>`_."
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:149
-#: 3abdcd4b5d404355910d70f6e3a4a69a
+#: 6fc0c2cde4d74a5abec33835567cb376
 msgid "The ``rosidl`` repository"
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:151
-#: 416900ba53664b39b1d34d61e502a1d9
+#: 72765fe0048440618f00107bec3977b4
 msgid ""
 "The ``rosidl`` |API| consists of a few message related static functions "
 "and types along with a definition of what code should be generated by "
@@ -406,14 +404,14 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:156
-#: 5b57f10acf5c4c0b9dbad7861df27094
+#: 8c12983a55414a1ba6d430fa77e82a93
 msgid ""
 "There are several repositories that play a role in the ``rosidl`` |API| "
 "and implementation."
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:158
-#: 8a01e7a734034821a099e445d33522de
+#: 691763cc51624bdea539e8b23c7cdafd
 msgid ""
 "The ``rosidl`` repository, located on |GitHub|_ at `ros2/rosidl "
 "<https://github.com/ros2/rosidl>`_, defines the message IDL syntax, i.e. "
@@ -425,14 +423,14 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:161
-#: a92cc18a23af4f9099c39da25d0473fc
+#: 188d440ee0f445e7a410e7ff5b7aa814
 msgid ""
 "``rosidl_cmake``: provides CMake functions and modules for generating "
 "code from ``rosidl`` files, e.g. ``.msg`` files, ``.srv`` files, etc."
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:162
-#: f7a83248f96542bdbb0aed37c0e05ee2
+#: 7eb77ab54d7b48adba022cf949b0b679
 msgid ""
 "``rosidl_default_generators``: defines the list of default generators "
 "which ensures that they are installed as dependencies, but other injected"
@@ -440,33 +438,33 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:163
-#: 7aee1d57986945ba910a988086073311
+#: 5b18445954af4b37a4fa8c5a0e364c38
 msgid ""
 "``rosidl_generator_c``: provides tools to generate C header files "
 "(``.h``) for ``rosidl`` files."
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:164
-#: 96447284f4cf4f179875d5bddf7e74f1
+#: 747c2af45c6c4a5ebbb49943c5c8b2a7
 msgid ""
 "``rosidl_generator_cpp``: provides tools to generate C++ header files "
 "(``.hpp``) for ``rosidl`` files."
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:165
-#: f8aec32027fd46ad8ef4880fe00ce208
+#: 652af734d50f4dc5b96ead0a196c8bab
 msgid ""
 "``rosidl_generator_py``: provides tools to generate Python modules for "
 "``rosidl`` files."
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:166
-#: 9d3ea81c89e9417098edc26efa3c7858
+#: 82d77be583274726b663c581962a41f4
 msgid "``rosidl_parser``: provides Python |API| for parsing ``rosidl`` files."
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:168
-#: 23f78b970d7445eebe2ed201f653049a
+#: be718259dc374fd8b12cd921669ffb09
 msgid ""
 "Generators for other languages, e.g. ``rosidl_generator_java``, are "
 "hosted externally (in different repositories) but would use the same "
@@ -475,7 +473,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:170
-#: aefe84d2b10d491992ea17264f3a46eb
+#: c252c689819545968e4aa98b032e49c8
 msgid ""
 "In addition to the aforementioned |packages| for parsing and generating "
 "headers for the ``rosidl`` files, the ``rosidl`` repository also contains"
@@ -494,21 +492,21 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:176
-#: 29aa45a5b07d4218882b8688f36582ba
+#: 62279ca26e6d4371862396615c428d19
 msgid ""
 "``rosidl_typesupport_introspection_c``: provides tools for generating C "
 "code for supporting ``rosidl`` message data types."
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:177
-#: b95adb08b9ba415c99fa501ee85105c6
+#: 2ce8f4c63fcb4bd28a4eef254aac647f
 msgid ""
 "``rosidl_typesupport_introspection_cpp``: provides tools for generating "
 "C++ code for supporting ``rosidl`` message data types."
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:179
-#: 5aecf1ade2ef4fe796aa167a7b9f6b7e
+#: e1adfb47bae047d48138396a04853e38
 msgid ""
 "In the case where type support is to be generated at compile time instead"
 " of being generated programmatically, a package specific to the rmw "
@@ -520,19 +518,19 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:183
-#: 8bf264ae100e4968aaab7741d6e7505c
+#: f5a35e9d7aae46eb8fb995d73a0c393d
 msgid ""
 "For more information on what exactly is in the ``rosidl`` |API| (static "
 "and generated) see this page:"
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:186
-#: 63f06600178148d091053bcd445d45fc
+#: 8ce486dc779d4d908f7057724db06206
 msgid "The ``rcutils`` repository"
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:188
-#: 0b578d3e6b514a98be2f20e5d63b2757
+#: 804ec1f1f7984107b985a7b3357f112b
 msgid ""
 "ROS 2 C Utilities (``rcutils``) is a C |API| composed of macros, "
 "functions, and data structures used throughout the ROS 2 codebase. These "
@@ -542,7 +540,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:191
-#: 2f0edec18ce14a678c266f94562b248e
+#: 80a0e22682cd446f9c669904a8b86b6c
 msgid ""
 "The ``rcutils`` |API| and implementation are located in the `ros2/rcutils"
 " <https://github.com/ros2/rcutils>`_ repository on |GitHub|_ which "
@@ -550,9 +548,27 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Advanced/About-Internal-Interfaces.rst:193
-#: 1efc040df18547529fe715a4671381ca
+#: 824d7464db8e43c38f184cde99265ac7
 msgid ""
 "For a complete definition of the ``rcutils`` |API|, see `the rcutils docs"
-" <https://docs.ros.org/en/rolling/p/rcutils/>`_."
+" <https://docs.ros.org/en/{DISTRO}/p/rcutils/>`_."
 msgstr ""
+
+#~ msgid ""
+#~ "For a complete definition of the "
+#~ "``rcl`` |API|, see `the rcl docs "
+#~ "<http://docs.ros.org/en/rolling/p/rcl/>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "For a definition of the ``rmw`` "
+#~ "|API|, see `the rmw docs "
+#~ "<http://docs.ros.org/en/rolling/p/rmw/>`_."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "For a complete definition of the "
+#~ "``rcutils`` |API|, see `the rcutils docs"
+#~ " <https://docs.ros.org/en/rolling/p/rcutils/>`_."
+#~ msgstr ""
 

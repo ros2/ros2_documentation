@@ -1,57 +1,55 @@
-# SOME DESCRIPTIVE TITLE.
+# Archivo de traducción al español para la documentación de ROS 2.
 # Copyright (C) 2023, Open Robotics
 # This file is distributed under the same license as the ROS 2 documentation
 # package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+# Cristian Chitiva <cychitivav@unal.edu.co>, 2023.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: ROS 2 documentation \n"
+"Project-Id-Version: ROS 2 documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-19 11:55+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: es\n"
 "Language-Team: es <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "Generated-By: Babel 2.8.0\n"
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:6
-#: c4987f05b57a41889511e2f24bfe79a5
+#: b903f91dc4c14fbf9d3871c3afffa704
 msgid "Creating a content filtering subscription"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:8
-#: 506fe118b4d54d71a0cd021f4fe1255b
+#: d0d9d21bdf6d4370a6b8a15f59ede0e0
 msgid "**Goal:** Create a content filtering subscription."
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:10
-#: 96dc847fcf0e403483968b1c52e05ab4
+#: a2aa7cebd7154cccac855db765a1c476
 msgid "**Tutorial level:** Advanced"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:12
-#: e2ba38f3df9747b98d600c4f8dd80370
+#: e719e117b07341d6b9a7cedb58fc16cb
 msgid "**Time:** 15 minutes"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:16
-#: 7d136ced05fa497da9f2cb1b051a92a3
+#: 15c61435a5984dec8bb030fa6d47a41b
 msgid "Table of Contents"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:19
-#: a58d1cde526e4fba9ccaedba9e8877df
+#: c7a3cdcf95a6408f97d8bdc868609363
 msgid "Overview"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:21
-#: f20a2a5bb9e1466cbb8ca1bf3209cf5d
+#: 21c567a47a124e0582f3d075ead3e579
 msgid ""
 "ROS 2 applications typically consist of topics to transmit data from "
 "publishers to subscriptions. Basically, subscriptions receive all "
@@ -62,55 +60,55 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:26
-#: 37ecff9a190b4bdfae1f612f575c1a6e
+#: d21e51c088214aa1a857851c6ff97b2f
 msgid ""
 "In this demo, we'll be highlighting how to create a content filtering "
 "subscription and how they work."
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:29
-#: c623db42c52546858b9532f8addade3b
+#: 2ff0d7bc616c4f7398b253f8f4f84c8c
 msgid "RMW Support"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:31
-#: e62a29cc21dc4e30b37a5859c15b9dac
+#: 457ca8d538d74248af0b7b746a959e3d
 msgid "Content filtering subscriptions require RMW implementation support."
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:33
-#: 0611041cfdde43bf980ee10ddd701fb2
+#: 68a85cfa5f0e4830ae851429ce0691cc
 msgid "Content-Filtering-Subscription Support Status"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:36
-#: ca04540b3fae4caba10bf879bd2519cc
+#: 15bd833ae5bb4b15b0dc107c408faceb
 msgid "rmw_fastrtps"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:37
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:39
-#: 09224a4f1c484502973d4f225fcfb401 69b4264c45b54cbca91a7361d2c8b7b5
+#: 206ca93152724f16bf1e7dba077a940a eaaaa2145027438ab792aac3399044b3
 msgid "supported"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:38
-#: 46f977490a47448e83f2375bb321e618
+#: 3b2c5cd74e0840fe8e926372cd10bedf
 msgid "rmw_connextdds"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:40
-#: e3db766c75dc4bbbbe7956165da24d7e
+#: 2a407bb7a443481e8f6cb43b87810c69
 msgid "rmw_cyclonedds"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:41
-#: b6950b5e649b49c3bb299fb618ddf946
+#: c7807dd333594151996fc8ce92fb17b6
 msgid "not supported"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:43
-#: e180d0c27ed44f5e8809b01f2a869f40
+#: 2f3edab583674ae4bd7ddd988e6a79e1
 msgid ""
 "Currently all RMW implementations that support content filtering "
 "subscriptions are `DDS <https://www.omg.org/omg-dds-portal/>`__ based. "
@@ -121,32 +119,32 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:47
-#: dcd06633d7b8445da5117193fc99a9e3
+#: 4f17e478588b4a97a779c70f45ae831e
 msgid "Installing the demo"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:49
-#: bd47864fed844af7bcf159ac334d3a63
+#: 77e76532f31c4f93add7a13974a782c6
 msgid ""
 "See the :doc:`installation instructions <../../Installation>` for details"
 " on installing ROS 2."
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:51
-#: 261f1f20a0f544febefa20da8851f735
+#: e37b52cbd0ac40a6821a3c83e1b20090
 msgid ""
-"If you've installed ROS 2 from packages, ensure that you have ``ros-"
-"rolling-demo-nodes-cpp`` installed. If you downloaded the archive or "
-"built ROS 2 from source, it will already be part of the installation."
+"If you've installed ROS 2 from packages, ensure that you have "
+"``ros-{DISTRO}-demo-nodes-cpp`` installed. If you downloaded the archive "
+"or built ROS 2 from source, it will already be part of the installation."
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:55
-#: 27a8a98ecf9e47aaa4da133188124b2e
+#: ac0acb492e2841399e629eb3a1580aae
 msgid "Temperature filtering demo"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:57
-#: 492a8dc2a2aa459eadd4842580f9cd8d
+#: 52cdc76cae9d4c4995fd3a766da3f28a
 msgid ""
 "This demo shows how a content filtering subscription can be used to only "
 "receive temperature values that are out of the acceptable temperature "
@@ -156,17 +154,17 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:60
-#: 5c01865f6ab1441d8faf32405177bf2b
+#: 98a99cefb5ef4428831f276cdc0f5b86
 msgid "ContentFilteringPublisher:"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:62
-#: 7520377fdd894590a83520e37fbfcba5
-msgid "https://github.com/ros2/demos/blob/rolling/demo_nodes_cpp/src/topics/content_filtering_publisher.cpp"
+#: 99d6163c8e3b4e4d9f7135541c9f44cd
+msgid "https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics/content_filtering_publisher.cpp"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:130
-#: d69536130b0246c2b2e7bb2417ef6c28
+#: 3ee9a98e69064b44875b1993efa8a2f6
 msgid ""
 "The content filter is defined in the subscription side, publishers don't "
 "need to be configured in any special way to allow content filtering. The "
@@ -176,7 +174,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:133
-#: a3af136b8d3c4f25ab001b2a375c0318
+#: de5a7343a56e409893c4ce6ab2e4a3c1
 msgid ""
 "We can run the demo by running the ``ros2 run demo_nodes_cpp "
 "content_filtering_publisher`` executable (don't forget to source the "
@@ -184,17 +182,17 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:169
-#: b2180158a1fe4f1e809cb00046f63eda
+#: b2916f2237454b71a039b8e3f91544d2
 msgid "ContentFilteringSubscriber:"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:171
-#: 2931a1f7fd074be8be160c3049298820
-msgid "https://github.com/ros2/demos/blob/rolling/demo_nodes_cpp/src/topics/content_filtering_subscriber.cpp"
+#: 7d0fe4b0f18b4cb1acccd553aba221a5
+msgid "https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics/content_filtering_subscriber.cpp"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:241
-#: 97fd069219f4416d913ba149a31bcac6
+#: 355d5355baf84673849cce144e248c89
 msgid ""
 "To enable content filtering, applications can set the filtering "
 "expression and the expression parameters in ``SubscriptionOptions``. The "
@@ -203,7 +201,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:244
-#: fc4c0324c42e40dbb82839d358ce315f
+#: e2ec589293864840be234bbf2ce4e614
 msgid ""
 "In this demo, the ``ContentFilteringSubscriber`` node creates a content "
 "filtering subscription that receives a message only if the temperature "
@@ -211,7 +209,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:246
-#: b4b15a993b79446f9ce80806c1b70fd4
+#: c348143375b9445ab5b6dc9481f5d6b7
 msgid ""
 "As commented before, content filtering subscription support depends on "
 "the RMW implementation. Applications can use the ``is_cft_enabled`` "
@@ -220,12 +218,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:249
-#: ffee4980ce834767bc9f97ad9ff7c9cd
+#: 1143a1d7d377463491b97da5ee9e0a3d
 msgid "To test content filtering subscription, let's run it:"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:275
-#: 7408043c0f33469e9f29f372be947150
+#: b92c3b1895b648b6b2c42d96e242424d
 msgid ""
 "You should see a message showing the content filtering options used and "
 "logs for each message received only if the temperature value is less than"
@@ -233,7 +231,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:277
-#: 12703fc9ea824cf9b2d3487ed6f652c5
+#: 09e5aafb84da4534a45d07e4d2fd0f7e
 msgid ""
 "If content filtering is not supported by the RMW implementation, the "
 "subscription will still be created without content filtering enabled. We "
@@ -242,7 +240,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:302
-#: 4706a7ef791345a2bd74d0d8013b264c
+#: 5324c0d5c5014506b7112b5cb3167cfd
 msgid ""
 "You can see the message ``Content filter is not enabled`` because "
 "underlying RMW implementation does not support the feature, but the demo "
@@ -251,20 +249,42 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:305
-#: ba1b5a7b34ae43f7834c3661d563b139
+#: cc5f5eb763ca4e1eaeea7d1ef5d6857a
 msgid "Related content"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:307
-#: 5a4df09a537a4d73996be389284373b0
+#: 63b8b61843964da3911fe39c9b0eabf8
 msgid ""
 "`content filtering examples "
-"<https://github.com/ros2/examples/blob/rolling/rclcpp/topics/minimal_subscriber/content_filtering.cpp>`__"
+"<https://github.com/ros2/examples/blob/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/content_filtering.cpp>`__"
 " that covers all interfaces for content filtering subscription."
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Content-Filtering-Subscription.rst:308
-#: 9eb34a71f0dc482db09ebff77b489592
+#: a80be4371c79464bae86056b39ca8e9a
 msgid "`content filtering design PR <https://github.com/ros2/design/pull/282>`__"
 msgstr ""
+
+#~ msgid ""
+#~ "If you've installed ROS 2 from "
+#~ "packages, ensure that you have ``ros-"
+#~ "rolling-demo-nodes-cpp`` installed. If"
+#~ " you downloaded the archive or built"
+#~ " ROS 2 from source, it will "
+#~ "already be part of the installation."
+#~ msgstr ""
+
+#~ msgid "https://github.com/ros2/demos/blob/rolling/demo_nodes_cpp/src/topics/content_filtering_publisher.cpp"
+#~ msgstr ""
+
+#~ msgid "https://github.com/ros2/demos/blob/rolling/demo_nodes_cpp/src/topics/content_filtering_subscriber.cpp"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`content filtering examples "
+#~ "<https://github.com/ros2/examples/blob/rolling/rclcpp/topics/minimal_subscriber/content_filtering.cpp>`__"
+#~ " that covers all interfaces for "
+#~ "content filtering subscription."
+#~ msgstr ""
 

@@ -1,32 +1,30 @@
-# SOME DESCRIPTIVE TITLE.
+# Archivo de traducción al español para la documentación de ROS 2.
 # Copyright (C) 2023, Open Robotics
 # This file is distributed under the same license as the ROS 2 documentation
 # package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+# Cristian Chitiva <cychitivav@unal.edu.co>, 2023.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: ROS 2 documentation \n"
+"Project-Id-Version: ROS 2 documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-19 11:55+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: es\n"
 "Language-Team: es <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "Generated-By: Babel 2.8.0\n"
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:6
-#: 638c07e8fb5047af8c79d1d55d09da66
+#: 543695145175472b8d7cbb57117aee47
 msgid "ROS 2 Package Maintainer Guide"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:8
-#: b06dfd65ddaf42a199f0c77b73732b90
+#: f5630860ae5f4c7e854ae79087f96325
 msgid ""
 "Each package in the ROS 2 core has one or more maintainers that are "
 "responsibile for the general health of the package. This guide gives some"
@@ -35,81 +33,81 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:12
-#: 2d131db857894fe1bf85a3e16078cca7
+#: 64941890c18542c5ab030dae0e66d452
 msgid "Table of Contents"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:15
-#: b173753ecf204b729ed4a4accda104aa
+#: 89156f9e28d3439583a4abaddd1d8a4b
 msgid "Reviews"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:17
-#: fe1435d16df3438cb62c2961bffc34fe
+#: 58b0f5e3bb444c61a20a925f6bfd374c
 msgid ""
 "All incoming code to ROS 2 core repositories must be reviewed. The review"
 " is looking for:"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:20
-#: c0cab57dca1f4dfbb8243cf80152e51c
+#: 5ab327eddf8445c7b8d679a51692e0b4
 msgid "Suitability in the package"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:21
-#: ca01187536fe49ac8364d9f51f18542c
+#: f6265b3088cb4ed5ae32c2ff866c143d
 msgid "Correct code"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:22
-#: 86314992187241d28afe0a486f90fc79
+#: b65c5b1beaeb4a738ba0133bfbd2b065
 msgid "Conforms to developer guidelines:"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:24
-#: ba5d94ddcc9241fd9a40e2ef5ad076b2
+#: 3392a8f850334cefa3a4ea63e1a5f10d
 msgid ":doc:`Developer Guide <../The-ROS2-Project/Contributing/Developer-Guide>`"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:25
-#: 5e88ec7817a44560bbedc08948eb6bcd
+#: 9b90d52cffce4ddb8f2cb932afaa2152
 msgid ""
 ":doc:`Code Style Guide <../The-ROS2-Project/Contributing/Code-Style-"
 "Language-Versions>`"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:27
-#: 3d3130f8135c49a2acb6c4646983de66
+#: bdcad78cb6974279baca3706c8ba2417
 msgid "Adds tests for the bug/feature"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:28
-#: a636708e848e436fa054b33c3a2d0c59
+#: a9f3f0ab91e541a985d1dceaddc51466
 msgid "Adds documentation for new features"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:29
-#: bf697cc6317543399ee958a0ff16f0cf
+#: e17fbadd752c469f940288c682f58e17
 msgid "Clean Continuous Integration run"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:30
-#: 505304802c894a48b477e07d81014eba
+#: e402ae6b3cc74073801125f421a03219
 msgid "Targets default branch (usually \"rolling\")"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:31
-#: a0cb39f4d3af44a0bf452122c6b5ee6e
+#: 9cd58b9433364b9db04e4201f271a61b
 msgid "Has at least one approval from a maintainer that is not the author"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:34
-#: 727dc3c9fccc44b8b07ef6a51469dac3
+#: dc403d7778e24a93a905c2eff09b0bc9
 msgid "Continuous Integration"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:36
-#: a8c45e32eefb42c4a732ae2c671789f1
+#: ef0899c64d884315a184f4d75260f140
 msgid ""
 "All incoming code to ROS 2 core repositories must be run through "
 "Continuous Integration. ROS 2 currently has two separate CI systems, and "
@@ -117,12 +115,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:40
-#: a6f40c5bba9d4462aceda2b7b37974bf
+#: 64138e38cd1d4ab58b0f7cc75a57ffc6
 msgid "PR builds (https://build.ros2.org/view/Rpr)"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:42
-#: 8129daf6851743798e59de2b38545ad6
+#: 7f57733cc0864430b57a735b2be0ad9b
 msgid ""
 "ROS 2 PR (Pull Request) builds run automatically every time a pull "
 "request is opened. These builds run a build and test of this package, and"
@@ -133,29 +131,29 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:48
-#: fb7ccb13ec06419fbd8482f0f1909b26
+#: 86dbeb9f4a814baca84c3650441b9dfd
 msgid ""
 "These builds do not work across multiple repositories (so won't work for "
 "adding or changing an API, etc)"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:49
-#: 27872acead3649a2b6072ab6f979487f
+#: 2c084a16a9574e4d9a74e5c7e746403e
 msgid "These tests only run on Linux (they won't run on macOS or Windows)"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:51
-#: 4620bd3d75eb4ec4b93606e740516bf5
+#: 7a6f079796744277bc9da4b8b4a467fc
 msgid "To address these two problems, there is also the CI builds."
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:54
-#: f0f0cb1bf47b432cb334ccd15444ad8f
+#: 4fc9da0bac1d4c4bb844ba322486d327
 msgid "CI builds (https://ci.ros2.org)"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:56
-#: 7dcc581d52d4422797b1e36c3d2206c8
+#: ac336860522e438ca6551c6f240978ed
 msgid ""
 "CI builds do not run automatically when a pull request is opened. One of "
 "the maintainers of the package must manually request that a CI build is "
@@ -163,7 +161,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:59
-#: bb7bbaffc16845198a7ce3dcbc95c13a
+#: 51be7e856731443ab9b83bdbb2c796ab
 msgid ""
 "By default, running a job in this way will build and run tests for all "
 "packages (> 300 currently) on all platforms (Linux, macOS, and Windows). "
@@ -180,37 +178,37 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:66
-#: eec158f933114bcca632800727940497
+#: ccab7d976d484c91b79cabcbef62af82
 msgid "Merging Pull Requests"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:68
-#: f83f008e85be403b80c596b0360cc761
+#: c9cca7e8df844672b7ab25322baabcd5
 msgid "A pull request can be merged if all of the following are true:"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:70
-#: e8796a835037450d9599e5b66578932a
+#: b12a7634b8d1475d9bc19a54821b9fe3
 msgid "The DCO bot reports a passing result"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:71
-#: 6f774f3598334d5c9d7ee7aaa0331bc6
+#: ca6e09f05b774e578dc27785738f4ff2
 msgid "The PR build reports a passing result"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:72
-#: 0668b015d2334188b6ee7b858db62877
+#: 8ec1f786cbb94ebb97c8f6c7ebc7b684
 msgid "The CI build reports a passing result on all platforms"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:73
-#: 6762ff5964474885a5e14f13cdfa7a5f
+#: 63e9fbc0b2f94752b7ef102d4135b3c7
 msgid "The code has been reviewed and approved by at least one maintainer"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:75
-#: 5c160e912fa24b909eb0e45ee73c02e0
+#: e0b76e635d1546248fae4eaa2bf67942
 msgid ""
 "After a PR is merged, it will automatically get built with the next "
 "`nightlies <https://ci.ros2.org/view/nightly>`__. It is highly "
@@ -219,12 +217,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:79
-#: a890f2e4c3e14e088a35588f16d43e4d
+#: a215c837b9164b4895982d7e62c0035b
 msgid "Keeping CI green"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:81
-#: e85fdcf55f294732b920b09f550d50d9
+#: dcb3fa7ff8624f21b97c6a01b4d0855c
 msgid ""
 "The nightly jobs that run tests are typically much more comprehensive "
 "than what is done for individual pull requests. For this reason, there "
@@ -234,39 +232,39 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:85
-#: 51ba33ada73b462b95d09544a0a67671
+#: fbf0a738d5e64505a3772ed5fe944e3f
 msgid "https://ci.ros2.org/view/nightly"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:86
-#: 32b5db20a9a7484d8347dcefe6c47e38
+#: 6d42fea5654c47518e0c8b0cf791749c
 msgid "https://ci.ros2.org/view/packaging"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:87
-#: 5be4b0c82982445683f6233b0d2ab2d8
+#: f19fe27c7e5f4138b9c84a625217a254
 msgid "https://build.ros2.org/view/Rci"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:88
-#: 99f2255c47c84c3fbfd3bfe7d7664cce
+#: 7886ea8a9ecf4f31b38bd1978f7acf4f
 msgid "https://build.ros2.org/view/Rdev"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:90
-#: 44c5babcf6c94300bead44ec7b045faa
+#: 6a1573dcb3644921bfc1ee41a4250aca
 msgid ""
 "For any problems that are found, new issues and/or pull requests on the "
 "relevant repositories should be opened."
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:93
-#: 2dd020d3b123450f9afd4631cfb59cf7
+#: 1de703149be44381929a08705c653358
 msgid "Making releases"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:95
-#: c372c910c0e0440bbbb56291b538ba01
+#: 79a8cf6162c040069cdf3ed44623c3a1
 msgid ""
 "In order to get new features and bugfixes out to end users, the package "
 "maintainers must periodically do a release of the package (a release may "
@@ -274,38 +272,38 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:97
-#: c4c9e4b0893e4e36a5193db157095d21
+#: a5a947f0e2d548ecbfa7038864ee94cb
 msgid ""
 "As outlined in the :ref:`developer guide <semver>`, ROS 2 packages follow"
 " semver for version numbers."
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:99
-#: 9b9ff0449c674c37b37c399fdca4d94f
+#: 34efe6305ee544a0ae092e1d8c4f15a1
 msgid ""
 "A release in ROS terms consists of two distinct steps: making a source "
 "release, and then making a binary release."
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:102
-#: 9479d245865f4fd4988bf02046cdf4dc
+#: 564bbc2eee30419c89841ae6c1919819
 msgid "Source release"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:104
-#: 5f2302f400404ca9b4403cc4614f5db9
+#: 144b08d914b940c280365084ea6c90ee
 msgid "A source release creates a changelog and a tag in the relevant repository."
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:106
-#: e78ea77b907f4cca90bee56f20c00585
+#: 616d120789fa4c6bab96a0d37233eb75
 msgid ""
 "The process starts by generating or updating CHANGELOG.rst files with the"
 " following command:"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:112
-#: 33ac4c3aa47d4eb392407f1749154cdf
+#: d877441171144f9993567eabffd2ba57
 msgid ""
 "If one or more packages in the repository don't have contain "
 "CHANGELOG.rst, add the ``--all`` option to populate all of the previous "
@@ -318,14 +316,14 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:117
-#: 602bbb1314d24240853126b10b2c85b7
+#: 1a42e782b8d84ff2b971d5db03f62d18
 msgid ""
 "The next step is to bump the version in the package.xml and the changelog"
 " files with the following command:"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:123
-#: 9316e8c11ce94313810cb5452002c1c7
+#: b726a5c9db6744ad9cb60adccbcd1b7f
 msgid ""
 "This command will find all of the packages in the repository, check that "
 "the changelogs exist, check that there are no uncommitted local changes, "
@@ -339,17 +337,17 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:129
-#: 434a53f2559d4b18beec03240040b90b
+#: 7e0e12a4432c49beb08cf6be7ab334dc
 msgid "Assuming the above was successful, a source release has been made."
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:132
-#: 3539b8f7a4e54fffa0c7968071ae4d7f
+#: 50b0a4735af94f77a16e3df316fa20f7
 msgid "Binary release"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:134
-#: 770d1722d8084f04a1feccc6e4c4b86e
+#: f8bf392db2164b0b895b1b589f20eb59
 msgid ""
 "The next step is to use the ``bloom-release`` command to create a binary "
 "release. For full instructions on how to use bloom, please see "
@@ -357,14 +355,14 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:142
-#: 49b6c4a67347417980b0cbabc79f3b3e
+#: bf1b7f50fea14c7b93050d72e246fb41
 msgid ""
-"For instance, to release the ``rclcpp`` repository to the Rolling "
+"For instance, to release the ``rclcpp`` repository to the {DISTRO_TITLE} "
 "distribution, the command would be:"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:148
-#: 20fbf3f6d98c4c0da25831f384c816f3
+#: b002c526bca84800a00ebd61fc1d636e
 msgid ""
 "This command will fetch the release repository, make the necessary "
 "changes to make the release, push the changes to the release repository, "
@@ -372,12 +370,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:151
-#: e44b8c373227498f916268dce1f0593c
+#: e37afc3b8af84873bd15b880c0c4e3a2
 msgid "Backporting to released distributions"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:153
-#: c4ad3c5fe0de405eb71d1d475bbc5073
+#: edc2152bf77c4d0ebc499223d06e20a5
 msgid ""
 "All incoming changes should first land on the development branch. Once a "
 "change has been merged onto the development branch, it can be considered "
@@ -393,26 +391,26 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:161
-#: 9bb64df6a775482da47c0eaecc0320f3
+#: d8a7c1a0ed574a1c8f9552f6ee73b7b9
 msgid "Responding to issues"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:163
-#: b9b03fbddb1b4cd58996a7bebd102df2
+#: a6d4508c5a1d4d029c0a47d82fdf9462
 msgid ""
 "Package maintainers should also look at incoming issues on the repository"
 " and triage the problems that users are having."
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:165
-#: ce39558fa9b44d9b91d6080ea3dfef0f
+#: 9aabc40baf4f4e79a466f8c9b8cf1548
 msgid ""
 "For issues that look like questions, the issue should be closed and the "
 "user redirected to https://answers.ros.org."
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:167
-#: 9975dffd3fad4c51b0b278ef68a24af2
+#: a4399d9b1b43482ead988ad65b2da59e
 msgid ""
 "If an issue looks like a problem, but is not relevant to this particular "
 "repository, it should be moved to the appropriate repository with the "
@@ -420,7 +418,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:169
-#: c7d0e8a6b6f34d1f8d233994fa049c5d
+#: 84dd8120df62447dbaa938288b2c7ce6
 msgid ""
 "If the reporter has not provided enough information to determine the "
 "cause of the problem, more information should be requested from the "
@@ -428,40 +426,46 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:171
-#: eda4a530f6874ce9b79043be01a86a1c
+#: 1316852578dd4e38a1612bc75b53ac86
 msgid "If this is a new feature, tag the issue with \"help-wanted\"."
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:173
-#: 000cffca77f141e890869913ba50f467
+#: 8e936170ac5d4db181aa2f3094cb6c78
 msgid ""
 "Any remaining issues should be reproduced, and determined if they are "
 "truly a bug. If it is a bug, fixes are highly appreciated."
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:177
-#: 39fe43c9b53d45d99dad36a73b6957ce
+#: 3002ae9655f64705b37151a027edb5ab
 msgid "Getting help"
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:179
-#: f3c379606e254c2f978f68c90afbc918
+#: 56cc8b6b88ec40c486a9c10c2dec4224
 msgid ""
 "While doing maintenance on a package, questions about general procedures "
 "or individual issues may come up."
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:181
-#: 453f6ed8d2354863811be6ad58ac7869
+#: 7c6a5c966dd049798cbef01f829604b1
 msgid ""
 "For general questions, please follow the :doc:`contributing guidelines "
 "<../The-ROS2-Project/Contributing>`."
 msgstr ""
 
 #: ../../source/How-To-Guides/Package-maintainer-guide.rst:183
-#: 70b8b9f6591c4abda001d653a8a9b451
+#: ae3a540268b94bd089bcb70649c1366d
 msgid ""
 "For questions on individual issues, please tag the ROS 2 GitHub team "
 "(@ros/team), and someone on the team will take a look."
 msgstr ""
+
+#~ msgid ""
+#~ "For instance, to release the ``rclcpp``"
+#~ " repository to the Rolling distribution,"
+#~ " the command would be:"
+#~ msgstr ""
 

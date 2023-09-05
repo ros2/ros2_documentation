@@ -1,42 +1,40 @@
-# SOME DESCRIPTIVE TITLE.
+# Archivo de traducción al español para la documentación de ROS 2.
 # Copyright (C) 2023, Open Robotics
 # This file is distributed under the same license as the ROS 2 documentation
 # package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+# Cristian Chitiva <cychitivav@unal.edu.co>, 2023.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: ROS 2 documentation \n"
+"Project-Id-Version: ROS 2 documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-19 11:55+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: es\n"
 "Language-Team: es <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "Generated-By: Babel 2.8.0\n"
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:7
-#: 4cd7147beb284a97ba2ababcbcc270cf
+#: 909d574fb6304d26962205389f4162a2
 msgid "Parameters"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:10
-#: 321bad0b3ac641b68e0d04587c668763
+#: 67722d9a256047909a5abf00bb0d2fe3
 msgid "Table of Contents"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:13
-#: 75bb3c37346347538ca6f02fbd6ac2bf
+#: 8044712a08ad49f09d11899c7b265568
 msgid "Overview"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:15
-#: f73ab18c224e4edfba81b9d4e6f07e87
+#: 15dc47615a0d439b8c189f4e815c556b
 msgid ""
 "Parameters in ROS 2 are associated with individual nodes. Parameters are "
 "used to configure nodes at startup (and during runtime), without changing"
@@ -46,14 +44,14 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:19
-#: 8532bbb6e3e34bfcb9886bae30f82086
+#: 8f3dda38a697461586613cfbea01c6fa
 msgid ""
 "Parameters are addressed by node name, node namespace, parameter name, "
 "and parameter namespace. Providing a parameter namespace is optional."
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:22
-#: 8f6f061ae3dd41a98cd15e5bcffe23cc
+#: f6f337ac27ef4a049376886050252961
 msgid ""
 "Each parameter consists of a key, a value, and a descriptor. The key is a"
 " string and the value is one of the following types: ``bool``, ``int64``,"
@@ -64,7 +62,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:26
-#: ccdfb40371774c7b92aa978232aa36ff
+#: 480705fbd97142fe8d2b39d2f651bc94
 msgid ""
 "For an hands-on tutorial with ROS parameters see :doc:`../../Tutorials"
 "/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-"
@@ -72,17 +70,17 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:29
-#: d54eda3395d64233ae2f51b5f100f96c
+#: 2c5f78ff192e4e67893ae3a9f3d059ab
 msgid "Parameters background"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:32
-#: c2bade21460e4da3a07e887d27dfa201
+#: 0c2f28d9ae074c96aa7a298df718532b
 msgid "Declaring parameters"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:34
-#: 45043247920f42cb993be0ec967fcf60
+#: 784613f92cb64943be5a16a4fb969c4d
 msgid ""
 "By default, a node needs to *declare* all of the parameters that it will "
 "accept during its lifetime. This is so that the type and name of the "
@@ -95,7 +93,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:38
-#: 51fbc635dee845328de0d819c75d914e
+#: 5fd599c3eb1b441cae6760c54d03c35d
 msgid ""
 "For some types of nodes, not all of the parameters will be known ahead of"
 " time. In these cases, the node can be instantiated with "
@@ -105,12 +103,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:42
-#: 689d72da08164be388fd22ee94b05c86
+#: 923e5c796fdb451da00414ff22f3fc4e
 msgid "Parameter types"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:44
-#: 1963ce2a2bb84cb9a913be5e99290701
+#: 2f2d72faf19c4a96887ca83f3d9cb2c9
 msgid ""
 "Each parameter on a ROS 2 node has one of the pre-defined parameter types"
 " as mentioned in the Overview. By default, attempts to change the type of"
@@ -119,7 +117,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:48
-#: 8b2b66c6c2ec48bb822487d7521e39b4
+#: 5b5b40314a4e481198376fc4a8e34830
 msgid ""
 "If a parameter needs to be multiple different types, and the code using "
 "the parameter can handle it, this default behavior can be changed. When "
@@ -129,12 +127,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:52
-#: 55c9eb149cc24819baec8fc295a48b05
+#: fd9f1fedc732420c9577ccc4331f00e1
 msgid "Parameter callbacks"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:54
-#: c0bb9451a4374f3281390c25486037a9
+#: 621e494272344edc8ce155b692451cb3
 msgid ""
 "A ROS 2 node can register three different types of callbacks to be "
 "informed when changes are happening to parameters. All three of the "
@@ -142,7 +140,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:57
-#: 725b3615f8f242378cddf6d4a229039e
+#: c6649b2a8bfb4cfc8b85349e141e3cbc
 msgid ""
 "The first is known as a \"pre set parameter\" callback, and can be set by"
 " calling ``add_pre_set_parameters_callback`` from the node API. This "
@@ -154,7 +152,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:62
-#: 156fbf5d131b48e4a188072fc25608a2
+#: 277675486df649b2b1a0815484bc0454
 msgid ""
 "The second is known as a \"set parameter\" callback, and can be set by "
 "calling ``add_on_set_parameters_callback`` from the node API. The "
@@ -165,7 +163,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:67
-#: 85d97b39ed034c19adacea007e5c2bcb
+#: 760709269b7b44e7bf4c152a7d204805
 msgid ""
 "It is important that \"set parameter\" callbacks have no side-effects. "
 "Since multiple \"set parameter\" callbacks can be chained, there is no "
@@ -177,7 +175,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:72
-#: 2f8579d903314389a7064e178d396690
+#: 0d2ec66053c04e8cad6140fc9cf6f276
 msgid ""
 "The third type of callback is known as an \"post set parameter\" "
 "callback, and can be set by calling ``add_post_set_parameters_callback`` "
@@ -188,20 +186,20 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:76
-#: 707e9c2ff2f5423da69693461f0b3ec4
+#: edb8101f1b074bfdba36c59fad877c38
 msgid ""
 "The ROS 2 demos have an `example "
-"<https://github.com/ros2/demos/blob/rolling/demo_nodes_cpp/src/parameters/set_parameters_callback.cpp>`__"
+"<https://github.com/ros2/demos/blob/{DISTRO}/demo_nodes_cpp/src/parameters/set_parameters_callback.cpp>`__"
 " of all of these callbacks in use."
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:79
-#: 347792c569594c059ac286f7ad23fc2f
+#: d39977e148ac4e5e86ad1334c42a3049
 msgid "Interacting with parameters"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:81
-#: 164ec652b6fe417eaea979e9a55a9630
+#: 0e2d95fa3d404f37a2285acace071886
 msgid ""
 "ROS 2 nodes can perform parameter operations through node APIs as "
 "described in :doc:`../../Tutorials/Beginner-Client-Libraries/Using-"
@@ -213,7 +211,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:85
-#: c8946abbfabc4d158ce4dc724644f468
+#: 1d5ee334782542e69fa2f66df70d688c
 msgid ""
 "``/node_name/describe_parameters``: Uses a service type of "
 "``rcl_interfaces/srv/DescribeParameters``. Given a list of parameter "
@@ -221,7 +219,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:87
-#: fb2477ff27314ba3a6ad3e4fbccda73d
+#: d73a8121bc814add980e9733070f65b5
 msgid ""
 "``/node_name/get_parameter_types``: Uses a service type of "
 "``rcl_interfaces/srv/GetParameterTypes``. Given a list of parameter "
@@ -229,7 +227,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:89
-#: 42059768a08d448c8cf49a36e8fbe300
+#: 4b407ad15d8748088b0999d859598a73
 msgid ""
 "``/node_name/get_parameters``: Uses a service type of "
 "``rcl_interfaces/srv/GetParameters``. Given a list of parameter names, "
@@ -237,7 +235,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:91
-#: 30b5edcead1a488c92e2586bf95a48c0
+#: 7357287b9caf427eaf8bb55a6ed2f5f7
 msgid ""
 "``/node_name/list_parameters``: Uses a service type of "
 "``rcl_interfaces/srv/ListParameters``. Given an optional list of "
@@ -246,7 +244,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:93
-#: de23527b964d46b892f645baabc82e97
+#: 81441a538a734f2b96e42a97fa650240
 msgid ""
 "``/node_name/set_parameters``: Uses a service type of "
 "``rcl_interfaces/srv/SetParameters``. Given a list of parameter names and"
@@ -256,7 +254,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:95
-#: a97665e95608457e80e6fcafee3f3900
+#: 9b3c022922774162943875c6d22febc5
 msgid ""
 "``/node_name/set_parameters_atomically``: Uses a service type of "
 "``rcl_interfaces/srv/SetParametersAtomically``. Given a list of parameter"
@@ -266,12 +264,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:99
-#: 1023a517e3d94540a74d5859dc28e305
+#: 1839dd958ebb4698803424b41801edb9
 msgid "Setting initial parameter values when running a node"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:101
-#: e2bee60f541e424899882aa75d6b08ab
+#: 20dc1e05239e4434ad7898e17173b02f
 msgid ""
 "Initial parameter values can be set when running the node either through "
 "individual command-line arguments, or through YAML files. See "
@@ -280,12 +278,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:105
-#: 5d4095b3da4a4c37b7dcee07fca45a25
+#: 6953246ad6934e43b46c7680325fe20a
 msgid "Setting initial parameter values when launching nodes"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:107
-#: 91b6d548636545fc99b14cf709210b90
+#: 26b7ab7c152846d0be3955b470a6aa79
 msgid ""
 "Initial parameter values can also be set when running the node through "
 "the ROS 2 launch facility. See :doc:`this document "
@@ -294,12 +292,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:111
-#: 652e358058ef4225bf47f63ee86b9002
+#: 0b548398617d4437bdd3862c35459098
 msgid "Manipulating parameter values at runtime"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:113
-#: 47fe1dd3d5294ca7993eb1635e076752
+#: e82d6dda5c5048e18f2bd7d60c668a1b
 msgid ""
 "The ``ros2 param`` command is the general way to interact with parameters"
 " for nodes that are already running. ``ros2 param`` uses the parameter "
@@ -309,12 +307,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:118
-#: 88450a24f351408880af5de53a633061
+#: a0055fd93498492a9e1165f6af207561
 msgid "Migrating from ROS 1"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:120
-#: 0773a3f123924b658e12aec360507d8d
+#: 8eb265e2d1ce47dab80f3445443ae707
 msgid ""
 "The :doc:`Launch file migration guide <../../How-To-Guides/Launch-files-"
 "migration-guide>` explains how to migrate ``param`` and ``rosparam`` "
@@ -322,7 +320,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:122
-#: 334467695c8846a3be3ca88b3592ee63
+#: 612ce3420e7a4ad4b9438c90f5883075
 msgid ""
 "The :doc:`YAML parameter file migration guide <../../How-To-Guides"
 "/Parameters-YAML-files-migration-guide>` explains how to migrate "
@@ -330,7 +328,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:124
-#: 5310c6401e664646acd1955bd1aec987
+#: 6ddbaa2a11f94340ba0985ff4e6f0b5d
 msgid ""
 "In ROS 1, the ``roscore`` acted like a global parameter blackboard where "
 "all nodes could get and set parameters. Since there is no central "
@@ -338,14 +336,47 @@ msgid ""
 "recommended approach in ROS 2 is to use per-node parameters that are "
 "closely tied to the nodes that use them. If a global blackboard is still "
 "needed, it is possible to create a dedicated node for this purpose. ROS 2"
-" ships with one in the ``ros-rolling-demo-nodes-cpp`` package called "
+" ships with one in the ``ros-{DISTRO}-demo-nodes-cpp`` package called "
 "``parameter_blackboard``; it can be run with:"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Parameters.rst:134
-#: 222d00c399eb4d03ac968ce856de3459
+#: eeaba46feb5d4b3ca829e886b4dfa142
 msgid ""
 "The code for the ``parameter_blackboard`` is `here "
-"<https://github.com/ros2/demos/blob/rolling/demo_nodes_cpp/src/parameters/parameter_blackboard.cpp>`__."
+"<https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/parameters/parameter_blackboard.cpp>`__."
 msgstr ""
+
+#~ msgid ""
+#~ "The ROS 2 demos have an `example"
+#~ " "
+#~ "<https://github.com/ros2/demos/blob/rolling/demo_nodes_cpp/src/parameters/set_parameters_callback.cpp>`__"
+#~ " of all of these callbacks in "
+#~ "use."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In ROS 1, the ``roscore`` acted "
+#~ "like a global parameter blackboard where"
+#~ " all nodes could get and set "
+#~ "parameters. Since there is no central"
+#~ " ``roscore`` in ROS 2, that "
+#~ "functionality no longer exists. The "
+#~ "recommended approach in ROS 2 is "
+#~ "to use per-node parameters that "
+#~ "are closely tied to the nodes that"
+#~ " use them. If a global blackboard "
+#~ "is still needed, it is possible to"
+#~ " create a dedicated node for this "
+#~ "purpose. ROS 2 ships with one in"
+#~ " the ``ros-rolling-demo-nodes-cpp``"
+#~ " package called ``parameter_blackboard``; it "
+#~ "can be run with:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The code for the ``parameter_blackboard`` "
+#~ "is `here "
+#~ "<https://github.com/ros2/demos/blob/rolling/demo_nodes_cpp/src/parameters/parameter_blackboard.cpp>`__."
+#~ msgstr ""
 

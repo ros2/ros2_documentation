@@ -1,42 +1,40 @@
-# SOME DESCRIPTIVE TITLE.
+# Archivo de traducción al español para la documentación de ROS 2.
 # Copyright (C) 2023, Open Robotics
 # This file is distributed under the same license as the ROS 2 documentation
 # package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+# Cristian Chitiva <cychitivav@unal.edu.co>, 2023.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: ROS 2 documentation \n"
+"Project-Id-Version: ROS 2 documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-19 11:55+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: es\n"
 "Language-Team: es <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "Generated-By: Babel 2.8.0\n"
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:7
-#: 869adb88e60b42eb84838581a055014f
+#: c045d0cf6d9b4d35b6588334505d4f4e
 msgid "Migration guide from ROS 1"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:11
-#: 525d735d20754a41b1a5a4fd7ba7ecbc
+#: 6fe3fc9eaf6c457f9baf479e3d6a613f
 msgid "Table of Contents"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:13
-#: eebc52c6aa644dd9b49a9beb464b9d65
+#: 73573c9928d84dd99355bbb57bd68bdd
 msgid "There are two different kinds of package migrations:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:15
-#: cc1e0100d89d4f47ac628eff636f17d5
+#: 3361bcf2a65a4a14821e99586003112c
 msgid ""
 "Migrating the source code of an existing package from ROS 1 to ROS 2 with"
 " the intent that a significant part of the source code will stay the same"
@@ -47,7 +45,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:17
-#: d27e5e52a0be4322b5d5f23648dbfc3f
+#: 3a4a4e0f1a0641ce9fe005cb789512e4
 msgid ""
 "Implementing the same or similar functionality of a ROS 1 package for ROS"
 " 2 but with the assumption that the source code will be significantly "
@@ -58,7 +56,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:20
-#: c7fd398f34c4435db58d92c2b6baf537
+#: 483abc012e484e89aab4233c8dc7b96e
 msgid ""
 "This article focuses on the former case and describes the high-level "
 "steps to migrate a ROS 1 package to ROS 2. It does not aim to be a step-"
@@ -69,29 +67,29 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:25
-#: f2e6ef8e691846668dec1f64f508816b
+#: f06e23818fc2413ca9ab5197b4dfad31
 msgid "Prerequisites"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:27
-#: 37fed03f74b64bc4bdafeaba95da8fbe
+#: 1bd1862405054a42ab3c7d0fa50a19d3
 msgid ""
 "Before being able to migrate a ROS 1 package to ROS 2 all of its "
 "dependencies must be available in ROS 2."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:30
-#: 4b7435e38f76432591bd45882971b42c
+#: 60a16aca4e674dd5b9835c9815443a55
 msgid "Migration steps"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:37
-#: 050266b159cc49f3ae14f132566dd7d9
+#: 68ff606987124941919bc2e2d257a9ec
 msgid "Package manifests"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:39
-#: 93e94a7758614e7388919bcee656d7e6
+#: 5216bc33ede04535851f6b87c11ae302
 msgid ""
 "ROS 2 doesn't support format 1 of the package specification but only "
 "newer format versions (2 and higher). Therefore the ``package.xml`` file "
@@ -101,19 +99,19 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:43
-#: cd47b04647414e2484cde677cc304cb5
+#: 6be1ddd7638f4ba681a36be5450a5adc
 msgid ""
 "Some packages might have different names in ROS 2 so the dependencies "
 "might need to be updated accordingly."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:46
-#: e1061010c8514ef3a6aac252d5c76177
+#: f3fc971cd6f346f5ac9cd5202a33b55d
 msgid "Metapackages"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:48
-#: f6cc1a533dee406b89b956f5ebdab6c4
+#: 138c7069253a4c8ea709eef81f8ff3b4
 msgid ""
 "ROS 2 doesn't have a special package type for metapackages. Metapackages "
 "can still exist as regular packages that only contain runtime "
@@ -122,12 +120,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:53
-#: 4b621034b1e44fbba75c461ed7717ce0
+#: 800f01da7e7c45738303e12e47a1b457
 msgid "Message, service, and action definitions"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:55
-#: 0173c34df38b486dba67def49c2de4ad
+#: 913e4044109c4442ac38f7d1750a0ec4
 msgid ""
 "Message files must end in ``.msg`` and must be located in the subfolder "
 "``msg``. Service files must end in ``.srv`` and must be located in the "
@@ -136,7 +134,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:59
-#: 1be5c27dc80c41e086e7883a18c06f12
+#: 9aa968d55afd4ea7b39319504639ba30
 msgid ""
 "These files might need to be updated to comply with the `ROS Interface "
 "definition "
@@ -144,49 +142,49 @@ msgid ""
 "primitive types have been removed and the types ``duration`` and ``time``"
 " which were builtin types in ROS 1 have been replaced with normal message"
 " definitions and must be used from the `builtin_interfaces "
-"<https://github.com/ros2/rcl_interfaces/tree/rolling/builtin_interfaces>`__"
+"<https://github.com/ros2/rcl_interfaces/tree/{REPOS_FILE_BRANCH}/builtin_interfaces>`__"
 " package. Also some naming conventions are stricter than in ROS 1."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:63
-#: 714333e9ebff41789079907e2b7b31d7
+#: 3d2e9ff3b0524306a36edb17d3d8f9fe
 msgid "In your ``package.xml``:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:66
-#: 37b7db66ca8346718b1103af841d47c9
+#: dc26720934184653b4730dc9fb6cdc11
 msgid "Add ``<buildtool_depend>rosidl_default_generators</buildtool_depend>``."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:67
-#: 3d7b9c511a4e441b8475ee44c624da6a
+#: 5325479e39cc4b6ebe831b7565f91f49
 msgid "Add ``<exec_depend>rosidl_default_runtime</exec_depend>``."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:68
-#: 567529af570e4969be8321df3db6a132
+#: c6eb620c3186477f93e5f986cec63081
 msgid ""
 "For each dependent message package, add "
 "``<depend>message_package</depend>``."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:70
-#: a7dc3609d53a44e186029bad5319f643
+#: b60ea38e5be7488ea0afe40aa8f63d34
 msgid "In your ``CMakeLists.txt``:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:72
-#: 349b6cefe25b43b994209d36e0e5538f
+#: 10aeb93023e040a9804c403c969a19a1
 msgid "Start by enabling C++14"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:79
-#: 4b8ad4b481c44be4add148720b2e9476
+#: 7850fa7939d948a49317a3cee0baff91
 msgid "Add ``find_package(rosidl_default_generators REQUIRED)``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:80
-#: 77df80b591c042cbb5c503513abd843d
+#: 58c114e5dbbe4fddb97ff1cc819fd9a6
 msgid ""
 "For each dependent message package, add ``find_package(message_package "
 "REQUIRED)`` and replace the CMake function call to ``generate_messages`` "
@@ -194,19 +192,19 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:82
-#: 683d6813768e4d619a9e72a745a51779
+#: a275b28b1b3044b08c33f20f4090f258
 msgid ""
 "This will replace ``add_message_files`` and ``add_service_files`` listing"
 " of all the message and service files, which can be removed."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:85
-#: fb5eba01570240b591ed41855c6b871a
+#: 2d5bdf3e723048178f09f8ccd62bb578
 msgid "Build system"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:87
-#: f4618d1398364e4887b36066062ea14f
+#: ccd82f9856ee4d8cb5be9431505156f5
 msgid ""
 "The build system in ROS 2 is called `ament "
 "<https://design.ros2.org/articles/ament.html>`__ and the build tool is "
@@ -216,12 +214,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:92
-#: cfa73eaf70574f0a925df8bfa98d53c7
+#: 98e6e6755e4c4f77b5558eb8e28fa6d6
 msgid "Build tool"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:94
-#: f94a5fb71d554babb5eaacdf8d502d4a
+#: f843977b7eaa490e8dda493d0943f5f8
 msgid ""
 "Instead of using ``catkin_make``, ``catkin_make_isolated`` or ``catkin "
 "build`` ROS 2 uses the command line tool `colcon "
@@ -230,12 +228,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:97
-#: b95fbfbbce58417dba9adfbfc845c3a7
+#: 2851361d18fc4dbd93224be6505834d6
 msgid "Pure Python package"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:99
-#: bfab7de0ee734532b107af57cb1b7e07
+#: 54d87e579e9c4986bbd154ff1ceef8d1
 msgid ""
 "If the ROS 1 package uses CMake only to invoke the ``setup.py`` file and "
 "does not contain anything beside Python code (e.g. also no messages, "
@@ -244,22 +242,22 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:103
-#: 0afde7d850e246e2802ff7b880927369
+#: 67e02811498748ea9ff557a096210c68
 msgid "Update or add the build type in the ``package.xml`` file:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:112
-#: 509886f29e8e4539a94e89155cee0b23
+#: f1f4536662964d6b8f74a3626042b18f
 msgid "Remove the ``CMakeLists.txt`` file"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:115
-#: ecf140a07a724dcbbb39dbce6a73e259
+#: 0f62e938ed214c429701702222cd084f
 msgid "Update the ``setup.py`` file to be a standard Python setup script"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:117
-#: 5c5dd5894e8e48ac80b37d8881a487d5
+#: cb7503084f3347ccb0385f440e6c3c88
 msgid ""
 "ROS 2 supports Python 3 only. While each package can choose to also "
 "support Python 2 it must invoke executables with Python 3 if it uses any "
@@ -267,98 +265,98 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:121
-#: 887f095b84b4456886fafe2f815bd4b3
+#: b162330a6d1747d68a67f609091ba0fa
 msgid "Update the *CMakeLists.txt* to use *ament_cmake*"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:123
-#: 30df0849b18044cab20bf0c0a3089396
+#: 16c74a01436a4920ad21fe3f76210fc0
 msgid "Apply the following changes to use ``ament_cmake`` instead of ``catkin``:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:127
-#: 6aa93d810d5640bc96c305d51243a5e1
+#: 76b405b0b5544135be8f486c12176955
 msgid "Set the build type in the ``package.xml`` file export section:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:136
-#: 21ea69a1f4704cc795f4cc70a7cd9564
+#: 68cb40378c7145b9b0edeff87ea6a00b
 msgid ""
 "Replace the ``find_package`` invocation with ``catkin`` and the "
 "``COMPONENTS`` with:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:146
-#: 152a117e7a834137b8735e86712f7e6c
+#: c3e66eca93174e0380ada46cf0188124
 msgid "Move and update the ``catkin_package`` invocation with:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:150
-#: 06e4bc81cc3f47548e68c66e58ef5c4c
+#: fa9f3a27633a4b2f97fab296d6d2a4d8
 msgid ""
 "Invoke ``ament_package`` instead but **after** all targets have been "
 "registered."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:153
-#: e41c6d2157664e45bbb40f83b4a41840
+#: de933817923542958778cbdb4ffcd4c3
 msgid ""
 "The only valid argument for `ament_package "
-"<https://github.com/ament/ament_cmake/blob/rolling/ament_cmake_core/cmake/core/ament_package.cmake>`__"
+"<https://github.com/ament/ament_cmake/blob/{REPOS_FILE_BRANCH}/ament_cmake_core/cmake/core/ament_package.cmake>`__"
 " is ``CONFIG_EXTRAS``. All other arguments are covered by separate "
 "functions which all need to be invoked *before* ``ament_package``:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:156
-#: d4e300172a64401fbffe12dbb3384b28
+#: 7c7e1e9d46224368998af8659aff88a3
 msgid ""
 "Instead of passing ``CATKIN_DEPENDS ...`` call "
 "``ament_export_dependencies(...)`` before."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:157
-#: 0ffb81d922bc4a2ab4321dfa0f9b566c
+#: 61f80e1dfd374a6d85486f95babc61d7
 msgid ""
 "Instead of passing ``INCLUDE_DIRS ...`` call "
 "``ament_export_include_directories(...)`` before."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:158
-#: 474e548c76ed4b61a904f9ed8d6e78df
+#: 8407250836d8432b8ae91f8b218f6187
 msgid ""
 "Instead of passing ``LIBRARIES ...`` call ``ament_export_libraries(...)``"
 " before."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:161
-#: efd3bea72ca1480b960fd3b7ebb05afc
+#: 089da539011b4e31a54ddfca434b631c
 msgid ""
 "**TODO document ament_export_targets (``ament_export_interfaces`` in "
 "Eloquent and older)?**"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:164
-#: 9430e84ce74d4285b10721517e6b9d6c
+#: 7db9218cfd924ed995b361f9f9f36b2e
 msgid ""
 "Replace the invocation of ``add_message_files``, ``add_service_files`` "
 "and ``generate_messages`` with `rosidl_generate_interfaces "
-"<https://github.com/ros2/rosidl/blob/rolling/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake>`__."
+"<https://github.com/ros2/rosidl/blob/{REPOS_FILE_BRANCH}/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake>`__."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:168
-#: 48eda8487e2e4f0aa871fb77b5f458e3
+#: d50c9e5c7fd94ce0a657db86c0e7c52f
 msgid ""
 "The first argument is the ``target_name``. If you're building just one "
 "library it's ``${PROJECT_NAME}``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:172
-#: 17a07ac742e946e184d1394fd49b84e9
+#: eceb960665da4129ac09f8990b71366d
 msgid "Followed by the list of message filenames, relative to the package root."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:175
-#: 0f617ffd128d43c48ec114791f1db761
+#: faf9299da16a4fc981b83b368877fa8a
 msgid ""
 "If you will be using the list of filenames multiple times, it is "
 "recommended to compose a list of message files and pass the list to the "
@@ -366,103 +364,103 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:178
-#: 8bb6776d73424cb781f8440c85454c6a
+#: 7b7a18ac4b2942f7b5906f26ca29d04c
 msgid ""
 "The final multi-value-keyword argument fpr ``generate_messages`` is "
 "``DEPENDENCIES`` which requires the list of dependent message packages."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:188
-#: e6871f28641b4138ac162f4a3999ada5
+#: 6371f2b294314a259b58fad3ab704604
 msgid ""
 "Remove any occurrences of the *devel space*. Related CMake variables like"
 " ``CATKIN_DEVEL_PREFIX`` do not exist anymore."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:192
-#: ef555faae2eb4b7c97f916f94ea78c4c
+#: 021a79ff6c2248fdb7430869d622955b
 msgid ""
 "The ``CATKIN_DEPENDS`` and ``DEPENDS`` arguments are passed to the new "
 "function `ament_export_dependencies "
-"<https://github.com/ament/ament_cmake/blob/rolling/ament_cmake_export_dependencies/cmake/ament_export_dependencies.cmake>`__."
+"<https://github.com/ament/ament_cmake/blob/{REPOS_FILE_BRANCH}/ament_cmake_export_dependencies/cmake/ament_export_dependencies.cmake>`__."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:193
-#: 3b9d3324b5e748e6885f42f1cabf3a0d
+#: 342929fae42d447ca5de1deae3094557
 msgid "``CATKIN_GLOBAL_BIN_DESTINATION``: ``bin``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:194
-#: 9d418b29c838488aa14f4eb5dbcad332
+#: a71c55c1d22a47c586fe58e3cccc7e1b
 msgid "``CATKIN_GLOBAL_INCLUDE_DESTINATION``: ``include``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:195
-#: 83d3d7a1163a431d939941f9ba915a46
+#: dc7b1d72e43841ce8f0a830c40573f7f
 msgid "``CATKIN_GLOBAL_LIB_DESTINATION``: ``lib``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:196
-#: fd5d8480111645b194ab3e84ddbdd206
+#: 0a9d3107e50549589157436299b481c0
 msgid "``CATKIN_GLOBAL_LIBEXEC_DESTINATION``: ``lib``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:197
-#: 5ef19798b7424d4987d5c4d0bdf713a2
+#: 7d8a532acf6847d59843fb479270a935
 msgid "``CATKIN_GLOBAL_SHARE_DESTINATION``: ``share``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:198
-#: 61953c15b0074e0f94df4b45fa41948d
+#: db180e22477d47e5bb3c953349f3cdde
 msgid "``CATKIN_PACKAGE_BIN_DESTINATION``: ``lib/${PROJECT_NAME}``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:199
-#: c755610961c44c6ab07c7b0f7ee8891f
+#: 37769809e46a40bbaa04e765f6e1d23a
 msgid "``CATKIN_PACKAGE_INCLUDE_DESTINATION``: ``include/${PROJECT_NAME}``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:200
-#: 8a53d260de094e79a65733d8616eea23
+#: b9593b60cd9540d99d9379fff747612e
 msgid "``CATKIN_PACKAGE_LIB_DESTINATION``: ``lib``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:201
-#: ace8a48595d4445fbff97dc634cc1576
+#: 69c57aa4bfca4ed6981a090b7a3b207e
 msgid "``CATKIN_PACKAGE_SHARE_DESTINATION``: ``share/${PROJECT_NAME}``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:204
-#: 554fcc54592b4a28ab75ca48d13eb90f
+#: 2b6af159806341a7b12e745eb942fd6a
 msgid "Unit tests"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:206
-#: 7f94d01e677e4b2185ad3e5ab1424ea2
+#: 495ce159fb104fa0898ecaf026e82330
 msgid "If you are using gtest:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:208
-#: a53bbc372e164d23aed0854bad581a5a
+#: 6936c0f2e11d489ea173dfd70a0209f7
 msgid ""
 "Replace ``CATKIN_ENABLE_TESTING`` with ``BUILD_TESTING``. Replace "
 "``catkin_add_gtest`` with ``ament_add_gtest``."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:232
-#: a7484df12792442c8fe2d5900fb8ebc8
+#: a453b88b31fb49c9b323b55c6dcfe22c
 msgid ""
 "Add ``<test_depend>ament_cmake_gtest</test_depend>`` to your "
 "``package.xml``."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:240
-#: 47723b45599440d1acd617aebdc56c27
+#: c255247f6cf6446f9b818d40b0eefa29
 msgid "Linters"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:242
-#: 7e7723c163ce4b1cb5765b8d66fa02a0
+#: f1eaace82846404b80ed5ab4ea8b4354
 msgid ""
 "In ROS 2 we are working to maintain clean code using linters. The styles "
 "for different languages are defined in our `Developer Guide <Developer-"
@@ -470,7 +468,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:245
-#: 86c610964bce4ab494c3429e8746bc00
+#: d6e4a86734ea4b0bb787d76488e5b075
 msgid ""
 "If you are starting a project from scratch it is recommended to follow "
 "the style guide and turn on the automatic linter unit tests by adding "
@@ -479,19 +477,19 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:252
-#: 0f8e41080b2444b3a0b13963f2fe27ab
+#: 1a084bc002204e5caf023f006ed5c705
 msgid ""
 "You will also need to add the following dependencies to your "
 "``package.xml``:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:260
-#: 06e35930cd09495f8c3e9bf5176c97ec
+#: 4d8c1cf40311488bb1d942308fcd9846
 msgid "Continue to use ``catkin`` in CMake"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:262
-#: 561e5f6dc5ad4a6784fecad66b73997a
+#: 82331b005af74c5894feee0804a281d6
 msgid ""
 "ROS 2 uses ament as the build system but for backward compatibility ROS 2"
 " has a package called ``catkin`` which provides almost the same API as "
@@ -501,7 +499,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:265
-#: dd04323af5a74c349e3e5ec786c89554
+#: 3eda7502905d4e2a925cf289969e971d
 msgid ""
 "**NOTE: This has not been implemented yet and is only an idea at the "
 "moment. Due to the number of changes related to dependencies it has not "
@@ -510,17 +508,17 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:269
-#: 9397aa650ed14d84baba4870151bc9a7
+#: d7eb0844a8be462180789529fe7b6134
 msgid "Update source code"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:272
-#: 60a2bbec631545279ed039c3ba4ff597
+#: 89480efbe6a94775bed37c05f58c0be9
 msgid "Messages, services, and actions"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:274
-#: b2d2d105b26e4512bfcca7c42369b114
+#: e4b77f0f33e74900aff5168e1b5a0118
 msgid ""
 "The namespace of ROS 2 messages, services, and actions use a subnamespace"
 " (``msg``, ``srv``, or ``action``, respectively) after the package name. "
@@ -530,7 +528,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:278
-#: 32333e2c9f424f06a9bd8ced404a1d17
+#: ff753d91ed184891940d7c4eade3469e
 msgid ""
 "Shared pointer types are provided as typedefs within the message structs:"
 " ``my_interfaces::msg::MyMessage::SharedPtr`` as well as "
@@ -538,7 +536,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:280
-#: d4d553fc97154497af2e1d7a1a2b5876
+#: 62e0138a39a44ed896ad5c3ae79a66d4
 msgid ""
 "For more details please see the article about the `generated C++ "
 "interfaces "
@@ -546,114 +544,114 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:282
-#: a262b69fbe714aa394de153f4421fe4c
+#: ce9fbc10d8f042ab87fe6272f2ef6a4d
 msgid "The migration requires includes to change by:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:285
-#: 079a2284056743f08e5589d8ce08dfc9
+#: 79b2c08963bb45bca6f980d4f851f7ef
 msgid ""
 "inserting the subfolder ``msg`` between the package name and message "
 "datatype"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:286
-#: 8f25f043ef5344ee9dff6056aa405045
+#: 226b83ced9c046dfa587777d46c32c22
 msgid "changing the included filename from CamelCase to underscore separation"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:287
-#: 0634686cfb8a424fa70bfb8f6a9fbc1f
+#: 29ecc9fc42954ede9255ea30d6c9bc4a
 msgid "changing from ``*.h`` to ``*.hpp``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:298
-#: 0ef698b7bffa46659f86afc190dcba16
+#: 561c4dc8125e4222b5d02ff80cfd2f8a
 msgid ""
 "The migration requires code to insert the ``msg`` namespace into all "
 "instances."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:301
-#: d8496f9873604e46afee26feaabc0c2c
+#: 0a91e1d2347d4d12b51b9b5f73687f9b
 msgid "Use of service objects"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:303
-#: dfdcf493c33d4bc58818a87453e52676
+#: 0867fca606aa460cb18aeffd195ef612
 msgid ""
 "Service callbacks in ROS 2 do not have boolean return values. Instead of "
 "returning false on failures, throwing exceptions is recommended."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:324
-#: e0282aba70d84870be6d4e419311dd0c
+#: b4ba868852a245b5a79f3ae60445a388
 msgid "Usages of ros::Time"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:326
-#: c0fba79765954c578c73b8601be0125b
+#: f0d38ee97b704e8a9f404a672819719f
 msgid "For usages of ``ros::Time``:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:328
-#: 732f60e6601c4db8b75eeeb50909d26a
+#: 149195c7758c4f67b5d60e6444dc8927
 msgid "Replace all instances of ``ros::Time`` with ``rclcpp::Time``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:330
-#: a508a43e2d7e4d1f85b1d4412f807619
+#: 389c28cee62e410bb3bffa3e03042114
 msgid "If your messages or code makes use of std_msgs::Time:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:332
-#: 144340c55a084ca4a0d931e84d924824
+#: 393fac90b99c4bf9b7028bfa44cf2487
 msgid "Convert all instances of std_msgs::Time to builtin_interfaces::msg::Time"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:334
-#: 4f19e224280342edad53a689ae723289
+#: a03a4d4e4d1a410fb7b1a00097c9c0a8
 msgid ""
 "Convert all ``#include \"std_msgs/time.h`` to ``#include "
 "\"builtin_interfaces/msg/time.hpp\"``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:336
-#: f755ca6e17f946599c7d9086472d1cb0
+#: 08006fc2860d44aabc85e413727a8787
 msgid ""
 "Convert all instances using the std_msgs::Time field ``nsec`` to the "
 "builtin_interfaces::msg::Time field ``nanosec``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:339
-#: f3f866eb8ab246148cd401c15011d0e5
+#: ceee0b0662184263ab7ec5b1de816a40
 msgid "Usages of ros::Rate"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:341
-#: c24cf3db0e7345f99b24a63a61f9ff78
+#: ea2a1e03849743ff9fb14542cb7d8e32
 msgid ""
 "There is an equivalent type ``rclcpp::Rate`` object which is basically a "
 "drop in replacement for ``ros::Rate``."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:344
-#: beb42d1daf4e4a619fe198532adca618
+#: dec5ade5c8e140939becb6edf7f3b061
 msgid "ROS client library"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:352
-#: fd872c9397964f2883df70f266fdb3cd
+#: 45b5232a822e43288f766f863809b60f
 msgid "**NOTE: Others to be written**"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:355
-#: 88e985b97249466293f6f6e3b2053df5
+#: b74fdafea748458cad5a99b963d0ae64
 msgid "Boost"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:357
-#: 79dd6862d6f54322bcdc84bd1a8b970e
+#: d0c77236a34c412880675c4429a8c503
 msgid ""
 "Much of the functionality previously provided by Boost has been "
 "integrated into the C++ standard library. As such we would like to take "
@@ -662,34 +660,34 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:361
-#: d7ca8f7471d9497aa7e97920f8233edd
+#: fcecb5672f5f432db3d3491af644e69d
 msgid "Shared Pointers"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:363
-#: bde842ca33cd4bc09e479662060217c3
+#: 66f47c10a23c4d62a4ddc97b685cf91e
 msgid "To switch shared pointers from boost to standard C++ replace instances of:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:366
-#: dd292c54c4964253a7da07c2732745e1
+#: 1d46cc3a4c1443d78fc37f4a2968569b
 msgid "``#include <boost/shared_ptr.hpp>`` with ``#include <memory>``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:367
-#: 9dedc4d20c6e4ead982079ef5513f31e
+#: c1b5a70f39484bd4972f3391448ae430
 msgid "``boost::shared_ptr`` with ``std::shared_ptr``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:369
-#: ea02404a676c45708f19a4437d0284c4
+#: 8a37074d4bf54e9a8e0a8460793f82c9
 msgid ""
 "There may also be variants such as ``weak_ptr`` which you want to convert"
 " as well."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:371
-#: 2fee61b716ba409eb301ce52f505aeb5
+#: f92a489183dc473f99c3075039a6d2bf
 msgid ""
 "Also it is recommended practice to use ``using`` instead of ``typedef``. "
 "``using`` has the ability to work better in templated logic. For details "
@@ -698,77 +696,77 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:376
-#: 28182f0a84d74e0b9ea91610f1b4f8af
+#: 76ea4a3c7383477797abadffdc4bd13a
 msgid "Thread/Mutexes"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:378
-#: ba4bd7f106bb44e8bd379f57c8361c95
+#: 0e50e23b00f645b6a9186b654ee4f8fe
 msgid ""
 "Another common part of boost used in ROS codebases are mutexes in "
 "``boost::thread``."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:381
-#: 5038d1bc49bd474c8b703626688f30af
+#: a7cbce3531674449832a60da23627224
 msgid ""
 "Replace ``boost::mutex::scoped_lock`` with "
 "``std::unique_lock<std::mutex>``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:382
-#: e9c55c79a321449f970eb018f013578e
+#: 7863bbbba1bf4d948832f3bbc6d62530
 msgid "Replace ``boost::mutex`` with ``std::mutex``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:383
-#: 59f011ab0879458cb26cf2cc40f6abbc
+#: 18500e0b56374adeac406ef6add1841b
 msgid "Replace ``#include <boost/thread/mutex.hpp>`` with ``#include <mutex>``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:386
-#: 99e3300cb3f3424bbccc17b68a7efadf
+#: 72c5d910a0a44a08ab8009376c1f1a99
 msgid "Unordered Map"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:388
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:397
-#: 2e940278c7624c0eb368aae8329e1afa 47fed8d5be6f42eaa253c77a06f8ebb3
+#: 2dc3d9986af44e1fbfc1cca676062703 e6ac153e6819463f93ca420f7878bc2a
 msgid "Replace:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:391
-#: f66172b471d9427db81d0ce32038bae6
+#: 353aa3e4469648a686e3fd4544722e2d
 msgid "``#include <boost/unordered_map.hpp>`` with ``#include <unordered_map>``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:392
-#: deb00e659e3e485b8c7a52350750a954
+#: 31fdec3eca4f490982b27f7efa82d74a
 msgid "``boost::unordered_map`` with ``std::unordered_map``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:395
-#: d523399a8d26491e8dcf9d1679f73929
+#: 7ea4e3902a984c13bfba8cc57c640cb8
 msgid "function"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:400
-#: 71e04922505b4438be34aed8c513081b
+#: ef77eb9582f549a0bb5695431b1b8386
 msgid "``#include <boost/function.hpp>``  with ``#include <functional>``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:401
-#: 7e826b139308428a9e5a5869e0ee22e4
+#: abe171cff20942f0a568c149779cef8f
 msgid "``boost::function`` with ``std::function``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:404
-#: df43a80bec1346a7b4331231c0c5e0c8
+#: 13eef0a6e83d4e35baead758f21ba6b9
 msgid "Parameters"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:406
-#: 58cd1bc2943b4c9b9a7baa43ed507be7
+#: e0dc4c2a52ff4659a352774a9a1fbc8e
 msgid ""
 "In ROS 1, parameters are associated with a central server that allowed "
 "retrieving parameters at runtime through the use of the network APIs. In "
@@ -777,7 +775,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:409
-#: 323b8b7740a94ad19fe5ad11a1204018
+#: bcd7aba8bf37417798a7731598dfaec8
 msgid ""
 "See `ROS 2 Parameter design document "
 "<https://design.ros2.org/articles/ros_parameters.html>`_ for more details"
@@ -785,7 +783,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:411
-#: 7b4894443aad4338829151d0abd2f36d
+#: 060cc22f0a704aa5b5aa74385fceb4fc
 msgid ""
 "See :doc:`ROS 2 CLI usage <../../Tutorials/Beginner-CLI-Tools"
 "/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters>` for a "
@@ -794,7 +792,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:413
-#: e33a0562f0b645ed8d21d7b9df2b0d19
+#: a77c55c6b4994f51802e045c62bcf9ae
 msgid ""
 "See :doc:`../../How-To-Guides/Parameters-YAML-files-migration-guide` to "
 "see how YAML parameter files are parsed in ROS 2 and their differences "
@@ -802,28 +800,29 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:416
-#: 64b9e7a56ac340c2bd1ce1d63a05b307
+#: f347670d4892443b8ac6d0d61bac883c
 msgid "Launch files"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:418
-#: 4e7ca7e2cca54821b6a06c02e0d1bde7
+#: 139171fdbed84cef8fdd422c32c58a6d
 msgid ""
 "While launch files in ROS 1 are always specified using `.xml "
 "<https://wiki.ros.org/roslaunch/XML>`__ files, ROS 2 supports Python "
 "scripts to enable more flexibility (see `launch package "
-"<https://github.com/ros2/launch/tree/rolling/launch>`__) as well as XML "
-"and YAML files. See `separate tutorial <../../How-To-Guides/Launch-files-"
-"migration-guide>` on migrating launch files from ROS 1 to ROS 2."
+"<https://github.com/ros2/launch/tree/{REPOS_FILE_BRANCH}/launch>`__) as "
+"well as XML and YAML files. See `separate tutorial <../../How-To-Guides"
+"/Launch-files-migration-guide>` on migrating launch files from ROS 1 to "
+"ROS 2."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:422
-#: 293a7da4d5204be19edc787fa35d9f1e
+#: 9bafbc79db114829bf3490073ec639a2
 msgid "Example: Converting an existing ROS 1 package to use ROS 2"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:424
-#: 07685705e1414211b63882c22f93e74f
+#: ab8e8a9c2c404de4a625fbfeb01276bf
 msgid ""
 "Let's say that we have simple ROS 1 package called ``talker`` that uses "
 "``roscpp`` in one node, called ``talker``. This package is in a catkin "
@@ -831,54 +830,54 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:429
-#: 6d49173174f14cada941506468735a7c
+#: fb86baf593f4499b93edb84b953f1d13
 msgid "The ROS 1 code"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:431
-#: 58f5ae719a9e423999363b617e3d5934
+#: 24444d267ac542e3bcdf5b4c7509e1d9
 msgid "Here's the directory layout of our catkin workspace:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:444
-#: 37860b834e784542a95702e93a304d3a
+#: a2a96d939044489da7f8be367a4755b1
 msgid "Here is the content of those three files:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:446
-#: 855297eca7994426b1e001040e0cda05
+#: 65f7c67d1791426fa3d2da9d1fe25134
 msgid "``src/talker/package.xml``:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:463
-#: 7bad34740ca74282b28499e536f331f4
+#: b45aba4d0bef4050ac8890db9ccbb624
 msgid "``src/talker/CMakeLists.txt``:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:477
-#: 285d6f56a3ce41f4a95b5a0c8bd7f3d9
+#: b9b9219047da44b48bd599db4f8240dd
 msgid "``src/talker/talker.cpp``:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:506
-#: 4736267ba113459098bda01863df6f55
+#: 6a3a0d701670437aa85a937883192e3f
 msgid "Building the ROS 1 code"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:508
-#: b24ca6f7278c41f89e270faf24fca3d3
+#: 5fe30e6155db433385abf279b91f3d67
 msgid ""
 "We source an environment setup file (in this case for Jade using bash), "
 "then we build our package using ``catkin_make install``:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:518
-#: ad9b9eaef9ff4bb9a4d7b437ddb7f210
+#: 2bef47a79f814a7ca0a9e203026a4b86
 msgid "Running the ROS 1 node"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:520
-#: 87633e050fa943ebab17bd59fdd35b1a
+#: 88085125c82041c68f4076ca76bf5647
 msgid ""
 "If there's not already one running, we start a ``roscore``, first "
 "sourcing the setup file from our ``catkin`` install tree (the system "
@@ -886,7 +885,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:529
-#: 072a4ae431dc472187cee91b4305d7f3
+#: a0f910b55e444b28aa7114a16d90d5c9
 msgid ""
 "In another shell, we run the node from the ``catkin`` install space using"
 " ``rosrun``, again sourcing the setup file first (in this case it must be"
@@ -894,24 +893,24 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:539
-#: 19586a33ac374fac8bf5a77a7a639c35
+#: ece939108f9c46d396ceb1a3c165d3b3
 msgid "Migrating to ROS 2"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:541
-#: af779087379f43a99fb920f7a3258277
+#: a5f9157e25ea4d918973829696b79a07
 msgid "Let's start by creating a new workspace in which to work:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:548
-#: 8f65093963be4c4484d4094d360316c9
+#: b72abe158d8b413f88367fe97b969d5f
 msgid ""
 "We'll copy the source tree from our ROS 1 package into that workspace, "
 "where we can modify it:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:555
-#: 8681e5d103574b30a33f3e3f47d9d487
+#: 5f450ddc44734796acc46c459bf4b2d2
 msgid ""
 "Now we'll modify the C++ code in the node. The ROS 2 C++ library, called "
 "``rclcpp``, provides a different API from that provided by ``roscpp``. "
@@ -920,12 +919,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:562
-#: 80488d91fadc48ac8cbc98a618944ea6
+#: ba722eeea72945448103575225b78764
 msgid "Included headers"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:564
-#: d2063c3ddc5b4d4db7c716d4c384347a
+#: e7b706effbf247198231c934b51fd112
 msgid ""
 "In place of ``ros/ros.h``, which gave us access to the ``roscpp`` library"
 " API, we need to include ``rclcpp/rclcpp.hpp``, which gives us access to "
@@ -933,19 +932,19 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:573
-#: 4ae8bbf35ce048b3bcdd687bd823b1e5
+#: 7b50def803f447a984a318bca497aba9
 msgid ""
 "To get the ``std_msgs/String`` message definition, in place of "
 "``std_msgs/String.h``, we need to include ``std_msgs/msg/string.hpp``:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:582
-#: 5a766573bed5420da147b65b9d0c9d10
+#: 2a5e1d39c46d425e968eccf7f6b62527
 msgid "Changing C++ library calls"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:584
-#: 680bb7dec8e349dba822260710a6e9cd
+#: de78cad0da4b4abf9006c4fbea30a643
 msgid ""
 "Instead of passing the node's name to the library initialization call, we"
 " do the initialization, then pass the node name to the creation of the "
@@ -954,14 +953,14 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:595
-#: 74642e48214e4b6fbd9817182aa0d11e
+#: f61601067302434c8c18ffcdf28306dd
 msgid ""
 "The creation of the publisher and rate objects looks pretty similar, with"
 " some changes to the names of namespace and methods."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:606
-#: 8af92331f5c64aaea348affea9a7050d
+#: 5b438e94b9d748b8b01d5f57aaf3ad11
 msgid ""
 "To further control how message delivery is handled, a quality of service "
 "(``QoS``) profile could be passed in. The default profile is "
@@ -971,22 +970,22 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:613
-#: bfe721cc138846b4afbcc149211cb426
+#: ec320ba09ac5405aaca8b545d32efe49
 msgid "The creation of the outgoing message is different in the namespace:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:620
-#: 3c174d60febd4fb281ba67fd8a1beaa0
+#: af8805b637a7480ea5aa9955654ffd4a
 msgid "In place of ``ros::ok()``, we call ``rclcpp::ok()``:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:627
-#: 360441fe4abb4d3f8d2dfce90e96d3e9
+#: ceb0396526fb4af9843a584be2786aff
 msgid "Inside the publishing loop, we access the ``data`` field as before:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:633
-#: 1e0d9ad23d674c09bd29e1827ec31ae2
+#: 3bb2c3f4989244e890bbd2b9acacbf29
 msgid ""
 "To print a console message, instead of using ``ROS_INFO()``, we use "
 "``RCLCPP_INFO()`` and its various cousins. The key difference is that "
@@ -994,12 +993,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:643
-#: b367f004980e41379b1e590a21af8610
+#: 9eeca2a2984849268f6e1665cfe76e5d
 msgid "Publishing the message is the same as before:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:649
-#: 8a51726a73ef45ac9557e512efac0b1f
+#: f2cd7f6374dd41bfa9c3fc311b9b2d6a
 msgid ""
 "Spinning (i.e., letting the communications system process any pending "
 "incoming/outgoing messages) is different in that the call now takes the "
@@ -1007,22 +1006,22 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:658
-#: 37ee999025a04d49b64a57d27eb3a3c1
+#: f5fef586411a416f8c031ab29285e5f4
 msgid "Sleeping using the rate object is unchanged."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:660
-#: c1238ec5241c495faf1f99e6aaf35617
+#: 8425576dd6124b7d9b0f11e2b2df780c
 msgid "Putting it all together, the new ``talker.cpp`` looks like this:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:699
-#: 84437b09ba994300bc1529c3f7e12e34
+#: 1c33d43554e2414bb9c4b8dab4b27e70
 msgid "Changing the ``package.xml``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:701
-#: b357caa3c6f74225a55602442e077352
+#: c2aca6d4bb8e4c0187c10e8fdc66eecb
 msgid ""
 "ROS 2 doesn't support format 1 of the package specification but only "
 "newer format versions (2 and higher). We start by specifying the format "
@@ -1030,21 +1029,21 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:709
-#: d50ec1f49ea24970825f29fb881d54a6
+#: 1d142ee1018b457b8cb6bc6042c105ad
 msgid ""
 "ROS 2 uses a newer version of ``catkin``, called ``ament_cmake``, which "
 "we specify in the ``buildtool_depend`` tag:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:717
-#: f32d990c7e37499a9f8c1d2f6b950463
+#: 86bd646563dd4d2ca94b17b356e54482
 msgid ""
 "In our build dependencies, instead of ``roscpp`` we use ``rclcpp``, which"
 " provides the C++ API that we use."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:725
-#: 228406d7cfa047db8d22346d580ba758
+#: b5d6e28c70f249cbacb388417943e42d
 msgid ""
 "We make the same addition in the run dependencies and also update from "
 "the ``run_depend`` tag to the ``exec_depend`` tag (part of the upgrade to"
@@ -1052,14 +1051,14 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:736
-#: 0641a04da3de4906956ccda25bb79b0a
+#: 346a332d80084af48f00e034dd43532b
 msgid ""
 "In ROS 1, we use ``<depend>`` to simplify specifying dependencies for "
 "both compile-time and runtime. We can do the same in ROS 2:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:745
-#: ee2f7194667e49b7abee3f205a8904dc
+#: 737feff9d9524a4ebf2d3da7c0080b7a
 msgid ""
 "We also need to tell the build tool what *kind* of package we are, so "
 "that it knows how to build us. Because we're using ``ament`` and CMake, "
@@ -1068,12 +1067,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:756
-#: 8a1ff9f5cb6249949586a4ede46a1eb4
+#: c3425fad5b9c4355a8fa2b4ec56a83bd
 msgid "Putting it all together, our ``package.xml`` now looks like this:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:779
-#: 8c0ec46fcb5245a4b8a934a0b0f8067b
+#: 4cb301f407e941d79a4faa3ebe880549
 msgid ""
 "**TODO: show simpler version of this file just using the ``<depend>`` "
 "tag, which is enabled by version 2 of the package format (also supported "
@@ -1081,17 +1080,17 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:784
-#: 21daea818c1d48179cf8b25f9c5ac322
+#: 83c8b73d73ca468493f5d4df54dc8b10
 msgid "Changing the CMake code"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:786
-#: 17140fa61fd642deb64a738695535fec
+#: 8e67718d9d284ab9986a1f369f806bf7
 msgid "ROS 2 relies on a higher version of CMake:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:793
-#: 5076fe34d02642d9a7bbcdff5f780684
+#: 9c184decf0934f3e925c7cfec157d4e3
 msgid ""
 "ROS 2 relies on the C++14 standard. Depending on what compiler you're "
 "using, support for C++14 might not be enabled by default. Using ``gcc`` "
@@ -1100,12 +1099,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:803
-#: b2804c5f59f140d68af632e90b8fe6ae
+#: e237c91872054fb38399b766dbc0fe26
 msgid "The preferred way to work on all platforms is this:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:814
-#: 2d6fa7eb2657438eac3061d724750818
+#: 55ce3f825f134cdb9424b63d987786cd
 msgid ""
 "Using ``catkin``, we specify the packages we want to build against by "
 "passing them as ``COMPONENTS`` arguments when initially finding "
@@ -1114,12 +1113,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:825
-#: db52d892b453430bab642316a9159bf0
+#: 17a100f891c14578a6b623cc15ad3ca9
 msgid "System dependencies can be found as before:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:831
-#: 08e86646883a4866820e9cef8c8c8f2c
+#: 1af416f1fa0f482caf26eb307439be51
 msgid ""
 "We call ``catkin_package()`` to auto-generate things like CMake "
 "configuration files for other packages that use our package. Whereas that"
@@ -1128,21 +1127,21 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:842
-#: dffa285778274901bf7b06324b082b17
+#: d10a83bb23f04aeba95b00e90678d111
 msgid ""
 "The only directories that need to be manually included are local "
 "directories and dependencies that are not ament packages:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:850
-#: 5840ae013f8946aaac3743ea3e11d5fe
+#: dc331527c0c64c95b99beae70496b78a
 msgid ""
 "A better alternative is to specify include directories for each target "
 "individually, rather than including all the directories for all targets:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:857
-#: df952bc8f6ae470f991d30ff97ab77e6
+#: 06a13dad2f1948928feac6cfea9c8e3c
 msgid ""
 "Similar to how we found each dependent package separately, we need to "
 "link each one to the build target. To link with dependent packages that "
@@ -1154,7 +1153,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:872
-#: 68ab8230b2da48e49ba38eb8c56a43a9
+#: 1b99c117e064492f9c070fe055249de2
 msgid ""
 "To link with packages that are not ament packages, such as system "
 "dependencies like ``Boost``, or a library being built in the same "
@@ -1162,7 +1161,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:880
-#: afe7d8af272d430c9202c0303414fd36
+#: a203271e8fb34925bc950f43737eb179
 msgid ""
 "For installation, ``catkin`` defines variables like "
 "``CATKIN_PACKAGE_BIN_DESTINATION``. With ``ament_cmake``, we just give a "
@@ -1170,34 +1169,34 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:891
-#: 95f05fe3fff94d92a6f8abeccae9b42a
+#: 81475b5adbf84660bd12c8525f3af3d2
 msgid ""
 "Optionally, we can install and export the included directories for "
 "downstream packages:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:899
-#: 8048f0377c374efe91f912a9d24cad08
+#: f8a2bd998989475d95249d7f1552d273
 msgid "Optionally, we can export dependencies for downstream packages:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:905
-#: 06bbf56fac8448a6ad3df4c150cf92a8
+#: db44f6f1c553462aab5a8b3e953cba9a
 msgid "Putting it all together, the new ``CMakeLists.txt`` looks like this:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:940
-#: 90a7a9b97aa94268ae597e01ba730649
+#: 19ca386f28934603a448f41487bf9849
 msgid "**TODO: Show what this would look like with ``ament_auto``.**"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:943
-#: bffd3a940c07446c8b84c2593692a666
+#: 4c49dfca8bfa40e7a3181da49ce721ea
 msgid "Building the ROS 2 code"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:945
-#: 5be344ca9fe943e085fc9794b3df0e03
+#: 5f02b913b8ed4d03a8daf2ecd4976d23
 msgid ""
 "We source an environment setup file (in this case the one generated by "
 "following the ROS 2 installation tutorial, which builds in ``~/ros2_ws``,"
@@ -1205,12 +1204,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:956
-#: 515ee3eb29744ffda4c3a69891ce0e7d
+#: f3d13430ed3443538ab0b3b6d4742017
 msgid "Running the ROS 2 node"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:958
-#: a58d1ef13fa64b24a4f9e50495730e00
+#: 5b81061c37e142ebb26de67f06828440
 msgid ""
 "Because we installed the ``talker`` executable into ``bin``, after "
 "sourcing the setup file, from our install tree, we can invoke it by name "
@@ -1218,17 +1217,17 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:968
-#: 4609bcce36d84549999ef0cc8f7cb08f
+#: 911611a73f3c4584b3559427f6713615
 msgid "Update scripts"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:971
-#: 737d830ebad04b91978b2d1be3eea66b
+#: 32f7e8abf4554162935d2658e95ebc4d
 msgid "ROS CLI arguments"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:973
-#: 58dcf01d8d84434299ec26b85888c62d
+#: 158d6e2db52540798ae46d872736b96d
 msgid ""
 "Since `ROS Eloquent <../../Releases/Release-Eloquent-Elusor>`, ROS "
 "arguments should be scoped with ``--ros-args`` and a trailing ``--`` (the"
@@ -1236,7 +1235,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:975
-#: 1ca3994eba204611a6bb46871781bed3
+#: 4ce44f4a031b4ea49155fa2d0b49f046
 msgid ""
 "Remapping names is similar to ROS 1, taking on the form ``from:=to``, "
 "except that it must be preceded by a ``--remap`` (or ``-r``) flag. For "
@@ -1244,150 +1243,150 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:982
-#: ac85c985ec864b77809c5bff1daf0cc4
+#: 5de7e286dfb84d6c9a9b423ecf2c58c0
 msgid ""
 "We use a similar syntax for parameters, using the ``--param`` (or ``-p``)"
 " flag:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:989
-#: 0988fdb457e0490281f38dc66c9e4d7f
+#: 8603ec7da9f342649e70db2d7bd77182
 msgid "Note, this is different than using a leading underscore in ROS 1."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:991
-#: bd34213567af4e46a0aec687e0a482e0
+#: 880962c8464f40cb8f6a8eb609412683
 msgid "To change a node name use ``__node`` (the ROS 1 equivalent is ``__name``):"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:997
-#: 6540c7d76aae4604bdd9239d2a5576d3
+#: fbb8874bda9d45e9b9896eac5837e833
 msgid ""
 "Note the use of the ``-r`` flag. The same remap flag is needed for "
 "changing the namespace ``__ns``:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:1004
-#: 8fc7a26ffbc54aefb86153d7d84a65fc
+#: 6822f3d7bce342209fc1c47622cadb70
 msgid "There is no equivalent in ROS 2 for the following ROS 1 keys:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:1006
-#: 67ed77763d67487b830a1162ab6053cc
+#: 9998f55baa414b379c1ace7edb9a3b99
 msgid ""
 "``__log`` (but ``--log-config-file`` can be used to provide a logger "
 "configuration file)"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:1007
-#: c1ab04134b3b4f539e888ca50ee160a7
+#: c15f32eb34544dda8ef6df972b2bd6cb
 msgid "``__ip``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:1008
-#: 1e9d758ddaf446d5b1f4912acd112b49
+#: d04be0dc7cec4dad85464116f61a9f7c
 msgid "``__hostname``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:1009
-#: 817e55bb0c6b473bb8d898819df7bd52
+#: 4a0c3dfcce4a48bd9ffde664dd1f427c
 msgid "``__master``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:1011
-#: aab38ac5f0ea4fada95185716dcce065
+#: 95a0c41abc7e4561b9a53351f67d67ce
 msgid ""
 "For more information, see the `design document "
 "<https://design.ros2.org/articles/ros_command_line_arguments.html>`_."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:1014
-#: 09ee9b92ba4b48058cf18dc67834a54e
+#: 01729755d58c412db6696837091d49fd
 msgid "Quick reference"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:1017
-#: 7604d88adff14192a7f23aada66b984c
+#: 0cb078ac60c94574b6b7843456362674
 msgid "Feature"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:1017
-#: 0fd0d44f9f5d4b33832aaebbac861bd8
+#: 1c5d5501f16c4b9dafa28ceba9e46001
 msgid "ROS 1"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:1017
-#: 3e99071e2ff74311bd722ca80a49b1da
+#: 2a9eda9344f84172a6e591f9bcdaba53
 msgid "ROS 2"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:1019
-#: 854fc16345924e068767b57a3de5503c
+#: a7a6f3099fca4ec6966f091ae6c9e829
 msgid "remapping"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:1019
-#: 38f909be368e479b9544d601fad1d47d
+#: cc6742055b3943b28b930a91252e765c
 msgid "foo:=bar"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:1019
-#: 3a3082c3887b4c78b0364a7fb0fead05
+#: 43f10ae60c3d4a5196752bae014b27f6
 msgid "-r foo:=bar"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:1021
-#: 62c919f3c84a4306a0153cc694b0c7c3
+#: 5c6ffc09eec94366adec18dcb4bba283
 msgid "parameters"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:1021
-#: 9e69fb4a8f984361b8a1f8859ec9b748
+#: 40de1bb2a03348ce98cf25094db3173b
 msgid "_foo:=bar"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:1021
-#: f9dccbcf87e8477897d058f871135c39
+#: fd659e005bcd4cbeaf24454120d4a544
 msgid "-p foo:=bar"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:1023
-#: 515f606028dd4509b72280adc7f0d2de
+#: 0cb66d22d9594099971d02ad2471f2aa
 msgid "node name"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:1023
-#: ad0f361ae1634fcf8f00c63625b7f1e4
+#: 9ab9edb8c5934bab8b6a6aaf33d99fa3
 msgid "__name:=foo"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:1023
-#: 5b285a608a21426fb39dce717d363721
+#: a5f4b1d04fb54dab8ad786a2477d00d2
 msgid "-r __node:=foo"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:1025
-#: bce2e25962f94e38848880268caf3165
+#: 4edaa0b7bf144d3a98d5be1d323cab50
 msgid "namespace"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:1025
-#: 397fe14f413b41cb94cae4d616f7a833
+#: a666798e7d8146ee96b91aafc7ef0037
 msgid "__ns:=foo"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:1025
-#: ee0a96808cad4640aa3ca15bd1636b07
+#: 51f0c300175c454e95a799bae5a9529f
 msgid "-r __ns:=foo"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:1030
-#: 37c5053fc8694dd5b849fb2b24a2bae7
+#: c75f0a8278e0492a82852727792a8318
 msgid "More examples and tools"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:1032
-#: 736b3ab08441432698dc49b7b6d5afa6
+#: 12b804b7c4104b4081ac185964d3e6bb
 msgid ""
 "Launch File migrator that converts a ROS 1 XML launch file to a ROS 2 "
 "Python launch file: https://github.com/aws-robotics/ros2-launch-file-"
@@ -1395,7 +1394,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:1033
-#: 3b8e84290cac4b1391133a5466153c2b
+#: fcf0c5e932c548ab9e4102f93b771f32
 msgid ""
 "Amazon has exposed their tools for porting ROS 1 robots to ROS 2 "
 "https://github.com/awslabs/ros2-migration-"
@@ -1403,12 +1402,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:1038
-#: 76c7fdebad824f539fe081f1adf47879
+#: 3669a28fa16e48969109d76325b826d1
 msgid "Licensing"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:1040
-#: 9f3c6ef334194ed2af3615700198814e
+#: e502c9ec6a7e40788f145b425cef720e
 msgid ""
 "In ROS 2 our recommended license is the `Apache 2.0 License "
 "<https://www.apache.org/licenses/LICENSE-2.0>`__. In ROS 1 our "
@@ -1417,14 +1416,14 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:1043
-#: 2712b70be89d4eaaabfb4ae1ced551df
+#: 457d03341b9c4c3ba8de9438c026dc10
 msgid ""
 "For any new project we recommend using the Apache 2.0 License, whether "
 "ROS 1 or ROS 2."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:1045
-#: 7a727cec0acb464da3776542a847b994
+#: 7b2e4b68831c492a8cbcbf83904d7a53
 msgid ""
 "However, when migrating code from ROS 1 to ROS 2 we cannot simply change "
 "the license. The existing license must be preserved for any preexisting "
@@ -1432,7 +1431,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:1048
-#: 8f01f49437024d799aca809926a89bb2
+#: d569861b21ae49bf928bb1038801b236
 msgid ""
 "To that end if a package is being migrated we recommend keeping the "
 "existing license and continuing to contribute to that package under the "
@@ -1441,21 +1440,75 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:1050
-#: 518c3d24893743cdac8de0f80a0df682
+#: b75305737b6a40efb472539f8310ebb3
 msgid "This will keep things clear and easy to understand."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:1053
-#: b6a2391395484b5e98ad98c310ce54c0
+#: ed18919d608d43e6a5c95b9d73ba86a4
 msgid "Changing the License"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Migration-Guide.rst:1055
-#: f16449f9e0e4457aa19f0a9f5649af7c
+#: fbef6161b6a04240b3a570b92525e961
 msgid ""
 "It is possible to change the license, however you will need to contact "
 "all the contributors and get permission. For most packages this is likely"
 " to be a significant effort and not worth considering. If the package has"
 " a small set of contributors then this may be feasible."
 msgstr ""
+
+#~ msgid ""
+#~ "These files might need to be "
+#~ "updated to comply with the `ROS "
+#~ "Interface definition "
+#~ "<https://design.ros2.org/articles/interface_definition.html>`__. "
+#~ "Some primitive types have been removed"
+#~ " and the types ``duration`` and "
+#~ "``time`` which were builtin types in "
+#~ "ROS 1 have been replaced with "
+#~ "normal message definitions and must be"
+#~ " used from the `builtin_interfaces "
+#~ "<https://github.com/ros2/rcl_interfaces/tree/rolling/builtin_interfaces>`__"
+#~ " package. Also some naming conventions "
+#~ "are stricter than in ROS 1."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The only valid argument for "
+#~ "`ament_package "
+#~ "<https://github.com/ament/ament_cmake/blob/rolling/ament_cmake_core/cmake/core/ament_package.cmake>`__"
+#~ " is ``CONFIG_EXTRAS``. All other arguments"
+#~ " are covered by separate functions "
+#~ "which all need to be invoked "
+#~ "*before* ``ament_package``:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Replace the invocation of "
+#~ "``add_message_files``, ``add_service_files`` and "
+#~ "``generate_messages`` with `rosidl_generate_interfaces "
+#~ "<https://github.com/ros2/rosidl/blob/rolling/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake>`__."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The ``CATKIN_DEPENDS`` and ``DEPENDS`` "
+#~ "arguments are passed to the new "
+#~ "function `ament_export_dependencies "
+#~ "<https://github.com/ament/ament_cmake/blob/rolling/ament_cmake_export_dependencies/cmake/ament_export_dependencies.cmake>`__."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "While launch files in ROS 1 are"
+#~ " always specified using `.xml "
+#~ "<https://wiki.ros.org/roslaunch/XML>`__ files, ROS 2"
+#~ " supports Python scripts to enable "
+#~ "more flexibility (see `launch package "
+#~ "<https://github.com/ros2/launch/tree/rolling/launch>`__) as "
+#~ "well as XML and YAML files. See"
+#~ " `separate tutorial <../../How-To-Guides"
+#~ "/Launch-files-migration-guide>` on "
+#~ "migrating launch files from ROS 1 "
+#~ "to ROS 2."
+#~ msgstr ""
 

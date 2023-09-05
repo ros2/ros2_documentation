@@ -1,52 +1,50 @@
-# SOME DESCRIPTIVE TITLE.
+# Archivo de traducción al español para la documentación de ROS 2.
 # Copyright (C) 2023, Open Robotics
 # This file is distributed under the same license as the ROS 2 documentation
 # package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+# Cristian Chitiva <cychitivav@unal.edu.co>, 2023.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: ROS 2 documentation \n"
+"Project-Id-Version: ROS 2 documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-19 11:55+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: es\n"
 "Language-Team: es <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "Generated-By: Babel 2.8.0\n"
 
 #: ../../source/How-To-Guides/Sync-Vs-Async.rst:9
-#: c87532deb79c41a992a2f0e8b1978bc7
+#: a3cb3f90c515440487f4f723b182d077
 msgid "Synchronous vs. asynchronous service clients"
 msgstr ""
 
 #: ../../source/How-To-Guides/Sync-Vs-Async.rst:11
-#: 90369145956d4fdb90599745f61edd31
+#: 0a3cd5507c564506a48e73a667f35a18
 msgid "**Level:** Intermediate"
 msgstr ""
 
 #: ../../source/How-To-Guides/Sync-Vs-Async.rst:13
-#: 5e22743ce41d498ca77c2ff77090764d
+#: 2d5ee234cded4936a2d6de940e5901a1
 msgid "**Time:** 10 minutes"
 msgstr ""
 
 #: ../../source/How-To-Guides/Sync-Vs-Async.rst:18
-#: 2ec46b47964b475f986b12b1022e1731
+#: c9e76f6603c347f5a5452cab9a1ef54b
 msgid "Contents"
 msgstr ""
 
 #: ../../source/How-To-Guides/Sync-Vs-Async.rst:21
-#: ac4e6f2241aa448ebbecd9bb68fe4792
+#: c47cb04f72bc41bc864e10c4caa55db5
 msgid "Introduction"
 msgstr ""
 
 #: ../../source/How-To-Guides/Sync-Vs-Async.rst:23
-#: 4372805deb7346b9af1084e19755e584
+#: 6611750a1b2a4a36b9fd05a58d62a27f
 msgid ""
 "This guide is intended to warn users of the risks associated with the "
 "Python synchronous service client ``call()`` API. It is very easy to "
@@ -55,7 +53,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Sync-Vs-Async.rst:26
-#: ba144298c5a0421a97c68edc2c50c267
+#: 9c35f8655ec34e02b144efdae6496c65
 msgid ""
 "We provide an example on how to use ``call()`` correctly for experienced "
 "users who wish to use synchronous calls and are aware of the pitfalls. We"
@@ -63,7 +61,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Sync-Vs-Async.rst:29
-#: 0b61466c1c0846f68e5d9fc786e3c443
+#: 91258454a32a43b5b5e94812e7ae1c26
 msgid ""
 "Because we recommend avoiding sync calls, this guide will also address "
 "the features and usage of the recommended alternative, async calls "
@@ -71,7 +69,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Sync-Vs-Async.rst:31
-#: 71701d5f6cd34991baf2e45b20b304d3
+#: 2ecdc96c346942d49fe9aaf788693562
 msgid ""
 "The C++ service call API is only available in async, so the comparisons "
 "and examples in this guide pertain to Python services and clients. The "
@@ -80,12 +78,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Sync-Vs-Async.rst:35
-#: 8d3007a07b974f30af22f540d8ef12d7
+#: 9668d7f9afcd4a1ca30c07700ca8023a
 msgid "1 Synchronous calls"
 msgstr ""
 
 #: ../../source/How-To-Guides/Sync-Vs-Async.rst:37
-#: 33317f476da9460fbefe4d718ce0a11d
+#: 962537d45eba456ba0d68c31bc988325
 msgid ""
 "A synchronous client will block the calling thread when sending a request"
 " to a service until a response has been received; nothing else can happen"
@@ -95,7 +93,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Sync-Vs-Async.rst:41
-#: fc5d93b99f9f457499a3aa211af81a9a
+#: 781e7d2dfe45452185f1a44a840a7576
 msgid ""
 "The following is an example of how to correctly execute a synchronous "
 "service call from a client node, similar to the async node in the "
@@ -104,7 +102,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Sync-Vs-Async.rst:88
-#: 8fdabec76045444d933e367973b379e0
+#: 18ae579beaa942228fcb046f8dcc5269
 msgid ""
 "Note inside ``main()`` that the client calls ``rclpy.spin`` in a separate"
 " thread. Both ``send_request`` and ``rclpy.spin`` are blocking, so they "
@@ -112,19 +110,19 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Sync-Vs-Async.rst:92
-#: e95193f824bd464086a8b741d574bc0f
+#: 8cbf103f5e7f4a7a87a0d4b5849aea85
 msgid "1.1 Sync deadlock"
 msgstr ""
 
 #: ../../source/How-To-Guides/Sync-Vs-Async.rst:94
-#: dcb03e9695b64377b0d8a7cea2283531
+#: 18f118786648483ead59ee47cf1e35f9
 msgid ""
 "There are several ways that the synchronous ``call()`` API can cause "
 "deadlock."
 msgstr ""
 
 #: ../../source/How-To-Guides/Sync-Vs-Async.rst:96
-#: 397af86badaa40f783ca578efa2a7ac6
+#: 6e9b7c0df14d4c8197df63b2baac07d1
 msgid ""
 "As mentioned in the comments of the example above, failing to create a "
 "separate thread to spin ``rclpy`` is one cause of deadlock. When a client"
@@ -134,7 +132,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Sync-Vs-Async.rst:99
-#: 6ad363b83211467eb72d04dc80dde1d9
+#: 0811661ba90643408357e91b2aa57297
 msgid ""
 "Another cause of deadlock is blocking ``rclpy.spin`` by calling a service"
 " synchronously in a subscription, timer callback or service callback. For"
@@ -143,7 +141,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Sync-Vs-Async.rst:113
-#: 0efd8cf76c4440e48ccd7c9ce0b4d54e
+#: 51c3799584df4af28962aee6908f8c42
 msgid ""
 "Deadlock occurs because ``rclpy.spin`` will not preempt the callback with"
 " the ``send_request`` call. In general, callbacks should only perform "
@@ -151,7 +149,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Sync-Vs-Async.rst:118
-#: ced4093f3aab4f5aa43e79528df974f2
+#: 2ad7984ccde84185b9ed90171ccbd458
 msgid ""
 "When deadlock occurs, you will not receive any indication that the "
 "service is blocked. There will be no warning or exception thrown, no "
@@ -159,12 +157,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Sync-Vs-Async.rst:122
-#: 53d6020b5e7e4d4ba232599d02618921
+#: 9f0547516d5d48cabe34e801797e1244
 msgid "2 Asynchronous calls"
 msgstr ""
 
 #: ../../source/How-To-Guides/Sync-Vs-Async.rst:124
-#: 7299cbe7241c461c8b79a4b0f042b62b
+#: cb4e613cf4984b4fad87791435025b75
 msgid ""
 "Async calls in ``rclpy`` are entirely safe and the recommended method of "
 "calling services. They can be made from anywhere without running the risk"
@@ -172,7 +170,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Sync-Vs-Async.rst:127
-#: ee77efd13c3242b9b241b1bc65f74e3c
+#: 582ab99ad9f042ab9937ac864b581e53
 msgid ""
 "An asynchronous client will immediately return ``future``, a value that "
 "indicates whether the call and response is finished (not the value of the"
@@ -181,14 +179,14 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Sync-Vs-Async.rst:130
-#: 0786fd054c9d4337b3df731e9c43fad1
+#: eba9e21fb55c44ec9fdbc4e24387a166
 msgid ""
 "Since sending a request doesn’t block anything, a loop can be used to "
 "both spin ``rclpy`` and check ``future`` in the same thread, for example:"
 msgstr ""
 
 #: ../../source/How-To-Guides/Sync-Vs-Async.rst:139
-#: b9bc3cc2b47c43b297d5b2e227f24289
+#: 9a0ac002cfa1456a8ebe37ecdbfe3a32
 msgid ""
 "The :doc:`Simple Service and Client <../Tutorials/Beginner-Client-"
 "Libraries/Writing-A-Simple-Py-Service-And-Client>` tutorial for Python "
@@ -197,23 +195,23 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Sync-Vs-Async.rst:141
-#: 55995f4e3f2c461f8a4d347818a7c4f9
+#: 0564e255dbf94c0daf615ce20d728769
 msgid ""
 "The ``future`` can also be retrieved using a timer or callback, like in "
 "`this example "
-"<https://github.com/ros2/examples/blob/rolling/rclpy/services/minimal_client/examples_rclpy_minimal_client/client_async_callback.py>`_,"
+"<https://github.com/ros2/examples/blob/{REPOS_FILE_BRANCH}/rclpy/services/minimal_client/examples_rclpy_minimal_client/client_async_callback.py>`_,"
 " a dedicated thread, or by another method. It is up to you, as the "
 "caller, to decide how to store ``future``, check on its status, and "
 "retrieve your response."
 msgstr ""
 
 #: ../../source/How-To-Guides/Sync-Vs-Async.rst:145
-#: 54fbf327336149d6b52b2f9dead159eb
+#: 14fbec5247e4452494efb9ceb8990517
 msgid "Summary"
 msgstr ""
 
 #: ../../source/How-To-Guides/Sync-Vs-Async.rst:147
-#: 346ba3904d42496b92edd1ddc9c17905
+#: a909a241850141d3925890e63a97af8e
 msgid ""
 "It is not recommended to implement a synchronous service client. They are"
 " susceptible to deadlock, but will not provide any indication of issue "
@@ -222,4 +220,16 @@ msgid ""
 "also be aware of the conditions that cause deadlock outlined in section "
 "`1.1 Sync deadlock`_. We recommend using async service clients instead."
 msgstr ""
+
+#~ msgid ""
+#~ "The ``future`` can also be retrieved "
+#~ "using a timer or callback, like in"
+#~ " `this example "
+#~ "<https://github.com/ros2/examples/blob/rolling/rclpy/services/minimal_client/examples_rclpy_minimal_client/client_async_callback.py>`_,"
+#~ " a dedicated thread, or by another"
+#~ " method. It is up to you, as"
+#~ " the caller, to decide how to "
+#~ "store ``future``, check on its status,"
+#~ " and retrieve your response."
+#~ msgstr ""
 

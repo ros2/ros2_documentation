@@ -1,32 +1,30 @@
-# SOME DESCRIPTIVE TITLE.
+# Archivo de traducción al español para la documentación de ROS 2.
 # Copyright (C) 2023, Open Robotics
 # This file is distributed under the same license as the ROS 2 documentation
 # package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+# Cristian Chitiva <cychitivav@unal.edu.co>, 2023.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: ROS 2 documentation \n"
+"Project-Id-Version: ROS 2 documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-19 11:55+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: es\n"
 "Language-Team: es <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "Generated-By: Babel 2.8.0\n"
 
 #: ../../source/The-ROS2-Project/Features.rst:8
-#: 429709ffcccf49c2902369ce2db5c9b9
+#: 819983c546ad440da87109ead057724e
 msgid "Features Status"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:10
-#: 05957188ad7145a688833857bd42b6a6
+#: 8e68418452394147b7cdec42d990804f
 msgid ""
 "The features listed below are available in the current ROS 2 release. "
 "Unless otherwise specified, the features are available for all supported "
@@ -37,39 +35,39 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:17
-#: 6dffe47a35fa4205a6aa080b5db1dfc7
+#: c4185b63619448fcac4a6f758a11a05d
 msgid "Functionality"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:18
-#: a38ab4c5216d4cc9b6d7b7934df8bc30
+#: 7ab6a743d8d24c57967a5d97ea989c1d
 msgid "Link"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:19
-#: a8afaba308da42798c5572b929df1426
+#: ff8e1863e3624eca894c284b7ef4ebc7
 msgid "Fine print"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:20
-#: 14791c7171454692afb5f8d81fd8ab76
+#: 4c098eb971da4a7da57c803421aa3351
 msgid "Discovery, transport and serialization over DDS"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:21
-#: 3e9013342cdf465f8006f0983ba8740b
+#: bf211cff31fa4bd6935adf0bf66e6f9f
 msgid "`Article <https://design.ros2.org/articles/ros_on_dds.html>`__"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:23
-#: c79f4b2432b348a89a17eb063daaaf2a
+#: ba115183eeb8436b81377bf2872d5824
 msgid ""
 "Support for :doc:`multiple DDS implementations <../Concepts/Intermediate"
 "/About-Different-Middleware-Vendors>`, chosen at runtime"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:24
-#: 954300044133431eaad96996379500dd
+#: c0422f873ec24d2da56b840c8077eaa3
 msgid ""
 ":doc:`Concept <../Concepts/Intermediate/About-Different-Middleware-"
 "Vendors>`, :doc:`How-to Guide <../How-To-Guides/Working-with-multiple-"
@@ -77,88 +75,88 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:25
-#: 29b6240832ba48b493a09adcf34dc218
+#: 4e3b9e92100b4b52adf78dc2bfcc3c7f
 msgid ""
 "Currently Eclipse Cyclone DDS, eProsima Fast DDS, and RTI Connext DDS are"
 " fully supported."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:26
-#: 8aa59971bcf046b7a1f1f89e49e6cd44
+#: a10ea3c366334b88a36a31186c45328c
 msgid "Common core client library that is wrapped by language-specific libraries"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:27
-#: 618f0cd9b3be4849a5b4b966e9008988
+#: 5d45d8202d904eb08f7f6a009bcf7fbc
 msgid ":doc:`Details <../Concepts/Basic/About-Client-Libraries>`"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:29
-#: 4363ac811a77403893d09e7a2d1be588
+#: 9d89ca94c0834ab3b9f444fd0ab5b212
 msgid "Publish/subscribe over topics"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:30
-#: 978f5e82e7ec4cceb1c4c7696796dc79
+#: 7994db0cc4a440c48058c2bf9b2c50ec
 msgid ""
 "`Sample code <https://github.com/ros2/examples>`__\\ , `Article "
 "<https://design.ros2.org/articles/topic_and_service_names.html>`__"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:32
-#: ab75ebfd84634304ba503967d1e61328
+#: 300461a045d345058ff923077eeeaa46
 msgid "Clients and services"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:33
-#: 69f2fa52202f41b986774f102bf633c4
+#: 0dafd2aa7db14d57ac79cdccdeae8fad
 msgid "`Sample code <https://github.com/ros2/examples>`__"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:35
-#: fdc215af62fd4478be11bf98f784f20b
+#: 489e75dd0d79490085343dc0dcb52200
 msgid "Set/retrieve parameters"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:36
-#: 69b8c239209143058476977730622fe7
+#: d73ef1e766fb4d51b4322f9afbea1d57
 msgid ""
 "`Sample code "
 "<https://github.com/ros2/demos/tree/0.5.1/demo_nodes_cpp/src/parameters>`__"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:38
-#: 95f38be977874a04b8a1cae77f6b884f
+#: 4a80c20f9f004b8f9d07c7f6c2c8485a
 msgid "ROS 1 - ROS 2 communication bridge"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:39
-#: f578e32eca7d4b4f94501de50ec5c626
+#: e19a051ec6d242d39c862c0d860a4771
 msgid "`Tutorial <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:40
-#: dc1d35d420464753b521369e3e1db995
+#: 44db096d455f41a0b0746df6872b1bae
 msgid "Available for topics and services, not yet available for actions."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:41
-#: a57f3f1f496143b2b37323e74ad6aa47
+#: 58f7044ea4cc424e8c34a1da0f96efae
 msgid "Quality of service settings for handling non-ideal networks"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:42
-#: 0598af04f8c044309cfd26f5a16b1708
+#: 5bc374b5a26f4472894e66feb9ca1e1d
 msgid ":doc:`Demo <../Tutorials/Demos/Quality-of-Service>`"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:44
-#: 6c8b3d6a4bbb455d82eed81d2907fb47
+#: ce5a69401ccc4b8389a5eef6edc15caa
 msgid "Inter- and intra-process communication using the same API"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:45
-#: ad455d77c77f48e6a0ba1373b1cc9e51
+#: 897ec7c254c24c298e7da677b1b088c3
 msgid ":doc:`Demo <../Tutorials/Demos/Intra-Process-Communication>`"
 msgstr ""
 
@@ -166,149 +164,149 @@ msgstr ""
 #: ../../source/The-ROS2-Project/Features.rst:49
 #: ../../source/The-ROS2-Project/Features.rst:55
 #: ../../source/The-ROS2-Project/Features.rst:82
-#: 2b4c36cdb7604a7b8255d689d2f7f9a3 2ecbba530fc24545b9c0430b1d417070
-#: b3cc4d146c68468295154cd1bd2fabc6 ffac202211424301974bc3c82d271563
+#: b6a3f72b6fd54326b1bbcf1e56d69887 c55411af50c74f4bb60b96c5fe13e35e
+#: cd460549b8044d9fa807756bc019a725 e37bf6f018f84f9e9c48f2f3586654c0
 msgid "Currently only in C++."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:47
-#: a24c44b8fd1c42f5997d8f68004e5464
+#: f37f25869e50453a886f0b784c7c34ed
 msgid "Composition of node components at compile, link, load, or run time"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:48
-#: 43f8834c595048cbba154dec260ab62b
+#: 9713abb80e50474181d1b1e52008ef06
 msgid ":doc:`Demo <../Tutorials/Intermediate/Composition>`"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:50
-#: e50387bb33cf4835a7cfa50aad32644d
+#: 3c9a9e9de9db4e6285c245521cff0172
 msgid "Multiple executors (at level of callback groups) in same node"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:51
-#: 55b4d9bbf5eb46bf867e3a62479dcc2f
+#: a9cb07d86eb74abf8f6433506b2d33fd
 msgid ""
 "`Demo "
-"<https://github.com/ros2/examples/tree/rolling/rclcpp/executors/cbg_executor>`__"
+"<https://github.com/ros2/examples/tree/{DISTRO}/rclcpp/executors/cbg_executor>`__"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:52
-#: faf29a8fbe9e4ecea8a695af3bf7d3ea
+#: 0301c33e602f41ff98c03f02be275bc6
 msgid "Only in C++."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:53
-#: c7a5856229824d5989940971f2c305b3
+#: bc9b800f54fd4673bd1100f994171c29
 msgid "Support for nodes with managed lifecycles"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:54
-#: 3be1268b81bc45d38eeecf388f1521b6
+#: 512513bbf40d406388e84d56ae37a417
 msgid ":doc:`Demo <../Tutorials/Demos/Managed-Nodes>`"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:56
-#: fce85773966e4d059dd70bdf9c52412c
+#: f6ebcfe1a2504dfca037fc7b534366c0
 msgid "DDS-Security support"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:57
-#: b279704b12ba45ce84b5e4b8bae67d07
+#: d45dddee5da549718ab9329bc0ca5838
 msgid "`Demo <https://github.com/ros2/sros2>`__"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:59
-#: 7c099a5b2a6246b88f97e88524fa2d58
+#: c675c09d7f754a5cafd0a900be721bba
 msgid "Command-line introspection tools using an extensible framework"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:60
-#: c7d34f2cea62498ea2e030fe56ecf16c
+#: a4736b86ca0b4f27ab643a5b2d048275
 msgid ":doc:`Concept <../Concepts/Basic/About-Command-Line-Tools>`"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:62
-#: a29f735c74e649379f1a370afe524c90
+#: e02c2597d31d495ba1213cbfcf020d50
 msgid "Launch system for coordinating multiple nodes"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:63
-#: ac181400203d4a3aa4d410b386030974
+#: aa1010c66e02479aab3d55de0e92bc85
 msgid ":doc:`Tutorial <../Tutorials/Intermediate/Launch/Launch-system>`"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:65
-#: 006db429f3cc4fde8dbeadf2c721e851
+#: 00b45269fa2248b1b505200c65bd2c2b
 msgid "Namespace support for nodes and topics"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:66
-#: 24f5ed0b8fd745348bce3edf937fa91d
+#: a8d1d6316b0945b8b70568787ac99358
 msgid ""
 "`Article "
 "<https://design.ros2.org/articles/topic_and_service_names.html>`__"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:68
-#: c3ad8b5a9e5442d2bdcde89d1eecbe78
+#: 97adea6a1cd6438bad3d833016f4199a
 msgid "Static remapping of ROS names"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:69
-#: 5adbee811bc643f490463a8c117c9bad
+#: 67108a631203432b8facfe6f2c147042
 msgid ":doc:`How-to Guide <../How-To-Guides/Node-arguments>`"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:71
-#: 0d79bfa845354c1cbdf12f449254a3de
+#: f7ced46bc97744ea95cb31e7512472b9
 msgid "Demos of an all-ROS 2 mobile robot"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:72
-#: 50109c9db2ce4989ac840ba910060b22
+#: 4ea78a974408493d92ae9143aa290e52
 msgid "`Demo <https://github.com/ros2/turtlebot2_demo>`__"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:74
-#: 41a7b92c2d7c4471bedfb41d32921c9a
+#: 508c7f495d8a4f109016980fc52fe8bf
 msgid "Preliminary support for real-time code"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:75
-#: e1c13337b45f4d268d27aea26da38494
+#: a7aa6fa06bc74024a65949e37c8eedea
 msgid ""
 ":doc:`Demo <../Tutorials/Demos/Real-Time-Programming>`, :doc:`demo "
 "<../Tutorials/Advanced/Allocator-Template-Tutorial>`"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:76
-#: dc11473ce6c740e092775e8cc0c5ecb4
+#: 7c69c20d36b246a9ba5a6ea8d7f1ed03
 msgid "Linux only. Not available for Fast RTPS."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:77
-#: be34e592265d4df1884d729ae9f40c46
+#: fdaf9fc94ea84071a450ec360547509d
 msgid "Preliminary support for \"bare-metal\" microcontrollers"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:78
-#: 325ae1e362fc47d3b79bd139b8db5d18
+#: bfd18c87eec042d19ac461f161d82b8e
 msgid "`Wiki <https://github.com/ros2/freertps/wiki>`__"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:80
-#: 47214d96ae3f4cc595a90ec6c5785d9d
+#: 68ed78e0f4a04730806f9e72a7abbeb9
 msgid "Content filtering subscription"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:81
-#: f9f9a3ee8fe248bb829dc80cacbdfeb2
+#: 7dbc74aca2ee4318a2c957edc5c32934
 msgid ":doc:`Demo <../Tutorials/Demos/Content-Filtering-Subscription>`"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:84
-#: 539183f962f444c598a79794460093ec
+#: 7aa627fd4584441b900bbfbf8f5d4eaa
 msgid ""
 "Besides core features of the platform, the biggest impact of ROS comes "
 "from its available packages. The following are a few high-profile "
@@ -316,32 +314,37 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:87
-#: 5b3a4e01e4ba47bfa938a939d9dcdc01
+#: 658e0ed2950347e489f107d23e99724a
 msgid "`gazebo_ros_pkgs <https://index.ros.org/r/gazebo_ros_pkgs/>`__"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:88
-#: 5c282d64a0ec4edfa3ca763d98e9e20b
+#: a27764e6aca647d3acf07353688eddf8
 msgid "`image_transport <https://index.ros.org/r/image_common>`__"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:89
-#: 6f032853d2cf4ee69dba30a483a7d962
+#: ac2cf3aaf83e4522a25ec6c78358a050
 msgid "`navigation2 <https://index.ros.org/r/navigation2/>`__"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:90
-#: 1d7f8fc4f6774775829fec8b340f7223
+#: 40e38701c500490d8212524821fb33aa
 msgid "`rosbag2 <https://index.ros.org/r/rosbag2/>`__"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:91
-#: 571b4e55d0da48edb58620bdfdfdfcc9
+#: 49a66278367142bbabfe25b2bbe2da48
 msgid "`RQt <https://index.ros.org/r/rqt/>`__"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Features.rst:92
-#: 73beaf2110e247219ea3369500e8cf1e
+#: ac07ffdd38874f2bae833559e5464ff7
 msgid "`RViz2 <https://index.ros.org/r/rviz/>`__"
 msgstr ""
+
+#~ msgid ""
+#~ "`Demo "
+#~ "<https://github.com/ros2/examples/tree/rolling/rclcpp/executors/cbg_executor>`__"
+#~ msgstr ""
 

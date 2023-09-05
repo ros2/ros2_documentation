@@ -1,42 +1,40 @@
-# SOME DESCRIPTIVE TITLE.
+# Archivo de traducción al español para la documentación de ROS 2.
 # Copyright (C) 2023, Open Robotics
 # This file is distributed under the same license as the ROS 2 documentation
 # package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+# Cristian Chitiva <cychitivav@unal.edu.co>, 2023.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: ROS 2 documentation \n"
+"Project-Id-Version: ROS 2 documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-19 11:55+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: es\n"
 "Language-Team: es <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "Generated-By: Babel 2.8.0\n"
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:2
-#: 16a3146183ba4f009252b3ccbce98aae
+#: fe2cdcd3d5e54307be558cd9972338cc
 msgid "Release Track"
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:6
-#: 93eef00a031c44b5a53d8317063a516d
+#: b3c383c66d4448a8b011d0bf244d09d2
 msgid "Table of Contents"
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:11
-#: bd4f1c02569c4c129456828f181a8cf9
+#: e2ab86514cb042b3ab707988379bd83c
 msgid "What is a Track?"
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:13
-#: 27cecedbacd943bdb963323714bde072
+#: cc1adbf755df4770a6be068290417b6e
 msgid ""
 "Bloom requires the user to enter configuration information when releasing"
 " packages for the first time. It is beneficial to store such "
@@ -45,7 +43,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:16
-#: 1715487f9d144a83ad26e41099a7f803
+#: fa9c3deecce44da8b865e6597edce063
 msgid ""
 "Since some of the configurations will differ when releasing the package "
 "for different ROS distributions, bloom uses **release tracks to store the"
@@ -55,31 +53,31 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:19
-#: 7de5e5bb160e44768a0b09ea3db4b4d0
+#: 081b1510538941afafd6c54ce20eb3dc
 msgid ""
 "All release track configurations are stored in ``tracks.yaml`` on the "
 "master branch of your release repository."
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:22
-#: 377b75e467d4495683d58fddb008b9ab
+#: 4b67906a9ab44182b781c11e416b1473
 msgid "Track Configurations"
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:24
-#: d11da0db344e48f99f67d9bc90dda645
+#: b774adeab69a4761a9c9a34e4201256b
 msgid ""
 "Track configurations are explained in more detail along with the prompts "
 "from bloom."
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:29
-#: 1ce9fcde9a744e59b644441d3144d1db
+#: 9de8f05317da4c5ea821558fc5f44404
 msgid "Release Repository url"
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:31
-#: 175ab8870a554664b40d7bc20856fb70
+#: 9b8c91fed36549168afdad974277a6e1
 msgid ""
 "This is the url of your release repository, and should be of form "
 "``https://github.com/ros2-gbp/my_repo-release.git`` if your release "
@@ -87,46 +85,46 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:38
-#: 1ee4c4a4d05c44cb8f8899ac06aeefe3
+#: 4b3af12f857c415196ef030d4f6667ab
 msgid "Paste your release repository URL and press Enter."
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:40
-#: 44e8edd872934a9881aefbc5ea804466
+#: 74d76e4124b249feb0f882c41ea6cdfc
 msgid ""
 "Bloom may additionally ask you about initializing the new repository, as "
 "following:"
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:48
-#: 45059110d8c848d48f26e46579c7378a
+#: 49ebc226fab948bf8f02fbfe243429bd
 msgid "Simply press Enter to accept the default of yes."
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:53
-#: 6d785f45f4d045d9acee64d0e887697e
+#: 84079fc3b48b4cc694198bb8177f0476
 msgid "Repository Name"
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:55
-#: 45d8f997eb744f00afa5ccb00554d790
+#: 64809f96e2404382aa6d54bbea6e5d9e
 msgid ""
 "The repository name is trivial, but it is recommended to set this to the "
 "name of your project."
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:66
-#: fc9b580ce270488185b07f5c9966d8f0
+#: 73f30ca7d7f44e1bbc0e1fb871c3ec9b
 msgid "Type the name of your project (eg. ``my_project``) and press Enter."
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:71
-#: 005f114348c64b79b8955c423ae5b55c
+#: 97d69642c9a14c32ad21acc3d2d31961
 msgid "Upstream Repository URI"
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:73
-#: f86f518f9dd049ce87840b240eb67472
+#: a3fdbd1ccc6a417ebde6da4f4ed24d6a
 msgid ""
 "The **upstream repository** is the repository where your source code is. "
 "This is most likely an https link to your project hosted on a git hosting"
@@ -134,7 +132,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:85
-#: 3c391c5eb0d6472d988dc24f735d5ec9
+#: 0530bc7bea834625a3bf90b17cf59700
 msgid ""
 "Make sure you **use the https address** (eg. "
 "``https://github.com/my_organization/my_repo.git``) and not the ssh "
@@ -142,12 +140,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:90
-#: 05559e344c344f5a9d6bdf5519c05a10
+#: 4cbce0a467cc45e5b00c339254f227ed
 msgid "Upstream VCS Type"
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:92
-#: e3f707c613004ad7ac50389a92eee869
+#: cf5d594c4a444acd8300740009ce5c07
 msgid ""
 "This is the `Upstream Repository URI`_'s version control system (VCS) "
 "type. You must specify the type of vcs your repository is using, from  "
@@ -155,64 +153,64 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:108
-#: ea264e5e37674f989e7cd1704217216b
+#: 70833f05984249ad949964f922f50b62
 msgid ""
 "Most repositories will be using git, but some legacy repositories might "
 "be using hg or svn."
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:113
-#: 43a5b4ec4cbc4428abfa0425b4d66664
+#: e7056f733b564ba5a50dbeaabe23a1cf
 msgid "Version"
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:115
-#: 1f698c51a67545f495bf40c3342e43ec
+#: 1aff54ccb4154d0aa94be38164c14638
 msgid "This is the version of the package you are releasing. (eg. ``1.0.3``)"
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:132
-#: 67b0e067506446f185d6c8c2aaeb7e60
+#: 5967e58fe0ad4513918a061099591474
 msgid ""
 "Setting this to ``:{auto}`` (the default, and recommended setup) will "
 "automatically determine the version from the devel branch's package.xml."
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:134
-#: 585b3a8533894481af6e54646358c6ea
+#: 0d5c7bef93bb4d2bb991137ddf5e4205
 msgid ""
 "Setting this to ``:{ask}`` will bring up a prompt asking for the version "
 "every time you run a release with bloom."
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:139
-#: 49ea9136046642369101daac2be117f1
+#: 4a5a54c5058249ffbdaceb6e174438f8
 msgid "Release Tag"
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:141
-#: 1ec5d537ebb3424fbfaa09efdffdc381
+#: f3c14b31a7284c458ba7fbce6150efb0
 msgid ""
 "The Release Tag refers to which tag or branch you want to import the code"
 " from."
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:162
-#: 68df067c828d45c2af395bd8dd14f54a
+#: 200d654388cd45e8945d968ebf571cea
 msgid ""
 "Setting this to ``:{version}`` (the default, and recommended setup) will "
 "make the release tag match the version tag."
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:164
-#: f8d4d829453e4122b2c5a18b1f6320a2
+#: a58083b0dad74c0e9da131c6ed77f35f
 msgid ""
 "A less common setup is to set this to a branch name to always pull in "
 "that branch at the time of release from the upstream project."
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:166
-#: b8742990e5f243cfaa625eedcbd05e02
+#: be14ff64193d45839e62fdc2a188f73b
 msgid ""
 "Alternatively, if you want to be prompted to enter a different tag every "
 "time you do a release, enter ``:{ask}``. ``:{ask}`` is useful if the "
@@ -221,12 +219,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:172
-#: 48f76684f9734b8f90946da7f1e38219
+#: d6d99bb0a5264c29a4a2764a9b1d2cd0
 msgid "Upstream Devel Branch"
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:174
-#: e170f22a1f9f44ea8059f12de450762b
+#: 2622691ca1674242b323ee7f0591ae48
 msgid ""
 "The upstream devel branch is the name of the branch in your "
 ":ref:`upstream repository <upstream-repository-uri>`. If you use separate"
@@ -236,52 +234,64 @@ msgid ""
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:186
-#: d3669175d1724d138654b5dd1cca6f2b
+#: 887b16405a0f42a58d3b4c66324dcbc6
 msgid ""
-"To release from a branch called ``rolling``, enter ``rolling``. Leaving "
-"this as ``None`` would result in the version being determined from the "
+"To release from a branch called ``{DISTRO}``, enter ``{DISTRO}``. Leaving"
+" this as ``None`` would result in the version being determined from the "
 "default branch of your repository (this is not recommended)."
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:192
-#: 149a11e6bf7e4165a17ad357839e970f
+#: f047ef607bb34b7483506556ed1ffab1
 msgid "ROS Distro"
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:194
-#: 8445ba1aa99e444bbb22ed74921b26d0
+#: 107f2f22b90a46349d62b52cff89df54
 msgid "This is the distribution you're planning on releasing the package into."
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:203
-#: 04c102bcae5a4e78a25252e2178535ae
-msgid "If you plan on releasing into ROS rolling, enter ``rolling``."
+#: 72c9a01ffd684d34a8b2a22ecc3886a3
+msgid "If you plan on releasing into ROS {DISTRO}, enter ``{DISTRO}``."
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:208
-#: ce5fa0e221dc4da18a3104e05fcd22bb
+#: b7f9af67794749d8b373821825eeeb81
 msgid "Patches Directory"
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:210
-#: 2506a70ea1d34d62b8c9fca14044d5f1
+#: 27ab6259bf5d496e9447e12dc2099fc0
 msgid "This is the directory where any additional patches to the releases are."
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:225
-#: f7e8237309914036adca5e182c7492e4
+#: 40185042e88a4f9aabaccdb0d2bb57cc
 msgid ""
 "Adding additional patches to a release is a rarely used feature. For "
 "almost all packages, this should be left as the default ``None``."
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:231
-#: c17d6c6bd2f6492d84a2928d0541b5c8
+#: 527afc48f88443c1848d804aa2778363
 msgid "Release Repository Push URL"
 msgstr ""
 
 #: ../../source/How-To-Guides/Releasing/Release-Track.rst:245
-#: fddf612f1015451e996bd9555b8dc55e
+#: d98e483f89c342bd96b9651697d2edf2
 msgid "Can be left as the default in most cases."
 msgstr ""
+
+#~ msgid ""
+#~ "To release from a branch called "
+#~ "``rolling``, enter ``rolling``. Leaving this"
+#~ " as ``None`` would result in the "
+#~ "version being determined from the "
+#~ "default branch of your repository (this"
+#~ " is not recommended)."
+#~ msgstr ""
+
+#~ msgid "If you plan on releasing into ROS rolling, enter ``rolling``."
+#~ msgstr ""
 

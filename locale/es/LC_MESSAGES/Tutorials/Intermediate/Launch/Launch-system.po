@@ -1,57 +1,55 @@
-# SOME DESCRIPTIVE TITLE.
+# Archivo de traducción al español para la documentación de ROS 2.
 # Copyright (C) 2023, Open Robotics
 # This file is distributed under the same license as the ROS 2 documentation
 # package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+# Cristian Chitiva <cychitivav@unal.edu.co>, 2023.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: ROS 2 documentation \n"
+"Project-Id-Version: ROS 2 documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-19 11:55+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: es\n"
 "Language-Team: es <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "Generated-By: Babel 2.8.0\n"
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:8
-#: 259a4359d3984a20b2a12041b79159c5
+#: 3b06afdd87d24875b88a5474e73e63e5
 msgid "Integrating launch files into ROS 2 packages"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:10
-#: 911ab247f4b64eada09d992294ac6797
+#: d525f5e19d704e788231a5abdfbf3b8b
 msgid "**Goal:** Add a launch file to a ROS 2 package"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:12
-#: 190d251394b0442ca8ad05fb368e7a5f
+#: 1837029b198d449f9468a0d81bade54e
 msgid "**Tutorial level:** Intermediate"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:14
-#: a894739d90f7475b8eedc4ad14128b3d
+#: 4b099089e97e4a17af32f9eab36fbb03
 msgid "**Time:** 10 minutes"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:18
-#: c87210e21b9c4a2584937242099df7a7
+#: 7737a95240f744e984ea4c0efff23b10
 msgid "Contents"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:21
-#: 60777b886ff74a6194e26dea2fe4653e
+#: ede49e1b3abd46eeb224e36c2507e03c
 msgid "Prerequisites"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:23
-#: 5a43e585c0f048d88a307bfa16d47423
+#: b0d8b30346f044289ea7e35541c38c69
 msgid ""
 "You should have gone through the tutorial on how to :doc:`create a ROS 2 "
 "package <../../Beginner-Client-Libraries/Creating-Your-First-"
@@ -59,19 +57,19 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:25
-#: 76fa2a9abf9546e294f7209c547e58e0
+#: b594ebcc9d1240d2a494855b4b788696
 msgid ""
 "As always, don’t forget to source ROS 2 in :doc:`every new terminal you "
 "open <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>`."
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:28
-#: 62ab63d55e1e42a2a541c9ffec1d2bb4
+#: 608e27716f4a49e1a96a24f16458c329
 msgid "Background"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:30
-#: 25c6af64675f4afebae12e07ea60e85c
+#: d4895a136d844cd5934b8d3a97e91bd0
 msgid ""
 "In the :doc:`previous tutorial <Creating-Launch-Files>`, we saw how to "
 "write a standalone launch file. This tutorial will show how to add a "
@@ -79,58 +77,58 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:34
-#: aab7b1d473a24aaf89e5d7f488443f64
+#: b9fa8b542951430fb03400ab39940c4e
 msgid "Tasks"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:37
-#: 3f1f59fb437a4626baad2c0fe4a7a79a
+#: c7e9ff12d3f14792ab95afbc3f4df043
 msgid "1 Create a package"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:39
-#: 35ba8804a6904ca5b643be8df9ca1209
+#: d953d25ce9f14dad99fa074aab588663
 msgid "Create a workspace for the package to live in:"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:43
-#: 1a0747c598ac4f0ebf677dc1e8d272bb
+#: 6d0df97d39ab4e79a5055d560040ea21
 msgid "Linux"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:50
-#: 29bba7ba692140e9bb10a9d49c8d8aa6
+#: 9faa9b7b5bea4be6a000654546bac427
 msgid "macOS"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:57
-#: 773b86cc0d0c4172ad602f52c8f0bd44
+#: 4fe6bf0275d64b0aa5a704d2b9a47694
 msgid "Windows"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:66
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:86
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:203
-#: 48788ca34c4e4ee9b82e4b7307cbb750 503cac711a6a4599adcae7e292a1f366
-#: 835fde94783f4ed9a7ec5849e86d9272
+#: 5d284a4aaf4547c3bd9b70af13e715f4 606d9e75aee4457ca43079d72b5747e1
+#: b5743f2dfdaf41acaa92115309750c67
 msgid "Python package"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:72
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:123
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:225
-#: 5d486b38461640b39c282f006afd3a24 7dabbb66735542eeb83de0ce8ea23a6f
-#: bc5499c557aa427f922908b89cceca03
+#: 966be1b9a22446f4b1c7b2f0d5c5b709 b7c8611dfbb444e8b1e6e2c671631808
+#: f7c10413bf574aab8941381625475e6d
 msgid "C++ package"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:79
-#: 479ca0bc1dcd422ba5bae860e6bb355b
+#: e277aec938f2466b941b5bc04d338d54
 msgid "2 Creating the structure to hold launch files"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:81
-#: d855f33becea4dd0b4f6917c0d554b55
+#: f5127433f8a84ce89858585994c4915b
 msgid ""
 "By convention, all launch files for a package are stored in the "
 "``launch`` directory inside of the package. Make sure to create a "
@@ -138,14 +136,14 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:88
-#: be1901d475f9428bb08921d030b22599
+#: f0525810e8ab4a3abc9fb2cfc56cfab5
 msgid ""
 "For Python packages, the directory containing your package should look "
 "like this:"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:102
-#: 5f7803e638e3411c92e6724d380240ea
+#: dab2753495b94646b5f58ab7a250a7b1
 msgid ""
 "In order for colcon to find the launch files, we need to inform Python's "
 "setup tools of our launch files using the ``data_files`` parameter of "
@@ -153,37 +151,37 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:104
-#: 26a959a8a5994a7e913e525075c923c9
+#: 086d5be8ad9b48aebf823f8115ed5448
 msgid "Inside our ``setup.py`` file:"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:125
-#: efa83ff7df3a474b8d77052ac527b8ee
+#: 1bf221298b034fbda16c2c4e3bf2fc15
 msgid ""
 "For C++ packages, we will only be adjusting the ``CMakeLists.txt`` file "
 "by adding:"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:135
-#: 5fc8080936234441821f212cbf54ba6d
+#: af86ede492854219a50a2d63db44d24f
 msgid "to the end of the file (but before ``ament_package()``)."
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:139
-#: 89d277e5a766409bba7250a8f03a4069
+#: 2180d54c757543afb129f1e5830f7b4c
 msgid "3 Writing the launch file"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:143
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:207
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:229
-#: 01a60902b194459b9cd0c98b7e7f6e16 151e51837da04600bed50bdc5c2fe820
-#: 5a2079552c3643079b3f7e34a033b61a
+#: 149c02b04d184347aabc1aa4dea5db67 86c834cbe5b543739ba8861ad0bd7065
+#: c2ff7f2f538742c884c9ec9366727b1d
 msgid "Python launch file"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:145
-#: 7a47dd84015b4dd2ae7cdd4118033099
+#: 79a70b7f33ff4cb78bc16f16481bd261
 msgid ""
 "Inside your ``launch`` directory, create a new launch file called "
 "``my_script_launch.py``. ``_launch.py`` is recommended, but not required,"
@@ -193,7 +191,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:149
-#: bfdb6e63b37f422fa372eb6a4b4691b3
+#: 6da78b07869c424a995b41d61e20b035
 msgid ""
 "Your launch file should define the ``generate_launch_description()`` "
 "function which returns a ``launch.LaunchDescription()`` to be used by the"
@@ -203,13 +201,13 @@ msgstr ""
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:164
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:213
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:235
-#: 09e9d6ba6ae146328efeae01b4d1a4da 416fde2e152b4db69278b505fbc320a8
-#: a3ec9506a1a44d4399374a7234ba5768
+#: 0d052fa3c6c44a6387f1e79b440fea0e 8bcf45a63efc4463b272ef145a95b4ac
+#: b04f1395c39a40d4ab0b1ce8f1a2fd28
 msgid "XML launch file"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:166
-#: 68c62165533241808a0cd34927bb5377
+#: 36bea60866014258a310ad56a6bcedea
 msgid ""
 "Inside your ``launch`` directory, create a new launch file called "
 "``my_script_launch.xml``. ``_launch.xml`` is recommended, but not "
@@ -219,13 +217,13 @@ msgstr ""
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:175
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:219
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:241
-#: 593c10ef45e5422e9617703e68bc7f3b 5f673437b9294f4d8844e5cf8361d1ca
-#: 88fce8e7e24541a19feb4cb7c3fa2823
+#: 16ede7a8e6794e6e84c6653e1c68a0b5 2e3997f13b3b4466805269155381024a
+#: d084b4f908dc44238087fbeb9202a2d4
 msgid "YAML launch file"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:177
-#: bd538b3c738c4fe2826e506c1cae5810
+#: 28a9421aadf14383a34dc32dad485765
 msgid ""
 "Inside your ``launch`` directory, create a new launch file called "
 "``my_script_launch.yaml``. ``_launch.yaml`` is recommended, but not "
@@ -233,40 +231,47 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:191
-#: d452d1bc531c463394d781b50eccf8b2
+#: 32aa68d2a6e54ca483926a723d0644ed
 msgid "4 Building and running the launch file"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:193
-#: 027c6b4a68584d25b6002fbe8ed3da5f
+#: a176c1b9c9b84e919da5e63e1f620df0
 msgid "Go to the top-level of the workspace, and build it:"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:199
-#: b29b1a2210b242a98ca56e7bac2064ce
+#: 3b3f26ce54aa4064a5d9eef5a09508c9
 msgid ""
 "After the ``colcon build`` has been successful and you've sourced the "
 "workspace, you should be able to run the launch file as follows:"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:249
-#: 7babbf396c104fb3bc5616bd7969ba97
+#: 3830470cdf53473a817bcd524049f8e1
 msgid "Documentation"
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:251
-#: b5984f13287c49b09537e564432867e8
+#: c3bffc9012d64ffaac04aa39e774349c
 msgid ""
 "`The launch documentation "
-"<https://github.com/ros2/launch/blob/rolling/launch/doc/source/architecture.rst>`__"
+"<https://github.com/ros2/launch/blob/{REPOS_FILE_BRANCH}/launch/doc/source/architecture.rst>`__"
 " provides more details on concepts that are also used in ``launch_ros``."
 msgstr ""
 
 #: ../../source/Tutorials/Intermediate/Launch/Launch-system.rst:253
-#: 30d734d4b61c4a0b81c87be831c460e1
+#: 75f8f4d61926480191d4fe19d2f1cfd8
 msgid ""
 "Additional documentation/examples of launch capabilities are forthcoming."
 " See the source code (https://github.com/ros2/launch and "
 "https://github.com/ros2/launch_ros) in the meantime."
 msgstr ""
+
+#~ msgid ""
+#~ "`The launch documentation "
+#~ "<https://github.com/ros2/launch/blob/rolling/launch/doc/source/architecture.rst>`__"
+#~ " provides more details on concepts "
+#~ "that are also used in ``launch_ros``."
+#~ msgstr ""
 

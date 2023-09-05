@@ -1,74 +1,123 @@
-# SOME DESCRIPTIVE TITLE.
+# Archivo de traducción al español para la documentación de ROS 2.
 # Copyright (C) 2023, Open Robotics
 # This file is distributed under the same license as the ROS 2 documentation
 # package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+# Cristian Chitiva <cychitivav@unal.edu.co>, 2023.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: ROS 2 documentation \n"
+"Project-Id-Version: ROS 2 documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-19 11:55+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: es\n"
 "Language-Team: es <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: ../../source/API-Docs.rst:4 c771ee14fa1441cb9aee31dba0a363f8
+#: ../../source/API-Docs.rst:4 53640a62a9834afb9c46f17b6a052f85
 msgid "API Documentation"
 msgstr ""
 
-#: ../../source/API-Docs.rst:6 23bebbadee88488f8255fb0096ada1c6
+#: ../../source/API-Docs.rst:6 fbb75d229d3640ac9526f756d781a610
 msgid ""
 "All ROS 2 package's documentation is hosted alongside its information on "
 "the `ROS Index <https://index.ros.org/>`_. Searching for packages will "
 "yield their information such as released distributions, ``README.md`` "
 "files, URLs, and other important metadata. A list of all packages for "
 "each distribution on the index can be found `here "
-"<https://index.ros.org/packages/#rolling>`_. From the right-hand side of "
-"a package of interest, the auto-generated API documentation may be found "
-"found using the \"API Docs\" button."
+"<https://index.ros.org/packages/#{DISTRO}>`_. From the right-hand side of"
+" a package of interest, the auto-generated API documentation may be found"
+" found using the \"API Docs\" button."
 msgstr ""
 
-#: ../../source/API-Docs.rst:11 10f4e9d40548498ba5726573f14143c5
+#: ../../source/API-Docs.rst:11 de79a21b0553417fa4a0b8bbde7234c8
 msgid ""
 "You can find the API Documentation for the Client Libraries in the "
-"Rolling distribution using the links below:"
+"{DISTRO_TITLE} distribution using the links below:"
 msgstr ""
 
-#: ../../source/API-Docs.rst:13 142ba34cf6ab44c996dcc4c9bc0bf842
+#: ../../source/API-Docs.rst:13 252aa2ca6ddc4fcd8d12c2387f8aa52d
 msgid ""
 "`rclcpp - C++ client library "
-"<http://docs.ros.org/en/rolling/p/rclcpp/generated/index.html>`_"
+"<http://docs.ros.org/en/{DISTRO}/p/rclcpp/generated/index.html>`_"
 msgstr ""
 
-#: ../../source/API-Docs.rst:14 6b6b1bc112074b89a10813bbb5206a03
+#: ../../source/API-Docs.rst:14 0b809a103d924c05b17d3f1e9c2906de
 msgid ""
 "`rclcpp_lifecycle - C++ lifecycle library "
-"<http://docs.ros.org/en/rolling/p/rclcpp_lifecycle/generated/index.html>`_"
+"<http://docs.ros.org/en/{DISTRO}/p/rclcpp_lifecycle/generated/index.html>`_"
 msgstr ""
 
-#: ../../source/API-Docs.rst:15 6b81544e180649d28da8f3faeabd24c3
+#: ../../source/API-Docs.rst:15 3f3c615b1232448885dcd4e3f7c5c668
 msgid ""
 "`rclcpp_components - C++ components library "
-"<http://docs.ros.org/en/rolling/p/rclcpp_components/generated/index.html>`_"
+"<http://docs.ros.org/en/{DISTRO}/p/rclcpp_components/generated/index.html>`_"
 msgstr ""
 
-#: ../../source/API-Docs.rst:16 58d2a26f185a49c699a254a1c60fb5a4
+#: ../../source/API-Docs.rst:16 6963033075f34a9e921eef3140447da5
 msgid ""
 "`rclcpp_action - C++ actions library "
-"<http://docs.ros.org/en/rolling/p/rclcpp_action/generated/index.html>`_"
+"<http://docs.ros.org/en/{DISTRO}/p/rclcpp_action/generated/index.html>`_"
 msgstr ""
 
-#: ../../source/API-Docs.rst:18 8ca1d347ec3b45f4810c1943bca2837a
+#: ../../source/API-Docs.rst:18 6f8f2aefa100435a9419b2394bca844a
 msgid ""
-"A raw list of Rolling package documentation `may be found here "
-"<https://docs.ros.org/en/rolling/p/>`_."
+"A raw list of {DISTRO_TITLE} package documentation `may be found here "
+"<https://docs.ros.org/en/{DISTRO}/p/>`_."
 msgstr ""
+
+#~ msgid ""
+#~ "All ROS 2 package's documentation is "
+#~ "hosted alongside its information on the"
+#~ " `ROS Index <https://index.ros.org/>`_. Searching"
+#~ " for packages will yield their "
+#~ "information such as released distributions,"
+#~ " ``README.md`` files, URLs, and other "
+#~ "important metadata. A list of all "
+#~ "packages for each distribution on the"
+#~ " index can be found `here "
+#~ "<https://index.ros.org/packages/#rolling>`_. From the "
+#~ "right-hand side of a package of"
+#~ " interest, the auto-generated API "
+#~ "documentation may be found found using"
+#~ " the \"API Docs\" button."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You can find the API Documentation "
+#~ "for the Client Libraries in the "
+#~ "Rolling distribution using the links "
+#~ "below:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`rclcpp - C++ client library "
+#~ "<http://docs.ros.org/en/rolling/p/rclcpp/generated/index.html>`_"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`rclcpp_lifecycle - C++ lifecycle library "
+#~ "<http://docs.ros.org/en/rolling/p/rclcpp_lifecycle/generated/index.html>`_"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`rclcpp_components - C++ components library"
+#~ " "
+#~ "<http://docs.ros.org/en/rolling/p/rclcpp_components/generated/index.html>`_"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`rclcpp_action - C++ actions library "
+#~ "<http://docs.ros.org/en/rolling/p/rclcpp_action/generated/index.html>`_"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "A raw list of Rolling package "
+#~ "documentation `may be found here "
+#~ "<https://docs.ros.org/en/rolling/p/>`_."
+#~ msgstr ""
 

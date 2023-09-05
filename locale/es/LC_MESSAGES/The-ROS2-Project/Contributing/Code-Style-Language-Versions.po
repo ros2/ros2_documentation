@@ -1,37 +1,35 @@
-# SOME DESCRIPTIVE TITLE.
+# Archivo de traducción al español para la documentación de ROS 2.
 # Copyright (C) 2023, Open Robotics
 # This file is distributed under the same license as the ROS 2 documentation
 # package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+# Cristian Chitiva <cychitivav@unal.edu.co>, 2023.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: ROS 2 documentation \n"
+"Project-Id-Version: ROS 2 documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-19 11:55+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: es\n"
 "Language-Team: es <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "Generated-By: Babel 2.8.0\n"
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:8
-#: 52879a2ca85648179b7502ec11de6598
+#: 30e47d2a0f6d4fb9a3d1bafc3f7656fe
 msgid "Code style and language versions"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:12
-#: b4fa3fde2cc84798996e2189e91185cd
+#: 704cb72a941246a29348c01616f502ac
 msgid "Table of Contents"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:14
-#: e934a087615e466fa99f6c29d6ba3896
+#: d7384ee2e3564d3abcdf2c29a9527270
 msgid ""
 "In order to achieve a consistent looking product we will all follow "
 "externally (if possible) defined style guidelines for each language. For "
@@ -41,7 +39,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:17
-#: e44c59d9d1d54541895760fd52ffcd55
+#: bfa03eb6bce143c7b510fd4712adb4bf
 msgid ""
 "Additionally, wherever possible, developers should use integrated tools "
 "to allow them to check that these guidelines are followed in their "
@@ -50,27 +48,27 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:20
-#: 126b507b513f457c9b08172576f35d04
+#: b184d3ffbb914b87a004ea6bf5ddd1bf
 msgid ""
 "Also where possible, packages should check style as part of their unit "
 "tests to help with the automated detection of style issues (see "
 "`ament_lint_auto "
-"<https://github.com/ament/ament_lint/blob/rolling/ament_lint_auto/doc/index.rst>`__)."
+"<https://github.com/ament/ament_lint/blob/{REPOS_FILE_BRANCH}/ament_lint_auto/doc/index.rst>`__)."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:23
-#: d1e8e704ba2a490db2b6b24dbe2711ec
+#: e8d6c890f9e64231a23b7c85f22a98c2
 msgid "C"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:26
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:60
-#: 6d1781d05e624b38bfe5612ec2ecb70c fc76412d8b084d97bc32e339a0fc7f28
+#: 14a1bc1ac6394263a8a7c04474c65b6e 7a8733775cd44972abe37dbd2d60ac4c
 msgid "Standard"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:28
-#: d4722c7fc7734b7093bd9bf994ef7cf2
+#: ddbf383262074e4689dddd33b80ba53f
 msgid "We will target C99."
 msgstr ""
 
@@ -79,86 +77,86 @@ msgstr ""
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:329
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:359
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:376
-#: 54c6944405784c6ca1c2e9557f9bf4c0 8e67d75bd54742559a2fd0ebaf07ad3c
-#: c1addfb08c474eddad733d48668698c7 d587ee63b08b4be589b714c86895eb0f
-#: faedf82b4d4640e58609135485f2aaa0
+#: 34b0e07a3edf40168bdeac986cf0fb55 36d7d36ef38846ddaabfbbb67f7360b4
+#: 5445d849c7514a61a60a4838fc82184f 93c1d4b1a015452cb18c13fa646104db
+#: a5323057449f47d2ab539a80934085b3
 msgid "Style"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:33
-#: 1c50584e0b0340409b8027edbfcd8590
+#: 39359e5b76c5403fa2c5efb28b3a5bff
 msgid ""
 "We will use `Python's PEP7 <https://www.python.org/dev/peps/pep-0007/>`__"
 " for our C style guide, with some modifications and additions:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:35
-#: d21eeae1669d41c39706c3c1f349a0a0
+#: 516648e74d6b4e8db91f6718f35c7f91
 msgid "We will target C99, as we do not need to support C89 (as PEP7 recommends)"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:37
-#: c5a7285478a744af9133de8a0459ec49
+#: 4fd780dfddcc402eafb558b3e654a09d
 msgid ""
 "rationale: among other things it allows us to use both ``//`` and ``/* "
 "*/`` style comments"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:38
-#: 56f34678fce545639339bdcaae723b4c
+#: f118663fc7404be1b2e7853af70abda3
 msgid "rationale: C99 is pretty much ubiquitous now"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:40
-#: 5f71c0c8147b43e2a9e5bd975639d28c
+#: f639840d42a64dc2a1383b5bdc6e175b
 msgid "C++ style ``//`` comments are allowed"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:41
-#: 46bb74ef24194881922570332cb3cfc0
+#: 992a6e449e5d453da5619aca294c6fb0
 msgid ""
 "(optional) Always place literals on the left-hand side of comparison "
 "operators, e.g. ``0 == ret`` instead of ``ret == 0``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:43
-#: a18db06a763e47ccaadcab702d15f2cd
+#: 7b19ae04a05d433d93edd03b49ab7e29
 msgid "rationale: ``ret == 0`` too easily turns into ``ret = 0`` by accident"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:44
-#: 8aa5d1b43bf34647b0ebf750366fa44f
+#: a6cdaab4b4f94a18b0c4445e11c829d4
 msgid ""
 "optional because when using ``-Wall`` (or equivalent) modern compilers "
 "will warn you when this happens"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:46
-#: 3cdbec208f0f46c8bbf0954854ed81cf
+#: 6d033dcf31e14fd9a280ec454899ad66
 msgid ""
 "All of the following modifications only apply if we are not writing "
 "Python modules:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:48
-#: 15ba8d9961b544429be8fffc21d0cad6
+#: 710491ddff994081a9a772c5b53d08ce
 msgid "Do not use ``Py_`` as a prefix for everything"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:50
-#: 843ad723be9d4b7e98bfe196fa731638
+#: 1ea028d7a57b4642a004ff0a4163a51b
 msgid ""
 "instead use a CamelCase version of the package name or other appropriate "
 "prefix"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:52
-#: ff55bfcabd9d485ba5480f1a500a87c1
+#: 5dbbe32ebbb0429f8e8d14a2714c515c
 msgid "The stuff about documentation strings doesn't apply"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:54
-#: 5e53098bf9ca4d25baffaf2c6a692fd9
+#: 20c35fdee7464b12b669e96fe6ba69e6
 msgid ""
 "We can use the `pep7 <https://github.com/mike-perdide/pep7>`__ python "
 "module for style checking. The editor integration seems slim, we may need"
@@ -166,17 +164,17 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:57
-#: 85cb300d35914dbaa43f192d76394f7e
+#: a3c94f58251c45c6908df5cd66121092
 msgid "C++"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:62
-#: f54e35c120c1461abbb73616f22ea6cc
-msgid "Rolling targets C++17."
+#: 5662ed7245ac4f4fa01dc9504c76032c
+msgid "{DISTRO_TITLE} targets C++17."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:68
-#: 7e8a86096a7b4237a673008b6a020973
+#: 0bfac752366b41c688f9eadd40b15490
 msgid ""
 "We will use the `Google C++ Style Guide "
 "<https://google.github.io/styleguide/cppguide.html>`__, with some "
@@ -184,380 +182,380 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:71
-#: 23281daa42e944adb43e69094b38d045
+#: d4f7cd1aabcd459484986ab6d7a7fc40
 msgid "Line Length"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:73
-#: 67f5f670bc92420d84902886fd3d4763
+#: c0c049ae95744d2591454ddf58389450
 msgid "Our maximum line length is 100 characters."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:76
-#: f4b44536ee014155a4786469087e8abf
+#: 3c7031566c36496f98b8c55007115629
 msgid "File Extensions"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:78
-#: 50d8dc451fb247e9beeae300cf37840e
+#: 0fb27e41fe804ce39151a74e67c1d5c9
 msgid "Header files should use the .hpp extension."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:80
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:84
-#: 6cf87d95e82543ffbcea7f1dddcbbf93 6f6e49b8f31141a0849feaa0da4eeda3
+#: b625a1f582b946ee972ccb70d718a6d6 fcc1eb7b469643e9a92b1069364792c0
 msgid "rationale: Allow tools to determine content of files, C++ or C."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:82
-#: 31fbb323516948c88561722b7d13b667
+#: cb50e7988c774fd781163d1094ccc031
 msgid "Implementation files should use the .cpp extension."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:87
-#: 1df5352687a149b9a1a98ad8d5ad6e1d
+#: 27147a5558de483fab210711ebc3d964
 msgid "Variable Naming"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:89
-#: 2ff131db9a914714928f46041e13c7ab
+#: fad46c8862dc4092b3ef9cbf710c138c
 msgid "For global variables use lowercase with underscores prefixed with ``g_``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:91
-#: 51870753b3e342a4ad869c696e3279e9
+#: 78c54d691a0a4dc587d0755141fac287
 msgid "rationale: keep variable naming case consistent across the project"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:92
-#: 7f9031748dba4300b2ba4782b444e12d
+#: 1f6de97412014d39a2b2e947affd2cca
 msgid "rationale: easy to tell the scope of a variable at a glance"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:93
-#: 924750f45e114083835bb51267963d71
+#: 2be4fcb522d5420eb2cc78f91f9a22cc
 msgid "consistency across languages"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:96
-#: 5b3088c3468b4d6885163e2fd0c2ad66
+#: 50bf50fa6544447989faa304cabe7c3a
 msgid "Function and Method Naming"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:98
-#: 17b170ef583f4d229b65075feaf08745
+#: cba7d0e2775249bbae1b40fccf46a5c8
 msgid ""
 "Google style guide says ``CamelCase``, but the C++ std library's style of"
 " ``snake_case`` is also allowed"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:100
-#: 73ee70988bc04bae8659e473dfe0fd84
+#: 994966805ddb4ffdb08f128e0740011d
 msgid "rationale: ROS 2 core packages currently use ``snake_case``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:102
-#: 34cd716084e7483bab80dc6115bd2c36
+#: 6d78a4bd6508411997ada897ce7d4d51
 msgid ""
 "reason: either an historical oversight or a personal preference that "
 "didn't get checked by the linter"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:103
-#: dec0adbdc1484f9dbccebc19a3ed6fa0
+#: 6777d562a27b4e4294c0e0fb9c1d097c
 msgid "reason for not changing: retroactively changing would be too disruptive"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:104
-#: fe6f1fb656b24a83965ca38326abcd07
+#: a08472f15c3c49b68bf9dd4ca833bc73
 msgid "other considerations:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:106
-#: ac31eb681c834b08b8a4e14ab8c50774
+#: 221da7fcebd44b91bf0bdf11c5afb28a
 msgid ""
 "``cpplint.py`` does not check this case (hard to enforce other than with "
 "review)"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:107
-#: 4afb79e3c8f8409f88cb055b33191231
+#: a50b8733f4a14ae6bcb8342ad482ee01
 msgid "``snake_case`` can result in more consistency across languages"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:108
-#: 39391b0c925e49c0ad5b395d54d905f8
+#: 57c0083b86c343dbb21c822ad3a271a4
 msgid "specific guidance:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:110
-#: a57d3e1f79df481881493d864fe90433
+#: c245ba88100448c6a9bdc4b089cf3ac2
 msgid "for existing projects, prefer the existing style"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:111
-#: 52d23075ed4342f9abcfd9c8b0a552fe
+#: 522f494777554cb28d3fa1689c7c8887
 msgid ""
 "for new projects, either is acceptable, but a preference for matching "
 "related existing projects is advised"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:112
-#: 0cfe193f7466450c90e2c7b0acad06fc
+#: 4ee59a1711f940bfae9e0cd77b4f0df0
 msgid "final decision is always developer discretion"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:114
-#: 0344765ab67b45b787201beeffac27ab
+#: f98d6cfa2fb14e7dac1ed472ce3a4992
 msgid ""
 "special cases like function pointers, callable types, etc. may require "
 "bending the rules"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:115
-#: a1e4125c2cd74950af9fb3d289bf3bbd
+#: ff23c78ab17f4a17b091e4eaf86d671a
 msgid "Note that classes should still use ``CamelCase`` by default"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:118
-#: 0f9acddc1ffa44d887bbb71c231e3f65
+#: 44d55bc21f554f599dcad8f54ada9308
 msgid "Access Control"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:120
-#: 0f25f3bd43734092b1896cc53208a64d
+#: 3f2b18be325a4153b4585b41aa9ea114
 msgid ""
 "Drop requirement for all class members to be private and therefore "
 "require accessors"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:122
-#: c7b2daa8635c40369516dd1fe4f64f69
+#: c3bdb000174c4dd6807500feafc5969a
 msgid "rationale: this is overly constraining for user API design"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:123
-#: 7fed70eab3bb4a7c918357cc7983075c
+#: 67a955736ec34f95a0e77249c6c9ff74
 msgid ""
 "we should prefer private members, only making them public when they are "
 "needed"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:124
-#: 2590eb8deacd47c88869676d370cd35e
+#: 5a0887dfe8c5448ea66d922731ab848a
 msgid ""
 "we should consider using accessors before choosing to allow direct member"
 " access"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:125
-#: 090951af43784cec81b6d427976e4dbb
+#: 10f5d0ed88f84d1d82fe3c5c4117fe25
 msgid ""
 "we should have a good reason for allowing direct member access, other "
 "than because it is convenient for us"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:128
-#: c237c0896ad543f2b9068ee1d5fdf8c9
+#: 2f37118cb8ac422d9f81a47d2a35236b
 msgid "Exceptions"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:130
-#: d7e978c544bb49418ccbf364759c734b
+#: 47b418c0066f47ba969fa21310d7a903
 msgid "Exceptions are allowed"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:132
-#: 9c017ed7cfe34f0aa632a3d44912460f
+#: 7cc805a20e6544f786582ff1924354c8
 msgid ""
 "rationale: this is a new codebase, so the legacy argument doesn't apply "
 "to us"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:133
-#: a09cacd345f04ed98be83620defbe280
+#: 922f09acb69348e7824d253247559ca1
 msgid ""
 "rationale: for user-facing API's it is more idiomatic C++ to have "
 "exceptions"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:134
-#: 018e488c528047dbb95abab900e3bc8a
+#: bce7b65c20324f3cb9af643e22c90c6c
 msgid "Exceptions in destructors should be explicitly avoided"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:136
-#: 7639f606a08e4346b425065c160975d0
+#: 4dfeb28a65bc4203ab3fea4dcdcb3062
 msgid ""
 "We should consider avoiding Exceptions if we intend to wrap the resulting"
 " API in C"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:138
-#: 4e2c242506454d9184e49acab85b51ef
+#: 00e1566c40374dcebe484e4596aa1318
 msgid "rationale: it will make it easier to wrap in C"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:139
-#: d46e32d59f574a699dd808c5c093c369
+#: 6aa5d5adacff421ea1c2422c3f80197d
 msgid ""
 "rationale: most of our dependencies in code we intend to wrap in C do not"
 " use exceptions anyways"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:142
-#: ab31d24d11f649b59ece218e568cab65
+#: d600e924b87246f2b1598d6e75ac9d5e
 msgid "Function-like Objects"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:144
-#: 76c2bb40e39d4c33b7ff5feee82bd0e3
+#: bf09320b0d6641688e03d3a2fb2de6cf
 msgid "No restrictions on Lambda's or ``std::function`` or ``std::bind``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:147
-#: c3eb1b355cd64c52815f8cc9e650b7b0
+#: c6acc88b711343c3b56ed621d593ca20
 msgid "Boost"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:149
-#: 27efd6d4448543da8ecf857162f9cfe4
+#: bd39e327d76741df810cede8e35ab9fd
 msgid "Boost should be avoided unless absolutely required."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:152
-#: 7d588fd851dd40b3abaad19e9d7f2a6c
+#: 692f48b08d5d4268b65bc94b942d7f90
 msgid "Comments and Doc Comments"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:154
-#: 76222a7dbce140b29d9d9c812507ea08
+#: 696526f700c04001b0830f539773812b
 msgid ""
 "Use ``///`` and ``/** */`` comments for *documentation* purposes and "
 "``//`` style comments for notes and general comments"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:156
-#: 583ea5d18ca847d4b8f7d03f6ff18ccb
+#: 2e2f9a5d9c234cffa04d427968cbbb6b
 msgid ""
 "Class and Function comments should use ``///`` and ``/** */`` style "
 "comments"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:157
-#: 4cce038107784aa28f70d2042c24614e
+#: 633c60e05c8b4e19a4682d0e1a96b35e
 msgid "rationale: these are recommended for Doxygen and Sphinx in C/C++"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:158
-#: 60004de39ffd4aed9619b98dbcd71bbe
+#: c99c633c738245658f17ecc6cd4cd87f
 msgid ""
 "rationale: mixing ``/* */`` and ``//`` is convenient for block commenting"
 " out code which contains comments"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:159
-#: 5120caea0fa447118169fe1550d7f008
+#: 05d8b30ac96140cd8cd70f8f311d678d
 msgid ""
 "Descriptions of how the code works or notes within classes and functions "
 "should use ``//`` style comments"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:162
-#: 957260f790b64660997e8eb80f2337fe
+#: 7ab085bfb1044c0880cc423133a2da62
 msgid "Pointer Syntax Alignment"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:164
-#: a91599e2e12c4239a137e4605ff8f9b9
+#: 28cd0d77dab242e29197127a42ff7e92
 msgid ""
 "Use ``char * c;`` instead of ``char* c;`` or ``char *c;`` because of this"
 " scenario ``char* c, *d, *e;``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:167
-#: f824dd9a0a5f4f24a8f55580a6e457cd
+#: 16ce864e6cde4064bbcdadacfc407973
 msgid "Class Privacy Keywords"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:169
-#: f900ccc87d3b4dada32142f5e65765ad
+#: 55f5c8941e304a7fb83d480ab1b1e4e3
 msgid ""
 "Do not put 1 space before ``public:``, ``private:``, or ``protected:``, "
 "it is more consistent for all indentions to be a multiple of 2"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:171
-#: 61724daa5faf45019681ea0e9b11948f
+#: e3289db0727e46bf9d677ccecde8b372
 msgid ""
 "rationale: most editors don't like indentions which are not a multiple of"
 " the (soft) tab size"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:172
-#: 4cee0134892547929c8afff452e0b895
+#: 6152ba582c97497d860e9e6904f6baa9
 msgid ""
 "Use zero spaces before ``public:``, ``private:``, or ``protected:``, or 2"
 " spaces"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:173
-#: f4eb9af18b704589afc009deebf340f6
+#: d3c2573caf104895b805a7a39e6fdb7e
 msgid ""
 "If you use 2 spaces before, indent other class statements by 2 additional"
 " spaces"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:174
-#: 9f2339364e1f408f8ffa64925fd52200
+#: 14d148ae806540d480c93662977cf099
 msgid ""
 "Prefer zero spaces, i.e. ``public:``, ``private:``, or ``protected:`` in "
 "the same column as the class"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:177
-#: 79a2eb5159a4455f902af921f4ec0d4d
+#: 87061f0b23dd4a1ba8ff8e42287b7af6
 msgid "Nested Templates"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:179
-#: c987e5f20f0a4acf882361ab6ce855f9
+#: bf0cf4638f664afbaf2d615e6556ba8a
 msgid "Never add whitespace to nested templates"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:181
-#: 53b2c4209ee5447d9670992ec7dc7e88
+#: e0db115be10f454990d96eec767c943f
 msgid ""
 "Prefer ``set<list<string>>`` (C++11 feature) to ``set<list<string> >`` or"
 " ``set< list<string> >``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:184
-#: cd94e09d9b324bba996e18d958508b61
+#: bd53582c9eaa4aefa3f86a230a4aece8
 msgid "Always Use Braces"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:186
-#: 34b0214c1a4d41a5bc51f3aa2ddb0785
+#: ae81d4887722456bb4fafcc7d4ab1900
 msgid ""
 "Always use braces following ``if``, ``else``, ``do``, ``while``, and "
 "``for``, even when the body is a single line."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:188
-#: f6d7ea659dc64688865a16ff65763686
+#: 7a69a70f705d486e8289d937a0dd0b01
 msgid ""
 "rationale: less opportunity for visual ambiguity and for complications "
 "due to use of macros in the body"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:191
-#: 14c69456646043029affbcc04226e0e8
+#: 4bfa5afad1ed4ea0807d0a59e4a34be9
 msgid "Open Versus Cuddled Braces"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:193
-#: 407d5564744f41bdb2cec2578532092c
+#: 9a83d3f6c2b64395bda8ec3adfd40099
 msgid ""
 "Use open braces for ``function``, ``class``, ``enum``, and ``struct`` "
 "definitions, but cuddle braces on ``if``, ``else``, ``while``, ``for``, "
@@ -565,14 +563,14 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:195
-#: 5c21c64547894c0894c3c5a476a8cbbf
+#: c757668d60fc4d288c2a362721af9faa
 msgid ""
 "Exception: when an ``if`` (or ``while``, etc.) condition is long enough "
 "to require line-wrapping, then use an open brace (i.e., don't cuddle)."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:197
-#: f78e9b461aee4cc69cfaf8158b14b9b7
+#: 62d5c7989f994d8f8254ec9c8baf6a31
 msgid ""
 "When a function call cannot fit on one line, wrap at the open parenthesis"
 " (not in between arguments) and start them on the next line with a "
@@ -583,47 +581,47 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:199
-#: ecf6adac88e34e3583dc23ec50493466
+#: b4615811cd1247fbb2fac9bd2ae77e2e
 msgid ""
 "Same goes for ``if`` (and ``while``, etc.) conditions that are too long "
 "to fit on one line."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:202
-#: f793749a4f8f4521982072e1192f60f7
+#: ad9fddb9bc594d74b9f7c7c73eb93f90
 msgid "Examples"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:204
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:259
-#: 9585dec34cc848698b3466fe1d27935e d928694b05ba4237912ad899774666e7
+#: 6cd159d955dc47fd9edf7c1cd61a9bbe c6f49683379e4de7900cb7d0dcefb796
 msgid "This is OK:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:242
-#: 0e83c472f57d43f7a52c381c32ae2e84
+#: 59f3fbc2921345fd99377b3240c4db35
 msgid "This is **not** OK:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:257
-#: 3a2c9db006154381960ff2b83db1893f
+#: 7fd1bf99d1e44745a02dfc468dbb801d
 msgid ""
 "Use open braces rather than excessive indention, e.g. for distinguishing "
 "constructor code from constructor initializer lists"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:281
-#: 05cbf81624bc4798b27482fb797dd85e
+#: 47b2f1cea7154fe1bf925e34e6fadd35
 msgid "This is **not** OK, even weird (the google way?):"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:302
-#: 38394cc52b224718ae0da1d544085546
+#: b3517e57b11e4c828ce250be50cb8bbe
 msgid "Linters"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:304
-#: 166ac82d64dd40f1afb8ff61d6cf1009
+#: d25ccc4d9a0740fc868cc7fa2aae414d
 msgid ""
 "We check these styles with a combination of Google's `cpplint.py "
 "<https://github.com/google/styleguide>`__ and `uncrustify "
@@ -631,45 +629,45 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:306
-#: 7f823ae38b2847d1b6fc7c28d2147acb
+#: f5d430d9aaec4916975468311a33c689
 msgid "We provide command line tools with custom configurations:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:308
-#: 9fd91f87935e4cef878e894c6d0e4e8d
+#: bc95fb466ff0430396c3325f10dc627b
 msgid ""
 "`ament_clang_format "
-"<https://github.com/ament/ament_lint/blob/rolling/ament_clang_format/doc/index.rst>`__:"
+"<https://github.com/ament/ament_lint/blob/{REPOS_FILE_BRANCH}/ament_clang_format/doc/index.rst>`__:"
 " `configuration "
-"<https://github.com/ament/ament_lint/blob/rolling/ament_clang_format/ament_clang_format/configuration"
+"<https://github.com/ament/ament_lint/blob/{REPOS_FILE_BRANCH}/ament_clang_format/ament_clang_format/configuration"
 "/.clang-format>`__"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:309
-#: 6b17449e94c0477d9015afedc7182da6
+#: cddf8beffbb04bfaa6b14d15c8e21d6e
 msgid ""
 "`ament_cpplint "
-"<https://github.com/ament/ament_lint/blob/rolling/ament_cpplint/doc/index.rst>`__"
+"<https://github.com/ament/ament_lint/blob/{REPOS_FILE_BRANCH}/ament_cpplint/doc/index.rst>`__"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:310
-#: 042c79988722438fb7f517c2fff7d713
+#: b88954d3d7ca46519c114bb5546985c7
 msgid ""
 "`ament_uncrustify "
-"<https://github.com/ament/ament_lint/blob/rolling/ament_uncrustify/doc/index.rst>`__:"
+"<https://github.com/ament/ament_lint/blob/{REPOS_FILE_BRANCH}/ament_uncrustify/doc/index.rst>`__:"
 " `configuration "
-"<https://github.com/ament/ament_lint/blob/rolling/ament_uncrustify/ament_uncrustify/configuration/ament_code_style.cfg>`__"
+"<https://github.com/ament/ament_lint/blob/{REPOS_FILE_BRANCH}/ament_uncrustify/ament_uncrustify/configuration/ament_code_style.cfg>`__"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:312
-#: b4fe113506e545e783fad283352670e8
+#: 28cc16d498464f0882b79179a21fa150
 msgid ""
 "Some formatters such as ament_uncrustify and ament_clang_format support "
 "``--reformat`` options to apply changes in place."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:314
-#: da9ce5d2db2847ffb5dd6a4049ae20b8
+#: 59a673028880423285d3ec93fe7b6e1a
 msgid ""
 "We also run other tools to detect and eliminate as many warnings as "
 "possible. Here's a non-exhaustive list of additional things we try to do "
@@ -677,193 +675,193 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:317
-#: 9e58ecd2c5e4482c921aec2efbd2e872
+#: 71ff14061c6c4cb7b703a4da62795526
 msgid "use compiler flags like ``-Wall -Wextra -Wpedantic``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:318
-#: 7ee4c9bb963d4e7685ccf3934c72d546
+#: b6b6225b64ac4f9087a37011d1964580
 msgid ""
 "run static code analysis like ``cppcheck``, which we have integrated in "
 "`ament_cppcheck "
-"<https://github.com/ament/ament_lint/blob/rolling/ament_cppcheck/doc/index.rst>`__."
+"<https://github.com/ament/ament_lint/blob/{REPOS_FILE_BRANCH}/ament_cppcheck/doc/index.rst>`__."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:321
-#: 3db6753c8f7a44de9ad20ad5b3bd3734
+#: f6aa2f4738be40e082dcd37f49de546a
 msgid "Python"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:324
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:354
-#: ebe90f037c024cac969362b01ba73f2e f589d25feb954518bef7adc9b3494f3d
+#: 0c7cb4c9bf9d4df2a27c1966ebfa20d7 0d5616ba1a7e48669c10f5abf3e7dd05
 msgid "Version"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:326
-#: 11a71411ca1d4f119cbeead379ab5f2e
+#: 25b382b6c17b4f57a4939d3e72a248a0
 msgid "We will target Python 3 for our development."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:331
-#: 286303856f3e4dd8ab8e7fdeb4f39d82
+#: cac30741a0bc44eabf69fae1f0be7c70
 msgid ""
 "We will use the `PEP8 guidelines "
 "<https://www.python.org/dev/peps/pep-0008/>`_ for code format."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:333
-#: 9c93b58eab014346aabb8f031c4ae1d6
+#: d9e35a9d38c148bfa9869b01cf4e4a67
 msgid "We chose the following more precise rule where PEP 8 leaves some freedom:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:335
-#: 72a40e7c167c49cf80b6fc6d6cabbab8
+#: 3ba53b13a1c74b6780afcfa36d65cc88
 msgid ""
 "`We allow up to 100 characters per line (fifth paragraph) "
 "<https://www.python.org/dev/peps/pep-0008/#maximum-line-length>`_."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:336
-#: ef1e0cb530b34a87b0c4d258d77cf72e
+#: 1a9dd5102b88481186a205ca6ea24f65
 msgid ""
 "`We pick single quotes over double quotes as long as no escaping is "
 "necessary <https://www.python.org/dev/peps/pep-0008/#string-quotes>`_."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:337
-#: 569ac473a99d40d99fdb1dee549ec592
+#: fc7c8084bdca42038ea6df7bbdab3ab6
 msgid ""
 "`We prefer hanging indents for continuation lines "
 "<https://www.python.org/dev/peps/pep-0008/#indentation>`_."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:339
-#: 0b6140e2daa34ab1a6f6816038c61f4a
+#: 30d99af4a1404c3faa34aaac421a95ca
 msgid ""
 "Tools like the ``(ament_)pycodestyle`` Python package should be used in "
 "unit-test and/or editor integration for checking Python code style."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:341
-#: 4de58aa878b8441aaa635d10526cff0c
+#: b0395cabc8a94b588e4f9fcb459ec09f
 msgid ""
 "The pycodestyle configuration used in the linter is `here "
-"<https://github.com/ament/ament_lint/blob/rolling/ament_pycodestyle/ament_pycodestyle/configuration/ament_pycodestyle.ini>`__."
+"<https://github.com/ament/ament_lint/blob/{REPOS_FILE_BRANCH}/ament_pycodestyle/ament_pycodestyle/configuration/ament_pycodestyle.ini>`__."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:343
-#: 49289d33715945a485cc214abed67c96
+#: 8a14b192f7594d0cba5518f0c6e48fe9
 msgid "Integration with editors:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:345
-#: 60bee8186ede4ce6ac8568ebf44b4670
+#: 253df067bea344af89937573b4c78d80
 msgid "atom: https://atom.io/packages/linter-pycodestyle"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:346
-#: fca62d6152b7451aa85dd11c8c0c4738
+#: e728cad52e584015a9ba53377b8c44bc
 msgid "emacs: https://www.emacswiki.org/emacs/PythonProgrammingInEmacs"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:347
-#: 59817064b3bd4ef4bd2ab3f7b94fa2e5
+#: 417e0970fa4a423995c0b33e3ce9695a
 msgid "Sublime Text: https://sublime.wbond.net/packages/SublimeLinter-flake8"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:348
-#: de768137164f4170b9a833f3160193a1
+#: 487a03e5a7784256871e357c66df14aa
 msgid "vim: https://github.com/nvie/vim-flake8"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:351
-#: 242a66b901fd435bb4b21681a3423648
+#: 9110301eb1d949ae9a7292b55bddb7db
 msgid "CMake"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:356
-#: ee2e0c122d3d4a81bfaad8258e90f8f2
+#: f4e76f910ae64866bef7a0371d03f294
 msgid "We will target CMake 3.8."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:361
-#: 9d71d328d784402aba90a8b714149015
+#: fd7c33ffb05b4832a419cef2e363bc0c
 msgid "Since there is not an existing CMake style guide we will define our own:"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:363
-#: c228af31b63348288365b5e271518a37
+#: e5f3a6a645f5438f9cd2795d30728bc7
 msgid "Use lowercase command names (``find_package``, not ``FIND_PACKAGE``)."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:364
-#: b7dbac0fd89d4bc8bc44621c9b60a56a
+#: 6dd2c8f7bbee4c47aeebdced1c633e40
 msgid "Use ``snake_case`` identifiers (variables, functions, macros)."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:365
-#: c78fcfc8606b4bc0af0bb83adda2fa77
+#: 16e92baad1cc4fc99cabfaf7f45392cb
 msgid "Use empty ``else()`` and ``end...()`` commands."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:366
-#: 8724d10f279e48dca5ca9d309550f123
+#: cda167e79eb8478c8489d97221ae15b8
 msgid "No whitespace before ``(``\\ 's."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:367
-#: ff2f4ffd159942daaf7e1478a807464a
+#: 271ff1b4bf9c4d549f5b386fd3ea7aeb
 msgid "Use two spaces of indention, do not use tabs."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:368
-#: e4ba69954ccd4200a5769d9ab4ba5220
+#: b1b0c354f6be444c8779831097d95dce
 msgid ""
 "Do not use aligned indentation for parameters of multi-line macro "
 "invocations. Use two spaces only."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:369
-#: df7b791b32984aa2a689270ea065ac9c
+#: 16a83f8d132a4b2aa5d7c519e2c4d3d9
 msgid "Prefer functions with ``set(PARENT_SCOPE)`` to macros."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:370
-#: a3248ace30f6435cbfcf9bce45e2d306
+#: 1d74bdc2bc314a8bb2d7cb49e698ecb4
 msgid ""
 "When using macros prefix local variables with ``_`` or a reasonable "
 "prefix."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:373
-#: 448fce45a6db459a89ad4535c905add3
+#: 3032e9e9d7154865bc115bfbfcbb942f
 msgid "Markdown / reStructured Text / docblocks"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:378
-#: fa9b01da1a504834a6d99c5855d5c5c1
+#: cbb4d3e5c16a4fc4bb1c7c5638745494
 msgid ""
 "The following rules to format text is intended to increase readability as"
 " well as versioning."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:380
-#: 4f5d91976a27440493213da38f827615
+#: 776a79a519c5492b821a9f03b6c23b8f
 msgid ""
 "*[.md, .rst only]* Each section title should be preceded by one empty "
 "line and succeeded by one empty line."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:382
-#: 11cf5e8f60e444bf84b44b4577129041
+#: 1163d2dc6e3046dbbc3067ed1bc3fc70
 msgid ""
 "Rationale: It expedites to get an overview about the structure when "
 "screening the document."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:384
-#: 2ec543c74509471488d8d9d9a2624d0d
+#: e82f16bbf9e542d7ac53c9407bfe8f03
 msgid ""
 "*[.rst only]* In reStructured Text the headings should follow the "
 "hierarchy described in the `Sphinx style guide <https://documentation-"
@@ -872,44 +870,44 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:386
-#: c22d2d43e6a3417e93036d4494346f4f
+#: f848b9a410ea4300a69eeda5b71f4511
 msgid "``#`` with overline (only once, used for the document title)"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:387
-#: 1fcd888f8b674ce2bb73c3b848ad5c7e
+#: 99f9b33a4c77474480195b34bfdd06e7
 msgid "``*`` with overline"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:388
-#: dd8a5cfd342f49c69da5ca03230a2ac3
+#: 942a204e164942429e2c9d646c6fdc67
 msgid "``=``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:389
-#: d44ec28ac4ff40efb20dceee9f55b854
+#: 2b305c8ba78446f495ca947e7afacdcb
 msgid "``-``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:390
-#: 739ccb154b0a46269ba648dba853b56f
+#: d27838325526411a815ef379528a24f6
 msgid "``^``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:391
-#: b6e42d0ef4b3409899e0d4bf767f5e82
+#: a255a7655a17450b950dc909d45c6d7d
 msgid "``\"``"
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:392
-#: 399f5eb7664f404ebaee7870c0e2cfae
+#: a42a34dc260c4784aeb6d11353683409
 msgid ""
 "Rationale: A consistent hierarchy expedites getting an idea about the "
 "nesting level when screening the document."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:394
-#: 0eed6d6a1f0e4b6e9c5e5418562691e0
+#: 02c33ea22e4e440496cccb7371398b12
 msgid ""
 "*[.md only]* In Markdown the headings should follow the ATX-style "
 "described in the `Markdown syntax documentation "
@@ -917,21 +915,21 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:396
-#: 8333b57a806c4ab8b828f849bbbb209e
+#: bb74b7755ab045cfbcdb56161e5e0253
 msgid ""
 "ATX-style headers use 1-6 hash characters (``#``) at the start of the "
 "line to denote header levels 1-6."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:397
-#: 0a186ee5e9964f47af3d6b6f484bcc0c
+#: 0cab989adf3c432390ad5faebeb6bd0b
 msgid ""
 "A space between the hashes and the header title should be used (such as "
 "``# Heading 1``) to make it easier to visually separate them."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:398
-#: 5037d1fc3fc24ab58b4d36a6da7c9141
+#: f2df1b31439044e2bfe8cc632c73e80a
 msgid ""
 "Justification for the ATX-style preference comes from the `Google "
 "Markdown style guide <https://github.com/google/styleguide/blob/gh-"
@@ -939,43 +937,43 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:399
-#: 876e2047cd9d42e898aaabe125fcff90
+#: 2862ce65cd384f369a0af0ccc7a1a299
 msgid ""
 "Rationale: ATX-style headers are easier to search and maintain, and make "
 "the first two header levels consistent with the other levels."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:401
-#: d1323ffb99574259836c5798bd0ab0fc
+#: 12a07aba940846f6b7c2bdc32aeb1043
 msgid "*[any]* Each sentence must start on a new line."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:403
-#: a883b8c56e87424cbec92bc5e6f3cae6
+#: ec708097e276437799445db33b22bf2a
 msgid ""
 "Rationale: For longer paragraphs a single change in the beginning makes "
 "the diff unreadable since it carries forward through the whole paragraph."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:405
-#: 7150ca5d6b1748a18f5aa184436d7089
+#: 581336e656d6467ea0b6201104791375
 msgid "*[any]* Each sentence can optionally be wrapped to keep each line short."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:406
-#: 082c8e5a7f3e44b8a7b266542c497db0
+#: c897c771ff494088b2bfa9824a800281
 msgid "*[any]* The lines should not have any trailing white spaces."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:407
-#: 7e601d0cc8824bc8849066ea13578fd6
+#: c776e2f88da544de8333a14ded74e62d
 msgid ""
 "*[.md, .rst only]* A code block must be preceded and succeeded by an "
 "empty line."
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:409
-#: 9b6c0992008542779f650bcf1bfab2eb
+#: 10e96a36f335425eb53541a4e5ee2a02
 msgid ""
 "Rationale: Whitespace is significant only directly before and directly "
 "after fenced code blocks. Following these instructions will ensure that "
@@ -983,7 +981,52 @@ msgid ""
 msgstr ""
 
 #: ../../source/The-ROS2-Project/Contributing/Code-Style-Language-Versions.rst:412
-#: c6a8e58328654aeba74af5fa4fe36bec
+#: 70be8706e8414732b859f1c912e049f8
 msgid "*[.md, .rst only]* A code block should specify a syntax (e.g. ``bash``)."
 msgstr ""
+
+#~ msgid ""
+#~ "Also where possible, packages should "
+#~ "check style as part of their unit"
+#~ " tests to help with the automated "
+#~ "detection of style issues (see "
+#~ "`ament_lint_auto "
+#~ "<https://github.com/ament/ament_lint/blob/rolling/ament_lint_auto/doc/index.rst>`__)."
+#~ msgstr ""
+
+#~ msgid "Rolling targets C++17."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`ament_clang_format "
+#~ "<https://github.com/ament/ament_lint/blob/rolling/ament_clang_format/doc/index.rst>`__:"
+#~ " `configuration "
+#~ "<https://github.com/ament/ament_lint/blob/rolling/ament_clang_format/ament_clang_format/configuration"
+#~ "/.clang-format>`__"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`ament_cpplint "
+#~ "<https://github.com/ament/ament_lint/blob/rolling/ament_cpplint/doc/index.rst>`__"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`ament_uncrustify "
+#~ "<https://github.com/ament/ament_lint/blob/rolling/ament_uncrustify/doc/index.rst>`__:"
+#~ " `configuration "
+#~ "<https://github.com/ament/ament_lint/blob/rolling/ament_uncrustify/ament_uncrustify/configuration/ament_code_style.cfg>`__"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "run static code analysis like "
+#~ "``cppcheck``, which we have integrated "
+#~ "in `ament_cppcheck "
+#~ "<https://github.com/ament/ament_lint/blob/rolling/ament_cppcheck/doc/index.rst>`__."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The pycodestyle configuration used in "
+#~ "the linter is `here "
+#~ "<https://github.com/ament/ament_lint/blob/rolling/ament_pycodestyle/ament_pycodestyle/configuration/ament_pycodestyle.ini>`__."
+#~ msgstr ""
 

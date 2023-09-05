@@ -1,52 +1,50 @@
-# SOME DESCRIPTIVE TITLE.
+# Archivo de traducción al español para la documentación de ROS 2.
 # Copyright (C) 2023, Open Robotics
 # This file is distributed under the same license as the ROS 2 documentation
 # package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+# Cristian Chitiva <cychitivav@unal.edu.co>, 2023.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: ROS 2 documentation \n"
+"Project-Id-Version: ROS 2 documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-19 11:55+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: es\n"
 "Language-Team: es <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "Generated-By: Babel 2.8.0\n"
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:9
-#: f099cf8eb58c40b5be9c5a84c501c008
+#: f772058eca354ea2a9361e73927b90aa
 msgid "Using ``colcon`` to build packages"
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:13
-#: e418879a33474be48090def4a784c783
+#: 4d93ca4be4674b448318a901589a5492
 msgid "Table of Contents"
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:15
-#: e7dc6f943e6040d785636fe954ae1029
+#: 908acb2b8cc14f838727e38cc962a789
 msgid "**Goal:** Build a ROS 2 workspace with ``colcon``."
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:17
-#: 3a2bbe4bb46a49ebad9b7bf6a444fceb
+#: 5f54bdb657b34c6ea9083f4d48ecd4fb
 msgid "**Tutorial level:** Beginner"
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:19
-#: e1e75ec9ab46415ea1405c4bbd136ebe
+#: 266d6c356e624dccaa79def229b7f025
 msgid "**Time:** 20 minutes"
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:21
-#: ad5f9895aff843059e3f244811aac3dc
+#: 79e381bf27ef4c96bf28fe3034b27e01
 msgid ""
 "This is a brief tutorial on how to create and build a ROS 2 workspace "
 "with ``colcon``. It is a practical tutorial and not designed to replace "
@@ -54,12 +52,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:25
-#: b7581af428914193a8d7ee4f7af13d8c
+#: 2d3fcaccdb094691b8a9c6e83ed6d8ef
 msgid "Background"
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:27
-#: 00edcd5fe01a45dfbc137adfd23cb616
+#: c7662d74fc124521ae8617640fa2aaf6
 msgid ""
 "``colcon`` is an iteration on the ROS build tools ``catkin_make``, "
 "``catkin_make_isolated``, ``catkin_tools`` and ``ament_tools``. For more "
@@ -68,19 +66,19 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:30
-#: 41825e2c1d774ceaa74b1ac2dc5facaf
+#: 0bb6e7069c7e4f09b7e01cb6abbf9d92
 msgid ""
 "The source code can be found in the `colcon GitHub organization "
 "<https://github.com/colcon>`__."
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:33
-#: 71290ab796834e14a6c2d08a47e3ecd1
+#: e9c232dcd38b4642abbe40aeb57b6f0c
 msgid "Prerequisites"
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:36
-#: eaa8d96aac494d42841e1b60ac64fcc9
+#: 44075e69b86648b3af594b26188902f6
 msgid "Install colcon"
 msgstr ""
 
@@ -91,10 +89,10 @@ msgstr ""
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:246
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:313
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:341
-#: 3ddf1ffd4ed54d8480509513f6ceaf7e 43a57a35faa343aa8918c95f25ae53aa
-#: 4a44b7b7bfb843479872a8b3fc54fc6f 69a6b5eb5dc44363828be8506e66de1e
-#: 6f6de63c34cc4cd7991419af382ad8d6 94c94340231a41c2a568e21f399945f5
-#: dfa3b7bebe494660bc3f1f5d9a3bf1a5
+#: 1b37f91beea1478784ef48cd44442b43 20428041b9d94cf3a04f773ed2e84769
+#: 2c70e436445d4ca6aff3492af2ba062c 3ea617b1948049e5a6e079433c49981a
+#: 57949f20092f4c6c86afcfb5ab273f45 d4ab7fc418fc40bbab515f774c94a5de
+#: db30dbd3db964354b6eaf57809eb9a5b
 msgid "Linux"
 msgstr ""
 
@@ -105,10 +103,10 @@ msgstr ""
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:252
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:320
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:347
-#: 4d978ba29f414da7aa8abe681f29a020 5de46a10463f48a69e227fb3ce763860
-#: 7439d38b72714f23a07f164ff5943e75 86074a43168148ce92c599c7d58ce5b3
-#: 916d0c69554a4ebd8fd756b6ac684866 aee24e9685b1437d8d185f2cc2ebfcd9
-#: b8652727d5ec42c390caf35343098999
+#: 0a82fef8736146df8532eac7b1a42c9e 0e5e1a5b4711437cb16eb2d4c9b9b523
+#: 324096679a21459c86ecfcc6570751ab 930f533355aa4e0789789fa1a488986e
+#: c3e89fe7a8ca45c9842efe1dc634da8f ea5ca1588c6b4657b9f4e85f4178a628
+#: f30757b06a7f4842a2db92f2a4a4829f
 msgid "macOS"
 msgstr ""
 
@@ -119,30 +117,30 @@ msgstr ""
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:258
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:327
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:353
-#: 06a3c0ac32294d28a04e77cd6e694119 19d679f595e348269b09d8cab8bcbb38
-#: 2420d6a46a6f4f17b74361120374b6da 26d7252b890f4e72b303b514c9e9892f
-#: 71d70d4d5ef347409ed6f2fe4ad26f75 8888dda143f24d0ba10a33536768b3e2
-#: d5ede2d71f6243e59a4bc425dfbe639e
+#: 0660852b3b3b41a9999ae1938a3e2334 06f1031ec91d4ba39c578c252899d505
+#: 43e83655a30d4e69ae21c69e32ef848e 44902993c3bb4f2aa1ebb1d910f21e48
+#: 66ede1dddd374a14a621432cd7e3311a 6b264ad328e94f14be40b8efdfd5f8b0
+#: d4af8d8ba416439fb40f4735d034162a
 msgid "Windows"
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:60
-#: 8733221a32f74dcabd866d8bab4e0b21
+#: 039c88eb12df4aff8f01014b7ae8124b
 msgid "Install ROS 2"
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:62
-#: 0c5576ae219d4ab38b95a32a515fbdce
+#: 7b183db6eb4e4093b140b88e6cf5385b
 msgid "To build the samples, you will need to install ROS 2."
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:64
-#: 6ceb03413dfd4ddbb62278fb3c02edb9
+#: 59e6f4ceb230469a9c929a3261843af9
 msgid "Follow the :doc:`installation instructions <../../Installation>`."
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:66
-#: bef46e7479a74a2f965ef902de5cd813
+#: d1b96f925dac44deb4594df405a15114
 msgid ""
 "If installing from Debian packages, this tutorial requires the "
 ":ref:`desktop installation <linux-install-debians-install-"
@@ -150,12 +148,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:69
-#: d0cb844c95bf4c0f9b27b7a06fb4dccf
+#: a93feb40de664134bda752ff9d4d9ae3
 msgid "Basics"
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:71
-#: ae118a4b0cda4f9bac769c56eb8e1e30
+#: 685b1bfb5e494f049a763fc2cb515686
 msgid ""
 "A ROS workspace is a directory with a particular structure. Commonly "
 "there is a ``src`` subdirectory. Inside that subdirectory is where the "
@@ -164,14 +162,14 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:76
-#: 2ad2d47fe7e04c4fa7e1d36b37bbfbbf
+#: 9626f57c67ad48fca7d275d39a8b518e
 msgid ""
 "colcon does out of source builds. By default it will create the following"
 " directories as peers of the ``src`` directory:"
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:79
-#: f0ee32cff8d548c1be449b9580572e9a
+#: 34ba41f0e90e41cb9be69f16426f0f35
 msgid ""
 "The ``build`` directory will be where intermediate files are stored. For "
 "each package a subfolder will be created in which e.g. CMake is being "
@@ -179,63 +177,63 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:81
-#: 35a8f65602f74faa923f670bc99f4bc5
+#: 895d157da4e544289593f2ec5d801839
 msgid ""
 "The ``install`` directory is where each package will be installed to. By "
 "default each package will be installed into a separate subdirectory."
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:83
-#: 48392169a01344d68c0f331e005ad121
+#: 49de15137c684e5caa4e379219c8560e
 msgid ""
 "The ``log`` directory contains various logging information about each "
 "colcon invocation."
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:85
-#: b7cb19e5f1f24931b37c08b66fe4a5b1
+#: d0ca51d9056b4241b14863d2009ac279
 msgid "Compared to catkin there is no ``devel`` directory."
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:88
-#: 3d2b1dbc20044e3ba2a51873c5833b4f
+#: f8228a920ff9464bbd3398bb7512d294
 msgid "Create a workspace"
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:90
-#: a4963486c6ea4b9b8485015f8c9e0c78
+#: b0fc3bc85016456186d88f94ff670570
 msgid "First, create a directory (``ros2_ws``) to contain our workspace:"
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:115
-#: f327d7f07db440efbdd90e14e5f699f0
+#: 671d2868bdfe41eea4ea7228354bf944
 msgid "At this point the workspace contains a single empty directory ``src``:"
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:125
-#: 65238abdeef945ed93cd7f4bc2edce12
+#: 2e3f5c0280c64ec8ad167478a935fc24
 msgid "Add some sources"
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:127
-#: b7e6956684d14d0499c919d1a9336078
+#: e9f5016149ad445b985f762042c2da8c
 msgid ""
 "Let's clone the `examples <https://github.com/ros2/examples>`__ "
 "repository into the ``src`` directory of the workspace:"
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:133
-#: dfa8583194ca4d1d82c02ea685952fe0
+#: 9023963792f44396be883988a4c7296e
 msgid "Now the workspace should have the source code to the ROS 2 examples:"
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:149
-#: bb2c703d19954a49810492b2673945e3
+#: a75bed38da974f2681536cc20b5ad3cf
 msgid "Source an underlay"
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:151
-#: a6b69c1e961f49e1bfe0f14233bbdd0e
+#: 269ffec2dc9d425e8baa72a2c9b06630
 msgid ""
 "It is important that we have sourced the environment for an existing ROS "
 "2 installation that will provide our workspace with the necessary build "
@@ -246,7 +244,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:155
-#: 0187e08c14cd4eea923b008e0074a9ba
+#: 25f9b70ad7484e3c98e344820b141148
 msgid ""
 "Our workspace, ``ros2_ws``, will be an **overlay** on top of the existing"
 " ROS 2 installation. In general, it is recommended to use an overlay when"
@@ -255,12 +253,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:159
-#: 3bca93bd5e864052b779d962d09d34ad
+#: 2719b83f9aaf4089aedbb1f71872a415
 msgid "Build the workspace"
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:163
-#: eb3adfc6280c435c9e8dca7d546075f9
+#: ddb96b9192c8418797de2e6e8813b429
 msgid ""
 "To build packages on Windows you need to be in a Visual Studio "
 "environment, see :ref:`Building the ROS 2 Code <windows-dev-build-ros2>` "
@@ -268,7 +266,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:165
-#: 1b97d64524f249308c60471dc7a799d7
+#: 4ca6b5dbaaf742869437e486a39c9ce5
 msgid ""
 "In the root of the workspace, run ``colcon build``. Since build types "
 "such as ``ament_cmake`` do not support the concept of the ``devel`` space"
@@ -279,50 +277,50 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:189
-#: 09ed0aa0408b43d48a7683fcdd1b4490
+#: c946ff0e03ac430682013cb59d5e5536
 msgid ""
 "Windows doesn't allow long paths, so ``merge-install`` will combine all "
 "the paths into the ``install`` directory."
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:191
-#: ea0967431d3443809ee7aac46866237a
+#: db536e9611bb4485b290efebe935b4ff
 msgid ""
 "After the build is finished, we should see the ``build``, ``install``, "
 "and ``log`` directories:"
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:206
-#: 347ec1ab3c424ef589b7c97140e68522
+#: 7bd8ee3f060644519bf01d3ed0f2bcd1
 msgid "Run tests"
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:208
-#: 3a4de4f1d7b04614b0cacbe64e63b7c6
+#: f2a0e2a9c5fb40b7900ed830e0d34a37
 msgid "To run tests for the packages we just built, run the following:"
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:226
-#: a1254c594653413eb44f95ce5a6a9ffc
+#: 3335631917cc492d89e6e5e75bd0cd5b
 msgid ""
 "Remember to use a ``x64 Native Tools Command Prompt for VS 2019`` for "
 "executing the following command, as we are going to build a workspace."
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:232
-#: 1e949c80fb734717a7fb31e3529664e9
+#: e34feb1569b24bbc9ddd0b0802f788cc
 msgid ""
 "You also need to specify ``--merge-install`` here since we used it for "
 "building above."
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:237
-#: b8e8e1a573c049c3a0a60ae92113f020
+#: 6c413b80b4a34b2b96a16c8c887aaf4f
 msgid "Source the environment"
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:239
-#: d1dd11ffa5314f97b7667de06f83cac4
+#: e001f5fe1aa84230ad4d6e5328dd5eaf
 msgid ""
 "When colcon has completed building successfully, the output will be in "
 "the ``install`` directory. Before you can use any of the installed "
@@ -334,43 +332,43 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:264
-#: 01369451b8d54e3c91a0dc2037fd6bf6
+#: 206e5522f8274c44918b5e63b69ddabd
 msgid "Or with Powershell:"
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:271
-#: d9734bc4bc6745a38cea48b167d55e88
+#: 2746d101996e43f1af4d0ed70db1da65
 msgid "Try a demo"
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:273
-#: f82c60f415fa4b47ab7dd6a287479048
+#: 996fb697f7a64876b45c227eaf8f44a2
 msgid ""
 "With the environment sourced, we can run executables built by colcon. "
 "Let's run a subscriber node from the examples:"
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:280
-#: 9e6016b8a6fe4c6cacd4b2beb9594e63
+#: 1344f898abb549a696584d7dcf202b9c
 msgid ""
 "In another terminal, let's run a publisher node (don't forget to source "
 "the setup script):"
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:286
-#: 327e10d06e8b456886c2ddda030d5138
+#: b4560191f44841cf86e8da603d18b698
 msgid ""
 "You should see messages from the publisher and subscriber with numbers "
 "incrementing."
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:289
-#: 6302c4c1360c46168377f45d9a61bf97
+#: 0551026dc0044d04ba07f4d08b5f6a7d
 msgid "Create your own package"
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:291
-#: 43e26c1428aa47eaad225c6d18842292
+#: 39ea95acce844de486d5291a6e429f0e
 msgid ""
 "colcon uses the ``package.xml`` specification defined in `REP 149 "
 "<https://www.ros.org/reps/rep-0149.html>`__ (`format 2 "
@@ -378,7 +376,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:293
-#: 8694ca3625494da9b666af9a7b8b0733
+#: 56d649858d9648228169471c050fe9bf
 msgid ""
 "colcon supports multiple build types. The recommended build types are "
 "``ament_cmake`` and ``ament_python``. Also supported are pure ``cmake`` "
@@ -386,41 +384,41 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:297
-#: 7108a6f1038a4665aa57a7df876f5bd4
+#: 27735acd667a42f68ec21e554d8ae195
 msgid ""
 "An example of an ``ament_python`` build is the `ament_index_python "
 "package "
-"<https://github.com/ament/ament_index/tree/rolling/ament_index_python>`__"
+"<https://github.com/ament/ament_index/tree/{REPOS_FILE_BRANCH}/ament_index_python>`__"
 " , where the setup.py is the primary entry point for building."
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:299
-#: 9de8d4184ef14ce9b35b99f35fc8cccc
+#: 70fe17199ae8414a80cdf51276691aa5
 msgid ""
 "A package such as `demo_nodes_cpp "
-"<https://github.com/ros2/demos/tree/rolling/demo_nodes_cpp>`__ uses the "
-"``ament_cmake`` build type, and uses CMake as the build tool."
+"<https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/demo_nodes_cpp>`__"
+" uses the ``ament_cmake`` build type, and uses CMake as the build tool."
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:301
-#: d67cb4ec48ed485884b72eda4c905d86
+#: f6fcbbd90bbd4c179ea883c17741277e
 msgid ""
 "For convenience, you can use the tool ``ros2 pkg create`` to create a new"
 " package based on a template."
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:303
-#: c94d08e6cc0143e09d569b7c5445edb4
+#: 107cfaf8af2b40fdada3e93cc2b212f0
 msgid "For ``catkin`` users, this is the equivalent of ``catkin_create_package``."
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:306
-#: a74a6db253544431a5848420f01a76da
+#: 7414f0c1ca2042eea0859b69d4e17540
 msgid "Setup ``colcon_cd``"
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:308
-#: c7b2a48f324740f9959aba65afd5c78c
+#: f8799908c40b4a32bb96acabbeb0fb8c
 msgid ""
 "The command ``colcon_cd`` allows you to quickly change the current "
 "working directory of your shell to the directory of a package. As an "
@@ -430,12 +428,12 @@ msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:329
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:355
-#: 3b00566efd09491e88fc2989553c6f46 4b224dba1f104b47b9acf0df02ea1572
+#: a32de5e314f6412f95c0d62c925263ff f57ebafe4d7a49308f267e53788868d4
 msgid "Not yet available"
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:331
-#: b36f05e0196841a4ba210911927eea37
+#: 8e8d0f2f212b43a790c5de1da1a07078
 msgid ""
 "Depending on the way you installed ``colcon_cd`` and where your workspace"
 " is, the instructions above may vary, please refer to `the documentation "
@@ -446,12 +444,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:335
-#: 3f785ea0533c46e2b76de5e7c4ee36bb
+#: 009b44a948d84524b822d9fe38234b88
 msgid "Setup ``colcon`` tab completion"
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:337
-#: 90c3796a4a2d4a51b2ee757d72b10eb0
+#: 811637e698714007ae83981d616797ad
 msgid ""
 "The command ``colcon`` `supports command completion "
 "<https://colcon.readthedocs.io/en/released/user/installation.html#enable-"
@@ -460,7 +458,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:357
-#: 99c45a75570f47a3adc56050a0f3edc8
+#: 2764db00022941febcaedb91f26481a1
 msgid ""
 "Depending on the way you installed ``colcon`` and where your workspace "
 "is, the instructions above may vary, please refer to `the documentation "
@@ -470,26 +468,41 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:361
-#: 8e19a37164a3440392ab6695b710c36c
+#: 8304d8c883a240028d8ede385e8c8517
 msgid "Tips"
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:363
-#: 0d272ea2ce3f4419bdbf0504690d1c48
+#: a9d077e86db04b3da5fd5ba688d850ee
 msgid ""
 "If you do not want to build a specific package place an empty file named "
 "``COLCON_IGNORE`` in the directory and it will not be indexed."
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:365
-#: 5177e3803f7049a5a0308531c2ea8f51
+#: 1569c2b230e447c9a554cb7f5d816891
 msgid ""
 "If you want to avoid configuring and building tests in CMake packages you"
 " can pass: ``--cmake-args -DBUILD_TESTING=0``."
 msgstr ""
 
 #: ../../source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst:367
-#: c383b287c7be4326b6336d91c73b8df2
+#: 9f0daa71517d4f5badcef278085f96d7
 msgid "If you want to run a single particular test from a package:"
 msgstr ""
+
+#~ msgid ""
+#~ "An example of an ``ament_python`` build"
+#~ " is the `ament_index_python package "
+#~ "<https://github.com/ament/ament_index/tree/rolling/ament_index_python>`__"
+#~ " , where the setup.py is the "
+#~ "primary entry point for building."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "A package such as `demo_nodes_cpp "
+#~ "<https://github.com/ros2/demos/tree/rolling/demo_nodes_cpp>`__ "
+#~ "uses the ``ament_cmake`` build type, and"
+#~ " uses CMake as the build tool."
+#~ msgstr ""
 

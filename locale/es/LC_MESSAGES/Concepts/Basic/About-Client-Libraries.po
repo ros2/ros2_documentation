@@ -1,42 +1,40 @@
-# SOME DESCRIPTIVE TITLE.
+# Archivo de traducción al español para la documentación de ROS 2.
 # Copyright (C) 2023, Open Robotics
 # This file is distributed under the same license as the ROS 2 documentation
 # package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+# Cristian Chitiva <cychitivav@unal.edu.co>, 2023.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: ROS 2 documentation \n"
+"Project-Id-Version: ROS 2 documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-19 11:55+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: es\n"
 "Language-Team: es <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "Generated-By: Babel 2.8.0\n"
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:9
-#: 7167d4eba5d74f939eb031b73631af38
+#: 689f2591920b494dbd454c6347cdf76d
 msgid "Client libraries"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:12
-#: 9ba28873a07f42a788c59abbd5991bed
+#: 09fd7bb7fb7d49a7ab07b6463b9b26c4
 msgid "Table of Contents"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:15
-#: 74287cb909fd4cd799b172c8ada38f9b
+#: 9dfe4ec30a364b868ad6add9e65e0eef
 msgid "Overview"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:17
-#: 0bcdb2154a30440aa177f59403f81f7b
+#: 0fb5c051ff654170ad6cec13458f7897
 msgid ""
 "Client libraries are the APIs that allow users to implement their ROS 2 "
 "code. Using client libraries, users gain access to ROS 2 concepts such as"
@@ -49,7 +47,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:22
-#: cadfb6da24f4499aa32772dd89373423
+#: e7b79f1df1a5456b970b149d204a35d5
 msgid ""
 "Nodes written using different client libraries are able to share messages"
 " with each other because all client libraries implement code generators "
@@ -58,7 +56,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:24
-#: 8dc867e9a0e74b8cbdd5d2bc9db52852
+#: 203a229eb46a4ad4996c094429b5be88
 msgid ""
 "In addition to the language-specific communication tools, client "
 "libraries expose to users the core functionality that makes ROS \"ROS\". "
@@ -67,42 +65,42 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:27
-#: 9ae78f4e17eb439b9a607f1010f4ed13
+#: 7a7aebd66dc24da68662506b1941a8af
 msgid "Names and namespaces"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:28
-#: f60e88ed44c04d1c836d37ed25993c39
+#: 6e3db91c51594511a4d0523006012c70
 msgid "Time (real or simulated)"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:29
-#: 5bde7bd85d6e4c6382908f0f5ab47d35
+#: ef9eb06f660741698078d92c5143e5ba
 msgid "Parameters"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:30
-#: a1a483a87f6c4a9ea1cf21bf59c8d9c9
+#: 8f24a6d4292e4cbc8b03fef32eec95c6
 msgid "Console logging"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:31
-#: 13914e99e74941b6944c17ea637293a1
+#: f9f96826003e494da9a4ba3613ecfd7b
 msgid "Threading model"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:32
-#: c8b39ac8dee04740ac64babf1029e618
+#: cfa7c7e8fb834bf7860dd4ee4b60a0d3
 msgid "Intra-process communication"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:35
-#: 7ab0c0ffb72e43c0875198155c7c439d
+#: 43dda8b50c4a417daacaaa3baf9dc070
 msgid "Supported client libraries"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:37
-#: e317a72dcc5f433491aa16e22bfbd8e4
+#: 89f3e300ca0c436e9038ea280620de96
 msgid ""
 "The C++ client library (``rclcpp``) and the Python client library "
 "(``rclpy``) are both client libraries which utilize common functionality "
@@ -110,12 +108,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:40
-#: 06cc027d378f49ed828b50ac302d0577
+#: 9a0ba6b3fb264f799949c7adbf33459f
 msgid "The ``rclcpp`` package"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:42
-#: 890a601e6794406b806497076f4204a0
+#: 12907df5f09b44f7a3f6e66b224c4807
 msgid ""
 "The ROS Client Library for C++ (``rclcpp``) is the user facing, C++ "
 "idiomatic interface which provides all of the ROS client functionality "
@@ -125,7 +123,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:45
-#: faf824ba9a8042bba94156300a7c355d
+#: 82f9fe27bdfa46b28b65201e6b8de235
 msgid ""
 "``rclcpp`` makes use of all the features of C++ and C++17 to make the "
 "interface as easy to use as possible, but since it reuses the "
@@ -134,7 +132,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:47
-#: 9e439aa0d7cc4510bb9ebd13f90a7e8a
+#: 0896d772b1994ea2b0b136addac0b0a9
 msgid ""
 "The ``rclcpp`` repository is located on GitHub at `ros2/rclcpp "
 "<https://github.com/ros2/rclcpp>`_ and contains the |package| ``rclcpp``."
@@ -142,17 +140,17 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:50
-#: 76a0088c071c468f8e5d5239a59ca1eb
-msgid "`api/rclcpp/index.html <http://docs.ros.org/en/rolling/p/rclcpp>`_"
+#: 0bb7258270534e4f948f1b79f503a78d
+msgid "`api/rclcpp/index.html <http://docs.ros.org/en/{DISTRO}/p/rclcpp>`_"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:53
-#: e3bb41ea58404700a4e9622597733845
+#: 9d0bbdd3c837488898e3bcbe4bc4cfd9
 msgid "The ``rclpy`` package"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:55
-#: 04c98588c611497ab00cd289a298b011
+#: cefa1318ee4a4c8780034f25cdd84e96
 msgid ""
 "The ROS Client Library for Python (``rclpy``) is the Python counterpart "
 "to the C++ client library. Like the C++ client library, ``rclpy`` also "
@@ -168,7 +166,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:61
-#: 3edd5efd4b544529a73c94d5d6217310
+#: df6665ef393640c9a4d75bd1e1597242
 msgid ""
 "Like C++ it generates custom Python code for each ROS message that the "
 "user interacts with, but unlike C++ it eventually converts the native "
@@ -182,7 +180,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:65
-#: c1660e82293e47fba9fb9853990fb55f
+#: 887b556191574f7d98d73172f07d4ac4
 msgid ""
 "The ``rclpy`` repository is located on GitHub at `ros2/rclpy "
 "<https://github.com/ros2/rclpy>`_ and contains the |package| ``rclpy``. "
@@ -190,17 +188,17 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:68
-#: b399bb1a84d5496d8ebd40037694bc69
-msgid "`api/rclpy/index.html <https://docs.ros.org/en/rolling/p/rclpy/>`_"
+#: ce005772d8c54fc5a9b5446345e432e4
+msgid "`api/rclpy/index.html <https://docs.ros.org/en/{DISTRO}/p/rclpy/>`_"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:72
-#: f1b0bbd0cd864e55a6a485c04041ca03
+#: 967e3f54916949698472b7d3125c7bbe
 msgid "Community-maintained"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:74
-#: 2d006675f1ce482982481ec9e8452bab
+#: 43195009922941a2a536e053d57c60b3
 msgid ""
 "While the C++ and Python client libraries are maintained by the core ROS "
 "2 team, members of the ROS 2 community maintain additional client "
@@ -208,7 +206,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:76
-#: eba3cb267fae4ab195ab093ebd0f7574
+#: 8dc4efac26564f46956f0ad4740971ae
 msgid ""
 "`C <https://github.com/ros2/rclc>`__  ``rclc`` does not put a layer on "
 "top of rcl but complements rcl to make rcl+rclc a feature-complete client"
@@ -217,14 +215,14 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:77
-#: 0803f2d1f99f4bf6b46d8af5e08abc24
+#: ae374385bbba4c60a2f5df0cd6013a75
 msgid ""
 "`JVM and Android <https://github.com/ros2-java>`__ Java and Android "
 "bindings for ROS 2."
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:78
-#: 5e75d5c263b546768c6b3aff83a02a4e
+#: c3fa48b29df0457e9213f6d1c39f7982
 msgid ""
 "`.NET Core, UWP and C# <https://github.com/esteve/ros2_dotnet>`__ This is"
 " a collection of projects (bindings, code generator, examples and more) "
@@ -232,7 +230,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:79
-#: 8b50bd1220d84b9b8eaf2865000c55df
+#: cbe9183b973b490ca4109df07d606c17
 msgid ""
 "`Node.js <https://www.npmjs.com/package/rclnodejs>`__ rclnodejs is a "
 "Node.js client for ROS 2. It provides a simple and easy JavaScript API "
@@ -240,7 +238,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:80
-#: 535b9d66a22c42a1a2b0862e10eae220
+#: cde165d797fd4896a52607a40c5719f0
 msgid ""
 "`Rust <https://github.com/ros2-rust/ros2_rust>`__ This is a set of "
 "projects (the rclrs client library, code generator, examples and more) "
@@ -248,37 +246,37 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:82
-#: 8730e3d22b2d4d49a7fdadf5685bffa1
+#: bd230f0c2cf04a8eb14b1c38af8d5f3d
 msgid "Older, unmaintained client libraries are:"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:84
-#: a3841f88932c4393ba1dacb7c5555b96
+#: 14ee1a49735b4237bd454f1e9066cfe2
 msgid "`Ada <https://github.com/ada-ros/ada4ros2>`__"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:85
-#: 0bb01b65b6da47428317e911115ac960
+#: d9a267ae9e064fbdad4301e02383e4bb
 msgid "`C# <https://github.com/firesurfer/rclcs>`__"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:86
-#: 01c43b91534f43859a88edfb6e83a119
+#: a4c7e80cf3644014b2d1ae34ad671c65
 msgid "`Objective C and iOS <https://github.com/esteve/ros2_objc>`__"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:87
-#: fd9df509e46d4801ac7379144f940453
+#: 85926fc9f2894165b40bc763c5644b4a
 msgid "`Zig <https://github.com/jacobperron/rclzig>`__"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:91
-#: cd11bacaa760459c8e7afc8a81ff0b11
+#: 77b91c8672304f44ae62fe71b8410832
 msgid "Common functionality: ``rcl``"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:93
-#: abbd832f07794bcaa3e02d535ded66d3
+#: a47a4630775c4ba8930590d4e093040d
 msgid ""
 "Most of the functionality found in a client library is not specific to "
 "the programming language of the client library. For example, the behavior"
@@ -295,7 +293,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:100
-#: 1510834ae0484912a1fbaaf1f7f2b4ce
+#: bb37716bb08348f8a2b603ad46c23fc6
 msgid ""
 "In addition to making the client libraries light-weight, an advantage of "
 "having the common core is that the behavior between languages is more "
@@ -307,19 +305,19 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:104
-#: f3ceec7a5dc04616b73574985e7cc8b1
+#: cb10cdc5a42849a9a12b3105ed706d7b
 msgid ""
 "The API documentation for ``rcl`` can be found `here "
-"<https://docs.ros.org/en/rolling/p/rcl/>`__."
+"<https://docs.ros.org/en/{DISTRO}/p/rcl/>`__."
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:107
-#: a40c79c8a5304b69b4ec205c05168f98
+#: 5752cb0a9a1d40cd9ffc117ce4309d03
 msgid "Language-specific functionality"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:109
-#: d881ac35bb194503936fa59fad96ab87
+#: 75c6c0264e4d403095e3aa5b0e6f7b12
 msgid ""
 "Client library concepts that require language-specific "
 "features/properties are not implemented in the RCL but instead are "
@@ -329,12 +327,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:113
-#: 899633d1ac9c4201acf2e98826c39fd8
+#: e65cc65c4d0847989d46f8571f342c60
 msgid "Demo"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:115
-#: 7578c30a5b4142fa962ae7244b1a857d
+#: 8c2cab36e80b460580466c55fc6da3ed
 #, python-format
 msgid ""
 "For a walkthrough of the message exchange between a publisher using "
@@ -345,12 +343,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:118
-#: 31b3da67a2c34874ac1742065c62b78b
+#: 16e1a7c47f3745e89f468a2bf3bf9c61
 msgid "Comparison to ROS 1"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:120
-#: a5f9147e26a3409dae9d4545f6731759
+#: 2f2c033fddf641dc8b23c30750a7e6ba
 msgid ""
 "In ROS 1, all client libraries are developed \"from the ground up\". This"
 " allows for the ROS 1 Python client library to be implemented purely in "
@@ -362,15 +360,27 @@ msgid ""
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:125
-#: b6c1fee31fee4112bef8678b32708870
+#: 3abe93a2162d47568c161d7418ef0ea9
 msgid "Summary"
 msgstr ""
 
 #: ../../source/Concepts/Basic/About-Client-Libraries.rst:127
-#: 4f21beaba0b448cea1a951b1051d435b
+#: f0e103a602da443a8cdafa8c46166982
 msgid ""
 "By utilizing the common core ROS client library, client libraries written"
 " in a variety of programming languages are easier to write and have more "
 "consistent behavior."
 msgstr ""
+
+#~ msgid "`api/rclcpp/index.html <http://docs.ros.org/en/rolling/p/rclcpp>`_"
+#~ msgstr ""
+
+#~ msgid "`api/rclpy/index.html <https://docs.ros.org/en/rolling/p/rclpy/>`_"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The API documentation for ``rcl`` can"
+#~ " be found `here "
+#~ "<https://docs.ros.org/en/rolling/p/rcl/>`__."
+#~ msgstr ""
 

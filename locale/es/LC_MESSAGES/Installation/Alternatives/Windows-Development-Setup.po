@@ -1,59 +1,57 @@
-# SOME DESCRIPTIVE TITLE.
+# Archivo de traducción al español para la documentación de ROS 2.
 # Copyright (C) 2023, Open Robotics
 # This file is distributed under the same license as the ROS 2 documentation
 # package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+# Cristian Chitiva <cychitivav@unal.edu.co>, 2023.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: ROS 2 documentation \n"
+"Project-Id-Version: ROS 2 documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-19 11:55+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: es\n"
 "Language-Team: es <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "Generated-By: Babel 2.8.0\n"
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:6
-#: 03fc11a638c9448e8e38581963a3fce6
+#: 258a562cc82f4b6593ab57ce8d3f8014
 msgid "Windows (source)"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:10
-#: 293bb5e0028743a299edd56a76fc6947
+#: ef5ba8dc6cdf41479fe4652aec5e2df7
 msgid "Table of Contents"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:12
-#: cb397e2773e54c6ca554a6ccc2c5c763
+#: a7aa353baa7645898845f29fbccaf57e
 msgid ""
 "This guide is about how to setup a development environment for ROS 2 on "
 "Windows."
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:15
-#: a1fe8ce8f23646c9bdf84547ab6549cb
+#: 3e044b8649ea4461954d904e8a31b03f
 msgid "System requirements"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:17
-#: 21b43792e7b945f09cabaadd8e2c058f
+#: 01a75cfd99a74b88ae842c0937a2bc0c
 msgid "Only Windows 10 is supported."
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:20
-#: 02de544ef650493991ed162b3134a119
+#: 8e55255677d746b9b53595e840d80bdb
 msgid "Language support"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:22
-#: 0b2f90dbfd4a4b1390732da12191c578
+#: 10c60af1947c480a85868d4a4e9e08a7
 msgid ""
 "Make sure you have a locale which supports ``UTF-8``. For example, for a "
 "Chinese-language Windows 10 installation, you may need to install an "
@@ -62,63 +60,63 @@ msgid ""
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:2
-#: c6a2038526a549a0b45066b0408d0b6d
+#: 01a25e821c7c4bb0849a8c7575e8d63e
 msgid "System setup"
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:5
-#: 1fc9396f3bef44c898eb4b7be722a54d
+#: 4d6c69f2ac414f4dbbe0338f8e5f956d
 msgid "Install Chocolatey"
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:7
-#: 67b2fa5db2184c43890450175f1044c8
+#: fb3a6adc39c74b2ebc267eeabd18e4c5
 msgid ""
 "Chocolatey is a package manager for Windows, install it by following "
 "their installation instructions:"
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:9
-#: add5deff9866451f8bf8a45e7fe43160
+#: da7b15cf6fc042ea8fc7007a2336e68c
 msgid "https://chocolatey.org/install"
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:11
-#: 3d2a6d6f18ef41e3969dc291a0789979
+#: f80b0fc655d04bacbaab93d5d3068826
 msgid "You'll use Chocolatey to install some other developer tools."
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:14
-#: 47afc48ec09f4c36941c70d37fa8e96f
+#: 22a6d13026224e83a30ce5e3cbeb5d89
 msgid "Install Python"
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:16
-#: 2de04c0b5afa4dad9396f6ccb69ac5e8
+#: c7a678e48e9347dd8951b887673296bb
 msgid ""
 "Open a Command Prompt and type the following to install Python via "
 "Chocolatey:"
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:23
-#: e8ae4733db4a4864aa24b56b1ddc7fe4
+#: 79434880a3614bcc9b4c298c95a28769
 msgid "Install Visual C++ Redistributables"
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:25
-#: 860dfe4f5a5b47738f74e14db7ef002f
+#: aeb483b8e23e48809477fbb489907a71
 msgid ""
 "Open a Command Prompt and type the following to install them via "
 "Chocolatey:"
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:32
-#: 6a42bc5a55524d68a383656b2a848767
+#: e18793410795465da050c66c01e5d465
 msgid "Install OpenSSL"
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:34
-#: c90ae9c5a031415e9040ebab9daa8f0a
+#: e9d08d33c4c445108d582f6a6b2c3672
 msgid ""
 "Download the *Win64 OpenSSL v1.1.1n* OpenSSL installer from `this page "
 "<https://slproweb.com/products/Win32OpenSSL.html>`__. Scroll to the "
@@ -127,19 +125,19 @@ msgid ""
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:38
-#: 163c5a602e504dcf8b56db3f7f99be27
+#: 08ad3fca07ea43b3b602dc9144cdb387
 msgid ""
 "Run the installer with default parameters, as the following commands "
 "assume you used the default installation directory."
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:40
-#: ddddb6e76a3d4d7ea8d0ae1ccadd2ef2
+#: ae725a8f150544a6966dfe9ffb5a80a2
 msgid "This command sets an environment variable that persists over sessions:"
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:46
-#: 2744092d5a8744199ab0d8884e627444
+#: 999c1014a95844978ee600325a2eae66
 msgid ""
 "You will need to append the OpenSSL-Win64 bin folder to your PATH. You "
 "can do this by clicking the Windows icon, typing \"Environment "
@@ -150,29 +148,29 @@ msgid ""
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:50
-#: ae69036491bb484285f0c0a7549f5402
+#: 452cf35afae3475f82f3002569ec7838
 msgid "``C:\\Program Files\\OpenSSL-Win64\\bin\\``"
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:53
-#: 6db661f6e48c493d94ebf06289787d66
+#: 1b12805e7a764105a3284a01657aa208
 msgid "Install Visual Studio"
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:55
-#: 3cb14a05cd8a4cbcbb844e19129873b6
+#: 96274aff49184a5e8a7851aeb5cecb2d
 msgid "Install Visual Studio 2019."
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:57
-#: 1ebada4710654b65907619a3adbe6a6d
+#: 1bc287eac3fb446fa8d9e82668dae95e
 msgid ""
 "If you already have a paid version of Visual Studio 2019 (Professional, "
 "Enterprise), skip this step."
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:59
-#: d531ae16d5c942b888181a87446d3b3c
+#: 1611ac8b5bd14f3ca456490d923a6148
 msgid ""
 "Microsoft provides a free of charge version of Visual Studio 2019, named "
 "Community, which can be used to build applications that use ROS 2. `You "
@@ -182,36 +180,36 @@ msgid ""
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:62
-#: ed901b5d7f744e459c23e6b9a11d3113
+#: a61c51496b004647bef79a87b6b8ad66
 msgid "Make sure that the Visual C++ features are installed."
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:64
-#: 4a279b98ced44a0ba959b6bee6088a0f
+#: 2453a3c1ea764262829eb138d7355b87
 msgid ""
 "An easy way to make sure they're installed is to select the ``Desktop "
 "development with C++`` workflow during the install."
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:68
-#: dd20891a9a4d42848d3ecbf755049e75
+#: b44258fef7c0486dad8ad1db3f5c4385
 msgid ""
 "Make sure that no C++ CMake tools are installed by unselecting them in "
 "the list of components to be installed."
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:71
-#: 9a7fc2658507411a94fe1b91f18c934c
+#: 19dc457b25dd4cc2b82cabda6e8e8f96
 msgid "Install OpenCV"
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:73
-#: a0de95ed2aa7496e96fad6eb3b57de17
+#: 3a2a99feba5947838411af1aa503f0d4
 msgid "Some of the examples require OpenCV to be installed."
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:75
-#: eab46b4d9fdf477eaa2dced28fd9e065
+#: f44d6ce210c54c538cd63c1c62908a6d
 msgid ""
 "You can download a precompiled version of OpenCV 3.4.6 from "
 "https://github.com/ros2/ros2/releases/download/opencv-"
@@ -219,14 +217,14 @@ msgid ""
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:77
-#: 481b815baed2406185e8e697330b53ea
+#: 8810ea64ef70435e8ae74e183633d537
 msgid ""
 "Assuming you unpacked it to ``C:\\opencv``, type the following on a "
 "Command Prompt (requires Admin privileges):"
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:83
-#: 108fe5e16b6643fcb5ce748a2dfe7043
+#: a58b5d8f092a49d4aabb6df128820c81
 msgid ""
 "Since you are using a precompiled ROS version, we have to tell it where "
 "to find the OpenCV libraries. You have to extend the ``PATH`` variable to"
@@ -234,12 +232,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:87
-#: d8ac109cf314453d9bb8071cd81cc2be
+#: 1bb57601a8e8457eb93e4e5c483e4f69
 msgid "Install dependencies"
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:89
-#: 12455e3178c241b0b36844dbad0d5dd3
+#: 7dbcf463a60a4056b63426d1c3df22d6
 msgid ""
 "There are a few dependencies not available in the Chocolatey package "
 "database. In order to ease the manual installation process, we provide "
@@ -247,90 +245,90 @@ msgid ""
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:92
-#: 3e7e02e6166f42ddafc6d333122b05b4
+#: 7bc8977c0955412cb2dd983bb4599b83
 msgid "As some chocolatey packages rely on it, we start by installing CMake"
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:98
-#: 0a19a64bf907459bad1eb46667a4a667
+#: 0e2b9f4df46c42d480221f0186644e33
 msgid ""
 "You will need to append the CMake bin folder ``C:\\Program "
 "Files\\CMake\\bin`` to your PATH."
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:100
-#: 308277319a2d497a81eb41b9ebf1af37
+#: fdb22a59da324e0ebf62e287fba0e65e
 msgid ""
 "Please download these packages from `this <https://github.com/ros2/choco-"
 "packages/releases/latest>`__ GitHub repository."
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:102
-#: b42ee361be6f4171bf2d74aad76ab6f8
+#: b0ca005764024ea7997dfab1ff31694e
 msgid "asio.1.12.1.nupkg"
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:103
-#: a9d2353a1bfd45308681f03874995cc3
+#: 1c200ee3919f489c9310a9f4a03bc1e0
 msgid "bullet.3.17.nupkg"
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:104
-#: 5e26a850fd284b9e88326983472679e4
+#: ac2f24395be844e889793cc3445b79bf
 msgid "cunit.2.1.3.nupkg"
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:105
-#: c2c7a30cc51c453296739525a6ca4809
+#: 8b1c2ca1c6044fb1a93136d51d02026c
 msgid "eigen-3.3.4.nupkg"
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:106
-#: 49a4589302214b52801f01adbd4b57d5
+#: 4621d5e5112d48ce8d3cd85aa402603e
 msgid "tinyxml-usestl.2.6.2.nupkg"
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:107
-#: 054c52d831e549b48350b802cd8c6063
+#: ac02f7a436e440a39f540195a3bc4333
 msgid "tinyxml2.6.0.0.nupkg"
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:109
-#: 4476ab99e6034446b1b2ee33986b44b0
+#: 9930c546cb154e229f78f849dd2531a3
 msgid ""
 "Once these packages are downloaded, open an administrative shell and "
 "execute the following command:"
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:115
-#: f563d9f96f8344d5a8370e0b4fafbd39
+#: 047b5dee572a4a14a6b27322b0181251
 msgid ""
 "Please replace ``<PATH\\TO\\DOWNLOADS>`` with the folder you downloaded "
 "the packages to."
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:117
-#: 755e5b8b47f549ffac5d288bbd68743d
+#: 11a351a48f684539b3ca9f5e6eda14b9
 msgid "First upgrade pip and setuptools:"
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:123
-#: 93abbaf598894818bc49f06a8c29170b
+#: a69a3e122dad4f9489360b180c617382
 msgid "Now install some additional python dependencies:"
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:130
-#: 641ec23b1c174442a040f56ee7e6a58e
+#: 4a4188fb6e404e73ac13694b3a10a193
 msgid "Install miscellaneous prerequisites"
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:132
-#: 251750956b7e4323afaf8e2feaf0d7fb
+#: b7ec9d980c7b4c56b31730602123b357
 msgid "Next install xmllint:"
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:134
-#: a2ecc00df4a94673ad19ec2939c89c11
+#: 6404d11905b84fd98725468bf2555736
 msgid ""
 "Download the `64 bit binary archives "
 "<https://www.zlatkovic.com/pub/libxml/64bit/>`__ of ``libxml2`` (and its "
@@ -339,22 +337,22 @@ msgid ""
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:135
-#: 178f5007a950436690c44ad44b11bc05
+#: 8eae31d7a0234ca69998e00807b75d5c
 msgid "Unpack all archives into e.g. ``C:\\xmllint``"
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:136
-#: 64200123687c423d85d148fd31134afb
+#: a95be1ba16634773bbf8d446cb751305
 msgid "Add ``C:\\xmllint\\bin`` to the ``PATH``."
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:139
-#: 61b71a106830495bad961d35a8ce6d15
+#: a9232d8d0c994b36a7ab6d707c09fdc3
 msgid "Install Qt5"
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:141
-#: c0471b69cf0e44099bca763974fb7de1
+#: 2410f2c767e94cf09571718894f16f7d
 msgid ""
 "Download the `5.12.X offline installer <https://www.qt.io/offline-"
 "installers>`_ from Qt's website. Run the installer. Make sure to select "
@@ -363,7 +361,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:145
-#: b74bb4a1e56e499dafff26562b06686c
+#: c01629998df5406c986c2408215b559c
 msgid ""
 "Finally, in an administrator ``cmd.exe`` window set these environment "
 "variables. The commands below assume you installed it to the default "
@@ -371,19 +369,19 @@ msgid ""
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:156
-#: aaf45357faf443699a15a42533b5e16b
+#: 6dc63e17b3ef40c6bbb678ae71c76cfc
 msgid ""
 "This path might change based on the installed MSVC version, the directory"
 " Qt was installed to, and the version of Qt installed."
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:159
-#: cb1829ca151846efa9be72b3121970ca
+#: be8bc77fb20441f19b8e9ad9008d59b2
 msgid "RQt dependencies"
 msgstr ""
 
 #: ../../source/Installation/_Windows-Install-Prerequisites.rst:161
-#: 028c0d9cf81b4c718d4aeb4e79344e08
+#: 4faa6b6ee1bb430493655bca1eed286b
 msgid ""
 "To run rqt_graph you need to `download "
 "<https://graphviz.gitlab.io/_pages/Download/Download_windows.html>`__ and"
@@ -393,12 +391,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:28
-#: 1f5cb3d4766b4333a9a563ed49ac4490
+#: fe0fc651311842f5a56ec5b195538d48
 msgid "Install additional prerequisites from Chocolatey"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:34
-#: 49acc9bba54c40a59c3d080347be76fd
+#: 343e4c1273bb42a8992a096d1e7e71a0
 msgid ""
 "You will need to append the Git cmd folder ``C:\\Program "
 "Files\\Git\\cmd`` to the PATH (you can do this by clicking the Windows "
@@ -409,37 +407,37 @@ msgid ""
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:38
-#: 06fd01eb18eb46b2bc98b00d0d08f52b
+#: 17c42dfc1359446da8ba15fff149d4b6
 msgid "Install Python prerequisites"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:40
-#: a31c0a13002844298e8e5f9e196fe4ce
+#: 805a4dcdd2534440be5bc3bcef4de833
 msgid "Install additional Python dependencies:"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:47
-#: a2ae80c4208b42cba968ed54be7fa0dd
+#: 70b422a13baa4ad2ad50c41a0a24c75c
 msgid "Build ROS 2"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:50
-#: bdf5c4e870414d6f8981739afef1dc59
+#: 1402fb5991be4eea914a3f9dc409b348
 msgid "Get ROS 2 code"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:52
-#: 47e22dcce098447d876fa5d590fcbda0
+#: ae7c01085d9c42878931c3346a9c1ee6
 msgid "Now that we have the development tools we can get the ROS 2 source code."
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:54
-#: 07b1770c225641d79ce06a0a12e251d8
-msgid "First setup a development folder, for example ``C:\\rolling``:"
+#: 507ec39b3cd44f99aa65ff95246aa807
+msgid "First setup a development folder, for example ``C:\\{DISTRO}``:"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:58
-#: 8e2b8e4814d648b1b2141be90191a642
+#: 794ec034a631449b8992e338a14e28e3
 msgid ""
 "It is very important that the chosen path is short, due to the short "
 "default Windows path limits (260 characters). To allow longer paths, see "
@@ -448,17 +446,17 @@ msgid ""
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:66
-#: 79aadbdfb1c545ef838363bd96538d49
+#: 322bc820f92f4c109f3d95ccd30b5987
 msgid "Get the ``ros2.repos`` file which defines the repositories to clone from:"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:73
-#: e64e0a415c3f4aef9c22e6dec0883f0c
+#: 49ab3c6aa2d64368b4fa62d8a5f72859
 msgid "Install additional RMW implementations (optional)"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:75
-#: f31e18567d6648148460ed6ea1ad21b4
+#: 4f7edd95744b4f378b10756db1e4afef
 msgid ""
 "The default middleware that ROS 2 uses is ``Fast DDS``, but the "
 "middleware (RMW) can be replaced at build or runtime. See the :doc:`guide"
@@ -467,24 +465,24 @@ msgid ""
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:79
-#: 749f5ecc98e848bebf3821ec0c47b5c9
+#: b7426c2df3f74f8296a5722840706069
 msgid "Build the code in the workspace"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:83
-#: 9f8b80e2bdee4fbabb955780e3c26afb
+#: bdce140d822d4bd1807a555ec655d8c0
 msgid ""
 "To build ROS 2 you will need a Visual Studio Command Prompt (\"x64 Native"
 " Tools Command Prompt for VS 2019\") running as Administrator."
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:85
-#: 65ca5f7c0b9e4126ade8074a71c44e2a
-msgid "To build the ``\\rolling`` folder tree:"
+#: 4fd07fb37eeb4ce284e0ff13d7b8e073
+msgid "To build the ``\\{DISTRO}`` folder tree:"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:93
-#: 9cd0c0e052914cd48f38658fc2382089
+#: 44fa62e1338a460cb6da3155bf72973b
 msgid ""
 "We're using ``--merge-install`` here to avoid a ``PATH`` variable that is"
 " too long at the end of the build. If you're adapting these instructions "
@@ -494,7 +492,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:98
-#: 5115846705f24e5498fbb247a1e293fd
+#: 4c7b9f20b7cd4e659877011a7a4bb43c
 msgid ""
 "If you are doing a debug build use ``python_d "
 "path\\to\\colcon_executable`` ``colcon``. See `Extra stuff for debug "
@@ -502,62 +500,62 @@ msgid ""
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:102
-#: c1abe741a5a548e0985f81b92ad54830
+#: c56f737536f7473887c7f455e0302b5c
 msgid "Setup environment"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:104
-#: 03e5fd379bcf4f849c1308e6bb39729f
+#: 19882b1831134bca92201cf3b5229450
 msgid ""
 "Start a command shell and source the ROS 2 setup file to set up the "
 "workspace:"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:110
-#: c7a704224a74470bb3c1a653531da57e
+#: eaec6cbbbec54d75b85aad6885b44b47
 msgid ""
 "This will automatically set up the environment for any DDS vendors that "
 "support was built for."
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:112
-#: 3c35f5e146e2404b9bb0e283250e298f
+#: aba5549b64144cf98fda9101966a38ee
 msgid ""
 "It is normal that the previous command, if nothing else went wrong, "
 "outputs \"The system cannot find the path specified.\" exactly once."
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:115
-#: ce868c994a464be3a9cf6a7c44f6b503
+#: d16db2e7648f44378a1e38292d91e7f9
 msgid "Try some examples"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:117
-#: e18a210c46fd4d18a89d07aa16ca8788
+#: aaf3420e967142e39f440e968d4a28e3
 msgid ""
 "Note that the first time you run any executable you will have to allow "
 "access to the network through a Windows Firewall popup."
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:119
-#: ec396ed52812467ca7170f048d158ffd
+#: f085cc15dcc74cecb4f15b8103fe5680
 msgid "You can run the tests using this command:"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:127
-#: 3d566a99d10a4d7abae98bd7762c08aa
+#: 2be766978b654439b3aec440561b2d03
 msgid ""
 "``--merge-install`` should only be used if it was also used in the build "
 "step."
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:129
-#: feed502c03b34fa6b460977ca2c77fcf
+#: 745bb5934643442d96b474c210cd5076
 msgid "Afterwards you can get a summary of the tests using this command:"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:135
-#: 6c19d527a42849239cfbb7383e648757
+#: 661f6ddadbc1423a89237e5695b2c53f
 msgid ""
 "To run the examples, first open a clean new ``cmd.exe`` and set up the "
 "workspace by sourcing the ``local_setup.bat`` file. Then, run a C++ "
@@ -565,14 +563,14 @@ msgid ""
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:143
-#: 5e3cd88f85ba4d768062f1b6af1547fe
+#: a05a2a6366fb48f7908f66b6be8b2a6d
 msgid ""
 "In a separate shell you can do the same, but instead run a Python "
 "``listener``\\ :"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:150
-#: 16671cf5ba444e22b6be76e8a847ed9e
+#: ec3164121c064783aa6f8985cb21ba1a
 msgid ""
 "You should see the ``talker`` saying that it's ``Publishing`` messages "
 "and the ``listener`` saying ``I heard`` those messages. This verifies "
@@ -580,19 +578,19 @@ msgid ""
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:156
-#: 1e1eb760d979496780da9b8906dd05c1
+#: caf2d15b51334ea294e5a5ab17ee136e
 msgid ""
 "It is not recommended to build in the same cmd prompt that you've sourced"
 " the ``local_setup.bat``."
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:159
-#: dac95ae99e7a41298c3e9e4241737a7d
+#: 181e4885c4ab46329e8fc5d5d750cfec
 msgid "Next steps"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:161
-#: 7e854f53365a415cb8ceb6680092757a
+#: 8e53521836314d55bb5a190490573f03
 msgid ""
 "Continue with the :doc:`tutorials and demos <../../Tutorials>` to "
 "configure your environment, create your own workspace and packages, and "
@@ -600,145 +598,162 @@ msgid ""
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:164
-#: a9fa6a9207724b668c67e9406ecb61d8
+#: 3e8aa352193d40c48e0e8ff59c167ae1
 msgid "Extra stuff for Debug mode"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:166
-#: 9abcbba736c5423bb0181a1000e4a038
+#: a7d2e1020da64efdab8edcf9099b5eff
 msgid ""
 "If you want to be able to run all the tests in Debug mode, you'll need to"
 " install a few more things:"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:168
-#: da4071d525cd4e5784c7d5594a194ec5
+#: 504e55c7a1bc48d5bbae6a4f000b159a
 msgid "To be able to extract the Python source tarball, you can use PeaZip:"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:174
-#: 7366fe4162ef4812a03e7f78c7c38793
+#: c8190eb6e7f942bda23463d590fb545a
 msgid ""
 "You'll also need SVN, since some of the Python source-build dependencies "
 "are checked out via SVN:"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:180
-#: 4d72a890a0d3438ab46f0c0ac35e450e
+#: 9ecbf3ac71b6447fa3ebb87cad408c64
 msgid ""
 "You'll need to quit and restart the command prompt after installing the "
 "above."
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:181
-#: 9bf0ea28819141ca811f98338ec2160d
+#: b741484a21704368bef67d55254594ad
 msgid "Get and extract the Python 3.8.3 source from the ``tgz``:"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:183
-#: e4e90d2715c4488bb37a5513e54d4bfe
+#: aa5a19c93b4240e0ac605e7fe7f21553
 msgid "https://www.python.org/ftp/python/3.8.3/Python-3.8.3.tgz"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:184
-#: 2a3946bff3e5403b87ecf36fbb94ea84
+#: 3814b6cff707462594516586c538eb67
 msgid ""
 "To keep these instructions concise, please extract it to "
 "``C:\\dev\\Python-3.8.3``"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:186
-#: a3bf1fa466894be391f93db207496187
+#: 5e9260d854954ee5a01c33de920c5411
 msgid ""
 "Now, build the Python source in debug mode from a Visual Studio command "
 "prompt:"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:194
-#: a6ee4da4fb7a418c931b96e87dbbdef9
+#: 1786490adc024319b4cd5c65217e85c8
 msgid ""
 "Finally, copy the build products into the Python38 installation "
 "directories, next to the Release-mode Python executable and DLL's:"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:207
-#: 7b43c57172ef4960aa08d2f30cc0f74d
+#: 6e68ec2d7beb43c5a0c638d78f3d5b41
 msgid "Now, from a fresh command prompt, make sure that ``python_d`` works:"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:213
-#: ee58ca36e51d4fa1868851e3c85f36bf
+#: 218c5c1923d44bc0b71eeef473adb638
 msgid ""
 "Once you have verified the operation of ``python_d``, it is necessary to "
 "reinstall a few dependencies with the debug-enabled libraries:"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:220
-#: af5072881bf647b29de0c4d7ea2b9d52
+#: 8de1b54cc6df412da9795f252c3540c4
 msgid "To verify the installation of these dependencies:"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:226
-#: 379b62747ce54de5b76c33dc00ffed85
+#: 336793c71550419fb08f15dc7bbebc81
 msgid ""
 "When you wish to return to building release binaries, it is necessary to "
 "uninstall the debug variants and use the release variants:"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:233
-#: 697502f5390c47079b33008767a3c8e3
+#: 9d2e8b4fcd454dc084922a0043ab66cd
 msgid ""
 "To create executables python scripts(.exe), python_d should be used to "
 "invoke colcon"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:239
-#: a494de3f761a43ef910ca72bb282ac78
+#: b8c44028bccc47339545f8351ae42495
 msgid "Hooray, you're done!"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:242
-#: 482d8bf74f1942c28c95160a63bc9301
+#: 39546f4eac96455fbfedb25d17c21595
 msgid "Stay up to date"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:244
-#: 67f8ae994a1540698df66cac54346abd
+#: ff6d21fc1ef84df9b19ba11e4b60d54c
 msgid ""
 "See :doc:`../Maintaining-a-Source-Checkout` to periodically refresh your "
 "source installation."
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:247
-#: 07efbbbd1b554f809fbc83fd19ddbae7
+#: bae4ea7dae5644f882783d371b83f1af
 msgid "Troubleshoot"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:249
-#: d37d0ae842734bd9aca397e6d60acb91
+#: 4525dd9378f945cc8cdbd5c1b7753f44
 msgid ""
 "Troubleshooting techniques can be found :ref:`here <windows-"
 "troubleshooting>`."
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:252
-#: dae617449a34434da112d1c3460a980e
+#: 02729d920abb46daa0324079b5e4c14e
 msgid "Uninstall"
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:254
-#: 41e42193a83f4f1e98a39fd8d00aad4e
+#: 626f1d0c1a4a4df89947d8f8985dd2cd
 msgid ""
 "If you installed your workspace with colcon as instructed above, "
 "\"uninstalling\" could be just a matter of opening a new terminal and not"
 " sourcing the workspace's ``setup`` file. This way, your environment will"
-" behave as though there is no Rolling install on your system."
+" behave as though there is no {DISTRO_TITLE} install on your system."
 msgstr ""
 
 #: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:257
-#: d55f5c2e80194e07aedd07c6b9f7a458
+#: 95f8851289d94cf7a40f349c86d85425
 msgid ""
 "If you're also trying to free up space, you can delete the entire "
 "workspace directory with:"
 msgstr ""
+
+#~ msgid "First setup a development folder, for example ``C:\\rolling``:"
+#~ msgstr ""
+
+#~ msgid "To build the ``\\rolling`` folder tree:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "If you installed your workspace with "
+#~ "colcon as instructed above, \"uninstalling\""
+#~ " could be just a matter of "
+#~ "opening a new terminal and not "
+#~ "sourcing the workspace's ``setup`` file. "
+#~ "This way, your environment will behave"
+#~ " as though there is no Rolling "
+#~ "install on your system."
+#~ msgstr ""
 

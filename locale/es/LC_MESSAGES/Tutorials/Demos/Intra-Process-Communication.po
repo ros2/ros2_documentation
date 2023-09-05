@@ -1,42 +1,40 @@
-# SOME DESCRIPTIVE TITLE.
+# Archivo de traducción al español para la documentación de ROS 2.
 # Copyright (C) 2023, Open Robotics
 # This file is distributed under the same license as the ROS 2 documentation
 # package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+# Cristian Chitiva <cychitivav@unal.edu.co>, 2023.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: ROS 2 documentation \n"
+"Project-Id-Version: ROS 2 documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-19 11:55+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: es\n"
 "Language-Team: es <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "Generated-By: Babel 2.8.0\n"
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:7
-#: b497d87038a94ac0aa0a90a265c2bcb2
+#: 587389048cda43f8ae66b75fd8cf94df
 msgid "Setting up efficient intra-process communication"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:11
-#: b5137dedb6c4455084ae6821bc499f0c
+#: f8c63f9ac0944f1085d16bd6554b193c
 msgid "Table of Contents"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:14
-#: 5ea08d760496499f93821d33bfe82679
+#: baad1180a59d439e9c8a34f238aefb42
 msgid "Background"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:16
-#: b4c053f5eb794ad99758de54d35dc203
+#: 83883cdc5eb04599b3080826677bd0b8
 msgid ""
 "ROS applications typically consist of a composition of individual "
 "\"nodes\" which perform narrow tasks and are decoupled from other parts "
@@ -49,7 +47,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:21
-#: 847644ba3f7f46259c5304df43bace16
+#: 40deadf3ac78479fb74d36f2aa40d872
 msgid ""
 "In this demo we'll be highlighting how nodes can be composed manually, by"
 " defining the nodes separately but combining them in different process "
@@ -57,32 +55,33 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:24
-#: 652a3a8a181d4ef5b877770fba4ca707
+#: f1cef71970b74f42a6461bc50ade4c9b
 msgid "Installing the demos"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:26
-#: 375ada6c8caf4d398bba8b73b91cb4eb
+#: a88223985dda42ce9f2dfbc46cbe75cd
 msgid ""
 "See the :doc:`installation instructions <../../Installation>` for details"
 " on installing ROS 2."
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:28
-#: 48fe72cf0b0142b2aa1feb0880169117
+#: d2e234af5ca142918c50fb0dcf058f25
 msgid ""
-"If you've installed ROS 2 from packages, ensure that you have ``ros-"
-"rolling-intra-process-demo`` installed. If you downloaded the archive or "
-"built ROS 2 from source, it will already be part of the installation."
+"If you've installed ROS 2 from packages, ensure that you have "
+"``ros-{DISTRO}-intra-process-demo`` installed. If you downloaded the "
+"archive or built ROS 2 from source, it will already be part of the "
+"installation."
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:32
-#: 1b35d862d44f4086a0230217f198a025
+#: a7ba18511c6a4580ac39e24ac134505e
 msgid "Running and understanding the demos"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:34
-#: 0788ebb7a74943a3bdf845edc627d9d4
+#: 8886b967960c4b229afe0581accbddb8
 msgid ""
 "There are a few different demos: some are toy problems designed to "
 "highlight features of the intra process communications functionality and "
@@ -91,12 +90,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:37
-#: 7242920dbc274fe4a30bfd8f6b88defc
+#: 4f22e0d6553c47b4b5b2cd260b97c8f9
 msgid "The two node pipeline demo"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:39
-#: a275e43301414622b348810eb385ce4e
+#: 318814257855431ca9e201a48f4b91de
 msgid ""
 "This demo is designed to show that the intra process publish/subscribe "
 "connection can result in zero-copy transport of messages when publishing "
@@ -104,17 +103,17 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:41
-#: a26a96dfb1b541feaf0f618e40b454cc
+#: 1831ef841f304a79b0f606aa6fc2b4b0
 msgid "First let's take a look at the source:"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:43
-#: 04809922211d40df8887196380cb2331
-msgid "https://github.com/ros2/demos/blob/rolling/intra_process_demo/src/two_node_pipeline/two_node_pipeline.cpp"
+#: a3e3d893b691432680bee579f9fdf7d7
+msgid "https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/intra_process_demo/src/two_node_pipeline/two_node_pipeline.cpp"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:127
-#: 711db40088254523a3e58e4a3773905d
+#: 8b8aae74a3374f70881726b8482cb4fa
 msgid ""
 "As you can see by looking at the ``main`` function, we have a producer "
 "and a consumer node, we add them to a single threaded executor, and then "
@@ -122,7 +121,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:129
-#: 9151fc4a6c854cf68f723d822a7dfd5d
+#: a35a985bb08842269b9ae55f7fbd16bd
 msgid ""
 "If you look at the \"producer\" node's implementation in the ``Producer``"
 " struct, you can see that we have created a publisher which publishes on "
@@ -132,7 +131,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:131
-#: 4d3740885e844c26b1c34940a10c5197
+#: 6e30997a8e84477797ce7988e1c9f966
 msgid ""
 "The \"consumer\" node is a bit simpler, you can see its implementation in"
 " the ``Consumer`` struct, as it only subscribes to the \"number\" topic "
@@ -140,7 +139,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:133
-#: 8c9b73a7de084bd6bfd7c257c17c865b
+#: a762fa0cd8d34600bade1589a358efd4
 msgid ""
 "The expectation is that the producer will print out an address and value "
 "and the consumer will print out a matching address and value. This "
@@ -149,7 +148,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:136
-#: 183c05d9b72e462790606c0663f01e02
+#: eaa831f9cbee463ba4f9d3f1c415f1dc
 msgid ""
 "Let's run the demo by executing ``ros2 run intra_process_demo "
 "two_node_pipeline`` executable (don't forget to source the setup file "
@@ -157,7 +156,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:154
-#: 425300d51e0947a9bc35cd3dd0221caa
+#: b99be9d23c93459e98257664930d2976
 msgid ""
 "One thing you'll notice is that the messages tick along at about one per "
 "second. This is because we told the timer to fire at about once per "
@@ -165,7 +164,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:157
-#: 75976d81f1fc4af08f36878f21bbc72a
+#: 3cbf4bee8dfb4e60bf02f1a941725deb
 msgid ""
 "Also you may have noticed that the first message (with value ``0``) does "
 "not have a corresponding \"Received message ...\" line. This is because "
@@ -178,7 +177,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:163
-#: 8465d393610643d789424a285abf89aa
+#: 315397c3bb0d487784e41e9029f5718c
 msgid ""
 "Finally, you can see that \"Published message...\" and \"Received message"
 " ...\" lines with the same value also have the same address. This shows "
@@ -191,12 +190,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:169
-#: 1f02a3c5ba814786981a6ddd8f9928f7
+#: f3cc092082714b00989f524f37d0ceb6
 msgid "The cyclic pipeline demo"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:171
-#: 5a56fb2269834b26b84ee1472a913a20
+#: 0b28d891b81e4f6ab9d0f5fb86cc547b
 msgid ""
 "This demo is similar to the previous one, but instead of the producer "
 "creating a new message for each iteration, this demo only ever uses one "
@@ -206,12 +205,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:174
-#: f1d688db14b247d4a294b9762c7c8aa6
-msgid "https://github.com/ros2/demos/blob/rolling/intra_process_demo/src/cyclic_pipeline/cyclic_pipeline.cpp"
+#: 78889b11aeba4bd284035d50f0d4a6c4
+msgid "https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/intra_process_demo/src/cyclic_pipeline/cyclic_pipeline.cpp"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:256
-#: 1a5ae31a23254f43bb6a10763206dac4
+#: c62e474fad664549a3c9880ccef0bea4
 msgid ""
 "Unlike the previous demo, this demo uses only one Node, instantiated "
 "twice with different names and configurations. The graph ends up being "
@@ -219,7 +218,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:259
-#: 29c7355e3419453482f1c0875eec231a
+#: 7158dd75f6fa4ba28242c67979e4a1fe
 msgid ""
 "The line ``pipe1->pub->publish(msg);`` kicks the process off, but from "
 "then on the messages are passed back and forth between the nodes by each "
@@ -227,7 +226,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:261
-#: d50ee7d6c0c24874b4772298cf6d6c00
+#: 4ff1724b4d0943a28a6fde901c536262
 msgid ""
 "The expectation here is that the nodes pass the message back and forth, "
 "once a second, incrementing the value of the message each time. Because "
@@ -236,12 +235,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:264
-#: 1d008969b5cb4966b7bb02ea9c4d8242
+#: 1960a288b5a84fc1873722aacbc27a27
 msgid "To test those expectations, let's run it:"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:294
-#: c3168e1ae8f947a6b70ce4b96f9f4fdf
+#: 864737ba1583469aa93ca7a432c0c590
 msgid ""
 "You should see ever increasing numbers on each iteration, starting with "
 "42... because 42, and the whole time it reuses the same message, as "
@@ -250,17 +249,17 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:297
-#: af6e17dd7c544f8aba1f58691ed21b33
+#: 1993833325524fb99280e29b9494a367
 msgid "The image pipeline demo"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:299
-#: 6818790d9fe44cc28ba8fc62567bffd1
+#: 86eb7648e4f9470b92078d89ca3f8cfa
 msgid "In this demo we'll use OpenCV to capture, annotate, and then view images."
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:303
-#: 1f941b5976b941169198af1a1cc6f1eb
+#: 784fec58fc994872bb9f5fac6e3c6612
 msgid ""
 "If you are on macOS and these examples do not work or you receive an "
 "error like ``ddsi_conn_write failed -1``, then you'll need to increase "
@@ -268,24 +267,24 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:310
-#: 6c4947e2e0bf4d23ac157ae424114b81
+#: 58f0a20614414036b684e2ff9c1686e0
 msgid "These changes will not persist after a reboot."
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:313
-#: 5d7268018bfb47eb9e94014a18893659
+#: 6ce81745094a4ed98e0a759ebf321558
 msgid "Simple pipeline"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:315
-#: 638db219be4c424e911549664a749a0d
+#: 105518258b9c45c283785e745f6b281f
 msgid ""
 "First we'll have a pipeline of three nodes, arranged as such: "
 "``camera_node`` -> ``watermark_node`` -> ``image_view_node``"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:317
-#: 1e2961359387461db0141ed28c314447
+#: 1cde4d2ce7b7452ab85a86f218496ee4
 msgid ""
 "The ``camera_node`` reads from camera device ``0`` on your computer, "
 "writes some information on the image and publishes it. The "
@@ -296,7 +295,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:321
-#: c9807c6a541f4588993e9ae49e1cef49
+#: 575a27ed5ec64ef49836134315008d03
 msgid ""
 "In each node the address of the message which is being sent, or which has"
 " been received, or both, is written to the image. The watermark and image"
@@ -307,7 +306,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:326
-#: 26101577bdc54807a927634f4310be14
+#: c353e86a5b924236a466bcfc7ba1b1f6
 msgid ""
 "On some systems (we've seen it happen on Linux), the address printed to "
 "the screen might not change. This is because the same unique pointer is "
@@ -315,17 +314,17 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:329
-#: 2acf6b4627be4e919b353e921d889542
+#: 080727d3ca4f41f087cdd829aec2b2eb
 msgid "Let's run the demo by executing the following executable:"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:335
-#: ece2c8f5e217442a9799a36994057545
+#: 275bb855e3414a03b74860913ca6339b
 msgid "You should see something like this:"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:341
-#: 5db875928e1c4a589512b381976ab228
+#: 4c9bc1bac4104746b3c05956a46870e6
 msgid ""
 "You can pause the rendering of the image by pressing the spacebar and you"
 " can resume by pressing the spacebar again. You can also press ``q`` or "
@@ -333,19 +332,19 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:344
-#: 8d17ce19351e4c889057efb304dc26e2
+#: 65593e8ba1894d0cbcee4379879f0547
 msgid ""
 "If you pause the image viewer, you should be able to compare the "
 "addresses written on the image and see that they are the same."
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:347
-#: d3e4cd13ff1943b1854263a1acd99651
+#: dba732cec9ed4b769f334865534da921
 msgid "Pipeline with two image viewers"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:349
-#: 19609d8ff8e24d58be9d73786ad2262d
+#: ce496e6d5ce64ef3b6719040cbf44ce6
 msgid ""
 "Now let's look at an example just like the one above, except it has two "
 "image view nodes. All the nodes are still in the same process, but now "
@@ -355,7 +354,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:361
-#: f503c7cb574c42c1b3a51817c1f2f848
+#: 6a145052011c4d4da69ce08477c27229
 msgid ""
 "Just like the last example, you can pause the rendering with the spacebar"
 " and continue by pressing the spacebar a second time. You can stop the "
@@ -363,7 +362,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:363
-#: 1a0f74e94c864d09aadacda7603efc7f
+#: 2aafb747b4e844a988570b7ba62497e2
 msgid ""
 "As you can see in the example image above, we have one image with all of "
 "the pointers the same and then another image with the same pointers as "
@@ -373,7 +372,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:370
-#: 9256e777a30e46479f129c8944259794
+#: ec77304a885145ee88d31228a1ab647b
 msgid ""
 "The link between the ``camera_node`` and the ``watermark_node`` can use "
 "the same pointer without copying because there is only one intra process "
@@ -387,7 +386,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:372
-#: 77939d40fe6b4c6baaf2e3909ff49819
+#: 26ac23cf766b4a9595c1252e10ce5f13
 msgid ""
 "Note that the image view nodes are not subscribed with ``unique_ptr`` "
 "callbacks. Instead they are subscribed with ``const shared_ptr``\\ s. "
@@ -398,12 +397,12 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:375
-#: c9766ab6df3a4fd885c88c12a246181d
+#: 2e373ffa6e6e45368c3f2836d7b00e0c
 msgid "Pipeline with interprocess viewer"
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:377
-#: 6a717180d2304808be659c4ecf524135
+#: 0a0235a88199469c999e24e380682cc2
 msgid ""
 "One other important thing to get right is to avoid interruption of the "
 "intra process zero-copy behavior when interprocess subscriptions are "
@@ -415,7 +414,7 @@ msgid ""
 msgstr ""
 
 #: ../../source/Tutorials/Demos/Intra-Process-Communication.rst:383
-#: 0ad186483f0340b5b66fc7c477e4b3ba
+#: ce1fcca59b7f492d84723744ea43ba91
 msgid ""
 "It's hard to pause both images at the same time so the images may not "
 "line up, but the important thing to notice is that the "
@@ -426,4 +425,19 @@ msgid ""
 " of text and the process ID of the standalone image viewer in the third "
 "line of text."
 msgstr ""
+
+#~ msgid ""
+#~ "If you've installed ROS 2 from "
+#~ "packages, ensure that you have ``ros-"
+#~ "rolling-intra-process-demo`` installed. "
+#~ "If you downloaded the archive or "
+#~ "built ROS 2 from source, it will"
+#~ " already be part of the installation."
+#~ msgstr ""
+
+#~ msgid "https://github.com/ros2/demos/blob/rolling/intra_process_demo/src/two_node_pipeline/two_node_pipeline.cpp"
+#~ msgstr ""
+
+#~ msgid "https://github.com/ros2/demos/blob/rolling/intra_process_demo/src/cyclic_pipeline/cyclic_pipeline.cpp"
+#~ msgstr ""
 

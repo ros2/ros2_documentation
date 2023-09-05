@@ -1,4 +1,4 @@
-# SOME DESCRIPTIVE TITLE.
+# Archivo de traducción al español para la documentación de ROS 2.
 # Copyright (C) 2023, Open Robotics
 # This file is distributed under the same license as the ROS 2 documentation
 # package.
@@ -10,8 +10,6 @@ msgstr ""
 "Project-Id-Version: ROS 2 documentation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-19 11:55+0000\n"
-"PO-Revision-Date: 2023-08-27 07:05-0500\n"
-"Last-Translator: Cristian Chitiva <cychitivav@unal.edu.co>\n"
 "Language-Team: es <LL@li.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -89,7 +87,7 @@ msgid ""
 "skills"
 msgstr ""
 "Proyectos de muestra prácticos que lo ayudan a desarrollar una progresión de"
-" las habilidades necesarias"
+" habilidades necesarias"
 
 #: ../../source/index.rst:48 6876623f582a40a6b778a1c94f45a194
 msgid ":doc:`How-To-Guides`"
@@ -294,7 +292,7 @@ msgid ""
 "Get more info for a package on `ROS Answers "
 "<https://answers.ros.org/questions/>`__"
 msgstr ""
-"\tObtén más información sobre un paquete en `ROS Answers "
+"Obtén más información sobre un paquete en `ROS Answers "
 "<https://answers.ros.org/questions/>`__"
 
 #: ../../source/index.rst:123 207cce02cad54e48a005eb3bb7ab0504
@@ -331,7 +329,7 @@ msgstr "Propuestas de nuevos diseños y convenciones"
 
 #: ../../source/index.rst:134 e7cbacc7dd47499ca1e6474db16bac27
 msgid "`ROS Robots <https://robots.ros.org/>`__ (ROS 1, ROS 2)"
-msgstr "`Robots ROS <https://robots.ros.org/>`__ (ROS 1, ROS 2)"
+msgstr "`ROS Robots <https://robots.ros.org/>`__ (ROS 1, ROS 2)"
 
 #: ../../source/index.rst:136 d7e2ae3647674ab88aba913610b20435
 msgid "Showcases robots projects from the community"
