@@ -36,7 +36,8 @@ Debugging tests with GDB
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 If a C++ test is failing, gdb can be used directly on the test executable in the build directory.
-Ensure to build the code in debug mode. Since the previous build type may be cached by CMake, clean the cache and rebuild.
+Ensure to build the code in debug mode.
+Since the previous build type may be cached by CMake, clean the cache and rebuild.
 
 .. code-block:: console
 
