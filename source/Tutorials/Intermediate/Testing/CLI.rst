@@ -31,3 +31,21 @@ To see the exact test cases which fail, use the ``--verbose`` flag:
 .. code-block:: console
 
   colcon test-result --all --verbose
+
+Debugging tests with GDB
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+If a C++ test is failing, gdb can be used directly on the test executable in the build directory.
+Ensure to build the code in debug mode.
+Since the previous build type may be cached by CMake, clean the cache and rebuild.
+
+.. code-block:: console
+
+  colcon build --cmake-clean-cache --mixin debug
+
+Next, run the test directly through gdb.
+For example:
+
+.. code-block:: console
+
+  gdb -ex run ./build/rcl/test/test_logging
