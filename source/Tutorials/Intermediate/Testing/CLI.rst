@@ -43,7 +43,8 @@ Since the previous build type may be cached by CMake, clean the cache and rebuil
 
   colcon build --cmake-clean-cache --mixin debug
 
-Next, run the test directly through gdb. For example, with nav2's geometry utility:
+Next, run the test directly through gdb.
+For example, with nav2's geometry utility:
 
 .. code-block:: console
 
