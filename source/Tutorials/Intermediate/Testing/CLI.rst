@@ -48,4 +48,4 @@ For example, with nav2's geometry utility:
 
 .. code-block:: console
 
-  gdb -ex run ./build/nav2_util/test/test_geometry_utils
+  gdb -ex run ./build/rcl/test/test_logging
