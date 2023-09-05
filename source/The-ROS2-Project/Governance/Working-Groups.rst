@@ -172,10 +172,12 @@ Maritime (MaritimeWG)
 Rust (RustWG)
 ^^^^^^^^^^^^^
 
-* Lead(s): Jacob Hassold
+* Lead(s): Esteve Fernandez, Jacob Hassold, Nikolai Morin
 * Resources:
 
   * Discourse tag: `wg-rust <https://discourse.ros.org/tag/wg-rust>`_
+  * Matrix chat: `#Rust WG Room <https://matrix.to/#/!AiYXdTWExqamTdatBl:matrix.org?via=matrix.org&via=heyquark.com&via=c-base.org>`_
+  * Repository: `ros2-rust <https://github.com/ros2-rust/ros2_rust>`_
 
 SMACC (SMACCWG)
 ^^^^^^^^^^^^^^^^^^^^^
