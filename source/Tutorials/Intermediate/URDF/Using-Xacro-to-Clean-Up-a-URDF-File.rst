@@ -56,7 +56,7 @@ To run xacro within your launch file, you need to put the ``Command` substitutio
         }]
     )
 
-An easier way to load the robot model is to use the `urdf_launch <https://github.com/MetroRobots/urdf_launch>`_ package to automatically load the xacro/urdf.
+An easier way to load the robot model is to use the `urdf_launch <https://github.com/ros/urdf_launch>`_ package to automatically load the xacro/urdf.
 
 .. code-block:: python
 
