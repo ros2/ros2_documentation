@@ -20,11 +20,11 @@ msgstr ""
 
 #: ../../source/Contact.rst:4 afb21ea291cb4349bad247743e9a3594
 msgid "Contact"
-msgstr ""
+msgstr "Contacto"
 
 #: ../../source/Contact.rst:9 9a20780ce204426aaec85513d9abdc06
 msgid "Support"
-msgstr ""
+msgstr "Soporte"
 
 #: ../../source/Contact.rst:11 8b72ca892a884d04a8cfb66c09291e08
 msgid ""
@@ -32,6 +32,9 @@ msgid ""
 "avenues of communication; check the descriptions below to ensure you "
 "choose the right method."
 msgstr ""
+"Diferentes tipos de preguntas o discusiones corresponden a diferentes "
+"vías de comunicación; revise las descripciones a continuación para "
+"asegurarse de elegir el método correcto."
 
 #: ../../source/Contact.rst:14 0c863fa6fe8145739c3dc8aa72dc4302
 msgid ""
@@ -39,6 +42,9 @@ msgid ""
 "<https://answers.ros.org>`__ to see if others have had similar issues, "
 "and if their solution works for you."
 msgstr ""
+"¿Necesita ayuda para solucionar problemas en su sistema? Primero, busque "
+"en `ROS Answers <https://answers.ros.org>`__ para ver si otros han tenido "
+"problemas similares, y si su solución funciona para usted."
 
 #: ../../source/Contact.rst:17 fb8be684289d4f81a871969319751aa3
 msgid ""
@@ -48,10 +54,15 @@ msgid ""
 "to the documentation here, add a tag like ``docs``, or more specifically,"
 " ``tutorials``."
 msgstr ""
+"Si no, haga una nueva pregunta en `ROS Answers <https://answers.ros.org>`__."
+" Asegúrese de agregar etiquetas, al menos la etiqueta ``ros2`` y la "
+"versión de distribución que está ejecutando, por ejemplo ``{DISTRO}``. Si "
+"su pregunta está relacionada con la documentación aquí, agregue una "
+"etiqueta como ``docs``, o más específicamente, ``tutorials``."
 
 #: ../../source/Contact.rst:22 8ddc3b34f9a6451cad59df92094eed71
 msgid "Contributing support"
-msgstr ""
+msgstr "Contribuir con soporte"
 
 #: ../../source/Contact.rst:24 3d11a94dd7634a6ba66775ffbc4b8a8b
 msgid ""
@@ -60,6 +71,11 @@ msgid ""
 "prior experience with ROS (1 or 2). So, it's important for users with any"
 " amount of experience to contribute support."
 msgstr ""
+"Los usuarios de ROS 2 provienen de una amplia gama de antecedentes "
+"técnicos, utilizan una variedad de sistemas operativos diferentes y no "
+"necesariamente tienen experiencia previa con ROS (1 o 2). Por lo tanto, "
+"es importante que los usuarios con cualquier cantidad de experiencia "
+"contribuyan con soporte."
 
 #: ../../source/Contact.rst:27 0dcefac5e5f94f75b25fbfb7003f639b
 msgid ""
@@ -70,16 +86,24 @@ msgid ""
 " if your response is correct. Simply say so, and other community members "
 "will jump in if necessary."
 msgstr ""
+"Si ve un problema en `ROS Answers "
+"<https://answers.ros.org/questions/tags:ros2/>`__ que es similar a algo "
+"con lo que se ha encontrado, considere proporcionar algunos consejos "
+"sobre lo que ayudó en su situación. No se preocupe si no está seguro de "
+"que su respuesta sea correcta. Simplemente dígalo, y otros miembros de la "
+"comunidad intervendrán si es necesario."
 
 #: ../../source/Contact.rst:32 ff905f4782e14308afee7dd7fece630e
 msgid "Issues"
-msgstr ""
+msgstr "Problemas"
 
 #: ../../source/Contact.rst:34 2c49f709f7cc4e139e4ae638479cfc38
 msgid ""
 "If you identify bugs, have suggestions for improvements, or a question "
 "specific to one package, you can open an issue on GitHub."
 msgstr ""
+"Si identifica errores, tiene sugerencias para mejoras o una pregunta "
+"específica para un paquete, puede abrir un issue en GitHub."
 
 #: ../../source/Contact.rst:36 659e720b2b1241658aa41e867229bd97
 msgid ""
@@ -88,12 +112,18 @@ msgid ""
 "open an issue in the `ros2_documentation "
 "<https://github.com/ros2/ros2_documentation>`__ repo."
 msgstr ""
+"Por ejemplo, si está siguiendo los :doc:`tutoriales aquí <Tutorials>` y "
+"encuentra una instrucción que no funciona en su sistema, puede abrir un "
+"issue en el repositorio `ros2_documentation "
+"<https://github.com/ros2/ros2_documentation>`__."
 
 #: ../../source/Contact.rst:39 8be6b95cb60641e98ed0b8c8a2806238
 msgid ""
 "You can search for individual ROS 2 repositories on `ROS 2's GitHub "
 "<https://github.com/ros2>`__."
 msgstr ""
+"Puede buscar repositorios individuales de ROS 2 en `GitHub de ROS 2 "
+"<https://github.com/ros2>`__."
 
 #: ../../source/Contact.rst:41 cb0b220b43bc42f084550f549a8b40b7
 msgid ""
@@ -102,12 +132,18 @@ msgid ""
 "`example search query "
 "<https://github.com/search?q=user%3Aros2+user%3Aament+turtlesim&type=Issues>`__."
 msgstr ""
+"Antes de abrir un issue, verifique si otros usuarios han reportado "
+"problemas similares buscando en las organizaciones de GitHub ros2 y ament:"
+" `ejemplo de consulta de búsqueda "
+"<https://github.com/search?q=user%3Aros2+user%3Aament+turtlesim&type=Issues>`__."
 
 #: ../../source/Contact.rst:43 c6b6ccbf39d743bc93c4ce63cc8caf63
 msgid ""
 "Next, check `ROS Answers <https://answers.ros.org/>`__ to see if someone "
 "else has asked your question or reported your issue."
 msgstr ""
+"A continuación, verifique `ROS Answers <https://answers.ros.org/>`__ para "
+"ver si alguien más ha hecho su pregunta o ha reportado su problema."
 
 #: ../../source/Contact.rst:45 a202812aedb741768176084fd9cab582
 msgid ""
@@ -116,14 +152,18 @@ msgid ""
 "for a particular issue, file it in the `ros2/ros2 repository "
 "<https://github.com/ros2/ros2/issues>`__ and we'll have a look at it."
 msgstr ""
+"Si no se ha reportado, no dude en abrir un issue en el rastreador del "
+"repositorio correspondiente. Si no está claro qué rastreador usar para un "
+"problema en particular, regístrelo en el repositorio `ros2/ros2 "
+"<https://github.com/ros2/ros2/issues>`__ y lo revisaremos."
 
 #: ../../source/Contact.rst:48 1835503d7abd440c949c14041d72e44d
 msgid "When filing an issue, please make sure to:"
-msgstr ""
+msgstr "Cuando registre un issue, asegúrese de:"
 
 #: ../../source/Contact.rst:50 7576a502e3a64d37b565c00303d06c00
 msgid "Include enough information for another person to understand the issue."
-msgstr ""
+msgstr "Incluya suficiente información para que otra persona entienda el issue."
 
 #: ../../source/Contact.rst:52 c87c1bce68df446f837c6db020b92210
 msgid ""
@@ -131,12 +171,18 @@ msgid ""
 "what, if anything, went wrong. If following a tutorial or online "
 "instructions provide a link to the specific instructions."
 msgstr ""
+"Describa exactamente lo que estaba haciendo o está intentando hacer, y "
+"exactamente qué, si algo, salió mal. Si sigue un tutorial o instrucciones "
+"en línea, proporcione un enlace a las instrucciones específicas."
 
 #: ../../source/Contact.rst:55 cd9f1c3e47884b10b133e0eab69ad100
 msgid ""
 "Use a descriptive headline or subject line. Bad: \"rviz doesn't work\". "
 "Good: \"Rviz crashing looking for missing .so after latest apt update\""
 msgstr ""
+"Use un título descriptivo o una línea de asunto. Malo: \"rviz no funciona\"."
+" Bueno: \"Rviz se bloquea buscando .so faltante después de la última "
+"actualización de apt\""
 
 #: ../../source/Contact.rst:56 89a0fbe544dc45c58b580858197c8df5
 msgid ""
@@ -145,6 +191,10 @@ msgid ""
 "software (from binaries or from source) and which ROS middleware/DDS "
 "vendor you are using (if you know it)."
 msgstr ""
+"Incluya información sobre la plataforma, el software, las versiones y el "
+"entorno exactos relevantes para el problema. Esto incluye cómo instaló el "
+"software (desde binarios o desde la fuente) y qué middleware/DDS de ROS "
+"está utilizando (si lo sabe)."
 
 #: ../../source/Contact.rst:57 f4f47e9635fa48c18f8224cbe35c28e9
 msgid ""
@@ -152,54 +202,61 @@ msgid ""
 "window to which they were printed. Please do not re-type or include a "
 "screenshot."
 msgstr ""
+"Cualquier advertencia o error. Cópielos y péguelos directamente desde la "
+"ventana de terminal a la que se imprimieron. No vuelva a escribirlos ni "
+"incluya una captura de pantalla."
 
 #: ../../source/Contact.rst:58 78c4e7a68c704f7e8452b11916a6b350
 msgid ""
 "In case of a bug consider providing a `short, self contained, correct "
 "(compilable), example <http://sscce.org/>`__."
 msgstr ""
+"En caso de un error, considere proporcionar un `ejemplo corto, "
+"autocontenido y correcto (compilable) <http://sscce.org/>`__."
 
 #: ../../source/Contact.rst:59 9990e58b1d0b4b7d97bebe1eb92cefe6
 msgid ""
 "When discussing any compiling/linking/installation issues, also provide "
 "the compiler version"
 msgstr ""
+"Al discutir cualquier problema de compilación/enlace/instalación, también "
+"proporcione la versión del compilador"
 
 #: ../../source/Contact.rst:61 a4c01aaab62744588143b49869ba37d3
 msgid "As appropriate, also include your:"
-msgstr ""
+msgstr "Según corresponda, también incluya su:"
 
 #: ../../source/Contact.rst:63 708a3cb1787a49cb8268c6711cb46a26
 msgid "ROS environment variables (env | grep ROS)"
-msgstr ""
+msgstr "Variables de entorno de ROS (env | grep ROS)"
 
 #: ../../source/Contact.rst:64 0bdbc0227e9c4d27be8f37026df969f7
 msgid "Backtraces"
-msgstr ""
+msgstr "Backtraces"
 
 #: ../../source/Contact.rst:65 1d316e3458e3477d96a11934ba4c286c
 msgid "Relevant config files"
-msgstr ""
+msgstr "Archivos de configuración relevantes"
 
 #: ../../source/Contact.rst:66 e72b2ae9a2c540bc966c99f79d0acd9d
 msgid "Graphics card model and driver version"
-msgstr ""
+msgstr "Modelo de tarjeta gráfica y versión del controlador"
 
 #: ../../source/Contact.rst:67 b092ba354d72499bbb64107a568fe34a
 msgid "Ogre.log for rviz, if possible (run with rviz -l)"
-msgstr ""
+msgstr "Ogre.log para rviz, si es posible (ejecute con rviz -l)"
 
 #: ../../source/Contact.rst:68 942aa63e09c2411982f64eccc371cf27
 msgid "Bag files and code samples that can reproduce the problem"
-msgstr ""
+msgstr "Archivos Bag y muestras de código que puedan reproducir el problema"
 
 #: ../../source/Contact.rst:69 59df3f359b2349d4b456f1e4a3186fbd
 msgid "Gifs or movies to demonstrate the problem"
-msgstr ""
+msgstr "Gifs o videos para demostrar el problema"
 
 #: ../../source/Contact.rst:73 50126c34eec549298930eadffab06b95
 msgid "Pull requests"
-msgstr ""
+msgstr "Pull requests"
 
 #: ../../source/Contact.rst:75 23f2a6393ffc4864aa3196c85f2f4d2d
 msgid ""
@@ -209,10 +266,16 @@ msgid ""
 ":doc:`Contributing <The-ROS2-Project/Contributing>` page for more details"
 " and etiquette on how to contribute."
 msgstr ""
+"Cuando se sienta lo suficientemente cómodo como para sugerir un cambio "
+"específico directamente al código, puede enviar un pull request. Los pull "
+"requests son bienvenidos para cualquiera de `los repositorios de ros2 "
+"<https:/github.com/ros2>`__. Consulte la página :doc:`Contribuir "
+"<The-ROS2-Project/Contributing>` para obtener más detalles y etiqueta "
+"sobre cómo contribuir."
 
 #: ../../source/Contact.rst:82 6041fa1a4f67445ea0f001fdb0be4a58
 msgid "Discussion"
-msgstr ""
+msgstr "Discusión"
 
 #: ../../source/Contact.rst:84 5a3f760850de4fa6926be2b230ef919f
 msgid ""
@@ -222,6 +285,12 @@ msgid ""
 " code answered, but it would be suitable to start a conversation about "
 "best practices or improving standards."
 msgstr ""
+"Para iniciar una discusión con otros miembros de la comunidad ROS 2, "
+"visite el `ROS Discourse oficial <https://discourse.ros.org/>`__. El "
+"contenido en el Discurso debe ser de alto nivel; no es un lugar para "
+"obtener *preguntas* sobre el código respondidas, pero sería adecuado para "
+"iniciar una conversación sobre las mejores prácticas o mejorar los "
+"estándares."
 
 #: ../../source/Contact.rst:88 940aa8991a0a4fffa7acecbe8b6370eb
 msgid ""
@@ -230,6 +299,11 @@ msgid ""
 "ros>`__. Participating in these discussions is an important way to have a"
 " say on how different features of ROS 2 will work and be implemented."
 msgstr ""
+"Las discusiones sobre el desarrollo y los planes de ROS 2 están ocurriendo"
+" en la categoría `“Next Generation ROS” Discourse "
+"<https://discourse.ros.org/c/ng-ros>`__. Participar en estas discusiones "
+"es una forma importante de tener una opinión sobre cómo funcionarán y se "
+"implementarán las diferentes características de ROS 2."
 
 #: ../../source/Contact.rst:91 d151a65fae7346539c2ddbbeb8de568c
 msgid ""
@@ -238,10 +312,15 @@ msgid ""
 "these design discussions so that we can leverage the experience of "
 "community members, and keep the varied use cases of ROS in mind."
 msgstr ""
+"La diversa comunidad detrás del ecosistema ROS es uno de sus mayores "
+"activos. Alentamos a todos los miembros de la comunidad ROS a participar "
+"en estas discusiones de diseño para que podamos aprovechar la experiencia "
+"de los miembros de la comunidad y tener en cuenta los diversos casos de "
+"uso de ROS."
 
 #: ../../source/Contact.rst:95 a29e390912cd46c29c71dc95bf04169c
 msgid "Etiquette"
-msgstr ""
+msgstr "Etiqueta"
 
 #: ../../source/Contact.rst:97 7044411cca3548728654817fe8a16f6b
 msgid ""
@@ -252,6 +331,12 @@ msgid ""
 "responding almost always works better even if the original response was "
 "not in fact in good faith."
 msgstr ""
+"Suponga 'buena fe': es fácil malinterpretar el significado o el tono de "
+"los comentarios en Internet. Suponer buena fe da el beneficio de la duda a"
+" aquellos que intentan ayudarlo, evitando: insultar a los miembros de la "
+"comunidad bien intencionados y envenenar el ambiente. Suponer 'buena fe' "
+"al responder casi siempre funciona mejor incluso si la respuesta original "
+"no fue de hecho de buena fe."
 
 #: ../../source/Contact.rst:101 501d420e59414e30a4a25fcb144c545f
 msgid ""
@@ -263,6 +348,14 @@ msgid ""
 "Try to pick the forum which you think matches best and ask there. If you "
 "are referred to a new forum, provide a link to the old discussion."
 msgstr ""
+"Por favor, no envíe su pregunta más de una vez: la pregunta fue vista. Si "
+"no recibió una respuesta, es probable que nadie haya tenido tiempo de "
+"responderle. Alternativamente, podría ser que nadie conozca la respuesta. "
+"En cualquier caso, enviarlo nuevamente es una mala forma y se parece a "
+"gritar y es probable que moleste a una gran cantidad de personas. Esto "
+"también se aplica a la publicación cruzada. Intente elegir el foro que "
+"crea que mejor se adapta y pregunte allí. Si se le remite a un nuevo foro, "
+"proporcione un enlace a la antigua discusión."
 
 #: ../../source/Contact.rst:109 7199bbe8d5ef4ad1a8a2eb0e0d3e1bd4
 msgid ""
@@ -271,12 +364,18 @@ msgid ""
 " is for others to help you find your solution which makes it more likely "
 "for you to get a response."
 msgstr ""
+"En https://answers.ros.org puede editar su pregunta para proporcionar más "
+"detalles. Cuantos más detalles incluya en su pregunta, más fácil será que"
+" otros lo ayuden a encontrar su solución, lo que hace más probable que "
+"reciba una respuesta."
 
 #: ../../source/Contact.rst:112 796c4dd2d71c49c5ac63d3c76932032f
 msgid ""
 "It's considered bad form to list your personal deadlines; community "
 "members answering questions also have them."
 msgstr ""
+"Se considera una mala forma enumerar sus plazos personales; los miembros "
+"de la comunidad que responden preguntas también los tienen."
 
 #: ../../source/Contact.rst:114 31f7e31724214f1f8e6be28257afbae7
 msgid ""
@@ -284,6 +383,9 @@ msgid ""
 "your problem, you usually get a response. Asking for faster answers will "
 "mostly have a negative effect."
 msgstr ""
+"No supliques ayuda. Si hay alguien dispuesto y capaz de ayudarlo con su "
+"problema, generalmente obtendrá una respuesta. Pedir respuestas más "
+"rápidas tendrá principalmente un efecto negativo."
 
 #: ../../source/Contact.rst:118 622b499d50f940a89db440a24efa5361
 msgid ""
@@ -291,6 +393,10 @@ msgid ""
 "focused on the topic at hand and not include unrelated content. Content, "
 "links, and images unrelated to the topic are considered spam."
 msgstr ""
+"No agregue contenido no relacionado a las publicaciones. El contenido de "
+"las publicaciones debe centrarse en el tema en cuestión y no incluir "
+"contenido no relacionado. El contenido, los enlaces y las imágenes no "
+"relacionados con el tema se consideran spam."
 
 #: ../../source/Contact.rst:122 1900b58427b44088a635e0d9583a27f9
 msgid ""
@@ -298,6 +404,9 @@ msgid ""
 "<https://discourse.ros.org/t/sponsorship-notation-in-posts-on-ros-"
 "org/2078>`_."
 msgstr ""
+"Para publicaciones comerciales, consulte también `esta discusión "
+"<https://discourse.ros.org/t/sponsorship-notation-in-posts-on-ros-"
+"org/2078>`_."
 
 #: ../../source/Contact.rst:124 46f885cb319e487fb17ec884bc9f5861
 msgid ""
@@ -309,6 +418,15 @@ msgid ""
 " may not be accessible to all users. Where possible primary sources "
 "should be free and open with paid content playing a supporting role."
 msgstr ""
+"Minimice las referencias al contenido detrás de los muros de pago. El "
+"contenido publicado en `ROS Discourse <https://discourse.ros.org/>`__ y "
+"`ROS Answers <https://answers.ros.org/>`__ debe ser \"generalmente\" "
+"gratuito y abierto a todos los usuarios. Los enlaces al contenido detrás "
+"de los muros de pago, como artículos de revistas privadas, libros de "
+"texto y sitios web de noticias pagas, si bien son útiles y relevantes, "
+"pueden no ser accesibles para todos los usuarios. Cuando sea posible, las"
+" fuentes primarias deben ser gratuitas y abiertas con contenido pago que "
+"juegue un papel de apoyo."
 
 #: ../../source/Contact.rst:129 aa865901b51c4a97a864856d1f815612
 msgid ""
@@ -318,10 +436,15 @@ msgid ""
 "link's content along with some contextual information and attribution is "
 "often much more helpful."
 msgstr ""
+"Se deben evitar las publicaciones de un solo enlace. En general, publicar"
+" una respuesta de un solo enlace es menos útil y puede confundirse "
+"fácilmente con spam. Además, los enlaces pueden degradarse con el tiempo "
+"o ser reemplazados. Parafrasear el contenido de un enlace junto con "
+"alguna información contextual y atribución a menudo es mucho más útil."
 
 #: ../../source/Contact.rst:135 893c5866c33242dfb627c16ec3763006
 msgid "Private contact"
-msgstr ""
+msgstr "Contacto privado"
 
 #: ../../source/Contact.rst:137 78e830f295dd44cdbbd24904cdb8e21e
 msgid ""
@@ -330,4 +453,7 @@ msgid ""
 "regarding a security issue), you can email us directly at "
 "``ros@osrfoundation.org``."
 msgstr ""
-
+"Si desea contactarnos en privado (por ejemplo, si su pregunta contiene "
+"información confidencial para su organización o proyecto, o si se trata "
+"de un problema de seguridad), puede enviarnos un correo electrónico "
+"directamente a ``ros@osrfoundation.org``."

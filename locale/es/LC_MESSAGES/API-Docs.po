@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../../source/API-Docs.rst:4 daa522126f9d4686ad1752693bc778e5
 msgid "API Documentation"
-msgstr ""
+msgstr "Documentación de la API"
 
 #: ../../source/API-Docs.rst:6 0972ddc1dba6457a9ba636d4d4ee9512
 msgid ""
@@ -33,40 +33,59 @@ msgid ""
 " a package of interest, the auto-generated API documentation may be found"
 " found using the \"API Docs\" button."
 msgstr ""
+"Toda la documentación de los paquetes de ROS 2 se aloja junto con su "
+"información en el `Índice de ROS <https://index.ros.org/>`_. La búsqueda "
+"de paquetes arrojará su información, como las distribuciones publicadas, "
+"los archivos ``README.md``, las URL y otros metadatos importantes. Se "
+"puede encontrar una lista de todos los paquetes para cada distribución en "
+"el índice `aquí <https://index.ros.org/packages/#{DISTRO}>`_. Desde el "
+"lado derecho de un paquete de interés, se puede encontrar la documentación"
+" de la API generada automáticamente utilizando el botón \"API Docs\"."
 
 #: ../../source/API-Docs.rst:11 ee9df2f5a4504203984bf6336db00b19
 msgid ""
 "You can find the API Documentation for the Client Libraries in the "
 "{DISTRO_TITLE} distribution using the links below:"
 msgstr ""
+"Puede encontrar la documentación de la API para las bibliotecas de cliente"
+" en la distribución {DISTRO_TITLE} utilizando los enlaces a continuación:"
 
 #: ../../source/API-Docs.rst:13 e5839f65c74a4aa081ff0a7ba12dbfea
 msgid ""
 "`rclcpp - C++ client library "
 "<http://docs.ros.org/en/{DISTRO}/p/rclcpp/generated/index.html>`_"
 msgstr ""
+"`rclcpp - Biblioteca de cliente C++ "
+"<http://docs.ros.org/en/{DISTRO}/p/rclcpp/generated/index.html>`_"
 
 #: ../../source/API-Docs.rst:14 f8742bd83a05406f9d55f1c8ce1889ce
 msgid ""
 "`rclcpp_lifecycle - C++ lifecycle library "
 "<http://docs.ros.org/en/{DISTRO}/p/rclcpp_lifecycle/generated/index.html>`_"
 msgstr ""
+"`rclcpp_lifecycle - Biblioteca de ciclo de vida C++ "
+"<http://docs.ros.org/en/{DISTRO}/p/rclcpp_lifecycle/generated/index.html>`_"
 
 #: ../../source/API-Docs.rst:15 6b2f37f9986f4c318c80addaaa7f7956
 msgid ""
 "`rclcpp_components - C++ components library "
 "<http://docs.ros.org/en/{DISTRO}/p/rclcpp_components/generated/index.html>`_"
 msgstr ""
+"`rclcpp_components - Biblioteca de componentes C++ "
+"<http://docs.ros.org/en/{DISTRO}/p/rclcpp_components/generated/index.html>`_"
 
 #: ../../source/API-Docs.rst:16 b5dfcb251cec493ea294dbff879c30ff
 msgid ""
 "`rclcpp_action - C++ actions library "
 "<http://docs.ros.org/en/{DISTRO}/p/rclcpp_action/generated/index.html>`_"
 msgstr ""
+"`rclcpp_action - Biblioteca de acciones C++ "
+"<http://docs.ros.org/en/{DISTRO}/p/rclcpp_action/generated/index.html>`_"
 
 #: ../../source/API-Docs.rst:18 c5b931f6970144d5a943621493b21c6b
 msgid ""
 "A raw list of {DISTRO_TITLE} package documentation `may be found here "
 "<https://docs.ros.org/en/{DISTRO}/p/>`_."
 msgstr ""
-
+"Una lista de la documentación de paquetes de {DISTRO_TITLE} `se puede "
+"encontrar aquí <https://docs.ros.org/en/{DISTRO}/p/>`_."

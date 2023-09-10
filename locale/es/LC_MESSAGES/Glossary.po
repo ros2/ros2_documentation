@@ -20,15 +20,15 @@ msgstr ""
 
 #: ../../source/Glossary.rst:2 f11c4b71ffbf419baebca0819174b498
 msgid "Glossary"
-msgstr ""
+msgstr "Glosario"
 
 #: ../../source/Glossary.rst:6 c09a46d887c447399993b30cd53aa11f
 msgid "Glossary of terms used throughout this documentation:"
-msgstr ""
+msgstr "Glosario de términos utilizados en toda esta documentación:"
 
 #: ../../source/Glossary.rst:9 83f76f7d48114df28a11761ed2bc0469
 msgid "API"
-msgstr ""
+msgstr "API"
 
 #: ../../source/Glossary.rst:11 40f1083459444413966ed931988783d1
 msgid ""
@@ -44,30 +44,47 @@ msgid ""
 "interfaces prompt a new version number of the software that provides "
 "them."
 msgstr ""
+"Una API, o interfaz de programación de aplicaciones, es una interfaz que "
+"proporciona una \"aplicación\", que en este caso suele ser una biblioteca"
+" compartida u otro recurso compartido apropiado para el idioma. Las API "
+"están compuestas por archivos que definen un contrato entre el software "
+"que utiliza la interfaz y el software que proporciona la interfaz. Estos "
+"archivos generalmente se manifiestan como archivos de encabezado en C y "
+"C++ y como archivos de Python en Python. En cualquier caso, es importante"
+" que las API se agrupen y describan en la documentación y que se declaren"
+" como públicas o privadas. Las interfaces públicas están sujetas a reglas"
+" de cambio y los cambios en las interfaces públicas provocan un nuevo "
+"número de versión del software que las proporciona."
 
 #: ../../source/Glossary.rst:12 4fe35502ab484583b7f7bcb28dd71d26
 msgid "client_library"
-msgstr ""
+msgstr "client_library"
 
 #: ../../source/Glossary.rst:14 0b2e35ad2b6d4b1aa1ac2aa8ad752607
 msgid ""
 "A client library is an :term:`API` that provides access to the ROS graph "
 "using primitive middleware concepts like Topics, Services, and Actions."
 msgstr ""
+"Una biblioteca de cliente es una :term:`API` que proporciona acceso al "
+"gráfico ROS utilizando conceptos de middleware primitivos como Temas, "
+"Servicios y Acciones."
 
 #: ../../source/Glossary.rst:15 abfae56455e34eb7973bebec56581ea7
 msgid "package"
-msgstr ""
+msgstr "paquete"
 
 #: ../../source/Glossary.rst:17 02de2ee329914a128bfe21f180b7f375
 msgid ""
 "A single unit of software, including source code, build system files, "
 "documentation, tests, and other associated resources."
 msgstr ""
+"Una sola unidad de software, que incluye código fuente, archivos del "
+"sistema de compilación, documentación, pruebas y otros recursos "
+"asociados."
 
 #: ../../source/Glossary.rst:18 2d4bc76cb64542bd84e60622fed58bcc
 msgid "REP"
-msgstr ""
+msgstr "REP"
 
 #: ../../source/Glossary.rst:20 306a00765231431b90fd773d37bf031f
 msgid ""
@@ -78,18 +95,26 @@ msgid ""
 "implemented, which then becomes documentation. All REPs are viewable from"
 " the `REP index <http://www.ros.org/reps/rep-0000.html>`_."
 msgstr ""
+"Propuesta de mejora de ROS. Un documento que describe una mejora, "
+"estandarización o convención para la comunidad ROS. El proceso de "
+"aprobación REP asociado permite a la comunidad iterar en una propuesta "
+"hasta que se haya llegado a un consenso, momento en el que puede ser "
+"ratificada e implementada, que luego se convierte en documentación. Todos"
+" los REPs son visibles desde el `índice REP "
+"<http://www.ros.org/reps/rep-0000.html>`_."
 
 #: ../../source/Glossary.rst:23 088787f76a044d33a71294ede6844816
 msgid "VCS"
-msgstr ""
+msgstr "VCS"
 
 #: ../../source/Glossary.rst:25 8adfb2e81e5f4f5cbe7860c9a11b10f0
 msgid "Version Control System, such as CVS, SVN, git, mercurial, etc..."
 msgstr ""
+"Sistema de control de versiones, como CVS, SVN, git, mercurial, etc..."
 
 #: ../../source/Glossary.rst:26 f11fa42ea9b044d4845ee516ffc24ca3
 msgid "rclcpp"
-msgstr ""
+msgstr "rclcpp"
 
 #: ../../source/Glossary.rst:28 206b789b30a54c03b283b469f0252861
 msgid ""
@@ -98,10 +123,14 @@ msgid ""
 "generation of C++ data structures based on interface definitions like "
 "Messages, Services, and Actions."
 msgstr ""
+"La :term:`Biblioteca de cliente <client_library>` específica de C++ para "
+"ROS. Esto incluye cualquier API relacionada con el middleware, así como "
+"la generación de mensajes relacionados de estructuras de datos C++ "
+"basadas en definiciones de interfaz como Mensajes, Servicios y Acciones."
 
 #: ../../source/Glossary.rst:29 ba0fffa4ec8143abaf313ce3d5d38477
 msgid "repository"
-msgstr ""
+msgstr "repositorio"
 
 #: ../../source/Glossary.rst:31 dc2ecbe8c246489b9b934d3d2ef24f55
 msgid ""
@@ -110,4 +139,7 @@ msgid ""
 "context of this document, repositories usually contain one or more "
 "|packages| of one type or another."
 msgstr ""
-
+"Una colección de paquetes generalmente administrados utilizando un :term:`"
+"VCS` como git o mercurial y generalmente alojados en un sitio como GitHub "
+"o BitBucket. En el contexto de este documento, los repositorios "
+"generalmente contienen uno o más |packages| de un tipo u otro."

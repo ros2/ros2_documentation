@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../../source/Citations.rst:4 0a3348ee55c544d1b3bbc75970bfdc52
 msgid "Citations"
-msgstr ""
+msgstr "Citas"
 
 #: ../../source/Citations.rst:6 11a5c2a6e6fc4d0281693512b10f0000
 msgid ""
@@ -28,6 +28,9 @@ msgid ""
 " `Robot Operating System 2: Design, architecture, and uses in the wild "
 "<https://www.science.org/doi/10.1126/scirobotics.abm6074>`_."
 msgstr ""
+"Si usa ROS 2 en su trabajo, cite el artículo de Science Robotics de 2022 "
+"`Robot Operating System 2: Design, architecture, and uses in the wild "
+"<https://www.science.org/doi/10.1126/scirobotics.abm6074>`_."
 
 #: ../../source/Citations.rst:8 31f6c6019475419dab803cc1743b4043
 msgid ""
@@ -35,6 +38,9 @@ msgid ""
 "Operating System 2: Design, architecture, and uses in the wild,” Science "
 "Robotics vol. 7, May 2022."
 msgstr ""
+"Macenski, T. Foote, B. Gerkey, C. Lalancette, W. Woodall, “Robot "
+"Operating System 2: Design, architecture, and uses in the wild,” Science "
+"Robotics vol. 7, mayo de 2022."
 
 #: ../../source/Citations.rst:25 e7716df961314d2096ff8cc32ccca0d4
 msgid ""
@@ -42,6 +48,9 @@ msgid ""
 " paper `Impact of ROS 2 Node Composition in Robotic Systems "
 "<https://arxiv.org/abs/2305.09933>`_."
 msgstr ""
+"Si usa ROS 2 Composition en su trabajo, cite el artículo IEEE RA-L de 2023 "
+"`Impact of ROS 2 Node Composition in Robotic Systems "
+"<https://arxiv.org/abs/2305.09933>`_."
 
 #: ../../source/Citations.rst:27 ea9e0d6e1eba4e429f8b49fb42b4908d
 msgid ""
@@ -49,4 +58,6 @@ msgid ""
 "Composition in Robotic Systems”, IEEE Robotics and Autonomous Letters "
 "(RA-L), 2023."
 msgstr ""
-
+"Macenski, A. Soragna, M. Carroll, Z. Ge, “Impact of ROS 2 Node "
+"Composition in Robotic Systems”, IEEE Robotics and Autonomous Letters "
+"(RA-L), 2023."
