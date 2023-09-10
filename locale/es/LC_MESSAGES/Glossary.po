@@ -1,38 +1,36 @@
-# SOME DESCRIPTIVE TITLE.
+# Archivo de traducción al español para la documentación de ROS 2.
 # Copyright (C) 2023, Open Robotics
 # This file is distributed under the same license as the ROS 2 documentation
 # package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+# Cristian Chitiva <cychitivav@unal.edu.co>, 2023.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: ROS 2 documentation \n"
+"Project-Id-Version: ROS 2 documentation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-19 11:55+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: es\n"
+"POT-Creation-Date: 2023-09-06 22:03+0000\n"
 "Language-Team: es <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: ../../source/Glossary.rst:2 b53de43653f4420eb581d2f69407adcf
+#: ../../source/Glossary.rst:2 f11c4b71ffbf419baebca0819174b498
 msgid "Glossary"
 msgstr ""
 
-#: ../../source/Glossary.rst:6 800714c0cbc143c58e79de3b2324f414
+#: ../../source/Glossary.rst:6 c09a46d887c447399993b30cd53aa11f
 msgid "Glossary of terms used throughout this documentation:"
 msgstr ""
 
-#: ../../source/Glossary.rst:9 d347705e90964837935ad5091473bbcc
+#: ../../source/Glossary.rst:9 83f76f7d48114df28a11761ed2bc0469
 msgid "API"
 msgstr ""
 
-#: ../../source/Glossary.rst:11 baa388c0aa0144beacf6cef1d2b63c23
+#: ../../source/Glossary.rst:11 40f1083459444413966ed931988783d1
 msgid ""
 "An API, or Application Programming Interface, is an interface that is "
 "provided by an \"application\", which in this case is usually a shared "
@@ -47,31 +45,31 @@ msgid ""
 "them."
 msgstr ""
 
-#: ../../source/Glossary.rst:12 394a0ef3e40446698b8857342aacc009
+#: ../../source/Glossary.rst:12 4fe35502ab484583b7f7bcb28dd71d26
 msgid "client_library"
 msgstr ""
 
-#: ../../source/Glossary.rst:14 c87c42abdf9d4da180e622c074ba91de
+#: ../../source/Glossary.rst:14 0b2e35ad2b6d4b1aa1ac2aa8ad752607
 msgid ""
 "A client library is an :term:`API` that provides access to the ROS graph "
 "using primitive middleware concepts like Topics, Services, and Actions."
 msgstr ""
 
-#: ../../source/Glossary.rst:15 c8d2813f47434bfaab33d518c5fed0cd
+#: ../../source/Glossary.rst:15 abfae56455e34eb7973bebec56581ea7
 msgid "package"
 msgstr ""
 
-#: ../../source/Glossary.rst:17 d5e48d4d2890461699fd41e3d7082eb7
+#: ../../source/Glossary.rst:17 02de2ee329914a128bfe21f180b7f375
 msgid ""
 "A single unit of software, including source code, build system files, "
 "documentation, tests, and other associated resources."
 msgstr ""
 
-#: ../../source/Glossary.rst:18 d8ea1c77d09541edabd3145bc2cf7f45
+#: ../../source/Glossary.rst:18 2d4bc76cb64542bd84e60622fed58bcc
 msgid "REP"
 msgstr ""
 
-#: ../../source/Glossary.rst:20 f9040ec813cd4fa58a46844c273a7655
+#: ../../source/Glossary.rst:20 306a00765231431b90fd773d37bf031f
 msgid ""
 "ROS Enhancement Proposal. A document that describes an enhancement, "
 "standardization, or convention for the ROS community. The associated REP "
@@ -81,19 +79,19 @@ msgid ""
 " the `REP index <http://www.ros.org/reps/rep-0000.html>`_."
 msgstr ""
 
-#: ../../source/Glossary.rst:23 f835925b30644bb187dfef0e987de5a1
+#: ../../source/Glossary.rst:23 088787f76a044d33a71294ede6844816
 msgid "VCS"
 msgstr ""
 
-#: ../../source/Glossary.rst:25 96b0e227947b41b6ad16bfb65ac99a94
+#: ../../source/Glossary.rst:25 8adfb2e81e5f4f5cbe7860c9a11b10f0
 msgid "Version Control System, such as CVS, SVN, git, mercurial, etc..."
 msgstr ""
 
-#: ../../source/Glossary.rst:26 fc0532a5124e477dbb1254d25d48c737
+#: ../../source/Glossary.rst:26 f11fa42ea9b044d4845ee516ffc24ca3
 msgid "rclcpp"
 msgstr ""
 
-#: ../../source/Glossary.rst:28 67b177c27f66401b92c009e6e09994fe
+#: ../../source/Glossary.rst:28 206b789b30a54c03b283b469f0252861
 msgid ""
 "The C++ specific :term:`Client Library <client_library>` for ROS. This "
 "includes any middleware related APIs as well as the related message "
@@ -101,11 +99,11 @@ msgid ""
 "Messages, Services, and Actions."
 msgstr ""
 
-#: ../../source/Glossary.rst:29 aaa0706bf46a406888ef09e0fd50d48c
+#: ../../source/Glossary.rst:29 ba0fffa4ec8143abaf313ce3d5d38477
 msgid "repository"
 msgstr ""
 
-#: ../../source/Glossary.rst:31 37881c9e7f6540908267eab2c8db0b32
+#: ../../source/Glossary.rst:31 dc2ecbe8c246489b9b934d3d2ef24f55
 msgid ""
 "A collection of packages usually managed using a :term:`VCS` like git or "
 "mercurial and usually hosted on a site like GitHub or BitBucket. In the "

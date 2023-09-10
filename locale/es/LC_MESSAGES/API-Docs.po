@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ROS 2 documentation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-19 11:55+0000\n"
+"POT-Creation-Date: 2023-09-06 22:03+0000\n"
 "Language-Team: es <LL@li.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: ../../source/API-Docs.rst:4 53640a62a9834afb9c46f17b6a052f85
+#: ../../source/API-Docs.rst:4 daa522126f9d4686ad1752693bc778e5
 msgid "API Documentation"
 msgstr ""
 
-#: ../../source/API-Docs.rst:6 fbb75d229d3640ac9526f756d781a610
+#: ../../source/API-Docs.rst:6 0972ddc1dba6457a9ba636d4d4ee9512
 msgid ""
 "All ROS 2 package's documentation is hosted alongside its information on "
 "the `ROS Index <https://index.ros.org/>`_. Searching for packages will "
@@ -34,90 +34,39 @@ msgid ""
 " found using the \"API Docs\" button."
 msgstr ""
 
-#: ../../source/API-Docs.rst:11 de79a21b0553417fa4a0b8bbde7234c8
+#: ../../source/API-Docs.rst:11 ee9df2f5a4504203984bf6336db00b19
 msgid ""
 "You can find the API Documentation for the Client Libraries in the "
 "{DISTRO_TITLE} distribution using the links below:"
 msgstr ""
 
-#: ../../source/API-Docs.rst:13 252aa2ca6ddc4fcd8d12c2387f8aa52d
+#: ../../source/API-Docs.rst:13 e5839f65c74a4aa081ff0a7ba12dbfea
 msgid ""
 "`rclcpp - C++ client library "
 "<http://docs.ros.org/en/{DISTRO}/p/rclcpp/generated/index.html>`_"
 msgstr ""
 
-#: ../../source/API-Docs.rst:14 0b809a103d924c05b17d3f1e9c2906de
+#: ../../source/API-Docs.rst:14 f8742bd83a05406f9d55f1c8ce1889ce
 msgid ""
 "`rclcpp_lifecycle - C++ lifecycle library "
 "<http://docs.ros.org/en/{DISTRO}/p/rclcpp_lifecycle/generated/index.html>`_"
 msgstr ""
 
-#: ../../source/API-Docs.rst:15 3f3c615b1232448885dcd4e3f7c5c668
+#: ../../source/API-Docs.rst:15 6b2f37f9986f4c318c80addaaa7f7956
 msgid ""
 "`rclcpp_components - C++ components library "
 "<http://docs.ros.org/en/{DISTRO}/p/rclcpp_components/generated/index.html>`_"
 msgstr ""
 
-#: ../../source/API-Docs.rst:16 6963033075f34a9e921eef3140447da5
+#: ../../source/API-Docs.rst:16 b5dfcb251cec493ea294dbff879c30ff
 msgid ""
 "`rclcpp_action - C++ actions library "
 "<http://docs.ros.org/en/{DISTRO}/p/rclcpp_action/generated/index.html>`_"
 msgstr ""
 
-#: ../../source/API-Docs.rst:18 6f8f2aefa100435a9419b2394bca844a
+#: ../../source/API-Docs.rst:18 c5b931f6970144d5a943621493b21c6b
 msgid ""
 "A raw list of {DISTRO_TITLE} package documentation `may be found here "
 "<https://docs.ros.org/en/{DISTRO}/p/>`_."
 msgstr ""
-
-#~ msgid ""
-#~ "All ROS 2 package's documentation is "
-#~ "hosted alongside its information on the"
-#~ " `ROS Index <https://index.ros.org/>`_. Searching"
-#~ " for packages will yield their "
-#~ "information such as released distributions,"
-#~ " ``README.md`` files, URLs, and other "
-#~ "important metadata. A list of all "
-#~ "packages for each distribution on the"
-#~ " index can be found `here "
-#~ "<https://index.ros.org/packages/#rolling>`_. From the "
-#~ "right-hand side of a package of"
-#~ " interest, the auto-generated API "
-#~ "documentation may be found found using"
-#~ " the \"API Docs\" button."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "You can find the API Documentation "
-#~ "for the Client Libraries in the "
-#~ "Rolling distribution using the links "
-#~ "below:"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "`rclcpp - C++ client library "
-#~ "<http://docs.ros.org/en/rolling/p/rclcpp/generated/index.html>`_"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "`rclcpp_lifecycle - C++ lifecycle library "
-#~ "<http://docs.ros.org/en/rolling/p/rclcpp_lifecycle/generated/index.html>`_"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "`rclcpp_components - C++ components library"
-#~ " "
-#~ "<http://docs.ros.org/en/rolling/p/rclcpp_components/generated/index.html>`_"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "`rclcpp_action - C++ actions library "
-#~ "<http://docs.ros.org/en/rolling/p/rclcpp_action/generated/index.html>`_"
-#~ msgstr ""
-
-#~ msgid ""
-#~ "A raw list of Rolling package "
-#~ "documentation `may be found here "
-#~ "<https://docs.ros.org/en/rolling/p/>`_."
-#~ msgstr ""
 
