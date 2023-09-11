@@ -17,6 +17,11 @@ Managing Dependencies with rosdep
 
 This tutorial will explain how to manage external dependencies using ``rosdep``.
 
+.. warning::
+
+   Currently rosdep only works on Linux and macOS; Windows is not supported.
+   There are long-term plans to add support for Windows to https://github.com/ros-infrastructure/rosdep.
+
 What is rosdep?
 ---------------
 
