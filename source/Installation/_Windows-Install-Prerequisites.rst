@@ -19,6 +19,11 @@ Open a Command Prompt and type the following to install Python via Chocolatey:
 
    choco install -y python --version 3.8.3
 
+.. note::
+
+   Python is expected to be under "C:\Python3.8", Chocolatey will install it there.  
+   In general, the shebang path (first line) from each `Scripts/*-script.py` is used when calling ROS2 executables.
+
 Install Visual C++ Redistributables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
