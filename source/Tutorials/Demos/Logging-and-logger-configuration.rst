@@ -377,7 +377,7 @@ Restart the demo including the following command line arguments:
 Console output formatting
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you would like more or less verbose formatting, you can use ``RCUTILS_CONSOLE_OUTPUT_FORMAT`` environment variable.
+If you would like more or less verbose formatting, you can use the ``RCUTILS_CONSOLE_OUTPUT_FORMAT`` environment variable.
 For example, to additionally get the timestamp and location of the log calls, stop the demo and restart it with the environment variable set:
 
 .. tabs::
@@ -415,16 +415,12 @@ You should see the timestamp in seconds and the function name, filename and line
       - Alert
     * - ``\b``
       - Backspace
-    * - ``\f``
-      - Form feed
     * - ``\n``
       - New line
     * - ``\r``
       - Carriage return
     * - ``\t``
       - Horizontal tab
-    * - ``\v``
-      - Vertical tab
 
 Console output colorizing
 ^^^^^^^^^^^^^^^^^^^^^^^^^
