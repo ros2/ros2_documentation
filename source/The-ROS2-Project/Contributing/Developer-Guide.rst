@@ -500,7 +500,6 @@ Known Differences
 As compared to the ROS packages from packages.ros.org, there are some differences in the upstream ROS packages that people should be aware of:
 
 * The package set is incomplete.
-  Unsurprisingly, not all packages are yet available upstream. Currently the packages of desktop-full are available and we anticipate that more will become available over time.
 * Packages may have different names and be partitioned differently.
 
 Developer Workflow
