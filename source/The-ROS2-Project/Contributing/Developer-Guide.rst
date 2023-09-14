@@ -476,12 +476,10 @@ Upstream Packages
 Packages in Debian and Ubuntu Upstream
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Thanks to diligent effort from Jochen Sprickerhof and Leopold Palomo-Avellaneda, there are now ROS packages available upstream in Debian unstable and Ubuntu Xenial that can be installed from the main Debian and Ubuntu repositories.
-`Here is a short overview from Jochen at ROSCon 2015 <https://vimeo.com/142151399#t=29m15s>`_.
-
-Most of the ROS 1 packages up to desktop-full are available (`overview of package status at Debian Science <https://wiki.debian.org/DebianScience/Robotics/ROS/Packages>`_).
+Thanks to diligent effort from Jochen Sprickerhof and Leopold Palomo-Avellaneda, some of the ROS 2 packages are now available from the main Debian and Ubuntu repositories.
+`Here is a short overview of the process from Jochen at ROSCon 2015 <https://vimeo.com/142151399#t=29m15s>`_.
 The original ROS packages have been modified to follow Debian guidelines, which includes splitting packages into multiple pieces, changing names in some cases, installing to /usr according to FHS guidelines, and using soversions on shared libraries.
-For example, roslib is called python-roslib and roscpp is in the libroscpp-dev and libroscpp0d packages.
+
 In addition several of the bootstrap dependencies such as command line tools like `vcstool` and `colcon` as well as some libraries like `osrf-pycommon` and `ament` are also packaged upstream.
 
 Unlike the OSRF-provided ROS packages from packages.ros.org, the packages in the upstream repositories are not attached to a specific `ROS distribution <https://docs.ros.org/en/{DISTRO}/Releases.html>`_.
