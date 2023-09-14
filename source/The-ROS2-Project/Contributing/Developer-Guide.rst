@@ -492,7 +492,8 @@ In some cases such a mixed system will work correctly, but there can be negative
 We’re working with Jochen and friends to minimize the chance of problems via documentation and package conflict specifications, but we expect some risks to remain, including some fairly subtle issues.
 
 As such, we recommend that you choose to either install packages from upstream or from packages.ros.org, but not both.
-Not only should you not install packages from both at the same time, but if you intend to use the upstream packages (not from packages.ros.org) then you should not even have the packages.ros.org entries in your apt sources (i.e. in any files in /etc/apt/sources*) as this can cause mixing of packages which overlap by name between the two sources, e.g. python-rospkg.
+Not only should you not install packages from both at the same time, but if you intend to use the upstream packages (not from packages.ros.org) then you should not even have the packages.ros.org entries in your apt sources (i.e. in any files in ``/etc/apt/sources*``).
+Having both of them enabled can cause mixing of packages which overlap by name between the two sources, e.g. ``python3-rospkg``.
 
 Known Differences
 ~~~~~~~~~~~~~~~~~
