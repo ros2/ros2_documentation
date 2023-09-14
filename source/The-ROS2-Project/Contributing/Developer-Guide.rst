@@ -483,7 +483,7 @@ The original ROS packages have been modified to follow Debian guidelines, which 
 In addition several of the bootstrap dependencies such as command line tools like `vcstool` and `colcon` as well as some libraries like `osrf-pycommon` and `ament` are also packaged upstream.
 
 Unlike the OSRF-provided ROS packages from packages.ros.org, the packages in the upstream repositories are not attached to a specific :doc:`ROS distribution <../../Releases>`_.
-Rather, they represent a rolling release that will be updated periodically within Debian unstable and then periodically latched at various points into downstream Debian and Ubuntu distributions.
+Rather, they represent a snapshot in time  that will be updated periodically within Debian unstable and then latched at various points into downstream Debian and Ubuntu distributions.
 
 Don't mix the streams
 ~~~~~~~~~~~~~~~~~~~~~
