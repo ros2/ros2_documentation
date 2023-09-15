@@ -13,4 +13,6 @@ They can also act as a :doc:`service client <About-Services>` to have another no
 For long-running computations, a node can act as an :doc:`action server <About-Actions>` to perform it, or as an :doc:`action client <About-Actions>` to have another node perform it.
 Nodes can provide configurable :doc:`parameters <About-Parameters>` to change behavior during run-time.
 
+Oftentimes, nodes are a complex combination of a bunch of things. A node can contain a combination of publishers, subscribers, service servers, service clients, action servers, and action clients, all at the same time and based on the required functionality, they can use the required feature.
+
 Connections between nodes are established through a distributed :doc:`discovery <About-Discovery>` process.
