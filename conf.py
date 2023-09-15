@@ -64,7 +64,7 @@ language = 'en'
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
 locale_dirs = ['../locale/'] # Path from the source directory to the locale directory.
-gettext_compact = False # One pot file per rst file
+gettext_compact = True # One pot file per rst file
 gettext_uuid = True # Add a identifier to each message
 # gettext_allow_fuzzy_translations = True
 
