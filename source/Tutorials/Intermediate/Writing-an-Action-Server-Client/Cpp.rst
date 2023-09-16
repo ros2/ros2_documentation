@@ -312,21 +312,21 @@ That response is handled by ``goal_response_callback``:
 
 .. literalinclude:: scripts/client.cpp
     :language: c++
-    :lines: 62-71
+    :lines: 64-71
 
 Assuming the goal was accepted by the server, it will start processing.
 Any feedback to the client will be handled by the ``feedback_callback``:
 
 .. literalinclude:: scripts/client.cpp
     :language: c++
-    :lines: 72-83
+    :lines: 73-83
 
 When the server is finished processing, it will return a result to the client.
 The result is handled by the ``result_callback``:
 
 .. literalinclude:: scripts/client.cpp
     :language: c++
-    :lines: 84-107
+    :lines: 85-107
 
 We now have a fully functioning action client.  Let's get it built and running.
 
