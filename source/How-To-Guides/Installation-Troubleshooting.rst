@@ -330,8 +330,7 @@ If running a ROS binary gives the error:
 | failed to create process.
 
 It is likely the Python interpreter was not found.
-For each executable, the shebang (first line) of the accompanying script is used.
-Make sure Python is available under the expected path (default: `C:\Python38\`) or modify the script files with a correct shebang.
+For each executable, the shebang (first line) of the accompanying script is used, so make sure Python is available under the expected path (default: `C:\Python38\`).
 
 Binary installation specific
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
