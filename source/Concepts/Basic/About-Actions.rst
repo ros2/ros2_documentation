@@ -30,7 +30,7 @@ Action server
 
 The action server is the entity that will accept the remote procedure request and perform some procedure on it.
 It is also responsible for sending out feedback as the action progresses and should react to cancellation/preemption requests.
-For instance, suppose an action is considered to calculate the Fibonacci sequence, and the message contains the following:
+For instance, consider an action to calculate the Fibonacci sequence with the following interface:
 
 .. code::
 
