@@ -6,7 +6,7 @@ Actions
 
 In ROS 2, an action refers to a long-running remote procedure call with feedback and the ability to cancel or preempt the goal.
 For instance, the high-level state machine running a robot may call an action to tell the navigation subsystem to travel to a waypoint, which may take several seconds (or minutes) to do.
-Along the way, the navigation subsystem can provide feedback on how far along it is, and the high-level state machine has the option to cancel or preempty the travel to that waypoint.
+Along the way, the navigation subsystem can provide feedback on how far along it is, and the high-level state machine has the option to cancel or preempt the travel to that waypoint.
 
 This structure is reflected in how an action message definition looks:
 
@@ -29,8 +29,8 @@ Action server
 -------------
 
 The action server is the entity that will accept the remote procedure request and perform some procedure on it.
-It is also responsible for sending out feedback as the action progresses, and should react to cancellation/preemption requests.
-For instance, suppose the action is supposed to calculate the Fibonacci sequence, and the message contains the following:
+It is also responsible for sending out feedback as the action progresses and should react to cancellation/preemption requests.
+For instance, consider an action to calculate the Fibonacci sequence with the following interface:
 
 .. code::
 
@@ -40,7 +40,7 @@ For instance, suppose the action is supposed to calculate the Fibonacci sequence
    ---
    int32[] sequence
 
-The action server is the entity that receives this message, starts calculating the sequence up to ``order`` (providing feedback along the way), and finally returning a full result in ``sequence``.
+The action server is the entity that receives this message, starts calculating the sequence up to ``order`` (providing feedback along the way), and finally returns a full result in ``sequence``.
 
 .. note::
 
@@ -51,6 +51,6 @@ Action client
 -------------
 
 An action client is an entity that will request a remote action server to perform a procedure on its behalf.
-Following from the example above, the action client is the entity that creates the initial message containing the ``order``, and waits for the action server to compute the sequence and return it (with feedback along the way).
+Following the example above, the action client is the entity that creates the initial message containing the ``order``, and waits for the action server to compute the sequence and return it (with feedback along the way).
 
-Unlike the action server, there can be arbitrary numbers of actions clients using the same action name.
+Unlike the action server, there can be arbitrary numbers of action clients using the same action name.
