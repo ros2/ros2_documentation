@@ -322,6 +322,18 @@ Fast RTPS requires ``msvcr20.dll``, which is part of the ``Visual C++ Redistribu
 Although it is usually installed by default in Windows 10, we know that some Windows 10-like versions don't have it installed by default (e.g.: Windows Server 2019).
 In case you don't have it installed, you can download it from `here <https://www.microsoft.com/en-us/download/details.aspx?id=40784>`_.
 
+Failed to create process
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+If running a ROS binary gives the error:
+
+.. code-block::
+
+   | failed to create process.
+
+It is likely the Python interpreter was not found.
+For each executable, the shebang (first line) of the accompanying script is used, so make sure Python is available under the expected path (default: ``C:\Python38\``).
+
 Binary installation specific
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
