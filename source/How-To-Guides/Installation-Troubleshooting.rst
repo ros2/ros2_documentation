@@ -58,6 +58,24 @@ You can check if the multicast flag is enabled for your network interface using 
    eno1: flags=4163<...,MULTICAST>
       ...
 
+Receiver node cannot receive messages from the talker [ARM64]
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This only applies to situations where the multicast works and the talker and listener don't. Start by checking that the output of RMW_IMPLEMENTATION by running the following command in the terminal
+
+.. code-block:: bash
+
+  echo $RMW_IMPLEMENTATION
+
+is empty. Solve the issue by running the following commands in the terminal.
+
+.. code-block:: bash
+
+  sudo apt-get update
+  sudo apt-get upgrade
+  sudo apt-get install -y ros-humble-rmw-cyclonedds-cpp
+
+The problem should be fixed after installing the required packet.
+
 Import failing without library present on the system
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
