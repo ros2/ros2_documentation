@@ -19,6 +19,11 @@ Open a Command Prompt and type the following to install Python via Chocolatey:
 
    choco install -y python --version 3.8.3
 
+.. note::
+
+   Chocolatey will install Python in ``C:\Python38``, and the rest of the installation expects it to be there.
+   If you've installed Python somewhere else, you must copy or link it to that location.
+
 Install Visual C++ Redistributables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
