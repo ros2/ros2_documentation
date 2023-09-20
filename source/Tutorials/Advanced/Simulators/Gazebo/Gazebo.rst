@@ -138,7 +138,7 @@ There are two options:
 
        .. code-block:: console
 
-        ros2 topic pub /model/vehicle_blue/cmd_vel geometry_msgs/Twist "linear: { x: 0.1 }"
+        ros2 topic pub /model/vehicle_blue/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.1, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}"
 
 * ``teleop_twist_keyboard`` package. This node takes keypresses from the keyboard and publishes them as Twist messages. You can install it typing:
 
