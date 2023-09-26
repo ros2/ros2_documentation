@@ -480,7 +480,7 @@ Thanks to diligent effort from Jochen Sprickerhof and Leopold Palomo-Avellaneda,
 `Here is a short overview of the process from Jochen at ROSCon 2015 <https://vimeo.com/142151399#t=29m15s>`_.
 The original ROS packages have been modified to follow Debian guidelines, which includes splitting packages into multiple pieces, changing names in some cases, installing to /usr according to FHS guidelines, and using soversions on shared libraries.
 
-In addition several of the bootstrap dependencies such as command line tools like `vcstool` and `colcon` as well as some libraries like `osrf-pycommon` and `ament` are also packaged upstream.
+In addition several of the bootstrap dependencies such as command line tools like ``vcstool`` and ``colcon`` as well as some libraries like ``osrf-pycommon`` and ``ament`` are also packaged upstream.
 
 Unlike the OSRF-provided ROS packages from packages.ros.org, the packages in the upstream repositories are not attached to a specific :doc:`ROS distribution <../../Releases>`.
 Rather, they represent a snapshot in time  that will be updated periodically within Debian unstable and then latched at various points into downstream Debian and Ubuntu distributions.
