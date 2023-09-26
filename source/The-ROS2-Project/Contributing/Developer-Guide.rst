@@ -491,7 +491,7 @@ We strongly recommend against mixing ROS packages from upstream Debian/Ubuntu an
 In some cases such a mixed system will work correctly, but there can be negative interactions between the two sets of packages.
 We’re working with Jochen and friends to minimize the chance of problems via documentation and package conflict specifications, but we expect some risks to remain, including some fairly subtle issues.
 
-As such, we recommend that you choose to either install packages from upstream or from packages.ros.org, but not both.
+As such, we recommend that you choose to either install packages from upstream or from http://packages.ros.org, but not both.
 Not only should you not install packages from both at the same time, but if you intend to use the upstream packages then you should not even have the http://packages.ros.org entries in your apt sources (i.e. in any files in ``/etc/apt/sources*``).
 Having both of them enabled can cause mixing of packages which overlap by name between the two sources, e.g. ``python3-rospkg``.
 
