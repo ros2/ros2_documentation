@@ -476,7 +476,7 @@ Upstream Packages
 Packages in Debian and Ubuntu Upstream
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Thanks to diligent effort from Jochen Sprickerhof and Leopold Palomo-Avellaneda, some of the ROS 2 packages are now available from the main Debian and Ubuntu repositories.
+Thanks to diligent effort from Jochen Sprickerhof and Leopold Palomo-Avellaneda, some of the `ROS 2 packages are now available <https://wiki.debian.org/DebianScience/Robotics/ROS2/Packages>`_ from the main Debian and Ubuntu repositories.
 `Here is a short overview of the process from Jochen at ROSCon 2015 <https://vimeo.com/142151399#t=29m15s>`_.
 The original ROS packages have been modified to follow Debian guidelines, which includes splitting packages into multiple pieces, changing names in some cases, installing to /usr according to FHS guidelines, and using soversions on shared libraries.
 
