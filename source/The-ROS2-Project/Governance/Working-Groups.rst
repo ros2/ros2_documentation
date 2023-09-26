@@ -185,6 +185,6 @@ SMACC (SMACCWG)
 * Lead(s): Brett Aldrich
 * Resources:
 
-  * `Working Group Community <https://https://github.com/robosoft-ai/SMACC_WG>`_
-  * `Google Group <https://groups.google.com/g/smacc-wg>`_
+  * `Working Group Community <https://https://github.com/robosoft-ai/SMACC_WG>`__
+  * `Google Group <https://groups.google.com/g/smacc-wg>`__
   * Discourse tag: `wg-smacc <https://discourse.ros.org/tag/wg-smacc>`_
