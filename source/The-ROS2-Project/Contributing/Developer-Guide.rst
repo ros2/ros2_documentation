@@ -487,7 +487,7 @@ Rather, they represent a snapshot in time  that will be updated periodically wit
 
 Don't mix the streams
 ~~~~~~~~~~~~~~~~~~~~~
-We strongly recommend against mixing ROS packages from upstream Debian/Ubuntu and from packages.ros.org on the same system.
+We strongly recommend against mixing ROS packages from upstream Debian/Ubuntu and from http://packages.ros.org on the same system.
 In some cases such a mixed system will work correctly, but there can be negative interactions between the two sets of packages.
 We’re working with Jochen and friends to minimize the chance of problems via documentation and package conflict specifications, but we expect some risks to remain, including some fairly subtle issues.
 
