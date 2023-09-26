@@ -470,6 +470,40 @@ Repository layout
 Each package should be in a subfolder which has the same name as the package.
 If a repository contains only a single package it can optionally be in the root of the repository.
 
+Upstream Packages
+^^^^^^^^^^^^^^^^^
+
+Packages in Debian and Ubuntu Upstream
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Thanks to diligent effort from Jochen Sprickerhof and Leopold Palomo-Avellaneda, some of the `ROS 2 packages are now available <https://wiki.debian.org/DebianScience/Robotics/ROS2/Packages>`_ from the main Debian and Ubuntu repositories.
+`Here is a short overview of the process from Jochen at ROSCon 2015 <https://vimeo.com/142151399#t=29m15s>`_.
+The original ROS packages have been modified to follow Debian guidelines, which includes splitting packages into multiple pieces, changing names in some cases, installing to /usr according to FHS guidelines, and using soversions on shared libraries.
+
+In addition several of the bootstrap dependencies such as command line tools like ``vcstool`` and ``colcon`` as well as some libraries like ``osrf-pycommon`` and ``ament`` are also packaged upstream.
+
+Unlike the OSRF-provided ROS packages from http://packages.ros.org, the packages in the upstream repositories are not attached to a specific :doc:`ROS distribution <../../Releases>`.
+Rather, they represent a snapshot in time that will be updated periodically within Debian unstable and then latched at various points into downstream Debian and Ubuntu distributions.
+
+Don't mix the streams
+~~~~~~~~~~~~~~~~~~~~~
+
+We strongly recommend against mixing ROS packages from upstream Debian/Ubuntu and from http://packages.ros.org on the same system.
+In some cases such a mixed system will work correctly, but there can be negative interactions between the two sets of packages.
+We’re working with Jochen and friends to minimize the chance of problems via documentation and package conflict specifications, but we expect some risks to remain, including some fairly subtle issues.
+
+As such, we recommend that you choose to either install packages from upstream or from http://packages.ros.org, but not both.
+Not only should you not install packages from both at the same time, but if you intend to use the upstream packages then you should not even have the http://packages.ros.org entries in your apt sources (i.e. in any files in ``/etc/apt/sources*``).
+Having both of them enabled can cause mixing of packages which overlap by name between the two sources, e.g. ``python3-rospkg``.
+
+Known Differences
+~~~~~~~~~~~~~~~~~
+
+As compared to the ROS packages from packages.ros.org, there are some differences in the upstream ROS packages that people should be aware of:
+
+* The package set is incomplete.
+* Packages may have different names and be partitioned differently.
+
 Developer Workflow
 ------------------
 
