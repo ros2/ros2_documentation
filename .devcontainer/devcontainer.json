@@ -13,10 +13,7 @@
 		"vscode": {
 			"extensions": [
 				"ritwickdey.LiveServer"
-			],
-			"settings": {
-				"terminal.integrated.defaultProfile.linux": "bash"
-			}
+			]
 		}
 	}
 }
