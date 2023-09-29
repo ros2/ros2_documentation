@@ -123,6 +123,29 @@ To check for broken links on the site, run:
 
 This will check the entire site for broken links, and output the results to the screen and ``build/linkcheck``.
 
+Building the Site with GitHub Codespaces
+----------------------------------------
+First, you need to have a GitHub account (If you don't have one, you can create one for free). Then, you need to go to the `ROS 2 Documentation GitHub repository <https://github.com/ros2/ros2_documentation>`_. After that, you can open the repository in Codespaces, it can be done just by clicking on the "Code" button on the repository page, then choose "Open with Codespaces" from the dropdown menu.
+
+.. image:: images/codespaces.png
+   :width: 100%
+   :alt: Codespaces creation
+
+After that, you will be redirected to your Codespaces page, where you can see the progress of the Codespaces creation. Once it is done, a Visual Studio Code tab will be opened in your browser. You can open the terminal by clicking on the "Terminal" tab in the top panel or by pressing :kbd:`Ctrl-J`.
+
+In this terminal, you can run any command you want, for example, you can run the following command to build the site for just this branch:
+
+.. code-block:: console
+
+   make html
+
+Finally, to view the site, you can click on the "Go Live" button in the right bottom panel and then, it will open the site in a new tab in your browser (you will need to browse to the ``build/html`` folder).
+
+.. image:: images/live_server.png
+   :width: 100%
+   :alt: Live Server
+
+
 Writing pages
 -------------
 

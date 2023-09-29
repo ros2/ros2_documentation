@@ -9,6 +9,7 @@ ARG user=rosindex
 ARG uid=1000
 
 ENV DEBIAN_FRONTEND noninteractive
+ENV SHELL /bin/bash
 
 RUN apt-get update && \
     apt-get install --no-install-recommends -y \
