@@ -140,15 +140,17 @@ AI Integration
 
   * `Discussion thread: <https://discourse.ros.org/t/ros-2-ai-integration-working-group/26119/35>`_
 
-Deliberation (DeliberationWG)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Deliberation (DelibWG)
+^^^^^^^^^^^^^^^^^^^^^^
 
-* Lead(s) Christian Henkel
+* Lead(s): Christian Henkel
 * Resources:
 
-  * `Minutes <https://docs.google.com/document/d/13TCHp3ycbDa2agGs0SjP3CpTllUeguAcXqih5LlCVDg/edit>`_
-  * `Google Group <https://groups.google.com/g/ros-wg-deliberation>`_
-  * Discourse tag: `wg-delib <https://discourse.ros.org/tag/wg-delib>`_
+  * Meeting invite group `ros-wg-deliberation <https://groups.google.com/g/ros-wg-deliberation>`__
+  * Minutes: `gdocs <https://docs.google.com/document/d/13TCHp3ycbDa2agGs0SjP3CpTllUeguAcXqih5LlCVDg/edit>`__
+  * Recordings `@ros-wg-deliberation <https://www.youtube.com/playlist?list=PLcSZ3QEfuKf-CKfrcbtUehY4U1brNabnf>`__
+  * Github Organization: `ros-wg-deliberation <github.com/ros-wg-deliberation>`__
+  * Discourse tag: `wg-delib <https://discourse.ros.org/tag/wg-delib>`__
 
 Education (EdWG)
 ^^^^^^^^^^^^^^^^
