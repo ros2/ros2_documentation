@@ -170,7 +170,7 @@ Let's go through the arguments to the ``PLUGINLIB_EXPORT_CLASS`` macro:
 2.2 Plugin Declaration XML
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The steps above make it so that instances of our plugins can be created once the library they exist in is loaded, but the plugin loader still needs a way to find that library and to know what to reference within that library.
+The steps above enable plugin instances to be created when the containing library is loaded, but the plugin loader still needs a way to find that library and to know what to reference within that library.
 To this end, we'll also create an XML file that, along with a special export line in the package manifest, makes all the necessary information about our plugins available to the ROS toolchain.
 
 Create ``ros2_ws/src/polygon_plugins/plugins.xml`` with the following code:
