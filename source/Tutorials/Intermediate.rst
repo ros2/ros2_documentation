@@ -14,3 +14,4 @@ Intermediate
    Intermediate/Tf2/Tf2-Main
    Intermediate/Testing/Testing-Main
    Intermediate/URDF/URDF-Main
+   Intermediate/RViz/RViz-Main
