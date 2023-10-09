@@ -49,8 +49,9 @@ Tasks
 In our turtle example, we'll add a new frame ``carrot1``, which will be the child of the ``turtle1``.
 This frame will serve as the goal for the second turtle.
 
-Let's first create the source files. Go to the ``learning_tf2_py`` package we created in the previous tutorials.
-Download the fixed frame broadcaster code by entering the following command:
+Let's first create the source files.
+Go to the ``learning_tf2_py`` package we created in the previous tutorials.
+Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the fixed frame broadcaster code by entering the following command:
 
 .. tabs::
 
@@ -149,10 +150,9 @@ The ``carrot1`` frame is 2 meters offset in y axis in terms of the ``turtle1`` f
 1.2 Add an entry point
 ~~~~~~~~~~~~~~~~~~~~~~
 
-To allow the ``ros2 run`` command to run your node, you must add the entry point
-to ``setup.py`` (located in the ``src/learning_tf2_py`` directory).
+To allow the ``ros2 run`` command to run your node, you must add the entry point to ``setup.py`` (located in the ``src/learning_tf2_py`` directory).
 
-Finally, add the following line between the ``'console_scripts':`` brackets:
+Add the following line between the ``'console_scripts':`` brackets:
 
 .. code-block:: python
 
@@ -321,7 +321,8 @@ Now just rebuild the package, restart the ``turtle_tf2_fixed_frame_demo_launch.p
 The extra frame we published in this tutorial is a fixed frame that doesn't change over time in relation to the parent frame.
 However, if you want to publish a moving frame you can code the broadcaster to change the frame over time.
 Let's change our ``carrot1`` frame so that it changes relative to ``turtle1`` frame over time.
-Now download the dynamic frame broadcaster code by entering the following command:
+Go to the ``learning_tf2_py`` package we created in the previous tutorial.
+Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the dynamic frame broadcaster code by entering the following command:
 
 .. tabs::
 
@@ -417,10 +418,9 @@ Instead of a fixed definition of our x and y offsets, we are using the ``sin()``
 2.2 Add an entry point
 ~~~~~~~~~~~~~~~~~~~~~~
 
-To allow the ``ros2 run`` command to run your node, you must add the entry point
-to ``setup.py`` (located in the ``src/learning_tf2_py`` directory).
+To allow the ``ros2 run`` command to run your node, you must add the entry point to ``setup.py`` (located in the ``src/learning_tf2_py`` directory).
 
-Finally, add the following line between the ``'console_scripts':`` brackets:
+Add the following line between the ``'console_scripts':`` brackets:
 
 .. code-block:: python
 
