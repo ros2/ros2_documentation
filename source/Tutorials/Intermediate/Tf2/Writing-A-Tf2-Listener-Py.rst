@@ -36,7 +36,8 @@ Tasks
 1 Write the listener node
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Let's first create the source files. Go to the ``learning_tf2_py`` package we created in the previous tutorial.
+Let's first create the source files.
+Go to the ``learning_tf2_py`` package we created in the previous tutorial.
 Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the example listener code by entering the following command:
 
 .. tabs::
@@ -67,7 +68,7 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the exampl
 
             curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py -o turtle_tf2_listener.py
 
-Open the file using your preferred text editor.
+Now open the file called ``turtle_tf2_listener.py``.
 
 .. code-block:: python
 
@@ -216,8 +217,9 @@ All this is wrapped in a try-except block to handle possible exceptions.
 1.2 Add an entry point
 ~~~~~~~~~~~~~~~~~~~~~~
 
-To allow the ``ros2 run`` command to run your node, you must add the entry point
-to ``setup.py`` (located in the ``src/learning_tf2_py`` directory).
+To allow the ``ros2 run`` command to run your node, you must add the entry point to ``setup.py`` (located in the ``src/learning_tf2_py`` directory).
+
+Add the following line between the ``'console_scripts':`` brackets:
 
 .. code-block:: python
 
@@ -226,7 +228,8 @@ to ``setup.py`` (located in the ``src/learning_tf2_py`` directory).
 2 Update the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Open the launch file called ``turtle_tf2_demo_launch.py`` with your text editor, add two new nodes to the launch description, add a launch argument, and add the imports. The resulting file should look like:
+Open the launch file called ``turtle_tf2_demo_launch.py`` with your text editor, add two new nodes to the launch description, add a launch argument, and add the imports.
+The resulting file should look like:
 
 .. code-block:: python
 
