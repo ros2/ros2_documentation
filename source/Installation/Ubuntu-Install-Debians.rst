@@ -10,6 +10,12 @@ Ubuntu (Debian packages)
    :local:
 
 Debian packages for ROS 2 {DISTRO_TITLE_FULL} are currently available for Ubuntu Jammy.
+<<<<<<< HEAD
+=======
+The Rolling Ridley distribution will change target platforms from time to time as new platforms are selected for development.
+The target platforms are defined in `REP 2000 <https://github.com/ros-infrastructure/rep/blob/master/rep-2000.rst>`__.
+Most people will want to use a stable ROS distribution.
+>>>>>>> 5c7c68a (Fix punctuation error in Ubuntu-Install-Debians.rst (#3967))
 
 Resources
 ---------
