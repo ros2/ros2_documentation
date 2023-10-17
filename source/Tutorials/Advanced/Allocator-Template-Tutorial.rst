@@ -17,139 +17,114 @@ Implementing a custom memory allocator
    :local:
 
 This tutorial will teach you how to integrate a custom allocator for publishers and subscribers so that the default heap allocator is never called while your ROS nodes are executing.
-The code for this tutorial is available `here <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics/allocator_tutorial.cpp>`__.
+The code for this tutorial is available `here <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics/allocator_tutorial_pmr.cpp>`__.
 
 Background
 ----------
 
-Suppose you want to write real-time safe code, and you've heard about the many dangers of calling "new" during the real-time critical section, because the default heap allocator on most platforms is nondeterministic.
+Suppose you want to write real-time safe code, and you've heard about the many dangers of calling ``new`` during the real-time critical section, because the default heap allocator on most platforms is nondeterministic.
 
-By default, many C++ standard library structures will implicitly allocate memory as they grow, such as ``std::vector``. However, these data structures also accept an "Allocator" template argument. If you specify a custom allocator to one of these data structures, it will use that allocator for you instead of the system allocator to grow or shrink the data structure. Your custom allocator could have a pool of memory preallocated on the stack, which might be better suited to real-time applications.
+By default, many C++ standard library structures will implicitly allocate memory as they grow, such as ``std::vector``.
+However, these data structures also accept an "Allocator" template argument.
+If you specify a custom allocator to one of these data structures, it will use that allocator instead of the system allocator to grow or shrink the data structure.
+Your custom allocator could have a pool of memory preallocated on the stack, which might be better suited to real-time applications.
 
-In the ROS 2 C++ client library (rclcpp), we are following a similar philosophy to the C++ standard library. Publishers, subscribers, and the Executor accept an Allocator template parameter that controls allocations made by that entity during execution.
+In the ROS 2 C++ client library (rclcpp), we are following a similar philosophy to the C++ standard library.
+Publishers, subscribers, and the Executor accept an Allocator template parameter that controls allocations made by that entity during execution.
 
 Writing an allocator
 --------------------
 
 To write an allocator compatible with ROS 2's allocator interface, your allocator must be compatible with the C++ standard library allocator interface.
 
-The C++11 library provides something called ``allocator_traits``. The C++11 standard specifies that a custom allocator only needs to fulfil a minimal set of requirements to be used to allocate and deallocate memory in a standard way. ``allocator_traits`` is a generic structure that fills out other qualities of an allocator based on an allocator written with the minimal requirements.
+Since C++17, the standard library provides something called ``std::pmr::memory_resource``.
+This is a class that can be derived from to create a custom allocator that fulfills a minimum set of requirements.
 
-For example, the following declaration for a custom allocator would satisfy ``allocator_traits`` (of course, you would still need to implement the declared functions in this struct):
-
-.. code-block:: c++
-
-   template <class T>
-   struct custom_allocator {
-     using value_type = T;
-     custom_allocator() noexcept;
-     template <class U> custom_allocator (const custom_allocator<U>&) noexcept;
-     T* allocate (std::size_t n);
-     void deallocate (T* p, std::size_t n);
-   };
-
-   template <class T, class U>
-   constexpr bool operator== (const custom_allocator<T>&, const custom_allocator<U>&) noexcept;
-
-   template <class T, class U>
-   constexpr bool operator!= (const custom_allocator<T>&, const custom_allocator<U>&) noexcept;
-
-You could then access other functions and members of the allocator filled in by ``allocator_traits`` like so: ``std::allocator_traits<custom_allocator<T>>::construct(...)``
-
-To learn about the full capabilities of ``allocator_traits``, see https://en.cppreference.com/w/cpp/memory/allocator_traits .
-
-However, some compilers that only have partial C++11 support, such as GCC 4.8, still require allocators to implement a lot of boilerplate code to work with standard library structures such as vectors and strings, because these structures do not use ``allocator_traits`` internally. Therefore, if you're using a compiler with partial C++11 support, your allocator will need to look more like this:
+For example, the following declaration for a custom memory resource fulfills the requirements (of course, you would still need to implement the declared functions in this class):
 
 .. code-block:: c++
 
-   template<typename T>
-   struct pointer_traits {
-     using reference = T &;
-     using const_reference = const T &;
-   };
+    class CustomMemoryResource : public std::pmr::memory_resource
+    {
+    private:
+      void * do_allocate(std::size_t bytes, std::size_t alignment) override;
 
-   // Avoid declaring a reference to void with an empty specialization
-   template<>
-   struct pointer_traits<void> {
-   };
+      void do_deallocate(
+        void * p, std::size_t bytes,
+        std::size_t alignment) override;
 
-   template<typename T = void>
-   struct MyAllocator : public pointer_traits<T> {
-   public:
-     using value_type = T;
-     using size_type = std::size_t;
-     using pointer = T *;
-     using const_pointer = const T *;
-     using difference_type = typename std::pointer_traits<pointer>::difference_type;
+      bool do_is_equal(
+        const std::pmr::memory_resource & other) const noexcept override;
+    };
 
-     MyAllocator() noexcept;
+To learn about the full capabilities of ``std::pmr::memory_resource``, see https://en.cppreference.com/w/cpp/memory/memory_resource.
 
-     ~MyAllocator() noexcept;
-
-     template<typename U>
-     MyAllocator(const MyAllocator<U> &) noexcept;
-
-     T * allocate(size_t size, const void * = 0);
-
-     void deallocate(T * ptr, size_t size);
-
-     template<typename U>
-     struct rebind {
-       typedef MyAllocator<U> other;
-     };
-   };
-
-   template<typename T, typename U>
-   constexpr bool operator==(const MyAllocator<T> &,
-     const MyAllocator<U> &) noexcept;
-
-   template<typename T, typename U>
-   constexpr bool operator!=(const MyAllocator<T> &,
-     const MyAllocator<U> &) noexcept;
+The full implementation of the custom allocator for this tutorial is in https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics/allocator_tutorial_pmr.cpp.
 
 Writing an example main
 -----------------------
 
 Once you have written a valid C++ allocator, you must pass it as a shared pointer to your publisher, subscriber, and executor.
+But first, we'll declare a few aliases to shorten the names.
 
 .. code-block:: c++
 
-     auto alloc = std::make_shared<MyAllocator<void>>();
-     rclcpp::PublisherOptionsWithAllocator<MyAllocator<void>> publisher_options;
+     using rclcpp::memory_strategies::allocator_memory_strategy::AllocatorMemoryStrategy;
+     using Alloc = std::pmr::polymorphic_allocator<void>;
+     using MessageAllocTraits =
+       rclcpp::allocator::AllocRebind<std_msgs::msg::UInt32, Alloc>;
+     using MessageAlloc = MessageAllocTraits::allocator_type;
+     using MessageDeleter = rclcpp::allocator::Deleter<MessageAlloc, std_msgs::msg::UInt32>;
+     using MessageUniquePtr = std::unique_ptr<std_msgs::msg::UInt32, MessageDeleter>;
+
+Now we can create our resources with the custom allocator:
+
+.. code-block:: c++
+
+     CustomMemoryResource mem_resource{};
+     auto alloc = std::make_shared<Alloc>(&mem_resource);
+     rclcpp::PublisherOptionsWithAllocator<Alloc> publisher_options;
      publisher_options.allocator = alloc;
      auto publisher = node->create_publisher<std_msgs::msg::UInt32>(
        "allocator_tutorial", 10, publisher_options);
 
-     rclcpp::SubscriptionOptionsWithAllocator<MyAllocator<void>> subscription_options;
+     rclcpp::SubscriptionOptionsWithAllocator<Alloc> subscription_options;
      subscription_options.allocator = alloc;
      auto msg_mem_strat = std::make_shared<
        rclcpp::message_memory_strategy::MessageMemoryStrategy<
-         std_msgs::msg::UInt32, MyAllocator<void>>>(alloc);
+         std_msgs::msg::UInt32, Alloc>>(alloc);
      auto subscriber = node->create_subscription<std_msgs::msg::UInt32>(
        "allocator_tutorial", 10, callback, subscription_options, msg_mem_strat);
 
      std::shared_ptr<rclcpp::memory_strategy::MemoryStrategy> memory_strategy =
-       std::make_shared<AllocatorMemoryStrategy<MyAllocator<void>>>(alloc);
+       std::make_shared<AllocatorMemoryStrategy<Alloc>>(alloc);
+
      rclcpp::ExecutorOptions options;
      options.memory_strategy = memory_strategy;
      rclcpp::executors::SingleThreadedExecutor executor(options);
 
-You will also need to use your allocator to allocate any messages that you pass along the execution codepath.
+You must also instantiate a custom deleter and allocator for use when allocating messages:
 
 .. code-block:: c++
 
-     auto alloc = std::make_shared<MyAllocator<void>>();
+     MessageDeleter message_deleter;
+     MessageAlloc message_alloc = *alloc;
+     rclcpp::allocator::set_allocator_for_deleter(&message_deleter, &message_alloc);
 
-Once you've instantiated the node and added the executor to the node, it's time to spin:
+Once you've add the node to the executor, it is time to spin.
+We'll use the custom allocator to allocate each message:
 
 .. code-block:: c++
 
      uint32_t i = 0;
      while (rclcpp::ok()) {
+       auto ptr = MessageAllocTraits::allocate(message_alloc, 1);
+       MessageAllocTraits::construct(message_alloc, ptr);
+       MessageUniquePtr msg(ptr, message_deleter);
        msg->data = i;
-       i++;
-       publisher->publish(msg);
-       rclcpp::sleep_for(std::chrono::milliseconds(1));
+       ++i;
+       publisher->publish(std::move(msg));
+       rclcpp::sleep_for(10ms);
        executor.spin_some();
      }
 
@@ -158,7 +133,8 @@ Passing an allocator to the intra-process pipeline
 
 Even though we instantiated a publisher and subscriber in the same process, we aren't using the intra-process pipeline yet.
 
-The IntraProcessManager is a class that is usually hidden from the user, but in order to pass a custom allocator to it we need to expose it by getting it from the rclcpp Context. The IntraProcessManager makes use of several standard library structures, so without a custom allocator it will call the default new.
+The IntraProcessManager is a class that is usually hidden from the user, but in order to pass a custom allocator to it we need to expose it by getting it from the rclcpp Context.
+The IntraProcessManager makes use of several standard library structures, so without a custom allocator it will call the default ``new``.
 
 .. code-block:: c++
 
@@ -181,64 +157,77 @@ Adding counting to the custom allocator is easy:
 
 .. code-block:: c++
 
-     T * allocate(size_t size, const void * = 0) {
+     void * do_allocate(std::size_t size, std::size_t alignment) override
+     {
        // ...
        num_allocs++;
        // ...
      }
 
-     void deallocate(T * ptr, size_t size) {
+     void do_deallocate(
+       void * p, std::size_t bytes,
+       std::size_t alignment) override
+     {
        // ...
        num_deallocs++;
        // ...
      }
 
-You can also override the global new and delete operators:
+You can also override the global ``new`` and ``delete`` operators:
 
 .. code-block:: c++
 
-   void operator delete(void * ptr) noexcept {
-     if (ptr != nullptr) {
+     void * operator new(std::size_t size)
+     {
        if (is_running) {
-         global_runtime_deallocs++;
+         global_runtime_allocs++;
        }
-       std::free(ptr);
-       ptr = nullptr;
+       return std::malloc(size);
      }
-   }
 
-   void operator delete(void * ptr, size_t) noexcept {
-     if (ptr != nullptr) {
-       if (is_running) {
-         global_runtime_deallocs++;
+     void operator delete(void * ptr, size_t) noexcept
+     {
+       if (ptr != nullptr) {
+         if (is_running) {
+           global_runtime_deallocs++;
+         }
+         std::free(ptr);
        }
-       std::free(ptr);
-       ptr = nullptr;
      }
-   }
+
+     void operator delete(void * ptr) noexcept
+     {
+       if (ptr != nullptr) {
+         if (is_running) {
+           global_runtime_deallocs++;
+         }
+         std::free(ptr);
+       }
+     }
 
 where the variables we are incrementing are just global static integers, and ``is_running`` is a global static boolean that gets toggled right before the call to ``spin``.
 
-The `example executable <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics/allocator_tutorial.cpp>`__ prints the value of the variables. To run the example executable, use:
+The `example executable <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics/allocator_tutorial_pmr.cpp>`__ prints the value of the variables.
+To run the example executable, use:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 run demo_nodes_cpp allocator_tutorial
+     ros2 run demo_nodes_cpp allocator_tutorial
 
 or, to run the example with the intra-process pipeline on:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 run demo_nodes_cpp allocator_tutorial intra
+     ros2 run demo_nodes_cpp allocator_tutorial intra
 
 You should get numbers like:
 
-.. code-block:: bash
+.. code-block:: console
 
-   Global new was called 15590 times during spin
-   Global delete was called 15590 times during spin
-   Allocator new was called 27284 times during spin
-   Allocator delete was called 27281 times during spin
+     Global new was called 15590 times during spin
+     Global delete was called 15590 times during spin
+     Allocator new was called 27284 times during spin
+     Allocator delete was called 27281 times during spin
 
 We've caught about 2/3 of the allocations/deallocations that happen on the execution path, but where do the remaining 1/3 come from?
 
