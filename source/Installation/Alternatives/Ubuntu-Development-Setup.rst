@@ -39,16 +39,11 @@ Install development tools
 .. code-block:: bash
 
    sudo apt update && sudo apt install -y \
-     python3-flake8-docstrings \
      python3-pip \
      python3-pytest-cov \
      python3-flake8-blind-except \
-     python3-flake8-builtins \
      python3-flake8-class-newline \
-     python3-flake8-comprehensions \
      python3-flake8-deprecated \
-     python3-flake8-import-order \
-     python3-flake8-quotes \
      python3-pytest-repeat \
      python3-pytest-rerunfailures \
      ros-dev-tools

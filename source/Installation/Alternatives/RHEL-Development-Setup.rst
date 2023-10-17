@@ -62,11 +62,6 @@ Install development tools
      make \
      patch \
      python3-colcon-common-extensions \
-     python3-flake8-builtins \
-     python3-flake8-comprehensions \
-     python3-flake8-docstrings \
-     python3-flake8-import-order \
-     python3-flake8-quotes \
      python3-mypy \
      python3-pip \
      python3-pydocstyle \
