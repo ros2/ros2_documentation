@@ -9,7 +9,7 @@ Plugins: New Dockable Panel
 
 **Tutorial level:** Intermediate
 
-**Time:** TBD
+**Time:** 20 Minutes
 
 .. contents:: Contents
    :depth: 2
@@ -28,7 +28,7 @@ RViz has a built-in tool to send a goal pose to a path planner, but it does not 
 That is what this tutorial shows, a subclass of ``rviz::Panel`` which lets you send velocity commands right to your robot.
 
 | The source code for this tutorial is in the `rviz_plugin_tutorials package <https://github.com/ros-visualization/visualization_tutorials/tree/ros2/rviz_plugin_tutorials>`_.
-| Here is what RViz looks like with the new “Teleop” panel showing on the left:
+| Here is what RViz looks like with the new ``Teleop`` panel showing on the left:
 
 .. image:: images/teleop_in_rviz.png
 
@@ -47,7 +47,8 @@ teleop_panel.hpp
 ^^^^^^^^^^^^^^^^
 The full source code of ``teleop_panel.hpp`` is here: `teleop_panel.hpp <https://github.com/ros-visualization/visualization_tutorials/blob/ros2/rviz_plugin_tutorials/src/imu_display.hpp>`_
 
-``TeleopPanel`` will show a text-entry field to set the output topic and a 2D control area. The 2D control area is implemented by the ``DriveWidget class``, and is described there.
+``TeleopPanel`` will show a text-entry field to set the output topic and a 2D control area.
+The 2D control area is implemented by the ``DriveWidget class``, and is described there.
 
 .. code-block:: C++
 
@@ -131,11 +132,11 @@ Here we declare some internal slots.
 
 Then we finish up with protected member variables.
 
-* The control-area widget which turns mouse events into command velocities.
-* One-line text editor for entering the outgoing ROS topic name.
-* The current name of the output topic.
-* The ROS node and publisher for the command velocity.
-* The latest velocity values from the drive widget.
+* ``drive_widget_``: The control-area widget which turns mouse events into command velocities.
+* ``output_topic_editor_``: One-line text editor for entering the outgoing ROS topic name.
+* ``output_topic_``:The current name of the output topic.
+* ``velocity_node_``, ``velocity_publisher_``: The ROS node and publisher for the command velocity.
+* ``linear_velocity_``, ``angular_velocity_``: The latest velocity values from the drive widget.
 
 teleop_panel.cpp
 ^^^^^^^^^^^^^^^^
@@ -166,7 +167,7 @@ and also zero-ing the velocities we will be publishing.
     output_topic_editor_ = new QLineEdit;
     topic_layout->addWidget(output_topic_editor_);
 
-Next we lay out the “output topic” text entry field using a ``QLabel`` and a ``QLineEdit`` in a ``QHBoxLayout``.
+Next we lay out the ``output_topic_editor_`` text entry field using a ``QLabel`` and a ``QLineEdit`` in a ``QHBoxLayout``.
 
 .. code-block:: C++
 
@@ -191,7 +192,7 @@ Create a timer for sending the output.
 Motor controllers want to be reassured frequently that they are doing the right thing,
 so we keep re-sending velocities even when they aren't changing.
 
-Here we take advantage of QObject's memory management behavior: since "this" is passed to the new ``QTimer`` as its parent,
+Here we take advantage of QObject's memory management behavior: since ``this`` is passed to the new ``QTimer`` as its parent,
 the ``QTimer`` is deleted by the QObject destructor when this ``TeleopPanel`` object is destroyed.
 Therefore we don't need to keep a pointer to the timer.
 
@@ -228,7 +229,7 @@ Make the control widget start disabled, since we don't start with an output topi
         velocity_node_ = std::make_shared<rclcpp::Node>("teleop_panel_velocity_node");
     }
 
-Create the velocity node.
+Create the ``velocity_node_``.
 
 .. code-block:: C++
 
@@ -248,7 +249,7 @@ This just records the values it is given. The data doesn't actually get sent unt
         setTopic(output_topic_editor_->text());
     }
 
-Read the topic name from the QLineEdit and call ``setTopic()`` with the results.
+Read the topic name from the ``QLineEdit`` and call ``setTopic()`` with the results.
 This is connected to ``QLineEdit::editingFinished()`` which fires when the user presses Enter or Tab or otherwise moves focus away.
 
 .. code-block:: C++
@@ -351,7 +352,7 @@ Load all configuration data for this panel from the given Config object
     PLUGINLIB_EXPORT_CLASS(rviz_plugin_tutorials::TeleopPanel, rviz_common::Panel)
 
 
-Tell pluginlib about this class.
+Tell ``pluginlib`` about this class.
 Every class which should be loadable by ``pluginlib::ClassLoader`` must have these two lines compiled in its .cpp file, outside of any namespace scope.
 
 drive_widget.hpp
@@ -565,7 +566,8 @@ Now the track arrays are filled, so stroke each with a fat green line.
     int right_arrow_dir = (-step_dist - half_track_width * delta_angle > 0);
 
 Here we decide which direction each arrowhead will point (forward or backward).
-This works by comparing the arc length travelled by the center in one step (``step_dist``) with the arc length travelled by the wheel (half_track_width * delta_angle).
+This works by comparing the arc length travelled by the center in one step (``step_dist``)
+with the arc length travelled by the wheel (``half_track_width * delta_angle``).
 
 .. code-block:: C++
 
@@ -716,9 +718,9 @@ This should bring up a Panel class chooser dialog with “Teleop” in it (here 
 
 If “Teleop” is not in your list of Display Types, look through RViz's console output for error messages relating to plugin loading. Some common problems are:
 
-* not having a plugin_description.xml file,
-* not exporting it in the package.xml file, or
-* not properly referencing the library file (like librviz_plugin_tutorials.so) from plugin_description.xml.
+* not having a ``plugin_description.xml`` file,
+* not exporting it in the ``package.xml`` file, or
+* not properly referencing the library file (like ``librviz_plugin_tutorials.so``) from ``plugin_description.xml``.
 
 Once you've added the Teleop panel to RViz,
 you just need to enter a topic name to publish the ``geometry_msgs/Twist`` command velocities on.

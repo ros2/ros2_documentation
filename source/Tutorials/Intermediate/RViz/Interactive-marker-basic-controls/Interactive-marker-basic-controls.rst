@@ -4,14 +4,14 @@
 
 .. _RVizINTMarkerControls:
 
-Interactive Markers: Basic Controls
-===================================
+Interactive Markers: Basic Controls (C++)
+=========================================
 
 **Goal:** Create interactive Marker Display to render markers that the user can interact with.
 
 **Tutorial level:** Intermediate
 
-**Time:** TBD
+**Time:** 15 Minutes
 
 .. contents:: Contents
    :depth: 2
@@ -20,7 +20,7 @@ Interactive Markers: Basic Controls
 
 Backround
 ---------
-If you run the simple_marker example from interactive_marker_tutorials as described in the previous tutorial, you will see this in RViz:
+If you run the simple_marker example from ``interactive_marker_tutorials`` as described in the previous tutorial, you will see this in RViz:
 
 .. image:: images/basic_controls.png
 
@@ -36,7 +36,7 @@ Before starting this tutorial, you should first complete the previous RViz tutor
 
 The basic_controls example explained
 ------------------------------------
-This is the code for the basic_controls example is located `here  <https://github.com/ros-visualization/visualization_tutorials/blob/ros2/interactive_marker_tutorials/src/basic_controls.cpp>`__.
+This is the code for the ``basic_controls`` example is located `here  <https://github.com/ros-visualization/visualization_tutorials/blob/ros2/interactive_marker_tutorials/src/basic_controls.cpp>`__.
 
 1. Simple 6-DOF control
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -51,7 +51,7 @@ This shows how to control all 6 degrees of freedom using 6 separate controls. Us
 .. image:: images/6dof.png
 
 Identical to the 6-DOF control, with the exception that the orientation of the controls will stay fixed, independent of the orientation of the frame being controlled.
-Play around with these two two fully understand the difference between them!
+Play around with these two to fully understand the difference between them!
 
 .. code-block:: C++
 
@@ -170,11 +170,11 @@ The code section above shows how to construct the first two interactive markers.
 After adding the grey box, 6 controls for each degree of freedom are added.
 No markers are added to these controls, which will result in RViz creating a set of colored rings and arrows as a default visualization.
 
-The only difference between the two is that in the second case, the orientation mode is set to InteractiveMarkerControl::FIXED,
-while in the first it is left at its default value, which is InteractiveMarkerControl::INHERIT.
+The only difference between the two is that in the second case, the orientation mode is set to ``InteractiveMarkerControl::FIXED``,
+while in the first it is left at its default value, which is ``InteractiveMarkerControl::INHERIT``.
 
 Note that the 3D controls (shown lower in this list) are constructed using this function as well.
-For the simple 6-DOF controls shown above, the block under if(interaction_mode != InteractiveMarkerControl::NONE) is ignored.
+For the simple 6-DOF controls shown above, the block under ``if(interaction_mode != InteractiveMarkerControl::NONE)`` is ignored.
 
 NOTE: The orientations in the above code snippet can be confusing.
 If you compute the rotation matrices corresponding to each of the quaternions, you can verify that the specified orientation is correct.
@@ -186,11 +186,11 @@ If you compute the rotation matrices corresponding to each of the quaternions, y
 
 These new marker types support various kinds of 3D motion with a mouse.
 
-* MOVE_3D: Drawn as a box-marker in the tutorial, this interaction mode allows 3D translation of the marker (in the camera plane by default, and into/out-of the camera while holding shift).
-* ROTATE_3D: Drawn as a box marker in this tutorial, this interacton mode allows 3D rotation of the marker (about the camera plane's vertical and horizontal axes by default, and about the axis perpendicular to the camera plane while holding shift).
-* MOVE_ROTATE_3D: This interaction mode is the union of MOVE_3D (default) and ROTATE_3D (while holding ctrl). An interactive marker can have multiple redundant control types; in this tutorial, the box is a 3D control yet the marker also has a simple set of 6-DOF rings-and-arrows.
+* **MOVE_3D**: Drawn as a box-marker in the tutorial, this interaction mode allows 3D translation of the marker (in the camera plane by default, and into/out-of the camera while holding shift).
+* **ROTATE_3D**: Drawn as a box marker in this tutorial, this interacton mode allows 3D rotation of the marker (about the camera plane's vertical and horizontal axes by default, and about the axis perpendicular to the camera plane while holding shift).
+* **MOVE_ROTATE_3D**: This interaction mode is the union of ``MOVE_3D`` (default) and ``ROTATE_3D`` (while holding ctrl). An interactive marker can have multiple redundant control types; in this tutorial, the box is a 3D control yet the marker also has a simple set of 6-DOF rings-and-arrows.
 
-It is possible to write an Rviz plugin that allows 3D grabbing of these markers using a 6D input device such as a Phantom Omni or Razer Hydra.
+It is possible to write an Rviz plugin that allows 3D grabbing of these markers using a 6D input device such as a Phantom Omni,Razer Hydra or a SpaceMouse.
 
 4. 6-DOF (Arbitrary Axes)
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -331,16 +331,16 @@ Once you move it further away, it will start following the mouse.
         server_->setCallback(int_marker.name, std::bind(&BasicControlsNode::processFeedback, this, _1));
     }
 
-The creation of the interactive marker is analogous to the previous examples, just that the interaction mode for one of the controls is set to MOVE_ROTATE.
+The creation of the interactive marker is analogous to the previous examples, just that the interaction mode for one of the controls is set to ``MOVE_ROTATE``.
 
 7. Chess Piece
 ^^^^^^^^^^^^^^
 
 .. image:: images/chess_piece.png
 
-Click and drag the box or the surrounding Ring to move it in the x-y plane.
+Click and drag the box or the surrounding Ring to move it in the ``x-y`` plane.
 Once you let go of the mouse button, it will snap to one of the grid fields.
-The way this works is that the basic_controls server running outside of RViz
+The way this works is that the ``basic_controls`` server running outside of RViz
 will set the pose of the Interactive Marker to a new value when it receives the pose from RViz.
 RViz will apply the update once you stop dragging it.
 
@@ -384,7 +384,7 @@ RViz will apply the update once you stop dragging it.
     }
 
 The major difference to the previous example is that an additional feedback function is specified,
-which will be called instead of processFeedback() when the pose of the marker gets updated.
+which will be called instead of ``processFeedback()`` when the pose of the marker gets updated.
 This function modifies the pose of the marker and sends it back to RViz:
 
 .. code-block:: C++
@@ -535,7 +535,7 @@ RViz will use a different mouse cursor for this type of control.
 This example shows what happens if you click on a marker that is attached to a frame which moves relative to the fixed frame specified in RViz.
 Click on the box to move and on the ring to rotate.
 As the containing frame moves, the marker will continue moving relative to your mouse even if you are holding it.
-The interactive marker header's stamp must be ros::Time(0) (as it is by default if not set), so that rviz will take the most recent tf frames to transform it.
+The interactive marker header's stamp must be ``rclcpp::Time(0)`` (as it is by default if not set), so that rviz will take the most recent tf frames to transform it.
 
 .. code-block:: C++
 
@@ -573,8 +573,8 @@ The interactive marker header's stamp must be ros::Time(0) (as it is by default 
 ^^^^^^^^^^^^^^^^^^^^^^^^
 To setup the server node, all that is needed is to create an instance of InteractiveMarkerServer and pass all InteractiveMarker messages to that object.
 
-Note that you have to call applyChanges() after you have added, updated or removed interactive markers, their pose, menus or feedback functions.
-This will cause the InteractiveMarkerServer to apply all scheduled changes to its internal state and send an update message to all connected clients.
+Note that you have to call ``applyChanges()`` after you have added, updated or removed interactive markers, their pose, menus or feedback functions.
+This will cause the ``InteractiveMarkerServer`` to apply all scheduled changes to its internal state and send an update message to all connected clients.
 This is done to make it possible to maintain a coherent state and minimize data traffic between the server and its clients.
 
 .. code-block:: C++
@@ -633,7 +633,7 @@ This is done to make it possible to maintain a coherent state and minimize data 
         return 0;
     }
 
-A timer is set up to update the tf transformation between base_link and moving_frame, which is done in frameCallback():
+A timer is set up to update the tf transformation between ``base_link`` and ``moving_frame``, which is done in ``frameCallback()``:
 
 .. code-block:: C++
 
@@ -670,7 +670,7 @@ A timer is set up to update the tf transformation between base_link and moving_f
         counter++;
     }
 
-Finally, processFeedback() is used to print output to rosconsole when feedback arrives:
+Finally, ``processFeedback()`` is used to print output to rosconsole when feedback arrives:
 
 .. code-block:: C++
 

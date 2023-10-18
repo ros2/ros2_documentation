@@ -4,14 +4,14 @@
 
 .. _RVizINTMarkerServer:
 
-Interactive Markers: Writing a Simple Interactive Marker Server
-===============================================================
+Interactive Markers: Writing a Simple Interactive Marker Server (C++)
+=====================================================================
 
 **Goal:** This tutorial explains how to setup a minimalist server which manages a single interactive marker.
 
 **Tutorial level:** Intermediate
 
-**Time:** TBD
+**Time:** 10 Minutes
 
 .. contents:: Contents
    :depth: 2
@@ -20,13 +20,13 @@ Interactive Markers: Writing a Simple Interactive Marker Server
 
 Backround
 ---------
-If you run the simple_marker example from interactive_marker_tutorials as described in the previous tutorial, you will see this in RViz:
+If you run the ``simple_marker`` example from ``interactive_marker_tutorials`` as described in the previous tutorial, you will see this in RViz:
 
 .. image:: images/simple_marker.png
 
 It shows the single interactive marker provided by the server node. Click on the arrow to move the box.
 What you will also see is that the server node prints out the current position of the marker each time you change it in RViz.
-Using this exaple we are going to look at how the interactive marker server handels interactive marker.
+Using this example we are going to look at how the interactive marker server handels interactive marker.
 
 Prerequisites
 -------------
@@ -124,7 +124,7 @@ This is the code of the server node is located `here  <https://github.com/ros-vi
 
 Examine the code
 ^^^^^^^^^^^^^^^^
-Now let's break down the code, focusing on the functionalities of the Interactive marker server and things that were explained in the previous tutorials.
+Now let's break down the code, focusing on the functionalities of the Interactive marker server and skipping things that were explained in the previous tutorials.
 
 .. code-block:: C++
 
@@ -138,14 +138,14 @@ Now let's break down the code, focusing on the functionalities of the Interactiv
         RCLCPP_INFO(logger, "%s", oss.str().c_str());
     }
 
-Define a function ``processFeedback`` which handles feedback messages from RViz by printing out the position.
+Define a function ``processFeedback()`` which handles feedback messages from RViz by printing out the position.
 
 .. code-block:: C++
 
     interactive_markers::InteractiveMarkerServer server("simple_marker", node);
 
 This creates our Interactive marker server wich can handel many markers at the same time.
-It is created on the topic namespace "simple_marker".
+It is created on the topic namespace ``simple_marker``.
 
 .. code-block:: C++
 
@@ -155,7 +155,7 @@ It is created on the topic namespace "simple_marker".
     interactive_marker.name = "my_marker";
     interactive_marker.description = "Simple 1-DOF Control";
 
-Next we create our first ``interactive_marker`` object. It is filled with standard message header.
+Next we create our first ``interactive_marker`` object. It is filled with the standard message header.
 
 .. code-block:: C++
 
@@ -181,8 +181,8 @@ In this case a cube, but any type is possible even using a mesh resource.
     // add the control to the interactive marker
     interactive_marker.controls.push_back(box_control);
 
-Next we create a non-interactive control of the basic marker box and add it to the interacitve_marker.
-Because of this you can only move the interacitve marker with the provided arrows
+Next we create a non-interactive control of the basic marker box and add it to the ``interacitve_marker``.
+Because of this you can only move the interacitve marker with the provided arrows.
 
 .. code-block:: C++
 
@@ -206,4 +206,4 @@ The ``interaction_mode`` controls the degrees of freedom.
 Now we add the interacitve marker to the server and we also pass our callback function with its parameters.
 
 Note that when calling ``insert``, the server object will internally only push the new marker onto a waiting list.
-Once you call ``applyChanges``, it will incorporate it into it's publicly visible set of interactive markers and send it to all connected clients.
+Once you call ``applyChanges()``, it will incorporate it into it's publicly visible set of interactive markers and send it to all connected clients.

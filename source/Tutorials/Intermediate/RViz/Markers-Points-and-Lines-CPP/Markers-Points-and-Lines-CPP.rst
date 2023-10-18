@@ -3,14 +3,14 @@
     Tutorials/RViz/Marker-Points-and-Lines-CPP
 
 
-Marker: Points and Lines CPP
-============================
+Marker: Points and Lines (C++)
+==============================
 
-**Goal:** Teaches how to use the `visualization_msgs/Marker <http://docs.ros.org/en/api/visualization_msgs/html/msg/Marker.html>`__ to send points and lines to RViz
+**Goal:** Teaches how to use the `visualization_msgs/msg/Marker <https://docs.ros2.org/latest/api/visualization_msgs/msg/Marker.html>`__ to send points and lines to RViz
 
 **Tutorial level:** Intermediate
 
-**Time:** TBD
+**Time:** 15 Minutes
 
 .. contents:: Contents
    :depth: 2
@@ -19,24 +19,27 @@ Marker: Points and Lines CPP
 
 Backround
 ---------
-In the :doc:`Marker: Sending Basic Shapes  <../Markers-Sending-Basic-Shapes-CPP/Markers-Sending-Basic-Shapes-CPP>` you learned how to send simple shapes to rviz using visualization markers.
-You can send more than just simple shapes though, and this tutorial will introduce you to the POINTS, LINE_STRIP and LINE_LIST marker types.
+In the :doc:`Marker: Sending Basic Shapes  <../Markers-Sending-Basic-Shapes-CPP/Markers-Sending-Basic-Shapes-CPP>` you learned how to send
+simple shapes to rviz using visualization markers.
+You can send more than just simple shapes though, and this tutorial will introduce you to the ``POINTS``, ``LINE_STRIP`` and ``LINE_LIST`` marker types.
 For a full list of types, see the `Marker Display <http://wiki.ros.org/rviz/DisplayTypes/Marker#Object_Types>`__ page.
-The POINTS, LINE_STRIP and LINE_LIST markers all use the points member of the visualization_msgs/msg/Marker message.
-The POINTS type places a point at each point added. The LINE_STRIP type uses each point as a vertex in a connected set of lines, where point 0 is connected to point 1, 1 to 2, 2 to 3, etc.
-The LINE_LIST type creates unconnected lines out of each pair of points, i.e. point 0 to 1, 2 to 3, etc.
+The ``POINTS``, ``LINE_STRIP`` and ``LINE_LIST`` markers all use the points member of the ``visualization_msgs/msg/Marker`` message.
+The ``POINTS`` type places a point at each point added. The ``LINE_STRIP`` type uses each point as a vertex in a connected set of lines, where point 0 is connected to point 1, 1 to 2, 2 to 3, etc.
+The ``LINE_LIST`` type creates unconnected lines out of each pair of points, i.e. point 0 to 1, 2 to 3, etc.
 
 Prerequisites
 -------------
 Before starting this tutorial, you should first complete the following tutorial:
-- :doc:`Marker: Sending Basic Shapes  <../Markers-Sending-Basic-Shapes-CPP/Markers-Sending-Basic-Shapes-CPP>`
+
+* :doc:`Marker: Sending Basic Shapes  <../Markers-Sending-Basic-Shapes-CPP/Markers-Sending-Basic-Shapes-CPP>`
 
 The Code
 --------
 
 1 Getting the package
 ^^^^^^^^^^^^^^^^^^^^^
-Use the package that was already created in :doc:`Marker: Sending Basic Shapes  <../Markers-Sending-Basic-Shapes-CPP/Markers-Sending-Basic-Shapes-CPP>` and build upon that.
+Use the package that was already created in
+:doc:`Marker: Sending Basic Shapes  <../Markers-Sending-Basic-Shapes-CPP/Markers-Sending-Basic-Shapes-CPP>` and build upon that.
 
 2 Creating Points and Lines
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -128,7 +131,7 @@ Open this file using your preferred text editor and add the following code.
         }
     }
 
-Now edit the CMakeLists.txt file in your package to look like this:
+Now edit the ``CMakeLists.txt`` file in your package to look like this:
 
 .. code-block:: console
 
@@ -178,7 +181,7 @@ Now edit the CMakeLists.txt file in your package to look like this:
 
     ament_package()
 
-Next add one more line to the package.xml:
+Next add one more line to the ``package.xml``:
 
 .. code-block:: xml
 
@@ -197,8 +200,8 @@ The overall effect created is a rotating helix with lines sticking upwards from 
     points.ns = line_strip.ns = line_list.ns = "points_and_lines";
     points.action = line_strip.action = line_list.action = visualization_msgs::msg::Marker::ADD;
 
-Here we create three visualization_msgs/msg/Marker messages and initialize all of their shared data.
-By default, the marker message contains a pose with a geometry_msgs/msg/Quaternion that is initialized to the identity quaternion.
+Here we create three ``visualization_msgs/msg/Marker`` messages and initialize all of their shared data.
+By default, the marker message contains a pose with a ``geometry_msgs/msg/Quaternion`` that is initialized to the identity quaternion.
 
 .. code-block:: C++
 
@@ -206,7 +209,7 @@ By default, the marker message contains a pose with a geometry_msgs/msg/Quaterni
     line_strip.id = 1;
     line_list.id = 2;
 
-We assign three different IDs to the three markers. The use of the points_and_lines namespace ensures they won't collide with other broadcasters.
+We assign three different IDs to the three markers. The use of the ``points_and_lines`` namespace ensures they won't collide with other broadcasters.
 
 .. code-block:: C++
 
@@ -214,7 +217,7 @@ We assign three different IDs to the three markers. The use of the points_and_li
     line_strip.type = visualization_msgs::msg::Marker::LINE_STRIP;
     line_list.type = visualization_msgs::msg::Marker::LINE_LIST;
 
-Here we set the marker types to POINTS, LINE_STRIP and LINE_LIST.
+Here we set the marker types to ``POINTS``, ``LINE_STRIP`` and ``LINE_LIST``.
 
 .. code-block:: C++
 
@@ -227,7 +230,7 @@ Here we set the marker types to POINTS, LINE_STRIP and LINE_LIST.
     line_list.scale.x = 0.1;
 
 The scale member means different things for these marker types.
-The POINTS marker uses the x and y members for width and height respectively, while the LINE_STRIP and LINE_LIST markers only use the x component, which defines the line width.
+The ``POINTS`` marker uses the x and y members for width and height respectively, while the ``LINE_STRIP`` and ``LINE_LIST`` markers only use the x component, which defines the line width.
 Scale values are in meters.
 
 .. code-block:: C++
@@ -267,7 +270,9 @@ Here we set the points to green, the line strip to blue, and the line list to re
       line_list.points.push_back(p);
     }
 
-We use sine and cosine to generate a helix. The POINTS and LINE_STRIP markers both require only a point for each vertex, while the LINE_LIST marker requires 2.
+We use sine and cosine to generate a helix.
+The ``POINTS`` and ``LINE_STRIP`` markers both require only a point for each vertex,
+while the ``LINE_LIST`` marker requires 2.
 
 4 Build and Run
 ~~~~~~~~~~~~~~~
@@ -288,7 +293,7 @@ Next run the code:
 
 .. code-block:: console
 
-   ros2 run cpp_marker points_and_lines.cpp
+   ros2 run visualization_marker_tutorials points_and_lines
 
 5 Viewing the Markers
 ~~~~~~~~~~~~~~~~~~~~~

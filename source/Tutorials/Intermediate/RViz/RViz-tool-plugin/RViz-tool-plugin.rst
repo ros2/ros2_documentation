@@ -9,7 +9,7 @@ Plugins: New Tool Type
 
 **Tutorial level:** Intermediate
 
-**Time:** TBD
+**Time:** 20 Minutes
 
 .. contents:: Contents
    :depth: 2
@@ -18,7 +18,8 @@ Plugins: New Tool Type
 
 Backround
 ---------
-In RViz, a tool is a class that determines how mouse events interact with the visualizer. In this example we describe ``PlantFlagTool`` which lets you place “flag” markers in the 3D scene.
+In RViz, a tool is a class that determines how mouse events interact with the visualizer.
+In this example we describe ``PlantFlagTool`` which lets you place “flag” markers in the 3D scene.
 
 | The source code for this tutorial is in the `rviz_plugin_tutorials package <https://github.com/ros-visualization/visualization_tutorials/tree/ros2/rviz_plugin_tutorials>`_.
 | Here is an example of what the new ``PlantFlagTool`` can do:
@@ -33,9 +34,9 @@ The Code
 The code for ``ImuDisplay`` is in these files: `plant_flag_tool.hpp <https://github.com/ros-visualization/visualization_tutorials/blob/ros2/rviz_plugin_tutorials/src/plant_flag_tool.hpp>`_,
 `plant_flag_tool.cpp <https://github.com/ros-visualization/visualization_tutorials/blob/ros2/rviz_plugin_tutorials/src/plant_flag_tool.cpp>`_.
 
-plant_flag_tool.h
-^^^^^^^^^^^^^^^^^
-The full source code of ``teleop_panel.hpp`` is here: `src/plant_flag_tool.hpp <https://github.com/ros-visualization/visualization_tutorials/blob/ros2/rviz_plugin_tutorials/src/plant_flag_tool.hpp>`_
+plant_flag_tool.hpp
+^^^^^^^^^^^^^^^^^^^
+The full source code of ``plant_flag_tool.hpp`` is here: `src/plant_flag_tool.hpp <https://github.com/ros-visualization/visualization_tutorials/blob/ros2/rviz_plugin_tutorials/src/plant_flag_tool.hpp>`_
 
 .. code-block:: C++
 
@@ -86,7 +87,7 @@ Then we finish up with protected member variables.
 
 plant_flag_tool.cpp
 ^^^^^^^^^^^^^^^^^^^
-The full source code of ``teleop_panel.hpp`` is here: `src/plant_flag_tool.cpp <https://github.com/ros-visualization/visualization_tutorials/blob/ros2/rviz_plugin_tutorials/src/plant_flag_tool.cpp>`_
+The full source code of ``plant_flag_tool.cpp`` is here: `src/plant_flag_tool.cpp <https://github.com/ros-visualization/visualization_tutorials/blob/ros2/rviz_plugin_tutorials/src/plant_flag_tool.cpp>`_
 
 .. code-block:: C++
 
@@ -203,10 +204,10 @@ If we didn't delete it here, it would stay in the list of flags when we switch t
     }
 
 We use the utility function ``rviz::getPointOnPlaneFromWindowXY()`` to see where on the ground plane the user's mouse is pointing,
-then move the moving flag to that point and update the VectorProperty.
+then move the moving flag to that point and update the ``VectorProperty``.
 
 If this mouse event was a left button press, we want to save the current flag location.
-Therefore we make a new flag at the same place and drop the pointer to the VectorProperty.
+Therefore we make a new flag at the same place and drop the pointer to the ``VectorProperty``.
 Dropping the pointer means when the tool is deactivated the VectorProperty won't be deleted, which is what we want.
 
 .. code-block:: C++
@@ -360,7 +361,7 @@ Once your RViz plugin is compiled and exported, simply run rviz normally. But ma
 
     ros2 run rviz2 rviz2
 
-Now rviz will use pluginlib to find all the plugins exported to it.
+Now rviz will use ``pluginlib`` to find all the plugins exported to it.
 
 Add a PlantFlag tool by clicking on the “+” button in the toolbar and selecting “PlantFlag”
 from the list under your plugin package name (here it is “rviz_plugin_tutorials”).

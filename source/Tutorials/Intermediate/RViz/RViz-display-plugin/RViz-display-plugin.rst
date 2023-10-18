@@ -10,7 +10,7 @@ Plugins: New Display Type
 
 **Tutorial level:** Intermediate
 
-**Time:** TBD
+**Time:** 20 Minutes
 
 .. contents:: Contents
    :depth: 2
@@ -19,10 +19,11 @@ Plugins: New Display Type
 
 Backround
 ---------
-RViz does not currently have a way to display `sensor_msgs/Imu <https://docs.ros2.org/latest/api/sensor_msgs/msg/Imu.html>`_ messages directly. The code in this tutorial implements a subclass of ``rviz::Display`` to do so.
+RViz does not currently have a way to display `sensor_msgs/msg/Imu <https://docs.ros2.org/latest/api/sensor_msgs/msg/Imu.html>`_ messages directly.
+The code in this tutorial implements a subclass of ``rviz::Display`` to do so.
 
 | The source code for this tutorial is in the `rviz_plugin_tutorials package <https://github.com/ros-visualization/visualization_tutorials/tree/ros2/rviz_plugin_tutorials>`_.
-| Here is what the new ImuDisplay output looks like, showing a sequence of `sensor_msgs/Imu <https://docs.ros2.org/latest/api/sensor_msgs/msg/Imu.html>`_ messages from the test script:
+| Here is what the new ``ImuDisplay`` output looks like, showing a sequence of `sensor_msgs/msg/Imu <https://docs.ros2.org/latest/api/sensor_msgs/msg/Imu.html>`_ messages from the test script:
 
 .. image:: images/imu_arrows.png
 
@@ -32,20 +33,20 @@ Before starting this tutorial, you should first complete the previous RViz tutor
 
 The Code
 --------
-The code for ImuDisplay is in these files: `imu_display.hpp <https://github.com/ros-visualization/visualization_tutorials/blob/ros2/rviz_plugin_tutorials/src/imu_display.hpp>`_,
+The code for ``ImuDisplay`` is in these files: `imu_display.hpp <https://github.com/ros-visualization/visualization_tutorials/blob/ros2/rviz_plugin_tutorials/src/imu_display.hpp>`_,
 `imu_display.cpp <https://github.com/ros-visualization/visualization_tutorials/blob/ros2/rviz_plugin_tutorials/src/imu_display.cpp>`_,
 `imu_visual.hpp <https://github.com/ros-visualization/visualization_tutorials/blob/ros2/rviz_plugin_tutorials/src/imu_visual.hpp>`_ and
 `imu_visual.cpp <https://github.com/ros-visualization/visualization_tutorials/blob/ros2/rviz_plugin_tutorials/src/imu_visual.cpp>`_
 
 imu_display.hpp
 ^^^^^^^^^^^^^^^
-The full source code of imu_display.h is here: `src/imu_display.hpp <https://github.com/ros-visualization/visualization_tutorials/blob/ros2/rviz_plugin_tutorials/src/imu_display.hpp>`_
+The full source code of ``imu_display.h`` is here: `src/imu_display.hpp <https://github.com/ros-visualization/visualization_tutorials/blob/ros2/rviz_plugin_tutorials/src/imu_display.hpp>`_
 
 Here we declare our new subclass of ``rviz::Display``. Every display which can be listed in the “Displays” panel is a subclass of ``rviz::Display``.
 
-ImuDisplay will show a 3D arrow showing the direction and magnitude of the IMU acceleration vector.
+``ImuDisplay`` will show a 3D arrow showing the direction and magnitude of the IMU acceleration vector.
 The base of the arrow will be at the frame listed in the header of the Imu message, and the direction of the arrow will be relative to the orientation of that frame.
-It will also optionally show a history of recent acceleration vectors, which will be stored in a circular buffer.
+It will also optionally show a history of recent acceleration vectors, which will be stored in a deque.
 
 .. code-block:: C++
 
@@ -55,8 +56,8 @@ It will also optionally show a history of recent acceleration vectors, which wil
 
     public:
 
-The ImuDisplay class itself just implements the circular buffer, editable parameters, and Display subclass machinery.
-The visuals themselves are represented by a separate class, ImuVisual.
+The ``ImuDisplay`` class itself just implements the deque, editable parameters, and Display subclass machinery.
+The visuals themselves are represented by a separate class, ``ImuVisual``.
 The idiom for the visuals is that when the objects exist, they appear in the scene, and when they are deleted, they disappear.
 
 .. code-block:: C++
@@ -113,7 +114,7 @@ User-editable property variables.
 
 imu_display.cpp
 ^^^^^^^^^^^^^^^
-The full source code of imu_display.cpp is here: `src/imu_display.cpp <https://github.com/ros-visualization/visualization_tutorials/blob/ros2/rviz_plugin_tutorials/src/imu_display.cpp>`_
+The full source code of ``imu_display.cpp`` is here: `src/imu_display.cpp <https://github.com/ros-visualization/visualization_tutorials/blob/ros2/rviz_plugin_tutorials/src/imu_display.cpp>`_
 
 .. code-block:: C++
 
@@ -253,7 +254,7 @@ Tell pluginlib about this class. It is important to do this in global scope, out
 
 imu_visual.hpp
 ^^^^^^^^^^^^^^
-The full source code of imu_display.cpp is here: `imu_visual.hpp <https://github.com/ros-visualization/visualization_tutorials/blob/ros2/rviz_plugin_tutorials/src/imu_visual.hpp>`_
+The full source code of ``imu_display.cpp`` is here: `imu_visual.hpp <https://github.com/ros-visualization/visualization_tutorials/blob/ros2/rviz_plugin_tutorials/src/imu_visual.hpp>`_
 
 Declare the visual class for this display.
 
@@ -263,7 +264,7 @@ Declare the visual class for this display.
     {
         public:
 
-Each instance of ImuVisual represents the visualization of a single ``sensor_msgs::Imu`` message.
+Each instance of ImuVisual represents the visualization of a single ``sensor_msgs::msg::Imu`` message.
 Currently it just shows an arrow with the direction and magnitude of the acceleration vector, but could easily be expanded to include more of the message data.
 
 .. code-block:: C++
@@ -290,8 +291,8 @@ Configure the visual to show the data in the message.
     void setFrameOrientation(const Ogre::Quaternion & orientation);
 
 Set the pose of the coordinate frame the message refers to.
-These could be done inside setMessage(), but that would require calls to FrameManager and error handling inside ``setMessage()``, which doesn’t seem as clean.
-This way ImuVisual is only responsible for visualization.
+These could be done inside ``setMessage()``, but that would require calls to ``FrameManager`` and error handling inside ``setMessage()``, which doesn't seem as clean.
+This way ``ImuVisual`` is only responsible for visualization.
 
 .. code-block:: C++
 
@@ -299,7 +300,7 @@ This way ImuVisual is only responsible for visualization.
 
     private:
 
-Set the color and alpha of the visual, which are user-editable parameters and therefore don’t come from the Imu message.
+Set the color and alpha of the visual, which are user-editable parameters and therefore don't come from the Imu message.
 
 .. code-block:: C++
 
@@ -311,18 +312,18 @@ The object implementing the actual arrow shape.
 
     Ogre::SceneNode * frame_node_;
 
-A SceneNode whose pose is set to match the coordinate frame of the Imu message header.
+A ``SceneNode`` whose pose is set to match the coordinate frame of the Imu message header.
 
 .. code-block:: C++
 
         Ogre::SceneManager * scene_manager_;
     };
 
-The SceneManager, kept here only so the destructor can ask it to destroy the ``frame_node_``.
+The ``SceneManager``, kept here only so the destructor can ask it to destroy the ``frame_node_``.
 
 imu_visual.cpp
 ^^^^^^^^^^^^^^
-The full source code of imu_visual.cpp is here: `imu_visual.cpp <https://github.com/ros-visualization/visualization_tutorials/blob/ros2/rviz_plugin_tutorials/src/imu_visual.cpp>`_
+The full source code of ``imu_visual.cpp`` is here: `imu_visual.cpp <https://github.com/ros-visualization/visualization_tutorials/blob/ros2/rviz_plugin_tutorials/src/imu_visual.cpp>`_
 
 ``Ogre::SceneNode`` s form a tree, with each node storing the transform (position and orientation) of itself relative to its parent.
 Ogre does the math of combining those transforms when it is time to render
@@ -331,7 +332,7 @@ Ogre does the math of combining those transforms when it is time to render
 
     frame_node_ = parent_node->createChildSceneNode();
 
-Here we create a node to store the pose of the Imu’s header frame relative to the RViz fixed frame.
+Here we create a node to store the pose of the Imu's header frame relative to the RViz fixed frame.
 
 .. code-block:: C++
 
@@ -348,7 +349,7 @@ We create the arrow object within the frame node so that we can set its position
         scene_manager_->destroySceneNode(frame_node_);
     }
 
-Destroy the frame node since we don’t need it anymore.
+Destroy the frame node since we don't need it anymore.
 
 
 .. code-block:: C++
@@ -359,7 +360,7 @@ Destroy the frame node since we don’t need it anymore.
 
         Ogre::Vector3 acc(static_cast<float>(a.x), static_cast<float>(a.y), static_cast<float>(a.z));
 
-Convert the ``geometry_msgs::Vector3`` to an ``Ogre::Vector3``.
+Convert the ``geometry_msgs::msg::Vector3`` to an ``Ogre::Vector3``.
 
 .. code-block:: C++
 
@@ -393,7 +394,7 @@ Set the orientation of the arrow to match the direction of the acceleration vect
         frame_node_->setOrientation(orientation);
     }
 
-Position and orientation are passed through to the SceneNode.
+Position and orientation are passed through to the ``SceneNode``.
 
 .. code-block:: C++
 
@@ -417,8 +418,8 @@ Simply build the plugin using colcon in the root directory of your workspace
 
 Exporting the Plugin
 --------------------
-For the plugin to be found and understood by other ROS packages (in this case, rviz), it needs a “plugin_description.xml” file.
-This file can be named anything you like, as it is specified in the plugin package's “package.xml” file like so:
+For the plugin to be found and understood by other ROS packages (in this case, rviz), it needs a ``plugin_description.xml`` file.
+This file can be named anything you like, as it is specified in the plugin package's ``package.xml`` file like so:
 
 .. code-block:: xml
 
@@ -426,7 +427,7 @@ This file can be named anything you like, as it is specified in the plugin packa
         <rviz plugin="${prefix}/plugin_description.xml"/>
     </export>
 
-The contents of plugin_description.xml then look like this:
+The contents of ``plugin_description.xml`` then look like this:
 
 .. code-block:: xml
 
@@ -455,10 +456,10 @@ The contents of plugin_description.xml then look like this:
       </class>
     </library>
 
-The first line says that the compiled library lives in rviz_plugin_tutorials (the ".so" ending is appended by pluginlib according to the OS).
+The first line says that the compiled library lives in ``rviz_plugin_tutorials`` (the ".so" ending is appended by ``pluginlib`` according to the OS).
 This path is relative to the top directory of the package:
 
-| The next section is a ``class`` entry describing the TeleopPanel:
+| The next section is a ``class`` entry describing the ``TeleopPanel``:
 
 .. code-block:: xml
 
@@ -472,7 +473,7 @@ This path is relative to the top directory of the package:
 
 This specifies the name, type, base class, and description of the class.
 The name field must be a combination of the first two strings given to the ``PLUGINLIB_DECLARE_CLASS()`` macro in the source file.
-It must be the "package" name, a "/" slash, then the "display name" for the class. The "display name" is the name used for the class in the user interface.
+It must be the package name, a "/" slash, then the "display name" for the class. The "display name" is the name used for the class in the user interface.
 
 | The type entry must be the fully-qualified class name, including any namespace(s) it is inside.
 
@@ -482,7 +483,7 @@ The description subsection is a simple text description of the class, which is s
 This section can contain HTML, including hyperlinks, but the markup must be escaped to avoid being interpreted as XML markup.
 For example, a link tag might look like: ``&lt;a href="my-web-page.html"&gt;``.
 
-| Display plugins can have multiple message_type tags, which are used by RViz when you add a Display by selecting its topic first.
+| Display plugins can have multiple ``message_type`` tags, which are used by RViz when you add a Display by selecting its topic first.
 
 Trying it out
 -------------
@@ -502,23 +503,23 @@ then scrolling down through the available displays until you see “Imu” under
 
 If “Imu” is not in your list of Display Types, look through RViz's console output for error messages relating to plugin loading. Some common problems are:
 
-* not having a plugin_description.xml file,
-* not exporting it in the package.xml file, or
-* not properly referencing the library file (like librviz_plugin_tutorials.so) from plugin_description.xml.
+* not having a ``plugin_description.xml`` file,
+* not exporting it in the ``package.xml`` file, or
+* not properly referencing the library file (like ``librviz_plugin_tutorials.so``) from ``plugin_description.xml``.
 
-| Once you've added the Imu display to RViz, you just need to set the topic name of the display to a source of `sensor_msgs/Imu <https://docs.ros2.org/latest/api/sensor_msgs/msg/Imu.html>`_ messages.
+| Once you've added the Imu display to RViz, you just need to set the topic name of the display to a source of `sensor_msgs/msg/Imu <https://docs.ros2.org/latest/api/sensor_msgs/msg/Imu.html>`_ messages.
 
-| If you don't happen to have an IMU or other source of `sensor_msgs/Imu <https://docs.ros2.org/latest/api/sensor_msgs/msg/Imu.html>`_ messages, you can test the plugin with a Python script like this: `scripts/send_test_msgs.py <https://github.com/ros-visualization/visualization_tutorials/blob/ros2/rviz_plugin_tutorials/scripts/send_test_msgs.py>`_ .
+| If you don't happen to have an IMU or other source of `sensor_msgs/msg/Imu <https://docs.ros2.org/latest/api/sensor_msgs/msg/Imu.html>`_ messages, you can test the plugin with a Python script like this: `scripts/send_test_msgs.py <https://github.com/ros-visualization/visualization_tutorials/blob/ros2/rviz_plugin_tutorials/scripts/send_test_msgs.py>`_ .
 
-| The script publishes on the “/test_imu” topic, so enter that.
+| The script publishes on the ``/test_imu`` topic, so enter that.
 
-| The script publishes both Imu messages and a moving TF frame (“/base_link” relative to “/map”), so make sure your “Fixed Frame” is set to “/map”.
+| The script publishes both Imu messages and a moving TF frame (``/base_link`` relative to ``/map``), so make sure your ``Fixed Frame`` is set to ``/map``.
 
-| Finally, adjust the “History Length” parameter of the Imu display to 10 and you should see something like the picture at the top of this page.
+| Finally, adjust the ``History Length`` parameter of the Imu display to 10 and you should see something like the picture at the top of this page.
 
 | Note: If you use this to visualize messages from an actual IMU, the arrows are going to be huge compared to most robots:
 
-.. image:: images/real_imu_test.png
+.. image:: images/real_imu.png
 
 (Note the PR2 robot at the base of the purple arrow.)
 This is because the Imu acceleration units are meters per second squared, and gravity is 9.8 m/s^2,
@@ -539,9 +540,9 @@ To add a gravity compensation option, you might take steps like these:
 Since ``ImuVisual`` takes complete Imu messages as input, adding visualizations of more of the Imu data only needs modifications to ``ImuVisual``.
 Imu data displays might look like:
 
-* orientation: An ``rviz::Axes`` object at the Imu reference frame, turned to show the orientation.
-* angular_velocity: Maybe a line to show the axis of rotation and a 3D arrow curving around it to show the speed of rotation?
-* orientation_covariance: Maybe this is an ellipse at the end of each of the X, Y, and Z axes showing the orientation?
-* linear_acceleration_covariance: Maybe this is an ellipsoid at the end of the acceleration arrow?
+* ``orientation``: An ``rviz::Axes`` object at the Imu reference frame, turned to show the orientation.
+* ``angular_velocity``: Maybe a line to show the axis of rotation and a 3D arrow curving around it to show the speed of rotation?
+* ``orientation_covariance``: Maybe this is an ellipse at the end of each of the X, Y, and Z axes showing the orientation?
+* ``linear_acceleration_covariance``: Maybe this is an ellipsoid at the end of the acceleration arrow?
 
 As all this might be visually cluttered, it may make sense to include boolean options to enable or disable some of them.

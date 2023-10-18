@@ -11,7 +11,7 @@ Interactive Markers: Getting Started
 
 **Tutorial level:** Intermediate
 
-**Time:** TBD
+**Time:** 10 Minutes
 
 .. contents:: Contents
    :depth: 2
@@ -30,14 +30,17 @@ Before starting this tutorial, you should first complete the previous RViz tutor
 
 Documentation
 -------------
-Interactive Markers are represented by the `visualization_msgs/InteractiveMarker <http://docs.ros.org/en/api/visualization_msgs/html/msg/InteractiveMarker.html>`__ message,
-which contains a context menu and several controls (`visualization_msgs/InteractiveMarkerControl <http://docs.ros.org/en/api/visualization_msgs/html/msg/InteractiveMarkerControl.html>`__).
+Interactive Markers are represented by the
+`visualization_msgs/msg/InteractiveMarker <https://docs.ros2.org/latest/api/visualization_msgs/msg/InteractiveMarker.html>`__ message,
+which contains a context menu and several controls
+(`visualization_msgs/msg/InteractiveMarkerControl <https://docs.ros2.org/latest/api/visualization_msgs/msg/InteractiveMarkerControl.html>`__).
 The controls define the different visual parts of the interactive marker,
-can consist of several regular markers (`visualization_msgs/Marker <http://docs.ros.org/en/api/visualization_msgs/html/msg/Marker.html>`__) and can each have a different function.
+can consist of several regular markers (`visualization_msgs/msg/Marker <https://docs.ros2.org/latest/api/visualization_msgs/msg/Marker.html>`__)
+and can each have a different function.
 
 .. image:: images/interactive_marker_structure.png
 
-If you want to create a node providing a set of interactive markers, you need to instantiate an InteractiveMarkerServer object.
+If you want to create a node providing a set of interactive markers, you need to instantiate an ``InteractiveMarkerServer`` object.
 This will handle the connection to the client (usually RViz) and make sure that all changes
 you make are being transmitted and that your application is being notified of all the actions the user performs on the interactive markers.
 
@@ -46,19 +49,26 @@ you make are being transmitted and that your application is being notified of al
 To find out more about how to use interactive markers, refer to this and the following tutorials. The source code used can be found in the `visualization_tutorials <https://github.com/ros-visualization/visualization_tutorials/tree/ros2>`__ repository.
 
 The messages used to describe interactive markers themselves contain a detailed description of all their parameters.
-Of main interest are `visualization_msgs/InteractiveMarker <http://docs.ros.org/en/api/visualization_msgs/html/msg/InteractiveMarker.html>`__,
-`visualization_msgs/InteractiveMarkerControl <http://docs.ros.org/en/api/visualization_msgs/html/msg/InteractiveMarkerControl.html>`__
-and `visualization_msgs/InteractiveMarkerFeedback <http://docs.ros.org/en/api/visualization_msgs/html/msg/InteractiveMarkerFeedback.html>`__.
-The recommended way to create context menus is using the `MenuHandler <https://docs.ros.org/en/api/interactive_markers/html/classinteractive__markers_1_1MenuHandler.html>`__ interface, so you will not have to deal with the underlying messages.
+Of main interest are:
+
+* `visualization_msgs/msg/InteractiveMarker <https://docs.ros2.org/latest/api/visualization_msgs/msg/InteractiveMarker.html>`__
+* `visualization_msgs/msg/InteractiveMarkerControl <https://docs.ros2.org/latest/api/visualization_msgs/msg/InteractiveMarkerControl.html>`__
+* `visualization_msgs/msg/InteractiveMarkerFeedback <https://docs.ros2.org/latest/api/visualization_msgs/msg/InteractiveMarkerFeedback.html>`__
+
+The recommended way to create context menus is using the
+`MenuHandler <https://docs.ros.org/en/api/interactive_markers/html/classinteractive__markers_1_1MenuHandler.html>`__ interface,
+so you will not have to deal with the underlying messages.
 
 The interactive_marker_tutorials Package
 ----------------------------------------
-The best way to understand what interactive markers do is by trying out the examples contained in the `visualization_tutorials package <https://github.com/ros-visualization/visualization_tutorials/tree/ros2/interactive_marker_tutorials>`__.
-It contains five examples: :ref:`simple_marker <VizTutorials_simple_marker>`, :ref:`basic_controls <VizTutorials_basic_controls>`, :ref:`menu <VizTutorials_menu>`, :ref:`pong <VizTutorials_pong>` and :ref:`cube <VizTutorials_cube>`.
+The best way to understand what interactive markers do is by trying out the examples contained in the
+`visualization_tutorials <https://github.com/ros-visualization/visualization_tutorials/tree/ros2/interactive_marker_tutorials>`__ package.
+It contains five examples: :ref:`simple_marker <VizTutorials_simple_marker>`, :ref:`basic_controls <VizTutorials_basic_controls>`,
+:ref:`menu <VizTutorials_menu>`, :ref:`pong <VizTutorials_pong>` and :ref:`cube <VizTutorials_cube>`.
 
 1 How to run the tutorials
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
-The procedure to run the tutorials is basically the same in all case. E.g. to run basic_controls, open a terminal and type
+The procedure to run the tutorials is basically the same in all case. E.g. to run ``basic_controls``, open a terminal and type:
 
 .. code-block:: console
 
@@ -72,9 +82,9 @@ This will start the node which contains the interactive marker server. Then, sta
 
 In RViz do the following:
 
-* Set the fixed frame to '/base_link'.
+* Set the fixed frame to ``/base_link``.
 * Add an 'Interactive Markers' display by clicking on 'Add' in the 'Displays' panel.
-* Set the update topic of this display to '/basic_controls/update'. This should immediately bring up several grey cubes in rviz.
+* Set the update topic of this display to '/basic_controls'. This should immediately bring up several grey cubes in rviz.
 * Now select 'Interact' in the tool panel. This will enable all interactive elements in the main view, which will bring up additional arrows and rings around the boxes. You can left-click on these controls and in some case on the box itself to change the pose of each interactive marker. Some markers have a context menu which you can access by right-clicking on them.
 * Makr sure you have a 'Grid' display. This is a useful visual clue for perceiving how the markers move in space while you drag them.
 
