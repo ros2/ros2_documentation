@@ -25,7 +25,8 @@ Only Windows 10 is supported.
 Install ROS 2
 -------------
 
-* Download the latest package for Windows, e.g., ``ros2-package-windows-AMD64.zip``.
+* Go to the releases page: https://github.com/ros2/ros2/releases
+* Download the latest package for Windows, e.g., ``ros2-package-windows-AMD64.zip``
 
 .. note::
 
