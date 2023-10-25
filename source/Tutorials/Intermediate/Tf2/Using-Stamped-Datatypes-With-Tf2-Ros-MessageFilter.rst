@@ -340,7 +340,7 @@ Inside the ``src/learning_tf2_cpp/src`` directory download file ``turtle_tf2_mes
 
     .. code-block:: console
 
-        curl -sk wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/turtle_tf2_message_filter.cpp -o turtle_tf2_message_filter.cpp
+        curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/turtle_tf2_message_filter.cpp -o turtle_tf2_message_filter.cpp
 
     Or in powershell:
 
