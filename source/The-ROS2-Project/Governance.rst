@@ -178,11 +178,11 @@ The current members of the ROS 2 TSC are (23 as of 2022-02-01):
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><img alt="ROS 2 logo" src="../_images/ros2_logo.png" style="height: 60px;" /></p></td>
-          <td class="tscclass" align="center"><p>Community Representative: <a href="https://github.com/SteveMacenski"> Steve Macenski </a></p></td>
+          <td class="tscclass" align="center"><p>Community Representative: <a href="https://github.com/SteveMacenski">Steve Macenski</a></p></td>
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><img alt="ROS 2 logo" src="../_images/ros2_logo.png" style="height: 60px;" /></p></td>
-          <td class="tscclass" align="center"><p>Community Representative:  <a href="https://github.com/fmrico"> Francisco Martin Rico </a></p></td>
+          <td class="tscclass" align="center"><p>Community Representative: <a href="https://github.com/fmrico">Francisco Martin Rico</a></p></td>
         </tr>
       </tbody>
     </table>
