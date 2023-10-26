@@ -9,7 +9,7 @@ Using a URDF in Gazebo
 
 **Goal:** Simulate your URDF in the Gazebo simulator
 
-**Tutorial level:** Advanced
+**Tutorial level:** Intermediate
 
 **Time:** 30 minutes
 
