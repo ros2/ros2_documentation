@@ -1,7 +1,3 @@
-.. redirect-from::
-
-    Tutorials/URDF/Using-a-URDF-in-Gazebo
-
 .. _GazeboURDF:
 
 Using a URDF in Gazebo
