@@ -31,12 +31,7 @@ Prerequisites
 
 You should have ``ros2 bag`` installed as a part of your regular ROS 2 setup.
 
-If you installed ROS from Debian packages on Linux and your system doesn't recognize the command, install it like so:
-
-.. code-block:: console
-
-  sudo apt-get install ros-{DISTRO}-ros2bag \
-                       ros-{DISTRO}-rosbag2-storage-default-plugins
+If you need to install ROS 2, see the :doc:`Installation instructions <../../../Installation>`.
 
 This tutorial talks about concepts covered in previous tutorials, like :doc:`nodes <../Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` and :doc:`topics <../Understanding-ROS2-Topics/Understanding-ROS2-Topics>`.
 It also uses the :doc:`turtlesim package <../Introducing-Turtlesim/Introducing-Turtlesim>`.
@@ -65,10 +60,29 @@ Open another terminal and run:
 
 Let's also make a new directory to store our saved recordings, just as good practice:
 
-.. code-block:: console
+.. tabs::
 
-  mkdir bag_files
-  cd bag_files
+    .. group-tab:: Linux
+
+        .. code-block:: console
+
+            mkdir bag_files
+            cd bag_files
+
+    .. group-tab:: macOS
+
+        .. code-block:: console
+
+            mkdir bag_files
+            cd bag_files
+
+    .. group-tab:: Windows
+
+        .. code-block:: console
+
+            md bag_files
+            cd bag_files
+
 
 2 Choose a topic
 ^^^^^^^^^^^^^^^^
@@ -115,9 +129,11 @@ Use the arrow keys to move the turtle around, and you will see data being publis
     ---
 
 
-
 3 ros2 bag record
 ^^^^^^^^^^^^^^^^^
+
+3.1 Record a single topic
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To record the data published to a topic use the command syntax:
 
@@ -153,7 +169,7 @@ Press ``Ctrl+C`` to stop recording.
 The data will be accumulated in a new bag directory with a name in the pattern of ``rosbag2_year_month_day-hour_minute_second``.
 This directory will contain a ``metadata.yaml`` along with the bag file in the recorded format.
 
-3.1 Record multiple topics
+3.2 Record multiple topics
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can also record multiple topics, as well as change the name of the file ``ros2 bag`` saves to.
@@ -211,8 +227,6 @@ Running this command on the ``subset`` bag file will return a list of informatio
   Messages:          3013
   Topic information: Topic: /turtle1/cmd_vel | Type: geometry_msgs/msg/Twist | Count: 9 | Serialization Format: cdr
                    Topic: /turtle1/pose | Type: turtlesim/msg/Pose | Count: 3004 | Serialization Format: cdr
-
-To view the individual messages, you would have to open up the database, in this case sqlite3, to examine it, which is beyond the scope of ROS 2.
 
 5 ros2 bag play
 ^^^^^^^^^^^^^^^
