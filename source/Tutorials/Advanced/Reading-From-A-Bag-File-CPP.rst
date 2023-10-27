@@ -23,14 +23,8 @@ Prerequisites
 
 You should have the ``rosbag2`` packages installed as part of your regular ROS 2 setup.
 
-If you've installed from Debian packages on Linux, it may be installed by default.
-If it is not, you can install it using this command.
+If you need to install ROS 2, see the :doc:`Installation instructions <../../Installation>`.
 
-.. code-block:: console
-
-  sudo apt install ros-{DISTRO}-rosbag2
-
-This tutorial discusses using ROS 2 bags.
 You should have already completed the :doc:`basic ROS 2 bag tutorial <../Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data>`, and we will be using the ``subset`` bag you created there.
 
 Tasks
