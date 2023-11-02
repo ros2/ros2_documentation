@@ -10,7 +10,7 @@ importlib-metadata==4.6.4
 more-itertools==8.10.0
 packaging==21.3
 pbr==5.8.0
-pip==22.0.2
+pip==23.3
 pyparsing==2.4.7
 pytz==2022.1
 requests==2.25.1
