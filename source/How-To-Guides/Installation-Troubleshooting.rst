@@ -339,3 +339,24 @@ Binary installation specific
 
 * If your example does not start because of missing DLLs, please verify that all libraries from external dependencies such as OpenCV are located inside your ``PATH`` variable.
 * If you forget to call the ``local_setup.bat`` file from your terminal, the demo programs will most likely crash immediately.
+
+Running RViz with WSL2
+^^^^^^^^^^^^^^^^^^^^^^
+
+If you are using `WSL2 <https://learn.microsoft.com/en-us/windows/wsl/install>`__ to run ROS 2 on Windows, you may run into an issue running RViz that looks like:
+
+.. code-block:: console
+
+   $ rviz2
+   [INFO] [1695823660.091830699] [rviz2]: Stereo is NOT SUPPORTED
+   [INFO] [1695823660.091943524] [rviz2]: OpenGl version: 4.1 (GLSL 4.1)
+   D3D12: Removing Device.
+   Segmentation fault
+
+One possible solution to this is to force RViz to use software rendering:
+
+.. code-block:: console
+
+   $ export LIBGL_ALWAYS_SOFTWARE=true
+   $ rviz2
+   [INFO] [1695823660.091830699] [rviz2]: Stereo is NOT SUPPORTED
