@@ -41,7 +41,7 @@ You can also automatically generate the urdf in a launch file.
 This is convenient because it stays up to date and doesn’t use up hard drive space.
 However, it does take time to generate, so be aware that your launch file might take longer to start up.
 
-To run xacro within your launch file, you need to put the ``Command` substitution as a parameter to the ``robot_state_publisher``.
+To run xacro within your launch file, you need to put the ``Command`` substitution as a parameter to the ``robot_state_publisher``.
 
 .. code-block:: python
 
