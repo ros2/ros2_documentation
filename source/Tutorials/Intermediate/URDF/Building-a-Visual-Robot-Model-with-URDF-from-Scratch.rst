@@ -59,20 +59,9 @@ To examine the model, launch the ``display.launch.py`` file:
 
 This does three things:
 
- * Loads the specified model and saves it as a parameter
- * Runs nodes to publish `sensor_msgs/msg/JointState <https://github.com/ros2/common_interfaces/blob/eloquent/sensor_msgs/msg/JointState.msg>`_ and transforms (more on these later)
+ * Loads the specified model and saves it as a parameter for the ``robot_state_publisher`` node.
+ * Runs nodes to publish `sensor_msgs/msg/JointState <https://github.com/ros2/common_interfaces/blob/{DISTRO}/sensor_msgs/msg/JointState.msg>`_ and transforms (more on these later)
  * Starts Rviz with a configuration file
-
-Note that the launch command above assumes that you are executing it from the `urdf_tutorial <https://index.ros.org/p/urdf_tutorial>`_ package directory (ie: the ``urdf`` directory is a direct child of the current working directory).
-If that is not the case, the relative path to ``01-myfirst.urdf`` will not be valid, and you'll receive an error as soon as the launcher tries to load the urdf as a parameter.
-
-A slightly modified argument allows this to work regardless of the current working directory:
-
-.. code-block:: console
-
-  ros2 launch urdf_tutorial display.launch.py model:=`ros2 pkg prefix --share urdf_tutorial`/urdf/01-myfirst.urdf
-
-You'll have to change all example launch commands given in these tutorials if you are not running them from the ``urdf_tutorial`` package location.
 
 After launching ``display.launch.py``, you should end up with RViz showing you the following:
 
