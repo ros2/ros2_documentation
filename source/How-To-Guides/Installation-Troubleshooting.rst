@@ -106,7 +106,9 @@ If you encounter exceptions when trying to source the environment after building
 Anaconda Python Conflict
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-``conda`` does not play nice with ROS2. To fix this make sure your ``PATH`` environment variable does not have any conda paths in it. You may have to check your `.bashrc` for this line and comment it out.
+``conda`` does not work in conjunction with ROS 2.
+Make sure that your ``PATH`` environment variable does not have any conda paths in it.
+You may have to check your `.bashrc` for this line and comment it out.
 
 .. code-block:: bash
    export PATH="/home/foo/miniconda3/bin:$PATH"
