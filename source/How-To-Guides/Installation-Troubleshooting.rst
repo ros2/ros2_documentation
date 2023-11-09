@@ -110,9 +110,6 @@ Anaconda Python Conflict
 Make sure that your ``PATH`` environment variable does not have any conda paths in it.
 You may have to check your `.bashrc` for this line and comment it out.
 
-.. code-block:: bash
-   export PATH="/home/foo/miniconda3/bin:$PATH"
-
 .. _macOS-troubleshooting:
 
 macOS
