@@ -108,7 +108,7 @@ Anaconda Python Conflict
 
 ``conda`` does not work in conjunction with ROS 2.
 Make sure that your ``PATH`` environment variable does not have any conda paths in it.
-You may have to check your `.bashrc` for this line and comment it out.
+You may have to check your ``.bashrc`` for this line and comment it out.
 
 .. _macOS-troubleshooting:
 
