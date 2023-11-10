@@ -103,6 +103,13 @@ If you encounter exceptions when trying to source the environment after building
    colcon version-check  # check if newer versions available
    sudo apt install python3-colcon* --only-upgrade  # upgrade installed colcon packages to latest version
 
+Anaconda Python Conflict
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+``conda`` does not work in conjunction with ROS 2.
+Make sure that your ``PATH`` environment variable does not have any conda paths in it.
+You may have to check your ``.bashrc`` for this line and comment it out.
+
 .. _macOS-troubleshooting:
 
 macOS
