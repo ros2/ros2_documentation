@@ -1,0 +1,3968 @@
+# Archivo de traducción al español para la documentación de ROS 2.
+# Copyright (C) 2023, Open Robotics
+# This file is distributed under the same license as the ROS 2 documentation
+# package.
+# Cristian Chitiva <cychitivav@unal.edu.co>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ROS 2 documentation\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-06 22:03+0000\n"
+"Language-Team: es <LL@li.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/Installation.rst:5 1616cd0727b449f79bd58d541ac82860
+msgid "Installation"
+msgstr "Instalación"
+
+#: ../../source/Installation.rst:7 fceff5526738435cb2a7a52ab2c2f424
+msgid "Options for installing ROS 2 {DISTRO_TITLE_FULL}:"
+msgstr "Opciones para instalar ROS 2 {DISTRO_TITLE_FULL}:"
+
+#: ../../source/Installation.rst:22 fae4744c1e184d3ca7f316d88cc663da
+msgid "Binary packages"
+msgstr "Paquetes binarios"
+
+#: ../../source/Installation.rst:24 00a5cb7b10cd48988ab74a58a8d336cb
+msgid ""
+"Binaries are only created for the Tier 1 operating systems listed in "
+"`REP-2000 <https://www.ros.org/reps/rep-2000.html#rolling-ridley-"
+"june-2020-ongoing>`__. Given the nature of Rolling, this list may be "
+"updated at any time. If you are not running any of the following "
+"operating systems you may need to build from source or use a "
+":doc:`container solution <How-To-Guides/Run-2-nodes-in-single-or-"
+"separate-docker-containers>` to run ROS 2 on your platform."
+msgstr ""
+"Los binarios solo se crean para los sistemas operativos de nivel 1 "
+"enumerados en `REP-2000 <https://www.ros.org/reps/rep-2000.html#rolling-"
+"ridley-june-2020-ongoing>`__. Dada la naturaleza de Rolling, esta lista "
+"puede actualizarse en cualquier momento. Si no está ejecutando ninguno de "
+"los siguientes sistemas operativos, es posible que deba compilar desde "
+"origen o utilizar una :doc:`solución de contenedor <How-To-Guides/Run-2-"
+"nodes-in-single-or-separate-docker-containers>` para ejecutar ROS 2 en su "
+"plataforma."
+
+#: ../../source/Installation.rst:28 e7ff62eaab2c4bfa85e1a6e40a0ce358
+msgid "We provide ROS 2 binary packages for the following platforms:"
+msgstr "Proporcionamos paquetes binarios de ROS 2 para las siguientes plataformas:"
+
+#: ../../source/Installation.rst:30 33c51b51399046f8911f02740f710328
+msgid "Ubuntu Linux - Jammy Jellyfish (22.04)"
+msgstr "Ubuntu Linux - Jammy Jellyfish (22.04)"
+
+#: ../../source/Installation.rst:32 11fde20668c9419da62bd1b163b509d5
+msgid ":doc:`Debian packages <Installation/Ubuntu-Install-Debians>` (recommended)"
+msgstr ":doc:`Paquetes Debian <Installation/Ubuntu-Install-Debians>` (recomendado)"
+
+#: ../../source/Installation.rst:33 6882bf9e1e85487c854a029aeb1e868c
+msgid ":doc:`\"fat\" archive <Installation/Alternatives/Ubuntu-Install-Binary>`"
+msgstr ":doc:`Archivo \"fat\" <Installation/Alternatives/Ubuntu-Install-Binary>`"
+
+#: ../../source/Installation.rst:35 1617d886bbf840d69ed8d2f1dcf61e0f
+msgid "RHEL 9"
+msgstr "RHEL 9"
+
+#: ../../source/Installation.rst:37 8cb2ddb6020442a9ad040570fcfb4e19
+msgid ":doc:`RPM packages <Installation/RHEL-Install-RPMs>` (recommended)"
+msgstr ":doc:`Paquetes RPM <Installation/RHEL-Install-RPMs>` (recomendado)"
+
+#: ../../source/Installation.rst:38 902b4b605bc64a61910da32c3a53417b
+msgid ":doc:`\"fat\" archive <Installation/Alternatives/RHEL-Install-Binary>`"
+msgstr ":doc:`Archivo \"fat\" <Installation/Alternatives/RHEL-Install-Binary>`"
+
+#: ../../source/Installation.rst:40 4c2c4664924542a9b89ae34ac982c722
+msgid ":doc:`Windows (VS 2019) <Installation/Windows-Install-Binary>`"
+msgstr ":doc:`Windows (VS 2019) <Installation/Windows-Install-Binary>`"
+
+#: ../../source/Installation.rst:46 0b503d3db6bb4270a3c172ea947ddf2d
+msgid "Building from source"
+msgstr "Compilación desde el código fuente"
+
+#: ../../source/Installation.rst:48 f41ecf7274d84b568a8d7f0d5dd26bec
+msgid "We support building ROS 2 from source on the following platforms:"
+msgstr "Admitimos la compilación de ROS 2 desde el código fuente en las siguientes plataformas:"
+
+#: ../../source/Installation.rst:51 c658899b41f94842b7cab01f17c08902
+msgid ":doc:`Ubuntu Linux <Installation/Alternatives/Ubuntu-Development-Setup>`"
+msgstr ":doc:`Ubuntu Linux <Installation/Alternatives/Ubuntu-Development-Setup>`"
+
+#: ../../source/Installation.rst:52 fd84f80b96804af5908b2dac233cf105
+msgid ":doc:`Windows <Installation/Alternatives/Windows-Development-Setup>`"
+msgstr ":doc:`Windows <Installation/Alternatives/Windows-Development-Setup>`"
+
+#: ../../source/Installation.rst:53 33f87df7aaba4bd7b0cb67f8cf185013
+msgid ":doc:`RHEL/Fedora <Installation/Alternatives/RHEL-Development-Setup>`"
+msgstr ":doc:`RHEL/Fedora <Installation/Alternatives/RHEL-Development-Setup>`"
+
+#: ../../source/Installation.rst:54 1dbb9a3c4d1e42819ccdbc1b68e012a6
+msgid ":doc:`macOS <Installation/Alternatives/macOS-Development-Setup>`"
+msgstr ":doc:`macOS <Installation/Alternatives/macOS-Development-Setup>`"
+
+#: ../../source/Installation.rst:58 6a67ed8d10914d01b0db6d80c5582fe2
+msgid "Which install should you choose?"
+msgstr "¿Qué instalación debería elegir?"
+
+#: ../../source/Installation.rst:60 c9c77fd8e2a1413c9ae733df8f6360ee
+msgid ""
+"Installing from binary packages or from source will both result in a "
+"fully-functional and usable ROS 2 install. Differences between the "
+"options depend on what you plan to do with ROS 2."
+msgstr ""
+"La instalación desde paquetes binarios o desde el código fuente dará como "
+"resultado una instalación de ROS 2 totalmente funcional y utilizable. Las "
+"diferencias entre las opciones dependen de lo que planea hacer con ROS 2."
+
+#: ../../source/Installation.rst:63 ea00130a8db548ca84dd74d5fadb404e
+msgid ""
+"**Binary packages** are for general use and provide an already-built "
+"install of ROS 2. This is great for people who want to dive in and start "
+"using ROS 2 as-is, right away."
+msgstr ""
+"**Los paquetes binarios** son para uso general y proporcionan una "
+"instalación ya construida de ROS 2. Esto es genial para las personas que "
+"desean sumergirse y comenzar a usar ROS 2 tal como está, de inmediato."
+
+#: ../../source/Installation.rst:66 739b4e7dd15746fa8d1a3a2cd568c985
+msgid "Linux users have two options for installing binary packages:"
+msgstr "Los usuarios de Linux tienen dos opciones para instalar paquetes binarios:"
+
+#: ../../source/Installation.rst:68 db368fddc8534faa8e825568cd4fcdee
+msgid "Debian packages"
+msgstr "Paquetes Debian"
+
+#: ../../source/Installation.rst:69 c422199f90794fb988614131caa8c235
+msgid "\"fat\" archive"
+msgstr "Archivo \"fat\""
+
+#: ../../source/Installation.rst:71 b3e18f7d2f5a43d1a5105fdf700dd085
+msgid ""
+"Installing from Debian packages is the recommended method. It's more "
+"convenient because it installs its necessary dependencies automatically. "
+"It also updates alongside regular system updates."
+msgstr ""
+"La instalación desde paquetes Debian es el método recomendado. Es más "
+"conveniente porque instala sus dependencias necesarias automáticamente. "
+"También se actualiza junto con las actualizaciones regulares del sistema."
+
+#: ../../source/Installation.rst:75 04e6b6b7f9ef4480beb9ebfc26ed32e9
+msgid ""
+"However, you need root access in order to install Debian packages. If you"
+" don't have root access, the \"fat\" archive is the next best choice."
+msgstr ""
+"Sin embargo, necesita acceso de root para instalar paquetes Debian. Si no"
+" tiene acceso de root, el archivo \"fat\" es la siguiente mejor opción."
+
+#: ../../source/Installation.rst:78 1381ec00f0174bb6b552226d6c4dd9b8
+msgid ""
+"macOS and Windows users who choose to install from binary packages only "
+"have the \"fat\" archive option (Debian packages are exclusive to "
+"Ubuntu/Debian)."
+msgstr ""
+"Los usuarios de macOS y Windows que eligen instalar desde paquetes "
+"binarios solo tienen la opción del archivo \"fat\" (los paquetes Debian "
+"son exclusivos de Ubuntu/Debian)."
+
+#: ../../source/Installation.rst:81 3fb145b55930415284812ca304931f1e
+msgid ""
+"**Building from source** is meant for developers looking to alter or "
+"explicitly omit parts of ROS 2's base. It is also recommended for "
+"platforms that don't support binaries. Building from source also gives "
+"you the option to install the absolute latest version of ROS 2."
+msgstr ""
+"**La compilación desde el código fuente** está destinada a desarrolladores "
+"que buscan alterar u omitir explícitamente partes de la base de ROS 2. "
+"También se recomienda para plataformas que no admiten binarios. La "
+"compilación desde el código fuente también le brinda la opción de instalar "
+"la última versión absoluta de ROS 2."
+
+#: ../../source/Installation.rst:86 1aac5330dfa743738d73a4bfb56e0d2c
+msgid "Contributing to ROS 2 core?"
+msgstr "¿Contribuir al núcleo de ROS 2?"
+
+#: ../../source/Installation.rst:87 d48fee8f720e4488a8cd3e8ca0e42b6f
+msgid ""
+"If you plan to contribute directly to ROS 2 core packages, you can "
+"install the :doc:`latest development from source "
+"<Installation/Alternatives/Latest-Development-Setup>` which shares "
+"installation instructions with the :ref:`Rolling distribution "
+"<rolling_distribution>`."
+msgstr ""
+"Si planea contribuir directamente a los paquetes principales de ROS 2, "
+"puede instalar la :doc:`última versión de desarrollo desde el código "
+"fuente <Installation/Alternatives/Latest-Development-Setup>` que comparte "
+"instrucciones de instalación con la :ref:`distribución Rolling "
+"<rolling_distribution>`."
+
+#: ../../source/Installation/Alternatives.rst:2
+#: 9d7eb751a5384a73a6103a4ec4bf89dd
+msgid "Alternatives"
+msgstr "Alternativas"
+
+#: ../../source/Installation/Alternatives.rst:4
+#: 66e06127ce71468baeea358953a45e3f
+msgid ""
+"A list of alternative ways to install ROS 2 – whether it's by building "
+"from source or installing a binary."
+msgstr ""
+"Una lista de formas alternativas de instalar ROS 2, ya sea compilando desde "
+"el código fuente o instalando un binario."
+
+#: ../../source/Installation/Alternatives/Latest-Development-Setup.rst:2
+#: 3b4a81c81ea542afa1ad5e1a30a8ceb5
+msgid "Latest development (source)"
+msgstr "Último desarrollo (código fuente)"
+
+#: ../../source/Installation/Alternatives/Latest-Development-Setup.rst:4
+#: d74c6439878d4e3d942dbc5db34c7185
+msgid ""
+"If you plan to contribute directly to the latest ROS 2 development, you "
+"can install ROS 2 by building it from source or installing testing "
+"binaries. This will give you the latest bug fixes and features."
+msgstr ""
+"Si planea contribuir directamente al último desarrollo de ROS 2, puede "
+"instalar ROS 2 compilándolo desde el código fuente o instalando binarios "
+"de prueba. Esto le dará las últimas correcciones de errores y funciones."
+
+#: ../../source/Installation/Alternatives/Latest-Development-Setup.rst:8
+#: 1139d60fdd5a46ad9bb7d0fc7afc920c
+msgid "Testing binaries"
+msgstr "Binarios de prueba"
+
+#: ../../source/Installation/Alternatives/Latest-Development-Setup.rst:10
+#: eab717864a4d4caa80b5eabeb0f9caab
+msgid "See :doc:`Testing <../Testing>`."
+msgstr "Ver :doc:`Pruebas <../Testing>`."
+
+#: ../../source/Installation/Alternatives/Latest-Development-Setup.rst:13
+#: b76aae6c1cf646b3b0b789e38f85a049
+msgid "Build from source"
+msgstr "Compilar desde el código fuente"
+
+#: ../../source/Installation/Alternatives/Latest-Development-Setup.rst:17
+#: 9c93aa4400924e68a75656c583691a80
+msgid ""
+"The latest development does not go through the same rigorous testing as "
+"releases and is not recommended if you are looking for a stable version "
+"of ROS 2. Instead, choose a :doc:`ROS distribution <../../Installation>` "
+"that has already been released."
+msgstr ""
+"El último desarrollo no pasa por las mismas pruebas rigurosas que las "
+"versiones y no se recomienda si está buscando una versión estable de ROS "
+"2. En su lugar, elija una :doc:`distribución de ROS <../../Installation>` "
+"que ya haya sido lanzada."
+
+#: ../../source/Installation/Alternatives/Latest-Development-Setup.rst:20
+#: a11d19d423a44a5cb723cf523c353cd7
+msgid ""
+"Follow the links below for the latest setup instructions for your "
+"platform:"
+msgstr ""
+"Siga los enlaces a continuación para obtener las últimas instrucciones de "
+"configuración para su plataforma:"
+
+#: ../../source/Installation/Alternatives/Latest-Development-Setup.rst:22
+#: cfd3f826f0ef47d78c4bf21dbe9e7eb8
+msgid ":doc:`Ubuntu Linux <Ubuntu-Development-Setup>`"
+msgstr ":doc:`Ubuntu Linux <Ubuntu-Development-Setup>`"
+
+#: ../../source/Installation/Alternatives/Latest-Development-Setup.rst:23
+#: 28acb7cfb7d540338191626b250b372f
+msgid ":doc:`Windows <Windows-Development-Setup>`"
+msgstr ":doc:`Windows <Windows-Development-Setup>`"
+
+#: ../../source/Installation/Alternatives/Latest-Development-Setup.rst:24
+#: 4ef00ccffa1c4ed5919650f1e010a117
+msgid ":doc:`RHEL <RHEL-Development-Setup>`"
+msgstr ":doc:`RHEL <RHEL-Development-Setup>`"
+
+#: ../../source/Installation/Alternatives/Latest-Development-Setup.rst:25
+#: 30b8cc0dde804695bb286bdff0020fd7
+msgid ":doc:`macOS <macOS-Development-Setup>`"
+msgstr ":doc:`macOS <macOS-Development-Setup>`"
+
+#: ../../source/Installation/Alternatives/Latest-Development-Setup.rst:27
+#: 80eb463685fa432fa42258d182ed616c
+msgid ""
+"For keeping your source code up-to-date, see :doc:`Maintain a source "
+"checkout <../Maintaining-a-Source-Checkout>`."
+msgstr ""
+"Para mantener actualizado su código fuente, consulte :doc:`Mantener un "
+"repositorio de código fuente <../Maintaining-a-Source-Checkout>`."
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:8
+#: 24d548ca2c144f318e95d4ec593cea19
+msgid "RHEL (source)"
+msgstr "RHEL (código fuente)"
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:13
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:6
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:12
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:10
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:10
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:11
+#: ../../source/Installation/RHEL-Install-RPMs.rst:6
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:10
+#: ../../source/Installation/Windows-Install-Binary.rst:6
+#: 56891d1b509c4b5cbc6f1cd8e86551f8 5dbecadcc56343fdaa3b9e87597185bb
+#: 5e1dd65f9ba94e5ebaf87ea11f1f851d 64c354eb9e3f4d7b844f9236a6b61f34
+#: 890eb0c9529c433f92ede4f3225fac7f c871fe9dfca646f78dd6e89a48c6d8ae
+#: f348559162534e0fa865c434cd2d737a f69773053e0140a2bafd460bae0ddf22
+#: fc08095847ae47e8a6ea8495847b43ae
+msgid "Table of Contents"
+msgstr "Tabla de contenidos"
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:16
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:19
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:15
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:23
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:15
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:14
+#: ../../source/Installation/Windows-Install-Binary.rst:17
+#: 1181578de59240ab8eb43d8d8341e1a3 6558fef6c0de4b33a3c04974d0a23a14
+#: 6922431fcb784cb5aadfe292023e7df3 81c7d03481174135a6d95d8e9757219d
+#: 9a6b17c04b1a4e389f601904b808ad2c 9bed5b78f43d474cbdcf4107c8aff7be
+#: d6f107b6789a46598485958571c966bc
+msgid "System requirements"
+msgstr "Requisitos del sistema"
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:17
+#: 5c54fe282f3e434c8099786a75dbd86d
+msgid "The current target Red Hat platforms for {DISTRO_TITLE_FULL} are:"
+msgstr "Las plataformas Red Hat objetivo actuales para {DISTRO_TITLE_FULL} son:"
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:19
+#: 1bfc46b5a9ba446ebec0cb0bc6938de6
+msgid "Tier 2: RHEL 9 64-bit"
+msgstr "Nivel 2: RHEL 9 de 64 bits"
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:21
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:21
+#: 1c0613a69aa441ba9403c6cb250ad0bc 2de79d4f5d524929afb2a68fd6922c1b
+msgid "As defined in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`_."
+msgstr ""
+"Como se define en `REP 2000 <https://www.ros.org/reps/rep-2000.html>`_."
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:24
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:26
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:24
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:30
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:21
+#: ../../source/Installation/RHEL-Install-RPMs.rst:23
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:27
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:2
+#: 060f215d612e43b68a137a00208498fb 106a829b31d74b40871ebbb08ca9527b
+#: 14be67c37be84b529d1f7d1a96c1c51f 1f236b7113844e3784576ecd2517bbd8
+#: 471a2aef69e14d909116e05849cc4c5e 6cc42f0d4e434ed9b967ff9d00e56220
+#: 9faef57e68e043d3af72c960110f641e d1d6823e92494fbc95c56fdd359e39eb
+#: e9a109c53d4344128aaa21b1ecf14544
+msgid "System setup"
+msgstr "Configuración del sistema"
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:27
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:29
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:27
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:33
+#: ../../source/Installation/RHEL-Install-RPMs.rst:26
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:30
+#: 1a6c2d7292334db08308f2af9743f480 21e7245970f84a0ead835ec5f026605d
+#: 626d7d18ac3c4ab1a0e6667f6a13e08c be4f49b5f26c4c17896cdb3511bf0a2a
+#: be8e4ebcd45b4a149c12e7eb002feda1 cd08f9bb6c6a491d94d71729224c382b
+msgid "Set locale"
+msgstr "Establecer configuración regional"
+
+#: ../../source/Installation/_RHEL-Set-Locale.rst:1
+#: 343ba9290c064d50a63dc916e3f860f0 89ca2bec35de40dc8a908c7d8d920c20
+#: c8aecc325b374117bb2bf18ba6b28787
+msgid ""
+"Make sure you have a locale which supports ``UTF-8``. If you are in a "
+"minimal environment (such as a docker container), the locale may be "
+"something minimal like ``C``. We test with the following settings. "
+"However, it should be fine if you're using a different UTF-8 supported "
+"locale."
+msgstr ""
+"Asegúrese de tener una configuración regional que admita ``UTF-8``. Si "
+"está en un entorno mínimo (como un contenedor de Docker), la configuración"
+" regional puede ser algo mínimo como ``C``. Probamos con la siguiente "
+"configuración. Sin embargo, debería estar bien si está utilizando una "
+"configuración regional diferente compatible con UTF-8."
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:32
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:34
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:32
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:38
+#: ../../source/Installation/RHEL-Install-RPMs.rst:31
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:35
+#: 03d3417fe9124adea0d40d7c03bc563f 2d15d6ea9e8e4e49ae7d46620e4b7346
+#: 8a8b4b93a5c249fda466ae3ffe9640f3 c4c001adbeb84b83982cb6d83dd527f5
+#: d0ea1dca3e4747f0ae2806b047a6a699 fccd4d0ed94f410ab371497a80de5bb9
+msgid "Enable required repositories"
+msgstr "Habilitar los repositorios requeridos"
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:36
+#: 0951819a31fc4b8f89fd6061dc649970
+msgid "RHEL"
+msgstr "RHEL"
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:38
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:36
+#: d06342fb12f740a992cea167e1383d44 dbdc067f6bf74cf7b710aca57d493f1a
+msgid ""
+"The rosdep database contains packages from the EPEL and PowerTools "
+"repositories, which are not enabled by default. They can be enabled by "
+"running:"
+msgstr ""
+"La base de datos de rosdep contiene paquetes de los repositorios EPEL y "
+"PowerTools, que no están habilitados de forma predeterminada. Se pueden "
+"habilitar ejecutando:"
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:46
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:44
+#: ../../source/Installation/RHEL-Install-RPMs.rst:40
+#: 02ad9b9fdfcf4549a303ac316e7fedf0 8479bae572a349158d134294a970c73d
+#: 8bc0db4c855941549aa1b46a8168f9e0
+msgid ""
+"This step may be slightly different depending on the distribution you are"
+" using. Check the EPEL documentation: https://docs.fedoraproject.org/en-"
+"US/epel/#_quickstart"
+msgstr ""
+"Este paso puede ser ligeramente diferente según la distribución que esté "
+"utilizando. Consulte la documentación de EPEL: https://docs.fedoraproject."
+"org/en-US/epel/#_quickstart"
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:48
+#: ef0638d0f301489ba9a111d00064d40f
+msgid "Fedora"
+msgstr "Fedora"
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:50
+#: c2e178cd897b4930a9f2b0f637173816
+msgid "No additional setup required."
+msgstr "No se requiere configuración adicional."
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:54
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:37
+#: 3e7d6531a6c148a482a8efbea490a196 413c3e1741c848d7987ffa1814e202b2
+msgid "Install development tools"
+msgstr "Instalar herramientas de desarrollo"
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:89
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:57
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:47
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:120
+#: 1ccbe53653c24b0d9c86e022584fe162 494fc03d553f4d399cc1b66fbb5b8fed
+#: aa4b19c50db046bdbf5522aa79f18613 e86b107141c84e9cb3799ba1a56850fc
+msgid "Build ROS 2"
+msgstr "Compilar ROS 2"
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:92
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:60
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:50
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:123
+#: 5f0136db65bb49dfb1f11c21ad717058 79f4151731394c60ac55d9b0abfe7e61
+#: 809aa65e8f3f4cb1a18d16e47d31c939 fac73447341e4f74864b79e213f745ce
+msgid "Get ROS 2 code"
+msgstr "Obtener el código de ROS 2"
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:94
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:62
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:125
+#: 0022b0f03a4544d0a735574a7c38bd96 dbbd778ec1114e0baeefb99c321c90b2
+#: ea0bb043977445da8702fcc0337cc0b8
+msgid "Create a workspace and clone all repos:"
+msgstr "Cree un espacio de trabajo y clone todos los repositorios:"
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:103
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:111
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:73
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:82
+#: 21e8f51e40564137b952ea1fee5ea5ee 22cc2e4a894b4268a05d12322fdb7b77
+#: 565404edbce4493f99447ab313584a23 9f3aef8b840c4f29b364fa733b930b13
+msgid "Install dependencies using rosdep"
+msgstr "Instalar dependencias usando rosdep"
+
+#: ../../source/Installation/_Dnf-Update-Admonition.rst:1
+#: 43670a2c22b54b28af9b55cc826674e3 904b6dc9d4bc4f5aa8f58cf5c8ebbee6
+#: f164e71e928d432090013136a153f4f1
+msgid ""
+"ROS 2 packages are built on frequently updated RHEL systems. It is always"
+" recommended that you ensure your system is up to date before installing "
+"new packages."
+msgstr ""
+"Los paquetes de ROS 2 se compilan en sistemas RHEL actualizados con "
+"frecuencia. Siempre se recomienda que asegure que su sistema esté "
+"actualizado antes de instalar nuevos paquetes."
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:114
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:120
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:86
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:97
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:73
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:134
+#: ../../source/Installation/RHEL-Install-RPMs.rst:112
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:82
+#: ../../source/Installation/Windows-Install-Binary.rst:45
+#: 2ed3138aad3a44cb8fb2b221a11cf0d2 34a576bd574d40e5a402bdbbbd36b6e4
+#: 647dd2473af64f19bc5f4fecbe00ac7f 6a7b600831014d618f6958e1160a5bee
+#: 7507c193c2764673828e4c9bc6e74e67 83a311db9a1e4feba0de478e4b50eecd
+#: 878038a8c00a4790b5b038dc4d355520 de6543d172b54de6a4d532995d89c105
+#: fd7fa3b1d2b541cebdaaa7e702e3f6c4
+msgid "Install additional RMW implementations (optional)"
+msgstr "Instalar implementaciones RMW adicionales (opcional)"
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:116
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:88
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:75
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:136
+#: 3e1d151cffe04ab9849b2bb2fd779ce0 3e2816f1f4f84a63a206ce31f24d93b0
+#: 5b4ac05015b445e2aa9c21605396b865 72cf7a57d1f144e792b5e37edf59ee26
+msgid ""
+"The default middleware that ROS 2 uses is ``Fast DDS``, but the "
+"middleware (RMW) can be replaced at build or runtime. See the :doc:`guide"
+" <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how "
+"to work with multiple RMWs."
+msgstr ""
+"El middleware predeterminado que usa ROS 2 es ``Fast DDS``, pero el "
+"middleware (RMW) se puede reemplazar en tiempo de compilación o de "
+"ejecución. Consulte la :doc:`guía <../../How-To-Guides/Working-with-"
+"multiple-RMW-implementations>` sobre cómo trabajar con múltiples RMW."
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:120
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:92
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:79
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:140
+#: 207ddd253cf1489bab36ed2794a4b414 2f8b5a120cf34419bff63f8312708ac6
+#: 8cfd3ec4d8d4403a81f7ad970b9e0d11 d052a06de0294ef19b13e191111b1407
+msgid "Build the code in the workspace"
+msgstr "Compilar el código en el espacio de trabajo"
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:122
+#: ea6aef291c8b4eecadb9f22d776621a5
+msgid ""
+"If you have already installed ROS 2 another way (either via RPMs or the "
+"binary distribution), make sure that you run the below commands in a "
+"fresh environment that does not have those other installations sourced. "
+"Also ensure that you do not have ``source "
+"/opt/ros/${ROS_DISTRO}/setup.bash`` in your ``.bashrc``. You can make "
+"sure that ROS 2 is not sourced with the command ``printenv | grep -i "
+"ROS``. The output should be empty."
+msgstr ""
+"Si ya ha instalado ROS 2 de otra manera (ya sea a través de RPM o la "
+"distribución binaria), asegúrese de ejecutar los siguientes comandos en un "
+"entorno nuevo que no tenga esas otras instalaciones. Asegúrese también de "
+"no tener ``source /opt/ros/${ROS_DISTRO}/setup.bash`` en su ``.bashrc``. "
+"Puede asegurarse de que ROS 2 no esté en uso con el comando ``printenv | "
+"grep -i ROS``. La salida debería estar vacía."
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:127
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:99
+#: 35f0b4e3a76b45d3b52b1a4f296f15e3 5897f84b7a694043bac19ca2c0f14a74
+msgid ""
+"More info on working with a ROS workspace can be found in :doc:`this "
+"tutorial <../../Tutorials/Beginner-Client-Libraries/Colcon-Tutorial>`."
+msgstr ""
+"Puede encontrar más información sobre cómo trabajar con un espacio de "
+"trabajo de ROS en :doc:`este tutorial <../../Tutorials/Beginner-Client-"
+"Libraries/Colcon-Tutorial>`."
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:136
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:108
+#: 00e0b29ff17d447e9f1abf1b58614fd7 f02edc65bbe649169c1f4b816883b4f9
+msgid ""
+"If you are having trouble compiling all examples and this is preventing "
+"you from completing a successful build, you can use the ``--packages-"
+"skip`` colcon flag to ignore the package that is causing problems. For "
+"instance, if you don't want to install the large OpenCV library, you "
+"could skip building the packages that depend on it using the command:"
+msgstr ""
+"Si tiene problemas para compilar todos los ejemplos y esto le impide "
+"completar una compilación exitosa, puede usar la bandera ``--packages-"
+"skip`` de colcon para ignorar el paquete que está causando problemas. Por "
+"ejemplo, si no desea instalar la gran biblioteca OpenCV, podría omitir la "
+"compilación de los paquetes que dependen de ella usando el comando:"
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:144
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:126
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:116
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:103
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:102
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:153
+#: ../../source/Installation/RHEL-Install-RPMs.rst:118
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:88
+#: ../../source/Installation/Windows-Install-Binary.rst:52
+#: ../../source/Installation/Windows-Install-Binary.rst:152
+#: 035305d82b774878a697521b2a88a6e1 1a0f7deb873c4d49b3413cca9371741b
+#: 6febcf1e7c9e45f7aecb8924cd13857e 8087f7938c864e6999189e1d915c74b0
+#: 99adce25415847aab0f3b7625bbfb908 9c4516f481c24629b1ba90d74121df1b
+#: b3bce4bbcb5e4c61b02da6a9e8c639a9 ca8c05d106854551bafc06658c717cf3
+#: d2357281c2ef4e5da51f9a059c5a5caa f12f11e011d04dbf9900ede07fe5d47d
+msgid "Setup environment"
+msgstr "Configurar el entorno"
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:146
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:128
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:118
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:105
+#: ../../source/Installation/RHEL-Install-RPMs.rst:120
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:90
+#: 320d4a138d324aef9e064a09d1492bd9 5428ed830e40459385bbecf895852cb8
+#: 6f59313df86b48d09eb6ab235b840b25 6ffa9be143cd4acd98233a7eb9541086
+#: 763546cb06984350a4c845468d5acd63 ab26894da28a4e89b537101357f2bab0
+msgid "Set up your environment by sourcing the following file."
+msgstr "Configure su entorno mediante el siguiente archivo."
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:155
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:137
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:129
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:114
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:115
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:164
+#: ../../source/Installation/RHEL-Install-RPMs.rst:129
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:99
+#: ../../source/Installation/Windows-Install-Binary.rst:63
+#: 3e1f0195c62d40679517f69379bef5e8 585b978e9480468aa2a2f57ba70adc22
+#: 64d9472a3f5e465eb330a97af08212dd 654ac971e6f2471081fd30129c647bd1
+#: 8a83e54c87314a3b81be5debe9e55af6 aaaf200f0bd94ea9aba00b718eba6fc7
+#: c83e1731f8ad4468beef0c9de62e58f0 ceea6692f48f41a09526d0bf39699400
+#: eee3b121ba124cbd87482782549fad8f
+msgid "Try some examples"
+msgstr "Pruebe algunos ejemplos"
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:157
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:131
+#: ../../source/Installation/RHEL-Install-RPMs.rst:133
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:103
+#: 0369d7fbe5804bb68e6986db91a8b367 1b20d574e9e54b5b8bc8a112aa8a96f3
+#: 4b70011a1e974508b039c515d9bb03d8 6a032992559c4e47a5e72ededb54b636
+msgid "In one terminal, source the setup file and then run a C++ ``talker``\\ :"
+msgstr ""
+"En una terminal, ejecute el archivo de configuración y luego ejecute un "
+"``talker`` de C++\\ :"
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:164
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:138
+#: ../../source/Installation/RHEL-Install-RPMs.rst:140
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:110
+#: 095d66fdf5e74f18824926db19d98deb 15db3c5d82134c1a8c1949e167c3b9db
+#: 19f43453ecb84f798bf4a0b316fcdcf5 1f5855b0f35b4f0ab9cc338a3751d584
+msgid ""
+"In another terminal source the setup file and then run a Python "
+"``listener``\\ :"
+msgstr ""
+"En otra terminal, ejecute el archivo de configuración y luego ejecute un "
+"``listener`` de Python\\ :"
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:171
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:153
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:145
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:130
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:150
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:178
+#: ../../source/Installation/RHEL-Install-RPMs.rst:147
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:117
+#: ../../source/Installation/Windows-Install-Binary.rst:77
+#: 0aab27781d334104a72286144b3aebc3 4c42b4bdb31d4d528fb9de332ec57d1e
+#: 6a4bfcde4bb74a0091c09028af0a8902 791c918a24f54a3cbdc38f75221ac3b5
+#: 8537f58966b841a8becff6e25100aef5 8b64528ed06f482ba28e27fb09f3694a
+#: 997cc4db31634dbdb71c2bde6f4e6071 c619cf5d810a45b7be49957cd2ae1d5a
+#: ec5ec0c4396646a6b3b8dcba1a3fefa8
+msgid ""
+"You should see the ``talker`` saying that it's ``Publishing`` messages "
+"and the ``listener`` saying ``I heard`` those messages. This verifies "
+"both the C++ and Python APIs are working properly. Hooray!"
+msgstr ""
+"Debería ver que el ``talker`` dice que está publicando (``Publishing``) "
+"mensajes y el ``listener`` dice que escuchó (``I heard``) esos mensajes. "
+"Esto verifica que tanto las API de C++ como de Python funcionan "
+"correctamente. ¡Hurra!"
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:176
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:158
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:150
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:135
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:159
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:183
+#: ../../source/Installation/RHEL-Install-RPMs.rst:152
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:122
+#: ../../source/Installation/Windows-Install-Binary.rst:83
+#: 2bf07bd495274b1ba76f0e4bd313d5ad 42a59cc9f48e4adca65a5214c89f621f
+#: 4e8a3659ecd24a1f80c253cb9eb9c37a 57bcb4572fbf4c04b2d84119feee406e
+#: a6f49c7a226d4fa6bf2dc9439a5972ed cb7dc83d0dbc4cbd8a4e47ce4e8bf073
+#: cf5f1bee4dc3462582cbd94b788c3fc2 d315c214a8e44ac0944b1621ce88abc5
+#: f4cea6cc857345e6bc01f88c8e4101d1
+msgid "Next steps"
+msgstr "Siguientes pasos"
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:178
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:160
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:152
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:137
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:161
+#: ../../source/Installation/RHEL-Install-RPMs.rst:154
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:124
+#: ../../source/Installation/Windows-Install-Binary.rst:85
+#: 55078806b1fa48eeaa89b394b64c7098 64686ecfd91b4155bae6cc884c4f97b2
+#: 95616a6fdece40d29367a9f293a201c3 bd852f6076704977b1aec75e4c712dd9
+#: c8aca3a5a2144875892f42d76ae4cf49 cd2890a4e43d440196c39711a7849a9a
+#: d579a84b148540d69613aff072d6ca94 e1bb7648688c4dc88f7909e91fa220ae
+msgid ""
+"Continue with the :doc:`tutorials and demos <../../Tutorials>` to "
+"configure your environment, create your own workspace and packages, and "
+"learn ROS 2 core concepts."
+msgstr ""
+"Continúe con los :doc:`tutoriales y demostraciones <../../Tutorials>` para "
+"configurar su entorno, crear su propio espacio de trabajo y paquetes, y "
+"aprender los conceptos básicos de ROS 2."
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:181
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:161
+#: 85bec5620e434124b88b6348d03d7ca4 8b50dc2e747c470d965b796a059b98a5
+msgid "Alternate compilers"
+msgstr "Compiladores alternativos"
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:183
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:163
+#: 694ff5b631734348bf582038f336099d ffc70ee56da74f4282bc4d34dec19bef
+msgid ""
+"Using a different compiler besides gcc to compile ROS 2 is easy. If you "
+"set the environment variables ``CC`` and ``CXX`` to executables for a "
+"working C and C++ compiler, respectively, and retrigger CMake "
+"configuration (by using ``--force-cmake-config`` or by deleting the "
+"packages you want to be affected), CMake will reconfigure and use the "
+"different compiler."
+msgstr ""
+"Usar un compilador diferente a gcc para compilar ROS 2 es fácil. Si "
+"configura las variables de entorno ``CC`` y ``CXX`` para ejecutar un "
+"compilador C y C++ que funcione, respectivamente, y vuelve a activar la "
+"configuración de CMake (usando ``--force-cmake-config`` o eliminando los "
+"paquetes que desea que se vean afectados), CMake volverá a configurar y "
+"usará el compilador diferente."
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:186
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:166
+#: 2270e708542846d28fa20113395fca97 5c387ab7f2534dd0b3f021164922feb2
+msgid "Clang"
+msgstr "Clang"
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:188
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:168
+#: 0877466a2b484371b04dc0febf3288f8 12f65211ff8340eda44384363379cf2a
+msgid "To configure CMake to detect and use Clang:"
+msgstr "Para configurar CMake para detectar y usar Clang:"
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:198
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:178
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:242
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:194
+#: 6e4e4f772e4343489f528a4440e8ca90 9d754d4b9b8643e88da8fc82b8bf6d84
+#: 9fad805a305d41e2ab6ab6b3c507ec41 a3fcc43682f341f796d1afd249e53402
+msgid "Stay up to date"
+msgstr "Manténgase actualizado"
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:200
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:180
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:244
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:196
+#: 173dd5d2f33d40bab4a680ed9a283793 4ccf5b8bb6284e6f8fbc9e5cf3994877
+#: db0ae463209b46ec983e77ce5c8eb253 ec96f9ea61de4f958afd995becea51c6
+msgid ""
+"See :doc:`../Maintaining-a-Source-Checkout` to periodically refresh your "
+"source installation."
+msgstr ""
+"Consulte :doc:`../Maintaining-a-Source-Checkout` para actualizar "
+"periódicamente su instalación de código fuente."
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:203
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:163
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:183
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:146
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:247
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:199
+#: ../../source/Installation/RHEL-Install-RPMs.rst:157
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:133
+#: ../../source/Installation/Windows-Install-Binary.rst:88
+#: 2b11f227956d4516b77ef8e92d183374 5912d4405fef4dc382f627aa1b382de3
+#: 75f24363c36a465cae7c693a8954cc78 7bf8802037c74910a52012f319cc9e33
+#: 84d7dbfac1a54caea398b17dde0f6815 99499d5f38294831a3a620e3afee2622
+#: a042801f61b94dd4b1ddea6ccb437c4e cb7a66403bd1413c803959bbbf8a5850
+#: d9b1389b2a66450cac0f13564a3e76d9
+msgid "Troubleshoot"
+msgstr "Solucionar problemas"
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:205
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:185
+#: 10638c3e037742009ae8950000955298 ca64e0f22a064397b63097fc9312a5d9
+msgid ""
+"Troubleshooting techniques can be found :ref:`here <linux-"
+"troubleshooting>`."
+msgstr ""
+"Las técnicas de solución de problemas se pueden encontrar :ref:`aquí <linux-"
+"troubleshooting>`."
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:208
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:168
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:188
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:151
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:252
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:204
+#: ../../source/Installation/RHEL-Install-RPMs.rst:162
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:138
+#: ../../source/Installation/Windows-Install-Binary.rst:93
+#: ../../source/Installation/Windows-Install-Binary.rst:171
+#: 12f55b5c33444b67923084c6d3d1f7bc 5bc8fd90b8df4c49b27aee767f4ddce2
+#: 5c9bf9e98dd04cab910305847c9883bf 7e08352de9e7490483cfd747ba0fcfcb
+#: 92ad8554c4154b94a6f2bde1c5104d2c a190e8940b6c42f2b8e34c73a556adf5
+#: a2e1343f1a804ff59bb43703830c98e7 ea82ec4f1d1a401ca9f08c9db7352e87
+#: f1d7af73ec2f496eab03f46cb64debcb fcf167e1d4d844079499935ee80de1de
+msgid "Uninstall"
+msgstr "Desinstalar"
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:210
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:170
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:190
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:153
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:254
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:206
+#: ../../source/Installation/Windows-Install-Binary.rst:95
+#: 195c49e08ec84fa0b72509d1f97b3527 1b8bbf0c79db4a0bbe16828e95fca870
+#: a508300cbac9458bac34fdb3d24e3557 b51d38d5897d4cfd8bbc964b837bcf0b
+#: de61d51123d84c82ae532f470cec3c7d e4bcd2bb1b524e5ebccd7ae5e938ed8d
+#: f34105c3ff4545c1ac1dbe4d3aa1edfa
+msgid ""
+"If you installed your workspace with colcon as instructed above, "
+"\"uninstalling\" could be just a matter of opening a new terminal and not"
+" sourcing the workspace's ``setup`` file. This way, your environment will"
+" behave as though there is no {DISTRO_TITLE} install on your system."
+msgstr ""
+"Si instaló su espacio de trabajo con colcon como se indica arriba, "
+"\"desinstalar\" podría ser solo una cuestión de abrir una nueva terminal y "
+"no ejecutar el archivo ``setup`` del espacio de trabajo. De esta manera, "
+"su entorno se comportará como si no hubiera una instalación de {DISTRO_"
+"TITLE} en su sistema."
+
+#: ../../source/Installation/Alternatives/RHEL-Development-Setup.rst:213
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:173
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:193
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:156
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:257
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:209
+#: ../../source/Installation/Windows-Install-Binary.rst:98
+#: 0864d018f08341ddbd1bec7d16b81c1e 1a875f9ef4724fafafb33182af1ef295
+#: 3877cc2c8b294ac6a300edcda991a0d9 71f501e427a145eca1304acba844a2fb
+#: b7e9864c9e6c40d2982fa83faf3867a8 e760a12120504e9291c70267bfbc7692
+#: f0be4e76965a4de69c169c940fb42e89
+msgid ""
+"If you're also trying to free up space, you can delete the entire "
+"workspace directory with:"
+msgstr ""
+"Si también está intentando liberar espacio, puede eliminar todo el "
+"directorio del espacio de trabajo con:"
+
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:2
+#: f6ea751cd6fc4661aa00460129f24695
+msgid "RHEL (binary)"
+msgstr "RHEL (binario)"
+
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:8
+#: f1040d2597ba437996ea85e01698b2ab
+msgid ""
+"This page explains how to install ROS 2 on RHEL from a pre-built binary "
+"package."
+msgstr ""
+"Esta página explica cómo instalar ROS 2 en RHEL desde un paquete binario "
+"precompilado."
+
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:12
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:16
+#: ../../source/Installation/Windows-Install-Binary.rst:12
+#: 2b4f6fd13c2b4e529549f7fde7076ec2 e056c0b6eddd4711b30b3d14aaa66d85
+#: f699993c56f9482ea3ded6ffaf0e4655
+msgid ""
+"The pre-built binary does not include all ROS 2 packages. All packages in"
+" the `ROS base variant <https://ros.org/reps/rep-2001.html#ros-base>`_ "
+"are included, and only a subset of packages in the `ROS desktop variant "
+"<https://ros.org/reps/rep-2001.html#desktop-variants>`_ are included. The"
+" exact list of packages are described by the repositories listed in `this"
+" ros2.repos file "
+"<https://github.com/ros2/ros2/blob/{REPOS_FILE_BRANCH}/ros2.repos>`_."
+msgstr ""
+"El binario precompilado no incluye todos los paquetes de ROS 2. Se "
+"incluyen todos los paquetes en la `variante base de ROS <https://ros.org/"
+"reps/rep-2001.html#ros-base>`_ y solo se incluye un subconjunto de "
+"paquetes en la `variante de escritorio de ROS <https://ros.org/reps/rep-"
+"2001.html#desktop-variants>`_. La lista exacta de paquetes está descrita "
+"por los repositorios enumerados en `este archivo ros2.repos <https://"
+"github.com/ros2/ros2/blob/{REPOS_FILE_BRANCH}/ros2.repos>`_."
+
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:16
+#: ed61df85655848f5ab84ceed703e8504
+msgid "There are also :doc:`RPM packages <../RHEL-Install-RPMs>` available."
+msgstr "También hay :doc:`paquetes RPM <../RHEL-Install-RPMs>` disponibles."
+
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:21
+#: 75cca23b732048a7b3315c5b3127df0d
+msgid ""
+"We currently support RHEL 9 64-bit. The Rolling Ridley distribution will "
+"change target platforms from time to time as new platforms are selected "
+"for development. Most people will want to use a stable ROS distribution."
+msgstr ""
+"Actualmente admitimos RHEL 9 de 64 bits. La distribución Rolling Ridley "
+"cambiará las plataformas objetivo de vez en cuando a medida que se "
+"seleccionen nuevas plataformas para el desarrollo. La mayoría de las "
+"personas querrán usar una distribución ROS estable."
+
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:47
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:43
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:24
+#: 6a8348ea74e34c429ec46f172bd840bf cf83a18832af455ba81788b4a7b38ab3
+#: fb5ca8d0bedc4ef6bacbcdb8a52a82c8
+msgid "Install prerequisites"
+msgstr "Instalar prerrequisitos"
+
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:49
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:45
+#: 22c959e722c547889a8f87062ee73fe6 3471bc2ec2d94b09b3b943f0cadda862
+msgid ""
+"There are a few packages that must be installed in order to get and "
+"unpack the binary release."
+msgstr ""
+"Hay algunos paquetes que deben instalarse para obtener y descomprimir la "
+"versión binaria."
+
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:56
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:52
+#: ../../source/Installation/RHEL-Install-RPMs.rst:57
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:42
+#: 44af3a7a5c7649839b31db7dab6ec0d5 495e81388484474b83244c458ecc371b
+#: 5ebf6f4c07a649ec90b8de5cbc316efb ccdfcc7b87a647e4a4d44730a050cda9
+msgid "Install development tools (optional)"
+msgstr "Instalar herramientas de desarrollo (opcional)"
+
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:58
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:54
+#: ../../source/Installation/RHEL-Install-RPMs.rst:59
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:44
+#: 4369917bf9384ad0a1c085817b048efd 6b7a9b8a14764187b0c05391eb77b259
+#: 975bfa038d584ef9bd0e36825aec464c c16dbc7f41c940fe863c4a14a2322c09
+msgid ""
+"If you are going to build ROS packages or otherwise do development, you "
+"can also install the development tools:"
+msgstr ""
+"Si va a compilar paquetes ROS o de otro modo hacer desarrollo, también "
+"puede instalar las herramientas de desarrollo:"
+
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:93
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:61
+#: ../../source/Installation/RHEL-Install-RPMs.rst:94
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:51
+#: ../../source/Installation/Windows-Install-Binary.rst:26
+#: 0e2e08320ebe4cdda01037ff869c3475 324b7f0d472040c9a01222a6076fa54c
+#: 354f53e592c34ec0ac8e3d597d900b06 369ce393654a4ada92874ccbceb753c2
+#: 50827701b63b4f798dd93bdbf63dc08e
+msgid "Install ROS 2"
+msgstr "Instalar ROS 2"
+
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:95
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:63
+#: 5a0ba1e05a3b43b1ac96da2ca8cd45b5 6906043fdcb14cb582244bca3e0d5d0a
+msgid ""
+"Binary releases of Rolling Ridley are not provided. Instead you may "
+"download nightly :ref:`prerelease binaries <Prerelease_binaries>`."
+msgstr ""
+"No se proporcionan versiones binarias de Rolling Ridley. En su lugar, puede "
+"descargar versiones diarias :ref:`binarias de prelanzamiento <Prerelease_"
+"binaries>`."
+
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:98
+#: 1de5b514e1ed49f18aa25e9dae9571e3
+msgid ""
+"Download the latest package for RHEL; let's assume that it ends up at "
+"``~/Downloads/ros2-package-linux-x86_64.tar.bz2``."
+msgstr ""
+"Descargue el último paquete para RHEL; supongamos que termina en ``~/"
+"Downloads/ros2-package-linux-x86_64.tar.bz2``."
+
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:100
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:68
+#: 4c90fad19c3049048d9255520f247fb2 8b902d26638d42579322fdde30e9f78b
+msgid ""
+"Note: there may be more than one binary download option which might cause"
+" the file name to differ."
+msgstr ""
+"Nota: puede haber más de una opción de descarga binaria que puede hacer "
+"que el nombre del archivo sea diferente."
+
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:102
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:71
+#: 974e90a747564b649f7cb0518318c3be dc5b5aff079240bc9ded8ac9d7830a66
+msgid "Unpack it:"
+msgstr "Descomprímalo:"
+
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:122
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:99
+#: 2181d9b9b60e42b1a21475853f6cbe38 b8c32dc92b084cfa8543785a7ddb0b9c
+msgid ""
+"The default middleware that ROS 2 uses is ``Fast DDS``, but the "
+"middleware (RMW) can be replaced at runtime. See the :doc:`guide "
+"<../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how "
+"to work with multiple RMWs."
+msgstr ""
+"El middleware predeterminado que usa ROS 2 es ``Fast DDS``, pero el "
+"middleware (RMW) se puede reemplazar en tiempo de ejecución. Consulte la "
+":doc:`guía <../../How-To-Guides/Working-with-multiple-RMW-implementations>`"
+" sobre cómo trabajar con múltiples RMW."
+
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:139
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:116
+#: 36cca346116f4ac597917b79dc211b2d b8389b80dc6f44a9a16ba926adcdd69b
+msgid "In one terminal, source the setup file and then run a C++ ``talker``:"
+msgstr ""
+"En una terminal, ejecute el archivo de configuración y luego ejecute un "
+"``talker`` de C++:"
+
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:146
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:123
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:172
+#: 5e7bb8a212b64bb1a78c7070683d4ce0 8f5fcb2d5f804161a516b4d1f93a7344
+#: a86c262d53f247a38cb4828bb11f55f7
+msgid ""
+"In another terminal source the setup file and then run a Python "
+"``listener``:"
+msgstr ""
+"En otra terminal, ejecute el archivo de configuración y luego ejecute un "
+"``listener`` de Python:"
+
+#: ../../source/Installation/Alternatives/RHEL-Install-Binary.rst:165
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:148
+#: 1e52d77a917f493fb70ab1102aeccf61 70cd15e780974bf588498a56ecefc098
+msgid ""
+"Troubleshooting techniques can be found :doc:`here <../../How-To-Guides"
+"/Installation-Troubleshooting>`."
+msgstr ""
+"Las técnicas de solución de problemas se pueden encontrar :doc:`aquí <../../"
+"How-To-Guides/Installation-Troubleshooting>`."
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:7
+#: 1ae7a886a9f743a9b7a9ca39b9de25d9
+msgid "Ubuntu (source)"
+msgstr "Ubuntu (código fuente)"
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:16
+#: 6ce563660dad4614a2c8b20e64213372
+msgid "The current Debian-based target platforms for {DISTRO_TITLE_FULL} are:"
+msgstr ""
+"Las plataformas objetivo basadas en Debian actuales para {DISTRO_TITLE_FULL} "
+"son:"
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:18
+#: 78524590ef1f4f6cb53b35ca3789b2a7
+msgid "Tier 1: Ubuntu Linux - Jammy (22.04) 64-bit"
+msgstr "Nivel 1: Ubuntu Linux - Jammy (22.04) de 64 bits"
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:19
+#: 57b244fcd84b46768f71358b52f4888f
+msgid "Tier 3: Debian Linux - Bullseye (11) 64-bit"
+msgstr "Nivel 3: Debian Linux - Bullseye (11) de 64 bits"
+
+#: ../../source/Installation/_Ubuntu-Set-Locale.rst:1
+#: 2bfdda43902b4e7a925a7f3645309376 76326884bdc64c05a5c86dd3f596ba43
+#: 7c2304b725b54a989cbf3c94c5d791f7
+msgid ""
+"Make sure you have a locale which supports ``UTF-8``. If you are in a "
+"minimal environment (such as a docker container), the locale may be "
+"something minimal like ``POSIX``. We test with the following settings. "
+"However, it should be fine if you're using a different UTF-8 supported "
+"locale."
+msgstr ""
+"Asegúrese de tener una configuración regional que admita ``UTF-8``. Si está "
+"en un entorno mínimo (como un contenedor de Docker), la configuración "
+"regional puede ser algo mínimo como ``POSIX``. Probamos con la siguiente "
+"configuración. Sin embargo, debería estar bien si está utilizando una "
+"configuración regional diferente compatible con UTF-8."
+
+#: ../../source/Installation/_Apt-Repositories.rst:1
+#: 87a2fd074ec84253b14531d5179a9285 8b92602038f44af8a0b92e5a7131ad8c
+#: c0b99d6a2b714d9cba55523e69108615
+msgid "You will need to add the ROS 2 apt repository to your system."
+msgstr "Necesitará agregar el repositorio apt de ROS 2 a su sistema."
+
+#: ../../source/Installation/_Apt-Repositories.rst:3
+#: d80e7447e88f42519cd66accf8647925 dfffb67b74ed424f8e31c3dbb63453b5
+#: fa6ca0c1fd5b4fb6bbb893f6d30de917
+msgid ""
+"First ensure that the `Ubuntu Universe repository "
+"<https://help.ubuntu.com/community/Repositories/Ubuntu>`_ is enabled."
+msgstr ""
+"Primero asegúrese de que el `repositorio del universo de Ubuntu <https://"
+"help.ubuntu.com/community/Repositories/Ubuntu>`_ esté habilitado."
+
+#: ../../source/Installation/_Apt-Repositories.rst:10
+#: ec013d36a54e470099e61210118dd1eb f03ab3b4b3444e6ca135f6b66fe56f79
+#: f7eb39e012844853b7a9aa0675b60240
+msgid "Now add the ROS 2 GPG key with apt."
+msgstr "Ahora agregue la clave GPG de ROS 2 con apt."
+
+#: ../../source/Installation/_Apt-Repositories.rst:17
+#: 5d9cefaaee61408390d959cd8d16ce83 a507f3616a2344ec980a0549a5ad497e
+#: d67e4811577e4f4c826f028d1d02e0a7
+msgid "Then add the repository to your sources list."
+msgstr "Luego agregue el repositorio a su lista de fuentes."
+
+#: ../../source/Installation/_Apt-Upgrade-Admonition.rst:1
+#: 2bf2cd131d7d46e9a9f2c9051d441412 60c4d982c68a46c193abc455e2ee074c
+#: 845b1e4c1d0d43e5bfe89abdd846e80e
+msgid ""
+"ROS 2 packages are built on frequently updated Ubuntu systems. It is "
+"always recommended that you ensure your system is up to date before "
+"installing new packages."
+msgstr ""
+"Los paquetes ROS 2 se construyen en sistemas Ubuntu actualizados con "
+"frecuencia. Siempre se recomienda que asegure que su sistema esté "
+"actualizado antes de instalar nuevos paquetes."
+
+#: ../../source/Installation/_rosdep_Linux_Mint.rst:1
+#: 1346aa8f52854b34b97338eb17dc8434 745330a5e4644c30bcedc94b038e9aac
+msgid ""
+"**Note**: If you're using a distribution that is based on Ubuntu (like "
+"Linux Mint) but does not identify itself as such, you'll get an error "
+"message like ``Unsupported OS [mint]``. In this case append "
+"``--os=ubuntu:jammy`` to the above command."
+msgstr ""
+"**Nota**: si está utilizando una distribución basada en Ubuntu (como Linux "
+"Mint) pero no se identifica como tal, recibirá un mensaje de error como "
+"``Unsupported OS [mint]``. En este caso, agregue ``--os=ubuntu:jammy`` al "
+"comando anterior."
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:94
+#: 0268d4a7f2c84cbabc9fc8ca361bded8
+msgid ""
+"If you have already installed ROS 2 another way (either via Debians or "
+"the binary distribution), make sure that you run the below commands in a "
+"fresh environment that does not have those other installations sourced. "
+"Also ensure that you do not have ``source "
+"/opt/ros/${ROS_DISTRO}/setup.bash`` in your ``.bashrc``. You can make "
+"sure that ROS 2 is not sourced with the command ``printenv | grep -i "
+"ROS``. The output should be empty."
+msgstr ""
+"Si ya ha instalado ROS 2 de otra manera (ya sea a través de Debians o la "
+"distribución binaria), asegúrese de ejecutar los siguientes comandos en un "
+"entorno nuevo que no tenga esas otras instalaciones. Asegúrese también de "
+"no tener ``source /opt/ros/${ROS_DISTRO}/setup.bash`` en su ``.bashrc``. "
+"Puede asegurarse de que ROS 2 no esté en uso con el comando ``printenv | "
+"grep -i ROS``. La salida debería estar vacía."
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:155
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:140
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:188
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:127
+#: 141882457a9248129769d7d082c15676 179047cb7dc44279b85749569aaa3e48
+#: 1da61fde43584c569f59b2e02c648459 6a42e125aed842cab675465d4d4c5950
+msgid "Use the ROS 1 bridge (optional)"
+msgstr "Usar el puente ROS 1 (opcional)"
+
+#: ../../source/Installation/Alternatives/Ubuntu-Development-Setup.rst:157
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:142
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:129
+#: 0951f82663dc4df3967d8bc788b4b0ff 8349f710b3fe4d86b0252e98539d0628
+#: b3ee61232d4841c2b251430a71031aed
+msgid ""
+"The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa. "
+"See the dedicated :doc:`document <../../How-To-Guides/Using-ros1_bridge-"
+"Jammy-upstream>` on how to build and use the ROS 1 bridge."
+msgstr ""
+"El puente ROS 1 puede conectar temas de ROS 1 a ROS 2 y viceversa. Vea el "
+":doc:`documento dedicado <../../How-To-Guides/Using-ros1_bridge-Jammy-"
+"upstream>` sobre cómo construir y usar el puente ROS 1."
+
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:6
+#: dc706d06413344f1bb77097e29bf9e08
+msgid "Ubuntu (binary)"
+msgstr "Ubuntu (binario)"
+
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:12
+#: 2db7b51232534deb864ee53846d816a0
+msgid ""
+"This page explains how to install ROS 2 on Ubuntu Linux from a pre-built "
+"binary package."
+msgstr ""
+"Esta página explica cómo instalar ROS 2 en Ubuntu Linux desde un paquete "
+
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:20
+#: fcecdfa4068d4c90b1cc902f7328dd0c
+msgid ""
+"There are also :doc:`Debian packages <../Ubuntu-Install-Debians>` "
+"available."
+msgstr ""
+"También hay :doc:`paquetes Debian <../Ubuntu-Install-Debians>` disponibles."
+
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:25
+#: 7f681ffe6b654101afb4ff195818dd7f
+msgid ""
+"We currently support Ubuntu Linux Jammy (22.04) 64-bit x86 and 64-bit "
+"ARM. The Rolling Ridley distribution will change target platforms from "
+"time to time as new platforms are selected for development. Most people "
+"will want to use a stable ROS distribution."
+msgstr ""
+"Actualmente admitimos Ubuntu Linux Jammy (22.04) de 64 bits x86 y de 64 "
+"bits ARM. La distribución Rolling Ridley cambiará las plataformas objetivo "
+"de vez en cuando a medida que se seleccionen nuevas plataformas para el "
+"desarrollo. La mayoría de las personas querrán usar una distribución ROS "
+"estable."
+
+#: ../../source/Installation/Alternatives/Ubuntu-Install-Binary.rst:66
+#: 4c2f5c8c13594d5cad0260ddb3abd119
+msgid ""
+"Download the latest package for Ubuntu; let's assume that it ends up at "
+"``~/Downloads/ros2-package-linux-x86_64.tar.bz2``."
+msgstr ""
+"Descargue el último paquete para Ubuntu; supongamos que termina en ``~/"
+"Downloads/ros2-package-linux-x86_64.tar.bz2``."
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:6
+#: e01ab3e510da4dc096c97e39e711dcc6
+msgid "Windows (source)"
+msgstr "Windows (código fuente)"
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:12
+#: c49b8c86dc7144d2928f70a925ba47d9
+msgid ""
+"This guide is about how to setup a development environment for ROS 2 on "
+"Windows."
+msgstr ""
+"Esta guía trata sobre cómo configurar un entorno de desarrollo para ROS 2 "
+"en Windows."
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:17
+#: ../../source/Installation/Windows-Install-Binary.rst:19
+#: 5b73c967eaa64d1bb93f593307031f88 b525ef10a8244c71b78a89c9dd8606c6
+msgid "Only Windows 10 is supported."
+msgstr "Solo se admite Windows 10."
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:20
+#: bc37b53a7dc741c8910708015475c1dc
+msgid "Language support"
+msgstr "Soporte de idiomas"
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:22
+#: a283f16c7f6343aca852955d1b72cdb7
+msgid ""
+"Make sure you have a locale which supports ``UTF-8``. For example, for a "
+"Chinese-language Windows 10 installation, you may need to install an "
+"`English language pack <https://support.microsoft.com/en-us/windows"
+"/language-packs-for-windows-a5094319-a92d-18de-5b53-1cfc697cfca8>`_."
+msgstr ""
+"Asegúrese de tener una configuración regional que admita ``UTF-8``. Por "
+"ejemplo, para una instalación de Windows 10 en chino, es posible que deba "
+"instalar un `paquete de idioma inglés <https://support.microsoft.com/es-es/"
+"windows/paquetes-de-idioma-para-windows-a5094319-a92d-18de-5b53-1cfc697cfca8"
+">`_."
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:5
+#: 8d8655bd30f149d297b99aa7257e4361 961f13f5e36e498299b6b30ebc606938
+msgid "Install Chocolatey"
+msgstr "Instalar Chocolatey"
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:7
+#: 3f1dbe14e647422a843aa59ba6138ce3 5b554ec4dc1442f9bf75b5d23624803f
+msgid ""
+"Chocolatey is a package manager for Windows, install it by following "
+"their installation instructions:"
+msgstr ""
+"Chocolatey es un administrador de paquetes para Windows, instálelo "
+"siguiendo sus instrucciones de instalación:"
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:9
+#: 9a769523aabd484da2b988cb91dd3f46 e9f59274206f4baf87e3c67e30f14bf9
+msgid "https://chocolatey.org/install"
+msgstr "https://chocolatey.org/install"
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:11
+#: 9bce08d740344e588591824a3766d45d d933d38f48ff40588149127a0e762a38
+msgid "You'll use Chocolatey to install some other developer tools."
+msgstr ""
+"Usará Chocolatey para instalar algunas otras herramientas de desarrollo."
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:14
+#: 725ea863c54d4aea8ff5f401c4a57c0e 9759a688bc964eee9414c528602a92ea
+msgid "Install Python"
+msgstr "Instalar Python"
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:16
+#: 4f8858b8d0054c12a7169a211d555d36 a5b8e807fcb047d5a036508afb1494d0
+msgid ""
+"Open a Command Prompt and type the following to install Python via "
+"Chocolatey:"
+msgstr ""
+"Abra un símbolo del sistema y escriba lo siguiente para instalar Python a "
+"través de Chocolatey:"
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:23
+#: 072b82c8a1fb4b4b9bbe552b6b4cf09f 7ea4d1b0eb2848368fca1254096fb237
+msgid "Install Visual C++ Redistributables"
+msgstr "Instalar redistribuibles de Visual C++"
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:25
+#: 0c902209d3e64138af0735ae53a93e77 6c80a0857029403ea3b2575e5b3b2d83
+msgid ""
+"Open a Command Prompt and type the following to install them via "
+"Chocolatey:"
+msgstr ""
+"Abra un símbolo del sistema y escriba lo siguiente para instalarlos a "
+"través de Chocolatey:"
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:32
+#: 749a72ea61044c4792e7f867aecdfda6 c530be4135644e1daf79bb2cbc42a300
+msgid "Install OpenSSL"
+msgstr "Instalar OpenSSL"
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:34
+#: 79ea91f6fb1644348e473884dc38e967 ccb8e677c66e44fea445144e5de49a04
+msgid ""
+"Download the *Win64 OpenSSL v1.1.1n* OpenSSL installer from `this page "
+"<https://slproweb.com/products/Win32OpenSSL.html>`__. Scroll to the "
+"bottom of the page and download *Win64 OpenSSL v1.1.1t*. Don't download "
+"the Win32 or Light versions, or the v3.X.Y installers."
+msgstr ""
+"Descargue el instalador de OpenSSL *Win64 OpenSSL v1.1.1n* de `esta página "
+"<https://slproweb.com/products/Win32OpenSSL.html>`__. Desplácese hasta la "
+"parte inferior de la página y descargue *Win64 OpenSSL v1.1.1t*. No "
+"descargue las versiones Win32 o Light, ni los instaladores v3.X.Y."
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:38
+#: 5efbf10498664fb38a7dff1a87c7ec9f c09f5f144b82478aa0c5c9e5c55272c4
+msgid ""
+"Run the installer with default parameters, as the following commands "
+"assume you used the default installation directory."
+msgstr ""
+"Ejecute el instalador con los parámetros predeterminados, ya que los "
+"siguientes comandos asumen que utilizó el directorio de instalación "
+"predeterminado."
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:40
+#: 11394e2be711436f90263e2571ae0e2e 492498caf53b45e2bac493785b68c0e8
+msgid "This command sets an environment variable that persists over sessions:"
+msgstr ""
+"Este comando establece una variable de entorno que persiste en las sesiones:"
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:46
+#: 6202e951a44d4c7385a8b7c38a49e9d6 ba6692e531074f438ed95c42711465ba
+msgid ""
+"You will need to append the OpenSSL-Win64 bin folder to your PATH. You "
+"can do this by clicking the Windows icon, typing \"Environment "
+"Variables\", then clicking on \"Edit the system environment variables\". "
+"In the resulting dialog, click \"Environment Variables\", then click "
+"\"Path\" on the bottom pane, finally click \"Edit\" and add the path "
+"below."
+msgstr ""
+"Deberá agregar la carpeta bin de OpenSSL-Win64 a su PATH. Puede hacerlo "
+"haciendo clic en el icono de Windows, escribiendo \"Variables de entorno\", "
+"luego haciendo clic en \"Editar las variables de entorno del sistema\". En "
+"el cuadro de diálogo resultante, haga clic en \"Variables de entorno\", "
+"luego haga clic en \"Path\" en el panel inferior, finalmente haga clic en "
+"\"Editar\" y agregue la ruta a continuación."
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:50
+#: 40421c33c38242a29cb06edb0e479fb3 85024c35f4b349c09ebd8c096c8bbbee
+msgid "``C:\\Program Files\\OpenSSL-Win64\\bin\\``"
+msgstr "``C:\\Program Files\\OpenSSL-Win64\\bin\\``"
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:53
+#: 186d2df990ca4614a7d4a31382516b17 48150a5d0cd14f34ab12b1ba5c2a6f7d
+msgid "Install Visual Studio"
+msgstr "Instalar Visual Studio"
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:55
+#: 734db037814f4a4483aaad0f7263191a d5a3f35f0c824fe9874b5b1a03288c95
+msgid "Install Visual Studio 2019."
+msgstr "Instale Visual Studio 2019."
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:57
+#: 9b4f25a7d4314e13be08449ee26c569c eb1cc6a7225b4512a4d963002b365d33
+msgid ""
+"If you already have a paid version of Visual Studio 2019 (Professional, "
+"Enterprise), skip this step."
+msgstr ""
+"Si ya tiene una versión de pago de Visual Studio 2019 (Professional, "
+"Enterprise), omita este paso."
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:59
+#: 7bb724dc3b6e4725aa6cabd68716b36f da3ae526323942689b0196bdf01ce57c
+msgid ""
+"Microsoft provides a free of charge version of Visual Studio 2019, named "
+"Community, which can be used to build applications that use ROS 2. `You "
+"can download the installer directly through this link. "
+"<https://visualstudio.microsoft.com/thank-you-downloading-visual-"
+"studio/?sku=Community&rel=16&src=myvs&utm_medium=microsoft&utm_source=my.visualstudio.com&utm_campaign=download&utm_content=vs+community+2019>`_"
+msgstr ""
+"Microsoft proporciona una versión gratuita de Visual Studio 2019, llamada "
+"Community, que se puede usar para compilar aplicaciones que usan ROS 2. `Puede "
+"descargar el instalador directamente a través de este enlace. <https://"
+"visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku="
+"Community&rel=16&src=myvs&utm_medium=microsoft&utm_source=my.visualstudio.com&utm_campaign=download&utm_content=vs+community+2019>`_"
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:62
+#: 68df54e31a6b40ddab76cca77a9134b1 dced6a1430ba4bbe91c50413e0d9c029
+msgid "Make sure that the Visual C++ features are installed."
+msgstr ""
+"Asegúrese de que las características de Visual C++ estén instaladas."
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:64
+#: 49d369c39c5045198bb792063fd9c684 99528fe9de4d43b0991dd2b45bcc00fd
+msgid ""
+"An easy way to make sure they're installed is to select the ``Desktop "
+"development with C++`` workflow during the install."
+msgstr ""
+"Una forma sencilla de asegurarse de que estén instalados es seleccionar el "
+"flujo de trabajo ``Desarrollo de escritorio con C++`` durante la "
+"instalación."
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:68
+#: 4da481dc793e4693ae5d88fafd69fa88 6564c34ab09748d8b0884c8651a5a7e9
+msgid ""
+"Make sure that no C++ CMake tools are installed by unselecting them in "
+"the list of components to be installed."
+msgstr ""
+"Asegúrese de que no se instalen herramientas CMake de C++ desmarcándolas en "
+"la lista de componentes que se van a instalar."
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:71
+#: 1f69aa539c744fb49bb664e854005183 e017c22f40b24ce59b78b9da89c4fc68
+msgid "Install OpenCV"
+msgstr "Instalar OpenCV"
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:73
+#: 5a37e1abf96749c5b413664f3b39c050 bf2c1b7fe2594d03942dd901309b07fe
+msgid "Some of the examples require OpenCV to be installed."
+msgstr "Algunos de los ejemplos requieren que se instale OpenCV."
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:75
+#: 0d5492b2259044ab82ea7b7b7d5a19e3 8c9733e89a204953867b5b10f3b233a1
+msgid ""
+"You can download a precompiled version of OpenCV 3.4.6 from "
+"https://github.com/ros2/ros2/releases/download/opencv-"
+"archives/opencv-3.4.6-vc16.VS2019.zip ."
+msgstr ""
+"Puede descargar una versión precompilada de OpenCV 3.4.6 desde "
+"https://github.com/ros2/ros2/releases/download/opencv-"
+"archives/opencv-3.4.6-vc16.VS2019.zip ."
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:77
+#: 1de70e0983994fceba462f7d6ff89400 ef42691e122b4c4b9f3912bef414a534
+msgid ""
+"Assuming you unpacked it to ``C:\\opencv``, type the following on a "
+"Command Prompt (requires Admin privileges):"
+msgstr ""
+"Suponiendo que lo desempaquetó en ``C:\\opencv``, escriba lo siguiente en "
+"un símbolo del sistema (requiere privilegios de administrador):"
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:83
+#: 65a3df04fe974ed1ad9cf5b7b67785d2 c564d0a264d14fb59f8122a02f529872
+msgid ""
+"Since you are using a precompiled ROS version, we have to tell it where "
+"to find the OpenCV libraries. You have to extend the ``PATH`` variable to"
+" ``C:\\opencv\\x64\\vc16\\bin``."
+msgstr ""
+"Dado que está utilizando una versión de ROS precompilada, tenemos que "
+"indicarle dónde encontrar las bibliotecas OpenCV. Debe extender la "
+"variable ``PATH`` a ``C:\\opencv\\x64\\vc16\\bin``."
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:87
+#: 7aa46c64d47349a9b017d571e5c81c91 fb0616bb3b374d1f98073d92700a8d4d
+msgid "Install dependencies"
+msgstr "Instalar dependencias"
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:89
+#: 31081b5b3c4048c986949ad9bd746ef6 c3d4b11630f744f2842cd04183fe21c6
+msgid ""
+"There are a few dependencies not available in the Chocolatey package "
+"database. In order to ease the manual installation process, we provide "
+"the necessary Chocolatey packages."
+msgstr ""
+"Hay algunas dependencias que no están disponibles en la base de datos de "
+"paquetes Chocolatey. Para facilitar el proceso de instalación manual, "
+"proporcionamos los paquetes Chocolatey necesarios."
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:92
+#: 046890f22b814a14aeb9d0c4b8145fe1 37fb9d3687e84080977de56340d697b7
+msgid "As some chocolatey packages rely on it, we start by installing CMake"
+msgstr ""
+"Como algunos paquetes de chocolatey dependen de él, comenzamos "
+"instalando CMake"
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:98
+#: b6c801a9ec0c4c91aeed9f63c0246d3a fe09a732487341a8aa805d005309f421
+msgid ""
+"You will need to append the CMake bin folder ``C:\\Program "
+"Files\\CMake\\bin`` to your PATH."
+msgstr ""
+"Necesitará agregar la carpeta bin de CMake ``C:\\Program Files\\CMake\\bin`` "
+"a su PATH."
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:100
+#: 34010010afa14228a9814fed7b16ca4c 9b2d80e1a5cb44deaefe03316517f4d2
+msgid ""
+"Please download these packages from `this <https://github.com/ros2/choco-"
+"packages/releases/latest>`__ GitHub repository."
+msgstr ""
+"Descargue estos paquetes de `este <https://github.com/ros2/choco-"
+"packages/releases/latest>`__ repositorio de GitHub."
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:102
+#: 20993de162dd41618448063cca7bc6c7 f0380b58e1b441b0b8d4e53bb83df9fb
+msgid "asio.1.12.1.nupkg"
+msgstr "asio.1.12.1.nupkg"
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:103
+#: 0b8cd0ebc9be4adc890e77a7ecb864bc 5905e8e99a4941baa4bb8989e5e90db0
+msgid "bullet.3.17.nupkg"
+msgstr "bullet.3.17.nupkg"
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:104
+#: 3ab6ba4c78de4a7e88c1a79de4b6f2fb d67174595f0c493db6e40fdc651339b6
+msgid "cunit.2.1.3.nupkg"
+msgstr "cunit.2.1.3.nupkg"
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:105
+#: b0493b60260541e8a7d56cc36b7e177f cf0f2750d50542a89b795a062da73cc3
+msgid "eigen-3.3.4.nupkg"
+msgstr "eigen-3.3.4.nupkg"
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:106
+#: 695692ed57c44d529f91b9748462a94f d38f462ce26c4ec8bc6af73c8c1be154
+msgid "tinyxml-usestl.2.6.2.nupkg"
+msgstr "tinyxml-usestl.2.6.2.nupkg"
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:107
+#: 10ee8a16dc684796bfd3022e805b940f dd1597b3b5b64df1ae77d463448fb468
+msgid "tinyxml2.6.0.0.nupkg"
+msgstr "tinyxml2.6.0.0.nupkg"
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:109
+#: 415f6dfefe9f48358dfbf025236dffc2 6bc28984809e44029d1a793ab7d01f99
+msgid ""
+"Once these packages are downloaded, open an administrative shell and "
+"execute the following command:"
+msgstr ""
+"Una vez que se descarguen estos paquetes, abra un shell administrativo y "
+"ejecute el siguiente comando:"
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:115
+#: 26b4c95f02fb48e7b10506dd4fb9054e dcb57a59c7a54f468c75e35e7516cdca
+msgid ""
+"Please replace ``<PATH\\TO\\DOWNLOADS>`` with the folder you downloaded "
+"the packages to."
+msgstr ""
+"Reemplace ``<PATH\\TO\\DOWNLOADS>`` con la carpeta en la que descargó los "
+"paquetes."
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:117
+#: 1253fc8c128247a2a1c9f46b4d7f3924 9cb9bcaf64cb42b193748e4988e31838
+msgid "First upgrade pip and setuptools:"
+msgstr "Primero actualice pip y setuptools:"
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:123
+#: 4de371dbb4a746e1a24a2826e0a2e7a1 5a60661e3f4d4a81b385be116f09bddd
+msgid "Now install some additional python dependencies:"
+msgstr "Ahora instale algunas dependencias adicionales de python:"
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:130
+#: 8e8d11b40ea34d9ca7406afb17ce973d bd3a05b12a724a0893ea7af619cc0853
+msgid "Install miscellaneous prerequisites"
+msgstr "Instalar requisitos previos diversos"
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:132
+#: 39e64938b41442b1bbf4178976c03120 418475068f2b489898c1ff3d636d5d97
+msgid "Next install xmllint:"
+msgstr "A continuación, instale xmllint:"
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:134
+#: 1670acfe50b646e9a09111db60476fc1 a1734ff5efa44c77901824c1d5bc1894
+msgid ""
+"Download the `64 bit binary archives "
+"<https://www.zlatkovic.com/pub/libxml/64bit/>`__ of ``libxml2`` (and its "
+"dependencies ``iconv`` and ``zlib``) from "
+"https://www.zlatkovic.com/projects/libxml/"
+msgstr ""
+"Descargue los `archivos binarios de 64 bits <https://www.zlatkovic.com/pub/"
+"libxml/64bit/>`__ de ``libxml2`` (y sus dependencias ``iconv`` y ``zlib``) "
+"desde https://www.zlatkovic.com/projects/libxml/"
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:135
+#: d44922bc324e4f8f81ef09573ff4c56b e5a86b2f4e6a4977bd4498cbb8cbf801
+msgid "Unpack all archives into e.g. ``C:\\xmllint``"
+msgstr "Descomprima todos los archivos en p. ej. ``C:\\xmllint``"
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:136
+#: 6b72b833e6564ef6b11f231f1f502cb3 7b47d6e022904c61b0d4c074ef34307b
+msgid "Add ``C:\\xmllint\\bin`` to the ``PATH``."
+msgstr "Agregue ``C:\\xmllint\\bin`` al ``PATH``."
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:139
+#: 00e8347174424fc18ac7af26c895c29c 10b69e9c8e9a468491432247aa746015
+msgid "Install Qt5"
+msgstr "Instalar Qt5"
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:141
+#: 25dbb07860274deda47fedd623863fda afac03e23013420b89326a82a9ff68df
+msgid ""
+"Download the `5.12.X offline installer <https://www.qt.io/offline-"
+"installers>`_ from Qt's website. Run the installer. Make sure to select "
+"the ``MSVC 2017 64-bit`` component under the ``Qt`` -> ``Qt 5.12.12`` "
+"tree."
+msgstr ""
+"Descargue el `instalador sin conexión 5.12.X <https://www.qt.io/offline-"
+"installers>`_ del sitio web de Qt. Ejecute el instalador. Asegúrese de "
+"seleccionar el componente ``MSVC 2017 64-bit`` en el árbol ``Qt`` -> ``Qt "
+"5.12.12``."
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:145
+#: 66534143c6c3439680b65915fe2e3918 7d5dd22cf706426490a92df60aa68c32
+msgid ""
+"Finally, in an administrator ``cmd.exe`` window set these environment "
+"variables. The commands below assume you installed it to the default "
+"location of ``C:\\Qt``."
+msgstr ""
+"Finalmente, en una ventana ``cmd.exe`` de administrador, establezca estas "
+"variables de entorno. Los comandos a continuación asumen que lo instaló en "
+"la ubicación predeterminada de ``C:\\Qt``."
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:156
+#: b1f0c2cbeb114396a047b654e59f0f07 b31e05236c0d48d380a238a014238754
+msgid ""
+"This path might change based on the installed MSVC version, the directory"
+" Qt was installed to, and the version of Qt installed."
+msgstr ""
+"Esta ruta puede cambiar según la versión de MSVC instalada, el directorio "
+"en el que se instaló Qt y la versión de Qt instalada."
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:159
+#: e62c30d24deb4b27ba6de9cf7c454b39 f3cf1fa04ecf490e9585b27de761cf4e
+msgid "RQt dependencies"
+msgstr "Dependencias de RQt"
+
+#: ../../source/Installation/_Windows-Install-Prerequisites.rst:161
+#: 409583319305402e801b40bd228a7c49 a58ada5b629649baac28d12803237768
+msgid ""
+"To run rqt_graph you need to `download "
+"<https://graphviz.gitlab.io/_pages/Download/Download_windows.html>`__ and"
+" install `Graphviz <https://graphviz.gitlab.io/>`__. The installer will "
+"ask if to add graphviz to PATH, choose to either add it to the current "
+"user or all users."
+msgstr ""
+"Para ejecutar rqt_graph, debe `descargar <https://graphviz.gitlab.io/_pages/"
+"Download/Download_windows.html>`__ e instalar `Graphviz <https://"
+"graphviz.gitlab.io/>`__. El instalador preguntará si agregar graphviz a "
+"PATH, elija agregarlo al usuario actual o a todos los usuarios."
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:28
+#: 6b51c5c2cdfe4452994c4bae84a3eed6
+msgid "Install additional prerequisites from Chocolatey"
+msgstr "Instalar requisitos previos adicionales de Chocolatey"
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:34
+#: ac4d292e3651447c90d0fe4f3620cf6f
+msgid ""
+"You will need to append the Git cmd folder ``C:\\Program "
+"Files\\Git\\cmd`` to the PATH (you can do this by clicking the Windows "
+"icon, typing \"Environment Variables\", then clicking on \"Edit the "
+"system environment variables\". In the resulting dialog, click "
+"\"Environment Variables\", the click \"Path\" on the bottom pane, then "
+"click \"Edit\" and add the path)."
+msgstr ""
+"Necesitará agregar la carpeta cmd de Git ``C:\\Program Files\\Git\\cmd`` al "
+"PATH (puede hacer esto haciendo clic en el icono de Windows, escribiendo "
+"\"Variables de entorno\", luego haciendo clic en \"Editar las variables de "
+"entorno del sistema\". En el cuadro de diálogo resultante, haga clic en " 
+"\"Variables de entorno\", luego haga clic en \"Path\" en el panel inferior, "
+"luego haga clic en \"Editar\" y agregue la ruta)."
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:38
+#: a48bdb90aa7341b69b3a7a8f39d70e12
+msgid "Install Python prerequisites"
+msgstr "Instalar prerequisitos de Python"
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:40
+#: 79014125c7f94c43b7b3c7a80bf5f280
+msgid "Install additional Python dependencies:"
+msgstr "Instalar dependencias adicionales de Python:"
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:52
+#: 61592428201d469ca936a7e67cfd3c1d
+msgid "Now that we have the development tools we can get the ROS 2 source code."
+msgstr ""
+"Ahora que tenemos las herramientas de desarrollo, podemos obtener el código "
+"fuente de ROS 2."
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:54
+#: 2e6a0c2d2f344171acd1b87ee5d0dbf6
+msgid "First setup a development folder, for example ``C:\\{DISTRO}``:"
+msgstr ""
+"Primero configure una carpeta de desarrollo, por ejemplo ``C:\\{DISTRO}``:"
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:58
+#: ee22b67df35b495b9a73e9bceeec420c
+msgid ""
+"It is very important that the chosen path is short, due to the short "
+"default Windows path limits (260 characters). To allow longer paths, see "
+"https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-"
+"limitation?tabs=registry."
+msgstr ""
+"Es muy importante que la ruta elegida sea corta, debido a los límites de "
+"ruta de Windows cortos predeterminados (260 caracteres). Para permitir "
+"rutas más largas, consulte https://learn.microsoft.com/en-us/windows/win32/"
+"fileio/maximum-file-path-limitation?tabs=registry."
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:66
+#: cd29be556ac84cbdb3606f4534ea47d9
+msgid "Get the ``ros2.repos`` file which defines the repositories to clone from:"
+msgstr ""
+"Obtenga el archivo ``ros2.repos`` que define los repositorios para clonar "
+"desde:"
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:83
+#: 95bb6f5aca86408b90a52c216bed0665
+msgid ""
+"To build ROS 2 you will need a Visual Studio Command Prompt (\"x64 Native"
+" Tools Command Prompt for VS 2019\") running as Administrator."
+msgstr ""
+"Para compilar ROS 2, necesitará un símbolo del sistema de Visual Studio "
+"(\"x64 Native Tools Command Prompt for VS 2019\") ejecutándose como "
+"administrador."
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:85
+#: ac9a6cb9888747baa6a142d324a6a419
+msgid "To build the ``\\{DISTRO}`` folder tree:"
+msgstr "Para compilar el árbol de carpetas ``\\{DISTRO}`` :"
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:93
+#: 905cfced06684252b9699b680dad59c9
+msgid ""
+"We're using ``--merge-install`` here to avoid a ``PATH`` variable that is"
+" too long at the end of the build. If you're adapting these instructions "
+"to build a smaller workspace then you might be able to use the default "
+"behavior which is isolated install, i.e. where each package is installed "
+"to a different folder."
+msgstr ""
+"Estamos usando ``--merge-install`` aquí para evitar una variable ``PATH`` "
+"que es demasiado larga al final de la compilación. Si está adaptando estas "
+"instrucciones para compilar un espacio de trabajo más pequeño, es posible "
+"que pueda usar el comportamiento predeterminado que es una instalación "
+"aislada, es decir, donde cada paquete se instala en una carpeta diferente."
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:98
+#: 6a3da77cc8cb43bf88b1b10654cdd002
+msgid ""
+"If you are doing a debug build use ``python_d "
+"path\\to\\colcon_executable`` ``colcon``. See `Extra stuff for debug "
+"mode`_ for more info on running Python code in debug builds on Windows."
+msgstr ""
+"Si está realizando una compilación de depuración, use ``python_d "
+"path\\to\\colcon_executable`` ``colcon``. Consulte `Cosas adicionales para "
+"el modo de depuración`_ para obtener más información sobre cómo ejecutar "
+"código Python en compilaciones de depuración en Windows."
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:104
+#: ../../source/Installation/Windows-Install-Binary.rst:54
+#: 715050ce7a8141a0938578d41dc49787 db8f03364b684e22b3d055a2356c0cfb
+msgid ""
+"Start a command shell and source the ROS 2 setup file to set up the "
+"workspace:"
+msgstr ""
+"Inicie un shell de comandos y ejecute el archivo de configuración de ROS 2 "
+"para configurar el espacio de trabajo:"
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:110
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:161
+#: 6ef4235c380d4261865cd370ea4fcd18 d6b95ee54db142ccb7f1dcf1f7305c2d
+msgid ""
+"This will automatically set up the environment for any DDS vendors that "
+"support was built for."
+msgstr ""
+"Esto configurará automáticamente el entorno para cualquier proveedor de DDS "
+"para el que se haya compilado el soporte."
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:112
+#: ../../source/Installation/Windows-Install-Binary.rst:60
+#: 10d2fe192551468f9eb05616d8260e00 5cfed44cd0364c36901f920efe5bd100
+msgid ""
+"It is normal that the previous command, if nothing else went wrong, "
+"outputs \"The system cannot find the path specified.\" exactly once."
+msgstr ""
+"Es normal que el comando anterior, si no hubo ningún otro problema, "
+"produzca \"El sistema no puede encontrar la ruta especificada.\" exactamente "
+"una vez."
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:117
+#: f501ae3721f24387a6acad178c65f2b2
+msgid ""
+"Note that the first time you run any executable you will have to allow "
+"access to the network through a Windows Firewall popup."
+msgstr ""
+"Tenga en cuenta que la primera vez que ejecute cualquier ejecutable, deberá "
+"permitir el acceso a la red a través de un mensaje emergente del Firewall "
+"de Windows."
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:119
+#: 9c788e4384794fb8b2b347ca71d158f7
+msgid "You can run the tests using this command:"
+msgstr "Puede ejecutar las pruebas usando este comando:"
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:127
+#: 2555e36975734f098ea4e20ee2cf558f
+msgid ""
+"``--merge-install`` should only be used if it was also used in the build "
+"step."
+msgstr ""
+"``--merge-install`` solo debe usarse si también se usó en el paso de "
+"compilación."
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:129
+#: 904352e5dbef4daf9da501a73d943f65
+msgid "Afterwards you can get a summary of the tests using this command:"
+msgstr "Después puede obtener un resumen de las pruebas usando este comando:"
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:135
+#: 566f61514e2943a699122a476b21078c
+msgid ""
+"To run the examples, first open a clean new ``cmd.exe`` and set up the "
+"workspace by sourcing the ``local_setup.bat`` file. Then, run a C++ "
+"``talker``\\ :"
+msgstr ""
+"Para ejecutar los ejemplos, primero abra un nuevo ``cmd.exe`` limpio y "
+"configure el espacio de trabajo mediante la ejecución del archivo "
+"``local_setup.bat``. Luego, ejecute un C++ ``talker``\\ :"
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:143
+#: 0f360fd9daa94844a054df4429f14127
+msgid ""
+"In a separate shell you can do the same, but instead run a Python "
+"``listener``\\ :"
+msgstr ""
+"En un shell separado, puede hacer lo mismo, pero en su lugar ejecutar un "
+"Python ``listener``\\ :"
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:156
+#: 6fa34d6892924167967f0805a15e6e09
+msgid ""
+"It is not recommended to build in the same cmd prompt that you've sourced"
+" the ``local_setup.bat``."
+msgstr ""
+"No se recomienda compilar en el mismo cmd que ha ejecutado el "
+"``local_setup.bat``."
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:164
+#: 35eacb7bf5724f8eb48811cce22feedc
+msgid "Extra stuff for Debug mode"
+msgstr "Cosas adicionales para el modo de depuración"
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:166
+#: f3c76c311af848eea287687e33f40dea
+msgid ""
+"If you want to be able to run all the tests in Debug mode, you'll need to"
+" install a few more things:"
+msgstr ""
+"Si desea poder ejecutar todas las pruebas en modo de depuración, necesitará "
+"instalar algunas cosas más:"
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:168
+#: 64326426c4ea4798b343488e113fdbda
+msgid "To be able to extract the Python source tarball, you can use PeaZip:"
+msgstr ""
+"Para poder extraer el archivo tarball de origen de Python, puede usar "
+"PeaZip:"
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:174
+#: 4fd768437d54449cafec5710cc6ec150
+msgid ""
+"You'll also need SVN, since some of the Python source-build dependencies "
+"are checked out via SVN:"
+msgstr ""
+"También necesitará SVN, ya que algunas de las dependencias de compilación "
+"de origen de Python se verifican a través de SVN:"
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:180
+#: 81ec727caee14e80aaadba6ffeb6877d
+msgid ""
+"You'll need to quit and restart the command prompt after installing the "
+"above."
+msgstr ""
+"Deberá salir y reiniciar el símbolo del sistema después de instalar lo "
+"anterior."
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:181
+#: 6c4c0397776a4a0d9a3a1e946b46ff72
+msgid "Get and extract the Python 3.8.3 source from the ``tgz``:"
+msgstr "Obtenga y extraiga el origen de Python 3.8.3 de ``tgz``:"
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:183
+#: db4ad88177194ee0a20e1f9c542d92f5
+msgid "https://www.python.org/ftp/python/3.8.3/Python-3.8.3.tgz"
+msgstr "https://www.python.org/ftp/python/3.8.3/Python-3.8.3.tgz"
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:184
+#: 552357c9603749da9b8b48586aa90a81
+msgid ""
+"To keep these instructions concise, please extract it to "
+"``C:\\dev\\Python-3.8.3``"
+msgstr ""
+"Para mantener estas instrucciones concisas, extráigalas en ``C:\\dev\\Python-"
+"3.8.3``"
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:186
+#: 442a661cd30f4190b97a619572816e4f
+msgid ""
+"Now, build the Python source in debug mode from a Visual Studio command "
+"prompt:"
+msgstr ""
+"Ahora, compile el origen de Python en modo de depuración desde un símbolo "
+"del sistema de Visual Studio:"
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:194
+#: 404bbfc5dd4f4466b293d53d1af07d2c
+msgid ""
+"Finally, copy the build products into the Python38 installation "
+"directories, next to the Release-mode Python executable and DLL's:"
+msgstr ""
+"Finalmente, copie los productos de compilación en los directorios de "
+"instalación de Python38, junto con el ejecutable en modo de lanzamiento de "
+"Python y las DLL:"
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:207
+#: 627203fae48649509a62d61de3d7d5a2
+msgid "Now, from a fresh command prompt, make sure that ``python_d`` works:"
+msgstr ""
+"Ahora, desde un símbolo del sistema nuevo, asegúrese de que ``python_d`` "
+"funcione:"
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:213
+#: 760688396aad4082bb01c17c2d19f823
+msgid ""
+"Once you have verified the operation of ``python_d``, it is necessary to "
+"reinstall a few dependencies with the debug-enabled libraries:"
+msgstr ""
+"Una vez que haya verificado el funcionamiento de ``python_d``, es necesario "
+"volver a instalar algunas dependencias con las bibliotecas habilitadas para "
+"depuración:"
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:220
+#: d06f714241be49f6a731d76169aa6420
+msgid "To verify the installation of these dependencies:"
+msgstr "Para verificar la instalación de estas dependencias:"
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:226
+#: 043cec9fb3f6444aa346cfc876d74e98
+msgid ""
+"When you wish to return to building release binaries, it is necessary to "
+"uninstall the debug variants and use the release variants:"
+msgstr ""
+"Cuando desee volver a compilar binarios de lanzamiento, es necesario "
+"desinstalar las variantes de depuración y usar las variantes de lanzamiento:"
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:233
+#: a3ebad5df8f1419fab6543afaffe8832
+msgid ""
+"To create executables python scripts(.exe), python_d should be used to "
+"invoke colcon"
+msgstr ""
+"Para crear scripts ejecutables de python (.exe), se debe usar python_d para "
+"invocar colcon"
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:239
+#: 6b1e6319d79c4554b9cf21b6f2b00baa
+msgid "Hooray, you're done!"
+msgstr "¡Hurra, has terminado!"
+
+#: ../../source/Installation/Alternatives/Windows-Development-Setup.rst:249
+#: ../../source/Installation/Windows-Install-Binary.rst:90
+#: 32e080adca31448987eedffcad315b41 ad65c60995bc46799d7d6875cccb2f06
+msgid ""
+"Troubleshooting techniques can be found :ref:`here <windows-"
+"troubleshooting>`."
+msgstr ""
+"Las técnicas de solución de problemas se pueden encontrar :ref:`aquí <"
+"windows-troubleshooting>`."
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:7
+#: 62f2a20ffcfa40598ff3a8db37eb77cf
+msgid "macOS (source)"
+msgstr "macOS (fuente)"
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:16
+#: dbcc75e85dc9486eb9c774d39aa28ed3
+msgid ""
+"We currently support macOS Mojave (10.14). The Rolling Ridley "
+"distribution will change target platforms from time to time as new "
+"platforms become available. Most people will want to use a stable ROS "
+"distribution."
+msgstr ""
+"Actualmente admitimos macOS Mojave (10.14). La distribución Rolling Ridley "
+"cambiará las plataformas de destino de vez en cuando a medida que estén "
+"disponibles nuevas plataformas. La mayoría de las personas querrán usar una "
+"distribución ROS estable."
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:26
+#: 4152479aba5a47198a02fe3707a6ccd6
+msgid "You need the following things installed to build ROS 2:"
+msgstr "Necesita las siguientes cosas instaladas para compilar ROS 2:"
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:30
+#: 77e48d9ba3d14fafbdf9db2761130cea
+msgid "**Xcode**"
+msgstr "**Xcode**"
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:32
+#: 9e7a81bf54e7466db5684eb7e6c38de1
+msgid ""
+"If you don't already have it installed, install "
+"[Xcode](https://apps.apple.com/app/xcode/id497799835)."
+msgstr ""
+"Si aún no lo tiene instalado, instale "
+"[Xcode](https://apps.apple.com/app/xcode/id497799835)."
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:33
+#: 52ebb522be554d5cb4d7eacfb28139dd
+msgid ""
+"Note: Versions of Xcode later than 11.3.1 can no longer be installed on "
+"macOS Mojave, so you will need to install an older version manually, see:"
+" https://stackoverflow.com/a/61046761"
+msgstr ""
+"Nota: Las versiones de Xcode posteriores a 11.3.1 ya no se pueden instalar "
+"en macOS Mojave, por lo que deberá instalar una versión anterior "
+"manualmente, consulte: https://stackoverflow.com/a/61046761"
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:34
+#: 40a538b97df547d4a52fa51bbf787bca
+msgid ""
+"Also, if you don't already have it installed, install the Command Line "
+"Tools:"
+msgstr ""
+"Además, si aún no lo tiene instalado, instale las Herramientas de línea de "
+"comandos:"
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:46
+#: a1f9f1b5471d4da0a7b2bab57999c31f
+msgid "**brew** *(needed to install more stuff; you probably already have this)*:"
+msgstr ""
+"**brew** *(necesario para instalar más cosas; probablemente ya lo tenga)*:"
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:49
+#: 89d1a476d1244ff7b2473e70b7f58e15
+msgid "Follow installation instructions at http://brew.sh/"
+msgstr "Siga las instrucciones de instalación en http://brew.sh/"
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:51
+#: 1f84688524e7499b83e28b254f3ec867
+msgid ""
+"*Optional*: Check that ``brew`` is happy with your system configuration "
+"by running:"
+msgstr ""
+"*Opcional*: verifique que ``brew`` esté bien con su configuración del "
+"sistema ejecutando:"
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:57
+#: 960dd5634b6945a281432405f2409488
+msgid "Fix any problems that it identifies."
+msgstr "Solucione cualquier problema que identifique."
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:60
+#: 553f1f9bdcd34e74885fbb5413a25ec7
+msgid "Use ``brew`` to install more stuff:"
+msgstr "Use ``brew`` para instalar más cosas:"
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:69
+#: 2b31949458a04d5daa821798c565baac
+msgid "Setup some environment variables:"
+msgstr "Configure algunas variables de entorno:"
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:82
+#: 9804dd3b7afc4c71b479dd0addb0095d
+msgid ""
+"Use ``python3 -m pip`` (just ``pip`` may install Python3 or Python2) to "
+"install more stuff:"
+msgstr ""
+"Use ``python3 -m pip`` (solo ``pip`` puede instalar Python3 o Python2) para "
+"instalar más cosas:"
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:95
+#: 9c5b5a61d2884711937a9fc38adba262
+msgid ""
+"Please ensure that the ``$PATH`` environment variable contains the "
+"install location of the binaries (``$(brew --prefix)/bin``)"
+msgstr ""
+"Asegúrese de que la variable de entorno ``$PATH`` contenga la ubicación de "
+"instalación de los binarios (``$(brew --prefix)/bin``)"
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:98
+#: 062091bdaa56470cb13f5d307497b04d
+msgid ""
+"*Optional*: if you want to build the ROS 1<->2 bridge, then you must also"
+" install ROS 1:"
+msgstr ""
+"*Opcional*: si desea compilar el puente ROS 1 <-> 2, también debe instalar "
+"ROS 1:"
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:101
+#: f7ab3086bb134e409b26779c1735b274
+msgid ""
+"Start with the normal install instructions: "
+"http://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source"
+msgstr ""
+"Comience con las instrucciones de instalación normales: "
+"http://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source"
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:103
+#: 66fd45ddb93542ffa7da542f0b7e882f
+msgid ""
+"When you get to the step where you call ``rosinstall_generator`` to get "
+"the source code, here's an alternate invocation that brings in just the "
+"minimum required to produce a useful bridge:"
+msgstr ""
+"Cuando llegue al paso en el que llama a ``rosinstall_generator`` para "
+"obtener el código fuente, aquí hay una invocación alternativa que trae "
+"solo lo mínimo necesario para producir un puente útil:"
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:111
+#: eb9f6461ed004ff080b4f0906d85618d
+msgid ""
+"Otherwise, just follow the normal instructions, then source the resulting"
+" ``install_isolated/setup.bash`` before proceeding here to build ROS 2."
+msgstr ""
+"De lo contrario, simplemente siga las instrucciones normales, luego ejecute "
+"el resultado ``install_isolated/setup.bash`` antes de continuar aquí para "
+"compilar ROS 2."
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:114
+#: 00c92f37bc2f41538571615198db8ece
+msgid "Disable System Integrity Protection (SIP)"
+msgstr "Deshabilitar la protección de integridad del sistema (SIP)"
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:116
+#: 28510618329348b8959d75e318f5c929
+msgid ""
+"macOS/OS X versions >=10.11 have System Integrity Protection enabled by "
+"default. So that SIP doesn't prevent processes from inheriting dynamic "
+"linker environment variables, such as ``DYLD_LIBRARY_PATH``, you'll need "
+"to disable it `following these instructions "
+"<https://developer.apple.com/library/content/documentation/Security/Conceptual/System_Integrity_Protection_Guide/ConfiguringSystemIntegrityProtection/ConfiguringSystemIntegrityProtection.html>`__."
+msgstr ""
+"Las versiones de macOS / OS X> = 10.11 tienen System Integrity Protection "
+"habilitado de forma predeterminada. Para que SIP no impida que los "
+"procesos hereden variables de entorno del enlazador dinámico, como "
+"``DYLD_LIBRARY_PATH``, deberá deshabilitarlo `siguiendo estas "
+"instrucciones <https://developer.apple.com/library/content/documentation/"
+"Security/Conceptual/System_Integrity_Protection_Guide/"
+"ConfiguringSystemIntegrityProtection/ConfiguringSystemIntegrityProtection."
+"html>`__."
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:142
+#: 54045c1a7d81407da7b4ec83b7c9d245
+msgid ""
+"Run the ``colcon`` tool to build everything (more on using ``colcon`` in "
+":doc:`this tutorial <../../Tutorials/Beginner-Client-Libraries/Colcon-"
+"Tutorial>`):"
+msgstr ""
+"Ejecute la herramienta ``colcon`` para compilar todo (más sobre el uso de "
+"``colcon`` en :doc:`este tutorial <../../Tutorials/Beginner-Client-"
+"Libraries/Colcon-Tutorial>`):"
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:149
+#: e994b0cdfc2c4f8d87d52a48586db98a
+msgid ""
+"Note: due to an unresolved issue with SIP, Qt@5, and PyQt5, we need to "
+"disable ``python_qt_binding`` to have the build succeed. This will be "
+"removed when the issue is resolved, see: https://github.com/ros-"
+"visualization/python_qt_binding/issues/103"
+msgstr ""
+"Nota: debido a un problema sin resolver con SIP, Qt@5 y PyQt5, debemos "
+"deshabilitar ``python_qt_binding`` para que la compilación tenga éxito. "
+"Esto se eliminará cuando se resuelva el problema, consulte: https://github."
+"com/ros-visualization/python_qt_binding/issues/103"
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:155
+#: 32ee3e5ec2bd4d11ae921e44a899e33c
+msgid "Source the ROS 2 setup file:"
+msgstr "Ejecute el archivo de configuración de ROS 2:"
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:166
+#: edf9dc6c607642888a2522679edee44d
+msgid ""
+"In one terminal, set up the ROS 2 environment as described above and then"
+" run a C++ ``talker``:"
+msgstr ""
+"En una terminal, configure el entorno ROS 2 como se describe arriba y luego "
+"ejecute un C++ ``talker``:"
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:185
+#: c392ecf52bd84a6f9535820cf2326188
+msgid ""
+"Continue with the `tutorials and demos <../../Tutorials>` to configure "
+"your environment, create your own workspace and packages, and learn ROS 2"
+" core concepts."
+msgstr ""
+"Continúe con los `tutoriales y demos <../../Tutorials>` para configurar su "
+"entorno, crear su propio espacio de trabajo y paquetes, y aprender los "
+"conceptos básicos de ROS 2."
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:190
+#: b572b5de99964ea2b1c0bf69ef72fc60
+msgid ""
+"The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa. "
+"See the dedicated `documentation "
+"<https://github.com/ros2/ros1_bridge/blob/master/README.md>`__ on how to "
+"build and use the ROS 1 bridge."
+msgstr ""
+"El puente ROS 1 puede conectar temas de ROS 1 a ROS 2 y viceversa. Consulte "
+"la `documentación dedicada <https://github.com/ros2/ros1_bridge/blob/master/"
+"README.md>`__ sobre cómo compilar y usar el puente ROS 1."
+
+#: ../../source/Installation/Alternatives/macOS-Development-Setup.rst:201
+#: a8137b6cf5ff446eae17707f7d90b4c4
+msgid ""
+"Troubleshooting techniques can be found :ref:`here <macOS-"
+"troubleshooting>`."
+msgstr ""
+"Las técnicas de solución de problemas se pueden encontrar :ref:`aquí <"
+"macOS-troubleshooting>`."
+
+#: ../../source/Installation/DDS-Implementations.rst:2
+#: da05ca04782e4d26989db64e9a5eb493
+msgid "DDS implementations"
+msgstr "Implementaciones de DDS"
+
+#: ../../source/Installation/DDS-Implementations.rst:4
+#: e85c7f9a82964967bdd5eee568fea6c2
+msgid ""
+"By default, ROS 2 uses DDS as its `middleware "
+"<https://design.ros2.org/articles/ros_on_dds.html>`__. It is compatible "
+"with multiple DDS or RTPS (the DDS wire protocol) vendors. There is "
+"currently support for eProsima's Fast DDS, RTI's Connext DDS, Eclipse "
+"Cyclone DDS, and GurumNetworks GurumDDS. See "
+"https://ros.org/reps/rep-2000.html for supported DDS vendors by "
+"distribution."
+msgstr ""
+"De forma predeterminada, ROS 2 utiliza DDS como su `middleware "
+"<https://design.ros2.org/articles/ros_on_dds.html>`__. Es compatible con "
+"múltiples proveedores de DDS o RTPS (el protocolo de cable DDS). Actualmente "
+"hay soporte para Fast DDS de eProsima, Connext DDS de RTI, Eclipse Cyclone "
+"DDS y GurumNetworks GurumDDS. Consulte https://ros.org/reps/rep-2000.html "
+"para obtener los proveedores de DDS admitidos por distribución."
+
+#: ../../source/Installation/DDS-Implementations.rst:9
+#: 1bdfe7b1e20b4bf69918f9e076debbb9
+msgid "The default DDS vendor is eProsima's Fast DDS."
+msgstr "El proveedor DDS predeterminado es Fast DDS de eProsima."
+
+#: ../../source/Installation/DDS-Implementations.rst:11
+#: 8727941e6e144d3e82700baa11beefde
+msgid ""
+":doc:`Working with Eclipse Cyclone DDS <DDS-Implementations/Working-with-"
+"Eclipse-CycloneDDS>` explains how to utilize Cyclone DDS."
+msgstr ""
+":doc:`Trabajando con Eclipse Cyclone DDS <DDS-Implementations/Working-with-"
+"Eclipse-CycloneDDS>` explica cómo utilizar Cyclone DDS."
+
+#: ../../source/Installation/DDS-Implementations.rst:12
+#: 26594b9071ad48db98bc1a8d6509d56a
+msgid ""
+":doc:`Working with eProsima Fast DDS <DDS-Implementations/Working-with-"
+"eProsima-Fast-DDS>` explains how to utilize Fast DDS."
+msgstr ""
+":doc:`Trabajando con eProsima Fast DDS <DDS-Implementations/Working-with-"
+"eProsima-Fast-DDS>` explica cómo utilizar Fast DDS."
+
+#: ../../source/Installation/DDS-Implementations.rst:13
+#: 822c04345dec46c1abf006b91db6c3d8
+msgid ""
+":doc:`Working with GurumNetworks GurumDDS <DDS-Implementations/Working-"
+"with-GurumNetworks-GurumDDS>` explains how to utilize GurumDDS."
+msgstr ""
+":doc:`Trabajando con GurumNetworks GurumDDS <DDS-Implementations/Working-"
+"with-GurumNetworks-GurumDDS>` explica cómo utilizar GurumDDS."
+
+#: ../../source/Installation/DDS-Implementations.rst:21
+#: 86b3648e8a354d4b9d4d340017a6ccbe
+msgid ""
+"If you would like to use one of the other vendors you will need to "
+"install their software separately before building. The ROS 2 build will "
+"automatically build support for vendors that have been installed and "
+"sourced correctly."
+msgstr ""
+"Si desea utilizar uno de los otros proveedores, deberá instalar su "
+"software por separado antes de compilar. La compilación de ROS 2 "
+"compilará automáticamente el soporte para los proveedores que se hayan "
+"instalado y configurado correctamente."
+
+#: ../../source/Installation/DDS-Implementations.rst:24
+#: 009a876d3ff64d739b36d3e27a67d7d9
+msgid ""
+"Once you've installed a new DDS vendor, you can change the vendor used at"
+" runtime: :doc:`Working with Multiple RMW Implementations <../How-To-"
+"Guides/Working-with-multiple-RMW-implementations>`."
+msgstr ""
+"Una vez que haya instalado un nuevo proveedor de DDS, puede cambiar el "
+"proveedor utilizado en tiempo de ejecución: :doc:`Trabajar con múltiples "
+"implementaciones de RMW <../How-To-Guides/Working-with-multiple-RMW-"
+"implementations>`."
+
+#: ../../source/Installation/DDS-Implementations.rst:26
+#: d3bb2b8b9d37442aa5c701ded10d3040
+msgid "Detailed instructions for installing other DDS vendors are provided below."
+msgstr ""
+"A continuación se proporcionan instrucciones detalladas para instalar otros "
+"proveedores de DDS."
+
+#: ../../source/Installation/DDS-Implementations.rst:30
+#: 7f3a68e9036542f5a510d9419240aa01
+msgid "Platforms / Installation types"
+msgstr "Plataformas / Tipos de instalación"
+
+#: ../../source/Installation/DDS-Implementations.rst:33
+#: 2956e68a849b4ce7a094373980790f30
+msgid "Ubuntu Linux source install"
+msgstr "Instalación desde la fuente en Ubuntu Linux"
+
+#: ../../source/Installation/DDS-Implementations.rst:36
+#: ../../source/Installation/DDS-Implementations.rst:88
+#: 7e5f1de3535d4f189633b7243152f516 848fb30472e24ef78d558894de4d7e89
+msgid "RTI Connext (version 6.0.1, amd64 only)"
+msgstr "RTI Connext (versión 6.0.1, solo amd64)"
+
+#: ../../source/Installation/DDS-Implementations.rst:39
+#: 6cc065a3772c4872b491500a6b208cd6
+msgid "Debian packages provided in the ROS 2 apt repositories"
+msgstr "Paquetes Debian proporcionados en los repositorios apt de ROS 2"
+
+#: ../../source/Installation/DDS-Implementations.rst:41
+#: f601444208204e068dcfd9ff8f180414
+msgid ""
+"You can install a Debian package of RTI Connext available on the ROS 2 "
+"apt repositories. You will need to accept a license from RTI."
+msgstr ""
+"Puede instalar un paquete Debian de RTI Connext disponible en los "
+"repositorios apt de ROS 2. Deberá aceptar una licencia de RTI."
+
+#: ../../source/Installation/DDS-Implementations.rst:48
+#: ../../source/Installation/DDS-Implementations.rst:76
+#: 84fd6fc341954a3886771fe5b02b6494 b431d3cace3445c590117bb8a7c8da32
+msgid "Source the setup file to set the ``NDDSHOME`` environment variable."
+msgstr ""
+"Ejecute el archivo de configuración para establecer la variable de entorno "
+"``NDDSHOME``."
+
+#: ../../source/Installation/DDS-Implementations.rst:54
+#: b7fefdb4ff8d4bb3a26dfcd86d3c3e63
+msgid ""
+"Note: when using ``zsh`` you need to be in the directory of the script "
+"when sourcing it to have it work properly"
+msgstr ""
+"Nota: cuando usa ``zsh``, debe estar en el directorio del script cuando lo "
+"ejecute para que funcione correctamente"
+
+#: ../../source/Installation/DDS-Implementations.rst:56
+#: ../../source/Installation/DDS-Implementations.rst:82
+#: 02c6a13e012a4e2790e3c1ae112e652b 487197c2c24a4121b80436640c0dc2f8
+msgid "Now you can build as normal and support for RTI will be built as well."
+msgstr ""
+"Ahora puede compilar normalmente y también se compilará el soporte para RTI."
+
+#: ../../source/Installation/DDS-Implementations.rst:59
+#: 75248eac56724a06a2a3cf291e1fc8fb
+msgid "Official binary packages from RTI"
+msgstr "Paquetes binarios oficiales de RTI"
+
+#: ../../source/Installation/DDS-Implementations.rst:61
+#: 2f72843bd53b4612a80c660303bcc180
+msgid ""
+"You can install the Connext 6.0.1 package for Linux provided by RTI, via "
+"options available for :doc:`university, purchase or evaluation <DDS-"
+"Implementations/Install-Connext-University-Eval>`"
+msgstr ""
+"Puede instalar el paquete Connext 6.0.1 para Linux proporcionado por RTI, a "
+"través de las opciones disponibles para :doc:`universidad, compra o "
+"evaluación <DDS-Implementations/Install-Connext-University-Eval>`"
+
+#: ../../source/Installation/DDS-Implementations.rst:63
+#: 410ca66212fc45ca9e4ecc90f1a7cab8
+msgid ""
+"After downloading, use ``chmod +x`` on the ``.run`` executable and then "
+"execute it. Note that if you're installing to a system directory use "
+"``sudo`` as well."
+msgstr ""
+"Después de descargar, use ``chmod +x`` en el ejecutable ``.run`` y luego "
+"ejecútelo. Tenga en cuenta que si está instalando en un directorio del "
+"sistema, también use ``sudo``."
+
+#: ../../source/Installation/DDS-Implementations.rst:66
+#: 30ebf0302d6247da8e8f582206673f0f
+msgid "The default location is ``~/rti_connext_dds-6.0.1``"
+msgstr "La ubicación predeterminada es ``~/rti_connext_dds-6.0.1``"
+
+#: ../../source/Installation/DDS-Implementations.rst:68
+#: 61e3e04bf40e47bebd5ad6b63db56903
+msgid ""
+"After installation, run RTI launcher and point it to your license file "
+"(obtained from RTI)."
+msgstr ""
+"Después de la instalación, ejecute el iniciador de RTI y apúntelo a su "
+"archivo de licencia (obtenido de RTI)."
+
+#: ../../source/Installation/DDS-Implementations.rst:70
+#: a536b163b09d49a4a9fb9d3794522897
+msgid ""
+"Add the following line to your ``.bashrc`` file pointing to your copy of "
+"the license."
+msgstr ""
+"Agregue la siguiente línea a su archivo ``.bashrc`` que apunta a su copia "
+"de la licencia."
+
+#: ../../source/Installation/DDS-Implementations.rst:85
+#: d7b0421034914aad949add229e46505d
+msgid "Ubuntu Linux binary install"
+msgstr "Instalación binaria de Ubuntu Linux"
+
+#: ../../source/Installation/DDS-Implementations.rst:90
+#: 1009e3fcd23a4b5291d0ea46bf6fb41f
+msgid ""
+"To use RTI Connext DDS there are full-suite install options available for"
+" :doc:`university, purchase or evaluation <DDS-Implementations/Install-"
+"Connext-University-Eval>` or you can install a libraries-only Debian "
+"package of RTI Connext 6.0.1, available from the OSRF Apt repository "
+"under a `non-commercial license <https://www.rti.com/ncl>`__."
+msgstr ""
+"Para usar RTI Connext DDS, hay opciones de instalación de paquetes "
+"completos disponibles para :doc:`universidad, compra o evaluación <DDS-"
+"Implementations/Install-Connext-University-Eval>` o puede instalar un "
+"paquete Debian solo de bibliotecas de RTI Connext 6.0.1, disponible en el "
+"repositorio OSRF Apt bajo una `licencia no comercial <https://www.rti.com/"
+"ncl>`__."
+
+#: ../../source/Installation/DDS-Implementations.rst:94
+#: f6902eaa849c471698e4192b585a8e07
+msgid "To install the libs-only Debian package:"
+msgstr "Para instalar el paquete Debian solo de bibliotecas:"
+
+#: ../../source/Installation/DDS-Implementations.rst:100
+#: a3857206623b4483a5a216e4d3bddb6d
+msgid ""
+"You will need to accept a license agreement from RTI, and will find an "
+"'rti_license.dat file in the installation."
+msgstr ""
+"Deberá aceptar un acuerdo de licencia de RTI y encontrará un archivo "
+"'rti_license.dat en la instalación."
+
+#: ../../source/Installation/DDS-Implementations.rst:102
+#: 4f1ff47bfd87493aa1cf5bd46d452e8e
+msgid ""
+"Add the following line to your ``.bashrc`` file pointing to your copy of "
+"the license (and source it)."
+msgstr ""
+"Agregue la siguiente línea a su archivo ``.bashrc`` que apunta a su copia "
+"de la licencia (y ejecútelo)."
+
+#: ../../source/Installation/DDS-Implementations.rst:108
+#: eb68168aac484739b350ac1da0112fa0
+msgid ""
+"All options need you to source the setup file to set the ``NDDSHOME`` "
+"environment variable:"
+msgstr ""
+"Todas las opciones necesitan que ejecute el archivo de configuración para "
+"establecer la variable de entorno ``NDDSHOME``:"
+
+#: ../../source/Installation/DDS-Implementations.rst:114
+#: d8274cebecab43f7be3b8c8b717d7eab
+msgid ""
+"Note: the above may need modification to match your RTI installation "
+"location"
+msgstr ""
+"Nota: lo anterior puede necesitar modificaciones para que coincida con la "
+"ubicación de su instalación de RTI"
+
+#: ../../source/Installation/DDS-Implementations.rst:116
+#: ../../source/Installation/DDS-Implementations.rst:138
+#: ../../source/Installation/DDS-Implementations.rst:159
+#: ../../source/Installation/DDS-Implementations.rst:180
+#: ../../source/Installation/DDS-Implementations.rst:199
+#: 11142feb19de43ba87148754cb68cd08 157026a982094cffb8604d2b1d080768
+#: 17b6d6b28f7247429ac578c5f2965c06 35801553f6b5475798aa1a1102543e55
+#: cc32eae47cc847358af31351daa844e2
+msgid ""
+"If you want to install the Connext DDS-Security plugins please refer to "
+":doc:`this page <DDS-Implementations/Install-Connext-Security-Plugins>`."
+msgstr ""
+"Si desea instalar los complementos de seguridad de Connext DDS, consulte "
+":doc:`esta página <DDS-Implementations/Install-Connext-Security-Plugins>`."
+
+#: ../../source/Installation/DDS-Implementations.rst:119
+#: d24fc8af1d1d423b8017fedac0b6b953
+msgid "OSX source install"
+msgstr "Instalación desde código fuente en OSX"
+
+#: ../../source/Installation/DDS-Implementations.rst:122
+#: a0dab718a1c64a54a613d6edaed8f190
+msgid "RTI Connext (6.0.1)"
+msgstr "RTI Connext (6.0.1)"
+
+#: ../../source/Installation/DDS-Implementations.rst:124
+#: ../../source/Installation/DDS-Implementations.rst:167
+#: 3aba013167634718a3e49bc3cf3c4102 ae8ed98742cd414088cfd896bbd0029a
+msgid ""
+"If you would like to also build against RTI Connext DDS there are options"
+" available for :doc:`university, purchase or evaluation <DDS-"
+"Implementations/Install-Connext-University-Eval>`"
+msgstr ""
+"Si también desea compilar contra RTI Connext DDS, hay opciones disponibles "
+"para :doc:`universidad, compra o evaluación <DDS-Implementations/Install-"
+"Connext-University-Eval>`"
+
+#: ../../source/Installation/DDS-Implementations.rst:126
+#: 1b1098bba4ed49d680f0294d0baafd1d
+msgid ""
+"You also need a Java runtime installed to run the RTI code generator, "
+"which you can get `here "
+"<https://support.apple.com/kb/DL1572?locale=en_US>`__."
+msgstr ""
+"También necesita un tiempo de ejecución de Java instalado para ejecutar el "
+"generador de código RTI, que puede obtener `aquí <https://support.apple."
+"com/kb/DL1572?locale=en_US>`__."
+
+#: ../../source/Installation/DDS-Implementations.rst:128
+#: ../../source/Installation/DDS-Implementations.rst:149
+#: ../../source/Installation/DDS-Implementations.rst:191
+#: 392b55a51eb34d1caf38b9d75b35e3e5 57d00ac028b846d5ba8aa67a6aeb8621
+#: eff7389db32c44a89b8d45ccdcdd3cb7
+msgid "After installing, run RTI launcher and point it to your license file."
+msgstr ""
+"Después de la instalación, ejecute el iniciador de RTI y apúntelo a su "
+"archivo de licencia."
+
+#: ../../source/Installation/DDS-Implementations.rst:130
+#: ../../source/Installation/DDS-Implementations.rst:151
+#: 80b36f0a305a43ea82cb699583f35966 8cc78adbd78944448be6ac0c07b6f2aa
+msgid ""
+"Source the setup file to set the ``NDDSHOME`` environment variable before"
+" building your workspace."
+msgstr ""
+"Ejecute el archivo de configuración para establecer la variable de entorno "
+"``NDDSHOME`` antes de compilar su espacio de trabajo."
+
+#: ../../source/Installation/DDS-Implementations.rst:136
+#: 72e20b486dff4b32a705271c6a1a4ac1
+msgid ""
+"You may need to increase shared memory resources following "
+"https://community.rti.com/kb/osx510"
+msgstr ""
+"Es posible que deba aumentar los recursos de memoria compartida siguiendo "
+"https://community.rti.com/kb/osx510"
+
+#: ../../source/Installation/DDS-Implementations.rst:141
+#: 96626fdfc1e04884b6df787edbb5659f
+msgid "OSX binary install"
+msgstr "Instalación binaria en OSX"
+
+#: ../../source/Installation/DDS-Implementations.rst:145
+#: c5abf64f824846bbae06c8be5394b7b2
+msgid "Enable Connext support"
+msgstr "Habilitar el soporte de Connext"
+
+#: ../../source/Installation/DDS-Implementations.rst:147
+#: ../../source/Installation/DDS-Implementations.rst:189
+#: 16985b9f457145348edb057f1309e3b1 c44cb56091434d9b840e52f0ea7182c8
+msgid ""
+"To use RTI Connext DDS there are options available for :doc:`university, "
+"purchase or evaluation <DDS-Implementations/Install-Connext-University-"
+"Eval>`"
+msgstr ""
+"Para usar RTI Connext DDS, hay opciones disponibles para :doc:`universidad, "
+"compra o evaluación <DDS-Implementations/Install-Connext-University-Eval>`"
+
+#: ../../source/Installation/DDS-Implementations.rst:157
+#: bd25411e16244b70b625c606ba000bcf
+msgid ""
+"You may need to increase shared memory resources following "
+"https://community.rti.com/kb/osx510."
+msgstr ""
+"Es posible que deba aumentar los recursos de memoria compartida siguiendo "
+"https://community.rti.com/kb/osx510."
+
+#: ../../source/Installation/DDS-Implementations.rst:162
+#: aefb3c32f9b94413bb4a012e03ef2bc6
+msgid "Windows source install"
+msgstr "Instalación desde código fuente en Windows"
+
+#: ../../source/Installation/DDS-Implementations.rst:165
+#: 1d10ff7bb7ff41268707db2691aa9c62
+msgid "RTI Connext 6.0.1"
+msgstr "RTI Connext 6.0.1"
+
+#: ../../source/Installation/DDS-Implementations.rst:169
+#: 21e61f79f1344d8cbd2783edadbb16ea
+msgid "After installing, use the RTI Launcher to load your license file."
+msgstr ""
+"Después de la instalación, use el iniciador de RTI para cargar su archivo "
+"de licencia."
+
+#: ../../source/Installation/DDS-Implementations.rst:171
+#: 0589dab17f4544259d5e629cdff0e065
+msgid "Then before building ROS 2, set up the Connext environment:"
+msgstr ""
+"Luego, antes de compilar ROS 2, configure el entorno Connext:"
+
+#: ../../source/Installation/DDS-Implementations.rst:177
+#: d5277be8ac614628b866b6462441f0ca
+msgid ""
+"Note that this path might need to be slightly altered depending on where "
+"you selected to install RTI Connext DDS, and which version of Visual "
+"Studio was selected. The path above is the current default path as of "
+"version 6.0.1, but will change as the version numbers increment in the "
+"future."
+msgstr ""
+"Tenga en cuenta que esta ruta podría necesitar modificaciones ligeramente "
+"según el lugar donde seleccionó instalar RTI Connext DDS y qué versión de "
+"Visual Studio se seleccionó. La ruta anterior es la ruta predeterminada "
+"actual a partir de la versión 6.0.1, pero cambiará a medida que los "
+"números de versión aumenten en el futuro."
+
+#: ../../source/Installation/DDS-Implementations.rst:183
+#: 1372ba6a635446f6a35eec1a0ece0540
+msgid "Windows binary install"
+msgstr "Instalación binaria en Windows"
+
+#: ../../source/Installation/DDS-Implementations.rst:187
+#: 1e2fc320ea304f10851b9b5d50a35a3b
+msgid "RTI Connext"
+msgstr "RTI Connext"
+
+#: ../../source/Installation/DDS-Implementations.rst:193
+#: bf66b98250c744c6b7e22a4b535cc448
+msgid "Then before using ROS 2, set up the Connext environment:"
+msgstr "Luego, antes de usar ROS 2, configure el entorno Connext:"
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-Security-Plugins.rst:2
+#: eec52ce924c24d7c90a13d3958c1401a
+msgid "Connext security plugins"
+msgstr "Complementos de seguridad de Connext"
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-Security-Plugins.rst:4
+#: 43879304a4234776aa34eb2a54ce7a59
+msgid ""
+"The Connext DDS Libraries are included with ROS 2 under a `non-commercial"
+" license <https://www.rti.com/ncl>`__ and do not include the security "
+"plug-in libraries. These libraries are available in the commercial, "
+"university and research license versions of RTI Connext DDS Pro, which is"
+" bundled with tools for system debugging, monitoring, record/replay, etc."
+msgstr ""
+"Las bibliotecas Connext DDS están incluidas en ROS 2 bajo una `licencia no "
+"comercial <https://www.rti.com/ncl>`__ y no incluyen las bibliotecas de "
+"complementos de seguridad. Estas bibliotecas están disponibles en las "
+"versiones de licencia comercial, universitaria e investigativa de RTI "
+"Connext DDS Pro, que se incluye con herramientas para la depuración del "
+"sistema, monitoreo, grabación/reproducción, etc."
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-Security-Plugins.rst:11
+#: 9c790eb976254d60a6f4137a0cd67fb7
+msgid ""
+"The Connext DDS Evaluation Version (6.0.1) includes the security plugins,"
+" and can be downloaded via options available for :doc:`university, "
+"purchase or evaluation <Install-Connext-University-Eval>`."
+msgstr ""
+"La versión de evaluación de Connext DDS (6.0.1) incluye los complementos de "
+"seguridad y se puede descargar a través de las opciones disponibles para "
+":doc:`universidad, compra o evaluación <Install-Connext-University-Eval>`."
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-Security-Plugins.rst:13
+#: 09d8227a1b064b7c9d58b622428f731b
+msgid ""
+"A video walk-thru of this installation (tools and security plug-ins) is "
+"available `here "
+"<https://www.rti.com/gettingstarted/installwindows_secure>`__ at the RTI "
+"website. The steps are:"
+msgstr ""
+"Una guía en video de esta instalación (herramientas y complementos de "
+"seguridad) está disponible `aquí <https://www.rti.com/gettingstarted/"
+"installwindows_secure>`__ en el sitio web de RTI. Los pasos son:"
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-Security-Plugins.rst:18
+#: f62a1d985f094b219bb5808484790ef0
+msgid ""
+"**Install Connext DDS Pro (Host)** This is a host-specific installer "
+"application (for Windows, Linux, MacOS) to install a 'Host' bundle which "
+"includes the Launcher, tools, and other software services. At the end of "
+"the installation, the RTI 'Launcher' program will be started. The "
+"Launcher is used to install target libraries, security plugins, and other"
+" layered services."
+msgstr ""
+"**Instalar Connext DDS Pro (Host)** Esta es una aplicación de instalador "
+"específica del host (para Windows, Linux, MacOS) para instalar un paquete "
+"'Host' que incluye el iniciador, herramientas y otros servicios de "
+"software. Al final de la instalación, se iniciará el programa RTI "
+"'Launcher'. El iniciador se utiliza para instalar bibliotecas de destino, "
+"complementos de seguridad y otros servicios de capa."
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-Security-Plugins.rst:23
+#: cb4d287e0aa146e38f0f8eedeff88650
+msgid "**Use the Package Installer in Launcher**"
+msgstr "**Usar el instalador de paquetes en el iniciador**"
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-Security-Plugins.rst:28
+#: 8a3ca10e40c04c0e925e828939381ca8 d081aed52de140f88a8288a24d004a4a
+msgid "Launcher Image"
+msgstr "Imagen del iniciador"
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-Security-Plugins.rst:30
+#: fe133922851d4fcc80a9bbf8f0fd9903
+msgid ""
+"The 'RTI Package Installer' is used to install '.rtipkg' files -- target "
+"libraries, security plug-ins, etc. Open the Package Installer and select "
+"all of the .rtipkg files that were included in the Connext DDS Secure "
+"bundle for installation:"
+msgstr ""
+"El 'Instalador de paquetes RTI' se utiliza para instalar archivos '.rtipkg"
+"' - bibliotecas de destino, complementos de seguridad, etc. Abra el "
+"Instalador de paquetes y seleccione todos los archivos .rtipkg que se "
+"incluyeron en el paquete Connext DDS Secure para la instalación:"
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-Security-Plugins.rst:35
+#: e0d749c22fe9481ca2d02fa353aff08d
+msgid ""
+"Target Libraries - such as: rti\\_connext\\_dds-[version]-pro-"
+"target-[toolchain].rtipkg"
+msgstr ""
+"Bibliotecas de destino - como: rti\\_connext\\_dds-[version]-pro-"
+"target-[toolchain].rtipkg"
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-Security-Plugins.rst:36
+#: a1a12e9fc478458c86652f5448226892
+msgid ""
+"Security Plugin Host - such as: "
+"rti\\_security\\_plugins-[version]-host-[toolchain].rtipkg"
+msgstr ""
+"Host de complemento de seguridad - como: "
+"rti\\_security\\_plugins-[version]-host-[toolchain].rtipkg"
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-Security-Plugins.rst:37
+#: 1a9d3890971e49bfaef9636b9df7d3a3
+msgid ""
+"Security Plugin Target - such as: "
+"rti\\_security\\_plugins-[version]-target-[toolchain].rtipkg"
+msgstr ""
+"Destino del complemento de seguridad - como: "
+"rti\\_security\\_plugins-[version]-target-[toolchain].rtipkg"
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-Security-Plugins.rst:38
+#: 513d17f5cf8848c68aec2b020c0ccb3d
+msgid "OpenSSL Host - such as: openssl-1.0.2x-[version]-host-[toolchain].rtipkg"
+msgstr "Host de OpenSSL - como: openssl-1.0.2x-[version]-host-[toolchain].rtipkg"
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-Security-Plugins.rst:40
+#: 05a1e13340ee4f7296d31454251aafcd
+msgid ""
+"**Extract and Install OpenSSL** This is included as an archive (.zip or "
+"otherwise) and can be simply extracted and copied to a convenient "
+"location on your host computer. As a suggestion, this could also be "
+"installed into the 'rti\\_connext\\_dds-[version]' directory in your home"
+" directory space (this was created during installation of the RTI host "
+"tools). Note: this directory location may need to be placed in your PATH "
+"environment variable. See the `RTI Security Plugins Getting Started Guide"
+" <https://community.rti.com/static/documentation/connext-"
+"dds/6.0.1/doc/manuals/connext_dds/dds_security/RTI_SecurityPlugins_GettingStarted.pdf>`__"
+" for more information."
+msgstr ""
+"**Extraer e instalar OpenSSL** Esto se incluye como un archivo (.zip u "
+"otro) y se puede extraer y copiar simplemente en una ubicación conveniente"
+" en su computadora host. Como sugerencia, esto también se podría instalar "
+"en el directorio 'rti\\_connext\\_dds-[version]' en el espacio de su "
+"directorio principal (esto se creó durante la instalación de las "
+"herramientas de host de RTI). Nota: es posible que esta ubicación del "
+"directorio deba colocarse en su variable de entorno PATH. Consulte la `Guía"
+" de inicio de los complementos de seguridad de RTI <https://community.rti."
+"com/static/documentation/connext-dds/6.0.1/doc/manuals/connext_dds/dds_"
+"security/RTI_SecurityPlugins_GettingStarted.pdf>`__ para obtener más "
+"información."
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-Security-Plugins.rst:50
+#: 89a43a473f1946b6bfc8ddfc79c48204
+msgid "Installation complete."
+msgstr "Instalación completa."
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-University-Eval.rst:2
+#: 398bd560ac47486abc5ebac7ab3ceeeb
+msgid "RTI Connext DDS"
+msgstr "RTI Connext DDS"
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-University-Eval.rst:4
+#: 2d2b35ddeabf4fdc81b9ee502ac0f05d
+msgid ""
+"A libraries-only version of RTI Connext DDS 6.0.1 may be installed per "
+"the :doc:`installation instructions <../../Installation>` for "
+"Debian/Ubuntu Linux (amd64) platforms only, under a `non-commercial "
+"license <https://www.rti.com/ncl>`__."
+msgstr ""
+"Una versión solo de bibliotecas de RTI Connext DDS 6.0.1 se puede instalar "
+"según las :doc:`instrucciones de instalación <../../Installation>` para "
+"plataformas Debian/Ubuntu Linux (amd64) solamente, bajo una `licencia no "
+"comercial <https://www.rti.com/ncl>`__."
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-University-Eval.rst:7
+#: d7d6fad452c245d59a0320ee922d6428
+msgid ""
+"A full-suite installation of RTI Connext DDS is available for many "
+"additional platforms, for universities, evaluation, or purchase. This "
+"installation includes diagnostic tools, layered services, and security.  "
+"See below for installation details."
+msgstr ""
+"Una instalación de paquete completo de RTI Connext DDS está disponible para "
+"muchas plataformas adicionales, para universidades, evaluación o compra. "
+"Esta instalación incluye herramientas de diagnóstico, servicios de capa y "
+"seguridad. Consulte a continuación los detalles de la instalación."
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-University-Eval.rst:11
+#: 0f681546befa421c9fcc283c0df13461
+msgid "RTI University Program"
+msgstr "Programa universitario de RTI"
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-University-Eval.rst:13
+#: 40f5a7f6d78a45e8a0a8fdab13065b38
+msgid ""
+"University researchers and classroom users may be eligible for a free "
+"academic license through the `RTI University Program <https://www.rti.com"
+"/free-trial/university-program>`__. This includes a one-year (renewable) "
+"license to the unabridged version of Connext DDS Secure, which includes "
+"diagnostic tools and layered services. The university license application"
+" can be found `here <https://www.rti.com/free-trial/university-"
+"program>`__."
+msgstr ""
+"Los investigadores universitarios y los usuarios de aula pueden ser "
+"elegibles para una licencia académica gratuita a través del `Programa "
+"Universitario de RTI <https://www.rti.com/free-trial/university-program>`__."
+" Esto incluye una licencia de un año (renovable) a la versión íntegra de "
+"Connext DDS Secure, que incluye herramientas de diagnóstico y servicios de "
+"capa. La solicitud de licencia universitaria se puede encontrar `aquí <https"
+"://www.rti.com/free-trial/university-program>`__."
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-University-Eval.rst:19
+#: a7faf13f433a49d49cf081919447bee5
+msgid "RTI Connext DDS Evaluation"
+msgstr "Evaluación de RTI Connext DDS"
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-University-Eval.rst:25
+#: b3b9600d9edb4129aa396fde95d5b931
+msgid "To install RTI Connext DDS **version 6.0.1** Evalution:"
+msgstr "Para instalar RTI Connext DDS **versión 6.0.1** Evalution:"
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-University-Eval.rst:22
+#: c63c36bf24224aacbf331b079d1cd540
+msgid ""
+"Visit the `RTI Free Trial (6.0.1) site <https://www.rti.com/free-"
+"trial>`__."
+msgstr ""
+"Visite el `sitio de prueba gratuita de RTI (6.0.1) <https://www.rti.com/"
+"free-trial>`__."
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-University-Eval.rst:23
+#: 7e479f4149654b2091fcf97950c9b2ee
+msgid "Download the version(s) to match your environment."
+msgstr "Descargue la(s) versión(es) para que coincida con su entorno."
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-University-Eval.rst:24
+#: 1616e60807a34a57bbcb6d73334e4c37
+msgid "Contact license@rti.com for an evaluation license."
+msgstr "Póngase en contacto con license@rti.com para obtener una licencia de evaluación."
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-University-Eval.rst:25
+#: d4a98b7c039340b59229cf75d4c7fb05
+msgid ""
+"Install RTI Connext 6.0.1 by running the installation program.  When "
+"finished, it will run the RTI Launcher."
+msgstr ""
+"Instale RTI Connext 6.0.1 ejecutando el programa de instalación. Cuando "
+"termine, ejecutará el iniciador de RTI."
+
+#: ../../source/Installation/DDS-Implementations/Install-Connext-University-Eval.rst:26
+#: 81cfb4b0c1fa434b82c5d942ffd884c0
+msgid ""
+"Use the RTI Launcher to install the license file (rti_license.dat) if "
+"needed.  The launcher may also be used to launch the diagnostic tools and"
+" services."
+msgstr ""
+"Utilice el iniciador de RTI para instalar el archivo de licencia "
+"(rti_license.dat) si es necesario. El iniciador también se puede utilizar "
+"para iniciar las herramientas de diagnóstico y los servicios."
+
+#: ../../source/Installation/DDS-Implementations/Working-with-Eclipse-CycloneDDS.rst:6
+#: 69fbaf7665414e28a96e5634ca41711e
+msgid "Eclipse Cyclone DDS"
+msgstr "Eclipse Cyclone DDS"
+
+#: ../../source/Installation/DDS-Implementations/Working-with-Eclipse-CycloneDDS.rst:8
+#: 11747f4034cd451f8c64b9cac8f307ee
+msgid ""
+"Eclipse Cyclone DDS is a very performant and robust open-source DDS "
+"implementation. Cyclone DDS is developed completely in the open as an "
+"Eclipse IoT project. See also: "
+"https://projects.eclipse.org/projects/iot.cyclonedds"
+msgstr ""
+"Eclipse Cyclone DDS es una implementación DDS de código abierto muy "
+"eficiente y robusta. Cyclone DDS se desarrolla completamente en abierto "
+"como un proyecto Eclipse IoT. Ver también: "
+"https://projects.eclipse.org/projects/iot.cyclonedds"
+
+#: ../../source/Installation/DDS-Implementations/Working-with-Eclipse-CycloneDDS.rst:14
+#: ../../source/Installation/DDS-Implementations/Working-with-GurumNetworks-GurumDDS.rst:13
+#: ../../source/Installation/DDS-Implementations/Working-with-eProsima-Fast-DDS.rst:9
+#: 4d95c8b9e66c46e99e1749c3964db3e0 5efe37a82b4b4d5bbea44c9d68f49c16
+#: d9702cdd4fb34b6786fe69ca9fdf846d
+msgid "Prerequisites"
+msgstr "Prerrequisitos"
+
+#: ../../source/Installation/DDS-Implementations/Working-with-Eclipse-CycloneDDS.rst:16
+#: ../../source/Installation/DDS-Implementations/Working-with-eProsima-Fast-DDS.rst:11
+#: c70970657d324c7aaf87b4f72049297f ce0d3c9a9e21411eaefd445323dc0f4f
+msgid "Have `rosdep installed  <https://wiki.ros.org/rosdep#Installing_rosdep>`__"
+msgstr ""
+"Tener `rosdep instalado <https://wiki.ros.org/rosdep#Installing_rosdep>`__"
+
+#: ../../source/Installation/DDS-Implementations/Working-with-Eclipse-CycloneDDS.rst:19
+#: ../../source/Installation/DDS-Implementations/Working-with-GurumNetworks-GurumDDS.rst:38
+#: ../../source/Installation/DDS-Implementations/Working-with-eProsima-Fast-DDS.rst:14
+#: 49c6417cb5ce4a529e537468cfc661a6 4e9b5f42e6454f04a0a2f5e0d19c1adf
+#: a96007bf95cf417681b91e22d5f5d2bb
+msgid "Install packages"
+msgstr "Instalar paquetes"
+
+#: ../../source/Installation/DDS-Implementations/Working-with-Eclipse-CycloneDDS.rst:21
+#: ../../source/Installation/DDS-Implementations/Working-with-eProsima-Fast-DDS.rst:16
+#: 023e34ecbba1435a98c408252ea7c520 77ebc894be464d2b88e555e0169eb919
+msgid "The easiest way is to install from ROS 2 apt repository."
+msgstr "La forma más fácil es instalar desde el repositorio apt de ROS 2."
+
+#: ../../source/Installation/DDS-Implementations/Working-with-Eclipse-CycloneDDS.rst:28
+#: ../../source/Installation/DDS-Implementations/Working-with-GurumNetworks-GurumDDS.rst:48
+#: ../../source/Installation/DDS-Implementations/Working-with-eProsima-Fast-DDS.rst:23
+#: 11383f231d9347e2998699d22e2a4930 1e6194cf3d0f4e8c8934a8e7af8bfbad
+#: adb5ac281a7b4b599cfb368ea4c9d724
+msgid "Build from source code"
+msgstr "Compilar desde el código fuente"
+
+#: ../../source/Installation/DDS-Implementations/Working-with-Eclipse-CycloneDDS.rst:30
+#: ../../source/Installation/DDS-Implementations/Working-with-GurumNetworks-GurumDDS.rst:50
+#: ../../source/Installation/DDS-Implementations/Working-with-eProsima-Fast-DDS.rst:25
+#: 3ed414c6f9d942be910861373dd8975a 4afbfcba82014bdc8f52375c2457d532
+#: e832824b19594662a63ede8b1ee4cbbf
+msgid "Building from source code is also another way to install."
+msgstr "Compilar desde el código fuente es otra forma de instalar."
+
+#: ../../source/Installation/DDS-Implementations/Working-with-Eclipse-CycloneDDS.rst:32
+#: 146223d95d4b4f1b99d6f2d589d3366d
+msgid ""
+"First, clone Cyclone DDS and rmw_cyclonedds in the ROS 2 workspace source"
+" directory."
+msgstr ""
+"Primero, clone Cyclone DDS y rmw_cyclonedds en el directorio de origen del "
+"espacio de trabajo de ROS 2."
+
+#: ../../source/Installation/DDS-Implementations/Working-with-Eclipse-CycloneDDS.rst:40
+#: 093785c5c8134849b035305b540cf7f8
+msgid "Then, install necessary packages for Cyclone DDS."
+msgstr "Luego, instale los paquetes necesarios para Cyclone DDS."
+
+#: ../../source/Installation/DDS-Implementations/Working-with-Eclipse-CycloneDDS.rst:47
+#: ../../source/Installation/DDS-Implementations/Working-with-GurumNetworks-GurumDDS.rst:66
+#: ../../source/Installation/DDS-Implementations/Working-with-eProsima-Fast-DDS.rst:42
+#: 0fac53d08e6e4f97ae2655a373ee7f95 269ad533da5848cabd26400b5a26d9da
+#: d0cde1e11fbe44828d849b337308967a
+msgid "Finally, run colcon build."
+msgstr "Finalmente, ejecute colcon build."
+
+#: ../../source/Installation/DDS-Implementations/Working-with-Eclipse-CycloneDDS.rst:54
+#: b5efee3b746d4b2aae9e454fa79d5767
+msgid "Switch to rmw_cyclonedds"
+msgstr "Cambiar a rmw_cyclonedds"
+
+#: ../../source/Installation/DDS-Implementations/Working-with-Eclipse-CycloneDDS.rst:56
+#: 7ab3689d09024005b76535272fe87ddb
+msgid ""
+"Switch from other rmw to rmw_cyclonedds by specifying the environment "
+"variable."
+msgstr ""
+"Cambie de otro rmw a rmw_cyclonedds especificando la variable de entorno."
+
+#: ../../source/Installation/DDS-Implementations/Working-with-Eclipse-CycloneDDS.rst:62
+#: ../../source/Installation/DDS-Implementations/Working-with-GurumNetworks-GurumDDS.rst:81
+#: ../../source/Installation/DDS-Implementations/Working-with-eProsima-Fast-DDS.rst:57
+#: 5b825379a329401493604a23fac4a420 b1ef4c9deebd43779dc14b1dda689caf
+#: d69b4a759ad947f58960d9e526525afc
+msgid ""
+"See also: :doc:`Working with multiple RMW implementations <../../How-To-"
+"Guides/Working-with-multiple-RMW-implementations>`"
+msgstr ""
+"Ver también: :doc:`Trabajar con múltiples implementaciones de RMW <../../"
+"How-To-Guides/Working-with-multiple-RMW-implementations>`"
+
+#: ../../source/Installation/DDS-Implementations/Working-with-Eclipse-CycloneDDS.rst:65
+#: ../../source/Installation/DDS-Implementations/Working-with-GurumNetworks-GurumDDS.rst:84
+#: ../../source/Installation/DDS-Implementations/Working-with-eProsima-Fast-DDS.rst:60
+#: a7f6e04724b544d5b47ce599359af76a a98bf03b01874611b496512c7d262ecf
+#: ff118c2eb9f24bab8cfb549f8326377d
+msgid "Run the talker and listener"
+msgstr "Ejecute el talker y el listener"
+
+#: ../../source/Installation/DDS-Implementations/Working-with-Eclipse-CycloneDDS.rst:67
+#: aef0995bb1bc404aa263d60a2f08db70
+msgid "Now run ``talker`` and ``listener`` to test Cyclone DDS."
+msgstr "Ahora ejecute ``talker`` y ``listener`` para probar Cyclone DDS."
+
+#: ../../source/Installation/DDS-Implementations/Working-with-GurumNetworks-GurumDDS.rst:6
+#: 26de5ac4b41c432d84e218ce03fff46f
+msgid "GurumNetworks GurumDDS"
+msgstr "GurumNetworks GurumDDS"
+
+#: ../../source/Installation/DDS-Implementations/Working-with-GurumNetworks-GurumDDS.rst:8
+#: a56dab25833a40bc92450c4dfa088b70
+msgid ""
+"rmw_gurumdds is a implementation of the ROS middleware interface using "
+"GurumNetworks GurumDDS. More information about GurumDDS is available on "
+"our website: https://gurum.cc/index_eng"
+msgstr ""
+"rmw_gurumdds es una implementación de la interfaz de middleware ROS que "
+"utiliza GurumNetworks GurumDDS. Más información sobre GurumDDS está "
+"disponible en nuestro sitio web: https://gurum.cc/index_eng"
+
+#: ../../source/Installation/DDS-Implementations/Working-with-GurumNetworks-GurumDDS.rst:15
+#: 7fc13670ec584652a848906be493fb24
+msgid ""
+"The following description assumes that you have completed the "
+"'Environment setup' process from the :doc:`Installing ROS 2 via Debian "
+"Packages <../Ubuntu-Install-Debians>` or from the :doc:`Building ROS 2 on"
+" Ubuntu Linux <../Alternatives/Ubuntu-Development-Setup>`."
+msgstr ""
+"La siguiente descripción asume que ha completado el proceso de 'Configuración "
+"del entorno' de :doc:`Instalación de ROS 2 a través de paquetes Debian <../"
+"Ubuntu-Install-Debians>` o de :doc:`Construcción de ROS 2 en Ubuntu Linux <../"
+"Alternatives/Ubuntu-Development-Setup>`."
+
+#: ../../source/Installation/DDS-Implementations/Working-with-GurumNetworks-GurumDDS.rst:19
+#: 8149a295ad134be6b6fa42515df4e117
+msgid ""
+"rmw_gurumdds requires version of GurumDDS-2.8.x. Debian packages of "
+"GurumDDS are provided in the ROS 2 apt repositories on ubuntu. Windows "
+"binary installer of GurumDDS will be supported soon."
+msgstr ""
+"rmw_gurumdds requiere la versión de GurumDDS-2.8.x. Los paquetes Debian de "
+"GurumDDS se proporcionan en los repositorios apt de ROS 2 en ubuntu. El "
+"instalador binario de Windows de GurumDDS se admitirá pronto."
+
+#: ../../source/Installation/DDS-Implementations/Working-with-GurumNetworks-GurumDDS.rst:23
+#: e10c31eedeae4d6b9f30e38fbdeabe35
+msgid ""
+"GurumDDS requires a license. See the next page: "
+"https://gurum.cc/free_trial_eng.html"
+msgstr ""
+"GurumDDS requiere una licencia. Ver la siguiente página: "
+"https://gurum.cc/free_trial_eng.html"
+
+#: ../../source/Installation/DDS-Implementations/Working-with-GurumNetworks-GurumDDS.rst:25
+#: 14a52fd067664d3f91f8a1b56ca8b970
+msgid ""
+"After requesting a trial license, please download the license from the "
+"license homepage. After getting a license, move it to the following "
+"location."
+msgstr ""
+"Después de solicitar una licencia de prueba, descargue la licencia desde la "
+"página de inicio de la licencia. Después de obtener una licencia, muévala a "
+"la siguiente ubicación."
+
+#: ../../source/Installation/DDS-Implementations/Working-with-GurumNetworks-GurumDDS.rst:29
+#: a9d5b5f3eb1a4ed593331800398c96fb
+msgid "DDS Version"
+msgstr "Versión DDS"
+
+#: ../../source/Installation/DDS-Implementations/Working-with-GurumNetworks-GurumDDS.rst:29
+#: b99a275d200346519659a88cab6d6fef
+msgid "License Location"
+msgstr "Ubicación de la licencia"
+
+#: ../../source/Installation/DDS-Implementations/Working-with-GurumNetworks-GurumDDS.rst:31
+#: 88bc862bb8ac4093b3c306b3855926bd
+msgid "<= 2.7.2860"
+msgstr "<= 2.7.2860"
+
+#: ../../source/Installation/DDS-Implementations/Working-with-GurumNetworks-GurumDDS.rst:31
+#: f483794be349427cb5bd147fff89ed59
+msgid "/etc/flame"
+msgstr "/etc/flame"
+
+#: ../../source/Installation/DDS-Implementations/Working-with-GurumNetworks-GurumDDS.rst:32
+#: 5649e94de9154b6c885410b8ddb9d392
+msgid ">= 2.7.2861"
+msgstr ">= 2.7.2861"
+
+#: ../../source/Installation/DDS-Implementations/Working-with-GurumNetworks-GurumDDS.rst:32
+#: ../../source/Installation/DDS-Implementations/Working-with-GurumNetworks-GurumDDS.rst:33
+#: 7dcaf378ab384adb8ac2accaf653faf4 b2bb6ef79ea64b82a8fecc5bd0272c6e
+msgid "/etc/gurumnet"
+msgstr "/etc/gurumnet"
+
+#: ../../source/Installation/DDS-Implementations/Working-with-GurumNetworks-GurumDDS.rst:33
+#: e73eae8620d347cba6ae43ea41ba7928
+msgid "2.8.x"
+msgstr "2.8.x"
+
+#: ../../source/Installation/DDS-Implementations/Working-with-GurumNetworks-GurumDDS.rst:40
+#: e66f5c43e546491593130f0627d25410
+msgid ""
+"The easiest way is to install from ROS 2 apt repository. When ros-{DISTRO"
+"}-rmw-gurumdds-cpp is installed, gurumdds-2.8 is also installed."
+msgstr ""
+"La forma más fácil es instalar desde el repositorio apt de ROS 2. Cuando se "
+"instala ros-{DISTRO}-rmw-gurumdds-cpp, también se instala gurumdds-2.8."
+
+#: ../../source/Installation/DDS-Implementations/Working-with-GurumNetworks-GurumDDS.rst:52
+#: 21aa99750cc041829b812eb37b75dd1b
+msgid "First, clone rmw_gurumdds in the ROS 2 workspace source directory."
+msgstr ""
+"Primero, clone rmw_gurumdds en el directorio de origen del espacio de trabajo de ROS 2."
+
+#: ../../source/Installation/DDS-Implementations/Working-with-GurumNetworks-GurumDDS.rst:59
+#: 1a77a1bb269946a0842a624f23256073
+msgid "Then, install necessary packages for GurumDDS."
+msgstr "Luego, instale los paquetes necesarios para GurumDDS."
+
+#: ../../source/Installation/DDS-Implementations/Working-with-GurumNetworks-GurumDDS.rst:73
+#: b2b696d0bb454397bb1013ba35f5a5ae
+msgid "Switch to rmw_gurumdds"
+msgstr "Cambiar a rmw_gurumdds"
+
+#: ../../source/Installation/DDS-Implementations/Working-with-GurumNetworks-GurumDDS.rst:75
+#: 63ba57a693c44d76b3c906933c0578a9
+msgid ""
+"Switch from other rmw to rmw_gurumdds by specifying the environment "
+"variable."
+msgstr ""
+"Cambie de otro rmw a rmw_gurumdds especificando la variable de entorno."
+
+#: ../../source/Installation/DDS-Implementations/Working-with-GurumNetworks-GurumDDS.rst:86
+#: c6fab4d32d7141d49dd69f681070b569
+msgid ""
+"Now run ``talker`` and ``listener`` to test GurumDDS. Don't forget to set"
+" up environment by setup script."
+msgstr ""
+"Ahora ejecute ``talker`` y ``listener`` para probar GurumDDS. No olvide "
+"configurar el entorno mediante el script de configuración."
+
+#: ../../source/Installation/DDS-Implementations/Working-with-eProsima-Fast-DDS.rst:2
+#: 67a398827104496d9e52f5bad2a2992e
+msgid "eProsima Fast DDS"
+msgstr "eProsima Fast DDS"
+
+#: ../../source/Installation/DDS-Implementations/Working-with-eProsima-Fast-DDS.rst:4
+#: 8b0d933f7ac14da1bfdbb7e9cfc6fdeb
+msgid ""
+"eProsima Fast DDS is a complete open-source DDS implementation for real "
+"time embedded architectures and operating systems. See also: "
+"https://www.eprosima.com/index.php/products-all/eprosima-fast-dds"
+msgstr ""
+"eProsima Fast DDS es una implementación DDS de código abierto completa para "
+"arquitecturas y sistemas operativos integrados en tiempo real. Ver también: "
+"https://www.eprosima.com/index.php/products-all/eprosima-fast-dds"
+
+#: ../../source/Installation/DDS-Implementations/Working-with-eProsima-Fast-DDS.rst:27
+#: b3b20d5419324d92891c69a3950e78ac
+msgid ""
+"First, clone Fast DDS and rmw_fastrtps in the ROS 2 workspace source "
+"directory."
+msgstr ""
+"Primero, clone Fast DDS y rmw_fastrtps en el directorio de origen del "
+"espacio de trabajo de ROS 2."
+
+#: ../../source/Installation/DDS-Implementations/Working-with-eProsima-Fast-DDS.rst:35
+#: 8982ac9c1e82412baa7f4782610fd970
+msgid "Then, install necessary packages for Fast DDS."
+msgstr "Luego, instale los paquetes necesarios para Fast DDS."
+
+#: ../../source/Installation/DDS-Implementations/Working-with-eProsima-Fast-DDS.rst:49
+#: b7ed096d5e464cbaa6f4937c220acf14
+msgid "Switch to rmw_fastrtps"
+msgstr "Cambiar a rmw_fastrtps"
+
+#: ../../source/Installation/DDS-Implementations/Working-with-eProsima-Fast-DDS.rst:51
+#: acf3b20b5b8e4c8b9f915842c7f7a748
+msgid ""
+"The eProsima Fast DDS RMW can be selected by specifying the environment "
+"variable:"
+msgstr ""
+"El RMW eProsima Fast DDS se puede seleccionar especificando la variable de "
+"entorno:"
+
+#: ../../source/Installation/DDS-Implementations/Working-with-eProsima-Fast-DDS.rst:62
+#: c781c86d77524ddfa29d539b4e00b625
+msgid "Now run ``talker`` and ``listener`` to test Fast DDS."
+msgstr "Ahora ejecute ``talker`` y ``listener`` para probar Fast DDS."
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:4
+#: dc6ad79126884818aaf6a36637ddb2ff
+msgid "Maintain source checkout"
+msgstr "Mantener la comprobación de origen"
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:17
+#: be0fe861dca643d98a7bfb13d52138a4
+msgid ""
+"If you have installed ROS 2 from source, there may have been changes made"
+" to the source code since the time that you checked it out. To keep your "
+"source checkout up to date, you will have to periodically update your "
+"``ros2.repos`` file, download the latest sources, and rebuild your "
+"workspace."
+msgstr ""
+"Si ha instalado ROS 2 desde el código fuente, puede haber cambios realizados"
+" en el código fuente desde el momento en que lo comprobó. Para mantener su "
+"comprobación de origen actualizada, deberá actualizar periódicamente su "
+"archivo ``ros2.repos``, descargar las últimas fuentes y reconstruir su "
+"espacio de trabajo."
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:21
+#: 5e0c568aeac447008e111256f977eaba
+msgid "Update your repository list"
+msgstr "Actualice su lista de repositorios"
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:23
+#: f36e16e65b88418ea2af64a0f77451bb
+msgid ""
+"Each ROS 2 release includes a ``ros2.repos`` file that contains the list "
+"of repositories and their version for that release."
+msgstr ""
+"Cada versión de ROS 2 incluye un archivo ``ros2.repos`` que contiene la "
+"lista de repositorios y su versión para esa versión."
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:27
+#: 6061b449bd3a4ba094e7371df136576b
+msgid "Latest ROS 2 {DISTRO_TITLE} branches"
+msgstr "Últimas ramas de ROS 2 {DISTRO_TITLE}"
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:29
+#: 4b8e49d336944f4a80656673f0f705e1
+msgid ""
+"If you wish to checkout the latest code for ROS 2 {DISTRO_TITLE}, you can"
+" get the relevant repository list by running:"
+msgstr ""
+"Si desea comprobar el código más reciente de ROS 2 {DISTRO_TITLE}, puede "
+"obtener la lista de repositorios relevantes ejecutando:"
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:33
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:80
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:123
+#: 2b1e637849574b2bb46f61f671d8ffb7 ccfa1d55f2674e2ea6bff5c8fb733a43
+#: e1570835407241c6a2dfd4b063e24f14
+msgid "Linux"
+msgstr "Linux"
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:41
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:87
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:130
+#: 47a65892bca346eabfdd49332bdb13b3 640b47297d87429dabaa772a2e9429cc
+#: a1a5bddbabd24eceb42e942cf40540e6
+msgid "macOS"
+msgstr "macOS"
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:49
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:94
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:137
+#: ../../source/Installation/Testing.rst:92 5a3077da018247578ec1019823a514e2
+#: cba5910681d2423facf195a8a55da3d0 d99d0bf3b0c34d9baad9386d4537e5b2
+#: e6d7fd3f3f8a4ed5bf3e729d3830c021
+msgid "Windows"
+msgstr "Windows"
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:63
+#: ad48307bcda646ab80723101f6239231
+msgid "Update your repositories"
+msgstr "Actualice sus repositorios"
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:65
+#: 96ca4c621bcd4004929941607047d13a
+msgid ""
+"You will notice that in the `ros2.repos "
+"<https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos>`__"
+" file, each repository has a ``version`` associated with it that points "
+"to a particular commit hash, tag, or branch name. It is possible that "
+"these versions refer to new tags/branches that your local copy of the "
+"repositories will not recognize as they are out-of-date. Because of this,"
+" you should update the repositories that you have already checked out "
+"with the following command:"
+msgstr ""
+"Notará que en el archivo `ros2.repos <https://raw.githubusercontent.com/"
+"ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos>`__, cada repositorio tiene una "
+"``versión`` asociada que apunta a un hash de confirmación, etiqueta o "
+"nombre de rama en particular. Es posible que estas versiones se refieran a "
+"nuevas etiquetas/ramas que su copia local de los repositorios no reconocerá "
+"ya que están desactualizadas. Debido a esto, debe actualizar los "
+"repositorios que ya ha comprobado con el siguiente comando:"
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:74
+#: 47b7e470840d4ea9a91dbe8a289f75ba
+msgid "Download the new source code"
+msgstr "Descargue el nuevo código fuente"
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:76
+#: 4f207b275d2c4418b4bd07344ca792e7
+msgid ""
+"You should now be able to download the sources associated with the new "
+"repository list with:"
+msgstr ""
+"Ahora debería poder descargar las fuentes asociadas con la nueva lista de "
+"repositorios con:"
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:107
+#: 80dfe46c8a0547869c48d0b3a823ee69
+msgid "Rebuild your workspace"
+msgstr "Reconstruya su espacio de trabajo"
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:109
+#: 600069ec93a442a7b62d9cd3afaa6d0f
+msgid ""
+"Now that the workspace is up to date with the latest sources, remove your"
+" previous install and rebuild your workspace with, for example:"
+msgstr ""
+"Ahora que el espacio de trabajo está actualizado con las últimas fuentes, "
+"elimine su instalación anterior y reconstruya su espacio de trabajo con, por "
+"ejemplo:"
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:116
+#: c99025ca190a401aac4f6e58634d131f
+msgid "Inspect your source checkout"
+msgstr "Inspeccione su comprobación de origen"
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:118
+#: 44f22f93f4fe4a8db403e96bbf8386a3
+msgid ""
+"During your development you may have deviated from the original state of "
+"your workspace from when you imported the repository list. If you wish to"
+" know the versions of the set of repositories in your workspace, you can "
+"export the information using the following command:"
+msgstr ""
+"Durante su desarrollo, es posible que se haya desviado del estado original "
+"de su espacio de trabajo desde que importó la lista de repositorios. Si "
+"desea conocer las versiones del conjunto de repositorios en su espacio de "
+"trabajo, puede exportar la información utilizando el siguiente comando:"
+
+#: ../../source/Installation/Maintaining-a-Source-Checkout.rst:144
+#: 3ab2df5c048d4082b333e35e44533e86
+msgid ""
+"This ``my_ros2.repos`` file can then be shared with others so that they "
+"can reproduce the state of the repositories in your workspace."
+msgstr ""
+"Este archivo ``my_ros2.repos`` se puede compartir con otros para que "
+"puedan reproducir el estado de los repositorios en su espacio de trabajo."
+
+#: ../../source/Installation/RHEL-Install-RPMs.rst:2
+#: e6de88d2940c41e3b53fb41c0a5a908c
+msgid "RHEL (RPM packages)"
+msgstr "RHEL (paquetes RPM)"
+
+#: ../../source/Installation/RHEL-Install-RPMs.rst:8
+#: 333623752ceb4c3b9ac69358e2ff0813
+msgid ""
+"RPM packages for ROS 2 {DISTRO_TITLE_FULL} are currently available for "
+"RHEL 9. The Rolling Ridley distribution will change target platforms from"
+" time to time as new platforms are selected for development. The target "
+"platforms are defined in `REP 2000 <https://github.com/ros-"
+"infrastructure/rep/blob/master/rep-2000.rst>`__ Most people will want to "
+"use a stable ROS distribution."
+msgstr ""
+"Los paquetes RPM para ROS 2 {DISTRO_TITLE_FULL} están disponibles "
+"actualmente para RHEL 9. La distribución Rolling Ridley cambiará las "
+"plataformas objetivo de vez en cuando a medida que se seleccionen nuevas "
+"plataformas para el desarrollo. Las plataformas objetivo se definen en `REP "
+"2000 <https://github.com/ros-infrastructure/rep/blob/master/rep-2000.rst>`__ "
+"La mayoría de las personas querrán usar una distribución ROS estable."
+
+#: ../../source/Installation/RHEL-Install-RPMs.rst:14
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:18
+#: 10b0e872748146e58b91e72c8ce4a637 8bc59f82d158495ca8d0f704eaf4a5ee
+msgid "Resources"
+msgstr "Recursos"
+
+#: ../../source/Installation/RHEL-Install-RPMs.rst:16
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:20
+#: b6282ce60ef34ba6bbf98ef65da2c640 d6b76bd980bb422092ff3849ba1525c0
+msgid "Status Page:"
+msgstr "Página de estado:"
+
+#: ../../source/Installation/RHEL-Install-RPMs.rst:18
+#: 256002e8934149f58d09b1594f0ae163
+msgid ""
+"ROS 2 {DISTRO_TITLE} (RHEL 9): `amd64 "
+"<http://repo.ros2.org/status_page/ros_{DISTRO}_rhel.html>`__"
+msgstr ""
+"ROS 2 {DISTRO_TITLE} (RHEL 9): `amd64 "
+"<http://repo.ros2.org/status_page/ros_{DISTRO}_rhel.html>`__"
+
+#: ../../source/Installation/RHEL-Install-RPMs.rst:19
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:23
+#: 12eb20c43b164cf2abe70204b2ca19bb 146050e255504ceab821b0ccfe4f90d3
+msgid "`Jenkins Instance <http://build.ros2.org/>`__"
+msgstr "`Instancia de Jenkins <http://build.ros2.org/>`__"
+
+#: ../../source/Installation/RHEL-Install-RPMs.rst:20
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:24
+#: 8a3c871138e34de38b445fedb024f6b9 c27e7336c4f1447d89e5b65a5ce79b49
+msgid "`Repositories <http://repo.ros2.org>`__"
+msgstr "`Repositorios <http://repo.ros2.org>`__"
+
+#: ../../source/Installation/RHEL-Install-RPMs.rst:33
+#: 50fc036f8f7b44458e4354e231ab2461
+msgid ""
+"You will need to enable the EPEL repositories and the PowerTools "
+"repository:"
+msgstr ""
+"Deberá habilitar los repositorios EPEL y el repositorio PowerTools:"
+
+#: ../../source/Installation/RHEL-Install-RPMs.rst:42
+#: 6b26fc3fc38f482495c8b75436376387
+msgid "Next, download the ROS 2 .repo file:"
+msgstr "A continuación, descargue el archivo .repo de ROS 2:"
+
+#: ../../source/Installation/RHEL-Install-RPMs.rst:49
+#: ab2082f330194208bb2f83db453f5972
+msgid ""
+"Then, update your metadata cache. DNF may prompt you to verify the GPG "
+"key, which should match the location "
+"``https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc``."
+msgstr ""
+"Luego, actualice su caché de metadatos. DNF puede solicitarle que verifique "
+"la clave GPG, que debe coincidir con la ubicación "
+"``https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc``."
+
+#: ../../source/Installation/RHEL-Install-RPMs.rst:98
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:68
+#: 28145a8960f54ed88ccc638cba534866 59dfa025a7824fbfb4354c061abdddf9
+msgid "Desktop Install (Recommended): ROS, RViz, demos, tutorials."
+msgstr "Instalación de escritorio (recomendado): ROS, RViz, demos, tutoriales."
+
+#: ../../source/Installation/RHEL-Install-RPMs.rst:104
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:74
+#: 35cdf01ad08d423cbaaf782303a47607 d95d8eb316564029830705b5e4708330
+msgid ""
+"ROS-Base Install (Bare Bones): Communication libraries, message packages,"
+" command line tools. No GUI tools."
+msgstr ""
+"Instalación de ROS-Base (Bare Bones): bibliotecas de comunicación, paquetes "
+"de mensajes, herramientas de línea de comandos. Sin herramientas GUI."
+
+#: ../../source/Installation/RHEL-Install-RPMs.rst:114
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:84
+#: ../../source/Installation/Windows-Install-Binary.rst:47
+#: 055cf9994c9741198f61512aa1fa40b8 b5b3573bb551454295a461f39ec5b005
+#: dd30e5f8b4164a50bdb2a8552f2c5653
+msgid ""
+"The default middleware that ROS 2 uses is ``Fast DDS``, but the "
+"middleware (RMW) can be replaced at runtime. See the :doc:`guide <../How-"
+"To-Guides/Working-with-multiple-RMW-implementations>` on how to work with"
+" multiple RMWs."
+msgstr ""
+"El middleware predeterminado que usa ROS 2 es ``Fast DDS``, pero el "
+"middleware (RMW) se puede reemplazar en tiempo de ejecución. Consulte la "
+":doc:`guía <../How-To-Guides/Working-with-multiple-RMW-implementations>` "
+"sobre cómo trabajar con múltiples RMW."
+
+#: ../../source/Installation/RHEL-Install-RPMs.rst:131
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:101
+#: 1cf8ff6fd88f4468902e5ca9b7abfe31 c8fe041a2fad48f0b445c8291696c69a
+msgid "If you installed ``ros-{DISTRO}-desktop`` above you can try some examples."
+msgstr "Si instaló ``ros-{DISTRO}-desktop`` anteriormente, puede probar algunos "
+
+#: ../../source/Installation/RHEL-Install-RPMs.rst:159
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:135
+#: 95019026336049daa74f885a89804c31 9fc206d9e4344126a875a9ad06adf39d
+msgid ""
+"Troubleshooting techniques can be found :doc:`here <../How-To-Guides"
+"/Installation-Troubleshooting>`."
+msgstr ""
+"Las técnicas de solución de problemas se pueden encontrar :doc:`aquí"
+" <../How-To-Guides/Installation-Troubleshooting>`."
+
+#: ../../source/Installation/RHEL-Install-RPMs.rst:164
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:140
+#: 550963d6f30a4e72a3a8008ae0292446 8a57e346c9a5415bad747fbefde71313
+msgid ""
+"If you need to uninstall ROS 2 or switch to a source-based install once "
+"you have already installed from binaries, run the following command:"
+msgstr ""
+"Si necesita desinstalar ROS 2 o cambiar a una instalación basada en "
+"origen una vez que ya haya instalado desde binarios, ejecute el siguiente "
+"comando:"
+
+#: ../../source/Installation/Testing.rst:6 0ed4301fbc864be4815f2447b713f446
+msgid "Testing with pre-release binaries"
+msgstr "Pruebas con binarios previos al lanzamiento"
+
+#: ../../source/Installation/Testing.rst:8 65b66a67b8d44f40a32699aa66afbd9a
+msgid ""
+"Many ROS packages are provided as pre-built binaries. Usually, you will "
+"get the released version of binaries when following "
+":doc:`../Installation`. There are also pre-released versions of binaries "
+"that are useful for testing before making an official release. This "
+"article describes several options if you would like to try out pre-"
+"released versions of ROS binaries."
+msgstr ""
+"Muchos paquetes ROS se proporcionan como binarios precompilados. Por lo "
+"general, obtendrá la versión publicada de binarios al seguir "
+":doc:`../Installation`. También hay versiones previas al lanzamiento de "
+"binarios que son útiles para las pruebas antes de realizar un lanzamiento "
+"oficial. Este artículo describe varias opciones si desea probar versiones "
+"previas al lanzamiento de binarios ROS."
+
+#: ../../source/Installation/Testing.rst:14 0e99bb29124a43589132a99800140909
+msgid "Debian testing repository"
+msgstr "Repositorio de pruebas de Debian"
+
+#: ../../source/Installation/Testing.rst:16 ff19e86664ca473e9e70285961ca7ec3
+msgid ""
+"When packages are released into a ROS distribution (using bloom), the "
+"buildfarm builds them into debian packages which are stored temporarily "
+"in the **building** apt repository. As dependent packages are rebuilt, an"
+" automatic process periodically synchronizes the packages in **building**"
+" to a secondary repository called **ros-testing**. **ros-testing** is "
+"intended as a soaking area where developers and bleeding-edge users may "
+"give the packages extra testing, before they are manually synced into the"
+" public ros repository from which users typically install packages."
+msgstr ""
+"Cuando los paquetes se lanzan en una distribución ROS (usando bloom), el "
+"buildfarm los compila en paquetes debian que se almacenan temporalmente en "
+"el repositorio apt **building**. A medida que se reconstruyen los paquetes "
+"dependientes, un proceso automático sincroniza periódicamente los paquetes "
+"en **building** con un repositorio secundario llamado **ros-testing**. "
+"**ros-testing** está destinado como un área de remojo donde los "
+"desarrolladores y los usuarios de vanguardia pueden dar a los paquetes "
+"pruebas adicionales, antes de que se sincronicen manualmente en el "
+"repositorio público de ros desde el que los usuarios suelen instalar "
+"paquetes."
+
+#: ../../source/Installation/Testing.rst:20 8b56b453ecde46e4b7a04070511abf27
+msgid ""
+"Approximately every two weeks, the rosdistro's release manager manually "
+"synchronizes the contents of **ros-testing** into the **main** ROS "
+"repository."
+msgstr ""
+"Aproximadamente cada dos semanas, el administrador de lanzamiento de "
+"rosdistro sincroniza manualmente el contenido de **ros-testing** en el "
+"repositorio ROS **principal**."
+
+#: ../../source/Installation/Testing.rst:22 c6d23cd52317421a93fbaeb4f170fd29
+msgid ""
+"For Debian-based operating systems, you can install binary packages from "
+"the **ros-testing** repository."
+msgstr ""
+"Para sistemas operativos basados en Debian, puede instalar paquetes "
+"binarios desde el repositorio **ros-testing**."
+
+#: ../../source/Installation/Testing.rst:24 51a934afc1ff49328de26db5a73434bd
+msgid ""
+"Make sure you have a working ROS 2 installation from Debian packages (see"
+" :doc:`../Installation`)."
+msgstr ""
+"Asegúrese de tener una instalación de ROS 2 funcional a partir de paquetes"
+" Debian (consulte :doc:`../Installation`)."
+
+#: ../../source/Installation/Testing.rst:26 ba7f58c11dae4caba0b3b11569193938
+msgid ""
+"Edit (with sudo) the file ``/etc/apt/sources.list.d/ros2.list`` and "
+"change ``ros2`` with ``ros2-testing``. For example, on Ubuntu Jammy the "
+"contents should look like the following:"
+msgstr ""
+"Edite (con sudo) el archivo ``/etc/apt/sources.list.d/ros2.list`` y "
+"cambie ``ros2`` por ``ros2-testing``. Por ejemplo, en Ubuntu Jammy el "
+"contenido debería verse así:"
+
+#: ../../source/Installation/Testing.rst:34 a1abbd4c7d7a401795517eef9dcac4e5
+msgid "Update the ``apt`` index:"
+msgstr "Actualice el índice ``apt``:"
+
+#: ../../source/Installation/Testing.rst:40 1ed8a2875ecb41a4a4b13dad62e9061f
+msgid ""
+"You can now install individual packages from the testing repository, for "
+"example:"
+msgstr ""
+"Ahora puede instalar paquetes individuales desde el repositorio de "
+"pruebas, por ejemplo:"
+
+#: ../../source/Installation/Testing.rst:46 f87abd4f8b5f47918e04eaf6603913a5
+msgid ""
+"Alternatively, you can move your entire ROS 2 installation to the testing"
+" repository:"
+msgstr ""
+"Alternativamente, puede mover toda su instalación de ROS 2 al repositorio "
+"de pruebas:"
+
+#: ../../source/Installation/Testing.rst:52 7b3069cb88704548bb212508d1a70a98
+msgid ""
+"Once you are finished testing, you can switch back to the normal "
+"repository by changing back the contents of "
+"``/etc/apt/sources.list.d/ros2.list``:"
+msgstr ""
+"Una vez que haya terminado de probar, puede volver al repositorio normal "
+"cambiando el contenido de ``/etc/apt/sources.list.d/ros2.list``:"
+
+#: ../../source/Installation/Testing.rst:59 18762462b8534da5a08aac40ef3e6eb3
+msgid "and doing an update and upgrade:"
+msgstr "y hacer una actualización y actualización:"
+
+#: ../../source/Installation/Testing.rst:69 7a4607da09cc41ec99eaf176099b956d
+msgid "Fat binaries"
+msgstr "Binarios fat"
+
+#: ../../source/Installation/Testing.rst:71 738ea42f398b45a9800a2cc98be6a78f
+msgid ""
+"For core packages, we run nightly packaging jobs for Ubuntu Linux, RHEL, "
+"and Windows. These packaging jobs produce archives with pre-built "
+"binaries that can be downloaded and extracted to your filesystem."
+msgstr ""
+"Para paquetes básicos, ejecutamos trabajos de empaquetado nocturnos para "
+"Ubuntu Linux, RHEL y Windows. Estos trabajos de empaquetado producen "
+"archivos con binarios precompilados que se pueden descargar y extraer en su "
+"sistema de archivos."
+
+#: ../../source/Installation/Testing.rst:74 b645f799ce4a40bdb10090dfcd292094
+msgid ""
+"Make sure you have all dependencies installed according to the "
+":doc:`latest development setup <Alternatives/Latest-Development-Setup>` "
+"for your platform."
+msgstr ""
+"Asegúrese de tener todas las dependencias instaladas de acuerdo con la "
+":doc:`última configuración de desarrollo <Alternatives/Latest-Development-"
+"Setup>` para su plataforma."
+
+#: ../../source/Installation/Testing.rst:76 600b4e12863240609fd47b2319360f1d
+msgid ""
+"Go to https://ci.ros2.org/view/packaging/ and select a packaging job from"
+" the list corresponding to your platform."
+msgstr ""
+"Vaya a https://ci.ros2.org/view/packaging/ y seleccione un trabajo de "
+"empaquetado de la lista correspondiente a su plataforma."
+
+#: ../../source/Installation/Testing.rst:78 269428fd25e84311b7cd4ab787691f6a
+msgid ""
+"Under the heading \"Last Successful Artifacts\" you should see a download"
+" link (e.g. for Windows, ``ros2-package-windows-AMD64.zip``)."
+msgstr ""
+"En el encabezado \"Últimos artefactos exitosos\" debería ver un enlace de "
+"descarga (por ejemplo, para Windows, ``ros2-package-windows-AMD64.zip``)."
+
+#: ../../source/Installation/Testing.rst:80 0daaf649d8cd40c9bf30bd4b5cdfe8e9
+msgid "Download and extract the archive to your file system."
+msgstr "Descargue y extraiga el archivo en su sistema de archivos."
+
+#: ../../source/Installation/Testing.rst:82 6130064c4c09459a84dad923bda169ee
+msgid ""
+"To use the fat binary installation, source the ``setup.*`` file that can "
+"be found in the root of the archive."
+msgstr ""
+"Para usar la instalación de binarios gordos, use el archivo ``setup.*`` que "
+"se puede encontrar en la raíz del archivo."
+
+#: ../../source/Installation/Testing.rst:86 e44d415886854e4198a657c0a745f8db
+msgid "Ubuntu Linux and RHEL"
+msgstr "Ubuntu Linux y RHEL"
+
+#: ../../source/Installation/Testing.rst:99 5c7bf88fe4094b20abb2bde603fefdec
+msgid "Docker"
+msgstr "Docker"
+
+#: ../../source/Installation/Testing.rst:101 b9a21c59d3704cae9b697c9b3835a07a
+msgid ""
+"For Ubuntu Linux, there is also a nightly Docker image based on the "
+"nightly fat archive."
+msgstr ""
+"Para Ubuntu Linux, también hay una imagen Docker diaria basada en el "
+"archivo fat diario."
+
+#: ../../source/Installation/Testing.rst:103 0d2e6487432d47ef928d52b4e9b66247
+msgid "Pull the Docker image:"
+msgstr "Extraiga la imagen de Docker:"
+
+#: ../../source/Installation/Testing.rst:109 e02c04daad684078a53d2dc3932e6c65
+msgid "Start an interactive container:"
+msgstr "Inicie un contenedor interactivo:"
+
+#: ../../source/Installation/Testing.rst:115 bcc5e867ecdd4fd9b6d50734ae42d14a
+msgid ""
+"For support on running GUI applications in Docker, take a look at the "
+"tutorial `User GUI's with Docker "
+"<https://wiki.ros.org/docker/Tutorials/GUI>`_ or the tool `rocker "
+"<https://github.com/osrf/rocker>`_."
+msgstr ""
+"Para obtener soporte sobre cómo ejecutar aplicaciones GUI en Docker, eche "
+"un vistazo al tutorial `User GUI's with Docker "
+"<https://wiki.ros.org/docker/Tutorials/GUI>`_ o la herramienta `rocker "
+"<https://github.com/osrf/rocker>`_."
+
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:6
+#: 547f79238c0b425581efc76cc939aa95
+msgid "Ubuntu (Debian packages)"
+msgstr "Ubuntu (paquetes Debian)"
+
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:12
+#: 750c9eaa05d54e5d83b67730a4b2132e
+msgid ""
+"Debian packages for ROS 2 {DISTRO_TITLE_FULL} are currently available for"
+" Ubuntu Jammy. The Rolling Ridley distribution will change target "
+"platforms from time to time as new platforms are selected for "
+"development. The target platforms are defined in `REP 2000 "
+"<https://github.com/ros-infrastructure/rep/blob/master/rep-2000.rst>`__ "
+"Most people will want to use a stable ROS distribution."
+msgstr ""
+"Los paquetes Debian para ROS 2 {DISTRO_TITLE_FULL} están disponibles "
+"actualmente para Ubuntu Jammy. La distribución Rolling Ridley cambiará las "
+"plataformas objetivo de vez en cuando a medida que se seleccionen nuevas "
+"plataformas para el desarrollo. Las plataformas objetivo se definen en `REP "
+"2000 <https://github.com/ros-infrastructure/rep/blob/master/rep-2000.rst>`__ "
+"La mayoría de las personas querrán usar una distribución ROS estable."
+
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:22
+#: beaf5e0e200944ff9f47409dc9451fbc
+msgid ""
+"ROS 2 {DISTRO_TITLE} (Ubuntu Jammy): `amd64 "
+"<http://repo.ros2.org/status_page/ros_{DISTRO}_default.html>`__\\ , "
+"`arm64 <http://repo.ros2.org/status_page/ros_{DISTRO}_ujv8.html>`__"
+msgstr ""
+"ROS 2 {DISTRO_TITLE} (Ubuntu Jammy): `amd64 "
+"<http://repo.ros2.org/status_page/ros_{DISTRO}_default.html>`__\\ , "
+"`arm64 <http://repo.ros2.org/status_page/ros_{DISTRO}_ujv8.html>`__"
+
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:53
+#: e71f5bba79774ef9ba3d6c15a4bb766d
+msgid "Update your apt repository caches after setting up the repositories."
+msgstr ""
+"Actualice las cachés de su repositorio apt después de configurar los "
+"repositorios."
+
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:63
+#: 12e5c9cffefd4f10930556c6a55458b4
+msgid ""
+"Due to early updates in Ubuntu 22.04 it is important that ``systemd`` and"
+" ``udev``-related packages are updated before installing ROS 2. The "
+"installation of ROS 2's dependencies on a freshly installed system "
+"without upgrading can trigger the **removal of critical system "
+"packages**."
+msgstr ""
+"Debido a las actualizaciones tempranas en Ubuntu 22.04, es importante que "
+"los paquetes relacionados con ``systemd`` y ``udev`` se actualicen antes "
+"de instalar ROS 2. La instalación de las dependencias de ROS 2 en un "
+"sistema recién instalado sin actualizar puede desencadenar la **eliminación "
+"de paquetes críticos del sistema**."
+
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:66
+#: ff22331472a8412889a992217a3f7a6b
+msgid ""
+"Please refer to `ros2/ros2#1272 "
+"<https://github.com/ros2/ros2/issues/1272>`_ and `Launchpad #1974196 "
+"<https://bugs.launchpad.net/ubuntu/+source/systemd/+bug/1974196>`_ for "
+"more information."
+msgstr ""
+"Consulte `ros2/ros2#1272 "
+"<https://github.com/ros2/ros2/issues/1272>`_ y `Launchpad #1974196 "
+"<https://bugs.launchpad.net/ubuntu/+source/systemd/+bug/1974196>`_ para "
+"obtener más información."
+
+#: ../../source/Installation/Ubuntu-Install-Debians.rst:147
+#: e4a4de8e8d284eac95e9ae0ea2b632f3
+msgid "You may also want to remove the repository:"
+msgstr "También puede querer eliminar el repositorio:"
+
+#: ../../source/Installation/Windows-Install-Binary.rst:2
+#: c0e8317eb1e24e128c0b89a7a339458e
+msgid "Windows (binary)"
+msgstr "Windows (binario)"
+
+#: ../../source/Installation/Windows-Install-Binary.rst:8
+#: ee3176fc109649e881bf96880867821f
+msgid ""
+"This page explains how to install ROS 2 on Windows from a pre-built "
+"binary package."
+msgstr ""
+"Esta página explica cómo instalar ROS 2 en Windows desde un paquete "
+"binario precompilado."
+
+#: ../../source/Installation/Windows-Install-Binary.rst:28
+#: 984194e13ffc4888a9667a2d0b931b6b
+msgid ""
+"Binary releases of {DISTRO_TITLE_FULL} are not provided. Instead you may "
+"download nightly :ref:`prerelease binaries <Prerelease_binaries>`."
+msgstr ""
+"No se proporcionan versiones binarias de {DISTRO_TITLE_FULL}. En su lugar, "
+"puede descargar :ref:`binarios previos al lanzamiento <Prerelease_binaries>` "
+"diarios."
+
+#: ../../source/Installation/Windows-Install-Binary.rst:31
+#: 8682dda5712c41dfbc884bddf78b599d
+msgid ""
+"Download the latest package for Windows, e.g., ``ros2-package-windows-"
+"AMD64.zip``."
+msgstr ""
+"Descargue el último paquete para Windows, por ejemplo, ``ros2-package-"
+"windows-AMD64.zip``."
+
+#: ../../source/Installation/Windows-Install-Binary.rst:35
+#: 322dd9262a534d34872f8ff8e64d69af
+msgid ""
+"There may be more than one binary download option which might cause the "
+"file name to differ."
+msgstr ""
+"Puede haber más de una opción de descarga binaria que podría hacer que el "
+"nombre del archivo sea diferente."
+
+#: ../../source/Installation/Windows-Install-Binary.rst:39
+#: a263d529a8504c40894579a6caffe7c2
+msgid ""
+"To install debug libraries for ROS 2, see `Extra Stuff for Debug`_. Then "
+"continue on with downloading ``ros2-package-windows-debug-AMD64.zip``."
+msgstr ""
+"Para instalar bibliotecas de depuración para ROS 2, consulte `Cosas "
+"extra para depuracion`_. Luego continúe con la descarga de ``ros2-package-"
+"windows-debug-AMD64.zip``."
+
+#: ../../source/Installation/Windows-Install-Binary.rst:42
+#: 7e544a52791d47f4b4bb94983c16b312
+msgid ""
+"Unpack the zip file somewhere (we'll assume ``C:\\dev\\ros2_{DISTRO}``\\ "
+")."
+msgstr ""
+"Desempaquete el archivo zip en algún lugar (asumiremos ``C:\\dev\\ros2_"
+"{DISTRO}``\\ )."
+
+#: ../../source/Installation/Windows-Install-Binary.rst:65
+#: c78e38ca85ed4aef8512265fcdeab3c7
+msgid ""
+"In a command shell, set up the ROS 2 environment as described above and "
+"then run a C++ ``talker``\\ :"
+msgstr ""
+"En un shell de comandos, configure el entorno ROS 2 como se describe "
+"arriba y luego ejecute un ``talker``\\ de C++:"
+
+#: ../../source/Installation/Windows-Install-Binary.rst:71
+#: 2e708d72a50449c99cdbb50a0b3c6b02
+msgid "Start another command shell and run a Python ``listener``\\ :"
+msgstr ""
+"Inicie otro shell de comandos y ejecute un ``listener``\\ de Python:"
+
+#: ../../source/Installation/Windows-Install-Binary.rst:105
+#: fae5c910e9184e6882ccd1d8f23426f5
+msgid "Extra Stuff for Debug"
+msgstr "Cosas extra para depuracion"
+
+#: ../../source/Installation/Windows-Install-Binary.rst:107
+#: c3f7bc534d8f49f49900479da948d9a4
+msgid ""
+"To download the ROS 2 debug libraries you'll need to download "
+"``ros2-{DISTRO}-*-windows-debug-AMD64.zip``. Please note that debug "
+"libraries require some more additional configuration/setup to work as "
+"given below."
+msgstr ""
+"Para descargar las bibliotecas de depuración de ROS 2, necesitará "
+"descargar ``ros2-{DISTRO}-*-windows-debug-AMD64.zip``. Tenga en cuenta "
+"que las bibliotecas de depuración requieren una configuración adicional "
+"para funcionar como se indica a continuación."
+
+#: ../../source/Installation/Windows-Install-Binary.rst:110
+#: fd85810609fe4181a063779dd7dd67cb
+msgid ""
+"Python installation may require modification to enable debugging symbols "
+"and debug binaries:"
+msgstr ""
+"La instalación de Python puede requerir modificación para habilitar los "
+"símbolos de depuración y los binarios de depuración:"
+
+#: ../../source/Installation/Windows-Install-Binary.rst:112
+#: d3310da8d5bf45118ac30dbadccf56da
+msgid "Search in windows **Search Bar** and open **Apps and Features**."
+msgstr ""
+"Busque en la **Barra de Búsqueda** de Windows y abra **Aplicaciones y "
+"Características**."
+
+#: ../../source/Installation/Windows-Install-Binary.rst:113
+#: e80346b0c03e4c5abb260ab1bad7713d
+msgid "Search for the installed Python version."
+msgstr "Busque la versión de Python instalada."
+
+#: ../../source/Installation/Windows-Install-Binary.rst:115
+#: 5feb42365a3f4315a8531324f1e50acb
+msgid "Click Modify."
+msgstr "Haga click en Modificar."
+
+#: ../../source/Installation/Windows-Install-Binary.rst:120
+#: 261a273d0be5499fa9f6755073d6efd4
+msgid "Click Next to go to **Advanced Options**."
+msgstr "Haga click en Siguiente para ir a **Opciones Avanzadas**."
+
+#: ../../source/Installation/Windows-Install-Binary.rst:125
+#: 681e872434a4435f9abd1c8acc847d98
+msgid ""
+"Make sure **Download debugging symbols** and **Download debug binaries** "
+"are checked."
+msgstr ""
+"Compruebe que **Descargar símbolos de depuración** y **Descargar "
+"binarios de depuración** están marcados."
+
+#: ../../source/Installation/Windows-Install-Binary.rst:130
+#: ab25a04339b1471283de5f05bd46bbb8
+msgid "Click Install."
+msgstr "Haga click en Instalar."
+
+#: ../../source/Installation/Windows-Install-Binary.rst:133
+#: ccdca340a7f54e4da108b917c15a3304
+msgid "(Alternative) ROS 2 Build Installation from aka.ms/ros"
+msgstr "(Alternativa) Instalación de compilación de ROS 2 desde aka.ms/ros"
+
+#: ../../source/Installation/Windows-Install-Binary.rst:135
+#: bd3b71bbfe4f4a2e8a479231e33fe25e
+msgid ""
+"https://aka.ms/ros project hosts ROS 2 builds against the release "
+"snapshots. This section explains how to install ROS 2 from this channel."
+msgstr ""
+"https://aka.ms/ros el proyecto aloja compilaciones de ROS 2 contra las "
+"versiones preliminares de lanzamiento. Esta sección explica cómo instalar "
+"ROS 2 desde este canal."
+
+#: ../../source/Installation/Windows-Install-Binary.rst:139
+#: c2d11592701d43b69f2c27e65b7bd3dc
+msgid "Install ROS 2 builds"
+msgstr "Instalar compilaciones de ROS 2"
+
+#: ../../source/Installation/Windows-Install-Binary.rst:141
+#: d72588c583de48cebddc60be3597f65c
+msgid "In an administrative command prompt, run the following commands."
+msgstr ""
+"En un símbolo del sistema administrativo, ejecute los siguientes comandos."
+
+#: ../../source/Installation/Windows-Install-Binary.rst:154
+#: e2dac80b1b4641e8b2f312fb37347231
+msgid ""
+"Start an administrative command prompt and source the ROS 2 setup file to"
+" set up the workspace:"
+msgstr ""
+"Comience un símbolo del sistema administrativo y fuente el archivo de "
+"configuración de ROS 2 para configurar el espacio de trabajo:"
+
+#: ../../source/Installation/Windows-Install-Binary.rst:161
+#: 1e9bc1f14d04414799cc839027d0c7aa
+msgid "Stay up-to-date"
+msgstr "Mantenerse actualizado"
+
+#: ../../source/Installation/Windows-Install-Binary.rst:163
+#: d31a11e67c6d415ba7971b46957e5d84
+msgid "To keep up-to-date with the latest builds, run:"
+msgstr ""
+"Para mantenerse actualizado con las últimas compilaciones, ejecute:"
+
+#: ../../source/Installation/Windows-Install-Binary.rst:173
+#: 34b4171176744614a1558487fa0f9113
+msgid ""
+"If you want to completely remove the environment downloaded above, run "
+"this command:"
+msgstr ""
+"Se quiere eliminar completamente el entorno descargado anteriormente, "
+"ejecute este comando:"
