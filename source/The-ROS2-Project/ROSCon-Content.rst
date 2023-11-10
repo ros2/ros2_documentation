@@ -11,6 +11,122 @@ The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2
 
 .. tabs::
 
+   .. group-tab:: 2023
+
+    .. list-table::
+       :header-rows: 1
+
+       * - Title
+         - Links
+       * - Building the iRobot® Create® 3 Robot: Challenges and Solutions for ROS...
+         - `video <https://vimeo.com/879000844/153752c34c>`__
+       * - The State of ROS: From the Iron Age to the Jazzy Age
+         - `video <https://vimeo.com/879001905/d5ee7c2edf>`__
+       * - ROS 2 Types On-the-wire: Type Descriptions and Hashing in Iron and onwards
+         - `video <https://vimeo.com/879001665/27481b49b7>`__
+       * - Releasing a new ROS 2 distribution
+         - `video <https://vimeo.com/879001580/48297314e8>`__
+       * - Panel: Getting Involved with ROS as an Organization
+         - `video <https://vimeo.com/879001441/4f278b5543>`__
+       * - Licensing of ROS Packages: Changes to package.xml and new tool support
+         - `video <https://vimeo.com/879001224/d6461b638a>`__
+       * - SDFormat: A robot description format in constant evolution
+         - `video <https://vimeo.com/879001733/c2df0a1823>`__
+       * - Repeatable Reproducible Accessible ROS Development via Dev Containers
+         - `video <https://vimeo.com/879001614/2d1a22a0e1>`__
+       * - Colcon-in-container: say bye to the "it builds on my machine" syndrome
+         - `video <https://vimeo.com/879000903/bb474a0534>`__
+       * - ROS with Kubernetes/KubeEdge
+         - `video <https://vimeo.com/879001688/33b2495a49>`__
+       * - A New ROS 2 Driver for FANUC Robots Utilizing Ethernet/IP
+         - `video <https://vimeo.com/879000528/3062efc119>`__
+       * - A ROS 2 Package for Online Cobots Impedance Modulation
+         - `video <https://vimeo.com/879000599/2045e57716>`__
+       * - Real-Time Motion Control in ROS: Uniting HAL with Tormach's ZA6 Robot
+         - `video <https://vimeo.com/879001566/b20f712d4b>`__
+       * - A safe and secure ROS 2 multi-domain architecture for AMD embedded het...
+         - `video <https://vimeo.com/879000629/a2d2d1cf34>`__
+       * - Optimizing MoveIt - Costs, Constraints and Betterments
+         - `video <https://vimeo.com/879001424/7fdb9ef68b>`__
+       * - Leveraging a functional approach for more testable and maintainable ROS code
+         - `video <https://vimeo.com/879001204/ad5a36bb36>`__
+       * - Real-time Data-flow extension for ROS 2
+         - `video <https://vimeo.com/879001546/54514e92c0>`__
+       * - An Integrated Modelling and Testing Architecture for ROS Nodes
+         - `video <https://vimeo.com/879000742/0d9939e399>`__
+       * - Breaking Bots: Robustness Testing for ROS
+         - `video <https://vimeo.com/879000822/a658e675f4>`__
+       * - Rclex on Nerves: a bare minimum runtime platform for ROS 2 nodes in Elixir
+         - `video <https://vimeo.com/879001529/b23eaacae8>`__
+       * - On Use of Nav2 MPPI Controller
+         - `video <https://vimeo.com/879001391/40d175c156>`__
+       * - Bidirectional navigation with Nav2
+         - `video <https://vimeo.com/879000809/b32f8ebec4>`__
+       * - Autonomous Robot Navigation and Localization on 3D Mesh Surfaces in ROS
+         - `video <https://vimeo.com/879000775/aa280cc0a4>`__
+       * - ROS 2 powered Android VHAL.
+         - `video <https://vimeo.com/879001655/c96bc5225b>`__
+       * - ⚡Lightning Talks⚡
+         - `video <https://vimeo.com/879001275/172b83b7d2>`__
+       * - Up, Up, and Away: Adventures in Aerial Robotics
+         - `video <https://vimeo.com/879001926/02a07b8277>`__
+       * - NEXUS: A ROS 2 framework for orchestrating industrial robotic lines and cells
+         - `video <https://vimeo.com/879001338/fb3bcc8741>`__
+       * - Aerostack2: A framework for developing Multi-Robot Aerial Systems
+         - `video <https://vimeo.com/879000655/24398f48ef>`__
+       * - Creating scalable customized robotic platforms
+         - `video <https://vimeo.com/879000942/31be900d11>`__
+       * - Create® 3 Robot in the Classroom: Teaching ROS 2 to Undergraduates
+         - `video <https://vimeo.com/879000913/524facf2e5>`__
+       * - ROS 2 On the Browser with WebAssembly for Teaching Robotics
+         - `video <https://vimeo.com/879001638/18ab3e5c71>`__
+       * - ⚡Lightning Talks⚡
+         - `video <https://vimeo.com/879001243/0c3777a18d>`__
+       * - Octomap is dead: long life Bonxai
+         - `video <https://vimeo.com/879001365/4e5a1c2e0a>`__
+       * - Parameters Should be Boring
+         - `video <https://vimeo.com/879001499/558ba81bef>`__
+       * - Using Reference System to evaluate features and performance in a stand...
+         - `video <https://vimeo.com/881734034/8f6282d0ee>`__
+       * - RosLibRust: Why we built it, why you might want to use it...
+         - `video <https://vimeo.com/879001716/ddf60792e8>`__
+       * - Leveraging Secure Discovery Server in ROS 2
+         - `video <https://vimeo.com/880191276/fd5fa3d2ca>`__
+       * - Simulate your World: A deeper look at extending Gazebo
+         - `video <https://vimeo.com/879001776/82b8a1d6d9>`__
+       * - Simulate robots like never before with Open 3D Engine
+         - `video <https://vimeo.com/879001753/80b62256e1>`__
+       * - Simulation of Highly Dynamic Omnidirectional Robots in Isaac Sim
+         - `video <https://vimeo.com/879001799/0e54e12495>`__
+       * - An Integrated Distributed Simulation Environment weaving by Hakoniwa and mROS 2
+         - `video <https://vimeo.com/879000700/6e149a4a3a>`__
+       * - Multi-drone simulation with deep q-learning
+         - `video <https://vimeo.com/879001334/4f57afe509>`__
+       * - Supporting Robotic Deliberation: The Deliberation Working Group and To...
+         - `video <https://vimeo.com/879001877/4978646728>`__
+       * - FlexBE - The Flexible Behavior Engine: Collaborative Autonomy in ROS 2
+         - `video <https://vimeo.com/879001093/0590a625cf>`__
+       * - SkiROS2 - A skill-based Robot Control Platform for ROS
+         - `video <https://vimeo.com/879001825/2a0e9d5412>`__
+       * - Mastering your ROS system state with Petri nets
+         - `video <https://vimeo.com/879001315/270b755f56>`__
+       * - SpatialVision: Bringing Popping-Out RViz to Life with AirPods
+         - `video <https://vimeo.com/879001856/e8a108481b>`__
+       * - What is Robotics Observability? Scaling ROS from Prototype to Production
+         - `video <https://vimeo.com/879001947/f15b94d3a4>`__
+       * - Surviving the Flood (of Rosbags)
+         - `video <https://vimeo.com/879001892/66580b9633>`__
+       * - Improving Your Application's Algorithms and Optimizing Performance Usi...
+         - `video <https://vimeo.com/879001159/7d588b2cc4>`__
+       * - ROSBag2NuScenes: Share the Bags, Spread the Joy - Autonomous Vehicle R...
+         - `video <https://vimeo.com/879001709/593416f29a>`__
+       * - PostgreSQL / PostGIS to ROS 2 Bridge for Spatial Data
+         - `video <https://vimeo.com/879001513/61784cb23e>`__
+       * - Efficient data recording and replaying in ROS 2
+         - `video <https://vimeo.com/879001076/d2219656dd>`__
+       * - Developing on ROS while Scaling
+         - `video <https://vimeo.com/879000977/b6ddf83e60>`__
+
   .. group-tab:: 2022
 
     .. list-table::
