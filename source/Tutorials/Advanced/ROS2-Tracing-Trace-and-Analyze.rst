@@ -19,14 +19,15 @@ This guide is aimed at real-time systems.
 See the :doc:`real-time system setup guide <../Miscellaneous/Building-Realtime-rt_preempt-kernel-for-ROS-2>`.
 However, the guide will work if you are using a non-real-time system.
 
-.. note::
-
-  This guide should work with all current/non-EOL distros of ROS 2.
-
 Installing and building
 -----------------------
 
 Install ROS 2 by following the :doc:`installation instructions <../../Installation/Ubuntu-Install-Debians>`.
+
+.. note::
+
+   This guide should generally work with all supported Linux distributions.
+
 Install ``babeltrace`` and ``ros2trace``.
 
 .. code-block:: bash
@@ -87,7 +88,7 @@ Step 1: Trace
     $ cd ~/tracing_ws
     $ source install/setup.bash
     $ ros2 trace --session-name perf-test --list
-    
+
   Press enter to start tracing.
 
 Step 2: Run Application
