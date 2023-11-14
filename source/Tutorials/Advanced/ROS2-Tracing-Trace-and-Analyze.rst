@@ -22,11 +22,12 @@ However, the guide will work if you are using a non-real-time system.
 Installing and building
 -----------------------
 
-Install ROS 2 by following the :doc:`installation instructions <../../Installation/Ubuntu-Install-Debians>`.
+Install ROS 2 on Linux by following the :doc:`installation instructions <../../Installation>`.
 
 .. note::
 
    This guide should generally work with all supported Linux distributions.
+   However, you might need to adapt some commands.
 
 Install ``babeltrace`` and ``ros2trace``.
 
