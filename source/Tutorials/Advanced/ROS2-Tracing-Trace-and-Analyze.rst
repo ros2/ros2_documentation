@@ -10,7 +10,7 @@ Overview
 This guide covers:
 
 1. running and tracing a ``performance_test`` run
-2. analyzing the trace data using `tracetools_analysis <https://gitlab.com/ros-tracing/tracetools_analysis>`_ to plot the callback durations
+2. analyzing the trace data using `tracetools_analysis <https://github.com/ros-tracing/tracetools_analysis>`_ to plot the callback durations
 
 Prerequisites
 -------------
@@ -54,7 +54,7 @@ Then create a workspace, and clone ``performance_test`` and ``tracetools_analysi
    mkdir -p tracing_ws/src
    cd tracing_ws/src/
    git clone https://gitlab.com/ApexAI/performance_test.git
-   git clone https://gitlab.com/ros-tracing/tracetools_analysis.git
+   git clone https://github.com/ros-tracing/tracetools_analysis.git
    cd ..
 
 Install dependencies with rosdep.
@@ -149,9 +149,9 @@ Step 3: Validate Trace
 Analysis
 --------
 
-`tracetools_analysis <https://gitlab.com/ros-tracing/tracetools_analysis>`_ provides a Python API to easily analyze traces.
+`tracetools_analysis <https://github.com/ros-tracing/tracetools_analysis>`_ provides a Python API to easily analyze traces.
 We can use it in a `Jupyter notebook <https://jupyter.org/>`_ with `bokeh <https://docs.bokeh.org/en/latest/index.html>`_ to plot the data.
-The ``tracetools_analysis`` repository contains a `few sample notebooks <https://gitlab.com/ros-tracing/tracetools_analysis/-/tree/master/tracetools_analysis/analysis>`_, including `one notebook to analyze subscription callback durations <https://gitlab.com/ros-tracing/tracetools_analysis/-/blob/master/tracetools_analysis/analysis/callback_duration.ipynb>`_.
+The ``tracetools_analysis`` repository contains a `few sample notebooks <https://github.com/ros-tracing/tracetools_analysis/tree/{DISTRO}/tracetools_analysis/analysis>`_, including `one notebook to analyze subscription callback durations <https://github.com/ros-tracing/tracetools_analysis/blob/{DISTRO}/tracetools_analysis/analysis/callback_duration.ipynb>`_.
 
 For this guide, we will plot the durations of the subscription callback in the subscriber node.
 
@@ -185,7 +185,7 @@ Conclusion
 ----------
 
 This guide showed how to install tracing-related tools.
-Then it showed how to trace a `performance_test <https://gitlab.com/ApexAI/performance_test>`_ experiment using `ros2_tracing <https://github.com/ros2/ros2_tracing>`_ and plot the callback durations using `tracetools_analysis <https://gitlab.com/ros-tracing/tracetools_analysis>`_.
+Then it showed how to trace a `performance_test <https://gitlab.com/ApexAI/performance_test>`_ experiment using `ros2_tracing <https://github.com/ros2/ros2_tracing>`_ and plot the callback durations using `tracetools_analysis <https://github.com/ros-tracing/tracetools_analysis>`_.
 
-For more trace analyses, take a look at the `other sample notebooks <https://gitlab.com/ros-tracing/tracetools_analysis/-/tree/master/tracetools_analysis/analysis>`_ and the `tracetools_analysis API documentation <https://ros-tracing.gitlab.io/tracetools_analysis-api/master/tracetools_analysis/>`_.
-The `ros2_tracing design document <https://github.com/ros2/ros2_tracing/blob/master/doc/design_ros_2.md>`_ also contains a lot of information.
+For more trace analyses, take a look at the `other sample notebooks <https://github.com/ros-tracing/tracetools_analysis/tree/{DISTRO}/tracetools_analysis/analysis>`_ and the `tracetools_analysis API documentation <https://ros-tracing.gitlab.io/tracetools_analysis-api/master/tracetools_analysis/>`_.
+The `ros2_tracing design document <https://github.com/ros2/ros2_tracing/blob/{DISTRO}/doc/design_ros_2.md>`_ also contains a lot of information.
