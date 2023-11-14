@@ -173,7 +173,7 @@ Replace the value for the ``path`` variable in the second cell to the path to th
 Run the notebook by clicking the *Run* button for each cell.
 Running the cell that does the trace processing might take a few minutes on the first run, but subsequent runs will be much quicker.
 
-You should get a plot that looks like this:
+You should get a plot that looks similar to this:
 
 .. image:: ./images/ros2_tracing_guide_result_plot.png
   :alt: callback durations result plot
