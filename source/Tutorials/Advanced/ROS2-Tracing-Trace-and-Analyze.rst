@@ -26,23 +26,23 @@ Install ROS 2 on Linux by following the :doc:`installation instructions <../../I
 
 .. note::
 
-   This guide should generally work with all supported Linux distributions.
-   However, you might need to adapt some commands.
+  This guide should generally work with all supported Linux distributions.
+  However, you might need to adapt some commands.
 
 Install ``babeltrace`` and ``ros2trace``.
 
 .. code-block:: bash
 
-   sudo apt-get update
-   sudo apt-get install -y babeltrace ros-{DISTRO}-ros2trace ros-{DISTRO}-tracetools-analysis
+  sudo apt-get update
+  sudo apt-get install -y babeltrace ros-{DISTRO}-ros2trace ros-{DISTRO}-tracetools-analysis
 
 
 Source the ROS 2 installation and verify that tracing is enabled:
 
 .. code-block:: bash
 
-   source /opt/ros/{DISTRO}/setup.bash
-   ros2 run tracetools status
+  source /opt/ros/{DISTRO}/setup.bash
+  ros2 run tracetools status
 
 You should see ``Tracing enabled`` in the output.
 
@@ -50,26 +50,26 @@ Then create a workspace, and clone ``performance_test`` and ``tracetools_analysi
 
 .. code-block:: bash
 
-   cd ~/
-   mkdir -p tracing_ws/src
-   cd tracing_ws/src/
-   git clone https://gitlab.com/ApexAI/performance_test.git
-   git clone https://github.com/ros-tracing/tracetools_analysis.git
-   cd ..
+  cd ~/
+  mkdir -p tracing_ws/src
+  cd tracing_ws/src/
+  git clone https://gitlab.com/ApexAI/performance_test.git
+  git clone https://github.com/ros-tracing/tracetools_analysis.git
+  cd ..
 
 Install dependencies with rosdep.
 
 .. code-block:: bash
 
-   rosdep update
-   rosdep install --from-paths src --ignore-src -y
+  rosdep update
+  rosdep install --from-paths src --ignore-src -y
 
 Then build and configure ``performance_test`` for ROS 2.
 See its `documentation <https://gitlab.com/ApexAI/performance_test/-/tree/master/performance_test#performance_test>`_.
 
 .. code-block:: bash
 
-   colcon build --packages-select performance_test --cmake-args -DPERFORMANCE_TEST_RCLCPP_ENABLED=ON
+  colcon build --packages-select performance_test --cmake-args -DPERFORMANCE_TEST_RCLCPP_ENABLED=ON
 
 Next, we will run a ``performance_test`` experiment and trace it.
 
@@ -159,8 +159,8 @@ Install Jupyter notebook and bokeh, and then open the sample notebook.
 
 .. code-block:: bash
 
-   $ pip3 install bokeh
-   $ jupyter notebook ~/tracing_ws/src/tracetools_analysis/tracetools_analysis/analysis/callback_duration.ipynb
+  pip3 install bokeh
+  jupyter notebook ~/tracing_ws/src/tracetools_analysis/tracetools_analysis/analysis/callback_duration.ipynb
 
 This will open the notebook in the browser.
 
@@ -168,7 +168,7 @@ Replace the value for the ``path`` variable in the second cell to the path to th
 
 .. code-block:: python
 
-   path = '~/.ros/tracing/perf-test'
+  path = '~/.ros/tracing/perf-test'
 
 Run the notebook by clicking the *Run* button for each cell.
 Running the cell that does the trace processing might take a few minutes on the first run, but subsequent runs will be much quicker.
