@@ -103,7 +103,7 @@ Step 2: Run Application
     $ source install/setup.bash
 
   Then run the ``performance_test`` experiment (or your own application).
-  We simply create an experiment with a node publishing ~1 MB messages to another node as fast as possible for 60 seconds using the second highest real-time priority so that we don’t interfere with critical kernel threads.
+  We simply create an experiment with a node publishing ~1 MB messages to another node as fast as possible for 60 seconds using the second highest real-time priority so that we don't interfere with critical kernel threads.
   We need to run ``performance_test`` as ``root`` to be able to use real-time priorities.
 
   .. code-block:: bash
@@ -111,7 +111,7 @@ Step 2: Run Application
     $ # terminal 2
     $ sudo ./install/performance_test/lib/performance_test/perf_test -c rclcpp-single-threaded-executor -p 1 -s 1 -r 0 -m Array1m --reliability RELIABLE --max-runtime 60 --use-rt-prio 98
 
-  If that last command doesn’t work for you (with an error like: “error while loading shared libraries”), run the slightly-different command below.
+  If that last command doesn't work for you (with an error like: "error while loading shared libraries"), run the slightly-different command below.
   This is because, for security reasons, we need to manually pass ``*PATH`` environment variables for some shared libraries to be found (see `this explanation <https://unix.stackexchange.com/a/251374>`_).
 
   .. code-block:: bash
