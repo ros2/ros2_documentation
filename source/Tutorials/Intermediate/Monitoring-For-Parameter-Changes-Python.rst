@@ -1,7 +1,3 @@
-.. redirect-from::
-
-    Tutorials/Monitoring-For-Parameter-Changes-Python
-
 Monitoring for parameter changes (Python)
 =========================================
 
@@ -48,7 +44,7 @@ So, navigate into ``ros2_ws/src`` and then create a new package there:
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_python python_parameter_event_handler --dependencies rclpy
+  ros2 pkg create --build-type ament_python python_parameter_event_handler --dependencies rclpy --license Apache-2.0
 
 Your terminal will return a message verifying the creation of your package ``python_parameter_event_handler`` and all its necessary files and folders.
 
@@ -57,7 +53,7 @@ The ``--dependencies`` argument will automatically add the necessary dependency 
 1.1 Update ``package.xml``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Because you used the ``--dependencies`` option during package creation, you don’t have to manually add dependencies to ``package.xml`` or ``CMakeLists.txt``.
+Because you used the ``--dependencies`` option during package creation, you don’t have to manually add dependencies to ``package.xml``.
 As always, though, make sure to add the description, maintainer email and name, and license information to ``package.xml``.
 
 .. code-block:: xml
@@ -69,7 +65,7 @@ As always, though, make sure to add the description, maintainer email and name, 
 2 Write the Python node
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Inside the ``ros2_ws/python_parameter_event_handler/python_parameter_event_handler`` directory, create a new file called ``parameter_event_handler.py`` and paste the following code within:
+Inside the ``ros2_ws/src/python_parameter_event_handler/python_parameter_event_handler`` directory, create a new file called ``parameter_event_handler.py`` and paste the following code within:
 
 .. code-block:: Python
 
@@ -106,6 +102,7 @@ Inside the ``ros2_ws/python_parameter_event_handler/python_parameter_event_handl
 
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
+
 The ``import`` statements at the top are used to import the package dependencies.
 
 .. code-block:: Python
@@ -115,7 +112,6 @@ The ``import`` statements at the top are used to import the package dependencies
     import rclpy.parameter
 
     from rclpy.parameter_event_handler import ParameterEventHandler
-
 
 The next piece of code creates the class ``SampleNodeWithParameters`` and the constructor.
 The constructor for the class declares an integer parameter ``an_int_param``,  with a default value of 0.
@@ -132,7 +128,11 @@ Next, the code creates a ``ParameterEventHandler`` that will be used to monitor 
             self.handler = ParameterEventHandler(self)
 
 
-Finally, we add parameter callback and get callback handler for the new callback
+Finally, we add parameter callback and get callback handler for the new callback.
+
+.. note::
+
+   It is very important to save the handle that is returned by ``add_parameter_callback``; otherwise, the callback will not be properly registered.
 
 .. code-block:: Python
 
@@ -142,7 +142,7 @@ Finally, we add parameter callback and get callback handler for the new callback
                 callback=self.callback,
             )
 
-For the callback function, we use method of the ``SampleNodeWithParameters`` class method, that is defined further
+For the callback function, we use the ``callback`` method of the ``SampleNodeWithParameters`` class.
 
 .. code-block:: Python
 
@@ -161,10 +161,11 @@ Following the ``SampleNodeWithParameters`` is a typical ``main`` function which 
         rclpy.shutdown()
 
 
-2.1 Add an entry point
+2.2 Add an entry point
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Open the ``setup.py`` file. Again, match the ``maintainer``, ``maintainer_email``, ``description`` and ``license`` fields to your ``package.xml``:
+Open the ``setup.py`` file.
+Again, match the ``maintainer``, ``maintainer_email``, ``description`` and ``license`` fields to your ``package.xml``:
 
 .. code-block:: Python
 
@@ -231,7 +232,7 @@ Open a new terminal, navigate to ``ros2_ws``, and source the setup files:
 
     .. code-block:: console
 
-      call install/setup.bat
+      call install\setup.bat
 
 Now run the node:
 
@@ -240,7 +241,7 @@ Now run the node:
      ros2 run python_parameter_event_handler node_with_parameters
 
 The node is now active and has a single parameter and will print a message whenever this parameter is updated.
-To test this, open up another terminal and source the ROS setup file as before (. install/setup.bash) and execute the following command:
+To test this, open up another terminal and source the ROS setup file as before and execute the following command:
 
 .. code-block:: console
 
@@ -301,7 +302,7 @@ Then source the setup files:
 
     .. code-block:: console
 
-      call install/setup.bat
+      call install\setup.bat
 
 Now, to test monitoring of remote parameters, first run the newly-built parameter_event_handler code:
 
