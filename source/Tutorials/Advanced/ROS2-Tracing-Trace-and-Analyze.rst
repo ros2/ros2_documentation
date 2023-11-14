@@ -79,72 +79,72 @@ Tracing
 Step 1: Trace
 ^^^^^^^^^^^^^
 
-  In one terminal, source the workspace and set up tracing.
-  When running the command, a list of ROS 2 userspace events will be printed.
-  It will also print the path to the directory that will contain the resulting trace (under ``~/.ros/tracing``).
+In one terminal, source the workspace and set up tracing.
+When running the command, a list of ROS 2 userspace events will be printed.
+It will also print the path to the directory that will contain the resulting trace (under ``~/.ros/tracing``).
 
-  .. code-block:: bash
+.. code-block:: bash
 
-    # terminal 1
-    cd ~/tracing_ws
-    source install/setup.bash
-    ros2 trace --session-name perf-test --list
+  # terminal 1
+  cd ~/tracing_ws
+  source install/setup.bash
+  ros2 trace --session-name perf-test --list
 
-  Press enter to start tracing.
+Press enter to start tracing.
 
 Step 2: Run Application
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-  In a second terminal, source the workspace.
+In a second terminal, source the workspace.
+
+.. code-block:: bash
+
+  # terminal 2
+  cd ~/tracing_ws
+  source install/setup.bash
+
+Then run the ``performance_test`` experiment (or your own application).
+We simply create an experiment with a node publishing ~1 MB messages to another node as fast as possible for 60 seconds using the second highest real-time priority so that we don't interfere with critical kernel threads.
+We need to run ``performance_test`` as ``root`` to be able to use real-time priorities.
+
+.. code-block:: bash
+
+  # terminal 2
+  sudo ./install/performance_test/lib/performance_test/perf_test -c rclcpp-single-threaded-executor -p 1 -s 1 -r 0 -m Array1m --reliability RELIABLE --max-runtime 60 --use-rt-prio 98
+
+If that last command doesn't work for you (with an error like: "error while loading shared libraries"), run the slightly-different command below.
+This is because, for security reasons, we need to manually pass ``*PATH`` environment variables for some shared libraries to be found (see `this explanation <https://unix.stackexchange.com/a/251374>`_).
+
+.. code-block:: bash
+
+  # terminal 2
+  sudo env PATH="$PATH" LD_LIBRARY_PATH="$LD_LIBRARY_PATH" ./install/performance_test/lib/performance_test/perf_test -c rclcpp-single-threaded-executor -p 1 -s 1 -r 0 -m Array1m --reliability RELIABLE --max-runtime 60 --use-rt-prio 98
+
+.. note::
+
+  If you're not using a real-time kernel, simply run:
 
   .. code-block:: bash
 
     # terminal 2
-    cd ~/tracing_ws
-    source install/setup.bash
-
-  Then run the ``performance_test`` experiment (or your own application).
-  We simply create an experiment with a node publishing ~1 MB messages to another node as fast as possible for 60 seconds using the second highest real-time priority so that we don't interfere with critical kernel threads.
-  We need to run ``performance_test`` as ``root`` to be able to use real-time priorities.
-
-  .. code-block:: bash
-
-    # terminal 2
-    sudo ./install/performance_test/lib/performance_test/perf_test -c rclcpp-single-threaded-executor -p 1 -s 1 -r 0 -m Array1m --reliability RELIABLE --max-runtime 60 --use-rt-prio 98
-
-  If that last command doesn't work for you (with an error like: "error while loading shared libraries"), run the slightly-different command below.
-  This is because, for security reasons, we need to manually pass ``*PATH`` environment variables for some shared libraries to be found (see `this explanation <https://unix.stackexchange.com/a/251374>`_).
-
-  .. code-block:: bash
-
-    # terminal 2
-    sudo env PATH="$PATH" LD_LIBRARY_PATH="$LD_LIBRARY_PATH" ./install/performance_test/lib/performance_test/perf_test -c rclcpp-single-threaded-executor -p 1 -s 1 -r 0 -m Array1m --reliability RELIABLE --max-runtime 60 --use-rt-prio 98
-
-  .. note::
-
-    If you're not using a real-time kernel, simply run:
-
-    .. code-block:: bash
-
-      # terminal 2
-      ./install/performance_test/lib/performance_test/perf_test -c rclcpp-single-threaded-executor -p 1 -s 1 -r 0 -m Array1m --reliability RELIABLE --max-runtime 60
+    ./install/performance_test/lib/performance_test/perf_test -c rclcpp-single-threaded-executor -p 1 -s 1 -r 0 -m Array1m --reliability RELIABLE --max-runtime 60
 
 Step 3: Validate Trace
 ^^^^^^^^^^^^^^^^^^^^^^
 
-  Once the experiment is done, in the first terminal, press enter again to stop tracing.
-  Use ``babeltrace`` to quickly look at the resulting trace.
+Once the experiment is done, in the first terminal, press enter again to stop tracing.
+Use ``babeltrace`` to quickly look at the resulting trace.
 
-  .. code-block:: bash
+.. code-block:: bash
 
-    babeltrace ~/.ros/tracing/perf-test | less
+  babeltrace ~/.ros/tracing/perf-test | less
 
-  The output of the above command is a human-readable version of the raw Common Trace Format (CTF) data, which is a list of trace events.
-  Each event has a timestamp, an event type, some information on the process that generated the event, and the values of the fields of the given event type.
+The output of the above command is a human-readable version of the raw Common Trace Format (CTF) data, which is a list of trace events.
+Each event has a timestamp, an event type, some information on the process that generated the event, and the values of the fields of the given event type.
 
-  Use the arrow keys to scroll, or press ``q`` to exit.
+Use the arrow keys to scroll, or press ``q`` to exit.
 
-  Next, we will analyze the trace.
+Next, we will analyze the trace.
 
 Analysis
 --------
