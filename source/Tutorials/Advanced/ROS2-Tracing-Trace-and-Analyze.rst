@@ -15,9 +15,9 @@ This guide covers:
 Prerequisites
 -------------
 
-This guide is aimed at real-time systems.
+This guide is aimed at real-time Linux systems.
 See the :doc:`real-time system setup guide <../Miscellaneous/Building-Realtime-rt_preempt-kernel-for-ROS-2>`.
-However, the guide will work if you are using a non-real-time system.
+However, the guide will work if you are using a non-real-time Linux system.
 
 Installing and building
 -----------------------
