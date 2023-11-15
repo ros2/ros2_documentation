@@ -10,6 +10,7 @@ Intermediate
    Intermediate/Writing-an-Action-Server-Client/Py
    Intermediate/Composition
    Intermediate/Monitoring-For-Parameter-Changes-CPP
+   Intermediate/Monitoring-For-Parameter-Changes-Python
    Intermediate/Launch/Launch-Main
    Intermediate/Tf2/Tf2-Main
    Intermediate/Testing/Testing-Main
