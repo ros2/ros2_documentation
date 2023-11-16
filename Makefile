@@ -3,7 +3,11 @@
 SOURCE     = source
 OUT        = build
 LINKCHECKDIR  = $(OUT)/linkcheck
-BUILD      = python3 -m sphinx
+PYTHON := python3
+ifeq ($(OS),Windows_NT)
+    PYTHON := python
+endif
+BUILD      = $(PYTHON) -m sphinx
 OPTS       =-c .
 
 help:
