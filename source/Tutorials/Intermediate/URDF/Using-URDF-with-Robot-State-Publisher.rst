@@ -39,6 +39,7 @@ Tasks
 
 1 Create a package
 ^^^^^^^^^^^^^^^^^^
+Create the directory:
 
 .. tabs::
 
@@ -47,18 +48,26 @@ Tasks
     .. code-block:: console
 
       mkdir -p ~/second_ros2_ws/src
-      cd ~/second_ros2_ws/src
-      ros2 pkg create urdf_tutorial_r2d2 --build-type ament_python --dependencies rclpy --license Apache-2.0
-      cd urdf_tutorial_r2d2
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      mkdir -p ~/second_ros2_ws/src
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      mkdir ~/second_ros2_ws/src
-      cd ~/second_ros2_ws/src
-      ros2 pkg create urdf_tutorial_r2d2 --build-type ament_python --dependencies rclpy --license Apache-2.0
-      cd urdf_tutorial_r2d2
+      md ~/second_ros2_ws/src
+
+Then create the package:
+
+.. code-block:: console
+
+    cd ~/second_ros2_ws/src
+    ros2 pkg create urdf_tutorial_r2d2 --build-type ament_python --dependencies rclpy --license Apache-2.0
+    cd urdf_tutorial_r2d2
 
 You should now see a ``urdf_tutorial_r2d2`` folder.
 Next you will make several changes to it.
@@ -81,6 +90,7 @@ Create the directory where we will store some assets:
     .. code-block:: console
     
       mkdir -p urdf
+
   .. group-tab:: Windows
 
     .. code-block:: console
@@ -272,22 +282,31 @@ Save the ``setup.py`` file with your changes.
 
 6 Install the package
 ^^^^^^^^^^^^^^^^^^^^^
+.. code-block:: console
+
+    cd ~/second_ros2_ws
+    colcon build --symlink-install --packages-select urdf_tutorial_r2d2
+
+Source the setup files:
+
 .. tabs::
 
   .. group-tab:: Linux
 
     .. code-block:: console
 
-      cd ~/second_ros2_ws
-      colcon build --symlink-install --packages-select urdf_tutorial_r2d2
+      source install/setup.bash
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
       source install/setup.bash
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      cd ~/second_ros2_ws
-      colcon build --symlink-install --packages-select urdf_tutorial_r2d2
       call install/setup.bat
 
 
