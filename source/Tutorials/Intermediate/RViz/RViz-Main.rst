@@ -16,6 +16,7 @@ RViz is a 3D visualizer for the Robot Operating System (ROS) framework.
 .. toctree::
    :maxdepth: 1
 
+   Marker-Display-types/Marker-Display-types
    Markers-Sending-Basic-Shapes-CPP/Markers-Sending-Basic-Shapes-CPP
    Markers-Points-and-Lines-CPP/Markers-Points-and-Lines-CPP
    Interactive-marker-getting-started/Interactive-marker-getting-started

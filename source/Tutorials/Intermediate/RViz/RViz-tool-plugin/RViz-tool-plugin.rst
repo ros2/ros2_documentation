@@ -1,7 +1,3 @@
-.. redirect-from::
-
-    Tutorials/RViz/RViz-tool-plugin
-
 Plugins: New Tool Type
 ======================
 
@@ -46,7 +42,8 @@ The full source code of ``plant_flag_tool.hpp`` is here: `src/plant_flag_tool.hp
 
     public:
 
-Here we declare our new subclass of ``rviz::Tool``. Every tool which can be added to the tool bar is a subclass of ``rviz::Tool``.
+Here we declare our new subclass of ``rviz::Tool``.
+Every tool which can be added to the tool bar is a subclass of ``rviz::Tool``.
 This class uses Qt slots and is a subclass of QObject, so it needs the ``Q_OBJECT`` macro.
 
 .. code-block:: C++
@@ -355,13 +352,14 @@ Please see the explanation from the previous tutorial, as it uses the exact same
 
 Trying it out
 -------------
-Once your RViz plugin is compiled and exported, simply run rviz normally. But make sure to source you workspace in the terminal that starts and runs RViz!
+Once your RViz plugin is compiled and exported, simply run RViz normally.
+But make sure to source you workspace in the terminal that starts and runs RViz!
 
 .. code-block:: bash
 
     ros2 run rviz2 rviz2
 
-Now rviz will use ``pluginlib`` to find all the plugins exported to it.
+Now RViz will use ``pluginlib`` to find all the plugins exported to it.
 
 Add a PlantFlag tool by clicking on the “+” button in the toolbar and selecting “PlantFlag”
 from the list under your plugin package name (here it is “rviz_plugin_tutorials”).

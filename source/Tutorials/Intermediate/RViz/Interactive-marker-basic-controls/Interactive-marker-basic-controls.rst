@@ -1,9 +1,3 @@
-.. redirect-from::
-
-    Tutorials/RViz/Interactive-marker-basic-controls
-
-.. _RVizINTMarkerControls:
-
 Interactive Markers: Basic Controls (C++)
 =========================================
 
@@ -38,15 +32,16 @@ The basic_controls example explained
 ------------------------------------
 This is the code for the ``basic_controls`` example is located `here  <https://github.com/ros-visualization/visualization_tutorials/blob/ros2/interactive_marker_tutorials/src/basic_controls.cpp>`__.
 
-1. Simple 6-DOF control
-^^^^^^^^^^^^^^^^^^^^^^^
+1 Simple 6-DOF control
+^^^^^^^^^^^^^^^^^^^^^^
 
 .. image:: images/6dof.png
 
-This shows how to control all 6 degrees of freedom using 6 separate controls. Use the rings to rotate and the arrows to move the structure.
+This shows how to control all 6 degrees of freedom using 6 separate controls.
+Use the rings to rotate and the arrows to move the structure.
 
-2. Simple 6-DOF control (fixed orientation)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2 Simple 6-DOF control (fixed orientation)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. image:: images/6dof.png
 
@@ -179,8 +174,8 @@ For the simple 6-DOF controls shown above, the block under ``if(interaction_mode
 NOTE: The orientations in the above code snippet can be confusing.
 If you compute the rotation matrices corresponding to each of the quaternions, you can verify that the specified orientation is correct.
 
-3. 3D Controls
-^^^^^^^^^^^^^^
+3 3D Controls
+^^^^^^^^^^^^^
 
 .. image:: images/move_rotate_3D.png
 
@@ -192,8 +187,8 @@ These new marker types support various kinds of 3D motion with a mouse.
 
 It is possible to write an Rviz plugin that allows 3D grabbing of these markers using a 6D input device such as a Phantom Omni,Razer Hydra or a SpaceMouse.
 
-4. 6-DOF (Arbitrary Axes)
-^^^^^^^^^^^^^^^^^^^^^^^^^
+4 6-DOF (Arbitrary Axes)
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. image:: images/random_dof.png
 
@@ -236,8 +231,8 @@ Shows that controls are not limited to the unit axes but can work on any arbitra
 The controls in this example are created by assigning random values to the quaternions which determine the orientation of each control.
 RViz will normalize these quaternions, so you don't have to worry about it when creating an interactive marker.
 
-5. View-Facing 6-DOF
-^^^^^^^^^^^^^^^^^^^^
+5 View-Facing 6-DOF
+^^^^^^^^^^^^^^^^^^^
 
 .. image:: images/view_facing.png
 
@@ -288,8 +283,8 @@ The box moves in the camera plane, although it is not visually aligned with the 
     }
 
 
-6. Quadrocopter
-^^^^^^^^^^^^^^^
+6 Quadrocopter
+^^^^^^^^^^^^^^
 
 .. image:: images/quadrocopter.png
 
@@ -333,8 +328,8 @@ Once you move it further away, it will start following the mouse.
 
 The creation of the interactive marker is analogous to the previous examples, just that the interaction mode for one of the controls is set to ``MOVE_ROTATE``.
 
-7. Chess Piece
-^^^^^^^^^^^^^^
+7 Chess Piece
+^^^^^^^^^^^^^
 
 .. image:: images/chess_piece.png
 
@@ -414,8 +409,8 @@ This function modifies the pose of the marker and sends it back to RViz:
         server_->applyChanges();
     }
 
-8. Pan / Tilt
-^^^^^^^^^^^^^
+8 Pan / Tilt
+^^^^^^^^^^^^
 
 .. image:: images/pan_tilt.png
 
@@ -459,8 +454,8 @@ The Pan control will always stay in place, while the tilt control will rotate.
         server_->setCallback(int_marker.name, std::bind(&BasicControlsNode::processFeedback, this, _1));
     }
 
-9. Context Menu
-^^^^^^^^^^^^^^^
+9 Context Menu
+^^^^^^^^^^^^^^
 This example shows how to attach a simple-static menu to an interactive marker.
 If you do not specify a custom marker for visualization (as in the case of the grey box),
 RViz will create a text marker floating above the Interactive Marker, which will enables you to open the context menu.
@@ -495,8 +490,8 @@ RViz will create a text marker floating above the Interactive Marker, which will
         menu_handler_.apply(*server_, int_marker.name);
     }
 
-10. Button
-^^^^^^^^^^
+10 Button
+^^^^^^^^^
 Button controls behave almost exactly like the Menu control in the previous example.
 You can use this type to indicate to the user that a left-click is the desired mode of interaction.
 RViz will use a different mouse cursor for this type of control.
@@ -530,12 +525,12 @@ RViz will use a different mouse cursor for this type of control.
         server_->setCallback(int_marker.name, std::bind(&BasicControlsNode::processFeedback, this, _1));
     }
 
-11. Marker attached to a moving frame
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+11 Marker attached to a moving frame
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 This example shows what happens if you click on a marker that is attached to a frame which moves relative to the fixed frame specified in RViz.
 Click on the box to move and on the ring to rotate.
 As the containing frame moves, the marker will continue moving relative to your mouse even if you are holding it.
-The interactive marker header's stamp must be ``rclcpp::Time(0)`` (as it is by default if not set), so that rviz will take the most recent tf frames to transform it.
+The interactive marker header's stamp must be ``rclcpp::Time(0)`` (as it is by default if not set), so that RViz will take the most recent tf frames to transform it.
 
 .. code-block:: C++
 
@@ -569,8 +564,8 @@ The interactive marker header's stamp must be ``rclcpp::Time(0)`` (as it is by d
         server_->setCallback(int_marker.name, std::bind(&BasicControlsNode::processFeedback, this, _1));
     }
 
-12. The surrounding code
-^^^^^^^^^^^^^^^^^^^^^^^^
+12 The surrounding code
+^^^^^^^^^^^^^^^^^^^^^^^
 To setup the server node, all that is needed is to create an instance of InteractiveMarkerServer and pass all InteractiveMarker messages to that object.
 
 Note that you have to call ``applyChanges()`` after you have added, updated or removed interactive markers, their pose, menus or feedback functions.

@@ -1,9 +1,3 @@
-.. redirect-from::
-
-    Tutorials/RViz/Interactive-marker-getting-started
-
-.. _RVizINTMarkerGettingStarted:
-
 Interactive Markers: Getting Started
 ====================================
 
@@ -31,11 +25,11 @@ Before starting this tutorial, you should first complete the previous RViz tutor
 Documentation
 -------------
 Interactive Markers are represented by the
-`visualization_msgs/msg/InteractiveMarker <https://docs.ros2.org/latest/api/visualization_msgs/msg/InteractiveMarker.html>`__ message,
+`visualization_msgs/msg/InteractiveMarker <https://github.com/ros2/common_interfaces/blob/rolling/visualization_msgs/msg/InteractiveMarker.msg>`__ message,
 which contains a context menu and several controls
-(`visualization_msgs/msg/InteractiveMarkerControl <https://docs.ros2.org/latest/api/visualization_msgs/msg/InteractiveMarkerControl.html>`__).
+(`visualization_msgs/msg/InteractiveMarkerControl <https://github.com/ros2/common_interfaces/blob/rolling/visualization_msgs/msg/InteractiveMarkerControl.msg>`__).
 The controls define the different visual parts of the interactive marker,
-can consist of several regular markers (`visualization_msgs/msg/Marker <https://docs.ros2.org/latest/api/visualization_msgs/msg/Marker.html>`__)
+can consist of several regular markers (`visualization_msgs/msg/Marker <https://github.com/ros2/common_interfaces/blob/rolling/visualization_msgs/msg/Marker.msg>`__)
 and can each have a different function.
 
 .. image:: images/interactive_marker_structure.png
@@ -46,14 +40,15 @@ you make are being transmitted and that your application is being notified of al
 
 .. image:: images/interactive_marker_architecture.png
 
-To find out more about how to use interactive markers, refer to this and the following tutorials. The source code used can be found in the `visualization_tutorials <https://github.com/ros-visualization/visualization_tutorials/tree/ros2>`__ repository.
+To find out more about how to use interactive markers, refer to this and the following tutorials.
+The source code used can be found in the `visualization_tutorials <https://github.com/ros-visualization/visualization_tutorials/tree/ros2>`__ repository.
 
 The messages used to describe interactive markers themselves contain a detailed description of all their parameters.
 Of main interest are:
 
-* `visualization_msgs/msg/InteractiveMarker <https://docs.ros2.org/latest/api/visualization_msgs/msg/InteractiveMarker.html>`__
-* `visualization_msgs/msg/InteractiveMarkerControl <https://docs.ros2.org/latest/api/visualization_msgs/msg/InteractiveMarkerControl.html>`__
-* `visualization_msgs/msg/InteractiveMarkerFeedback <https://docs.ros2.org/latest/api/visualization_msgs/msg/InteractiveMarkerFeedback.html>`__
+* `visualization_msgs/msg/InteractiveMarker <https://github.com/ros2/common_interfaces/blob/rolling/visualization_msgs/msg/InteractiveMarker.msg>`__
+* `visualization_msgs/msg/InteractiveMarkerControl <https://github.com/ros2/common_interfaces/blob/rolling/visualization_msgs/msg/InteractiveMarkerControl.msg>`__
+* `visualization_msgs/msg/InteractiveMarkerFeedback <https://github.com/ros2/common_interfaces/blob/rolling/visualization_msgs/msg/InteractiveMarkerFeedback.msg>`__
 
 The recommended way to create context menus is using the
 `MenuHandler <https://docs.ros.org/en/api/interactive_markers/html/classinteractive__markers_1_1MenuHandler.html>`__ interface,
@@ -68,13 +63,15 @@ It contains five examples: :ref:`simple_marker <VizTutorials_simple_marker>`, :r
 
 1 How to run the tutorials
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
-The procedure to run the tutorials is basically the same in all case. E.g. to run ``basic_controls``, open a terminal and type:
+The procedure to run the tutorials is basically the same in all case.
+E.g. to run ``basic_controls``, open a terminal and type:
 
 .. code-block:: console
 
     ros2 run interactive_marker_tutorials basic_controls
 
-This will start the node which contains the interactive marker server. Then, start RViz by running the following command in a separate terminal:
+This will start the node which contains the interactive marker server.
+Then, start RViz by running the following command in a separate terminal:
 
 .. code-block:: console
 
@@ -84,7 +81,7 @@ In RViz do the following:
 
 * Set the fixed frame to ``/base_link``.
 * Add an 'Interactive Markers' display by clicking on 'Add' in the 'Displays' panel.
-* Set the update topic of this display to '/basic_controls'. This should immediately bring up several grey cubes in rviz.
+* Set the update topic of this display to '/basic_controls'. This should immediately bring up several grey cubes in RViz.
 * Now select 'Interact' in the tool panel. This will enable all interactive elements in the main view, which will bring up additional arrows and rings around the boxes. You can left-click on these controls and in some case on the box itself to change the pose of each interactive marker. Some markers have a context menu which you can access by right-clicking on them.
 * Makr sure you have a 'Grid' display. This is a useful visual clue for perceiving how the markers move in space while you drag them.
 
@@ -95,7 +92,8 @@ In RViz do the following:
 | `C++ Code  <https://github.com/ros-visualization/visualization_tutorials/blob/ros2/interactive_marker_tutorials/src/simple_marker.cpp>`__
 | `Python Code  <https://github.com/ros-visualization/visualization_tutorials/blob/ros2/interactive_marker_tutorials/scripts/simple_marker.py>`__
 
-This example will display a minimalist marker in RViz. See Writing a :doc:`Writing a Simple Interactive Marker Server <../Interactive-marker-writing-a-simple-interactive-marker-server/Interactive-marker-writing-a-simple-interactive-marker-server>` for more details.
+This example will display a minimalist marker in RViz.
+See Writing a :doc:`Writing a Simple Interactive Marker Server <../Interactive-marker-writing-a-simple-interactive-marker-server/Interactive-marker-writing-a-simple-interactive-marker-server>` for more details.
 
 .. image:: images/simple_marker.png
 
@@ -106,7 +104,8 @@ This example will display a minimalist marker in RViz. See Writing a :doc:`Writi
 | `C++ Code  <https://github.com/ros-visualization/visualization_tutorials/blob/ros2/interactive_marker_tutorials/src/basic_controls.cpp>`__
 | `Python Code  <https://github.com/ros-visualization/visualization_tutorials/blob/ros2/interactive_marker_tutorials/scripts/basic_controls.py>`__
 
-Displays a selection of interactive markers that can be manipulated in different ways. It is explained in more detail in the :doc:`Basic controls <../Interactive-marker-basic-controls/Interactive-marker-basic-controls>` tutorial.
+Displays a selection of interactive markers that can be manipulated in different ways.
+It is explained in more detail in the :doc:`Basic controls <../Interactive-marker-basic-controls/Interactive-marker-basic-controls>` tutorial.
 
 .. image:: images/basic_controls.png
 
@@ -127,9 +126,11 @@ Shows how to manage a more complex context menu associated with an interactive m
 ^^^^^^
 | `C++ Code  <https://github.com/ros-visualization/visualization_tutorials/blob/ros2/interactive_marker_tutorials/src/pong.cpp>`__
 
-Lets you play the classic arcade game with one or two players in rviz. It is meant to (distract you from your work) demonstrate the two-way interaction between an interactive marker server and multiple clients.
+Lets you play the classic arcade game with one or two players in RViz.
+It is meant to (distract you from your work) demonstrate the two-way interaction between an interactive marker server and multiple clients.
 
-If you open two instances of RViz on different computers that are connected to the same pong server, you can play against each other. Otherwise, the computer will take control of the unused paddle.
+If you open two instances of RViz on different computers that are connected to the same pong server, you can play against each other.
+Otherwise, the computer will take control of the unused paddle.
 
 .. image:: images/pong.png
 

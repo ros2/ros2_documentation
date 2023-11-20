@@ -1,12 +1,7 @@
-.. redirect-from::
-
-    Tutorials/RViz/Marker-Sending-Basic-Shapes-CPP
-
-
 Marker: Sending Basic Shapes (C++)
 ==================================
 
-**Goal:** Use `visualization_msgs/msg/Marker <https://docs.ros2.org/latest/api/visualization_msgs/msg/Marker.html>`__
+**Goal:** Use `visualization_msgs/msg/Marker <https://github.com/ros2/common_interfaces/blob/rolling/visualization_msgs/msg/Marker.msg>`__
 messages to send basic shapes (cube, sphere, cylinder, arrow) to RViz.
 
 **Tutorial level:** Intermediate
@@ -20,8 +15,8 @@ messages to send basic shapes (cube, sphere, cylinder, arrow) to RViz.
 
 Backround
 ---------
-Unlike other displays, the `Marker Display <http://wiki.ros.org/rviz/DisplayTypes/Marker>`_ lets you visualize data in RViz without RViz knowing anything about interpreting that data.
-Instead, primitive objects are sent to the display through `visualization_msgs/msg/Marker <https://docs.ros2.org/latest/api/visualization_msgs/msg/Marker.html>`_ messages, which let you show things like arrows, boxes, spheres and lines.
+Unlike other displays, the :doc:`Marker Display <../Marker-Display-types/Marker-Display-types>` and `colcon <https://colcon.readthedocs.org>`__ lets you visualize data in RViz without RViz knowing anything about interpreting that data.
+Instead, primitive objects are sent to the display through `visualization_msgs/msg/Marker <https://github.com/ros2/common_interfaces/blob/rolling/visualization_msgs/msg/Marker.msg>`_ messages, which let you show things like arrows, boxes, spheres and lines.
 In this tutorial, you will learn how to send the four basic shapes (boxes, spheres, cylinders, and arrows) to RViz. We'll create a program that sends out a new marker every second, replacing the last one with a different shape.
 
 Prerequisites
@@ -42,7 +37,7 @@ So, navigate into your ``ros2_ws/src``, and run the following command to create 
 
 .. code-block:: console
 
-            ros2 pkg create --build-type ament_cmake visualization_marker_tutorials
+   ros2 pkg create --build-type ament_cmake visualization_marker_tutorials --dependencies rclcpp visualization_msgs --license Apache-2.0
 
 2 Sending Markers
 ^^^^^^^^^^^^^^^^^
@@ -141,11 +136,11 @@ Now edit the ``CMakeLists.txt`` file in your package to look like this:
 
    # Default to C++17
    if(NOT CMAKE_CXX_STANDARD)
-   set(CMAKE_CXX_STANDARD 17)
+      set(CMAKE_CXX_STANDARD 17)
    endif()
 
    if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-   add_compile_options(-Wall -Wextra -Wpedantic)
+      add_compile_options(-Wall -Wextra -Wpedantic)
    endif()
 
    find_package(ament_cmake REQUIRED)
@@ -154,38 +149,31 @@ Now edit the ``CMakeLists.txt`` file in your package to look like this:
    find_package(visualization_msgs REQUIRED)
 
    ament_export_dependencies(
-   rclcpp
-   geometry_msgs
-   visualization_msgs)
+      rclcpp
+      geometry_msgs
+      visualization_msgs)
 
    add_executable(basic_shapes src/basic_shapes.cpp)
    ament_target_dependencies(basic_shapes
-   "rclcpp"
-   "visualization_msgs")
+      "rclcpp"
+      "visualization_msgs")
 
    if(BUILD_TESTING)
-   find_package(ament_lint_auto REQUIRED)
-   ament_lint_auto_find_test_dependencies()
+      find_package(ament_lint_auto REQUIRED)
+      ament_lint_auto_find_test_dependencies()
    endif()
 
    install(TARGETS
-   basic_shapes
-   RUNTIME DESTINATION lib/${PROJECT_NAME}
+      basic_shapes
+      RUNTIME DESTINATION lib/${PROJECT_NAME}
    )
 
    ament_package()
 
-Next fill out the ``package.xml`` tags and also add:
-
-.. code-block:: xml
-
-    <depend>rclcpp</depend>
-    <depend>std_visualization_msgs</depend>
-
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
-You should have seen ``rclcpp`` inlcude by now.
-We also include the `visualization_msgs/msg/Marker <https://docs.ros2.org/latest/api/visualization_msgs/msg/Marker.html>`__ message definition.
+You should have seen ``rclcpp`` include by now.
+We also include the `visualization_msgs/msg/Marker <https://github.com/ros2/common_interfaces/blob/rolling/visualization_msgs/msg/Marker.msg>`__ message definition.
 
 .. code-block:: C++
 
@@ -195,7 +183,8 @@ We also include the `visualization_msgs/msg/Marker <https://docs.ros2.org/latest
    #include "rclcpp/rclcpp.hpp"
    #include "visualization_msgs/msg/marker.hpp"
 
-The next part should look familiar. We initialize the node with the name ``basic_shapes`` and create a publsiher from this node.
+The next part should look familiar.
+We initialize the node with the name ``basic_shapes`` and create a publsiher from this node.
 This publisher is initialized with the ``Marker`` message type and topic name ``visualization_marker``.
 
 .. code-block:: C++
@@ -209,15 +198,17 @@ This publisher is initialized with the ``Marker`` message type and topic name ``
 
 Here we create an integer to keep track of what shape we're going to publish.
 The four types we'll be using here all use the
-`visualization_msgs/msg/Marker <https://docs.ros2.org/latest/api/visualization_msgs/msg/Marker.html>`__ message in the same way,
+`visualization_msgs/msg/Marker <https://github.com/ros2/common_interfaces/blob/rolling/visualization_msgs/msg/Marker.msg>`__ message in the same way,
 so we can simply switch out the shape type to demonstrate the four different shapes.
 
 .. code-block:: C++
 
     uint32_t shape = visualization_msgs::msg::Marker::CUBE;
 
-Next comes the main part of the program. First we create a ``visualization_msgs/msg/Marker``, and begin filling it out.
-The header here is a ``std_msgs/Header``, which should be familiar if you've done the `tf tutorials <https://docs.ros.org/en/rolling/Tutorials/Intermediate/Tf2/Tf2-Main.html>`__ :doc:`tf tutorials  <../../Tf2/Tf2-Main>`.
+Next comes the main part of the program.
+
+First we create a ``visualization_msgs/msg/Marker``, and begin filling it out.
+The header here is a ``std_msgs/Header``, which should be familiar if you've done the :doc:`tf tutorials  <../../Tf2/Tf2-Main>`.
 We set the ``frame_id`` member to ``/my_frame`` as an example.
 In a running system this should be the frame relative to which you want the marker's pose to be interpreted.
 
@@ -239,16 +230,18 @@ If a marker message is received with the same ``namespace`` and ``id``, the new 
       marker.ns = "basic_shapes";
       marker.id = 0;
 
-This type field is what specifies the kind of marker we're sending. The available types are enumerated in the
-`visualization_msgs/msg/Marker <https://docs.ros2.org/latest/api/visualization_msgs/msg/Marker.html>`__ message,
-for more visual examples see `marker/DisplayTypes <http://wiki.ros.org/rviz/DisplayTypes/Marker#Object_Types>`__.
+This type field is what specifies the kind of marker we're sending.
+The available types are enumerated in the
+`visualization_msgs/msg/Marker <https://github.com/ros2/common_interfaces/blob/rolling/visualization_msgs/msg/Marker.msg>`__ message,
+for more visual examples see :ref:`Marker: Display types <RVizMarkerObjectTypes>`.
 Here we set the type to our shape variable, which will change every time through the loop.
 
 .. code-block:: C++
 
       marker.type = shape;
 
-The action field is what specifies what to do with the marker. The options are ``visualization_msgs::msg::Marker::ADD``, ``visualization_msgs::msg::Marker::DELETE`` and ``visualization_msgs::msg::Marker::DELETEALL``.
+The action field is what specifies what to do with the marker.
+The options are ``visualization_msgs::msg::Marker::ADD``, ``visualization_msgs::msg::Marker::DELETE`` and ``visualization_msgs::msg::Marker::DELETEALL``.
 ``ADD`` is something of a misnomer, it really means "create or modify". ``DELETE`` deletes the marker with the corresponding ``namespace`` and ``id``.
 ``DELETEALL`` deletes all markers in the particular Rviz display, regardless of ``id`` or ``namespace``.
 
@@ -270,7 +263,8 @@ Here we set the position to the origin, and the orientation to the identity orie
       marker.pose.orientation.z = 0.0;
       marker.pose.orientation.w = 1.0;
 
-Now we specify the scale of the marker. For the basic shapes, a scale of 1 in all directions means 1 meter on a side.
+Now we specify the scale of the marker.
+For the basic shapes, a scale of 1 in all directions means 1 meter on a side.
 
 .. code-block:: C++
 
@@ -280,7 +274,8 @@ Now we specify the scale of the marker. For the basic shapes, a scale of 1 in al
 
 
 The color of the marker is specified as a ``std_msgs/msg/ColorRGBA``.
-Each member should be between 0 and 1. An alpha (a) value of 0 means completely transparent (invisible), and 1 is completely opaque.
+Each member should be between 0 and 1.
+An alpha (a) value of 0 means completely transparent (invisible), and 1 is completely opaque.
 
 .. code-block:: C++
 
@@ -361,12 +356,12 @@ Open up a second Terminal and start RViz:
 
    ros2 run rviz2 rviz2
 
-If you've never used rviz before, please see the `User's Guide <http://wiki.ros.org/rviz/UserGuide>`__ to get you started.
 
-The first thing to do, because we don't have any tf transforms setup, is to set the `Fixed Frame <http://wiki.ros.org/rviz/UserGuide>`__ to the frame we set the marker to above, ``/my_frame``.
+The first thing to do, because we don't have any tf transforms setup, is to set the ``Fixed Frame`` to the frame we set the marker to above, ``/my_frame``.
 In order to do so, set the Fixed Frame field to ``/my_frame``.
 
-Next add a Markers display. Notice that the default topic specified, ``visualization_marker``, is the same as the one being published.
+Next add a Markers display.
+Notice that the default topic specified, ``visualization_marker``, is the same as the one being published.
 
 You should now see a marker at the origin that changes shape every second:
 

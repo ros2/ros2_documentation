@@ -1,12 +1,7 @@
-.. redirect-from::
-
-    Tutorials/RViz/Marker-Points-and-Lines-CPP
-
-
 Marker: Points and Lines (C++)
 ==============================
 
-**Goal:** Teaches how to use the `visualization_msgs/msg/Marker <https://docs.ros2.org/latest/api/visualization_msgs/msg/Marker.html>`__ to send points and lines to RViz
+**Goal:** Teaches how to use the `visualization_msgs/msg/Marker <https://github.com/ros2/common_interfaces/blob/rolling/visualization_msgs/msg/Marker.msg>`__ to send points and lines to RViz
 
 **Tutorial level:** Intermediate
 
@@ -20,9 +15,9 @@ Marker: Points and Lines (C++)
 Backround
 ---------
 In the :doc:`Marker: Sending Basic Shapes  <../Markers-Sending-Basic-Shapes-CPP/Markers-Sending-Basic-Shapes-CPP>` you learned how to send
-simple shapes to rviz using visualization markers.
+simple shapes to RViz using visualization markers.
 You can send more than just simple shapes though, and this tutorial will introduce you to the ``POINTS``, ``LINE_STRIP`` and ``LINE_LIST`` marker types.
-For a full list of types, see the `Marker Display <http://wiki.ros.org/rviz/DisplayTypes/Marker#Object_Types>`__ page.
+For a full list of types, see the :ref:`Marker: Display types <RVizMarkerObjectTypes>` page.
 The ``POINTS``, ``LINE_STRIP`` and ``LINE_LIST`` markers all use the points member of the ``visualization_msgs/msg/Marker`` message.
 The ``POINTS`` type places a point at each point added. The ``LINE_STRIP`` type uses each point as a vertex in a connected set of lines, where point 0 is connected to point 1, 1 to 2, 2 to 3, etc.
 The ``LINE_LIST`` type creates unconnected lines out of each pair of points, i.e. point 0 to 1, 2 to 3, etc.
@@ -135,16 +130,16 @@ Now edit the ``CMakeLists.txt`` file in your package to look like this:
 
 .. code-block:: console
 
-   cmake_minimum_required(VERSION 3.8)
+    cmake_minimum_required(VERSION 3.8)
     project(visualization_marker_tutorials)
 
     # Default to C++17
     if(NOT CMAKE_CXX_STANDARD)
-    set(CMAKE_CXX_STANDARD 17)
+        set(CMAKE_CXX_STANDARD 17)
     endif()
 
     if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-    add_compile_options(-Wall -Wextra -Wpedantic)
+        add_compile_options(-Wall -Wextra -Wpedantic)
     endif()
 
     find_package(ament_cmake REQUIRED)
@@ -153,30 +148,30 @@ Now edit the ``CMakeLists.txt`` file in your package to look like this:
     find_package(visualization_msgs REQUIRED)
 
     ament_export_dependencies(
-    rclcpp
-    geometry_msgs
-    visualization_msgs)
+        rclcpp
+        geometry_msgs
+        visualization_msgs)
 
     add_executable(basic_shapes src/basic_shapes.cpp)
     ament_target_dependencies(basic_shapes
-    "rclcpp"
-    "visualization_msgs")
+        "rclcpp"
+        "visualization_msgs")
 
     add_executable(points_and_lines src/points_and_lines.cpp)
     ament_target_dependencies(points_and_lines
-    "rclcpp"
-    "geometry_msgs"
-    "visualization_msgs")
+        "rclcpp"
+        "geometry_msgs"
+        "visualization_msgs")
 
     if(BUILD_TESTING)
-    find_package(ament_lint_auto REQUIRED)
-    ament_lint_auto_find_test_dependencies()
+        find_package(ament_lint_auto REQUIRED)
+        ament_lint_auto_find_test_dependencies()
     endif()
 
     install(TARGETS
-    basic_shapes
-    points_and_lines
-    RUNTIME DESTINATION lib/${PROJECT_NAME}
+        basic_shapes
+        points_and_lines
+        RUNTIME DESTINATION lib/${PROJECT_NAME}
     )
 
     ament_package()
@@ -209,7 +204,8 @@ By default, the marker message contains a pose with a ``geometry_msgs/msg/Quater
     line_strip.id = 1;
     line_list.id = 2;
 
-We assign three different IDs to the three markers. The use of the ``points_and_lines`` namespace ensures they won't collide with other broadcasters.
+We assign three different IDs to the three markers.
+The use of the ``points_and_lines`` namespace ensures they won't collide with other broadcasters.
 
 .. code-block:: C++
 

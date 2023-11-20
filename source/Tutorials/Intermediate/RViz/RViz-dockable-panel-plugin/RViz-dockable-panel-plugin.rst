@@ -1,7 +1,3 @@
-.. redirect-from::
-
-    Tutorials/RViz/RViz-dockable-panel-plugin
-
 Plugins: New Dockable Panel
 ===========================
 
@@ -55,7 +51,8 @@ The 2D control area is implemented by the ``DriveWidget class``, and is describe
     class TeleopPanel : public rviz_common::Panel
     {
 
-Here we declare our new subclass of ``rviz::Panel``. Every panel which can be added via the Panels->Add_New_Panel menu is a subclass of ``rviz::Panel``.
+Here we declare our new subclass of ``rviz::Panel``.
+Every panel which can be added via the Panels->Add_New_Panel menu is a subclass of ``rviz::Panel``.
 
 .. code-block:: C++
 
@@ -109,7 +106,8 @@ Here we declare some internal slots.
 
     void sendVel();
 
-``sendvel()`` publishes the current velocity values to a ROS topic. Internally this is connected to a timer which calls it 10 times per second.
+``sendvel()`` publishes the current velocity values to a ROS topic.
+Internally this is connected to a timer which calls it 10 times per second.
 
 .. code-block:: C++
 
@@ -371,7 +369,8 @@ The full source code of ``teleop_panel`` is here: `src/drive_widget.hpp <https:/
     public:
 
 For maximum reusability, this class is only responsible for user interaction and display inside its widget.
-It does not make any ROS or RViz calls. It communicates its data to the outside just via Qt signals.
+It does not make any ROS or RViz calls.
+It communicates its data to the outside just via Qt signals.
 
 .. code-block:: C++
 
@@ -489,7 +488,8 @@ This gives a nice visual indication of whether the control is “live”.
     painter.setBrush(background);
     painter.setPen(crosshair);
 
-The main visual is a square, centered in the widget's area. Here we compute the size of the square and the horizontal and vertical offsets of it.
+The main visual is a square, centered in the widget's area.
+Here we compute the size of the square and the horizontal and vertical offsets of it.
 
 .. code-block:: C++
 
@@ -606,7 +606,8 @@ Use ``MiterJoin`` for the arrowheads so we get a nice sharp point.
         }
     }
 
-Compute and draw polylines for each arrowhead. This code could probably be more elegant.
+Compute and draw polylines for each arrowhead.
+This code could probably be more elegant.
 
 .. code-block:: C++
 
@@ -703,20 +704,22 @@ Please see the explanation from the previous tutorial, as it uses the exact same
 
 Trying it out
 -------------
-Once your RViz plugin is compiled and exported, simply run rviz normally. But make sure to source you workspace in the terminal that starts and runs RViz!
+Once your RViz plugin is compiled and exported, simply run RViz normally.
+But make sure to source you workspace in the terminal that starts and runs RViz!
 
 .. code-block:: bash
 
     ros2 run rviz2 rviz2
 
-Now rviz will use ``pluginlib`` to find all the plugins exported to it.
+Now RViz will use ``pluginlib`` to find all the plugins exported to it.
 
 Add a Teleop panel by opening the “Panels” menu and then “Add New Panel” within that.
 This should bring up a Panel class chooser dialog with “Teleop” in it (here it is “rviz_plugin_tutorials”):
 
 .. image:: images/teleop_plugin.png
 
-If “Teleop” is not in your list of Display Types, look through RViz's console output for error messages relating to plugin loading. Some common problems are:
+If “Teleop” is not in your list of Display Types, look through RViz's console output for error messages relating to plugin loading.
+Some common problems are:
 
 * not having a ``plugin_description.xml`` file,
 * not exporting it in the ``package.xml`` file, or

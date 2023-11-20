@@ -1,8 +1,3 @@
-.. redirect-from::
-
-    Tutorials/RViz/RViz-display-plugin
-
-
 Plugins: New Display Type
 =========================
 
@@ -19,11 +14,11 @@ Plugins: New Display Type
 
 Backround
 ---------
-RViz does not currently have a way to display `sensor_msgs/msg/Imu <https://docs.ros2.org/latest/api/sensor_msgs/msg/Imu.html>`_ messages directly.
+RViz does not currently have a way to display `sensor_msgs/msg/Imu <https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Imu.msg>`_ messages directly.
 The code in this tutorial implements a subclass of ``rviz::Display`` to do so.
 
 | The source code for this tutorial is in the `rviz_plugin_tutorials package <https://github.com/ros-visualization/visualization_tutorials/tree/ros2/rviz_plugin_tutorials>`_.
-| Here is what the new ``ImuDisplay`` output looks like, showing a sequence of `sensor_msgs/msg/Imu <https://docs.ros2.org/latest/api/sensor_msgs/msg/Imu.html>`_ messages from the test script:
+| Here is what the new ``ImuDisplay`` output looks like, showing a sequence of `sensor_msgs/msg/Imu <https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Imu.msg>`_ messages from the test script:
 
 .. image:: images/imu_arrows.png
 
@@ -488,13 +483,13 @@ For example, a link tag might look like: ``&lt;a href="my-web-page.html"&gt;``.
 Trying it out
 -------------
 
-Once your RViz plugin is compiled and exported, simply run rviz normally. But make sure to source you workspace in the terminal that starts and runs RViz!
+Once your RViz plugin is compiled and exported, simply run RViz normally. But make sure to source you workspace in the terminal that starts and runs RViz!
 
 .. code-block:: bash
 
     ros2 run rviz2 rviz2
 
-Now rviz will use pluginlib to find all the plugins exported to it.
+Now RViz will use pluginlib to find all the plugins exported to it.
 
 Add an ImuDisplay by clicking the “Add” button at the bottom of the “Displays” panel (or by typing Control-N),
 then scrolling down through the available displays until you see “Imu” under your plugin package name (here it is “rviz_plugin_tutorials”).
@@ -507,9 +502,9 @@ If “Imu” is not in your list of Display Types, look through RViz's console o
 * not exporting it in the ``package.xml`` file, or
 * not properly referencing the library file (like ``librviz_plugin_tutorials.so``) from ``plugin_description.xml``.
 
-| Once you've added the Imu display to RViz, you just need to set the topic name of the display to a source of `sensor_msgs/msg/Imu <https://docs.ros2.org/latest/api/sensor_msgs/msg/Imu.html>`_ messages.
+| Once you've added the Imu display to RViz, you just need to set the topic name of the display to a source of `sensor_msgs/msg/Imu <https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Imu.msg>`_ messages.
 
-| If you don't happen to have an IMU or other source of `sensor_msgs/msg/Imu <https://docs.ros2.org/latest/api/sensor_msgs/msg/Imu.html>`_ messages, you can test the plugin with a Python script like this: `scripts/send_test_msgs.py <https://github.com/ros-visualization/visualization_tutorials/blob/ros2/rviz_plugin_tutorials/scripts/send_test_msgs.py>`_ .
+| If you don't happen to have an IMU or other source of `sensor_msgs/msg/Imu <https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Imu.msg>`_ messages, you can test the plugin with a Python script like this: `scripts/send_test_msgs.py <https://github.com/ros-visualization/visualization_tutorials/blob/ros2/rviz_plugin_tutorials/scripts/send_test_msgs.py>`_ .
 
 | The script publishes on the ``/test_imu`` topic, so enter that.
 

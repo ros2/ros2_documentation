@@ -1,9 +1,3 @@
-.. redirect-from::
-
-    Tutorials/RViz/Interactive-marker-writing-a-simple-interactive-marker-server
-
-.. _RVizINTMarkerServer:
-
 Interactive Markers: Writing a Simple Interactive Marker Server (C++)
 =====================================================================
 
@@ -24,7 +18,8 @@ If you run the ``simple_marker`` example from ``interactive_marker_tutorials`` a
 
 .. image:: images/simple_marker.png
 
-It shows the single interactive marker provided by the server node. Click on the arrow to move the box.
+It shows the single interactive marker provided by the server node.
+Click on the arrow to move the box.
 What you will also see is that the server node prints out the current position of the marker each time you change it in RViz.
 Using this example we are going to look at how the interactive marker server handels interactive marker.
 
@@ -155,7 +150,8 @@ It is created on the topic namespace ``simple_marker``.
     interactive_marker.name = "my_marker";
     interactive_marker.description = "Simple 1-DOF Control";
 
-Next we create our first ``interactive_marker`` object. It is filled with the standard message header.
+Next we create our first ``interactive_marker`` object.
+It is filled with the standard message header.
 
 .. code-block:: C++
 
