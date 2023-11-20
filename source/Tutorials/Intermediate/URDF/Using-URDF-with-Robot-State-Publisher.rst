@@ -76,6 +76,11 @@ Create the directory where we will store some assets:
 
       mkdir -p urdf
 
+  .. group-tab:: macOS
+  
+    .. code-block:: console
+    
+      mkdir -p urdf
   .. group-tab:: Windows
 
     .. code-block:: console
