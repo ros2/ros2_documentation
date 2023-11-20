@@ -40,12 +40,25 @@ Tasks
 1 Create a package
 ^^^^^^^^^^^^^^^^^^
 
-.. code-block:: console
+.. tabs::
 
-  mkdir -p ~/second_ros2_ws/src
-  cd ~/second_ros2_ws/src
-  ros2 pkg create urdf_tutorial_r2d2 --build-type ament_python --dependencies rclpy --license Apache-2.0
-  cd urdf_tutorial_r2d2
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      mkdir -p ~/second_ros2_ws/src
+      cd ~/second_ros2_ws/src
+      ros2 pkg create urdf_tutorial_r2d2 --build-type ament_python --dependencies rclpy --license Apache-2.0
+      cd urdf_tutorial_r2d2
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      mkdir ~/second_ros2_ws/src
+      cd ~/second_ros2_ws/src
+      ros2 pkg create urdf_tutorial_r2d2 --build-type ament_python --dependencies rclpy --license Apache-2.0
+      cd urdf_tutorial_r2d2
 
 You should now see a ``urdf_tutorial_r2d2`` folder.
 Next you will make several changes to it.
@@ -55,9 +68,19 @@ Next you will make several changes to it.
 
 Create the directory where we will store some assets:
 
-.. code-block:: console
+.. tabs::
 
-  mkdir -p urdf
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      mkdir -p urdf
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      md urdf
 
 Download the :download:`URDF file <documents/r2d2.urdf.xml>` and save it as ``~/second_ros2_ws/src/urdf_tutorial_r2d2/urdf/r2d2.urdf.xml``.
 Download the :download:`Rviz configuration file <documents/r2d2.rviz>` and save it as ``~/second_ros2_ws/src/urdf_tutorial_r2d2/urdf/r2d2.rviz``.
@@ -244,12 +267,23 @@ Save the ``setup.py`` file with your changes.
 
 6 Install the package
 ^^^^^^^^^^^^^^^^^^^^^
+.. tabs::
 
-.. code-block:: console
+  .. group-tab:: Linux
 
-  cd ~/second_ros2_ws
-  colcon build --symlink-install --packages-select urdf_tutorial_r2d2
-  source install/setup.bash
+    .. code-block:: console
+
+      cd ~/second_ros2_ws
+      colcon build --symlink-install --packages-select urdf_tutorial_r2d2
+      source install/setup.bash
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      cd ~/second_ros2_ws
+      colcon build --symlink-install --packages-select urdf_tutorial_r2d2
+      call install/setup.bat
 
 
 7 View the results
