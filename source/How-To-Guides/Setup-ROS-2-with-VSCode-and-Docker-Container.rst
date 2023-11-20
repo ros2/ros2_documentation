@@ -1,4 +1,4 @@
-.. _vscode_docker:
+.. _VscodeDocker:
 
 Setup ROS 2 with VSCode and Docker [community-contributed]
 ==========================================================

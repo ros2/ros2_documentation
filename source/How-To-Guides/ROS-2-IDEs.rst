@@ -16,16 +16,16 @@ General
 -------
 
 
-.. _installed_python_code:
+.. _InstalledPythonCode:
 
-Installed Python code
+Installed Python Code
 ^^^^^^^^^^^^^^^^^^^^^
 
 When running a node it was typically installed first with ``colcon build [...]``.
 For Python code this could mean the source was copied over into the build/install folders.
 So when attaching a debugger to a ``ros2 run ...`` command from an opened project, the code being run is not actually the files opened in the project.
 
-It might be best to build with ``symlink-install`` from ``colcon``, such that the original source files are linked instead of copied.
+It might be best to build with ``--symlink-install`` from ``colcon``, such that the original source files are :ref:`linked instead of copied<BuildWSWithColcon>`.
 As an added benefit source code can now be modified and executed without building first.
 
 Alternatively, open the source files from the ``build/``/``install/`` directory instead and place breakpoints there.
@@ -36,7 +36,7 @@ Visual Studio Code
 
 `VSCode <https://code.visualstudio.com/>`_ is a versatile and free development environment.
 
-See :ref:`Setup ROS2 with VSCode and Docker<vscode_docker>` for full instructions on how to use VSCode, in combination with Docker.
+See :ref:`Setup ROS2 with VSCode and Docker<VscodeDocker>` for full instructions on how to use VSCode, in combination with Docker.
 
 
 PyCharm
@@ -122,7 +122,7 @@ You can pause it or create breakpoints in the code and step through it.
 
 .. note::
 
-   The code in your project might not be the files being executed, see :ref:`this<installed_python_code>`.
+   The code in your project might not be the files being executed, see :ref:`this<InstalledPythonCode>`.
 
 
 Run/Debug

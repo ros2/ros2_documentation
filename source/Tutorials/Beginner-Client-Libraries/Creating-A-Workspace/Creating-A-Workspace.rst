@@ -178,6 +178,9 @@ Packages declare their dependencies in the package.xml file (you will learn more
 This command walks through those declarations and installs the ones that are missing.
 You can learn more about ``rosdep`` in another tutorial (coming soon).
 
+
+.. _BuildWSWithColcon:
+
 5 Build the workspace with colcon
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
