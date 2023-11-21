@@ -39,13 +39,35 @@ Tasks
 
 1 Create a package
 ^^^^^^^^^^^^^^^^^^
+Create the directory:
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      mkdir -p second_ros2_ws/src
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      mkdir -p second_ros2_ws/src
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      md second_ros2_ws/src
+
+Then create the package:
 
 .. code-block:: console
 
-  mkdir -p ~/second_ros2_ws/src
-  cd ~/second_ros2_ws/src
-  ros2 pkg create urdf_tutorial_r2d2 --build-type ament_python --dependencies rclpy --license Apache-2.0
-  cd urdf_tutorial_r2d2
+    cd second_ros2_ws/src
+    ros2 pkg create urdf_tutorial_r2d2 --build-type ament_python --dependencies rclpy --license Apache-2.0
+    cd urdf_tutorial_r2d2
 
 You should now see a ``urdf_tutorial_r2d2`` folder.
 Next you will make several changes to it.
@@ -55,12 +77,28 @@ Next you will make several changes to it.
 
 Create the directory where we will store some assets:
 
-.. code-block:: console
+.. tabs::
 
-  mkdir -p urdf
+  .. group-tab:: Linux
 
-Download the :download:`URDF file <documents/r2d2.urdf.xml>` and save it as ``~/second_ros2_ws/src/urdf_tutorial_r2d2/urdf/r2d2.urdf.xml``.
-Download the :download:`Rviz configuration file <documents/r2d2.rviz>` and save it as ``~/second_ros2_ws/src/urdf_tutorial_r2d2/urdf/r2d2.rviz``.
+    .. code-block:: console
+
+      mkdir -p urdf
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      mkdir -p urdf
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      md urdf
+
+Download the :download:`URDF file <documents/r2d2.urdf.xml>` and save it as ``second_ros2_ws/src/urdf_tutorial_r2d2/urdf/r2d2.urdf.xml``.
+Download the :download:`Rviz configuration file <documents/r2d2.rviz>` and save it as ``second_ros2_ws/src/urdf_tutorial_r2d2/urdf/r2d2.rviz``.
 
 3 Publish the state
 ^^^^^^^^^^^^^^^^^^^
@@ -68,7 +106,7 @@ Download the :download:`Rviz configuration file <documents/r2d2.rviz>` and save 
 Now we need a method for specifying what state the robot is in.
 To do this, we must specify all three joints and the overall odometry.
 
-Fire up your favorite editor and paste the following code into ``~/second_ros2_ws/src/urdf_tutorial_r2d2/urdf_tutorial_r2d2/state_publisher.py``
+Fire up your favorite editor and paste the following code into ``second_ros2_ws/src/urdf_tutorial_r2d2/urdf_tutorial_r2d2/state_publisher.py``
 
 .. code-block:: python
 
@@ -164,8 +202,8 @@ Fire up your favorite editor and paste the following code into ``~/second_ros2_w
 4 Create a launch file
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Create a new ``~/second_ros2_ws/src/urdf_tutorial_r2d2/launch`` folder.
-Open your editor and paste the following code, saving it as ``~/second_ros2_ws/src/urdf_tutorial_r2d2/launch/demo.launch.py``
+Create a new ``second_ros2_ws/src/urdf_tutorial_r2d2/launch`` folder.
+Open your editor and paste the following code, saving it as ``second_ros2_ws/src/urdf_tutorial_r2d2/launch/demo.launch.py``
 
 .. code-block:: python
 
@@ -211,7 +249,7 @@ Open your editor and paste the following code, saving it as ``~/second_ros2_ws/s
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 You must tell the **colcon** build tool how to install your Python package.
-Edit the ``~/second_ros2_ws/src/urdf_tutorial_r2d2/setup.py`` file as follows:
+Edit the ``second_ros2_ws/src/urdf_tutorial_r2d2/setup.py`` file as follows:
 
 - include these import statements
 
@@ -244,12 +282,32 @@ Save the ``setup.py`` file with your changes.
 
 6 Install the package
 ^^^^^^^^^^^^^^^^^^^^^
-
 .. code-block:: console
 
-  cd ~/second_ros2_ws
-  colcon build --symlink-install --packages-select urdf_tutorial_r2d2
-  source install/setup.bash
+    cd second_ros2_ws
+    colcon build --symlink-install --packages-select urdf_tutorial_r2d2
+
+Source the setup files:
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      source install/setup.bash
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      source install/setup.bash
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      call install/setup.bat
 
 
 7 View the results
@@ -265,7 +323,7 @@ Open a new terminal, the run Rviz using
 
 .. code-block:: console
 
-  rviz2 -d ~/second_ros2_ws/install/urdf_tutorial_r2d2/share/urdf_tutorial_r2d2/r2d2.rviz
+  rviz2 -d second_ros2_ws/install/urdf_tutorial_r2d2/share/urdf_tutorial_r2d2/r2d2.rviz
 
 See the `User Guide <http://wiki.ros.org/rviz/UserGuide>`__ for details on how to use Rviz.
 
