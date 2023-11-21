@@ -47,19 +47,19 @@ Create the directory:
 
     .. code-block:: console
 
-      mkdir -p ~/second_ros2_ws/src
+      mkdir -p second_ros2_ws/src
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      mkdir -p ~/second_ros2_ws/src
+      mkdir -p second_ros2_ws/src
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      md ~/second_ros2_ws/src
+      md second_ros2_ws/src
 
 Then create the package:
 
