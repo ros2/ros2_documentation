@@ -2,7 +2,7 @@ IDEs and Debugging
 ==================
 
 ROS 2 is not made around a specific development environment and the main focus is on building / running from the command line.
-Nonetheless some IDEs can be used to develop, run and/or debug ROS 2 nodes (with varying success).
+Nonetheless Integrated Development Environments (IDEs) can be used to develop, run and/or debug ROS 2 nodes.
 
 Below are listed some IDEs and instructions on how to use them with ROS 2, if at all possible.
 
@@ -21,14 +21,19 @@ General
 Installed Python Code
 ^^^^^^^^^^^^^^^^^^^^^
 
-When running a node it was typically installed first with ``colcon build [...]``.
-For Python code this could mean the source was copied over into the build/install folders.
-So when attaching a debugger to a ``ros2 run ...`` command from an opened project, the code being run is not actually the files opened in the project.
+By default, when building workspaces with:
 
-It might be best to build with ``--symlink-install`` from ``colcon``, such that the original source files are :ref:`linked instead of copied<BuildWSWithColcon>`.
-As an added benefit source code can now be modified and executed without building first.
+.. code-block:: bash
 
-Alternatively, open the source files from the ``build/``/``install/`` directory instead and place breakpoints there.
+   colcon build
+
+The Python code will be coped over into the ``build``/``install`` directories.
+So when attaching a debugger to a ``ros2 run`` command from within an IDE, the code being run (from the ``build``/``install``) is not the same as the files opened in the IDE project.
+
+There are 2 options to deal with this:
+
+* Open the source files from ``build``/``install`` directory and place breakpoints there.
+* Build the workspace with the `--symlink-install <https://colcon.readthedocs.io/en/released/reference/verb/build.html#command-line-arguments>`__ flag to colcon, which will symlink the source files to the ``build``/``install`` directory instead.
 
 
 Visual Studio Code
@@ -36,7 +41,7 @@ Visual Studio Code
 
 `VSCode <https://code.visualstudio.com/>`_ is a versatile and free development environment.
 
-See :ref:`Setup ROS2 with VSCode and Docker<VscodeDocker>` for full instructions on how to use VSCode, in combination with Docker.
+See :doc:`Setup ROS2 with VSCode and Docker<Setup-ROS-2-with-VSCode-and-Docker-Container>` for full instructions on how to use VSCode, in combination with Docker.
 
 
 PyCharm
@@ -48,7 +53,7 @@ Of course it can only be meaningfully used for nodes made in Python.
 
 .. note::
 
-   You can only accomplish integrating running a node directly from Python, not via ``ros2 run ...`` or ``ros2 launch ...``.
+   With PyCharm you can either attach to an existing process (probably started by you via ``ros2 run ...`` or ``ros2 launch ...``) or run the node directly from Python (equivalent to ``python [file.py]``.
 
 
 Integrate for code inspection
@@ -81,7 +86,7 @@ Windows
 First sourcing ROS and then starting PyCharm from the command line seems to have no effect on Windows.
 Instead, some settings need to be tweaked.
 
-#. (Create your ROS workspace as you would normally.)
+#. Create your ROS workspace as you would normally.
 #. Start PyCharm normally.
 #. Open a project. This should be the root directory of the ROS node you're developping, e.g. ``~/dev_ws/src/my_node``.
 #. Click "Add new interpreter" > "Add local interpreter...".
@@ -115,7 +120,7 @@ Open your project source and simply run your node as usual:
 
 Then in PyCharm select "Run" > "Attach to Process...".
 It might take a second, but a small window should show listing the currently running Python instances, including your node.
-There can be multiple Python processes, so it could some trial-and-error the find the right one.
+There can be multiple Python processes, so there may be some trial-and-error to find the right one.
 
 After selecting an instance, the usual debugging tools are available.
 You can pause it or create breakpoints in the code and step through it.
@@ -131,7 +136,7 @@ Run/Debug
 Follow the steps for integration first.
 
 Running your Python file from PyCharm will likely result in import errors.
-This is because PyCharm does extend the ``PYTHONPATH`` environment variable, but it leaves ``PATH`` untouched.
+This is because PyCharm extends the ``PYTHONPATH`` environment variable, but it leaves ``PATH`` untouched.
 Necessary library files in ``ros/bin`` are not found.
 
 Edit the run/debug configuration for your file and under "Environment Variables:" add a new variable.
