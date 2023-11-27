@@ -106,6 +106,30 @@ PyCharm will re-index and when finished it should correctly interpret your proje
 You can navigate through code, get completion and read doc blurbs as expected.
 
 
+If there are dependencies built alongside with your package, they are probably not yet recognized and result in invalid IDE warnings and runtime errors.
+
+Resolve this by:
+
+* Making sure the ``PATH`` override in the run/debug configuration includes both the ROS2 install and your workspace, e.g.:
+
+  .. code-block:: bash
+
+     C:\dev\ros2_humble\local_setup.ps1
+     C:\dev_ws\install\local_setup.ps1
+     echo $ENV:Path
+
+* Adding the relevant folders from the ``install/`` directory to your project sources.
+
+  Go to "Settings..." and under "Project: " > "Project Structure" click "Add content root".
+  Add all the relevant ``site-packages`` folders under ``install/Lib/*``.
+
+  Finally, make sure your run/debug configuration has the option "include content roots in PYTHONPATH" enabled.
+
+.. tip::
+
+   Using the `--merge-install <https://colcon.readthedocs.io/en/released/user/isolated-vs-merged-workspaces.html>`__ option with your colcon build will limit the number of depending directories, making it easier to configure PyCharm.
+
+
 Attach to Process
 ^^^^^^^^^^^^^^^^^
 
