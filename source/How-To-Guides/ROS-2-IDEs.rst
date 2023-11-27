@@ -1,5 +1,5 @@
-IDEs and Debugging
-==================
+IDEs and Debugging [community-contributed]
+==========================================
 
 ROS 2 is not made around a specific development environment and the main focus is on building / running from the command line.
 Nonetheless Integrated Development Environments (IDEs) can be used to develop, run and/or debug ROS 2 nodes.
