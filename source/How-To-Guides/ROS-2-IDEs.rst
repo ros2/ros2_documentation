@@ -4,7 +4,7 @@ IDEs and Debugging
 ROS 2 is not made around a specific development environment and the main focus is on building / running from the command line.
 Nonetheless Integrated Development Environments (IDEs) can be used to develop, run and/or debug ROS 2 nodes.
 
-Below are listed some IDEs and instructions on how to use them with ROS 2, if at all possible.
+Below are listed some IDEs and instructions on how to use them with ROS 2.
 
 
 .. contents:: Contents
@@ -51,9 +51,7 @@ PyCharm
 
 Of course it can only be meaningfully used for nodes made in Python.
 
-.. note::
-
-   With PyCharm you can either attach to an existing process (probably started by you via ``ros2 run ...`` or ``ros2 launch ...``) or run the node directly from Python (equivalent to ``python [file.py]``.
+With PyCharm you can either attach to an existing process (probably started by you via ``ros2 run ...`` or ``ros2 launch ...``) or run the node directly from Python (equivalent to ``python [file.py]``.
 
 
 Integrate for code inspection
@@ -70,7 +68,7 @@ Open a terminal, source ROS and start PyCharm:
 .. code-block:: bash
 
    source /opt/ros/humble/setup.bash
-   cd ~/dev_ws
+   cd path/to/dev_ws
    /opt/pycharm/bin/pycharm.sh
 
 After selecting the correct interpreter, everything should work.
@@ -88,7 +86,7 @@ Instead, some settings need to be tweaked.
 
 #. Create your ROS workspace as you would normally.
 #. Start PyCharm normally.
-#. Open a project. This should be the root directory of the ROS node you're developping, e.g. ``~/dev_ws/src/my_node``.
+#. Open a project. This should be the root directory of the ROS node you're developing, e.g. ``C:\dev_ws\src\my_node``.
 #. Click "Add new interpreter" > "Add local interpreter...".
    Select a system interpreter (or virtual environment if you're using one) and select the executable of your ROS Python version (typically ``C:\Python38\python.exe``).
 
