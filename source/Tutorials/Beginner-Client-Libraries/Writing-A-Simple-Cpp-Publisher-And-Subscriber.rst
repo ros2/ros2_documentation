@@ -333,7 +333,7 @@ Enter the following code in your terminal:
 
             curl https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function.cpp -o subscriber_member_function.cpp
 
-Entering ``ls`` in the console will now return:
+Check to ensure that these files exist:
 
 .. code-block:: console
 
