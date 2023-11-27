@@ -565,7 +565,7 @@ ROS_DISABLE_LOANED_MESSAGES environment variable added
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
 This environment variable can be used to disable loaned messages support, independently if the rmw supports them or not.
-For more details, see the guide :doc:`Disabling Zero Copy Loaned Messages <../How-To-Guides/Disabling-ZeroCopy-loaned-messages>`.
+For more details, see the guide :doc:`Configure Zero Copy Loaned Messages <../How-To-Guides/Configure-ZeroCopy-loaned-messages>`.
 
 rclcpp
 ^^^^^^
