@@ -43,6 +43,93 @@ Visual Studio Code
 
 See :doc:`Setup ROS2 with VSCode and Docker<Setup-ROS-2-with-VSCode-and-Docker-Container>` for full instructions on how to use VSCode, in combination with Docker.
 
+VSCode is relatively easy to use with ROS2, both on Linux or Windows.
+Simply activate your environment in a command line and start the VSCode application from the same terminal and use as normal.
+So:
+
+#. Create your ROS workspace as you would normally.
+#. In a terminal, source both ROS2 and your install (if it was built already).
+#. Start VSCode from the same command line. The terminal will be blocked until the application is closed again.
+
+.. tabs::
+
+   .. group-tab:: Linux
+
+      .. code-block:: bash
+
+        source /opt/ros/{DISTRO}/setup.bash
+        cd ~/dev_ws
+        source ./install/setup.bash
+        /usr/bin/code ./src/my_node/
+
+   .. group-tab:: macOS
+
+      .. code-block:: console
+
+        . ~/ros2_install/ros2-osx/setup.bash
+        cd ~/dev_ws
+        . ./install/setup.bash
+        /Applications/Visual Studio Code.app/Contents/Resources/app/bin/code ./src/my_node/
+
+   .. group-tab:: Windows (CMD)
+
+      .. code-block:: console
+
+        call C:\dev\ros2\local_setup.bat
+        cd C:\dev_ws
+        call .\install\local_setup.bat
+        "C:\Program Files\Microsoft VS Code\Code.exe" .\src\my_node\
+
+   .. group-tab:: Windows (PowerShell)
+
+      .. code-block:: console
+
+        C:\dev\ros2\local_setup.ps1
+        cd C:\dev_ws
+        .\install\local_setup.ps1
+        & "C:\Program Files\Microsoft VS Code\Code.exe" .\src\my_node\
+
+
+VSCode and any terminal created inside VSCode will correctly inherit from the parent environment and should have ROS and installed package available.
+
+.. note::
+
+   After adding packages or making major changes you might need to source your install again.
+   The simplest way to do this is to close VSCode and restart it as above.
+
+
+Python
+^^^^^^
+
+In your workspace, verify the correct interpreter is used.
+Through sourcing the basic command ``python`` should be correct, but VSCode likes to resort to an absolute path for Python.
+In the bottom right corner click on "Selected Python Interpreter" to change it.
+
+If your ROS2 Python version is from a virtual environment, VSCode will try to source it at each run command.
+But we already started VSCode from a sourced environment, so this extra step is not necessary.
+You can disable this for the current workspace by finding "Settings" > "Extensions" > "Python" > "Activate Environment" and disabling the check.
+
+Now simply run a file or create a configuration in ``launch.json``.
+Debugging a node is easiest by creating a configuration like a ``python ...`` command, instead of ``ros2 run/launch ...``.
+An example of ``launch.json`` could be:
+
+.. code-block::
+
+   {
+       "version": "0.2.0",
+       "configurations": [
+           {
+               "name": "Python: File",
+               "type": "python",
+               "request": "launch",
+               "program": "my_node.py"
+           },
+       ]
+   }
+
+
+Instead you could also create a configuration for attaching to a running process, under "Attach using Process Id".
+
 
 PyCharm
 -------
