@@ -360,7 +360,7 @@ Since you'll be changing the standard string msg to a numerical one, the output 
             RCLCPP_INFO_STREAM(this->get_logger(), "I heard: '" << msg.num << "'");    // CHANGE
           };
           subscription_ = this->create_subscription<tutorial_interfaces::msg::Num>(    // CHANGE
-            "topic", 10, std::bind(&MinimalSubscriber::topic_callback, this, _1));
+            "topic", 10, topic_callback);
         }
 
       private:
