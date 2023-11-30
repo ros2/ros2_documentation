@@ -86,8 +86,9 @@ Inside your package's ``src`` directory, create a new file called ``simple_bag_r
         : Node("playback_node")
         {
           publisher_ = this->create_publisher<turtlesim::msg::Pose>("/turtle1/pose", 10);
-          timer_ = this->create_wall_timer(
-              100ms, std::bind(&PlaybackNode::timer_callback, this));
+
+          auto timer_callback_lambda = [this](){return this->timer_callback();};
+          timer_ = this->create_wall_timer(100ms, timer_callback_lambda);
 
           reader_.open(bag_filename);
         }
@@ -158,8 +159,8 @@ Note the constructor takes a path to the bag file as a parameter.
       : Node("playback_node")
       {
         publisher_ = this->create_publisher<turtlesim::msg::Pose>("/turtle1/pose", 10);
-        timer_ = this->create_wall_timer(
-            100ms, std::bind(&PlaybackNode::timer_callback, this));
+        auto timer_callback_lambda = [this](){return this->timer_callback();};
+        timer_ = this->create_wall_timer(100ms, timer_callback_lambda);
 
 We also open the bag in the constructor.
 
