@@ -1,5 +1,3 @@
-//! SEE
-
 #include <functional>
 #include <future>
 #include <memory>
@@ -27,9 +25,10 @@ public:
       this,
       "fibonacci");
 
+    auto timer_callback_lambda = [this](){ return this->send_goal(); };
     this->timer_ = this->create_wall_timer(
       std::chrono::milliseconds(500),
-      std::bind(&FibonacciActionClient::send_goal, this));
+      timer_callback_lambda);
   }
 
   void send_goal()
