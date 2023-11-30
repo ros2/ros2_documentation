@@ -112,7 +112,7 @@ Open the file using your preferred text editor.
 
         // Call on_timer function every second
         timer_ = this->create_wall_timer(
-          1s, std::bind(&FrameListener::on_timer, this));
+          1s, [this](){return this->on_timer();});
       }
 
     private:
