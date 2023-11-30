@@ -236,7 +236,7 @@ If you recall the data we saw ``/teleop_turtle`` passing to ``/turtlesim`` with 
 7 ros2 topic pub
 ^^^^^^^^^^^^^^^^
 
-Now that you have the message structure, you can publish data into a topic directly from the command line using:
+Now that you have the message structure, you can publish data to a topic directly from the command line using:
 
 .. code-block:: console
 
