@@ -187,8 +187,16 @@ For that to work, the code in the constructor has to be changed to:
 
         this->declare_parameter("my_parameter", "world", param_desc);
 
-        timer_ = this->create_wall_timer(
-          1000ms, std::bind(&MinimalParam::timer_callback, this));
+        auto timer_callback = [this](){
+          std::string my_param = this->get_parameter("my_parameter").as_string();
+
+          RCLCPP_INFO(this->get_logger(), "Hello %s!", my_param.c_str());
+
+          std::vector<rclcpp::Parameter> all_new_parameters{rclcpp::Parameter("my_parameter", "world")};
+          this->set_parameters(all_new_parameters);
+        };
+        timer_ = this->create_wall_timer(1000ms, timer_callback);
+
       }
 
 The rest of the code remains the same.
