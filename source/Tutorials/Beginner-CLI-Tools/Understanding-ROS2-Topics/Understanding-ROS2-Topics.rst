@@ -290,7 +290,8 @@ Finally, you can run ``echo`` on the ``pose`` topic and recheck rqt_graph:
 
 You can see that the ``/turtlesim`` node is also publishing to the ``pose`` topic, which the new ``echo`` node has subscribed to.
 
-When publishing messages with timestamps, ``pub`` has two methods to autmoatically fill them out with the current time. For ``Stamped`` messages with a ``std_msgs/msg/Header``, the header field can be set to ``auto`` to fill out the ``stamp`` field.
+When publishing messages with timestamps, ``pub`` has two methods to automatically fill them out with the current time.
+For messages with a ``std_msgs/msg/Header``, the header field can be set to ``auto`` to fill out the ``stamp`` field.
 
 .. code-block:: console
 
