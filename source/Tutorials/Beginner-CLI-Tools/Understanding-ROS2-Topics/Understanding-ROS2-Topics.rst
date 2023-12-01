@@ -290,6 +290,18 @@ Finally, you can run ``echo`` on the ``pose`` topic and recheck rqt_graph:
 
 You can see that the ``/turtlesim`` node is also publishing to the ``pose`` topic, which the new ``echo`` node has subscribed to.
 
+When publishing messages with timestamps, ``pub`` has two methods to autmoatically fill them out with the current time. For ``Stamped`` messages with a ``std_msgs/msg/Header``, the header field can be set to ``auto`` to fill out the ``stamp`` field.
+
+.. code-block:: console
+
+  ros2 topic pub /pose geometry_msgs/msg/PoseStamped '{header: "auto", pose: {position: {x: 1.0, y: 2.0, z: 3.0}}}'
+
+If the message does not use a full header, but just has a field with type ``builtin_interfaces/msg/Time``, that can be set to the value ``now``.
+
+.. code-block:: console
+
+  ros2 topic pub /reference sensor_msgs/msg/TimeReference '{header: "auto", time_ref: "now", source: "dumy"}'
+
 8 ros2 topic hz
 ^^^^^^^^^^^^^^^
 
