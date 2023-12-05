@@ -297,11 +297,11 @@ Next, source the setup files.
       call install/setup.bat
 
 Now, run the script.
-Make sure to replace ``/path/to/setup`` with the path to your ``setup`` bag.
+Make sure to replace ``/path/to/subset`` with the path to your ``subset`` bag.
 
 .. code-block:: console
 
-    ros2 run bag_reading_cpp simple_bag_reader /path/to/setup
+    ros2 run bag_reading_cpp simple_bag_reader /path/to/subset
 
 You should see the (x, y) coordinates of the turtle printed to the console.
 
