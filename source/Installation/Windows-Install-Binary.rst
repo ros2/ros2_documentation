@@ -30,7 +30,9 @@ Downloading ROS 2
 
 .. note::
 
-    There may be more than one binary download option which might cause the file name to differ.
+    There may be more than one binary download option which might cause the file name to differ. 
+    If you encounter a warning message similar to ``[rti_context_adds_cmake_module]``, feel free to ignore it. 
+    This warning does not indicate any issues with the ROS2 installation functionality.
 
 .. note::
 
@@ -48,7 +50,7 @@ Start a command shell and source the ROS 2 setup file to set up the workspace:
 
    call C:\dev\ros2_{DISTRO}\local_setup.bat
 
-It is normal that the previous command, if nothing else went wrong, outputs "The system cannot find the path specified." exactly once.
+It is normal that the previous command, if nothing else went wrong, outputs "The system cannot find the path specified." exactly once. 
 
 Try some examples
 -----------------
