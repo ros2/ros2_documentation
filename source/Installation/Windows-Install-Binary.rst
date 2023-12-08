@@ -32,7 +32,7 @@ Downloading ROS 2
 
     There may be more than one binary download option which might cause the file name to differ. 
     If you encounter a warning message similar to ``[rti_context_adds_cmake_module]``, feel free to ignore it. 
-    This warning does not indicate any issues with the ROS2 installation functionality.
+    This warning does not indicate any issues with the ROS 2 installation functionality.
 
 .. note::
 
