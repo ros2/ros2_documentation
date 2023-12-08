@@ -24,17 +24,22 @@ Let's start by installing the demo package and its dependencies.
 
 .. tabs::
 
-   .. group-tab:: Linux Binaries
+   .. group-tab:: Ubuntu Packages
 
       .. code-block:: console
 
-         sudo apt-get install ros-{DISTRO}-turtle-tf2-py ros-{DISTRO}-tf2-tools ros-{DISTRO}-tf-transformations
+         sudo apt-get install ros-{DISTRO}-rviz2 ros-{DISTRO}-turtle-tf2-py ros-{DISTRO}-tf2-ros ros-{DISTRO}-tf2-tools ros-{DISTRO}-turtlesim
+
+   .. group-tab:: RHEL Packages
+
+      .. code-block:: console
+
+         sudo dnf install ros-{DISTRO}-rviz2 ros-{DISTRO}-turtle-tf2-py ros-{DISTRO}-tf2-ros ros-{DISTRO}-tf2-tools ros-{DISTRO}-turtlesim
 
    .. group-tab:: From Source
 
       .. code-block:: console
 
-         # Clone and build the geometry_tutorials repo using the branch that matches your installation
          git clone https://github.com/ros/geometry_tutorials.git -b ros2
 
 Running the demo
@@ -69,7 +74,7 @@ What is happening?
 ------------------
 
 This demo is using the tf2 library to create three coordinate frames: a ``world`` frame, a ``turtle1`` frame, and a ``turtle2`` frame.
-This tutorial uses a tf2 broadcaster to publish the turtle coordinate frames and a tf2 listener to compute the difference in the turtle frames and move one turtle to follow the other.
+This tutorial uses a *tf2 broadcaster* to publish the turtle coordinate frames and a *tf2 listener* to compute the difference in the turtle frames and move one turtle to follow the other.
 
 tf2 tools
 ---------
@@ -81,6 +86,7 @@ We can use ``tf2_tools`` to look at what tf2 is doing behind the scenes.
 ^^^^^^^^^^^^^^^^^^^
 
 ``view_frames`` creates a diagram of the frames being broadcast by tf2 over ROS.
+Note that this utility only works on Linux; if you are Windows, skip to "Using tf2_echo" below.
 
 .. code-block:: console
 
@@ -98,15 +104,15 @@ To view the tree, open the resulting ``frames.pdf`` with your favorite PDF viewe
 
 .. image:: images/turtlesim_frames.png
 
-Here we can see three frames that are broadcasted by tf2: ``world``, ``turtle1``, and ``turtle2``.
-The ``world`` here is the parent of the ``turtle1`` and ``turtle2`` frames.
-``view_frames`` also report some diagnostic information about when the oldest and most
+Here we can see three frames that are broadcast by tf2: ``world``, ``turtle1``, and ``turtle2``.
+The ``world`` frame is the parent of the ``turtle1`` and ``turtle2`` frames.
+``view_frames`` also reports some diagnostic information about when the oldest and most
 recent frame transforms were received and how fast the tf2 frame is published to tf2 for debugging purposes.
 
 2 Using tf2_echo
 ^^^^^^^^^^^^^^^^
 
-``tf2_echo`` reports the transform between any two frames broadcasted over ROS.
+``tf2_echo`` reports the transform between any two frames broadcast over ROS.
 
 Usage:
 
@@ -120,7 +126,7 @@ Let's look at the transform of the ``turtle2`` frame with respect to ``turtle1``
 
    ros2 run tf2_ros tf2_echo turtle2 turtle1
 
-You will see the transform displayed as the ``tf2_echo`` listener receives the frames broadcasted over ROS 2.
+You will see the transform displayed as the ``tf2_echo`` listener receives the frames broadcast over ROS 2.
 
 .. code-block:: console
 
@@ -147,17 +153,27 @@ You will see the transform displayed as the ``tf2_echo`` listener receives the f
 
 As you drive your turtle around you will see the transform change as the two turtles move relative to each other.
 
-rviz and tf2
-------------
+rviz2 and tf2
+-------------
 
-``rviz`` is a visualization tool that is useful for examining tf2 frames.
-Let's look at our turtle frames using rviz.
-Let's start rviz with the ``turtle_rviz.rviz`` configuration file using the ``-d`` option:
+``rviz2`` is a visualization tool that is useful for examining tf2 frames.
+Let's look at our turtle frames using ``rviz2`` by starting it with a configuration file using the ``-d`` option:
 
-.. code-block:: console
+.. tabs::
 
-   ros2 run rviz2 rviz2 -d $(ros2 pkg prefix --share turtle_tf2_py)/rviz/turtle_rviz.rviz
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      ros2 run rviz2 rviz2 -d $(ros2 pkg prefix --share turtle_tf2_py)/rviz/turtle_rviz.rviz
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      for /f "usebackq tokens=*" %a in (`ros2 pkg prefix --share turtle_tf2_py`) do rviz2 -d %a/rviz/turtle_rviz.rviz
 
 .. image:: images/turtlesim_rviz.png
 
-In the side bar you will see the frames broadcasted by tf2. As you drive the turtle around you will see the frames move in rviz.
+In the side bar you will see the frames broadcast by tf2.
+As you drive the turtle around you will see the frames move in rviz.
