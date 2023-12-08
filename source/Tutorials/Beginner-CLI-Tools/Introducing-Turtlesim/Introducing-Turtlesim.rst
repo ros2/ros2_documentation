@@ -173,7 +173,7 @@ To run rqt:
 
 .. code-block:: console
 
-  rqt
+  rqt_graph
 
 5 Use rqt
 ^^^^^^^^^
