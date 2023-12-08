@@ -2,8 +2,6 @@
 
     Tutorials/Tf2/Writing-A-Tf2-Broadcaster-Cpp
 
-.. _WritingATf2BroadcasterCpp:
-
 Writing a broadcaster (C++)
 ===========================
 
@@ -21,14 +19,15 @@ Background
 ----------
 
 In the next two tutorials we will write the code to reproduce the demo from the :doc:`Introduction to tf2 <./Introduction-To-Tf2>` tutorial.
-After that, following tutorials focus on extending the demo with more advanced tf2 features, including the usage of timeouts in transformation lookups and time travel.
+After that, the following tutorials focus on extending the demo with more advanced tf2 features, including the usage of timeouts in transformation lookups and time travel.
 
 Prerequisites
 -------------
 
 This tutorial assumes you have a working knowledge of ROS 2 and you have completed the :doc:`Introduction to tf2 tutorial <./Introduction-To-Tf2>` and :doc:`tf2 static broadcaster tutorial (C++) <./Writing-A-Tf2-Static-Broadcaster-Cpp>`.
+We'll be reusing the ``learning_tf2_cpp`` package from that last tutorial.
+
 In previous tutorials, you learned how to :doc:`create a workspace <../../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>` and :doc:`create a package <../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>`.
-You also have created the ``learning_tf2_cpp`` :doc:`package <./Writing-A-Tf2-Static-Broadcaster-Cpp>`, which is where we will continue working from.
 
 Tasks
 -----
@@ -321,7 +320,7 @@ Make sure to save the file.
 2.3 CMakeLists.txt
 ~~~~~~~~~~~~~~~~~~
 
-Reopen ``CMakeLists.txt`` and add the line so that the launch files from the ``launch/`` folder would be installed.
+Reopen ``CMakeLists.txt`` and add the line so that the launch files from the ``launch/`` folder will be installed.
 
 .. code-block:: console
 
@@ -351,7 +350,7 @@ Run ``rosdep`` in the root of your workspace to check for missing dependencies.
 
         rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim`` dependencies yourself
 
-From the root of your workspace, build your updated package:
+Still in the root of your workspace, build your package:
 
 .. tabs::
 
