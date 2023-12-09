@@ -1,5 +1,3 @@
-//! SEE
-
 .. redirect-from::
 
     Tutorials/Custom-ROS2-Interfaces
