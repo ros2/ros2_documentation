@@ -2,8 +2,6 @@
 
     Tutorials/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp
 
-.. _WritingATf2StaticBroadcasterCpp:
-
 Writing a static broadcaster (C++)
 ==================================
 
@@ -50,7 +48,7 @@ Navigate to workspace's ``src`` folder and create a new package:
 
 .. code-block:: console
 
-   ros2 pkg create --build-type ament_cmake --dependencies geometry_msgs rclcpp tf2 tf2_ros turtlesim -- learning_tf2_cpp
+   ros2 pkg create --build-type ament_cmake --dependencies geometry_msgs rclcpp tf2 tf2_ros turtlesim --license Apache-2.0 -- learning_tf2_cpp
 
 Your terminal will return a message verifying the creation of your package ``learning_tf2_cpp`` and all its necessary files and folders.
 
@@ -240,8 +238,8 @@ Finally, we broadcast static transform using the ``sendTransform()`` function.
 
     tf_static_broadcaster_->sendTransform(t);
 
-2.2 Add dependencies
-~~~~~~~~~~~~~~~~~~~~
+2.2 Update package.xml
+~~~~~~~~~~~~~~~~~~~~~~
 
 Navigate one level back to the ``src/learning_tf2_cpp`` directory, where the ``CMakeLists.txt`` and ``package.xml`` files have been created for you.
 
