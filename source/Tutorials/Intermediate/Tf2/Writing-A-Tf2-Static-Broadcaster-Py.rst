@@ -2,8 +2,6 @@
 
     Tutorials/Tf2/Writing-A-Tf2-Static-Broadcaster-Py
 
-.. _WritingATf2StaticBroadcasterPy:
-
 Writing a static broadcaster (Python)
 =====================================
 
@@ -50,7 +48,7 @@ Navigate to workspace's ``src`` folder and create a new package:
 
 .. code-block:: console
 
-   ros2 pkg create --build-type ament_python learning_tf2_py
+   ros2 pkg create --build-type ament_python --license Apache-2.0 -- learning_tf2_py
 
 Your terminal will return a message verifying the creation of your package ``learning_tf2_py`` and all its necessary files and folders.
 
@@ -260,8 +258,8 @@ Finally, we broadcast static transform using the ``sendTransform()`` function.
 
     self.tf_static_broadcaster.sendTransform(t)
 
-2.2 Add dependencies
-~~~~~~~~~~~~~~~~~~~~
+2.2 Update package.xml
+~~~~~~~~~~~~~~~~~~~~~~
 
 Navigate one level back to the ``src/learning_tf2_py`` directory, where the ``setup.py``, ``setup.cfg``, and ``package.xml`` files have been created for you.
 

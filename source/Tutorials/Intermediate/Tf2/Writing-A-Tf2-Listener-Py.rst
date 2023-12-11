@@ -2,8 +2,6 @@
 
     Tutorials/Tf2/Writing-A-Tf2-Listener-Py
 
-.. _WritingATf2ListenerPy:
-
 Writing a listener (Python)
 ===========================
 
@@ -27,7 +25,7 @@ In this tutorial we'll create a tf2 listener to start using tf2.
 Prerequisites
 -------------
 
-This tutorial assumes you have completed the :doc:`tf2 broadcaster tutorial (Python) <./Writing-A-Tf2-Broadcaster-Py>`.
+This tutorial assumes you have completed the :doc:`tf2 static broadcaster tutorial (Python) <./Writing-A-Tf2-Static-Broadcaster-Py>` and :doc:`tf2 broadcaster tutorial (Python) <./Writing-A-Tf2-Broadcaster-Py>`.
 In the previous tutorial, we created a ``learning_tf2_py`` package, which is where we will continue working from.
 
 Tasks
@@ -68,7 +66,7 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the exampl
 
             curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py -o turtle_tf2_listener.py
 
-Now open the file called ``turtle_tf2_listener.py``.
+Open the file using your preferred text editor.
 
 .. code-block:: python
 
@@ -190,13 +188,15 @@ The ``tf2_ros`` package provides an implementation of a ``TransformListener`` to
 
     from tf2_ros.transform_listener import TransformListener
 
-Here, we create a ``TransformListener`` object. Once the listener is created, it starts receiving tf2 transformations over the wire, and buffers them for up to 10 seconds.
+Here, we create a ``TransformListener`` object.
+Once the listener is created, it starts receiving tf2 transformations over the wire, and buffers them for up to 10 seconds.
 
 .. code-block:: python
 
     self.tf_listener = TransformListener(self.tf_buffer, self)
 
-Finally, we query the listener for a specific transformation. We call ``lookup_transform`` method with following arguments:
+Finally, we query the listener for a specific transformation.
+We call ``lookup_transform`` method with following arguments:
 
 #. Target frame
 
@@ -278,7 +278,6 @@ The resulting file should look like:
         ])
 
 This will declare a ``target_frame`` launch argument, start a broadcaster for second turtle that we will spawn and listener that will subscribe to those transformations.
-
 
 3 Build
 ^^^^^^^

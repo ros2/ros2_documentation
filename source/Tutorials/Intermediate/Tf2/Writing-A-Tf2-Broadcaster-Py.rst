@@ -2,8 +2,6 @@
 
     Tutorials/Tf2/Writing-A-Tf2-Broadcaster-Py
 
-.. _WritingATf2BroadcasterPy:
-
 Writing a broadcaster (Python)
 ==============================
 
@@ -21,14 +19,15 @@ Background
 ----------
 
 In the next two tutorials we will write the code to reproduce the demo from the :doc:`Introduction to tf2 <./Introduction-To-Tf2>` tutorial.
-After that, following tutorials focus on extending the demo with more advanced tf2 features, including the usage of timeouts in transformation lookups and time travel.
+After that, the following tutorials focus on extending the demo with more advanced tf2 features, including the usage of timeouts in transformation lookups and time travel.
 
 Prerequisites
 -------------
 
-This tutorial assumes you have a working knowledge of ROS 2 and you have completed the :doc:`Introduction to tf2 tutorial <./Introduction-To-Tf2>`.
+This tutorial assumes you have a working knowledge of ROS 2 and you have completed the :doc:`Introduction to tf2 tutorial <./Introduction-To-Tf2>` and :doc:`tf2 static broadcaster tutorial (Python) <./Writing-A-Tf2-Static-Broadcaster-Py>`.
+We'll be reusing the ``learning_tf2_py`` package from that last tutorial.
+
 In previous tutorials, you learned how to :doc:`create a workspace <../../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>` and :doc:`create a package <../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>`.
-You also have created the ``learning_tf2_py`` :doc:`package <./Writing-A-Tf2-Static-Broadcaster-Py>`, which is where we will continue working from.
 
 Tasks
 -----
@@ -236,19 +235,13 @@ Finally we take the transform that we constructed and pass it to the ``sendTrans
     # Send the transformation
     self.tf_broadcaster.sendTransform(t)
 
-.. note::
-
-    You can also publish static transforms with the same pattern by instantiating a ``tf2_ros.StaticTransformBroadcaster`` instead of a ``tf2_ros.TransformBroadcaster``.
-    The static transforms will be published on the ``/tf_static`` topic and will be sent only when required, not periodically.
-    For more details see :doc:`here <./Writing-A-Tf2-Static-Broadcaster-Py>`.
-
 1.2 Add an entry point
 ~~~~~~~~~~~~~~~~~~~~~~
 
 To allow the ``ros2 run`` command to run your node, you must add the entry point
 to ``setup.py`` (located in the ``src/learning_tf2_py`` directory).
 
-Finally, add the following line between the ``'console_scripts':`` brackets:
+Add the following line between the ``'console_scripts':`` brackets:
 
 .. code-block:: python
 
@@ -315,7 +308,7 @@ Now we run our nodes that start the turtlesim simulation and broadcast ``turtle1
 2.2 Add dependencies
 ~~~~~~~~~~~~~~~~~~~~
 
-Navigate one level back to the ``src/learning_tf2_py`` directory, where the ``setup.py``, ``setup.cfg``, and ``package.xml`` files are located.
+Navigate one level back to the ``learning_tf2_py`` directory, where the ``setup.py``, ``setup.cfg``, and ``package.xml`` files are located.
 
 Open ``package.xml`` with your text editor.
 Add the following dependencies corresponding to your launch file's import statements:
@@ -332,7 +325,7 @@ Make sure to save the file.
 2.3 Update setup.py
 ~~~~~~~~~~~~~~~~~~~
 
-Reopen ``setup.py`` and add the line so that the launch files from the ``launch/`` folder would be installed.
+Reopen ``setup.py`` and add the line so that the launch files from the ``launch/`` folder will be installed.
 The ``data_files`` field should now look like this:
 
 .. code-block:: python
@@ -435,7 +428,7 @@ In the second terminal window type the following command:
 
     ros2 run turtlesim turtle_teleop_key
 
-You will now see that the turtlesim simulation have started with one turtle that you can control.
+You will now see that the turtlesim simulation has started with one turtle that you can control.
 
 .. image:: images/turtlesim_broadcast.png
 

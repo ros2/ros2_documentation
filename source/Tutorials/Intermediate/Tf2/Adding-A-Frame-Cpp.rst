@@ -2,8 +2,6 @@
 
     Tutorials/Tf2/Adding-A-Frame-Cpp
 
-.. _AddingAFrameCpp:
-
 Adding a frame (C++)
 ====================
 
@@ -49,8 +47,9 @@ Tasks
 In our turtle example, we'll add a new frame ``carrot1``, which will be the child of the ``turtle1``.
 This frame will serve as the goal for the second turtle.
 
-Let's first create the source files. Go to the ``learning_tf2_cpp`` package we created in the previous tutorials.
-Download the fixed frame broadcaster code by entering the following command:
+Let's first create the source files.
+Go to the ``learning_tf2_cpp`` package we created in the previous tutorials.
+Inside the ``src`` directory download the fixed frame broadcaster code by entering the following command:
 
 .. tabs::
 
@@ -185,7 +184,7 @@ Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your e
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Now let's create a launch file for this example.
-With your text editor, create a new file called ``turtle_tf2_fixed_frame_demo.launch.py``, and add the following lines:
+With your text editor, create a new file called ``launch/turtle_tf2_fixed_frame_demo.launch.py``, and add the following lines:
 
 .. code-block:: python
 
@@ -250,7 +249,7 @@ Run ``rosdep`` in the root of your workspace to check for missing dependencies.
 
         rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim`` dependencies yourself
 
-From the root of your workspace, build your updated package:
+Still in the root of your workspace, build your package:
 
 .. tabs::
 
@@ -343,7 +342,8 @@ Now rebuild the package, restart the ``turtle_tf2_fixed_frame_demo.launch.py``, 
 The extra frame we published in this tutorial is a fixed frame that doesn't change over time in relation to the parent frame.
 However, if you want to publish a moving frame you can code the broadcaster to change the frame over time.
 Let's change our ``carrot1`` frame so that it changes relative to ``turtle1`` frame over time.
-Now download the dynamic frame broadcaster code by entering the following command:
+Go to the ``learning_tf2_cpp`` package we created in the previous tutorial.
+Inside the ``src`` directory download the dynamic frame broadcaster code by entering the following command:
 
 .. tabs::
 
@@ -473,7 +473,7 @@ Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your e
 2.3 Write the launch file
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To test this code, create a new launch file ``turtle_tf2_dynamic_frame_demo.launch.py`` and paste the following code:
+To test this code, create a new launch file ``launch/turtle_tf2_dynamic_frame_demo.launch.py`` and paste the following code:
 
 .. code-block:: python
 
@@ -526,7 +526,7 @@ Run ``rosdep`` in the root of your workspace to check for missing dependencies.
 
         rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim`` dependencies yourself
 
-From the root of your workspace, build your updated package:
+Still in the root of your workspace, build your package:
 
 .. tabs::
 
