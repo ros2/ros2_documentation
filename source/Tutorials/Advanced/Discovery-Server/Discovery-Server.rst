@@ -103,9 +103,19 @@ Execute the listener demo, to listen to the ``/chatter`` topic.
 In a new terminal, set the environment variable ``ROS_DISCOVERY_SERVER`` to the location of the discovery server.
 (Do not forget to source ROS 2 in every new terminal)
 
-.. code-block:: console
+.. tabs::
 
-    export ROS_DISCOVERY_SERVER=127.0.0.1:11811
+    .. group-tab:: Linux
+
+        .. code-block:: console
+
+            export ROS_DISCOVERY_SERVER=127.0.0.1:11811
+
+   .. group-tab:: Windows
+
+        .. code-block:: console
+
+            set ROS_DISCOVERY_SERVER=127.0.0.1:11811
 
 Launch the listener node. Use the argument ``--remap __node:=listener_discovery_server`` to change the node's name for this tutorial.
 
@@ -121,9 +131,22 @@ Launch talker node
 
 Open a new terminal and set the ``ROS_DISCOVERY_SERVER`` environment variable as before so that the node starts a discovery client.
 
+.. tabs::
+
+    .. group-tab:: Linux
+
+        .. code-block:: console
+
+            export ROS_DISCOVERY_SERVER=127.0.0.1:11811
+
+   .. group-tab:: Windows
+
+        .. code-block:: console
+
+            set export ROS_DISCOVERY_SERVER=127.0.0.1:11811
+
 .. code-block:: console
 
-    export ROS_DISCOVERY_SERVER=127.0.0.1:11811
     ros2 run demo_nodes_cpp talker --ros-args --remap __node:=talker_discovery_server
 
 You should now see the talker publishing "hello world" messages, and the listener receiving these messages.
