@@ -2,8 +2,6 @@
 
     Tutorials/Tf2/Adding-A-Frame-Py
 
-.. _AddingAFramePy:
-
 Adding a frame (Python)
 =======================
 
@@ -279,7 +277,7 @@ Open a new terminal, navigate to the root of your workspace, and source the setu
 1.5 Run
 ~~~~~~~
 
-Now you are ready to run the launch file:
+Now you can start the turtle broadcaster demo:
 
 .. code-block:: console
 
@@ -311,7 +309,7 @@ To do so, open the ``turtle_tf2_fixed_frame_demo_launch.py`` file, and add the `
             launch_arguments={'target_frame': 'carrot1'}.items(),
             )
 
-Now just rebuild the package, restart the ``turtle_tf2_fixed_frame_demo_launch.py``, and you'll see the second turtle following the carrot instead of the first turtle!
+Now rebuild the package, restart the ``turtle_tf2_fixed_frame_demo_launch.py``, and you'll see the second turtle following the carrot instead of the first turtle!
 
 .. image:: images/carrot_static.png
 
@@ -533,7 +531,7 @@ Open a new terminal, navigate to the root of your workspace, and source the setu
 1.5 Run
 ~~~~~~~
 
-Now you are ready to run the launch file:
+Now you can start the dynamic frame demo:
 
 .. code-block:: console
 

@@ -2,8 +2,6 @@
 
     Tutorials/Tf2/Writing-A-Tf2-Listener-Cpp
 
-.. _WritingATf2ListenerCpp:
-
 Writing a listener (C++)
 ========================
 
@@ -36,7 +34,8 @@ Tasks
 1 Write the listener node
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Let's first create the source files. Go to the ``learning_tf2_cpp`` package we created in the previous tutorial.
+Let's first create the source files.
+Go to the ``learning_tf2_cpp`` package we created in the previous tutorial.
 Inside the ``src`` directory download the example listener code by entering the following command:
 
 .. tabs::
@@ -219,14 +218,16 @@ The ``tf2_ros`` contains a ``TransformListener`` header file implementation that
 
     #include "tf2_ros/transform_listener.h"
 
-Here, we create a ``TransformListener`` object. Once the listener is created, it starts receiving tf2 transformations over the wire, and buffers them for up to 10 seconds.
+Here, we create a ``TransformListener`` object.
+Once the listener is created, it starts receiving tf2 transformations over the wire, and buffers them for up to 10 seconds.
 
 .. code-block:: C++
 
     tf_listener_ =
       std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
 
-Finally, we query the listener for a specific transformation. We call ``lookup_transform`` method with following arguments:
+Finally, we query the listener for a specific transformation.
+We call ``lookup_transform`` method with following arguments:
 
 #. Target frame
 
@@ -345,7 +346,7 @@ Run ``rosdep`` in the root of your workspace to check for missing dependencies.
 
         rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim`` dependencies yourself
 
-From the root of your workspace, build your updated package:
+Still in the root of your workspace, build your package:
 
 .. tabs::
 
