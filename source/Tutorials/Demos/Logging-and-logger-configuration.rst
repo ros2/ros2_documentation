@@ -406,23 +406,7 @@ For example, to additionally get the timestamp and location of the log calls, st
 You should see the timestamp in seconds and the function name, filename and line number additionally printed with each message.
 *The ``time`` option is only supported as of the ROS 2 Bouncy release.*
 
-``RCUTILS_CONSOLE_OUTPUT_FORMAT`` also supports the following escape character syntax.
-
-.. list-table::
-    :header-rows: 1
-
-    * - Escape character syntax
-      - Character represented
-    * - ``\a``
-      - Alert
-    * - ``\b``
-      - Backspace
-    * - ``\n``
-      - New line
-    * - ``\r``
-      - Carriage return
-    * - ``\t``
-      - Horizontal tab
+See :doc:`Logging and logger configuration <../../Concepts/Intermediate/About-Logging>` for more details on how to configure the logging.
 
 Console output colorizing
 ^^^^^^^^^^^^^^^^^^^^^^^^^

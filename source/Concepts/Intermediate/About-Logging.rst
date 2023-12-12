@@ -108,6 +108,52 @@ For each of the environment settings, note that this is a process-wide setting, 
 
   If no format is given, a default of ``[{severity}] [{time}] [{name}]: {message}`` is used.
 
+``RCUTILS_CONSOLE_OUTPUT_FORMAT`` also supports the following escape character syntax.
+
+.. list-table::
+    :header-rows: 1
+
+    * - Escape character syntax
+      - Character represented
+    * - ``\a``
+      - Alert
+    * - ``\b``
+      - Backspace
+    * - ``\n``
+      - New line
+    * - ``\r``
+      - Carriage return
+    * - ``\t``
+      - Horizontal tab
+
+If ``launch`` is used to start a node, it will also generate output to the console and log. This can also be configured using environment variables.
+
+* ``ROS_LAUNCH_OUTPUT_FORMAT`` - Control which extra information is added by ``launch`` to each message comming from a node.
+
+  * ``{line}`` - The log message which is itself formated according to the ``RCUTILS_CONSOLE_OUTPUT_FORMAT``.
+  * ``{this.process_description.final_name}`` - The name of the corresponding logger.
+  * ``{this.process_description.final_cmd}`` - The command that ``launch`` used to start the node.
+
+  If no format is given, a default of ``[{this.process_description.final_name}] {line}`` is used.
+
+* ``OVERRIDE_LAUNCH_PROCESS_OUTPUT`` - Control the destionation of the logging by choosing one of the following options:
+
+  * ``screen`` - ``stdout`` and ``stderr`` are logged to the screen.
+  * ``log`` - ``stdout`` and ``stderr`` are logged to launch log file and ``stderr`` to the screen.
+  * ``both`` - Both ``stdout`` and ``stderr`` are logged to the screen and to launch main log file.
+  * ``own_log`` - For ``stdout``, ``stderr`` and their combination to be logged to their own log files.
+  * ``full`` - To have ``stdout`` and ``stderr`` sent to the screen, to the main launch log file, and their own separate and combined log files.
+
+* ``OVERRIDE_LAUNCH_SCREEN_FORMAT`` - This format is used to display any messages directly comming from ``launch`` (in contrast to the messages coming from nodes).
+
+  * ``{levelname}`` - The severity level (``INFO``, ``WARN``, etc.).
+  * ``{name}`` - The name of the corresponding logger.
+  * ``{message}`` - The actual message.
+  * ``{created:.7f}`` - The time stamp (in this case with seven decimal places).
+
+  If no format is given, a default of ``[{levelname}] [{name}]: {msg}`` is used.
+
+* ``OVERRIDE_LAUNCH_LOG_FORMAT`` - The same as ``OVERRIDE_LAUNCH_SCREEN_FORMAT`` but for writting to the log file. If no format is given, a default of  ``{created:.7f} [{levelname}] [{name}]: {msg}`` is used.
 
 Node creation
 ^^^^^^^^^^^^^
