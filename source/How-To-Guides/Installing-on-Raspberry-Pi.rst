@@ -31,12 +31,12 @@ The official ROS 2 Docker images can be found `here <https://hub.docker.com/_/ro
 
 You may choose from ros-core, ros-base, or perception. See `here <https://www.ros.org/reps/rep-2001.html>`__ for more information on these variants.
 
-Fetch and run the images:
+Fetch and run an image:
 
 .. code-block:: bash
 
-    docker pull ros:rolling
-    docker run -it --rm ros:rolling
+    docker pull ros:rolling-ros-core
+    docker run -it --rm ros:rolling-ros-core
 
 You can also build images yourself:
 
@@ -49,10 +49,3 @@ Inside of the directory, build the container with:
     docker build -t ros_docker .
 
 On a supported system it will only take a minute or two to build the docker containers, as the source code is already built in to binaries.
-
-Pre-built Docker container
---------------------------
-
-A pre-built container for the desktop variant is available as well, which only requires a docker pull command.
-
-See :doc:`this page <Run-2-nodes-in-single-or-separate-docker-containers>` for more information.
