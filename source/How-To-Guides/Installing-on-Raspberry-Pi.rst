@@ -27,9 +27,18 @@ Raspberry Pi OS is based on Debian which receives Tier 3 support, but it can run
 
 After flashing the OS, `install Docker <https://docs.docker.com/engine/install/debian/#install-using-the-convenience-script>`__.
 
-The official OSRF ROS 2 Docker container definitions can be found `here <https://github.com/osrf/docker_images/>`__.
+The official ROS 2 Docker images can be found `here <https://hub.docker.com/_/ros/tags`__.
 
-You may choose from ros-core, ros-base, or ros-desktop. See `here <https://www.ros.org/reps/rep-2001.html>`__ for more information on these variants.
+You may choose from ros-core, ros-base, or perception. See `here <https://www.ros.org/reps/rep-2001.html>`__ for more information on these variants.
+
+Fetch and run the images:
+
+.. code-block:: bash
+
+    docker pull ros:rolling
+    docker run -it --rm ros:rolling
+
+You can also build images yourself:
 
 Clone the `docker_images git repo <https://github.com/osrf/docker_images>`__ onto the Raspberry Pi, change in to the directory linked above, then to the directory with your preferred variant.
 
