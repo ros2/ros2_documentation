@@ -16,7 +16,6 @@ public:
             std::unordered_map<std::string, std::string> &parameters) override;
 
 private:
-  void cmdVelCallback(const geometry_msgs::msg::Twist::SharedPtr msg);
 
   rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr
       cmd_vel_subscription_;
