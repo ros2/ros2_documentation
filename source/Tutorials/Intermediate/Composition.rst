@@ -136,7 +136,7 @@ In this case the client sends a request to the server, the server processes the 
 Compile-time composition using ROS services
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This demos shows that the same shared libraries can be reused to compile a single executable running multiple components.
+This demo shows that the same shared libraries can be reused to compile a single executable running multiple components.
 The executable contains all four components from above: talker and listener as well as server and client.
 
 In the shell call (see `source code <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/composition/src/manual_composition.cpp>`__):
@@ -155,7 +155,7 @@ Run-time composition using dlopen
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This demo presents an alternative to run-time composition by creating a generic container process and explicitly passing the libraries to load without using ROS interfaces.
-The process will open each library and create one instance of each "rclcpp::Node" class in the library `source code <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/composition/src/dlopen_composition.cpp>`__).
+The process will open each library and create one instance of each "rclcpp::Node" class in the library (`source code <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/composition/src/dlopen_composition.cpp>`__).
 
 .. tabs::
 
