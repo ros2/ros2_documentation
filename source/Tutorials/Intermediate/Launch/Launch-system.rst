@@ -106,7 +106,7 @@ Make sure to create a ``launch`` directory at the top-level of the package you c
     .. code-block:: python
 
       import os  # ADD
-      from glob import glob  # CHANGE
+      from glob import glob  # ADD
       from setuptools import setup
 
       package_name = 'py_launch_example'
@@ -116,7 +116,7 @@ Make sure to create a ``launch`` directory at the top-level of the package you c
           data_files=[
               # ... Other data files
               # Include all launch files.
-              (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*launch.[pxy][yma]*')))  # CHANGE
+              (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*launch.[pxy][yma]*')))  # ADD
           ]
       )
 
