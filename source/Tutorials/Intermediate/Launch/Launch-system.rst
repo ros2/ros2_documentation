@@ -105,7 +105,7 @@ Make sure to create a ``launch`` directory at the top-level of the package you c
 
     .. code-block:: python
 
-      import os  # CHANGE
+      import os  # ADD
       from glob import glob  # CHANGE
       from setuptools import setup
 
