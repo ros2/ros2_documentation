@@ -44,7 +44,7 @@ Create a new package of build_type ``ament_python`` called ``launch_tutorial``:
 
 .. code-block:: console
 
-  ros2 pkg create launch_tutorial --build-type ament_python
+  ros2 pkg create --build-type ament_python --license Apache-2.0 launch_tutorial
 
 Inside of that package, create a directory called ``launch``:
 

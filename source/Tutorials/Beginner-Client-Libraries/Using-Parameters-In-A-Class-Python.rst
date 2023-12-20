@@ -45,7 +45,7 @@ Navigate into ``ros2_ws/src`` and create a new package:
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_python python_parameters --dependencies rclpy
+  ros2 pkg create --build-type ament_python --license Apache-2.0 python_parameters --dependencies rclpy
 
 Your terminal will return a message verifying the creation of your package ``python_parameters`` and all its necessary files and folders.
 
