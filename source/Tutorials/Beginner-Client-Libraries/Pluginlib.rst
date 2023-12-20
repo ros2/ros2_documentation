@@ -43,7 +43,7 @@ Create a new empty package in your ``ros2_ws/src`` folder with the following com
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_cmake --dependencies pluginlib --node-name area_node --license Apache-2.0 polygon_base
+  ros2 pkg create --build-type ament_cmake --license Apache-2.0 --dependencies pluginlib --node-name area_node polygon_base
 
 
 Open your favorite editor, edit ``ros2_ws/src/polygon_base/include/polygon_base/regular_polygon.hpp``, and paste the following inside of it:
@@ -101,7 +101,7 @@ Create a second empty package in your ``ros2_ws/src`` folder with the following 
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_cmake --dependencies polygon_base pluginlib --library-name polygon_plugins --license Apache-2.0 polygon_plugins
+  ros2 pkg create --build-type ament_cmake --license Apache-2.0 --dependencies polygon_base pluginlib --library-name polygon_plugins polygon_plugins
 
 2.1 Source code for the plugins
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

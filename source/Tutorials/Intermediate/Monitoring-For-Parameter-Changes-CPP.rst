@@ -48,7 +48,7 @@ So, navigate into ``ros2_ws/src`` and then create a new package there:
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_cmake cpp_parameter_event_handler --dependencies rclcpp
+  ros2 pkg create --build-type ament_cmake --license Apache-2.0 cpp_parameter_event_handler --dependencies rclcpp
 
 Your terminal will return a message verifying the creation of your package ``cpp_parameter_event_handler`` and all its necessary files and folders.
 

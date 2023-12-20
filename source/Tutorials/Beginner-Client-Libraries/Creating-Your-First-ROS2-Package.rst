@@ -161,13 +161,13 @@ The command syntax for creating a new package in ROS 2 is:
 
       .. code-block:: console
 
-        ros2 pkg create --build-type ament_cmake <package_name>
+        ros2 pkg create --build-type ament_cmake --license Apache-2.0 <package_name>
 
    .. group-tab:: Python
 
       .. code-block:: console
 
-        ros2 pkg create --build-type ament_python <package_name>
+        ros2 pkg create --build-type ament_python --license Apache-2.0 <package_name>
 
 For this tutorial, you will use the optional arguments ``--node-name`` and ``--license``.
 ``--node-name`` option creates a simple Hello World type executable in the package, and ``--license`` declares the license information for the package.
@@ -180,13 +180,13 @@ Enter the following command in your terminal:
 
       .. code-block:: console
 
-        ros2 pkg create --build-type ament_cmake --node-name my_node my_package --license Apache-2.0
+        ros2 pkg create --build-type ament_cmake --license Apache-2.0 --node-name my_node my_package --license Apache-2.0
 
    .. group-tab:: Python
 
       .. code-block:: console
 
-        ros2 pkg create --build-type ament_python --node-name my_node my_package --license Apache-2.0
+        ros2 pkg create --build-type ament_python --license Apache-2.0 --node-name my_node my_package --license Apache-2.0
 
 You will now have a new folder within your workspace's ``src`` directory called ``my_package``.
 

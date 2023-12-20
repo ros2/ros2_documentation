@@ -46,7 +46,7 @@ So, navigate into ``ros2_ws/src``, and run the package creation command:
 
 .. code-block:: console
 
-    ros2 pkg create --build-type ament_cmake cpp_pubsub
+    ros2 pkg create --build-type ament_cmake --license Apache-2.0 cpp_pubsub
 
 Your terminal will return a message verifying the creation of your package ``cpp_pubsub`` and all its necessary files and folders.
 
