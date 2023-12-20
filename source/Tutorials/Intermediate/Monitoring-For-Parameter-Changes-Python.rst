@@ -44,7 +44,7 @@ So, navigate into ``ros2_ws/src`` and then create a new package there:
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_python python_parameter_event_handler --dependencies rclpy --license Apache-2.0
+  ros2 pkg create --build-type ament_python --license Apache-2.0 python_parameter_event_handler --dependencies rclpy
 
 Your terminal will return a message verifying the creation of your package ``python_parameter_event_handler`` and all its necessary files and folders.
 

@@ -45,7 +45,7 @@ Navigate into ``ros2_ws/src`` and create a new package:
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_cmake cpp_parameters --dependencies rclcpp
+  ros2 pkg create --build-type ament_cmake --license Apache-2.0 cpp_parameters --dependencies rclcpp
 
 Your terminal will return a message verifying the creation of your package ``cpp_parameters`` and all its necessary files and folders.
 

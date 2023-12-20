@@ -66,7 +66,7 @@ Then create the package:
 .. code-block:: console
 
     cd second_ros2_ws/src
-    ros2 pkg create urdf_tutorial_r2d2 --build-type ament_python --dependencies rclpy --license Apache-2.0
+    ros2 pkg create --build-type ament_python --license Apache-2.0 urdf_tutorial_r2d2 --dependencies rclpy
     cd urdf_tutorial_r2d2
 
 You should now see a ``urdf_tutorial_r2d2`` folder.

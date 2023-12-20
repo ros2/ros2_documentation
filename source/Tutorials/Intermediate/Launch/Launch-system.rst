@@ -67,13 +67,13 @@ Create a workspace for the package to live in:
 
     .. code-block:: console
 
-      ros2 pkg create py_launch_example --build-type ament_python
+      ros2 pkg create --build-type ament_python --license Apache-2.0 py_launch_example
 
   .. group-tab:: C++ package
 
     .. code-block:: console
 
-      ros2 pkg create cpp_launch_example --build-type ament_cmake
+      ros2 pkg create --build-type ament_cmake --license Apache-2.0 cpp_launch_example
 
 2 Creating the structure to hold launch files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

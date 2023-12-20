@@ -46,7 +46,7 @@ Navigate into ``ros2_ws/src`` and create a new package:
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_cmake cpp_srvcli --dependencies rclcpp example_interfaces
+  ros2 pkg create --build-type ament_cmake --license Apache-2.0 cpp_srvcli --dependencies rclcpp example_interfaces
 
 Your terminal will return a message verifying the creation of your package ``cpp_srvcli`` and all its necessary files and folders.
 
