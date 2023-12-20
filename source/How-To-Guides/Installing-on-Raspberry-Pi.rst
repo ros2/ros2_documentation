@@ -35,8 +35,8 @@ Fetch and run an image:
 
 .. code-block:: bash
 
-    docker pull ros:rolling-ros-core
-    docker run -it --rm ros:rolling-ros-core
+    docker pull ros:{DISTRO}-ros-core
+    docker run -it --rm ros:{DISTRO}-ros-core
 
 You can also build images yourself:
 
