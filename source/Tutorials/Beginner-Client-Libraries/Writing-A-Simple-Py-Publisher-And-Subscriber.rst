@@ -48,7 +48,7 @@ So, navigate into ``ros2_ws/src``, and run the package creation command:
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_python py_pubsub
+  ros2 pkg create --build-type ament_python --license Apache-2.0 py_pubsub
 
 Your terminal will return a message verifying the creation of your package ``py_pubsub`` and all its necessary files and folders.
 

@@ -50,7 +50,7 @@ In your workspace ``src`` directory, create a package ``more_interfaces`` and ma
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_cmake more_interfaces
+  ros2 pkg create --build-type ament_cmake --license Apache-2.0 more_interfaces
   mkdir more_interfaces/msg
 
 2 Create a msg file

@@ -48,7 +48,7 @@ Navigate to workspace's ``src`` folder and create a new package:
 
 .. code-block:: console
 
-   ros2 pkg create --build-type ament_cmake --dependencies geometry_msgs rclcpp tf2 tf2_ros turtlesim --license Apache-2.0 -- learning_tf2_cpp
+   ros2 pkg create --build-type ament_cmake --license Apache-2.0 --dependencies geometry_msgs rclcpp tf2 tf2_ros turtlesim -- learning_tf2_cpp
 
 Your terminal will return a message verifying the creation of your package ``learning_tf2_cpp`` and all its necessary files and folders.
 
