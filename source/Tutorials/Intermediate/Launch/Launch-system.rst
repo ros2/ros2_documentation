@@ -99,15 +99,14 @@ Make sure to create a ``launch`` directory at the top-level of the package you c
           setup.py
           test/
 
-    In order for colcon to find the launch files, we need to inform Python's setup tools of our launch files using the ``data_files`` parameter of ``setup``.
-
-    Inside our ``setup.py`` file:
+    To enable colcon to locate and utilize our launch files, we need to inform Python's setup tools of their presence.
+    To achieve this, open the ``setup.py`` file, add the necessary ``import`` statements at the top, and include the launch files into the ``data_files`` parameter of ``setup``:
 
     .. code-block:: python
 
       import os
       from glob import glob
-      from setuptools import find_packages, setup
+      # Other imports ...
 
       package_name = 'py_launch_example'
 
