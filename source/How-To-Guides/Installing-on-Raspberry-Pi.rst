@@ -27,9 +27,18 @@ Raspberry Pi OS is based on Debian which receives Tier 3 support, but it can run
 
 After flashing the OS, `install Docker <https://docs.docker.com/engine/install/debian/#install-using-the-convenience-script>`__.
 
-The official OSRF ROS 2 Docker container definitions can be found `here <https://github.com/osrf/docker_images/>`__.
+The official ROS 2 Docker images can be found `here <https://hub.docker.com/_/ros/tags>`__.
 
-You may choose from ros-core, ros-base, or ros-desktop. See `here <https://www.ros.org/reps/rep-2001.html>`__ for more information on these variants.
+You may choose from ros-core, ros-base, or perception. See `here <https://www.ros.org/reps/rep-2001.html>`__ for more information on these variants.
+
+Fetch and run an image:
+
+.. code-block:: bash
+
+    docker pull ros:{DISTRO}-ros-core
+    docker run -it --rm ros:{DISTRO}-ros-core
+
+You can also build images yourself:
 
 Clone the `docker_images git repo <https://github.com/osrf/docker_images>`__ onto the Raspberry Pi, change in to the directory linked above, then to the directory with your preferred variant.
 
@@ -40,10 +49,3 @@ Inside of the directory, build the container with:
     docker build -t ros_docker .
 
 On a supported system it will only take a minute or two to build the docker containers, as the source code is already built in to binaries.
-
-Pre-built Docker container
---------------------------
-
-A pre-built container for the desktop variant is available as well, which only requires a docker pull command.
-
-See :doc:`this page <Run-2-nodes-in-single-or-separate-docker-containers>` for more information.
