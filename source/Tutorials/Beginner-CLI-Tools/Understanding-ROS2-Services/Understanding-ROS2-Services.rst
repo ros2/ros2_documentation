@@ -141,8 +141,32 @@ Which will return:
   /turtle1/teleport_absolute [turtlesim/srv/TeleportAbsolute]
   /turtle1/teleport_relative [turtlesim/srv/TeleportRelative]
   ...
+4 ros2 service info
+^^^^^^^^^^^^^^^^^^^
 
-4 ros2 service find
+To see information of a particular service, use the command:
+
+.. code-block:: console
+
+  ros2 service info <service_name>
+
+This returns the service type and count of service clients and servers.
+
+For example, you can find the count of clients and servers for ``/clear`` service:
+
+.. code-block:: console
+
+   ros2 service info /clear
+
+Which will return:
+
+.. code-block:: console
+
+   Type: std_srvs/srv/Empty
+   Clients count: 0
+   Services count: 1
+
+5 ros2 service find
 ^^^^^^^^^^^^^^^^^^^
 
 If you want to find all the services of a specific type, you can use the command:
@@ -164,7 +188,7 @@ Which will return:
   /clear
   /reset
 
-5 ros2 interface show
+6 ros2 interface show
 ^^^^^^^^^^^^^^^^^^^^^
 
 You can call services from the command line, but first you need to know the structure of the input arguments.
@@ -214,7 +238,7 @@ The information above the ``---`` line tells us the arguments needed to call ``/
 
 The information below the line isn't something you need to know in this case, but it can help you understand the data type of the response you get from the call.
 
-6 ros2 service call
+7 ros2 service call
 ^^^^^^^^^^^^^^^^^^^
 
 Now that you know what a service type is, how to find a service's type, and how to find the structure of that type's arguments, you can call a service using:
