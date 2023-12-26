@@ -151,9 +151,9 @@ To see information of a particular service, use the command:
 
   ros2 service info <service_name>
 
-This returns the service type and count of service clients and servers.
+This returns the service type and the count of service clients and servers.
 
-For example, you can find the count of clients and servers for ``/clear`` service:
+For example, you can find the count of clients and servers for the ``/clear`` service:
 
 .. code-block:: console
 
