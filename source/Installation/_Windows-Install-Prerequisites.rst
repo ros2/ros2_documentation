@@ -108,14 +108,13 @@ Please download these packages from `this <https://github.com/ros2/choco-package
 * bullet.3.17.nupkg
 * cunit.2.1.3.nupkg
 * eigen-3.3.4.nupkg
-* tinyxml-usestl.2.6.2.nupkg
 * tinyxml2.6.0.0.nupkg
 
 Once these packages are downloaded, open an administrative shell and execute the following command:
 
 .. code-block:: bash
 
-   choco install -y -s <PATH\TO\DOWNLOADS\> asio cunit eigen tinyxml-usestl tinyxml2 bullet
+   choco install -y -s <PATH\TO\DOWNLOADS\> asio cunit eigen tinyxml2 bullet
 
 Please replace ``<PATH\TO\DOWNLOADS>`` with the folder you downloaded the packages to.
 
