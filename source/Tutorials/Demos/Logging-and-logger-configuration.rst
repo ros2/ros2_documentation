@@ -524,10 +524,10 @@ Then run:
 
     ros2 run logging_demo logging_demo_main
 
-Log file name prefix setting
-----------------------------
+Setting the log file name prefix
+--------------------------------
 
-In default, log file name is based on executable file name followed by process ID and system timestamp on file creation.
+By default, the log file name is based on executable file name followed by process ID and system timestamp on file creation.
 You can change the log file name prefix instead of executable file name with using ``--log-file-name`` command line argument.
 
 

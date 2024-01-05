@@ -67,7 +67,9 @@ The following example will both change the node name and remap a topic (node and
 Logger configuration
 --------------------
 
-See ``--log-level`` and ``--log-file-name`` arguments usage in :doc:`the logging page <../Tutorials/Demos/Logging-and-logger-configuration>`.
+The per-node logging level can be specified using the ``--log-level`` command line argument.
+The executable log file name prefix, which includes all nodes in the executable, can be specified using ``--log-file-name`` command line argument.
+For more information please see :doc:`the logging page <../Tutorials/Demos/Logging-and-logger-configuration>`.
 
 Parameters
 ----------
