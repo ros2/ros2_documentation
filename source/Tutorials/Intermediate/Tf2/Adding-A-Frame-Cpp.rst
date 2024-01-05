@@ -122,7 +122,7 @@ Now open the file called ``fixed_frame_tf2_broadcaster.cpp``.
       }
 
     private:
-    rclcpp::TimerBase::SharedPtr timer_;
+      rclcpp::TimerBase::SharedPtr timer_;
       std::shared_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
     };
 
