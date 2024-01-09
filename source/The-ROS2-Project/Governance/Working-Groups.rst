@@ -149,7 +149,7 @@ Deliberation (DelibWG)
   * Meeting invite group `ros-wg-deliberation <https://groups.google.com/g/ros-wg-deliberation>`__
   * Minutes: `gdocs <https://docs.google.com/document/d/13TCHp3ycbDa2agGs0SjP3CpTllUeguAcXqih5LlCVDg/edit>`__
   * Recordings `@ros-wg-deliberation <https://www.youtube.com/playlist?list=PLcSZ3QEfuKf-CKfrcbtUehY4U1brNabnf>`__
-  * Github Organization: `ros-wg-deliberation <github.com/ros-wg-deliberation>`__
+  * Github Organization: `ros-wg-delib <https://github.com/ros-wg-delib>`__
   * Discourse tag: `wg-delib <https://discourse.ros.org/tag/wg-delib>`__
 
 Education (EdWG)
@@ -187,6 +187,6 @@ SMACC (SMACCWG)
 * Lead(s): Brett Aldrich
 * Resources:
 
-  * `Working Group Community <https://https://github.com/robosoft-ai/SMACC_WG>`__
+  * `Working Group Community <https://github.com/robosoft-ai/SMACC_WG>`__
   * `Google Group <https://groups.google.com/g/smacc-wg>`__
   * Discourse tag: `wg-smacc <https://discourse.ros.org/tag/wg-smacc>`_
