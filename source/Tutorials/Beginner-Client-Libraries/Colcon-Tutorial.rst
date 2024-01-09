@@ -42,6 +42,9 @@ Install colcon
     .. code-block:: bash
 
         sudo apt install python3-colcon-common-extensions
+        # If you are using the core version of ROS instead of the desktop version, 
+        # you can still run these tutorials by installing the example-interfaces package
+        sudo apt install ros-${ROS_DISTRO}-example-interfaces
 
   .. group-tab:: macOS
 
