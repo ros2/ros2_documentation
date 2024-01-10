@@ -523,3 +523,15 @@ Then run:
 .. code-block:: bash
 
     ros2 run logging_demo logging_demo_main
+
+Setting the log file name prefix
+--------------------------------
+
+By default, the log file name is based on the executable file name followed by process ID and system timestamp on file creation.
+You can change the log file name prefix to one of your choice using the ``--log-file-name`` command line argument:
+
+.. code-block:: bash
+
+   ros2 run demo_nodes_cpp talker --ros-args --log-file-name filename
+
+This configures the log file name prefix to ``filename``, instead of the executable file name (which is ``talker`` in this case).

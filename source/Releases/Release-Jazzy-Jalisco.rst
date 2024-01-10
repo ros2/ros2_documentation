@@ -94,3 +94,20 @@ Release Timeline
 
 .. [1] The ``ros_base`` variant is described in `REP 2001 (ros-base) <https://www.ros.org/reps/rep-2001.html#ros-base>`_.
 .. [2] The ``desktop`` variant is described in `REP 2001 (desktop-variants) <https://www.ros.org/reps/rep-2001.html#desktop-variants>`_.
+
+New features in this ROS 2 release
+----------------------------------
+
+``ros2cli``
+^^^^^^^^^^^
+
+``--log-file-name`` command line argument
+"""""""""""""""""""""""""""""""""""""""""
+
+It is now possible to use ``--log-file-name`` command line argument to specify the log file name prefix.
+
+.. code-block:: bash
+
+   ros2 run demo_nodes_cpp talker --ros-args --log-file-name filename
+
+See https://github.com/ros2/ros2cli/issues/856 for more information.
