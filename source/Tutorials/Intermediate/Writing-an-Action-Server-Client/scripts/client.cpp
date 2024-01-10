@@ -53,12 +53,13 @@ public:
       std::bind(&FibonacciActionClient::feedback_callback, this, _1, _2);
     send_goal_options.result_callback =
       std::bind(&FibonacciActionClient::result_callback, this, _1);
-    this->client_ptr_->async_send_goal(goal_msg, send_goal_options);
+    goal_future_ = this->client_ptr_->async_send_goal(goal_msg, send_goal_options);
   }
 
 private:
   rclcpp_action::Client<Fibonacci>::SharedPtr client_ptr_;
   rclcpp::TimerBase::SharedPtr timer_;
+  std::shared_future<GoalHandleFibonacci::SharedPtr> goal_future_;
 
   void goal_response_callback(const GoalHandleFibonacci::SharedPtr & goal_handle)
   {
