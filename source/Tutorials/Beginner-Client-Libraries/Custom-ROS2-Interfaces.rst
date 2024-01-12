@@ -266,18 +266,17 @@ Since you'll be changing the standard string msg to a numerical one, the output 
         : Node("minimal_publisher"), count_(0)
         {
           publisher_ = this->create_publisher<tutorial_interfaces::msg::Num>("topic", 10);  // CHANGE
-          timer_ = this->create_wall_timer(
-            500ms, std::bind(&MinimalPublisher::timer_callback, this));
+
+          auto timer_callback = [this](){
+            auto message = tutorial_interfaces::msg::Num();                                   // CHANGE
+            message.num = this->count_++;                                                     // CHANGE
+            RCLCPP_INFO_STREAM(this->get_logger(), "Publishing: '" << message.num << "'");    // CHANGE
+            publisher_->publish(message);
+          };
+          timer_ = this->create_wall_timer(500ms, timer_callback);
         }
 
       private:
-        void timer_callback()
-        {
-          auto message = tutorial_interfaces::msg::Num();                                   // CHANGE
-          message.num = this->count_++;                                                     // CHANGE
-          RCLCPP_INFO_STREAM(this->get_logger(), "Publishing: '" << message.num << "'");    // CHANGE
-          publisher_->publish(message);
-        }
         rclcpp::TimerBase::SharedPtr timer_;
         rclcpp::Publisher<tutorial_interfaces::msg::Num>::SharedPtr publisher_;             // CHANGE
         size_t count_;
@@ -355,15 +354,14 @@ Since you'll be changing the standard string msg to a numerical one, the output 
         MinimalSubscriber()
         : Node("minimal_subscriber")
         {
+          auto topic_callback = [this](const tutorial_interfaces::msg::Num & msg){     // CHANGE
+            RCLCPP_INFO_STREAM(this->get_logger(), "I heard: '" << msg.num << "'");    // CHANGE
+          };
           subscription_ = this->create_subscription<tutorial_interfaces::msg::Num>(    // CHANGE
-            "topic", 10, std::bind(&MinimalSubscriber::topic_callback, this, _1));
+            "topic", 10, topic_callback);
         }
 
       private:
-        void topic_callback(const tutorial_interfaces::msg::Num & msg) const  // CHANGE
-        {
-          RCLCPP_INFO_STREAM(this->get_logger(), "I heard: '" << msg.num << "'");     // CHANGE
-        }
         rclcpp::Subscription<tutorial_interfaces::msg::Num>::SharedPtr subscription_;  // CHANGE
       };
 
