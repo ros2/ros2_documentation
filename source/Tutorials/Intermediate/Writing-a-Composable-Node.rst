@@ -13,7 +13,7 @@ Let's assume that you have a regular ``rclcpp::Node`` executable that you want t
 We'll start from having a class that directly inherits from ``Node``, and you also have a main method defined.
 
 .. code-block:: c++
-   
+
     namespace palomino
     {
         class VincentDriver : public rclcpp::Node
@@ -30,7 +30,7 @@ We'll start from having a class that directly inherits from ``Node``, and you al
         return 0;
     }
 
-This will typically be compiled as an executable in your Cmake. 
+This will typically be compiled as an executable in your Cmake.
 
 .. code-block:: cmake
 
@@ -47,7 +47,7 @@ Code Updates
 Class Definition
 ^^^^^^^^^^^^^^^^
 
-The only change to your class definition that you may have to do is ensure that the constructor for the class takes a ``NodeOptions`` argument. 
+The only change to your class definition that you may have to do is ensure that the constructor for the class takes a ``NodeOptions`` argument.
 
 .. code-block:: c++
 
@@ -59,7 +59,7 @@ The only change to your class definition that you may have to do is ensure that 
 No More Main Method
 ^^^^^^^^^^^^^^^^^^^
 
-Replace your main method with a ``pluginlib``-style macro invocation. 
+Replace your main method with a ``pluginlib``-style macro invocation.
 
 .. code-block:: c++
 
@@ -67,8 +67,8 @@ Replace your main method with a ``pluginlib``-style macro invocation.
     RCLCPP_COMPONENTS_REGISTER_NODE(palomino::VincentDriver)
 
 .. caution::
-    If the main method you are replacing contains a ``MultiThreadedExecutor``, be sure to make note and ensure that your container node is multithreaded. 
-    See section below. 
+    If the main method you are replacing contains a ``MultiThreadedExecutor``, be sure to make note and ensure that your container node is multithreaded.
+    See section below.
 
 CMake Changes
 ^^^^^^^^^^^^^
@@ -84,10 +84,10 @@ Second, we're going to replace our ``add_executable`` with a ``add_library`` wit
 
     add_library(vincent_driver_component src/vincent_driver.cpp)
 
-Third, replace other build commands that used the old target to act on the new target. 
+Third, replace other build commands that used the old target to act on the new target.
 i.e. ``ament_target_dependencies(vincent_driver ...)`` becomes ``ament_target_dependencies(vincent_driver_component ...)``
 
-Fourth, add a new command to declare your component. 
+Fourth, add a new command to declare your component.
 
 .. code-block:: cmake
 
@@ -97,12 +97,12 @@ Fourth, add a new command to declare your component.
         EXECUTABLE vincent_driver
     )
 
-Fifth and finally, change any installation commands in the CMake that operated on the old target to install the library version instead. 
+Fifth and finally, change any installation commands in the CMake that operated on the old target to install the library version instead.
 For instance, do not install either target into ``lib/${PROJECT_NAME}``.
 Replace with the library installation.
 
 .. code-block:: cmake
-    
+
     ament_export_targets(export_vincent_driver_component)
     install(TARGETS vincent_driver_component
             EXPORT export_vincent_driver_component
@@ -130,7 +130,7 @@ The quick and dirty version is that if you had the following in your Python laun
         # ..
     ))
 
-you can replace it with 
+you can replace it with
 
 .. code-block:: python
 
