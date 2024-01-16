@@ -24,6 +24,11 @@ sphinx-copybutton==0.4.0
 sphinx-multiversion==0.2.4
 sphinx-rtd-theme==1.0.0
 sphinx-tabs==3.2.0
+sphinxcontrib-applehelp==1.0.4
+sphinxcontrib-devhelp==1.0.2
+sphinxcontrib-htmlhelp==2.0.1
+sphinxcontrib-qthelp==1.0.3
+sphinxcontrib-serializinghtml==1.1.5
 stevedore==3.5.0
 urllib3==1.26.5
 wheel==0.37.1
