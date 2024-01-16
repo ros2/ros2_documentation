@@ -179,13 +179,13 @@ Enter the following command in your terminal:
 
       .. code-block:: console
 
-        ros2 pkg create --build-type ament_cmake --license Apache-2.0 --node-name my_node my_package --license Apache-2.0
+        ros2 pkg create --build-type ament_cmake --license Apache-2.0 --node-name my_node my_package
 
    .. group-tab:: Python
 
       .. code-block:: console
 
-        ros2 pkg create --build-type ament_python --license Apache-2.0 --node-name my_node my_package --license Apache-2.0
+        ros2 pkg create --build-type ament_python --license Apache-2.0 --node-name my_node my_package
 
 You will now have a new folder within your workspace's ``src`` directory called ``my_package``.
 
