@@ -98,6 +98,24 @@ Release Timeline
 New features in this ROS 2 release
 ----------------------------------
 
+``rclcpp``
+^^^^^^^^^^
+
+``rclcpp::get_typesupport_handle`` is deprecated
+""""""""""""""""""""""""""""""""""""""""""""""""
+
+The ``rclcpp::get_typesupport_handle`` that extracts message type support handle is deprecated, and will be removed in a future release.
+Instead, ``rclcpp::get_message_typesupport_handle`` should be used.
+
+See https://github.com/ros2/rclcpp/pull/2209 for more details.
+
+Type support helper for services
+""""""""""""""""""""""""""""""""
+
+New type support helper for services ``rclcpp::get_service_typesupport_handle`` is added to extract service type support handle.
+
+See https://github.com/ros2/rclcpp/pull/2209 for more details.
+
 ``ros2cli``
 ^^^^^^^^^^^
 
