@@ -129,3 +129,9 @@ It is now possible to use ``--log-file-name`` command line argument to specify t
    ros2 run demo_nodes_cpp talker --ros-args --log-file-name filename
 
 See https://github.com/ros2/ros2cli/issues/856 for more information.
+
+``rosidl_adapter``
+^^^^^^^^^^
+`char` type in ROS2 message definition is now a python `str` as per the design specifications.
+
+See https://github.com/ros2/rosidl/issues/775
