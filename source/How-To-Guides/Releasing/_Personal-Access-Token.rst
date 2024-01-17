@@ -10,6 +10,7 @@ Create a Personal Access Token by:
 
 #. Log in to GitHub and go to `Personal access tokens <https://github.com/settings/tokens>`_.
 #. Click the **Generate new token** button.
+#. In the dropdown, select **Generate new token (classic)**
 #. Set **Note** to something like ``Bloom token``.
 #. Set **Expiration** to **No expiration**.
 #. Tick the ``public_repo`` and ``workflow`` checkboxes.
