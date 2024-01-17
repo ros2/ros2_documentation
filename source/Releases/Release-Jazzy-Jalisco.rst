@@ -134,4 +134,4 @@ See https://github.com/ros2/ros2cli/issues/856 for more information.
 ^^^^^^^^^^
 `char` type in ROS2 message definition is now a python `str` as per the design specifications.
 
-See https://github.com/ros2/rosidl/issues/775
+See https://github.com/ros2/rosidl/issues/775 for more information.
