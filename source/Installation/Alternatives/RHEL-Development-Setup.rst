@@ -108,7 +108,7 @@ Install dependencies using rosdep
 
    sudo rosdep init
    rosdep update
-   rosdep install --from-paths src --ignore-src -y --skip-keys "assimp fastcdr ignition-cmake2 ignition-math6 python3-pygraphviz rti-connext-dds-6.0.1 urdfdom_headers"
+   rosdep install --from-paths src --ignore-src -y --skip-keys "fastcdr ignition-cmake2 ignition-math6 rti-connext-dds-6.0.1 urdfdom_headers"
 
 Install additional RMW implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
