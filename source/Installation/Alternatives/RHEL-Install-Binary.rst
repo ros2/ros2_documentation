@@ -109,7 +109,7 @@ Install dependencies using rosdep
 
 .. code-block:: bash
 
-   rosdep install --from-paths ~/ros2_{DISTRO}/ros2-linux/share --ignore-src -y --skip-keys "assimp cyclonedds fastcdr fastrtps ignition-cmake2 ignition-math6 python3-pygraphviz rti-connext-dds-6.0.1 urdfdom_headers"
+   rosdep install --from-paths ~/ros2_{DISTRO}/ros2-linux/share --ignore-src -y --skip-keys "cyclonedds fastcdr fastrtps ignition-cmake2 ignition-math6 rti-connext-dds-6.0.1 urdfdom_headers"
 
 Install additional RMW implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
