@@ -155,7 +155,7 @@ Therefore add the following to ``.devcontainer/devcontainer.json``:
             "source=${localWorkspaceFolder}/../cache/ROS_DISTRO/install,target=/home/ws/install,type=bind",
             "source=${localWorkspaceFolder}/../cache/ROS_DISTRO/log,target=/home/ws/log,type=bind"
         ],
-        "postCreateCommand": "sudo rosdep update && sudo rosdep install --from-paths src --ignore-src -y && sudo chown -R YOUR_USERNAME /home/ws/"
+        "postCreateCommand": "sudo rosdep update && sudo rosdep install --from-paths src --ignore-src -y && sudo chown -R $(whoami) /home/ws/"
     }
 
 
@@ -201,7 +201,7 @@ Open the Dockerfile and add the following contents:
     USER $USERNAME
     CMD ["/bin/bash"]
 
-Search here also for the ``YOUR_USERNAME`` and replace it with your ``Linux username`` and the ``ROS_DISTRO`` with the ROS 2 distribution you wish to use and added to the cache previously.
+Search here also for ``ROS_DISTRO`` with the ROS 2 distribution you wish to use and added to the cache previously.
 
 
 Open and Build Development Container
