@@ -176,7 +176,7 @@ Open the Dockerfile and add the following contents:
 .. code-block:: bash
 
     FROM ros:ROS_DISTRO
-    ARG USERNAME=YOUR_USERNAME
+    ARG USERNAME=USERNAME
     ARG USER_UID=1000
     ARG USER_GID=$USER_UID
 
