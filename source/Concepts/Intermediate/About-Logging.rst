@@ -125,6 +125,12 @@ For each of the environment settings, note that this is a process-wide setting, 
       - Carriage return
     * - ``\t``
       - Horizontal tab
+    * - ``\x1b``
+      - ANSI escape sequence start
+
+The ANSI escape sequence is especially interesting to use for setting `select graphics rendition parameters <https://en.wikipedia.org/wiki/ANSI_escape_code#SGR_(Select_Graphic_Rendition)_parameters>`_.
+This allows you to format parts of the log message in different styles for better readability.
+See :doc:`Logging Demo <../../Tutorials/Demos/Logging-and-logger-configuration>` for an example.
 
 If ``launch`` is used to start a node, it will also generate output to the console and log. This can also be configured using environment variables.
 

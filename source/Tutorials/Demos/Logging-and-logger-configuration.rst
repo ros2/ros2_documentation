@@ -406,6 +406,33 @@ For example, to additionally get the timestamp and location of the log calls, st
 You should see the timestamp in seconds and the function name, filename and line number additionally printed with each message.
 *The ``time`` option is only supported as of the ROS 2 Bouncy release.*
 
+It is also possible to change the font style of the different message parts using select graphic rendition parameters.
+For example, to print the node name underlined, the message bold, and the function name faint you can use the following setting:
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+      export RCUTILS_CONSOLE_OUTPUT_FORMAT="\x1b[4m{name}\x1b[0m \x1b[1m{message}\x1b[0m \x1b[2m{function_name}\x1b[0m"
+      ros2 run logging_demo logging_demo_main
+
+  .. group-tab:: macOS
+
+    .. code-block:: bash
+
+      RCUTILS_CONSOLE_OUTPUT_FORMAT="\x1b[4m{name}\x1b[0m \x1b[1m{message}\x1b[0m \x1b[2m{function_name}\x1b[0m"
+      ros2 run logging_demo logging_demo_main
+
+  .. group-tab:: Windows
+
+    .. code-block:: bash
+
+      set "\x1b[4m{name}\x1b[0m \x1b[1m{message}\x1b[0m \x1b[2m{function_name}\x1b[0m"
+      ros2 run logging_demo logging_demo_main
+
+
 See :doc:`Logging and logger configuration <../../Concepts/Intermediate/About-Logging>` for more details on how to configure the logging.
 
 Console output colorizing
