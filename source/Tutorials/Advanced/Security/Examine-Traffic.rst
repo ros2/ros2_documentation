@@ -18,8 +18,8 @@ Examining network traffic
   :local:
 
 
-Background
-----------
+Overview
+--------
 
 ROS 2 communications security is all about protecting communications between nodes.
 Prior tutorials enabled security, but how can you **really** tell if traffic is being encrypted?
@@ -31,6 +31,11 @@ In this tutorial we'll take a look at capturing live network traffic to show the
   Security enclaves are still applied, and data will be encrypted.
   However, you cannot capture live network traffic since the data will not be on the network interface.
   If you are using  ``rmw_fastrtps_cpp``, you need to either go through this tutorial and use a different host system between the publisher and subscriber, or disable shared memory transport with `Enabling UDP Transport <https://fast-dds.docs.eprosima.com/en/latest/fastdds/transport/udp/udp.html#enabling-udp-transport>`_ and `How to set Fast-DDS XML configuration <https://github.com/ros2/rmw_fastrtps#full-qos-configuration>`_.
+
+Prerequisites
+-------------
+
+This guide only runs on Linux, and assumes you have already :doc:`installed ROS 2 <../../../Installation>`.
 
 Run the demo
 ------------
