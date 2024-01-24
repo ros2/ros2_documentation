@@ -1,13 +1,13 @@
 How to use ros2_tracing to trace and analyze an application
 ===========================================================
 
-This guide shows how to use `ros2_tracing <https://github.com/ros2/ros2_tracing>`_ to trace and analyze a ROS 2 application.
-For this guide, the application will be `performance_test <https://gitlab.com/ApexAI/performance_test>`_.
+This tutorial shows how to use `ros2_tracing <https://github.com/ros2/ros2_tracing>`_ to trace and analyze a ROS 2 application.
+For this tutorial, the application will be `performance_test <https://gitlab.com/ApexAI/performance_test>`_.
 
 Overview
 --------
 
-This guide covers:
+This tutorial covers:
 
 1. running and tracing a ``performance_test`` run
 2. analyzing the trace data using `tracetools_analysis <https://github.com/ros-tracing/tracetools_analysis>`_ to plot the callback durations
@@ -15,9 +15,9 @@ This guide covers:
 Prerequisites
 -------------
 
-This guide is aimed at real-time Linux systems.
-See the :doc:`real-time system setup guide <../Miscellaneous/Building-Realtime-rt_preempt-kernel-for-ROS-2>`.
-However, the guide will work if you are using a non-real-time Linux system.
+This tutorial is aimed at real-time Linux systems.
+See the :doc:`real-time system setup tutorial <../Miscellaneous/Building-Realtime-rt_preempt-kernel-for-ROS-2>`.
+However, the tutorial will work if you are using a non-real-time Linux system.
 
 Installing and building
 -----------------------
@@ -26,7 +26,7 @@ Install ROS 2 on Linux by following the :doc:`installation instructions <../../I
 
 .. note::
 
-  This guide should generally work with all supported Linux distributions.
+  This tutorial should generally work with all supported Linux distributions.
   However, you might need to adapt some commands.
 
 Install ``babeltrace`` and ``ros2trace``.
@@ -153,7 +153,7 @@ Analysis
 We can use it in a `Jupyter notebook <https://jupyter.org/>`_ with `bokeh <https://docs.bokeh.org/en/latest/index.html>`_ to plot the data.
 The ``tracetools_analysis`` repository contains a `few sample notebooks <https://github.com/ros-tracing/tracetools_analysis/tree/{DISTRO}/tracetools_analysis/analysis>`_, including `one notebook to analyze subscription callback durations <https://github.com/ros-tracing/tracetools_analysis/blob/{DISTRO}/tracetools_analysis/analysis/callback_duration.ipynb>`_.
 
-For this guide, we will plot the durations of the subscription callback in the subscriber node.
+For this tutorial, we will plot the durations of the subscription callback in the subscriber node.
 
 Install Jupyter notebook and bokeh, and then open the sample notebook.
 
@@ -184,7 +184,7 @@ We can see that most of the callbacks take less than 0.01 ms, but there are some
 Conclusion
 ----------
 
-This guide showed how to install tracing-related tools.
+This tutorial showed how to install tracing-related tools.
 Then it showed how to trace a `performance_test <https://gitlab.com/ApexAI/performance_test>`_ experiment using `ros2_tracing <https://github.com/ros2/ros2_tracing>`_ and plot the callback durations using `tracetools_analysis <https://github.com/ros-tracing/tracetools_analysis>`_.
 
 For more trace analyses, take a look at the `other sample notebooks <https://github.com/ros-tracing/tracetools_analysis/tree/{DISTRO}/tracetools_analysis/analysis>`_ and the `tracetools_analysis API documentation <https://ros-tracing.gitlab.io/tracetools_analysis-api/master/tracetools_analysis/>`_.
