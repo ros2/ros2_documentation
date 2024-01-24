@@ -249,6 +249,10 @@ Finally it creates a new ``AddTwoInts`` request object.
 
 Below the constructor is the ``send_request`` method, which will send the request and return a future that can be passed to ``spin_until_future_complete``:
 
+**Important:** ``rclpy.spin_until_future_complete`` cannot be executed under the context of another ``rclpy.spin``.
+This means the function cannot be used within e.g. a ROS 2 subscriber callback. To avoid this issue you can store
+data from the callback and run the service call later (outside of ``spin``).
+
 .. code-block:: python
 
   def send_request(self):
