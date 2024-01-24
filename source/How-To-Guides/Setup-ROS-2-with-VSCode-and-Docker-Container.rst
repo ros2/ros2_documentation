@@ -118,11 +118,11 @@ Therefore add the following to ``.devcontainer/devcontainer.json``:
     {
         "name": "ROS 2 Development Container",
         "privileged": true,
-        "remoteUser": "USERNAME",
+        "remoteUser": "YOUR_USERNAME",
         "build": {
             "dockerfile": "Dockerfile",
             "args": {
-                "USERNAME": "USERNAME"
+                "USERNAME": "YOUR_USERNAME"
             }
         },
         "workspaceFolder": "/home/ws",
@@ -155,13 +155,13 @@ Therefore add the following to ``.devcontainer/devcontainer.json``:
             "source=${localWorkspaceFolder}/../cache/ROS_DISTRO/install,target=/home/ws/install,type=bind",
             "source=${localWorkspaceFolder}/../cache/ROS_DISTRO/log,target=/home/ws/log,type=bind"
         ],
-        "postCreateCommand": "sudo rosdep update && sudo rosdep install --from-paths src --ignore-src -y && sudo chown -R USERNAME /home/ws/"
+        "postCreateCommand": "sudo rosdep update && sudo rosdep install --from-paths src --ignore-src -y && sudo chown -R $(whoami) /home/ws/"
     }
 
 
 
 Use ``Ctrl+F`` to open the search and replace menu.
-Search for ``USERNAME`` and replace it with your ``Linux username``.
+Search for ``YOUR_USERNAME`` and replace it with your ``Linux username``.
 If you do not know your username, you can find it by running ``echo $USERNAME`` in the terminal.
 Also replace ``ROS_DISTRO``, with the ROS 2 distribution that you want to use and added to the cache previously, for example, "humble" or "foxy".
 
@@ -201,7 +201,7 @@ Open the Dockerfile and add the following contents:
     USER $USERNAME
     CMD ["/bin/bash"]
 
-Search here also for the ``USERNAME`` and replace it with your ``Linux username`` and the ``ROS_DISTRO`` with the ROS 2 distribution you wish to use and added to the cache previously.
+Search here also for ``ROS_DISTRO`` with the ROS 2 distribution you wish to use and added to the cache previously.
 
 
 Open and Build Development Container
