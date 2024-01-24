@@ -167,3 +167,35 @@ In ROS 2:
        node.get_logger().info('service not available, waiting again...')
    resp = add_two_ints.call_async(req)
    rclpy.spin_until_future_complete(node, resp)
+
+
+**Important:** ``rclpy.spin_until_future_complete`` cannot be executed under the context of another ``rclpy.spin``.
+This means the function cannot be used within e.g. a ROS 2 subscriber callback. To avoid this issue you can store
+data from the callback and run the service call later (outside of ``spin``).
+
+
+Executing at a Specific Rate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In ROS 1:
+
+.. code-block:: python
+
+   rate = rospy.Rate(2)
+   while not rospy.is_shutdown():
+      msg.data += math_stuff()
+      pub.publish(msg)
+      rate.sleep()
+
+In ROS 2:
+
+.. code-block:: python
+
+   node.create_rate(2)
+   while rclpy.ok():
+      msg.data += math_stuff()
+      node.pub.publish(msg)
+      rclpy.spin_once(node)
+
+If ``create_rate`` is omitted, the while loop will sleep after entering ``spin_once`` and will continue after a callback is processed.
+This could be useful if you have a worker function later in the loop which is waiting for some data from ROS.
