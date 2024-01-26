@@ -39,6 +39,52 @@ TODO
 New features in this ROS 2 release
 ----------------------------------
 
+``geometry2``
+^^^^^^^^^^^^^
+
+Deprecated headers were removed
+"""""""""""""""""""""""""""""""
+
+In Humble, the headers: ``tf2_bullet/tf2_bullet.h``, ``tf2_eigen/tf2_eigen.h``, ``tf2_geometry_msgs/tf2_geometry_msgs.h``,
+``tf2_kdl/tf2_kdl.h``, ``tf2_sensor_msgs/tf2_sensor_msgs.h``  were deprecated in favor of: ``tf2_bullet/tf2_bullet.hpp``,
+``tf2_eigen/tf2_eigen.hpp``, ``tf2_geometry_msgs/tf2_geometry_msgs.hpp``, ``tf2_kdl/tf2_kdl.hpp``, ``tf2_sensor_msgs/tf2_sensor_msgs.hpp``
+In Jazzy, the ``tf2_bullet/tf2_bullet.h``, ``tf2_eigen/tf2_eigen.h``, ``tf2_geometry_msgs/tf2_geometry_msgs.h``,
+``tf2_kdl/tf2_kdl.h``, ``tf2_sensor_msgs/tf2_sensor_msgs.h`` headers have been completely removed.
+
+
+``rclcpp``
+^^^^^^^^^^
+
+``rclcpp::get_typesupport_handle`` is deprecated
+""""""""""""""""""""""""""""""""""""""""""""""""
+
+The ``rclcpp::get_typesupport_handle`` that extracts message type support handle is deprecated, and will be removed in a future release.
+Instead, ``rclcpp::get_message_typesupport_handle`` should be used.
+
+See https://github.com/ros2/rclcpp/pull/2209 for more details.
+
+Type support helper for services
+""""""""""""""""""""""""""""""""
+
+New type support helper for services ``rclcpp::get_service_typesupport_handle`` is added to extract service type support handle.
+
+See https://github.com/ros2/rclcpp/pull/2209 for more details.
+
+``ros2cli``
+^^^^^^^^^^^
+
+``--log-file-name`` command line argument
+"""""""""""""""""""""""""""""""""""""""""
+
+It is now possible to use ``--log-file-name`` command line argument to specify the log file name prefix.
+
+.. code-block:: bash
+
+   ros2 run demo_nodes_cpp talker --ros-args --log-file-name filename
+
+See https://github.com/ros2/ros2cli/issues/856 for more information.
+
+
 Development progress
 --------------------
 
@@ -94,38 +140,3 @@ Release Timeline
 
 .. [1] The ``ros_base`` variant is described in `REP 2001 (ros-base) <https://www.ros.org/reps/rep-2001.html#ros-base>`_.
 .. [2] The ``desktop`` variant is described in `REP 2001 (desktop-variants) <https://www.ros.org/reps/rep-2001.html#desktop-variants>`_.
-
-New features in this ROS 2 release
-----------------------------------
-
-``rclcpp``
-^^^^^^^^^^
-
-``rclcpp::get_typesupport_handle`` is deprecated
-""""""""""""""""""""""""""""""""""""""""""""""""
-
-The ``rclcpp::get_typesupport_handle`` that extracts message type support handle is deprecated, and will be removed in a future release.
-Instead, ``rclcpp::get_message_typesupport_handle`` should be used.
-
-See https://github.com/ros2/rclcpp/pull/2209 for more details.
-
-Type support helper for services
-""""""""""""""""""""""""""""""""
-
-New type support helper for services ``rclcpp::get_service_typesupport_handle`` is added to extract service type support handle.
-
-See https://github.com/ros2/rclcpp/pull/2209 for more details.
-
-``ros2cli``
-^^^^^^^^^^^
-
-``--log-file-name`` command line argument
-"""""""""""""""""""""""""""""""""""""""""
-
-It is now possible to use ``--log-file-name`` command line argument to specify the log file name prefix.
-
-.. code-block:: bash
-
-   ros2 run demo_nodes_cpp talker --ros-args --log-file-name filename
-
-See https://github.com/ros2/ros2cli/issues/856 for more information.
