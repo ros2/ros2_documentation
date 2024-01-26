@@ -98,6 +98,19 @@ Release Timeline
 New features in this ROS 2 release
 ----------------------------------
 
+``geometry2``
+^^^^^^^^^^^^^
+
+Deprecated headers were removed
+"""""""""""""""""""""""""""""""
+
+In Humble, the headers: ``tf2_bullet/tf2_bullet.h``, ``tf2_eigen/tf2_eigen.h``, ``tf2_geometry_msgs/tf2_geometry_msgs.h``,
+``tf2_kdl/tf2_kdl.h``, ``tf2_sensor_msgs/tf2_sensor_msgs.h``  were deprecated in favor of: ``tf2_bullet/tf2_bullet.hpp``,
+``tf2_eigen/tf2_eigen.hpp``, ``tf2_geometry_msgs/tf2_geometry_msgs.hpp``, ``tf2_kdl/tf2_kdl.hpp``, ``tf2_sensor_msgs/tf2_sensor_msgs.hpp``
+In Jazzy, the ``tf2_bullet/tf2_bullet.h``, ``tf2_eigen/tf2_eigen.h``, ``tf2_geometry_msgs/tf2_geometry_msgs.h``,
+``tf2_kdl/tf2_kdl.h``, ``tf2_sensor_msgs/tf2_sensor_msgs.h`` headers been completely removed.
+
+
 ``rclcpp``
 ^^^^^^^^^^
 
