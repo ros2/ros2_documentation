@@ -116,6 +116,12 @@ New type support helper for services ``rclcpp::get_service_typesupport_handle`` 
 
 See https://github.com/ros2/rclcpp/pull/2209 for more details.
 
+Deprecated ``rclcpp/qos_event.hpp`` header was removed
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+In Iron, the header ``rclcpp/qos_event.hpp`` was deprecated in favor of ``rclcpp/event_handler.hpp``.
+In Jazzy, the ``rclcpp/qos_event.hpp`` header been completely removed.
+
 ``ros2cli``
 ^^^^^^^^^^^
 
