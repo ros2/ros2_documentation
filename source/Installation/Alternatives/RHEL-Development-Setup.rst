@@ -120,7 +120,7 @@ More info on working with a ROS workspace can be found in :doc:`this tutorial <.
 .. code-block:: bash
 
    cd ~/ros2_{DISTRO}/
-   colcon build --symlink-install --cmake-args -DTHIRDPARTY_Asio=ON --no-warn-unused-cli
+   colcon build --symlink-install --cmake-args -DTHIRDPARTY_Asio=ON -DPython3_EXECUTABLE=/usr/bin/python3 --no-warn-unused-cli
 
 Note: if you are having trouble compiling all examples and this is preventing you from completing a successful build, you can use ``COLCON_IGNORE`` in the same manner as `CATKIN_IGNORE <https://github.com/ros-infrastructure/rep/blob/master/rep-0128.rst>`__ to ignore the subtree or remove the folder from the workspace.
 Take for instance: you would like to avoid installing the large OpenCV library.
