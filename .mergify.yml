@@ -2,7 +2,7 @@ pull_request_rules:
   - name: automatic backport of common pages
     conditions:
       - base=rolling
-      - "files~=Governance|Contact|index|Marketing|ROSCon-Content|Roadmap|Releases|Feature-Ideas"
+      - "files~=Governance|Contact|index|Marketing|ROSCon-Content|Roadmap|Releases|Feature-Ideas|Metrics"
     actions:
       backport:
         branches:
