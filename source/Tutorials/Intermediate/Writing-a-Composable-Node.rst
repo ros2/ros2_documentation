@@ -47,16 +47,18 @@ Code Updates
 Add the Package Dependency
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Your ``package.xml`` should have a dependency on ``rclcpp_components``, a la
+Your `package.xml <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/composition/package.xml>`__ should have a dependency on ``rclcpp_components``, a la
 
 .. code-block:: xml
 
     <depend>rclcpp_components</depend>
 
+Alternatively, you can independently add a ``build_depend/exec_depend``.
+
 Class Definition
 ^^^^^^^^^^^^^^^^
 
-The only change to your class definition that you may have to do is ensure that the constructor for the class takes a ``NodeOptions`` argument.
+The only change to your class definition that you may have to do is ensure that `the constructor for the class <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/composition/src/talker_component.cpp>`__ takes a ``NodeOptions`` argument.
 
 .. code-block:: c++
 
@@ -81,7 +83,7 @@ Replace your main method with a ``pluginlib``-style macro invocation.
 
 CMake Changes
 ^^^^^^^^^^^^^
-First, add ``rclcpp_components`` as a dependency with
+First, add ``rclcpp_components`` as a dependency in your `CMakeLists.txt <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/composition/CMakeLists.txt>`__ with
 
 .. code-block:: cmake
 
