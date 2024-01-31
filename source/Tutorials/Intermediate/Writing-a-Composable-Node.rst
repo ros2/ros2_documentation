@@ -10,7 +10,7 @@ Starting Place
 
 Let's assume that you have a regular ``rclcpp::Node`` executable that you want to run in the same process as other nodes to enable more efficient communication.
 
-We'll start from having a class that directly inherits from ``Node``, and you also have a main method defined.
+We'll start from having a class that directly inherits from ``Node``, and that also has a main method defined.
 
 .. code-block:: c++
 
@@ -22,7 +22,7 @@ We'll start from having a class that directly inherits from ``Node``, and you al
         };
     }
 
-    int main(int argc, char* argv[])
+    int main(int argc, char * argv[])
     {
         rclcpp::init(argc, argv);
         rclcpp::spin(std::make_shared<palomino::VincentDriver>());
@@ -51,7 +51,7 @@ The only change to your class definition that you may have to do is ensure that 
 
 .. code-block:: c++
 
-    VincentDriver(const rclcpp::NodeOptions& options) : Node("vincent_driver", options)
+    VincentDriver(const rclcpp::NodeOptions & options) : Node("vincent_driver", options)
     {
       // ...
     }
@@ -115,7 +115,7 @@ Replace with the library installation.
 Running Your Node
 -----------------
 
-See the `Composition tutorial <Composition>` for an in-depth look at composing nodes.
+See the :doc:`Composition tutorial <Composition>` for an in-depth look at composing nodes.
 The quick and dirty version is that if you had the following in your Python launch file,
 
 .. code-block:: python
@@ -155,4 +155,5 @@ you can replace it with
     ))
 
 .. caution::
+
     If you need multi-threading, instead of setting your executable to ``component_container``, set it to ``component_container_mt``
