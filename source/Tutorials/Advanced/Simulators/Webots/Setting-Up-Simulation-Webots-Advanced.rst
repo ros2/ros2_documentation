@@ -151,11 +151,10 @@ You have to modify these two other files to launch your new node.
             :language: cmake
 
 
-Go to the file ``robot_launch.py`` and replace ``def generate_launch_description():`` with:
+Go to the file ``robot_launch.py`` and replace it with:
 
 .. literalinclude:: Code/robot_launch_sensor.py
     :language: python
-    :lines: 10-40
 
 This will create an ``obstacle_avoider`` node that will be included in the ``LaunchDescription``.
 
