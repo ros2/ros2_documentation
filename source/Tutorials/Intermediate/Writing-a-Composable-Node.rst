@@ -47,7 +47,7 @@ Code Updates
 Add the Package Dependency
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Your ``package.xml`` should have a dependency on ``rclcpp_components``, a la 
+Your ``package.xml`` should have a dependency on ``rclcpp_components``, a la
 
 .. code-block:: xml
 
