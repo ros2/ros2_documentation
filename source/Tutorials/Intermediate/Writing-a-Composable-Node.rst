@@ -44,6 +44,15 @@ This will typically be compiled as an executable in your Cmake.
 Code Updates
 ------------
 
+Add the Package Dependency
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Your ``package.xml`` should have a dependency on ``rclcpp_components``, a la 
+
+.. code-block:: xml
+
+    <depend>rclcpp_components</depend>
+
 Class Definition
 ^^^^^^^^^^^^^^^^
 
