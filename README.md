@@ -51,4 +51,3 @@ To test building the multisite version deployed to the website use:
 `sensible-browser build/html/rolling/index.html`
 
 **NB:** This will ignore local workspace changes and build from the branches.
-
