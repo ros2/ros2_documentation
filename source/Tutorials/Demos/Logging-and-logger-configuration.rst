@@ -432,7 +432,6 @@ For example, to print the node name underlined, the message bold, and the functi
       set "RCUTILS_CONSOLE_OUTPUT_FORMAT=\x1b[4m{name}\x1b[0m \x1b[1m{message}\x1b[0m \x1b[2m{function_name}\x1b[0m"
       ros2 run logging_demo logging_demo_main
 
-
 See :doc:`Logging and logger configuration <../../Concepts/Intermediate/About-Logging>` for more details on how to configure the logging.
 
 Console output colorizing
