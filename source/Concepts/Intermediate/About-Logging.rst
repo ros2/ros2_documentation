@@ -132,7 +132,8 @@ The ANSI escape sequence is especially interesting to use for setting `select gr
 This allows you to format parts of the log message in different styles for better readability.
 See :doc:`Logging Demo <../../Tutorials/Demos/Logging-and-logger-configuration>` for an example.
 
-If ``launch`` is used to start a node, it will also generate output to the console and log. This can also be configured using environment variables.
+If ``launch`` is used to start a node, it will also generate output to the console and log.
+This can also be configured using environment variables.
 
 * ``ROS_LAUNCH_OUTPUT_FORMAT`` - Control which extra information is added by ``launch`` to each message comming from a node.
 
