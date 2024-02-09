@@ -51,7 +51,6 @@ In Humble, the headers: ``tf2_bullet/tf2_bullet.h``, ``tf2_eigen/tf2_eigen.h``, 
 In Jazzy, the ``tf2_bullet/tf2_bullet.h``, ``tf2_eigen/tf2_eigen.h``, ``tf2_geometry_msgs/tf2_geometry_msgs.h``,
 ``tf2_kdl/tf2_kdl.h``, ``tf2_sensor_msgs/tf2_sensor_msgs.h`` headers have been completely removed.
 
-
 ``rclcpp``
 ^^^^^^^^^^
 
@@ -75,6 +74,16 @@ Type support helper for services
 New type support helper for services ``rclcpp::get_service_typesupport_handle`` is added to extract service type support handle.
 
 See https://github.com/ros2/rclcpp/pull/2209 for more details.
+
+``rclpy``
+^^^^^^^^^^
+
+``rclpy.node.Node.declare_parameter``
+"""""""""""""""""""""""""""""""""""""
+
+The ``rclpy.node.Node.declare_parameter`` does not allow statically typing parameter without default value.
+
+See https://github.com/ros2/rclpy/pull/1216 for more details.
 
 ``ros2cli``
 ^^^^^^^^^^^
