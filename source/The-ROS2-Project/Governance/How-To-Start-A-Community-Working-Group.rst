@@ -50,12 +50,12 @@ So what are the steps to making a working group?
      * Anyone can view members
 
    The mailing list will be used to distribute the invitations only, any communications should use `ROS discourse <https://discourse.ros.org>`__ with the working group's tag.
-   Please add tfoote@osrfoundation.org as an owner of the mailing list to help with administration.
+   Please add gbiggs@osrfoundation.org as an owner of the mailing list to help with administration.
 
 #. Now that you have an e-mail group you can associate that group with the ROS
    events calendar. The calendar is where you will schedule your working group
    meetings. To join the calendar, send an e-mail request to Kat
-   (kat@openrobotics.org) or Tully (tfoote@openrobotics.org).
+   (kat@openrobotics.org).
 
 #. To formalize your group you need to create a working group charter and a git
    repository to keep your documents and code. We have a working group template
