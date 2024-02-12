@@ -210,25 +210,25 @@ We have two nodes - one providing a simple service:
         public:
             ServiceNode() : Node("service_node")
             {
+                auto service_callback = [this](
+                    const std::shared_ptr<rmw_request_id_t> request_header,
+                    const std::shared_ptr<std_srvs::srv::Empty::Request> request,
+                    const std::shared_ptr<std_srvs::srv::Empty::Response> response)
+                {
+                    (void)request_header;
+                    (void)request;
+                    (void)response;
+                    RCLCPP_INFO(this->get_logger(), "Received request, responding...");
+                };
                 service_ptr_ = this->create_service<std_srvs::srv::Empty>(
                         "test_service",
-                        std::bind(&ServiceNode::service_callback, this, _1, _2, _3)
+                        service_callback
                 );
             }
 
         private:
             rclcpp::Service<std_srvs::srv::Empty>::SharedPtr service_ptr_;
 
-            void service_callback(
-                    const std::shared_ptr<rmw_request_id_t> request_header,
-                    const std::shared_ptr<std_srvs::srv::Empty::Request> request,
-                    const std::shared_ptr<std_srvs::srv::Empty::Response> response)
-            {
-                (void)request_header;
-                (void)request;
-                (void)response;
-                RCLCPP_INFO(this->get_logger(), "Received request, responding...");
-            }
         };  // class ServiceNode
         }   // namespace cb_group_demo
 
@@ -306,8 +306,18 @@ service calls:
               timer_cb_group_ = nullptr;
               client_ptr_ = this->create_client<std_srvs::srv::Empty>("test_service", rmw_qos_profile_services_default,
                                                                       client_cb_group_);
-              timer_ptr_ = this->create_wall_timer(1s, std::bind(&DemoNode::timer_callback, this),
-                                                  timer_cb_group_);
+
+              auto timer_callback = [this](){
+                  RCLCPP_INFO(this->get_logger(), "Sending request");
+                  auto request = std::make_shared<std_srvs::srv::Empty::Request>();
+                  auto result_future = client_ptr_->async_send_request(request);
+                  std::future_status status = result_future.wait_for(10s);  // timeout to guarantee a graceful finish
+                  if (status == std::future_status::ready) {
+                      RCLCPP_INFO(this->get_logger(), "Received response");
+                  }
+              };
+
+              timer_ptr_ = this->create_wall_timer(1s, timer_callback, timer_cb_group_);
           }
 
       private:
@@ -316,16 +326,6 @@ service calls:
           rclcpp::Client<std_srvs::srv::Empty>::SharedPtr client_ptr_;
           rclcpp::TimerBase::SharedPtr timer_ptr_;
 
-          void timer_callback()
-          {
-              RCLCPP_INFO(this->get_logger(), "Sending request");
-              auto request = std::make_shared<std_srvs::srv::Empty::Request>();
-              auto result_future = client_ptr_->async_send_request(request);
-              std::future_status status = result_future.wait_for(10s);  // timeout to guarantee a graceful finish
-              if (status == std::future_status::ready) {
-                  RCLCPP_INFO(this->get_logger(), "Received response");
-              }
-          }
       };  // class DemoNode
       }   // namespace cb_group_demo
 

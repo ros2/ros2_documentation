@@ -2,8 +2,6 @@
 
     Tutorials/Tf2/Writing-A-Tf2-Broadcaster-Cpp
 
-.. _WritingATf2BroadcasterCpp:
-
 Writing a broadcaster (C++)
 ===========================
 
@@ -21,14 +19,15 @@ Background
 ----------
 
 In the next two tutorials we will write the code to reproduce the demo from the :doc:`Introduction to tf2 <./Introduction-To-Tf2>` tutorial.
-After that, following tutorials focus on extending the demo with more advanced tf2 features, including the usage of timeouts in transformation lookups and time travel.
+After that, the following tutorials focus on extending the demo with more advanced tf2 features, including the usage of timeouts in transformation lookups and time travel.
 
 Prerequisites
 -------------
 
 This tutorial assumes you have a working knowledge of ROS 2 and you have completed the :doc:`Introduction to tf2 tutorial <./Introduction-To-Tf2>` and :doc:`tf2 static broadcaster tutorial (C++) <./Writing-A-Tf2-Static-Broadcaster-Cpp>`.
+We'll be reusing the ``learning_tf2_cpp`` package from that last tutorial.
+
 In previous tutorials, you learned how to :doc:`create a workspace <../../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>` and :doc:`create a package <../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>`.
-You also have created the ``learning_tf2_cpp`` :doc:`package <./Writing-A-Tf2-Static-Broadcaster-Cpp>`, which is where we will continue working from.
 
 Tasks
 -----
@@ -102,42 +101,40 @@ Open the file using your preferred text editor.
         stream << "/" << turtlename_.c_str() << "/pose";
         std::string topic_name = stream.str();
 
+        auto handle_turtle_pose = [this](const std::shared_ptr<turtlesim::msg::Pose> msg){
+            geometry_msgs::msg::TransformStamped t;
+
+            // Read message content and assign it to
+            // corresponding tf variables
+            t.header.stamp = this->get_clock()->now();
+            t.header.frame_id = "world";
+            t.child_frame_id = turtlename_.c_str();
+
+            // Turtle only exists in 2D, thus we get x and y translation
+            // coordinates from the message and set the z coordinate to 0
+            t.transform.translation.x = msg->x;
+            t.transform.translation.y = msg->y;
+            t.transform.translation.z = 0.0;
+
+            // For the same reason, turtle can only rotate around one axis
+            // and this why we set rotation in x and y to 0 and obtain
+            // rotation in z axis from the message
+            tf2::Quaternion q;
+            q.setRPY(0, 0, msg->theta);
+            t.transform.rotation.x = q.x();
+            t.transform.rotation.y = q.y();
+            t.transform.rotation.z = q.z();
+            t.transform.rotation.w = q.w();
+
+            // Send the transformation
+            tf_broadcaster_->sendTransform(t);
+        };
         subscription_ = this->create_subscription<turtlesim::msg::Pose>(
           topic_name, 10,
-          std::bind(&FramePublisher::handle_turtle_pose, this, std::placeholders::_1));
+          handle_turtle_pose);
       }
 
     private:
-      void handle_turtle_pose(const std::shared_ptr<turtlesim::msg::Pose> msg)
-      {
-        geometry_msgs::msg::TransformStamped t;
-
-        // Read message content and assign it to
-        // corresponding tf variables
-        t.header.stamp = this->get_clock()->now();
-        t.header.frame_id = "world";
-        t.child_frame_id = turtlename_.c_str();
-
-        // Turtle only exists in 2D, thus we get x and y translation
-        // coordinates from the message and set the z coordinate to 0
-        t.transform.translation.x = msg->x;
-        t.transform.translation.y = msg->y;
-        t.transform.translation.z = 0.0;
-
-        // For the same reason, turtle can only rotate around one axis
-        // and this why we set rotation in x and y to 0 and obtain
-        // rotation in z axis from the message
-        tf2::Quaternion q;
-        q.setRPY(0, 0, msg->theta);
-        t.transform.rotation.x = q.x();
-        t.transform.rotation.y = q.y();
-        t.transform.rotation.z = q.z();
-        t.transform.rotation.w = q.w();
-
-        // Send the transformation
-        tf_broadcaster_->sendTransform(t);
-      }
-
       rclcpp::Subscription<turtlesim::msg::Pose>::SharedPtr subscription_;
       std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
       std::string turtlename_;
@@ -167,7 +164,7 @@ Afterward, the node subscribes to topic ``turtleX/pose`` and runs function ``han
 
     subscription_ = this->create_subscription<turtlesim::msg::Pose>(
       topic_name, 10,
-      std::bind(&FramePublisher::handle_turtle_pose, this, _1));
+      handle_turtle_pose);
 
 Now, we create a ``TransformStamped`` object and give it the appropriate metadata.
 
@@ -321,7 +318,7 @@ Make sure to save the file.
 2.3 CMakeLists.txt
 ~~~~~~~~~~~~~~~~~~
 
-Reopen ``CMakeLists.txt`` and add the line so that the launch files from the ``launch/`` folder would be installed.
+Reopen ``CMakeLists.txt`` and add the line so that the launch files from the ``launch/`` folder will be installed.
 
 .. code-block:: console
 
@@ -351,7 +348,7 @@ Run ``rosdep`` in the root of your workspace to check for missing dependencies.
 
         rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim`` dependencies yourself
 
-From the root of your workspace, build your updated package:
+Still in the root of your workspace, build your package:
 
 .. tabs::
 

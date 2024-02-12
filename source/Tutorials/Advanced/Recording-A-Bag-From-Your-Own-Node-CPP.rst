@@ -52,7 +52,7 @@ Navigate into the ``ros2_ws/src`` directory and create a new package:
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_cmake bag_recorder_nodes --dependencies example_interfaces rclcpp rosbag2_cpp std_msgs
+  ros2 pkg create --build-type ament_cmake --license Apache-2.0 bag_recorder_nodes --dependencies example_interfaces rclcpp rosbag2_cpp std_msgs
 
 Your terminal will return a message verifying the creation of your package ``bag_recorder_nodes`` and all its necessary files and folders.
 The ``--dependencies`` argument will automatically add the necessary dependency lines to ``package.xml`` and ``CMakeLists.txt``.
@@ -84,8 +84,6 @@ Inside the ``ros2_ws/src/bag_recorder_nodes/src`` directory, create a new file c
 
     #include <rosbag2_cpp/writer.hpp>
 
-    using std::placeholders::_1;
-
     class SimpleBagRecorder : public rclcpp::Node
     {
     public:
@@ -96,17 +94,17 @@ Inside the ``ros2_ws/src/bag_recorder_nodes/src`` directory, create a new file c
 
         writer_->open("my_bag");
 
+        auto subscription_callback_lambda = [this](std::shared_ptr<rclcpp::SerializedMessage> msg){
+          rclcpp::Time time_stamp = this->now();
+
+          writer_->write(msg, "chatter", "std_msgs/msg/String", time_stamp);
+        };
+
         subscription_ = create_subscription<std_msgs::msg::String>(
-          "chatter", 10, std::bind(&SimpleBagRecorder::topic_callback, this, _1));
+          "chatter", 10, subscription_callback_lambda);
       }
 
     private:
-      void topic_callback(std::shared_ptr<rclcpp::SerializedMessage> msg) const
-      {
-        rclcpp::Time time_stamp = this->now();
-
-        writer_->write(msg, "chatter", "std_msgs/msg/String", time_stamp);
-      }
 
       rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription_;
       std::unique_ptr<rosbag2_cpp::Writer> writer_;
@@ -146,8 +144,14 @@ We will write data to the bag in the callback.
 
 .. code-block:: C++
 
+        auto subscription_callback_lambda = [this](std::shared_ptr<rclcpp::SerializedMessage> msg){
+          rclcpp::Time time_stamp = this->now();
+
+          writer_->write(msg, "chatter", "std_msgs/msg/String", time_stamp);
+        };
+
         subscription_ = create_subscription<std_msgs::msg::String>(
-          "chatter", 10, std::bind(&SimpleBagRecorder::topic_callback, this, _1));
+          "chatter", 10, subscription_callback_lambda);
 
 The callback itself is different from a typical callback.
 Rather than receiving an instance of the data type of the topic, we instead receive a ``rclcpp::SerializedMessage``.
@@ -158,8 +162,7 @@ We do this for two reasons.
 
 .. code-block:: C++
 
-      void topic_callback(std::shared_ptr<rclcpp::SerializedMessage> msg) const
-      {
+        auto subscription_callback_lambda = [this](std::shared_ptr<rclcpp::SerializedMessage> msg){
 
 Within the subscription callback, the first thing to do is determine the time stamp to use for the stored message.
 This can be anything appropriate to your data, but two common values are the time at which the data was produced, if known, and the time it is received.
@@ -349,7 +352,8 @@ Inside the ``ros2_ws/src/bag_recorder_nodes/src`` directory, create a new file c
            rmw_get_serialization_format(),
            ""});
 
-        timer_ = create_wall_timer(1s, std::bind(&DataGenerator::timer_callback, this));
+        auto timer_callback_lambda = [this](){return this->timer_callback();};
+        timer_ = create_wall_timer(1s, timer_callback_lambda);
       }
 
     private:
@@ -401,7 +405,8 @@ The timer fires with a one-second period, and calls the given member function wh
 
 .. code-block:: C++
 
-        timer_ = create_wall_timer(1s, std::bind(&DataGenerator::timer_callback, this));
+        auto timer_callback_lambda = [this](){return this->timer_callback();};
+        timer_ = create_wall_timer(1s, timer_callback_lambda);
 
 Within the timer callback, we generate (or otherwise obtain, e.g. read from a serial port connected to some hardware) the data we wish to store in the bag.
 The important difference between this and the previous sample is that the data is not yet serialised.

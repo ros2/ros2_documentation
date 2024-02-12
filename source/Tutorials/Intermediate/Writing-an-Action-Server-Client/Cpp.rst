@@ -153,7 +153,7 @@ The constructor also instantiates a new action server:
 
 .. literalinclude:: scripts/server.cpp
     :language: c++
-    :lines: 26-31
+    :lines: 86-91
 
 An action server requires 6 things:
 
@@ -164,14 +164,14 @@ An action server requires 6 things:
 5. A callback function for handling cancellation: ``handle_cancel``.
 6. A callback function for handling goal accept: ``handle_accept``.
 
-The implementation of the various callbacks is next in the file.
+The implementation of the various callbacks is done with [lambda expressions](https://en.cppreference.com/w/cpp/language/lambda) within the constructor.
 Note that all of the callbacks need to return quickly, otherwise we risk starving the executor.
 
 We start with the callback for handling new goals:
 
 .. literalinclude:: scripts/server.cpp
     :language: c++
-    :lines: 37-44
+    :lines: 26-33
 
 This implementation just accepts all goals.
 
@@ -179,7 +179,7 @@ Next up is the callback for dealing with cancellation:
 
 .. literalinclude:: scripts/server.cpp
     :language: c++
-    :lines: 46-52
+    :lines: 35-41
 
 This implementation just tells the client that it accepted the cancellation.
 
@@ -187,7 +187,7 @@ The last of the callbacks accepts a new goal and starts processing it:
 
 .. literalinclude:: scripts/server.cpp
     :language: c++
-    :lines: 54-59
+    :lines: 43-50
 
 Since the execution is a long-running operation, we spawn off a thread to do the actual work and return from ``handle_accepted`` quickly.
 
@@ -195,7 +195,7 @@ All further processing and updates are done in the ``execute`` method in the new
 
 .. literalinclude:: scripts/server.cpp
     :language: c++
-    :lines: 61-95
+    :lines: 63-96
 
 This work thread processes one sequence number of the Fibonacci sequence every second, publishing a feedback update for each step.
 When it has finished processing, it marks the ``goal_handle`` as succeeded, and quits.
@@ -291,13 +291,13 @@ We also instantiate a ROS timer that will kick off the one and only call to ``se
 
 .. literalinclude:: scripts/client.cpp
     :language: c++
-    :lines: 27-30
+    :lines: 28-31
 
 When the timer expires, it will call ``send_goal``:
 
 .. literalinclude:: scripts/client.cpp
     :language: c++
-    :lines: 32-57
+    :lines: 34-96
 
 This function does the following:
 
@@ -312,21 +312,21 @@ That response is handled by ``goal_response_callback``:
 
 .. literalinclude:: scripts/client.cpp
     :language: c++
-    :lines: 62-71
+    :lines: 51-58
 
 Assuming the goal was accepted by the server, it will start processing.
 Any feedback to the client will be handled by the ``feedback_callback``:
 
 .. literalinclude:: scripts/client.cpp
     :language: c++
-    :lines: 72-83
+    :lines: 60-70
 
 When the server is finished processing, it will return a result to the client.
 The result is handled by the ``result_callback``:
 
 .. literalinclude:: scripts/client.cpp
     :language: c++
-    :lines: 84-107
+    :lines: 72-94
 
 We now have a fully functioning action client.  Let's get it built and running.
 

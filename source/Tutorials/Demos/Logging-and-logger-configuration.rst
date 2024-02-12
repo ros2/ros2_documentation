@@ -105,7 +105,7 @@ The interval parameter specifying milliseconds between messages should have an i
             RCLCPP_ERROR_THROTTLE(node->get_logger(), *node->get_clock(), 1000, "My log message %d", 4);
 
             // C++ stream style
-            RCLCPP_ERROR_STREAM_THROTTLE(node->get_logger(), *node->get_lock(), 1000, "My log message " << 4);
+            RCLCPP_ERROR_STREAM_THROTTLE(node->get_logger(), *node->get_clock(), 1000, "My log message " << 4);
 
             // For now, use the nanoseconds() method to use an existing rclcpp::Duration value, see https://github.com/ros2/rclcpp/issues/1929
             RCLCPP_ERROR_STREAM_THROTTLE(node->get_logger(), *node->get_clock(), msg_interval.nanoseconds()/1000000, "My log message " << 4);
@@ -523,3 +523,15 @@ Then run:
 .. code-block:: bash
 
     ros2 run logging_demo logging_demo_main
+
+Setting the log file name prefix
+--------------------------------
+
+By default, the log file name is based on the executable file name followed by process ID and system timestamp on file creation.
+You can change the log file name prefix to one of your choice using the ``--log-file-name`` command line argument:
+
+.. code-block:: bash
+
+   ros2 run demo_nodes_cpp talker --ros-args --log-file-name filename
+
+This configures the log file name prefix to ``filename``, instead of the executable file name (which is ``talker`` in this case).

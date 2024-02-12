@@ -46,7 +46,7 @@ So, navigate into ``ros2_ws/src``, and run the package creation command:
 
 .. code-block:: console
 
-    ros2 pkg create --build-type ament_cmake cpp_pubsub
+    ros2 pkg create --build-type ament_cmake --license Apache-2.0 cpp_pubsub
 
 Your terminal will return a message verifying the creation of your package ``cpp_pubsub`` and all its necessary files and folders.
 
@@ -65,13 +65,13 @@ Download the example talker code by entering the following command:
 
       .. code-block:: console
 
-            wget -O publisher_member_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/member_function.cpp
+            wget -O publisher_lambda_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/lambda.cpp
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-            wget -O publisher_member_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/member_function.cpp
+            wget -O publisher_lambda_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/lambda.cpp
 
    .. group-tab:: Windows
 
@@ -79,21 +79,20 @@ Download the example talker code by entering the following command:
 
       .. code-block:: console
 
-            curl -sk https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/member_function.cpp -o publisher_member_function.cpp
+            curl -sk https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/lambda.cpp -o publisher_lambda_function.cpp
 
       Or in powershell:
 
       .. code-block:: console
 
-            curl https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/member_function.cpp -o publisher_member_function.cpp
+            curl https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/lambda.cpp -o publisher_lambda_function.cpp
 
-Now there will be a new file named ``publisher_member_function.cpp``.
+Now there will be a new file named ``publisher_lambda_function.cpp``.
 Open the file using your preferred text editor.
 
 .. code-block:: C++
 
     #include <chrono>
-    #include <functional>
     #include <memory>
     #include <string>
 
@@ -102,31 +101,31 @@ Open the file using your preferred text editor.
 
     using namespace std::chrono_literals;
 
-    /* This example creates a subclass of Node and uses std::bind() to register a
-    * member function as a callback from the timer. */
+    /* This example creates a subclass of Node and uses a fancy C++11 lambda
+    * function to shorten the callback syntax, at the expense of making the
+    * code somewhat more difficult to understand at first glance. */
 
     class MinimalPublisher : public rclcpp::Node
     {
-      public:
-        MinimalPublisher()
-        : Node("minimal_publisher"), count_(0)
-        {
-          publisher_ = this->create_publisher<std_msgs::msg::String>("topic", 10);
-          timer_ = this->create_wall_timer(
-          500ms, std::bind(&MinimalPublisher::timer_callback, this));
-        }
+    public:
+      MinimalPublisher()
+      : Node("minimal_publisher"), count_(0)
+      {
+        publisher_ = this->create_publisher<std_msgs::msg::String>("topic", 10);
+        auto timer_callback =
+          [this]() -> void {
+            auto message = std_msgs::msg::String();
+            message.data = "Hello, world! " + std::to_string(this->count_++);
+            RCLCPP_INFO(this->get_logger(), "Publishing: '%s'", message.data.c_str());
+            this->publisher_->publish(message);
+          };
+        timer_ = this->create_wall_timer(500ms, timer_callback);
+      }
 
-      private:
-        void timer_callback()
-        {
-          auto message = std_msgs::msg::String();
-          message.data = "Hello, world! " + std::to_string(count_++);
-          RCLCPP_INFO(this->get_logger(), "Publishing: '%s'", message.data.c_str());
-          publisher_->publish(message);
-        }
-        rclcpp::TimerBase::SharedPtr timer_;
-        rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;
-        size_t count_;
+    private:
+      rclcpp::TimerBase::SharedPtr timer_;
+      rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;
+      size_t count_;
     };
 
     int main(int argc, char * argv[])
@@ -147,7 +146,6 @@ Last is ``std_msgs/msg/string.hpp``, which includes the built-in message type yo
 .. code-block:: C++
 
     #include <chrono>
-    #include <functional>
     #include <memory>
     #include <string>
 
@@ -168,7 +166,11 @@ Every ``this`` in the code is referring to the node.
 
 The public constructor names the node ``minimal_publisher`` and initializes ``count_`` to 0.
 Inside the constructor, the publisher is initialized with the ``String`` message type, the topic name ``topic``, and the required queue size to limit messages in the event of a backup.
-Next, ``timer_`` is initialized, which causes the ``timer_callback`` function to be executed twice a second.
+Next, a `lambda function <https://en.cppreference.com/w/cpp/language/lambda>`_ called ``timer_callback`` is declared.
+It performs a by-reference capture of the current object ``this``, takes no input arguments and returns void.
+The ``timer_callback`` function creates a new message of type ``String``, sets its data with the desired string and publishes it.
+The ``RCLCPP_INFO`` macro ensures every published message is printed to the console.
+At last, ``timer_`` is initialized, which causes the ``timer_callback`` function to be executed twice a second.
 
 .. code-block:: C++
 
@@ -177,31 +179,24 @@ Next, ``timer_`` is initialized, which causes the ``timer_callback`` function to
       : Node("minimal_publisher"), count_(0)
       {
         publisher_ = this->create_publisher<std_msgs::msg::String>("topic", 10);
-        timer_ = this->create_wall_timer(
-        500ms, std::bind(&MinimalPublisher::timer_callback, this));
+        auto timer_callback =
+          [this]() -> void {
+            auto message = std_msgs::msg::String();
+            message.data = "Hello, world! " + std::to_string(this->count_++);
+            RCLCPP_INFO(this->get_logger(), "Publishing: '%s'", message.data.c_str());
+            this->publisher_->publish(message);
+          };
+        timer_ = this->create_wall_timer(500ms, timer_callback);
       }
 
-The ``timer_callback`` function is where the message data is set and the messages are actually published.
-The ``RCLCPP_INFO`` macro ensures every published message is printed to the console.
+In the bottom of the class is the declaration of the timer, publisher, and counter fields.
 
 .. code-block:: C++
 
     private:
-      void timer_callback()
-      {
-        auto message = std_msgs::msg::String();
-        message.data = "Hello, world! " + std::to_string(count_++);
-        RCLCPP_INFO(this->get_logger(), "Publishing: '%s'", message.data.c_str());
-        publisher_->publish(message);
-      }
-
-Last is the declaration of the timer, publisher, and counter fields.
-
-.. code-block:: C++
-
-    rclcpp::TimerBase::SharedPtr timer_;
-    rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;
-    size_t count_;
+      rclcpp::TimerBase::SharedPtr timer_;
+      rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;
+      size_t count_;
 
 Following the ``MinimalPublisher`` class is ``main``, where the node actually executes.
 ``rclcpp::init`` initializes ROS 2, and ``rclcpp::spin`` starts processing data from the node, including callbacks from the timer.
@@ -257,7 +252,7 @@ After that, add the executable and name it ``talker`` so you can run your node u
 
 .. code-block:: console
 
-    add_executable(talker src/publisher_member_function.cpp)
+    add_executable(talker src/publisher_lambda_function.cpp)
     ament_target_dependencies(talker rclcpp std_msgs)
 
 Finally, add the ``install(TARGETS...)`` section so ``ros2 run`` can find your executable:
@@ -288,7 +283,7 @@ You can clean up your ``CMakeLists.txt`` by removing some unnecessary sections a
   find_package(rclcpp REQUIRED)
   find_package(std_msgs REQUIRED)
 
-  add_executable(talker src/publisher_member_function.cpp)
+  add_executable(talker src/publisher_lambda_function.cpp)
   ament_target_dependencies(talker rclcpp std_msgs)
 
   install(TARGETS
@@ -311,13 +306,13 @@ Enter the following code in your terminal:
 
       .. code-block:: console
 
-            wget -O subscriber_member_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function.cpp
+            wget -O subscriber_lambda_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/lambda.cpp
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-            wget -O subscriber_member_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function.cpp
+            wget -O subscriber_lambda_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/lambda.cpp
 
    .. group-tab:: Windows
 
@@ -325,21 +320,21 @@ Enter the following code in your terminal:
 
       .. code-block:: console
 
-            curl -sk https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function.cpp -o subscriber_member_function.cpp
+            curl -sk https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/lambda.cpp -o subscriber_lambda_function.cpp
 
       Or in powershell:
 
       .. code-block:: console
 
-            curl https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function.cpp -o subscriber_member_function.cpp
+            curl https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/lambda.cpp -o subscriber_lambda_function.cpp
 
 Check to ensure that these files exist:
 
 .. code-block:: console
 
-    publisher_member_function.cpp  subscriber_member_function.cpp
+    publisher_lambda_function.cpp  subscriber_lambda_function.cpp
 
-Open the ``subscriber_member_function.cpp`` with your text editor.
+Open the ``subscriber_lambda_function.cpp`` with your text editor.
 
 .. code-block:: C++
 
@@ -347,24 +342,23 @@ Open the ``subscriber_member_function.cpp`` with your text editor.
 
     #include "rclcpp/rclcpp.hpp"
     #include "std_msgs/msg/string.hpp"
-    using std::placeholders::_1;
 
     class MinimalSubscriber : public rclcpp::Node
     {
-      public:
-        MinimalSubscriber()
-        : Node("minimal_subscriber")
-        {
-          subscription_ = this->create_subscription<std_msgs::msg::String>(
-          "topic", 10, std::bind(&MinimalSubscriber::topic_callback, this, _1));
-        }
+    public:
+      MinimalSubscriber()
+      : Node("minimal_subscriber")
+      {
+        auto topic_callback =
+          [this](std_msgs::msg::String::UniquePtr msg) -> void {
+            RCLCPP_INFO(this->get_logger(), "I heard: '%s'", msg->data.c_str());
+          };
+        subscription_ =
+          this->create_subscription<std_msgs::msg::String>("topic", 10, topic_callback);
+      }
 
-      private:
-        void topic_callback(const std_msgs::msg::String & msg) const
-        {
-          RCLCPP_INFO(this->get_logger(), "I heard: '%s'", msg.data.c_str());
-        }
-        rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription_;
+    private:
+      rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription_;
     };
 
     int main(int argc, char * argv[])
@@ -379,9 +373,13 @@ Open the ``subscriber_member_function.cpp`` with your text editor.
 ~~~~~~~~~~~~~~~~~~~~
 
 The subscriber node's code is nearly identical to the publisher's.
-Now the node is named ``minimal_subscriber``, and the constructor uses the node's ``create_subscription`` class to execute the callback.
+Now the node is named ``minimal_subscriber``, and the constructor uses the node's ``create_subscription`` function to execute the callback.
 
 There is no timer because the subscriber simply responds whenever data is published to the ``topic`` topic.
+
+The ``topic_callback`` function receives the string message data published over the topic, and simply writes it to the console using the ``RCLCPP_INFO`` macro.
+
+Recall from the :doc:`topic tutorial <../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics>` that the topic name and message type used by the publisher and subscriber must match to allow them to communicate.
 
 .. code-block:: C++
 
@@ -389,23 +387,19 @@ There is no timer because the subscriber simply responds whenever data is publis
       MinimalSubscriber()
       : Node("minimal_subscriber")
       {
-        subscription_ = this->create_subscription<std_msgs::msg::String>(
-        "topic", 10, std::bind(&MinimalSubscriber::topic_callback, this, _1));
+        auto topic_callback =
+          [this](std_msgs::msg::String::UniquePtr msg) -> void {
+            RCLCPP_INFO(this->get_logger(), "I heard: '%s'", msg->data.c_str());
+          };
+        subscription_ =
+          this->create_subscription<std_msgs::msg::String>("topic", 10, topic_callback);
       }
-
-Recall from the :doc:`topic tutorial <../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics>` that the topic name and message type used by the publisher and subscriber must match to allow them to communicate.
-
-The ``topic_callback`` function receives the string message data published over the topic, and simply writes it to the console using the ``RCLCPP_INFO`` macro.
 
 The only field declaration in this class is the subscription.
 
 .. code-block:: C++
 
     private:
-      void topic_callback(const std_msgs::msg::String & msg) const
-      {
-        RCLCPP_INFO(this->get_logger(), "I heard: '%s'", msg.data.c_str());
-      }
       rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription_;
 
 The ``main`` function is exactly the same, except now it spins the ``MinimalSubscriber`` node.
@@ -420,7 +414,7 @@ Reopen ``CMakeLists.txt`` and add the executable and target for the subscriber n
 
 .. code-block:: cmake
 
-  add_executable(listener src/subscriber_member_function.cpp)
+  add_executable(listener src/subscriber_lambda_function.cpp)
   ament_target_dependencies(listener rclcpp std_msgs)
 
   install(TARGETS

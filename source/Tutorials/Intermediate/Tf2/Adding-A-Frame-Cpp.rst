@@ -2,8 +2,6 @@
 
     Tutorials/Tf2/Adding-A-Frame-Cpp
 
-.. _AddingAFrameCpp:
-
 Adding a frame (C++)
 ====================
 
@@ -49,8 +47,9 @@ Tasks
 In our turtle example, we'll add a new frame ``carrot1``, which will be the child of the ``turtle1``.
 This frame will serve as the goal for the second turtle.
 
-Let's first create the source files. Go to the ``learning_tf2_cpp`` package we created in the previous tutorials.
-Download the fixed frame broadcaster code by entering the following command:
+Let's first create the source files.
+Go to the ``learning_tf2_cpp`` package we created in the previous tutorials.
+Inside the ``src`` directory download the fixed frame broadcaster code by entering the following command:
 
 .. tabs::
 
@@ -101,30 +100,28 @@ Now open the file called ``fixed_frame_tf2_broadcaster.cpp``.
       : Node("fixed_frame_tf2_broadcaster")
       {
         tf_broadcaster_ = std::make_shared<tf2_ros::TransformBroadcaster>(this);
-        timer_ = this->create_wall_timer(
-          100ms, std::bind(&FixedFrameBroadcaster::broadcast_timer_callback, this));
+
+        auto broadcast_timer_callback = [this](){
+            geometry_msgs::msg::TransformStamped t;
+
+            t.header.stamp = this->get_clock()->now();
+            t.header.frame_id = "turtle1";
+            t.child_frame_id = "carrot1";
+            t.transform.translation.x = 0.0;
+            t.transform.translation.y = 2.0;
+            t.transform.translation.z = 0.0;
+            t.transform.rotation.x = 0.0;
+            t.transform.rotation.y = 0.0;
+            t.transform.rotation.z = 0.0;
+            t.transform.rotation.w = 1.0;
+
+            tf_broadcaster_->sendTransform(t);
+        };
+        timer_ = this->create_wall_timer(100ms, broadcast_timer_callback);
       }
 
     private:
-      void broadcast_timer_callback()
-      {
-        geometry_msgs::msg::TransformStamped t;
-
-        t.header.stamp = this->get_clock()->now();
-        t.header.frame_id = "turtle1";
-        t.child_frame_id = "carrot1";
-        t.transform.translation.x = 0.0;
-        t.transform.translation.y = 2.0;
-        t.transform.translation.z = 0.0;
-        t.transform.rotation.x = 0.0;
-        t.transform.rotation.y = 0.0;
-        t.transform.rotation.z = 0.0;
-        t.transform.rotation.w = 1.0;
-
-        tf_broadcaster_->sendTransform(t);
-      }
-
-    rclcpp::TimerBase::SharedPtr timer_;
+      rclcpp::TimerBase::SharedPtr timer_;
       std::shared_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
     };
 
@@ -185,7 +182,7 @@ Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your e
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Now let's create a launch file for this example.
-With your text editor, create a new file called ``turtle_tf2_fixed_frame_demo_launch.py``, and add the following lines:
+With your text editor, create a new file called ``launch/turtle_tf2_fixed_frame_demo_launch.py``, and add the following lines:
 
 .. code-block:: python
 
@@ -250,7 +247,7 @@ Run ``rosdep`` in the root of your workspace to check for missing dependencies.
 
         rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim`` dependencies yourself
 
-From the root of your workspace, build your updated package:
+Still in the root of your workspace, build your package:
 
 .. tabs::
 
@@ -343,7 +340,8 @@ Now rebuild the package, restart the ``turtle_tf2_fixed_frame_demo_launch.py``, 
 The extra frame we published in this tutorial is a fixed frame that doesn't change over time in relation to the parent frame.
 However, if you want to publish a moving frame you can code the broadcaster to change the frame over time.
 Let's change our ``carrot1`` frame so that it changes relative to ``turtle1`` frame over time.
-Now download the dynamic frame broadcaster code by entering the following command:
+Go to the ``learning_tf2_cpp`` package we created in the previous tutorial.
+Inside the ``src`` directory download the dynamic frame broadcaster code by entering the following command:
 
 .. tabs::
 
@@ -396,31 +394,29 @@ Now open the file called ``dynamic_frame_tf2_broadcaster.cpp``:
       : Node("dynamic_frame_tf2_broadcaster")
       {
         tf_broadcaster_ = std::make_shared<tf2_ros::TransformBroadcaster>(this);
-        timer_ = this->create_wall_timer(
-          100ms, std::bind(&DynamicFrameBroadcaster::broadcast_timer_callback, this));
+
+        auto broadcast_timer_callback = [this](){
+            rclcpp::Time now = this->get_clock()->now();
+            double x = now.seconds() * PI;
+
+            geometry_msgs::msg::TransformStamped t;
+            t.header.stamp = now;
+            t.header.frame_id = "turtle1";
+            t.child_frame_id = "carrot1";
+            t.transform.translation.x = 10 * sin(x);
+            t.transform.translation.y = 10 * cos(x);
+            t.transform.translation.z = 0.0;
+            t.transform.rotation.x = 0.0;
+            t.transform.rotation.y = 0.0;
+            t.transform.rotation.z = 0.0;
+            t.transform.rotation.w = 1.0;
+
+            tf_broadcaster_->sendTransform(t);
+        };
+        timer_ = this->create_wall_timer(100ms, broadcast_timer_callback);
       }
 
     private:
-      void broadcast_timer_callback()
-      {
-        rclcpp::Time now = this->get_clock()->now();
-        double x = now.seconds() * PI;
-
-        geometry_msgs::msg::TransformStamped t;
-        t.header.stamp = now;
-        t.header.frame_id = "turtle1";
-        t.child_frame_id = "carrot1";
-        t.transform.translation.x = 10 * sin(x);
-        t.transform.translation.y = 10 * cos(x);
-        t.transform.translation.z = 0.0;
-        t.transform.rotation.x = 0.0;
-        t.transform.rotation.y = 0.0;
-        t.transform.rotation.z = 0.0;
-        t.transform.rotation.w = 1.0;
-
-        tf_broadcaster_->sendTransform(t);
-      }
-
       rclcpp::TimerBase::SharedPtr timer_;
       std::shared_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
     };
@@ -473,7 +469,7 @@ Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your e
 2.3 Write the launch file
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To test this code, create a new launch file ``turtle_tf2_dynamic_frame_demo_launch.py`` and paste the following code:
+To test this code, create a new launch file ``launch/turtle_tf2_dynamic_frame_demo_launch.py`` and paste the following code:
 
 .. code-block:: python
 
@@ -526,7 +522,7 @@ Run ``rosdep`` in the root of your workspace to check for missing dependencies.
 
         rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim`` dependencies yourself
 
-From the root of your workspace, build your updated package:
+Still in the root of your workspace, build your package:
 
 .. tabs::
 

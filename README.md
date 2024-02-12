@@ -11,3 +11,43 @@ Please see the [Contributing to ROS 2 Documentation](https://docs.ros.org/en/rol
 ## Contributing to ROS 2
 
 To contribute to the ROS 2 source code project please refer to the [ROS 2 contributing guidelines](https://docs.ros.org/en/rolling/The-ROS2-Project/Contributing.html).
+
+## Prerequisites
+
+To build this you need to install
+
+* make
+* graphviz
+* python virtualenv
+
+
+In the virtualenv 
+
+```
+pip install -r requirements.txt -c constraints.txt
+```
+
+### Pinned versions
+
+For development we currently use Jammy as our build platform.
+And all python versions are pinned in the constraints file to make sure that things are reproducible.
+To upgrade the system validate that things are working and then use `pip freeze > constraints.txt` to lock in the versions to upgrade.
+
+## Building HTML
+
+### Local development test
+For local testing of the current tree use:
+
+`make html`
+
+`sensible-browser build/html/index.html`
+
+### Deployment test
+
+To test building the multisite version deployed to the website use:
+
+`make multiversion`
+
+`sensible-browser build/html/rolling/index.html`
+
+**NB:** This will ignore local workspace changes and build from the branches.

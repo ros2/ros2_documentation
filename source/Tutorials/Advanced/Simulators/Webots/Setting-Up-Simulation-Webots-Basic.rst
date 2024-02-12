@@ -245,13 +245,13 @@ You can use it to access the `Webots robot API  <https://cyberbotics.com/doc/ref
 
         .. literalinclude:: Code/MyRobotDriver.cpp
             :language: cpp
-            :lines: 13-29
+            :lines: 13-33
 
-        Then comes the implementation of the ``cmdVelCallback()`` callback function that will be called for each Twist message received on the ``/cmd_vel`` topic and will save it in the ``cmd_vel_msg`` member variable.
+        The subscription callback is declared as a lambda function, that will be called for each Twist message received on the ``/cmd_vel`` topic and will save it in the ``cmd_vel_msg`` member variable.
 
         .. literalinclude:: Code/MyRobotDriver.cpp
             :language: cpp
-            :lines: 31-35
+            :lines: 28-31
 
         The ``step()`` method is called at every time step of the simulation.
         At each time step, the method will retrieve the desired ``forward_speed`` and ``angular_speed`` from ``cmd_vel_msg``.
@@ -260,14 +260,14 @@ You can use it to access the `Webots robot API  <https://cyberbotics.com/doc/ref
 
         .. literalinclude:: Code/MyRobotDriver.cpp
             :language: cpp
-            :lines: 37-50
+            :lines: 35-48
 
         The final lines of the file define the end of the ``my_robot_driver`` namespace and include a macro to export the ``MyRobotDriver`` class as a plugin using the ``PLUGINLIB_EXPORT_CLASS`` macro.
         This allows the plugin to be loaded by the Webots ROS2 driver at runtime.
 
         .. literalinclude:: Code/MyRobotDriver.cpp
             :language: cpp
-            :lines: 53-55
+            :lines: 51-53
 
         .. note::
 

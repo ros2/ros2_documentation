@@ -86,8 +86,10 @@ Inside your package's ``src`` directory, create a new file called ``simple_bag_r
         : Node("playback_node")
         {
           publisher_ = this->create_publisher<turtlesim::msg::Pose>("/turtle1/pose", 10);
-          timer_ = this->create_wall_timer(
-              100ms, std::bind(&PlaybackNode::timer_callback, this));
+
+          timer_ = this->create_wall_timer(100ms,
+              [this](){return this->timer_callback();}
+          );
 
           reader_.open(bag_filename);
         }
@@ -158,8 +160,10 @@ Note the constructor takes a path to the bag file as a parameter.
       : Node("playback_node")
       {
         publisher_ = this->create_publisher<turtlesim::msg::Pose>("/turtle1/pose", 10);
-        timer_ = this->create_wall_timer(
-            100ms, std::bind(&PlaybackNode::timer_callback, this));
+
+        timer_ = this->create_wall_timer(100ms,
+          [this](){return this->timer_callback();}
+        );
 
 We also open the bag in the constructor.
 
@@ -297,11 +301,11 @@ Next, source the setup files.
       call install/setup.bat
 
 Now, run the script.
-Make sure to replace ``/path/to/setup`` with the path to your ``setup`` bag.
+Make sure to replace ``/path/to/subset`` with the path to your ``subset`` bag.
 
 .. code-block:: console
 
-    ros2 run bag_reading_cpp simple_bag_reader /path/to/setup
+    ros2 run bag_reading_cpp simple_bag_reader /path/to/subset
 
 You should see the (x, y) coordinates of the turtle printed to the console.
 

@@ -108,13 +108,13 @@ In addition to your custom plugin, the ``webots_ros2_driver`` will parse the ``<
 
         .. literalinclude:: Code/ObstacleAvoider.cpp
             :language: cpp
-            :lines: 6-16
+            :lines: 6-20
 
         When a measurement is received from the left sensor it will be copied to a member field:
 
         .. literalinclude:: Code/ObstacleAvoider.cpp
             :language: cpp
-            :lines: 19-22
+            :lines: 23-26
 
         Finally, a message will be sent to the ``/cmd_vel`` topic when a measurement from the right sensor is received.
         The ``command_message`` will register at least a forward speed in ``linear.x`` in order to make the robot move when no obstacle is detected.
@@ -122,7 +122,7 @@ In addition to your custom plugin, the ``webots_ros2_driver`` will parse the ``<
 
         .. literalinclude:: Code/ObstacleAvoider.cpp
             :language: cpp
-            :lines: 24-38
+            :lines: 28-42
 
 
 3 Updating additional files
@@ -151,11 +151,10 @@ You have to modify these two other files to launch your new node.
             :language: cmake
 
 
-Go to the file ``robot_launch.py`` and replace ``def generate_launch_description():`` with:
+Go to the file ``robot_launch.py`` and replace it with:
 
 .. literalinclude:: Code/robot_launch_sensor.py
     :language: python
-    :lines: 10-40
 
 This will create an ``obstacle_avoider`` node that will be included in the ``LaunchDescription``.
 

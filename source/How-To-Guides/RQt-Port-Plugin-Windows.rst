@@ -21,15 +21,6 @@ Here is the ROS 2 port of `python_qt_binding <https://github.com/ros-visualizati
 Considerations for Windows 10
 -----------------------------
 
-Troubles with TinyXML version 1
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-I could not successfully use TinyXML.
-I upgraded to TinyXML-2 where needed.
-It’s a pretty straight forward change.
-
-Checkout `this PR <https://github.com/ros-visualization/qt_gui_core/pull/147>`__ for an example of porting to TinyXML-2.
-
 Code that uses ``__cplusplus`` and code that requires pluginlib
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
