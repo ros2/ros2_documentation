@@ -39,6 +39,33 @@ TODO
 New features in this ROS 2 release
 ----------------------------------
 
+``rclcpp``
+^^^^^^^^^^
+
+Type support helper for services
+""""""""""""""""""""""""""""""""
+
+New type support helper for services ``rclcpp::get_service_typesupport_handle`` is added to extract service type support handle.
+
+See https://github.com/ros2/rclcpp/pull/2209 for more details.
+
+``ros2cli``
+^^^^^^^^^^^
+
+``--log-file-name`` command line argument
+"""""""""""""""""""""""""""""""""""""""""
+
+It is now possible to use ``--log-file-name`` command line argument to specify the log file name prefix.
+
+.. code-block:: bash
+
+   ros2 run demo_nodes_cpp talker --ros-args --log-file-name filename
+
+See https://github.com/ros2/ros2cli/issues/856 for more information.
+
+Changes since the Iron release
+------------------------------
+
 ``geometry2``
 ^^^^^^^^^^^^^
 
@@ -68,13 +95,6 @@ Deprecated ``rclcpp/qos_event.hpp`` header was removed
 In Iron, the header ``rclcpp/qos_event.hpp`` was deprecated in favor of ``rclcpp/event_handler.hpp``.
 In Jazzy, the ``rclcpp/qos_event.hpp`` header been completely removed.
 
-Type support helper for services
-""""""""""""""""""""""""""""""""
-
-New type support helper for services ``rclcpp::get_service_typesupport_handle`` is added to extract service type support handle.
-
-See https://github.com/ros2/rclcpp/pull/2209 for more details.
-
 ``rclpy``
 ^^^^^^^^^^
 
@@ -84,20 +104,6 @@ See https://github.com/ros2/rclcpp/pull/2209 for more details.
 The ``rclpy.node.Node.declare_parameter`` does not allow statically typing parameter without default value.
 
 See https://github.com/ros2/rclpy/pull/1216 for more details.
-
-``ros2cli``
-^^^^^^^^^^^
-
-``--log-file-name`` command line argument
-"""""""""""""""""""""""""""""""""""""""""
-
-It is now possible to use ``--log-file-name`` command line argument to specify the log file name prefix.
-
-.. code-block:: bash
-
-   ros2 run demo_nodes_cpp talker --ros-args --log-file-name filename
-
-See https://github.com/ros2/ros2cli/issues/856 for more information.
 
 
 Development progress
