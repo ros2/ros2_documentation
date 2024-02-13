@@ -123,6 +123,49 @@ To check for broken links on the site, run:
 
 This will check the entire site for broken links, and output the results to the screen and ``build/linkcheck``.
 
+Migrating Pages from the ROS Wiki
+---------------------------------
+
+
+The first step in migrating a page from the `ROS Wiki <https://wiki.ros.org?>`_ to the ROS documentationis to determine if the page needs to be migrated. Pages that you or others find useful, and refer to regularly, are good candidates assuming they have not been supersceded by other documentation.
+Pages for ROS projects and features that are no longer supported by a current distribution should not be migrated.
+
+The next step for migrating a ROS Wiki page is to determine the correct location for the migrated page. Only Wiki pages that cover core ROS concepts belong on the ROS documentation and these pages should be migrated to a logical location within the ROS documentation.
+Package specific  documentation should be migrated to the package level documentation generated in the package's source repository.
+Once the package level documentation has been updted it will be visible `in this location <https://docs.ros.org/en/rolling/p/>`_
+
+Once you've determined that a page is worth migrating and has an appropriate landing spot in the ROS documentation, the next step in the migration process is to set up the conversion tools necessary to migrate the page.
+In most cases the only tools necessary to migrate a single Wiki page to the ROS Docs is `PanDoc <https://pandoc.org/>`_ and a text editor. 
+PanDoc is supported by most modern operating systems using the instruction found on their website.
+The ROS Wiki uses an older wiki technology that is a competitor to the technology used by Wikipedia, and the markup language is dialect of the MediaWiki format.
+We've found that the easiest way to migrate a page from the ROS Wiki is to convert it from HTML into reStructured text using PanDoc.
+
+
+Migrating a Wiki File
+^^^^^^^^^^^^^^^^^^^^^
+
+#. Create a new Github branch for your migrated page. We suggest something like `pagename-migration`. 
+
+#. Download the appropriate ROS Wiki page to an html file using wget or a similar tool (e.g. `wget -O urdf.html https://wiki.ros.org/urdf`). 
+
+#. Remove the extraneous HTML in the download file. Using your browser's developer mode, find the name of the first useful HTML element in the Wiki page. In most cases all of the HTML between the third line of the file, starting with the `<head>` tag, through the start of the first `<h1>` tag can be safely removed. In the case where there is a table of contents, the first useful tag may be an `<h2>` tag.  Similarly, the ROS wiki contains some footer text that starts with `<div id="pagebottom"></div>` and ends just above `</body></html>` that can be removed. 
+   
+#. Find and download any images that may be in the old document. The easiest way to do this is to right click in the browser and download all of the images. Alternatively you can find images by searching for `<img src>` tags.
+
+#. Convert your html file by running a PanDoc conversion between HTML and restructured text. The following command coverts an HTML file to the equivalent reStructured text files. `pandoc -f html -t rst urdf.html > URDF.rst` 
+
+#. Attempt to build your new documentation. There may be errors and warning that you will need to fix.
+
+#. **CAREFULLY** read through the entire page making sure the material is up-to date for ROS 2. Check every single link to make sure it points to the appropriate location on docs.ros.org. Internal document references must be updated to point to the equivalent ROS 2 material. Unless it is absolutely necessary your updated document should not point to the ROS Wiki and you may need to alter the document considerably by pulling in multiple wiki files. You should verify that every code sample is working correctly under ROS 2.     
+   
+#. Add a table of contents to the top of your  new rst document. This block should replace any existing table of contents from the wiki.. 
+
+#. Update the image file links to point to the correct image directory for the ROS Docs.. If images require updating, or could be replaced with a Mermaid chart, please make this change.
+
+#. Issue your pull request. Make sure to point to the original ROS Wiki file for reference. 
+
+
+
 Building the Site with GitHub Codespaces
 ----------------------------------------
 First, you need to have a GitHub account (If you don't have one, you can create one for free). Then, you need to go to the `ROS 2 Documentation GitHub repository <https://github.com/ros2/ros2_documentation>`_. After that, you can open the repository in Codespaces, it can be done just by clicking on the "Code" button on the repository page, then choose "Open with Codespaces" from the dropdown menu.
