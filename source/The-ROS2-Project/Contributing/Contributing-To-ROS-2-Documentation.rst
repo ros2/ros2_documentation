@@ -142,7 +142,7 @@ Once the package level documentation has been updted it will be visible `as part
 Once you've determined that a ROS Wiki page is worth migrating, and found an appropriate landing spot in the ROS documentation, the next step in the migration process is to set up the conversion tools necessary to migrate the page.
 In most cases the only tools necessary to migrate a single ROS Wiki page to the ROS Docs are the `PanDoc <https://pandoc.org/>`_ command line tool and a text editor.
 PanDoc is supported by most modern operating systems using the installation instruction found on their website.
-It is worth noting that the ROS Wiki uses an older wiki technology that is a competitor to the technology used by Wikipedia, as such the markup language used is an obscure dialect of the MediaWiki format.
+It is worth noting that the ROS Wiki uses an older wiki technology (MoinMoin), so the markup language used is an obscure dialect of the `MediaWiki <https://www.mediawiki.org/wiki/Help:Formatting>`__ format.
 We've found that the easiest way to migrate a page from the ROS Wiki is to convert it from HTML into reStructured text using PanDoc.
 
 
