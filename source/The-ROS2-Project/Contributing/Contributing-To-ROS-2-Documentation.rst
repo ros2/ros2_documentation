@@ -150,6 +150,8 @@ We've found that the easiest way to migrate a page from the ROS Wiki is to conve
 Migrating a Wiki File
 ^^^^^^^^^^^^^^^^^^^^^
 
+#. Clone the appropriate repository.  If you are migrating a page to the official documentation hosted here, then you should clone https://github.com/ros2/ros2_documentation.
+
 #. Create a new Github branch for your migrated page. We suggest something like ``pagename-migration``.
 
 #. Download the appropriate ROS Wiki page to an html file using wget or a similar tool (e.g. ``wget -O urdf.html https://wiki.ros.org/urdf``).
