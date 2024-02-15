@@ -126,8 +126,12 @@ This will check the entire site for broken links, and output the results to the 
 Migrating Pages from the ROS Wiki
 ---------------------------------
 
-
-The first step in migrating a page from the `ROS Wiki <https://wiki.ros.org?>`_ to the ROS documentation is to determine if the page needs to be migrated. Pages that you or others find useful, and refer to regularly, are good candidates assuming they have not been supersceded by other documentation.
+The first step in migrating a page from the `ROS Wiki <https://wiki.ros.org?>`_ to the ROS documentation is to determine if the page needs to be migrated.
+Check if the content, or something similar, is available on https://docs.ros.org/en/rolling by searching for related terms.
+If it has already been migrated, congratulations!
+You are done.
+If it hasn't been migrated, then consider whether it is worth keeping.
+Pages that you or others find useful, and refer to regularly, are good candidates assuming they have not been superseded by other documentation.
 Pages for ROS projects and features that are no longer supported by a current distribution should not be migrated.
 
 The next step for migrating a ROS Wiki page is to determine the correct location for the migrated page.
