@@ -178,7 +178,7 @@ Migrating a Wiki File
 #. Find and download any images that may be in the old document. The easiest way to do this is to right click in the browser and download all of the images. Alternatively you can find images by searching for ``<img src>`` tags in the HTML file.
 
 #. For each image files downloaded update the image file links to point to the correct image directory for the ROS Docs.
-   If any of the images require updating, or could be replaced with a Mermaid chart, please make this change.
+   If any of the images require updating, or could be replaced with a `Mermaid <https://mermaid.js.org/intro/>`__ chart, please make this change.
 
 #. Once your document is complete add a table of contents to the top of your new rst document using the appropriate Sphinx commands.
    This block should replace any existing table of contents from the old ROS Wiki.
