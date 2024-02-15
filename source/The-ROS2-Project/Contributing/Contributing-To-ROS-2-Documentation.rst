@@ -135,7 +135,7 @@ Pages that you or others find useful, and refer to regularly, are good candidate
 Pages for ROS projects and features that are no longer supported by a current distribution should not be migrated.
 
 The next step for migrating a ROS Wiki page is to determine the correct location for the migrated page.
-Only ROS Wiki pages that cover core ROS concepts belong in the ROS Documentation; these pages should be migrated to a logical location within the ROS documentation.
+Only ROS Wiki pages that cover core ROS concepts belong in the ROS Documentation, these pages should be migrated to a logical location within the ROS documentation.
 Package specific documentation should be migrated to the package-level documentation generated in the package's source repository.
 Once the package level documentation has been updated it will be visible `as part of the package-level documentation <https://docs.ros.org/en/rolling/p/>`__.
 If you are unsure whether and where to migrate a page, please get in touch via an issue on https://github.com/ros2/ros2_documentation or on https://discourse.ros.org.
