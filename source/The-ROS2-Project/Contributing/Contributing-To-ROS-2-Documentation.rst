@@ -179,6 +179,7 @@ Migrating a Wiki File
 
 #. For each image files downloaded update the image file links to point to the correct image directory for the ROS Docs.
    If any of the images require updating, or could be replaced with a `Mermaid <https://mermaid.js.org/intro/>`__ chart, please make this change.
+   Be aware that Mermaid.js is only supported in the core ROS 2 documenation currently.
 
 #. Once your document is complete add a table of contents to the top of your new rst document using the appropriate Sphinx commands.
    This block should replace any existing table of contents from the old ROS Wiki.
@@ -188,6 +189,8 @@ Migrating a Wiki File
 
 #. Once your pull request has been accepted please add a note to the top of the page on the original ROS Wiki article pointing to the new documentation page.
 
+For a real-world example of this process in action, please refer to the ROS 2 Image Processing Pipeline in both `the ROS 2 Docs,`<https://github.com/ros-perception/image_pipeline/blob/rolling/image_pipeline/doc/tutorials.rst>__ and in the original `ROS Wiki`<https://wiki.ros.org/image_pipeline>_.
+The completed documentation page can be found in the `ROS 2 package documentation for image_pipeline`<https://docs.ros.org/en/rolling/p/image_pipeline/>__.
 
 Building the Site with GitHub Codespaces
 ----------------------------------------
