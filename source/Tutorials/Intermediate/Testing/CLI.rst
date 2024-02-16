@@ -43,9 +43,26 @@ Since the previous build type may be cached by CMake, clean the cache and rebuil
 
   colcon build --cmake-clean-cache --mixin debug
 
-Next, run the test directly through gdb.
+In order for gdb to load debug symbols for any shared libraries called, make sure to source your environment.
+This configures the value of ``LD_LIBRARY_PATH``.
+
+.. code-block:: console
+
+  source install/setup.bash
+
+
+Finally, run the test directly through gdb.
 For example:
 
 .. code-block:: console
 
   gdb -ex run ./build/rcl/test/test_logging
+
+If the code is throwing an unhandled exception, you can catch it in GDB before gtest handles it.
+
+.. code-block:: console
+
+  gdb ./build/rcl/test/test_logging
+  catch throw
+  run
+
