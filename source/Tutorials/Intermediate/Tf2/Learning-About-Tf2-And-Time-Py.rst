@@ -40,7 +40,7 @@ It should look like shown below:
    trans = self._tf_buffer.lookup_transform(
       to_frame_rel,
       from_frame_rel,
-      now)
+      self.get_clock().now())
 
 Moreover, import additional exceptions that we will handle in the beginning of the file:
 
@@ -74,7 +74,7 @@ To fix this, edit your code on line 76 as shown below (return the ``timeout`` pa
    trans = self._tf_buffer.lookup_transform(
       to_frame_rel,
       from_frame_rel,
-      now,
+      self.get_clock().now(),
       timeout=rclpy.duration.Duration(seconds=1.0))
 
 The ``lookup_transform`` can take four arguments, where the last one is an optional timeout.
