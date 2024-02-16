@@ -21,6 +21,8 @@ Background
 
 See the :doc:`conceptual article <../../Concepts/Intermediate/About-Composition>`.
 
+For information on how to write a composable node, :doc:`check out this tutorial <Writing-a-Composable-Node>`.
+
 Run the demos
 -------------
 
