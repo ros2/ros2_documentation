@@ -54,6 +54,8 @@ Additionally, once a component is created, it must be registered with the index 
    # To register multiple components in the same shared library, use multiple calls
    # rclcpp_components_register_nodes(talker_component "composition::Talker2")
 
+For an example, :doc:`check out this tutorial <../../Tutorials/Intermediate/Writing-a-Composable-Node>`
+
 .. note::
 
    In order for the component_container to be able to find desired components, it must be executed or launched from a shell that has sourced the corresponding workspace.
