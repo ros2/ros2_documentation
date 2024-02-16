@@ -83,7 +83,7 @@ Replace your main method with a ``pluginlib``-style macro invocation.
 
 CMake Changes
 ^^^^^^^^^^^^^
-First, add ``rclcpp_components`` as a dependency in your `CMakeLists.txt <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/composition/CMakeLists.txt>`__ with
+First, add ``rclcpp_components`` as a dependency in your CMakeLists.txt with:
 
 .. code-block:: cmake
 
