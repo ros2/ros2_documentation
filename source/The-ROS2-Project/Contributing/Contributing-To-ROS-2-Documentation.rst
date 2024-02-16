@@ -126,7 +126,7 @@ This will check the entire site for broken links, and output the results to the 
 Migrating Pages from the ROS Wiki
 ---------------------------------
 
-The first step in migrating a page from the `ROS Wiki <https://wiki.ros.org?>`_ to the ROS documentation is to determine if the page needs to be migrated.
+The first step in migrating a page from the `ROS Wiki <https://wiki.ros.org>`_ to the ROS 2 documentation is to determine if the page needs to be migrated.
 Check if the content, or something similar, is available on https://docs.ros.org/en/rolling by searching for related terms.
 If it has already been migrated, congratulations!
 You are done.
@@ -189,18 +189,21 @@ Migrating a Wiki File
 
 #. Once your pull request has been accepted please add a note to the top of the page on the original ROS Wiki article pointing to the new documentation page.
 
-For a real-world example of this process in action, please refer to the ROS 2 Image Processing Pipeline in both `the ROS 2 Docs,`<https://github.com/ros-perception/image_pipeline/blob/rolling/image_pipeline/doc/tutorials.rst>__ and in the original `ROS Wiki`<https://wiki.ros.org/image_pipeline>_.
-The completed documentation page can be found in the `ROS 2 package documentation for image_pipeline`<https://docs.ros.org/en/rolling/p/image_pipeline/>__.
+For a real-world example of this process in action, please refer to the ROS 2 Image Processing Pipeline in both `the ROS 2 Docs <https://github.com/ros-perception/image_pipeline/blob/rolling/image_pipeline/doc/tutorials.rst>`__ and in the original `ROS Wiki <https://wiki.ros.org/image_pipeline>`__.
+The completed documentation page can be found in the `ROS 2 package documentation for image_pipeline <https://docs.ros.org/en/rolling/p/image_pipeline/>`__.
 
 Building the Site with GitHub Codespaces
 ----------------------------------------
-First, you need to have a GitHub account (If you don't have one, you can create one for free). Then, you need to go to the `ROS 2 Documentation GitHub repository <https://github.com/ros2/ros2_documentation>`_. After that, you can open the repository in Codespaces, it can be done just by clicking on the "Code" button on the repository page, then choose "Open with Codespaces" from the dropdown menu.
+First, you need to have a GitHub account (if you don't have one, you can create one for free).
+Then, you need to go to the `ROS 2 Documentation GitHub repository <https://github.com/ros2/ros2_documentation>`__.
+After that, you can open the repository in Codespaces, it can be done just by clicking on the "Code" button on the repository page, then choose "Open with Codespaces" from the dropdown menu.
 
 .. image:: images/codespaces.png
    :width: 100%
    :alt: Codespaces creation
 
-After that, you will be redirected to your Codespaces page, where you can see the progress of the Codespaces creation. Once it is done, a Visual Studio Code tab will be opened in your browser. You can open the terminal by clicking on the "Terminal" tab in the top panel or by pressing :kbd:`Ctrl-J`.
+After that, you will be redirected to your Codespaces page, where you can see the progress of the Codespaces creation.
+Once it is done, a Visual Studio Code tab will be opened in your browser. You can open the terminal by clicking on the "Terminal" tab in the top panel or by pressing :kbd:`Ctrl-J`.
 
 In this terminal, you can run any command you want, for example, you can run the following command to build the site for just this branch:
 
