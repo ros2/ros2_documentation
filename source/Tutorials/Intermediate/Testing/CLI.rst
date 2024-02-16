@@ -50,7 +50,6 @@ This configures the value of ``LD_LIBRARY_PATH``.
 
   source install/setup.bash
 
-
 Finally, run the test directly through GDB.
 For example:
 
