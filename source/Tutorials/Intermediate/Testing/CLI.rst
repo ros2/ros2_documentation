@@ -35,7 +35,7 @@ To see the exact test cases which fail, use the ``--verbose`` flag:
 Debugging tests with GDB
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-If a C++ test is failing, gdb can be used directly on the test executable in the build directory.
+If a C++ test is failing, GDB can be used directly on the test executable in the build directory.
 Ensure to build the code in debug mode.
 Since the previous build type may be cached by CMake, clean the cache and rebuild.
 
@@ -43,7 +43,7 @@ Since the previous build type may be cached by CMake, clean the cache and rebuil
 
   colcon build --cmake-clean-cache --mixin debug
 
-In order for gdb to load debug symbols for any shared libraries called, make sure to source your environment.
+In order for GDB to load debug symbols for any shared libraries called, make sure to source your environment.
 This configures the value of ``LD_LIBRARY_PATH``.
 
 .. code-block:: console
@@ -51,7 +51,7 @@ This configures the value of ``LD_LIBRARY_PATH``.
   source install/setup.bash
 
 
-Finally, run the test directly through gdb.
+Finally, run the test directly through GDB.
 For example:
 
 .. code-block:: console
