@@ -156,8 +156,3 @@ RQt dependencies
 
 To run rqt_graph you need to `download <https://graphviz.gitlab.io/_pages/Download/Download_windows.html>`__ and install `Graphviz <https://graphviz.gitlab.io/>`__.
 The installer will ask if to add graphviz to PATH, choose to either add it to the current user or all users.
-
-Install additional DDS implementations (optional)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-If you would like to use another DDS or RTPS vendor besides the default, Fast DDS, you can find instructions `here <../Installation/DDS-Implementations.html>`_.
