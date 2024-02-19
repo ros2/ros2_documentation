@@ -39,6 +39,11 @@ Downloading ROS 2
 
 * Unpack the zip file somewhere (we'll assume ``C:\dev\ros2_{DISTRO}``\ ).
 
+Install additional DDS implementations (optional)
+-------------------------------------------------
+
+If you would like to use another DDS or RTPS vendor besides the default, Fast DDS, you can find instructions :doc:`here <DDS-Implementations>`.
+
 Environment setup
 -----------------
 
