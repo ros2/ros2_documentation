@@ -246,11 +246,7 @@ Finally it creates a new ``AddTwoInts`` request object.
           self.get_logger().info('service not available, waiting again...')
       self.req = AddTwoInts.Request()
 
-Below the constructor is the ``send_request`` method, which will send the request and spin until it receives the response or fails.
-
-**Important:** ``rclpy.spin_until_future_complete`` cannot be executed under the context of another ``rclpy.spin``.
-This means the function cannot be used within e.g. a ROS 2 subscriber callback. To avoid this issue you can store
-data from the callback and run the service call later (outside of ``spin``).
+Below the constructor is the ``send_request`` method, which will send the request and spin until it receives the response or fails. Be careful not to run `rclpy.spin_until_future_complete` from within a ROS callback function! For more details [see here.](https://docs.ros.org/en/rolling/How-To-Guides/Sync-Vs-Async.html#sync-deadlock)
 
 .. code-block:: python
 
