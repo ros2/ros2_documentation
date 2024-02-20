@@ -12,13 +12,13 @@ Package Setup
 
 Source Code
 ^^^^^^^^^^^
-We'll start off with our code in a file called ``test/tutorial_test.cpp``
+We'll start off with our code in a file called ``<your_package>/test/tutorial_test.cpp``
 
 .. code-block:: c++
 
     #include <gtest/gtest.h>
 
-    TEST(package_name, a_first_test)
+    TEST(<your_package>, a_first_test)
     {
       ASSERT_EQ(4, 2 + 2);
     }
@@ -29,6 +29,18 @@ We'll start off with our code in a file called ``test/tutorial_test.cpp``
       return RUN_ALL_TESTS();
     }
 
+Example package layout:
+"""""""""""""""""""""""
+
+.. code-block::
+
+  <your_workspace>/src/<your_package>/
+    CMakeList.txt
+    include/
+    package.xml
+    src/
+    tests/
+        tutorial_test.cpp
 
 package.xml
 ^^^^^^^^^^^
