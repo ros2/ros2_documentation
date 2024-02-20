@@ -169,9 +169,7 @@ In ROS 2:
    rclpy.spin_until_future_complete(node, resp)
 
 
-**Important:** ``rclpy.spin_until_future_complete`` cannot be executed under the context of another ``rclpy.spin``.
-This means the function cannot be used within e.g. a ROS 2 subscriber callback. To avoid this issue you can store
-data from the callback and run the service call later (outside of ``spin``).
+Be careful not to run `rclpy.spin_until_future_complete` from within a ROS callback function! For more details [see here.](https://docs.ros.org/en/rolling/How-To-Guides/Sync-Vs-Async.html#sync-deadlock)
 
 
 Executing at a Specific Rate
