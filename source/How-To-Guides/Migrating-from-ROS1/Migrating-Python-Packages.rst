@@ -169,7 +169,7 @@ In ROS 2:
    rclpy.spin_until_future_complete(node, resp)
 
 
-Be careful not to run `rclpy.spin_until_future_complete` from within a ROS callback function! For more details [see here.](https://docs.ros.org/en/rolling/How-To-Guides/Sync-Vs-Async.html#sync-deadlock)
+Be careful not to run `rclpy.spin_until_future_complete` from within a ROS callback function! For more details `see here. <https://docs.ros.org/en/rolling/How-To-Guides/Sync-Vs-Async.html#sync-deadlock/>`_
 
 
 Executing at a Specific Rate
