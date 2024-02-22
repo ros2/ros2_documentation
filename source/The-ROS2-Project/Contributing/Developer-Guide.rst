@@ -584,23 +584,19 @@ If a design review is happening in the later stages, the changes will be part of
 Writing the design document
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Design docs must never include confidential information.
-Whether or not a design document is required for your change depends on how big the task is.
+Design docs are a way to document repository or package specific design decisions.
+This is different than `ROS Enhancement Proposals (or REPs) <https://ros.org/reps/rep-0000.html>`__, which are for larger decisions that often effect the ROS community.
+If you are unsure if you should do a design document or a REP, you can ask the ROS 2 team.
+A good place to ask is in the weekly ROS 2 meeting, or in a Github issue in a relevant ROS 2 repository.
 
-1. You are making a small change or fixing a bug:
+Design docs should be placed in a `doc` directory in the relevant repository or package.
+And submitted as a pull request that references any related Github issues.
+Make sure to mention any additional context in the pull request such as if the design doc is intended for a specific ROS version.
+Feedback for the design doc wil be made directly on the pull request.
 
-  * A design document is not required, but an issue should be opened in the appropriate repository to track the work and avoid duplication of efforts.
+.. note::
+    Design docs should never include confidential information and they are not required for bug fixes.
 
-2. You are implementing a new feature or would like to contribute to OSRF-owned infrastructure (like Jenkins CI):
-
-  * Design doc is required and should be contributed to `ros2/design <https://github.com/ros2/design/>`__ to be made accessible on https://design.ros2.org/.
-  * You should fork the repository and submit a pull request detailing the design.
-
-  Mention the related ros2 issue (for example, ``Design doc for task ros2/ros2#<issue id>``) in the pull request or the commit message.
-  Detailed instructions are on the `ROS 2 Contribute <https://design.ros2.org/contribute.html>`__ page.
-  Design comments will be made directly on the pull request.
-
-If the task is planned to be released with a specific version of ROS, this information should be included in the pull request.
 
 Design document review
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -640,7 +636,7 @@ maintainers of all impacted packages (as defined by ``package.xml`` maintainer f
 
 * Once consensus is reached:
 
-  * Ensure the `ros2/design <https://github.com/ros2/design/>`__ pull request has been merged, if applicable
+  * Ensure the design pull request has been merged, if applicable
   * Update and close the GitHub issue associated with this design task
 
 Implementation
