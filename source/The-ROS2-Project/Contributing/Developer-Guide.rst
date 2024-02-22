@@ -589,7 +589,7 @@ This is different than `ROS Enhancement Proposals (or REPs) <https://ros.org/rep
 If you are unsure if you should do a design document or a REP, you can ask the ROS 2 team.
 A good place to ask is in the weekly ROS 2 meeting, or in a Github issue in a relevant ROS 2 repository.
 
-Design docs should be placed in a `doc` directory in the relevant repository or package.
+Design docs should be placed in a ``doc`` directory in the relevant repository or package.
 And submitted as a pull request that references any related Github issues.
 Make sure to mention any additional context in the pull request such as if the design doc is intended for a specific ROS version.
 Feedback for the design doc wil be made directly on the pull request.
