@@ -95,6 +95,14 @@ Deprecated ``rclcpp/qos_event.hpp`` header was removed
 In Iron, the header ``rclcpp/qos_event.hpp`` was deprecated in favor of ``rclcpp/event_handler.hpp``.
 In Jazzy, the ``rclcpp/qos_event.hpp`` header been completely removed.
 
+Deprecated subscription callback signatures were removed
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Back in Humble, subscription signatures of the form ``void callback(std::shared_ptr<MessageT>)`` and ``void callback(std::shared_ptr<MessageT>, const rclcpp::MessageInfo &)`` were deprecated.
+
+In Jazzy, these subscription signatures have been removed.
+Users should switch to using ``void callback(std::shared_ptr<const MessageT>)`` or ``void callback(std::shared_ptr<const MessageT>, const rclcpp MessageInfo &)``.
+
 ``rclpy``
 ^^^^^^^^^^
 
