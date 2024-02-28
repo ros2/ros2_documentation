@@ -124,6 +124,7 @@ Finally, make sure to install the launch files:
 ^^^^^^^^^^^^^^^^^^^^
 
 Let's create a launch file that will call and pass arguments to another launch file.
+This launch file can either be in Python, or in YAML.
 
 To do this, create following file in the ``launch`` folder of the ``launch_tutorial`` package.
 
@@ -131,7 +132,6 @@ To do this, create following file in the ``launch`` folder of the ``launch_tutor
 
   .. group-tab:: Python
 
-    Create an ``example_main_launch.py`` file.
 
     Copy and paste the complete code into the ``launch/example_main_launch.py`` file:
 
@@ -168,7 +168,7 @@ To do this, create following file in the ``launch`` folder of the ``launch_tutor
           ])
 
 
-    In the ``example_main_launch.py`` file, the ``FindPackageShare`` substitution is used to find the path to the ``launch_tutorial`` package.
+    The ``FindPackageShare`` substitution is used to find the path to the ``launch_tutorial`` package.
     The ``PathJoinSubstitution`` substitution is then used to join the path to that package path with the ``example_substitutions_launch.py`` file name.
 
     .. code-block:: python
@@ -192,7 +192,6 @@ To do this, create following file in the ``launch`` folder of the ``launch_tutor
 
   .. group-tab:: YAML
 
-    Create an ``example_main_launch.yaml`` file.
 
     Copy and paste the complete code into the ``launch/example_main_launch.yaml`` file:
 
@@ -212,8 +211,8 @@ To do this, create following file in the ``launch`` folder of the ``launch_tutor
               - name: 'new_background_r'
                 value: '$(var background_r)'
 
-    In the ``example_main_launch.yaml`` file, the ``$(find-pkg-share launch_tutorial)`` substitution is used to find the path to the ``launch_tutorial`` package.
-    The path substitution is then extended with the ``example_substitutions_launch.yaml`` file name.
+    The ``$(find-pkg-share launch_tutorial)`` substitution is used to find the path to the ``launch_tutorial`` package.
+    The path substitution is then joined with the ``example_substitutions_launch.yaml`` file name.
 
     .. code-block:: yaml
 
@@ -241,7 +240,7 @@ Now create the substitution launch file in the same folder:
 
   .. group-tab:: Python
 
-    Create the file ``example_substitutions_launch.py`` and insert the following code:
+    Create the file ``launch/example_substitutions_launch.py`` and insert the following code:
 
     .. code-block:: python
 
@@ -327,7 +326,7 @@ Now create the substitution launch file in the same folder:
                 )
             ])
 
-    In the ``example_substitutions_launch.py`` file, ``turtlesim_ns``, ``use_provided_red``, and ``new_background_r`` launch configurations are defined.
+    The ``turtlesim_ns``, ``use_provided_red``, and ``new_background_r`` launch configurations are defined.
     They are used to store values of launch arguments in the above variables and to pass them to required actions.
     These ``LaunchConfiguration`` substitutions allow us to acquire the value of the launch argument in any part of the launch description.
 
@@ -416,7 +415,7 @@ Now create the substitution launch file in the same folder:
 
   .. group-tab:: YAML
 
-    Create the file ``example_substitutions_launch.yaml`` and insert the following code:
+    Create the file ``launch/example_substitutions_launch.yaml`` and insert the following code:
 
     .. code-block:: yaml
 
@@ -447,7 +446,7 @@ Now create the substitution launch file in the same folder:
                   cmd: 'ros2 param set $(var turtlesim_ns)/sim background_r $(var new_background_r)'
                   if: '$(eval "$(var new_background_r) == 200 and $(var use_provided_red)")'
 
-    In the ``example_substitutions_launch.yaml`` file, ``turtlesim_ns``, ``use_provided_red``, and ``new_background_r`` launch configurations are defined.
+    The ``turtlesim_ns``, ``use_provided_red``, and ``new_background_r`` launch configurations are defined.
     They are used to store values of launch arguments in the above variables and to pass them to required actions.
     The launch configuration arguments can later be used with the ``$(var <name>)`` substitution to acquire the value of the launch argument in any part of the launch description.
 
@@ -475,7 +474,8 @@ Now create the substitution launch file in the same folder:
           exec: 'turtlesim_node'
           name: 'sim'
 
-    Afterwards, an ``executable`` action is defined with the corresponding ``cmd`` tag. This command makes a call to the spawn service of the turtlesim node.
+    Afterwards, an ``executable`` action is defined with the corresponding ``cmd`` tag.
+    This command makes a call to the spawn service of the turtlesim node.
 
     Additionally, the ``$(var <name>)`` substitution is used to get the value of the ``turtlesim_ns`` launch argument to construct a command string.
 
