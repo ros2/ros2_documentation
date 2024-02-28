@@ -30,6 +30,105 @@ tf2 can operate in a distributed system.
 This means all the information about the coordinate frames of a robot is available to all ROS 2 components on any computer in the system.
 tf2 can have every component in your distributed system build its own transform information database or have a central node that gathers and stores all transform information.
 
+.. mermaid::
+
+   flowchart LR
+      E((Earth))
+      E --> A[[Car A]]
+      E --> B[[Car B]]
+      E --> C{{Satellite C}}
+      E --> D((Moon D))
+
+Publishing transforms
+.....................
+
+When publishing transform we typically think of the transforms as the transform from on frame to the other.
+The semantic difference is whether you are transforming data represented in a frame or transforming the frame itself.
+These values are directly inverse.
+Transforms published in the Transform message represent the frame forumlation.
+Keep this in mind when debugging published transforms they are the inverse of what you will lookup depending on what direction you're traversing the transform tree.
+
+.. math::
+
+
+   _{B}T^{data}_{A} = (_{B}T^{frame}_{A})^{-1}
+
+The TF library handles inverting these elements for you depending on which way you're traversing the transform tree.
+For the rest of this document we will just use :math:`T^{data}` but the ``data`` is unwritten.
+
+Position
+........
+
+If the driver in car :math:`A` observes something and a person on the ground wants to know where it is relative to it's position, you transform the observation from the source frame to the target frame. 
+
+.. math::
+
+   _{E}T_{A} * P_{A}^{Obs} = P_{E}^{Obs}
+
+
+Now if a person in car B wants to know where it is too you can compute the net transform. 
+
+
+.. math::
+
+   _{B}T_{E} * _{E}T_{A} * P_{A}^{Obs} = _{B}T_{A} * P_{A}^{Obs} = P_{E}^{Obs}
+
+
+This is exactly what ``lookupTransform`` provides where ``A`` is the *source* ``frame_id`` and ``B`` is the *target* ``frame_id``.
+
+It is recommended to use the ``transform<T>(target_frame, ...)`` methods when possible because they will read the *source* ``frame_id`` from the datatype and write out the *target* ``frame_id`` in the resulting datatype and the math will be taken care of internally.
+
+If :math:`P` is a ``Stamped`` datatype then :math:`_A` is it's ``frame_id``.
+
+As an example, if a root frame ``A`` is one meter below frame ``B`` the transform from ``A`` to ``B`` is positive.
+
+However when converting data from coordinate frame ``B`` to coordinate frame ``A`` you have to use the inverse of this value.
+This can be seen as you'll be adding value to the height when you change to the lower reference frame.
+However if you are transforming data from coordinate frame ``A`` into coordinate frame ``B`` the height is reduced because the new reference is higher.
+
+
+
+.. math::
+
+
+   _{B}T_{A} = (_{B}{Tf}_{A})^{-1}
+
+
+Velocity 
+........
+
+
+For representing ``Velocity`` we have three pieces of information. :math:`V^{moving\_frame - reference\_frame}_{observing\_frame}`
+This velocity represents the velocity between the moving frame and the reference frame.
+And it is represented in the observing frame.
+
+For example a driver in Car A can report that they're driving forward(observed in A) at 1m/s (relative to earth) so that would be :math:`V_{A}^{A - E} = (1,0,0)`
+Whereas that same velocity could be observed from the view point of the earth (lets assume the car is driving east and Earth is NED), it would be :math:`V_{E}^{A - E} = (0, 1, 0)`
+
+However transforms can show that these are actually the same with:
+
+.. math::
+
+   _{E}T_{A} * V_{A}^{A - E} = V_{E}^{A - E}
+
+
+Velocities can be added or subtracted if they're represented in the same frame, in this case ``Obs``. 
+
+.. math::
+
+   V_{Obs}^{A - C} = V_{Obs}^{A - B} + V_{Obs}^{B - C}
+
+TODO: Enumerate test cases for velocity reprojections via reference points(or collapsing). Especially with angular velocities. 
+
+Velocities can be "reversed" by inverting. 
+
+.. math::
+
+   V_{Obs}^{A - C} = (V_{Obs}^{C - A})^{-1}
+
+If you want to compare two velocities you must first transform them into the same observational frame first.
+
+
 Tutorials
 ---------
 
