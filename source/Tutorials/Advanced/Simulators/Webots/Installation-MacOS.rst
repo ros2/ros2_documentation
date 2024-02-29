@@ -87,7 +87,7 @@ The following instructions and commands are all run inside the VM.
 
   .. code-block:: console
 
-      share	/home/ubuntu/shared	9p	trans=virtio,version=9p2000.L,rw,_netdev,nofail	0	0
+      share     /home/ubuntu/shared     9p      trans=virtio,version=9p2000.L,rw,_netdev,nofail 0       0
 
 * The environment variable ``WEBOTS_SHARED_FOLDER`` must always be set in order for the package to work properly in the VM.
   This variable specifies the location of the shared folder that is used to exchange data between the host machine and the virtual machine (VM) to the ``webots_ros2`` package.
