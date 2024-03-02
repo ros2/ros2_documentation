@@ -203,7 +203,10 @@ Alternatively, if you server of interest is being launched in these files direct
 - Launch the server's node in another terminal following the instructions in `From a Node`_.
 
 .. note::
-  Note that in this case, you may need to remap or provide parameter files to this node if it was previously provided by the launch file. Using ``--ros-args`` you can give it the path to the new parameters file, remaps, or names. See `this ROS 2 tutorial <https://docs.ros.org/en/rolling/Guides/Node-arguments.html>`_ for the commandline arguments required.
+
+  Note that in this case, you may need to remap or provide parameter files to this node if it was previously provided by the launch file.
+  Using ``--ros-args`` you can give it the path to the new parameters file, remaps, or names.
+  See :doc:`this tutorial <../../Guides/Node-arguments.html>` for the commandline arguments required.
 
   We understand this can be a pain, so it might encourage you to rather have each node possible as a separately included launch file to make debugging easier. An example set of arguments might be ``--ros-args -r __node:=<node_name> --params-file /absolute/path/to/params.yaml`` (as a template).
 
