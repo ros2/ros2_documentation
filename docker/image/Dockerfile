@@ -15,8 +15,9 @@ RUN apt-get update && \
     apt-get install --no-install-recommends -y \
         git-all \
         graphviz \
+        locales \
         make \
-        python3-pip locales && \
+        python3-pip && \
     rm -rf /var/lib/apt/lists/*
 
 RUN useradd -u $uid -m $user
