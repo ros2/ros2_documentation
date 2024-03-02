@@ -1,5 +1,5 @@
 Getting Backtraces in ROS 2
-=================================
+===========================
 
 .. contents:: Table of Contents
    :depth: 2
