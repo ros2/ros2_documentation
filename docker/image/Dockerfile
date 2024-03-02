@@ -16,14 +16,17 @@ RUN apt-get update && \
         git-all \
         graphviz \
         make \
-        python3-pip && \
+        python3-pip locales && \
     rm -rf /var/lib/apt/lists/*
 
 RUN useradd -u $uid -m $user
 ENV HOME=/home/$user
 ENV PATH=/home/$user/.local/bin:$PATH
+ENV LANG=en_US.UTF-8
 WORKDIR /tmp/doc_repository
 
 USER $user
 
+CMD locale-gen en_US en_US.UTF-8
+CMD update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 CMD pip3 install --no-warn-script-location --user -r requirements.txt -c constraints.txt && make multiversion
