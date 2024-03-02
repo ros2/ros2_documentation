@@ -173,8 +173,8 @@ Then you can deduce why it crashed.
 When you are done with GDB, type ``quit`` and it will exit the session and kill any processes still up.
 It may ask you if you want to kill some threads at the end, say yes.
 
-From Large Project
-==================
+From a Large Project
+====================
 
 Working with launch files with multiple nodes is a little different so you can interact with your GDB session without being bogged down by other logging in the same terminal.
 For this reason, when working with larger launch files, its good to pull out the specific server you're interested in and launching it seperately.
