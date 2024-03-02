@@ -1,7 +1,3 @@
-.. redirect-from::
-
-    Tutorials/Backtrace
-
 Getting Backtraces in ROS 2
 =================================
 
