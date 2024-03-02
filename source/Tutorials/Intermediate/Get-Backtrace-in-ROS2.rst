@@ -28,7 +28,7 @@ By the end of this tutorial, you should be able to get a backtrace when you noti
 Preliminaries
 =============
 
-GDB is the most popular debugger for C++ on Unix systems.
+GDB is the most popular debugger for C/C++ on Unix systems.
 It can be used to determine the reason for a crash and track threads.
 It may also be used to add breakpoints in your code to check values in memory a particular points in your software.
 
