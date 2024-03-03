@@ -20,8 +20,25 @@ jobs:
       - name: Test doc8
         run: make test
 
+  lint:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies with pip
+        run: pip install --no-warn-script-location --user -r requirements.txt -c constraints.txt
+
+      - name: Lint
+        run: make lint
+
   build:
-    needs: test
+    needs: [test, lint]
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
