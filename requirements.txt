@@ -3,6 +3,7 @@ docutils
 pip
 sphinx
 sphinx-copybutton
+sphinx-lint
 sphinx-multiversion
 sphinx-rtd-theme
 sphinx-tabs
