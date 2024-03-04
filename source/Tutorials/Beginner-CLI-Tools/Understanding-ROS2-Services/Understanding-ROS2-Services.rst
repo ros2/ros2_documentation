@@ -352,10 +352,6 @@ Now we are able to see the service communication between ``introspection_client`
    response: [{sum: 5}]
    ---
 
-.. note::
-
-   This feature is available on ``Iron Irwini`` or later.
-
 Summary
 -------
 
