@@ -23,10 +23,6 @@ It is possible to introspect service data communication with service introspecti
 
 In this demo, we'll be highlighting how to configure service introspection state for a service client and a server and monitor service communication with ``ros2 service echo``.
 
-.. note::
-
-   This feature is available on ``Iron Irwini`` or later.
-
 Installing the demo
 -------------------
 
