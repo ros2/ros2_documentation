@@ -354,7 +354,7 @@ Now we are able to see the service communication between ``introspection_client`
 
 .. note::
 
-   This feature is available on ``iron irwini`` or later.
+   This feature is available on ``Iron Irwini`` or later.
 
 Summary
 -------

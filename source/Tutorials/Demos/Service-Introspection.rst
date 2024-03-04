@@ -25,14 +25,14 @@ In this demo, we'll be highlighting how to configure service introspection state
 
 .. note::
 
-   This feature is available on ``iron irwini`` or later.
+   This feature is available on ``Iron Irwini`` or later.
 
 Installing the demo
 -------------------
 
 See the :doc:`installation instructions <../../Installation>` for details on installing ROS 2.
 
-If you've installed ROS 2 from packages, ensure that you have ``ros-{DISTRO}-demo-nodes-cpp`` installed.
+If you've installed ROS 2 binary packages, ensure that you have ``ros-{DISTRO}-demo-nodes-cpp`` installed.
 If you downloaded the archive or built ROS 2 from source, it will already be part of the installation.
 
 Introspection Configuration State
