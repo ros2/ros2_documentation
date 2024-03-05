@@ -303,8 +303,9 @@ If the message does not use a full header, but just has a field with type ``buil
 
   ros2 topic pub /reference sensor_msgs/msg/TimeReference '{header: "auto", time_ref: "now", source: "dumy"}'
 
-Certain messages use ``NaN`` as a significant value. This is supported in YAML. For example, with a ``sensor_msgs/msg/BatteryState``,
-the temperature field may not be measured. If so, it should be set to ``NaN``.
+Certain messages use ``NaN`` as a significant value.
+For example, with a ``sensor_msgs/msg/BatteryState``, the temperature field may not be measured.
+If so, it should be set to ``NaN``.
 
 .. code-block:: console
 
