@@ -80,11 +80,11 @@ To easily set up a GDB session before launching a ROS2 node, leverage the ``--pr
 
 **Why Direct GDB Usage Can Be Tricky**
 
-``--prefix`` will execute some bits of code before our ros2 command allowing us to insert some information. If you attempted to do gdb ex run --args ros2 run <pkg> <node> as analog to our example in the preliminaries, you’d find that it couldn’t find the ros2 command. Additionally, trying to source your workspace within GDB would fail for similar reasons. This is because GDB, when launched this way, lacks the environment setup that normally makes the ros2 command available.
+``--prefix`` will execute some bits of code before our ros2 command allowing us to insert some information. If you attempted to do ``gdb ex run --args ros2 run <pkg> <node>`` as analog to our example in the preliminaries, you’d find that it couldn’t find the ros2 command. Additionally, trying to source your workspace within GDB would fail for similar reasons. This is because GDB, when launched this way, lacks the environment setup that normally makes the ros2 command available.
 
 **Simplifying the Process with --prefix**
 
-Rather than having to revert to finding the install path of the executable and typing it all out, we can instead use --prefix. This allows us to use the same ros2 run syntax you’re used to without having to worry about some of the GDB details.
+Rather than having to revert to finding the install path of the executable and typing it all out, we can instead use ``--prefix``. This allows us to use the same ``ros2 run`` syntax you’re used to without having to worry about some of the GDB details.
 
 .. code-block:: bash
 
@@ -145,7 +145,7 @@ While we could set this up through the commandline, we can instead make use of t
 In your launch file, find the node that you’re interested in debugging. For this section, we assume that your launch file contains only a single node (and potentially other information as well). 
 The ``Node`` function used in the ``launch_ros`` package will take in a field prefix taking a list of prefix arguments. We will insert the GDB snippet here. **Consider the following approaches, depending on your setup:**
 
-**Local Debugging with Windowing System:**  If you are debugging locally and have a windowing system available, use:
+- **Local Debugging with Windowing System:**  If you are debugging locally and have a windowing system available, use:
 
 .. code-block:: bash
 
@@ -167,7 +167,7 @@ Example usecase for debugging building upon ``'start_sync_slam_toolbox_node'`` -
     prefix=['xterm -e gdb -ex run --args'],  # For interactive GDB in a separate window
     output='screen')
 
-**Remote Debugging (No Windowing System):** If debugging remotely without a windowing system, omit ``xterm -e`` :
+- **Remote Debugging (No Windowing System):** If debugging remotely without a windowing system, omit ``xterm -e`` :
 
 .. code-block:: bash
 
