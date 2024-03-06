@@ -11,7 +11,7 @@ Getting Backtraces in ROS 2
 
 **Time:** 15 minutes
 
-The following steps show ROS 2 users how to get traces from specific servers when they encounter a problem..
+The following steps show ROS 2 users how to get traces when they encounter a problem..
 
 Overview
 ========
@@ -23,7 +23,7 @@ The following steps show ROS 2 users how to get traces from specific servers whe
 This tutorial applies to both simulated and physical robots.
 
 This will cover how to get a backtrace from a specific node using ``ros2 run``, from a launch file representing a single node using ``ros2 launch``, and from a more complex orchestration of nodes.
-By the end of this tutorial, you should be able to get a backtrace when you notice a server crashing in ROS 2.
+By the end of this tutorial, you should be able to get a backtrace when you notice a node crashing in ROS 2.
 
 Preliminaries
 =============
@@ -39,18 +39,21 @@ Further, understanding these tools is a fundamental skill of C/C++ development a
 
 Using GDB luckily is fairly simple after you have the basics under your belt.
 The first step is to add ``-g`` to your compiler flags for the ROS package you want to profile / debug.
-This flag builds debug symbols that GDB and valgrind can read to tell you specific lines of code in your project are failing and why.
+This flag builds debug symbols that GDB can read to tell you specific lines of code in your project are failing and why.
 If you do not set this flag, you can still get backtraces but it will not provide line numbers for failures.
-Be sure to remove this flag after debugging, it will slow down performance at run-time.
 
-Adding the following line to your ``CMakeLists.txt`` for your project should do the trick.
-If your project already has a ``add_compile_options()``, you can simply add ``-g`` to it.
-Then simply rebuild your workspace with this package ``colcon build --packages-select <package-name>``.
-It may take a little longer than usual to compile.
+Using ``--cmake-args -DCMAKE_BUILD_TYPE=Debug`` in your ``colcon build`` command will add the ``-g`` flag to your build.
 
-.. code-block:: cmake
+.. code-block:: bash
 
-  add_compile_options(-g)
+  colcon build --packages-select <package_name> --cmake-args -DCMAKE_BUILD_TYPE=Debug 
+
+this must do the trick.
+
+.. Adding the following line to your ``CMakeLists.txt`` for your project should do the trick.
+.. If your project already has a ``add_compile_options()``, you can simply add ``-g`` to it.
+.. Then simply rebuild your workspace with this package ``colcon build --packages-select <package-name>``.
+.. It may take a little longer than usual to compile.
 
 Now you're ready to debug your code!
 If this was a non-ROS project, at this point you might do something like below.
@@ -63,30 +66,35 @@ However, since this is a ROS project with lots of node configurations and other 
 
   gdb ex run --args /path/to/exe/program
 
-Below are sections to describe the 3 major situations you could run into with ROS 2-based systems.
+Below are sections to describe the 3 major situations you could run into with ROS 2-based systems. 
 Read the section that best describes the problem you're attempting to solve.
 
-From a Node
-===========
+Debugging a specific node with GDB
+==================================
 
-Just as in our non-ROS example, we need to setup a GDB session before launching our ROS 2 node.
-While we could set this up through the commandline with some knowledge of the ROS 2 file system, we can instead use the launch ``--prefix`` option the kind folks at Open Robotics provided for us.
+To easily set up a GDB session before launching a ROS2 node, leverage the ``--prefix`` option in launch files. This option allows you to specify a command to execute before the node starts. For GDB debugging, use it as follows:
 
-``--prefix`` will execute some bits of code before our ``ros2`` command allowing us to insert some information.
-If you attempted to do ``gdb ex run --args ros2 run <pkg> <node>`` as analog to our example in the preliminaries, you'd find that it couldn't find the ``ros2`` command.
-If you're even more clever, you'd find that trying to source your workspace would also fail for similar reasons.
+.. note::
 
-Rather than having to revert to finding the install path of the executable and typing it all out, we can instead use ``--prefix``.
-This allows us to use the same ``ros2 run`` syntax you're used to without having to worry about some of the GDB details.
+  Important Note: Keep in mind that a ROS2 executable might contain multiple nodes. The ``--prefix`` approach ensures you're debugging the correct node within the process.
+
+**Why Direct GDB Usage Can Be Tricky**
+
+``--prefix`` will execute some bits of code before our ros2 command allowing us to insert some information. If you attempted to do gdb ex run --args ros2 run <pkg> <node> as analog to our example in the preliminaries, you’d find that it couldn’t find the ros2 command. Additionally, trying to source your workspace within GDB would fail for similar reasons. This is because GDB, when launched this way, lacks the environment setup that normally makes the ros2 command available.
+
+**Simplifying the Process with --prefix**
+
+Rather than having to revert to finding the install path of the executable and typing it all out, we can instead use --prefix. This allows us to use the same ros2 run syntax you’re used to without having to worry about some of the GDB details.
 
 .. code-block:: bash
 
-  ros2 run --prefix 'gdb -ex run --args' <pkg> <node> --all-other-launch arguments
+  ros2 run --prefix 'gdb -ex run --args' <pkg> <node> --all-other-launch arguments 
 
-Just as before, this prefix will launch a GDB session and run the node you requested with all the additional commandline arguments.
-You should now have your node running and should be chugging along with some debug printing.
+**The GDB Experience**
 
-Once your server crashes, you'll see a prompt like below. At this point you can now get a backtrace.
+Just as before, this prefix will launch a GDB session and run the node you requested with all the additional command-line arguments. You should now have your node running and should be chugging along with some debug printing.
+
+Once your server crashes, you’ll see a prompt like below. At this point you can now get a backtrace.
 
 .. code-block:: bash
 
@@ -134,27 +142,52 @@ From a Launch File
 Just as in our non-ROS example, we need to setup a GDB session before launching our ROS 2 launch file.
 While we could set this up through the commandline, we can instead make use of the same mechanics that we did in the ``ros2 run`` node example, now using a launch file.
 
-In your launch file, find the node that you're interested in debugging.
-For this section, we assume that your launch file contains only a single node (and potentially other information as well).
-The ``Node`` function used in the ``launch_ros`` package will take in a field ``prefix`` taking a list of prefix arguments.
-We will insert the GDB snippet here with one change from our node example, use of ``xterm``.
-``xterm`` will pop up a new terminal window to show and interact with GDB.
-We do this because of issues handling ``stdin`` on launch files (e.g. if you hit control+C, are you talking to GDB or launch?).
-See `this ticket <https://github.com/ros2/launch_ros/issues/165>`_ for more information.
-See below for an example debugging SLAM Toolbox.
+In your launch file, find the node that you’re interested in debugging. For this section, we assume that your launch file contains only a single node (and potentially other information as well). 
+The ``Node`` function used in the ``launch_ros`` package will take in a field prefix taking a list of prefix arguments. We will insert the GDB snippet here. **Consider the following approaches, depending on your setup:**
+
+**Local Debugging with Windowing System:**  If you are debugging locally and have a windowing system available, use:
+
+.. code-block:: bash
+
+  prefix=['xterm -e gdb -ex run --args']
+
+This will provide a more interactive debbuging experience.
+Example usecase for debugging building upon ``'start_sync_slam_toolbox_node'`` - 
+
+.. code-block:: python 
+
+  start_sync_slam_toolbox_node = Node(
+    parameters=[
+        get_package_share_directory("slam_toolbox") + '/config/mapper_params_online_sync.yaml',
+        {'use_sim_time': use_sim_time}
+    ],
+    package='slam_toolbox',
+    executable='sync_slam_toolbox_node',
+    name='slam_toolbox',
+    prefix=['xterm -e gdb -ex run --args'],  # For interactive GDB in a separate window
+    output='screen')
+
+**Remote Debugging (No Windowing System):** If debugging remotely without a windowing system, omit ``xterm -e`` :
+
+.. code-block:: bash
+
+  prefix=['gdb -ex run --args']
+
+GDB's output and interaction will happen within the terminal session where you launched the ROS2 application.
+Here's an similar example for the ``'start_sync_slam_toolbox_node'`` -
 
 .. code-block:: python
 
   start_sync_slam_toolbox_node = Node(
-      parameters=[
+    parameters=[
         get_package_share_directory("slam_toolbox") + '/config/mapper_params_online_sync.yaml',
         {'use_sim_time': use_sim_time}
-      ],
-      package='slam_toolbox',
-      executable='sync_slam_toolbox_node',
-      name='slam_toolbox',
-      prefix=['xterm -e gdb -ex run --args'],
-      output='screen')
+    ],
+    package='slam_toolbox',
+    executable='sync_slam_toolbox_node',
+    name='slam_toolbox',
+    prefix=['gdb -ex run --args'],  # For GDB within the launch terminal
+    output='screen')
 
 Just as before, this prefix will launch a GDB session, now in ``xterm`` and run the launch file you requested with all the additional launch arguments defined.
 
@@ -225,34 +258,38 @@ Then you can deduce why it crashed.
 When you are done with GDB, type ``quit`` and it will exit the session and kill any processes still up.
 It may ask you if you want to kill some threads at the end, say yes.
 
-From Nav2 Bringup
-=================
+Debugging tests with GDB
+========================
 
-To debug directly from the nav2 bringup launch files you may want to do the following:
+If a C++ test is failing, GDB can be used directly on the test executable in the build directory.
+Ensure to build the code in debug mode.
+Since the previous build type may be cached by CMake, clean the cache and rebuild.
 
-- Add ``prefix=['xterm -e gdb -ex run --args']`` to the non-composed node in the appropriate launch file. 
+.. code-block:: console
 
-- Recompile the package of interest with ``-g`` flag for debug symbols.
+  colcon build --cmake-clean-cache --mixin debug
 
-- Launch normally with ``ros2 launch nav2_bringup tb3_simulation_launch.py use_composition:=False``. A seperate xterm window will open with the proccess of intrest running in gdb.
+In order for GDB to load debug symbols for any shared libraries called, make sure to source your environment.
+This configures the value of ``LD_LIBRARY_PATH``.
 
-.. note::
-  Turning off composition has serious performance impacts. If this is important to you please follow "From Large Project". 
+.. code-block:: console
 
-Once your server crashes, you'll see a prompt like below in the xterm window. At this point you can now get a backtrace.
+  source install/setup.bash
 
-.. code-block:: bash
+Finally, run the test directly through GDB.
+For example:
 
-  (gdb)
+.. code-block:: console
 
-In this session, type ``backtrace`` and it will provide you with a backtrace.
-Copy this for your needs.
-See the example trace in the section above for an example.
+  gdb -ex run ./build/rcl/test/test_logging
 
-These traces take some time to get used to reading, but in general, start at the bottom and follow it up the stack until you see the line it crashed on.
-Then you can deduce why it crashed.
-When you are done with GDB, type ``quit`` and it will exit the session and kill any processes still up.
-It may ask you if you want to kill some threads at the end, say yes.
+If the code is throwing an unhandled exception, you can catch it in GDB before gtest handles it.
+
+.. code-block:: console
+
+  gdb ./build/rcl/test/test_logging
+  catch throw
+  run
 
 Automatic backtrace on crash
 ============================
