@@ -19,7 +19,7 @@ Overview
 This document explains one set of methods for getting backtraces for ROS 2.
 There are many ways to accomplish this, but this is a good starting point for new C++ developers without GDB experience.
 
-The following steps show ROS 2 users how to get traces from specific servers when they encounter a problem.
+The following steps show ROS 2 users how to get traces from specific nodes when they encounter a problem.
 This tutorial applies to both simulated and physical robots.
 
 This will cover how to get a backtrace from a specific node using ``ros2 run``, from a launch file representing a single node using ``ros2 launch``, and from a more complex orchestration of nodes.
