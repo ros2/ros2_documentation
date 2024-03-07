@@ -30,7 +30,7 @@ Preliminaries
 
 GDB is the most popular debugger for C/C++ on Unix systems.
 It can be used to determine the reason for a crash and track threads.
-It may also be used to add breakpoints in your code to check values in memory a particular points in your software.
+It may also be used to add breakpoints in your code to check values in memory at particular points in your software.
 
 Using GDB is a critical skill for all software developers working on C/C++.
 Many IDEs will have some kind of debugger or profiler built in, but with ROS, there are few IDEs to choose.
