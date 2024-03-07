@@ -46,7 +46,7 @@ Using ``--cmake-args -DCMAKE_BUILD_TYPE=Debug`` in your ``colcon build`` command
 
 .. code-block:: bash
 
-  colcon build --packages-select <package_name> --cmake-args -DCMAKE_BUILD_TYPE=Debug 
+  colcon build --packages-up-to <package_name> --cmake-args -DCMAKE_BUILD_TYPE=Debug 
 
 this must do the trick.
 
