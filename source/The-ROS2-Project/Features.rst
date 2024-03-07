@@ -80,6 +80,9 @@ For planned future development, see the :doc:`Roadmap <Roadmap>`.
    * - Content filtering subscription
      - :doc:`Demo <../Tutorials/Demos/Content-Filtering-Subscription>`
      - Currently only in C++.
+   * - Service Introspection
+     - :doc:`Demo <../Tutorials/Demos/Service-Introspection>`
+     -
 
 Besides core features of the platform, the biggest impact of ROS comes from its available packages.
 The following are a few high-profile packages which are available in the latest release:

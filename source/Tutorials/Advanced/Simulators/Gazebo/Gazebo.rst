@@ -191,7 +191,7 @@ There are two options:
 
         CTRL-C to quit
 
-        currently:	speed 0.5	turn 1.0
+        currently:      speed 0.5       turn 1.0
 
 3 Visualizing lidar data in ROS 2
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

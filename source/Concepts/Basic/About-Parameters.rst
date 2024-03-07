@@ -23,7 +23,7 @@ Each parameter consists of a key, a value, and a descriptor.
 The key is a string and the value is one of the following types: ``bool``, ``int64``, ``float64``, ``string``, ``byte[]``, ``bool[]``, ``int64[]``, ``float64[]`` or ``string[]``.
 By default all descriptors are empty, but can contain parameter descriptions, value ranges, type information, and additional constraints.
 
-For an hands-on tutorial with ROS parameters see :doc:`../../Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters`.
+For a hands-on tutorial with ROS parameters see :doc:`../../Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters`.
 
 Parameters background
 ---------------------
