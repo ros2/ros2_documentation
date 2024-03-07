@@ -33,7 +33,7 @@ It can be used to determine the reason for a crash and track threads.
 It may also be used to add breakpoints in your code to check values in memory at particular points in your software.
 
 Using GDB is a critical skill for all software developers working on C/C++.
-Many IDEs will have some kind of debugger or profiler built in, but with ROS, there are few IDEs to choose.
+Many IDEs will have some kind of debugger or profiler built in, but with ROS 2, there are few IDEs to choose.
 Therefore it's important to understand how to use these raw tools you have available rather than relying on an IDE to provide them.
 Further, understanding these tools is a fundamental skill of C/C++ development and leaving it up to your IDE can be problematic if you change roles and no longer have access to it or are doing development on the fly through an ssh session to a remote asset.
 
@@ -72,19 +72,26 @@ Read the section that best describes the problem you're attempting to solve.
 Debugging a specific node with GDB
 ==================================
 
-To easily set up a GDB session before launching a ROS2 node, leverage the ``--prefix`` option in launch files. This option allows you to specify a command to execute before the node starts. For GDB debugging, use it as follows:
+To easily set up a GDB session before launching a ROS 2 node, leverage the ``--prefix`` option in launch files. 
+This option allows you to specify a command to execute before the node starts. 
+For GDB debugging, use it as follows:
 
 .. note::
 
-  Important Note: Keep in mind that a ROS2 executable might contain multiple nodes. The ``--prefix`` approach ensures you're debugging the correct node within the process.
+  Important Note: Keep in mind that a ROS 2 executable might contain multiple nodes. 
+  The ``--prefix`` approach ensures you're debugging the correct node within the process.
 
 **Why Direct GDB Usage Can Be Tricky**
 
-``--prefix`` will execute some bits of code before our ros2 command allowing us to insert some information. If you attempted to do ``gdb ex run --args ros2 run <pkg> <node>`` as analog to our example in the preliminaries, you’d find that it couldn’t find the ``ros2`` command. Additionally, trying to source your workspace within GDB would fail for similar reasons. This is because GDB, when launched this way, lacks the environment setup that normally makes the ``ros2`` command available.
+``--prefix`` will execute some bits of code before our ROS 2 command allowing us to insert some information. 
+If you attempted to do ``gdb ex run --args ros2 run <pkg> <node>`` as analog to our example in the preliminaries, you’d find that it couldn’t find the ``ros2`` command. 
+Additionally, trying to source your workspace within GDB would fail for similar reasons. 
+This is because GDB, when launched this way, lacks the environment setup that normally makes the ``ROS 2`` command available.
 
 **Simplifying the Process with --prefix**
 
-Rather than having to revert to finding the install path of the executable and typing it all out, we can instead use ``--prefix``. This allows us to use the same ``ros2 run`` syntax you’re used to without having to worry about some of the GDB details.
+Rather than having to revert to finding the install path of the executable and typing it all out, we can instead use ``--prefix``. 
+This allows us to use the same ``ros2 run`` syntax you’re used to without having to worry about some of the GDB details.
 
 .. code-block:: bash
 
@@ -92,7 +99,8 @@ Rather than having to revert to finding the install path of the executable and t
 
 **The GDB Experience**
 
-Just as before, this prefix will launch a GDB session and run the node you requested with all the additional command-line arguments. You should now have your node running and should be chugging along with some debug printing.
+Just as before, this prefix will launch a GDB session and run the node you requested with all the additional command-line arguments. 
+You should now have your node running and should be chugging along with some debug printing.
 
 Once your server crashes, you’ll see a prompt like below. At this point you can now get a backtrace.
 
@@ -143,7 +151,9 @@ Just as in our non-ROS example, we need to setup a GDB session before launching 
 While we could set this up through the commandline, we can instead make use of the same mechanics that we did in the ``ros2 run`` node example, now using a launch file.
 
 In your launch file, find the node that you’re interested in debugging. For this section, we assume that your launch file contains only a single node (and potentially other information as well). 
-The ``Node`` function used in the ``launch_ros`` package will take in a field prefix taking a list of prefix arguments. We will insert the GDB snippet here. **Consider the following approaches, depending on your setup:**
+The ``Node`` function used in the ``launch_ros`` package will take in a field prefix taking a list of prefix arguments. 
+We will insert the GDB snippet here. 
+**Consider the following approaches, depending on your setup:**
 
 - **Local Debugging with Windowing System:**  If you are debugging locally and have a windowing system available, use:
 
@@ -173,7 +183,7 @@ Example usecase for debugging building upon ``'start_sync_slam_toolbox_node'`` -
 
   prefix=['gdb -ex run --args']
 
-GDB's output and interaction will happen within the terminal session where you launched the ROS2 application.
+GDB's output and interaction will happen within the terminal session where you launched the ROS 2 application.
 Here's an similar example for the ``'start_sync_slam_toolbox_node'`` -
 
 .. code-block:: python
@@ -191,7 +201,8 @@ Here's an similar example for the ``'start_sync_slam_toolbox_node'`` -
 
 Just as before, this prefix will launch a GDB session, now in ``xterm`` and run the launch file you requested with all the additional launch arguments defined.
 
-Once your server crashes, you'll see a prompt like below, now in the ``xterm`` session. At this point you can now get a backtrace.
+Once your server crashes, you'll see a prompt like below, now in the ``xterm`` session. 
+At this point you can now get a backtrace.
 
 .. code-block:: bash
 
@@ -241,7 +252,8 @@ Alternatively, if you server of interest is being launched in these files direct
   Using ``--ros-args`` you can give it the path to the new parameters file, remaps, or names.
   See :doc:`this tutorial <../../Guides/Node-arguments.html>` for the commandline arguments required.
 
-  We understand this can be a pain, so it might encourage you to rather have each node possible as a separately included launch file to make debugging easier. An example set of arguments might be ``--ros-args -r __node:=<node_name> --params-file /absolute/path/to/params.yaml`` (as a template).
+  We understand this can be a pain, so it might encourage you to rather have each node possible as a separately included launch file to make debugging easier. 
+  An example set of arguments might be ``--ros-args -r __node:=<node_name> --params-file /absolute/path/to/params.yaml`` (as a template).
 
 Once your server crashes, you'll see a prompt like below in the specific server's terminal. At this point you can now get a backtrace.
 
