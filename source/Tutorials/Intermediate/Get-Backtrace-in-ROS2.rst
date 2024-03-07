@@ -80,7 +80,7 @@ To easily set up a GDB session before launching a ROS2 node, leverage the ``--pr
 
 **Why Direct GDB Usage Can Be Tricky**
 
-``--prefix`` will execute some bits of code before our ros2 command allowing us to insert some information. If you attempted to do ``gdb ex run --args ros2 run <pkg> <node>`` as analog to our example in the preliminaries, you’d find that it couldn’t find the ros2 command. Additionally, trying to source your workspace within GDB would fail for similar reasons. This is because GDB, when launched this way, lacks the environment setup that normally makes the ros2 command available.
+``--prefix`` will execute some bits of code before our ros2 command allowing us to insert some information. If you attempted to do ``gdb ex run --args ros2 run <pkg> <node>`` as analog to our example in the preliminaries, you’d find that it couldn’t find the ``ros2`` command. Additionally, trying to source your workspace within GDB would fail for similar reasons. This is because GDB, when launched this way, lacks the environment setup that normally makes the ``ros2`` command available.
 
 **Simplifying the Process with --prefix**
 
