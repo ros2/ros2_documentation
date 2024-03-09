@@ -149,6 +149,7 @@ In your launch file, find the node that you’re interested in debugging.
 For this section, we assume that your launch file contains only a single node (and potentially other information as well). 
 The ``Node`` function used in the ``launch_ros`` package will take in a field prefix taking a list of prefix arguments. 
 We will insert the GDB snippet here. 
+
 **Consider the following approaches, depending on your setup:**
 
 - **Local Debugging with Windowing System:**  If you are debugging locally and have a windowing system available, use:
