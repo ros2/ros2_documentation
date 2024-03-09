@@ -48,12 +48,6 @@ Using ``--cmake-args -DCMAKE_BUILD_TYPE=Debug`` in your ``colcon build`` command
 
   colcon build --packages-up-to <package_name> --cmake-args -DCMAKE_BUILD_TYPE=Debug 
 
-this must do the trick.
-
-.. Adding the following line to your ``CMakeLists.txt`` for your project should do the trick.
-.. If your project already has a ``add_compile_options()``, you can simply add ``-g`` to it.
-.. Then simply rebuild your workspace with this package ``colcon build --packages-select <package-name>``.
-.. It may take a little longer than usual to compile.
 
 Now you're ready to debug your code!
 If this was a non-ROS project, at this point you might do something like below.
