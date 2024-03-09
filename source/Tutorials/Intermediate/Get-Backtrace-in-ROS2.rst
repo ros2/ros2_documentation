@@ -218,7 +218,7 @@ From a Large Project
 ====================
 
 Working with launch files with multiple nodes is a little different so you can interact with your GDB session without being bogged down by other logging in the same terminal.
-For this reason, when working with larger launch files, its good to pull out the specific server you're interested in and launching it seperately.
+For this reason, when working with larger launch files, its good to pull out the specific node you're interested in and launching it separately.
 
 If your server of interest is being launched from a nested launch file (e.g. an included launch file) you may want to do the following:
 
