@@ -16,7 +16,8 @@ The following steps show ROS 2 users how to get traces when they encounter a pro
 Overview
 ========
 
-This document explains one set of methods for getting backtraces for ROS 2.
+This document explains methods for getting backtraces in ROS 2, which are essential for debugging.  
+A backtrace provides a snapshot of the entire sequence of function calls that led up to a crash or error.
 There are many ways to accomplish this, but this is a good starting point for new C++ developers without GDB experience.
 
 The following steps show ROS 2 users how to get traces from specific nodes when they encounter a problem.
@@ -152,7 +153,7 @@ We will insert the GDB snippet here.
 
 **Consider the following approaches, depending on your setup:**
 
-- **Local Debugging with Windowing System:**  If you are debugging locally and have a windowing system available, use:
+- **Local Debugging with GUI :**  If you are debugging locally and have a GUI system available, use:
 
 .. code-block:: python
 
@@ -171,10 +172,10 @@ Example usecase for debugging building upon ``'start_sync_slam_toolbox_node'`` -
     package='slam_toolbox',
     executable='sync_slam_toolbox_node',
     name='slam_toolbox',
-    prefix=['xterm -e gdb -ex run --args'],  # For interactive GDB in a separate window
+    prefix=['xterm -e gdb -ex run --args'],  # For interactive GDB in a separate window/GUI
     output='screen')
 
-- **Remote Debugging (No Windowing System):** If debugging remotely without a windowing system, omit ``xterm -e`` :
+- **Remote Debugging (without GUI):** If debugging without GUI, omit ``xterm -e`` :
 
 .. code-block:: bash
 
@@ -300,6 +301,6 @@ If the code is throwing an unhandled exception, you can catch it in GDB before g
 Automatic backtrace on crash
 ============================
 
-The `backward-cpp <https://github.com/bombela/backward-cpp>`_ library provides beautiful stack traces, and the `backward_ros <https://github.com/pal-robotics/backward_ros/tree/foxy-devel>`_ wrapper simplifies its integration.
+The `backward-cpp <https://github.com/pal-robotics/backward_ros>`_ library provides beautiful stack traces, and the `backward_ros <https://github.com/pal-robotics/backward_ros>`_ wrapper simplifies its integration.
 
 Just add it as a dependency and `find_package` it in your CMakeLists and the backward libraries will be injected in all your executables and libraries.
