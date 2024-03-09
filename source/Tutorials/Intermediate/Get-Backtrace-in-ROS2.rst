@@ -249,7 +249,7 @@ Alternatively, if your node of interest is being launched in these files directl
   We understand this can be a pain, so it might encourage you to rather have each node possible as a separately included launch file to make debugging easier. 
   An example set of arguments might be ``--ros-args -r __node:=<node_name> --params-file /absolute/path/to/params.yaml`` (as a template).
 
-Once your server crashes, you'll see a prompt like below in the specific server's terminal. At this point you can now get a backtrace.
+Once your node crashes, you'll see a prompt like below in the specific server's terminal. At this point you can now get a backtrace.
 
 .. code-block:: bash
 
