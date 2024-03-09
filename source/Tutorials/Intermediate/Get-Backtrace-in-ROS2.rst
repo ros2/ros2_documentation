@@ -72,7 +72,7 @@ For GDB debugging, use it as follows:
 
 .. note::
 
-  Important Note: Keep in mind that a ROS 2 executable might contain multiple nodes. 
+  Keep in mind that a ROS 2 executable might contain multiple nodes. 
   The ``--prefix`` approach ensures you're debugging the correct node within the process.
 
 **Why Direct GDB Usage Can Be Tricky**
