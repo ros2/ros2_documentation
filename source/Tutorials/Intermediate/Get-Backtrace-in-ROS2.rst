@@ -5,7 +5,7 @@ Getting Backtraces in ROS 2
    :depth: 2
    :local:
 
-**Goal:**  Methods for getting backtrace in ROS 2 
+**Goal:**  Show various methods for getting backtraces in ROS 2 
 
 **Tutorial level:** Intermediate
 
