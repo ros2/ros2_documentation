@@ -242,7 +242,7 @@ Alternatively, if your node of interest is being launched in these files directl
 
 .. note::
 
-  Note that in this case, you may need to remap or provide parameter files to this node if it was previously provided by the launch file.
+  In this case you may need to remap or provide parameter files to this node if it was previously provided by the launch file.
   Using ``--ros-args`` you can give it the path to the new parameters file, remaps, or names.
   See :doc:`this tutorial <../../Guides/Node-arguments.html>` for the commandline arguments required.
 
