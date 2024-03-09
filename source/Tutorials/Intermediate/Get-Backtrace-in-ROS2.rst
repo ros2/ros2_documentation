@@ -16,11 +16,73 @@ The following steps show ROS 2 users how to get traces when they encounter a pro
 Overview
 ========
 
-This document explains methods for getting backtraces in ROS 2, which are essential for debugging.  
-A backtrace provides a snapshot of the entire sequence of function calls that led up to a crash or error.
-There are many ways to accomplish this, but this is a good starting point for new C++ developers without GDB experience.
+.. This document explains methods for getting backtraces in ROS 2, which are essential for debugging.  
+.. A backtrace provides a snapshot of the entire sequence of function calls that led up to a crash or error.
+.. There are many ways to accomplish this, but this is a good starting point for new C++ developers without GDB experience.
 
-The following steps show ROS 2 users how to get traces from specific nodes when they encounter a problem.
+**What is a Backtrace ?**
+
+- Imagine your program is like a multi-story building where each floor is a function it's currently executing. 
+  A backtrace is like an emergency map that shows you exactly how the program got to the floor where it crashed.
+  
+- It lists out the sequence of functions that were called, one on top of the other, leading up to the point of failure.
+
+**Why is it Useful?**
+
+- **Pinpoints the Problem:** Instead of guessing where in your code an error occurred, the backtrace shows you the exact line number responsible for the crash.
+- **Reveals Context:** You can see the chain of events (functions calling other functions) that ultimately triggered the failure. 
+  This helps you understand not just where things went wrong, but also why.
+
+**Visual Analogy**:  Stack of Pancakes
+
+1. Each Pancake is a Function: Imagine each pancake in a stack represents a function that your program is currently executing. 
+   The pancake at the bottom is your main() function, where it all begins.
+
+2. Adding Pancakes: Every time a function calls another function, a new pancake is placed on top of the stack.
+
+3. The Crash: A crash is like the plate slipping out from the bottom of the stack – something went disastrously wrong in the function currently executing.
+
+4. The Backtrace: The backtrace is like a photo of that fallen pancake stack. 
+   It shows the order of pancakes (functions)  from top to bottom, revealing how you ended up at the crash site.
+
+
+**Code Example-**
+
+.. code-block:: cpp
+
+  void functionC() {
+    // Something bad happens here, causing a crash
+  }
+
+  void functionB() {
+      functionC();  
+  }
+
+  void functionA() {
+      functionB();
+  }
+
+  int main() {
+      functionA();
+      return 0;
+  }
+
+**Backtrace from the Crash:**
+
+.. code-block:: bash
+
+  #0  functionC() at file.cpp:3 // Crash occurred here
+  #1  functionB() at file.cpp:8
+  #2  functionA() at file.cpp:13
+  #3  main() at file.cpp:18
+
+**How the Backtrace Helps:**
+
+- **Crash Origin:** Shows you the exact line in ``functionC()`` that triggered the crash.
+- **Call Sequence:** Reveals that ``main()`` called ``functionA()``, which called ``functionB()``, which ultimately led to the error in ``functionC()``.
+
+The above example gave us a clear picture of what is a backtrace and how it can be useful.
+Now, the following steps show ROS 2 users how to get traces from specific nodes when they encounter a problem.
 This tutorial applies to both simulated and physical robots.
 
 This will cover how to get a backtrace from a specific node using ``ros2 run``, from a launch file representing a single node using ``ros2 launch``, and from a more complex orchestration of nodes.
