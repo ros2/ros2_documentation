@@ -39,16 +39,17 @@ Therefore it's important to understand how to use these raw tools you have avail
 Further, understanding these tools is a fundamental skill of C/C++ development and leaving it up to your IDE can be problematic if you change roles and no longer have access to it or are doing development on the fly through an ssh session to a remote asset.
 
 Using GDB luckily is fairly simple after you have the basics under your belt.
-The first step is to add ``-g`` to your compiler flags for the ROS package you want to profile / debug.
-This flag builds debug symbols that GDB can read to tell you specific lines of code in your project are failing and why.
-If you do not set this flag, you can still get backtraces but it will not provide line numbers for failures.
+Here's how to ensure your ROS2 code is ready for debugging:
 
-Using ``--cmake-args -DCMAKE_BUILD_TYPE=Debug`` in your ``colcon build`` command will add the ``-g`` flag to your build.
+- By using ``--cmake-args``: The easiest way to include debug symbols is by adding ``--cmake-args -DCMAKE_BUILD_TYPE=Debug`` to your ``colcon build`` command:
 
 .. code-block:: bash
 
   colcon build --packages-up-to <package_name> --cmake-args -DCMAKE_BUILD_TYPE=Debug 
 
+- By Editing ``CMakeLists.txt`` : Another way is to add ``-g`` to your compiler flags for the ROS package you want to profile / debug. 
+  This flag builds debug symbols that GDB can read to tell you specific lines of code in your project are failing and why.
+  If you do not set this flag, you can still get backtraces but it will not provide line numbers for failures.
 
 Now you're ready to debug your code!
 If this was a non-ROS project, at this point you might do something like below.
@@ -97,6 +98,22 @@ This allows us to use the same ``ros2 run`` syntax you’re used to without havi
 Just as before, this prefix will launch a GDB session and run the node you requested with all the additional command-line arguments. 
 You should now have your node running and should be chugging along with some debug printing.
 
+Reading the Stack Trace
+=======================
+
+After you obtain a backtrace using GDB, here's how to interpret it:
+
+- Start at the Bottom: Backtraces list function calls in reverse chronological order. 
+  The function at the bottom is where the crash originates.
+
+- Follow the Stack Upwards: Each line above represents the function that called the function below it. 
+  Trace upwards until you reach a line of code within your own project. 
+  This often reveals where the problem initiated.
+
+- Debugging Clues: Function names and their arguments can provide valuable clues about what went wrong.
+
+**How to Debug once your Node Crashes-**
+
 Once your node crashes, you’ll see a prompt like below.
 At this point you can get a backtrace.
 
@@ -106,7 +123,9 @@ At this point you can get a backtrace.
 
 In this session, type ``backtrace`` and it will provide you with a backtrace.
 Copy this for your needs.
-For example:
+
+
+**Example backtrace-**
 
 .. code-block:: bash
 
@@ -200,20 +219,7 @@ Here's an similar example for the ``'start_sync_slam_toolbox_node'`` -
 Just as before, this prefix will launch a GDB session, now in ``xterm`` and run the launch file you requested with all the additional launch arguments defined.
 
 Once your node crashes, you'll see a prompt like below, now in the ``xterm`` session. 
-At this point you can now get a backtrace.
-
-.. code-block:: bash
-
-  (gdb)
-
-In this session, type ``backtrace`` and it will provide you with a backtrace.
-Copy this for your needs.
-See the example trace in the section above for an example.
-
-These traces take some time to get used to reading, but in general, start at the bottom and follow it up the stack until you see the line it crashed on.
-Then you can deduce why it crashed.
-When you are done with GDB, type ``quit`` and it will exit the session and kill any processes still up.
-It may ask you if you want to kill some threads at the end, say yes.
+At this point you can now get a backtrace, Further follow `Reading the Stack Trace`_.
 
 From a Large Project
 ====================
@@ -239,7 +245,7 @@ Alternatively, if your node of interest is being launched in these files directl
 
 - Launch the parent launch file in a terminal
 
-- Launch the server's node in another terminal following the instructions in `From a Node`_.
+- Launch the server's node in another terminal following the instructions in `Debugging a specific node with GDB`_.
 
 .. note::
 
@@ -250,20 +256,8 @@ Alternatively, if your node of interest is being launched in these files directl
   We understand this can be a pain, so it might encourage you to rather have each node possible as a separately included launch file to make debugging easier. 
   An example set of arguments might be ``--ros-args -r __node:=<node_name> --params-file /absolute/path/to/params.yaml`` (as a template).
 
-Once your node crashes, you'll see a prompt like below in the specific server's terminal. At this point you can now get a backtrace.
-
-.. code-block:: bash
-
-  (gdb)
-
-In this session, type ``backtrace`` and it will provide you with a backtrace.
-Copy this for your needs.
-See the example trace in the section above for an example.
-
-These traces take some time to get used to reading, but in general, start at the bottom and follow it up the stack until you see the line it crashed on.
-Then you can deduce why it crashed.
-When you are done with GDB, type ``quit`` and it will exit the session and kill any processes still up.
-It may ask you if you want to kill some threads at the end, say yes.
+Once your node crashes, you'll see a prompt like below in the specific server's terminal. 
+At this point you can now get a backtrace, Further follow `Reading the Stack Trace`_.
 
 Debugging tests with GDB
 ========================
