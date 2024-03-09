@@ -228,7 +228,7 @@ If your node of interest is being launched from a nested launch file (e.g. an in
 
 - Launch the parent launch file in a terminal
 
-- Launch the server's launch file in another terminal following the instructions in `From a Launch File`_.
+- Launch the node's launch file in another terminal following the instructions in `From a Launch File`_.
 
 Alternatively, if your node of interest is being launched in these files directly (e.g. you see a ``Node``, ``LifecycleNode``, or inside a ``ComponentContainer``), you will need to seperate this from the others:
 
