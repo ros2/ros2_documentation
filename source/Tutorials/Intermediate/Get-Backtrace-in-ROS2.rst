@@ -154,7 +154,7 @@ We will insert the GDB snippet here.
 
 - **Local Debugging with Windowing System:**  If you are debugging locally and have a windowing system available, use:
 
-.. code-block:: bash
+.. code-block:: python
 
   prefix=['xterm -e gdb -ex run --args']
 
