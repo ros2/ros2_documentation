@@ -145,7 +145,8 @@ From a Launch File
 Just as in our non-ROS example, we need to setup a GDB session before launching our ROS 2 launch file.
 While we could set this up through the commandline, we can instead make use of the same mechanics that we did in the ``ros2 run`` node example, now using a launch file.
 
-In your launch file, find the node that you’re interested in debugging. For this section, we assume that your launch file contains only a single node (and potentially other information as well). 
+In your launch file, find the node that you’re interested in debugging.
+For this section, we assume that your launch file contains only a single node (and potentially other information as well). 
 The ``Node`` function used in the ``launch_ros`` package will take in a field prefix taking a list of prefix arguments. 
 We will insert the GDB snippet here. 
 **Consider the following approaches, depending on your setup:**
