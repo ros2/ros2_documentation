@@ -96,7 +96,8 @@ This allows us to use the same ``ros2 run`` syntax you’re used to without havi
 Just as before, this prefix will launch a GDB session and run the node you requested with all the additional command-line arguments. 
 You should now have your node running and should be chugging along with some debug printing.
 
-Once your server crashes, you’ll see a prompt like below. At this point you can now get a backtrace.
+Once your node crashes, you’ll see a prompt like below.
+At this point you can get a backtrace.
 
 .. code-block:: bash
 
