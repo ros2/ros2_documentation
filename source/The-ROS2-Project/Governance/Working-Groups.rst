@@ -194,11 +194,11 @@ SMACC (SMACCWG)
 Humanoid Robotics
 ^^^^^^^^^^^^^^^^^^^^^
 
-* Lead(s): Ronaldson Bellande <https://github.com/RonaldsonBellande>
+* Lead(s): `Ronaldson Bellande <https://github.com/RonaldsonBellande>`__
 
 * Resources:
 
   * `Working Group Community: <https://github.com/Robotics-Sensors>`__
   * `Google Group <https://groups.google.com/g/humanoid-robotics>`__
-  * `Discourse tag: `wg-humanoid-robotics <https://discourse.ros.org/tag/wg-humanoid-robotics>`__
+  *  Discourse tag: `wg-humanoid-robotics <https://discourse.ros.org/tag/wg-humanoid-robotics>`__
   * `Discord <https://discord.gg/uETm8hKN2U>`__
