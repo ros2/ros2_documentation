@@ -190,3 +190,15 @@ SMACC (SMACCWG)
   * `Working Group Community <https://github.com/robosoft-ai/SMACC_WG>`__
   * `Google Group <https://groups.google.com/g/smacc-wg>`__
   * Discourse tag: `wg-smacc <https://discourse.ros.org/tag/wg-smacc>`_
+
+Humanoid Robotics
+^^^^^^^^^^^^^^^^^^^^^
+
+* Lead(s): Ronaldson Bellande <https://github.com/RonaldsonBellande>
+
+* Resources:
+
+  * `Working Group Community: <https://github.com/Robotics-Sensors>`__
+  * `Google Group <https://groups.google.com/g/humanoid-robotics>`__
+  * `Discourse tag: `wg-humanoid-robotics <https://discourse.ros.org/tag/wg-humanoid-robotics>`__
+  * `Discord <https://discord.gg/uETm8hKN2U>`__
