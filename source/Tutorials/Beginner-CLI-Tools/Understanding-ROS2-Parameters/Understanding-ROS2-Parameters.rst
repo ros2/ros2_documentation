@@ -36,8 +36,8 @@ As always, don't forget to source ROS 2 in :doc:`every new terminal you open <..
 Tasks
 -----
 
-1 Setup
-^^^^^^^
+Setup
+^^^^^
 
 Start up the two turtlesim nodes, ``/turtlesim`` and ``/teleop_turtle``.
 
@@ -54,8 +54,8 @@ Open another terminal and run:
     ros2 run turtlesim turtle_teleop_key
 
 
-2 ros2 param list
-^^^^^^^^^^^^^^^^^
+ros2 param list
+^^^^^^^^^^^^^^^
 
 To see the parameters belonging to your nodes, open a new terminal and enter the command:
 
@@ -92,8 +92,8 @@ Based on their names, it looks like ``/turtlesim``'s parameters determine the ba
 To determine a parameter's type, you can use ``ros2 param get``.
 
 
-3 ros2 param get
-^^^^^^^^^^^^^^^^
+ros2 param get
+^^^^^^^^^^^^^^
 
 To display the type and current value of a parameter, use the command:
 
@@ -117,8 +117,8 @@ Now you know ``background_g`` holds an integer value.
 
 If you run the same command on ``background_r`` and ``background_b``, you will get the values ``69`` and ``255``, respectively.
 
-4 ros2 param set
-^^^^^^^^^^^^^^^^
+ros2 param set
+^^^^^^^^^^^^^^
 
 To change a parameter's value at runtime, use the command:
 
@@ -145,8 +145,8 @@ And the background of your turtlesim window should change colors:
 Setting parameters with the ``set`` command will only change them in your current session, not permanently.
 However, you can save your settings and reload them the next time you start a node.
 
-5 ros2 param dump
-^^^^^^^^^^^^^^^^^
+ros2 param dump
+^^^^^^^^^^^^^^^
 
 You can view all of a node's current parameter values by using the command:
 
@@ -182,8 +182,8 @@ If you open this file, you'll see the following content:
 
 Dumping parameters comes in handy if you want to reload the node with the same parameters in the future.
 
-6 ros2 param load
-^^^^^^^^^^^^^^^^^
+ros2 param load
+^^^^^^^^^^^^^^^
 
 You can load parameters from a file to a currently running node using the command:
 
@@ -214,8 +214,8 @@ Your terminal will return the message:
 
   Read-only parameters can only be modified at startup and not afterwards, that is why there are some warnings for the "qos_overrides" parameters.
 
-7 Load parameter file on node startup
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Load parameter file on node startup
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To start the same node using your saved parameter values, use:
 
