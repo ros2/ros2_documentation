@@ -187,7 +187,7 @@ In this session, type ``backtrace`` and it will provide you with a backtrace.
 Copy this for your needs.
 
 
-**Example backtrace-**
+**Example backtrace**
 
 .. code-block:: bash
 
