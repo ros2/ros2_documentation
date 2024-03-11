@@ -359,4 +359,4 @@ Automatic backtrace on crash
 
 The `backward-cpp <https://github.com/pal-robotics/backward_ros>`_ library provides beautiful stack traces, and the `backward_ros <https://github.com/pal-robotics/backward_ros>`_ wrapper simplifies its integration.
 
-Just add it as a dependency and `find_package` it in your CMakeLists and the backward libraries will be injected in all your executables and libraries.
+Just add it as a dependency and ``find_package`` it in your CMakeLists and the backward libraries will be injected in all your executables and libraries.
