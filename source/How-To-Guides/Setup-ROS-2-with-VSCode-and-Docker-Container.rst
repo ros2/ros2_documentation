@@ -152,7 +152,6 @@ Therefore add the following to ``.devcontainer/devcontainer.json``:
 Use ``Ctrl+F`` to open the search and replace menu.
 Search for ``YOUR_USERNAME`` and replace it with your ``Linux username``.
 If you do not know your username, you can find it by running ``echo $USERNAME`` in the terminal.
-Also replace ``ROS_DISTRO``, with the ROS 2 distribution that you want to use and added to the cache previously, for example, "humble" or "foxy".
 
 
 Edit ``Dockerfile``
@@ -189,7 +188,7 @@ Open the Dockerfile and add the following contents:
     USER $USERNAME
     CMD ["/bin/bash"]
 
-Search here also for ``ROS_DISTRO`` with the ROS 2 distribution you wish to use.
+Replace ``ROS_DISTRO`` with the ROS 2 distribution you wish to use as base image above, for example ``rolling``.
 
 
 Open and Build Development Container
