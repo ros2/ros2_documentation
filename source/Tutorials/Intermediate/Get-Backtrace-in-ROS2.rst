@@ -319,7 +319,7 @@ Alternatively, if your node of interest is being launched in these files directl
   An example set of arguments might be ``--ros-args -r __node:=<node_name> --params-file /absolute/path/to/params.yaml`` (as a template).
 
 Once your node crashes, you'll see a prompt like below in the specific server's terminal. 
-At this point you can now get a backtrace, Further follow `Reading the Stack Trace`_.
+At this point you can now get a backtrace, and read it using the instructions in `Reading the Stack Trace`.
 
 Debugging tests with GDB
 ========================
