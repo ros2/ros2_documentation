@@ -96,9 +96,8 @@ It can be used to determine the reason for a crash and track threads.
 It may also be used to add breakpoints in your code to check values in memory at particular points in your software.
 
 Using GDB is a critical skill for all software developers working on C/C++.
-Many IDEs will have some kind of debugger or profiler built in, but with ROS 2, there are few IDEs to choose.
-Therefore it's important to understand how to use these raw tools you have available rather than relying on an IDE to provide them.
-Further, understanding these tools is a fundamental skill of C/C++ development and leaving it up to your IDE can be problematic if you change roles and no longer have access to it or are doing development on the fly through an ssh session to a remote asset.
+While many IDEs have some kind of debugger or profiler built in, it is important to understand how to use these raw tools you have available rather than relying on an IDE to provide them.
+Understanding these tools is a fundamental skill of C/C++ development and leaving it up to your IDE can be problematic if you change roles and no longer have access to it or are doing development on the fly through an ssh session to a remote asset.
 
 Using GDB luckily is fairly simple after you have the basics under your belt.
 Here's how to ensure your ROS2 code is ready for debugging:
