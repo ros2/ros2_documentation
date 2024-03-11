@@ -281,7 +281,7 @@ Here's an similar example for the ``'start_sync_slam_toolbox_node'`` -
 Just as before, this prefix will launch a GDB session, now in ``xterm`` and run the launch file you requested with all the additional launch arguments defined.
 
 Once your node crashes, you'll see a prompt like below, now in the ``xterm`` session. 
-At this point you can now get a backtrace, Further follow `Reading the Stack Trace`_.
+At this point you can now get a backtrace, and read it using the instructions in `Reading the Stack Trace`.
 
 From a Large Project
 ====================
