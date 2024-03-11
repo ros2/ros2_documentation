@@ -174,7 +174,7 @@ After you obtain a backtrace using GDB, here's how to interpret it:
 
 - Debugging Clues: Function names and their arguments can provide valuable clues about what went wrong.
 
-**How to Debug once your Node Crashes-**
+**How to Debug once your Node Crashes**
 
 Once your node crashes, you’ll see a prompt like below.
 At this point you can get a backtrace.
