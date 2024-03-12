@@ -85,8 +85,8 @@ The ``Status`` category also expands to show specific status information. This i
 Built-in Display Types
 ^^^^^^^^^^^^^^^^^^^^^^
 .. list-table::
-   :widths: 20 20 20
    :header-rows: 1
+   :widths: 10 10 10
 
    * - Name
      - Description
@@ -99,7 +99,7 @@ Built-in Display Types
      - `sensor_msgs/JointStates <https://github.com/ros2/common_interfaces/blob/{DISTRO}/sensor_msgs/msg/JointState.msg>`__
    * - Camera
      - Creates a new rendering window from the perspective of a camera, and overlays the image on top of it.
-     - `sensor_msgs/Image <https://github.com/ros2/common_interfaces/blob/{DISTRO}/sensor_msgs/msg/Image.msg>`__, `sensor_msgs/CameraInfo <https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/CameraInfo.msg>`__
+     - `sensor_msgs/Image <https://github.com/ros2/common_interfaces/blob/{DISTRO}/sensor_msgs/msg/Image.msg>`__, `sensor_msgs/CameraInfo <https://github.com/ros2/common_interfaces/blob/{DISTRO}/sensor_msgs/msg/CameraInfo.msg>`__
    * - Grid
      - Displays a 2D or 3D grid along a plane
      -
@@ -114,37 +114,37 @@ Built-in Display Types
      - `visualization_msgs/InteractiveMarker <https://github.com/ros2/common_interfaces/blob/{DISTRO}/visualization_msgs/msg/InteractiveMarker.msg>`__
    * - Laser Scan
      - Shows data from a laser scan, with different options for rendering modes, accumulation, etc.
-     - `sensor_msgs/LaserScan <https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/LaserScan.msg>`__
+     - `sensor_msgs/LaserScan <https://github.com/ros2/common_interfaces/blob/{DISTRO}/sensor_msgs/msg/LaserScan.msg>`__
    * - Map
      - Displays a map on the ground plane.
-     - `nav_msgs/OccupancyGrid <https://github.com/ros2/common_interfaces/blob/rolling/nav_msgs/msg/OccupancyGrid.msg>`__
+     - `nav_msgs/OccupancyGrid <https://github.com/ros2/common_interfaces/blob/{DISTRO}/nav_msgs/msg/OccupancyGrid.msg>`__
    * - Markers
      - Allows programmers to display arbitrary primitive shapes through a topic
-     - `visualization_msgs/Marker <https://github.com/ros2/common_interfaces/blob/rolling/visualization_msgs/msg/Marker.msg>`__, `visualization_msgs/MarkerArray <https://github.com/ros2/common_interfaces/blob/rolling/visualization_msgs/msg/MarkerArray.msg>`__
+     - `visualization_msgs/Marker <https://github.com/ros2/common_interfaces/blob/{DISTRO}/visualization_msgs/msg/Marker.msg>`__, `visualization_msgs/MarkerArray <https://github.com/ros2/common_interfaces/blob/{DISTRO}/visualization_msgs/msg/MarkerArray.msg>`__
    * - Path
      - Shows a path from the `navigation <https://github.com/ros-planning/navigation2>`__ stack.
-     - `nav_msgs/Path <https://github.com/ros2/common_interfaces/blob/rolling/nav_msgs/msg/Path.msg>`__
+     - `nav_msgs/Path <https://github.com/ros2/common_interfaces/blob/{DISTRO}/nav_msgs/msg/Path.msg>`__
    * - Point
      - Draws a point as a small sphere.
-     - `geometry_msgs/PointStamped <https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/PointStamped.msg>`__
+     - `geometry_msgs/PointStamped <https://github.com/ros2/common_interfaces/blob/{DISTRO}/geometry_msgs/msg/PointStamped.msg>`__
    * - Pose
      - Draws a pose as either an arrow or axes.
-     - `geometry_msgs/PoseStamped <https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/PoseStamped.msg>`__
+     - `geometry_msgs/PoseStamped <https://github.com/ros2/common_interfaces/blob/{DISTRO}/geometry_msgs/msg/PoseStamped.msg>`__
    * - Pose Array
      - Draws a "cloud" of arrows, one for each pose in a pose array
-     - `geometry_msgs/PoseArray <https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/PoseArray.msg>`__
+     - `geometry_msgs/PoseArray <https://github.com/ros2/common_interfaces/blob/{DISTRO}/geometry_msgs/msg/PoseArray.msg>`__
    * - Point Cloud(2)
      - Shows data from a point cloud, with different options for rendering modes, accumulation, etc.
-     - `sensor_msgs/PointCloud <https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/PointCloud.msg>`__, `sensor_msgs/PointCloud2 <https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/PointCloud2.msg>`__
+     - `sensor_msgs/PointCloud <https://github.com/ros2/common_interfaces/blob/{DISTRO}/sensor_msgs/msg/PointCloud.msg>`__, `sensor_msgs/PointCloud2 <https://github.com/ros2/common_interfaces/blob/{DISTRO}/sensor_msgs/msg/PointCloud2.msg>`__
    * - Polygon
      - Draws the outline of a polygon as lines.
-     - `geometry_msgs/Polygon <https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/Polygon.msg>`__
+     - `geometry_msgs/Polygon <https://github.com/ros2/common_interfaces/blob/{DISTRO}/geometry_msgs/msg/Polygon.msg>`__
    * - Odometry
      - Accumulates odometry poses from over time.
-     - `nav_msgs/Odometry <https://github.com/ros2/common_interfaces/blob/rolling/nav_msgs/msg/Odometry.msg>`__
+     - `nav_msgs/Odometry <https://github.com/ros2/common_interfaces/blob/{DISTRO}/nav_msgs/msg/Odometry.msg>`__
    * - Range
      - Displays cones representing range measurements from sonar or IR range sensors. Version: Electric+
-     - `sensor_msgs/Range <https://github.com/ros2/common_interfaces/blob/rolling/sensor_msgs/msg/Range.msg>`__
+     - `sensor_msgs/Range <https://github.com/ros2/common_interfaces/blob/{DISTRO}/sensor_msgs/msg/Range.msg>`__
    * - RobotModel
      - Shows a visual representation of a robot in the correct pose (as defined by the current TF transforms).
      -
@@ -153,10 +153,10 @@ Built-in Display Types
      -
    * - Wrench
      - Draws a wrench as arrow (force) and arrow + circle (torque)
-     - `geometry_msgs/WrenchStamped <https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/WrenchStamped.msg>`__
+     - `geometry_msgs/WrenchStamped <https://github.com/ros2/common_interfaces/blob/{DISTRO}/geometry_msgs/msg/WrenchStamped.msg>`__
    * - Twist
      - Draws a twist as arrow (linear) and arrow + circle (angular)
-     - `geometry_msgs/TwistStamped <https://github.com/ros2/common_interfaces/blob/rolling/geometry_msgs/msg/TwistStamped.msg>`__
+     - `geometry_msgs/TwistStamped <https://github.com/ros2/common_interfaces/blob/{DISTRO}/geometry_msgs/msg/TwistStamped.msg>`__
 
 Configurations
 --------------
@@ -285,14 +285,14 @@ Interact
 This tool lets you interact with the visualized environment.
 You can click on objects and depending on their properties simply select them, move them around and much more.
 
-Keyboard shortcut: i
+Keyboard shortcut: ``i``
 
 Move Camera
 ^^^^^^^^^^^
 The Move Camera tool is the default tool.
 When this is selected and you click inside the 3D view, the viewpoint changes according to the options and camera type you have selected in the ``Views`` panel. See the previous section ``Views Panel`` for more information.
 
-Keyboard shortcut: m
+Keyboard shortcut: ``m``
 
 Select
 ^^^^^^
@@ -306,25 +306,25 @@ The ``f`` key will focus the camera on the current selection.
 
 .. image:: images/selection_selected.png
 
-Keyboard shortcut: s
+Keyboard shortcut: ``s``
 
 Focus Camera
 ^^^^^^^^^^^^
 Focus camera lets you select a location in the visualizer.
 The camera will then focus that point by changing its orientation but not its position.
 
-Keyboard shortcut: s
+Keyboard shortcut: ``c``
 
 Measure
 ^^^^^^^
 With the measure tool you can measure the distance between to points in the visualizer.
 The first click after activating the tool will set the starting point and the second one the end point of the measurement.
 The resulting distance will be displayed at the bottom of the RViz window.
-But notice that the measurment tool only works with actualy rendered object in the visualizer, you can not use it in empty space.
+But notice that the measurement tool only works with actually rendered objects in the visualizer, you can not use it in empty space.
 
 .. image:: images/measure.png
 
-Keyboard shortcut: n
+Keyboard shortcut: ``n``
 
 2D Pose Estimate
 ^^^^^^^^^^^^^^^^
@@ -336,7 +336,7 @@ The output topic can be changed in the ``Tool Properties`` panel.
 
 This tool works with the `navigation <https://github.com/ros-planning/navigation2>`__ stack.
 
-Keyboard shortcut: p
+Keyboard shortcut: ``p``
 
 2D Nav Goal
 ^^^^^^^^^^^
@@ -346,7 +346,7 @@ The output topic can be changed in the ``Tool Properties`` panel.
 
 This tool works with the `navigation <https://github.com/ros-planning/navigation2>`__ stack.
 
-Keyboard shortcut: g
+Keyboard shortcut: ``g``
 
 Publish Point
 ^^^^^^^^^^^^^
@@ -354,7 +354,7 @@ The publish point tool lets you select an object in the visualizer
 and the tool will publish the coordinates of that point based on the frame.
 The results are shown at the bottom like with the measure tool but are also published on the ``clicked_point`` topic.
 
-Keyboard shortcut: u
+Keyboard shortcut: ``u``
 
 Time
 ----
