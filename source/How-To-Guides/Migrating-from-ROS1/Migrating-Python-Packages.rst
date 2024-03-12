@@ -168,7 +168,7 @@ In ROS 2:
    resp = add_two_ints.call_async(req)
    rclpy.spin_until_future_complete(node, resp)
 
-Be careful not to run `rclpy.spin_until_future_complete` from within a ROS callback function.
+Be careful not to run ``rclpy.spin_until_future_complete`` from within a ROS callback function.
 For more details please see `Sync deadlock <https://docs.ros.org/en/{DISTRO}/How-To-Guides/Sync-Vs-Async.html#sync-deadlock>`__.
 
 Executing at a Specific Rate
@@ -188,11 +188,32 @@ In ROS 2:
 
 .. code-block:: python
 
-   node.create_rate(2)
-   while rclpy.ok():
-      msg.data += math_stuff()
-      node.pub.publish(msg)
-      rclpy.spin_once(node)
+   node.create_timer(1/2, math_stuff)
+   rclpy.spin()
 
-If ``create_rate`` is omitted, the while loop will sleep after entering ``spin_once`` and will continue after a callback is processed.
-This could be useful if you have a worker function later in the loop which is waiting for some data from ROS.
+What if the helper function ``math_stuff`` needs to call a service (cannot be done in a callback)?
+
+.. code-block:: python
+
+   flag = False
+
+   def timer_callback():
+      global flag
+      flag = True  # math_stuff should run next
+
+   def math_stuff():
+      if not flag:  # check if the timer activated
+         return
+      result = calculate()
+      call_services(result)
+      global flag
+      flag = False  # reset the flag
+
+   node.create_timer(1/2, timer_callback)
+   while rclpy.ok():
+      rclpy.spin_once(node)
+      math_stuff()
+
+
+``rclpy.spin_once(node)`` will sleep, process an incoming callback, then return. In this simple example the timer is the only thing running, but it is possible that the node has other callbacks executing at different rates.
+The global ``flag`` variable allows ``math_stuff()`` to determine if it was triggered by the timer or something else.
