@@ -18,12 +18,11 @@ RViz is a 3D visualizer for the Robot Operating System (ROS) framework.
 
 Install or build rviz
 ---------------------
-
 Follow the :doc:`installation instructions <../../../../Installation>` for your operating system to install RViz.
 
 Startup
 -------
-Dont forget to source the setup file.
+Don't forget to source the setup file.
 
 .. code-block:: bash
 
@@ -67,7 +66,8 @@ If you have, for example, two laser scanners on your robot, you might create two
 
 Display Properties
 ^^^^^^^^^^^^^^^^^^
-Each display gets its own list of properties. For example:
+Each display gets its own list of properties. 
+For example:
 
 .. image:: images/display-properties.png
 
@@ -80,7 +80,8 @@ as well as in the Status category that you can see if the display is expanded:
 
 .. image:: images/display-status.png
 
-The ``Status`` category also expands to show specific status information. This information is different for different displays, and the messages should be self explanatory.
+The ``Status`` category also expands to show specific status information. 
+This information is different for different displays, and the messages should be self explanatory.
 
 Built-in Display Types
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -96,55 +97,55 @@ Built-in Display Types
      -
    * - Effort
      - Shows the effort being put into each revolute joint of a robot
-     - `sensor_msgs/JointStates <https://github.com/ros2/common_interfaces/blob/{DISTRO}/sensor_msgs/msg/JointState.msg>`__
+     - `sensor_msgs/msg/JointStates <https://github.com/ros2/common_interfaces/blob/{DISTRO}/sensor_msgs/msg/JointState.msg>`__
    * - Camera
      - Creates a new rendering window from the perspective of a camera, and overlays the image on top of it.
-     - `sensor_msgs/Image <https://github.com/ros2/common_interfaces/blob/{DISTRO}/sensor_msgs/msg/Image.msg>`__, `sensor_msgs/CameraInfo <https://github.com/ros2/common_interfaces/blob/{DISTRO}/sensor_msgs/msg/CameraInfo.msg>`__
+     - `sensor_msgs/msg/Image <https://github.com/ros2/common_interfaces/blob/{DISTRO}/sensor_msgs/msg/Image.msg>`__, `sensor_msgs/msg/CameraInfo <https://github.com/ros2/common_interfaces/blob/{DISTRO}/sensor_msgs/msg/CameraInfo.msg>`__
    * - Grid
      - Displays a 2D or 3D grid along a plane
      -
    * - Grid Cells
      - Draws cells from a grid, usually obstacles from a costmap from the `navigation <https://github.com/ros-planning/navigation2>`__ stack.
-     - `nav_msgs/GridCells <https://github.com/ros2/common_interfaces/blob/{DISTRO}/nav_msgs/msg/GridCells.msg>`__
+     - `nav_msgs/msg/GridCells <https://github.com/ros2/common_interfaces/blob/{DISTRO}/nav_msgs/msg/GridCells.msg>`__
    * - Image
      - Creates a new rendering window with an Image. Unlike the Camera display, this display does not use a CameraInfo
-     - `sensor_msgs/Image <https://github.com/ros2/common_interfaces/blob/{DISTRO}/sensor_msgs/msg/Image.msg>`__
+     - `sensor_msgs/msg/Image <https://github.com/ros2/common_interfaces/blob/{DISTRO}/sensor_msgs/msg/Image.msg>`__
    * - InteractiveMarker
      - Displays 3D objects from one or multiple Interactive Marker servers and allows mouse interaction with them
-     - `visualization_msgs/InteractiveMarker <https://github.com/ros2/common_interfaces/blob/{DISTRO}/visualization_msgs/msg/InteractiveMarker.msg>`__
+     - `visualization_msgs/msg/InteractiveMarker <https://github.com/ros2/common_interfaces/blob/{DISTRO}/visualization_msgs/msg/InteractiveMarker.msg>`__
    * - Laser Scan
      - Shows data from a laser scan, with different options for rendering modes, accumulation, etc.
-     - `sensor_msgs/LaserScan <https://github.com/ros2/common_interfaces/blob/{DISTRO}/sensor_msgs/msg/LaserScan.msg>`__
+     - `sensor_msgs/msg/LaserScan <https://github.com/ros2/common_interfaces/blob/{DISTRO}/sensor_msgs/msg/LaserScan.msg>`__
    * - Map
      - Displays a map on the ground plane.
-     - `nav_msgs/OccupancyGrid <https://github.com/ros2/common_interfaces/blob/{DISTRO}/nav_msgs/msg/OccupancyGrid.msg>`__
+     - `nav_msgs/msg/OccupancyGrid <https://github.com/ros2/common_interfaces/blob/{DISTRO}/nav_msgs/msg/OccupancyGrid.msg>`__
    * - Markers
      - Allows programmers to display arbitrary primitive shapes through a topic
-     - `visualization_msgs/Marker <https://github.com/ros2/common_interfaces/blob/{DISTRO}/visualization_msgs/msg/Marker.msg>`__, `visualization_msgs/MarkerArray <https://github.com/ros2/common_interfaces/blob/{DISTRO}/visualization_msgs/msg/MarkerArray.msg>`__
+     - `visualization_msgs/msg/Marker <https://github.com/ros2/common_interfaces/blob/{DISTRO}/visualization_msgs/msg/Marker.msg>`__, `visualization_msgs/msg/MarkerArray <https://github.com/ros2/common_interfaces/blob/{DISTRO}/visualization_msgs/msg/MarkerArray.msg>`__
    * - Path
      - Shows a path from the `navigation <https://github.com/ros-planning/navigation2>`__ stack.
-     - `nav_msgs/Path <https://github.com/ros2/common_interfaces/blob/{DISTRO}/nav_msgs/msg/Path.msg>`__
+     - `nav_msgs/msg/Path <https://github.com/ros2/common_interfaces/blob/{DISTRO}/nav_msgs/msg/Path.msg>`__
    * - Point
      - Draws a point as a small sphere.
-     - `geometry_msgs/PointStamped <https://github.com/ros2/common_interfaces/blob/{DISTRO}/geometry_msgs/msg/PointStamped.msg>`__
+     - `geometry_msgs/msg/PointStamped <https://github.com/ros2/common_interfaces/blob/{DISTRO}/geometry_msgs/msg/PointStamped.msg>`__
    * - Pose
      - Draws a pose as either an arrow or axes.
-     - `geometry_msgs/PoseStamped <https://github.com/ros2/common_interfaces/blob/{DISTRO}/geometry_msgs/msg/PoseStamped.msg>`__
+     - `geometry_msgs/msg/PoseStamped <https://github.com/ros2/common_interfaces/blob/{DISTRO}/geometry_msgs/msg/PoseStamped.msg>`__
    * - Pose Array
      - Draws a "cloud" of arrows, one for each pose in a pose array
-     - `geometry_msgs/PoseArray <https://github.com/ros2/common_interfaces/blob/{DISTRO}/geometry_msgs/msg/PoseArray.msg>`__
+     - `geometry_msgs/msg/PoseArray <https://github.com/ros2/common_interfaces/blob/{DISTRO}/geometry_msgs/msg/PoseArray.msg>`__
    * - Point Cloud(2)
      - Shows data from a point cloud, with different options for rendering modes, accumulation, etc.
-     - `sensor_msgs/PointCloud <https://github.com/ros2/common_interfaces/blob/{DISTRO}/sensor_msgs/msg/PointCloud.msg>`__, `sensor_msgs/PointCloud2 <https://github.com/ros2/common_interfaces/blob/{DISTRO}/sensor_msgs/msg/PointCloud2.msg>`__
+     - `sensor_msgs/msg/PointCloud <https://github.com/ros2/common_interfaces/blob/{DISTRO}/sensor_msgs/msg/PointCloud.msg>`__, `sensor_msgs/msg/PointCloud2 <https://github.com/ros2/common_interfaces/blob/{DISTRO}/sensor_msgs/msg/PointCloud2.msg>`__
    * - Polygon
      - Draws the outline of a polygon as lines.
-     - `geometry_msgs/Polygon <https://github.com/ros2/common_interfaces/blob/{DISTRO}/geometry_msgs/msg/Polygon.msg>`__
+     - `geometry_msgs/msg/Polygon <https://github.com/ros2/common_interfaces/blob/{DISTRO}/geometry_msgs/msg/Polygon.msg>`__
    * - Odometry
      - Accumulates odometry poses from over time.
-     - `nav_msgs/Odometry <https://github.com/ros2/common_interfaces/blob/{DISTRO}/nav_msgs/msg/Odometry.msg>`__
+     - `nav_msgs/msg/Odometry <https://github.com/ros2/common_interfaces/blob/{DISTRO}/nav_msgs/msg/Odometry.msg>`__
    * - Range
      - Displays cones representing range measurements from sonar or IR range sensors. Version: Electric+
-     - `sensor_msgs/Range <https://github.com/ros2/common_interfaces/blob/{DISTRO}/sensor_msgs/msg/Range.msg>`__
+     - `sensor_msgs/msg/Range <https://github.com/ros2/common_interfaces/blob/{DISTRO}/sensor_msgs/msg/Range.msg>`__
    * - RobotModel
      - Shows a visual representation of a robot in the correct pose (as defined by the current TF transforms).
      -
@@ -153,10 +154,10 @@ Built-in Display Types
      -
    * - Wrench
      - Draws a wrench as arrow (force) and arrow + circle (torque)
-     - `geometry_msgs/WrenchStamped <https://github.com/ros2/common_interfaces/blob/{DISTRO}/geometry_msgs/msg/WrenchStamped.msg>`__
+     - `geometry_msgs/msg/WrenchStamped <https://github.com/ros2/common_interfaces/blob/{DISTRO}/geometry_msgs/msg/WrenchStamped.msg>`__
    * - Twist
      - Draws a twist as arrow (linear) and arrow + circle (angular)
-     - `geometry_msgs/TwistStamped <https://github.com/ros2/common_interfaces/blob/{DISTRO}/geometry_msgs/msg/TwistStamped.msg>`__
+     - `geometry_msgs/msg/TwistStamped <https://github.com/ros2/common_interfaces/blob/{DISTRO}/geometry_msgs/msg/TwistStamped.msg>`__
 
 Configurations
 --------------
@@ -245,7 +246,7 @@ You can save a view by clicking the Save button of the views panel.
 A view consists of:
 
 * View controller type
-* View configuration (position, orientation, etc. Possibly different for each view controller type.)
+* View configuration (position, orientation, etc; possibly different for each view controller type.)
 * The Target Frame
 
 Views are saved per user, not in the config files.
