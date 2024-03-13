@@ -596,7 +596,7 @@ Now you can pass the desired arguments to the launch file as follows:
 Documentation
 -------------
 
-`The launch documentation <https://github.com/ros2/launch/blob/{REPOS_FILE_BRANCH}/launch/doc/source/architecture.rst>`_ provides detailed information about available substitutions.
+`The launch documentation <https://docs.ros.org/en/{DISTRO}/p/launch/architecture.html>`_ provides detailed information about available substitutions.
 
 Summary
 -------
