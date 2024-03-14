@@ -66,7 +66,7 @@ If you have, for example, two laser scanners on your robot, you might create two
 
 Display Properties
 ^^^^^^^^^^^^^^^^^^
-Each display gets its own list of properties. 
+Each display gets its own list of properties.
 For example:
 
 .. image:: images/display-properties.png
@@ -80,7 +80,7 @@ as well as in the Status category that you can see if the display is expanded:
 
 .. image:: images/display-status.png
 
-The ``Status`` category also expands to show specific status information. 
+The ``Status`` category also expands to show specific status information.
 This information is different for different displays, and the messages should be self explanatory.
 
 Built-in Display Types
