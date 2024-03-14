@@ -13,7 +13,7 @@ RViz User Guide
 
 
 Background
----------
+----------
 RViz is a 3D visualizer for the Robot Operating System (ROS) framework.
 
 Install or build rviz
