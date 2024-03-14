@@ -33,7 +33,14 @@ The root directory contains configuration and files required to locally build th
 Building the site locally
 -------------------------
 
-Start by installing requirements located in the ``requirements.txt`` file:
+Start by cloning the repo locally with 
+
+.. code-block:: console
+
+   git clone https://github.com/ros2/ros2_documentation.git
+
+
+Then install requirements located in the ``requirements.txt`` file:
 
 .. tabs::
 
@@ -43,7 +50,8 @@ Start by installing requirements located in the ``requirements.txt`` file:
 
     .. code-block:: console
 
-       pip3 install --user --upgrade -r requirements.txt
+       export PATH="~/.local/bin:$PATH" && pip3 install --user --upgrade -r requirements.txt
+
 
   .. group-tab:: macOS
 
