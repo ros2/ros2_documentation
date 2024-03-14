@@ -256,11 +256,15 @@ In order to run this demo, we need to create a launch file ``turtle_tf2_sensor_m
             ),
         ])
 
-To access the launchfile later, we make sure it gets copied during building. Add the following line after the other entries between the ``'data_files':`` brackets:
+To access the launchfile later, we make sure it gets copied during building.
+Add the following line after the other entries between the ``'data_files':`` brackets:
 
 .. code-block:: python
 
-    ('share/' + package_name + '/launch', ['launch/turtle_tf2_sensor_message.launch.py']),
+    data_files=[
+        ...
+        (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', 'turtle_tf2_sensor_message.launch.py'))),
+    ],
 
 
 1.3 Add an entry point
