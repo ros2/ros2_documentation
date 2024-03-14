@@ -66,7 +66,10 @@ The base QoS profile currently includes settings for the following policies:
   * *Duration*: the maximum period of time a publisher has to indicate that it is alive before the system considers it to have lost liveliness (losing liveliness could be an indication of a failure).
 
 For each of the policies that is not a duration, there is also the option of "system default", which uses the default of the underlying middleware.
+
 For each of the policies that is a duration, there also exists a "default" option that means the duration is unspecified, which the underlying middleware will usually interpret as an infinitely long duration.
+If we try to store "infinitely long" in a ``builtin_interfaces/Duration`` message, the result is 2147483647 seconds (the max value for a signed 32-bit integer) added to 4294967295 nanoseconds (the max value for an unsigned 32-bit integer, equivalent to 4.294967295 seconds),
+resulting in the "magic" number 2147483651294967295 nanoseconds, or approximately 68 years.
 
 Comparison to ROS 1
 ^^^^^^^^^^^^^^^^^^^
