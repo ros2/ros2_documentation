@@ -323,7 +323,7 @@ Open a new terminal, the run Rviz using
 
 .. code-block:: console
 
-  rviz2 -d second_ros2_ws/install/urdf_tutorial_r2d2/share/urdf_tutorial_r2d2/r2d2.rviz
+  rviz2 -d second_ros2_ws/src/urdf_tutorial_r2d2/urdf/r2d2.rviz
 
 See the `User Guide <http://wiki.ros.org/rviz/UserGuide>`__ for details on how to use Rviz.
 
