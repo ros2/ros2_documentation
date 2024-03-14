@@ -42,10 +42,10 @@ tf2 can have every component in your distributed system build its own transform 
 Publishing transforms
 .....................
 
-When publishing transform we typically think of the transforms as the transform from on frame to the other.
+When publishing transforms we typically think of the transforms as the transform from on frame to the other.
 The semantic difference is whether you are transforming data represented in a frame or transforming the frame itself.
 These values are directly inverse.
-Transforms published in the Transform message represent the frame forumlation.
+Transforms published in the Transform message represent the frame formulation.
 Keep this in mind when debugging published transforms they are the inverse of what you will lookup depending on what direction you're traversing the transform tree.
 
 .. math::
@@ -102,7 +102,7 @@ For representing ``Velocity`` we have three pieces of information. :math:`V^{mov
 This velocity represents the velocity between the moving frame and the reference frame.
 And it is represented in the observing frame.
 
-For example a driver in Car A can report that they're driving forward(observed in A) at 1m/s (relative to earth) so that would be :math:`V_{A}^{A - E} = (1,0,0)`
+For example a driver in Car A can report that they're driving forward (observed in A) at 1m/s (relative to earth) so that would be :math:`V_{A}^{A - E} = (1,0,0)`
 Whereas that same velocity could be observed from the view point of the earth (lets assume the car is driving east and Earth is NED), it would be :math:`V_{E}^{A - E} = (0, 1, 0)`
 
 However transforms can show that these are actually the same with:
