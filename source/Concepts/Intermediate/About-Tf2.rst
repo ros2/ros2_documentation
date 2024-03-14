@@ -59,14 +59,14 @@ For the rest of this document we will just use :math:`T^{data}` but the ``data``
 Position
 ........
 
-If the driver in car :math:`A` observes something and a person on the ground wants to know where it is relative to it's position, you transform the observation from the source frame to the target frame. 
+If the driver in car :math:`A` observes something and a person on the ground wants to know where it is relative to it's position, you transform the observation from the source frame to the target frame.
 
 .. math::
 
    _{E}T_{A} * P_{A}^{Obs} = P_{E}^{Obs}
 
 
-Now if a person in car B wants to know where it is too you can compute the net transform. 
+Now if a person in car B wants to know where it is too you can compute the net transform.
 
 
 .. math::
@@ -94,7 +94,7 @@ However if you are transforming data from coordinate frame ``A`` into coordinate
    _{B}T_{A} = (_{B}{Tf}_{A})^{-1}
 
 
-Velocity 
+Velocity
 ........
 
 
@@ -112,15 +112,15 @@ However transforms can show that these are actually the same with:
    _{E}T_{A} * V_{A}^{A - E} = V_{E}^{A - E}
 
 
-Velocities can be added or subtracted if they're represented in the same frame, in this case ``Obs``. 
+Velocities can be added or subtracted if they're represented in the same frame, in this case ``Obs``.
 
 .. math::
 
    V_{Obs}^{A - C} = V_{Obs}^{A - B} + V_{Obs}^{B - C}
 
-TODO: Enumerate test cases for velocity reprojections via reference points(or collapsing). Especially with angular velocities. 
+TODO: Enumerate test cases for velocity reprojections via reference points(or collapsing). Especially with angular velocities.
 
-Velocities can be "reversed" by inverting. 
+Velocities can be "reversed" by inverting.
 
 .. math::
 
