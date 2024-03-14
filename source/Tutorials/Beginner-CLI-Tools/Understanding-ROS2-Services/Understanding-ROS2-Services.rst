@@ -281,6 +281,77 @@ Your turtlesim window will update with the newly spawned turtle right away:
 
 .. image:: images/spawn.png
 
+8 ros2 service echo
+^^^^^^^^^^^^^^^^^^^
+
+To see the data communication between a service client and a service server you can ``echo`` the service using:
+
+.. code-block:: console
+
+   ros2 service echo <service_name | service_type> <arguments>
+
+``ros2 service echo`` depends on service introspection of a service client and server, that is disabled by default.
+To enable it, users must call ``configure_introspection`` after creating a server client or server.
+
+Start up the ``introspection_client`` and ``introspection_service`` service introspection demo.
+
+.. code-block:: console
+
+   ros2 launch demo_nodes_cpp introspect_services_launch.py
+
+Open another terminal and run the following to enable service introspection for ``introspection_client`` and ``introspection_service``.
+
+.. code-block:: console
+
+   ros2 param set /introspection_service service_configure_introspection contents
+   ros2 param set /introspection_client client_configure_introspection contents
+
+Now we are able to see the service communication between ``introspection_client`` and ``introspection_service`` via ``ros2 service echo``.
+
+.. code-block:: console
+
+   ros2 service echo --flow-style /add_two_ints
+   info:
+     event_type: REQUEST_SENT
+     stamp:
+       sec: 1709408301
+       nanosec: 423227292
+     client_gid: [1, 15, 0, 18, 250, 205, 12, 100, 0, 0, 0, 0, 0, 0, 21, 3]
+     sequence_number: 618
+   request: [{a: 2, b: 3}]
+   response: []
+   ---
+   info:
+     event_type: REQUEST_RECEIVED
+     stamp:
+       sec: 1709408301
+       nanosec: 423601471
+     client_gid: [1, 15, 0, 18, 250, 205, 12, 100, 0, 0, 0, 0, 0, 0, 20, 4]
+     sequence_number: 618
+   request: [{a: 2, b: 3}]
+   response: []
+   ---
+   info:
+     event_type: RESPONSE_SENT
+     stamp:
+       sec: 1709408301
+       nanosec: 423900744
+     client_gid: [1, 15, 0, 18, 250, 205, 12, 100, 0, 0, 0, 0, 0, 0, 20, 4]
+     sequence_number: 618
+   request: []
+   response: [{sum: 5}]
+   ---
+   info:
+     event_type: RESPONSE_RECEIVED
+     stamp:
+       sec: 1709408301
+       nanosec: 424153133
+     client_gid: [1, 15, 0, 18, 250, 205, 12, 100, 0, 0, 0, 0, 0, 0, 21, 3]
+     sequence_number: 618
+   request: []
+   response: [{sum: 5}]
+   ---
+
 Summary
 -------
 

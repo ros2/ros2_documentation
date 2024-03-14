@@ -15,9 +15,14 @@ RUN apt-get update && \
     apt-get install --no-install-recommends -y \
         git-all \
         graphviz \
+        locales \
         make \
         python3-pip && \
     rm -rf /var/lib/apt/lists/*
+
+RUN locale-gen en_US en_US.UTF-8
+RUN update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+ENV LANG=en_US.UTF-8
 
 RUN useradd -u $uid -m $user
 ENV HOME=/home/$user
