@@ -124,7 +124,7 @@ Read the section that best describes the problem you're attempting to solve.
 Debugging a specific node with GDB
 ==================================
 
-To easily set up a GDB session before launching a ROS 2 node, leverage the ``--prefix`` option in launch files to easily set up a GDB session before launching a ROS 2 node. 
+To easily set up a GDB session before launching a ROS 2 node, leverage the ``--prefix`` option to easily set up a GDB session before launching a ROS 2 node. 
 For GDB debugging, use it as follows:
 
 .. note::
