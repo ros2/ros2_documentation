@@ -1,4 +1,4 @@
-Getting Backtraces in ROS 2
+How to get Backtraces in ROS 2
 ===========================
 
 .. contents:: Table of Contents
@@ -16,15 +16,10 @@ The following steps show ROS 2 users how to get traces when they encounter a pro
 Overview
 ========
 
-.. This document explains methods for getting backtraces in ROS 2, which are essential for debugging.  
-.. A backtrace provides a snapshot of the entire sequence of function calls that led up to a crash or error.
-.. There are many ways to accomplish this, but this is a good starting point for new C++ developers without GDB experience.
-
 **What is a Backtrace ?**
 
-- Imagine your program is like a multi-story building where each floor is a function it's currently executing. 
-  A backtrace is like an emergency map that shows you exactly how the program got to the floor where it crashed.
-  
+- Imagine your program is like a stack of pancakes where each pancake represents a function it's currently executing. 
+  A backtrace is like a photo of the collapsed pancake stack, showing you the order they were in, revealing how the program ended up with the failure.
 - It lists out the sequence of functions that were called, one on top of the other, leading up to the point of failure.
 
 **Why is it Useful?**
@@ -129,8 +124,7 @@ Read the section that best describes the problem you're attempting to solve.
 Debugging a specific node with GDB
 ==================================
 
-To easily set up a GDB session before launching a ROS 2 node, leverage the ``--prefix`` option in launch files. 
-This option allows you to specify a command to execute before the node starts. 
+To easily set up a GDB session before launching a ROS 2 node, leverage the ``--prefix`` option in launch files to easily set up a GDB session before launching a ROS 2 node. 
 For GDB debugging, use it as follows:
 
 .. note::
