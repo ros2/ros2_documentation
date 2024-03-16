@@ -79,36 +79,28 @@ Add a workspace in order to build and open them in a container, e.g.:
 .. code-block:: console
 
     cd ~/
-    mkdir ws_[project]
-    cd ws_[project]
+    mkdir ws
+    cd ws
     mkdir src
 
-Now create a .devcontainer folder in the root of your workspace and add a devcontainer.json and Dockerfile to this .devcontainer folder.
-Additionally, you need to create a cache folder in which you can cache the build and install folders for different ROS 2 distros.
+Now create a ``.devcontainer`` folder in the root of your workspace and add a ``devcontainer.json`` and ``Dockerfile`` to this ``.devcontainer`` folder.
 The workspace structure should look like this:
 
 ::
 
-    ws_[project]
-    ├── cache
-    |   ├── [ROS2_DISTRO]
-    |   |   ├── build
-    |   |   ├── install
-    |   |   └── log
-    |   └── ...
-    |
+    ws
+    ├── .devcontainer
+    │   ├── devcontainer.json
+    │   └── Dockerfile
     ├── src
-        ├── .devcontainer
-        │   ├── devcontainer.json
-        │   └── Dockerfile
         ├── package1
         └── package2
 
 
-With ``File->Open Folder...`` or ``Ctrl+K Ctrl+O``, open the ``src`` folder of your workspace in VS Code.
+With ``File->Open Folder...`` or ``Ctrl+K Ctrl+O``, open the ``ws`` folder of your workspace in VS Code.
 
-Edit devcontainer.json for your environment
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Edit ``devcontainer.json`` for your environment
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For the Dev Container to function properly, we have to build it with the correct user.
 Therefore add the following to ``.devcontainer/devcontainer.json``:
@@ -150,10 +142,7 @@ Therefore add the following to ``.devcontainer/devcontainer.json``:
         ],
         "mounts": [
            "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached",
-            "source=/dev/dri,target=/dev/dri,type=bind,consistency=cached",
-            "source=${localWorkspaceFolder}/../cache/ROS_DISTRO/build,target=/home/ws/build,type=bind",
-            "source=${localWorkspaceFolder}/../cache/ROS_DISTRO/install,target=/home/ws/install,type=bind",
-            "source=${localWorkspaceFolder}/../cache/ROS_DISTRO/log,target=/home/ws/log,type=bind"
+            "source=/dev/dri,target=/dev/dri,type=bind,consistency=cached"
         ],
         "postCreateCommand": "sudo rosdep update && sudo rosdep install --from-paths src --ignore-src -y && sudo chown -R $(whoami) /home/ws/"
     }
@@ -163,12 +152,10 @@ Therefore add the following to ``.devcontainer/devcontainer.json``:
 Use ``Ctrl+F`` to open the search and replace menu.
 Search for ``YOUR_USERNAME`` and replace it with your ``Linux username``.
 If you do not know your username, you can find it by running ``echo $USERNAME`` in the terminal.
-Also replace ``ROS_DISTRO``, with the ROS 2 distribution that you want to use and added to the cache previously, for example, "humble" or "foxy".
 
 
-
-Edit Dockerfile
-^^^^^^^^^^^^^^^
+Edit ``Dockerfile``
+^^^^^^^^^^^^^^^^^^^
 
 Open the Dockerfile and add the following contents:
 
@@ -201,14 +188,14 @@ Open the Dockerfile and add the following contents:
     USER $USERNAME
     CMD ["/bin/bash"]
 
-Search here also for ``ROS_DISTRO`` with the ROS 2 distribution you wish to use and added to the cache previously.
+Replace ``ROS_DISTRO`` with the ROS 2 distribution you wish to use as base image above, for example ``rolling``.
 
 
 Open and Build Development Container
 ------------------------------------
 
 Use ``View->Command Palette...`` or ``Ctrl+Shift+P`` to open the command palette.
-Search for the command ``Dev Containers: (Re-)build and Reopen in Container`` and execute it.
+Search for the command ``Dev Containers: Reopen in Container`` and execute it.
 This will build your development docker container for your. It will take a while - sit back or go for a coffee.
 
 
