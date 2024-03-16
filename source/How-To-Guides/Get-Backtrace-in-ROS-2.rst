@@ -1,8 +1,7 @@
-How to get Backtraces in ROS 2
+Get Backtraces in ROS 2
 ===========================
 
 .. contents:: Table of Contents
-   :depth: 2
    :local:
 
 **Goal:**  Show various methods for getting backtraces in ROS 2 
@@ -274,7 +273,7 @@ Here's an similar example for the ``'start_sync_slam_toolbox_node'`` -
 Just as before, this prefix will launch a GDB session, now in ``xterm`` and run the launch file you requested with all the additional launch arguments defined.
 
 Once your node crashes, you'll see a prompt like below, now in the ``xterm`` session. 
-At this point you can now get a backtrace, and read it using the instructions in `Reading the Stack Trace`.
+At this point you can now get a backtrace, and read it using the instructions in `Reading the Stack Trace`_.
 
 From a Large Project
 ====================
@@ -312,7 +311,7 @@ Alternatively, if your node of interest is being launched in these files directl
   An example set of arguments might be ``--ros-args -r __node:=<node_name> --params-file /absolute/path/to/params.yaml`` (as a template).
 
 Once your node crashes, you'll see a prompt like below in the specific server's terminal. 
-At this point you can now get a backtrace, and read it using the instructions in `Reading the Stack Trace`.
+At this point you can now get a backtrace, and read it using the instructions in `Reading the Stack Trace`_.
 
 Debugging tests with GDB
 ========================
