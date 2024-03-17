@@ -221,6 +221,7 @@ The console will return the following message:
   * ``--packages-up-to`` builds the package you want, plus all its dependencies, but not the whole workspace (saves time)
   * ``--symlink-install`` saves you from having to rebuild every time you tweak python scripts
   * ``--event-handlers console_direct+`` shows console output while building (can otherwise be found in the ``log`` directory)
+  * ``--executor sequential`` processes the packages one by one instead of using parallelism
 
 Once the build is finished, enter the command in the workspace root (``~/ros2_ws``):
 

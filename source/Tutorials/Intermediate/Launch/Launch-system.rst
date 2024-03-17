@@ -247,7 +247,7 @@ After the ``colcon build`` has been successful and you've sourced the workspace,
 Documentation
 -------------
 
-`The launch documentation <https://github.com/ros2/launch/blob/{REPOS_FILE_BRANCH}/launch/doc/source/architecture.rst>`__ provides more details on concepts that are also used in ``launch_ros``.
+`The launch documentation <https://docs.ros.org/en/{DISTRO}/p/launch/architecture.html>`__ provides more details on concepts that are also used in ``launch_ros``.
 
 Additional documentation/examples of launch capabilities are forthcoming.
 See the source code (https://github.com/ros2/launch and https://github.com/ros2/launch_ros) in the meantime.
