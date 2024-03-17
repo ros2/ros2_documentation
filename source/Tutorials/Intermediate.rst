@@ -5,7 +5,6 @@ Intermediate
    :maxdepth: 1
 
    Intermediate/Rosdep
-   Intermediate/Get-Backtrace-in-ROS2
    Intermediate/Creating-an-Action
    Intermediate/Writing-an-Action-Server-Client/Cpp
    Intermediate/Writing-an-Action-Server-Client/Py
