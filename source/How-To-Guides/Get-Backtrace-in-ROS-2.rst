@@ -1,5 +1,5 @@
 Get Backtraces in ROS 2
-===========================
+#######################
 
 .. contents:: Table of Contents
    :local:
@@ -13,7 +13,7 @@ Get Backtraces in ROS 2
 The following steps show ROS 2 users how to get traces when they encounter a problem.
 
 Overview
-========
+--------
 
 **What is a Backtrace ?**
 
@@ -83,7 +83,7 @@ This will cover how to get a backtrace from a specific node using ``ros2 run``, 
 By the end of this tutorial, you should be able to get a backtrace when you notice a node crashing in ROS 2.
 
 Preliminaries
-=============
+-------------
 
 GDB is the most popular debugger for C/C++ on Unix systems.
 It can be used to determine the reason for a crash and track threads.
@@ -121,7 +121,7 @@ Below are sections to describe the 3 major situations you could run into with RO
 Read the section that best describes the problem you're attempting to solve.
 
 Debugging a specific node with GDB
-==================================
+----------------------------------
 
 To easily set up a GDB session before launching a ROS 2 node, leverage the ``--prefix`` option to easily set up a GDB session before launching a ROS 2 node. 
 For GDB debugging, use it as follows:
@@ -153,7 +153,7 @@ Just as before, this prefix will launch a GDB session and run the node you reque
 You should now have your node running and should be chugging along with some debug printing.
 
 Reading the Stack Trace
-=======================
+-----------------------
 
 After you obtain a backtrace using GDB, here's how to interpret it:
 
@@ -214,7 +214,7 @@ When you are done with GDB, type ``quit`` and it will exit the session and kill 
 It may ask you if you want to kill some threads at the end, say yes.
 
 From a Launch File
-==================
+------------------
 
 Just as in our non-ROS example, we need to setup a GDB session before launching our ROS 2 launch file.
 While we could set this up through the commandline, we can instead make use of the same mechanics that we did in the ``ros2 run`` node example, now using a launch file.
@@ -276,8 +276,7 @@ Once your node crashes, you'll see a prompt like below, now in the ``xterm`` ses
 At this point you can now get a backtrace, and read it using the instructions in `Reading the Stack Trace`_.
 
 From a Large Project
-====================
-
+--------------------
 Working with launch files with multiple nodes is a little different so you can interact with your GDB session without being bogged down by other logging in the same terminal.
 For this reason, when working with larger launch files, its good to pull out the specific node you're interested in and launching it separately.
 
@@ -314,7 +313,7 @@ Once your node crashes, you'll see a prompt like below in the specific server's 
 At this point you can now get a backtrace, and read it using the instructions in `Reading the Stack Trace`_.
 
 Debugging tests with GDB
-========================
+------------------------
 
 If a C++ test is failing, GDB can be used directly on the test executable in the build directory.
 Ensure to build the code in debug mode.
@@ -347,7 +346,7 @@ If the code is throwing an unhandled exception, you can catch it in GDB before g
   run
 
 Automatic backtrace on crash
-============================
+----------------------------
 
 The `backward-cpp <https://github.com/pal-robotics/backward_ros>`_ library provides beautiful stack traces, and the `backward_ros <https://github.com/pal-robotics/backward_ros>`_ wrapper simplifies its integration.
 
