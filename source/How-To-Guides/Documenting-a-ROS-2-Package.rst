@@ -7,7 +7,6 @@ Documenting a ROS 2 package
 
 
 This guide introduces the standard way to create documentation for ROS 2 packages.
-This guide demonstrates the preferred way to create documentation for your personal ROS 2 packages.
 For packages with binary releases this also results in the docs being hosted at ``docs.ros.org/en/<distro>/p/<package>/``.
 For information on how to contribute to this documentation on docs.ros.org, see :doc:`Contributing to ROS 2 Documentation <../The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation>`.
 
@@ -87,7 +86,7 @@ Each Sphinx project is configured by a ``conf.py`` file in the ``doc`` directory
 If no configuration is present, a default Sphinx project is created and used when building the documentation.
 If however a ``conf.py`` Sphinx config is found in the ``doc`` subdirectory of the package, this is used instead.
 A custom Sphinx project is required if you want to include a standalone reStructuredText documentation page.
-A standalone documentation page can be used to list multiple tutorials and guides; if that's something you want for your package you'll need to create a custom Sphing project.
+A standalone documentation page can be used to list multiple tutorials and guides; if that's something you want for your package you'll need to create a custom Sphinx project.
 
 ``rosdoc2`` provides additional settings to ``conf.py`` and overrides some.
 Information about changes done to the Sphinx settings are logged to the console with a ``[rosdoc2]`` prefix.
@@ -97,7 +96,7 @@ Doxyfile
 
 Doxygen is a tool for automatically generating C++ API docs from code comments.
 While Doxygen can also generate HTML output directly, in the usual workflow for ROS packages, Doxygen produces machine readable output in XML format which is then consumed by Sphinx and integrated with the rest of the documentation.
-Doxygen-only docs are possible by only enabling the Doxygen builder in ``rosdoc2.yaml``, but rather uncommon.
+Doxygen-only docs are possible by only enabling the Doxygen builder in ``rosdoc2.yaml``, but this is uncommon.
 
 Customizing Sphinx Documentation
 --------------------------------
@@ -107,7 +106,7 @@ Creating a Sphinx Project
 
 In order to add standalone documentation pages in addition to the automatically generated API docs, a custom Sphinx project is necessary.
 This should be created in a subdirectory called ``doc`` in the package directory.
-A new Sphinx project can be created by running ``sphinx-quickstart``` in the ``doc`` directory, answering ``no`` to "Separate source and build directories".
+A new Sphinx project can be created by running ``sphinx-quickstart`` in the ``doc`` directory, answering ``no`` to "Separate source and build directories".
 The wizard requires entering the project name, author and version, but this can later be removed and will be provided to Sphinx by ``rosdoc2`` from your packages ``package.xml``.
 More information about creating a sphinx project can be found on the `Sphinx quickstart page <https://www.sphinx-doc.org/en/master/usage/quickstart.html>`__,
 
@@ -126,7 +125,8 @@ In order for autodoc to find the Python modules in your package, it must be adde
 
     sys.path.insert(0, os.path.abspath('.'))
 
-Since ``rosdoc2`` wraps the custom ``conf.py`` with more configuration from a script which will be placed in the package In this case the ``.``  path in ``os.path.abspath`` refers to the package's directory root, not the package's ``doc`` directory due to the interaction between rosdoc2 and ``conf.py``.
+This is because ``rosdoc2`` wraps the custom ``conf.py`` with more configuration from a script which will be placed in the package.
+In this case the ``.``  path in ``os.path.abspath`` refers to the package's directory root, not the package's ``doc`` directory due to the interaction between rosdoc2 and ``conf.py``.
 
 By default, package API docs are already reachable through the "Module Index" link that is present on the landing page.
 For the API docs to also appear in the table of contents, simply add a link to the ``modules`` page to your ``index.rst``:
