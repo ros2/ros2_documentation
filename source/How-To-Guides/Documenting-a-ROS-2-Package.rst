@@ -86,8 +86,8 @@ The final output of the package docs is (almost) always built by Sphinx.
 Each Sphinx project is configured by a ``conf.py`` file in the ``doc`` directory.
 If no configuration is present, a default Sphinx project is created and used when building the documentation.
 If however a ``conf.py`` Sphinx config is found in the ``doc`` subdirectory of the package, this is used instead.
-A custom Sphinx project is required if you want to include a standalone reStructuredText documentation page. 
-A standalone documentation page can be used to list multiple tutorials and guides; if that's something you want for your package you'll need to create a custom Sphing project. 
+A custom Sphinx project is required if you want to include a standalone reStructuredText documentation page.
+A standalone documentation page can be used to list multiple tutorials and guides; if that's something you want for your package you'll need to create a custom Sphing project.
 
 ``Rosdoc2`` provides additional settings to ``conf.py`` and overrides some.
 Information about changes done to the Sphinx settings are logged to the console with a ``[rosdoc2]`` prefix.
@@ -184,7 +184,7 @@ Including an existing README.md
 -------------------------------
 
 If your git repository already has an existing ``README.md``, it is possible to reuse this as the landing page for the documentation, without duplicating the contents.
-To correctly include a Markdown file in Sphinx while preserving relative links and images, some additional effort is required. 
+To correctly include a Markdown file in Sphinx while preserving relative links and images, some additional effort is required.
 
 First, create a proxy-file ``readme_include.md`` next to ``index.rst``.
 This is a markdown file which just includes the original README.md, but preserves the relative image paths, which would otherwise break in the next step:
