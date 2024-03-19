@@ -233,6 +233,9 @@ This would usually be the package source repository:
 
 The buildfarm hosts the documentation for every distribution separately, and periodically rebuilds it from the latest commit on the specified branch.
 It is not required to tag a new release to update the hosted documentation.
+To view the status of your package's documentation build, search for ``doc__<package_name>`` on `<https://build.ros2.org>`__.
+One job is created for every distribution for which the package is released.
+On each job page, you can see when a build was last triggered, as well as the status and logs of each build.
 
 Further Reading
 ---------------
