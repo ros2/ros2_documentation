@@ -218,7 +218,7 @@ CI, docs.ros.org
 ----------------
 
 The ROS build farm uses ``rosdoc2`` to build the package documentation hosted at ``docs.ros.org/en/<distro>/p/<package>/``.
-To enable this, the repository containing the documentation must be configured in `rosdistro/<ROS DISTRO>/distribution.yaml <https://github.com/ros/rosdistro/blob/master/rolling/distribution.yaml>`__.
+To enable this, the repository containing the documentation must be configured in `rosdistro/{DISTRO}/distribution.yaml <https://github.com/ros/rosdistro/blob/master/{DISTRO}/distribution.yaml>`__.
 This would usually be the package source repository:
 
 .. code-block:: yaml
