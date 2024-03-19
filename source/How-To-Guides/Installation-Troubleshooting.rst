@@ -68,6 +68,11 @@ Be sure to use the same Python interpreter as the one used to build the binary.
 
 For example, such a mismatch can crop up after an update of the OS. Then, rebuilding the workspace may fix the issue.
 
+Unable to rosdep init/update
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you experience ``socket.timeout: The read operation timed out`` or other network errors caused by accessing ``raw.githubusercontent.com`` when ``rosdep init``, you may use a mirror site like `TUNA <https://mirrors.tuna.tsinghua.edu.cn/help/rosdistro/>`_ and `BFSU <https://mirrors.bfsu.edu.cn/help/rosdistro/>`_.
+
 .. _linux-troubleshooting:
 
 Linux
