@@ -36,6 +36,7 @@ If you are new and looking to learn the ropes, start with the :doc:`Tutorials <T
    How-To-Guides/Cross-compilation
    How-To-Guides/Releasing/Releasing-a-Package
    How-To-Guides/Using-Python-Packages
+   How-To-Guides/Building-a-Custom-RViz-Display
    How-To-Guides/RQt-Port-Plugin-Windows
    How-To-Guides/Run-2-nodes-in-single-or-separate-docker-containers
    How-To-Guides/Visualizing-ROS-2-Data-With-Foxglove-Studio
