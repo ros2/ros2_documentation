@@ -21,7 +21,7 @@ Package Documentation Overview
 ------------------------------
 
 The type of documentation discussed in this guide is referred to as "package docs" or "API docs".
-For ROS packages that have been released on ROS Index, their documentation will be built on the ROS buildfarm, included on docs.ros.org, and visible on via the ``API Docs`` button on index.ros.org.
+For ROS packages that have been released on ROS Index, their documentation will be built on the ROS buildfarm, included on docs.ros.org, and visible via the ``API Docs`` button on index.ros.org.
 
 The tool responsible for generating ROS 2 package docs is `rosdoc2 <https://github.com/ros-infrastructure/rosdoc2>`__.
 
