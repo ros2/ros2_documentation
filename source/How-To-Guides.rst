@@ -22,6 +22,7 @@ If you are new and looking to learn the ropes, start with the :doc:`Tutorials <T
 
    How-To-Guides/Installation-Troubleshooting
    How-To-Guides/Developing-a-ROS-2-Package
+   How-To-Guides/Documenting-a-ROS-2-Package
    How-To-Guides/Ament-CMake-Documentation
    How-To-Guides/Ament-CMake-Python-Documentation
    How-To-Guides/Migrating-from-ROS1
