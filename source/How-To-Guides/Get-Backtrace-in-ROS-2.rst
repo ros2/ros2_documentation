@@ -117,7 +117,7 @@ However, since this is a ROS project with lots of node configurations and other 
 
   gdb ex run --args /path/to/exe/program
 
-Below are sections to describe the 3 major situations you could run into with ROS 2-based systems. 
+Below are sections to describe the three major situations you could run into with ROS 2-based systems. 
 Read the section that best describes the problem you're attempting to solve.
 
 Debugging a specific node with GDB
