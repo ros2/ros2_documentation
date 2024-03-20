@@ -102,7 +102,7 @@ Here's how to ensure your ROS2 code is ready for debugging:
 
   colcon build --packages-up-to <package_name> --cmake-args -DCMAKE_BUILD_TYPE=Debug 
 
-- By Editing ``CMakeLists.txt`` : Another way is to add ``-g`` to your compiler flags for the ROS package you want to profile / debug. 
+- By editing ``CMakeLists.txt`` : Another way is to add ``-g`` to your compiler flags for the ROS package you want to profile / debug. 
   This flag builds debug symbols that GDB can read to tell you specific lines of code in your project are failing and why.
   If you do not set this flag, you can still get backtraces but it will not provide line numbers for failures.
 
