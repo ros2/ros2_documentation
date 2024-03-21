@@ -183,6 +183,7 @@ Field default value
 
 Default values can be set to any field in the message type.
 Currently default values are not supported for string arrays and complex types (i.e. types not present in the built-in-types table above; that applies to all nested messages).
+Special floating point values such as ``NaN``, ``+infinity``, and ``-infinity`` are not yet supported as default values.
 
 Defining a default value is done by adding a third element to the field definition line, i.e:
 
@@ -226,6 +227,8 @@ For example:
 .. note::
 
    Constants names have to be UPPERCASE
+
+Special floating point values such as ``NaN``, ``+infinity``, and ``-infinity`` are not yet supported as constant values.
 
 Services
 --------

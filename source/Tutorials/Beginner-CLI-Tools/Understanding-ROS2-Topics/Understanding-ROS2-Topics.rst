@@ -303,6 +303,14 @@ If the message does not use a full header, but just has a field with type ``buil
 
   ros2 topic pub /reference sensor_msgs/msg/TimeReference '{header: "auto", time_ref: "now", source: "dumy"}'
 
+Certain messages use ``NaN`` as a significant value.
+For example, with a ``sensor_msgs/msg/BatteryState``, the temperature field may not be measured.
+If so, it should be set to ``NaN``.
+
+.. code-block:: console
+
+  ros2 topic pub /battery sensor_msgs/msg/BatteryState '{voltage: 12.4, temperature: .nan}'
+
 8 ros2 topic hz
 ^^^^^^^^^^^^^^^
 
