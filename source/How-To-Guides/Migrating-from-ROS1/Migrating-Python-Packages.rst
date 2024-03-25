@@ -188,32 +188,5 @@ In ROS 2:
 
 .. code-block:: python
 
-   node.create_timer(1/2, math_stuff)
+   node.create_timer(1/2, math_stuff)  # call pub.publish within math_stuff
    rclpy.spin()
-
-What if the helper function ``math_stuff`` needs to call a service (cannot be done in a callback)?
-
-.. code-block:: python
-
-   flag = False
-
-   def timer_callback():
-      global flag
-      flag = True  # math_stuff should run next
-
-   def math_stuff():
-      if not flag:  # check if the timer activated
-         return
-      result = calculate()
-      call_services(result)
-      global flag
-      flag = False  # reset the flag
-
-   node.create_timer(1/2, timer_callback)
-   while rclpy.ok():
-      rclpy.spin_once(node)
-      math_stuff()
-
-
-``rclpy.spin_once(node)`` will sleep, process an incoming callback, then return. In this simple example the timer is the only thing running, but it is possible that the node has other callbacks executing at different rates.
-The global ``flag`` variable allows ``math_stuff()`` to determine if it was triggered by the timer or something else.
