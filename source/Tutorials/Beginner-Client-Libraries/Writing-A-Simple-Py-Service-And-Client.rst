@@ -247,6 +247,8 @@ Finally it creates a new ``AddTwoInts`` request object.
       self.req = AddTwoInts.Request()
 
 Below the constructor is the ``send_request`` method, which will send the request and spin until it receives the response or fails.
+Synchronous calls to services is not recommended design in callbacks, because it can lead to deadlocks.
+For more details please see `Sync deadlock <https://docs.ros.org/en/{DISTRO}/How-To-Guides/Sync-Vs-Async.html#sync-deadlock>`__.
 
 .. code-block:: python
 
