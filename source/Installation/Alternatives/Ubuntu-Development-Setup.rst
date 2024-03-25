@@ -15,7 +15,7 @@ System requirements
 -------------------
 The current Debian-based target platforms for {DISTRO_TITLE_FULL} are:
 
-- Tier 1: Ubuntu Linux - Jammy (22.04) 64-bit
+- Tier 1: Ubuntu Linux - Noble (24.04) 64-bit
 - Tier 3: Debian Linux - Bullseye (11) 64-bit
 
 As defined in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`_.

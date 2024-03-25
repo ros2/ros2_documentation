@@ -696,7 +696,7 @@ Additionally, we test all pull requests against these platforms before merging.
 This is the current set of target platforms and architectures, though it evolves overtime:
 
 
-* Ubuntu 22.04 Jammy
+* Ubuntu 22.04 Noble 
 
   * amd64
   * aarch64
