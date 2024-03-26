@@ -22,7 +22,7 @@ Rolling Ridley is currently supported on the following platforms:
 
 Tier 1 platforms:
 
-* Ubuntu 22.04 (Jammy): ``amd64`` and ``arm64``
+* Ubuntu 24.04 (Noble): ``amd64`` and ``arm64``
 * Windows 10 (Visual Studio 2019)
 
 Tier 3 platforms:

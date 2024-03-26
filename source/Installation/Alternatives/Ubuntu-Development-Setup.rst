@@ -15,7 +15,7 @@ System requirements
 -------------------
 The current Debian-based target platforms for {DISTRO_TITLE_FULL} are:
 
-- Tier 1: Ubuntu Linux - Jammy (22.04) 64-bit
+- Tier 1: Ubuntu Linux - Noble (24.04) 64-bit
 - Tier 3: Debian Linux - Bullseye (11) 64-bit
 
 As defined in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`_.
@@ -150,7 +150,7 @@ Use the ROS 1 bridge (optional)
 -------------------------------
 
 The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa.
-See the dedicated :doc:`document <../../How-To-Guides/Using-ros1_bridge-Jammy-upstream>` on how to build and use the ROS 1 bridge.
+See the dedicated :doc:`document <../../How-To-Guides/Using-ros1_bridge-Noble-upstream>` on how to build and use the ROS 1 bridge.
 
 Alternate compilers
 -------------------

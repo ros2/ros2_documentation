@@ -8,7 +8,7 @@ Recording and playing back data with ``rosbag`` using the ROS 1 bridge
 
 This tutorial is a follow up to the *Bridge communication between ROS 1 and ROS 2* demo as can be found `here <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__, and in the following it is assumed you have completed that tutorial already.
 
-The ros1_bridge can be built from :doc:`source <../../How-To-Guides/Using-ros1_bridge-Jammy-upstream>` for these examples.
+The ros1_bridge can be built from :doc:`source <../../How-To-Guides/Using-ros1_bridge-Noble-upstream>` for these examples.
 
 What follows is a series of additional examples, like that ones that come at the end of the aforementioned *Bridge communication between ROS 1 and ROS 2* demo.
 

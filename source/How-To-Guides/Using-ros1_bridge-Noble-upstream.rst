@@ -1,21 +1,21 @@
-Using ``ros1_bridge`` with upstream ROS on Ubuntu 22.04
+Using ``ros1_bridge`` with upstream ROS on Ubuntu 24.04
 =======================================================
 
 .. contents:: Table of Contents
    :depth: 1
    :local:
 
-The release of ROS 2 Humble (and Rolling) on Ubuntu 22.04 Jammy Jellyfish marks the first ROS 2 release on a platform with no official ROS 1 release.
+The release of ROS 2 Humble (and Rolling) on Ubuntu 22.04 Jammy Jellyfish marked the first ROS 2 release on a platform with no official ROS 1 release.
 While ROS 1 Noetic will continue to be supported through the duration of its `long term support window <https://www.ros.org/reps/rep-0003.html#noetic-ninjemys-may-2020-may-2025>`__, it will only target Ubuntu 20.04.
-Alternatively, there are `upstream variants of ROS 1 packages <https://packages.ubuntu.com/jammy/ros-desktop>`__ in Debian and Ubuntu that are not maintained as an official distribution by the ROS maintainers.
+Alternatively, there are `upstream variants of ROS 1 packages <https://packages.ubuntu.com/noble/ros-desktop>`__ in Debian and Ubuntu that are not maintained as an official distribution by the ROS maintainers.
 
-This guide outlines the current mechanism for bridging ROS 2 releases with these upstream packages on Ubuntu 22.04 Jammy Jellyfish.
+This guide outlines the current mechanism for bridging ROS 2 releases with these upstream packages on Ubuntu 24.04 Noble Numbat.
 This provides a migration path for users who still depend on ROS 1, but desire moving to newer ROS 2 and Ubuntu releases.
 
 ROS 2 via Debian packages
 -------------------------
 
-Installing :doc:`ROS 2 from Debian packages <../Installation/Ubuntu-Install-Debians>` currently does not work for ROS 2 on Ubuntu Jammy.
+Installing :doc:`ROS 2 from Debian packages <../Installation/Ubuntu-Install-Debians>` currently does not work for ROS 2 on Ubuntu Noble.
 The version of ``catkin-pkg-modules`` available in the Ubuntu repository conflicts with that in the ROS 2 package repository.
 
 If the ROS 2 apt repository is in the available apt repositories (``/etc/apt/sources.list.d``), no ROS 1 packages will be installable.
@@ -45,7 +45,7 @@ For now, to support ``ros1_bridge``, follow the instructions below for building 
 ROS 2 from source
 -----------------
 
-Installing :doc:`ROS 2 from Source <../Installation/Alternatives/Ubuntu-Development-Setup>` is the only configuration that works for ROS 2 on Ubuntu Jammy.
+Installing :doc:`ROS 2 from Source <../Installation/Alternatives/Ubuntu-Development-Setup>` is the only configuration that works for ROS 2 on Ubuntu Noble.
 
 Below is a summary of the necessary instructions from the source build instructions.
 The substantial deviation is that we skip using the ROS 2 apt repositories because of conflicting packages.
