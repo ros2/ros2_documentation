@@ -119,6 +119,8 @@ Create a workspace and clone all repos:
    cd ~/ros2_{DISTRO}
    vcs import --input https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos src
 
+Should you get an error of the form `AttributeError: module 'pkgutil' has no attribute 'ImpImporter'. Did you mean: 'zipimporter'?`, it can be solved in Python 3.12 via `python -m ensurepip --upgrade`.
+
 Install additional DDS vendors (optional)
 -----------------------------------------
 
