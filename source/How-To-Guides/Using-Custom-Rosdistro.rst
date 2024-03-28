@@ -17,9 +17,9 @@ Thus, this index is an important element of the ROS ecosystem.
 However, there are occasions where a user would like the assert further control over this index to add in their own proprietary keys or use a previous state of rosdistro.
 This guide walks through how to set a version of rosdistro to use on your system.
 
-The motivating example that this guide will use is a desire to use a previous version of ``rolling`` due to a breakage on your development computer or Continuous Integration.
-It is possible that during transition periods from one operating system to another, ``rolling`` on the older operating system may become unusable due to support shifting to a new OS (i.e. moving to Ubuntu 22.04 to 24.04 for the next release).
-Thus, we wish to set a prior version of rosdistro that aligns with a working ``rolling`` distribution on a given operating system before upgrading to Ubuntu 24.04.
+The motivating example that this guide will use is a desire to use a previous version of Rolling due to a breakage on your development computer or Continuous Integration.
+It is possible that during transition periods from one operating system to another, Rolling on the older operating system may become unusable due to support shifting to a new OS (i.e. moving to Ubuntu 22.04 to 24.04 for the next release).
+Thus, we wish to set a prior version of rosdistro that aligns with a working Rolling distribution on a given operating system to keep our systems functioning before upgrading to the new operating system.
 
 Important Preliminaries
 -----------------------
@@ -37,13 +37,14 @@ How to Use a Custom Rosdistro Version
 -------------------------------------
 
 To use a custom version in your CI, docker build, local environment, robot, or other application, we need to first identify the rosdistro version of interest.
+
 For our motivating example, we wish to use the last index state before the first sync of ``rolling`` on the new operating system.
 In this case, that last sync for our operating system was performed on February 28, 2024.
 Conveniently, the syncs are tagged so we can obtain that information on the ``rolling/2024-02-28`` tagged branch.
 
-Next, we need to update the ``20-default.list`` with our tagged branch values rather than using the main repository's current state.
+Thus, we need to update the ``20-default.list`` with our tagged branch values rather than using the main repository's current state.
 This can be accomplished using the script as follows. If running on a local host, you may need to include ``sudo``.
-This will update the master branch to use our tagged branch.
+This will update list to use our tagged branch rather than the master branch.
 
 .. code-block:: bash
 
@@ -60,6 +61,6 @@ The ``v4`` in our index points to a new version of the index format.
 A previous index also exists without the ``v4`` which is still present for historical reasons and legacy systems, but you should not use it. 
 
 Afterward, you can ``rosdep update``, which will now use the changes to update the index in accordance to the Rolling distribution's state on February 28, 2024 before the breakages began.
-You can see this in action in `Nav2's CI <https://github.com/ros-planning/navigation2/commit/80bb5bff1488c0677efcc4254b7a89908c853ba0>`_ in order to bypass a temporary Rolling outage in their CI system.
+You can see this in action in `Nav2's CircleCI <https://github.com/ros-planning/navigation2/commit/80bb5bff1488c0677efcc4254b7a89908c853ba0>`_ and `ros_gz's GitHub Actions <https://github.com/gazebosim/ros_gz/pull/522/files>`_ in order to bypass a temporary Rolling outage in their CI systems.
 
 .. Note:: If using a custom rosdistro version, you can substitute the final URLs in the default list and index URL with your fork or index location.
