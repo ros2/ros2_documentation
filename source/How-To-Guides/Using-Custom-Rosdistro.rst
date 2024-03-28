@@ -58,7 +58,7 @@ After, we must now update the environmental variable ``ROSDISTRO_INDEX_URL`` to 
 
 If you plan to use this on a local host for a long time, it may be wise to include this in your ``~/.bashrc`` so that all new terminal do this automatically.
 The ``v4`` in our index points to a new version of the index format.
-A previous index also exists without the ``v4`` which is still present for historical reasons and legacy systems, but you should not use it. 
+A previous index also exists without the ``v4`` which is still present for historical reasons and legacy systems, but you should not use it.
 
 Afterward, you can ``rosdep update``, which will now use the changes to update the index in accordance to the Rolling distribution's state on February 28, 2024 before the breakages began.
 You can see this in action in `Nav2's CircleCI <https://github.com/ros-planning/navigation2/commit/80bb5bff1488c0677efcc4254b7a89908c853ba0>`_ and `ros_gz's GitHub Actions <https://github.com/gazebosim/ros_gz/pull/522/files>`_ in order to bypass a temporary Rolling outage in their CI systems.
