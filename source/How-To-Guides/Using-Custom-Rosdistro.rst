@@ -43,7 +43,8 @@ In this case, that last sync for our operating system was performed on February 
 Conveniently, the syncs are tagged so we can obtain that information on the ``rolling/2024-02-28`` tagged branch.
 
 Thus, we need to update the ``20-default.list`` with our tagged branch values rather than using the main repository's current state.
-This can be accomplished using the script as follows. If running on a local host, you may need to include ``sudo``.
+This can be accomplished using the script as follows.
+If running on a local host, you may need to include ``sudo``.
 This will update list to use our tagged branch rather than the master branch.
 
 .. code-block:: bash
