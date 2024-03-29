@@ -95,6 +95,12 @@ To build the ``\{DISTRO}`` folder tree:
 
 .. note::
 
+   If multiple versions of Python 3 are installed, cmake-args can be set in order to ensure only the desired Python 3 executable and library folders are used for the build:
+   ``colcon build --merge-install --cmake-args -DPython3_ROOT_DIR=<python-root-dir> -DPython3_FIND_STRATEGY=LOCATION -DPython3_FIND_REGISTRY=NEVER``
+where ``<python-root-dir>`` is e.g. ``C:\Python38`` (the location Chocolatey will install Python)
+
+.. note::
+
    If you are doing a debug build use ``python_d path\to\colcon_executable`` ``colcon``.
    See `Extra stuff for debug mode`_ for more info on running Python code in debug builds on Windows.
 
