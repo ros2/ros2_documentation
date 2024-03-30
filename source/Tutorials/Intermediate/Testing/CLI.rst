@@ -35,33 +35,4 @@ To see the exact test cases which fail, use the ``--verbose`` flag:
 Debugging tests with GDB
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-If a C++ test is failing, GDB can be used directly on the test executable in the build directory.
-Ensure to build the code in debug mode.
-Since the previous build type may be cached by CMake, clean the cache and rebuild.
-
-.. code-block:: console
-
-  colcon build --cmake-clean-cache --mixin debug
-
-In order for GDB to load debug symbols for any shared libraries called, make sure to source your environment.
-This configures the value of ``LD_LIBRARY_PATH``.
-
-.. code-block:: console
-
-  source install/setup.bash
-
-Finally, run the test directly through GDB.
-For example:
-
-.. code-block:: console
-
-  gdb -ex run ./build/rcl/test/test_logging
-
-If the code is throwing an unhandled exception, you can catch it in GDB before gtest handles it.
-
-.. code-block:: console
-
-  gdb ./build/rcl/test/test_logging
-  catch throw
-  run
-
+"For detailed guidance on debugging tests using GDB, refer to the `GDB Tutorial <file:///home/gaurav/ros2_documentation/build/html/How-To-Guides/Get-Backtrace-in-ROS-2.html#debugging-tests-with-gdb>`__."
