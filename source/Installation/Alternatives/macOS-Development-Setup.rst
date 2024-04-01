@@ -63,7 +63,7 @@ You need the following things installed to build ROS 2:
 
       brew install asio assimp bison bullet cmake console_bridge cppcheck \
         cunit eigen freetype graphviz opencv openssl orocos-kdl pcre poco \
-        pyqt5 python qt@5 sip spdlog tinyxml2
+        pyqt@5 python qt@5 sip spdlog tinyxml2
 
 #.
    Setup some environment variables:
