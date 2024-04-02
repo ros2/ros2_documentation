@@ -35,7 +35,7 @@ However, we figured it would be helpful to produce a list of available URDF expo
 **Other URDF Export Tools**
 
  * `Copellia Sim URDF Exporter <https://manual.coppeliarobotics.com/en/importExport.htm#urdf>`_
- * `Issac Sim URDF Exporter <https://docs.omniverse.nvidia.com/isaacsim/latest/advanced_tutorials/tutorial_advanced_export_urdf.html>`_
+ * `Isaac Sim URDF Exporter <https://docs.omniverse.nvidia.com/isaacsim/latest/advanced_tutorials/tutorial_advanced_export_urdf.html>`_
  * `Blender URDF Exporter <https://github.com/dfki-ric/phobos>`_
  * `Gazebo SDFormat to URDF Parser <https://github.com/ros/sdformat_urdf/tree/ros2>`_
  * `SDF to URDF Converter in Python <https://github.com/andreasBihlmaier/pysdf>`_
