@@ -30,6 +30,7 @@ However, we figured it would be helpful to produce a list of available URDF expo
  * `SolidWorkds URDF Exporter <https://github.com/ros/solidworks_urdf_exporter>`_
  * `ROS Workbench for FreeCAD <https://github.com/galou/freecad.cross>`_
  * `OnShape URDF Exporter <https://github.com/Rhoban/onshape-to-robot>`_
+ * `CREO Mechanism Exporter <https://github.com/icub-tech-iit/creo2urdf>`_
 
 
 **Other URDF Export Tools**
