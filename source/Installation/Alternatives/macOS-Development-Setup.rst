@@ -74,6 +74,7 @@ You need the following things installed to build ROS 2:
    Use ``python3 -m pip`` (just ``pip`` may install Python3 or Python2) to install more stuff:
 
    .. code-block:: bash
+
       python3 -m pip install --upgrade pip
 
       python3 -m pip install -U \
