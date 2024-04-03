@@ -71,7 +71,7 @@ Now if a person in car B wants to know where it is too you can compute the net t
 
 .. math::
 
-   _{B}T_{E} * _{E}T_{A} * P_{A}^{Obs} = _{B}T_{A} * P_{A}^{Obs} = P_{E}^{Obs}
+   _{B}T_{E} * _{E}T_{A} * P_{A}^{Obs} = _{B}T_{A} * P_{A}^{Obs} = P_{B}^{Obs}
 
 
 This is exactly what ``lookupTransform`` provides where ``A`` is the *source* ``frame_id`` and ``B`` is the *target* ``frame_id``.
@@ -116,7 +116,7 @@ Velocities can be added or subtracted if they're represented in the same frame, 
 
 .. math::
 
-   V_{Obs}^{A - C} = V_{Obs}^{A - B} + V_{Obs}^{B - C}
+   V_{Obs}^{A - C} = V_{Obs}^{A - B} + V_{Obs}^{D - C}
 
 TODO: Enumerate test cases for velocity reprojections via reference points(or collapsing). Especially with angular velocities.
 
@@ -124,7 +124,7 @@ Velocities can be "reversed" by inverting.
 
 .. math::
 
-   V_{Obs}^{A - C} = (V_{Obs}^{C - A})^{-1}
+   V_{Obs}^{A - C} = -(V_{Obs}^{C - A})
 
 If you want to compare two velocities you must first transform them into the same observational frame first.
 
