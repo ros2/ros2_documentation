@@ -41,8 +41,7 @@ if a release team already exists for your project but you are not part of it.
 Start a new release team
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Fill the `New Release Team issue <https://github.com/ros2-gbp/ros2-gbp-github-org/issues/new?assignees=&labels=&template=new_release_team.md&title=Add+release+team>`_ issue template
-if no release team exists for your project yet by requesting for a new release team to be created.
+If no release team exists for your project yet, fill out the `New Release Team issue <https://github.com/ros2-gbp/ros2-gbp-github-org/issues/new?assignees=&labels=&template=new_release_team.md&title=Add+release+team>`_ issue template to request one be created.
 
 .. _what-is-a-release-repository:
 
