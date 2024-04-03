@@ -166,22 +166,22 @@ Testing it out
 Compile your code and run ``rviz2``. You should be able to add your new plugin by clicking ``Add`` in the bottom left, and then selecting your package/plugin.
 
 
-.. image:: rviz/Step1A.png
-   :target: rviz/Step1A.png
+.. image:: images/Step1A.png
+   :target: images/Step1A.png
    :alt: screenshot of adding display
 
 
 Initially, the display will be in an error state because you have yet to assign a topic.
 
-.. image:: rviz/Step1B.png
-   :target: rviz/Step1B.png
+.. image:: images/Step1B.png
+   :target: images/Step1B.png
    :alt: screenshot of error state
 
 
 Let's put the topic ``/point`` and it should load fine, although not display anything.
 
-.. image:: rviz/Step1C.png
-   :target: rviz/Step1C.png
+.. image:: images/Step1C.png
+   :target: images/Step1C.png
    :alt: screenshot of functioning empty display
 
 
@@ -253,8 +253,8 @@ We also update our ``processMessage`` method:
 
 The result should look like this:
 
-.. image:: rviz/Step2A.png
-   :target: rviz/Step2A.png
+.. image:: images/Step2A.png
+   :target: images/Step2A.png
    :alt: screenshot of functioning display
 
 
@@ -315,15 +315,15 @@ Cpp Updates
 
 The result should look like this:
 
-.. image:: rviz/Step3A.png
-   :target: rviz/Step3A.png
+.. image:: images/Step3A.png
+   :target: images/Step3A.png
    :alt: screenshot with color property
 
 
 Ooh, pink!
 
-.. image:: rviz/Step3B.png
-   :target: rviz/Step3B.png
+.. image:: images/Step3B.png
+   :target: images/Step3B.png
    :alt: screenshot with changed color
 
 
@@ -350,14 +350,14 @@ You can also set the status of the display. As an arbitrary example, let's make 
 * Think of the status as Key/Value pairs, with the key being some string (here we're using ``"Message"``\ ) and the values are the status level (error/warn/ok) and the description (some other string).
 
 
-.. image:: rviz/Step4A.png
-   :target: rviz/Step4A.png
+.. image:: images/Step4A.png
+   :target: images/Step4A.png
    :alt: screenshot with ok status
 
 
 
-.. image:: rviz/Step4B.png
-   :target: rviz/Step4B.png
+.. image:: images/Step4B.png
+   :target: images/Step4B.png
    :alt: screenshot with warning status
 
 
@@ -395,24 +395,24 @@ We need to install the image file in the CMake.
 Now when you add the display, it should show up with an icon and description.
 
 
-.. image:: rviz/Step5A.png
-   :target: rviz/Step5A.png
+.. image:: images/Step5A.png
+   :target: images/Step5A.png
    :alt: screenshot with added icon and description
 
 
 Here is the display when attempting to add by topic:
 
 
-.. image:: rviz/Step5B.png
-   :target: rviz/Step5B.png
+.. image:: images/Step5B.png
+   :target: images/Step5B.png
    :alt: screenshot with add by topic dialog
 
 
 And finally, here's the icon in the standard interface:
 
 
-.. image:: rviz/Step5C.png
-   :target: rviz/Step5C.png
+.. image:: images/Step5C.png
+   :target: images/Step5C.png
    :alt: screenshot with icon in standard interface
 
 
