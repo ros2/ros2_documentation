@@ -81,7 +81,7 @@ In Jazzy, the ``tf2_bullet/tf2_bullet.h``, ``tf2_eigen/tf2_eigen.h``, ``tf2_geom
 Return types of `wait_for_transform_async` and `wait_for_transform_full_async` changed
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Previously ``wait_for_transform_async`` and ``wait_for_transform_full_async`` of the ``Buffer`` class returned a future containing true or false
-In Jazzy, the future will contain the information of the transform being waited on
+In Jazzy, the future will contain the information of the transform being waited on.
 
 ``rclcpp``
 ^^^^^^^^^^
