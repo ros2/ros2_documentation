@@ -78,6 +78,11 @@ In Humble, the headers: ``tf2_bullet/tf2_bullet.h``, ``tf2_eigen/tf2_eigen.h``, 
 In Jazzy, the ``tf2_bullet/tf2_bullet.h``, ``tf2_eigen/tf2_eigen.h``, ``tf2_geometry_msgs/tf2_geometry_msgs.h``,
 ``tf2_kdl/tf2_kdl.h``, ``tf2_sensor_msgs/tf2_sensor_msgs.h`` headers have been completely removed.
 
+Return types of `wait_for_transform_async` and `wait_for_transform_full_async` changed
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Previously ``wait_for_transform_async`` and ``wait_for_transform_full_async`` of the ``Buffer`` class returned a future containing true or false
+In Jazzy, the future will contain the information of the transform being waited on
+
 ``rclcpp``
 ^^^^^^^^^^
 
