@@ -2,12 +2,12 @@
 Building a Custom RViz Display
 ==============================
 
-`rviz_plugin_tutorial <https://github.com/MetroRobots/rviz_plugin_tutorial>`__: A tutorial on how to make rviz plugins
+`rviz_plugin_tutorial <https://github.com/MetroRobots/rviz_plugin_tutorial>`__: A tutorial on how to make RViz plugins
 
 Point2D Message
 ---------------
 
-We'll be playing with a toy message defined in the ``rviz_plugin_tutorial_msgs``  package: ``Point2D.msg``:
+We'll be playing with a toy message defined in the ``rviz_plugin_tutorial_msgs`` package: ``Point2D.msg``:
 
 .. code-block::
 
@@ -151,7 +151,7 @@ Everyone loves how verbose CMake files are in ROS 2! The following lines are on 
    pluginlib_export_plugin_description_file(rviz_common rviz_common_plugins.xml)
 
 
-* To generate the proper QT files, we need to
+* To generate the proper Qt files, we need to
   A) Turn ``CMAKE_AUTOMOC`` on
   B) Wrap the headers by calling ``qt5_wrap_cpp`` with each header that has ``Q_OBJECT`` in it.
   C) Include the ``MOC_FILES`` in the library alongside our other cpp files.
@@ -285,14 +285,14 @@ Header Updates
   private Q_SLOTS:
     void updateStyle();
 
-* This gets called whenever the gui is changed, via QT's SLOT/SIGNAL framework.
+* This gets called whenever the gui is changed, via Qt's SLOT/SIGNAL framework.
 * ``std::unique_ptr<rviz_common::properties::ColorProperty> color_property_;`` The property itself.
 
 Cpp Updates
 ^^^^^^^^^^^
 
 
-* ``#include <rviz_common/properties/parse_color.hpp>`` - Contains helper function to convert property to ogre color.
+* ``#include <rviz_common/properties/parse_color.hpp>`` - Contains helper function to convert property to OGRE color.
 * To our ``onInitialize`` we add
 
 .. code-block:: c++
