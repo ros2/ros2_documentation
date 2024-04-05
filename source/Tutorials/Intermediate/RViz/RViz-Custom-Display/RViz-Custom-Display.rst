@@ -1,4 +1,3 @@
-
 Building a Custom RViz Display
 ==============================
 
@@ -50,7 +49,7 @@ Here are the contents of ``point_display.hpp``
 * We're implementing the `MessageFilterDisplay <https://github.com/ros2/rviz/blob/0ef2b56373b98b5536f0f817c11dc2b5549f391d/rviz_common/include/rviz_common/message_filter_display.hpp#L43>`__ class which can be used with any message with a ``std_msgs/Header``.
 * The class is templated with our ``Point2D`` message type.
 * For reasons outside the scope of this tutorial, you need the ``Q_OBJECT`` macro in there to get the QT parts of the gui to work.
-* ``processMessage`` is the only method that needs to be implemented, which we'll do the cpp file.
+* ``processMessage`` is the only method that needs to be implemented, which we'll do in the cpp file.
 
 Source File
 ^^^^^^^^^^^
@@ -74,7 +73,7 @@ Source File
    PLUGINLIB_EXPORT_CLASS(rviz_plugin_tutorial::PointDisplay, rviz_common::Display)
 
 
-* The logging is not strictly necessary.
+* The logging is not strictly necessary, but helps with debugging.
 * In order for RViz to find our plugin, we need this ``PLUGINLIB`` invocation in our code (as well as other things below)
 
 package.xml
@@ -110,7 +109,7 @@ rviz_common_plugins.xml
 CMakeLists.txt
 ^^^^^^^^^^^^^^
 
-Everyone loves how verbose CMake files are in ROS 2! The following lines are on top of the standard boilerplate.
+Add the following lines to the top of the standard boilerplate.
 
 .. code-block:: cmake
 
@@ -156,6 +155,7 @@ Everyone loves how verbose CMake files are in ROS 2! The following lines are on 
   B) Wrap the headers by calling ``qt5_wrap_cpp`` with each header that has ``Q_OBJECT`` in it.
   C) Include the ``MOC_FILES`` in the library alongside our other cpp files.
 * Note that if you do NOT wrap your header files, you may get an error message when attempting to load the plugin at runtime, along the lines of:
+
   .. code-block::
 
      [rviz2]: PluginlibFactory: The plugin for class 'rviz_plugin_tutorial::PointDisplay' failed to load. Error: Failed to load library /home/ros/ros2_ws/install/rviz_plugin_tutorial/lib/libpoint_display.so. Make sure that you are calling the PLUGINLIB_EXPORT_CLASS macro in the library code, and that names are consistent between this macro and your XML. Error string: Could not load library LoadLibrary error: /home/ros/ros2_ws/install/rviz_plugin_tutorial/lib/libpoint_display.so: undefined symbol: _ZTVN20rviz_plugin_tutorial12PointDisplayE, at /tmp/binarydeb/ros-foxy-rcutils-1.1.4/src/shared_library.c:84
@@ -165,7 +165,8 @@ Everyone loves how verbose CMake files are in ROS 2! The following lines are on 
 Testing it out
 ^^^^^^^^^^^^^^
 
-Compile your code and run ``rviz2``. You should be able to add your new plugin by clicking ``Add`` in the bottom left, and then selecting your package/plugin.
+Compile your code and run ``rviz2``.
+You should be able to add your new plugin by clicking ``Add`` in the bottom left, and then selecting your package/plugin.
 
 
 .. image:: images/Step1A.png
@@ -180,7 +181,7 @@ Initially, the display will be in an error state because you have yet to assign 
    :alt: screenshot of error state
 
 
-Let's put the topic ``/point`` and it should load fine, although not display anything.
+If we put the topic ``/point`` in, it should load fine but not display anything.
 
 .. image:: images/Step1C.png
    :target: images/Step1C.png
@@ -251,7 +252,7 @@ We also update our ``processMessage`` method:
 
 
 * We need to get the proper frame for our message and transform the ``scene_node_`` accordingly. This ensures that the visualization does not always appear relative to the fixed frame.
-* The actual visualization that we've been building to this entire time is in the last four lines: we set the position of the visualization to match the message's position.
+* The actual visualization that we've been building up to is in the last four lines: we set the position of the visualization to match the message's position.
 
 The result should look like this:
 
@@ -260,8 +261,7 @@ The result should look like this:
    :alt: screenshot of functioning display
 
 
-If the box does not appear in that location, it might be because
-
+If the box does not appear in that location, it might be because:
 
 * You are not publishing the topic at this time
 * The message hasn't been published in the last 2 seconds.
@@ -334,7 +334,9 @@ Status Report
 
 You can view the full version of this step with the branch name ``step4``.
 
-You can also set the status of the display. As an arbitrary example, let's make our display show a warning when the x coordinate is negative, because why not? In ``processMessage``\ :
+You can also set the status of the display.
+As an arbitrary example, let's make our display show a warning when the x coordinate is negative, because why not?
+In ``processMessage``:
 
 .. code-block:: c++
 
@@ -366,7 +368,9 @@ You can also set the status of the display. As an arbitrary example, let's make 
 Cleanup
 -------
 
-Now its time to clean it up a bit. This makes things look nicer and be a little easier to use, but aren't strictly required. You can view the full version of this step with the branch name ``step5``.
+Now its time to clean it up a bit.
+This makes things look nicer and be a little easier to use, but aren't strictly required.
+You can view the full version of this step with the branch name ``step5``.
 
 First, we update the plugin declaration.
 
@@ -384,7 +388,8 @@ First, we update the plugin declaration.
 * We put actual text into the description. Don't be lazy.
 * By declaring the specific message type here, when you attempt to add a Display by Topic, it will suggest this plugin for the topics of that type.
 
-We also add an icon for the plugin at ``icons/classes/Point2D.png``. The folder is hardcoded, and the filename should match the name from the plugin declaration (or the name of the class if not specified). `[icon source] <https://commons.wikimedia.org/wiki/File:Free_software_icon.svg>`_
+We also add an icon for the plugin at ``icons/classes/Point2D.png``.
+The folder is hardcoded, and the filename should match the name from the plugin declaration (or the name of the class if not specified). `[icon source] <https://commons.wikimedia.org/wiki/File:Free_software_icon.svg>`_
 
 We need to install the image file in the CMake.
 
