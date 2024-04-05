@@ -28,7 +28,8 @@ Here are the contents of ``point_display.hpp``
 .. code-block:: c++
 
 
-   #pragma once
+   #ifndef RVIZ_PLUGIN_TUTORIAL__POINT_DISPLAY_HPP_
+   #define RVIZ_PLUGIN_TUTORIAL__POINT_DISPLAY_HPP_
 
    #include <rviz_common/message_filter_display.hpp>
    #include <rviz_plugin_tutorial_msgs/msg/point2_d.hpp>
@@ -44,6 +45,7 @@ Here are the contents of ``point_display.hpp``
    };
    }  // namespace rviz_plugin_tutorial
 
+   #endif  // RVIZ_PLUGIN_TUTORIAL__POINT_DISPLAY_HPP_
 
 * We're implementing the `MessageFilterDisplay <https://github.com/ros2/rviz/blob/0ef2b56373b98b5536f0f817c11dc2b5549f391d/rviz_common/include/rviz_common/message_filter_display.hpp#L43>`__ class which can be used with any message with a ``std_msgs/Header``.
 * The class is templated with our ``Point2D`` message type.
