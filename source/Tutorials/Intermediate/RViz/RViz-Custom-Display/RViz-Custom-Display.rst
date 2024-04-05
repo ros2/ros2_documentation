@@ -1,7 +1,21 @@
 Building a Custom RViz Display
 ==============================
 
-`rviz_plugin_tutorial <https://github.com/MetroRobots/rviz_plugin_tutorial>`__: A tutorial on how to make RViz plugins
+Background 
+----------
+There are many types of data that have existing visualizations in RViz. However, if there is a message type that does 
+not yet have a plugin to display it, there are two choices to see it in RViz. 
+
+ 1. Convert the message to another type, such as `visualization_msgs/Marker`.
+ 2. Write a Custom RViz Display.
+
+With the first option, there is more network traffic and limitations to how the data can be represented. It is also quick and flexible. 
+The latter option is explained in this tutorial. It takes a bit of work, but can lead to much richer visualizations. 
+
+All of the code for this tutorial can be found in `this repository <https://github.com/MetroRobots/rviz_plugin_tutorial>`__.
+In order to see the incremental progress of the plugin written in this tutorial, 
+the repository has different branches (``step2``, ``step3``...) that can each be compiled and run as you go.
+
 
 Point2D Message
 ---------------
@@ -48,7 +62,7 @@ Here are the contents of ``point_display.hpp``
 
 * We're implementing the `MessageFilterDisplay <https://github.com/ros2/rviz/blob/0ef2b56373b98b5536f0f817c11dc2b5549f391d/rviz_common/include/rviz_common/message_filter_display.hpp#L43>`__ class which can be used with any message with a ``std_msgs/Header``.
 * The class is templated with our ``Point2D`` message type.
-* For reasons outside the scope of this tutorial, you need the ``Q_OBJECT`` macro in there to get the QT parts of the gui to work.
+* `For reasons outside the scope of this tutorial <https://doc.qt.io/archives/qt-4.8/moc.html>`__, you need the ``Q_OBJECT`` macro in there to get the QT parts of the gui to work.
 * ``processMessage`` is the only method that needs to be implemented, which we'll do in the cpp file.
 
 Source File
@@ -151,9 +165,11 @@ Add the following lines to the top of the standard boilerplate.
 
 
 * To generate the proper Qt files, we need to
-  A) Turn ``CMAKE_AUTOMOC`` on
-  B) Wrap the headers by calling ``qt5_wrap_cpp`` with each header that has ``Q_OBJECT`` in it.
-  C) Include the ``MOC_FILES`` in the library alongside our other cpp files.
+
+  * Turn ``CMAKE_AUTOMOC`` on
+  * Wrap the headers by calling ``qt5_wrap_cpp`` with each header that has ``Q_OBJECT`` in it.
+  * Include the ``MOC_FILES`` in the library alongside our other cpp files.
+
 * Note that if you do NOT wrap your header files, you may get an error message when attempting to load the plugin at runtime, along the lines of:
 
   .. code-block::
