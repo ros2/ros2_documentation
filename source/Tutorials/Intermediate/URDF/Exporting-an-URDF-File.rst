@@ -20,8 +20,8 @@ However, we figured it would be helpful to produce a list of available URDF expo
 
 **CAD Exporters**
 
- * `Fusion 360 URDF Exporter <https://github.com/syuntoku14/fusion2urdf>`_
- * `SolidWorkds URDF Exporter <https://github.com/ros/solidworks_urdf_exporter>`_
+ * `Fusion 360 URDF Exporter <https://github.com/dheena2k2/fusion2urdf-ros2>`_
+ * `SolidWorks URDF Exporter <https://github.com/ros/solidworks_urdf_exporter>`_
  * `ROS Workbench for FreeCAD <https://github.com/galou/freecad.cross>`_
  * `OnShape URDF Exporter <https://github.com/Rhoban/onshape-to-robot>`_
  * `CREO Parametric URDF Exporter <https://github.com/icub-tech-iit/creo2urdf>`_
@@ -29,7 +29,7 @@ However, we figured it would be helpful to produce a list of available URDF expo
 
 **Other URDF Export Tools**
 
- * `Copellia Sim URDF Exporter <https://manual.coppeliarobotics.com/en/importExport.htm#urdf>`_
+ * `CoppeliaSim URDF Exporter <https://manual.coppeliarobotics.com/en/importExport.htm#urdf>`_
  * `Isaac Sim URDF Exporter <https://docs.omniverse.nvidia.com/isaacsim/latest/advanced_tutorials/tutorial_advanced_export_urdf.html>`_
  * `Blender URDF Exporter <https://github.com/dfki-ric/phobos>`_
  * `Gazebo SDFormat to URDF Parser <https://github.com/ros/sdformat_urdf/tree/ros2>`_
