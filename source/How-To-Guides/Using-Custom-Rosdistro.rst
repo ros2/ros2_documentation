@@ -11,7 +11,7 @@ Overview
 --------
 
 `rosdistro <https://github.com/ros/rosdistro>`_ contains the central index of ROS packages for all distributions and ``rosdep`` keys for packaged binary dependencies for installation.
-When you invoke ``rosdep install ...``, its checking a local cached index from rosdistro (populated during ``rosdep update``) to correlate keys in a ``package.xml`` to the ROS package, python module, or binary to install.
+When you invoke ``rosdep install ...``, it is checking a local cached index from rosdistro (populated during ``rosdep update``) to correlate keys in a ``package.xml`` to the ROS package, python module, or binary to install.
 Thus, this index is an important element of the ROS ecosystem.
 
 However, there are occasions where a user would like the assert further control over this index to add in their own proprietary keys or use a previous state of rosdistro.
