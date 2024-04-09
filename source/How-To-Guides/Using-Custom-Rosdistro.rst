@@ -64,4 +64,4 @@ A previous index also exists without the ``v4`` which is still present for histo
 Afterward, you can ``rosdep update``, which will now use the changes to update the index in accordance to the Rolling distribution's state on February 28, 2024 before the breakages began.
 You can see this in action in `Nav2's CircleCI <https://github.com/ros-planning/navigation2/commit/80bb5bff1488c0677efcc4254b7a89908c853ba0>`_ and `ros_gz's GitHub Actions <https://github.com/gazebosim/ros_gz/pull/522/files>`_ in order to bypass a temporary Rolling outage in their CI systems.
 
-.. Note:: If using a custom rosdistro version, you can substitute the final URLs in the default list and index URL with your fork or index location.
+.. Note:: If you are using a custom rosdistro version, you can substitute the final URLs in the default list and index URL with your fork or index location.
