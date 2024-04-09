@@ -51,7 +51,7 @@ This will update list to use our tagged branch rather than the master branch.
 
     sed -i "s|ros\/rosdistro\/master|ros\/rosdistro\/rolling\/2024-02-28|" /etc/ros/rosdep/sources.list.d/20-default.list
 
-After, we must now update the environmental variable ``ROSDISTRO_INDEX_URL`` to point to our new rosdistro index.
+After, we must now update the environment variable ``ROSDISTRO_INDEX_URL`` to point to our new rosdistro index.
 
 .. code-block:: bash
 
