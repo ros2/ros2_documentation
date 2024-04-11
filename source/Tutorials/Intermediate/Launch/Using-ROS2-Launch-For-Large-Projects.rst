@@ -220,6 +220,22 @@ Let's now create a configuration file, ``turtlesim.yaml``, in the ``/config`` fo
 
 If we now start the ``turtlesim_world_2.launch.py`` launch file, we will start the ``turtlesim_node`` with preconfigured background colors.
 
+Make sure that you have installed the ``turtlesim.yaml`` file. If you have a C++ package, write in the package ``CMakeLists.txt``: 
+.. code-block:: console
+    install(DIRECTORY
+      config
+      DESTINATION share/${PROJECT_NAME}
+    )
+Instead, if you have a Python package, add in package ``setup.py`` file:
+.. code-block:: console
+    data_files=[
+        ('share/ament_index/resource_index/packages',
+            ['resource/' + package_name]),
+        ('share/' + package_name, ['package.xml']),
+        (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),
+        (os.path.join('share', package_name, 'config'), glob('config/*.yaml'))
+    ],
+
 To learn more about using parameters and using YAML files, take a look at the :doc:`Understand parameters <../../Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters>` tutorial.
 
 2.3 Using wildcards in YAML files
@@ -268,6 +284,7 @@ We will now update the ``turtlesim.yaml``, in the ``/config`` folder in the foll
 
 Now include the ``turtlesim_world_3.launch.py`` launch description in our main launch file.
 Using that configuration file in our launch descriptions will assign ``background_b``, ``background_g``, and ``background_r`` parameters to specified values in ``turtlesim3/sim`` and ``turtlesim2/sim`` nodes.
+
 
 3 Namespaces
 ^^^^^^^^^^^^
