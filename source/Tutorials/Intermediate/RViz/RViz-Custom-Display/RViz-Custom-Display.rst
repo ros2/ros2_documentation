@@ -40,7 +40,6 @@ Here are the contents of ``point_display.hpp``
 
 .. code-block:: c++
 
-
    #ifndef RVIZ_PLUGIN_TUTORIAL__POINT_DISPLAY_HPP_
    #define RVIZ_PLUGIN_TUTORIAL__POINT_DISPLAY_HPP_
 
@@ -49,7 +48,8 @@ Here are the contents of ``point_display.hpp``
 
    namespace rviz_plugin_tutorial
    {
-   class PointDisplay : public rviz_common::MessageFilterDisplay<rviz_plugin_tutorial_msgs::msg::Point2D>
+   class PointDisplay
+     : public rviz_common::MessageFilterDisplay<rviz_plugin_tutorial_msgs::msg::Point2D>
    {
      Q_OBJECT
 
@@ -234,7 +234,8 @@ Then in the cpp file, we define the ``onInitialize`` method:
    {
      MFDClass::onInitialize();
      point_shape_ =
-         std::make_unique<rviz_rendering::Shape>(rviz_rendering::Shape::Type::Cube, scene_manager_, scene_node_);
+       std::make_unique<rviz_rendering::Shape>(rviz_rendering::Shape::Type::Cube, scene_manager_,
+         scene_node_);
    }
 
 
@@ -251,10 +252,9 @@ We also update our ``processMessage`` method:
 
      Ogre::Vector3 position;
      Ogre::Quaternion orientation;
-     if (!context_->getFrameManager()->getTransform(msg->header, position, orientation))
-     {
-       RVIZ_COMMON_LOG_DEBUG_STREAM("Error transforming from frame '" << msg->header.frame_id << "' to frame '"
-                                                                      << qPrintable(fixed_frame_) << "'");
+     if (!context_->getFrameManager()->getTransform(msg->header, position, orientation)) {
+       RVIZ_COMMON_LOG_DEBUG_STREAM("Error transforming from frame '" << msg->header.frame_id <<
+           "' to frame '" << qPrintable(fixed_frame_) << "'");
      }
 
      scene_node_->setPosition(position);
@@ -356,12 +356,10 @@ In ``processMessage``:
 
 .. code-block:: c++
 
-     if (msg->x < 0)
-     {
-       setStatus(StatusProperty::Warn, "Message", "I will complain about points with negative x values.");
-     }
-     else
-     {
+     if (msg->x < 0) {
+       setStatus(StatusProperty::Warn, "Message",
+           "I will complain about points with negative x values.");
+     } else {
        setStatus(StatusProperty::Ok, "Message", "OK");
      }
 
