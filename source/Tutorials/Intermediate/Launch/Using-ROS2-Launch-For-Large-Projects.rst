@@ -287,7 +287,6 @@ We will now update the ``turtlesim.yaml``, in the ``/config`` folder in the foll
 Now include the ``turtlesim_world_3.launch.py`` launch description in our main launch file.
 Using that configuration file in our launch descriptions will assign ``background_b``, ``background_g``, and ``background_r`` parameters to specified values in ``turtlesim3/sim`` and ``turtlesim2/sim`` nodes.
 
-
 3 Namespaces
 ^^^^^^^^^^^^
 
