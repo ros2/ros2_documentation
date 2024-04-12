@@ -221,6 +221,7 @@ Let's now create a configuration file, ``turtlesim.yaml``, in the ``/config`` fo
 If we now start the ``turtlesim_world_2.launch.py`` launch file, we will start the ``turtlesim_node`` with preconfigured background colors.
 
 Make sure that you have installed the ``turtlesim.yaml`` file. If you have a C++ package, write in the package ``CMakeLists.txt``: 
+
 .. code-block:: console
     install(DIRECTORY
       config
