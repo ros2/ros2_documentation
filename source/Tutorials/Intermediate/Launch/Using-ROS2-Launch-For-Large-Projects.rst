@@ -227,6 +227,7 @@ Make sure that you have installed the ``turtlesim.yaml`` file. If you have a C++
       DESTINATION share/${PROJECT_NAME}
     )
 Instead, if you have a Python package, add in package ``setup.py`` file:
+
 .. code-block:: console
     data_files=[
         ('share/ament_index/resource_index/packages',
