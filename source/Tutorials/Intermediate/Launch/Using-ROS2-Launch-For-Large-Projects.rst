@@ -222,7 +222,7 @@ If we now start the ``turtlesim_world_2.launch.py`` launch file, we will start t
 
 Make sure that you have installed the ``turtlesim.yaml`` file. If you have a C++ package, write in the package ``CMakeLists.txt``: 
 
-.. code-block:: console
+.. code-block:: cmake
     install(DIRECTORY
       config
       DESTINATION share/${PROJECT_NAME}
