@@ -6,7 +6,7 @@ Background
 There are many types of data that have existing visualizations in RViz. However, if there is a message type that does
 not yet have a plugin to display it, there are two choices to see it in RViz.
 
- 1. Convert the message to another type, such as `visualization_msgs/Marker`.
+ 1. Convert the message to another type, such as ``visualization_msgs/Marker``.
  2. Write a Custom RViz Display.
 
 With the first option, there is more network traffic and limitations to how the data can be represented. It is also quick and flexible.
@@ -178,7 +178,7 @@ Add the following lines to the top of the standard boilerplate.
      [rviz2]: PluginlibFactory: The plugin for class 'rviz_plugin_tutorial::PointDisplay' failed to load. Error: Failed to load library /home/ros/ros2_ws/install/rviz_plugin_tutorial/lib/libpoint_display.so. Make sure that you are calling the PLUGINLIB_EXPORT_CLASS macro in the library code, and that names are consistent between this macro and your XML. Error string: Could not load library LoadLibrary error: /home/ros/ros2_ws/install/rviz_plugin_tutorial/lib/libpoint_display.so: undefined symbol: _ZTVN20rviz_plugin_tutorial12PointDisplayE, at /tmp/binarydeb/ros-foxy-rcutils-1.1.4/src/shared_library.c:84
 
 * A lot of the other code ensures that the plugin portion works.
-Namely, calling ``pluginlib_export_plugin_description_file`` is essential to getting RViz to find your new plugin.
+  Namely, calling ``pluginlib_export_plugin_description_file`` is essential to getting RViz to find your new plugin.
 
 Testing it out
 ^^^^^^^^^^^^^^
@@ -270,7 +270,7 @@ We also update our ``processMessage`` method:
 
 
 * We need to get the proper frame for our message and transform the ``scene_node_`` accordingly.
-This ensures that the visualization does not always appear relative to the fixed frame.
+  This ensures that the visualization does not always appear relative to the fixed frame.
 * The actual visualization that we've been building up to is in the last four lines: we set the position of the visualization to match the message's position.
 
 The result should look like this:
@@ -405,8 +405,8 @@ First, we update the plugin declaration.
 
 
 * We add the ``name`` field to the ``class`` tag.
-This changes the name that is displayed in RViz.
-In code, it makes sense to call it a ``PointDisplay`` but in RViz, we want to simplify.
+  This changes the name that is displayed in RViz.
+  In code, it makes sense to call it a ``PointDisplay`` but in RViz, we want to simplify.
 * We put actual text into the description. Don't be lazy.
 * By declaring the specific message type here, when you attempt to add a Display by Topic, it will suggest this plugin for the topics of that type.
 
