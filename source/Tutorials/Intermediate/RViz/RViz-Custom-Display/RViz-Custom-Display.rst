@@ -31,7 +31,8 @@ We'll be playing with a toy message defined in the ``rviz_plugin_tutorial_msgs``
 Boilerplate for Basic Plugin
 ----------------------------
 
-Strap in, there's a lot of code. You can view the full version of this code with the branch name ``step1``.
+Strap in, there's a lot of code.
+You can view the full version of this code with the branch name ``step1``.
 
 Header File
 ^^^^^^^^^^^
@@ -62,7 +63,7 @@ Here are the contents of ``point_display.hpp``
 
 * We're implementing the `MessageFilterDisplay <https://github.com/ros2/rviz/blob/0ef2b56373b98b5536f0f817c11dc2b5549f391d/rviz_common/include/rviz_common/message_filter_display.hpp#L43>`__ class which can be used with any message with a ``std_msgs/Header``.
 * The class is templated with our ``Point2D`` message type.
-* `For reasons outside the scope of this tutorial <https://doc.qt.io/archives/qt-4.8/moc.html>`__, you need the ``Q_OBJECT`` macro in there to get the QT parts of the gui to work.
+* `For reasons outside the scope of this tutorial <https://doc.qt.io/qt-5/moc.html>`__, you need the ``Q_OBJECT`` macro in there to get the QT parts of the GUI to work.
 * ``processMessage`` is the only method that needs to be implemented, which we'll do in the cpp file.
 
 Source File
@@ -88,7 +89,7 @@ Source File
 
 
 * The logging is not strictly necessary, but helps with debugging.
-* In order for RViz to find our plugin, we need this ``PLUGINLIB`` invocation in our code (as well as other things below)
+* In order for RViz to find our plugin, we need this ``PLUGINLIB`` invocation in our code (as well as other things below).
 
 package.xml
 ^^^^^^^^^^^
@@ -166,7 +167,7 @@ Add the following lines to the top of the standard boilerplate.
 
 * To generate the proper Qt files, we need to
 
-  * Turn ``CMAKE_AUTOMOC`` on
+  * Turn ``CMAKE_AUTOMOC`` on.
   * Wrap the headers by calling ``qt5_wrap_cpp`` with each header that has ``Q_OBJECT`` in it.
   * Include the ``MOC_FILES`` in the library alongside our other cpp files.
 
@@ -176,7 +177,8 @@ Add the following lines to the top of the standard boilerplate.
 
      [rviz2]: PluginlibFactory: The plugin for class 'rviz_plugin_tutorial::PointDisplay' failed to load. Error: Failed to load library /home/ros/ros2_ws/install/rviz_plugin_tutorial/lib/libpoint_display.so. Make sure that you are calling the PLUGINLIB_EXPORT_CLASS macro in the library code, and that names are consistent between this macro and your XML. Error string: Could not load library LoadLibrary error: /home/ros/ros2_ws/install/rviz_plugin_tutorial/lib/libpoint_display.so: undefined symbol: _ZTVN20rviz_plugin_tutorial12PointDisplayE, at /tmp/binarydeb/ros-foxy-rcutils-1.1.4/src/shared_library.c:84
 
-* A lot of the other code ensures that the plugin portion works. Namely, calling ``pluginlib_export_plugin_description_file`` is essential to getting RViz to find your new plugin.
+* A lot of the other code ensures that the plugin portion works.
+Namely, calling ``pluginlib_export_plugin_description_file`` is essential to getting RViz to find your new plugin.
 
 Testing it out
 ^^^^^^^^^^^^^^
@@ -267,7 +269,8 @@ We also update our ``processMessage`` method:
    }
 
 
-* We need to get the proper frame for our message and transform the ``scene_node_`` accordingly. This ensures that the visualization does not always appear relative to the fixed frame.
+* We need to get the proper frame for our message and transform the ``scene_node_`` accordingly.
+This ensures that the visualization does not always appear relative to the fixed frame.
 * The actual visualization that we've been building up to is in the last four lines: we set the position of the visualization to match the message's position.
 
 The result should look like this:
@@ -294,15 +297,18 @@ Header Updates
 ^^^^^^^^^^^^^^
 
 
-* ``#include <rviz_common/properties/color_property.hpp>`` Color is but one of many properties you can set.
+
+Include the header file for color properties: ``#include <rviz_common/properties/color_property.hpp>``.
+Color is but one of many properties you can set.
+
+Add in the prototype for ``updateStyle``, which is called whenever the GUI is changed via Qt's SIGNAL/SLOT framework:
 
 .. code-block:: c++
 
   private Q_SLOTS:
     void updateStyle();
 
-* This gets called whenever the gui is changed, via Qt's SLOT/SIGNAL framework.
-* ``std::unique_ptr<rviz_common::properties::ColorProperty> color_property_;`` The property itself.
+Add in a new property to store the property itself: ``std::unique_ptr<rviz_common::properties::ColorProperty> color_property_;``
 
 Cpp Updates
 ^^^^^^^^^^^
@@ -398,7 +404,9 @@ First, we update the plugin declaration.
    </library>
 
 
-* We add the ``name`` field to the ``class`` tag. This changes the name that is displayed in RViz. In code, it makes sense to call it a ``PointDisplay`` but in RViz, we want to simplify.
+* We add the ``name`` field to the ``class`` tag.
+This changes the name that is displayed in RViz.
+In code, it makes sense to call it a ``PointDisplay`` but in RViz, we want to simplify.
 * We put actual text into the description. Don't be lazy.
 * By declaring the specific message type here, when you attempt to add a Display by Topic, it will suggest this plugin for the topics of that type.
 
