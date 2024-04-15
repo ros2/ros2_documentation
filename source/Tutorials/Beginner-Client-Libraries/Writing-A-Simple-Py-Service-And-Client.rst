@@ -248,8 +248,6 @@ Finally it creates a new ``AddTwoInts`` request object.
       self.req = AddTwoInts.Request()
 
 Below the constructor is the ``send_request`` method, which will send the request and spin until it receives the response or fails.
-Synchronous calls to services is not recommended design in callbacks, because it can lead to deadlocks.
-For more details please see `Sync deadlock <https://docs.ros.org/en/{DISTRO}/How-To-Guides/Sync-Vs-Async.html#sync-deadlock>`__.
 
 .. code-block:: python
 
@@ -258,7 +256,13 @@ For more details please see `Sync deadlock <https://docs.ros.org/en/{DISTRO}/How
       self.req.b = 1
       return self.cli.call_async(self.req)
 
-Finally we have the ``main`` method, which constructs a ``MinimalClientAsync`` object, sends the request using the passed-in command-line arguments, calls ``spin_until_future_complete``, and logs the results:
+.. warning::
+
+  Synchronous calls such as ``rclpy.spin_until_future_complete`` can cause deadlock.
+  For more details see `Sync deadlock <https://docs.ros.org/en/{DISTRO}/How-To-Guides/Sync-Vs-Async.html#sync-deadlock>`__.
+
+
+Finally we have the ``main`` method, which constructs a ``MinimalClientAsync`` object, sends the request using the passed-in command-line arguments, and logs the results.
 
 .. code-block:: python
 
