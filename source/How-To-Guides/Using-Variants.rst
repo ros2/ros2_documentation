@@ -25,7 +25,7 @@ To do so you need only create two files:
 
 #. A minimal variant package is created as a package with the ``ament_cmake`` build type, a ``buildtool_depend`` on ``ament_cmake`` and ``exec_depend`` entries for each package you want to include in the variant.
 
-  .. code-block:: xml
+   .. code-block:: xml
 
     <?xml version="1.0"?>
     <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
@@ -47,7 +47,7 @@ To do so you need only create two files:
 
 #. A minimal ament_cmake package includes a ``CMakeLists.txt`` which registers the package.xml as an ament package for use in ROS 2.
 
-  .. code-block:: cmake
+   .. code-block:: cmake
 
     cmake_minimum_required(VERSION 3.5)
 
