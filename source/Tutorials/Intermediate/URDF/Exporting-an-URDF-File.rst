@@ -20,20 +20,30 @@ However, we figured it would be helpful to produce a list of available URDF expo
 
 **CAD Exporters**
 
- * `Fusion 360 URDF Exporter <https://github.com/dheena2k2/fusion2urdf-ros2>`_
- * `SolidWorks URDF Exporter <https://github.com/ros/solidworks_urdf_exporter>`_
- * `ROS Workbench for FreeCAD <https://github.com/galou/freecad.cross>`_
- * `OnShape URDF Exporter <https://github.com/Rhoban/onshape-to-robot>`_
- * `CREO Parametric URDF Exporter <https://github.com/icub-tech-iit/creo2urdf>`_
-
-
-**Other URDF Export Tools**
-
- * `CoppeliaSim URDF Exporter <https://manual.coppeliarobotics.com/en/importExport.htm#urdf>`_
- * `Isaac Sim URDF Exporter <https://docs.omniverse.nvidia.com/isaacsim/latest/advanced_tutorials/tutorial_advanced_export_urdf.html>`_
  * `Blender URDF Exporter <https://github.com/dfki-ric/phobos>`_
+ * `CREO Parametric URDF Exporter <https://github.com/icub-tech-iit/creo2urdf>`_
+ * `FreeCAD ROS Workbench <https://github.com/galou/freecad.cross>`_
+ * `FreeCAD CAD & ROS Open-Source Synergy (CROSS) <https://github.com/drfenixion/freecad.overcross>`_
+ * `Freecad to Gazebo Exporter <https://github.com/Dave-Elec/freecad_to_gazebo>`_
+ * `Fusion 360 URDF Exporter <https://github.com/dheena2k2/fusion2urdf-ros2>`_
+ * `OnShape URDF Exporter <https://github.com/Rhoban/onshape-to-robot>`_
+ * `SolidWorks URDF Exporter <https://github.com/ros/solidworks_urdf_exporter>`_
+ * `ExportURDF Library (Fusion360, OnShape, Solidworks) <https://github.com/daviddorf2023/ExportURDF>`_
+ * `RoboForge Project (freemium / paid tooling) <https://robofor.ge/>`_
+
+**Other URDF Export and Conversion Tools**
+
  * `Gazebo SDFormat to URDF Parser <https://github.com/ros/sdformat_urdf/tree/ros2>`_
  * `SDF to URDF Converter in Python <https://github.com/andreasBihlmaier/pysdf>`_
+ * `URDF to Webots Simulator Format <https://github.com/cyberbotics/urdf2webots>`_
  * The `Blender Robotics Tools <https://github.com/robotology/blender-robotics-utils/>`_ respository includes a number of useful tools, including a tool to export `URDF files from Blender. <https://github.com/robotology/blender-robotics-utils/tree/master?tab=readme-ov-file#urdftoblender>`_
+ * `CoppeliaSim URDF Exporter <https://manual.coppeliarobotics.com/en/importExport.htm#urdf>`_
+ * `Isaac Sim URDF Exporter <https://docs.omniverse.nvidia.com/isaacsim/latest/advanced_tutorials/tutorial_advanced_export_urdf.html>`_
+
+**Viewing URDF & SDF Files**
+ * `Examples of Common URDF Launch Files <https://github.com/ros/urdf_launch>`_
+ * `Web Viewer for URDF Files <https://github.com/daviddorf2023/ExportURDF>`_
+ * `View SDF Models in RViz <https://github.com/Yadunund/view_sdf_rviz>`_
+ * `Jupyterlab URDF Viewer <https://github.com/IsabelParedes/jupyterlab-urdf>`_
 
 If you have an URDF tool you like please consider adding it to the list above!
