@@ -24,9 +24,9 @@ If you are creating ROS packages to use privately in your own projects, you can 
 To do so you need only create two files:
 
 #. A minimal variant package is created as a package with the ``ament_cmake`` build type, a ``buildtool_depend`` on ``ament_cmake`` and ``exec_depend`` entries for each package you want to include in the variant.
- 
+
   .. code-block:: xml
- 
+
     <?xml version="1.0"?>
     <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
     <package format="2">
@@ -39,7 +39,7 @@ To do so you need only create two files:
       <exec_depend>my_project_msgs</exec_depend>
       <exec_depend>my_project_services</exec_depend>
       <exec_depend>my_project_examples</exec_depend>
- 
+
       <export>
         <build_type>ament_cmake</build_type>
       </export>
