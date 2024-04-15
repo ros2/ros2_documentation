@@ -226,7 +226,22 @@ Which will return:
 In brackets to the right of each action name (in this case only ``/turtle1/rotate_absolute``) is the action type, ``turtlesim/action/RotateAbsolute``.
 You will need this when you want to execute an action from the command line or from code.
 
-5 ros2 action info
+5 ros2 action type
+^^^^^^^^^^^^^^^^^^
+
+If you want to check the action type for the action, run the command:
+
+.. code-block:: console
+
+    ros2 action type /turtle1/rotate_absolute
+
+Which will return:
+
+.. code-block:: console
+
+    turtlesim/action/RotateAbsolute
+
+6 ros2 action info
 ^^^^^^^^^^^^^^^^^^
 
 You can further introspect the ``/turtle1/rotate_absolute`` action with the command:
@@ -248,9 +263,8 @@ Which will return
 This tells us what we learned earlier from running ``ros2 node info`` on each node:
 The ``/teleop_turtle`` node has an action client and the ``/turtlesim`` node has an action server for the ``/turtle1/rotate_absolute`` action.
 
-
-6 ros2 interface show
-^^^^^^^^^^^^^^^^^^^^^
+7 ros2 action interface show
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 One more piece of information you will need before sending or executing an action goal yourself is the structure of the action type.
 
@@ -278,7 +292,7 @@ The section of this message above the first ``---`` is the structure (data type 
 The next section is the structure of the result.
 The last section is the structure of the feedback.
 
-7 ros2 action send_goal
+8 ros2 action send_goal
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 Now let's send an action goal from the command line with the following syntax:
