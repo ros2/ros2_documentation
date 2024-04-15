@@ -168,8 +168,10 @@ In ROS 2:
    resp = add_two_ints.call_async(req)
    rclpy.spin_until_future_complete(node, resp)
 
-Be careful not to run ``rclpy.spin_until_future_complete`` from within a ROS callback function.
-For more details please see `Sync deadlock <https://docs.ros.org/en/{DISTRO}/How-To-Guides/Sync-Vs-Async.html#sync-deadlock>`__.
+.. warning::
+
+  Synchronous calls such as ``rclpy.spin_until_future_complete`` can cause deadlock.
+  For more details see `Sync deadlock <https://docs.ros.org/en/{DISTRO}/How-To-Guides/Sync-Vs-Async.html#sync-deadlock>`__.
 
 Executing at a Specific Rate
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
