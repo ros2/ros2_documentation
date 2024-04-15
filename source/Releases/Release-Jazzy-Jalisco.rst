@@ -63,6 +63,21 @@ It is now possible to use ``--log-file-name`` command line argument to specify t
 
 See https://github.com/ros2/ros2cli/issues/856 for more information.
 
+``ros2action``
+^^^^^^^^^^^^^^
+
+``type`` sub-command supported
+""""""""""""""""""""""""""""""
+
+It is now possible to use ``type`` sub-command to check the action type.
+
+.. code-block:: bash
+
+   ros2 action type /fibonacci
+   action_tutorials_interfaces/action/Fibonacci
+
+See https://github.com/ros2/ros2cli/pull/894 for more information.
+
 Changes since the Iron release
 ------------------------------
 
