@@ -23,7 +23,7 @@ Creating project-specific variants
 If you are creating ROS packages to use privately in your own projects, you can create variants specific to your projects using the official variants as examples.
 To do so you need only create two files:
 
-#. A minimal variant package is created as a package with the ``ament_cmake`` build type, a ``buildtool_depend`` on ``ament_cmake`` and ``exec_depend`` entries for each package you want to include in the variant.
+1. A minimal variant package is created as a package with the ``ament_cmake`` build type, a ``buildtool_depend`` on ``ament_cmake`` and ``exec_depend`` entries for each package you want to include in the variant.
 
 
 .. code-block:: xml
@@ -46,7 +46,7 @@ To do so you need only create two files:
     </export>
   </package>
 
-#. A minimal ament_cmake package includes a ``CMakeLists.txt`` which registers the package.xml as an ament package for use in ROS 2.
+2. A minimal ament_cmake package includes a ``CMakeLists.txt`` which registers the package.xml as an ament package for use in ROS 2.
 
 .. code-block:: cmake
 
@@ -56,7 +56,7 @@ To do so you need only create two files:
   find_package(ament_cmake REQUIRED)
   ament_package()
 
-#. You can then build and install your variant package alongside your other private packages.
+You can then build and install your variant package alongside your other private packages.
 
 Creating custom variants with platform-specific tools
 *****************************************************
