@@ -241,8 +241,6 @@ Which will return:
 
     turtlesim/action/RotateAbsolute
 
-This gives us action type only for speficied action.
-
 6 ros2 action info
 ^^^^^^^^^^^^^^^^^^
 
