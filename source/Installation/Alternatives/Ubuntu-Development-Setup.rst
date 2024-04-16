@@ -146,12 +146,6 @@ Next steps
 
 Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
 
-Use the ROS 1 bridge (optional)
--------------------------------
-
-The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa.
-See the dedicated :doc:`document <../../How-To-Guides/Using-ros1_bridge-Jammy-upstream>` on how to build and use the ROS 1 bridge.
-
 Alternate compilers
 -------------------
 
