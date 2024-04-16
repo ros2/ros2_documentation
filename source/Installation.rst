@@ -27,7 +27,7 @@ If you are not running any of the following operating systems you may need to bu
 
 We provide ROS 2 binary packages for the following platforms:
 
-* Ubuntu Linux - Jammy Jellyfish (22.04)
+* Ubuntu Linux - Noble Numbat (24.04)
 
   * :doc:`Debian packages <Installation/Ubuntu-Install-Debians>` (recommended)
   * :doc:`"fat" archive <Installation/Alternatives/Ubuntu-Install-Binary>`
