@@ -17,8 +17,12 @@ System requirements
 -------------------
 The current Debian-based target platforms for {DISTRO_TITLE_FULL} are:
 
+<<<<<<< HEAD
 - Tier 1: Ubuntu Linux - Jammy (22.04) 64-bit
 - Tier 3: Ubuntu Linux - Focal (20.04) 64-bit
+=======
+- Tier 1: Ubuntu Linux - Noble (24.04) 64-bit
+>>>>>>> 3f6ddb96 (Updating Rolling docs to Ubuntu Noble. (#4240))
 - Tier 3: Debian Linux - Bullseye (11) 64-bit
 
 
@@ -185,6 +189,7 @@ Next steps after installing
 ---------------------------
 Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
 
+<<<<<<< HEAD
 Using the ROS 1 bridge
 ----------------------
 The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa. See the dedicated `documentation <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__ on how to build and use the ROS 1 bridge.
@@ -194,6 +199,8 @@ Additional RMW implementations (optional)
 The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
 See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
+=======
+>>>>>>> 3f6ddb96 (Updating Rolling docs to Ubuntu Noble. (#4240))
 Alternate compilers
 -------------------
 
