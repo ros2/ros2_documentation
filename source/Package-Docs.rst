@@ -4,7 +4,8 @@
 ROS Package and API Documentation
 =================================
 
-ROS package documentation, that is to say documentation for specific packages you install via apt or some other tool, can be found in multiple places. Here is a brief list of where to look for specific ROS package documentation.
+ROS package documentation, that is to say documentation for specific packages you install via apt or some other tool, can be found in multiple places.
+Here is a brief list of where to look for specific ROS package documentation.
 
 
 * Most ROS 2 packages have their package level documentation `included in this index page <https://docs.ros.org/en/{DISTRO_TITLE}/p/>`__.
