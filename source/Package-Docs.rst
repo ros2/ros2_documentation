@@ -1,7 +1,7 @@
 .. redirect-from::
 
   API-Docs
-ROS Package and API Documentation
+Package Docs
 =================================
 
 ROS package documentation, that is to say documentation for specific packages you install via apt or some other tool, can be found in multiple places.
