@@ -1,5 +1,6 @@
-.. _package_docs:
+.. redirect-from::
 
+  API-Docs
 ROS Package and API Documentation
 =================================
 
