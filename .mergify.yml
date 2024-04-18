@@ -6,6 +6,7 @@ pull_request_rules:
     actions:
       backport:
         branches:
+          - jazzy
           - iron
           - humble
 
