@@ -7,7 +7,7 @@ ROS package documentation, that is to say documentation for specific packages yo
 Here is a brief list of where to look for specific ROS package documentation.
 
 
-* Most ROS 2 packages have their package level documentation `included in this index page <https://docs.ros.org/en/{DISTRO_TITLE}/p/>`__.
+* Most ROS 2 packages have their package level documentation `included in this index page <https://docs.ros.org/en/{DISTRO}/p/>`__.
 * All ROS 2 package's documentation is hosted alongside its information on the `ROS Index <https://index.ros.org/>`_. Searching for packages on ROS Index will yield their information such as released distributions, ``README.md`` files, URLs, and other important metadata.
 
 Larger Packages
