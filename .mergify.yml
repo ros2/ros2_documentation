@@ -16,8 +16,18 @@ pull_request_rules:
     actions:
       backport:
         branches:
+          - jazzy
           - iron
           - humble
+
+  - name: backport to jazzy at reviewers discretion
+    conditions:
+      - base=rolling
+      - "label=backport-jazzy"
+    actions:
+      backport:
+        branches:
+          - jazzy
 
   - name: backport to iron at reviewers discretion
     conditions:
