@@ -40,7 +40,7 @@ Overview
    It shows the order of pancakes (functions) from top to bottom, revealing how you ended up at the crash site.
 
 
-**Code Example-**
+**Code Example:**
 
 .. code-block:: cpp
 
