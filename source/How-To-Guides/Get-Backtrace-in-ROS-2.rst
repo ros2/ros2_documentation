@@ -37,7 +37,7 @@ Overview
 3. The Crash: A crash is like the plate slipping out from the bottom of the stack – something went disastrously wrong in the function currently executing.
 
 4. The Backtrace: The backtrace is like a photo of that fallen pancake stack. 
-   It shows the order of pancakes (functions)  from top to bottom, revealing how you ended up at the crash site.
+   It shows the order of pancakes (functions) from top to bottom, revealing how you ended up at the crash site.
 
 
 **Code Example-**
