@@ -1,5 +1,5 @@
-Get Backtraces in ROS 2
-#######################
+Getting Backtraces in ROS 2
+###########################
 
 .. contents:: Table of Contents
    :local:
