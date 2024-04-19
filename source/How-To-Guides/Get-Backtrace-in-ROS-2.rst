@@ -298,7 +298,7 @@ Alternatively, if your node of interest is being launched in these files directl
 
 - Launch the parent launch file in a terminal
 
-- Launch the server's node in another terminal following the instructions in `Debugging a specific node with GDB`_.
+- Launch the node in another terminal following the instructions in `Debugging a specific node with GDB`_.
 
 .. note::
 
