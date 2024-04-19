@@ -78,6 +78,38 @@ It is now possible to use ``type`` sub-command to check the action type.
 
 See https://github.com/ros2/ros2cli/pull/894 for more information.
 
+``rosbag2``
+^^^^^^^^^^^
+
+Service recording and playback
+""""""""""""""""""""""""""""""
+
+It is now possible to record and play service data with ``ros2bag`` command line interface.
+
+In addition to `Service Introspection <https://github.com/ros2/ros2/issues/1285>`__, several pull requests have been added to develop this feature.
+`Service recording and display <https://github.com/ros2/rosbag2/pull/1480>`__ adds the ability to record service data into bag file and display.
+And `Service playback <https://github.com/ros2/rosbag2/pull/1481>`__ allows to play service data from the bag file.
+
+Record all services data:
+
+.. code-block:: bash
+
+   ros2 bag record --all-services
+
+Record all services data with all topic data:
+
+.. code-block:: bash
+
+   ros2 bag record --all
+
+Play service data from bag file:
+
+.. code-block:: bash
+
+   ros2 bag play --publish-service-requests bag_path
+
+See `design document <https://github.com/ros2/rosbag2/blob/rolling/docs/design/rosbag2_record_replay_service.md>`__ for more information.
+
 Changes since the Iron release
 ------------------------------
 
