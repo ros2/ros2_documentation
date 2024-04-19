@@ -10,7 +10,7 @@ Get Backtraces in ROS 2
 
 **Time:** 15 minutes
 
-The following steps show ROS 2 users how to get traces when they encounter a problem.
+The following steps show ROS 2 users how to get backtraces when they encounter a problem.
 
 Overview
 --------
