@@ -21,20 +21,26 @@
 {% endblock %}
 {% block body %}
 {% if current_version and latest_version and current_version != latest_version %}
-<p>
-  <strong>
-    {% if current_version.name|string() in eol_versions %}
-    You're reading the documentation for a version of ROS 2 that has reached its EOL (end-of-life), and is no longer officially supported.
-    If you want up-to-date information, please have a look at <a href="{{ vpathto(latest_version.name) }}">{{latest_version.name | title }}</a>.
-    {% elif current_version.is_released %}
-    You're reading the documentation for an older, but still supported, version of ROS 2.
-    For information on the latest version, please have a look at <a href="{{ vpathto(latest_version.name) }}">{{latest_version.name | title }}</a>.
-    {% else %}
-    You're reading the documentation for a development version.
-    For the latest released version, please have a look at <a href="{{ vpathto(latest_version.name) }}">{{latest_version.name | title }}</a>.
-    {% endif %}
-  </strong>
-</p>
+  {% set skip_message = False %}
+  {% if pagename == 'Contributing/Contributing-To-ROS-2-Documentation' or 'Releases/' in pagename %}
+    {% set skip_message = True %}
+  {% endif %}
+  {% if not skip_message %}
+    <p>
+      <strong>
+        {% if current_version.name|string() in eol_versions %}
+        You're reading the documentation for a version of ROS 2 that has reached its EOL (end-of-life), and is no longer officially supported.
+        If you want up-to-date information, please have a look at <a href="{{ vpathto(latest_version.name) }}">{{latest_version.name | title }}</a>.
+        {% elif current_version.is_released %}
+        You're reading the documentation for an older, but still supported, version of ROS 2.
+        For information on the latest version, please have a look at <a href="{{ vpathto(latest_version.name) }}">{{latest_version.name | title }}</a>.
+        {% else %}
+        You're reading the documentation for a development version.
+        For the latest released version, please have a look at <a href="{{ vpathto(latest_version.name) }}">{{latest_version.name | title }}</a>.
+        {% endif %}
+      </strong>
+    </p>
+  {% endif %}
 {% endif %}
 {{ super() }}
 {% endblock %}%
