@@ -166,7 +166,7 @@ An example of creating PointCloud 2 message, then reading it back:
 RViz2 Time Panel
 ^^^^^^^^^^^^^^^^
 
-The Rviz2 Time Panel, which shows the current Wall and ROS time, along with the elapsed Wall and ROS time, has been `ported to RViz2 <https://github.com/ros2/rviz/pull/599>`__.
+The RViz2 Time Panel, which shows the current Wall and ROS time, along with the elapsed Wall and ROS time, has been `ported to RViz2 <https://github.com/ros2/rviz/pull/599>`__.
 To enable the Time Panel, click on Panels -> Add New Panel, and select "Time".
 A panel that looks like the following will appear:
 

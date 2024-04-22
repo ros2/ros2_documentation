@@ -23,7 +23,7 @@ Prerequisites
 First of all you should install ROS 2 and Gazebo.
 You have two options:
 
- - Install from deb packages. To check which versions are available from deb packages please check this `table <https://github.com/gazebosim/ros_ign>`__.
+ - Recommended: Install from binary packages. To check which versions are available from binary packages please check this `table <https://gazebosim.org/docs/garden/ros_installation>`__.
  - Compile from sources:
 
    - :doc:`ROS 2 install instructions <../../../../Installation>`
@@ -43,19 +43,32 @@ To run this example you should execute the following command in a terminal:
 
 .. tabs::
 
-   .. group-tab:: Linux
+   .. group-tab:: Garden or Later
+
+      .. code-block:: console
+
+        gz sim -v 4 -r visualize_lidar.sdf
+
+   .. group-tab:: Ignition
 
       .. code-block:: console
 
         ign gazebo -v 4 -r visualize_lidar.sdf
 
+
 .. image:: Image/gazebo_diff_drive.png
 
-When the simulation is running you can check the topics provided by Gazebo with the ``ign`` command line tool:
+When the simulation is running you can check the topics provided by Gazebo with a command line tool:
 
 .. tabs::
 
-   .. group-tab:: Linux
+   .. group-tab:: Garden or Later
+
+      .. code-block:: console
+
+        gz topic -l
+
+   .. group-tab:: Ignition
 
       .. code-block:: console
 
@@ -83,35 +96,40 @@ When the simulation is running you can check the topics provided by Gazebo with 
 Since you have not launched an ROS 2 nodes yet, the output from ``ros2 topic list``
 should be free of any robot topics:
 
-.. tabs::
+.. code-block:: console
 
-   .. group-tab:: Linux
+   ros2 topic list
 
-      .. code-block:: console
+Which should show:
 
-        ros2 topic list
+.. code-block:: console
 
-      Which should show:
-
-      .. code-block:: console
-
-        /parameter_events
-        /rosout
+   /parameter_events
+   /rosout
 
 2 Configuring ROS 2
 ^^^^^^^^^^^^^^^^^^^
 
-To be able to communicate our simulation with ROS 2 you need to use a package called ``ros_gz_bridge``.
+To be able to communicate our simulation with ROS 2 you need to use a package called
+`ros_gz_bridge <https://index.ros.org/p/ros_gz_bridge/>`__..
+
 This package provides a network bridge which enables the exchange of messages between ROS 2 and Gazebo Transport.
 You can install this package by typing:
 
 .. tabs::
 
-   .. group-tab:: Linux
+   .. group-tab:: Ignition
 
       .. code-block:: console
 
         sudo apt-get install ros-{DISTRO}-ros-ign-bridge
+
+   .. group-tab:: Garden or Later
+
+      Depending on your version of ROS and Gazebo, binaries may be available. 
+      Refer to the chart `here <https://github.com/gazebosim/ros_gz/tree/ros2>`__ for the latest
+      information. Otherwise, compile from source, per the 
+      `ros_gz README instructions <https://github.com/gazebosim/ros_gz/tree/ros2?tab=readme-ov-file#gazebo>`__..
 
 At this point you are ready to launch a bridge from ROS to Gazebo.
 In particular you are going to create a bridge for the topic ``/model/vehicle_blue/cmd_vel``:
@@ -120,10 +138,21 @@ In particular you are going to create a bridge for the topic ``/model/vehicle_bl
 
    .. group-tab:: Linux
 
-      .. code-block:: console
+      .. tabs::
 
-        source /opt/ros/{DISTRO}/setup.bash
-        ros2 run ros_gz_bridge parameter_bridge /model/vehicle_blue/cmd_vel@geometry_msgs/msg/Twist]ignition.msgs.Twist
+         .. group-tab:: Ignition
+
+            .. code-block:: console
+
+               source /opt/ros/{DISTRO}/setup.bash
+               ros2 run ros_gz_bridge parameter_bridge /model/vehicle_blue/cmd_vel@geometry_msgs/msg/Twist]ignition.msgs.Twist
+
+         .. group-tab:: Garden or Later
+
+            .. code-block:: console
+
+               source /opt/ros/{DISTRO}/setup.bash
+               ros2 run ros_gz_bridge parameter_bridge /model/vehicle_blue/cmd_vel@geometry_msgs/msg/Twist]gz.msgs.Twist
 
 For more details about the ``ros_gz_bridge`` please check this `README <https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_bridge>`__ .
 
@@ -210,7 +239,23 @@ This topic will be available under the topic ``/lidar_scan``:
         source /opt/ros/{DISTRO}/setup.bash
         ros2 run ros_gz_bridge parameter_bridge /lidar2@sensor_msgs/msg/LaserScan[ignition.msgs.LaserScan --ros-args -r /lidar2:=/laser_scan
 
-To visualize the data from the lidar in ROS 2 you can use Rviz2:
+         .. group-tab:: Ignition
+
+            .. code-block:: console
+
+               source /opt/ros/{DISTRO}/setup.bash
+               ros2 run ros_gz_bridge parameter_bridge /lidar2@sensor_msgs/msg/LaserScan[ignition.msgs.LaserScan --ros-args -r /lidar2:=/laser_scan
+
+
+         .. group-tab:: Garden or Later
+
+            .. code-block:: console
+
+               source /opt/ros/{DISTRO}/setup.bash
+               ros2 run ros_gz_bridge parameter_bridge /lidar2@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan --ros-args -r /lidar2:=/laser_scan
+
+
+To visualize the data from the lidar in ROS 2 you can use RViz2:
 
 .. tabs::
 
@@ -221,20 +266,20 @@ To visualize the data from the lidar in ROS 2 you can use Rviz2:
         source /opt/ros/{DISTRO}/setup.bash
         rviz2
 
-Then you need to configure the ``fixed frame``:
+Then, you need to configure the ``fixed frame``:
 
 .. image:: Image/fixed_frame.png
 
-And then click in the button "Add" to include a display to visualize the lidar:
+And then, click in the button "Add" to include a display to visualize the lidar:
 
 .. image:: Image/add_lidar.png
 
-Now you should see the data from the lidar in Rviz2:
+Now, you should see the data from the lidar in RViz2:
 
 .. image:: Image/rviz2.png
 
 Summary
 -------
 
-In this tutorial, you launched a robot simulation with Gazebo, launched
-bridges with actuators and sensors, visualized data from a sensor, and moved a diff drive robot.
+In this tutorial, you installed Gazebo and the ros_gz_bridge, launched a robot simulation with Gazebo,
+launched bridges with actuators and sensors, visualized data from a sensor, and moved a diff drive robot.
