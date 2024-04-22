@@ -20,14 +20,22 @@ Setting up a robot simulation (Gazebo)
 Prerequisites
 -------------
 
-First of all you should install ROS 2 and Gazebo.
-You have two options:
+First of all you should install ROS 2 and Gazebo. For ROS you should follow the `ROS 2 install instructions <../../../../Installation>`. If you haven't installed a version of Gazebo on your system yet, you can install Gazebo by typing:
 
- - Install from deb packages. To check which versions are available from deb packages please check this `table <https://github.com/gazebosim/ros_ign>`__.
- - Compile from sources:
+.. tabs::
 
-   - :doc:`ROS 2 install instructions <../../../../Installation>`
-   - `Gazebo install instructions <https://gazebosim.org/docs>`__
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+        sudo apt-get install ros-{DISTRO}-gz-ros
+
+To check which versions are available from deb packages for which ROS distros please check this `table <https://github.com/gazebosim/ros_ign>`__. 
+
+If you'd rather like to use newer versions of both the ROS or Gazebo distribution, that would be possible but it will require more work and potentially compiling from source. Please look at the `ROS/gazebo installation instructions <https://gazebosim.org/docs/harmonic/ros_installation>`__ for this, however we do advise new users to install the recommended LTS versions.
+
+ .. note::
+    These instructions are about the current `Gazebo <https://gazebosim.org/>`__ (previously known as Ignition), not  `Gazebo Classic <https://classic.gazebosim.org/>`.
 
 Tasks
 -----
