@@ -6,11 +6,8 @@ pull_request_rules:
     actions:
       backport:
         branches:
-<<<<<<< HEAD
-=======
           - jazzy
           - iron
->>>>>>> 0acc5880 (Add Jazzy to the list of distributions. (#4299))
           - humble
 
   - name: backport at reviewers discretion
@@ -20,10 +17,6 @@ pull_request_rules:
     actions:
       backport:
         branches:
-<<<<<<< HEAD
-          - humble
-
-=======
           - jazzy
           - iron
           - humble
@@ -46,7 +39,6 @@ pull_request_rules:
         branches:
           - iron
 
->>>>>>> 0acc5880 (Add Jazzy to the list of distributions. (#4299))
   - name: backport to humble at reviewers discretion
     conditions:
       - base=rolling
