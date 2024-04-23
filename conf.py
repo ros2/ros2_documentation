@@ -124,7 +124,7 @@ templates_path = [
 
 # smv_tag_whitelist = None
 
-smv_branch_whitelist = r'^(rolling|galactic|foxy|eloquent|dashing|crystal)$'
+smv_branch_whitelist = r'^(rolling|jazzy|iron|humble|galactic|foxy|eloquent|dashing|crystal)$'
 
 
 smv_released_pattern = r'^refs/(heads|remotes/[^/]+)/(iron|humble|galactic|foxy|eloquent|dashing|crystal).*$'
@@ -138,6 +138,9 @@ distro_full_names = {
     'eloquent': 'Eloquent Elusor',
     'foxy': 'Foxy Fitzroy',
     'galactic': 'Galactic Geochelone',
+    'humble': 'Humble Hawksbill',
+    'iron': 'Iron Irwini',
+    'jazzy': 'Jazzy Jalisco',
     'rolling': 'Rolling Ridley',
 }
 
