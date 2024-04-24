@@ -11,12 +11,11 @@ Setting up a robot simulation (Gazebo)
 
 **Tutorial level:** Advanced
 
-**Time:** 20 minutes
+**Time:** 5 minutes
 
 .. contents:: Contents
    :depth: 2
    :local:
-
 
  .. note::
 
