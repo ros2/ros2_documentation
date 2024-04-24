@@ -6,9 +6,9 @@ Effectively Searching the ROS 2 Ecosystem
    :local:
 
 
-This guide introduces the standard way of searching for documentation for ROS 2 packages.
+This guide introduces the standard way of searching for documentation among ROS 2 packages.
 The best way to find solutions to one's problems will be using ROS Index to crawl through packages in the ROS 2 ecosystem.
-One should find packages that would greatly benefit them and using the tutorials that go along with them, should only increase one's understanding.
+One should find packages that would greatly benefit them and using the tutorials that go along with these packages, to increase one's understanding about the topic.
 
 Prerequisites
 -------------
