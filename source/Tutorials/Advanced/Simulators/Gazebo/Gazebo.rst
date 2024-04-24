@@ -17,9 +17,10 @@ Setting up a robot simulation (Gazebo)
    :depth: 2
    :local:
 
- .. note::
 
-    These instructions are about the current `Gazebo <https://gazebosim.org/>`__ (previously known as Ignition), not  `Gazebo Classic <https://classic.gazebosim.org/>`.
+.. note::
+
+   These instructions are about the current `Gazebo <https://gazebosim.org/>`__ (previously known as Ignition), not  `Gazebo Classic <https://classic.gazebosim.org/>`__.
 
 Prerequisites
 -------------
