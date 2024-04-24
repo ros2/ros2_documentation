@@ -20,7 +20,9 @@ Setting up a robot simulation (Gazebo)
 Prerequisites
 -------------
 
-First of all you should install ROS 2 and Gazebo. For ROS you should follow the `ROS 2 install instructions <../../../../Installation>`. If you haven't installed a version of Gazebo on your system yet, you can install Gazebo by typing:
+First of all you should install ROS 2 and Gazebo.
+For ROS you should follow the `ROS 2 install instructions <../../../../Installation>`.
+If you haven't installed a version of Gazebo on your system yet, you can install Gazebo by typing:
 
 .. tabs::
 
