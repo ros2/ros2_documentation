@@ -5,12 +5,18 @@
 Jazzy Jalisco (``jazzy``)
 =========================
 
+.. toctree::
+   :hidden:
+
+   Jazzy-Jalisco-Complete-Changelog
+
 .. contents:: Table of Contents
    :depth: 2
    :local:
 
 *Jazzy Jalisco* is the tenth release of ROS 2.
 What follows is highlights of the important changes and features in Jazzy Jalisco since the last release.
+For a list of all of the changes since Iron, see the :doc:`long form changelog <Jazzy-Jalisco-Complete-Changelog>`
 
 Supported Platforms
 -------------------
@@ -19,22 +25,24 @@ Jazzy Jalisco is primarily supported on the following platforms:
 
 Tier 1 platforms:
 
-* TODO
+* Ubuntu 24.04 (Noble): ``amd64`` and ``arm64``
+* Windows 10 (Visual Studio 2019): ``amd64``
 
 Tier 2 platforms:
 
-* TODO
+* RHEL 9: ``amd64``
 
 Tier 3 platforms:
 
-* TODO
+* macOS: ``amd64``
+* Debian Bookworm: ``amd64``
 
 For more information about RMW implementations, compiler / interpreter versions, and system dependency versions see `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__.
 
 Installation
 ------------
 
-TODO
+`Install Iron Irwini <../../jazzy/Installation.html>`__
 
 New features in this ROS 2 release
 ----------------------------------
