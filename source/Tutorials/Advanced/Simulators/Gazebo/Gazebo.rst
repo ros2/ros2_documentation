@@ -28,7 +28,7 @@ First of all you should install ROS 2 and Gazebo. For ROS you should follow the 
 
       .. code-block:: console
 
-        sudo apt-get install ros-{DISTRO}-gz-ros
+        sudo apt-get install ros-{DISTRO}-ros-gz
 
 To check which versions are available from deb packages for which ROS distros please check this `table <https://github.com/gazebosim/ros_ign>`__. 
 
