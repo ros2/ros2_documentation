@@ -1,5 +1,5 @@
-Effectively Searching the ROS 2 Ecosystem
-#########################################
+Searching the ROS 2 Packages
+############################
 
 .. contents:: Table of Contents
    :depth: 2
