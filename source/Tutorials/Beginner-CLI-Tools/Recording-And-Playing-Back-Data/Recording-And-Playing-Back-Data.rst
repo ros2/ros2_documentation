@@ -414,7 +414,7 @@ Running this command will return a list of information on the file:
   Messages:          0
   Topic information:
   Service:           1
-  Service information: Service: /add_two_ints | Type: example_interfaces/srv/AddTwoInts | Event Count: 78 | Serialization Format: cd  r
+  Service information: Service: /add_two_ints | Type: example_interfaces/srv/AddTwoInts | Event Count: 78 | Serialization Format: cdr
 
 5 Play service data
 ^^^^^^^^^^^^^^^^^^^
