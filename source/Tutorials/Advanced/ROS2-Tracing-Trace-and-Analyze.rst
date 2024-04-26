@@ -56,7 +56,7 @@ Install dependencies with rosdep.
 .. code-block:: bash
 
   rosdep update
-  rosdep install --rosdistro {DISTRO} --from-paths src --ignore-src -y
+  rosdep install --rosdistro {DISTRO} --from-paths src --ignore-src -y --skip-keys "fastcdr rti-connext-dds-6.0.1 urdfdom_headers"
 
 Then build up to ``performance_test`` and configure it for ROS 2.
 See its `documentation <https://gitlab.com/ApexAI/performance_test/-/tree/master/performance_test#performance_test>`_.
