@@ -47,6 +47,14 @@ Installation
 New features in this ROS 2 release
 ----------------------------------
 
+``common_interfaces``
+
+New VelocityStamped message
+"""""""""""""""""""""""""""
+New message with all fields needed to define a velocity and transform it
+
+See https://github.com/ros2/common_interfaces/pull/240 for more details
+
 ``rclcpp``
 ^^^^^^^^^^
 
@@ -137,6 +145,12 @@ Return types of ``wait_for_transform_async`` and ``wait_for_transform_full_async
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Previously ``wait_for_transform_async`` and ``wait_for_transform_full_async`` of the ``Buffer`` class returned a future containing true or false
 In Jazzy, the future will contain the information of the transform being waited on.
+
+Enable Twist interpolator
+"""""""""""""""""""""""""
+Included new API to lookup the velocity of the moving frame in the reference frame.
+
+See https://github.com/ros2/geometry2/pull/646 for more information
 
 ``rclcpp``
 ^^^^^^^^^^
