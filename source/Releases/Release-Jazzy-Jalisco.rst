@@ -48,6 +48,7 @@ New features in this ROS 2 release
 ----------------------------------
 
 ``common_interfaces``
+^^^^^^^^^^^^^^^^^^^^^
 
 New VelocityStamped message
 """""""""""""""""""""""""""
