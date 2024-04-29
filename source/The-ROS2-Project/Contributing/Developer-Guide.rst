@@ -710,10 +710,10 @@ There are several categories of jobs on the buildfarm:
 
 * manual jobs (triggered manually by developers):
 
-  * ci_linux: build + test the code on Ubuntu Xenial
-  * ci_linux-aarch64: build + test the code on Ubuntu Xenial on an ARM 64-bit machine (aarch64)
+  * ci_linux: build + test the code on Ubuntu
+  * ci_linux-aarch64: build + test the code on Ubuntu on an ARM 64-bit machine (aarch64)
   * ci_linux_coverage: build + test + generation of test coverage
-  * ci_windows: build + test the code on Windows 10
+  * ci_windows: build + test the code on Windows
   * ci_launcher: trigger all the jobs listed above
 
 * nightly (run every night):
