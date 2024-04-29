@@ -26,12 +26,7 @@ There are a number of factors which make this process more complex:
  - All dependencies (e.g. libraries) must be present, either as pre-built or cross-compiled packages, before the target software using them is cross-compiled.
  - When building software stacks (as opposed to standalone software) using build tools (e.g. colcon), it is expected that the build tool provides a mechanism to allow the developer to enable cross-compilation on the underlying build system used by each piece of software in the stack.
 
-Cross-compiling ROS 2
----------------------
+Alternatives
+------------
 
-The ROS 2 cross-compile tool is under shared ownership of Open Robotics and ROS Tooling Working Group.
-It is a Python script that compiles ROS 2 source files for supported target architectures using an emulator in a docker container.
-Detailed design of the tool can be found on `ROS 2 design <https://design.ros2.org/articles/cc_build_tools.html>`__.
-Instructions to use the tool are in the `cross_compile package <https://github.com/ros-tooling/cross_compile>`__.
-
-If you are using an older version, please follow the :doc:`cross-compilation guide <../../How-To-Guides/Cross-compilation>`.
+An alternative to cross-compilation is to `build multi-platform Docker images <https://github.com/docker/buildx#building-multi-platform-images>`__ using ``docker buildx``.
