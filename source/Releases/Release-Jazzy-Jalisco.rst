@@ -52,9 +52,9 @@ New features in this ROS 2 release
 
 New VelocityStamped message
 """""""""""""""""""""""""""
-New message with all fields needed to define a velocity and transform it
+Added a new message with all fields needed to define a velocity and transform it
 
-See https://github.com/ros2/common_interfaces/pull/240 for more details
+See https://github.com/ros2/common_interfaces/pull/240 for more details.
 
 ``rclcpp``
 ^^^^^^^^^^
@@ -151,7 +151,7 @@ Enable Twist interpolator
 """""""""""""""""""""""""
 Included new API to lookup the velocity of the moving frame in the reference frame.
 
-See https://github.com/ros2/geometry2/pull/646 for more information
+See https://github.com/ros2/geometry2/pull/646 for more information.
 
 ``rclcpp``
 ^^^^^^^^^^
