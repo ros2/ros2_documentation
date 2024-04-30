@@ -288,8 +288,8 @@ Open another terminal and run ``introspection_client``, enabling ``Service Intro
 
   ros2 run demo_nodes_cpp introspection_client --ros-args -p client_configure_introspection:=contents
 
-2 Check a service availability
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2 Check service availability
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ``ros2 bag`` can only record data from available services.
 To see the list of your system's services, open a new terminal and run the command:
@@ -318,13 +318,13 @@ Which will return:
   /introspection_service/set_parameters
   /introspection_service/set_parameters_atomically
 
-To check if ``Service Introspection`` is enable on client and service, run the command:
+To check if ``Service Introspection`` is enabled on the client and service, run the command:
 
 .. code-block:: console
 
   ros2 service echo --flow-style /add_two_ints
 
-You will be seeing service communication below:
+You should see service communication like below:
 
 .. code-block:: console
 
@@ -342,7 +342,7 @@ You will be seeing service communication below:
 3 Record services
 ^^^^^^^^^^^^^^^^^
 
-To record the service data, the following options are supported.
+To record service data, the following options are supported.
 Service data can be recorded with topics at the same time.
 
 To record specific services:
@@ -430,14 +430,14 @@ The terminal will return the message:
   [INFO] [1713997477.877456954] [rosbag2_player]: Press CURSOR_DOWN for Decrease Rate 10%
   [INFO] [1713997477.877573647] [rosbag2_player]: Playback until timestamp: -1
 
-Your ``introspection_service`` terminal will once start printing the following service messages:
+Your ``introspection_service`` terminal will once again start printing the following service messages:
 
 .. code-block:: console
 
   [INFO] [1713997478.090466075] [introspection_service]: Incoming request
   a: 2 b: 3
 
-This is because ``ros2 bag play`` sends the service request data from bag file to ``/add_two_ints`` service.
+This is because ``ros2 bag play`` sends the service request data from the bag file to the ``/add_two_ints`` service.
 
 We can also introspect service communication as ``ros2 bag play`` is playing it back to verify the ``introspection_service``.
 
