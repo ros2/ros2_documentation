@@ -97,7 +97,7 @@ Open the file using your preferred text editor.
     #include <string>
 
     #include "rclcpp/rclcpp.hpp"
-    #include "std_msgs/msg/string.hpp"
+    #include "example_interfaces/msg/string.hpp"
 
     using namespace std::chrono_literals;
 
@@ -111,10 +111,10 @@ Open the file using your preferred text editor.
       MinimalPublisher()
       : Node("minimal_publisher"), count_(0)
       {
-        publisher_ = this->create_publisher<std_msgs::msg::String>("topic", 10);
+        publisher_ = this->create_publisher<example_interfaces::msg::String>("topic", 10);
         auto timer_callback =
           [this]() -> void {
-            auto message = std_msgs::msg::String();
+            auto message = example_interfaces::msg::String();
             message.data = "Hello, world! " + std::to_string(this->count_++);
             RCLCPP_INFO(this->get_logger(), "Publishing: '%s'", message.data.c_str());
             this->publisher_->publish(message);
@@ -124,7 +124,7 @@ Open the file using your preferred text editor.
 
     private:
       rclcpp::TimerBase::SharedPtr timer_;
-      rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;
+      rclcpp::Publisher<example_interfaces::msg::String>::SharedPtr publisher_;
       size_t count_;
     };
 
@@ -141,7 +141,7 @@ Open the file using your preferred text editor.
 
 The top of the code includes the standard C++ headers you will be using.
 After the standard C++ headers is the ``rclcpp/rclcpp.hpp`` include which allows you to use the most common pieces of the ROS 2 system.
-Last is ``std_msgs/msg/string.hpp``, which includes the built-in message type you will use to publish data.
+Last is ``example_interfaces/msg/string.hpp``, which includes the built-in message type you will use to publish data.
 
 .. code-block:: C++
 
@@ -150,7 +150,7 @@ Last is ``std_msgs/msg/string.hpp``, which includes the built-in message type yo
     #include <string>
 
     #include "rclcpp/rclcpp.hpp"
-    #include "std_msgs/msg/string.hpp"
+    #include "example_interfaces/msg/string.hpp"
 
     using namespace std::chrono_literals;
 
@@ -178,10 +178,10 @@ At last, ``timer_`` is initialized, which causes the ``timer_callback`` function
       MinimalPublisher()
       : Node("minimal_publisher"), count_(0)
       {
-        publisher_ = this->create_publisher<std_msgs::msg::String>("topic", 10);
+        publisher_ = this->create_publisher<example_interfaces::msg::String>("topic", 10);
         auto timer_callback =
           [this]() -> void {
-            auto message = std_msgs::msg::String();
+            auto message = example_interfaces::msg::String();
             message.data = "Hello, world! " + std::to_string(this->count_++);
             RCLCPP_INFO(this->get_logger(), "Publishing: '%s'", message.data.c_str());
             this->publisher_->publish(message);
@@ -195,7 +195,7 @@ In the bottom of the class is the declaration of the timer, publisher, and count
 
     private:
       rclcpp::TimerBase::SharedPtr timer_;
-      rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;
+      rclcpp::Publisher<example_interfaces::msg::String>::SharedPtr publisher_;
       size_t count_;
 
 Following the ``MinimalPublisher`` class is ``main``, where the node actually executes.
@@ -231,9 +231,9 @@ Add a new line after the ``ament_cmake`` buildtool dependency and paste the foll
 .. code-block:: xml
 
     <depend>rclcpp</depend>
-    <depend>std_msgs</depend>
+    <depend>example_interfaces</depend>
 
-This declares the package needs ``rclcpp`` and ``std_msgs`` when its code is built and executed.
+This declares the package needs ``rclcpp`` and ``example_interfaces`` when its code is built and executed.
 
 Make sure to save the file.
 
@@ -246,14 +246,14 @@ Below the existing dependency ``find_package(ament_cmake REQUIRED)``, add the li
 .. code-block:: console
 
     find_package(rclcpp REQUIRED)
-    find_package(std_msgs REQUIRED)
+    find_package(example_interfaces REQUIRED)
 
 After that, add the executable and name it ``talker`` so you can run your node using ``ros2 run``:
 
 .. code-block:: console
 
     add_executable(talker src/publisher_lambda_function.cpp)
-    ament_target_dependencies(talker rclcpp std_msgs)
+    ament_target_dependencies(talker rclcpp example_interfaces)
 
 Finally, add the ``install(TARGETS...)`` section so ``ros2 run`` can find your executable:
 
@@ -281,10 +281,10 @@ You can clean up your ``CMakeLists.txt`` by removing some unnecessary sections a
 
   find_package(ament_cmake REQUIRED)
   find_package(rclcpp REQUIRED)
-  find_package(std_msgs REQUIRED)
+  find_package(example_interfaces REQUIRED)
 
   add_executable(talker src/publisher_lambda_function.cpp)
-  ament_target_dependencies(talker rclcpp std_msgs)
+  ament_target_dependencies(talker rclcpp example_interfaces)
 
   install(TARGETS
     talker
@@ -341,7 +341,7 @@ Open the ``subscriber_lambda_function.cpp`` with your text editor.
     #include <memory>
 
     #include "rclcpp/rclcpp.hpp"
-    #include "std_msgs/msg/string.hpp"
+    #include "example_interfaces/msg/string.hpp"
 
     class MinimalSubscriber : public rclcpp::Node
     {
@@ -350,15 +350,15 @@ Open the ``subscriber_lambda_function.cpp`` with your text editor.
       : Node("minimal_subscriber")
       {
         auto topic_callback =
-          [this](std_msgs::msg::String::UniquePtr msg) -> void {
+          [this](example_interfaces::msg::String::UniquePtr msg) -> void {
             RCLCPP_INFO(this->get_logger(), "I heard: '%s'", msg->data.c_str());
           };
         subscription_ =
-          this->create_subscription<std_msgs::msg::String>("topic", 10, topic_callback);
+          this->create_subscription<example_interfaces::msg::String>("topic", 10, topic_callback);
       }
 
     private:
-      rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription_;
+      rclcpp::Subscription<example_interfaces::msg::String>::SharedPtr subscription_;
     };
 
     int main(int argc, char * argv[])
@@ -388,11 +388,11 @@ Recall from the :doc:`topic tutorial <../Beginner-CLI-Tools/Understanding-ROS2-T
       : Node("minimal_subscriber")
       {
         auto topic_callback =
-          [this](std_msgs::msg::String::UniquePtr msg) -> void {
+          [this](example_interfaces::msg::String::UniquePtr msg) -> void {
             RCLCPP_INFO(this->get_logger(), "I heard: '%s'", msg->data.c_str());
           };
         subscription_ =
-          this->create_subscription<std_msgs::msg::String>("topic", 10, topic_callback);
+          this->create_subscription<example_interfaces::msg::String>("topic", 10, topic_callback);
       }
 
 The only field declaration in this class is the subscription.
@@ -400,7 +400,7 @@ The only field declaration in this class is the subscription.
 .. code-block:: C++
 
     private:
-      rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription_;
+      rclcpp::Subscription<example_interfaces::msg::String>::SharedPtr subscription_;
 
 The ``main`` function is exactly the same, except now it spins the ``MinimalSubscriber`` node.
 For the publisher node, spinning meant starting the timer, but for the subscriber it simply means preparing to receive messages whenever they come.
@@ -415,7 +415,7 @@ Reopen ``CMakeLists.txt`` and add the executable and target for the subscriber n
 .. code-block:: cmake
 
   add_executable(listener src/subscriber_lambda_function.cpp)
-  ament_target_dependencies(listener rclcpp std_msgs)
+  ament_target_dependencies(listener rclcpp example_interfaces)
 
   install(TARGETS
     talker
@@ -428,7 +428,7 @@ Make sure to save the file, and then your pub/sub system should be ready.
 
 4 Build and run
 ^^^^^^^^^^^^^^^
-You likely already have the ``rclcpp`` and ``std_msgs`` packages installed as part of your ROS 2 system.
+You likely already have the ``rclcpp`` and ``example_interfaces`` packages installed as part of your ROS 2 system.
 It's good practice to run ``rosdep`` in the root of your workspace (``ros2_ws``) to check for missing dependencies before building:
 
 .. tabs::

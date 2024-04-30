@@ -52,7 +52,7 @@ Navigate into the ``ros2_ws/src`` directory and create a new package:
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_cmake --license Apache-2.0 bag_recorder_nodes --dependencies example_interfaces rclcpp rosbag2_cpp std_msgs
+  ros2 pkg create --build-type ament_cmake --license Apache-2.0 bag_recorder_nodes --dependencies example_interfaces rclcpp rosbag2_cpp example_interfaces
 
 Your terminal will return a message verifying the creation of your package ``bag_recorder_nodes`` and all its necessary files and folders.
 The ``--dependencies`` argument will automatically add the necessary dependency lines to ``package.xml`` and ``CMakeLists.txt``.
@@ -80,7 +80,7 @@ Inside the ``ros2_ws/src/bag_recorder_nodes/src`` directory, create a new file c
 
 
     #include <rclcpp/rclcpp.hpp>
-    #include <std_msgs/msg/string.hpp>
+    #include <example_interfaces/msg/string.hpp>
 
     #include <rosbag2_cpp/writer.hpp>
 
@@ -97,16 +97,16 @@ Inside the ``ros2_ws/src/bag_recorder_nodes/src`` directory, create a new file c
         auto subscription_callback_lambda = [this](std::shared_ptr<rclcpp::SerializedMessage> msg){
           rclcpp::Time time_stamp = this->now();
 
-          writer_->write(msg, "chatter", "std_msgs/msg/String", time_stamp);
+          writer_->write(msg, "chatter", "example_interfaces/msg/String", time_stamp);
         };
 
-        subscription_ = create_subscription<std_msgs::msg::String>(
+        subscription_ = create_subscription<example_interfaces::msg::String>(
           "chatter", 10, subscription_callback_lambda);
       }
 
     private:
 
-      rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription_;
+      rclcpp::Subscription<example_interfaces::msg::String>::SharedPtr subscription_;
       std::unique_ptr<rosbag2_cpp::Writer> writer_;
     };
 
@@ -147,10 +147,10 @@ We will write data to the bag in the callback.
         auto subscription_callback_lambda = [this](std::shared_ptr<rclcpp::SerializedMessage> msg){
           rclcpp::Time time_stamp = this->now();
 
-          writer_->write(msg, "chatter", "std_msgs/msg/String", time_stamp);
+          writer_->write(msg, "chatter", "example_interfaces/msg/String", time_stamp);
         };
 
-        subscription_ = create_subscription<std_msgs::msg::String>(
+        subscription_ = create_subscription<example_interfaces::msg::String>(
           "chatter", 10, subscription_callback_lambda);
 
 The callback itself is different from a typical callback.
@@ -178,7 +178,7 @@ This is why we pass in the topic name and the topic type.
 
 .. code-block:: C++
 
-        writer_->write(msg, "chatter", "std_msgs/msg/String", time_stamp);
+        writer_->write(msg, "chatter", "example_interfaces/msg/String", time_stamp);
 
 The class contains two member variables.
 
@@ -189,7 +189,7 @@ The class contains two member variables.
 
 .. code-block:: C++
 
-      rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription_;
+      rclcpp::Subscription<example_interfaces::msg::String>::SharedPtr subscription_;
       std::unique_ptr<rosbag2_cpp::Writer> writer_;
 
 The file finishes with the ``main`` function used to create an instance of the node and start ROS processing it.
@@ -223,7 +223,7 @@ Below the dependencies block, which contains ``find_package(rosbag2_cpp REQUIRED
 .. code-block:: console
 
     add_executable(simple_bag_recorder src/simple_bag_recorder.cpp)
-    ament_target_dependencies(simple_bag_recorder rclcpp rosbag2_cpp std_msgs)
+    ament_target_dependencies(simple_bag_recorder rclcpp rosbag2_cpp example_interfaces)
 
     install(TARGETS
       simple_bag_recorder

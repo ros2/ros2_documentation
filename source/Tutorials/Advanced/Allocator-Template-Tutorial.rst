@@ -72,10 +72,10 @@ But first, we'll declare a few aliases to shorten the names.
      using rclcpp::memory_strategies::allocator_memory_strategy::AllocatorMemoryStrategy;
      using Alloc = std::pmr::polymorphic_allocator<void>;
      using MessageAllocTraits =
-       rclcpp::allocator::AllocRebind<std_msgs::msg::UInt32, Alloc>;
+       rclcpp::allocator::AllocRebind<example_interfaces::msg::UInt32, Alloc>;
      using MessageAlloc = MessageAllocTraits::allocator_type;
-     using MessageDeleter = rclcpp::allocator::Deleter<MessageAlloc, std_msgs::msg::UInt32>;
-     using MessageUniquePtr = std::unique_ptr<std_msgs::msg::UInt32, MessageDeleter>;
+     using MessageDeleter = rclcpp::allocator::Deleter<MessageAlloc, example_interfaces::msg::UInt32>;
+     using MessageUniquePtr = std::unique_ptr<example_interfaces::msg::UInt32, MessageDeleter>;
 
 Now we can create our resources with the custom allocator:
 
@@ -85,15 +85,15 @@ Now we can create our resources with the custom allocator:
      auto alloc = std::make_shared<Alloc>(&mem_resource);
      rclcpp::PublisherOptionsWithAllocator<Alloc> publisher_options;
      publisher_options.allocator = alloc;
-     auto publisher = node->create_publisher<std_msgs::msg::UInt32>(
+     auto publisher = node->create_publisher<example_interfaces::msg::UInt32>(
        "allocator_tutorial", 10, publisher_options);
 
      rclcpp::SubscriptionOptionsWithAllocator<Alloc> subscription_options;
      subscription_options.allocator = alloc;
      auto msg_mem_strat = std::make_shared<
        rclcpp::message_memory_strategy::MessageMemoryStrategy<
-         std_msgs::msg::UInt32, Alloc>>(alloc);
-     auto subscriber = node->create_subscription<std_msgs::msg::UInt32>(
+         example_interfaces::msg::UInt32, Alloc>>(alloc);
+     auto subscriber = node->create_subscription<example_interfaces::msg::UInt32>(
        "allocator_tutorial", 10, callback, subscription_options, msg_mem_strat);
 
      std::shared_ptr<rclcpp::memory_strategy::MemoryStrategy> memory_strategy =

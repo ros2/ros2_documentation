@@ -97,7 +97,7 @@ Open the file using your preferred text editor.
   import rclpy
   from rclpy.node import Node
 
-  from std_msgs.msg import String
+  from example_interfaces.msg import String
 
 
   class MinimalPublisher(Node):
@@ -149,7 +149,7 @@ The next statement imports the built-in string message type that the node uses t
 
 .. code-block:: python
 
-  from std_msgs.msg import String
+  from example_interfaces.msg import String
 
 These lines represent the node's dependencies.
 Recall that dependencies have to be added to ``package.xml``, which you'll do in the next section.
@@ -163,7 +163,7 @@ Next, the ``MinimalPublisher`` class is created, which inherits from (or is a su
 Following is the definition of the class's constructor.
 ``super().__init__`` calls the ``Node`` class's constructor and gives it your node name, in this case ``minimal_publisher``.
 
-``create_publisher`` declares that the node publishes messages of type ``String`` (imported from the ``std_msgs.msg`` module), over a topic named ``topic``, and that the "queue size" is 10.
+``create_publisher`` declares that the node publishes messages of type ``String`` (imported from the ``example_interfaces.msg`` module), over a topic named ``topic``, and that the "queue size" is 10.
 Queue size is a required QoS (quality of service) setting that limits the amount of queued messages if a subscriber is not receiving them fast enough.
 
 Next, a timer is created with a callback to execute every 0.5 seconds.
@@ -228,9 +228,9 @@ After the lines above, add the following dependencies corresponding to your node
 .. code-block:: xml
 
   <exec_depend>rclpy</exec_depend>
-  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>example_interfaces</exec_depend>
 
-This declares the package needs ``rclpy`` and ``std_msgs`` when its code is executed.
+This declares the package needs ``rclpy`` and ``example_interfaces`` when its code is executed.
 
 Make sure to save the file.
 
@@ -325,7 +325,7 @@ Open the ``subscriber_member_function.py`` with your text editor.
   import rclpy
   from rclpy.node import Node
 
-  from std_msgs.msg import String
+  from example_interfaces.msg import String
 
 
   class MinimalSubscriber(Node):
@@ -414,7 +414,7 @@ Make sure to save the file, and then your pub/sub system should be ready.
 
 4 Build and run
 ^^^^^^^^^^^^^^^
-You likely already have the ``rclpy`` and ``std_msgs`` packages installed as part of your ROS 2 system.
+You likely already have the ``rclpy`` and ``example_interfaces`` packages installed as part of your ROS 2 system.
 It's good practice to run ``rosdep`` in the root of your workspace (``ros2_ws``) to check for missing dependencies before building:
 
 .. tabs::

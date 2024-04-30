@@ -66,7 +66,7 @@ First, create a new package named ``sync_async_node_example_cpp`` on a new works
 
          mkdir -p ~/ros2_ws/src
          cd ~/ros2_ws/src
-         ros2 pkg create --build-type ament_cmake --license Apache-2.0 --dependencies rclcpp std_msgs -- sync_async_node_example_cpp
+         ros2 pkg create --build-type ament_cmake --license Apache-2.0 --dependencies rclcpp example_interfaces -- sync_async_node_example_cpp
 
     .. group-tab:: macOS
 
@@ -74,7 +74,7 @@ First, create a new package named ``sync_async_node_example_cpp`` on a new works
 
         mkdir -p ~/ros2_ws/src
         cd ~/ros2_ws/src
-        ros2 pkg create --build-type ament_cmake --license Apache-2.0 --dependencies rclcpp std_msgs -- sync_async_node_example_cpp
+        ros2 pkg create --build-type ament_cmake --license Apache-2.0 --dependencies rclcpp example_interfaces -- sync_async_node_example_cpp
 
     .. group-tab:: Windows
 
@@ -82,7 +82,7 @@ First, create a new package named ``sync_async_node_example_cpp`` on a new works
 
         md \ros2_ws\src
         cd \ros2_ws\src
-        ros2 pkg create --build-type ament_cmake --license Apache-2.0 --dependencies rclcpp std_msgs -- sync_async_node_example_cpp
+        ros2 pkg create --build-type ament_cmake --license Apache-2.0 --dependencies rclcpp example_interfaces -- sync_async_node_example_cpp
 
 
 Then, add a file named ``src/sync_async_writer.cpp`` to the package, with the following content.
@@ -96,7 +96,7 @@ Note that the synchronous publisher will be publishing on topic ``sync_topic``, 
     #include <string>
 
     #include "rclcpp/rclcpp.hpp"
-    #include "std_msgs/msg/string.hpp"
+    #include "example_interfaces/msg/string.hpp"
 
     using namespace std::chrono_literals;
 
@@ -107,16 +107,16 @@ Note that the synchronous publisher will be publishing on topic ``sync_topic``, 
             : Node("sync_async_publisher"), count_(0)
         {
             // Create the synchronous publisher on topic 'sync_topic'
-            sync_publisher_ = this->create_publisher<std_msgs::msg::String>("sync_topic", 10);
+            sync_publisher_ = this->create_publisher<example_interfaces::msg::String>("sync_topic", 10);
 
             // Create the asynchronous publisher on topic 'async_topic'
-            async_publisher_ = this->create_publisher<std_msgs::msg::String>("async_topic", 10);
+            async_publisher_ = this->create_publisher<example_interfaces::msg::String>("async_topic", 10);
 
             // Actions to run every time the timer expires
             auto timer_callback = [this](){
 
                 // Create a new message to be sent
-                auto sync_message = std_msgs::msg::String();
+                auto sync_message = example_interfaces::msg::String();
                 sync_message.data = "SYNC: Hello, world! " + std::to_string(count_);
 
                 // Log the message to the console to show progress
@@ -126,7 +126,7 @@ Note that the synchronous publisher will be publishing on topic ``sync_topic``, 
                 sync_publisher_->publish(sync_message);
 
                 // Create a new message to be sent
-                auto async_message = std_msgs::msg::String();
+                auto async_message = example_interfaces::msg::String();
                 async_message.data = "ASYNC: Hello, world! " + std::to_string(count_);
 
                 // Log the message to the console to show progress
@@ -148,10 +148,10 @@ Note that the synchronous publisher will be publishing on topic ``sync_topic``, 
         rclcpp::TimerBase::SharedPtr timer_;
 
         // A publisher that publishes asynchronously
-        rclcpp::Publisher<std_msgs::msg::String>::SharedPtr async_publisher_;
+        rclcpp::Publisher<example_interfaces::msg::String>::SharedPtr async_publisher_;
 
         // A publisher that publishes synchronously
-        rclcpp::Publisher<std_msgs::msg::String>::SharedPtr sync_publisher_;
+        rclcpp::Publisher<example_interfaces::msg::String>::SharedPtr sync_publisher_;
 
         // Number of messages sent so far
         size_t count_;
@@ -170,7 +170,7 @@ Now open the ``CMakeLists.txt`` file and add a new executable and name it ``Sync
 .. code-block:: cmake
 
     add_executable(SyncAsyncWriter src/sync_async_writer.cpp)
-    ament_target_dependencies(SyncAsyncWriter rclcpp std_msgs)
+    ament_target_dependencies(SyncAsyncWriter rclcpp example_interfaces)
 
 Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your executable:
 
@@ -198,10 +198,10 @@ You can clean up your ``CMakeLists.txt`` by removing some unnecessary sections a
 
     find_package(ament_cmake REQUIRED)
     find_package(rclcpp REQUIRED)
-    find_package(std_msgs REQUIRED)
+    find_package(example_interfaces REQUIRED)
 
     add_executable(SyncAsyncWriter src/sync_async_writer.cpp)
-    ament_target_dependencies(SyncAsyncWriter rclcpp std_msgs)
+    ament_target_dependencies(SyncAsyncWriter rclcpp example_interfaces)
 
     install(TARGETS
         SyncAsyncWriter
@@ -322,7 +322,7 @@ In a new source file named ``src/sync_async_reader.cpp`` write the following con
     #include <memory>
 
     #include "rclcpp/rclcpp.hpp"
-    #include "std_msgs/msg/string.hpp"
+    #include "example_interfaces/msg/string.hpp"
 
     class SyncAsyncSubscriber : public rclcpp::Node
     {
@@ -332,28 +332,28 @@ In a new source file named ``src/sync_async_reader.cpp`` write the following con
             : Node("sync_async_subscriber")
         {
             // Lambda function to run every time a new message is received
-            auto topic_callback = [this](const std_msgs::msg::String & msg){
+            auto topic_callback = [this](const example_interfaces::msg::String & msg){
                 RCLCPP_INFO(this->get_logger(), "I heard: '%s'", msg.data.c_str());
             };
 
             // Create the synchronous subscriber on topic 'sync_topic'
             // and tie it to the topic_callback
-            sync_subscription_ = this->create_subscription<std_msgs::msg::String>(
+            sync_subscription_ = this->create_subscription<example_interfaces::msg::String>(
                 "sync_topic", 10, topic_callback);
 
             // Create the asynchronous subscriber on topic 'async_topic'
             // and tie it to the topic_callback
-            async_subscription_ = this->create_subscription<std_msgs::msg::String>(
+            async_subscription_ = this->create_subscription<example_interfaces::msg::String>(
                 "async_topic", 10, topic_callback);
         }
 
     private:
 
         // A subscriber that listens to topic 'sync_topic'
-        rclcpp::Subscription<std_msgs::msg::String>::SharedPtr sync_subscription_;
+        rclcpp::Subscription<example_interfaces::msg::String>::SharedPtr sync_subscription_;
 
         // A subscriber that listens to topic 'async_topic'
-        rclcpp::Subscription<std_msgs::msg::String>::SharedPtr async_subscription_;
+        rclcpp::Subscription<example_interfaces::msg::String>::SharedPtr async_subscription_;
     };
 
     int main(int argc, char * argv[])
@@ -370,7 +370,7 @@ Open the ``CMakeLists.txt`` file and add a new executable and name it ``SyncAsyn
 .. code-block:: cmake
 
     add_executable(SyncAsyncReader src/sync_async_reader.cpp)
-    ament_target_dependencies(SyncAsyncReader rclcpp std_msgs)
+    ament_target_dependencies(SyncAsyncReader rclcpp example_interfaces)
 
     install(TARGETS
         SyncAsyncReader
