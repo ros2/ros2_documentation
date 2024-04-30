@@ -88,7 +88,7 @@ Let's also make a new directory to store our saved recordings, just as good prac
 2 Choose a topic
 ^^^^^^^^^^^^^^^^
 
-``ros2 bag`` can only record data from published messages in topics.
+``ros2 bag`` can record data from messages published to topics.
 To see the list of your system's topics, open a new terminal and run the command:
 
 .. code-block:: console
@@ -270,35 +270,23 @@ Managing Service Data
 1 Setup
 ^^^^^^^
 
-You'll be recording service data between ``introspection_client`` and ``introspection_service``, then display and replay later on.
+You'll be recording service data between ``introspection_client`` and ``introspection_service``, then display and replay that same data later on.
 To record service data between service client and server, ``Service Introspection`` must be enabled on the node.
 
 Let's start ``introspection_client`` and ``introspection_service`` nodes and enable ``Service Introspection``.
 You can see more details for :doc:`Service Introspection Demo <../../Demos/Service-Introspection>`.
 
-Open a new terminal and run ``introspection_service``:
+Open a new terminal and run ``introspection_service``, enabling ``Service Introspection``:
 
 .. code-block:: console
 
-  ros2 run demo_nodes_cpp introspection_service
+  ros2 run demo_nodes_cpp introspection_service --ros-args -p service_configure_introspection:=contents
 
-Open another terminal and run ``introspection_client``:
-
-.. code-block:: console
-
-  ros2 run demo_nodes_cpp introspection_client
-
-Let's also enable ``Service Introspection`` on both nodes:
+Open another terminal and run ``introspection_client``, enabling ``Service Introspection``:
 
 .. code-block:: console
 
-  ros2 param set /introspection_service service_configure_introspection contents
-
-and
-
-.. code-block:: console
-
-  ros2 param set /introspection_client client_configure_introspection contents
+  ros2 run demo_nodes_cpp introspection_client --ros-args -p client_configure_introspection:=contents
 
 2 Check a service availability
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -451,15 +439,15 @@ Your ``introspection_service`` terminal will once start printing the following s
 
 This is because ``ros2 bag play`` sends the service request data from bag file to ``/add_two_ints`` service.
 
-We can also introspect service communication even with ``ros2 bag play`` to verify the ``introspection_service``.
+We can also introspect service communication as ``ros2 bag play`` is playing it back to verify the ``introspection_service``.
 
-Run the command before ``ros2 bag play`` to see the ``introspection_service``:
+Run this command before ``ros2 bag play`` to see the ``introspection_service``:
 
 .. code-block:: console
 
   ros2 service echo --flow-style /add_two_ints
 
-You can see the service request from bag file and service response from  ``introspection_service``.
+You can see the service request from the bag file and the service response from  ``introspection_service``.
 
 .. code-block:: console
 
