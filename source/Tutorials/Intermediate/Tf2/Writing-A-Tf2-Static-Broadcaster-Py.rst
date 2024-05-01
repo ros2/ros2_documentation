@@ -282,7 +282,7 @@ After the lines above, add the following dependencies corresponding to your node
     <exec_depend>geometry_msgs</exec_depend>
     <exec_depend>python3-numpy</exec_depend>
     <exec_depend>rclpy</exec_depend>
-    <exec_depend>tf2_ros_py</exec_depend>
+    <exec_depend>tf2_ros</exec_depend>
     <exec_depend>turtlesim</exec_depend>
 
 This declares the required ``geometry_msgs``, ``python3-numpy``, ``rclpy``, ``tf2_ros_py``, and ``turtlesim`` dependencies when its code is executed.
