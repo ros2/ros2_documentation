@@ -8,7 +8,7 @@ See also: https://www.eprosima.com/index.php/products-all/eprosima-fast-dds
 Prerequisites
 -------------
 
-Have `rosdep installed  <https://wiki.ros.org/rosdep#Installing_rosdep>`__
+Have :doc:`rosdep installed <../../Tutorials/Intermediate/Rosdep>`.
 
 Install packages
 ----------------
