@@ -267,7 +267,7 @@ When filing an issue please make sure to:
   - **The operating system and version.**
     Reasoning: ROS 2 supports multiple platforms, and some bugs are specific to particular versions of operating systems/compilers.
   - **The installation method.**
-    Reasoning: Some issues only manifest if ROS 2 has been installed from "fat archives" or from Debians.
+    Reasoning: Some issues only manifest if ROS 2 has been installed from binary archives or from Debians.
     This can help us determine if the issue is with the packaging process.
   - **The specific version of ROS 2.**
     Reasoning: Some bugs may be present in a particular ROS 2 release and later fixed.
