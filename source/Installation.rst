@@ -22,7 +22,6 @@ Binary packages
 ---------------
 
 Binaries are only created for the Tier 1 operating systems listed in `REP-2000 <https://www.ros.org/reps/rep-2000.html#rolling-ridley-june-2020-ongoing>`__.
-Given the nature of Rolling, this list may be updated at any time.
 If you are not running any of the following operating systems you may need to build from source or use a :doc:`container solution <How-To-Guides/Run-2-nodes-in-single-or-separate-docker-containers>` to run ROS 2 on your platform.
 
 We provide ROS 2 binary packages for the following platforms:
