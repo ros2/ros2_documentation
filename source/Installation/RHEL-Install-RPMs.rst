@@ -6,6 +6,7 @@ RHEL (RPM packages)
    :local:
 
 RPM packages for ROS 2 {DISTRO_TITLE_FULL} are currently available for RHEL 8.
+The target platforms are defined in `REP 2000 <https://ros.org/reps/rep-2000.html>`__.
 
 Resources
 ---------
