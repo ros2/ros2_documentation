@@ -14,8 +14,6 @@ System requirements
 -------------------
 
 We currently support macOS Mojave (10.14).
-The Rolling Ridley distribution will change target platforms from time to time as new platforms become available.
-Most people will want to use a stable ROS distribution.
 
 System setup
 ------------
