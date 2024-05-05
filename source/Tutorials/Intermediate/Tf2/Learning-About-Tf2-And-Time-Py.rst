@@ -38,9 +38,9 @@ It should look like shown below:
 .. code-block:: python
 
    trans = self._tf_buffer.lookup_transform(
-      to_frame_rel,
-      from_frame_rel,
-      now)
+       to_frame_rel,
+       from_frame_rel,
+       now)
 
 Moreover, import additional exceptions that we will handle in the beginning of the file:
 
@@ -53,9 +53,9 @@ Edit the exception handling on line 81 by adding newly imported exceptions and `
 .. code-block:: python
 
    except (LookupException, ConnectivityException, ExtrapolationException):
-      self.get_logger().info('transform not ready')
-      raise
-      return
+       self.get_logger().info('transform not ready')
+       raise
+       return
 
 If you now try to run the launch file, you will notice that it is failing:
 
@@ -72,10 +72,10 @@ To fix this, edit your code on line 76 as shown below (return the ``timeout`` pa
 .. code-block:: python
 
    trans = self._tf_buffer.lookup_transform(
-      to_frame_rel,
-      from_frame_rel,
-      now,
-      timeout=rclpy.duration.Duration(seconds=1.0))
+       to_frame_rel,
+       from_frame_rel,
+       now,
+       timeout=rclpy.duration.Duration(seconds=1.0))
 
 The ``lookup_transform`` can take four arguments, where the last one is an optional timeout.
 It will block for up to that duration waiting for it to timeout.
