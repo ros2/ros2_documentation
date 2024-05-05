@@ -357,7 +357,7 @@ You can modify ``turtlesim`` in your overlay by editing the title bar on the tur
 To do this, locate the ``turtle_frame.cpp`` file in ``~/ros2_ws/src/ros_tutorials/turtlesim/src``.
 Open ``turtle_frame.cpp`` with your preferred text editor.
 
-On line 52 you will see the function ``setWindowTitle("TurtleSim");``.
+On line 62 you will see the function ``setWindowTitle("TurtleSim");``.
 Change the value ``"TurtleSim"`` to ``"MyTurtleSim"``, and save the file.
 
 Return to the first terminal where you ran ``colcon build`` earlier and run it again.
