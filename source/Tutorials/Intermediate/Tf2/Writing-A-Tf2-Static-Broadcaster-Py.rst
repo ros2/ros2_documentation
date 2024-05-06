@@ -86,7 +86,7 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the exampl
 
                 curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/static_turtle_tf2_broadcaster.py -o static_turtle_tf2_broadcaster.py
 
-Open the file using your preferred text editor.
+Now open the file called ``static_turtle_tf2_broadcaster.py`` using your preferred text editor.
 
 .. code-block:: python
 
@@ -428,7 +428,7 @@ Publish a static coordinate transform to tf2 using an x/y/z offset in meters and
 
 ``static_transform_publisher`` is designed both as a command-line tool for manual use, as well as for use within ``launch`` files for setting static transforms. For example:
 
-.. code-block:: console
+.. code-block:: python
 
     from launch import LaunchDescription
     from launch_ros.actions import Node
