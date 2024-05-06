@@ -30,7 +30,7 @@ You'll need to install both ROS 2 and Gazebo.
 ROS 2
 ^^^^^
 
-For ROS 2 you should follow the `ROS 2 install instructions <../../../../Installation>`.
+For ROS 2 you should follow the :doc:`ROS 2 install instructions <../../../../Installation>`.
 
 Gazebo
 ^^^^^^
@@ -41,7 +41,7 @@ All supported combinations can be seen `here <https://gazebosim.org/docs/harmoni
 
 `ROS REP-2000 <https://www.ros.org/reps/rep-2000.html>`__ standardizes what the default version of Gazebo is for each ROS distribution.
 
-If you haven't installed a version of Gazebo on your system yet, you can install Gazebo by following the `installation instructions <https://gazebosim.org/docs/latest/ros_installation>`__.
+If you haven't installed a version of Gazebo on your system yet, you can install Gazebo by following the `installation instructions <https://gazebosim.org/docs/harmonic/ros_installation>`__.
 
 Quick Check
 -----------
