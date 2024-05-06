@@ -86,7 +86,7 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the exampl
 
                 curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/static_turtle_tf2_broadcaster.py -o static_turtle_tf2_broadcaster.py
 
-Now open the file called `static_turtle_tf2_broadcaster.py` using your preferred text editor.
+Now open the file called ``static_turtle_tf2_broadcaster.py`` using your preferred text editor.
 
 .. code-block:: python
 
