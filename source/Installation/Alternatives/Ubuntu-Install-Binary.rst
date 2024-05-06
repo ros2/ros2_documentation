@@ -107,7 +107,6 @@ Install dependencies using rosdep
 
       rosdep install --from-paths ~/ros2_{DISTRO}/ros2-linux/share --ignore-src -y --skip-keys "cyclonedds fastcdr fastrtps iceoryx_binding_c rmw_connextdds rti-connext-dds-6.0.1 urdfdom_headers"
 
-
   .. group-tab:: Connext DDS
 
     .. code-block:: bash
