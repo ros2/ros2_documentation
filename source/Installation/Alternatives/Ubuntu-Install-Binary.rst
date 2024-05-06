@@ -93,8 +93,6 @@ Install dependencies using rosdep
    sudo rosdep init
    rosdep update
 
-If you want to use Fast DDS or Cyclone DDS
-
 .. tabs::
 
   .. group-tab:: Fast DDS
