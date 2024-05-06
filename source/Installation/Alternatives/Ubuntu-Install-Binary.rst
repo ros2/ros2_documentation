@@ -81,11 +81,14 @@ Instead you may download nightly :ref:`prerelease binaries <Prerelease_binaries>
 Install dependencies using rosdep
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. code-block:: bash
+
+   sudo apt update
+
 .. include:: ../_Apt-Upgrade-Admonition.rst
 
 .. code-block:: bash
 
-   sudo apt update
    sudo apt install -y python3-rosdep
    sudo rosdep init
    rosdep update
