@@ -128,7 +128,7 @@ Cannot start rviz2
    Aborted (core dumped)
 
 This is due to an incompatibility between Wayland and RViz2.
-You may be able to workaround this problem by running rviz2 in X11 compatibility mode:
+You may be able to workaround this problem by running RViz2 in X11 compatibility mode:
 
 .. code-block::
 
