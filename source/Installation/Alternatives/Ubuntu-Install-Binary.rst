@@ -92,7 +92,29 @@ Install dependencies using rosdep
    sudo apt install -y python3-rosdep
    sudo rosdep init
    rosdep update
-   rosdep install --from-paths ~/ros2_{DISTRO}/ros2-linux/share --ignore-src -y --skip-keys "cyclonedds fastcdr fastrtps iceoryx_binding_c rmw_connextdds rti-connext-dds-6.0.1 urdfdom_headers"
+
+If you want to use Fast DDS or Cyclone DDS
+
+.. tabs::
+
+  .. group-tab:: Fast DDS
+
+    .. code-block:: bash
+
+      rosdep install --from-paths ~/ros2_{DISTRO}/ros2-linux/share --ignore-src -y --skip-keys "cyclonedds fastcdr fastrtps iceoryx_binding_c rmw_connextdds rti-connext-dds-6.0.1 urdfdom_headers"
+
+  .. group-tab:: Cyclone DDS
+
+    .. code-block:: bash
+
+      rosdep install --from-paths ~/ros2_{DISTRO}/ros2-linux/share --ignore-src -y --skip-keys "cyclonedds fastcdr fastrtps iceoryx_binding_c rmw_connextdds rti-connext-dds-6.0.1 urdfdom_headers"
+
+
+  .. group-tab:: Connext DDS
+
+    .. code-block:: bash
+
+      rosdep install --from-paths ~/ros2_{DISTRO}/ros2-linux/share --ignore-src -y --skip-keys "cyclonedds fastcdr fastrtps iceoryx_binding_c rmw_connextdds urdfdom_headers"
 
 .. include:: ../_rosdep_Linux_Mint.rst
 
