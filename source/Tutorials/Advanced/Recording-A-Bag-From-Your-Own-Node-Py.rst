@@ -110,6 +110,7 @@ Inside the ``ros2_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory
            self.writer.open(storage_options, converter_options)
 
            topic_info = rosbag2_py._storage.TopicMetadata(
+               id=0,
                name='chatter',
                type='std_msgs/msg/String',
                serialization_format='cdr')
@@ -172,6 +173,7 @@ This object specifies the topic name, topic data type, and serialization format 
 .. code-block:: Python
 
    topic_info = rosbag2_py._storage.TopicMetadata(
+       id=0,
        name='chatter',
        type='std_msgs/msg/String',
        serialization_format='cdr')
@@ -345,6 +347,7 @@ Inside the ``ros2_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory
            self.writer.open(storage_options, converter_options)
 
            topic_info = rosbag2_py._storage.TopicMetadata(
+               id=0,
                name='synthetic',
                type='example_interfaces/msg/Int32',
                serialization_format='cdr')
@@ -389,6 +392,7 @@ The name of the topic is also changed, as is the data type stored.
 .. code-block:: Python
 
    topic_info = rosbag2_py._storage.TopicMetadata(
+       id=0,
        name='synthetic',
        type='example_interfaces/msg/Int32',
        serialization_format='cdr')
@@ -526,6 +530,7 @@ Inside the ``ros2_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory
        writer.open(storage_options, converter_options)
 
        topic_info = rosbag2_py._storage.TopicMetadata(
+           id=0,
            name='synthetic',
            type='example_interfaces/msg/Int32',
            serialization_format='cdr')
