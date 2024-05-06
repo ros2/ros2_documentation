@@ -66,7 +66,7 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the exampl
 
             curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py -o turtle_tf2_listener.py
 
-Open the file using your preferred text editor.
+Now open the file called `turtle_tf2_listener.py` using your preferred text editor.
 
 .. code-block:: python
 

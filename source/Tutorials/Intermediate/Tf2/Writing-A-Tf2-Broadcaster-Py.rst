@@ -67,7 +67,7 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the exampl
 
             curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_broadcaster.py -o turtle_tf2_broadcaster.py
 
-Open the file using your preferred text editor.
+Now open the file called `turtle_tf2_broadcaster.py` using your preferred text editor.
 
 .. code-block:: python
 
@@ -179,7 +179,7 @@ Firstly, we define and acquire a single parameter ``turtlename``, which specifie
     self.turtlename = self.declare_parameter(
       'turtlename', 'turtle').get_parameter_value().string_value
 
-Afterward, the node subscribes to topic ``turtleX/pose`` and runs function ``handle_turtle_pose`` on every incoming message.
+Afterward, the node subscribes to topic ``{self.turtlename}/pose`` and runs function ``handle_turtle_pose`` on every incoming message.
 
 .. code-block:: python
 
@@ -251,6 +251,7 @@ Add the following line between the ``'console_scripts':`` brackets:
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 Now create a launch file for this demo.
+Create a ``launch`` folder in the ``src/learning_tf2_py`` directory
 With your text editor, create a new file called ``turtle_tf2_demo_launch.py`` in the ``launch`` folder, and add the following lines:
 
 .. code-block:: python
@@ -444,18 +445,16 @@ In your console output you will see something similar to this:
 
 .. code-block:: console
 
-    At time 1625137663.912474878
-    - Translation: [5.276, 7.930, 0.000]
-    - Rotation: in Quaternion [0.000, 0.000, 0.934, -0.357]
-    At time 1625137664.950813527
-    - Translation: [3.750, 6.563, 0.000]
-    - Rotation: in Quaternion [0.000, 0.000, 0.934, -0.357]
-    At time 1625137665.906280726
-    - Translation: [2.320, 5.282, 0.000]
-    - Rotation: in Quaternion [0.000, 0.000, 0.934, -0.357]
-    At time 1625137666.850775673
-    - Translation: [2.153, 5.133, 0.000]
-    - Rotation: in Quaternion [0.000, 0.000, -0.365, 0.931]
+    At time 1714913843.708748879
+    - Translation: [4.541, 3.889, 0.000]
+    - Rotation: in Quaternion [0.000, 0.000, 0.999, -0.035]
+    - Rotation: in RPY (radian) [0.000, -0.000, -3.072]
+    - Rotation: in RPY (degree) [0.000, -0.000, -176.013]
+    - Matrix:
+     -0.998  0.070  0.000  4.541
+     -0.070 -0.998  0.000  3.889
+      0.000  0.000  1.000  0.000
+      0.000  0.000  0.000  1.000
 
 If you run ``tf2_echo`` for the transform between the ``world`` and ``turtle2``, you should not see a transform, because the second turtle is not there yet.
 However, as soon as we add the second turtle in the next tutorial, the pose of ``turtle2`` will be broadcast to tf2.
