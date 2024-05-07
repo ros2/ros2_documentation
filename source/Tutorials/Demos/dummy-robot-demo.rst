@@ -15,19 +15,21 @@ We assume your ROS 2 installation dir as ``~/ros2_ws``. Please change the direct
 
 To start the demo, we execute the demo bringup launch file, which we are going to explain in more details in the next section.
 
-Using source build:
-.. code-block:: bash
-   mkdir -p ~/ros2_ws/src
-   cd ~/ros2_ws/src
-   git clone -b ${ROS_DISTRO} https://github.com/ros2/demos
-   cd .. && colcon build --packages-up-to dummy_robot_bringup
-   source ~/ros2_ws/install/setup.bash
-   ros2 launch dummy_robot_bringup dummy_robot_bringup_launch.py
+.. tabs::
 
-Using debian package:
-.. code-block:: bash
-   sudo apt install ros-${ROS_DISTRO}-dummy-robot-bringup
-   ros2 launch dummy_robot_bringup dummy_robot_bringup_launch.py
+  .. group-tab:: Source Build
+
+    mkdir -p ~/ros2_ws/src
+    cd ~/ros2_ws/src
+    git clone -b ${ROS_DISTRO} https://github.com/ros2/demos
+    cd .. && colcon build --packages-up-to dummy_robot_bringup
+    source ~/ros2_ws/install/setup.bash
+    ros2 launch dummy_robot_bringup dummy_robot_bringup_launch.py
+
+  .. group-tab:: Debian Package
+
+    sudo apt install ros-${ROS_DISTRO}-dummy-robot-bringup
+    ros2 launch dummy_robot_bringup dummy_robot_bringup_launch.py
 
 You should see some prints inside your terminal along the lines of the following:
 
