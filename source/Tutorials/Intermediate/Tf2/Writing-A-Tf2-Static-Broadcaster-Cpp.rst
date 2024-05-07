@@ -394,14 +394,14 @@ This tutorial aimed to show how ``StaticTransformBroadcaster`` can be used to pu
 In your real development process you shouldn't have to write this code yourself and should use the dedicated ``tf2_ros`` tool to do so.
 ``tf2_ros`` provides an executable named ``static_transform_publisher`` that can be used either as a commandline tool or a node that you can add to your launchfiles.
 
-Publish a static coordinate transform to tf2 using an x/y/z offset in meters and roll/pitch/yaw in radians.
-In our case, roll/pitch/yaw refers to rotation about the x/y/z-axis, respectively.
+The following command publishes a static coordinate transform to tf2 using an x/y/z offset in meters and roll/pitch/yaw in radians.
+In ROS 2, roll/pitch/yaw refers to rotation about the x/y/z-axis, respectively.
 
 .. code-block:: console
 
     ros2 run tf2_ros static_transform_publisher --x x --y y --z z --yaw yaw --pitch pitch --roll roll --frame-id frame_id --child-frame-id child_frame_id
 
-Publish a static coordinate transform to tf2 using an x/y/z offset in meters and quaternion.
+The following command publishes a static coordinate transform to tf2 using an x/y/z offset in meters and roll/pitch/yaw as a quaternion.
 
 .. code-block:: console
 
