@@ -185,14 +185,6 @@ Miscellaneous
 
 Deprecated
 ----------
-* `ROS Answers <https://answers.ros.org/questions/>`__ (ROS 1, ROS 2)
-
-  - ROS Answers was the ROS community Q&A website, until August, 2023. ROS Answers is currently available as a read-only resource.
-
-* `ROS 2 Docs <https://docs.ros2.org>`_
-
-  - API documentation up to and including Galactic
-
 * `ROS 2 Design <http://design.ros2.org/>`__
 
   - Early design decisions behind ROS 2 development
