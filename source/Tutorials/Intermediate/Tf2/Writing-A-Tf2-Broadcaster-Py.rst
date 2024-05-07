@@ -251,7 +251,7 @@ Add the following line between the ``'console_scripts':`` brackets:
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 Now create a launch file for this demo.
-Create a ``launch`` folder in the ``src/learning_tf2_py`` directory
+Create a ``launch`` folder in the ``src/learning_tf2_py`` directory.
 With your text editor, create a new file called ``turtle_tf2_demo_launch.py`` in the ``launch`` folder, and add the following lines:
 
 .. code-block:: python

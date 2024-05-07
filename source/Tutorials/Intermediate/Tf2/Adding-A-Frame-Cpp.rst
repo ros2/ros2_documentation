@@ -184,7 +184,7 @@ Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your e
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Now let's create a launch file for this example.
-With your text editor, create a new file called ``launch/turtle_tf2_fixed_frame_demo_launch.py``, and add the following lines:
+With your text editor, create a new file called ``turtle_tf2_fixed_frame_demo_launch.py`` in the ``src/learning_tf2_cpp/launch`` directory, and add the following lines:
 
 .. code-block:: python
 
@@ -473,7 +473,7 @@ Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your e
 2.3 Write the launch file
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To test this code, create a new launch file ``launch/turtle_tf2_dynamic_frame_demo_launch.py`` and paste the following code:
+To test this code, create a new launch file ``turtle_tf2_dynamic_frame_demo_launch.py`` in the ``src/learning_tf2_cpp/launch`` directory and paste the following code:
 
 .. code-block:: python
 
