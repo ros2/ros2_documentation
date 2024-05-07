@@ -248,8 +248,13 @@ Which will return
 This tells us what we learned earlier from running ``ros2 node info`` on each node:
 The ``/teleop_turtle`` node has an action client and the ``/turtlesim`` node has an action server for the ``/turtle1/rotate_absolute`` action.
 
+<<<<<<< HEAD
 6 ros2 action interface show
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+=======
+7 ros2 interface show
+^^^^^^^^^^^^^^^^^^^^^
+>>>>>>> 67c97ee9 (Make the heading of the section "ros2 interface show". (#4379))
 
 One more piece of information you will need before sending or executing an action goal yourself is the structure of the action type.
 
