@@ -45,7 +45,7 @@ You should see some prints inside your terminal along the lines of the following
    [dummy_laser-4] [INFO] [1714837459.645626640] [dummy_laser]: scan time increment: 	0.000000
    [robot_state_publisher-2] [INFO] [1714837459.652977937] [robot_state_publisher]: Robot initialized
 
-If you now open Rviz2 in a new terminal, you'll see your robot. 🎉
+If you now open RViz2 in a new terminal, you'll see your robot. 🎉
 
 .. code-block:: bash
 
