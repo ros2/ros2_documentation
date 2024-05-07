@@ -27,9 +27,7 @@ If you want to learn both C++ and Python, you should go through the tutorials on
    Writing-A-Tf2-Listener-Cpp
    Adding-A-Frame-Py
    Adding-A-Frame-Cpp
-   Learning-About-Tf2-And-Time-Py
    Learning-About-Tf2-And-Time-Cpp
-   Time-Travel-With-Tf2-Py
    Time-Travel-With-Tf2-Cpp
    Debugging-Tf2-Problems
    Quaternion-Fundamentals
@@ -65,12 +63,12 @@ Learning tf2
 
    This tutorial teaches you how to add an extra fixed frame to tf2.
 
-#. Using time :doc:`(Python) <Learning-About-Tf2-And-Time-Py>` :doc:`(C++) <Learning-About-Tf2-And-Time-Cpp>`.
+#. Using time :doc:`(C++) <Learning-About-Tf2-And-Time-Cpp>`.
 
    This tutorial teaches you to use the timeout in ``lookup_transform`` function to
    wait for a transform to be available on the tf2 tree.
 
-#. Traveling in time :doc:`(Python) <./Time-Travel-With-Tf2-Py>` :doc:`(C++) <./Time-Travel-With-Tf2-Cpp>`.
+#. Traveling in time :doc:`(C++) <./Time-Travel-With-Tf2-Cpp>`.
 
    This tutorial teaches you about advanced time travel features of tf2.
 

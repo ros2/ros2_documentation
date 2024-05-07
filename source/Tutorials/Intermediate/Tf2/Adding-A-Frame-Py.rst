@@ -160,7 +160,7 @@ Add the following line between the ``'console_scripts':`` brackets:
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Now let's create a launch file for this example.
-With your text editor, create a new file called ``launch/turtle_tf2_fixed_frame_demo_launch.py``, and add the following lines:
+With your text editor, create a new file called ``turtle_tf2_fixed_frame_demo_launch.py`` in the ``src/learning_tf2_py/launch`` directory, and add the following lines:
 
 .. code-block:: python
 
@@ -203,7 +203,6 @@ The last part of the code will add our fixed ``carrot1`` frame to the turtlesim 
         executable='fixed_frame_tf2_broadcaster',
         name='fixed_broadcaster',
     ),
-
 
 1.4 Build
 ~~~~~~~~~
@@ -427,7 +426,7 @@ Add the following line between the ``'console_scripts':`` brackets:
 2.3 Write the launch file
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To test this code, create a new launch file ``launch/turtle_tf2_dynamic_frame_demo_launch.py`` and paste the following code:
+To test this code, create a new launch file ``turtle_tf2_dynamic_frame_demo_launch.py`` in the ``src/learning_tf2_py/launch`` directory and paste the following code:
 
 .. code-block:: python
 

@@ -244,6 +244,7 @@ Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your e
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 Now create a launch file for this demo.
+Create a ``launch`` folder in the ``src/learning_tf2_cpp`` directory.
 With your text editor, create a new file called ``turtle_tf2_demo_launch.py`` in the ``launch`` folder, and add the following lines:
 
 .. code-block:: python
