@@ -228,7 +228,7 @@ Add the following line between the ``'console_scripts':`` brackets:
 2 Update the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Open the launch file called ``turtle_tf2_demo_launch.py`` with your text editor, add two new nodes to the launch description, add a launch argument, and add the imports.
+Open the launch file called ``turtle_tf2_demo_launch.py`` in the ``src/learning_tf2_py/launch`` directory with your text editor, add two new nodes to the launch description, add a launch argument, and add the imports.
 The resulting file should look like:
 
 .. code-block:: python
