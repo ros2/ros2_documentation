@@ -21,7 +21,7 @@ Background
 ----------
 
 In previous tutorials, we recreated the turtle demo by writing a :doc:`tf2 broadcaster <Writing-A-Tf2-Broadcaster-Cpp>` and a :doc:`tf2 listener <Writing-A-Tf2-Listener-Cpp>`.
-We also learned how to :doc:`add a new frame to the transformation tree <./Adding-A-Frame-Cpp>` and learned how tf2 keeps track of a tree of coordinate frames.
+We also learned how to :doc:`add a new frame to the transformation tree <Adding-A-Frame-Cpp>` and learned how tf2 keeps track of a tree of coordinate frames.
 This tree changes over time, and tf2 stores a time snapshot for every transform (for up to 10 seconds by default).
 Until now we used the ``lookupTransform()`` function to get access to the latest available transforms in that tf2 tree, without knowing at what time that transform was recorded.
 This tutorial will teach you how to get a transform at a specific time.
@@ -29,11 +29,11 @@ This tutorial will teach you how to get a transform at a specific time.
 Tasks
 -----
 
-1 tf2 and time
-^^^^^^^^^^^^^^
+1 Update the listener node
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-So let's go back to where we ended in the :doc:`adding a frame tutorial <./Adding-A-Frame-Cpp>`.
-Go to ``learning_tf2_cpp`` package.
+Let's go back to where we ended in the :doc:`adding a frame tutorial <Adding-A-Frame-Cpp>`.
+Go to the ``learning_tf2_cpp`` package.
 Open ``turtle_tf2_listener.cpp`` and take a look at the ``lookupTransform()`` call:
 
 .. code-block:: C++
@@ -76,7 +76,7 @@ You will notice that it fails and outputs something similar to this:
 
 .. code-block:: console
 
-   [INFO] [1629873136.345688064] [listener]: Could not transform turtle1 to turtle2: Lookup would
+   [INFO] [1629873136.345688064] [listener]: Could not transform turtle2 to turtle1: Lookup would
    require extrapolation into the future.  Requested time 1629873136.345539 but the latest data
    is at time 1629873136.338804, when looking up transform from frame [turtle1] to frame [turtle2]
 
@@ -87,8 +87,8 @@ Firstly, each listener has a buffer where it stores all the coordinate transform
 Secondly, when a broadcaster sends out a transform, it takes some time before that transform gets into the buffer (usually a couple of milliseconds).
 As a result, when you request a frame transform at time "now", you should wait a few milliseconds for that information to arrive.
 
-2 Wait for transforms
-^^^^^^^^^^^^^^^^^^^^^
+2 Fix the listener node
+^^^^^^^^^^^^^^^^^^^^^^^
 
 tf2 provides a nice tool that will wait until a transform becomes available.
 You use this by adding a timeout parameter to ``lookupTransform()``.
@@ -108,8 +108,8 @@ To fix this, edit your code as shown below (add the last timeout parameter):
 The ``lookupTransform()`` can take four arguments, where the last one is an optional timeout.
 It will block for up to that duration waiting for it to timeout.
 
-3 Checking the results
-^^^^^^^^^^^^^^^^^^^^^^
+3 Check the results
+^^^^^^^^^^^^^^^^^^^
 
 You can now build the package and run the launch file.
 
