@@ -110,7 +110,7 @@ In another terminal, we can use the command line interface to send a goal:
 In the terminal that is running the action server, you should see a logged message "Executing goal..." followed by a warning that the goal state was not set.
 By default, if the goal handle state is not set in the execute callback it assumes the *aborted* state.
 
-We can use the method `succeed() <http://docs.ros2.org/latest/api/rclpy/api/actions.html#rclpy.action.server.ServerGoalHandle.succeed>`_ on the goal handle to indicate that the goal was successful:
+We can call ``succeed()`` on the goal handle to indicate that the goal was successful:
 
 .. literalinclude:: scripts/server_1.py
     :language: python
@@ -135,7 +135,7 @@ You should see the goal finish with the proper result sequence.
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 One of the nice things about actions is the ability to provide feedback to an action client during goal execution.
-We can make our action server publish feedback for action clients by calling the goal handle's `publish_feedback() <http://docs.ros2.org/latest/api/rclpy/api/actions.html#rclpy.action.server.ServerGoalHandle.publish_feedback>`_ method.
+We can make our action server publish feedback for action clients by calling the goal handle's ``publish_feedback()`` method.
 
 We'll replace the ``sequence`` variable, and use a feedback message to store the sequence instead.
 After every update of the feedback message in the for-loop, we publish the feedback message and sleep for dramatic effect:
@@ -266,7 +266,7 @@ Here's the complete code for this example:
 .. literalinclude:: scripts/client_1.py
     :language: python
 
-The `ActionClient.send_goal_async() <http://docs.ros2.org/latest/api/rclpy/api/actions.html#rclpy.action.client.ActionClient.send_goal_async>`_ method returns a future to a goal handle.
+The ``ActionClient.send_goal_async()`` method returns a future to a goal handle.
 First we register a callback for when the future is complete:
 
 .. literalinclude:: scripts/client_1.py
@@ -281,7 +281,7 @@ We can check to see if the goal was rejected and return early since we know ther
     :language: python
     :lines: 24-30
 
-Now that we've got a goal handle, we can use it to request the result with the method `get_result_async() <http://docs.ros2.org/latest/api/rclpy/api/actions.html#rclpy.action.client.ClientGoalHandle.get_result_async>`_.
+Now that we've got a goal handle, we can use it to request the result with the method ``get_result_async()``.
 Similar to sending the goal, we will get a future that will complete when the result is ready.
 Let's register a callback just like we did for the goal response:
 

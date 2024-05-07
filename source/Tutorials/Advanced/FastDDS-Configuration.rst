@@ -469,7 +469,7 @@ Therefore, in the example, a valid value for this policy has been explicitly set
 Prioritization of rmw_qos_profile_t
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-ROS 2 QoS contained in `rmw_qos_profile_t <http://docs.ros2.org/latest/api/rmw/structrmw__qos__profile__t.html>`_ are always honored, unless set to ``*_SYSTEM_DEFAULT``.
+ROS 2 QoS contained in `rmw_qos_profile_t <http://docs.ros.org/en/{DISTRO}/p/rmw/generated/structrmw__qos__profile__s.html>`_ are always honored, unless set to ``*_SYSTEM_DEFAULT``.
 In that case, XML values (or *Fast DDS* default values in the absence of XML ones) are applied.
 This means that if any QoS in ``rmw_qos_profile_t`` is set to something other than ``*_SYSTEM_DEFAULT``, the corresponding value in the XML is ignored.
 
