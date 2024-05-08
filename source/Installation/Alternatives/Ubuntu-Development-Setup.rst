@@ -40,13 +40,18 @@ Install development tools
 .. code-block:: bash
 
    sudo apt update && sudo apt install -y \
-     python3-pip \
-     python3-pytest-cov \
      python3-flake8-blind-except \
      python3-flake8-class-newline \
      python3-flake8-deprecated \
+     python3-mypy \
+     python3-pip \
+     python3-pytest \
+     python3-pytest-cov \
+     python3-pytest-mock \
      python3-pytest-repeat \
      python3-pytest-rerunfailures \
+     python3-pytest-runner \
+     python3-pytest-timeout \
      ros-dev-tools
 
 Build ROS 2
