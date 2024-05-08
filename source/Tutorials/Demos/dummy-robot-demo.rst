@@ -40,9 +40,9 @@ You should see some prints inside your terminal along the lines of the following
    [INFO] [robot_state_publisher-2]: process started with pid [2923]
    [INFO] [dummy_joint_states-3]: process started with pid [2924]
    [INFO] [dummy_laser-4]: process started with pid [2925]
-   [dummy_laser-4] [INFO] [1714837459.645517297] [dummy_laser]: angle inc:	0.004363
-   [dummy_laser-4] [INFO] [1714837459.645613393] [dummy_laser]: scan size:	1081
-   [dummy_laser-4] [INFO] [1714837459.645626640] [dummy_laser]: scan time increment: 	0.000000
+   [dummy_laser-4] [INFO] [1714837459.645517297] [dummy_laser]: angle inc:    0.004363
+   [dummy_laser-4] [INFO] [1714837459.645613393] [dummy_laser]: scan size:    1081
+   [dummy_laser-4] [INFO] [1714837459.645626640] [dummy_laser]: scan time increment:     0.000000
    [robot_state_publisher-2] [INFO] [1714837459.652977937] [robot_state_publisher]: Robot initialized
 
 If you now open RViz2 in a new terminal, you'll see your robot. 🎉
