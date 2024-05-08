@@ -224,7 +224,7 @@ As mentioned in the :doc:`previous tutorial <./Creating-Your-First-ROS2-Package>
 
       <description>Examples of minimal publisher/subscriber using rclcpp</description>
       <maintainer email="you@email.com">Your Name</maintainer>
-      <license>Apache License 2.0</license>
+      <license>Apache-2.0</license>
 
 Add a new line after the ``ament_cmake`` buildtool dependency and paste the following dependencies corresponding to your node's include statements:
 
