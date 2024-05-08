@@ -42,7 +42,7 @@ However, we figured it would be helpful to produce a list of available URDF expo
 
 **Viewing URDF & SDF Files**
  * `Examples of Common URDF Launch Files <https://github.com/ros/urdf_launch>`_
- * `Web Viewer for URDF Files <https://github.com/daviddorf2023/ExportURDF>`_
+ * Web Viewer for URDF Files: `GitHub Repo <https://github.com/gkjohnson/urdf-loaders/>`_ & `Live Website <https://gkjohnson.github.io/urdf-loaders/javascript/example/bundle/index.html>`_
  * `View SDF Models in RViz <https://github.com/Yadunund/view_sdf_rviz>`_
  * `Jupyterlab URDF Viewer <https://github.com/IsabelParedes/jupyterlab-urdf>`_
 
