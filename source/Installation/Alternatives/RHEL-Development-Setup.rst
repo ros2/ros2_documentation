@@ -66,8 +66,11 @@ Install development tools
      python3-pip \
      python3-pydocstyle \
      python3-pytest \
+     python3-pytest-cov \
+     python3-pytest-mock \
      python3-pytest-repeat \
      python3-pytest-rerunfailures \
+     python3-pytest-runner \
      python3-rosdep \
      python3-setuptools \
      python3-vcstool \
