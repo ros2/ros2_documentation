@@ -271,7 +271,7 @@ As mentioned in the :doc:`Create a package <../../Beginner-Client-Libraries/Crea
 
     <description>Learning tf2 with rclpy</description>
     <maintainer email="you@email.com">Your Name</maintainer>
-    <license>Apache License 2.0</license>
+    <license>Apache-2.0</license>
 
 After the lines above, add the following dependencies corresponding to your node’s import statements:
 

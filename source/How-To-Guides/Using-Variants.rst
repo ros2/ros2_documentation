@@ -34,7 +34,7 @@ To do so you need only create two files:
       <version>1.0.0</version>
       <description>A package to aggregate all packages in my_project.</description>
       <maintainer email="maintainer-email">Maintainer Name</maintainer>
-      <license>Apache License 2.0</license>
+      <license>Apache-2.0</license>
       <!-- packages in my_project -->
       <exec_depend>my_project_msgs</exec_depend>
       <exec_depend>my_project_services</exec_depend>
