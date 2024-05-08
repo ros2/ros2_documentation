@@ -72,7 +72,7 @@ As always, though, make sure to add the description, maintainer email and name, 
 
   <description>Python client server tutorial</description>
   <maintainer email="you@email.com">Your Name</maintainer>
-  <license>Apache License 2.0</license>
+  <license>Apache-2.0</license>
 
 1.2 Update ``setup.py``
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -84,7 +84,7 @@ Add the same information to the ``setup.py`` file for the ``maintainer``, ``main
     maintainer='Your Name',
     maintainer_email='you@email.com',
     description='Python client server tutorial',
-    license='Apache License 2.0',
+    license='Apache-2.0',
 
 2 Write the service node
 ^^^^^^^^^^^^^^^^^^^^^^^^

@@ -73,7 +73,7 @@ As always, though, make sure to add the description, maintainer email and name, 
 
   <description>Python bag writing tutorial</description>
   <maintainer email="you@email.com">Your Name</maintainer>
-  <license>Apache License 2.0</license>
+  <license>Apache-2.0</license>
 
 Also be sure to add this information to the ``setup.py`` file as well.
 
@@ -82,7 +82,7 @@ Also be sure to add this information to the ``setup.py`` file as well.
    maintainer='Your Name',
    maintainer_email='you@email.com',
    description='Python bag writing tutorial',
-   license='Apache License 2.0',
+   license='Apache-2.0',
 
 2 Write the Python node
 ^^^^^^^^^^^^^^^^^^^^^^^
