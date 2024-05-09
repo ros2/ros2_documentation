@@ -23,7 +23,7 @@ We'll start off with our code in a file called ``test/tutorial_test.cpp``
       ASSERT_EQ(4, 2 + 2);
     }
 
-    int main(int argc, char** argv)
+    int main(int argc, char ** argv)
     {
       testing::InitGoogleTest(&argc, argv);
       return RUN_ALL_TESTS();
@@ -49,9 +49,6 @@ CMakeLists.txt
       target_include_directories(${PROJECT_NAME}_tutorial_test PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:include>
-      )
-      ament_target_dependencies(${PROJECT_NAME}_tutorial_test
-        std_msgs
       )
       target_link_libraries(${PROJECT_NAME}_tutorial_test name_of_local_library)
     endif()
