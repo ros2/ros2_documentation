@@ -56,6 +56,79 @@ Added a new message with all fields needed to define a velocity and transform it
 
 See https://github.com/ros2/common_interfaces/pull/240 for more details.
 
+Added IDs to geometry_msgs/Polygon and PolygonStamped
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+Polygons are often used to represent specific objects but are difficult to rectify currently without any kind of specific identification.
+This feature adds an ID field to disambiguate polygons.
+
+See https://github.com/ros2/common_interfaces/pull/232 for more details.
+
+Adds ARROW_STRIP to Marker.msg
+""""""""""""""""""""""""""""""
+
+Added new type of Marker to Marker.msg
+
+See https://github.com/ros2/common_interfaces/pull/242 for more details.
+
+``Gazebo vendor packages``
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Added Gazebo vendor packages:
+
+* gz_common_vendor: https://github.com/gazebo-release/gz_common_vendor
+* gz_cmake_vendor: https://github.com/gazebo-release/gz_cmake_vendor
+* gz_math_vendor: https://github.com/gazebo-release/gz_math_vendor
+* gz_transport_vendor: https://github.com/gazebo-release/gz_transport_vendor
+* gz_sensor_vendor: https://github.com/gazebo-release/gz_sensor_vendor
+* gz_sim_vendor: https://github.com/gazebo-release/gz_sim_vendor
+* gz_tools_vendor: https://github.com/gazebo-release/gz_tools_vendor
+* gz_utils_vendor: https://github.com/gazebo-release/gz_utils_vendor
+* sdformat_vendor: https://github.com/gazebo-release/sdformat_vendor
+
+``image_transport``
+^^^^^^^^^^^^^^^^^^^
+
+Support lazy subscribers
+""""""""""""""""""""""""
+
+See https://github.com/ros-perception/image_common/issues/272 for more details.
+
+Expose option to set callback groups
+""""""""""""""""""""""""""""""""""""
+
+See https://github.com/ros-perception/image_common/issues/274 for more details.
+
+
+Enable allow list
+"""""""""""""""""
+
+Added parameter to support allow list plugins
+
+See https://github.com/ros-perception/image_common/issues/264 for more details.
+
+Advertize and subscriber with custom QoS
+""""""""""""""""""""""""""""""""""""""""
+
+See https://github.com/ros-perception/image_common/issues/288 for more detatils.
+
+Added rclcpp component to Republish
+"""""""""""""""""""""""""""""""""""
+
+Include republisher node as a component.
+
+See https://github.com/ros-perception/image_common/issues/275 for more details.
+
+
+```message_filters``
+
+TypeAdapters support
+""""""""""""""""""""
+
+It allows to use Type Adaptation within message_filters.
+
+See https://github.com/ros2/message_filters/pull/96 for more information
+
+
 ``rclcpp``
 ^^^^^^^^^^
 
@@ -126,6 +199,109 @@ Play service data from bag file:
    ros2 bag play --publish-service-requests bag_path
 
 See the `design document <https://github.com/ros2/rosbag2/blob/rolling/docs/design/rosbag2_record_replay_service.md>`__ for more information.
+
+New filter modes
+""""""""""""""""
+
+It is now possible to filter by topic type.
+
+.. code-block:: bash
+
+    ros2 bag record --topic_types sensor_msgs/msg/Image sensor_msgs/msg/CameraInfo
+
+.. code-block:: bash
+
+    ros2 bag record --topic_types sensor_msgs/msg/Image
+
+See more details https://github.com/ros2/rosbag2/pull/1577 and https://github.com/ros2/rosbag2/pull/1582
+
+Python bindings require to generate stub files
+""""""""""""""""""""""""""""""""""""""""""""""
+
+If the Python are modified, it required to update the stub files.
+Python stub files allow to supply type-hinting information for binary Python modules (e.g. pybind-based).
+In ``rosbag2_py`` stub files are generated with utility called ``stubgen``.
+
+See https://github.com/ros2/rosbag2/issues/1459 for more details
+
+Added intropection QoS methods to Python bindings
+"""""""""""""""""""""""""""""""""""""""""""""""""
+
+It is now possible to instrospect QoS setting from Python bindings.
+
+See https://github.com/ros2/rosbag2/pull/1648 for more details
+
+``rosidl``
+^^^^^^^^^^
+
+Adding interfaces to support key annotation
+""""""""""""""""""""""""""""""""""""""""""""
+
+The `key` annotation allows indicating that a data member is part of the key, which can have zero or more key fields and can be applied to structure fields of various types.
+
+See https://github.com/ros2/rosidl/pull/796 and https://github.com/ros2/rosidl_typesupport_fastrtps/pull/116 for more details.
+
+``rqt_bag``
+^^^^^^^^^^^
+
+Improved performance and updated rosbag API
+"""""""""""""""""""""""""""""""""""""""""""
+
+There are some breaking changes in rosbag API and Ubuntu Noble libraries versions that required some changes to use rqt_bag.
+
+See https://github.com/ros-visualization/rqt_bag/pull/156 for more details.
+
+``rviz2``
+^^^^^^^^^
+
+Added regex filter field for TF display
+"""""""""""""""""""""""""""""""""""""""
+
+When there is a lot of frames on /tf it can be hard to properly visualize them in RViz especially if frames overlap.
+Usually solution to this is to enable and disable desired frames in Frames field of the TF display.
+Now it is possible to filter topic using regular expressions.
+
+See https://github.com/ros2/rviz/pull/1032 for more details.
+
+Append measured subscription frequency to topic status
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+It is possible to visualize Hz in the topic status widget.
+
+See https://github.com/ros2/rviz/issues/1113 for more details.
+
+Reset functionality
+"""""""""""""""""""
+
+It is possible to reset Time using a new service or using the shorcut ``R``.
+
+See https://github.com/ros2/rviz/issues/1109 and https://github.com/ros2/rviz/issues/1088 for more details.
+
+Support point_cloud_transport
+"""""""""""""""""""""""""""""
+
+It is possible to susbscribe point cloud using the point_cloud_transport package.
+
+See https://github.com/ros2/rviz/pull/1008 for more details.
+
+Feature parity with RViz for ROS
+""""""""""""""""""""""""""""""""
+
+It is possible to use the same plugins available in the ROS 1 version.
+
+* DepthCloud
+* AccelStamped
+* TwistStamped
+* WrenchStamped
+* Effort
+
+Camera info display
+"""""""""""""""""""
+
+It is possible to visualize CameraInfo message in the 3D scene.
+
+See https://github.com/ros2/rviz/pull/1166 for more details
+
 
 Changes since the Iron release
 ------------------------------
