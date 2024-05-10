@@ -42,7 +42,47 @@ For more information about RMW implementations, compiler / interpreter versions,
 Installation
 ------------
 
-`Install Iron Irwini <../../jazzy/Installation.html>`__
+`Install Jazzy Jalisco <../../jazzy/Installation.html>`__
+
+Changes to how ROS 2 and Gazebo integrate
+-----------------------------------------
+
+Starting with Jazzy Jalisco, we are streamlining how ROS 2 and `Gazebo <https://gazebosim.org>`__ integrate.
+For every ROS 2 release, there will be a recommended, supported Gazebo release that goes along with that release.
+For Jazzy Jalisco, the recommended Gazebo release will be Harmonic.
+
+To make it easier for ROS 2 packages to consume Gazebo packages, there are now ``gz_*_vendor`` packages.
+Those packages are:
+
+* gz_common_vendor: https://github.com/gazebo-release/gz_common_vendor
+* gz_cmake_vendor: https://github.com/gazebo-release/gz_cmake_vendor
+* gz_math_vendor: https://github.com/gazebo-release/gz_math_vendor
+* gz_transport_vendor: https://github.com/gazebo-release/gz_transport_vendor
+* gz_sensor_vendor: https://github.com/gazebo-release/gz_sensor_vendor
+* gz_sim_vendor: https://github.com/gazebo-release/gz_sim_vendor
+* gz_tools_vendor: https://github.com/gazebo-release/gz_tools_vendor
+* gz_utils_vendor: https://github.com/gazebo-release/gz_utils_vendor
+* sdformat_vendor: https://github.com/gazebo-release/sdformat_vendor
+
+ROS 2 packages can use the functionality in these packages by adding dependencies in ``package.xml``, e.g.:
+
+.. code::
+
+   <depend>gz_math_vendor</depend>
+
+And then using them in ``CMakeLists.txt``, e.g.:
+
+.. code::
+
+   find_package(gz_math_vendor REQUIRED)
+   find_package(gz-math)
+
+   add_executable(my_executable src/exe.cpp)
+   target_link_libraries(my_executable gz-math::core)
+
+.. note::
+
+   It will still be possible to use alternate Gazebo versions with Jazzy Jalisco.  But those will not be as well tested or integrated with ROS 2.  See https://gazebosim.org/docs/harmonic/ros_installation for more information.
 
 New features in this ROS 2 release
 ----------------------------------
@@ -52,9 +92,62 @@ New features in this ROS 2 release
 
 New VelocityStamped message
 """""""""""""""""""""""""""
-Added a new message with all fields needed to define a velocity and transform it
+
+Added a new message with all fields needed to define a velocity and transform it.
 
 See https://github.com/ros2/common_interfaces/pull/240 for more details.
+
+Adds ARROW_STRIP to Marker.msg
+""""""""""""""""""""""""""""""
+
+Added new type of Marker, ``ARROW_STRIP``, to Marker.msg.
+
+See https://github.com/ros2/common_interfaces/pull/242 for more details.
+
+``image_transport``
+^^^^^^^^^^^^^^^^^^^
+
+Support lazy subscribers
+""""""""""""""""""""""""
+
+See https://github.com/ros-perception/image_common/issues/272 for more details.
+
+Expose option to set callback groups
+""""""""""""""""""""""""""""""""""""
+
+See https://github.com/ros-perception/image_common/issues/274 for more details.
+
+Enable allow list
+"""""""""""""""""
+
+Added parameter so users can selectively disable ``image_transport`` plugins at runtime.
+
+See https://github.com/ros-perception/image_common/issues/264 for more details.
+
+Advertise and subscribe with custom QoS
+"""""""""""""""""""""""""""""""""""""""
+
+Allow users to pass in a custom quality-of-service when creating ``image_transport`` publishers and subscribers.
+
+See https://github.com/ros-perception/image_common/issues/288 for more detatils.
+
+Added rclcpp component to Republish
+"""""""""""""""""""""""""""""""""""
+
+Users can now start the ``image_transport`` republisher node as an rclcpp_component.
+
+See https://github.com/ros-perception/image_common/issues/275 for more details.
+
+
+``message_filters``
+^^^^^^^^^^^^^^^^^^^
+
+TypeAdapters support
+""""""""""""""""""""
+
+Allows users to use Type Adaptation within message_filters.
+
+See https://github.com/ros2/message_filters/pull/96 for more information.
 
 ``rclcpp``
 ^^^^^^^^^^
@@ -69,8 +162,8 @@ See https://github.com/ros2/rclcpp/pull/2209 for more details.
 ``ros2cli``
 ^^^^^^^^^^^
 
-``--log-file-name`` command line argument
-"""""""""""""""""""""""""""""""""""""""""
+Added a ``--log-file-name`` command line argument
+"""""""""""""""""""""""""""""""""""""""""""""""""
 
 It is now possible to use ``--log-file-name`` command line argument to specify the log file name prefix.
 
@@ -86,7 +179,7 @@ See https://github.com/ros2/ros2cli/issues/856 for more information.
 ``type`` sub-command supported
 """"""""""""""""""""""""""""""
 
-It is now possible to use ``type`` sub-command to check the action type.
+It is now possible to use the ``type`` sub-command to check the action type.
 
 .. code-block:: bash
 
@@ -127,14 +220,109 @@ Play service data from bag file:
 
 See the `design document <https://github.com/ros2/rosbag2/blob/rolling/docs/design/rosbag2_record_replay_service.md>`__ for more information.
 
+New filter modes
+""""""""""""""""
+
+It is now possible to filter by topic type.
+
+.. code-block:: bash
+
+    ros2 bag record --topic_types sensor_msgs/msg/Image sensor_msgs/msg/CameraInfo
+
+.. code-block:: bash
+
+    ros2 bag record --topic_types sensor_msgs/msg/Image
+
+See more details https://github.com/ros2/rosbag2/pull/1577 and https://github.com/ros2/rosbag2/pull/1582.
+
+Added introspection QoS methods to Python bindings
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
+It is now possible to instrospect QoS setting from Python bindings.
+
+See https://github.com/ros2/rosbag2/pull/1648 for more details.
+
+``rosidl``
+^^^^^^^^^^
+
+Added interfaces to support key annotation
+""""""""""""""""""""""""""""""""""""""""""
+
+The ``key`` annotation allows indicating that a data member is part of the key, which can have zero or more key fields and can be applied to structure fields of various types.
+
+See https://github.com/ros2/rosidl/pull/796 and https://github.com/ros2/rosidl_typesupport_fastrtps/pull/116 for more details.
+
+``rviz2``
+^^^^^^^^^
+
+Added regex filter field for TF display
+"""""""""""""""""""""""""""""""""""""""
+
+When there are many frames on ``/tf`` it can be hard to properly visualize them in RViz, especially if frames overlap.
+The usual solution to this is to enable and disable desired frames in Frames field of the TF display.
+Now it is possible to filter frames using regular expressions.
+
+See https://github.com/ros2/rviz/pull/1032 for more details.
+
+Append measured subscription frequency to topic status
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+It is possible to visualize Hz in the topic status widget.
+
+See https://github.com/ros2/rviz/issues/1113 for more details.
+
+Reset functionality
+"""""""""""""""""""
+
+It is possible to reset Time using a new service or using the shorcut ``R``.
+
+See https://github.com/ros2/rviz/issues/1109 and https://github.com/ros2/rviz/issues/1088 for more details.
+
+Added support for point_cloud_transport
+"""""""""""""""""""""""""""""""""""""""
+
+It is possible to subscribe to point clouds using the ``point_cloud_transport`` package.
+
+See https://github.com/ros2/rviz/pull/1008 for more details.
+
+Feature parity with RViz for ROS
+""""""""""""""""""""""""""""""""
+
+It is possible to use the same plugins available in the ROS 1 version.
+
+* DepthCloud
+* AccelStamped
+* TwistStamped
+* WrenchStamped
+* Effort
+
+Camera info display
+"""""""""""""""""""
+
+It is possible to visualize CameraInfo messages in the 3D scene.
+
+See https://github.com/ros2/rviz/pull/1166 for more details.
+
+
 Changes since the Iron release
 ------------------------------
+
+``common_interfaces``
+^^^^^^^^^^^^^^^^^^^^^
+
+Added IDs to geometry_msgs/Polygon and PolygonStamped
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+Polygons are often used to represent specific objects but are difficult to rectify currently without any kind of specific identification.
+This feature adds an ID field to disambiguate polygons.
+
+See https://github.com/ros2/common_interfaces/pull/232 for more details.
+
 
 ``geometry2``
 ^^^^^^^^^^^^^
 
-Deprecated headers were removed
-"""""""""""""""""""""""""""""""
+Removed deprecated headers
+""""""""""""""""""""""""""
 
 In Humble, the headers: ``tf2_bullet/tf2_bullet.h``, ``tf2_eigen/tf2_eigen.h``, ``tf2_geometry_msgs/tf2_geometry_msgs.h``,
 ``tf2_kdl/tf2_kdl.h``, ``tf2_sensor_msgs/tf2_sensor_msgs.h``  were deprecated in favor of: ``tf2_bullet/tf2_bullet.hpp``,
@@ -142,13 +330,15 @@ In Humble, the headers: ``tf2_bullet/tf2_bullet.h``, ``tf2_eigen/tf2_eigen.h``, 
 In Jazzy, the ``tf2_bullet/tf2_bullet.h``, ``tf2_eigen/tf2_eigen.h``, ``tf2_geometry_msgs/tf2_geometry_msgs.h``,
 ``tf2_kdl/tf2_kdl.h``, ``tf2_sensor_msgs/tf2_sensor_msgs.h`` headers have been completely removed.
 
-Return types of ``wait_for_transform_async`` and ``wait_for_transform_full_async`` changed
+Changed return types of ``wait_for_transform_async`` and ``wait_for_transform_full_async``
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 Previously ``wait_for_transform_async`` and ``wait_for_transform_full_async`` of the ``Buffer`` class returned a future containing true or false
 In Jazzy, the future will contain the information of the transform being waited on.
 
-Enable Twist interpolator
-"""""""""""""""""""""""""
+Enabled Twist interpolator
+""""""""""""""""""""""""""
+
 Included new API to lookup the velocity of the moving frame in the reference frame.
 
 See https://github.com/ros2/geometry2/pull/646 for more information.
@@ -168,7 +358,7 @@ Deprecated ``rclcpp/qos_event.hpp`` header was removed
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
 In Iron, the header ``rclcpp/qos_event.hpp`` was deprecated in favor of ``rclcpp/event_handler.hpp``.
-In Jazzy, the ``rclcpp/qos_event.hpp`` header been completely removed.
+In Jazzy, the ``rclcpp/qos_event.hpp`` header has been completely removed.
 
 Deprecated subscription callback signatures were removed
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -184,9 +374,19 @@ Users should switch to using ``void callback(std::shared_ptr<const MessageT>)`` 
 ``rclpy.node.Node.declare_parameter``
 """""""""""""""""""""""""""""""""""""
 
-The ``rclpy.node.Node.declare_parameter`` does not allow statically typing parameter without default value.
+The ``rclpy.node.Node.declare_parameter`` does not allow statically typing parameter without a default value.
 
 See https://github.com/ros2/rclpy/pull/1216 for more details.
+
+``rqt_bag``
+^^^^^^^^^^^
+
+Improved performance and updated rosbag API
+"""""""""""""""""""""""""""""""""""""""""""
+
+There are some breaking changes in the rosbag2 API and Ubuntu Nobel libraries versions that required some changes to use rqt_bag.
+
+See https://github.com/ros-visualization/rqt_bag/pull/156 for more details.
 
 
 Development progress
