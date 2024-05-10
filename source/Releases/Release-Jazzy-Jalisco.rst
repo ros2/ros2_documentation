@@ -237,7 +237,7 @@ See https://github.com/ros2/rosbag2/pull/1648 for more details
 Adding interfaces to support key annotation
 """"""""""""""""""""""""""""""""""""""""""""
 
-The `key` annotation allows indicating that a data member is part of the key, which can have zero or more key fields and can be applied to structure fields of various types.
+The ``key`` annotation allows indicating that a data member is part of the key, which can have zero or more key fields and can be applied to structure fields of various types.
 
 See https://github.com/ros2/rosidl/pull/796 and https://github.com/ros2/rosidl_typesupport_fastrtps/pull/116 for more details.
 
