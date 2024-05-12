@@ -28,6 +28,21 @@ Run the demos
 
 The demos use executables from `rclcpp_components <https://github.com/ros2/rclcpp/tree/{REPOS_FILE_BRANCH}/rclcpp_components>`__, `ros2component <https://github.com/ros2/ros2cli/tree/{REPOS_FILE_BRANCH}/ros2component>`__, and  `composition <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/composition>`__ packages, and can be run with the following commands.
 
+.. tabs::
+
+  .. group-tab:: Debian Package
+
+    sudo apt install ros-${ROS_DISTRO}-composition
+
+  .. group-tab:: Source Build
+
+    mkdir -p ~/ros2_ws/src
+    cd ~/ros2_ws/src
+    git clone -b ${ROS_DISTRO} https://github.com/ros2/example_interfaces.git
+    git clone -b ${ROS_DISTRO} https://github.com/ros2/demos.git
+    cd .. && colcon build --packages-up-to composition
+    source ~/ros2_ws/install/setup.bash
+
 
 Discover available components
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -328,6 +343,19 @@ Passing parameter values into components
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The ``ros2 component load`` command-line supports passing arbitrary parameters to the node as it is constructed.
+
+.. tabs::
+
+  .. group-tab:: Debian Package
+
+    sudo apt install ros-${ROS_DISTRO}-image-tools
+
+  .. group-tab:: Source Build
+
+    sudo apt install libopencv-dev
+    cd ~/ros2_ws && colcon build --packages-up-to image_tools
+    source ~/ros2_ws/install/setup.bash
+
 This functionality can be used as follows:
 
 .. code-block:: bash
