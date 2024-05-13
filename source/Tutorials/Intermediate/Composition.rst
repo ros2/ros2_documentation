@@ -23,15 +23,13 @@ See the :doc:`conceptual article <../../Concepts/Intermediate/About-Composition>
 
 For information on how to write a composable node, :doc:`check out this tutorial <Writing-a-Composable-Node>`.
 
-Prerequisite
+Prerequisites
 -------------
-This tutorial expects that the ``composition`` and ``image-tools`` packages are already installed. If you've followed the :doc:`installation instructions <../../Installation>` for your platform, these should already be installed.
+
+This tutorial uses executables from the `rclcpp_components <https://github.com/ros2/rclcpp/tree/{REPOS_FILE_BRANCH}/rclcpp_components>`__, `ros2component <https://github.com/ros2/ros2cli/tree/{REPOS_FILE_BRANCH}/ros2component>`__, `composition <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/composition>`__, and `image_tools <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/image_tools>`__ packages. If you've followed the :doc:`installation instructions <../../Installation>` for your platform, these should already be installed.
 
 Run the demos
 -------------
-
-The demos use executables from `rclcpp_components <https://github.com/ros2/rclcpp/tree/{REPOS_FILE_BRANCH}/rclcpp_components>`__, `ros2component <https://github.com/ros2/ros2cli/tree/{REPOS_FILE_BRANCH}/ros2component>`__, and  `composition <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/composition>`__ packages, and can be run with the following commands.
-
 
 Discover available components
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -332,7 +330,6 @@ Passing parameter values into components
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The ``ros2 component load`` command-line supports passing arbitrary parameters to the node as it is constructed.
-
 This functionality can be used as follows:
 
 .. code-block:: bash
