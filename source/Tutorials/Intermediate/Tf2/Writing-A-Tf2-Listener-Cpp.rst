@@ -111,7 +111,7 @@ Open the file using your preferred text editor.
 
         // Call on_timer function every second
         timer_ = this->create_wall_timer(
-          1s, [this](){return this->on_timer();});
+          1s, [this]() {return this->on_timer();});
       }
 
     private:
@@ -212,7 +212,7 @@ Open the file using your preferred text editor.
 To understand how the service behind spawning turtle works, please refer to :doc:`writing a simple service and client (C++) <../../Beginner-Client-Libraries/Writing-A-Simple-Cpp-Service-And-Client>` tutorial.
 
 Now, let's take a look at the code that is relevant to get access to frame transformations.
-The ``tf2_ros`` contains a ``TransformListener`` header file implementation that makes the task of receiving transforms easier.
+The ``tf2_ros`` contains a ``TransformListener`` class that makes the task of receiving transforms easier.
 
 .. code-block:: C++
 
@@ -235,7 +235,7 @@ We call ``lookup_transform`` method with following arguments:
 
 #. The time at which we want to transform
 
-Providing ``tf2::TimePointZero()`` will just get us the latest available transform.
+Providing ``tf2::TimePointZero`` will just get us the latest available transform.
 All this is wrapped in a try-catch block to handle possible exceptions.
 
 .. code-block:: C++
@@ -243,6 +243,9 @@ All this is wrapped in a try-catch block to handle possible exceptions.
     t = tf_buffer_->lookupTransform(
       toFrameRel, fromFrameRel,
       tf2::TimePointZero);
+
+The resulting transformation represents the position and orientation of the target turtle relative to ``turtle2``.
+The angle between the turtles is then used to calculate a velocity command to follow the target turtle.
 
 1.2 CMakeLists.txt
 ~~~~~~~~~~~~~~~~~~
@@ -323,7 +326,7 @@ The resulting file should look like:
             ),
         ])
 
-This will declare a ``target_frame`` launch argument, start a broadcaster for second turtle that we will spawn and listener that will subscribe to those transformations.
+This will declare a ``target_frame`` launch argument, start a broadcaster for the second turtle that we will spawn and a listener that will subscribe to those transformations.
 
 3 Build
 ^^^^^^^
