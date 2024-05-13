@@ -23,25 +23,14 @@ See the :doc:`conceptual article <../../Concepts/Intermediate/About-Composition>
 
 For information on how to write a composable node, :doc:`check out this tutorial <Writing-a-Composable-Node>`.
 
+Prerequisite
+-------------
+This tutorial expects that the ``composition`` and ``image-tools`` packages are already installed. If you've followed the :doc:`installation instructions <../../Installation>` for your platform, these should already be installed.
+
 Run the demos
 -------------
 
 The demos use executables from `rclcpp_components <https://github.com/ros2/rclcpp/tree/{REPOS_FILE_BRANCH}/rclcpp_components>`__, `ros2component <https://github.com/ros2/ros2cli/tree/{REPOS_FILE_BRANCH}/ros2component>`__, and  `composition <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/composition>`__ packages, and can be run with the following commands.
-
-.. tabs::
-
-  .. group-tab:: Debian Package
-
-    sudo apt install ros-${ROS_DISTRO}-composition
-
-  .. group-tab:: Source Build
-
-    mkdir -p ~/ros2_ws/src
-    cd ~/ros2_ws/src
-    git clone -b ${ROS_DISTRO} https://github.com/ros2/example_interfaces.git
-    git clone -b ${ROS_DISTRO} https://github.com/ros2/demos.git
-    cd .. && colcon build --packages-up-to composition
-    source ~/ros2_ws/install/setup.bash
 
 
 Discover available components
