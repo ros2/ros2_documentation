@@ -336,27 +336,6 @@ Setup ``colcon`` tab completion
 
 The command ``colcon`` `supports command completion <https://colcon.readthedocs.io/en/released/user/installation.html#enable-completion>`__ for bash and bash-like shells if the ``colcon-argcomplete`` package is installed.
 
-.. tabs::
-
-   .. group-tab:: Linux
-
-      .. code-block:: console
-
-        echo "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" >> ~/.bashrc
-
-   .. group-tab:: macOS
-
-      .. code-block:: console
-
-        echo "source $HOME/.local/share/colcon_argcomplete/hook/colcon-argcomplete.bash" >> ~/.bash_profile
-
-   .. group-tab:: Windows
-
-      Not yet available
-
-Depending on the way you installed ``colcon`` and where your workspace is, the instructions above may vary, please refer to `the documentation <https://colcon.readthedocs.io/en/released/user/installation.html>`__ for more details.
-To undo this in Linux and macOS, locate your system's shell startup script and remove the appended source command.
-
 Tips
 ----
 
