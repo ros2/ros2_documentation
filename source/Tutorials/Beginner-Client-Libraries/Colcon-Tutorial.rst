@@ -334,7 +334,8 @@ To undo this in Linux and macOS, locate your system's shell startup script and r
 Setup ``colcon`` tab completion
 -------------------------------
 
-The command ``colcon`` `supports command completion <https://colcon.readthedocs.io/en/released/user/installation.html#enable-completion>`__ for bash and bash-like shells if the ``colcon-argcomplete`` package is installed.
+The ``colcon`` command supports command completion for bash and bash-like shells.
+The ``colcon-argcomplete`` package must be installed, and `some setup may be required <https://colcon.readthedocs.io/en/released/user/installation.html#enable-completion>`__ to make it work.
 
 Tips
 ----
