@@ -333,18 +333,6 @@ Passing parameter values into components
 
 The ``ros2 component load`` command-line supports passing arbitrary parameters to the node as it is constructed.
 
-.. tabs::
-
-  .. group-tab:: Debian Package
-
-    sudo apt install ros-${ROS_DISTRO}-image-tools
-
-  .. group-tab:: Source Build
-
-    sudo apt install libopencv-dev
-    cd ~/ros2_ws && colcon build --packages-up-to image_tools
-    source ~/ros2_ws/install/setup.bash
-
 This functionality can be used as follows:
 
 .. code-block:: bash
