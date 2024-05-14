@@ -99,9 +99,9 @@ In this window, you'll see terminal output:
 
 .. code-block:: bash
 
-   Publishing image #1
-   Publishing image #2
-   Publishing image #3
+   [INFO] [1715662452.055277255] [cam2image]: Publishing image #1
+   [INFO] [1715662452.119336061] [cam2image]: Publishing image #2
+   [INFO] [1715662452.187315139] [cam2image]: Publishing image #3
    ...
 
 A window will pop up with the title "view" showing your camera feed.
@@ -109,9 +109,12 @@ In the first window, you'll see output from the subscriber:
 
 .. code-block:: bash
 
-   Received image #1
-   Received image #2
-   Received image #3
+   [INFO] [1715662452.188906764] [showimage]: Received image #camera_frame
+   Received image #camera_frame
+   [INFO] [1715662452.252836919] [showimage]: Received image #camera_frame
+   Received image #camera_frame
+   [INFO] [1715662452.320878578] [showimage]: Received image #camera_frame
+   Received image #camera_frame
    ...
 
 .. note::
@@ -147,9 +150,9 @@ Add network traffic
 
 .. warning::
 
-  This section of the demo won't work on RTI's Connext DDS.
-  When running multiple nodes in the same host, the RTI Connext DDS implementation uses shared memory along with the loopback interface.
-  Degrading the loopback interface throughput won't affect shared memory, thus traffic between the two nodes won't be affected.
+  This section of the demo won’t work on RTI’s Connext DDS and Fast-DDS.
+  When running multiple nodes in the same host, the those DDS implementation use shared memory along with the loopback interface.
+  Degrading the loopback interface throughput won’t affect shared memory, thus traffic between the two nodes won’t be affected.
 
 .. note::
 
