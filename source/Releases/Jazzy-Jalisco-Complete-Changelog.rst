@@ -1,5 +1,5 @@
-Jazzy Jalisco Complete Changelog
-================================
+Jazzy Jalisco changelog
+=======================
 
 This page is a list of the complete changes in all ROS 2 core packages since the previous release.
 
@@ -573,15 +573,18 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `composition <https://github.com/ros2/demos/tree/jazzy/composition/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* [composition] add launch action console output in the verify section (`#677 <https://github.com/ros2/demos/issues/677>`__) (`#681 <https://github.com/ros2/demos/issues/681>`__) (cherry picked from commit 34d29db73e78a84a174ad8699a2d646b0eeb1cdf) Co-authored-by: Mikael Arguedas <mikael.arguedas@gmail.com>
 * Update maintainer list in package.xml files (`#665 <https://github.com/ros2/demos/issues/665>`__)
 * Migrate std::bind calls to lambda expressions (`#659 <https://github.com/ros2/demos/issues/659>`__)
-* Contributors: Felipe Gomes de Melo, Michael Jeronimo
+* Contributors: Felipe Gomes de Melo, Michael Jeronimo, mergify[bot]
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `demo_nodes_cpp <https://github.com/ros2/demos/tree/jazzy/demo_nodes_cpp/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* [demo_nodes_cpp] some readme and executable name fixups (`#678 <https://github.com/ros2/demos/issues/678>`__) (`#688 <https://github.com/ros2/demos/issues/688>`__) (cherry picked from commit aa8df8904b864d063e31fd5b953ffe561c7a9fe0) Co-authored-by: Mikael Arguedas <mikael.arguedas@gmail.com>
+* Fix gcc warnings when building with optimizations. (`#672 <https://github.com/ros2/demos/issues/672>`__) (`#673 <https://github.com/ros2/demos/issues/673>`__) * Fix gcc warnings when building with optimizations. When building the allocator_tutorial_pmr demo with -O2, gcc is throwing an error saying that new and delete are mismatched.  This is something of a misnomer, however; the real problem is that the global new override we have in that demo is actually implemented incorrectly. In particular, the documentation at https://en.cppreference.com/w/cpp/memory/new/operator_new very clearly specifies that operator new either has to return a valid pointer, or throw an exception on error. Our version wasn't throwing the exception, so change it to throw std::bad_alloc if std::malloc fails. While we are in here, also fix another small possible is where std::malloc could return nullptr on a zero-sized object, thus throwing an exception it shouldn't. * Always inline the new and delete operators. That's because gcc 13 has a bug where it can sometimes inline one or the other, and then it detects that they mismatch.  For gcc and clang, just force them to always be inline in this demo. * Switch to NOINLINE instead. Both clang and MSVC don't like inlining these, so instead ensure that they are *not* inlined.  This also works because the problem is when new is inlined but not delete (or vice-versa).  As long as they are both not inlined, this should fix the warning. (cherry picked from commit 957ddbb9f04f55cabd8496e8d74eb35ee4d29105) Co-authored-by: Chris Lalancette <clalancette@gmail.com>
 * A few uncrustify fixes for 0.78. (`#667 <https://github.com/ros2/demos/issues/667>`__)
 * Allow users to configure the executor for executables in ``demo_nodes_cpp`` (`#666 <https://github.com/ros2/demos/issues/666>`__)
 * Update maintainer list in package.xml files (`#665 <https://github.com/ros2/demos/issues/665>`__)
@@ -596,7 +599,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Cleanup demo_nodes_cpp CMake and dependencies (`#638 <https://github.com/ros2/demos/issues/638>`__)
 * Change the service introspection parameter off value to 'disabled' (`#634 <https://github.com/ros2/demos/issues/634>`__)
 * Add demos for using logger service (`#611 <https://github.com/ros2/demos/issues/611>`__)
-* Contributors: Ali Ashkani Nia, Barry Xu, Chen Lihui, Chris Lalancette, Michael Jeronimo, Yadu, jrutgeer
+* Contributors: Ali Ashkani Nia, Barry Xu, Chen Lihui, Chris Lalancette, Michael Jeronimo, Yadu, jrutgeer, mergify[bot]
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -646,9 +649,10 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `dummy_sensors <https://github.com/ros2/demos/tree/jazzy/dummy_robot/dummy_sensors/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Update dummy_sensors readme to echo the correct topic (`#675 <https://github.com/ros2/demos/issues/675>`__) (`#684 <https://github.com/ros2/demos/issues/684>`__) (cherry picked from commit eec5c12ea95dfaaa230f9f1a8e9cff9b09dde5d5) Co-authored-by: jmackay2 <1.732mackay@gmail.com>
 * Update maintainer list in package.xml files (`#665 <https://github.com/ros2/demos/issues/665>`__)
 * Fix unstable LaserScan status for rviz2 (`#614 <https://github.com/ros2/demos/issues/614>`__)
-* Contributors: Chen Lihui, Michael Jeronimo
+* Contributors: Chen Lihui, Michael Jeronimo, mergify[bot]
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -707,6 +711,8 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `gz_cmake_vendor <https://github.com/gazebo-release/gz_cmake_vendor/tree/jazzy/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Update vendored version to 3.5.3
+* Use an alias target for root library
 * Add support for the ``<pkg>::<pkg>`` and ``<pkg>::all`` targets, fix sourcing of dsv files
 * Update vendored version to 3.5.2
 * Update vendored package version
@@ -724,6 +730,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `gz_math_vendor <https://github.com/gazebo-release/gz_math_vendor/tree/jazzy/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Use an alias target for root library
 * Add support for the ``<pkg>::<pkg>`` and ``<pkg>::all`` targets, fix sourcing of dsv files
 * Disable SWIG to fix CMake warning
 * Disable pybind11 for now
@@ -739,6 +746,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `gz_utils_vendor <https://github.com/gazebo-release/gz_utils_vendor/tree/jazzy/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Use an alias target for root library
 * Add support for the ``<pkg>::<pkg>`` and ``<pkg>::all`` targets, fix sourcing of dsv files
 * Require calling find_package on the underlying package (`#2 <https://github.com/gazebo-release/gz_utils_vendor/issues/2>`__)
 * Fix linter (`#1 <https://github.com/gazebo-release/gz_utils_vendor/issues/1>`__)
@@ -917,8 +925,9 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `libcurl_vendor <https://github.com/ros/resource_retriever/tree/jazzy/libcurl_vendor/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Add "lib" to the Windows curl search path. (`#96 <https://github.com/ros/resource_retriever/issues/96>`__) (`#97 <https://github.com/ros/resource_retriever/issues/97>`__) In CMake 3.3, a commit made it so that the find_package module in CMake had a compatibility mode where it would automatically search for packages in a <prefix>/lib subdirectory. In CMake 3.6, this compatibility mode was reverted for all platforms *except* Windows. That means that since CMake 3.3, we haven't actually been using the path as specified in ``curl_DIR``, but we have instead been inadvertently relying on that fallback behavior. In CMake 3.28, that compatibilty mode was also removed for Windows, meaning that we are now failing to find_package(curl) in downstream packages (like resource_retriever). Fix this by adding in the "lib" directory that always should have been there.  I'll note that this *only* affects our Windows builds, because this code is in a if(WIN32) block. (cherry picked from commit 1839d583190eb9dcf339eaaf6bebe632d94664a6) Co-authored-by: Chris Lalancette <clalancette@gmail.com>
 * Switch to ament_cmake_vendor_package (`#86 <https://github.com/ros/resource_retriever/issues/86>`__)
-* Contributors: Scott K Logan
+* Contributors: Scott K Logan, mergify[bot]
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1063,9 +1072,10 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `orocos_kdl_vendor <https://github.com/ros2/orocos_kdl_vendor/tree/jazzy/orocos_kdl_vendor/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Ensure that orocos_kdl_vendor doesn't accidentally find itself. (`#27 <https://github.com/ros2/orocos_kdl_vendor/issues/27>`__) (`#28 <https://github.com/ros2/orocos_kdl_vendor/issues/28>`__) When initially building the orocos_kdl_vendor package (on platforms where it actually builds), it turns out that it places a valid cmake configuration in the build directory.  In turn, that means that a subsequent rebuild will find this configuration in the build directory, and throw the rest of the logic off. This only seems to be a problem with CMake 3.29 and later, though I can't say exactly why at the moment. Workaround this problem by writing the configuration out to a temporary file, and then moving it into the final place with the final name. (cherry picked from commit 7aad6d1ad9fa54f3a48f1f194a85127e362c8ade) Co-authored-by: Chris Lalancette <clalancette@gmail.com>
 * Update to the latest orocos_kdl_kinematics commit. (`#25 <https://github.com/ros2/orocos_kdl_vendor/issues/25>`__)
 * Switch to ament_cmake_vendor_package (`#20 <https://github.com/ros2/orocos_kdl_vendor/issues/20>`__)
-* Contributors: Chris Lalancette, Scott K Logan
+* Contributors: Chris Lalancette, Scott K Logan, mergify[bot]
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1146,13 +1156,14 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `python_qt_binding <https://github.com/ros-visualization/python_qt_binding/tree/jazzy/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Suppress warning from Shiboken2. (backport `#137 <https://github.com/ros-visualization/python_qt_binding/issues/137>`__) (`#138 <https://github.com/ros-visualization/python_qt_binding/issues/138>`__) Co-authored-by: Chris Lalancette <clalancette@gmail.com> Co-authored-by: Alejandro Hernández Cordero <ahcorde@gmail.com>
 * Switch to C++17 for SIP and Shiboken (`#135 <https://github.com/ros-visualization/python_qt_binding/issues/135>`__)
 * Set hints to find the python version we actually want. (`#134 <https://github.com/ros-visualization/python_qt_binding/issues/134>`__)
 * Remove unnecessary parentheses around assert. (`#133 <https://github.com/ros-visualization/python_qt_binding/issues/133>`__)
 * Switch to FindPython3 in the shiboken_helper.cmake. (`#132 <https://github.com/ros-visualization/python_qt_binding/issues/132>`__)
 * Cleanup of the sip_configure.py file. (`#131 <https://github.com/ros-visualization/python_qt_binding/issues/131>`__)
 * Update the SIP support so we can deal with a broken RHEL-9. (`#129 <https://github.com/ros-visualization/python_qt_binding/issues/129>`__)
-* Contributors: Chris Lalancette, Christophe Bedard
+* Contributors: Chris Lalancette, Christophe Bedard, mergify[bot]
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1212,6 +1223,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `rcl <https://github.com/ros2/rcl/tree/jazzy/rcl/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Fix up rmw_cyclonedds timestamp testing. (`#1156 <https://github.com/ros2/rcl/issues/1156>`__) (`#1157 <https://github.com/ros2/rcl/issues/1157>`__) We are about to fix it so that rmw_cyclonedds has receive_timestamp support, so we also need to enable that support here in rcl.  We actually rewrite the logic a bit because now the only combination that doesn't work is rmw_connextdds on Windows. (cherry picked from commit 6d53d24a863c3e9e4a41e9fe5f550271210d9d9d) Co-authored-by: Chris Lalancette <clalancette@gmail.com>
 * Fixed warnings - strict-prototypes (`#1148 <https://github.com/ros2/rcl/issues/1148>`__) (`#1150 <https://github.com/ros2/rcl/issues/1150>`__)
 * chore: Minor style improvements (`#1147 <https://github.com/ros2/rcl/issues/1147>`__) Co-authored-by: Janosch Machowinski <J.Machowinski@cellumation.com>
 * improved rcl_wait in the area of timeout computation and spurious wakeups (`#1146 <https://github.com/ros2/rcl/issues/1146>`__) Added special handling for timers with a clock that has time override enabled. For these timer we should not compute a timeout, as the waitset is waken up by the associated guard condition. Before this change, the waitset could wait up, because of an expected ready timer, that was acutally not ready, as the time update to the ROS_TIME had not yet arrived.
@@ -1354,6 +1366,8 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `rclcpp <https://github.com/ros2/rclcpp/tree/jazzy/rclcpp/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* add impl pointer for ExecutorOptions (`#2523 <https://github.com/ros2/rclcpp/issues/2523>`__) (`#2525 <https://github.com/ros2/rclcpp/issues/2525>`__) * add impl pointer for ExecutorOptions (cherry picked from commit 343b29b617b163ad72b9fe3f6441dd4ed3d3af09) Co-authored-by: William Woodall <william@osrfoundation.org>
+* Fixup Executor::spin_all() regression fix (`#2517 <https://github.com/ros2/rclcpp/issues/2517>`__) (`#2521 <https://github.com/ros2/rclcpp/issues/2521>`__) * test(Executors): Added tests for busy waiting Checks if executors are busy waiting while they should block in spin_some or spin_all. * fix: Reworked spinAll test This test was strange. It looked like, it assumed that spin_all did not return instantly. Also it was racy, as the thread could terminate instantly. * fix(Executor): Fixed spin_all not returning instantly is no work was available * Update rclcpp/test/rclcpp/executors/test_executors.cpp * test(executors): Added test for busy waiting while calling spin * fix(executor): Reset wait_result on every call to spin_some_impl Before, the method would not recollect available work in case of spin_some, spin_all. This would lead to the method behaving differently than to what the documentation states. * restore previous test logic for now * refactor spin_some_impl's logic and improve busy wait tests * added some more comments about the implementation --------- Co-authored-by: Janosch Machowinski <J.Machowinski@cellumation.com> Co-authored-by: jmachowinski <jmachowinski@users.noreply.github.com> Co-authored-by: Tomoya Fujita <Tomoya.Fujita@sony.com> Co-authored-by: William Woodall <william@osrfoundation.org>
 * Revise the description of service configure_introspection() (`#2511 <https://github.com/ros2/rclcpp/issues/2511>`__) (`#2513 <https://github.com/ros2/rclcpp/issues/2513>`__)
 * Remove references to index.ros.org. (`#2504 <https://github.com/ros2/rclcpp/issues/2504>`__)
 * Reduce overhead for inheriting from rclcpp::Executor when base functionality is not reused (`#2506 <https://github.com/ros2/rclcpp/issues/2506>`__)
@@ -1503,6 +1517,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `rclcpp_lifecycle <https://github.com/ros2/rclcpp/tree/jazzy/rclcpp_lifecycle/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Revert "call shutdown in LifecycleNode dtor to avoid leaving the device in un… (`#2450 <https://github.com/ros2/rclcpp/issues/2450>`__)" (`#2522 <https://github.com/ros2/rclcpp/issues/2522>`__) (`#2524 <https://github.com/ros2/rclcpp/issues/2524>`__) This reverts commit 04ea0bb00293387791522590b7347a2282cda290. (cherry picked from commit 42b0b5775b4e68718c5949308c9e1a059930ded7) Co-authored-by: Chris Lalancette <clalancette@gmail.com>
 * Remove references to index.ros.org. (`#2504 <https://github.com/ros2/rclcpp/issues/2504>`__)
 * call shutdown in LifecycleNode dtor to avoid leaving the device in un… (`#2450 <https://github.com/ros2/rclcpp/issues/2450>`__) * call shutdown in LifecycleNode dtor to avoid leaving the device in unknown state. * add test to verify LifecycleNode::shutdown is called on destructor. ---------
 * Update quality declaration documents (`#2427 <https://github.com/ros2/rclcpp/issues/2427>`__)
@@ -1515,7 +1530,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Implement get_node_type_descriptions_interface for lifecyclenode and add smoke test for it (`#2237 <https://github.com/ros2/rclcpp/issues/2237>`__)
 * Switch lifecycle to use the RCLCPP macros. (`#2233 <https://github.com/ros2/rclcpp/issues/2233>`__)
 * Add new node interface TypeDescriptionsInterface to provide GetTypeDescription service (`#2224 <https://github.com/ros2/rclcpp/issues/2224>`__)
-* Contributors: Chris Lalancette, Christophe Bedard, Emerson Knapp, Jorge Perez, Lee, Minju, Tomoya Fujita
+* Contributors: Chris Lalancette, Christophe Bedard, Emerson Knapp, Jorge Perez, Lee, Minju, Tomoya Fujita, mergify[bot]
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1698,6 +1713,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `rmw_cyclonedds_cpp <https://github.com/ros2/rmw_cyclonedds/tree/jazzy/rmw_cyclonedds_cpp/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Set received_timestamp to system_clock::now() in message_info (`#491 <https://github.com/ros2/rmw_cyclonedds/issues/491>`__) (`#493 <https://github.com/ros2/rmw_cyclonedds/issues/493>`__) * Set received_timestamp to steady_clock::now() in message_info * Use 'system_clock' instead of 'steady_clock' * Also update receive_timestamp for services. (cherry picked from commit 76c9d8f38a03d160b258902af6d1d06f6ed9391e) Co-authored-by: Michael Orlov <morlovmr@gmail.com>
 * Add tracepoint for publish/subscribe serialized message (`#485 <https://github.com/ros2/rmw_cyclonedds/issues/485>`__) Co-authored-by: eboasson <eb@ilities.com>
 * Remove a bunch of unnecessary macros. (`#482 <https://github.com/ros2/rmw_cyclonedds/issues/482>`__)
 * compare string contents but string pointer addresses. (`#481 <https://github.com/ros2/rmw_cyclonedds/issues/481>`__)
@@ -1708,7 +1724,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Clear out errors once we have handled them. (`#464 <https://github.com/ros2/rmw_cyclonedds/issues/464>`__)
 * Instrument loaned message publication code path
 * Use TRACETOOLS\_ prefix for tracepoint-related macros (`#450 <https://github.com/ros2/rmw_cyclonedds/issues/450>`__)
-* Contributors: Chen Lihui, Chris Lalancette, Christophe Bedard, Christopher Wecht, Lee, Minju, Tomoya Fujita, h-suzuki-isp
+* Contributors: Chen Lihui, Chris Lalancette, Christophe Bedard, Christopher Wecht, Lee, Minju, Tomoya Fujita, h-suzuki-isp, mergify[bot]
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1801,9 +1817,10 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ros2action <https://github.com/ros2/ros2cli/tree/jazzy/ros2action/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* call get_action_interfaces() properly. (`#898 <https://github.com/ros2/ros2cli/issues/898>`__) (`#900 <https://github.com/ros2/ros2cli/issues/900>`__) (cherry picked from commit 305ef763b83e42ebddc4802ac788869d178b6e93) Co-authored-by: Tomoya Fujita <Tomoya.Fujita@sony.com>
 * support ``ros2 action type <action name>``. (`#894 <https://github.com/ros2/ros2cli/issues/894>`__) * support ``ros2 action type <action name>``. * add review comments. ---------
 * Load a message/request/goal from standard input (`#844 <https://github.com/ros2/ros2cli/issues/844>`__)
-* Contributors: Tomoya Fujita, ymd-stella
+* Contributors: Tomoya Fujita, mergify[bot], ymd-stella
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2310,6 +2327,14 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Contributors: Chris Lalancette
 
 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`rosidl_runtime_cpp <https://github.com/ros2/rosidl/tree/jazzy/rosidl_runtime_cpp/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Suppress a warning around BoundedVector. (`#803 <https://github.com/ros2/rosidl/issues/803>`__) (`#804 <https://github.com/ros2/rosidl/issues/804>`__) The comment has more explanation, but in short GCC 13 has false positives around some warnings, so we suppress it for BoundedVector. (cherry picked from commit 858e76adb03edba00469b91d50dd5fe0dcb34236) Co-authored-by: Chris Lalancette <clalancette@gmail.com>
+* Contributors: mergify[bot]
+
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_runtime_py <https://github.com/ros2/rosidl_runtime_py/tree/jazzy/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2613,12 +2638,13 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `rviz_assimp_vendor <https://github.com/ros2/rviz/tree/jazzy/rviz_assimp_vendor/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Removed assimp warnings (`#1191 <https://github.com/ros2/rviz/issues/1191>`__) (`#1192 <https://github.com/ros2/rviz/issues/1192>`__) (cherry picked from commit e8dd485d19a35d3abba905020741973e613334e3) Co-authored-by: Alejandro Hernández Cordero <alejandro@openrobotics.org>
 * Update the vendored package path. (`#1184 <https://github.com/ros2/rviz/issues/1184>`__) Since we just updated to assimp 5.3, we also need to update the path we look for it. This should fix the build with clang which is currently failing.
 * Update assimp vendor to 5.3.1 (`#1182 <https://github.com/ros2/rviz/issues/1182>`__) This matches what is in Ubuntu 24.04.
 * Update to assimp 5.2.2 (`#968 <https://github.com/ros2/rviz/issues/968>`__)
 * Fix the vendoring flags for clang compilation. (`#1003 <https://github.com/ros2/rviz/issues/1003>`__)
 * Switch to ament_cmake_vendor_package (`#995 <https://github.com/ros2/rviz/issues/995>`__)
-* Contributors: Chris Lalancette, Scott K Logan
+* Contributors: Chris Lalancette, Scott K Logan, mergify[bot]
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2702,6 +2728,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `rviz_ogre_vendor <https://github.com/ros2/rviz/tree/jazzy/rviz_ogre_vendor/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Update zlib into CMakeLists.txt (`#1128 <https://github.com/ros2/rviz/issues/1128>`__) (`#1195 <https://github.com/ros2/rviz/issues/1195>`__) Changes in 1.3 (18 Aug 2023) - Remove K&R function definitions and zlib2ansi - Fix bug in deflateBound() for level 0 and memLevel 9 - Fix bug when gzungetc() is used immediately after gzopen() - Fix bug when using gzflush() with a very small buffer - Fix crash when gzsetparams() attempted for transparent write - Fix test/example.c to work with FORCE_STORED - Rewrite of zran in examples (see zran.c version history) - Fix minizip to allow it to open an empty zip file - Fix reading disk number start on zip64 files in minizip - Fix logic error in minizip argument processing - Add minizip testing to Makefile - Read multiple bytes instead of byte-by-byte in minizip unzip.c - Add memory sanitizer to configure (--memory) - Various portability improvements - Various documentation improvements - Various spelling and typo corrections Co-authored-by: Chris Lalancette <clalancette@gmail.com> (cherry picked from commit 32eb8b9404927883247e868ab0c7d62b80df2ed1) Co-authored-by: mosfet80 <realeandrea@yahoo.it>
 * Change an rviz_ogre_vendor dependency to libfreetype-dev. (`#1167 <https://github.com/ros2/rviz/issues/1167>`__) The situation is complicated, but in versions of Ubuntu prior to Focal and versions of Debian prior to Bookworm, the name of the library was 'libfreetype6-dev'.  Since Focal and Bookworm, the name of the library is 'libfreetype-dev'. While 'libfreetype-dev' provides a "virtual package" for 'libfreetype6-dev', we should really use the new canonical name. Further, there is currently a bug on ros_buildfarm where it doesn't properly deal with "virtual packages" like this. This is currently preventing this package from building on Ubuntu Noble.  That bug is being worked on separately. Finally, I'll note that we already have a libfreetype-dev key in rosdep, so we just switch to using that here which should work around the bug on the buildfarm, and also use the correct canonical name going forward.
 * fix: modify typo in cmake args for mac (`#1160 <https://github.com/ros2/rviz/issues/1160>`__)
 * feat: support macos (`#1156 <https://github.com/ros2/rviz/issues/1156>`__)
@@ -2710,7 +2737,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Switch to ament_cmake_vendor_package (`#995 <https://github.com/ros2/rviz/issues/995>`__)
 * CMake: rename FeatureSummary.cmake to avoid name clashes (`#953 <https://github.com/ros2/rviz/issues/953>`__)
 * FIX CVE in external libraries (`#961 <https://github.com/ros2/rviz/issues/961>`__)
-* Contributors: Chris Lalancette, Daisuke Nishimatsu, Gökçe Aydos, Scott K Logan, mosfet80
+* Contributors: Chris Lalancette, Daisuke Nishimatsu, Gökçe Aydos, Scott K Logan, mergify[bot], mosfet80
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2802,9 +2829,10 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `spdlog_vendor <https://github.com/ros2/spdlog_vendor/tree/jazzy/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Removed spdlog_vendor warnings (`#36 <https://github.com/ros2/spdlog_vendor/issues/36>`__) (`#37 <https://github.com/ros2/spdlog_vendor/issues/37>`__) (cherry picked from commit 4510d9ab4389f84daac77210f3fdf8aab372b938) Co-authored-by: Alejandro Hernández Cordero <ahcorde@gmail.com>
 * Upgrade to v1.12.0. (`#35 <https://github.com/ros2/spdlog_vendor/issues/35>`__)
 * Switch to ament_cmake_vendor_package (`#34 <https://github.com/ros2/spdlog_vendor/issues/34>`__)
-* Contributors: Marco A. Gutierrez, Scott K Logan
+* Contributors: Marco A. Gutierrez, Scott K Logan, mergify[bot]
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2819,10 +2847,11 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `sros2 <https://github.com/ros2/sros2/tree/jazzy/sros2/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Fix linux tutorial: cloning example policies and set of default policies for a node (`#295 <https://github.com/ros2/sros2/issues/295>`__) (`#296 <https://github.com/ros2/sros2/issues/296>`__) * clone policies to temporary dir as subversion hack doesnt work anymore * add get_type_description service to policies * update MacOS similarly * update all permissions with new topics * dont rule out cycloneDDS * example of enclave override Co-authored-by: Chris Lalancette <clalancette@gmail.com> (cherry picked from commit ca6bb12cc650b73e7ccfc0fa789d8b49358d44ad) Co-authored-by: Mikael Arguedas <mikael.arguedas@gmail.com>
 * Use modern PKCS7 to sign the certificate bytes. (`#290 <https://github.com/ros2/sros2/issues/290>`__)
 * Fix a number of warnings on Ubuntu 24.04. (`#289 <https://github.com/ros2/sros2/issues/289>`__)
 * Fix SSH commands in SROS2_Linux.md (`#286 <https://github.com/ros2/sros2/issues/286>`__)
-* Contributors: Boris Boutillier, Chris Lalancette
+* Contributors: Boris Boutillier, Chris Lalancette, mergify[bot]
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3118,8 +3147,9 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `tf2_tools <https://github.com/ros2/geometry2/tree/jazzy/tf2_tools/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* [view_frames] log filenames after it's been determined (`#674 <https://github.com/ros2/geometry2/issues/674>`__) (`#675 <https://github.com/ros2/geometry2/issues/675>`__) (cherry picked from commit 24643fce510d8cc836fe6e5277a1d3f86a21af04) Co-authored-by: Mikael Arguedas <mikael.arguedas@gmail.com>
 * Add in tests for tf2_tools. (`#647 <https://github.com/ros2/geometry2/issues/647>`__)
-* Contributors: Chris Lalancette
+* Contributors: Chris Lalancette, mergify[bot]
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3216,6 +3246,8 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `turtlesim <https://github.com/ros/ros_tutorials/tree/jazzy/turtlesim/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Add icon for Jazzy. (`#167 <https://github.com/ros/ros_tutorials/issues/167>`__) (`#168 <https://github.com/ros/ros_tutorials/issues/168>`__) (cherry picked from commit 014955e15a6ac3b1649cbf21e11c8547ebd47af7) Co-authored-by: Marco A. Gutierrez <marcogg@marcogg.com>
+* [teleop_turtle_key] update usage string to match keys captured by keyboard (`#165 <https://github.com/ros/ros_tutorials/issues/165>`__) (`#166 <https://github.com/ros/ros_tutorials/issues/166>`__) On windows it will stay uppercase but shouldn't impact users compared to current situation (cherry picked from commit e2853cac87f0c62db6294e5bc351e5b52fcd1ae1) Co-authored-by: Mikael Arguedas <mikael.arguedas@gmail.com>
 * Shorten the callback definition for uncrustify. (`#163 <https://github.com/ros/ros_tutorials/issues/163>`__)
 * Use same QoS for all topic pub/subs (`#161 <https://github.com/ros/ros_tutorials/issues/161>`__)
 * Remove all uses of ament_target_dependencies. (`#159 <https://github.com/ros/ros_tutorials/issues/159>`__)
@@ -3225,7 +3257,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Heavy cleanup of the draw_square tutorial. (`#152 <https://github.com/ros/ros_tutorials/issues/152>`__) * Heavy cleanup of the draw_square tutorial. In particular: 1. Make it conform to the current ROS 2 style. 2. Add in copyright information. 3. Refactor the entire code into a class, which tidies it up quite a bit and removes a bunch of globals. 4. Make sure to wait for the reset to complete before trying to move the turtle.
 * Remove the range constraints from the holonomic parameter. (`#150 <https://github.com/ros/ros_tutorials/issues/150>`__)
 * Add icon (`#148 <https://github.com/ros/ros_tutorials/issues/148>`__)
-* Contributors: Alejandro Hernández Cordero, Chris Lalancette, Jason O'Kane, Yadu
+* Contributors: Alejandro Hernández Cordero, Chris Lalancette, Jason O'Kane, Yadu, mergify[bot]
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3275,12 +3307,13 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `yaml_cpp_vendor <https://github.com/ros2/yaml_cpp_vendor/tree/jazzy/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Removed warnigns (`#49 <https://github.com/ros2/yaml_cpp_vendor/issues/49>`__) (`#50 <https://github.com/ros2/yaml_cpp_vendor/issues/50>`__) (cherry picked from commit 4b6808fd0f9b0b5e05928c0c8e44fd976a043d33) Co-authored-by: Alejandro Hernández Cordero <ahcorde@gmail.com>
 * Upgrade to yaml-cpp 0.8.0 (`#48 <https://github.com/ros2/yaml_cpp_vendor/issues/48>`__) Co-authored-by: Chris Lalancette <clalancette@gmail.com>
 * Support yaml-cpp >= 0.8.0 (`#46 <https://github.com/ros2/yaml_cpp_vendor/issues/46>`__)
 * Disable the -Wshadow warning when building under clang. (`#45 <https://github.com/ros2/yaml_cpp_vendor/issues/45>`__)
 * Switch to ament_cmake_vendor_package (`#43 <https://github.com/ros2/yaml_cpp_vendor/issues/43>`__)
 * Revamp the extras file to find the correct version. (`#42 <https://github.com/ros2/yaml_cpp_vendor/issues/42>`__)
-* Contributors: Chris Lalancette, Marco A. Gutierrez, Scott K Logan, Silvio Traversaro
+* Contributors: Chris Lalancette, Marco A. Gutierrez, Scott K Logan, Silvio Traversaro, mergify[bot]
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
