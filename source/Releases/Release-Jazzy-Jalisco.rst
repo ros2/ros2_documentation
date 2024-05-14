@@ -389,6 +389,14 @@ See https://github.com/ros2/geometry2/pull/646 for more information.
 ``rcl``
 ^^^^^^^
 
+Actual and expected call time when timer is called
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
+New timer API ``rcl_timer_call_with_info`` is added to collect actual and expected call time when the timer is called.
+This allows users to get the timer information when the timer is expected to be called and actual time that timer is called.
+
+See https://github.com/ros2/rcl/pull/1113 for more details.
+
 Improved rcl_wait in the area of timeout computation and spurious wakeups
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -436,6 +444,14 @@ Back in Humble, subscription signatures of the form ``void callback(std::shared_
 
 In Jazzy, these subscription signatures have been removed.
 Users should switch to using ``void callback(std::shared_ptr<const MessageT>)`` or ``void callback(std::shared_ptr<const MessageT>, const rclcpp MessageInfo &)``.
+
+Actual and expected call time when timer is called
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
+``rclcpp::TimerInfo`` argument is added to the timer callback to collect actual and expected call time when the timer is called.
+This allows https://github.com/ros2/rclcpp/pull/2343 users to get the timer information when the timer is expected to be called and actual time that timer is called.
+
+See https://github.com/ros2/rclcpp/pull/2343 for more details.
 
 ``rclcpp_action``
 ^^^^^^^^^^^^^^^^^
