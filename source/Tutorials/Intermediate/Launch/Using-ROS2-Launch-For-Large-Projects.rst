@@ -218,8 +218,6 @@ Let's now create a configuration file, ``turtlesim.yaml``, in the ``/config`` fo
          background_g: 86
          background_r: 150
 
-If we now start the ``turtlesim_world_2_launch.py`` launch file, we will start the ``turtlesim_node`` with preconfigured background colors.
-
 To learn more about using parameters and using YAML files, take a look at the :doc:`Understand parameters <../../Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters>` tutorial.
 
 2.3 Using wildcards in YAML files
