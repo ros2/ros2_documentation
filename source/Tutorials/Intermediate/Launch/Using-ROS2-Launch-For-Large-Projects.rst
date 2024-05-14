@@ -495,6 +495,8 @@ The ``data_files`` field should now look like this:
             glob(os.path.join('launch', '*launch.[pxy][yma]*'))),
          (os.path.join('share', package_name, 'config'),
             glob(os.path.join('config', '*.yaml'))),
+         (os.path.join('share', package_name, 'rviz'),
+            glob(os.path.join('config', '*.rviz'))),
       ],
 
 2 Build and run
