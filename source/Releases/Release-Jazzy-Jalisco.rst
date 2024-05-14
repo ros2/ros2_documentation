@@ -159,6 +159,14 @@ New type support helper for services ``rclcpp::get_service_typesupport_handle`` 
 
 See https://github.com/ros2/rclcpp/pull/2209 for more details.
 
+New executor ``spin_until_complete`` interface
+""""""""""""""""""""""""""""""""""""""""""""""
+
+``spin_until_complete`` was added to spin on arbitrary callable conditions.
+It goes alongside ``spin_until_future_complete``, which exclusively spins on futures.
+
+See https://github.com/ros2/rclcpp/pull/2475 for more details.
+
 ``ros2cli``
 ^^^^^^^^^^^
 
