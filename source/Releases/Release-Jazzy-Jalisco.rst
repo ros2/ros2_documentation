@@ -149,6 +149,16 @@ Allows users to use Type Adaptation within message_filters.
 
 See https://github.com/ros2/message_filters/pull/96 for more information.
 
+``rcl``
+^^^^^^^
+
+Add get type description service
+""""""""""""""""""""""""""""""""
+
+Implements the ``~/get_type_description`` which will be offered by each node according with REP 2011
+
+See https://github.com/ros2/rcl/pull/1052 for more details.
+
 ``rclcpp``
 ^^^^^^^^^^
 
@@ -172,6 +182,19 @@ It is now possible to use ``--log-file-name`` command line argument to specify t
    ros2 run demo_nodes_cpp talker --ros-args --log-file-name filename
 
 See https://github.com/ros2/ros2cli/issues/856 for more information.
+
+Adding QoS to subscription options
+""""""""""""""""""""""""""""""""""
+
+I`t adds a custom QoS to the ``TopicStatisticsOptions`` in ``SubscriptionOptionsBase``. This will allow the statistics to always have a stable QoS even if the subscription may not.
+
+See https://github.com/ros2/rclcpp/pull/2323 for more details
+
+
+Add clients and services count
+""""""""""""""""""""""""""""
+
+It is now possible to get the number of clients created by a service.
 
 ``ros2action``
 ^^^^^^^^^^^^^^
@@ -303,6 +326,22 @@ It is possible to visualize CameraInfo messages in the 3D scene.
 
 See https://github.com/ros2/rviz/pull/1166 for more details.
 
+``rcpputils``
+^^^^^^^^^^^^^
+
+Added tl_expected
+"""""""""""""""""
+
+``expected`` is C++23 feature, but it's possible to use ``expected`` from rcpputils
+
+``rcutils``
+
+Add human readable date to logging formats
+""""""""""""""""""""""""""""""""""""""""""
+
+It is possible to transform date in to a human redeable format.
+
+See https://github.com/ros2/rcutils/pull/441 for more details
 
 Changes since the Iron release
 ------------------------------
@@ -343,8 +382,33 @@ Included new API to lookup the velocity of the moving frame in the reference fra
 
 See https://github.com/ros2/geometry2/pull/646 for more information.
 
+``rcl``
+^^^^^^^
+
+Improved rcl_wait in the area of timeout computation and spurious wakeups
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Added special handling for timers with a clock that has time override enabled. For these timer we should not compute a timeout,
+as the waitset is waken up by the associated guard condition.
+
+See https://github.com/ros2/rcl/issues/1146 for more details.
+
 ``rclcpp``
 ^^^^^^^^^^
+
+Fixed data race conditions
+""""""""""""""""""""""""""
+
+Fixed data race conditions in executors.
+
+See https://github.com/ros2/rclcpp/issues/2500 for more details.
+
+Utilize ``rclcpp::WaitSet`` as part of the executors
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+Improve number of rcl_wait_set creations and deletions by making the default Single/Multithreaded executors work like the static single threaded executor
+in terms of entity collection rebuilding.
+
+See https://github.com/ros2/rclcpp/pull/2142 for more details
 
 ``rclcpp::get_typesupport_handle`` is deprecated
 """"""""""""""""""""""""""""""""""""""""""""""""
@@ -368,6 +432,26 @@ Back in Humble, subscription signatures of the form ``void callback(std::shared_
 In Jazzy, these subscription signatures have been removed.
 Users should switch to using ``void callback(std::shared_ptr<const MessageT>)`` or ``void callback(std::shared_ptr<const MessageT>, const rclcpp MessageInfo &)``.
 
+``rclcpp_action``
+^^^^^^^^^^^^^^^^^
+
+Callback after cancel
+"""""""""""""""""""""
+
+Added function to stop callbacks of a goal handle. This function allows us to drop the handle in a locked context.
+This fixes is a bug, that makes the current version of the tutorial not work any more, as the code now acts according to its documentation.
+
+See https://github.com/ros2/rclcpp/pull/2281 for more details
+
+``rclcpp_lifecycle``
+
+Add new node interface TypeDescriptionsInterface
+""""""""""""""""""""""""""""""""""""""""""""""""
+
+Add new node interface TypeDescriptionsInterface to provide GetTypeDescription service.
+
+See https://github.com/ros2/rclcpp/pull/2224 for more details
+
 ``rclpy``
 ^^^^^^^^^^
 
@@ -378,6 +462,14 @@ The ``rclpy.node.Node.declare_parameter`` does not allow statically typing param
 
 See https://github.com/ros2/rclpy/pull/1216 for more details.
 
+Added types to method arguments
+"""""""""""""""""""""""""""""""
+
+Adde type check to improve the experience for anyone using static type checking.
+
+See https://github.com/ros2/rclcpp/pull/2224, https://github.com/ros2/rclpy/issues/1240
+, https://github.com/ros2/rclpy/issues/1237, https://github.com/ros2/rclpy/issues/1231, https://github.com/ros2/rclpy/issues/1241, https://github.com/ros2/rclpy/issues/1233
+
 ``rqt_bag``
 ^^^^^^^^^^^
 
@@ -387,7 +479,6 @@ Improved performance and updated rosbag API
 There are some breaking changes in the rosbag2 API and Ubuntu Nobel libraries versions that required some changes to use rqt_bag.
 
 See https://github.com/ros-visualization/rqt_bag/pull/156 for more details.
-
 
 Development progress
 --------------------
