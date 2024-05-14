@@ -192,7 +192,7 @@ See https://github.com/ros2/rclcpp/pull/2323 for more details
 
 
 Add clients and services count
-""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""
 
 It is now possible to get the number of clients created by a service.
 
