@@ -238,7 +238,7 @@ The following code shows how to enable the logger service while creating the nod
 
 .. tabs::
 
-  .. group-tab:: Linux
+  .. group-tab:: C++
 
     .. code-block:: C++
 
