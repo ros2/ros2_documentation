@@ -449,7 +449,7 @@ Actual and expected call time when timer is called
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
 ``rclcpp::TimerInfo`` argument is added to the timer callback to collect actual and expected call time when the timer is called.
-This allows https://github.com/ros2/rclcpp/pull/2343 users to get the timer information when the timer is expected to be called and actual time that timer is called.
+This allows users to get the timer information when the timer is expected to be called and actual time that timer is called.
 
 See https://github.com/ros2/rclcpp/pull/2343 for more details.
 
