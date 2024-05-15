@@ -426,9 +426,9 @@ See https://github.com/ros2/rclcpp/pull/2142 for more details.
 Executer callbacks are no longer ordered
 """"""""""""""""""""""""""""""""""""""""
 
-Due to the entity collection enhancement implemented in https://github.com/ros2/rclcpp/pull/2142, callbacks in the executor are no longer ordered consistently, even within the same entity.
+Due to these changes, callbacks in the executor are no longer ordered consistently, even within the same entity.
 
-See the discussion https://github.com/ros2/rclcpp/issues/2532 for more details.
+See https://github.com/ros2/rclcpp/pull/2142 and https://github.com/ros2/rclcpp/issues/2532 for more details.
 
 ``rclcpp::get_typesupport_handle`` is deprecated
 """"""""""""""""""""""""""""""""""""""""""""""""
