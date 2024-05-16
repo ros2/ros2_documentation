@@ -260,7 +260,7 @@ Below the constructor is the ``send_request`` method, which will send the reques
 .. warning::
 
   Synchronous calls such as ``rclpy.spin_until_future_complete`` can cause deadlock.
-  For more details see the :doc:`sync deadlock article <../Sync-Vs-Async>`.
+  For more details see the :doc:`sync deadlock article <../../../How-To-Guides/Sync-Vs-Async>`.
 
 
 Finally we have the ``main`` method, which constructs a ``MinimalClientAsync`` object, sends the request using the passed-in command-line arguments, and logs the results.
