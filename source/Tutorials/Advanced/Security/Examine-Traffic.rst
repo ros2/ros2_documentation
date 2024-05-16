@@ -141,13 +141,13 @@ Enable encryption for both by setting the security environment variables and run
 .. code-block:: bash
 
   # In terminal 1:
-  export ROS_SECURITY_KEYSTORE=~/sros2_demo/demo_keys
+  export ROS_SECURITY_KEYSTORE=~/sros2_demo/demo_keystore
   export ROS_SECURITY_ENABLE=true
   export ROS_SECURITY_STRATEGY=Enforce
   ros2 run demo_nodes_cpp talker --ros-args --enclave /talker_listener/talker
 
   # In terminal 2:
-  export ROS_SECURITY_KEYSTORE=~/sros2_demo/demo_keys
+  export ROS_SECURITY_KEYSTORE=~/sros2_demo/demo_keystore
   export ROS_SECURITY_ENABLE=true
   export ROS_SECURITY_STRATEGY=Enforce
   ros2 run demo_nodes_cpp listener --ros-args --enclave /talker_listener/listener
