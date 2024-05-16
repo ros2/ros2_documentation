@@ -209,7 +209,7 @@ Begin with a new terminal session and enable security with the keystore created 
 
 .. code-block:: bash
 
-  export ROS_SECURITY_KEYSTORE=~/sros2_demo/demo_keys
+  export ROS_SECURITY_KEYSTORE=~/sros2_demo/demo_keystore
   export ROS_SECURITY_ENABLE=true
   export ROS_SECURITY_STRATEGY=Enforce
 
