@@ -229,7 +229,7 @@ Record all services data:
 
    ros2 bag record --all-services
 
-Record all services data with all topic data:
+Record all services and all topic data:
 
 .. code-block:: bash
 
@@ -257,6 +257,57 @@ It is now possible to filter by topic type.
     ros2 bag record --topic_types sensor_msgs/msg/Image
 
 See more details https://github.com/ros2/rosbag2/pull/1577 and https://github.com/ros2/rosbag2/pull/1582.
+
+Player and Recorder are now exposed as rclcpp components
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+This allows a "zero-copy" when using intra-process communication during data record or reply.
+This can significantly reduce CPU load during recording or reply when dealing with high-bandwidth data streams and will help to avoid data loss in the transport layer.
+It also provides the ability to use YAML configuration files for ``rosbag2_transport::Player`` and ``rosbag2_transport::Recorder`` composable nodes.
+
+See https://github.com/ros2/rosbag2/tree/jazzy?tab=readme-ov-file#using-with-composition for more details.
+
+Added option to disable recorder keyboard controls
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
+See https://github.com/ros2/rosbag2/pull/1607 for more details.
+
+Use middleware send and receive timestamps from ``message_info`` during recording
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Where available, ``rosbag2`` now uses the send and receive timestamps as provided by the middleware.
+These timestamps are more indicative of when the data was actually sent and received, respectively.
+Note that saving the timestamp into a bag is currently only supported for MCAP files (the default).
+
+See https://github.com/ros2/rosbag2/pull/1531 for more details.
+
+Added compression threads priority to record options
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+It is now possible to specify the priority of the thread that performs compression.
+
+See https://github.com/ros2/rosbag2/pull/1457 for more details.
+
+Added ability to split already existing ros2 bags by time
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Added ``start_time_ns`` and ``end_time_ns`` to the ``StorageOptions`` to exclude messages not in
+``[start_time;end_time]`` during the ``ros2 bag convert`` operation.
+
+See https://github.com/ros2/rosbag2/pull/1455 for more details.
+
+Store serialized metadata in bag files directly
+"""""""""""""""""""""""""""""""""""""""""""""""
+
+``rosbag2`` has always stored metadata in the ``metadata.yaml`` file associated with a bag file.
+Now the metadata is also stored in each bag file, once when opening the file and a second time when closing the written bag file.
+This allows bag files to be self-contained, and used without the ``metadata.yaml`` file in the rosbag2 player or third-party applications.
+``ros2 bag reindex`` can still be used to restore the ``metadata.yaml`` file, if desired.
+
+Store ROS_DISTRO name in the metadata
+"""""""""""""""""""""""""""""""""""""
+
+See https://github.com/ros2/rosbag2/pull/1241 for more details.
 
 Added introspection QoS methods to Python bindings
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -494,6 +545,56 @@ Added types to method arguments
 Added type checking to improve the experience for anyone using static type checking.
 
 See https://github.com/ros2/rclcpp/pull/2224, https://github.com/ros2/rclpy/issues/1240, https://github.com/ros2/rclpy/issues/1237, https://github.com/ros2/rclpy/issues/1231, https://github.com/ros2/rclpy/issues/1241, and https://github.com/ros2/rclpy/issues/1233.
+
+``rosbag2``
+^^^^^^^^^^^
+
+Rename of the ``--exclude`` CLI option
+""""""""""""""""""""""""""""""""""""""
+
+The ``--exclude`` CLI option was renamed to the ``--exclude-regex`` to better reflect what it does.
+
+See https://github.com/ros2/rosbag2/pull/1480 for more information.
+
+Changes in representation of the ``offered_qos_profiles``
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Enum values are now used for ``offered_qos_profiles`` in the code, in human-readable string values for QoS settings in the metadata, and in the overriding QoS profile YAML files.
+
+See https://github.com/ros2/rosbag2/tree/jazzy?tab=readme-ov-file#overriding-qos-profiles for an example.
+
+Added node name to the read and write bag split event messages
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+See https://github.com/ros2/rosbag2/pull/1609 for more details.
+
+Added ``BagSplitInfo`` service call on bag close
+""""""""""""""""""""""""""""""""""""""""""""""""
+
+See https://github.com/ros2/rosbag2/pull/1422 for more details.
+
+Resolved multiple issues related to the handling SIGINT and SIGTERM signals in rosbag2
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+See https://github.com/ros2/rosbag2/pull/1557, https://github.com/ros2/rosbag2/pull/1301 and
+https://github.com/ros2/rosbag2/pull/1464 for more details.
+
+Added ``topic_id`` returned by storage to the ``TopicMetadata``
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+See https://github.com/ros2/rosbag2/pull/1538 for more details.
+
+Added Python bindings for CompressionOptions and CompressionMode structures
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+See https://github.com/ros2/rosbag2/pull/1425 for more details.
+
+Improve performance in ``SqliteStorage::get_bagfile_size()``
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+This minimizes the probability of losing messages during bag split operation when recording with the SQLite3 storage plugin.
+
+See https://github.com/ros2/rosbag2/pull/1516 for more details.
 
 ``rqt_bag``
 ^^^^^^^^^^^
