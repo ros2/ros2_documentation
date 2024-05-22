@@ -652,8 +652,8 @@ Release Timeline
         Updated releases of ROS Desktop [2]_ packages available.
 
     Mon. May 20, 2024 - Distro Freeze
-        Freeze rosdistro.
-        No PRs for Jazzy on the ``rosdistro`` repo will be merged (reopens after the release announcement).
+        Freeze all Jazzy branches on all `ROS 2 base packages <https://www.ros.org/reps/rep-2001.html#id27>`__ and the rosdistro.
+        No PRs for any ``jazzy`` branch or targeting ``jazzy/distribution.yaml`` from the ``rosdistro`` repo will be merged (reopens after the release announcement).
 
     Thu. May 23, 2024 - General Availability
         Release announcement.
