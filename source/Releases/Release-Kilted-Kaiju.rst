@@ -2,7 +2,7 @@
 
 .. _kilted-release:
 
-Kilted Kaiju (codename 'kilted'; May, 2024)
+Kilted Kaiju (codename 'kilted'; May, 2025)
 ===========================================
 
 .. contents:: Table of Contents
