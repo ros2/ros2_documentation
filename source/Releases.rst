@@ -168,7 +168,7 @@ There is a new ROS 2 distribution released yearly on May 23rd (`World Turtle Day
      - Release date
      - Logo
      - EOL date
-   * - :doc:`K-turtle <Releases/Release-K-turtle>`
+   * - :doc:`Kilted Kaiju <Releases/Release-Kilted-Kaiju>`
      - May 2025
      - TBD
      - Nov 2026
