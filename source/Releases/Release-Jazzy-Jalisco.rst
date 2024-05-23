@@ -1,4 +1,4 @@
-.. _upcoming-release:
+.. _latest-release:
 
 .. _jazzy-release:
 
