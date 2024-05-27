@@ -165,8 +165,8 @@ From the root of your workspace (``ros2_ws``), run the following command:
 
       rosdep only runs on Linux, so you can skip ahead to section "5 Build the workspace with colcon".
 
-If you installed ROS 2 on Linux from source or the "fat" archive, you will need to use the rosdep command from their installation instructions.
-Here are the :ref:`from-source rosdep section <linux-development-setup-install-dependencies-using-rosdep>` and the :ref:`"fat" archive rosdep section <linux-install-binary-install-missing-dependencies>`.
+If you installed ROS 2 on Linux from source or the binary archive, you will need to use the rosdep command from their installation instructions.
+Here are the :ref:`from-source rosdep section <linux-development-setup-install-dependencies-using-rosdep>` and the :ref:`binary archive rosdep section <linux-install-binary-install-missing-dependencies>`.
 
 If you already have all your dependencies, the console will return:
 
@@ -357,8 +357,7 @@ You can modify ``turtlesim`` in your overlay by editing the title bar on the tur
 To do this, locate the ``turtle_frame.cpp`` file in ``~/ros2_ws/src/ros_tutorials/turtlesim/src``.
 Open ``turtle_frame.cpp`` with your preferred text editor.
 
-On line 52 you will see the function ``setWindowTitle("TurtleSim");``.
-Change the value ``"TurtleSim"`` to ``"MyTurtleSim"``, and save the file.
+Find the function ``setWindowTitle("TurtleSim");``, change the value ``"TurtleSim"`` to ``"MyTurtleSim"``, and save the file.
 
 Return to the first terminal where you ran ``colcon build`` earlier and run it again.
 

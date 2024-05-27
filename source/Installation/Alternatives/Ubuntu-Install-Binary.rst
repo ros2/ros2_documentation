@@ -22,7 +22,7 @@ There are also :doc:`Debian packages <../Ubuntu-Install-Debians>` available.
 System requirements
 -------------------
 
-We currently support Ubuntu Linux Jammy (22.04) 64-bit x86 and 64-bit ARM.
+We currently support Ubuntu Noble (24.04) 64-bit x86 and 64-bit ARM.
 The Rolling Ridley distribution will change target platforms from time to time as new platforms are selected for development.
 Most people will want to use a stable ROS distribution.
 
@@ -135,12 +135,6 @@ Next steps
 ----------
 
 Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
-
-Use the ROS 1 bridge (optional)
--------------------------------
-
-The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa.
-See the dedicated :doc:`document <../../How-To-Guides/Using-ros1_bridge-Jammy-upstream>` on how to build and use the ROS 1 bridge.
 
 Troubleshoot
 ------------

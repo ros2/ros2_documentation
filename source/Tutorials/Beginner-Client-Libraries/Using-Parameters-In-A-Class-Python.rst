@@ -62,7 +62,7 @@ As always, though, make sure to add the description, maintainer email and name, 
 
   <description>Python parameter tutorial</description>
   <maintainer email="you@email.com">Your Name</maintainer>
-  <license>Apache License 2.0</license>
+  <license>Apache-2.0</license>
 
 2 Write the Python node
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -194,7 +194,7 @@ Again, match the ``maintainer``, ``maintainer_email``, ``description`` and ``lic
   maintainer='YourName',
   maintainer_email='you@email.com',
   description='Python parameter tutorial',
-  license='Apache License 2.0',
+  license='Apache-2.0',
 
 Add the following line within the ``console_scripts`` brackets of the ``entry_points`` field:
 

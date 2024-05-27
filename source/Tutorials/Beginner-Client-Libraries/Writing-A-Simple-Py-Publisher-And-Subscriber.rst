@@ -221,7 +221,7 @@ As mentioned in the :doc:`previous tutorial <./Creating-Your-First-ROS2-Package>
 
   <description>Examples of minimal publisher/subscriber using rclpy</description>
   <maintainer email="you@email.com">Your Name</maintainer>
-  <license>Apache License 2.0</license>
+  <license>Apache-2.0</license>
 
 After the lines above, add the following dependencies corresponding to your node's import statements:
 
@@ -245,7 +245,7 @@ Again, match the ``maintainer``, ``maintainer_email``, ``description`` and ``lic
   maintainer='YourName',
   maintainer_email='you@email.com',
   description='Examples of minimal publisher/subscriber using rclpy',
-  license='Apache License 2.0',
+  license='Apache-2.0',
 
 Add the following line within the ``console_scripts`` brackets of the ``entry_points`` field:
 

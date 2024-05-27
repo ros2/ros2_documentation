@@ -73,7 +73,7 @@ As always, though, make sure to add the description, maintainer email and name, 
 
   <description>Python bag writing tutorial</description>
   <maintainer email="you@email.com">Your Name</maintainer>
-  <license>Apache License 2.0</license>
+  <license>Apache-2.0</license>
 
 Also be sure to add this information to the ``setup.py`` file as well.
 
@@ -82,7 +82,7 @@ Also be sure to add this information to the ``setup.py`` file as well.
    maintainer='Your Name',
    maintainer_email='you@email.com',
    description='Python bag writing tutorial',
-   license='Apache License 2.0',
+   license='Apache-2.0',
 
 2 Write the Python node
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -110,6 +110,7 @@ Inside the ``ros2_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory
            self.writer.open(storage_options, converter_options)
 
            topic_info = rosbag2_py._storage.TopicMetadata(
+               id=0,
                name='chatter',
                type='std_msgs/msg/String',
                serialization_format='cdr')
@@ -172,6 +173,7 @@ This object specifies the topic name, topic data type, and serialization format 
 .. code-block:: Python
 
    topic_info = rosbag2_py._storage.TopicMetadata(
+       id=0,
        name='chatter',
        type='std_msgs/msg/String',
        serialization_format='cdr')
@@ -190,8 +192,8 @@ We will write data to the bag in the callback.
    self.subscription
 
 The callback receives the message in unserialized form (as is standard for the ``rclpy`` API) and passes the message to the writer, specifying the topic that the data is for and the timestamp to record with the message.
-However, the writer requires serialised messages to store in the bag.
-This means that we need to serialise the data before passing it to the writer.
+However, the writer requires serialized messages to store in the bag.
+This means that we need to serialize the data before passing it to the writer.
 For this reason, we call ``serialize_message()`` and pass the result of that to the writer, rather than passing in the message directly.
 
 .. code-block:: Python
@@ -345,6 +347,7 @@ Inside the ``ros2_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory
            self.writer.open(storage_options, converter_options)
 
            topic_info = rosbag2_py._storage.TopicMetadata(
+               id=0,
                name='synthetic',
                type='example_interfaces/msg/Int32',
                serialization_format='cdr')
@@ -389,6 +392,7 @@ The name of the topic is also changed, as is the data type stored.
 .. code-block:: Python
 
    topic_info = rosbag2_py._storage.TopicMetadata(
+       id=0,
        name='synthetic',
        type='example_interfaces/msg/Int32',
        serialization_format='cdr')
@@ -402,7 +406,7 @@ The timer fires with a one-second period, and calls the given member function wh
    self.timer = self.create_timer(1, self.timer_callback)
 
 Within the timer callback, we generate (or otherwise obtain, e.g. read from a serial port connected to some hardware) the data we wish to store in the bag.
-As with the previous example, the data is not yet serialised, so we must serialise it before passing it to the writer.
+As with the previous example, the data is not yet serialized, so we must serialize it before passing it to the writer.
 
 .. code-block:: Python
 
@@ -526,6 +530,7 @@ Inside the ``ros2_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory
        writer.open(storage_options, converter_options)
 
        topic_info = rosbag2_py._storage.TopicMetadata(
+           id=0,
            name='synthetic',
            type='example_interfaces/msg/Int32',
            serialization_format='cdr')
