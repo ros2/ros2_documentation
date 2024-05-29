@@ -11,7 +11,7 @@ Rolling Ridley (``rolling``)
 
   Rolling Ridley is continuously updated and is subject to in-place updates which will at times include breaking changes.
   It is used for ROS 2 development and by maintainers who want their packages released and ready for the next stable distribution.
-  We recommend that most users of ROS 2 use the latest `stable distribution <latest_release>`.
+  We recommend that most users of ROS 2 use the latest `stable distribution <latest-release>`.
 
 For more information see `REP-2002 <https://www.ros.org/reps/rep-2002.html>`_
 
