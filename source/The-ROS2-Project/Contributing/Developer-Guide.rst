@@ -207,7 +207,7 @@ Examples:
 API Documetation for ROS Packages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-API documentation for all released ROS packages, including `rclcpp <https://docs.ros.org/en/{DISTRO}/p/rclcpp/generated/index.html#>`_, and `rclpy <https://docs.ros.org/en/{DISTRO}/p/rclpy/>`_ can be `found here <https://docs.ros.org/en/{DISTRO/p/>`_.
+API documentation for all released ROS packages, including `rclcpp <https://docs.ros.org/en/{DISTRO}/p/rclcpp/generated/index.html#>`_, and `rclpy <https://docs.ros.org/en/{DISTRO}/p/rclpy/>`_ can be `found here <https://docs.ros.org/en/{DISTRO}/p/>`_.
 We recommend using `index.ros.org <https://index.ros.org/>`_ to search through available ROS packages to find their documentation.
 
 If you are a ROS package developer looking for guidance on documenting your package please see :doc:`our "how to" guide on package level documentation <../../How-To-Guides/Documenting-a-ROS-2-Package>`. The documentation for all released ROS 2 packages is automatically hosted on docs.ros.org
