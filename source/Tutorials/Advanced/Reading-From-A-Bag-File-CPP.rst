@@ -74,7 +74,7 @@ Inside your package's ``src`` directory, create a new file called ``simple_bag_r
 
     #include "rclcpp/rclcpp.hpp"
     #include "rclcpp/serialization.hpp"
-    #include "rosbag2_cpp/reader.hpp"
+    #include "rosbag2_transport/reader_writer_factory.hpp"
     #include "turtlesim/msg/pose.hpp"
 
     using namespace std::chrono_literals;
@@ -91,14 +91,17 @@ Inside your package's ``src`` directory, create a new file called ``simple_bag_r
               [this](){return this->timer_callback();}
           );
 
-          reader_.open(bag_filename);
+          rosbag2_storage::StorageOptions storage_options;
+          storage_options.uri = bag_filename;
+          reader_ = rosbag2_transport::ReaderWriterFactory::make_reader(storage_options);
+          reader_->open(storage_options);
         }
 
       private:
         void timer_callback()
         {
-          while (reader_.has_next()) {
-            rosbag2_storage::SerializedBagMessageSharedPtr msg = reader_.read_next();
+          while (reader_->has_next()) {
+            rosbag2_storage::SerializedBagMessageSharedPtr msg = reader_->read_next();
 
             if (msg->topic_name != "/turtle1/pose") {
               continue;
@@ -120,7 +123,7 @@ Inside your package's ``src`` directory, create a new file called ``simple_bag_r
         rclcpp::Publisher<turtlesim::msg::Pose>::SharedPtr publisher_;
 
         rclcpp::Serialization<turtlesim::msg::Pose> serialization_;
-        rosbag2_cpp::Reader reader_;
+        std::unique_ptr<rosbag2_cpp::Reader> reader_;
     };
 
     int main(int argc, char ** argv)
@@ -166,10 +169,14 @@ Note the constructor takes a path to the bag file as a parameter.
         );
 
 We also open the bag in the constructor.
+The ``rosbag2_transport::ReaderWriterFactory`` is a class that can construct a compressed or uncompressed reader or writer based on the storage options.
 
 .. code-block:: C++
 
-      reader_.open(bag_filename);
+      rosbag2_storage::StorageOptions storage_options;
+      storage_options.uri = bag_filename;
+      reader_ = rosbag2_transport::ReaderWriterFactory::make_reader(storage_options);
+      reader_->open(storage_options);
 
 Now, inside our timer callback, we loop through messages in the bag until we read a message recorded from our desired topic.
 Note that the serialized message has timestamp metadata in addition to the topic name.
@@ -178,8 +185,8 @@ Note that the serialized message has timestamp metadata in addition to the topic
 
     void timer_callback()
     {
-      while (reader_.has_next()) {
-        rosbag2_storage::SerializedBagMessageSharedPtr msg = reader_.read_next();
+      while (reader_->has_next()) {
+        rosbag2_storage::SerializedBagMessageSharedPtr msg = reader_->read_next();
 
         if (msg->topic_name != "/turtle1/pose") {
           continue;
@@ -215,7 +222,7 @@ We must also declare the private variables used throughout the node.
       rclcpp::Publisher<turtlesim::msg::Pose>::SharedPtr publisher_;
 
       rclcpp::Serialization<turtlesim::msg::Pose> serialization_;
-      rosbag2_cpp::Reader reader_;
+      std::unique_ptr<rosbag2_cpp::Reader> reader_;
     };
 
 Lastly, we create the main function which will check that the user passes an argument for the bag file path and spins our node.
