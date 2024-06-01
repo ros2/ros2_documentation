@@ -151,7 +151,7 @@ Open a new terminal to install ``rqt`` and its plugins:
 
       sudo apt update
 
-      sudo apt install ~nros-{DISTRO}-rqt*
+      sudo apt install '~nros-{DISTRO}-rqt*'
 
   .. group-tab:: Linux (apt 1.x/Ubuntu 18.04 and older)
 
@@ -159,7 +159,7 @@ Open a new terminal to install ``rqt`` and its plugins:
 
       sudo apt update
 
-      sudo apt install ros-{DISTRO}-rqt*
+      sudo apt install 'ros-{DISTRO}-rqt*'
 
   .. group-tab:: macOS
 
