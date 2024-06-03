@@ -40,11 +40,11 @@ a new package:
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_cmake --license Apache-2.0 bag_reading_cpp --dependencies rclcpp rosbag2_cpp turtlesim
+  ros2 pkg create --build-type ament_cmake --license Apache-2.0 bag_reading_cpp --dependencies rclcpp rosbag2_transport turtlesim
 
 Your terminal will return a message verifying the creation of your package ``bag_reading_cpp`` and all its necessary files and folders.
 The ``--dependencies`` argument will automatically add the necessary dependency lines to ``package.xml`` and ``CMakeLists.txt``.
-In this case, the package will use the ``rosbag2_cpp`` package as well as the ``rclcpp`` package.
+In this case, the package will use the ``rosbag2_transport`` package as well as the ``rclcpp`` package.
 A dependency on the ``turtlesim`` package is also required for working with the custom turtlesim messages.
 
 1.1 Update ``package.xml``
@@ -144,7 +144,7 @@ Inside your package's ``src`` directory, create a new file called ``simple_bag_r
 ~~~~~~~~~~~~~~~~~~~~
 
 The ``#include`` statements at the top are the package dependencies.
-Note the inclusion of headers from the ``rosbag2_cpp`` package for the functions and structures necessary to work with bag files.
+Note the inclusion of headers from the ``rosbag2_transport`` package for the functions and structures necessary to work with bag files.
 
 The next line creates the node which will read from the bag file and play back the data.
 
@@ -248,12 +248,12 @@ Lastly, we create the main function which will check that the user passes an arg
 
 Now open the ``CMakeLists.txt`` file.
 
-Below the dependencies block, which contains ``find_package(rosbag2_cpp REQUIRED)``, add the following lines of code.
+Below the dependencies block, which contains ``find_package(rosbag2_transport REQUIRED)``, add the following lines of code.
 
 .. code-block:: console
 
     add_executable(simple_bag_reader src/simple_bag_reader.cpp)
-    ament_target_dependencies(simple_bag_reader rclcpp rosbag2_cpp turtlesim)
+    ament_target_dependencies(simple_bag_reader rclcpp rosbag2_transport turtlesim)
 
     install(TARGETS
       simple_bag_reader
