@@ -170,6 +170,16 @@ New type support helper for services ``rclcpp::get_service_typesupport_handle`` 
 
 See https://github.com/ros2/rclcpp/pull/2209 for more details.
 
+``rclpy``
+^^^^^^^^^^
+
+ParameterEventHandler
+"""""""""""""""""""""
+
+New class ``ParameterEventHandler`` allows us to monitor and respond changes to parameters via parameter events.
+
+See https://github.com/ros2/rclpy/pull/1135 for more details.
+
 ``ros2cli``
 ^^^^^^^^^^^
 
