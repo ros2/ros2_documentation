@@ -78,7 +78,7 @@ Field types can be:
      - octet
    * - char
      - char
-     - builtins.str*
+     - builtins.int*
      - char
    * - float32
      - float
