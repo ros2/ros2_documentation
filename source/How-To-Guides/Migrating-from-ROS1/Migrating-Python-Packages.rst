@@ -170,7 +170,7 @@ In ROS 2:
 
 .. warning::
 
-   Synchronous calls such as ``rclpy.spin_until_future_complete`` can cause deadlock.
+   Do not use ``rclpy.spin_until_future_complete`` in a ROS 2 callback.
    For more details see the :doc:`sync deadlock article <../Sync-Vs-Async>`.
 
 Executing at a Specific Rate

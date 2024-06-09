@@ -259,7 +259,7 @@ Below the constructor is the ``send_request`` method, which will send the reques
 
 .. warning::
 
-  Synchronous calls such as ``rclpy.spin_until_future_complete`` can cause deadlock.
+  Do not use ``rclpy.spin_until_future_complete`` in a ROS 2 callback.
   For more details see the :doc:`sync deadlock article <../../../How-To-Guides/Sync-Vs-Async>`.
 
 
