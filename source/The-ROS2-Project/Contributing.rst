@@ -94,6 +94,51 @@ We ask all contributors to follow the practices explained in :doc:`the developer
 
 Please be sure to :ref:`run tests <colcon-run-the-tests>` for your code changes because most packages have tests that check that the code complies with our style guidelines.
 
+First Time Contributors
+^^^^^^^^^^^^^^^^^^^^^^^
+Reporting an Issue
+
+  * To report an issue, bug, or feature recommendation for this repository, please: 
+      * Visit the Issues page of the repository 
+          * For example for rclpy, it would be: https://github.com/ros2/rclpy/issues
+  * Search to see if your issue is already documented.
+      * If it IS already documented, please:
+          #. Review the post and any comments/feedback or associated Pull Requests.  Some issues cannot be resolved quickly, but sometimes the comments provide a solution that may help you in the interim. 
+          #. If you wish, you may leave a comment on the post to help boost the issue.
+          #. If you notice that an Issue tag is missing from the post, you may choose to add it (ex. bug, help wanted, question, etc.).
+          #. Check back regularly to see if a solution has been found or other feedback provided to you.
+      * If it IS NOT already documented, please:
+          #. Create an issue by clicking the “New Issue” button. 
+          #. Provide as much detail within this issue posting as possible, including exactly which files or errors you are getting.  If possible, past the exact error into the Issue posting. 
+          #. Tag your Issue posting with any relevant tags (ex. bug, help wanted, question, etc.).  If you aren’t sure what a tag means then do not use it, other users can always assign tags to a posting at a later time. 
+          #. Be sure to check in regularly for comments, questions, or possible solutions provided by other contributors.
+
+First Time Contributing Guidelines
+
+To contribute to repositories, please: 
+    * Read the License associated with the repository and Contributor Agreement above.
+        * For example, the license for rclpy is found at <https://github.com/ros2/rclpy/blob/rolling/LICENSE>
+    * If you know what you want to contribute you may:
+        * Clone the repository.
+        * Make your changes.
+        * Start a new Pull Request in order to request the push of your code. 
+            * To learn more about Pull Requests, you can visit the GitHub page here: <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests> 
+        * Specify the changes you are making and detail thoroughly why the changes are being made. 
+    * If you are looking for ways to contribute, you may:
+        * Visit the Issues page and see what open issues you think you may be able to resolve.  
+                * For example, for rclpy, visit: https://github.com/ros2/rclpy/issues
+            * To do this you may want to first clone the repository
+            * Then try to recreate the issue for yourself
+            * Once recreated, attempt to resolve the issue.
+            * Once fixed, you may submit a Pull Request and connect it to the Issue.  
+            * If all tests are passing, another contributor will review the changes before the repository is updated. 
+        * Review the Pull Requests pages for unresolved requests or ones that are not passing the internal testing suite -- ones denoted with a red X after the Title link.  
+                * For example, for rclpy, visit: https://github.com/ros2/rclpy/pulls
+            * Read through the request and any comments in the posting. 
+            * Suggest solutions within the request.
+            * Alternatively, you may also initiate a new Pull Request and be sure to leave a comment on the one you are submitting as well as the one you are fixing, so that future reviewers know that it is resolved.  
+                * This way they can both be closed if accepted. 
+
 Becoming a core maintainer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
