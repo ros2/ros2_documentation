@@ -404,34 +404,7 @@ For example, to additionally get the timestamp and location of the log calls, st
       ros2 run logging_demo logging_demo_main
 
 You should see the timestamp in seconds and the function name, filename and line number additionally printed with each message.
-*The* ``time`` *option is only supported as of the ROS 2 Bouncy release.*
-
-The following tokens are available
-
-.. list-table::
-   :header-rows: 1
-
-   * - Token
-     - Explanation
-   * - ``severity``
-     - ``DEBUG`` / ``INFO`` / ``WARN`` / ``ERROR`` / ``FATAL``
-   * - ``name``
-     - Logger name as configured in the logger function
-   * - ``message``
-     - The actual message
-   * - ``function_name``
-     - The function containing the logging statement
-   * - ``file_name``
-     - The source file containing the logging statement
-   * - ``time``
-     - Timestamp in epoch format e.g. ``1718090959.304747140``
-   * - ``date_time_with_ms``
-     - Timestamp in ISO format e.g. ``2024-06-11 09:29:19.304``
-   * - ``time_as_nanoseconds``
-     - Timestamp as nanoseconds, e.g. ``1718090959304747140``
-   * - ``line_number``
-     - Line number of the source file where the logging statement is
-     
+*The ``time`` option is only supported as of the ROS 2 Bouncy release.*
 
 ``RCUTILS_CONSOLE_OUTPUT_FORMAT`` also supports the following escape character syntax.
 
