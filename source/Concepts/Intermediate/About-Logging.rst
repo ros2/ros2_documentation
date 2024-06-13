@@ -84,6 +84,8 @@ Configuration
 
 Since ``rclcpp`` and ``rclpy`` use the same underlying logging infrastructure, the configuration options are the same.
 
+.. _logging-configuration-environment-variables:
+
 Environment variables
 ^^^^^^^^^^^^^^^^^^^^^
 
@@ -104,10 +106,28 @@ For each of the environment settings, note that this is a process-wide setting, 
   * ``{file_name}`` - The file name this was called from (may be empty).
   * ``{time}`` - The time in seconds since the epoch.
   * ``{time_as_nanoseconds}`` - The time in nanoseconds since the epoch.
+  * ``{date_time_with_ms}`` - The time in ISO format, e.g. ``2024-06-11 09:29:19.304``
   * ``{line_number}`` - The line number this was called from (may be empty).
 
   If no format is given, a default of ``[{severity}] [{time}] [{name}]: {message}`` is used.
 
+``RCUTILS_CONSOLE_OUTPUT_FORMAT`` also supports the following escape character syntax.
+
+.. list-table::
+    :header-rows: 1
+
+    * - Escape character syntax
+      - Character represented
+    * - ``\a``
+      - Alert
+    * - ``\b``
+      - Backspace
+    * - ``\n``
+      - New line
+    * - ``\r``
+      - Carriage return
+    * - ``\t``
+      - Horizontal tab
 
 Node creation
 ^^^^^^^^^^^^^
