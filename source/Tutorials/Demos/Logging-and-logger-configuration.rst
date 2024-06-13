@@ -408,24 +408,6 @@ You should see the timestamp in seconds and the function name, filename and line
 
 For more information on configuring the console logger formatting, see the :ref:`logger console configuration <logging-configuration-environment-variables>`
 
-``RCUTILS_CONSOLE_OUTPUT_FORMAT`` also supports the following escape character syntax.
-
-.. list-table::
-    :header-rows: 1
-
-    * - Escape character syntax
-      - Character represented
-    * - ``\a``
-      - Alert
-    * - ``\b``
-      - Backspace
-    * - ``\n``
-      - New line
-    * - ``\r``
-      - Carriage return
-    * - ``\t``
-      - Horizontal tab
-
 Console output colorizing
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 

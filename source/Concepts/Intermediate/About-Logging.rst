@@ -111,6 +111,23 @@ For each of the environment settings, note that this is a process-wide setting, 
 
   If no format is given, a default of ``[{severity}] [{time}] [{name}]: {message}`` is used.
 
+``RCUTILS_CONSOLE_OUTPUT_FORMAT`` also supports the following escape character syntax.
+
+.. list-table::
+    :header-rows: 1
+
+    * - Escape character syntax
+      - Character represented
+    * - ``\a``
+      - Alert
+    * - ``\b``
+      - Backspace
+    * - ``\n``
+      - New line
+    * - ``\r``
+      - Carriage return
+    * - ``\t``
+      - Horizontal tab
 
 Node creation
 ^^^^^^^^^^^^^
