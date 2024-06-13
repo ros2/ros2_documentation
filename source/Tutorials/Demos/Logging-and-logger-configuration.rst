@@ -404,7 +404,6 @@ For example, to additionally get the timestamp and location of the log calls, st
       ros2 run logging_demo logging_demo_main
 
 You should see the timestamp in seconds and the function name, filename and line number additionally printed with each message.
-*The ``time`` option is only supported as of the ROS 2 Bouncy release.*
 
 For more information on configuring the console logger formatting, see the :ref:`logger console configuration <logging-configuration-environment-variables>`
 
