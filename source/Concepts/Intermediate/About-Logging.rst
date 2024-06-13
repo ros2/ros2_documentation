@@ -104,6 +104,7 @@ For each of the environment settings, note that this is a process-wide setting, 
   * ``{file_name}`` - The file name this was called from (may be empty).
   * ``{time}`` - The time in seconds since the epoch.
   * ``{time_as_nanoseconds}`` - The time in nanoseconds since the epoch.
+  * ``{date_time_with_ms}`` - The time in ISO format, e.g. ``2024-06-11 09:29:19.304``
   * ``{line_number}`` - The line number this was called from (may be empty).
 
   If no format is given, a default of ``[{severity}] [{time}] [{name}]: {message}`` is used.
