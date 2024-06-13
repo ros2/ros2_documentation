@@ -151,13 +151,13 @@ Open a new terminal to install ``rqt`` and its plugins:
 
       sudo apt update
 
-      sudo apt install ~nros-{DISTRO}-rqt*
+      sudo apt install '~nros-{DISTRO}-rqt*'
 
   .. group-tab:: RHEL
 
     .. code-block:: console
 
-      sudo dnf install ros-{DISTRO}-rqt*
+      sudo dnf install 'ros-{DISTRO}-rqt*'
 
   .. group-tab:: macOS
 
