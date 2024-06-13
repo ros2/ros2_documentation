@@ -84,6 +84,8 @@ Configuration
 
 Since ``rclcpp`` and ``rclpy`` use the same underlying logging infrastructure, the configuration options are the same.
 
+.. _logging-configuration-environment-variables:
+
 Environment variables
 ^^^^^^^^^^^^^^^^^^^^^
 
