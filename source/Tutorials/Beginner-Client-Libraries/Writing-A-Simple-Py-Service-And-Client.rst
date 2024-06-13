@@ -196,16 +196,16 @@ Inside the ``ros2_ws/src/py_srvcli/py_srvcli`` directory, create a new file call
       def send_request(self, a, b):
           self.req.a = a
           self.req.b = b
-          self.future = self.cli.call_async(self.req)
-          rclpy.spin_until_future_complete(self, self.future)
-          return self.future.result()
+          return self.cli.call_async(self.req)
 
 
   def main():
       rclpy.init()
 
       minimal_client = MinimalClientAsync()
-      response = minimal_client.send_request(int(sys.argv[1]), int(sys.argv[2]))
+      future = minimal_client.send_request(int(sys.argv[1]), int(sys.argv[2]))
+      rclpy.spin_until_future_complete(minimal_client, future)
+      response = future.result()
       minimal_client.get_logger().info(
           'Result of add_two_ints: for %d + %d = %d' %
           (int(sys.argv[1]), int(sys.argv[2]), response.sum))
@@ -246,18 +246,16 @@ Finally it creates a new ``AddTwoInts`` request object.
           self.get_logger().info('service not available, waiting again...')
       self.req = AddTwoInts.Request()
 
-Below the constructor is the ``send_request`` method, which will send the request and spin until it receives the response or fails.
+Below the constructor is the ``send_request`` method, which will send the request and return a future that can be passed to ``spin_until_future_complete``:
 
 .. code-block:: python
 
   def send_request(self, a, b):
       self.req.a = a
       self.req.b = b
-      self.future = self.cli.call_async(self.req)
-      rclpy.spin_until_future_complete(self, self.future)
-      return self.future.result()
+      return self.cli.call_async(self.req)
 
-Finally we have the ``main`` method, which constructs a ``MinimalClientAsync`` object, sends the request using the passed-in command-line arguments, and logs the results.
+Finally we have the ``main`` method, which constructs a ``MinimalClientAsync`` object, sends the request using the passed-in command-line arguments, calls ``spin_until_future_complete``, and logs the results:
 
 .. code-block:: python
 
@@ -265,7 +263,9 @@ Finally we have the ``main`` method, which constructs a ``MinimalClientAsync`` o
       rclpy.init()
 
       minimal_client = MinimalClientAsync()
-      response = minimal_client.send_request(int(sys.argv[1]), int(sys.argv[2]))
+      future = minimal_client.send_request(int(sys.argv[1]), int(sys.argv[2]))
+      rclpy.spin_until_future_complete(minimal_client, future)
+      response = future.result()
       minimal_client.get_logger().info(
           'Result of add_two_ints: for %d + %d = %d' %
           (int(sys.argv[1]), int(sys.argv[2]), response.sum))
