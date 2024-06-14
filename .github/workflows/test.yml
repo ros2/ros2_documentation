@@ -16,7 +16,6 @@ jobs:
 
       - name: Install dependencies with pip
         run: pip install --no-warn-script-location --user -r requirements.txt -c constraints.txt
-
       - name: Test doc8
         run: make test
 
@@ -40,6 +39,13 @@ jobs:
   build:
     needs: [test, lint]
     runs-on: ubuntu-22.04
+    # By default, I believe that Github actions use sh, and not bash,
+    # to run each step.  But we really want bash so that we get pipefail
+    # behavior, so set the default to bash.  See
+    # https://github.com/actions/runner/issues/353 for more information.
+    defaults:
+      run:
+        shell: bash
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -55,5 +61,23 @@ jobs:
       - name: Install dependencies with pip
         run: pip install --no-warn-script-location --user -r requirements.txt -c constraints.txt
 
+      # This step runs the build process and collects the output into a variable.
+      # We have to process that variable through jq to make a JSON object to work
+      # around a GitHub limitation of carriage returns in output; see
+      # https://github.community/t/set-output-truncates-multiline-strings/16852/8
+      # for a discussion and the origin of this workaround.
       - name: Build the docs
-        run: make html
+        id: build
+        run: |
+          msg=$(make html 2>&1 | jq --raw-input --slurp '.')
+          echo "::set-output name=OUTPUT::$msg"
+
+      - name: Check output for warnings
+        run: |
+          count=$(echo "${{ fromJSON(steps.build.outputs.OUTPUT) }}" | grep -c -i warning) || true
+          if [ "$count" -gt 0 ]; then exit 1; fi
+
+      - name: Check output for errors
+        run: |
+          count=$(echo "${{ fromJSON(steps.build.outputs.OUTPUT) }}" | grep -c -i error) || true
+          if [ "$count" -gt 0 ]; then exit 1; fi
