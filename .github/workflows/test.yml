@@ -57,3 +57,16 @@ jobs:
 
       - name: Build the docs
         run: make html
+
+      - name: Upload document artifacts
+        uses: actions/upload-artifact@v4
+        id: artifact-upload-step
+        with:
+          name: html-artifacts
+          path: build/html
+          retention-days: 60 # default 90
+          compression-level: 9 # maximum compression, default 6
+          if-no-files-found: error # 'warn' or 'ignore' are also available, defaults to `warn`
+
+      - name: Output artifact URL
+        run:  echo 'Artifact URL is ${{ steps.artifact-upload-step.outputs.artifact-url }}'
