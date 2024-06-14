@@ -87,6 +87,12 @@ Set up your environment by sourcing the following file.
    # Possible values are: setup.bash, setup.sh, setup.zsh
    source /opt/ros/{DISTRO}/setup.bash
 
+Note for ZSH users, replace all instances of the above with the following:
+
+.. code-block:: bash
+
+   source /opt/ros/{DISTRO}/setup.zsh
+
 Try some examples
 -----------------
 
