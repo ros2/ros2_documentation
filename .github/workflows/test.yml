@@ -67,6 +67,3 @@ jobs:
           retention-days: 60 # default 90
           compression-level: 9 # maximum compression, default 6
           if-no-files-found: error # 'warn' or 'ignore' are also available, defaults to `warn`
-
-      - name: Output artifact URL
-        run:  echo 'Artifact URL is ${{ steps.artifact-upload-step.outputs.artifact-url }}'
