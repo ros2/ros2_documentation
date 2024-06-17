@@ -15,20 +15,6 @@ System requirements
 
 We currently support macOS Sonoma (14.5) with Apple Silicon (e.g. M1) Mac
 
-
-One-liner installtion script
-----------------------------
-
-Open Terminal.app in Applications and type in the following command:
-
-.. code-block:: bash
-
-   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/IOES-Lab/ROS2_Jazzy_MacOS_Native_AppleSilicon/main/install.sh)"
-
-
-It will guide you through the installation process and install all the dependencies and ROS 2 Jazzy and Gazebo Harmonic for you.
-
-
 System setup
 ------------
 
