@@ -13,7 +13,21 @@ macOS (source)
 System requirements
 -------------------
 
-We currently support macOS Mojave (10.14).
+We currently support macOS Sonoma (14.5) with Apple Silicon (e.g. M1) Mac
+
+
+One-liner installtion script
+----------------------------
+
+Open Terminal.app in Applications and type in the following command:
+
+.. code-block:: bash
+
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/IOES-Lab/ROS2_Jazzy_MacOS_Native_AppleSilicon/main/install.sh)"
+
+
+It will guide you through the installation process and install all the dependencies and ROS 2 Jazzy and Gazebo Harmonic for you.
+
 
 System setup
 ------------
@@ -41,27 +55,46 @@ You need the following things installed to build ROS 2:
         # To accept the Xcode.app license
 
 #.
-   **brew** *(needed to install more stuff; you probably already have this)*:
+   **brew** *(needed to install dependencies; you probably already have this)*:
 
 
-   * Follow installation instructions at http://brew.sh/
-   *
-     *Optional*: Check that ``brew`` is happy with your system configuration by running:
+   * Follow installation instructions at http://brew.sh/. Following is the oneliner installation script for brew
 
      .. code-block:: bash
 
-        brew doctor
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-     Fix any problems that it identifies.
+   *
+     Check that ``brew`` is set not to use ``Rosseta`` (we don't want emulation of x86_64 binaries):
+
+     following code will show configuration of current brew installation. Make sure ``Rosseta 2: false``.
+
+     .. code-block:: bash
+
+        brew config
+
+     If not, remove one that is using Rosseta (it's installed at ``/usr/local``) with following code and reinstall:
+
+     .. code-block:: bash
+   
+        curl -fsSLO https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh
+        /bin/bash uninstall.sh --path /usr/local
 
 #.
-   Use ``brew`` to install more stuff:
+   Use ``brew`` to install dependencies:
+
+   First, set environment for brew:
+
+   .. code-block:: bash
+
+      echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+      eval "$(/opt/homebrew/bin/brew shellenv)"
 
    .. code-block:: bash
 
       brew install asio assimp bison bullet cmake console_bridge cppcheck \
-        cunit eigen freetype graphviz opencv openssl orocos-kdl pcre poco \
-        pyqt@5 python qt@5 sip spdlog tinyxml2
+         cunit eigen freetype graphviz opencv openssl orocos-kdl pcre poco \
+         pyqt@5 python@3.11 qt@5 sip spdlog tinyxml tinyxml2
 
 #.
    Setup some environment variables:
@@ -69,55 +102,57 @@ You need the following things installed to build ROS 2:
    .. code-block:: bash
 
       # Add the openssl dir for DDS-Security
-      # if you are using BASH, then replace '.zshrc' with '.bashrc'
-      echo "export OPENSSL_ROOT_DIR=$(brew --prefix openssl)" >> ~/.zshrc
+      export OPENSSL_ROOT_DIR=$(brew --prefix openssl)"
 
       # Add the Qt directory to the PATH and CMAKE_PREFIX_PATH
-      export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:$(brew --prefix qt@5)
+      export CMAKE_PREFIX_PATH=$(brew --prefix qt@5):$(brew --prefix qt@5)/lib:/opt/homebrew/opt:$(brew --prefix)/lib
       export PATH=$PATH:$(brew --prefix qt@5)/bin
 
+      # Disable notification during compile
+      export COLCON_EXTENSION_BLOCKLIST=colcon_core.event_handler.desktop_notification
+
 #.
-   Use ``python3 -m pip`` (just ``pip`` may install Python3 or Python2) to install more stuff:
+   Check that you have python3.11 installed (we've installed with Brew above):
 
    .. code-block:: bash
 
+      python3 --version
+      # it should print 3.11.x
+
+   Create a virtual environment for Python3.11:
+
+   .. code-block:: bash
+
+      # Generate python virtual environment
+      python3 -m venv ~/.ros2_venv
+      # Activate python3.11 virtual environment
+      source ~/.ros2_venv/bin/activate
+      # now you will see (.ros2_venv) in your terminal prompt
+
+   Use ``python3 -m pip`` to install more stuff:
+
+   .. code-block:: bash
+
+      # make sure you see (.ros2_venv) in your terminal prompt
       python3 -m pip install --upgrade pip
 
       python3 -m pip install -U \
-        --config-settings="--global-option=build_ext" \
-        --config-settings="--global-option=-I$(brew --prefix graphviz)/include/" \
-        --config-settings="--global-option=-L$(brew --prefix graphviz)/lib/" \
-        argcomplete catkin_pkg colcon-common-extensions coverage \
-        cryptography empy flake8 flake8-blind-except==0.1.1 flake8-builtins \
-        flake8-class-newline flake8-comprehensions flake8-deprecated \
-        flake8-docstrings flake8-import-order flake8-quotes \
-        importlib-metadata jsonschema lark==1.1.1 lxml matplotlib mock mypy==0.931 netifaces \
-        nose pep8 psutil pydocstyle pydot pygraphviz pyparsing==2.4.7 \
-        pytest-mock rosdep rosdistro setuptools==59.6.0 vcstool
+         argcomplete catkin_pkg colcon-common-extensions coverage \
+         cryptography empy flake8 flake8-blind-except==0.1.1 flake8-builtins \
+         flake8-class-newline flake8-comprehensions flake8-deprecated \
+         flake8-docstrings flake8-import-order flake8-quotes \
+         importlib-metadata jsonschema lark==1.1.1 lxml matplotlib mock mypy==0.931 netifaces \
+         nose pep8 psutil pydocstyle pydot pyparsing==2.4.7 \
+         pytest-mock rosdep rosdistro setuptools==59.6.0 vcstool
+
+      python3 -m pip install \
+         --config-settings="--global-option=build_ext" \
+         --config-settings="--global-option=-I/opt/homebrew/opt/graphviz/include/" \
+         --config-settings="--global-option=-L/opt/homebrew/opt/graphviz/lib/" \
+         pygraphviz
 
    Please ensure that the ``$PATH`` environment variable contains the install location of the binaries (``$(brew --prefix)/bin``)
 
-#.
-   *Optional*: if you want to build the ROS 1<->2 bridge, then you must also install ROS 1:
-
-
-   * Start with the normal install instructions: http://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source
-   *
-     When you get to the step where you call ``rosinstall_generator`` to get the source code, here's an alternate invocation that brings in just the minimum required to produce a useful bridge:
-
-     .. code-block:: bash
-
-        rosinstall_generator catkin common_msgs roscpp rosmsg --rosdistro kinetic --deps --wet-only --tar > kinetic-ros2-bridge-deps.rosinstall
-        wstool init -j8 src kinetic-ros2-bridge-deps.rosinstall
-
-
-     Otherwise, just follow the normal instructions, then source the resulting ``install_isolated/setup.bash`` before proceeding here to build ROS 2.
-
-Disable System Integrity Protection (SIP)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-macOS/OS X versions >=10.11 have System Integrity Protection enabled by default.
-So that SIP doesn't prevent processes from inheriting dynamic linker environment variables, such as ``DYLD_LIBRARY_PATH``, you'll need to disable it `following these instructions <https://developer.apple.com/library/content/documentation/Security/Conceptual/System_Integrity_Protection_Guide/ConfiguringSystemIntegrityProtection/ConfiguringSystemIntegrityProtection.html>`__.
 
 Build ROS 2
 -----------
@@ -131,13 +166,54 @@ Create a workspace and clone all repos:
 
    mkdir -p ~/ros2_{DISTRO}/src
    cd ~/ros2_{DISTRO}
-   vcs import --input https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos src
+   export JAZZY_RELEASE_TAG=release-jazzy-20240523
+   vcs import --force --shallow --retry 0 --input https://raw.githubusercontent.com/ros2/ros2/$JAZZY_RELEASE_TAG/ros2.repos src
 
-Install additional RMW implementations (optional)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Patch Files for macOS Installation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at build or runtime.
-See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
+First compile upto ``cyclonedds`` to generate compile structure and apply patches,
+
+.. code-block:: bash
+
+   python3 -m colcon build --symlink-install --cmake-args -DBUILD_TESTING=OFF -Wno-dev \
+             -Wno-sign-conversion -Wno-infinite-recursion \
+             --packages-skip-by-dep python_qt_binding --packages-up-to cyclonedds \
+             --event-handlers console_cohesion+
+
+Apply patches,
+
+.. code-block:: bash
+
+   # patch for cyclonedds
+   ln -s "../../iceoryx_posh/lib/libiceoryx_posh.dylib" install/iceoryx_binding_c/lib/libiceoryx_posh.dylib
+   ln -s "../../iceoryx_hoofs/lib/libiceoryx_hoofs.dylib" install/iceoryx_binding_c/lib/libiceoryx_hoofs.dylib
+   ln -s "../../iceoryx_hoofs/lib/libiceoryx_platform.dylib" install/iceoryx_binding_c/lib/libiceoryx_platform.dylib
+
+   # Patch for orocos-kdl(to use ones that of brew)
+   curl -sSL https://raw.githubusercontent.com/IOES-Lab/ROS2_Jazzy_MacOS_Native_AppleSilicon/main/patches/geometry2_tf2_eigen_kdl.patch | patch -p1 -Ns
+   curl -sSL https://raw.githubusercontent.com/IOES-Lab/ROS2_Jazzy_MacOS_Native_AppleSilicon/main/patches/ros_visualization_interactive_markers.patch | patch -p1 -Ns
+   curl -sSL https://raw.githubusercontent.com/IOES-Lab/ROS2_Jazzy_MacOS_Native_AppleSilicon/main/patches/kdl_parser.patch | patch -p1 -Ns
+
+   # patch for rviz_ogre_vendor
+   curl -sSL https://raw.githubusercontent.com/IOES-Lab/ROS2_Jazzy_MacOS_Native_AppleSilicon/main/patches/rviz_default_plugins.patch | patch -p1 -Ns
+   curl -sSL https://raw.githubusercontent.com/IOES-Lab/ROS2_Jazzy_MacOS_Native_AppleSilicon/main/patches/rviz_ogre_vendor.patch | patch -p1 -Ns
+   curl -sSL https://raw.githubusercontent.com/IOES-Lab/ROS2_Jazzy_MacOS_Native_AppleSilicon/main/patches/0001-pragma.patch | patch -p1 -Ns
+
+   # patch for rosbag2_transport
+   curl -sSL https://raw.githubusercontent.com/IOES-Lab/ROS2_Jazzy_MacOS_Native_AppleSilicon/main/patches/rosbag2_transport.patch | patch -p1 -Ns
+
+   # Fix brew linking of qt@5 (one from brew installation)
+   brew unlink qt && brew link qt@5
+
+   # Revert python_orocos_kdl_vendor back to 0.4.1
+   rm -rf src/ros2/orocos_kdl_vendor
+   git clone https://github.com/ros2/orocos_kdl_vendor.git src/ros2/orocos_kdl_vendor
+   ( cd ./src/ros2/orocos_kdl_vendor/python_orocos_kdl_vendor || exit; git checkout 0.4.1 )
+
+   # Remove eclipse-cyclonedds (this doesn't work)
+   rm -rf src/eclipse-cyclonedds
+
 
 Build the code in the workspace
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -147,7 +223,17 @@ Run the ``colcon`` tool to build everything (more on using ``colcon`` in :doc:`t
 .. code-block:: bash
 
    cd ~/ros2_{DISTRO}/
-   colcon build --symlink-install --packages-skip-by-dep python_qt_binding
+   python3.11 -m colcon build  --symlink-install \
+      --packages-skip-by-dep python_qt_binding \
+      --cmake-args \
+      --no-warn-unused-cli \
+      -DBUILD_TESTING=OFF \
+      -DINSTALL_EXAMPLES=ON \
+      -DCMAKE_BUILD_TYPE=Release \
+      -DCMAKE_OSX_SYSROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk \
+      -DCMAKE_OSX_ARCHITECTURES="arm64" \
+      -DPython3_EXECUTABLE="$HOME/$VIRTUAL_ENV_ROOT/bin/python3" \
+      -Wno-dev --event-handlers console_cohesion+
 
 Note: due to an unresolved issue with SIP, Qt@5, and PyQt5, we need to disable ``python_qt_binding`` to have the build succeed.
 This will be removed when the issue is resolved, see: https://github.com/ros-visualization/python_qt_binding/issues/103
@@ -159,7 +245,12 @@ Source the ROS 2 setup file:
 
 .. code-block:: bash
 
+   # one-time activator
    . ~/ros2_{DISTRO}/install/setup.zsh
+   # alias creation for future use
+   echo "alias ros='source ~/ros2_{DISTRO}/install/setup.zsh'" >> ~/.zprofile
+   # if you want it as default (always)
+   echo "source ~/ros2_{DISTRO}/install/setup.zsh" >> ~/.zprofile
 
 This will automatically set up the environment for any DDS vendors that support was built for.
 
@@ -181,6 +272,13 @@ In another terminal source the setup file and then run a Python ``listener``:
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
 This verifies both the C++ and Python APIs are working properly.
 Hooray!
+
+The Rviz,
+
+.. code-block:: bash
+
+   rviz2
+
 
 Next steps
 ----------
