@@ -44,11 +44,7 @@ You need the following things installed to build ROS 2:
    **brew** *(needed to install dependencies; you probably already have this)*:
 
 
-   * Follow installation instructions at http://brew.sh/. Following is the oneliner installation script for brew
-
-     .. code-block:: bash
-
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   * Follow installation instructions at http://brew.sh/.
 
    *
      Check that ``brew`` is set not to use ``Rosseta`` (we don't want emulation of x86_64 binaries):
@@ -59,12 +55,11 @@ You need the following things installed to build ROS 2:
 
         brew config
 
-     If not, remove one that is using Rosseta (it's installed at ``/usr/local``) with following code and reinstall:
+     If not, remove one that is using Rosseta (it's installed at ``/usr/local``)
 
-     .. code-block:: bash
-   
-        curl -fsSLO https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh
-        /bin/bash uninstall.sh --path /usr/local
+     Use the uninstall script by Homebrew (https://github.com/homebrew/install?tab=readme-ov-file#uninstall-homebrew)
+
+     Make sure you add ``--path /usr/local`` at the end of the uninstall command to remove the Rosseta installation.
 
 #.
    Use ``brew`` to install dependencies:
@@ -146,7 +141,7 @@ Build ROS 2
 Get ROS 2 code
 ^^^^^^^^^^^^^^
 
-Create a workspace and clone all repos:
+Create a workspace and clone all repos (cloning the eact release version tag is required for patches):
 
 .. code-block:: bash
 
@@ -158,7 +153,7 @@ Create a workspace and clone all repos:
 Patch Files for macOS Installation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-First compile upto ``cyclonedds`` to generate compile structure and apply patches,
+First compile up to ``cyclonedds`` to generate compile structure and apply patches,
 
 .. code-block:: bash
 
