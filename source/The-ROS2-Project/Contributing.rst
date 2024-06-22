@@ -94,6 +94,19 @@ We ask all contributors to follow the practices explained in :doc:`the developer
 
 Please be sure to :ref:`run tests <colcon-run-the-tests>` for your code changes because most packages have tests that check that the code complies with our style guidelines.
 
+New feature : Github Action Artifacts
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+It was a burden for developers and maintainers to build the html from incoming PR to make sure how it looks like during review process. besides, this happens several times for each PR.
+
+**What’s in it for us?**
+For developers, they can see the html artifacts built with proposed PR to verify.
+For maintainers, it makes easier to check how the final html files look like with downloading the artifacts.
+
+Html Artifact is available in summary
+
+`Download HTML Artifacts from <https://github.com/ros2/ros2_documentation/actions/runs/9522315905>`_
+
+
 Becoming a core maintainer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
