@@ -155,7 +155,8 @@ Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your
 Alternate compilers
 -------------------
 
-Using a different compiler besides gcc to compile ROS 2 is easy. If you set the environment variables ``CC`` and ``CXX`` to executables for a working C and C++ compiler, respectively, and retrigger CMake configuration (by using ``--force-cmake-config`` or by deleting the packages you want to be affected), CMake will reconfigure and use the different compiler.
+Using a different compiler besides gcc to compile ROS 2 is easy.
+If you set the environment variables ``CC`` and ``CXX`` to executables for a working C and C++ compiler, respectively, and retrigger CMake configuration (by using ``--cmake-force-configure`` or by deleting the packages you want to be affected), CMake will reconfigure and use the different compiler.
 
 Clang
 ^^^^^
