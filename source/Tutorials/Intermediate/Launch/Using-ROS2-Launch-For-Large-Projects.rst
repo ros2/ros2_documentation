@@ -218,28 +218,30 @@ Let's now create a configuration file, ``turtlesim.yaml``, in the ``/config`` fo
          background_g: 86
          background_r: 150
 
-If we now start the ``turtlesim_world_2.launch.py`` launch file, we will start the ``turtlesim_node`` with preconfigured background colors.
-
-Make sure that you have installed the ``turtlesim.yaml`` file. If you have a C++ package, write in the package ``CMakeLists.txt``: 
-
-.. code-block:: cmake
-    install(DIRECTORY
-      config
-      DESTINATION share/${PROJECT_NAME}
-    )
-
-Instead, if you have a Python package, add in package ``setup.py`` file:
-
-.. code-block:: Python
-    data_files=[
-        ('share/ament_index/resource_index/packages',
-            ['resource/' + package_name]),
-        ('share/' + package_name, ['package.xml']),
-        (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),
-        (os.path.join('share', package_name, 'config'), glob('config/*.yaml'))
-    ],
+Make sure that you have installed the ``turtlesim.yaml`` file. 
+.. tabs::
+    .. group-tab:: C++
+    If you have a C++ package, write in the package ``CMakeLists.txt``: 
+        .. code-block:: cmake
+            install(DIRECTORY
+              config
+              DESTINATION share/${PROJECT_NAME}
+            )
+    .. group-tab:: Python
+    Instead, if you have a Python package, add in package ``setup.py`` file:
+        .. code-block:: python
+            data_files=[
+                ('share/ament_index/resource_index/packages',
+                    ['resource/' + package_name]),
+                ('share/' + package_name, ['package.xml']),
+                (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),
+                (os.path.join('share', package_name, 'config'), glob('config/*.yaml'))
+            ],
 
 To learn more about using parameters and using YAML files, take a look at the :doc:`Understand parameters <../../Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters>` tutorial.
+
+
+If we now start the ``turtlesim_world_2.launch.py`` launch file, we will start the ``turtlesim_node`` with preconfigured background colors.
 
 2.3 Using wildcards in YAML files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
