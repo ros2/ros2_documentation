@@ -227,7 +227,7 @@ Running this command on the ``subset`` bag file will return a list of informatio
   End                Oct 11 2019 06:09:57.60 (1570799397.60)
   Messages:          3013
   Topic information: Topic: /turtle1/cmd_vel | Type: geometry_msgs/msg/Twist | Count: 9 | Serialization Format: cdr
-                   Topic: /turtle1/pose | Type: turtlesim/msg/Pose | Count: 3004 | Serialization Format: cdr
+                   Topic: /turtle1/pose | Type: turtlesim_msgs/msg/Pose | Count: 3004 | Serialization Format: cdr
 
 5 Play topic data
 ^^^^^^^^^^^^^^^^^
