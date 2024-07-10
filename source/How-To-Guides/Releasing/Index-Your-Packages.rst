@@ -12,9 +12,9 @@ All packages released into ROS must be open source.
 It does not matter where the code is hosted.
 Here are some popular choices.
 
-* `Github <https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository>`
-* `Gitlab <https://docs.gitlab.com/ee/user/project/repository/>`
-* `Bitbucket <https://support.atlassian.com/bitbucket-cloud/docs/create-a-git-repository/>`
+* `GitHub <https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository>`__
+* `GitLab <https://docs.gitlab.com/ee/user/project/repository/>`__
+* `Bitbucket <https://support.atlassian.com/bitbucket-cloud/docs/create-a-git-repository/>`__
 
 Give your packages an OSI Approved license
 ------------------------------------------
