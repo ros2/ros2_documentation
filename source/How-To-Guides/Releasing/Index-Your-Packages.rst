@@ -34,10 +34,9 @@ If one of your ROS package names doesn't comply, then change the name before con
 
 Decide what ROS Distro you want to release into
 -----------------------------------------------
-
 Decide what ROS Distro you want to release your packages into.
-At a minimum, you should release your packages into `ROS Rolling <https://docs.ros.org/en/rolling>` so that your ROS packages are automatically included in the next ROS release.
-You may also want to release into any active long-term-support distros, but this is up to you.
+At a minimum, you should release your packages into `ROS Rolling <https://docs.ros.org/en/rolling>`__ so that your ROS packages are automatically included in the next ROS release.
+You may also want to release into any active ROS distributions, but this is up to you.
 
 Create a GitHub account
 -----------------------
