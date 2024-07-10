@@ -77,7 +77,7 @@ Here's how to fill out each item:
 
 Open a pull request to ros/rosdistro
 ------------------------------------
-`Open a pull request <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request>` to `ros/rosdistro <https://github.com/ros/rosdistro/>` with the branch that you made your changes to.
+`Open a pull request <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request>`__ to `ros/rosdistro <https://github.com/ros/rosdistro/>`__ with the branch that you made your changes to.
 Wait a few days for it to be reviewed.
 
 What happens next
