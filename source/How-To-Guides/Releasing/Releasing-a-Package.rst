@@ -11,6 +11,7 @@ Releasing a Package
 .. toctree::
    :hidden:
 
+   Index-Your-Packages
    First-Time-Release
    Subsequent-Releases
    Release-Team-Repository
@@ -26,7 +27,8 @@ This will:
 
 **Follow one of the guides below to get your package released:**
 
-* :doc:`First Time Release <First-Time-Release>` - if this is the first release for the package
+* :doc:`Index Your Packages <Index-Your-Packages>` - if this is the first release for the package
+* :doc:`First Time Release <First-Time-Release>` - if this is the first release for the package, but it is already indexed
 * :doc:`Subsequent Releases <Subsequent-Releases>` - if you are releasing a new version of a package that has already been released
 
 After successfully following the instructions, your package will be released into the ROS ecosystem on the next distro synchronization!
