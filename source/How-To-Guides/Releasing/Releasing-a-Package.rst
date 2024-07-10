@@ -11,6 +11,7 @@ Releasing a Package
 .. toctree::
    :hidden:
 
+   Index-Your-Packages
    First-Time-Release
    Subsequent-Releases
    Release-Team-Repository

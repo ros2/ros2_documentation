@@ -9,10 +9,10 @@ Put your ROS packages into a public repository
 
 If you haven't done so already, put the source code of your ROS packages into a public git repository.
 All packages released into ROS must be open source.
-It does not matter where the code is hosted.
-Here are some popular choices.
+You can host code anywhere, but GitHub is recommended because it gives you the option to enable `pull request jobs <https://wiki.ros.org/buildfarm/Pull%20request%20testing>`__.
+Here are some choices:
 
-* `GitHub <https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository>`__
+* `GitHub <https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository>`__ **Recommended**
 * `GitLab <https://docs.gitlab.com/ee/user/project/repository/>`__
 * `Bitbucket <https://support.atlassian.com/bitbucket-cloud/docs/create-a-git-repository/>`__
 
@@ -53,7 +53,7 @@ Make changes to your fork
 -------------------------
 Remember the ROS distributions you decided to release into?
 Each ROS distribution has a folder in the `ros/rosdistro <https://github.com/ros/rosdistro/>`__ repository.
-For example, the name of the ROS Rolling folder is `rolling`.
+For example, the name of the ROS Rolling folder is ``rolling``.
 For each ROS distribution you want to release into:
 
 1. fill out the following template
