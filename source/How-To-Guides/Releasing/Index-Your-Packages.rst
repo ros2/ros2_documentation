@@ -51,11 +51,10 @@ The fork will be used every time you do a release.
 
 Make changes to your fork
 -------------------------
-
-Remember the ROS distros you decided to release into?
-Each ROS distro has a folder in the `ros/rosdistro <https://github.com/ros/rosdistro/>` repository.
+Remember the ROS distributions you decided to release into?
+Each ROS distribution has a folder in the `ros/rosdistro <https://github.com/ros/rosdistro/>`__ repository.
 For example, the name of the ROS Rolling folder is `rolling`.
-For each ROS distro you want to release into:
+For each ROS distribution you want to release into:
 
 1. fill out the following template
 2. put the filled-out template into the ``distribution.yaml`` file in the corresponding ROS distro's folder
