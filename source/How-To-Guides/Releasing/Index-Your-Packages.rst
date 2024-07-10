@@ -9,7 +9,7 @@ Put your ROS packages into a public repository
 
 If you haven't done so already, put the source code of your ROS packages into a public git repository.
 All packages released into ROS must be open source.
-You can host code anywhere, but GitHub is recommended because it gives you the option to enable `pull request jobs <https://wiki.ros.org/buildfarm/Pull%20request%20testing>`__.
+You can host code anywhere, but GitHub is recommended because it gives you the option to enable pull request jobs.
 Here are some choices:
 
 * `GitHub <https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository>`__ **Recommended**
