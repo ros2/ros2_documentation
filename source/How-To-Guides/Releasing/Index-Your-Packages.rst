@@ -83,10 +83,9 @@ Wait a few days for it to be reviewed.
 What happens next
 -----------------
 You've now done everything required to index your ROS packages.
-One of the reviewers will look at your pull request and decide if it `satisfies the review guidelines <https://github.com/ros/rosdistro/blob/master/REVIEW_GUIDELINES.md>`.
-The reviewer maye either approve your changes as is, or give you actionable feedback.
-Once the pull request meets the review guidelines it will be merged, and your packages will appear on the `ROS Index <https://index.ros.org/>`.
+One of the reviewers will look at your pull request and decide if it `satisfies the review guidelines <https://github.com/ros/rosdistro/blob/master/REVIEW_GUIDELINES.md>`__.
+The reviewer may either approve your changes as is, or give you actionable feedback.
+Once the pull request meets the review guidelines it will be merged, and your packages will appear on the `ROS Index <https://index.ros.org/>`__.
 
 You've completed an important step toward releasing your package.
 Proceed to the next guide: :doc:`First Time Release <First-Time-Release>`.
-
