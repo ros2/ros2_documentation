@@ -1,7 +1,7 @@
 Index Your Packages
 ===================
 
-Are you releasing a new ROS package into a ROS Distro?
+Are you releasing a new ROS package into a ROS distribution?
 Make the process faster by indexing your packages first.
 
 Put your ROS packages into a public repository
@@ -28,13 +28,13 @@ If the ROS packages in your repository have different licenses, create a ``LICEN
 
 Give your packages REP 144 compliant names
 ------------------------------------------
-Packages released into a ROS distro must have names that comply with `REP 144 <https://www.ros.org/reps/rep-0144.html>`__.
+Packages released into a ROS distribution must have names that comply with `REP 144 <https://www.ros.org/reps/rep-0144.html>`__.
 Read the full REP to understand the rules.
 If one of your ROS package names doesn't comply, then change the name before continuing.
 
-Decide what ROS Distro you want to release into
------------------------------------------------
-Decide what ROS Distro you want to release your packages into.
+Decide what ROS distribution you want to release into
+-----------------------------------------------------
+Decide what ROS distribution you want to release your packages into.
 At a minimum, you should release your packages into `ROS Rolling <https://docs.ros.org/en/rolling>`__ so that your ROS packages are automatically included in the next ROS release.
 You may also want to release into any active ROS distributions, but this is up to you.
 
@@ -57,7 +57,7 @@ For example, the name of the ROS Rolling folder is `rolling`.
 For each ROS distribution you want to release into:
 
 1. fill out the following template
-2. put the filled-out template into the ``distribution.yaml`` file in the corresponding ROS distro's folder
+2. put the filled-out template into the ``distribution.yaml`` file in the corresponding ROS distribution's folder
 
 .. code-block:: yaml
 
@@ -72,7 +72,7 @@ Here's how to fill out each item:
 
 * YOUR-REPO-NAME: This is an arbitrary human-readable name. For repos hosted on GitHub, use the lowercase name of your repository not including the organization. For example, the repository name of ``https://github.com/ros2/rosidl`` is ``rosidl``.
 * YOUR-GIT-REPO-URL: This is the https URL from which one could ``git clone`` your repository. For example, the git repo URL of ``https://github.com/ros2/rosidl`` is ``https://github.com/ros2/rosidl.git``.  It is important that this URL ends in ``.git``, or it will fail to pass the linters.
-* YOUR-BRANCH-NAME: This is the git branch on your repository from which you will release your package into this ROS distro. This is commonly one of: ``main``, ``master``, or the name of the ROS distro itself. For example, the `rosidl repository <https://github.com/ros2/rosidl>`__ uses the branch ``rolling`` to hold changes to be released into ROS Rolling.
+* YOUR-BRANCH-NAME: This is the git branch on your repository from which you will release your package into this ROS distribution. This is commonly one of: ``main``, ``master``, or the name of the ROS distribution itself. For example, the `rosidl repository <https://github.com/ros2/rosidl>`__ uses the branch ``rolling`` to hold changes to be released into ROS Rolling.
 * YOUR-STATUS: This is a status from the list in `REP 141 <https://www.ros.org/reps/rep-0141.html#distribution-file>`__. You likely want either ``maintained`` or ``developed``.
 
 Open a pull request to ros/rosdistro
