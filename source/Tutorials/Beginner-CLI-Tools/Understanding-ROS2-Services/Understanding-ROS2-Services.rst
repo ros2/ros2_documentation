@@ -133,13 +133,13 @@ Which will return:
 .. code-block:: console
 
   /clear [std_srvs/srv/Empty]
-  /kill [turtlesim/srv/Kill]
+  /kill [turtlesim_msgs/srv/Kill]
   /reset [std_srvs/srv/Empty]
-  /spawn [turtlesim/srv/Spawn]
+  /spawn [turtlesim_msgs/srv/Spawn]
   ...
-  /turtle1/set_pen [turtlesim/srv/SetPen]
-  /turtle1/teleport_absolute [turtlesim/srv/TeleportAbsolute]
-  /turtle1/teleport_relative [turtlesim/srv/TeleportRelative]
+  /turtle1/set_pen [turtlesim_msgs/srv/SetPen]
+  /turtle1/teleport_absolute [turtlesim_msgs/srv/TeleportAbsolute]
+  /turtle1/teleport_relative [turtlesim_msgs/srv/TeleportRelative]
   ...
 
 4 ros2 service info
@@ -215,13 +215,13 @@ But, as you learned earlier, the ``Empty`` type doesn't send or receive any data
 So, naturally, its structure is blank.
 
 Let's introspect a service with a type that sends and receives data, like ``/spawn``.
-From the results of ``ros2 service list -t``, we know ``/spawn``'s type is ``turtlesim/srv/Spawn``.
+From the results of ``ros2 service list -t``, we know ``/spawn``'s type is ``turtlesim_msgs/srv/Spawn``.
 
 To see the request and response arguments of the ``/spawn`` service, run the command:
 
 .. code-block:: console
 
-  ros2 interface show turtlesim/srv/Spawn
+  ros2 interface show turtlesim_msgs/srv/Spawn
 
 Which will return:
 
@@ -266,7 +266,7 @@ Enter the command:
 
 .. code-block:: console
 
-  ros2 service call /spawn turtlesim/srv/Spawn "{x: 2, y: 2, theta: 0.2, name: ''}"
+  ros2 service call /spawn turtlesim_msgs/srv/Spawn "{x: 2, y: 2, theta: 0.2, name: ''}"
 
 You will get this method-style view of what's happening, and then the service response:
 

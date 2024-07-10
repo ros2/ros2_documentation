@@ -121,7 +121,7 @@ Open the file using your preferred text editor.
             else:
                 if self.spawner.service_is_ready():
                     # Initialize request with turtle name and coordinates
-                    # Note that x, y and theta are defined as floats in turtlesim/srv/Spawn
+                    # Note that x, y and theta are defined as floats in turtlesim_msgs/srv/Spawn
                     request = Spawn.Request()
                     request.name = 'turtle3'
                     request.x = 4.0
@@ -174,7 +174,7 @@ First, in the ``on_timer`` callback function, we spawn the ``turtle3`` by asynch
 .. code-block:: python
 
     # Initialize request with turtle name and coordinates
-    # Note that x, y and theta are defined as floats in turtlesim/srv/Spawn
+    # Note that x, y and theta are defined as floats in turtlesim_msgs/srv/Spawn
     request = Spawn.Request()
     request.name = 'turtle3'
     request.x = 4.0

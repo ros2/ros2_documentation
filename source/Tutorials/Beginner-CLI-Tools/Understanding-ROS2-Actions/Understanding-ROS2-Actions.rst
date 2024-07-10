@@ -131,16 +131,16 @@ Which will return a list of ``/turtlesim``'s subscribers, publishers, services, 
     Publishers:
       /parameter_events: rcl_interfaces/msg/ParameterEvent
       /rosout: rcl_interfaces/msg/Log
-      /turtle1/color_sensor: turtlesim/msg/Color
-      /turtle1/pose: turtlesim/msg/Pose
+      /turtle1/color_sensor: turtlesim_msgs/msg/Color
+      /turtle1/pose: turtlesim_msgs/msg/Pose
     Service Servers:
       /clear: std_srvs/srv/Empty
-      /kill: turtlesim/srv/Kill
+      /kill: turtlesim_msgs/srv/Kill
       /reset: std_srvs/srv/Empty
-      /spawn: turtlesim/srv/Spawn
-      /turtle1/set_pen: turtlesim/srv/SetPen
-      /turtle1/teleport_absolute: turtlesim/srv/TeleportAbsolute
-      /turtle1/teleport_relative: turtlesim/srv/TeleportRelative
+      /spawn: turtlesim_msgs/srv/Spawn
+      /turtle1/set_pen: turtlesim_msgs/srv/SetPen
+      /turtle1/teleport_absolute: turtlesim_msgs/srv/TeleportAbsolute
+      /turtle1/teleport_relative: turtlesim_msgs/srv/TeleportRelative
       /turtlesim/describe_parameters: rcl_interfaces/srv/DescribeParameters
       /turtlesim/get_parameter_types: rcl_interfaces/srv/GetParameterTypes
       /turtlesim/get_parameters: rcl_interfaces/srv/GetParameters
@@ -150,7 +150,7 @@ Which will return a list of ``/turtlesim``'s subscribers, publishers, services, 
     Service Clients:
 
     Action Servers:
-      /turtle1/rotate_absolute: turtlesim/action/RotateAbsolute
+      /turtle1/rotate_absolute: turtlesim_msgs/action/RotateAbsolute
     Action Clients:
 
 Notice that the ``/turtle1/rotate_absolute`` action for ``/turtlesim`` is under ``Action Servers``.
@@ -186,7 +186,7 @@ Which will return:
     Action Servers:
 
     Action Clients:
-      /turtle1/rotate_absolute: turtlesim/action/RotateAbsolute
+      /turtle1/rotate_absolute: turtlesim_msgs/action/RotateAbsolute
 
 4 ros2 action list
 ^^^^^^^^^^^^^^^^^^
@@ -221,9 +221,9 @@ Which will return:
 
 .. code-block:: console
 
-    /turtle1/rotate_absolute [turtlesim/action/RotateAbsolute]
+    /turtle1/rotate_absolute [turtlesim_msgs/action/RotateAbsolute]
 
-In brackets to the right of each action name (in this case only ``/turtle1/rotate_absolute``) is the action type, ``turtlesim/action/RotateAbsolute``.
+In brackets to the right of each action name (in this case only ``/turtle1/rotate_absolute``) is the action type, ``turtlesim_msgs/action/RotateAbsolute``.
 You will need this when you want to execute an action from the command line or from code.
 
 5 ros2 action type
@@ -239,7 +239,7 @@ Which will return:
 
 .. code-block:: console
 
-    turtlesim/action/RotateAbsolute
+    turtlesim_msgs/action/RotateAbsolute
 
 6 ros2 action info
 ^^^^^^^^^^^^^^^^^^
@@ -273,7 +273,7 @@ Enter the following command with the action type in your terminal:
 
 .. code-block:: console
 
-  ros2 interface show turtlesim/action/RotateAbsolute
+  ros2 interface show turtlesim_msgs/action/RotateAbsolute
 
 Which will return:
 
@@ -307,7 +307,7 @@ Keep an eye on the turtlesim window, and enter the following command into your t
 
 .. code-block:: console
 
-    ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute "{theta: 1.57}"
+    ros2 action send_goal /turtle1/rotate_absolute turtlesim_msgs/action/RotateAbsolute "{theta: 1.57}"
 
 You should see the turtle rotating, as well as the following message in your terminal:
 
@@ -331,7 +331,7 @@ To see the feedback of this goal, add ``--feedback`` to the ``ros2 action send_g
 
 .. code-block:: console
 
-    ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute "{theta: -1.57}" --feedback
+    ros2 action send_goal /turtle1/rotate_absolute turtlesim_msgs/action/RotateAbsolute "{theta: -1.57}" --feedback
 
 Your terminal will return the message:
 
