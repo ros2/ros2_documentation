@@ -45,7 +45,7 @@ You don't have to host the source code of your ROS packages on GitHub, but you w
 
 Fork and clone ros/rosdistro
 ----------------------------
-`Fork <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo>` the `ros/rosdistro <https://github.com/ros/rosdistro/>` repository.
+`Fork <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo>`__ the `ros/rosdistro <https://github.com/ros/rosdistro/>`__ repository.
 You only need to do this step once on your account.
 The fork will be used every time you do a release.
 
