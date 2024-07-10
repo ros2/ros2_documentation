@@ -40,7 +40,7 @@ You may also want to release into any active ROS distributions, but this is up t
 
 Create a GitHub account
 -----------------------
-`Create a GitHub account <https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github>` if you don't already have one.
+`Create a GitHub account <https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github>`__ if you don't already have one.
 You don't have to host the source code of your ROS packages on GitHub, but you will need an account to index and release packages.
 
 Fork and clone ros/rosdistro
