@@ -18,8 +18,8 @@ Here are some popular choices.
 
 Give your packages an OSI Approved license
 ------------------------------------------
-Choose an `OSI approved license <https://opensource.org/licenses>` and give it to your ROS packages.
-If you're having trouble deciding, consider using the license used by most of the core ROS 2 packages: `Apache-2.0 license <https://opensource.org/license/apache-2-0>`.
+Choose an `OSI approved license <https://opensource.org/licenses>`__ and give it to your ROS packages.
+If you're having trouble deciding, consider using the license used by most of the core ROS 2 packages: `Apache-2.0 license <https://opensource.org/license/apache-2-0>`__.
 
 For each ``package.xml`` in your repository, put the SPDX short identifier of the license in the ``<license>`` tag in your ``package.xml``.
 
