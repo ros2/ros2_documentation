@@ -62,7 +62,7 @@ jobs:
         uses: actions/upload-artifact@v4
         id: artifact-upload-step
         with:
-          name: html-artifacts
+          name: html-artifacts-${{ github.event.pull_request.number }}
           path: build/html
           retention-days: 30 # default 90
           compression-level: 9 # maximum compression, default 6
@@ -87,5 +87,5 @@ jobs:
             To view the resulting site:
             1. Click on the above link to download the artifacts archive
             2. Extract it
-            3. Open `html-artifacts/index.html` in your favorite browser
+            3. Open `html-artifacts-${{ github.event.pull_request.number }}/index.html` in your favorite browser
           edit-mode: replace
