@@ -28,7 +28,7 @@ If the ROS packages in your repository have different licenses, create a ``LICEN
 
 Give your packages REP 144 compliant names
 ------------------------------------------
-Packages released into a ROS distro must have names that comply with `REP 144 <https://www.ros.org/reps/rep-0144.html>`.
+Packages released into a ROS distro must have names that comply with `REP 144 <https://www.ros.org/reps/rep-0144.html>`__.
 Read the full REP to understand the rules.
 If one of your ROS package names doesn't comply, then change the name before continuing.
 
