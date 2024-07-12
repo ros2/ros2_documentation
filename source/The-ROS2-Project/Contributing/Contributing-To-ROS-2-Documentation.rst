@@ -111,7 +111,7 @@ This will open a menu on the right, where you can click on "Upload document arti
 .. image:: ./images/github_action.png
   :width: 100%
   :alt: Steps to find rendered HTML files on ROS Github action
-  
+
 Building the site for all branches
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
