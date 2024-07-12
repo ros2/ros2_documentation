@@ -1,0 +1,29 @@
+.. _RealTimeTutorialCallbackGroups:
+
+Real-Time Processing with Callback Groups
+======================================
+
+.. contents:: Table of Contents
+   :local:
+
+Introduction
+------------
+
+In this tutorial you will learn how to implement a ROS 2 application with multiple nodes, in which real-time and non real-time callbacks are distributed over multiple nodes. For example, this could be real-time critical path comprising of a sensor fusion node, path planning node, and an actuation node, while each node shall also send diagnostics with a lower priority.
+
+You might consider also a simpler use-case, in which multiple nodes have multiple callbacks, but all callbacks of the same node have the same priority, while different nodes have different priorities, then please read this tutorial first :doc:`Real-Time Processing with multiple threads <../Tutorials/Advanced/Real-Time/Real-Time-Processing-with-multiple-threads>`.
+
+In this tutorial callback groups will be used. For an introduction to callback groups, please see this how-to-guide :doc:`Using Callback Groups <../How-To-Guides/Using-callback-groups>`.
+
+This tutorial is specific for Linux.
+
+Application
+-----------
+
+The application consists of two publishers and two subscriptions. 
+- publisher node:
+- subscriber node: one subscription callback shall be processed by a real-time prioritized thread, and the other by a normal thread with default scheduling priority for Linux user space. 
+
+It would require a larger test setup to actually show the timing differences of these two subscriptions. However, with a simple metric we can indirectly demonstrate it. In Linux scheduling, higher prioritized threads could interrupt lower prioritized ones. The interruption leads to a context switch, which can be detected.  This fact can be exploited to show the different thread priorities: We simply count how many times the thread with the subscription was interrupted by other threads. A real-time thread, which has a higher priority than all user threads, will not be interrupted by other user threads. However it can be expected to see some involuntary context switches even with a real-time priority. There might be other real-time threads with higher priority or interrupts preempting the real-time callback execution. Therefore we expect significantly fewer context switched for the real-time subscription callback compared to the non real-time subscription callback.
+
+The complete source file of this tutorial is available `here <https://github.com/ros-realtime/ros2-realtime-examples/tree/rolling/minimal_scheduling/minimal_scheduling_real_time_executor.cpp>`_.
