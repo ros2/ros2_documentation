@@ -167,7 +167,7 @@ html_sourcelink_suffix = ''
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'ros2_docsdoc'
 
-html_baseurl = 'https://docs.ros.org/en'
+html_baseurl = 'https://ros2docs.robook.org'
 
 class RedirectFrom(Directive):
 
