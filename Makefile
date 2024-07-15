@@ -16,7 +16,7 @@ help:
 
 multiversion: Makefile
 	sphinx-multiversion $(OPTS) "$(SOURCE)" build/html
-	@echo "<html><head><meta http-equiv=\"refresh\" content=\"0; url=jazzy/index.html\" /></head></html>" > build/html/index.html
+	@echo "<html><head><meta http-equiv=\"refresh\" content=\"0; url=humble/index.html\" /></head></html>" > build/html/index.html
 	$(PYTHON) make_sitemapindex.py
 
 %: Makefile
