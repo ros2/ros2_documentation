@@ -97,6 +97,21 @@ You can also run the documentation tests locally (using `doc8 <https://github.co
 
    make test
 
+View Site Through Github CI
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For small changes to the ROS 2 Docs you can view your changes as rendered HTML using artifacts generated in our Github Actions.
+The "build" action produces the entire ROS Docs as a downloadable Zip file that contains all HTML for `docs.ros.org <https://docs.ros.org/>`_
+This build action is triggered after passing the test action and lint action.
+
+To download and view your changes first go to your pull request and under the title click the "Checks" tab.
+On the left hand side of the checks page, click on the "Test" section under the "tests" section  click on "build" dialog.
+This will open a menu on the right, where you can click on "Upload document artifacts" and scroll to the bottom to see the download link for the Zipped' HTML files under the heading "Artifact download URL".
+
+.. image:: ./images/github_action.png
+  :width: 100%
+  :alt: Steps to find rendered HTML files on ROS Github action
+
 Building the site for all branches
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
