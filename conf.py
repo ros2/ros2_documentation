@@ -176,6 +176,15 @@ html_baseurl = 'https://docs.ros.org/en'
 
 sitemap_url_scheme = '{version}/{link}'
 
+# -- Options for linkcheck ------------------------------------------------
+linkcheck_ignore = [
+    r"^(?!http(|s)://).*",  # For ignore local link
+]
+linkcheck_anchors_ignore_for_url = [
+    r'https://github\.com/.*',
+    r'https://index\.ros\.org/.*'
+]
+
 class RedirectFrom(Directive):
 
     has_content = True
