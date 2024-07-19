@@ -75,7 +75,7 @@ Inside your package's ``src`` directory, create a new file called ``simple_bag_r
     #include "rclcpp/rclcpp.hpp"
     #include "rclcpp/serialization.hpp"
     #include "rosbag2_transport/reader_writer_factory.hpp"
-    #include "turtlesim/msg/pose.hpp"
+    #include "turtlesim_msgs/msg/pose.hpp"
 
     using namespace std::chrono_literals;
 
@@ -85,7 +85,7 @@ Inside your package's ``src`` directory, create a new file called ``simple_bag_r
         PlaybackNode(const std::string & bag_filename)
         : Node("playback_node")
         {
-          publisher_ = this->create_publisher<turtlesim::msg::Pose>("/turtle1/pose", 10);
+          publisher_ = this->create_publisher<turtlesim_msgs::msg::Pose>("/turtle1/pose", 10);
 
           timer_ = this->create_wall_timer(100ms,
               [this](){return this->timer_callback();}
@@ -108,7 +108,7 @@ Inside your package's ``src`` directory, create a new file called ``simple_bag_r
             }
 
             rclcpp::SerializedMessage serialized_msg(*msg->serialized_data);
-            turtlesim::msg::Pose::SharedPtr ros_msg = std::make_shared<turtlesim::msg::Pose>();
+            turtlesim_msgs::msg::Pose::SharedPtr ros_msg = std::make_shared<turtlesim_msgs::msg::Pose>();
 
             serialization_.deserialize_message(&serialized_msg, ros_msg.get());
 
@@ -120,9 +120,9 @@ Inside your package's ``src`` directory, create a new file called ``simple_bag_r
         }
 
         rclcpp::TimerBase::SharedPtr timer_;
-        rclcpp::Publisher<turtlesim::msg::Pose>::SharedPtr publisher_;
+        rclcpp::Publisher<turtlesim_msgs::msg::Pose>::SharedPtr publisher_;
 
-        rclcpp::Serialization<turtlesim::msg::Pose> serialization_;
+        rclcpp::Serialization<turtlesim_msgs::msg::Pose> serialization_;
         std::unique_ptr<rosbag2_cpp::Reader> reader_;
     };
 
@@ -162,7 +162,7 @@ Note the constructor takes a path to the bag file as a parameter.
       PlaybackNode(const std::string & bag_filename)
       : Node("playback_node")
       {
-        publisher_ = this->create_publisher<turtlesim::msg::Pose>("/turtle1/pose", 10);
+        publisher_ = this->create_publisher<turtlesim_msgs::msg::Pose>("/turtle1/pose", 10);
 
         timer_ = this->create_wall_timer(100ms,
           [this](){return this->timer_callback();}
@@ -199,7 +199,7 @@ Then, we can pass both these objects to the ``rclcpp::Serialization::deserialize
 .. code-block:: C++
 
     rclcpp::SerializedMessage serialized_msg(*msg->serialized_data);
-    turtlesim::msg::Pose::SharedPtr ros_msg = std::make_shared<turtlesim::msg::Pose>();
+    turtlesim_msgs::msg::Pose::SharedPtr ros_msg = std::make_shared<turtlesim_msgs::msg::Pose>();
 
     serialization_.deserialize_message(&serialized_msg, ros_msg.get());
 
@@ -219,9 +219,9 @@ We must also declare the private variables used throughout the node.
 .. code-block:: C++
 
       rclcpp::TimerBase::SharedPtr timer_;
-      rclcpp::Publisher<turtlesim::msg::Pose>::SharedPtr publisher_;
+      rclcpp::Publisher<turtlesim_msgs::msg::Pose>::SharedPtr publisher_;
 
-      rclcpp::Serialization<turtlesim::msg::Pose> serialization_;
+      rclcpp::Serialization<turtlesim_msgs::msg::Pose> serialization_;
       std::unique_ptr<rosbag2_cpp::Reader> reader_;
     };
 

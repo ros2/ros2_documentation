@@ -152,7 +152,7 @@ Now open the file called ``turtle_tf2_listener.py`` using your preferred text ed
             else:
                 if self.spawner.service_is_ready():
                     # Initialize request with turtle name and coordinates
-                    # Note that x, y and theta are defined as floats in turtlesim/srv/Spawn
+                    # Note that x, y and theta are defined as floats in turtlesim_msgs/srv/Spawn
                     request = Spawn.Request()
                     request.name = 'turtle2'
                     request.x = float(4)

@@ -89,7 +89,7 @@ Create a new file called ``example_event_handlers_launch.py`` file in the ``laun
                 ' service call ',
                 turtlesim_ns,
                 '/spawn ',
-                'turtlesim/srv/Spawn ',
+                'turtlesim_msgs/srv/Spawn ',
                 '"{x: 2, y: 2, theta: 0.2}"'
             ]],
             shell=True

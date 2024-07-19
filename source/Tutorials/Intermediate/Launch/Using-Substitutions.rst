@@ -281,7 +281,7 @@ Now create the substitution launch file in the same folder:
                     'ros2 service call ',
                     turtlesim_ns,
                     '/spawn ',
-                    'turtlesim/srv/Spawn ',
+                    'turtlesim_msgs/srv/Spawn ',
                     '"{x: 2, y: 2, theta: 0.2}"'
                 ]],
                 shell=True
@@ -374,7 +374,7 @@ Now create the substitution launch file in the same folder:
                 'ros2 service call ',
                 turtlesim_ns,
                 '/spawn ',
-                'turtlesim/srv/Spawn ',
+                'turtlesim_msgs/srv/Spawn ',
                 '"{x: 2, y: 2, theta: 0.2}"'
             ]],
             shell=True
@@ -436,7 +436,7 @@ Now create the substitution launch file in the same folder:
             exec: 'turtlesim_node'
             name: 'sim'
         - executable:
-            cmd: 'ros2 service call $(var turtlesim_ns)/spawn turtlesim/srv/Spawn "{x: 5, y: 2, theta: 0.2}"'
+            cmd: 'ros2 service call $(var turtlesim_ns)/spawn turtlesim_msgs/srv/Spawn "{x: 5, y: 2, theta: 0.2}"'
         - executable:
             cmd: 'ros2 param set $(var turtlesim_ns)/sim background_r 120'
         - timer:
@@ -482,7 +482,7 @@ Now create the substitution launch file in the same folder:
     .. code-block:: yaml
 
         - executable:
-            cmd: 'ros2 service call $(var turtlesim_ns)/spawn turtlesim/srv/Spawn "{x: 5, y: 2, theta: 0.2}"'
+            cmd: 'ros2 service call $(var turtlesim_ns)/spawn turtlesim_msgs/srv/Spawn "{x: 5, y: 2, theta: 0.2}"'
 
     The same approach is used for the ``ros2 param`` ``executable`` actions that change the turtlesim background's red color parameter.
     The difference is that the second action inside of the timer is only executed if the provided ``new_background_r`` argument equals ``200`` and the ``use_provided_red`` launch argument is set to ``True``.
