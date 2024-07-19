@@ -102,7 +102,7 @@ View Site Through Github CI
 
 For small changes to the ROS 2 Docs you can view your changes as rendered HTML using artifacts generated in our Github Actions.
 The "build" action produces the entire ROS Docs as a downloadable Zip file that contains all HTML for `docs.ros.org <https://docs.ros.org/>`_
-This build action is triggered after passing the test action and lint action. There is a Github Action that will automatically insert a link to the HTML or a zip file of the entire documentation in the end after CI is concluded.
+This build action is triggered after passing the test action and lint action. There is a Github Action that will automatically comment a link to an archive of the HTML files of the entire documentation in the end after CI is concluded.
 
 .. image:: ./images/github_action.png
   :width: 100%
