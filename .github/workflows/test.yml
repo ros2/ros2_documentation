@@ -71,6 +71,8 @@ jobs:
       - name: Find HTML artifacts link comment
         uses: peter-evans/find-comment@v3
         id: find-comment
+        # Skip if PR from fork
+        if: github.repository == github.event.pull_request.head.repo.full_name
         with:
           issue-number: ${{ github.event.pull_request.number }}
           comment-author: 'github-actions[bot]'
@@ -78,6 +80,8 @@ jobs:
 
       - name: Create or update HTML artifacts link comment
         uses: peter-evans/create-or-update-comment@v4
+        # Skip if PR from fork
+        if: github.repository == github.event.pull_request.head.repo.full_name
         with:
           comment-id: ${{ steps.find-comment.outputs.comment-id }}
           issue-number: ${{ github.event.pull_request.number }}
