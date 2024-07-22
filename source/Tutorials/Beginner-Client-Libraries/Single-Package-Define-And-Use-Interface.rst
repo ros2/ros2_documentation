@@ -133,6 +133,9 @@ We'll skip the compile step for now as we'll do it all together below in step 4.
 
 2.2 (Extra) Set multiple interfaces
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. note::
+    This is not something you should do in an actual tutorial. This is just an extra note for increasing your knowledge.
+
 
 .. note::
 
