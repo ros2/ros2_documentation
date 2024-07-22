@@ -49,7 +49,7 @@ We support building ROS 2 from source on the following platforms:
 
 * :doc:`Ubuntu Linux 22.04 <Installation/Alternatives/Ubuntu-Development-Setup>`
 * :doc:`Windows 10 <Installation/Alternatives/Windows-Development-Setup>`
-* :doc:`RHEL-9 <Installation/Alternatives/RHEL-Development-Setup>`
+* :doc:`RHEL-8 <Installation/Alternatives/RHEL-Development-Setup>`
 * :doc:`macOS <Installation/Alternatives/macOS-Development-Setup>`
 
 Which install should you choose?
