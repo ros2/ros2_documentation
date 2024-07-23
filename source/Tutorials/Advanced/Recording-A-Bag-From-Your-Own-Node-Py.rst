@@ -92,6 +92,7 @@ Inside the ``ros2_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory
 .. code-block:: Python
 
    import rclpy
+   from rclpy.executors import ExternalShutdownException
    from rclpy.node import Node
    from rclpy.serialization import serialize_message
    from std_msgs.msg import String
@@ -131,10 +132,12 @@ Inside the ``ros2_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory
 
 
    def main(args=None):
-       rclpy.init(args=args)
-       sbr = SimpleBagRecorder()
-       rclpy.spin(sbr)
-       rclpy.shutdown()
+       try:
+           with rclpy.init(args=args):
+               sbr = SimpleBagRecorder()
+               rclpy.spin(sbr)
+       except (KeyboardInterrupt, ExternalShutdownException):
+           pass
 
 
    if __name__ == '__main__':
@@ -209,10 +212,12 @@ The file finishes with the ``main`` function used to create an instance of the n
 .. code-block:: Python
 
    def main(args=None):
-       rclpy.init(args=args)
-       sbr = SimpleBagRecorder()
-       rclpy.spin(sbr)
-       rclpy.shutdown()
+       try:
+           with rclpy.init(args=args):
+               sbr = SimpleBagRecorder()
+               rclpy.spin(sbr)
+       except (KeyboardInterrupt, ExternalShutdownException):
+           pass
 
 2.2 Add entry point
 ~~~~~~~~~~~~~~~~~~~
@@ -327,6 +332,7 @@ Inside the ``ros2_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory
 .. code-block:: Python
 
    import rclpy
+   from rclpy.executors import ExternalShutdownException
    from rclpy.node import Node
    from rclpy.serialization import serialize_message
    from example_interfaces.msg import Int32
@@ -364,10 +370,12 @@ Inside the ``ros2_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory
 
 
    def main(args=None):
-       rclpy.init(args=args)
-       dgn = DataGeneratorNode()
-       rclpy.spin(dgn)
-       rclpy.shutdown()
+       try:
+           with rclpy.init(args=args):
+               dgn = DataGeneratorNode()
+               rclpy.spin(dgn)
+       except (KeyboardInterrupt, ExternalShutdownException):
+           pass
 
 
    if __name__ == '__main__':

@@ -84,6 +84,7 @@ Open the file using your preferred text editor.
     from geometry_msgs.msg import Twist
 
     import rclpy
+    from rclpy.executors import ExternalShutdownException
     from rclpy.node import Node
 
     from turtlesim.msg import Pose
@@ -155,14 +156,12 @@ Open the file using your preferred text editor.
 
 
     def main():
-        rclpy.init()
-        node = PointPublisher()
         try:
-            rclpy.spin(node)
-        except KeyboardInterrupt:
+            with rclpy.init():
+                node = PointPublisher()
+                rclpy.spin(node)
+        except (KeyboardInterrupt, ExternalShutdownException):
             pass
-
-        rclpy.shutdown()
 
 
 1.1 Examine the code

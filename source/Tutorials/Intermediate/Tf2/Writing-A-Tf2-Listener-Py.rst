@@ -75,6 +75,7 @@ Now open the file called ``turtle_tf2_listener.py`` using your preferred text ed
     from geometry_msgs.msg import Twist
 
     import rclpy
+    from rclpy.executors import ExternalShutdownException
     from rclpy.node import Node
 
     from tf2_ros import TransformException
@@ -167,14 +168,12 @@ Now open the file called ``turtle_tf2_listener.py`` using your preferred text ed
 
 
     def main():
-        rclpy.init()
-        node = FrameListener()
         try:
-            rclpy.spin(node)
-        except KeyboardInterrupt:
+            with rclpy.init():
+                node = FrameListener()
+                rclpy.spin(node)
+        except (KeyboardInterrupt, ExternalShutdownException):
             pass
-
-        rclpy.shutdown()
 
 1.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~

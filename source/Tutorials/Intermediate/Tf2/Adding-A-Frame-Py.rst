@@ -86,6 +86,7 @@ Now open the file called ``fixed_frame_tf2_broadcaster.py``.
     from geometry_msgs.msg import TransformStamped
 
     import rclpy
+    from rclpy.executors import ExternalShutdownException
     from rclpy.node import Node
 
     from tf2_ros import TransformBroadcaster
@@ -116,14 +117,12 @@ Now open the file called ``fixed_frame_tf2_broadcaster.py``.
 
 
     def main():
-        rclpy.init()
-        node = FixedFrameBroadcaster()
         try:
-            rclpy.spin(node)
-        except KeyboardInterrupt:
+            with rclpy.init():
+                node = FixedFrameBroadcaster()
+                rclpy.spin(node)
+        except (KeyboardInterrupt, ExternalShutdownException):
             pass
-
-        rclpy.shutdown()
 
 The code is very similar to the tf2 broadcaster tutorial example and the only difference is that the transform here does not change over time.
 
@@ -358,6 +357,7 @@ Now open the file called ``dynamic_frame_tf2_broadcaster.py``:
     from geometry_msgs.msg import TransformStamped
 
     import rclpy
+    from rclpy.executors import ExternalShutdownException
     from rclpy.node import Node
 
     from tf2_ros import TransformBroadcaster
@@ -390,14 +390,12 @@ Now open the file called ``dynamic_frame_tf2_broadcaster.py``:
 
 
     def main():
-        rclpy.init()
-        node = DynamicFrameBroadcaster()
         try:
-            rclpy.spin(node)
-        except KeyboardInterrupt:
+            with rclpy.init():
+                node = DynamicFrameBroadcaster()
+                rclpy.spin(node)
+        except (KeyboardInterrupt, ExternalShutdownException):
             pass
-
-        rclpy.shutdown()
 
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
