@@ -1,5 +1,6 @@
 import rclpy
 from rclpy.action import ActionClient
+from rclpy.executors import ExternalShutdownException
 from rclpy.node import Node
 
 from custom_action_interfaces.action import Fibonacci
@@ -43,13 +44,15 @@ class FibonacciActionClient(Node):
 
 
 def main(args=None):
-    rclpy.init(args=args)
+    try:
+        with rclpy.init(args=args):
+            action_client = FibonacciActionClient()
 
-    action_client = FibonacciActionClient()
+            action_client.send_goal(10)
 
-    action_client.send_goal(10)
-
-    rclpy.spin(action_client)
+            rclpy.spin(action_client)
+    except (KeyboardInterrupt, ExternalShutdownException):
+        pass
 
 
 if __name__ == '__main__':

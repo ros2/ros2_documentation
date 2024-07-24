@@ -78,6 +78,7 @@ Now open the file called ``turtle_tf2_broadcaster.py`` using your preferred text
     import numpy as np
 
     import rclpy
+    from rclpy.executors import ExternalShutdownException
     from rclpy.node import Node
 
     from tf2_ros import TransformBroadcaster
@@ -159,14 +160,12 @@ Now open the file called ``turtle_tf2_broadcaster.py`` using your preferred text
 
 
     def main():
-        rclpy.init()
-        node = FramePublisher()
         try:
-            rclpy.spin(node)
-        except KeyboardInterrupt:
+            with rclpy.init():
+                node = FramePublisher()
+                rclpy.spin(node)
+        except (KeyboardInterrupt, ExternalShutdownException):
             pass
-
-        rclpy.shutdown()
 
 1.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~

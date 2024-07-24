@@ -20,7 +20,7 @@ Using URDF with ``robot_state_publisher``
 Background
 ----------
 
-This tutorial will show you how to model a walking robot, publish the state as a `tf2 <https://wiki.ros.org/tf2>`__ message and view the simulation in Rviz.
+This tutorial will show you how to model a walking robot, publish the state as a tf2 message and view the simulation in Rviz.
 First, we create the URDF model describing the robot assembly.
 Next we write a node which simulates the motion and publishes the JointState and transforms.
 We then use ``robot_state_publisher`` to publish the entire robot state to ``/tf2``.
@@ -112,79 +112,72 @@ Fire up your favorite editor and paste the following code into ``second_ros2_ws/
 
   from math import sin, cos, pi
   import rclpy
+  from rclpy.executors import ExternalShutdownException
   from rclpy.node import Node
   from rclpy.qos import QoSProfile
   from geometry_msgs.msg import Quaternion
   from sensor_msgs.msg import JointState
   from tf2_ros import TransformBroadcaster, TransformStamped
 
+
   class StatePublisher(Node):
 
       def __init__(self):
-          rclpy.init()
           super().__init__('state_publisher')
 
           qos_profile = QoSProfile(depth=10)
           self.joint_pub = self.create_publisher(JointState, 'joint_states', qos_profile)
           self.broadcaster = TransformBroadcaster(self, qos=qos_profile)
-          self.nodeName = self.get_name()
-          self.get_logger().info("{0} started".format(self.nodeName))
+          self.timer = self.create_timer(1/30, self.update)
 
-          degree = pi / 180.0
-          loop_rate = self.create_rate(30)
+          self.degree = pi / 180.0
 
           # robot state
-          tilt = 0.
-          tinc = degree
-          swivel = 0.
-          angle = 0.
-          height = 0.
-          hinc = 0.005
+          self.tilt = 0.
+          self.tinc = self.degree
+          self.swivel = 0.
+          self.angle = 0.
+          self.height = 0.
+          self.hinc = 0.005
 
           # message declarations
-          odom_trans = TransformStamped()
-          odom_trans.header.frame_id = 'odom'
-          odom_trans.child_frame_id = 'axis'
-          joint_state = JointState()
+          self.odom_trans = TransformStamped()
+          self.odom_trans.header.frame_id = 'odom'
+          self.odom_trans.child_frame_id = 'axis'
+          self.joint_state = JointState()
 
-          try:
-              while rclpy.ok():
-                  rclpy.spin_once(self)
+          self.get_logger().info("{0} started".format(self.get_name()))
 
-                  # update joint_state
-                  now = self.get_clock().now()
-                  joint_state.header.stamp = now.to_msg()
-                  joint_state.name = ['swivel', 'tilt', 'periscope']
-                  joint_state.position = [swivel, tilt, height]
+      def update(self):
+          # update joint_state
+          now = self.get_clock().now()
+          self.joint_state.header.stamp = now.to_msg()
+          self.joint_state.name = ['swivel', 'tilt', 'periscope']
+          self.joint_state.position = [self.swivel, self.tilt, self.height]
 
-                  # update transform
-                  # (moving in a circle with radius=2)
-                  odom_trans.header.stamp = now.to_msg()
-                  odom_trans.transform.translation.x = cos(angle)*2
-                  odom_trans.transform.translation.y = sin(angle)*2
-                  odom_trans.transform.translation.z = 0.7
-                  odom_trans.transform.rotation = \
-                      euler_to_quaternion(0, 0, angle + pi/2) # roll,pitch,yaw
+          # update transform
+          # (moving in a circle with radius=2)
+          self.odom_trans.header.stamp = now.to_msg()
+          self.odom_trans.transform.translation.x = cos(self.angle)*2
+          self.odom_trans.transform.translation.y = sin(self.angle)*2
+          self.odom_trans.transform.translation.z = 0.7
+          self.odom_trans.transform.rotation = \
+              euler_to_quaternion(0, 0, self.angle + pi/2) # roll,pitch,yaw
 
-                  # send the joint state and transform
-                  self.joint_pub.publish(joint_state)
-                  self.broadcaster.sendTransform(odom_trans)
+          # send the joint state and transform
+          self.joint_pub.publish(self.joint_state)
+          self.broadcaster.sendTransform(self.odom_trans)
 
-                  # Create new robot state
-                  tilt += tinc
-                  if tilt < -0.5 or tilt > 0.0:
-                      tinc *= -1
-                  height += hinc
-                  if height > 0.2 or height < 0.0:
-                      hinc *= -1
-                  swivel += degree
-                  angle += degree/4
+          # Create new robot state
+          self.tilt += self.tinc
+          if self.tilt < -0.5 or self.tilt > 0.0:
+              self.tinc *= -1
+          self.height += self.hinc
+          if self.height > 0.2 or self.height < 0.0:
+              self.hinc *= -1
+          self.swivel += self.degree
+          self.angle += self.degree/4
 
-                  # This will adjust as needed per iteration
-                  loop_rate.sleep()
-
-          except KeyboardInterrupt:
-              pass
 
   def euler_to_quaternion(roll, pitch, yaw):
       qx = sin(roll/2) * cos(pitch/2) * cos(yaw/2) - cos(roll/2) * sin(pitch/2) * sin(yaw/2)
@@ -193,8 +186,15 @@ Fire up your favorite editor and paste the following code into ``second_ros2_ws/
       qw = cos(roll/2) * cos(pitch/2) * cos(yaw/2) + sin(roll/2) * sin(pitch/2) * sin(yaw/2)
       return Quaternion(x=qx, y=qy, z=qz, w=qw)
 
+
   def main():
-      node = StatePublisher()
+      try:
+          with rclpy.init():
+              node = StatePublisher()
+              rclpy.spin(node)
+      except (KeyboardInterrupt, ExternalShutdownException):
+          pass
+
 
   if __name__ == '__main__':
       main()

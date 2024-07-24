@@ -96,6 +96,7 @@ Inside the ``ros2_ws/src/py_srvcli/py_srvcli`` directory, create a new file call
   from example_interfaces.srv import AddTwoInts
 
   import rclpy
+  from rclpy.executors import ExternalShutdownException
   from rclpy.node import Node
 
 
@@ -113,13 +114,13 @@ Inside the ``ros2_ws/src/py_srvcli/py_srvcli`` directory, create a new file call
 
 
   def main():
-      rclpy.init()
+      try:
+          with rclpy.init():
+              minimal_service = MinimalService()
 
-      minimal_service = MinimalService()
-
-      rclpy.spin(minimal_service)
-
-      rclpy.shutdown()
+              rclpy.spin(minimal_service)
+      except (KeyboardInterrupt, ExternalShutdownException):
+          pass
 
 
   if __name__ == '__main__':
@@ -129,13 +130,14 @@ Inside the ``ros2_ws/src/py_srvcli/py_srvcli`` directory, create a new file call
 ~~~~~~~~~~~~~~~~~~~~
 
 The first ``import`` statement imports the ``AddTwoInts`` service type from the ``example_interfaces`` package.
-The following ``import`` statement imports the ROS 2 Python client library, and specifically the ``Node`` class.
+The following ``import`` statements import the necessary ROS 2 Python client library interfaces.
 
 .. code-block:: python
 
   from example_interfaces.srv import AddTwoInts
 
   import rclpy
+  from rclpy.executors import ExternalShutdownException
   from rclpy.node import Node
 
 The ``MinimalService`` class constructor initializes the node with the name ``minimal_service``.
@@ -177,10 +179,10 @@ Inside the ``ros2_ws/src/py_srvcli/py_srvcli`` directory, create a new file call
 
 .. code-block:: python
 
-  import sys
-
   from example_interfaces.srv import AddTwoInts
+
   import rclpy
+  from rclpy.executors import ExternalShutdownException
   from rclpy.node import Node
 
 
@@ -193,25 +195,24 @@ Inside the ``ros2_ws/src/py_srvcli/py_srvcli`` directory, create a new file call
               self.get_logger().info('service not available, waiting again...')
           self.req = AddTwoInts.Request()
 
-      def send_request(self, a, b):
-          self.req.a = a
-          self.req.b = b
+      def send_request(self):
+          self.req.a = 41
+          self.req.b = 1
           return self.cli.call_async(self.req)
 
 
-  def main():
-      rclpy.init()
-
-      minimal_client = MinimalClientAsync()
-      future = minimal_client.send_request(int(sys.argv[1]), int(sys.argv[2]))
-      rclpy.spin_until_future_complete(minimal_client, future)
-      response = future.result()
-      minimal_client.get_logger().info(
-          'Result of add_two_ints: for %d + %d = %d' %
-          (int(sys.argv[1]), int(sys.argv[2]), response.sum))
-
-      minimal_client.destroy_node()
-      rclpy.shutdown()
+  def main(args=None):
+      try:
+          with rclpy.init(args=args):
+              minimal_client = MinimalClientAsync()
+              future = minimal_client.send_request()
+              rclpy.spin_until_future_complete(minimal_client, future)
+              response = future.result()
+              minimal_client.get_logger().info(
+                  'Result of add_two_ints: for %d + %d = %d' %
+                  (minimal_client.req.a, minimal_client.req.b, response.sum))
+      except (KeyboardInterrupt, ExternalShutdownException):
+          pass
 
 
   if __name__ == '__main__':
@@ -225,10 +226,10 @@ As with the service code, we first ``import`` the necessary libraries.
 
 .. code-block:: python
 
-  import sys
-
   from example_interfaces.srv import AddTwoInts
+
   import rclpy
+  from rclpy.executors import ExternalShutdownException
   from rclpy.node import Node
 
 The ``MinimalClientAsync`` class constructor initializes the node with the name ``minimal_client_async``.
@@ -250,28 +251,27 @@ Below the constructor is the ``send_request`` method, which will send the reques
 
 .. code-block:: python
 
-  def send_request(self, a, b):
-      self.req.a = a
-      self.req.b = b
+  def send_request(self):
+      self.req.a = 41
+      self.req.b = 1
       return self.cli.call_async(self.req)
 
 Finally we have the ``main`` method, which constructs a ``MinimalClientAsync`` object, sends the request using the passed-in command-line arguments, calls ``spin_until_future_complete``, and logs the results:
 
 .. code-block:: python
 
-  def main():
-      rclpy.init()
-
-      minimal_client = MinimalClientAsync()
-      future = minimal_client.send_request(int(sys.argv[1]), int(sys.argv[2]))
-      rclpy.spin_until_future_complete(minimal_client, future)
-      response = future.result()
-      minimal_client.get_logger().info(
-          'Result of add_two_ints: for %d + %d = %d' %
-          (int(sys.argv[1]), int(sys.argv[2]), response.sum))
-
-      minimal_client.destroy_node()
-      rclpy.shutdown()
+  def main(args=None):
+      try:
+          with rclpy.init(args=args):
+              minimal_client = MinimalClientAsync()
+              future = minimal_client.send_request()
+              rclpy.spin_until_future_complete(minimal_client, future)
+              response = future.result()
+              minimal_client.get_logger().info(
+                  'Result of add_two_ints: for %d + %d = %d' %
+                  (minimal_client.req.a, minimal_client.req.b, response.sum))
+      except (KeyboardInterrupt, ExternalShutdownException):
+          pass
 
 
 3.2 Add an entry point
@@ -349,17 +349,18 @@ Now run the service node:
 The node will wait for the client's request.
 
 Open another terminal and source the setup files from inside ``ros2_ws`` again.
-Start the client node, followed by any two integers separated by a space:
+Start the client node:
 
 .. code-block:: console
 
-  ros2 run py_srvcli client 2 3
+  ros2 run py_srvcli client
 
-If you chose ``2`` and ``3``, for example, the client would receive a response like this:
+The client sends the request to the service, which computes the sum and returns the result.
+The client should receive the following response:
 
 .. code-block:: console
 
-  [INFO] [minimal_client_async]: Result of add_two_ints: for 2 + 3 = 5
+  [INFO] [minimal_client_async]: Result of add_two_ints: for 41 + 1 = 42
 
 Return to the terminal where your service node is running.
 You will see that it published log messages when it received the request:
@@ -367,7 +368,7 @@ You will see that it published log messages when it received the request:
 .. code-block:: console
 
   [INFO] [minimal_service]: Incoming request
-  a: 2 b: 3
+  a: 41 b: 1
 
 Enter ``Ctrl+C`` in the server terminal to stop the node from spinning.
 

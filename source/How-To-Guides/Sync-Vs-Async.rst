@@ -42,11 +42,11 @@ The following is an example of how to correctly execute a synchronous service ca
 
 .. code-block:: python
 
-  import sys
   from threading import Thread
 
   from example_interfaces.srv import AddTwoInts
   import rclpy
+  from rclpy.executors import ExternalShutdownException
   from rclpy.node import Node
 
   class MinimalClientSync(Node):
@@ -59,27 +59,26 @@ The following is an example of how to correctly execute a synchronous service ca
           self.req = AddTwoInts.Request()
 
       def send_request(self):
-          self.req.a = int(sys.argv[1])
-          self.req.b = int(sys.argv[2])
+          self.req.a = 41
+          self.req.b = 1
           return self.cli.call(self.req)
           # This only works because rclpy.spin() is called in a separate thread below.
           # Another configuration, like spinning later in main() or calling this method from a timer callback, would result in a deadlock.
 
   def main():
-      rclpy.init()
+      try:
+          with rclpy.init():
+              minimal_client = MinimalClientSync()
 
-      minimal_client = MinimalClientSync()
+              spin_thread = Thread(target=rclpy.spin, args=(minimal_client,))
+              spin_thread.start()
 
-      spin_thread = Thread(target=rclpy.spin, args=(minimal_client,))
-      spin_thread.start()
-
-      response = minimal_client.send_request()
-      minimal_client.get_logger().info(
-          'Result of add_two_ints: for %d + %d = %d' %
-          (minimal_client.req.a, minimal_client.req.b, response.sum))
-
-      minimal_client.destroy_node()
-      rclpy.shutdown()
+              response = minimal_client.send_request()
+              minimal_client.get_logger().info(
+                  'Result of add_two_ints: for %d + %d = %d' %
+                  (minimal_client.req.a, minimal_client.req.b, response.sum))
+      except (KeyboardInterrupt, ExternalShutdownException):
+          pass
 
 
   if __name__ == '__main__':

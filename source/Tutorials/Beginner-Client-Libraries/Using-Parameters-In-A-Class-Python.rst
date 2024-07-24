@@ -72,6 +72,7 @@ Inside the ``ros2_ws/src/python_parameters/python_parameters`` directory, create
 .. code-block:: Python
 
     import rclpy
+    from rclpy.executors import ExternalShutdownException
     import rclpy.node
 
     class MinimalParam(rclpy.node.Node):
@@ -96,9 +97,12 @@ Inside the ``ros2_ws/src/python_parameters/python_parameters`` directory, create
             self.set_parameters(all_new_parameters)
 
     def main():
-        rclpy.init()
-        node = MinimalParam()
-        rclpy.spin(node)
+        try:
+            with rclpy.init():
+                node = MinimalParam()
+                rclpy.spin(node)
+        except (KeyboardInterrupt, ExternalShutdownException):
+            pass
 
     if __name__ == '__main__':
         main()
@@ -150,9 +154,12 @@ Here ROS 2 is initialized, an instance of the ``MinimalParam`` class is construc
 .. code-block:: Python
 
     def main():
-        rclpy.init()
-        node = MinimalParam()
-        rclpy.spin(node)
+        try:
+            with rclpy.init():
+                node = MinimalParam()
+                rclpy.spin(node)
+        except (KeyboardInterrupt, ExternalShutdownException):
+            pass
 
     if __name__ == '__main__':
         main()

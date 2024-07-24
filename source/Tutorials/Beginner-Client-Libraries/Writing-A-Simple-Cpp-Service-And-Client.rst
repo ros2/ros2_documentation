@@ -55,10 +55,10 @@ The ``--dependencies`` argument will automatically add the necessary dependency 
 
 .. code-block:: console
 
-    int64 a
-    int64 b
-    ---
-    int64 sum
+  int64 a
+  int64 b
+  ---
+  int64 sum
 
 The first two lines are the parameters of the request, and below the dashes is the response.
 
@@ -83,52 +83,58 @@ Inside the ``ros2_ws/src/cpp_srvcli/src`` directory, create a new file called ``
 
 .. code-block:: C++
 
-      #include "rclcpp/rclcpp.hpp"
-      #include "example_interfaces/srv/add_two_ints.hpp"
+  #include <cinttypes>
+  #include <memory>
 
-      #include <memory>
+  #include "example_interfaces/srv/add_two_ints.hpp"
+  #include "rclcpp/rclcpp.hpp"
 
-      void add(const std::shared_ptr<example_interfaces::srv::AddTwoInts::Request> request,
-                std::shared_ptr<example_interfaces::srv::AddTwoInts::Response>      response)
-      {
-        response->sum = request->a + request->b;
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Incoming request\na: %ld" " b: %ld",
-                      request->a, request->b);
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "sending back response: [%ld]", (long int)response->sum);
-      }
+  using AddTwoInts = example_interfaces::srv::AddTwoInts;
+  rclcpp::node::SharedPtr g_node = nullptr;
 
-      int main(int argc, char **argv)
-      {
-        rclcpp::init(argc, argv);
+  void handle_service(
+    const std::shared_ptr<rmw_request_id_t> request_header,
+    const std::shared_ptr<AddTwoInts::Request> request,
+    const std::shared_ptr<AddTwoInts::Response> response)
+  {
+    (void)request_header;
+    RCLCPP_INFO(
+      g_node->get_logger(),
+      "request: %" PRId64 " + %" PRId64, request->a, request->b);
+    response->sum = request->a + request->b;
+  }
 
-        std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("add_two_ints_server");
-
-        rclcpp::Service<example_interfaces::srv::AddTwoInts>::SharedPtr service =
-          node->create_service<example_interfaces::srv::AddTwoInts>("add_two_ints", &add);
-
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Ready to add two ints.");
-
-        rclcpp::spin(node);
-        rclcpp::shutdown();
-      }
+  int main(int argc, char ** argv)
+  {
+    rclcpp::init(argc, argv);
+    g_node = rclcpp::Node::make_shared("minimal_service");
+    auto server = g_node->create_service<AddTwoInts>("add_two_ints", handle_service);
+    rclcpp::spin(g_node);
+    rclcpp::shutdown();
+    g_node = nullptr;
+    return 0;
+  }
 
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
 
-The first two ``#include`` statements are your package dependencies.
+The first ``#include`` statements are your package dependencies.
 
-The ``add`` function adds two integers from the request and gives the sum to the response, while notifying the console of its status using logs.
+The ``handle_service`` function adds two integers from the request and gives the sum to the response, while notifying the console of its status using logs.
 
 .. code-block:: C++
 
-    void add(const std::shared_ptr<example_interfaces::srv::AddTwoInts::Request> request,
-             std::shared_ptr<example_interfaces::srv::AddTwoInts::Response>      response)
-    {
-        response->sum = request->a + request->b;
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Incoming request\na: %ld" " b: %ld",
-            request->a, request->b);
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "sending back response: [%ld]", (long int)response->sum);
-    }
+  void handle_service(
+    const std::shared_ptr<rmw_request_id_t> request_header,
+    const std::shared_ptr<AddTwoInts::Request> request,
+    const std::shared_ptr<AddTwoInts::Response> response)
+  {
+    (void)request_header;
+    RCLCPP_INFO(
+      g_node->get_logger(),
+      "request: %" PRId64 " + %" PRId64, request->a, request->b);
+    response->sum = request->a + request->b;
+  }
 
 The ``main`` function accomplishes the following, line by line:
 
@@ -138,30 +144,23 @@ The ``main`` function accomplishes the following, line by line:
 
     rclcpp::init(argc, argv);
 
-* Creates a node named ``add_two_ints_server``:
+* Creates a node named ``minimal_service``:
 
   .. code-block:: C++
 
-    std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("add_two_ints_server");
+    g_node = rclcpp::Node::make_shared("minimal_service");
 
-* Creates a service named ``add_two_ints`` for that node and automatically advertises it over the networks with the ``&add`` method:
-
-  .. code-block:: C++
-
-    rclcpp::Service<example_interfaces::srv::AddTwoInts>::SharedPtr service =
-    node->create_service<example_interfaces::srv::AddTwoInts>("add_two_ints", &add);
-
-* Prints a log message when it's ready:
+* Creates a service named ``add_two_ints`` for that node and automatically advertises it over the networks with the ``handle_service`` method:
 
   .. code-block:: C++
 
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Ready to add two ints.");
+    auto server = g_node->create_service<AddTwoInts>("add_two_ints", handle_service);
 
 * Spins the node, making the service available.
 
   .. code-block:: C++
 
-    rclcpp::spin(node);
+    rclcpp::spin(g_node);
 
 2.2 Add executable
 ~~~~~~~~~~~~~~~~~~
@@ -171,16 +170,16 @@ Add the following code block to ``CMakeLists.txt`` to create an executable named
 
 .. code-block:: console
 
-    add_executable(server src/add_two_ints_server.cpp)
-    ament_target_dependencies(server rclcpp example_interfaces)
+  add_executable(server src/add_two_ints_server.cpp)
+  ament_target_dependencies(server rclcpp example_interfaces)
 
 So ``ros2 run`` can find the executable, add the following lines to the end of the file, right before ``ament_package()``:
 
 .. code-block:: console
 
-    install(TARGETS
-        server
-      DESTINATION lib/${PROJECT_NAME})
+  install(TARGETS
+      server
+    DESTINATION lib/${PROJECT_NAME})
 
 You could build your package now, source the local setup files, and run it, but let's create the client node first so you can see the full system at work.
 
@@ -191,50 +190,42 @@ Inside the ``ros2_ws/src/cpp_srvcli/src`` directory, create a new file called ``
 
 .. code-block:: C++
 
-  #include "rclcpp/rclcpp.hpp"
-  #include "example_interfaces/srv/add_two_ints.hpp"
-
   #include <chrono>
-  #include <cstdlib>
+  #include <cinttypes>
   #include <memory>
 
-  using namespace std::chrono_literals;
+  #include "example_interfaces/srv/add_two_ints.hpp"
+  #include "rclcpp/rclcpp.hpp"
 
-  int main(int argc, char **argv)
+  using AddTwoInts = example_interfaces::srv::AddTwoInts;
+
+  int main(int argc, char * argv[])
   {
     rclcpp::init(argc, argv);
-
-    if (argc != 3) {
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "usage: add_two_ints_client X Y");
-        return 1;
-    }
-
-    std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("add_two_ints_client");
-    rclcpp::Client<example_interfaces::srv::AddTwoInts>::SharedPtr client =
-      node->create_client<example_interfaces::srv::AddTwoInts>("add_two_ints");
-
-    auto request = std::make_shared<example_interfaces::srv::AddTwoInts::Request>();
-    request->a = atoll(argv[1]);
-    request->b = atoll(argv[2]);
-
-    while (!client->wait_for_service(1s)) {
+    auto node = rclcpp::Node::make_shared("minimal_client");
+    auto client = node->create_client<AddTwoInts>("add_two_ints");
+    while (!client->wait_for_service(std::chrono::seconds(1))) {
       if (!rclcpp::ok()) {
-        RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Interrupted while waiting for the service. Exiting.");
-        return 0;
+        RCLCPP_ERROR(node->get_logger(), "client interrupted while waiting for service to appear.");
+        return 1;
       }
-      RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "service not available, waiting again...");
+      RCLCPP_INFO(node->get_logger(), "waiting for service to appear...");
     }
-
-    auto result = client->async_send_request(request);
-    // Wait for the result.
+    auto request = std::make_shared<AddTwoInts::Request>();
+    request->a = 41;
+    request->b = 1;
+    auto result_future = client->async_send_request(request);
     if (rclcpp::spin_until_future_complete(node, result) ==
       rclcpp::FutureReturnCode::SUCCESS)
     {
-      RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Sum: %ld", result.get()->sum);
-    } else {
-      RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service add_two_ints");
+      RCLCPP_ERROR(node->get_logger(), "service call failed :(");
+      client->remove_pending_request(result_future);
+      return 1;
     }
-
+    auto result = result_future.get();
+    RCLCPP_INFO(
+      node->get_logger(), "result of %" PRId64 " + %" PRId64 " = %" PRId64,
+      request->a, request->b, result->sum);
     rclcpp::shutdown();
     return 0;
   }
@@ -247,9 +238,23 @@ Similar to the service node, the following lines of code create the node and the
 
 .. code-block:: C++
 
-    std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("add_two_ints_client");
-    rclcpp::Client<example_interfaces::srv::AddTwoInts>::SharedPtr client =
-      node->create_client<example_interfaces::srv::AddTwoInts>("add_two_ints");
+  auto node = rclcpp::Node::make_shared("minimal_client");
+  auto client = node->create_client<AddTwoInts>("add_two_ints");
+
+Next, the code waits for the service to appear.
+The ``while`` loop gives the client 1 second to search for service nodes in the network.
+If it can't find any, it will continue waiting.
+If the client is canceled (e.g. by you entering ``Ctrl+C`` into the terminal), it will return an error log message stating it was interrupted.
+
+.. code-block:: C++
+
+  while (!client->wait_for_service(std::chrono::seconds(1))) {
+    if (!rclcpp::ok()) {
+      RCLCPP_ERROR(node->get_logger(), "client interrupted while waiting for service to appear.");
+      return 1;
+    }
+    RCLCPP_INFO(node->get_logger(), "waiting for service to appear...");
+  }
 
 Next, the request is created.
 Its structure is defined by the ``.srv`` file mentioned earlier.
@@ -257,21 +262,9 @@ Its structure is defined by the ``.srv`` file mentioned earlier.
 .. code-block:: C++
 
   auto request = std::make_shared<example_interfaces::srv::AddTwoInts::Request>();
-  request->a = atoll(argv[1]);
-  request->b = atoll(argv[2]);
+  request->a = 41;
+  request->b = 1;
 
-The ``while`` loop gives the client 1 second to search for service nodes in the network.
-If it can't find any, it will continue waiting.
-
-.. code-block:: C++
-
-  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "service not available, waiting again...");
-
-If the client is canceled (e.g. by you entering ``Ctrl+C`` into the terminal), it will return an error log message stating it was interrupted.
-
-.. code-block:: C++
-
-  RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Interrupted while waiting for the service. Exiting.");
 
 Then the client sends its request, and the node spins until it receives its response, or fails.
 
@@ -374,35 +367,30 @@ Now run the service node:
 
 .. code-block:: console
 
-     ros2 run cpp_srvcli server
+  ros2 run cpp_srvcli server
 
-The terminal should return the following message, and then wait:
-
-.. code-block:: console
-
-    [INFO] [rclcpp]: Ready to add two ints.
+The terminal should wait for incoming requests.
 
 Open another terminal, source the setup files from inside ``ros2_ws`` again.
 Start the client node, followed by any two integers separated by a space:
 
 .. code-block:: console
 
-     ros2 run cpp_srvcli client 2 3
+  ros2 run cpp_srvcli client
 
-If you chose ``2`` and ``3``, for example, the client would receive a response like this:
+The client sends the request to the service, which computes the sum and returns the result.
+The client should receive the following response:
 
 .. code-block:: console
 
-    [INFO] [rclcpp]: Sum: 5
+  [INFO] [minimal_client]: result of 41 + 1: 42
 
 Return to the terminal where your service node is running.
 You will see that it published log messages when it received the request and the data it received, and the response it sent back:
 
 .. code-block:: console
 
-    [INFO] [rclcpp]: Incoming request
-    a: 2 b: 3
-    [INFO] [rclcpp]: sending back response: [5]
+  [INFO] [minimal_service]: request: 41 + 1
 
 Enter ``Ctrl+C`` in the server terminal to stop the node from spinning.
 

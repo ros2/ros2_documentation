@@ -250,6 +250,7 @@ We have two nodes - one providing a simple service:
       .. code-block:: python
 
         import rclpy
+        from rclpy.executors import ExternalShutdownException
         from rclpy.node import Node
         from std_srvs.srv import Empty
 
@@ -264,15 +265,13 @@ We have two nodes - one providing a simple service:
 
 
         if __name__ == '__main__':
-            rclpy.init()
-            node = ServiceNode()
             try:
-                node.get_logger().info("Starting server node, shut down with CTRL-C")
-                rclpy.spin(node)
-            except KeyboardInterrupt:
-                node.get_logger().info('Keyboard interrupt, shutting down.\n')
-            node.destroy_node()
-            rclpy.shutdown()
+                with rclpy.init():
+                    node = ServiceNode()
+                    node.get_logger().info("Starting server node, shut down with CTRL-C")
+                    rclpy.spin(node)
+            except (KeyboardInterrupt, ExternalShutdownException):
+                pass
 
 and another containing a client to the service along with a timer for making
 service calls:
@@ -349,7 +348,7 @@ service calls:
     .. code-block:: python
 
       import rclpy
-      from rclpy.executors import MultiThreadedExecutor
+      from rclpy.executors import ExternalShutdownException, MultiThreadedExecutor
       from rclpy.callback_groups import MutuallyExclusiveCallbackGroup, ReentrantCallbackGroup
       from rclpy.node import Node
       from std_srvs.srv import Empty
@@ -371,18 +370,16 @@ service calls:
 
 
       if __name__ == '__main__':
-          rclpy.init()
-          node = CallbackGroupDemo()
-          executor = MultiThreadedExecutor()
-          executor.add_node(node)
-
           try:
-              node.get_logger().info('Beginning client, shut down with CTRL-C')
-              executor.spin()
-          except KeyboardInterrupt:
-              node.get_logger().info('Keyboard interrupt, shutting down.\n')
-          node.destroy_node()
-          rclpy.shutdown()
+              with rclpy.init():
+                  node = CallbackGroupDemo()
+                  executor = MultiThreadedExecutor()
+                  executor.add_node(node)
+
+                  node.get_logger().info('Beginning client, shut down with CTRL-C')
+                  executor.spin()
+          except (KeyboardInterrupt, ExternalShutdownException):
+              pass
 
 The client node's constructor contains options for setting the
 callback groups of the service client and the timer.

@@ -95,6 +95,7 @@ Open the file using your preferred text editor.
 .. code-block:: python
 
   import rclpy
+  from rclpy.executors import ExternalShutdownException
   from rclpy.node import Node
 
   from std_msgs.msg import String
@@ -118,17 +119,13 @@ Open the file using your preferred text editor.
 
 
   def main(args=None):
-      rclpy.init(args=args)
+      try:
+          with rclpy.init(args=args):
+              minimal_publisher = MinimalPublisher()
 
-      minimal_publisher = MinimalPublisher()
-
-      rclpy.spin(minimal_publisher)
-
-      # Destroy the node explicitly
-      # (optional - otherwise it will be done automatically
-      # when the garbage collector destroys the node object)
-      minimal_publisher.destroy_node()
-      rclpy.shutdown()
+              rclpy.spin(minimal_publisher)
+      except (KeyboardInterrupt, ExternalShutdownException):
+          pass
 
 
   if __name__ == '__main__':
@@ -143,6 +140,7 @@ The first lines of code after the comments import ``rclpy`` so its ``Node`` clas
 .. code-block:: python
 
   import rclpy
+  from rclpy.executors import ExternalShutdownException
   from rclpy.node import Node
 
 The next statement imports the built-in string message type that the node uses to structure the data that it passes on the topic.
@@ -194,17 +192,14 @@ Lastly, the main function is defined.
 .. code-block:: python
 
   def main(args=None):
-      rclpy.init(args=args)
+      try:
+          with rclpy.init(args=args):
+              minimal_publisher = MinimalPublisher()
 
-      minimal_publisher = MinimalPublisher()
+              rclpy.spin(minimal_publisher)
+      except (KeyboardInterrupt, ExternalShutdownException):
+          pass
 
-      rclpy.spin(minimal_publisher)
-
-      # Destroy the node explicitly
-      # (optional - otherwise it will be done automatically
-      # when the garbage collector destroys the node object)
-      minimal_publisher.destroy_node()
-      rclpy.shutdown()
 
 First the ``rclpy`` library is initialized, then the node is created, and then it "spins" the node so its callbacks are called.
 
@@ -323,6 +318,7 @@ Open the ``subscriber_member_function.py`` with your text editor.
 .. code-block:: python
 
   import rclpy
+  from rclpy.executors import ExternalShutdownException
   from rclpy.node import Node
 
   from std_msgs.msg import String
@@ -344,17 +340,13 @@ Open the ``subscriber_member_function.py`` with your text editor.
 
 
   def main(args=None):
-      rclpy.init(args=args)
+      try:
+          with rclpy.init(args=args):
+              minimal_subscriber = MinimalSubscriber()
 
-      minimal_subscriber = MinimalSubscriber()
-
-      rclpy.spin(minimal_subscriber)
-
-      # Destroy the node explicitly
-      # (optional - otherwise it will be done automatically
-      # when the garbage collector destroys the node object)
-      minimal_subscriber.destroy_node()
-      rclpy.shutdown()
+              rclpy.spin(minimal_subscriber)
+      except (KeyboardInterrupt, ExternalShutdownException):
+          pass
 
 
   if __name__ == '__main__':

@@ -295,6 +295,7 @@ Since you'll be changing the standard string msg to a numerical one, the output 
     .. code-block:: python
 
       import rclpy
+      from rclpy.executors import ExternalShutdownException
       from rclpy.node import Node
 
       from tutorial_interfaces.msg import Num                            # CHANGE
@@ -305,7 +306,7 @@ Since you'll be changing the standard string msg to a numerical one, the output 
           def __init__(self):
               super().__init__('minimal_publisher')
               self.publisher_ = self.create_publisher(Num, 'topic', 10)  # CHANGE
-              timer_period = 0.5
+              timer_period = 0.5  # seconds
               self.timer = self.create_timer(timer_period, self.timer_callback)
               self.i = 0
 
@@ -318,14 +319,13 @@ Since you'll be changing the standard string msg to a numerical one, the output 
 
 
       def main(args=None):
-          rclpy.init(args=args)
+          try:
+              with rclpy.init(args=args):
+                  minimal_publisher = MinimalPublisher()
 
-          minimal_publisher = MinimalPublisher()
-
-          rclpy.spin(minimal_publisher)
-
-          minimal_publisher.destroy_node()
-          rclpy.shutdown()
+                  rclpy.spin(minimal_publisher)
+          except (KeyboardInterrupt, ExternalShutdownException):
+              pass
 
 
       if __name__ == '__main__':
@@ -378,6 +378,7 @@ Since you'll be changing the standard string msg to a numerical one, the output 
     .. code-block:: python
 
       import rclpy
+      from rclpy.executors import ExternalShutdownException
       from rclpy.node import Node
 
       from tutorial_interfaces.msg import Num                        # CHANGE
@@ -392,21 +393,20 @@ Since you'll be changing the standard string msg to a numerical one, the output 
                   'topic',
                   self.listener_callback,
                   10)
-              self.subscription
+              self.subscription  # prevent unused variable warning
 
           def listener_callback(self, msg):
-                  self.get_logger().info('I heard: "%d"' % msg.num)  # CHANGE
+              self.get_logger().info('I heard: "%d"' % msg.num)  # CHANGE
 
 
       def main(args=None):
-          rclpy.init(args=args)
+          try:
+              with rclpy.init(args=args):
+                  minimal_subscriber = MinimalSubscriber()
 
-          minimal_subscriber = MinimalSubscriber()
-
-          rclpy.spin(minimal_subscriber)
-
-          minimal_subscriber.destroy_node()
-          rclpy.shutdown()
+                  rclpy.spin(minimal_subscriber)
+          except (KeyboardInterrupt, ExternalShutdownException):
+              pass
 
 
       if __name__ == '__main__':
@@ -573,6 +573,7 @@ Since you'll be changing the original two integer request srv to a three integer
       from tutorial_interfaces.srv import AddThreeInts                                                           # CHANGE
 
       import rclpy
+      from rclpy.executors import ExternalShutdownException
       from rclpy.node import Node
 
 
@@ -589,13 +590,14 @@ Since you'll be changing the original two integer request srv to a three integer
               return response
 
       def main(args=None):
-          rclpy.init(args=args)
+          try:
+              with rclpy.init(args=args):
+                  minimal_service = MinimalService()
 
-          minimal_service = MinimalService()
+                  rclpy.spin(minimal_service)
+          except (KeyboardInterrupt, ExternalShutdownException):
+              pass
 
-          rclpy.spin(minimal_service)
-
-          rclpy.shutdown()
 
       if __name__ == '__main__':
           main()
@@ -631,9 +633,9 @@ Since you'll be changing the original two integer request srv to a three integer
           node->create_client<tutorial_interfaces::srv::AddThreeInts>("add_three_ints");          // CHANGE
 
         auto request = std::make_shared<tutorial_interfaces::srv::AddThreeInts::Request>();       // CHANGE
-        request->a = atoll(argv[1]);
-        request->b = atoll(argv[2]);
-        request->c = atoll(argv[3]);                                                              // CHANGE
+        request->a = 41;
+        request->b = 1;
+        request->c = 1;                                                                           // CHANGE
 
         while (!client->wait_for_service(1s)) {
           if (!rclcpp::ok()) {
@@ -662,8 +664,9 @@ Since you'll be changing the original two integer request srv to a three integer
     .. code-block:: python
 
       from tutorial_interfaces.srv import AddThreeInts                            # CHANGE
-      import sys
+
       import rclpy
+      from rclpy.executors import ExternalShutdownException
       from rclpy.node import Node
 
 
@@ -677,34 +680,24 @@ Since you'll be changing the original two integer request srv to a three integer
               self.req = AddThreeInts.Request()                                   # CHANGE
 
           def send_request(self):
-              self.req.a = int(sys.argv[1])
-              self.req.b = int(sys.argv[2])
-              self.req.c = int(sys.argv[3])                                       # CHANGE
-              self.future = self.cli.call_async(self.req)
+              self.req.a = 41
+              self.req.b = 1
+              self.req.c = 1                                                      # CHANGE
+              return self.cli.call_async(self.req)
 
 
       def main(args=None):
-          rclpy.init(args=args)
-
-          minimal_client = MinimalClientAsync()
-          minimal_client.send_request()
-
-          while rclpy.ok():
-              rclpy.spin_once(minimal_client)
-              if minimal_client.future.done():
-                  try:
-                      response = minimal_client.future.result()
-                  except Exception as e:
-                      minimal_client.get_logger().info(
-                          'Service call failed %r' % (e,))
-                  else:
-                      minimal_client.get_logger().info(
-                          'Result of add_three_ints: for %d + %d + %d = %d' %                                # CHANGE
-                          (minimal_client.req.a, minimal_client.req.b, minimal_client.req.c, response.sum))  # CHANGE
-                  break
-
-          minimal_client.destroy_node()
-          rclpy.shutdown()
+          try:
+              with rclpy.init(args=args):
+                  minimal_client = MinimalClientAsync()
+                  future = minimal_client.send_request()
+                  rclpy.spin_until_future_complete(minimal_client, future)
+                  response = future.result()
+                  minimal_client.get_logger().info(
+                      'Result of add_three_ints: for %d + %d + %d = %d' %                                # CHANGE
+                      (minimal_client.req.a, minimal_client.req.b, minimal_client.req.c, response.sum))  # CHANGE
+          except (KeyboardInterrupt, ExternalShutdownException):
+              pass
 
 
       if __name__ == '__main__':
@@ -803,7 +796,7 @@ Then open two new terminals, source ``ros2_ws`` in each, and run:
 
     .. code-block:: console
 
-          ros2 run cpp_srvcli client 2 3 1
+          ros2 run cpp_srvcli client
 
   .. group-tab:: Python
 
@@ -813,7 +806,7 @@ Then open two new terminals, source ``ros2_ws`` in each, and run:
 
     .. code-block:: console
 
-        ros2 run py_srvcli client 2 3 1
+        ros2 run py_srvcli client
 
 
 Summary

@@ -62,10 +62,10 @@ In ROS 2:
 
 .. code-block:: python
 
-   rclpy.init(args=sys.argv)
-   node = rclpy.create_node('asdf')
+   with rclpy.init(args=sys.argv):
+       node = rclpy.create_node('asdf')
 
-   node.get_logger().info('Created node')
+       node.get_logger().info('Created node')
 
 ROS Parameters
 ^^^^^^^^^^^^^^
