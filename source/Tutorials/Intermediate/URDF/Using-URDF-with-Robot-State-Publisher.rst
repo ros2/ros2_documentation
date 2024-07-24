@@ -119,6 +119,7 @@ Fire up your favorite editor and paste the following code into ``second_ros2_ws/
   from sensor_msgs.msg import JointState
   from tf2_ros import TransformBroadcaster, TransformStamped
 
+
   class StatePublisher(Node):
 
       def __init__(self):
@@ -127,13 +128,13 @@ Fire up your favorite editor and paste the following code into ``second_ros2_ws/
           qos_profile = QoSProfile(depth=10)
           self.joint_pub = self.create_publisher(JointState, 'joint_states', qos_profile)
           self.broadcaster = TransformBroadcaster(self, qos=qos_profile)
-          self.loop_rate = self.create_rate(30)
+          self.timer = self.create_timer(1/30, self.update)
 
           self.degree = pi / 180.0
 
           # robot state
           self.tilt = 0.
-          self.tinc = degree
+          self.tinc = self.degree
           self.swivel = 0.
           self.angle = 0.
           self.height = 0.
@@ -185,21 +186,15 @@ Fire up your favorite editor and paste the following code into ``second_ros2_ws/
       qw = cos(roll/2) * cos(pitch/2) * cos(yaw/2) + sin(roll/2) * sin(pitch/2) * sin(yaw/2)
       return Quaternion(x=qx, y=qy, z=qz, w=qw)
 
+
   def main():
       try:
           with rclpy.init():
               node = StatePublisher()
-
-              while rclpy.ok():
-                  rclpy.spin_once(node)
-
-                  node.update()
-
-                  # This will adjust as needed per iteration
-                  node.loop_rate.sleep()
-
+              rclpy.spin(node)
       except (KeyboardInterrupt, ExternalShutdownException):
           pass
+
 
   if __name__ == '__main__':
       main()
