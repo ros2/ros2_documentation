@@ -2,7 +2,7 @@
 
   Docs-Guide
 
-ROS 2 Documentation
+ROS 2 文档
 ===================
 
 .. toctree::
@@ -23,54 +23,52 @@ ROS 2 Documentation
    Citations
 
 
-**The Robot Operating System (ROS) is a set of software libraries and tools for building robot applications.**
-From drivers and state-of-the-art algorithms to powerful developer tools, ROS has the open source tools you need for your next robotics project.
+**机器人操作系统(The Robot Operating System / ROS) 是一系列用于构建机器人应用的软件库和工具包的集合**
+从驱动和算法最佳实现到强大的开发者工具，ROS 提供了您下一个机器人项目所需的开源工具。
 
-Since ROS was started in 2007, a lot has changed in the robotics and ROS community.
-The goal of the ROS 2 project is to adapt to these changes, leveraging what is great about ROS 1 and improving what isn’t.
+自从 ROS 于 2007 年启动以来，机器人领域和 ROS 社区发生了很多变化。
+ROS2 的目标是适应这些变、保留 ROS1 的优势并改进不足之处。
 
-**Are you looking for documentation for a particular ROS package like MoveIt,  image_proc, or octomap?** Please see `ROS Index <https://index.ros.org/packages/#{DISTRO}>`__  or check out `this index of per-package documentation <https://docs.ros.org/en/{DISTRO}/p/>`__.
+**您是否在寻找特定 ROS 包的文档，如 MoveIt、image_proc 或 octomap？** 请查看 `ROS Index <https://index.ros.org/packages/#{DISTRO}>`__ 或查看 `所有包的文档目录 <https://docs.ros.org/en/{DISTRO}/p/>`__。
 
-This site contains the documentation for ROS 2.
-If you are looking for ROS 1 documentation, check out the `ROS wiki <https://wiki.ros.org>`__.
+本站点包含 ROS 2 的文档，如果您正在寻找 ROS 1 的文档，请查看 `ROS wiki <https://wiki.ros.org>`__。
 
-If you use ROS 2 in your work, please see :doc:`Citations <Citations>` to cite ROS 2.
+如果你的工作中用到了 ROS 2，请参考 :doc:`引用 <Citations>` 来引用 ROS 2。
 
-Getting started
----------------
+开始
+----
 
-* :doc:`Installation <Installation>`
+* :doc:`安装 <Installation>`
 
-  - Instructions to set up ROS 2 for the first time
+  - 首次配置 ROS 2 的方法
 
-* :doc:`Tutorials <Tutorials>`
+* :doc:`教程 <Tutorials>`
 
-  - The best place to start for new users!
-  - Hands-on sample projects that help you build a progression of necessary skills
+  - 新用户最佳入门处！
+  - 帮你构建必要技能的一系列示例项目
 
-* :doc:`How-To-Guides`
+* :doc:`指南 <How-To-Guides>`
 
-  - Quick answers to your "How do I...?" questions without working through the :doc:`Tutorials <Tutorials>`
+  - 无需通读 :doc:`教程 <Tutorials>` 即可快速解答你的“我该怎么做到...？”之类的问题
 
-* :doc:`Concepts <Concepts>`
+* :doc:`概念 <Concepts>`
 
-  - High-level explanations of core ROS 2 concepts covered in the :doc:`Tutorials <Tutorials>`
+  - 阐明在 :doc:`教程 <Tutorials>` 中所涉及的ROS 2 核心概念
 
-* :doc:`Contact <Contact>`
+* :doc:`联系我们 <Contact>`
 
-  - Answers to your questions or a forum to start a discussion
+  - 找到问题的答案或用来讨论问题的论坛
 
+ROS 2 项目
+------------
 
-The ROS 2 project
------------------
+如果您对 ROS 2 项目的进展感兴趣：
 
-If you're interested in the advancement of the ROS 2 project:
+* :doc:`贡献 <The-ROS2-Project/Contributing>`
 
-* :doc:`Contributing <The-ROS2-Project/Contributing>`
+  - 贡献到 ROS 2 的最佳实践和方法，以及迁移现有 ROS 1 内容到 ROS 2 的方法
 
-  - Best practices and methodology for contributing to ROS 2, as well as instructions for migrating existing ROS 1 content to ROS 2
-
-* :doc:`Distributions <Releases>`
+* :doc:`发行版 <Releases>`
 
   - Past, present and future ROS 2 distributions
 
