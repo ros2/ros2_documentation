@@ -61,7 +61,7 @@ Navigate into the ``ros2_ws/src`` directory and create a new package:
 Your terminal will return a message verifying the creation of your package ``bag_recorder_nodes_py`` and all its necessary files and folders.
 The ``--dependencies`` argument will automatically add the necessary dependency lines to the ``package.xml``.
 In this case, the package will use the ``rosbag2_py`` package as well as the ``rclpy`` package.
-A dependency on the ``example_interfaces`` package is also required for message definitions.
+A dependency on the ``std_msgs`` and ``example_interfaces`` packages are also required for message definitions.
 
 1.1 Update ``package.xml`` and ``setup.py``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -151,7 +151,7 @@ Note the importation of the ``rosbag2_py`` package for the functions and structu
 
 In the class constructor, we begin by creating the writer object that we will use to write to the bag.
 We are creating a ``SequentialWriter``, which writes messages into the bag in the order they are received.
-Other writers with different behaviours may be available in `rosbag2 <https://github.com/ros2/rosbag2/tree/{REPOS_FILE_BRANCH}/rosbag2_cpp/include/rosbag2_cpp/writers>`__.
+Other writers with different behaviors may be available in `rosbag2 writer <https://github.com/ros2/rosbag2/tree/{REPOS_FILE_BRANCH}/rosbag2_py/rosbag2_py/_writer.pyi>`__.
 
 .. code-block:: Python
 
@@ -290,7 +290,7 @@ Open a second terminal and run the ``talker`` example node.
 
 .. code-block:: console
 
-   ros2 run demo_nodes_cpp talker
+   ros2 run demo_nodes_py talker
 
 This will start publishing data on the ``chatter`` topic.
 As the bag-writing node receives this data, it will write it to the ``my_bag`` bag.
@@ -302,7 +302,7 @@ Then, in one terminal start the ``listener`` example node.
 
 .. code-block:: console
 
-   ros2 run demo_nodes_cpp listener
+   ros2 run demo_nodes_py listener
 
 In the other terminal, use ``ros2 bag`` to play the bag recorded by your node.
 
