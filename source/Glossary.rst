@@ -1,4 +1,4 @@
-Glossary
+术语表
 ========
 
 .. include:: ../global_substitutions.txt

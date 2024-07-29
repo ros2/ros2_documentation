@@ -1,6 +1,6 @@
 .. _Releases:
 
-Distributions
+发行版
 =============
 
 What is a Distribution?

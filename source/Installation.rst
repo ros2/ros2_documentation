@@ -1,7 +1,7 @@
 .. _InstallationGuide:
 .. _RollingInstall:
 
-Installation
+安装
 ============
 
 Options for installing ROS 2 {DISTRO_TITLE_FULL}:

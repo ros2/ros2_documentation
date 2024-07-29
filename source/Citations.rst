@@ -1,7 +1,7 @@
 .. _citation:
 
-Citations
-=========
+引用本项目
+==========
 
 If you use ROS 2 in your work please cite the 2022 Science Robotics paper `Robot Operating System 2: Design, architecture, and uses in the wild <https://www.science.org/doi/10.1126/scirobotics.abm6074>`_.
 
