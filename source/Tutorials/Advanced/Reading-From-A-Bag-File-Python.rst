@@ -103,6 +103,7 @@ Inside the ``ros2_ws/src/bag_reader_node_py/bag_reader_node_py`` directory, crea
                     continue
                 self.publisher.publish(msg[1])
                 self.get_logger().info('Publish serialized data to ' + msg[0])
+                break
 
 
     def main(args=None):
