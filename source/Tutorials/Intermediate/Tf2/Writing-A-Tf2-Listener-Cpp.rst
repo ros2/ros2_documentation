@@ -2,8 +2,6 @@
 
     Tutorials/Tf2/Writing-A-Tf2-Listener-Cpp
 
-.. _WritingATf2ListenerCpp:
-
 Writing a listener (C++)
 ========================
 
@@ -36,7 +34,8 @@ Tasks
 1 Write the listener node
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Let's first create the source files. Go to the ``learning_tf2_cpp`` package we created in the previous tutorial.
+Let's first create the source files.
+Go to the ``learning_tf2_cpp`` package we created in the previous tutorial.
 Inside the ``src`` directory download the example listener code by entering the following command:
 
 .. tabs::
@@ -213,20 +212,22 @@ Open the file using your preferred text editor.
 To understand how the service behind spawning turtle works, please refer to :doc:`writing a simple service and client (C++) <../../Beginner-Client-Libraries/Writing-A-Simple-Cpp-Service-And-Client>` tutorial.
 
 Now, let's take a look at the code that is relevant to get access to frame transformations.
-The ``tf2_ros`` contains a ``TransformListener`` header file implementation that makes the task of receiving transforms easier.
+The ``tf2_ros`` contains a ``TransformListener`` class that makes the task of receiving transforms easier.
 
 .. code-block:: C++
 
     #include "tf2_ros/transform_listener.h"
 
-Here, we create a ``TransformListener`` object. Once the listener is created, it starts receiving tf2 transformations over the wire, and buffers them for up to 10 seconds.
+Here, we create a ``TransformListener`` object.
+Once the listener is created, it starts receiving tf2 transformations over the wire, and buffers them for up to 10 seconds.
 
 .. code-block:: C++
 
     tf_listener_ =
       std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
 
-Finally, we query the listener for a specific transformation. We call ``lookup_transform`` method with following arguments:
+Finally, we query the listener for a specific transformation.
+We call ``lookup_transform`` method with following arguments:
 
 #. Target frame
 
@@ -234,7 +235,7 @@ Finally, we query the listener for a specific transformation. We call ``lookup_t
 
 #. The time at which we want to transform
 
-Providing ``tf2::TimePointZero()`` will just get us the latest available transform.
+Providing ``tf2::TimePointZero`` will just get us the latest available transform.
 All this is wrapped in a try-catch block to handle possible exceptions.
 
 .. code-block:: C++
@@ -242,6 +243,10 @@ All this is wrapped in a try-catch block to handle possible exceptions.
     t = tf_buffer_->lookupTransform(
       toFrameRel, fromFrameRel,
       tf2::TimePointZero);
+
+The resulting transformation represents the position and orientation of the target turtle relative to ``turtle2``.
+The angle between the turtles is then used to calculate a velocity command to follow the target turtle.
+For more general information about tf2 see also the :doc:`tf2 page in the Concepts section <../../../Concepts/Intermediate/About-Tf2>`.
 
 1.2 CMakeLists.txt
 ~~~~~~~~~~~~~~~~~~
@@ -273,7 +278,7 @@ Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your e
 2 Update the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Open the launch file called ``turtle_tf2_demo.launch.py`` with your text editor, add two new nodes to the launch description, add a launch argument, and add the imports.
+Open the launch file called ``turtle_tf2_demo.launch.py`` in the ``src/learning_tf2_cpp/launch`` directory with your text editor, add two new nodes to the launch description, add a launch argument, and add the imports.
 The resulting file should look like:
 
 .. code-block:: python
@@ -322,7 +327,7 @@ The resulting file should look like:
             ),
         ])
 
-This will declare a ``target_frame`` launch argument, start a broadcaster for second turtle that we will spawn and listener that will subscribe to those transformations.
+This will declare a ``target_frame`` launch argument, start a broadcaster for the second turtle that we will spawn and a listener that will subscribe to those transformations.
 
 3 Build
 ^^^^^^^
@@ -345,7 +350,7 @@ Run ``rosdep`` in the root of your workspace to check for missing dependencies.
 
         rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim`` dependencies yourself
 
-From the root of your workspace, build your updated package:
+Still in the root of your workspace, build your package:
 
 .. tabs::
 

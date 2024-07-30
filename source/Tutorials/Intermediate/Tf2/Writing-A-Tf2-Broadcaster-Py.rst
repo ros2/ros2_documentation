@@ -2,8 +2,6 @@
 
     Tutorials/Tf2/Writing-A-Tf2-Broadcaster-Py
 
-.. _WritingATf2BroadcasterPy:
-
 Writing a broadcaster (Python)
 ==============================
 
@@ -21,14 +19,15 @@ Background
 ----------
 
 In the next two tutorials we will write the code to reproduce the demo from the :doc:`Introduction to tf2 <./Introduction-To-Tf2>` tutorial.
-After that, following tutorials focus on extending the demo with more advanced tf2 features, including the usage of timeouts in transformation lookups and time travel.
+After that, the following tutorials focus on extending the demo with more advanced tf2 features, including the usage of timeouts in transformation lookups and time travel.
 
 Prerequisites
 -------------
 
-This tutorial assumes you have a working knowledge of ROS 2 and you have completed the :doc:`Introduction to tf2 tutorial <./Introduction-To-Tf2>`.
+This tutorial assumes you have a working knowledge of ROS 2 and you have completed the :doc:`Introduction to tf2 tutorial <./Introduction-To-Tf2>` and :doc:`tf2 static broadcaster tutorial (Python) <./Writing-A-Tf2-Static-Broadcaster-Py>`.
+We'll be reusing the ``learning_tf2_py`` package from that last tutorial.
+
 In previous tutorials, you learned how to :doc:`create a workspace <../../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>` and :doc:`create a package <../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>`.
-You also have created the ``learning_tf2_py`` :doc:`package <./Writing-A-Tf2-Static-Broadcaster-Py>`, which is where we will continue working from.
 
 Tasks
 -----
@@ -68,7 +67,7 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the exampl
 
             curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_broadcaster.py -o turtle_tf2_broadcaster.py
 
-Open the file using your preferred text editor.
+Now open the file called ``turtle_tf2_broadcaster.py`` using your preferred text editor.
 
 .. code-block:: python
 
@@ -180,7 +179,7 @@ Firstly, we define and acquire a single parameter ``turtlename``, which specifie
     self.turtlename = self.declare_parameter(
       'turtlename', 'turtle').get_parameter_value().string_value
 
-Afterward, the node subscribes to topic ``turtleX/pose`` and runs function ``handle_turtle_pose`` on every incoming message.
+Afterward, the node subscribes to topic ``{self.turtlename}/pose`` and runs function ``handle_turtle_pose`` on every incoming message.
 
 .. code-block:: python
 
@@ -236,19 +235,13 @@ Finally we take the transform that we constructed and pass it to the ``sendTrans
     # Send the transformation
     self.tf_broadcaster.sendTransform(t)
 
-.. note::
-
-    You can also publish static transforms with the same pattern by instantiating a ``tf2_ros.StaticTransformBroadcaster`` instead of a ``tf2_ros.TransformBroadcaster``.
-    The static transforms will be published on the ``/tf_static`` topic and will be sent only when required, not periodically.
-    For more details see :doc:`here <./Writing-A-Tf2-Static-Broadcaster-Py>`.
-
 1.2 Add an entry point
 ~~~~~~~~~~~~~~~~~~~~~~
 
 To allow the ``ros2 run`` command to run your node, you must add the entry point
 to ``setup.py`` (located in the ``src/learning_tf2_py`` directory).
 
-Finally, add the following line between the ``'console_scripts':`` brackets:
+Add the following line between the ``'console_scripts':`` brackets:
 
 .. code-block:: python
 
@@ -258,6 +251,7 @@ Finally, add the following line between the ``'console_scripts':`` brackets:
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 Now create a launch file for this demo.
+Create a ``launch`` folder in the ``src/learning_tf2_py`` directory.
 With your text editor, create a new file called ``turtle_tf2_demo.launch.py`` in the ``launch`` folder, and add the following lines:
 
 .. code-block:: python
@@ -315,7 +309,7 @@ Now we run our nodes that start the turtlesim simulation and broadcast ``turtle1
 2.2 Add dependencies
 ~~~~~~~~~~~~~~~~~~~~
 
-Navigate one level back to the ``src/learning_tf2_py`` directory, where the ``setup.py``, ``setup.cfg``, and ``package.xml`` files are located.
+Navigate one level back to the ``learning_tf2_py`` directory, where the ``setup.py``, ``setup.cfg``, and ``package.xml`` files are located.
 
 Open ``package.xml`` with your text editor.
 Add the following dependencies corresponding to your launch file's import statements:
@@ -332,7 +326,7 @@ Make sure to save the file.
 2.3 Update setup.py
 ~~~~~~~~~~~~~~~~~~~
 
-Reopen ``setup.py`` and add the line so that the launch files from the ``launch/`` folder would be installed.
+Reopen ``setup.py`` and add the line so that the launch files from the ``launch/`` folder will be installed.
 The ``data_files`` field should now look like this:
 
 .. code-block:: python
@@ -435,7 +429,7 @@ In the second terminal window type the following command:
 
     ros2 run turtlesim turtle_teleop_key
 
-You will now see that the turtlesim simulation have started with one turtle that you can control.
+You will now see that the turtlesim simulation has started with one turtle that you can control.
 
 .. image:: images/turtlesim_broadcast.png
 
@@ -451,18 +445,16 @@ In your console output you will see something similar to this:
 
 .. code-block:: console
 
-    At time 1625137663.912474878
-    - Translation: [5.276, 7.930, 0.000]
-    - Rotation: in Quaternion [0.000, 0.000, 0.934, -0.357]
-    At time 1625137664.950813527
-    - Translation: [3.750, 6.563, 0.000]
-    - Rotation: in Quaternion [0.000, 0.000, 0.934, -0.357]
-    At time 1625137665.906280726
-    - Translation: [2.320, 5.282, 0.000]
-    - Rotation: in Quaternion [0.000, 0.000, 0.934, -0.357]
-    At time 1625137666.850775673
-    - Translation: [2.153, 5.133, 0.000]
-    - Rotation: in Quaternion [0.000, 0.000, -0.365, 0.931]
+    At time 1714913843.708748879
+    - Translation: [4.541, 3.889, 0.000]
+    - Rotation: in Quaternion [0.000, 0.000, 0.999, -0.035]
+    - Rotation: in RPY (radian) [0.000, -0.000, -3.072]
+    - Rotation: in RPY (degree) [0.000, -0.000, -176.013]
+    - Matrix:
+     -0.998  0.070  0.000  4.541
+     -0.070 -0.998  0.000  3.889
+      0.000  0.000  1.000  0.000
+      0.000  0.000  0.000  1.000
 
 If you run ``tf2_echo`` for the transform between the ``world`` and ``turtle2``, you should not see a transform, because the second turtle is not there yet.
 However, as soon as we add the second turtle in the next tutorial, the pose of ``turtle2`` will be broadcast to tf2.

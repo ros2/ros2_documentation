@@ -50,7 +50,7 @@ In your workspace ``src`` directory, create a package ``more_interfaces`` and ma
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_cmake more_interfaces
+  ros2 pkg create --build-type ament_cmake --license Apache-2.0 more_interfaces
   mkdir more_interfaces/msg
 
 2 Create a msg file
@@ -443,7 +443,7 @@ We won't create a subscriber in this tutorial, but you can try to write one your
        DEPENDENCIES rosidl_tutorials_msgs
      )
 
-  You would also need to include the header of ``Contact.msg`` in you publisher node in order to be able to add ``contacts`` to your ``address_book``.
+  You would also need to include the header of ``Contact.msg`` in your publisher node in order to be able to add ``contacts`` to your ``address_book``.
 
   .. code-block:: c++
 

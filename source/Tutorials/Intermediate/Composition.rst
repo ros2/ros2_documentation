@@ -21,11 +21,15 @@ Background
 
 See the :doc:`conceptual article <../../Concepts/Intermediate/About-Composition>`.
 
-Run the demos
+For information on how to write a composable node, :doc:`check out this tutorial <Writing-a-Composable-Node>`.
+
+Prerequisites
 -------------
 
-The demos use executables from `rclcpp_components <https://github.com/ros2/rclcpp/tree/{REPOS_FILE_BRANCH}/rclcpp_components>`__, `ros2component <https://github.com/ros2/ros2cli/tree/{REPOS_FILE_BRANCH}/ros2component>`__, and  `composition <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/composition>`__ packages, and can be run with the following commands.
+This tutorial uses executables from the `rclcpp_components <https://github.com/ros2/rclcpp/tree/{REPOS_FILE_BRANCH}/rclcpp_components>`__, `ros2component <https://github.com/ros2/ros2cli/tree/{REPOS_FILE_BRANCH}/ros2component>`__, `composition <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/composition>`__, and `image_tools <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/image_tools>`__ packages. If you've followed the :doc:`installation instructions <../../Installation>` for your platform, these should already be installed.
 
+Run the demos
+-------------
 
 Discover available components
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -133,11 +137,11 @@ In the second shell (see `server <https://github.com/ros2/demos/blob/{REPOS_FILE
 
 In this case the client sends a request to the server, the server processes the request and replies with a response, and the client prints the received response.
 
-Compile-time composition using ROS services
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Compile-time composition with hardcoded nodes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This demos shows that the same shared libraries can be reused to compile a single executable running multiple components.
-The executable contains all four components from above: talker and listener as well as server and client.
+This demo shows that the same shared libraries can be reused to compile a single executable running multiple components without using ROS interfaces.
+The executable contains all four components from above: talker and listener as well as server and client, which is hardcoded in the main function.
 
 In the shell call (see `source code <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/composition/src/manual_composition.cpp>`__):
 
@@ -155,7 +159,7 @@ Run-time composition using dlopen
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This demo presents an alternative to run-time composition by creating a generic container process and explicitly passing the libraries to load without using ROS interfaces.
-The process will open each library and create one instance of each "rclcpp::Node" class in the library `source code <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/composition/src/dlopen_composition.cpp>`__).
+The process will open each library and create one instance of each "rclcpp::Node" class in the library (`source code <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/composition/src/dlopen_composition.cpp>`__).
 
 .. tabs::
 

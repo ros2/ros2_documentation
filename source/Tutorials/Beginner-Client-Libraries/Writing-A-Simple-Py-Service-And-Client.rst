@@ -45,7 +45,7 @@ Navigate into ``ros2_ws/src`` and create a new package:
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_python py_srvcli --dependencies rclpy example_interfaces
+  ros2 pkg create --build-type ament_python --license Apache-2.0 py_srvcli --dependencies rclpy example_interfaces
 
 Your terminal will return a message verifying the creation of your package ``py_srvcli`` and all its necessary files and folders.
 
@@ -196,16 +196,16 @@ Inside the ``ros2_ws/src/py_srvcli/py_srvcli`` directory, create a new file call
       def send_request(self, a, b):
           self.req.a = a
           self.req.b = b
-          self.future = self.cli.call_async(self.req)
-          rclpy.spin_until_future_complete(self, self.future)
-          return self.future.result()
+          return self.cli.call_async(self.req)
 
 
   def main():
       rclpy.init()
 
       minimal_client = MinimalClientAsync()
-      response = minimal_client.send_request(int(sys.argv[1]), int(sys.argv[2]))
+      future = minimal_client.send_request(int(sys.argv[1]), int(sys.argv[2]))
+      rclpy.spin_until_future_complete(minimal_client, future)
+      response = future.result()
       minimal_client.get_logger().info(
           'Result of add_two_ints: for %d + %d = %d' %
           (int(sys.argv[1]), int(sys.argv[2]), response.sum))
@@ -221,19 +221,57 @@ Inside the ``ros2_ws/src/py_srvcli/py_srvcli`` directory, create a new file call
 3.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
 
-The only different ``import`` statement for the client is ``import sys``.
-The client node code uses `sys.argv <https://docs.python.org/3/library/sys.html#sys.argv>`__ to get access to command line input arguments for the request.
+As with the service code, we first ``import`` the necessary libraries.
 
+.. code-block:: python
+
+  import sys
+
+  from example_interfaces.srv import AddTwoInts
+  import rclpy
+  from rclpy.node import Node
+
+The ``MinimalClientAsync`` class constructor initializes the node with the name ``minimal_client_async``.
 The constructor definition creates a client with the same type and name as the service node.
 The type and name must match for the client and service to be able to communicate.
-
 The ``while`` loop in the constructor checks if a service matching the type and name of the client is available once a second.
+Finally it creates a new ``AddTwoInts`` request object.
 
-Below the constructor is the request definition, followed by ``main``.
+.. code-block:: python
 
-The only significant difference in the client's ``main`` is the ``while`` loop.
-The loop checks the ``future`` to see if there is a response from the service, as long as the system is running.
-If the service has sent a response, the result will be written in a log message.
+  def __init__(self):
+      super().__init__('minimal_client_async')
+      self.cli = self.create_client(AddTwoInts, 'add_two_ints')
+      while not self.cli.wait_for_service(timeout_sec=1.0):
+          self.get_logger().info('service not available, waiting again...')
+      self.req = AddTwoInts.Request()
+
+Below the constructor is the ``send_request`` method, which will send the request and return a future that can be passed to ``spin_until_future_complete``:
+
+.. code-block:: python
+
+  def send_request(self, a, b):
+      self.req.a = a
+      self.req.b = b
+      return self.cli.call_async(self.req)
+
+Finally we have the ``main`` method, which constructs a ``MinimalClientAsync`` object, sends the request using the passed-in command-line arguments, calls ``spin_until_future_complete``, and logs the results:
+
+.. code-block:: python
+
+  def main():
+      rclpy.init()
+
+      minimal_client = MinimalClientAsync()
+      future = minimal_client.send_request(int(sys.argv[1]), int(sys.argv[2]))
+      rclpy.spin_until_future_complete(minimal_client, future)
+      response = future.result()
+      minimal_client.get_logger().info(
+          'Result of add_two_ints: for %d + %d = %d' %
+          (int(sys.argv[1]), int(sys.argv[2]), response.sum))
+
+      minimal_client.destroy_node()
+      rclpy.shutdown()
 
 
 3.2 Add an entry point

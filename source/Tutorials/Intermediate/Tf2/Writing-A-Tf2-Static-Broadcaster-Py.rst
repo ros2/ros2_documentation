@@ -2,8 +2,6 @@
 
     Tutorials/Tf2/Writing-A-Tf2-Static-Broadcaster-Py
 
-.. _WritingATf2StaticBroadcasterPy:
-
 Writing a static broadcaster (Python)
 =====================================
 
@@ -50,7 +48,7 @@ Navigate to workspace's ``src`` folder and create a new package:
 
 .. code-block:: console
 
-   ros2 pkg create --build-type ament_python learning_tf2_py
+   ros2 pkg create --build-type ament_python --license Apache-2.0 -- learning_tf2_py
 
 Your terminal will return a message verifying the creation of your package ``learning_tf2_py`` and all its necessary files and folders.
 
@@ -88,7 +86,7 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the exampl
 
                 curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/static_turtle_tf2_broadcaster.py -o static_turtle_tf2_broadcaster.py
 
-Open the file using your preferred text editor.
+Now open the file called ``static_turtle_tf2_broadcaster.py`` using your preferred text editor.
 
 .. code-block:: python
 
@@ -260,8 +258,8 @@ Finally, we broadcast static transform using the ``sendTransform()`` function.
 
     self.tf_static_broadcaster.sendTransform(t)
 
-2.2 Add dependencies
-~~~~~~~~~~~~~~~~~~~~
+2.2 Update package.xml
+~~~~~~~~~~~~~~~~~~~~~~
 
 Navigate one level back to the ``src/learning_tf2_py`` directory, where the ``setup.py``, ``setup.cfg``, and ``package.xml`` files have been created for you.
 
@@ -415,14 +413,14 @@ This tutorial aimed to show how ``StaticTransformBroadcaster`` can be used to pu
 In your real development process you shouldn't have to write this code yourself and should use the dedicated ``tf2_ros`` tool to do so.
 ``tf2_ros`` provides an executable named ``static_transform_publisher`` that can be used either as a commandline tool or a node that you can add to your launchfiles.
 
-Publish a static coordinate transform to tf2 using an x/y/z offset in meters and roll/pitch/yaw in radians.
-In our case, roll/pitch/yaw refers to rotation about the x/y/z-axis, respectively.
+The following command publishes a static coordinate transform to tf2 using an x/y/z offset in meters and roll/pitch/yaw in radians.
+In ROS 2, roll/pitch/yaw refers to rotation about the x/y/z-axis, respectively.
 
 .. code-block:: console
 
     ros2 run tf2_ros static_transform_publisher --x x --y y --z z --yaw yaw --pitch pitch --roll roll --frame-id frame_id --child-frame-id child_frame_id
 
-Publish a static coordinate transform to tf2 using an x/y/z offset in meters and quaternion.
+The following command publishes a static coordinate transform to tf2 using an x/y/z offset in meters and roll/pitch/yaw as a quaternion.
 
 .. code-block:: console
 
@@ -430,7 +428,7 @@ Publish a static coordinate transform to tf2 using an x/y/z offset in meters and
 
 ``static_transform_publisher`` is designed both as a command-line tool for manual use, as well as for use within ``launch`` files for setting static transforms. For example:
 
-.. code-block:: console
+.. code-block:: python
 
     from launch import LaunchDescription
     from launch_ros.actions import Node

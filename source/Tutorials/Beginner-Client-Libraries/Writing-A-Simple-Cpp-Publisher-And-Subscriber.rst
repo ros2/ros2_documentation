@@ -46,7 +46,7 @@ So, navigate into ``ros2_ws/src``, and run the package creation command:
 
 .. code-block:: console
 
-    ros2 pkg create --build-type ament_cmake cpp_pubsub
+    ros2 pkg create --build-type ament_cmake --license Apache-2.0 cpp_pubsub
 
 Your terminal will return a message verifying the creation of your package ``cpp_pubsub`` and all its necessary files and folders.
 
@@ -333,7 +333,7 @@ Enter the following code in your terminal:
 
             curl https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function.cpp -o subscriber_member_function.cpp
 
-Entering ``ls`` in the console will now return:
+Check to ensure that these files exist:
 
 .. code-block:: console
 

@@ -22,6 +22,7 @@ If you are new and looking to learn the ropes, start with the :doc:`Tutorials <T
 
    How-To-Guides/Installation-Troubleshooting
    How-To-Guides/Developing-a-ROS-2-Package
+   How-To-Guides/Documenting-a-ROS-2-Package
    How-To-Guides/Ament-CMake-Documentation
    How-To-Guides/Ament-CMake-Python-Documentation
    How-To-Guides/Migrating-from-ROS1
@@ -45,10 +46,13 @@ If you are new and looking to learn the ropes, start with the :doc:`Tutorials <T
    How-To-Guides/Using-Variants
    How-To-Guides/Using-ros2-param
    How-To-Guides/Using-ros1_bridge-Jammy-upstream
-   How-To-Guides/Disabling-ZeroCopy-loaned-messages
+   How-To-Guides/Configure-ZeroCopy-loaned-messages
    How-To-Guides/Installing-on-Raspberry-Pi
    How-To-Guides/Using-callback-groups
+   How-To-Guides/Getting-Backtraces-in-ROS-2
+   How-To-Guides/ROS-2-IDEs
    How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container
+   How-To-Guides/Using-Custom-Rosdistro
 
 .. toctree::
   :hidden:

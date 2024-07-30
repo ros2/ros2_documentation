@@ -499,7 +499,7 @@ If not present, registration macros must be added to the project's CMake.
   add_library(listener src/listener.cpp)
   rclcpp_components_register_nodes(listener "composition::Listener")
 
-For more information on composition, see `the tutorial <https://index.ros.org/doc/ros2/Tutorials/Composition/>`__
+For more information on composition, see `the tutorial <../Tutorials/Intermediate/Writing-a-Composable-Node>`
 
 rclpy
 ^^^^^

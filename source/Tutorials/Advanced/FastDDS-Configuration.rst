@@ -66,7 +66,7 @@ First, create a new package named ``sync_async_node_example_cpp`` on a new works
 
          mkdir -p ~/ros2_ws/src
          cd ~/ros2_ws/src
-         ros2 pkg create --build-type ament_cmake --dependencies rclcpp std_msgs -- sync_async_node_example_cpp
+         ros2 pkg create --build-type ament_cmake --license Apache-2.0 --dependencies rclcpp std_msgs -- sync_async_node_example_cpp
 
     .. group-tab:: macOS
 
@@ -74,7 +74,7 @@ First, create a new package named ``sync_async_node_example_cpp`` on a new works
 
         mkdir -p ~/ros2_ws/src
         cd ~/ros2_ws/src
-        ros2 pkg create --build-type ament_cmake --dependencies rclcpp std_msgs -- sync_async_node_example_cpp
+        ros2 pkg create --build-type ament_cmake --license Apache-2.0 --dependencies rclcpp std_msgs -- sync_async_node_example_cpp
 
     .. group-tab:: Windows
 
@@ -82,7 +82,7 @@ First, create a new package named ``sync_async_node_example_cpp`` on a new works
 
         md \ros2_ws\src
         cd \ros2_ws\src
-        ros2 pkg create --build-type ament_cmake --dependencies rclcpp std_msgs -- sync_async_node_example_cpp
+        ros2 pkg create --build-type ament_cmake --license Apache-2.0 --dependencies rclcpp std_msgs -- sync_async_node_example_cpp
 
 
 Then, add a file named ``src/sync_async_writer.cpp`` to the package, with the following content.

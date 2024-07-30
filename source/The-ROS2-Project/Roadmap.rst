@@ -49,12 +49,8 @@ If you'd like to take on one of these tasks, please :doc:`get in touch with us <
      - May 2024
    * - ``rosbag2 service record / play`` development
      - Medium
-     - Sony Corporation
+     - Sony Corporation / Apex.AI
      - Dec 2023
-   * - ``rosbag2 action record / play`` development
-     - Medium
-     - Sony Corporation
-     - May 2024
 
 Planned releases
 ----------------

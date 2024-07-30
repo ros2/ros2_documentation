@@ -2,8 +2,6 @@
 
     Tutorials/Tf2/Adding-A-Frame-Py
 
-.. _AddingAFramePy:
-
 Adding a frame (Python)
 =======================
 
@@ -49,8 +47,9 @@ Tasks
 In our turtle example, we'll add a new frame ``carrot1``, which will be the child of the ``turtle1``.
 This frame will serve as the goal for the second turtle.
 
-Let's first create the source files. Go to the ``learning_tf2_py`` package we created in the previous tutorials.
-Download the fixed frame broadcaster code by entering the following command:
+Let's first create the source files.
+Go to the ``learning_tf2_py`` package we created in the previous tutorials.
+Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the fixed frame broadcaster code by entering the following command:
 
 .. tabs::
 
@@ -149,10 +148,9 @@ The ``carrot1`` frame is 2 meters offset in y axis in terms of the ``turtle1`` f
 1.2 Add an entry point
 ~~~~~~~~~~~~~~~~~~~~~~
 
-To allow the ``ros2 run`` command to run your node, you must add the entry point
-to ``setup.py`` (located in the ``src/learning_tf2_py`` directory).
+To allow the ``ros2 run`` command to run your node, you must add the entry point to ``setup.py`` (located in the ``src/learning_tf2_py`` directory).
 
-Finally, add the following line between the ``'console_scripts':`` brackets:
+Add the following line between the ``'console_scripts':`` brackets:
 
 .. code-block:: python
 
@@ -162,7 +160,7 @@ Finally, add the following line between the ``'console_scripts':`` brackets:
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Now let's create a launch file for this example.
-With your text editor, create a new file called ``launch/turtle_tf2_fixed_frame_demo.launch.py``, and add the following lines:
+With your text editor, create a new file called ``turtle_tf2_fixed_frame_demo.launch.py`` in the ``src/learning_tf2_py/launch`` directory, and add the following lines:
 
 .. code-block:: python
 
@@ -205,7 +203,6 @@ The last part of the code will add our fixed ``carrot1`` frame to the turtlesim 
         executable='fixed_frame_tf2_broadcaster',
         name='fixed_broadcaster',
     ),
-
 
 1.4 Build
 ~~~~~~~~~
@@ -279,7 +276,7 @@ Open a new terminal, navigate to the root of your workspace, and source the setu
 1.5 Run
 ~~~~~~~
 
-Now you are ready to run the launch file:
+Now you can start the turtle broadcaster demo:
 
 .. code-block:: console
 
@@ -311,7 +308,7 @@ To do so, open the ``turtle_tf2_fixed_frame_demo.launch.py`` file, and add the `
             launch_arguments={'target_frame': 'carrot1'}.items(),
             )
 
-Now just rebuild the package, restart the ``turtle_tf2_fixed_frame_demo.launch.py``, and you'll see the second turtle following the carrot instead of the first turtle!
+Now rebuild the package, restart the ``turtle_tf2_fixed_frame_demo.launch.py``, and you'll see the second turtle following the carrot instead of the first turtle!
 
 .. image:: images/carrot_static.png
 
@@ -321,7 +318,8 @@ Now just rebuild the package, restart the ``turtle_tf2_fixed_frame_demo.launch.p
 The extra frame we published in this tutorial is a fixed frame that doesn't change over time in relation to the parent frame.
 However, if you want to publish a moving frame you can code the broadcaster to change the frame over time.
 Let's change our ``carrot1`` frame so that it changes relative to ``turtle1`` frame over time.
-Now download the dynamic frame broadcaster code by entering the following command:
+Go to the ``learning_tf2_py`` package we created in the previous tutorial.
+Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the dynamic frame broadcaster code by entering the following command:
 
 .. tabs::
 
@@ -417,10 +415,9 @@ Instead of a fixed definition of our x and y offsets, we are using the ``sin()``
 2.2 Add an entry point
 ~~~~~~~~~~~~~~~~~~~~~~
 
-To allow the ``ros2 run`` command to run your node, you must add the entry point
-to ``setup.py`` (located in the ``src/learning_tf2_py`` directory).
+To allow the ``ros2 run`` command to run your node, you must add the entry point to ``setup.py`` (located in the ``src/learning_tf2_py`` directory).
 
-Finally, add the following line between the ``'console_scripts':`` brackets:
+Add the following line between the ``'console_scripts':`` brackets:
 
 .. code-block:: python
 
@@ -429,7 +426,7 @@ Finally, add the following line between the ``'console_scripts':`` brackets:
 2.3 Write the launch file
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To test this code, create a new launch file ``launch/turtle_tf2_dynamic_frame_demo.launch.py`` and paste the following code:
+To test this code, create a new launch file ``turtle_tf2_dynamic_frame_demo.launch.py`` in the ``src/learning_tf2_py/launch`` directory and paste the following code:
 
 .. code-block:: python
 
@@ -533,7 +530,7 @@ Open a new terminal, navigate to the root of your workspace, and source the setu
 1.5 Run
 ~~~~~~~
 
-Now you are ready to run the launch file:
+Now you can start the dynamic frame demo:
 
 .. code-block:: console
 
