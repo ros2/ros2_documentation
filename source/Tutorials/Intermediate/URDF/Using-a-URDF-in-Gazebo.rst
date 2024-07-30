@@ -63,7 +63,7 @@ This is because your URDF package needs to explicitly tell Gazebo where to load 
       <gazebo_ros gazebo_model_path="${prefix}/.."/>
     </export>
 
-The reasoning behind the exact value of the ``gazebo_model_path`` attribute is a separate issue <https://github.com/ros-simulation/gazebo_ros_pkgs/issues/1500>`_, but suffice to say, setting it to this value will work assuming
+The reasoning behind the exact value of the ``gazebo_model_path`` attribute is `a separate issue <https://github.com/ros-simulation/gazebo_ros_pkgs/issues/1500>`_, but suffice to say, setting it to this value will work assuming
  * Your mesh filenames are specified in the URDF using the ``package://package_name/possible_folder/filename.ext`` syntax.
  * The meshes are installed (via CMake) into the proper share folder.
 
@@ -214,7 +214,7 @@ Joint Control
         interface_name: position
 
 
-In English, this is saying to add a new ``JointGroupPositionController``called ``head_controller``, and then, in a new parameter namespace, specify which joints are included and that we are publishing positions. We can do this because we specified ``<command_interface name="position" />`` in the joint tag.
+In English, this is saying to add a new ``JointGroupPositionController`` called ``head_controller``, and then, in a new parameter namespace, specify which joints are included and that we are publishing positions. We can do this because we specified ``<command_interface name="position" />`` in the joint tag.
 
 Now we can launch this with the added config and another ``ros2 control`` command as before
 
