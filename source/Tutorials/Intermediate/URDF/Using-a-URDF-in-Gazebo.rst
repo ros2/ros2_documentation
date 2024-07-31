@@ -16,11 +16,27 @@ Using a URDF in Gazebo
 
 Based on `this ROS 1 tutorial <http://wiki.ros.org/urdf/Tutorials/Using%20a%20URDF%20in%20Gazebo>`_.
 
-Please download the URDF simulation tutorial from `github <https://github.com/ros/urdf_sim_tutorial>`_ or using a package manager
+Let's start by installing the demo package and its dependencies.
 
-.. code-block:: console
+.. tabs::
 
-  sudo apt install ros-$ROS_DISTRO-urdf-sim-tutorial
+   .. group-tab:: Ubuntu Packages
+
+      .. code-block:: console
+
+         sudo apt install ros-{DISTRO}-urdf-sim-tutorial
+
+   .. group-tab:: RHEL Packages
+
+      .. code-block:: console
+
+         sudo dnf install ros-{DISTRO}-urdf-sim-tutorial
+
+   .. group-tab:: From Source
+
+      .. code-block:: console
+
+         git clone https://github.com/ros/urdf_sim_tutorial.git -b ros2
 
 Nonfunctional Gazebo Interface
 ------------------------------
@@ -32,7 +48,7 @@ We can spawn the model we already created into Gazebo using ``gazebo.launch.py``
 
 This launch file
 
- * Loads the urdf from :doc:`the macro tutorial <URDF/Using-Xacro-to-Clean-Up-a-URDF-File>` and publishes it as a topic (``/robot_description``)
+ * Loads the urdf from :doc:`the macro tutorial <Using-Xacro-to-Clean-Up-a-URDF-File>` and publishes it as a topic (``/robot_description``)
  * Launches an empty Gazebo world
  * Runs the script to read the urdf from the topic and spawn it in Gazebo.
  * By default, the Gazebo GUI will also be displayed, and look like this:
