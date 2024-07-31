@@ -1,7 +1,7 @@
 Reading from a bag file (C++)
 =============================
 
-**Goal:** Read data from a bag without using the CLI.
+**Goal:** Read data from a bag file to your own C++ node.
 
 **Tutorial level:** Advanced
 
