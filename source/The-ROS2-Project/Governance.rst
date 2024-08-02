@@ -15,26 +15,27 @@ The Open Source Robotics Alliance (OSRA)
 ----------------------------------------
 
 Since 2024, the ROS 2 project has been governed by the `Open Source Robotics Alliance (OSRA) <https://osralliance.org/>`__.
-The information below is meant to give a quick overview of the project governance, but for full information please see `the OSRA's website <https://osralliance.org/how-it-works/>`.
+The information below is meant to give a quick overview of the project governance, but for full information please see `the OSRA's website <https://osralliance.org/how-it-works/>`__.
 
 The Technical Governance Committee (TGC)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The Technical Governance Committee is responsible for the oversight of all projects within the OSRA.
 The TGC is made up of a combination of paid members, project management leaders, OSRF leaders, and members based on merits.
-For more details about the TGC, please see `the Charter for the OSRA <https://osralliance.org/staging/wp-content/uploads/2024/03/OSRA-Program-Charter.pdf>`.
+For more details about the TGC, please see `the Charter for the OSRA <https://osralliance.org/staging/wp-content/uploads/2024/03/OSRA-Program-Charter.pdf>`__.
 One of the projects that the TGC oversees is ROS 2, which is managed by the ROS Project Management Committee.
 
 The ROS Project Management Committee (ROS PMC)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The ROS Project Management Committee is responsible for the day-to-day operations of the ROS 2 project.
-The ROS PMC consists of the Project Leader, the ROS PMC Members (who have full voting rights), a Supporting Individual Representative, and the Chair of the TGC. The project also has Committers, who help manage one or more repositories but are not a part of the PMC.
+The ROS PMC consists of the Project Leader, the ROS PMC Members (who have full voting rights), a Supporting Individual Representative, and the Chair of the TGC.
+The project also has Committers, who help manage one or more repositories but are not a part of the PMC.
 The Project Leader, all PMC Members, and all Committers are chosen on a meritocratic basis.
 
 The day-to-day operations of the ROS PMC include managing the members and committers, managing the repositories that make up ROS 2, reviewing and merging code from the ROS community, maintaining the repositories, and making technical decisions that decide the direction of the project.
 
-For more details about the ROS PMC, please see the `Charter for the ROS Project <https://osralliance.org/staging/wp-content/uploads/2024/03/ros_project_charter.pdf>`
+For more details about the ROS PMC, please see the `Charter for the ROS Project <https://osralliance.org/staging/wp-content/uploads/2024/03/ros_project_charter.pdf>`__.
 
 Current ROS PMC members
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -360,4 +361,4 @@ It can be accessed via `iCal <https://calendar.google.com/calendar/ical/agf3kaji
       </div>
     </div>
 
-If you have an individual event or series of events that you'd like to post please contact info@openrobotics.org
+If you have an individual event or series of events that you'd like to post please contact info@openrobotics.org.
