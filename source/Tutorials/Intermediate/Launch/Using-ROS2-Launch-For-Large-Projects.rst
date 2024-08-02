@@ -219,17 +219,26 @@ Let's now create a configuration file, ``turtlesim.yaml``, in the ``/config`` fo
          background_r: 150
 
 Make sure that you have installed the ``turtlesim.yaml`` file. 
+
 .. tabs::
+
     .. group-tab:: C++
-    If you have a C++ package, write in the package ``CMakeLists.txt``: 
+
+        If you have a C++ package, write in the package ``CMakeLists.txt``: 
+
         .. code-block:: cmake
+
             install(DIRECTORY
               config
               DESTINATION share/${PROJECT_NAME}
             )
+
     .. group-tab:: Python
-    Instead, if you have a Python package, add in package ``setup.py`` file:
+
+        Instead, if you have a Python package, add in package ``setup.py`` file:
+
         .. code-block:: python
+
             data_files=[
                 ('share/ament_index/resource_index/packages',
                     ['resource/' + package_name]),
