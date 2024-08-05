@@ -110,11 +110,11 @@ Therefore add the following to ``.devcontainer/devcontainer.json``:
     {
         "name": "ROS 2 Development Container",
         "privileged": true,
-        "remoteUser": "YOUR_USERNAME",
+        "remoteUser": "ros2dev",
         "build": {
             "dockerfile": "Dockerfile",
             "args": {
-                "USERNAME": "YOUR_USERNAME"
+                "USERNAME": "ros2dev"
             }
         },
         "workspaceFolder": "/home/ws",
@@ -142,7 +142,7 @@ Therefore add the following to ``.devcontainer/devcontainer.json``:
         ],
         "mounts": [
            "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached",
-            "source=/dev/dri,target=/dev/dri,type=bind,consistency=cached"
+           "source=/dev/dri,target=/dev/dri,type=bind,consistency=cached"
         ],
         "postCreateCommand": "sudo rosdep update && sudo rosdep install --from-paths src --ignore-src -y && sudo chown -R $(whoami) /home/ws/"
     }
@@ -150,8 +150,7 @@ Therefore add the following to ``.devcontainer/devcontainer.json``:
 
 
 Use ``Ctrl+F`` to open the search and replace menu.
-Search for ``YOUR_USERNAME`` and replace it with your ``Linux username``.
-If you do not know your username, you can find it by running ``echo $USERNAME`` in the terminal.
+Search for ``ros2dev`` and replace it with your ``Linux username``.
 
 
 Edit ``Dockerfile``
@@ -164,7 +163,7 @@ Open the Dockerfile and add the following contents:
 
     FROM ros:ROS_DISTRO
     ARG USERNAME=USERNAME
-    ARG USER_UID=1000
+    ARG USER_UID=1234
     ARG USER_GID=$USER_UID
 
     # Create the user
@@ -189,7 +188,7 @@ Open the Dockerfile and add the following contents:
     CMD ["/bin/bash"]
 
 Replace ``ROS_DISTRO`` with the ROS 2 distribution you wish to use as base image above, for example ``rolling``.
-
+Search for ``USER_UID=1234`` and replace it if that is already used in the host system.
 
 Open and Build Development Container
 ------------------------------------
