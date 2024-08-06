@@ -18,9 +18,13 @@ This description makes it easy for ROS tools to automatically generate source co
 
 In this document we will describe the supported types:
 
-* msg: ``.msg`` files are simple text files that describe the fields of a ROS message. They are used to generate source code for messages in different languages.
-* srv: ``.srv`` files describe a service. They are composed of two parts: a request and a response. The request and response are message declarations.
-* action: ``.action`` files describe actions. They are composed of three parts: a goal, a result, and feedback.
+* msg: ``.msg`` files are simple text files that describe the fields of a ROS message.
+  They are used to generate source code for messages in different languages.
+* srv: ``.srv`` files describe a service.
+  They are composed of two parts: a request and a response.
+  The request and response are message declarations.
+* action: ``.action`` files describe actions.
+  They are composed of three parts: a goal, a result, and feedback.
   Each part is a message declaration itself.
 
 Messages
@@ -70,63 +74,63 @@ Field types can be:
      - `DDS type <https://design.ros2.org/articles/mapping_dds_types.html>`__
    * - bool
      - bool
-     - builtins.bool
+     - ``builtins.bool``
      - boolean
    * - byte
      - uint8_t
-     - builtins.bytes*
+     - ``builtins.bytes*``
      - octet
    * - char
      - char
-     - builtins.int*
+     - ``builtins.int*``
      - char
    * - float32
      - float
-     - builtins.float*
+     - ``builtins.float*``
      - float
    * - float64
      - double
-     - builtins.float*
+     - ``builtins.float*``
      - double
    * - int8
      - int8_t
-     - builtins.int*
+     - ``builtins.int*``
      - octet
    * - uint8
      - uint8_t
-     - builtins.int*
+     - ``builtins.int*``
      - octet
    * - int16
      - int16_t
-     - builtins.int*
+     - ``builtins.int*``
      - short
    * - uint16
      - uint16_t
-     - builtins.int*
+     - ``builtins.int*``
      - unsigned short
    * - int32
      - int32_t
-     - builtins.int*
+     - ``builtins.int*``
      - long
    * - uint32
      - uint32_t
-     - builtins.int*
+     - ``builtins.int*``
      - unsigned long
    * - int64
      - int64_t
-     - builtins.int*
+     - ``builtins.int*``
      - long long
    * - uint64
      - uint64_t
-     - builtins.int*
+     - ``builtins.int*``
      - unsigned long long
    * - string
      - std::string
-     - builtins.str
+     - ``builtins.str``
      - string
    * - wstring
      - std::u16string
-     - builtins.str
+     - ``builtins.str``
      - wstring
 
 *Every built-in-type can be used to define arrays:*
@@ -140,19 +144,19 @@ Field types can be:
      - `DDS type <https://design.ros2.org/articles/mapping_dds_types.html>`__
    * - static array
      - std::array<T, N>
-     - builtins.list*
+     - ``builtins.list*``
      - T[N]
    * - unbounded dynamic array
      - std::vector
-     - builtins.list
+     - ``builtins.list``
      - sequence
    * - bounded dynamic array
      - custom_class<T, N>
-     - builtins.list*
+     - ``builtins.list*``
      - sequence<T, N>
    * - bounded string
      - std::string
-     - builtins.str*
+     - ``builtins.str*``
      - string
 
 All types that are more permissive than their ROS definition enforce the ROS constraints in range and length by software.

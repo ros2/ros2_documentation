@@ -31,7 +31,7 @@ Even though they are provided through PyPI and chocolatey, you must install them
 Install sip by source
 ^^^^^^^^^^^^^^^^^^^^^
 
-Download from https://www.riverbankcomputing.com/software/sip/download
+Download from `https://www.riverbankcomputing.com/software/sip/download <https://www.riverbankcomputing.com/software/sip/download>`__
 
 Run the x64 Native Tools Command Prompt as Administrator, and ``cd`` to the uncompressed source directory.
 
@@ -48,7 +48,7 @@ If ``python3`` is installed on your system as ``python``, be sure to use that pr
 Install PyQt5 by source
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Download from https://www.riverbankcomputing.com/software/pyqt/download5
+Download from `https://www.riverbankcomputing.com/software/pyqt/download5 <https://www.riverbankcomputing.com/software/pyqt/download5>`__
 
 Run the x64 Native Tools Command Prompt as Administrator, and ``cd`` to the uncompressed source directory.
 I ran into trouble with Qt 5.11.3 and PyQt5 compiling QtNfc, but it can be easily disabled.
@@ -74,7 +74,7 @@ They should run without issue and you should see 4.19.13 as your ``sip.exe`` ver
 Other dependencies
 ^^^^^^^^^^^^^^^^^^
 
-Install GraphViz from https://graphviz.gitlab.io/_pages/Download/Download_windows.html.
+Install GraphViz from `https://graphviz.gitlab.io/_pages/Download/Download_windows.html. <https://graphviz.gitlab.io/_pages/Download/Download_windows.html.>`__
 
 Install ``pydot`` and ``pyparsing``:
 

@@ -35,8 +35,8 @@ If the node's name is externally remapped to something other than what is define
 Non-node loggers can also be created that use a specific name.
 
 Logger names represent a hierarchy.
-If the level of a logger named "abc.def" is unset, it will defer to the level of its parent named "abc", and if that level is also unset, the default logger level will be used.
-When the level of logger "abc" is changed, all of its descendants (e.g. "abc.def", "abc.ghi.jkl") will have their level impacted unless their level has been explicitly set.
+If the level of a logger named ``abc.def`` is unset, it will defer to the level of its parent named ``abc``, and if that level is also unset, the default logger level will be used.
+When the level of logger ``abc`` is changed, all of its descendants (e.g. ``abc.def``, ``abc.ghi.jkl``) will have their level impacted unless their level has been explicitly set.
 
 APIs
 ----
@@ -92,12 +92,27 @@ Environment variables
 The following environment variables control some aspects of the ROS 2 loggers.
 For each of the environment settings, note that this is a process-wide setting, so it applies to all nodes in that process.
 
-* ``ROS_LOG_DIR`` - Control the logging directory that is used for writing logging messages to disk (if that is enabled).  If non-empty, use the exact directory as specified in this variable.  If empty, use the contents of the ``ROS_HOME`` environment variable to construct a path of the form ``$ROS_HOME/.log``.  In all cases, the ``~`` character is expanded to the user's HOME directory.
-* ``ROS_HOME`` - Control the home directory that is used for various ROS files, including logging and config files.  In the context of logging, this variable is used to construct a path to a directory for log files.  If non-empty, use the contents of this variable for the ROS_HOME path.  In all cases, the ``~`` character is expanded to the users's HOME directory.
-* ``RCUTILS_LOGGING_USE_STDOUT`` - Control what stream output messages go to.  If this is unset or 0, use stderr.  If this is 1, use stdout.
-* ``RCUTILS_LOGGING_BUFFERED_STREAM`` - Control whether the logging stream (as configured in ``RCUTILS_LOGGING_USE_STDOUT``) should be line buffered or unbuffered.  If this is unset, use the default of the stream (generally line buffered for stdout, and unbuffered for stderr).  If this is 0, force the stream to be unbuffered.  If this is 1, force the stream to be line buffered.
-* ``RCUTILS_COLORIZED_OUTPUT`` - Control whether colors are used when outputting messages.  If unset, automatically determine based on the platform and whether the console is a TTY.  If 0, force disable using colors for output.  If 1, force enable using colors for output.
-* ``RCUTILS_CONSOLE_OUTPUT_FORMAT`` - Control the fields that are output for each log message.  The available fields are:
+* ``ROS_LOG_DIR`` - Control the logging directory that is used for writing logging messages to disk (if that is enabled).
+  If non-empty, use the exact directory as specified in this variable.
+  If empty, use the contents of the ``ROS_HOME`` environment variable to construct a path of the form ``$ROS_HOME/.log``.
+  In all cases, the ``~`` character is expanded to the user's HOME directory.
+* ``ROS_HOME`` - Control the home directory that is used for various ROS files, including logging and config files.
+  In the context of logging, this variable is used to construct a path to a directory for log files.
+  If non-empty, use the contents of this variable for the ROS_HOME path.
+  In all cases, the ``~`` character is expanded to the users's HOME directory.
+* ``RCUTILS_LOGGING_USE_STDOUT`` - Control what stream output messages go to.
+  If this is unset or 0, use stderr.
+  If this is 1, use stdout.
+* ``RCUTILS_LOGGING_BUFFERED_STREAM`` - Control whether the logging stream (as configured in ``RCUTILS_LOGGING_USE_STDOUT``) should be line buffered or unbuffered.
+  If this is unset, use the default of the stream (generally line buffered for stdout, and unbuffered for stderr).
+  If this is 0, force the stream to be unbuffered.
+  If this is 1, force the stream to be line buffered.
+* ``RCUTILS_COLORIZED_OUTPUT`` - Control whether colors are used when outputting messages.
+  If unset, automatically determine based on the platform and whether the console is a TTY.
+  If 0, force disable using colors for output.
+  If 1, force enable using colors for output.
+* ``RCUTILS_CONSOLE_OUTPUT_FORMAT`` - Control the fields that are output for each log message.
+  The available fields are:
 
   * ``{severity}`` - The severity level.
   * ``{name}`` - The name of the logger (may be empty).

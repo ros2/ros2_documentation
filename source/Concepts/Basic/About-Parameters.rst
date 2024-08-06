@@ -89,11 +89,14 @@ The services that are created by default are:
 * ``/node_name/get_parameters``: Uses a service type of ``rcl_interfaces/srv/GetParameters``.
   Given a list of parameter names, returns a list of parameter values associated with the parameters.
 * ``/node_name/list_parameters``: Uses a service type of ``rcl_interfaces/srv/ListParameters``.
-  Given an optional list of parameter prefixes, returns a list of the available parameters with that prefix.  If the prefixes are empty, returns all parameters.
+  Given an optional list of parameter prefixes, returns a list of the available parameters with that prefix.
+  If the prefixes are empty, returns all parameters.
 * ``/node_name/set_parameters``: Uses a service type of ``rcl_interfaces/srv/SetParameters``.
-  Given a list of parameter names and values, attempts to set the parameters on the node.  Returns a list of results from trying to set each parameter; some of them may have succeeded and some may have failed.
+  Given a list of parameter names and values, attempts to set the parameters on the node.
+  Returns a list of results from trying to set each parameter; some of them may have succeeded and some may have failed.
 * ``/node_name/set_parameters_atomically``: Uses a service type of ``rcl_interfaces/srv/SetParametersAtomically``.
-  Given a list of parameter names and values, attempts to set the parameters on the node.  Returns a single result from trying to set all parameters, so if one failed, all of them failed.
+  Given a list of parameter names and values, attempts to set the parameters on the node.
+  Returns a single result from trying to set all parameters, so if one failed, all of them failed.
 
 Setting initial parameter values when running a node
 ----------------------------------------------------
