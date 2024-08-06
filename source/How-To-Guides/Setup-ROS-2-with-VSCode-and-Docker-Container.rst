@@ -201,6 +201,12 @@ This will build your development docker container for your. It will take a while
 Test Container
 ^^^^^^^^^^^^^^
 
+If your application requires the access to X window system, use the following command in the host system to accept the connection from the container.
+
+.. code-block:: console
+
+    (host system shell) xhost +local
+
 To test if everything worked correctly, open a terminal in the container using ``View->Terminal`` or ``Ctrl+Shift+``` and ``New Terminal`` in VS Code.
 Inside the terminal do the following:
 
