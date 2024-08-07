@@ -30,7 +30,7 @@ GitHub Organization
 GitHub Repository
 ^^^^^^^^^^^^^^^^^
 
-#. Open `https://github.com/%YOUR_ORG%/%YOUR_REPO%/settings/access <https://github.com/%YOUR_ORG%/%YOUR_REPO%/settings/access>`_ 
+#. Open `https://github.com/%YOUR_ORG%/%YOUR_REPO%/settings/access <https://github.com/%YOUR_ORG%/%YOUR_REPO%/settings/access>`_
    (while replacing ``%YOUR_ORG%/%YOUR_REPO$`` with the appropriate organization/repo)
 #. Click ``Add people`` and enter ``ros-pull-request-builder``
 #. Select ``Admin`` or ``Write`` for their role. (see next section)
@@ -45,7 +45,7 @@ Alternatively, you can avoid the need for full administrative rights by setting 
 
 #. Open `https://github.com/%YOUR_ORG%/%YOUR_REPO%/settings/hooks/new <https://github.com/%YOUR_ORG%/%YOUR_REPO%/settings/hooks/new>`_)
 #. Enter ``"https://build.ros2.org/ghprbhook/`` as the Payload URL
-#. Check the following options: 
+#. Check the following options:
     * Let me select individual events.
     * Issue comments
     * Pull requests
@@ -54,7 +54,7 @@ Alternatively, you can avoid the need for full administrative rights by setting 
 test_pull_requests
 ------------------
 
-For each ROS distro that you want pull request testing for, you must enable the ``test_pull_requests`` flag in the appropriate section of the `rosdistro <https://github.com/ros/rosdistro/>`_. 
+For each ROS distro that you want pull request testing for, you must enable the ``test_pull_requests`` flag in the appropriate section of the `rosdistro <https://github.com/ros/rosdistro/>`_.
 
  * **Option 1** - You have the option when running `bloom </How-To-Guides/Releasing/Releasing-a-Package>` to turn on pull request testing.
  * **Option 2** - You can **carefully** manually edit the appropriate file in the rosdistro repo, and make a new pull request.
