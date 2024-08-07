@@ -162,7 +162,7 @@ The following flow diagram visualizes this scheduling semantics.
 
 This semantics was first described in a `paper by Casini et al. at ECRTS 2019 <https://drops.dagstuhl.de/opus/volltexte/2019/10743/pdf/LIPIcs-ECRTS-2019-6.pdf>`_.
 (Note: The paper also explains that timer events are prioritized over all other messages.
- `This prioritization was removed in Eloquent. <https://github.com/ros2/rclcpp/pull/841>`_)
+`This prioritization was removed in Eloquent. <https://github.com/ros2/rclcpp/pull/841>`_)
 
 
 Outlook
