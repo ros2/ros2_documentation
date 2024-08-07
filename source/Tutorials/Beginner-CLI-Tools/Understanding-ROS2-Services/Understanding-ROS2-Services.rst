@@ -256,16 +256,16 @@ Your turtlesim window will update with the newly spawned turtle right away:
 
 .. image:: images/spawn.png
 
-8 ros2 service echo
-^^^^^^^^^^^^^^^^^^^
+8 Service introspection
+^^^^^^^^^^^^^^^^^^^^^^^
 
 To see the data communication between a service client and a service server you can ``echo`` the service using:
 
 .. code-block:: console
 
-   ros2 service echo <service_name | service_type> <arguments>
+   ros2 topic echo /<service_name>/_service_event
 
-``ros2 service echo`` depends on service introspection of a service client and server, that is disabled by default.
+Echoing the data depends on service introspection of a service client and server, that is disabled by default.
 To enable it, users must call ``configure_introspection`` after creating a server client or server.
 
 Start up the ``introspection_client`` and ``introspection_service`` service introspection demo.
@@ -281,13 +281,13 @@ Open another terminal and run the following to enable service introspection for 
    ros2 param set /introspection_service service_configure_introspection contents
    ros2 param set /introspection_client client_configure_introspection contents
 
-Now we are able to see the service communication between ``introspection_client`` and ``introspection_service`` via ``ros2 service echo``.
+Now we are able to see the service communication between ``introspection_client`` and ``introspection_service``:
 
 .. code-block:: console
 
-   ros2 service echo --flow-style /add_two_ints
+   ros2 topic echo --flow-style /add_two_ints/_service_event
    info:
-     event_type: REQUEST_SENT
+     event_type: 0
      stamp:
        sec: 1709408301
        nanosec: 423227292
@@ -297,7 +297,7 @@ Now we are able to see the service communication between ``introspection_client`
    response: []
    ---
    info:
-     event_type: REQUEST_RECEIVED
+     event_type: 1
      stamp:
        sec: 1709408301
        nanosec: 423601471
@@ -307,7 +307,7 @@ Now we are able to see the service communication between ``introspection_client`
    response: []
    ---
    info:
-     event_type: RESPONSE_SENT
+     event_type: 2
      stamp:
        sec: 1709408301
        nanosec: 423900744
@@ -317,7 +317,7 @@ Now we are able to see the service communication between ``introspection_client`
    response: [{sum: 5}]
    ---
    info:
-     event_type: RESPONSE_RECEIVED
+     event_type: 3
      stamp:
        sec: 1709408301
        nanosec: 424153133
