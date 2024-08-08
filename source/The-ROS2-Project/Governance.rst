@@ -37,10 +37,10 @@ The day-to-day operations of the ROS PMC include managing the members and commit
 
 For more details about the ROS PMC, please see the `Charter for the ROS Project <https://osralliance.org/staging/wp-content/uploads/2024/03/ros_project_charter.pdf>`__.
 
-Current ROS PMC members
-^^^^^^^^^^^^^^^^^^^^^^^
+Current ROS PMC Constituents
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The ROS PMC currently consists of the following members:
+The ROS PMC currently consists of the following constituents:
 
 .. list-table::
    :header-rows: 1
@@ -55,6 +55,11 @@ The ROS PMC currently consists of the following members:
      - clalancette
      - Project Leader
      - N/A
+   * - Michael Carroll
+     - Intrinsic
+     - mjcarroll
+     - Member
+     - CST (UTC-6)/CDT (UTC-5)
 
 Past ROS PMC Members
 ^^^^^^^^^^^^^^^^^^^^
