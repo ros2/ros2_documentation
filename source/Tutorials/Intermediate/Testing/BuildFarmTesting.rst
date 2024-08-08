@@ -10,7 +10,7 @@ There are four prerequisites.
 
  * The GitHub user `@ros-pull-request-builder <https://github.com/ros-pull-request-builder>`_ must have access to the repository.
  * The GitHub repository must have the webhooks set up.
- * `Your package must be released in rosdistro </How-To-Guides/Releasing/Releasing-a-Package>`
+ * `Your package must be indexed in rosdistro </How-To-Guides/Releasing/Index-Your-Packages>`
  * The ``test_pull_requests`` flag must be true.
 
 
