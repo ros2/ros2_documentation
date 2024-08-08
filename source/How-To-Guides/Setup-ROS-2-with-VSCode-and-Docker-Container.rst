@@ -205,12 +205,6 @@ This will build your development docker container for your. It will take a while
 Test Container
 ^^^^^^^^^^^^^^
 
-If your application requires the access to X window system, use the following command in the host system to accept the connection from the container.
-
-.. code-block:: console
-
-    (host system shell) xhost +local
-
 To test if everything worked correctly, open a terminal in the container using ``View->Terminal`` or ``Ctrl+Shift+``` and ``New Terminal`` in VS Code.
 Inside the terminal do the following:
 
@@ -220,4 +214,4 @@ Inside the terminal do the following:
     source /opt/ros/$ROS_DISTRO/setup.bash
     rviz2
 
-.. Note:: There might be a problem with displaying RVIZ. If no window pops up, then check the value of ``echo $DISPLAY`` - if the output is 1, you can fix this problem with ``echo "export DISPLAY=unix:1" >> /etc/bash.bashrc`` and then test it again. You can also change the DISPLAY value in the devcontainer.json and rebuild it.
+.. Note:: There might be a problem with displaying RVIZ. Please make sure to allow the user to access X window system with ``xhost +local:<USERNAME>``. If no window still pops up, then check the value of ``echo $DISPLAY`` - if the output is 1, you can fix this problem with ``echo "export DISPLAY=unix:1" >> /etc/bash.bashrc`` and then test it again. You can also change the DISPLAY value in the devcontainer.json and rebuild it.
