@@ -60,6 +60,11 @@ The ROS PMC currently consists of the following constituents:
      - mjcarroll
      - Member
      - CST (UTC-6)/CDT (UTC-5)
+   * - Tomoya Fujita
+     - Sony
+     - fujitatomoya
+     - Member
+     - PST (UTC-8)/PDT (UTC-7)
 
 Past ROS PMC Members
 ^^^^^^^^^^^^^^^^^^^^
