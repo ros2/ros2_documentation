@@ -81,15 +81,37 @@ Instead you may download nightly :ref:`prerelease binaries <Prerelease_binaries>
 Install dependencies using rosdep
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. code-block:: bash
+
+   sudo apt update
+
 .. include:: ../_Apt-Upgrade-Admonition.rst
 
 .. code-block:: bash
 
-   sudo apt update
    sudo apt install -y python3-rosdep
    sudo rosdep init
    rosdep update
-   rosdep install --from-paths ~/ros2_{DISTRO}/ros2-linux/share --ignore-src -y --skip-keys "cyclonedds fastcdr fastrtps iceoryx_binding_c rmw_connextdds rti-connext-dds-6.0.1 urdfdom_headers"
+
+.. tabs::
+
+  .. group-tab:: Fast DDS
+
+    .. code-block:: bash
+
+      rosdep install --from-paths ~/ros2_{DISTRO}/ros2-linux/share --ignore-src -y --skip-keys "cyclonedds fastcdr fastrtps iceoryx_binding_c rmw_connextdds rti-connext-dds-6.0.1 urdfdom_headers"
+
+  .. group-tab:: Cyclone DDS
+
+    .. code-block:: bash
+
+      rosdep install --from-paths ~/ros2_{DISTRO}/ros2-linux/share --ignore-src -y --skip-keys "cyclonedds fastcdr fastrtps iceoryx_binding_c rmw_connextdds rti-connext-dds-6.0.1 urdfdom_headers"
+
+  .. group-tab:: Connext DDS
+
+    .. code-block:: bash
+
+      rosdep install --from-paths ~/ros2_{DISTRO}/ros2-linux/share --ignore-src -y --skip-keys "cyclonedds fastcdr fastrtps iceoryx_binding_c rmw_connextdds urdfdom_headers"
 
 .. include:: ../_rosdep_Linux_Mint.rst
 
