@@ -41,3 +41,4 @@ Available Tutorials:
    CLI
    Cpp
    Python
+   BuildFarmTesting
