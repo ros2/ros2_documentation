@@ -65,6 +65,11 @@ The ROS PMC currently consists of the following constituents:
      - fujitatomoya
      - Member
      - PST (UTC-8)/PDT (UTC-7)
+   * - Michael Orlov
+     - Apex.AI
+     - MichaelOrlov
+     - Member
+     - PST (UTC-8)/PDT (UTC-7)
 
 Past ROS PMC Members
 ^^^^^^^^^^^^^^^^^^^^
