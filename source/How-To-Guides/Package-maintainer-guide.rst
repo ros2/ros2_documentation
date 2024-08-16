@@ -1,9 +1,10 @@
 .. redirect-from::
 
   Guides/Package-maintainer-guide
+  How-To-Guides/Package-maintainer-guide
 
-ROS 2 Package Maintainer Guide
-==============================
+ROS 2 Core Maintainer Guide
+===========================
 
 Each package in the ROS 2 core has one or more maintainers that are responsibile for the general health of the package.
 This guide gives some information about the responsibilities of a ROS 2 core package maintainer.
