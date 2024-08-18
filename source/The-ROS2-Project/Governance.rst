@@ -75,6 +75,11 @@ The ROS PMC currently consists of the following constituents:
      - MichaelOrlov
      - Member
      - PST (UTC-8)/PDT (UTC-7)
+   * - Kat Scott
+     - Intrinsic
+     - kscottz
+     - OSRA Developer Advocate
+     - PST (UTC-8)/PDT (UTC-7)
 
 Past ROS PMC Members
 ^^^^^^^^^^^^^^^^^^^^
