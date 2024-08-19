@@ -80,6 +80,11 @@ The ROS PMC currently consists of the following constituents:
      - kscottz
      - OSRA Developer Advocate
      - PST (UTC-8)/PDT (UTC-7)
+   * - Alejandro Hernandez Cordero
+     - Independent software engineer contractor
+     - ahcorde
+     - Member
+     - CET (UTC+1)/CEST (UTC+2)
 
 Past ROS PMC Members
 ^^^^^^^^^^^^^^^^^^^^
