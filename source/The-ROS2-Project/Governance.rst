@@ -85,6 +85,11 @@ The ROS PMC currently consists of the following constituents:
      - ahcorde
      - Member
      - CET (UTC+1)/CEST (UTC+2)
+   * - Christophe Bédard
+     - Apex.AI
+     - christophebedard
+     - Member
+     - PST (UTC-8)/PDT (UTC-7)
 
 Past ROS PMC Members
 ^^^^^^^^^^^^^^^^^^^^
