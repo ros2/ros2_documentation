@@ -90,6 +90,11 @@ The ROS PMC currently consists of the following constituents:
      - christophebedard
      - Member
      - PST (UTC-8)/PDT (UTC-7)
+   * - Alberto Soragna
+     - iRobot
+     - alsora
+     - Member
+     - PST (UTC-8)/PDT (UTC-7)
 
 Past ROS PMC Members
 ^^^^^^^^^^^^^^^^^^^^
