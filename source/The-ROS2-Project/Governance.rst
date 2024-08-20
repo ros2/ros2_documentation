@@ -289,7 +289,7 @@ The following repositories are managed by the ROS PMC:
    * - https://github.com/ros2/rmw_dds_common
      - Not Yet Available
    * - https://github.com/ros2/rmw_fastrtps
-     - Not Yet Available
+     - Miguel Company (@MiguelCompany)
    * - https://github.com/ros2/rmw_implementation
      - Not Yet Available
    * - https://github.com/ros2/rmw_zenoh
@@ -329,7 +329,7 @@ The following repositories are managed by the ROS PMC:
    * - https://github.com/ros2/rosidl_typesupport
      - Not Yet Available
    * - https://github.com/ros2/rosidl_typesupport_fastrtps
-     - Not Yet Available
+     - Miguel Company (@MiguelCompany)
    * - https://github.com/ros2/rpyutils
      - Not Yet Available
    * - https://github.com/ros2/rviz
