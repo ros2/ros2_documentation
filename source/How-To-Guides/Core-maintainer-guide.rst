@@ -1,9 +1,10 @@
 .. redirect-from::
 
   Guides/Package-maintainer-guide
+  How-To-Guides/Package-maintainer-guide
 
-ROS 2 Package Maintainer Guide
-==============================
+ROS 2 Core Maintainer Guide
+===========================
 
 Each package in the ROS 2 core has one or more maintainers that are responsibile for the general health of the package.
 This guide gives some information about the responsibilities of a ROS 2 core package maintainer.
@@ -40,8 +41,8 @@ PR builds (https://build.ros2.org/view/Rpr)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ROS 2 PR (Pull Request) builds run automatically every time a pull request is opened.
-These builds run a build and test of this package, and this package only.
-This means that it does not build any dependencies, and it also does not build any packages that depend upon this package.
+These builds run a build and test of this repository, and this repository only.
+This means that it does not build any dependencies, and it also does not build any repositories that depend upon packages in this repository.
 These builds are good for quick feedback to see if the change passes linters, unit tests, etc.
 There are two major problems with them:
 
@@ -54,7 +55,7 @@ CI builds (https://ci.ros2.org)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 CI builds do not run automatically when a pull request is opened.
-One of the maintainers of the package must manually request that a CI build is done by going to https://ci.ros2.org/job/ci_launcher/ .
+One of the maintainers of the repository must manually request that a CI build is done by going to https://ci.ros2.org/job/ci_launcher/ .
 
 By default, running a job in this way will build and run tests for all packages (> 300 currently) on all platforms (Linux, macOS, and Windows).
 As a full run can take many hours and tie up the CI machines, it is recommended that all runs here restrict the number of packages that are built and tested.
@@ -80,7 +81,7 @@ Keeping CI green
 
 The nightly jobs that run tests are typically much more comprehensive than what is done for individual pull requests.
 For this reason, there can be regressions that occur in the nightlies that were not seen in the CI jobs.
-It is a package maintainers responsibility to check for regressions in their packages at the following locations:
+It is a maintainer's responsibility to check for regressions in their packages at the following locations:
 
 * https://ci.ros2.org/view/nightly
 * https://ci.ros2.org/view/packaging
@@ -92,11 +93,11 @@ For any problems that are found, new issues and/or pull requests on the relevant
 Making releases
 ---------------
 
-In order to get new features and bugfixes out to end users, the package maintainers must periodically do a release of the package (a release may also be requested on-demand from other maintainers).
+In order to get new features and bugfixes out to end users, the maintainers must periodically do a release of the repository (a release may also be requested on-demand from other maintainers).
 
 As outlined in the :ref:`developer guide <semver>`, ROS 2 packages follow semver for version numbers.
 
-A release in ROS terms consists of two distinct steps: making a source release, and then making a binary release.
+A release, in ROS terms, consists of two distinct steps: making a source release, and then making a binary release.
 
 Source release
 ^^^^^^^^^^^^^^
@@ -133,7 +134,7 @@ Binary release
 
 The next step is to use the ``bloom-release`` command to create a binary release.
 For full instructions on how to use bloom, please see http://wiki.ros.org/bloom.
-To do a binary release of a package, run:
+To do a binary release of a repository, run:
 
 .. code-block:: bash
 
