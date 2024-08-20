@@ -12,6 +12,7 @@ Advanced
    Advanced/Recording-A-Bag-From-Your-Own-Node-CPP
    Advanced/Recording-A-Bag-From-Your-Own-Node-Py
    Advanced/Reading-From-A-Bag-File-CPP
+   Advanced/Reading-From-A-Bag-File-Python
    Advanced/ROS2-Tracing-Trace-and-Analyze
    Advanced/Simulators/Simulation-Main
    Advanced/Security/Security-Main
