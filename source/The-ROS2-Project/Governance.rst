@@ -91,10 +91,27 @@ The ROS PMC currently consists of the following constituents:
      - Member
      - PST (UTC-8)/PDT (UTC-7)
 
-Past ROS PMC Members
-^^^^^^^^^^^^^^^^^^^^
+Current ROS Committers
+^^^^^^^^^^^^^^^^^^^^^^
 
-The ROS PMC thanks the following past members for their service:
+The ROS committers (who are not also part of the ROS PMC) consists of the following constituents:
+
+.. list-table::
+   :header-rows: 1
+
+   * - Name
+     - Affiliation
+     - GitHub handle
+     - Time Zone (optional)
+   * - Miguel Company
+     - eProsima
+     - MiguelCompany
+     - N/A
+
+Past ROS PMC Constituents
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ROS PMC thanks the following past constituents for their service:
 
 .. list-table::
    :header-rows: 1
