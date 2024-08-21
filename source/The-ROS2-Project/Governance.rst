@@ -106,7 +106,7 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
    * - Miguel Company
      - eProsima
      - MiguelCompany
-     - N/A
+     - CET (UTC+1)/CEST (UTC+2)
 
 Past ROS PMC Constituents
 ^^^^^^^^^^^^^^^^^^^^^^^^^
