@@ -63,7 +63,7 @@ To build the samples, you will need to install ROS 2.
 
 Follow the :doc:`installation instructions <../../Installation>`.
 
-.. attention:: If installing from Debian packages, this tutorial requires the :ref:`desktop installation <linux-install-debians-install-ros-2-packages>`.
+.. attention:: If installing from deb packages, this tutorial requires the :ref:`desktop installation <linux-install-debs-install-ros-2-packages>`.
 
 Basics
 ------

@@ -2,7 +2,7 @@ Install tools that you will use in the upcoming steps according to your platform
 
 .. tabs::
 
-   .. group-tab:: Debian (eg. Ubuntu)
+   .. group-tab:: deb (eg. Ubuntu)
 
       .. code-block:: bash
 

@@ -1,15 +1,16 @@
 .. redirect-from::
 
    Installation/Linux-Install-Debians
+   Installation/Ubuntu-Install-Debians
 
-Ubuntu (Debian packages)
-========================
+Ubuntu (deb packages)
+=====================
 
 .. contents:: Table of Contents
    :depth: 2
    :local:
 
-Debian packages for ROS 2 {DISTRO_TITLE_FULL} are currently available for Ubuntu Noble (24.04).
+Deb packages for ROS 2 {DISTRO_TITLE_FULL} are currently available for Ubuntu Noble (24.04).
 The Rolling Ridley distribution will change target platforms from time to time as new platforms are selected for development.
 The target platforms are defined in `REP 2000 <https://ros.org/reps/rep-2000.html>`__.
 Most people will want to use a stable ROS distribution.
@@ -36,7 +37,7 @@ Enable required repositories
 
 .. include:: _Apt-Repositories.rst
 
-.. _linux-install-debians-install-ros-2-packages:
+.. _linux-install-debs-install-ros-2-packages:
 
 Install development tools (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
