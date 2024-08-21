@@ -473,7 +473,7 @@ Let's now create the last launch file called ``fixed_broadcaster.launch.py`` in 
 This launch file shows the way environment variables can be called inside the launch files.
 Environment variables can be used to define or push namespaces for distinguishing nodes on different computers or robots.
 
-.. note:: If you are running the launch file where the `USER` environment variable is not defined (like in the ROS docker file), then you can replace the `EnvironmentVariable('USER')` above with any other word of your liking.
+.. note:: If you are running the launch file where the ``USER`` environment variable is not defined (like in the ROS docker file), then you can replace the ``EnvironmentVariable('USER')`` above with any other word of your liking.
 
 Running launch files
 --------------------
