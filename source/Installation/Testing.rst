@@ -10,10 +10,10 @@ Usually, you will get the released version of binaries when following :doc:`../I
 There are also pre-released versions of binaries that are useful for testing before making an official release.
 This article describes several options if you would like to try out pre-released versions of ROS binaries.
 
-Debian testing repository
--------------------------
+deb testing repository
+----------------------
 
-When packages are released into a ROS distribution (using bloom), the buildfarm builds them into debian packages which are stored temporarily in the **building** apt repository.
+When packages are released into a ROS distribution (using bloom), the buildfarm builds them into deb packages which are stored temporarily in the **building** apt repository.
 As dependent packages are rebuilt, an automatic process periodically synchronizes the packages in **building** to a secondary repository called **ros-testing**.
 **ros-testing** is intended as a soaking area where developers and bleeding-edge users may give the packages extra testing, before they are manually synced into the public ros repository from which users typically install packages.
 
@@ -21,7 +21,7 @@ Approximately every two weeks, the rosdistro's release manager manually synchron
 
 For Debian-based operating systems, you can install binary packages from the **ros-testing** repository.
 
-1. Make sure you have a working ROS 2 installation from Debian packages (see :doc:`../Installation`).
+1. Make sure you have a working ROS 2 installation from deb packages (see :doc:`../Installation`).
 
 2. Edit (with sudo) the file ``/etc/apt/sources.list.d/ros2.list`` and change ``ros2`` with ``ros2-testing``.
    For example, on Ubuntu Jammy the contents should look like the following:
