@@ -92,7 +92,7 @@ See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementatio
 Build the code in the workspace
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you have already installed ROS 2 another way (either via Debians or the binary distribution), make sure that you run the below commands in a fresh environment that does not have those other installations sourced.
+If you have already installed ROS 2 another way (either via debs or the binary distribution), make sure that you run the below commands in a fresh environment that does not have those other installations sourced.
 Also ensure that you do not have ``source /opt/ros/${ROS_DISTRO}/setup.bash`` in your ``.bashrc``.
 You can make sure that ROS 2 is not sourced with the command ``printenv | grep -i ROS``.
 The output should be empty.
