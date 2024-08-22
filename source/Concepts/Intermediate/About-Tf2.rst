@@ -40,12 +40,12 @@ tf2 can have every component in your distributed system build its own transform 
       E --> D((Moon D))
 
 Publishing transforms
-.....................
+^^^^^^^^^^^^^^^^^^^^^
 
-When publishing transforms we typically think of the transforms as the transform from on frame to the other.
+When publishing transforms we typically think of the transforms as the transform from one frame to the other.
 The semantic difference is whether you are transforming data represented in a frame or transforming the frame itself.
 These values are directly inverse.
-Transforms published in the Transform message represent the frame formulation.
+Transforms published in the ``geometry_msgs/msg/Transform`` message represent the frame formulation.
 Keep this in mind when debugging published transforms they are the inverse of what you will lookup depending on what direction you're traversing the transform tree.
 
 .. math::
@@ -57,7 +57,7 @@ The TF library handles inverting these elements for you depending on which way y
 For the rest of this document we will just use :math:`T^{data}` but the ``data`` is unwritten.
 
 Position
-........
+^^^^^^^^
 
 If the driver in car :math:`A` observes something and a person on the ground wants to know where it is relative to it's position, you transform the observation from the source frame to the target frame.
 
@@ -86,8 +86,6 @@ However when converting data from coordinate frame ``B`` to coordinate frame ``A
 This can be seen as you'll be adding value to the height when you change to the lower reference frame.
 However if you are transforming data from coordinate frame ``A`` into coordinate frame ``B`` the height is reduced because the new reference is higher.
 
-
-
 .. math::
 
 
@@ -95,8 +93,7 @@ However if you are transforming data from coordinate frame ``A`` into coordinate
 
 
 Velocity
-........
-
+^^^^^^^^
 
 For representing ``Velocity`` we have three pieces of information. :math:`V^{moving\_frame - reference\_frame}_{observing\_frame}`
 This velocity represents the velocity between the moving frame and the reference frame.
@@ -117,8 +114,6 @@ Velocities can be added or subtracted if they're represented in the same frame, 
 .. math::
 
    V_{Obs}^{A - C} = V_{Obs}^{A - B} + V_{Obs}^{D - C}
-
-TODO: Enumerate test cases for velocity reprojections via reference points(or collapsing). Especially with angular velocities.
 
 Velocities can be "reversed" by inverting.
 
