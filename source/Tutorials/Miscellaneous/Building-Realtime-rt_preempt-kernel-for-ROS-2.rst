@@ -127,7 +127,7 @@ Save and exit menuconfig. Now we're going to build the kernel which will take qu
 
    make -j `nproc` deb-pkg
 
-After the build is finished check the debian packages
+After the build is finished check the deb packages
 
 .. code-block:: bash
 
@@ -135,7 +135,7 @@ After the build is finished check the debian packages
    ../linux-headers-5.4.78-rt41_5.4.78-rt44-1_amd64.deb  ../linux-image-5.4.78-rt44-dbg_5.4.78-rt44-1_amd64.deb
    ../linux-image-5.4.78-rt41_5.4.78-rt44-1_amd64.deb    ../linux-libc-dev_5.4.78-rt44-1_amd64.deb
 
-Then we install all kernel debian packages
+Then we install all kernel deb packages
 
 .. code-block:: bash
 

@@ -68,7 +68,7 @@ In the UTM software:
 In this section, ROS 2 is installed in the VM and the shared folder is configured.
 The following instructions and commands are all run inside the VM.
 
-* Open a terminal in the started VM and install the ROS 2 distribution you need by following the instructions in :doc:`../../../../Installation/Ubuntu-Install-Debians`:
+* Open a terminal in the started VM and install the ROS 2 distribution you need by following the instructions in :doc:`../../../../Installation/Ubuntu-Install-Debs`:
 * Create a folder in the VM to use as a shared folder.
   In this example, the shared folder in the VM is ``/home/ubuntu/shared``.
 
