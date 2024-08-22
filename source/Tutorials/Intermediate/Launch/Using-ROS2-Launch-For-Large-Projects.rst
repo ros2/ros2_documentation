@@ -218,8 +218,6 @@ Let's now create a configuration file, ``turtlesim.yaml``, in the ``/config`` fo
          background_g: 86
          background_r: 150
 
-If we now start the ``turtlesim_world_2_launch.py`` launch file, we will start the ``turtlesim_node`` with preconfigured background colors.
-
 To learn more about using parameters and using YAML files, take a look at the :doc:`Understand parameters <../../Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters>` tutorial.
 
 2.3 Using wildcards in YAML files
@@ -475,6 +473,8 @@ Let's now create the last launch file called ``fixed_broadcaster_launch.py`` in 
 This launch file shows the way environment variables can be called inside the launch files.
 Environment variables can be used to define or push namespaces for distinguishing nodes on different computers or robots.
 
+.. note:: If you are running the launch file where the ``USER`` environment variable is not defined (like in the ROS docker file), then you can replace the ``EnvironmentVariable('USER')`` above with any other word of your liking.
+
 Running launch files
 --------------------
 
@@ -497,6 +497,8 @@ The ``data_files`` field should now look like this:
             glob(os.path.join('launch', '*launch.[pxy][yma]*'))),
          (os.path.join('share', package_name, 'config'),
             glob(os.path.join('config', '*.yaml'))),
+         (os.path.join('share', package_name, 'rviz'),
+            glob(os.path.join('config', '*.rviz'))),
       ],
 
 2 Build and run

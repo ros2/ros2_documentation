@@ -43,8 +43,8 @@ And then look for packages that start with ``rqt_``.
 System setup
 ------------
 
-Installing From Debian
-^^^^^^^^^^^^^^^^^^^^^^
+Installing From debs
+^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
 

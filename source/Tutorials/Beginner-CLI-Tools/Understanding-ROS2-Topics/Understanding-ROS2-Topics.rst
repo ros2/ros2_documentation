@@ -111,8 +111,8 @@ Running the ``ros2 topic list`` command in a new terminal will return a list of 
   /parameter_events [rcl_interfaces/msg/ParameterEvent]
   /rosout [rcl_interfaces/msg/Log]
   /turtle1/cmd_vel [geometry_msgs/msg/Twist]
-  /turtle1/color_sensor [turtlesim/msg/Color]
-  /turtle1/pose [turtlesim/msg/Pose]
+  /turtle1/color_sensor [turtlesim_msgs/msg/Color]
+  /turtle1/pose [turtlesim_msgs/msg/Pose]
 
 These attributes, particularly the type, are how nodes know they're talking about the same information as it moves over topics.
 

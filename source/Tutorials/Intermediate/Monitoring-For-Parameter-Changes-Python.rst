@@ -60,7 +60,7 @@ As always, though, make sure to add the description, maintainer email and name, 
 
   <description>Python parameter events client tutorial</description>
   <maintainer email="you@email.com">Your Name</maintainer>
-  <license>Apache License 2.0</license>
+  <license>Apache-2.0</license>
 
 2 Write the Python node
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -70,6 +70,7 @@ Inside the ``ros2_ws/src/python_parameter_event_handler/python_parameter_event_h
 .. code-block:: Python
 
     import rclpy
+    from rclpy.executors import ExternalShutdownException
     import rclpy.node
     import rclpy.parameter
 
@@ -95,10 +96,12 @@ Inside the ``ros2_ws/src/python_parameter_event_handler/python_parameter_event_h
 
 
     def main():
-        rclpy.init()
-        node = SampleNodeWithParameters()
-        rclpy.spin(node)
-        rclpy.shutdown()
+        try:
+            with rclpy.init():
+                node = SampleNodeWithParameters()
+                rclpy.spin(node)
+        except (KeyboardInterrupt, ExternalShutdownException):
+            pass
 
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
@@ -108,6 +111,7 @@ The ``import`` statements at the top are used to import the package dependencies
 .. code-block:: Python
 
     import rclpy
+    from rclpy.executors import ExternalShutdownException
     import rclpy.node
     import rclpy.parameter
 
@@ -155,10 +159,12 @@ Following the ``SampleNodeWithParameters`` is a typical ``main`` function which 
 .. code-block:: Python
 
     def main():
-        rclpy.init()
-        node = SampleNodeWithParameters()
-        rclpy.spin(node)
-        rclpy.shutdown()
+        try:
+            with rclpy.init():
+                node = SampleNodeWithParameters()
+                rclpy.spin(node)
+        except (KeyboardInterrupt, ExternalShutdownException):
+            pass
 
 
 2.2 Add an entry point
@@ -172,7 +178,7 @@ Again, match the ``maintainer``, ``maintainer_email``, ``description`` and ``lic
     maintainer='YourName',
     maintainer_email='you@email.com',
     description='Python parameter tutorial',
-    license='Apache License 2.0',
+    license='Apache-2.0',
 
 Add the following line within the ``console_scripts`` brackets of the ``entry_points`` field:
 

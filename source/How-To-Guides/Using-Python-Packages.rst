@@ -16,7 +16,7 @@ Using Python Packages with ROS 2
 
 .. note::
 
-    A cautionary note, if you intended to use pre-packaged binaries (either ``deb`` files, or the “fat” binary distributions), the Python interpreter must match what was used to build the original binaries.
+    A cautionary note, if you intended to use pre-packaged binaries (either ``deb`` files, or the binary archive distributions), the Python interpreter must match what was used to build the original binaries.
     If you intend to use something like ``virtualenv`` or ``pipenv``\, make sure to use the system interpreter.
     If you use something like ``conda``, it is very likely that the interpreter will not match the system interpreter and will be incompatible with ROS 2 binaries.
 

@@ -23,6 +23,7 @@ Rows in the table marked in green are the currently supported distributions.
 .. toctree::
    :hidden:
 
+   Releases/Release-Jazzy-Jalisco
    Releases/Release-Iron-Irwini
    Releases/Release-Humble-Hawksbill
    Releases/Release-Rolling-Ridley
@@ -47,11 +48,16 @@ Rows in the table marked in green are the currently supported distributions.
    -->
    <style>
      .rst-content table.docutils:not(.field-list) tr:nth-child(1) td {background-color: #33cc66;}
+     .rst-content table.docutils:not(.field-list) tr:nth-child(3) td {background-color: #33cc66;}
      .rst-content tr:nth-child(2) {background-color: #33cc66;}
+     .rst-content tr:nth-child(3) {background-color: #33cc66;}
    </style>
 
 .. |rolling| image:: Releases/rolling-small.png
    :alt: Rolling logo
+
+.. |jazzy| image:: Releases/jazzy-small.png
+   :alt: Jazzy logo
 
 .. |iron| image:: Releases/iron-small.png
    :alt: Iron logo
@@ -89,6 +95,10 @@ Rows in the table marked in green are the currently supported distributions.
      - Release date
      - Logo
      - EOL date
+   * - :doc:`Jazzy Jalisco <Releases/Release-Jazzy-Jalisco>`
+     - May 23rd, 2024
+     - |jazzy|
+     - May 2029
    * - :doc:`Iron Irwini <Releases/Release-Iron-Irwini>`
      - May 23rd, 2023
      - |iron|
@@ -158,10 +168,10 @@ There is a new ROS 2 distribution released yearly on May 23rd (`World Turtle Day
      - Release date
      - Logo
      - EOL date
-   * - :doc:`Jazzy Jalisco <Releases/Release-Jazzy-Jalisco>`
-     - May 2024
+   * - :doc:`Kilted Kaiju <Releases/Release-Kilted-Kaiju>`
+     - May 2025
      - TBD
-     - May 2029
+     - Nov 2026
 
 
 .. _rolling_distribution:

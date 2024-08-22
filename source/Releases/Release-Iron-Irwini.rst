@@ -1,5 +1,3 @@
-.. _latest_release:
-
 .. _iron-release:
 
 Iron Irwini (``iron``)

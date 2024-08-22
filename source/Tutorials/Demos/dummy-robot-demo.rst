@@ -15,46 +15,41 @@ We assume your ROS 2 installation dir as ``~/ros2_ws``. Please change the direct
 
 To start the demo, we execute the demo bringup launch file, which we are going to explain in more details in the next section.
 
-.. code-block:: bash
+.. tabs::
 
-   source ~/ros2_ws/install/setup.bash
-   ros2 launch dummy_robot_bringup dummy_robot_bringup_launch.py
+  .. group-tab:: Source Build
+
+    mkdir -p ~/ros2_ws/src
+    cd ~/ros2_ws/src
+    git clone -b ${ROS_DISTRO} https://github.com/ros2/demos
+    cd .. && colcon build --packages-up-to dummy_robot_bringup
+    source ~/ros2_ws/install/setup.bash
+    ros2 launch dummy_robot_bringup dummy_robot_bringup_launch.py
+
+  .. group-tab:: deb Package
+
+    sudo apt install ros-${ROS_DISTRO}-dummy-robot-bringup
+    ros2 launch dummy_robot_bringup dummy_robot_bringup_launch.py
 
 You should see some prints inside your terminal along the lines of the following:
 
 .. code-block:: bash
 
-   [INFO] [launch]: process[dummy_map_server-1]: started with pid [25812]
-   [INFO] [launch]: process[robot_state_publisher-2]: started with pid [25813]
-   [INFO] [launch]: process[dummy_joint_states-3]: started with pid [25814]
-   [INFO] [launch]: process[dummy_laser-4]: started with pid [25815]
-   Initialize urdf model from file: /home/mikael/work/ros2/bouncy_ws/install_debug_isolated/dummy_robot_bringup/share/dummy_robot_bringup/launch/single_rrbot.urdf
-   Parsing robot urdf xml string.
-   Link single_rrbot_link1 had 1 children
-   Link single_rrbot_link2 had 1 children
-   Link single_rrbot_link3 had 2 children
-   Link single_rrbot_camera_link had 0 children
-   Link single_rrbot_hokuyo_link had 0 children
-   got segment single_rrbot_camera_link
-   got segment single_rrbot_hokuyo_link
-   got segment single_rrbot_link1
-   got segment single_rrbot_link2
-   got segment single_rrbot_link3
-   got segment world
-   Adding fixed segment from world to single_rrbot_link1
-   Adding moving segment from single_rrbot_link1 to single_rrbot_link2
-   [INFO] [dummy_laser]: angle inc:    0.004363
-   [INFO] [dummy_laser]: scan size:    1081
-   [INFO] [dummy_laser]: scan time increment:  0.000028
-   Adding moving segment from single_rrbot_link2 to single_rrbot_link3
-   Adding fixed segment from single_rrbot_link3 to single_rrbot_camera_link
-   Adding fixed segment from single_rrbot_link3 to single_rrbot_hokuyo_link
+   [INFO] [launch]: Default logging verbosity is set to INFO
+   [INFO] [dummy_map_server-1]: process started with pid [2922]
+   [INFO] [robot_state_publisher-2]: process started with pid [2923]
+   [INFO] [dummy_joint_states-3]: process started with pid [2924]
+   [INFO] [dummy_laser-4]: process started with pid [2925]
+   [dummy_laser-4] [INFO] [1714837459.645517297] [dummy_laser]: angle inc:    0.004363
+   [dummy_laser-4] [INFO] [1714837459.645613393] [dummy_laser]: scan size:    1081
+   [dummy_laser-4] [INFO] [1714837459.645626640] [dummy_laser]: scan time increment:     0.000000
+   [robot_state_publisher-2] [INFO] [1714837459.652977937] [robot_state_publisher]: Robot initialized
 
-If you now open in a next terminal your RViz, you'll see your robot. 🎉
+If you now open RViz2 in a new terminal, you'll see your robot. 🎉
 
 .. code-block:: bash
 
-   $ source <ROS2_INSTALL_FOLDER>/setup.bash
+   $ source ~/ros2_ws/install/setup.bash
    $ rviz2
 
 This opens RViz2. Assuming you have your dummy_robot_bringup still launched, you can now add the TF display plugin and configure your global frame to ``world``. Once you did that, you should see a similar picture:

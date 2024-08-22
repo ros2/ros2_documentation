@@ -13,11 +13,11 @@ Prerequisites
 -------------
 
 The following description assumes that you have completed the 'Environment setup' process
-from the :doc:`Installing ROS 2 via Debian Packages <../Ubuntu-Install-Debians>` or
+from the :doc:`Installing ROS 2 via deb Packages <../Ubuntu-Install-Debs>` or
 from the :doc:`Building ROS 2 on Ubuntu Linux <../Alternatives/Ubuntu-Development-Setup>`.
 
 rmw_gurumdds requires version of GurumDDS-2.8.x.
-Debian packages of GurumDDS are provided in the ROS 2 apt repositories on ubuntu.
+Deb packages of GurumDDS are provided in the ROS 2 apt repositories on Ubuntu.
 Windows binary installer of GurumDDS will be supported soon.
 
 GurumDDS requires a license. See the next page: https://gurum.cc/free_trial_eng.html

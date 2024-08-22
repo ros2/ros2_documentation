@@ -110,6 +110,30 @@ Anaconda Python Conflict
 Make sure that your ``PATH`` environment variable does not have any conda paths in it.
 You may have to check your ``.bashrc`` for this line and comment it out.
 
+Cannot start rviz2
+^^^^^^^^^^^^^^^^^^
+
+``rviz2`` may fail to start on a Wayland display system with errors like:
+
+.. code-block::
+
+   QSocketNotifier: Can only be used with threads started with QThread
+   [INFO] [1714730141.758659580] [rviz2]: Stereo is NOT SUPPORTED
+   [INFO] [1714730141.758813709] [rviz2]: OpenGl version: 3.1 (GLSL 1.4)
+   [ERROR] [1714730141.797879232] [rviz2]: rviz::RenderSystem: error creating render window: RenderingAPIException: Invalid parentWindowHandle (wrong server or screen) in GLXWindow::create at ./.obj-aarch64-linux-gnu/ogre_vendor-prefix/src/ogre_vendor/RenderSystems/GLSupport/src/GLX/OgreGLXWindow.cpp (line 246)
+   ...
+   [ERROR] [1714730141.808124283] [rviz2]: Unable to create the rendering window after 100 tries
+   terminate called after throwing an instance of 'std::runtime_error'
+     what():  Unable to create the rendering window after 100 tries
+   Aborted (core dumped)
+
+This is due to an incompatibility between Wayland and RViz2.
+You may be able to workaround this problem by running RViz2 in X11 compatibility mode:
+
+.. code-block::
+
+   QT_QPA_PLATFORM=xcb rviz2
+
 .. _macOS-troubleshooting:
 
 macOS

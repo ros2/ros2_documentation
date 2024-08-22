@@ -31,7 +31,7 @@ Jobs and Deployment
 The ROS build farms perform several different jobs.
 For each job type you will find a detailed description of what they do and how they work:
 
-* `release jobs`_ generate binary packages, e.g., debian packages
+* `release jobs`_ generate binary packages, e.g., deb packages
 * `devel jobs`_ build and test ROS packages within a single repository on a polling basis
 * `pull_request jobs`_ build and test ROS packages within a single repository triggered by webhooks
 * `CI jobs`_ build and test ROS packages across repositories with the option of using artifacts
@@ -54,7 +54,7 @@ The names of the jobs encode their type and purpose: [1]_
    * ``{distro}src_{platf}__{package}__{platform}__source`` build source packages of releases
    * ``{distro}bin_{platf}__{package}__{platform}__binary`` build binary packages of releases
 
-   For instance, the binary packaging job of rclcpp on ROS 2 Iron (running on Ubuntu Jammy amd64) is named ``Ibin_uJ64__rclcpp__ubuntu_jammy_amd64__binary``.
+   For instance, the binary packaging job of rclcpp on ROS 2 Rolling (running on Ubuntu Noble amd64) is named ``Rbin_uN64__rclcpp__ubuntu_noble_amd64__binary``.
 
 * devel jobs:
 
@@ -64,7 +64,7 @@ The names of the jobs encode their type and purpose: [1]_
 
    * ``{distro}pr__{package}__{platform}`` perform a CI build for a pull request
 
-   For instance, the PR job for rclcpp on ROS 2 Iron (running on Ubuntu Jammy amd64) is named ``Ipr__rclcpp__ubuntu_jammy_amd64``.
+   For instance, the PR job for rclcpp on ROS 2 Rolling (running on Ubuntu Noble amd64) is named ``Rpr__rclcpp__ubuntu_noble_amd64``.
 
 Execution
 .........
@@ -98,7 +98,7 @@ Frequency Asked Questions (FAQ) and Troubleshooting
 
    a) Inspect the release job that raised the issue (see 1.) and localize the cmake dependency
       issue. To do so, browse to the cmake section, e.g., navigate to the *build binarydeb*
-      section through the menu on the left in case of a ubuntu/debian build job. The *CMake Error*
+      section through the menu on the left in case of a Ubuntu/Debian build job. The *CMake Error*
       will typically hint at a dependency required by the cmake configuration but missing in the
       `package manifest`_. Once you have fixed the dependency in the manifest, do a new release
       of your package and wait for feedback from the build farms or...

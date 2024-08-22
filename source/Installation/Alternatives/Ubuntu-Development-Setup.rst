@@ -15,8 +15,9 @@ System requirements
 -------------------
 The current Debian-based target platforms for {DISTRO_TITLE_FULL} are:
 
-- Tier 1: Ubuntu Linux - Jammy (22.04) 64-bit
-- Tier 3: Debian Linux - Bullseye (11) 64-bit
+- Tier 1: Ubuntu Linux - Noble (24.04) 64-bit
+- Tier 3: Ubuntu Linux - Jammy (22.04) 64-bit
+- Tier 3: Debian Linux - Bookworm (12) 64-bit
 
 As defined in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`_.
 
@@ -39,13 +40,18 @@ Install development tools
 .. code-block:: bash
 
    sudo apt update && sudo apt install -y \
-     python3-pip \
-     python3-pytest-cov \
      python3-flake8-blind-except \
      python3-flake8-class-newline \
      python3-flake8-deprecated \
+     python3-mypy \
+     python3-pip \
+     python3-pytest \
+     python3-pytest-cov \
+     python3-pytest-mock \
      python3-pytest-repeat \
      python3-pytest-rerunfailures \
+     python3-pytest-runner \
+     python3-pytest-timeout \
      ros-dev-tools
 
 Build ROS 2
@@ -86,7 +92,7 @@ See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementatio
 Build the code in the workspace
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you have already installed ROS 2 another way (either via Debians or the binary distribution), make sure that you run the below commands in a fresh environment that does not have those other installations sourced.
+If you have already installed ROS 2 another way (either via debs or the binary distribution), make sure that you run the below commands in a fresh environment that does not have those other installations sourced.
 Also ensure that you do not have ``source /opt/ros/${ROS_DISTRO}/setup.bash`` in your ``.bashrc``.
 You can make sure that ROS 2 is not sourced with the command ``printenv | grep -i ROS``.
 The output should be empty.
@@ -146,16 +152,11 @@ Next steps
 
 Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
 
-Use the ROS 1 bridge (optional)
--------------------------------
-
-The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa.
-See the dedicated :doc:`document <../../How-To-Guides/Using-ros1_bridge-Jammy-upstream>` on how to build and use the ROS 1 bridge.
-
 Alternate compilers
 -------------------
 
-Using a different compiler besides gcc to compile ROS 2 is easy. If you set the environment variables ``CC`` and ``CXX`` to executables for a working C and C++ compiler, respectively, and retrigger CMake configuration (by using ``--force-cmake-config`` or by deleting the packages you want to be affected), CMake will reconfigure and use the different compiler.
+Using a different compiler besides gcc to compile ROS 2 is easy.
+If you set the environment variables ``CC`` and ``CXX`` to executables for a working C and C++ compiler, respectively, and retrigger CMake configuration (by using ``--cmake-force-configure`` or by deleting the packages you want to be affected), CMake will reconfigure and use the different compiler.
 
 Clang
 ^^^^^

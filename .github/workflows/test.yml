@@ -7,10 +7,10 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
@@ -24,10 +24,10 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
@@ -42,18 +42,54 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
       - name: Setup Graphviz
-        uses: ts-graphviz/setup-graphviz@v1
+        uses: ts-graphviz/setup-graphviz@v2
 
       - name: Install dependencies with pip
         run: pip install --no-warn-script-location --user -r requirements.txt -c constraints.txt
 
       - name: Build the docs
         run: make html
+
+      - name: Upload document artifacts
+        uses: actions/upload-artifact@v4
+        id: artifact-upload-step
+        with:
+          name: html-artifacts-${{ github.event.pull_request.number }}
+          path: build/html
+          retention-days: 30 # default 90
+          compression-level: 9 # maximum compression, default 6
+          if-no-files-found: error # 'warn' or 'ignore' are also available, defaults to `warn`
+
+      - name: Find HTML artifacts link comment
+        uses: peter-evans/find-comment@v3
+        id: find-comment
+        # Skip if PR from fork
+        if: github.repository == github.event.pull_request.head.repo.full_name
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: 'github-actions[bot]'
+          body-includes: "HTML artifacts:"
+
+      - name: Create or update HTML artifacts link comment
+        uses: peter-evans/create-or-update-comment@v4
+        # Skip if PR from fork
+        if: github.repository == github.event.pull_request.head.repo.full_name
+        with:
+          comment-id: ${{ steps.find-comment.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            HTML artifacts: ${{ steps.artifact-upload-step.outputs.artifact-url }}.
+
+            To view the resulting site:
+            1. Click on the above link to download the artifacts archive
+            2. Extract it
+            3. Open `html-artifacts-${{ github.event.pull_request.number }}/index.html` in your favorite browser
+          edit-mode: replace

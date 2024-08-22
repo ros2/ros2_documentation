@@ -29,7 +29,7 @@ Prerequisites
 
 You should have the ``rosbag2`` packages installed as part of your regular ROS 2 setup.
 
-If you've installed from Debian packages on Linux, it may be installed by default.
+If you've installed from deb packages on Linux, it may be installed by default.
 If it is not, you can install it using this command.
 
 .. code-block:: console
@@ -69,7 +69,7 @@ As always, though, make sure to add the description, maintainer email and name, 
 
   <description>C++ bag writing tutorial</description>
   <maintainer email="you@email.com">Your Name</maintainer>
-  <license>Apache License 2.0</license>
+  <license>Apache-2.0</license>
 
 2 Write the C++ node
 ^^^^^^^^^^^^^^^^^^^^
@@ -157,8 +157,8 @@ The callback itself is different from a typical callback.
 Rather than receiving an instance of the data type of the topic, we instead receive a ``rclcpp::SerializedMessage``.
 We do this for two reasons.
 
-1. The message data will need to be serialised by ``rosbag2`` before being written to the bag, so rather than unserialising it when receiving the data and then re-serialising it, we ask ROS to just give us the serialised message as-is.
-2. The writer API can accept a serialised message.
+1. The message data will need to be serialized by ``rosbag2`` before being written to the bag, so rather than unserializing it when receiving the data and then re-serializing it, we ask ROS to just give us the serialized message as-is.
+2. The writer API can accept a serialized message.
 
 .. code-block:: C++
 
@@ -347,10 +347,14 @@ Inside the ``ros2_ws/src/bag_recorder_nodes/src`` directory, create a new file c
         writer_->open("timed_synthetic_bag");
 
         writer_->create_topic(
-          {"synthetic",
-           "example_interfaces/msg/Int32",
-           rmw_get_serialization_format(),
-           ""});
+        {
+          0u,
+          "synthetic",
+          "example_interfaces/msg/Int32",
+          rmw_get_serialization_format(),
+          {},
+          "",
+        });
 
         auto timer_callback_lambda = [this](){return this->timer_callback();};
         timer_ = create_wall_timer(1s, timer_callback_lambda);
@@ -390,15 +394,19 @@ First, the name of the bag is changed.
         writer_->open("timed_synthetic_bag");
 
 In this example we are registering the topic with the bag in advance.
-This is optional in most cases, but it must be done when passing in a serialised message without topic information.
+This is optional in most cases, but it must be done when passing in a serialized message without topic information.
 
 .. code-block:: C++
 
         writer_->create_topic(
-          {"synthetic",
-           "example_interfaces/msg/Int32",
-           rmw_get_serialization_format(),
-           ""});
+        {
+          0u,
+          "synthetic",
+          "example_interfaces/msg/Int32",
+          rmw_get_serialization_format(),
+          {},
+          "",
+        });
 
 Rather than a subscription to a topic, this node has a timer.
 The timer fires with a one-second period, and calls the given member function when it does.
@@ -409,9 +417,9 @@ The timer fires with a one-second period, and calls the given member function wh
         timer_ = create_wall_timer(1s, timer_callback_lambda);
 
 Within the timer callback, we generate (or otherwise obtain, e.g. read from a serial port connected to some hardware) the data we wish to store in the bag.
-The important difference between this and the previous sample is that the data is not yet serialised.
+The important difference between this and the previous sample is that the data is not yet serialized.
 Instead we are passing a ROS message data type to the writer object, in this case an instance of ``example_interfaces/msg/Int32``.
-The writer will serialise the data for us before writing it into the bag.
+The writer will serialize the data for us before writing it into the bag.
 
 .. code-block:: C++
 
@@ -535,10 +543,14 @@ Inside the ``ros2_ws/src/bag_recorder_nodes/src`` directory, create a new file c
       writer_->open("big_synthetic_bag");
 
       writer_->create_topic(
-        {"synthetic",
-         "example_interfaces/msg/Int32",
-         rmw_get_serialization_format(),
-         ""});
+      {
+        0u,
+        "synthetic",
+        "example_interfaces/msg/Int32",
+        rmw_get_serialization_format(),
+        {},
+        "",
+      });
 
       rclcpp::Clock clock;
       rclcpp::Time time_stamp = clock.now();

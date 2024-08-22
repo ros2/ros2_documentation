@@ -317,7 +317,7 @@ Here is the content of those three files:
      <version>0.0.0</version>
      <description>talker</description>
      <maintainer email="gerkey@osrfoundation.org">Brian Gerkey</maintainer>
-     <license>Apache 2.0</license>
+     <license>Apache-2.0</license>
      <buildtool_depend>catkin</buildtool_depend>
      <build_depend>roscpp</build_depend>
      <build_depend>std_msgs</build_depend>
@@ -617,7 +617,7 @@ Putting it all together, our ``package.xml`` now looks like this:
      <version>0.0.0</version>
      <description>talker</description>
      <maintainer email="gerkey@osrfoundation.org">Brian Gerkey</maintainer>
-     <license>Apache License 2.0</license>
+     <license>Apache-2.0</license>
    <!--  <buildtool_depend>catkin</buildtool_depend> -->
      <buildtool_depend>ament_cmake</buildtool_depend>
    <!--  <build_depend>roscpp</build_depend> -->

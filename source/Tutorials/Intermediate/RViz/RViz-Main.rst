@@ -11,3 +11,4 @@ RViz is a 3D visualizer for the Robot Operating System (ROS) framework.
    :maxdepth: 1
 
    RViz-User-Guide/RViz-User-Guide
+   RViz-Custom-Display/RViz-Custom-Display

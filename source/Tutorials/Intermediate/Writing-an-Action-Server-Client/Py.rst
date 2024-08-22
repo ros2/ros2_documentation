@@ -55,13 +55,13 @@ The class is initialized by calling the ``Node`` constructor, naming our node ``
 
 .. literalinclude:: scripts/server_0.py
     :language: python
-    :lines: 11
+    :lines: 12
 
 In the constructor we also instantiate a new action server:
 
 .. literalinclude:: scripts/server_0.py
     :language: python
-    :lines: 12-16
+    :lines: 13-17
 
 An action server requires four arguments:
 
@@ -75,7 +75,7 @@ We also define an ``execute_callback`` method in our class:
 
 .. literalinclude:: scripts/server_0.py
     :language: python
-    :lines: 18-21
+    :lines: 19-22
 
 This is the method that will be called to execute a goal once it is accepted.
 
@@ -110,11 +110,11 @@ In another terminal, we can use the command line interface to send a goal:
 In the terminal that is running the action server, you should see a logged message "Executing goal..." followed by a warning that the goal state was not set.
 By default, if the goal handle state is not set in the execute callback it assumes the *aborted* state.
 
-We can use the method `succeed() <http://docs.ros2.org/latest/api/rclpy/api/actions.html#rclpy.action.server.ServerGoalHandle.succeed>`_ on the goal handle to indicate that the goal was successful:
+We can call ``succeed()`` on the goal handle to indicate that the goal was successful:
 
 .. literalinclude:: scripts/server_1.py
     :language: python
-    :lines: 18-22
+    :lines: 19-23
     :emphasize-lines: 3
 
 Now if you restart the action server and send another goal, you should see the goal finished with the status ``SUCCEEDED``.
@@ -123,7 +123,7 @@ Now let's make our goal execution actually compute and return the requested Fibo
 
 .. literalinclude:: scripts/server_2.py
     :language: python
-    :lines: 18-30
+    :lines: 19-31
     :emphasize-lines: 4-7,12
 
 After computing the sequence, we assign it to the result message field before returning.
@@ -135,14 +135,14 @@ You should see the goal finish with the proper result sequence.
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 One of the nice things about actions is the ability to provide feedback to an action client during goal execution.
-We can make our action server publish feedback for action clients by calling the goal handle's `publish_feedback() <http://docs.ros2.org/latest/api/rclpy/api/actions.html#rclpy.action.server.ServerGoalHandle.publish_feedback>`_ method.
+We can make our action server publish feedback for action clients by calling the goal handle's ``publish_feedback()`` method.
 
 We'll replace the ``sequence`` variable, and use a feedback message to store the sequence instead.
 After every update of the feedback message in the for-loop, we publish the feedback message and sleep for dramatic effect:
 
 .. literalinclude:: scripts/server_3.py
     :language: python
-    :emphasize-lines: 1,23,24,27-31,36
+    :emphasize-lines: 1,24,25,28-32,37
 
 After restarting the action server, we can confirm that feedback is now published by using the command line tool with the ``--feedback`` option:
 
@@ -164,13 +164,13 @@ The class is initialized by calling the ``Node`` constructor, naming our node ``
 
 .. literalinclude:: scripts/client_0.py
     :language: python
-    :lines: 11
+    :lines: 12
 
 Also in the class constructor, we create an action client using the custom action definition from the previous tutorial on :doc:`../Creating-an-Action`:
 
 .. literalinclude:: scripts/client_0.py
     :language: python
-    :lines: 12
+    :lines: 13
 
 We create an ``ActionClient`` by passing it three arguments:
 
@@ -184,7 +184,7 @@ We also define a method ``send_goal`` in the ``FibonacciActionClient`` class:
 
 .. literalinclude:: scripts/client_0.py
     :language: python
-    :lines: 14-20
+    :lines: 15-21
 
 This method waits for the action server to be available, then sends a goal to the server.
 It returns a future that we can later wait on.
@@ -266,12 +266,12 @@ Here's the complete code for this example:
 .. literalinclude:: scripts/client_1.py
     :language: python
 
-The `ActionClient.send_goal_async() <http://docs.ros2.org/latest/api/rclpy/api/actions.html#rclpy.action.client.ActionClient.send_goal_async>`_ method returns a future to a goal handle.
+The ``ActionClient.send_goal_async()`` method returns a future to a goal handle.
 First we register a callback for when the future is complete:
 
 .. literalinclude:: scripts/client_1.py
     :language: python
-    :lines: 22
+    :lines: 23
 
 Note that the future is completed when an action server accepts or rejects the goal request.
 Let's look at the ``goal_response_callback`` in more detail.
@@ -279,21 +279,21 @@ We can check to see if the goal was rejected and return early since we know ther
 
 .. literalinclude:: scripts/client_1.py
     :language: python
-    :lines: 24-30
+    :lines: 25-31
 
-Now that we've got a goal handle, we can use it to request the result with the method `get_result_async() <http://docs.ros2.org/latest/api/rclpy/api/actions.html#rclpy.action.client.ClientGoalHandle.get_result_async>`_.
+Now that we've got a goal handle, we can use it to request the result with the method ``get_result_async()``.
 Similar to sending the goal, we will get a future that will complete when the result is ready.
 Let's register a callback just like we did for the goal response:
 
 .. literalinclude:: scripts/client_1.py
     :language: python
-    :lines: 32-33
+    :lines: 33-34
 
 In the callback, we log the result sequence and shutdown ROS 2 for a clean exit:
 
 .. literalinclude:: scripts/client_1.py
     :language: python
-    :lines: 35-38
+    :lines: 36-39
 
 With an action server running in a separate terminal, go ahead and try running our Fibonacci action client!
 
@@ -335,7 +335,7 @@ Here's the callback function for feedback messages:
 
 .. literalinclude:: scripts/client_2.py
     :language: python
-    :lines: 40-42
+    :lines: 41-43
 
 In the callback we get the feedback portion of the message and print the ``partial_sequence`` field to the screen.
 
@@ -344,7 +344,7 @@ This is achieved by additionally passing the callback to the action client when 
 
 .. literalinclude:: scripts/client_2.py
     :language: python
-    :lines: 20
+    :lines: 21
 
 We're all set. If we run our action client, you should see feedback being printed to the screen.
 

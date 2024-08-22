@@ -155,8 +155,8 @@ If you want to define static transforms in your tf2 tree, take a look at the "Wr
 You can also learn how to add fixed and dynamic frames to your tf2 tree in the "Adding a frame" :doc:`(Python) <../../Tutorials/Intermediate/Tf2/Adding-A-Frame-Py>` :doc:`(C++) <../../Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp>` tutorial.
 
 Once you are finished with the basic tutorials, you can move on to learn about tf2 and time.
-The tf2 and time tutorial :doc:`(Python) <../../Tutorials/Intermediate/Tf2/Learning-About-Tf2-And-Time-Py>` :doc:`(C++) <../../Tutorials/Intermediate/Tf2/Learning-About-Tf2-And-Time-Cpp>` teaches the basic principles of tf2 and time.
-The advanced tutorial about tf2 and time :doc:`(Python) <../../Tutorials/Intermediate/Tf2/Time-Travel-With-Tf2-Py>` :doc:`(C++) <../../Tutorials/Intermediate/Tf2/Time-Travel-With-Tf2-Cpp>` teaches the principles of time traveling with tf2.
+The tf2 and time tutorial :doc:`(C++) <../../Tutorials/Intermediate/Tf2/Learning-About-Tf2-And-Time-Cpp>` teaches the basic principles of tf2 and time.
+The advanced tutorial about tf2 and time :doc:`(C++) <../../Tutorials/Intermediate/Tf2/Time-Travel-With-Tf2-Cpp>` teaches the principles of time traveling with tf2.
 
 Paper
 -----

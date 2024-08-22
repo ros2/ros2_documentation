@@ -1,15 +1,16 @@
 .. redirect-from::
 
    Installation/Linux-Install-Debians
+   Installation/Ubuntu-Install-Debians
 
-Ubuntu (Debian packages)
-========================
+Ubuntu (deb packages)
+=====================
 
 .. contents:: Table of Contents
    :depth: 2
    :local:
 
-Debian packages for ROS 2 {DISTRO_TITLE_FULL} are currently available for Ubuntu Jammy.
+Deb packages for ROS 2 {DISTRO_TITLE_FULL} are currently available for Ubuntu Noble (24.04).
 The Rolling Ridley distribution will change target platforms from time to time as new platforms are selected for development.
 The target platforms are defined in `REP 2000 <https://ros.org/reps/rep-2000.html>`__.
 Most people will want to use a stable ROS distribution.
@@ -19,7 +20,7 @@ Resources
 
 * Status Page:
 
-  * ROS 2 {DISTRO_TITLE} (Ubuntu Jammy): `amd64 <http://repo.ros2.org/status_page/ros_{DISTRO}_default.html>`__\ , `arm64 <http://repo.ros2.org/status_page/ros_{DISTRO}_ujv8.html>`__
+  * ROS 2 {DISTRO_TITLE} (Ubuntu Noble 24.04): `amd64 <http://repo.ros2.org/status_page/ros_{DISTRO}_default.html>`__\ , `arm64 <http://repo.ros2.org/status_page/ros_{DISTRO}_ujv8.html>`__
 * `Jenkins Instance <http://build.ros2.org/>`__
 * `Repositories <http://repo.ros2.org>`__
 
@@ -36,7 +37,7 @@ Enable required repositories
 
 .. include:: _Apt-Repositories.rst
 
-.. _linux-install-debians-install-ros-2-packages:
+.. _linux-install-debs-install-ros-2-packages:
 
 Install development tools (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -57,13 +58,6 @@ Update your apt repository caches after setting up the repositories.
    sudo apt update
 
 .. include:: _Apt-Upgrade-Admonition.rst
-
-.. warning::
-
-   Due to early updates in Ubuntu 22.04 it is important that ``systemd`` and ``udev``-related packages are updated before installing ROS 2.
-   The installation of ROS 2's dependencies on a freshly installed system without upgrading can trigger the **removal of critical system packages**.
-
-   Please refer to `ros2/ros2#1272 <https://github.com/ros2/ros2/issues/1272>`_ and `Launchpad #1974196 <https://bugs.launchpad.net/ubuntu/+source/systemd/+bug/1974196>`_ for more information.
 
 Desktop Install (Recommended): ROS, RViz, demos, tutorials.
 
@@ -122,12 +116,6 @@ Next steps
 ----------
 
 Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
-
-Use the ROS 1 bridge (optional)
--------------------------------
-
-The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa.
-See the dedicated :doc:`document <../../How-To-Guides/Using-ros1_bridge-Jammy-upstream>` on how to build and use the ROS 1 bridge.
 
 Troubleshoot
 ------------

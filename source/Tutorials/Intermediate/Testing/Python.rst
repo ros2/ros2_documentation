@@ -14,7 +14,7 @@ Package Setup
 setup.py
 ^^^^^^^^
 
-Your ``setup.py`` must a test dependency on ``pytest`` within the call to ``setup(...)``:
+Your ``setup.py`` must have a test dependency on ``pytest`` within the call to ``setup(...)``:
 
 .. code-block:: python
 
