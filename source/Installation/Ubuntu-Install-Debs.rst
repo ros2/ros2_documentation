@@ -1,15 +1,16 @@
 .. redirect-from::
 
    Installation/Linux-Install-Debians
+   Installation/Ubuntu-Install-Debians
 
-Ubuntu (Debian packages)
-========================
+Ubuntu (deb packages)
+=====================
 
 .. contents:: Table of Contents
    :depth: 2
    :local:
 
-Debian packages for ROS 2 {DISTRO_TITLE_FULL} are currently available for Ubuntu Jammy (22.04).
+Deb packages for ROS 2 {DISTRO_TITLE_FULL} are currently available for Ubuntu Jammy (22.04).
 The target platforms are defined in `REP 2000 <https://ros.org/reps/rep-2000.html>`__.
 
 Resources
@@ -34,7 +35,7 @@ Setup Sources
 
 .. include:: _Apt-Repositories.rst
 
-.. _linux-install-debians-install-ros-2-packages:
+.. _linux-install-debs-install-ros-2-packages:
 
 Install ROS 2 packages
 ----------------------

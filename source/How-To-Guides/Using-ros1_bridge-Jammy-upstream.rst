@@ -12,10 +12,10 @@ Alternatively, there are `upstream variants of ROS 1 packages <https://packages.
 This guide outlines the current mechanism for bridging ROS 2 releases with these upstream packages on Ubuntu 22.04 Jammy Jellyfish.
 This provides a migration path for users who still depend on ROS 1, but desire moving to newer ROS 2 and Ubuntu releases.
 
-ROS 2 via Debian packages
--------------------------
+ROS 2 via deb packages
+----------------------
 
-Installing :doc:`ROS 2 from Debian packages <../Installation/Ubuntu-Install-Debians>` currently does not work for ROS 2 on Ubuntu Jammy.
+Installing :doc:`ROS 2 from deb packages <../Installation/Ubuntu-Install-Debs>` currently does not work for ROS 2 on Ubuntu Jammy.
 The version of ``catkin-pkg-modules`` available in the Ubuntu repository conflicts with that in the ROS 2 package repository.
 
 If the ROS 2 apt repository is in the available apt repositories (``/etc/apt/sources.list.d``), no ROS 1 packages will be installable.

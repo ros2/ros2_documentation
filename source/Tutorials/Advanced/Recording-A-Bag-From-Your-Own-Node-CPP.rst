@@ -29,7 +29,7 @@ Prerequisites
 
 You should have the ``rosbag2`` packages installed as part of your regular ROS 2 setup.
 
-If you've installed from Debian packages on Linux, it may be installed by default.
+If you've installed from deb packages on Linux, it may be installed by default.
 If it is not, you can install it using this command.
 
 .. code-block:: console
