@@ -54,7 +54,7 @@ Then create a workspace, and clone ``performance_test`` and ``tracetools_analysi
   mkdir -p tracing_ws/src
   cd tracing_ws/src/
   git clone https://gitlab.com/ApexAI/performance_test.git
-  git clone https://github.com/ros-tracing/tracetools_analysis.git
+  git clone https://github.com/ros-tracing/tracetools_analysis.git -b iron
   cd ..
 
 Install dependencies with rosdep.
