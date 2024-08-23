@@ -211,4 +211,8 @@ Inside the terminal do the following:
     source /opt/ros/$ROS_DISTRO/setup.bash
     rviz2
 
-.. Note:: There might be a problem with displaying RVIZ. If no window pops up, then check the value of ``echo $DISPLAY`` - if the output is 1, you can fix this problem with ``echo "export DISPLAY=unix:1" >> /etc/bash.bashrc`` and then test it again. You can also change the DISPLAY value in the devcontainer.json and rebuild it.
+.. Note::
+    
+    There might be a problem with displaying RVIZ. If no window pops up, then check the value of ``echo $DISPLAY`` - if the output is 1, you can fix this problem with ``echo "export DISPLAY=unix:1" >> /etc/bash.bashrc`` and then test it again. You can also change the DISPLAY value in the devcontainer.json and rebuild it.
+
+    If your rviz2 command errors with a message similar to ``qt.qpa.xcb: could not connect to display unix:0`` try running the command ``xhost +local:root`` on your local machine then retrying. If this resolves your problem you may want to consider using ``xauth`` for more secure X access control. You can revert the xhost command with ``xhost -local:root``
