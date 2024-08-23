@@ -48,7 +48,7 @@ Then create a workspace, import the ROS 2 {DISTRO_TITLE} code, and clone ``perfo
   vcs import src/ --input https://raw.githubusercontent.com/ros2/ros2/{DISTRO}/ros2.repos
   cd src/
   git clone https://gitlab.com/ApexAI/performance_test.git
-  git clone https://github.com/ros-tracing/tracetools_analysis.git --branch {DISTRO}
+  git clone https://github.com/ros-tracing/tracetools_analysis.git -b {DISTRO}
   cd ..
 
 Install dependencies with rosdep.
