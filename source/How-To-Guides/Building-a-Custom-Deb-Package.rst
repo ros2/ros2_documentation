@@ -1,12 +1,13 @@
 .. redirect-from::
 
   Guides/Building-a-Custom-Debian-Package
+  How-To-Guides/Building-a-Custom-Debian-Package
 
-Building a custom Debian package
-================================
+Building a custom deb package
+=============================
 
-Many Ubuntu users install ROS 2 on their system by installing :doc:`debian packages <../Installation/Ubuntu-Install-Debians>`.
-This guide gives a short set of instructions to build local, custom Debian packages.
+Many Ubuntu users install ROS 2 on their system by installing :doc:`deb packages <../Installation/Ubuntu-Install-Debs>`.
+This guide gives a short set of instructions to build local, custom deb packages.
 
 .. contents:: Table of Contents
    :local:
@@ -38,10 +39,10 @@ Initialize the rosdep database by calling:
 
 Note that the ``rosdep init`` command may fail if it has already been initialized in the past; this can safely be ignored.
 
-Build the debian from the package
----------------------------------
+Build the deb from the package
+------------------------------
 
-Run the following commands to build the debian:
+Run the following commands to build the deb:
 
 .. code:: bash
 

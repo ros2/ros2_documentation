@@ -53,7 +53,7 @@ Install WSL with an Ubuntu version which is compatible with your ROS distributio
 2 Install ROS 2 in WSL
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Install ROS 2 inside Ubuntu WSL, following :doc:`../../../../Installation/Ubuntu-Install-Debians`.
+Install ROS 2 inside Ubuntu WSL, following :doc:`../../../../Installation/Ubuntu-Install-Debs`.
 
 3 Install ``webots_ros2``
 ^^^^^^^^^^^^^^^^^^^^^^^^^
