@@ -82,7 +82,7 @@ Each launch file performs the following actions:
             # include a Python launch file in the chatter_py_ns namespace
             launch_py_include_with_namespace = GroupAction(
                 actions=[
-                    # push_ros_namespace to set namespace of included nodes
+                    # push_ros_namespace first to set namespace of included nodes for following actions
                     PushRosNamespace('chatter_py_ns'),
                     IncludeLaunchDescription(
                         PythonLaunchDescriptionSource(
@@ -96,7 +96,7 @@ Each launch file performs the following actions:
             # include a xml launch file in the chatter_xml_ns namespace
             launch_xml_include_with_namespace = GroupAction(
                 actions=[
-                    # push_ros_namespace to set namespace of included nodes
+                    # push_ros_namespace first to set namespace of included nodes for following actions
                     PushRosNamespace('chatter_xml_ns'),
                     IncludeLaunchDescription(
                         XMLLaunchDescriptionSource(
@@ -110,7 +110,7 @@ Each launch file performs the following actions:
             # include a yaml launch file in the chatter_yaml_ns namespace
             launch_yaml_include_with_namespace = GroupAction(
                 actions=[
-                    # push_ros_namespace to set namespace of included nodes
+                    # push_ros_namespace first to set namespace of included nodes for following actions
                     PushRosNamespace('chatter_yaml_ns'),
                     IncludeLaunchDescription(
                         YAMLLaunchDescriptionSource(
