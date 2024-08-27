@@ -95,6 +95,72 @@ The ROS PMC currently consists of the following constituents:
      - alsora
      - Member
      - PST (UTC-8)/PDT (UTC-7)
+   * - Erik Boasson
+     -
+     -
+     - PST (UTC-8)/PDT (UTC-7)
+   * - Aditya Pande
+     - 
+   * - Brandon Ong
+     - Intrinsic
+     - methyldragon
+     - PST (UTC-8)/PDT (UTC-7)
+   * - Dharini Dutia
+     - Intrinsic
+     -
+     - PST (UTC-8)/PDT (UTC-7)
+   * - Steve Peters
+     - Intrinsic
+     -
+     - PST (UTC-8)/PDT (UTC-7)
+   * - Steve Macenski
+     - Intrinsic
+     - stevemacenski
+     - PST (UTC-8)/PDT (UTC-7)
+   * - Barry Xu
+     - 
+     -
+     - PST (UTC-8)/PDT (UTC-7)
+   * - G A van der Hoorn
+     - 
+     -
+     - PST (UTC-8)/PDT (UTC-7)
+   * - Morgan Quigley
+     - Intrinsic
+     - 
+     - PST (UTC-8)/PDT (UTC-7)
+   * - Tully Foote
+     - Intrinsic
+     - tfoote
+     - PST (UTC-8)/PDT (UTC-7)
+   * - Andrea Sorbini
+     - 
+     -
+     - PST (UTC-8)/PDT (UTC-7)
+   * - Audrow Nash
+     - Intrinsic
+     -
+     - PST (UTC-8)/PDT (UTC-7)
+   * - Marco Gutierrez
+     - Intrinsic
+     -
+     - PST (UTC-8)/PDT (UTC-7)
+   * - Scott Logan
+     - Intrinsic
+     -
+     - PST (UTC-8)/PDT (UTC-7)
+   * - Steven! Ragnarok
+     - Intrinsic
+     -
+     - PST (UTC-8)/PDT (UTC-7)
+   * - William Woodall
+     - Intrinsic
+     -
+     - PST (UTC-8)/PDT (UTC-7)
+   * - Yadunund Vijay
+     - Intrinsic 
+     -
+     - PST (UTC-8)/PDT (UTC-7)
 
 Current ROS Committers
 ^^^^^^^^^^^^^^^^^^^^^^
