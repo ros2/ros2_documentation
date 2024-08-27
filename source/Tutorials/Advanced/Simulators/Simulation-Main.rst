@@ -22,3 +22,4 @@ This set of tutorials will teach you how to configure different simulators with 
 
    Webots/Simulation-Webots
    Gazebo/Simulation-Gazebo
+   O3DE/Simulation-O3DE
