@@ -12,3 +12,4 @@ This set of tutorials will teach you how to configure the O3DE simulator with RO
 
    Installation-Ubuntu
    Setting-Up-Simulation-O3DE-Basic
+   Setting-Up-Simulation-O3DE-Advanced
