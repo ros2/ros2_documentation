@@ -95,6 +95,11 @@ The ROS PMC currently consists of the following constituents:
      - alsora
      - Member
      - PST (UTC-8)/PDT (UTC-7)
+   * - William Woodall
+     - Intrinsic
+     - wjwwood
+     - Member
+     - PST (UTC-8)/PDT (UTC-7)
 
 Current ROS Committers
 ^^^^^^^^^^^^^^^^^^^^^^
