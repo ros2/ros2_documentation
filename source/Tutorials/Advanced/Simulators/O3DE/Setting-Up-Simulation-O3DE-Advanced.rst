@@ -27,7 +27,7 @@ Ensure you have the following before starting:
 
 - O3DE set up on your machine. For instructions, follow the `O3DE installation for Ubuntu <Installation-Ubuntu>` guide.
 - ROS 2 (Foxy or later) installed on your system.
-- The ``o3de-extras`` repository cloned locally.
+- The ``o3de-extras`` repository cloned locally (on the ``stabilization`` branch).
 - **MoveIt**, which is used for motion planning in ROS 2. Follow the MoveIt 2 documentation for installation instructions.
 
 
@@ -42,7 +42,7 @@ From the root directory of your O3DE installation, run:
 
 .. code-block:: bash
 
-   scripts\o3de.bat register --all-templates-path <path_to_o3de_extras>/Templates
+   ./scripts/o3de.sh register --all-templates-path <path_to_o3de_extras>/Templates
 
 This command registers all templates in the ``o3de-extras`` repository, including the Robotic Manipulation Template.
 
@@ -52,7 +52,7 @@ Create a new project using the ROS 2 Robotic Manipulation Template:
 
 .. code-block:: bash
 
-   scripts\o3de.bat create-project --project-name <project_name> --template-name Ros2RoboticManipulationTemplate
+   ./scripts/o3de.sh create-project --project-name <project_name> --template-name Ros2RoboticManipulationTemplate --project-path <path-to-project-directory>
 
 This will generate a new project directory with the necessary files and configurations.
 
@@ -62,23 +62,29 @@ Navigate to your project directory:
 
 .. code-block:: bash
 
-   cd <project_name>
+   cd <project_path>
 
 Install the required Python packages and dependencies for the project. Typically, you will need to install ROS 2 and MoveIt dependencies. This can often be done with:
 
 .. code-block:: bash
 
-   rosdep install --from-paths src --ignore-src -r -y
+   sudo apt install ros-${ROS_DISTRO}-moveit ros-${ROS_DISTRO}-moveit-resources ros-${ROS_DISTRO}-depth-image-proc
 
 Ensure that you also have any additional dependencies specified in the project's ``requirements.txt`` or equivalent configuration files.
 
-4. **Build the Project**:
+4. **Configure and build the Project**:
 
-Build the project to ensure that all components are correctly compiled:
+After installing dependencies, cofigure and build the project using the following commands:
 
 .. code-block:: bash
 
-   scripts\o3de.bat build   
+   cmake -B build/ -S . -G "Ninja Multi-Config"
+
+.. code-block:: bash
+
+   cmake --build <path-to-build-directory> --target <project_name> Editor
+
+Ensure the build completes without errors.   
 
 
 Configurations and launch of the project
@@ -97,7 +103,7 @@ Start the O3DE Editor:
 
 .. code-block:: bash
 
-   scripts\o3de.bat Editor
+   <path-to-o3de-directory>/build/bin/profile/Editor
 
 In the O3DE Editor:
 

@@ -59,6 +59,7 @@ This command downloads the O3DE source code into a directory named ``o3de`` and 
 
 Step 3: Configure the O3DE Project
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. @TODO: Restricted in manifest file
 
 Run the ``cmake`` command to configure the project. This will generate the necessary build files in the ``build`` directory.
 
@@ -72,7 +73,26 @@ Here’s what each argument does:
 - ``-S .``: Specifies the source directory (current directory).
 - ``-G "Ninja Multi-Config"``: Specifies Ninja as the build system with multi-config support.
 
-Step 4: Build O3DE
+If you experience any issues regarding the ``restricted.json`` file, try opening the ``o3de_manifest.json``:
+
+.. code-block:: bash
+
+   nano ~/.o3de/o3de_manifest.json
+
+then, remove the ``restricted`` list located in the file.
+
+Step 4: Set Up the Project Environment
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Before building the O3DE, you need to set up the project environment. Run the following script to do so:
+
+.. code-block:: bash
+
+   ./scripts/o3de.sh register --this-engine
+
+This command registers the engine, allowing you to create and manage projects with O3DE.
+
+Step 5: Build O3DE
 ^^^^^^^^^^^^^^^^^^
 
 Now, build O3DE using the ``cmake`` command:
@@ -83,16 +103,6 @@ Now, build O3DE using the ``cmake`` command:
 
 This command builds O3DE in ``profile`` mode, which is recommended for development. You can replace ``profile`` with ``debug`` or ``release`` depending on your needs.
 
-Step 5: Set Up the Project Environment
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Before launching the O3DE Editor, you need to set up the project environment. Run the following script to do so:
-
-.. code-block:: bash
-
-   ./scripts/o3de.sh register --this-engine
-
-This command registers the engine, allowing you to create and manage projects with O3DE.
 
 Step 6: Create or Open a Project
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -137,30 +147,49 @@ To get started, clone the ``o3de-extras`` repository:
 
 Setting up o3de-extras
 ^^^^^^^^^^^^^^^^^^^^^^
-The ``o3de-extras`` repository can be cloned to any location on your local machine. Once cloned, you need to inform O3DE about the location of the extra assets in this repository by registering them. From the O3DE repository folder, you can register some or all of the extra assets using the ``o3de register`` command. Since these are optional assets, you may choose to register only those that you need. For example, to register a specific gem, use the following command:
+The ``o3de-extras`` repository can be cloned to any location on your local machine. Once cloned, you need to switch to the ``stablization`` branch of the repository. Run the following command to check on what branch you're working at the moment:
 
 .. code-block:: bash
 
-   scripts\o3de.bat register --gem-path <o3de-extras>/Gems/<gem name>
+   git branch
+
+If you are on the ``development`` branch, you will need to switch. Run this command to find the name of the latest stabilization branch:
+
+.. code-block:: bash
+
+   git branch -a
+
+Now you can ``git checkout`` to our desired branch, for example:
+
+.. code-block:: bash
+
+   git checkout stabilization/2409 
+
+
+Now, you need to inform O3DE about the location of the extra assets in this repository by registering them. From the O3DE repository folder, you can register some or all of the extra assets using the ``o3de register`` command. Since these are optional assets, you may choose to register only those that you need. For example, to register a specific gem, use the following command:
+
+.. code-block:: bash
+
+   ./scripts/o3de.sh register --gem-path <o3de-extras>/Gems/<gem name>
 
 If you want to register all the gems, you can do so since the repository follows the standard O3DE compound repository structure, with all gems located in the ``<o3de-extras>/Gems`` directory. To register all gems at once, use:
 
 .. code-block:: bash
 
-   scripts\o3de.bat register --all-gems-path <o3de-extras>/Gems
+   ./scripts/o3de.sh register --all-gems-path <o3de-extras>/Gems
 
 This process can be repeated for any other object types, if they exist:
 
 .. code-block:: bash
 
-   scripts\o3de.bat register --all-engines-path <o3de-extras>/Engines
-   scripts\o3de.bat register --all-projects-path <o3de-extras>/Projects
-   scripts\o3de.bat register --all-gems-path <o3de-extras>/Gems
-   scripts\o3de.bat register --all-templates-path <o3de-extras>/Templates
-   scripts\o3de.bat register --all-restricted-path <o3de-extras>/Restricted
+   ./scripts/o3de.sh register --all-engines-path <o3de-extras>/Engines
+   ./scripts/o3de.sh register --all-projects-path <o3de-extras>/Projects
+   ./scripts/o3de.sh register --all-gems-path <o3de-extras>/Gems
+   ./scripts/o3de.sh register --all-templates-path <o3de-extras>/Templates
+   ./scripts/o3de.sh register --all-restricted-path <o3de-extras>/Restricted
 
 If you've registered a gem, which functions like a plugin or component within a project, and you wish to use it in your project, you need to enable it by using the ``o3de enable-gem`` command:
 
 .. code-block:: bash
 
-   scripts\o3de.bat enable-gem --gem-name <gem name> --project-name <project name>
+   ./scripts/o3de.sh enable-gem --gem-name <gem name> --project-name <project name>
