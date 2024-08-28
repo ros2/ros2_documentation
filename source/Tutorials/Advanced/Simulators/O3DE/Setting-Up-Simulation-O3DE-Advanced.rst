@@ -108,11 +108,19 @@ Start the O3DE Editor:
 In the O3DE Editor:
 
 1. Open the example level provided by the template. Navigate to the ``File`` menu, select ``Open Level``, and choose the example level from the ``Levels`` directory.
-2. Launch the ROS 2 nodes and MoveIt components required for the simulation. Typically, this can be done with:
+2. Launch the ROS 2 nodes and MoveIt components required for the simulation. For manipulation, this can be done with:
 
 .. code-block:: bash
 
-   ros2 launch <your_package> <launch_file>.launch.py
+   ros2 launch Examples/panda_moveit_config_demo.launch.py
+
+And for the palletization try:
+
+.. code-block:: bash
+
+   source install/setup.bash
+   ros2 launch ur_moveit_config ur_moveit.launch.py ur_type:=ur10 use_sim_time:=true use_fake_hardware:=true
+
 
 3. **Simulate Robotic Manipulation**:
 
