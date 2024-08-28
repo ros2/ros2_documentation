@@ -31,7 +31,7 @@ Prerequisites
 
 Before you begin, ensure that you have the following installed:
 
-- O3DE set up on your machine. For instructions, refer to the ``Setting Up O3DE from GitHub`` guide.
+- O3DE set up on your machine. For instructions, follow the `O3DE installation for Ubuntu <Installation-Ubuntu>` guide.
 - ROS 2 (Foxy or later) installed on your system.
 - The ``o3de-extras`` repository cloned locally.
 
