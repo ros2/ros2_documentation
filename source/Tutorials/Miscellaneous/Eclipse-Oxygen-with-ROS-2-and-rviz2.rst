@@ -13,7 +13,7 @@ Using Eclipse Oxygen with ``rviz2`` [community-contributed]
 Setup
 -----
 
-This tutorial assumes Eclipse Oxygen, git, and Egit (http://www.eclipse.org/egit/download/) are already installed.
+This tutorial assumes Eclipse Oxygen, git, and `Egit <http://www.eclipse.org/egit/download/>`_ are already installed.
 
 Throughout the tutorial we name the eclipse workspace the same name as the ros2 package, but this is not required.
 

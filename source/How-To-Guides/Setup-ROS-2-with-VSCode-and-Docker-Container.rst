@@ -199,7 +199,8 @@ Open and Build Development Container
 
 Use ``View->Command Palette...`` or ``Ctrl+Shift+P`` to open the command palette.
 Search for the command ``Dev Containers: Reopen in Container`` and execute it.
-This will build your development docker container for your. It will take a while - sit back or go for a coffee.
+This will build your development docker container for your.
+It will take a while - sit back or go for a coffee.
 
 
 Test Container

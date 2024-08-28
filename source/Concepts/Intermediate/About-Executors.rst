@@ -161,7 +161,8 @@ The following flow diagram visualizes this scheduling semantics.
 .. image:: ../images/executors_scheduling_semantics.png
 
 This semantics was first described in a `paper by Casini et al. at ECRTS 2019 <https://drops.dagstuhl.de/opus/volltexte/2019/10743/pdf/LIPIcs-ECRTS-2019-6.pdf>`_.
-(Note: The paper also explains that timer events are prioritized over all other messages. `This prioritization was removed in Eloquent. <https://github.com/ros2/rclcpp/pull/841>`_)
+(Note: The paper also explains that timer events are prioritized over all other messages.
+`This prioritization was removed in Eloquent. <https://github.com/ros2/rclcpp/pull/841>`_)
 
 
 Outlook
@@ -191,6 +192,12 @@ These issues have been partially addressed by the following developments:
 Further information
 -------------------
 
-* Michael Pöhnl et al.: `"ROS 2 Executor: How to make it efficient, real-time and deterministic?" <https://www.apex.ai/roscon-21>`_. Workshop at ROS World 2021. Virtual event. 19 October 2021.
-* Ralph Lange: `"Advanced Execution Management with ROS 2" <https://www.youtube.com/watch?v=Sz-nllmtcc8&t=109s>`_. ROS Industrial Conference. Virtual event. 16 December 2020.
+* Michael Pöhnl et al.: `"ROS 2 Executor: How to make it efficient, real-time and deterministic?" <https://www.apex.ai/roscon-21>`_.
+  Workshop at ROS World 2021.
+  Virtual event.
+  19 October 2021.
+* Ralph Lange: `"Advanced Execution Management with ROS 2" <https://www.youtube.com/watch?v=Sz-nllmtcc8&t=109s>`_.
+  ROS Industrial Conference.
+  Virtual event.
+  16 December 2020.
 * Daniel Casini, Tobias Blass, Ingo Lütkebohle, and Björn Brandenburg: `“Response-Time Analysis of ROS 2 Processing Chains under Reservation-Based Scheduling” <https://drops.dagstuhl.de/opus/volltexte/2019/10743/pdf/LIPIcs-ECRTS-2019-6.pdf>`_, Proc. of 31st ECRTS 2019, Stuttgart, Germany, July 2019.

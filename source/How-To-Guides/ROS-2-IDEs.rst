@@ -47,7 +47,8 @@ So:
 
 #. Create your ROS workspace as you would normally.
 #. In a terminal, source both ROS 2 and your install (if it was built already).
-#. Start VSCode from the same command line. The terminal will be blocked until the application is closed again.
+#. Start VSCode from the same command line.
+   The terminal will be blocked until the application is closed again.
 
 .. tabs::
 
@@ -172,7 +173,8 @@ Instead, some settings need to be tweaked.
 
 #. Create your ROS workspace as you would normally.
 #. Start PyCharm normally.
-#. Open a project. This should be the root directory of the ROS node you're developing, e.g. ``C:\dev_ws\src\my_node``.
+#. Open a project.
+   This should be the root directory of the ROS node you're developing, e.g. ``C:\dev_ws\src\my_node``.
 #. Click "Add new interpreter" > "Add local interpreter...".
    Select a system interpreter (or virtual environment if you're using one) and select the executable of your ROS Python version (typically ``C:\Python38\python.exe``).
 
