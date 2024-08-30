@@ -11,7 +11,7 @@ It's available in the browser or as a standalone desktop app and is free for ind
 Installation
 ------------
 
-To use Foxglove, you will need to `create an account <https://app.foxglove.dev/signup>`__. It's free and all you need is a valid email address.
+To use Foxglove, you'll need to `create an account <https://app.foxglove.dev/signup>`__. It's free and all you need is a valid email address.
 
 Once you've created an account, you can use Foxglove on the web by opening Google Chrome and navigating to `app.foxglove.dev <https://app.foxglove.dev>`__.
 
@@ -32,18 +32,18 @@ Once you have the bridge installed, launch it with:
 
    ros2 launch foxglove_bridge foxglove_bridge_launch.xml
 
-With the bridge running on your robot, you're ready to connect view live data from it in Foxglove. Make sure you are on the same network as your robot, open Foxglove (web or desktop) and click "Open connection".
+With the bridge running on your robot, you're ready to connect view data in Foxglove. Make sure you are on the same network as your robot, open Foxglove (web or desktop) and click "Open connection".
 
 Select the option for "Foxglove WebSocket" and enter your robot's WebSocket URL. The default is ``ws://localhost:8765``, however you can read about configuration options for the ROS Foxglove bridge `here <https://docs.foxglove.dev/docs/connecting-to-data/ros-foxglove-bridge#configuration-1`__.
 
 .. note::
 
-  Foxglove can also connect to using Rosbridge, however for performance and stability reasons we recommend using the Foxglove bridge.
+  Foxglove can also connect using Rosbridge, however for performance and stability reasons we recommend using the Foxglove bridge.
 
 View and replay recorded data
 -----------------------------
 
-If you'd rather visualize recorded data, you can use Foxglove to replay ROS 2 ``.mcap`` as well as older ROS 2 ``.db3``, and ROS 1 ``.bag`` files. Foxglove is particularly convenient for recorded data because it does not require a ROS 2 to be running to view data.
+If you'd rather visualize recorded data, you can use Foxglove to replay ROS 2 ``.mcap`` as well as older ROS 2 ``.db3``, and ROS 1 ``.bag`` files. Foxglove is particularly convenient for recorded data because it does not require ROS 2 to be running to view data.
 
 Use the :doc:`ros2 bag command line tool <../Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data>` to record data from your robot to a ``.mcap`` file:
 
@@ -58,7 +58,7 @@ See the Foxglove documentation for `more information about the types of data sou
 Building layouts with panels
 ----------------------------
 
-`Panels <https://docs.foxglove.dev/docs/visualization/panels/introduction>`__ allow you to visualize different specific types of data such as logs, maps, plots, and 3D information. Panels can be arranged by dragging and dropping them into Foxglove `layouts <https://foxglove.dev/docs/visualization/layouts>`__ to view many types of data at once.
+`Panels <https://docs.foxglove.dev/docs/visualization/panels/introduction>`__ allow you to visualize different specific types of data such as logs, maps, plots, and 3D information. You can arrange panels by dragging and dropping them into Foxglove `layouts <https://foxglove.dev/docs/visualization/layouts>`__ to view multiple types of data simultaneously.
 
 You can also save layouts for future use, or to share with your team.
 
@@ -69,7 +69,7 @@ We've highlighted some particularly useful ones below:
 3D panel: View 3D data and visualization markers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Open the panel settings by clicking the gear icon in the upper right Choose the topics you want to display via the topic picker on the left, and configure each topic's visualization settings in the "Edit topic settings" menu.
+Open the panel settings by clicking the gear icon in the upper right. Choose the topics you want to display via the topic picker on the left, and configure each topic's visualization settings in the "Edit topic settings" menu.
 
 Publish marker messages to add primitive shapes (arrows, spheres, etc.) and more complex visualizations (occupancy grids, point clouds, etc.) to your 3D panel's scene.
 
@@ -156,23 +156,19 @@ Foxglove's `3D panel supports displaying Unified Robotics Description Format (UR
 
 To visualize and control your robot model in Foxglove, open the web or desktop application and add a 3D panel to your layout.
 
-Add as many URDF models as you want as custom layers in the 3D panel, using HTTP/HTTPS URLs (web and desktop) or file:// and package://-prefixed URLs (desktop only).
+Add as many URDF models as you want as custom layers in the 3D panel, using HTTP/HTTPS URLs (web and desktop) or ``file://`` and ``package://``-prefixed URLs (desktop only).
 
-In addition to these URLs, the 3D panel can also display URDFs from a /robot_description topic.
-
-.. image:: foxglove/urdf.png
-  :width: 300 px
-  :alt: Foxglove's URDF Viewer panel
+In addition to these URLs, the 3D panel can also display URDFs from a ``/robot_description`` topic.
 
 Once added to the 3D panel, the URDF file will populate the transform tree with frames and transforms based on the model’s links and joints.
 
-It’s important to note that Foxglove uses different defaults from RViz—if your meshes are not displaying properly, you may want to adjust the “Ignore COLLADA <up_axis>” (for DAE meshes) and “Mesh up axis” (for STL and OBJ meshes) options in the panel settings’ “Scene” section.
+It’s important to note that Foxglove uses different defaults from RViz—if your meshes are not displaying properly, you may want to adjust the "Ignore COLLADA <up_axis>"" (for DAE meshes) and "Mesh up axis" (for STL and OBJ meshes) options in the panel settings’ ‘Scene’ section.
 
 You can update this tree by publishing transform messages to move the URDF model’s joints positions—if you’ve used JointState messages before, you can use a robot_state_publisher node to transform them into TF messages at runtime.
 
 You can also control your model’s joints manually via the panel settings interface.
 
-.. image:: foxglove/urdf-joints.png
+.. image:: foxglove/urdf.png
   :width: 500 px
   :alt: Foxglove's URDF Viewer panel with editable joint positions
 
