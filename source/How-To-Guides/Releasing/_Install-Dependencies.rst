@@ -20,7 +20,7 @@ Install tools that you will use in the upcoming steps according to your platform
 
          pip3 install -U bloom catkin_pkg
 
-Make sure you have rosdep initialized
+Make sure you have rosdep initialized:
 
 .. code-block:: bash
 
