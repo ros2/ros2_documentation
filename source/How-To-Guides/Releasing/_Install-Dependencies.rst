@@ -19,3 +19,12 @@ Install tools that you will use in the upcoming steps according to your platform
       .. code-block:: bash
 
          pip3 install -U bloom catkin_pkg
+
+Make sure you have rosdep initialized
+
+.. code-block:: bash
+
+    sudo rosdep init
+    rosdep update
+
+Note that the rosdep init command may fail if it has already been initialized in the past; this can safely be ignored.
