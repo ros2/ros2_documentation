@@ -138,6 +138,8 @@ Therefore add the following to ``.devcontainer/devcontainer.json``:
         },
         "runArgs": [
             "--net=host",
+            "--pid=host",
+            "--ipc=host",
             "-e", "DISPLAY=${env:DISPLAY}"
         ],
         "mounts": [
