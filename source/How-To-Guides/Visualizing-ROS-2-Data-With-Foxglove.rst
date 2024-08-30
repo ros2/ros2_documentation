@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Visualizing-ROS-2-Data-With-Foxglove-Studio
+
 Visualizing ROS 2 data with Foxglove
 ====================================
 
