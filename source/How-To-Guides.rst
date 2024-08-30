@@ -39,8 +39,8 @@ If you are new and looking to learn the ropes, start with the :doc:`Tutorials <T
    How-To-Guides/RQt-Port-Plugin-Windows
    How-To-Guides/Run-2-nodes-in-single-or-separate-docker-containers
    How-To-Guides/Visualizing-ROS-2-Data-With-Foxglove
-   How-To-Guides/Package-maintainer-guide
-   How-To-Guides/Building-a-Custom-Debian-Package
+   How-To-Guides/Core-maintainer-guide
+   How-To-Guides/Building-a-Custom-Deb-Package
    How-To-Guides/Building-ROS-2-with-Tracing
    How-To-Guides/Topics-Services-Actions
    How-To-Guides/Using-Variants

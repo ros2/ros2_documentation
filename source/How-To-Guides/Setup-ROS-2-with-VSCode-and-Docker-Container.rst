@@ -118,7 +118,7 @@ Therefore add the following to ``.devcontainer/devcontainer.json``:
             }
         },
         "workspaceFolder": "/home/ws",
-        "workspaceMount": "source=${localWorkspaceFolder},target=/home/ws/src,type=bind",
+        "workspaceMount": "source=${localWorkspaceFolder},target=/home/ws,type=bind",
         "customizations": {
             "vscode": {
                 "extensions":[
@@ -138,11 +138,13 @@ Therefore add the following to ``.devcontainer/devcontainer.json``:
         },
         "runArgs": [
             "--net=host",
+            "--pid=host",
+            "--ipc=host",
             "-e", "DISPLAY=${env:DISPLAY}"
         ],
         "mounts": [
            "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached",
-            "source=/dev/dri,target=/dev/dri,type=bind,consistency=cached"
+           "source=/dev/dri,target=/dev/dri,type=bind,consistency=cached"
         ],
         "postCreateCommand": "sudo rosdep update && sudo rosdep install --from-paths src --ignore-src -y && sudo chown -R $(whoami) /home/ws/"
     }
@@ -166,6 +168,9 @@ Open the Dockerfile and add the following contents:
     ARG USERNAME=USERNAME
     ARG USER_UID=1000
     ARG USER_GID=$USER_UID
+
+    # Delete user if it exists in container (e.g Ubuntu Noble: ubuntu)
+    RUN if id -u $USER_UID ; then userdel `id -un $USER_UID` ; fi
 
     # Create the user
     RUN groupadd --gid $USER_GID $USERNAME \
@@ -211,4 +216,4 @@ Inside the terminal do the following:
     source /opt/ros/$ROS_DISTRO/setup.bash
     rviz2
 
-.. Note:: There might be a problem with displaying RVIZ. If no window pops up, then check the value of ``echo $DISPLAY`` - if the output is 1, you can fix this problem with ``echo "export DISPLAY=unix:1" >> /etc/bash.bashrc`` and then test it again. You can also change the DISPLAY value in the devcontainer.json and rebuild it.
+.. Note:: There might be a problem with displaying RVIZ. Please make sure to allow the user to access X window system with ``xhost +local:<USERNAME>``. If no window still pops up, then check the value of ``echo $DISPLAY`` - if the output is 1, you can fix this problem with ``echo "export DISPLAY=unix:1" >> /etc/bash.bashrc`` and then test it again. You can also change the DISPLAY value in the devcontainer.json and rebuild it.
