@@ -62,7 +62,7 @@ Install Visual Studio 2019.
 If you already have a paid version of Visual Studio 2019 (Professional, Enterprise), skip this step.
 
 Microsoft provides a free of charge version of Visual Studio 2019, named Community, which can be used to build applications that use ROS 2.
-`You can download the installer directly through this link. <https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&rel=16&src=myvs&utm_medium=microsoft&utm_source=my.visualstudio.com&utm_campaign=download&utm_content=vs+community+2019>`_
+`You can download the installer directly through this link. <https://aka.ms/vs/16/release/vs_community.exe>`_
 
 Make sure that the Visual C++ features are installed.
 
