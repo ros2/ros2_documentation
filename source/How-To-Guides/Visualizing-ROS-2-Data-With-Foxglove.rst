@@ -104,7 +104,7 @@ Reference the `docs <https://foxglove.dev/docs/visualization/panels/image>`__ fo
 Log panel: View log messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To view ``rcl_interfaces/msg/Log`` messages live, use the desktop app to `connect <https://foxglove.dev/docs/visualization/connection/native>`__ to your running ROS stack.
+To view ``rcl_interfaces/msg/Log`` messages live, use the desktop app to `connect <https://docs.foxglove.dev/docs/connecting-to-data/frameworks/ros2>`__ to your running ROS stack.
 To view ``rcl_interfaces/msg/Log`` messages from a pre-recorded data file, you can drag-and-drop your file into either the `web <https://app.foxglove.dev>`__ or desktop app.
 
 Next, add a `Log <https://foxglove.dev/docs/visualization/panels/log>`__ panel to your layout.
@@ -115,10 +115,9 @@ Reference the `docs <https://foxglove.dev/docs/visualization/panels/log>`__ for 
 Plot panel: Plot arbitrary values over time
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Plot arbitrary values from your topics' message paths over playback time.
+Plot arbitrary numeric values from topic `message paths <https://docs.foxglove.dev/docs/visualization/message-path-syntax>`__ .
 
-Specify the topic values you want to plot along the y-axis.
-For the x-axis, choose between plotting the y-axis value's timestamp, element index, or another custom topic message path.
+When playing back local or remote data files, this panel will preload the data belonging to the specified topic message paths for the whole playback timeline. Current playback time is indicated by a vertical gray bar.
 
 .. image:: foxglove/plot.png
   :width: 500 px
@@ -129,7 +128,9 @@ Reference the `docs <https://foxglove.dev/docs/visualization/panels/plot>`__ for
 Raw Messages panel: View incoming topic messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Display incoming topic data in an easy-to-read collapsible JSON tree format.
+Inspect a particular `message path <https://docs.foxglove.dev/docs/visualization/message-path-syntax>`__ in your data source.
+
+As new messages are received for a given path, the collapsible tree will show just the latest message. You will be able to expand and collapse keys, and have those changes persist across playback.
 
 .. image:: foxglove/raw-messages.png
   :width: 500 px
@@ -151,16 +152,25 @@ Reference the `docs <https://foxglove.dev/docs/visualization/panels/teleop>`__ f
 Visualize URDFs: View and manipulate your URDF model
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To visualize and control your robot model in Foxglove, open the web or desktop application and add a `URDF Viewer <https://docs.foxglove.dev/docs/visualization/panels/3d/#add-urdf>`__ panel to your layout.
-Then, drag and drop your URDF file into that panel to visualize your robot model.
+Foxglove's `3D panel supports displaying Unified Robotics Description Format (URDF) models <https://docs.foxglove.dev/docs/visualization/panels/3d/#custom-layers>`__ in the context of your robots’ world.
+
+To visualize and control your robot model in Foxglove, open the web or desktop application and add a 3D panel to your layout.
+
+Add as many URDF models as you want as custom layers in the 3D panel, using HTTP/HTTPS URLs (web and desktop) or file:// and package://-prefixed URLs (desktop only).
+
+In addition to these URLs, the 3D panel can also display URDFs from a /robot_description topic.
 
 .. image:: foxglove/urdf.png
   :width: 300 px
   :alt: Foxglove's URDF Viewer panel
 
-Select any topic publishing a ``JointState`` message to update the visualization based on the published joint states (defaults to ``/joint_states``).
+Once added to the 3D panel, the URDF file will populate the transform tree with frames and transforms based on the model’s links and joints.
 
-Toggle to "Manual joint control" to set joint positions using the provided controls.
+It’s important to note that Foxglove uses different defaults from RViz—if your meshes are not displaying properly, you may want to adjust the “Ignore COLLADA <up_axis>” (for DAE meshes) and “Mesh up axis” (for STL and OBJ meshes) options in the panel settings’ “Scene” section.
+
+You can update this tree by publishing transform messages to move the URDF model’s joints positions—if you’ve used JointState messages before, you can use a robot_state_publisher node to transform them into TF messages at runtime.
+
+You can also control your model’s joints manually via the panel settings interface.
 
 .. image:: foxglove/urdf-joints.png
   :width: 500 px
@@ -171,10 +181,10 @@ Reference the `docs <https://foxglove.dev/docs/visualization/panels/urdf-viewer>
 Other basic actions
 -------------------
 
-View your ROS graph
-^^^^^^^^^^^^^^^^^^^
+View your ROS topic graph
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
-`Using the desktop app <https://foxglove.dev/download>`__, `connect <https://docs.foxglove.dev/docs/connecting-to-data/frameworks/ros1/#native>`__ to your running ROS stack.
+`Using the desktop app <https://foxglove.dev/download>`__, `connect <https://docs.foxglove.dev/docs/connecting-to-data/frameworks/ros2>`__ to your running ROS stack.
 Next, add a `Topic Graph <https://foxglove.dev/docs/visualization/panels/topic-graph>`__ panel to your layout.
 If you've connected to your ROS stack correctly, you should now see a computational graph of your ROS nodes, topics, and services in that panel.
 Use the controls on the right side of the panel to select which topics to display or to toggle services.
@@ -182,7 +192,7 @@ Use the controls on the right side of the panel to select which topics to displa
 View and edit your ROS params
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-`Using the desktop app <https://foxglove.dev/download>`__, `connect <https://docs.foxglove.dev/docs/connecting-to-data/frameworks/ros1/#native>>`__ to your running ROS stack.
+`Using the desktop app <https://foxglove.dev/download>`__, `connect <https://docs.foxglove.dev/docs/connecting-to-data/frameworks/ros2>`__ to your running ROS stack.
 Next, add a `Parameters <https://foxglove.dev/docs/visualization/panels/parameters>`__ panel to your layout.
 If you've connected to your ROS stack correctly, you should now see a live view of your current ``rosparams``.
 You can edit these parameter values to publish ``rosparam`` updates back to your ROS stack.
@@ -190,7 +200,7 @@ You can edit these parameter values to publish ``rosparam`` updates back to your
 Publish messages back to your live ROS stack
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-`Using the desktop app <https://foxglove.dev/download>`__, `connect <https://docs.foxglove.dev/docs/connecting-to-data/frameworks/ros1/#native>>`__ to your running ROS stack.
+`Using the desktop app <https://foxglove.dev/download>`__, `connect <https://docs.foxglove.dev/docs/connecting-to-data/frameworks/ros2>`__ to your running ROS stack.
 Next, add a `Publish <https://foxglove.dev/docs/visualization/panels/publish>`__ panel to your layout.
 
 Specify the topic you want to publish on to infer its datatype and populate the text field with a JSON message template.
