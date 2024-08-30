@@ -1,7 +1,8 @@
 Visualizing ROS 2 data with Foxglove
 ====================================
 
-`Foxglove <https://foxglove.dev/>`__ is a visualization and observability tool for robotics developers. It's available in the browser or as a standalone desktop app and is free for individual, small team, and academic use.
+`Foxglove <https://foxglove.dev/>`__ is a visualization and observability tool for robotics developers.
+It's available in the browser or as a standalone desktop app and is free for individual, small team, and academic use.
 
 Installation
 ------------
