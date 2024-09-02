@@ -100,6 +100,11 @@ The ROS PMC currently consists of the following constituents:
      - wjwwood
      - Member
      - PST (UTC-8)/PDT (UTC-7)
+   * - Marco A. Gutiérrez
+     - Intrinsic
+     - marcoag
+     - Member
+     - SGT (UTC+8)
 
 Current ROS Committers
 ^^^^^^^^^^^^^^^^^^^^^^
