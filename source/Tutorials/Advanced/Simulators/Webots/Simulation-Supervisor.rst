@@ -104,7 +104,7 @@ Remove a Webots imported node
 
 Once a node has been imported with the ``/Ros2Supervisor/spawn_node_from_string`` service, it can also be removed.
 
-This can be achieved by sending the name of the node to the topic named ``/Ros2Supervisor/remove_node`` of type ``std_msgs/msg/String``.
+This can be achieved by sending the name of the node to the topic named ``/Ros2Supervisor/remove_node`` of type ``example_interfaces/msg/String``.
 
 If the node is indeed in the imported list, it is removed with the ``remove()`` `API method <https://cyberbotics.com/doc/reference/supervisor?tab-language=python#wb_supervisor_node_remove>`_.
 
@@ -112,7 +112,7 @@ Here is an example on how to remove the ``imported_robot`` Robot:
 
 .. code-block:: bash
 
-    ros2 topic pub --once /Ros2Supervisor/remove_node std_msgs/msg/String "{data: imported_robot}"
+    ros2 topic pub --once /Ros2Supervisor/remove_node example_interfaces/msg/String "{data: imported_robot}"
 
 Record animations
 -----------------

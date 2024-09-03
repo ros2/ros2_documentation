@@ -84,7 +84,7 @@ Apply the following changes to use ``ament_cmake`` instead of ``catkin``:
 
        rosidl_generate_interfaces(${PROJECT_NAME}
          ${msg_files}
-         DEPENDENCIES std_msgs
+         DEPENDENCIES example_interfaces
        )
 
 *
@@ -127,7 +127,7 @@ Replace ``catkin_add_gtest`` with ``ament_add_gtest``.
    +     ament_add_gtest(${PROJECT_NAME}-some-test src/test/test_something.cpp)
    +     ament_target_dependencies(${PROJECT_NAME)-some-test
    +       "rclcpp"
-   +       "std_msgs")
+   +       "example_interfaces")
    +     target_link_libraries(${PROJECT_NAME}-some-test
    +       ${PROJECT_NAME}_some_dependency)
    +   endif()
@@ -221,9 +221,9 @@ For usages of ``ros::Time``:
 
 * Replace all instances of ``ros::Time`` with ``rclcpp::Time``
 
-* If your messages or code makes use of std_msgs::Time:
+* If your messages or code makes use of example_interfaces::Time:
 
-  * Convert all instances of std_msgs::Time to builtin_interfaces::msg::Time
+  * Convert all instances of example_interfaces::Time to builtin_interfaces::msg::Time
 
   * Convert all ``#include "std_msgs/time.h`` to ``#include "builtin_interfaces/msg/time.hpp"``
 
@@ -320,9 +320,9 @@ Here is the content of those three files:
      <license>Apache-2.0</license>
      <buildtool_depend>catkin</buildtool_depend>
      <build_depend>roscpp</build_depend>
-     <build_depend>std_msgs</build_depend>
+     <build_depend>example_interfaces</build_depend>
      <run_depend>roscpp</run_depend>
-     <run_depend>std_msgs</run_depend>
+     <run_depend>example_interfaces</run_depend>
    </package>
 
 ``src/talker/CMakeLists.txt``:
@@ -331,7 +331,7 @@ Here is the content of those three files:
 
    cmake_minimum_required(VERSION 2.8.3)
    project(talker)
-   find_package(catkin REQUIRED COMPONENTS roscpp std_msgs)
+   find_package(catkin REQUIRED COMPONENTS roscpp example_interfaces)
    catkin_package()
    include_directories(${catkin_INCLUDE_DIRS})
    add_executable(talker talker.cpp)
@@ -345,15 +345,15 @@ Here is the content of those three files:
 
    #include <sstream>
    #include "ros/ros.h"
-   #include "std_msgs/String.h"
+   #include "example_interfaces/String.h"
    int main(int argc, char **argv)
    {
      ros::init(argc, argv, "talker");
      ros::NodeHandle n;
-     ros::Publisher chatter_pub = n.advertise<std_msgs::String>("chatter", 1000);
+     ros::Publisher chatter_pub = n.advertise<example_interfaces::String>("chatter", 1000);
      ros::Rate loop_rate(10);
      int count = 0;
-     std_msgs::String msg;
+     example_interfaces::String msg;
      while (ros::ok())
      {
        std::stringstream ss;
@@ -435,13 +435,13 @@ library API:
    //#include "ros/ros.h"
    #include "rclcpp/rclcpp.hpp"
 
-To get the ``std_msgs/String`` message definition, in place of
-``std_msgs/String.h``, we need to include ``std_msgs/msg/string.hpp``:
+To get the ``example_interfaces/String`` message definition, in place of
+``example_interfaces/String.h``, we need to include ``example_interfaces/msg/string.hpp``:
 
 .. code-block:: cpp
 
-   //#include "std_msgs/String.h"
-   #include "std_msgs/msg/string.hpp"
+   //#include "example_interfaces/String.h"
+   #include "example_interfaces/msg/string.hpp"
 
 Changing C++ library calls
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -461,9 +461,9 @@ changes to the names of namespace and methods.
 
 .. code-block:: cpp
 
-   //  ros::Publisher chatter_pub = n.advertise<std_msgs::String>("chatter", 1000);
+   //  ros::Publisher chatter_pub = n.advertise<example_interfaces::String>("chatter", 1000);
    //  ros::Rate loop_rate(10);
-     auto chatter_pub = node->create_publisher<std_msgs::msg::String>("chatter",
+     auto chatter_pub = node->create_publisher<example_interfaces::msg::String>("chatter",
        1000);
      rclcpp::Rate loop_rate(10);
 
@@ -478,8 +478,8 @@ The creation of the outgoing message is different in the namespace:
 
 .. code-block:: cpp
 
-   //  std_msgs::String msg;
-     std_msgs::msg::String msg;
+   //  example_interfaces::String msg;
+     example_interfaces::msg::String msg;
 
 In place of ``ros::ok()``, we call ``rclcpp::ok()``:
 
@@ -528,21 +528,21 @@ Putting it all together, the new ``talker.cpp`` looks like this:
    #include <sstream>
    // #include "ros/ros.h"
    #include "rclcpp/rclcpp.hpp"
-   // #include "std_msgs/String.h"
-   #include "std_msgs/msg/string.hpp"
+   // #include "example_interfaces/String.h"
+   #include "example_interfaces/msg/string.hpp"
    int main(int argc, char **argv)
    {
    //  ros::init(argc, argv, "talker");
    //  ros::NodeHandle n;
      rclcpp::init(argc, argv);
      auto node = rclcpp::Node::make_shared("talker");
-   //  ros::Publisher chatter_pub = n.advertise<std_msgs::String>("chatter", 1000);
+   //  ros::Publisher chatter_pub = n.advertise<example_interfaces::String>("chatter", 1000);
    //  ros::Rate loop_rate(10);
-     auto chatter_pub = node->create_publisher<std_msgs::msg::String>("chatter", 1000);
+     auto chatter_pub = node->create_publisher<example_interfaces::msg::String>("chatter", 1000);
      rclcpp::Rate loop_rate(10);
      int count = 0;
-   //  std_msgs::String msg;
-     std_msgs::msg::String msg;
+   //  example_interfaces::String msg;
+     example_interfaces::msg::String msg;
    //  while (ros::ok())
      while (rclcpp::ok())
      {
@@ -584,8 +584,8 @@ We make the same addition in the run dependencies and also update from the
 
    <!--  <run_depend>roscpp</run_depend> -->
      <exec_depend>rclcpp</exec_depend>
-   <!--  <run_depend>std_msgs</run_depend> -->
-     <exec_depend>std_msgs</exec_depend>
+   <!--  <run_depend>example_interfaces</run_depend> -->
+     <exec_depend>example_interfaces</exec_depend>
 
 In ROS 1, we use ``<depend>`` to simplify specifying dependencies for both
 compile-time and runtime.
@@ -594,7 +594,7 @@ We can do the same in ROS 2:
 .. code-block:: xml
 
      <depend>rclcpp</depend>
-     <depend>std_msgs</depend>
+     <depend>example_interfaces</depend>
 
 We also need to tell the build tool what *kind* of package we are, so that it knows how
 to build us.
@@ -622,9 +622,9 @@ Putting it all together, our ``package.xml`` now looks like this:
      <buildtool_depend>ament_cmake</buildtool_depend>
    <!--  <build_depend>roscpp</build_depend> -->
    <!--  <run_depend>roscpp</run_depend> -->
-   <!--  <run_depend>std_msgs</run_depend> -->
+   <!--  <run_depend>example_interfaces</run_depend> -->
      <depend>rclcpp</depend>
-     <depend>std_msgs</depend>
+     <depend>example_interfaces</depend>
      <export>
        <build_type>ament_cmake</build_type>
      </export>
@@ -666,10 +666,10 @@ With ``ament_cmake``, we find each package individually, starting with ``ament_c
 
 .. code-block:: cmake
 
-   #find_package(catkin REQUIRED COMPONENTS roscpp std_msgs)
+   #find_package(catkin REQUIRED COMPONENTS roscpp example_interfaces)
    find_package(ament_cmake REQUIRED)
    find_package(rclcpp REQUIRED)
-   find_package(std_msgs REQUIRED)
+   find_package(example_interfaces REQUIRED)
 
 System dependencies can be found as before:
 
@@ -716,7 +716,7 @@ It automatically handles both the include directories defined in
    #target_link_libraries(talker ${catkin_LIBRARIES})
    ament_target_dependencies(talker
      rclcpp
-     std_msgs)
+     example_interfaces)
 
 To link with packages that are not ament packages, such as system dependencies
 like ``Boost``, or a library being built in the same ``CMakeLists.txt``, use
@@ -748,7 +748,7 @@ Optionally, we can export dependencies for downstream packages:
 
 .. code-block:: cmake
 
-   ament_export_dependencies(std_msgs)
+   ament_export_dependencies(example_interfaces)
 
 Putting it all together, the new ``CMakeLists.txt`` looks like this:
 
@@ -763,10 +763,10 @@ Putting it all together, the new ``CMakeLists.txt`` looks like this:
    if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
      add_compile_options(-Wall -Wextra -Wpedantic)
    endif()
-   #find_package(catkin REQUIRED COMPONENTS roscpp std_msgs)
+   #find_package(catkin REQUIRED COMPONENTS roscpp example_interfaces)
    find_package(ament_cmake REQUIRED)
    find_package(rclcpp REQUIRED)
-   find_package(std_msgs REQUIRED)
+   find_package(example_interfaces REQUIRED)
    #catkin_package()
    #include_directories(${catkin_INCLUDE_DIRS})
    include_directories(include)
@@ -774,7 +774,7 @@ Putting it all together, the new ``CMakeLists.txt`` looks like this:
    #target_link_libraries(talker ${catkin_LIBRARIES})
    ament_target_dependencies(talker
      rclcpp
-     std_msgs)
+     example_interfaces)
    #install(TARGETS talker
    #  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
    install(TARGETS talker
@@ -782,7 +782,7 @@ Putting it all together, the new ``CMakeLists.txt`` looks like this:
    install(DIRECTORY include/
      DESTINATION include)
    ament_export_include_directories(include)
-   ament_export_dependencies(std_msgs)
+   ament_export_dependencies(example_interfaces)
    ament_package()
 
 Building the ROS 2 code

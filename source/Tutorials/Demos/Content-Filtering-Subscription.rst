@@ -71,7 +71,7 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics
     #include "rclcpp/rclcpp.hpp"
     #include "rclcpp_components/register_node_macro.hpp"
 
-    #include "std_msgs/msg/float32.hpp"
+    #include "example_interfaces/msg/float32.hpp"
 
     #include "demo_nodes_cpp/visibility_control.h"
 
@@ -96,7 +96,7 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics
         auto publish_message =
           [this]() -> void
           {
-            msg_ = std::make_unique<std_msgs::msg::Float32>();
+            msg_ = std::make_unique<example_interfaces::msg::Float32>();
             msg_->data = temperature_;
             temperature_ += TEMPERATURE_SETTING[2];
             if (temperature_ > TEMPERATURE_SETTING[1]) {
@@ -112,7 +112,7 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics
         // rclcpp::KeepAll{} if the user wishes.
         // (rclcpp::KeepLast(7) -> rclcpp::KeepAll() fails to compile)
         rclcpp::QoS qos(rclcpp::KeepLast{7});
-        pub_ = this->create_publisher<std_msgs::msg::Float32>("temperature", qos);
+        pub_ = this->create_publisher<example_interfaces::msg::Float32>("temperature", qos);
 
         // Use a timer to schedule periodic message publishing.
         timer_ = this->create_wall_timer(1s, publish_message);
@@ -120,8 +120,8 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics
 
     private:
       float temperature_ = TEMPERATURE_SETTING[0];
-      std::unique_ptr<std_msgs::msg::Float32> msg_;
-      rclcpp::Publisher<std_msgs::msg::Float32>::SharedPtr pub_;
+      std::unique_ptr<example_interfaces::msg::Float32> msg_;
+      rclcpp::Publisher<example_interfaces::msg::Float32>::SharedPtr pub_;
       rclcpp::TimerBase::SharedPtr timer_;
     };
 
@@ -176,7 +176,7 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics
     #include "rclcpp_components/register_node_macro.hpp"
     #include "rcpputils/join.hpp"
 
-    #include "std_msgs/msg/float32.hpp"
+    #include "example_interfaces/msg/float32.hpp"
 
     #include "demo_nodes_cpp/visibility_control.h"
 
@@ -197,7 +197,7 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics
         setvbuf(stdout, NULL, _IONBF, BUFSIZ);
         // Create a callback function for when messages are received.
         auto callback =
-          [this](const std_msgs::msg::Float32 & msg) -> void
+          [this](const example_interfaces::msg::Float32 & msg) -> void
           {
             if (msg.data < EMERGENCY_TEMPERATURE[0] || msg.data > EMERGENCY_TEMPERATURE[1]) {
               RCLCPP_INFO(
@@ -217,7 +217,7 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics
           std::to_string(EMERGENCY_TEMPERATURE[1])
         };
 
-        sub_ = create_subscription<std_msgs::msg::Float32>("temperature", 10, callback, sub_options);
+        sub_ = create_subscription<example_interfaces::msg::Float32>("temperature", 10, callback, sub_options);
 
         if (!sub_->is_cft_enabled()) {
           RCLCPP_WARN(
@@ -233,7 +233,7 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics
       }
 
     private:
-      rclcpp::Subscription<std_msgs::msg::Float32>::SharedPtr sub_;
+      rclcpp::Subscription<example_interfaces::msg::Float32>::SharedPtr sub_;
     };
 
     }  // namespace demo_nodes_cpp

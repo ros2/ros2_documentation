@@ -8,7 +8,7 @@ endif()
 # Besides the package specific dependencies we also need the `pluginlib` and `webots_ros2_driver`
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
-find_package(std_msgs REQUIRED)
+find_package(example_interfaces REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(pluginlib REQUIRED)
 find_package(webots_ros2_driver REQUIRED)

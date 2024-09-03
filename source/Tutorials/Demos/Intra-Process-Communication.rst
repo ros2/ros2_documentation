@@ -52,7 +52,7 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/intra_process_demo/src/tw
    #include <utility>
 
    #include "rclcpp/rclcpp.hpp"
-   #include "std_msgs/msg/int32.hpp"
+   #include "example_interfaces/msg/int32.hpp"
 
    using namespace std::chrono_literals;
 
@@ -63,7 +63,7 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/intra_process_demo/src/tw
      : Node(name, rclcpp::NodeOptions().use_intra_process_comms(true))
      {
        // Create a publisher on the output topic.
-       pub_ = this->create_publisher<std_msgs::msg::Int32>(output, 10);
+       pub_ = this->create_publisher<example_interfaces::msg::Int32>(output, 10);
        std::weak_ptr<std::remove_pointer<decltype(pub_.get())>::type> captured_pub = pub_;
        // Create a timer which publishes on the output topic at ~1Hz.
        auto callback = [captured_pub]() -> void {
@@ -72,7 +72,7 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/intra_process_demo/src/tw
              return;
            }
            static int32_t count = 0;
-           std_msgs::msg::Int32::UniquePtr msg(new std_msgs::msg::Int32());
+           example_interfaces::msg::Int32::UniquePtr msg(new example_interfaces::msg::Int32());
            msg->data = count++;
            printf(
              "Published message with value: %d, and address: 0x%" PRIXPTR "\n", msg->data,
@@ -82,7 +82,7 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/intra_process_demo/src/tw
        timer_ = this->create_wall_timer(1s, callback);
      }
 
-     rclcpp::Publisher<std_msgs::msg::Int32>::SharedPtr pub_;
+     rclcpp::Publisher<example_interfaces::msg::Int32>::SharedPtr pub_;
      rclcpp::TimerBase::SharedPtr timer_;
    };
 
@@ -93,17 +93,17 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/intra_process_demo/src/tw
      : Node(name, rclcpp::NodeOptions().use_intra_process_comms(true))
      {
        // Create a subscription on the input topic which prints on receipt of new messages.
-       sub_ = this->create_subscription<std_msgs::msg::Int32>(
+       sub_ = this->create_subscription<example_interfaces::msg::Int32>(
          input,
          10,
-         [](std_msgs::msg::Int32::UniquePtr msg) {
+         [](example_interfaces::msg::Int32::UniquePtr msg) {
            printf(
              " Received message with value: %d, and address: 0x%" PRIXPTR "\n", msg->data,
              reinterpret_cast<std::uintptr_t>(msg.get()));
          });
      }
 
-     rclcpp::Subscription<std_msgs::msg::Int32>::SharedPtr sub_;
+     rclcpp::Subscription<example_interfaces::msg::Int32>::SharedPtr sub_;
    };
 
    int main(int argc, char * argv[])
@@ -183,7 +183,7 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/intra_process_demo/src/cy
    #include <utility>
 
    #include "rclcpp/rclcpp.hpp"
-   #include "std_msgs/msg/int32.hpp"
+   #include "example_interfaces/msg/int32.hpp"
 
    using namespace std::chrono_literals;
 
@@ -194,13 +194,13 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/intra_process_demo/src/cy
      : Node(name, rclcpp::NodeOptions().use_intra_process_comms(true))
      {
        // Create a publisher on the output topic.
-       pub = this->create_publisher<std_msgs::msg::Int32>(out, 10);
+       pub = this->create_publisher<example_interfaces::msg::Int32>(out, 10);
        std::weak_ptr<std::remove_pointer<decltype(pub.get())>::type> captured_pub = pub;
        // Create a subscription on the input topic.
-       sub = this->create_subscription<std_msgs::msg::Int32>(
+       sub = this->create_subscription<example_interfaces::msg::Int32>(
          in,
          10,
-         [captured_pub](std_msgs::msg::Int32::UniquePtr msg) {
+         [captured_pub](example_interfaces::msg::Int32::UniquePtr msg) {
            auto pub_ptr = captured_pub.lock();
            if (!pub_ptr) {
              return;
@@ -221,8 +221,8 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/intra_process_demo/src/cy
          });
      }
 
-     rclcpp::Publisher<std_msgs::msg::Int32>::SharedPtr pub;
-     rclcpp::Subscription<std_msgs::msg::Int32>::SharedPtr sub;
+     rclcpp::Publisher<example_interfaces::msg::Int32>::SharedPtr pub;
+     rclcpp::Subscription<example_interfaces::msg::Int32>::SharedPtr sub;
    };
 
    int main(int argc, char * argv[])
@@ -237,7 +237,7 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/intra_process_demo/src/cy
      auto pipe2 = std::make_shared<IncrementerPipe>("pipe2", "topic2", "topic1");
      rclcpp::sleep_for(1s);  // Wait for subscriptions to be established to avoid race conditions.
      // Publish the first message (kicking off the cycle).
-     std::unique_ptr<std_msgs::msg::Int32> msg(new std_msgs::msg::Int32());
+     std::unique_ptr<example_interfaces::msg::Int32> msg(new example_interfaces::msg::Int32());
      msg->data = 42;
      printf(
        "Published first message with value:  %d, and address: 0x%" PRIXPTR "\n", msg->data,

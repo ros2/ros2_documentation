@@ -77,7 +77,7 @@ Open the file using your preferred text editor.
     #include "rclcpp/rclcpp.hpp"
     #include "rclcpp/subscription_options.hpp"
 
-    #include "std_msgs/msg/string.hpp"
+    #include "example_interfaces/msg/string.hpp"
 
     class MinimalSubscriberWithTopicStatistics : public rclcpp::Node
     {
@@ -95,20 +95,20 @@ Open the file using your preferred text editor.
         // configure the topic name (default '/statistics')
         // options.topic_stats_options.publish_topic = "/topic_statistics"
 
-        auto callback = [this](std_msgs::msg::String::SharedPtr msg) {
+        auto callback = [this](example_interfaces::msg::String::SharedPtr msg) {
             this->topic_callback(msg);
           };
 
-        subscription_ = this->create_subscription<std_msgs::msg::String>(
+        subscription_ = this->create_subscription<example_interfaces::msg::String>(
           "topic", 10, callback, options);
       }
 
     private:
-      void topic_callback(const std_msgs::msg::String::ConstSharedPtr msg) const
+      void topic_callback(const example_interfaces::msg::String::ConstSharedPtr msg) const
       {
         RCLCPP_INFO(this->get_logger(), "I heard: '%s'", msg->data.c_str());
       }
-      rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription_;
+      rclcpp::Subscription<example_interfaces::msg::String>::SharedPtr subscription_;
     };
 
     int main(int argc, char * argv[])
@@ -164,7 +164,7 @@ Add the executable and name it ``listener_with_topic_statistics`` so you can run
 .. code-block:: console
 
     add_executable(listener_with_topic_statistics src/member_function_with_topic_statistics.cpp)
-    ament_target_dependencies(listener_with_topic_statistics rclcpp std_msgs)
+    ament_target_dependencies(listener_with_topic_statistics rclcpp example_interfaces)
 
     install(TARGETS
       talker
@@ -313,9 +313,9 @@ data_type value     statistics
 5                   sample count
 ===============    ===================
 
-Here we see the two currently possible calculated statistics for the ``std_msgs::msg::String`` message published
+Here we see the two currently possible calculated statistics for the ``example_interfaces::msg::String`` message published
 to ``/topic`` by the ``minimal_publisher``.
-Because the ``std_msgs::msg::String`` does not have a message header, the ``message_age`` calculation cannot be performed,
+Because the ``example_interfaces::msg::String`` does not have a message header, the ``message_age`` calculation cannot be performed,
 so NaNs are returned.
 However, the ``message_period`` can be calculated and we see the statistics populated
 in the message above.

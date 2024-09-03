@@ -56,7 +56,7 @@ Navigate into the ``ros2_ws/src`` directory and create a new package:
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_python --license Apache-2.0 bag_recorder_nodes_py --dependencies rclpy rosbag2_py example_interfaces std_msgs
+  ros2 pkg create --build-type ament_python --license Apache-2.0 bag_recorder_nodes_py --dependencies rclpy rosbag2_py example_interfaces example_interfaces
 
 Your terminal will return a message verifying the creation of your package ``bag_recorder_nodes_py`` and all its necessary files and folders.
 The ``--dependencies`` argument will automatically add the necessary dependency lines to the ``package.xml``.
@@ -95,7 +95,7 @@ Inside the ``ros2_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory
    from rclpy.executors import ExternalShutdownException
    from rclpy.node import Node
    from rclpy.serialization import serialize_message
-   from std_msgs.msg import String
+   from example_interfaces.msg import String
 
    import rosbag2_py
 
@@ -113,7 +113,7 @@ Inside the ``ros2_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory
            topic_info = rosbag2_py._storage.TopicMetadata(
                id=0,
                name='chatter',
-               type='std_msgs/msg/String',
+               type='example_interfaces/msg/String',
                serialization_format='cdr')
            self.writer.create_topic(topic_info)
 
@@ -178,7 +178,7 @@ This object specifies the topic name, topic data type, and serialization format 
    topic_info = rosbag2_py._storage.TopicMetadata(
        id=0,
        name='chatter',
-       type='std_msgs/msg/String',
+       type='example_interfaces/msg/String',
        serialization_format='cdr')
    self.writer.create_topic(topic_info)
 
