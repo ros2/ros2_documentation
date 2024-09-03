@@ -23,7 +23,7 @@ However, we figured it would be helpful to produce a list of available URDF expo
  * `Blender URDF Exporter <https://github.com/dfki-ric/phobos>`_
  * `CREO Parametric URDF Exporter <https://github.com/icub-tech-iit/creo2urdf>`_
  * `FreeCAD ROS Workbench <https://github.com/galou/freecad.cross>`_
- * `FreeCAD CAD & ROS Open-Source Synergy (CROSS) <https://github.com/drfenixion/freecad.overcross>`_
+ * `RobotCAD (FreeCAD OVERCROSS) <https://github.com/drfenixion/freecad.overcross>`_
  * `Freecad to Gazebo Exporter <https://github.com/Dave-Elec/freecad_to_gazebo>`_
  * `Fusion 360 URDF Exporter <https://github.com/dheena2k2/fusion2urdf-ros2>`_
  * `FusionSDF: Fusion 360 to SDF exporter <https://github.com/andreasBihlmaier/FusionSDF>`_
