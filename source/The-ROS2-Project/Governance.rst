@@ -105,6 +105,11 @@ The ROS PMC currently consists of the following constituents:
      - marcoag
      - Member
      - SGT (UTC+8)
+   * - Yadunund Vijay
+     - Intrinsic
+     - Yadunund
+     - Member
+     - PST (UTC-8)/PDT (UTC-7)
 
 Current ROS Committers
 ^^^^^^^^^^^^^^^^^^^^^^
