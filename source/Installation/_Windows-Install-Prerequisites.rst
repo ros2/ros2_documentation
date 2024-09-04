@@ -36,11 +36,11 @@ Open a Command Prompt and type the following to install them via Chocolatey:
 Install OpenSSL
 ^^^^^^^^^^^^^^^
 
-Download the *Win64 OpenSSL v1.1.1n* OpenSSL installer from `this page <https://slproweb.com/products/Win32OpenSSL.html>`__.
-Scroll to the bottom of the page and download *Win64 OpenSSL v1.1.1t*.
-Don't download the Win32 or Light versions, or the v3.X.Y installers.
+Open a Command Prompt and type the following to install OpenSSL via Chocolatey:
 
-Run the installer with default parameters, as the following commands assume you used the default installation directory.
+.. code-block:: bash
+
+  choco install -y openssl --version 1.1.1.2100
 
 This command sets an environment variable that persists over sessions:
 
@@ -62,7 +62,7 @@ Install Visual Studio 2019.
 If you already have a paid version of Visual Studio 2019 (Professional, Enterprise), skip this step.
 
 Microsoft provides a free of charge version of Visual Studio 2019, named Community, which can be used to build applications that use ROS 2.
-`You can download the installer directly through this link. <https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&rel=16&src=myvs&utm_medium=microsoft&utm_source=my.visualstudio.com&utm_campaign=download&utm_content=vs+community+2019>`_
+`You can download the installer directly through this link. <https://aka.ms/vs/16/release/vs_community.exe>`_
 
 Make sure that the Visual C++ features are installed.
 
@@ -128,7 +128,7 @@ Now install some additional python dependencies:
 
 .. code-block:: bash
 
-   python -m pip install -U catkin_pkg cryptography empy importlib-metadata jsonschema lark==1.1.1 lxml matplotlib netifaces numpy opencv-python PyQt5 pillow psutil pycairo pydot pyparsing==2.4.7 pyyaml rosdistro
+   python -m pip install -U catkin_pkg cryptography empy fastjsonschema==2.19.0 importlib-metadata jsonschema lark==1.1.1 lxml matplotlib netifaces numpy opencv-python PyQt5 pillow psutil pycairo pydot pyparsing==2.4.7 pytest pyyaml rosdistro
 
 Install miscellaneous prerequisites
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

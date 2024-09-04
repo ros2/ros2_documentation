@@ -17,16 +17,19 @@ ROS 2 Documentation
    Concepts
    Contact
    The-ROS2-Project
-   API-Docs
+   Package-Docs
    Related-Projects
    Glossary
    Citations
+
 
 **The Robot Operating System (ROS) is a set of software libraries and tools for building robot applications.**
 From drivers and state-of-the-art algorithms to powerful developer tools, ROS has the open source tools you need for your next robotics project.
 
 Since ROS was started in 2007, a lot has changed in the robotics and ROS community.
 The goal of the ROS 2 project is to adapt to these changes, leveraging what is great about ROS 1 and improving what isn’t.
+
+**Are you looking for documentation for a particular ROS package like MoveIt,  image_proc, or octomap?** Please see `ROS Index <https://index.ros.org/packages/#{DISTRO}>`__  or check out `this index of per-package documentation <https://docs.ros.org/en/{DISTRO}/p/>`__.
 
 This site contains the documentation for ROS 2.
 If you are looking for ROS 1 documentation, check out the `ROS wiki <https://wiki.ros.org>`__.
@@ -182,14 +185,6 @@ Miscellaneous
 
 Deprecated
 ----------
-* `ROS Answers <https://answers.ros.org/questions/>`__ (ROS 1, ROS 2)
-
-  - ROS Answers was the ROS community Q&A website, until August, 2023. ROS Answers is currently available as a read-only resource.
-
-* `ROS 2 Docs <https://docs.ros2.org>`_
-
-  - API documentation up to and including Galactic
-
 * `ROS 2 Design <http://design.ros2.org/>`__
 
   - Early design decisions behind ROS 2 development

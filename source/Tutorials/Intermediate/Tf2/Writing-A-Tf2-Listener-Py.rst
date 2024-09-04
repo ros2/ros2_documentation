@@ -66,7 +66,7 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the exampl
 
             curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py -o turtle_tf2_listener.py
 
-Open the file using your preferred text editor.
+Now open the file called ``turtle_tf2_listener.py`` using your preferred text editor.
 
 .. code-block:: python
 
@@ -75,6 +75,7 @@ Open the file using your preferred text editor.
     from geometry_msgs.msg import Twist
 
     import rclpy
+    from rclpy.executors import ExternalShutdownException
     from rclpy.node import Node
 
     from tf2_ros import TransformException
@@ -152,7 +153,7 @@ Open the file using your preferred text editor.
             else:
                 if self.spawner.service_is_ready():
                     # Initialize request with turtle name and coordinates
-                    # Note that x, y and theta are defined as floats in turtlesim/srv/Spawn
+                    # Note that x, y and theta are defined as floats in turtlesim_msgs/srv/Spawn
                     request = Spawn.Request()
                     request.name = 'turtle2'
                     request.x = float(4)
@@ -167,14 +168,12 @@ Open the file using your preferred text editor.
 
 
     def main():
-        rclpy.init()
-        node = FrameListener()
         try:
-            rclpy.spin(node)
-        except KeyboardInterrupt:
+            with rclpy.init():
+                node = FrameListener()
+                rclpy.spin(node)
+        except (KeyboardInterrupt, ExternalShutdownException):
             pass
-
-        rclpy.shutdown()
 
 1.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
@@ -228,7 +227,7 @@ Add the following line between the ``'console_scripts':`` brackets:
 2 Update the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Open the launch file called ``turtle_tf2_demo_launch.py`` with your text editor, add two new nodes to the launch description, add a launch argument, and add the imports.
+Open the launch file called ``turtle_tf2_demo_launch.py`` in the ``src/learning_tf2_py/launch`` directory with your text editor, add two new nodes to the launch description, add a launch argument, and add the imports.
 The resulting file should look like:
 
 .. code-block:: python

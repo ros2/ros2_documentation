@@ -32,7 +32,7 @@ Prerequisites
 
 You should have the ``rosbag2`` packages installed as part of your regular ROS 2 setup.
 
-If you've installed from Debian packages on Linux, it may be installed by default.
+If you've installed from deb packages on Linux, it may be installed by default.
 If it is not, you can install it using this command.
 
 .. code-block:: console
@@ -61,7 +61,7 @@ Navigate into the ``ros2_ws/src`` directory and create a new package:
 Your terminal will return a message verifying the creation of your package ``bag_recorder_nodes_py`` and all its necessary files and folders.
 The ``--dependencies`` argument will automatically add the necessary dependency lines to the ``package.xml``.
 In this case, the package will use the ``rosbag2_py`` package as well as the ``rclpy`` package.
-A dependency on the ``example_interfaces`` package is also required for message definitions.
+A dependency on the ``std_msgs`` and ``example_interfaces`` packages are also required for message definitions.
 
 1.1 Update ``package.xml`` and ``setup.py``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -73,7 +73,7 @@ As always, though, make sure to add the description, maintainer email and name, 
 
   <description>Python bag writing tutorial</description>
   <maintainer email="you@email.com">Your Name</maintainer>
-  <license>Apache License 2.0</license>
+  <license>Apache-2.0</license>
 
 Also be sure to add this information to the ``setup.py`` file as well.
 
@@ -82,7 +82,7 @@ Also be sure to add this information to the ``setup.py`` file as well.
    maintainer='Your Name',
    maintainer_email='you@email.com',
    description='Python bag writing tutorial',
-   license='Apache License 2.0',
+   license='Apache-2.0',
 
 2 Write the Python node
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -92,6 +92,7 @@ Inside the ``ros2_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory
 .. code-block:: Python
 
    import rclpy
+   from rclpy.executors import ExternalShutdownException
    from rclpy.node import Node
    from rclpy.serialization import serialize_message
    from std_msgs.msg import String
@@ -110,6 +111,7 @@ Inside the ``ros2_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory
            self.writer.open(storage_options, converter_options)
 
            topic_info = rosbag2_py._storage.TopicMetadata(
+               id=0,
                name='chatter',
                type='std_msgs/msg/String',
                serialization_format='cdr')
@@ -130,10 +132,12 @@ Inside the ``ros2_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory
 
 
    def main(args=None):
-       rclpy.init(args=args)
-       sbr = SimpleBagRecorder()
-       rclpy.spin(sbr)
-       rclpy.shutdown()
+       try:
+           with rclpy.init(args=args):
+               sbr = SimpleBagRecorder()
+               rclpy.spin(sbr)
+       except (KeyboardInterrupt, ExternalShutdownException):
+           pass
 
 
    if __name__ == '__main__':
@@ -147,7 +151,7 @@ Note the importation of the ``rosbag2_py`` package for the functions and structu
 
 In the class constructor, we begin by creating the writer object that we will use to write to the bag.
 We are creating a ``SequentialWriter``, which writes messages into the bag in the order they are received.
-Other writers with different behaviours may be available in `rosbag2 <https://github.com/ros2/rosbag2/tree/{REPOS_FILE_BRANCH}/rosbag2_cpp/include/rosbag2_cpp/writers>`__.
+Other writers with different behaviors may be available in `rosbag2 writer <https://github.com/ros2/rosbag2/tree/{REPOS_FILE_BRANCH}/rosbag2_py/rosbag2_py/_writer.pyi>`__.
 
 .. code-block:: Python
 
@@ -172,6 +176,7 @@ This object specifies the topic name, topic data type, and serialization format 
 .. code-block:: Python
 
    topic_info = rosbag2_py._storage.TopicMetadata(
+       id=0,
        name='chatter',
        type='std_msgs/msg/String',
        serialization_format='cdr')
@@ -190,8 +195,8 @@ We will write data to the bag in the callback.
    self.subscription
 
 The callback receives the message in unserialized form (as is standard for the ``rclpy`` API) and passes the message to the writer, specifying the topic that the data is for and the timestamp to record with the message.
-However, the writer requires serialised messages to store in the bag.
-This means that we need to serialise the data before passing it to the writer.
+However, the writer requires serialized messages to store in the bag.
+This means that we need to serialize the data before passing it to the writer.
 For this reason, we call ``serialize_message()`` and pass the result of that to the writer, rather than passing in the message directly.
 
 .. code-block:: Python
@@ -207,10 +212,12 @@ The file finishes with the ``main`` function used to create an instance of the n
 .. code-block:: Python
 
    def main(args=None):
-       rclpy.init(args=args)
-       sbr = SimpleBagRecorder()
-       rclpy.spin(sbr)
-       rclpy.shutdown()
+       try:
+           with rclpy.init(args=args):
+               sbr = SimpleBagRecorder()
+               rclpy.spin(sbr)
+       except (KeyboardInterrupt, ExternalShutdownException):
+           pass
 
 2.2 Add entry point
 ~~~~~~~~~~~~~~~~~~~
@@ -283,7 +290,7 @@ Open a second terminal and run the ``talker`` example node.
 
 .. code-block:: console
 
-   ros2 run demo_nodes_cpp talker
+   ros2 run demo_nodes_py talker
 
 This will start publishing data on the ``chatter`` topic.
 As the bag-writing node receives this data, it will write it to the ``my_bag`` bag.
@@ -295,7 +302,7 @@ Then, in one terminal start the ``listener`` example node.
 
 .. code-block:: console
 
-   ros2 run demo_nodes_cpp listener
+   ros2 run demo_nodes_py listener
 
 In the other terminal, use ``ros2 bag`` to play the bag recorded by your node.
 
@@ -325,6 +332,7 @@ Inside the ``ros2_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory
 .. code-block:: Python
 
    import rclpy
+   from rclpy.executors import ExternalShutdownException
    from rclpy.node import Node
    from rclpy.serialization import serialize_message
    from example_interfaces.msg import Int32
@@ -345,6 +353,7 @@ Inside the ``ros2_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory
            self.writer.open(storage_options, converter_options)
 
            topic_info = rosbag2_py._storage.TopicMetadata(
+               id=0,
                name='synthetic',
                type='example_interfaces/msg/Int32',
                serialization_format='cdr')
@@ -361,10 +370,12 @@ Inside the ``ros2_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory
 
 
    def main(args=None):
-       rclpy.init(args=args)
-       dgn = DataGeneratorNode()
-       rclpy.spin(dgn)
-       rclpy.shutdown()
+       try:
+           with rclpy.init(args=args):
+               dgn = DataGeneratorNode()
+               rclpy.spin(dgn)
+       except (KeyboardInterrupt, ExternalShutdownException):
+           pass
 
 
    if __name__ == '__main__':
@@ -389,6 +400,7 @@ The name of the topic is also changed, as is the data type stored.
 .. code-block:: Python
 
    topic_info = rosbag2_py._storage.TopicMetadata(
+       id=0,
        name='synthetic',
        type='example_interfaces/msg/Int32',
        serialization_format='cdr')
@@ -402,7 +414,7 @@ The timer fires with a one-second period, and calls the given member function wh
    self.timer = self.create_timer(1, self.timer_callback)
 
 Within the timer callback, we generate (or otherwise obtain, e.g. read from a serial port connected to some hardware) the data we wish to store in the bag.
-As with the previous example, the data is not yet serialised, so we must serialise it before passing it to the writer.
+As with the previous example, the data is not yet serialized, so we must serialize it before passing it to the writer.
 
 .. code-block:: Python
 
@@ -526,6 +538,7 @@ Inside the ``ros2_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory
        writer.open(storage_options, converter_options)
 
        topic_info = rosbag2_py._storage.TopicMetadata(
+           id=0,
            name='synthetic',
            type='example_interfaces/msg/Int32',
            serialization_format='cdr')

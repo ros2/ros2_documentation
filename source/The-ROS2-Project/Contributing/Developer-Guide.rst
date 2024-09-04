@@ -204,7 +204,14 @@ Examples:
 
   * This is an example of describing an extension point for a package
 
-*(API docs are not yet being automatically generated)*
+API Documetation for ROS Packages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+API documentation for all released ROS packages can be `found here <https://docs.ros.org/en/{DISTRO}/p/>`__.
+We recommend using `index.ros.org <https://index.ros.org/>`_ to search through available ROS packages to find their documentation.
+
+If you are a ROS package developer looking for guidance on documenting your package please see :doc:`our "how to" guide on package level documentation <../../How-To-Guides/Documenting-a-ROS-2-Package>`.
+The documentation for all released ROS 2 packages is automatically hosted on `docs.ros.org <https://docs.ros.org/en/{DISTRO}/p/>`_.
 
 Testing
 ^^^^^^^
@@ -267,7 +274,7 @@ When filing an issue please make sure to:
   - **The operating system and version.**
     Reasoning: ROS 2 supports multiple platforms, and some bugs are specific to particular versions of operating systems/compilers.
   - **The installation method.**
-    Reasoning: Some issues only manifest if ROS 2 has been installed from "fat archives" or from Debians.
+    Reasoning: Some issues only manifest if ROS 2 has been installed from binary archives or from debs.
     This can help us determine if the issue is with the packaging process.
   - **The specific version of ROS 2.**
     Reasoning: Some bugs may be present in a particular ROS 2 release and later fixed.
@@ -448,6 +455,9 @@ Package layout
 * ``config``: contains configuration files, e.g. YAML parameters files and RViz config files
 * ``doc``: contains all the documentation
 * ``launch``: contains all launch files
+* ``msg``: contains all ROS Message definitions
+* ``srv``: contains all ROS Service definitions
+* ``action``: contains all ROS Action definitions
 * ``package.xml``: as defined by `REP-0140 <https://www.ros.org/reps/rep-0140.html>`_ (may be updated for prototyping)
 * ``CMakeLists.txt``: only ROS packages which use CMake
 * ``setup.py``: only ROS packages which use Python code only
@@ -693,7 +703,7 @@ Additionally, we test all pull requests against these platforms before merging.
 This is the current set of target platforms and architectures, though it evolves overtime:
 
 
-* Ubuntu 22.04 Jammy
+* Ubuntu 24.04 Noble
 
   * amd64
   * aarch64
@@ -707,10 +717,10 @@ There are several categories of jobs on the buildfarm:
 
 * manual jobs (triggered manually by developers):
 
-  * ci_linux: build + test the code on Ubuntu Xenial
-  * ci_linux-aarch64: build + test the code on Ubuntu Xenial on an ARM 64-bit machine (aarch64)
+  * ci_linux: build + test the code on Ubuntu
+  * ci_linux-aarch64: build + test the code on Ubuntu on an ARM 64-bit machine (aarch64)
   * ci_linux_coverage: build + test + generation of test coverage
-  * ci_windows: build + test the code on Windows 10
+  * ci_windows: build + test the code on Windows
   * ci_launcher: trigger all the jobs listed above
 
 * nightly (run every night):

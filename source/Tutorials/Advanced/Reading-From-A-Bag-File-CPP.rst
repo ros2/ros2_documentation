@@ -1,7 +1,7 @@
 Reading from a bag file (C++)
 =============================
 
-**Goal:** Read data from a bag without using the CLI.
+**Goal:** Read data from a bag file to your own C++ node.
 
 **Tutorial level:** Advanced
 
@@ -40,11 +40,11 @@ a new package:
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_cmake --license Apache-2.0 bag_reading_cpp --dependencies rclcpp rosbag2_cpp turtlesim
+  ros2 pkg create --build-type ament_cmake --license Apache-2.0 bag_reading_cpp --dependencies rclcpp rosbag2_transport turtlesim
 
 Your terminal will return a message verifying the creation of your package ``bag_reading_cpp`` and all its necessary files and folders.
 The ``--dependencies`` argument will automatically add the necessary dependency lines to ``package.xml`` and ``CMakeLists.txt``.
-In this case, the package will use the ``rosbag2_cpp`` package as well as the ``rclcpp`` package.
+In this case, the package will use the ``rosbag2_transport`` package as well as the ``rclcpp`` package.
 A dependency on the ``turtlesim`` package is also required for working with the custom turtlesim messages.
 
 1.1 Update ``package.xml``
@@ -74,8 +74,8 @@ Inside your package's ``src`` directory, create a new file called ``simple_bag_r
 
     #include "rclcpp/rclcpp.hpp"
     #include "rclcpp/serialization.hpp"
-    #include "rosbag2_cpp/reader.hpp"
-    #include "turtlesim/msg/pose.hpp"
+    #include "rosbag2_transport/reader_writer_factory.hpp"
+    #include "turtlesim_msgs/msg/pose.hpp"
 
     using namespace std::chrono_literals;
 
@@ -85,27 +85,30 @@ Inside your package's ``src`` directory, create a new file called ``simple_bag_r
         PlaybackNode(const std::string & bag_filename)
         : Node("playback_node")
         {
-          publisher_ = this->create_publisher<turtlesim::msg::Pose>("/turtle1/pose", 10);
+          publisher_ = this->create_publisher<turtlesim_msgs::msg::Pose>("/turtle1/pose", 10);
 
           timer_ = this->create_wall_timer(100ms,
               [this](){return this->timer_callback();}
           );
 
-          reader_.open(bag_filename);
+          rosbag2_storage::StorageOptions storage_options;
+          storage_options.uri = bag_filename;
+          reader_ = rosbag2_transport::ReaderWriterFactory::make_reader(storage_options);
+          reader_->open(storage_options);
         }
 
       private:
         void timer_callback()
         {
-          while (reader_.has_next()) {
-            rosbag2_storage::SerializedBagMessageSharedPtr msg = reader_.read_next();
+          while (reader_->has_next()) {
+            rosbag2_storage::SerializedBagMessageSharedPtr msg = reader_->read_next();
 
             if (msg->topic_name != "/turtle1/pose") {
               continue;
             }
 
             rclcpp::SerializedMessage serialized_msg(*msg->serialized_data);
-            turtlesim::msg::Pose::SharedPtr ros_msg = std::make_shared<turtlesim::msg::Pose>();
+            turtlesim_msgs::msg::Pose::SharedPtr ros_msg = std::make_shared<turtlesim_msgs::msg::Pose>();
 
             serialization_.deserialize_message(&serialized_msg, ros_msg.get());
 
@@ -117,10 +120,10 @@ Inside your package's ``src`` directory, create a new file called ``simple_bag_r
         }
 
         rclcpp::TimerBase::SharedPtr timer_;
-        rclcpp::Publisher<turtlesim::msg::Pose>::SharedPtr publisher_;
+        rclcpp::Publisher<turtlesim_msgs::msg::Pose>::SharedPtr publisher_;
 
-        rclcpp::Serialization<turtlesim::msg::Pose> serialization_;
-        rosbag2_cpp::Reader reader_;
+        rclcpp::Serialization<turtlesim_msgs::msg::Pose> serialization_;
+        std::unique_ptr<rosbag2_cpp::Reader> reader_;
     };
 
     int main(int argc, char ** argv)
@@ -141,7 +144,7 @@ Inside your package's ``src`` directory, create a new file called ``simple_bag_r
 ~~~~~~~~~~~~~~~~~~~~
 
 The ``#include`` statements at the top are the package dependencies.
-Note the inclusion of headers from the ``rosbag2_cpp`` package for the functions and structures necessary to work with bag files.
+Note the inclusion of headers from the ``rosbag2_transport`` package for the functions and structures necessary to work with bag files.
 
 The next line creates the node which will read from the bag file and play back the data.
 
@@ -159,17 +162,21 @@ Note the constructor takes a path to the bag file as a parameter.
       PlaybackNode(const std::string & bag_filename)
       : Node("playback_node")
       {
-        publisher_ = this->create_publisher<turtlesim::msg::Pose>("/turtle1/pose", 10);
+        publisher_ = this->create_publisher<turtlesim_msgs::msg::Pose>("/turtle1/pose", 10);
 
         timer_ = this->create_wall_timer(100ms,
           [this](){return this->timer_callback();}
         );
 
 We also open the bag in the constructor.
+The ``rosbag2_transport::ReaderWriterFactory`` is a class that can construct a compressed or uncompressed reader or writer based on the storage options.
 
 .. code-block:: C++
 
-      reader_.open(bag_filename);
+      rosbag2_storage::StorageOptions storage_options;
+      storage_options.uri = bag_filename;
+      reader_ = rosbag2_transport::ReaderWriterFactory::make_reader(storage_options);
+      reader_->open(storage_options);
 
 Now, inside our timer callback, we loop through messages in the bag until we read a message recorded from our desired topic.
 Note that the serialized message has timestamp metadata in addition to the topic name.
@@ -178,8 +185,8 @@ Note that the serialized message has timestamp metadata in addition to the topic
 
     void timer_callback()
     {
-      while (reader_.has_next()) {
-        rosbag2_storage::SerializedBagMessageSharedPtr msg = reader_.read_next();
+      while (reader_->has_next()) {
+        rosbag2_storage::SerializedBagMessageSharedPtr msg = reader_->read_next();
 
         if (msg->topic_name != "/turtle1/pose") {
           continue;
@@ -192,7 +199,7 @@ Then, we can pass both these objects to the ``rclcpp::Serialization::deserialize
 .. code-block:: C++
 
     rclcpp::SerializedMessage serialized_msg(*msg->serialized_data);
-    turtlesim::msg::Pose::SharedPtr ros_msg = std::make_shared<turtlesim::msg::Pose>();
+    turtlesim_msgs::msg::Pose::SharedPtr ros_msg = std::make_shared<turtlesim_msgs::msg::Pose>();
 
     serialization_.deserialize_message(&serialized_msg, ros_msg.get());
 
@@ -212,10 +219,10 @@ We must also declare the private variables used throughout the node.
 .. code-block:: C++
 
       rclcpp::TimerBase::SharedPtr timer_;
-      rclcpp::Publisher<turtlesim::msg::Pose>::SharedPtr publisher_;
+      rclcpp::Publisher<turtlesim_msgs::msg::Pose>::SharedPtr publisher_;
 
-      rclcpp::Serialization<turtlesim::msg::Pose> serialization_;
-      rosbag2_cpp::Reader reader_;
+      rclcpp::Serialization<turtlesim_msgs::msg::Pose> serialization_;
+      std::unique_ptr<rosbag2_cpp::Reader> reader_;
     };
 
 Lastly, we create the main function which will check that the user passes an argument for the bag file path and spins our node.
@@ -241,12 +248,12 @@ Lastly, we create the main function which will check that the user passes an arg
 
 Now open the ``CMakeLists.txt`` file.
 
-Below the dependencies block, which contains ``find_package(rosbag2_cpp REQUIRED)``, add the following lines of code.
+Below the dependencies block, which contains ``find_package(rosbag2_transport REQUIRED)``, add the following lines of code.
 
 .. code-block:: console
 
     add_executable(simple_bag_reader src/simple_bag_reader.cpp)
-    ament_target_dependencies(simple_bag_reader rclcpp rosbag2_cpp turtlesim)
+    ament_target_dependencies(simple_bag_reader rclcpp rosbag2_transport turtlesim)
 
     install(TARGETS
       simple_bag_reader

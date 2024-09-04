@@ -154,11 +154,11 @@ The output should look like this:
     Publishers:
       /parameter_events: rcl_interfaces/msg/ParameterEvent
       /rosout: rcl_interfaces/msg/Log
-      /turtle1/color_sensor: turtlesim/msg/Color
-      /turtle1/pose: turtlesim/msg/Pose
+      /turtle1/color_sensor: turtlesim_msgs/msg/Color
+      /turtle1/pose: turtlesim_msgs/msg/Pose
     Service Servers:
       /clear: std_srvs/srv/Empty
-      /kill: turtlesim/srv/Kill
+      /kill: turtlesim_msgs/srv/Kill
       /my_turtle/describe_parameters: rcl_interfaces/srv/DescribeParameters
       /my_turtle/get_parameter_types: rcl_interfaces/srv/GetParameterTypes
       /my_turtle/get_parameters: rcl_interfaces/srv/GetParameters
@@ -166,14 +166,14 @@ The output should look like this:
       /my_turtle/set_parameters: rcl_interfaces/srv/SetParameters
       /my_turtle/set_parameters_atomically: rcl_interfaces/srv/SetParametersAtomically
       /reset: std_srvs/srv/Empty
-      /spawn: turtlesim/srv/Spawn
-      /turtle1/set_pen: turtlesim/srv/SetPen
-      /turtle1/teleport_absolute: turtlesim/srv/TeleportAbsolute
-      /turtle1/teleport_relative: turtlesim/srv/TeleportRelative
+      /spawn: turtlesim_msgs/srv/Spawn
+      /turtle1/set_pen: turtlesim_msgs/srv/SetPen
+      /turtle1/teleport_absolute: turtlesim_msgs/srv/TeleportAbsolute
+      /turtle1/teleport_relative: turtlesim_msgs/srv/TeleportRelative
     Service Clients:
 
     Action Servers:
-      /turtle1/rotate_absolute: turtlesim/action/RotateAbsolute
+      /turtle1/rotate_absolute: turtlesim_msgs/action/RotateAbsolute
     Action Clients:
 
 Now try running the same command on the ``/teleop_turtle`` node, and see how its connections differ from ``my_turtle``.

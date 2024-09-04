@@ -40,7 +40,7 @@ Furthermore, the functions can be completely removed through a CMake option, whi
 Building without tracepoints
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This step depends on whether you are :doc:`building ROS 2 from source <../Installation/Alternatives/Ubuntu-Development-Setup>` or using ROS 2 binaries (:doc:`Debian packages <../Installation/Ubuntu-Install-Debians>` or :doc:`"fat" archive <../Installation/Alternatives/Ubuntu-Install-Binary>`).
+This step depends on whether you are :doc:`building ROS 2 from source <../Installation/Alternatives/Ubuntu-Development-Setup>` or using ROS 2 binaries (:doc:`deb packages <../Installation/Ubuntu-Install-Debs>` or :doc:`binary archive <../Installation/Alternatives/Ubuntu-Install-Binary>`).
 To remove the tracepoints, (re)build ``tracetools`` and set the ``TRACETOOLS_TRACEPOINTS_EXCLUDED`` CMake option to ``ON``:
 
 .. tabs::

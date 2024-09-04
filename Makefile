@@ -16,11 +16,14 @@ help:
 
 multiversion: Makefile
 	sphinx-multiversion $(OPTS) "$(SOURCE)" build/html
-	@echo "<html><head><meta http-equiv=\"refresh\" content=\"0; url=iron/index.html\" /></head></html>" > build/html/index.html
-	python3 make_sitemapindex.py
+	@echo "<html><head><meta http-equiv=\"refresh\" content=\"0; url=jazzy/index.html\" /></head></html>" > build/html/index.html
+	$(PYTHON) make_sitemapindex.py
 
 %: Makefile
 	@$(BUILD) -M $@ "$(SOURCE)" "$(OUT)" $(OPTS)
+
+lint:
+	sphinx-lint source
 
 test:
 	doc8 --ignore D001 --ignore-path build

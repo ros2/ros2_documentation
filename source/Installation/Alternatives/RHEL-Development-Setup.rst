@@ -66,8 +66,11 @@ Install development tools
      python3-pip \
      python3-pydocstyle \
      python3-pytest \
+     python3-pytest-cov \
+     python3-pytest-mock \
      python3-pytest-repeat \
      python3-pytest-rerunfailures \
+     python3-pytest-runner \
      python3-rosdep \
      python3-setuptools \
      python3-vcstool \
@@ -103,7 +106,7 @@ Install dependencies using rosdep
 
    sudo rosdep init
    rosdep update
-   rosdep install --from-paths src --ignore-src -y --skip-keys "fastcdr ignition-cmake2 ignition-math6 rti-connext-dds-6.0.1 urdfdom_headers"
+   rosdep install --from-paths src --ignore-src -y --skip-keys "fastcdr rti-connext-dds-6.0.1 urdfdom_headers"
 
 Install additional RMW implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

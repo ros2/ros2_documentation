@@ -11,7 +11,7 @@ Rolling Ridley (``rolling``)
 
   Rolling Ridley is continuously updated and is subject to in-place updates which will at times include breaking changes.
   It is used for ROS 2 development and by maintainers who want their packages released and ready for the next stable distribution.
-  We recommend that most users of ROS 2 use the latest `stable distribution <latest_release>`.
+  We recommend that most users of ROS 2 use the latest `stable distribution <latest-release>`.
 
 For more information see `REP-2002 <https://www.ros.org/reps/rep-2002.html>`_
 
@@ -22,7 +22,7 @@ Rolling Ridley is currently supported on the following platforms:
 
 Tier 1 platforms:
 
-* Ubuntu 22.04 (Jammy): ``amd64`` and ``arm64``
+* Ubuntu 24.04 (Noble): ``amd64`` and ``arm64``
 * Windows 10 (Visual Studio 2019)
 
 Tier 3 platforms:

@@ -8,7 +8,7 @@ Features Status
 ===============
 
 The features listed below are available in the current ROS 2 release.
-Unless otherwise specified, the features are available for all supported platforms (Ubuntu 22.04 (Jammy), Windows 10), DDS implementations (eProsima Fast DDS, RTI Connext DDS, and Eclipse Cyclone DDS) and programming language client libraries (C++ and Python).
+Unless otherwise specified, the features are available for all supported platforms (Ubuntu 24.04 (Noble), Windows 10), DDS implementations (eProsima Fast DDS, RTI Connext DDS, and Eclipse Cyclone DDS) and programming language client libraries (C++ and Python).
 For planned future development, see the :doc:`Roadmap <Roadmap>`.
 
 .. list-table::
@@ -80,6 +80,9 @@ For planned future development, see the :doc:`Roadmap <Roadmap>`.
    * - Content filtering subscription
      - :doc:`Demo <../Tutorials/Demos/Content-Filtering-Subscription>`
      - Currently only in C++.
+   * - Service Introspection
+     - :doc:`Demo <../Tutorials/Demos/Service-Introspection>`
+     -
 
 Besides core features of the platform, the biggest impact of ROS comes from its available packages.
 The following are a few high-profile packages which are available in the latest release:

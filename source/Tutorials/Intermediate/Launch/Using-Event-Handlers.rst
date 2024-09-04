@@ -89,7 +89,7 @@ Create a new file called ``example_event_handlers_launch.py`` file in the ``laun
                 ' service call ',
                 turtlesim_ns,
                 '/spawn ',
-                'turtlesim/srv/Spawn ',
+                'turtlesim_msgs/srv/Spawn ',
                 '"{x: 2, y: 2, theta: 0.2}"'
             ]],
             shell=True
@@ -304,7 +304,7 @@ Additionally, it will log messages to the console when:
 Documentation
 -------------
 
-`The launch documentation <https://github.com/ros2/launch/blob/{REPOS_FILE_BRANCH}/launch/doc/source/architecture.rst>`_ provides detailed information about available event handlers.
+`The launch documentation <https://docs.ros.org/en/{DISTRO}/p/launch/architecture.html>`_ provides detailed information about available event handlers.
 
 Summary
 -------

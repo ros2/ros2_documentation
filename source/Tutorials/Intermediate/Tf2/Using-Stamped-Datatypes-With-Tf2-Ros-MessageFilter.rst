@@ -84,6 +84,7 @@ Open the file using your preferred text editor.
     from geometry_msgs.msg import Twist
 
     import rclpy
+    from rclpy.executors import ExternalShutdownException
     from rclpy.node import Node
 
     from turtlesim.msg import Pose
@@ -121,7 +122,7 @@ Open the file using your preferred text editor.
             else:
                 if self.spawner.service_is_ready():
                     # Initialize request with turtle name and coordinates
-                    # Note that x, y and theta are defined as floats in turtlesim/srv/Spawn
+                    # Note that x, y and theta are defined as floats in turtlesim_msgs/srv/Spawn
                     request = Spawn.Request()
                     request.name = 'turtle3'
                     request.x = 4.0
@@ -155,14 +156,12 @@ Open the file using your preferred text editor.
 
 
     def main():
-        rclpy.init()
-        node = PointPublisher()
         try:
-            rclpy.spin(node)
-        except KeyboardInterrupt:
+            with rclpy.init():
+                node = PointPublisher()
+                rclpy.spin(node)
+        except (KeyboardInterrupt, ExternalShutdownException):
             pass
-
-        rclpy.shutdown()
 
 
 1.1 Examine the code
@@ -174,7 +173,7 @@ First, in the ``on_timer`` callback function, we spawn the ``turtle3`` by asynch
 .. code-block:: python
 
     # Initialize request with turtle name and coordinates
-    # Note that x, y and theta are defined as floats in turtlesim/srv/Spawn
+    # Note that x, y and theta are defined as floats in turtlesim_msgs/srv/Spawn
     request = Spawn.Request()
     request.name = 'turtle3'
     request.x = 4.0

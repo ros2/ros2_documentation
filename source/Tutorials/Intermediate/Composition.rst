@@ -21,11 +21,15 @@ Background
 
 See the :doc:`conceptual article <../../Concepts/Intermediate/About-Composition>`.
 
-Run the demos
+For information on how to write a composable node, :doc:`check out this tutorial <Writing-a-Composable-Node>`.
+
+Prerequisites
 -------------
 
-The demos use executables from `rclcpp_components <https://github.com/ros2/rclcpp/tree/{REPOS_FILE_BRANCH}/rclcpp_components>`__, `ros2component <https://github.com/ros2/ros2cli/tree/{REPOS_FILE_BRANCH}/ros2component>`__, and  `composition <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/composition>`__ packages, and can be run with the following commands.
+This tutorial uses executables from the `rclcpp_components <https://github.com/ros2/rclcpp/tree/{REPOS_FILE_BRANCH}/rclcpp_components>`__, `ros2component <https://github.com/ros2/ros2cli/tree/{REPOS_FILE_BRANCH}/ros2component>`__, `composition <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/composition>`__, and `image_tools <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/image_tools>`__ packages. If you've followed the :doc:`installation instructions <../../Installation>` for your platform, these should already be installed.
 
+Run the demos
+-------------
 
 Discover available components
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

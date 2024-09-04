@@ -133,13 +133,13 @@ Which will return:
 .. code-block:: console
 
   /clear [std_srvs/srv/Empty]
-  /kill [turtlesim/srv/Kill]
+  /kill [turtlesim_msgs/srv/Kill]
   /reset [std_srvs/srv/Empty]
-  /spawn [turtlesim/srv/Spawn]
+  /spawn [turtlesim_msgs/srv/Spawn]
   ...
-  /turtle1/set_pen [turtlesim/srv/SetPen]
-  /turtle1/teleport_absolute [turtlesim/srv/TeleportAbsolute]
-  /turtle1/teleport_relative [turtlesim/srv/TeleportRelative]
+  /turtle1/set_pen [turtlesim_msgs/srv/SetPen]
+  /turtle1/teleport_absolute [turtlesim_msgs/srv/TeleportAbsolute]
+  /turtle1/teleport_relative [turtlesim_msgs/srv/TeleportRelative]
   ...
 
 4 ros2 service info
@@ -215,13 +215,13 @@ But, as you learned earlier, the ``Empty`` type doesn't send or receive any data
 So, naturally, its structure is blank.
 
 Let's introspect a service with a type that sends and receives data, like ``/spawn``.
-From the results of ``ros2 service list -t``, we know ``/spawn``'s type is ``turtlesim/srv/Spawn``.
+From the results of ``ros2 service list -t``, we know ``/spawn``'s type is ``turtlesim_msgs/srv/Spawn``.
 
 To see the request and response arguments of the ``/spawn`` service, run the command:
 
 .. code-block:: console
 
-  ros2 interface show turtlesim/srv/Spawn
+  ros2 interface show turtlesim_msgs/srv/Spawn
 
 Which will return:
 
@@ -266,7 +266,7 @@ Enter the command:
 
 .. code-block:: console
 
-  ros2 service call /spawn turtlesim/srv/Spawn "{x: 2, y: 2, theta: 0.2, name: ''}"
+  ros2 service call /spawn turtlesim_msgs/srv/Spawn "{x: 2, y: 2, theta: 0.2, name: ''}"
 
 You will get this method-style view of what's happening, and then the service response:
 
@@ -280,6 +280,77 @@ You will get this method-style view of what's happening, and then the service re
 Your turtlesim window will update with the newly spawned turtle right away:
 
 .. image:: images/spawn.png
+
+8 ros2 service echo
+^^^^^^^^^^^^^^^^^^^
+
+To see the data communication between a service client and a service server you can ``echo`` the service using:
+
+.. code-block:: console
+
+   ros2 service echo <service_name | service_type> <arguments>
+
+``ros2 service echo`` depends on service introspection of a service client and server, that is disabled by default.
+To enable it, users must call ``configure_introspection`` after creating a server client or server.
+
+Start up the ``introspection_client`` and ``introspection_service`` service introspection demo.
+
+.. code-block:: console
+
+   ros2 launch demo_nodes_cpp introspect_services_launch.py
+
+Open another terminal and run the following to enable service introspection for ``introspection_client`` and ``introspection_service``.
+
+.. code-block:: console
+
+   ros2 param set /introspection_service service_configure_introspection contents
+   ros2 param set /introspection_client client_configure_introspection contents
+
+Now we are able to see the service communication between ``introspection_client`` and ``introspection_service`` via ``ros2 service echo``.
+
+.. code-block:: console
+
+   ros2 service echo --flow-style /add_two_ints
+   info:
+     event_type: REQUEST_SENT
+     stamp:
+       sec: 1709408301
+       nanosec: 423227292
+     client_gid: [1, 15, 0, 18, 250, 205, 12, 100, 0, 0, 0, 0, 0, 0, 21, 3]
+     sequence_number: 618
+   request: [{a: 2, b: 3}]
+   response: []
+   ---
+   info:
+     event_type: REQUEST_RECEIVED
+     stamp:
+       sec: 1709408301
+       nanosec: 423601471
+     client_gid: [1, 15, 0, 18, 250, 205, 12, 100, 0, 0, 0, 0, 0, 0, 20, 4]
+     sequence_number: 618
+   request: [{a: 2, b: 3}]
+   response: []
+   ---
+   info:
+     event_type: RESPONSE_SENT
+     stamp:
+       sec: 1709408301
+       nanosec: 423900744
+     client_gid: [1, 15, 0, 18, 250, 205, 12, 100, 0, 0, 0, 0, 0, 0, 20, 4]
+     sequence_number: 618
+   request: []
+   response: [{sum: 5}]
+   ---
+   info:
+     event_type: RESPONSE_RECEIVED
+     stamp:
+       sec: 1709408301
+       nanosec: 424153133
+     client_gid: [1, 15, 0, 18, 250, 205, 12, 100, 0, 0, 0, 0, 0, 0, 21, 3]
+     sequence_number: 618
+   request: []
+   response: [{sum: 5}]
+   ---
 
 Summary
 -------

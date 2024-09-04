@@ -42,7 +42,7 @@ For more information about RMW implementations, compiler / interpreter versions,
 Installation
 ------------
 
-`Install Galactic Geochelone <../../../galactic/Installation.html>`__
+`Install Galactic Geochelone <../../galactic/Installation.html>`__
 
 New features in this ROS 2 release
 ----------------------------------

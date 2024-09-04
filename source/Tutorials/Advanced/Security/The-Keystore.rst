@@ -71,11 +71,11 @@ The output should look similar to the following::
         Serial Number:
             02:8e:9a:24:ea:10:55:cb:e6:ea:e8:7a:c0:5f:58:6d:37:42:78:aa
         Signature Algorithm: ecdsa-with-SHA256
-        Issuer: CN = sros2testCA
+        Issuer: CN = sros2CA
         Validity
             Not Before: Jun  1 16:57:37 2021 GMT
             Not After : May 31 16:57:37 2031 GMT
-        Subject: CN = sros2testCA
+        Subject: CN = sros2CA
         Subject Public Key Info:
             Public Key Algorithm: id-ecPublicKey
                 Public-Key: (256 bit)
@@ -97,7 +97,7 @@ The output should look similar to the following::
          4b:e5:92:b3:e6:ee:3c:d5:cf:30:43:09:04:71:bd:dd:7c
 
 Some things to note about this CA certificate:
- - The certificate subject name ``sros2testCA`` is the default provided by the ``sros2`` utilities.
+ - The certificate subject name ``sros2CA`` is the default provided by the ``sros2`` utilities.
  - This certificate is valid for ten years from time of creation
  - Like all certificates, this contains a public key used for public-private key encryption
  - As a Root Certificate Authority, this is a `self-signed certificate <https://en.wikipedia.org/wiki/Self-signed_certificate>`_; i.e., it is signed using its own private key.
@@ -209,7 +209,7 @@ Begin with a new terminal session and enable security with the keystore created 
 
 .. code-block:: bash
 
-  export ROS_SECURITY_KEYSTORE=~/sros2_demo/demo_keys
+  export ROS_SECURITY_KEYSTORE=~/sros2_demo/demo_keystore
   export ROS_SECURITY_ENABLE=true
   export ROS_SECURITY_STRATEGY=Enforce
 

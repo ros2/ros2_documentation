@@ -35,10 +35,10 @@ Ubuntu Linux source install
 RTI Connext (version 6.0.1, amd64 only)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Debian packages provided in the ROS 2 apt repositories
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Deb packages provided in the ROS 2 apt repositories
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can install a Debian package of RTI Connext available on the ROS 2 apt repositories.
+You can install a deb package of RTI Connext available on the ROS 2 apt repositories.
 You will need to accept a license from RTI.
 
 .. code-block:: bash
@@ -88,10 +88,10 @@ RTI Connext (version 6.0.1, amd64 only)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To use RTI Connext DDS there are full-suite install options available for :doc:`university, purchase or evaluation <DDS-Implementations/Install-Connext-University-Eval>`
-or you can install a libraries-only Debian package of RTI Connext 6.0.1, available from the OSRF Apt repository
+or you can install a libraries-only deb package of RTI Connext 6.0.1, available from the OSRF Apt repository
 under a `non-commercial license <https://www.rti.com/ncl>`__.
 
-To install the libs-only Debian package:
+To install the libs-only deb package:
 
 .. code-block:: bash
 

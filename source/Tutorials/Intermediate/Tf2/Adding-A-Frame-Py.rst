@@ -86,6 +86,7 @@ Now open the file called ``fixed_frame_tf2_broadcaster.py``.
     from geometry_msgs.msg import TransformStamped
 
     import rclpy
+    from rclpy.executors import ExternalShutdownException
     from rclpy.node import Node
 
     from tf2_ros import TransformBroadcaster
@@ -116,14 +117,12 @@ Now open the file called ``fixed_frame_tf2_broadcaster.py``.
 
 
     def main():
-        rclpy.init()
-        node = FixedFrameBroadcaster()
         try:
-            rclpy.spin(node)
-        except KeyboardInterrupt:
+            with rclpy.init():
+                node = FixedFrameBroadcaster()
+                rclpy.spin(node)
+        except (KeyboardInterrupt, ExternalShutdownException):
             pass
-
-        rclpy.shutdown()
 
 The code is very similar to the tf2 broadcaster tutorial example and the only difference is that the transform here does not change over time.
 
@@ -160,7 +159,7 @@ Add the following line between the ``'console_scripts':`` brackets:
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Now let's create a launch file for this example.
-With your text editor, create a new file called ``launch/turtle_tf2_fixed_frame_demo_launch.py``, and add the following lines:
+With your text editor, create a new file called ``turtle_tf2_fixed_frame_demo_launch.py`` in the ``src/learning_tf2_py/launch`` directory, and add the following lines:
 
 .. code-block:: python
 
@@ -203,7 +202,6 @@ The last part of the code will add our fixed ``carrot1`` frame to the turtlesim 
         executable='fixed_frame_tf2_broadcaster',
         name='fixed_broadcaster',
     ),
-
 
 1.4 Build
 ~~~~~~~~~
@@ -359,6 +357,7 @@ Now open the file called ``dynamic_frame_tf2_broadcaster.py``:
     from geometry_msgs.msg import TransformStamped
 
     import rclpy
+    from rclpy.executors import ExternalShutdownException
     from rclpy.node import Node
 
     from tf2_ros import TransformBroadcaster
@@ -391,14 +390,12 @@ Now open the file called ``dynamic_frame_tf2_broadcaster.py``:
 
 
     def main():
-        rclpy.init()
-        node = DynamicFrameBroadcaster()
         try:
-            rclpy.spin(node)
-        except KeyboardInterrupt:
+            with rclpy.init():
+                node = DynamicFrameBroadcaster()
+                rclpy.spin(node)
+        except (KeyboardInterrupt, ExternalShutdownException):
             pass
-
-        rclpy.shutdown()
 
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
@@ -427,7 +424,7 @@ Add the following line between the ``'console_scripts':`` brackets:
 2.3 Write the launch file
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To test this code, create a new launch file ``launch/turtle_tf2_dynamic_frame_demo_launch.py`` and paste the following code:
+To test this code, create a new launch file ``turtle_tf2_dynamic_frame_demo_launch.py`` in the ``src/learning_tf2_py/launch`` directory and paste the following code:
 
 .. code-block:: python
 

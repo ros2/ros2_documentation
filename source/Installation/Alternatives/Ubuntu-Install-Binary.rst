@@ -17,12 +17,12 @@ This page explains how to install ROS 2 on Ubuntu Linux from a pre-built binary 
     All packages in the `ROS base variant <https://ros.org/reps/rep-2001.html#ros-base>`_ are included, and only a subset of packages in the `ROS desktop variant <https://ros.org/reps/rep-2001.html#desktop-variants>`_ are included.
     The exact list of packages are described by the repositories listed in `this ros2.repos file <https://github.com/ros2/ros2/blob/{REPOS_FILE_BRANCH}/ros2.repos>`_.
 
-There are also :doc:`Debian packages <../Ubuntu-Install-Debians>` available.
+There are also :doc:`deb packages <../Ubuntu-Install-Debs>` available.
 
 System requirements
 -------------------
 
-We currently support Ubuntu Linux Jammy (22.04) 64-bit x86 and 64-bit ARM.
+We currently support Ubuntu Noble (24.04) 64-bit x86 and 64-bit ARM.
 The Rolling Ridley distribution will change target platforms from time to time as new platforms are selected for development.
 Most people will want to use a stable ROS distribution.
 
@@ -135,12 +135,6 @@ Next steps
 ----------
 
 Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
-
-Use the ROS 1 bridge (optional)
--------------------------------
-
-The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa.
-See the dedicated :doc:`document <../../How-To-Guides/Using-ros1_bridge-Jammy-upstream>` on how to build and use the ROS 1 bridge.
 
 Troubleshoot
 ------------

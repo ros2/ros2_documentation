@@ -8,206 +8,402 @@ Project Governance
 ==================
 
 .. contents:: Table of Contents
-   :depth: 1
+   :depth: 2
    :local:
 
-Technical Steering Committee (TSC)
-----------------------------------
-Since the beginning of ROS, the project has been overseen and prioritized primarily by one organization, first Willow Garage and now Open Robotics.
-That approach has worked well enough, as evidenced by the widespread adoption of ROS around the world.
+The Open Source Robotics Alliance (OSRA)
+----------------------------------------
 
-But with ROS 2, we want to broaden participation to accelerate ROS 2 delivery, starting with these areas: determining the roadmap, developing core tools and libraries, and establishing working groups to focus on important topics.
-To that end, we've established a Technical Steering Committee (TSC).
-As described in the :doc:`charter <Governance/ROS2-TSC-Charter>`, the TSC comprises representatives of organizations that are contributing to the development of ROS 2, and it has the responsibility to set the technical direction for the project.
+Since 2024, the ROS 2 project has been governed by the `Open Source Robotics Alliance (OSRA) <https://osralliance.org/>`__.
+The information below is meant to give a quick overview of the project governance, but for full information please see `the OSRA's website <https://osralliance.org/how-it-works/>`__.
 
-Packages relevant to this ROS 2 TSC are listed in `REP 2005 <https://www.ros.org/reps/rep-2005.html>`_.
+The Technical Governance Committee (TGC)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Meeting notes can be found on `ROS Discourse <https://discourse.ros.org/tag/tsc>`_.
+The Technical Governance Committee is responsible for the oversight of all projects within the OSRA.
+The TGC is made up of a combination of paid members, project management leaders, OSRF leaders, and members based on merits.
+For more details about the TGC, please see `the Charter for the OSRA <https://osralliance.org/staging/wp-content/uploads/2024/03/OSRA-Program-Charter.pdf>`__.
+One of the projects that the TGC oversees is ROS 2, which is managed by the ROS Project Management Committee.
 
-The current members of the ROS 2 TSC are (23 as of 2022-02-01):
+The ROS Project Management Committee (ROS PMC)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. |amazon| image:: Governance/images/amazon.svg
-.. |apex| image:: Governance/images/apex.png
-.. |bosch| image:: Governance/images/bosch_75h.jpg
-.. |canonical| image:: Governance/images/ubuntu.svg
-.. |eprosima| image:: Governance/images/eprosima.svg
-.. |gvsc| image:: Governance/images/gvsc.png
-.. |intel| image:: Governance/images/intel.svg
-.. |intrinsic| image:: Governance/images/intrinsic.png
-.. |irobot| image:: Governance/images/irobot.png
-.. |microsoft| image:: Governance/images/microsoft.svg
-.. |openrobotics| image:: Governance/images/openrobotics-logo-stacked.png
-.. |picknik| image:: Governance/images/picknik.png
-.. |robotis| image:: Governance/images/robotis.png
-.. |ros2| image:: Governance/images/ros2_logo.png
-.. |rosindustrial| image:: Governance/images/ros-industrial.png
-.. |sony| image:: Governance/images/sony.png
-.. |tri| image:: Governance/images/tri_logo_landscape-web.svg
-.. |windriver| image:: Governance/images/windriver.png
-.. |foxglove| image:: Governance/images/foxglove.png
-.. |zettascale| image:: Governance/images/zettascale.png
-.. raw:: html
+The ROS Project Management Committee is responsible for the day-to-day operations of the ROS 2 project.
+The ROS PMC consists of the Project Leader, the ROS PMC Members (who have full voting rights), a Supporting Individual Representative, and the Chair of the TGC.
+The project also has Committers, who help manage one or more repositories but are not a part of the PMC.
+The Project Leader, all PMC Members, and all Committers are chosen on a meritocratic basis.
 
-    <!--
-    The CSS and HTML below generate the list of TSC members.
-    It is currently using raw HTML because there was no way that I could see to make the
-    ReStructured Text "list-tables" directive make the logos a consistent size.
-    -->
-    <style>
-    table.tscclass {
-      border: 1px solid #e1e4e5;
-      border-top-color: rgb(225, 228, 229);
-      border-top-style: solid;
-      border-top-width: 1px;
-      border-right-color: rgb(225, 228, 229);
-      border-right-style: solid;
-      border-right-width: 1px;
-      border-bottom-color: rgb(225, 228, 229);
-      border-bottom-style: solid;
-      border-bottom-width: 1px;
-      border-left-color: rgb(225, 228, 229);
-      border-left-style: solid;
-      border-left-width: 1px;
-      border-image-outset: 0;
-      border-image-repeat: stretch;
-      border-image-slice: 100%;
-      border-image-source: none;
-      border-image-width: 1;
-      width: 100%;
-    }
-    td.tscclass {
-      border-top-color: rgb(225, 228, 229);
-      border-top-style: solid;
-      border-top-width: 1px;
-      border-right-color: rgb(225, 228, 229);
-      border-right-style: solid;
-      border-right-width: 1px;
-      border-bottom-color: rgb(225, 228, 229);
-      border-bottom-style: solid;
-      border-bottom-width: 1px;
-      border-left-color: rgb(225, 228, 229);
-      border-left-style: solid;
-      border-left-width: 1px;
-      padding-left: 15px;
-    }
-    tr.tscclass:nth-child(2n-1) {
-      background-color: #f3f6f6;
-    }
-    </style>
-    <table class="tscclass">
-      <tbody>
-        <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.amazon.com"><img alt="Amazon logo" src="../_images/amazon.svg" style="height: 35px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>Amazon: Aaron Blasdel</p></td>
-        </tr>
-        <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.apex.ai"><img alt="Apex.AI logo" src="../_images/apex.png" style="height: 35px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>Apex.AI: Lyle Johnson</p></td>
-        </tr>
-        <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.bosch.com"><img alt="Bosch logo" src="../_images/bosch_75h.jpg" style="height: 35px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>Bosch: Christian Henkel</p></td>
-        </tr>
-        <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://ubuntu.com"><img alt="Ubuntu logo" src="../_images/ubuntu.svg" style="height: 35px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>Canonical: Mirko Ferrati</p></td>
-        </tr>
-        <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://eprosima.com"><img alt="eProsima logo" src="../_images/eprosima.svg" style="height: 35px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>eProsima: Jaime Martin Losa</p></td>
-        </tr>
-        <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://gvsc.army.mil"><img alt="GVSC logo" src="../_images/gvsc.png" style="height: 50px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>GVSC: Jerry Towler (SwRI)</p></td>
-        </tr>
-        <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.intel.com"><img alt="Intel logo" src="../_images/intel.svg" style="height: 50px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>Intel: Harold Yang</p></td>
-        </tr>
-        <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://intrinsic.ai/"><img alt="Intrinsic logo" src="../_images/intrinsic.png" style="height: 35px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>Intrinsic: Chris Lalancette</p></td>
-        </tr>
-        <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.irobot.com"><img alt="iRobot logo" src="../_images/irobot.png" style="height: 35px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>iRobot: Alberto Soragna</p></td>
-        </tr>
-        <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.microsoft.com"><img alt="Microsoft logo" src="../_images/microsoft.svg" style="height: 35px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>Microsoft: Lou Amadio</p></td>
-        </tr>
-        <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.openrobotics.org"><img alt="OSRF logo" src="../_images/openrobotics-logo-stacked.png" style="height: 35px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>OSRF: Geoff Biggs</p></td>
-        </tr>
-        <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://picknik.ai"><img alt="PickNik logo" src="../_images/picknik.png" style="height: 35px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>PickNik: Henning Kayser</p></td>
-        </tr>
-        <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.robotis.com"><img alt="ROBOTIS logo" src="../_images/robotis.png" style="height: 35px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>ROBOTIS: Will Son</p></td>
-        </tr>
-        <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://rosindustrial.org/about/description/"><img alt="ROS Industriallogo" src="../_images/ros-industrial.png" style="height: 35px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>ROS-Industrial: Matt Robinson</p></td>
-        </tr>
-        <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.sony.com"><img alt="Sony logo" src="../_images/sony.png" style="height: 60px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>Sony: Tomoya Fujita</p></td>
-        </tr>
-        <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.tri.global"><img alt="TRI logo" src="../_images/tri_logo_landscape-web.svg" style="height: 50px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>Toyota Research Institute: Ian McMahon</p></td>
-        </tr>
-        <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.windriver.com"><img alt="Wind River logo" src="../_images/windriver.png" style="height: 60px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>Wind River: Andrei Kholodnyi</p></td>
-        </tr>
-        <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.foxglove.dev"><img alt="Foxglove logo" src="../_images/foxglove.png" style="height: 60px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>Foxglove:  Adrian Macneil</p></td>
-        </tr>
-        <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.zettascale.tech/"><img alt="Zetta Scale logo" src="../_images/zettascale.png" style="height: 35px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>Zetta Scale: Angelo Corsaro</p></td>
-        </tr>
-        <tr class="tscclass">
-          <td class="tscclass" align="center"><p><img alt="ROS 2 logo" src="../_images/ros2_logo.png" style="height: 60px;" /></p></td>
-          <td class="tscclass" align="center"><p>Community Representative: <a href="https://davidlu.dev/">David V. Lu!!</a> </p></td>
-        </tr>
-        <tr class="tscclass">
-          <td class="tscclass" align="center"><p><img alt="ROS 2 logo" src="../_images/ros2_logo.png" style="height: 60px;" /></p></td>
-          <td class="tscclass" align="center"><p>Community Representative: <a href="https://github.com/SteveMacenski">Steve Macenski</a></p></td>
-        </tr>
-        <tr class="tscclass">
-          <td class="tscclass" align="center"><p><img alt="ROS 2 logo" src="../_images/ros2_logo.png" style="height: 60px;" /></p></td>
-          <td class="tscclass" align="center"><p>Community Representative: <a href="https://github.com/fmrico">Francisco Martin Rico</a></p></td>
-        </tr>
-      </tbody>
-    </table>
-    <br/>
+The day-to-day operations of the ROS PMC include managing the members and committers, managing the repositories that make up ROS 2, reviewing and merging code from the ROS community, maintaining the repositories, and making technical decisions that decide the direction of the project.
 
-If you are interested in joining the ROS 2 TSC, please inquire via info@openrobotics.org.
+For more details about the ROS PMC, please see the `Charter for the ROS Project <https://osralliance.org/staging/wp-content/uploads/2024/03/ros_project_charter.pdf>`__.
 
-.. toctree::
-   :maxdepth: 1
+Current ROS PMC Constituents
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   Governance/ROS2-TSC-Charter
-   Governance/ROS2-TSC-Intake-process
-   Governance/Working-Groups
-   Governance/How-To-Start-A-Community-Working-Group
+The ROS PMC currently consists of the following constituents:
 
-Working Groups (WGs)
---------------------
+.. list-table::
+   :header-rows: 1
 
-As described in its :doc:`charter <Governance/ROS2-TSC-Charter>`, the TSC establishes working groups (WGs) to discuss and make progress on specific topics.
-More information about working groups, along with a list of active ROS 2 working groups :doc:`can be found here <Governance/Working-Groups>`.
+   * - Name
+     - Affiliation
+     - GitHub handle
+     - PMC role
+     - Time Zone (optional)
+   * - Chris Lalancette
+     - Intrinsic
+     - clalancette
+     - Project Leader
+     - N/A
+   * - Michael Carroll
+     - Intrinsic
+     - mjcarroll
+     - Member
+     - CST (UTC-6)/CDT (UTC-5)
+   * - Tomoya Fujita
+     - Sony
+     - fujitatomoya
+     - Member
+     - PST (UTC-8)/PDT (UTC-7)
+   * - Shane Loretz
+     - Intrinsic
+     - sloretz
+     - Member
+     - PST (UTC-8)/PDT (UTC-7)
+   * - Michael Orlov
+     - Apex.AI
+     - MichaelOrlov
+     - Member
+     - PST (UTC-8)/PDT (UTC-7)
+   * - Kat Scott
+     - Intrinsic
+     - kscottz
+     - OSRA Developer Advocate
+     - PST (UTC-8)/PDT (UTC-7)
+   * - Alejandro Hernandez Cordero
+     - Independent software engineer contractor
+     - ahcorde
+     - Member
+     - CET (UTC+1)/CEST (UTC+2)
+   * - Christophe Bédard
+     - Apex.AI
+     - christophebedard
+     - Member
+     - PST (UTC-8)/PDT (UTC-7)
+   * - Alberto Soragna
+     - iRobot
+     - alsora
+     - Member
+     - PST (UTC-8)/PDT (UTC-7)
+   * - William Woodall
+     - Intrinsic
+     - wjwwood
+     - Member
+     - PST (UTC-8)/PDT (UTC-7)
+   * - Marco A. Gutiérrez
+     - Intrinsic
+     - marcoag
+     - Member
+     - SGT (UTC+8)
+   * - Yadunund Vijay
+     - Intrinsic
+     - Yadunund
+     - Member
+     - PST (UTC-8)/PDT (UTC-7)
+
+Current ROS Committers
+^^^^^^^^^^^^^^^^^^^^^^
+
+The ROS committers (who are not also part of the ROS PMC) consists of the following constituents:
+
+.. list-table::
+   :header-rows: 1
+
+   * - Name
+     - Affiliation
+     - GitHub handle
+     - Time Zone (optional)
+   * - Miguel Company
+     - eProsima
+     - MiguelCompany
+     - CET (UTC+1)/CEST (UTC+2)
+   * - Tully Foote
+     - Intrinsic
+     - tfoote
+     - PST (UTC-8)/PDT (UTC-7)
+   * - Barry Xu
+     - Sony
+     - Barry-Xu-2018
+     - CST (UTC+8)
+
+Past ROS PMC Constituents
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ROS PMC thanks the following past constituents for their service:
+
+.. list-table::
+   :header-rows: 1
+
+   * - Name
+     - PMC role
+     - GitHub handle (optional)
+   * - None yet
+     - None yet
+     - None yet
+
+Repositories managed by the ROS PMC
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The following repositories are managed by the ROS PMC:
+
+.. list-table::
+   :header-rows: 1
+
+   * - Repository URL
+     - Committers
+   * - https://github.com/ament/ament_cmake
+     - Not Yet Available
+   * - https://github.com/ament/ament_index
+     - Not Yet Available
+   * - https://github.com/ament/ament_lint
+     - Not Yet Available
+   * - https://github.com/ament/ament_package
+     - Not Yet Available
+   * - https://github.com/ament/google_benchmark_vendor
+     - Not Yet Available
+   * - https://github.com/ament/googletest
+     - Not Yet Available
+   * - https://github.com/ament/uncrustify_vendor
+     - Not Yet Available
+   * - https://github.com/gazebo-release/gz_cmake_vendor
+     - Not Yet Available
+   * - https://github.com/gazebo-release/gz_math_vendor
+     - Not Yet Available
+   * - https://github.com/gazebo-release/gz_utils_vendor
+     - Not Yet Available
+   * - https://github.com/osrf/osrf_pycommon
+     - Not Yet Available
+   * - https://github.com/osrf/osrf_testing_tools_cpp
+     - Not Yet Available
+   * - https://github.com/ros-infrastructure/rep
+     - Not Yet Available
+   * - https://github.com/ros-infrastructure/rosdoc2
+     - Not Yet Available
+   * - https://github.com/ros-perception/image_common
+     - Not Yet Available
+   * - https://github.com/ros-perception/laser_geometry
+     - Not Yet Available
+   * - https://github.com/ros-perception/point_cloud_transport
+     - Not Yet Available
+   * - https://github.com/ros-perception/pointcloud_to_laserscan
+     - Not Yet Available
+   * - https://github.com/ros-planning/navigation_msgs
+     - Not Yet Available
+   * - https://github.com/ros-tooling/keyboard_handler
+     - Not Yet Available
+   * - https://github.com/ros-tooling/libstatistics_collector
+     - Not Yet Available
+   * - https://github.com/ros-visualization/interactive_markers
+     - Not Yet Available
+   * - https://github.com/ros-visualization/python_qt_binding
+     - Not Yet Available
+   * - https://github.com/ros-visualization/qt_gui_core
+     - Not Yet Available
+   * - https://github.com/ros-visualization/rqt
+     - Not Yet Available
+   * - https://github.com/ros-visualization/rqt_action
+     - Not Yet Available
+   * - https://github.com/ros-visualization/rqt_bag
+     - Not Yet Available
+   * - https://github.com/ros-visualization/rqt_console
+     - Not Yet Available
+   * - https://github.com/ros-visualization/rqt_graph
+     - Not Yet Available
+   * - https://github.com/ros-visualization/rqt_msg
+     - Not Yet Available
+   * - https://github.com/ros-visualization/rqt_plot
+     - Not Yet Available
+   * - https://github.com/ros-visualization/rqt_publisher
+     - Not Yet Available
+   * - https://github.com/ros-visualization/rqt_py_console
+     - Not Yet Available
+   * - https://github.com/ros-visualization/rqt_reconfigure
+     - Not Yet Available
+   * - https://github.com/ros-visualization/rqt_service_caller
+     - Not Yet Available
+   * - https://github.com/ros-visualization/rqt_shell
+     - Not Yet Available
+   * - https://github.com/ros-visualization/rqt_srv
+     - Not Yet Available
+   * - https://github.com/ros-visualization/rqt_topic
+     - Not Yet Available
+   * - https://github.com/ros-visualization/tango_icons_vendor
+     - Not Yet Available
+   * - https://github.com/ros-visualization/visualization_tutorials
+     - Not Yet Available
+   * - https://github.com/ros/angles
+     - Not Yet Available
+   * - https://github.com/ros/class_loader
+     - Not Yet Available
+   * - https://github.com/ros/console_bridge
+     - Not Yet Available
+   * - https://github.com/ros/eigen_stl_containers
+     - Not Yet Available
+   * - https://github.com/ros/geometry_tutorials
+     - Not Yet Available
+   * - https://github.com/ros/geometry2
+     - Not Yet Available
+   * - https://github.com/ros/kdl_parser
+     - Not Yet Available
+   * - https://github.com/ros/pluginlib
+     - Not Yet Available
+   * - https://github.com/ros/resource_retriever
+     - Not Yet Available
+   * - https://github.com/ros/robot_state_publisher
+     - Not Yet Available
+   * - https://github.com/ros/ros_environment
+     - Not Yet Available
+   * - https://github.com/ros/ros_tutorials
+     - Not Yet Available
+   * - https://github.com/ros/rosdistro
+     - Not Yet Available
+   * - https://github.com/ros/urdf_parser_py
+     - Not Yet Available
+   * - https://github.com/ros/urdfdom
+     - Not Yet Available
+   * - https://github.com/ros/urdfdom_headers
+     - Not Yet Available
+   * - https://github.com/ros2/ament_cmake_ros
+     - Not Yet Available
+   * - https://github.com/ros2/common_interfaces
+     - Not Yet Available
+   * - https://github.com/ros2/console_bridge_vendor
+     - Not Yet Available
+   * - https://github.com/ros2/demos
+     - Not Yet Available
+   * - https://github.com/ros2/design
+     - Not Yet Available
+   * - https://github.com/ros2/eigen3_cmake_module
+     - Not Yet Available
+   * - https://github.com/ros2/example_interfaces
+     - Not Yet Available
+   * - https://github.com/ros2/examples
+     - Not Yet Available
+   * - https://github.com/ros2/geometry2
+     - Not Yet Available
+   * - https://github.com/ros2/launch
+     - Not Yet Available
+   * - https://github.com/ros2/launch_ros
+     - Not Yet Available
+   * - https://github.com/ros2/libyaml_vendor
+     - Not Yet Available
+   * - https://github.com/ros2/message_filters
+     - Not Yet Available
+   * - https://github.com/ros2/mimick_vendor
+     - Not Yet Available
+   * - https://github.com/ros2/orocos_kdl_vendor
+     - Not Yet Available
+   * - https://github.com/ros2/performance_test_fixture
+     - Not Yet Available
+   * - https://github.com/ros2/pybind11_vendor
+     - Not Yet Available
+   * - https://github.com/ros2/python_cmake_module
+     - Not Yet Available
+   * - https://github.com/ros2/rcl
+     - Not Yet Available
+   * - https://github.com/ros2/rcl_interfaces
+     - Not Yet Available
+   * - https://github.com/ros2/rcl_logging
+     - Not Yet Available
+   * - https://github.com/ros2/rclcpp
+     - Not Yet Available
+   * - https://github.com/ros2/rclpy
+     - Not Yet Available
+   * - https://github.com/ros2/rcpputils
+     - Not Yet Available
+   * - https://github.com/ros2/rcutils
+     - Not Yet Available
+   * - https://github.com/ros2/realtime_support
+     - Not Yet Available
+   * - https://github.com/ros2/rmw
+     - Not Yet Available
+   * - https://github.com/ros2/rmw_connextdds
+     - Not Yet Available
+   * - https://github.com/ros2/rmw_cyclonedds
+     - Not Yet Available
+   * - https://github.com/ros2/rmw_dds_common
+     - Not Yet Available
+   * - https://github.com/ros2/rmw_fastrtps
+     - Not Yet Available
+   * - https://github.com/ros2/rmw_implementation
+     - Not Yet Available
+   * - https://github.com/ros2/rmw_zenoh
+     - Not Yet Available
+   * - https://github.com/ros2/ros_testing
+     - Not Yet Available
+   * - https://github.com/ros2/ros1_bridge
+     - Not Yet Available
+   * - https://github.com/ros2/ros2
+     - Not Yet Available
+   * - https://github.com/ros2/ros2_documentation
+     - Not Yet Available
+   * - https://github.com/ros2/ros2_tracing
+     - Not Yet Available
+   * - https://github.com/ros2/ros2cli
+     - Not Yet Available
+   * - https://github.com/ros2/ros2cli_common_extensions
+     - Not Yet Available
+   * - https://github.com/ros2/rosbag2
+     - Not Yet Available
+   * - https://github.com/ros2/rosidl
+     - Not Yet Available
+   * - https://github.com/ros2/rosidl_core
+     - Not Yet Available
+   * - https://github.com/ros2/rosidl_dds
+     - Not Yet Available
+   * - https://github.com/ros2/rosidl_defaults
+     - Not Yet Available
+   * - https://github.com/ros2/rosidl_dynamic_typesupport
+     - Not Yet Available
+   * - https://github.com/ros2/rosidl_dynamic_typesupport_fastrtps
+     - Not Yet Available
+   * - https://github.com/ros2/rosidl_python
+     - Not Yet Available
+   * - https://github.com/ros2/rosidl_runtime_py
+     - Not Yet Available
+   * - https://github.com/ros2/rosidl_typesupport
+     - Not Yet Available
+   * - https://github.com/ros2/rosidl_typesupport_fastrtps
+     - Not Yet Available
+   * - https://github.com/ros2/rpyutils
+     - Not Yet Available
+   * - https://github.com/ros2/rviz
+     - Not Yet Available
+   * - https://github.com/ros2/spdlog_vendor
+     - Not Yet Available
+   * - https://github.com/ros2/sros2
+     - Not Yet Available
+   * - https://github.com/ros2/system_tests
+     - Not Yet Available
+   * - https://github.com/ros2/test_interface_files
+     - Not Yet Available
+   * - https://github.com/ros2/tinyxml_vendor
+     - Not Yet Available
+   * - https://github.com/ros2/tinyxml2_vendor
+     - Not Yet Available
+   * - https://github.com/ros2/tlsf
+     - Not Yet Available
+   * - https://github.com/ros2/unique_identifier_msgs
+     - Not Yet Available
+   * - https://github.com/ros2/urdf
+     - Not Yet Available
+   * - https://github.com/ros2/yaml_cpp_vendor
+     - Not Yet Available
 
 Upcoming ROS Events
 -------------------
 
-Upcoming Working group meetings can be found in this `Google Calendar <https://calendar.google.com/calendar/embed?src=agf3kajirket8khktupm9go748%40group.calendar.google.com&ctz=America%2FLos_Angeles>`_.
+Upcoming ROS Events can be found in this `Google Calendar <https://calendar.google.com/calendar/embed?src=agf3kajirket8khktupm9go748%40group.calendar.google.com&ctz=America%2FLos_Angeles>`_.
 It can be accessed via `iCal <https://calendar.google.com/calendar/ical/agf3kajirket8khktupm9go748%40group.calendar.google.com/public/basic.ics>`_.
 
 .. raw:: html
@@ -245,4 +441,4 @@ It can be accessed via `iCal <https://calendar.google.com/calendar/ical/agf3kaji
       </div>
     </div>
 
-If you have an individual event or series of events that you'd like to post please contact info@openrobotics.org
+If you have an individual event or series of events that you'd like to post please contact info@openrobotics.org.

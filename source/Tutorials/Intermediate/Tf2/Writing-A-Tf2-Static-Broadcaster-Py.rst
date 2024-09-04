@@ -86,7 +86,7 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the exampl
 
                 curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/static_turtle_tf2_broadcaster.py -o static_turtle_tf2_broadcaster.py
 
-Open the file using your preferred text editor.
+Now open the file called ``static_turtle_tf2_broadcaster.py`` using your preferred text editor.
 
 .. code-block:: python
 
@@ -98,6 +98,7 @@ Open the file using your preferred text editor.
     import numpy as np
 
     import rclpy
+    from rclpy.executors import ExternalShutdownException
     from rclpy.node import Node
 
     from tf2_ros.static_transform_broadcaster import StaticTransformBroadcaster
@@ -165,28 +166,26 @@ Open the file using your preferred text editor.
 
 
     def main():
-        logger = rclpy.logging.get_logger('logger')
-
-        # obtain parameters from command line arguments
-        if len(sys.argv) != 8:
-            logger.info('Invalid number of parameters. Usage: \n'
-                        '$ ros2 run learning_tf2_py static_turtle_tf2_broadcaster'
-                        'child_frame_name x y z roll pitch yaw')
-            sys.exit(1)
-
-        if sys.argv[1] == 'world':
-            logger.info('Your static turtle name cannot be "world"')
-            sys.exit(2)
-
-        # pass parameters and initialize node
-        rclpy.init()
-        node = StaticFramePublisher(sys.argv)
         try:
-            rclpy.spin(node)
-        except KeyboardInterrupt:
-            pass
+            logger = rclpy.logging.get_logger('logger')
 
-        rclpy.shutdown()
+            # obtain parameters from command line arguments
+            if len(sys.argv) != 8:
+                logger.info('Invalid number of parameters. Usage: \n'
+                            '$ ros2 run learning_tf2_py static_turtle_tf2_broadcaster'
+                            'child_frame_name x y z roll pitch yaw')
+                sys.exit(1)
+
+            if sys.argv[1] == 'world':
+                logger.info('Your static turtle name cannot be "world"')
+                sys.exit(2)
+
+            # pass parameters and initialize node
+            with rclpy.init():
+                node = StaticFramePublisher(sys.argv)
+                rclpy.spin(node)
+        except (KeyboardInterrupt, ExternalShutdownException):
+            pass
 
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
@@ -204,6 +203,7 @@ Afterward, ``rclpy`` is imported so its ``Node`` class can be used.
 .. code-block:: python
 
     import rclpy
+    from rclpy.executors import ExternalShutdownException
     from rclpy.node import Node
 
 The ``tf2_ros`` package provides a ``StaticTransformBroadcaster`` to make the publishing of static transforms easy.
@@ -271,7 +271,7 @@ As mentioned in the :doc:`Create a package <../../Beginner-Client-Libraries/Crea
 
     <description>Learning tf2 with rclpy</description>
     <maintainer email="you@email.com">Your Name</maintainer>
-    <license>Apache License 2.0</license>
+    <license>Apache-2.0</license>
 
 After the lines above, add the following dependencies corresponding to your node’s import statements:
 
@@ -413,14 +413,14 @@ This tutorial aimed to show how ``StaticTransformBroadcaster`` can be used to pu
 In your real development process you shouldn't have to write this code yourself and should use the dedicated ``tf2_ros`` tool to do so.
 ``tf2_ros`` provides an executable named ``static_transform_publisher`` that can be used either as a commandline tool or a node that you can add to your launchfiles.
 
-Publish a static coordinate transform to tf2 using an x/y/z offset in meters and roll/pitch/yaw in radians.
-In our case, roll/pitch/yaw refers to rotation about the x/y/z-axis, respectively.
+The following command publishes a static coordinate transform to tf2 using an x/y/z offset in meters and roll/pitch/yaw in radians.
+In ROS 2, roll/pitch/yaw refers to rotation about the x/y/z-axis, respectively.
 
 .. code-block:: console
 
     ros2 run tf2_ros static_transform_publisher --x x --y y --z z --yaw yaw --pitch pitch --roll roll --frame-id frame_id --child-frame-id child_frame_id
 
-Publish a static coordinate transform to tf2 using an x/y/z offset in meters and quaternion.
+The following command publishes a static coordinate transform to tf2 using an x/y/z offset in meters and roll/pitch/yaw as a quaternion.
 
 .. code-block:: console
 
@@ -428,7 +428,7 @@ Publish a static coordinate transform to tf2 using an x/y/z offset in meters and
 
 ``static_transform_publisher`` is designed both as a command-line tool for manual use, as well as for use within ``launch`` files for setting static transforms. For example:
 
-.. code-block:: console
+.. code-block:: python
 
     from launch import LaunchDescription
     from launch_ros.actions import Node

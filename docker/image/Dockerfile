@@ -15,15 +15,14 @@ RUN apt-get update && \
     apt-get install --no-install-recommends -y \
         git-all \
         graphviz \
+        locales \
         make \
-        python3-doc8 \
-        python3-docutils \
-        python3-pip \
-        python3-sphinx \
-        python3-sphinx-copybutton \
-        python3-sphinx-rtd-theme \
-        python3-sphinx-tabs && \
+        python3-pip && \
     rm -rf /var/lib/apt/lists/*
+
+RUN locale-gen en_US en_US.UTF-8
+RUN update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+ENV LANG=en_US.UTF-8
 
 RUN useradd -u $uid -m $user
 ENV HOME=/home/$user
