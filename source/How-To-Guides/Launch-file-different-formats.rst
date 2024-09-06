@@ -45,7 +45,7 @@ Each launch file performs the following actions:
         from launch.substitutions import LaunchConfiguration
         from launch.substitutions import TextSubstitution
         from launch_ros.actions import Node
-        from launch_ros.actions import PushRosNamespace
+        from launch_ros.actions import PushROSNamespace
         from launch_xml.launch_description_sources import XMLLaunchDescriptionSource
         from launch_yaml.launch_description_sources import YAMLLaunchDescriptionSource
 
@@ -83,7 +83,7 @@ Each launch file performs the following actions:
             launch_py_include_with_namespace = GroupAction(
                 actions=[
                     # push_ros_namespace first to set namespace of included nodes for following actions
-                    PushRosNamespace('chatter_py_ns'),
+                    PushROSNamespace('chatter_py_ns'),
                     IncludeLaunchDescription(
                         PythonLaunchDescriptionSource(
                             os.path.join(
@@ -97,7 +97,7 @@ Each launch file performs the following actions:
             launch_xml_include_with_namespace = GroupAction(
                 actions=[
                     # push_ros_namespace first to set namespace of included nodes for following actions
-                    PushRosNamespace('chatter_xml_ns'),
+                    PushROSNamespace('chatter_xml_ns'),
                     IncludeLaunchDescription(
                         XMLLaunchDescriptionSource(
                             os.path.join(
@@ -111,7 +111,7 @@ Each launch file performs the following actions:
             launch_yaml_include_with_namespace = GroupAction(
                 actions=[
                     # push_ros_namespace first to set namespace of included nodes for following actions
-                    PushRosNamespace('chatter_yaml_ns'),
+                    PushROSNamespace('chatter_yaml_ns'),
                     IncludeLaunchDescription(
                         YAMLLaunchDescriptionSource(
                             os.path.join(
