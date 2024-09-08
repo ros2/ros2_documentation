@@ -44,9 +44,23 @@ Both packages should be in the same workspace.
 
 Since we will use the pub/sub and service/client packages created in earlier tutorials, make sure you are in the same workspace as those packages (``ros2_ws/src``), and then run the following command to create a new package:
 
+.. tabs::
+
+  .. group-tab:: C++
+
+    .. code-block:: console
+
+      ros2 pkg create --build-type ament_cmake --license Apache-2.0 tutorial_interfaces
+
+  .. group-tab:: Python
+
+    .. code-block:: console
+
+       ros2 pkg create --build-type ament_python --license Apache-2.0 tutorial_interfaces
+
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_cmake --license Apache-2.0 tutorial_interfaces
+  
 
 ``tutorial_interfaces`` is the name of the new package.
 Note that it is, and can only be, a CMake package, but this doesn't restrict in which type of packages you can use your messages and services.
@@ -768,13 +782,13 @@ After making the above edits and saving all the changes, build the package:
 
     .. code-block:: console
 
-      colcon build --packages-select cpp_srvcli
+      colcon build --packages-select tutorial_interfaces
 
     On Windows:
 
     .. code-block:: console
 
-      colcon build --merge-install --packages-select cpp_srvcli
+      colcon build --merge-install --packages-select tutorial_interfaces
 
 
   .. group-tab:: Python
@@ -783,13 +797,13 @@ After making the above edits and saving all the changes, build the package:
 
     .. code-block:: console
 
-      colcon build --packages-select py_srvcli
+      colcon build --packages-select tutorial_interfaces
 
     On Windows:
 
     .. code-block:: console
 
-      colcon build --merge-install --packages-select py_srvcli
+      colcon build --merge-install --packages-select tutorial_interfaces
 
 Then open two new terminals, source ``ros2_ws`` in each, and run:
 
@@ -799,21 +813,21 @@ Then open two new terminals, source ``ros2_ws`` in each, and run:
 
     .. code-block:: console
 
-          ros2 run cpp_srvcli server
+          ros2 run tutorial_interfaces server
 
     .. code-block:: console
 
-          ros2 run cpp_srvcli client 2 3 1
+          ros2 run tutorial_interfaces client 2 3 1
 
   .. group-tab:: Python
 
     .. code-block:: console
 
-        ros2 run py_srvcli service
+        ros2 run tutorial_interfaces service
 
     .. code-block:: console
 
-        ros2 run py_srvcli client 2 3 1
+        ros2 run tutorial_interfaces client 2 3 1
 
 
 Summary
