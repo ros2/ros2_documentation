@@ -70,7 +70,7 @@ ROS 2 项目
 
 * :doc:`发行版 <Releases>`
 
-  - Past, present and future ROS 2 distributions
+  - 从过去到现在所有的 ROS 2 发行版本
 
 * :doc:`Features Status <The-ROS2-Project/Features>`
 
@@ -97,10 +97,10 @@ ROS 2 项目
   - Downloadable marketing materials
   - `Information about the ROS trademark <https://www.ros.org/blog/media/>`__
 
-ROS community resources
+ROS 社区资源
 -----------------------
 
-If you need help, have an idea, or would like to contribute to the project, please visit our ROS community resources.
+如果您需要帮助、有想法或想为项目做出贡献，请访问我们的 ROS 社区资源。
 
 * `Official ROS Discord Channel for discussion and support <https://discord.com/servers/open-robotics-1077825543698927656>`__ (ROS 1, ROS 2)
 
@@ -125,7 +125,7 @@ If you need help, have an idea, or would like to contribute to the project, plea
 
   - Check the current status of ROS resources like Discourse or the ROS build farm.
 
-General ROS project resources
+通用 ROS 项目资源
 -----------------------------
 
 * `ROS Enhancement Proposals (REPs) <https://ros.org/reps/rep-0000.html>`__ (ROS 1, ROS 2)
@@ -181,7 +181,7 @@ Miscellaneous
 
   - Tax deductible charitable donations to the Open Source Robotics Foundation can be sent via `DonorBox. <https://donorbox.org/support-open-robotics?utm_medium=qrcode&utm_source=qrcode>`__
 
-Deprecated
+已弃用资源
 ----------
 * `ROS Answers <https://answers.ros.org/questions/>`__ (ROS 1, ROS 2)
 
