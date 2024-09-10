@@ -253,7 +253,9 @@ Input the full command like so:
 
 ``--once`` is an optional argument meaning “publish one message then exit”.
 
-``-w 2`` is an optional argument meaning “wait for two matching subscriptions”. This is needed because we have both turtlesim and the topic echo subscribed 
+``-w 2`` is an optional argument meaning “wait for two matching subscriptions”.
+
+This is needed because we have both turtlesim and the topic echo subscribed.
 
 You will see the following output in the terminal:
 
