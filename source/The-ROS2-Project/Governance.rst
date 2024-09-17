@@ -110,6 +110,11 @@ The ROS PMC currently consists of the following constituents:
      - Yadunund
      - Member
      - PST (UTC-8)/PDT (UTC-7)
+   * - Steven! Ragnarök
+     - Intrinsic
+     - nuclearsandwich
+     - Member / Infrastructure Project Lead
+     - PST (UTC-8)/PDT (UTC-7)
 
 Current ROS Committers
 ^^^^^^^^^^^^^^^^^^^^^^
