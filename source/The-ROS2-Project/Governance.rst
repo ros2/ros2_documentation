@@ -136,6 +136,10 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
      - Intrinsic
      - tfoote
      - PST (UTC-8)/PDT (UTC-7)
+   * - Steve Peters
+     - Intrinsic
+     - scpeters
+     - PST (UTC-8)/PDT (UTC-7)
    * - Barry Xu
      - Sony
      - Barry-Xu-2018
