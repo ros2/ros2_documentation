@@ -289,7 +289,6 @@ You will see that the ``ros2 topic pub ...`` node (``/_ros2cli_30358``) is publi
 
 
 
-
 Finally, you can run ``echo`` on the ``pose`` topic and recheck rqt_graph:
 
 .. code-block:: console
