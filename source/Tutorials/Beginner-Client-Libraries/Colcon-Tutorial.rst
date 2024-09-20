@@ -187,6 +187,11 @@ This allows the installed files to be changed by changing the files in the ``sou
       colcon build --symlink-install --merge-install
 
     Windows doesn't allow long paths, so ``merge-install`` will combine all the paths into the ``install`` directory.
+    For Linux users, if  the prompt consumes all ressources, limit the number of parallel workers with this:
+
+.. code-block:: console
+
+  colcon build --parallel-workers 2
 
 After the build is finished, we should see the ``build``, ``install``, and ``log`` directories:
 
