@@ -20,11 +20,19 @@ To build this you need to install
 * graphviz
 * python virtualenv
 
-
-In the virtualenv 
+With virtualenv
 
 ```
+# activate the virtualenv
+virtualenv ros2doc
+...<snip>
+source ros2doc/bin/activate
+
+# install required packages
 pip install -r requirements.txt -c constraints.txt
+
+# deactivate the virtualenv
+(ros2doc) deactivate
 ```
 
 ### Pinned versions
@@ -36,6 +44,7 @@ To upgrade the system validate that things are working and then use `pip freeze 
 ## Building HTML
 
 ### Local development test
+
 For local testing of the current tree use:
 
 `make html`

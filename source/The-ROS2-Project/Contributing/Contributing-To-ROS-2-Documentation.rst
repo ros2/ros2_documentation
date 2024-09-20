@@ -57,6 +57,10 @@ Start by installing requirements located in the ``requirements.txt`` file:
 
       python -m pip install --user --upgrade -r requirements.txt
 
+.. note::
+
+  It is recommended to use `virtualenv <https://pypi.org/project/virtualenv/>`__ to build, otherwise you might need to add ``--break-system-packages`` option with ``pip install`` because of `PEP 668 <https://peps.python.org/pep-0668/>`__.
+
 In order for Sphinx to be able to generate diagrams, the ``dot`` command must be available.
 
 .. tabs::
@@ -232,6 +236,38 @@ Finally, to view the site, you can click on the "Go Live" button in the right bo
    :width: 100%
    :alt: Live Server
 
+Building the Site with Devcontainer
+-----------------------------------
+
+`ROS 2 Documentation GitHub repository <https://github.com/ros2/ros2_documentation>`__ also supports ``Devcontainer`` development environment with Visual Studio Code.
+This will enable you to build the documentation much easier without changing your operating system.
+
+See :doc:`../../How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container` to install VS Code and Docker before the following procedure.
+
+Clone repository and start VS Code:
+
+.. code-block:: console
+
+   git clone https://github.com/ros2/ros2_documentation
+   cd ./ros2_documentation
+   code .
+
+To use ``Devcontainer``, you need to install "Remote Development" Extension within VS Code search in Extensions (CTRL+SHIFT+X) for it.
+
+And then, use ``View->Command Palette...`` or ``Ctrl+Shift+P`` to open the command palette.
+Search for the command ``Dev Containers: Reopen in Container`` and execute it.
+This will build your development docker container for you automatically.
+
+To build the documentation, open a terminal using ``View->Terminal`` or ``Ctrl+Shift+``` and ``New Terminal`` in VS Code.
+Inside the terminal, you can build the documentation:
+
+.. code-block:: console
+
+   make html
+
+.. image:: images/vscode_devcontainer.png
+   :width: 100%
+   :alt: VS Code Devcontainer
 
 Writing pages
 -------------
