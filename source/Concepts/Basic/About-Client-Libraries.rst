@@ -78,6 +78,7 @@ While the C++ and Python client libraries are maintained by the core ROS 2 team,
 * `.NET Core, UWP and C# <https://github.com/esteve/ros2_dotnet>`__ This is a collection of projects (bindings, code generator, examples and more) for writing ROS 2 applications for .NET Core and .NET Standard.
 * `Node.js <https://www.npmjs.com/package/rclnodejs>`__ rclnodejs is a Node.js client for ROS 2. It provides a simple and easy JavaScript API for ROS 2 programming.
 * `Rust <https://github.com/ros2-rust/ros2_rust>`__ This is a set of projects (the rclrs client library, code generator, examples and more) that enables developers to write ROS 2 applications in Rust.
+* `Flutter and Dart <https://github.com/rcldart>`__ Flutter and Dart bindings for ROS 2.
 
 Older, unmaintained client libraries are:
 
