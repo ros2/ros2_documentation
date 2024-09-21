@@ -45,7 +45,7 @@ Each launch file performs the following actions:
         from launch.substitutions import LaunchConfiguration
         from launch.substitutions import TextSubstitution
         from launch_ros.actions import Node
-        from launch_ros.actions import PushRosNamespace
+        from launch_ros.actions import PushROSNamespace
         from launch_xml.launch_description_sources import XMLLaunchDescriptionSource
         from launch_yaml.launch_description_sources import YAMLLaunchDescriptionSource
 
@@ -82,8 +82,8 @@ Each launch file performs the following actions:
             # include a Python launch file in the chatter_py_ns namespace
             launch_py_include_with_namespace = GroupAction(
                 actions=[
-                    # push_ros_namespace to set namespace of included nodes
-                    PushRosNamespace('chatter_py_ns'),
+                    # push_ros_namespace first to set namespace of included nodes for following actions
+                    PushROSNamespace('chatter_py_ns'),
                     IncludeLaunchDescription(
                         PythonLaunchDescriptionSource(
                             os.path.join(
@@ -96,8 +96,8 @@ Each launch file performs the following actions:
             # include a xml launch file in the chatter_xml_ns namespace
             launch_xml_include_with_namespace = GroupAction(
                 actions=[
-                    # push_ros_namespace to set namespace of included nodes
-                    PushRosNamespace('chatter_xml_ns'),
+                    # push_ros_namespace first to set namespace of included nodes for following actions
+                    PushROSNamespace('chatter_xml_ns'),
                     IncludeLaunchDescription(
                         XMLLaunchDescriptionSource(
                             os.path.join(
@@ -110,8 +110,8 @@ Each launch file performs the following actions:
             # include a yaml launch file in the chatter_yaml_ns namespace
             launch_yaml_include_with_namespace = GroupAction(
                 actions=[
-                    # push_ros_namespace to set namespace of included nodes
-                    PushRosNamespace('chatter_yaml_ns'),
+                    # push_ros_namespace first to set namespace of included nodes for following actions
+                    PushROSNamespace('chatter_yaml_ns'),
                     IncludeLaunchDescription(
                         YAMLLaunchDescriptionSource(
                             os.path.join(
