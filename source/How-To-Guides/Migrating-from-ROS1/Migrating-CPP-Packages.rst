@@ -124,13 +124,13 @@ Imagine your ``CMakeLists.txt`` has a call to ``catkin_package`` like this:
 
 
 Replacing ``catkin_package(INCLUDE_DIRS ...)``
-++++++++++++++++++++++++++++++++++++++++++++++
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you've used modern CMake targets and ``target_include_directories()``, you don't need to do anything further.
 Users of your package won't see a ``your_package_INCLUDE_DIRS`` variable, but your users will get the include directories by depending on your modern CMake targets.
 
 Replacing ``catkin_package(LIBRARIES ...)``
-+++++++++++++++++++++++++++++++++++++++++++
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Use ``ament_export_targets()`` and ``install(TARGETS ... EXPORT ...)`` to replace the ``LIBRARIES`` argument.
 
@@ -165,7 +165,7 @@ Add a call to ``ament_export_targets()`` with the same name you gave to the ``EX
 
 
 Replacing ``catkin_package(CATKIN_DEPENDS .. DEPENDS ..)``
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Use `ament_export_dependencies <https://github.com/ament/ament_cmake/blob/{REPOS_FILE_BRANCH}/ament_cmake_export_dependencies/cmake/ament_export_dependencies.cmake>`__ with all package names that were previously given to ``CATKIN_DEPENDS`` or ``DEPENDS``.
 
