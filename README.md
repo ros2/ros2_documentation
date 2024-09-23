@@ -18,20 +18,20 @@ To build this you need to install
 
 * make
 * graphviz
-* python virtualenv
 
-With virtualenv
+With [venv](https://docs.python.org/3/library/venv.html)
 
 ```
-# activate the virtualenv
-virtualenv ros2doc
-...<snip>
+# activate the venv
+python3 -m venv ros2doc
+
+# activate venv
 source ros2doc/bin/activate
 
 # install required packages
 pip install -r requirements.txt -c constraints.txt
 
-# deactivate the virtualenv
+# deactivate the venv
 (ros2doc) deactivate
 ```
 
