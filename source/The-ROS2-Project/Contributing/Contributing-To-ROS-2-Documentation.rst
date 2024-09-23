@@ -33,33 +33,37 @@ The root directory contains configuration and files required to locally build th
 Building the site locally
 -------------------------
 
-Start by installing requirements located in the ``requirements.txt`` file:
+Start by creating `venv <https://docs.python.org/3/library/venv.html>`__ to build the documentation:
+
+.. code-block:: console
+
+   # activate the venv
+   python3 -m venv ros2doc
+
+   # activate venv
+   source ros2doc/bin/activate
+
+And install requirements located in the ``requirements.txt`` file:
 
 .. tabs::
 
   .. group-tab:: Linux
 
-    The next command does a user-specific install, which requires ``~/.local/bin/`` to be added to ``$PATH``:
-
     .. code-block:: console
 
-       pip3 install --user --upgrade -r requirements.txt
+       pip install -r requirements.txt -c constraints.txt
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-       pip3 install --user --upgrade -r requirements.txt
+       pip install -r requirements.txt -c constraints.txt
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      python -m pip install --user --upgrade -r requirements.txt
-
-.. note::
-
-  It is recommended to use `virtualenv <https://pypi.org/project/virtualenv/>`__ to build, otherwise you might need to add ``--break-system-packages`` option with ``pip install`` because of `PEP 668 <https://peps.python.org/pep-0668/>`__.
+      python -m pip install -r requirements.txt -c constraints.txt
 
 In order for Sphinx to be able to generate diagrams, the ``dot`` command must be available.
 
