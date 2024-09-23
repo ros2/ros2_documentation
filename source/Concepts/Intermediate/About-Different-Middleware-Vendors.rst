@@ -83,3 +83,9 @@ For example, if both ``rmw_cyclonedds_cpp`` and ``rmw_connextdds`` ROS packages 
 If ``rmw_fastrtps_cpp`` is ever installed, it would be the default.
 
 See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` for how to specify which RMW implementation is to be used when running the ROS 2 examples.
+
+Cross-Vendor Communication
+--------------------------
+
+While different RMW implementations may be compatible in limited circumstances, this is not guaranteed.
+Thus it is suggested that users ensure that all parts of the distributed system are using the same ROS version and the same RMW implementation.
