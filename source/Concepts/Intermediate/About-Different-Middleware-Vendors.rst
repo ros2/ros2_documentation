@@ -87,7 +87,5 @@ See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementatio
 Cross-Vendor Communication
 --------------------------
 
-Since ROS 2 supports distributed and heterogeneous system, it can be expected that system would use the different RMW implementation depends on the system requirement and resources.
-ROS 2 does not officially support the cross-vendor communication with different RMW implementations.
-If the underlying RMW implementations use the compatible protocol and serialization format, this cross-vendor communication might work.
-But this is not guaranteed by ROS 2 design.
+While different RMW implementations may be compatible in limited circumstances, this is not guaranteed.
+Thus it is suggested that users ensure that all parts of the distributed system are using the same ROS version and the same RMW implementation.
