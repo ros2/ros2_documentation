@@ -27,12 +27,18 @@ Apply the following changes to use ``ament_cmake`` instead of ``catkin``.
 Set the build type to ament_cmake
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Remove any dependencies on ``catkin`` from your package.xml
+Remove any dependencies on ``catkin`` from your ``package.xml``
 
 .. code-block:: none
 
    # Remove this!
    <buildtool_depend>catkin</buildtool_depend>
+
+Add a new dependency on ``ament_cmake_ros`` (`example <https://github.com/ros2/geometry2/blob/d85102217f692746abea8546c8e41f0abc95c8b8/tf2/package.xml#L25>`__):
+
+.. code-block:: xml
+
+   <buildtool_depend>ament_cmake_ros</buildtool_depend>
 
 Add an ``<export>`` section to your ``package.xml`` if it does not have one already.
 Set the ``<build_type>`` to ``ament_cmake`` (`example <https://github.com/ros2/geometry2/blob/d85102217f692746abea8546c8e41f0abc95c8b8/tf2/package.xml#L43-L45>`__)
@@ -56,7 +62,7 @@ Insert a call to ``ament_package()`` at the bottom of your ``CMakeLists.txt`` (`
 Update ``find_package()`` calls
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Replace the ``find_package(catkin COMPONENTS ...)``  call with individual ``find_package()`` calls:
+Replace the ``find_package(catkin COMPONENTS ...)``  call with individual ``find_package()`` calls (`example <https://github.com/ros2/geometry2/blob/d85102217f692746abea8546c8e41f0abc95c8b8/tf2/CMakeLists.txt#L14-L18>`_):
 
 For example, change this:
 
@@ -69,7 +75,7 @@ To this:
 
 .. code-block:: cmake
 
-   find_package(ament_cmake REQUIRED)
+   find_package(ament_cmake_ros REQUIRED)
    find_package(foo REQUIRED)
    find_package(bar REQUIRED)
    find_package(std_msgs REQUIRED)
@@ -79,8 +85,16 @@ To this:
 Use modern CMake targets
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Remove all uses of ``include_directories()``.
-Use ``target_include_directories()`` to associate the include directories with the ``my_library`` target (`example <https://github.com/ros2/geometry2/blob/d85102217f692746abea8546c8e41f0abc95c8b8/tf2/CMakeLists.txt#L24-L26>`__):
+Prefer to use per-target CMake functions so that your package can export modern CMake targets.
+
+If your ``CMakeLists.txt`` uses ``include_directories()``, then delete those calls.
+
+.. code-block:: none
+
+   # Delete calls to include_directories like this one!
+   include_directories(include ${catkin_INCLUDE_DIRS})
+
+Add a call ``target_include_directories()`` for every library in your pacakage (`example <https://github.com/ros2/geometry2/blob/d85102217f692746abea8546c8e41f0abc95c8b8/tf2/CMakeLists.txt#L24-L26>`__).
 
 .. code-block:: cmake
 
@@ -89,27 +103,25 @@ Use ``target_include_directories()`` to associate the include directories with t
       "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
 
 Change all ``target_link_libraries()`` calls to use modern CMake targets.
-For example, if your package in ROS 1 looks something like this:
+For example, if your package in ROS 1 uses old-style standard CMake variables like this.
 
 .. code-block:: none
 
    target_link_libraries(my_library ${catkin_LIBRARIES} ${baz_LIBRARIES})
 
-Then change it to something like this:
+Then change it to use specific modern CMake targets instead.
+Use ``${package_name_TARGETS}`` if the package you're depending on is a message package such as ``std_msgs``.
 
 .. code-block:: cmake
 
    target_link_libraries(my_library PUBLIC foo::foo bar::bar ${std_msgs_TARGETS} baz::baz)
 
-Prefer to use specific modern CMake targets such as ``rclcpp::rclcpp`` whenever possible.
-Use ``${package_name_TARGETS}`` if the package you're depending on is a message package such as ``std_msgs``.
-
 Choose ``PUBLIC`` or ``PRIVATE`` based on how the dependency is used by your library (`example <https://github.com/ros2/geometry2/blob/d85102217f692746abea8546c8e41f0abc95c8b8/tf2/CMakeLists.txt#L27-L31>`__).
 
-* Use ``PUBLIC`` if the dependency is needed by downstream users, for example, a your library's public API uses it.
-* Use ``PRIVATE`` if the dependency is used only internally by your library.
+* Use ``PUBLIC`` if the dependency is needed by downstream users, for example, your library's public API uses it.
+* Use ``PRIVATE`` if the dependency is only used internally by your library.
 
-Replace ``catkin_package()`` with various ``ament_cmake`` calls
+Replace ``catkin_package()`` with various ament_cmake calls
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Imagine your ``CMakeLists.txt`` has a call to ``catkin_package`` like this:
@@ -134,7 +146,7 @@ Replacing ``catkin_package(INCLUDE_DIRS ...)``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you've used modern CMake targets and ``target_include_directories()``, you don't need to do anything further.
-Users will get the include directories by depending on your modern CMake targets.
+Downstream users will get the include directories by depending on your modern CMake targets.
 
 Replacing ``catkin_package(LIBRARIES ...)``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -188,7 +200,9 @@ Add a call to ``ament_export_targets()`` with the same name you gave to the ``EX
 Replacing ``catkin_package(CATKIN_DEPENDS .. DEPENDS ..)``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Use `ament_export_dependencies <https://github.com/ament/ament_cmake/blob/{REPOS_FILE_BRANCH}/ament_cmake_export_dependencies/cmake/ament_export_dependencies.cmake>`__ with all package names that were previously given to ``CATKIN_DEPENDS`` or ``DEPENDS``.
+Downstream users also need to ``find_package()`` dependencies used in your public API.
+In ROS 1 this was done with ``CATKIN_DEPENDS`` and ``DEPENDS`` arguments.
+Use `ament_export_dependencies <https://github.com/ament/ament_cmake/blob/{REPOS_FILE_BRANCH}/ament_cmake_export_dependencies/cmake/ament_export_dependencies.cmake>`__ to do this in ROS 2.
 
 .. code-block:: cmake
 
@@ -261,13 +275,13 @@ There is no equivalent to the *devel space* in ROS 2.
 Unit tests
 ^^^^^^^^^^
 
-If you are using gtest:
+If your package uses `gtest <https://github.com/google/googletest>`__ then:
 
 * Replace ``CATKIN_ENABLE_TESTING`` with ``BUILD_TESTING``.
 * Replace ``catkin_add_gtest`` with ``ament_add_gtest``.
-* Add a ``find_package()`` ``ament_cmake_gtest``` instead of ``GTest``
+* Add a ``find_package()`` for ``ament_cmake_gtest`` instead of ``GTest``
 
-For example, change the following code
+For example, if your ROS 1 package adds tests like this:
 
 .. code-block:: none
 
@@ -280,7 +294,10 @@ For example, change the following code
           ${GTEST_LIBRARIES})
       endif()
 
+Then change it to this:
+
 .. code-block:: CMake
+
       if (BUILD_TESTING)
         find_package(ament_cmake_gtest REQUIRED)
         ament_add_gtest(my_test src/test/test_something.cpp)
@@ -292,6 +309,7 @@ For example, change the following code
 Add ``<test_depend>ament_cmake_gtest</test_depend>`` to your ``package.xml`` (`example <https://github.com/ros2/geometry2/blob/d85102217f692746abea8546c8e41f0abc95c8b8/tf2/package.xml#L35>`__).
 
 .. code-block:: xml
+
    <test_depend>ament_cmake_gtest</test_depend>
 
 Linters
@@ -299,13 +317,14 @@ Linters
 
 The ROS 2 code style guide is different than ROS 1 :doc:`Developer Guide <../../The-ROS2-Project/Contributing/Developer-Guide>`.
 
-If you are starting a project from scratch, follow the ROS 2 style guide and turn on automatic linter tests by adding these lines in a ``if(BUILD_TESTING)`` block:
+If you are starting a project from scratch, follow the ROS 2 style guide, and turn on automatic linter tests by adding these lines in a ``if(BUILD_TESTING)`` block:
 
 .. code-block:: cmake
 
    if(BUILD_TESTING)
       find_package(ament_lint_auto REQUIRED)
       ament_lint_auto_find_test_dependencies()
+      # ...
    endif()
 
 Then, add the following dependencies to your ``package.xml``:
