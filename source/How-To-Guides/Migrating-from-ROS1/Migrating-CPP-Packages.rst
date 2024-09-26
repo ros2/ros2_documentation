@@ -29,7 +29,7 @@ Set the build type to ament_cmake
 
 Remove any dependencies on ``catkin`` from your ``package.xml``
 
-.. code-block:: none
+.. code-block::
 
    # Remove this!
    <buildtool_depend>catkin</buildtool_depend>
@@ -66,7 +66,7 @@ Replace the ``find_package(catkin COMPONENTS ...)``  call with individual ``find
 
 For example, change this:
 
-.. code-block:: none
+.. code-block::
 
    find_package(catkin REQUIRED COMPONENTS foo bar std_msgs)
    find_package(baz REQUIRED)
@@ -89,7 +89,7 @@ Prefer to use per-target CMake functions so that your package can export modern 
 
 If your ``CMakeLists.txt`` uses ``include_directories()``, then delete those calls.
 
-.. code-block:: none
+.. code-block::
 
    # Delete calls to include_directories like this one!
    include_directories(include ${catkin_INCLUDE_DIRS})
@@ -105,7 +105,7 @@ Add a call ``target_include_directories()`` for every library in your pacakage (
 Change all ``target_link_libraries()`` calls to use modern CMake targets.
 For example, if your package in ROS 1 uses old-style standard CMake variables like this.
 
-.. code-block:: none
+.. code-block::
 
    target_link_libraries(my_library ${catkin_LIBRARIES} ${baz_LIBRARIES})
 
@@ -126,7 +126,7 @@ Replace ``catkin_package()`` with various ament_cmake calls
 
 Imagine your ``CMakeLists.txt`` has a call to ``catkin_package`` like this:
 
-.. code-block:: none
+.. code-block::
 
    catkin_package(
        INCLUDE_DIRS include
@@ -243,7 +243,7 @@ The first argument must be ``${PROJECT_NAME}`` due to `this bug <https://github.
 
 For example, if your ROS 1 package looks like this:
 
-.. code-block:: none
+.. code-block::
 
    add_message_files(DIRECTORY msg FILES FooBar.msg Baz.msg)
    add_service_files(DIRECTORY srv FILES Ping.srv)
@@ -283,7 +283,7 @@ If your package uses `gtest <https://github.com/google/googletest>`__ then:
 
 For example, if your ROS 1 package adds tests like this:
 
-.. code-block:: none
+.. code-block::
 
       if (CATKIN_ENABLE_TESTING)
         find_package(GTest REQUIRED)
