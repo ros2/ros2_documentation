@@ -24,6 +24,17 @@ ROS 2 C++ packages use `CMake <https://cmake.org/>`__ with convenience functions
 Apply the following changes to use ``ament_cmake`` instead of ``catkin``.
 
 
+Require a newer version of CMake
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ROS 2 relies on newer versions of CMake than used by ROS 1.
+Find the minimum version of CMake used by the ROS distribution you want to support in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__, and use that version at the top of your ``CMakeLists.txt``.
+For example, `3.14.4 is the minimum recommended support for ROS Humble <https://www.ros.org/reps/rep-2000.html#humble-hawksbill-may-2022-may-2027>`__.
+
+.. code-block::
+
+   cmake_minimum_required(VERSION 3.14.4)
+
 Set the build type to ament_cmake
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -462,13 +473,13 @@ Replace:
 Example: Converting an existing ROS 1 package to ROS 2
 ------------------------------------------------------
 
-Let's say that we have simple ROS 1 package called ``talker`` that uses ``roscpp`` in one node, called ``talker``.
+Say you have a ROS 1 package called ``talker`` that uses ``roscpp`` in one node, called ``talker``.
 This package is in a catkin workspace, located at ``~/ros1_talker``.
 
 The ROS 1 code
 ^^^^^^^^^^^^^^
 
-Here's the directory layout of our catkin workspace:
+Your ROS 1 workspace has the following directory layout:
 
 .. code-block:: bash
 
@@ -481,7 +492,7 @@ Here's the directory layout of our catkin workspace:
    ./src/talker/CMakeLists.txt
    ./src/talker/talker.cpp
 
-Here is the content of those three files:
+The files have the following content:
 
 ``src/talker/package.xml``:
 
@@ -542,43 +553,10 @@ Here is the content of those three files:
      return 0;
    }
 
-Building the ROS 1 code
-~~~~~~~~~~~~~~~~~~~~~~~
-
-We source an environment setup file (in this case for Noetic using bash), then we
-build our package using ``catkin_make install``:
-
-.. code-block:: bash
-
-   . /opt/ros/noetic/setup.bash
-   cd ~/ros1_talker
-   catkin_make install
-
-Running the ROS 1 node
-~~~~~~~~~~~~~~~~~~~~~~
-
-If there's not already one running, we start a ``roscore``, first sourcing the
-setup file from our ``catkin`` install tree (the system setup file at
-``/opt/ros/noetic/setup.bash`` would also work here):
-
-.. code-block:: bash
-
-   . ~/ros1_talker/install/setup.bash
-   roscore
-
-In another shell, we run the node from the ``catkin`` install space using
-``rosrun``, again sourcing the setup file first (in this case it must be the one
-from our workspace):
-
-.. code-block:: bash
-
-   . ~/ros1_talker/install/setup.bash
-   rosrun talker talker
-
 Migrating to ROS 2
 ^^^^^^^^^^^^^^^^^^
 
-Let's start by creating a new workspace in which to work:
+Creating a new ROS 2 workspace:
 
 .. code-block:: bash
 
@@ -811,10 +789,9 @@ Changing the CMake code
 
 ROS 2 relies on a higher version of CMake:
 
-.. code-block:: bash
+.. code-block::
 
-   #cmake_minimum_required(VERSION 2.8.3)
-   cmake_minimum_required(VERSION 3.5)
+   cmake_minimum_required(VERSION 3.14.4)
 
 ROS 2 relies on the C++17 standard.
 Depending on what compiler you're using, support for C++17 might not be enabled by default.
