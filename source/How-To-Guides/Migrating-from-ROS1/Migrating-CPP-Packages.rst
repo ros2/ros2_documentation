@@ -618,7 +618,8 @@ Your ``package.xml`` now looks like this:
 
 .. code-block:: xml
 
-   <!-- <package> -->
+   <?xml version="1.0"?>
+   <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
    <package format="2">
      <name>talker</name>
      <version>0.0.0</version>
@@ -637,21 +638,15 @@ Your ``package.xml`` now looks like this:
 Changing the CMake code
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-ROS 2 relies on a higher version of CMake:
+Require a newer version of CMake so that ``ament_cmake`` functions work correctly.
 
 .. code-block::
 
    cmake_minimum_required(VERSION 3.14.4)
 
-ROS 2 relies on the C++17 standard.
-Depending on what compiler you're using, support for C++17 might not be enabled by default.
-Enable C++17 support explicitly by adding this line near the top of the file:
-
-.. code-block:: cmake
-
-   set(CMAKE_CXX_STANDARD 17)
-
-The preferred way to work on all platforms is this:
+Use a newer C++ standard matching the version used by your target ROS distro in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__.
+If you are using C++17, then set that version with the following snippet.
+Add extra compiler checks too because it is a good practice.
 
 .. code-block:: cmake
 
@@ -662,102 +657,51 @@ The preferred way to work on all platforms is this:
      add_compile_options(-Wall -Wextra -Wpedantic)
    endif()
 
-Using ``catkin``, we specify the packages we want to build against by passing them
-as ``COMPONENTS`` arguments when initially finding ``catkin`` itself.
-With ``ament_cmake``, we find each package individually, starting with ``ament_cmake``:
+Replace the ``find_package(catkin ...)`` call with individual calls for each dependency.
 
 .. code-block:: cmake
 
-   #find_package(catkin REQUIRED COMPONENTS roscpp std_msgs)
    find_package(ament_cmake REQUIRED)
    find_package(rclcpp REQUIRED)
    find_package(std_msgs REQUIRED)
 
-System dependencies can be found as before:
+
+Add a call to ``ament_package()`` at the bottom of the ``CMakeLists.txt``.
 
 .. code-block:: cmake
 
-   find_package(Boost REQUIRED COMPONENTS system filesystem thread)
-
-We call ``catkin_package()`` to auto-generate things like CMake configuration
-files for other packages that use our package.
-Whereas that call happens *before* specifying targets to build, we now call the
-analogous ``ament_package()`` *after* the targets:
-
-.. code-block:: cmake
-
-   # catkin_package()
-   # At the bottom of the file:
    ament_package()
 
-The only directories that need to be manually included are local directories
-and dependencies that are not ament packages:
+Delete the call to ``include_directories()``.
+Replace it with a call to ``target_include_directories()`` for your package's `include` directory.
+Don't add other package's ``*_INCLUDE_DIRS`` variables, those will be handled by depending on modern CMake targets.
 
 .. code-block:: cmake
 
-   #include_directories(${catkin_INCLUDE_DIRS})
-   include_directories(include ${Boost_INCLUDE_DIRS})
+   target_include_directories(target PUBLIC
+      "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+      "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
 
-A better alternative is to specify include directories for each target
-individually, rather than including all the directories for all targets:
-
-.. code-block:: cmake
-
-   target_include_directories(target PUBLIC include ${Boost_INCLUDE_DIRS})
-
-Similar to how we found each dependent package separately, we need to link
-each one to the build target.
-To link with dependent packages that are ament packages, instead of using
-``target_link_libraries()``, ``ament_target_dependencies()`` is a more
-concise and more thorough way of handling build flags.
-It automatically handles both the include directories defined in
-``_INCLUDE_DIRS`` and linking libraries defined in ``_LIBRARIES``.
+Use ``target_link_libraries`` to make the ``talker`` target depend on  the modern CMake targets provided by ``rclcpp`` and ``std_msgs``.
 
 .. code-block:: cmake
 
-   #target_link_libraries(talker ${catkin_LIBRARIES})
-   ament_target_dependencies(talker
-     rclcpp
-     std_msgs)
+   target_link_libraries(talker PUBLIC
+     rclcpp::rclcpp
+     ${std_msgs_TARGETS})
 
-To link with packages that are not ament packages, such as system dependencies
-like ``Boost``, or a library being built in the same ``CMakeLists.txt``, use
-``target_link_libraries()``:
+Install the ``talker`` executable into a project specific directory so that it is discoverable by tools like ``ros2 run``.
 
 .. code-block:: cmake
 
-   target_link_libraries(target ${Boost_LIBRARIES})
-
-For installation, ``catkin`` defines variables like ``CATKIN_PACKAGE_BIN_DESTINATION``.
-With ``ament_cmake``, we just give a path relative to the installation root:
-
-.. code-block:: cmake
-
-   #install(TARGETS talker
-   #  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
    install(TARGETS talker
      DESTINATION lib/${PROJECT_NAME})
 
-Optionally, we can install and export the included directories for downstream packages:
+The new ``CMakeLists.txt`` looks like this:
 
 .. code-block:: cmake
 
-   install(DIRECTORY include/
-     DESTINATION include)
-   ament_export_include_directories(include)
-
-Optionally, we can export dependencies for downstream packages:
-
-.. code-block:: cmake
-
-   ament_export_dependencies(std_msgs)
-
-Putting it all together, the new ``CMakeLists.txt`` looks like this:
-
-.. code-block:: cmake
-
-   #cmake_minimum_required(VERSION 2.8.3)
-   cmake_minimum_required(VERSION 3.5)
+   cmake_minimum_required(VERSION 3.14.4)
    project(talker)
    if(NOT CMAKE_CXX_STANDARD)
      set(CMAKE_CXX_STANDARD 17)
@@ -765,26 +709,18 @@ Putting it all together, the new ``CMakeLists.txt`` looks like this:
    if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
      add_compile_options(-Wall -Wextra -Wpedantic)
    endif()
-   #find_package(catkin REQUIRED COMPONENTS roscpp std_msgs)
    find_package(ament_cmake REQUIRED)
    find_package(rclcpp REQUIRED)
    find_package(std_msgs REQUIRED)
-   #catkin_package()
-   #include_directories(${catkin_INCLUDE_DIRS})
-   include_directories(include)
    add_executable(talker talker.cpp)
-   #target_link_libraries(talker ${catkin_LIBRARIES})
-   ament_target_dependencies(talker
-     rclcpp
-     std_msgs)
-   #install(TARGETS talker
-   #  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+   target_include_directories(target PUBLIC
+      "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+      "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
+   target_link_libraries(talker PUBLIC
+     rclcpp::rclcpp
+     ${std_msgs_TARGETS})
    install(TARGETS talker
      DESTINATION lib/${PROJECT_NAME})
-   install(DIRECTORY include/
-     DESTINATION include)
-   ament_export_include_directories(include)
-   ament_export_dependencies(std_msgs)
    ament_package()
 
 
