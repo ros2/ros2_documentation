@@ -498,17 +498,17 @@ The files have the following content:
 
 .. code-block:: xml
 
-   <package>
+   <?xml version="1.0"?>
+   <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+   <package format="2">
      <name>talker</name>
      <version>0.0.0</version>
      <description>talker</description>
      <maintainer email="gerkey@osrfoundation.org">Brian Gerkey</maintainer>
      <license>Apache-2.0</license>
      <buildtool_depend>catkin</buildtool_depend>
-     <build_depend>roscpp</build_depend>
-     <build_depend>std_msgs</build_depend>
-     <run_depend>roscpp</run_depend>
-     <run_depend>std_msgs</run_depend>
+     <depend>roscpp</depend>
+     <depend>std_msgs</depend>
    </package>
 
 ``src/talker/CMakeLists.txt``:
@@ -556,203 +556,57 @@ The files have the following content:
 Migrating to ROS 2
 ^^^^^^^^^^^^^^^^^^
 
-Creating a new ROS 2 workspace:
+Create a new ROS 2 workspace:
 
 .. code-block:: bash
 
    mkdir ~/ros2_talker
    cd ~/ros2_talker
 
-We'll copy the source tree from our ROS 1 package into that workspace, where we can modify it:
+Copy the source tree from the ROS 1 package into the ROS 2 workspace, so you can modify it:
 
 .. code-block:: bash
 
    mkdir src
    cp -a ~/ros1_talker/src/talker src
 
-Now we'll modify the C++ code in the node.
-The ROS 2 C++ library, called ``rclcpp``, provides a different API from that
-provided by ``roscpp``.
-The concepts are very similar between the two libraries, which makes the changes
-reasonably straightforward to make.
+Modify the ``package.xml`` and ``CMakeLists.txt`` to use ``ament_cmake`` first.
+This lets you find unmigrated code by attempting to build the package.
 
-Included headers
-~~~~~~~~~~~~~~~~
-
-In place of ``ros/ros.h``, which gave us access to the ``roscpp`` library API, we
-need to include ``rclcpp/rclcpp.hpp``, which gives us access to the ``rclcpp``
-library API:
-
-.. code-block:: cpp
-
-   //#include "ros/ros.h"
-   #include "rclcpp/rclcpp.hpp"
-
-To get the ``std_msgs/String`` message definition, in place of
-``std_msgs/String.h``, we need to include ``std_msgs/msg/string.hpp``:
-
-.. code-block:: cpp
-
-   //#include "std_msgs/String.h"
-   #include "std_msgs/msg/string.hpp"
-
-Changing C++ library calls
+Change the ``package.xml``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Instead of passing the node's name to the library initialization call, we do
-the initialization, then pass the node name to the creation of the node object:
+ROS 2 packages use CMake functions and macros from ``ament_cmake_ros`` instead of ``catkin``.
+Delete the dependency on ``catkin``:
 
-.. code-block:: cpp
+.. code-block::
 
-   //  ros::init(argc, argv, "talker");
-   //  ros::NodeHandle n;
-       rclcpp::init(argc, argv);
-       auto node = rclcpp::Node::make_shared("talker");
+   <!-- delete this -->
+   <buildtool_depend>catkin</buildtool_depend>`
 
-The creation of the publisher and rate objects looks pretty similar, with some
-changes to the names of namespace and methods.
-
-.. code-block:: cpp
-
-   //  ros::Publisher chatter_pub = n.advertise<std_msgs::String>("chatter", 1000);
-   //  ros::Rate loop_rate(10);
-     auto chatter_pub = node->create_publisher<std_msgs::msg::String>("chatter",
-       1000);
-     rclcpp::Rate loop_rate(10);
-
-To further control how message delivery is handled, a quality of service
-(``QoS``) profile could be passed in.
-The default profile is ``rmw_qos_profile_default``.
-For more details, see the
-`design document <https://design.ros2.org/articles/qos.html>`__
-and :doc:`concept overview <../../Concepts/Intermediate/About-Quality-of-Service-Settings>`.
-
-The creation of the outgoing message is different in the namespace:
-
-.. code-block:: cpp
-
-   //  std_msgs::String msg;
-     std_msgs::msg::String msg;
-
-In place of ``ros::ok()``, we call ``rclcpp::ok()``:
-
-.. code-block:: cpp
-
-   //  while (ros::ok())
-     while (rclcpp::ok())
-
-Inside the publishing loop, we access the ``data`` field as before:
-
-.. code-block:: cpp
-
-       msg.data = ss.str();
-
-To print a console message, instead of using ``ROS_INFO()``, we use
-``RCLCPP_INFO()`` and its various cousins.
-The key difference is that ``RCLCPP_INFO()`` takes a Logger object as the first
-argument.
-
-.. code-block:: cpp
-
-   //    ROS_INFO("%s", msg.data.c_str());
-       RCLCPP_INFO(node->get_logger(), "%s\n", msg.data.c_str());
-
-Publishing the message is the same as before:
-
-.. code-block:: cpp
-
-       chatter_pub->publish(msg);
-
-Spinning (i.e., letting the communications system process any pending
-incoming/outgoing messages) is different in that the call now takes the node as
-an argument:
-
-.. code-block:: cpp
-
-   //    ros::spinOnce();
-       rclcpp::spin_some(node);
-
-Sleeping using the rate object is unchanged.
-
-Putting it all together, the new ``talker.cpp`` looks like this:
-
-.. code-block:: cpp
-
-   #include <sstream>
-   // #include "ros/ros.h"
-   #include "rclcpp/rclcpp.hpp"
-   // #include "std_msgs/String.h"
-   #include "std_msgs/msg/string.hpp"
-   int main(int argc, char **argv)
-   {
-   //  ros::init(argc, argv, "talker");
-   //  ros::NodeHandle n;
-     rclcpp::init(argc, argv);
-     auto node = rclcpp::Node::make_shared("talker");
-   //  ros::Publisher chatter_pub = n.advertise<std_msgs::String>("chatter", 1000);
-   //  ros::Rate loop_rate(10);
-     auto chatter_pub = node->create_publisher<std_msgs::msg::String>("chatter", 1000);
-     rclcpp::Rate loop_rate(10);
-     int count = 0;
-   //  std_msgs::String msg;
-     std_msgs::msg::String msg;
-   //  while (ros::ok())
-     while (rclcpp::ok())
-     {
-       std::stringstream ss;
-       ss << "hello world " << count++;
-       msg.data = ss.str();
-   //    ROS_INFO("%s", msg.data.c_str());
-       RCLCPP_INFO(node->get_logger(), "%s\n", msg.data.c_str());
-       chatter_pub->publish(msg);
-   //    ros::spinOnce();
-       rclcpp::spin_some(node);
-       loop_rate.sleep();
-     }
-     return 0;
-   }
-
-Changing the ``package.xml``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-ROS 2 uses a newer version of ``catkin``, called ``ament_cmake``, which we specify in the
-``buildtool_depend`` tag:
+Add a new dependency on ``ament_cmake_ros``:
 
 .. code-block:: xml
 
-   <!--  <buildtool_depend>catkin</buildtool_depend> -->
      <buildtool_depend>ament_cmake</buildtool_depend>
 
-In our build dependencies, instead of ``roscpp`` we use ``rclcpp``, which provides the C++ API that we use.
+ROS 2 C++ libraries use `rclcpp <https://index.ros.org/p/roscpp/#noetic>`__ instead of `roscpp <https://index.ros.org/p/roscpp/#noetic>`__.
 
-.. code-block:: xml
+Delete the dependency on ``roscpp``:
 
-   <!--  <build_depend>roscpp</build_depend> -->
-     <build_depend>rclcpp</build_depend>
+.. code-block::
 
-We make the same addition in the run dependencies and also update from the
-``run_depend`` tag to the ``exec_depend`` tag (part of the upgrade to version 2 of the package format):
+   <!-- delete this -->
+   <depend>roscpp</depend>
 
-.. code-block:: xml
-
-   <!--  <run_depend>roscpp</run_depend> -->
-     <exec_depend>rclcpp</exec_depend>
-   <!--  <run_depend>std_msgs</run_depend> -->
-     <exec_depend>std_msgs</exec_depend>
-
-In ROS 1, we use ``<depend>`` to simplify specifying dependencies for both
-compile-time and runtime.
-We can do the same in ROS 2:
+Add a dependency on ``rclcpp``:
 
 .. code-block:: xml
 
      <depend>rclcpp</depend>
-     <depend>std_msgs</depend>
 
-We also need to tell the build tool what *kind* of package we are, so that it knows how
-to build us.
-Because we're using ``ament`` and CMake, we add the following lines to declare our
-build type to be ``ament_cmake``:
+
+Add an ``<export>`` section to tell colcon the package is an ``ament_cmake`` package instead of a ``catkin`` package.
 
 .. code-block:: xml
 
@@ -760,7 +614,7 @@ build type to be ``ament_cmake``:
        <build_type>ament_cmake</build_type>
      </export>
 
-Putting it all together, our ``package.xml`` now looks like this:
+Your ``package.xml`` now looks like this:
 
 .. code-block:: xml
 
@@ -771,11 +625,7 @@ Putting it all together, our ``package.xml`` now looks like this:
      <description>talker</description>
      <maintainer email="gerkey@osrfoundation.org">Brian Gerkey</maintainer>
      <license>Apache-2.0</license>
-   <!--  <buildtool_depend>catkin</buildtool_depend> -->
      <buildtool_depend>ament_cmake</buildtool_depend>
-   <!--  <build_depend>roscpp</build_depend> -->
-   <!--  <run_depend>roscpp</run_depend> -->
-   <!--  <run_depend>std_msgs</run_depend> -->
      <depend>rclcpp</depend>
      <depend>std_msgs</depend>
      <export>
@@ -936,6 +786,154 @@ Putting it all together, the new ``CMakeLists.txt`` looks like this:
    ament_export_include_directories(include)
    ament_export_dependencies(std_msgs)
    ament_package()
+
+
+Changing C++ code
+~~~~~~~~~~~~~~~~~
+
+Now we'll modify the C++ code in the node.
+The ROS 2 C++ library, called ``rclcpp``, provides a different API from that
+provided by ``roscpp``.
+The concepts are very similar between the two libraries, which makes the changes
+reasonably straightforward to make.
+
+Included headers
+~~~~~~~~~~~~~~~~
+
+In place of ``ros/ros.h``, which gave us access to the ``roscpp`` library API, we
+need to include ``rclcpp/rclcpp.hpp``, which gives us access to the ``rclcpp``
+library API:
+
+.. code-block:: cpp
+
+   //#include "ros/ros.h"
+   #include "rclcpp/rclcpp.hpp"
+
+To get the ``std_msgs/String`` message definition, in place of
+``std_msgs/String.h``, we need to include ``std_msgs/msg/string.hpp``:
+
+.. code-block:: cpp
+
+   //#include "std_msgs/String.h"
+   #include "std_msgs/msg/string.hpp"
+
+Changing C++ library calls
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Instead of passing the node's name to the library initialization call, we do
+the initialization, then pass the node name to the creation of the node object:
+
+.. code-block:: cpp
+
+   //  ros::init(argc, argv, "talker");
+   //  ros::NodeHandle n;
+       rclcpp::init(argc, argv);
+       auto node = rclcpp::Node::make_shared("talker");
+
+The creation of the publisher and rate objects looks pretty similar, with some
+changes to the names of namespace and methods.
+
+.. code-block:: cpp
+
+   //  ros::Publisher chatter_pub = n.advertise<std_msgs::String>("chatter", 1000);
+   //  ros::Rate loop_rate(10);
+     auto chatter_pub = node->create_publisher<std_msgs::msg::String>("chatter",
+       1000);
+     rclcpp::Rate loop_rate(10);
+
+To further control how message delivery is handled, a quality of service
+(``QoS``) profile could be passed in.
+The default profile is ``rmw_qos_profile_default``.
+For more details, see the
+`design document <https://design.ros2.org/articles/qos.html>`__
+and :doc:`concept overview <../../Concepts/Intermediate/About-Quality-of-Service-Settings>`.
+
+The creation of the outgoing message is different in the namespace:
+
+.. code-block:: cpp
+
+   //  std_msgs::String msg;
+     std_msgs::msg::String msg;
+
+In place of ``ros::ok()``, we call ``rclcpp::ok()``:
+
+.. code-block:: cpp
+
+   //  while (ros::ok())
+     while (rclcpp::ok())
+
+Inside the publishing loop, we access the ``data`` field as before:
+
+.. code-block:: cpp
+
+       msg.data = ss.str();
+
+To print a console message, instead of using ``ROS_INFO()``, we use
+``RCLCPP_INFO()`` and its various cousins.
+The key difference is that ``RCLCPP_INFO()`` takes a Logger object as the first
+argument.
+
+.. code-block:: cpp
+
+   //    ROS_INFO("%s", msg.data.c_str());
+       RCLCPP_INFO(node->get_logger(), "%s\n", msg.data.c_str());
+
+Publishing the message is the same as before:
+
+.. code-block:: cpp
+
+       chatter_pub->publish(msg);
+
+Spinning (i.e., letting the communications system process any pending
+incoming/outgoing messages) is different in that the call now takes the node as
+an argument:
+
+.. code-block:: cpp
+
+   //    ros::spinOnce();
+       rclcpp::spin_some(node);
+
+Sleeping using the rate object is unchanged.
+
+Putting it all together, the new ``talker.cpp`` looks like this:
+
+.. code-block:: cpp
+
+   #include <sstream>
+   // #include "ros/ros.h"
+   #include "rclcpp/rclcpp.hpp"
+   // #include "std_msgs/String.h"
+   #include "std_msgs/msg/string.hpp"
+   int main(int argc, char **argv)
+   {
+   //  ros::init(argc, argv, "talker");
+   //  ros::NodeHandle n;
+     rclcpp::init(argc, argv);
+     auto node = rclcpp::Node::make_shared("talker");
+   //  ros::Publisher chatter_pub = n.advertise<std_msgs::String>("chatter", 1000);
+   //  ros::Rate loop_rate(10);
+     auto chatter_pub = node->create_publisher<std_msgs::msg::String>("chatter", 1000);
+     rclcpp::Rate loop_rate(10);
+     int count = 0;
+   //  std_msgs::String msg;
+     std_msgs::msg::String msg;
+   //  while (ros::ok())
+     while (rclcpp::ok())
+     {
+       std::stringstream ss;
+       ss << "hello world " << count++;
+       msg.data = ss.str();
+   //    ROS_INFO("%s", msg.data.c_str());
+       RCLCPP_INFO(node->get_logger(), "%s\n", msg.data.c_str());
+       chatter_pub->publish(msg);
+   //    ros::spinOnce();
+       rclcpp::spin_some(node);
+       loop_rate.sleep();
+     }
+     return 0;
+   }
+
+
 
 Building the ROS 2 code
 ~~~~~~~~~~~~~~~~~~~~~~~
