@@ -27,6 +27,13 @@ Apply the following changes to use ``ament_cmake`` instead of ``catkin``.
 Set the build type to ament_cmake
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Remove any dependencies on ``catkin`` from your package.xml
+
+.. code-block:: none
+
+   # Remove this!
+   <buildtool_depend>catkin</buildtool_depend>
+
 Add an ``<export>`` section to your ``package.xml`` if it does not have one already.
 Set the ``<build_type>`` to ``ament_cmake`` (`example <https://github.com/ros2/geometry2/blob/d85102217f692746abea8546c8e41f0abc95c8b8/tf2/package.xml#L43-L45>`__)
 
@@ -127,7 +134,7 @@ Replacing ``catkin_package(INCLUDE_DIRS ...)``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you've used modern CMake targets and ``target_include_directories()``, you don't need to do anything further.
-Users of your package won't see a ``your_package_INCLUDE_DIRS`` variable, but your users will get the include directories by depending on your modern CMake targets.
+Users will get the include directories by depending on your modern CMake targets.
 
 Replacing ``catkin_package(LIBRARIES ...)``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -147,15 +154,29 @@ Use the ``EXPORT`` keyword when installing your ``my_library`` target (`example 
 The above is a good default for library targets.
 If your package used different ``CATKIN_*_DESTINATION`` variables, convert them as follows:
 
-  * ``CATKIN_GLOBAL_BIN_DESTINATION``: ``bin``
-  * ``CATKIN_GLOBAL_INCLUDE_DESTINATION``: ``include``
-  * ``CATKIN_GLOBAL_LIB_DESTINATION``: ``lib``
-  * ``CATKIN_GLOBAL_LIBEXEC_DESTINATION``: ``lib``
-  * ``CATKIN_GLOBAL_SHARE_DESTINATION``: ``share``
-  * ``CATKIN_PACKAGE_BIN_DESTINATION``: ``lib/${PROJECT_NAME}``
-  * ``CATKIN_PACKAGE_INCLUDE_DESTINATION``: ``include/${PROJECT_NAME}``
-  * ``CATKIN_PACKAGE_LIB_DESTINATION``: ``lib``
-  * ``CATKIN_PACKAGE_SHARE_DESTINATION``: ``share/${PROJECT_NAME}``
+.. list-table::
+   :header-rows: 1
+
+   * - **catkin**
+     - **ament_cmake**
+   * - CATKIN_GLOBAL_BIN_DESTINATION
+     - bin
+   * - CATKIN_GLOBAL_INCLUDE_DESTINATION
+     - include
+   * - CATKIN_GLOBAL_LIB_DESTINATION
+     - lib
+   * - CATKIN_GLOBAL_LIBEXEC_DESTINATION
+     - lib
+   * - CATKIN_GLOBAL_SHARE_DESTINATION
+     - share
+   * - CATKIN_PACKAGE_BIN_DESTINATION
+     - lib/${PROJECT_NAME}
+   * - CATKIN_PACKAGE_INCLUDE_DESTINATION
+     - include/${PROJECT_NAME}
+   * - CATKIN_PACKAGE_LIB_DESTINATION
+     - lib
+   * - CATKIN_PACKAGE_SHARE_DESTINATION
+     - share/${PROJECT_NAME}
 
 Add a call to ``ament_export_targets()`` with the same name you gave to the ``EXPORT`` keyword (`example <https://github.com/ros2/geometry2/blob/d85102217f692746abea8546c8e41f0abc95c8b8/tf2/CMakeLists.txt#L124-L125>`__).
 
@@ -181,28 +202,53 @@ Use `ament_export_dependencies <https://github.com/ament/ament_cmake/blob/{REPOS
 Generate messages
 ^^^^^^^^^^^^^^^^^
 
-*
-  Replace the invocation of ``add_message_files``, ``add_service_files`` and ``generate_messages`` with `rosidl_generate_interfaces <https://github.com/ros2/rosidl/blob/{REPOS_FILE_BRANCH}/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake>`__.
+If your package contains both C++ code and ROS message, service, or action definitions, then consider splitting it into two packages:
+
+* A package with only the ROS message, service, and/or action definitions
+* A package with the C++ code
+
+Add the following dependencies to the ``package.xml`` of the package that contains ROS messages:
+
+1. Add a ``<buildtool_depend>`` on ``rosidl_default_generators`` (`example <https://github.com/ros2/common_interfaces/blob/d685509e9cb9f80bd320a347f2db954a73397ae7/std_msgs/package.xml#L19>`__)
+
+   .. code-block:: xml
+
+      <buildtool_depend>rosidl_default_generators</buildtool_depend>
+
+2. Add an ``<exec_depend>`` on ``rosidl_default_runtime`` (`example <https://github.com/ros2/common_interfaces/blob/d685509e9cb9f80bd320a347f2db954a73397ae7/std_msgs/package.xml#L22>`__)
+
+   .. code-block:: xml
+
+      <exec_depend>rosidl_default_runtime</exec_depend>
+
+3. Add a ``<member_of_group>`` tag with the group name ``rosidl_interface_packages`` (`example <https://github.com/ros2/common_interfaces/blob/d685509e9cb9f80bd320a347f2db954a73397ae7/std_msgs/package.xml#L26>`__)
 
 
-  *
-    The first argument is the ``target_name``.
-    If you're building just one library it's ``${PROJECT_NAME}``
+In your ``CMakeLists.txt``, replace the invocation of ``add_message_files``, ``add_service_files`` and ``generate_messages`` with `rosidl_generate_interfaces <https://github.com/ros2/rosidl/blob/{REPOS_FILE_BRANCH}/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake>`__.
+The first argument must be ``${PROJECT_NAME}`` due to `this bug <https://github.com/ros2/rosidl_typesupport/issues/120>`__.
 
-  *
-    Followed by the list of message filenames, relative to the package root.
+For example, if your ROS 1 package looks like this:
 
+.. code-block:: none
 
-    * If you will be using the list of filenames multiple times, it is recommended to compose a list of message files and pass the list to the function for clarity.
+   add_message_files(DIRECTORY msg FILES FooBar.msg Baz.msg)
+   add_service_files(DIRECTORY srv FILES Ping.srv)
 
-  *
-    The final multi-value-keyword argument fpr ``generate_messages`` is ``DEPENDENCIES`` which requires the list of dependent message packages.
+   add_action_files(DIRECTORY action FILES DoPong.action)
+   generate_messages(
+      DEPENDENCIES actionlib_msgs std_msgs geometry_msgs
+   )
 
-    .. code-block:: cmake
+Then change it to this (`example <https://github.com/ros2/geometry2/blob/d85102217f692746abea8546c8e41f0abc95c8b8/tf2_msgs/CMakeLists.txt#L18-L25>`__)
+
+.. code-block:: cmake
 
        rosidl_generate_interfaces(${PROJECT_NAME}
-         ${msg_files}
-         DEPENDENCIES std_msgs
+         "msg/FooBar.msg"
+         "msg/Baz.msg"
+         "srv/Ping.srv"
+         "action/DoPong.action"
+         DEPENDENCIES actionlib_msgs std_msgs geometry_msgs
        )
 
 Remove references to the devel space
@@ -217,36 +263,36 @@ Unit tests
 
 If you are using gtest:
 
-Replace ``CATKIN_ENABLE_TESTING`` with ``BUILD_TESTING``.
-Replace ``catkin_add_gtest`` with ``ament_add_gtest``.
+* Replace ``CATKIN_ENABLE_TESTING`` with ``BUILD_TESTING``.
+* Replace ``catkin_add_gtest`` with ``ament_add_gtest``.
+* Add a ``find_package()`` ``ament_cmake_gtest``` instead of ``GTest``
 
-.. code-block:: diff
+For example, change the following code
 
-   -   if (CATKIN_ENABLE_TESTING)
-   -     find_package(GTest REQUIRED)  # or rostest
-   -     include_directories(${GTEST_INCLUDE_DIRS})
-   -     catkin_add_gtest(${PROJECT_NAME}-some-test src/test/some_test.cpp)
-   -     target_link_libraries(${PROJECT_NAME}-some-test
-   -       ${PROJECT_NAME}_some_dependency
-   -       ${catkin_LIBRARIES}
-   -       ${GTEST_LIBRARIES})
-   -   endif()
-   +   if (BUILD_TESTING)
-   +     find_package(ament_cmake_gtest REQUIRED)
-   +     ament_add_gtest(${PROJECT_NAME}-some-test src/test/test_something.cpp)
-   +     ament_target_dependencies(${PROJECT_NAME)-some-test
-   +       "rclcpp"
-   +       "std_msgs")
-   +     target_link_libraries(${PROJECT_NAME}-some-test
-   +       ${PROJECT_NAME}_some_dependency)
-   +   endif()
+.. code-block:: none
 
-Add ``<test_depend>ament_cmake_gtest</test_depend>`` to your ``package.xml``.
+      if (CATKIN_ENABLE_TESTING)
+        find_package(GTest REQUIRED)
+        include_directories(${GTEST_INCLUDE_DIRS})
+        catkin_add_gtest(my_test src/test/some_test.cpp)
+        target_link_libraries(my_test
+          # ...
+          ${GTEST_LIBRARIES})
+      endif()
 
-.. code-block:: diff
+.. code-block:: CMake
+      if (BUILD_TESTING)
+        find_package(ament_cmake_gtest REQUIRED)
+        ament_add_gtest(my_test src/test/test_something.cpp)
+        target_link_libraries(my_test
+          #...
+         )
+      endif()
 
-   -   <test_depend>rostest</test_depend>
-   +   <test_depend>ament_cmake_gtest</test_depend>
+Add ``<test_depend>ament_cmake_gtest</test_depend>`` to your ``package.xml`` (`example <https://github.com/ros2/geometry2/blob/d85102217f692746abea8546c8e41f0abc95c8b8/tf2/package.xml#L35>`__).
+
+.. code-block:: xml
+   <test_depend>ament_cmake_gtest</test_depend>
 
 Linters
 ^^^^^^^
