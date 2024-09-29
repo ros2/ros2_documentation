@@ -211,8 +211,8 @@ Add a call to ``ament_export_targets()`` with the same name you gave to the ``EX
 Replacing ``catkin_package(CATKIN_DEPENDS .. DEPENDS ..)``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Downstream users also need to ``find_package()`` dependencies used in your public API.
-In ROS 1 this was done with ``CATKIN_DEPENDS`` and ``DEPENDS`` arguments.
+Your package's users must ``find_package()`` dependencies used by your package's public API.
+In ROS 1 this was done for downstream users with the ``CATKIN_DEPENDS`` and ``DEPENDS`` arguments.
 Use `ament_export_dependencies <https://github.com/ament/ament_cmake/blob/{REPOS_FILE_BRANCH}/ament_cmake_export_dependencies/cmake/ament_export_dependencies.cmake>`__ to do this in ROS 2.
 
 .. code-block:: cmake
@@ -326,9 +326,9 @@ Add ``<test_depend>ament_cmake_gtest</test_depend>`` to your ``package.xml`` (`e
 Linters
 ^^^^^^^
 
-The ROS 2 code style guide is different than ROS 1 :doc:`Developer Guide <../../The-ROS2-Project/Contributing/Developer-Guide>`.
+The ROS 2 code style guide differs from the ROS 1 :doc:`Style Guide <../../The-ROS2-Project/Contributing/Developer-Guide>`.
 
-If you are starting a project from scratch, follow the ROS 2 style guide, and turn on automatic linter tests by adding these lines in a ``if(BUILD_TESTING)`` block:
+If you choose to follow the ROS 2 style guide, then turn on automatic linter tests by adding these lines in a ``if(BUILD_TESTING)`` block:
 
 .. code-block:: cmake
 
@@ -338,7 +338,7 @@ If you are starting a project from scratch, follow the ROS 2 style guide, and tu
       # ...
    endif()
 
-Then, add the following dependencies to your ``package.xml``:
+Add the following dependencies to your ``package.xml``:
 
 .. code-block:: xml
 
