@@ -609,42 +609,24 @@ provided by ``roscpp``.
 The concepts are very similar between the two libraries, which makes the changes
 reasonably straightforward to make.
 
-Change the C++ code
-~~~~~~~~~~~~~~~~~~~
+Included headers
+~~~~~~~~~~~~~~~~
 
-Modify the C++ code after you have finished modifying the ``package.xml`` and ``CMakeLists.txt``.
-The biggest change to make is to move from ``roscpp`` APIs to ``rclcpp`` APIs, but the concepts are similar between the two packages.
-
-Change the included headers
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The package needs to include headers from ``rclcpp`` instead of ``roscpp``.
-
-Remove the include for ``roscpp``:
-
-.. code-block::
-
-   // remove this
-   #include "ros/ros.h"
-
-Add the include for ``rclcpp``:
+In place of ``ros/ros.h``, which gave us access to the ``roscpp`` library API, we
+need to include ``rclcpp/rclcpp.hpp``, which gives us access to the ``rclcpp``
+library API:
 
 .. code-block:: cpp
 
+   //#include "ros/ros.h"
    #include "rclcpp/rclcpp.hpp"
 
-ROS 2 messages, services, and actions use lower case header names, and include the type of interface in the name.
-
-Change the include for the ``String`` message from this:
-
-.. code-block::
-
-   #include "std_msgs/String.h"
-
-to this:
+To get the ``std_msgs/String`` message definition, in place of
+``std_msgs/String.h``, we need to include ``std_msgs/msg/string.hpp``:
 
 .. code-block:: cpp
 
+   //#include "std_msgs/String.h"
    #include "std_msgs/msg/string.hpp"
 
 Changing C++ library calls
