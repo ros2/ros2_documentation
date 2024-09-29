@@ -553,176 +553,61 @@ The files have the following content:
      return 0;
    }
 
+Building the ROS 1 code
+~~~~~~~~~~~~~~~~~~~~~~~
+
+We source an environment setup file (in this case for Noetic using bash), then we
+build our package using ``catkin_make install``:
+
+.. code-block:: bash
+
+   . /opt/ros/noetic/setup.bash
+   cd ~/ros1_talker
+   catkin_make install
+
+Running the ROS 1 node
+~~~~~~~~~~~~~~~~~~~~~~
+
+If there's not already one running, we start a ``roscore``, first sourcing the
+setup file from our ``catkin`` install tree (the system setup file at
+``/opt/ros/noetic/setup.bash`` would also work here):
+
+.. code-block:: bash
+
+   . ~/ros1_talker/install/setup.bash
+   roscore
+
+In another shell, we run the node from the ``catkin`` install space using
+``rosrun``, again sourcing the setup file first (in this case it must be the one
+from our workspace):
+
+.. code-block:: bash
+
+   . ~/ros1_talker/install/setup.bash
+   rosrun talker talker
+
 Migrating to ROS 2
 ^^^^^^^^^^^^^^^^^^
 
-Create a new ROS 2 workspace:
+Let's start by creating a new workspace in which to work:
 
 .. code-block:: bash
 
    mkdir ~/ros2_talker
    cd ~/ros2_talker
 
-Copy the source tree from the ROS 1 package into the ROS 2 workspace, so you can modify it:
+We'll copy the source tree from our ROS 1 package into that workspace, where we can modify it:
 
 .. code-block:: bash
 
    mkdir src
    cp -a ~/ros1_talker/src/talker src
 
-Modify the ``package.xml`` and ``CMakeLists.txt`` to use ``ament_cmake`` first.
-This lets you find unmigrated code by attempting to build the package.
-
-Change the ``package.xml``
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-ROS 2 packages use CMake functions and macros from ``ament_cmake_ros`` instead of ``catkin``.
-Delete the dependency on ``catkin``:
-
-.. code-block::
-
-   <!-- delete this -->
-   <buildtool_depend>catkin</buildtool_depend>`
-
-Add a new dependency on ``ament_cmake_ros``:
-
-.. code-block:: xml
-
-     <buildtool_depend>ament_cmake</buildtool_depend>
-
-ROS 2 C++ libraries use `rclcpp <https://index.ros.org/p/roscpp/#noetic>`__ instead of `roscpp <https://index.ros.org/p/roscpp/#noetic>`__.
-
-Delete the dependency on ``roscpp``:
-
-.. code-block::
-
-   <!-- delete this -->
-   <depend>roscpp</depend>
-
-Add a dependency on ``rclcpp``:
-
-.. code-block:: xml
-
-     <depend>rclcpp</depend>
-
-
-Add an ``<export>`` section to tell colcon the package is an ``ament_cmake`` package instead of a ``catkin`` package.
-
-.. code-block:: xml
-
-     <export>
-       <build_type>ament_cmake</build_type>
-     </export>
-
-Your ``package.xml`` now looks like this:
-
-.. code-block:: xml
-
-   <?xml version="1.0"?>
-   <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
-   <package format="2">
-     <name>talker</name>
-     <version>0.0.0</version>
-     <description>talker</description>
-     <maintainer email="gerkey@osrfoundation.org">Brian Gerkey</maintainer>
-     <license>Apache-2.0</license>
-     <buildtool_depend>ament_cmake</buildtool_depend>
-     <depend>rclcpp</depend>
-     <depend>std_msgs</depend>
-     <export>
-       <build_type>ament_cmake</build_type>
-     </export>
-   </package>
-
-
-Changing the CMake code
-~~~~~~~~~~~~~~~~~~~~~~~
-
-Require a newer version of CMake so that ``ament_cmake`` functions work correctly.
-
-.. code-block::
-
-   cmake_minimum_required(VERSION 3.14.4)
-
-Use a newer C++ standard matching the version used by your target ROS distro in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__.
-If you are using C++17, then set that version with the following snippet.
-Add extra compiler checks too because it is a good practice.
-
-.. code-block:: cmake
-
-   if(NOT CMAKE_CXX_STANDARD)
-     set(CMAKE_CXX_STANDARD 17)
-   endif()
-   if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-     add_compile_options(-Wall -Wextra -Wpedantic)
-   endif()
-
-Replace the ``find_package(catkin ...)`` call with individual calls for each dependency.
-
-.. code-block:: cmake
-
-   find_package(ament_cmake REQUIRED)
-   find_package(rclcpp REQUIRED)
-   find_package(std_msgs REQUIRED)
-
-
-Add a call to ``ament_package()`` at the bottom of the ``CMakeLists.txt``.
-
-.. code-block:: cmake
-
-   ament_package()
-
-Delete the call to ``include_directories()``.
-Replace it with a call to ``target_include_directories()`` for your package's ``include`` directory.
-Don't add other package's ``*_INCLUDE_DIRS`` variables, those will be handled by depending on modern CMake targets.
-
-.. code-block:: cmake
-
-   target_include_directories(target PUBLIC
-      "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
-      "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
-
-Use ``target_link_libraries`` to make the ``talker`` target depend on  the modern CMake targets provided by ``rclcpp`` and ``std_msgs``.
-
-.. code-block:: cmake
-
-   target_link_libraries(talker PUBLIC
-     rclcpp::rclcpp
-     ${std_msgs_TARGETS})
-
-Install the ``talker`` executable into a project specific directory so that it is discoverable by tools like ``ros2 run``.
-
-.. code-block:: cmake
-
-   install(TARGETS talker
-     DESTINATION lib/${PROJECT_NAME})
-
-The new ``CMakeLists.txt`` looks like this:
-
-.. code-block:: cmake
-
-   cmake_minimum_required(VERSION 3.14.4)
-   project(talker)
-   if(NOT CMAKE_CXX_STANDARD)
-     set(CMAKE_CXX_STANDARD 17)
-   endif()
-   if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-     add_compile_options(-Wall -Wextra -Wpedantic)
-   endif()
-   find_package(ament_cmake REQUIRED)
-   find_package(rclcpp REQUIRED)
-   find_package(std_msgs REQUIRED)
-   add_executable(talker talker.cpp)
-   target_include_directories(target PUBLIC
-      "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
-      "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
-   target_link_libraries(talker PUBLIC
-     rclcpp::rclcpp
-     ${std_msgs_TARGETS})
-   install(TARGETS talker
-     DESTINATION lib/${PROJECT_NAME})
-   ament_package()
-
+Now we'll modify the C++ code in the node.
+The ROS 2 C++ library, called ``rclcpp``, provides a different API from that
+provided by ``roscpp``.
+The concepts are very similar between the two libraries, which makes the changes
+reasonably straightforward to make.
 
 Change the C++ code
 ~~~~~~~~~~~~~~~~~~~
@@ -878,7 +763,155 @@ Putting it all together, the new ``talker.cpp`` looks like this:
      return 0;
    }
 
+Change the ``package.xml``
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+ROS 2 packages use CMake functions and macros from ``ament_cmake_ros`` instead of ``catkin``.
+Delete the dependency on ``catkin``:
+
+.. code-block::
+
+   <!-- delete this -->
+   <buildtool_depend>catkin</buildtool_depend>`
+
+Add a new dependency on ``ament_cmake_ros``:
+
+.. code-block:: xml
+
+     <buildtool_depend>ament_cmake</buildtool_depend>
+
+ROS 2 C++ libraries use `rclcpp <https://index.ros.org/p/roscpp/#noetic>`__ instead of `roscpp <https://index.ros.org/p/roscpp/#noetic>`__.
+
+Delete the dependency on ``roscpp``:
+
+.. code-block::
+
+   <!-- delete this -->
+   <depend>roscpp</depend>
+
+Add a dependency on ``rclcpp``:
+
+.. code-block:: xml
+
+     <depend>rclcpp</depend>
+
+
+Add an ``<export>`` section to tell colcon the package is an ``ament_cmake`` package instead of a ``catkin`` package.
+
+.. code-block:: xml
+
+     <export>
+       <build_type>ament_cmake</build_type>
+     </export>
+
+Your ``package.xml`` now looks like this:
+
+.. code-block:: xml
+
+   <?xml version="1.0"?>
+   <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+   <package format="2">
+     <name>talker</name>
+     <version>0.0.0</version>
+     <description>talker</description>
+     <maintainer email="gerkey@osrfoundation.org">Brian Gerkey</maintainer>
+     <license>Apache-2.0</license>
+     <buildtool_depend>ament_cmake</buildtool_depend>
+     <depend>rclcpp</depend>
+     <depend>std_msgs</depend>
+     <export>
+       <build_type>ament_cmake</build_type>
+     </export>
+   </package>
+
+
+Changing the CMake code
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Require a newer version of CMake so that ``ament_cmake`` functions work correctly.
+
+.. code-block::
+
+   cmake_minimum_required(VERSION 3.14.4)
+
+Use a newer C++ standard matching the version used by your target ROS distro in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__.
+If you are using C++17, then set that version with the following snippet.
+Add extra compiler checks too because it is a good practice.
+
+.. code-block:: cmake
+
+   if(NOT CMAKE_CXX_STANDARD)
+     set(CMAKE_CXX_STANDARD 17)
+   endif()
+   if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+     add_compile_options(-Wall -Wextra -Wpedantic)
+   endif()
+
+Replace the ``find_package(catkin ...)`` call with individual calls for each dependency.
+
+.. code-block:: cmake
+
+   find_package(ament_cmake REQUIRED)
+   find_package(rclcpp REQUIRED)
+   find_package(std_msgs REQUIRED)
+
+
+Add a call to ``ament_package()`` at the bottom of the ``CMakeLists.txt``.
+
+.. code-block:: cmake
+
+   ament_package()
+
+Delete the call to ``include_directories()``.
+Replace it with a call to ``target_include_directories()`` for your package's ``include`` directory.
+Don't add other package's ``*_INCLUDE_DIRS`` variables, those will be handled by depending on modern CMake targets.
+
+.. code-block:: cmake
+
+   target_include_directories(target PUBLIC
+      "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+      "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
+
+Use ``target_link_libraries`` to make the ``talker`` target depend on  the modern CMake targets provided by ``rclcpp`` and ``std_msgs``.
+
+.. code-block:: cmake
+
+   target_link_libraries(talker PUBLIC
+     rclcpp::rclcpp
+     ${std_msgs_TARGETS})
+
+Install the ``talker`` executable into a project specific directory so that it is discoverable by tools like ``ros2 run``.
+
+.. code-block:: cmake
+
+   install(TARGETS talker
+     DESTINATION lib/${PROJECT_NAME})
+
+The new ``CMakeLists.txt`` looks like this:
+
+.. code-block:: cmake
+
+   cmake_minimum_required(VERSION 3.14.4)
+   project(talker)
+   if(NOT CMAKE_CXX_STANDARD)
+     set(CMAKE_CXX_STANDARD 17)
+   endif()
+   if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+     add_compile_options(-Wall -Wextra -Wpedantic)
+   endif()
+   find_package(ament_cmake REQUIRED)
+   find_package(rclcpp REQUIRED)
+   find_package(std_msgs REQUIRED)
+   add_executable(talker talker.cpp)
+   target_include_directories(target PUBLIC
+      "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+      "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
+   target_link_libraries(talker PUBLIC
+     rclcpp::rclcpp
+     ${std_msgs_TARGETS})
+   install(TARGETS talker
+     DESTINATION lib/${PROJECT_NAME})
+   ament_package()
 
 Building the ROS 2 code
 ~~~~~~~~~~~~~~~~~~~~~~~
