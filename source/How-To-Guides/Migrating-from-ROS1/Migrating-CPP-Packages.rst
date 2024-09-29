@@ -844,23 +844,24 @@ Add a call to ``ament_package()`` at the bottom of the ``CMakeLists.txt``.
 
    ament_package()
 
-Delete the call to ``include_directories()``.
-Replace it with a call to ``target_include_directories()`` for your package's ``include`` directory.
-Don't add other package's ``*_INCLUDE_DIRS`` variables, those will be handled by depending on modern CMake targets.
-
-.. code-block:: cmake
-
-   target_include_directories(target PUBLIC
-      "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
-      "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
-
-Use ``target_link_libraries`` to make the ``talker`` target depend on  the modern CMake targets provided by ``rclcpp`` and ``std_msgs``.
+Use ``target_link_libraries`` to make the ``talker`` target depend on the modern CMake targets provided by ``rclcpp`` and ``std_msgs``.
 
 .. code-block:: cmake
 
    target_link_libraries(talker PUBLIC
      rclcpp::rclcpp
      ${std_msgs_TARGETS})
+
+Delete the call to ``include_directories()``.
+Replace it with a call to ``target_include_directories()`` for your package's ``include`` directory.
+Don't pass variables like ``rclcpp_INCLUDE_DIRS`` into ``target_include_directories()``.
+The include directories were already handled by calling ``target_link_libraries()`` with modern CMake targets.
+
+.. code-block:: cmake
+
+   target_include_directories(target PUBLIC
+      "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+      "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
 
 Install the ``talker`` executable into a project specific directory so that it is discoverable by tools like ``ros2 run``.
 
