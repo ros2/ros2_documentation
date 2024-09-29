@@ -690,10 +690,11 @@ argument.
    //    ROS_INFO("%s", msg.data.c_str());
        RCLCPP_INFO(node->get_logger(), "%s\n", msg.data.c_str());
 
-Publishing the message is the same as before:
+Change the publish call to use the ``->`` operator instead of ``.``.
 
 .. code-block:: cpp
 
+   //    chatter_pub.publish(msg);
        chatter_pub->publish(msg);
 
 Spinning (i.e., letting the communications system process any pending
@@ -737,6 +738,7 @@ Putting it all together, the new ``talker.cpp`` looks like this:
        msg.data = ss.str();
    //    ROS_INFO("%s", msg.data.c_str());
        RCLCPP_INFO(node->get_logger(), "%s\n", msg.data.c_str());
+   //    chatter_pub.publish(msg);
        chatter_pub->publish(msg);
    //    ros::spinOnce();
        rclcpp::spin_some(node);
@@ -760,7 +762,7 @@ Add a new dependency on ``ament_cmake_ros``:
 
 .. code-block:: xml
 
-     <buildtool_depend>ament_cmake</buildtool_depend>
+     <buildtool_depend>ament_cmake_ros</buildtool_depend>
 
 ROS 2 C++ libraries use `rclcpp <https://index.ros.org/p/roscpp/#noetic>`__ instead of `roscpp <https://index.ros.org/p/roscpp/#noetic>`__.
 
@@ -817,7 +819,7 @@ Require a newer version of CMake so that ``ament_cmake`` functions work correctl
    cmake_minimum_required(VERSION 3.14.4)
 
 Use a newer C++ standard matching the version used by your target ROS distro in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__.
-If you are using C++17, then set that version with the following snippet.
+If you are using C++17, then set that version with the following snippet after the ``project(talker)`` call.
 Add extra compiler checks too because it is a good practice.
 
 .. code-block:: cmake
@@ -837,14 +839,14 @@ Replace the ``find_package(catkin ...)`` call with individual calls for each dep
    find_package(rclcpp REQUIRED)
    find_package(std_msgs REQUIRED)
 
-
+Delete the call to ``catkin_package()``.
 Add a call to ``ament_package()`` at the bottom of the ``CMakeLists.txt``.
 
 .. code-block:: cmake
 
    ament_package()
 
-Use ``target_link_libraries`` to make the ``talker`` target depend on the modern CMake targets provided by ``rclcpp`` and ``std_msgs``.
+Make the ``target_link_libraries`` call modern CMake targets provided by ``rclcpp`` and ``std_msgs``.
 
 .. code-block:: cmake
 
@@ -853,17 +855,17 @@ Use ``target_link_libraries`` to make the ``talker`` target depend on the modern
      ${std_msgs_TARGETS})
 
 Delete the call to ``include_directories()``.
-Replace it with a call to ``target_include_directories()`` for your package's ``include`` directory.
+Add a call to ``target_include_directories()`` below ``add_executable(talker talker.cpp)``.
 Don't pass variables like ``rclcpp_INCLUDE_DIRS`` into ``target_include_directories()``.
-The include directories were already handled by calling ``target_link_libraries()`` with modern CMake targets.
+The include directories are already handled by calling ``target_link_libraries()`` with modern CMake targets.
 
 .. code-block:: cmake
 
-   target_include_directories(target PUBLIC
+   target_include_directories(talker PUBLIC
       "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
       "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
 
-Install the ``talker`` executable into a project specific directory so that it is discoverable by tools like ``ros2 run``.
+Change the call to ``install()`` so that the ``talker`` executable is installed into a project specific directory.
 
 .. code-block:: cmake
 
@@ -886,7 +888,7 @@ The new ``CMakeLists.txt`` looks like this:
    find_package(rclcpp REQUIRED)
    find_package(std_msgs REQUIRED)
    add_executable(talker talker.cpp)
-   target_include_directories(target PUBLIC
+   target_include_directories(talker PUBLIC
       "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
       "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
    target_link_libraries(talker PUBLIC
