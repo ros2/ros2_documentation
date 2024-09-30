@@ -248,6 +248,9 @@ Add the following dependencies to the ``package.xml`` of the package that contai
 
 3. Add a ``<member_of_group>`` tag with the group name ``rosidl_interface_packages`` (`example <https://github.com/ros2/common_interfaces/blob/d685509e9cb9f80bd320a347f2db954a73397ae7/std_msgs/package.xml#L26>`__)
 
+   .. code-block:: xml
+
+      <member_of_group>rosidl_interface_packages</member_of_group>
 
 In your ``CMakeLists.txt``, replace the invocation of ``add_message_files``, ``add_service_files`` and ``generate_messages`` with `rosidl_generate_interfaces <https://github.com/ros2/rosidl/blob/{REPOS_FILE_BRANCH}/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake>`__.
 The first argument must be ``${PROJECT_NAME}`` due to `this bug <https://github.com/ros2/rosidl_typesupport/issues/120>`__.
@@ -326,7 +329,7 @@ Add ``<test_depend>ament_cmake_gtest</test_depend>`` to your ``package.xml`` (`e
 Linters
 ^^^^^^^
 
-The ROS 2 code :doc:`style guide <../../The-ROS2-Project/Contributing/Developer-Guide>`__ differs from ROS 1.
+The ROS 2 code :doc:`style guide <../../The-ROS2-Project/Contributing/Developer-Guide>` differs from ROS 1.
 
 If you choose to follow the ROS 2 style guide, then turn on automatic linter tests by adding these lines in a ``if(BUILD_TESTING)`` block:
 
