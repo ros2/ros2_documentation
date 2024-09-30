@@ -326,7 +326,7 @@ Add ``<test_depend>ament_cmake_gtest</test_depend>`` to your ``package.xml`` (`e
 Linters
 ^^^^^^^
 
-The ROS 2 code style guide differs from the ROS 1 :doc:`Style Guide <../../The-ROS2-Project/Contributing/Developer-Guide>`.
+The ROS 2 code :doc:`style guide <../../The-ROS2-Project/Contributing/Developer-Guide>`__ differs from ROS 1.
 
 If you choose to follow the ROS 2 style guide, then turn on automatic linter tests by adding these lines in a ``if(BUILD_TESTING)`` block:
 
