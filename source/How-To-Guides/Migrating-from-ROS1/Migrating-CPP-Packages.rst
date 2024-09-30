@@ -17,142 +17,331 @@ Build tool
 Instead of using ``catkin_make``, ``catkin_make_isolated`` or ``catkin build`` ROS 2 uses the command line tool `colcon <https://design.ros2.org/articles/build_tool.html>`__ to build and install a set of packages.
 See the :doc:`beginner tutorial <../../Tutorials/Beginner-Client-Libraries/Colcon-Tutorial>` to get started with ``colcon``.
 
-Build system
-------------
+Update your ``CMakeLists.txt`` to use *ament_cmake*
+---------------------------------------------------
 
-The build system in ROS 2 is called `ament <https://design.ros2.org/articles/ament.html>`__.
-Ament is built on CMake: ``ament_cmake`` provides CMake functions to make writing ``CMakeLists.txt`` files easier.
-
-Update the *CMakeLists.txt* to use *ament_cmake*
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Apply the following changes to use ``ament_cmake`` instead of ``catkin``:
+ROS 2 C++ packages use `CMake <https://cmake.org/>`__ with convenience functions provided by `ament_cmake <https://index.ros.org/p/ament_cmake/>`__.
+Apply the following changes to use ``ament_cmake`` instead of ``catkin``.
 
 
-*
-  Set the build type in the ``package.xml`` file export section:
+Require a newer version of CMake
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-  .. code-block:: xml
+ROS 2 relies on newer versions of CMake than used by ROS 1.
+Find the minimum version of CMake used by the ROS distribution you want to support in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__, and use that version at the top of your ``CMakeLists.txt``.
+For example, `3.14.4 is the minimum recommended support for ROS Humble <https://www.ros.org/reps/rep-2000.html#humble-hawksbill-may-2022-may-2027>`__.
 
-     <export>
-       <build_type>ament_cmake</build_type>
-     </export>
+.. code-block::
 
-*
-  Replace the ``find_package`` invocation with ``catkin`` and the ``COMPONENTS`` with:
+   cmake_minimum_required(VERSION 3.14.4)
 
-  .. code-block:: cmake
+Set the build type to ament_cmake
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-     find_package(ament_cmake REQUIRED)
-     find_package(component1 REQUIRED)
-     # ...
-     find_package(componentN REQUIRED)
+Remove any dependencies on ``catkin`` from your ``package.xml``
 
-*
-  Move and update the ``catkin_package`` invocation with:
+.. code-block::
+
+   # Remove this!
+   <buildtool_depend>catkin</buildtool_depend>
+
+Add a new dependency on ``ament_cmake_ros`` (`example <https://github.com/ros2/geometry2/blob/d85102217f692746abea8546c8e41f0abc95c8b8/tf2/package.xml#L25>`__):
+
+.. code-block:: xml
+
+   <buildtool_depend>ament_cmake_ros</buildtool_depend>
+
+Add an ``<export>`` section to your ``package.xml`` if it does not have one already.
+Set the ``<build_type>`` to ``ament_cmake`` (`example <https://github.com/ros2/geometry2/blob/d85102217f692746abea8546c8e41f0abc95c8b8/tf2/package.xml#L43-L45>`__)
+
+.. code-block:: xml
+
+   <export>
+      <build_type>ament_cmake</build_type>
+   </export>
+
+Add a call to ``ament_package()``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Insert a call to ``ament_package()`` at the bottom of your ``CMakeLists.txt`` (`example <https://github.com/ros2/geometry2/blob/d85102217f692746abea8546c8e41f0abc95c8b8/tf2/CMakeLists.txt#L127>`__)
+
+.. code-block:: cmake
+
+   # Add this to the bottom of your CMakeLists.txt
+   ament_package()
+
+Update ``find_package()`` calls
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Replace the ``find_package(catkin COMPONENTS ...)``  call with individual ``find_package()`` calls (`example <https://github.com/ros2/geometry2/blob/d85102217f692746abea8546c8e41f0abc95c8b8/tf2/CMakeLists.txt#L14-L18>`_):
+
+For example, change this:
+
+.. code-block::
+
+   find_package(catkin REQUIRED COMPONENTS foo bar std_msgs)
+   find_package(baz REQUIRED)
+
+To this:
+
+.. code-block:: cmake
+
+   find_package(ament_cmake_ros REQUIRED)
+   find_package(foo REQUIRED)
+   find_package(bar REQUIRED)
+   find_package(std_msgs REQUIRED)
+   find_package(baz REQUIRED)
 
 
-  *
-    Invoke ``ament_package`` instead but **after** all targets have been registered.
+Use modern CMake targets
+^^^^^^^^^^^^^^^^^^^^^^^^
 
-  *
-    The only valid argument for `ament_package <https://github.com/ament/ament_cmake/blob/{REPOS_FILE_BRANCH}/ament_cmake_core/cmake/core/ament_package.cmake>`__ is ``CONFIG_EXTRAS``.
-    All other arguments are covered by separate functions which all need to be invoked *before* ``ament_package``:
+Prefer to use per-target CMake functions so that your package can export modern CMake targets.
 
-    * Instead of passing ``CATKIN_DEPENDS ...`` call ``ament_export_dependencies(...)`` before.
-    * Instead of passing ``INCLUDE_DIRS ...`` call ``ament_export_include_directories(...)`` before.
-    * Instead of passing ``LIBRARIES ...`` call ``ament_export_libraries(...)`` before.
+If your ``CMakeLists.txt`` uses ``include_directories()``, then delete those calls.
 
-*
-  Replace the invocation of ``add_message_files``, ``add_service_files`` and ``generate_messages`` with `rosidl_generate_interfaces <https://github.com/ros2/rosidl/blob/{REPOS_FILE_BRANCH}/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake>`__.
+.. code-block::
+
+   # Delete calls to include_directories like this one!
+   include_directories(include ${catkin_INCLUDE_DIRS})
+
+Add a call ``target_include_directories()`` for every library in your pacakage (`example <https://github.com/ros2/geometry2/blob/d85102217f692746abea8546c8e41f0abc95c8b8/tf2/CMakeLists.txt#L24-L26>`__).
+
+.. code-block:: cmake
+
+   target_include_directories(my_library PUBLIC
+      "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+      "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
+
+Change all ``target_link_libraries()`` calls to use modern CMake targets.
+For example, if your package in ROS 1 uses old-style standard CMake variables like this.
+
+.. code-block::
+
+   target_link_libraries(my_library ${catkin_LIBRARIES} ${baz_LIBRARIES})
+
+Then change it to use specific modern CMake targets instead.
+Use ``${package_name_TARGETS}`` if the package you're depending on is a message package such as ``std_msgs``.
+
+.. code-block:: cmake
+
+   target_link_libraries(my_library PUBLIC foo::foo bar::bar ${std_msgs_TARGETS} baz::baz)
+
+Choose ``PUBLIC`` or ``PRIVATE`` based on how the dependency is used by your library (`example <https://github.com/ros2/geometry2/blob/d85102217f692746abea8546c8e41f0abc95c8b8/tf2/CMakeLists.txt#L27-L31>`__).
+
+* Use ``PUBLIC`` if the dependency is needed by downstream users, for example, your library's public API uses it.
+* Use ``PRIVATE`` if the dependency is only used internally by your library.
+
+Replace ``catkin_package()`` with various ament_cmake calls
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Imagine your ``CMakeLists.txt`` has a call to ``catkin_package`` like this:
+
+.. code-block::
+
+   catkin_package(
+       INCLUDE_DIRS include
+       LIBRARIES my_library
+       CATKIN_DEPENDS foo bar std_msgs
+       DEPENDS baz
+   )
+
+   install(TARGETS my_library
+      ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+      LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+      RUNTIME DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION}
+   )
 
 
-  *
-    The first argument is the ``target_name``.
-    If you're building just one library it's ``${PROJECT_NAME}``
+Replacing ``catkin_package(INCLUDE_DIRS ...)``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  *
-    Followed by the list of message filenames, relative to the package root.
+If you've used modern CMake targets and ``target_include_directories()``, you don't need to do anything further.
+Downstream users will get the include directories by depending on your modern CMake targets.
+
+Replacing ``catkin_package(LIBRARIES ...)``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Use ``ament_export_targets()`` and ``install(TARGETS ... EXPORT ...)`` to replace the ``LIBRARIES`` argument.
+
+Use the ``EXPORT`` keyword when installing your ``my_library`` target (`example <https://github.com/ros2/geometry2/blob/d85102217f692746abea8546c8e41f0abc95c8b8/tf2/CMakeLists.txt#L37-L41>`__).
+
+.. code-block:: cmake
+
+   install(TARGETS my_library EXPORT export_my_package
+      ARCHIVE DESTINATION lib
+      LIBRARY DESTINATION lib
+      RUNTIME DESTINATION bin
+   )
+
+The above is a good default for library targets.
+If your package used different ``CATKIN_*_DESTINATION`` variables, convert them as follows:
+
+.. list-table::
+   :header-rows: 1
+
+   * - **catkin**
+     - **ament_cmake**
+   * - CATKIN_GLOBAL_BIN_DESTINATION
+     - bin
+   * - CATKIN_GLOBAL_INCLUDE_DESTINATION
+     - include
+   * - CATKIN_GLOBAL_LIB_DESTINATION
+     - lib
+   * - CATKIN_GLOBAL_LIBEXEC_DESTINATION
+     - lib
+   * - CATKIN_GLOBAL_SHARE_DESTINATION
+     - share
+   * - CATKIN_PACKAGE_BIN_DESTINATION
+     - lib/${PROJECT_NAME}
+   * - CATKIN_PACKAGE_INCLUDE_DESTINATION
+     - include/${PROJECT_NAME}
+   * - CATKIN_PACKAGE_LIB_DESTINATION
+     - lib
+   * - CATKIN_PACKAGE_SHARE_DESTINATION
+     - share/${PROJECT_NAME}
+
+Add a call to ``ament_export_targets()`` with the same name you gave to the ``EXPORT`` keyword (`example <https://github.com/ros2/geometry2/blob/d85102217f692746abea8546c8e41f0abc95c8b8/tf2/CMakeLists.txt#L124-L125>`__).
+
+.. code-block:: cmake
+
+   ament_export_targets(export_my_package)
 
 
-    * If you will be using the list of filenames multiple times, it is recommended to compose a list of message files and pass the list to the function for clarity.
+Replacing ``catkin_package(CATKIN_DEPENDS .. DEPENDS ..)``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  *
-    The final multi-value-keyword argument fpr ``generate_messages`` is ``DEPENDENCIES`` which requires the list of dependent message packages.
+Your package's users must ``find_package()`` dependencies used by your package's public API.
+In ROS 1 this was done for downstream users with the ``CATKIN_DEPENDS`` and ``DEPENDS`` arguments.
+Use `ament_export_dependencies <https://github.com/ament/ament_cmake/blob/{REPOS_FILE_BRANCH}/ament_cmake_export_dependencies/cmake/ament_export_dependencies.cmake>`__ to do this in ROS 2.
 
-    .. code-block:: cmake
+.. code-block:: cmake
+
+   ament_export_dependencies(
+      foo
+      bar
+      std_msgs
+      baz
+   )
+
+Generate messages
+^^^^^^^^^^^^^^^^^
+
+If your package contains both C++ code and ROS message, service, or action definitions, then consider splitting it into two packages:
+
+* A package with only the ROS message, service, and/or action definitions
+* A package with the C++ code
+
+Add the following dependencies to the ``package.xml`` of the package that contains ROS messages:
+
+1. Add a ``<buildtool_depend>`` on ``rosidl_default_generators`` (`example <https://github.com/ros2/common_interfaces/blob/d685509e9cb9f80bd320a347f2db954a73397ae7/std_msgs/package.xml#L19>`__)
+
+   .. code-block:: xml
+
+      <buildtool_depend>rosidl_default_generators</buildtool_depend>
+
+2. Add an ``<exec_depend>`` on ``rosidl_default_runtime`` (`example <https://github.com/ros2/common_interfaces/blob/d685509e9cb9f80bd320a347f2db954a73397ae7/std_msgs/package.xml#L22>`__)
+
+   .. code-block:: xml
+
+      <exec_depend>rosidl_default_runtime</exec_depend>
+
+3. Add a ``<member_of_group>`` tag with the group name ``rosidl_interface_packages`` (`example <https://github.com/ros2/common_interfaces/blob/d685509e9cb9f80bd320a347f2db954a73397ae7/std_msgs/package.xml#L26>`__)
+
+   .. code-block:: xml
+
+      <member_of_group>rosidl_interface_packages</member_of_group>
+
+In your ``CMakeLists.txt``, replace the invocation of ``add_message_files``, ``add_service_files`` and ``generate_messages`` with `rosidl_generate_interfaces <https://github.com/ros2/rosidl/blob/{REPOS_FILE_BRANCH}/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake>`__.
+The first argument must be ``${PROJECT_NAME}`` due to `this bug <https://github.com/ros2/rosidl_typesupport/issues/120>`__.
+
+For example, if your ROS 1 package looks like this:
+
+.. code-block::
+
+   add_message_files(DIRECTORY msg FILES FooBar.msg Baz.msg)
+   add_service_files(DIRECTORY srv FILES Ping.srv)
+
+   add_action_files(DIRECTORY action FILES DoPong.action)
+   generate_messages(
+      DEPENDENCIES actionlib_msgs std_msgs geometry_msgs
+   )
+
+Then change it to this (`example <https://github.com/ros2/geometry2/blob/d85102217f692746abea8546c8e41f0abc95c8b8/tf2_msgs/CMakeLists.txt#L18-L25>`__)
+
+.. code-block:: cmake
 
        rosidl_generate_interfaces(${PROJECT_NAME}
-         ${msg_files}
-         DEPENDENCIES std_msgs
+         "msg/FooBar.msg"
+         "msg/Baz.msg"
+         "srv/Ping.srv"
+         "action/DoPong.action"
+         DEPENDENCIES actionlib_msgs std_msgs geometry_msgs
        )
 
-*
-  Remove any occurrences of the *devel space*.
-  Related CMake variables like ``CATKIN_DEVEL_PREFIX`` do not exist anymore.
+Remove references to the devel space
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Remove any references to the *devel space* such as ``CATKIN_DEVEL_PREFIX``.
+There is no equivalent to the *devel space* in ROS 2.
 
-  * The ``CATKIN_DEPENDS`` and ``DEPENDS`` arguments are passed to the new function `ament_export_dependencies <https://github.com/ament/ament_cmake/blob/{REPOS_FILE_BRANCH}/ament_cmake_export_dependencies/cmake/ament_export_dependencies.cmake>`__.
-  * ``CATKIN_GLOBAL_BIN_DESTINATION``: ``bin``
-  * ``CATKIN_GLOBAL_INCLUDE_DESTINATION``: ``include``
-  * ``CATKIN_GLOBAL_LIB_DESTINATION``: ``lib``
-  * ``CATKIN_GLOBAL_LIBEXEC_DESTINATION``: ``lib``
-  * ``CATKIN_GLOBAL_SHARE_DESTINATION``: ``share``
-  * ``CATKIN_PACKAGE_BIN_DESTINATION``: ``lib/${PROJECT_NAME}``
-  * ``CATKIN_PACKAGE_INCLUDE_DESTINATION``: ``include/${PROJECT_NAME}``
-  * ``CATKIN_PACKAGE_LIB_DESTINATION``: ``lib``
-  * ``CATKIN_PACKAGE_SHARE_DESTINATION``: ``share/${PROJECT_NAME}``
 
 Unit tests
 ^^^^^^^^^^
 
-If you are using gtest:
+If your package uses `gtest <https://github.com/google/googletest>`__ then:
 
-Replace ``CATKIN_ENABLE_TESTING`` with ``BUILD_TESTING``.
-Replace ``catkin_add_gtest`` with ``ament_add_gtest``.
+* Replace ``CATKIN_ENABLE_TESTING`` with ``BUILD_TESTING``.
+* Replace ``catkin_add_gtest`` with ``ament_add_gtest``.
+* Add a ``find_package()`` for ``ament_cmake_gtest`` instead of ``GTest``
 
-.. code-block:: diff
+For example, if your ROS 1 package adds tests like this:
 
-   -   if (CATKIN_ENABLE_TESTING)
-   -     find_package(GTest REQUIRED)  # or rostest
-   -     include_directories(${GTEST_INCLUDE_DIRS})
-   -     catkin_add_gtest(${PROJECT_NAME}-some-test src/test/some_test.cpp)
-   -     target_link_libraries(${PROJECT_NAME}-some-test
-   -       ${PROJECT_NAME}_some_dependency
-   -       ${catkin_LIBRARIES}
-   -       ${GTEST_LIBRARIES})
-   -   endif()
-   +   if (BUILD_TESTING)
-   +     find_package(ament_cmake_gtest REQUIRED)
-   +     ament_add_gtest(${PROJECT_NAME}-some-test src/test/test_something.cpp)
-   +     ament_target_dependencies(${PROJECT_NAME)-some-test
-   +       "rclcpp"
-   +       "std_msgs")
-   +     target_link_libraries(${PROJECT_NAME}-some-test
-   +       ${PROJECT_NAME}_some_dependency)
-   +   endif()
+.. code-block::
 
-Add ``<test_depend>ament_cmake_gtest</test_depend>`` to your ``package.xml``.
+      if (CATKIN_ENABLE_TESTING)
+        find_package(GTest REQUIRED)
+        include_directories(${GTEST_INCLUDE_DIRS})
+        catkin_add_gtest(my_test src/test/some_test.cpp)
+        target_link_libraries(my_test
+          # ...
+          ${GTEST_LIBRARIES})
+      endif()
 
-.. code-block:: diff
+Then change it to this:
 
-   -   <test_depend>rostest</test_depend>
-   +   <test_depend>ament_cmake_gtest</test_depend>
+.. code-block:: CMake
+
+      if (BUILD_TESTING)
+        find_package(ament_cmake_gtest REQUIRED)
+        ament_add_gtest(my_test src/test/test_something.cpp)
+        target_link_libraries(my_test
+          #...
+         )
+      endif()
+
+Add ``<test_depend>ament_cmake_gtest</test_depend>`` to your ``package.xml`` (`example <https://github.com/ros2/geometry2/blob/d85102217f692746abea8546c8e41f0abc95c8b8/tf2/package.xml#L35>`__).
+
+.. code-block:: xml
+
+   <test_depend>ament_cmake_gtest</test_depend>
 
 Linters
 ^^^^^^^
 
-In ROS 2 we are working to maintain clean code using linters.
-The styles for different languages are defined in our :doc:`Developer Guide <../../The-ROS2-Project/Contributing/Developer-Guide>`.
+The ROS 2 code :doc:`style guide <../../The-ROS2-Project/Contributing/Developer-Guide>` differs from ROS 1.
 
-If you are starting a project from scratch it is recommended to follow the style guide and turn on the automatic linter unit tests by adding these lines just below ``if(BUILD_TESTING)``:
+If you choose to follow the ROS 2 style guide, then turn on automatic linter tests by adding these lines in a ``if(BUILD_TESTING)`` block:
 
 .. code-block:: cmake
 
-   find_package(ament_lint_auto REQUIRED)
-   ament_lint_auto_find_test_dependencies()
+   if(BUILD_TESTING)
+      find_package(ament_lint_auto REQUIRED)
+      ament_lint_auto_find_test_dependencies()
+      # ...
+   endif()
 
-You will also need to add the following dependencies to your ``package.xml``:
+Add the following dependencies to your ``package.xml``:
 
 .. code-block:: xml
 
@@ -287,13 +476,13 @@ Replace:
 Example: Converting an existing ROS 1 package to ROS 2
 ------------------------------------------------------
 
-Let's say that we have simple ROS 1 package called ``talker`` that uses ``roscpp`` in one node, called ``talker``.
+Say you have a ROS 1 package called ``talker`` that uses ``roscpp`` in one node, called ``talker``.
 This package is in a catkin workspace, located at ``~/ros1_talker``.
 
 The ROS 1 code
 ^^^^^^^^^^^^^^
 
-Here's the directory layout of our catkin workspace:
+Your ROS 1 workspace has the following directory layout:
 
 .. code-block:: bash
 
@@ -306,23 +495,23 @@ Here's the directory layout of our catkin workspace:
    ./src/talker/CMakeLists.txt
    ./src/talker/talker.cpp
 
-Here is the content of those three files:
+The files have the following content:
 
 ``src/talker/package.xml``:
 
 .. code-block:: xml
 
-   <package>
+   <?xml version="1.0"?>
+   <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+   <package format="2">
      <name>talker</name>
      <version>0.0.0</version>
      <description>talker</description>
      <maintainer email="gerkey@osrfoundation.org">Brian Gerkey</maintainer>
      <license>Apache 2.0</license>
      <buildtool_depend>catkin</buildtool_depend>
-     <build_depend>roscpp</build_depend>
-     <build_depend>std_msgs</build_depend>
-     <run_depend>roscpp</run_depend>
-     <run_depend>std_msgs</run_depend>
+     <depend>roscpp</depend>
+     <depend>std_msgs</depend>
    </package>
 
 ``src/talker/CMakeLists.txt``:
@@ -504,10 +693,11 @@ argument.
    //    ROS_INFO("%s", msg.data.c_str());
        RCLCPP_INFO(node->get_logger(), "%s\n", msg.data.c_str());
 
-Publishing the message is the same as before:
+Change the publish call to use the ``->`` operator instead of ``.``.
 
 .. code-block:: cpp
 
+   //    chatter_pub.publish(msg);
        chatter_pub->publish(msg);
 
 Spinning (i.e., letting the communications system process any pending
@@ -551,6 +741,7 @@ Putting it all together, the new ``talker.cpp`` looks like this:
        msg.data = ss.str();
    //    ROS_INFO("%s", msg.data.c_str());
        RCLCPP_INFO(node->get_logger(), "%s\n", msg.data.c_str());
+   //    chatter_pub.publish(msg);
        chatter_pub->publish(msg);
    //    ros::spinOnce();
        rclcpp::spin_some(node);
@@ -559,47 +750,40 @@ Putting it all together, the new ``talker.cpp`` looks like this:
      return 0;
    }
 
-Changing the ``package.xml``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Change the ``package.xml``
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-ROS 2 uses a newer version of ``catkin``, called ``ament_cmake``, which we specify in the
-``buildtool_depend`` tag:
+ROS 2 packages use CMake functions and macros from ``ament_cmake_ros`` instead of ``catkin``.
+Delete the dependency on ``catkin``:
 
-.. code-block:: xml
+.. code-block::
 
-   <!--  <buildtool_depend>catkin</buildtool_depend> -->
-     <buildtool_depend>ament_cmake</buildtool_depend>
+   <!-- delete this -->
+   <buildtool_depend>catkin</buildtool_depend>`
 
-In our build dependencies, instead of ``roscpp`` we use ``rclcpp``, which provides the C++ API that we use.
-
-.. code-block:: xml
-
-   <!--  <build_depend>roscpp</build_depend> -->
-     <build_depend>rclcpp</build_depend>
-
-We make the same addition in the run dependencies and also update from the
-``run_depend`` tag to the ``exec_depend`` tag (part of the upgrade to version 2 of the package format):
+Add a new dependency on ``ament_cmake_ros``:
 
 .. code-block:: xml
 
-   <!--  <run_depend>roscpp</run_depend> -->
-     <exec_depend>rclcpp</exec_depend>
-   <!--  <run_depend>std_msgs</run_depend> -->
-     <exec_depend>std_msgs</exec_depend>
+     <buildtool_depend>ament_cmake_ros</buildtool_depend>
 
-In ROS 1, we use ``<depend>`` to simplify specifying dependencies for both
-compile-time and runtime.
-We can do the same in ROS 2:
+ROS 2 C++ libraries use `rclcpp <https://index.ros.org/p/roscpp/#noetic>`__ instead of `roscpp <https://index.ros.org/p/roscpp/#noetic>`__.
+
+Delete the dependency on ``roscpp``:
+
+.. code-block::
+
+   <!-- delete this -->
+   <depend>roscpp</depend>
+
+Add a dependency on ``rclcpp``:
 
 .. code-block:: xml
 
      <depend>rclcpp</depend>
-     <depend>std_msgs</depend>
 
-We also need to tell the build tool what *kind* of package we are, so that it knows how
-to build us.
-Because we're using ``ament`` and CMake, we add the following lines to declare our
-build type to be ``ament_cmake``:
+
+Add an ``<export>`` section to tell colcon the package is an ``ament_cmake`` package instead of a ``catkin`` package.
 
 .. code-block:: xml
 
@@ -607,22 +791,19 @@ build type to be ``ament_cmake``:
        <build_type>ament_cmake</build_type>
      </export>
 
-Putting it all together, our ``package.xml`` now looks like this:
+Your ``package.xml`` now looks like this:
 
 .. code-block:: xml
 
-   <!-- <package> -->
+   <?xml version="1.0"?>
+   <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
    <package format="2">
      <name>talker</name>
      <version>0.0.0</version>
      <description>talker</description>
      <maintainer email="gerkey@osrfoundation.org">Brian Gerkey</maintainer>
-     <license>Apache License 2.0</license>
-   <!--  <buildtool_depend>catkin</buildtool_depend> -->
+     <license>Apache-2.0</license>
      <buildtool_depend>ament_cmake</buildtool_depend>
-   <!--  <build_depend>roscpp</build_depend> -->
-   <!--  <run_depend>roscpp</run_depend> -->
-   <!--  <run_depend>std_msgs</run_depend> -->
      <depend>rclcpp</depend>
      <depend>std_msgs</depend>
      <export>
@@ -634,22 +815,15 @@ Putting it all together, our ``package.xml`` now looks like this:
 Changing the CMake code
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-ROS 2 relies on a higher version of CMake:
+Require a newer version of CMake so that ``ament_cmake`` functions work correctly.
 
-.. code-block:: bash
+.. code-block::
 
-   #cmake_minimum_required(VERSION 2.8.3)
-   cmake_minimum_required(VERSION 3.5)
+   cmake_minimum_required(VERSION 3.14.4)
 
-ROS 2 relies on the C++17 standard.
-Depending on what compiler you're using, support for C++17 might not be enabled by default.
-Enable C++17 support explicitly by adding this line near the top of the file:
-
-.. code-block:: cmake
-
-   set(CMAKE_CXX_STANDARD 17)
-
-The preferred way to work on all platforms is this:
+Use a newer C++ standard matching the version used by your target ROS distro in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__.
+If you are using C++17, then set that version with the following snippet after the ``project(talker)`` call.
+Add extra compiler checks too because it is a good practice.
 
 .. code-block:: cmake
 
@@ -660,102 +834,52 @@ The preferred way to work on all platforms is this:
      add_compile_options(-Wall -Wextra -Wpedantic)
    endif()
 
-Using ``catkin``, we specify the packages we want to build against by passing them
-as ``COMPONENTS`` arguments when initially finding ``catkin`` itself.
-With ``ament_cmake``, we find each package individually, starting with ``ament_cmake``:
+Replace the ``find_package(catkin ...)`` call with individual calls for each dependency.
 
 .. code-block:: cmake
 
-   #find_package(catkin REQUIRED COMPONENTS roscpp std_msgs)
    find_package(ament_cmake REQUIRED)
    find_package(rclcpp REQUIRED)
    find_package(std_msgs REQUIRED)
 
-System dependencies can be found as before:
+Delete the call to ``catkin_package()``.
+Add a call to ``ament_package()`` at the bottom of the ``CMakeLists.txt``.
 
 .. code-block:: cmake
 
-   find_package(Boost REQUIRED COMPONENTS system filesystem thread)
-
-We call ``catkin_package()`` to auto-generate things like CMake configuration
-files for other packages that use our package.
-Whereas that call happens *before* specifying targets to build, we now call the
-analogous ``ament_package()`` *after* the targets:
-
-.. code-block:: cmake
-
-   # catkin_package()
-   # At the bottom of the file:
    ament_package()
 
-The only directories that need to be manually included are local directories
-and dependencies that are not ament packages:
+Make the ``target_link_libraries`` call modern CMake targets provided by ``rclcpp`` and ``std_msgs``.
 
 .. code-block:: cmake
 
-   #include_directories(${catkin_INCLUDE_DIRS})
-   include_directories(include ${Boost_INCLUDE_DIRS})
+   target_link_libraries(talker PUBLIC
+     rclcpp::rclcpp
+     ${std_msgs_TARGETS})
 
-A better alternative is to specify include directories for each target
-individually, rather than including all the directories for all targets:
-
-.. code-block:: cmake
-
-   target_include_directories(target PUBLIC include ${Boost_INCLUDE_DIRS})
-
-Similar to how we found each dependent package separately, we need to link
-each one to the build target.
-To link with dependent packages that are ament packages, instead of using
-``target_link_libraries()``, ``ament_target_dependencies()`` is a more
-concise and more thorough way of handling build flags.
-It automatically handles both the include directories defined in
-``_INCLUDE_DIRS`` and linking libraries defined in ``_LIBRARIES``.
+Delete the call to ``include_directories()``.
+Add a call to ``target_include_directories()`` below ``add_executable(talker talker.cpp)``.
+Don't pass variables like ``rclcpp_INCLUDE_DIRS`` into ``target_include_directories()``.
+The include directories are already handled by calling ``target_link_libraries()`` with modern CMake targets.
 
 .. code-block:: cmake
 
-   #target_link_libraries(talker ${catkin_LIBRARIES})
-   ament_target_dependencies(talker
-     rclcpp
-     std_msgs)
+   target_include_directories(talker PUBLIC
+      "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+      "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
 
-To link with packages that are not ament packages, such as system dependencies
-like ``Boost``, or a library being built in the same ``CMakeLists.txt``, use
-``target_link_libraries()``:
+Change the call to ``install()`` so that the ``talker`` executable is installed into a project specific directory.
 
 .. code-block:: cmake
 
-   target_link_libraries(target ${Boost_LIBRARIES})
-
-For installation, ``catkin`` defines variables like ``CATKIN_PACKAGE_BIN_DESTINATION``.
-With ``ament_cmake``, we just give a path relative to the installation root:
-
-.. code-block:: cmake
-
-   #install(TARGETS talker
-   #  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
    install(TARGETS talker
      DESTINATION lib/${PROJECT_NAME})
 
-Optionally, we can install and export the included directories for downstream packages:
+The new ``CMakeLists.txt`` looks like this:
 
 .. code-block:: cmake
 
-   install(DIRECTORY include/
-     DESTINATION include)
-   ament_export_include_directories(include)
-
-Optionally, we can export dependencies for downstream packages:
-
-.. code-block:: cmake
-
-   ament_export_dependencies(std_msgs)
-
-Putting it all together, the new ``CMakeLists.txt`` looks like this:
-
-.. code-block:: cmake
-
-   #cmake_minimum_required(VERSION 2.8.3)
-   cmake_minimum_required(VERSION 3.5)
+   cmake_minimum_required(VERSION 3.14.4)
    project(talker)
    if(NOT CMAKE_CXX_STANDARD)
      set(CMAKE_CXX_STANDARD 17)
@@ -763,26 +887,18 @@ Putting it all together, the new ``CMakeLists.txt`` looks like this:
    if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
      add_compile_options(-Wall -Wextra -Wpedantic)
    endif()
-   #find_package(catkin REQUIRED COMPONENTS roscpp std_msgs)
    find_package(ament_cmake REQUIRED)
    find_package(rclcpp REQUIRED)
    find_package(std_msgs REQUIRED)
-   #catkin_package()
-   #include_directories(${catkin_INCLUDE_DIRS})
-   include_directories(include)
    add_executable(talker talker.cpp)
-   #target_link_libraries(talker ${catkin_LIBRARIES})
-   ament_target_dependencies(talker
-     rclcpp
-     std_msgs)
-   #install(TARGETS talker
-   #  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+   target_include_directories(talker PUBLIC
+      "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+      "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
+   target_link_libraries(talker PUBLIC
+     rclcpp::rclcpp
+     ${std_msgs_TARGETS})
    install(TARGETS talker
      DESTINATION lib/${PROJECT_NAME})
-   install(DIRECTORY include/
-     DESTINATION include)
-   ament_export_include_directories(include)
-   ament_export_dependencies(std_msgs)
    ament_package()
 
 Building the ROS 2 code
