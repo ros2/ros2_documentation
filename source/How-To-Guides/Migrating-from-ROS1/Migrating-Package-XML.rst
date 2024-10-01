@@ -125,8 +125,8 @@ then replace them with a single ``<depend>`` like this:
 
   <depend>foo</depend>
 
-Test your new package.xml
--------------------------
+Test your new ``package.xml``
+-----------------------------
 
 Build and test your package as you normally do using ``catkin_make``, ``cakin_make_isolated``, or the ``catkin`` build tool.
 If everything succeeds, then your ``package.xml`` is valid.
