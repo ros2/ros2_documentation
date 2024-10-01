@@ -115,6 +115,11 @@ The ROS PMC currently consists of the following constituents:
      - `nuclearsandwich <https://github.com/nuclearsandwich>`_
      - Member / Infrastructure Project Lead
      - PST (UTC-8)/PDT (UTC-7)
+   * - Audrow Nash
+     - `Intrinsic <https://www.intrinsic.ai/>`_
+     - `Audrow <https://github.com/audrow>`_
+     - Member
+     - CST (UTC-6)/CDT (UTC-5)
 
 Current ROS Committers
 ^^^^^^^^^^^^^^^^^^^^^^
