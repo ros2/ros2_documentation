@@ -1,11 +1,11 @@
-Migrating a C++ Package Tutorial
-================================
+Migrating a C++ Package Example
+===============================
 
 .. contents:: Table of Contents
    :depth: 2
    :local:
 
-This tutorial shows how to migrate an example C++ package from ROS 1 to ROS 2.
+This example shows how to migrate an example C++ package from ROS 1 to ROS 2.
 
 Prerequisites
 -------------

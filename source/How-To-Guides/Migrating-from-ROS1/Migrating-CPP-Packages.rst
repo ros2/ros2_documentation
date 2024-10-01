@@ -11,6 +11,10 @@ Migrating C++ Packages Reference
    :depth: 2
    :local:
 
+This page shows how to migrate parts of a C++ package from ROS 1 to ROS 2.
+If this is your first time migrating a C++ package, then read the :doc:`C++ migration example <Migrating-CPP-Package-Example>` first.
+Afterwards, use this page as a reference while you migrate your own packages.
+
 Build tool
 ----------
 
