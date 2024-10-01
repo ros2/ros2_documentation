@@ -50,54 +50,24 @@ The ROS PMC currently consists of the following constituents:
      - GitHub handle
      - PMC role
      - Time Zone (optional)
-   * - Chris Lalancette
-     - `Intrinsic <https://www.intrinsic.ai/>`_
-     - `clalancette <https://github.com/clalancette>`_
-     - Project Leader
-     - N/A
-   * - Michael Carroll
-     - `Intrinsic <https://www.intrinsic.ai/>`_
-     - `mjcarroll <https://github.com/mjcarroll>`_
-     - Member
-     - CST (UTC-6)/CDT (UTC-5)
-   * - Tomoya Fujita
-     - `Sony <https://www.sony.com/>`_
-     - `fujitatomoya <https://github.com/fujitatomoya>`_
-     - Member
-     - PST (UTC-8)/PDT (UTC-7)
-   * - Shane Loretz
-     - `Intrinsic <https://www.intrinsic.ai/>`_
-     - `sloretz <https://github.com/sloretz>`_
-     - Member
-     - PST (UTC-8)/PDT (UTC-7)
-   * - Michael Orlov
-     - `Apex.AI <https://www.apex.ai/>`_
-     - `MichaelOrlov <https://github.com/MichaelOrlov>`_
-     - Member
-     - PST (UTC-8)/PDT (UTC-7)
-   * - Kat Scott
-     - `Intrinsic <https://www.intrinsic.ai/>`_
-     - `kscottz <https://github.com/kscottz>`_
-     - OSRA Developer Advocate
-     - PST (UTC-8)/PDT (UTC-7)
-   * - Alejandro Hernandez Cordero
-     - Independent software engineer contractor
-     - `ahcorde <https://github.com/ahcorde>`_
-     - Member
-     - CET (UTC+1)/CEST (UTC+2)
    * - Christophe Bédard
      - `Apex.AI <https://www.apex.ai/>`_
      - `christophebedard <https://github.com/christophebedard>`_
      - Member
      - PST (UTC-8)/PDT (UTC-7)
-   * - Alberto Soragna
-     - `iRobot <https://www.irobot.com/>`_
-     - `alsora <https://github.com/alsora>`_
-     - Member
-     - PST (UTC-8)/PDT (UTC-7)
-   * - William Woodall
+   * - Michael Carroll
      - `Intrinsic <https://www.intrinsic.ai/>`_
-     - `wjwwood <https://github.com/wjwwood>`_
+     - `mjcarroll <https://github.com/mjcarroll>`_
+     - Member
+     - CST (UTC-6)/CDT (UTC-5)
+   * - Alejandro Hernandez Cordero
+     - Independent software engineer contractor
+     - `ahcorde <https://github.com/ahcorde>`_
+     - Member
+     - CET (UTC+1)/CEST (UTC+2)
+   * - Tomoya Fujita
+     - `Sony <https://www.sony.com/>`_
+     - `fujitatomoya <https://github.com/fujitatomoya>`_
      - Member
      - PST (UTC-8)/PDT (UTC-7)
    * - Marco A. Gutiérrez
@@ -105,9 +75,24 @@ The ROS PMC currently consists of the following constituents:
      - `marcoag <https://github.com/marcoag>`_
      - Member
      - SGT (UTC+8)
-   * - Yadunund Vijay
+   * - Chris Lalancette
      - `Intrinsic <https://www.intrinsic.ai/>`_
-     - `Yadunund <https://github.com/Yadunund>`_
+     - `clalancette <https://github.com/clalancette>`_
+     - Project Leader
+     - N/A
+   * - Shane Loretz
+     - `Intrinsic <https://www.intrinsic.ai/>`_
+     - `sloretz <https://github.com/sloretz>`_
+     - Member
+     - PST (UTC-8)/PDT (UTC-7)
+   * - Audrow Nash
+     - `Intrinsic <https://www.intrinsic.ai/>`_
+     - `Audrow <https://github.com/audrow>`_
+     - Member
+     - CST (UTC-6)/CDT (UTC-5)
+   * - Michael Orlov
+     - `Apex.AI <https://www.apex.ai/>`_
+     - `MichaelOrlov <https://github.com/MichaelOrlov>`_
      - Member
      - PST (UTC-8)/PDT (UTC-7)
    * - Steven! Ragnarök
@@ -115,11 +100,26 @@ The ROS PMC currently consists of the following constituents:
      - `nuclearsandwich <https://github.com/nuclearsandwich>`_
      - Member / Infrastructure Project Lead
      - PST (UTC-8)/PDT (UTC-7)
-   * - Audrow Nash
+   * - Kat Scott
      - `Intrinsic <https://www.intrinsic.ai/>`_
-     - `Audrow <https://github.com/audrow>`_
+     - `kscottz <https://github.com/kscottz>`_
+     - OSRA Developer Advocate
+     - PST (UTC-8)/PDT (UTC-7)
+   * - Alberto Soragna
+     - `iRobot <https://www.irobot.com/>`_
+     - `alsora <https://github.com/alsora>`_
      - Member
-     - CST (UTC-6)/CDT (UTC-5)
+     - PST (UTC-8)/PDT (UTC-7)
+   * - Yadunund Vijay
+     - `Intrinsic <https://www.intrinsic.ai/>`_
+     - `Yadunund <https://github.com/Yadunund>`_
+     - Member
+     - PST (UTC-8)/PDT (UTC-7)
+   * - William Woodall
+     - `Intrinsic <https://www.intrinsic.ai/>`_
+     - `wjwwood <https://github.com/wjwwood>`_
+     - Member
+     - PST (UTC-8)/PDT (UTC-7)
 
 Current ROS Committers
 ^^^^^^^^^^^^^^^^^^^^^^
