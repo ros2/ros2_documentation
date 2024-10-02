@@ -244,19 +244,36 @@ Now that you have the message structure, you can publish data to a topic directl
 
 The ``'<args>'`` argument is the actual data you'll pass to the topic, in the structure you just discovered in the previous section.
 
+The turtle (and commonly the real robots which it is meant to emulate) require a steady stream of commands to operate continuously.
+So, to get the turtle moving, and keep it moving, you can use the following command.
 It's important to note that this argument needs to be input in YAML syntax.
 Input the full command like so:
 
 .. code-block:: console
 
-  ros2 topic pub --once /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
+  ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
+
+With no command-line options, ``ros2 topic pub`` publishes the command in a steady stream at 1 Hz.
+
+.. image:: images/pub_stream.png
+
+At times you may want to publish data to your topic only once (rather than continuously).
+To publish your command just once add the ``--once`` option.
+
+.. code-block:: console
+
+  ros2 topic pub --once -w 2 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
 
 ``--once`` is an optional argument meaning “publish one message then exit”.
+
+``-w 2`` is an optional argument meaning “wait for two matching subscriptions”.
+This is needed because we have both turtlesim and the topic echo subscribed.
 
 You will see the following output in the terminal:
 
 .. code-block:: console
 
+  Waiting for at least 2 matching subscription(s)...
   publisher: beginning loop
   publishing #1: geometry_msgs.msg.Twist(linear=geometry_msgs.msg.Vector3(x=2.0, y=0.0, z=0.0), angular=geometry_msgs.msg.Vector3(x=0.0, y=0.0, z=1.8))
 
@@ -264,16 +281,6 @@ And you will see your turtle move like so:
 
 .. image:: images/pub_once.png
 
-The turtle (and commonly the real robots which it is meant to emulate) require a steady stream of commands to operate continuously.
-So, to get the turtle to keep moving, you can run:
-
-.. code-block:: console
-
-  ros2 topic pub --rate 1 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
-
-The difference here is the removal of the ``--once`` option and the addition of the ``--rate 1`` option, which tells ``ros2 topic pub`` to publish the command in a steady stream at 1 Hz.
-
-.. image:: images/pub_stream.png
 
 You can refresh rqt_graph to see what's happening graphically.
 You will see that the ``ros2 topic pub ...`` node (``/_ros2cli_30358``) is publishing over the ``/turtle1/cmd_vel`` topic, which is being received by both the ``ros2 topic echo ...`` node (``/_ros2cli_26646``) and the ``/turtlesim`` node now.
