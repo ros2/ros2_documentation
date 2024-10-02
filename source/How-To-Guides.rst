@@ -36,7 +36,6 @@ If you are new and looking to learn the ropes, start with the :doc:`Tutorials <T
    How-To-Guides/Cross-compilation
    How-To-Guides/Releasing/Releasing-a-Package
    How-To-Guides/Using-Python-Packages
-   How-To-Guides/RQt-Port-Plugin-Windows
    How-To-Guides/Run-2-nodes-in-single-or-separate-docker-containers
    How-To-Guides/Visualizing-ROS-2-Data-With-Foxglove-Studio
    How-To-Guides/Core-maintainer-guide
@@ -53,8 +52,3 @@ If you are new and looking to learn the ropes, start with the :doc:`Tutorials <T
    How-To-Guides/ROS-2-IDEs
    How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container
    How-To-Guides/Using-Custom-Rosdistro
-
-.. toctree::
-  :hidden:
-
-  How-To-Guides/RQt-Source-Install
