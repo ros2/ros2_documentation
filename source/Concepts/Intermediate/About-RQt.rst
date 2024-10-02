@@ -51,11 +51,6 @@ Installing From debs
    sudo apt install ros-{DISTRO}-rqt*
 
 
-Building From Source
-^^^^^^^^^^^^^^^^^^^^
-
-See :doc:`Building RQt from Source <../../How-To-Guides/RQt-Source-Install>`.
-
 RQt Components Structure
 ------------------------
 
