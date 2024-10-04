@@ -34,7 +34,7 @@ Once you have the bridge installed, launch it with:
 
 With the bridge running on your robot, you're ready to connect view data in Foxglove. Make sure you are on the same network as your robot, open Foxglove (web or desktop) and click "Open connection".
 
-Select the option for "Foxglove WebSocket" and enter your robot's WebSocket URL. The default is ``ws://localhost:8765``, however you can read about configuration options for the ROS Foxglove bridge `here <https://docs.foxglove.dev/docs/connecting-to-data/ros-foxglove-bridge#configuration-1`__.
+Select the option for "Foxglove WebSocket" and enter your robot's WebSocket URL. The default is ``ws://localhost:8765``, however you can read about configuration options for the ROS Foxglove bridge `here <https://docs.foxglove.dev/docs/connecting-to-data/ros-foxglove-bridge#configuration-1>`__.
 
 .. note::
 
