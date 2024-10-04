@@ -13,10 +13,10 @@ Here is a brief list of where to look for specific ROS package documentation.
 Larger Packages
 ---------------
 
-Larger packages like MoveIt, Nav2, and microROS, are given their own subdomain on docs.ros.org. Here is a short list.
+Larger packages like MoveIt, Nav2, and microROS, are given their own domain or subdomain on ros.org. Here is a short list.
 
-* `MoveIt <https://moveit.ros.org/>`__
-* `Navigation <https://navigation.ros.org/>`__
+* `MoveIt <https://moveit.ai/>`__
+* `Navigation2 <https://nav2.org/>`__
 * `Control <https://control.ros.org/master/index.html>`__
 * `microROS (embedded systems) <https://micro.ros.org/>`__
 

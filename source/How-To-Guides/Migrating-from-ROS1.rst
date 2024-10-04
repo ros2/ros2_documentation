@@ -8,7 +8,9 @@ If you are new to porting between ROS 1 and ROS 2, it is recommended to read thr
    :maxdepth: 1
 
    Migrating-from-ROS1/Migrating-Packages
+   Migrating-from-ROS1/Migrating-Package-XML
    Migrating-from-ROS1/Migrating-Interfaces
+   Migrating-from-ROS1/Migrating-CPP-Package-Example
    Migrating-from-ROS1/Migrating-CPP-Packages
    Migrating-from-ROS1/Migrating-Python-Packages
    Migrating-from-ROS1/Migrating-Launch-Files
