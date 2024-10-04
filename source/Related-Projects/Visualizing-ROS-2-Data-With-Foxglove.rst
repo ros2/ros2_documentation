@@ -38,7 +38,7 @@ Select the option for "Foxglove WebSocket" and enter your robot's WebSocket URL.
 
 .. note::
 
-  Foxglove can also connect using Rosbridge, however for performance and stability reasons we recommend using the Foxglove bridge.
+  Foxglove can also connect using rosbridge, however for performance and stability reasons we recommend using the Foxglove bridge.
 
 View and replay recorded data
 -----------------------------
