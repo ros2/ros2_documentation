@@ -346,11 +346,11 @@ It returns the bandwidth utilization and number of messages being published ``po
     1.51 KB/s from 62 messages
     	Message size mean: 0.02 KB min: 0.02 KB max: 0.02 KB
 
-The number of messages can be verified by running the ``echo`` command. 
-If you run the above command with ``turtle1/cmd_vel`` instead of ``turtle1/pose``, the number of messages should be 2.
+The number of messages in the output above can be verified by running the ``echo`` command and manually counting the number of messages in the output. 
+If you run the ``bw`` command with ``turtle1/cmd_vel`` instead of ``turtle1/pose``, the number of messages should be 2.
 
 10 ros2 topic find
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 
 To list a list of available topics of a given type use:
 
@@ -377,11 +377,11 @@ This outputs:
     /turtle1/cmd_vel
 
 .. 10 rqt_plot
-   ^^^^^^^^^^
+   ^^^^^^^^^^^
    Can't do this section now because there's some significant UI issues with rqt_plot for ROS 2
 
 11 Clean up
-^^^^^^^^^^
+^^^^^^^^^^^
 
 At this point you'll have a lot of nodes running.
 Don't forget to stop them by entering ``Ctrl+C`` in each terminal.
