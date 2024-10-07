@@ -346,9 +346,6 @@ It returns the bandwidth utilization and number of messages being published ``po
     1.51 KB/s from 62 messages
     	Message size mean: 0.02 KB min: 0.02 KB max: 0.02 KB
 
-The number of messages in the output above can be verified by running the ``echo`` command and manually counting the number of messages in the output. 
-If you run the ``bw`` command with ``turtle1/cmd_vel`` instead of ``turtle1/pose``, the number of messages should be 2.
-
 10 ros2 topic find
 ^^^^^^^^^^^^^^^^^^
 
