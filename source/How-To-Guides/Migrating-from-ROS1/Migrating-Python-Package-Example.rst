@@ -183,21 +183,8 @@ It now looks like this:
         </export>
     </package>
 
-Migrating to ``setup.py`` and ``setup.cfg``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Python packages in ROS 2 do not use CMake, so delete the ``CMakeLists.txt``.
-
-Create a new file called ``setup.cfg`` next to the ``package.xml``.
-The ``setup.cfg`` needs two pieces of information with the package's name, ``talker_py``, in it.
-Put the following content into ``setup.cfg``
-
-.. code-block::
-
-    [develop]
-    script_dir=$base/lib/talker_py
-    [install]
-    install_scripts=$base/lib/talker_py
+Migrating the ``setup.py``
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The ``setup.py`` can no longer be automatically generated with ``catkin_pkg``.
 Start by deleting the import from ``catkin_pkg``.
@@ -294,6 +281,44 @@ TODO
             'talker_py_node = talker_py:main',
         ],
     },
+
+Migrating python scripts and ``setup.cfg``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ROS 2 python packages need to install their executables into package specific directories so that tools like ``ros2 run`` can find them.
+Create a new file called ``setup.cfg`` next to the ``package.xml``.
+Put the following content into ``setup.cfg`` to make sure executables are installed into the correct place.
+
+.. code-block::
+
+    [develop]
+    script_dir=$base/lib/talker_py
+    [install]
+    install_scripts=$base/lib/talker_py
+
+TODO Adding a console_scripts entry point, deleting scripts/talker_py_node
+
+Delete the ``CMakeLists.txt``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Python packages in ROS 2 do not use CMake, so delete the ``CMakeLists.txt``.
+
+Migrating Python code
+~~~~~~~~~~~~~~~~~~~~~
+
+The recommended ROS 2 Python APIs are significantly different from ROS 1.
+Migrate your Python code in two steps:
+
+1. Migrate code as-is to get something working in ROS 2
+2. Refactor code to common ROS 2 Python conventions
+
+Migrating Python code as-is
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Refactorin Python code
+^^^^^^^^^^^^^^^^^^^^^^
+
+TODO inheriting from Node class, timers vs rates, more callback focussed
 
 Conclusion
 ----------
