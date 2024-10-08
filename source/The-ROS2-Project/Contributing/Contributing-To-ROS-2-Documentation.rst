@@ -33,29 +33,37 @@ The root directory contains configuration and files required to locally build th
 Building the site locally
 -------------------------
 
-Start by installing requirements located in the ``requirements.txt`` file:
+Start by creating `venv <https://docs.python.org/3/library/venv.html>`__ to build the documentation:
+
+.. code-block:: console
+
+   # activate the venv
+   python3 -m venv ros2doc
+
+   # activate venv
+   source ros2doc/bin/activate
+
+And install requirements located in the ``requirements.txt`` file:
 
 .. tabs::
 
   .. group-tab:: Linux
 
-    The next command does a user-specific install, which requires ``~/.local/bin/`` to be added to ``$PATH``:
-
     .. code-block:: console
 
-       pip3 install --user --upgrade -r requirements.txt
+       pip install -r requirements.txt -c constraints.txt
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-       pip3 install --user --upgrade -r requirements.txt
+       pip install -r requirements.txt -c constraints.txt
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      python -m pip install --user --upgrade -r requirements.txt
+      python -m pip install -r requirements.txt -c constraints.txt
 
 In order for Sphinx to be able to generate diagrams, the ``dot`` command must be available.
 
@@ -232,6 +240,38 @@ Finally, to view the site, you can click on the "Go Live" button in the right bo
    :width: 100%
    :alt: Live Server
 
+Building the Site with Devcontainer
+-----------------------------------
+
+`ROS 2 Documentation GitHub repository <https://github.com/ros2/ros2_documentation>`__ also supports ``Devcontainer`` development environment with Visual Studio Code.
+This will enable you to build the documentation much easier without changing your operating system.
+
+See :doc:`../../How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container` to install VS Code and Docker before the following procedure.
+
+Clone repository and start VS Code:
+
+.. code-block:: console
+
+   git clone https://github.com/ros2/ros2_documentation
+   cd ./ros2_documentation
+   code .
+
+To use ``Devcontainer``, you need to install "Remote Development" Extension within VS Code search in Extensions (CTRL+SHIFT+X) for it.
+
+And then, use ``View->Command Palette...`` or ``Ctrl+Shift+P`` to open the command palette.
+Search for the command ``Dev Containers: Reopen in Container`` and execute it.
+This will build your development docker container for you automatically.
+
+To build the documentation, open a terminal using ``View->Terminal`` or ``Ctrl+Shift+``` and ``New Terminal`` in VS Code.
+Inside the terminal, you can build the documentation:
+
+.. code-block:: console
+
+   make html
+
+.. image:: images/vscode_devcontainer.png
+   :width: 100%
+   :alt: VS Code Devcontainer
 
 Writing pages
 -------------
