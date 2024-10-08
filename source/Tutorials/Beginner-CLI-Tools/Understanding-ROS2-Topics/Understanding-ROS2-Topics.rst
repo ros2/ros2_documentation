@@ -344,7 +344,7 @@ It returns the bandwidth utilization and number of messages being published ``po
 
     Subscribed to [/turtle1/pose]
     1.51 KB/s from 62 messages
-    	Message size mean: 0.02 KB min: 0.02 KB max: 0.02 KB
+        Message size mean: 0.02 KB min: 0.02 KB max: 0.02 KB
 
 10 ros2 topic find
 ^^^^^^^^^^^^^^^^^^
