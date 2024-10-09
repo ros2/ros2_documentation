@@ -167,3 +167,28 @@ In ROS 2:
        node.get_logger().info('service not available, waiting again...')
    resp = add_two_ints.call_async(req)
    rclpy.spin_until_future_complete(node, resp)
+
+.. warning::
+
+   Do not use ``rclpy.spin_until_future_complete`` in a ROS 2 callback.
+   For more details see the :doc:`sync deadlock article <../Sync-Vs-Async>`.
+
+Executing at a Specific Rate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In ROS 1:
+
+.. code-block:: python
+
+   rate = rospy.Rate(2)
+   while not rospy.is_shutdown():
+      msg.data += math_stuff()
+      pub.publish(msg)
+      rate.sleep()
+
+In ROS 2:
+
+.. code-block:: python
+
+   node.create_timer(1/2, math_stuff)  # call pub.publish within math_stuff
+   rclpy.spin()

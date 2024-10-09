@@ -256,7 +256,13 @@ Below the constructor is the ``send_request`` method, which will send the reques
       self.req.b = 1
       return self.cli.call_async(self.req)
 
-Finally we have the ``main`` method, which constructs a ``MinimalClientAsync`` object, sends the request using the passed-in command-line arguments, calls ``spin_until_future_complete``, and logs the results:
+.. warning::
+
+  Do not use ``rclpy.spin_until_future_complete`` in a ROS 2 callback.
+  For more details see the :doc:`sync deadlock article <../../../How-To-Guides/Sync-Vs-Async>`.
+
+
+Finally we have the ``main`` method, which constructs a ``MinimalClientAsync`` object, sends the request using the passed-in command-line arguments, calls ``spin_until_future_complete``, and logs the results.
 
 .. code-block:: python
 
