@@ -183,10 +183,17 @@ It now looks like this:
         </export>
     </package>
 
+Delete the ``CMakeLists.txt``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Python packages in ROS 2 do not use CMake, so delete the ``CMakeLists.txt``.
+
 Migrating the ``setup.py``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The ``setup.py`` can no longer be automatically generated with ``catkin_pkg``.
+The arguments to ``setup()`` in the ``setup.py`` can no longer be automatically generated with ``catkin_pkg``.
+You must pass these arguments manually, which means there will be some duplication with your ``package.xml``.
+
 Start by deleting the import from ``catkin_pkg``.
 
 .. code-block::
@@ -194,13 +201,16 @@ Start by deleting the import from ``catkin_pkg``.
     # Delete this
     from catkin_pkg.python_setup import generate_distutils_setup
 
-Move all arguments given to ``generate_distutils_setup()`` directly into the call to ``setup()``.
+Move all arguments given to ``generate_distutils_setup()`` to the call to ``setup()``, and then add the ``install_requires`` and ``zip_safe`` arguments.
+Your call to ``setup()`` should  look like this:
 
 .. code-block:: python
 
     setup(
         packages=['talker_py'],
         package_dir={'': 'src'},
+        install_requires=['setuptools'],
+        zip_safe=True,
     )
 
 Delete the call to ``generate_distutils_setup()``.
@@ -236,6 +246,8 @@ Your call to ``setup()`` should look like this:
     setup(
         name=package_name,
         version='1.0.0',
+        install_requires=['setuptools'],
+        zip_safe=True,
         packages=['talker_py'],
         package_dir={'': 'src'},
         maintainer='Brian Gerkey',
@@ -244,21 +256,22 @@ Your call to ``setup()`` should look like this:
         license='BSD',
     )
 
-A ROS 2 must install two additional data files so that command line tools like ``ros2 run`` can find the package:
+
+ROS 2 packages must install two data files so that command line tools like ``ros2 run`` can find them:
 
 * a ``package.xml``
 * a package marker file
 
-You already have a ``package.xml``, but you do not yet have a package marker file.
-Create the marker file by creating a directory next to your ``package.xml`` called ``resource``.
-Create an empty file in that directory with the same name as your package.
+Your package already has a ``package.xml``, but it does not yet have a package marker file.
+Create the marker file by creating a directory next to the ``package.xml`` called ``resource``.
+Create an empty file in that directory with the same name as the package.
 
 .. code-block:: bash
 
     mkdir resource
     touch resource/talker_py
 
-You must tell ``setuptools`` how to install these files.
+The ``setup()`` call in ``setup.py`` must tell ``setuptools`` how to install these files.
 Add the following ``data_files`` argument to the call to ``setup()`` to do so.
 
 .. code-block:: python
@@ -269,18 +282,8 @@ Add the following ``data_files`` argument to the call to ``setup()`` to do so.
         ('share/' + package_name, ['package.xml']),
     ],
 
-
-TODO
-
-.. code-block:: python
-
-    install_requires=['setuptools'],
-    zip_safe=True,
-    entry_points={
-        'console_scripts': [
-            'talker_py_node = talker_py:main',
-        ],
-    },
+Your ``setup.py`` is almost complete.
+There is one more change to make to install python scripts.
 
 Migrating python scripts and ``setup.cfg``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -298,10 +301,45 @@ Put the following content into ``setup.cfg`` to make sure executables are instal
 
 TODO Adding a console_scripts entry point, deleting scripts/talker_py_node
 
-Delete the ``CMakeLists.txt``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. code-block:: python
 
-Python packages in ROS 2 do not use CMake, so delete the ``CMakeLists.txt``.
+    entry_points={
+        'console_scripts': [
+            'talker_py_node = talker_py:main',
+        ],
+    },
+
+This is the last change you need to make to your ``setup.py``.
+Your final ``setup.py`` should look like this:
+
+.. code-block:: python
+
+    from setuptools import setup
+
+    package_name = 'talker_py'
+
+    setup(
+        name=package_name,
+        version='1.0.0',
+        packages=['talker_py'],
+        package_dir={'': 'src'},
+        install_requires=['setuptools'],
+        zip_safe=True,
+        data_files=[
+            ('share/ament_index/resource_index/packages',
+                ['resource/' + package_name]),
+            ('share/' + package_name, ['package.xml']),
+        ],
+        maintainer='Brian Gerkey',
+        maintainer_email='gerkey@osrfoundation.org',
+        description='The talker_py package',
+        license='BSD',
+        entry_points={
+            'console_scripts': [
+                'talker_py_node = talker_py:main',
+            ],
+        },
+    )
 
 Migrating Python code
 ~~~~~~~~~~~~~~~~~~~~~
@@ -315,10 +353,106 @@ Migrate your Python code in two steps:
 Migrating Python code as-is
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Refactorin Python code
-^^^^^^^^^^^^^^^^^^^^^^
+TODO slowly migrate from this code:
+
+.. code-block:: python
+
+    import rospy
+    from std_msgs.msg import String
+
+    def main():
+        pub = rospy.Publisher('chatter', String, queue_size=10)
+        rospy.init_node('talker', anonymous=True)
+        rate = rospy.Rate(10) # 10hz
+        while not rospy.is_shutdown():
+            hello_str = "hello world %s" % rospy.get_time()
+            rospy.loginfo(hello_str)
+            pub.publish(hello_str)
+            rate.sleep()
+
+Your ``src/talker_py/__init__.py`` file should look like the following:
+
+.. code-block:: python
+
+    import threading
+
+    import rclpy
+    from rclpy.executors import ExternalShutdownException
+    from std_msgs.msg import String
+
+
+    def spin_in_background():
+        executor = rclpy.get_global_executor()
+        try:
+            executor.spin()
+        except ExternalShutdownException:
+            pass
+
+
+    def main():
+        rclpy.init()
+        # In rospy callbacks are always called in background threads.
+        # Spin the executor in another thread for similar behavior in ROS 2.
+        t = threading.Thread(target=spin_in_background)
+        t.start()
+
+        try:
+            node = rclpy.create_node('talker')
+            pub = node.create_publisher(String, 'chatter', 10)
+            rate = node.create_rate(10) # 10hz
+
+            rclpy.get_global_executor().add_node(node)
+
+            while rclpy.ok():
+                hello_str = String()
+                hello_str.data = f'hello world {node.get_clock().now()}'
+                node.get_logger().info(hello_str.data)
+                pub.publish(hello_str)
+                rate.sleep()
+        except KeyboardInterrupt:
+            pass
+        finally:
+            rclpy.try_shutdown()
+            t.join()
+
+Refactoring Python code
+^^^^^^^^^^^^^^^^^^^^^^^
 
 TODO inheriting from Node class, timers vs rates, more callback focussed
+
+.. code-block:: python
+
+    import threading
+
+    import rclpy
+    from rclpy.node import Node
+    from rclpy.executors import ExternalShutdownException
+    from std_msgs.msg import String
+
+
+    class Talker(Node):
+
+        def __init__(self, **kwargs):
+            super().__init__('talker', **kwargs)
+
+            self._pub = self.create_publisher(String, 'chatter', 10)
+            self._timer = self.create_timer(1 / 10, self.do_publish)
+
+        def do_publish(self):
+            hello_str = String()
+            hello_str.data = f'hello world {self.get_clock().now()}'
+            self.get_logger().info(hello_str.data)
+            self._pub.publish(hello_str)
+
+
+    def main():
+        rclpy.init()
+        try:
+            rclpy.spin(Talker())
+        except (ExternalShutdownException, KeyboardInterrupt):
+            pass
+        finally:
+            rclpy.try_shutdown()
 
 Conclusion
 ----------
