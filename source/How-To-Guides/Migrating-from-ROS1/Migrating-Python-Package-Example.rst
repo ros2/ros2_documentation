@@ -283,14 +283,13 @@ Add the following ``data_files`` argument to the call to ``setup()`` to do so.
     ],
 
 Your ``setup.py`` is almost complete.
-There is one more change to make to install python scripts.
 
 Migrating python scripts and ``setup.cfg``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-ROS 2 python packages need to install their executables into package specific directories so that tools like ``ros2 run`` can find them.
-Create a new file called ``setup.cfg`` next to the ``package.xml``.
-Put the following content into ``setup.cfg`` to make sure executables are installed into the correct place.
+ROS 2 python packages uses ``console_scripts`` `entry points <https://python-packaging.readthedocs.io/en/latest/command-line-scripts.html#the-console-scripts-entry-point>`__ to install python scripts as executables.
+The `configuration file <https://setuptools.pypa.io/en/latest/userguide/declarative_config.html>`__ ``setup.cfg`` tells ``setuptools`` to install those executables in a package specific directory so that tools like ``ros2 run`` can find them.
+Create a ``setup.cfg`` file next to the ``package.xml``, and put the following content into it:
 
 .. code-block::
 
@@ -299,7 +298,12 @@ Put the following content into ``setup.cfg`` to make sure executables are instal
     [install]
     install_scripts=$base/lib/talker_py
 
-TODO Adding a console_scripts entry point, deleting scripts/talker_py_node
+The ``console_scripts`` defines the executables to install.
+Each entry has the format ``executable_name = some.module:function``.
+The first part specifies the name of the executable to create.
+The second part specifies the function that should be run when the executable runs.
+This package needs to create an executable called ``talker_py_node``, and the executable needs to call the function ``main`` in the ``talker_py`` module.
+Add the following entry point specification as another argument to ``setup()`` in your ``setup.py``.
 
 .. code-block:: python
 
@@ -309,6 +313,8 @@ TODO Adding a console_scripts entry point, deleting scripts/talker_py_node
         ],
     },
 
+The ``talker_py_node`` file is no longer necessary.
+Delete the file ``talker_py_node`` and delete the ``scripts/`` directory.
 This is the last change you need to make to your ``setup.py``.
 Your final ``setup.py`` should look like this:
 
@@ -344,11 +350,11 @@ Your final ``setup.py`` should look like this:
 Migrating Python code
 ~~~~~~~~~~~~~~~~~~~~~
 
-The recommended ROS 2 Python APIs are significantly different from ROS 1.
-Migrate your Python code in two steps:
+ROS 2 changed a lot of the best practices for Python code.
+When you migrate your own Python packages, do in two steps:
 
-1. Migrate code as-is to get something working in ROS 2
-2. Refactor code to common ROS 2 Python conventions
+1. Migrate each package as-is to get it working in ROS 2
+2. Refactor Python code to ROS 2 Python conventions
 
 Migrating Python code as-is
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -369,6 +375,70 @@ TODO slowly migrate from this code:
             rospy.loginfo(hello_str)
             pub.publish(hello_str)
             rate.sleep()
+
+ROS 2 packages use `rclpy <https://index.ros.org/p/rclpy>`__ instead of ``rospy``.
+You must do two things to use rclpy:
+
+    1. Import ``rclpy``
+    2. Initialize ``rclpy``
+
+Change the import statement from ``import rospy`` to ``import rclpy``.
+
+.. code-block:: python
+
+    import rclpy
+
+
+Add a call to ``rclpy.init()`` as the very first statement in the ``main()`` function.
+
+.. code-block:: python
+
+    def main():
+        rclpy.init()
+
+In ROS 1, ``rospy`` always executes callbacks, such as subscription callbacks, in background threads.
+In ROS 2, ``rclpy`` gives more control over where callbacks are called through :doc:`Executors <../../Concepts/Intermediate/About-Executors>`.
+When porting ROS 1 code, you must make sure that blocking calls like ``rate.sleep()`` don't interfere with the executor.
+
+Create a background thread so that the main thread is free to be blocked by the call to ``rate.sleep()``.
+First, add these two import statements.
+
+.. code-block:: Python
+
+    import threading
+
+    from rclpy.executors import ExternalShutdownException
+
+Next, add top-level function called ``spin_in_background`` that uses the default executor to execute callbacks.
+
+.. code-block:: Python
+
+    def spin_in_background():
+        executor = rclpy.get_global_executor()
+        try:
+            executor.spin()
+        except ExternalShutdownException:
+            pass
+
+Add the following code in the ``main()`` function just after the call to ``rclpy.init()`` to start the thread.
+
+.. code-block:: Python
+
+    # In rospy callbacks are always called in background threads.
+    # Spin the executor in another thread for similar behavior in ROS 2.
+    t = threading.Thread(target=spin_in_background)
+    t.start()
+
+
+Finally, join the thread when the program ends by putting this statement at the bottom of the ``main()`` function.
+
+.. code-block:: Python
+
+    t.join()
+
+
+// TODO creating the node, creating the publisher, creating the rate, try/except/finally
+
 
 Your ``src/talker_py/__init__.py`` file should look like the following:
 
