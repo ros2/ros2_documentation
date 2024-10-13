@@ -76,7 +76,7 @@ Put the following content into each file
 
 ``src/talker/src/talker_py/__init__.py``:
 
-.. code-block:: python
+.. code-block:: Python
 
     import rospy
     from std_msgs.msg import String
@@ -93,7 +93,7 @@ Put the following content into each file
 
 ``src/talker_py/scripts/talker_py_node``:
 
-.. code-block:: python
+.. code-block:: Python
 
     #!/usr/bin/env python
 
@@ -104,7 +104,7 @@ Put the following content into each file
 
 ``src/talker_py/setup.py``:
 
-.. code-block:: python
+.. code-block:: Python
 
     from setuptools import setup
     from catkin_pkg.python_setup import generate_distutils_setup
@@ -201,7 +201,7 @@ Start by deleting the import from ``catkin_pkg``.
 Move all arguments given to ``generate_distutils_setup()`` to the call to ``setup()``, and then add the ``install_requires`` and ``zip_safe`` arguments.
 Your call to ``setup()`` should  look like this:
 
-.. code-block:: python
+.. code-block:: Python
 
     setup(
         packages=['talker_py'],
@@ -231,14 +231,14 @@ The call to ``setup()`` needs some `additional metadata <https://docs.python.org
 The package name will be used multiple times.
 Create a variable called ``package_name`` in the ``setup.py``.
 
-.. code-block:: python
+.. code-block:: Python
 
     package_name = 'talker_py'
 
 Copy all of the remaining information into the arguments of ``setup()`` in ``setup.py``.
 Your call to ``setup()`` should look like this:
 
-.. code-block:: python
+.. code-block:: Python
 
     setup(
         name=package_name,
@@ -271,7 +271,7 @@ Create an empty file in that directory with the same name as the package.
 The ``setup()`` call in ``setup.py`` must tell ``setuptools`` how to install these files.
 Add the following ``data_files`` argument to the call to ``setup()`` to do so.
 
-.. code-block:: python
+.. code-block:: Python
 
     data_files=[
         ('share/ament_index/resource_index/packages',
@@ -281,10 +281,10 @@ Add the following ``data_files`` argument to the call to ``setup()`` to do so.
 
 Your ``setup.py`` is almost complete.
 
-Migrate python scripts and create ``setup.cfg``
+Migrate Python scripts and create ``setup.cfg``
 -----------------------------------------------
 
-ROS 2 python packages uses ``console_scripts`` `entry points <https://python-packaging.readthedocs.io/en/latest/command-line-scripts.html#the-console-scripts-entry-point>`__ to install python scripts as executables.
+ROS 2 Python packages uses ``console_scripts`` `entry points <https://python-packaging.readthedocs.io/en/latest/command-line-scripts.html#the-console-scripts-entry-point>`__ to install Python scripts as executables.
 The `configuration file <https://setuptools.pypa.io/en/latest/userguide/declarative_config.html>`__ ``setup.cfg`` tells ``setuptools`` to install those executables in a package specific directory so that tools like ``ros2 run`` can find them.
 Create a ``setup.cfg`` file next to the ``package.xml``, and put the following content into it:
 
@@ -302,7 +302,7 @@ The second part specifies the function that should be run when the executable ru
 This package needs to create an executable called ``talker_py_node``, and the executable needs to call the function ``main`` in the ``talker_py`` module.
 Add the following entry point specification as another argument to ``setup()`` in your ``setup.py``.
 
-.. code-block:: python
+.. code-block:: Python
 
     entry_points={
         'console_scripts': [
@@ -315,7 +315,7 @@ Delete the file ``talker_py_node`` and delete the ``scripts/`` directory.
 This is the last change you need to make to your ``setup.py``.
 Your final ``setup.py`` should look like this:
 
-.. code-block:: python
+.. code-block:: Python
 
     from setuptools import setup
 
@@ -353,7 +353,7 @@ It will be easier to refactor code to common ROS 2 Python conventions after you 
 
 TODO slowly migrate from this code:
 
-.. code-block:: python
+.. code-block:: Python
 
     import rospy
     from std_msgs.msg import String
@@ -379,7 +379,7 @@ You must do two things to use ``rclpy``:
 
 Change the import statement to import ``rclpy`` instead of ``rospy``.
 
-.. code-block:: python
+.. code-block:: Python
 
     # Change this
     # import rospy
@@ -388,7 +388,7 @@ Change the import statement to import ``rclpy`` instead of ``rospy``.
 
 Add a call to ``rclpy.init()`` as the very first statement in the ``main()`` function.
 
-.. code-block:: python
+.. code-block:: Python
 
     def main():
         # Add this line
@@ -463,7 +463,7 @@ Use ``try`` / ``except`` / ``finally`` to exit cleanly
 
 Your ``src/talker_py/__init__.py`` file should look like the following:
 
-.. code-block:: python
+.. code-block:: Python
 
     import threading
 
@@ -515,7 +515,7 @@ Refactor code to use ROS 2 convensions
 
 TODO inheriting from Node class, timers vs rates, more callback focussed
 
-.. code-block:: python
+.. code-block:: Python
 
     import threading
 
