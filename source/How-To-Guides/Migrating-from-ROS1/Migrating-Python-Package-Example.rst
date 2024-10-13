@@ -118,15 +118,12 @@ Put the following content into each file
 
 You now have a ROS 1 package in a new workspace.
 
-Migrating to ROS 2
-------------------
+Migrate the ``package.xml``
+---------------------------
 
 When migrating large packages to ROS 2, it is helpful to build and run tests as you go.
 Migrate the build system files first so that you can do this.
 Always start with the ``package.xml``.
-
-Migrating the ``package.xml``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ROS 2 does not use ``catkin``.
 Delete the ``<buildtool_depend>`` on it.
@@ -184,12 +181,12 @@ It now looks like this:
     </package>
 
 Delete the ``CMakeLists.txt``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------
 
 Python packages in ROS 2 do not use CMake, so delete the ``CMakeLists.txt``.
 
-Migrating the ``setup.py``
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Migrate the ``setup.py``
+------------------------
 
 The arguments to ``setup()`` in the ``setup.py`` can no longer be automatically generated with ``catkin_pkg``.
 You must pass these arguments manually, which means there will be some duplication with your ``package.xml``.
@@ -284,8 +281,8 @@ Add the following ``data_files`` argument to the call to ``setup()`` to do so.
 
 Your ``setup.py`` is almost complete.
 
-Migrating python scripts and ``setup.cfg``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Migrate python scripts and create ``setup.cfg``
+-----------------------------------------------
 
 ROS 2 python packages uses ``console_scripts`` `entry points <https://python-packaging.readthedocs.io/en/latest/command-line-scripts.html#the-console-scripts-entry-point>`__ to install python scripts as executables.
 The `configuration file <https://setuptools.pypa.io/en/latest/userguide/declarative_config.html>`__ ``setup.cfg`` tells ``setuptools`` to install those executables in a package specific directory so that tools like ``ros2 run`` can find them.
@@ -347,17 +344,12 @@ Your final ``setup.py`` should look like this:
         },
     )
 
-Migrating Python code
-~~~~~~~~~~~~~~~~~~~~~
+Migrate Python code
+-------------------
 
 ROS 2 changed a lot of the best practices for Python code.
-When you migrate your own Python packages, do in two steps:
-
-1. Migrate each package as-is to get it working in ROS 2
-2. Refactor Python code to ROS 2 Python conventions
-
-Migrating Python code as-is
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Start by migrating the code as-is.
+It will be easier to refactor code to common ROS 2 Python conventions after you have something working in ROS 2.
 
 TODO slowly migrate from this code:
 
@@ -376,31 +368,41 @@ TODO slowly migrate from this code:
             pub.publish(hello_str)
             rate.sleep()
 
+Use ``rclpy`` instead of ``rospy``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 ROS 2 packages use `rclpy <https://index.ros.org/p/rclpy>`__ instead of ``rospy``.
-You must do two things to use rclpy:
+You must do two things to use ``rclpy``:
 
     1. Import ``rclpy``
     2. Initialize ``rclpy``
 
-Change the import statement from ``import rospy`` to ``import rclpy``.
+Change the import statement to import ``rclpy`` instead of ``rospy``.
 
 .. code-block:: python
 
+    # Change this
+    # import rospy
+    # to this
     import rclpy
-
 
 Add a call to ``rclpy.init()`` as the very first statement in the ``main()`` function.
 
 .. code-block:: python
 
     def main():
+        # Add this line
         rclpy.init()
 
-In ROS 1, ``rospy`` always executes callbacks, such as subscription callbacks, in background threads.
-In ROS 2, ``rclpy`` gives more control over where callbacks are called through :doc:`Executors <../../Concepts/Intermediate/About-Executors>`.
-When porting ROS 1 code, you must make sure that blocking calls like ``rate.sleep()`` don't interfere with the executor.
+Execute callbacks in the background
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Create a background thread so that the main thread is free to be blocked by the call to ``rate.sleep()``.
+Both ROS 1 and ROS 2 use `callbacks <https://en.wikipedia.org/wiki/Callback_(computer_programming)>`__.
+In ROS 1, callbacks are always executed in background threads, and users are free to block the main thread with calls like ``rate.sleep()``.
+In ROS 2, ``rclpy`` uses :doc:`Executors <../../Concepts/Intermediate/About-Executors>` to give users more control over where callbacks are called.
+When porting code that uses blocking calls like ``rate.sleep()``, you must make sure those calls won't interfere with the executor.
+One way to do this is to create a dedicated thread for the executor.
+
 First, add these two import statements.
 
 .. code-block:: Python
@@ -409,7 +411,8 @@ First, add these two import statements.
 
     from rclpy.executors import ExternalShutdownException
 
-Next, add top-level function called ``spin_in_background`` that uses the default executor to execute callbacks.
+Next, add top-level function called ``spin_in_background()``.
+This function asks the default executor to execute callbacks until something shuts it down.
 
 .. code-block:: Python
 
@@ -420,7 +423,7 @@ Next, add top-level function called ``spin_in_background`` that uses the default
         except ExternalShutdownException:
             pass
 
-Add the following code in the ``main()`` function just after the call to ``rclpy.init()`` to start the thread.
+Add the following code in the ``main()`` function just after the call to ``rclpy.init()`` to start a thread that calls ``spin_in_background()``.
 
 .. code-block:: Python
 
@@ -437,7 +440,25 @@ Finally, join the thread when the program ends by putting this statement at the 
     t.join()
 
 
-// TODO creating the node, creating the publisher, creating the rate, try/except/finally
+Create a node
+~~~~~~~~~~~~~~~~~
+
+
+Create a publisher
+~~~~~~~~~~~~~~~~~~
+
+
+Create a rate
+~~~~~~~~~~~~~
+
+
+Loop on ``rclpy.ok()``
+~~~~~~~~~~~~~~~~~~~~~~
+
+
+Use ``try`` / ``except`` / ``finally`` to exit cleanly
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 
 Your ``src/talker_py/__init__.py`` file should look like the following:
@@ -485,8 +506,12 @@ Your ``src/talker_py/__init__.py`` file should look like the following:
             rclpy.try_shutdown()
             t.join()
 
-Refactoring Python code
-^^^^^^^^^^^^^^^^^^^^^^^
+
+Build and run ``talker_py_node``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Refactor code to use ROS 2 convensions
+--------------------------------------
 
 TODO inheriting from Node class, timers vs rates, more callback focussed
 
