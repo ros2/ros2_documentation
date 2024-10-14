@@ -82,8 +82,8 @@ Put the following content into each file
     from std_msgs.msg import String
 
     def main():
+        rospy.init_node('talker')
         pub = rospy.Publisher('chatter', String, queue_size=10)
-        rospy.init_node('talker', anonymous=True)
         rate = rospy.Rate(10) # 10hz
         while not rospy.is_shutdown():
             hello_str = "hello world %s" % rospy.get_time()
@@ -351,23 +351,6 @@ ROS 2 changed a lot of the best practices for Python code.
 Start by migrating the code as-is.
 It will be easier to refactor code to common ROS 2 Python conventions after you have something working in ROS 2.
 
-TODO slowly migrate from this code:
-
-.. code-block:: Python
-
-    import rospy
-    from std_msgs.msg import String
-
-    def main():
-        pub = rospy.Publisher('chatter', String, queue_size=10)
-        rospy.init_node('talker', anonymous=True)
-        rate = rospy.Rate(10) # 10hz
-        while not rospy.is_shutdown():
-            hello_str = "hello world %s" % rospy.get_time()
-            rospy.loginfo(hello_str)
-            pub.publish(hello_str)
-            rate.sleep()
-
 Use ``rclpy`` instead of ``rospy``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -441,11 +424,42 @@ Finally, join the thread when the program ends by putting this statement at the 
 
 
 Create a node
-~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~
 
+In ROS 1, Python scripts could only create a single node per process, and that node was initialized with the API ``init_node()``.
+In ROS 2, a single Python script may create multiple nodes, and the API to create a node is named ``create_node``.
+
+Remove the call from ``rospy.init_node()``:
+
+.. code-block::
+
+    rospy.init_node('talker')
+
+Add a new call to ``rclpy.create_node()`` and store the result in a variable named ``node``:
+
+.. code-block:: Python
+
+    node = rclpy.create_node('talker')
 
 Create a publisher
 ~~~~~~~~~~~~~~~~~~
+
+In ROS 1, ``Publisher`` instances are created directly.
+In ROS 2, ``Publisher`` classes are created through the ``create_publisher()`` API on the node they are created from.
+The new API has one unfortunate difference with ROS 1: the topic name and topic type arguments are swapped.
+
+Remove the creation of ``rospy.Publisher``.
+
+.. code-block::
+
+    pub = rospy.Publisher('chatter', String, queue_size=10)
+
+Replace it with a call to ``node.create_publisher()``.
+
+.. code-block:: Python
+
+    pub = node.create_publisher(String, 'chatter', 10)
+
 
 
 Create a rate
