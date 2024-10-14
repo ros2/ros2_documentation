@@ -1,11 +1,11 @@
 Migrating a Python Package Example
 ==================================
 
+This guide shows how to migrate an example Python package from ROS 1 to ROS 2.
+
 .. contents:: Table of Contents
    :depth: 2
    :local:
-
-This guide shows how to migrate an example Python package from ROS 1 to ROS 2.
 
 Prerequisites
 -------------
@@ -228,7 +228,7 @@ The call to ``setup()`` needs some `additional metadata <https://docs.python.org
 * license via the ``license`` argument
 
 The package name will be used multiple times.
-Create a variable called ``package_name`` in the ``setup.py``.
+Create a variable called ``package_name`` above the call to ``setup()``.
 
 .. code-block:: Python
 
@@ -268,7 +268,7 @@ Create an empty file in that directory with the same name as the package.
     touch resource/talker_py
 
 The ``setup()`` call in ``setup.py`` must tell ``setuptools`` how to install these files.
-Add the following ``data_files`` argument to the call to ``setup()`` to do so.
+Add the following ``data_files`` argument to the call to ``setup()``.
 
 .. code-block:: Python
 
@@ -285,7 +285,13 @@ Migrate Python scripts and create ``setup.cfg``
 
 ROS 2 Python packages uses ``console_scripts`` `entry points <https://python-packaging.readthedocs.io/en/latest/command-line-scripts.html#the-console-scripts-entry-point>`__ to install Python scripts as executables.
 The `configuration file <https://setuptools.pypa.io/en/latest/userguide/declarative_config.html>`__ ``setup.cfg`` tells ``setuptools`` to install those executables in a package specific directory so that tools like ``ros2 run`` can find them.
-Create a ``setup.cfg`` file next to the ``package.xml``, and put the following content into it:
+Create a ``setup.cfg`` file next to the ``package.xml``.
+
+.. code-block:: bash
+
+    touch setup.cfg
+
+Put the following content into it:
 
 .. code-block::
 
@@ -312,6 +318,12 @@ Add the following entry point specification as another argument to ``setup()`` i
 
 The ``talker_py_node`` file is no longer necessary.
 Delete the file ``talker_py_node`` and delete the ``scripts/`` directory.
+
+.. code-block:: bash
+
+    rm scripts/talker_py_node
+    rmdir scripts
+
 This is the last change to your ``setup.py``.
 Your final ``setup.py`` should look like this:
 
@@ -344,12 +356,12 @@ Your final ``setup.py`` should look like this:
         },
     )
 
-Migrate Python code
--------------------
+Migrate Python code in ``src/talker_py/__init__.py``
+----------------------------------------------------
 
 ROS 2 changed a lot of the best practices for Python code.
 Start by migrating the code as-is.
-It will be easier to refactor code to common ROS 2 Python conventions after you have something working in ROS 2.
+It will be easier to refactor code later after you have something working.
 
 Use ``rclpy`` instead of ``rospy``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -360,13 +372,17 @@ You must do two things to use ``rclpy``:
     1. Import ``rclpy``
     2. Initialize ``rclpy``
 
-Change the import statement to import ``rclpy`` instead of ``rospy``.
+Remove the statement that imports ``rospy``.
 
 .. code-block:: Python
 
-    # Change this
-    # import rospy
-    # to this
+    # Remove this
+    import rospy
+
+Rplace it with a statement that imports ``rclpy``.
+
+.. code-block:: Python
+
     import rclpy
 
 Add a call to ``rclpy.init()`` as the very first statement in the ``main()`` function.
@@ -383,7 +399,7 @@ Execute callbacks in the background
 Both ROS 1 and ROS 2 use `callbacks <https://en.wikipedia.org/wiki/Callback_(computer_programming)>`__.
 In ROS 1, callbacks are always executed in background threads, and users are free to block the main thread with calls like ``rate.sleep()``.
 In ROS 2, ``rclpy`` uses :doc:`Executors <../../Concepts/Intermediate/About-Executors>` to give users more control over where callbacks are called.
-When porting code that uses blocking calls like ``rate.sleep()``, you must make sure those calls won't interfere with the executor.
+When porting code that uses blocking calls like ``rate.sleep()``, you must make sure that those calls won't interfere with the executor.
 One way to do this is to create a dedicated thread for the executor.
 
 First, add these two import statements.
@@ -426,10 +442,10 @@ Finally, join the thread when the program ends by putting this statement at the 
 Create a node
 ~~~~~~~~~~~~~
 
-In ROS 1, Python scripts could only create a single node per process, and the API ``init_node()`` creates it.
+In ROS 1, Python scripts can only create a single node per process, and the API ``init_node()`` creates it.
 In ROS 2, a single Python script may create multiple nodes, and the API to create a node is named ``create_node``.
 
-Remove the call from ``rospy.init_node()``:
+Remove the call to ``rospy.init_node()``:
 
 .. code-block::
 
@@ -451,11 +467,11 @@ Add the following line just below the creation of the node:
 Create a publisher
 ~~~~~~~~~~~~~~~~~~
 
-In ROS 1 users create publishers by instantiating the ``Publisher`` class.
-In ROS 2 users create publishers through a node's ``create_publisher()`` API.
+In ROS 1, users create publishers by instantiating the ``Publisher`` class.
+In ROS 2, users create publishers through a node's ``create_publisher()`` API.
 The ``create_publisher()`` API has an unfortunate difference with ROS 1: the topic name and topic type arguments are swapped.
 
-Remove the creation of ``rospy.Publisher``.
+Remove the creation of the ``rospy.Publisher`` instance.
 
 .. code-block::
 
@@ -519,10 +535,13 @@ In ROS 2 you:
 * Should format the ``str`` data using `f-strings <https://docs.python.org/3/reference/lexical_analysis.html#f-strings>`__ since  `% is discouraged in active Python versions <https://docs.python.org/3/library/stdtypes.html#printf-style-string-formatting>`__
 * Must instantiate a ``std_msgs.msg.String`` instance
 
+Start with getting the time.
 ROS 2 nodes have a ``Clock`` instance.
-Replace the call to ``rospy.get_time()`` with ``self.get_clock().now()`` to get the current time from the node's clock.
-Replace the use of ``%`` with an f-string: ``f'hello world {self.get_clock().now()}'``.
-Instantiate a ``std_msgs.msg.String()`` instance and assign the above to the ``data`` attribute of that instance.
+Replace the call to ``rospy.get_time()`` with ``node.get_clock().now()`` to get the current time from the node's clock.
+
+Next, replace the use of ``%`` with an f-string: ``f'hello world {self.get_clock().now()}'``.
+
+Finally, instantiate a ``std_msgs.msg.String()`` instance and assign the above to the ``data`` attribute of that instance.
 Your final code should look like this:
 
 .. code-block:: Python
@@ -533,9 +552,9 @@ Your final code should look like this:
 Log an informational message
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In ROS 2, you must send log messages through a ``Logger`` instance, and the ROS node has a ``Logger`` instance.
+In ROS 2, you must send log messages through a ``Logger`` instance, and the node has one.
 
-Remove the call to ``loginfo()`` on the ``rospy`` module.
+Remove the call to ``rospy.loginfo()``.
 
 .. code-block::
 
@@ -602,7 +621,7 @@ Build the workspace in the first terminal.
 
 .. code-block:: bash
 
-    ~/ros2_talker_py
+    cd ~/ros2_talker_py
     . /opt/ros/{DISTRO}/setup.bash
     colcon build
 
@@ -610,6 +629,7 @@ Source your workspace in the second terminal, and run the ``talker_py_node``.
 
 .. code-block:: bash
 
+    cd ~/ros2_talker_py
     . install/setup.bash
     ros2 run talker_py talker_py_node
 
@@ -634,9 +654,9 @@ Follow these two principles.
 * Do all work in callbacks, and never block those callbacks.
 
 For example, create a ``Talker`` class that inherits from ``Node``.
-Make ``main()`` create a ``Talker`` instance rather than using ``rclpy.create_node()``.
 As for doing work in callbacks, use a ``Timer`` with a callback instead of ``rate.sleep()``.
 Make the timer callback publish the message and return.
+Make ``main()`` create a ``Talker`` instance rather than using ``rclpy.create_node()``, and give the executor the main thread to execute in.
 
 Your refactored code might look like this:
 
