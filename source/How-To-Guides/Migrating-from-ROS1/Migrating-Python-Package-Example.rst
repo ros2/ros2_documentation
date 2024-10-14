@@ -444,9 +444,8 @@ Add a new call to ``rclpy.create_node()`` and store the result in a variable nam
 Create a publisher
 ~~~~~~~~~~~~~~~~~~
 
-In ROS 1, ``Publisher`` instances are created directly.
-In ROS 2, ``Publisher`` classes are created through the ``create_publisher()`` API on the node they are created from.
-The new API has one unfortunate difference with ROS 1: the topic name and topic type arguments are swapped.
+In ROS 1, ``Publisher`` instances are created directly, while in ROS 2 they are created through the ``create_publisher()`` API on a node.
+The ``create_publisher()`` API has an unfortunate difference with ROS 1: the topic name and topic type arguments are swapped.
 
 Remove the creation of ``rospy.Publisher``.
 
@@ -461,10 +460,23 @@ Replace it with a call to ``node.create_publisher()``.
     pub = node.create_publisher(String, 'chatter', 10)
 
 
-
 Create a rate
 ~~~~~~~~~~~~~
 
+In ROS 1, ``Rate`` instances are created directly, while in ROS 2 they are created through the ``create_rate()`` API on a node.
+
+
+Remove the creation of the ``rospy.Rate`` instance.
+
+.. code-block::
+
+    rate = rospy.Rate(10) # 10hz
+
+Replace it with a call to ``node.create_rate()``.
+
+.. code-block:: Python
+
+    rate = node.create_rate(10) # 10hz
 
 Loop on ``rclpy.ok()``
 ~~~~~~~~~~~~~~~~~~~~~~
