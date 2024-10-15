@@ -220,7 +220,7 @@ It should now look like this:
         <name>talker_py</name>
         <version>1.0.0</version>
         <description>The talker_py package</description>
-        <maintainer email="gerkey@osrfoundation.org">Brian Gerkey</maintainer>
+        <maintainer email="gerkey@example.com">Brian Gerkey</maintainer>
         <license>BSD</license>
 
         <depend>rclpy</depend>
@@ -299,7 +299,7 @@ Your call to ``setup()`` should look like this:
         packages=['talker_py'],
         package_dir={'': 'src'},
         maintainer='Brian Gerkey',
-        maintainer_email='gerkey@osrfoundation.org',
+        maintainer_email='gerkey@example.com',
         description='The talker_py package',
         license='BSD',
     )
@@ -452,7 +452,7 @@ Your final ``setup.py`` should look like this:
             ('share/' + package_name, ['package.xml']),
         ],
         maintainer='Brian Gerkey',
-        maintainer_email='gerkey@osrfoundation.org',
+        maintainer_email='gerkey@example.com',
         description='The talker_py package',
         license='BSD',
         entry_points={
