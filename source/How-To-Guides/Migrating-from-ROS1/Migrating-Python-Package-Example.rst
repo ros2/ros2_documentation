@@ -47,7 +47,7 @@ Put the following content into each file
         <name>talker_py</name>
         <version>1.0.0</version>
         <description>The talker_py package</description>
-        <maintainer email="gerkey@osrfoundation.org">Brian Gerkey</maintainer>
+        <maintainer email="gerkey@example.com">Brian Gerkey</maintainer>
         <license>BSD</license>
 
         <buildtool_depend>catkin</buildtool_depend>

@@ -43,7 +43,7 @@ The files have the following content:
      <name>talker</name>
      <version>0.0.0</version>
      <description>talker</description>
-     <maintainer email="gerkey@osrfoundation.org">Brian Gerkey</maintainer>
+     <maintainer email="gerkey@example.com">Brian Gerkey</maintainer>
      <license>Apache-2.0</license>
      <buildtool_depend>catkin</buildtool_depend>
      <depend>roscpp</depend>
@@ -304,7 +304,7 @@ Your ``package.xml`` now looks like this:
      <name>talker</name>
      <version>0.0.0</version>
      <description>talker</description>
-     <maintainer email="gerkey@osrfoundation.org">Brian Gerkey</maintainer>
+     <maintainer email="gerkey@example.com">Brian Gerkey</maintainer>
      <license>Apache-2.0</license>
      <buildtool_depend>ament_cmake</buildtool_depend>
      <depend>rclcpp</depend>
