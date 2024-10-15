@@ -852,7 +852,7 @@ Your refactored code might look like this:
             with rclpy.init():
                 rclpy.spin(Talker())
         except (ExternalShutdownException, KeyboardInterrupt):
-                pass
+            pass
 
 Conclusion
 ----------
