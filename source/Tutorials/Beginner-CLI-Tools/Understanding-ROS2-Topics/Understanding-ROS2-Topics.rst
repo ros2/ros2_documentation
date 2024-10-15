@@ -313,7 +313,7 @@ If the message does not use a full header, but just has a field with type ``buil
 8 ros2 topic hz
 ^^^^^^^^^^^^^^^
 
-For one last introspection on this process, you can view the rate at which data is published using:
+You can also view the rate at which data is published using:
 
 .. code-block:: console
 
@@ -329,12 +329,52 @@ It will return data on the rate at which the ``/turtlesim`` node is publishing d
 Recall that you set the rate of ``turtle1/cmd_vel`` to publish at a steady 1 Hz using ``ros2 topic pub --rate 1``.
 If you run the above command with ``turtle1/cmd_vel`` instead of ``turtle1/pose``, you will see an average reflecting that rate.
 
-.. 9 rqt_plot
-   ^^^^^^^^^^
-   Can't do this section now because there's some significant UI issues with rqt_plot for ROS 2
+9 ros2 topic bw
+^^^^^^^^^^^^^^^
 
-9 Clean up
-^^^^^^^^^^
+The bandwidth used by a topic can be viewed using:
+
+.. code-block:: console
+
+    ros2 topic bw /turtle1/pose
+
+It returns the bandwidth utilization and number of messages being published to the ``/turtle1/pose`` the topic.
+
+.. code-block:: console
+
+    Subscribed to [/turtle1/pose]
+    1.51 KB/s from 62 messages
+        Message size mean: 0.02 KB min: 0.02 KB max: 0.02 KB
+
+10 ros2 topic find
+^^^^^^^^^^^^^^^^^^
+
+To list a list of available topics of a given type use:
+
+.. code-block:: console
+
+    ros2 topic find <topic_type>
+
+Recall that the ``cmd_vel`` topic has the type:
+
+.. code-block:: console
+
+    geometry_msgs/msg/Twist
+
+Using the ``find`` command outputs topics available when given the message type:
+
+.. code-block:: console
+
+    ros2 topic find geometry_msgs/msg/Twist
+
+This outputs:
+
+.. code-block:: console
+
+    /turtle1/cmd_vel
+
+11 Clean up
+^^^^^^^^^^^
 
 At this point you'll have a lot of nodes running.
 Don't forget to stop them by entering ``Ctrl+C`` in each terminal.
