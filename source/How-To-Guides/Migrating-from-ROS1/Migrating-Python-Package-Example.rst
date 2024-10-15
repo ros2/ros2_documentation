@@ -788,21 +788,21 @@ Echo the message published by the node in the third terminal:
     .. code-block:: bash
 
         . /opt/ros/{DISTRO}/setup.bash
-        ros2 run talker_py talker_py_node
+        ros2 topic echo /chatter
 
   .. group-tab:: macOS
 
     .. code-block:: bash
 
         . /opt/ros/{DISTRO}/setup.bash
-        ros2 run talker_py talker_py_node
+        ros2 topic echo /chatter
 
   .. group-tab:: Windows
 
     .. code-block:: bash
 
         call C:\dev\ros2\local_setup.bat
-        ros2 run talker_py talker_py_node
+        ros2 topic echo /chatter
 
 
 You should see messages with the current time being published in the second terminal, and those same messages received in the third.
