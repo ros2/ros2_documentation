@@ -15,14 +15,20 @@ You need a working ROS 2 installation, such as :doc:`ROS {DISTRO} <../../Install
 The ROS 1 code
 --------------
 
-Create a colcon workspace at ``~/ros2_talker_py``.
+You won't be using `catkin <https://index.ros.org/p/catkin/>`__ in this guide, so you don't need a working ROS 1 installation.
+You are going to use ROS 2's build tool `Colcon <https://colcon.readthedocs.io/>`__ instead.
+
+This section gives you the code for a ROS 1 Python package.
+The package is called ``talker_py``, and it has one node called ``talker_py_node``.
+To make it easier to run Colcon later, these instructions make you create the package inside a `Colcon workspace <https://colcon.readthedocs.io/en/released/user/what-is-a-workspace.html>`__,
+
+First, create a folder at ``~/ros2_talker_py`` to be the root of the Colcon workspace.
 
 .. code-block:: bash
 
     mkdir -p ~/ros2_talker_py/src
 
-Next, create a ROS 1 package in the new workspace.
-The ROS 1 package is called ``talker_py``, and it has one node called ``talker_py_node``.
+Next, create the files for the ROS 1 package.
 
 .. code-block:: bash
 
@@ -35,7 +41,7 @@ The ROS 1 package is called ``talker_py``, and it has one node called ``talker_p
     touch src/talker_py/scripts/talker_py_node
     touch src/talker_py/setup.py
 
-Put the following content into each file
+Put the following content into each file.
 
 ``src/talker_py/package.xml``:
 
@@ -148,7 +154,7 @@ Replace it with a new dependency on ``rclpy``.
 
     <depend>rclpy</depend>
 
-Add an ``<export>`` section to tell ROS 2's build tool `colcon <https://colcon.readthedocs.io/>`__ that this is an ``ament_python`` package instead of a ``catkin`` package.
+Add an ``<export>`` section to tell ROS 2's build tool `Colcon <https://colcon.readthedocs.io/>`__ that this is an ``ament_python`` package instead of a ``catkin`` package.
 
 .. code-block:: xml
 
