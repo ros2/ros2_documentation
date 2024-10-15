@@ -253,14 +253,17 @@ Your call to ``setup()`` should look like this:
     )
 
 
-ROS 2 packages must install two data files so that command line tools like ``ros2 run`` can find them:
+ROS 2 packages must install two data files:
 
 * a ``package.xml``
 * a package marker file
 
-Your package already has a ``package.xml``, but it does not yet have a package marker file.
-Create the marker file by creating a directory next to the ``package.xml`` called ``resource``.
-Create an empty file in that directory with the same name as the package.
+Your package already has a ``package.xml``.
+It describes your package's dependencies.
+A package marker file tells tools like ``ros2 run`` where to find your package.
+
+Create a directory next to the ``package.xml`` called ``resource``.
+Create an empty file in the ``resource`` directory with the same name as the package.
 
 .. code-block:: bash
 
