@@ -24,22 +24,68 @@ To make it easier to run Colcon later, these instructions make you create the pa
 
 First, create a folder at ``~/ros2_talker_py`` to be the root of the Colcon workspace.
 
-.. code-block:: bash
+.. tabs::
 
-    mkdir -p ~/ros2_talker_py/src
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+        mkdir -p ~/ros2_talker_py/src
+
+  .. group-tab:: macOS
+
+    .. code-block:: bash
+
+        mkdir -p ~/ros2_talker_py/src
+
+  .. group-tab:: Windows
+
+    .. code-block:: bash
+
+        md \ros2_talker_py\src
 
 Next, create the files for the ROS 1 package.
 
-.. code-block:: bash
+.. tabs::
 
-    cd ~/ros2_talker_py
-    mkdir -p src/talker_py/src/talker_py
-    mkdir -p src/talker_py/scripts
-    touch src/talker_py/package.xml
-    touch src/talker_py/CMakeLists.txt
-    touch src/talker_py/src/talker_py/__init__.py
-    touch src/talker_py/scripts/talker_py_node
-    touch src/talker_py/setup.py
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+        cd ~/ros2_talker_py
+        mkdir -p src/talker_py/src/talker_py
+        mkdir -p src/talker_py/scripts
+        touch src/talker_py/package.xml
+        touch src/talker_py/CMakeLists.txt
+        touch src/talker_py/src/talker_py/__init__.py
+        touch src/talker_py/scripts/talker_py_node
+        touch src/talker_py/setup.py
+
+  .. group-tab:: macOS
+
+    .. code-block:: bash
+
+        cd ~/ros2_talker_py
+        mkdir -p src/talker_py/src/talker_py
+        mkdir -p src/talker_py/scripts
+        touch src/talker_py/package.xml
+        touch src/talker_py/CMakeLists.txt
+        touch src/talker_py/src/talker_py/__init__.py
+        touch src/talker_py/scripts/talker_py_node
+        touch src/talker_py/setup.py
+
+  .. group-tab:: Windows
+
+    .. code-block:: bash
+
+        cd \ros2_talker_py
+        md src\talker_py\src\talker_py
+        md src\talker_py\scripts
+        type nul > src\talker_py\package.xml
+        type nul > src\talker_py\CMakeLists.txt
+        type nul > src\talker_py\src\talker_py\__init__.py
+        type nul > src\talker_py\scripts/talker_py_node
+        type nul > src\talker_py\setup.py
 
 Put the following content into each file.
 
@@ -271,10 +317,28 @@ A package marker file tells tools like ``ros2 run`` where to find your package.
 Create a directory next to the ``package.xml`` called ``resource``.
 Create an empty file in the ``resource`` directory with the same name as the package.
 
-.. code-block:: bash
+.. tabs::
 
-    mkdir resource
-    touch resource/talker_py
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+        mkdir resource
+        touch resource/talker_py
+
+  .. group-tab:: macOS
+
+    .. code-block:: bash
+
+        mkdir resource
+        touch resource/talker_py
+
+  .. group-tab:: Windows
+
+    .. code-block:: bash
+
+        md resource
+        type nul > resource\talker_py
 
 The ``setup()`` call in ``setup.py`` must tell ``setuptools`` how to install these files.
 Add the following ``data_files`` argument to the call to ``setup()``.
@@ -296,9 +360,25 @@ ROS 2 Python packages uses ``console_scripts`` `entry points <https://python-pac
 The `configuration file <https://setuptools.pypa.io/en/latest/userguide/declarative_config.html>`__ ``setup.cfg`` tells ``setuptools`` to install those executables in a package specific directory so that tools like ``ros2 run`` can find them.
 Create a ``setup.cfg`` file next to the ``package.xml``.
 
-.. code-block:: bash
+.. tabs::
 
-    touch setup.cfg
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+        touch setup.cfg
+
+  .. group-tab:: macOS
+
+    .. code-block:: bash
+
+        touch setup.cfg
+
+  .. group-tab:: Windows
+
+    .. code-block:: bash
+
+        type nul > touch setup.cfg
 
 Put the following content into it:
 
@@ -327,10 +407,28 @@ Add the following entry point specification as another argument to ``setup()`` i
 The ``talker_py_node`` file is no longer necessary.
 Delete the file ``talker_py_node`` and delete the ``scripts/`` directory.
 
-.. code-block:: bash
+.. tabs::
 
-    rm scripts/talker_py_node
-    rmdir scripts
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+        rm scripts/talker_py_node
+        rmdir scripts
+
+  .. group-tab:: macOS
+
+    .. code-block:: bash
+
+        rm scripts/talker_py_node
+        rmdir scripts
+
+  .. group-tab:: Windows
+
+    .. code-block:: bash
+
+        del scripts/talker_py_node
+        rd scripts
 
 The addition of ``console_scripts`` is the last change to your ``setup.py``.
 Your final ``setup.py`` should look like this:
@@ -627,26 +725,84 @@ Create three terminals:
 
 Build the workspace in the first terminal.
 
-.. code-block:: bash
+.. tabs::
 
-    cd ~/ros2_talker_py
-    . /opt/ros/{DISTRO}/setup.bash
-    colcon build
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+        cd ~/ros2_talker_py
+        . /opt/ros/{DISTRO}/setup.bash
+        colcon build
+
+  .. group-tab:: macOS
+
+    .. code-block:: bash
+
+        cd ~/ros2_talker_py
+        . /opt/ros/{DISTRO}/setup.bash
+        colcon build
+
+  .. group-tab:: Windows
+
+    .. code-block:: bash
+
+        cd \ros2_talker_py
+        call C:\dev\ros2\local_setup.bat
+        colcon build
 
 Source your workspace in the second terminal, and run the ``talker_py_node``.
 
-.. code-block:: bash
+.. tabs::
 
-    cd ~/ros2_talker_py
-    . install/setup.bash
-    ros2 run talker_py talker_py_node
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+        cd ~/ros2_talker_py
+        . install/setup.bash
+        ros2 run talker_py talker_py_node
+
+  .. group-tab:: macOS
+
+    .. code-block:: bash
+
+        cd ~/ros2_talker_py
+        . install/setup.bash
+        ros2 run talker_py talker_py_node
+
+  .. group-tab:: Windows
+
+    .. code-block:: bash
+
+        cd \ros2_talker_py
+        call install\setup.bat
+        ros2 run talker_py talker_py_node
 
 Echo the message published by the node in the third terminal:
 
-.. code-block:: bash
+.. tabs::
 
-    . /opt/ros/{DISTRO}/setup.bash
-    ros2 topic echo /chatter
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+        . /opt/ros/{DISTRO}/setup.bash
+        ros2 run talker_py talker_py_node
+
+  .. group-tab:: macOS
+
+    .. code-block:: bash
+
+        . /opt/ros/{DISTRO}/setup.bash
+        ros2 run talker_py talker_py_node
+
+  .. group-tab:: Windows
+
+    .. code-block:: bash
+
+        call C:\dev\ros2\local_setup.bat
+        ros2 run talker_py talker_py_node
 
 
 You should see messages with the current time being published in the second terminal, and those same messages received in the third.
