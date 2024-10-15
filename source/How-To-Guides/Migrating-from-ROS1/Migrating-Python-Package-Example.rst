@@ -645,7 +645,7 @@ Start with getting the time.
 ROS 2 nodes have a ``Clock`` instance.
 Replace the call to ``rospy.get_time()`` with ``node.get_clock().now()`` to get the current time from the node's clock.
 
-Next, replace the use of ``%`` with an f-string: ``f'hello world {self.get_clock().now()}'``.
+Next, replace the use of ``%`` with an f-string: ``f'hello world {node.get_clock().now()}'``.
 
 Finally, instantiate a ``std_msgs.msg.String()`` instance and assign the above to the ``data`` attribute of that instance.
 Your final code should look like this:
@@ -825,8 +825,6 @@ Make ``main()`` create a ``Talker`` instance rather than using ``rclpy.create_no
 Your refactored code might look like this:
 
 .. code-block:: Python
-
-    import threading
 
     import rclpy
     from rclpy.node import Node
