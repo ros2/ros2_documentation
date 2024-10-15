@@ -1,0 +1,19 @@
+{
+	"name": "ROS 2 Documentation",
+	"build": {
+		"dockerfile": "../docker/image/Dockerfile"
+	},
+	"workspaceMount": "source=${localWorkspaceFolder},target=/tmp/doc_repository,type=bind",
+	"workspaceFolder": "/tmp/doc_repository",
+	"postCreateCommand": "pip3 install --no-warn-script-location --user -r requirements.txt -c constraints.txt --break-system-packages",
+	"features": {
+		"ghcr.io/devcontainers/features/git:1": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ritwickdey.LiveServer"
+			]
+		}
+	}
+}
