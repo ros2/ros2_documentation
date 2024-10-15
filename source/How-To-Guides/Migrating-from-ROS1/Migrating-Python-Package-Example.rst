@@ -15,7 +15,7 @@ You need a working ROS 2 installation, such as :doc:`ROS {DISTRO} <../../Install
 The ROS 1 code
 --------------
 
-Create a colcon workspace at ``~/ros2_tallker_py``.
+Create a colcon workspace at ``~/ros2_talker_py``.
 
 .. code-block:: bash
 
@@ -303,8 +303,7 @@ Put the following content into it:
     [install]
     install_scripts=$base/lib/talker_py
 
-You still need to define the executables to be installed.
-Use the ``console_scripts`` entry point to do this.
+You'll need to use the ``console_scripts`` entry point to define the executables to be installed.
 Each entry has the format ``executable_name = some.module:function``.
 The first part specifies the name of the executable to create.
 The second part specifies the function that should be run when the executable starts.
@@ -327,7 +326,7 @@ Delete the file ``talker_py_node`` and delete the ``scripts/`` directory.
     rm scripts/talker_py_node
     rmdir scripts
 
-This is the last change to your ``setup.py``.
+The addition of ``console_scripts`` is the last change to your ``setup.py``.
 Your final ``setup.py`` should look like this:
 
 .. code-block:: Python
