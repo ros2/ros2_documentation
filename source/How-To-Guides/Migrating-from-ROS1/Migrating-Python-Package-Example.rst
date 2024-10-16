@@ -848,13 +848,11 @@ Your refactored code might look like this:
 
 
     def main():
-        rclpy.init()
         try:
-            rclpy.spin(Talker())
+            with rclpy.init():
+                rclpy.spin(Talker())
         except (ExternalShutdownException, KeyboardInterrupt):
             pass
-        finally:
-            rclpy.try_shutdown()
 
 Conclusion
 ----------
