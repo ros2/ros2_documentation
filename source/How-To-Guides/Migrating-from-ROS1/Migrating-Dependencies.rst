@@ -67,6 +67,7 @@ TODO if the package to be installed starts with `ros-distro`, then it's a ROS pa
     .. code-block:: bash
 
         $ rosdep keys --from-paths /tmp/geometry2/tf2_kdl | xargs rosdep resolve --os=ubuntu:focal --rosdistro=noetic
+        WARNING: ROS_PYTHON_VERSION is unset. Defaulting to 3
         #ROSDEP[eigen]
         #apt
         libeigen3-dev
@@ -91,6 +92,48 @@ TODO if the package to be installed starts with `ros-distro`, then it's a ROS pa
         #ROSDEP[ros_environment]
         #apt
         ros-noetic-ros-environment
+
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+        cd /tmp
+        git clone https://github.com/ros/geometry2.git
+        rosdep keys --from-paths /tmp/geometry2/tf2_kdl | xargs rosdep resolve --os=ubuntu:noble --rosdistro=rolling
+
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+        $ rosdep keys --from-paths /tmp/geometry2/tf2_kdl | xargs rosdep resolve --os=ubuntu:noble --rosdistro=rolling
+        WARNING: ROS_PYTHON_VERSION is unset. Defaulting to 3
+        #ROSDEP[tf2]
+        #apt
+        ros-rolling-tf2
+        #ROSDEP[catkin]
+        #ROSDEP[rostest]
+        #ROSDEP[liborocos-kdl-dev]
+        #apt
+        liborocos-kdl-dev
+        #ROSDEP[ros_environment]
+        #apt
+        ros-rolling-ros-environment
+        #ROSDEP[cmake_modules]
+        #ROSDEP[eigen]
+        #apt
+        libeigen3-dev
+        #ROSDEP[tf2_ros]
+        #apt
+        ros-rolling-tf2-ros
+        ERROR: no rosdep rule for 'catkin'
+        ERROR: no rosdep rule for 'rostest'
+        ERROR: no rosdep rule for 'cmake_modules'
 
 
 Check if a rosdep key is available
@@ -120,12 +163,16 @@ TODO move_base -> nav2, ... what else?
      - ROS 2
    * - catkin
      - ament_cmake_ros
+   * - cmake_modules
+     - tinyxml_vendor, tinyxml2_vendor, eigen3_cmake_module
    * - roscpp
      - rclcpp
    * - roslaunch
      - launch_ros
    * - rospy
      - rclpy
+   * - rostest
+     - launch_testing_ros
 
 Conclusion
 ----------
