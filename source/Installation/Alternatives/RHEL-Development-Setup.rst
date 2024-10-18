@@ -138,6 +138,20 @@ More info on working with a ROS workspace can be found in :doc:`this tutorial <.
 
       colcon build --symlink-install --packages-skip image_tools intra_process_demo
 
+.. note::
+
+   When building on Fedora, you may run into issues with system variables not being set.
+   To work around this, you can set the set the system variables manually:
+
+   .. code-block:: bash
+      export RPM_ARCH=$(uname -m)
+      export RPM_PACKAGE_RELEASE=1.0
+      export RPM_PACKAGE_VERSION=1.0
+      export RPM_PACKAGE_NAME=qt_gui_cpp
+
+   (`From this issue <https://github.com/ros2/ros2/issues/1491>`_)
+
+
 Setup environment
 -----------------
 
