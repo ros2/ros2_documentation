@@ -10,7 +10,7 @@ This page shows you how to tell if all of your ROS 1 package's dependencies are 
 Prerequisites
 -------------
 
-This page assumes you have a Linux machine with :doc:`rosdep </Tutorials/Intermediate/Rosdep>` installed.
+This page assumes you have Linux machine with :doc:`rosdep </Tutorials/Intermediate/Rosdep>` installed.
 
 Why do dependencies matter?
 ---------------------------
@@ -20,27 +20,117 @@ A package that needs the transform between two points probably depends on ``tf2`
 A package that installs URDF files probably needs ``xacro``.
 No package can work without its dependencies, so when you want to migrate any package to ROS 2 you must make sure all of its dependencies are available first.
 
-What ROS distro are you targeting?
-----------------------------------
+Ask ``rosdep`` if your dependencies are available
+-------------------------------------------------
 
-TODO this guide assumes you're targeting ROS {DISTRO}.
+Use :doc:`rosdep </Tutorials/Intermediate/Rosdep>` to determine if your ROS 1 package's dependencies are available in ROS 2.
 
-Determine your package's dependencies
--------------------------------------
+First, decide what ROS 2 distro you want your package to work on.
+Next, look up the Ubuntu version supported by that ROS distro in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__.
+Finally run these two commands:
 
-If you want to know what your package depends on, then read it's ``package.xml``.
+1. Run ``rosdep keys --from-paths PATH_TO_YOUR_ROS1_PACKAGE`` to get a list of your package's dependencies.
+2. Run ``rosdep resolve --os=ubuntu:LOWERCASE_UBUNTU_DISTRO --rosdistro=ROS_DISTRO DEPENDENCY1 DEPENDENCY2 ...`` to see which of those dependencies are available in ROS 2.
+
+Example
+^^^^^^^
+
+Create a folder called ``my_package`` and create a file ``package.xml`` inside it with the following content:
+
+.. code-block:: xml
+
+    <package format="2">
+        <name>my_package</name>
+        <version>1.0.0</version>
+        <description>
+            My ROS 1 package
+        </description>
+        <maintainer email="gerky@example.com">Brian Gerky</maintainer>
+        <license>BSD</license>
+
+        <buildtool_depend>catkin</buildtool_depend>
+
+        <build_depend>cmake_modules</build_depend>
+        <build_depend>eigen</build_depend>
+
+        <build_export_depend>eigen</build_export_depend>
+
+        <depend>liborocos-kdl-dev</depend>
+        <depend>tf2</depend>
+        <depend>tf2_ros</depend>
+
+        <test_depend>ros_environment</test_depend>
+        <test_depend>rostest</test_depend>
+    </package>
+
+Run ``rosdep keys --from-paths my_package`` to get a list of its dependencies:
+
+.. code-block:: bash
+
+    $ rosdep keys --from-paths my_package/
+    WARNING: ROS_PYTHON_VERSION is unset. Defaulting to 3
+    liborocos-kdl-dev
+    catkin
+    cmake_modules
+    ros_environment
+    eigen
+    tf2
+    rostest
+    tf2_ros
+
+Pretend you've chosen ROS Jazzy.
+Look it up in `REP 2000 to discover that it supports Ubuntu Noble <https://www.ros.org/reps/rep-2000.html#jazzy-jalisco-may-2024-may-2029>`__.
+Run ``rosdep resolve --os=ubuntu:noble --rosdistro=jazzy ...`` to check if this package's dependencies are available in ROS Jazzy.
+
+.. code-block:: bash
+
+    $ rosdep resolve --os=ubuntu:noble --rosdistro=jazzy eigen liborocos-kdl-dev rostest cmake_modules ros_environment tf2_ros catkin tf2
+    #ROSDEP[eigen]
+    #apt
+    libeigen3-dev
+    #ROSDEP[liborocos-kdl-dev]
+    #apt
+    liborocos-kdl-dev
+    #ROSDEP[rostest]
+    #ROSDEP[cmake_modules]
+    #ROSDEP[ros_environment]
+    #apt
+    ros-jazzy-ros-environment
+    #ROSDEP[tf2_ros]
+    #apt
+    ros-jazzy-tf2-ros
+    #ROSDEP[catkin]
+    #ROSDEP[tf2]
+    #apt
+    ros-jazzy-tf2
+    ERROR: no rosdep rule for 'rostest'
+    ERROR: no rosdep rule for 'cmake_modules'
+    ERROR: no rosdep rule for 'catkin'
+
+Focus on the ``ERROR`` messages.
+They say that these three dependencies are not available:
+
+* rostest
+* cmake_modules
+* catkin
+
+However, these packages might not be in ROS Jazzy because they have been replaced.
+Read the next section to learn how to determine that.
+
+Determine if a package has been replaced.
+
+There are three er
+
 Every package's ``package.xml`` file must list that package's dependencies.
+There are two kinds of dependencies in ROS:
 
-However, there are two kinds of dependencies in ROS, and the difference is important when deciding if your package is ready to be migrated to ROS 2.
+* a ROS package (`example: tf2 <https://index.ros.org/p/tf2/>`__)
+* a rosdep key (`example: eigen <https://index.ros.org/d/eigen/>`__ )
 
-* a ROS package
-* a rosdep key
+The difference is important when deciding if your package is ready to be migrated.
+If your ROS 1 package depends on another ROS package and that ROS package is not available in ROS 2, then you must migrate your dependency to ROS 2 before you can migrate yours.
+If your ROS 1 package depends on a rosdep key, and that rosdep key is not available on the platforms that
 
-A ROS package is exactly what it sounds like; your ROS package may depend on one or more other ROS packages.
-A rosdep key is different.
-It describes a system dependency.
-For example, `tf2 <https://index.ros.org/p/tf2/>`__ is a ROS package, while `eigen <https://index.ros.org/d/eigen/>`__ is a rosdep key.
-Read :doc:`the tutorial on rosdep </Tutorials/Intermediate/Rosdep>` to learn more.
 
 Is it a rosdep key or a package?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
