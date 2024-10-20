@@ -79,9 +79,13 @@ Currently, rclcpp provides three Executor types, derived from a shared parent cl
       }
 
 The *Multi-Threaded Executor* creates a configurable number of threads to allow for processing multiple messages or events in parallel.
-The *Static Single-Threaded Executor* optimizes the runtime costs for scanning the structure of a node in terms of subscriptions, timers, service servers, action servers, etc.
-It performs this scan only once when the node is added, while the other two executors regularly scan for such changes.
-Therefore, the Static Single-Threaded Executor should be used only with nodes that create all subscriptions, timers, etc. during initialization.
+
+.. note::
+
+   The *Static Single-Threaded Executor* has been deprecated, and *Single-Threaded Executor* is recommended instead.
+   The *Static Single-Threaded Executor* was developed to reduce the the runtime costs for scanning the entities of a node in terms of subscriptions, timers, service servers, action servers, etc.
+   These runtime improvements are now available also in all the other *Executor*.
+   You can see more details for `ROS Discourse: The ROS 2 C++ Executors <https://discourse.ros.org/t/the-ros-2-c-executors/38296>`__.
 
 All three executors can be used with multiple nodes by calling ``add_node(..)`` for each node.
 
@@ -91,13 +95,13 @@ All three executors can be used with multiple nodes by calling ``add_node(..)`` 
    rclcpp::Node::SharedPtr node2 = ...
    rclcpp::Node::SharedPtr node3 = ...
 
-   rclcpp::executors::StaticSingleThreadedExecutor executor;
+   rclcpp::executors::SingleThreadedExecutor executor;
    executor.add_node(node1);
    executor.add_node(node2);
    executor.add_node(node3);
    executor.spin();
 
-In the above example, the one thread of a Static Single-Threaded Executor is used to serve three nodes together.
+In the above example, the one thread of a Single-Threaded Executor is used to serve three nodes together.
 In case of a Multi-Threaded Executor, the actual parallelism depends on the callback groups.
 
 Callback groups
@@ -178,7 +182,6 @@ Here is a summary of some of these issues:
 4. No built-in control over triggering for specific topics.
 
 Additionally, the executor overhead in terms of CPU and memory usage is considerable.
-The Static Single-Threaded Executor reduces this overhead greatly but it might not be enough for some applications.
 
 These issues have been partially addressed by the following developments:
 
