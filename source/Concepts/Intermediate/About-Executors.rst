@@ -83,8 +83,8 @@ The *Multi-Threaded Executor* creates a configurable number of threads to allow 
 .. note::
 
    The *Static Single-Threaded Executor* has been deprecated, and *Single-Threaded Executor* is recommended instead.
-   The *Static Single-Threaded Executor* was the only *Executor* optimized the runtime costs for rebuilding the entities of a node in terms of subscriptions, timers, service servers, action servers, etc.
-   But this runtime improvements are now available in all the other *Executor*, so that all *Executor* can now take advantage of this improvement.
+   The *Static Single-Threaded Executor* was developed to reduce the the runtime costs for scanning the entities of a node in terms of subscriptions, timers, service servers, action servers, etc.
+   These runtime improvements are now available also in all the other *Executor*.
    You can see more details for `ROS Discourse: The ROS 2 C++ Executors <https://discourse.ros.org/t/the-ros-2-c-executors/38296>`__.
 
 All three executors can be used with multiple nodes by calling ``add_node(..)`` for each node.
