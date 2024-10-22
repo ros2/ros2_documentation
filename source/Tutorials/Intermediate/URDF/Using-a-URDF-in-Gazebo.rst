@@ -60,7 +60,7 @@ In :doc:`other <Building-a-Visual-Robot-Model-with-URDF-from-Scratch>` :doc:`tut
 However, the robot itself should provide that information in the real world or in Gazebo.
 Yet without specifying that, Gazebo doesn't know to publish that information.
 
-To get the robot to be interactive (with you and ROS), we need to specify two things: Plugins and Transmissions.
+To get the robot to be interactive (with you and ROS), we need to specify two things: Plugins and Controllers.
 
 Side note: Configuring Meshes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -220,7 +220,7 @@ Now, the head is displayed properly in RViz because the head joint is listed in 
     - .nan
 
 
-We could continue adding transmissions for all the non-fixed joints (and we will) so that all the joints are properly published.
+We could continue adding joint definitions for all the non-fixed joints (and we will) so that all the joints are properly published.
 But, there's more to life than just looking at robots.
 We want to control them.
 So, let's get another controller in here.
