@@ -1,5 +1,3 @@
-.. _GazeboURDF:
-
 Using a URDF in Gazebo
 ======================
 
@@ -58,7 +56,7 @@ This launch file
 
 
 However, it doesn't do anything, and is missing lots of key information that ROS would need to use this robot.
-Previously we had been using `joint_state_publisher <https://index.ros.org/p/joint_state_publisher/github-ros-joint_state_publisher/>`_ to specify the pose of each joint.
+In :doc:`other <Building-a-Visual-Robot-Model-with-URDF-from-Scratch>` :doc:`tutorials <Building-a-Movable-Robot-Model-with-URDF>` we used `joint_state_publisher <https://index.ros.org/p/joint_state_publisher/github-ros-joint_state_publisher/>`_ to specify the pose of each joint.
 However, the robot itself should provide that information in the real world or in Gazebo.
 Yet without specifying that, Gazebo doesn't know to publish that information.
 

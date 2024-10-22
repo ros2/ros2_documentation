@@ -23,4 +23,3 @@ URDF (Unified Robot Description Format) is a file format for specifying the geom
    Using-URDF-with-Robot-State-Publisher
    Using-a-URDF-in-Gazebo
    Exporting-an-URDF-File
-
