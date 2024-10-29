@@ -131,8 +131,8 @@ There is also a `visualization_msgs/msg/MarkerArray <https://github.com/ros2/com
 
 * ``mesh_resource``:
 
-    The resource location for the ``MESH_RESOURCE`` marker type. Can be any mesh type supported by RViz (.stl or Ogre .mesh in 1.0, with the addition of COLLADA in 1.1).
-    The format is the URI-form used by resource_retriever, including the package:// syntax.
+    The resource location for the ``MESH_RESOURCE`` marker type. Can be any mesh type supported by RViz (``.stl`` or Ogre ``.mesh`` in 1.0, with the addition of COLLADA in 1.1).
+    The format is the URI-form used by `resource_retriever <https://github.com/ros/resource_retriever/tree/{DISTRO}>`_, including the package:// syntax.
 
 3 Object types
 ^^^^^^^^^^^^^^
@@ -225,7 +225,7 @@ The ``points`` member of the `visualization_msgs/msg/Marker <https://github.com/
 .. image:: images/SphereListMarker.png
 
 A sphere list is a list of spheres with all the same properties except their positions.
-Using this object type instead of a `visualization_msgs/msg/MarkerArray <https://github.com/ros2/common_interfaces/blob/{DISTRO}/visualization_msgs/msg/MarkerArray.msg>`_ allows rviz to batch-up rendering,
+Using this object type instead of a `visualization_msgs/msg/MarkerArray <https://github.com/ros2/common_interfaces/blob/{DISTRO}/visualization_msgs/msg/MarkerArray.msg>`_ allows RViz to batch-up rendering,
 which causes them to render much faster.
 The caveat is that they all must have the same scale.
 
@@ -260,8 +260,8 @@ Only ``scale.z`` is used. ``scale.z`` specifies the height of an uppercase "A".
 .. image:: images/mesh_resource_marker.png
 
 Uses the ``mesh_resource`` field in the marker.
-Can be any mesh type supported by RViz (binary .stl or Ogre .mesh in 1.0, with the addition of COLLADA (.dae) in 1.1).
-The format is the URI-form used by resource_retriever, including the ``package://`` syntax.
+Can be any mesh type supported by RViz (binary ``.stl`` or Ogre ``.mesh`` in 1.0, with the addition of COLLADA (``.dae``) in 1.1).
+The format is the URI-form used by `resource_retriever <https://github.com/ros/resource_retriever/tree/{DISTRO}>`_, including the ``package://`` syntax.
 
 An example of a mesh an its use is:
 
