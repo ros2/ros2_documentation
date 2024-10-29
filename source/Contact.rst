@@ -18,6 +18,11 @@ If not, ask a new question on `Robotics Stack Exchange <https://robotics.stackex
 Make sure to add tags, at the very least the ``ros2`` tag and the distro version you are running, e.g. ``{DISTRO}``.
 If your question is related to the documentation here, add a tag like ``docs``, or more specifically, ``tutorials``.
 
+Please don't contact the developers/maintainers directly.
+The community can't see question or answer(s) not asked or answered publicly.
+Open Source development works best when the entire community participates in discussions and helps to answer questions.
+It's better to send all questions to `Robotics Stack Exchange <https://robotics.stackexchange.com/>`__ and report all issues to the issue tracker.
+
 Contributing support
 ^^^^^^^^^^^^^^^^^^^^
 
