@@ -17,6 +17,10 @@ Once you've created an account, you can use Foxglove on the web by opening Googl
 
 To use the desktop app for Linux, macOS, or Windows, download it directly from the `Foxglove website <https://foxglove.dev/download>`__.
 
+.. note::
+
+  Foxglove uses specific features of Google Chrome. While some features may work, other browsers are not supported. For the best experience, we recommend using Chrome or the desktop app.
+
 Connect to a live data source
 -----------------------------
 
