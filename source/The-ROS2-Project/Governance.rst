@@ -80,6 +80,11 @@ The ROS PMC currently consists of the following constituents:
      - `clalancette <https://github.com/clalancette>`_
      - Project Leader
      - N/A
+   * - Scott Logan
+     - `Intrinsic <https://www.intrinsic.ai/>`_
+     - `cottsay <https://github.com/cottsay>`_
+     - Member
+     - CST (UTC-6)/CDT (UTC-5)
    * - Shane Loretz
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `sloretz <https://github.com/sloretz>`_
