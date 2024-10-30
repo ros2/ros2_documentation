@@ -397,7 +397,7 @@ Since you'll be changing the standard string msg to a numerical one, the output 
               self.subscription
 
           def listener_callback(self, msg):
-                  self.get_logger().info('I heard: "%d"' % msg.num)  # CHANGE
+              self.get_logger().info('I heard: "%d"' % msg.num)  # CHANGE
 
 
       def main(args=None):
