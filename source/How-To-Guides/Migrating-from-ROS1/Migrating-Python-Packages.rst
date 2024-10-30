@@ -170,3 +170,8 @@ In ROS 2:
        node.get_logger().info('service not available, waiting again...')
    resp = add_two_ints.call_async(req)
    rclpy.spin_until_future_complete(node, resp)
+
+.. warning::
+
+   Do not use ``rclpy.spin_until_future_complete`` in a ROS 2 callback.
+   For more details see the :doc:`sync deadlock article <../Sync-Vs-Async>`.
