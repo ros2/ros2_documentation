@@ -36,6 +36,8 @@ The categories are differentiated by their policies on versioning, testing, docu
 The following sections are the specific development rules we follow to ensure core packages are of the highest quality ('Level 1').
 We recommend all ROS developers strive to adhere to the following policies to ensure quality across the ROS ecosystem.
 
+For more specific code recommendations please see :doc:`the Quality Guide <Quality-Guide>`
+
 .. _semver:
 
 Versioning
@@ -57,7 +59,7 @@ We will also adhere to some ROS-specific rules built on top of ``semver's`` full
 * For compiled code, the ABI is considered part of the public interface.
   Any change that requires recompiling dependent code is considered major (breaking).
 
-  * ABI breaking changes *can* be made in a minor version bump *before* a distribution release (getting added to the rolling release).
+  * ABI breaking changegit@github.com:ros2/ros2_documentation.gits *can* be made in a minor version bump *before* a distribution release (getting added to the rolling release).
 
 * We enforce API stability for core packages in Dashing and Eloquent even though their major version components are ``0``, despite `SemVer's specification <https://semver.org/#spec-item-4>`_ regarding initial development.
 
