@@ -61,7 +61,7 @@ The ROS PMC currently consists of the following constituents:
      - Member
      - CST (UTC-6)/CDT (UTC-5)
    * - Alejandro Hernandez Cordero
-     - Independent software engineer contractor
+     - `Honu Robotics <https://www.honurobotics.com/>`_
      - `ahcorde <https://github.com/ahcorde>`_
      - Member
      - CET (UTC+1)/CEST (UTC+2)
