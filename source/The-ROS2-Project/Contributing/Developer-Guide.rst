@@ -435,6 +435,13 @@ The ROS packages occupy a flat namespace, so naming should be done carefully and
 * Prefixing a package name is recommended only when the package is not meant to be used more widely (e.g., packages that are specific to the PR2 robot use the \'pr2_\' prefix). You might prefix the package name when forking an existing package, but again, the prefix would hopefully communicate what changed, not who changed it.
 * Prefixing a package name with 'ros' is redundant for a ROS package. This is not recommended except for very core packages.
 
+Units of Measure and Coordinate System Conventions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Standard units and coordinate conventions for use in ROS have been formalized in `REP-103 <https://www.ros.org/reps/rep-0103.html>`__.
+All messages should follow these guidelines unless there's a very strong reason which is very clearly documented to avoid confusion.
+
+Representation of special conditions within distance measurements like "too close" or "too far" in ROS have been formalized in `REP-0117 <https://www.ros.org/reps/rep-0117.html>`__.
 
 Programming conventions
 ^^^^^^^^^^^^^^^^^^^^^^^
