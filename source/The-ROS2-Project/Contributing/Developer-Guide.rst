@@ -432,7 +432,7 @@ The ROS packages occupy a flat namespace, so naming should be done carefully and
   * Using catchall names such as utils should be avoided as they do not scope what goes into the package or what should be outside the package.
 * To check whether a name is taken, consult `<index.ros.org/packages/>`_. If you'd like your repository included in that list, see the `rosdistro Contributing Guide <https://github.com/ros/rosdistro/blob/master/CONTRIBUTING.md>`__.
 * Our goal is to develop a canonical set of tools for making robots do interesting things. The package name should tell you what the package does, not where it came from. It should be possible for us, as a community, to make this work. An Ubuntu distribution offers approximately 33,000 packages without inserting origin or authorship into names.
-* Prefixing a package name is recommended only when the package is not meant to be used more widely (e.g., packages that are specific to the PR2 robot use the \'pr2_\' prefix). You might prefix the package name when forking an existing package, but again, the prefix would hopefully communicate what changed, not who changed it.
+* Prefixing a package name is recommended only when the package is not meant to be used more widely (e.g., packages that are specific to the PR2 robot use the ``pr2_`` prefix). You might prefix the package name when forking an existing package, but again, the prefix would hopefully communicate what changed, not who changed it.
 * Prefixing a package name with 'ros' is redundant for a ROS package. This is not recommended except for very core packages.
 
 Units of Measure and Coordinate System Conventions
