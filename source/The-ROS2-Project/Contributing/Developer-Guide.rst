@@ -436,7 +436,7 @@ The ROS packages occupy a flat namespace, so naming should be done carefully and
 
   * Using catchall names such as utils should be avoided as they do not scope what goes into the package or what should be outside the package.
 
-* To check whether a name is taken, consult `<index.ros.org/packages/>`__.
+* To check whether a name is taken, consult `<https://index.ros.org/packages/>`__.
   If you'd like your repository included in that list, see the `rosdistro Contributing Guide <https://github.com/ros/rosdistro/blob/master/CONTRIBUTING.md>`__.
 
 * Our goal is to develop a canonical set of tools for making robots do interesting things.
