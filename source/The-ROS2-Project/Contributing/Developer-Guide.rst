@@ -36,6 +36,8 @@ The categories are differentiated by their policies on versioning, testing, docu
 The following sections are the specific development rules we follow to ensure core packages are of the highest quality ('Level 1').
 We recommend all ROS developers strive to adhere to the following policies to ensure quality across the ROS ecosystem.
 
+For more specific code recommendations please see :doc:`the Quality Guide <Quality-Guide>`.
+
 .. _semver:
 
 Versioning
@@ -417,6 +419,44 @@ To request permission to make changes, simply comment on the tickets you're inte
 Depending on the complexity, it might be useful to describe how you plan to address it.
 We will update the status (if you don't have the permission) and you can start working on a pull request.
 If you contribute regularly we will likely just grant you permission to manage the labels etc. yourself.
+
+Package Naming Conventions
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Names play an important role in ROS and following naming conventions simplifies the process of learning and understanding large systems.
+
+The ROS packages occupy a flat namespace, so naming should be done carefully and consistently. There is a standard for package naming in `REP-144 <https://www.ros.org/reps/rep-0144.html>`__
+
+* Package names should follow common C variable naming conventions: lower case, start with a letter, use underscore separators, e.g. laser_viewer
+
+* Package names should be specific enough to identify what the package does.
+  For example, a motion planner is not called planner.
+  If it implements the wavefront propagation algorithm, it might be called wavefront_planner.
+  There's obviously tension between making a name specific and keeping it from becoming overly verbose.
+
+  * Using catchall names such as utils should be avoided as they do not scope what goes into the package or what should be outside the package.
+
+* To check whether a name is taken, consult `<https://index.ros.org/packages/>`__.
+  If you'd like your repository included in that list, see the `rosdistro Contributing Guide <https://github.com/ros/rosdistro/blob/master/CONTRIBUTING.md>`__.
+
+* Our goal is to develop a canonical set of tools for making robots do interesting things.
+  The package name should tell you what the package does, not where it came from.
+  It should be possible for us, as a community, to make this work.
+  An Ubuntu distribution offers approximately 33,000 packages without inserting origin or authorship into names.
+
+* Prefixing a package name is recommended only when the package is not meant to be used more widely (e.g., packages that are specific to the PR2 robot use the ``pr2_`` prefix).
+  You might prefix the package name when forking an existing package, but again, the prefix would hopefully communicate what changed, not who changed it.
+
+* Prefixing a package name with 'ros' is redundant for a ROS package.
+  This is not recommended except for very core packages.
+
+Units of Measure and Coordinate System Conventions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Standard units and coordinate conventions for use in ROS have been formalized in `REP-103 <https://www.ros.org/reps/rep-0103.html>`__.
+All messages should follow these guidelines unless there's a very strong reason which is very clearly documented to avoid confusion.
+
+Representation of special conditions within distance measurements like "too close" or "too far" in ROS have been formalized in `REP-0117 <https://www.ros.org/reps/rep-0117.html>`__.
 
 Programming conventions
 ^^^^^^^^^^^^^^^^^^^^^^^
