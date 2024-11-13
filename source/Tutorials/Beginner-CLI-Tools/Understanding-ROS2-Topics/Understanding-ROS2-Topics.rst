@@ -338,7 +338,7 @@ The bandwidth used by a topic can be viewed using:
 
     ros2 topic bw /turtle1/pose
 
-It returns the bandwidth utilization and number of messages being published to the ``/turtle1/pose`` the topic.
+It returns the bandwidth utilization and number of messages being published to the ``/turtle1/pose`` topic.
 
 .. code-block:: console
 
