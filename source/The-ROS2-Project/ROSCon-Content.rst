@@ -11,7 +11,7 @@ The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2
 
 .. tabs::
 
-.. group-tab:: 2024
+   .. group-tab:: 2024
 
     .. list-table::
        :header-rows: 1
