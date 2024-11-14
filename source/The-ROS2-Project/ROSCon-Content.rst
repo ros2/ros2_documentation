@@ -87,7 +87,7 @@ The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2
        * - Jazzy Jalisco rosbag2 updates and new features
          - `video <https://vimeo.com/1024970794>`__
        * - ⚡ Lightning Talks ⚡
-         - `video <https://vimeo.com/1026038503>`__
+         - `video <https://vimeo.com/1024969633>`__
        * - How is my robot? - On the state of ROS Diagnostics
          - `video <https://vimeo.com/1024970271>`__
        * - Accelerating the CI/CD-to-robot cycle by 10x for 1/10th the cost
