@@ -11,6 +11,126 @@ The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2
 
 .. tabs::
 
+   .. group-tab:: 2024
+
+    .. list-table::
+       :header-rows: 1
+
+       * - Title
+         - Links
+       * - Saving lives sooner: leveraging ROS 2 for end-stage kidney disease
+         - `video <https://vimeo.com/1024971800>`__
+       * - The State of ROS: Beneath the Kilt
+         - `video <https://vimeo.com/1024972452>`__
+       * - RMW Zenoh: An alternative middleware for ROS 2
+         - `video <https://vimeo.com/1024971621>`__
+       * - The State of the Infrastructure
+         - `video <https://vimeo.com/1024972551>`__
+       * - In the Spot Light: Controlling Spot with ROS 2
+         - `video <https://vimeo.com/1024970544>`__
+       * - Panel: Successfully Deploying ROS 2 Into Production
+         - `video <https://vimeo.com/1026020629>`__
+       * - Executors in ROS 2
+         - `video <https://vimeo.com/1024970052>`__
+       * - The Multithreaded Events Executor
+         - `video <https://vimeo.com/1024972104>`__
+       * - Accelerating Robotics Development with Embedded Linux
+         - `video <https://vimeo.com/1024969135>`__
+       * - Real-time ROS 2 applications made easy with cactus-rt
+         - `video <https://vimeo.com/1024971584>`__
+       * - Something big is coming in ros2_control with ROS 2 Jazzy!
+         - `video <https://vimeo.com/1024972003>`__
+       * - How to Use a Dragon's Algorithm: Integrating Drake with MoveIt 2
+         - `video <https://vimeo.com/1024970427>`__
+       * - More than just an actuator -- Better ROS support for a manipulator
+         - `video <https://vimeo.com/1024971285>`__
+       * - A ROS 2 Package for Dynamic Collision Avoidance Based On On-Board Prox...
+         - `video <https://vimeo.com/1024969079>`__
+       * - GSplines: Generalized Splines for Motion Optimization and Smooth Colli...
+         - `video <https://vimeo.com/1024970194>`__
+       * - KOI and EBIKE: Optimizing Kinematics Structures and IK Parameters by C...
+         - `video <https://vimeo.com/1024970959>`__
+       * - A Fuzzy-Matching Trajectory Cache for MoveIt 2
+         - `video <https://vimeo.com/1024968990>`__
+       * - iceoryx2: A Journey to Becoming a First-Class RMW Alternative
+         - `video <https://vimeo.com/1026024533>`__
+       * - J1939 CAN Device Support in ROS 2
+         - `video <https://vimeo.com/1026028313>`__
+       * - Integration of ETSI ITS messages for V2X communication in ROS
+         - `video <https://vimeo.com/1026026851>`__
+       * - Unlocking the Potential of the Nicla Vision Board with ROS / ROS 2
+         - `video <https://vimeo.com/1026030054>`__
+       * - We Hate Serial: Experiments using CAN-FD as a transport layer for micro-ROS
+         - `video <https://vimeo.com/1026031720>`__
+       * - ROS 2 Gateway to Professional 24/7 Applications
+         - `video <https://vimeo.com/1026037209>`__
+       * - Optimizing Gazebo simulation: Challenges in building complex simulatio...
+         - `video <https://vimeo.com/1024971478>`__
+       * - Building Humanoid Robots: Mastering Design and Control with ROS
+         - `video <https://vimeo.com/1024969444>`__
+       * - URDF Creator: Bridging the Gap Between Learning and Applying ROS 2
+         - `video <https://vimeo.com/1024972602>`__
+       * - Enabling ROS 2 Benchmarks: A Medical Robotics Perspective
+         - `video <https://vimeo.com/1024969888>`__
+       * - Scenario Execution for Robotics: A generic, backend-agnostic library f...
+         - `video <https://vimeo.com/1024971964>`__
+       * - ⚡Lightning Talks⚡
+         - `video <https://vimeo.com/1026038503>`__
+       * - Mobile Robotics Scale-up Leveraging ROS
+         - `video <https://vimeo.com/1024971160>`__
+       * - The State of Gazebo
+         - `video <https://vimeo.com/1024972138>`__
+       * - The State of Open-RMF
+         - `video <https://vimeo.com/1024972217>`__
+       * - Migrating a Mobile Manipulator to ROS 2
+         - `video <https://vimeo.com/1024971060>`__
+       * - Jazzy Jalisco rosbag2 updates and new features
+         - `video <https://vimeo.com/1024970794>`__
+       * - ⚡ Lightning Talks ⚡
+         - `video <https://vimeo.com/1026038503>`__
+       * - How is my robot? - On the state of ROS Diagnostics
+         - `video <https://vimeo.com/1024970271>`__
+       * - Accelerating the CI/CD-to-robot cycle by 10x for 1/10th the cost
+         - `video <https://vimeo.com/1024969227>`__
+       * - r2s: A Terminal User Interface for ROS 2
+         - `video <https://vimeo.com/1024971542>`__
+       * - The Lighthouse project: from Virtual Reality to Onboard Positioning for Robotics
+         - `video <https://vimeo.com/1024972070>`__
+       * - Building system packages with colcon in your own compact buildfarm
+         - `video <https://vimeo.com/1024969541>`__
+       * - robot_folders -- your favorite meta-workspace manager
+         - `video <https://vimeo.com/1024971677>`__
+       * - Scaling Open-RMF from a Test Bench → Lab → Controlled Environment → Production
+         - `video <https://vimeo.com/1024971907>`__
+       * - Open-RMF and the Challenge of Resource Contention in Large-Scale Robot Fleets
+         - `video <https://vimeo.com/1024971441>`__
+       * - ROS in Large-scale Factory Automation
+         - `video <https://vimeo.com/1024971718>`__
+       * - Enhancing Robotic Communication & Scalability with Topic Keys in ROS 2
+         - `video <https://vimeo.com/1024969988>`__
+       * - ROS 2 (and DDS) Compatible Selective Large Data Transfer
+         - `video <https://vimeo.com/1024971699>`__
+       * - Agent-based AI Framework for ROS 2
+         - `video <https://vimeo.com/1026029511>`__
+       * - ros2ai Next-Gen ROS 2 CLI empowered by OpenAI
+         - `video <https://vimeo.com/1026034712>`__
+       * - Building Foundation Model-powered Robots with ROS: A Survey
+         - `video <https://vimeo.com/1026027743>`__
+       * - Scenic for ROS: A Probabilistic Programming Language for World Modelin...
+         - `video <https://vimeo.com/1026032775>`__
+       * - Software Platform Design and SDK Development for ROS 2-based LG AI Com...
+         - `video <https://vimeo.com/1026030733>`__
+       * - Beluga AMCL: A modern Monte Carlo Localization implementation for ROS
+         - `video <https://vimeo.com/1024969330>`__
+       * - Radar Tracks for Path Planning in the presence of Dynamic Obstacles
+         - `video <https://vimeo.com/1024971565>`__
+       * - On Use of Nav2 Docking
+         - `video <https://vimeo.com/1024971348>`__
+       * - ROS robot health monitoring: the Bonsai approach
+         - `video <https://vimeo.com/1024971769>`__
+       * - Navigation à la carte: choose navigation profile and strategy as you go
+         - `video <https://vimeo.com/1024971326>`__
+
    .. group-tab:: 2023
 
     .. list-table::
