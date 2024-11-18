@@ -144,7 +144,8 @@ Testing it out
 
 Compile your code, source your workspace and run ``rviz2``.
 
-In the top Menu bar, there should be a "Panels" menu. Select "Add New Panel" from that menu.
+In the top Menu bar, there should be a "Panels" menu.
+Select "Add New Panel" from that menu.
 A dialog will pop up showing all the panels accessible in your ROS environment, grouped into folders based on their ROS package.
 Create a new instance of your panel by either double clicking on its name, or selecting it and clicking OK.
 
