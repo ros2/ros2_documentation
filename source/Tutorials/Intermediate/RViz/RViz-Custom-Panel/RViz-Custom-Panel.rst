@@ -245,6 +245,7 @@ Update ``demo_panel.cpp`` to have the following contents:
    {
      // Create a label and a button, displayed vertically (the V in VBox means vertical)
      const auto layout = new QVBoxLayout(this);
+     // Create a button and a label for the button
      label_ = new QLabel("[no data]");
      button_ = new QPushButton("GO!");
      // Add the button to the GUI layout
