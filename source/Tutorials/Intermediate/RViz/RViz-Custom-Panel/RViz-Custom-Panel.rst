@@ -252,6 +252,7 @@ Update ``demo_panel.cpp`` to have the following contents:
 
      // Connect the event of when the button is released to our callback,
      // so pressing the button results in the callback being called.
+     // Create a callback such that when our button is released the buttonActivated callback is called. 
      QObject::connect(button_, &QPushButton::released, this, &DemoPanel::buttonActivated);
    }
 
