@@ -28,7 +28,7 @@ The Marker Message
 ------------------
 1 Example Usage (C++)
 ^^^^^^^^^^^^^^^^^^^^^
-First we need to create a publisher and set a topic:
+First we will create a simple publisher node that publishes ``Marker`` messages from the ``visualization_messages`` package to the ``visualization_marker`` topic:
 
 .. code-block:: C++
 
@@ -79,6 +79,10 @@ There is also a `visualization_msgs/msg/MarkerArray <https://github.com/ros2/com
 
 2 Message Parameters
 ^^^^^^^^^^^^^^^^^^^^
+
+The Marker message type is defined in `ROS 2 Common Interfaces <https://github.com/ros2/common_interfaces/tree/{DISTRO}/visualization_msgs/msg>_` package.
+The messages in this package include comments that are helpful in understanding each of the fields in the message.
+
 * ``ns``:
 
     Namespace for these markers. This plus the id form a unique identifier.
@@ -101,24 +105,25 @@ There is also a `visualization_msgs/msg/MarkerArray <https://github.com/ros2/com
 
 * ``scale``:
 
-    Scale of the marker. Applied before the position/orientation. A scale of [1,1,1] means the object will be 1m by 1m by 1m.
+    Scale of the marker. Applied before the position/orientation. A scale of [1, 1, 1] means the object will be 1m by 1m by 1m.
 
 * ``color``:
 
-    Color of the object, specified as r/g/b/a, with values in the range of [0, 1]. Don't forget to set a or it will default to 0 and be invisible.
+    Color of the object, specified as r/g/b/a, with values in the range of [0, 1]. The, `a` or alpha value, denotes the opacity of the marker with 1 indicating opaque and 0 indicating completely transparent. The default value is 0, or completely transparent. **You must set the a value of your marker to a non-zero value or it will be transparent by default!**
 
 * ``points``:
 
     Only used for markers of type ``Points``, ``Line strips``, and ``Line`` / ``Cube`` / ``Sphere`` -lists.
     It's also used for the Arrow type, if you want to specify the arrow start and end points.
+    This entry represents a list of `geometry_msgs/Point` types for the center or each marker object you would like rendered.  
 
 * ``colors``:
 
-    Only used for markers that use the points member, specifies per-vertex color (no alpha yet).
+    This field is only used for markers that use the points member. This field specifies per-vertex color r/g/b/ color  (no alpha yet) for each entry in `points`.
 
 * ``lifetime``:
 
-    A duration value used to automatically delete the marker after this period of time.
+    A `duration message value <https://docs.ros.org/en/ros2_packages/{DISTRO}/api/builtin_interfaces/interfaces/msg/Duration.html>`_ used to automatically delete the marker after this period of time.
     The countdown resets if another marker of the same ``namespace`` / ``id`` is received.
 
 * ``frame_locked``:
@@ -250,7 +255,7 @@ Note that ``pose`` is still used (the ``points`` in the line will be transformed
 .. image:: images/text_view_facing_marker.png
 
 This marker displays text in a 3D spot in the world.
-The text always appears oriented correctly to the view. Uses the ``text`` field in the marker.
+The text always appears oriented correctly for the RViZ user to see the included text. Uses the ``text`` field in the marker.
 
 Only ``scale.z`` is used. ``scale.z`` specifies the height of an uppercase "A".
 
