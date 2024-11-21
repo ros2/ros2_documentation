@@ -115,7 +115,7 @@ The messages in this package include comments that are helpful in understanding 
 
     Only used for markers of type ``Points``, ``Line strips``, and ``Line`` / ``Cube`` / ``Sphere`` -lists.
     It's also used for the Arrow type, if you want to specify the arrow start and end points.
-    This entry represents a list of `geometry_msgs/Point` types for the center or each marker object you would like rendered.  
+    This entry represents a list of `geometry_msgs/Point` types for the center or each marker object you would like rendered.
 
 * ``colors``:
 
@@ -128,7 +128,8 @@ The messages in this package include comments that are helpful in understanding 
 
 * ``frame_locked``:
 
-    Tells RViz to retransform the marker into the current location of the specified frame every update cycle.
+    Without the ``frame_locked`` parameter the marker will be placed based on the current transform and will stay there even if the given transform changes later.
+    Setting this parameter tells RViz to retransform the marker to the new current location of the specified frame on every update cycle.
 
 * ``text``:
 
