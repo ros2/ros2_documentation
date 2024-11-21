@@ -287,6 +287,8 @@ Update ``demo_panel.cpp`` to have the following contents:
 
    // When the widget's button is pressed, this callback is triggered,
    // and then we publish a new message on our topic.
+   // When the user clicks the button on our panel this function will send a 
+   // a "Button clicked!" message on the /output topic.
    void DemoPanel::buttonActivated()
    {
      auto message = std_msgs::msg::String();
