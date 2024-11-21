@@ -278,6 +278,8 @@ Update ``demo_panel.cpp`` to have the following contents:
 
    // When the subscriber gets a message, this callback is triggered,
    // and then we copy its data into the widget's label
+   // When our node interface gets a message on its input topic this callback
+   // gets called and we copy the message text to our button label.
    void DemoPanel::topicCallback(const std_msgs::msg::String & msg)
    {
      label_->setText(QString(msg.data.c_str()));
