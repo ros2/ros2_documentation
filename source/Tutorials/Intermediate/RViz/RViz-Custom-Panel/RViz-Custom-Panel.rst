@@ -3,6 +3,12 @@ Building a Custom RViz Panel
 
 This tutorial is for people who would like to work within the RViz environment to either display or interact with some data in a two-dimensional environment.
 
+In this tutorial you will learn how to do three things within RViz:
+
+* Create a new QT panel within RViz.
+* Create a topic subscriber within RViz that can monitor messages published on that topic and display them within the RViz panel.
+* Create a topic publisher such button presses within RViz publish to an output topic in ROS.
+
 All of the code for this tutorial can be found in `this repository <https://github.com/MetroRobots/rviz_panel_tutorial>`__.
 
 Boilerplate Code
@@ -165,6 +171,9 @@ This should create a new panel in your RViz window, albeit with nothing but a ti
 Filling in the Panel
 --------------------
 We're going to update our panel with some very basic ROS/QT interaction.
+What we will do, roughly, is access the ROS node from within RViz that can both subscribe and publish to ROS topics.
+We will use our subscriber to monitor an ``/input`` topic within ROS and display the published ``String`` values in the widget.
+We use our publisher to map button presses within RViz to messages published on a ROS topic named ``/output`` .
 
 Updated Header File
 ^^^^^^^^^^^^^^^^^^^
@@ -205,9 +214,11 @@ Update ``demo_panel.hpp`` to include the following includes and class Body.
    };
    }  // namespace rviz_panel_tutorial
 
-* On the ROS side, we declare an abstract node pointer, publisher and subscriber.
-  We also have methods to initialize them and a callback for the subscriber.
-* On the QT side, we declare a label and a button, as well as a callback for the button.
+* On the ROS side, we declare an abstract node pointer, which we will use to create interfaces to the wider ROS ecosystem.
+  We have a subscriber which will allow us to take information from ROS and use it in RViz.
+  The publisher allows us to publish information/events from within RViz and make them available in ROS.
+  We also have methods an initialization method for setting up the ROS components (``onInitialize``) and a callback for the subscriber (``topicCallback``).
+* On the QT side, we declare a label and a button, as well as a callback for the button (``buttonActivated``).
 
 Updated Source File
 ^^^^^^^^^^^^^^^^^^^
@@ -225,12 +236,15 @@ Update ``demo_panel.cpp`` to have the following contents:
 
    DemoPanel::DemoPanel(QWidget* parent) : Panel(parent)
    {
+     // Create a label and a button, displayed vertically (the V in VBox means vertical)
      const auto layout = new QVBoxLayout(this);
      label_ = new QLabel("[no data]");
      button_ = new QPushButton("GO!");
      layout->addWidget(label_);
      layout->addWidget(button_);
 
+     // Connect the event of when the button is released to our callback,
+     // so pressing the button results in the callback being called.
      QObject::connect(button_, &QPushButton::released, this, &DemoPanel::buttonActivated);
    }
 
@@ -238,17 +252,26 @@ Update ``demo_panel.cpp`` to have the following contents:
 
    void DemoPanel::onInitialize()
    {
+     // Access the abstract ROS Node and
+     // in the process lock it for exclusive use until the method is done.
      node_ptr_ = getDisplayContext()->getRosNodeAbstraction().lock();
+
+     // Get a pointer to the familiar rclcpp::Node for making subscriptions/publishers
+     // (as per normal rclcpp code)
      rclcpp::Node::SharedPtr node = node_ptr_->get_raw_node();
      publisher_ = node->create_publisher<std_msgs::msg::String>("/output", 10);
      subscription_ = node->create_subscription<std_msgs::msg::String>("/input", 10, std::bind(&DemoPanel::topicCallback, this, std::placeholders::_1));
    }
 
+   // When the subscriber gets a message, this callback is triggered,
+   // and then we copy its data into the widget's label
    void DemoPanel::topicCallback(const std_msgs::msg::String & msg)
    {
      label_->setText(QString(msg.data.c_str()));
    }
 
+   // When the widget's button is pressed, this callback is triggered,
+   // and then we publish a new message on our topic.
    void DemoPanel::buttonActivated()
    {
      auto message = std_msgs::msg::String();
@@ -262,12 +285,6 @@ Update ``demo_panel.cpp`` to have the following contents:
 
    PLUGINLIB_EXPORT_CLASS(rviz_panel_tutorial::DemoPanel, rviz_common::Panel)
 
-* In the constructor, we add the two widgets to a layout object, and connect the callback to the button object.
-* In the ``onInitialize`` method, we can access the ``DisplayContext`` which allows us access to the ROS interfaces.
-  We get a pointer to the actual node interface, and then create a standard publisher/subscriber.
-* When we get a message from the subscription, we update the label.
-* When the button is clicked, we publish a new message.
-
 Testing with ROS
 ^^^^^^^^^^^^^^^^
 Compile and launch RViz2 with your panel again. You should see your label and button in the panel now.
@@ -276,18 +293,20 @@ Compile and launch RViz2 with your panel again. You should see your label and bu
    :target: images/RViz1.png
    :alt: screenshot of the RViz panel in its default state
 
-To change the label, run
+To change the label, we simply have to publish a message on the ``/input`` topic, which you can do with this command:
 
 .. code-block:: bash
 
    ros2 topic pub /input std_msgs/msg/String "{data: 'Please be kind.'}"
+
+Since the widget is subscribed to this topic, it will trigger the callback and change the text of the label.
 
 .. image:: images/RViz2.png
    :target: images/RViz2.png
    :alt: screenshot of the RViz panel with custom string message displayed
 
 
-You can also see the results of pushing the button:
+Pressing the button will publish a message, which you can see by echoing the ``/output`` topic, like with this command.
 
 .. code-block:: bash
 
