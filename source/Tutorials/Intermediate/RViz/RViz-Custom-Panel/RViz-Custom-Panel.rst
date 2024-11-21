@@ -2,7 +2,11 @@ Building a Custom RViz Panel
 ============================
 
 This tutorial is for people who would like to work within the RViz environment to either display or interact with some data in a two-dimensional environment.
+In this tutorial you will learn how to do three things within RViz:
 
+* Create a new QT panel within RViz.
+* Create a topic subscriber within RViz that can monitor messages published on that topic and print them to RViz panel.
+* Create a topic publisher that maps button presses within RViz to an output topic within your ROS system.
 In this tutorial you will learn how to do three things within RViz:
 
 * Create a new QT panel within RViz.
