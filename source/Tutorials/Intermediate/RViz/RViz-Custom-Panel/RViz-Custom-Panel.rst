@@ -261,6 +261,7 @@ Update ``demo_panel.cpp`` to have the following contents:
    {
      // Access the abstract ROS Node and
      // in the process lock it for exclusive use until the method is done.
+     // on init add a thread lock to our ROS node. 
      node_ptr_ = getDisplayContext()->getRosNodeAbstraction().lock();
 
      // Get a pointer to the familiar rclcpp::Node for making subscriptions/publishers
