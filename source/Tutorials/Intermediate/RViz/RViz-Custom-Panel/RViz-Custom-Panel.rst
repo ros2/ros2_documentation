@@ -272,6 +272,7 @@ Update ``demo_panel.cpp`` to have the following contents:
      // grab a shared pointer from our target node from which we'll get our data
      rclcpp::Node::SharedPtr node = node_ptr_->get_raw_node();
      publisher_ = node->create_publisher<std_msgs::msg::String>("/output", 10);
+     // In our target node, create a subscription, of type String, on topic input, and bind it to the demoCallback inside this class. 
      subscription_ = node->create_subscription<std_msgs::msg::String>("/input", 10, std::bind(&DemoPanel::topicCallback, this, std::placeholders::_1));
    }
 
