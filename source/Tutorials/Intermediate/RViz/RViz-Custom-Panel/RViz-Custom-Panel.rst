@@ -247,6 +247,7 @@ Update ``demo_panel.cpp`` to have the following contents:
      const auto layout = new QVBoxLayout(this);
      label_ = new QLabel("[no data]");
      button_ = new QPushButton("GO!");
+     // Add the button to the GUI layout
      layout->addWidget(label_);
      layout->addWidget(button_);
 
