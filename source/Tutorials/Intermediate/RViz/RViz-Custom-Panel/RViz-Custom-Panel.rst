@@ -7,6 +7,7 @@ In this tutorial you will learn how to do three things within RViz:
 * Create a new QT panel within RViz.
 * Create a topic subscriber within RViz that can monitor messages published on that topic and print them to RViz panel.
 * Create a topic publisher that maps button presses within RViz to an output topic within your ROS system.
+
 In this tutorial you will learn how to do three things within RViz:
 
 * Create a new QT panel within RViz.
@@ -176,10 +177,8 @@ Filling in the Panel
 --------------------
 We're going to update our panel with some very basic ROS/QT interaction.
 What we will do, roughly, is create something like a ROS node within RViz that can both subscribe and publish to ROS topics. 
-We will use our subscriber to monitor an '\input` topic within ROS and print published `String` values to the screen. 
+We will use our subscriber to monitor an `\input` topic within ROS and print published `String` values to the screen. 
 We use our publisher to map button presses within RViz to messages published on a ROS topic named `\output` . 
-What we will do, roughly, is access the ROS node from within RViz that can both subscribe and publish to ROS topics.
-We will use our subscriber to monitor an ``/input`` topic within ROS and display the published ``String`` values in the widget.
 We use our publisher to map button presses within RViz to messages published on a ROS topic named ``/output`` .
 
 Updated Header File
@@ -254,7 +253,7 @@ Update ``demo_panel.cpp`` to have the following contents:
 
      // Connect the event of when the button is released to our callback,
      // so pressing the button results in the callback being called.
-     // Create a callback such that when our button is released the buttonActivated callback is called. 
+     // Create a callback such that when our button is released the buttonActivated callback is called.
      QObject::connect(button_, &QPushButton::released, this, &DemoPanel::buttonActivated);
    }
 
@@ -264,7 +263,7 @@ Update ``demo_panel.cpp`` to have the following contents:
    {
      // Access the abstract ROS Node and
      // in the process lock it for exclusive use until the method is done.
-     // on init add a thread lock to our ROS node. 
+     // on init add a thread lock to our ROS node.
      node_ptr_ = getDisplayContext()->getRosNodeAbstraction().lock();
 
      // Get a pointer to the familiar rclcpp::Node for making subscriptions/publishers
@@ -272,7 +271,7 @@ Update ``demo_panel.cpp`` to have the following contents:
      // grab a shared pointer from our target node from which we'll get our data
      rclcpp::Node::SharedPtr node = node_ptr_->get_raw_node();
      publisher_ = node->create_publisher<std_msgs::msg::String>("/output", 10);
-     // In our target node, create a subscription, of type String, on topic input, and bind it to the demoCallback inside this class. 
+     // In our target node, create a subscription, of type String, on topic input, and bind it to the demoCallback inside this class.
      subscription_ = node->create_subscription<std_msgs::msg::String>("/input", 10, std::bind(&DemoPanel::topicCallback, this, std::placeholders::_1));
    }
 
@@ -287,7 +286,7 @@ Update ``demo_panel.cpp`` to have the following contents:
 
    // When the widget's button is pressed, this callback is triggered,
    // and then we publish a new message on our topic.
-   // When the user clicks the button on our panel this function will send a 
+   // When the user clicks the button on our panel this function will send a
    // a "Button clicked!" message on the /output topic.
    void DemoPanel::buttonActivated()
    {
