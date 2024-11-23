@@ -179,7 +179,6 @@ We're going to update our panel with some very basic ROS/QT interaction.
 What we will do, roughly, is create something like a ROS node within RViz that can both subscribe and publish to ROS topics.
 We will use our subscriber to monitor an `\input` topic within ROS and print published `String` values to the screen.
 We use our publisher to map button presses within RViz to messages published on a ROS topic named `\output` .
-We use our publisher to map button presses within RViz to messages published on a ROS topic named ``/output`` .
 
 Updated Header File
 ^^^^^^^^^^^^^^^^^^^
