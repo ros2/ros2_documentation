@@ -80,7 +80,7 @@ There is also a `visualization_msgs/msg/MarkerArray <https://github.com/ros2/com
 2 Message Parameters
 ^^^^^^^^^^^^^^^^^^^^
 
-The Marker message type is defined in `ROS 2 Common Interfaces <https://github.com/ros2/common_interfaces/tree/{DISTRO}/visualization_msgs/msg>_` package.
+The Marker message type is defined in `ROS 2 Common Interfaces <https://github.com/ros2/common_interfaces/tree/{DISTRO}/visualization_msgs/msg>`_ package.
 The messages in this package include comments that are helpful in understanding each of the fields in the message.
 
 * ``ns``:
@@ -109,17 +109,17 @@ The messages in this package include comments that are helpful in understanding 
 
 * ``color``:
 
-    Color of the object, specified as r/g/b/a, with values in the range of [0, 1]. The, `a` or alpha value, denotes the opacity of the marker with 1 indicating opaque and 0 indicating completely transparent. The default value is 0, or completely transparent. **You must set the a value of your marker to a non-zero value or it will be transparent by default!**
+    Color of the object, specified as r/g/b/a, with values in the range of [0, 1]. The, ``a`` or alpha value, denotes the opacity of the marker with 1 indicating opaque and 0 indicating completely transparent. The default value is 0, or completely transparent. **You must set the a value of your marker to a non-zero value or it will be transparent by default!**
 
 * ``points``:
 
     Only used for markers of type ``Points``, ``Line strips``, and ``Line`` / ``Cube`` / ``Sphere`` -lists.
     It's also used for the Arrow type, if you want to specify the arrow start and end points.
-    This entry represents a list of `geometry_msgs/Point` types for the center or each marker object you would like rendered.
+    This entry represents a list of ``geometry_msgs/Point`` types for the center or each marker object you would like rendered.
 
 * ``colors``:
 
-    This field is only used for markers that use the points member. This field specifies per-vertex color r/g/b/ color  (no alpha yet) for each entry in `points`.
+    This field is only used for markers that use the points member. This field specifies per-vertex color r/g/b/ color  (no alpha yet) for each entry in ``points``.
 
 * ``lifetime``:
 
