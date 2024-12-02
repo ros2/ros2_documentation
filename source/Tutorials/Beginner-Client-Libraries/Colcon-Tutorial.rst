@@ -349,3 +349,31 @@ Tips
   .. code-block:: bash
 
      colcon test --packages-select YOUR_PKG_NAME --ctest-args -R YOUR_TEST_IN_PKG
+
+Setup ``colcon`` mixins
+-----------------------
+
+Various command line options are tedious to write and/or difficult to remember.
+
+For example, to change the CMake build type to debug, you normally use:
+
+.. code-block:: console
+
+    colcon build --cmake-args -DCMAKE_BUILD_TYPE=Debug
+
+To make common command line options easier to invoke this repository makes these "shortcuts" available.
+
+To install the default colcon mixins, run the following:
+
+.. code-block:: console
+
+    colcon mixin add default https://raw.githubusercontent.com/colcon/colcon-mixin-repository/master/index.yaml
+    colcon mixin update default
+
+Then, try out using the ``debug`` mixin:
+
+.. code-block:: console
+
+    colcon build --mixin debug
+
+For more details, see  the `colcon mixin repository <https://github.com/colcon/colcon-mixin-repository>`__.
