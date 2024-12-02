@@ -100,52 +100,52 @@ Rows in the table marked in green are the currently supported distributions.
      - May 23, 2024
      - |jazzy|
      - May 2029
-     - Marco A. Gutiérrez
+     - `Marco A. Gutiérrez <https://github.com/marcoag>`_
    * - :doc:`Iron Irwini <Releases/Release-Iron-Irwini>`
      - May 23, 2023
      - |iron|
      - November 2024
-     - Yadunund Vijay
+     - `Yadunund Vijay <https://github.com/Yadunund>`_
    * - :doc:`Humble Hawksbill <Releases/Release-Humble-Hawksbill>`
      - May 23, 2022
      - |humble|
      - May 2027
-     - Audrow Nash
+     - `Audrow Nash <https://github.com/audrow>`_
    * - :doc:`Galactic Geochelone <Releases/Release-Galactic-Geochelone>`
      - May 23, 2021
      - |galactic|
      - December 9, 2022
-     - Scott Logan
+     - `Scott Logan <https://github.com/cottsay/>`_
    * - :doc:`Foxy Fitzroy <Releases/Release-Foxy-Fitzroy>`
      - June 5, 2020
      - |foxy|
      - June 20, 2023
-     - Jacob Perron/Dharini Dutia
+     - `Jacob Perron <https://github.com/jacobperron>`_ / `Dharini Dutia <https://github.com/quarkytale>`_
    * - :doc:`Eloquent Elusor <Releases/Release-Eloquent-Elusor>`
      - November 22, 2019
      - |eloquent|
      - November 2020
-     - Michael Carroll
+     - `Michael Carroll <https://github.com/mjcarroll>`_
    * - :doc:`Dashing Diademata <Releases/Release-Dashing-Diademata>`
      - May 31, 2019
      - |dashing|
      - May 2021
-     - Steven! Ragnarök
+     - `Steven! Ragnarök <https://github.com/nuclearsandwich>`_
    * - :doc:`Crystal Clemmys <Releases/Release-Crystal-Clemmys>`
      - December 14, 2018
      - |crystal|
      - December 2019
-     - Steven! Ragnarök
+     - `Steven! Ragnarök <https://github.com/nuclearsandwich>`_
    * - :doc:`Bouncy Bolson <Releases/Release-Bouncy-Bolson>`
      - July 2, 2018
      - |bouncy|
      - July 2019
-     - Mikael Arguedas/Steven! Ragnarök
+     - `Mikael Arguedas <https://github.com/mikaelarguedas>`_ / `Steven! Ragnarök <https://github.com/nuclearsandwich>`_
    * - :doc:`Ardent Apalone <Releases/Release-Ardent-Apalone>`
      - December 8, 2017
      - |ardent|
      - December 2018
-     - Steven! Ragnarök
+     - `Steven! Ragnarök <https://github.com/nuclearsandwich>`_
    * - :doc:`beta3 <Releases/Beta3-Overview>`
      - September 13, 2017
      -
