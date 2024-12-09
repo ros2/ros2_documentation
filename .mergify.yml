@@ -7,7 +7,6 @@ pull_request_rules:
       backport:
         branches:
           - jazzy
-          - iron
           - humble
 
   - name: backport at reviewers discretion
@@ -18,7 +17,6 @@ pull_request_rules:
       backport:
         branches:
           - jazzy
-          - iron
           - humble
 
   - name: backport to jazzy at reviewers discretion
@@ -29,15 +27,6 @@ pull_request_rules:
       backport:
         branches:
           - jazzy
-
-  - name: backport to iron at reviewers discretion
-    conditions:
-      - base=rolling
-      - "label=backport-iron"
-    actions:
-      backport:
-        branches:
-          - iron
 
   - name: backport to humble at reviewers discretion
     conditions:

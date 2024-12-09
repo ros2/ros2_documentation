@@ -24,7 +24,6 @@ Rows in the table marked in green are the currently supported distributions.
    :hidden:
 
    Releases/Release-Jazzy-Jalisco
-   Releases/Release-Iron-Irwini
    Releases/Release-Humble-Hawksbill
    Releases/Release-Rolling-Ridley
    Releases/Development
@@ -49,7 +48,6 @@ Rows in the table marked in green are the currently supported distributions.
    <style>
      .rst-content table.docutils:not(.field-list) tr:nth-child(1) td {background-color: #33cc66;}
      .rst-content table.docutils:not(.field-list) tr:nth-child(3) td {background-color: #33cc66;}
-     .rst-content tr:nth-child(2) {background-color: #33cc66;}
      .rst-content tr:nth-child(3) {background-color: #33cc66;}
    </style>
 
@@ -104,7 +102,7 @@ Rows in the table marked in green are the currently supported distributions.
    * - :doc:`Iron Irwini <Releases/Release-Iron-Irwini>`
      - May 23, 2023
      - |iron|
-     - November 2024
+     - December 4, 2024
      - `Yadunund Vijay <https://github.com/Yadunund>`_
    * - :doc:`Humble Hawksbill <Releases/Release-Humble-Hawksbill>`
      - May 23, 2022
