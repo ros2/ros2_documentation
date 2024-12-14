@@ -340,8 +340,51 @@ Passing additional arguments into components
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The ``ros2 component load`` command-line supports passing particular options to the component manager for use when constructing the node.
-As of now, the only command-line option that is supported is to instantiate a node using intra-process communication.
-This functionality can be used as follows:
+
+As of now, the following extra arguments are supported.
+
+.. list-table:: Extra Arguments for Component Manager
+   :widths: 15 15 15 15
+   :header-rows: 1
+
+   * - Argument
+     - Type
+     - Default
+     - Description
+   * - ``forward_global_arguments``
+     - Boolean
+     - True
+     - Apply global arguments to the component node when loading.
+   * - ``enable_rosout``
+     - Boolean
+     - True
+     - Enable ``rosout`` topic publisher to the component node.
+   * - ``use_intra_process_comms``
+     - Boolean
+     - False
+     - Enable intra-process communication to the component node.
+   * - ``enable_topic_statistics``
+     - Boolean
+     - False
+     - Enable topic statistics publisher to the component node.
+   * - ``start_parameter_services``
+     - Boolean
+     - True
+     - Enable services to manage parameters to the component node.
+   * - ``start_parameter_event_publisher``
+     - Boolean
+     - True
+     - Enable parameter event publisher to the component node.
+   * - ``use_clock_thread``
+     - Boolean
+     - True
+     - Enable a dedicated clock thread to the component node.
+   * - ``enable_logger_service``
+     - Boolean
+     - False
+     - Enable logger level management service to the component node.
+
+These optional arguments can be used as follow example of ``use_intra_process_comms``:
 
 .. code-block:: bash
 
