@@ -241,7 +241,65 @@ Note: You can switch between the C++ (demo_nodes_cpp) and Python (demo_nodes_py)
 
 These nodes are able to communicate because we have created the appropriate keys and certificates for them.
 
-Leave both nodes running as you answer the questions below.
+Leave both nodes running as you use ``ros2cli`` and answer the questions below.
+
+
+6\. Use ``ros2cli`` with security
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To use ``ros2cli`` to iterate with ROS 2 secured network, you need to provide it with override enclave by ``ROS_SECURITY_ENCLAVE_OVERRIDE`` environmental variable.
+Open an another terminal and set up the following environmental variables.
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+      export ROS_SECURITY_KEYSTORE=~/sros2_demo/demo_keystore
+      export ROS_SECURITY_ENABLE=true
+      export ROS_SECURITY_STRATEGY=Enforce
+      export ROS_SECURITY_ENCLAVE_OVERRIDE=/talker_listener/listener
+
+  .. group-tab:: MacOS
+
+    .. code-block:: bash
+
+      export ROS_SECURITY_KEYSTORE=~/sros2_demo/demo_keystore
+      export ROS_SECURITY_ENABLE=true
+      export ROS_SECURITY_STRATEGY=Enforce
+      export ROS_SECURITY_ENCLAVE_OVERRIDE=/talker_listener/listener
+
+  .. group-tab:: Windows
+
+    .. code-block:: bat
+
+      set ROS_SECURITY_KEYSTORE=%cd%/demo_keystore
+      set ROS_SECURITY_ENABLE=true
+      set ROS_SECURITY_STRATEGY=Enforce
+      set ROS_SECURITY_ENCLAVE_OVERRIDE=/talker_listener/listener
+
+
+Now you can use ``ros2cli`` to communicate with ROS 2 secured network.
+
+.. code-block:: bash
+
+  ros2 node list --no-daemon --spin-time 3
+  [INFO] [1733862009.410918416] [rcl]: Found security directory: /root/ros2_ws/colcon_ws/demo_keystore/enclaves/talker_listener/talker
+  /listener
+  /talker
+
+.. code-block:: bash
+
+  ros2 topic list --no-daemon --spin-time 3
+  [INFO] [1733861998.562163611] [rcl]: Found security directory: /root/ros2_ws/colcon_ws/demo_keystore/enclaves/talker_listener/talker
+  /chatter
+  /parameter_events
+  /rosout
+
+.. note::
+
+  Avoid using ros2 daemon because it may not have security enclaves, and enough time duration should be given for the discovery in ROS 2 secured network.
 
 
 Take the Quiz!
