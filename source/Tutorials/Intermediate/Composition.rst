@@ -341,6 +341,12 @@ Passing additional arguments into components
 
 The ``ros2 component load`` command-line supports passing particular options to the component manager for use when constructing the node.
 
+These optional arguments can be used as follow example of ``use_intra_process_comms`` and ``forward_global_arguments``:
+
+.. code-block:: bash
+
+   ros2 component load /ComponentManager composition composition::Talker -e use_intra_process_comms:=true -e forward_global_arguments:=false
+
 As of now, the following extra arguments are supported.
 
 .. list-table:: Extra Arguments for Component Manager
@@ -384,11 +390,6 @@ As of now, the following extra arguments are supported.
      - False
      - Enable logger level management service to the component node.
 
-These optional arguments can be used as follow example of ``use_intra_process_comms``:
-
-.. code-block:: bash
-
-   ros2 component load /ComponentManager composition composition::Talker -e use_intra_process_comms:=true
 
 Composable nodes as shared libraries
 ------------------------------------
