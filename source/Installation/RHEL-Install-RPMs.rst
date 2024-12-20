@@ -69,7 +69,6 @@ If you are going to build ROS packages or otherwise do development, you can also
      python3-colcon-common-extensions \
      python3-mypy \
      python3-pip \
-     python3-pydocstyle \
      python3-pytest \
      python3-pytest-repeat \
      python3-pytest-rerunfailures \

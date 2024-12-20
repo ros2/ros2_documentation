@@ -64,7 +64,6 @@ Install development tools
      python3-colcon-common-extensions \
      python3-mypy \
      python3-pip \
-     python3-pydocstyle \
      python3-pytest \
      python3-pytest-cov \
      python3-pytest-mock \
