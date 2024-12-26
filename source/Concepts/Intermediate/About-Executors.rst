@@ -59,6 +59,8 @@ The *wait set* is also used to detect when timers expire.
 
 The Single-Threaded Executor is also used by the container process for :doc:`components <./About-Composition>`, i.e. in all cases where nodes are created and executed without an explicit main function.
 
+.. _TypesOfExecutors:
+
 Types of Executors
 ------------------
 
