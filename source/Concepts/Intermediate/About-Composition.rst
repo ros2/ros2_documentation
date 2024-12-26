@@ -33,6 +33,30 @@ By making the process layout a deploy-time decision the user can choose between:
 
 Additionally ``ros2 launch`` can be used to automate these actions through specialized launch actions.
 
+.. _ComponentContainer:
+
+Component Container
+-------------------
+
+A component container is a host process that allows you to load and manage multiple components at runtime within the same process space.
+
+As of now, the following generic component container types are available:
+
+* `component_container <https://github.com/ros2/rclcpp/blob/{REPOS_FILE_BRANCH}/rclcpp_components/src/component_container.cpp>`__
+
+  * The most generic component container that uses a single ``SingleThreadedExecutor`` to execute all components.
+
+* `component_container_mt <https://github.com/ros2/rclcpp/blob/{REPOS_FILE_BRANCH}/rclcpp_components/src/component_container_mt.cpp>`__
+
+  * Component container that uses a single ``MultiThreadedExecutor`` to execute the components.
+
+* `component_container_isolated <https://github.com/ros2/rclcpp/blob/{REPOS_FILE_BRANCH}/rclcpp_components/src/component_container_isolated.cpp>`__
+
+  * Component container that uses a dedicated executor for each component: either ``SingleThreadedExecutor`` (default) or ``MultiThreadedExecutor``.
+
+For more information about the types of executors, see the :ref:`TypesOfExecutors`.
+For more information about the options of each component container, see :ref:`ComponentContainerTypes` in the composition tutorial.
+
 Writing a Component
 -------------------
 
