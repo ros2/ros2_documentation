@@ -153,7 +153,7 @@ Open the ``src/turtle_tf2_listener_debug.cpp`` file, and take a look at line 65:
 
 .. code-block:: C++
 
-   std::string to_frame_rel = "turtle3";
+   std::string toFrameRel = "turtle3";
 
 and lines 73-77:
 
