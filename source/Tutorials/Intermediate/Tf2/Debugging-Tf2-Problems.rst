@@ -261,7 +261,7 @@ Stop the demo, build and run:
 
 .. code-block:: console
 
-   ros2 launch turtle_tf2 start_debug_demo.launch.py
+   ros2 launch turtle_tf2 start_tf2_debug_demo_launch.py
 
 And you should finally see the turtle move!
 
