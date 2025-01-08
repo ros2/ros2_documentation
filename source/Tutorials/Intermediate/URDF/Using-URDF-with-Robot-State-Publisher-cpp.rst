@@ -1,0 +1,359 @@
+.. _URDFPlusRSP:
+
+Using URDF with ``robot_state_publisher``
+=========================================
+
+**Goal:** Simulate a walking robot modeled in URDF and view it in Rviz.
+
+**Tutorial level:** Intermediate
+
+**Time:** 15 minutes
+
+.. contents:: Contents
+   :depth: 2
+   :local:
+
+Background
+----------
+
+This tutorial will show you how to model a walking robot, publish the state as a tf2 message and view the simulation in Rviz.
+First, we create the URDF model describing the robot assembly.
+Next we write a node which simulates the motion and publishes the JointState and transforms.
+We then use ``robot_state_publisher`` to publish the entire robot state to ``/tf2``.
+
+.. image:: images/r2d2_rviz_demo.gif
+
+Prerequisites
+-------------
+
+- `rviz2 <https://index.ros.org/p/rviz2/>`__
+
+As always, don’t forget to source ROS 2 in :doc:`every new terminal you open <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
+
+Tasks
+-----
+
+1 Create a package
+^^^^^^^^^^^^^^^^^^
+
+go to your ros2 workplace and then create the package:
+
+.. code-block:: console
+
+    cd src
+    ros2 pkg create --build-type ament_python --license Apache-2.0 urdf_tutorial_cpp --dependencies rclpy
+    cd urdf_tutorial_cpp
+
+You should now see a ``urdf_tutorial_cpp`` folder.
+Next you will make several changes to it.
+
+2 Create the URDF File
+^^^^^^^^^^^^^^^^^^^^^^
+
+Create the directory where we will store some assets:
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      mkdir -p urdf
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      mkdir -p urdf
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      md urdf
+
+Download the :download:`URDF file <documents/r2d2.urdf.xml>` and save it as ``urdf_tutorial_cpp/urdf/r2d2.urdf.xml``.
+Download the :download:`Rviz configuration file <documents/r2d2.rviz>` and save it as ``urdf_tutorial_cpp/urdf/r2d2.rviz``.
+
+3 Publish the state
+^^^^^^^^^^^^^^^^^^^
+
+Now we need a method for specifying what state the robot is in.
+To do this, we must specify all three joints and the overall odometry.
+
+Fire up your favorite editor and paste the following code into ``urdf_tutorial_cpp/src/urdf_tutorial.cpp``
+
+.. code-block:: cpp
+
+  #include <rclcpp/rclcpp.hpp>
+  #include <geometry_msgs/msg/quaternion.hpp>
+  #include <sensor_msgs/msg/joint_state.hpp>
+  #include <tf2_ros/transform_broadcaster.h>
+  #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
+  #include <cmath>
+  #include <thread>
+  #include <chrono>
+  
+  using namespace std::chrono;
+  
+  class StatePublisher : public rclcpp::Node{
+      public:
+      
+      StatePublisher(rclcpp::NodeOptions options=rclcpp::NodeOptions()):
+          Node("state_publisher",options){
+              joint_pub_ = this->create_publisher<sensor_msgs::msg::JointState>("joint_states",10);
+              broadcaster = std::make_shared<tf2_ros::TransformBroadcaster>(this);
+  
+              RCLCPP_INFO(this->get_logger(),"Starting state publisher");
+  
+              loop_rate_=std::make_shared<rclcpp::Rate>(33ms);
+  
+              timer_=this->create_wall_timer(33ms,std::bind(&StatePublisher::publish,this));
+          }
+  
+          void publish();
+      private:
+      rclcpp::Publisher<sensor_msgs::msg::JointState>::SharedPtr joint_pub_;
+      std::shared_ptr<tf2_ros::TransformBroadcaster> broadcaster;
+      rclcpp::Rate::SharedPtr loop_rate_;
+      rclcpp::TimerBase::SharedPtr timer_;
+  
+      //Robot state variables
+  
+      const double degree=M_PI/180.0;
+      double tilt = 0.;
+      double tinc = degree;
+      double swivel = 0.;
+      double angle = 0.;
+      double height = 0.;
+      double hinc = 0.005;
+  
+      //Transform message
+  };
+  
+  void StatePublisher::publish(){
+      geometry_msgs::msg::TransformStamped t;
+      sensor_msgs::msg::JointState joint_state;
+  
+      joint_state.header.stamp=this->get_clock()->now();
+      joint_state.name={"swivel","tilt","periscope"};
+      joint_state.position={swivel,tilt,height};
+  
+  
+      t.header.stamp=this->get_clock()->now();
+      t.header.frame_id="odom";
+      t.child_frame_id="axis";
+  
+      t.transform.translation.x=cos(angle)*2;
+      t.transform.translation.y=sin(angle)*2;
+      t.transform.translation.z=0.7;
+      tf2::Quaternion q;
+      q.setRPY(0,0,angle+M_PI/2);
+      t.transform.rotation.x=q.x();
+      t.transform.rotation.y=q.y();
+      t.transform.rotation.z=q.z();
+      t.transform.rotation.w=q.w();
+  
+      tilt+=tinc;
+      if (tilt<-0.5 || tilt>0.0){
+          tinc*=-1;
+      }
+      height+=hinc;
+      if (height>0.2 || height<0.0){
+          hinc*=-1;
+      }
+      swivel+=degree;  // Increment by 1 degree (in radians)
+      angle+=degree;    // Change angle at a slower pace
+  
+  
+      broadcaster->sendTransform(t);
+      joint_pub_->publish(joint_state);
+  
+      RCLCPP_INFO(this->get_logger(),"Publishing joint state");
+  }
+  
+  int main(int argc, char * argv[]){
+      rclcpp::init(argc,argv);
+      rclcpp::spin(std::make_shared<StatePublisher>());
+      rclcpp::shutdown();
+      return 0;
+  }
+
+4 Create a launch file
+^^^^^^^^^^^^^^^^^^^^^^
+
+Create a new ``urdf_tutorial_cpp/launch`` folder.
+Open your editor and paste the following code, saving it as ``urdf_tutorial_cpp/launch/launch.py``
+
+.. code-block:: python
+  
+  import os
+  from ament_index_python.packages import get_package_share_directory
+  from launch import LaunchDescription
+  from launch.actions import DeclareLaunchArgument
+  from launch.substitutions import LaunchConfiguration
+  from launch_ros.actions import Node
+  
+  def generate_launch_description():
+  
+      use_sim_time = LaunchConfiguration('use_sim_time', default='false')
+  
+      urdf_file_name = 'r2d2.urdf.xml'
+  
+      urdf=os.path.join(
+          get_package_share_directory('urdf_tutorial_cpp'),
+          'urdf',
+          urdf_file_name
+      )
+  
+      with open(urdf, 'r') as infp:
+          robot_desc = infp.read()
+  
+          return LaunchDescription([
+          DeclareLaunchArgument(
+              'use_sim_time',
+              default_value='false',
+              description='Use simulation (Gazebo) clock if true'),
+          Node(
+              package='robot_state_publisher',
+              executable='robot_state_publisher',
+              name='robot_state_publisher',
+              output='screen',
+              parameters=[{'use_sim_time': use_sim_time, 'robot_description': robot_desc}],
+              arguments=[urdf]),
+          Node(
+              package='urdf_tutorial_cpp',
+              executable='urdf_tutorial_cpp',
+              name='urdf_tutorial_cpp',
+              output='screen'),
+      ])
+  
+
+5 Edit the CMakeLists.txt file
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+You must tell the **colcon** build tool how to install your cpp package.
+Edit the ``CMakeLists.txt`` file as follows:
+
+.. code-block:: python
+
+  cmake_minimum_required(VERSION 3.8)
+  project(urdf_tutorial_cpp)
+  
+  if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+    add_compile_options(-Wall -Wextra -Wpedantic)
+  endif()
+  
+  # find dependencies
+  find_package(ament_cmake REQUIRED)
+  find_package(geometry_msgs REQUIRED)
+  find_package(sensor_msgs REQUIRED)
+  find_package(tf2_ros REQUIRED)
+  find_package(tf2_geometry_msgs REQUIRED)
+  find_package(rclcpp REQUIRED)
+  
+  add_executable(urdf_tutorial_cpp src/urdf_tutorial.cpp)
+  
+  ament_target_dependencies(urdf_tutorial_cpp
+    geometry_msgs
+    sensor_msgs
+    tf2_ros
+    tf2_geometry_msgs
+    rclcpp
+  )
+  
+  install(TARGETS
+    urdf_tutorial_cpp
+    DESTINATION lib/${PROJECT_NAME}
+  )
+  
+  install(DIRECTORY
+    launch
+    DESTINATION share/${PROJECT_NAME}
+  )
+  
+  install(DIRECTORY
+    urdf
+    DESTINATION share/${PROJECT_NAME}
+  )
+  
+  # uncomment the following section in order to fill in
+  # further dependencies manually.
+  # find_package(<dependency> REQUIRED)
+  
+  if(BUILD_TESTING)
+    find_package(ament_lint_auto REQUIRED)
+    # the following line skips the linter which checks for copyrights
+    # comment the line when a copyright and license is added to all source files
+    set(ament_cmake_copyright_FOUND TRUE)
+    # the following line skips cpplint (only works in a git repo)
+    # comment the line when this package is in a git repo and when
+    # a copyright and license is added to all source files
+    set(ament_cmake_cpplint_FOUND TRUE)
+    ament_lint_auto_find_test_dependencies()
+  endif()
+  
+  ament_package()
+
+we use ''install'' command to put the r2d2.rviz into ''install'' dir
+
+6 Install the package
+^^^^^^^^^^^^^^^^^^^^^
+
+go back to your workplace root dir and run:
+
+.. code-block:: console
+
+    colcon build --symlink-install --packages-select urdf_tutorial_cpp
+
+Source the setup files:
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      source install/setup.bash
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      source install/setup.bash
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      call install/setup.bat
+
+
+7 View the results
+^^^^^^^^^^^^^^^^^^
+
+Launch the package
+
+.. code-block:: console
+
+  ros2 launch urdf_tutorial_cpp launch.py
+
+Open a new terminal, the run Rviz using
+
+.. code-block:: console
+
+  rviz2 -d install/urdf_tutorial_cpp/share/urdf_tutorial_cpp/urdf/r2d2.rviz
+
+See the `User Guide <http://wiki.ros.org/rviz/UserGuide>`__ for details on how to use Rviz.
+
+''install/urdf_tutorial_cpp/share/urdf_tutorial_cpp/urdf/r2d2.rviz'' is the dir where the r2d2.rviz stored.
+
+Summary
+-------
+
+You created a ``JointState`` publisher node and coupled it with ``robot_state_publisher`` to simulate a walking robot.
+The code used in these examples is originally from `here <https://github.com/benbongalon/ros2-migration/tree/master/urdf_tutorial>`__.
+
+Credit is given to the authors of this
+`ROS 1 tutorial <http://wiki.ros.org/urdf/Tutorials/Using%20urdf%20with%20robot_state_publisher>`__
+from which some content was reused.
