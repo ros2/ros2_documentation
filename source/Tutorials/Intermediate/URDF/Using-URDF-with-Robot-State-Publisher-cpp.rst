@@ -109,8 +109,11 @@ Fire up your favorite editor and paste the following code into
       StatePublisher(rclcpp::NodeOptions options=rclcpp::NodeOptions()):
           Node("state_publisher",options){
               joint_pub_ = this->create_publisher<sensor_msgs::msg::JointState>("joint_states",10);
+              // create a publisher to tell robot_state_publisher the JointState information.
+              // robot_state_publisher will deal with this transformation
               broadcaster = std::make_shared<tf2_ros::TransformBroadcaster>(this);
-  
+              // create a broadcaster to tell the tf2 state information
+              // this broadcaster will determine the position of coordinate system 'asix' in coordinate system 'odom'
               RCLCPP_INFO(this->get_logger(),"Starting state publisher");
   
               loop_rate_=std::make_shared<rclcpp::Rate>(33ms);
@@ -126,7 +129,8 @@ Fire up your favorite editor and paste the following code into
       rclcpp::TimerBase::SharedPtr timer_;
   
       //Robot state variables
-  
+
+      // degree means one degree
       const double degree=M_PI/180.0;
       double tilt = 0.;
       double tinc = degree;
@@ -134,33 +138,41 @@ Fire up your favorite editor and paste the following code into
       double angle = 0.;
       double height = 0.;
       double hinc = 0.005;
-  
-      //Transform message
   };
   
   void StatePublisher::publish(){
+      // create msg subject
       geometry_msgs::msg::TransformStamped t;
       sensor_msgs::msg::JointState joint_state;
-  
+
+      // add time stamp
       joint_state.header.stamp=this->get_clock()->now();
+      // Specify joints' name which are defined in the r2d2.urdf.xml and their content
       joint_state.name={"swivel","tilt","periscope"};
       joint_state.position={swivel,tilt,height};
   
-  
+      // add time stamp
       t.header.stamp=this->get_clock()->now();
+      // specify the father and child frame
+
+      // odom is the base coordinate system of tf2
       t.header.frame_id="odom";
+      // axis is defined in r2d2.urdf.xml file and it is the base coordiante of model
       t.child_frame_id="axis";
-  
+
+      // add translation change
       t.transform.translation.x=cos(angle)*2;
       t.transform.translation.y=sin(angle)*2;
       t.transform.translation.z=0.7;
       tf2::Quaternion q;
+      // ture euler angle into Quanternion and add rotation change
       q.setRPY(0,0,angle+M_PI/2);
       t.transform.rotation.x=q.x();
       t.transform.rotation.y=q.y();
       t.transform.rotation.z=q.z();
       t.transform.rotation.w=q.w();
-  
+
+      // update state for next time
       tilt+=tinc;
       if (tilt<-0.5 || tilt>0.0){
           tinc*=-1;
@@ -172,7 +184,7 @@ Fire up your favorite editor and paste the following code into
       swivel+=degree;  // Increment by 1 degree (in radians)
       angle+=degree;    // Change angle at a slower pace
   
-  
+      // send message
       broadcaster->sendTransform(t);
       joint_pub_->publish(joint_state);
   
@@ -185,6 +197,10 @@ Fire up your favorite editor and paste the following code into
       rclcpp::shutdown();
       return 0;
   }
+
+This file will send the ''joint_state'' to ''robot_state_publisher'' and ''robot_state_publisher'' will tell tf2 how to place model.
+
+This file will also tell ''tf2'' how to place the whole model by ''broadcaster''
 
 4 Create a launch file
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -202,17 +218,20 @@ Open your editor and paste the following code, saving it as ``urdf_tutorial_cpp/
   from launch_ros.actions import Node
   
   def generate_launch_description():
-  
+
+      # ''use_sim_time'' is used to  determine whether ros2 use simulation time provided by simulation environment (Gazebo).
       use_sim_time = LaunchConfiguration('use_sim_time', default='false')
-  
+      
       urdf_file_name = 'r2d2.urdf.xml'
-  
+
+      # urdf is path of urdf_file_name file. we use define it as the follow due to the CMakeLists.txt file.
       urdf=os.path.join(
           get_package_share_directory('urdf_tutorial_cpp'),
           'urdf',
           urdf_file_name
       )
-  
+
+      # open the whole urdf_file_name file and read it content to robot_desc
       with open(urdf, 'r') as infp:
           robot_desc = infp.read()
   
@@ -221,7 +240,7 @@ Open your editor and paste the following code, saving it as ``urdf_tutorial_cpp/
               'use_sim_time',
               default_value='false',
               description='Use simulation (Gazebo) clock if true'),
-          Node(
+         Node(
               package='robot_state_publisher',
               executable='robot_state_publisher',
               name='robot_state_publisher',
