@@ -2,11 +2,6 @@ Building a Custom RViz Panel
 ============================
 
 This tutorial is for people who would like to work within the RViz environment to either display or interact with some data in a two-dimensional environment.
-In this tutorial you will learn how to do three things within RViz:
-
-* Create a new QT panel within RViz.
-* Create a topic subscriber within RViz that can monitor messages published on that topic and print them to RViz panel.
-* Create a topic publisher that maps button presses within RViz to an output topic within your ROS system.
 
 In this tutorial you will learn how to do three things within RViz:
 
@@ -176,9 +171,9 @@ This should create a new panel in your RViz window, albeit with nothing but a ti
 Filling in the Panel
 --------------------
 We're going to update our panel with some very basic ROS/QT interaction.
-What we will do, roughly, is create something like a ROS node within RViz that can both subscribe and publish to ROS topics.
-We will use our subscriber to monitor an `\input` topic within ROS and print published `String` values to the screen.
-We use our publisher to map button presses within RViz to messages published on a ROS topic named `\output` .
+What we will do, roughly, is access the ROS node from within RViz that can both subscribe and publish to ROS topics.
+We will use our subscriber to monitor an ``/input`` topic within ROS and display the published ``String`` values in the widget.
+We use our publisher to map button presses within RViz to messages published on a ROS topic named ``/output`` .
 
 Updated Header File
 ^^^^^^^^^^^^^^^^^^^
@@ -246,13 +241,12 @@ Update ``demo_panel.cpp`` to have the following contents:
      // Create a button and a label for the button
      label_ = new QLabel("[no data]");
      button_ = new QPushButton("GO!");
-     // Add the button to the GUI layout
+     // Add those elements to the GUI layout
      layout->addWidget(label_);
      layout->addWidget(button_);
 
      // Connect the event of when the button is released to our callback,
-     // so pressing the button results in the callback being called.
-     // Create a callback such that when our button is released the buttonActivated callback is called.
+     // so pressing the button results in the buttonActivated callback being called.
      QObject::connect(button_, &QPushButton::released, this, &DemoPanel::buttonActivated);
    }
 
@@ -262,22 +256,21 @@ Update ``demo_panel.cpp`` to have the following contents:
    {
      // Access the abstract ROS Node and
      // in the process lock it for exclusive use until the method is done.
-     // on init add a thread lock to our ROS node.
      node_ptr_ = getDisplayContext()->getRosNodeAbstraction().lock();
 
      // Get a pointer to the familiar rclcpp::Node for making subscriptions/publishers
      // (as per normal rclcpp code)
-     // grab a shared pointer from our target node from which we'll get our data
      rclcpp::Node::SharedPtr node = node_ptr_->get_raw_node();
+
+     // Create a String publisher for the output
      publisher_ = node->create_publisher<std_msgs::msg::String>("/output", 10);
-     // In our target node, create a subscription, of type String, on topic input, and bind it to the demoCallback inside this class.
+
+     // Create a String subscription and bind it to the topicCallback inside this class.
      subscription_ = node->create_subscription<std_msgs::msg::String>("/input", 10, std::bind(&DemoPanel::topicCallback, this, std::placeholders::_1));
    }
 
    // When the subscriber gets a message, this callback is triggered,
    // and then we copy its data into the widget's label
-   // When our node interface gets a message on its input topic this callback
-   // gets called and we copy the message text to our button label.
    void DemoPanel::topicCallback(const std_msgs::msg::String & msg)
    {
      label_->setText(QString(msg.data.c_str()));
@@ -285,8 +278,6 @@ Update ``demo_panel.cpp`` to have the following contents:
 
    // When the widget's button is pressed, this callback is triggered,
    // and then we publish a new message on our topic.
-   // When the user clicks the button on our panel this function will send a
-   // a "Button clicked!" message on the /output topic.
    void DemoPanel::buttonActivated()
    {
      auto message = std_msgs::msg::String();
