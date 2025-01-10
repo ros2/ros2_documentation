@@ -40,7 +40,7 @@ Tasks
 1 Create a package
 ^^^^^^^^^^^^^^^^^^
 
-go to your ros2 workplace and then create the package:
+Go to your ROS 2 workplace and create a package names `urdf_tutorial_cpp`:
 
 .. code-block:: console
 
@@ -83,9 +83,12 @@ Download the :download:`Rviz configuration file <documents/r2d2.rviz>` and save 
 ^^^^^^^^^^^^^^^^^^^
 
 Now we need a method for specifying what state the robot is in.
-To do this, we must specify all three joints and the overall odometry.
 
-Fire up your favorite editor and paste the following code into ``urdf_tutorial_cpp/src/urdf_tutorial.cpp``
+To do this, we must specify all three joints and the overall robot geometry.
+
+Fire up your favorite editor and paste the following code into 
+
+``urdf_tutorial_cpp/src/urdf_tutorial.cpp``
 
 .. code-block:: cpp
 
@@ -281,22 +284,6 @@ Edit the ``CMakeLists.txt`` file as follows:
     DESTINATION share/${PROJECT_NAME}
   )
   
-  # uncomment the following section in order to fill in
-  # further dependencies manually.
-  # find_package(<dependency> REQUIRED)
-  
-  if(BUILD_TESTING)
-    find_package(ament_lint_auto REQUIRED)
-    # the following line skips the linter which checks for copyrights
-    # comment the line when a copyright and license is added to all source files
-    set(ament_cmake_copyright_FOUND TRUE)
-    # the following line skips cpplint (only works in a git repo)
-    # comment the line when this package is in a git repo and when
-    # a copyright and license is added to all source files
-    set(ament_cmake_cpplint_FOUND TRUE)
-    ament_lint_auto_find_test_dependencies()
-  endif()
-  
   ament_package()
 
 we use ''install'' command to put the r2d2.rviz into ''install'' dir
@@ -336,13 +323,13 @@ Source the setup files:
 7 View the results
 ^^^^^^^^^^^^^^^^^^
 
-Launch the package
+To launch your new package run the following command:
 
 .. code-block:: console
 
   ros2 launch urdf_tutorial_cpp launch.py
 
-Open a new terminal, the run Rviz using
+To visualize your results you will need to open a new terminal and run Rviz using your rviz configuration file. 
 
 .. code-block:: console
 
@@ -355,4 +342,4 @@ See the `User Guide <http://wiki.ros.org/rviz/UserGuide>`__ for details on how t
 Summary
 -------
 
-You created a ``JointState`` publisher node and coupled it with ``robot_state_publisher`` to simulate a walking robot.
+Congratulations! You  have created a ``JointState`` publisher node and coupled it with ``robot_state_publisher`` to simulate a walking robot.
