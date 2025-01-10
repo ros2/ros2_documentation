@@ -40,7 +40,7 @@ Tasks
 1 Create a package
 ^^^^^^^^^^^^^^^^^^
 
-Go to your ROS 2 workplace and create a package names `urdf_tutorial_cpp`:
+Go to your ROS 2 workplace and create a package names ``urdf_tutorial_cpp``:
 
 .. code-block:: console
 
@@ -76,8 +76,8 @@ Create the directory where we will store some assets:
 
       md urdf
 
-Download the :download:`URDF file <documents/r2d2.urdf.xml>` and save it as ``urdf_tutorial_cpp/urdf/r2d2.urdf.xml``.
-Download the :download:`Rviz configuration file <documents/r2d2.rviz>` and save it as ``urdf_tutorial_cpp/urdf/r2d2.rviz``.
+Download the :download:`URDF file <documents/r2d2.urdf.xml>` and save it as `urdf_tutorial_cpp/urdf/r2d2.urdf.xml`.
+Download the :download:`Rviz configuration file <documents/r2d2.rviz>` and save it as `urdf_tutorial_cpp/urdf/r2d2.rviz`.
 
 3 Publish the state
 ^^^^^^^^^^^^^^^^^^^
@@ -198,9 +198,9 @@ Fire up your favorite editor and paste the following code into
       return 0;
   }
 
-This file will send the ''joint_state'' to ''robot_state_publisher'' and ''robot_state_publisher'' will tell tf2 how to place model.
+This file will send the ``joint_state`` to ``robot_state_publisher`` and ``robot_state_publisher`` will tell tf2 how to place model.
 
-This file will also tell ''tf2'' how to place the whole model by ''broadcaster''
+This file will also tell ``tf2`` how to place the whole model by ``broadcaster``
 
 4 Create a launch file
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -305,12 +305,12 @@ Edit the ``CMakeLists.txt`` file as follows:
   
   ament_package()
 
-we use ''install'' command to put the r2d2.rviz into ''install'' dir
+we use ``install`` command to put the r2d2.rviz into ``install`` dir
 
 6 Install the package
 ^^^^^^^^^^^^^^^^^^^^^
 
-go back to your workplace root dir and run:
+To visualize your results you will need to open a new terminal and run Rviz using your rviz configuration file. 
 
 .. code-block:: console
 
@@ -356,7 +356,7 @@ To visualize your results you will need to open a new terminal and run Rviz usin
 
 See the `User Guide <http://wiki.ros.org/rviz/UserGuide>`__ for details on how to use Rviz.
 
-''install/urdf_tutorial_cpp/share/urdf_tutorial_cpp/urdf/r2d2.rviz'' is the dir where the r2d2.rviz stored.
+``install/urdf_tutorial_cpp/share/urdf_tutorial_cpp/urdf/r2d2.rviz`` is the dir where the r2d2.rviz stored.
 
 Summary
 -------
