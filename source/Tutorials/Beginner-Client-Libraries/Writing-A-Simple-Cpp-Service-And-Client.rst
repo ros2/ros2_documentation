@@ -215,7 +215,7 @@ Inside the ``ros2_ws/src/cpp_srvcli/src`` directory, create a new file called ``
     request->a = 41;
     request->b = 1;
     auto result_future = client->async_send_request(request);
-    if (rclcpp::spin_until_future_complete(node, result_future) ==
+    if (rclcpp::spin_until_future_complete(node, result_future) !=
       rclcpp::FutureReturnCode::SUCCESS)
     {
       RCLCPP_ERROR(node->get_logger(), "service call failed :(");
