@@ -340,7 +340,7 @@ The ``colcon-argcomplete`` package must be installed, and `some setup may be req
 Tips
 ----
 
-* If you do not want to build a specific package place an empty file named ``COLCON_IGNORE`` in the directory and it will not be indexed.
+* If you do not want to build a specific package, then place an empty file named ``COLCON_IGNORE`` in the directory and it will not be indexed.
 
 * If you want to avoid configuring and building tests in CMake packages you can pass: ``--cmake-args -DBUILD_TESTING=0``.
 
