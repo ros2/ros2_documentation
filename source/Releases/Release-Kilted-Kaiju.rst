@@ -62,7 +62,7 @@ Release Timeline
         Only bug fix releases should be made after this point.
         New packages can be released independently.
 
-    Mon. April 22, 2024 - Branch
+    Mon. April 21, 2024 - Branch
         Branch from Rolling Ridley.
         ``rosdistro`` is reopened for Rolling PRs for ROS Base [1]_ packages.
         Kilted development shifts from ``ros-rolling-*`` packages to ``ros-kilted-*`` packages.
