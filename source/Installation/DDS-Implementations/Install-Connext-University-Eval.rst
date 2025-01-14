@@ -5,9 +5,6 @@ RTI Connext DDS
    :depth: 1
    :local:
 
-A libraries-only version of RTI Connext DDS 6.0.1 may be installed per the :doc:`installation instructions <../../Installation>` for
-Debian/Ubuntu Linux (amd64) platforms only, under a `non-commercial license <https://www.rti.com/ncl>`__.
-
 A full-suite installation of RTI Connext DDS is available for many additional platforms, for universities, evaluation, or purchase.
 This installation includes diagnostic tools, layered services, and security.  See below for installation details.
 
@@ -60,7 +57,7 @@ Now you can build as normal and support for RTI will be built as well.
 Official binary packages from RTI
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can install the Connext 6.0.1 package for Linux provided by RTI, via options available for :doc:`university, purchase or evaluation <./Install-Connext-University-Eval>`
+You can install the Connext 6.0.1 package for Linux provided by RTI.
 
 After downloading, use ``chmod +x`` on the ``.run`` executable and then execute it.
 Note that if you're installing to a system directory use ``sudo`` as well.
@@ -89,9 +86,7 @@ Ubuntu Linux binary install
 RTI Connext (version 6.0.1, amd64 only)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To use RTI Connext DDS there are full-suite install options available for :doc:`university, purchase or evaluation <./Install-Connext-University-Eval>`
-or you can install a libraries-only deb package of RTI Connext 6.0.1, available from the OSRF Apt repository
-under a `non-commercial license <https://www.rti.com/ncl>`__.
+You can install a libraries-only deb package of RTI Connext 6.0.1, available from the OSRF Apt repository under a `non-commercial license <https://www.rti.com/ncl>`__.
 
 To install the libs-only deb package:
 
@@ -123,8 +118,6 @@ OSX source install
 RTI Connext (6.0.1)
 ^^^^^^^^^^^^^^^^^^^
 
-If you would like to also build against RTI Connext DDS there are options available for :doc:`university, purchase or evaluation <./Install-Connext-University-Eval>`
-
 You also need a Java runtime installed to run the RTI code generator, which you can get `here <https://support.apple.com/kb/DL1572?locale=en_US>`__.
 
 After installing, run RTI launcher and point it to your license file.
@@ -146,8 +139,6 @@ OSX binary install
 Enable Connext support
 ^^^^^^^^^^^^^^^^^^^^^^
 
-To use RTI Connext DDS there are options available for :doc:`university, purchase or evaluation <./Install-Connext-University-Eval>`
-
 After installing, run RTI launcher and point it to your license file.
 
 Source the setup file to set the ``NDDSHOME`` environment variable before building your workspace.
@@ -165,8 +156,6 @@ Windows source install
 
 RTI Connext 6.0.1
 ^^^^^^^^^^^^^^^^^
-
-If you would like to also build against RTI Connext DDS there are options available for :doc:`university, purchase or evaluation <./Install-Connext-University-Eval>`
 
 After installing, use the RTI Launcher to load your license file.
 
@@ -187,8 +176,6 @@ Windows binary install
 
 RTI Connext
 ^^^^^^^^^^^
-
-To use RTI Connext DDS there are options available for :doc:`university, purchase or evaluation <./Install-Connext-University-Eval>`
 
 After installing, run RTI launcher and point it to your license file.
 
