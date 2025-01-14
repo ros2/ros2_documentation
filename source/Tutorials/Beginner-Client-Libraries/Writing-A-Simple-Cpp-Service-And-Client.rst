@@ -208,7 +208,6 @@ Inside the ``ros2_ws/src/cpp_srvcli/src`` directory, create a new file called ``
         RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "usage: add_two_ints_client X Y");
         return 1;
     }
-<<<<<<< HEAD
 
     std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("add_two_ints_client");
     rclcpp::Client<example_interfaces::srv::AddTwoInts>::SharedPtr client =
@@ -228,14 +227,7 @@ Inside the ``ros2_ws/src/cpp_srvcli/src`` directory, create a new file called ``
 
     auto result = client->async_send_request(request);
     // Wait for the result.
-    if (rclcpp::spin_until_future_complete(node, result) ==
-=======
-    auto request = std::make_shared<AddTwoInts::Request>();
-    request->a = 41;
-    request->b = 1;
-    auto result_future = client->async_send_request(request);
-    if (rclcpp::spin_until_future_complete(node, result_future) !=
->>>>>>> 3959d21 (Fix a typo in Writing-A-Simple-Cpp-Service-And-Client.rst (#4934))
+    if (rclcpp::spin_until_future_complete(node, result) !=
       rclcpp::FutureReturnCode::SUCCESS)
     {
       RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Sum: %ld", result.get()->sum);
