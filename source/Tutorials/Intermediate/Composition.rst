@@ -367,12 +367,56 @@ Passing additional arguments into components
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The ``ros2 component load`` command-line supports passing particular options to the component manager for use when constructing the node.
-As of now, the only command-line option that is supported is to instantiate a node using intra-process communication.
-This functionality can be used as follows:
+
+The following example shows the use of the extra arguments ``use_intra_process_comms`` and ``forward_global_arguments``:
 
 .. code-block:: bash
 
-   ros2 component load /ComponentManager composition composition::Talker -e use_intra_process_comms:=true
+   ros2 component load /ComponentManager composition composition::Talker -e use_intra_process_comms:=true -e forward_global_arguments:=false
+
+The following extra arguments are supported.
+
+.. list-table:: Extra Arguments for Component Manager
+   :widths: 15 15 15 15
+   :header-rows: 1
+
+   * - Argument
+     - Type
+     - Default
+     - Description
+   * - ``forward_global_arguments``
+     - Boolean
+     - True
+     - Apply global arguments to the component node when loading.
+   * - ``enable_rosout``
+     - Boolean
+     - True
+     - Enable the ``rosout`` topic publisher in the component node.
+   * - ``use_intra_process_comms``
+     - Boolean
+     - False
+     - Enable intra-process communication in the component node.
+   * - ``enable_topic_statistics``
+     - Boolean
+     - False
+     - Enable a topic statistics publisher in the component node.
+   * - ``start_parameter_services``
+     - Boolean
+     - True
+     - Enable services to manage parameters in the component node.
+   * - ``start_parameter_event_publisher``
+     - Boolean
+     - True
+     - Enable the parameter event publisher in the component node.
+   * - ``use_clock_thread``
+     - Boolean
+     - True
+     - Enable a dedicated clock thread in the component node.
+   * - ``enable_logger_service``
+     - Boolean
+     - False
+     - Enable logger level management service in the component node.
+
 
 Composable nodes as shared libraries
 ------------------------------------
