@@ -1,4 +1,4 @@
-.. redirect-from::
+.. Redirect-from::
 
     Tutorials/URDF/Using-URDF-with-Robot-State-Publisher
 
@@ -86,7 +86,7 @@ Now we need a method for specifying what state the robot is in.
 
 To do this, we must specify all three joints and the overall robot geometry.
 
-Fire up your favorite editor and paste the following code into 
+Fire up your favorite editor and paste the following code into
 
 ``urdf_tutorial_cpp/src/urdf_tutorial.cpp``
 
@@ -100,12 +100,12 @@ Fire up your favorite editor and paste the following code into
   #include <cmath>
   #include <thread>
   #include <chrono>
-  
+
   using namespace std::chrono;
-  
+
   class StatePublisher : public rclcpp::Node{
       public:
-      
+
       StatePublisher(rclcpp::NodeOptions options=rclcpp::NodeOptions()):
           Node("state_publisher",options){
               joint_pub_ = this->create_publisher<sensor_msgs::msg::JointState>("joint_states",10);
@@ -115,19 +115,19 @@ Fire up your favorite editor and paste the following code into
               // create a broadcaster to tell the tf2 state information
               // this broadcaster will determine the position of coordinate system 'asix' in coordinate system 'odom'
               RCLCPP_INFO(this->get_logger(),"Starting state publisher");
-  
+
               loop_rate_=std::make_shared<rclcpp::Rate>(33ms);
-  
+
               timer_=this->create_wall_timer(33ms,std::bind(&StatePublisher::publish,this));
           }
-  
+
           void publish();
       private:
       rclcpp::Publisher<sensor_msgs::msg::JointState>::SharedPtr joint_pub_;
       std::shared_ptr<tf2_ros::TransformBroadcaster> broadcaster;
       rclcpp::Rate::SharedPtr loop_rate_;
       rclcpp::TimerBase::SharedPtr timer_;
-  
+
       //Robot state variables
 
       // degree means one degree
@@ -139,7 +139,7 @@ Fire up your favorite editor and paste the following code into
       double height = 0.;
       double hinc = 0.005;
   };
-  
+
   void StatePublisher::publish(){
       // create msg subject
       geometry_msgs::msg::TransformStamped t;
@@ -150,7 +150,7 @@ Fire up your favorite editor and paste the following code into
       // Specify joints' name which are defined in the r2d2.urdf.xml and their content
       joint_state.name={"swivel","tilt","periscope"};
       joint_state.position={swivel,tilt,height};
-  
+
       // add time stamp
       t.header.stamp=this->get_clock()->now();
       // specify the father and child frame
@@ -183,14 +183,14 @@ Fire up your favorite editor and paste the following code into
       }
       swivel+=degree;  // Increment by 1 degree (in radians)
       angle+=degree;    // Change angle at a slower pace
-  
+
       // send message
       broadcaster->sendTransform(t);
       joint_pub_->publish(joint_state);
-  
+
       RCLCPP_INFO(this->get_logger(),"Publishing joint state");
   }
-  
+
   int main(int argc, char * argv[]){
       rclcpp::init(argc,argv);
       rclcpp::spin(std::make_shared<StatePublisher>());
@@ -209,19 +209,19 @@ Create a new ``urdf_tutorial_cpp/launch`` folder.
 Open your editor and paste the following code, saving it as ``urdf_tutorial_cpp/launch/launch.py``
 
 .. code-block:: python
-  
+
   import os
   from ament_index_python.packages import get_package_share_directory
   from launch import LaunchDescription
   from launch.actions import DeclareLaunchArgument
   from launch.substitutions import LaunchConfiguration
   from launch_ros.actions import Node
-  
+
   def generate_launch_description():
 
       # ''use_sim_time'' is used to  determine whether ros2 use simulation time provided by simulation environment (Gazebo).
       use_sim_time = LaunchConfiguration('use_sim_time', default='false')
-      
+
       urdf_file_name = 'r2d2.urdf.xml'
 
       # urdf is path of urdf_file_name file. we use define it as the follow due to the CMakeLists.txt file.
@@ -234,7 +234,7 @@ Open your editor and paste the following code, saving it as ``urdf_tutorial_cpp/
       # open the whole urdf_file_name file and read it content to robot_desc
       with open(urdf, 'r') as infp:
           robot_desc = infp.read()
-  
+
           return LaunchDescription([
           DeclareLaunchArgument(
               'use_sim_time',
@@ -253,7 +253,7 @@ Open your editor and paste the following code, saving it as ``urdf_tutorial_cpp/
               name='urdf_tutorial_cpp',
               output='screen'),
       ])
-  
+
 
 5 Edit the CMakeLists.txt file
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -265,11 +265,11 @@ Edit the ``CMakeLists.txt`` file as follows:
 
   cmake_minimum_required(VERSION 3.8)
   project(urdf_tutorial_cpp)
-  
+
   if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
     add_compile_options(-Wall -Wextra -Wpedantic)
   endif()
-  
+
   # find dependencies
   find_package(ament_cmake REQUIRED)
   find_package(geometry_msgs REQUIRED)
@@ -277,9 +277,9 @@ Edit the ``CMakeLists.txt`` file as follows:
   find_package(tf2_ros REQUIRED)
   find_package(tf2_geometry_msgs REQUIRED)
   find_package(rclcpp REQUIRED)
-  
+
   add_executable(urdf_tutorial_cpp src/urdf_tutorial.cpp)
-  
+
   ament_target_dependencies(urdf_tutorial_cpp
     geometry_msgs
     sensor_msgs
@@ -287,22 +287,22 @@ Edit the ``CMakeLists.txt`` file as follows:
     tf2_geometry_msgs
     rclcpp
   )
-  
+
   install(TARGETS
     urdf_tutorial_cpp
     DESTINATION lib/${PROJECT_NAME}
   )
-  
+
   install(DIRECTORY
     launch
     DESTINATION share/${PROJECT_NAME}
   )
-  
+
   install(DIRECTORY
     urdf
     DESTINATION share/${PROJECT_NAME}
   )
-  
+
   ament_package()
 
 we use ``install`` command to put the r2d2.rviz into ``install`` dir
@@ -348,7 +348,7 @@ To launch your new package run the following command:
 
   ros2 launch urdf_tutorial_cpp launch.py
 
-To visualize your results you will need to open a new terminal and run Rviz using your rviz configuration file. 
+To visualize your results you will need to open a new terminal and run Rviz using your rviz configuration file.
 
 .. code-block:: console
 
