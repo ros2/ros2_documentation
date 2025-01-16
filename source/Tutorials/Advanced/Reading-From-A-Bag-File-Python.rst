@@ -69,7 +69,7 @@ Also be sure to add this information to the ``setup.py`` file as well.
    license='Apache-2.0',
 
 2 Write the Python Reader
-^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Inside the ``ros2_ws/src/bag_reader_node_py/bag_reader_node_py`` directory, create a new file called ``simple_bag_reader.py`` and paste the following code into it.
 
