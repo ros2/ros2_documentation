@@ -123,7 +123,32 @@ As an example, save the following as ``demo_params.yaml``:
               some_integers: [1, 2, 3, 4]
               some_doubles : [3.14, 2.718]
 
+<<<<<<< HEAD
 Then either declare the parameters within your node with ``declare_parameter``  or ``declare_parameters`` (see `documentation <https://docs.ros2.org/foxy/api/rclcpp/classrclcpp_1_1Node.html#a095ea977b26e7464d9371efea5f36c42>`__ for function signatures), or `set the node to automatically declare parameters <https://docs.ros2.org/foxy/api/rclcpp/classrclcpp_1_1NodeOptions.html#a094ceb7af7c9b358ec007a4b8e14d40d>`__ if they were passed in via a command line override.
+=======
+  /**:
+    ros__parameters:
+      wildcard_full: "Full wildcard for any namespaces and any node names"
+
+  /**/parameter_blackboard:
+    ros__parameters:
+      wildcard_namespace: "Wildcard for a specific node name under any namespace"
+
+  /*:
+    ros__parameters:
+      wildcard_nodename_root_namespace: "Wildcard for any node names, but only in root namespace"
+
+
+.. note::
+
+   Wildcards can be used for node names and namespaces.
+   ``*`` matches a single token delimited by slashes (``/``).
+   ``**`` matches zero or more tokens delimited by slashes.
+   Partial matches are not allowed (e.g. ``foo*``).
+
+
+Then either declare the parameters within your node with `declare_parameter <http://docs.ros.org/en/{DISTRO}/p/rclcpp/generated/classrclcpp_1_1Node.html#_CPPv4N6rclcpp4Node17declare_parameterERKNSt6stringERKN6rclcpp14ParameterValueERKN14rcl_interfaces3msg19ParameterDescriptorEb>`__  or `declare_parameters <http://docs.ros.org/en/{DISTRO}/p/rclcpp/generated/classrclcpp_1_1Node.html#_CPPv4I0EN6rclcpp4Node18declare_parametersENSt6vectorI10ParameterTEERKNSt6stringERKNSt3mapINSt6stringENSt4pairI10ParameterTN14rcl_interfaces3msg19ParameterDescriptorEEEEEb>`__, or `set the node to automatically declare parameters <http://docs.ros.org/en/{DISTRO}/p/rclcpp/generated/classrclcpp_1_1NodeOptions.html#_CPPv4NK6rclcpp11NodeOptions47automatically_declare_parameters_from_overridesEv>`__ if they were passed in via a command line override.
+>>>>>>> c717d69 (add example how to use wildcards in parameter yaml file. (#4950))
 
 Then run the following:
 
@@ -146,3 +171,6 @@ Other nodes will be able to retrieve the parameter values, e.g.:
   some_lists.some_doubles
   some_lists.some_integers
   use_sim_time
+  wildcard_full
+  wildcard_namespace
+  wildcard_nodename_root_namespace
