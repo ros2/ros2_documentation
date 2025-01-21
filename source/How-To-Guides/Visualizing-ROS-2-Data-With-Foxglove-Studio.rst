@@ -10,7 +10,7 @@ View the source code on `GitHub <https://www.github.com/foxglove/studio>`__.
 Installation
 ------------
 
-To use the web app, simply open Google Chrome and navigate to `studio.foxglove.dev <https://studio.foxglove.dev>`__.
+To use the web app, simply navigate to `studio.foxglove.dev <https://studio.foxglove.dev>`__ in your web browser.
 
 To use the desktop app for Linux, macOS, or Windows, download it directly from the `Foxglove Studio website <https://foxglove.dev/download>`__.
 
