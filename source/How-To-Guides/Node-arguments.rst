@@ -131,18 +131,18 @@ As an example, save the following as ``demo_params.yaml``:
 
   /**/parameter_blackboard:
     ros__parameters:
-      wildcard_namespace: "Wildcard for any namspaces, but node names"
+      wildcard_namespace: "Wildcard for a specific node name under any namespace"
 
   /*:
     ros__parameters:
-      wildcard_nodename_root_namespace: "Wildcard for any node names, but root namespace"
+      wildcard_nodename_root_namespace: "Wildcard for any node names, but only in root namespace"
 
 
 .. note::
 
    Wildcards can be used for node names and namespaces.
-   ``*`` matches a single token delimeted by slashes (``/``).
-   ``**`` matches zero or more tokens delimeted by slashes.
+   ``*`` matches a single token delimited by slashes (``/``).
+   ``**`` matches zero or more tokens delimited by slashes.
    Partial matches are not allowed (e.g. ``foo*``).
 
 
