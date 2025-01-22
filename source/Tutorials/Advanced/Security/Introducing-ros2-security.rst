@@ -71,7 +71,7 @@ Fast DDS requires an additional CMake flag to build the security plugins, so the
 
 .. code-block:: bash
 
-  colcon build --symlink-install --cmake-args -DSECURITY=ON
+  colcon build --symlink-install --cmake-args -DSECURITY=ON --packages-select fastrtps rmw_fastrtps_cpp rmw_fastrtps_dynamic_cpp rmw_fastrtps_shared_cpp
 
 
 Selecting an alternate middleware
