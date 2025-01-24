@@ -227,7 +227,7 @@ For example, the following commands will limit the ROS 2 communication only with
       .. code-block:: console
 
         export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
-        export ROS_STATIC_PEERS=192.168.0.1;remote.com
+        export ROS_STATIC_PEERS='192.168.0.1;remote.com'
 
       To maintain this setting between shell sessions, you can add the command to your shell startup script:
 
@@ -241,7 +241,7 @@ For example, the following commands will limit the ROS 2 communication only with
       .. code-block:: console
 
         export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
-        export ROS_STATIC_PEERS=192.168.0.1;remote.com
+        export ROS_STATIC_PEERS='192.168.0.1;remote.com'
 
       To maintain this setting between shell sessions, you can add the command to your shell startup script:
 
