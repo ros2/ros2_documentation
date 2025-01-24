@@ -234,7 +234,7 @@ For example, the following commands will limit the ROS 2 communication only with
       .. code-block:: console
 
         echo "export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST" >> ~/.bashrc
-        echo "export ROS_STATIC_PEERS=192.168.0.1;remote.com" >> ~/.bashrc
+        echo "export ROS_STATIC_PEERS='192.168.0.1;remote.com'" >> ~/.bashrc
 
    .. group-tab:: macOS
 
@@ -248,7 +248,7 @@ For example, the following commands will limit the ROS 2 communication only with
       .. code-block:: console
 
         echo "export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST" >> ~/.bash_profile
-        echo "export ROS_STATIC_PEERS=192.168.0.1;remote.com" >> ~/.bash_profile
+        echo "export ROS_STATIC_PEERS='192.168.0.1;remote.com'" >> ~/.bash_profile
 
    .. group-tab:: Windows
 
