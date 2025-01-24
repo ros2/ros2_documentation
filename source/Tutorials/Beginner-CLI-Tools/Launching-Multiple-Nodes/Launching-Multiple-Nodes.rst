@@ -38,6 +38,8 @@ You also won't be able to use the ``sudo apt install ros-<distro>-<package>`` co
 
 If you are using Linux and are not already familiar with the shell, `this tutorial <https://www.linux.com/training-tutorials/bash-101-working-cli/>`__ will help.
 
+As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../Configuring-ROS2-Environment>`.
+
 Tasks
 -----
 
