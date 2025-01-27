@@ -105,11 +105,6 @@ The ROS PMC currently consists of the following constituents:
      - `nuclearsandwich <https://github.com/nuclearsandwich>`_
      - Member / Infrastructure Project Lead
      - PST (UTC-8)/PDT (UTC-7)
-   * - Kat Scott
-     - `Intrinsic <https://www.intrinsic.ai/>`_
-     - `kscottz <https://github.com/kscottz>`_
-     - OSRA Developer Advocate
-     - PST (UTC-8)/PDT (UTC-7)
    * - Alberto Soragna
      - `iRobot <https://www.irobot.com/>`_
      - `alsora <https://github.com/alsora>`_
@@ -145,6 +140,10 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
    * - Dharini Dutia
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `quarkytale <https://github.com/quarkytale>`_
+     - PST (UTC-8)/PDT (UTC-7)
+   * - Kat Scott
+     - `Intrinsic <https://www.intrinsic.ai/>`_
+     - `kscottz <https://github.com/kscottz>`_
      - PST (UTC-8)/PDT (UTC-7)
    * - Miguel Company
      - `eProsima <https://www.eprosima.com/>`_
