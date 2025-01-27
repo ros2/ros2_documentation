@@ -204,13 +204,13 @@ Change the publish call to use the ``->`` operator instead of ``.``.
        chatter_pub->publish(msg);
 
 Spinning (i.e., letting the communications system process any pending
-incoming/outgoing messages) is different in that the call now takes the node as
-an argument:
+incoming/outgoing messages until no more work is available) is different
+in that the call now takes the node and timeout as arguments:
 
 .. code-block:: cpp
 
    //    ros::spinOnce();
-       rclcpp::spin_some(node);
+       rclcpp::spin_all(node, 0s);
 
 Sleeping using the rate object is unchanged.
 
@@ -218,11 +218,15 @@ Putting it all together, the new ``talker.cpp`` looks like this:
 
 .. code-block:: cpp
 
+   #include <chrono>
    #include <sstream>
    // #include "ros/ros.h"
    #include "rclcpp/rclcpp.hpp"
    // #include "std_msgs/String.h"
    #include "std_msgs/msg/string.hpp"
+
+   using namespace std::chrono_literals;
+
    int main(int argc, char **argv)
    {
    //  ros::init(argc, argv, "talker");
@@ -247,7 +251,7 @@ Putting it all together, the new ``talker.cpp`` looks like this:
    //    chatter_pub.publish(msg);
        chatter_pub->publish(msg);
    //    ros::spinOnce();
-       rclcpp::spin_some(node);
+       rclcpp::spin_all(node, 0s);
        loop_rate.sleep();
      }
      return 0;
