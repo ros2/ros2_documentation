@@ -21,7 +21,6 @@ Services
 --------
 
 * Should be used for remote procedure calls that terminate quickly, e.g. for querying the state of a node or doing a quick calculation such as IK. They should never be used for longer running processes, in particular processes that might be required to preempt if exceptional situations occur and they should never change or depend on state to avoid unwanted side effects for other nodes.
-* Simple blocking call. Mostly used for comparably fast tasks as requesting specific data. Semantically for processing requests.
 
 Actions
 -------
