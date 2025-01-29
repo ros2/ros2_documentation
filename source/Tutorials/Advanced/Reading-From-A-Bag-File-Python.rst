@@ -87,10 +87,10 @@ Inside the ``ros2_ws/src/bag_reader_node_py/bag_reader_node_py`` directory, crea
         def __init__(self):
             super().__init__('simple_bag_reader')
             self.reader = rosbag2_py.SequentialReader()
-            storage_options = rosbag2_py._storage.StorageOptions(
+            storage_options = rosbag2_py.StorageOptions(
                 uri='my_bag',
                 storage_id='mcap')
-            converter_options = rosbag2_py._storage.ConverterOptions('', '')
+            converter_options = rosbag2_py.ConverterOptions('', '')
             self.reader.open(storage_options, converter_options)
 
             self.publisher = self.create_publisher(String, 'chatter', 10)
@@ -138,10 +138,10 @@ The default conversion options are used, which will perform no conversion and st
 
 .. code-block:: Python
 
-   storage_options = rosbag2_py._storage.StorageOptions(
+   storage_options = rosbag2_py.StorageOptions(
        uri='my_bag',
        storage_id='mcap')
-   converter_options = rosbag2_py._storage.ConverterOptions('', '')
+   converter_options = rosbag2_py.ConverterOptions('', '')
    self.reader.open(storage_options, converter_options)
 
 Next, we create a publisher and a timer to publish the data that reader object reads from the bag file.

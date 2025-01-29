@@ -106,20 +106,12 @@ Inside the ``ros2_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory
 
            storage_options = rosbag2_py.StorageOptions(
                uri='my_bag',
-<<<<<<< HEAD
                storage_id='mcap')
-           converter_options = rosbag2_py._storage.ConverterOptions('', '')
-           self.writer.open(storage_options, converter_options)
-
-           topic_info = rosbag2_py._storage.TopicMetadata(
-               id=0,
-=======
-               storage_id='sqlite3')
            converter_options = rosbag2_py.ConverterOptions('', '')
            self.writer.open(storage_options, converter_options)
 
            topic_info = rosbag2_py.TopicMetadata(
->>>>>>> 9f4a25f (Update Recording-A-Bag-From-Your-Own-Node-Py.rst (#4976))
+               id=0,
                name='chatter',
                type='std_msgs/msg/String',
                serialization_format='cdr')
@@ -173,13 +165,8 @@ The default conversion options are used, which will perform no conversion and st
 
    storage_options = rosbag2_py.StorageOptions(
        uri='my_bag',
-<<<<<<< HEAD
        storage_id='mcap')
-   converter_options = rosbag2_py._storage.ConverterOptions('', '')
-=======
-       storage_id='sqlite3')
    converter_options = rosbag2_py.ConverterOptions('', '')
->>>>>>> 9f4a25f (Update Recording-A-Bag-From-Your-Own-Node-Py.rst (#4976))
    self.writer.open(storage_options, converter_options)
 
 Next, we need to tell the writer about the topics we wish to store.
@@ -188,12 +175,8 @@ This object specifies the topic name, topic data type, and serialization format 
 
 .. code-block:: Python
 
-<<<<<<< HEAD
-   topic_info = rosbag2_py._storage.TopicMetadata(
-       id=0,
-=======
    topic_info = rosbag2_py.TopicMetadata(
->>>>>>> 9f4a25f (Update Recording-A-Bag-From-Your-Own-Node-Py.rst (#4976))
+       id=0,
        name='chatter',
        type='std_msgs/msg/String',
        serialization_format='cdr')
@@ -365,20 +348,12 @@ Inside the ``ros2_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory
 
            storage_options = rosbag2_py.StorageOptions(
                uri='timed_synthetic_bag',
-<<<<<<< HEAD
                storage_id='mcap')
-           converter_options = rosbag2_py._storage.ConverterOptions('', '')
-           self.writer.open(storage_options, converter_options)
-
-           topic_info = rosbag2_py._storage.TopicMetadata(
-               id=0,
-=======
-               storage_id='sqlite3')
            converter_options = rosbag2_py.ConverterOptions('', '')
            self.writer.open(storage_options, converter_options)
 
            topic_info = rosbag2_py.TopicMetadata(
->>>>>>> 9f4a25f (Update Recording-A-Bag-From-Your-Own-Node-Py.rst (#4976))
+               id=0,
                name='synthetic',
                type='example_interfaces/msg/Int32',
                serialization_format='cdr')
@@ -424,12 +399,8 @@ The name of the topic is also changed, as is the data type stored.
 
 .. code-block:: Python
 
-<<<<<<< HEAD
-   topic_info = rosbag2_py._storage.TopicMetadata(
-       id=0,
-=======
    topic_info = rosbag2_py.TopicMetadata(
->>>>>>> 9f4a25f (Update Recording-A-Bag-From-Your-Own-Node-Py.rst (#4976))
+       id=0,
        name='synthetic',
        type='example_interfaces/msg/Int32',
        serialization_format='cdr')
@@ -562,20 +533,12 @@ Inside the ``ros2_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory
 
        storage_options = rosbag2_py.StorageOptions(
            uri='big_synthetic_bag',
-<<<<<<< HEAD
            storage_id='mcap')
-       converter_options = rosbag2_py._storage.ConverterOptions('', '')
-       writer.open(storage_options, converter_options)
-
-       topic_info = rosbag2_py._storage.TopicMetadata(
-           id=0,
-=======
-           storage_id='sqlite3')
        converter_options = rosbag2_py.ConverterOptions('', '')
        writer.open(storage_options, converter_options)
 
        topic_info = rosbag2_py.TopicMetadata(
->>>>>>> 9f4a25f (Update Recording-A-Bag-From-Your-Own-Node-Py.rst (#4976))
+           id=0,
            name='synthetic',
            type='example_interfaces/msg/Int32',
            serialization_format='cdr')
