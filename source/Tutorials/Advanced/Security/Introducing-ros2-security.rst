@@ -181,6 +181,36 @@ This command uses the ``create_enclave`` feature which is covered in more detail
 
     Then re-run the commands above.
 
+If the selected rmw is Zenoh, then the Zenoh router requires it own keys and certificates too:
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+      ros2 security create_enclave demo_keystore /zenohd
+
+  .. group-tab:: MacOS
+
+    .. code-block:: bash
+
+      ros2 security create_enclave demo_keystore /zenohd
+
+  .. group-tab:: Windows
+
+    .. code-block:: bat
+
+      ros2 security create_enclave demo_keystore /zenohd
+
+
+    If ``unable to write 'random state'`` appears then set the environment variable ``RANDFILE``.
+
+    .. code-block:: bat
+
+      set RANDFILE=C:\dev\ros2\sros2_demo\.rnd
+
+    Then re-run the commands above.
 
 4\. Configure environment variables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -233,6 +263,31 @@ The environment variables in this terminal must be properly set as described in 
 .. code-block:: bash
 
   ros2 run demo_nodes_py listener --ros-args --enclave /talker_listener/listener
+
+If the rmw is Zenoh, in another terminal:
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+      export ZENOH_ROUTER_CONFIG_URI=<path to route config with keys and certificates>
+      ros2 run rmw_zenoh_cpp zenohd
+
+  .. group-tab:: MacOS
+
+    .. code-block:: bash
+
+      export ZENOH_ROUTER_CONFIG_URI=<path to route config with keys and certificates>
+      ros2 run rmw_zenoh_cpp zenohd
+
+  .. group-tab:: Windows
+
+    .. code-block:: bat
+
+      set ZENOH_ROUTER_CONFIG_URI=<path to route config with keys and certificates>
+      ros2 run rmw_zenoh_cpp zenohd
 
 These nodes will be communicating using authentication and encryption!
 If you look at the packet contents (for example, using ``tcpdump`` or ``Wireshark`` as covered in another tutorial), you can see that the messages are encrypted.
