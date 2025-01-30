@@ -6,7 +6,7 @@
 ROS 2 Core Maintainer Guide
 ===========================
 
-Each package in the ROS 2 core has one or more maintainers that are responsibile for the general health of the package.
+Each package in the ROS 2 core has one or more maintainers that are responsible for the general health of the package.
 This guide gives some information about the responsibilities of a ROS 2 core package maintainer.
 
 .. contents:: Table of Contents

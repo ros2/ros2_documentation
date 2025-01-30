@@ -111,7 +111,7 @@ Sign the policy file
 
 This next command creates the new S/MIME signed policy file ``permissions.p7s`` from the updated XML file ``permissions.xml``.
 The file must be signed with the Permissions CA certificate, **which requires access to the Permission CA private key**.
-If the private key has been protected, additional steps may be required to unlock and use it accoring to your security plan.
+If the private key has been protected, additional steps may be required to unlock and use it according to your security plan.
 
 .. code-block:: bash
 

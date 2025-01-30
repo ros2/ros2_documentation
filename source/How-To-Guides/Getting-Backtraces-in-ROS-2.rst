@@ -232,7 +232,7 @@ We will insert the GDB snippet here.
 
   prefix=['xterm -e gdb -ex run --args']
 
-This will provide a more interactive debbuging experience.
+This will provide a more interactive debugging experience.
 Example usecase for debugging building upon ``'start_sync_slam_toolbox_node'`` -
 
 .. code-block:: python

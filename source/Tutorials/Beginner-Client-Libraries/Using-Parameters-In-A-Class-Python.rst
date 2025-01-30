@@ -299,7 +299,7 @@ There are four ways to accomplish this.
 3.1 Change via the console
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This part will use the knowledge you have gained from the :doc:`tutoral about parameters <../Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters>` and apply it to the node you have just created.
+This part will use the knowledge you have gained from the :doc:`tutorial about parameters <../Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters>` and apply it to the node you have just created.
 
 Make sure the node is running:
 

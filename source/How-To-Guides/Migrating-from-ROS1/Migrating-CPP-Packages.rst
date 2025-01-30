@@ -109,7 +109,7 @@ If your ``CMakeLists.txt`` uses ``include_directories()``, then delete those cal
    # Delete calls to include_directories like this one!
    include_directories(include ${catkin_INCLUDE_DIRS})
 
-Add a call ``target_include_directories()`` for every library in your pacakage (`example <https://github.com/ros2/geometry2/blob/d85102217f692746abea8546c8e41f0abc95c8b8/tf2/CMakeLists.txt#L24-L26>`__).
+Add a call ``target_include_directories()`` for every library in your package (`example <https://github.com/ros2/geometry2/blob/d85102217f692746abea8546c8e41f0abc95c8b8/tf2/CMakeLists.txt#L24-L26>`__).
 
 .. code-block:: cmake
 

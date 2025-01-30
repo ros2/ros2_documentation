@@ -341,7 +341,7 @@ The macros have additional parameters:
 
     find_package(ament_cmake_gtest REQUIRED)
     ament_add_gtest(some_test <test_sources>
-      APPEND_ENV PATH=some/addtional/path/for/testing/resources)
+      APPEND_ENV PATH=some/additional/path/for/testing/resources)
 
 - ``APPEND_LIBRARY_DIRS``: append libraries so that they can be found by the linker at runtime.
   This can be achieved by setting environment variables like ``PATH`` on Windows and ``LD_LIBRARY_PATH`` on Linux, but this makes the call platform specific.
