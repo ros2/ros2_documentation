@@ -37,7 +37,7 @@ However, we figured it would be helpful to produce a list of available URDF expo
  * `Gazebo SDFormat to URDF Parser <https://github.com/ros/sdformat_urdf>`_
  * `SDF to URDF Converter in Python <https://github.com/andreasBihlmaier/pysdf>`_
  * `URDF to Webots Simulator Format <https://github.com/cyberbotics/urdf2webots>`_
- * The `Blender Robotics Tools <https://github.com/robotology/blender-robotics-utils/>`_ respository includes a number of useful tools, including a tool to export `URDF files from Blender. <https://github.com/robotology/blender-robotics-utils/tree/master?tab=readme-ov-file#urdftoblender>`_
+ * The `Blender Robotics Tools <https://github.com/robotology/blender-robotics-utils/>`_ repository includes a number of useful tools, including a tool to export `URDF files from Blender. <https://github.com/robotology/blender-robotics-utils/tree/master?tab=readme-ov-file#urdftoblender>`_
  * `CoppeliaSim URDF Exporter <https://manual.coppeliarobotics.com/en/importExport.htm#urdf>`_
  * `Isaac Sim URDF Exporter <https://docs.omniverse.nvidia.com/isaacsim/latest/advanced_tutorials/tutorial_advanced_export_urdf.html>`_
 

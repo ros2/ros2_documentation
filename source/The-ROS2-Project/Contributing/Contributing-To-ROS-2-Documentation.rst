@@ -186,7 +186,7 @@ Migrating a Wiki File
    In the case where there is a table of contents, the first useful tag may be an ``<h2>`` tag.  Similarly, the ROS wiki contains some footer text that starts with ``<div id="pagebottom"></div>`` and ends just above ``</body></html>`` that can also be removed.
 
 #. Convert your html file by running a PanDoc conversion between HTML and restructured text.
-   The following command coverts an HTML file to the equivalent reStructured text files: ``pandoc -f html -t rst urdf.html > URDF.rst``.
+   The following command converts an HTML file to the equivalent reStructured text files: ``pandoc -f html -t rst urdf.html > URDF.rst``.
 
 #. Attempt to build your new documentation using the ``make html`` command.
    There may be errors and warnings that you will need to address.
@@ -202,7 +202,7 @@ Migrating a Wiki File
 
 #. For each image files downloaded update the image file links to point to the correct image directory for the ROS Docs.
    If any of the images require updating, or could be replaced with a `Mermaid <https://mermaid.js.org/intro/>`__ chart, please make this change.
-   Be aware that Mermaid.js is only supported in the core ROS 2 documenation currently.
+   Be aware that Mermaid.js is only supported in the core ROS 2 documentation currently.
 
 #. Once your document is complete add a table of contents to the top of your new rst document using the appropriate Sphinx commands.
    This block should replace any existing table of contents from the old ROS Wiki.

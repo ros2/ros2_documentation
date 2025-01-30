@@ -19,7 +19,7 @@ The university license application can be found `here <https://www.rti.com/free-
 RTI Connext DDS Evaluation
 --------------------------
 
-To install RTI Connext DDS **version 6.0.1** Evalution:
+To install RTI Connext DDS **version 6.0.1** Evaluation:
  * Visit the `RTI Free Trial (6.0.1) site <https://www.rti.com/free-trial>`__.
  * Download the version(s) to match your environment.
  * Contact license@rti.com for an evaluation license.

@@ -165,7 +165,7 @@ The requirements of a real-time system depend on the application, but let's say 
 So, our average latency was really good in this run, but the maximum latency was unacceptable because it actually exceeded our update loop! What happened?
 
 We may be suffering from a non-deterministic scheduler.
-If you're running a vanilla Linux system and you don't have the RT_PREEMPT kernel installed, you probably won't be able to meet the real-time goal we set for ourselves, because the Linux scheduler won't allow you to arbitrarily pre-empt threads at the user level.
+If you're running a vanilla Linux system and you don't have the RT_PREEMPT kernel installed, you probably won't be able to meet the real-time goal we set for ourselves, because the Linux scheduler won't allow you to arbitrarily preempt threads at the user level.
 
 See the `realtime design article <https://design.ros2.org/articles/realtime_background.html#multithreaded-programming-and-synchronization>`__ for more information.
 

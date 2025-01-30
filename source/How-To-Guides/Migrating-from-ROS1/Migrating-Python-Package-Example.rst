@@ -485,7 +485,7 @@ Remove the statement that imports ``rospy``.
     # Remove this
     import rospy
 
-Rplace it with a statement that imports ``rclpy``.
+Replace it with a statement that imports ``rclpy``.
 
 .. code-block:: Python
 
@@ -807,7 +807,7 @@ Echo the message published by the node in the third terminal:
 
 You should see messages with the current time being published in the second terminal, and those same messages received in the third.
 
-Refactor code to use ROS 2 convensions
+Refactor code to use ROS 2 conventions
 --------------------------------------
 
 You have successfully migrated a ROS 1 Python package to ROS 2!
