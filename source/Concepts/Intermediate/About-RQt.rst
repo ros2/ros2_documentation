@@ -56,7 +56,7 @@ RQt Components Structure
 
 RQt consists of two metapackages:
 
-* *rqt* - core infrastucture modules.
+* *rqt* - core infrastructure modules.
 * *rqt_common_plugins* - Commonly useful debugging tools.
 
 Advantage of RQt framework
@@ -72,7 +72,7 @@ Compared to building your own GUIs from scratch:
 From system architecture's perspective:
 
 * Support multi-platform (basically wherever `QT <http://qt-project.org/>`__ and ROS run) and multi-language (``Python``, ``C++``).
-* Manageable lifecycle: RQt plugins using a common API makes maintainance & reuse easier.
+* Manageable lifecycle: RQt plugins using a common API makes maintenance & reuse easier.
 
 
 Further Reading

@@ -14,7 +14,7 @@ Publish/Subscribe
 -----------------
 
 A publish/subscribe system is one in which there are producers of data (publishers) and consumers of data (subscribers).
-The publishers and subscribers know how to contact each other through the concept of a "topic", which is a common name so that the entites can find each other.
+The publishers and subscribers know how to contact each other through the concept of a "topic", which is a common name so that the entities can find each other.
 For instance, when you create a publisher, you must also give it a string that is the name of the topic; the same goes for the subscriber.
 Any publishers and subscribers that are on the same topic name can directly communicate with each other.
 There may be zero or more publishers and zero or more subscribers on any particular topic.

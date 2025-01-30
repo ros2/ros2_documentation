@@ -169,7 +169,7 @@ A configuration contains:
 
 * Displays + their properties
 * Tool properties
-* The viewpoint and settings for the 3D visualzation
+* The viewpoint and settings for the 3D visualization
 
 Views Panel
 -----------

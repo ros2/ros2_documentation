@@ -111,7 +111,7 @@ If you don't want to have to source the setup file every time you open a new she
 
         C:\dev\ros2_{DISTRO}\local_setup.ps1
 
-      PowerShell will request permission to run this script everytime a new shell is opened.
+      PowerShell will request permission to run this script every time a new shell is opened.
       To avoid that issue you can run:
 
       .. code-block:: console

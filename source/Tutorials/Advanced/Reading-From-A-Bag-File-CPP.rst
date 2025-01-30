@@ -204,7 +204,7 @@ Then, we can pass both these objects to the ``rclcpp::Serialization::deserialize
     serialization_.deserialize_message(&serialized_msg, ros_msg.get());
 
 Finally, we publish the deserialized message and print out the xy coordinate to the terminal.
-We also break out of the loop so that we publish the next message during the next timer calback.
+We also break out of the loop so that we publish the next message during the next timer callback.
 
 .. code-block:: C++
 

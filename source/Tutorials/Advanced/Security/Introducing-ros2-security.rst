@@ -80,7 +80,7 @@ Selecting an alternate middleware
 If you choose not to use the default middleware implementation, be sure to :doc:`change your DDS implementation <../../../Installation/DDS-Implementations/>` before proceeding.
 
 ROS 2 allows you to change the DDS implementation at runtime.
-See `how to work with mulitple RMW implementations <../../../How-To-Guides/Working-with-multiple-RMW-implementations>` to explore different middleware implementations.
+See `how to work with multiple RMW implementations <../../../How-To-Guides/Working-with-multiple-RMW-implementations>` to explore different middleware implementations.
 
 Note that secure communication between vendors is not supported.
 

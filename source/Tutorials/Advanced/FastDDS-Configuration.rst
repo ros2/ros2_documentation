@@ -453,7 +453,7 @@ In order to use the values in the XML file, the environment variable ``RMW_FASTR
 
 However, this entails **another caveat**: If ``RMW_FASTRTPS_USE_QOS_FROM_XML`` is set, but the XML file does not define
 ``publishMode`` or ``historyMemoryPolicy``, these attributes take the *Fast DDS* default value instead of the ``rmw_fastrtps`` default value.
-This is important, especially for ``historyMemoryPolicy``, because the *Fast DDS* deafult value is ``PREALLOCATED`` which does not work with ROS2 topic data types.
+This is important, especially for ``historyMemoryPolicy``, because the *Fast DDS* default value is ``PREALLOCATED`` which does not work with ROS2 topic data types.
 Therefore, in the example, a valid value for this policy has been explicitly set (``DYNAMIC``).
 
 

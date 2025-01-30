@@ -207,7 +207,7 @@ For example:
 Constants
 ^^^^^^^^^
 
-Each constant definition is like a field description with a default value, except that this value can never be changed programatically.
+Each constant definition is like a field description with a default value, except that this value can never be changed programmatically.
 This value assignment is indicated by use of an equal '=' sign, e.g.
 
 .. code-block:: bash

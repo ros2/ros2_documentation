@@ -206,8 +206,8 @@ Examples:
 
   * This is an example of describing an extension point for a package
 
-API Documetation for ROS Packages
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+API Documentation for ROS Packages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 API documentation for all released ROS packages can be `found here <https://docs.ros.org/en/{DISTRO}/p/>`__.
 We recommend using `index.ros.org <https://index.ros.org/>`_ to search through available ROS packages to find their documentation.
