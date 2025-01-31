@@ -132,3 +132,9 @@ ROS 2 ships with one in the ``ros-{DISTRO}-demo-nodes-cpp`` package called ``par
    ros2 run demo_nodes_cpp parameter_blackboard
 
 The code for the ``parameter_blackboard`` is `here <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/parameters/parameter_blackboard.cpp>`__.
+
+Unlike ROS 1, ROS 2 by default handles parameter groups differently.
+In ROS 1, ``dynamic_reconfigure`` handles parameter groups atomically, meaning all parameters in a reconfiguration request are processed together in a single callback.
+In ROS 2, the default ``set_parameters`` service processes each parameter individually, which may lead to multiple callback invocations.
+To maintain atomic behavior when migrating from ``dynamic_reconfigure``, use the ``set_parameters_atomically`` service, which validates and applies all parameters as a single operation.
+If any parameter fails validation, no parameters will be updated.
