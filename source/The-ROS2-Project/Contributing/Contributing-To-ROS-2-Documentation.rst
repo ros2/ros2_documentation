@@ -391,9 +391,9 @@ Images can be inserted using the ``.. image::`` directive.
 Charts, Graphs, and Diagrams
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The ROS 2 Documentation now supports charts, graphs, and diagrams written using `Mermaid Charts.<https://mermaid.js.org/intro/>`__
+The ROS 2 Documentation now supports charts, graphs, and diagrams written using `Mermaid Charts. <https://mermaid.js.org/intro/>`__
 We prefer that charts, graphs, and diagrams use Mermaid instead of static image files as it allows us to programmatically update and edit these resources as the project evolves.
-Full documentation of the `Mermaid graph language syntax can be found on their website.<https://mermaid.js.org/intro/syntax-reference.html>`__
+Full documentation of the `Mermaid graph language syntax can be found on their website. <https://mermaid.js.org/intro/syntax-reference.html>`__
 
 References and Links
 ^^^^^^^^^^^^^^^^^^^^
