@@ -85,7 +85,11 @@ See the :doc:`guide <../How-To-Guides/Working-with-multiple-RMW-implementations>
 Setup environment
 -----------------
 
-Start a command shell or powershell.
+Start a new Windows command prompt, which will be used in the examples.
+
+Source the pixi environment
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 Source the pixi environment to set up dependencies:
 
 .. code-block:: console
@@ -93,7 +97,10 @@ Source the pixi environment to set up dependencies:
    cd C:\dev
    pixi shell
 
-Now source the ROS 2 setup file to set up the workspace:
+Source the ROS 2 environment
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This is required in every command prompt you open to setup the ROS 2 workspace:
 
 .. code-block:: console
 
@@ -104,7 +111,7 @@ It is normal that the previous command, if nothing else went wrong, outputs "The
 Try some examples
 -----------------
 
-In a command shell, set up the ROS 2 environment as described above and then run a C++ ``talker``\ :
+In a command prompt, set up the ROS 2 environment as described above and then run a C++ ``talker``\ :
 
 .. code-block:: bash
 

@@ -81,13 +81,26 @@ Install dependencies:
 
    pixi install
 
+You should now close the powershell session, as the rest of the instructions will use the Windows command prompt.
+
 Build ROS 2
 -----------
+
+Start a new Windows command prompt, which will be used for the build.
+
+Source the MSVC compiler
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+This is required in the command prompt you'll use to compile ROS 2, but it is *not* required when running:
+
+.. code-block:: console
+
+  call "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Auxiliary\Build\vcvarsall.bat" x86_amd64
 
 Source the pixi environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This is required in every command shell you open to set up paths to the dependencies:
+This is required in every command prompt you open to set up paths to the dependencies:
 
 .. code-block:: console
 
@@ -142,7 +155,22 @@ To build the ``\{DISTRO}`` folder tree:
 Setup environment
 -----------------
 
-Start a command shell and source the ROS 2 setup file to set up the workspace:
+Start a new Windows command prompt, which will be used in the examples.
+
+Source the pixi environment
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This is required in every command prompt you open to set up paths to the dependencies:
+
+.. code-block:: console
+
+   cd C:\dev
+   pixi shell
+
+Source the ROS 2 environment
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This is required in every command prompt you open to setup the ROS 2 workspace:
 
 .. code-block:: bash
 
@@ -181,7 +209,7 @@ Then, run a C++ ``talker``\ :
    call install\local_setup.bat
    ros2 run demo_nodes_cpp talker
 
-In a separate shell you can do the same, but instead run a Python ``listener``\ :
+In a separate command prompt you can do the same, but instead run a Python ``listener``\ :
 
 .. code-block:: bash
 
