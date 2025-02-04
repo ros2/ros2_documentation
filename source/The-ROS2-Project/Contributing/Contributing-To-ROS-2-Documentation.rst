@@ -278,6 +278,10 @@ Writing pages
 
 The ROS 2 documentation website uses the ``reStructuredText`` format, which is the default plaintext markup language used by Sphinx.
 This section is a brief introduction to ``reStructuredText`` concepts, syntax, and best practices.
+When formatting your ``reStructuredText`` file **please make sure to write only one sentence per line as it makes reviewing and modifying your file much easier.**
+Also, be mindful of the use of white space in your file!
+The ROS 2 documentation linter will not accept pull requests with trailing white space.
+We recommend that you enable automatic white space highlighting and or cleanup if your editor supports it.
 
 You can refer to `reStructuredText User Documentation <https://docutils.sourceforge.io/rst.html>`_ for a detailed technical specification.
 
@@ -382,6 +386,13 @@ Images can be inserted using the ``.. image::`` directive.
 .. code-block:: rst
 
    .. image:: images/turtlesim_follow1.png
+
+Charts, Graphs, and Diagrams
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ROS 2 Documentation now supports charts, graphs, and diagrams written using `Mermaid Charts. <https://mermaid.js.org/intro/>`__
+We prefer that charts, graphs, and diagrams use Mermaid instead of static image files as it allows us to programmatically update and edit these resources as the project evolves.
+Full documentation of the `Mermaid graph language syntax can be found on their website. <https://mermaid.js.org/intro/syntax-reference.html>`__
 
 References and Links
 ^^^^^^^^^^^^^^^^^^^^
