@@ -1,7 +1,7 @@
 Using the Node Interfaces Template Class (C++)
 ==============================================
 
-**Goal:** Learn how to access ``Node`` information using ``rclcpp::NodeInterfaces<>`` 
+**Goal:** Learn how to access ``Node`` information using ``rclcpp::NodeInterfaces<>``
 
 **Tutorial level:** Intermediate
 
@@ -13,7 +13,7 @@ Using the Node Interfaces Template Class (C++)
 
 
 Overview
----------
+--------
 
 The ``rclcpp::NodeInterfaces<>`` template class provides a compact and efficient way to manage Node Interfaces in ROS 2. This is particularly useful when working with different types of ``Nodes``, such as ``rclcpp::Node`` and ``rclcpp_lifecycle::LifecycleNode``, which do not share the same inheritance tree.
 
@@ -54,7 +54,7 @@ In the example below, we create a simple ``Node`` called ``Simple_Node`` and def
 Output:
 
 .. code-block:: console
-    
+
     [INFO] [Simple_Node]: Node name: Simple_Node
 
 While this approach works well for arguments of type ``rclcpp::Node``, it does not work for other node types like ``rclcpp_lifecycle::LifecycleNode``. This is because they do not share the same inheritance tree.
@@ -66,7 +66,7 @@ To make the code more flexible and compatible with different node types, we use 
 
 The recommended way of accessing a ``Node`` type's information is through the ``Node Interfaces``.
 
-Below, similar to the previous example, we create a simple node of type ``rclcpp_lifecycle::LifecycleNode``. 
+Below, similar to the previous example, we create a simple node of type ``rclcpp_lifecycle::LifecycleNode``.
 
 .. code-block:: c++
 
@@ -131,7 +131,7 @@ Output:
       RCLCPP_INFO(logging_interface->get_logger(), "Node name: %s", base_interface->get_name());
     }
 
-Instead of accepting a ``SharedPtr``, this function takes a reference to a ``rclcpp::node_interfaces::NodeInterfaces`` object. Another advantage of using this approach is the support for implicit conversion of node-like objects. 
+Instead of accepting a ``SharedPtr``, this function takes a reference to a ``rclcpp::node_interfaces::NodeInterfaces`` object. Another advantage of using this approach is the support for implicit conversion of node-like objects.
 This means that it is possible to directly pass any node-like object to a function expecting a ``rclcpp::node_interfaces::NodeInterfaces`` object.
 
 It extracts:
@@ -150,7 +150,7 @@ Then, it retrieves and prints the node name.
       : rclcpp_lifecycle::LifecycleNode(node_name,
         rclcpp::NodeOptions().use_intra_process_comms(intra_process_comms))
       {}
-    };  
+    };
 
 
 
