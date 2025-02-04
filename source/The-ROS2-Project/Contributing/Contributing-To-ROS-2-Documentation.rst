@@ -278,11 +278,10 @@ Writing pages
 
 The ROS 2 documentation website uses the ``reStructuredText`` format, which is the default plaintext markup language used by Sphinx.
 This section is a brief introduction to ``reStructuredText`` concepts, syntax, and best practices.
-**When formatting your ``reStructuredText`` file please make sure to write only one sentence per line as it makes reviewing and modifying your file much easier.**
+When formatting your ``reStructuredText`` file **please make sure to write only one sentence per line as it makes reviewing and modifying your file much easier.**
 Also, be mindful of the use of white space in your file!
 The ROS 2 documentation linter will not accept pull requests with trailing white space.
 We recommend that you enable automatic white space highlighting and or cleanup if your editor supports it.
-
 
 You can refer to `reStructuredText User Documentation <https://docutils.sourceforge.io/rst.html>`_ for a detailed technical specification.
 
