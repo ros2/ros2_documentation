@@ -1,0 +1,29 @@
+name: grammar / rule check for .rst files
+
+on:
+  pull_request:
+    paths:
+      - "**/*.rst" # trigger only for .rst files
+
+jobs:
+  one_sentence_per_line:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Get changed lines in .rst files
+        run: |
+          git fetch origin ${{ github.base_ref }} --depth=1
+          git diff --unified=0 origin/${{ github.base_ref }} HEAD -- '*.rst' \
+            | grep '^[+-]' | grep -Ev '^(---|\+\+\+)' > /tmp/changed_lines.txt || true
+
+      - name: Run one-sentence-per-line checker on changed lines
+        run: |
+          python3 ./scripts/sentence_line_checker.py /tmp/changed_lines.txt
