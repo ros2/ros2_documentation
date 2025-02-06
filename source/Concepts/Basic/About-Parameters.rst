@@ -119,22 +119,4 @@ Migrating from ROS 1
 
 The :doc:`Launch file migration guide <../../How-To-Guides/Migrating-from-ROS1/Migrating-Launch-Files>` explains how to migrate ``param`` and ``rosparam`` launch tags from ROS 1 to ROS 2.
 
-The :doc:`YAML parameter file migration guide <../../How-To-Guides/Migrating-from-ROS1/Migrating-Parameters>` explains how to migrate parameter files from ROS 1 to ROS 2.
-
-In ROS 1, the ``roscore`` acted like a global parameter blackboard where all nodes could get and set parameters.
-Since there is no central ``roscore`` in ROS 2, that functionality no longer exists.
-The recommended approach in ROS 2 is to use per-node parameters that are closely tied to the nodes that use them.
-If a global blackboard is still needed, it is possible to create a dedicated node for this purpose.
-ROS 2 ships with one in the ``ros-{DISTRO}-demo-nodes-cpp`` package called ``parameter_blackboard``; it can be run with:
-
-.. code-block:: console
-
-   ros2 run demo_nodes_cpp parameter_blackboard
-
-The code for the ``parameter_blackboard`` is `here <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/parameters/parameter_blackboard.cpp>`__.
-
-When migrating parameter groups from ROS 1 to ROS 2, there are important differences to consider.
-In ROS 1, ``dynamic_reconfigure`` handles parameter groups atomically, meaning all parameters in a reconfiguration request are processed together in a single callback.
-In ROS 2, the ``set_parameters`` service processes each parameter individually, which may lead to multiple callback invocations.
-To maintain atomic behavior when migrating from ``dynamic_reconfigure``, use the ``set_parameters_atomically`` service, which validates and applies all parameters as a single operation.
-If any parameter fails validation, no parameters will be updated.
+The :doc:`Migration guide <../../How-To-Guides/Migrating-from-ROS1/Migrating-Parameters>` explains how to migrate parameter from ROS 1 to ROS 2.
