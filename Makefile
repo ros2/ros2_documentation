@@ -28,6 +28,9 @@ lint:
 test:
 	doc8 --ignore D001 --ignore-path build
 
+spellcheck:
+	git ls-files '*.md' '*.rst' | xargs codespell --ignore-words=codespell_whitelist.txt --skip="source/Releases/*"
+
 linkcheck:
 	$(BUILD) -b linkcheck $(OPTS) $(SOURCE) $(LINKCHECKDIR)
 	@echo

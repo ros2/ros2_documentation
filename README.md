@@ -51,6 +51,15 @@ For local testing of the current tree use:
 
 `sensible-browser build/html/index.html`
 
+### Spelling Check
+
+To check the spelling, use:
+
+`make spellcheck`
+
+> [!NOTE]
+> If that detects specific words that need to be ignored, add it to [codespell_whitelist](./codespell_whitelist.txt).
+
 ### Deployment test
 
 To test building the multisite version deployed to the website use:
