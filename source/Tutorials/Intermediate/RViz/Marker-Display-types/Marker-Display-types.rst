@@ -85,15 +85,18 @@ The messages in this package include comments that are helpful in understanding 
 
 * ``ns``:
 
-    Namespace for these markers. This plus the id form a unique identifier.
+    Namespace for these markers.
+    This plus the id form a unique identifier.
 
 * ``id``:
 
-    Unique id assigned to this marker. It is your responsibility to keep these unique within your namespace.
+    Unique id assigned to this marker.
+    It is your responsibility to keep these unique within your namespace.
 
 * ``type``:
 
-    Type of marker (Arrow, Sphere, ...). The available types are specified in the message definition.
+    Type of marker (Arrow, Sphere, ...).
+    The available types are specified in the message definition.
 
 * ``action``:
 
@@ -105,11 +108,16 @@ The messages in this package include comments that are helpful in understanding 
 
 * ``scale``:
 
-    Scale of the marker. Applied before the position/orientation. A scale of [1, 1, 1] means the object will be 1m by 1m by 1m.
+    Scale of the marker.
+    Applied before the position/orientation.
+    A scale of [1, 1, 1] means the object will be 1m by 1m by 1m.
 
 * ``color``:
 
-    Color of the object, specified as r/g/b/a, with values in the range of [0, 1]. The, ``a`` or alpha value, denotes the opacity of the marker with 1 indicating opaque and 0 indicating completely transparent. The default value is 0, or completely transparent. **You must set the a value of your marker to a non-zero value or it will be transparent by default!**
+    Color of the object, specified as r/g/b/a, with values in the range of [0, 1].
+    The, ``a`` or alpha value, denotes the opacity of the marker with 1 indicating opaque and 0 indicating completely transparent.
+    The default value is 0, or completely transparent.
+    **You must set the a value of your marker to a non-zero value or it will be transparent by default!**
 
 * ``points``:
 
@@ -119,7 +127,8 @@ The messages in this package include comments that are helpful in understanding 
 
 * ``colors``:
 
-    This field is only used for markers that use the points member. This field specifies per-vertex color r/g/b/ color  (no alpha yet) for each entry in ``points``.
+    This field is only used for markers that use the points member.
+    This field specifies per-vertex color r/g/b/ color  (no alpha yet) for each entry in ``points``.
 
 * ``lifetime``:
 
@@ -154,11 +163,14 @@ The arrow type provides two different ways of specifying where the arrow should 
 
 * ``Position/Orientation``:
 
-    Pivot point is around the tip of its tail. Identity orientation points it along the +X axis. ``scale.x`` is the arrow length, ``scale.y`` is the arrow width and ``scale.z`` is the arrow height.
+    Pivot point is around the tip of its tail.
+    Identity orientation points it along the +X axis.
+    ``scale.x`` is the arrow length, ``scale.y`` is the arrow width and ``scale.z`` is the arrow height.
 
 * ``Start/End Points``:
 
-    You can also specify a start/end point for the arrow, using the points member. If you put points into the points member, it will assume you want to do things this way.
+    You can also specify a start/end point for the arrow, using the points member.
+    If you put points into the points member, it will assume you want to do things this way.
 
     * The point at index 0 is assumed to be the start point, and the point at index 1 is assumed to be the end.
     * ``scale.x`` is the shaft diameter, and ``scale.y`` is the head diameter. If ``scale.z`` is not zero, it specifies the head length.
@@ -207,7 +219,8 @@ Note that ``pose`` is still used (the points in the line will be transformed by 
 
 .. image:: images/LineListMarker.png
 
-Line lists use the points member of the `visualization_msgs/msg/Marker <https://github.com/ros2/common_interfaces/blob/{DISTRO}/visualization_msgs/msg/Marker.msg>`_ message. It will draw a line between each pair of points, so 0-1, 2-3, 4-5, ...
+Line lists use the points member of the `visualization_msgs/msg/Marker <https://github.com/ros2/common_interfaces/blob/{DISTRO}/visualization_msgs/msg/Marker.msg>`_ message.
+It will draw a line between each pair of points, so 0-1, 2-3, 4-5, ...
 
 Line lists also have some special handling for scale: only ``scale.x`` is used and it controls the width of the line segments.
 
@@ -256,7 +269,8 @@ Note that ``pose`` is still used (the ``points`` in the line will be transformed
 .. image:: images/text_view_facing_marker.png
 
 This marker displays text in a 3D spot in the world.
-The text always appears oriented correctly for the RViZ user to see the included text. Uses the ``text`` field in the marker.
+The text always appears oriented correctly for the RViZ user to see the included text.
+Uses the ``text`` field in the marker.
 
 Only ``scale.z`` is used. ``scale.z`` specifies the height of an uppercase "A".
 

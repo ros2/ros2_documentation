@@ -185,7 +185,8 @@ The typical discovery packet looks somewhat like the following::
 
 This packet is much larger and includes information which can be used to set up encryption among ROS nodes.
 As we will see shortly, this actually includes some of the security configuration files that were created when we enabled security.
-Interested in learning more? Take a look at the excellent paper `Network Reconnaissance and Vulnerability Excavation of Secure DDS Systems <https://arxiv.org/abs/1908.05310>`_ to understand why this matters.
+Interested in learning more?
+Take a look at the excellent paper `Network Reconnaissance and Vulnerability Excavation of Secure DDS Systems <https://arxiv.org/abs/1908.05310>`_ to understand why this matters.
 
 
 Display encrypted data packets

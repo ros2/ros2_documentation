@@ -56,7 +56,8 @@ Please see the :doc:`Distributions page <../Releases>` for the timeline of and i
 Contributing to ROS 2
 ---------------------
 
-Looking for something to work on, or just want to help out? Here are a few resources to get you going.
+Looking for something to work on, or just want to help out?
+Here are a few resources to get you going.
 
 1. The :doc:`Contributing <Contributing>` guide describes how to make a contribution to ROS 2.
 2. Check out the list of :doc:`Feature Ideas <Feature-Ideas>` for inspiration.

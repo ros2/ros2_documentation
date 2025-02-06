@@ -142,7 +142,8 @@ To examine your latest node, ``my_turtle``, run the following command:
 
     ros2 node info /my_turtle
 
-``ros2 node info`` returns a list of subscribers, publishers, services, and actions. i.e. the ROS graph connections that interact with that node.
+``ros2 node info`` returns a list of subscribers, publishers, services, and actions.
+i.e. the ROS graph connections that interact with that node.
 The output should look like this:
 
 .. code-block:: console

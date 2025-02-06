@@ -76,7 +76,8 @@ Run this tutorial
 The ``talker-listener`` ROS 2 demo creates a ``talker`` node that publishes a "hello world" message every second, and a ``listener`` node that listens to these messages.
 
 By :doc:`sourcing ROS 2 <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>` you will get access to the CLI tool ``fastdds``.
-This tool gives access to the `discovery tool <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastddscli/cli/cli.html#discovery>`__, which can be used to launch a discovery server. This server will manage the discovery process for the nodes that connect to it.
+This tool gives access to the `discovery tool <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastddscli/cli/cli.html#discovery>`__, which can be used to launch a discovery server.
+This server will manage the discovery process for the nodes that connect to it.
 
 .. important::
 
@@ -117,7 +118,8 @@ In a new terminal, set the environment variable ``ROS_DISCOVERY_SERVER`` to the 
 
             set ROS_DISCOVERY_SERVER=127.0.0.1:11811
 
-Launch the listener node. Use the argument ``--remap __node:=listener_discovery_server`` to change the node's name for this tutorial.
+Launch the listener node.
+Use the argument ``--remap __node:=listener_discovery_server`` to change the node's name for this tutorial.
 
 .. code-block:: console
 
@@ -330,7 +332,9 @@ In another terminal run the second server listening on localhost using another p
 
     fastdds discovery --server-id 1 --ip-address 127.0.0.1 --port 11888
 
-Now, run each node in a different terminal. Use ``ROS_DISCOVERY_SERVER`` environment variable to decide which server they are connected to. Be aware that the `ids must match <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/env_vars/env_vars.html>`__.
+Now, run each node in a different terminal.
+Use ``ROS_DISCOVERY_SERVER`` environment variable to decide which server they are connected to.
+Be aware that the `ids must match <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/env_vars/env_vars.html>`__.
 
 .. tabs::
 
@@ -428,7 +432,8 @@ In this sense, ROS 2 introspection tools can be configured as **Super Client**, 
 
 .. note::
 
-    In this section we use the term *Participant* as a DDS entity. Each DDS *Participant* corresponds with a ROS 2 *Context*, a ROS 2 abstraction over DDS.
+    In this section we use the term *Participant* as a DDS entity.
+    Each DDS *Participant* corresponds with a ROS 2 *Context*, a ROS 2 abstraction over DDS.
     `Nodes <ROS2Nodes>` are ROS 2 entities that rely on DDS communication interfaces: ``DataWriter`` and ``DataReader``.
     Each *Participant* can hold multiple ROS 2 Nodes.
     For further details about these concepts, please visit the `Node to Participant mapping design document <http://design.ros2.org/articles/Node_to_Participant_mapping.html>`__

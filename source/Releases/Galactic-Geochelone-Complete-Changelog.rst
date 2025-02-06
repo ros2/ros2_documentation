@@ -59,7 +59,11 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ament_clang_format <https://github.com/ament/ament_lint/tree/galactic/ament_clang_format/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer. * Remove dead email addresses. * Remove more dead email addresses. * Switch setup.py maintainer to Audrow.
+* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__)
+* Remove Claire as a maintainer.
+* Remove dead email addresses.
+* Remove more dead email addresses.
+* Switch setup.py maintainer to Audrow.
 * 0.10.3
 * Add Audrow as a maintainer (`#294 <https://github.com/ament/ament_lint/issues/294>`__)
 * Drop trailing tab from package manifests (`#291 <https://github.com/ament/ament_lint/issues/291>`__) Follow-up to 8bf194aa1ac282db5483dd0d3fefff8f325b0db8
@@ -73,7 +77,11 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ament_clang_tidy <https://github.com/ament/ament_lint/tree/galactic/ament_clang_tidy/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer. * Remove dead email addresses. * Remove more dead email addresses. * Switch setup.py maintainer to Audrow.
+* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__)
+* Remove Claire as a maintainer.
+* Remove dead email addresses.
+* Remove more dead email addresses.
+* Switch setup.py maintainer to Audrow.
 * 0.10.3
 * Add Audrow as a maintainer (`#294 <https://github.com/ament/ament_lint/issues/294>`__)
 * Add multiprocessing support to ament_clang_tidy (`#288 <https://github.com/ament/ament_lint/issues/288>`__) * add multiprocessing support * fix stylistic lint issues
@@ -103,7 +111,10 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ament_cmake_clang_format <https://github.com/ament/ament_lint/tree/galactic/ament_cmake_clang_format/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer. * Remove dead email addresses. * Remove more dead email addresses. * Switch setup.py maintainer to Audrow.
+* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer.
+* Remove dead email addresses.
+* Remove more dead email addresses.
+* Switch setup.py maintainer to Audrow.
 * 0.10.3
 * Add Audrow as a maintainer (`#294 <https://github.com/ament/ament_lint/issues/294>`__)
 * Drop trailing tab from package manifests (`#291 <https://github.com/ament/ament_lint/issues/291>`__) Follow-up to 8bf194aa1ac282db5483dd0d3fefff8f325b0db8
@@ -115,7 +126,10 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ament_cmake_clang_tidy <https://github.com/ament/ament_lint/tree/galactic/ament_cmake_clang_tidy/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer. * Remove dead email addresses. * Remove more dead email addresses. * Switch setup.py maintainer to Audrow.
+* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer.
+* Remove dead email addresses.
+* Remove more dead email addresses.
+* Switch setup.py maintainer to Audrow.
 * 0.10.3
 * add TIMEOUT argument to ament_cmake_clang_tidy (`#298 <https://github.com/ament/ament_lint/issues/298>`__)
 * Add Audrow as a maintainer (`#294 <https://github.com/ament/ament_lint/issues/294>`__)
@@ -128,7 +142,10 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ament_cmake_copyright <https://github.com/ament/ament_lint/tree/galactic/ament_cmake_copyright/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer. * Remove dead email addresses. * Remove more dead email addresses. * Switch setup.py maintainer to Audrow.
+* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer.
+* Remove dead email addresses.
+* Remove more dead email addresses.
+* Switch setup.py maintainer to Audrow.
 * 0.10.3
 * Add Audrow as a maintainer (`#294 <https://github.com/ament/ament_lint/issues/294>`__)
 * Drop trailing tab from package manifests (`#291 <https://github.com/ament/ament_lint/issues/291>`__) Follow-up to 8bf194aa1ac282db5483dd0d3fefff8f325b0db8
@@ -152,7 +169,10 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ament_cmake_cppcheck <https://github.com/ament/ament_lint/tree/galactic/ament_cmake_cppcheck/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer. * Remove dead email addresses. * Remove more dead email addresses. * Switch setup.py maintainer to Audrow.
+* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer.
+* Remove dead email addresses.
+* Remove more dead email addresses.
+* Switch setup.py maintainer to Audrow.
 * 0.10.3
 * Add Audrow as a maintainer (`#294 <https://github.com/ament/ament_lint/issues/294>`__)
 * Drop trailing tab from package manifests (`#291 <https://github.com/ament/ament_lint/issues/291>`__) Follow-up to 8bf194aa1ac282db5483dd0d3fefff8f325b0db8
@@ -166,7 +186,10 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ament_cmake_cpplint <https://github.com/ament/ament_lint/tree/galactic/ament_cmake_cpplint/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer. * Remove dead email addresses. * Remove more dead email addresses. * Switch setup.py maintainer to Audrow.
+* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer.
+* Remove dead email addresses.
+* Remove more dead email addresses.
+* Switch setup.py maintainer to Audrow.
 * 0.10.3
 * Add Audrow as a maintainer (`#294 <https://github.com/ament/ament_lint/issues/294>`__)
 * Drop trailing tab from package manifests (`#291 <https://github.com/ament/ament_lint/issues/291>`__) Follow-up to 8bf194aa1ac282db5483dd0d3fefff8f325b0db8
@@ -237,7 +260,10 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ament_cmake_flake8 <https://github.com/ament/ament_lint/tree/galactic/ament_cmake_flake8/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer. * Remove dead email addresses. * Remove more dead email addresses. * Switch setup.py maintainer to Audrow.
+* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer.
+* Remove dead email addresses.
+* Remove more dead email addresses.
+* Switch setup.py maintainer to Audrow.
 * 0.10.3
 * Add Audrow as a maintainer (`#294 <https://github.com/ament/ament_lint/issues/294>`__)
 * Update maintainer (`#274 <https://github.com/ament/ament_lint/issues/274>`__) * update maintainer * add authors
@@ -301,7 +327,10 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ament_cmake_lint_cmake <https://github.com/ament/ament_lint/tree/galactic/ament_cmake_lint_cmake/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer. * Remove dead email addresses. * Remove more dead email addresses. * Switch setup.py maintainer to Audrow.
+* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer.
+* Remove dead email addresses.
+* Remove more dead email addresses.
+* Switch setup.py maintainer to Audrow.
 * ament_lint_cmake: default linelength in argumentparser for consistency (`#306 <https://github.com/ament/ament_lint/issues/306>`__)
 * 0.10.3
 * Fix ament_lint_cmake line length expression (`#236 <https://github.com/ament/ament_lint/issues/236>`__) This regular expression is using the re.VERBOSE flag, meaning that characters after an un-escaped '#' character are interpreted as a comment and are not part of the expression. Also set the default maximum line length to 140 columns.
@@ -316,7 +345,10 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ament_cmake_mypy <https://github.com/ament/ament_lint/tree/galactic/ament_cmake_mypy/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer. * Remove dead email addresses. * Remove more dead email addresses. * Switch setup.py maintainer to Audrow.
+* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer.
+* Remove dead email addresses.
+* Remove more dead email addresses.
+* Switch setup.py maintainer to Audrow.
 * 0.10.3
 * Add Audrow as a maintainer (`#294 <https://github.com/ament/ament_lint/issues/294>`__)
 * Update maintainer (`#274 <https://github.com/ament/ament_lint/issues/274>`__) * update maintainer * add authors
@@ -335,7 +367,10 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ament_cmake_pclint <https://github.com/ament/ament_lint/tree/galactic/ament_cmake_pclint/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer. * Remove dead email addresses. * Remove more dead email addresses. * Switch setup.py maintainer to Audrow.
+* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer.
+* Remove dead email addresses.
+* Remove more dead email addresses.
+* Switch setup.py maintainer to Audrow.
 * 0.10.3
 * Add Audrow as a maintainer (`#294 <https://github.com/ament/ament_lint/issues/294>`__)
 * Drop trailing tab from package manifests (`#291 <https://github.com/ament/ament_lint/issues/291>`__) Follow-up to 8bf194aa1ac282db5483dd0d3fefff8f325b0db8
@@ -347,7 +382,10 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ament_cmake_pep257 <https://github.com/ament/ament_lint/tree/galactic/ament_cmake_pep257/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer. * Remove dead email addresses. * Remove more dead email addresses. * Switch setup.py maintainer to Audrow.
+* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer.
+* Remove dead email addresses.
+* Remove more dead email addresses.
+* Switch setup.py maintainer to Audrow.
 * 0.10.3
 * Add Audrow as a maintainer (`#294 <https://github.com/ament/ament_lint/issues/294>`__)
 * Drop trailing tab from package manifests (`#291 <https://github.com/ament/ament_lint/issues/291>`__) Follow-up to 8bf194aa1ac282db5483dd0d3fefff8f325b0db8
@@ -359,7 +397,10 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ament_cmake_pycodestyle <https://github.com/ament/ament_lint/tree/galactic/ament_cmake_pycodestyle/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer. * Remove dead email addresses. * Remove more dead email addresses. * Switch setup.py maintainer to Audrow.
+* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer.
+* Remove dead email addresses.
+* Remove more dead email addresses.
+* Switch setup.py maintainer to Audrow.
 * 0.10.3
 * Add Audrow as a maintainer (`#294 <https://github.com/ament/ament_lint/issues/294>`__)
 * Drop trailing tab from package manifests (`#291 <https://github.com/ament/ament_lint/issues/291>`__) Follow-up to 8bf194aa1ac282db5483dd0d3fefff8f325b0db8
@@ -371,7 +412,10 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ament_cmake_pyflakes <https://github.com/ament/ament_lint/tree/galactic/ament_cmake_pyflakes/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer. * Remove dead email addresses. * Remove more dead email addresses. * Switch setup.py maintainer to Audrow.
+* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer.
+* Remove dead email addresses.
+* Remove more dead email addresses.
+* Switch setup.py maintainer to Audrow.
 * 0.10.3
 * Add Audrow as a maintainer (`#294 <https://github.com/ament/ament_lint/issues/294>`__)
 * Drop trailing tab from package manifests (`#291 <https://github.com/ament/ament_lint/issues/291>`__) Follow-up to 8bf194aa1ac282db5483dd0d3fefff8f325b0db8
@@ -437,7 +481,10 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ament_cmake_uncrustify <https://github.com/ament/ament_lint/tree/galactic/ament_cmake_uncrustify/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer. * Remove dead email addresses. * Remove more dead email addresses. * Switch setup.py maintainer to Audrow.
+* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer.
+* Remove dead email addresses.
+* Remove more dead email addresses.
+* Switch setup.py maintainer to Audrow.
 * 0.10.3
 * Add Audrow as a maintainer (`#294 <https://github.com/ament/ament_lint/issues/294>`__)
 * Drop trailing tab from package manifests (`#291 <https://github.com/ament/ament_lint/issues/291>`__) Follow-up to 8bf194aa1ac282db5483dd0d3fefff8f325b0db8
@@ -458,7 +505,10 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ament_cmake_xmllint <https://github.com/ament/ament_lint/tree/galactic/ament_cmake_xmllint/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer. * Remove dead email addresses. * Remove more dead email addresses. * Switch setup.py maintainer to Audrow.
+* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer.
+* Remove dead email addresses.
+* Remove more dead email addresses.
+* Switch setup.py maintainer to Audrow.
 * 0.10.3
 * Add Audrow as a maintainer (`#294 <https://github.com/ament/ament_lint/issues/294>`__)
 * Drop trailing tab from package manifests (`#291 <https://github.com/ament/ament_lint/issues/291>`__) Follow-up to 8bf194aa1ac282db5483dd0d3fefff8f325b0db8
@@ -470,7 +520,10 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ament_copyright <https://github.com/ament/ament_lint/tree/galactic/ament_copyright/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer. * Remove dead email addresses. * Remove more dead email addresses. * Switch setup.py maintainer to Audrow.
+* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer.
+* Remove dead email addresses.
+* Remove more dead email addresses.
+* Switch setup.py maintainer to Audrow.
 * Use non-blind except for open() (`#307 <https://github.com/ament/ament_lint/issues/307>`__)
 * Add optional file header style (`#304 <https://github.com/ament/ament_lint/issues/304>`__) * Add optional file header style * Fix test on ament_copyright
 * 0.10.3
@@ -489,7 +542,10 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ament_cppcheck <https://github.com/ament/ament_lint/tree/galactic/ament_cppcheck/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer. * Remove dead email addresses. * Remove more dead email addresses. * Switch setup.py maintainer to Audrow.
+* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer.
+* Remove dead email addresses.
+* Remove more dead email addresses.
+* Switch setup.py maintainer to Audrow.
 * 0.10.3
 * Fix file exclusion behavior in ament_cppcheck and ament_cpplint (`#299 <https://github.com/ament/ament_lint/issues/299>`__) * fix exclude behavior in ament_cppcheck and ament_cpplint * fix flake8 errors * add missing realpath() conversion
 * Add Audrow as a maintainer (`#294 <https://github.com/ament/ament_lint/issues/294>`__)
@@ -504,7 +560,10 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ament_cpplint <https://github.com/ament/ament_lint/tree/galactic/ament_cpplint/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer. * Remove dead email addresses. * Remove more dead email addresses. * Switch setup.py maintainer to Audrow.
+* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer.
+* Remove dead email addresses.
+* Remove more dead email addresses.
+* Switch setup.py maintainer to Audrow.
 * 0.10.3
 * Fix file exclusion behavior in ament_cppcheck and ament_cpplint (`#299 <https://github.com/ament/ament_lint/issues/299>`__) * fix exclude behavior in ament_cppcheck and ament_cpplint * fix flake8 errors * add missing realpath() conversion
 * Add Audrow as a maintainer (`#294 <https://github.com/ament/ament_lint/issues/294>`__)
@@ -518,7 +577,10 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ament_flake8 <https://github.com/ament/ament_lint/tree/galactic/ament_flake8/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer. * Remove dead email addresses. * Remove more dead email addresses. * Switch setup.py maintainer to Audrow.
+* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer.
+* Remove dead email addresses.
+* Remove more dead email addresses.
+* Switch setup.py maintainer to Audrow.
 * 0.10.3
 * Add Audrow as a maintainer (`#294 <https://github.com/ament/ament_lint/issues/294>`__)
 * Update maintainer (`#274 <https://github.com/ament/ament_lint/issues/274>`__) * update maintainer * add authors
@@ -563,7 +625,10 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ament_lint <https://github.com/ament/ament_lint/tree/galactic/ament_lint/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer. * Remove dead email addresses. * Remove more dead email addresses. * Switch setup.py maintainer to Audrow.
+* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer.
+* Remove dead email addresses.
+* Remove more dead email addresses.
+* Switch setup.py maintainer to Audrow.
 * 0.10.3
 * Add Audrow as a maintainer (`#294 <https://github.com/ament/ament_lint/issues/294>`__)
 * Drop trailing tab from package manifests (`#291 <https://github.com/ament/ament_lint/issues/291>`__) Follow-up to 8bf194aa1ac282db5483dd0d3fefff8f325b0db8
@@ -576,7 +641,10 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ament_lint_auto <https://github.com/ament/ament_lint/tree/galactic/ament_lint_auto/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer. * Remove dead email addresses. * Remove more dead email addresses. * Switch setup.py maintainer to Audrow.
+* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer.
+* Remove dead email addresses.
+* Remove more dead email addresses.
+* Switch setup.py maintainer to Audrow.
 * 0.10.3
 * Add Audrow as a maintainer (`#294 <https://github.com/ament/ament_lint/issues/294>`__)
 * Drop trailing tab from package manifests (`#291 <https://github.com/ament/ament_lint/issues/291>`__) Follow-up to 8bf194aa1ac282db5483dd0d3fefff8f325b0db8
@@ -589,7 +657,10 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ament_lint_cmake <https://github.com/ament/ament_lint/tree/galactic/ament_lint_cmake/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer. * Remove dead email addresses. * Remove more dead email addresses. * Switch setup.py maintainer to Audrow.
+* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer.
+* Remove dead email addresses.
+* Remove more dead email addresses.
+* Switch setup.py maintainer to Audrow.
 * ament_lint_cmake: default linelength in argumentparser for consistency (`#306 <https://github.com/ament/ament_lint/issues/306>`__)
 * 0.10.3
 * Fix ament_lint_cmake line length expression (`#236 <https://github.com/ament/ament_lint/issues/236>`__) This regular expression is using the re.VERBOSE flag, meaning that characters after an un-escaped '#' character are interpreted as a comment and are not part of the expression. Also set the default maximum line length to 140 columns.
@@ -605,7 +676,10 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ament_lint_common <https://github.com/ament/ament_lint/tree/galactic/ament_lint_common/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer. * Remove dead email addresses. * Remove more dead email addresses. * Switch setup.py maintainer to Audrow.
+* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer.
+* Remove dead email addresses.
+* Remove more dead email addresses.
+* Switch setup.py maintainer to Audrow.
 * 0.10.3
 * Add Audrow as a maintainer (`#294 <https://github.com/ament/ament_lint/issues/294>`__)
 * Drop trailing tab from package manifests (`#291 <https://github.com/ament/ament_lint/issues/291>`__) Follow-up to 8bf194aa1ac282db5483dd0d3fefff8f325b0db8
@@ -617,7 +691,10 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ament_mypy <https://github.com/ament/ament_lint/tree/galactic/ament_mypy/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer. * Remove dead email addresses. * Remove more dead email addresses. * Switch setup.py maintainer to Audrow.
+* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer.
+* Remove dead email addresses.
+* Remove more dead email addresses.
+* Switch setup.py maintainer to Audrow.
 * 0.10.3
 * Add Audrow as a maintainer (`#294 <https://github.com/ament/ament_lint/issues/294>`__)
 * Update maintainer (`#274 <https://github.com/ament/ament_lint/issues/274>`__) * update maintainer * add authors
@@ -646,7 +723,10 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ament_pclint <https://github.com/ament/ament_lint/tree/galactic/ament_pclint/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer. * Remove dead email addresses. * Remove more dead email addresses. * Switch setup.py maintainer to Audrow.
+* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer.
+* Remove dead email addresses.
+* Remove more dead email addresses.
+* Switch setup.py maintainer to Audrow.
 * 0.10.3
 * Add Audrow as a maintainer (`#294 <https://github.com/ament/ament_lint/issues/294>`__)
 * Add pytest marks to ament_pclint tests. (`#202 <https://github.com/ament/ament_lint/issues/202>`__) * Add pytest marks to ament_pclint tests. * fix failed tests Co-authored-by: Miaofei <miaofei@amazon.com>
@@ -660,7 +740,10 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ament_pep257 <https://github.com/ament/ament_lint/tree/galactic/ament_pep257/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer. * Remove dead email addresses. * Remove more dead email addresses. * Switch setup.py maintainer to Audrow.
+* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer.
+* Remove dead email addresses.
+* Remove more dead email addresses.
+* Switch setup.py maintainer to Audrow.
 * 0.10.3
 * Add Audrow as a maintainer (`#294 <https://github.com/ament/ament_lint/issues/294>`__)
 * Drop trailing tab from package manifests (`#291 <https://github.com/ament/ament_lint/issues/291>`__) Follow-up to 8bf194aa1ac282db5483dd0d3fefff8f325b0db8
@@ -676,7 +759,10 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ament_pycodestyle <https://github.com/ament/ament_lint/tree/galactic/ament_pycodestyle/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer. * Remove dead email addresses. * Remove more dead email addresses. * Switch setup.py maintainer to Audrow.
+* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer.
+* Remove dead email addresses.
+* Remove more dead email addresses.
+* Switch setup.py maintainer to Audrow.
 * 0.10.3
 * Add Audrow as a maintainer (`#294 <https://github.com/ament/ament_lint/issues/294>`__)
 * Drop trailing tab from package manifests (`#291 <https://github.com/ament/ament_lint/issues/291>`__) Follow-up to 8bf194aa1ac282db5483dd0d3fefff8f325b0db8
@@ -689,7 +775,10 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ament_pyflakes <https://github.com/ament/ament_lint/tree/galactic/ament_pyflakes/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer. * Remove dead email addresses. * Remove more dead email addresses. * Switch setup.py maintainer to Audrow.
+* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer.
+* Remove dead email addresses.
+* Remove more dead email addresses.
+* Switch setup.py maintainer to Audrow.
 * 0.10.3
 * Add Audrow as a maintainer (`#294 <https://github.com/ament/ament_lint/issues/294>`__)
 * Drop trailing tab from package manifests (`#291 <https://github.com/ament/ament_lint/issues/291>`__) Follow-up to 8bf194aa1ac282db5483dd0d3fefff8f325b0db8
@@ -702,7 +791,10 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ament_uncrustify <https://github.com/ament/ament_lint/tree/galactic/ament_uncrustify/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer. * Remove dead email addresses. * Remove more dead email addresses. * Switch setup.py maintainer to Audrow.
+* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer.
+* Remove dead email addresses.
+* Remove more dead email addresses.
+* Switch setup.py maintainer to Audrow.
 * 0.10.3
 * Allow 'C++' as language, but convert it to 'CPP' (`#302 <https://github.com/ament/ament_lint/issues/302>`__)
 * Allow correct languages on uncrustify (`#272 <https://github.com/ament/ament_lint/issues/272>`__) * Allow correct languages on uncrustify. * Update dictionary.
@@ -717,7 +809,10 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ament_xmllint <https://github.com/ament/ament_lint/tree/galactic/ament_xmllint/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer. * Remove dead email addresses. * Remove more dead email addresses. * Switch setup.py maintainer to Audrow.
+* Remove Claire as a maintainer. (`#312 <https://github.com/ament/ament_lint/issues/312>`__) * Remove Claire as a maintainer.
+* Remove dead email addresses.
+* Remove more dead email addresses.
+* Switch setup.py maintainer to Audrow.
 * 0.10.3
 * Add Audrow as a maintainer (`#294 <https://github.com/ament/ament_lint/issues/294>`__)
 * Drop trailing tab from package manifests (`#291 <https://github.com/ament/ament_lint/issues/291>`__) Follow-up to 8bf194aa1ac282db5483dd0d3fefff8f325b0db8
@@ -4576,7 +4671,8 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Version 0.0.0 this package was never released (`#3 <https://github.com/ros-visualization/tango_icons_vendor/issues/3>`__)
 * Install icons by default on macOS too (`#1 <https://github.com/ros-visualization/tango_icons_vendor/issues/1>`__)
 * Updating package.xml
-* fixup! Install tango icons
+* fixup!
+  Install tango icons
 * Adding icons
 * Install tango icons
 * Contributors: Alejandro Hernández Cordero, Scott K Logan, Stephen, Stephen Brawner
@@ -4695,7 +4791,9 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Set cppcheck timeout to 400 seconds. (`#453 <https://github.com/ros2/system_tests/issues/453>`__)
 * Modify to match Waitable interface adding take_data. (`#444 <https://github.com/ros2/system_tests/issues/444>`__)
 * Update maintainers. (`#450 <https://github.com/ros2/system_tests/issues/450>`__)
-* Fix rclcpp timeout subscriber test. (`#440 <https://github.com/ros2/system_tests/issues/440>`__) * Use nonzero lower bound for timeout checks. * Relax time tolerance.
+* Fix rclcpp timeout subscriber test. (`#440 <https://github.com/ros2/system_tests/issues/440>`__)
+  Use nonzero lower bound for timeout checks.
+  Relax time tolerance.
 * Show numbers of nanseconds in EXPECT with durations. (`#438 <https://github.com/ros2/system_tests/issues/438>`__) * Show numbers of nanseconds in expect with durations * Fix syntax
 * Remove ament_pytest dependency from test_rclcpp. (`#437 <https://github.com/ros2/system_tests/issues/437>`__) It is not used in test_rclcpp anywhere.
 * Contributors: Audrow Nash, Chris Lalancette, Dirk Thomas, Ivan Santiago Paunovic, Jacob Perron, Michel Hidalgo, Shane Loretz, Stephen Brawner, Tomoya Fujita, tomoya
@@ -4838,7 +4936,8 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainers of the ros2/geometry2 fork. (`#328 <https://github.com/ros2/geometry2/issues/328>`__)
 * Activate usual compiler warnings and fix errors (`#270 <https://github.com/ros2/geometry2/issues/270>`__)
 * Add PoseWithCovarianceStamped transform support (`#312 <https://github.com/ros2/geometry2/issues/312>`__)
-* Don't install python tf2_geometry_msgs (`#299 <https://github.com/ros2/geometry2/issues/299>`__) It hasn't been ported yet. Closes https://github.com/ros2/geometry2/issues/285
+* Don't install python tf2_geometry_msgs (`#299 <https://github.com/ros2/geometry2/issues/299>`__) It hasn't been ported yet.
+  Closes https://github.com/ros2/geometry2/issues/285
 * Split tf2_ros in tf2_ros and tf2_ros_py (`#210 <https://github.com/ros2/geometry2/issues/210>`__) * Split tf2_ros in tf2_ros and tf2_ros_py
 * Contributors: Alejandro Hernández Cordero, Bjar Ne, Chris Lalancette, Ivan Santiago Paunovic, Joshua Whitley, Shane Loretz
 
@@ -5129,7 +5228,9 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 
 * Explicitly add emersonknapp as maintainer (`#692 <https://github.com/ros2/rosbag2/issues/692>`__)
 * Always preserve source permissions in vendor packages (`#645 <https://github.com/ros2/rosbag2/issues/645>`__)
-* Zstd should not install internal headers - some of them try include others that aren't installed. We don't use them. Avoid the situation (`#631 <https://github.com/ros2/rosbag2/issues/631>`__)
+* Zstd should not install internal headers - some of them try include others that aren't installed.
+  We don't use them.
+  Avoid the situation (`#631 <https://github.com/ros2/rosbag2/issues/631>`__)
 * Patch zstd 1.4.4 to include cmake_minimum_version bump to 2.8.12 (`#579 <https://github.com/ros2/rosbag2/issues/579>`__)
 * Update the package.xml files with the latest Open Robotics maintainers (`#535 <https://github.com/ros2/rosbag2/issues/535>`__)
 * Contributors: Emerson Knapp, Michael Jeronimo, Scott K Logan

@@ -37,19 +37,24 @@ Supported RMW implementations
    * - eProsima *Fast DDS*
      - Apache 2
      - ``rmw_fastrtps_cpp``
-     - Full support. Default RMW. Packaged with binary releases.
+     - Full support.
+       Default RMW.
+       Packaged with binary releases.
    * - Eclipse *Cyclone DDS*
      - Eclipse Public License v2.0
      - ``rmw_cyclonedds_cpp``
-     - Full support. Packaged with binary releases.
+     - Full support.
+       Packaged with binary releases.
    * - RTI *Connext DDS*
      - commercial, research
      - ``rmw_connextdds``
-     - Full support. Support included in binaries, but Connext installed separately.
+     - Full support.
+       Support included in binaries, but Connext installed separately.
    * - GurumNetworks *GurumDDS*
      - commercial
      - ``rmw_gurumdds_cpp``
-     - Community support. Support included in binaries, but GurumDDS installed separately.
+     - Community support.
+       Support included in binaries, but GurumDDS installed separately.
 
 For practical information on working with multiple RMW implementations, see the :doc:`"Working with multiple RMW implementations" <../../How-To-Guides/Working-with-multiple-RMW-implementations>` tutorial.
 

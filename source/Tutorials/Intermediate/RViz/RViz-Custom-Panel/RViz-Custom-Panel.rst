@@ -293,7 +293,8 @@ Update ``demo_panel.cpp`` to have the following contents:
 
 Testing with ROS
 ^^^^^^^^^^^^^^^^
-Compile and launch RViz2 with your panel again. You should see your label and button in the panel now.
+Compile and launch RViz2 with your panel again.
+You should see your label and button in the panel now.
 
 .. image:: images/RViz1.png
    :target: images/RViz1.png

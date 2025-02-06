@@ -11,7 +11,8 @@ It's available in the browser or as a standalone desktop app and is free for ind
 Installation
 ------------
 
-To use Foxglove, you'll need to `create an account <https://app.foxglove.dev/signup>`__. It's free and all you need is a valid email address.
+To use Foxglove, you'll need to `create an account <https://app.foxglove.dev/signup>`__.
+It's free and all you need is a valid email address.
 
 Once you've created an account, you can use Foxglove on the web by opening Google Chrome and navigating to `app.foxglove.dev <https://app.foxglove.dev>`__.
 
@@ -19,7 +20,9 @@ To use the desktop app for Linux, macOS, or Windows, download it directly from t
 
 .. note::
 
-  Foxglove uses specific features of Google Chrome. While some features may work, other browsers are not supported. For the best experience, we recommend using Chrome or the desktop app.
+  Foxglove uses specific features of Google Chrome.
+  While some features may work, other browsers are not supported.
+  For the best experience, we recommend using Chrome or the desktop app.
 
 Connect to a live data source
 -----------------------------
@@ -36,9 +39,11 @@ Once you have the bridge installed, launch it with:
 
    ros2 launch foxglove_bridge foxglove_bridge_launch.xml
 
-With the bridge running on your robot, you're ready to connect view data in Foxglove. Make sure you are on the same network as your robot, open Foxglove (web or desktop) and click "Open connection".
+With the bridge running on your robot, you're ready to connect view data in Foxglove.
+Make sure you are on the same network as your robot, open Foxglove (web or desktop) and click "Open connection".
 
-Select the option for "Foxglove WebSocket" and enter your robot's WebSocket URL. The default is ``ws://localhost:8765``, however you can read about configuration options for the ROS Foxglove bridge `here <https://docs.foxglove.dev/docs/connecting-to-data/ros-foxglove-bridge#configuration-1>`__.
+Select the option for "Foxglove WebSocket" and enter your robot's WebSocket URL.
+The default is ``ws://localhost:8765``, however you can read about configuration options for the ROS Foxglove bridge `here <https://docs.foxglove.dev/docs/connecting-to-data/ros-foxglove-bridge#configuration-1>`__.
 
 .. note::
 
@@ -47,7 +52,8 @@ Select the option for "Foxglove WebSocket" and enter your robot's WebSocket URL.
 View and replay recorded data
 -----------------------------
 
-If you'd rather visualize recorded data, you can use Foxglove to replay ROS 2 ``.mcap`` as well as older ROS 2 ``.db3``, and ROS 1 ``.bag`` files. Foxglove is particularly convenient for recorded data because it does not require ROS 2 to be running to view data.
+If you'd rather visualize recorded data, you can use Foxglove to replay ROS 2 ``.mcap`` as well as older ROS 2 ``.db3``, and ROS 1 ``.bag`` files.
+Foxglove is particularly convenient for recorded data because it does not require ROS 2 to be running to view data.
 
 Use the :doc:`ros2 bag command line tool <../Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data>` to record data from your robot to a ``.mcap`` file:
 
@@ -73,7 +79,8 @@ We've highlighted some particularly useful ones below:
 3D panel: View 3D data and visualization markers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Open the panel settings by clicking the gear icon in the upper right. Choose the topics you want to display via the topic picker on the left, and configure each topic's visualization settings in the "Edit topic settings" menu.
+Open the panel settings by clicking the gear icon in the upper right.
+Choose the topics you want to display via the topic picker on the left, and configure each topic's visualization settings in the "Edit topic settings" menu.
 
 Publish marker messages to add primitive shapes (arrows, spheres, etc.) and more complex visualizations (occupancy grids, point clouds, etc.) to your 3D panel's scene.
 
@@ -97,7 +104,8 @@ Reference the `docs <https://foxglove.dev/docs/visualization/panels/diagnostics>
 Image panel: View camera feed images
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Display raw and compressed images, as well as compressed videos, with 2D annotations like text labels, circles, and points. Superimpose 3D markers for additional context.
+Display raw and compressed images, as well as compressed videos, with 2D annotations like text labels, circles, and points.
+Superimpose 3D markers for additional context.
 
 .. image:: foxglove/image.png
   :width: 500 px
@@ -121,7 +129,8 @@ Plot panel: Plot arbitrary values over time
 
 Plot arbitrary numeric values from topic `message paths <https://docs.foxglove.dev/docs/visualization/message-path-syntax>`__ .
 
-When playing back local or remote data files, this panel will preload the data belonging to the specified topic message paths for the whole playback timeline. Current playback time is indicated by a vertical gray bar.
+When playing back local or remote data files, this panel will preload the data belonging to the specified topic message paths for the whole playback timeline.
+Current playback time is indicated by a vertical gray bar.
 
 .. image:: foxglove/plot.png
   :width: 500 px
@@ -134,7 +143,8 @@ Raw Messages panel: View incoming topic messages
 
 Inspect a particular `message path <https://docs.foxglove.dev/docs/visualization/message-path-syntax>`__ in your data source.
 
-As new messages are received for a given path, the collapsible tree will show just the latest message. You will be able to expand and collapse keys, and have those changes persist across playback.
+As new messages are received for a given path, the collapsible tree will show just the latest message.
+You will be able to expand and collapse keys, and have those changes persist across playback.
 
 .. image:: foxglove/raw-messages.png
   :width: 500 px

@@ -61,8 +61,7 @@ However, there are two main cases where you wouldn’t:
 
 Physical Properties
 -------------------
-In order to get your model to simulate properly, you need to define several physical properties of your robot, i.e.
-the properties that a physics engine like Gazebo would need.
+In order to get your model to simulate properly, you need to define several physical properties of your robot, i.e. the properties that a physics engine like Gazebo would need.
 
 Inertia
 ^^^^^^^
@@ -109,7 +108,8 @@ Here is a simple one.
 * The inertia tensor depends on both the mass and the distribution of mass of the object.
   A good first approximation is to assume equal distribution of mass in the volume of the object and compute the inertia tensor based on the object's shape, as outlined above.
 * If unsure what to put, a matrix with ixx/iyy/izz=1e-3 or smaller is often a reasonable default for a mid-sized link (it corresponds to a box of 0.1 m side length with a mass of 0.6 kg).
-  The identity matrix is a particularly bad choice, since it is often much too high (it corresponds to a box of 0.1 m side length with a mass of 600 kg!).
+  The identity matrix is a particularly bad choice, since it is often much too high.
+  (it corresponds to a box of 0.1 m side length with a mass of 600 kg!)
 * You can also specify an origin tag to specify the center of gravity and the inertial reference frame (relative to the link's reference frame).
 * When using realtime controllers, inertia elements of zero (or almost zero) can cause the robot model to collapse without warning, and all links will appear with their origins coinciding with the world origin.
 
