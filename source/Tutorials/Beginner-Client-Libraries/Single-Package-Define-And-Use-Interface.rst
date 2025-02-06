@@ -131,37 +131,6 @@ Also make sure you export the message runtime dependency:
 Now you're ready to generate source files from your msg definition.
 We'll skip the compile step for now as we'll do it all together below in step 4.
 
-2.2 (Extra) Set multiple interfaces
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. note::
-
-  You can use ``set`` in ``CMakeLists.txt`` to neatly list all of your interfaces:
-
-  .. code-block:: cmake
-
-     set(msg_files
-       "msg/Message1.msg"
-       "msg/Message2.msg"
-       # etc
-       )
-
-     set(srv_files
-       "srv/Service1.srv"
-       "srv/Service2.srv"
-        # etc
-       )
-
-  And generate all lists at once like so:
-
-  .. code-block:: cmake
-
-     rosidl_generate_interfaces(${PROJECT_NAME}
-       ${msg_files}
-       ${srv_files}
-     )
-
-
 3 Use an interface from the same package
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

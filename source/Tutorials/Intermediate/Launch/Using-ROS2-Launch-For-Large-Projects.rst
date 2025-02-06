@@ -123,6 +123,8 @@ However, there are cases when some nodes or launch files have to be launched sep
 
 .. note:: Design tip: Be aware of the tradeoffs when deciding how many top-level launch files your application requires.
 
+.. _Parameters:
+
 2 Parameters
 ^^^^^^^^^^^^
 
@@ -169,6 +171,8 @@ First, create a new file called ``turtlesim_world_1_launch.py``.
       ])
 
 This launch file starts the ``turtlesim_node`` node, which starts the turtlesim simulation, with simulation configuration parameters that are defined and passed to the nodes.
+
+.. _LoadingParametersFromYAMLFile:
 
 2.2 Loading parameters from YAML file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -217,8 +221,6 @@ Let's now create a configuration file, ``turtlesim.yaml``, in the ``/config`` fo
          background_b: 255
          background_g: 86
          background_r: 150
-
-If we now start the ``turtlesim_world_2_launch.py`` launch file, we will start the ``turtlesim_node`` with preconfigured background colors.
 
 To learn more about using parameters and using YAML files, take a look at the :doc:`Understand parameters <../../Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters>` tutorial.
 
@@ -282,6 +284,8 @@ Unique namespaces allow the system to start two similar nodes without node name 
 However, if the launch file contains a large number of nodes, defining namespaces for each of them can become tedious.
 To solve that issue, the ``PushROSNamespace`` action can be used to define the global namespace for each launch file description.
 Every nested node will inherit that namespace automatically.
+
+.. attention:: PushROSNamespace has to be the first Action in the list for the following actions to apply the namespace
 
 To do that, firstly, we need to remove the ``namespace='turtlesim2'`` line from the ``turtlesim_world_2_launch.py`` file.
 Afterwards, we need to update the ``launch_turtlesim_launch.py`` to include the following lines:
@@ -475,6 +479,8 @@ Let's now create the last launch file called ``fixed_broadcaster_launch.py`` in 
 This launch file shows the way environment variables can be called inside the launch files.
 Environment variables can be used to define or push namespaces for distinguishing nodes on different computers or robots.
 
+.. note:: If you are running the launch file where the ``USER`` environment variable is not defined (like in the ROS docker file), then you can replace the ``EnvironmentVariable('USER')`` above with any other word of your liking.
+
 Running launch files
 --------------------
 
@@ -497,6 +503,8 @@ The ``data_files`` field should now look like this:
             glob(os.path.join('launch', '*launch.[pxy][yma]*'))),
          (os.path.join('share', package_name, 'config'),
             glob(os.path.join('config', '*.yaml'))),
+         (os.path.join('share', package_name, 'rviz'),
+            glob(os.path.join('config', '*.rviz'))),
       ],
 
 2 Build and run

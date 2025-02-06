@@ -24,7 +24,6 @@ Rows in the table marked in green are the currently supported distributions.
    :hidden:
 
    Releases/Release-Jazzy-Jalisco
-   Releases/Release-Iron-Irwini
    Releases/Release-Humble-Hawksbill
    Releases/Release-Rolling-Ridley
    Releases/Development
@@ -49,7 +48,6 @@ Rows in the table marked in green are the currently supported distributions.
    <style>
      .rst-content table.docutils:not(.field-list) tr:nth-child(1) td {background-color: #33cc66;}
      .rst-content table.docutils:not(.field-list) tr:nth-child(3) td {background-color: #33cc66;}
-     .rst-content tr:nth-child(2) {background-color: #33cc66;}
      .rst-content tr:nth-child(3) {background-color: #33cc66;}
    </style>
 
@@ -89,68 +87,83 @@ Rows in the table marked in green are the currently supported distributions.
 .. list-table::
    :class: distros
    :header-rows: 1
-   :widths: 35 30 20 15
+   :widths: 35 25 30 20 10
 
    * - Distro
      - Release date
      - Logo
      - EOL date
+     - ROS Boss
    * - :doc:`Jazzy Jalisco <Releases/Release-Jazzy-Jalisco>`
-     - May 23rd, 2024
+     - May 23, 2024
      - |jazzy|
      - May 2029
+     - `Marco A. Gutiérrez <https://github.com/marcoag>`_
    * - :doc:`Iron Irwini <Releases/Release-Iron-Irwini>`
-     - May 23rd, 2023
+     - May 23, 2023
      - |iron|
-     - November 2024
+     - December 4, 2024
+     - `Yadunund Vijay <https://github.com/Yadunund>`_
    * - :doc:`Humble Hawksbill <Releases/Release-Humble-Hawksbill>`
-     - May 23rd, 2022
+     - May 23, 2022
      - |humble|
      - May 2027
+     - `Audrow Nash <https://github.com/audrow>`_
    * - :doc:`Galactic Geochelone <Releases/Release-Galactic-Geochelone>`
-     - May 23rd, 2021
+     - May 23, 2021
      - |galactic|
-     - December 9th, 2022
+     - December 9, 2022
+     - `Scott Logan <https://github.com/cottsay/>`_
    * - :doc:`Foxy Fitzroy <Releases/Release-Foxy-Fitzroy>`
-     - June 5th, 2020
+     - June 5, 2020
      - |foxy|
-     - June 20th, 2023
+     - June 20, 2023
+     - `Jacob Perron <https://github.com/jacobperron>`_ / `Dharini Dutia <https://github.com/quarkytale>`_
    * - :doc:`Eloquent Elusor <Releases/Release-Eloquent-Elusor>`
-     - November 22nd, 2019
+     - November 22, 2019
      - |eloquent|
      - November 2020
+     - `Michael Carroll <https://github.com/mjcarroll>`_
    * - :doc:`Dashing Diademata <Releases/Release-Dashing-Diademata>`
-     - May 31st, 2019
+     - May 31, 2019
      - |dashing|
      - May 2021
+     - `Steven! Ragnarök <https://github.com/nuclearsandwich>`_
    * - :doc:`Crystal Clemmys <Releases/Release-Crystal-Clemmys>`
-     - December 14th, 2018
+     - December 14, 2018
      - |crystal|
      - December 2019
+     - `Steven! Ragnarök <https://github.com/nuclearsandwich>`_
    * - :doc:`Bouncy Bolson <Releases/Release-Bouncy-Bolson>`
-     - July 2nd, 2018
+     - July 2, 2018
      - |bouncy|
      - July 2019
+     - `Mikael Arguedas <https://github.com/mikaelarguedas>`_ / `Steven! Ragnarök <https://github.com/nuclearsandwich>`_
    * - :doc:`Ardent Apalone <Releases/Release-Ardent-Apalone>`
-     - December 8th, 2017
+     - December 8, 2017
      - |ardent|
      - December 2018
+     - `Steven! Ragnarök <https://github.com/nuclearsandwich>`_
    * - :doc:`beta3 <Releases/Beta3-Overview>`
-     - September 13th, 2017
+     - September 13, 2017
      -
      - December 2017
+     -
    * - :doc:`beta2 <Releases/Beta2-Overview>`
-     - July 5th, 2017
+     - July 5, 2017
      -
      - September 2017
+     -
    * - :doc:`beta1 <Releases/Beta1-Overview>`
-     - December 19th, 2016
+     - December 19, 2016
      -
      - Jul 2017
+     -
    * - :doc:`alpha1 - alpha8 <Releases/Alpha-Overview>`
-     - August 31th, 2015
+     - August 31, 2015
      -
      - December 2016
+     -
 
 Future Distributions
 --------------------

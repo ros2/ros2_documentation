@@ -90,7 +90,7 @@ Inside the ``ros2_ws/src/cpp_srvcli/src`` directory, create a new file called ``
   #include "rclcpp/rclcpp.hpp"
 
   using AddTwoInts = example_interfaces::srv::AddTwoInts;
-  rclcpp::node::SharedPtr g_node = nullptr;
+  rclcpp::Node::SharedPtr g_node = nullptr;
 
   void handle_service(
     const std::shared_ptr<rmw_request_id_t> request_header,
@@ -215,7 +215,7 @@ Inside the ``ros2_ws/src/cpp_srvcli/src`` directory, create a new file called ``
     request->a = 41;
     request->b = 1;
     auto result_future = client->async_send_request(request);
-    if (rclcpp::spin_until_future_complete(node, result) ==
+    if (rclcpp::spin_until_future_complete(node, result_future) !=
       rclcpp::FutureReturnCode::SUCCESS)
     {
       RCLCPP_ERROR(node->get_logger(), "service call failed :(");

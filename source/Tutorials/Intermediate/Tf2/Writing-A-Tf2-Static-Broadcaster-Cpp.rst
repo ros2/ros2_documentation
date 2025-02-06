@@ -94,7 +94,7 @@ Open the file using your preferred text editor.
 
     #include "geometry_msgs/msg/transform_stamped.hpp"
     #include "rclcpp/rclcpp.hpp"
-    #include "tf2/LinearMath/Quaternion.h"
+    #include "tf2/LinearMath/Quaternion.hpp"
     #include "tf2_ros/static_transform_broadcaster.h"
 
     class StaticFramePublisher : public rclcpp::Node
@@ -186,7 +186,7 @@ We also include ``tf2_ros/static_transform_broadcaster.h`` to use the ``StaticTr
 
 .. code-block:: C++
 
-    #include "tf2/LinearMath/Quaternion.h"
+    #include "tf2/LinearMath/Quaternion.hpp"
     #include "tf2_ros/static_transform_broadcaster.h"
 
 The ``StaticFramePublisher`` class constructor initializes the node with the name ``static_turtle_tf2_broadcaster``.

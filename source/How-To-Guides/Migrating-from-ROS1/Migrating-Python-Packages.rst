@@ -3,8 +3,11 @@
    Migration-Guide-Python
    The-ROS2-Project/Contributing/Migration-Guide-Python
 
-Migrating Python Packages
-=========================
+Migrating Python Packages Reference
+===================================
+
+This page is a reference on how to migrate Python packages from ROS 1 to ROS 2.
+If this is your first time migrating a Python package, then follow :doc:`this guide to migrate an example Python package <./Migrating-Python-Package-Example>` first.
 
 .. contents:: Table of Contents
    :depth: 2
@@ -167,3 +170,8 @@ In ROS 2:
        node.get_logger().info('service not available, waiting again...')
    resp = add_two_ints.call_async(req)
    rclpy.spin_until_future_complete(node, resp)
+
+.. warning::
+
+   Do not use ``rclpy.spin_until_future_complete`` in a ROS 2 callback.
+   For more details see the :doc:`sync deadlock article <../Sync-Vs-Async>`.

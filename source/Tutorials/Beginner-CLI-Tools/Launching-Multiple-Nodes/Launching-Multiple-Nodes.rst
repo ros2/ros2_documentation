@@ -32,11 +32,13 @@ Prerequisites
 
 Before starting these tutorials, install ROS 2 by following the instructions on the ROS 2 :doc:`../../../Installation/` page.
 
-The commands used in this tutorial assume you followed the binary packages installation guide for your operating system (Debian packages for Linux).
+The commands used in this tutorial assume you followed the binary packages installation guide for your operating system (deb packages for Linux).
 You can still follow along if you built from source, but the path to your setup files will likely be different.
 You also won't be able to use the ``sudo apt install ros-<distro>-<package>`` command (used frequently in the beginner level tutorials) if you install from source.
 
 If you are using Linux and are not already familiar with the shell, `this tutorial <https://www.linux.com/training-tutorials/bash-101-working-cli/>`__ will help.
+
+As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../Configuring-ROS2-Environment>`.
 
 Tasks
 -----

@@ -51,7 +51,7 @@ then you will need to update your firewall configuration to allow multicast usin
    sudo ufw allow in proto udp from 224.0.0.0/4
 
 
-You can check if the multicast flag is enabled for your network interface using the :code:`ifconfig` tool and looking for :code:`MULITCAST` in the flags section:
+You can check if the multicast flag is enabled for your network interface using the :code:`ifconfig` tool and looking for :code:`MULTICAST` in the flags section:
 
 .. code-block:: bash
 
@@ -241,28 +241,9 @@ To resolve this error, you will need to:
 
    $ sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 
-qt_gui_cpp error: SIP binding generator NOT available
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. only relevant to Eloquent and Foxy
-
-When building qt_gui_cpp there may be errors look like the following:
-
-.. code-block:: bash
-
-   --- stderr: qt_gui_cpp
-
-   CMake Error at src/CMakeLists.txt:10 (message):
-     No Python binding generator found.
-
-   ---
-   Failed   <<< qt_gui_cpp [ Exited with code 1 ]
-
-To fix this issue, follow :doc:`these steps <RQt-Source-Install-MacOS>` to install dependencies for RQt.
-
 rosdep install error ``homebrew: Failed to detect successful installation of [qt5]``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-While following the :doc:`Creating a workspace <../Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>` tutorial, you might encounter the following error stating that ``rosdep`` failes to install Qt5.
+While following the :doc:`Creating a workspace <../Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>` tutorial, you might encounter the following error stating that ``rosdep`` fails to install Qt5.
 
 .. code-block:: bash
 

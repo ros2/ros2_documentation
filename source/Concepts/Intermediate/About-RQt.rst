@@ -43,25 +43,20 @@ And then look for packages that start with ``rqt_``.
 System setup
 ------------
 
-Installing From Debian
-^^^^^^^^^^^^^^^^^^^^^^
+Installing From debs
+^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
 
    sudo apt install ros-{DISTRO}-rqt*
 
 
-Building From Source
-^^^^^^^^^^^^^^^^^^^^
-
-See :doc:`Building RQt from Source <../../How-To-Guides/RQt-Source-Install>`.
-
 RQt Components Structure
 ------------------------
 
 RQt consists of two metapackages:
 
-* *rqt* - core infrastucture modules.
+* *rqt* - core infrastructure modules.
 * *rqt_common_plugins* - Commonly useful debugging tools.
 
 Advantage of RQt framework
@@ -77,7 +72,7 @@ Compared to building your own GUIs from scratch:
 From system architecture's perspective:
 
 * Support multi-platform (basically wherever `QT <http://qt-project.org/>`__ and ROS run) and multi-language (``Python``, ``C++``).
-* Manageable lifecycle: RQt plugins using a common API makes maintainance & reuse easier.
+* Manageable lifecycle: RQt plugins using a common API makes maintenance & reuse easier.
 
 
 Further Reading

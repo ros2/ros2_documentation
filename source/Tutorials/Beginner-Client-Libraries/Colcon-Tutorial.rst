@@ -63,7 +63,7 @@ To build the samples, you will need to install ROS 2.
 
 Follow the :doc:`installation instructions <../../Installation>`.
 
-.. attention:: If installing from Debian packages, this tutorial requires the :ref:`desktop installation <linux-install-debians-install-ros-2-packages>`.
+.. attention:: If installing from deb packages, this tutorial requires the :ref:`desktop installation <linux-install-debs-install-ros-2-packages>`.
 
 Basics
 ------
@@ -340,7 +340,7 @@ The ``colcon-argcomplete`` package must be installed, and `some setup may be req
 Tips
 ----
 
-* If you do not want to build a specific package place an empty file named ``COLCON_IGNORE`` in the directory and it will not be indexed.
+* If you do not want to build a specific package, then place an empty file named ``COLCON_IGNORE`` in the directory and it will not be indexed.
 
 * If you want to avoid configuring and building tests in CMake packages you can pass: ``--cmake-args -DBUILD_TESTING=0``.
 
@@ -349,3 +349,31 @@ Tips
   .. code-block:: bash
 
      colcon test --packages-select YOUR_PKG_NAME --ctest-args -R YOUR_TEST_IN_PKG
+
+Setup ``colcon`` mixins
+-----------------------
+
+Various command line options are tedious to write and/or difficult to remember.
+
+For example, to change the CMake build type to debug, you normally use:
+
+.. code-block:: console
+
+    colcon build --cmake-args -DCMAKE_BUILD_TYPE=Debug
+
+To make common command line options easier to invoke this repository makes these "shortcuts" available.
+
+To install the default colcon mixins, run the following:
+
+.. code-block:: console
+
+    colcon mixin add default https://raw.githubusercontent.com/colcon/colcon-mixin-repository/master/index.yaml
+    colcon mixin update default
+
+Then, try out using the ``debug`` mixin:
+
+.. code-block:: console
+
+    colcon build --mixin debug
+
+For more details, see  the `colcon mixin repository <https://github.com/colcon/colcon-mixin-repository>`__.

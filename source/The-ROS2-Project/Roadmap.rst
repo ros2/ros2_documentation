@@ -15,11 +15,11 @@ This page describes planned work for ROS 2.
 The set of planned features and development efforts should provide insight into the overall direction of ROS 2.
 If you would like to see other features on the roadmap, please get in touch with us at info@openrobotics.org.
 
-Jazzy Roadmap
--------------
+Kilted Roadmap
+--------------
 
-Jazzy Jalisco is the ROS 2 release expected in May 2024.
-See the :doc:`release page <../Releases/Release-Jazzy-Jalisco>` for a detailed timeline.
+Kilted Kaiju is the ROS 2 release expected in May 2025.
+See the :doc:`release page <../Releases/Release-Kilted-Kaiju>` for a detailed timeline.
 
 The items in the roadmap below are the major features being worked on by the ROS 2 community.
 The "Size" is an estimated size of the task, where *Small* means person-days to complete, *Medium* means person-weeks to complete, and *Large* means person-months to complete.
@@ -43,14 +43,10 @@ If you'd like to take on one of these tasks, please :doc:`get in touch with us <
      - Size
      - Owner
      - Expected Completion
-   * - ``rmw_alternate`` development
+   * - Make ``rmw_zenoh_cpp`` a Tier-1 RMW
      - Large
      - Intrinsic
-     - May 2024
-   * - ``rosbag2 service record / play`` development
-     - Medium
-     - Sony Corporation / Apex.AI
-     - Dec 2023
+     - May 2025
 
 Planned releases
 ----------------

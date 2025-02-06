@@ -26,7 +26,7 @@ To start the demo, we execute the demo bringup launch file, which we are going t
     source ~/ros2_ws/install/setup.bash
     ros2 launch dummy_robot_bringup dummy_robot_bringup_launch.py
 
-  .. group-tab:: Debian Package
+  .. group-tab:: deb Package
 
     sudo apt install ros-${ROS_DISTRO}-dummy-robot-bringup
     ros2 launch dummy_robot_bringup dummy_robot_bringup_launch.py

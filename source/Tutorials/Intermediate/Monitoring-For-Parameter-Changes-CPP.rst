@@ -320,7 +320,7 @@ Now, to test monitoring of remote parameters, first run the newly-built paramete
 
      ros2 run cpp_parameter_event_handler parameter_event_handler
 
-Next, from another teminal (with ROS initialized), run the parameter_blackboard demo application, as follows:
+Next, from another terminal (with ROS initialized), run the parameter_blackboard demo application, as follows:
 
 .. code-block:: console
 

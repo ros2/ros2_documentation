@@ -33,29 +33,37 @@ The root directory contains configuration and files required to locally build th
 Building the site locally
 -------------------------
 
-Start by installing requirements located in the ``requirements.txt`` file:
+Start by creating `venv <https://docs.python.org/3/library/venv.html>`__ to build the documentation:
+
+.. code-block:: console
+
+   # activate the venv
+   python3 -m venv ros2doc
+
+   # activate venv
+   source ros2doc/bin/activate
+
+And install requirements located in the ``requirements.txt`` file:
 
 .. tabs::
 
   .. group-tab:: Linux
 
-    The next command does a user-specific install, which requires ``~/.local/bin/`` to be added to ``$PATH``:
-
     .. code-block:: console
 
-       pip3 install --user --upgrade -r requirements.txt
+       pip install -r requirements.txt -c constraints.txt
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-       pip3 install --user --upgrade -r requirements.txt
+       pip install -r requirements.txt -c constraints.txt
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      python -m pip install --user --upgrade -r requirements.txt
+      python -m pip install -r requirements.txt -c constraints.txt
 
 In order for Sphinx to be able to generate diagrams, the ``dot`` command must be available.
 
@@ -178,7 +186,7 @@ Migrating a Wiki File
    In the case where there is a table of contents, the first useful tag may be an ``<h2>`` tag.  Similarly, the ROS wiki contains some footer text that starts with ``<div id="pagebottom"></div>`` and ends just above ``</body></html>`` that can also be removed.
 
 #. Convert your html file by running a PanDoc conversion between HTML and restructured text.
-   The following command coverts an HTML file to the equivalent reStructured text files: ``pandoc -f html -t rst urdf.html > URDF.rst``.
+   The following command converts an HTML file to the equivalent reStructured text files: ``pandoc -f html -t rst urdf.html > URDF.rst``.
 
 #. Attempt to build your new documentation using the ``make html`` command.
    There may be errors and warnings that you will need to address.
@@ -194,7 +202,7 @@ Migrating a Wiki File
 
 #. For each image files downloaded update the image file links to point to the correct image directory for the ROS Docs.
    If any of the images require updating, or could be replaced with a `Mermaid <https://mermaid.js.org/intro/>`__ chart, please make this change.
-   Be aware that Mermaid.js is only supported in the core ROS 2 documenation currently.
+   Be aware that Mermaid.js is only supported in the core ROS 2 documentation currently.
 
 #. Once your document is complete add a table of contents to the top of your new rst document using the appropriate Sphinx commands.
    This block should replace any existing table of contents from the old ROS Wiki.
@@ -232,12 +240,48 @@ Finally, to view the site, you can click on the "Go Live" button in the right bo
    :width: 100%
    :alt: Live Server
 
+Building the Site with Devcontainer
+-----------------------------------
+
+`ROS 2 Documentation GitHub repository <https://github.com/ros2/ros2_documentation>`__ also supports ``Devcontainer`` development environment with Visual Studio Code.
+This will enable you to build the documentation much easier without changing your operating system.
+
+See :doc:`../../How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container` to install VS Code and Docker before the following procedure.
+
+Clone repository and start VS Code:
+
+.. code-block:: console
+
+   git clone https://github.com/ros2/ros2_documentation
+   cd ./ros2_documentation
+   code .
+
+To use ``Devcontainer``, you need to install "Remote Development" Extension within VS Code search in Extensions (CTRL+SHIFT+X) for it.
+
+And then, use ``View->Command Palette...`` or ``Ctrl+Shift+P`` to open the command palette.
+Search for the command ``Dev Containers: Reopen in Container`` and execute it.
+This will build your development docker container for you automatically.
+
+To build the documentation, open a terminal using ``View->Terminal`` or ``Ctrl+Shift+``` and ``New Terminal`` in VS Code.
+Inside the terminal, you can build the documentation:
+
+.. code-block:: console
+
+   make html
+
+.. image:: images/vscode_devcontainer.png
+   :width: 100%
+   :alt: VS Code Devcontainer
 
 Writing pages
 -------------
 
 The ROS 2 documentation website uses the ``reStructuredText`` format, which is the default plaintext markup language used by Sphinx.
 This section is a brief introduction to ``reStructuredText`` concepts, syntax, and best practices.
+When formatting your ``reStructuredText`` file **please make sure to write only one sentence per line as it makes reviewing and modifying your file much easier.**
+Also, be mindful of the use of white space in your file!
+The ROS 2 documentation linter will not accept pull requests with trailing white space.
+We recommend that you enable automatic white space highlighting and or cleanup if your editor supports it.
 
 You can refer to `reStructuredText User Documentation <https://docutils.sourceforge.io/rst.html>`_ for a detailed technical specification.
 
@@ -342,6 +386,13 @@ Images can be inserted using the ``.. image::`` directive.
 .. code-block:: rst
 
    .. image:: images/turtlesim_follow1.png
+
+Charts, Graphs, and Diagrams
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ROS 2 Documentation now supports charts, graphs, and diagrams written using `Mermaid Charts. <https://mermaid.js.org/intro/>`__
+We prefer that charts, graphs, and diagrams use Mermaid instead of static image files as it allows us to programmatically update and edit these resources as the project evolves.
+Full documentation of the `Mermaid graph language syntax can be found on their website. <https://mermaid.js.org/intro/syntax-reference.html>`__
 
 References and Links
 ^^^^^^^^^^^^^^^^^^^^

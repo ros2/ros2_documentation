@@ -153,7 +153,7 @@ Open the ``src/turtle_tf2_listener_debug.cpp`` file, and take a look at line 65:
 
 .. code-block:: C++
 
-   std::string to_frame_rel = "turtle3";
+   std::string toFrameRel = "turtle3";
 
 and lines 73-77:
 
@@ -205,7 +205,7 @@ And now stop the running demo, build it, and run it again:
 
 .. code-block:: console
 
-   ros2 launch turtle_tf2 start_debug_demo.launch.py
+   ros2 launch learning_tf2_cpp start_tf2_debug_demo_launch.py
 
 And right away we run into the next problem:
 
@@ -261,7 +261,7 @@ Stop the demo, build and run:
 
 .. code-block:: console
 
-   ros2 launch turtle_tf2 start_debug_demo.launch.py
+   ros2 launch turtle_tf2 start_tf2_debug_demo_launch.py
 
 And you should finally see the turtle move!
 

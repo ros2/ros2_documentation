@@ -314,7 +314,7 @@ New tags in ROS 2
 set_env and unset_env
 ^^^^^^^^^^^^^^^^^^^^^
 
-See `env`_ tag decription.
+See `env`_ tag description.
 
 push_ros_namespace
 ^^^^^^^^^^^^^^^^^^

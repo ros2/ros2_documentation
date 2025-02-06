@@ -21,7 +21,7 @@ In ROS 2, parameters are associated per node and are configurable at runtime wit
 Migrating YAML Parameter Files
 ------------------------------
 
-This guide describes how to adapt ROS 1 parameters files for ROS 2.
+This guide describes how to adapt ROS 1 parameters files for ROS 2 and illustrates the difference in the way parameters can be accessed from the node level.
 
 YAML file example
 ^^^^^^^^^^^^^^^^^
@@ -59,6 +59,13 @@ We would construct our ROS 2 parameters file as follows:
        debug: true
 
 Note the use of wildcards (``/**``) to indicate that the parameter ``debug`` should be set on any node in any namespace.
+
+Accessing parameters inside node
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Let's say we want to use ``lidar_name`` parameter inside C++/Python node.
+In ROS 1, we used slashes to separate node name and namespaces - ``"lidar_ns/lidar_node_name/lidar_name"``.
+In ROS 2, we use dots instead of slashes - ``"lidar_ns.lidar_node_name.lidar_name"``.
 
 Feature parity
 ^^^^^^^^^^^^^^

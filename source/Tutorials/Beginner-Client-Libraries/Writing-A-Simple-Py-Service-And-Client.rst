@@ -247,7 +247,7 @@ Finally it creates a new ``AddTwoInts`` request object.
           self.get_logger().info('service not available, waiting again...')
       self.req = AddTwoInts.Request()
 
-Below the constructor is the ``send_request`` method, which will send the request and return a future that can be passed to ``spin_until_future_complete``:
+Below the constructor is the ``send_request`` method, which will send the request and spin until it receives the response or fails.
 
 .. code-block:: python
 
@@ -256,7 +256,7 @@ Below the constructor is the ``send_request`` method, which will send the reques
       self.req.b = 1
       return self.cli.call_async(self.req)
 
-Finally we have the ``main`` method, which constructs a ``MinimalClientAsync`` object, sends the request using the passed-in command-line arguments, calls ``spin_until_future_complete``, and logs the results:
+Finally we have the ``main`` method, which constructs a ``MinimalClientAsync`` object, sends the request using the passed-in command-line arguments, calls ``rclpy.spin_until_future_complete`` to wait for the result, and logs the results.
 
 .. code-block:: python
 
@@ -273,6 +273,10 @@ Finally we have the ``main`` method, which constructs a ``MinimalClientAsync`` o
       except (KeyboardInterrupt, ExternalShutdownException):
           pass
 
+.. warning::
+
+  Do not use ``rclpy.spin_until_future_complete`` in a ROS 2 callback.
+  For more details see the :doc:`sync deadlock article <../../../How-To-Guides/Sync-Vs-Async>`.
 
 3.2 Add an entry point
 ~~~~~~~~~~~~~~~~~~~~~~

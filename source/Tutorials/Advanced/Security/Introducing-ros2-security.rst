@@ -25,7 +25,6 @@ Background
 The ``sros2`` package provides the tools and instructions to use ROS 2 on top of DDS-Security.
 The security features have been tested across platforms (Linux, macOS, and Windows) as well as across different languages (C++ and Python).
 The SROS2 has been designed to work with any secure middleware, although not all middleware is open source and support varies depending on the ROS distribution in use.
-Please reach out to the :ref:`ROS 2 Security Working Group <Security Working Group>` if you encounter any support issues.
 
 
 Installation
@@ -72,7 +71,7 @@ Fast DDS requires an additional CMake flag to build the security plugins, so the
 
 .. code-block:: bash
 
-  colcon build --symlink-install --cmake-args -DSECURITY=ON
+  colcon build --symlink-install --cmake-args -DSECURITY=ON --packages-select fastrtps rmw_fastrtps_cpp rmw_fastrtps_dynamic_cpp rmw_fastrtps_shared_cpp
 
 
 Selecting an alternate middleware
@@ -81,7 +80,7 @@ Selecting an alternate middleware
 If you choose not to use the default middleware implementation, be sure to :doc:`change your DDS implementation <../../../Installation/DDS-Implementations/>` before proceeding.
 
 ROS 2 allows you to change the DDS implementation at runtime.
-See `how to work with mulitple RMW implementations <../../../How-To-Guides/Working-with-multiple-RMW-implementations>` to explore different middleware implementations.
+See `how to work with multiple RMW implementations <../../../How-To-Guides/Working-with-multiple-RMW-implementations>` to explore different middleware implementations.
 
 Note that secure communication between vendors is not supported.
 
@@ -242,7 +241,65 @@ Note: You can switch between the C++ (demo_nodes_cpp) and Python (demo_nodes_py)
 
 These nodes are able to communicate because we have created the appropriate keys and certificates for them.
 
-Leave both nodes running as you answer the questions below.
+Leave both nodes running as you use ``ros2cli`` and answer the questions below.
+
+
+6\. Use ``ros2cli`` with security
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To use ``ros2cli`` to iterate with ROS 2 secured network, you need to provide it with override enclave by ``ROS_SECURITY_ENCLAVE_OVERRIDE`` environmental variable.
+Open an another terminal and set up the following environmental variables.
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+      export ROS_SECURITY_KEYSTORE=~/sros2_demo/demo_keystore
+      export ROS_SECURITY_ENABLE=true
+      export ROS_SECURITY_STRATEGY=Enforce
+      export ROS_SECURITY_ENCLAVE_OVERRIDE=/talker_listener/listener
+
+  .. group-tab:: MacOS
+
+    .. code-block:: bash
+
+      export ROS_SECURITY_KEYSTORE=~/sros2_demo/demo_keystore
+      export ROS_SECURITY_ENABLE=true
+      export ROS_SECURITY_STRATEGY=Enforce
+      export ROS_SECURITY_ENCLAVE_OVERRIDE=/talker_listener/listener
+
+  .. group-tab:: Windows
+
+    .. code-block:: bat
+
+      set ROS_SECURITY_KEYSTORE=%cd%/demo_keystore
+      set ROS_SECURITY_ENABLE=true
+      set ROS_SECURITY_STRATEGY=Enforce
+      set ROS_SECURITY_ENCLAVE_OVERRIDE=/talker_listener/listener
+
+
+Now you can use ``ros2cli`` to communicate with ROS 2 secured network.
+
+.. code-block:: bash
+
+  ros2 node list --no-daemon --spin-time 3
+  [INFO] [1733862009.410918416] [rcl]: Found security directory: /root/ros2_ws/colcon_ws/demo_keystore/enclaves/talker_listener/talker
+  /listener
+  /talker
+
+.. code-block:: bash
+
+  ros2 topic list --no-daemon --spin-time 3
+  [INFO] [1733861998.562163611] [rcl]: Found security directory: /root/ros2_ws/colcon_ws/demo_keystore/enclaves/talker_listener/talker
+  /chatter
+  /parameter_events
+  /rosout
+
+.. note::
+
+  Avoid using ros2 daemon because it may not have security enclaves, and enough time duration should be given for the discovery in ROS 2 secured network.
 
 
 Take the Quiz!

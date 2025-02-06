@@ -38,7 +38,7 @@ Prerequisites
 
 Before starting these tutorials, install ROS 2 by following the instructions on the ROS 2 :doc:`../../Installation` page.
 
-The commands used in this tutorial assume you followed the binary packages installation guide for your operating system (Debian packages for Linux).
+The commands used in this tutorial assume you followed the binary packages installation guide for your operating system (deb packages for Linux).
 You can still follow along if you built from source, but the path to your setup files will likely be different.
 You also won't be able to use the ``sudo apt install ros-<distro>-<package>`` command (used frequently in the beginner level tutorials) if you install from source.
 
@@ -111,7 +111,7 @@ If you don't want to have to source the setup file every time you open a new she
 
         C:\dev\ros2_{DISTRO}\local_setup.ps1
 
-      PowerShell will request permission to run this script everytime a new shell is opened.
+      PowerShell will request permission to run this script every time a new shell is opened.
       To avoid that issue you can run:
 
       .. code-block:: console

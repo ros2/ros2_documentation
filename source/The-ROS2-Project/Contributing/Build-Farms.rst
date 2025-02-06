@@ -31,7 +31,7 @@ Jobs and Deployment
 The ROS build farms perform several different jobs.
 For each job type you will find a detailed description of what they do and how they work:
 
-* `release jobs`_ generate binary packages, e.g., debian packages
+* `release jobs`_ generate binary packages, e.g., deb packages
 * `devel jobs`_ build and test ROS packages within a single repository on a polling basis
 * `pull_request jobs`_ build and test ROS packages within a single repository triggered by webhooks
 * `CI jobs`_ build and test ROS packages across repositories with the option of using artifacts
@@ -98,7 +98,7 @@ Frequency Asked Questions (FAQ) and Troubleshooting
 
    a) Inspect the release job that raised the issue (see 1.) and localize the cmake dependency
       issue. To do so, browse to the cmake section, e.g., navigate to the *build binarydeb*
-      section through the menu on the left in case of a ubuntu/debian build job. The *CMake Error*
+      section through the menu on the left in case of a Ubuntu/Debian build job. The *CMake Error*
       will typically hint at a dependency required by the cmake configuration but missing in the
       `package manifest`_. Once you have fixed the dependency in the manifest, do a new release
       of your package and wait for feedback from the build farms or...
