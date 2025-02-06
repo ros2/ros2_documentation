@@ -23,7 +23,8 @@ Using Python Packages with ROS 2
 Installing via ``rosdep``
 -------------------------
 
-The fastest way to include third-party python packages is to use their corresponding rosdep keys, if available.  ``rosdep`` keys can be checked via:
+The fastest way to include third-party python packages is to use their corresponding rosdep keys, if available.
+``rosdep`` keys can be checked via:
 
 * https://github.com/ros/rosdistro/blob/master/rosdep/base.yaml
 * https://github.com/ros/rosdistro/blob/master/rosdep/python.yaml

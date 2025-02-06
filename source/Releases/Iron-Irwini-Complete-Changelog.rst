@@ -2258,7 +2258,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add CLI verb for burst mode of playback (`#980 <https://github.com/ros2/rosbag2/issues/980>`__)
 * Add play-for specified number of seconds functionality (`#960 <https://github.com/ros2/rosbag2/issues/960>`__)
 * Make unpublished topics unrecorded by default (`#968 <https://github.com/ros2/rosbag2/issues/968>`__)
-* Contributors: Agustin Alba Chicar, Chris Lalancette, DensoADAS, Emerson Knapp, EsipovPA, Esteve Fernandez, Geoffrey Biggs, Hunter L.Allen, Keisuke Shima, Michael Orlov, Sean Kelly, Tony Peng, Yadu, james-rms, kylemarcey, mergify[bot], ricardo-manriquez
+* Contributors: Agustin Alba Chicar, Chris Lalancette, DensoADAS, Emerson Knapp, EsipovPA, Esteve Fernandez, Geoffrey Biggs, Hunter L. Allen, Keisuke Shima, Michael Orlov, Sean Kelly, Tony Peng, Yadu, james-rms, kylemarcey, mergify[bot], ricardo-manriquez
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4217,5 +4217,3 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Bump zstd to 1.4.8 in zstd_vendor package (`#1132 <https://github.com/ros2/rosbag2/issues/1132>`__)
 * Fix/zstd vendor does not find system zstd (`#1111 <https://github.com/ros2/rosbag2/issues/1111>`__)
 * Contributors: DasRoteSkelett, Michael Orlov
-
-

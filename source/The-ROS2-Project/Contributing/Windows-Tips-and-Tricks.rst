@@ -20,8 +20,10 @@ Practically speaking, 4 of those characters are always used by the drive letter,
 That means that only 256 characters are available for the *sum* of all parts of the path.
 This has two practical consequences for ROS 2:
 
-* Some of the ROS 2 internal path names are fairly long. Because of this, we always recommend using a short path name for the root of your ROS 2 directory, like ``C:\dev``.
-* When building ROS 2 from source, the default isolated build mode of colcon can generate very long path names. To avoid these very long path names, use ``--merge-install`` when building on Windows.
+* Some of the ROS 2 internal path names are fairly long.
+  Because of this, we always recommend using a short path name for the root of your ROS 2 directory, like ``C:\dev``.
+* When building ROS 2 from source, the default isolated build mode of colcon can generate very long path names.
+  To avoid these very long path names, use ``--merge-install`` when building on Windows.
 
 **Note**: It is possible to change Windows to have much longer maximum path lengths.
 See `this article <https://docs.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=cmd#enable-long-paths-in-windows-10-version-1607-and-later>`__ for more information.
@@ -95,7 +97,8 @@ In another library, ``MY_LIB`` would be replaced with the library name.
 
 For a complete example of this header, see `rviz_rendering <https://github.com/ros2/rviz/blob/ros2/rviz_rendering/include/rviz_rendering/visibility_control.hpp>`__.
 
-To use the macro, add ``MY_LIB_PUBLIC`` before symbols which need to be visible to external libraries. For example:
+To use the macro, add ``MY_LIB_PUBLIC`` before symbols which need to be visible to external libraries.
+For example:
 
 .. code-block:: c++
 

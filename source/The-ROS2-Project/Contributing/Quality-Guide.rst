@@ -127,7 +127,8 @@ However, this step-by-step is a great place to start!
 
 * Enabling Analysis for Package/Target
 
-  When the C++ compiler is Clang, enable the ``-Wthread-safety`` flag. Example below for CMake-based projects
+  When the C++ compiler is Clang, enable the ``-Wthread-safety`` flag.
+  Example below for CMake-based projects
 
   .. code-block:: cmake
 
@@ -163,7 +164,8 @@ However, this step-by-step is a great place to start!
 
   * Step 2 - Fix Warnings
 
-    * In the above example - ``Foo::get`` will produce a compiler warning! To fix it, lock before returning bar
+    * In the above example - ``Foo::get`` will produce a compiler warning!
+      To fix it, lock before returning bar
 
     .. code-block:: cpp
 
@@ -174,18 +176,21 @@ However, this step-by-step is a great place to start!
 
   * Step 3 - (Optional but Recommended) Refactor Existing Code to Private-Mutex Pattern
 
-    A recommended pattern in threaded C++ code is to always keep your ``mutex`` as a ``private:`` member of the data structure. This makes data safety the concern of the containing structure, offloading that responsibility from users of the structure and minimizing the surface area of affected code.
+    A recommended pattern in threaded C++ code is to always keep your ``mutex`` as a ``private:`` member of the data structure.
+    This makes data safety the concern of the containing structure, offloading that responsibility from users of the structure and minimizing the surface area of affected code.
 
-    Making your locks private may require rethinking the interfaces to your data. This is a great exercise - here are a few things to consider
+    Making your locks private may require rethinking the interfaces to your data.
+    This is a great exercise - here are a few things to consider
 
     * You may want to provide specialized interfaces for performing analysis that requires complex locking logic, e.g. counting members in a filtered set of a mutex-guarded map structure, instead of actually returning the underlying structure to consumers
-    * Consider copying to avoid blocking, where the amount of data is small. This can let other threads get on with accessing the shared data, which can potentially lead to better overall performance.
+    * Consider copying to avoid blocking, where the amount of data is small.
+      This can let other threads get on with accessing the shared data, which can potentially lead to better overall performance.
 
   * Step 4 - (Optional) Enable Negative Capability Analysis
 
-    https://clang.llvm.org/docs/ThreadSafetyAnalysis.html#negative-capabilities
-
-    Negative Capability Analysis lets you specify “this lock must not be held when calling this function”. It can reveal potential deadlock cases that other annotations cannot.
+    `Negative Capability Analysis <https://clang.llvm.org/docs/ThreadSafetyAnalysis.html#negative-capabilities>`_
+    lets you specify “this lock must not be held when calling this function”.
+    It can reveal potential deadlock cases that other annotations cannot.
 
     * Where you specified ``-Wthread-safety``, add the additional flag ``-Wthread-safety-negative``
     * On any function that acquires a lock, use the ``RCPPUTILS_TSA_REQUIRES(!mutex)`` pattern

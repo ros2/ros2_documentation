@@ -61,8 +61,7 @@ However, there are two main cases where you wouldn’t:
 
 Physical Properties
 -------------------
-In order to get your model to simulate properly, you need to define several physical properties of your robot, i.e.
-the properties that a physics engine like Gazebo would need.
+In order to get your model to simulate properly, you need to define several physical properties of your robot, i.e. the properties that a physics engine like Gazebo would need.
 
 Inertia
 ^^^^^^^

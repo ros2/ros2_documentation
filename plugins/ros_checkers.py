@@ -19,15 +19,16 @@ ALPHABETIC = r'([A-Za-z])'
 DIGITS = '([0-9])'
 NOT_BREAK = r'[^!.?]'
 BREAK = r'([!.?])'
-PREFIXES = r'(Mr|St|Mrs|Ms|Dr|etc|vol|cf|et al|vs|eg|Proc)\.'
+PREFIXES = r'(Mr|St|Mrs|Ms|Dr|etc|vol|cf|et al|vs|eg|Proc|Mon|Tue|Wed|Thu|Fri)\.'
 SUFFIXES = r'(Inc|Ltd|Jr|Sr|Co)'
 WEBSITES = r'\.(com|net|org|io|gov|edu|me|ros)'
-EXTENSIONS = r'\.(xml|cfg|py|launch|frame_id|ini|md|log|h|cpp|bash|patch|gz|yaml|txt|NET|js|msg|srv|action|rst|exe|so|iso)'
-MULTIPLE_DOTS = r'\.{2,}'
+EXTENSIONS = r'\.(xml|cfg|py|launch|frame_id|ini|md|log|h|cpp|bash|patch|gz|yaml|txt|NET|js|msg|srv|action|rst|exe|so|iso|stl|idl)'
+MULTIPLE_DOTS = r'(\.{2,})([^\.])'
 STARTERS = r'(Mr|Mrs|Ms|Dr|Prof|Capt|Cpt|Lt|He\s|She\s|It\s|They\s|Their\s|Our\s|We\s|But\s|However\s|That\s|This\s|Wherever)'
 ACRONYMS = r'([A-Z][.][A-Z][.](?:[A-Z][.])?)'
 DIGITS_DOT_DIGITS = re.compile(DIGITS + '([.])' + DIGITS)
 SINGLE_LETTER = re.compile(r'(\s[A-Za-z])(\.)(\s)')
+ON_THE_INSIDE = re.compile(r'()' + BREAK + r'(["\)])')
 DOT_PAREN = re.compile(r'\.( \()')
 
 # RST Formatting Patterns
@@ -51,23 +52,31 @@ def split_into_sentences(text):
     """
 
     text = ' ' + text + '  '
+    text = re.sub('Lu!!', f'Lu{EXCLAM}{EXCLAM}', text)
 
     # Convert nonbreaking punctuation to special characters
     for pattern in [DIGITS_DOT_DIGITS, SINGLE_LETTER,
-                                 HYPERLINK, BACKTICK, LIST_PREFIX, TRAILING_FORMATTING
-                                 ]:
+                    HYPERLINK, BACKTICK, LIST_PREFIX, TRAILING_FORMATTING,
+                    ON_THE_INSIDE,
+                    ]:
         m = pattern.search(text)
         while m:
             text = text.replace(m.group(0), m.group(1) + SP_LOOKUP[m.group(2)] + m.group(3))
             m = pattern.search(text)
+
+    text = re.sub(MULTIPLE_DOTS, lambda match: DOT * len(match.group(1)) + match.group(2), text)
 
     for pattern in [PREFIXES, SUFFIXES]:
         text = re.sub(pattern, '\\1' + DOT, text)
     for pattern in [DOT_PAREN, WEBSITES, EXTENSIONS]:
         text = re.sub(pattern, DOT + '\\1', text)
 
-    text = re.sub(MULTIPLE_DOTS, lambda match: DOT * len(match.group(0)) + STOP, text)
     text = re.sub('Ph\.D\.', f'Ph{DOT}D{DOT}', text)
+    text = re.sub('i\.e\.', f'i{DOT}e{DOT}', text)
+
+    text = re.sub('Steven!', f'Steven{EXCLAM}', text)
+    text = re.sub('vd\. Hoorn', f'vd{DOT} Hoorn', text)
+
     text = re.sub(ACRONYMS + ' ' + STARTERS,
                   f'\\1{STOP} \\2',
                   text)

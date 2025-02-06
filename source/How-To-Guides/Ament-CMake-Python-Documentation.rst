@@ -63,8 +63,8 @@ In this case, it is ``my_project``, or ``${PROJECT_NAME}``.
 .. warning::
 
    Calling ``rosidl_generate_interfaces`` and ``ament_python_install_package`` in the same CMake project does not work.
-   See this `Github issue <https://github.com/ros2/rosidl_python/issues/141>`_ for more info. It is best practice to instead
-   separate out the message generation into a separate package.
+   See this `Github issue <https://github.com/ros2/rosidl_python/issues/141>`_ for more info.
+   It is best practice to instead separate out the message generation into a separate package.
 
 Then, another Python package that correctly depends on ``my_project`` can use it as a normal Python module:
 

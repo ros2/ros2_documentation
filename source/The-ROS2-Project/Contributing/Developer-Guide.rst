@@ -198,11 +198,11 @@ This might include workflows for testing the code using something like ``python 
 
 Examples:
 
-* capabilities: https://docs.ros.org/hydro/api/capabilities/html/
+* `capabilities <https://docs.ros.org/hydro/api/capabilities/html/>`_
 
   * This one gives an example of docs which describe the public API
 
-* catkin_tools: https://catkin-tools.readthedocs.org/en/latest/development/extending_the_catkin_command.html
+* `catkin_tools <https://catkin-tools.readthedocs.org/en/latest/development/extending_the_catkin_command.html>`_
 
   * This is an example of describing an extension point for a package
 
@@ -425,7 +425,8 @@ Package Naming Conventions
 
 Names play an important role in ROS and following naming conventions simplifies the process of learning and understanding large systems.
 
-The ROS packages occupy a flat namespace, so naming should be done carefully and consistently. There is a standard for package naming in `REP-144 <https://www.ros.org/reps/rep-0144.html>`__
+The ROS packages occupy a flat namespace, so naming should be done carefully and consistently.
+There is a standard for package naming in `REP-144 <https://www.ros.org/reps/rep-0144.html>`__
 
 * Package names should follow common C variable naming conventions: lower case, start with a letter, use underscore separators, e.g. laser_viewer
 
@@ -578,7 +579,8 @@ The usual workflow is:
   * In the first box "CI_BRANCH_TO_TEST" enter your feature branch name
   * Hit the ``build`` button
 
-  (if you are not a ROS 2 committer, you don't have access to the CI farm. In that case, ping the reviewer of your PR to run CI for you)
+  (if you are not a ROS 2 committer, you don't have access to the CI farm.
+  In that case, ping the reviewer of your PR to run CI for you)
 
 * If your use case requires running code coverage:
 
@@ -895,7 +897,7 @@ Capture the lcov results with a similar command this time dropping the ``--initi
 
      lcov --no-external --capture --directory . --output-file ~/ros2.info
 
-Combine the trace .info files:
+Combine the trace ``.info`` files:
 
 .. code-block:: bash
 
