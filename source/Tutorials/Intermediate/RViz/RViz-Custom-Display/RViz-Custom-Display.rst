@@ -3,14 +3,17 @@ Building a Custom RViz Display
 
 Background
 ----------
-There are many types of data that have existing visualizations in RViz. However, if there is a message type that does
+There are many types of data that have existing visualizations in RViz.
+However, if there is a message type that does
 not yet have a plugin to display it, there are two choices to see it in RViz.
 
  1. Convert the message to another type, such as ``visualization_msgs/Marker``.
  2. Write a Custom RViz Display.
 
-With the first option, there is more network traffic and limitations to how the data can be represented. It is also quick and flexible.
-The latter option is explained in this tutorial. It takes a bit of work, but can lead to much richer visualizations.
+With the first option, there is more network traffic and limitations to how the data can be represented.
+It is also quick and flexible.
+The latter option is explained in this tutorial.
+It takes a bit of work, but can lead to much richer visualizations.
 
 All of the code for this tutorial can be found in `this repository <https://github.com/MetroRobots/rviz_plugin_tutorial>`__.
 In order to see the incremental progress of the plugin written in this tutorial,
@@ -224,7 +227,8 @@ First, you need to add a dependency in ``CMakeLists.txt`` and ``package.xml`` on
 We need to add three lines to the header file:
 
 
-* ``#include <rviz_rendering/objects/shape.hpp>`` - There's `lots of options in the rviz_rendering package <https://github.com/ros2/rviz/tree/ros2/rviz_rendering/include/rviz_rendering/objects>`_ for objects to build your visualization on. Here we're using a simple shape.
+* ``#include <rviz_rendering/objects/shape.hpp>`` - There's `lots of options in the rviz_rendering package <https://github.com/ros2/rviz/tree/ros2/rviz_rendering/include/rviz_rendering/objects>`_ for objects to build your visualization on.
+  Here we're using a simple shape.
 * In the class, we'll add a new ``protected`` virtual method: ``void onInitialize() override;``
 * We also add a pointer to our shape object: ``std::unique_ptr<rviz_rendering::Shape> point_shape_;``
 
@@ -407,11 +411,13 @@ First, we update the plugin declaration.
 * We add the ``name`` field to the ``class`` tag.
   This changes the name that is displayed in RViz.
   In code, it makes sense to call it a ``PointDisplay`` but in RViz, we want to simplify.
-* We put actual text into the description. Don't be lazy.
+* We put actual text into the description.
+  Don't be lazy.
 * By declaring the specific message type here, when you attempt to add a Display by Topic, it will suggest this plugin for the topics of that type.
 
 We also add an icon for the plugin at ``icons/classes/Point2D.png``.
-The folder is hardcoded, and the filename should match the name from the plugin declaration (or the name of the class if not specified). `[icon source] <https://commons.wikimedia.org/wiki/File:Free_software_icon.svg>`_
+The folder is hardcoded, and the filename should match the name from the plugin declaration (or the name of the class if not specified).
+`[icon source] <https://commons.wikimedia.org/wiki/File:Free_software_icon.svg>`_
 
 We need to install the image file in the CMake.
 

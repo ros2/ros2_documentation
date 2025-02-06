@@ -89,7 +89,7 @@ Note that secure communication between vendors is not supported.
 Run the demo
 ------------
 
-1\. Create a folder for the security files
+1) Create a folder for the security files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   Begin by creating folder to store all the files necessary for this demo:
 
@@ -113,7 +113,7 @@ Run the demo
 
         md C:\dev\ros2\sros2_demo
 
-2\. Generate a keystore
+2) Generate a keystore
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 Use the ``sros2`` utilities to create the keystore.
@@ -142,7 +142,7 @@ Files in the keystore will be used to enable security for all the participants i
       cd sros2_demo
       ros2 security create_keystore demo_keystore
 
-3\. Generate keys and certificates
+3) Generate keys and certificates
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Once the keystore is created, create keys and certificates for each node with security enabled.
@@ -182,7 +182,7 @@ This command uses the ``create_enclave`` feature which is covered in more detail
     Then re-run the commands above.
 
 
-4\. Configure environment variables
+4) Configure environment variables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Three environment variables allow the middleware to locate encryption materials and enable (and possibly enforce) security.
@@ -218,7 +218,7 @@ These variables need to be defined in each terminal used for the demo.
 For convenience you can add them to your boot environment.
 
 
-5\. Run the ``talker/listener`` demo
+5) Run the ``talker/listener`` demo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Begin the demo by launching the talker node.
@@ -244,7 +244,7 @@ These nodes are able to communicate because we have created the appropriate keys
 Leave both nodes running as you use ``ros2cli`` and answer the questions below.
 
 
-6\. Use ``ros2cli`` with security
+6) Use ``ros2cli`` with security
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To use ``ros2cli`` to iterate with ROS 2 secured network, you need to provide it with override enclave by ``ROS_SECURITY_ENCLAVE_OVERRIDE`` environmental variable.

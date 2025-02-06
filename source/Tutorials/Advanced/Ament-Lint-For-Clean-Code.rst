@@ -109,8 +109,10 @@ For example, if you wish to scan just a recently modified file you can call ``am
 
 ``ament_cppcheck`` supports the following options:
 
-* ``--libraries [LIBRARIES ...]`` - Library configurations to load in addition to the standard libraries of C and C++. Each library is passed to cppcheck as '--library=<library_name>'
-* ``--include_dirs [INCLUDE_DIRS ...]`` - Include directories for C/C++ files being checked.Each directory is passed to cppcheck as '-I <include_dir>' (default: None)
+* ``--libraries [LIBRARIES ...]`` - Library configurations to load in addition to the standard libraries of C and C++.
+  Each library is passed to cppcheck as '--library=<library_name>'
+* ``--include_dirs [INCLUDE_DIRS ...]`` - Include directories for C/C++ files being checked.
+  Each directory is passed to cppcheck as '-I <include_dir>' (default: None)
 * ``--cppcheck-version`` - Get the cppcheck version, print it, and then exit.
 
 2.3 ``ament_cppcheck`` Example
@@ -283,7 +285,8 @@ For example, if you wish to scan just one package in your workspace you can call
 5.2 ``ament_uncrustify`` Options
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* ``-c CFG`` - The config file that Uncrustify should use if you would prefer to use your own settings. We recommend you stick to the defaults
+* ``-c CFG`` - The config file that Uncrustify should use if you would prefer to use your own settings.
+  We recommend you stick to the defaults
 * ``--linelength N`` - The maximum line length.
 * ``--language`` - One of {C,C++,CPP}, passed to uncrustify as '-l <language>' to force a specific language rather then choosing one based on file extension.
 * ``--reformat`` -  Reformat the files in place, i.e. fix the formatting errors encountered. **We recommend you use this option when running ``ament_uncrustify`` as it will save you quite a bit of time!**

@@ -235,7 +235,7 @@ Now run the node:
      ros2 run cpp_parameter_event_handler parameter_event_handler
 
 The node is now active and has a single parameter and will print a message whenever this parameter is updated.
-To test this, open up another terminal and source the ROS setup file as before (. install/setup.bash) and execute the following command:
+To test this, open up another terminal and source the ROS setup file as before (``. install/setup.bash``) and execute the following command:
 
 .. code-block:: console
 
@@ -349,5 +349,3 @@ Related content
 ---------------
 
 To learn how to adapt ROS 1 parameter files for ROS 2, see the :doc:`Migrating YAML parameter files from ROS 1 to ROS2 <../../How-To-Guides/Migrating-from-ROS1/Migrating-Parameters>` tutorial.
-
-

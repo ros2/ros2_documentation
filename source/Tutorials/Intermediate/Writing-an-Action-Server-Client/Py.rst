@@ -346,7 +346,8 @@ This is achieved by additionally passing the callback to the action client when 
     :language: python
     :lines: 21
 
-We're all set. If we run our action client, you should see feedback being printed to the screen.
+We're all set.
+If we run our action client, you should see feedback being printed to the screen.
 
 Summary
 -------

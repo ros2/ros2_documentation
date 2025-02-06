@@ -146,13 +146,13 @@ statistics can be configured as well.
 
 The configurable fields are described in the following table:
 
-==================================  =============================================================================================
-Subscription Config Field            Purpose
-==================================  =============================================================================================
-topic_stats_options.state            Enable or disable topic statistics (default ``rclcpp::TopicStatisticsState::Disable``)
-topic_stats_options.publish_period   The period in which to collect statistics data and publish a statistics message (default ``1s``)
-topic_stats_options.publish_topic    The topic to use when publishing statistics data (default ``/statistics``)
-==================================  =============================================================================================
+======================================  =============================================================================================
+Subscription Config Field                Purpose
+======================================  =============================================================================================
+``topic_stats_options.state``            Enable or disable topic statistics (default ``rclcpp::TopicStatisticsState::Disable``)
+``topic_stats_options.publish_period``   The period in which to collect statistics data and publish a statistics message (default ``1s``)
+``topic_stats_options.publish_topic``    The topic to use when publishing statistics data (default ``/statistics``)
+======================================  =============================================================================================
 
 1.2 CMakeLists.txt
 ~~~~~~~~~~~~~~~~~~
@@ -324,8 +324,9 @@ Summary
 -------
 
 You created a subscriber node with topic statistics enabled, which published statistics data from
-the :doc:`C++ <../../Beginner-Client-Libraries/Writing-A-Simple-Cpp-Service-And-Client>`'s publisher node. You were able to compile and run this node. While running,
-you were able to observe the statistics data.
+the :doc:`C++ <../../Beginner-Client-Libraries/Writing-A-Simple-Cpp-Service-And-Client>`'s publisher node.
+You were able to compile and run this node.
+While running, you were able to observe the statistics data.
 
 Related content
 ---------------

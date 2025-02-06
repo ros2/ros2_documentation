@@ -15,7 +15,8 @@ Most roboticists work in teams, and often those teams include a mechanical engin
 Instead of crafting an URDF by hand it is possible to export an URDF model from many different CAD and modeling programs.
 These export tools are often developed by individuals that are familiar with the particular CAD program they use.
 Below you will find a list of available URDF exporters for a variety of CAD and 3D modeling software systems.
-*The ROS core maintainers do not maintain these packages. As such we make no claims about their performance or ease of use.*
+*The ROS core maintainers do not maintain these packages.
+As such we make no claims about their performance or ease of use.*
 However, we figured it would be helpful to produce a list of available URDF exporters.
 
 **CAD Exporters**

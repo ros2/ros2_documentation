@@ -48,7 +48,8 @@ Example package layout:
 Test Contents
 -------------
 
-You can now write tests to your heart's content. There are `plenty of resources on pytest <https://docs.pytest.org>`__, but in short, you can write functions with the ``test_`` prefix and include whatever assert statements you'd like.
+You can now write tests to your heart's content.
+There are `plenty of resources on pytest <https://docs.pytest.org>`__, but in short, you can write functions with the ``test_`` prefix and include whatever assert statements you'd like.
 
 
 .. code-block:: python

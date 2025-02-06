@@ -126,7 +126,8 @@ In the first window, you'll see output from the subscriber:
       $ sudo sysctl -w net.inet.udp.recvspace=209715
       $ sudo sysctl -w net.inet.udp.maxdgram=65500
 
-   These changes will not persist a reboot. If you want the changes to persist, add these lines to ``/etc/sysctl.conf`` (create the file if it doesn't exist already):
+   These changes will not persist a reboot.
+   If you want the changes to persist, add these lines to ``/etc/sysctl.conf`` (create the file if it doesn't exist already):
 
    .. code-block:: bash
 
@@ -158,9 +159,9 @@ Add network traffic
 
    This next section is Linux-specific.
 
-   However, for macOS and Windows you can achieve a similar effect with the utilities "Network Link Conditioner" (part of the xcode tool suite) and "Clumsy" (http://jagt.github.io/clumsy/index.html), respectively, but they will not be covered in this tutorial.
+   However, for macOS and Windows you can achieve a similar effect with the utilities "Network Link Conditioner" (part of the xcode tool suite) and `"Clumsy" <http://jagt.github.io/clumsy/index.html>`_, respectively, but they will not be covered in this tutorial.
 
-We are going to use the Linux network traffic control utility, ``tc`` (http://linux.die.net/man/8/tc).
+We are going to use the Linux network traffic control utility, ``tc`` (`man page <http://linux.die.net/man/8/tc>`_) .
 
 .. code-block:: bash
 

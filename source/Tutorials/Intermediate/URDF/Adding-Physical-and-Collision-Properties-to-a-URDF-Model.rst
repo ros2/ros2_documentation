@@ -54,9 +54,9 @@ Here is the code for our new base link.
 In many cases, you’ll want the collision geometry and origin to be exactly the same as the visual geometry and origin.
 However, there are two main cases where you wouldn’t:
 
- * **Quicker Processing**. Doing collision detection for two meshes is a lot more computational complex than for two simple geometries.
+ * **Quicker Processing** Doing collision detection for two meshes is a lot more computational complex than for two simple geometries.
    Hence, you may want to replace the meshes with simpler geometries in the collision element.
- * **Safe Zones**. You may want to restrict movement close to sensitive equipment.
+ * **Safe Zones** You may want to restrict movement close to sensitive equipment.
    For instance, if we didn’t want anything to collide with R2D2’s head, we might define the collision geometry to be a cylinder encasing his head to prevent anything from getting too close to his head.
 
 Physical Properties
@@ -109,7 +109,8 @@ Here is a simple one.
 * The inertia tensor depends on both the mass and the distribution of mass of the object.
   A good first approximation is to assume equal distribution of mass in the volume of the object and compute the inertia tensor based on the object's shape, as outlined above.
 * If unsure what to put, a matrix with ixx/iyy/izz=1e-3 or smaller is often a reasonable default for a mid-sized link (it corresponds to a box of 0.1 m side length with a mass of 0.6 kg).
-  The identity matrix is a particularly bad choice, since it is often much too high (it corresponds to a box of 0.1 m side length with a mass of 600 kg!).
+  The identity matrix is a particularly bad choice, since it is often much too high.
+  (it corresponds to a box of 0.1 m side length with a mass of 600 kg!)
 * You can also specify an origin tag to specify the center of gravity and the inertial reference frame (relative to the link's reference frame).
 * When using realtime controllers, inertia elements of zero (or almost zero) can cause the robot model to collapse without warning, and all links will appear with their origins coinciding with the world origin.
 

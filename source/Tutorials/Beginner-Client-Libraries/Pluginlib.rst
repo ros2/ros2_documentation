@@ -189,7 +189,8 @@ Create ``ros2_ws/src/polygon_plugins/plugins.xml`` with the following code:
 A couple things to note:
 
 1. The ``library`` tag gives the relative path to a library that contains the plugins that we want to export.
-   In ROS 2, that is just the name of the library. In ROS 1, it contained the prefix ``lib`` or sometimes ``lib/lib`` (i.e. ``lib/libpolygon_plugins``), but here it is simpler.
+   In ROS 2, that is just the name of the library.
+   In ROS 1, it contained the prefix ``lib`` or sometimes ``lib/lib`` (i.e. ``lib/libpolygon_plugins``), but here it is simpler.
 2. The ``class`` tag declares a plugin that we want to export from our library.
    Let's go through its parameters:
 
@@ -313,4 +314,5 @@ It should print:
 Summary
 -------
 
-Congratulations! You've just written and used your first plugins.
+Congratulations!
+You've just written and used your first plugins.

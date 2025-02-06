@@ -30,7 +30,8 @@ Prerequisites
 * A docker installation with the compose plugin.
   Please refer to the installation steps detailed in `Docker installation <https://docs.docker.com/engine/install/>`_ and `Compose Plugin <https://docs.docker.com/compose/install>`_.
 * (Recommended) A basic understanding on `ROS 2 Security design <https://design.ros2.org/articles/ros2_dds_security.html>`_.
-* (Recommended) Previous security tutorials completion. In particular:
+* (Recommended) Previous security tutorials completion.
+  In particular:
 
     * :doc:`Introducing-ros2-security`
     * :doc:`The-Keystore`
