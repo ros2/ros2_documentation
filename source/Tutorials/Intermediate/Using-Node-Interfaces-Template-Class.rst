@@ -173,7 +173,6 @@ Next, we create a ``rclcpp_lifecycle::LifecycleNode`` class. This class often in
       return 0;
     }
 
-
 In the main function, a ``SharedPtr`` for the ``LifecycleNode`` is created, and the function declared above with the ``LifecycleNode`` as an argument is called.
 
 .. note:: The ``SharedPtr`` needs to be dereferenced as the template accepts a reference to the ``NodeT`` object.
