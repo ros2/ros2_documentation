@@ -155,9 +155,6 @@ Then, it retrieves and prints the node name.
       {}
     };
 
-
-
-
 Next, we create a ``rclcpp_lifecycle::LifecycleNode`` class. This class often includes functions for the state transitions  ``Unconfigured``, ``Inactive``, ``Active``, and ``Finalized``. However, we have not included any of them for demonstration purposes.
 
 .. code-block:: c++
