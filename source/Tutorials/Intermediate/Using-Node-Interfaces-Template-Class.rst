@@ -71,6 +71,8 @@ Below, similar to the previous example, we create a simple node of type ``rclcpp
 
 .. code-block:: c++
 
+    #include <memory>
+    #include <string>
     #include <thread>
     #include "lifecycle_msgs/msg/transition.hpp"
     #include "rclcpp/rclcpp.hpp"
