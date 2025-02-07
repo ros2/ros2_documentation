@@ -125,7 +125,7 @@ Output:
 .. code-block:: c++
 
     void node_info(
-    rclcpp::node_interfaces::NodeInterfaces<
+        rclcpp::node_interfaces::NodeInterfaces<
         rclcpp::node_interfaces::NodeBaseInterface,
         rclcpp::node_interfaces::NodeLoggingInterface> interfaces)
     {
