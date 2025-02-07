@@ -25,6 +25,7 @@ In the example below, we create a simple ``Node`` called ``Simple_Node`` and def
 
 .. code-block:: c++
 
+    #include <memory>
     #include "rclcpp/rclcpp.hpp"
 
     void node_info(rclcpp::Node::SharedPtr node)
