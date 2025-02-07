@@ -81,7 +81,7 @@ Below, similar to the previous example, we create a simple node of type ``rclcpp
     #include "rclcpp/node_interfaces/node_interfaces.hpp"
 
     void node_info(
-    rclcpp::node_interfaces::NodeInterfaces<
+        rclcpp::node_interfaces::NodeInterfaces<
         rclcpp::node_interfaces::NodeBaseInterface,
         rclcpp::node_interfaces::NodeLoggingInterface> interfaces)
     {
