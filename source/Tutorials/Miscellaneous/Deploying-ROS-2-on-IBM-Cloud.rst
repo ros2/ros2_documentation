@@ -280,7 +280,7 @@ So now we have the full pipeline working, from creating the Dockerfile,
 all the way to deploying it and seeing it work on IBM Cloud. But, what
 if we want to use a custom set of packages we (or someone else) created?
 
-Well that all has to do with how you set-up your Dockerfile. Lets use
+Well that all has to do with how you set-up your Dockerfile. Let's use
 the example provided by ROS 2 `here <https://hub.docker.com/_/ros/>`__.
 Create a new directory with a new Dockerfile (or overwrite the existing
 one) and add the following in it (or download the file
