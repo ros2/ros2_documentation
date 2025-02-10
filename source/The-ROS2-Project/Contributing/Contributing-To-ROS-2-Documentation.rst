@@ -99,11 +99,32 @@ This is the recommended way to test out local changes.
 The build process can take some time.
 To see the output, open ``build/html/index.html`` in your browser.
 
-You can also run the documentation tests locally (using `doc8 <https://github.com/PyCQA/doc8>`_) with the following command:
+
+Checking / Testing the site
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can run the documentation tests locally (using `doc8 <https://github.com/PyCQA/doc8>`_) with the following command:
 
 .. code-block:: console
 
    make test
+
+You can run the documentation linter locally (using `sphinx-lint <https://github.com/sphinx-contrib/sphinx-lint>`_) with the following command:
+
+.. code-block:: console
+
+   make lint
+
+You can run the documentation spell checker locally (using `codespell <https://github.com/codespell-project/codespell>`_) with the following command:
+
+.. code-block:: console
+
+   make spellcheck
+
+.. note::
+
+   If that detects specific words that need to be ignored, add it to `codespell_whitelist <https://github.com/ros2/ros2_documentation/blob/{REPOS_FILE_BRANCH}/codespell_whitelist.txt>`_ .
+
 
 View Site Through Github CI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
