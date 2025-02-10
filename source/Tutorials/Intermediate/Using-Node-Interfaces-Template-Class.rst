@@ -140,7 +140,8 @@ Output:
       RCLCPP_INFO(logging_interface->get_logger(), "Node name: %s", base_interface->get_name());
     }
 
-Instead of accepting a ``SharedPtr``, this function takes a reference to a ``rclcpp::node_interfaces::NodeInterfaces`` object. Another advantage of using this approach is the support for implicit conversion of node-like objects.
+Instead of accepting a ``SharedPtr``, this function takes a reference to a ``rclcpp::node_interfaces::NodeInterfaces`` object. 
+Another advantage of using this approach is the support for implicit conversion of node-like objects.
 This means that it is possible to directly pass any node-like object to a function expecting a ``rclcpp::node_interfaces::NodeInterfaces`` object.
 
 It extracts:
