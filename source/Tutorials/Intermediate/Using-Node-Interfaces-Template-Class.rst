@@ -86,10 +86,10 @@ Below, similar to the previous example, we create a simple node of type ``rclcpp
     #include "rclcpp_lifecycle/lifecycle_publisher.hpp"
     #include "rclcpp/node_interfaces/node_interfaces.hpp"
 
-    void node_info(
-        rclcpp::node_interfaces::NodeInterfaces<
-        rclcpp::node_interfaces::NodeBaseInterface,
-        rclcpp::node_interfaces::NodeLoggingInterface> interfaces)
+    using MyNodeInterfaces =
+      rclcpp::node_interfaces::NodeInterfaces<rclcpp::node_interfaces::NodeBaseInterface, rclcpp::node_interfaces::NodeLoggingInterface>;
+        
+    void node_info(MyNodeInterfaces interfaces)
     {
       auto base_interface = interfaces.get_node_base_interface();
       auto logging_interface = interfaces.get_node_logging_interface();
