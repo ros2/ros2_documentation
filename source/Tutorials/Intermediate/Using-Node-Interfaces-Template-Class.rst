@@ -15,6 +15,12 @@ Using the Node Interfaces Template Class (C++)
 Overview
 --------
 
+Not all ROS Nodes are created equally! 
+the ``rclcpp::Node`` and ``rclcpp_lifecycle::LifecycleNode`` classes do not share an inheritance tree, which means ROS developers can run into compile time type issues when they want to write a function that takes in a ROS node pointer as an argument.
+To address this issue, ``rclcpp`` includes the ``rclcpp::NodeInterfaces<>`` template type that should be used as the preferred convention for passing for both conventional and lifecycle nodes to functions. 
+This `ROSCon 2023 lightning talk<https://vimeo.com/879001243#t=16m0s>`_ summarizes the issue and remedy succinctly.
+The following tutorial will show you how to use ``rclcpp::NodeInterfaces<>`` as reliable and compact interface for all ROS node types. 
+
 The ``rclcpp::NodeInterfaces<>`` template class provides a compact and efficient way to manage Node Interfaces in ROS 2. This is particularly useful when working with different types of ``Nodes``, such as ``rclcpp::Node`` and ``rclcpp_lifecycle::LifecycleNode``, which do not share the same inheritance tree.
 
 
