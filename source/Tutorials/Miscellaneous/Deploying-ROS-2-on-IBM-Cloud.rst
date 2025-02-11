@@ -276,7 +276,7 @@ So now we have the full pipeline working, from creating the Dockerfile, all the 
 But, what if we want to use a custom set of packages we (or someone else) created?
 
 Well that all has to do with how you set-up your Dockerfile.
-Lets use the example provided by ROS 2 `here <https://hub.docker.com/_/ros/>`__.
+Let's use the example provided by ROS 2 `here <https://hub.docker.com/_/ros/>`__.
 Create a new directory with a new Dockerfile (or overwrite the existing one) and add the following in it (or download the file
 `here <https://github.com/mm-nasr/ros2_ibmcloud/blob/main/dockers/git_pkgs_docker/Dockerfile>`__)
 
