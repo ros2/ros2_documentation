@@ -10,6 +10,7 @@ Intermediate
    Intermediate/Writing-an-Action-Server-Client/Py
    Intermediate/Writing-a-Composable-Node
    Intermediate/Composition
+   Intermediate/Using-Node-Interfaces-Template-Class
    Intermediate/Monitoring-For-Parameter-Changes-CPP
    Intermediate/Launch/Launch-Main
    Intermediate/Tf2/Tf2-Main
