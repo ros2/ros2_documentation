@@ -127,8 +127,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Update forthcoming version in changelog
-* Resolve various ament_lint linter violations (`#360 <https://github.com/ament/ament_cmake/issues/360>`__) We can't add ament_lint linters in ament_cmake in the traditional way without creating a circular dependency between the repositories.
-  Even though we can't automatically enforce linting, it's still a good idea to try to keep conformance where possible.
+* Resolve various ament_lint linter violations (`#360 <https://github.com/ament/ament_cmake/issues/360>`__) We can't add ament_lint linters in ament_cmake in the traditional way without creating a circular dependency between the repositories. Even though we can't automatically enforce linting, it's still a good idea to try to keep conformance where possible.
 * Update maintainers to Michael Jeronimo and Michel Hidalgo (`#362 <https://github.com/ament/ament_cmake/issues/362>`__)
 * Use FindPython3 instead of FindPythonInterp (`#355 <https://github.com/ament/ament_cmake/issues/355>`__)
 * Support commands with executable targets (`#352 <https://github.com/ament/ament_cmake/issues/352>`__)
@@ -173,8 +172,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Update forthcoming version in changelog
-* Resolve various ament_lint linter violations (`#360 <https://github.com/ament/ament_cmake/issues/360>`__) We can't add ament_lint linters in ament_cmake in the traditional way without creating a circular dependency between the repositories.
-  Even though we can't automatically enforce linting, it's still a good idea to try to keep conformance where possible.
+* Resolve various ament_lint linter violations (`#360 <https://github.com/ament/ament_cmake/issues/360>`__) We can't add ament_lint linters in ament_cmake in the traditional way without creating a circular dependency between the repositories. Even though we can't automatically enforce linting, it's still a good idea to try to keep conformance where possible.
 * Update maintainers to Michael Jeronimo and Michel Hidalgo (`#362 <https://github.com/ament/ament_cmake/issues/362>`__)
 * Use FindPython3 instead of FindPythonInterp (`#355 <https://github.com/ament/ament_cmake/issues/355>`__)
 * Update maintainers (`#336 <https://github.com/ament/ament_cmake/issues/336>`__)
@@ -208,8 +206,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Update forthcoming version in changelog
-* Resolve various ament_lint linter violations (`#360 <https://github.com/ament/ament_cmake/issues/360>`__) We can't add ament_lint linters in ament_cmake in the traditional way without creating a circular dependency between the repositories.
-  Even though we can't automatically enforce linting, it's still a good idea to try to keep conformance where possible.
+* Resolve various ament_lint linter violations (`#360 <https://github.com/ament/ament_cmake/issues/360>`__) We can't add ament_lint linters in ament_cmake in the traditional way without creating a circular dependency between the repositories. Even though we can't automatically enforce linting, it's still a good idea to try to keep conformance where possible.
 * Update maintainers to Michael Jeronimo and Michel Hidalgo (`#362 <https://github.com/ament/ament_cmake/issues/362>`__)
 * Use FindPython3 instead of FindPythonInterp (`#355 <https://github.com/ament/ament_cmake/issues/355>`__)
 * Add note regarding interface libraries (`#339 <https://github.com/ament/ament_cmake/issues/339>`__)
@@ -276,8 +273,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Update forthcoming version in changelog
-* Resolve various ament_lint linter violations (`#360 <https://github.com/ament/ament_cmake/issues/360>`__) We can't add ament_lint linters in ament_cmake in the traditional way without creating a circular dependency between the repositories.
-  Even though we can't automatically enforce linting, it's still a good idea to try to keep conformance where possible.
+* Resolve various ament_lint linter violations (`#360 <https://github.com/ament/ament_cmake/issues/360>`__) We can't add ament_lint linters in ament_cmake in the traditional way without creating a circular dependency between the repositories. Even though we can't automatically enforce linting, it's still a good idea to try to keep conformance where possible.
 * Update maintainers to Michael Jeronimo and Michel Hidalgo (`#362 <https://github.com/ament/ament_cmake/issues/362>`__)
 * Use FindPython3 instead of FindPythonInterp (`#355 <https://github.com/ament/ament_cmake/issues/355>`__)
 * Update maintainers (`#336 <https://github.com/ament/ament_cmake/issues/336>`__)
@@ -312,8 +308,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Update forthcoming version in changelog
-* Resolve various ament_lint linter violations (`#360 <https://github.com/ament/ament_cmake/issues/360>`__) We can't add ament_lint linters in ament_cmake in the traditional way without creating a circular dependency between the repositories.
-  Even though we can't automatically enforce linting, it's still a good idea to try to keep conformance where possible.
+* Resolve various ament_lint linter violations (`#360 <https://github.com/ament/ament_cmake/issues/360>`__) We can't add ament_lint linters in ament_cmake in the traditional way without creating a circular dependency between the repositories. Even though we can't automatically enforce linting, it's still a good idea to try to keep conformance where possible.
 * Update maintainers to Michael Jeronimo and Michel Hidalgo (`#362 <https://github.com/ament/ament_cmake/issues/362>`__)
 * Use FindPython3 instead of FindPythonInterp (`#355 <https://github.com/ament/ament_cmake/issues/355>`__)
 * Update maintainers (`#336 <https://github.com/ament/ament_cmake/issues/336>`__)
@@ -410,8 +405,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 
 * Use sysconfig directly to determine python lib dir (`#378 <https://github.com/ament/ament_cmake/issues/378>`__)
 * Update forthcoming version in changelog
-* Resolve various ament_lint linter violations (`#360 <https://github.com/ament/ament_cmake/issues/360>`__) We can't add ament_lint linters in ament_cmake in the traditional way without creating a circular dependency between the repositories.
-  Even though we can't automatically enforce linting, it's still a good idea to try to keep conformance where possible.
+* Resolve various ament_lint linter violations (`#360 <https://github.com/ament/ament_cmake/issues/360>`__) We can't add ament_lint linters in ament_cmake in the traditional way without creating a circular dependency between the repositories. Even though we can't automatically enforce linting, it's still a good idea to try to keep conformance where possible.
 * Update maintainers to Michael Jeronimo and Michel Hidalgo (`#362 <https://github.com/ament/ament_cmake/issues/362>`__)
 * Make ament_cmake_python symlink for symlink installs only (`#357 <https://github.com/ament/ament_cmake/issues/357>`__)
 * Use FindPython3 instead of FindPythonInterp (`#355 <https://github.com/ament/ament_cmake/issues/355>`__)
@@ -447,8 +441,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Update forthcoming version in changelog
-* Resolve various ament_lint linter violations (`#360 <https://github.com/ament/ament_cmake/issues/360>`__) We can't add ament_lint linters in ament_cmake in the traditional way without creating a circular dependency between the repositories.
-  Even though we can't automatically enforce linting, it's still a good idea to try to keep conformance where possible.
+* Resolve various ament_lint linter violations (`#360 <https://github.com/ament/ament_cmake/issues/360>`__) We can't add ament_lint linters in ament_cmake in the traditional way without creating a circular dependency between the repositories. Even though we can't automatically enforce linting, it's still a good idea to try to keep conformance where possible.
 * Update maintainers to Michael Jeronimo and Michel Hidalgo (`#362 <https://github.com/ament/ament_cmake/issues/362>`__)
 * Use FindPython3 instead of FindPythonInterp (`#355 <https://github.com/ament/ament_cmake/issues/355>`__)
 * Update maintainers (`#336 <https://github.com/ament/ament_cmake/issues/336>`__)
