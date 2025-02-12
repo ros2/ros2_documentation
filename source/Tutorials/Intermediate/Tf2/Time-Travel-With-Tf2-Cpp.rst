@@ -46,7 +46,12 @@ Edit the ``lookupTransform()`` call in ``turtle_tf2_listener.cpp`` file to
         50ms);
 
 Now if you run this, during the first 5 seconds, the second turtle would not know where to go because we do not yet have a 5-second history of poses of the carrot.
+<<<<<<< HEAD
 But what happens after these 5 seconds? Let's just give it a try:
+=======
+But what happens after these 5 seconds?
+Build the package then let's just give it a try:
+>>>>>>> cc07913 (Clean up sentences (white space changes only) (#5001))
 
 .. code-block:: console
 
@@ -54,9 +59,11 @@ But what happens after these 5 seconds? Let's just give it a try:
 
 .. image:: images/turtlesim_delay1.png
 
-You should now notice that your turtle is driving around uncontrollably like in this screenshot. Let's try to understand reason behind that behavior.
+You should now notice that your turtle is driving around uncontrollably like in this screenshot.
+Let's try to understand reason behind that behavior.
 
-#. In our code we asked tf2 the following question: "What was the pose of ``carrot1`` 5 seconds ago, relative to ``turtle2`` 5 seconds ago?". This means we are controlling the second turtle based on where it was 5 seconds ago as well as where the first carrot was 5 seconds ago.
+#. In our code we asked tf2 the following question: "What was the pose of ``carrot1`` 5 seconds ago, relative to ``turtle2`` 5 seconds ago?".
+   This means we are controlling the second turtle based on where it was 5 seconds ago as well as where the first carrot was 5 seconds ago.
 
 #. However, what we really want to ask is: "What was the pose of ``carrot1`` 5 seconds ago, relative to the current position of the ``turtle2``?".
 

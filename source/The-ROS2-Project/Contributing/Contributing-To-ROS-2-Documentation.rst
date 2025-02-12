@@ -194,9 +194,11 @@ We've found that the easiest way to migrate a page from the ROS Wiki is to conve
 Migrating a Wiki File
 ^^^^^^^^^^^^^^^^^^^^^
 
-#. Clone the appropriate repository.  If you are migrating a page to the official documentation hosted here, then you should clone https://github.com/ros2/ros2_documentation.
+#. Clone the appropriate repository.
+   If you are migrating a page to the official documentation hosted here, then you should clone https://github.com/ros2/ros2_documentation.
 
-#. Create a new Github branch for your migrated page. We suggest something like ``pagename-migration``.
+#. Create a new Github branch for your migrated page.
+   We suggest something like ``pagename-migration``.
 
 #. Download the appropriate ROS Wiki page to an html file using wget or a similar tool (e.g. ``wget -O urdf.html https://wiki.ros.org/urdf``).
    Alternatively you can use your web browser to save the page's HTML.
@@ -204,7 +206,8 @@ Migrating a Wiki File
 #. Next you need to remove the extraneous HTML in the file you downloaded
    Using your browser's developer mode, find the name of the first useful HTML element in the Wiki page.
    In most cases all of the HTML between the third line of the file, starting with the ``<head>`` tag, through the start of the first ``<h1>`` tag can be safely removed.
-   In the case where there is a table of contents, the first useful tag may be an ``<h2>`` tag.  Similarly, the ROS wiki contains some footer text that starts with ``<div id="pagebottom"></div>`` and ends just above ``</body></html>`` that can also be removed.
+   In the case where there is a table of contents, the first useful tag may be an ``<h2>`` tag.
+   Similarly, the ROS wiki contains some footer text that starts with ``<div id="pagebottom"></div>`` and ends just above ``</body></html>`` that can also be removed.
 
 #. Convert your html file by running a PanDoc conversion between HTML and restructured text.
    The following command converts an HTML file to the equivalent reStructured text files: ``pandoc -f html -t rst urdf.html > URDF.rst``.
@@ -219,7 +222,9 @@ Migrating a Wiki File
    This process may require you alter the document considerably, and you may need to pull multiple wiki files.
    You should verify that every code sample in the document is working correctly under ROS 2.
 
-#. Find and download any images that may be in the old document. The easiest way to do this is to right click in the browser and download all of the images. Alternatively you can find images by searching for ``<img src>`` tags in the HTML file.
+#. Find and download any images that may be in the old document.
+   The easiest way to do this is to right click in the browser and download all of the images.
+   Alternatively you can find images by searching for ``<img src>`` tags in the HTML file.
 
 #. For each image files downloaded update the image file links to point to the correct image directory for the ROS Docs.
    If any of the images require updating, or could be replaced with a `Mermaid <https://mermaid.js.org/intro/>`__ chart, please make this change.
@@ -247,7 +252,8 @@ After that, you can open the repository in Codespaces, it can be done just by cl
    :alt: Codespaces creation
 
 After that, you will be redirected to your Codespaces page, where you can see the progress of the Codespaces creation.
-Once it is done, a Visual Studio Code tab will be opened in your browser. You can open the terminal by clicking on the "Terminal" tab in the top panel or by pressing :kbd:`Ctrl-J`.
+Once it is done, a Visual Studio Code tab will be opened in your browser.
+You can open the terminal by clicking on the "Terminal" tab in the top panel or by pressing :kbd:`Ctrl-J`.
 
 In this terminal, you can run any command you want, for example, you can run the following command to build the site for just this branch:
 

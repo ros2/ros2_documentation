@@ -232,7 +232,8 @@ Open up ``action_tutorials_cpp/CMakeLists.txt``, and add the following right aft
     LIBRARY DESTINATION lib
     RUNTIME DESTINATION bin)
 
-And now we can compile the package.  Go to the top-level of the ``ros2_ws``, and run:
+And now we can compile the package.
+Go to the top-level of the ``ros2_ws``, and run:
 
 .. code-block:: bash
 
@@ -360,7 +361,8 @@ Open up ``action_tutorials_cpp/CMakeLists.txt``, and add the following right aft
     LIBRARY DESTINATION lib
     RUNTIME DESTINATION bin)
 
-And now we can compile the package.  Go to the top-level of the ``ros2_ws``, and run:
+And now we can compile the package.
+Go to the top-level of the ``ros2_ws``, and run:
 
 .. code-block:: bash
 

@@ -105,7 +105,8 @@ How do I know what keys to put in my package.xml?
 Great question, I'm glad you asked!
 
 * If the package you want to depend in your package is ROS-based, AND has been released into the ROS ecosystem [1]_, e.g. ``nav2_bt_navigator``, you may simply use the name of the package. You can find a list of all released ROS packages in https://github.com/ros/rosdistro at ``<distro>/distribution.yaml`` (e.g. ``humble/distribution.yaml``) for your given ROS distribution.
-* If you want to depend on a non-ROS package, something often called "system dependencies", you will need to find the keys for a particular library. In general, there are two files of interest:
+* If you want to depend on a non-ROS package, something often called "system dependencies", you will need to find the keys for a particular library.
+  In general, there are two files of interest:
 
   * `rosdep/base.yaml <https://github.com/ros/rosdistro/blob/master/rosdep/base.yaml>`_ contains the ``apt`` system dependencies
   * `rosdep/python.yaml <https://github.com/ros/rosdistro/blob/master/rosdep/python.yaml>`_ contains the Python dependencies

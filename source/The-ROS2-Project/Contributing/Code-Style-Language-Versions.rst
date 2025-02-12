@@ -51,7 +51,8 @@ All of the following modifications only apply if we are not writing Python modul
 
 * The stuff about documentation strings doesn't apply
 
-We can use the `pep7 <https://github.com/mike-perdide/pep7>`__ python module for style checking. The editor integration seems slim, we may need to look into automated checking for C in more detail.
+We can use the `pep7 <https://github.com/mike-perdide/pep7>`__ python module for style checking.
+The editor integration seems slim, we may need to look into automated checking for C in more detail.
 
 C++
 ---
@@ -194,7 +195,9 @@ Open Versus Cuddled Braces
 
   * Exception: when an ``if`` (or ``while``, etc.) condition is long enough to require line-wrapping, then use an open brace (i.e., don't cuddle).
 
-* When a function call cannot fit on one line, wrap at the open parenthesis (not in between arguments) and start them on the next line with a 2-space indent.  Continue with the 2-space indent on subsequent lines for more arguments.  (Note that the `Google style guide <https://google.github.io/styleguide/cppguide.html#Function_Calls>`__ is internally contradictory on this point.)
+* When a function call cannot fit on one line, wrap at the open parenthesis (not in between arguments) and start them on the next line with a 2-space indent.
+  Continue with the 2-space indent on subsequent lines for more arguments.
+  (Note that the `Google style guide <https://google.github.io/styleguide/cppguide.html#Function_Calls>`__ is internally contradictory on this point.)
 
   * Same goes for ``if`` (and ``while``, etc.) conditions that are too long to fit on one line.
 

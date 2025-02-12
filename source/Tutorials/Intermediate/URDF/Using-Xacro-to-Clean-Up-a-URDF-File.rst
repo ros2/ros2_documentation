@@ -179,7 +179,8 @@ Let’s take a look at a simple useless macro.
     </xacro:macro>
     <xacro:default_origin />
 
-(This is useless, since if the origin is not specified, it has the same value as this.) This code will generate the following.
+(This is useless, since if the origin is not specified, it has the same value as this.)
+This code will generate the following.
 
 .. code-block:: xml
 

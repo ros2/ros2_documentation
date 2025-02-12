@@ -48,4 +48,7 @@ That has two meanings in this context:
 
    Then the code will ensure that ``field1`` is always an unsigned integer and that ``field2`` is always a string.
 
-2. The semantics of each field are well-defined.  There is no automated mechanism to ensure this, but all of the core ROS types have strong semantics associated with them.  For instance, the IMU message contains a 3-dimensional vector for the measured angular velocity, and each of the dimensions is specified to be in radians/second.  Other interpretations should not be placed into the message.
+2. The semantics of each field are well-defined.
+   There is no automated mechanism to ensure this, but all of the core ROS types have strong semantics associated with them.
+   For instance, the IMU message contains a 3-dimensional vector for the measured angular velocity, and each of the dimensions is specified to be in radians/second.
+   Other interpretations should not be placed into the message.

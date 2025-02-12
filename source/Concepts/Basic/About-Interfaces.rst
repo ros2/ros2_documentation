@@ -18,9 +18,13 @@ This description makes it easy for ROS tools to automatically generate source co
 
 In this document we will describe the supported types:
 
-* msg: ``.msg`` files are simple text files that describe the fields of a ROS message. They are used to generate source code for messages in different languages.
-* srv: ``.srv`` files describe a service. They are composed of two parts: a request and a response. The request and response are message declarations.
-* action: ``.action`` files describe actions. They are composed of three parts: a goal, a result, and feedback.
+* msg: ``.msg`` files are simple text files that describe the fields of a ROS message.
+  They are used to generate source code for messages in different languages.
+* srv: ``.srv`` files describe a service.
+  They are composed of two parts: a request and a response.
+  The request and response are message declarations.
+* action: ``.action`` files describe actions.
+  They are composed of three parts: a goal, a result, and feedback.
   Each part is a message declaration itself.
 
 Messages

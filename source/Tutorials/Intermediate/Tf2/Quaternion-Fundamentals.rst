@@ -168,7 +168,8 @@ You want to find the relative rotation, ``q_r``, that converts ``q_1`` to ``q_2`
    q_2 = q_r * q_1
 
 You can solve for ``q_r`` similarly to solving a matrix equation.
-Invert ``q_1`` and right-multiply both sides. Again, the order of multiplication is important:
+Invert ``q_1`` and right-multiply both sides.
+Again, the order of multiplication is important:
 
 .. code-block:: C++
 

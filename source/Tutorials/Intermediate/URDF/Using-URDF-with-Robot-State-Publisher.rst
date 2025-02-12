@@ -282,6 +282,7 @@ Save the ``setup.py`` file with your changes.
 
 6 Install the package
 ^^^^^^^^^^^^^^^^^^^^^
+
 .. code-block:: console
 
     cd second_ros2_ws

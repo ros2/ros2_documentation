@@ -108,7 +108,8 @@ Built-in Display Types
      - Draws cells from a grid, usually obstacles from a costmap from the `navigation <https://github.com/ros-planning/navigation2>`__ stack.
      - `nav_msgs/msg/GridCells <https://github.com/ros2/common_interfaces/blob/{DISTRO}/nav_msgs/msg/GridCells.msg>`__
    * - Image
-     - Creates a new rendering window with an Image. Unlike the Camera display, this display does not use a CameraInfo
+     - Creates a new rendering window with an Image.
+       Unlike the Camera display, this display does not use a CameraInfo
      - `sensor_msgs/msg/Image <https://github.com/ros2/common_interfaces/blob/{DISTRO}/sensor_msgs/msg/Image.msg>`__
    * - InteractiveMarker
      - Displays 3D objects from one or multiple Interactive Marker servers and allows mouse interaction with them
@@ -144,7 +145,8 @@ Built-in Display Types
      - Accumulates odometry poses from over time.
      - `nav_msgs/msg/Odometry <https://github.com/ros2/common_interfaces/blob/{DISTRO}/nav_msgs/msg/Odometry.msg>`__
    * - Range
-     - Displays cones representing range measurements from sonar or IR range sensors. Version: Electric+
+     - Displays cones representing range measurements from sonar or IR range sensors.
+       Version: Electric+
      - `sensor_msgs/msg/Range <https://github.com/ros2/common_interfaces/blob/{DISTRO}/sensor_msgs/msg/Range.msg>`__
    * - RobotModel
      - Shows a visual representation of a robot in the correct pose (as defined by the current TF transforms).
@@ -189,8 +191,10 @@ The focal point is visualized as a small disc while you're moving the camera:
 Controls:
 
 * **Left mouse button**: Click and drag to rotate around the focal point.
-* **Middle mouse button**: Click and drag to move the focal point in the plane formed by the camera's up and right vectors. The distance moved depends on the focal point -- if there is an object on the focal point, and you click on top of it, it will stay under your mouse.
-* **Right mouse button**: Click and drag to zoom in/out of the focal point. Dragging up zooms in, down zooms out.
+* **Middle mouse button**: Click and drag to move the focal point in the plane formed by the camera's up and right vectors.
+  The distance moved depends on the focal point -- if there is an object on the focal point, and you click on top of it, it will stay under your mouse.
+* **Right mouse button**: Click and drag to zoom in/out of the focal point.
+  Dragging up zooms in, down zooms out.
 * **Scrollwheel**: Zoom in/out of the focal point
 
 FPS (first-person) Camera
@@ -199,9 +203,11 @@ The FPS camera is a first-person camera, so it rotates as if you're looking with
 
 Controls:
 
-* **Left mouse button**: Click and drag to rotate. Control-click to pick the object under the mouse and look directly at it.
+* **Left mouse button**: Click and drag to rotate.
+  Control-click to pick the object under the mouse and look directly at it.
 * **Middle mouse button**: Click and drag to move along the plane formed by the camera's up and right vectors.
-* **Right mouse button**: Click and drag to move along the camera's forward vector. Dragging up moves forward, down moves backward.
+* **Right mouse button**: Click and drag to move along the camera's forward vector.
+  Dragging up moves forward, down moves backward.
 * **Scrollwheel**: Move forward/backward.
 
 Top-down Orthographic
