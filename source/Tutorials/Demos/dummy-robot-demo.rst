@@ -51,12 +51,8 @@ You should see some prints inside your terminal along the lines of the following
    Adding fixed segment from single_rrbot_link3 to single_rrbot_camera_link
    Adding fixed segment from single_rrbot_link3 to single_rrbot_hokuyo_link
 
-<<<<<<< HEAD
-If you now open in a next terminal your RViz, you'll see your robot. 🎉
-=======
 If you now open RViz2 in a new terminal, you'll see your robot.
 🎉
->>>>>>> cc07913 (Clean up sentences (white space changes only) (#5001))
 
 .. code-block:: bash
 

@@ -46,12 +46,8 @@ Edit the ``lookupTransform()`` call in ``turtle_tf2_listener.cpp`` file to
         50ms);
 
 Now if you run this, during the first 5 seconds, the second turtle would not know where to go because we do not yet have a 5-second history of poses of the carrot.
-<<<<<<< HEAD
-But what happens after these 5 seconds? Let's just give it a try:
-=======
 But what happens after these 5 seconds?
-Build the package then let's just give it a try:
->>>>>>> cc07913 (Clean up sentences (white space changes only) (#5001))
+Let's just give it a try:
 
 .. code-block:: console
 

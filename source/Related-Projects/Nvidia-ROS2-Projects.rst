@@ -32,11 +32,6 @@ ISAAC ROS Projects
 Additional Projects
 -------------------
 * `ROS and ROS 2 DockerFiles <https://github.com/dusty-nv/jetson-containers>`__: Dockerfiles for ROS 2 based on l4t which all you to build your own Docker image.
-<<<<<<< HEAD
-=======
-* `ROS 2 Packages for PyTorch and TensorRT <https://github.com/NVIDIA-AI-IOT/ros2_torch_trt>`__: ROS 2 packageis for classification and object detection tasks using PyTorch and NVIDIA TensorRT.
-  This tutorial is a good starting point AI integration with ROS 2 on NVIDIA Jetson.
->>>>>>> cc07913 (Clean up sentences (white space changes only) (#5001))
 * `ROS / ROS 2 Packages for Accelerated Deep Learning Nodes <https://github.com/dusty-nv/ros_deep_learning>`__: Deep learning image recognition, object detection, and semantic segmentation inference nodes and camera/video streaming nodes for ROS/ROS 2 using the `jetson-inference <https://github.com/dusty-nv/jetson-inference>`__ library and `NVIDIA Hello AI World tutorial <https://developer.nvidia.com/embedded/twodaystoademo>`__.
 
 Simulation Projects
