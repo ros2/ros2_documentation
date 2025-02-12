@@ -324,7 +324,8 @@ The watermark and image view nodes are designed to modify the image without copy
 .. note::
 
    On some systems (we've seen it happen on Linux), the address printed to the screen might not change.
-   This is because the same unique pointer is being reused. In this situation, the pipeline is still running.
+   This is because the same unique pointer is being reused.
+   In this situation, the pipeline is still running.
 
 Let's run the demo by executing the following executable:
 
@@ -347,7 +348,8 @@ Pipeline with two image viewers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Now let's look at an example just like the one above, except it has two image view nodes.
-All the nodes are still in the same process, but now two image view windows should show up. (Note for macOS users: your image view windows might be on top of each other).
+All the nodes are still in the same process, but now two image view windows should show up.
+(Note for macOS users: your image view windows might be on top of each other).
 Let's run it with the command:
 
 .. code-block:: bash
@@ -358,26 +360,39 @@ Let's run it with the command:
 .. image:: images/intra-process-demo-pipeline-two-windows-copy.png
 
 
-Just like the last example, you can pause the rendering with the spacebar and continue by pressing the spacebar a second time. You can stop the updating to inspect the pointers written to the screen.
+Just like the last example, you can pause the rendering with the spacebar and continue by pressing the spacebar a second time.
+You can stop the updating to inspect the pointers written to the screen.
 
-As you can see in the example image above, we have one image with all of the pointers the same and then another image with the same pointers as the first image for the first two entries, but the last pointer on the second image is different. To understand why this is happening consider the graph's topology:
+As you can see in the example image above, we have one image with all of the pointers the same and then another image with the same pointers as the first image for the first two entries, but the last pointer on the second image is different.
+To understand why this is happening consider the graph's topology:
 
 .. code-block:: bash
 
    camera_node -> watermark_node -> image_view_node
                                  -> image_view_node2
 
-The link between the ``camera_node`` and the ``watermark_node`` can use the same pointer without copying because there is only one intra process subscription to which the message should be delivered. But for the link between the ``watermark_node`` and the two image view nodes the relationship is one to many, so if the image view nodes were using ``unique_ptr`` callbacks then it would be impossible to deliver the ownership of the same pointer to both. It can be, however, delivered to one of them. Which one would get the original pointer is not defined, but instead is simply the last to be delivered.
+The link between the ``camera_node`` and the ``watermark_node`` can use the same pointer without copying because there is only one intra process subscription to which the message should be delivered.
+But for the link between the ``watermark_node`` and the two image view nodes the relationship is one to many, so if the image view nodes were using ``unique_ptr`` callbacks then it would be impossible to deliver the ownership of the same pointer to both.
+It can be, however, delivered to one of them.
+Which one would get the original pointer is not defined, but instead is simply the last to be delivered.
 
-Note that the image view nodes are not subscribed with ``unique_ptr`` callbacks. Instead they are subscribed with ``const shared_ptr``\ s. This means the system deliveres the same ``shared_ptr`` to both callbacks. When the first intraprocess subscription is handled, the internally stored ``unique_ptr`` is promoted to a ``shared_ptr``. Each of the callbacks will receive shared ownership of the same message.
+Note that the image view nodes are not subscribed with ``unique_ptr`` callbacks.
+Instead they are subscribed with ``const shared_ptr``\ s.
+This means the system deliveres the same ``shared_ptr`` to both callbacks.
+When the first intraprocess subscription is handled, the internally stored ``unique_ptr`` is promoted to a ``shared_ptr``.
+Each of the callbacks will receive shared ownership of the same message.
 
 Pipeline with interprocess viewer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-One other important thing to get right is to avoid interruption of the intra process zero-copy behavior when interprocess subscriptions are made. To test this we can run the first image pipeline demo, ``image_pipeline_all_in_one``, and then run an instance of the stand alone ``image_view_node`` (don't forget to prefix them with ``ros2 run intra_process_demo`` in the terminal). This will look something like this:
+One other important thing to get right is to avoid interruption of the intra process zero-copy behavior when interprocess subscriptions are made.
+To test this we can run the first image pipeline demo, ``image_pipeline_all_in_one``, and then run an instance of the stand alone ``image_view_node`` (don't forget to prefix them with ``ros2 run intra_process_demo`` in the terminal).
+This will look something like this:
 
 
 .. image:: images/intra-process-demo-pipeline-inter-process.png
 
 
-It's hard to pause both images at the same time so the images may not line up, but the important thing to notice is that the ``image_pipeline_all_in_one`` image view shows the same address for each step. This means that the intra process zero-copy is preserved even when an external view is subscribed as well. You can also see that the interprocess image view has different process IDs for the first two lines of text and the process ID of the standalone image viewer in the third line of text.
+It's hard to pause both images at the same time so the images may not line up, but the important thing to notice is that the ``image_pipeline_all_in_one`` image view shows the same address for each step.
+This means that the intra process zero-copy is preserved even when an external view is subscribed as well.
+You can also see that the interprocess image view has different process IDs for the first two lines of text and the process ID of the standalone image viewer in the third line of text.

@@ -16,7 +16,8 @@ Background
 Real-time computing is a key feature of many robotics systems, particularly safety- and mission-critical applications such as autonomous vehicles, spacecrafts, and industrial manufacturing.
 We are designing and prototyping ROS 2 with real-time performance constraints in mind, since this is a requirement that was not considered in the early stages of ROS 1 and it is now intractable to refactor ROS 1 to be real-time friendly.
 
-`This document <https://design.ros2.org/articles/realtime_background.html>`__ outlines the requirements of real-time computing and best practices for software engineers.  In short:
+`This document <https://design.ros2.org/articles/realtime_background.html>`__ outlines the requirements of real-time computing and best practices for software engineers.
+In short:
 
 To make a real-time computer system, our real-time loop must update periodically to meet deadlines.
 We can only tolerate a small margin of error on these deadlines (our maximum allowable jitter).
@@ -35,18 +36,21 @@ The real-time demo was written with Linux operating systems in mind, since many 
 Since many of the operations done in the demo to optimize performance are OS-specific, the demo only builds and runs on Linux systems.
 **So, if you are an OSX or Windows user, don't try this part!**
 
-Also this must be built from source using a static DDS API. **Currently the only supported implementation is Connext**.
+Also this must be built from source using a static DDS API.
+**Currently the only supported implementation is Connext**.
 
 First, follow the instructions to build ROS 2 :doc:`from source <../../Installation/Alternatives/Ubuntu-Development-Setup>` using Connext DDS as the middleware.
 
 Run the tests
 ^^^^^^^^^^^^^
 
-**Before you run make sure you have at least 8Gb of RAM free. With the memory locking, swap will not work anymore.**
+**Before you run make sure you have at least 8Gb of RAM free.
+With the memory locking, swap will not work anymore.**
 
 Source your ROS 2 setup.bash.
 
-Run the demo binary, and redirect the output. You may want to use ``sudo`` in case you get permission error:
+Run the demo binary, and redirect the output.
+You may want to use ``sudo`` in case you get permission error:
 
 .. code-block:: bash
 
@@ -162,7 +166,8 @@ Here, latency means the amount of time after the update was expected to occur.
 
 The requirements of a real-time system depend on the application, but let's say in this demo we have a 1kHz (1 millisecond) update loop, and we're aiming for a maximum allowable latency of 5% of our update period.
 
-So, our average latency was really good in this run, but the maximum latency was unacceptable because it actually exceeded our update loop! What happened?
+So, our average latency was really good in this run, but the maximum latency was unacceptable because it actually exceeded our update loop!
+What happened?
 
 We may be suffering from a non-deterministic scheduler.
 If you're running a vanilla Linux system and you don't have the RT_PREEMPT kernel installed, you probably won't be able to meet the real-time goal we set for ourselves, because the Linux scheduler won't allow you to arbitrarily preempt threads at the user level.

@@ -165,7 +165,8 @@ The Tiago robot can be controlled using:
 
         ros2 run teleop_twist_keyboard teleop_twist_keyboard
 
-With older WSL versions, RViz2 may not work directly, as no display is available. To use RViz, you can either upgrade WSL or enable X11 forwarding.
+With older WSL versions, RViz2 may not work directly, as no display is available.
+To use RViz, you can either upgrade WSL or enable X11 forwarding.
 
 .. tabs::
     .. group-tab:: Upgrade WSL

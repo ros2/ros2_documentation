@@ -59,7 +59,8 @@ In the UTM software:
 * Leave all the remaining parameters as default.
 * Start the VM.
   Note that you can select another shared folder each time you start the VM.
-* During the first launch of the VM, install Ubuntu and choose a username for your account. In this example, the username is ``ubuntu``.
+* During the first launch of the VM, install Ubuntu and choose a username for your account.
+  In this example, the username is ``ubuntu``.
 * Once Ubuntu is installed, close the VM, remove the iso image from the CD/DVD field and restart the VM.
 
 2 Configure the VM

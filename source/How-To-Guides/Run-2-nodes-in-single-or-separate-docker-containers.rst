@@ -58,13 +58,15 @@ Run a minimal example of 2 C++ nodes (1 topic subscriber ``listener``, 1 topic p
 Run two nodes in two separate docker containers
 -----------------------------------------------
 
-Open a terminal. Run the image in a container in interactive mode and launch a topic publisher (executable ``talker`` from the package ``demo_nodes_cpp``) with ``ros2 run``:
+Open a terminal.
+Run the image in a container in interactive mode and launch a topic publisher (executable ``talker`` from the package ``demo_nodes_cpp``) with ``ros2 run``:
 
 .. code-block:: bash
 
    docker run -it --rm osrf/ros:{DISTRO}-desktop ros2 run demo_nodes_cpp talker
 
-Open a second terminal. Run the image in a container in interactive mode and launch a topic subscriber (executable ``listener`` from the package ``demo_nodes_cpp``)  with ``ros2 run``:
+Open a second terminal.
+Run the image in a container in interactive mode and launch a topic subscriber (executable ``listener`` from the package ``demo_nodes_cpp``)  with ``ros2 run``:
 
 .. code-block:: bash
 

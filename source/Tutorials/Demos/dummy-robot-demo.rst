@@ -11,7 +11,8 @@ In this demo, we present a simple demo robot with all components from publishing
 Launching the demo
 ------------------
 
-We assume your ROS 2 installation dir as ``~/ros2_ws``. Please change the directories according to your platform.
+We assume your ROS 2 installation dir as ``~/ros2_ws``.
+Please change the directories according to your platform.
 
 To start the demo, we execute the demo bringup launch file, which we are going to explain in more details in the next section.
 
@@ -45,14 +46,17 @@ You should see some prints inside your terminal along the lines of the following
    [dummy_laser-4] [INFO] [1714837459.645626640] [dummy_laser]: scan time increment:     0.000000
    [robot_state_publisher-2] [INFO] [1714837459.652977937] [robot_state_publisher]: Robot initialized
 
-If you now open RViz2 in a new terminal, you'll see your robot. 🎉
+If you now open RViz2 in a new terminal, you'll see your robot.
+🎉
 
 .. code-block:: bash
 
    $ source ~/ros2_ws/install/setup.bash
    $ rviz2
 
-This opens RViz2. Assuming you have your dummy_robot_bringup still launched, you can now add the TF display plugin and configure your global frame to ``world``. Once you did that, you should see a similar picture:
+This opens RViz2.
+Assuming you have your dummy_robot_bringup still launched, you can now add the TF display plugin and configure your global frame to ``world``.
+Once you did that, you should see a similar picture:
 
 
 .. image:: images/rviz-dummy-robot.png
@@ -69,10 +73,15 @@ If you have a closer look at the launch file, we start a couple of nodes at the 
 * dummy_joint_states
 * robot_state_publisher
 
-The first two packages are relatively simple. The ``dummy_map_server`` constantly publishes an empty map with a periodic update. The ``dummy_laser`` does basically the same; publishing dummy fake laser scans.
+The first two packages are relatively simple.
+The ``dummy_map_server`` constantly publishes an empty map with a periodic update.
+The ``dummy_laser`` does basically the same; publishing dummy fake laser scans.
 
-The ``dummy_joint_states`` node is publishing fake joint state data. As we are publishing a simple RRbot with only two joints, this node publishes joint states values for these two joints.
+The ``dummy_joint_states`` node is publishing fake joint state data.
+As we are publishing a simple RRbot with only two joints, this node publishes joint states values for these two joints.
 
-The ``robot_state_publisher`` is doing the actual interesting work. It parses the given URDF file, extracts the robot model and listens to the incoming joint states. With this information, it publishes TF values for our robot which we visualize in RViz.
+The ``robot_state_publisher`` is doing the actual interesting work.
+It parses the given URDF file, extracts the robot model and listens to the incoming joint states.
+With this information, it publishes TF values for our robot which we visualize in RViz.
 
 Hooray!
