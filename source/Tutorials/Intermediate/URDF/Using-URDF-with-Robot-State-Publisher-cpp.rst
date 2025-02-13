@@ -198,7 +198,7 @@ Fire up your favorite editor and paste the following code into
       return 0;
   }
 
-This file will send the ``joint_state`` to ``robot_state_publisher`` and ``robot_state_publisher`` will tell tf2 how to place model.
+This file will send ``joint_state`` values  to ``robot_state_publisher`` which in turn will tell tf2 how to place model.
 
 This file will also tell ``tf2`` how to place the whole model by ``broadcaster``
 
