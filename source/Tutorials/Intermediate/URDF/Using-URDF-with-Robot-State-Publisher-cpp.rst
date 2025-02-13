@@ -129,7 +129,6 @@ Fire up your favorite editor and paste the following code into
       rclcpp::TimerBase::SharedPtr timer_;
 
       //Robot state variables
-
       // degree means one degree
       const double degree=M_PI/180.0;
       double tilt = 0.;
