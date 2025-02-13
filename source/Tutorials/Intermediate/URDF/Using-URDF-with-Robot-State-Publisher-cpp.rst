@@ -199,7 +199,7 @@ Fire up your favorite editor and paste the following code into
 
 This file will send ``joint_state`` values  to ``robot_state_publisher`` which in turn will tell tf2 how to place model.
 
-This file will also tell ``tf2`` how to place the whole model by ``broadcaster``
+The code file will also tell ``tf2`` how to place the whole model using the  ``transform_broadcaster``
 
 4 Create a launch file
 ^^^^^^^^^^^^^^^^^^^^^^
