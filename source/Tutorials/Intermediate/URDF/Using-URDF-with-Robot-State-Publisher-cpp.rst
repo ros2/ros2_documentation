@@ -140,7 +140,7 @@ Fire up your favorite editor and paste the following code into
   };
 
   void StatePublisher::publish(){
-      // create msg subject
+      // create the necessary messages
       geometry_msgs::msg::TransformStamped t;
       sensor_msgs::msg::JointState joint_state;
 
