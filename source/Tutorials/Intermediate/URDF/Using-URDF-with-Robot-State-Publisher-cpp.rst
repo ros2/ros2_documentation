@@ -309,7 +309,7 @@ we use ``install`` command to put the r2d2.rviz into ``install`` dir
 6 Install the package
 ^^^^^^^^^^^^^^^^^^^^^
 
-To visualize the results you will need to open a new terminal and run RViz using your RViz configuration file. 
+To visualize the results you will need to open a new terminal and run RViz using your RViz configuration file.
 
 .. code-block:: console
 
