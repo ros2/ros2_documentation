@@ -1,3 +1,4 @@
+codespell
 doc8
 docutils
 pip

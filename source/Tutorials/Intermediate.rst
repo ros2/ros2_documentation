@@ -10,6 +10,7 @@ Intermediate
    Intermediate/Writing-an-Action-Server-Client/Py
    Intermediate/Writing-a-Composable-Node
    Intermediate/Composition
+   Intermediate/Using-Node-Interfaces-Template-Class
    Intermediate/Monitoring-For-Parameter-Changes-CPP
    Intermediate/Monitoring-For-Parameter-Changes-Python
    Intermediate/Launch/Launch-Main
