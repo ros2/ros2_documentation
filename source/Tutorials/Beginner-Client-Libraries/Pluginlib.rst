@@ -194,8 +194,10 @@ A couple things to note:
 2. The ``class`` tag declares a plugin that we want to export from our library.
    Let's go through its parameters:
 
-  * ``type``: The fully qualified type of the plugin. For us, that's ``polygon_plugins::Square``.
-  * ``base_class``: The fully qualified base class type for the plugin. For us, that's ``polygon_base::RegularPolygon``.
+  * ``type``: The fully qualified type of the plugin.
+    For us, that's ``polygon_plugins::Square``.
+  * ``base_class``: The fully qualified base class type for the plugin.
+    For us, that's ``polygon_base::RegularPolygon``.
   * ``description``: A description of the plugin and what it does.
 
 2.3 CMake Plugin Declaration

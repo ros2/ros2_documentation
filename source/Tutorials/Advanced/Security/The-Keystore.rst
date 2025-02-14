@@ -221,7 +221,8 @@ Make a backup copy of ``permissions.p7s`` before beginning.
 
   .. group-tab:: Question 1
 
-    Open ``permissions.p7s`` in a text editor. Make a negligible change to the XML content (e.g., add a space or a blank line) and save the file.
+    Open ``permissions.p7s`` in a text editor.
+    Make a negligible change to the XML content (e.g., add a space or a blank line) and save the file.
     Launch the listener node:
 
     .. code-block:: bash

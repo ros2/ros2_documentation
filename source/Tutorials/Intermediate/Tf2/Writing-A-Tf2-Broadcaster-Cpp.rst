@@ -168,7 +168,8 @@ Afterward, the node subscribes to topic ``turtleX/pose`` and runs function ``han
 
 Now, we create a ``TransformStamped`` object and give it the appropriate metadata.
 
-#. We need to give the transform being published a timestamp, and we'll just stamp it with the current time by calling ``this->get_clock()->now()``. This will return the current time used by the ``Node``.
+#. We need to give the transform being published a timestamp, and we'll just stamp it with the current time by calling ``this->get_clock()->now()``.
+   This will return the current time used by the ``Node``.
 
 #. Then we need to set the name of the parent frame of the link we're creating, in this case ``world``.
 

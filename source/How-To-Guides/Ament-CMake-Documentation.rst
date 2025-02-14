@@ -571,14 +571,19 @@ The macro has a number of parameters that can be useful:
 
 - the first (unnamed) parameter is the name of the resource, which amounts to the name of the folder in the resource_index
 
-- ``CONTENT``: The content of the marker file as string. This could be a list of relative paths, etc. ``CONTENT`` cannot be used together with ``CONTENT_FILE``.
+- ``CONTENT``: The content of the marker file as string.
+  This could be a list of relative paths, etc.
+  ``CONTENT`` cannot be used together with ``CONTENT_FILE``.
 
-- ``CONTENT_FILE``: The path to a file which will be use to create the marker file. The file can be a plain file or a template file expanded with ``configure_file()``.
+- ``CONTENT_FILE``: The path to a file which will be use to create the marker file.
+  The file can be a plain file or a template file expanded with ``configure_file()``.
   ``CONTENT_FILE`` cannot be used together with ``CONTENT``.
 
-- ``PACKAGE_NAME``: The name of the package/library exporting the resource, which amounts to the name of the marker file. Defaults to ``${PROJECT_NAME}``.
+- ``PACKAGE_NAME``: The name of the package/library exporting the resource, which amounts to the name of the marker file.
+  Defaults to ``${PROJECT_NAME}``.
 
-- ``AMENT_INDEX_BINARY_DIR``: The base path of the generated ament index. Unless really necessary, always use the default ``${CMAKE_BINARY_DIR}/ament_cmake_index``.
+- ``AMENT_INDEX_BINARY_DIR``: The base path of the generated ament index.
+  Unless really necessary, always use the default ``${CMAKE_BINARY_DIR}/ament_cmake_index``.
 
 - ``SKIP_INSTALL``: Skip installing the marker file.
 

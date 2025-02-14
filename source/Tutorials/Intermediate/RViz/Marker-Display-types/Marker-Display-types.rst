@@ -146,7 +146,8 @@ The messages in this package include comments that are helpful in understanding 
 
 * ``mesh_resource``:
 
-    The resource location for the ``MESH_RESOURCE`` marker type. Can be any mesh type supported by RViz (``.stl`` or Ogre ``.mesh`` in 1.0, with the addition of COLLADA in 1.1).
+    The resource location for the ``MESH_RESOURCE`` marker type.
+    Can be any mesh type supported by RViz (``.stl`` or Ogre ``.mesh`` in 1.0, with the addition of COLLADA in 1.1).
     The format is the URI-form used by `resource_retriever <https://github.com/ros/resource_retriever/tree/{DISTRO}>`_, including the package:// syntax.
 
 3 Object types
@@ -173,7 +174,8 @@ The arrow type provides two different ways of specifying where the arrow should 
     If you put points into the points member, it will assume you want to do things this way.
 
     * The point at index 0 is assumed to be the start point, and the point at index 1 is assumed to be the end.
-    * ``scale.x`` is the shaft diameter, and ``scale.y`` is the head diameter. If ``scale.z`` is not zero, it specifies the head length.
+    * ``scale.x`` is the shaft diameter, and ``scale.y`` is the head diameter.
+      If ``scale.z`` is not zero, it specifies the head length.
 
 3.2 Cube (CUBE=1)
 ~~~~~~~~~~~~~~~~~
@@ -272,7 +274,8 @@ This marker displays text in a 3D spot in the world.
 The text always appears oriented correctly for the RViZ user to see the included text.
 Uses the ``text`` field in the marker.
 
-Only ``scale.z`` is used. ``scale.z`` specifies the height of an uppercase "A".
+Only ``scale.z`` is used.
+``scale.z`` specifies the height of an uppercase "A".
 
 3.11 Mesh Resource (MESH_RESOURCE=10)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
