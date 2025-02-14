@@ -11,7 +11,7 @@ The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2
 
 .. tabs::
 
-   .. group-tab:: 2024
+  .. group-tab:: 2024
 
     .. list-table::
        :header-rows: 1
@@ -131,7 +131,7 @@ The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2
        * - Navigation à la carte: choose navigation profile and strategy as you go
          - `video <https://vimeo.com/1024971326>`__
 
-   .. group-tab:: 2023
+  .. group-tab:: 2023
 
     .. list-table::
        :header-rows: 1
