@@ -76,11 +76,11 @@ Line Length
 File Extensions
 ~~~~~~~~~~~~~~~
 
-* Header files should use the .hpp extension.
+* Header files should use the ``.hpp`` extension.
 
   * rationale: Allow tools to determine content of files, C++ or C.
 
-* Implementation files should use the .cpp extension.
+* Implementation files should use the ``.cpp`` extension.
 
   * rationale: Allow tools to determine content of files, C++ or C.
 

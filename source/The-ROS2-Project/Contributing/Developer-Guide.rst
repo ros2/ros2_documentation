@@ -897,7 +897,7 @@ Capture the lcov results with a similar command this time dropping the ``--initi
 
      lcov --no-external --capture --directory . --output-file ~/ros2.info
 
-Combine the trace .info files:
+Combine the trace ``.info`` files:
 
 .. code-block:: bash
 
