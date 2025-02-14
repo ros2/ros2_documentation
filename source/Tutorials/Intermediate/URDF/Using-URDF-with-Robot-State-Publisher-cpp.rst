@@ -156,7 +156,7 @@ Fire up your favorite editor and paste the following code into
 
       // odom is the base coordinate system of tf2
       t.header.frame_id="odom";
-      // axis is defined in r2d2.urdf.xml file and it is the base coordiante of model
+      // axis is defined in r2d2.urdf.xml file and it is the base coordinate of model
       t.child_frame_id="axis";
 
       // add translation change
@@ -164,7 +164,7 @@ Fire up your favorite editor and paste the following code into
       t.transform.translation.y=sin(angle)*2;
       t.transform.translation.z=0.7;
       tf2::Quaternion q;
-      // ture euler angle into Quanternion and add rotation change
+      // euler angle into Quanternion and add rotation change
       q.setRPY(0,0,angle+M_PI/2);
       t.transform.rotation.x=q.x();
       t.transform.rotation.y=q.y();
