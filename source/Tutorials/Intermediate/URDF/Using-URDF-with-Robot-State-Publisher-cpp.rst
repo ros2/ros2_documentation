@@ -1,6 +1,6 @@
 .. Redirect-from::
 
-    Tutorials/URDF/Using-URDF-with-Robot-State-Publisher
+    Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher
 
 .. _URDFPlusRSP:
 
