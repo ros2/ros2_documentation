@@ -68,7 +68,8 @@ See the Foxglove documentation for `more information about the types of data sou
 Building layouts with panels
 ----------------------------
 
-`Panels <https://docs.foxglove.dev/docs/visualization/panels/introduction>`__ allow you to visualize different specific types of data such as logs, maps, plots, and 3D information. You can arrange panels by dragging and dropping them into Foxglove `layouts <https://foxglove.dev/docs/visualization/layouts>`__ to view multiple types of data simultaneously.
+`Panels <https://docs.foxglove.dev/docs/visualization/panels/introduction>`__ allow you to visualize different specific types of data such as logs, maps, plots, and 3D information.
+You can arrange panels by dragging and dropping them into Foxglove `layouts <https://foxglove.dev/docs/visualization/layouts>`__ to view multiple types of data simultaneously.
 
 You can also save layouts for future use, or to share with your team.
 

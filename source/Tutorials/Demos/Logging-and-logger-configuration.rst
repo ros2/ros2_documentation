@@ -449,7 +449,8 @@ You should see that debug, warn, error and fatal logs aren't colorized now.
 Default stream for console output
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In Foxy and later, the output from all debug levels goes to stderr by default.  It is possible to force all output to go to stdout by setting the ``RCUTILS_LOGGING_USE_STDOUT`` environment variable to ``1``.
+In Foxy and later, the output from all debug levels goes to stderr by default.
+It is possible to force all output to go to stdout by setting the ``RCUTILS_LOGGING_USE_STDOUT`` environment variable to ``1``.
 For example:
 
 .. tabs::

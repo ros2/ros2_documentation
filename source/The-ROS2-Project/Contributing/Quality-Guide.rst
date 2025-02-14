@@ -116,7 +116,8 @@ There are three C++ standard libraries to be aware of
 * The LLVM standard library ``libc++`` (also called ``libcxx`` ) - default on macOS,  explicitly set by the compiler option ``-stdlib=libc++``
 * The Windows C++ Standard Library - not relevant to this use case
 
-``libcxx`` annotates its ``std::mutex`` and ``std::lock_guard`` implementations for Thread Safety Analysis. When using GNU ``libstdc++`` , those annotations are not present, so Thread Safety Analysis cannot be used on non-wrapped ``std::`` types.
+``libcxx`` annotates its ``std::mutex`` and ``std::lock_guard`` implementations for Thread Safety Analysis.
+When using GNU ``libstdc++`` , those annotations are not present, so Thread Safety Analysis cannot be used on non-wrapped ``std::`` types.
 
 *Therefore, to use Thread Safety Analysis directly with* ``std::`` *types, we must use* ``libcxx``
 

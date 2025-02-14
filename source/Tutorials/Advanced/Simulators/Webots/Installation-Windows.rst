@@ -182,7 +182,8 @@ To use RViz, you can either upgrade WSL or enable X11 forwarding.
         For older versions of WSL, the following steps can be followed:
 
         1. Install `VcXsrv <https://sourceforge.net/projects/vcxsrv/>`_.
-        2. Launch VcXsrv. You can leave most of the parameters default, except the ``Extra settings`` page, where you must set ``Clipboard``, ``Primary Selection`` and ``Disable access control`` and unset ``Native opengl``.
+        2. Launch VcXsrv.
+           You can leave most of the parameters default, except the ``Extra settings`` page, where you must set ``Clipboard``, ``Primary Selection`` and ``Disable access control`` and unset ``Native opengl``.
         3. You can save the configuration for future launches.
         4. Click on ``Finish``, you will see that the X11 server is running in the icon tray.
         5. In your WSL environment, export the ``DISPLAY`` variable.

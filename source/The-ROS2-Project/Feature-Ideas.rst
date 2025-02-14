@@ -41,7 +41,8 @@ Infrastructure and tools
 
 * Documentation
 
-  * Deprecate https://design.ros2.org.  Content should move to either an REP, to https://github.com/ros2/ros2_documentation, or be removed.
+  * Deprecate https://design.ros2.org.
+    Content should move to either an REP, to https://github.com/ros2/ros2_documentation, or be removed.
   * Fix per-package documentation builder to be able to document build artifacts, i.e. messages, services, actions, etc.
   * Make https://docs.ros.org/en/ros2_documentation automatically rebuild on changes to https://github.com/ros2/ros2_documentation.
   * ``ament`` documentation

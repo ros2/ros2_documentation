@@ -239,7 +239,8 @@ You can use it to access the `Webots robot API  <https://cyberbotics.com/doc/ref
         It takes two arguments:
 
         * A pointer to the ``WebotsNode`` defined by ``webots_ros2_driver``, which allows to access the ROS 2 node functions.
-        * The ``parameters`` argument is an unordered map of strings, created from the XML tags given in the URDF files (:ref:`4 Create the my_robot.urdf file`) and allows to pass parameters to the controller. It is not used in this example.
+        * The ``parameters`` argument is an unordered map of strings, created from the XML tags given in the URDF files (:ref:`4 Create the my_robot.urdf file`) and allows to pass parameters to the controller.
+          It is not used in this example.
 
         It initializes the plugin by setting up the robot motors, setting their positions and velocities, and subscribing to the ``/cmd_vel`` topic.
 
@@ -384,7 +385,7 @@ After that, the two nodes are set to be launched in the ``LaunchDescription`` co
     :dedent: 4
     :lines: 24-26
 
-Finally, an optional part is added in order to shutdown all the nodes once Webots terminates (e.g., when it gets closed from the graphical user interface).
+Finally, an optional part is added in order to shutdown all the nodes once Webots terminates (e.g. when it gets closed from the graphical user interface).
 
 .. literalinclude:: Code/robot_launch.py
     :language: python

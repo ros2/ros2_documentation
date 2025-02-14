@@ -297,7 +297,8 @@ Keyboard shortcut: ``i``
 Move Camera
 ^^^^^^^^^^^
 The Move Camera tool is the default tool.
-When this is selected and you click inside the 3D view, the viewpoint changes according to the options and camera type you have selected in the ``Views`` panel. See the previous section ``Views Panel`` for more information.
+When this is selected and you click inside the 3D view, the viewpoint changes according to the options and camera type you have selected in the ``Views`` panel.
+See the previous section ``Views Panel`` for more information.
 
 Keyboard shortcut: ``m``
 
