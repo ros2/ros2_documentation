@@ -136,9 +136,9 @@ The trailing stars indicate the rough effort: 1 star for small, 2 stars for medi
   * Key storage security (right now, keys are just stored in the filesystem) [\*\*]
   * More user friendly interface (make it easier to specify security config).
     Maybe a Qt GUI?
-    This GUI could also assist in distributing keys somehow. [\*\*\*]
-  * A way to say "please secure this running system" with some UI that would auto-generate keys and policies for everything that is currently running. [\*\*\*]
-  * If there are hardware-specific features for securing keys or accelerating encryption/signing messages, that could be interesting to add to DDS/RTPS implementations that don't use it already. [\*\*\*]
+    This GUI could also assist in distributing keys somehow [\*\*\*]
+  * A way to say "please secure this running system" with some UI that would auto-generate keys and policies for everything that is currently running [\*\*\*]
+  * If there are hardware-specific features for securing keys or accelerating encryption/signing messages, that could be interesting to add to DDS/RTPS implementations that don't use it already [\*\*\*]
 
 Reducing Technical Debt
 -----------------------

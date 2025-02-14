@@ -63,7 +63,7 @@ The repository name is trivial, but it is recommended to set this to the name of
          Name of the repository (used in the archive name)
       ['upstream']:
 
-Type the name of your project (eg. ``my_project``) and press Enter.
+Type the name of your project (e.g. ``my_project``) and press Enter.
 
 .. _upstream-repository-uri:
 
@@ -82,7 +82,7 @@ This is most likely an https link to your project hosted on a git hosting servic
          where the :{version} token will be replaced with the version for this release.
       [None]:
 
-Make sure you **use the https address** (eg. ``https://github.com/my_organization/my_repo.git``) and not the ssh address.
+Make sure you **use the https address** (e.g. ``https://github.com/my_organization/my_repo.git``) and not the ssh address.
 
 .. _upstream-vcs-type:
 
@@ -112,7 +112,7 @@ Most repositories will be using git, but some legacy repositories might be using
 Version
 ^^^^^^^
 
-This is the version of the package you are releasing. (eg. ``1.0.3``)
+This is the version of the package you are releasing. (e.g. ``1.0.3``)
 
 .. code-block:: bash
 

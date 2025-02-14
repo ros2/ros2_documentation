@@ -82,7 +82,7 @@ Execution of the jobs depends on the type of the job:
 Frequency Asked Questions (FAQ) and Troubleshooting
 ---------------------------------------------------
 
-#. **I get Jenkins mails from failing build farm jobs. What do I do?**
+#. **I get Jenkins mails from failing build farm jobs; What do I do?**
 
    Go to the job that raised the issue.
    You find the link on top of the Jenkins email.

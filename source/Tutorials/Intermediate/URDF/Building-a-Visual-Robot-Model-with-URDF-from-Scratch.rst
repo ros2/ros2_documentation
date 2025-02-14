@@ -187,7 +187,7 @@ We also rotate the leg so it is upright.
 * The launch file runs packages that will create TF frames for each link in your model based on your URDF.
   Rviz uses this information to figure out where to display each shape.
 * If a TF frame does not exist for a given URDF link, then it will be placed at the origin in white
-  (ref. `related question <http://answers.ros.org/question/207947/how-do-you-use-externally-defined-materials-in-a-urdfxacro-file/>`_).
+  (`related question <http://answers.ros.org/question/207947/how-do-you-use-externally-defined-materials-in-a-urdfxacro-file/>`_).
 
 Material Girl
 -------------

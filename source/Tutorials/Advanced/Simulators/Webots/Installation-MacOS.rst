@@ -47,7 +47,7 @@ In the :ref:`Preconfigured Images` section, you can find already configured imag
 Install UTM on your macOS machine.
 The link can be found on the `official UTM website <https://mac.getutm.app/>`_.
 
-Download the .iso image of `Ubuntu 22.04 <https://cdimage.ubuntu.com/jammy/daily-live/current/>`_ for Humble and Rolling or `Ubuntu 20.04 <https://cdimage.ubuntu.com/focal/daily-live/pending/>`_ for Foxy.
+Download the ``.iso`` image of `Ubuntu 22.04 <https://cdimage.ubuntu.com/jammy/daily-live/current/>`_ for Humble and Rolling or `Ubuntu 20.04 <https://cdimage.ubuntu.com/focal/daily-live/pending/>`_ for Foxy.
 Be sure to download the image corresponding to your CPU architecture.
 
 In the UTM software:

@@ -76,11 +76,11 @@ Line Length
 File Extensions
 ~~~~~~~~~~~~~~~
 
-* Header files should use the .hpp extension.
+* Header files should use the ``.hpp`` extension.
 
   * rationale: Allow tools to determine content of files, C++ or C.
 
-* Implementation files should use the .cpp extension.
+* Implementation files should use the ``.cpp`` extension.
 
   * rationale: Allow tools to determine content of files, C++ or C.
 
@@ -345,10 +345,10 @@ The pycodestyle configuration used in the linter is `here <https://github.com/am
 
 Integration with editors:
 
-* atom: https://atom.io/packages/linter-pycodestyle
-* emacs: https://www.emacswiki.org/emacs/PythonProgrammingInEmacs
-* Sublime Text: https://sublime.wbond.net/packages/SublimeLinter-flake8
-* vim: https://github.com/nvie/vim-flake8
+* `atom <https://atom.io/packages/linter-pycodestyle>`_
+* `emacs <https://www.emacswiki.org/emacs/PythonProgrammingInEmacs>`_
+* `Sublime Text <https://sublime.wbond.net/packages/SublimeLinter-flake8>`_
+* `vim <https://github.com/nvie/vim-flake8>`_
 
 CMake
 -----
