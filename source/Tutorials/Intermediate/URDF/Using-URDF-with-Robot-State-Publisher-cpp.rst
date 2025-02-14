@@ -360,4 +360,5 @@ See the `User Guide <http://wiki.ros.org/rviz/UserGuide>`__ for details on how t
 Summary
 -------
 
-Congratulations! You  have created a ``JointState`` publisher node and coupled it with ``robot_state_publisher`` to simulate a walking robot.
+Congratulations!
+You have created a ``JointState`` publisher node and coupled it with ``robot_state_publisher`` to simulate a walking robot.
