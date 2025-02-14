@@ -149,7 +149,7 @@ Source an underlay
 ^^^^^^^^^^^^^^^^^^
 
 It is important that we have sourced the environment for an existing ROS 2 installation that will provide our workspace with the necessary build dependencies for the example packages.
-This is achieved by sourcing the setup script provided by a binary installation or a source installation, ie. another colcon workspace (see :doc:`Installation <../../Installation>`).
+This is achieved by sourcing the setup script provided by a binary installation or a source installation, i.e. another colcon workspace (see :doc:`Installation <../../Installation>`).
 We call this environment an **underlay**.
 
 Our workspace, ``ros2_ws``, will be an **overlay** on top of the existing ROS 2 installation.
