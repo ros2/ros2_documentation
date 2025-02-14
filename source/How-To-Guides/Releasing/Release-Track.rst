@@ -112,7 +112,8 @@ Most repositories will be using git, but some legacy repositories might be using
 Version
 ^^^^^^^
 
-This is the version of the package you are releasing. (e.g. ``1.0.3``)
+This is the version of the package you are releasing.
+(e.g. ``1.0.3``)
 
 .. code-block:: bash
 

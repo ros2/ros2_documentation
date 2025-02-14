@@ -6,7 +6,8 @@ RTI Connext DDS
    :local:
 
 A full-suite installation of RTI Connext DDS is available for many additional platforms, for universities, evaluation, or purchase.
-This installation includes diagnostic tools, layered services, and security.  See below for installation details.
+This installation includes diagnostic tools, layered services, and security.
+See below for installation details.
 
 RTI University Program
 ----------------------
@@ -23,8 +24,10 @@ To install RTI Connext DDS **version 6.0.1** Evaluation:
  * Visit the `RTI Free Trial (6.0.1) site <https://www.rti.com/free-trial>`__.
  * Download the version(s) to match your environment.
  * Contact license@rti.com for an evaluation license.
- * Install RTI Connext 6.0.1 by running the installation program.  When finished, it will run the RTI Launcher.
- * Use the RTI Launcher to install the license file (rti_license.dat) if needed.  The launcher may also be used to launch the diagnostic tools and services.
+ * Install RTI Connext 6.0.1 by running the installation program.
+   When finished, it will run the RTI Launcher.
+ * Use the RTI Launcher to install the license file (rti_license.dat) if needed.
+   The launcher may also be used to launch the diagnostic tools and services.
 
 Detailed instructions for each platform are provided below.
 

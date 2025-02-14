@@ -4,7 +4,8 @@
 
 GurumNetworks GurumDDS
 ======================
-``rmw_gurumdds`` is an implementation of the ROS middleware interface using GurumNetworks GurumDDS. For more information about GurumDDS, visit the `GurumNetworks website <https://gurum.cc/index_eng>`_.
+``rmw_gurumdds`` is an implementation of the ROS middleware interface using GurumNetworks GurumDDS.
+For more information about GurumDDS, visit the `GurumNetworks website <https://gurum.cc/index_eng>`_.
 
 
 Prerequisites
@@ -16,9 +17,9 @@ Version Requirements (`see the README for details <https://github.com/ros2/rmw_g
 ================  ================
 ROS 2 Distro      GurumDDS Version
 ================  ================
-rolling           >= 3.2.0
-jazzy             >= 3.2.0
-humble            3.1.x
+rolling           ``>= 3.2.0``
+jazzy             ``>= 3.2.0``
+humble            ``3.1.x``
 ================  ================
 
 Deb packages of GurumDDS are provided in the ROS 2 apt repositories on Ubuntu.

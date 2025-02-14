@@ -20,7 +20,7 @@ Releasing a Package
 **Releasing a package makes your package available on the public ROS 2 buildfarm.**
 This will:
 
-* Make your package available to be installed via package managers (eg. ``apt`` on Ubuntu) for all supported Linux platforms in a ROS distribution as described in `REP 2000 <https://ros.org/reps/rep-2000.html>`_.
+* Make your package available to be installed via package managers (e.g. ``apt`` on Ubuntu) for all supported Linux platforms in a ROS distribution as described in `REP 2000 <https://ros.org/reps/rep-2000.html>`_.
 * Allow your package to have API documentation automatically generated.
 * Make your package part of the `ROS Index <https://index.ros.org>`_.
 * (Optionally) Allow you to have automatic CI run for pull requests in your repository.
