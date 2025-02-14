@@ -34,4 +34,4 @@ WORKDIR /tmp/doc_repository
 
 USER $user
 
-CMD ["bash", "-c", "pip3 install --no-warn-script-location --user -r requirements.txt -c constraints.txt && ls -lt && make multiversion"]
+CMD ["bash", "-c", "pip3 install --no-warn-script-location --user -r requirements.txt -c constraints.txt && make multiversion"]
