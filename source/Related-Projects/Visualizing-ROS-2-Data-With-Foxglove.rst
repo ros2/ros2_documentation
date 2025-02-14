@@ -167,7 +167,7 @@ Reference the `docs <https://foxglove.dev/docs/visualization/panels/teleop>`__ f
 Visualize URDFs: View and manipulate your URDF model
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Foxglove's `3D panel supports displaying Unified Robotics Description Format (URDF) models <https://docs.foxglove.dev/docs/visualization/panels/3d/#custom-layers>`__ in the context of your robots’ world.
+Foxglove's `3D panel supports displaying Unified Robotics Description Format (URDF) models <https://docs.foxglove.dev/docs/visualization/panels/3d/#custom-layers>`__ in the context of your robots' world.
 
 To visualize and control your robot model in Foxglove, open the web or desktop application and add a 3D panel to your layout.
 
@@ -175,13 +175,13 @@ Add as many URDF models as you want as custom layers in the 3D panel, using HTTP
 
 In addition to these URLs, the 3D panel can also display URDFs from a ``/robot_description`` topic.
 
-Once added to the 3D panel, the URDF file will populate the transform tree with frames and transforms based on the model’s links and joints.
+Once added to the 3D panel, the URDF file will populate the transform tree with frames and transforms based on the model's links and joints.
 
-It’s important to note that Foxglove uses different defaults from RViz—if your meshes are not displaying properly, you may want to adjust the "Ignore COLLADA <up_axis>"" (for DAE meshes) and "Mesh up axis" (for STL and OBJ meshes) options in the panel settings’ ‘Scene’ section.
+It's important to note that Foxglove uses different defaults from RViz—if your meshes are not displaying properly, you may want to adjust the "Ignore COLLADA <up_axis>"" (for DAE meshes) and "Mesh up axis" (for STL and OBJ meshes) options in the panel settings' 'Scene' section.
 
-You can update this tree by publishing transform messages to move the URDF model’s joints positions—if you’ve used JointState messages before, you can use a robot_state_publisher node to transform them into TF messages at runtime.
+You can update this tree by publishing transform messages to move the URDF model's joints positions—if you've used JointState messages before, you can use a robot_state_publisher node to transform them into TF messages at runtime.
 
-You can also control your model’s joints manually via the panel settings interface.
+You can also control your model's joints manually via the panel settings interface.
 
 .. image:: foxglove/urdf.png
   :width: 500 px
