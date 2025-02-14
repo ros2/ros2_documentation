@@ -200,7 +200,8 @@ All further processing and updates are done in the ``execute`` method in the new
 This work thread processes one sequence number of the Fibonacci sequence every second, publishing a feedback update for each step.
 When it has finished processing, it marks the ``goal_handle`` as succeeded, and quits.
 
-We now have a fully functioning action server.  Let's get it built and running.
+We now have a fully functioning action server.
+Let's get it built and running.
 
 2.2 Compiling the action server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -329,7 +330,8 @@ The result is handled by the ``result_callback``:
     :language: c++
     :lines: 84-107
 
-We now have a fully functioning action client.  Let's get it built and running.
+We now have a fully functioning action client.
+Let's get it built and running.
 
 3.2 Compiling the action client
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

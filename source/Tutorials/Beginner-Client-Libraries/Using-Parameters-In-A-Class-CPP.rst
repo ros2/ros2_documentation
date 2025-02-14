@@ -205,7 +205,8 @@ Once you run the node, you can then run ``ros2 param describe /minimal_param_nod
 2.2 Add executable
 ~~~~~~~~~~~~~~~~~~
 
-Now open the ``CMakeLists.txt`` file. Below the dependency ``find_package(rclcpp REQUIRED)`` add the following lines of code.
+Now open the ``CMakeLists.txt`` file.
+Below the dependency ``find_package(rclcpp REQUIRED)`` add the following lines of code.
 
 .. code-block:: cmake
 

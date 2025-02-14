@@ -132,7 +132,9 @@ In the ``ros2_ws/src`` directory, run the following command:
 
   git clone https://github.com/ros/ros_tutorials.git -b {DISTRO}
 
-Now ``ros_tutorials`` is cloned in your workspace.  The ``ros_tutorials`` repository contains the ``turtlesim`` package, which we'll use in the rest of this tutorial.  The other packages in this repository are not built because they contain a ``COLCON_IGNORE`` file.
+Now ``ros_tutorials`` is cloned in your workspace.
+The ``ros_tutorials`` repository contains the ``turtlesim`` package, which we'll use in the rest of this tutorial.
+The other packages in this repository are not built because they contain a ``COLCON_IGNORE`` file.
 
 So far you have populated your workspace with a sample package, but it isn't a fully-functional workspace yet.
 You need to resolve the dependencies first and then build the workspace.

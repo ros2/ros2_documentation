@@ -70,7 +70,8 @@ These are the APIs that end users of the ROS 2 logging infrastructure should use
 
   .. group-tab:: Python
 
-    * ``logger.{debug,info,warning,error,fatal}`` - output the given Python string to the logging infrastructure.  The calls accept the following keyword args to control behavior:
+    * ``logger.{debug,info,warning,error,fatal}`` - output the given Python string to the logging infrastructure.
+      The calls accept the following keyword args to control behavior:
 
       * ``throttle_duration_sec`` - if not None, the duration of the throttle interval in floating-point seconds
       * ``skip_first`` - if True, output the message all but the first time this line is hit
@@ -90,12 +91,27 @@ Environment variables
 The following environment variables control some aspects of the ROS 2 loggers.
 For each of the environment settings, note that this is a process-wide setting, so it applies to all nodes in that process.
 
-* ``ROS_LOG_DIR`` - Control the logging directory that is used for writing logging messages to disk (if that is enabled).  If non-empty, use the exact directory as specified in this variable.  If empty, use the contents of the ``ROS_HOME`` environment variable to construct a path of the form ``$ROS_HOME/.log``.  In all cases, the ``~`` character is expanded to the user's HOME directory.
-* ``ROS_HOME`` - Control the home directory that is used for various ROS files, including logging and config files.  In the context of logging, this variable is used to construct a path to a directory for log files.  If non-empty, use the contents of this variable for the ROS_HOME path.  In all cases, the ``~`` character is expanded to the users's HOME directory.
-* ``RCUTILS_LOGGING_USE_STDOUT`` - Control what stream output messages go to.  If this is unset or 0, use stderr.  If this is 1, use stdout.
-* ``RCUTILS_LOGGING_BUFFERED_STREAM`` - Control whether the logging stream (as configured in ``RCUTILS_LOGGING_USE_STDOUT``) should be line buffered or unbuffered.  If this is unset, use the default of the stream (generally line buffered for stdout, and unbuffered for stderr).  If this is 0, force the stream to be unbuffered.  If this is 1, force the stream to be line buffered.
-* ``RCUTILS_COLORIZED_OUTPUT`` - Control whether colors are used when outputting messages.  If unset, automatically determine based on the platform and whether the console is a TTY.  If 0, force disable using colors for output.  If 1, force enable using colors for output.
-* ``RCUTILS_CONSOLE_OUTPUT_FORMAT`` - Control the fields that are output for each log message.  The available fields are:
+* ``ROS_LOG_DIR`` - Control the logging directory that is used for writing logging messages to disk (if that is enabled).
+  If non-empty, use the exact directory as specified in this variable.
+  If empty, use the contents of the ``ROS_HOME`` environment variable to construct a path of the form ``$ROS_HOME/.log``.
+  In all cases, the ``~`` character is expanded to the user's HOME directory.
+* ``ROS_HOME`` - Control the home directory that is used for various ROS files, including logging and config files.
+  In the context of logging, this variable is used to construct a path to a directory for log files.
+  If non-empty, use the contents of this variable for the ROS_HOME path.
+  In all cases, the ``~`` character is expanded to the users's HOME directory.
+* ``RCUTILS_LOGGING_USE_STDOUT`` - Control what stream output messages go to.
+  If this is unset or 0, use stderr.
+  If this is 1, use stdout.
+* ``RCUTILS_LOGGING_BUFFERED_STREAM`` - Control whether the logging stream (as configured in ``RCUTILS_LOGGING_USE_STDOUT``) should be line buffered or unbuffered.
+  If this is unset, use the default of the stream (generally line buffered for stdout, and unbuffered for stderr).
+  If this is 0, force the stream to be unbuffered.
+  If this is 1, force the stream to be line buffered.
+* ``RCUTILS_COLORIZED_OUTPUT`` - Control whether colors are used when outputting messages.
+  If unset, automatically determine based on the platform and whether the console is a TTY.
+  If 0, force disable using colors for output.
+  If 1, force enable using colors for output.
+* ``RCUTILS_CONSOLE_OUTPUT_FORMAT`` - Control the fields that are output for each log message.
+  The available fields are:
 
   * ``{severity}`` - The severity level.
   * ``{name}`` - The name of the logger (may be empty).
@@ -115,11 +131,20 @@ Node creation
 When initializing a ROS 2 node, it is possible to control some aspects of the behavior via node options.
 Since these are per-node options, they can be set differently for different nodes even when the nodes are composed into a single process.
 
-* ``log_levels`` - The log level to use for a component within this particular node.  This can be set with the following: ``ros2 run demo_nodes_cpp talker --ros-args --log-level talker:=DEBUG``
-* ``external_log_config_file`` - The external file to use to configure the backend logger.  If it is NULL, the default configuration will be used.  Note that the format of this file is backend-specific (and is currently unimplemented for the default backend logger of spdlog).  This can be set with the following: ``ros2 run demo_nodes_cpp talker --ros-args --log-config-file log-config.txt``
-* ``log_stdout_disabled`` - Whether to disable writing log messages to the console.  This can be done with the following: ``ros2 run demo_nodes_cpp talker --ros-args --disable-stdout-logs``
-* ``log_rosout_disabled`` - Whether to disable writing log messages out to ``/rosout``.  This can significantly save on network bandwidth, but external observers will not be able to monitor logging.  This can be done with the following: ``ros2 run demo_nodes_cpp talker --ros-args --disable-rosout-logs``
-* ``log_ext_lib_disabled`` - Whether to completely disable the use of an external logger.  This may be faster in some cases, but means that logs will not be written to disk.  This can be done with the following: ``ros2 run demo_nodes_cpp talker --ros-args --disable-external-lib-logs``
+* ``log_levels`` - The log level to use for a component within this particular node.
+  This can be set with the following: ``ros2 run demo_nodes_cpp talker --ros-args --log-level talker:=DEBUG``
+* ``external_log_config_file`` - The external file to use to configure the backend logger.
+  If it is NULL, the default configuration will be used.
+  Note that the format of this file is backend-specific (and is currently unimplemented for the default backend logger of spdlog).
+  This can be set with the following: ``ros2 run demo_nodes_cpp talker --ros-args --log-config-file log-config.txt``
+* ``log_stdout_disabled`` - Whether to disable writing log messages to the console.
+  This can be done with the following: ``ros2 run demo_nodes_cpp talker --ros-args --disable-stdout-logs``
+* ``log_rosout_disabled`` - Whether to disable writing log messages out to ``/rosout``.
+  This can significantly save on network bandwidth, but external observers will not be able to monitor logging.
+  This can be done with the following: ``ros2 run demo_nodes_cpp talker --ros-args --disable-rosout-logs``
+* ``log_ext_lib_disabled`` - Whether to completely disable the use of an external logger.
+  This may be faster in some cases, but means that logs will not be written to disk.
+  This can be done with the following: ``ros2 run demo_nodes_cpp talker --ros-args --disable-external-lib-logs``
 
 Logging subsystem design
 ------------------------

@@ -157,7 +157,9 @@ To increase the settings temporarily, you can run the following commands as user
    /usr/sbin/sysctl -w kern.sysv.shmseg=1024
    /usr/sbin/sysctl -w kern.sysv.shmall=262144
 
-To increase the settings permanently, you will need to edit or create the file ``/etc/sysctl.conf``. Creating or editing this file will require root permissions. Either add to your existing ``etc/sysctl.conf`` file or create ``/etc/sysctl.conf`` with the following lines:
+To increase the settings permanently, you will need to edit or create the file ``/etc/sysctl.conf``.
+Creating or editing this file will require root permissions.
+Either add to your existing ``etc/sysctl.conf`` file or create ``/etc/sysctl.conf`` with the following lines:
 
 .. code-block:: console
 

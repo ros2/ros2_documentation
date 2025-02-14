@@ -66,7 +66,9 @@ For example, if you wish to scan just source and header files for copyright noti
 
 ``ament_copyright`` supports the following options:
 
-* ``--add-missing COPYRIGHT_NAME LICENSE`` - Add missing copyright notice and license information using the passed copyright holder and license. ``LICENSE`` passed to this option is the name of the license to be used. A full list of available licenses can be found by calling ``ament_copyright --list-licenses``
+* ``--add-missing COPYRIGHT_NAME LICENSE`` - Add missing copyright notice and license information using the passed copyright holder and license.
+  ``LICENSE`` passed to this option is the name of the license to be used.
+  A full list of available licenses can be found by calling ``ament_copyright --list-licenses``
 * ``--add-copyright-year`` - Add the current year to existing copyright notices.
 * ``--list-copyright-names`` - List names of known copyright holders.
 * ``--list-licenses`` - List names of known licenses.
@@ -289,7 +291,8 @@ For example, if you wish to scan just one package in your workspace you can call
   We recommend you stick to the defaults
 * ``--linelength N`` - The maximum line length.
 * ``--language`` - One of {C,C++,CPP}, passed to uncrustify as '-l <language>' to force a specific language rather then choosing one based on file extension.
-* ``--reformat`` -  Reformat the files in place, i.e. fix the formatting errors encountered. **We recommend you use this option when running ``ament_uncrustify`` as it will save you quite a bit of time!**
+* ``--reformat`` -  Reformat the files in place, i.e. fix the formatting errors encountered.
+  **We recommend you use this option when running ``ament_uncrustify`` as it will save you quite a bit of time!**
 
 5.3 ``ament_uncrustify`` Example
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
