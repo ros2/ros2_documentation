@@ -2,10 +2,10 @@
 
     Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher
 
-.. _URDFPlusRSP:
+.. _URDFPlusRSPCPP:
 
-Using URDF with ``robot_state_publisher``
-=========================================
+Using URDF with ``robot_state_publisher`` in CPP
+================================================
 
 **Goal:** Simulate a walking robot modeled in URDF and view it in Rviz.
 
@@ -76,8 +76,8 @@ Create the directory where we will store some assets:
 
       md urdf
 
-Download the :download:`URDF file <documents/r2d2.urdf.xml>` and save it as `urdf_tutorial_cpp/urdf/r2d2.urdf.xml`.
-Download the :download:`Rviz configuration file <documents/r2d2.rviz>` and save it as `urdf_tutorial_cpp/urdf/r2d2.rviz`.
+Download the :download:`URDF file <documents/r2d2.urdf.xml>` and save it as ``urdf_tutorial_cpp/urdf/r2d2.urdf.xml``.
+Download the :download:`Rviz configuration file <documents/r2d2.rviz>` and save it as ``urdf_tutorial_cpp/urdf/r2d2.rviz``.
 
 3 Publish the state
 ^^^^^^^^^^^^^^^^^^^
@@ -260,7 +260,7 @@ Open your editor and paste the following code, saving it as ``urdf_tutorial_cpp/
 You must tell the **colcon** build tool how to install your cpp package.
 Edit the ``CMakeLists.txt`` file as follows:
 
-.. code-block:: python
+.. code-block:: cmake
 
   cmake_minimum_required(VERSION 3.8)
   project(urdf_tutorial_cpp)
