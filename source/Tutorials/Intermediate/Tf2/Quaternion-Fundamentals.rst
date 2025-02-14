@@ -32,7 +32,7 @@ In this tutorial, you will learn how quaternions and conversion methods work in 
 Prerequisites
 -------------
 
-However, this is not a hard requirement and you can stick to any other geometric transfromation library that suit you best.
+However, this is not a hard requirement and you can stick to any other geometric transformation library that suit you best.
 You can take a look at libraries like `transforms3d <https://github.com/matthew-brett/transforms3d>`_, `scipy.spatial.transform <https://github.com/scipy/scipy/tree/master/scipy/spatial/transform>`_, `pytransform3d <https://github.com/rock-learning/pytransform3d>`_, `numpy-quaternion <https://github.com/moble/quaternion>`_ or `blender.mathutils <https://docs.blender.org/api/master/mathutils.html>`_.
 
 Components of a quaternion
@@ -168,7 +168,8 @@ You want to find the relative rotation, ``q_r``, that converts ``q_1`` to ``q_2`
    q_2 = q_r * q_1
 
 You can solve for ``q_r`` similarly to solving a matrix equation.
-Invert ``q_1`` and right-multiply both sides. Again, the order of multiplication is important:
+Invert ``q_1`` and right-multiply both sides.
+Again, the order of multiplication is important:
 
 .. code-block:: C++
 

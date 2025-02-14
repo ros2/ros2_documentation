@@ -22,7 +22,7 @@ Background
 
 When making your own :doc:`nodes <../Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` you will sometimes need to add parameters that can be set from the launch file.
 
-This tutorial will show you how to create those parameters in a C++ class, and how to set them in a launch file.
+This tutorial will show you how to create those parameters in a C++ class, and how to set them using launch file.
 
 Prerequisites
 -------------
@@ -297,7 +297,7 @@ The terminal should return the following message every second:
     [INFO] [minimal_param_node]: Hello world!
 
 Now you can see the default value of your parameter, but you want to be able to set it yourself.
-There are two ways to accomplish this.
+There are four ways to accomplish this.
 
 3.1 Change via the console
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -428,6 +428,22 @@ The terminal should return the following message the first time:
 
 Further outputs should show  ``[INFO] [minimal_param_node]: Hello world!`` every second.
 
+3.3 Change via launch file loading parameters from YAML file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Instead of listing parameters and their values in launch file, you can create a separate YAML file that will be loaded in launch file.
+Placing parameters in a YAML file makes it easier to organize them, for example, by assigning them to different namespaces.
+You can read more about it :ref:`here <LoadingParametersFromYAMLFile>`.
+
+.. note::
+
+  While declaring, getting and setting parameter value inside your C++ node, you should use dot as a separator between parameter's namespace and name.
+
+3.4 Change via passing YAML file as an argument at node startup
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Return to :ref:`tutorial about parameters <LoadParameterFileOnNodeStartup>` to remind yourself, how to load parameters file at node startup using CLI.
+
 Summary
 -------
 
@@ -438,3 +454,9 @@ Next steps
 ----------
 
 Now that you have some packages and ROS 2 systems of your own, the :doc:`next tutorial <./Getting-Started-With-Ros2doctor>` will show you how to examine issues in your environment and systems in case you have problems.
+
+Related content
+---------------
+
+* For more detailed information about using YAML files to load parameters, please refer to :ref:`this section <Parameters>` of Managing large projects tutorial.
+* If you want to learn, how to monitor and respond to parameter changes, check out :doc:`Monitoring for parameter changes (C++) <../Intermediate/Monitoring-For-Parameter-Changes-CPP>` tutorial.

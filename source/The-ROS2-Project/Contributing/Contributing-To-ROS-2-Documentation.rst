@@ -99,11 +99,32 @@ This is the recommended way to test out local changes.
 The build process can take some time.
 To see the output, open ``build/html/index.html`` in your browser.
 
-You can also run the documentation tests locally (using `doc8 <https://github.com/PyCQA/doc8>`_) with the following command:
+
+Checking / Testing the site
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can run the documentation tests locally (using `doc8 <https://github.com/PyCQA/doc8>`_) with the following command:
 
 .. code-block:: console
 
    make test
+
+You can run the documentation linter locally (using `sphinx-lint <https://github.com/sphinx-contrib/sphinx-lint>`_) with the following command:
+
+.. code-block:: console
+
+   make lint
+
+You can run the documentation spell checker locally (using `codespell <https://github.com/codespell-project/codespell>`_) with the following command:
+
+.. code-block:: console
+
+   make spellcheck
+
+.. note::
+
+   If that detects specific words that need to be ignored, add it to `codespell_whitelist <https://github.com/ros2/ros2_documentation/blob/{REPOS_FILE_BRANCH}/codespell_whitelist.txt>`_ .
+
 
 View Site Through Github CI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -173,9 +194,11 @@ We've found that the easiest way to migrate a page from the ROS Wiki is to conve
 Migrating a Wiki File
 ^^^^^^^^^^^^^^^^^^^^^
 
-#. Clone the appropriate repository.  If you are migrating a page to the official documentation hosted here, then you should clone https://github.com/ros2/ros2_documentation.
+#. Clone the appropriate repository.
+   If you are migrating a page to the official documentation hosted here, then you should clone https://github.com/ros2/ros2_documentation.
 
-#. Create a new Github branch for your migrated page. We suggest something like ``pagename-migration``.
+#. Create a new Github branch for your migrated page.
+   We suggest something like ``pagename-migration``.
 
 #. Download the appropriate ROS Wiki page to an html file using wget or a similar tool (e.g. ``wget -O urdf.html https://wiki.ros.org/urdf``).
    Alternatively you can use your web browser to save the page's HTML.
@@ -183,10 +206,11 @@ Migrating a Wiki File
 #. Next you need to remove the extraneous HTML in the file you downloaded
    Using your browser's developer mode, find the name of the first useful HTML element in the Wiki page.
    In most cases all of the HTML between the third line of the file, starting with the ``<head>`` tag, through the start of the first ``<h1>`` tag can be safely removed.
-   In the case where there is a table of contents, the first useful tag may be an ``<h2>`` tag.  Similarly, the ROS wiki contains some footer text that starts with ``<div id="pagebottom"></div>`` and ends just above ``</body></html>`` that can also be removed.
+   In the case where there is a table of contents, the first useful tag may be an ``<h2>`` tag.
+   Similarly, the ROS wiki contains some footer text that starts with ``<div id="pagebottom"></div>`` and ends just above ``</body></html>`` that can also be removed.
 
 #. Convert your html file by running a PanDoc conversion between HTML and restructured text.
-   The following command coverts an HTML file to the equivalent reStructured text files: ``pandoc -f html -t rst urdf.html > URDF.rst``.
+   The following command converts an HTML file to the equivalent reStructured text files: ``pandoc -f html -t rst urdf.html > URDF.rst``.
 
 #. Attempt to build your new documentation using the ``make html`` command.
    There may be errors and warnings that you will need to address.
@@ -198,11 +222,13 @@ Migrating a Wiki File
    This process may require you alter the document considerably, and you may need to pull multiple wiki files.
    You should verify that every code sample in the document is working correctly under ROS 2.
 
-#. Find and download any images that may be in the old document. The easiest way to do this is to right click in the browser and download all of the images. Alternatively you can find images by searching for ``<img src>`` tags in the HTML file.
+#. Find and download any images that may be in the old document.
+   The easiest way to do this is to right click in the browser and download all of the images.
+   Alternatively you can find images by searching for ``<img src>`` tags in the HTML file.
 
 #. For each image files downloaded update the image file links to point to the correct image directory for the ROS Docs.
    If any of the images require updating, or could be replaced with a `Mermaid <https://mermaid.js.org/intro/>`__ chart, please make this change.
-   Be aware that Mermaid.js is only supported in the core ROS 2 documenation currently.
+   Be aware that Mermaid.js is only supported in the core ROS 2 documentation currently.
 
 #. Once your document is complete add a table of contents to the top of your new rst document using the appropriate Sphinx commands.
    This block should replace any existing table of contents from the old ROS Wiki.
@@ -226,7 +252,8 @@ After that, you can open the repository in Codespaces, it can be done just by cl
    :alt: Codespaces creation
 
 After that, you will be redirected to your Codespaces page, where you can see the progress of the Codespaces creation.
-Once it is done, a Visual Studio Code tab will be opened in your browser. You can open the terminal by clicking on the "Terminal" tab in the top panel or by pressing :kbd:`Ctrl-J`.
+Once it is done, a Visual Studio Code tab will be opened in your browser.
+You can open the terminal by clicking on the "Terminal" tab in the top panel or by pressing :kbd:`Ctrl-J`.
 
 In this terminal, you can run any command you want, for example, you can run the following command to build the site for just this branch:
 
@@ -278,6 +305,10 @@ Writing pages
 
 The ROS 2 documentation website uses the ``reStructuredText`` format, which is the default plaintext markup language used by Sphinx.
 This section is a brief introduction to ``reStructuredText`` concepts, syntax, and best practices.
+When formatting your ``reStructuredText`` file **please make sure to write only one sentence per line as it makes reviewing and modifying your file much easier.**
+Also, be mindful of the use of white space in your file!
+The ROS 2 documentation linter will not accept pull requests with trailing white space.
+We recommend that you enable automatic white space highlighting and or cleanup if your editor supports it.
 
 You can refer to `reStructuredText User Documentation <https://docutils.sourceforge.io/rst.html>`_ for a detailed technical specification.
 
@@ -382,6 +413,13 @@ Images can be inserted using the ``.. image::`` directive.
 .. code-block:: rst
 
    .. image:: images/turtlesim_follow1.png
+
+Charts, Graphs, and Diagrams
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ROS 2 Documentation now supports charts, graphs, and diagrams written using `Mermaid Charts. <https://mermaid.js.org/intro/>`__
+We prefer that charts, graphs, and diagrams use Mermaid instead of static image files as it allows us to programmatically update and edit these resources as the project evolves.
+Full documentation of the `Mermaid graph language syntax can be found on their website. <https://mermaid.js.org/intro/syntax-reference.html>`__
 
 References and Links
 ^^^^^^^^^^^^^^^^^^^^

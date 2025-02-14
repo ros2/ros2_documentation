@@ -6,7 +6,9 @@
 Building a real-time Linux kernel [community-contributed]
 =========================================================
 
-This tutorial begins with a clean Ubuntu 20.04.1 install on Intel x86_64. Actual kernel is 5.4.0-54-generic, but we will install the Latest Stable RT_PREEMPT Version. To build the kernel you need at least 30GB free disk space.
+This tutorial begins with a clean Ubuntu 20.04.1 install on Intel x86_64.
+Actual kernel is 5.4.0-54-generic, but we will install the Latest Stable RT_PREEMPT Version.
+To build the kernel you need at least 30GB free disk space.
 
 Check https://wiki.linuxfoundation.org/realtime/start for the latest stable version, at the time of writing this is "Latest Stable Version 5.4-rt".
 If we click on the `link <http://cdn.kernel.org/pub/linux/kernel/projects/rt/5.4/>`_, we get the exact version.
@@ -68,7 +70,8 @@ We simply want to use the config of our Ubuntu installation, so we get the Ubunt
 
    cp /boot/config-5.4.0-54-generic .config
 
-Open Software & Updates. in the Ubuntu Software menu tick the 'Source code' box
+Open Software & Updates.
+in the Ubuntu Software menu tick the 'Source code' box
 
 We need some tools to build kernel, install them with
 
@@ -83,7 +86,8 @@ To enable all Ubuntu configurations, we simply use
 
    yes '' | make oldconfig
 
-Then we need to enable rt_preempt in the kernel. We call
+Then we need to enable rt_preempt in the kernel.
+We call
 
 .. code-block:: bash
 
@@ -121,7 +125,8 @@ and set the following
       -> Default CPUFreq governor (<choice> [=y])
        (X) performance
 
-Save and exit menuconfig. Now we're going to build the kernel which will take quite some time. (10-30min on a modern cpu)
+Save and exit menuconfig.
+Now we're going to build the kernel which will take quite some time. (10-30min on a modern cpu)
 
 .. code-block:: bash
 
@@ -141,7 +146,8 @@ Then we install all kernel deb packages
 
    sudo dpkg -i ../*.deb
 
-Now the real time kernel should be installed. Reboot the system and check the new kernel version
+Now the real time kernel should be installed.
+Reboot the system and check the new kernel version
 
 .. code-block:: bash
 

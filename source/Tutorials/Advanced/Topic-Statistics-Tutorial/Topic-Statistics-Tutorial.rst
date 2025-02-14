@@ -324,8 +324,9 @@ Summary
 -------
 
 You created a subscriber node with topic statistics enabled, which published statistics data from
-the :doc:`C++ <../../Beginner-Client-Libraries/Writing-A-Simple-Cpp-Service-And-Client>`'s publisher node. You were able to compile and run this node. While running,
-you were able to observe the statistics data.
+the :doc:`C++ <../../Beginner-Client-Libraries/Writing-A-Simple-Cpp-Service-And-Client>`'s publisher node.
+You were able to compile and run this node.
+While running, you were able to observe the statistics data.
 
 Related content
 ---------------

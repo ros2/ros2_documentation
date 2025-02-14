@@ -22,7 +22,9 @@ How does it work ?
 Cross-compiling simple software (e.g. no dependencies on external libraries) is relatively simple and only requiring a cross-compiler toolchain to be used instead of the native toolchain.
 
 There are a number of factors which make this process more complex:
- - The software being built must support the target architecture. Architecture specific code must be properly isolated and enabled during the build according to the target architecture. Examples include assembly code.
+ - The software being built must support the target architecture.
+   Architecture specific code must be properly isolated and enabled during the build according to the target architecture.
+   Examples include assembly code.
  - All dependencies (e.g. libraries) must be present, either as pre-built or cross-compiled packages, before the target software using them is cross-compiled.
  - When building software stacks (as opposed to standalone software) using build tools (e.g. colcon), it is expected that the build tool provides a mechanism to allow the developer to enable cross-compilation on the underlying build system used by each piece of software in the stack.
 

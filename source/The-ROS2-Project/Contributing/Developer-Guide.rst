@@ -206,8 +206,8 @@ Examples:
 
   * This is an example of describing an extension point for a package
 
-API Documetation for ROS Packages
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+API Documentation for ROS Packages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 API documentation for all released ROS packages can be `found here <https://docs.ros.org/en/{DISTRO}/p/>`__.
 We recommend using `index.ros.org <https://index.ros.org/>`_ to search through available ROS packages to find their documentation.
@@ -425,7 +425,8 @@ Package Naming Conventions
 
 Names play an important role in ROS and following naming conventions simplifies the process of learning and understanding large systems.
 
-The ROS packages occupy a flat namespace, so naming should be done carefully and consistently. There is a standard for package naming in `REP-144 <https://www.ros.org/reps/rep-0144.html>`__
+The ROS packages occupy a flat namespace, so naming should be done carefully and consistently.
+There is a standard for package naming in `REP-144 <https://www.ros.org/reps/rep-0144.html>`__
 
 * Package names should follow common C variable naming conventions: lower case, start with a letter, use underscore separators, e.g. laser_viewer
 
@@ -578,7 +579,8 @@ The usual workflow is:
   * In the first box "CI_BRANCH_TO_TEST" enter your feature branch name
   * Hit the ``build`` button
 
-  (if you are not a ROS 2 committer, you don't have access to the CI farm. In that case, ping the reviewer of your PR to run CI for you)
+  (if you are not a ROS 2 committer, you don't have access to the CI farm.
+  In that case, ping the reviewer of your PR to run CI for you)
 
 * If your use case requires running code coverage:
 

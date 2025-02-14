@@ -64,7 +64,7 @@ This can be worked around by using the YAML syntax for explicitly setting string
   ros param set /my_node my_string '!!str off'
 
 Additionally, YAML supports heterogeneous lists, containing (say) a string, a boolean, and an integer.
-However, ROS 2 parameters do not support heterogenous lists, so any YAML list that has multiple types will be interpreted as a string.
+However, ROS 2 parameters do not support heterogeneous lists, so any YAML list that has multiple types will be interpreted as a string.
 Assuming that the parameter ``my_int_array`` on node ``my_node`` is of type integer array, the following will not work:
 
 .. code-block:: console

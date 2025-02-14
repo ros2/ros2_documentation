@@ -51,7 +51,7 @@ then you will need to update your firewall configuration to allow multicast usin
    sudo ufw allow in proto udp from 224.0.0.0/4
 
 
-You can check if the multicast flag is enabled for your network interface using the :code:`ifconfig` tool and looking for :code:`MULITCAST` in the flags section:
+You can check if the multicast flag is enabled for your network interface using the :code:`ifconfig` tool and looking for :code:`MULTICAST` in the flags section:
 
 .. code-block:: bash
 
@@ -66,7 +66,8 @@ If so, compare the libraries present in the directory with the one mentioned in 
 Assuming a file with a similar name exists (same prefix like ``_rclpy.`` and same suffix like ``.so`` but a different Python version / architecture) you are using a different Python interpreter than which was used to build the C extension.
 Be sure to use the same Python interpreter as the one used to build the binary.
 
-For example, such a mismatch can crop up after an update of the OS. Then, rebuilding the workspace may fix the issue.
+For example, such a mismatch can crop up after an update of the OS.
+Then, rebuilding the workspace may fix the issue.
 
 .. _linux-troubleshooting:
 
@@ -242,7 +243,7 @@ To resolve this error, you will need to:
 
 rosdep install error ``homebrew: Failed to detect successful installation of [qt5]``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-While following the :doc:`Creating a workspace <../Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>` tutorial, you might encounter the following error stating that ``rosdep`` failes to install Qt5.
+While following the :doc:`Creating a workspace <../Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>` tutorial, you might encounter the following error stating that ``rosdep`` fails to install Qt5.
 
 .. code-block:: bash
 
@@ -289,7 +290,8 @@ Use this information to install additional dependencies or adjust your path as n
 CMake error setting modification time
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you run into the CMake error ``file INSTALL cannot set modification time on ...`` when installing files it is likely that an anti virus software or Windows Defender are interfering with the build. E.g. for Windows Defender you can list the workspace location to be excluded to prevent it from scanning those files.
+If you run into the CMake error ``file INSTALL cannot set modification time on ...`` when installing files it is likely that an anti virus software or Windows Defender are interfering with the build.
+E.g. for Windows Defender you can list the workspace location to be excluded to prevent it from scanning those files.
 
 260 character path limit
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -323,7 +325,8 @@ patch.exe opens a new command window and asks for administrator
 
 This will also cause the build of packages which need to use patch to fail, even you allow it to use administrator rights.
 
-- ``choco uninstall patch; colcon build --cmake-clean-cache`` - This is a bug in the `GNU Patch For Windows package <https://chocolatey.org/packages/patch>`_. If this package is not installed, the build process will instead use the version of Patch distributed with git.
+- ``choco uninstall patch; colcon build --cmake-clean-cache`` - This is a bug in the `GNU Patch For Windows package <https://chocolatey.org/packages/patch>`_.
+  If this package is not installed, the build process will instead use the version of Patch distributed with git.
 
 Failed to load Fast RTPS shared library
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

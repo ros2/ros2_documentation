@@ -51,7 +51,8 @@ All of the following modifications only apply if we are not writing Python modul
 
 * The stuff about documentation strings doesn't apply
 
-We can use the `pep7 <https://github.com/mike-perdide/pep7>`__ python module for style checking. The editor integration seems slim, we may need to look into automated checking for C in more detail.
+We can use the `pep7 <https://github.com/mike-perdide/pep7>`__ python module for style checking.
+The editor integration seems slim, we may need to look into automated checking for C in more detail.
 
 C++
 ---
@@ -166,9 +167,9 @@ Pointer Syntax Alignment
 Class Privacy Keywords
 ~~~~~~~~~~~~~~~~~~~~~~
 
-* Do not put 1 space before ``public:``, ``private:``, or ``protected:``, it is more consistent for all indentions to be a multiple of 2
+* Do not put 1 space before ``public:``, ``private:``, or ``protected:``, it is more consistent for all indentations to be a multiple of 2
 
-  * rationale: most editors don't like indentions which are not a multiple of the (soft) tab size
+  * rationale: most editors don't like indentations which are not a multiple of the (soft) tab size
   * Use zero spaces before ``public:``, ``private:``, or ``protected:``, or 2 spaces
   * If you use 2 spaces before, indent other class statements by 2 additional spaces
   * Prefer zero spaces, i.e. ``public:``, ``private:``, or ``protected:`` in the same column as the class
@@ -194,7 +195,9 @@ Open Versus Cuddled Braces
 
   * Exception: when an ``if`` (or ``while``, etc.) condition is long enough to require line-wrapping, then use an open brace (i.e., don't cuddle).
 
-* When a function call cannot fit on one line, wrap at the open parenthesis (not in between arguments) and start them on the next line with a 2-space indent.  Continue with the 2-space indent on subsequent lines for more arguments.  (Note that the `Google style guide <https://google.github.io/styleguide/cppguide.html#Function_Calls>`__ is internally contradictory on this point.)
+* When a function call cannot fit on one line, wrap at the open parenthesis (not in between arguments) and start them on the next line with a 2-space indent.
+  Continue with the 2-space indent on subsequent lines for more arguments.
+  (Note that the `Google style guide <https://google.github.io/styleguide/cppguide.html#Function_Calls>`__ is internally contradictory on this point.)
 
   * Same goes for ``if`` (and ``while``, etc.) conditions that are too long to fit on one line.
 
@@ -254,7 +257,7 @@ This is **not** OK:
    }
 
 
-Use open braces rather than excessive indention, e.g. for distinguishing constructor code from constructor initializer lists
+Use open braces rather than excessive indentation, e.g. for distinguishing constructor code from constructor initializer lists
 
 This is OK:
 
@@ -364,7 +367,7 @@ Since there is not an existing CMake style guide we will define our own:
 * Use ``snake_case`` identifiers (variables, functions, macros).
 * Use empty ``else()`` and ``end...()`` commands.
 * No whitespace before ``(``\ 's.
-* Use two spaces of indention, do not use tabs.
+* Use two spaces of indentation, do not use tabs.
 * Do not use aligned indentation for parameters of multi-line macro invocations. Use two spaces only.
 * Prefer functions with ``set(PARENT_SCOPE)`` to macros.
 * When using macros prefix local variables with ``_`` or a reasonable prefix.

@@ -24,8 +24,8 @@ Background
 Before proceeding ensure you have completed the :doc:`Introducing-ros2-security` tutorial.
 
 The ``sros2`` package can be used to create keys, certificates and policies necessary to enable ROS 2 security.
-However, the security configuration is extrememly flexible.
-A basic understanding of the ROS 2 Security Keystore will allow integration with an existing PKI (Public Key Infrastructure) and managment of sensitive key materials consistent with organizational policies.
+However, the security configuration is extremely flexible.
+A basic understanding of the ROS 2 Security Keystore will allow integration with an existing PKI (Public Key Infrastructure) and management of sensitive key materials consistent with organizational policies.
 
 
 Security Artifact Locations
@@ -177,11 +177,11 @@ Secure processes (typically ROS nodes) run within a security enclave.
 In the simplest case, all the processes can be consolidated into the same enclave, and all processes will then use the same security policy.
 However, to apply different policies to different processes, the processes can use different security enclaves when starting.
 For more details about security enclaves, see the `design document <https://design.ros2.org/articles/ros2_security_enclaves.html>`_.
-The security enclave is specifed by using the ROS argument ``--enclave`` when running a node.
+The security enclave is specified by using the ROS argument ``--enclave`` when running a node.
 
 **Each security enclave requires six files** in order to enable security.
 Each file **must** be named as defined below, and as outlined in the `DDS Security standard <https://www.omg.org/spec/DDS-SECURITY/1.1/About-DDS-SECURITY/>`_.
-In order to avoid having mulitple copies of the same files, the ``sros2`` utilities create links for each enclave to the single governance policy, the Identity CA and Permissions CA descibed above.
+In order to avoid having multiple copies of the same files, the ``sros2`` utilities create links for each enclave to the single governance policy, the Identity CA and Permissions CA described above.
 
 See the following six files within the ``listener`` enclave.
 Three are specific to this enclave, while three are generic to this ROS system:

@@ -123,6 +123,8 @@ However, there are cases when some nodes or launch files have to be launched sep
 
 .. note:: Design tip: Be aware of the tradeoffs when deciding how many top-level launch files your application requires.
 
+.. _Parameters:
+
 2 Parameters
 ^^^^^^^^^^^^
 
@@ -169,6 +171,8 @@ First, create a new file called ``turtlesim_world_1_launch.py``.
       ])
 
 This launch file starts the ``turtlesim_node`` node, which starts the turtlesim simulation, with simulation configuration parameters that are defined and passed to the nodes.
+
+.. _LoadingParametersFromYAMLFile:
 
 2.2 Loading parameters from YAML file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

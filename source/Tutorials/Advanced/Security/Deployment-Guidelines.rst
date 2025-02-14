@@ -16,7 +16,7 @@ Background
 ----------
 
 Typical deployment scenarios often involve shipping containerized applications, or packages, into remote systems.
-Special attention should be payed when deploying security enabled applications, requiring users to reason about the sensitivity of packaged files.
+Special attention should be paid when deploying security enabled applications, requiring users to reason about the sensitivity of packaged files.
 
 Complying with the `DDS Security standard <https://www.omg.org/spec/DDS-SECURITY/1.1/About-DDS-SECURITY/>`_,
 the ``sros2`` package provides a collection of utilities for managing security under ROS 2 environments in a highly modular and flexible fashion.
@@ -30,7 +30,8 @@ Prerequisites
 * A docker installation with the compose plugin.
   Please refer to the installation steps detailed in `Docker installation <https://docs.docker.com/engine/install/>`_ and `Compose Plugin <https://docs.docker.com/compose/install>`_.
 * (Recommended) A basic understanding on `ROS 2 Security design <https://design.ros2.org/articles/ros2_dds_security.html>`_.
-* (Recommended) Previous security tutorials completion. In particular:
+* (Recommended) Previous security tutorials completion.
+  In particular:
 
     * :doc:`Introducing-ros2-security`
     * :doc:`The-Keystore`
@@ -124,7 +125,7 @@ Now, build the docker image with the command:
 Understanding the compose file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-A compose configration file takes an image to create containers as services.
+A compose configuration file takes an image to create containers as services.
 In this tutorial, three services are defined within the configuration:
 
 * *keystore-creator*: That, similarly to previous tutorials, it internally initializes a new keystore tree directory.

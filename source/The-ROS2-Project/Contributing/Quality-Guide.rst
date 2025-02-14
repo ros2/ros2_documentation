@@ -127,7 +127,8 @@ However, this step-by-step is a great place to start!
 
 * Enabling Analysis for Package/Target
 
-  When the C++ compiler is Clang, enable the ``-Wthread-safety`` flag. Example below for CMake-based projects
+  When the C++ compiler is Clang, enable the ``-Wthread-safety`` flag.
+  Example below for CMake-based projects
 
   .. code-block:: cmake
 

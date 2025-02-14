@@ -323,7 +323,8 @@ One example of how to do so can be found in the `ament_cmake_lint_cmake document
 Testing
 ^^^^^^^
 
-Ament contains CMake macros to simplify setting up GTests. Call:
+Ament contains CMake macros to simplify setting up GTests.
+Call:
 
 .. code-block:: cmake
 
@@ -341,14 +342,16 @@ The macros have additional parameters:
 
     find_package(ament_cmake_gtest REQUIRED)
     ament_add_gtest(some_test <test_sources>
-      APPEND_ENV PATH=some/addtional/path/for/testing/resources)
+      APPEND_ENV PATH=some/additional/path/for/testing/resources)
 
 - ``APPEND_LIBRARY_DIRS``: append libraries so that they can be found by the linker at runtime.
   This can be achieved by setting environment variables like ``PATH`` on Windows and ``LD_LIBRARY_PATH`` on Linux, but this makes the call platform specific.
 
 - ``ENV``: set environment variables (same syntax as ``APPEND_ENV``).
 
-- ``TIMEOUT``: set a test timeout in second. The default for GTests is 60 seconds.  For example:
+- ``TIMEOUT``: set a test timeout in second.
+  The default for GTests is 60 seconds.
+  For example:
 
 .. code-block:: cmake
 
@@ -550,7 +553,8 @@ For the RViz mesh resource, the corresponding choices were:
 
 - ``rviz_ogre_media_exports`` as name of the resource,
 
-- install path relative paths to all folders containing resources. This will already enable you to write the logic for using the corresponding resource in your package.
+- install path relative paths to all folders containing resources.
+  This will already enable you to write the logic for using the corresponding resource in your package.
 
 To allow users to easily register resources for your package, you should furthermore provide macros or functions such as the pluginlib function or ``rviz_ogre_media_exports`` function.
 

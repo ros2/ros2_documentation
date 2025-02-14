@@ -11,7 +11,7 @@ The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2
 
 .. tabs::
 
-   .. group-tab:: 2024
+  .. group-tab:: 2024
 
     .. list-table::
        :header-rows: 1
@@ -116,7 +116,7 @@ The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2
          - `video <https://vimeo.com/1026034712>`__
        * - Building Foundation Model-powered Robots with ROS: A Survey
          - `video <https://vimeo.com/1026027743>`__
-       * - Scenic for ROS: A Probabilistic Programming Language for World Modelin...
+       * - Scenic for ROS: A Probabilistic Programming Language for World Modeling...
          - `video <https://vimeo.com/1026032775>`__
        * - Software Platform Design and SDK Development for ROS 2-based LG AI Com...
          - `video <https://vimeo.com/1026030733>`__
@@ -131,7 +131,7 @@ The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2
        * - Navigation à la carte: choose navigation profile and strategy as you go
          - `video <https://vimeo.com/1024971326>`__
 
-   .. group-tab:: 2023
+  .. group-tab:: 2023
 
     .. list-table::
        :header-rows: 1

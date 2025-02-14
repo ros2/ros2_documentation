@@ -15,7 +15,8 @@ Most roboticists work in teams, and often those teams include a mechanical engin
 Instead of crafting an URDF by hand it is possible to export an URDF model from many different CAD and modeling programs.
 These export tools are often developed by individuals that are familiar with the particular CAD program they use.
 Below you will find a list of available URDF exporters for a variety of CAD and 3D modeling software systems.
-*The ROS core maintainers do not maintain these packages. As such we make no claims about their performance or ease of use.*
+*The ROS core maintainers do not maintain these packages.
+As such we make no claims about their performance or ease of use.*
 However, we figured it would be helpful to produce a list of available URDF exporters.
 
 **CAD Exporters**
@@ -37,7 +38,7 @@ However, we figured it would be helpful to produce a list of available URDF expo
  * `Gazebo SDFormat to URDF Parser <https://github.com/ros/sdformat_urdf>`_
  * `SDF to URDF Converter in Python <https://github.com/andreasBihlmaier/pysdf>`_
  * `URDF to Webots Simulator Format <https://github.com/cyberbotics/urdf2webots>`_
- * The `Blender Robotics Tools <https://github.com/robotology/blender-robotics-utils/>`_ respository includes a number of useful tools, including a tool to export `URDF files from Blender. <https://github.com/robotology/blender-robotics-utils/tree/master?tab=readme-ov-file#urdftoblender>`_
+ * The `Blender Robotics Tools <https://github.com/robotology/blender-robotics-utils/>`_ repository includes a number of useful tools, including a tool to export `URDF files from Blender. <https://github.com/robotology/blender-robotics-utils/tree/master?tab=readme-ov-file#urdftoblender>`_
  * `CoppeliaSim URDF Exporter <https://manual.coppeliarobotics.com/en/importExport.htm#urdf>`_
  * `Isaac Sim URDF Exporter <https://docs.omniverse.nvidia.com/isaacsim/latest/advanced_tutorials/tutorial_advanced_export_urdf.html>`_
 
