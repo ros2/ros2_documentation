@@ -54,9 +54,9 @@ Here is the code for our new base link.
 In many cases, you’ll want the collision geometry and origin to be exactly the same as the visual geometry and origin.
 However, there are two main cases where you wouldn’t:
 
- * **Quicker Processing**. Doing collision detection for two meshes is a lot more computational complex than for two simple geometries.
+ * **Quicker Processing** Doing collision detection for two meshes is a lot more computational complex than for two simple geometries.
    Hence, you may want to replace the meshes with simpler geometries in the collision element.
- * **Safe Zones**. You may want to restrict movement close to sensitive equipment.
+ * **Safe Zones** You may want to restrict movement close to sensitive equipment.
    For instance, if we didn’t want anything to collide with R2D2’s head, we might define the collision geometry to be a cylinder encasing his head to prevent anything from getting too close to his head.
 
 Physical Properties

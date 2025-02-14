@@ -235,7 +235,7 @@ Now run the node:
      ros2 run cpp_parameter_event_handler parameter_event_handler
 
 The node is now active and has a single parameter and will print a message whenever this parameter is updated.
-To test this, open up another terminal and source the ROS setup file as before (. install/setup.bash) and execute the following command:
+To test this, open up another terminal and source the ROS setup file as before (``. install/setup.bash``) and execute the following command:
 
 .. code-block:: console
 
