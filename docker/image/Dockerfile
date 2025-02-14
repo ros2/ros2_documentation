@@ -8,7 +8,12 @@ FROM ubuntu:jammy
 ARG user=rosindex
 ARG uid=1000
 
+<<<<<<< HEAD
 ENV DEBIAN_FRONTEND noninteractive
+=======
+ENV DEBIAN_FRONTEND=noninteractive
+ENV SHELL=/bin/bash
+>>>>>>> 055f058 (remove --break-system-packages and address docker build warnings. (#5021))
 
 # Delete user if it exists in container (e.g Ubuntu Noble: ubuntu)
 RUN if id -u $uid ; then userdel `id -un $uid` ; fi
@@ -33,4 +38,4 @@ WORKDIR /tmp/doc_repository
 
 USER $user
 
-CMD pip3 install --no-warn-script-location --user -r requirements.txt -c constraints.txt --break-system-packages && make multiversion
+CMD ["bash", "-c", "pip3 install --no-warn-script-location --user -r requirements.txt -c constraints.txt && make multiversion"]
