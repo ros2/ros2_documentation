@@ -198,11 +198,11 @@ This might include workflows for testing the code using something like ``python 
 
 Examples:
 
-* capabilities: https://docs.ros.org/hydro/api/capabilities/html/
+* `capabilities <https://docs.ros.org/hydro/api/capabilities/html/>`_
 
   * This one gives an example of docs which describe the public API
 
-* catkin_tools: https://catkin-tools.readthedocs.org/en/latest/development/extending_the_catkin_command.html
+* `catkin_tools <https://catkin-tools.readthedocs.org/en/latest/development/extending_the_catkin_command.html>`_
 
   * This is an example of describing an extension point for a package
 

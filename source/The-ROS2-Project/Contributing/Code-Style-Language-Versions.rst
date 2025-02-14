@@ -345,10 +345,10 @@ The pycodestyle configuration used in the linter is `here <https://github.com/am
 
 Integration with editors:
 
-* atom: https://atom.io/packages/linter-pycodestyle
-* emacs: https://www.emacswiki.org/emacs/PythonProgrammingInEmacs
-* Sublime Text: https://sublime.wbond.net/packages/SublimeLinter-flake8
-* vim: https://github.com/nvie/vim-flake8
+* `atom <https://atom.io/packages/linter-pycodestyle>`_
+* `emacs <https://www.emacswiki.org/emacs/PythonProgrammingInEmacs>`_
+* `Sublime Text <https://sublime.wbond.net/packages/SublimeLinter-flake8>`_
+* `vim <https://github.com/nvie/vim-flake8>`_
 
 CMake
 -----
