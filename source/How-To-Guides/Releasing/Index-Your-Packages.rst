@@ -79,7 +79,8 @@ Here's how to fill out each item:
 * YOUR-BRANCH-NAME: This is the git branch on your repository from which you will release your package into this ROS distribution.
   This is commonly one of: ``main``, ``master``, or the name of the ROS distribution itself.
   For example, the `rosidl repository <https://github.com/ros2/rosidl>`__ uses the branch ``rolling`` to hold changes to be released into ROS Rolling.
-* YOUR-STATUS: This is a status from the list in `REP 141 <https://www.ros.org/reps/rep-0141.html#distribution-file>`__. You likely want either ``maintained`` or ``developed``.
+* YOUR-STATUS: This is a status from the list in `REP 141 <https://www.ros.org/reps/rep-0141.html#distribution-file>`__.
+  You likely want either ``maintained`` or ``developed``.
 
 Open a pull request to ros/rosdistro
 ------------------------------------

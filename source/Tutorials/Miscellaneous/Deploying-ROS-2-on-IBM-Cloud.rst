@@ -437,8 +437,8 @@ from IBM Cloud, this is how you should go about it!
 
 1. List all the images you have and find all the ones that share the
    *IMAGE* name corresponding to
-   *registry.ng.bluemix.net/ros2nasr/ros2foxy:2* (in my case). Then
-   delete them using their *NAMES*
+   *registry.ng.bluemix.net/ros2nasr/ros2foxy:2* (in my case).
+   Then delete them using their *NAMES*
 
 .. code-block:: bash
 

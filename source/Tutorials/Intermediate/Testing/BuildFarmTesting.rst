@@ -33,7 +33,8 @@ GitHub Repository
 #. Open `https://github.com/%YOUR_ORG%/%YOUR_REPO%/settings/access <https://github.com/%YOUR_ORG%/%YOUR_REPO%/settings/access>`_
    (while replacing ``%YOUR_ORG%/%YOUR_REPO$`` with the appropriate organization/repo)
 #. Click ``Add people`` and enter ``ros-pull-request-builder``
-#. Select ``Admin`` or ``Write`` for their role. (see next section)
+#. Select ``Admin`` or ``Write`` for their role.
+   (see next section)
 
 
 WebHooks

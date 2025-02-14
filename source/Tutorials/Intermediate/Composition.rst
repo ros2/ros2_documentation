@@ -26,7 +26,8 @@ For information on how to write a composable node, :doc:`check out this tutorial
 Prerequisites
 -------------
 
-This tutorial uses executables from the `rclcpp_components <https://github.com/ros2/rclcpp/tree/{REPOS_FILE_BRANCH}/rclcpp_components>`__, `ros2component <https://github.com/ros2/ros2cli/tree/{REPOS_FILE_BRANCH}/ros2component>`__, `composition <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/composition>`__, and `image_tools <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/image_tools>`__ packages. If you've followed the :doc:`installation instructions <../../Installation>` for your platform, these should already be installed.
+This tutorial uses executables from the `rclcpp_components <https://github.com/ros2/rclcpp/tree/{REPOS_FILE_BRANCH}/rclcpp_components>`__, `ros2component <https://github.com/ros2/ros2cli/tree/{REPOS_FILE_BRANCH}/ros2component>`__, `composition <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/composition>`__, and `image_tools <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/image_tools>`__ packages.
+If you've followed the :doc:`installation instructions <../../Installation>` for your platform, these should already be installed.
 
 Run the demos
 -------------
@@ -181,7 +182,8 @@ The process will open each library and create one instance of each "rclcpp::Node
 
        > ros2 pkg prefix composition
 
-    to get the path to where composition is installed. Then call
+    to get the path to where composition is installed.
+    Then call
 
     .. code-block:: bash
 
@@ -437,7 +439,8 @@ One advantage of using components is that they allow you to create non-node deri
 To create a component that is not derived from a node, follow these guidelines:
 
 1. Implement a constructor that takes ``const rclcpp::NodeOptions&`` as its argument.
-2. Implement the ``get_node_base_interface()`` method, which should return a ``NodeBaseInterface::SharedPtr``. You can use the ``get_node_base_interface()`` method of a node that you create in your constructor to provide this interface.
+2. Implement the ``get_node_base_interface()`` method, which should return a ``NodeBaseInterface::SharedPtr``.
+   You can use the ``get_node_base_interface()`` method of a node that you create in your constructor to provide this interface.
 
 Here's an example of a component that is not derived from a node, which listens to a ROS topic: `node_like_listener_component <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/composition/src/node_like_listener_component.cpp>`__.
 

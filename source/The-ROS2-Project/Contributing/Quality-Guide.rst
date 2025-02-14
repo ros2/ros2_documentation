@@ -116,7 +116,8 @@ There are three C++ standard libraries to be aware of
 * The LLVM standard library ``libc++`` (also called ``libcxx`` ) - default on macOS,  explicitly set by the compiler option ``-stdlib=libc++``
 * The Windows C++ Standard Library - not relevant to this use case
 
-``libcxx`` annotates its ``std::mutex`` and ``std::lock_guard`` implementations for Thread Safety Analysis. When using GNU ``libstdc++`` , those annotations are not present, so Thread Safety Analysis cannot be used on non-wrapped ``std::`` types.
+``libcxx`` annotates its ``std::mutex`` and ``std::lock_guard`` implementations for Thread Safety Analysis.
+When using GNU ``libstdc++`` , those annotations are not present, so Thread Safety Analysis cannot be used on non-wrapped ``std::`` types.
 
 *Therefore, to use Thread Safety Analysis directly with* ``std::`` *types, we must use* ``libcxx``
 
@@ -164,7 +165,8 @@ However, this step-by-step is a great place to start!
 
   * Step 2 - Fix Warnings
 
-    * In the above example - ``Foo::get`` will produce a compiler warning! To fix it, lock before returning bar
+    * In the above example - ``Foo::get`` will produce a compiler warning!
+      To fix it, lock before returning bar
 
     .. code-block:: cpp
 
@@ -175,12 +177,15 @@ However, this step-by-step is a great place to start!
 
   * Step 3 - (Optional but Recommended) Refactor Existing Code to Private-Mutex Pattern
 
-    A recommended pattern in threaded C++ code is to always keep your ``mutex`` as a ``private:`` member of the data structure. This makes data safety the concern of the containing structure, offloading that responsibility from users of the structure and minimizing the surface area of affected code.
+    A recommended pattern in threaded C++ code is to always keep your ``mutex`` as a ``private:`` member of the data structure.
+    This makes data safety the concern of the containing structure, offloading that responsibility from users of the structure and minimizing the surface area of affected code.
 
-    Making your locks private may require rethinking the interfaces to your data. This is a great exercise - here are a few things to consider
+    Making your locks private may require rethinking the interfaces to your data.
+    This is a great exercise - here are a few things to consider
 
     * You may want to provide specialized interfaces for performing analysis that requires complex locking logic, e.g. counting members in a filtered set of a mutex-guarded map structure, instead of actually returning the underlying structure to consumers
-    * Consider copying to avoid blocking, where the amount of data is small. This can let other threads get on with accessing the shared data, which can potentially lead to better overall performance.
+    * Consider copying to avoid blocking, where the amount of data is small.
+      This can let other threads get on with accessing the shared data, which can potentially lead to better overall performance.
 
   * Step 4 - (Optional) Enable Negative Capability Analysis
 

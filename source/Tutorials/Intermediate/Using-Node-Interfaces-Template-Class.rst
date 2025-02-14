@@ -21,12 +21,14 @@ To address this issue, ``rclcpp`` includes the ``rclcpp::NodeInterfaces<>`` temp
 This `ROSCon 2023 lightning talk <https://vimeo.com/879001243#t=16m0s>`_ summarizes the issue and remedy succinctly.
 The following tutorial will show you how to use ``rclcpp::NodeInterfaces<>`` as reliable and compact interface for all ROS node types.
 
-The ``rclcpp::NodeInterfaces<>`` template class provides a compact and efficient way to manage Node Interfaces in ROS 2. This is particularly useful when working with different types of ``Nodes``, such as ``rclcpp::Node`` and ``rclcpp_lifecycle::LifecycleNode``, which do not share the same inheritance tree.
+The ``rclcpp::NodeInterfaces<>`` template class provides a compact and efficient way to manage Node Interfaces in ROS 2.
+This is particularly useful when working with different types of ``Nodes``, such as ``rclcpp::Node`` and ``rclcpp_lifecycle::LifecycleNode``, which do not share the same inheritance tree.
 
 1 Accessing Node Information with a ``SharedPtr``
 -------------------------------------------------
 
-In the example below, we create a simple ``Node`` called ``Simple_Node`` and define a function ``node_info`` that accepts a ``SharedPtr`` to the ``Node``. The function retrieves and prints the name of the ``Node``.
+In the example below, we create a simple ``Node`` called ``Simple_Node`` and define a function ``node_info`` that accepts a ``SharedPtr`` to the ``Node``.
+The function retrieves and prints the name of the ``Node``.
 
 .. code-block:: c++
 
@@ -222,7 +224,9 @@ Then, it retrieves and prints the node name.
       {}
     }
 
-Next, we create a ``rclcpp::Node`` as well as a ``rclcpp_lifecycle::LifecycleNode`` class. The ``rclcpp_lifecycle::LifecycleNode`` class often includes functions for the state transitions  ``Unconfigured``, ``Inactive``, ``Active``, and ``Finalized``. However, they are not included for demonstration purposes.
+Next, we create a ``rclcpp::Node`` as well as a ``rclcpp_lifecycle::LifecycleNode`` class.
+The ``rclcpp_lifecycle::LifecycleNode`` class often includes functions for the state transitions  ``Unconfigured``, ``Inactive``, ``Active``, and ``Finalized``.
+However, they are not included for demonstration purposes.
 
 .. code-block:: c++
 
