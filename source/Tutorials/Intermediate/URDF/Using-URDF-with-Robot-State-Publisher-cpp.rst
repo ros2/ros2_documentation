@@ -255,7 +255,7 @@ Open your editor and paste the following code, saving it as ``urdf_tutorial_cpp/
 
 
 5 Edit the CMakeLists.txt file
-^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You must tell the **colcon** build tool how to install your cpp package.
 Edit the ``CMakeLists.txt`` file as follows:
