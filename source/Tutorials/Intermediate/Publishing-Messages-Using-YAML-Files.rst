@@ -29,7 +29,7 @@ Tasks
 -----
 
 We assume that an entity is publishing a ``geometry_msgs/msg/Twist`` message through a topic named ``cmd_vel`` and we want to capture the message, edit it and publish it to a topic.
-We can use the ``echo`` verb to capture the message once using the ``--once`` flag and save it in a YAML file ``cmd_vel.yaml`` using the output redirection operator ``>``.
+We can use the ``echo`` verb to capture the message and save it in a YAML file ``cmd_vel.yaml`` using the output redirection operator ``>``.
 
 .. code-block:: console
 
