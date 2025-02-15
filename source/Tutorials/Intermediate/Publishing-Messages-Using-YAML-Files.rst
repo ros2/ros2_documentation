@@ -1,7 +1,7 @@
 Publishing messages using YAML files
 ====================================
 
-**Goal:** Store and publish topics using YAML files.
+**Goal:** Record and replay topics using YAML files.
 
 **Tutorial level:** Intermediate
 
