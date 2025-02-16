@@ -107,6 +107,8 @@ We then create two nodes of type ``rclcpp_lifecycle::LifecycleNode`` and ``rclcp
       node_info(lc_node->get_node_base_interface(),lc_node->get_node_logging_interface());
     }
 
+Output:
+
 .. code-block:: console
 
     [INFO] [Simple_Node]: Node name: Simple_Node
