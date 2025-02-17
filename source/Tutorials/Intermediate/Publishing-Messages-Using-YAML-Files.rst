@@ -21,7 +21,7 @@ This tutorial demonstrates how to use ``ros2 echo`` and ``ros2 pub`` with YAML f
 Prerequisites
 -------------
 
-This tutorial uses concepts like ROS2 topics and CLI tools covered in the following tutorial:
+This tutorial uses concepts like ROS 2 topics and CLI tools covered in the following tutorial:
 
 - :doc:`Understanding topics <../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`
 
