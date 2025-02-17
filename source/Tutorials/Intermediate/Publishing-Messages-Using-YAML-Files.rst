@@ -35,7 +35,7 @@ We can use the ``echo`` verb to capture the message and save it in a YAML file `
 
     ros2 topic echo --once  /cmd_vel > cmd_vel.yaml
 
-This creates a cmd_vel.yaml file with the following content in the directory the command was executed:
+This creates a ``cmd_vel.yaml`` file with the following content in the directory the command was executed:
 
 .. code-block:: yaml
 
