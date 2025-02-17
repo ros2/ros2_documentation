@@ -50,7 +50,7 @@ This creates a ``cmd_vel.yaml`` file with the following content in the directory
     ---
 
 To publish a message, we utilize the ``--yaml-file`` option available with the ``pub`` verb of the ``ros2 topic`` command.
-First, we specify the target topic—in this case,/cmd_vel, followed by the message type ``geometry_msgs/msg/Twist``.
+First, we specify the target topic—in this case, ``/cmd_vel``, followed by the message type ``geometry_msgs/msg/Twist``.
 Lastly, we specify the YAML file containing the message data.
 The following command will publish the message contained in the ``YAML`` file to the designated ``topic`` once.
 
