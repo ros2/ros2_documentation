@@ -14,7 +14,7 @@ Publishing messages using YAML files
 Overview
 --------
 
-Publishing ROS 2 messages via CLI is straightforward for simple types like `std_msgs/msg/Bool <http://docs.ros.org/en/noetic/api/std_msgs/html/msg/Bool.html>`_ or `std_msgs/msg/String <http://docs.ros.org/en/melodic/api/std_msgs/html/msg/String.html>`_.
+Publishing ROS 2 messages via CLI is straightforward for simple types like `std_msgs/msg/Bool <https://docs.ros.org/en/{DISTRO}/p/std_msgs/interfaces/msg/Bool.html>`_ or `std_msgs/msg/String <https://docs.ros.org/en/{DISTRO}/p/std_msgs/interfaces/msg/String.html>`_.
 However, it becomes tedious for complex message structures.
 This tutorial demonstrates how to use ``ros2 echo`` and ``ros2 pub`` with YAML files to record, edit, and replay topic data efficiently.
 
