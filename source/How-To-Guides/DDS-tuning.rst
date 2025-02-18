@@ -46,7 +46,7 @@ Reduce the value, for example, to 3s, by running:
 
     sudo sysctl net.ipv4.ipfrag_time=3
 
-Reducing this parameter’s value also reduces the window of time where no fragments are received.
+Reducing this parameter's value also reduces the window of time where no fragments are received.
 The parameter is global for all incoming fragments, so the feasibility of reducing its value needs to be considered for every environment.
 
 **Solution:** Increase the value of the ``ipfrag_high_thresh`` parameter.
@@ -60,7 +60,7 @@ Increase the value, for example, to 128MB, by running:
 
     sudo sysctl net.ipv4.ipfrag_high_thresh=134217728     # (128 MB)
 
-Significantly increasing this parameter’s value is an attempt to ensure that the buffer never becomes completely full.
+Significantly increasing this parameter's value is an attempt to ensure that the buffer never becomes completely full.
 However, the value would likely have to be significantly high to hold all data received during the time window of ``ipfrag_time``, assuming every UDP packet lacks one fragment.
 
 **Issue:** Sending custom messages with large variable-sized arrays of non-primitive types causes high serialization/deserialization overhead and CPU load.
@@ -102,7 +102,7 @@ Cyclone DDS tuning
 **Issue:** Cyclone DDS is not delivering large messages reliably, despite using reliable settings and transferring over a wired network.
 
 This issue should be `addressed soon <https://github.com/eclipse-cyclonedds/cyclonedds/issues/484>`_.
-Until then, we’ve come up with the following solution (debugged using `this test program <https://github.com/jacobperron/pc_pipe>`_):
+Until then, we've come up with the following solution (debugged using `this test program <https://github.com/jacobperron/pc_pipe>`_):
 
 **Solution:** Increase the maximum Linux kernel receive buffer size and the minimum socket receive buffer size that Cyclone uses.
 
@@ -158,12 +158,12 @@ By tuning ``net.core.rmem_max`` to 4MB in the Linux kernel, the QoS profile can 
 This configuration has been proven to reliably deliver messages via SHMEM|UDPv4, and with just UDPv4 on a single machine.
 A multi-machine configuration was also tested with ``rmem_max`` at 4MB and at 20MB (two machines connected with 1Gbps ethernet), with no dropped messages and average message delivery times of 700ms and 371ms, respectively.
 
-Without configuring the kernel’s ``rmem_max``, the same Connext QoS profile took up to 12 seconds for the data to be delivered.
+Without configuring the kernel's ``rmem_max``, the same Connext QoS profile took up to 12 seconds for the data to be delivered.
 However, it always at least managed to complete the delivery.
 
 **Solution:** Use the `Connext QoS profile <https://github.com/jacobperron/pc_pipe/blob/master/etc/ROS2TEST_QOS_PROFILES.xml>`_ *without* adjusting ``rmem_max``.
 
-The ROS2TEST_QOS_PROFILES.xml file was configured using RTI’s documentation on `configuring flow controllers <https://community.rti.com/forum-topic/transfering-large-data-over-dds>`_.
+The ROS2TEST_QOS_PROFILES.xml file was configured using RTI's documentation on `configuring flow controllers <https://community.rti.com/forum-topic/transfering-large-data-over-dds>`_.
 It has slow, medium and fast flow controllers (seen in the Connext QoS profile link).
 
 The medium flow controller produced the best results for our case.
