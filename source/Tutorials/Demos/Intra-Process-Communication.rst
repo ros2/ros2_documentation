@@ -291,7 +291,7 @@ To test those expectations, let's run it:
      sleeping for 1 second...
    [...]
 
-You should see ever increasing numbers on each iteration, starting with 42, and the whole time it reuses the same message, as demonstrated by the pointer addresses which do not change, which avoids unnecessary copies.
+You should see ever increasing numbers on each iteration, starting with 42... because 42, and the whole time it reuses the same message, as demonstrated by the pointer addresses which do not change, which avoids unnecessary copies.
 
 The image pipeline demo
 ^^^^^^^^^^^^^^^^^^^^^^^

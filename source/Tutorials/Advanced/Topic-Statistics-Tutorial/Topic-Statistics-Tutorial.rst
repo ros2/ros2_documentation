@@ -146,13 +146,13 @@ statistics can be configured as well.
 
 The configurable fields are described in the following table:
 
-======================================  =============================================================================================
-Subscription Config Field                Purpose
-======================================  =============================================================================================
-``topic_stats_options.state``            Enable or disable topic statistics (default ``rclcpp::TopicStatisticsState::Disable``)
-``topic_stats_options.publish_period``   The period in which to collect statistics data and publish a statistics message (default ``1s``)
-``topic_stats_options.publish_topic``    The topic to use when publishing statistics data (default ``/statistics``)
-======================================  =============================================================================================
+==================================  =============================================================================================
+Subscription Config Field            Purpose
+==================================  =============================================================================================
+topic_stats_options.state            Enable or disable topic statistics (default ``rclcpp::TopicStatisticsState::Disable``)
+topic_stats_options.publish_period   The period in which to collect statistics data and publish a statistics message (default ``1s``)
+topic_stats_options.publish_topic    The topic to use when publishing statistics data (default ``/statistics``)
+==================================  =============================================================================================
 
 1.2 CMakeLists.txt
 ~~~~~~~~~~~~~~~~~~

@@ -35,8 +35,8 @@ If the node's name is externally remapped to something other than what is define
 Non-node loggers can also be created that use a specific name.
 
 Logger names represent a hierarchy.
-If the level of a logger named ``abc.def`` is unset, it will defer to the level of its parent named ``abc``, and if that level is also unset, the default logger level will be used.
-When the level of logger ``abc`` is changed, all of its descendants (e.g. ``abc.def``, ``abc.ghi.jkl``) will have their level impacted unless their level has been explicitly set.
+If the level of a logger named "abc.def" is unset, it will defer to the level of its parent named "abc", and if that level is also unset, the default logger level will be used.
+When the level of logger "abc" is changed, all of its descendants (e.g. "abc.def", "abc.ghi.jkl") will have their level impacted unless their level has been explicitly set.
 
 APIs
 ----
