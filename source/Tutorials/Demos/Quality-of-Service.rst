@@ -152,7 +152,7 @@ Add network traffic
 .. warning::
 
   This section of the demo won't work on RTI's Connext DDS and Fast-DDS.
-  When running multiple nodes in the same host, the those DDS implementation use shared memory along with the loopback interface.
+  When running multiple nodes in the same host, those DDS implementations use shared memory along with the loopback interface.
   Degrading the loopback interface throughput won't affect shared memory, thus traffic between the two nodes won't be affected.
 
 .. note::
