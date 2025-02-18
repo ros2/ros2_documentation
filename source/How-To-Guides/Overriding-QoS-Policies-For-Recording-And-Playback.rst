@@ -43,7 +43,7 @@ The YAML schema for the profile overrides is a dictionary of topic names with ke
 
 If a policy value is not specified, the value will fallback to the default used by Ros2Bag.
 If you specify a Duration based policy such as ``deadline`` or ``lifespan``, you will need to specify both seconds and nanoseconds.
-Policy values are determined by the policy’s short keys which can be found using ``ros2topic`` verbs such as ``ros2 topic pub --help``.
+Policy values are determined by the policy's short keys which can be found using ``ros2topic`` verbs such as ``ros2 topic pub --help``.
 All values are replicated below for reference.
 
 .. code-block:: yaml

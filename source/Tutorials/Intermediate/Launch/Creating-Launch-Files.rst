@@ -23,7 +23,7 @@ This tutorial uses the :doc:`rqt_graph and turtlesim <../../Beginner-CLI-Tools/I
 
 You will also need to use a text editor of your preference.
 
-As always, don’t forget to source ROS 2 in :doc:`every new terminal you open <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
+As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
 
 Background
 ----------
@@ -53,7 +53,7 @@ Create a new directory to store your launch files:
 2 Write the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Let’s put together a ROS 2 launch file using the ``turtlesim`` package and its executables.
+Let's put together a ROS 2 launch file using the ``turtlesim`` package and its executables.
 As mentioned above, this can either be in Python, XML, or YAML.
 
 .. tabs::

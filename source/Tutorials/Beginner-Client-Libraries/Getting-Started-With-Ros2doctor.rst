@@ -171,7 +171,7 @@ Which will return a list of information categorized into five groups:
   ...
 
 You can crosscheck the information here against the warnings you get when running ``ros2 doctor``.
-For example, if ``ros2doctor`` returned the warning (mentioned earlier) that your distribution is “not fully supported or tested”, you might take a look at the ``ROS 2 INFORMATION`` section of the report:
+For example, if ``ros2doctor`` returned the warning (mentioned earlier) that your distribution is "not fully supported or tested", you might take a look at the ``ROS 2 INFORMATION`` section of the report:
 
 .. code-block:: console
 
