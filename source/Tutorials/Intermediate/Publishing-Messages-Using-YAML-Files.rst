@@ -14,7 +14,7 @@ Publishing messages using YAML files
 Overview
 --------
 
-Publishing ROS 2 messages via CLI is straightforward for simple types like `std_msgs/msg/Bool <https://docs.ros.org/en/{DISTRO}/p/std_msgs/interfaces/msg/Bool.html>`_ or `std_msgs/msg/String <https://docs.ros.org/en/{DISTRO}/p/std_msgs/interfaces/msg/String.html>`_.
+Publishing ROS 2 messages via CLI is straightforward for simple types like {interface(std_msgs/msg/Bool)} or {interface(std_msgs/msg/String)}.
 However, it becomes tedious for complex message structures.
 This tutorial demonstrates how to use ``ros2 echo`` and ``ros2 pub`` with YAML files to record, edit, and replay topic data efficiently.
 
@@ -28,7 +28,7 @@ This tutorial uses concepts like ROS 2 topics and CLI tools covered in the follo
 Tasks
 -----
 
-We assume that an entity is publishing a ``geometry_msgs/msg/Twist`` message through a topic named ``cmd_vel`` and we want to capture the message, edit it and publish it to a topic.
+We assume that an entity is publishing a {interface(geometry_msgs/msg/Twist)} message through a topic named ``cmd_vel`` and we want to capture the message, edit it and publish it to a topic.
 We can use the ``echo`` verb to capture the message and save it in a YAML file ``cmd_vel.yaml`` using the output redirection operator ``>``.
 
 .. code-block:: console
@@ -50,7 +50,7 @@ This creates a ``cmd_vel.yaml`` file with the following content in the directory
     ---
 
 To publish a message, we utilize the ``--yaml-file`` option available with the ``pub`` verb of the ``ros2 topic`` command.
-First, we specify the target topic—in this case, ``/cmd_vel``, followed by the message type ``geometry_msgs/msg/Twist``.
+First, we specify the target topic—in this case, ``/cmd_vel``, followed by the message type {interface(geometry_msgs/msg/Twist)}.
 Lastly, we specify the YAML file containing the message data.
 The following command will publish the message contained in the ``YAML`` file to the designated ``topic`` once.
 

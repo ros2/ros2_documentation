@@ -20,6 +20,9 @@ jobs:
       - name: Test doc8
         run: make test
 
+      - name: Test doc tools
+        run: make test-tools
+
   lint:
     runs-on: ubuntu-22.04
     steps:

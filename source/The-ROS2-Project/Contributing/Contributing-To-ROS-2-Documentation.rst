@@ -106,6 +106,12 @@ You can run the documentation tests locally (using `doc8 <https://github.com/PyC
 
    make test
 
+You can run the Python documentation tools tests locally (using `pytest <https://docs.pytest.org/en/stable/>`_) with the following command:
+
+.. code-block:: console
+
+   make test-tools
+
 You can run the documentation linter locally (using `sphinx-lint <https://github.com/sphinx-contrib/sphinx-lint>`_) with the following command:
 
 .. code-block:: console
@@ -549,14 +555,29 @@ Macros can be used to simplify writing documentation that targets multiple distr
 Use a macro by including the macro name in curly braces.
 For example, when generating the docs for Rolling on the ``rolling`` branch:
 
+.. list-table::
+   :header-rows: 1
 
-=====================  =====================  ==================================
-Use                    Becomes (for Rolling)  Example
-=====================  =====================  ==================================
-\{DISTRO\}             rolling                ros-\{DISTRO\}-pkg
-\{DISTRO_TITLE\}       Rolling                ROS 2 \{DISTRO_TITLE\}
-\{DISTRO_TITLE_FULL\}  Rolling Ridley         ROS 2 \{DISTRO_TITLE_FULL\}
-\{REPOS_FILE_BRANCH\}  rolling                git checkout \{REPOS_FILE_BRANCH\}
-=====================  =====================  ==================================
+   * - Macro
+     - Example
+     - Becomes (for {DISTRO_TITLE})
+   * - \{DISTRO\}
+     - ros-\{DISTRO\}-pkg
+     - ros-{DISTRO}-pkg
+   * - \{DISTRO_TITLE\}
+     - ROS 2 \{DISTRO_TITLE\}
+     - ROS 2 {DISTRO_TITLE}
+   * - \{DISTRO_TITLE_FULL\}
+     - ROS 2 \{DISTRO_TITLE_FULL\}
+     - ROS 2 {DISTRO_TITLE_FULL}
+   * - \{REPOS_FILE_BRANCH\}
+     - git checkout \{REPOS_FILE_BRANCH\}
+     - git checkout {REPOS_FILE_BRANCH}
+   * - \{interface_link(std_msgs/msg/String)\}
+     - See: \{interface_link(std_msgs/msg/String)\}.
+     - See: {interface_link(std_msgs/msg/String)}.
+   * - \{interface(std_msgs/msg/String)\}
+     - Publish a \{interface(std_msgs/msg/String)\}.
+     - Publish a {interface(std_msgs/msg/String)}.
 
 The same file can be used on multiple branches (i.e., for multiple distros) and the generated content will be distro-specific.
