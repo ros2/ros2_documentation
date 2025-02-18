@@ -3119,7 +3119,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Return reference from BoundedVector::emplace_back (`#730 <https://github.com/ros2/rosidl/issues/730>`__)
 * [service introspection] generate service_event messages (`#700 <https://github.com/ros2/rosidl/issues/700>`__)
 * [rolling] Update maintainers - 2022-11-07 (`#717 <https://github.com/ros2/rosidl/issues/717>`__)
-* fix conversion to 'std::streamsize' {aka 'long int'} from 'size_t' {aka 'long unsigned int'} may change the sign of the result (`#715 <https://github.com/ros2/rosidl/issues/715>`__)
+* fix conversion to ‘std::streamsize’ {aka ‘long int’} from ‘size_t’ {aka ‘long unsigned int’} may change the sign of the result (`#715 <https://github.com/ros2/rosidl/issues/715>`__)
 * Contributors: Alexander Hans, Audrow Nash, Brian, Chris Lalancette, Emerson Knapp, ralwing
 
 

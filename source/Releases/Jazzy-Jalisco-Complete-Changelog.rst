@@ -786,7 +786,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Shorten the length of a lambda. (`#106 <https://github.com/ros-visualization/interactive_markers/issues/106>`__)
-* Fixed C++20 warning that '++' expression of 'volatile'-qualified type is deprecated (`#102 <https://github.com/ros-visualization/interactive_markers/issues/102>`__)
+* Fixed C++20 warning that ‘++’ expression of ‘volatile’-qualified type is deprecated (`#102 <https://github.com/ros-visualization/interactive_markers/issues/102>`__)
 * Cleanup of interactive markers (`#101 <https://github.com/ros-visualization/interactive_markers/issues/101>`__)
 * Contributors: AiVerisimilitude, Chris Lalancette
 
