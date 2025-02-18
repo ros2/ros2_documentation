@@ -273,7 +273,7 @@ As mentioned in the :doc:`Create a package <../../Beginner-Client-Libraries/Crea
     <maintainer email="you@email.com">Your Name</maintainer>
     <license>Apache License 2.0</license>
 
-After the lines above, add the following dependencies corresponding to your node’s import statements:
+After the lines above, add the following dependencies corresponding to your node's import statements:
 
 .. code-block:: xml
 

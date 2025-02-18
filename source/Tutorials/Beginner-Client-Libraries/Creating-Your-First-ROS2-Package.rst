@@ -86,7 +86,7 @@ You can also have packages of different build types in one workspace (CMake, Pyt
 You cannot have nested packages.
 
 Best practice is to have a ``src`` folder within your workspace, and to create your packages in there.
-This keeps the top level of the workspace “clean”.
+This keeps the top level of the workspace "clean".
 
 A trivial workspace might look like:
 

@@ -40,7 +40,7 @@ Let's focus on writing an action server that computes the Fibonacci sequence
 using the action we created in the :doc:`../Creating-an-Action` tutorial.
 
 Until now, you've created packages and used ``ros2 run`` to run your nodes.
-To keep things simple in this tutorial, however, we’ll scope the action server to a single file.
+To keep things simple in this tutorial, however, we'll scope the action server to a single file.
 If you'd like to see what a complete package for the actions tutorials looks like, check out
 `action_tutorials <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/action_tutorials>`__.
 

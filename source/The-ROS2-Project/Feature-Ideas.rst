@@ -123,7 +123,7 @@ The trailing stars indicate the rough effort: 1 star for small, 2 stars for medi
 * Multi-robot supporting features and demos [\*\*\*]
 
   * Undesired that all nodes across all robots share the same domain (and discover each other)
-  * Design how to “partition” the system
+  * Design how to "partition" the system
 
 * Support more DDS / RTPS implementations:
 

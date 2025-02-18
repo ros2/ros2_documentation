@@ -36,14 +36,14 @@ In a new workspace, you can also quickly install all rosdep keys with:
 
     rosdep install -yr ./path/to/your/workspace
 
-If there aren’t currently ``rosdep`` keys for the package that you are interested in, it is possible to add them by following the `rosdep key contribution guide`_.
+If there aren't currently ``rosdep`` keys for the package that you are interested in, it is possible to add them by following the `rosdep key contribution guide`_.
 
 To learn more about the ``rosdep`` tool and how it works, consult the `rosdep documentation`_.
 
 Installing via a package manager
 --------------------------------
 
-If you don’t want to make a rosdep key, but the package is available in your system package manager (eg ``apt``), you can install and use the package that way:
+If you don't want to make a rosdep key, but the package is available in your system package manager (eg ``apt``), you can install and use the package that way:
 
 .. code-block:: console
 
@@ -78,7 +78,7 @@ Then setup your virtual environment:
     # Make a virtual env and activate it
     virtualenv -p python3 ./venv
     source ./venv/bin/activate
-    # Make sure that colcon doesn’t try to build the venv
+    # Make sure that colcon doesn't try to build the venv
     touch ./venv/COLCON_IGNORE
 
 Next, install the Python packages that you want in your virtual environment:

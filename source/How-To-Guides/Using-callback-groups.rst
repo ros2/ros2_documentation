@@ -94,7 +94,7 @@ in mind when working with callback groups.
   the edge of the system (user and sensor inputs etc).
 * Sometimes the callbacks are hidden and their presence may not be obvious
   from the user/developer API.
-  This is the case especially with any kind of “synchronous” call to a
+  This is the case especially with any kind of "synchronous" call to a
   service or an action (in rclpy).
   For example, the synchronous call ``Client.call(request)`` to a service
   adds a Future's done-callback that needs to be executed during the

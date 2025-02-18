@@ -86,6 +86,6 @@ For the complete list, see `earlier release notes <../index>`.
 Known issues
 ^^^^^^^^^^^^
 
-* We’re tracking issues in various repositories, but the main entry point is the `ros2/ros2 issue tracker <https://github.com/ros2/ros2/issues>`__
-* We’d like to highlight a `known issue <https://github.com/ros2/rmw_connext/issues/234>`__ that we are looking into which doesn't allow two topics with the same base name but different namespaces to have a different type when using ``rmw_connext_cpp``.
+* We're tracking issues in various repositories, but the main entry point is the `ros2/ros2 issue tracker <https://github.com/ros2/ros2/issues>`__
+* We'd like to highlight a `known issue <https://github.com/ros2/rmw_connext/issues/234>`__ that we are looking into which doesn't allow two topics with the same base name but different namespaces to have a different type when using ``rmw_connext_cpp``.
 * Services with long responses are not working with Fast-RTPS. The fix, while not being part of beta2, is available upstream so you can work around this issue by building from source using Fast-RTPS master branch.

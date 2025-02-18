@@ -27,7 +27,7 @@ Subsequent local workspaces are called overlays.
 When developing with ROS 2, you will typically have several workspaces active concurrently.
 
 Combining workspaces makes developing against different versions of ROS 2, or against different sets of packages, easier.
-It also allows the installation of several ROS 2 distributions (or “distros”, e.g. Dashing and Eloquent) on the same computer and switching between them.
+It also allows the installation of several ROS 2 distributions (or "distros", e.g. Dashing and Eloquent) on the same computer and switching between them.
 
 This is accomplished by sourcing setup files every time you open a new shell, or by adding the source command to your shell startup script once.
 Without sourcing the setup files, you won't be able to access ROS 2 commands, or find or use ROS 2 packages.

@@ -58,7 +58,7 @@ The base QoS profile currently includes settings for the following policies:
 
 * Liveliness
 
-  * *Automatic*: the system will consider all of the node’s publishers to be alive for another "lease duration" when any one of its publishers has published a message.
+  * *Automatic*: the system will consider all of the node's publishers to be alive for another "lease duration" when any one of its publishers has published a message.
   * *Manual by topic*: the system will consider the publisher to be alive for another "lease duration" if it manually asserts that it is still alive (via a call to the publisher API).
 
 * Lease Duration
@@ -103,7 +103,7 @@ The currently defined QoS profiles are:
 
 * Sensor data
 
-  For sensor data, in most cases it’s more important to receive readings in a timely fashion, rather than ensuring that all of them arrive.
+  For sensor data, in most cases it's more important to receive readings in a timely fashion, rather than ensuring that all of them arrive.
   That is, developers want the latest samples as soon as they are captured, at the expense of maybe losing some.
   For that reason the sensor data profile uses best effort reliability and a smaller queue size.
 
@@ -114,7 +114,7 @@ The currently defined QoS profiles are:
 
 * System default
 
-  This uses the RMW implementation’s default values for all of the policies.
+  This uses the RMW implementation's default values for all of the policies.
   Different RMW implementations may have different defaults.
 
 `Click here <https://github.com/ros2/rmw/blob/{REPOS_FILE_BRANCH}/rmw/include/rmw/qos_profiles.h>`__ for the specific policies in use for the above profiles.

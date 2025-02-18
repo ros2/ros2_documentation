@@ -32,7 +32,7 @@ Prerequisites
 This tutorial uses the :doc:`turtlesim <../../Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim>` package.
 This tutorial also assumes you are familiar with :doc:`creating packages <../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>`.
 
-As always, don’t forget to source ROS 2 in :doc:`every new terminal you open <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
+As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
 
 Using substitutions
 -------------------
