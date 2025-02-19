@@ -1,5 +1,10 @@
 System setup
 ------------
+Install Git
+^^^^^^^^^^^
+Git is a version control tool that is used to install some tutorial packages. You can install it at the following URL:
+
+https://git-scm.com/downloads/win
 
 Install Chocolatey
 ^^^^^^^^^^^^^^^^^^
