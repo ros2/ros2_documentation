@@ -63,7 +63,7 @@ Visibility Control Headers
 The purpose of Visibility Control Headers headers is to define a macro for each shared library which correctly declares symbols as dllimport or dllexport.
 This is decided based on whether the library is being consumed or being built itself.
 The logic in the macro also takes the compiler into account and includes logic to select the appropriate syntax.
-The `GCC visibility documentation <https://gcc.gnu.org/wiki/Visibility>`__ includes step by step instructions for adding explicit symbol visibility to a library “yielding the highest quality code with the greatest reductions in binary size, load times and link times”.
+The `GCC visibility documentation <https://gcc.gnu.org/wiki/Visibility>`__ includes step by step instructions for adding explicit symbol visibility to a library "yielding the highest quality code with the greatest reductions in binary size, load times and link times".
 A header named ``visibility_control.h`` can be placed in the ``includes`` folder for each library as shown in the example below.
 The example below shows how a visibility control header would be added for a ``my_lib`` library with a class called ``example_class``.
 Add a visibility header to the include folder for the library.

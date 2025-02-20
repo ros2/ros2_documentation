@@ -246,7 +246,7 @@ ROS 2 offers support for the TLSF (Two Level Segregate Fit) allocator, which was
 
 https://github.com/ros2/realtime_support/tree/{REPOS_FILE_BRANCH}/tlsf_cpp
 
-For more information about TLSF, see http://www.gii.upv.es/tlsf/
+For more information about TLSF, see `this page via Universitat Politècnica de València <http://www.gii.upv.es/tlsf/>`_.
 
 Note that the TLSF allocator is licensed under a dual-GPL/LGPL license.
 

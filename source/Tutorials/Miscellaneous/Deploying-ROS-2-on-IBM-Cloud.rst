@@ -226,7 +226,7 @@ Here, I used *ros2nasr*.
 IBM cloud has a lot of shortcuts that would help us get our container onto the cloud right away.
 The command below builds the container and tags it with the name **ros2foxy** and the version of **1**.
 Make sure you use the correct registry name you created and you are free to change the container name as you wish.
-The **.** at the end indicates that the *Dockerfile* is in the current directory (and it is important), if not,
+The ``.`` at the end indicates that the *Dockerfile* is in the current directory (and it is important), if not,
 change it to point to the directory containing the Dockerfile.
 
 .. code-block:: bash
@@ -437,8 +437,8 @@ from IBM Cloud, this is how you should go about it!
 
 1. List all the images you have and find all the ones that share the
    *IMAGE* name corresponding to
-   *registry.ng.bluemix.net/ros2nasr/ros2foxy:2* (in my case). Then
-   delete them using their *NAMES*
+   *registry.ng.bluemix.net/ros2nasr/ros2foxy:2* (in my case).
+   Then delete them using their *NAMES*
 
 .. code-block:: bash
 

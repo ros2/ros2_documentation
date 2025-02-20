@@ -27,7 +27,7 @@ ROS 2 Documentation
 From drivers and state-of-the-art algorithms to powerful developer tools, ROS has the open source tools you need for your next robotics project.
 
 Since ROS was started in 2007, a lot has changed in the robotics and ROS community.
-The goal of the ROS 2 project is to adapt to these changes, leveraging what is great about ROS 1 and improving what isn’t.
+The goal of the ROS 2 project is to adapt to these changes, leveraging what is great about ROS 1 and improving what isn't.
 
 **Are you looking for documentation for a particular ROS package like MoveIt,  image_proc, or octomap?**
 Please see `ROS Index <https://index.ros.org/packages/#{DISTRO}>`__  or check out `this index of per-package documentation <https://docs.ros.org/en/{DISTRO}/p/>`__.

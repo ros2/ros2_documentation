@@ -22,7 +22,7 @@ Prerequisites
 
 You should have gone through the tutorial on how to :doc:`create a ROS 2 package <../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>`.
 
-As always, don’t forget to source ROS 2 in :doc:`every new terminal you open <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
+As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
 
 Background
 ----------

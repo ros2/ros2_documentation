@@ -57,7 +57,7 @@ The ``--dependencies`` argument will automatically add the necessary dependency 
 1.1 Update ``package.xml``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Because you used the ``--dependencies`` option during package creation, you don’t have to manually add dependencies to ``package.xml`` or ``CMakeLists.txt``.
+Because you used the ``--dependencies`` option during package creation, you don't have to manually add dependencies to ``package.xml`` or ``CMakeLists.txt``.
 As always, though, make sure to add the description, maintainer email and name, and license information to ``package.xml``.
 
 .. code-block:: xml
@@ -235,7 +235,7 @@ Now run the node:
      ros2 run cpp_parameter_event_handler parameter_event_handler
 
 The node is now active and has a single parameter and will print a message whenever this parameter is updated.
-To test this, open up another terminal and source the ROS setup file as before (. install/setup.bash) and execute the following command:
+To test this, open up another terminal and source the ROS setup file as before (``. install/setup.bash``) and execute the following command:
 
 .. code-block:: console
 

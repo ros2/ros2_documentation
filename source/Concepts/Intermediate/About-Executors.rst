@@ -114,7 +114,7 @@ Callback groups
 ROS 2 allows organizing the callbacks of a node in groups.
 In rclcpp, such a *callback group* can be created by the ``create_callback_group`` function of the Node class.
 In rclpy, the same is done by calling the constructor of the specific callback group type.
-The callback group must be stored throughout execution of the node (eg. as a class member), or otherwise the executor won't be able to trigger the callbacks.
+The callback group must be stored throughout execution of the node (e.g. as a class member), or otherwise the executor won't be able to trigger the callbacks.
 Then, this callback group can be specified when creating a subscription, timer, etc. - for example by the subscription options:
 
 .. tabs::
@@ -207,4 +207,4 @@ Further information
   ROS Industrial Conference.
   Virtual event.
   16 December 2020.
-* Daniel Casini, Tobias Blass, Ingo Lütkebohle, and Björn Brandenburg: `“Response-Time Analysis of ROS 2 Processing Chains under Reservation-Based Scheduling” <https://drops.dagstuhl.de/opus/volltexte/2019/10743/pdf/LIPIcs-ECRTS-2019-6.pdf>`_, Proc. of 31st ECRTS 2019, Stuttgart, Germany, July 2019.
+* Daniel Casini, Tobias Blass, Ingo Lütkebohle, and Björn Brandenburg: `"Response-Time Analysis of ROS 2 Processing Chains under Reservation-Based Scheduling" <https://drops.dagstuhl.de/opus/volltexte/2019/10743/pdf/LIPIcs-ECRTS-2019-6.pdf>`_, Proc. of 31st ECRTS 2019, Stuttgart, Germany, July 2019.

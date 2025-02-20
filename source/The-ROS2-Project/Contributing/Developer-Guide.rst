@@ -198,11 +198,11 @@ This might include workflows for testing the code using something like ``python 
 
 Examples:
 
-* capabilities: https://docs.ros.org/hydro/api/capabilities/html/
+* `capabilities <https://docs.ros.org/hydro/api/capabilities/html/>`_
 
   * This one gives an example of docs which describe the public API
 
-* catkin_tools: https://catkin-tools.readthedocs.org/en/latest/development/extending_the_catkin_command.html
+* `catkin_tools <https://catkin-tools.readthedocs.org/en/latest/development/extending_the_catkin_command.html>`_
 
   * This is an example of describing an extension point for a package
 
@@ -541,7 +541,7 @@ Don't mix the streams
 
 We strongly recommend against mixing ROS packages from upstream Debian/Ubuntu and from http://packages.ros.org on the same system.
 In some cases such a mixed system will work correctly, but there can be negative interactions between the two sets of packages.
-We’re working with Jochen and friends to minimize the chance of problems via documentation and package conflict specifications, but we expect some risks to remain, including some fairly subtle issues.
+We're working with Jochen and friends to minimize the chance of problems via documentation and package conflict specifications, but we expect some risks to remain, including some fairly subtle issues.
 
 As such, we recommend that you choose to either install packages from upstream or from http://packages.ros.org, but not both.
 Not only should you not install packages from both at the same time, but if you intend to use the upstream packages then you should not even have the http://packages.ros.org entries in your apt sources (i.e. in any files in ``/etc/apt/sources*``).
@@ -897,7 +897,7 @@ Capture the lcov results with a similar command this time dropping the ``--initi
 
      lcov --no-external --capture --directory . --output-file ~/ros2.info
 
-Combine the trace .info files:
+Combine the trace ``.info`` files:
 
 .. code-block:: bash
 

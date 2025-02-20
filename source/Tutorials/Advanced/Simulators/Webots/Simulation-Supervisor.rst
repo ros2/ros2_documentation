@@ -96,7 +96,7 @@ Here is an example to import a simple Robot named ``imported_robot``:
     ros2 service call /Ros2Supervisor/spawn_node_from_string webots_ros2_msgs/srv/SpawnNodeFromString "data: Robot { name \"imported_robot\" }"
 
 .. note::
-    If you try to import some PROTOs in the node string, their respective URLs must be declared in the .wbt world file as EXTERNPROTO or as IMPORTABLE EXTERNPROTO.
+    If you try to import some PROTOs in the node string, their respective URLs must be declared in the ``.wbt`` world file as EXTERNPROTO or as IMPORTABLE EXTERNPROTO.
 
 .. _Remove a Webots imported node:
 
