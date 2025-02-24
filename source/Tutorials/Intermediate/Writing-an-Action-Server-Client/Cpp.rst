@@ -153,7 +153,7 @@ The constructor also instantiates a new action server:
 
 .. literalinclude:: scripts/server.cpp
     :language: c++
-    :lines: 86-91
+    :lines: 52-57
 
 An action server requires 6 things:
 
