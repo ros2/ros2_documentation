@@ -20,5 +20,6 @@ URDF (Unified Robot Description Format) is a file format for specifying the geom
    Building-a-Movable-Robot-Model-with-URDF
    Adding-Physical-and-Collision-Properties-to-a-URDF-Model
    Using-Xacro-to-Clean-Up-a-URDF-File
-   Using-URDF-with-Robot-State-Publisher
+   Using-URDF-with-Robot-State-Publisher-cpp
+   Using-URDF-with-Robot-State-Publisher-py
    Exporting-an-URDF-File
