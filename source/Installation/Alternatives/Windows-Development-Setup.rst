@@ -37,10 +37,22 @@ We'll use ``C:\dev`` for the rest of these instructions.
 
    md C:\dev
 
+Increase the Windows maximum path length
+----------------------------------------
+
+By default, Windows is restricted to a maximum path length (MAX_PATH) of 260 characters.
+The ROS 2 build will use significantly longer path lengths, so we will increase that.
+Using the powershell session you started above, run the following:
+
+.. code-block:: console
+
+   New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" -Name "LongPathsEnabled" -Value 1 -PropertyType DWORD -Force
+
+You can read more about this limitation at https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=registry.
+
+
 Install prerequisites
 ---------------------
-
-ROS 2 uses `conda-forge <https://conda-forge.org/>`__ as a backend for packages, with `pixi <https://pixi.sh/latest/>`__ as the frontend.
 
 Install MSVC
 ^^^^^^^^^^^^
@@ -54,16 +66,23 @@ Continue using the previous powershell session, and run the following command to
 
    irm https://aka.ms/vs/16/release/vs_buildtools.exe -OutFile vs_buildtools_2019.exe
 
-Now install MSVC 2019 (this will take some time):
+Now install MSVC 2019:
 
 .. code-block:: console
 
    vs_buildtools_2019.exe --quiet --wait --norestart --add Microsoft.Component.MSBuild --add Microsoft.Net.Component.4.6.1.TargetingPack --add Microsoft.Net.Component.4.8.SDK --add Microsoft.VisualStudio.Component.CoreBuildTools --add Microsoft.VisualStudio.Component.Roslyn.Compiler --add Microsoft.VisualStudio.Component.TextTemplating --add Microsoft.VisualStudio.Component.VC.CLI.Support --add Microsoft.VisualStudio.Component.VC.CoreBuildTools --add Microsoft.VisualStudio.Component.VC.CoreIde --add Microsoft.VisualStudio.Component.VC.Redist.14.Latest --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --add Microsoft.VisualStudio.Component.Windows10SDK --add Microsoft.VisualStudio.Component.Windows10SDK.19041 --add Microsoft.VisualStudio.ComponentGroup.NativeDesktop.Core --add Microsoft.VisualStudio.Workload.MSBuildTools --add Microsoft.VisualStudio.Workload.VCTools
 
+.. note::
+
+   The installation of MSVC can take a long time, and there is no feedback while it is progressing.
+
 Install pixi
 ^^^^^^^^^^^^
 
-Continue using the previous powershell session, and use the instructions on https://pixi.sh/latest/ to install ``pixi``.
+ROS 2 uses `conda-forge <https://conda-forge.org/>`__ as a backend for packages, with `pixi <https://pixi.sh/latest/>`__ as the frontend.
+
+Continue using the previous powershell session, and use the instructions from https://pixi.sh/latest/ to install ``pixi``.
+Once ``pixi`` has been installed, close the powershell session and start it again, which will ensure ``pixi`` is on the PATH.
 
 Install dependencies
 ^^^^^^^^^^^^^^^^^^^^
@@ -113,11 +132,6 @@ Get ROS 2 code
 Now that we have the development tools we can get the ROS 2 source code.
 
 Setup a development folder, for example ``C:\dev\{DISTRO}``:
-
-.. note::
-
-   It is very important that the chosen path is short, due to the short default Windows path limits (260 characters).
-   To allow longer paths, see https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=registry.
 
 .. code-block:: bash
 

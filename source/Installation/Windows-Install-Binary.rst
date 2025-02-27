@@ -44,6 +44,7 @@ Install pixi
 ^^^^^^^^^^^^
 
 Continue using the previous powershell session, and use the instructions on https://pixi.sh/latest/ to install ``pixi``.
+Once ``pixi`` has been installed, close the powershell session and start it again, which will ensure ``pixi`` is on the PATH.
 
 Install dependencies
 ^^^^^^^^^^^^^^^^^^^^
