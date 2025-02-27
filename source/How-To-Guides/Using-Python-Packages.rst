@@ -78,7 +78,7 @@ Then setup your virtual environment:
     # Make a virtual env and activate it
     virtualenv -p python3 ./venv
     source ./venv/bin/activate
-    # Make sure that colcon doesn't try to build the venv
+    # Make sure that colcon does not try to build the venv
     touch ./venv/COLCON_IGNORE
 
 Next, install the Python packages that you want in your virtual environment:
