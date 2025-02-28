@@ -58,7 +58,7 @@ The ROS PMC currently consists of the following constituents:
    * - Michael Carroll
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `mjcarroll <https://github.com/mjcarroll>`_
-     - Member
+     - (Interim) Project Leader
      - CST (UTC-6)/CDT (UTC-5)
    * - Alejandro Hernandez Cordero
      - `Honu Robotics <https://www.honurobotics.com/>`_
@@ -78,7 +78,7 @@ The ROS PMC currently consists of the following constituents:
    * - Chris Lalancette
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `clalancette <https://github.com/clalancette>`_
-     - Project Leader
+     - Member (former Project Leader)
      - N/A
    * - Scott Logan
      - `Intrinsic <https://www.intrinsic.ai/>`_
