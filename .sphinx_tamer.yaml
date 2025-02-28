@@ -5,6 +5,6 @@ sentence_scan:
     - nav2.org
     - ros2.repos
     - 2.X
-    - (\s|^)(\.)(msg|srv|action|NET)
+    - (\s|^)(\.)(msg|srv|action|NET|rviz)
     ignorable_prefixes:
     - Releases/
