@@ -237,7 +237,7 @@ You can set the environment variable with the following command:
 Subscriptions
 ~~~~~~~~~~~~~
 
-Currently using *Loaned Messages* is not safe on subscription, see more details in `this issue <https://github.com/ros2/rmw_cyclonedds/issues/469>`_.
+Currently using *Loaned Messages* is not safe on subscription, see more details in `rmw issue <https://github.com/ros2/rmw_cyclonedds/issues/469>`_ and `rclcpp issue <https://github.com/ros2/rclcpp/issues/2401>`_.
 Because of this, by default *Loaned Messages* is ``disabled`` on subscription with `Set disable loan to on by default <https://github.com/ros2/rcl/pull/1110>`_ even though underlying middleware supports that.
 To enable *Loaned Messages* on subscription, you need to set the environment variable ``ROS_DISABLE_LOANED_MESSAGES`` to ``0`` explicitly.
 
