@@ -607,3 +607,13 @@ In the case of ``rviz_ogre_media_exports`` this amounts to the following strateg
       "register_rviz_ogre_media_exports_hook.cmake")
 
 - The files ``register_rviz_ogre_media_exports.cmake`` and ``register_rviz_ogre_media_exports_hook-extra.cmake`` are registered as ``CONFIG_EXTRA`` with ``ament_package()``.
+
+Setting Environment variables
+----------------
+``ament_cmake`` provides a mechanism to automatically set environment variables for a ROS2 workspace when it is sourced. This can be useful in configuring:
+
+- RMW implementations (setting up CycloneDDS, FastDDS, etc.)
+- Gazebo Simulations (setting up plugin paths)
+- Other custom robot-specific setting configurations
+
+This can be implemented through ``ament_environment_hooks``, which allows packages to define persistent environment variables that are set when the workspace is sourced.
