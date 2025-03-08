@@ -194,10 +194,17 @@ linkcheck_anchors_ignore_for_url = [
     r"https://foxglove\.dev/.*",
 ]
 
-# Ignore local links for linkcheck (e.g. ../../Releases/rolling/index.html).
-# It will still check all links that start with http(s)://
+# Ignore local links for linkcheck.
 linkcheck_ignore = [
-    r"^(?!http(|s):\/\/).*",
+    r"../../iron/Installation.html",
+    r"../../foxy/Installation.html",
+    r"../../jazzy/Installation.html",
+    r"../../rolling/Installation/Maintaining-a-Source-Checkout.html",
+    r"../../humble/Installation/Ubuntu-Install-Debians.html",
+    r"../../humble/Installation.html",
+    r"../../galactic/Installation.html",
+    r"../../eloquent/Installation.html",
+    r"../../dashing/Installation.html",
 ]
 
 # Add custom headers to requests made by linkcheck.
