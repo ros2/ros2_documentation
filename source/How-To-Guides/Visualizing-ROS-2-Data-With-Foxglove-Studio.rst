@@ -1,7 +1,7 @@
 Visualizing ROS 2 data with Foxglove Studio
 ===========================================
 
-`Foxglove Studio <https://foxglove.dev/studio>`__ is an open closed source visualization and debugging tool for your robotics data.
+`Foxglove Studio <https://foxglove.dev/studio>`__ is a visualization and observability platform for robotics development.
 
 **NOTE: Foxglove Studio is no longer open-source.  An open-source alternative that also supports the MCAP file format is** `Rerun.io <https://rerun.io>`__ , **with source code available at https://github.com/rerun-io/rerun.**
 
