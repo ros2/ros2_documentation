@@ -629,7 +629,7 @@ These environment hooks can be implemented by creating two types of script files
 
 These files are processed by ``colcon`` to generate the final environment hook scripts.
 
-The actual implementation of ``ament_environment_hooks`` can be found in the  `official ament-cmake repository <https://github.com/ament/ament_cmake/tree/master/ament_cmake_core/cmake/environment_hooks>`.
+The actual implementation of ``ament_environment_hooks`` can be found in the official `ament-cmake repository <https://github.com/ament/ament_cmake/tree/master/ament_cmake_core/cmake/environment_hooks>`__.
 
 Defining Persistent Environment Variables through Hooks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -657,10 +657,10 @@ In the same folder, create a ``my_package.dsv.in`` file as follows:
 Once added, you can register them using the ament_environment_hooks function in your CMakeLists.txt file:
 
 .. code-block:: bash
-  
+
     ament_environment_hooks(
       "${CMAKE_CURRENT_SOURCE_DIR}/hooks/my_package.dsv.in"
       "${CMAKE_CURRENT_SOURCE_DIR}/hooks/my_package.sh.in"
     )
 
-
+Another example of using environment hooks for Gazebo plugin paths can be found in the official `ros_gz_project_template <https://github.com/gazebosim/ros_gz_project_template/tree/55bea9ee564be6ac4ce76650abab3aa2ed18e0ee/ros_gz_example_gazebo/hooks>`__.
