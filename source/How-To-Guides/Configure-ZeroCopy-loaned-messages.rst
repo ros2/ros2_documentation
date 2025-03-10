@@ -53,10 +53,7 @@ Using Loaned Messages
 
 Loaned messages on the publisher are used by default when the underlying RMW implementation supports them.
 If the RMW implementation does not support loaned messages, the messages will be allocated with the allocator instance provided by the publisher.
-The example demonstrates how to create a ROS 2 publisher that uses loaned messages to publish data efficiently without copying the message data.
-
-https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics/talker_loaned_message.cpp
-
+The `talker_loaned_message example <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics/talker_loaned_message.cpp>`__ demonstrates how to create a ROS 2 publisher that uses loaned messages to publish data efficiently without copying the message data.
 
 .. code-block:: c++
 
