@@ -659,8 +659,7 @@ In the same folder, create a ``my_package.dsv.in`` file as follows:
     set;RMW_FASTRTPS_USE_QOS_FROM_XML;1
     set;FASTRTPS_DEFAULT_PROFILES_FILE;my_dds_profile.xml
 
-
-Once added, you can register them using the ament_environment_hooks function in your CMakeLists.txt file:
+Once added, you can register them using the ament_environment_hooks function in your ``CMakeLists.txt`` file:
 
 .. code-block:: bash
 
