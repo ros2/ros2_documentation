@@ -607,3 +607,65 @@ In the case of ``rviz_ogre_media_exports`` this amounts to the following strateg
       "register_rviz_ogre_media_exports_hook.cmake")
 
 - The files ``register_rviz_ogre_media_exports.cmake`` and ``register_rviz_ogre_media_exports_hook-extra.cmake`` are registered as ``CONFIG_EXTRA`` with ``ament_package()``.
+
+Setting environment variables
+-----------------------------
+``ament_cmake`` provides a mechanism to automatically set environment variables for a ROS 2 workspace when it is sourced.
+This can be useful in configuring:
+
+- RMW implementations (setting up CycloneDDS, FastDDS, etc.)
+- Gazebo Simulations (setting up paths to plugins and resources)
+- Other custom robot-specific setting configurations
+
+This can be implemented through ``ament_environment_hooks``, which allows packages to define persistent environment variables that are set when the workspace is sourced.
+
+About environment hooks
+^^^^^^^^^^^^^^^^^^^^^^^
+Environment hooks are shell scripts provided by a ROS 2 package.
+When the setup file in the workspace is sourced, the hooks are also sourced.
+These scripts allow you to set or extend environment variables with requiring manual modifications to the ``setup.bash`` or ``setup.zsh`` files.
+
+These environment hooks can be implemented by creating two types of script files:
+
+- ``.dsv.in`` files: These are machine-readable files that specify expected environment variable changes.
+  Ament processes these files more efficiently than traditional shell scripts, improving performance when setting up the environment.
+
+- ``.sh.in`` files: These are shell scripts executed by Linux/macOS shells such as sh, bash, and zsh.
+  They set environment variables at runtime when sourcing the workspace.
+
+These files are processed by ``colcon`` to generate the final environment hook scripts.
+
+The actual implementation of ``ament_environment_hooks`` can be found in the official `ament-cmake repository <https://github.com/ament/ament_cmake/tree/master/ament_cmake_core/cmake/environment_hooks>`__.
+
+Defining Persistent Environment Variables through Hooks
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This section provides a quick example on how to use environment hooks to configure FastDDS XML profiles for your ROS 2 package.
+
+A recommended best practice when defining environment hooks is to place them within a dedicated ``hooks`` directory inside the package workspace.
+
+Inside your created ``hooks`` folder, create a ``my_package.sh.in`` as follows:
+
+.. code-block:: bash
+
+    export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+    export RMW_FASTRTPS_USE_QOS_FROM_XML=1
+    export FASTRTPS_DEFAULT_PROFILES_FILE="$COLCON_CURRENT_PREFIX/my_dds_profile.xml"
+
+In the same folder, create a ``my_package.dsv.in`` file as follows:
+
+.. code-block:: bash
+
+    set;RMW_IMPLEMENTATION;rmw_fastrtps_cpp
+    set;RMW_FASTRTPS_USE_QOS_FROM_XML;1
+    set;FASTRTPS_DEFAULT_PROFILES_FILE;my_dds_profile.xml
+
+Once added, you can register them using the ament_environment_hooks function in your ``CMakeLists.txt`` file:
+
+.. code-block:: bash
+
+    ament_environment_hooks(
+      "${CMAKE_CURRENT_SOURCE_DIR}/hooks/my_package.dsv.in"
+      "${CMAKE_CURRENT_SOURCE_DIR}/hooks/my_package.sh.in"
+    )
+
+Another example of using environment hooks for Gazebo plugin paths can be found in the official `ros_gz_project_template <https://github.com/gazebosim/ros_gz_project_template/tree/main/ros_gz_example_gazebo/hooks>`__.

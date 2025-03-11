@@ -106,10 +106,10 @@ The ROS PMC currently consists of the following constituents:
      - Member / Infrastructure Project Lead
      - PST (UTC-8)/PDT (UTC-7)
    * - Alberto Soragna
-     - `iRobot <https://www.irobot.com/>`_
+     - `Outrider <https://www.outrider.ai/>`_
      - `alsora <https://github.com/alsora>`_
      - Member
-     - PST (UTC-8)/PDT (UTC-7)
+     - CET (UTC+1)/CEST (UTC+2)
    * - Yadunund Vijay
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `Yadunund <https://github.com/Yadunund>`_
