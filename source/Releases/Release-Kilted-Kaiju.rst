@@ -51,7 +51,7 @@ For the broad process followed by Kilted Kaiju, see the :doc:`process descriptio
 Release Timeline
 ----------------
 
-    December, 2025 - Platform decisions
+    December, 2024 - Platform decisions
         REP 2000 is updated with the target platforms and major dependency versions.
 
     Mon. April 7, 2025 - Alpha + RMW freeze
