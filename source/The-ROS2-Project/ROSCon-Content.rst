@@ -88,7 +88,8 @@ The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2
          - `video <https://vimeo.com/1024970794>`__
        * - ⚡ Lightning Talks ⚡
          - `video <https://vimeo.com/1024969633>`__
-       * - How is my robot? - On the state of ROS Diagnostics
+       * - How is my robot?
+           - On the state of ROS Diagnostics
          - `video <https://vimeo.com/1024970271>`__
        * - Accelerating the CI/CD-to-robot cycle by 10x for 1/10th the cost
          - `video <https://vimeo.com/1024969227>`__
@@ -232,7 +233,8 @@ The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2
          - `video <https://vimeo.com/879001315/270b755f56>`__
        * - SpatialVision: Bringing Popping-Out RViz to Life with AirPods
          - `video <https://vimeo.com/879001856/e8a108481b>`__
-       * - What is Robotics Observability? Scaling ROS from Prototype to Production
+       * - What is Robotics Observability?
+           Scaling ROS from Prototype to Production
          - `video <https://vimeo.com/879001947/f15b94d3a4>`__
        * - Surviving the Flood (of Rosbags)
          - `video <https://vimeo.com/879001892/66580b9633>`__

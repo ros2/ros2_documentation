@@ -31,8 +31,114 @@ Additional prerequisites
 
 When building from source you'll need a few additional prerequisites installed.
 
+<<<<<<< HEAD
 Install additional prerequisites from Chocolatey
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+=======
+Then create a directory to store the installation.
+Because of Windows path-length limitations, this should be as short as possible.
+We'll use ``C:\dev`` for the rest of these instructions.
+
+.. code-block:: console
+
+   md C:\dev
+
+Increase the Windows maximum path length
+----------------------------------------
+
+By default, Windows is restricted to a maximum path length (MAX_PATH) of 260 characters.
+The ROS 2 build will use significantly longer path lengths, so we will increase that.
+Using the powershell session you started above, run the following:
+
+.. code-block:: console
+
+   New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" -Name "LongPathsEnabled" -Value 1 -PropertyType DWORD -Force
+
+You can read more about this limitation in `Microsoft's documentation <https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=registry>`__.
+
+
+Install prerequisites
+---------------------
+
+Install MSVC
+^^^^^^^^^^^^
+
+In order to compile the ROS 2 code, the MSVC compiler must be installed.
+Currently it is recommended to use MSVC 2019.
+
+Continue using the previous powershell session, and run the following command to download it:
+
+.. code-block:: console
+
+   irm https://aka.ms/vs/16/release/vs_buildtools.exe -OutFile vs_buildtools_2019.exe
+
+Now install MSVC 2019:
+
+.. code-block:: console
+
+   .\vs_buildtools_2019.exe --quiet --wait --norestart --add Microsoft.Component.MSBuild --add Microsoft.Net.Component.4.6.1.TargetingPack --add Microsoft.Net.Component.4.8.SDK --add Microsoft.VisualStudio.Component.CoreBuildTools --add Microsoft.VisualStudio.Component.Roslyn.Compiler --add Microsoft.VisualStudio.Component.TextTemplating --add Microsoft.VisualStudio.Component.VC.CLI.Support --add Microsoft.VisualStudio.Component.VC.CoreBuildTools --add Microsoft.VisualStudio.Component.VC.CoreIde --add Microsoft.VisualStudio.Component.VC.Redist.14.Latest --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --add Microsoft.VisualStudio.Component.Windows10SDK --add Microsoft.VisualStudio.Component.Windows10SDK.19041 --add Microsoft.VisualStudio.ComponentGroup.NativeDesktop.Core --add Microsoft.VisualStudio.Workload.MSBuildTools --add Microsoft.VisualStudio.Workload.VCTools
+
+.. note::
+
+   The installation of MSVC can take a long time, and there is no feedback while it is progressing.
+
+Install pixi
+^^^^^^^^^^^^
+
+ROS 2 uses `conda-forge <https://conda-forge.org/>`__ as a backend for packages, with `pixi <https://pixi.sh/latest/>`__ as the frontend.
+
+Continue using the previous powershell session, and use the instructions from https://pixi.sh/latest/ to install ``pixi``.
+Once ``pixi`` has been installed, close the powershell session and start it again, which will ensure ``pixi`` is on the PATH.
+
+Install dependencies
+^^^^^^^^^^^^^^^^^^^^
+
+Download the pixi configuration file in the existing powershell session:
+
+.. code-block:: console
+
+   cd C:\dev
+   irm https://raw.githubusercontent.com/ros2/ros2/refs/heads/{REPOS_FILE_BRANCH}/pixi.toml -OutFile pixi.toml
+
+Install dependencies:
+
+.. code-block:: console
+
+   pixi install
+
+You should now close the powershell session, as the rest of the instructions will use the Windows command prompt.
+
+Build ROS 2
+-----------
+
+Start a new Windows command prompt, which will be used for the build.
+
+Source the MSVC compiler
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+This is required in the command prompt you'll use to compile ROS 2, but it is *not* required when running:
+
+.. code-block:: console
+
+  call "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Auxiliary\Build\vcvarsall.bat" x86_amd64
+
+Source the pixi environment
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This is required in every command prompt you open to set up paths to the dependencies:
+
+.. code-block:: console
+
+   cd C:\dev
+   pixi shell
+
+Get ROS 2 code
+^^^^^^^^^^^^^^
+
+Now that we have the development tools we can get the ROS 2 source code.
+
+Setup a development folder, for example ``C:\dev\{DISTRO}``:
+>>>>>>> 784fd45 (Sentence checker (#4592))
 
 .. code-block:: bash
 
@@ -124,7 +230,7 @@ Start a command shell and source the ROS 2 setup file to set up the workspace:
 
 This will automatically set up the environment for any DDS vendors that support was built for.
 
-It is normal that the previous command, if nothing else went wrong, outputs "The system cannot find the path specified." exactly once.
+It is normal that the previous command, if nothing else went wrong, outputs ``The system cannot find the path specified.`` exactly once.
 
 Test and run
 ------------

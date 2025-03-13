@@ -385,7 +385,7 @@ After that, the two nodes are set to be launched in the ``LaunchDescription`` co
     :dedent: 4
     :lines: 24-26
 
-Finally, an optional part is added in order to shutdown all the nodes once Webots terminates (e.g., when it gets closed from the graphical user interface).
+Finally, an optional part is added in order to shutdown all the nodes once Webots terminates (e.g. when it gets closed from the graphical user interface).
 
 .. literalinclude:: Code/robot_launch.py
     :language: python

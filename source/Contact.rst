@@ -59,7 +59,7 @@ If following a tutorial or online instructions provide a link to the specific in
 
 * Use a descriptive headline or subject line.
   Bad: "rviz doesn't work".
-  Good: "Rviz crashing looking for missing .so after latest apt update"
+  Good: "Rviz crashing looking for missing ``.so`` after latest apt update"
 * Include information about the exact platform, software, versions, and environment relevant to the problem.
   This includes how you installed the software (from binaries or from source) and which ROS middleware/DDS vendor you are using (if you know it).
 * Any warnings or errors.

@@ -53,7 +53,8 @@ CMakeLists.txt
       target_link_libraries(${PROJECT_NAME}_tutorial_test name_of_local_library)
     endif()
 
-The testing code is wrapped in the ``if/endif`` block to avoid building tests where possible. ``ament_add_gtest`` functions much like ``add_executable`` so you'll need to call ``target_include_directories``, ``ament_target_dependencies`` and ``target_link_libraries`` as you normally would.
+The testing code is wrapped in the ``if/endif`` block to avoid building tests where possible.
+``ament_add_gtest`` functions much like ``add_executable`` so you'll need to call ``target_include_directories``, ``ament_target_dependencies`` and ``target_link_libraries`` as you normally would.
 
 
 Running Tests

@@ -189,9 +189,9 @@ However, this step-by-step is a great place to start!
 
   * Step 4 - (Optional) Enable Negative Capability Analysis
 
-    https://clang.llvm.org/docs/ThreadSafetyAnalysis.html#negative-capabilities
-
-    Negative Capability Analysis lets you specify "this lock must not be held when calling this function". It can reveal potential deadlock cases that other annotations cannot.
+    `Negative Capability Analysis <https://clang.llvm.org/docs/ThreadSafetyAnalysis.html#negative-capabilities>`_
+    lets you specify "this lock must not be held when calling this function".
+    It can reveal potential deadlock cases that other annotations cannot.
 
     * Where you specified ``-Wthread-safety``, add the additional flag ``-Wthread-safety-negative``
     * On any function that acquires a lock, use the ``RCPPUTILS_TSA_REQUIRES(!mutex)`` pattern

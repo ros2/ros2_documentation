@@ -4,7 +4,7 @@ DDS implementations
 By default, ROS 2 uses DDS as its `middleware <https://design.ros2.org/articles/ros_on_dds.html>`__.
 It is compatible with multiple DDS or RTPS (the DDS wire protocol) vendors.
 There is currently support for eProsima's Fast DDS, RTI's Connext DDS, Eclipse Cyclone DDS, and GurumNetworks GurumDDS.
-See https://ros.org/reps/rep-2000.html for supported DDS vendors by distribution.
+See `REP-2000 <https://ros.org/reps/rep-2000.html>`__ for supported DDS vendors by distribution.
 
 The default DDS vendor is eProsima's Fast DDS.
 

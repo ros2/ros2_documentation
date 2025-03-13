@@ -12,7 +12,7 @@ To build the kernel you need at least 30GB free disk space.
 
 Check `this wiki <https://wiki.linuxfoundation.org/realtime/start>`_ for the latest stable version, at the time of writing this is "Latest Stable Version 5.4-rt".
 If we click on the `link <http://cdn.kernel.org/pub/linux/kernel/projects/rt/5.4/>`_, we get the exact version.
-Currently it is patch-5.4.78-rt44.patch.gz.
+Currently it is ``patch-5.4.78-rt44.patch.gz``.
 
 .. image:: images/realtime-kernel-patch-version.png
 
@@ -128,7 +128,8 @@ and set the following
        (X) performance
 
 Save and exit menuconfig.
-Now we're going to build the kernel which will take quite some time. (10-30min on a modern cpu)
+Now we're going to build the kernel which will take quite some time.
+(10-30min on a modern cpu)
 
 .. code-block:: bash
 
