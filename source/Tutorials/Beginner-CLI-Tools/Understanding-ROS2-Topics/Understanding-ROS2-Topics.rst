@@ -329,6 +329,8 @@ It will return data on the rate at which the ``/turtlesim`` node is publishing d
 Recall that you set the rate of ``turtle1/cmd_vel`` to publish at a steady 1 Hz using ``ros2 topic pub --rate 1``.
 If you run the above command with ``turtle1/cmd_vel`` instead of ``turtle1/pose``, you will see an average reflecting that rate.
 
+.. Note:: The rate reflects the receiving rate on the subscription created by the ``ros2 topic hz`` command, which might be affected by platform resources and QoS configuration, and may not exactly match the publisher rate.
+
 9 ros2 topic bw
 ^^^^^^^^^^^^^^^
 
@@ -345,6 +347,8 @@ It returns the bandwidth utilization and number of messages being published to t
     Subscribed to [/turtle1/pose]
     1.51 KB/s from 62 messages
         Message size mean: 0.02 KB min: 0.02 KB max: 0.02 KB
+
+.. Note:: The bandwidth reflects the receiving rate on the subscription created by the ``ros2 topic bw`` command, which might be affected by platform resources and QoS configuration, and may not exactly match the publisher's bandwidth.
 
 10 ros2 topic find
 ^^^^^^^^^^^^^^^^^^
