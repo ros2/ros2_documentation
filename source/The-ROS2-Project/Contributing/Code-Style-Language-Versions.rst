@@ -389,6 +389,7 @@ Any Doc Type
 
 Markdown or RST
 ^^^^^^^^^^^^^^^
+
 * Each section title should be preceded by one empty line and succeeded by one empty line.
 
   * Rationale: It expedites to get an overview about the structure when screening the document.
