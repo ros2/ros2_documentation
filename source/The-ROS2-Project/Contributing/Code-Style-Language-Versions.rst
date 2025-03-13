@@ -380,6 +380,7 @@ The following rules to format text is intended to increase readability as well a
 
 Any Doc Type
 ^^^^^^^^^^^^
+
 * Each sentence must start on a new line.
 
   * Rationale: For longer paragraphs a single change in the beginning makes the diff unreadable since it carries forward through the whole paragraph.
