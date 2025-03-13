@@ -4,4 +4,4 @@ import plugins.ros_checkers
 import sys
 from sphinxlint.cli import main
 
-main(sys.argv)
+sys.exit(main(sys.argv))
