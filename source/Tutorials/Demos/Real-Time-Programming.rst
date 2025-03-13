@@ -203,13 +203,13 @@ Because the code has been instrumented with `rttest <https://github.com/ros2/rtt
 +---------+---------------------------------------------------------------------+---------------+
 | -i      | Specify how many iterations to run the real-time loop               | 1000          |
 +---------+---------------------------------------------------------------------+---------------+
-| -u      | Specify the update period with the default unit being microseconds. | 1ms           |
+| -u      | Specify the update period with the default unit being microseconds  | 1ms           |
 |         |                                                                     |               |
 |         | Use the suffix "s" for seconds, "ms" for milliseconds,              |               |
 |         |                                                                     |               |
-|         | "us" for microseconds, and "ns" for nanoseconds.                    |               |
+|         | "us" for microseconds, and "ns" for nanoseconds                     |               |
 +---------+---------------------------------------------------------------------+---------------+
-| -f      | Specify the name of the file for writing the collected data.        |               |
+| -f      | Specify the name of the file for writing the collected data         |               |
 +---------+---------------------------------------------------------------------+---------------+
 
 Run the demo again with a filename to save results:

@@ -51,7 +51,8 @@ Getting started
 
 * :doc:`How-To-Guides`
 
-  - Quick answers to your "How do I...?" questions without working through the :doc:`Tutorials <Tutorials>`
+  - Quick answers to your "How do I...?"
+    questions without working through the :doc:`Tutorials <Tutorials>`
 
 * :doc:`Concepts <Concepts>`
 

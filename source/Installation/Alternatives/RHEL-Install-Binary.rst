@@ -39,7 +39,8 @@ They can be enabled by running:
    sudo dnf install 'dnf-command(config-manager)' epel-release -y
    sudo dnf config-manager --set-enabled crb
 
-.. note:: This step may be slightly different depending on the distribution you are using. Check the EPEL documentation: https://docs.fedoraproject.org/en-US/epel/#_quickstart
+.. note:: This step may be slightly different depending on the distribution you are using.
+          `Check the EPEL documentation <https://docs.fedoraproject.org/en-US/epel/#_quickstart>`_
 
 Install prerequisites
 ^^^^^^^^^^^^^^^^^^^^^

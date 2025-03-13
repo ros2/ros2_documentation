@@ -96,10 +96,11 @@ Frequency Asked Questions (FAQ) and Troubleshooting
 
 #. **I seem to be missing a dependency, how do I find out which one?**
 
-   You basically have two options, a. is easier but may take several iterations, b. is more
-   elaborate and gives you the full insight as well as local debugging.
+   You basically have two options:
+   Option a is easier but may take several iterations;
+   Option b is more elaborate and gives you the full insight as well as local debugging.
 
-   a) Inspect the release job that raised the issue (see 1.) and localize the cmake dependency issue.
+   a) Inspect the release job that raised the issue (see above question) and localize the cmake dependency issue.
       To do so, browse to the cmake section, e.g., navigate to the *build binarydeb*
       section through the menu on the left in case of a Ubuntu/Debian build job.
       The *CMake Error* will typically hint at a dependency required by the cmake configuration but missing in the `package manifest`_.

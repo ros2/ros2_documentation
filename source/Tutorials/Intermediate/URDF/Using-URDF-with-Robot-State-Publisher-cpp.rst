@@ -304,7 +304,7 @@ Edit the ``CMakeLists.txt`` file as follows:
 
   ament_package()
 
-we use ``install`` command to put the r2d2.rviz into ``install`` dir
+we use ``install`` command to put the ``r2d2.rviz`` into ``install`` dir
 
 6 Install the package
 ^^^^^^^^^^^^^^^^^^^^^
@@ -355,7 +355,7 @@ To visualize your results you will need to open a new terminal and run Rviz usin
 
 See the `User Guide <http://wiki.ros.org/rviz/UserGuide>`__ for details on how to use Rviz.
 
-``install/urdf_tutorial_cpp/share/urdf_tutorial_cpp/urdf/r2d2.rviz`` is the dir where the r2d2.rviz stored.
+``install/urdf_tutorial_cpp/share/urdf_tutorial_cpp/urdf/r2d2.rviz`` is the dir where the ``r2d2.rviz`` stored.
 
 Summary
 -------
