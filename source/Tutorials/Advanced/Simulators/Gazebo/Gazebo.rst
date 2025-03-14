@@ -23,7 +23,8 @@ Prerequisites
 First of all you should install ROS 2 and Gazebo.
 You have two options:
 
- - Install from deb packages. To check which versions are available from deb packages please check this `table <https://github.com/gazebosim/ros_ign>`__.
+ - Install from deb packages.
+ - To check which versions are available from deb packages please check this `table <https://github.com/gazebosim/ros_ign>`__.
  - Compile from sources:
 
    - :doc:`ROS 2 install instructions <../../../../Installation>`
@@ -140,7 +141,9 @@ There are two options:
 
         ros2 topic pub /model/vehicle_blue/cmd_vel geometry_msgs/Twist "linear: { x: 0.1 }"
 
-* ``teleop_twist_keyboard`` package. This node takes keypresses from the keyboard and publishes them as Twist messages. You can install it typing:
+* ``teleop_twist_keyboard`` package.
+  This node takes keypresses from the keyboard and publishes them as Twist messages.
+  You can install it typing:
 
  .. tabs::
 

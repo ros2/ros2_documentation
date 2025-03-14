@@ -24,16 +24,22 @@ Background
 
 Suppose you want to write real-time safe code, and you've heard about the many dangers of calling "new" during the real-time critical section, because the default heap allocator on most platforms is nondeterministic.
 
-By default, many C++ standard library structures will implicitly allocate memory as they grow, such as ``std::vector``. However, these data structures also accept an "Allocator" template argument. If you specify a custom allocator to one of these data structures, it will use that allocator for you instead of the system allocator to grow or shrink the data structure. Your custom allocator could have a pool of memory preallocated on the stack, which might be better suited to real-time applications.
+By default, many C++ standard library structures will implicitly allocate memory as they grow, such as ``std::vector``.
+However, these data structures also accept an "Allocator" template argument.
+If you specify a custom allocator to one of these data structures, it will use that allocator for you instead of the system allocator to grow or shrink the data structure.
+Your custom allocator could have a pool of memory preallocated on the stack, which might be better suited to real-time applications.
 
-In the ROS 2 C++ client library (rclcpp), we are following a similar philosophy to the C++ standard library. Publishers, subscribers, and the Executor accept an Allocator template parameter that controls allocations made by that entity during execution.
+In the ROS 2 C++ client library (rclcpp), we are following a similar philosophy to the C++ standard library.
+Publishers, subscribers, and the executor accept an allocator template parameter that controls allocations made by that entity during execution.
 
 Writing an allocator
 --------------------
 
 To write an allocator compatible with ROS 2's allocator interface, your allocator must be compatible with the C++ standard library allocator interface.
 
-The C++11 library provides something called ``allocator_traits``. The C++11 standard specifies that a custom allocator only needs to fulfil a minimal set of requirements to be used to allocate and deallocate memory in a standard way. ``allocator_traits`` is a generic structure that fills out other qualities of an allocator based on an allocator written with the minimal requirements.
+The C++11 library provides something called ``allocator_traits``.
+The C++11 standard specifies that a custom allocator only needs to fulfil a minimal set of requirements to be used to allocate and deallocate memory in a standard way.
+``allocator_traits`` is a generic structure that fills out other qualities of an allocator based on an allocator written with the minimal requirements.
 
 For example, the following declaration for a custom allocator would satisfy ``allocator_traits`` (of course, you would still need to implement the declared functions in this struct):
 
@@ -58,7 +64,8 @@ You could then access other functions and members of the allocator filled in by 
 
 To learn about the full capabilities of ``allocator_traits``, see https://en.cppreference.com/w/cpp/memory/allocator_traits .
 
-However, some compilers that only have partial C++11 support, such as GCC 4.8, still require allocators to implement a lot of boilerplate code to work with standard library structures such as vectors and strings, because these structures do not use ``allocator_traits`` internally. Therefore, if you're using a compiler with partial C++11 support, your allocator will need to look more like this:
+However, some compilers that only have partial C++11 support, such as GCC 4.8, still require allocators to implement a lot of boilerplate code to work with standard library structures such as vectors and strings, because these structures do not use ``allocator_traits`` internally.
+Therefore, if you're using a compiler with partial C++11 support, your allocator will need to look more like this:
 
 .. code-block:: c++
 
@@ -158,7 +165,8 @@ Passing an allocator to the intra-process pipeline
 
 Even though we instantiated a publisher and subscriber in the same process, we aren't using the intra-process pipeline yet.
 
-The IntraProcessManager is a class that is usually hidden from the user, but in order to pass a custom allocator to it we need to expose it by getting it from the rclcpp Context. The IntraProcessManager makes use of several standard library structures, so without a custom allocator it will call the default new.
+The IntraProcessManager is a class that is usually hidden from the user, but in order to pass a custom allocator to it we need to expose it by getting it from the rclcpp Context.
+The IntraProcessManager makes use of several standard library structures, so without a custom allocator it will call the default new.
 
 .. code-block:: c++
 
@@ -219,7 +227,8 @@ You can also override the global new and delete operators:
 
 where the variables we are incrementing are just global static integers, and ``is_running`` is a global static boolean that gets toggled right before the call to ``spin``.
 
-The `example executable <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics/allocator_tutorial.cpp>`__ prints the value of the variables. To run the example executable, use:
+The `example executable <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics/allocator_tutorial.cpp>`__ prints the value of the variables.
+To run the example executable, use:
 
 .. code-block:: bash
 

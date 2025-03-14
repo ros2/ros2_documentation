@@ -8,7 +8,8 @@ Fedora (source)
 How to setup the development environment?
 -----------------------------------------
 
-The following system dependencies are required to build ROS 2 on Fedora. They can be installed with ``dnf`` as follows:
+The following system dependencies are required to build ROS 2 on Fedora.
+They can be installed with ``dnf`` as follows:
 
 .. code-block:: bash
 

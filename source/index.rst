@@ -189,7 +189,8 @@ Deprecated
 ----------
 * `ROS Answers <https://answers.ros.org/questions/>`__ (ROS 1, ROS 2)
 
-  - ROS Answers was the ROS community Q&A website, until August, 2023. ROS Answers is currently available as a read-only resource.
+  - ROS Answers was the ROS community Q&A website, until August, 2023.
+  - ROS Answers is currently available as a read-only resource.
 
 * `ROS 2 Docs <https://docs.ros2.org>`_
 

@@ -77,7 +77,7 @@ Install OpenCV
 
 Some of the examples require OpenCV to be installed.
 
-You can download a precompiled version of OpenCV 3.4.6 from https://github.com/ros2/ros2/releases/download/opencv-archives/opencv-3.4.6-vc16.VS2019.zip .
+You can download a precompiled version of OpenCV ``3.4.6`` from `here <https://github.com/ros2/ros2/releases/download/opencv-archives/opencv-3.4.6-vc16.VS2019.zip>`__.
 
 Assuming you unpacked it to ``C:\opencv``, type the following on a Command Prompt (requires Admin privileges):
 
@@ -104,12 +104,12 @@ You will need to append the CMake bin folder ``C:\Program Files\CMake\bin`` to y
 
 Please download these packages from `this <https://github.com/ros2/choco-packages/releases/latest>`__ GitHub repository.
 
-* asio.1.12.1.nupkg
-* bullet.3.17.nupkg
-* cunit.2.1.3.nupkg
-* eigen.3.3.4.nupkg
-* tinyxml-usestl.2.6.2.nupkg
-* tinyxml2.6.0.0.nupkg
+* ``asio.1.12.1.nupkg``
+* ``bullet.3.17.nupkg``
+* ``cunit.2.1.3.nupkg``
+* ``eigen.3.3.4.nupkg``
+* ``tinyxml-usestl.2.6.2.nupkg``
+* ``tinyxml2.6.0.0.nupkg``
 
 Once these packages are downloaded, open an administrative shell and execute the following command:
 

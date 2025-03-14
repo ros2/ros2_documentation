@@ -174,7 +174,7 @@ This will run the controller and in fact publish on the ``/joint_states`` topic,
     velocity: []
     effort: []
 
-What else do you want Gazebo!?
+What else do you want Gazebo?
 Well, it wants to know more information about the joints.
 
 ROS 2 Control Joint Definitions
@@ -318,7 +318,7 @@ For that, we're going to need `a lot more ROS parameters <https://github.com/ros
 
   ros2 launch urdf_sim_tutorial 13-diffdrive.launch.py
 
-In addition to loading the above configuration, this also opens the !RobotSteering panel, allowing you to drive the R2D2 robot around, while also observing its actual behavior (in Gazebo) and it's visualized behavior (in RViz):
+In addition to loading the above configuration, this also opens the ``RobotSteering`` panel, allowing you to drive the R2D2 robot around, while also observing its actual behavior (in Gazebo) and it's visualized behavior (in RViz):
 
 .. image:: https://raw.githubusercontent.com/ros/urdf_sim_tutorial/ros2/doc/DrivingInterface.png
   :alt: Gazebo with Driving Interface
