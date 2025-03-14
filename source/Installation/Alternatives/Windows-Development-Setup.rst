@@ -41,67 +41,7 @@ Install additional Python dependencies:
 
 .. code-block:: bash
 
-<<<<<<< HEAD
    pip install -U colcon-common-extensions coverage flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes mock mypy==0.931 pep8 pydocstyle pytest pytest-cov pytest-mock pytest-repeat pytest-rerunfailures pytest-runner vcstool
-=======
-.. code-block:: console
-
-   New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" -Name "LongPathsEnabled" -Value 1 -PropertyType DWORD -Force
-
-You can read more about this limitation in `Microsoft's documentation <https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=registry>`__.
-
-
-Install prerequisites
----------------------
-
-Install MSVC
-^^^^^^^^^^^^
-
-In order to compile the ROS 2 code, the MSVC compiler must be installed.
-Currently it is recommended to use MSVC 2019.
-
-Continue using the previous powershell session, and run the following command to download it:
-
-.. code-block:: console
-
-   irm https://aka.ms/vs/16/release/vs_buildtools.exe -OutFile vs_buildtools_2019.exe
-
-Now install MSVC 2019:
-
-.. code-block:: console
-
-   .\vs_buildtools_2019.exe --quiet --wait --norestart --add Microsoft.Component.MSBuild --add Microsoft.Net.Component.4.6.1.TargetingPack --add Microsoft.Net.Component.4.8.SDK --add Microsoft.VisualStudio.Component.CoreBuildTools --add Microsoft.VisualStudio.Component.Roslyn.Compiler --add Microsoft.VisualStudio.Component.TextTemplating --add Microsoft.VisualStudio.Component.VC.CLI.Support --add Microsoft.VisualStudio.Component.VC.CoreBuildTools --add Microsoft.VisualStudio.Component.VC.CoreIde --add Microsoft.VisualStudio.Component.VC.Redist.14.Latest --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --add Microsoft.VisualStudio.Component.Windows10SDK --add Microsoft.VisualStudio.Component.Windows10SDK.19041 --add Microsoft.VisualStudio.ComponentGroup.NativeDesktop.Core --add Microsoft.VisualStudio.Workload.MSBuildTools --add Microsoft.VisualStudio.Workload.VCTools
-
-.. note::
-
-   The installation of MSVC can take a long time, and there is no feedback while it is progressing.
-
-Install pixi
-^^^^^^^^^^^^
-
-ROS 2 uses `conda-forge <https://conda-forge.org/>`__ as a backend for packages, with `pixi <https://pixi.sh/latest/>`__ as the frontend.
-
-Continue using the previous powershell session, and use the instructions from https://pixi.sh/latest/ to install ``pixi``.
-Once ``pixi`` has been installed, close the powershell session and start it again, which will ensure ``pixi`` is on the PATH.
-
-Install dependencies
-^^^^^^^^^^^^^^^^^^^^
-
-Download the pixi configuration file in the existing powershell session:
-
-.. code-block:: console
-
-   cd C:\dev
-   irm https://raw.githubusercontent.com/ros2/ros2/refs/heads/{REPOS_FILE_BRANCH}/pixi.toml -OutFile pixi.toml
-
-Install dependencies:
-
-.. code-block:: console
-
-   pixi install
-
-You should now close the powershell session, as the rest of the instructions will use the Windows command prompt.
->>>>>>> 784fd45 (Sentence checker (#4592))
 
 Build ROS 2
 -----------
