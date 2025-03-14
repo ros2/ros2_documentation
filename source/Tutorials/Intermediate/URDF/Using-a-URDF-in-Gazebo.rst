@@ -174,7 +174,7 @@ This will run the controller and in fact publish on the ``/joint_states`` topic,
     velocity: []
     effort: []
 
-What else do you want Gazebo?
+What else do you want Gazebo‽
 Well, it wants to know more information about the joints.
 
 ROS 2 Control Joint Definitions
