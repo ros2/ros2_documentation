@@ -6,5 +6,6 @@ sentence_scan:
     - ros2.repos
     - 2.X
     - (\s|^)(\.)(idl|msg|srv|action|NET|rviz)
+    - (\s|^)(\.)(tgz|exe|zip|so|repo)
     ignorable_prefixes:
     - Releases/
