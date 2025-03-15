@@ -45,7 +45,7 @@ Go to your ROS 2 workplace and create a package names ``urdf_tutorial_cpp``:
 .. code-block:: console
 
     cd src
-    ros2 pkg create --build-type ament_python --license Apache-2.0 urdf_tutorial_cpp --dependencies rclpy
+    ros2 pkg create --build-type ament_cmake --license Apache-2.0 urdf_tutorial_cpp --dependencies rclcpp
     cd urdf_tutorial_cpp
 
 You should now see a ``urdf_tutorial_cpp`` folder.
