@@ -124,74 +124,13 @@ Finally, make sure to install the launch files:
 ^^^^^^^^^^^^^^^^^^^^
 
 Let's create a launch file that will call and pass arguments to another launch file.
-This launch file can either be in Python, or in YAML.
+This launch file can either be in YAML, XML, or in Python.
 
 To do this, create following file in the ``launch`` folder of the ``launch_tutorial`` package.
 
 .. tabs::
 
-  .. group-tab:: Python
-
-
-    Copy and paste the complete code into the ``launch/example_main_launch.py`` file:
-
-    .. code-block:: python
-
-      from launch_ros.substitutions import FindPackageShare
-
-      from launch import LaunchDescription
-      from launch.actions import IncludeLaunchDescription
-      from launch.launch_description_sources import PythonLaunchDescriptionSource
-      from launch.substitutions import PathJoinSubstitution, TextSubstitution
-
-
-      def generate_launch_description():
-          colors = {
-              'background_r': '200'
-          }
-
-          return LaunchDescription([
-              IncludeLaunchDescription(
-                  PythonLaunchDescriptionSource([
-                      PathJoinSubstitution([
-                          FindPackageShare('launch_tutorial'),
-                          'launch',
-                          'example_substitutions_launch.py'
-                      ])
-                  ]),
-                  launch_arguments={
-                      'turtlesim_ns': 'turtlesim2',
-                      'use_provided_red': 'True',
-                      'new_background_r': TextSubstitution(text=str(colors['background_r']))
-                  }.items()
-              )
-          ])
-
-
-    The ``FindPackageShare`` substitution is used to find the path to the ``launch_tutorial`` package.
-    The ``PathJoinSubstitution`` substitution is then used to join the path to that package path with the ``example_substitutions_launch.py`` file name.
-
-    .. code-block:: python
-
-      PathJoinSubstitution([
-          FindPackageShare('launch_tutorial'),
-          'launch',
-          'example_substitutions_launch.py'
-      ])
-
-    The ``launch_arguments`` dictionary with ``turtlesim_ns`` and ``use_provided_red`` arguments is passed to the ``IncludeLaunchDescription`` action.
-    The ``TextSubstitution`` substitution is used to define the ``new_background_r`` argument with the value of the ``background_r`` key in the ``colors`` dictionary.
-
-    .. code-block:: python
-
-      launch_arguments={
-          'turtlesim_ns': 'turtlesim2',
-          'use_provided_red': 'True',
-          'new_background_r': TextSubstitution(text=str(colors['background_r']))
-      }.items()
-
   .. group-tab:: YAML
-
 
     Copy and paste the complete code into the ``launch/example_main_launch.yaml`` file:
 
@@ -262,12 +201,220 @@ To do this, create following file in the ``launch`` folder of the ``launch_tutor
       <arg name="use_provided_red" value="True" />
       <arg name="new_background_r" value="$(var background_r)" />
 
+  .. group-tab:: Python
+
+    Copy and paste the complete code into the ``launch/example_main_launch.py`` file:
+
+    .. code-block:: python
+
+      from launch_ros.substitutions import FindPackageShare
+
+      from launch import LaunchDescription
+      from launch.actions import IncludeLaunchDescription
+      from launch.launch_description_sources import PythonLaunchDescriptionSource
+      from launch.substitutions import PathJoinSubstitution, TextSubstitution
+
+
+      def generate_launch_description():
+          colors = {
+              'background_r': '200'
+          }
+
+          return LaunchDescription([
+              IncludeLaunchDescription(
+                  PythonLaunchDescriptionSource([
+                      PathJoinSubstitution([
+                          FindPackageShare('launch_tutorial'),
+                          'launch',
+                          'example_substitutions_launch.py'
+                      ])
+                  ]),
+                  launch_arguments={
+                      'turtlesim_ns': 'turtlesim2',
+                      'use_provided_red': 'True',
+                      'new_background_r': TextSubstitution(text=str(colors['background_r']))
+                  }.items()
+              )
+          ])
+
+
+    The ``FindPackageShare`` substitution is used to find the path to the ``launch_tutorial`` package.
+    The ``PathJoinSubstitution`` substitution is then used to join the path to that package path with the ``example_substitutions_launch.py`` file name.
+
+    .. code-block:: python
+
+      PathJoinSubstitution([
+          FindPackageShare('launch_tutorial'),
+          'launch',
+          'example_substitutions_launch.py'
+      ])
+
+    The ``launch_arguments`` dictionary with ``turtlesim_ns`` and ``use_provided_red`` arguments is passed to the ``IncludeLaunchDescription`` action.
+    The ``TextSubstitution`` substitution is used to define the ``new_background_r`` argument with the value of the ``background_r`` key in the ``colors`` dictionary.
+
+    .. code-block:: python
+
+      launch_arguments={
+          'turtlesim_ns': 'turtlesim2',
+          'use_provided_red': 'True',
+          'new_background_r': TextSubstitution(text=str(colors['background_r']))
+      }.items()
+
 3 Substitutions example launch file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Now create the substitution launch file in the same folder:
 
 .. tabs::
+
+  .. group-tab:: YAML
+
+    Create the file ``launch/example_substitutions_launch.yaml`` and insert the following code:
+
+    .. code-block:: yaml
+
+      launch:
+        - arg:
+            name: 'turtlesim_ns'
+            default: 'turtlesim1'
+        - arg:
+            name: 'use_provided_red'
+            default: 'False'
+        - arg:
+            name: 'new_background_r'
+            default: '200'
+
+        - node:
+            pkg: 'turtlesim'
+            namespace: '$(var turtlesim_ns)'
+            exec: 'turtlesim_node'
+            name: 'sim'
+        - executable:
+            cmd: 'ros2 service call $(var turtlesim_ns)/spawn turtlesim_msgs/srv/Spawn "{x: 5, y: 2, theta: 0.2}"'
+        - executable:
+            cmd: 'ros2 param set $(var turtlesim_ns)/sim background_r 120'
+        - timer:
+            period: 2.0
+            children:
+              - executable:
+                  cmd: 'ros2 param set $(var turtlesim_ns)/sim background_r $(var new_background_r)'
+                  if: '$(eval "$(var new_background_r) == 200 and $(var use_provided_red)")'
+
+    The ``turtlesim_ns``, ``use_provided_red``, and ``new_background_r`` launch configurations are defined.
+    They are used to store values of launch arguments in the above variables and to pass them to required actions.
+    The launch configuration arguments can later be used with the ``$(var <name>)`` substitution to acquire the value of the launch argument in any part of the launch description.
+
+    The ``arg`` tag is used to define the launch argument that can be passed from the above launch file or from the console.
+
+    .. code-block:: yaml
+
+      - arg:
+          name: 'turtlesim_ns'
+          default: 'turtlesim1'
+      - arg:
+          name: 'use_provided_red'
+          default: 'False'
+      - arg:
+          name: 'new_background_r'
+          default: '200'
+
+    The ``turtlesim_node`` node with the ``namespace`` set to the ``turtlesim_ns`` launch configuration value using the ``$(var <name>)`` substitution is defined.
+
+    .. code-block:: yaml
+
+      - node:
+          pkg: 'turtlesim'
+          namespace: '$(var turtlesim_ns)'
+          exec: 'turtlesim_node'
+          name: 'sim'
+
+    Afterwards, an ``executable`` action is defined with the corresponding ``cmd`` tag.
+    This command makes a call to the spawn service of the turtlesim node.
+
+    Additionally, the ``$(var <name>)`` substitution is used to get the value of the ``turtlesim_ns`` launch argument to construct a command string.
+
+    .. code-block:: yaml
+
+        - executable:
+            cmd: 'ros2 service call $(var turtlesim_ns)/spawn turtlesim_msgs/srv/Spawn "{x: 5, y: 2, theta: 0.2}"'
+
+    The same approach is used for the ``ros2 param`` ``executable`` actions that change the turtlesim background's red color parameter.
+    The difference is that the second action inside of the timer is only executed if the provided ``new_background_r`` argument equals ``200`` and the ``use_provided_red`` launch argument is set to ``True``.
+    The evaluation of the ``if`` predicate is done using the ``$(eval <python-expression>)`` substitution.
+
+    .. code-block:: yaml
+
+        - executable:
+            cmd: 'ros2 param set $(var turtlesim_ns)/sim background_r 120'
+        - timer:
+            period: 2.0
+            children:
+              - executable:
+                  cmd: 'ros2 param set $(var turtlesim_ns)/sim background_r $(var new_background_r)'
+                  if: '$(eval "$(var new_background_r) == 200 and $(var use_provided_red)")'
+
+  .. group-tab:: XML
+
+    Create the file ``launch/example_substitutions_launch.xml`` and insert the following code:
+
+    .. code-block:: xml
+
+      <launch>
+        <arg name="turtlesim_ns" default="turtlesim1" />
+        <arg name="use_provided_red" default="False" />
+        <arg name="new_background_r" default="200" />
+
+        <node pkg="turtlesim" namespace="$(var turtlesim_ns)" exec="turtlesim_node" name="sim" />
+        <executable cmd="ros2 service call $(var turtlesim_ns)/spawn turtlesim/srv/Spawn '{x: 5, y: 2, theta: 0.2}'" />
+        <executable cmd="ros2 param set $(var turtlesim_ns)/sim background_r 120" />
+        <timer period="2.0">
+          <executable
+            cmd="ros2 param set $(var turtlesim_ns)/sim background_r $(var new_background_r)"
+            if="$(eval '$(var new_background_r) == 200 and $(var use_provided_red)')"
+          />
+        </timer>
+      </launch>
+
+    The ``turtlesim_ns``, ``use_provided_red``, and ``new_background_r`` launch configurations are defined.
+    They are used to store values of launch arguments in the above variables and to pass them to required actions.
+    The launch configuration arguments can later be used with the ``$(var <name>)`` substitution to acquire the value of the launch argument in any part of the launch description.
+
+    The ``arg`` tag is used to define the launch argument that can be passed from the above launch file or from the console.
+
+    .. code-block:: xml
+
+      <arg name="turtlesim_ns" default="turtlesim1" />
+      <arg name="use_provided_red" default="False" />
+      <arg name="new_background_r" default="200" />
+
+    The ``turtlesim_node`` node with the ``namespace`` set to the ``turtlesim_ns`` launch configuration value using the ``$(var <name>)`` substitution is defined.
+
+    .. code-block:: xml
+
+      <node pkg="turtlesim" namespace="$(var turtlesim_ns)" exec="turtlesim_node" name="sim" />
+
+    Afterwards, an ``executable`` action is defined with the corresponding ``cmd`` tag.
+    This command makes a call to the spawn service of the turtlesim node.
+
+    Additionally, the ``$(var <name>)`` substitution is used to get the value of the ``turtlesim_ns`` launch argument to construct a command string.
+
+    .. code-block:: xml
+
+      <executable cmd="ros2 service call $(var turtlesim_ns)/spawn turtlesim/srv/Spawn '{x: 5, y: 2, theta: 0.2}'" />
+
+    The same approach is used for the ``ros2 param`` ``executable`` actions that change the turtlesim background's red color parameter.
+    The difference is that the second action inside of the timer is only executed if the provided ``new_background_r`` argument equals ``200`` and the ``use_provided_red`` launch argument is set to ``True``.
+    The evaluation of the ``if`` predicate is done using the ``$(eval <python-expression>)`` substitution.
+
+    .. code-block:: xml
+
+      <executable cmd="ros2 param set $(var turtlesim_ns)/sim background_r 120" />
+      <timer period="2.0">
+        <executable
+          cmd="ros2 param set $(var turtlesim_ns)/sim background_r $(var new_background_r)"
+          if="$(eval '$(var new_background_r) == 200 and $(var use_provided_red)')"
+        />
+      </timer>
 
   .. group-tab:: Python
 
@@ -444,155 +591,6 @@ Now create the substitution launch file in the same folder:
             shell=True
         )
 
-  .. group-tab:: YAML
-
-    Create the file ``launch/example_substitutions_launch.yaml`` and insert the following code:
-
-    .. code-block:: yaml
-
-      launch:
-        - arg:
-            name: 'turtlesim_ns'
-            default: 'turtlesim1'
-        - arg:
-            name: 'use_provided_red'
-            default: 'False'
-        - arg:
-            name: 'new_background_r'
-            default: '200'
-
-        - node:
-            pkg: 'turtlesim'
-            namespace: '$(var turtlesim_ns)'
-            exec: 'turtlesim_node'
-            name: 'sim'
-        - executable:
-            cmd: 'ros2 service call $(var turtlesim_ns)/spawn turtlesim_msgs/srv/Spawn "{x: 5, y: 2, theta: 0.2}"'
-        - executable:
-            cmd: 'ros2 param set $(var turtlesim_ns)/sim background_r 120'
-        - timer:
-            period: 2.0
-            children:
-              - executable:
-                  cmd: 'ros2 param set $(var turtlesim_ns)/sim background_r $(var new_background_r)'
-                  if: '$(eval "$(var new_background_r) == 200 and $(var use_provided_red)")'
-
-    The ``turtlesim_ns``, ``use_provided_red``, and ``new_background_r`` launch configurations are defined.
-    They are used to store values of launch arguments in the above variables and to pass them to required actions.
-    The launch configuration arguments can later be used with the ``$(var <name>)`` substitution to acquire the value of the launch argument in any part of the launch description.
-
-    The ``arg`` tag is used to define the launch argument that can be passed from the above launch file or from the console.
-
-    .. code-block:: yaml
-
-      - arg:
-          name: 'turtlesim_ns'
-          default: 'turtlesim1'
-      - arg:
-          name: 'use_provided_red'
-          default: 'False'
-      - arg:
-          name: 'new_background_r'
-          default: '200'
-
-    The ``turtlesim_node`` node with the ``namespace`` set to the ``turtlesim_ns`` launch configuration value using the ``$(var <name>)`` substitution is defined.
-
-    .. code-block:: yaml
-
-      - node:
-          pkg: 'turtlesim'
-          namespace: '$(var turtlesim_ns)'
-          exec: 'turtlesim_node'
-          name: 'sim'
-
-    Afterwards, an ``executable`` action is defined with the corresponding ``cmd`` tag.
-    This command makes a call to the spawn service of the turtlesim node.
-
-    Additionally, the ``$(var <name>)`` substitution is used to get the value of the ``turtlesim_ns`` launch argument to construct a command string.
-
-    .. code-block:: yaml
-
-        - executable:
-            cmd: 'ros2 service call $(var turtlesim_ns)/spawn turtlesim_msgs/srv/Spawn "{x: 5, y: 2, theta: 0.2}"'
-
-    The same approach is used for the ``ros2 param`` ``executable`` actions that change the turtlesim background's red color parameter.
-    The difference is that the second action inside of the timer is only executed if the provided ``new_background_r`` argument equals ``200`` and the ``use_provided_red`` launch argument is set to ``True``.
-    The evaluation of the ``if`` predicate is done using the ``$(eval <python-expression>)`` substitution.
-
-    .. code-block:: yaml
-
-        - executable:
-            cmd: 'ros2 param set $(var turtlesim_ns)/sim background_r 120'
-        - timer:
-            period: 2.0
-            children:
-              - executable:
-                  cmd: 'ros2 param set $(var turtlesim_ns)/sim background_r $(var new_background_r)'
-                  if: '$(eval "$(var new_background_r) == 200 and $(var use_provided_red)")'
-
-  .. group-tab:: XML
-
-    Create the file ``launch/example_substitutions_launch.xml`` and insert the following code:
-
-    .. code-block:: xml
-
-      <launch>
-        <arg name="turtlesim_ns" default="turtlesim1" />
-        <arg name="use_provided_red" default="False" />
-        <arg name="new_background_r" default="200" />
-
-        <node pkg="turtlesim" namespace="$(var turtlesim_ns)" exec="turtlesim_node" name="sim" />
-        <executable cmd="ros2 service call $(var turtlesim_ns)/spawn turtlesim/srv/Spawn '{x: 5, y: 2, theta: 0.2}'" />
-        <executable cmd="ros2 param set $(var turtlesim_ns)/sim background_r 120" />
-        <timer period="2.0">
-          <executable
-            cmd="ros2 param set $(var turtlesim_ns)/sim background_r $(var new_background_r)"
-            if="$(eval '$(var new_background_r) == 200 and $(var use_provided_red)')"
-          />
-        </timer>
-      </launch>
-
-    The ``turtlesim_ns``, ``use_provided_red``, and ``new_background_r`` launch configurations are defined.
-    They are used to store values of launch arguments in the above variables and to pass them to required actions.
-    The launch configuration arguments can later be used with the ``$(var <name>)`` substitution to acquire the value of the launch argument in any part of the launch description.
-
-    The ``arg`` tag is used to define the launch argument that can be passed from the above launch file or from the console.
-
-    .. code-block:: xml
-
-      <arg name="turtlesim_ns" default="turtlesim1" />
-      <arg name="use_provided_red" default="False" />
-      <arg name="new_background_r" default="200" />
-
-    The ``turtlesim_node`` node with the ``namespace`` set to the ``turtlesim_ns`` launch configuration value using the ``$(var <name>)`` substitution is defined.
-
-    .. code-block:: xml
-
-      <node pkg="turtlesim" namespace="$(var turtlesim_ns)" exec="turtlesim_node" name="sim" />
-
-    Afterwards, an ``executable`` action is defined with the corresponding ``cmd`` tag.
-    This command makes a call to the spawn service of the turtlesim node.
-
-    Additionally, the ``$(var <name>)`` substitution is used to get the value of the ``turtlesim_ns`` launch argument to construct a command string.
-
-    .. code-block:: xml
-
-      <executable cmd="ros2 service call $(var turtlesim_ns)/spawn turtlesim/srv/Spawn '{x: 5, y: 2, theta: 0.2}'" />
-
-    The same approach is used for the ``ros2 param`` ``executable`` actions that change the turtlesim background's red color parameter.
-    The difference is that the second action inside of the timer is only executed if the provided ``new_background_r`` argument equals ``200`` and the ``use_provided_red`` launch argument is set to ``True``.
-    The evaluation of the ``if`` predicate is done using the ``$(eval <python-expression>)`` substitution.
-
-    .. code-block:: xml
-
-      <executable cmd="ros2 param set $(var turtlesim_ns)/sim background_r 120" />
-      <timer period="2.0">
-        <executable
-          cmd="ros2 param set $(var turtlesim_ns)/sim background_r $(var new_background_r)"
-          if="$(eval '$(var new_background_r) == 200 and $(var use_provided_red)')"
-        />
-      </timer>
-
 4 Build the package
 ^^^^^^^^^^^^^^^^^^^
 
@@ -611,12 +609,6 @@ Now you can launch using the ``ros2 launch`` command.
 
 .. tabs::
 
-  .. group-tab:: Python
-
-    .. code-block:: console
-
-        ros2 launch launch_tutorial example_main_launch.py
-
   .. group-tab:: YAML
 
     .. code-block:: console
@@ -629,6 +621,12 @@ Now you can launch using the ``ros2 launch`` command.
 
         ros2 launch launch_tutorial example_main_launch.xml
 
+  .. group-tab:: Python
+
+    .. code-block:: console
+
+        ros2 launch launch_tutorial example_main_launch.py
+
 This will do the following:
 
 #. Start a turtlesim node with a blue background
@@ -640,15 +638,6 @@ Modifying launch arguments
 --------------------------
 
 .. tabs::
-
-  .. group-tab:: Python
-
-    If you want to change the provided launch arguments, you can either update them in ``launch_arguments`` dictionary in the ``example_main_launch.py`` or launch the ``example_substitutions_launch.py`` with preferred arguments.
-    To see arguments that may be given to the launch file, run the following command:
-
-    .. code-block:: console
-
-        ros2 launch launch_tutorial example_substitutions_launch.py --show-args
 
   .. group-tab:: YAML
 
@@ -667,6 +656,15 @@ Modifying launch arguments
     .. code-block:: console
 
         ros2 launch launch_tutorial example_substitutions_launch.xml --show-args
+
+  .. group-tab:: Python
+
+    If you want to change the provided launch arguments, you can either update them in ``launch_arguments`` dictionary in the ``example_main_launch.py`` or launch the ``example_substitutions_launch.py`` with preferred arguments.
+    To see arguments that may be given to the launch file, run the following command:
+
+    .. code-block:: console
+
+        ros2 launch launch_tutorial example_substitutions_launch.py --show-args
 
 This will show the arguments that may be given to the launch file and their default values.
 
@@ -690,12 +688,6 @@ Now you can pass the desired arguments to the launch file as follows:
 
 .. tabs::
 
-  .. group-tab:: Python
-
-    .. code-block:: console
-
-        ros2 launch launch_tutorial example_substitutions_launch.py turtlesim_ns:='turtlesim3' use_provided_red:='True' new_background_r:=200
-
   .. group-tab:: YAML
 
     .. code-block:: console
@@ -707,6 +699,12 @@ Now you can pass the desired arguments to the launch file as follows:
     .. code-block:: console
 
         ros2 launch launch_tutorial example_substitutions_launch.xml turtlesim_ns:='turtlesim3' use_provided_red:='True' new_background_r:=200
+
+  .. group-tab:: Python
+
+    .. code-block:: console
+
+        ros2 launch launch_tutorial example_substitutions_launch.py turtlesim_ns:='turtlesim3' use_provided_red:='True' new_background_r:=200
 
 Documentation
 -------------
