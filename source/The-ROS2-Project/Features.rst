@@ -84,6 +84,9 @@ For planned future development, see the :doc:`Roadmap <Roadmap>`.
    * - Service Introspection
      - :doc:`Demo <../Tutorials/Demos/Service-Introspection>`
      -
+   * - Action Introspection
+     - :doc:`Demo <../Tutorials/Demos/Action-Introspection>`
+     -
 
 Besides core features of the platform, the biggest impact of ROS comes from its available packages.
 The following are a few high-profile packages which are available in the latest release:

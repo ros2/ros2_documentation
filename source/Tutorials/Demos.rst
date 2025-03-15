@@ -13,6 +13,7 @@ Demos
    Demos/Logging-and-logger-configuration
    Demos/Content-Filtering-Subscription
    Demos/Service-Introspection
+   Demos/Action-Introspection
 
 External resources
 ------------------

@@ -357,6 +357,81 @@ Your terminal will return the message:
 
 You will continue to receive feedback, the remaining radians, until the goal is complete.
 
+9 ros2 action echo
+^^^^^^^^^^^^^^^^^^^
+
+To see the data communication between an action client and an action server you can ``echo`` the action data using:
+
+.. code-block:: console
+
+   ros2 action echo <action_name | action_type> <optional arguments>
+
+``ros2 action echo`` depends on action introspection of an action client and server, that is disabled by default.
+To enable it, users must call ``configure_introspection`` after creating an action client or server.
+
+Start up the ``fibonacci_action_server`` and ``fibonacci_action_client`` with enabling ``action_server_configure_introspection`` parameter for demonstration.
+
+.. code-block:: console
+
+   ros2 run action_tutorials_cpp fibonacci_action_server --ros-args -p "action_server_configure_introspection:=contents"
+
+.. code-block:: console
+
+   ros2 run action_tutorials_py fibonacci_action_client --ros-args -p "action_client_configure_introspection:=contents"
+
+Now we are able to see the action communication between ``fibonacci_action_server`` and ``fibonacci_action_client`` via ``ros2 action echo``.
+
+.. code-block:: console
+
+   ros2 action echo /fibonacci example_interfaces/action/Fibonacci --flow-style
+   interface: GOAL_SERVICE
+   info:
+     event_type: REQUEST_SENT
+     stamp:
+       sec: 1742070798
+       nanosec: 400435819
+     client_gid: [1, 15, 165, 231, 194, 197, 167, 157, 0, 0, 0, 0, 0, 0, 20, 4]
+     sequence_number: 1
+   request: [{goal_id: {uuid: [230, 96, 12, 6, 100, 69, 69, 70, 220, 205, 135, 251, 210, 2, 231, 110]}, goal: {order: 10}}]
+   response: []
+   ---
+   interface: GOAL_SERVICE
+   info:
+     event_type: REQUEST_RECEIVED
+     stamp:
+       sec: 1742070798
+       nanosec: 400706446
+     client_gid: [1, 15, 165, 231, 194, 197, 167, 157, 0, 0, 0, 0, 0, 0, 20, 4]
+     sequence_number: 1
+   request: [{goal_id: {uuid: [230, 96, 12, 6, 100, 69, 69, 70, 220, 205, 135, 251, 210, 2, 231, 110]}, goal: {order: 10}}]
+   response: []
+   ---
+   interface: RESULT_SERVICE
+   info:
+     event_type: REQUEST_SENT
+     stamp:
+       sec: 1742070798
+       nanosec: 401486678
+     client_gid: [1, 15, 165, 231, 194, 197, 167, 157, 0, 0, 0, 0, 0, 0, 24, 4]
+     sequence_number: 1
+   request: [{goal_id: {uuid: [230, 96, 12, 6, 100, 69, 69, 70, 220, 205, 135, 251, 210, 2, 231, 110]}}]
+   response: []
+   ---
+   interface: FEEDBACK_TOPIC
+   goal_id:
+     uuid: [230, 96, 12, 6, 100, 69, 69, 70, 220, 205, 135, 251, 210, 2, 231, 110]
+   feedback:
+     sequence: [0, 1, 1]
+   ---
+   interface: STATUS_TOPIC
+   status_list: [{goal_info: {goal_id: {uuid: [230, 96, 12, 6, 100, 69, 69, 70, 220, 205, 135, 251, 210, 2, 231, 110]}, stamp: {sec: 1742070798, nanosec: 401146752}}, status: 2}]
+   ---
+   ...
+
+.. note::
+
+   This feature is available on ``Kilted Kaiju`` or later.
+
 Summary
 -------
 
