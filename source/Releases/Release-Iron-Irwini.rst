@@ -62,7 +62,7 @@ Optionally, the contents of the client/server requests/responses can also be int
 All of the information is published on a hidden topic generated from the name of the service.
 So if the service is called ``/myservice``, then the information will be published on ``/myservice/_service_event``.
 
-Note that this functionality is disabled by default; to enable it, users must call ``configure_introspection`` after creating a server client or server.
+Note that this functionality is disabled by default; to enable it, users must call ``configure_introspection`` after creating a service client or server.
 There are examples showing how to do this in https://github.com/ros2/demos/tree/iron/demo_nodes_cpp/src/services (C++) and https://github.com/ros2/demos/blob/iron/demo_nodes_py/demo_nodes_py/services/introspection.py (Python).
 
 See `REP 2012 <https://github.com/ros-infrastructure/rep/pull/360>`__ and the tracking bug at https://github.com/ros2/ros2/issues/1285 for more information.
