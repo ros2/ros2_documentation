@@ -291,7 +291,7 @@ To see the data communication between a service client and a service server you 
    ros2 service echo <service_name | service_type> <arguments>
 
 ``ros2 service echo`` depends on service introspection of a service client and server, that is disabled by default.
-To enable it, users must call ``configure_introspection`` after creating a server client or server.
+To enable it, users must call ``configure_introspection`` after creating a service client or server.
 
 Start up the ``introspection_client`` and ``introspection_service`` service introspection demo.
 
