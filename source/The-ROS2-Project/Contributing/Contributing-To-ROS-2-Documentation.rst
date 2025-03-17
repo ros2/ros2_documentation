@@ -37,11 +37,8 @@ Start by creating `venv <https://docs.python.org/3/library/venv.html>`__ to buil
 
 .. code-block:: console
 
-   # activate the venv
-   python3 -m venv ros2doc
-
-   # activate venv
-   source ros2doc/bin/activate
+   $ python3 -m venv ros2doc  # create venv
+   $ source ros2doc/bin/activate  # activate venv
 
 And install requirements located in the ``requirements.txt`` file:
 
@@ -389,7 +386,7 @@ In-text code can be formatted using ``backticks`` for showing ``highlighted`` co
 
    In-text code can be formatted using ``backticks`` for showing ``highlighted`` code.
 
-Code blocks inside a page need to be captured using ``.. code-block::`` directive.
+Code blocks inside a page need to be captured using ``.. code-block::`` `directives <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-code-block>`_.
 ``.. code-block::`` supports code highlighting for syntaxes like ``C++``, ``YAML``, ``console``, ``bash``, and more.
 Code inside the directive needs to be indented.
 
@@ -404,6 +401,43 @@ Code inside the directive needs to be indented.
          rclcpp::shutdown();
          return 0;
       }
+
+Code blocks: ``bash`` vs. ``console``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+``bash`` and ``console`` are similar, but they serve two different purposes.
+
+``bash`` is meant for bash scripts, e.g., for bash commands from a script file.
+Example result:
+
+.. code-block:: bash
+
+   export ROS_DOMAIN_ID=42
+   ros2 run turtlesim turtlesim_node
+
+``console`` is meant for commands to be run in a terminal, optionally including their output.
+This makes it clear that the given commands need to be run in a terminal.
+It also allows separating command lines from output lines using prompt symbols such as ``$`` or ``#``.
+Command lines are formatted as bash commands while output lines are formatted as normal text.
+The prompt symbol is not selectable, and clicking on the copy button in the upper right-hand corner copies *only* the commands, not the outputs nor the prompt symbols.
+In general, the prompt symbol (``$``) can be omitted if the code block does not contain any output lines.
+Example result:
+
+.. code-block:: console
+
+   $ export ROS_DOMAIN_ID=42
+   $ ros2 run turtlesim turtlesim_node --ros-args --remap "__node:=my_turtle"
+   [INFO] [1742150439.022947971] [my_turtle]: Starting turtlesim with node name /my_turtle
+   [INFO] [1742150439.026043867] [my_turtle]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
+
+Compare the above with a ``bash`` ``code-block``:
+
+.. code-block:: bash
+
+   $ export ROS_DOMAIN_ID=42
+   $ ros2 run turtlesim turtlesim_node --ros-args --remap "__node:=my_turtle"
+   [INFO] [1742150439.022947971] [my_turtle]: Starting turtlesim with node name /my_turtle
+   [INFO] [1742150439.026043867] [my_turtle]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
 
 Images
 ^^^^^^
