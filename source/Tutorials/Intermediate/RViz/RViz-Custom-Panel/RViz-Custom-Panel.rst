@@ -156,7 +156,7 @@ In the top Menu bar, there should be a "Panels" menu.
 Select "Add New Panel" from that menu.
 
 .. image:: images/Select0.png
-   :target: images/Select0.png
+   :target: ../../../../_images/Select0.png
    :alt: screenshot of Add New Panel dialog
 
 A dialog will pop up showing all the panels accessible in your ROS environment, grouped into folders based on their ROS package.
@@ -165,7 +165,7 @@ Create a new instance of your panel by either double clicking on its name, or se
 This should create a new panel in your RViz window, albeit with nothing but a title bar with the name of your panel.
 
 .. image:: images/RViz0.png
-   :target: images/RViz0.png
+   :target: ../../../../_images/RViz0.png
    :alt: screenshot of the whole RViz window showing the new simple panel
 
 Filling in the Panel
@@ -297,7 +297,7 @@ Compile and launch RViz2 with your panel again.
 You should see your label and button in the panel now.
 
 .. image:: images/RViz1.png
-   :target: images/RViz1.png
+   :target: ../../../../_images/RViz1.png
    :alt: screenshot of the RViz panel in its default state
 
 To change the label, we simply have to publish a message on the ``/input`` topic, which you can do with this command:
@@ -309,7 +309,7 @@ To change the label, we simply have to publish a message on the ``/input`` topic
 Since the widget is subscribed to this topic, it will trigger the callback and change the text of the label.
 
 .. image:: images/RViz2.png
-   :target: images/RViz2.png
+   :target: ../../../../_images/RViz2.png
    :alt: screenshot of the RViz panel with custom string message displayed
 
 
@@ -342,11 +342,11 @@ We need to install the image file in the CMake.
 Now when you add the panel, it should show up with an icon and description.
 
 .. image:: images/Select1.png
-   :target: images/Select1.png
+   :target: ../../../../_images/Select1.png
    :alt: screenshot of Add New Panel dialog with our custom icon and description
 
 The panel will also have an updated icon.
 
 .. image:: images/RViz3.png
-   :target: images/RViz3.png
+   :target: ../../../../_images/RViz3.png
    :alt: screenshot of the RViz panel with custom icon

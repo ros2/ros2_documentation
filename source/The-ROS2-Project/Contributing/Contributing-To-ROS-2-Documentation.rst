@@ -414,6 +414,16 @@ Images can be inserted using the ``.. image::`` directive.
 
    .. image:: images/turtlesim_follow1.png
 
+In this case, the image file (``turtlesim_follow1.png``) is located in the ``images/`` directory relative to the ``.rst`` file that uses the image.
+
+However, all image files end up in an ``_images/`` directory relative to the root of the docs.
+Therefore, when using ``:target:`` to add a hyperlink to the image file, use a relative link going up to the root directory and then down to the ``_images/`` directory.
+
+.. code-block:: rst
+
+   .. image:: images/turtlesim_follow1.png
+      :target: ../../_images/turtlesim_follow1.png
+
 Charts, Graphs, and Diagrams
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
