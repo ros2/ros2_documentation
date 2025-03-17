@@ -191,21 +191,21 @@ You should be able to add your new plugin by clicking ``Add`` in the bottom left
 
 
 .. image:: images/Step1A.png
-   :target: images/Step1A.png
+   :target: ../../../../_images/Step1A.png
    :alt: screenshot of adding display
 
 
 Initially, the display will be in an error state because you have yet to assign a topic.
 
 .. image:: images/Step1B.png
-   :target: images/Step1B.png
+   :target: ../../../../_images/Step1B.png
    :alt: screenshot of error state
 
 
 If we put the topic ``/point`` in, it should load fine but not display anything.
 
 .. image:: images/Step1C.png
-   :target: images/Step1C.png
+   :target: ../../../../_images/Step1C.png
    :alt: screenshot of functioning empty display
 
 
@@ -280,7 +280,7 @@ We also update our ``processMessage`` method:
 The result should look like this:
 
 .. image:: images/Step2A.png
-   :target: images/Step2A.png
+   :target: ../../../../_images/Step2A.png
    :alt: screenshot of functioning display
 
 
@@ -344,14 +344,14 @@ Cpp Updates
 The result should look like this:
 
 .. image:: images/Step3A.png
-   :target: images/Step3A.png
+   :target: ../../../../_images/Step3A.png
    :alt: screenshot with color property
 
 
 Ooh, pink!
 
 .. image:: images/Step3B.png
-   :target: images/Step3B.png
+   :target: ../../../../_images/Step3B.png
    :alt: screenshot with changed color
 
 
@@ -379,13 +379,13 @@ In ``processMessage``:
 
 
 .. image:: images/Step4A.png
-   :target: images/Step4A.png
+   :target: ../../../../_images/Step4A.png
    :alt: screenshot with ok status
 
 
 
 .. image:: images/Step4B.png
-   :target: images/Step4B.png
+   :target: ../../../../_images/Step4B.png
    :alt: screenshot with warning status
 
 
@@ -431,7 +431,7 @@ Now when you add the display, it should show up with an icon and description.
 
 
 .. image:: images/Step5A.png
-   :target: images/Step5A.png
+   :target: ../../../../_images/Step5A.png
    :alt: screenshot with added icon and description
 
 
@@ -439,7 +439,7 @@ Here is the display when attempting to add by topic:
 
 
 .. image:: images/Step5B.png
-   :target: images/Step5B.png
+   :target: ../../../../_images/Step5B.png
    :alt: screenshot with add by topic dialog
 
 
@@ -447,7 +447,7 @@ And finally, here's the icon in the standard interface:
 
 
 .. image:: images/Step5C.png
-   :target: images/Step5C.png
+   :target: ../../../../_images/Step5C.png
    :alt: screenshot with icon in standard interface
 
 
