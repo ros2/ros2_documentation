@@ -358,32 +358,32 @@ Your terminal will return the message:
 You will continue to receive feedback, the remaining radians, until the goal is complete.
 
 9 ros2 action echo
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 
 To see the data communication between an action client and an action server you can ``echo`` the action data using:
 
 .. code-block:: console
 
-   ros2 action echo <action_name | action_type> <optional arguments>
+   ros2 action echo <action_name> <optional arguments/action_type>
 
 ``ros2 action echo`` depends on action introspection of an action client and server, that is disabled by default.
 To enable it, users must call ``configure_introspection`` after creating an action client or server.
 
-Start up the ``fibonacci_action_server`` and ``fibonacci_action_client`` with enabling ``action_server_configure_introspection`` parameter for demonstration.
+Start up the ``fibonacci_action_server`` and ``fibonacci_action_client``, enabling ``action_server_configure_introspection`` parameter for demonstration.
 
 .. code-block:: console
 
-   ros2 run action_tutorials_cpp fibonacci_action_server --ros-args -p "action_server_configure_introspection:=contents"
+   ros2 run action_tutorials_cpp fibonacci_action_server --ros-args -p action_server_configure_introspection:=contents
 
 .. code-block:: console
 
-   ros2 run action_tutorials_py fibonacci_action_client --ros-args -p "action_client_configure_introspection:=contents"
+   ros2 run action_tutorials_py fibonacci_action_client --ros-args -p action_client_configure_introspection:=contents
 
 Now we are able to see the action communication between ``fibonacci_action_server`` and ``fibonacci_action_client`` via ``ros2 action echo``.
 
 .. code-block:: console
 
-   ros2 action echo /fibonacci example_interfaces/action/Fibonacci --flow-style
+   $ ros2 action echo /fibonacci example_interfaces/action/Fibonacci --flow-style
    interface: GOAL_SERVICE
    info:
      event_type: REQUEST_SENT

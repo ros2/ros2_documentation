@@ -1,5 +1,5 @@
 Configure action introspection
-===============================
+==============================
 
 **Goal:** Configure action introspection for an action client and an action server.
 
@@ -14,10 +14,10 @@ Configure action introspection
 Overview
 --------
 
-ROS 2 applications usually consist of actions to execute specific procedures and works in remote nodes.
+ROS 2 applications usually consist of actions to execute specific long-running procedures or work in remote nodes.
 It is possible to introspect action data communication with action introspection.
 
-ROS 2 action is constructed on topics and services, so action introspection is based on :doc:`Service Introspection <Service-Introspection>`.
+ROS 2 actions are built on topics and services, so action introspection is based on :doc:`Service Introspection <Service-Introspection>`.
 
 In this demo, we'll be highlighting how to configure action introspection state for an action client and an action server and monitor action communication with ``ros2 action echo``.
 
@@ -32,7 +32,7 @@ If you downloaded the archive or built ROS 2 from source, it will already be par
 Introspection Configuration State
 ---------------------------------
 
-Similar to service introspection, there are three configuration states for action introspection.
+There are three configuration states for action introspection that are the same states as service introspection.
 
 .. list-table::  Action Introspection Configuration State
    :widths: 25 25
@@ -49,7 +49,8 @@ Introspection demo
 
 This demo shows how to manage action introspection and monitor the action data communication with using ``ros2 action echo``.
 
-FibonacciActionServer(python):
+Action server
+^^^^^^^^^^^^^
 
 You can find the source code here: `fibonacci_action_server.py <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/action_tutorials/action_tutorials_py/action_tutorials_py/fibonacci_action_server.py>`__.
 ``FibonacciActionServer`` has a parameter named ``action_server_configure_introspection`` to configure the action introspection state.
@@ -77,16 +78,16 @@ You can find the source code here: `fibonacci_action_server.py <https://github.c
                 break
     ...
 
-If you want to try c++ version, you can find the source code here: `fibonacci_action_server.cpp <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/action_tutorials/action_tutorials_cpp/src/fibonacci_action_server.cpp>`__.
+If you want to try the C++ version, you can find the source code here: `fibonacci_action_server.cpp <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/action_tutorials/action_tutorials_cpp/src/fibonacci_action_server.cpp>`__.
 
-Action introspection is disable in default, so users need to enable it with ``action_server_configure_introspection`` parameter when the server starts up.
-In this demo, ``FibonacciActionServer`` enables the action introspection with ``contents`` state.
+Action introspection is disabled by default, so users need to enable it with ``action_server_configure_introspection`` parameter when the server starts up.
+In this demo, ``FibonacciActionServer`` enables action introspection when the value of the ``action_server_configure_introspection`` parameter is ``contents``.
 
 .. code-block:: bash
 
-    $ ros2 run action_tutorials_py fibonacci_action_server --ros-args -p "action_server_configure_introspection:=contents"
+    ros2 run action_tutorials_py fibonacci_action_server --ros-args -p action_server_configure_introspection:=contents
 
-To change action introspection state, we need to set the ``action_server_configure_introspection`` parameter as following.
+To change action introspection state, we need to set the ``action_server_configure_introspection`` parameter as follows.
 
 .. code-block:: bash
 
@@ -97,7 +98,8 @@ To change action introspection state, we need to set the ``action_server_configu
     ### To disable
     $ ros2 param set /fibonacci_action_server action_server_configure_introspection disabled
 
-FibonacciActionClient(c++):
+Action client
+^^^^^^^^^^^^^
 
 You can find the source code here: `fibonacci_action_client.cpp <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/action_tutorials/action_tutorials_cpp/src/fibonacci_action_client.cpp>`__.
 ``FibonacciActionClient`` has a parameter named ``action_client_configure_introspection`` to configure the action introspection state.
@@ -132,15 +134,15 @@ You can find the source code here: `fibonacci_action_client.cpp <https://github.
           };
     ...
 
-If you want to try python version, you can find the source code here: `fibonacci_action_client.py <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/action_tutorials/action_tutorials_py/action_tutorials_py/fibonacci_action_client.py>`__.
+If you want to try the Python version, you can find the source code here: `fibonacci_action_client.py <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/action_tutorials/action_tutorials_py/action_tutorials_py/fibonacci_action_client.py>`__.
 
 And then, we start and configure ``FibonacciActionClient`` in the same way.
 
 .. code-block:: bash
 
-    $ ros2 run action_tutorials_cpp fibonacci_action_client --ros-args -p "action_client_configure_introspection:=contents"
+    ros2 run action_tutorials_cpp fibonacci_action_client --ros-args -p action_client_configure_introspection:=contents
 
-To change action introspection state, we need to set the ``action_client_configure_introspection`` parameter as following.
+To change action introspection state, we need to set the ``action_client_configure_introspection`` parameter as follows.
 Note that ``FibonacciActionClient`` only runs in short time, so it is recommended to set the parameter before running the client as above.
 
 .. code-block:: bash
@@ -152,10 +154,13 @@ Note that ``FibonacciActionClient`` only runs in short time, so it is recommende
     ### To disable
     $ ros2 param set /fibonacci_action_client action_client_configure_introspection disabled
 
-In this tutorial the following is example output with action introspection state ``CONTENTS`` on both ``FibonacciActionServer`` and ``FibonacciActionClient``.
+Introspect
+^^^^^^^^^^
+
+In this tutorial, the following is an example output with action introspection state ``contents`` on both ``FibonacciActionServer`` and ``FibonacciActionClient``.
 To monitor action communication between ``FibonacciActionServer`` and ``FibonacciActionClient``, let's run it:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ ros2 action echo /fibonacci example_interfaces/action/Fibonacci --flow-style
     interface: GOAL_SERVICE
