@@ -21,50 +21,13 @@ If you downloaded the archive or built ROS 2 from source, it will already be par
 Launch file examples
 --------------------
 
-Below is a launch file that launches composable nodes in Python, XML, and YAML.
+Below is a launch file that launches composable nodes in XML, YAML, and Python.
 The launch files all do the following:
 
 * Instantiate a cam2image composable node with remappings, custom parameters, and extra arguments
 * Instantiate a showimage composable node with remappings, custom parameters, and extra arguments
 
 .. tabs::
-
-  .. group-tab:: Python
-
-    .. code-block:: python
-
-      import launch
-      from launch_ros.actions import ComposableNodeContainer
-      from launch_ros.descriptions import ComposableNode
-
-
-      def generate_launch_description():
-          """Generate launch description with multiple components."""
-          container = ComposableNodeContainer(
-                  name='image_container',
-                  namespace='',
-                  package='rclcpp_components',
-                  executable='component_container',
-                  composable_node_descriptions=[
-                      ComposableNode(
-                          package='image_tools',
-                          plugin='image_tools::Cam2Image',
-                          name='cam2image',
-                          remappings=[('/image', '/burgerimage')],
-                          parameters=[{'width': 320, 'height': 240, 'burger_mode': True, 'history': 'keep_last'}],
-                          extra_arguments=[{'use_intra_process_comms': True}]),
-                      ComposableNode(
-                          package='image_tools',
-                          plugin='image_tools::ShowImage',
-                          name='showimage',
-                          remappings=[('/image', '/burgerimage')],
-                          parameters=[{'history': 'keep_last'}],
-                          extra_arguments=[{'use_intra_process_comms': True}])
-                  ],
-                  output='both',
-          )
-
-          return launch.LaunchDescription([container])
 
   .. group-tab:: XML
 
@@ -134,6 +97,43 @@ The launch files all do the following:
                           - name: use_intra_process_comms
                             value: 'true'
 
+  .. group-tab:: Python
+
+    .. code-block:: python
+
+      import launch
+      from launch_ros.actions import ComposableNodeContainer
+      from launch_ros.descriptions import ComposableNode
+
+
+      def generate_launch_description():
+          """Generate launch description with multiple components."""
+          container = ComposableNodeContainer(
+                  name='image_container',
+                  namespace='',
+                  package='rclcpp_components',
+                  executable='component_container',
+                  composable_node_descriptions=[
+                      ComposableNode(
+                          package='image_tools',
+                          plugin='image_tools::Cam2Image',
+                          name='cam2image',
+                          remappings=[('/image', '/burgerimage')],
+                          parameters=[{'width': 320, 'height': 240, 'burger_mode': True, 'history': 'keep_last'}],
+                          extra_arguments=[{'use_intra_process_comms': True}]),
+                      ComposableNode(
+                          package='image_tools',
+                          plugin='image_tools::ShowImage',
+                          name='showimage',
+                          remappings=[('/image', '/burgerimage')],
+                          parameters=[{'history': 'keep_last'}],
+                          extra_arguments=[{'use_intra_process_comms': True}])
+                  ],
+                  output='both',
+          )
+
+          return launch.LaunchDescription([container])
+
 
 Loading composable nodes into an existing container
 ---------------------------------------------------
@@ -144,46 +144,6 @@ For this, you may use ``LoadComposableNodes`` to load components into a given co
 The below example launches the same nodes as above.
 
 .. tabs::
-
-  .. group-tab:: Python
-
-    .. code-block:: python
-
-      from launch import LaunchDescription
-      from launch_ros.actions import LoadComposableNodes, Node
-      from launch_ros.descriptions import ComposableNode
-
-      def generate_launch_description():
-          container = Node(
-              name='image_container',
-              package='rclcpp_components',
-              executable='component_container',
-              output='both',
-          )
-
-          load_composable_nodes = LoadComposableNodes(
-              target_container='image_container',
-              composable_node_descriptions=[
-                  ComposableNode(
-                       package='image_tools',
-                      plugin='image_tools::Cam2Image',
-                      name='cam2image',
-                      remappings=[('/image', '/burgerimage')],
-                      parameters=[{'width': 320, 'height': 240, 'burger_mode': True, 'history': 'keep_last'}],
-                      extra_arguments=[{'use_intra_process_comms': True}],
-                  ),
-                  ComposableNode(
-                      package='image_tools',
-                      plugin='image_tools::ShowImage',
-                      name='showimage',
-                      remappings=[('/image', '/burgerimage')],
-                      parameters=[{'history': 'keep_last'}],
-                      extra_arguments=[{'use_intra_process_comms': True}]
-                  ),
-              ],
-          )
-
-          return LaunchDescription([container, load_composable_nodes])
 
   .. group-tab:: XML
 
@@ -254,6 +214,46 @@ The below example launches the same nodes as above.
                           - name: use_intra_process_comms
                             value: 'true'
 
+  .. group-tab:: Python
+
+    .. code-block:: python
+
+      from launch import LaunchDescription
+      from launch_ros.actions import LoadComposableNodes, Node
+      from launch_ros.descriptions import ComposableNode
+
+      def generate_launch_description():
+          container = Node(
+              name='image_container',
+              package='rclcpp_components',
+              executable='component_container',
+              output='both',
+          )
+
+          load_composable_nodes = LoadComposableNodes(
+              target_container='image_container',
+              composable_node_descriptions=[
+                  ComposableNode(
+                       package='image_tools',
+                      plugin='image_tools::Cam2Image',
+                      name='cam2image',
+                      remappings=[('/image', '/burgerimage')],
+                      parameters=[{'width': 320, 'height': 240, 'burger_mode': True, 'history': 'keep_last'}],
+                      extra_arguments=[{'use_intra_process_comms': True}],
+                  ),
+                  ComposableNode(
+                      package='image_tools',
+                      plugin='image_tools::ShowImage',
+                      name='showimage',
+                      remappings=[('/image', '/burgerimage')],
+                      parameters=[{'history': 'keep_last'}],
+                      extra_arguments=[{'use_intra_process_comms': True}]
+                  ),
+              ],
+          )
+
+          return LaunchDescription([container, load_composable_nodes])
+
 
 Using the Launch files from the command-line
 --------------------------------------------
@@ -274,4 +274,4 @@ For more information on what intra-process communications are, see the :doc:`int
 Python, XML, or YAML: Which should I use?
 -----------------------------------------
 
-See the discussion in :doc:`Launch-file-different-formats` for more information.
+See the :ref:`discussion <launch-file-different-formats-which>` in :doc:`Launch-file-different-formats` for more information.

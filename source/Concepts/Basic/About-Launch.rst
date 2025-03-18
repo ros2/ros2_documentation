@@ -12,7 +12,7 @@ It helps the user describe the configuration of their system and then executes i
 The configuration of the system includes what programs to run, where to run them, what arguments to pass them, and ROS-specific conventions which make it easy to reuse components throughout the system by giving them each a different configuration.
 It is also responsible for monitoring the state of the processes launched, and reporting and/or reacting to changes in the state of those processes.
 
-All of the above is specified in a launch file, which can be written in Python, XML, or YAML.
+All of the above is specified in a launch file, which can be written in XML, YAML, or Python.
 This launch file can then be run using the ``ros2 launch`` command, and all of the nodes specified will be run.
 
 The `design document <https://design.ros2.org/articles/roslaunch.html>`__ details the goal of the design of ROS 2's launch system (not all functionality is currently available).
