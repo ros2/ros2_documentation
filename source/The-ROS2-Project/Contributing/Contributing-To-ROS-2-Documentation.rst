@@ -122,6 +122,7 @@ You can run the documentation spell checker locally (using `codespell <https://g
 
    If that detects specific words that need to be ignored, add it to `codespell_whitelist <https://github.com/ros2/ros2_documentation/blob/{REPOS_FILE_BRANCH}/codespell_whitelist.txt>`_ .
 
+To know more about spelling checks, refer to :ref:`Spelling check <spelling-check>`
 
 View Site Through Github CI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -163,6 +164,34 @@ To check for broken links on the site, run:
    make linkcheck
 
 This will check the entire site for broken links, and output the results to the screen and ``build/linkcheck``.
+
+.. _spelling-check:
+
+Spelling check
+^^^^^^^^^^^^^^
+
+The ``make spellcheck`` command scans the documentation files and flags any misspellings.
+If errors are detected, review the suggestions and update the pull request as necessary.
+
+Some words, such as technical terms or proper nouns, maybe mistakenly flagged as misspelled.
+If you encounter such instances, you can add them to the ignore list to prevent them from being flagged in the future.
+To do this, add it to the `codespell_whitelist <https://github.com/ros2/ros2_documentation/blob/{REPOS_FILE_BRANCH}/codespell_whitelist.txt>`_ file as follows:
+
+.. code-block:: text
+
+   empy
+   ws
+   lets
+   jupyter
+
+To include custom corrections that ``codespell`` should apply, you can add them to the `codespell_dictionary <https://github.com/ros2/ros2_documentation/blob/{REPOS_FILE_BRANCH}/codespell_dictionary.txt>`_ file as follows:
+
+.. code-block:: text
+
+   amnet->ament
+   colcn->colcon
+   rosabg->rosbag
+   rosdistroy->rosdistro
 
 Migrating Pages from the ROS Wiki
 ---------------------------------

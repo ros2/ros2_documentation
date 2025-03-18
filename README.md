@@ -58,7 +58,8 @@ To check the spelling, use:
 `make spellcheck`
 
 > [!NOTE]
-> If that detects specific words that need to be ignored, add it to [codespell_whitelist](./codespell_whitelist.txt).
+> If that detects specific words that need to be ignored, add it to [codespell_whitelist](./codespell_whitelist.txt). \
+> To include any custom corrections that are to be applied, add it to [codespell_dictionary](./codespell_dictionary.txt).
 
 ### Deployment test
 
