@@ -139,27 +139,6 @@ Make sure to create a ``launch`` directory at the top-level of the package you c
 
 .. tabs::
 
-  .. group-tab:: Python launch file
-
-    Inside your ``launch`` directory, create a new launch file called ``my_script_launch.py``.
-    ``_launch.py`` is recommended, but not required, as the file suffix for Python launch files.
-    However, the launch file name needs to end with ``launch.py`` to be recognized and autocompleted by ``ros2 launch``.
-
-    Your launch file should define the ``generate_launch_description()`` function which returns a ``launch.LaunchDescription()`` to be used by the ``ros2 launch`` verb.
-
-    .. code-block:: python
-
-      import launch
-      import launch_ros.actions
-
-      def generate_launch_description():
-          return launch.LaunchDescription([
-              launch_ros.actions.Node(
-                  package='demo_nodes_cpp',
-                  executable='talker',
-                  name='talker'),
-        ])
-
   .. group-tab:: XML launch file
 
     Inside your ``launch`` directory, create a new launch file called ``my_script_launch.xml``.
@@ -185,6 +164,27 @@ Make sure to create a ``launch`` directory at the top-level of the package you c
           exec: "talker"
           name: "talker"
 
+  .. group-tab:: Python launch file
+
+    Inside your ``launch`` directory, create a new launch file called ``my_script_launch.py``.
+    ``_launch.py`` is recommended, but not required, as the file suffix for Python launch files.
+    However, the launch file name needs to end with ``launch.py`` to be recognized and autocompleted by ``ros2 launch``.
+
+    Your launch file should define the ``generate_launch_description()`` function which returns a ``launch.LaunchDescription()`` to be used by the ``ros2 launch`` verb.
+
+    .. code-block:: python
+
+      import launch
+      import launch_ros.actions
+
+      def generate_launch_description():
+          return launch.LaunchDescription([
+              launch_ros.actions.Node(
+                  package='demo_nodes_cpp',
+                  executable='talker',
+                  name='talker'),
+        ])
+
 
 4 Building and running the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -203,12 +203,6 @@ After the ``colcon build`` has been successful and you've sourced the workspace,
 
     .. tabs::
 
-      .. group-tab:: Python launch file
-
-        .. code-block:: console
-
-          ros2 launch py_launch_example my_script_launch.py
-
       .. group-tab:: XML launch file
 
         .. code-block:: console
@@ -221,15 +215,15 @@ After the ``colcon build`` has been successful and you've sourced the workspace,
 
           ros2 launch py_launch_example my_script_launch.yaml
 
-  .. group-tab:: C++ package
-
-    .. tabs::
-
       .. group-tab:: Python launch file
 
         .. code-block:: console
 
-          ros2 launch cpp_launch_example my_script_launch.py
+          ros2 launch py_launch_example my_script_launch.py
+
+  .. group-tab:: C++ package
+
+    .. tabs::
 
       .. group-tab:: XML launch file
 
@@ -242,6 +236,12 @@ After the ``colcon build`` has been successful and you've sourced the workspace,
         .. code-block:: console
 
           ros2 launch cpp_launch_example my_script_launch.yaml
+
+      .. group-tab:: Python launch file
+
+        .. code-block:: console
+
+          ros2 launch cpp_launch_example my_script_launch.py
 
 
 Documentation
