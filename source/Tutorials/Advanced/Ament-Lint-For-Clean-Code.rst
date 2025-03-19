@@ -355,4 +355,4 @@ A few of these tools are listed below.
 * ``ament_pep257`` - Check Python docstrings against the style conventions in `PEP 257 <https://peps.python.org/pep-0257/>`_.
 
 Ament is highly extensible and ROS users are encouraged to build and use ament tools that make them more productive.
-You can search for other community contributed ament lint tools by using the ``apt search`` or by `searching for ament on ROS Index <https://index.ros.org/search/?term=ament>`_.
+You can search for other community contributed ament lint tools by using the ``apt search`` or by `searching for ament on ROS Index <https://index.ros.org/?pkgs=ament&search_packages=true>`_.
