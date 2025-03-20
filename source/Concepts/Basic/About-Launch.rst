@@ -17,4 +17,4 @@ This launch file can then be run using the ``ros2 launch`` command, and all of t
 
 To get started writing and using launch files, see `the launch tutorials <../../Tutorials/Intermediate/Launch/Launch-Main>`.
 
-The `design document <https://design.ros2.org/articles/roslaunch.html>`__ details the goal of the design of ROS 2's launch system (not all functionality is currently available).
+For more detailed information, see `the launch documentation <https://docs.ros.org/en/{DISTRO}/p/launch>`__.

@@ -13,18 +13,9 @@ def generate_launch_description():
     arg_new_background_r = 'new_background_r'
 
     return LaunchDescription([
-        DeclareLaunchArgument(
-            arg_turtlesim_ns,
-            default_value='turtlesim1',
-        ),
-        DeclareLaunchArgument(
-            arg_use_provided_red,
-            default_value='False',
-        ),
-        DeclareLaunchArgument(
-            arg_new_background_r,
-            default_value='200',
-        ),
+        DeclareLaunchArgument(arg_turtlesim_ns, default_value='turtlesim1'),
+        DeclareLaunchArgument(arg_use_provided_red, default_value='False'),
+        DeclareLaunchArgument(arg_new_background_r, default_value='200'),
         Node(
             package='turtlesim',
             namespace=LaunchConfiguration(arg_turtlesim_ns),
