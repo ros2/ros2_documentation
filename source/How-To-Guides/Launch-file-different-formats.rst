@@ -2,7 +2,7 @@
 
   Guides/Launch-file-different-formats
 
-Using Python, XML, and YAML for ROS 2 Launch Files
+Using XML, YAML, and Python for ROS 2 Launch Files
 ==================================================
 
 .. contents:: Table of Contents
@@ -31,8 +31,7 @@ Each launch file performs the following actions:
 
       .. code-block:: xml
 
-        <!-- example_launch.xml -->
-
+        <?xml version="1.0" encoding="UTF-8"?>
         <launch>
 
             <!-- args that can be set from the command line or a default will be used -->
@@ -83,8 +82,6 @@ Each launch file performs the following actions:
    .. group-tab:: YAML
 
       .. code-block:: yaml
-
-        # example_launch.yaml
 
         launch:
 
@@ -148,14 +145,11 @@ Each launch file performs the following actions:
             name: "sim"
             namespace: "turtlesim2"
             param:
-            -
-              name: "background_r"
+            - name: "background_r"
               value: "$(var background_r)"
-            -
-              name: "background_g"
+            - name: "background_g"
               value: "$(var background_g)"
-            -
-              name: "background_b"
+            - name: "background_b"
               value: "$(var background_b)"
 
         # perform remap so both turtles listen to the same command topic
@@ -164,19 +158,16 @@ Each launch file performs the following actions:
             exec: "mimic"
             name: "mimic"
             remap:
-            -
-                from: "/input/pose"
-                to: "/turtlesim1/turtle1/pose"
-            -
-                from: "/output/cmd_vel"
-                to: "/turtlesim2/turtle1/cmd_vel"
+            - from: "/input/pose"
+              to: "/turtlesim1/turtle1/pose"
+            - from: "/output/cmd_vel"
+              to: "/turtlesim2/turtle1/cmd_vel"
 
    .. group-tab:: Python
 
       .. code-block:: python
 
-        # example_launch.py
-
+        #!/usr/bin/env python3
         import os
 
         from ament_index_python import get_package_share_directory
@@ -185,133 +176,109 @@ Each launch file performs the following actions:
         from launch.actions import DeclareLaunchArgument
         from launch.actions import GroupAction
         from launch.actions import IncludeLaunchDescription
-        from launch.launch_description_sources import PythonLaunchDescriptionSource
+        from launch.launch_description_sources import AnyLaunchDescriptionSource
         from launch.substitutions import LaunchConfiguration
         from launch.substitutions import TextSubstitution
         from launch_ros.actions import Node
         from launch_ros.actions import PushROSNamespace
-        from launch_xml.launch_description_sources import XMLLaunchDescriptionSource
-        from launch_yaml.launch_description_sources import YAMLLaunchDescriptionSource
-
 
         def generate_launch_description():
-
-            # args that can be set from the command line or a default will be used
-            background_r_launch_arg = DeclareLaunchArgument(
-                "background_r", default_value=TextSubstitution(text="0")
-            )
-            background_g_launch_arg = DeclareLaunchArgument(
-                "background_g", default_value=TextSubstitution(text="255")
-            )
-            background_b_launch_arg = DeclareLaunchArgument(
-                "background_b", default_value=TextSubstitution(text="0")
-            )
-            chatter_py_ns_launch_arg = DeclareLaunchArgument(
-                "chatter_py_ns", default_value=TextSubstitution(text="chatter/py/ns")
-            )
-            chatter_xml_ns_launch_arg = DeclareLaunchArgument(
-                "chatter_xml_ns", default_value=TextSubstitution(text="chatter/xml/ns")
-            )
-            chatter_yaml_ns_launch_arg = DeclareLaunchArgument(
-                "chatter_yaml_ns", default_value=TextSubstitution(text="chatter/yaml/ns")
-            )
-
-            # include another launch file
-            launch_include = IncludeLaunchDescription(
-                PythonLaunchDescriptionSource(
-                    os.path.join(
-                        get_package_share_directory('demo_nodes_cpp'),
-                        'launch/topics/talker_listener_launch.py'))
-            )
-            # include a Python launch file in the chatter_py_ns namespace
-            launch_py_include_with_namespace = GroupAction(
-                actions=[
-                    # push_ros_namespace first to set namespace of included nodes for following actions
-                    PushROSNamespace('chatter_py_ns'),
-                    IncludeLaunchDescription(
-                        PythonLaunchDescriptionSource(
-                            os.path.join(
-                                get_package_share_directory('demo_nodes_cpp'),
-                                'launch/topics/talker_listener_launch.py'))
-                    ),
-                ]
-            )
-
-            # include a xml launch file in the chatter_xml_ns namespace
-            launch_xml_include_with_namespace = GroupAction(
-                actions=[
-                    # push_ros_namespace first to set namespace of included nodes for following actions
-                    PushROSNamespace('chatter_xml_ns'),
-                    IncludeLaunchDescription(
-                        XMLLaunchDescriptionSource(
-                            os.path.join(
-                                get_package_share_directory('demo_nodes_cpp'),
-                                'launch/topics/talker_listener_launch.xml'))
-                    ),
-                ]
-            )
-
-            # include a yaml launch file in the chatter_yaml_ns namespace
-            launch_yaml_include_with_namespace = GroupAction(
-                actions=[
-                    # push_ros_namespace first to set namespace of included nodes for following actions
-                    PushROSNamespace('chatter_yaml_ns'),
-                    IncludeLaunchDescription(
-                        YAMLLaunchDescriptionSource(
-                            os.path.join(
-                                get_package_share_directory('demo_nodes_cpp'),
-                                'launch/topics/talker_listener_launch.yaml'))
-                    ),
-                ]
-            )
-
-            # start a turtlesim_node in the turtlesim1 namespace
-            turtlesim_node = Node(
-                package='turtlesim',
-                namespace='turtlesim1',
-                executable='turtlesim_node',
-                name='sim'
-            )
-
-            # start another turtlesim_node in the turtlesim2 namespace
-            # and use args to set parameters
-            turtlesim_node_with_parameters = Node(
-                package='turtlesim',
-                namespace='turtlesim2',
-                executable='turtlesim_node',
-                name='sim',
-                parameters=[{
-                    "background_r": LaunchConfiguration('background_r'),
-                    "background_g": LaunchConfiguration('background_g'),
-                    "background_b": LaunchConfiguration('background_b'),
-                }]
-            )
-
-            # perform remap so both turtles listen to the same command topic
-            forward_turtlesim_commands_to_second_turtlesim_node = Node(
-                package='turtlesim',
-                executable='mimic',
-                name='mimic',
-                remappings=[
-                    ('/input/pose', '/turtlesim1/turtle1/pose'),
-                    ('/output/cmd_vel', '/turtlesim2/turtle1/cmd_vel'),
-                ]
-            )
-
             return LaunchDescription([
-                background_r_launch_arg,
-                background_g_launch_arg,
-                background_b_launch_arg,
-                chatter_py_ns_launch_arg,
-                chatter_xml_ns_launch_arg,
-                chatter_yaml_ns_launch_arg,
-                launch_include,
-                launch_py_include_with_namespace,
-                launch_xml_include_with_namespace,
-                launch_yaml_include_with_namespace,
-                turtlesim_node,
-                turtlesim_node_with_parameters,
-                forward_turtlesim_commands_to_second_turtlesim_node,
+                # args that can be set from the command line or a default will be used
+                DeclareLaunchArgument(
+                    "background_r", default_value=TextSubstitution(text="0")
+                ),
+                DeclareLaunchArgument(
+                    "background_g", default_value=TextSubstitution(text="255")
+                ),
+                DeclareLaunchArgument(
+                    "background_b", default_value=TextSubstitution(text="0")
+                ),
+                DeclareLaunchArgument(
+                    "chatter_py_ns", default_value=TextSubstitution(text="chatter/py/ns")
+                ),
+                DeclareLaunchArgument(
+                    "chatter_xml_ns", default_value=TextSubstitution(text="chatter/xml/ns")
+                ),
+                DeclareLaunchArgument(
+                    "chatter_yaml_ns", default_value=TextSubstitution(text="chatter/yaml/ns")
+                ),
+                # include another launch file
+                IncludeLaunchDescription(
+                    AnyLaunchDescriptionSource(
+                        os.path.join(
+                            get_package_share_directory('demo_nodes_cpp'),
+                            'launch/topics/talker_listener_launch.py'))
+                ),
+                # include a Python launch file in the chatter_py_ns namespace
+                GroupAction(
+                    actions=[
+                        # push_ros_namespace first to set namespace of included nodes for following actions
+                        PushROSNamespace('chatter_py_ns'),
+                        IncludeLaunchDescription(
+                            AnyLaunchDescriptionSource(
+                                os.path.join(
+                                    get_package_share_directory('demo_nodes_cpp'),
+                                    'launch/topics/talker_listener_launch.py'))
+                        ),
+                    ]
+                ),
+                # include a xml launch file in the chatter_xml_ns namespace
+                GroupAction(
+                    actions=[
+                        # push_ros_namespace first to set namespace of included nodes for following actions
+                        PushROSNamespace('chatter_xml_ns'),
+                        IncludeLaunchDescription(
+                            AnyLaunchDescriptionSource(
+                                os.path.join(
+                                    get_package_share_directory('demo_nodes_cpp'),
+                                    'launch/topics/talker_listener_launch.xml'))
+                        ),
+                    ]
+                ),
+                # include a yaml launch file in the chatter_yaml_ns namespace
+                GroupAction(
+                    actions=[
+                        # push_ros_namespace first to set namespace of included nodes for following actions
+                        PushROSNamespace('chatter_yaml_ns'),
+                        IncludeLaunchDescription(
+                            AnyLaunchDescriptionSource(
+                                os.path.join(
+                                    get_package_share_directory('demo_nodes_cpp'),
+                                    'launch/topics/talker_listener_launch.yaml'))
+                        ),
+                    ]
+                ),
+                # start a turtlesim_node in the turtlesim1 namespace
+                Node(
+                    package='turtlesim',
+                    namespace='turtlesim1',
+                    executable='turtlesim_node',
+                    name='sim'
+                ),
+                # start another turtlesim_node in the turtlesim2 namespace
+                # and use args to set parameters
+                Node(
+                    package='turtlesim',
+                    namespace='turtlesim2',
+                    executable='turtlesim_node',
+                    name='sim',
+                    parameters=[{
+                        "background_r": LaunchConfiguration('background_r'),
+                        "background_g": LaunchConfiguration('background_g'),
+                        "background_b": LaunchConfiguration('background_b'),
+                    }]
+                ),
+                # perform remap so both turtles listen to the same command topic
+                Node(
+                    package='turtlesim',
+                    executable='mimic',
+                    name='mimic',
+                    remappings=[
+                        ('/input/pose', '/turtlesim1/turtle1/pose'),
+                        ('/output/cmd_vel', '/turtlesim2/turtle1/cmd_vel'),
+                    ]
+                ),
             ])
 
 Using the Launch files from the command line
@@ -361,7 +328,7 @@ To test that the remapping is working, you can control the turtles by running th
 
 .. _launch-file-different-formats-which:
 
-Python, XML, or YAML: Which should I use?
+XML, YAML, or Python: Which should I use?
 -----------------------------------------
 
 .. note::
@@ -369,11 +336,7 @@ Python, XML, or YAML: Which should I use?
   Launch files in ROS 1 were written in XML, so XML may be the most familiar to people coming from ROS 1.
   To see what's changed, you can visit :doc:`Migrating-from-ROS1/Migrating-Launch-Files`.
 
-For most applications the choice of which ROS 2 launch format comes down to developer preference.
-However, if your launch file requires flexibility that you cannot achieve with XML or YAML, you can use Python to write your launch file.
-Using Python for ROS 2 launch is more flexible because of following two reasons:
+To achieve a more declarative self-documenting style, you should prefer XML or YAML launch files, between them it comes down to developer preference.
 
-* Python is a scripting language, and thus you can leverage the language and its libraries in your launch files.
-* `ros2/launch <https://github.com/ros2/launch>`_ (general launch features) and `ros2/launch_ros <https://github.com/ros2/launch_ros>`_ (ROS 2 specific launch features) are written in Python and thus you have lower level access to launch features that may not be exposed by XML and YAML.
-
-That being said, a launch file written in Python may be more complex and verbose than one in XML or YAML.
+However, if your launch file requires advanced functionality that you cannot achieve with XML or YAML, you can turn to the Python launch API.
+Using Python for ROS 2 launch allows far more flexibility because it is a full scripting language and has access to the underlying implementation -- not all of which is exposed to XML/YAML -- but using it comes with the drawback of being more verbose and harder to reason about the resulting launch description.
