@@ -12,6 +12,32 @@ Using XML, YAML, and Python for ROS 2 Launch Files
 ROS 2 launch files can be written in XML, YAML, and Python.
 This guide shows how to use these different formats to accomplish the same task, as well as has some discussion on when to use each format.
 
+XML, YAML, or Python: Which should I use?
+-----------------------------------------
+
+.. note::
+
+  Launch files in ROS 1 were written in XML, so XML may be the most familiar to people coming from ROS 1.
+  To see what's changed, you can visit :doc:`Migrating-from-ROS1/Migrating-Launch-Files`.
+
+To achieve a more declarative self-documenting style, you should prefer XML or YAML launch files, between them it comes down to developer preference.
+
+However, if your launch file requires advanced functionality that you cannot achieve with XML or YAML, you can turn to the Python launch API.
+Using Python for ROS 2 launch allows far more flexibility because it is a full scripting language and has access to the underlying implementation -- not all of which is exposed to XML/YAML -- but using it comes with the drawback of being more verbose and harder to reason about the resulting launch description.
+
+Naming Launch Files
+-------------------
+
+While it is not required, we recommend that you name all launch files with the ``.launch`` extension, regardless of the language they are written in.
+
+There is historical content that uses the ``_launch.py``, ``_launch.xml``, and ``_launch.yaml`` extensions, but this is no longer necessary or recommended as it obfuscates the usage.
+
+Launch files should be considered part of the exposed interface of your package, and your users shouldn't have to know or care which language you used to implement a particular file, just like with your nodes.
+Nor should you be tied to keeping it in that format forever!
+As long as it has the ``.launch`` suffix with an informative name, the caller knows that it is a launch file, and the launch system will autodetect the format as needed.
+You can mix and match formats without any issues.
+
+
 Launch file examples
 --------------------
 
@@ -324,19 +350,3 @@ To test that the remapping is working, you can control the turtles by running th
 .. code-block:: console
 
   ros2 run turtlesim turtle_teleop_key --ros-args --remap __ns:=/turtlesim1
-
-
-.. _launch-file-different-formats-which:
-
-XML, YAML, or Python: Which should I use?
------------------------------------------
-
-.. note::
-
-  Launch files in ROS 1 were written in XML, so XML may be the most familiar to people coming from ROS 1.
-  To see what's changed, you can visit :doc:`Migrating-from-ROS1/Migrating-Launch-Files`.
-
-To achieve a more declarative self-documenting style, you should prefer XML or YAML launch files, between them it comes down to developer preference.
-
-However, if your launch file requires advanced functionality that you cannot achieve with XML or YAML, you can turn to the Python launch API.
-Using Python for ROS 2 launch allows far more flexibility because it is a full scripting language and has access to the underlying implementation -- not all of which is exposed to XML/YAML -- but using it comes with the drawback of being more verbose and harder to reason about the resulting launch description.

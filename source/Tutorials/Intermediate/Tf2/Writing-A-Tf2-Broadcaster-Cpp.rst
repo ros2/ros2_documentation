@@ -246,7 +246,7 @@ Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your e
 
 Now create a launch file for this demo.
 Create a ``launch`` folder in the ``src/learning_tf2_cpp`` directory.
-With your text editor, create a new file called ``turtle_tf2_demo_launch.py`` in the ``launch`` folder, and add the following lines:
+With your text editor, create a new file called ``turtle_tf2_demo.launch`` in the ``launch`` folder, and add the following lines:
 
 .. code-block:: python
 
@@ -405,7 +405,7 @@ Now run the launch file that will start the turtlesim simulation node and ``turt
 
 .. code-block:: console
 
-    ros2 launch learning_tf2_cpp turtle_tf2_demo_launch.py
+    ros2 launch learning_tf2_cpp turtle_tf2_demo.launch
 
 In the second terminal window type the following command:
 
