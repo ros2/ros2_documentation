@@ -418,179 +418,42 @@ Now create the substitution launch file in the same folder:
 
   .. group-tab:: Python
 
-    Create the file ``launch/example_substitutions_launch.py`` and insert the following code:
+    Create the file ``launch/example_substitutions_py.launch`` and insert the following code:
 
-    .. code-block:: python
-
-        from launch_ros.actions import Node
-
-        from launch import LaunchDescription
-        from launch.actions import DeclareLaunchArgument, ExecuteProcess, TimerAction
-        from launch.conditions import IfCondition
-        from launch.substitutions import LaunchConfiguration, PythonExpression
+    .. literalinclude:: substitution.launch.py
+      :language: python
 
 
-        def generate_launch_description():
-            turtlesim_ns_name = 'turtlesim_ns'
-            use_provided_red_name = 'use_provided_red'
-            new_background_r_name = 'new_background_r'
+    First we provide variables with our argument names so that we reduce room for error in mistyped strings.
+    They will be used to declare arguments, and by ``LaunchConfiguration`` substitutions to allow us to acquire the value of the launch argument.
 
-            turtlesim_ns_val = LaunchConfiguration(turtlesim_ns_name)
-            use_provided_red_val = LaunchConfiguration(use_provided_red_name)
-            new_background_r_val = LaunchConfiguration(new_background_r_name)
-
-
-            return LaunchDescription([
-                DeclareLaunchArgument(
-                    turtlesim_ns,
-                    default_value='turtlesim1',
-                ),
-                DeclareLaunchArgument(
-                    use_provided_red,
-                    default_value='False',
-                ),
-                DeclareLaunchArgument(
-                    new_background_r,
-                    default_value='200',
-                ),
-                Node(
-                    package='turtlesim',
-                    namespace=LaunchConfiguration(turtlesim_ns),
-                    executable='turtlesim_node',
-                    name='sim',
-                ),
-                ExecuteProcess(
-                    cmd=[[
-                        'ros2 service call ',
-                        LaunchConfiguration(turtlesim_ns),
-                        '/spawn ',
-                        'turtlesim_msgs/srv/Spawn ',
-                        '"{x: 2, y: 2, theta: 0.2}"',
-                    ]],
-                    shell=True,
-                ),
-                ExecuteProcess(
-                    cmd=[[
-                        'ros2 param set ',
-                        turtlesim_ns,
-                        '/sim background_r ',
-                        '120',
-                    ]],
-                    shell=True,
-                ),
-                TimerAction(
-                    period=2.0,
-                    actions=[
-                        ExecuteProcess(
-                            condition=IfCondition(
-                                PythonExpression([
-                                    new_background_r,
-                                    ' == 200',
-                                    ' and ',
-                                    use_provided_red
-                                ])
-                            ),
-                            cmd=[[
-                                'ros2 param set ',
-                                turtlesim_ns,
-                                '/sim background_r ',
-                                new_background_r
-                            ]],
-                            shell=True,
-                        ),
-                    ],
-                ),
-            ])
-
-
-
-
-    The ``turtlesim_ns``, ``use_provided_red``, and ``new_background_r`` launch configurations are defined.
-    They are used to store values of launch arguments in the above variables and to pass them to required actions.
-    These ``LaunchConfiguration`` substitutions allow us to acquire the value of the launch argument in any part of the launch description.
+    .. literalinclude:: substitution.launch.py
+      :lines: 11-13
 
     ``DeclareLaunchArgument`` is used to define the launch argument that can be passed from the above launch file or from the console.
 
-    .. code-block:: python
+    .. literalinclude:: substitution.launch.py
+      :lines: 16-27
 
-        turtlesim_ns = LaunchConfiguration('turtlesim_ns')
-        use_provided_red = LaunchConfiguration('use_provided_red')
-        new_background_r = LaunchConfiguration('new_background_r')
+    The ``turtlesim_node`` node named ``sim`` with ``namespace`` set to ``turtlesim_ns`` is created.
 
-        turtlesim_ns_launch_arg = DeclareLaunchArgument(
-            'turtlesim_ns',
-            default_value='turtlesim1'
-        )
-        use_provided_red_launch_arg = DeclareLaunchArgument(
-            'use_provided_red',
-            default_value='False'
-        )
-        new_background_r_launch_arg = DeclareLaunchArgument(
-            'new_background_r',
-            default_value='200'
-        )
+    .. literalinclude:: substitution.launch.py
+      :lines: 28-33
 
-    The ``turtlesim_node`` node with the ``namespace`` set to ``turtlesim_ns`` ``LaunchConfiguration`` substitution is defined.
-
-    .. code-block:: python
-
-        turtlesim_node = Node(
-            package='turtlesim',
-            namespace=turtlesim_ns,
-            executable='turtlesim_node',
-            name='sim'
-        )
-
-    Afterwards, the ``ExecuteProcess`` action called ``spawn_turtle`` is defined with the corresponding ``cmd`` argument.
+    Afterwards, an ``ExecuteProcess`` action is defined with the corresponding ``cmd`` argument.
     This command makes a call to the spawn service of the turtlesim node.
 
     Additionally, the ``LaunchConfiguration`` substitution is used to get the value of the ``turtlesim_ns`` launch argument to construct a command string.
 
-    .. code-block:: python
+    .. literalinclude:: substitution.launch.py
+      :lines: 34-43
 
-        spawn_turtle = ExecuteProcess(
-            cmd=[[
-                'ros2 service call ',
-                turtlesim_ns,
-                '/spawn ',
-                'turtlesim_msgs/srv/Spawn ',
-                '"{x: 2, y: 2, theta: 0.2}"'
-            ]],
-            shell=True
-        )
-
-    The same approach is used for the ``change_background_r`` and ``change_background_r_conditioned`` actions that change the turtlesim background's red color parameter.
-    The difference is that the ``change_background_r_conditioned`` action is only executed if the provided ``new_background_r`` argument equals ``200`` and the ``use_provided_red`` launch argument is set to ``True``.
+    The same approach is used for the ``ExecuteProcess`` actions that change the turtlesim background's red color parameter.
+    The difference is that the action in the timer is only executed if the provided ``new_background_r`` argument equals ``200`` and the ``use_provided_red`` launch argument is set to ``True``.
     The evaluation inside the ``IfCondition`` is done using the ``PythonExpression`` substitution.
 
-    .. code-block:: python
-
-        change_background_r = ExecuteProcess(
-            cmd=[[
-                'ros2 param set ',
-                turtlesim_ns,
-                '/sim background_r ',
-                '120'
-            ]],
-            shell=True
-        )
-        change_background_r_conditioned = ExecuteProcess(
-            condition=IfCondition(
-                PythonExpression([
-                    new_background_r,
-                    ' == 200',
-                    ' and ',
-                    use_provided_red
-                ])
-            ),
-            cmd=[[
-                'ros2 param set ',
-                turtlesim_ns,
-                '/sim background_r ',
-                new_background_r
-            ]],
-            shell=True
-        )
+    .. literalinclude:: substitution.launch.py
+      :lines: 44-74
 
 4 Build the package
 ^^^^^^^^^^^^^^^^^^^
