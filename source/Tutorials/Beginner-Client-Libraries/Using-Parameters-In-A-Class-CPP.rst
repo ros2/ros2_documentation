@@ -331,35 +331,24 @@ If you look at the other terminal, you should see the output change to ``[INFO] 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 You can also set the parameter in a launch file, but first you will need to add the launch directory.
 Inside the ``ros2_ws/src/cpp_parameters/`` directory, create a new directory called ``launch``.
-In there, create a new file called ``cpp_parameters_launch.py``
+In there, create a new file called ``param_node.launch``
 
 
-.. code-block:: Python
+.. code-block:: xml
 
-  from launch import LaunchDescription
-  from launch_ros.actions import Node
-
-  def generate_launch_description():
-      return LaunchDescription([
-          Node(
-              package="cpp_parameters",
-              executable="minimal_param_node",
-              name="custom_minimal_param_node",
-              output="screen",
-              emulate_tty=True,
-              parameters=[
-                  {"my_parameter": "earth"}
-              ]
-          )
-      ])
+    <?xml version="1.0" encoding="UTF-8"?>
+    <launch>
+      <node pkg="cpp_parameters" exec="minimal_param_node" name="custom_minimal_param_node" output="screen" emulate_tty="true">
+        <param name="my_parameter" value="earth" />
+      </node>
+    </launch>
 
 Here you can see that we set ``my_parameter`` to ``earth`` when we launch our node ``minimal_param_node``.
-By adding the two lines below, we ensure our output is printed in our console.
+By adding the values below, we ensure our output is printed in our console.
 
 .. code-block:: console
 
-          output="screen",
-          emulate_tty=True,
+    output="screen" emulate_tty="true"
 
 Now open the ``CMakeLists.txt`` file.
 Below the lines you added earlier, add the following lines of code.
@@ -419,7 +408,7 @@ Now run the node using the launch file we have just created:
 
 .. code-block:: console
 
-     ros2 launch cpp_parameters cpp_parameters_launch.py
+     ros2 launch cpp_parameters param_node.launch
 
 The terminal should return the following message the first time:
 
