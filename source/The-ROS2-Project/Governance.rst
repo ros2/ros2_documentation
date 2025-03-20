@@ -141,6 +141,10 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `quarkytale <https://github.com/quarkytale>`_
      - PST (UTC-8)/PDT (UTC-7)
+   * - Emerson Knapp
+     - `Polymath Robotics <https://www.polymathrobotics.com/>`_
+     - `emersonknapp <https://github.com/emersonknapp/>`_
+     - PST (UTC-8)/PDT (UTC-7)
    * - Kat Scott
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `kscottz <https://github.com/kscottz>`_
