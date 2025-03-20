@@ -1,0 +1,14 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Robotics Stack Exchange
+    url: https://robotics.stackexchange.com/
+    about: Our centralized QA site, please ask questions here.
+  - name: Documentation for Active ROS Distributions
+    url: https://docs.ros.org/
+    about: Official ROS documentation.
+  - name: ROS Discourse
+    url: https://discourse.ros.org/
+    about: Discussion on ROS and ROS-related things.
+  - name: ROS Discord
+    url: https://discord.com/servers/open-robotics-1077825543698927656
+    about: ROS & Gazebo Discord Server.
