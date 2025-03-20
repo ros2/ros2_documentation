@@ -116,7 +116,8 @@ To convert the interfaces you defined into language-specific code (like C++ and 
 
 .. note::
 
-  The first argument (library name) in the rosidl_generate_interfaces must match ${PROJECT_NAME} (see https://github.com/ros2/rosidl/issues/441#issuecomment-591025515).
+  The first argument (library name) in the ``rosidl_generate_interfaces`` must start with the name of the package, e.g., simply ``${PROJECT_NAME}`` or ``${PROJECT_NAME}_suffix``.
+  See https://github.com/ros2/rosidl/issues/441#issuecomment-591025515.
 
 4 ``package.xml``
 ^^^^^^^^^^^^^^^^^
