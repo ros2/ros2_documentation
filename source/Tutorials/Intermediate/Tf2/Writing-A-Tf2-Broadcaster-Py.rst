@@ -333,7 +333,7 @@ The ``data_files`` field should now look like this:
 
     data_files=[
         ...
-        (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*launch.[pxy][yma]*'))),
+        (os.path.join('share', package_name, 'launch'), glob('launch/*')),
     ],
 
 Also add the appropriate imports at the top of the file:
