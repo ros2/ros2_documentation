@@ -208,6 +208,7 @@ To do that, firstly, we need to remove the ``namespace="turtlesim2"`` value from
 Afterwards, we need to replace the ``<include file="$(find-pkg-share launch_tutorial)/launch/turtlesim_world_2.launch" />`` action in ``turtlesim_bringup.launch`` with:
 
 .. code-block:: xml
+
    <group>
       <push-ros-namespace namespace="turtlesim2"/>
       <include file="$(find-pkg-share launch_tutorial)/launch/turtlesim_world_2.launch" />
