@@ -254,28 +254,9 @@ Now create a launch file for this demo.
 Create a ``launch`` folder in the ``src/learning_tf2_py`` directory.
 With your text editor, create a new file called ``turtle_tf2_demo_launch.py`` in the ``launch`` folder, and add the following lines:
 
-.. code-block:: python
+.. literalinclude:: launch/py_turtle_tf2_demo_launch.py
+    :name: turtle_tf2_demo_launch.py
 
-    from launch import LaunchDescription
-    from launch_ros.actions import Node
-
-
-    def generate_launch_description():
-        return LaunchDescription([
-            Node(
-                package='turtlesim',
-                executable='turtlesim_node',
-                name='sim'
-            ),
-            Node(
-                package='learning_tf2_py',
-                executable='turtle_tf2_broadcaster',
-                name='broadcaster1',
-                parameters=[
-                    {'turtlename': 'turtle1'}
-                ]
-            ),
-        ])
 
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
