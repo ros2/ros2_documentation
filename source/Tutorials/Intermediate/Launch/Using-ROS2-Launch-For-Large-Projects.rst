@@ -59,58 +59,7 @@ We will now go over the top-level launch file structure that makes this possible
 Firstly, we will create a launch file that will call separate launch files.
 To do this, let's create a ``launch_turtlesim_launch.py`` file in the ``/launch`` folder of our ``launch_tutorial`` package.
 
-.. code-block:: Python
-
-   import os
-
-   from ament_index_python.packages import get_package_share_directory
-
-   from launch import LaunchDescription
-   from launch.actions import IncludeLaunchDescription
-   from launch.launch_description_sources import PythonLaunchDescriptionSource
-
-
-   def generate_launch_description():
-      turtlesim_world_1 = IncludeLaunchDescription(
-         PythonLaunchDescriptionSource([os.path.join(
-            get_package_share_directory('launch_tutorial'), 'launch'),
-            '/turtlesim_world_1_launch.py'])
-         )
-      turtlesim_world_2 = IncludeLaunchDescription(
-         PythonLaunchDescriptionSource([os.path.join(
-            get_package_share_directory('launch_tutorial'), 'launch'),
-            '/turtlesim_world_2_launch.py'])
-         )
-      broadcaster_listener_nodes = IncludeLaunchDescription(
-         PythonLaunchDescriptionSource([os.path.join(
-            get_package_share_directory('launch_tutorial'), 'launch'),
-            '/broadcaster_listener_launch.py']),
-         launch_arguments={'target_frame': 'carrot1'}.items(),
-         )
-      mimic_node = IncludeLaunchDescription(
-         PythonLaunchDescriptionSource([os.path.join(
-            get_package_share_directory('launch_tutorial'), 'launch'),
-            '/mimic_launch.py'])
-         )
-      fixed_frame_node = IncludeLaunchDescription(
-         PythonLaunchDescriptionSource([os.path.join(
-            get_package_share_directory('launch_tutorial'), 'launch'),
-            '/fixed_broadcaster_launch.py'])
-         )
-      rviz_node = IncludeLaunchDescription(
-         PythonLaunchDescriptionSource([os.path.join(
-            get_package_share_directory('launch_tutorial'), 'launch'),
-            '/turtlesim_rviz_launch.py'])
-         )
-
-      return LaunchDescription([
-         turtlesim_world_1,
-         turtlesim_world_2,
-         broadcaster_listener_nodes,
-         mimic_node,
-         fixed_frame_node,
-         rviz_node
-      ])
+.. literalinclude:: launch/launch_turtlesim_launch.py
 
 This launch file includes a set of other launch files.
 Each of these included launch files contains nodes, parameters, and possibly, nested includes, which pertain to one part of the system.
@@ -134,41 +83,7 @@ However, there are cases when some nodes or launch files have to be launched sep
 We will begin by writing a launch file that will start our first turtlesim simulation.
 First, create a new file called ``turtlesim_world_1_launch.py``.
 
-.. code-block:: Python
-
-   from launch import LaunchDescription
-   from launch.actions import DeclareLaunchArgument
-   from launch.substitutions import LaunchConfiguration, TextSubstitution
-
-   from launch_ros.actions import Node
-
-
-   def generate_launch_description():
-      background_r_launch_arg = DeclareLaunchArgument(
-         'background_r', default_value=TextSubstitution(text='0')
-      )
-      background_g_launch_arg = DeclareLaunchArgument(
-         'background_g', default_value=TextSubstitution(text='84')
-      )
-      background_b_launch_arg = DeclareLaunchArgument(
-         'background_b', default_value=TextSubstitution(text='122')
-      )
-
-      return LaunchDescription([
-         background_r_launch_arg,
-         background_g_launch_arg,
-         background_b_launch_arg,
-         Node(
-            package='turtlesim',
-            executable='turtlesim_node',
-            name='sim',
-            parameters=[{
-               'background_r': LaunchConfiguration('background_r'),
-               'background_g': LaunchConfiguration('background_g'),
-               'background_b': LaunchConfiguration('background_b'),
-            }]
-         ),
-      ])
+.. literalinclude:: launch/turtlesim_world_1_launch.py
 
 This launch file starts the ``turtlesim_node`` node, which starts the turtlesim simulation, with simulation configuration parameters that are defined and passed to the nodes.
 
@@ -180,32 +95,7 @@ This launch file starts the ``turtlesim_node`` node, which starts the turtlesim 
 In the second launch, we will start a second turtlesim simulation with a different configuration.
 Now create a ``turtlesim_world_2_launch.py`` file.
 
-.. code-block:: Python
-
-   import os
-
-   from ament_index_python.packages import get_package_share_directory
-
-   from launch import LaunchDescription
-   from launch_ros.actions import Node
-
-
-   def generate_launch_description():
-      config = os.path.join(
-         get_package_share_directory('launch_tutorial'),
-         'config',
-         'turtlesim.yaml'
-         )
-
-      return LaunchDescription([
-         Node(
-            package='turtlesim',
-            executable='turtlesim_node',
-            namespace='turtlesim2',
-            name='sim',
-            parameters=[config]
-         )
-      ])
+.. literalinclude:: launch/turtlesim_world_2_launch.py
 
 This launch file will launch the same ``turtlesim_node`` with parameter values that are loaded directly from the YAML configuration file.
 Defining arguments and parameters in YAML files make it easy to store and load a large number of variables.
@@ -234,16 +124,8 @@ A solution is to use wildcard characters, which act as substitutions for unknown
 
 Now let's create a new ``turtlesim_world_3_launch.py`` file similar to ``turtlesim_world_2_launch.py`` to include one more ``turtlesim_node`` node.
 
-.. code-block:: Python
-
-   ...
-   Node(
-      package='turtlesim',
-      executable='turtlesim_node',
-      namespace='turtlesim3',
-      name='sim',
-      parameters=[config]
-   )
+.. literalinclude:: launch/turtlesim_world_3_launch.py
+   :emphasize-lines: 19
 
 Loading the same YAML file, however, will not affect the appearance of the third turtlesim world.
 The reason is that its parameters are stored under another namespace as shown below:
@@ -316,47 +198,7 @@ As a result, each node in the ``turtlesim_world_2_launch.py`` launch description
 
 Now create a ``broadcaster_listener_launch.py`` file.
 
-.. code-block:: Python
-
-   from launch import LaunchDescription
-   from launch.actions import DeclareLaunchArgument
-   from launch.substitutions import LaunchConfiguration
-
-   from launch_ros.actions import Node
-
-
-   def generate_launch_description():
-      return LaunchDescription([
-         DeclareLaunchArgument(
-            'target_frame', default_value='turtle1',
-            description='Target frame name.'
-         ),
-         Node(
-            package='turtle_tf2_py',
-            executable='turtle_tf2_broadcaster',
-            name='broadcaster1',
-            parameters=[
-               {'turtlename': 'turtle1'}
-            ]
-         ),
-         Node(
-            package='turtle_tf2_py',
-            executable='turtle_tf2_broadcaster',
-            name='broadcaster2',
-            parameters=[
-               {'turtlename': 'turtle2'}
-            ]
-         ),
-         Node(
-            package='turtle_tf2_py',
-            executable='turtle_tf2_listener',
-            name='listener',
-            parameters=[
-               {'target_frame': LaunchConfiguration('target_frame')}
-            ]
-         ),
-      ])
-
+.. literalinclude:: launch/broadcast_listener_launch.py
 
 In this file, we have declared the ``target_frame`` launch argument with a default value of ``turtle1``.
 The default value means that the launch file can receive an argument to forward to its nodes, or in case the argument is not provided, it will pass the default value to its nodes.
@@ -372,14 +214,8 @@ We also start a ``turtle_tf2_listener`` node and set its ``target_frame`` parame
 Recall that we called the ``broadcaster_listener_launch.py`` file in our top-level launch file.
 In addition to that, we have passed it ``target_frame`` launch argument as shown below:
 
-.. code-block:: Python
-
-   broadcaster_listener_nodes = IncludeLaunchDescription(
-      PythonLaunchDescriptionSource([os.path.join(
-         get_package_share_directory('launch_tutorial'), 'launch'),
-         '/broadcaster_listener_launch.py']),
-      launch_arguments={'target_frame': 'carrot1'}.items(),
-      )
+.. literalinclude:: launch/launch_turtlesim_launch.py
+   :lines: 21-26
 
 This syntax allows us to change the default goal target frame to ``carrot1``.
 If you would like ``turtle2`` to follow ``turtle1`` instead of the ``carrot1``, just remove the line that defines ``launch_arguments``.
@@ -390,24 +226,7 @@ This will assign ``target_frame`` its default value, which is ``turtle1``.
 
 Now create a ``mimic_launch.py`` file.
 
-.. code-block:: Python
-
-   from launch import LaunchDescription
-   from launch_ros.actions import Node
-
-
-   def generate_launch_description():
-      return LaunchDescription([
-         Node(
-            package='turtlesim',
-            executable='mimic',
-            name='mimic',
-            remappings=[
-               ('/input/pose', '/turtle2/pose'),
-               ('/output/cmd_vel', '/turtlesim2/turtle1/cmd_vel'),
-            ]
-         )
-      ])
+.. literalinclude:: launch/mimic_launch.py
 
 This launch file will start the ``mimic`` node, which will give commands to one turtlesim to follow the other.
 The node is designed to receive the target pose on the topic ``/input/pose``.
@@ -420,31 +239,7 @@ This way ``turtle1`` in our ``turtlesim2`` simulation world will follow ``turtle
 
 Let's now create a file called ``turtlesim_rviz_launch.py``.
 
-.. code-block:: Python
-
-   import os
-
-   from ament_index_python.packages import get_package_share_directory
-
-   from launch import LaunchDescription
-   from launch_ros.actions import Node
-
-
-   def generate_launch_description():
-      rviz_config = os.path.join(
-         get_package_share_directory('turtle_tf2_py'),
-         'rviz',
-         'turtle_rviz.rviz'
-         )
-
-      return LaunchDescription([
-         Node(
-            package='rviz2',
-            executable='rviz2',
-            name='rviz2',
-            arguments=['-d', rviz_config]
-         )
-      ])
+.. literalinclude:: launch/turtlesim_rviz_launch.py
 
 This launch file will start the RViz with the configuration file defined in the ``turtle_tf2_py`` package.
 This RViz configuration will set the world frame, enable TF visualization, and start RViz with a top-down view.
@@ -454,27 +249,7 @@ This RViz configuration will set the world frame, enable TF visualization, and s
 
 Let's now create the last launch file called ``fixed_broadcaster_launch.py`` in our package.
 
-.. code-block:: Python
-
-   from launch import LaunchDescription
-   from launch.actions import DeclareLaunchArgument
-   from launch.substitutions import EnvironmentVariable, LaunchConfiguration
-   from launch_ros.actions import Node
-
-
-   def generate_launch_description():
-      return LaunchDescription([
-         DeclareLaunchArgument(
-               'node_prefix',
-               default_value=[EnvironmentVariable('USER'), '_'],
-               description='prefix for node name'
-         ),
-         Node(
-               package='turtle_tf2_py',
-               executable='fixed_frame_tf2_broadcaster',
-               name=[LaunchConfiguration('node_prefix'), 'fixed_broadcaster'],
-         ),
-      ])
+.. literalinclude:: launch/fixed_broadcaster_launch.py
 
 This launch file shows the way environment variables can be called inside the launch files.
 Environment variables can be used to define or push namespaces for distinguishing nodes on different computers or robots.
