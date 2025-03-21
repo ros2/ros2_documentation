@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <!-- args that can be set from the command line or a default will be used -->
+  <arg name="background_r" default="0" />
+  <arg name="background_g" default="255" />
+  <arg name="background_b" default="0" />
+  <arg name="chatter_py_ns" default="chatter/py/ns" />
+  <arg name="chatter_xml_ns" default="chatter/xml/ns" />
+  <arg name="chatter_yaml_ns" default="chatter/yaml/ns" />
+
+  <!-- include another launch file -->
+  <include file="$(find-pkg-share demo_nodes_cpp)/launch/topics/talker_listener_launch.py" />
+
+  <!-- include a Python launch file in the chatter_py_ns namespace-->
+  <group>
+    <!-- push_ros_namespace to set namespace of included nodes -->
+    <push_ros_namespace namespace="$(var chatter_py_ns)" />
+    <include file="$(find-pkg-share demo_nodes_cpp)/launch/topics/talker_listener_launch.py" />
+  </group>
+
+  <!-- include a xml launch file in the chatter_xml_ns namespace-->
+  <group>
+    <!-- push_ros_namespace to set namespace of included nodes -->
+    <push_ros_namespace namespace="$(var chatter_xml_ns)" />
+    <include file="$(find-pkg-share demo_nodes_cpp)/launch/topics/talker_listener_launch.xml" />
+  </group>
+
+  <!-- include a yaml launch file in the chatter_yaml_ns namespace-->
+  <group>
+    <!-- push_ros_namespace to set namespace of included nodes -->
+    <push_ros_namespace namespace="$(var chatter_yaml_ns)" />
+    <include file="$(find-pkg-share demo_nodes_cpp)/launch/topics/talker_listener_launch.yaml" />
+  </group>
+
+  <!-- start a turtlesim_node in the turtlesim1 namespace -->
+  <node pkg="turtlesim" exec="turtlesim_node" name="sim" namespace="turtlesim1" />
+
+  <!-- start another turtlesim_node in the turtlesim2 namespace and use args to set parameters -->
+  <node pkg="turtlesim" exec="turtlesim_node" name="sim" namespace="turtlesim2">
+    <param name="background_r" value="$(var background_r)" />
+    <param name="background_g" value="$(var background_g)" />
+    <param name="background_b" value="$(var background_b)" />
+  </node>
+
+  <!-- perform remap so both turtles listen to the same command topic -->
+  <node pkg="turtlesim" exec="mimic" name="mimic">
+    <remap from="/input/pose" to="/turtlesim1/turtle1/pose" />
+    <remap from="/output/cmd_vel" to="/turtlesim2/turtle1/cmd_vel" />
+  </node>
+</launch>
