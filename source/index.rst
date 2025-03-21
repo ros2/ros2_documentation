@@ -170,7 +170,7 @@ Events
 * `Open Source Robotics Foundation community calendar <https://calendar.google.com/calendar/embed?src=c_3fc5c4d6ece9d80d49f136c1dcd54d7f44e1acefdbe87228c92ff268e85e2ea0%40group.calendar.google.com&ctz=America%2FLos_Angeles>`__
 
   - This calendar is for unofficial ROS community events.
-  - `Submit your events here <https://bit.ly/OSRFCommunityCalendar>`__ .
+  - `Submit your events here <https://bit.ly/OSRFCommunityCalendar>`__.
 
 Miscellaneous
 -------------
