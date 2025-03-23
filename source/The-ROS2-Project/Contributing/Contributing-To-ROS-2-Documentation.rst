@@ -13,7 +13,7 @@ Contributions to this site are most welcome.
 This page explains how to contribute to ROS 2 Documentation.
 Please be sure to read the below sections carefully before contributing.
 
-The site is built using `Sphinx <https://www.sphinx-doc.org/en/master/>`_, and more particularly using `Sphinx multiversion <https://holzhaus.github.io/sphinx-multiversion/master/index.html>`_.
+The site is built using `Sphinx <https://www.sphinx-doc.org/en/master/>`_, and more particularly using `Sphinx multiversion <https://sphinx-contrib.github.io/multiversion/main/index.html>`_.
 
 Branch structure
 ----------------

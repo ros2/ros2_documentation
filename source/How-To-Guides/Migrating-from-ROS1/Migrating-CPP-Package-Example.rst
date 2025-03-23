@@ -274,7 +274,7 @@ Add a new dependency on ``ament_cmake_ros``:
 
      <buildtool_depend>ament_cmake_ros</buildtool_depend>
 
-ROS 2 C++ libraries use `rclcpp <https://index.ros.org/p/roscpp/#noetic>`__ instead of `roscpp <https://index.ros.org/p/roscpp/#noetic>`__.
+ROS 2 C++ libraries use `rclcpp <https://index.ros.org/p/rclcpp/#{DISTRO}>`__ instead of `roscpp <https://index.ros.org/p/roscpp/#noetic>`__.
 
 Delete the dependency on ``roscpp``:
 
