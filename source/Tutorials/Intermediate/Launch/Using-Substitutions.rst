@@ -187,6 +187,26 @@ To do this, create following file in the ``launch`` folder of the ``launch_tutor
       :language: python
       :lines: 16-20
 
+    .. tip::
+
+      A list of substitutions or strings gets concatenated into a single string.
+      This generally applies to anything that supports substitutions.
+
+      For example, with ``PathJoinSubstitution``, if the file name prefix depended on a launch argument named ``file``, a list of substitutions and strings could be used to create the file name:
+
+      .. code-block:: python
+
+        # Make sure to import LaunchConfiguration:
+        # from launch.substitutions import LaunchConfiguration
+
+        PathJoinSubstitution([
+            FindPackageShare('launch_tutorial'),
+            'launch',
+            [LaunchConfiguration('file', default='example_substitutions'), '_launch', '.py']
+        ])
+
+      In this case, by default, the last path component provided to ``PathJoinSubstitution`` would resolve to ``example_substitutions_launch.py`` and would then be joined with the other path components.
+
     The ``launch_arguments`` dictionary with ``turtlesim_ns`` and ``use_provided_red`` arguments is passed to the ``IncludeLaunchDescription`` action.
     The ``TextSubstitution`` substitution is used to define the ``new_background_r`` argument with the value of the ``background_r`` key in the ``colors`` dictionary.
 
