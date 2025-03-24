@@ -49,7 +49,7 @@ It also generates code for converting ROS message structures to and from DDS mes
 This generator is also responsible for creating a shared library for the message package it is being used in, which is specific to the messages in the message package and to the DDS vendor being used.
 
 As mentioned above, the ``rosidl_typesupport_introspection_<language>`` may be used instead of a vendor specific type support package if an rmw implementation supports runtime interpretation of messages.
-This ability to programmatically send and receive types over topics without generating code beforehand is achieved by supporting the `DDS X-Types Dynamic Data standard <http://www.omg.org/spec/DDS-XTypes>`_.
+This ability to programmatically send and receive types over topics without generating code beforehand is achieved by supporting the `DDS X-Types Dynamic Data standard <https://www.omg.org/spec/DDS-XTypes/>`_.
 As such, rmw implementations may provide support for the X-Types standard, and/or provide a package for type support generated at compile time specific to their DDS implementation.
 
 As an example of an rmw implementation repository, the ``Eclipse Cyclone DDS`` ROS middleware implementation is on |GitHub|_ at `ros2/rmw_cyclonedds <https://github.com/ros2/rmw_cyclonedds>`_.
