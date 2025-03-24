@@ -26,7 +26,7 @@ Your best entry point to discover these works is the **ROS Index** `(index.ros.o
 
 *Hint for developers:* If you maintain a ``README.md`` file in the root of your package folder (which is not necessarily the root of your repository), this file is rendered into the overview page of your package at `index.ros.org <https://index.ros.org/packages/>`_.
 The file may be used for documenting your package and supersedes the package documentation pages in the ROS Wiki from ROS 1.
-See the `fmi_adapter package <https://index.ros.org/p/fmi_adapter/github-boschresearch-fmi_adapter/#foxy>`_ as an example.
+See the `fmi_adapter package <https://index.ros.org/p/fmi_adapter/#{DISTRO}>`_ as an example.
 
 Company-driven Projects
 -----------------------
