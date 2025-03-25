@@ -135,17 +135,20 @@ To do this, create following file in the ``launch`` folder of the ``launch_tutor
     Copy and paste the complete code into the ``launch/example_main_launch.xml`` file:
 
     .. literalinclude:: launch/example_main_launch.xml
+      :language: xml
 
     The ``$(find-pkg-share launch_tutorial)`` substitution is used to find the path to the ``launch_tutorial`` package.
     The path substitution is then joined with the ``example_substitutions_launch.xml`` file name.
 
     .. literalinclude:: launch/example_main_launch.xml
+      :language: xml
       :lines: 4
 
     The ``background_r`` variable with ``turtlesim_ns`` and ``use_provided_red`` arguments is passed to the ``include`` action.
     The ``$(var background_r)`` substitution is used to define the ``new_background_r`` argument with the value of the ``background_r`` variable.
 
     .. literalinclude:: launch/example_main_launch.xml
+      :language: xml
       :lines: 5-7
 
   .. group-tab:: YAML
@@ -153,17 +156,20 @@ To do this, create following file in the ``launch`` folder of the ``launch_tutor
     Copy and paste the complete code into the ``launch/example_main_launch.yaml`` file:
 
     .. literalinclude:: launch/example_main_launch.yaml
+      :language: yaml
 
     The ``$(find-pkg-share launch_tutorial)`` substitution is used to find the path to the ``launch_tutorial`` package.
     The path substitution is then joined with the ``example_substitutions_launch.yaml`` file name.
 
     .. literalinclude:: launch/example_main_launch.yaml
+      :language: yaml
       :lines: 8
 
     The ``background_r`` variable with ``turtlesim_ns`` and ``use_provided_red`` arguments is passed to the ``include`` action.
     The ``$(var background_r)`` substitution is used to define the ``new_background_r`` argument with the value of the ``background_r`` variable.
 
     .. literalinclude:: launch/example_main_launch.yaml
+      :language: yaml
       :lines: 9-15
 
 
@@ -172,17 +178,20 @@ To do this, create following file in the ``launch`` folder of the ``launch_tutor
     Copy and paste the complete code into the ``launch/example_main_launch.py`` file:
 
     .. literalinclude:: launch/example_main_launch.py
+      :language: python
 
     The ``FindPackageShare`` substitution is used to find the path to the ``launch_tutorial`` package.
     The ``PathJoinSubstitution`` substitution is then used to join the path to that package path with the ``example_substitutions_launch.py`` file name.
 
     .. literalinclude:: launch/example_main_launch.py
+      :language: python
       :lines: 17-21
 
     The ``launch_arguments`` dictionary with ``turtlesim_ns`` and ``use_provided_red`` arguments is passed to the ``IncludeLaunchDescription`` action.
     The ``TextSubstitution`` substitution is used to define the ``new_background_r`` argument with the value of the ``background_r`` key in the ``colors`` dictionary.
 
     .. literalinclude:: launch/example_main_launch.py
+      :language: python
       :lines: 23-28
 
 
@@ -198,6 +207,7 @@ Now create the substitution launch file in the same folder:
     Create the file ``launch/example_substitutions_launch.xml`` and insert the following code:
 
     .. literalinclude:: launch/example_substitutions_launch.xml
+      :language: xml
 
     The ``turtlesim_ns``, ``use_provided_red``, and ``new_background_r`` launch configurations are defined.
     They are used to store values of launch arguments in the above variables and to pass them to required actions.
@@ -206,11 +216,13 @@ Now create the substitution launch file in the same folder:
     The ``arg`` tag is used to define the launch argument that can be passed from the above launch file or from the console.
 
     .. literalinclude:: launch/example_substitutions_launch.xml
+      :language: xml
       :lines: 3-5
 
     The ``turtlesim_node`` node with the ``namespace`` set to the ``turtlesim_ns`` launch configuration value using the ``$(var <name>)`` substitution is defined.
 
     .. literalinclude:: launch/example_substitutions_launch.xml
+      :language: xml
       :lines: 7
 
     Afterwards, an ``executable`` action is defined with the corresponding ``cmd`` tag.
@@ -219,6 +231,7 @@ Now create the substitution launch file in the same folder:
     Additionally, the ``$(var <name>)`` substitution is used to get the value of the ``turtlesim_ns`` launch argument to construct a command string.
 
     .. literalinclude:: launch/example_substitutions_launch.xml
+      :language: xml
       :lines: 8
 
     The same approach is used for the ``ros2 param`` ``executable`` actions that change the turtlesim background's red color parameter.
@@ -226,6 +239,7 @@ Now create the substitution launch file in the same folder:
     The evaluation of the ``if`` predicate is done using the ``$(eval <python-expression>)`` substitution.
 
     .. literalinclude:: launch/example_substitutions_launch.xml
+      :language: xml
       :lines: 9-13
 
   .. group-tab:: YAML
@@ -233,6 +247,7 @@ Now create the substitution launch file in the same folder:
     Create the file ``launch/example_substitutions_launch.yaml`` and insert the following code:
 
     .. literalinclude:: launch/example_substitutions_launch.yaml
+      :language: yaml
 
     The ``turtlesim_ns``, ``use_provided_red``, and ``new_background_r`` launch configurations are defined.
     They are used to store values of launch arguments in the above variables and to pass them to required actions.
@@ -241,11 +256,13 @@ Now create the substitution launch file in the same folder:
     The ``arg`` tag is used to define the launch argument that can be passed from the above launch file or from the console.
 
     .. literalinclude:: launch/example_substitutions_launch.yaml
+      :language: yaml
       :lines: 4-12
 
     The ``turtlesim_node`` node with the ``namespace`` set to the ``turtlesim_ns`` launch configuration value using the ``$(var <name>)`` substitution is defined.
 
     .. literalinclude:: launch/example_substitutions_launch.yaml
+      :language: yaml
       :lines: 14-18
 
     Afterwards, an ``executable`` action is defined with the corresponding ``cmd`` tag.
@@ -254,6 +271,7 @@ Now create the substitution launch file in the same folder:
     Additionally, the ``$(var <name>)`` substitution is used to get the value of the ``turtlesim_ns`` launch argument to construct a command string.
 
     .. literalinclude:: launch/example_substitutions_launch.yaml
+      :language: yaml
       :lines: 21-22
 
     The same approach is used for the ``ros2 param`` ``executable`` actions that change the turtlesim background's red color parameter.
@@ -261,6 +279,7 @@ Now create the substitution launch file in the same folder:
     The evaluation of the ``if`` predicate is done using the ``$(eval <python-expression>)`` substitution.
 
     .. literalinclude:: launch/example_substitutions_launch.yaml
+      :language: yaml
       :lines: 21-28
 
   .. group-tab:: Python
@@ -268,6 +287,7 @@ Now create the substitution launch file in the same folder:
     Create the file ``launch/example_substitutions_launch.py`` and insert the following code:
 
     .. literalinclude:: launch/example_substitutions_launch.py
+      :language: python
 
     The ``turtlesim_ns``, ``use_provided_red``, and ``new_background_r`` launch configurations are defined.
     They are used to store values of launch arguments in the above variables and to pass them to required actions.
@@ -276,11 +296,13 @@ Now create the substitution launch file in the same folder:
     ``DeclareLaunchArgument`` is used to define the launch argument that can be passed from the above launch file or from the console.
 
     .. literalinclude:: launch/example_substitutions_launch.py
+      :language: python
       :lines: 10-25
 
     The ``turtlesim_node`` node with the ``namespace`` set to ``turtlesim_ns`` ``LaunchConfiguration`` substitution is defined.
 
     .. literalinclude:: launch/example_substitutions_launch.py
+      :language: python
       :lines: 27-32
 
     Afterwards, the ``ExecuteProcess`` action called ``spawn_turtle`` is defined with the corresponding ``cmd`` argument.
@@ -289,6 +311,7 @@ Now create the substitution launch file in the same folder:
     Additionally, the ``LaunchConfiguration`` substitution is used to get the value of the ``turtlesim_ns`` launch argument to construct a command string.
 
     .. literalinclude:: launch/example_substitutions_launch.py
+      :language: python
       :lines: 33-42
 
     The same approach is used for the ``change_background_r`` and ``change_background_r_conditioned`` actions that change the turtlesim background's red color parameter.
@@ -296,6 +319,7 @@ Now create the substitution launch file in the same folder:
     The evaluation inside the ``IfCondition`` is done using the ``PythonExpression`` substitution.
 
     .. literalinclude:: launch/example_substitutions_launch.py
+      :language: python
       :lines: 43-68
 
 4 Build the package

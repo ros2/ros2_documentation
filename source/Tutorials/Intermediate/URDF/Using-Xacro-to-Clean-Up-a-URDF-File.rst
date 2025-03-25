@@ -59,6 +59,7 @@ To run xacro within your launch file, you need to put the ``Command`` substituti
 An easier way to load the robot model is to use the `urdf_launch <https://github.com/ros/urdf_launch>`_ package to automatically load the xacro/urdf.
 
 .. literalinclude:: launch/urdf_display_launch.py
+    :language: python
 
 At the top of the URDF file, you must specify a namespace in order for the file to parse properly.
 For example, these are the first two lines of a valid xacro file:

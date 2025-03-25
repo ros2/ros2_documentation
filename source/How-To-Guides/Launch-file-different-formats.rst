@@ -30,14 +30,17 @@ Each launch file performs the following actions:
    .. group-tab:: XML
 
       .. literalinclude:: launch/different_formats_launch.xml
+        :language: xml
 
    .. group-tab:: YAML
 
       .. literalinclude:: launch/different_formats_launch.yaml
+        :language: yaml
 
    .. group-tab:: Python
 
       .. literalinclude:: launch/different_formats_launch.py
+        :language: python
 
 
 Using the Launch files from the command line

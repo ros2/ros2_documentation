@@ -55,6 +55,7 @@ Open a new terminal and run:
 This command will run the following launch file:
 
 .. literalinclude:: launch/multisim.launch.py
+   :language: python
 
 .. note::
 

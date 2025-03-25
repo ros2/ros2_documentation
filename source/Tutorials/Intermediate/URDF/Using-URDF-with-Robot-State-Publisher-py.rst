@@ -206,6 +206,7 @@ Create a new ``second_ros2_ws/src/urdf_tutorial_r2d2/launch`` folder.
 Open your editor and paste the following code, saving it as ``second_ros2_ws/src/urdf_tutorial_r2d2/launch/demo_launch.py``
 
 .. literalinclude:: launch/demo_launch.py
+  :language: python
 
 
 5 Edit the setup.py file

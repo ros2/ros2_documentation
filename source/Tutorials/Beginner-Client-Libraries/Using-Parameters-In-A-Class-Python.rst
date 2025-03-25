@@ -333,6 +333,7 @@ Inside the ``ros2_ws/src/python_parameters/`` directory, create a new directory 
 In there, create a new file called ``python_parameters_launch.py``
 
 .. literalinclude:: launch/python_parameters_launch.py
+  :language: python
 
 Here you can see that we set ``my_parameter`` to ``earth`` when we launch our node ``parameter_node``.
 By adding the two lines below, we ensure our output is printed in our console.

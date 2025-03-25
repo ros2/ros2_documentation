@@ -145,6 +145,7 @@ Make sure to create a ``launch`` directory at the top-level of the package you c
     ``_launch.xml`` is recommended, but not required, as the file suffix for XML launch files.
 
     .. literalinclude:: launch/my_script_launch.xml
+      :language: xml
 
   .. group-tab:: YAML launch file
 
@@ -152,6 +153,7 @@ Make sure to create a ``launch`` directory at the top-level of the package you c
     ``_launch.yaml`` is recommended, but not required, as the file suffix for YAML launch files.
 
     .. literalinclude:: launch/my_script_launch.yaml
+      :language: yaml
 
   .. group-tab:: Python launch file
 
@@ -162,6 +164,7 @@ Make sure to create a ``launch`` directory at the top-level of the package you c
     Your launch file should define the ``generate_launch_description()`` function which returns a ``launch.LaunchDescription()`` to be used by the ``ros2 launch`` verb.
 
     .. literalinclude:: launch/my_script_launch.py
+      :language: python
 
 
 4 Building and running the launch file

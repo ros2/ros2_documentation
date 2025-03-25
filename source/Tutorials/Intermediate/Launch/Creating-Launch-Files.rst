@@ -63,18 +63,21 @@ As mentioned above, this can either be in XML, YAML, or Python.
     Copy and paste the complete code into the ``launch/turtlesim_mimic_launch.xml`` file:
 
     .. literalinclude:: launch/turtlesim_mimic_launch.xml
+      :language: xml
 
   .. group-tab:: YAML
 
     Copy and paste the complete code into the ``launch/turtlesim_mimic_launch.yaml`` file:
 
     .. literalinclude:: launch/turtlesim_mimic_launch.yaml
+      :language: yaml
 
   .. group-tab:: Python
 
     Copy and paste the complete code into the ``launch/turtlesim_mimic_launch.py`` file:
 
     .. literalinclude:: launch/turtlesim_mimic_launch.py
+      :language: python
 
 
 2.1 Examine the launch file
@@ -101,11 +104,13 @@ In other words, ``turtlesim2`` will mimic ``turtlesim1``'s movements.
     The first two actions launch the two turtlesim windows:
 
     .. literalinclude:: launch/turtlesim_mimic_launch.xml
+      :language: xml
       :lines: 3-4
 
     The final action launches the mimic node with the remaps:
 
     .. literalinclude:: launch/turtlesim_mimic_launch.xml
+      :language: xml
       :lines: 5-8
 
   .. group-tab:: YAML
@@ -113,11 +118,13 @@ In other words, ``turtlesim2`` will mimic ``turtlesim1``'s movements.
     The first two actions launch the two turtlesim windows:
 
     .. literalinclude:: launch/turtlesim_mimic_launch.yaml
+      :language: yaml
       :lines: 4-14
 
     The final action launches the mimic node with the remaps:
 
     .. literalinclude:: launch/turtlesim_mimic_launch.yaml
+      :language: yaml
       :lines: 16-24
 
   .. group-tab:: Python
@@ -125,21 +132,25 @@ In other words, ``turtlesim2`` will mimic ``turtlesim1``'s movements.
     These import statements pull in some Python ``launch`` modules.
 
     .. literalinclude:: launch/turtlesim_mimic_launch.py
+      :language: python
       :lines: 1-2
 
     Next, the launch description itself begins:
 
     .. literalinclude:: launch/turtlesim_mimic_launch.py
+      :language: python
       :lines: 4-5,27
 
     The first two actions in the launch description launch the two turtlesim windows:
 
     .. literalinclude:: launch/turtlesim_mimic_launch.py
+      :language: python
       :lines: 6-17
 
     The final action launches the mimic node with the remaps:
 
     .. literalinclude:: launch/turtlesim_mimic_launch.py
+      :language: python
       :lines: 18-26
 
 

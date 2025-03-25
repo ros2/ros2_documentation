@@ -32,14 +32,17 @@ The launch files all do the following:
   .. group-tab:: XML
 
     .. literalinclude:: launch/composition_launch.xml
+      :language: xml
 
   .. group-tab:: YAML
 
     .. literalinclude:: launch/composition_launch.yaml
+      :language: yaml
 
   .. group-tab:: Python
 
     .. literalinclude:: launch/composition_launch.py
+      :language: python
 
 
 Loading composable nodes into an existing container
@@ -55,14 +58,17 @@ The below example launches the same nodes as above.
   .. group-tab:: XML
 
     .. literalinclude:: launch/composition_load_launch.xml
+      :language: xml
 
   .. group-tab:: YAML
 
     .. literalinclude:: launch/composition_load_launch.yaml
+      :language: yaml
 
   .. group-tab:: Python
 
     .. literalinclude:: launch/composition_load_launch.py
+      :language: python
 
 
 Using the Launch files from the command-line

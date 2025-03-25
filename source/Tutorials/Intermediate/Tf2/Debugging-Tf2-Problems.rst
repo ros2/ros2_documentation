@@ -73,6 +73,7 @@ And save changes to the file.
 In order to run this demo, we need to create a launch file ``start_tf2_debug_demo_launch.py`` in the ``launch`` subdirectory of package ``learning_tf2_cpp``:
 
 .. literalinclude:: launch/start_tf2_debug_demo_launch.py
+   :language: python
 
 Don't forget to add the ``turtle_tf2_listener_debug`` executable to the ``CMakeLists.txt`` and build the package.
 

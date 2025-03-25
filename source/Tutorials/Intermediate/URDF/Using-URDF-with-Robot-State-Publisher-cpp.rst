@@ -208,6 +208,7 @@ Create a new ``urdf_tutorial_cpp/launch`` folder.
 Open your editor and paste the following code, saving it as ``urdf_tutorial_cpp/launch/launch.py``
 
 .. literalinclude:: launch/launch.py
+  :language: python
 
 
 5 Edit the CMakeLists.txt file

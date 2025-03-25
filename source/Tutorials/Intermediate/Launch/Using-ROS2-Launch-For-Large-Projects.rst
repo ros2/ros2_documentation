@@ -60,6 +60,7 @@ Firstly, we will create a launch file that will call separate launch files.
 To do this, let's create a ``launch_turtlesim_launch.py`` file in the ``/launch`` folder of our ``launch_tutorial`` package.
 
 .. literalinclude:: launch/launch_turtlesim_launch.py
+   :language: python
 
 This launch file includes a set of other launch files.
 Each of these included launch files contains nodes, parameters, and possibly, nested includes, which pertain to one part of the system.
@@ -84,6 +85,7 @@ We will begin by writing a launch file that will start our first turtlesim simul
 First, create a new file called ``turtlesim_world_1_launch.py``.
 
 .. literalinclude:: launch/turtlesim_world_1_launch.py
+   :language: python
 
 This launch file starts the ``turtlesim_node`` node, which starts the turtlesim simulation, with simulation configuration parameters that are defined and passed to the nodes.
 
@@ -96,6 +98,7 @@ In the second launch, we will start a second turtlesim simulation with a differe
 Now create a ``turtlesim_world_2_launch.py`` file.
 
 .. literalinclude:: launch/turtlesim_world_2_launch.py
+   :language: python
 
 This launch file will launch the same ``turtlesim_node`` with parameter values that are loaded directly from the YAML configuration file.
 Defining arguments and parameters in YAML files make it easy to store and load a large number of variables.
@@ -125,6 +128,7 @@ A solution is to use wildcard characters, which act as substitutions for unknown
 Now let's create a new ``turtlesim_world_3_launch.py`` file similar to ``turtlesim_world_2_launch.py`` to include one more ``turtlesim_node`` node.
 
 .. literalinclude:: launch/turtlesim_world_3_launch.py
+   :language: python
    :emphasize-lines: 19
 
 Loading the same YAML file, however, will not affect the appearance of the third turtlesim world.
@@ -199,6 +203,7 @@ As a result, each node in the ``turtlesim_world_2_launch.py`` launch description
 Now create a ``broadcaster_listener_launch.py`` file.
 
 .. literalinclude:: launch/broadcast_listener_launch.py
+   :language: python
 
 In this file, we have declared the ``target_frame`` launch argument with a default value of ``turtle1``.
 The default value means that the launch file can receive an argument to forward to its nodes, or in case the argument is not provided, it will pass the default value to its nodes.
@@ -227,6 +232,7 @@ This will assign ``target_frame`` its default value, which is ``turtle1``.
 Now create a ``mimic_launch.py`` file.
 
 .. literalinclude:: launch/mimic_launch.py
+   :language: python
 
 This launch file will start the ``mimic`` node, which will give commands to one turtlesim to follow the other.
 The node is designed to receive the target pose on the topic ``/input/pose``.
@@ -240,6 +246,7 @@ This way ``turtle1`` in our ``turtlesim2`` simulation world will follow ``turtle
 Let's now create a file called ``turtlesim_rviz_launch.py``.
 
 .. literalinclude:: launch/turtlesim_rviz_launch.py
+   :language: python
 
 This launch file will start the RViz with the configuration file defined in the ``turtle_tf2_py`` package.
 This RViz configuration will set the world frame, enable TF visualization, and start RViz with a top-down view.
@@ -250,6 +257,7 @@ This RViz configuration will set the world frame, enable TF visualization, and s
 Let's now create the last launch file called ``fixed_broadcaster_launch.py`` in our package.
 
 .. literalinclude:: launch/fixed_broadcaster_launch.py
+   :language: python
 
 This launch file shows the way environment variables can be called inside the launch files.
 Environment variables can be used to define or push namespaces for distinguishing nodes on different computers or robots.

@@ -44,6 +44,7 @@ Using event handlers
 Create a new file called ``example_event_handlers_launch.py`` file in the ``launch`` folder of the ``launch_tutorial`` package.
 
 .. literalinclude:: launch/example_event_handlers_launch.py
+    :language: python
 
 ``RegisterEventHandler`` actions for the ``OnProcessStart``, ``OnProcessIO``, ``OnExecutionComplete``, ``OnProcessExit``, and ``OnShutdown`` events were defined in the launch description.
 
@@ -51,18 +52,21 @@ The ``OnProcessStart`` event handler is used to register a callback function tha
 It logs a message to the console and executes the ``spawn_turtle`` action when the turtlesim node starts.
 
 .. literalinclude:: launch/example_event_handlers_launch.py
+    :language: python
     :lines: 84-92
 
 The ``OnProcessIO`` event handler is used to register a callback function that is executed when the ``spawn_turtle`` action writes to its standard output.
 It logs the result of the spawn request.
 
 .. literalinclude:: launch/example_event_handlers_launch.py
+    :language: python
     :lines: 93-101
 
 The ``OnExecutionComplete`` event handler is used to register a callback function that is executed when the ``spawn_turtle`` action completes.
 It logs a message to the console and executes the ``change_background_r`` and ``change_background_r_conditioned`` actions when the spawn action completes.
 
 .. literalinclude:: launch/example_event_handlers_launch.py
+    :language: python
     :lines: 102-114
 
 The ``OnProcessExit`` event handler is used to register a callback function that is executed when the turtlesim node exits.
@@ -70,6 +74,7 @@ It logs a message to the console and executes the ``EmitEvent`` action to emit a
 It means that the launch process will shutdown when the turtlesim window is closed.
 
 .. literalinclude:: launch/example_event_handlers_launch.py
+    :language: python
     :lines: 115-125
 
 Finally, the ``OnShutdown`` event handler is used to register a callback function that is executed when the launch file is asked to shutdown.
@@ -77,6 +82,7 @@ It logs a message to the console why the launch file is asked to shutdown.
 It logs the message with a reason for shutdown like the closure of turtlesim window or :kbd:`ctrl-c` signal made by the user.
 
 .. literalinclude:: launch/example_event_handlers_launch.py
+    :language: python
     :lines: 126-133
 
 Build the package
