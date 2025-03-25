@@ -119,7 +119,11 @@ and a ``setup.py`` file that looks like:
            # Include our package.xml file
            (os.path.join('share', package_name), ['package.xml']),
            # Include all launch files.
+<<<<<<< HEAD
            (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*.launch.py'))),
+=======
+           (os.path.join('share', package_name, 'launch'), glob('launch/*')),
+>>>>>>> d002d60 (In setuptools packages, install everything in launch directory (#5156))
        ],
        # This is important as well
        install_requires=['setuptools'],

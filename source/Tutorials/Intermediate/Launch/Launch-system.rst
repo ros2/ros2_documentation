@@ -115,7 +115,7 @@ Make sure to create a ``launch`` directory at the top-level of the package you c
           data_files=[
               # ... Other data files
               # Include all launch files.
-              (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*launch.[pxy][yma]*')))
+              (os.path.join('share', package_name, 'launch'), glob('launch/*'))
           ]
       )
 

@@ -266,7 +266,7 @@ Edit the ``second_ros2_ws/src/urdf_tutorial_r2d2/setup.py`` file as follows:
 
   data_files=[
     ...
-    (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*launch.[pxy][yma]*'))),
+    (os.path.join('share', package_name, 'launch'), glob('launch/*')),
     (os.path.join('share', package_name), glob('urdf/*')),
   ],
 

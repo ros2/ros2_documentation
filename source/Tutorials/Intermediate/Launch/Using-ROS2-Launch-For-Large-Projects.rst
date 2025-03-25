@@ -494,11 +494,15 @@ The ``data_files`` field should now look like this:
    data_files=[
          ...
          (os.path.join('share', package_name, 'launch'),
+<<<<<<< HEAD
             glob(os.path.join('launch', '*.launch.py'))),
+=======
+            glob('launch/*')),
+>>>>>>> d002d60 (In setuptools packages, install everything in launch directory (#5156))
          (os.path.join('share', package_name, 'config'),
-            glob(os.path.join('config', '*.yaml'))),
+            glob('config/*.yaml')),
          (os.path.join('share', package_name, 'rviz'),
-            glob(os.path.join('config', '*.rviz'))),
+            glob('config/*.rviz')),
       ],
 
 2 Build and run
