@@ -429,8 +429,8 @@ The following repositories are managed by the ROS PMC:
 Upcoming ROS Events
 -------------------
 
-Upcoming ROS Events can be found in this `Google Calendar <https://calendar.google.com/calendar/embed?src=agf3kajirket8khktupm9go748%40group.calendar.google.com&ctz=America%2FLos_Angeles>`_.
-It can be accessed via `iCal <https://calendar.google.com/calendar/ical/agf3kajirket8khktupm9go748%40group.calendar.google.com/public/basic.ics>`_.
+Upcoming official Open Source Robotics Foundation events can be found in this `Google Calendar <https://calendar.google.com/calendar/embed?src=agf3kajirket8khktupm9go748%40group.calendar.google.com&ctz=America%2FLos_Angeles>`__.
+It can be accessed via `iCal <https://calendar.google.com/calendar/ical/agf3kajirket8khktupm9go748%40group.calendar.google.com/public/basic.ics>`__.
 
 .. raw:: html
 
@@ -466,5 +466,19 @@ It can be accessed via `iCal <https://calendar.google.com/calendar/ical/agf3kaji
       <div class="phoneContent"><iframe src="https://calendar.google.com/calendar/embed?mode=AGENDA&amp;height=400&amp;wkst=1&amp;src=agf3kajirket8khktupm9go748%40group.calendar.google.com" style="border: 0" width="280" height="500" frameborder="0" scrolling="no"></iframe>
       </div>
     </div>
+    <br>
 
-If you have an individual event or series of events that you'd like to post please contact info@openrobotics.org.
+Upcoming unofficial ROS community events can be found in this `Google Calendar <https://calendar.google.com/calendar/embed?src=c_3fc5c4d6ece9d80d49f136c1dcd54d7f44e1acefdbe87228c92ff268e85e2ea0@group.calendar.google.com>`__.
+It can be accessed via `iCal <https://calendar.google.com/calendar/ical/c_3fc5c4d6ece9d80d49f136c1dcd54d7f44e1acefdbe87228c92ff268e85e2ea0@group.calendar.google.com/public/basic.ics>`__.
+If you have an individual event or series of events that you'd like to post, please `submit it using this form <https://bit.ly/OSRFCalendarForm>`_.
+
+.. raw:: html
+
+    <div class="responsiveCal">
+      <div class="deskContent">
+        <iframe src="https://calendar.google.com/calendar/embed?src=c_3fc5c4d6ece9d80d49f136c1dcd54d7f44e1acefdbe87228c92ff268e85e2ea0@group.calendar.google.com" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+      </div>
+      <div class="phoneContent"><iframe src="https://calendar.google.com/calendar/embed?mode=AGENDA&amp;height=400&amp;wkst=1&amp;src=c_3fc5c4d6ece9d80d49f136c1dcd54d7f44e1acefdbe87228c92ff268e85e2ea0@group.calendar.google.com" style="border: 0" width="280" height="500" frameborder="0" scrolling="no"></iframe>
+      </div>
+    </div>
+    <br>
