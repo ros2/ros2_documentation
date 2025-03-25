@@ -17,7 +17,11 @@ def generate_launch_description():
                     plugin='image_tools::Cam2Image',
                     name='cam2image',
                     remappings=[('/image', '/burgerimage')],
-                    parameters=[{'width': 320, 'height': 240, 'burger_mode': True, 'history': 'keep_last'}],
+                    parameters=[{
+                        'width': 320,
+                        'height': 240,
+                        'burger_mode': True,
+                        'history': 'keep_last'}],
                     extra_arguments=[{'use_intra_process_comms': True}]),
                 ComposableNode(
                     package='image_tools',

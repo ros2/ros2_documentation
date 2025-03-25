@@ -1,5 +1,3 @@
-   # turtlesim/launch/multisim.launch.py
-
 from launch import LaunchDescription
 import launch_ros.actions
 

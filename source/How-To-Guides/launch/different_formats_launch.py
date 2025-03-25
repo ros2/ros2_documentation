@@ -19,22 +19,22 @@ def generate_launch_description():
 
     # args that can be set from the command line or a default will be used
     background_r_launch_arg = DeclareLaunchArgument(
-        "background_r", default_value=TextSubstitution(text="0")
+        'background_r', default_value=TextSubstitution(text='0')
     )
     background_g_launch_arg = DeclareLaunchArgument(
-        "background_g", default_value=TextSubstitution(text="255")
+        'background_g', default_value=TextSubstitution(text='255')
     )
     background_b_launch_arg = DeclareLaunchArgument(
-        "background_b", default_value=TextSubstitution(text="0")
+        'background_b', default_value=TextSubstitution(text='0')
     )
     chatter_py_ns_launch_arg = DeclareLaunchArgument(
-        "chatter_py_ns", default_value=TextSubstitution(text="chatter/py/ns")
+        'chatter_py_ns', default_value=TextSubstitution(text='chatter/py/ns')
     )
     chatter_xml_ns_launch_arg = DeclareLaunchArgument(
-        "chatter_xml_ns", default_value=TextSubstitution(text="chatter/xml/ns")
+        'chatter_xml_ns', default_value=TextSubstitution(text='chatter/xml/ns')
     )
     chatter_yaml_ns_launch_arg = DeclareLaunchArgument(
-        "chatter_yaml_ns", default_value=TextSubstitution(text="chatter/yaml/ns")
+        'chatter_yaml_ns', default_value=TextSubstitution(text='chatter/yaml/ns')
     )
 
     # include another launch file
@@ -102,9 +102,9 @@ def generate_launch_description():
         executable='turtlesim_node',
         name='sim',
         parameters=[{
-            "background_r": LaunchConfiguration('background_r'),
-            "background_g": LaunchConfiguration('background_g'),
-            "background_b": LaunchConfiguration('background_b'),
+            'background_r': LaunchConfiguration('background_r'),
+            'background_g': LaunchConfiguration('background_g'),
+            'background_b': LaunchConfiguration('background_b'),
         }]
     )
 

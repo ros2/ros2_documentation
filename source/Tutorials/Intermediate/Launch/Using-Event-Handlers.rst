@@ -53,21 +53,21 @@ It logs a message to the console and executes the ``spawn_turtle`` action when t
 
 .. literalinclude:: launch/example_event_handlers_launch.py
     :language: python
-    :lines: 84-92
+    :lines: 98-106
 
 The ``OnProcessIO`` event handler is used to register a callback function that is executed when the ``spawn_turtle`` action writes to its standard output.
 It logs the result of the spawn request.
 
 .. literalinclude:: launch/example_event_handlers_launch.py
     :language: python
-    :lines: 93-101
+    :lines: 107-115
 
 The ``OnExecutionComplete`` event handler is used to register a callback function that is executed when the ``spawn_turtle`` action completes.
 It logs a message to the console and executes the ``change_background_r`` and ``change_background_r_conditioned`` actions when the spawn action completes.
 
 .. literalinclude:: launch/example_event_handlers_launch.py
     :language: python
-    :lines: 102-114
+    :lines: 116-128
 
 The ``OnProcessExit`` event handler is used to register a callback function that is executed when the turtlesim node exits.
 It logs a message to the console and executes the ``EmitEvent`` action to emit a ``Shutdown`` event when the turtlesim node exits.
@@ -75,7 +75,7 @@ It means that the launch process will shutdown when the turtlesim window is clos
 
 .. literalinclude:: launch/example_event_handlers_launch.py
     :language: python
-    :lines: 115-125
+    :lines: 129-139
 
 Finally, the ``OnShutdown`` event handler is used to register a callback function that is executed when the launch file is asked to shutdown.
 It logs a message to the console why the launch file is asked to shutdown.
@@ -83,7 +83,7 @@ It logs the message with a reason for shutdown like the closure of turtlesim win
 
 .. literalinclude:: launch/example_event_handlers_launch.py
     :language: python
-    :lines: 126-133
+    :lines: 140-146
 
 Build the package
 -----------------

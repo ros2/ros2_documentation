@@ -1,15 +1,29 @@
-from launch_ros.actions import Node
-
 from launch import LaunchDescription
-from launch.actions import (DeclareLaunchArgument, EmitEvent, ExecuteProcess,
-                            LogInfo, RegisterEventHandler, TimerAction)
+from launch.actions import (
+    DeclareLaunchArgument,
+    EmitEvent,
+    ExecuteProcess,
+    LogInfo,
+    RegisterEventHandler,
+    TimerAction
+)
 from launch.conditions import IfCondition
-from launch.event_handlers import (OnExecutionComplete, OnProcessExit,
-                                OnProcessIO, OnProcessStart, OnShutdown)
+from launch.event_handlers import (
+    OnExecutionComplete,
+    OnProcessExit,
+    OnProcessIO,
+    OnProcessStart,
+    OnShutdown
+)
 from launch.events import Shutdown
-from launch.substitutions import (EnvironmentVariable, FindExecutable,
-                                LaunchConfiguration, LocalSubstitution,
-                                PythonExpression)
+from launch.substitutions import (
+    EnvironmentVariable,
+    FindExecutable,
+    LaunchConfiguration,
+    LocalSubstitution,
+    PythonExpression
+)
+from launch_ros.actions import Node
 
 
 def generate_launch_description():
@@ -126,8 +140,7 @@ def generate_launch_description():
         RegisterEventHandler(
             OnShutdown(
                 on_shutdown=[LogInfo(
-                    msg=['Launch was asked to shutdown: ',
-                        LocalSubstitution('event.reason')]
+                    msg=['Launch was asked to shutdown: ', LocalSubstitution('event.reason')]
                 )]
             )
         ),

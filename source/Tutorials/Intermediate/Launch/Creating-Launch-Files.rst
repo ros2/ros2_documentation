@@ -139,19 +139,19 @@ In other words, ``turtlesim2`` will mimic ``turtlesim1``'s movements.
 
     .. literalinclude:: launch/turtlesim_mimic_launch.py
       :language: python
-      :lines: 4-5,27
+      :lines: 5-7,28
 
     The first two actions in the launch description launch the two turtlesim windows:
 
     .. literalinclude:: launch/turtlesim_mimic_launch.py
       :language: python
-      :lines: 6-17
+      :lines: 7-18
 
     The final action launches the mimic node with the remaps:
 
     .. literalinclude:: launch/turtlesim_mimic_launch.py
       :language: python
-      :lines: 18-26
+      :lines: 19-27
 
 
 3 ros2 launch

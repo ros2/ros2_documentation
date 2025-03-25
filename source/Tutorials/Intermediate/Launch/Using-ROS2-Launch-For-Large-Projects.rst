@@ -125,7 +125,7 @@ These nodes could have different namespaces or names but still have the same par
 Defining separate YAML files that explicitly define namespaces and node names is not efficient.
 A solution is to use wildcard characters, which act as substitutions for unknown characters in a text value, to apply parameters to several different nodes.
 
-Now let's create a new ``turtlesim_world_3_launch.py`` file similar to ``turtlesim_world_2_launch.py`` to include one more ``turtlesim_node`` node.
+Now let's create a new ``turtlesim_world_3_launch.py`` file similar to ``turtlesim_world_2_launch.py`` to include one more ``turtlesim_node`` node in a new namespace ``turtlesim3``:
 
 .. literalinclude:: launch/turtlesim_world_3_launch.py
    :language: python
@@ -220,6 +220,7 @@ Recall that we called the ``broadcaster_listener_launch.py`` file in our top-lev
 In addition to that, we have passed it ``target_frame`` launch argument as shown below:
 
 .. literalinclude:: launch/launch_turtlesim_launch.py
+   :language: python
    :lines: 21-26
 
 This syntax allows us to change the default goal target frame to ``carrot1``.

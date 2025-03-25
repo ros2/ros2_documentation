@@ -185,14 +185,14 @@ To do this, create following file in the ``launch`` folder of the ``launch_tutor
 
     .. literalinclude:: launch/example_main_launch.py
       :language: python
-      :lines: 17-21
+      :lines: 16-21
 
     The ``launch_arguments`` dictionary with ``turtlesim_ns`` and ``use_provided_red`` arguments is passed to the ``IncludeLaunchDescription`` action.
     The ``TextSubstitution`` substitution is used to define the ``new_background_r`` argument with the value of the ``background_r`` key in the ``colors`` dictionary.
 
     .. literalinclude:: launch/example_main_launch.py
       :language: python
-      :lines: 23-28
+      :lines: 22-26
 
 
 3 Substitutions example launch file
@@ -297,13 +297,13 @@ Now create the substitution launch file in the same folder:
 
     .. literalinclude:: launch/example_substitutions_launch.py
       :language: python
-      :lines: 10-25
+      :lines: 13-24
 
     The ``turtlesim_node`` node with the ``namespace`` set to ``turtlesim_ns`` ``LaunchConfiguration`` substitution is defined.
 
     .. literalinclude:: launch/example_substitutions_launch.py
       :language: python
-      :lines: 27-32
+      :lines: 26-31
 
     Afterwards, the ``ExecuteProcess`` action called ``spawn_turtle`` is defined with the corresponding ``cmd`` argument.
     This command makes a call to the spawn service of the turtlesim node.
@@ -312,7 +312,7 @@ Now create the substitution launch file in the same folder:
 
     .. literalinclude:: launch/example_substitutions_launch.py
       :language: python
-      :lines: 33-42
+      :lines: 32-41
 
     The same approach is used for the ``change_background_r`` and ``change_background_r_conditioned`` actions that change the turtlesim background's red color parameter.
     The difference is that the ``change_background_r_conditioned`` action is only executed if the provided ``new_background_r`` argument equals ``200`` and the ``use_provided_red`` launch argument is set to ``True``.
@@ -320,7 +320,7 @@ Now create the substitution launch file in the same folder:
 
     .. literalinclude:: launch/example_substitutions_launch.py
       :language: python
-      :lines: 43-68
+      :lines: 42-67
 
 4 Build the package
 ^^^^^^^^^^^^^^^^^^^
