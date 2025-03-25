@@ -372,7 +372,7 @@ Add the ``import`` statements to the top of the file, and the other new statemen
       # ...
       data_files=[
           # ...
-          (os.path.join('share', package_name), glob('launch/*')),
+          (os.path.join('share', package_name, 'launch'), glob('launch/*')),
         ]
       )
 
