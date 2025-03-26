@@ -17,7 +17,7 @@ launch:
       exec: "turtlesim_node"
       name: "sim"
   - executable:
-      cmd: 'ros2 service call $(var turtlesim_ns)/spawn turtlesim_msgs/srv/Spawn "{x: 5, y: 2, theta: 0.2}"'
+      cmd: 'ros2 service call $(var turtlesim_ns)/spawn turtlesim/srv/Spawn "{x: 5, y: 2, theta: 0.2}"'
   - executable:
       cmd: "ros2 param set $(var turtlesim_ns)/sim background_r 120"
   - timer:
