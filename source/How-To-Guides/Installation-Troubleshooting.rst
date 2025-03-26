@@ -104,12 +104,22 @@ If you encounter exceptions when trying to source the environment after building
    colcon version-check  # check if newer versions available
    sudo apt install python3-colcon* --only-upgrade  # upgrade installed colcon packages to latest version
 
-Anaconda Python Conflict
-^^^^^^^^^^^^^^^^^^^^^^^^
+Mixing conda and apt Python Conflict
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-``conda`` does not work in conjunction with ROS 2.
-Make sure that your ``PATH`` environment variable does not have any conda paths in it.
+While using ros2, mixing packages installed with ``apt`` with packages
+installed with ``conda`` does not work.
+If you are using the official ``apt`` binaries for ROS 2, make sure that
+your ``PATH`` environment variable does not have any conda paths in it.
 You may have to check your ``.bashrc`` for this line and comment it out.
+
+On the other hand on Windows, the official ROS 2 installation procedure
+uses ``conda`` packages via the ``pixi`` package manager, and that works
+fine as there is no mix of different package managers
+
+``conda`` packages for ros2 may be built (such as the one
+provided by the community-mantained [RoboStack](https://robostack.github.io/) project)
+but no official conda packages for ROS 2 are provided.
 
 Cannot start rviz2
 ^^^^^^^^^^^^^^^^^^
