@@ -104,13 +104,50 @@ If you encounter exceptions when trying to source the environment after building
    colcon version-check  # check if newer versions available
    sudo apt install python3-colcon* --only-upgrade  # upgrade installed colcon packages to latest version
 
-Anaconda Python Conflict
-^^^^^^^^^^^^^^^^^^^^^^^^
+Mixing conda and apt Python Conflict
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-``conda`` does not work in conjunction with ROS 2.
-Make sure that your ``PATH`` environment variable does not have any conda paths in it.
+While using ros2, mixing packages installed with ``apt`` with packages
+installed with ``conda`` does not work.
+If you are using the official ``apt`` binaries for ROS 2, make sure that
+your ``PATH`` environment variable does not have any conda paths in it.
 You may have to check your ``.bashrc`` for this line and comment it out.
 
+<<<<<<< HEAD
+=======
+On the other hand on Windows, the official ROS 2 installation procedure
+uses ``conda`` packages via the ``pixi`` package manager, and that works
+fine as there is no mix of different package managers
+
+``conda`` packages for ros2 may be built (such as the one
+provided by the community-mantained [RoboStack](https://robostack.github.io/) project)
+but no official conda packages for ROS 2 are provided.
+
+Cannot start rviz2
+^^^^^^^^^^^^^^^^^^
+
+``rviz2`` may fail to start on a Wayland display system with errors like:
+
+.. code-block::
+
+   QSocketNotifier: Can only be used with threads started with QThread
+   [INFO] [1714730141.758659580] [rviz2]: Stereo is NOT SUPPORTED
+   [INFO] [1714730141.758813709] [rviz2]: OpenGl version: 3.1 (GLSL 1.4)
+   [ERROR] [1714730141.797879232] [rviz2]: rviz::RenderSystem: error creating render window: RenderingAPIException: Invalid parentWindowHandle (wrong server or screen) in GLXWindow::create at ./.obj-aarch64-linux-gnu/ogre_vendor-prefix/src/ogre_vendor/RenderSystems/GLSupport/src/GLX/OgreGLXWindow.cpp (line 246)
+   ...
+   [ERROR] [1714730141.808124283] [rviz2]: Unable to create the rendering window after 100 tries
+   terminate called after throwing an instance of 'std::runtime_error'
+     what():  Unable to create the rendering window after 100 tries
+   Aborted (core dumped)
+
+This is due to an incompatibility between Wayland and RViz2.
+You may be able to workaround this problem by running RViz2 in X11 compatibility mode:
+
+.. code-block::
+
+   QT_QPA_PLATFORM=xcb rviz2
+
+>>>>>>> 3b0fdef (Clarify relation between conda and ROS 2 (#5173))
 .. _macOS-troubleshooting:
 
 macOS
