@@ -333,24 +333,8 @@ Inside the ``ros2_ws/src/cpp_parameters/`` directory, create a new directory cal
 In there, create a new file called ``cpp_parameters_launch.py``
 
 
-.. code-block:: Python
-
-  from launch import LaunchDescription
-  from launch_ros.actions import Node
-
-  def generate_launch_description():
-      return LaunchDescription([
-          Node(
-              package="cpp_parameters",
-              executable="minimal_param_node",
-              name="custom_minimal_param_node",
-              output="screen",
-              emulate_tty=True,
-              parameters=[
-                  {"my_parameter": "earth"}
-              ]
-          )
-      ])
+.. literalinclude:: launch/cpp_parameters_launch.py
+  :language: python
 
 Here you can see that we set ``my_parameter`` to ``earth`` when we launch our node ``minimal_param_node``.
 By adding the two lines below, we ensure our output is printed in our console.

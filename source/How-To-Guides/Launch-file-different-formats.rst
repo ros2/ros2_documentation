@@ -2,7 +2,7 @@
 
   Guides/Launch-file-different-formats
 
-Using Python, XML, and YAML for ROS 2 Launch Files
+Using XML, YAML, and Python for ROS 2 Launch Files
 ==================================================
 
 .. contents:: Table of Contents
@@ -29,6 +29,7 @@ Each launch file performs the following actions:
 
    .. group-tab:: XML
 
+<<<<<<< HEAD
       .. code-block:: xml
 
         <!-- example.launch.xml -->
@@ -136,11 +137,22 @@ Each launch file performs the following actions:
             -
                 from: "/output/cmd_vel"
                 to: "/turtlesim2/turtle1/cmd_vel"
+=======
+      .. literalinclude:: launch/different_formats_launch.xml
+        :language: xml
+
+   .. group-tab:: YAML
+
+      .. literalinclude:: launch/different_formats_launch.yaml
+        :language: yaml
+>>>>>>> 666df3e (Pull all example launchfiles into separate file with `literalinclude` (#5155))
 
    .. group-tab:: Python
 
-      .. code-block:: python
+      .. literalinclude:: launch/different_formats_launch.py
+        :language: python
 
+<<<<<<< HEAD
         # example.launch.py
 
         import os
@@ -239,6 +251,8 @@ Each launch file performs the following actions:
                 turtlesim_node_with_parameters,
                 forward_turtlesim_commands_to_second_turtlesim_node,
             ])
+=======
+>>>>>>> 666df3e (Pull all example launchfiles into separate file with `literalinclude` (#5155))
 
 Using the Launch files from the command line
 --------------------------------------------
@@ -287,7 +301,7 @@ To test that the remapping is working, you can control the turtles by running th
 
 .. _launch-file-different-formats-which:
 
-Python, XML, or YAML: Which should I use?
+XML, YAML, or Python: Which should I use?
 -----------------------------------------
 
 .. note::

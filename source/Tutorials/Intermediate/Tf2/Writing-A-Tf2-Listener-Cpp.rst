@@ -281,51 +281,8 @@ Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your e
 Open the launch file called ``turtle_tf2_demo.launch.py`` in the ``src/learning_tf2_cpp/launch`` directory with your text editor, add two new nodes to the launch description, add a launch argument, and add the imports.
 The resulting file should look like:
 
-.. code-block:: python
-
-    from launch import LaunchDescription
-    from launch.actions import DeclareLaunchArgument
-    from launch.substitutions import LaunchConfiguration
-
-    from launch_ros.actions import Node
-
-
-    def generate_launch_description():
-        return LaunchDescription([
-            Node(
-                package='turtlesim',
-                executable='turtlesim_node',
-                name='sim'
-            ),
-            Node(
-                package='learning_tf2_cpp',
-                executable='turtle_tf2_broadcaster',
-                name='broadcaster1',
-                parameters=[
-                    {'turtlename': 'turtle1'}
-                ]
-            ),
-            DeclareLaunchArgument(
-                'target_frame', default_value='turtle1',
-                description='Target frame name.'
-            ),
-            Node(
-                package='learning_tf2_cpp',
-                executable='turtle_tf2_broadcaster',
-                name='broadcaster2',
-                parameters=[
-                    {'turtlename': 'turtle2'}
-                ]
-            ),
-            Node(
-                package='learning_tf2_cpp',
-                executable='turtle_tf2_listener',
-                name='listener',
-                parameters=[
-                    {'target_frame': LaunchConfiguration('target_frame')}
-                ]
-            ),
-        ])
+.. literalinclude:: launch/listener_cpp_launch.py
+  :language: python
 
 This will declare a ``target_frame`` launch argument, start a broadcaster for the second turtle that we will spawn and a listener that will subscribe to those transformations.
 

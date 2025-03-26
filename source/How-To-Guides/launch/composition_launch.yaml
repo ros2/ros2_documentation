@@ -1,0 +1,39 @@
+%YAML 1.2
+---
+launch:
+  - node_container:
+      pkg: rclcpp_components
+      exec: component_container
+      name: image_container
+      composable_node:
+        - pkg: image_tools
+          plugin: image_tools::Cam2Image
+          name: cam2image
+          remap:
+            - from: /image
+              to: /burgerimage
+          param:
+            - name: width
+              value: 320
+            - name: height
+              value: 240
+            - name: burger_mode
+              value: true
+            - name: history
+              value: keep_last
+          extra_arg:
+            - name: use_intra_process_comms
+              value: true
+
+        - pkg: image_tools
+          plugin: image_tools::ShowImage
+          name: showimage
+          remap:
+            - from: /image
+              to: /burgerimage
+          param:
+            - name: history
+              value: keep_last
+          extra_arg:
+            - name: use_intra_process_comms
+              value: true

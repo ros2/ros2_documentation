@@ -58,24 +58,8 @@ To run xacro within your launch file, you need to put the ``Command`` substituti
 
 An easier way to load the robot model is to use the `urdf_launch <https://github.com/ros/urdf_launch>`_ package to automatically load the xacro/urdf.
 
-.. code-block:: python
-
-    from launch import LaunchDescription
-    from launch.actions import IncludeLaunchDescription
-    from launch.substitutions import PathJoinSubstitution
-    from launch_ros.substitutions import FindPackageShare
-
-
-    def generate_launch_description():
-        ld = LaunchDescription()
-
-        ld.add_action(IncludeLaunchDescription(
-            PathJoinSubstitution([FindPackageShare('urdf_launch'), 'launch', 'display.launch.py']),
-            launch_arguments={
-                'urdf_package': 'turtlebot3_description',
-                'urdf_package_path': PathJoinSubstitution(['urdf', 'turtlebot3_burger.urdf'])}.items()
-        ))
-        return ld
+.. literalinclude:: launch/urdf_display_launch.py
+    :language: python
 
 At the top of the URDF file, you must specify a namespace in order for the file to parse properly.
 For example, these are the first two lines of a valid xacro file:

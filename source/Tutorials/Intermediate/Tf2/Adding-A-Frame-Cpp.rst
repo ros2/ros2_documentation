@@ -186,6 +186,7 @@ Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your e
 Now let's create a launch file for this example.
 With your text editor, create a new file called ``turtle_tf2_fixed_frame_demo.launch.py`` in the ``src/learning_tf2_cpp/launch`` directory, and add the following lines:
 
+<<<<<<< HEAD
 .. code-block:: python
 
     import os
@@ -215,18 +216,18 @@ With your text editor, create a new file called ``turtle_tf2_fixed_frame_demo.la
             ),
         ])
 
+=======
+.. literalinclude:: launch/turtle_tf2_fixed_frame_demo_launch.py
+    :language: python
+>>>>>>> 666df3e (Pull all example launchfiles into separate file with `literalinclude` (#5155))
 
 This launch file imports the required packages and then creates a ``demo_nodes`` variable that will store nodes that we created in the previous tutorial's launch file.
 
 The last part of the code will add our fixed ``carrot1`` frame to the turtlesim world using our ``fixed_frame_tf2_broadcaster`` node.
 
-.. code-block:: python
-
-    Node(
-        package='learning_tf2_cpp',
-        executable='fixed_frame_tf2_broadcaster',
-        name='fixed_broadcaster',
-    ),
+.. literalinclude:: launch/turtle_tf2_fixed_frame_demo_launch.py
+    :language: python
+    :lines: 21-25
 
 1.4 Build
 ~~~~~~~~~
@@ -475,8 +476,10 @@ Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your e
 
 To test this code, create a new launch file ``turtle_tf2_dynamic_frame_demo.launch.py`` in the ``src/learning_tf2_cpp/launch`` directory and paste the following code:
 
-.. code-block:: python
+.. literalinclude:: launch/turtle_tf2_dynamic_frame_demo_launch.py
+    :language: python
 
+<<<<<<< HEAD
     import os
 
     from ament_index_python.packages import get_package_share_directory
@@ -504,6 +507,8 @@ To test this code, create a new launch file ``turtle_tf2_dynamic_frame_demo.laun
                 name='dynamic_broadcaster',
             ),
         ])
+=======
+>>>>>>> 666df3e (Pull all example launchfiles into separate file with `literalinclude` (#5155))
 
 2.4 Build
 ~~~~~~~~~

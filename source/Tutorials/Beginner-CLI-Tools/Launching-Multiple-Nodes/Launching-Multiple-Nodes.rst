@@ -54,20 +54,8 @@ Open a new terminal and run:
 
 This command will run the following launch file:
 
-.. code-block:: python
-
-   # turtlesim/launch/multisim.launch.py
-
-   from launch import LaunchDescription
-   import launch_ros.actions
-
-   def generate_launch_description():
-       return LaunchDescription([
-           launch_ros.actions.Node(
-               namespace= "turtlesim1", package='turtlesim', executable='turtlesim_node', output='screen'),
-           launch_ros.actions.Node(
-               namespace= "turtlesim2", package='turtlesim', executable='turtlesim_node', output='screen'),
-       ])
+.. literalinclude:: launch/multisim.launch.py
+   :language: python
 
 .. note::
 
