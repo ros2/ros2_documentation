@@ -144,25 +144,16 @@ Make sure to create a ``launch`` directory at the top-level of the package you c
     Inside your ``launch`` directory, create a new launch file called ``my_script_launch.xml``.
     ``_launch.xml`` is recommended, but not required, as the file suffix for XML launch files.
 
-    .. code-block:: xml
-
-      <launch>
-        <node pkg="demo_nodes_cpp" exec="talker" name="talker"/>
-      </launch>
+    .. literalinclude:: launch/my_script_launch.xml
+      :language: xml
 
   .. group-tab:: YAML launch file
 
     Inside your ``launch`` directory, create a new launch file called ``my_script_launch.yaml``.
     ``_launch.yaml`` is recommended, but not required, as the file suffix for YAML launch files.
 
-    .. code-block:: yaml
-
-      launch:
-
-      - node:
-          pkg: "demo_nodes_cpp"
-          exec: "talker"
-          name: "talker"
+    .. literalinclude:: launch/my_script_launch.yaml
+      :language: yaml
 
   .. group-tab:: Python launch file
 
@@ -172,18 +163,8 @@ Make sure to create a ``launch`` directory at the top-level of the package you c
 
     Your launch file should define the ``generate_launch_description()`` function which returns a ``launch.LaunchDescription()`` to be used by the ``ros2 launch`` verb.
 
-    .. code-block:: python
-
-      import launch
-      import launch_ros.actions
-
-      def generate_launch_description():
-          return launch.LaunchDescription([
-              launch_ros.actions.Node(
-                  package='demo_nodes_cpp',
-                  executable='talker',
-                  name='talker'),
-        ])
+    .. literalinclude:: launch/my_script_launch.py
+      :language: python
 
 
 4 Building and running the launch file

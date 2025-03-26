@@ -1,0 +1,28 @@
+%YAML 1.2
+---
+launch:
+  - arg:
+      name: "turtlesim_ns"
+      default: "turtlesim1"
+  - arg:
+      name: "use_provided_red"
+      default: "False"
+  - arg:
+      name: "new_background_r"
+      default: "200"
+
+  - node:
+      pkg: "turtlesim"
+      namespace: "$(var turtlesim_ns)"
+      exec: "turtlesim_node"
+      name: "sim"
+  - executable:
+      cmd: 'ros2 service call $(var turtlesim_ns)/spawn turtlesim_msgs/srv/Spawn "{x: 5, y: 2, theta: 0.2}"'
+  - executable:
+      cmd: "ros2 param set $(var turtlesim_ns)/sim background_r 120"
+  - timer:
+      period: 2.0
+      children:
+        - executable:
+            cmd: "ros2 param set $(var turtlesim_ns)/sim background_r $(var new_background_r)"
+            if: '$(eval "$(var new_background_r) == 200 and $(var use_provided_red)")'

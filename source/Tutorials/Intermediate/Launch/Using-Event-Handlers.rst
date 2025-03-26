@@ -43,6 +43,7 @@ Using event handlers
 
 Create a new file called ``example_event_handlers_launch.py`` file in the ``launch`` folder of the ``launch_tutorial`` package.
 
+<<<<<<< HEAD
 .. code-block:: python
 
     from launch_ros.actions import Node
@@ -179,90 +180,49 @@ Create a new file called ``example_event_handlers_launch.py`` file in the ``laun
                 )
             ),
         ])
+=======
+.. literalinclude:: launch/example_event_handlers_launch.py
+    :language: python
+>>>>>>> 666df3e (Pull all example launchfiles into separate file with `literalinclude` (#5155))
 
 ``RegisterEventHandler`` actions for the ``OnProcessStart``, ``OnProcessIO``, ``OnExecutionComplete``, ``OnProcessExit``, and ``OnShutdown`` events were defined in the launch description.
 
 The ``OnProcessStart`` event handler is used to register a callback function that is executed when the turtlesim node starts.
 It logs a message to the console and executes the ``spawn_turtle`` action when the turtlesim node starts.
 
-.. code-block:: python
-
-    RegisterEventHandler(
-        OnProcessStart(
-            target_action=turtlesim_node,
-            on_start=[
-                LogInfo(msg='Turtlesim started, spawning turtle'),
-                spawn_turtle
-            ]
-        )
-    ),
+.. literalinclude:: launch/example_event_handlers_launch.py
+    :language: python
+    :lines: 98-106
 
 The ``OnProcessIO`` event handler is used to register a callback function that is executed when the ``spawn_turtle`` action writes to its standard output.
 It logs the result of the spawn request.
 
-.. code-block:: python
-
-    RegisterEventHandler(
-        OnProcessIO(
-            target_action=spawn_turtle,
-            on_stdout=lambda event: LogInfo(
-                msg='Spawn request says "{}"'.format(
-                    event.text.decode().strip())
-            )
-        )
-    ),
+.. literalinclude:: launch/example_event_handlers_launch.py
+    :language: python
+    :lines: 107-115
 
 The ``OnExecutionComplete`` event handler is used to register a callback function that is executed when the ``spawn_turtle`` action completes.
 It logs a message to the console and executes the ``change_background_r`` and ``change_background_r_conditioned`` actions when the spawn action completes.
 
-.. code-block:: python
-
-    RegisterEventHandler(
-        OnExecutionComplete(
-            target_action=spawn_turtle,
-            on_completion=[
-                LogInfo(msg='Spawn finished'),
-                change_background_r,
-                TimerAction(
-                    period=2.0,
-                    actions=[change_background_r_conditioned],
-                )
-            ]
-        )
-    ),
+.. literalinclude:: launch/example_event_handlers_launch.py
+    :language: python
+    :lines: 116-128
 
 The ``OnProcessExit`` event handler is used to register a callback function that is executed when the turtlesim node exits.
 It logs a message to the console and executes the ``EmitEvent`` action to emit a ``Shutdown`` event when the turtlesim node exits.
 It means that the launch process will shutdown when the turtlesim window is closed.
 
-.. code-block:: python
-
-    RegisterEventHandler(
-        OnProcessExit(
-            target_action=turtlesim_node,
-            on_exit=[
-                LogInfo(msg=(EnvironmentVariable(name='USER'),
-                        ' closed the turtlesim window')),
-                EmitEvent(event=Shutdown(
-                    reason='Window closed'))
-            ]
-        )
-    ),
+.. literalinclude:: launch/example_event_handlers_launch.py
+    :language: python
+    :lines: 129-139
 
 Finally, the ``OnShutdown`` event handler is used to register a callback function that is executed when the launch file is asked to shutdown.
 It logs a message to the console why the launch file is asked to shutdown.
 It logs the message with a reason for shutdown like the closure of turtlesim window or :kbd:`ctrl-c` signal made by the user.
 
-.. code-block:: python
-
-    RegisterEventHandler(
-        OnShutdown(
-            on_shutdown=[LogInfo(
-                msg=['Launch was asked to shutdown: ',
-                    LocalSubstitution('event.reason')]
-            )]
-        )
-    ),
+.. literalinclude:: launch/example_event_handlers_launch.py
+    :language: python
+    :lines: 140-146
 
 Build the package
 -----------------

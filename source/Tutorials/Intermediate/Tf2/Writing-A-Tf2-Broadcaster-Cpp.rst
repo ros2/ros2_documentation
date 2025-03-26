@@ -248,28 +248,8 @@ Now create a launch file for this demo.
 Create a ``launch`` folder in the ``src/learning_tf2_cpp`` directory.
 With your text editor, create a new file called ``turtle_tf2_demo_launch.py`` in the ``launch`` folder, and add the following lines:
 
-.. code-block:: python
-
-    from launch import LaunchDescription
-    from launch_ros.actions import Node
-
-
-    def generate_launch_description():
-        return LaunchDescription([
-            Node(
-                package='turtlesim',
-                executable='turtlesim_node',
-                name='sim'
-            ),
-            Node(
-                package='learning_tf2_cpp',
-                executable='turtle_tf2_broadcaster',
-                name='broadcaster1',
-                parameters=[
-                    {'turtlename': 'turtle1'}
-                ]
-            ),
-        ])
+.. literalinclude:: launch/turtle_tf2_demo_launch.py
+    :language: python
 
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
@@ -277,28 +257,15 @@ With your text editor, create a new file called ``turtle_tf2_demo_launch.py`` in
 First we import required modules from the ``launch`` and ``launch_ros`` packages.
 It should be noted that ``launch`` is a generic launching framework (not ROS 2 specific) and ``launch_ros`` has ROS 2 specific things, like nodes that we import here.
 
-.. code-block:: python
-
-    from launch import LaunchDescription
-    from launch_ros.actions import Node
+.. literalinclude:: launch/turtle_tf2_demo_launch.py
+    :language: python
+    :lines: 1-2
 
 Now we run our nodes that start the turtlesim simulation and broadcast ``turtle1`` state to the tf2 using our ``turtle_tf2_broadcaster`` node.
 
-.. code-block:: python
-
-    Node(
-        package='turtlesim',
-        executable='turtlesim_node',
-        name='sim'
-    ),
-    Node(
-        package='learning_tf2_cpp',
-        executable='turtle_tf2_broadcaster',
-        name='broadcaster1',
-        parameters=[
-            {'turtlename': 'turtle1'}
-        ]
-    ),
+.. literalinclude:: launch/turtle_tf2_demo_launch.py
+    :language: python
+    :lines: 7-19
 
 2.2 Add dependencies
 ~~~~~~~~~~~~~~~~~~~~

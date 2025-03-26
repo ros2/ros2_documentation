@@ -1,0 +1,15 @@
+%YAML 1.2
+---
+launch:
+  - let:
+      name: "background_r"
+      value: "200"
+  - include:
+      file: "$(find-pkg-share launch_tutorial)/launch/example_substitutions_launch.yaml"
+      arg:
+        - name: "turtlesim_ns"
+          value: "turtlesim2"
+        - name: "use_provided_red"
+          value: "True"
+        - name: "new_background_r"
+          value: "$(var background_r)"

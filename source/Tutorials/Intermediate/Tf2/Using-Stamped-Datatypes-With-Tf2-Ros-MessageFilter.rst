@@ -214,47 +214,8 @@ Then we fill up the ``PointStamped`` messages of ``turtle3`` with incoming ``Pos
 
 In order to run this demo, we need to create a launch file ``turtle_tf2_sensor_message_launch.py`` in the ``launch`` subdirectory of package ``learning_tf2_py``:
 
-.. code-block:: python
-
-    from launch import LaunchDescription
-    from launch.actions import DeclareLaunchArgument
-    from launch_ros.actions import Node
-
-
-    def generate_launch_description():
-        return LaunchDescription([
-            DeclareLaunchArgument(
-                'target_frame', default_value='turtle1',
-                description='Target frame name.'
-            ),
-            Node(
-                package='turtlesim',
-                executable='turtlesim_node',
-                name='sim',
-                output='screen'
-            ),
-            Node(
-                package='turtle_tf2_py',
-                executable='turtle_tf2_broadcaster',
-                name='broadcaster1',
-                parameters=[
-                    {'turtlename': 'turtle1'}
-                ]
-            ),
-            Node(
-                package='turtle_tf2_py',
-                executable='turtle_tf2_broadcaster',
-                name='broadcaster2',
-                parameters=[
-                    {'turtlename': 'turtle3'}
-                ]
-            ),
-            Node(
-                package='turtle_tf2_py',
-                executable='turtle_tf2_message_broadcaster',
-                name='message_broadcaster',
-            ),
-        ])
+.. literalinclude:: launch/turtle_tf2_sensor_message_launch.py
+  :language: python
 
 
 1.3 Add an entry point
