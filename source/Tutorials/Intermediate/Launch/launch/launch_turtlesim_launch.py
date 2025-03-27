@@ -11,33 +11,33 @@ def generate_launch_description():
     turtlesim_world_1 = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(
             get_package_share_directory('launch_tutorial'), 'launch'),
-            '/turtlesim_world_1_launch.py'])
+            '/turtlesim_world_1.launch.py'])
         )
     turtlesim_world_2 = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(
             get_package_share_directory('launch_tutorial'), 'launch'),
-            '/turtlesim_world_2_launch.py'])
+            '/turtlesim_world_2.launch.py'])
         )
     broadcaster_listener_nodes = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(
             get_package_share_directory('launch_tutorial'), 'launch'),
-            '/broadcaster_listener_launch.py']),
+            '/broadcaster_listener.launch.py']),
         launch_arguments={'target_frame': 'carrot1'}.items(),
         )
     mimic_node = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(
             get_package_share_directory('launch_tutorial'), 'launch'),
-            '/mimic_launch.py'])
+            '/mimic.launch.py'])
         )
     fixed_frame_node = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(
             get_package_share_directory('launch_tutorial'), 'launch'),
-            '/fixed_broadcaster_launch.py'])
+            '/fixed_broadcaster.launch.py'])
         )
     rviz_node = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(
             get_package_share_directory('launch_tutorial'), 'launch'),
-            '/turtlesim_rviz_launch.py'])
+            '/turtlesim_rviz.launch.py'])
         )
 
     return LaunchDescription([

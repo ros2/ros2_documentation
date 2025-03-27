@@ -12,39 +12,19 @@ launch:
     name: "background_b"
     default: "0"
 - arg:
-    name: "chatter_py_ns"
-    default: "chatter/py/ns"
-- arg:
-    name: "chatter_xml_ns"
-    default: "chatter/xml/ns"
-- arg:
-    name: "chatter_yaml_ns"
-    default: "chatter/yaml/ns"
+    name: "chatter_ns"
+    default: "my/chatter/ns"
 
 # include another launch file
 - include:
-    file: "$(find-pkg-share demo_nodes_cpp)/launch/topics/talker_listener_launch.py"
+    file: "$(find-pkg-share demo_nodes_cpp)/launch/topics/talker_listener.launch.py"
 
-# include a Python launch file in the chatter_py_ns namespace
+# include another launch file in the chatter_ns namespace
 - group:
     - push_ros_namespace:
-        namespace: "$(var chatter_py_ns)"
+        namespace: "$(var chatter_ns)"
     - include:
-        file: "$(find-pkg-share demo_nodes_cpp)/launch/topics/talker_listener_launch.py"
-
-# include a xml launch file in the chatter_xml_ns namespace
-- group:
-    - push_ros_namespace:
-        namespace: "$(var chatter_xml_ns)"
-    - include:
-        file: "$(find-pkg-share demo_nodes_cpp)/launch/topics/talker_listener_launch.xml"
-
-# include a yaml launch file in the chatter_yaml_ns namespace
-- group:
-    - push_ros_namespace:
-        namespace: "$(var chatter_yaml_ns)"
-    - include:
-        file: "$(find-pkg-share demo_nodes_cpp)/launch/topics/talker_listener_launch.yaml"
+        file: "$(find-pkg-share demo_nodes_cpp)/launch/topics/talker_listener.launch.py"
 
 # start a turtlesim_node in the turtlesim1 namespace
 - node:

@@ -59,63 +59,8 @@ We will now go over the top-level launch file structure that makes this possible
 Firstly, we will create a launch file that will call separate launch files.
 To do this, let's create a ``launch_turtlesim.launch.py`` file in the ``/launch`` folder of our ``launch_tutorial`` package.
 
-<<<<<<< HEAD
-.. code-block:: Python
-
-   import os
-
-   from ament_index_python.packages import get_package_share_directory
-
-   from launch import LaunchDescription
-   from launch.actions import IncludeLaunchDescription
-   from launch.launch_description_sources import PythonLaunchDescriptionSource
-
-
-   def generate_launch_description():
-      turtlesim_world_1 = IncludeLaunchDescription(
-         PythonLaunchDescriptionSource([os.path.join(
-            get_package_share_directory('launch_tutorial'), 'launch'),
-            '/turtlesim_world_1.launch.py'])
-         )
-      turtlesim_world_2 = IncludeLaunchDescription(
-         PythonLaunchDescriptionSource([os.path.join(
-            get_package_share_directory('launch_tutorial'), 'launch'),
-            '/turtlesim_world_2.launch.py'])
-         )
-      broadcaster_listener_nodes = IncludeLaunchDescription(
-         PythonLaunchDescriptionSource([os.path.join(
-            get_package_share_directory('launch_tutorial'), 'launch'),
-            '/broadcaster_listener.launch.py']),
-         launch_arguments={'target_frame': 'carrot1'}.items(),
-         )
-      mimic_node = IncludeLaunchDescription(
-         PythonLaunchDescriptionSource([os.path.join(
-            get_package_share_directory('launch_tutorial'), 'launch'),
-            '/mimic.launch.py'])
-         )
-      fixed_frame_node = IncludeLaunchDescription(
-         PythonLaunchDescriptionSource([os.path.join(
-            get_package_share_directory('launch_tutorial'), 'launch'),
-            '/fixed_broadcaster.launch.py'])
-         )
-      rviz_node = IncludeLaunchDescription(
-         PythonLaunchDescriptionSource([os.path.join(
-            get_package_share_directory('launch_tutorial'), 'launch'),
-            '/turtlesim_rviz.launch.py'])
-         )
-
-      return LaunchDescription([
-         turtlesim_world_1,
-         turtlesim_world_2,
-         broadcaster_listener_nodes,
-         mimic_node,
-         fixed_frame_node,
-         rviz_node
-      ])
-=======
 .. literalinclude:: launch/launch_turtlesim_launch.py
    :language: python
->>>>>>> 666df3e (Pull all example launchfiles into separate file with `literalinclude` (#5155))
 
 This launch file includes a set of other launch files.
 Each of these included launch files contains nodes, parameters, and possibly, nested includes, which pertain to one part of the system.
@@ -176,11 +121,7 @@ These nodes could have different namespaces or names but still have the same par
 Defining separate YAML files that explicitly define namespaces and node names is not efficient.
 A solution is to use wildcard characters, which act as substitutions for unknown characters in a text value, to apply parameters to several different nodes.
 
-<<<<<<< HEAD
-Now let's create a new ``turtlesim_world_3.launch.py`` file similar to ``turtlesim_world_2.launch.py`` to include one more ``turtlesim_node`` node.
-=======
 Now let's create a new ``turtlesim_world_3_launch.py`` file similar to ``turtlesim_world_2_launch.py`` to include one more ``turtlesim_node`` node in a new namespace ``turtlesim3``:
->>>>>>> 666df3e (Pull all example launchfiles into separate file with `literalinclude` (#5155))
 
 .. literalinclude:: launch/turtlesim_world_3_launch.py
    :language: python
@@ -272,20 +213,9 @@ We also start a ``turtle_tf2_listener`` node and set its ``target_frame`` parame
 Recall that we called the ``broadcaster_listener.launch.py`` file in our top-level launch file.
 In addition to that, we have passed it ``target_frame`` launch argument as shown below:
 
-<<<<<<< HEAD
-.. code-block:: Python
-
-   broadcaster_listener_nodes = IncludeLaunchDescription(
-      PythonLaunchDescriptionSource([os.path.join(
-         get_package_share_directory('launch_tutorial'), 'launch'),
-         '/broadcaster_listener.launch.py']),
-      launch_arguments={'target_frame': 'carrot1'}.items(),
-      )
-=======
 .. literalinclude:: launch/launch_turtlesim_launch.py
    :language: python
    :lines: 21-26
->>>>>>> 666df3e (Pull all example launchfiles into separate file with `literalinclude` (#5155))
 
 This syntax allows us to change the default goal target frame to ``carrot1``.
 If you would like ``turtle2`` to follow ``turtle1`` instead of the ``carrot1``, just remove the line that defines ``launch_arguments``.

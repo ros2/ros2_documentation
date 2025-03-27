@@ -16,7 +16,7 @@ def generate_launch_description():
                 PathJoinSubstitution([
                     FindPackageShare('launch_tutorial'),
                     'launch',
-                    'example_substitutions_launch.py'
+                    'example_substitutions.launch.py'
                 ])
             ]),
             launch_arguments={

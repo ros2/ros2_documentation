@@ -1,3 +1,4 @@
+
 from launch import LaunchDescription
 from launch.actions import (
     DeclareLaunchArgument,
@@ -56,7 +57,7 @@ def generate_launch_description():
             ' service call ',
             turtlesim_ns,
             '/spawn ',
-            'turtlesim_msgs/srv/Spawn ',
+            'turtlesim/srv/Spawn ',
             '"{x: 2, y: 2, theta: 0.2}"'
         ]],
         shell=True
@@ -89,7 +90,6 @@ def generate_launch_description():
         ]],
         shell=True
     )
-
     return LaunchDescription([
         turtlesim_ns_launch_arg,
         use_provided_red_launch_arg,

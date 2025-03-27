@@ -13,7 +13,7 @@ def generate_launch_description():
     demo_nodes = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(
             get_package_share_directory('learning_tf2_py'), 'launch'),
-            '/turtle_tf2_demo_launch.py']),
+            '/turtle_tf2_demo.launch.py']),
         )
 
     return LaunchDescription([
