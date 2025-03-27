@@ -1,0 +1,62 @@
+name: 📝 Documentation Issue
+description: Report an issue with the ROS 2 documentation
+title: "📝 <Brief Title>"
+labels: ["documentation", "issue"]
+body:
+  - type: markdown
+    attributes:
+      value: "**Required Info:**"
+  - type: checkboxes
+    id: issue_type
+    attributes:
+      label: "Issue Type"
+      description: "Select the type of documentation issue"
+      options:
+        - label: "🐛 Bug / Problem"
+        - label: "✏️ Typo / Grammar"
+        - label: "📖 Outdated Content"
+        - label: "🚀 Enhancement"
+  - type: input
+    id: distribution
+    attributes:
+      label: "Distribution"
+      description: |
+        ROS 2 distribution that you found the problem in.
+        e.g) Humble, Jazzy, Rolling, ...
+    validations:
+      required: false
+  - type: textarea
+    id: description
+    attributes:
+      label: "Description"
+      description: "Provide a detailed description of the issue"
+    validations:
+      required: true
+  - type: input
+    id: affected_pages
+    attributes:
+      label: "Affected Pages/Sections"
+      description: "Provide links to the affected documentation pages, if applicable"
+    validations:
+      required: false
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: "Screenshots or Examples (if applicable)"
+      description: "Add any supporting screenshots or logs"
+    validations:
+      required: false
+  - type: textarea
+    id: suggested_fix
+    attributes:
+      label: "Suggested Fix"
+      description: "If you have an idea for a fix, please describe it here"
+    validations:
+      required: false
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: "Additional Context"
+      description: "Any other relevant information"
+    validations:
+      required: false

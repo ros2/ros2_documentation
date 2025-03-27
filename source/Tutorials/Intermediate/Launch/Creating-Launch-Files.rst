@@ -62,82 +62,22 @@ As mentioned above, this can either be in XML, YAML, or Python.
 
     Copy and paste the complete code into the ``launch/turtlesim_mimic_launch.xml`` file:
 
-    .. code-block:: xml
-
-      <launch>
-        <node pkg="turtlesim" exec="turtlesim_node" name="sim" namespace="turtlesim1"/>
-        <node pkg="turtlesim" exec="turtlesim_node" name="sim" namespace="turtlesim2"/>
-        <node pkg="turtlesim" exec="mimic" name="mimic">
-          <remap from="/input/pose" to="/turtlesim1/turtle1/pose"/>
-          <remap from="/output/cmd_vel" to="/turtlesim2/turtle1/cmd_vel"/>
-        </node>
-      </launch>
+    .. literalinclude:: launch/turtlesim_mimic_launch.xml
+      :language: xml
 
   .. group-tab:: YAML
 
     Copy and paste the complete code into the ``launch/turtlesim_mimic_launch.yaml`` file:
 
-    .. code-block:: yaml
-
-      launch:
-
-      - node:
-          pkg: "turtlesim"
-          exec: "turtlesim_node"
-          name: "sim"
-          namespace: "turtlesim1"
-
-      - node:
-          pkg: "turtlesim"
-          exec: "turtlesim_node"
-          name: "sim"
-          namespace: "turtlesim2"
-
-      - node:
-          pkg: "turtlesim"
-          exec: "mimic"
-          name: "mimic"
-          remap:
-          -
-              from: "/input/pose"
-              to: "/turtlesim1/turtle1/pose"
-          -
-              from: "/output/cmd_vel"
-              to: "/turtlesim2/turtle1/cmd_vel"
+    .. literalinclude:: launch/turtlesim_mimic_launch.yaml
+      :language: yaml
 
   .. group-tab:: Python
 
     Copy and paste the complete code into the ``launch/turtlesim_mimic_launch.py`` file:
 
-    .. code-block:: python
-
-      from launch import LaunchDescription
-      from launch_ros.actions import Node
-
-      def generate_launch_description():
-          return LaunchDescription([
-              Node(
-                  package='turtlesim',
-                  namespace='turtlesim1',
-                  executable='turtlesim_node',
-                  name='sim'
-              ),
-              Node(
-                  package='turtlesim',
-                  namespace='turtlesim2',
-                  executable='turtlesim_node',
-                  name='sim'
-              ),
-              Node(
-                  package='turtlesim',
-                  executable='mimic',
-                  name='mimic',
-                  remappings=[
-                      ('/input/pose', '/turtlesim1/turtle1/pose'),
-                      ('/output/cmd_vel', '/turtlesim2/turtle1/cmd_vel'),
-                  ]
-              )
-          ])
+    .. literalinclude:: launch/turtlesim_mimic_launch.py
+      :language: python
 
 
 2.1 Examine the launch file
@@ -163,103 +103,55 @@ In other words, ``turtlesim2`` will mimic ``turtlesim1``'s movements.
 
     The first two actions launch the two turtlesim windows:
 
-    .. code-block:: xml
-
-      <node pkg="turtlesim" exec="turtlesim_node" name="sim" namespace="turtlesim1"/>
-      <node pkg="turtlesim" exec="turtlesim_node" name="sim" namespace="turtlesim2"/>
+    .. literalinclude:: launch/turtlesim_mimic_launch.xml
+      :language: xml
+      :lines: 3-4
 
     The final action launches the mimic node with the remaps:
 
-    .. code-block:: xml
-
-      <node pkg="turtlesim" exec="mimic" name="mimic">
-        <remap from="/input/pose" to="/turtlesim1/turtle1/pose"/>
-        <remap from="/output/cmd_vel" to="/turtlesim2/turtle1/cmd_vel"/>
-      </node>
+    .. literalinclude:: launch/turtlesim_mimic_launch.xml
+      :language: xml
+      :lines: 5-8
 
   .. group-tab:: YAML
 
     The first two actions launch the two turtlesim windows:
 
-    .. code-block:: yaml
-
-      - node:
-          pkg: "turtlesim"
-          exec: "turtlesim_node"
-          name: "sim"
-          namespace: "turtlesim1"
-
-      - node:
-          pkg: "turtlesim"
-          exec: "turtlesim_node"
-          name: "sim"
-          namespace: "turtlesim2"
-
+    .. literalinclude:: launch/turtlesim_mimic_launch.yaml
+      :language: yaml
+      :lines: 4-14
 
     The final action launches the mimic node with the remaps:
 
-    .. code-block:: yaml
-
-      - node:
-          pkg: "turtlesim"
-          exec: "mimic"
-          name: "mimic"
-          remap:
-          -
-              from: "/input/pose"
-              to: "/turtlesim1/turtle1/pose"
-          -
-              from: "/output/cmd_vel"
-              to: "/turtlesim2/turtle1/cmd_vel"
+    .. literalinclude:: launch/turtlesim_mimic_launch.yaml
+      :language: yaml
+      :lines: 16-24
 
   .. group-tab:: Python
 
     These import statements pull in some Python ``launch`` modules.
 
-    .. code-block:: python
-
-      from launch import LaunchDescription
-      from launch_ros.actions import Node
+    .. literalinclude:: launch/turtlesim_mimic_launch.py
+      :language: python
+      :lines: 1-2
 
     Next, the launch description itself begins:
 
-    .. code-block:: python
-
-      def generate_launch_description():
-         return LaunchDescription([
-
-         ])
+    .. literalinclude:: launch/turtlesim_mimic_launch.py
+      :language: python
+      :lines: 5-7,28
 
     The first two actions in the launch description launch the two turtlesim windows:
 
-    .. code-block:: python
-
-      Node(
-          package='turtlesim',
-          namespace='turtlesim1',
-          executable='turtlesim_node',
-          name='sim'
-      ),
-      Node(
-          package='turtlesim',
-          namespace='turtlesim2',
-          executable='turtlesim_node',
-          name='sim'
-      ),
+    .. literalinclude:: launch/turtlesim_mimic_launch.py
+      :language: python
+      :lines: 7-18
 
     The final action launches the mimic node with the remaps:
 
-    .. code-block:: python
-
-      Node(
-          package='turtlesim',
-          executable='mimic',
-          name='mimic',
-          remappings=[
-            ('/input/pose', '/turtlesim1/turtle1/pose'),
-            ('/output/cmd_vel', '/turtlesim2/turtle1/cmd_vel'),
-          ]
-      )
+    .. literalinclude:: launch/turtlesim_mimic_launch.py
+      :language: python
+      :lines: 19-27
 
 
 3 ros2 launch

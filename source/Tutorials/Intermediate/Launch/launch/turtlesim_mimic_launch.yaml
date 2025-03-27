@@ -1,0 +1,24 @@
+%YAML 1.2
+---
+launch:
+  - node:
+      pkg: "turtlesim"
+      exec: "turtlesim_node"
+      name: "sim"
+      namespace: "turtlesim1"
+
+  - node:
+      pkg: "turtlesim"
+      exec: "turtlesim_node"
+      name: "sim"
+      namespace: "turtlesim2"
+
+  - node:
+      pkg: "turtlesim"
+      exec: "mimic"
+      name: "mimic"
+      remap:
+        - from: "/input/pose"
+          to: "/turtlesim1/turtle1/pose"
+        - from: "/output/cmd_vel"
+          to: "/turtlesim2/turtle1/cmd_vel"

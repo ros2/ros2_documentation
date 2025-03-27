@@ -26,7 +26,7 @@ In ROS 2 this is usually CMake for C++, and setuptools for Python, but other bui
 Build helpers
 -------------
 
-These are helper functions that hook into the build tool to developer experience.
+These are helper functions that hook into the build tool to improve the developer experience.
 ROS 2 packages typically rely on the ``ament`` series of packages for this.
 ``ament`` consists of a few important repositories which are all in the `GitHub organization <https://github.com/ament>`_.
 

@@ -410,19 +410,8 @@ The following command publishes a static coordinate transform to tf2 using an x/
 ``static_transform_publisher`` is designed both as a command-line tool for manual use, as well as for use within ``launch`` files for setting static transforms.
 For example:
 
-.. code-block:: console
-
-    from launch import LaunchDescription
-    from launch_ros.actions import Node
-
-    def generate_launch_description():
-        return LaunchDescription([
-            Node(
-                 package='tf2_ros',
-                 executable='static_transform_publisher',
-                 arguments = ['--x', '0', '--y', '0', '--z', '1', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'world', '--child-frame-id', 'mystaticturtle']
-            ),
-        ])
+.. literalinclude:: launch/static_transform_publisher_launch.py
+   :language: python
 
 Note that all arguments except for ``--frame-id`` and ``--child-frame-id`` are optional; if a particular option isn't specified, then the identity will be assumed.
 
