@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <node pkg="rclcpp_components" exec="component_container" name="image_container" />
+  <load_composable_node target="image_container">
+    <composable_node pkg="image_tools" plugin="image_tools::Cam2Image" name="cam2image">
+      <remap from="/image" to="/burgerimage" />
+      <param name="width" value="320" />
+      <param name="height" value="240" />
+      <param name="burger_mode" value="true" />
+      <param name="history" value="keep_last" />
+      <extra_arg name="use_intra_process_comms" value="true" />
+    </composable_node>
+    <composable_node pkg="image_tools" plugin="image_tools::ShowImage" name="showimage" namespace="">
+      <remap from="/image" to="/burgerimage" />
+      <param name="history" value="keep_last" />
+      <extra_arg name="use_intra_process_comms" value="true" />
+    </composable_node>
+  </load_composable_node>
+</launch>

@@ -161,47 +161,17 @@ Add the following line between the ``'console_scripts':`` brackets:
 Now let's create a launch file for this example.
 With your text editor, create a new file called ``turtle_tf2_fixed_frame_demo_launch.py`` in the ``src/learning_tf2_py/launch`` directory, and add the following lines:
 
-.. code-block:: python
-
-    import os
-
-    from ament_index_python.packages import get_package_share_directory
-
-    from launch import LaunchDescription
-    from launch.actions import IncludeLaunchDescription
-    from launch.launch_description_sources import PythonLaunchDescriptionSource
-
-    from launch_ros.actions import Node
-
-
-    def generate_launch_description():
-        demo_nodes = IncludeLaunchDescription(
-            PythonLaunchDescriptionSource([os.path.join(
-                get_package_share_directory('learning_tf2_py'), 'launch'),
-                '/turtle_tf2_demo_launch.py']),
-            )
-
-        return LaunchDescription([
-            demo_nodes,
-            Node(
-                package='learning_tf2_py',
-                executable='fixed_frame_tf2_broadcaster',
-                name='fixed_broadcaster',
-            ),
-        ])
-
+.. literalinclude:: launch/py_turtle_tf2_fixed_frame_demo_launch.py
+    :name: turtle_tf2_fixed_frame_demo_launch.py
+    :language: python
 
 This launch file imports the required packages and then creates a ``demo_nodes`` variable that will store nodes that we created in the previous tutorial's launch file.
 
 The last part of the code will add our fixed ``carrot1`` frame to the turtlesim world using our ``fixed_frame_tf2_broadcaster`` node.
 
-.. code-block:: python
-
-    Node(
-        package='learning_tf2_py',
-        executable='fixed_frame_tf2_broadcaster',
-        name='fixed_broadcaster',
-    ),
+.. literalinclude:: launch/py_turtle_tf2_fixed_frame_demo_launch.py
+    :language: python
+    :lines: 22-26
 
 1.4 Build
 ~~~~~~~~~
@@ -426,35 +396,9 @@ Add the following line between the ``'console_scripts':`` brackets:
 
 To test this code, create a new launch file ``turtle_tf2_dynamic_frame_demo_launch.py`` in the ``src/learning_tf2_py/launch`` directory and paste the following code:
 
-.. code-block:: python
+.. literalinclude:: launch/py_turtle_tf2_dynamic_frame_demo_launch.py
+    :name: turtle_tf2_dynamic_frame_demo_launch.py
 
-    import os
-
-    from ament_index_python.packages import get_package_share_directory
-
-    from launch import LaunchDescription
-    from launch.actions import IncludeLaunchDescription
-    from launch.launch_description_sources import PythonLaunchDescriptionSource
-
-    from launch_ros.actions import Node
-
-
-    def generate_launch_description():
-        demo_nodes = IncludeLaunchDescription(
-            PythonLaunchDescriptionSource([os.path.join(
-                get_package_share_directory('learning_tf2_py'), 'launch'),
-                '/turtle_tf2_demo_launch.py']),
-           launch_arguments={'target_frame': 'carrot1'}.items(),
-           )
-
-        return LaunchDescription([
-            demo_nodes,
-            Node(
-                package='learning_tf2_py',
-                executable='dynamic_frame_tf2_broadcaster',
-                name='dynamic_broadcaster',
-            ),
-        ])
 
 2.4 Build
 ~~~~~~~~~
