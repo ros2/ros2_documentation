@@ -10,16 +10,19 @@ Prerequisites
 -------------
 
 **Install RTI Connext DDS**  
-  To build and use `rmw_connextdds` requires a version of Connext DDS compatible with the distribution of ROS 2 in use, per the following table:
+  To build and use `rmw_connextdds` requires a version of Connext DDS compatible with the distribution of ROS 2 in use.
+  Connext DDS is included when installing `rmw_connextdds` using apt, or can be installed manually for building from source.
+  The following table details which Connext DDS versions are installed using `apt`, and which versions are required for building from source:
 
-  ==================  ===================
-  ROS 2 Distribution  RTI Connext Version
-  ==================  ===================
-  rolling             7.3.0 or 6.x.x
-  jazzy               7.3.0 or 6.x.x
-  iron                7.3.0 or 6.x.x
-  humble              6.x.x
-  ==================  ===================
+  ==================  ===================  ====================
+  ROS 2 Distribution  Installed using apt  To Build from Source
+  ==================  ===================  ====================
+  rolling             n/a                  7.3.0 to 6.x
+  kilted              7.3.0                7.3.0 to 6.x
+  jazzy               6.0.1                7.3.0 to 6.x
+  iron                6.0.1                7.3.0 to 6.x
+  humble              6.0.1                6.x
+  ==================  ===================  ====================
 
 RTI Connext Pro is available through a variety of channels:
 
@@ -31,6 +34,7 @@ RTI Connext Pro is available through a variety of channels:
      sudo apt update && sudo apt install -q -y rti-connext-dds-[7.3.0 or 6.0.1]
 
   Note that this includes the RTI Connext libraries only, and does not include the full RTI Connext Pro suite of tools and services.
+  Note also that the Connext libraries are automatically installed when installing `rmw_connextdds` using apt.
 
 **Free Licenses**
   RTI Connext DDS is available for research/non-commercial, university/education, or time-limited evaluation from the `RTI website <https://www.rti.com/free-trial>`__.
@@ -43,6 +47,15 @@ RTI Connext Pro is available through a variety of channels:
 
 
 Detailed instructions for building and tuning the RMW and ROS 2 applications for a variety of platforms, and enabling DDS Security and safety-cert options are available on the `RTI ROS Community <https://community.rti.com/ros>`__ pages.
+
+Install rmw_connextdds binary packages
+--------------------------------------
+
+To install the binary packages for `rmw_connextdds` and the Connext libraries from the ROS 2 apt repositories, use the following command:
+
+.. code-block:: bash
+
+   sudo apt update && sudo apt install -q -y ros-{ROS_DISTRO}-rmw-connextdds
 
 
 Building rmw_connextdds from source code
