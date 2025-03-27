@@ -66,7 +66,8 @@ For example, to run the talker demo using the C++ talker and Python listener wit
 Adding RMW implementations to your workspace
 --------------------------------------------
 
-Additional DDS and RMW implementations can be added to your workspace by installing the necessary dependencies and rebuilding the workspace. See the :doc:`DDS implementations <../Installation/DDS-Implementations>` page for more information about installing the available DDS options.
+Additional DDS and RMW implementations can be added to your workspace by installing the necessary dependencies and rebuilding the workspace.
+See the :doc:`DDS implementations <../Installation/DDS-Implementations>` page for more information about installing the available DDS options.
 
 Suppose that you have built your ROS 2 workspace with only Fast DDS installed and therefore only the Fast DDS RMW implementation built.
 The last time your workspace was built, any other RMW implementation packages, ``rmw_connextdds`` for example, were probably unable to find installations of the relevant DDS implementations.
