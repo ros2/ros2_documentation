@@ -65,7 +65,7 @@ Building from source code can ensure the RMW is matched to your system and insta
 The following instructions assume a Linux x86_64 build host and target; the `RTI ROS Community <https://community.rti.com/ros>`__
 pages have instructions for building for other platforms and targets, including Arm, Windows, and macOS.
 
-Clone the repository for rmw_connextdds into your ROS 2 workspace and select the branch that matches the ROS 2 distribution in use:
+Clone the repository for ``rmw_connextdds`` into your ROS 2 workspace and select the branch that matches the ROS 2 distribution in use:
 
 .. code-block:: bash
 
