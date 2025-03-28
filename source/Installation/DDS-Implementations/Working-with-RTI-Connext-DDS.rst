@@ -34,7 +34,7 @@ RTI Connext Pro is available through a variety of channels:
      sudo apt update && sudo apt install -q -y rti-connext-dds-[7.3.0 or 6.0.1]
 
   Note that this includes the RTI Connext libraries only, and does not include the full RTI Connext Pro suite of tools and services.
-  Note also that the Connext libraries are automatically installed when installing `rmw_connextdds` using apt.
+  Note also that the Connext libraries are automatically installed when installing ``rmw_connextdds`` using apt.
 
 **Free Licenses**
   RTI Connext DDS is available for research/non-commercial, university/education, or time-limited evaluation from the `RTI website <https://www.rti.com/free-trial>`__.
