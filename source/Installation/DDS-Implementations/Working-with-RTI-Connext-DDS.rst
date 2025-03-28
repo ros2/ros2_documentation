@@ -51,7 +51,7 @@ Detailed instructions for building and tuning the RMW and ROS 2 applications for
 Install rmw_connextdds binary packages
 --------------------------------------
 
-To install the binary packages for `rmw_connextdds` and the Connext libraries from the ROS 2 apt repositories, use the following command:
+To install the binary packages for ``rmw_connextdds`` and the Connext libraries from the ROS 2 apt repositories, use the following command:
 
 .. code-block:: bash
 
