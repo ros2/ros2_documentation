@@ -13,11 +13,7 @@ Demos
    Demos/Logging-and-logger-configuration
    Demos/Content-Filtering-Subscription
    Demos/Service-Introspection
-<<<<<<< HEAD
-=======
-   Demos/Action-Introspection
    Demos/Wait-for-Acknowledgment
->>>>>>> d5da14d (add Demos/Wait-for-Acknowledgment. (#5184))
 
 External resources
 ------------------
