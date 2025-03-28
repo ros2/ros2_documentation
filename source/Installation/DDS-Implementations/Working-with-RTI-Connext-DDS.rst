@@ -10,9 +10,9 @@ Prerequisites
 -------------
 
 **Install RTI Connext DDS**
-  To build and use `rmw_connextdds` requires a version of Connext DDS compatible with the distribution of ROS 2 in use.
-  Connext DDS is included when installing `rmw_connextdds` using apt, or can be installed manually for building from source.
-  The following table details which Connext DDS versions are installed using `apt`, and which versions are required for building from source:
+  To build and use ``rmw_connextdds`` requires a version of Connext DDS compatible with the distribution of ROS 2 in use.
+  Connext DDS is included when installing ``rmw_connextdds`` using apt, or can be installed manually for building from source.
+  The following table details which Connext DDS versions are installed using ``apt``, and which versions are required for building from source:
 
   ==================  ===================  ====================
   ROS 2 Distribution  Installed using apt  To Build from Source
