@@ -33,9 +33,7 @@ Wait for acknowledgment requires RMW implementation support.
    * - rmw_cyclonedds
      - supported
 
-.. note::
-
-   The publisher's QoS profile needs to be ``RELIABLE`` to use the wait for acknowledgment feature, otherwise the publisher will not wait for acknowledgment.
+The publisher's :ref:`QoS reliability policy <about_qos_policies>` needs to be ``RELIABLE`` to use the wait for acknowledgment feature, otherwise the publisher will not wait for acknowledgment.
 
 Installing the demo
 -------------------
@@ -54,7 +52,7 @@ https://github.com/ros2/examples/blob/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_
 
 The publisher can use the ``wait_for_all_acked`` method to wait for message acknowledgments within a specified timeout before shutdown by the signal.
 
-We can start the demo by running the ``publisher_wait_for_all_acked`` and ``subscriber_member_function`` executable from the ``examples_rclcpp_minimal_publisher`` package (don't forget to source the setup file first):
+We can start the demo by running the ``publisher_wait_for_all_acked`` and ``subscriber_member_function`` executables from the ``examples_rclcpp_minimal_publisher`` package (don't forget to source the setup file first):
 
 Start the subscriber in one terminal:
 
