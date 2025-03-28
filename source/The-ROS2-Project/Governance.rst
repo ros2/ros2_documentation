@@ -145,6 +145,10 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
      - `Polymath Robotics <https://www.polymathrobotics.com/>`_
      - `emersonknapp <https://github.com/emersonknapp/>`_
      - PST (UTC-8)/PDT (UTC-7)
+   * - Janosch Machowinski
+     - `cellumation <https://cellumation.com/>`_
+     - `jmachowinski <https://github.com/jmachowinski>`_
+     - CET (UTC+1)
    * - Kat Scott
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `kscottz <https://github.com/kscottz>`_
