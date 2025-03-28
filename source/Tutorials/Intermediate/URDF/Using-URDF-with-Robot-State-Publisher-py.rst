@@ -4,8 +4,8 @@
 
 .. _URDFPlusRSPPYTHON:
 
-Using URDF with ``robot_state_publisher`` in Python
-===================================================
+Using URDF with ``robot_state_publisher`` (Python)
+==================================================
 
 **Goal:** Simulate a walking robot modeled in URDF and view it in Rviz.
 
