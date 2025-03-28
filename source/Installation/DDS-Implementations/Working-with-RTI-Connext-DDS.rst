@@ -55,7 +55,7 @@ To install the binary packages for ``rmw_connextdds`` and the Connext libraries 
 
 .. code-block:: bash
 
-   sudo apt update && sudo apt install -q -y ros-{ROS_DISTRO}-rmw-connextdds
+   sudo apt update && sudo apt install -q -y ros-${ROS_DISTRO}-rmw-connextdds
 
 
 Building rmw_connextdds from source code
