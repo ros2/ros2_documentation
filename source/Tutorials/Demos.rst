@@ -12,12 +12,7 @@ Demos
    Demos/dummy-robot-demo
    Demos/Logging-and-logger-configuration
    Demos/Content-Filtering-Subscription
-<<<<<<< HEAD
-=======
-   Demos/Service-Introspection
-   Demos/Action-Introspection
    Demos/Wait-for-Acknowledgment
->>>>>>> d5da14d (add Demos/Wait-for-Acknowledgment. (#5184))
 
 External resources
 ------------------
