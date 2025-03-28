@@ -4,8 +4,8 @@
 
 .. _URDFPlusRSPCPP:
 
-Using URDF with ``robot_state_publisher`` in CPP
-================================================
+Using URDF with ``robot_state_publisher`` (C++)
+===============================================
 
 **Goal:** Simulate a walking robot modeled in URDF and view it in Rviz.
 
@@ -32,7 +32,7 @@ Prerequisites
 
 - `rviz2 <https://index.ros.org/p/rviz2/>`__
 
-As always, don’t forget to source ROS 2 in :doc:`every new terminal you open <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
+As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
 
 Tasks
 -----
