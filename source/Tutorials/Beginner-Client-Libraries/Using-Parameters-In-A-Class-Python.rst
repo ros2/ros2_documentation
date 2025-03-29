@@ -72,12 +72,7 @@ Inside the ``ros2_ws/src/python_parameters/python_parameters`` directory, create
 .. code-block:: Python
 
     import rclpy
-<<<<<<< HEAD
-    import rclpy.node
-=======
-    from rclpy.executors import ExternalShutdownException
     from rclpy.node import Node
->>>>>>> 8d53162 (Update imports for tutorial consistency (#5198))
 
     class MinimalParam(Node):
         def __init__(self):

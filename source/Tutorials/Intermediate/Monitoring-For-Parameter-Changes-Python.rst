@@ -70,12 +70,7 @@ Inside the ``ros2_ws/src/python_parameter_event_handler/python_parameter_event_h
 .. code-block:: Python
 
     import rclpy
-<<<<<<< HEAD
-    import rclpy.node
-=======
-    from rclpy.executors import ExternalShutdownException
     from rclpy.node import Node
->>>>>>> 8d53162 (Update imports for tutorial consistency (#5198))
     import rclpy.parameter
 
     from rclpy.parameter_event_handler import ParameterEventHandler
@@ -113,12 +108,7 @@ The ``import`` statements at the top are used to import the package dependencies
 .. code-block:: Python
 
     import rclpy
-<<<<<<< HEAD
-    import rclpy.node
-=======
-    from rclpy.executors import ExternalShutdownException
     from rclpy.node import Node
->>>>>>> 8d53162 (Update imports for tutorial consistency (#5198))
     import rclpy.parameter
 
     from rclpy.parameter_event_handler import ParameterEventHandler
