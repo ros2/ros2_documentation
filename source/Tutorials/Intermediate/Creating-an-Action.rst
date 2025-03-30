@@ -41,6 +41,12 @@ Tasks
 1 Creating an interface package
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. warning::
+   Actions can only be created in a C++ package using ``ament_cmake``. They are not supported in Python packages using ``ament_python``. This restriction also applies to messages and services, so ensure your package is configured as a C++ package before proceeding with this tutorial.
+
+.. note::
+   It is recommended to define action interfaces (as well as messages and services) in a separate package dedicated to interfaces, as shown in this tutorial. This improves modularity and makes it easier to reuse them across multiple projects.
+
 .. tabs::
 
   .. group-tab:: Linux
