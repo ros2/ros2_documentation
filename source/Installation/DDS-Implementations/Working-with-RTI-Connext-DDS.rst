@@ -87,7 +87,7 @@ This can be done by manually setting the environment variable ``NDDSHOME`` to th
 
 .. code-block:: bash
 
-   source {RTI_CONNEXT_INSTALL_LOCATION}/resource/scripts/rtisetenv_x64Linux4gcc7.3.0.bash
+   source ${RTI_CONNEXT_INSTALL_LOCATION}/resource/scripts/rtisetenv_x64Linux4gcc7.3.0.bash
 
 Build the RMW using colcon:
 
