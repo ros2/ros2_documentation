@@ -14,6 +14,7 @@ Demos
    Demos/Content-Filtering-Subscription
    Demos/Service-Introspection
    Demos/Action-Introspection
+   Demos/Wait-for-Acknowledgment
 
 External resources
 ------------------
