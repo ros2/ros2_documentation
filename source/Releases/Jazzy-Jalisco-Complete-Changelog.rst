@@ -3323,5 +3323,3 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Updated zstd to 1.5.5 (`#1617 <https://github.com/ros2/rosbag2/issues/1617>`__) (`#1624 <https://github.com/ros2/rosbag2/issues/1624>`__)
 * Switch to ament_cmake_vendor_package (`#1400 <https://github.com/ros2/rosbag2/issues/1400>`__)
 * Contributors: Scott K Logan, mergify[bot]
-
-

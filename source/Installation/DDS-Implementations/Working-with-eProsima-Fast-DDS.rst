@@ -68,4 +68,3 @@ Now run ``talker`` and ``listener`` to test Fast DDS.
 .. code-block:: bash
 
    ros2 run demo_nodes_cpp listener
-

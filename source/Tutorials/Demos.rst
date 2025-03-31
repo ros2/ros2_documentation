@@ -27,4 +27,3 @@ External resources
     - `Simulating <https://ubuntu.com/blog/simulate-the-turtlebot3>`__
     - `Navigating in simulation <https://github.com/cyberbotics/webots_ros2/wiki/Navigate-TurtleBot3>`__
     - `Learning SLAM in simulation <https://github.com/cyberbotics/webots_ros2/wiki/SLAM-with-TurtleBot3>`__
-

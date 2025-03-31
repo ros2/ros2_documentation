@@ -4,4 +4,3 @@ It is always recommended that you ensure your system is up to date before instal
 .. code-block:: bash
 
    sudo dnf update
-

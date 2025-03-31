@@ -4217,5 +4217,3 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Bump zstd to 1.4.8 in zstd_vendor package (`#1132 <https://github.com/ros2/rosbag2/issues/1132>`__)
 * Fix/zstd vendor does not find system zstd (`#1111 <https://github.com/ros2/rosbag2/issues/1111>`__)
 * Contributors: DasRoteSkelett, Michael Orlov
-
-

@@ -110,4 +110,3 @@ Build ``ros1_bridge``
     colcon build
 
 After building all of ``ros1_bridge``, the remainder of the `ros1_bridge examples <https://github.com/ros2/ros1_bridge#example-1-run-the-bridge-and-the-example-talker-and-listener>`__ should work with your new installation
-
