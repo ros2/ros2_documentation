@@ -18,11 +18,11 @@ Install RTI Connext DDS
   ==================  ===================  ====================
   ROS 2 Distribution  Installed using apt  To Build from Source
   ==================  ===================  ====================
-  rolling             n/a                  ``7.3.0 to 6.x``
-  kilted              ``7.3.0``            ``7.3.0 to 6.x``
-  jazzy               ``6.0.1``            ``7.3.0 to 6.x``
-  iron                ``6.0.1``            ``7.3.0 to 6.x``
-  humble              ``6.0.1``            ``6.x``
+  rolling             n/a                  ``7.3.0``
+  kilted              ``7.3.0``            ``7.3.0``
+  jazzy               ``6.0.1``            ``6.0.1``
+  iron                ``6.0.1``            ``6.0.1``
+  humble              ``6.0.1``            ``6.0.1``
   ==================  ===================  ====================
 
 RTI Connext Pro is available through a variety of channels:
@@ -47,17 +47,11 @@ RTI Connext Pro is available through a variety of channels:
   Note that this includes the RTI Connext libraries only, and does not include the full RTI Connext Pro suite of tools and services.
   Note also that the Connext libraries are automatically installed when installing ``rmw_connextdds`` using apt.
 
-**Free Licenses**
-  RTI Connext DDS is available for research/non-commercial, university/education, or time-limited evaluation from the `RTI website <https://www.rti.com/free-trial>`__.
-  This includes a full-featured version of Connext DDS with diagnostic tools and layered services, access to self-guided training and the RTI AI Chatbot.
-  Libraries are available for Linux(x86_64, armv7, armv8), Windows(x86_64), and macOS(x86_64, armv8).
-
-**Purchase**
-  RTI Connext DDS is also available as a subscription with training and architectural guidance, and support for dozens of platforms (OS/RTOS, CPU, toolchain), safety certification and security.
-  Please `contact RTI <https://www.rti.com/company/contact>`__ for more information.
-
-
+**Other Installation Options**
+RTI Connext DDS is a proprietary DDS implementation with a number of advanced features and commercial support options.
+RTI provides both a `non-commercial / research license <https://www.rti.com/free-trial/university-program>`__ for students and researchers and a `time-limited free trial license <https://www.rti.com/free-trial>`__ for commercial users.
 Detailed instructions for building and tuning the RMW and ROS 2 applications for a variety of platforms, and enabling DDS Security and safety-cert options are available on the `RTI ROS Community <https://community.rti.com/ros>`__ pages.
+
 
 Install rmw_connextdds binary packages
 --------------------------------------
