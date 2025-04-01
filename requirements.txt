@@ -2,6 +2,7 @@ codespell
 doc8
 docutils
 pip
+pytest
 sphinx
 sphinx-copybutton
 sphinx-lint

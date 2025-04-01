@@ -281,8 +281,6 @@ The following repositories are managed by the ROS PMC:
      - Not Yet Available
    * - https://github.com/ros/geometry_tutorials
      - Not Yet Available
-   * - https://github.com/ros/geometry2
-     - Not Yet Available
    * - https://github.com/ros/kdl_parser
      - Not Yet Available
    * - https://github.com/ros/pluginlib
