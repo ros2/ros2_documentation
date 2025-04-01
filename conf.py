@@ -320,6 +320,7 @@ def github_link_rewrite_branch(app, pagename, templatename, context, doctree):
 def expand_macros(app, docname, source):
     result = source[0]
     result = expand_interface_macros(result)
+    result = expand_package_macros(result)
     result = expand_text_macros(result, app.config.macros)
     source[0] = result
 
@@ -371,6 +372,43 @@ def expand_interface_macros(text: Text) -> Text:
     text = expand(text, interface_regex, interface_rst_link_templ)
     # {interface_link()}
     text = expand(text, interface_link_regex, interface_link_templ)
+    return text
+
+# Regex to match a package name and extract it
+package_name_exp = r'([a-z0-9_]+)'
+# Regex for '{package_link(...)}' with a package name
+package_link_regex = re.compile(r'{package_link\(' + package_name_exp + r'\)}')
+# Regex for '{package(...)}' with a package name
+package_regex = re.compile(r'{package\(' + package_name_exp + r'\)}')
+
+# Template for the link to the package API documentation
+package_link_templ = 'https://docs.ros.org/en/{{DISTRO}}/p/{pkg_name}/'
+# Template for an RST link to the package API documentation
+package_rst_link_templ = f'`{{pkg_name}} <{package_link_templ}>`_'
+
+def expand_package_macros(text: Text) -> Text:
+    """
+    Expand `{package()}` and `{package_link()}` macros.
+
+    Uses the `{DISTRO}` macro in its expansion, so it has to be expanded after with
+    `expand_text_macros()`.
+
+    :param text: the text to expand
+    :return: the expanded text
+    """
+    def expand(text: Text, regex: re.Pattern, package_tmpl: str) -> Text:
+        while match := regex.search(text):
+            pkg_name = match.group(1)
+            link = package_tmpl.format(
+                pkg_name=pkg_name,
+            )
+            text = text.replace(match.group(0), link)
+        return text
+
+    # {package()}
+    text = expand(text, package_regex, package_rst_link_templ)
+    # {package_link()}
+    text = expand(text, package_link_regex, package_link_templ)
     return text
 
 def expand_text_macros(text: Text, macros: Dict[Text, Text]) -> Text:
