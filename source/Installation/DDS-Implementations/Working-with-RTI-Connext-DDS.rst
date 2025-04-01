@@ -100,7 +100,7 @@ After the build completes successfully, be sure to source the setup file for the
 Use the resulting rmw_connextdds
 --------------------------------
 
-Set the environment variable `RMW_IMPLEMENTATION` to tell ROS 2 which RMW to use:
+Set the environment variable ``RMW_IMPLEMENTATION`` to tell ROS 2 which RMW to use:
 
 .. code-block:: bash
 
