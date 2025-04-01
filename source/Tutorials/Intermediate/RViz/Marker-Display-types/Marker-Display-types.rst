@@ -132,7 +132,7 @@ The messages in this package include comments that are helpful in understanding 
 
 * ``lifetime``:
 
-    A `duration message value <https://docs.ros.org/en/ros2_packages/{DISTRO}/api/builtin_interfaces/interfaces/msg/Duration.html>`_ used to automatically delete the marker after this period of time.
+    A `duration message value <{interface_link(builtin_interfaces/msg/Duration)}>`_ used to automatically delete the marker after this period of time.
     The countdown resets if another marker of the same ``namespace`` / ``id`` is received.
 
 * ``frame_locked``:
