@@ -324,7 +324,10 @@ def github_link_rewrite_branch(app, pagename, templatename, context, doctree):
 def expand_macros(app, docname, source):
     result = source[0]
     result = expand_interface_macros(result)
+<<<<<<< HEAD
     result = expand_package_macros(result)
+=======
+>>>>>>> 7326c3f (Add macros to link to interface docs (#5050))
     result = expand_text_macros(result, app.config.macros)
     source[0] = result
 
@@ -378,6 +381,7 @@ def expand_interface_macros(text: Text) -> Text:
     text = expand(text, interface_link_regex, interface_link_templ)
     return text
 
+<<<<<<< HEAD
 # Regex to match a package name and extract it
 package_name_exp = r'([a-z0-9_]+)'
 # Regex for '{package_link(...)}' with a package name
@@ -415,6 +419,8 @@ def expand_package_macros(text: Text) -> Text:
     text = expand(text, package_link_regex, package_link_templ)
     return text
 
+=======
+>>>>>>> 7326c3f (Add macros to link to interface docs (#5050))
 def expand_text_macros(text: Text, macros: Dict[Text, Text]) -> Text:
     """
     Expand text macros.

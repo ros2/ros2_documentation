@@ -20,7 +20,10 @@ import sys
 sys.path.append('..')
 
 from conf import expand_interface_macros
+<<<<<<< HEAD
 from conf import expand_package_macros
+=======
+>>>>>>> 7326c3f (Add macros to link to interface docs (#5050))
 from conf import expand_text_macros
 
 
@@ -60,6 +63,7 @@ def test_interface_macros() -> None:
     """)
     # Expanded interface macros use the DISTRO text macro, so those need to be expanded too
     assert expected == expand_text_macros(expand_interface_macros(text), macros)
+<<<<<<< HEAD
 
 
 def test_package_macros() -> None:
@@ -78,3 +82,5 @@ def test_package_macros() -> None:
     """)
     # Expanded package macros use the DISTRO text macro, so those need to be expanded too
     assert expected == expand_text_macros(expand_package_macros(text), macros)
+=======
+>>>>>>> 7326c3f (Add macros to link to interface docs (#5050))

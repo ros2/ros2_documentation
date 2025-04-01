@@ -112,6 +112,12 @@ You can run the Python documentation tools tests locally (using `pytest <https:/
 
    $ make test-tools
 
+You can run the Python documentation tools tests locally (using `pytest <https://docs.pytest.org/en/stable/>`_) with the following command:
+
+.. code-block:: console
+
+   make test-tools
+
 You can run the documentation linter locally (using `sphinx-lint <https://github.com/sphinx-contrib/sphinx-lint>`_) with the following command:
 
 .. code-block:: console
@@ -615,11 +621,14 @@ For example, when generating the docs for Rolling on the ``rolling`` branch:
    * - \{interface(std_msgs/msg/String)\}
      - Publish a \{interface(std_msgs/msg/String)\}.
      - Publish a {interface(std_msgs/msg/String)}.
+<<<<<<< HEAD
    * - \{package_link(rclcpp)\}
      - See: \{package_link(rclcpp)\}.
      - See: {package_link(rclcpp)}.
    * - \{package(rclcpp)\}
      - Use \{package(rclcpp)\}.
      - Use {package(rclcpp)}.
+=======
+>>>>>>> 7326c3f (Add macros to link to interface docs (#5050))
 
 The same file can be used on multiple branches (i.e., for multiple distros) and the generated content will be distro-specific.
