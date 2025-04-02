@@ -66,6 +66,9 @@ For example, to run the talker demo using the C++ talker and Python listener wit
 Adding RMW implementations to your workspace
 --------------------------------------------
 
+Additional DDS and RMW implementations can be added to your workspace by installing the necessary dependencies and rebuilding the workspace.
+See the :doc:`DDS implementations <../Installation/DDS-Implementations>` page for more information about installing the available DDS options.
+
 Suppose that you have built your ROS 2 workspace with only Fast DDS installed and therefore only the Fast DDS RMW implementation built.
 The last time your workspace was built, any other RMW implementation packages, ``rmw_connextdds`` for example, were probably unable to find installations of the relevant DDS implementations.
 If you then install an additional DDS implementation, Connext for example, you will need to re-trigger the check for a Connext installation that occurs when the Connext RMW implementation is being built.
@@ -172,4 +175,4 @@ Either add to your existing ``etc/sysctl.conf`` file or create ``/etc/sysctl.con
 You will need to reboot the machine after modifying this file to have the changes take effect.
 
 This solution is edited from the RTI Connext community forum.
-See the `original post <https://community.rti.com/kb/osx510>`__ for more detailed explanation.
+See the `original post <https://community.rti.com/kb/osx510>`__ for a more detailed explanation.

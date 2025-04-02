@@ -10,7 +10,7 @@ The default DDS vendor is eProsima's Fast DDS.
 
 * :doc:`Working with Eclipse Cyclone DDS <DDS-Implementations/Working-with-Eclipse-CycloneDDS>` explains how to utilize Cyclone DDS.
 * :doc:`Working with eProsima Fast DDS <DDS-Implementations/Working-with-eProsima-Fast-DDS>` explains how to utilize Fast DDS.
-* :doc:`Working with RTI Connext DDS <DDS-Implementations/Install-Connext-University-Eval>` explains how to utilize and evaluate RTI Connext DDS.
+* :doc:`Working with RTI Connext DDS <DDS-Implementations/Working-with-RTI-Connext-DDS>` explains how to utilize RTI Connext DDS.
 * :doc:`Working with GurumNetworks GurumDDS <DDS-Implementations/Working-with-GurumNetworks-GurumDDS>` explains how to utilize GurumDDS.
 
 .. toctree::
