@@ -615,7 +615,7 @@ On your system you can use the ``gitconfig`` option ``insteadOf`` to have ``git`
 
 Add the following to your `~/.gitconfig`
 
-.. code-block:: config
+.. code-block::
 
     [url "ssh://git@github.com/"]
       insteadOf = https://github.com/
