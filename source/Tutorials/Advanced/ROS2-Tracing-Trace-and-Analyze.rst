@@ -44,7 +44,7 @@ Then create a workspace, import the ROS 2 {DISTRO_TITLE} code, and clone ``perfo
 
   cd ~/
   mkdir -p tracing_ws/src
-  cd tracing_ws/src/
+  cd tracing_ws/
   vcs import src/ --input https://raw.githubusercontent.com/ros2/ros2/{DISTRO}/ros2.repos
   cd src/
   git clone https://gitlab.com/ApexAI/performance_test.git
