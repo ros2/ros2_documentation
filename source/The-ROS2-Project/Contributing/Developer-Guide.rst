@@ -613,7 +613,7 @@ To be able to push to repositories you will need to have ssh keys setup on your 
 However our default url schema for repositories is to use https because it's anonymously accessible.
 On your system you can use the ``gitconfig`` option ``insteadOf`` to have ``git`` automatically use your ssh key even if the remote is declared as https.
 
-Add the following to your `~/.gitconfig`
+Add the following to your ``~/.gitconfig``
 
 .. code-block::
 
