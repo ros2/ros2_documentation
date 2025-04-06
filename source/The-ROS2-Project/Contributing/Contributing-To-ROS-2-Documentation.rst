@@ -435,8 +435,10 @@ Code blocks: ``bash`` vs. ``console``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ``bash`` and ``console`` are similar, but they serve two different purposes.
+Choosing the right one is important to ensure that the content is formatted correctly and that the copy button copies the right content.
+Below is an explanation of each one; skip to the end of this section for a list of use-cases and corresponding examples.
 
-``bash`` is meant for bash scripts, e.g., for bash commands from a script file.
+``bash`` is meant for scripts, e.g., for bash commands from a script file.
 Example result:
 
 .. code-block:: bash
@@ -449,7 +451,7 @@ This makes it clear that the given commands need to be run in a terminal.
 It also allows separating command lines from output lines using prompt symbols such as ``$`` or ``#``.
 Command lines are formatted as bash commands while output lines are formatted as normal text.
 The prompt symbol is not selectable, and clicking on the copy button in the upper right-hand corner copies *only* the commands, not the outputs nor the prompt symbols.
-In general, the prompt symbol (``$``) can be omitted if the code block does not contain any output lines.
+This means that, if a ``console`` code block is used without any ``$``, the copy button will not copy any lines.
 Example result:
 
 .. code-block:: console
@@ -467,6 +469,46 @@ Compare the above with a ``bash`` ``code-block``:
    $ ros2 run turtlesim turtlesim_node --ros-args --remap "__node:=my_turtle"
    [INFO] [1742150439.022947971] [my_turtle]: Starting turtlesim with node name /my_turtle
    [INFO] [1742150439.026043867] [my_turtle]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
+
+To simplify code blocks, ``bash`` can still be used without ``$`` for commands meant to be run in a terminal if the code block does not include any output lines.
+
+To help choose between ``bash`` and ``console``, see the following list of use-cases and corresponding examples:
+
+#. Commands meant to be copied into a script file
+
+   * Use ``.. code-block:: bash`` without ``$``:
+
+      .. code-block:: bash
+
+         export ROS_DOMAIN_ID=42
+         ros2 run turtlesim turtlesim_node
+
+#. Commands meant to be run in a terminal *without* any output lines
+
+   * Use ``.. code-block:: bash`` without ``$``:
+
+      .. code-block:: bash
+
+         source /opt/ros/{DISTRO}/setup.bash
+         ros2 run turtlesim turtlesim_node
+
+   * Or use ``.. code-block:: console`` with ``$`` on all command lines, i.e., all lines:
+
+      .. code-block:: console
+
+         $ source /opt/ros/{DISTRO}/setup.bash
+         $ ros2 run turtlesim turtlesim_node
+
+#. Commands meant to be run in a terminal *with* output lines
+
+   * Use ``.. code-block:: console`` with ``$`` on all command lines:
+
+      .. code-block:: console
+
+         $ source /opt/ros/{DISTRO}/setup.bash
+         $ ros2 run turtlesim turtlesim_node
+         [INFO] [1743878028.269334696] [turtlesim]: Starting turtlesim with node name /turtlesim
+         [INFO] [1743878028.275096618] [turtlesim]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
 
 Images
 ^^^^^^
