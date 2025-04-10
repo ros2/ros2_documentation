@@ -20,6 +20,7 @@ import sys
 sys.path.append('..')
 
 from conf import expand_interface_macros
+from conf import expand_package_macros
 from conf import expand_text_macros
 
 
@@ -59,3 +60,21 @@ def test_interface_macros() -> None:
     """)
     # Expanded interface macros use the DISTRO text macro, so those need to be expanded too
     assert expected == expand_text_macros(expand_interface_macros(text), macros)
+
+
+def test_package_macros() -> None:
+    macros = {
+        'DISTRO': 'rolling',
+    }
+    text = textwrap.dedent("""
+        Add a dependency on {package(my_pkg_name)} to your package's ``package.xml`` file.
+
+        For more information, refer to the `API documentation <{package_link(my_pkg_name)}>`_.
+    """)
+    expected = textwrap.dedent("""
+        Add a dependency on `my_pkg_name <https://docs.ros.org/en/rolling/p/my_pkg_name/>`_ to your package's ``package.xml`` file.
+
+        For more information, refer to the `API documentation <https://docs.ros.org/en/rolling/p/my_pkg_name/>`_.
+    """)
+    # Expanded package macros use the DISTRO text macro, so those need to be expanded too
+    assert expected == expand_text_macros(expand_package_macros(text), macros)

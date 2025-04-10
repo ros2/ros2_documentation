@@ -45,9 +45,7 @@ The ROS Client Library for C++ (``rclcpp``) is the user facing, C++ idiomatic in
 ``rclcpp`` makes use of all the features of C++ and C++17 to make the interface as easy to use as possible, but since it reuses the implementation in ``rcl`` it is able maintain a consistent behavior with the other client libraries that use the ``rcl`` |API|.
 
 The ``rclcpp`` repository is located on GitHub at `ros2/rclcpp <https://github.com/ros2/rclcpp>`_ and contains the |package| ``rclcpp``.
-The generated |API| documentation is here:
-
-`api/rclcpp/index.html <http://docs.ros.org/en/{DISTRO}/p/rclcpp/>`_
+The generated |API| documentation is at {package_link(rclcpp)}.
 
 The ``rclpy`` package
 ~~~~~~~~~~~~~~~~~~~~~
@@ -63,10 +61,7 @@ All operations happen on the Python version of the messages until they need to b
 This is avoided if possible when communicating between publishers and subscriptions in the same process to cut down on the conversion into and out of Python.
 
 The ``rclpy`` repository is located on GitHub at `ros2/rclpy <https://github.com/ros2/rclpy>`_ and contains the |package| ``rclpy``.
-The generated |API| documentation is here:
-
-`api/rclpy/index.html <https://docs.ros.org/en/{DISTRO}/p/rclpy/>`_
-
+The generated |API| documentation is at {package_link(rclpy)}.
 
 Community-maintained
 ~~~~~~~~~~~~~~~~~~~~
@@ -103,7 +98,7 @@ In addition to making the client libraries light-weight, an advantage of having 
 If any changes are made to the logic/behavior of the functionality in the core RCL -- namespaces, for example -- all client libraries that use the RCL will have these changes reflected.
 Furthermore, having the common core means that maintaining multiple client libraries becomes less work when it comes to bug fixes.
 
-The API documentation for ``rcl`` can be found `here <https://docs.ros.org/en/{DISTRO}/p/rcl/>`__.
+The API documentation for ``rcl`` can be found `here <{package_link(rcl)}>`__.
 
 Language-specific functionality
 -------------------------------

@@ -621,5 +621,11 @@ For example, when generating the docs for Rolling on the ``rolling`` branch:
    * - \{interface(std_msgs/msg/String)\}
      - Publish a \{interface(std_msgs/msg/String)\}.
      - Publish a {interface(std_msgs/msg/String)}.
+   * - \{package_link(rclcpp)\}
+     - See: \{package_link(rclcpp)\}.
+     - See: {package_link(rclcpp)}.
+   * - \{package(rclcpp)\}
+     - Use \{package(rclcpp)\}.
+     - Use {package(rclcpp)}.
 
 The same file can be used on multiple branches (i.e., for multiple distros) and the generated content will be distro-specific.
