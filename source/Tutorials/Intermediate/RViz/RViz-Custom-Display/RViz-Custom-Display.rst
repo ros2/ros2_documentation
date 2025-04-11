@@ -146,10 +146,10 @@ Add the following lines to the top of the standard boilerplate.
      $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
      $<INSTALL_INTERFACE:include>
    )
-   ament_target_dependencies(point_display
-     pluginlib
-     rviz_common
-     rviz_plugin_tutorial_msgs
+   target_link_libraries(point_display PUBLIC
+     pluginlib::pluginlib
+     rviz_common::rviz_common
+     ${rviz_plugin_tutorial_msgs_TARGETS}
    )
    install(TARGETS point_display
            EXPORT export_rviz_plugin_tutorial

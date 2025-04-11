@@ -253,7 +253,7 @@ After that, add the executable and name it ``talker`` so you can run your node u
 .. code-block:: console
 
     add_executable(talker src/publisher_lambda_function.cpp)
-    ament_target_dependencies(talker rclcpp std_msgs)
+    target_link_libraries(talker PUBLIC rclcpp::rclcpp ${std_msgs_TARGETS})
 
 Finally, add the ``install(TARGETS...)`` section so ``ros2 run`` can find your executable:
 
@@ -284,7 +284,7 @@ You can clean up your ``CMakeLists.txt`` by removing some unnecessary sections a
   find_package(std_msgs REQUIRED)
 
   add_executable(talker src/publisher_lambda_function.cpp)
-  ament_target_dependencies(talker rclcpp std_msgs)
+  target_link_libraries(talker PUBLIC rclcpp::rclcpp ${std_msgs_TARGETS})
 
   install(TARGETS
     talker
@@ -415,7 +415,7 @@ Reopen ``CMakeLists.txt`` and add the executable and target for the subscriber n
 .. code-block:: cmake
 
   add_executable(listener src/subscriber_lambda_function.cpp)
-  ament_target_dependencies(listener rclcpp std_msgs)
+  target_link_libraries(talker PUBLIC rclcpp::rclcpp ${std_msgs_TARGETS})
 
   install(TARGETS
     talker

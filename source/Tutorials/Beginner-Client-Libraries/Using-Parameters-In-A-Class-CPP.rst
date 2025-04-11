@@ -212,7 +212,7 @@ Below the dependency ``find_package(rclcpp REQUIRED)`` add the following lines o
 .. code-block:: cmake
 
     add_executable(minimal_param_node src/cpp_parameters_node.cpp)
-    ament_target_dependencies(minimal_param_node rclcpp)
+    target_link_libraries(minimal_param_node rclcpp::rclcpp)
 
     install(TARGETS
         minimal_param_node

@@ -258,7 +258,7 @@ We need to create a new target for this node in the ``CMakeLists.txt``:
    find_package(rclcpp REQUIRED)
 
    add_executable(publish_address_book src/publish_address_book.cpp)
-   ament_target_dependencies(publish_address_book rclcpp)
+   target_link_libraries(publish_address_book rclcpp::rclcpp)
 
    install(TARGETS
        publish_address_book

@@ -172,7 +172,7 @@ To build this code, first open the ``CMakeLists.txt`` file and add the following
 .. code-block:: console
 
     add_executable(parameter_event_handler src/parameter_event_handler.cpp)
-    ament_target_dependencies(parameter_event_handler rclcpp)
+    target_link_libraries(parameter_event_handler PUBLIC rclcpp::rclcpp)
 
     install(TARGETS
       parameter_event_handler

@@ -96,7 +96,7 @@ Second, we're going to replace our ``add_executable`` with a ``add_library`` wit
     add_library(vincent_driver_component src/vincent_driver.cpp)
 
 Third, replace other build commands that used the old target to act on the new target.
-i.e. ``ament_target_dependencies(vincent_driver ...)`` becomes ``ament_target_dependencies(vincent_driver_component ...)``
+i.e. ``target_link_libraries(vincent_driver ...)`` becomes ``target_link_libraries(vincent_driver_component ...)``
 
 Fourth, add a new command to declare your component.
 

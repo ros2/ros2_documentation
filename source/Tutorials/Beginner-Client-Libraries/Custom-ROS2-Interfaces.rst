@@ -427,10 +427,10 @@ Add the following lines (C++ only):
     find_package(tutorial_interfaces REQUIRED)                      # CHANGE
 
     add_executable(talker src/publisher_member_function.cpp)
-    ament_target_dependencies(talker rclcpp tutorial_interfaces)    # CHANGE
+    target_link_libraries(talker PUBLIC rclcpp::rclcpp ${tutorial_interfaces_TARGETS})    # CHANGE
 
     add_executable(listener src/subscriber_member_function.cpp)
-    ament_target_dependencies(listener rclcpp tutorial_interfaces)  # CHANGE
+    target_link_libraries(listener PUBLIC rclcpp::rclcpp ${tutorial_interfaces_TARGETS})  # CHANGE
 
     install(TARGETS
       talker
@@ -718,12 +718,10 @@ Add the following lines (C++ only):
     find_package(tutorial_interfaces REQUIRED)         # CHANGE
 
     add_executable(server src/add_two_ints_server.cpp)
-    ament_target_dependencies(server
-      rclcpp tutorial_interfaces)                      # CHANGE
+    target_link_libraries(server PUBLIC rclcpp::rclcpp ${tutorial_interfaces_TARGETS})  # CHANGE
 
     add_executable(client src/add_two_ints_client.cpp)
-    ament_target_dependencies(client
-      rclcpp tutorial_interfaces)                      # CHANGE
+    target_link_libraries(client PUBLIC rclcpp::rclcpp ${tutorial_interfaces_TARGETS})
 
     install(TARGETS
       server

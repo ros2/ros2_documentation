@@ -263,12 +263,12 @@ Add the executable to the CMakeLists.txt and name it ``static_turtle_tf2_broadca
 .. code-block:: console
 
     add_executable(static_turtle_tf2_broadcaster src/static_turtle_tf2_broadcaster.cpp)
-    ament_target_dependencies(
-       static_turtle_tf2_broadcaster
-       geometry_msgs
-       rclcpp
-       tf2
-       tf2_ros
+    target_link_libraries(
+       static_turtle_tf2_broadcaster PUBLIC
+       ${geometry_msgs_TARGETS}
+       rclcpp::rclcpp
+       tf2::tf2
+       tf2_ros::tf2_ros
     )
 
 Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your executable:

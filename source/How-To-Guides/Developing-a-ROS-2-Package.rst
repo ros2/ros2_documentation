@@ -59,7 +59,7 @@ You will mostly use the ``add_executable()`` CMake macro along with
 
 .. code-block:: cmake
 
-   ament_target_dependencies(<executable-name> [dependencies])
+   target_link_libraries(<executable-name> PUBLIC [targets from your dependencies])
 
 to create executable nodes and link dependencies.
 

@@ -74,7 +74,7 @@ One thing to notice is the presence of the initialize method.
 With ``pluginlib``, a constructor without parameters is required, so if any parameters to the class are needed, we use the initialize method to pass them to the object.
 
 We need to make this header available to other classes, so open ``ros2_ws/src/polygon_base/CMakeLists.txt`` for editing.
-Add the following lines after the ``ament_target_dependencies`` command:
+Add the following lines after the ``target_link_libraries`` command:
 
 .. code-block:: cmake
 

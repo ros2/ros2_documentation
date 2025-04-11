@@ -177,33 +177,16 @@ In the case that a package has both libraries and executables, make sure to comb
 Linking to dependencies
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-There are two ways to link your targets against a dependency.
+Link to your dependencies using [target_link_libraries](https://cmake.org/cmake/help/latest/command/target_link_libraries.html)
+It will give your target the necessary headers, libraries, and all their dependencies.
 
-The first and recommended way is to use the ament macro ``ament_target_dependencies``.
 As an example, suppose we want to link ``my_library`` against the linear algebra library Eigen3.
+``Eigen3`` defines the target ``Eigen3::Eigen``.
 
 .. code-block:: cmake
 
     find_package(Eigen3 REQUIRED)
-    ament_target_dependencies(my_library PUBLIC Eigen3)
-
-It includes the necessary headers and libraries and their dependencies to be correctly found by the project.
-
-The second way is to use ``target_link_libraries``.
-
-Modern CMake prefers to use only targets, exporting and linking against them.
-CMake targets may be namespaced, similar to C++.
-Prefer to use the namespaced targets if they are available.
-For instance, ``Eigen3`` defines the target ``Eigen3::Eigen``.
-
-In the example of Eigen3, the call should then look like
-
-.. code-block:: cmake
-
     target_link_libraries(my_library PUBLIC Eigen3::Eigen)
-
-This will also include necessary headers, libraries and their dependencies.
-Note that this dependency must have been previously discovered via a call to ``find_package``.
 
 Installing
 ^^^^^^^^^^
@@ -262,7 +245,7 @@ Installing
         - The ``EXPORT`` notation of the install call requires additional attention:
           It installs the CMake files for the ``my_library`` target.
           It must be named exactly the same as the argument in ``ament_export_targets``.
-          To ensure that it can be used via ``ament_target_dependencies``, it should not be named exactly the same as the library name, but instead should have a prefix like ``export_`` (as shown above).
+          By convention the export name is given a prefix like ``export_``, but this prefix is not critical.
 
         - All install paths are relative to ``CMAKE_INSTALL_PREFIX``, which is already set correctly by colcon/ament.
 

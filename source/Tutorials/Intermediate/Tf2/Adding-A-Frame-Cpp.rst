@@ -163,11 +163,11 @@ Now open the ``CMakeLists.txt`` add the executable and name it ``fixed_frame_tf2
 .. code-block:: console
 
     add_executable(fixed_frame_tf2_broadcaster src/fixed_frame_tf2_broadcaster.cpp)
-    ament_target_dependencies(
-        fixed_frame_tf2_broadcaster
-        geometry_msgs
-        rclcpp
-        tf2_ros
+    target_link_libraries(
+        fixed_frame_tf2_broadcaster PUBLIC
+        ${geometry_msgs_TARGETS}
+        rclcpp::rclcpp
+        tf2_ros::tf2_ros
     )
 
 Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your executable:
@@ -420,11 +420,11 @@ Now open the ``CMakeLists.txt`` add the executable and name it ``dynamic_frame_t
 .. code-block:: console
 
     add_executable(dynamic_frame_tf2_broadcaster src/dynamic_frame_tf2_broadcaster.cpp)
-    ament_target_dependencies(
-        dynamic_frame_tf2_broadcaster
-        geometry_msgs
-        rclcpp
-        tf2_ros
+    target_link_libraries(
+        dynamic_frame_tf2_broadcaster PUBLIC
+        ${geometry_msgs_TARGETS}
+        rclcpp::rclcpp
+        tf2_ros::tf2_ros
     )
 
 Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your executable:

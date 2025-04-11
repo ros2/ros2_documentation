@@ -54,7 +54,7 @@ CMakeLists.txt
     endif()
 
 The testing code is wrapped in the ``if/endif`` block to avoid building tests where possible.
-``ament_add_gtest`` functions much like ``add_executable`` so you'll need to call ``target_include_directories``, ``ament_target_dependencies`` and ``target_link_libraries`` as you normally would.
+``ament_add_gtest`` functions much like ``add_executable`` so you'll need to call ``target_include_directories`` and ``target_link_libraries`` as you normally would.
 
 
 Running Tests

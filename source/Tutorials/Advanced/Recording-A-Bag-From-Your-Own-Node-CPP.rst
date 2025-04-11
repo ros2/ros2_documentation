@@ -223,7 +223,7 @@ Below the dependencies block, which contains ``find_package(rosbag2_cpp REQUIRED
 .. code-block:: console
 
     add_executable(simple_bag_recorder src/simple_bag_recorder.cpp)
-    ament_target_dependencies(simple_bag_recorder rclcpp rosbag2_cpp std_msgs)
+    target_link_libraries(simple_bag_recorder rclcpp::rclcpp rosbag2_cpp::rosbag2_cpp ${std_msgs_TARGETS})
 
     install(TARGETS
       simple_bag_recorder
@@ -433,7 +433,7 @@ Open the ``CMakeLists.txt`` file and add the following lines after the previousl
 .. code-block:: console
 
     add_executable(data_generator_node src/data_generator_node.cpp)
-    ament_target_dependencies(data_generator_node rclcpp rosbag2_cpp example_interfaces)
+    target_link_libraries(data_generator_node PUBLIC rclcpp::rclcpp rosbag2_cpp::rosbag2_cpp ${example_interfaces_TARGETS})
 
     install(TARGETS
       data_generator_node
@@ -593,7 +593,7 @@ Open the ``CMakeLists.txt`` file and add the following lines after the previousl
 .. code-block:: console
 
     add_executable(data_generator_executable src/data_generator_executable.cpp)
-    ament_target_dependencies(data_generator_executable rclcpp rosbag2_cpp example_interfaces)
+    target_link_libraries(data_generator_executable PUBLIC rclcpp::rclcpp rosbag2_cpp::rosbag2_cpp ${example_interfaces_TARGETS})
 
     install(TARGETS
       data_generator_executable

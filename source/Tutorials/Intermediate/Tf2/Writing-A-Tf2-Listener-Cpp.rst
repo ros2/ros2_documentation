@@ -258,13 +258,13 @@ Now open the ``CMakeLists.txt`` add the executable and name it ``turtle_tf2_list
 .. code-block:: console
 
     add_executable(turtle_tf2_listener src/turtle_tf2_listener.cpp)
-    ament_target_dependencies(
-        turtle_tf2_listener
-        geometry_msgs
-        rclcpp
-        tf2
-        tf2_ros
-        turtlesim
+    target_link_libraries(
+        turtle_tf2_listener PUBLIC
+        ${geometry_msgs_TARGETS}
+        rclcpp::rclcpp
+        tf2::tf2
+        tf2_ros::tf2_ros
+        ${turtlesim_msgs_TARGETS}
     )
 
 Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your executable:

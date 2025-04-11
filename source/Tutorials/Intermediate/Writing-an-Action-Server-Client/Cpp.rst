@@ -221,11 +221,11 @@ Open up ``custom_action_cpp/CMakeLists.txt``, and add the following right after 
     $<INSTALL_INTERFACE:include>)
   target_compile_definitions(action_server
     PRIVATE "CUSTOM_ACTION_CPP_BUILDING_DLL")
-  ament_target_dependencies(action_server
-    "custom_action_interfaces"
-    "rclcpp"
-    "rclcpp_action"
-    "rclcpp_components")
+  target_link_libraries(action_server PUBLIC
+    ${custom_action_interfaces_TARGETS}
+    rclcpp::rclcpp
+    rclcpp_action::rclcpp_action
+    rclcpp_components::components)
   rclcpp_components_register_node(action_server PLUGIN "custom_action_cpp::FibonacciActionServer" EXECUTABLE fibonacci_action_server)
   install(TARGETS
     action_server
@@ -351,11 +351,11 @@ Open up ``custom_action_cpp/CMakeLists.txt``, and add the following right after 
     $<INSTALL_INTERFACE:include>)
   target_compile_definitions(action_client
     PRIVATE "CUSTOM_ACTION_CPP_BUILDING_DLL")
-  ament_target_dependencies(action_client
-    "custom_action_interfaces"
-    "rclcpp"
-    "rclcpp_action"
-    "rclcpp_components")
+  target_link_libraries(action_client PUBLIC
+    ${custom_action_interfaces_TARGETS}
+    rclcpp::rclcpp
+    rclcpp_action::rclcpp_action
+    rclcpp_components::components)
   rclcpp_components_register_node(action_client PLUGIN "custom_action_cpp::FibonacciActionClient" EXECUTABLE fibonacci_action_client)
   install(TARGETS
     action_client

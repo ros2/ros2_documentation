@@ -526,14 +526,14 @@ After that, add the executable and name it ``turtle_tf2_message_filter``, which 
 .. code-block:: console
 
     add_executable(turtle_tf2_message_filter src/turtle_tf2_message_filter.cpp)
-    ament_target_dependencies(
-      turtle_tf2_message_filter
-      geometry_msgs
-      message_filters
-      rclcpp
-      tf2
-      tf2_geometry_msgs
-      tf2_ros
+    target_link_libraries(
+      turtle_tf2_message_filter PUBLIC
+      ${geometry_msgs_TARGETS}
+      message_filters::message_filters
+      rclcpp::rclcpp
+      tf2::tf2
+      ${tf2_geometry_msgs_TARGETS}
+      tf2_ros::tf2_ros
     )
 
     if(EXISTS ${TF2_CPP_HEADERS})

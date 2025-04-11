@@ -117,9 +117,9 @@ Add the following lines to the top of the standard boilerplate.
      $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
      $<INSTALL_INTERFACE:include>
    )
-   ament_target_dependencies(demo_panel
-     pluginlib
-     rviz_common
+   target_link_libraries(demo_panel PUBLIC
+     pluginlib::pluginlib
+     rviz_common::rviz_common
    )
    install(TARGETS demo_panel
            EXPORT export_rviz_panel_tutorial

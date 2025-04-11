@@ -171,7 +171,7 @@ Add the following code block to ``CMakeLists.txt`` to create an executable named
 .. code-block:: console
 
   add_executable(server src/add_two_ints_server.cpp)
-  ament_target_dependencies(server rclcpp example_interfaces)
+  target_link_libraries(server PUBLIC rclcpp::rclcpp ${example_interfaces_TARGETS})
 
 So ``ros2 run`` can find the executable, add the following lines to the end of the file, right before ``ament_package()``:
 
@@ -284,10 +284,10 @@ After removing some unnecessary boilerplate from the automatically generated fil
   find_package(example_interfaces REQUIRED)
 
   add_executable(server src/add_two_ints_server.cpp)
-  ament_target_dependencies(server rclcpp example_interfaces)
+  target_link_libraries(server PUBLIC rclcpp::rclcpp ${example_interfaces_TARGETS})
 
   add_executable(client src/add_two_ints_client.cpp)
-  ament_target_dependencies(client rclcpp example_interfaces)
+  target_link_libraries(server PUBLIC rclcpp::rclcpp ${example_interfaces_TARGETS})
 
   install(TARGETS
     server

@@ -170,7 +170,7 @@ Now open the ``CMakeLists.txt`` file and add a new executable and name it ``Sync
 .. code-block:: cmake
 
     add_executable(SyncAsyncWriter src/sync_async_writer.cpp)
-    ament_target_dependencies(SyncAsyncWriter rclcpp std_msgs)
+    target_link_libraries(SyncAsyncWriter PUBLIC rclcpp::rclcpp ${std_msgs_TARGETS})
 
 Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your executable:
 
@@ -201,7 +201,7 @@ You can clean up your ``CMakeLists.txt`` by removing some unnecessary sections a
     find_package(std_msgs REQUIRED)
 
     add_executable(SyncAsyncWriter src/sync_async_writer.cpp)
-    ament_target_dependencies(SyncAsyncWriter rclcpp std_msgs)
+    target_link_libraries(SyncAsyncWriter PUBLIC rclcpp::rclcpp ${std_msgs_TARGETS})
 
     install(TARGETS
         SyncAsyncWriter
@@ -370,7 +370,7 @@ Open the ``CMakeLists.txt`` file and add a new executable and name it ``SyncAsyn
 .. code-block:: cmake
 
     add_executable(SyncAsyncReader src/sync_async_reader.cpp)
-    ament_target_dependencies(SyncAsyncReader rclcpp std_msgs)
+    target_link_libraries(SyncAsyncReader PUBLIC rclcpp::rclcpp ${std_msgs_TARGETS})
 
     install(TARGETS
         SyncAsyncReader
@@ -689,10 +689,10 @@ Open the ``CMakeLists.txt`` file and add two new executables ``ping_service`` an
     find_package(example_interfaces REQUIRED)
 
     add_executable(ping_service src/ping_service.cpp)
-    ament_target_dependencies(ping_service example_interfaces rclcpp)
+    target_link_libraries(ping_service PUBLIC ${example_interfaces_TARGETS} rclcpp::rclcpp)
 
     add_executable(ping_client src/ping_client.cpp)
-    ament_target_dependencies(ping_client example_interfaces rclcpp)
+    target_link_libraries(ping_client PUBLIC ${example_interfaces_TARGETS} rclcpp::rclcpp)
 
     install(TARGETS
         ping_service
