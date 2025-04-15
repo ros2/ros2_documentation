@@ -244,13 +244,14 @@ Now that you have the message structure, you can publish data to a topic directl
 
 The ``'<args>'`` argument is the actual data you'll pass to the topic, in the structure you just discovered in the previous section.
 
-There are four main ways to use the ``pub`` command:
+There are four main ways to use the ``pub`` command as shown below.
+However, the autocomplete feature described in ``c.`` and ``d.`` is not supported in Windows.
 
-1. **Publishing dictionary strings**:
+a. **Publishing dictionary strings**:
 
   In order to publish data to a topic, you need to pass the data in the form of YAML strings.
 
-  .. code-block:: console
+  .. code-block:: bash
 
     ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
 
@@ -258,35 +259,30 @@ There are four main ways to use the ``pub`` command:
 
   For example, if you want to change the linear velocity to 2.0 and keep the angular velocity at 1.8, you can do the following:
 
-  .. code-block:: console
+  .. code-block:: bash
 
     ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0}, angular: {z: 1.8}}"
 
-2. **Publishing an empty message**:
+b. **Publishing an empty message**:
 
-  .. code-block:: console
+  .. code-block:: bash
 
     ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist
 
   This will publish the default values for the message type at 1 Hz.
   In this case, this equivalent to the following command:
 
-  .. code-block:: console
+  .. code-block:: bash
 
     ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}" --rate 1
 
-3. **Using autocomplete**:
+c. **Using autocomplete**:
 
   You can trigger the autocomplete feature of your terminal by the following:
 
-  .. code-block:: console
+  .. code-block:: bash
 
-    ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist <TAB>
-
-  This will show you the following options:
-
-  .. code-block:: console
-
+    $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist <TAB>
     --keep-alive
     --max-wait-time-secs
     --node-name
@@ -315,7 +311,7 @@ There are four main ways to use the ``pub`` command:
     -w
     \'linear:\^J\ \ x:\ 0.0\^J\ \ y:\ 0.0\^J\ \ z:\ 0.0\^Jangular:\^J\ \ x:\ 0.0\^J\ \ y:\ 0.0\^J\ \ z:\ 0.0\^J\'
 
-  All the options will be autocompleted by pressing the ``<TAB>`` key after the entering the first few characters of the option.
+  All the options will be autocompleted by pressing the :kbd:`tab` key after the entering the first few characters of the option.
   However, the topic message prototype will only be autocompleted after ``\'<TAB>`` is entered.
 
   This is because the terminal does not recognize the single quote as part of the autocomplete string.
@@ -323,9 +319,9 @@ There are four main ways to use the ``pub`` command:
 
   The final autocompleted string will look like this:
 
-  .. code-block:: console
+  .. code-block:: bash
 
-    ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist 'linear:
+    $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist 'linear:
       x: 0.0
       y: 0.0
       z: 0.0
@@ -337,17 +333,17 @@ There are four main ways to use the ``pub`` command:
 
   This string is editable and you can change the values of the message type as required.
 
-4. **Using the raw autocompleted string**:
+d. **Using the raw autocompleted string**:
 
   As mentioned above, the autocompleted string for ``geometry_msgs/msg/Twist`` looks like this:
 
-  .. code-block:: console
+  .. code-block:: bash
 
     \'linear:\^J\ \ x:\ 0.0\^J\ \ y:\ 0.0\^J\ \ z:\ 0.0\^Jangular:\^J\ \ x:\ 0.0\^J\ \ y:\ 0.0\^J\ \ z:\ 0.0\^J\'
 
   This can be directly used in place of the yaml string in the command line.
 
-  .. code-block:: console
+  .. code-block:: bash
 
     ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist \'linear:\^J\ \ x:\ 0.0\^J\ \ y:\ 0.0\^J\ \ z:\ 0.0\^Jangular:\^J\ \ x:\ 0.0\^J\ \ y:\ 0.0\^J\ \ z:\ 0.0\^J\'
 
