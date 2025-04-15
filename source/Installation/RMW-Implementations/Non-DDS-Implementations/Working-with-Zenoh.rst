@@ -1,19 +1,22 @@
 Zenoh
 =====
 
+Zenoh is an open source communication protocol and middleware designed to facilitate efficient data distribution across heterogeneous systems.
+It provides location-transparent abstractions for high performance pub/sub and distributed queries.
+See also: https://zenoh.io/docs/getting-started/first-app/
 
 Prerequisites
 -------------
 
 Have :doc:`rosdep installed <../../../Tutorials/Intermediate/Rosdep>`.
 
-
 Installation packages
 ---------------------
 
 The rmw implementation Zenoh can be installed via binaries, recommended for stable development.
 
-Binary packages for supported ROS 2 distributions (see distro branches) are available on respective Tier-1 platforms for the distributions. First ensure that your system is set up to install ROS 2 binaries by following the instructions here.
+Binary packages for supported ROS 2 distributions (see distro branches) are available on respective Tier-1 platforms for the distributions. 
+First ensure that your system is set up to install ROS 2 binaries by following the instructions here.
 
 Then install rmw_zenoh binaries using the command
 
@@ -26,8 +29,8 @@ Build from source code
 
 Built from source, recommended if latest features are needed)
 
-By default, we vendor and compile ``zenoh-cpp`` with a subset of zenoh features. 
-The ``ZENOHC_CARGO_FLAGS`` CMake argument may be overwritten with other features included if required. 
+By default, we vendor and compile ``zenoh-cpp`` with a subset of zenoh features.
+The ``ZENOHC_CARGO_FLAGS`` CMake argument may be overwritten with other features included if required.
 See `zenoh_cpp_vendor/CMakeLists.txt <https://github.com/ros2/rmw_zenoh/blob/rolling/zenoh_cpp_vendor/CMakeLists.txt>`__ for more details.
 
 1. Clone the repository
@@ -77,7 +80,8 @@ Start the Zenoh router
    # terminal 1
    ros2 run rmw_zenoh_cpp talker rmw_zenohd
 
-.. note:: Without the Zenoh router, nodes will not be able to discover each other since multicast discovery is disabled by default in the node's session config. Instead, nodes will receive discovery information about other peers via the Zenoh router's gossip functionality.
+.. note:: Without the Zenoh router, nodes will not be able to discover each other since multicast discovery is disabled by default in the node's session config. 
+    Instead, nodes will receive discovery information about other peers via the Zenoh router's gossip functionality.
 
 .. code-block:: bash
 
