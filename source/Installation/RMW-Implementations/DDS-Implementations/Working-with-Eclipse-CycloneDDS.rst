@@ -13,7 +13,7 @@ See also: https://projects.eclipse.org/projects/iot.cyclonedds
 Prerequisites
 -------------
 
-Have :doc:`rosdep installed <../../Tutorials/Intermediate/Rosdep>`.
+Have :doc:`rosdep installed <../../../Tutorials/Intermediate/Rosdep>`.
 
 Install packages
 ----------------
@@ -59,7 +59,7 @@ Switch from other rmw to rmw_cyclonedds by specifying the environment variable.
 
    export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 
-See also: :doc:`Working with multiple RMW implementations <../../How-To-Guides/Working-with-multiple-RMW-implementations>`
+See also: :doc:`Working with multiple RMW implementations <../../../How-To-Guides/Working-with-multiple-RMW-implementations>`
 
 Run the talker and listener
 ---------------------------
