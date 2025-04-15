@@ -225,7 +225,7 @@ Open up ``custom_action_cpp/CMakeLists.txt``, and add the following right after 
     ${custom_action_interfaces_TARGETS}
     rclcpp::rclcpp
     rclcpp_action::rclcpp_action
-    rclcpp_components::components)
+    rclcpp_components::component)
   rclcpp_components_register_node(action_server PLUGIN "custom_action_cpp::FibonacciActionServer" EXECUTABLE fibonacci_action_server)
   install(TARGETS
     action_server
