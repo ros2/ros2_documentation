@@ -84,8 +84,6 @@ See `how to work with mulitple RMW implementations <../../../How-To-Guides/Worki
 
 Note that secure communication between vendors is not supported.
 
-
-
 Run the demo
 ------------
 
@@ -413,6 +411,6 @@ Be sure to create pull requests and issues here so we can continue improving sec
 Zenoh
 -----
 
-The RMW implementation Zenoh has its own tools to configure security, in particular a package called `zenoh_security_tools <https://github.com/ros2/rmw_zenoh/tree/rolling/zenoh_security_tools>`_.
+The RMW implementation Zenoh has its own tools to configure security, in particular a package called `zenoh_security_tools <https://github.com/ros2/rmw_zenoh/tree/{DISTRO}/zenoh_security_tools>`_.
 It contains the ``generate_configs`` executable which generates Zenoh session config files with access control, authentication and encryption parameters
 based on policies and keystores generated using sros2.
