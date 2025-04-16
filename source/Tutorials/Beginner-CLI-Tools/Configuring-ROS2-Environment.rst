@@ -132,19 +132,20 @@ If you ever have problems finding or using your ROS 2 packages, make sure that y
 
       .. code-block:: console
 
-        printenv | grep -i ROS
+        $ printenv | grep -i ROS
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-        printenv | grep -i ROS
+        $ printenv | grep -i ROS
 
    .. group-tab:: Windows
 
       .. code-block:: console
 
-        set | findstr -i ROS
+        $ set | findstr -i ROS
+        
 
 Check that variables like ``ROS_DISTRO`` and ``ROS_VERSION`` are set.
 
@@ -170,37 +171,37 @@ Once you have determined a unique integer for your group of ROS 2 nodes, you can
 
       .. code-block:: console
 
-        export ROS_DOMAIN_ID=<your_domain_id>
+        $ export ROS_DOMAIN_ID=<your_domain_id>
 
       To maintain this setting between shell sessions, you can add the command to your shell startup script:
 
       .. code-block:: console
 
-        echo "export ROS_DOMAIN_ID=<your_domain_id>" >> ~/.bashrc
+        $ echo "export ROS_DOMAIN_ID=<your_domain_id>" >> ~/.bashrc
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-        export ROS_DOMAIN_ID=<your_domain_id>
+        $ export ROS_DOMAIN_ID=<your_domain_id>
 
       To maintain this setting between shell sessions, you can add the command to your shell startup script:
 
       .. code-block:: console
 
-        echo "export ROS_DOMAIN_ID=<your_domain_id>" >> ~/.bash_profile
+        $ echo "export ROS_DOMAIN_ID=<your_domain_id>" >> ~/.bash_profile
 
    .. group-tab:: Windows
 
       .. code-block:: console
 
-        set ROS_DOMAIN_ID=<your_domain_id>
+        $ set ROS_DOMAIN_ID=<your_domain_id>
 
       If you want to make this permanent between shell sessions, also run:
 
       .. code-block:: console
 
-        setx ROS_DOMAIN_ID <your_domain_id>
+        $ setx ROS_DOMAIN_ID <your_domain_id>
 
 3.2 The ``ROS_AUTOMATIC_DISCOVERY_RANGE`` variable
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
