@@ -22,7 +22,7 @@ Then install rmw_zenoh binaries using the command
 
 .. code-block:: bash
 
-   sudo apt install ros-{DISTRO}-rmw-zenoh-cpp # replace <DISTRO> with the codename for the distribution, eg., rolling
+   sudo apt install ros-{DISTRO}-rmw-zenoh-cpp
 
 Build from source code
 ----------------------
