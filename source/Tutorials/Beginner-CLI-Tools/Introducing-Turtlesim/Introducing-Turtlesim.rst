@@ -70,7 +70,7 @@ To check if the package is installed, run the following command, which should re
 
 .. code-block:: console
 
-  $ ros2 pkg executables turtlesim:
+  $ ros2 pkg executables turtlesim
   turtlesim draw_square
   turtlesim mimic
   turtlesim turtle_teleop_key
