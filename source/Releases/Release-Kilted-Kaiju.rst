@@ -47,7 +47,7 @@ Changes since the Jazzy release
 ament_target_dependencies is deprecated
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The CMake macro ``ament_target_depenencies()`` has been deprecated in favor of ``target_link_libraries()`` with modern CMake targets.
+The CMake macro ``ament_target_dependencies()`` has been deprecated in favor of ``target_link_libraries()`` with modern CMake targets.
 The macro still works, but it emits a CMake deprecation warning at build time like this:
 
 .. code-block::
