@@ -15,7 +15,7 @@ Installation packages
 
 The rmw implementation Zenoh can be installed via binaries, recommended for stable development.
 
-Binary packages for supported ROS 2 distributions (see distro branches) are available on respective Tier-1 platforms for the distributions. 
+Binary packages for supported ROS 2 distributions (see distro branches) are available on respective Tier-1 platforms for the distributions.
 First ensure that your system is set up to install ROS 2 binaries by following the instructions here.
 
 Then install rmw_zenoh binaries using the command
@@ -27,35 +27,32 @@ Then install rmw_zenoh binaries using the command
 Build from source code
 ----------------------
 
-Built from source, recommended if latest features are needed)
+Built from source, recommended if latest features are needed.
 
 By default, we vendor and compile ``zenoh-cpp`` with a subset of zenoh features.
 The ``ZENOHC_CARGO_FLAGS`` CMake argument may be overwritten with other features included if required.
-See `zenoh_cpp_vendor/CMakeLists.txt <https://github.com/ros2/rmw_zenoh/blob/rolling/zenoh_cpp_vendor/CMakeLists.txt>`__ for more details.
+See `zenoh_cpp_vendor/CMakeLists.txt <https://github.com/ros2/rmw_zenoh/blob/{DISTRO}/zenoh_cpp_vendor/CMakeLists.txt>`__ for more details.
 
 1. Clone the repository
 
 .. code-block:: bash
 
-    # replace <DISTRO> with ROS 2 distro of choice
     mkdir ~/ws_rmw_zenoh/src -p && cd ~/ws_rmw_zenoh/src
-    git clone https://github.com/ros2/rmw_zenoh.git -b <DISTRO>
+    git clone https://github.com/ros2/rmw_zenoh.git -b {DISTRO}
 
-2. Install dependencies:
+1. Install dependencies:
 
 .. code-block:: bash
 
     cd ~/ws_rmw_zenoh
-    rosdep install --from-paths src --ignore-src --rosdistro <DISTRO> -y
+    rosdep install --from-paths src --ignore-src --rosdistro {DISTRO} -y
 
 3. Build the workspace using Colcon:
 
 .. code-block:: bash
 
-    source /opt/ros/<DISTRO>/setup.bash
+    source /opt/ros/{DISTRO}/setup.bash
     colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release
-
-Make sure to source the built workspace using the commands below prior to running any other commands.
 
 
 Switch to rmw_zenoh_cpp
@@ -66,7 +63,6 @@ Switch from other rmw to rmw_zenoh_cpp by specifying the environment variable.
 .. code-block:: bash
 
    export RMW_IMPLEMENTATION=rmw_zenoh_cpp
-
 
 Run the talker and listener
 ---------------------------
@@ -80,7 +76,7 @@ Start the Zenoh router
    # terminal 1
    ros2 run rmw_zenoh_cpp talker rmw_zenohd
 
-.. note:: Without the Zenoh router, nodes will not be able to discover each other since multicast discovery is disabled by default in the node's session config. 
+.. note:: Without the Zenoh router, nodes will not be able to discover each other since multicast discovery is disabled by default in the node's session config.
     Instead, nodes will receive discovery information about other peers via the Zenoh router's gossip functionality.
 
 .. code-block:: bash
