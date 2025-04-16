@@ -41,6 +41,29 @@ TODO
 New features in this ROS 2 release
 ----------------------------------
 
+Changes since the Jazzy release
+-------------------------------
+
+ament_target_dependencies is deprecated
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The CMake macro ``ament_target_dependencies()`` has been deprecated in favor of ``target_link_libraries()`` with modern CMake targets.
+The macro still works, but it emits a CMake deprecation warning at build time like this:
+
+.. code-block::
+
+    CMake Deprecation Warning at [...]/ament_cmake_target_dependencies/share/ament_cmake_target_dependencies/cmake/ament_target_dependencies.cmake:89 (message):
+    ament_target_dependencies() is deprecated.  Use target_link_libraries()
+    with modern CMake targets instead.  Try replacing this call with:
+
+        target_link_libraries([...] PUBLIC
+        [...]
+        )
+
+Try replacing the ``ament_target_dependencies()`` call with the  ``target_link_libraries()`` call suggested by the warning.
+
+For more information see `ament/ament_cmake#572 <https://github.com/ament/ament_cmake/pull/572>`__ and `ament/ament_cmake#292 <https://github.com/ament/ament_cmake/issues/292>`__.
+
 Development progress
 --------------------
 
