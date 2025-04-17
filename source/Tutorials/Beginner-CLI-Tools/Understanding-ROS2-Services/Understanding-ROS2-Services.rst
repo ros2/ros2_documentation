@@ -62,7 +62,7 @@ Open another terminal and run:
 Running the ``ros2 service list`` command in a new terminal will return a list of all the services currently active in the system:
 
 .. code-block:: console
-
+  $ ros2 service list
   /clear
   /kill
   /reset
