@@ -98,7 +98,7 @@ Running the ``ros2 topic list`` command in a new terminal will return a list of 
 
 .. code-block:: console
 
-  ros2 topic list
+  $ ros2 topic list
   /parameter_events
   /rosout
   /turtle1/cmd_vel
