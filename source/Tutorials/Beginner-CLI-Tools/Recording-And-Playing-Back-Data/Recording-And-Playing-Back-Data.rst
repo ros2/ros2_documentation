@@ -94,11 +94,6 @@ To see the list of your system's topics, open a new terminal and run the command
 .. code-block:: console
 
     $ ros2 topic list
-
-Which will return:
-
-.. code-block:: console
-
   /parameter_events
   /rosout
   /turtle1/cmd_vel
@@ -302,11 +297,6 @@ To check if ``Service Introspection`` is enabled on the client and service, run 
 .. code-block:: console
 
   $ ros2 service echo --flow-style /add_two_ints
-
-You should see service communication like below:
-
-.. code-block:: console
-
   info:
     event_type: REQUEST_SENT
     stamp:
@@ -317,6 +307,8 @@ You should see service communication like below:
   request: [{a: 2, b: 3}]
   response: []
   ---
+
+You should see the service communication.
 
 3 Record services
 ^^^^^^^^^^^^^^^^^
