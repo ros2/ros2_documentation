@@ -56,23 +56,25 @@ You will need to run this command on every new shell you open to have access to 
 
    .. group-tab:: Linux
 
-      .. code-block:: bash
+      .. code-block:: console
 
-        # Replace ".bash" with your shell if you're not using bash
-        # Possible values are: setup.bash, setup.sh, setup.zsh
-        source /opt/ros/{DISTRO}/setup.bash
+        $ source /opt/ros/{DISTRO}/setup.bash
+
+
+      Replace ``.bash`` with your shell if you're not using bash.
+      Possible values are: ``setup.bash``, ``setup.sh``, ``setup.zsh``.
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-        . ~/ros2_install/ros2-osx/setup.bash
+        $ . ~/ros2_install/ros2-osx/setup.bash
 
    .. group-tab:: Windows
 
       .. code-block:: console
 
-        call C:\dev\ros2\local_setup.bat
+        $ call C:\dev\ros2\local_setup.bat
 
 .. note::
     The exact command depends on where you installed ROS 2.
@@ -89,15 +91,15 @@ If you don't want to have to source the setup file every time you open a new she
 
       .. code-block:: console
 
-        echo "source /opt/ros/{DISTRO}/setup.bash" >> ~/.bashrc
+        $ echo "source /opt/ros/{DISTRO}/setup.bash" >> ~/.bashrc
 
-     To undo this, locate your system's shell startup script and remove the appended source command.
+      To undo this, locate your system's shell startup script and remove the appended source command.
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-        echo "source ~/ros2_install/ros2-osx/setup.bash" >> ~/.bash_profile
+        $ echo "source ~/ros2_install/ros2-osx/setup.bash" >> ~/.bash_profile
 
       To undo this, locate your system's shell startup script and remove the appended source command.
 
@@ -109,14 +111,14 @@ If you don't want to have to source the setup file every time you open a new she
 
       .. code-block:: console
 
-        C:\dev\ros2_{DISTRO}\local_setup.ps1
+        $ C:\dev\ros2_{DISTRO}\local_setup.ps1
 
       PowerShell will request permission to run this script every time a new shell is opened.
       To avoid that issue you can run:
 
       .. code-block:: console
 
-        Unblock-File C:\dev\ros2_{DISTRO}\local_setup.ps1
+        $ Unblock-File C:\dev\ros2_{DISTRO}\local_setup.ps1
 
       To undo this, remove the new 'Microsoft.PowerShell_profile.ps1' file.
 
@@ -132,19 +134,19 @@ If you ever have problems finding or using your ROS 2 packages, make sure that y
 
       .. code-block:: console
 
-        printenv | grep -i ROS
+        $ printenv | grep -i ROS
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-        printenv | grep -i ROS
+        $ printenv | grep -i ROS
 
    .. group-tab:: Windows
 
       .. code-block:: console
 
-        set | findstr -i ROS
+        $ set | findstr -i ROS
 
 Check that variables like ``ROS_DISTRO`` and ``ROS_VERSION`` are set.
 
@@ -170,37 +172,37 @@ Once you have determined a unique integer for your group of ROS 2 nodes, you can
 
       .. code-block:: console
 
-        export ROS_DOMAIN_ID=<your_domain_id>
+        $ export ROS_DOMAIN_ID=<your_domain_id>
 
       To maintain this setting between shell sessions, you can add the command to your shell startup script:
 
       .. code-block:: console
 
-        echo "export ROS_DOMAIN_ID=<your_domain_id>" >> ~/.bashrc
+        $ echo "export ROS_DOMAIN_ID=<your_domain_id>" >> ~/.bashrc
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-        export ROS_DOMAIN_ID=<your_domain_id>
+        $ export ROS_DOMAIN_ID=<your_domain_id>
 
       To maintain this setting between shell sessions, you can add the command to your shell startup script:
 
       .. code-block:: console
 
-        echo "export ROS_DOMAIN_ID=<your_domain_id>" >> ~/.bash_profile
+        $ echo "export ROS_DOMAIN_ID=<your_domain_id>" >> ~/.bash_profile
 
    .. group-tab:: Windows
 
       .. code-block:: console
 
-        set ROS_DOMAIN_ID=<your_domain_id>
+        $ set ROS_DOMAIN_ID=<your_domain_id>
 
       If you want to make this permanent between shell sessions, also run:
 
       .. code-block:: console
 
-        setx ROS_DOMAIN_ID <your_domain_id>
+        $ setx ROS_DOMAIN_ID <your_domain_id>
 
 3.2 The ``ROS_AUTOMATIC_DISCOVERY_RANGE`` variable
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

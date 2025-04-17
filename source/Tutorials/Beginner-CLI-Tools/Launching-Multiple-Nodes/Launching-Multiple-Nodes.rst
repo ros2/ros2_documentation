@@ -50,7 +50,7 @@ Open a new terminal and run:
 
 .. code-block:: console
 
-   ros2 launch turtlesim multisim.launch.py
+   $ ros2 launch turtlesim multisim.launch.py
 
 This command will run the following launch file:
 
@@ -79,13 +79,13 @@ In the second terminal:
 
 .. code-block:: console
 
-   ros2 topic pub  /turtlesim1/turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
+   $ ros2 topic pub  /turtlesim1/turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
 
 In the third terminal:
 
 .. code-block:: console
 
-   ros2 topic pub  /turtlesim2/turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -1.8}}"
+   $ ros2 topic pub  /turtlesim2/turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -1.8}}"
 
 After running these commands, you should see something like the following:
 
