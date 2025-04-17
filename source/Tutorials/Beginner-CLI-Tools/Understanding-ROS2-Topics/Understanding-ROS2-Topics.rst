@@ -439,7 +439,7 @@ The bandwidth used by a topic can be viewed using:
     $ ros2 topic bw /turtle1/pose
     iB/s, done.
     Total 7 (delta 5), reused 0 (delta 0), pack-reused 0
-    remote: Resolving deltas: 100% (5/5), completed with 5 
+    remote: Resolving deltas: 100% (5/5), completed with 5
         Subscribed to [/turtle1/pose]
         1.51 KB/s from 62 messages
             Message size mean: 0.02 KB min: 0.02 KB max: 0.02 KB
