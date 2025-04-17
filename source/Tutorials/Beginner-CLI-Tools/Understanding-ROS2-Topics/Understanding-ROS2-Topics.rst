@@ -202,11 +202,6 @@ Specifically, what structure of data the message expects.
 .. code-block:: console
 
     $ ros2 interface show geometry_msgs/msg/Twist
-
-For the message type from above it yields:
-
-.. code-block:: console
-
   # This expresses velocity in free space broken into its linear and angular parts.
 
       Vector3  linear
