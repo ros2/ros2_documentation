@@ -60,19 +60,19 @@ You will need to run this command on every new shell you open to have access to 
 
         # Replace ".bash" with your shell if you're not using bash
         # Possible values are: setup.bash, setup.sh, setup.zsh
-        source /opt/ros/{DISTRO}/setup.bash
+        $ source /opt/ros/{DISTRO}/setup.bash
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-        . ~/ros2_install/ros2-osx/setup.bash
+        $ . ~/ros2_install/ros2-osx/setup.bash
 
    .. group-tab:: Windows
 
       .. code-block:: console
 
-        call C:\dev\ros2\local_setup.bat
+        $ call C:\dev\ros2\local_setup.bat
 
 .. note::
     The exact command depends on where you installed ROS 2.
@@ -89,7 +89,7 @@ If you don't want to have to source the setup file every time you open a new she
 
       .. code-block:: console
 
-        echo "source /opt/ros/{DISTRO}/setup.bash" >> ~/.bashrc
+        $ echo "source /opt/ros/{DISTRO}/setup.bash" >> ~/.bashrc
 
      To undo this, locate your system's shell startup script and remove the appended source command.
 
@@ -97,7 +97,7 @@ If you don't want to have to source the setup file every time you open a new she
 
       .. code-block:: console
 
-        echo "source ~/ros2_install/ros2-osx/setup.bash" >> ~/.bash_profile
+        $ echo "source ~/ros2_install/ros2-osx/setup.bash" >> ~/.bash_profile
 
       To undo this, locate your system's shell startup script and remove the appended source command.
 
@@ -109,14 +109,14 @@ If you don't want to have to source the setup file every time you open a new she
 
       .. code-block:: console
 
-        C:\dev\ros2_{DISTRO}\local_setup.ps1
+        $ C:\dev\ros2_{DISTRO}\local_setup.ps1
 
       PowerShell will request permission to run this script every time a new shell is opened.
       To avoid that issue you can run:
 
       .. code-block:: console
 
-        Unblock-File C:\dev\ros2_{DISTRO}\local_setup.ps1
+        $ Unblock-File C:\dev\ros2_{DISTRO}\local_setup.ps1
 
       To undo this, remove the new 'Microsoft.PowerShell_profile.ps1' file.
 
