@@ -62,6 +62,7 @@ Open another terminal and run:
 Running the ``ros2 service list`` command in a new terminal will return a list of all the services currently active in the system:
 
 .. code-block:: console
+
   $ ros2 service list
   /clear
   /kill
@@ -236,7 +237,7 @@ Enter the command:
 
 .. code-block:: console
 
-  $ ros2 service call /spawn turtlesim_msgs/srv/Spawn "{x: 2, y: 2, theta: 0.2, name: ''}"
+  $ ros2 service call /spawn turtlesim_msgs/srv/Spawn "{x: 2, y: 2, theta: 0.2, name: ''}"64gg
   requester: making request: turtlesim.srv.Spawn_Request(x=2.0, y=2.0, theta=0.2, name='')
 
   response:
