@@ -109,7 +109,7 @@ Running the ``ros2 topic list`` command in a new terminal will return a list of 
 
 .. code-block:: console
 
-  ros2 topic list -t 
+  $ ros2 topic list -t
   /parameter_events [rcl_interfaces/msg/ParameterEvent]
   /rosout [rcl_interfaces/msg/Log]
   /turtle1/cmd_vel [geometry_msgs/msg/Twist]
