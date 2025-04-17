@@ -251,7 +251,7 @@ a. **Publishing dictionary strings**:
 
   In order to publish data to a topic, you need to pass the data in the form of YAML strings.
 
-  .. code-block:: bash
+  .. code-block:: console
 
     $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
 
@@ -259,20 +259,20 @@ a. **Publishing dictionary strings**:
 
   For example, if you want to change the linear velocity to 2.0 and keep the angular velocity at 1.8, you can do the following:
 
-  .. code-block:: bash
+  .. code-block:: console
 
     $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0}, angular: {z: 1.8}}"
 
 b. **Publishing an empty message**:
 
-  .. code-block:: bash
+  .. code-block:: console
 
     $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist
 
   This will publish the default values for the message type at 1 Hz.
   In this case, this equivalent to the following command:
 
-  .. code-block:: bash
+  .. code-block:: console
 
     $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}" --rate 1
 
@@ -280,7 +280,7 @@ c. **Using autocomplete**:
 
   You can trigger the autocomplete feature of your terminal by the following:
 
-  .. code-block:: bash
+  .. code-block:: console
 
     $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist <TAB>
     --keep-alive
@@ -319,7 +319,7 @@ c. **Using autocomplete**:
 
   The final autocompleted string will look like this:
 
-  .. code-block:: bash
+  .. code-block:: console
 
     $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist
     'linear:
@@ -344,7 +344,7 @@ d. **Using the raw autocompleted string**:
 
   This can be directly used in place of the yaml string in the command line.
 
-  .. code-block:: bash
+  .. code-block:: console
 
     $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist \'linear:\^J\ \ x:\ 0.0\^J\ \ y:\ 0.0\^J\ \ z:\ 0.0\^Jangular:\^J\ \ x:\ 0.0\^J\ \ y:\ 0.0\^J\ \ z:\ 0.0\^J\'
 
@@ -419,13 +419,10 @@ You can also view the rate at which data is published using:
 .. code-block:: console
 
     $ ros2 topic hz /turtle1/pose
+    average rate: 59.354
+      min: 0.005s max: 0.027s std dev: 0.00284s window: 58
 
 It will return data on the rate at which the ``/turtlesim`` node is publishing data to the ``pose`` topic.
-
-.. code-block:: console
-
-  average rate: 59.354
-    min: 0.005s max: 0.027s std dev: 0.00284s window: 58
 
 Recall that you set the rate of ``turtle1/cmd_vel`` to publish at a steady 1 Hz using ``ros2 topic pub --rate 1``.
 If you run the above command with ``turtle1/cmd_vel`` instead of ``turtle1/pose``, you will see an average reflecting that rate.
@@ -440,14 +437,14 @@ The bandwidth used by a topic can be viewed using:
 .. code-block:: console
 
     $ ros2 topic bw /turtle1/pose
+    iB/s, done.
+    Total 7 (delta 5), reused 0 (delta 0), pack-reused 0
+    remote: Resolving deltas: 100% (5/5), completed with 5 
+        Subscribed to [/turtle1/pose]
+        1.51 KB/s from 62 messages
+            Message size mean: 0.02 KB min: 0.02 KB max: 0.02 KB
 
 It returns the bandwidth utilization and number of messages being published to the ``/turtle1/pose`` topic.
-
-.. code-block:: console
-
-    Subscribed to [/turtle1/pose]
-    1.51 KB/s from 62 messages
-        Message size mean: 0.02 KB min: 0.02 KB max: 0.02 KB
 
 .. Note:: The bandwidth reflects the receiving rate on the subscription created by the ``ros2 topic bw`` command, which might be affected by platform resources and QoS configuration, and may not exactly match the publisher's bandwidth.
 
@@ -471,11 +468,6 @@ Using the ``find`` command outputs topics available when given the message type:
 .. code-block:: console
 
     $ ros2 topic find geometry_msgs/msg/Twist
-
-This outputs:
-
-.. code-block:: console
-
     /turtle1/cmd_vel
 
 11 Clean up
