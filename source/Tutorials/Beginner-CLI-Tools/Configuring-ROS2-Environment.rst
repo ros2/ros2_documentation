@@ -93,7 +93,7 @@ If you don't want to have to source the setup file every time you open a new she
 
         $ echo "source /opt/ros/{DISTRO}/setup.bash" >> ~/.bashrc
 
-     To undo this, locate your system's shell startup script and remove the appended source command.
+      To undo this, locate your system's shell startup script and remove the appended source command.
 
    .. group-tab:: macOS
 
