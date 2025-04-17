@@ -98,6 +98,7 @@ Running the ``ros2 topic list`` command in a new terminal will return a list of 
 
 .. code-block:: console
 
+  ros2 topic list
   /parameter_events
   /rosout
   /turtle1/cmd_vel
@@ -108,6 +109,7 @@ Running the ``ros2 topic list`` command in a new terminal will return a list of 
 
 .. code-block:: console
 
+  ros2 topic list -t 
   /parameter_events [rcl_interfaces/msg/ParameterEvent]
   /rosout [rcl_interfaces/msg/Log]
   /turtle1/cmd_vel [geometry_msgs/msg/Twist]
@@ -172,14 +174,9 @@ Another way to look at this is running:
 .. code-block:: console
 
     $ ros2 topic info /turtle1/cmd_vel
-
-Which will return:
-
-.. code-block:: console
-
-  Type: geometry_msgs/msg/Twist
-  Publisher count: 1
-  Subscription count: 2
+      Type: geometry_msgs/msg/Twist
+      Publisher count: 1
+      Subscription count: 2
 
 6 ros2 interface show
 ^^^^^^^^^^^^^^^^^^^^^
@@ -202,16 +199,16 @@ Specifically, what structure of data the message expects.
 .. code-block:: console
 
     $ ros2 interface show geometry_msgs/msg/Twist
-  # This expresses velocity in free space broken into its linear and angular parts.
+    # This expresses velocity in free space broken into its linear and angular parts.
 
-      Vector3  linear
-              float64 x
-              float64 y
-              float64 z
-      Vector3  angular
-              float64 x
-              float64 y
-              float64 z
+        Vector3  linear
+                float64 x
+                float64 y
+                float64 z
+        Vector3  angular
+                float64 x
+                float64 y
+                float64 z
 
 This tells you that the ``/turtlesim`` node is expecting a message with two vectors, ``linear`` and ``angular``, of three elements each.
 If you recall the data we saw ``/teleop_turtle`` passing to ``/turtlesim`` with the ``echo`` command, it's in the same structure:
@@ -432,12 +429,9 @@ The bandwidth used by a topic can be viewed using:
 .. code-block:: console
 
     $ ros2 topic bw /turtle1/pose
-    iB/s, done.
-    Total 7 (delta 5), reused 0 (delta 0), pack-reused 0
-    remote: Resolving deltas: 100% (5/5), completed with 5
-        Subscribed to [/turtle1/pose]
-        1.51 KB/s from 62 messages
-            Message size mean: 0.02 KB min: 0.02 KB max: 0.02 KB
+      Subscribed to [/turtle1/pose]
+      1.51 KB/s from 62 messages
+          Message size mean: 0.02 KB min: 0.02 KB max: 0.02 KB
 
 It returns the bandwidth utilization and number of messages being published to the ``/turtle1/pose`` topic.
 
