@@ -51,13 +51,13 @@ Open a new terminal and run:
 
 .. code-block:: console
 
-    ros2 run turtlesim turtlesim_node
+    $ ros2 run turtlesim turtlesim_node
 
 Open another terminal and run:
 
 .. code-block:: console
 
-    ros2 run turtlesim turtle_teleop_key
+    $ ros2 run turtlesim turtle_teleop_key
 
 Recall from the :doc:`previous tutorial <../Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` that the names of these nodes are ``/turtlesim`` and ``/teleop_turtle`` by default.
 
@@ -73,7 +73,7 @@ To run rqt_graph, open a new terminal and enter the command:
 
 .. code-block:: console
 
-    rqt_graph
+    $ rqt_graph
 
 You can also open rqt_graph by opening ``rqt`` and selecting **Plugins** > **Introspection** > **Node Graph**.
 
@@ -129,13 +129,13 @@ To see the data being published on a topic, use:
 
 .. code-block:: console
 
-    ros2 topic echo <topic_name>
+    $ ros2 topic echo <topic_name>
 
 Since we know that ``/teleop_turtle`` publishes data to ``/turtlesim`` over the ``/turtle1/cmd_vel`` topic, let's use ``echo`` to introspect that topic:
 
 .. code-block:: console
 
-    ros2 topic echo /turtle1/cmd_vel
+    $ ros2 topic echo /turtle1/cmd_vel
 
 At first, this command won't return any data.
 That's because it's waiting for ``/teleop_turtle`` to publish something.
@@ -171,7 +171,7 @@ Another way to look at this is running:
 
 .. code-block:: console
 
-    ros2 topic info /turtle1/cmd_vel
+    $ ros2 topic info /turtle1/cmd_vel
 
 Which will return:
 
@@ -201,7 +201,7 @@ Specifically, what structure of data the message expects.
 
 .. code-block:: console
 
-    ros2 interface show geometry_msgs/msg/Twist
+    $ ros2 interface show geometry_msgs/msg/Twist
 
 For the message type from above it yields:
 
@@ -240,7 +240,7 @@ Now that you have the message structure, you can publish data to a topic directl
 
 .. code-block:: console
 
-    ros2 topic pub <topic_name> <msg_type> '<args>'
+    $ ros2 topic pub <topic_name> <msg_type> '<args>'
 
 The ``'<args>'`` argument is the actual data you'll pass to the topic, in the structure you just discovered in the previous section.
 
@@ -253,7 +253,7 @@ a. **Publishing dictionary strings**:
 
   .. code-block:: bash
 
-    ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
+    $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
 
   However, you do not need to specify the entire message, if you are just changing the linear or angular velocity, you can just specify the values you want to change.
 
@@ -261,20 +261,20 @@ a. **Publishing dictionary strings**:
 
   .. code-block:: bash
 
-    ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0}, angular: {z: 1.8}}"
+    $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0}, angular: {z: 1.8}}"
 
 b. **Publishing an empty message**:
 
   .. code-block:: bash
 
-    ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist
+    $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist
 
   This will publish the default values for the message type at 1 Hz.
   In this case, this equivalent to the following command:
 
   .. code-block:: bash
 
-    ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}" --rate 1
+    $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}" --rate 1
 
 c. **Using autocomplete**:
 
@@ -321,7 +321,7 @@ c. **Using autocomplete**:
 
   .. code-block:: bash
 
-    $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist 
+    $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist
     'linear:
       x: 0.0
       y: 0.0
@@ -346,7 +346,7 @@ d. **Using the raw autocompleted string**:
 
   .. code-block:: bash
 
-    ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist \'linear:\^J\ \ x:\ 0.0\^J\ \ y:\ 0.0\^J\ \ z:\ 0.0\^Jangular:\^J\ \ x:\ 0.0\^J\ \ y:\ 0.0\^J\ \ z:\ 0.0\^J\'
+    $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist \'linear:\^J\ \ x:\ 0.0\^J\ \ y:\ 0.0\^J\ \ z:\ 0.0\^Jangular:\^J\ \ x:\ 0.0\^J\ \ y:\ 0.0\^J\ \ z:\ 0.0\^J\'
 
 
 The turtle (and commonly the real robots which it is meant to emulate) require a steady stream of commands to operate continuously.
@@ -354,7 +354,7 @@ So, to get the turtle moving, and keep it moving, you can use the following dict
 
 .. code-block:: console
 
-  ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
+  $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
 
 .. image:: images/pub_stream.png
 
@@ -363,7 +363,7 @@ To publish your command just once add the ``--once`` option.
 
 .. code-block:: console
 
-  ros2 topic pub --once -w 2 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
+  $ ros2 topic pub --once -w 2 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
 
 ``--once`` is an optional argument meaning "publish one message then exit".
 
@@ -392,7 +392,7 @@ Finally, you can run ``echo`` on the ``pose`` topic and recheck rqt_graph:
 
 .. code-block:: console
 
-  ros2 topic echo /turtle1/pose
+  $ ros2 topic echo /turtle1/pose
 
 .. image:: images/rqt_graph3.png
 
@@ -403,13 +403,13 @@ For messages with a ``std_msgs/msg/Header``, the header field can be set to ``au
 
 .. code-block:: console
 
-  ros2 topic pub /pose geometry_msgs/msg/PoseStamped '{header: "auto", pose: {position: {x: 1.0, y: 2.0, z: 3.0}}}'
+  $ ros2 topic pub /pose geometry_msgs/msg/PoseStamped '{header: "auto", pose: {position: {x: 1.0, y: 2.0, z: 3.0}}}'
 
 If the message does not use a full header, but just has a field with type ``builtin_interfaces/msg/Time``, that can be set to the value ``now``.
 
 .. code-block:: console
 
-  ros2 topic pub /reference sensor_msgs/msg/TimeReference '{header: "auto", time_ref: "now", source: "dumy"}'
+  $ ros2 topic pub /reference sensor_msgs/msg/TimeReference '{header: "auto", time_ref: "now", source: "dumy"}'
 
 8 ros2 topic hz
 ^^^^^^^^^^^^^^^
@@ -418,7 +418,7 @@ You can also view the rate at which data is published using:
 
 .. code-block:: console
 
-    ros2 topic hz /turtle1/pose
+    $ ros2 topic hz /turtle1/pose
 
 It will return data on the rate at which the ``/turtlesim`` node is publishing data to the ``pose`` topic.
 
@@ -439,7 +439,7 @@ The bandwidth used by a topic can be viewed using:
 
 .. code-block:: console
 
-    ros2 topic bw /turtle1/pose
+    $ ros2 topic bw /turtle1/pose
 
 It returns the bandwidth utilization and number of messages being published to the ``/turtle1/pose`` topic.
 
@@ -458,7 +458,7 @@ To list a list of available topics of a given type use:
 
 .. code-block:: console
 
-    ros2 topic find <topic_type>
+    $ ros2 topic find <topic_type>
 
 Recall that the ``cmd_vel`` topic has the type:
 
@@ -470,7 +470,7 @@ Using the ``find`` command outputs topics available when given the message type:
 
 .. code-block:: console
 
-    ros2 topic find geometry_msgs/msg/Twist
+    $ ros2 topic find geometry_msgs/msg/Twist
 
 This outputs:
 
