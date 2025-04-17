@@ -246,6 +246,11 @@ Enter the following command with the action type in your terminal:
 .. code-block:: console
 
   $ ros2 interface show turtlesim_msgs/action/RotateAbsolute
+
+Which will return:
+
+.. code-block:: console
+
   # The desired heading in radians
   float32 theta
   ---
