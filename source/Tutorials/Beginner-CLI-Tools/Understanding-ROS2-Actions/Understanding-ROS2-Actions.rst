@@ -148,7 +148,7 @@ To see the list of actions a node provides, ``/turtlesim`` in this case, open a 
       /turtle1/rotate_absolute: turtlesim_msgs/action/RotateAbsolute
     Action Clients:
 
-Which returns a list of ``/turtlesim``'s subscribers, publishers, services, action servers and action clients.
+The command returns a list of ``/turtlesim``'s subscribers, publishers, services, action servers and action clients.
 
 Notice that the ``/turtle1/rotate_absolute`` action for ``/turtlesim`` is under ``Action Servers``.
 This means ``/turtlesim`` responds to and provides feedback for the ``/turtle1/rotate_absolute`` action.
