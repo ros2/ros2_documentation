@@ -53,13 +53,13 @@ Open a new terminal and run:
 
 .. code-block:: console
 
-    ros2 run turtlesim turtlesim_node
+  $ ros2 run turtlesim turtlesim_node
 
 Open another terminal and run:
 
 .. code-block:: console
 
-    ros2 run turtlesim turtle_teleop_key
+  $ ros2 run turtlesim turtle_teleop_key
 
 
 2 Use actions
@@ -118,12 +118,7 @@ To see the list of actions a node provides, ``/turtlesim`` in this case, open a 
 
 .. code-block:: console
 
-    ros2 node info /turtlesim
-
-Which will return a list of ``/turtlesim``'s subscribers, publishers, services, action servers and action clients:
-
-.. code-block:: console
-
+  $ ros2 node info /turtlesim
   /turtlesim
     Subscribers:
       /parameter_events: rcl_interfaces/msg/ParameterEvent
@@ -153,6 +148,8 @@ Which will return a list of ``/turtlesim``'s subscribers, publishers, services, 
       /turtle1/rotate_absolute: turtlesim/action/RotateAbsolute
     Action Clients:
 
+The command returns a list of ``/turtlesim``'s subscribers, publishers, services, action servers and action clients.
+
 Notice that the ``/turtle1/rotate_absolute`` action for ``/turtlesim`` is under ``Action Servers``.
 This means ``/turtlesim`` responds to and provides feedback for the ``/turtle1/rotate_absolute`` action.
 
@@ -161,12 +158,7 @@ To see that, run:
 
 .. code-block:: console
 
-    ros2 node info /teleop_turtle
-
-Which will return:
-
-.. code-block:: console
-
+  $ ros2 node info /teleop_turtle
   /teleop_turtle
     Subscribers:
       /parameter_events: rcl_interfaces/msg/ParameterEvent
@@ -195,13 +187,8 @@ To identify all the actions in the ROS graph, run the command:
 
 .. code-block:: console
 
-    ros2 action list
-
-Which will return:
-
-.. code-block:: console
-
-    /turtle1/rotate_absolute
+  $ ros2 action list
+  /turtle1/rotate_absolute
 
 This is the only action in the ROS graph right now.
 It controls the turtle's rotation, as you saw earlier.
@@ -215,6 +202,7 @@ To find ``/turtle1/rotate_absolute``'s type, run the command:
 
 .. code-block:: console
 
+<<<<<<< HEAD
     ros2 action list -t
 
 Which will return:
@@ -222,23 +210,36 @@ Which will return:
 .. code-block:: console
 
     /turtle1/rotate_absolute [turtlesim/action/RotateAbsolute]
+=======
+  $ ros2 action list -t
+  /turtle1/rotate_absolute [turtlesim_msgs/action/RotateAbsolute]
+>>>>>>> 7c38a44 (Update code-blocks in Beginnter-CLI-Tools docu (#5236))
 
 In brackets to the right of each action name (in this case only ``/turtle1/rotate_absolute``) is the action type, ``turtlesim/action/RotateAbsolute``.
 You will need this when you want to execute an action from the command line or from code.
 
+<<<<<<< HEAD
 5 ros2 action info
+=======
+5 ros2 action type
+^^^^^^^^^^^^^^^^^^
+
+If you want to check the action type for the action, run the command:
+
+.. code-block:: console
+
+  $ ros2 action type /turtle1/rotate_absolute
+  turtlesim_msgs/action/RotateAbsolute
+
+6 ros2 action info
+>>>>>>> 7c38a44 (Update code-blocks in Beginnter-CLI-Tools docu (#5236))
 ^^^^^^^^^^^^^^^^^^
 
 You can further introspect the ``/turtle1/rotate_absolute`` action with the command:
 
 .. code-block:: console
 
-    ros2 action info /turtle1/rotate_absolute
-
-Which will return
-
-.. code-block:: console
-
+  $ ros2 action info /turtle1/rotate_absolute
   Action: /turtle1/rotate_absolute
   Action clients: 1
       /teleop_turtle
@@ -258,7 +259,11 @@ Enter the following command with the action type in your terminal:
 
 .. code-block:: console
 
+<<<<<<< HEAD
   ros2 interface show turtlesim/action/RotateAbsolute
+=======
+  $ ros2 interface show turtlesim_msgs/action/RotateAbsolute
+>>>>>>> 7c38a44 (Update code-blocks in Beginnter-CLI-Tools docu (#5236))
 
 Which will return:
 
@@ -284,7 +289,7 @@ Now let's send an action goal from the command line with the following syntax:
 
 .. code-block:: console
 
-    ros2 action send_goal <action_name> <action_type> <values>
+  $ ros2 action send_goal <action_name> <action_type> <values>
 
 ``<values>`` need to be in YAML format.
 
@@ -292,12 +297,16 @@ Keep an eye on the turtlesim window, and enter the following command into your t
 
 .. code-block:: console
 
+<<<<<<< HEAD
     ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute "{theta: 1.57}"
 
 You should see the turtle rotating, as well as the following message in your terminal:
 
 .. code-block:: console
 
+=======
+  $ ros2 action send_goal /turtle1/rotate_absolute turtlesim_msgs/action/RotateAbsolute "{theta: 1.57}"
+>>>>>>> 7c38a44 (Update code-blocks in Beginnter-CLI-Tools docu (#5236))
   Waiting for an action server to become available...
   Sending goal:
      theta: 1.57
@@ -309,6 +318,10 @@ You should see the turtle rotating, as well as the following message in your ter
 
   Goal finished with status: SUCCEEDED
 
+
+You should see the turtle rotating.
+
+
 All goals have a unique ID, shown in the return message.
 You can also see the result, a field with the name ``delta``, which is the displacement to the starting position.
 
@@ -316,12 +329,16 @@ To see the feedback of this goal, add ``--feedback`` to the ``ros2 action send_g
 
 .. code-block:: console
 
+<<<<<<< HEAD
     ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute "{theta: -1.57}" --feedback
 
 Your terminal will return the message:
 
 .. code-block:: console
 
+=======
+  $ ros2 action send_goal /turtle1/rotate_absolute turtlesim_msgs/action/RotateAbsolute "{theta: -1.57}" --feedback
+>>>>>>> 7c38a44 (Update code-blocks in Beginnter-CLI-Tools docu (#5236))
   Sending goal:
      theta: -1.57
 
@@ -342,6 +359,84 @@ Your terminal will return the message:
 
 You will continue to receive feedback, the remaining radians, until the goal is complete.
 
+<<<<<<< HEAD
+=======
+9 ros2 action echo
+^^^^^^^^^^^^^^^^^^
+
+To see the data communication between an action client and an action server you can ``echo`` the action data using:
+
+.. code-block:: console
+
+  $ ros2 action echo <action_name> <optional arguments/action_type>
+
+``ros2 action echo`` depends on action introspection of an action client and server, that is disabled by default.
+To enable it, users must call ``configure_introspection`` after creating an action client or server.
+
+Start up the ``fibonacci_action_server`` and ``fibonacci_action_client``, enabling ``action_server_configure_introspection`` parameter for demonstration.
+
+.. code-block:: console
+
+  $ ros2 run action_tutorials_cpp fibonacci_action_server --ros-args -p action_server_configure_introspection:=contents
+
+.. code-block:: console
+
+  $ ros2 run action_tutorials_py fibonacci_action_client --ros-args -p action_client_configure_introspection:=contents
+
+Now we are able to see the action communication between ``fibonacci_action_server`` and ``fibonacci_action_client`` via ``ros2 action echo``.
+
+.. code-block:: console
+
+   $ ros2 action echo /fibonacci example_interfaces/action/Fibonacci --flow-style
+   interface: GOAL_SERVICE
+   info:
+     event_type: REQUEST_SENT
+     stamp:
+       sec: 1742070798
+       nanosec: 400435819
+     client_gid: [1, 15, 165, 231, 194, 197, 167, 157, 0, 0, 0, 0, 0, 0, 20, 4]
+     sequence_number: 1
+   request: [{goal_id: {uuid: [230, 96, 12, 6, 100, 69, 69, 70, 220, 205, 135, 251, 210, 2, 231, 110]}, goal: {order: 10}}]
+   response: []
+   ---
+   interface: GOAL_SERVICE
+   info:
+     event_type: REQUEST_RECEIVED
+     stamp:
+       sec: 1742070798
+       nanosec: 400706446
+     client_gid: [1, 15, 165, 231, 194, 197, 167, 157, 0, 0, 0, 0, 0, 0, 20, 4]
+     sequence_number: 1
+   request: [{goal_id: {uuid: [230, 96, 12, 6, 100, 69, 69, 70, 220, 205, 135, 251, 210, 2, 231, 110]}, goal: {order: 10}}]
+   response: []
+   ---
+   interface: RESULT_SERVICE
+   info:
+     event_type: REQUEST_SENT
+     stamp:
+       sec: 1742070798
+       nanosec: 401486678
+     client_gid: [1, 15, 165, 231, 194, 197, 167, 157, 0, 0, 0, 0, 0, 0, 24, 4]
+     sequence_number: 1
+   request: [{goal_id: {uuid: [230, 96, 12, 6, 100, 69, 69, 70, 220, 205, 135, 251, 210, 2, 231, 110]}}]
+   response: []
+   ---
+   interface: FEEDBACK_TOPIC
+   goal_id:
+     uuid: [230, 96, 12, 6, 100, 69, 69, 70, 220, 205, 135, 251, 210, 2, 231, 110]
+   feedback:
+     sequence: [0, 1, 1]
+   ---
+   interface: STATUS_TOPIC
+   status_list: [{goal_info: {goal_id: {uuid: [230, 96, 12, 6, 100, 69, 69, 70, 220, 205, 135, 251, 210, 2, 231, 110]}, stamp: {sec: 1742070798, nanosec: 401146752}}, status: 2}]
+   ---
+   ...
+
+.. note::
+
+   This feature is available on ``Kilted Kaiju`` or later.
+
+>>>>>>> 7c38a44 (Update code-blocks in Beginnter-CLI-Tools docu (#5236))
 Summary
 -------
 
