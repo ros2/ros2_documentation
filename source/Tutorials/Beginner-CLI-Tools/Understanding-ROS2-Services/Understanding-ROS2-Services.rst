@@ -237,14 +237,12 @@ Enter the command:
 .. code-block:: console
 
   $ ros2 service call /spawn turtlesim_msgs/srv/Spawn "{x: 2, y: 2, theta: 0.2, name: ''}"
-.. code-block:: console
-
   requester: making request: turtlesim.srv.Spawn_Request(x=2.0, y=2.0, theta=0.2, name='')
 
   response:
   turtlesim.srv.Spawn_Response(name='turtle2')
 
-You will get this method-style view of what's happening, and then the service response:
+You will get this method-style view of what's happening, and then the service response.
 
 Your turtlesim window will update with the newly spawned turtle right away:
 
