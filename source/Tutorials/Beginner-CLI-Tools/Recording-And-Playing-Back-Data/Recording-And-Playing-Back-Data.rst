@@ -93,7 +93,7 @@ To see the list of your system's topics, open a new terminal and run the command
 
 .. code-block:: console
 
-    $ ros2 topic list
+  $ ros2 topic list
   /parameter_events
   /rosout
   /turtle1/cmd_vel
