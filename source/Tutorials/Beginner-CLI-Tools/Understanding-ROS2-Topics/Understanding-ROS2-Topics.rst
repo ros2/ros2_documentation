@@ -333,7 +333,7 @@ d. **Using the raw autocompleted string**:
 
   As mentioned above, the autocompleted string for ``geometry_msgs/msg/Twist`` looks like this:
 
-  .. code-block:: bash
+  .. code-block:: console
 
     \'linear:\^J\ \ x:\ 0.0\^J\ \ y:\ 0.0\^J\ \ z:\ 0.0\^Jangular:\^J\ \ x:\ 0.0\^J\ \ y:\ 0.0\^J\ \ z:\ 0.0\^J\'
 
