@@ -173,10 +173,10 @@ Another way to look at this is running:
 
 .. code-block:: console
 
-    $ ros2 topic info /turtle1/cmd_vel
-      Type: geometry_msgs/msg/Twist
-      Publisher count: 1
-      Subscription count: 2
+  $ ros2 topic info /turtle1/cmd_vel
+  Type: geometry_msgs/msg/Twist
+  Publisher count: 1
+  Subscription count: 2
 
 6 ros2 interface show
 ^^^^^^^^^^^^^^^^^^^^^
