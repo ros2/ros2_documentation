@@ -41,7 +41,8 @@ Tasks
 1 Creating an interface package
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Actions can only be created in a package using `ament_cmake`. They are not supported
+Actions can only be created in a package using `ament_cmake`. 
+They are not supported in Python packages using `ament_python`.
 in Python packages using `ament_python`. 
 This restriction also applies to messages and services, so
 
