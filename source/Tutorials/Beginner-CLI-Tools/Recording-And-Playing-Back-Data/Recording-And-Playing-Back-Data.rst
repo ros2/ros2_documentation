@@ -187,8 +187,6 @@ The following string, in this case ``subset``, is the file name.
 
 To record more than one topic at a time, simply list each topic separated by a space.
 
-.. code-block:: console
-
 
 You can move the turtle around and press ``Ctrl+C`` when you're finished.
 

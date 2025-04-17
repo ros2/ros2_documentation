@@ -145,7 +145,7 @@ If you ever have problems finding or using your ROS 2 packages, make sure that y
       .. code-block:: console
 
         $ set | findstr -i ROS
-        
+
 
 Check that variables like ``ROS_DISTRO`` and ``ROS_VERSION`` are set.
 

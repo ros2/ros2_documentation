@@ -175,7 +175,7 @@ For example, you can find all the ``Empty`` typed services like this:
 You can call services from the command line, but first you need to know the structure of the input arguments.
 
 .. code-block:: console
-  
+
   $ ros2 interface show <type_name>
 
 Try this on the ``/clear`` service's type, ``Empty``:

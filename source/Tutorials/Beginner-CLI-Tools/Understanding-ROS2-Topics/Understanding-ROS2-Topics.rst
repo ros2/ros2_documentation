@@ -243,8 +243,7 @@ a. **Publishing dictionary strings**:
 
   .. code-block:: console
 
-
-  $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
+    $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
 
   However, you do not need to specify the entire message, if you are just changing the linear or angular velocity, you can just specify the values you want to change.
 
@@ -252,14 +251,14 @@ a. **Publishing dictionary strings**:
 
   .. code-block:: console
 
-  $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0}, angular: {z: 1.8}}"
+    $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0}, angular: {z: 1.8}}"
 
 b. **Publishing an empty message**:
 
   .. code-block:: console
 
 
-  $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist
+    $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist
 
   This will publish the default values for the message type at 1 Hz.
   In this case, this equivalent to the following command:
@@ -267,7 +266,7 @@ b. **Publishing an empty message**:
   .. code-block:: console
 
 
-  $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}" --rate 1
+    $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}" --rate 1
 
 c. **Using autocomplete**:
 
@@ -316,7 +315,8 @@ c. **Using autocomplete**:
   .. code-block:: console
 
 
-    $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist 'linear:
+    $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist 
+    'linear:
       x: 0.0
       y: 0.0
       z: 0.0
@@ -334,15 +334,13 @@ d. **Using the raw autocompleted string**:
 
   .. code-block:: console
 
-
     \'linear:\^J\ \ x:\ 0.0\^J\ \ y:\ 0.0\^J\ \ z:\ 0.0\^Jangular:\^J\ \ x:\ 0.0\^J\ \ y:\ 0.0\^J\ \ z:\ 0.0\^J\'
 
   This can be directly used in place of the yaml string in the command line.
 
   .. code-block:: console
-
-
-  $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist \'linear:\^J\ \ x:\ 0.0\^J\ \ y:\ 0.0\^J\ \ z:\ 0.0\^Jangular:\^J\ \ x:\ 0.0\^J\ \ y:\ 0.0\^J\ \ z:\ 0.0\^J\'
+  
+    $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist \'linear:\^J\ \ x:\ 0.0\^J\ \ y:\ 0.0\^J\ \ z:\ 0.0\^Jangular:\^J\ \ x:\ 0.0\^J\ \ y:\ 0.0\^J\ \ z:\ 0.0\^J\'
 
 
 The turtle (and commonly the real robots which it is meant to emulate) require a steady stream of commands to operate continuously.
