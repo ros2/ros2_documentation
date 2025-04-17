@@ -314,9 +314,9 @@ c. **Using autocomplete**:
 
   The final autocompleted string will look like this:
 
-  .. code-block:: console
+  .. code-block:: bash
 
-    $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist
+    ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist
     'linear:
       x: 0.0
       y: 0.0
