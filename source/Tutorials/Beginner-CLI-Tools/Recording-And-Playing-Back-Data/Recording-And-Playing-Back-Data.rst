@@ -180,6 +180,7 @@ The ``-o`` option allows you to choose a unique name for your bag file.
 The following string, in this case ``subset``, is the file name.
 
 To record more than one topic at a time, simply list each topic separated by a space.
+In this case, the command output above confirms that both topics are being recorded.
 
 
 You can move the turtle around and press ``Ctrl+C`` when you're finished.
