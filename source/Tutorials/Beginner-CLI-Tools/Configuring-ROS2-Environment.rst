@@ -63,6 +63,7 @@ You will need to run this command on every new shell you open to have access to 
 
       Replace ``.bash`` with your shell if you're not using bash.
       Possible values are: setup.bash, setup.sh, setup.zsh.
+
    .. group-tab:: macOS
 
       .. code-block:: console
