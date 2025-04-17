@@ -432,9 +432,9 @@ The bandwidth used by a topic can be viewed using:
 .. code-block:: console
 
     $ ros2 topic bw /turtle1/pose
-      Subscribed to [/turtle1/pose]
-      1.51 KB/s from 62 messages
-          Message size mean: 0.02 KB min: 0.02 KB max: 0.02 KB
+    Subscribed to [/turtle1/pose]
+    1.51 KB/s from 62 messages
+        Message size mean: 0.02 KB min: 0.02 KB max: 0.02 KB
 
 It returns the bandwidth utilization and number of messages being published to the ``/turtle1/pose`` topic.
 
