@@ -149,7 +149,6 @@ Run the command:
     [INFO] [rosbag2_transport]: Subscribed to topic '/turtle1/cmd_vel'
     [INFO] [rosbag2_transport]: All requested topics are subscribed. Stopping discovery...
 
-
 Now ``ros2 bag`` is recording the data published on the ``/turtle1/cmd_vel`` topic.
 Return to the teleop terminal and move the turtle around again.
 The movements don't matter, but try to make a recognizable pattern to see when you replay the data later.
