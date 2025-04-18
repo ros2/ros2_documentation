@@ -503,7 +503,6 @@ Run the command:
 .. code-block:: console
 
   $ ros2 bag record --action /fibonacci
-  root@tomoyafujita:~/ros2_ws/colcon_ws# ros2 bag record --action /fibonacci
   [INFO] [1744953225.214114862] [rosbag2_recorder]: Press SPACE for pausing/resuming
   [INFO] [1744953225.218369761] [rosbag2_recorder]: Listening for topics...
   [INFO] [1744953225.218386223] [rosbag2_recorder]: Event publisher thread: Starting
@@ -515,7 +514,7 @@ Run the command:
   [INFO] [1744953225.735061252] [rosbag2_recorder]: Subscribed to topic '/fibonacci/_action/status'
   ...
 
-Now ``ros2 bag`` is recording the action data published on the ``/fibonacci`` action.
+Now ``ros2 bag`` is recording the action data for the ``/fibonacci`` action: goal, result, and feedback.
 To stop the recording, enter ``Ctrl+C`` in the terminal.
 
 The data will be accumulated in a new bag directory with a name in the pattern of ``rosbag2_year_month_day-hour_minute_second``.
@@ -526,14 +525,9 @@ This directory will contain a ``metadata.yaml`` along with the bag file in the r
 
 You can see details about your recording by running:
 
-.. code-block:: bash
-
-  ros2 bag info <bag_file_name>
-
-Running this command will return a list of information on the file:
-
 .. code-block:: console
 
+  $ ros2 bag info <bag_file_name>
   Files:             rosbag2_2025_04_17-22_20_40_0.mcap
   Bag size:          20.7 KiB
   Storage id:        mcap
@@ -557,21 +551,16 @@ Running this command will return a list of information on the file:
 5 Play action data
 ^^^^^^^^^^^^^^^^^^
 
-Before replaying the bag file, enter ``Ctrl+C`` in the terminal where ``fibonacci_action_client`` is running.
+Before replaying the bag file, enter :kbd:`Ctrl-C` in the terminal where ``fibonacci_action_client`` is running.
 When ``fibonacci_action_client`` stops running, ``fibonacci_action_server`` also stops printing the result because there are no incoming requests.
 
 Replaying the action data from the bag file will start sending the requests to ``fibonacci_action_server``.
 
 Enter the command:
 
-.. code-block:: bash
-
-    ros2 bag play --send-actions-as-client <bag_file_name>
-
-The terminal will return the message:
-
 .. code-block:: console
 
+  $ ros2 bag play --send-actions-as-client <bag_file_name>
   [INFO] [1744953720.691068674] [rosbag2_player]: Set rate to 1
   [INFO] [1744953720.702365209] [rosbag2_player]: Adding keyboard callbacks.
   [INFO] [1744953720.702409447] [rosbag2_player]: Press SPACE for Pause/Resume
