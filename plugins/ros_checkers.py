@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 from sphinxlint.checkers import checker
 import subprocess
 import yaml
