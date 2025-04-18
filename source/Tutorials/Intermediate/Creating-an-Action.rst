@@ -221,3 +221,5 @@ Related content
 ---------------
 
 For more detailed information about ROS actions, please refer to the `design article <https://design.ros2.org/articles/actions.html>`__.
+
+[blank line]
