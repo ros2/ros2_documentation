@@ -462,7 +462,7 @@ To see the list of your system's actions, open a new terminal and run the comman
   $ ros2 action list
   /fibonacci
 
-To check if ``Action Introspection`` is enabled on the action client and service, run the command:
+To check if ``Action Introspection`` is enabled on the action, run the command:
 
 .. code-block:: console
 
@@ -560,13 +560,13 @@ Running this command will return a list of information on the file:
 Before replaying the bag file, enter ``Ctrl+C`` in the terminal where ``fibonacci_action_client`` is running.
 When ``fibonacci_action_client`` stops running, ``fibonacci_action_server`` also stops printing the result because there are no incoming requests.
 
-Replaying the service data from the bag file will start sending the requests to ``fibonacci_action_server``.
+Replaying the action data from the bag file will start sending the requests to ``fibonacci_action_server``.
 
 Enter the command:
 
 .. code-block:: bash
 
-    ros2 bag play --publish-service-requests <bag_file_name>
+    ros2 bag play --send-actions-as-client <bag_file_name>
 
 The terminal will return the message:
 
