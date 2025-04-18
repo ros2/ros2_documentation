@@ -31,5 +31,5 @@ sphinxcontrib-jsmath==1.0.1
 sphinxcontrib-mermaid==0.9.2
 sphinxcontrib-qthelp==1.0.3
 sphinxcontrib-serializinghtml==1.1.10
-stevedore==3.5.0
+stevedore==5.4.1
 urllib3==1.26.5
