@@ -1,4 +1,4 @@
-#!/usr/bin/python3 discovery_server
+#!/usr/bin/env python3 discovery_server
 
 """Script to count number of rtps packages in a tcpdump capture."""
 import os
