@@ -37,7 +37,7 @@ pip install -r requirements.txt -c constraints.txt
 
 ### Pinned versions
 
-For development we currently use Noble as our build platform.
+For development we currently use Jammy (Ubuntu 22.04) as our build platform.
 And all python versions are pinned in the constraints file to make sure that things are reproducible.
 To upgrade the system validate that things are working and then use `pip freeze > constraints.txt` to lock in the versions to upgrade.
 
