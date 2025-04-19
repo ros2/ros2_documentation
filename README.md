@@ -37,7 +37,11 @@ pip install -r requirements.txt -c constraints.txt
 
 ### Pinned versions
 
+<<<<<<< HEAD
 For development we currently use Jammy as our build platform.
+=======
+For development we currently use Jammy (Ubuntu 22.04) as our build platform.
+>>>>>>> 188ff0c (Update README.md (#5245))
 And all python versions are pinned in the constraints file to make sure that things are reproducible.
 To upgrade the system validate that things are working and then use `pip freeze > constraints.txt` to lock in the versions to upgrade.
 
