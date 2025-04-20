@@ -393,22 +393,13 @@ Then source the setup files in a new terminal:
 
       $ call install/setup.bat
 
-Now run the node using the launch file we have just created:
-
-.. code-block:: console
-
-<<<<<<< HEAD
-     ros2 launch python_parameters python_parameters_launch.py
-
+Now run the node using the launch file we have just created.
 The terminal should return the following message every second:
 
 .. code-block:: console
 
-=======
-     $ ros2 launch python_parameters python_parameters_launch.py
->>>>>>> 71bdb33 (Add $ to Using-Parameters-In-A-Class-Python.rst (#5256))
+    $ ros2 launch python_parameters python_parameters_launch.py
     [INFO] [custom_minimal_param_node]: Hello earth!
-
 
 Summary
 -------
