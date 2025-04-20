@@ -222,7 +222,6 @@ From the root of your workspace (``ros2_ws``), you can now build your packages u
 
     Windows doesn't allow long paths, so ``merge-install`` will combine all the paths into the ``install`` directory.
 
-
 .. note::
 
   Other useful arguments for ``colcon build``:
