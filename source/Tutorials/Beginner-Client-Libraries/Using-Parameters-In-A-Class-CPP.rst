@@ -231,7 +231,7 @@ It's good practice to run ``rosdep`` in the root of your workspace (``ros2_ws``)
 
       .. code-block:: console
 
-        rosdep install -i --from-path src --rosdistro {DISTRO} -y
+        $ rosdep install -i --from-path src --rosdistro {DISTRO} -y
 
    .. group-tab:: macOS
 
@@ -249,19 +249,19 @@ Navigate back to the root of your workspace, ``ros2_ws``, and build your new pac
 
     .. code-block:: console
 
-      colcon build --packages-select cpp_parameters
+      $ colcon build --packages-select cpp_parameters
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      colcon build --packages-select cpp_parameters
+      $ colcon build --packages-select cpp_parameters
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      colcon build --merge-install --packages-select cpp_parameters
+      $ colcon build --merge-install --packages-select cpp_parameters
 
 Open a new terminal, navigate to ``ros2_ws``, and source the setup files:
 
@@ -271,30 +271,26 @@ Open a new terminal, navigate to ``ros2_ws``, and source the setup files:
 
     .. code-block:: console
 
-      source install/setup.bash
+      $ source install/setup.bash
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      . install/setup.bash
+      $ . install/setup.bash
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      call install/setup.bat
+      $ call install/setup.bat
 
-Now run the node:
-
-.. code-block:: console
-
-     ros2 run cpp_parameters minimal_param_node
-
-The terminal should return the following message every second:
+Now run the node.
+The terminal should return the ``Hello World`` message every second:
 
 .. code-block:: console
 
+     $ ros2 run cpp_parameters minimal_param_node
     [INFO] [minimal_param_node]: Hello world!
 
 Now you can see the default value of your parameter, but you want to be able to set it yourself.
@@ -309,20 +305,20 @@ Make sure the node is running:
 
 .. code-block:: console
 
-     ros2 run cpp_parameters minimal_param_node
+     $ ros2 run cpp_parameters minimal_param_node
 
 Open another terminal, source the setup files from inside ``ros2_ws`` again, and enter the following line:
 
 .. code-block:: console
 
-    ros2 param list
+    $ ros2 param list
 
 There you will see the custom parameter ``my_parameter``.
 To change it, simply run the following line in the console:
 
 .. code-block:: console
 
-    ros2 param set /minimal_param_node my_parameter earth
+    $ ros2 param set /minimal_param_node my_parameter earth
 
 You know it went well if you got the output ``Set parameter successful``.
 If you look at the other terminal, you should see the output change to ``[INFO] [minimal_param_node]: Hello earth!``
@@ -363,19 +359,19 @@ Open a console and navigate to the root of your workspace, ``ros2_ws``, and buil
 
     .. code-block:: console
 
-      colcon build --packages-select cpp_parameters
+      $ colcon build --packages-select cpp_parameters
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      colcon build --packages-select cpp_parameters
+      $ colcon build --packages-select cpp_parameters
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      colcon build --merge-install --packages-select cpp_parameters
+      $ colcon build --merge-install --packages-select cpp_parameters
 
 Then source the setup files in a new terminal:
 
@@ -385,31 +381,27 @@ Then source the setup files in a new terminal:
 
     .. code-block:: console
 
-      source install/setup.bash
+      $ source install/setup.bash
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      . install/setup.bash
+      $ . install/setup.bash
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      call install/setup.bat
+      $ call install/setup.bat
 
-Now run the node using the launch file we have just created:
-
-.. code-block:: console
-
-     ros2 launch cpp_parameters cpp_parameters_launch.py
-
+Now run the node using the launch file we have just created.
 The terminal should return the following message the first time:
 
 .. code-block:: console
 
-    [INFO] [custom_minimal_param_node]: Hello earth!
+     $ ros2 launch cpp_parameters cpp_parameters_launch.py
+     [INFO] [custom_minimal_param_node]: Hello earth!
 
 Further outputs should show  ``[INFO] [minimal_param_node]: Hello world!`` every second.
 
