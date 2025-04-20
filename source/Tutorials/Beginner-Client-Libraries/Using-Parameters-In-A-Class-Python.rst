@@ -289,7 +289,6 @@ The terminal should return ``Hello world!`` every second:
      $ ros2 run python_parameters minimal_param_node
     [INFO] [parameter_node]: Hello world!
 
-
 Now you can see the default value of your parameter, but you want to be able to set it yourself.
 There are four ways to accomplish this.
 
