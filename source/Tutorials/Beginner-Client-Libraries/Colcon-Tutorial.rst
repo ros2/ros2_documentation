@@ -73,7 +73,7 @@ Commonly there is a ``src`` subdirectory.
 Inside that subdirectory is where the source code of ROS packages will be located.
 Typically the directory starts otherwise empty.
 
-colcon performs out-of-source builds by default.
+colcon performs out-of-source builds.
 By default it will create the following directories as peers of the ``src`` directory:
 
 * The ``build`` directory will be where intermediate files are stored.
