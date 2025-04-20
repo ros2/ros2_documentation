@@ -382,7 +382,6 @@ The client sends the request to the service, which computes the sum and returns 
 
 The client should receive the response above.
 
-
 Return to the terminal where your service node is running.
 You will see that it published log messages when it received the request and the data it received, and the response it sent back:
 
