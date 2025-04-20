@@ -65,21 +65,13 @@ Download the example talker code by entering the following command:
 
       .. code-block:: console
 
-<<<<<<< HEAD
-            wget -O publisher_member_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/member_function.cpp
-=======
-            $ wget -O publisher_lambda_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/lambda.cpp
->>>>>>> 40cc4f9 ( Add $ to Writing-A-Simple-Cpp-Publisher-And-Subscriber.rst (#5257))
+            $ wget -O publisher_member_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/member_function.cpp
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-<<<<<<< HEAD
-            wget -O publisher_member_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/member_function.cpp
-=======
-            $ wget -O publisher_lambda_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/lambda.cpp
->>>>>>> 40cc4f9 ( Add $ to Writing-A-Simple-Cpp-Publisher-And-Subscriber.rst (#5257))
+            $ wget -O publisher_member_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/member_function.cpp
 
    .. group-tab:: Windows
 
@@ -87,21 +79,13 @@ Download the example talker code by entering the following command:
 
       .. code-block:: console
 
-<<<<<<< HEAD
-            curl -sk https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/member_function.cpp -o publisher_member_function.cpp
-=======
-            $ curl -sk https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/lambda.cpp -o publisher_lambda_function.cpp
->>>>>>> 40cc4f9 ( Add $ to Writing-A-Simple-Cpp-Publisher-And-Subscriber.rst (#5257))
+            $ curl -sk https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/member_function.cpp -o publisher_member_function.cpp
 
       Or in powershell:
 
       .. code-block:: console
 
-<<<<<<< HEAD
-            curl https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/member_function.cpp -o publisher_member_function.cpp
-=======
-            $ curl https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/lambda.cpp -o publisher_lambda_function.cpp
->>>>>>> 40cc4f9 ( Add $ to Writing-A-Simple-Cpp-Publisher-And-Subscriber.rst (#5257))
+            $ curl https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/member_function.cpp -o publisher_member_function.cpp
 
 Now there will be a new file named ``publisher_member_function.cpp``.
 Open the file using your preferred text editor.
@@ -327,21 +311,13 @@ Enter the following code in your terminal:
 
       .. code-block:: console
 
-<<<<<<< HEAD
-            wget -O subscriber_member_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function.cpp
-=======
-            $ wget -O subscriber_lambda_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/lambda.cpp
->>>>>>> 40cc4f9 ( Add $ to Writing-A-Simple-Cpp-Publisher-And-Subscriber.rst (#5257))
+            $ wget -O subscriber_member_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function.cpp
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-<<<<<<< HEAD
-            wget -O subscriber_member_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function.cpp
-=======
-            $ wget -O subscriber_lambda_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/lambda.cpp
->>>>>>> 40cc4f9 ( Add $ to Writing-A-Simple-Cpp-Publisher-And-Subscriber.rst (#5257))
+            $ wget -O subscriber_member_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function.cpp
 
    .. group-tab:: Windows
 
@@ -349,21 +325,13 @@ Enter the following code in your terminal:
 
       .. code-block:: console
 
-<<<<<<< HEAD
-            curl -sk https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function.cpp -o subscriber_member_function.cpp
-=======
-            $ curl -sk https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/lambda.cpp -o subscriber_lambda_function.cpp
->>>>>>> 40cc4f9 ( Add $ to Writing-A-Simple-Cpp-Publisher-And-Subscriber.rst (#5257))
+            $ curl -sk https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function.cpp -o subscriber_member_function.cpp
 
       Or in powershell:
 
       .. code-block:: console
 
-<<<<<<< HEAD
-            curl https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function.cpp -o subscriber_member_function.cpp
-=======
-            $ curl https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/lambda.cpp -o subscriber_lambda_function.cpp
->>>>>>> 40cc4f9 ( Add $ to Writing-A-Simple-Cpp-Publisher-And-Subscriber.rst (#5257))
+            $ curl https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function.cpp -o subscriber_member_function.cpp
 
 Check to ensure that these files exist:
 
