@@ -493,7 +493,7 @@ Open a new terminal, navigate to ``ros2_ws``, and source the setup files:
       $ call install/setup.bat
 
 Now run the talker node.
-The terminal should start publishing Publishing: ``"Hello World: 0"`` every 0.5 seconds, like so::
+The terminal should start publishing info messages every 0.5 seconds, like so:
 
 .. code-block:: console
 
