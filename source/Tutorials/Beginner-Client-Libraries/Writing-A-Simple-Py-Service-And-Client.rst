@@ -353,27 +353,13 @@ Now run the service node:
 The node will wait for the client's request.
 
 Open another terminal and source the setup files from inside ``ros2_ws`` again.
-<<<<<<< HEAD
-Start the client node, followed by any two integers separated by a space:
-
-.. code-block:: console
-
-  ros2 run py_srvcli client 2 3
-
+Start the client node, followed by any two integers separated by a space.
 If you chose ``2`` and ``3``, for example, the client would receive a response like this:
 
 .. code-block:: console
 
+  $ ros2 run py_srvcli client 2 3
   [INFO] [minimal_client_async]: Result of add_two_ints: for 2 + 3 = 5
-=======
-Start the client node.
-The client sends the request to the service, which computes the sum and returns the result:
-
-.. code-block:: console
-
-  $ ros2 run py_srvcli client
-  [INFO] [minimal_client_async]: Result of add_two_ints: for 41 + 1 = 42
->>>>>>> be64edc (Add $ to Writing-A-Simple-Py-Service-And-Client.rst (#5260))
 
 Return to the terminal where your service node is running.
 You will see that it published log messages when it received the request:
