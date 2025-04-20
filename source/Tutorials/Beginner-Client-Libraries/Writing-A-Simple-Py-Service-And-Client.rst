@@ -354,7 +354,7 @@ The node will wait for the client's request.
 
 Open another terminal and source the setup files from inside ``ros2_ws`` again.
 Start the client node.
-The client sends the request to the service, which computes the sum and returns the result.
+The client sends the request to the service, which computes the sum and returns the result:
 
 .. code-block:: console
 
