@@ -41,17 +41,14 @@ Tasks
 Let's examine your general ROS 2 setup as a whole with ``ros2doctor``.
 First, source ROS 2 in a new terminal, then enter the command:
 
+
 .. code-block:: console
 
-    ros2 doctor
+    $ ros2 doctor
+    All <n> checks passed
 
 This will conduct checks over all your setup modules and return warnings and errors.
-
-If your ROS 2 setup is in perfect shape, you'll see a message similar to this:
-
-.. code-block:: console
-
-    All <n> checks passed
+If your ROS 2 setup is in perfect shape, you'll see a message similar to the one above.
 
 However, it's not unusual to have a few warnings returned.
 A ``UserWarning`` doesn't mean your setup is unusable; it's more likely just an indication that something is configured in a way that's not ideal.
@@ -95,13 +92,13 @@ Start up the system by opening a new terminal, sourcing ROS 2, and entering the 
 
 .. code-block:: console
 
-    ros2 run turtlesim turtlesim_node
+    $ ros2 run turtlesim turtlesim_node
 
 Open another terminal and source ROS 2 to run the teleop controls:
 
 .. code-block:: console
 
-    ros2 run turtlesim turtle_teleop_key
+    $ ros2 run turtlesim turtle_teleop_key
 
 Now run ``ros2doctor`` again in its own terminal.
 You will see the warnings and errors you had the last time you ran ``ros2doctor`` on your setup if you had any.
@@ -109,6 +106,7 @@ Following those will be a couple new warnings relating to the system itself:
 
 .. code-block:: console
 
+    $ ros2 doctor
     UserWarning: Publisher without subscriber detected on /turtle1/color_sensor.
     UserWarning: Publisher without subscriber detected on /turtle1/pose.
 
@@ -120,11 +118,11 @@ You can try this by opening two new terminals while turtlesim is still running, 
 
 .. code-block:: console
 
-    ros2 topic echo /turtle1/color_sensor
+    $ ros2 topic echo /turtle1/color_sensor
 
 .. code-block:: console
 
-    ros2 topic echo /turtle1/pose
+    $ ros2 topic echo /turtle1/pose
 
 Then run ``ros2doctor`` in its terminal again.
 The ``publisher without subscriber`` warnings will be gone.
@@ -149,7 +147,7 @@ To get a full report, enter the following command in the terminal:
 
 .. code-block:: console
 
-    ros2 doctor --report
+    $ ros2 doctor --report
 
 Which will return a list of information categorized into five groups:
 
