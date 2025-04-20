@@ -46,7 +46,7 @@ So, navigate into ``ros2_ws/src``, and run the package creation command:
 
 .. code-block:: console
 
-    ros2 pkg create --build-type ament_cmake --license Apache-2.0 cpp_pubsub
+    $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 cpp_pubsub
 
 Your terminal will return a message verifying the creation of your package ``cpp_pubsub`` and all its necessary files and folders.
 
@@ -65,13 +65,21 @@ Download the example talker code by entering the following command:
 
       .. code-block:: console
 
+<<<<<<< HEAD
             wget -O publisher_member_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/member_function.cpp
+=======
+            $ wget -O publisher_lambda_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/lambda.cpp
+>>>>>>> 40cc4f9 ( Add $ to Writing-A-Simple-Cpp-Publisher-And-Subscriber.rst (#5257))
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
+<<<<<<< HEAD
             wget -O publisher_member_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/member_function.cpp
+=======
+            $ wget -O publisher_lambda_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/lambda.cpp
+>>>>>>> 40cc4f9 ( Add $ to Writing-A-Simple-Cpp-Publisher-And-Subscriber.rst (#5257))
 
    .. group-tab:: Windows
 
@@ -79,13 +87,21 @@ Download the example talker code by entering the following command:
 
       .. code-block:: console
 
+<<<<<<< HEAD
             curl -sk https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/member_function.cpp -o publisher_member_function.cpp
+=======
+            $ curl -sk https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/lambda.cpp -o publisher_lambda_function.cpp
+>>>>>>> 40cc4f9 ( Add $ to Writing-A-Simple-Cpp-Publisher-And-Subscriber.rst (#5257))
 
       Or in powershell:
 
       .. code-block:: console
 
+<<<<<<< HEAD
             curl https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/member_function.cpp -o publisher_member_function.cpp
+=======
+            $ curl https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/lambda.cpp -o publisher_lambda_function.cpp
+>>>>>>> 40cc4f9 ( Add $ to Writing-A-Simple-Cpp-Publisher-And-Subscriber.rst (#5257))
 
 Now there will be a new file named ``publisher_member_function.cpp``.
 Open the file using your preferred text editor.
@@ -311,13 +327,21 @@ Enter the following code in your terminal:
 
       .. code-block:: console
 
+<<<<<<< HEAD
             wget -O subscriber_member_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function.cpp
+=======
+            $ wget -O subscriber_lambda_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/lambda.cpp
+>>>>>>> 40cc4f9 ( Add $ to Writing-A-Simple-Cpp-Publisher-And-Subscriber.rst (#5257))
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
+<<<<<<< HEAD
             wget -O subscriber_member_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function.cpp
+=======
+            $ wget -O subscriber_lambda_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/lambda.cpp
+>>>>>>> 40cc4f9 ( Add $ to Writing-A-Simple-Cpp-Publisher-And-Subscriber.rst (#5257))
 
    .. group-tab:: Windows
 
@@ -325,13 +349,21 @@ Enter the following code in your terminal:
 
       .. code-block:: console
 
+<<<<<<< HEAD
             curl -sk https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function.cpp -o subscriber_member_function.cpp
+=======
+            $ curl -sk https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/lambda.cpp -o subscriber_lambda_function.cpp
+>>>>>>> 40cc4f9 ( Add $ to Writing-A-Simple-Cpp-Publisher-And-Subscriber.rst (#5257))
 
       Or in powershell:
 
       .. code-block:: console
 
+<<<<<<< HEAD
             curl https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function.cpp -o subscriber_member_function.cpp
+=======
+            $ curl https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/lambda.cpp -o subscriber_lambda_function.cpp
+>>>>>>> 40cc4f9 ( Add $ to Writing-A-Simple-Cpp-Publisher-And-Subscriber.rst (#5257))
 
 Check to ensure that these files exist:
 
@@ -443,7 +475,7 @@ It's good practice to run ``rosdep`` in the root of your workspace (``ros2_ws``)
 
       .. code-block:: console
 
-            rosdep install -i --from-path src --rosdistro {DISTRO} -y
+            $ rosdep install -i --from-path src --rosdistro {DISTRO} -y
 
    .. group-tab:: macOS
 
@@ -462,19 +494,19 @@ Still in the root of your workspace, ``ros2_ws``, build your new package:
 
     .. code-block:: console
 
-      colcon build --packages-select cpp_pubsub
+      $ colcon build --packages-select cpp_pubsub
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      colcon build --packages-select cpp_pubsub
+      $ colcon build --packages-select cpp_pubsub
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      colcon build --merge-install --packages-select cpp_pubsub
+      $ colcon build --merge-install --packages-select cpp_pubsub
 
 Open a new terminal, navigate to ``ros2_ws``, and source the setup files:
 
@@ -484,51 +516,43 @@ Open a new terminal, navigate to ``ros2_ws``, and source the setup files:
 
     .. code-block:: console
 
-      . install/setup.bash
+      $ . install/setup.bash
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      . install/setup.bash
+      $ . install/setup.bash
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      call install/setup.bat
+      $ call install/setup.bat
 
-Now run the talker node:
-
-.. code-block:: console
-
-     ros2 run cpp_pubsub talker
-
+Now run the talker node.
 The terminal should start publishing info messages every 0.5 seconds, like so:
 
 .. code-block:: console
 
-    [INFO] [minimal_publisher]: Publishing: "Hello World: 0"
-    [INFO] [minimal_publisher]: Publishing: "Hello World: 1"
-    [INFO] [minimal_publisher]: Publishing: "Hello World: 2"
-    [INFO] [minimal_publisher]: Publishing: "Hello World: 3"
-    [INFO] [minimal_publisher]: Publishing: "Hello World: 4"
+     $ ros2 run cpp_pubsub talker
+     [INFO] [minimal_publisher]: Publishing: "Hello World: 0"
+     [INFO] [minimal_publisher]: Publishing: "Hello World: 1"
+     [INFO] [minimal_publisher]: Publishing: "Hello World: 2"
+     [INFO] [minimal_publisher]: Publishing: "Hello World: 3"
+     [INFO] [minimal_publisher]: Publishing: "Hello World: 4"
 
-Open another terminal, source the setup files from inside ``ros2_ws`` again, and then start the listener node:
-
-.. code-block:: console
-
-     ros2 run cpp_pubsub listener
-
-The listener will start printing messages to the console, starting at whatever message count the publisher is on at that time, like so:
+Open another terminal, source the setup files from inside ``ros2_ws`` again, and then start the listener node.
+The listener will start printing messages to the console, starting at whatever message count the publisher is on at that time:
 
 .. code-block:: console
 
-  [INFO] [minimal_subscriber]: I heard: "Hello World: 10"
-  [INFO] [minimal_subscriber]: I heard: "Hello World: 11"
-  [INFO] [minimal_subscriber]: I heard: "Hello World: 12"
-  [INFO] [minimal_subscriber]: I heard: "Hello World: 13"
-  [INFO] [minimal_subscriber]: I heard: "Hello World: 14"
+     $ ros2 run cpp_pubsub listener
+     [INFO] [minimal_subscriber]: I heard: "Hello World: 10"
+     [INFO] [minimal_subscriber]: I heard: "Hello World: 11"
+     [INFO] [minimal_subscriber]: I heard: "Hello World: 12"
+     [INFO] [minimal_subscriber]: I heard: "Hello World: 13"
+     [INFO] [minimal_subscriber]: I heard: "Hello World: 14"
 
 Enter ``Ctrl+C`` in each terminal to stop the nodes from spinning.
 
