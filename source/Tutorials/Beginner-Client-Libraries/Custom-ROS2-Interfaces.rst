@@ -46,7 +46,7 @@ Since we will use the pub/sub and service/client packages created in earlier tut
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_cmake --license Apache-2.0 tutorial_interfaces
+  $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 tutorial_interfaces
 
 ``tutorial_interfaces`` is the name of the new package.
 Note that it is, and can only be, a CMake package, but this doesn't restrict in which type of packages you can use your messages and services.
@@ -57,7 +57,7 @@ Create the directories in ``ros2_ws/src/tutorial_interfaces``:
 
 .. code-block:: console
 
-  mkdir msg srv
+  $ mkdir msg srv
 
 2 Create custom definitions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -67,7 +67,7 @@ Create the directories in ``ros2_ws/src/tutorial_interfaces``:
 
 In the ``tutorial_interfaces/msg`` directory you just created, make a new file called ``Num.msg`` with one line of code declaring its data structure:
 
-.. code-block:: console
+.. code-block:: bash
 
     int64 num
 
@@ -75,7 +75,7 @@ This is a custom message that transfers a single 64-bit integer called ``num``.
 
 Also in the ``tutorial_interfaces/msg`` directory you just created, make a new file called ``Sphere.msg`` with the following content:
 
-.. code-block:: console
+.. code-block:: bash
 
     geometry_msgs/Point center
     float64 radius
@@ -87,7 +87,7 @@ This custom message uses a message from another message package (``geometry_msgs
 
 Back in the ``tutorial_interfaces/srv`` directory you just created, make a new file called ``AddThreeInts.srv`` with the following request and response structure:
 
-.. code-block:: console
+.. code-block:: bash
 
   int64 a
   int64 b
@@ -147,19 +147,19 @@ In the root of your workspace (``~/ros2_ws``), run the following command:
 
     .. code-block:: console
 
-      colcon build --packages-select tutorial_interfaces
+      $ colcon build --packages-select tutorial_interfaces
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      colcon build --packages-select tutorial_interfaces
+      $ colcon build --packages-select tutorial_interfaces
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      colcon build --merge-install --packages-select tutorial_interfaces
+      $ colcon build --merge-install --packages-select tutorial_interfaces
 
 Now the interfaces will be discoverable by other ROS 2 packages.
 
@@ -174,29 +174,29 @@ In a new terminal, run the following command from within your workspace (``ros2_
 
     .. code-block:: console
 
-      source install/setup.bash
+      $ source install/setup.bash
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      . install/setup.bash
+      $ . install/setup.bash
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      call install/setup.bat
+      $ call install/setup.bat
 
 Now you can confirm that your interface creation worked by using the ``ros2 interface show`` command:
 
 .. code-block:: console
 
-  ros2 interface show tutorial_interfaces/msg/Num
+  $ ros2 interface show tutorial_interfaces/msg/Num
 
 should return:
 
-.. code-block:: console
+.. code-block:: bash
 
     int64 num
 
@@ -204,7 +204,7 @@ And
 
 .. code-block:: console
 
-  ros2 interface show tutorial_interfaces/msg/Sphere
+  $ ros2 interface show tutorial_interfaces/msg/Sphere
 
 should return:
 
@@ -220,11 +220,11 @@ And
 
 .. code-block:: console
 
-  ros2 interface show tutorial_interfaces/srv/AddThreeInts
+  $ ros2 interface show tutorial_interfaces/srv/AddThreeInts
 
 should return:
 
-.. code-block:: console
+.. code-block:: bash
 
     int64 a
     int64 b
@@ -469,13 +469,13 @@ After making the above edits and saving all the changes, build the package:
 
     .. code-block:: console
 
-      colcon build --packages-select cpp_pubsub
+      $ colcon build --packages-select cpp_pubsub
 
     On Windows:
 
     .. code-block:: console
 
-      colcon build --merge-install --packages-select cpp_pubsub
+      $ colcon build --merge-install --packages-select cpp_pubsub
 
   .. group-tab:: Python
 
@@ -483,13 +483,13 @@ After making the above edits and saving all the changes, build the package:
 
     .. code-block:: console
 
-      colcon build --packages-select py_pubsub
+      $ colcon build --packages-select py_pubsub
 
     On Windows:
 
     .. code-block:: console
 
-      colcon build --merge-install --packages-select py_pubsub
+      $ colcon build --merge-install --packages-select py_pubsub
 
 Then open two new terminals, source ``ros2_ws`` in each, and run:
 
@@ -499,21 +499,21 @@ Then open two new terminals, source ``ros2_ws`` in each, and run:
 
     .. code-block:: console
 
-          ros2 run cpp_pubsub talker
+          $ ros2 run cpp_pubsub talker
 
     .. code-block:: console
 
-          ros2 run cpp_pubsub listener
+          $ ros2 run cpp_pubsub listener
 
   .. group-tab:: Python
 
     .. code-block:: console
 
-        ros2 run py_pubsub talker
+        $ ros2 run py_pubsub talker
 
     .. code-block:: console
 
-        ros2 run py_pubsub listener
+        $ ros2 run py_pubsub listener
 
 Since ``Num.msg`` relays only an integer, the talker should only be publishing integer values, as opposed to the string it published previously:
 
@@ -760,13 +760,13 @@ After making the above edits and saving all the changes, build the package:
 
     .. code-block:: console
 
-      colcon build --packages-select cpp_srvcli
+      $ colcon build --packages-select cpp_srvcli
 
     On Windows:
 
     .. code-block:: console
 
-      colcon build --merge-install --packages-select cpp_srvcli
+      $ colcon build --merge-install --packages-select cpp_srvcli
 
 
   .. group-tab:: Python
@@ -775,13 +775,13 @@ After making the above edits and saving all the changes, build the package:
 
     .. code-block:: console
 
-      colcon build --packages-select py_srvcli
+      $ colcon build --packages-select py_srvcli
 
     On Windows:
 
     .. code-block:: console
 
-      colcon build --merge-install --packages-select py_srvcli
+      $ colcon build --merge-install --packages-select py_srvcli
 
 Then open two new terminals, source ``ros2_ws`` in each, and run:
 
@@ -791,21 +791,21 @@ Then open two new terminals, source ``ros2_ws`` in each, and run:
 
     .. code-block:: console
 
-          ros2 run cpp_srvcli server
+          $ ros2 run cpp_srvcli server
 
     .. code-block:: console
 
-          ros2 run cpp_srvcli client
+          $ ros2 run cpp_srvcli client
 
   .. group-tab:: Python
 
     .. code-block:: console
 
-        ros2 run py_srvcli service
+        $ ros2 run py_srvcli service
 
     .. code-block:: console
 
-        ros2 run py_srvcli client
+        $ ros2 run py_srvcli client
 
 
 Summary
