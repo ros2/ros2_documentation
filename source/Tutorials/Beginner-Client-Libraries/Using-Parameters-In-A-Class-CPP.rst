@@ -394,12 +394,8 @@ Then source the setup files in a new terminal:
 
       $ call install/setup.bat
 
-<<<<<<< HEAD
-The terminal should return the following message every second:
-=======
 Now run the node using the launch file we have just created.
-The terminal should return the following message the first time:
->>>>>>> 199bc18 (Add $ to Using-Parameters-In-A-Class-CPP.rst (#5255))
+The terminal should return the following message every second:
 
 .. code-block:: console
 
