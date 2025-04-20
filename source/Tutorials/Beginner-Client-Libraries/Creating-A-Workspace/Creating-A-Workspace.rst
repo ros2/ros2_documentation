@@ -153,7 +153,7 @@ From the root of your workspace (``ros2_ws``), run the following command:
 
    .. group-tab:: Linux
 
-      ``cd ..`` if you're still in the ``src`` directory with the ``ros_tutorials`` clone
+      If you're still in the ``src`` directory with the ``ros_tutorials`` clone, make sure to run ``cd ..`` to move back up to the workspace (``ros2_ws``).
 
       .. code-block:: console
 
