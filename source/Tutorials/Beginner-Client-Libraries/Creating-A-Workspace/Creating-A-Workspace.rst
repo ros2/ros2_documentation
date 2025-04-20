@@ -257,7 +257,6 @@ You will see that colcon has created new directories:
         $ dir
         build  install  log  src
 
-
 The ``install`` directory is where your workspace's setup files are, which you can use to source your overlay.
 
 
