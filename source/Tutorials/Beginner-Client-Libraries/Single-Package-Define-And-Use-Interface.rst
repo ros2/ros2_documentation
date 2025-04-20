@@ -50,8 +50,8 @@ In your workspace ``src`` directory, create a package ``more_interfaces`` and ma
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_cmake --license Apache-2.0 more_interfaces
-  mkdir more_interfaces/msg
+  $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 more_interfaces
+  $ mkdir more_interfaces/msg
 
 2 Create a msg file
 ^^^^^^^^^^^^^^^^^^^
@@ -292,22 +292,22 @@ Return to the root of the workspace to build the package:
 
     .. code-block:: console
 
-      cd ~/ros2_ws
-      colcon build --packages-up-to more_interfaces
+      $ cd ~/ros2_ws
+      $ colcon build --packages-up-to more_interfaces
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      cd ~/ros2_ws
-      colcon build --packages-up-to more_interfaces
+      $ cd ~/ros2_ws
+      $ colcon build --packages-up-to more_interfaces
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      cd /ros2_ws
-      colcon build --merge-install --packages-up-to more_interfaces
+      $ cd /ros2_ws
+      $ colcon build --merge-install --packages-up-to more_interfaces
 
 Then source the workspace and run the publisher:
 
@@ -317,29 +317,29 @@ Then source the workspace and run the publisher:
 
     .. code-block:: console
 
-      source install/local_setup.bash
-      ros2 run more_interfaces publish_address_book
+      $ source install/local_setup.bash
+      $ ros2 run more_interfaces publish_address_book
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      . install/local_setup.bash
-      ros2 run more_interfaces publish_address_book
+      $ . install/local_setup.bash
+      $ ros2 run more_interfaces publish_address_book
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      call install/local_setup.bat
-      ros2 run more_interfaces publish_address_book
+      $ call install/local_setup.bat
+      $ ros2 run more_interfaces publish_address_book
 
     Or using Powershell:
 
     .. code-block:: console
 
-      install/local_setup.ps1
-      ros2 run more_interfaces publish_address_book
+      $ install/local_setup.ps1
+      $ ros2 run more_interfaces publish_address_book
 
 You should see the publisher relaying the msg you defined, including the values you set in ``publish_address_book.cpp``.
 
@@ -351,29 +351,29 @@ To confirm the message is being published on the ``address_book`` topic, open an
 
     .. code-block:: console
 
-      source install/setup.bash
-      ros2 topic echo /address_book
+      $ source install/setup.bash
+      $ ros2 topic echo /address_book
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      . install/setup.bash
-      ros2 topic echo /address_book
+      $ . install/setup.bash
+      $ ros2 topic echo /address_book
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      call install/setup.bat
-      ros2 topic echo /address_book
+      $ call install/setup.bat
+      $ ros2 topic echo /address_book
 
     Or using Powershell:
 
     .. code-block:: console
 
-      install/setup.ps1
-      ros2 topic echo /address_book
+      $ install/setup.ps1
+      $ ros2 topic echo /address_book
 
 We won't create a subscriber in this tutorial, but you can try to write one yourself for practice (use :doc:`./Writing-A-Simple-Cpp-Publisher-And-Subscriber` to help).
 
