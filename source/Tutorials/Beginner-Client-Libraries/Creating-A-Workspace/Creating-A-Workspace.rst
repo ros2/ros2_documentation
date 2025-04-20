@@ -154,7 +154,7 @@ From the root of your workspace (``ros2_ws``), run the following command:
    .. group-tab:: Linux
 
       ``cd ..`` if you're still in the ``src`` directory with the ``ros_tutorials`` clone
-      
+
       .. code-block:: console
 
         $ cd ..
