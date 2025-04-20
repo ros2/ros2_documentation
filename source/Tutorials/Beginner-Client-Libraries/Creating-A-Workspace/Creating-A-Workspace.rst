@@ -162,7 +162,7 @@ From the root of your workspace (``ros2_ws``), run the following command:
 
    .. group-tab:: macOS
 
-      $ rosdep only runs on Linux, so you can skip ahead to section "5 Build the workspace with colcon".
+      rosdep only runs on Linux, so you can skip ahead to section "5 Build the workspace with colcon".
 
    .. group-tab:: Windows
 
