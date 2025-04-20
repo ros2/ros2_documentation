@@ -166,7 +166,7 @@ From the root of your workspace (``ros2_ws``), run the following command:
 
    .. group-tab:: Windows
 
-      $ rosdep only runs on Linux, so you can skip ahead to section "5 Build the workspace with colcon".
+      rosdep only runs on Linux, so you can skip ahead to section "5 Build the workspace with colcon".
 
 If you installed ROS 2 on Linux from source or the binary archive, you will need to use the rosdep command from their installation instructions.
 Here are the :ref:`from-source rosdep section <linux-development-setup-install-dependencies-using-rosdep>` and the :ref:`binary archive rosdep section <linux-install-binary-install-missing-dependencies>`.
