@@ -105,6 +105,7 @@ You will see the warnings and errors you had the last time you ran ``ros2doctor`
 Following those will be a couple new warnings relating to the system itself:
 
 .. code-block:: console
+
     $ ros2 doctor
     UserWarning: Publisher without subscriber detected on /turtle1/color_sensor.
     UserWarning: Publisher without subscriber detected on /turtle1/pose.
