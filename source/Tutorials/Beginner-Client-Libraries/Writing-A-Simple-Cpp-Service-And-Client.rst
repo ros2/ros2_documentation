@@ -374,11 +374,7 @@ Now run the service node:
 
 .. code-block:: console
 
-<<<<<<< HEAD
-     ros2 run cpp_srvcli server
-=======
   $ ros2 run cpp_srvcli server
->>>>>>> 9a66914 (Add $ to Writing-A-Simple-Cpp-Service-And-Client.rst (#5258))
 
 The terminal should return the following message, and then wait:
 
@@ -387,29 +383,13 @@ The terminal should return the following message, and then wait:
     [INFO] [rclcpp]: Ready to add two ints.
 
 Open another terminal, source the setup files from inside ``ros2_ws`` again.
-<<<<<<< HEAD
-Start the client node, followed by any two integers separated by a space:
-
-.. code-block:: console
-
-     ros2 run cpp_srvcli client 2 3
-
+Start the client node, followed by any two integers separated by a space.
 If you chose ``2`` and ``3``, for example, the client would receive a response like this:
 
 .. code-block:: console
 
-    [INFO] [rclcpp]: Sum: 5
-=======
-Start the client node, followed by any two integers separated by a space.
-The client sends the request to the service, which computes the sum and returns the result:
-
-.. code-block:: console
-
-  $ ros2 run cpp_srvcli client
-  [INFO] [minimal_client]: result of 41 + 1: 42
->>>>>>> 9a66914 (Add $ to Writing-A-Simple-Cpp-Service-And-Client.rst (#5258))
-
-The client should receive the response above.
+  $ ros2 run cpp_srvcli client 2 3
+  [INFO] [rclcpp]: Sum: 5
 
 Return to the terminal where your service node is running.
 You will see that it published log messages when it received the request and the data it received, and the response it sent back:
