@@ -197,16 +197,7 @@ To see the request and response arguments of the ``/spawn`` service, run the com
 
 .. code-block:: console
 
-<<<<<<< HEAD
-  ros2 interface show turtlesim/srv/Spawn
-
-Which will return:
-
-.. code-block:: console
-
-=======
-  $ ros2 interface show turtlesim_msgs/srv/Spawn
->>>>>>> 7c38a44 (Update code-blocks in Beginnter-CLI-Tools docu (#5236))
+  $ ros2 interface show turtlesim/srv/Spawn
   float32 x
   float32 y
   float32 theta
@@ -246,16 +237,7 @@ Enter the command:
 
 .. code-block:: console
 
-<<<<<<< HEAD
-  ros2 service call /spawn turtlesim/srv/Spawn "{x: 2, y: 2, theta: 0.2, name: ''}"
-
-You will get this method-style view of what's happening, and then the service response:
-
-.. code-block:: console
-
-=======
-  $ ros2 service call /spawn turtlesim_msgs/srv/Spawn "{x: 2, y: 2, theta: 0.2, name: ''}"64gg
->>>>>>> 7c38a44 (Update code-blocks in Beginnter-CLI-Tools docu (#5236))
+  $ ros2 service call /spawn turtlesim/srv/Spawn "{x: 2, y: 2, theta: 0.2, name: ''}"64gg
   requester: making request: turtlesim.srv.Spawn_Request(x=2.0, y=2.0, theta=0.2, name='')
 
   response:

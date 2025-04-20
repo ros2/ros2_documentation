@@ -202,21 +202,6 @@ Running this command on the ``subset`` bag file will return a list of informatio
 
 .. code-block:: console
 
-<<<<<<< HEAD
-    ros2 bag info subset
-
-.. code-block:: console
-
-  Files:             subset.mcap
-  Bag size:          228.5 KiB
-  Storage id:        mcap
-  Duration:          48.47s
-  Start:             Oct 11 2019 06:09:09.12 (1570799349.12)
-  End                Oct 11 2019 06:09:57.60 (1570799397.60)
-  Messages:          3013
-  Topic information: Topic: /turtle1/cmd_vel | Type: geometry_msgs/msg/Twist | Count: 9 | Serialization Format: cdr
-                   Topic: /turtle1/pose | Type: turtlesim/msg/Pose | Count: 3004 | Serialization Format: cdr
-=======
     $ ros2 bag info subset
     Files:             subset.mcap
     Bag size:          228.5 KiB
@@ -226,8 +211,7 @@ Running this command on the ``subset`` bag file will return a list of informatio
     End                Oct 11 2019 06:09:57.60 (1570799397.60)
     Messages:          3013
     Topic information: Topic: /turtle1/cmd_vel | Type: geometry_msgs/msg/Twist | Count: 9 | Serialization Format: cdr
-                       Topic: /turtle1/pose | Type: turtlesim_msgs/msg/Pose | Count: 3004 | Serialization Format: cdr
->>>>>>> 7c38a44 (Update code-blocks in Beginnter-CLI-Tools docu (#5236))
+                       Topic: /turtle1/pose | Type: turtlesim/msg/Pose | Count: 3004 | Serialization Format: cdr
 
 5 Play topic data
 ^^^^^^^^^^^^^^^^^
