@@ -377,7 +377,7 @@ Then source the setup files in a new terminal:
 
 .. tabs::
 
-  .. group-tab:: Linux404
+  .. group-tab:: Linux
 
     .. code-block:: console
 
