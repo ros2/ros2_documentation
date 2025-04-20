@@ -420,7 +420,7 @@ It's good practice to run ``rosdep`` in the root of your workspace (``ros2_ws``)
 
    .. group-tab:: Windows
 
-      $ rosdep only runs on Linux, so you can skip ahead to next step.
+      rosdep only runs on Linux, so you can skip ahead to next step.
 
 
 Still in the root of your workspace, ``ros2_ws``, build your new package:
