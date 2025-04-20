@@ -377,7 +377,7 @@ Then source the setup files in a new terminal:
 
 .. tabs::
 
-  .. group-tab:: Linux
+  .. group-tab:: Linux404
 
     .. code-block:: console
 
@@ -401,7 +401,7 @@ The terminal should return the following message the first time::
 .. code-block:: console
 
      $ ros2 launch cpp_parameters cpp_parameters_launch.py
-    [INFO] [custom_minimal_param_node]: Hello earth!
+     [INFO] [custom_minimal_param_node]: Hello earth!
 
 Further outputs should show  ``[INFO] [minimal_param_node]: Hello world!`` every second.
 
