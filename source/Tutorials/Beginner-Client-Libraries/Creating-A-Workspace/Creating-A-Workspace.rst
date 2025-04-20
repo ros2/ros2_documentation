@@ -249,6 +249,7 @@ You will see that colcon has created new directories:
 
         $ ls
         build  install  log  src
+
    .. group-tab:: Windows
 
       .. code-block:: console
