@@ -312,7 +312,7 @@ It's good practice to run ``rosdep`` in the root of your workspace (``ros2_ws``)
 
   .. group-tab:: macOS
 
-      $ rosdep only runs on Linux, so you can skip ahead to next step.
+      rosdep only runs on Linux, so you can skip ahead to next step.
 
   .. group-tab:: Windows
 
