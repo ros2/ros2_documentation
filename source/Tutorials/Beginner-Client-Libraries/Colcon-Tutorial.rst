@@ -307,7 +307,7 @@ Setup ``colcon_cd``
 
 The command ``colcon_cd`` allows you to quickly change the current working directory of your shell to the directory of a package.
 As an example ``colcon_cd some_ros_package`` would quickly bring you to the directory ``~/ros2_ws/src/some_ros_package``.
-To set up colcon_cd you need to add the following lines to your shell startup script:
+To set up ``colcon_cd`` you need to run the following commands to modify your shell startup script:
 
 .. tabs::
 
