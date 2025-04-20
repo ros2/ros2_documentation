@@ -143,15 +143,6 @@ Open a new terminal to install ``rqt`` and its plugins:
       $ sudo apt update
       $ sudo apt install '~nros-{DISTRO}-rqt*'
 
-<<<<<<< HEAD
-=======
-  .. group-tab:: RHEL
-
-    .. code-block:: console
-
-      $ sudo dnf install 'ros-{DISTRO}-rqt*'
-
->>>>>>> 7c38a44 (Update code-blocks in Beginnter-CLI-Tools docu (#5236))
   .. group-tab:: macOS
 
     The standard archive for installing ROS 2 on macOS contains ``rqt`` and its plugins, so you should already have ``rqt`` installed.

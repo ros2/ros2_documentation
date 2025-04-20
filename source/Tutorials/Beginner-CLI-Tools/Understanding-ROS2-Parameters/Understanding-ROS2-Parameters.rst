@@ -80,14 +80,6 @@ To see the parameters belonging to your nodes, open a new terminal and enter the
     qos_overrides./parameter_events.publisher.reliability
     use_sim_time
 
-<<<<<<< HEAD
-=======
-
-You see the node namespaces, ``/teleop_turtle`` and ``/turtlesim``, followed by each node's parameters.
-
-The namespaces of the parameter and its name are separated using dots as you can see, for example, in ``parameter_events.publisher.depth``.
-
->>>>>>> 7c38a44 (Update code-blocks in Beginnter-CLI-Tools docu (#5236))
 Every node has the parameter ``use_sim_time``; it's not unique to turtlesim.
 
 Based on their names, it looks like ``/turtlesim``'s parameters determine the background color of the turtlesim window using RGB color values.
