@@ -804,11 +804,7 @@ Then open two new terminals, source ``ros2_ws`` in each, and run:
 
     .. code-block:: console
 
-<<<<<<< HEAD
-          ros2 run cpp_srvcli client 2 3 1
-=======
-          $ ros2 run cpp_srvcli client
->>>>>>> 950fbfe (CustomRos2Interfaces (#5252))
+          $ ros2 run cpp_srvcli client 2 3 1
 
   .. group-tab:: Python
 
@@ -818,11 +814,7 @@ Then open two new terminals, source ``ros2_ws`` in each, and run:
 
     .. code-block:: console
 
-<<<<<<< HEAD
-        ros2 run py_srvcli client 2 3 1
-=======
-        $ ros2 run py_srvcli client
->>>>>>> 950fbfe (CustomRos2Interfaces (#5252))
+        $ ros2 run py_srvcli client 2 3 1
 
 
 Summary
