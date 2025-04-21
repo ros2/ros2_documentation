@@ -48,7 +48,7 @@ Create a new directory to store your launch files:
 
 .. code-block:: console
 
-  mkdir launch
+  $ mkdir launch
 
 2 Write the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -165,22 +165,22 @@ To run the launch file created above, enter into the directory you created earli
 
     .. code-block:: console
 
-      cd launch
-      ros2 launch turtlesim_mimic_launch.xml
+      $ cd launch
+      $ ros2 launch turtlesim_mimic_launch.xml
 
   .. group-tab:: YAML
 
     .. code-block:: console
 
-      cd launch
-      ros2 launch turtlesim_mimic_launch.yaml
+      $ cd launch
+      $ ros2 launch turtlesim_mimic_launch.yaml
 
   .. group-tab:: Python
 
     .. code-block:: console
 
-      cd launch
-      ros2 launch turtlesim_mimic_launch.py
+      $ cd launch
+      $ ros2 launch turtlesim_mimic_launch.py
 
 .. note::
 
@@ -189,7 +189,7 @@ To run the launch file created above, enter into the directory you created earli
 
   .. code-block:: console
 
-      ros2 launch <package_name> <launch_file_name>
+      $ ros2 launch <package_name> <launch_file_name>
 
   You learned about creating packages in :doc:`../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package`.
 
@@ -217,7 +217,7 @@ To see the system in action, open a new terminal and run the ``ros2 topic pub`` 
 
 .. code-block:: console
 
-  ros2 topic pub -r 1 /turtlesim1/turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -1.8}}"
+  $ ros2 topic pub -r 1 /turtlesim1/turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -1.8}}"
 
 You will see both turtles following the same path.
 
@@ -232,7 +232,7 @@ Run the command:
 
 .. code-block:: console
 
-  rqt_graph
+  $ rqt_graph
 
 .. image:: images/mimic_graph.png
 
