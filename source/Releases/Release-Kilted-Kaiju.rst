@@ -64,6 +64,27 @@ Try replacing the ``ament_target_dependencies()`` call with the  ``target_link_l
 
 For more information see `ament/ament_cmake#572 <https://github.com/ament/ament_cmake/pull/572>`__ and `ament/ament_cmake#292 <https://github.com/ament/ament_cmake/issues/292>`__.
 
+``launch``
+^^^^^^^^^^
+
+``PathJoinSubstitution``
+""""""""""""""""""""""""
+
+``PathJoinSubstitution`` now supports concatenating strings or substitutions into a single path component.
+For example:
+
+.. code-block:: python
+
+    PathJoinSubstitution(['robot_description', 'urdf', [LaunchConfiguration('model'), '.xacro']])
+
+If the ``model`` launch configuration was set to ``my_model``, this would result in a path equal to:
+
+.. code-block:: python
+
+    'robot_description/urdf/my_model.xacro'
+
+For more information, see `ros2/launch#835 <https://github.com/ros2/launch/issues/835>`__ and `ros2/launch#838 <https://github.com/ros2/launch/pull/838>`__.
+
 Development progress
 --------------------
 
