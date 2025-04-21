@@ -44,22 +44,22 @@ Create a workspace for the package to live in:
 
     .. code-block:: bash
 
-      mkdir -p launch_ws/src
-      cd launch_ws/src
+      $ mkdir -p launch_ws/src
+      $ cd launch_ws/src
 
   .. group-tab:: macOS
 
     .. code-block:: bash
 
-      mkdir -p launch_ws/src
-      cd launch_ws/src
+      $ mkdir -p launch_ws/src
+      $ cd launch_ws/src
 
   .. group-tab:: Windows
 
     .. code-block:: bash
 
-      md launch_ws\src
-      cd launch_ws\src
+      $ md launch_ws\src
+      $ cd launch_ws\src
 
 .. tabs::
 
@@ -67,13 +67,13 @@ Create a workspace for the package to live in:
 
     .. code-block:: console
 
-      ros2 pkg create --build-type ament_python --license Apache-2.0 py_launch_example
+      $ ros2 pkg create --build-type ament_python --license Apache-2.0 py_launch_example
 
   .. group-tab:: C++ package
 
     .. code-block:: console
 
-      ros2 pkg create --build-type ament_cmake --license Apache-2.0 cpp_launch_example
+      $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 cpp_launch_example
 
 2 Creating the structure to hold launch files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -174,7 +174,7 @@ Go to the top-level of the workspace, and build it:
 
 .. code-block:: console
 
-  colcon build
+  $ colcon build
 
 After the ``colcon build`` has been successful and you've sourced the workspace, you should be able to run the launch file as follows:
 
@@ -188,19 +188,19 @@ After the ``colcon build`` has been successful and you've sourced the workspace,
 
         .. code-block:: console
 
-          ros2 launch py_launch_example my_script_launch.xml
+          $ ros2 launch py_launch_example my_script_launch.xml
 
       .. group-tab:: YAML launch file
 
         .. code-block:: console
 
-          ros2 launch py_launch_example my_script_launch.yaml
+          $ ros2 launch py_launch_example my_script_launch.yaml
 
       .. group-tab:: Python launch file
 
         .. code-block:: console
 
-          ros2 launch py_launch_example my_script_launch.py
+          $ ros2 launch py_launch_example my_script_launch.py
 
   .. group-tab:: C++ package
 
@@ -210,19 +210,19 @@ After the ``colcon build`` has been successful and you've sourced the workspace,
 
         .. code-block:: console
 
-          ros2 launch cpp_launch_example my_script_launch.xml
+          $ ros2 launch cpp_launch_example my_script_launch.xml
 
       .. group-tab:: YAML launch file
 
         .. code-block:: console
 
-          ros2 launch cpp_launch_example my_script_launch.yaml
+          $ ros2 launch cpp_launch_example my_script_launch.yaml
 
       .. group-tab:: Python launch file
 
         .. code-block:: console
 
-          ros2 launch cpp_launch_example my_script_launch.py
+          $ ros2 launch cpp_launch_example my_script_launch.py
 
 
 Documentation

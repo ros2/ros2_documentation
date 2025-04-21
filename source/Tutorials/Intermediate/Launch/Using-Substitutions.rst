@@ -50,7 +50,7 @@ First, create a new package with the name ``launch_tutorial``:
 
     .. code-block:: console
 
-      ros2 pkg create --build-type ament_python --license Apache-2.0 launch_tutorial
+      $ ros2 pkg create --build-type ament_python --license Apache-2.0 launch_tutorial
 
   .. group-tab:: C++ package
 
@@ -58,7 +58,7 @@ First, create a new package with the name ``launch_tutorial``:
 
     .. code-block:: console
 
-      ros2 pkg create --build-type ament_cmake --license Apache-2.0 launch_tutorial
+      $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 launch_tutorial
 
 Inside of that package, create a directory called ``launch``:
 
@@ -68,19 +68,19 @@ Inside of that package, create a directory called ``launch``:
 
     .. code-block:: bash
 
-      mkdir launch_tutorial/launch
+      $ mkdir launch_tutorial/launch
 
   .. group-tab:: macOS
 
     .. code-block:: bash
 
-      mkdir launch_tutorial/launch
+      $ mkdir launch_tutorial/launch
 
   .. group-tab:: Windows
 
     .. code-block:: bash
 
-      md launch_tutorial/launch
+      $ md launch_tutorial/launch
 
 Finally, make sure to install the launch files:
 
@@ -329,7 +329,7 @@ Go to the root of the workspace, and build the package:
 
 .. code-block:: console
 
-  colcon build
+  $ colcon build
 
 Also remember to source the workspace after building.
 
@@ -344,19 +344,19 @@ Now you can launch using the ``ros2 launch`` command.
 
     .. code-block:: console
 
-        ros2 launch launch_tutorial example_main_launch.yaml
+        $ ros2 launch launch_tutorial example_main_launch.yaml
 
   .. group-tab:: XML
 
     .. code-block:: console
 
-        ros2 launch launch_tutorial example_main_launch.xml
+        $ ros2 launch launch_tutorial example_main_launch.xml
 
   .. group-tab:: Python
 
     .. code-block:: console
 
-        ros2 launch launch_tutorial example_main_launch.py
+        $ ros2 launch launch_tutorial example_main_launch.py
 
 This will do the following:
 
@@ -377,7 +377,7 @@ Modifying launch arguments
 
     .. code-block:: console
 
-        ros2 launch launch_tutorial example_substitutions_launch.yaml --show-args
+        $ ros2 launch launch_tutorial example_substitutions_launch.yaml --show-args
 
   .. group-tab:: XML
 
@@ -386,7 +386,7 @@ Modifying launch arguments
 
     .. code-block:: console
 
-        ros2 launch launch_tutorial example_substitutions_launch.xml --show-args
+        $ ros2 launch launch_tutorial example_substitutions_launch.xml --show-args
 
   .. group-tab:: Python
 
@@ -395,7 +395,7 @@ Modifying launch arguments
 
     .. code-block:: console
 
-        ros2 launch launch_tutorial example_substitutions_launch.py --show-args
+        $ ros2 launch launch_tutorial example_substitutions_launch.py --show-args
 
 This will show the arguments that may be given to the launch file and their default values.
 
@@ -423,19 +423,19 @@ Now you can pass the desired arguments to the launch file as follows:
 
     .. code-block:: console
 
-        ros2 launch launch_tutorial example_substitutions_launch.yaml turtlesim_ns:='turtlesim3' use_provided_red:='True' new_background_r:=200
+        $ ros2 launch launch_tutorial example_substitutions_launch.yaml turtlesim_ns:='turtlesim3' use_provided_red:='True' new_background_r:=200
 
   .. group-tab:: XML
 
     .. code-block:: console
 
-        ros2 launch launch_tutorial example_substitutions_launch.xml turtlesim_ns:='turtlesim3' use_provided_red:='True' new_background_r:=200
+        $ ros2 launch launch_tutorial example_substitutions_launch.xml turtlesim_ns:='turtlesim3' use_provided_red:='True' new_background_r:=200
 
   .. group-tab:: Python
 
     .. code-block:: console
 
-        ros2 launch launch_tutorial example_substitutions_launch.py turtlesim_ns:='turtlesim3' use_provided_red:='True' new_background_r:=200
+        $ ros2 launch launch_tutorial example_substitutions_launch.py turtlesim_ns:='turtlesim3' use_provided_red:='True' new_background_r:=200
 
 Documentation
 -------------
