@@ -139,19 +139,19 @@ Make sure you are in the ``src`` folder before running the package creation comm
 
       .. code-block:: console
 
-        cd ~/ros2_ws/src
+        $ cd ~/ros2_ws/src
 
    .. group-tab:: macOS
 
      .. code-block:: console
 
-       cd ~/ros2_ws/src
+       $ cd ~/ros2_ws/src
 
    .. group-tab:: Windows
 
      .. code-block:: console
 
-       cd \ros2_ws\src
+       $ cd \ros2_ws\src
 
 The command syntax for creating a new package in ROS 2 is:
 
@@ -161,13 +161,13 @@ The command syntax for creating a new package in ROS 2 is:
 
       .. code-block:: console
 
-        ros2 pkg create --build-type ament_cmake --license Apache-2.0 <package_name>
+        $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 <package_name>
 
    .. group-tab:: Python
 
       .. code-block:: console
 
-        ros2 pkg create --build-type ament_python --license Apache-2.0 <package_name>
+        $ ros2 pkg create --build-type ament_python --license Apache-2.0 <package_name>
 
 For this tutorial, you will use the optional argument ``--node-name`` which creates a simple Hello World type executable in the package.
 
@@ -179,13 +179,13 @@ Enter the following command in your terminal:
 
       .. code-block:: console
 
-        ros2 pkg create --build-type ament_cmake --license Apache-2.0 --node-name my_node my_package
+        $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 --node-name my_node my_package
 
    .. group-tab:: Python
 
       .. code-block:: console
 
-        ros2 pkg create --build-type ament_python --license Apache-2.0 --node-name my_node my_package
+        $ ros2 pkg create --build-type ament_python --license Apache-2.0 --node-name my_node my_package
 
 You will now have a new folder within your workspace's ``src`` directory called ``my_package``.
 
@@ -262,19 +262,19 @@ Return to the root of your workspace:
 
       .. code-block:: console
 
-        cd ~/ros2_ws
+        $ cd ~/ros2_ws
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-        cd ~/ros2_ws
+        $ cd ~/ros2_ws
 
    .. group-tab:: Windows
 
      .. code-block:: console
 
-       cd \ros2_ws
+       $ cd \ros2_ws
 
 Now you can build your packages:
 
@@ -284,19 +284,19 @@ Now you can build your packages:
 
     .. code-block:: console
 
-      colcon build
+      $ colcon build
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      colcon build
+      $ colcon build
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      colcon build --merge-install
+      $ colcon build --merge-install
 
     Windows doesn't allow long paths, so ``merge-install`` will combine all the paths into the ``install`` directory.
 
@@ -308,7 +308,7 @@ To build only the ``my_package`` package next time, you can run:
 
 .. code-block:: console
 
-    colcon build --packages-select my_package
+    $ colcon build --packages-select my_package
 
 3 Source the setup file
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -323,19 +323,19 @@ Then, from inside the ``ros2_ws`` directory, run the following command to source
 
     .. code-block:: console
 
-      source install/local_setup.bash
+      $ source install/local_setup.bash
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      . install/local_setup.bash
+      $ . install/local_setup.bash
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      call install/local_setup.bat
+      $ call install/local_setup.bat
 
 Now that your workspace has been added to your path, you will be able to use your new package's executables.
 
@@ -346,7 +346,7 @@ To run the executable you created using the ``--node-name`` argument during pack
 
 .. code-block:: console
 
-  ros2 run my_package my_node
+  $ ros2 run my_package my_node
 
 Which will return a message to your terminal:
 
