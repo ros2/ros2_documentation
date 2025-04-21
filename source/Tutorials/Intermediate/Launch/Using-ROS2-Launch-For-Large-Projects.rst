@@ -292,11 +292,7 @@ To finally see the result of our code, build the package and launch the top-leve
 
 .. code-block:: console
 
-<<<<<<< HEAD
-   ros2 launch launch_tutorial launch_turtlesim.launch.py
-=======
-   $ ros2 launch launch_tutorial launch_turtlesim_launch.py
->>>>>>> 13ca897 (Add $ to Intermediate/Tutorials (#5287))
+   $ ros2 launch launch_tutorial launch_turtlesim.launch.py
 
 You will now see the two turtlesim simulations started.
 There are two turtles in the first one and one in the second one.

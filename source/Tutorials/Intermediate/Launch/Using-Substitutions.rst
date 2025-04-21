@@ -344,11 +344,7 @@ Now you can launch using the ``ros2 launch`` command.
 
     .. code-block:: console
 
-<<<<<<< HEAD
-        ros2 launch launch_tutorial example_main.launch.yaml
-=======
-        $ ros2 launch launch_tutorial example_main_launch.yaml
->>>>>>> 13ca897 (Add $ to Intermediate/Tutorials (#5287))
+        $ ros2 launch launch_tutorial example_main.launch.yaml
 
   .. group-tab:: XML
 
@@ -360,11 +356,7 @@ Now you can launch using the ``ros2 launch`` command.
 
     .. code-block:: console
 
-<<<<<<< HEAD
-        ros2 launch launch_tutorial example_main.launch.py
-=======
-        $ ros2 launch launch_tutorial example_main_launch.py
->>>>>>> 13ca897 (Add $ to Intermediate/Tutorials (#5287))
+        $ ros2 launch launch_tutorial example_main.launch.py
 
 This will do the following:
 
@@ -385,11 +377,7 @@ Modifying launch arguments
 
     .. code-block:: console
 
-<<<<<<< HEAD
-        ros2 launch launch_tutorial example_substitutions.launch.yaml --show-args
-=======
-        $ ros2 launch launch_tutorial example_substitutions_launch.yaml --show-args
->>>>>>> 13ca897 (Add $ to Intermediate/Tutorials (#5287))
+        $ ros2 launch launch_tutorial example_substitutions.launch.yaml --show-args
 
   .. group-tab:: XML
 
@@ -407,11 +395,7 @@ Modifying launch arguments
 
     .. code-block:: console
 
-<<<<<<< HEAD
-        ros2 launch launch_tutorial example_substitutions.launch.py --show-args
-=======
-        $ ros2 launch launch_tutorial example_substitutions_launch.py --show-args
->>>>>>> 13ca897 (Add $ to Intermediate/Tutorials (#5287))
+        $ ros2 launch launch_tutorial example_substitutions.launch.py --show-args
 
 This will show the arguments that may be given to the launch file and their default values.
 
@@ -439,11 +423,7 @@ Now you can pass the desired arguments to the launch file as follows:
 
     .. code-block:: console
 
-<<<<<<< HEAD
-        ros2 launch launch_tutorial example_substitutions.launch.yaml turtlesim_ns:='turtlesim3' use_provided_red:='True' new_background_r:=200
-=======
-        $ ros2 launch launch_tutorial example_substitutions_launch.yaml turtlesim_ns:='turtlesim3' use_provided_red:='True' new_background_r:=200
->>>>>>> 13ca897 (Add $ to Intermediate/Tutorials (#5287))
+        $ ros2 launch launch_tutorial example_substitutions.launch.yaml turtlesim_ns:='turtlesim3' use_provided_red:='True' new_background_r:=200
 
   .. group-tab:: XML
 
@@ -455,11 +435,7 @@ Now you can pass the desired arguments to the launch file as follows:
 
     .. code-block:: console
 
-<<<<<<< HEAD
-        ros2 launch launch_tutorial example_substitutions.launch.py turtlesim_ns:='turtlesim3' use_provided_red:='True' new_background_r:=200
-=======
-        $ ros2 launch launch_tutorial example_substitutions_launch.py turtlesim_ns:='turtlesim3' use_provided_red:='True' new_background_r:=200
->>>>>>> 13ca897 (Add $ to Intermediate/Tutorials (#5287))
+        $ ros2 launch launch_tutorial example_substitutions.launch.py turtlesim_ns:='turtlesim3' use_provided_red:='True' new_background_r:=200
 
 Documentation
 -------------

@@ -103,11 +103,7 @@ Now you can launch the ``example_event_handlers.launch.py`` file using the ``ros
 
 .. code-block:: console
 
-<<<<<<< HEAD
-    ros2 launch launch_tutorial example_event_handlers.launch.py turtlesim_ns:='turtlesim3' use_provided_red:='True' new_background_r:=200
-=======
-    $ ros2 launch launch_tutorial example_event_handlers_launch.py turtlesim_ns:='turtlesim3' use_provided_red:='True' new_background_r:=200
->>>>>>> 13ca897 (Add $ to Intermediate/Tutorials (#5287))
+    $ ros2 launch launch_tutorial example_event_handlers.launch.py turtlesim_ns:='turtlesim3' use_provided_red:='True' new_background_r:=200
 
 This will do the following:
 
