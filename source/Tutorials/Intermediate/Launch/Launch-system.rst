@@ -42,21 +42,21 @@ Create a workspace for the package to live in:
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
+    .. code-block:: console
 
       $ mkdir -p launch_ws/src
       $ cd launch_ws/src
 
   .. group-tab:: macOS
 
-    .. code-block:: bash
+    .. code-block:: console
 
       $ mkdir -p launch_ws/src
       $ cd launch_ws/src
 
   .. group-tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: console
 
       $ md launch_ws\src
       $ cd launch_ws\src

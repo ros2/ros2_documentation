@@ -66,19 +66,19 @@ Inside of that package, create a directory called ``launch``:
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
+    .. code-block:: console
 
       $ mkdir launch_tutorial/launch
 
   .. group-tab:: macOS
 
-    .. code-block:: bash
+    .. code-block:: console
 
       $ mkdir launch_tutorial/launch
 
   .. group-tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: console
 
       $ md launch_tutorial/launch
 
