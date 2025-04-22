@@ -43,7 +43,7 @@ Create a new empty package in your ``ros2_ws/src`` folder with the following com
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_cmake --license Apache-2.0 --dependencies pluginlib --node-name area_node polygon_base
+  $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 --dependencies pluginlib --node-name area_node polygon_base
 
 
 Open your favorite editor, edit ``ros2_ws/src/polygon_base/include/polygon_base/regular_polygon.hpp``, and paste the following inside of it:
@@ -101,7 +101,7 @@ Create a second empty package in your ``ros2_ws/src`` folder with the following 
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_cmake --license Apache-2.0 --dependencies polygon_base pluginlib --library-name polygon_plugins polygon_plugins
+  $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 --dependencies polygon_base pluginlib --library-name polygon_plugins polygon_plugins
 
 2.1 Source code for the plugins
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -286,32 +286,27 @@ From ``ros2_ws``, be sure to source the setup files:
 
     .. code-block:: console
 
-      source install/setup.bash
+      $ source install/setup.bash
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      . install/setup.bash
+      $ . install/setup.bash
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      call install/setup.bat
+      $ call install/setup.bat
 
 Now run the node:
 
 .. code-block:: console
 
-     ros2 run polygon_base area_node
-
-It should print:
-
-.. code-block:: console
-
-    Triangle area: 43.30
-    Square area: 100.00
+     $ ros2 run polygon_base area_node
+     Triangle area: 43.30
+     Square area: 100.00
 
 Summary
 -------

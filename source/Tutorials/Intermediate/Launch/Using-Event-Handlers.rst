@@ -92,7 +92,7 @@ Go to the root of the workspace, and build the package:
 
 .. code-block:: console
 
-  colcon build
+  $ colcon build
 
 Also remember to source the workspace after building.
 
@@ -103,7 +103,7 @@ Now you can launch the ``example_event_handlers_launch.py`` file using the ``ros
 
 .. code-block:: console
 
-    ros2 launch launch_tutorial example_event_handlers_launch.py turtlesim_ns:='turtlesim3' use_provided_red:='True' new_background_r:=200
+    $ ros2 launch launch_tutorial example_event_handlers_launch.py turtlesim_ns:='turtlesim3' use_provided_red:='True' new_background_r:=200
 
 This will do the following:
 
