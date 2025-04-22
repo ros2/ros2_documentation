@@ -211,9 +211,9 @@ If we put the topic ``/point`` in, it should load fine but not display anything.
 
 You can publish messages with the following command:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 topic pub /point rviz_plugin_tutorial_msgs/msg/Point2D "{header: {frame_id: map}, x: 1, y: 2}" -r 0.5
+   $ ros2 topic pub /point rviz_plugin_tutorial_msgs/msg/Point2D "{header: {frame_id: map}, x: 1, y: 2}" -r 0.5
 
 That should result in the "We got a message" logging to appear in the ``stdout`` of RViz.
 
