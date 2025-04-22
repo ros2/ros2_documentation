@@ -83,6 +83,14 @@ In order for Sphinx to be able to generate diagrams, the ``dot`` command must be
       Download an installer from `the Graphviz Download page <https://graphviz.gitlab.io/_pages/Download/Download_windows.html>`__ and install it.
       Make sure to allow the installer to add it to the Windows ``%PATH%``, otherwise Sphinx will not be able to find it.
 
+Pinned versions
+^^^^^^^^^^^^^^^
+
+For development we currently use Jammy (Ubuntu 22.04) as our build platform.
+And all python versions are pinned in the constraints file to make sure that things are reproducible.
+To upgrade the system validate that things are working and then use `pip freeze > constraints.txt` to lock in the versions to upgrade.
+
+
 Building the site for one branch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -144,14 +152,6 @@ This will open a menu on the right, where you can click on "Upload document arti
 .. image:: ./images/github_action.png
   :width: 100%
   :alt: Steps to find rendered HTML files on ROS Github action
-
-Pinned versions
-^^^^^^^^^^^^^^^
-
-For development we currently use Jammy (Ubuntu 22.04) as our build platform.
-And all python versions are pinned in the constraints file to make sure that things are reproducible.
-To upgrade the system validate that things are working and then use `pip freeze > constraints.txt` to lock in the versions to upgrade.
-
 
 Building the site for all branches
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
