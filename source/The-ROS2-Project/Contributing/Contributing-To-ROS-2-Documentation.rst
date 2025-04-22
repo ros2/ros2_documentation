@@ -145,6 +145,14 @@ This will open a menu on the right, where you can click on "Upload document arti
   :width: 100%
   :alt: Steps to find rendered HTML files on ROS Github action
 
+Pinned versions
+^^^^^^^^^^^^^^^
+
+For development we currently use Noble as our build platform.
+And all python versions are pinned in the constraints file to make sure that things are reproducible.
+To upgrade the system validate that things are working and then use `pip freeze > constraints.txt` to lock in the versions to upgrade.
+
+
 Building the site for all branches
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
