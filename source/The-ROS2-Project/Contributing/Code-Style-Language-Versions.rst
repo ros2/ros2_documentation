@@ -338,6 +338,20 @@ We chose the following more precise rule where PEP 8 leaves some freedom:
 * `We allow up to 100 characters per line (fifth paragraph) <https://www.python.org/dev/peps/pep-0008/#maximum-line-length>`_.
 * `We pick single quotes over double quotes as long as no escaping is necessary <https://www.python.org/dev/peps/pep-0008/#string-quotes>`_.
 * `We prefer hanging indents for continuation lines <https://www.python.org/dev/peps/pep-0008/#indentation>`_.
+* `We prefer splitting having only one import per line <https://peps.python.org/pep-0008/#imports>`_:
+
+  .. code-block:: python
+
+    # This is preferred
+    from typing import Dict
+    from typing import List
+
+    # over these
+    from typing import Dict, List
+    from typing import (
+      Dict,
+      List,
+    )
 
 Tools like the ``(ament_)pycodestyle`` Python package should be used in unit-test and/or editor integration for checking Python code style.
 
