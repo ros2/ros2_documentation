@@ -59,14 +59,9 @@ Let's start off by installing docker to your system by following the following `
 From the tutorial, you should have done some sanity checks to make sure docker is properly set-up.
 Just in case, however, let's run the following command once again that uses the hello-world docker image:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ sudo docker run hello-world
-
-You should obtain the following output:
-
-.. code-block:: bash
-
    Hello from Docker!
    This message shows that your installation appears to be working correctly.
 
@@ -106,7 +101,7 @@ other files we need later on and navigate to it.
 Using your favorite $EDITOR of choice, open a new file named *Dockerfile* (make sure the
 file naming is correct):
 
-.. code-block:: bash
+.. code-block:: console
 
    $ mkdir ~/ros2_docker
 
@@ -151,11 +146,12 @@ Now, we are ready to build the docker image to run ROS 2 in it (yes, it is THAT 
 **Note**: if you have errors due to insufficient privileges or
 *permission denied*, try running the command with *sudo* privileges:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ docker build .
 
-   # You will see a bunch of lines that execute the docker file instructions followed by:
+   ~ You will see a bunch of lines that execute the docker file instructions followed by:
+
    Successfully built 0dc6ce7cb487
 
 *0dc6ce7cb487* will most probably be different for you, so keep note of
@@ -163,13 +159,13 @@ it and copy it somewhere for reference.
 You can always go back and check
 the docker images you have on your system using:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ sudo docker ps -as
 
 Now, run the docker file using:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ docker run -it 0dc6ce7cb487
    [INFO] [launch]: All log files can be found below /root/.ros/log/2020-10-28-02-41-45-177546-0b5d9ed123be-1
@@ -205,13 +201,13 @@ out to get that done first.
 We also need to make sure that the CLI plug-in for the IBM Cloud
 Container Registry is installed by running the command
 
-.. code-block:: bash
+.. code-block:: console
 
    $ ibmcloud plugin install container-registry
 
 Afterwards, login to your ibmcloud account through the terminal:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ ibmcloud login --sso
 
@@ -219,7 +215,7 @@ From here, let's create a container registry name-space.
 Make sure you use a unique name that is also descriptive as to what it is.
 Here, I used *ros2nasr*.
 
-.. code-block:: bash
+.. code-block:: console
 
    $ ibmcloud cr namespace-add ros2nasr
 
@@ -229,14 +225,14 @@ Make sure you use the correct registry name you created and you are free to chan
 The ``.`` at the end indicates that the *Dockerfile* is in the current directory (and it is important), if not,
 change it to point to the directory containing the Dockerfile.
 
-.. code-block:: bash
+.. code-block:: console
 
    $ ibmcloud cr build --tag registry.bluemix.net/ros2nasr/ros2foxy:1 .
 
 You can now make sure that the container has been pushed to the registry
 you created by running the following command
 
-.. code-block:: bash
+.. code-block:: console
 
    $ ibmcloud cr image-list
    Listing images...
@@ -250,7 +246,7 @@ Next, it is important to log-in to your registry to run the docker image.
 Again, if you face a *permission denied* error, perform the command with sudo privileges.
 Afterwards, run your docker file as shown below.
 
-.. code-block:: bash
+.. code-block:: console
 
    $ ibmcloud cr login
    Logging in to 'registry.ng.bluemix.net'...
@@ -407,14 +403,14 @@ Since we already have our registry created, and we're logged in to IBM Cloud, we
 Notice how I kept the tag the same but changed the version, this way I can update the docker image created previously.
 (You are free to create a completely new one if you want)
 
-.. code-block:: bash
+.. code-block:: console
 
    $ ibmcloud cr build --tag registry.bluemix.net/ros2nasr/ros2foxy:2 .
 
 Then, make sure you are logged in to the registry and run the new docker
 image:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ ibmcloud cr login
    Logging in to 'registry.ng.bluemix.net'...
@@ -440,13 +436,13 @@ from IBM Cloud, this is how you should go about it!
    *registry.ng.bluemix.net/ros2nasr/ros2foxy:2* (in my case).
    Then delete them using their *NAMES*
 
-.. code-block:: bash
+.. code-block:: console
 
    $ docker rm your_docker_NAMES
 
 2. Delete the docker image from IBM Cloud using its *IMAGE* name
 
-.. code-block:: bash
+.. code-block:: console
 
    $ docker rmi registry.ng.bluemix.net/ros2nasr/ros2foxy:2
 
@@ -555,7 +551,7 @@ The file in my case would look something like this:
 
 Deploy the file using the following command
 
-.. code-block:: bash
+.. code-block:: console
 
    $ kubectl apply -f ros2-deployment.yaml
    deployment.apps/ros2-deployment created
@@ -578,12 +574,12 @@ parameters of your cluster as well as its CPU and Memory Usage.
 
 Now you are inside your docker image!
 You can source your workspace (if needed) and run ROS 2!
-For example:
+For example (assuming you cd to ``root@ros2-deployment-xxxxxxxx:/opt/ros/overlay_ws#``):
 
-.. code-block:: bash
+.. code-block:: console
 
-   root@ros2-deployment-xxxxxxxx:/opt/ros/overlay_ws# . install/setup.sh
-   root@ros2-deployment-xxxxxxxx:/opt/ros/overlay_ws# ros2 launch demo_nodes_cpp talker_listener_launch.py
+   $ . install/setup.sh
+   $ ros2 launch demo_nodes_cpp talker_listener_launch.py
 
 Final Remarks
 ---------------
