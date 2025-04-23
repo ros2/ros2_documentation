@@ -50,7 +50,7 @@ To verify your Gazebo installation is correct, check you can run it:
 
 .. code-block:: console
 
-   gz sim
+   $ gz sim
 
 Further Resources
 -----------------

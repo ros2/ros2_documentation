@@ -199,19 +199,19 @@ Navigate back to the root of your workspace, ``ros2_ws``, and build your new pac
 
     .. code-block:: console
 
-      colcon build --packages-select bag_reader_node_py
+      $ colcon build --packages-select bag_reader_node_py
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      colcon build --packages-select bag_reader_node_py
+      $ colcon build --packages-select bag_reader_node_py
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      colcon build --merge-install --packages-select bag_reader_node_py
+      $ colcon build --merge-install --packages-select bag_reader_node_py
 
 Open a new terminal, navigate to ``ros2_ws``, and source the setup files.
 
@@ -221,25 +221,25 @@ Open a new terminal, navigate to ``ros2_ws``, and source the setup files.
 
     .. code-block:: console
 
-      source install/setup.bash
+      $ source install/setup.bash
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      source install/setup.bash
+      $ source install/setup.bash
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      call install/setup.bat
+      $ call install/setup.bat
 
 Now run the node:
 
 .. code-block:: console
 
-   ros2 run bag_reader_node_py simple_bag_reader
+   $ ros2 run bag_reader_node_py simple_bag_reader
 
 This will start publishing data on the ``chatter`` topic from the ``my_bag`` bag file.
 If the ``my_bag`` directory does not exists, ``simple_bag_reader`` will return failure since it can not open the bag file.
@@ -248,7 +248,7 @@ Open a second terminal and run the ``listener`` example node.
 
 .. code-block:: console
 
-   ros2 run demo_nodes_py listener
+   $ ros2 run demo_nodes_py listener
 
 This will start receiving data on the ``chatter`` topic, published by ``simple_bag_reader`` from the bag file.
 

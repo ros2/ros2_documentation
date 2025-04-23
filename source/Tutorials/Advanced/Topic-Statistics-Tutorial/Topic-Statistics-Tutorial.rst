@@ -52,13 +52,13 @@ download the example talker code by entering the following command:
 
       .. code-block:: console
 
-            wget -O member_function_with_topic_statistics.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function_with_topic_statistics.cpp
+            $ wget -O member_function_with_topic_statistics.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function_with_topic_statistics.cpp
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-            wget -O member_function_with_topic_statistics.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function_with_topic_statistics.cpp
+            $ wget -O member_function_with_topic_statistics.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function_with_topic_statistics.cpp
 
    .. group-tab:: Windows
 
@@ -184,13 +184,13 @@ Run the subscriber with statistics enabled node:
 
 .. code-block:: console
 
-     ros2 run cpp_pubsub listener_with_topic_statistics
+     $ ros2 run cpp_pubsub listener_with_topic_statistics
 
 Now run the talker node:
 
 .. code-block:: console
 
-     ros2 run cpp_pubsub talker
+     $ ros2 run cpp_pubsub talker
 
 The terminal should start publishing info messages every 0.5 seconds, like so:
 
@@ -223,7 +223,7 @@ Execute the following command:
 
 .. code-block:: console
 
-    ros2 topic list
+    $ ros2 topic list
 
 This will list all currently active topics.
 You should see the following:
@@ -249,7 +249,7 @@ Now we can view the statistics data published to this topic with the following c
 
 .. code-block:: console
 
-    ros2 topic echo /statistics
+    $ ros2 topic echo /statistics
 
 The terminal should start publishing statistics messages every 10 seconds, because the
 ``topic_stats_options.publish_period`` subscription configuration was optionally changed earlier in the tutorial.
