@@ -41,43 +41,25 @@ Set up a :doc:`workspace <../Beginner-Client-Libraries/Creating-A-Workspace/Crea
 
     .. code-block:: console
 
-<<<<<<< HEAD
-      mkdir -p ros2_ws/src #you can reuse existing workspace with this naming convention
-      cd ros2_ws/src
-      ros2 pkg create action_tutorials_interfaces
-=======
-      $ mkdir -p ~/ros2_ws/src # you can reuse an existing workspace with this naming convention
-      $ cd ~/ros2_ws/src
-      $ ros2 pkg create --license Apache-2.0 custom_action_interfaces
->>>>>>> d68d872 (Add $ to some Intermediate Tutorial (#5304))
+      $ mkdir -p ros2_ws/src # you can reuse an existing workspace with this naming convention
+      $ cd ros2_ws/src
+      $ ros2 pkg create action_tutorials_interfaces
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-<<<<<<< HEAD
-      mkdir -p ros2_ws/src
-      cd ros2_ws/src
-      ros2 pkg create action_tutorials_interfaces
-=======
-      $ mkdir -p ~/ros2_ws/src
-      $ cd ~/ros2_ws/src
-      $ ros2 pkg create --license Apache-2.0 custom_action_interfaces
->>>>>>> d68d872 (Add $ to some Intermediate Tutorial (#5304))
+      $ mkdir -p ros2_ws/src
+      $ cd ros2_ws/src
+      $ ros2 pkg create action_tutorials_interfaces
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-<<<<<<< HEAD
-      md ros2_ws\src
-      cd ros2_ws\src
-      ros2 pkg create action_tutorials_interfaces
-=======
-      $ md \ros2_ws\src
-      $ cd \ros2_ws\src
-      $ ros2 pkg create --license Apache-2.0 custom_action_interfaces
->>>>>>> d68d872 (Add $ to some Intermediate Tutorial (#5304))
+      $ md ros2_ws\src
+      $ cd ros2_ws\src
+      $ ros2 pkg create action_tutorials_interfaces
 
 Tasks
 -----
@@ -113,37 +95,22 @@ Create an ``action`` directory in our ROS 2 package ``action_tutorials_interface
 
     .. code-block:: console
 
-<<<<<<< HEAD
-      cd action_tutorials_interfaces
-      mkdir action
-=======
-      $ cd custom_action_interfaces
+      $ cd action_tutorials_interfaces
       $ mkdir action
->>>>>>> d68d872 (Add $ to some Intermediate Tutorial (#5304))
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-<<<<<<< HEAD
-      cd action_tutorials_interfaces
-      mkdir action
-=======
-      $ cd custom_action_interfaces
+      $ cd action_tutorials_interfaces
       $ mkdir action
->>>>>>> d68d872 (Add $ to some Intermediate Tutorial (#5304))
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-<<<<<<< HEAD
-      cd action_tutorials_interfaces
-      md action
-=======
-      $ cd custom_action_interfaces
+      $ cd action_tutorials_interfaces
       $ md action
->>>>>>> d68d872 (Add $ to some Intermediate Tutorial (#5304))
 
 Within the ``action`` directory, create a file called ``Fibonacci.action`` with the following contents:
 
@@ -198,43 +165,12 @@ So when we want to refer to our new action, it will have the full name ``action_
 
 We can check that our action built successfully with the command line tool:
 
-<<<<<<< HEAD
-=======
-.. tabs::
-
-  .. group-tab:: Linux
-
-    .. code-block:: console
-
-      $ source install/local_setup.console
-
-  .. group-tab:: macOS
-
-    .. code-block:: console
-
-      $ source install/local_setup.console
-
-  .. group-tab:: Windows
-
-    .. code-block:: console
-
-      $ call install\local_setup.bat
-
-Now check that our action definition exists:
->>>>>>> d68d872 (Add $ to some Intermediate Tutorial (#5304))
 
 .. code-block:: console
 
-<<<<<<< HEAD
-   # Source our workspace
-   # On Windows: call install/setup.bat
-   . install/setup.bash
-   # Check that our action definition exists
-   ros2 interface show action_tutorials_interfaces/action/Fibonacci
+   $ . install/setup.bash  # Source our workspace. On Windows: call install/setup.bat
+   $ ros2 interface show action_tutorials_interfaces/action/Fibonacci  # Check that our action definition exists
 
-=======
-   $ ros2 interface show custom_action_interfaces/action/Fibonacci
->>>>>>> d68d872 (Add $ to some Intermediate Tutorial (#5304))
 
 You should see the Fibonacci action definition printed to the screen.
 

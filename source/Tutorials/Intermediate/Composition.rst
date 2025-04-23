@@ -181,11 +181,7 @@ To automate this action, we can use a `launch file <https://github.com/ros2/demo
 
 .. code-block:: console
 
-<<<<<<< HEAD
-   ros2 launch composition composition_demo.launch.py
-=======
-   $ ros2 launch composition composition_demo_launch.py
->>>>>>> d68d872 (Add $ to some Intermediate Tutorial (#5304))
+   $ ros2 launch composition composition_demo.launch.py
 
 
 Advanced Topics
