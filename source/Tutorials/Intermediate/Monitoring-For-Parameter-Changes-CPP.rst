@@ -48,7 +48,7 @@ So, navigate into ``ros2_ws/src`` and then create a new package there:
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_cmake --license Apache-2.0 cpp_parameter_event_handler --dependencies rclcpp
+  $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 cpp_parameter_event_handler --dependencies rclcpp
 
 Your terminal will return a message verifying the creation of your package ``cpp_parameter_event_handler`` and all its necessary files and folders.
 
@@ -190,7 +190,7 @@ It's good practice to run ``rosdep`` in the root of your workspace (``ros2_ws``)
 
       .. code-block:: console
 
-        rosdep install -i --from-path src --rosdistro $ROS_DISTRO -y
+        $ rosdep install -i --from-path src --rosdistro $ROS_DISTRO -y
 
    .. group-tab:: macOS
 
@@ -204,7 +204,7 @@ Navigate back to the root of your workspace, ``ros2_ws``, and build your new pac
 
 .. code-block:: console
 
-    colcon build --packages-select cpp_parameter_event_handler
+    $ colcon build --packages-select cpp_parameter_event_handler
 
 Open a new terminal, navigate to ``ros2_ws``, and source the setup files:
 
@@ -214,32 +214,32 @@ Open a new terminal, navigate to ``ros2_ws``, and source the setup files:
 
     .. code-block:: console
 
-      . install/setup.bash
+      $ . install/setup.bash
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      . install/setup.bash
+      $ . install/setup.bash
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      call install/setup.bat
+      $ call install/setup.bat
 
 Now run the node:
 
 .. code-block:: console
 
-     ros2 run cpp_parameter_event_handler parameter_event_handler
+     $ ros2 run cpp_parameter_event_handler parameter_event_handler
 
 The node is now active and has a single parameter and will print a message whenever this parameter is updated.
 To test this, open up another terminal and source the ROS setup file as before (``. install/setup.bash``) and execute the following command:
 
 .. code-block:: console
 
-    ros2 param set node_with_parameters an_int_param 43
+    $ ros2 param set node_with_parameters an_int_param 43
 
 The terminal running the node will display a message similar to the following:
 
@@ -290,7 +290,7 @@ In a terminal, navigate back to the root of your workspace, ``ros2_ws``, and bui
 
 .. code-block:: console
 
-    colcon build --packages-select cpp_parameter_event_handler
+    $ colcon build --packages-select cpp_parameter_event_handler
 
 Then source the setup files:
 
@@ -300,37 +300,37 @@ Then source the setup files:
 
     .. code-block:: console
 
-      . install/setup.bash
+      $ . install/setup.bash
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      . install/setup.bash
+      $ . install/setup.bash
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      call install/setup.bat
+      $ call install/setup.bat
 
 Now, to test monitoring of remote parameters, first run the newly-built parameter_event_handler code:
 
 .. code-block:: console
 
-     ros2 run cpp_parameter_event_handler parameter_event_handler
+     $ ros2 run cpp_parameter_event_handler parameter_event_handler
 
 Next, from another terminal (with ROS initialized), run the parameter_blackboard demo application, as follows:
 
 .. code-block:: console
 
-     ros2 run demo_nodes_cpp parameter_blackboard
+     $ ros2 run demo_nodes_cpp parameter_blackboard
 
 Finally, from a third terminal (with ROS initialized), let's set a parameter on the parameter_blackboard node:
 
 .. code-block:: console
 
-     ros2 param set parameter_blackboard a_double_param 3.45
+     $ ros2 param set parameter_blackboard a_double_param 3.45
 
 Upon executing this command, you should see output in the parameter_event_handler window, indicating that the callback function was invoked upon the parameter update:
 
