@@ -24,7 +24,7 @@ Startup
 -------
 Don't forget to source the setup file.
 
-.. code-block:: bash
+.. code-block:: console
 
    $ source /opt/ros/{DISTRO}/setup.bash
 
