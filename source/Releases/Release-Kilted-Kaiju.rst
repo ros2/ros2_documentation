@@ -142,9 +142,10 @@ Added NV12 to pixel formats, which is a common output format of hardware-acceler
 See https://github.com/ros2/common_interfaces/pull/253 for more details.
 
 ``rmw_connextdds_cpp```
+^^^^^^^^^^^^^^^^^^^^^
 
 Version bumped to 7.3
-^^^^^^^^^^^^^^^^^^^^^
+"""""""""""""""""""""
 
 Connext version was bumped to 7.3.
 
@@ -153,8 +154,8 @@ See https://github.com/ros2/ci/pull/811 for more details
 ``Connextmicro``
 ^^^^^^^^^^^^^^^^
 
-``Connextmicro deprecated``
-===========================
+deprecated Connextmicro
+"""""""""""""""""""""""
 
 The Connext Micro RMW package, ``rmw_connextddsmicro``, is going to stop receiving updates in Kilted Kaiju, and be removed in a future ROS 2 release.
 
@@ -164,7 +165,7 @@ See https://github.com/ros2/rmw_connextdds/pull/182 for more information
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Removing support for float128
-=============================
+"""""""""""""""""""""""""""""
 
 Removed support for float128 because there are inconsistencies in the definition.
 
@@ -175,6 +176,7 @@ See https://github.com/ros2/rosidl_dynamic_typesupport/issues/11 for more detail
 
 Renaming package from fastrtps to fastdds
 """""""""""""""""""""""""""""""""""""""""
+
 ``fastrtps`` was renamed to ``fastdds`` rmw's stay the same.
 XML Profile ENV strings will change.
 
@@ -222,6 +224,7 @@ If the ``model`` launch configuration was set to ``my_model``, this would result
 For more information, see `ros2/launch#835 <https://github.com/ros2/launch/issues/835>`__ and `ros2/launch#838 <https://github.com/ros2/launch/pull/838>`__.
 
 ``rmw_zenoh_cpp``
+^^^^^^^^^^^^^^^^^
 
 ``Tier 1``
 """"""""""
