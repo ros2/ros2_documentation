@@ -50,37 +50,22 @@ Go into the action workspace you created in the :doc:`previous tutorial <../Crea
 
     .. code-block:: console
 
-<<<<<<< HEAD
-      cd ~/ros2_ws/src
-      ros2 pkg create --dependencies action_tutorials_interfaces rclcpp rclcpp_action rclcpp_components -- action_tutorials_cpp
-=======
       $ cd ~/ros2_ws/src
-      $ ros2 pkg create --dependencies custom_action_interfaces rclcpp rclcpp_action rclcpp_components --license Apache-2.0 -- custom_action_cpp
->>>>>>> dca00ae (Add $ to more Intermediate Tutorials (#5305))
+      $ ros2 pkg create --dependencies action_tutorials_interfaces rclcpp rclcpp_action rclcpp_components -- action_tutorials_cpp
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-<<<<<<< HEAD
-      cd ~/ros2_ws/src
-      ros2 pkg create --dependencies action_tutorials_interfaces rclcpp rclcpp_action rclcpp_components -- action_tutorials_cpp
-=======
       $ cd ~/ros2_ws/src
-      $ ros2 pkg create --dependencies custom_action_interfaces rclcpp rclcpp_action rclcpp_components --license Apache-2.0 -- custom_action_cpp
->>>>>>> dca00ae (Add $ to more Intermediate Tutorials (#5305))
+      $ ros2 pkg create --dependencies action_tutorials_interfaces rclcpp rclcpp_action rclcpp_components -- action_tutorials_cpp
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-<<<<<<< HEAD
-      cd \dev\ros2_ws\src
-      ros2 pkg create --dependencies action_tutorials_interfaces rclcpp rclcpp_action rclcpp_components -- action_tutorials_cpp
-=======
-      $ cd \ros2_ws\src
-      $ ros2 pkg create --dependencies custom_action_interfaces rclcpp rclcpp_action rclcpp_components --license Apache-2.0 -- custom_action_cpp
->>>>>>> dca00ae (Add $ to more Intermediate Tutorials (#5305))
+      $ cd \dev\ros2_ws\src
+      $ ros2 pkg create --dependencies action_tutorials_interfaces rclcpp rclcpp_action rclcpp_components -- action_tutorials_cpp
 
 1.2 Adding in visibility control
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -265,11 +250,7 @@ Source the workspace we just built (``ros2_ws``), and try to run the action serv
 
 .. code-block:: console
 
-<<<<<<< HEAD
-  ros2 run action_tutorials_cpp fibonacci_action_server
-=======
-  $ ros2 run custom_action_cpp fibonacci_action_server
->>>>>>> dca00ae (Add $ to more Intermediate Tutorials (#5305))
+  $ ros2 run action_tutorials_cpp fibonacci_action_server
 
 3 Writing an action client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -400,11 +381,7 @@ Now source the workspace we just built (``ros2_ws``), and try to run the action 
 
 .. code-block:: console
 
-<<<<<<< HEAD
-  ros2 run action_tutorials_cpp fibonacci_action_client
-=======
-  $ ros2 run custom_action_cpp fibonacci_action_client
->>>>>>> dca00ae (Add $ to more Intermediate Tutorials (#5305))
+  $ ros2 run action_tutorials_cpp fibonacci_action_client
 
 You should see logged messages for the goal being accepted, feedback being printed, and the final result.
 
