@@ -79,7 +79,7 @@ Copy the data into a local file, and then run:
 
 .. code-block:: console
 
-  ros2 launch <path_to_launch_file>
+  $ ros2 launch <path_to_launch_file>
 
 Intra-process communications
 ----------------------------

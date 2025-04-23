@@ -152,7 +152,7 @@ The requirements for loaned messages are that the message type is a Plain Old Da
 
 We can run the demo by running the ``ros2 run demo_nodes_cpp talker_loaned_message`` executable (don't forget to source the setup file first):
 
-.. code-block:: bash
+.. code-block:: console
 
     $ ros2 run demo_nodes_cpp talker_loaned_message
     [INFO] [1741063656.446278828] [loaned_message_talker]: Publishing: '1.000000'
@@ -167,7 +167,7 @@ We can run the demo by running the ``ros2 run demo_nodes_cpp talker_loaned_messa
 If the RMW implementation does not support loaned messages, all the messages will be allocated with the allocator instance provided by the publisher.
 We can try that by executing ``RMW_IMPLEMENTATION=rmw_cyclonedds_cpp ros2 run demo_nodes_cpp talker_loaned_message``.
 
-.. code-block:: bash
+.. code-block:: console
 
     $ RMW_IMPLEMENTATION=rmw_cyclonedds_cpp ros2 run demo_nodes_cpp talker_loaned_message
     [INFO] [1741064109.676860153] [rclcpp]: Currently used middleware cannot loan messages. Local allocator will be used.
@@ -198,37 +198,37 @@ You can set the environment variable with the following command:
 
       .. code-block:: console
 
-        export ROS_DISABLE_LOANED_MESSAGES=1
+        $ export ROS_DISABLE_LOANED_MESSAGES=1
 
       To maintain this setting between shell sessions, you can add the command to your shell startup script:
 
       .. code-block:: console
 
-        echo "export ROS_DISABLE_LOANED_MESSAGES=1" >> ~/.bashrc
+        $ echo "export ROS_DISABLE_LOANED_MESSAGES=1" >> ~/.bashrc
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-        export ROS_DISABLE_LOANED_MESSAGES=1
+        $ export ROS_DISABLE_LOANED_MESSAGES=1
 
       To maintain this setting between shell sessions, you can add the command to your shell startup script:
 
       .. code-block:: console
 
-        echo "export ROS_DISABLE_LOANED_MESSAGES=1" >> ~/.bash_profile
+        $ echo "export ROS_DISABLE_LOANED_MESSAGES=1" >> ~/.bash_profile
 
    .. group-tab:: Windows
 
       .. code-block:: console
 
-        set ROS_DISABLE_LOANED_MESSAGES=1
+        $ set ROS_DISABLE_LOANED_MESSAGES=1
 
       If you want to make this permanent between shell sessions, also run:
 
       .. code-block:: console
 
-        setx ROS_DISABLE_LOANED_MESSAGES 1
+        $ setx ROS_DISABLE_LOANED_MESSAGES 1
 
 
 Subscriptions
@@ -244,34 +244,34 @@ To enable *Loaned Messages* on subscription, you need to set the environment var
 
       .. code-block:: console
 
-        export ROS_DISABLE_LOANED_MESSAGES=0
+        $ export ROS_DISABLE_LOANED_MESSAGES=0
 
       To maintain this setting between shell sessions, you can add the command to your shell startup script:
 
       .. code-block:: console
 
-        echo "export ROS_DISABLE_LOANED_MESSAGES=0" >> ~/.bashrc
+        $ echo "export ROS_DISABLE_LOANED_MESSAGES=0" >> ~/.bashrc
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-        export ROS_DISABLE_LOANED_MESSAGES=0
+        $ export ROS_DISABLE_LOANED_MESSAGES=0
 
       To maintain this setting between shell sessions, you can add the command to your shell startup script:
 
       .. code-block:: console
 
-        echo "export ROS_DISABLE_LOANED_MESSAGES=0" >> ~/.bash_profile
+        $ echo "export ROS_DISABLE_LOANED_MESSAGES=0" >> ~/.bash_profile
 
    .. group-tab:: Windows
 
       .. code-block:: console
 
-        set ROS_DISABLE_LOANED_MESSAGES=0
+        $ set ROS_DISABLE_LOANED_MESSAGES=0
 
       If you want to make this permanent between shell sessions, also run:
 
       .. code-block:: console
 
-        setx ROS_DISABLE_LOANED_MESSAGES 0
+        $ setx ROS_DISABLE_LOANED_MESSAGES 0

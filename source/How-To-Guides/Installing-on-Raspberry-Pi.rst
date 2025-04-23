@@ -34,10 +34,10 @@ See `here <https://www.ros.org/reps/rep-2001.html>`__ for more information on th
 
 Fetch and run an image:
 
-.. code-block:: bash
+.. code-block:: console
 
-    docker pull ros:{DISTRO}-ros-core
-    docker run -it --rm ros:{DISTRO}-ros-core
+    $ docker pull ros:{DISTRO}-ros-core
+    $ docker run -it --rm ros:{DISTRO}-ros-core
 
 You can also build images yourself:
 
@@ -45,8 +45,8 @@ Clone the `docker_images git repo <https://github.com/osrf/docker_images>`__ ont
 
 Inside of the directory, build the container with:
 
-.. code-block:: bash
+.. code-block:: console
 
-    docker build -t ros_docker .
+    $ docker build -t ros_docker .
 
 On a supported system it will only take a minute or two to build the docker containers, as the source code is already built in to binaries.

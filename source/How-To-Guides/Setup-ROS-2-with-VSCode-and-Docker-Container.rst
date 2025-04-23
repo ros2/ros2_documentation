@@ -23,13 +23,13 @@ To install docker and set the correct user rights please use the following comma
 
 .. code-block:: console
 
-    sudo apt install docker.io git python3-pip
-    pip3 install vcstool
-    echo export PATH=$HOME/.local/bin:$PATH >> ~/.bashrc
-    source ~/.bashrc
-    sudo groupadd docker
-    sudo usermod -aG docker $USER
-    newgrp docker
+    $ sudo apt install docker.io git python3-pip
+    $ pip3 install vcstool
+    $ echo export PATH=$HOME/.local/bin:$PATH >> ~/.bashrc
+    $ source ~/.bashrc
+    $ sudo groupadd docker
+    $ sudo usermod -aG docker $USER
+    $ newgrp docker
 
 Now you can check if the installation was successful by running the following command:
 
@@ -41,7 +41,7 @@ You might need to start the Docker Daemon first, if you cannot run hello-world o
 
 .. code-block:: console
 
-    sudo systemctl start docker
+    $ sudo systemctl start docker
 
 Install VS Code
 ^^^^^^^^^^^^^^^
@@ -50,11 +50,11 @@ To install VS Code please use the following commands:
 
 .. code-block:: console
 
-    sudo apt update
-    sudo apt install software-properties-common apt-transport-https wget -y
-    wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
-    sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
-    sudo apt install code
+    $ sudo apt update
+    $ sudo apt install software-properties-common apt-transport-https wget -y
+    $ wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+    $ sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+    $ sudo apt install code
 
 
 You can run VS Code by typing ``code`` in a terminal.
@@ -78,10 +78,10 @@ Add a workspace in order to build and open them in a container, e.g.:
 
 .. code-block:: console
 
-    cd ~/
-    mkdir ws
-    cd ws
-    mkdir src
+    $ cd ~/
+    $ mkdir ws
+    $ cd ws
+    $ mkdir src
 
 Now create a ``.devcontainer`` folder in the root of your workspace and add a ``devcontainer.json`` and ``Dockerfile`` to this ``.devcontainer`` folder.
 The workspace structure should look like this:
@@ -213,9 +213,9 @@ Inside the terminal do the following:
 
 .. code-block:: console
 
-    sudo apt install ros-$ROS_DISTRO-rviz2 -y
-    source /opt/ros/$ROS_DISTRO/setup.bash
-    rviz2
+    $ sudo apt install ros-$ROS_DISTRO-rviz2 -y
+    $ source /opt/ros/$ROS_DISTRO/setup.bash
+    $ rviz2
 
 .. Note:: There might be a problem with displaying RVIZ.
           Please make sure to allow the user to access X window system with ``xhost +local:<USERNAME>``.
