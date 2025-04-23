@@ -82,7 +82,7 @@ Using the ``--verbose`` option will list all checked files.
 
 .. code-block:: console
 
-  ament_copyright --verbose
+  $ ament_copyright --verbose
   my_package/src/new_file.cpp: could not find copyright notice
   my_package/src/old_file.cpp: copyright=Open Source Robotics Foundation, Inc. (2023), license=apache2
   my_package/include/new_file.h: could not find copyright notice
@@ -137,9 +137,8 @@ Running ``ament_cppcheck`` in the directory with the file will yield the followi
 
 .. code-block:: console
 
-   > ament_cppcheck
+   $ ament_cppcheck
    [example.cpp:4]: (error: arrayIndexOutOfBounds) Array 'a[10]' accessed at index 10, which is out of bounds.
-   >
 
 
 3 ``ament_cpplint``

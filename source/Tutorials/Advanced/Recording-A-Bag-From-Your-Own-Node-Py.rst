@@ -37,7 +37,7 @@ If it is not, you can install it using this command.
 
 .. code-block:: console
 
-  sudo apt install ros-{DISTRO}-rosbag2
+  $ sudo apt install ros-{DISTRO}-rosbag2
 
 This tutorial discusses using ROS 2 bags, including from the terminal.
 You should have already completed the :doc:`basic ROS 2 bag tutorial <../Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data>`.
@@ -56,7 +56,7 @@ Navigate into the ``ros2_ws/src`` directory and create a new package:
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_python --license Apache-2.0 bag_recorder_nodes_py --dependencies rclpy rosbag2_py example_interfaces std_msgs
+  $ ros2 pkg create --build-type ament_python --license Apache-2.0 bag_recorder_nodes_py --dependencies rclpy rosbag2_py example_interfaces std_msgs
 
 Your terminal will return a message verifying the creation of your package ``bag_recorder_nodes_py`` and all its necessary files and folders.
 The ``--dependencies`` argument will automatically add the necessary dependency lines to the ``package.xml``.
@@ -237,19 +237,19 @@ Navigate back to the root of your workspace, ``ros2_ws``, and build your new pac
 
     .. code-block:: console
 
-      colcon build --packages-select bag_recorder_nodes_py
+      $ colcon build --packages-select bag_recorder_nodes_py
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      colcon build --packages-select bag_recorder_nodes_py
+      $ colcon build --packages-select bag_recorder_nodes_py
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      colcon build --merge-install --packages-select bag_recorder_nodes_py
+      $ colcon build --merge-install --packages-select bag_recorder_nodes_py
 
 Open a new terminal, navigate to ``ros2_ws``, and source the setup files.
 
@@ -259,31 +259,35 @@ Open a new terminal, navigate to ``ros2_ws``, and source the setup files.
 
     .. code-block:: console
 
-      source install/setup.bash
+      $ source install/setup.bash
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      source install/setup.bash
+      $ source install/setup.bash
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      call install/setup.bat
+      $ call install/setup.bat
 
 Now run the node:
 
 .. code-block:: console
 
-   ros2 run bag_recorder_nodes_py simple_bag_recorder
+   $ ros2 run bag_recorder_nodes_py simple_bag_recorder
 
 Open a second terminal and run the ``talker`` example node.
 
 .. code-block:: console
 
+<<<<<<< HEAD
    ros2 run demo_nodes_cpp talker
+=======
+   $ ros2 run demo_nodes_py talker
+>>>>>>> e89b374 (Add $ to Advanced Tutorials (#5312))
 
 This will start publishing data on the ``chatter`` topic.
 As the bag-writing node receives this data, it will write it to the ``my_bag`` bag.
@@ -295,13 +299,17 @@ Then, in one terminal start the ``listener`` example node.
 
 .. code-block:: console
 
+<<<<<<< HEAD
    ros2 run demo_nodes_cpp listener
+=======
+   $ ros2 run demo_nodes_py listener
+>>>>>>> e89b374 (Add $ to Advanced Tutorials (#5312))
 
 In the other terminal, use ``ros2 bag`` to play the bag recorded by your node.
 
 .. code-block:: console
 
-   ros2 bag play my_bag
+   $ ros2 bag play my_bag
 
 You will see the messages from the bag being received by the ``listener`` node.
 
@@ -436,19 +444,19 @@ Navigate back to the root of your workspace, ``ros2_ws``, and build your package
 
     .. code-block:: console
 
-      colcon build --packages-select bag_recorder_nodes_py
+      $ colcon build --packages-select bag_recorder_nodes_py
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      colcon build --packages-select bag_recorder_nodes_py
+      $ colcon build --packages-select bag_recorder_nodes_py
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      colcon build --merge-install --packages-select bag_recorder_nodes_py
+      $ colcon build --merge-install --packages-select bag_recorder_nodes_py
 
 Open a new terminal, navigate to ``ros2_ws``, and source the setup files.
 
@@ -458,19 +466,19 @@ Open a new terminal, navigate to ``ros2_ws``, and source the setup files.
 
     .. code-block:: console
 
-      source install/setup.bash
+      $ source install/setup.bash
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      source install/setup.bash
+      $ source install/setup.bash
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      call install/setup.bat
+      $ call install/setup.bat
 
 If the ``timed_synthetic_bag`` directory already exists, you must first delete it before running the node.
 
@@ -478,20 +486,20 @@ Now run the node:
 
 .. code-block:: console
 
-   ros2 run bag_recorder_nodes_py data_generator_node
+   $ ros2 run bag_recorder_nodes_py data_generator_node
 
 Wait for 30 seconds or so, then terminate the node with :kbd:`ctrl-c`.
 Next, play back the created bag.
 
 .. code-block:: console
 
-   ros2 bag play timed_synthetic_bag
+   $ ros2 bag play timed_synthetic_bag
 
 Open a second terminal and echo the ``/synthetic`` topic.
 
 .. code-block:: console
 
-   ros2 topic echo /synthetic
+   $ ros2 topic echo /synthetic
 
 You will see the data that was generated and stored in the bag printed to the console at a rate of one message per second.
 
@@ -594,19 +602,19 @@ Navigate back to the root of your workspace, ``ros2_ws``, and build your package
 
     .. code-block:: console
 
-      colcon build --packages-select bag_recorder_nodes_py
+      $ colcon build --packages-select bag_recorder_nodes_py
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      colcon build --packages-select bag_recorder_nodes_py
+      $ colcon build --packages-select bag_recorder_nodes_py
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      colcon build --merge-install --packages-select bag_recorder_nodes_py
+      $ colcon build --merge-install --packages-select bag_recorder_nodes_py
 
 Open a terminal, navigate to ``ros2_ws``, and source the setup files.
 
@@ -616,19 +624,19 @@ Open a terminal, navigate to ``ros2_ws``, and source the setup files.
 
     .. code-block:: console
 
-      source install/setup.bash
+      $ source install/setup.bash
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      source install/setup.bash
+      $ source install/setup.bash
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      call install/setup.bat
+      $ call install/setup.bat
 
 If the ``big_synthetic_bag`` directory already exists, you must first delete it before running the executable.
 
@@ -636,7 +644,7 @@ Now run the executable:
 
 .. code-block:: console
 
-   ros2 run bag_recorder_nodes_py data_generator_executable
+   $ ros2 run bag_recorder_nodes_py data_generator_executable
 
 Note that the executable runs and finishes very quickly.
 
@@ -644,13 +652,13 @@ Now play back the created bag.
 
 .. code-block:: console
 
-   ros2 bag play big_synthetic_bag
+   $ ros2 bag play big_synthetic_bag
 
 Open a second terminal and echo the ``/synthetic`` topic.
 
 .. code-block:: console
 
-   ros2 topic echo /synthetic
+   $ ros2 topic echo /synthetic
 
 You will see the data that was generated and stored in the bag printed to the console at a rate of one message per second.
 Even though the bag was generated rapidly it is still played back at the rate the time stamps indicate.

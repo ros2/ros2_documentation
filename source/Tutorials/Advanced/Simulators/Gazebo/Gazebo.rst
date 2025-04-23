@@ -50,7 +50,11 @@ To run this example you should execute the following command in a terminal:
 
         ign gazebo -v 4 -r visualize_lidar.sdf
 
+<<<<<<< HEAD
 .. image:: Image/gazebo_diff_drive.png
+=======
+   $ gz sim
+>>>>>>> e89b374 (Add $ to Advanced Tutorials (#5312))
 
 When the simulation is running you can check the topics provided by Gazebo with the ``ign`` command line tool:
 
