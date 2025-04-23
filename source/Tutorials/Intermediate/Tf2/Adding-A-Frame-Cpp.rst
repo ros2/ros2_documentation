@@ -77,7 +77,7 @@ Inside the ``src`` directory download the fixed frame broadcaster code by enteri
 
       .. code-block:: console
 
-          $curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/fixed_frame_tf2_broadcaster.cpp -o fixed_frame_tf2_broadcaster.cpp
+          $ curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/fixed_frame_tf2_broadcaster.cpp -o fixed_frame_tf2_broadcaster.cpp
 
 Now open the file called ``fixed_frame_tf2_broadcaster.cpp``.
 
