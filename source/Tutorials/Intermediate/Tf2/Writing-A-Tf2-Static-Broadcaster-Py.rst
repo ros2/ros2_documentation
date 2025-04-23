@@ -357,19 +357,19 @@ Open a new terminal, navigate to the root of your workspace, and source the setu
 
         $ . install/setup.bash
 
-   .. group-tab:: Windows
+  .. group-tab:: Windows
 
-      In a Windows command line prompt:
+    In a Windows command line prompt:
 
-      .. code-block:: console
+    .. code-block:: console
 
-          $ call install\setup.bat
+        $ call install\setup.bat
 
-      Or in powershell:
+    Or in powershell:
 
-      .. code-block:: console
+    .. code-block:: console
 
-          $ .\install\setup.ps1
+        $ .\install\setup.ps1
 
 
 
