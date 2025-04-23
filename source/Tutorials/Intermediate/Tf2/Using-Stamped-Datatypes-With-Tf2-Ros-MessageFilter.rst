@@ -629,11 +629,7 @@ First we need to run several nodes (including the broadcaster node of PointStamp
 
 .. code-block:: console
 
-<<<<<<< HEAD
-    ros2 launch learning_tf2_py turtle_tf2_sensor_message.launch.py
-=======
-    $ ros2 launch learning_tf2_py turtle_tf2_sensor_message_launch.py
->>>>>>> 7077a00 (Add $ to TF2 (#5309))
+    $ ros2 launch learning_tf2_py turtle_tf2_sensor_message.launch.py
 
 This will bring up the ``turtlesim`` window with two turtles, where ``turtle3`` is moving along a circle, while ``turtle1`` isn't moving at first.
 But you can run the ``turtle_teleop_key`` node in another terminal to drive ``turtle1`` to move:

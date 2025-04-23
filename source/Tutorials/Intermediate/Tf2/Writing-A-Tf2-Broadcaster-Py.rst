@@ -396,11 +396,7 @@ Now run the launch file that will start the turtlesim simulation node and ``turt
 
 .. code-block:: console
 
-<<<<<<< HEAD
-    ros2 launch learning_tf2_py turtle_tf2_demo.launch.py
-=======
-    $ ros2 launch learning_tf2_py turtle_tf2_demo_launch.py
->>>>>>> 7077a00 (Add $ to TF2 (#5309))
+    $ ros2 launch learning_tf2_py turtle_tf2_demo.launch.py
 
 In the second terminal window type the following command:
 

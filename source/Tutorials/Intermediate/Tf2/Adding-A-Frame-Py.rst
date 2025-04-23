@@ -254,11 +254,7 @@ Now you can start the turtle broadcaster demo:
 
 .. code-block:: console
 
-<<<<<<< HEAD
-    ros2 launch learning_tf2_py turtle_tf2_fixed_frame_demo.launch.py
-=======
-    $ ros2 launch learning_tf2_py turtle_tf2_fixed_frame_demo_launch.py
->>>>>>> 7077a00 (Add $ to TF2 (#5309))
+    $ ros2 launch learning_tf2_py turtle_tf2_fixed_frame_demo.launch.py
 
 You should notice that the new ``carrot1`` frame appeared in the transformation tree.
 
@@ -273,11 +269,7 @@ One way is to pass the ``target_frame`` argument to the launch file directly fro
 
 .. code-block:: console
 
-<<<<<<< HEAD
-    ros2 launch learning_tf2_py turtle_tf2_fixed_frame_demo.launch.py target_frame:=carrot1
-=======
-    $ ros2 launch learning_tf2_py turtle_tf2_fixed_frame_demo_launch.py target_frame:=carrot1
->>>>>>> 7077a00 (Add $ to TF2 (#5309))
+    $ ros2 launch learning_tf2_py turtle_tf2_fixed_frame_demo.launch.py target_frame:=carrot1
 
 The second way is to update the launch file.
 To do so, open the ``turtle_tf2_fixed_frame_demo.launch.py`` file, and add the ``'target_frame': 'carrot1'`` parameter via ``launch_arguments`` argument.
@@ -495,11 +487,7 @@ Now you can start the dynamic frame demo:
 
 .. code-block:: console
 
-<<<<<<< HEAD
-    ros2 launch learning_tf2_py turtle_tf2_dynamic_frame_demo.launch.py
-=======
-    $ ros2 launch learning_tf2_py turtle_tf2_dynamic_frame_demo_launch.py
->>>>>>> 7077a00 (Add $ to TF2 (#5309))
+    $ ros2 launch learning_tf2_py turtle_tf2_dynamic_frame_demo.launch.py
 
 You should see that the second turtle is following the carrot's position that is constantly changing.
 

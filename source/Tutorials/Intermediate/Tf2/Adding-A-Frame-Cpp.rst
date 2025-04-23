@@ -277,11 +277,7 @@ Now you can start the turtle broadcaster demo:
 
 .. code-block:: console
 
-<<<<<<< HEAD
-    ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo.launch.py
-=======
-    $ ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo_launch.py
->>>>>>> 7077a00 (Add $ to TF2 (#5309))
+    $ ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo.launch.py
 
 You should notice that the new ``carrot1`` frame appeared in the transformation tree.
 
@@ -536,11 +532,7 @@ Now you can start the dynamic frame demo:
 
 .. code-block:: console
 
-<<<<<<< HEAD
-    ros2 launch learning_tf2_cpp turtle_tf2_dynamic_frame_demo.launch.py
-=======
-    $ ros2 launch learning_tf2_cpp turtle_tf2_dynamic_frame_demo_launch.py
->>>>>>> 7077a00 (Add $ to TF2 (#5309))
+    $ ros2 launch learning_tf2_cpp turtle_tf2_dynamic_frame_demo.launch.py
 
 You should see that the second turtle is following the carrot's position that is constantly changing.
 

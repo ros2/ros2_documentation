@@ -83,11 +83,7 @@ Now let's run it to see what happens:
 
 .. code-block:: console
 
-<<<<<<< HEAD
-   ros2 launch learning_tf2_cpp start_tf2_debug_demo.launch.py
-=======
-   $ ros2 launch learning_tf2_cpp start_tf2_debug_demo_launch.py
->>>>>>> 7077a00 (Add $ to TF2 (#5309))
+   $ ros2 launch learning_tf2_cpp start_tf2_debug_demo.launch.py
 
 You will now see that the turtlesim came up.
 At the same time, if you run the ``turtle_teleop_key`` in another terminal window, you can use the arrow keys to drive the ``turtle1`` around.

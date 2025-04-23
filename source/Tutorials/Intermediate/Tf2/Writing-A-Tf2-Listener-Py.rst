@@ -319,11 +319,7 @@ Now you're ready to start your full turtle demo:
 
 .. code-block:: console
 
-<<<<<<< HEAD
-    ros2 launch learning_tf2_py turtle_tf2_demo.launch.py
-=======
-    $ ros2 launch learning_tf2_py turtle_tf2_demo_launch.py
->>>>>>> 7077a00 (Add $ to TF2 (#5309))
+    $ ros2 launch learning_tf2_py turtle_tf2_demo.launch.py
 
 You should see the turtle sim with two turtles.
 In the second terminal window type the following command:
