@@ -30,7 +30,7 @@ Don't forget to source the setup file.
 
 Then start the visualizer
 
-.. code-block:: bash
+.. code-block:: console
 
    $ ros2 run rviz2 rviz2
 
