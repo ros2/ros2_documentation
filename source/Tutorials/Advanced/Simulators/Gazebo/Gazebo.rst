@@ -48,13 +48,9 @@ To run this example you should execute the following command in a terminal:
 
       .. code-block:: console
 
-        ign gazebo -v 4 -r visualize_lidar.sdf
+        $ ign gazebo -v 4 -r visualize_lidar.sdf
 
-<<<<<<< HEAD
 .. image:: Image/gazebo_diff_drive.png
-=======
-   $ gz sim
->>>>>>> e89b374 (Add $ to Advanced Tutorials (#5312))
 
 When the simulation is running you can check the topics provided by Gazebo with the ``ign`` command line tool:
 
@@ -64,12 +60,7 @@ When the simulation is running you can check the topics provided by Gazebo with 
 
       .. code-block:: console
 
-        ign topic -l
-
-      Which should show:
-
-      .. code-block:: console
-
+        $ ign topic -l
         /clock
         /gazebo/resource_paths
         /gui/camera/pose
@@ -94,12 +85,7 @@ should be free of any robot topics:
 
       .. code-block:: console
 
-        ros2 topic list
-
-      Which should show:
-
-      .. code-block:: console
-
+        $ ros2 topic list
         /parameter_events
         /rosout
 
@@ -116,7 +102,7 @@ You can install this package by typing:
 
       .. code-block:: console
 
-        sudo apt-get install ros-{DISTRO}-ros-ign-bridge
+        $ sudo apt-get install ros-{DISTRO}-ros-ign-bridge
 
 At this point you are ready to launch a bridge from ROS to Gazebo.
 In particular you are going to create a bridge for the topic ``/model/vehicle_blue/cmd_vel``:
@@ -127,8 +113,8 @@ In particular you are going to create a bridge for the topic ``/model/vehicle_bl
 
       .. code-block:: console
 
-        source /opt/ros/{DISTRO}/setup.bash
-        ros2 run ros_gz_bridge parameter_bridge /model/vehicle_blue/cmd_vel@geometry_msgs/msg/Twist]ignition.msgs.Twist
+        $ source /opt/ros/{DISTRO}/setup.bash
+        $ ros2 run ros_gz_bridge parameter_bridge /model/vehicle_blue/cmd_vel@geometry_msgs/msg/Twist]ignition.msgs.Twist
 
 For more details about the ``ros_gz_bridge`` please check this `README <https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_bridge>`__ .
 
@@ -143,7 +129,7 @@ There are two options:
 
        .. code-block:: console
 
-        ros2 topic pub /model/vehicle_blue/cmd_vel geometry_msgs/Twist "linear: { x: 0.1 }"
+        $ ros2 topic pub /model/vehicle_blue/cmd_vel geometry_msgs/Twist "linear: { x: 0.1 }"
 
 * ``teleop_twist_keyboard`` package.
   This node takes keypresses from the keyboard and publishes them as Twist messages.
@@ -155,7 +141,7 @@ There are two options:
 
        .. code-block:: console
 
-         sudo apt-get install ros-{DISTRO}-teleop-twist-keyboard
+         $ sudo apt-get install ros-{DISTRO}-teleop-twist-keyboard
 
  The default topic where ``teleop_twist_keyboard`` is publishing Twist messages is ``/cmd_vel`` but you can remap this
  topic to make use of the topic used in the bridge:
@@ -166,13 +152,8 @@ There are two options:
 
       .. code-block:: console
 
-        source /opt/ros/{DISTRO}/setup.bash
-        ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/model/vehicle_blue/cmd_vel
-
-      Which will show:
-
-      .. code-block:: console
-
+        $ source /opt/ros/{DISTRO}/setup.bash
+        $ ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/model/vehicle_blue/cmd_vel
         This node takes keypresses from the keyboard and publishes them
         as Twist messages. It works best with a US keyboard layout.
         ---------------------------
@@ -214,8 +195,8 @@ This topic will be available under the topic ``/lidar_scan``:
 
       .. code-block:: console
 
-        source /opt/ros/{DISTRO}/setup.bash
-        ros2 run ros_gz_bridge parameter_bridge /lidar2@sensor_msgs/msg/LaserScan[ignition.msgs.LaserScan --ros-args -r /lidar2:=/laser_scan
+        $ source /opt/ros/{DISTRO}/setup.bash
+        $ ros2 run ros_gz_bridge parameter_bridge /lidar2@sensor_msgs/msg/LaserScan[ignition.msgs.LaserScan --ros-args -r /lidar2:=/laser_scan
 
 To visualize the data from the lidar in ROS 2 you can use Rviz2:
 
@@ -225,8 +206,8 @@ To visualize the data from the lidar in ROS 2 you can use Rviz2:
 
       .. code-block:: console
 
-        source /opt/ros/{DISTRO}/setup.bash
-        rviz2
+        $ source /opt/ros/{DISTRO}/setup.bash
+        $ rviz2
 
 Then you need to configure the ``fixed frame``:
 

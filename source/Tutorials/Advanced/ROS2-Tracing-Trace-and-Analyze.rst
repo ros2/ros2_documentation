@@ -35,59 +35,28 @@ Install `LTTng <https://lttng.org/docs/v2.13/>`_ and ``babeltrace``.
 
 .. code-block:: console
 
-<<<<<<< HEAD
-  sudo apt-get update
-  sudo apt-get install -y lttng-tools liblttng-ust-dev python3-lttng python3-babeltrace babeltrace
+  $ sudo apt-get update
+  $ sudo apt-get install -y lttng-tools liblttng-ust-dev python3-lttng python3-babeltrace babeltrace
 
 Then create a workspace, import the ROS 2 {DISTRO_TITLE} code, and clone ``performance_test`` and ``tracetools_analysis``.
-=======
-  $ sudo apt-get update
-  $ sudo apt-get install -y babeltrace ros-{DISTRO}-ros2trace ros-{DISTRO}-tracetools-analysis
-
-
-Source the ROS 2 installation and verify that tracing is enabled:
 
 .. code-block:: console
 
-  $ source /opt/ros/{DISTRO}/setup.bash
-  $ ros2 run tracetools status
-
-You should see ``Tracing enabled`` in the output.
-
-Then create a workspace, and clone ``performance_test`` and ``tracetools_analysis``.
->>>>>>> e89b374 (Add $ to Advanced Tutorials (#5312))
-
-.. code-block:: console
-
-<<<<<<< HEAD
-  cd ~/
-  mkdir -p tracing_ws/src
-  cd tracing_ws/
-  vcs import src/ --input https://raw.githubusercontent.com/ros2/ros2/{DISTRO}/ros2.repos
-  cd src/
-  git clone https://gitlab.com/ApexAI/performance_test.git
-  git clone https://github.com/ros-tracing/tracetools_analysis.git -b {DISTRO}
-  cd ..
-=======
   $ cd ~/
   $ mkdir -p tracing_ws/src
-  $ cd tracing_ws/src/
+  $ cd tracing_ws/
+  $ vcs import src/ --input https://raw.githubusercontent.com/ros2/ros2/{DISTRO}/ros2.repos
+  $ cd src/
   $ git clone https://gitlab.com/ApexAI/performance_test.git
   $ git clone https://github.com/ros-tracing/tracetools_analysis.git -b {DISTRO}
   $ cd ..
->>>>>>> e89b374 (Add $ to Advanced Tutorials (#5312))
 
 Install dependencies with rosdep.
 
 .. code-block:: console
 
-<<<<<<< HEAD
-  rosdep update
-  rosdep install --rosdistro {DISTRO} --from-paths src --ignore-src -y --skip-keys "fastcdr rti-connext-dds-6.0.1 urdfdom_headers"
-=======
   $ rosdep update
-  $ rosdep install --from-paths src --ignore-src -y
->>>>>>> e89b374 (Add $ to Advanced Tutorials (#5312))
+  $ rosdep install --rosdistro {DISTRO} --from-paths src --ignore-src -y --skip-keys "fastcdr rti-connext-dds-6.0.1 urdfdom_headers"
 
 Then build up to ``performance_test`` and configure it for ROS 2.
 See its `documentation <https://gitlab.com/ApexAI/performance_test/-/tree/master/performance_test#performance_test>`_.
@@ -95,21 +64,17 @@ We also need to build ``ros2trace`` to set up tracing using the ``ros2 trace`` c
 
 .. code-block:: console
 
-<<<<<<< HEAD
-  colcon build --packages-up-to ros2trace ros2run tracetools_analysis performance_test --cmake-args -DPERFORMANCE_TEST_RCLCPP_ENABLED=ON
+  $ colcon build --packages-up-to ros2trace ros2run tracetools_analysis performance_test --cmake-args -DPERFORMANCE_TEST_RCLCPP_ENABLED=ON
 
 Source the installation and verify that tracing is enabled:
 
 .. code-block:: bash
 
-  source install/setup.bash
-  ros2 run tracetools status
+  $ source install/setup.bash
+  $ ros2 run tracetools status
 
 You should see ``Tracing enabled`` in the output.
 This confirms that LTTng was properly detected and that the instrumentation built into the ROS 2 core is enabled.
-=======
-  $ colcon build --packages-select performance_test --cmake-args -DPERFORMANCE_TEST_RCLCPP_ENABLED=ON
->>>>>>> e89b374 (Add $ to Advanced Tutorials (#5312))
 
 Next, we will run a ``performance_test`` experiment and trace it.
 

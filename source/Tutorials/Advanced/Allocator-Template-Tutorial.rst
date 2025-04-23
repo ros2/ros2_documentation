@@ -232,34 +232,17 @@ To run the example executable, use:
 
 .. code-block:: bash
 
-<<<<<<< HEAD
-   ros2 run demo_nodes_cpp allocator_tutorial
-=======
      $ ros2 run demo_nodes_cpp allocator_tutorial
->>>>>>> e89b374 (Add $ to Advanced Tutorials (#5312))
 
 or, to run the example with the intra-process pipeline on:
 
 .. code-block:: bash
 
-<<<<<<< HEAD
-   ros2 run demo_nodes_cpp allocator_tutorial intra
-
-You should get numbers like:
-
-.. code-block:: bash
-
-   Global new was called 15590 times during spin
-   Global delete was called 15590 times during spin
-   Allocator new was called 27284 times during spin
-   Allocator delete was called 27281 times during spin
-=======
      $ ros2 run demo_nodes_cpp allocator_tutorial intra
      Global new was called 15590 times during spin
      Global delete was called 15590 times during spin
      Allocator new was called 27284 times during spin
      Allocator delete was called 27281 times during spin
->>>>>>> e89b374 (Add $ to Advanced Tutorials (#5312))
 
 We've caught about 2/3 of the allocations/deallocations that happen on the execution path, but where do the remaining 1/3 come from?
 

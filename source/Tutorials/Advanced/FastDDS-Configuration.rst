@@ -789,12 +789,8 @@ You should see the service waiting for requests:
 
 .. code-block:: console
 
-<<<<<<< HEAD
-    [INFO] [1612977403.805799037] [ping_server]: Ready to serve
-=======
     $ ros2 run sync_async_node_example_cpp ping_service
     [INFO] [1612977403.805799037] [ping_server]: Ready to serve.
->>>>>>> e89b374 (Add $ to Advanced Tutorials (#5312))
 
 On the second terminal, run the client node.
 You should see the client sending the request and receiving the response:
