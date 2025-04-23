@@ -282,11 +282,7 @@ Launch the package
 
 .. code-block:: console
 
-<<<<<<< HEAD
-  ros2 launch urdf_tutorial_r2d2 demo.launch.py
-=======
-  $ ros2 launch urdf_tutorial_r2d2 demo_launch.py
->>>>>>> 9a7453f (Add $ to URDF. (#5306))
+  $ ros2 launch urdf_tutorial_r2d2 demo.launch.py
 
 Open a new terminal, the run Rviz using
 
