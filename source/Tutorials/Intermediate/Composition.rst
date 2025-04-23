@@ -59,7 +59,8 @@ In the first shell, start the component container:
 
    $ ros2 run rclcpp_components component_container
 
-Open the second shell and verify that the container is running via ``ros2`` command line tools:
+Open the second shell and verify that the container is running via ``ros2`` command line tools.
+You should see a name of the component:
 
 .. code-block:: console
 
