@@ -47,41 +47,41 @@ To remove the tracepoints, (re)build ``tracetools`` and set the ``TRACETOOLS_TRA
 
   .. group-tab:: Source installation
 
-    .. code-block:: bash
+    .. code-block:: console
 
-       cd ~/ros2_{DISTRO}
-       colcon build --packages-select tracetools --cmake-clean-cache --cmake-args -DTRACETOOLS_TRACEPOINTS_EXCLUDED=ON
+       $ cd ~/ros2_{DISTRO}
+       $ colcon build --packages-select tracetools --cmake-clean-cache --cmake-args -DTRACETOOLS_TRACEPOINTS_EXCLUDED=ON
 
   .. group-tab:: Binary installation
 
     Clone the ``ros2_tracing`` repository into your workspace and build:
 
-    .. code-block:: bash
+    .. code-block:: console
 
-       cd ~/ws
-       git clone https://github.com/ros2/ros2_tracing.git -b {DISTRO} src/ros2_tracing
-       colcon build --packages-select tracetools --cmake-args -DTRACETOOLS_TRACEPOINTS_EXCLUDED=ON
+       $ cd ~/ws
+       $ git clone https://github.com/ros2/ros2_tracing.git -b {DISTRO} src/ros2_tracing
+       $ colcon build --packages-select tracetools --cmake-args -DTRACETOOLS_TRACEPOINTS_EXCLUDED=ON
 
 Building without instrumentation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To completely remove both tracepoints and function calls, :doc:`build ROS 2 from source <../Installation/Alternatives/Ubuntu-Development-Setup>` and set the ``TRACETOOLS_DISABLED`` CMake option to ``ON``:
 
-.. code-block:: bash
+.. code-block:: console
 
-   cd ~/ros2_{DISTRO}
-   colcon build --cmake-args -DTRACETOOLS_DISABLED=ON --no-warn-unused-cli
+   $ cd ~/ros2_{DISTRO}
+   $ colcon build --cmake-args -DTRACETOOLS_DISABLED=ON --no-warn-unused-cli
 
 Validating
 ----------
 
 Validate that tracing is disabled:
 
-.. code-block:: bash
+.. code-block:: console
 
-   cd ~/ws
-   source install/setup.bash
-   ros2 run tracetools status
+   $ cd ~/ws
+   $ source install/setup.bash
+   $ ros2 run tracetools status
 
 It should print out:
 

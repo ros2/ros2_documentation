@@ -44,7 +44,7 @@ Reduce the value, for example, to 3s, by running:
 
 .. code-block:: console
 
-    sudo sysctl net.ipv4.ipfrag_time=3
+    $ sudo sysctl net.ipv4.ipfrag_time=3
 
 Reducing this parameter's value also reduces the window of time where no fragments are received.
 The parameter is global for all incoming fragments, so the feasibility of reducing its value needs to be considered for every environment.
@@ -58,7 +58,7 @@ Increase the value, for example, to 128MB, by running:
 
 .. code-block:: console
 
-    sudo sysctl net.ipv4.ipfrag_high_thresh=134217728     # (128 MB)
+    $ sudo sysctl net.ipv4.ipfrag_high_thresh=134217728     # (128 MB)
 
 Significantly increasing this parameter's value is an attempt to ensure that the buffer never becomes completely full.
 However, the value would likely have to be significantly high to hold all data received during the time window of ``ipfrag_time``, assuming every UDP packet lacks one fragment.
@@ -112,7 +112,7 @@ Set the maximum receive buffer size, ``rmem_max``, by running:
 
  .. code-block:: console
 
-    sudo sysctl -w net.core.rmem_max=2147483647
+    $ sudo sysctl -w net.core.rmem_max=2147483647
 
 Or permanently set it by editing the ``/etc/sysctl.d/10-cyclone-max.conf`` file to contain:
 
@@ -151,7 +151,7 @@ Set the maximum receive buffer size, ``rmem_max``, by running:
 
  .. code-block:: console
 
-    sudo sysctl -w net.core.rmem_max=4194304
+    $ sudo sysctl -w net.core.rmem_max=4194304
 
 By tuning ``net.core.rmem_max`` to 4MB in the Linux kernel, the QoS profile can produce truly reliable behavior.
 

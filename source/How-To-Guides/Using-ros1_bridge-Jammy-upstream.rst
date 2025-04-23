@@ -21,7 +21,7 @@ The version of ``catkin-pkg-modules`` available in the Ubuntu repository conflic
 If the ROS 2 apt repository is in the available apt repositories (``/etc/apt/sources.list.d``), no ROS 1 packages will be installable.
 The error will be:
 
-.. code-block:: bash
+.. code-block:: console
 
   $ apt install ros-core-dev
   Reading package lists... Done
@@ -55,9 +55,9 @@ Install development tools and ROS tools
 
 Since we aren't using the ROS 2 apt repositories, ``colcon`` must be installed via ``pip``.
 
-.. code-block:: bash
+.. code-block:: console
 
-   sudo apt update && sudo apt install -y \
+   $ sudo apt update && sudo apt install -y \
      build-essential \
      cmake \
      git \
@@ -87,27 +87,22 @@ From here, continue with the :doc:`source install guide <../Installation/Alterna
 Install ROS 1 from Ubuntu packages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: bash
+.. code-block:: console
 
-   sudo apt update && sudo apt install -y ros-core-dev
+   $ sudo apt update && sudo apt install -y ros-core-dev
 
 
 Build ``ros1_bridge``
 ^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: bash
+.. code-block:: console
 
-    # Create a workspace for the ros1_bridge
-    mkdir -p ~/ros1_bridge/src
-    cd ~/ros1_bridge/src
-    git clone https://github.com/ros2/ros1_bridge
-    cd ~/ros1_bridge
-
-    # Source the ROS 2 workspace
-    . ~/ros2_humble/install/local_setup.bash
-
-    # Build
-    colcon build
+    $ mkdir -p ~/ros1_bridge/src # Create a workspace for the ros1_bridge
+    $ cd ~/ros1_bridge/src
+    $ git clone https://github.com/ros2/ros1_bridge
+    $ cd ~/ros1_bridge
+    $. ~/ros2_humble/install/local_setup.bash # Source the ROS 2 workspace
+    $ colcon build # Build
 
 After building all of ``ros1_bridge``, the remainder of the `ros1_bridge examples <https://github.com/ros2/ros1_bridge#example-1-run-the-bridge-and-the-example-talker-and-listener>`__ should work with your new installation
 

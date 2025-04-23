@@ -28,21 +28,21 @@ First, create a folder at ``~/ros2_talker_py`` to be the root of the Colcon work
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
+    .. code-block:: console
 
-        mkdir -p ~/ros2_talker_py/src
+        $ mkdir -p ~/ros2_talker_py/src
 
   .. group-tab:: macOS
 
     .. code-block:: bash
 
-        mkdir -p ~/ros2_talker_py/src
+        $ mkdir -p ~/ros2_talker_py/src
 
   .. group-tab:: Windows
 
     .. code-block:: bash
 
-        md \ros2_talker_py\src
+        $ md \ros2_talker_py\src
 
 Next, create the files for the ROS 1 package.
 
@@ -50,42 +50,42 @@ Next, create the files for the ROS 1 package.
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
+    .. code-block:: console
 
-        cd ~/ros2_talker_py
-        mkdir -p src/talker_py/src/talker_py
-        mkdir -p src/talker_py/scripts
-        touch src/talker_py/package.xml
-        touch src/talker_py/CMakeLists.txt
-        touch src/talker_py/src/talker_py/__init__.py
-        touch src/talker_py/scripts/talker_py_node
-        touch src/talker_py/setup.py
+        $ cd ~/ros2_talker_py
+        $ mkdir -p src/talker_py/src/talker_py
+        $ mkdir -p src/talker_py/scripts
+        $ touch src/talker_py/package.xml
+        $ touch src/talker_py/CMakeLists.txt
+        $ touch src/talker_py/src/talker_py/__init__.py
+        $ touch src/talker_py/scripts/talker_py_node
+        $ touch src/talker_py/setup.py
 
   .. group-tab:: macOS
 
-    .. code-block:: bash
+    .. code-block:: console
 
-        cd ~/ros2_talker_py
-        mkdir -p src/talker_py/src/talker_py
-        mkdir -p src/talker_py/scripts
-        touch src/talker_py/package.xml
-        touch src/talker_py/CMakeLists.txt
-        touch src/talker_py/src/talker_py/__init__.py
-        touch src/talker_py/scripts/talker_py_node
-        touch src/talker_py/setup.py
+        $ cd ~/ros2_talker_py
+        $ mkdir -p src/talker_py/src/talker_py
+        $ mkdir -p src/talker_py/scripts
+        $ touch src/talker_py/package.xml
+        $ touch src/talker_py/CMakeLists.txt
+        $ touch src/talker_py/src/talker_py/__init__.py
+        $ touch src/talker_py/scripts/talker_py_node
+        $ touch src/talker_py/setup.py
 
   .. group-tab:: Windows
 
     .. code-block:: bash
 
-        cd \ros2_talker_py
-        md src\talker_py\src\talker_py
-        md src\talker_py\scripts
-        type nul > src\talker_py\package.xml
-        type nul > src\talker_py\CMakeLists.txt
-        type nul > src\talker_py\src\talker_py\__init__.py
-        type nul > src\talker_py\scripts/talker_py_node
-        type nul > src\talker_py\setup.py
+        $ cd \ros2_talker_py
+        $ md src\talker_py\src\talker_py
+        $ md src\talker_py\scripts
+        $ type nul > src\talker_py\package.xml
+        $ type nul > src\talker_py\CMakeLists.txt
+        $ type nul > src\talker_py\src\talker_py\__init__.py
+        $ type nul > src\talker_py\scripts/talker_py_node
+        $ type nul > src\talker_py\setup.py
 
 Put the following content into each file.
 
@@ -321,24 +321,24 @@ Create an empty file in the ``resource`` directory with the same name as the pac
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
+    .. code-block:: console
 
-        mkdir resource
-        touch resource/talker_py
+        $ mkdir resource
+        $ touch resource/talker_py
 
   .. group-tab:: macOS
 
-    .. code-block:: bash
+    .. code-block:: console
 
-        mkdir resource
-        touch resource/talker_py
+        $ mkdir resource
+        $ touch resource/talker_py
 
   .. group-tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: console
 
-        md resource
-        type nul > resource\talker_py
+        $ md resource
+        $ type nul > resource\talker_py
 
 The ``setup()`` call in ``setup.py`` must tell ``setuptools`` how to install these files.
 Add the following ``data_files`` argument to the call to ``setup()``.
@@ -364,21 +364,21 @@ Create a ``setup.cfg`` file next to the ``package.xml``.
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
+    .. code-block:: console
 
-        touch setup.cfg
+        $ touch setup.cfg
 
   .. group-tab:: macOS
 
-    .. code-block:: bash
+    .. code-block:: console
 
-        touch setup.cfg
+        $ touch setup.cfg
 
   .. group-tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: console
 
-        type nul > touch setup.cfg
+        $ type nul > touch setup.cfg
 
 Put the following content into it:
 
@@ -411,24 +411,24 @@ Delete the file ``talker_py_node`` and delete the ``scripts/`` directory.
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
+    .. code-block:: console
 
-        rm scripts/talker_py_node
-        rmdir scripts
+        $ rm scripts/talker_py_node
+        $ rmdir scripts
 
   .. group-tab:: macOS
 
-    .. code-block:: bash
+    .. code-block:: console
 
-        rm scripts/talker_py_node
-        rmdir scripts
+        $ rm scripts/talker_py_node
+        $ rmdir scripts
 
   .. group-tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: console
 
-        del scripts/talker_py_node
-        rd scripts
+        $ del scripts/talker_py_node
+        $ rd scripts
 
 The addition of ``console_scripts`` is the last change to your ``setup.py``.
 Your final ``setup.py`` should look like this:
@@ -729,27 +729,27 @@ Build the workspace in the first terminal.
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
+    .. code-block:: console
 
-        cd ~/ros2_talker_py
-        . /opt/ros/{DISTRO}/setup.bash
-        colcon build
+        $ cd ~/ros2_talker_py
+        $ . /opt/ros/{DISTRO}/setup.bash
+        $ colcon build
 
   .. group-tab:: macOS
 
-    .. code-block:: bash
+    .. code-block:: console
 
-        cd ~/ros2_talker_py
-        . /opt/ros/{DISTRO}/setup.bash
-        colcon build
+        $ cd ~/ros2_talker_py
+        $ . /opt/ros/{DISTRO}/setup.bash
+        $ colcon build
 
   .. group-tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: console
 
-        cd \ros2_talker_py
-        call C:\dev\ros2\local_setup.bat
-        colcon build
+        $ cd \ros2_talker_py
+        $ call C:\dev\ros2\local_setup.bat
+        $ colcon build
 
 Source your workspace in the second terminal, and run the ``talker_py_node``.
 
@@ -757,27 +757,27 @@ Source your workspace in the second terminal, and run the ``talker_py_node``.
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
+    .. code-block:: console
 
-        cd ~/ros2_talker_py
-        . install/setup.bash
-        ros2 run talker_py talker_py_node
+        $ cd ~/ros2_talker_py
+        $ . install/setup.bash
+        $ ros2 run talker_py talker_py_node
 
   .. group-tab:: macOS
 
-    .. code-block:: bash
+    .. code-block:: console
 
-        cd ~/ros2_talker_py
-        . install/setup.bash
-        ros2 run talker_py talker_py_node
+        $ cd ~/ros2_talker_py
+        $ . install/setup.bash
+        $ ros2 run talker_py talker_py_node
 
   .. group-tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: console
 
-        cd \ros2_talker_py
-        call install\setup.bat
-        ros2 run talker_py talker_py_node
+        $ cd \ros2_talker_py
+        $ call install\setup.bat
+        $ ros2 run talker_py talker_py_node
 
 Echo the message published by the node in the third terminal:
 
@@ -785,24 +785,24 @@ Echo the message published by the node in the third terminal:
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
+    .. code-block:: console
 
-        . /opt/ros/{DISTRO}/setup.bash
-        ros2 topic echo /chatter
+        $ . /opt/ros/{DISTRO}/setup.bash
+        $ ros2 topic echo /chatter
 
   .. group-tab:: macOS
 
-    .. code-block:: bash
+    .. code-block:: console
 
-        . /opt/ros/{DISTRO}/setup.bash
-        ros2 topic echo /chatter
+        $ . /opt/ros/{DISTRO}/setup.bash
+        $ ros2 topic echo /chatter
 
   .. group-tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: console
 
-        call C:\dev\ros2\local_setup.bat
-        ros2 topic echo /chatter
+        $ call C:\dev\ros2\local_setup.bat
+        $ ros2 topic echo /chatter
 
 
 You should see messages with the current time being published in the second terminal, and those same messages received in the third.

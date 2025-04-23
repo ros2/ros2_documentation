@@ -17,13 +17,13 @@ To get all of the parameters on a given node:
 
 .. code-block:: console
 
-  ros2 param list /my_node
+  $ ros2 param list /my_node
 
 To get all of the parameters on all nodes in the system (this can take a long time on a complicated network):
 
 .. code-block:: console
 
-  ros2 param list
+  $ ros2 param list
 
 ``ros2 param get``
 ------------------
@@ -34,7 +34,7 @@ To get the value of a parameter on a node:
 
 .. code-block:: console
 
-  ros2 param get /my_node use_sim_time
+  $ ros2 param get /my_node use_sim_time
 
 ``ros2 param set``
 ------------------
@@ -46,7 +46,7 @@ To set the value of a parameter on a node:
 
 .. code-block:: console
 
-  ros2 param set /my_node use_sim_time false
+  $ ros2 param set /my_node use_sim_time false
 
 The value that is passed on the command-line is in YAML, which allows arbitrary YAML expressions to be used.
 However, it also means that certain expressions will be interpreted differently than might be expected.
@@ -54,14 +54,14 @@ For instance, if the parameter ``my_string`` on node ``my_node`` is of type stri
 
 .. code-block:: console
 
-  ros2 param set /my_node my_string off
+  $ ros2 param set /my_node my_string off
 
 That's because YAML is interpreting "off" as a boolean, and ``my_string`` is a string type.
 This can be worked around by using the YAML syntax for explicitly setting strings, e.g.:
 
 .. code-block:: console
 
-  ros param set /my_node my_string '!!str off'
+  $ ros param set /my_node my_string '!!str off'
 
 Additionally, YAML supports heterogeneous lists, containing (say) a string, a boolean, and an integer.
 However, ROS 2 parameters do not support heterogeneous lists, so any YAML list that has multiple types will be interpreted as a string.
@@ -69,13 +69,13 @@ Assuming that the parameter ``my_int_array`` on node ``my_node`` is of type inte
 
 .. code-block:: console
 
-  ros param set /my_node my_int_array '[foo,off,1]'
+  $ ros param set /my_node my_int_array '[foo,off,1]'
 
 The following string typed parameter would work:
 
 .. code-block:: console
 
-  ros param set /my_node my_string '[foo,off,1]'
+  $ ros param set /my_node my_string '[foo,off,1]'
 
 ``ros2 param delete``
 ---------------------
@@ -86,7 +86,7 @@ See :doc:`the concept document <../Concepts/Basic/About-Parameters>` for more in
 
 .. code-block:: console
 
-  ros2 param delete /my_node my_string
+  $ ros2 param delete /my_node my_string
 
 ``ros2 param describe``
 -----------------------
@@ -95,7 +95,7 @@ This command will provide a textual description of a particular parameter on a p
 
 .. code-block:: console
 
-  ros2 param describe /my_node use_sim_time
+  $ ros2 param describe /my_node use_sim_time
 
 ``ros2 param dump``
 -------------------
@@ -105,7 +105,7 @@ The output of this command can then be used to re-run the node with the same par
 
 .. code-block:: console
 
-  ros2 param dump /my_node
+  $ ros2 param dump /my_node
 
 ``ros2 param load``
 -------------------
@@ -115,4 +115,4 @@ That is, this command can reload values at runtime that were dumped out by ``ros
 
 .. code-block:: console
 
-  ros2 param load /my_node my_node.yaml
+  $ ros2 param load /my_node my_node.yaml
