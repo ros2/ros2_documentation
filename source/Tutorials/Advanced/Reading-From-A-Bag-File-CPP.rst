@@ -40,7 +40,7 @@ a new package:
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_cmake --license Apache-2.0 bag_reading_cpp --dependencies rclcpp rosbag2_transport turtlesim
+  $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 bag_reading_cpp --dependencies rclcpp rosbag2_transport turtlesim
 
 Your terminal will return a message verifying the creation of your package ``bag_reading_cpp`` and all its necessary files and folders.
 The ``--dependencies`` argument will automatically add the necessary dependency lines to ``package.xml`` and ``CMakeLists.txt``.
@@ -271,19 +271,19 @@ Navigate back to the root of your workspace and build your new package.
 
     .. code-block:: console
 
-      colcon build --packages-select bag_reading_cpp
+      $ colcon build --packages-select bag_reading_cpp
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      colcon build --packages-select bag_reading_cpp
+      $ colcon build --packages-select bag_reading_cpp
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      colcon build --merge-install --packages-select bag_reading_cpp
+      $ colcon build --merge-install --packages-select bag_reading_cpp
 
 Next, source the setup files.
 
@@ -293,26 +293,26 @@ Next, source the setup files.
 
     .. code-block:: console
 
-      source install/setup.bash
+      $ source install/setup.bash
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      source install/setup.bash
+      $ source install/setup.bash
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      call install/setup.bat
+      $ call install/setup.bat
 
 Now, run the script.
 Make sure to replace ``/path/to/subset`` with the path to your ``subset`` bag.
 
 .. code-block:: console
 
-    ros2 run bag_reading_cpp simple_bag_reader /path/to/subset
+    $ ros2 run bag_reading_cpp simple_bag_reader /path/to/subset
 
 You should see the (x, y) coordinates of the turtle printed to the console.
 

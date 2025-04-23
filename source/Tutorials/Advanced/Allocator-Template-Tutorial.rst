@@ -212,18 +212,13 @@ To run the example executable, use:
 
 .. code-block:: console
 
-     ros2 run demo_nodes_cpp allocator_tutorial
+     $ ros2 run demo_nodes_cpp allocator_tutorial
 
 or, to run the example with the intra-process pipeline on:
 
 .. code-block:: console
 
-     ros2 run demo_nodes_cpp allocator_tutorial intra
-
-You should get numbers like:
-
-.. code-block:: console
-
+     $ ros2 run demo_nodes_cpp allocator_tutorial intra
      Global new was called 15590 times during spin
      Global delete was called 15590 times during spin
      Allocator new was called 27284 times during spin

@@ -52,13 +52,13 @@ download the example talker code by entering the following command:
 
       .. code-block:: console
 
-            wget -O member_function_with_topic_statistics.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function_with_topic_statistics.cpp
+            $ wget -O member_function_with_topic_statistics.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function_with_topic_statistics.cpp
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-            wget -O member_function_with_topic_statistics.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function_with_topic_statistics.cpp
+            $ wget -O member_function_with_topic_statistics.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function_with_topic_statistics.cpp
 
    .. group-tab:: Windows
 
@@ -184,18 +184,13 @@ Run the subscriber with statistics enabled node:
 
 .. code-block:: console
 
-     ros2 run cpp_pubsub listener_with_topic_statistics
+     $ ros2 run cpp_pubsub listener_with_topic_statistics
 
 Now run the talker node:
 
 .. code-block:: console
 
-     ros2 run cpp_pubsub talker
-
-The terminal should start publishing info messages every 0.5 seconds, like so:
-
-.. code-block:: console
-
+     $ ros2 run cpp_pubsub talker
     [INFO] [minimal_publisher]: Publishing: "Hello World: 0"
     [INFO] [minimal_publisher]: Publishing: "Hello World: 1"
     [INFO] [minimal_publisher]: Publishing: "Hello World: 2"
@@ -219,17 +214,11 @@ We will observe these messages in the next section.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 While the nodes are running, open a new terminal window.
-Execute the following command:
+Execute the following command, which will list all currently active topics.
 
 .. code-block:: console
 
-    ros2 topic list
-
-This will list all currently active topics.
-You should see the following:
-
-.. code-block:: console
-
+    $ ros2 topic list
     /parameter_events
     /rosout
     /statistics
@@ -245,17 +234,13 @@ We can visualize this using :doc:`RQt <../../../Concepts/Intermediate/About-RQt>
 
 .. image:: images/topic_stats_rqt.png
 
-Now we can view the statistics data published to this topic with the following command:
-
-.. code-block:: console
-
-    ros2 topic echo /statistics
-
+Now we can view the statistics data published to this topic with the following command.
 The terminal should start publishing statistics messages every 10 seconds, because the
-``topic_stats_options.publish_period`` subscription configuration was optionally changed earlier in the tutorial.
+``topic_stats_options.publish_period`` subscription configuration was optionally changed earlier in the tutorial:
 
 .. code-block:: console
 
+    $ ros2 topic echo /statistics
     ---
     measurement_source_name: minimal_subscriber_with_topic_statistics
     metrics_source: message_age
