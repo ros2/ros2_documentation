@@ -578,13 +578,8 @@ For example (assuming you cd to ``root@ros2-deployment-xxxxxxxx:/opt/ros/overlay
 
 .. code-block:: console
 
-<<<<<<< HEAD
-   root@ros2-deployment-xxxxxxxx:/opt/ros/overlay_ws# . install/setup.sh
-   root@ros2-deployment-xxxxxxxx:/opt/ros/overlay_ws# ros2 launch demo_nodes_cpp talker_listener.launch.py
-=======
    $ . install/setup.sh
-   $ ros2 launch demo_nodes_cpp talker_listener_launch.py
->>>>>>> 6672c64 (Add $ to Miscellanous (#5310))
+   $ ros2 launch demo_nodes_cpp talker_listener.launch.py
 
 Final Remarks
 ---------------
