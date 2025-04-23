@@ -283,11 +283,7 @@ Open a second terminal and run the ``talker`` example node.
 
 .. code-block:: console
 
-<<<<<<< HEAD
-   ros2 run demo_nodes_cpp talker
-=======
    $ ros2 run demo_nodes_py talker
->>>>>>> e89b374 (Add $ to Advanced Tutorials (#5312))
 
 This will start publishing data on the ``chatter`` topic.
 As the bag-writing node receives this data, it will write it to the ``my_bag`` bag.
@@ -299,11 +295,7 @@ Then, in one terminal start the ``listener`` example node.
 
 .. code-block:: console
 
-<<<<<<< HEAD
-   ros2 run demo_nodes_cpp listener
-=======
    $ ros2 run demo_nodes_py listener
->>>>>>> e89b374 (Add $ to Advanced Tutorials (#5312))
 
 In the other terminal, use ``ros2 bag`` to play the bag recorded by your node.
 
