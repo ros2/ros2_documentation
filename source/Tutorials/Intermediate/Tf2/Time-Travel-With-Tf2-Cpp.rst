@@ -51,7 +51,11 @@ Let's just give it a try:
 
 .. code-block:: console
 
+<<<<<<< HEAD
     ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo.launch.py
+=======
+    $ ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo_launch.py
+>>>>>>> 7077a00 (Add $ to TF2 (#5309))
 
 .. image:: images/turtlesim_delay1.png
 
@@ -108,7 +112,11 @@ Let's run the simulation again, this time with the advanced time-travel API:
 
 .. code-block:: console
 
+<<<<<<< HEAD
     ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo.launch.py
+=======
+    $ ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo_launch.py
+>>>>>>> 7077a00 (Add $ to TF2 (#5309))
 
 .. image:: images/turtlesim_delay2.png
 
