@@ -141,8 +141,8 @@ Added NV12 to pixel formats, which is a common output format of hardware-acceler
 
 See https://github.com/ros2/common_interfaces/pull/253 for more details.
 
-``rmw_connextdds_cpp```
-^^^^^^^^^^^^^^^^^^^^^
+``rmw_connextdds_cpp``
+^^^^^^^^^^^^^^^^^^^^^^
 
 Version bumped to 7.3
 """""""""""""""""""""
@@ -230,7 +230,7 @@ For more information, see `ros2/launch#835 <https://github.com/ros2/launch/issue
 """"""""""
 
 The ``rmw_zenoh_cpp`` is now considered Tier 1, There are many PRs (summanarized in this `issue <https://github.com/ros2/rmw_zenoh/issues/265
->`_) in the ROS 2 core packages, such as:
+>`__) in the ROS 2 core packages, such as:
 
   * Make the rmw pass all core tests.
   * Implement and document security
