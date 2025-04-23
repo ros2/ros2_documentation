@@ -55,7 +55,7 @@ To examine the model, launch the ``display.launch.py`` file:
 
 .. code-block:: console
 
-  ros2 launch urdf_tutorial display.launch.py model:=urdf/01-myfirst.urdf
+  $ ros2 launch urdf_tutorial display.launch.py model:=urdf/01-myfirst.urdf
 
 This does three things:
 
@@ -119,7 +119,7 @@ We'll start with inflexible, or fixed joints.
 
 .. code-block:: console
 
-  ros2 launch urdf_tutorial display.launch.py model:=urdf/02-multipleshapes.urdf
+  $ ros2 launch urdf_tutorial display.launch.py model:=urdf/02-multipleshapes.urdf
 
 .. image:: https://raw.githubusercontent.com/ros/urdf_tutorial/ros2/images/multipleshapes.png
   :width: 800
@@ -178,7 +178,7 @@ We also rotate the leg so it is upright.
 
 .. code-block:: console
 
-  ros2 launch urdf_tutorial display.launch.py model:=urdf/03-origins.urdf
+  $ ros2 launch urdf_tutorial display.launch.py model:=urdf/03-origins.urdf
 
 .. image:: https://raw.githubusercontent.com/ros/urdf_tutorial/ros2/images/origins.png
   :width: 800
@@ -266,7 +266,7 @@ Let's take a look at the material tag.
 
 .. code-block:: console
 
-  ros2 launch urdf_tutorial display.launch.py model:=urdf/04-materials.urdf
+  $ ros2 launch urdf_tutorial display.launch.py model:=urdf/04-materials.urdf
 
 .. image:: https://raw.githubusercontent.com/ros/urdf_tutorial/ros2/images/materials.png
   :width: 800
@@ -530,7 +530,7 @@ We'll also add few other pieces that we'll use later.
 
 .. code-block:: console
 
-  ros2 launch urdf_tutorial display.launch.py model:=urdf/05-visual.urdf
+  $ ros2 launch urdf_tutorial display.launch.py model:=urdf/05-visual.urdf
 
 .. image:: https://raw.githubusercontent.com/ros/urdf_tutorial/ros2/images/visual.png
   :width: 800

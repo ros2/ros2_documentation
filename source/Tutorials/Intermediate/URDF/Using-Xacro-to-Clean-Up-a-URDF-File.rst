@@ -35,7 +35,7 @@ Typical usage looks something like this:
 
 .. code-block:: console
 
-   xacro model.xacro > model.urdf
+   $ xacro model.xacro > model.urdf
 
 You can also automatically generate the urdf in a launch file.
 This is convenient because it stays up to date and doesn't use up hard drive space.
