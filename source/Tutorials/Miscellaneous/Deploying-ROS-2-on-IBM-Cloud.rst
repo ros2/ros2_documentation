@@ -579,7 +579,7 @@ For example:
 .. code-block:: console
 
    root@ros2-deployment-xxxxxxxx:/opt/ros/overlay_ws# . install/setup.sh
-   root@ros2-deployment-xxxxxxxx:/opt/ros/overlay_ws# ros2 launch demo_nodes_cpp talker_listener_launch.py
+   root@ros2-deployment-xxxxxxxx:/opt/ros/overlay_ws# ros2 launch demo_nodes_cpp talker_listener.launch.py
 
 Final Remarks
 ---------------
