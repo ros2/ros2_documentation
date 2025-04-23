@@ -70,17 +70,12 @@ Now build the package and try to run the launch file.
 
 .. code-block:: console
 
-   ros2 launch learning_tf2_cpp turtle_tf2_demo_launch.py
-
-You will notice that it fails and outputs something similar to this:
-
-.. code-block:: console
-
+   $ ros2 launch learning_tf2_cpp turtle_tf2_demo_launch.py
    [INFO] [1629873136.345688064] [listener]: Could not transform turtle2 to turtle1: Lookup would
    require extrapolation into the future.  Requested time 1629873136.345539 but the latest data
    is at time 1629873136.338804, when looking up transform from frame [turtle1] to frame [turtle2]
 
-It tells you that the frame does not exist or that the data is in the future.
+The output tells you that the frame does not exist or that the data is in the future.
 
 To understand why is this happening we need to understand how buffers work.
 Firstly, each listener has a buffer where it stores all the coordinate transforms coming from the different tf2 broadcasters.
@@ -115,7 +110,7 @@ You can now build the package and run the launch file.
 
 .. code-block:: console
 
-   ros2 launch learning_tf2_cpp turtle_tf2_demo_launch.py
+   $ ros2 launch learning_tf2_cpp turtle_tf2_demo_launch.py
 
 You should notice that ``lookupTransform()`` will actually block until the transform between the two turtles becomes available (this will usually take a few milliseconds).
 Once the timeout has been reached (fifty milliseconds in this case), an exception will be raised only if the transform is still not available.

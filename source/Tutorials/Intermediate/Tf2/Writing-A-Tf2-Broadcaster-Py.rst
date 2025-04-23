@@ -45,13 +45,13 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the exampl
 
         .. code-block:: console
 
-            wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_broadcaster.py
+            $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_broadcaster.py
 
     .. group-tab:: macOS
 
         .. code-block:: console
 
-            wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_broadcaster.py
+            $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_broadcaster.py
 
     .. group-tab:: Windows
 
@@ -59,13 +59,13 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the exampl
 
         .. code-block:: console
 
-            curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_broadcaster.py -o turtle_tf2_broadcaster.py
+            $ curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_broadcaster.py -o turtle_tf2_broadcaster.py
 
         Or in powershell:
 
         .. code-block:: console
 
-            curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_broadcaster.py -o turtle_tf2_broadcaster.py
+            $ curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_broadcaster.py -o turtle_tf2_broadcaster.py
 
 Now open the file called ``turtle_tf2_broadcaster.py`` using your preferred text editor.
 
@@ -326,7 +326,7 @@ Run ``rosdep`` in the root of your workspace to check for missing dependencies.
 
       .. code-block:: console
 
-          rosdep install -i --from-path src --rosdistro {DISTRO} -y
+          $ rosdep install -i --from-path src --rosdistro {DISTRO} -y
 
    .. group-tab:: macOS
 
@@ -344,19 +344,19 @@ Still in the root of your workspace, build your package:
 
     .. code-block:: console
 
-        colcon build --packages-select learning_tf2_py
+        $ colcon build --packages-select learning_tf2_py
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-        colcon build --packages-select learning_tf2_py
+        $ colcon build --packages-select learning_tf2_py
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-        colcon build --merge-install --packages-select learning_tf2_py
+        $ colcon build --merge-install --packages-select learning_tf2_py
 
 Open a new terminal, navigate to the root of your workspace, and source the setup files:
 
@@ -366,23 +366,28 @@ Open a new terminal, navigate to the root of your workspace, and source the setu
 
     .. code-block:: console
 
-        . install/setup.bash
+        $ . install/setup.bash
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-        . install/setup.bash
+        $ . install/setup.bash
 
-  .. group-tab:: Windows
+   .. group-tab:: Windows
 
-    .. code-block:: console
+      In a Windows command line prompt:
 
-        # CMD
-        call install\setup.bat
+      .. code-block:: console
 
-        # Powershell
-        .\install\setup.ps1
+          $ call install\setup.bat
+
+      Or in powershell:
+
+      .. code-block:: console
+
+          $ .\install\setup.ps1
+
 
 4 Run
 ^^^^^
@@ -391,13 +396,13 @@ Now run the launch file that will start the turtlesim simulation node and ``turt
 
 .. code-block:: console
 
-    ros2 launch learning_tf2_py turtle_tf2_demo_launch.py
+    $ ros2 launch learning_tf2_py turtle_tf2_demo_launch.py
 
 In the second terminal window type the following command:
 
 .. code-block:: console
 
-    ros2 run turtlesim turtle_teleop_key
+    $ ros2 run turtlesim turtle_teleop_key
 
 You will now see that the turtlesim simulation has started with one turtle that you can control.
 
@@ -407,7 +412,7 @@ Now, use the ``tf2_echo`` tool to check if the turtle pose is actually getting b
 
 .. code-block:: console
 
-    ros2 run tf2_ros tf2_echo world turtle1
+    $ ros2 run tf2_ros tf2_echo world turtle1
 
 This should show you the pose of the first turtle.
 Drive around the turtle using the arrow keys (make sure your ``turtle_teleop_key`` terminal window is active, not your simulator window).
