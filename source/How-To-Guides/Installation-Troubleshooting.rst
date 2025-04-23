@@ -27,15 +27,15 @@ You can verify that your current setup allows multicast with the ROS 2 tool:
 
 In Terminal 1:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 multicast receive
+   $ ros2 multicast receive
 
 In Terminal 2:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 multicast send
+   $ ros2 multicast send
 
 If the first command did not return a response similar to:
 
@@ -45,10 +45,10 @@ If the first command did not return a response similar to:
 
 then you will need to update your firewall configuration to allow multicast using `ufw <https://help.ubuntu.com/community/UFW>`__.
 
-.. code-block:: bash
+.. code-block:: console
 
-   sudo ufw allow in proto udp to 224.0.0.0/4
-   sudo ufw allow in proto udp from 224.0.0.0/4
+   $ sudo ufw allow in proto udp to 224.0.0.0/4
+   $ sudo ufw allow in proto udp from 224.0.0.0/4
 
 
 You can check if the multicast flag is enabled for your network interface using the :code:`ifconfig` tool and looking for :code:`MULTICAST` in the flags section:
@@ -99,10 +99,10 @@ Exception sourcing setup.bash
 
 If you encounter exceptions when trying to source the environment after building from source, try to upgrade ``colcon`` related packages using
 
-.. code-block:: bash
+.. code-block:: console
 
-   colcon version-check  # check if newer versions available
-   sudo apt install python3-colcon* --only-upgrade  # upgrade installed colcon packages to latest version
+   $ colcon version-check  # check if newer versions available
+   $ sudo apt install python3-colcon* --only-upgrade  # upgrade installed colcon packages to latest version
 
 Mixing conda and apt Python Conflict
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -171,13 +171,13 @@ If you have opencv installed you might get this:
 
 If so, to build you'll have to do this:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ brew unlink libpng libtiff libjpeg
 
 But this will break opencv, so you'll also need to update it to continue working:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ sudo install_name_tool -change /usr/local/lib/libjpeg.8.dylib /usr/local/opt/jpeg/lib/libjpeg.8.dylib /usr/local/lib/libopencv_highgui.2.4.dylib
    $ sudo install_name_tool -change /usr/local/lib/libpng16.16.dylib /usr/local/opt/libpng/lib/libpng16.16.dylib /usr/local/lib/libopencv_highgui.2.4.dylib
@@ -203,13 +203,13 @@ To resolve this error, you will need to:
 
 1. Double check that you have the command line tool installed:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ xcode-select --install
 
 2. Accept the terms and conditions of Xcode by typing in terminal:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ sudo xcodebuild -license accept
 
@@ -217,7 +217,7 @@ To resolve this error, you will need to:
 
 4. Point ``xcode-select`` to the Xcode app Developer directory using the following command:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 
@@ -225,7 +225,7 @@ rosdep install error ``homebrew: Failed to detect successful installation of [qt
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 While following the :doc:`Creating a workspace <../Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>` tutorial, you might encounter the following error stating that ``rosdep`` fails to install Qt5.
 
-.. code-block:: bash
+.. code-block:: console
 
    $ rosdep install -i --from-path src --rosdistro {DISTRO} -y
    executing command [brew install qt5]
@@ -236,17 +236,17 @@ While following the :doc:`Creating a workspace <../Tutorials/Beginner-Client-Lib
 
 This error seems to stem from a `linking issue <https://github.com/ros-infrastructure/rosdep/issues/490#issuecomment-334959426>`__ and can be resolved by running the following command.
 
-.. code-block:: bash
+.. code-block:: console
 
    $ cd /usr/local/Cellar
-   $ sudo ln -s qt qt5
+   $ sudo ln -s qt qt5
 
 Running the ``rosdep`` command should now execute normally:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ rosdep install -i --from-path src --rosdistro {DISTRO} -y
-   #All required rosdeps installed successfully
+   All required rosdeps installed successfully
 
 
 .. _windows-troubleshooting:

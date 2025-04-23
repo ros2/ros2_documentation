@@ -19,9 +19,9 @@ The main entry point for the tools is the command ``ros2``, which itself has var
 
 To see all available sub-commands run:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 --help
+   $ ros2 --help
 
 Examples of sub-commands that are available include:
 

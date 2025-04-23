@@ -28,9 +28,9 @@ Creating a package
 
 All ROS 2 packages begin by running the command
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 pkg create --license Apache-2.0 <pkg-name> --dependencies [deps]
+   $ ros2 pkg create --license Apache-2.0 <pkg-name> --dependencies [deps]
 
 in your workspace (usually ``~/ros2_ws/src``).
 
@@ -42,13 +42,13 @@ To create a package for a specific client library:
 
     .. code-block:: bash
 
-       ros2 pkg create  --build-type ament_cmake --license Apache-2.0 <pkg-name> --dependencies [deps]
+       $ ros2 pkg create  --build-type ament_cmake --license Apache-2.0 <pkg-name> --dependencies [deps]
 
   .. group-tab:: Python
 
     .. code-block:: bash
 
-       ros2 pkg create  --build-type ament_python --license Apache-2.0 <pkg-name> --dependencies [deps]
+       $ ros2 pkg create  --build-type ament_python --license Apache-2.0 <pkg-name> --dependencies [deps]
 
 You can then update the ``package.xml`` with your package info such as dependencies, descriptions, and authorship.
 

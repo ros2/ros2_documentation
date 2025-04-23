@@ -229,9 +229,9 @@ Passing an argument to the launch file
 In the XML launch file above, the ``topic_name`` defaults to the name ``chatter``, but can be configured on the command-line.
 Assuming the above launch configuration is in a file named ``mylaunch.xml``, a different topic name can be used by launching it with the following:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 launch mylaunch.xml topic_name:=custom_topic_name
+   $ ros2 launch mylaunch.xml topic_name:=custom_topic_name
 
 There is some additional information about passing command-line arguments in :doc:`Using Substitutions <../../../Tutorials/Intermediate/Launch/Using-Substitutions>`.
 

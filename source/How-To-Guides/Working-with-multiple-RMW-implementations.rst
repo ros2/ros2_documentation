@@ -115,9 +115,9 @@ For example, if you run:
 
 and
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 node list
+   $ ros2 node list
 
 it will generate a daemon with a Fast DDS implementation:
 
@@ -129,9 +129,9 @@ Even if you run the command line tool again with the correct RMW implementation,
 
 To solve this, simply stop the daemon process:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 daemon stop
+   $ ros2 daemon stop
 
 and rerun the ROS 2 command line tool with the correct RMW implementation.
 
@@ -154,11 +154,11 @@ To increase the settings temporarily, you can run the following commands as user
 
 .. code-block:: console
 
-   /usr/sbin/sysctl -w kern.sysv.shmmax=419430400
-   /usr/sbin/sysctl -w kern.sysv.shmmin=1
-   /usr/sbin/sysctl -w kern.sysv.shmmni=128
-   /usr/sbin/sysctl -w kern.sysv.shmseg=1024
-   /usr/sbin/sysctl -w kern.sysv.shmall=262144
+   $ /usr/sbin/sysctl -w kern.sysv.shmmax=419430400
+   $ /usr/sbin/sysctl -w kern.sysv.shmmin=1
+   $ /usr/sbin/sysctl -w kern.sysv.shmmni=128
+   $ /usr/sbin/sysctl -w kern.sysv.shmseg=1024
+   $ /usr/sbin/sysctl -w kern.sysv.shmall=262144
 
 To increase the settings permanently, you will need to edit or create the file ``/etc/sysctl.conf``.
 Creating or editing this file will require root permissions.
