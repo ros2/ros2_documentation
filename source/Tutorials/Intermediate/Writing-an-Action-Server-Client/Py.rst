@@ -217,7 +217,8 @@ Let's test our action client by first running the action server built earlier:
 
       $ python fibonacci_action_server.py
 
-In another terminal, run the action client:
+In another terminal, run the action client.
+You should see messages printed by the action server as it successfully executes the goal:
 
 .. tabs::
 
