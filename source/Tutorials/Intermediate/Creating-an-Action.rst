@@ -155,10 +155,8 @@ We should now be able to build the package containing the ``Fibonacci`` action d
 
 .. code-block:: console
 
-    # Change to the root of the workspace
-    $ cd ~/ros2_ws
-    # Build
-    $ colcon build
+    $ cd ~/ros2_ws # Change to the root of the workspace
+    $ colcon build # Build
 
 We're done!
 
