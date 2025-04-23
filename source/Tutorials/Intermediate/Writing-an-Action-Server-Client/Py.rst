@@ -85,27 +85,27 @@ Let's try running our action server:
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      python3 fibonacci_action_server.py
+      $ python3 fibonacci_action_server.py
 
   .. group-tab:: macOS
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      python3 fibonacci_action_server.py
+      $ python3 fibonacci_action_server.py
 
   .. group-tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      python fibonacci_action_server.py
+      $ python fibonacci_action_server.py
 
 In another terminal, we can use the command line interface to send a goal:
 
-.. code-block:: bash
+.. code-block:: console
 
-    ros2 action send_goal fibonacci custom_action_interfaces/action/Fibonacci "{order: 5}"
+    $ ros2 action send_goal fibonacci custom_action_interfaces/action/Fibonacci "{order: 5}"
 
 In the terminal that is running the action server, you should see a logged message "Executing goal..." followed by a warning that the goal state was not set.
 By default, if the goal handle state is not set in the execute callback it assumes the *aborted* state.
@@ -146,9 +146,9 @@ After every update of the feedback message in the for-loop, we publish the feedb
 
 After restarting the action server, we can confirm that feedback is now published by using the command line tool with the ``--feedback`` option:
 
-.. code-block:: bash
+.. code-block:: console
 
-    ros2 action send_goal --feedback fibonacci custom_action_interfaces/action/Fibonacci "{order: 5}"
+    $ ros2 action send_goal --feedback fibonacci custom_action_interfaces/action/Fibonacci "{order: 5}"
 
 2 Writing an action client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -201,54 +201,64 @@ Let's test our action client by first running the action server built earlier:
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      python3 fibonacci_action_server.py
+      $ python3 fibonacci_action_server.py
 
   .. group-tab:: macOS
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      python3 fibonacci_action_server.py
+      $ python3 fibonacci_action_server.py
 
   .. group-tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      python fibonacci_action_server.py
+      $ python fibonacci_action_server.py
 
-In another terminal, run the action client:
+In another terminal, run the action client.
+You should see messages printed by the action server as it successfully executes the goal:
 
 .. tabs::
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      python3 fibonacci_action_client.py
+      $ python3 fibonacci_action_client.py
+      [INFO] [fibonacci_action_server]: Executing goal...
+      [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1])
+      [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2])
+      [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2, 3])
+      [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2, 3, 5])
+      # etc.
+
 
   .. group-tab:: macOS
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      python3 fibonacci_action_client.py
+      $ python3 fibonacci_action_client.py
+      [INFO] [fibonacci_action_server]: Executing goal...
+      [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1])
+      [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2])
+      [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2, 3])
+      [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2, 3, 5])
+      # etc.
+
 
   .. group-tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      python fibonacci_action_client.py
-
-You should see messages printed by the action server as it successfully executes the goal:
-
-.. code-block:: bash
-
-  [INFO] [fibonacci_action_server]: Executing goal...
-  [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1])
-  [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2])
-  [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2, 3])
-  [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2, 3, 5])
-  # etc.
+      $ python fibonacci_action_client.py
+      [INFO] [fibonacci_action_server]: Executing goal...
+      [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1])
+      [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2])
+      [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2, 3])
+      [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2, 3, 5])
+      # etc.
 
 The action client should start up, and then quickly finish.
 At this point, we have a functioning action client, but we don't see any results or get any feedback.
@@ -301,21 +311,21 @@ With an action server running in a separate terminal, go ahead and try running o
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      python3 fibonacci_action_client.py
+      $ python3 fibonacci_action_client.py
 
   .. group-tab:: macOS
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      python3 fibonacci_action_client.py
+      $ python3 fibonacci_action_client.py
 
   .. group-tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      python fibonacci_action_client.py
+      $ python fibonacci_action_client.py
 
 You should see logged messages for the goal being accepted and the final result.
 

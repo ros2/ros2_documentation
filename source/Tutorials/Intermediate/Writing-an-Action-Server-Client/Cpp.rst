@@ -48,24 +48,24 @@ Go into the action workspace you created in the :doc:`previous tutorial <../Crea
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      cd ~/ros2_ws/src
-      ros2 pkg create --dependencies custom_action_interfaces rclcpp rclcpp_action rclcpp_components --license Apache-2.0 -- custom_action_cpp
+      $ cd ~/ros2_ws/src
+      $ ros2 pkg create --dependencies custom_action_interfaces rclcpp rclcpp_action rclcpp_components --license Apache-2.0 -- custom_action_cpp
 
   .. group-tab:: macOS
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      cd ~/ros2_ws/src
-      ros2 pkg create --dependencies custom_action_interfaces rclcpp rclcpp_action rclcpp_components --license Apache-2.0 -- custom_action_cpp
+      $ cd ~/ros2_ws/src
+      $ ros2 pkg create --dependencies custom_action_interfaces rclcpp rclcpp_action rclcpp_components --license Apache-2.0 -- custom_action_cpp
 
   .. group-tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      cd \ros2_ws\src
-      ros2 pkg create --dependencies custom_action_interfaces rclcpp rclcpp_action rclcpp_components --license Apache-2.0 -- custom_action_cpp
+      $ cd \ros2_ws\src
+      $ ros2 pkg create --dependencies custom_action_interfaces rclcpp rclcpp_action rclcpp_components --license Apache-2.0 -- custom_action_cpp
 
 1.2 Adding in visibility control
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -236,9 +236,9 @@ Open up ``custom_action_cpp/CMakeLists.txt``, and add the following right after 
 And now we can compile the package.
 Go to the top-level of the ``ros2_ws``, and run:
 
-.. code-block:: bash
+.. code-block:: console
 
-  colcon build
+  $ colcon build
 
 This should compile the entire workspace, including the ``fibonacci_action_server`` in the ``custom_action_cpp`` package.
 
@@ -248,9 +248,9 @@ This should compile the entire workspace, including the ``fibonacci_action_serve
 Now that we have the action server built, we can run it.
 Source the workspace we just built (``ros2_ws``), and try to run the action server:
 
-.. code-block:: bash
+.. code-block:: console
 
-  ros2 run custom_action_cpp fibonacci_action_server
+  $ ros2 run custom_action_cpp fibonacci_action_server
 
 3 Writing an action client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -366,9 +366,9 @@ Open up ``custom_action_cpp/CMakeLists.txt``, and add the following right after 
 And now we can compile the package.
 Go to the top-level of the ``ros2_ws``, and run:
 
-.. code-block:: bash
+.. code-block:: console
 
-  colcon build
+  $ colcon build
 
 This should compile the entire workspace, including the ``fibonacci_action_client`` in the ``custom_action_cpp`` package.
 
@@ -379,9 +379,9 @@ Now that we have the action client built, we can run it.
 First make sure that an action server is running in a separate terminal.
 Now source the workspace we just built (``ros2_ws``), and try to run the action client:
 
-.. code-block:: bash
+.. code-block:: console
 
-  ros2 run custom_action_cpp fibonacci_action_client
+  $ ros2 run custom_action_cpp fibonacci_action_client
 
 You should see logged messages for the goal being accepted, feedback being printed, and the final result.
 
