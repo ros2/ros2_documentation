@@ -578,13 +578,8 @@ For example:
 
 .. code-block:: console
 
-<<<<<<< HEAD
-   $ . install/setup.sh
-   $ ros2 launch demo_nodes_cpp talker_listener.launch.py
-=======
    root@ros2-deployment-xxxxxxxx:/opt/ros/overlay_ws# . install/setup.sh
    root@ros2-deployment-xxxxxxxx:/opt/ros/overlay_ws# ros2 launch demo_nodes_cpp talker_listener_launch.py
->>>>>>> 5cf6298 (Keep information before command prompt symbol in misc tutorial (#5323))
 
 Final Remarks
 ---------------
