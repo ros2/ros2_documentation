@@ -574,12 +574,12 @@ parameters of your cluster as well as its CPU and Memory Usage.
 
 Now you are inside your docker image!
 You can source your workspace (if needed) and run ROS 2!
-For example (assuming you cd to ``root@ros2-deployment-xxxxxxxx:/opt/ros/overlay_ws#``):
+For example:
 
 .. code-block:: console
 
-   $ . install/setup.sh
-   $ ros2 launch demo_nodes_cpp talker_listener_launch.py
+   root@ros2-deployment-xxxxxxxx:/opt/ros/overlay_ws# . install/setup.sh
+   root@ros2-deployment-xxxxxxxx:/opt/ros/overlay_ws# ros2 launch demo_nodes_cpp talker_listener_launch.py
 
 Final Remarks
 ---------------
