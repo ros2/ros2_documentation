@@ -10,7 +10,7 @@ For more information about GurumDDS, visit the `GurumNetworks website <https://g
 
 Prerequisites
 -------------
-This guide assumes you have completed the ROS 2 environment setup process, either by :doc:`Installing ROS 2 via Deb Packages <../Ubuntu-Install-Debs>` or :doc:`Building ROS 2 from source on Ubuntu <../Alternatives/Ubuntu-Development-Setup>`.
+This guide assumes you have completed the ROS 2 environment setup process, either by :doc:`Installing ROS 2 via Deb Packages <../../Ubuntu-Install-Debs>` or :doc:`Building ROS 2 from source on Ubuntu <../../Alternatives/Ubuntu-Development-Setup>`.
 
 Version Requirements (`see the README for details <https://github.com/ros2/rmw_gurumdds>`_):
 
@@ -57,7 +57,7 @@ Option 2: Build from source code
    cd ..
    rosdep install --from src -i --rosdistro {DISTRO}
 
-3. Build the worksapce using Colcon:
+3. Build the workspace using Colcon:
 
 .. code-block:: bash
 
@@ -72,8 +72,7 @@ Switch from other RMW implementations to rmw_gurumdds by setting the environment
 
    export RMW_IMPLEMENTATION=rmw_gurumdds_cpp
 
-For more information on working with multiple RMW implementations, see :doc:`Working with multiple RMW implementations <../../How-To-Guides/Working-with-multiple-RMW-implementations>`.
-
+For more information on working with multiple RMW implementations, see :doc:`Working with multiple RMW implementations <../../../How-To-Guides/Working-with-multiple-RMW-implementations>`.
 
 Testing the installation
 ------------------------
