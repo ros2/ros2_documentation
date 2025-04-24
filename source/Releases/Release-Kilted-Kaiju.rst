@@ -104,7 +104,7 @@ Design document https://github.com/ros2/rosbag2/pull/1928.
 Added ``rosidl_rust``
 """""""""""""""""""""
 
-A RUST idl generator was added as part of the default code generators.
+A Rust idl generator was added to the list of default code generators.
 
 See https://github.com/ros2/ros2/pull/1674 for more details.
 
