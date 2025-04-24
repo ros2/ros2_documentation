@@ -47,7 +47,7 @@ New features in this ROS 2 release
 Add rmw_test_fixture for supporting RMW-isolated testing
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-Included two new packages which provide a extensible mechanism for creating a test fixture for RMW-based communication isolation.
+Included two new packages which provide an extensible mechanism for creating a test fixture for RMW-based communication isolation.
 It is modeled closely after the rmw and rmw_implementation API.
 
 The ``rmw_test_fixture`` package currently provides only the API, which could be implemented by an RMW provider for configuring their RMW for a test to run.
