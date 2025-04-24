@@ -183,7 +183,7 @@ Renaming package from fastrtps to fastdds
 ``fastrtps`` was renamed to ``fastdds`` rmw's stay the same.
 XML Profile ENV strings will change.
 
-See https://github.com/ros2/ros2/pull/1641 for more details
+See https://github.com/ros2/ros2/pull/1641 for more details.
 
 ament_target_dependencies is deprecated
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
