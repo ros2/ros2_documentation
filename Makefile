@@ -8,7 +8,7 @@ ifeq ($(OS),Windows_NT)
     PYTHON := python
 endif
 BUILD      = $(PYTHON) -m sphinx
-OPTS       =-c .
+OPTS       =-c . -W # Treat warnings as errors
 
 help:
 	@$(BUILD) -M help "$(SOURCE)" "$(OUT)" $(OPTS)

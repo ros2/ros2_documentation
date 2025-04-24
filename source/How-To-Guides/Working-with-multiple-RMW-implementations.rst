@@ -22,7 +22,7 @@ Specifying RMW implementations
 ------------------------------
 
 To have multiple RMW implementations available for use you must have installed the ROS 2 binaries and any additional dependencies for specific RMW implementations, or built ROS 2 from source with multiple RMW implementations in the workspace (the RMW implementations are included in the build by default if their compile-time dependencies are met).
-See :doc:`Install DDS implementations <../Installation/DDS-Implementations>`.
+See :doc:`Install RMW implementations <../Installation/RMW-Implementations>`.
 
 ----
 
@@ -67,7 +67,7 @@ Adding RMW implementations to your workspace
 --------------------------------------------
 
 Additional DDS and RMW implementations can be added to your workspace by installing the necessary dependencies and rebuilding the workspace.
-See the :doc:`DDS implementations <../Installation/DDS-Implementations>` page for more information about installing the available DDS options.
+See the :doc:`RMW implementations <../Installation/RMW-Implementations>` page for more information about installing the available DDS options.
 
 Suppose that you have built your ROS 2 workspace with only Fast DDS installed and therefore only the Fast DDS RMW implementation built.
 The last time your workspace was built, any other RMW implementation packages, ``rmw_connextdds`` for example, were probably unable to find installations of the relevant DDS implementations.
