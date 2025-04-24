@@ -41,8 +41,150 @@ TODO
 New features in this ROS 2 release
 ----------------------------------
 
+``ament_cmake_ros``
+^^^^^^^^^^^^^^^^^^^
+
+Add rmw_test_fixture for supporting RMW-isolated testing
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Included two new packages which provide an extensible mechanism for creating a test fixture for RMW-based communication isolation.
+It is modeled closely after the rmw and rmw_implementation API.
+
+The ``rmw_test_fixture`` package currently provides only the API, which could be implemented by an RMW provider for configuring their RMW for a test to run.
+
+The ``rmw_test_fixture_implementation`` package provides the entry point for discovering, loading, and invoking the appropriate extension.
+
+See https://github.com/ros2/ament_cmake_ros/pull/21 for more details.
+
+``common_interfaces``
+^^^^^^^^^^^^^^^^^^^^^
+
+New PoseStampedArray message
+""""""""""""""""""""""""""""
+
+Added a pose stamped array message to nav_msgs.
+
+See https://github.com/ros2/common_interfaces/pull/240 for more details.
+
+``ros2cli``
+^^^^^^^^^^^
+
+Action introspection
+""""""""""""""""""""
+
+This allows to instrospect an action with the command line.
+Using ``ros2cli`` tools: ``ros2 action echo <action name>``.
+
+See https://github.com/ros2/ros2cli/pull/978 for more information.
+
+``rclcpp``
+^^^^^^^^^^
+
+Action generic client
+"""""""""""""""""""""
+
+Support action generic client, this is used to support actions in rosbag2.
+
+See https://github.com/ros2/rclcpp/pull/2759 for more details.
+
+``rosbag2``
+^^^^^^^^^^^
+
+Action introspection rosbag2 support
+""""""""""""""""""""""""""""""""""""
+
+Allow to record and play actions from a rosbag.
+
+See https://github.com/ros2/rosbag2/pull/1955 for more information.
+Design document https://github.com/ros2/rosbag2/pull/1928.
+
+``rosidl_rust``
+^^^^^^^^^^^^^^^
+
+Added ``rosidl_rust``
+"""""""""""""""""""""
+
+A Rust idl generator was added to the list of default code generators.
+
+See https://github.com/ros2/ros2/pull/1674 for more details.
+
+``ros2``
+^^^^^^^^
+
+Switch to using Pixi/Conda for Windows
+""""""""""""""""""""""""""""""""""""""
+
+This allows to easily manage dependencies, and to update them in the future.
+The installation process is significantly simplified.
+Instead of dozens of steps to install dependencies, it is just a couple of commands.
+It is much easier to update dependencies.
+The dependencies are installed in individual workspaces, with no “global” installation.
+
+See https://github.com/ros2/ci/pull/802 and https://github.com/ros2/ros2/pull/1642 for more details.
+Visit :doc:`Windows source install instructions <../Installation/Alternatives/Windows-Development-Setup>` to install it on Windows.
+
+Support topic instances in DDS topics
+"""""""""""""""""""""""""""""""""""""
+
+Topic instances are a way of multiplexing the transmission of updates of several objects of the same logical kind over the same resource, i.e. the topic.
+
+See https://github.com/ros2/ros2/issues/1538 for more information.
+You can also check the documentation: https://github.com/ros2/design/pull/340/files.
+
 Changes since the Jazzy release
 -------------------------------
+
+``common_interfaces``
+^^^^^^^^^^^^^^^^^^^^^
+
+Added NV12 to pixel formats
+"""""""""""""""""""""""""""
+
+Added NV12 to pixel formats, which is a common output format of hardware-accelerated decoders
+
+See https://github.com/ros2/common_interfaces/pull/253 for more details.
+
+``rmw_connextdds_cpp``
+^^^^^^^^^^^^^^^^^^^^^^
+
+Version bumped to 7.3
+"""""""""""""""""""""
+
+The RTI Connext DDS version was bumped to 7.3.0.
+
+See https://github.com/ros2/ci/pull/811 for more details.
+
+``Connextmicro``
+^^^^^^^^^^^^^^^^
+
+deprecated Connextmicro
+"""""""""""""""""""""""
+
+The RTI Connext Micro RMW package, ``rmw_connextddsmicro``, is going to stop receiving updates in Kilted Kaiju, and be removed in a future ROS 2 release.
+
+See https://github.com/ros2/rmw_connextdds/pull/182 for more information.
+
+``rosidl_dynamic_typesupport``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Removing support for float128
+"""""""""""""""""""""""""""""
+
+Removed support for float128 because there are inconsistencies in the definition.
+
+See https://github.com/ros2/rosidl_dynamic_typesupport/issues/11 for more details.
+
+``rmw_fastrtps_cpp``
+^^^^^^^^^^^^^^^^^^^^
+
+Renaming package from fastrtps to fastdds
+"""""""""""""""""""""""""""""""""""""""""
+
+``fastrtps`` was renamed to ``fastdds``.
+The names of the rmw implementations stay the same.
+XML Profile ENV strings will change.
+
+See https://github.com/ros2/ros2/pull/1641 for more details.
 
 ament_target_dependencies is deprecated
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -84,6 +226,25 @@ If the ``model`` launch configuration was set to ``my_model``, this would result
     'robot_description/urdf/my_model.xacro'
 
 For more information, see `ros2/launch#835 <https://github.com/ros2/launch/issues/835>`__ and `ros2/launch#838 <https://github.com/ros2/launch/pull/838>`__.
+
+``rmw_zenoh_cpp``
+^^^^^^^^^^^^^^^^^
+
+``Tier 1``
+""""""""""
+
+The ``rmw_zenoh_cpp`` is now considered Tier 1.
+There are many PRs (summarized in `ros2/rmw_zenoh#265 <https://github.com/ros2/rmw_zenoh/issues/265>`__) in the ROS 2 core packages, such as:
+
+  * Make the rmw pass all core tests.
+  * Implement and document security
+  * Make it work in the Tier 1 platforms.
+  * Added Quality declarations
+  * Added to REP 2005
+  * A dedicated nightly CI job
+  * Among others
+
+For more information see https://github.com/ros2/rmw_zenoh/issues/265.
 
 Development progress
 --------------------
