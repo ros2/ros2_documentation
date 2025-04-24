@@ -16,7 +16,7 @@ Options for installing ROS 2 {DISTRO_TITLE_FULL}:
    Installation/Alternatives
    Installation/Maintaining-a-Source-Checkout
    Installation/Testing
-   Installation/DDS-Implementations
+   Installation/RMW-Implementations
 
 Binary packages
 ---------------
