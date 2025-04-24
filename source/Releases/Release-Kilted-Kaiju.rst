@@ -69,6 +69,9 @@ See https://github.com/ros2/common_interfaces/pull/240 for more details.
 ``ros2cli``
 ^^^^^^^^^^^
 
+Action introspection
+""""""""""""""""""""
+
 This allows to instrospect an action with the command line.
 Using ``ros2cli`` tools: ``ros2 action echo <action name>``.
 
