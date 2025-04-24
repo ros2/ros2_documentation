@@ -150,7 +150,7 @@ See https://github.com/ros2/common_interfaces/pull/253 for more details.
 Version bumped to 7.3
 """""""""""""""""""""
 
-Connext version was bumped to 7.3.
+The RTI Connext DDS version was bumped to 7.3.0.
 
 See https://github.com/ros2/ci/pull/811 for more details
 
