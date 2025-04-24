@@ -160,7 +160,7 @@ See https://github.com/ros2/ci/pull/811 for more details
 deprecated Connextmicro
 """""""""""""""""""""""
 
-The Connext Micro RMW package, ``rmw_connextddsmicro``, is going to stop receiving updates in Kilted Kaiju, and be removed in a future ROS 2 release.
+The RTI Connext Micro RMW package, ``rmw_connextddsmicro``, is going to stop receiving updates in Kilted Kaiju, and be removed in a future ROS 2 release.
 
 See https://github.com/ros2/rmw_connextdds/pull/182 for more information
 
