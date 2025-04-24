@@ -88,7 +88,7 @@ Install additional DDS implementations (optional)
 
 Fast DDS is bundled with the ROS 2 source and will always be built unless you put an ``COLCON_IGNORE`` file in the ``src\eProsima`` folder.
 
-If you would like to use another DDS or RTPS vendor besides the default, you can find instructions :doc:`here <../DDS-Implementations>`.
+If you would like to use another DDS or RTPS vendor besides the default, you can find instructions :doc:`here <../RMW-Implementations>`.
 
 Build the ROS 2 code
 --------------------
