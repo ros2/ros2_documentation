@@ -57,13 +57,13 @@ Inside the ``src`` directory download the fixed frame broadcaster code by enteri
 
       .. code-block:: console
 
-          wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/fixed_frame_tf2_broadcaster.cpp
+          $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/fixed_frame_tf2_broadcaster.cpp
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-          wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/fixed_frame_tf2_broadcaster.cpp
+          $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/fixed_frame_tf2_broadcaster.cpp
 
    .. group-tab:: Windows
 
@@ -71,13 +71,13 @@ Inside the ``src`` directory download the fixed frame broadcaster code by enteri
 
       .. code-block:: console
 
-          curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/fixed_frame_tf2_broadcaster.cpp -o fixed_frame_tf2_broadcaster.cpp
+          $ curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/fixed_frame_tf2_broadcaster.cpp -o fixed_frame_tf2_broadcaster.cpp
 
       Or in powershell:
 
       .. code-block:: console
 
-          curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/fixed_frame_tf2_broadcaster.cpp -o fixed_frame_tf2_broadcaster.cpp
+          $ curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/fixed_frame_tf2_broadcaster.cpp -o fixed_frame_tf2_broadcaster.cpp
 
 Now open the file called ``fixed_frame_tf2_broadcaster.cpp``.
 
@@ -206,7 +206,7 @@ Run ``rosdep`` in the root of your workspace to check for missing dependencies.
 
       .. code-block:: console
 
-          rosdep install -i --from-path src --rosdistro {DISTRO} -y
+          $ rosdep install -i --from-path src --rosdistro {DISTRO} -y
 
    .. group-tab:: macOS
 
@@ -224,19 +224,19 @@ Still in the root of your workspace, build your package:
 
       .. code-block:: console
 
-          colcon build --packages-select learning_tf2_cpp
+          $ colcon build --packages-select learning_tf2_cpp
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-          colcon build --packages-select learning_tf2_cpp
+          $ colcon build --packages-select learning_tf2_cpp
 
    .. group-tab:: Windows
 
       .. code-block:: console
 
-          colcon build --merge-install --packages-select learning_tf2_cpp
+          $ colcon build --merge-install --packages-select learning_tf2_cpp
 
 Open a new terminal, navigate to the root of your workspace, and source the setup files:
 
@@ -246,23 +246,27 @@ Open a new terminal, navigate to the root of your workspace, and source the setu
 
       .. code-block:: console
 
-          . install/setup.bash
+          $ . install/setup.bash
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-          . install/setup.bash
+          $ . install/setup.bash
 
    .. group-tab:: Windows
 
-      .. code-block:: console
+        In a Windows command line prompt:
 
-          # CMD
-          call install\setup.bat
+        .. code-block:: console
 
-          # Powershell
-          .\install\setup.ps1
+            $ call install\setup.bat
+
+        Or in powershell:
+
+        .. code-block:: console
+
+            $ .\install\setup.ps1
 
 1.5 Run
 ~~~~~~~
@@ -271,7 +275,7 @@ Now you can start the turtle broadcaster demo:
 
 .. code-block:: console
 
-    ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo_launch.py
+    $ ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo_launch.py
 
 You should notice that the new ``carrot1`` frame appeared in the transformation tree.
 
@@ -505,13 +509,17 @@ Open a new terminal, navigate to the root of your workspace, and source the setu
 
    .. group-tab:: Windows
 
+      In a Windows command line prompt:
+
       .. code-block:: console
 
-          # CMD
-          call install\setup.bat
+          $ call install\setup.bat
 
-          # Powershell
-          .\install\setup.ps1
+      Or in powershell:
+
+      .. code-block:: console
+
+          $ .\install\setup.ps1
 
 2.5 Run
 ~~~~~~~
@@ -520,7 +528,7 @@ Now you can start the dynamic frame demo:
 
 .. code-block:: console
 
-    ros2 launch learning_tf2_cpp turtle_tf2_dynamic_frame_demo_launch.py
+    $ ros2 launch learning_tf2_cpp turtle_tf2_dynamic_frame_demo_launch.py
 
 You should see that the second turtle is following the carrot's position that is constantly changing.
 

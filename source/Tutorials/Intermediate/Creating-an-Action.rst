@@ -45,27 +45,27 @@ Tasks
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      mkdir -p ~/ros2_ws/src # you can reuse an existing workspace with this naming convention
-      cd ~/ros2_ws/src
-      ros2 pkg create --license Apache-2.0 custom_action_interfaces
+      $ mkdir -p ~/ros2_ws/src # you can reuse an existing workspace with this naming convention
+      $ cd ~/ros2_ws/src
+      $ ros2 pkg create --license Apache-2.0 custom_action_interfaces
 
   .. group-tab:: macOS
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      mkdir -p ~/ros2_ws/src
-      cd ~/ros2_ws/src
-      ros2 pkg create --license Apache-2.0 custom_action_interfaces
+      $ mkdir -p ~/ros2_ws/src
+      $ cd ~/ros2_ws/src
+      $ ros2 pkg create --license Apache-2.0 custom_action_interfaces
 
   .. group-tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      md \ros2_ws\src
-      cd \ros2_ws\src
-      ros2 pkg create --license Apache-2.0 custom_action_interfaces
+      $ md \ros2_ws\src
+      $ cd \ros2_ws\src
+      $ ros2 pkg create --license Apache-2.0 custom_action_interfaces
 
 
 2 Defining an action
@@ -97,28 +97,28 @@ Create an ``action`` directory in our ROS 2 package ``custom_action_interfaces``
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      cd custom_action_interfaces
-      mkdir action
+      $ cd custom_action_interfaces
+      $ mkdir action
 
   .. group-tab:: macOS
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      cd custom_action_interfaces
-      mkdir action
+      $ cd custom_action_interfaces
+      $ mkdir action
 
   .. group-tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      cd custom_action_interfaces
-      md action
+      $ cd custom_action_interfaces
+      $ md action
 
 Within the ``action`` directory, create a file called ``Fibonacci.action`` with the following contents:
 
-.. code-block:: console
+.. code-block:: bash
 
   int32 order
   ---
@@ -153,12 +153,10 @@ We should also add the required dependencies to our ``package.xml``:
 
 We should now be able to build the package containing the ``Fibonacci`` action definition:
 
-.. code-block:: bash
+.. code-block:: console
 
-    # Change to the root of the workspace
-    cd ~/ros2_ws
-    # Build
-    colcon build
+    $ cd ~/ros2_ws # Change to the root of the workspace
+    $ colcon build # Build
 
 We're done!
 
@@ -172,27 +170,27 @@ First source our workspace:
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      source install/local_setup.bash
+      $ source install/local_setup.console
 
   .. group-tab:: macOS
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      source install/local_setup.bash
+      $ source install/local_setup.console
 
   .. group-tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      call install\local_setup.bat
+      $ call install\local_setup.bat
 
 Now check that our action definition exists:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 interface show custom_action_interfaces/action/Fibonacci
+   $ ros2 interface show custom_action_interfaces/action/Fibonacci
 
 You should see the Fibonacci action definition printed to the screen.
 

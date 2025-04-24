@@ -44,9 +44,9 @@ Go to your ROS 2 workplace and create a package names ``urdf_tutorial_cpp``:
 
 .. code-block:: console
 
-    cd src
-    ros2 pkg create --build-type ament_cmake --license Apache-2.0 urdf_tutorial_cpp --dependencies rclcpp
-    cd urdf_tutorial_cpp
+    $ cd src
+    $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 urdf_tutorial_cpp --dependencies rclcpp
+    $ cd urdf_tutorial_cpp
 
 You should now see a ``urdf_tutorial_cpp`` folder.
 Next you will make several changes to it.
@@ -62,19 +62,19 @@ Create the directory where we will store some assets:
 
     .. code-block:: console
 
-      mkdir -p urdf
+      $ mkdir -p urdf
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      mkdir -p urdf
+      $ mkdir -p urdf
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      md urdf
+      $ md urdf
 
 Download the :download:`URDF file <documents/r2d2.urdf.xml>` and save it as ``urdf_tutorial_cpp/urdf/r2d2.urdf.xml``.
 Download the :download:`Rviz configuration file <documents/r2d2.rviz>` and save it as ``urdf_tutorial_cpp/urdf/r2d2.rviz``.
@@ -270,7 +270,7 @@ To visualize the results you will need to open a new terminal and run RViz using
 
 .. code-block:: console
 
-    colcon build --symlink-install --packages-select urdf_tutorial_cpp
+    $ colcon build --symlink-install --packages-select urdf_tutorial_cpp
 
 Source the setup files:
 
@@ -280,19 +280,19 @@ Source the setup files:
 
     .. code-block:: console
 
-      source install/setup.bash
+      $ source install/setup.bash
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      source install/setup.bash
+      $ source install/setup.bash
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      call install/setup.bat
+      $ call install/setup.bat
 
 
 7 View the results
@@ -302,13 +302,13 @@ To launch your new package run the following command:
 
 .. code-block:: console
 
-  ros2 launch urdf_tutorial_cpp launch.py
+  $ ros2 launch urdf_tutorial_cpp launch.py
 
 To visualize your results you will need to open a new terminal and run Rviz using your rviz configuration file.
 
 .. code-block:: console
 
-  rviz2 -d install/urdf_tutorial_cpp/share/urdf_tutorial_cpp/urdf/r2d2.rviz
+  $ rviz2 -d install/urdf_tutorial_cpp/share/urdf_tutorial_cpp/urdf/r2d2.rviz
 
 See the `User Guide <http://wiki.ros.org/rviz/UserGuide>`__ for details on how to use Rviz.
 

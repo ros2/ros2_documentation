@@ -24,15 +24,15 @@ Startup
 -------
 Don't forget to source the setup file.
 
-.. code-block:: bash
+.. code-block:: console
 
-   source /opt/ros/{DISTRO}/setup.bash
+   $ source /opt/ros/{DISTRO}/setup.bash
 
 Then start the visualizer
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 run rviz2 rviz2
+   $ ros2 run rviz2 rviz2
 
 When RViz starts for the first time, you will see this window:
 

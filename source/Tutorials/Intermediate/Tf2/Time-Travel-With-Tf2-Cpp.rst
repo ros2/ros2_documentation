@@ -53,7 +53,7 @@ Build the package then let's just give it a try:
 
 .. code-block:: console
 
-    ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo_launch.py
+    $ ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo_launch.py
 
 .. image:: images/turtlesim_delay1.png
 
@@ -112,7 +112,7 @@ Build the package then let's run the simulation again, this time with the advanc
 
 .. code-block:: console
 
-    ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo_launch.py
+    $ ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo_launch.py
 
 .. image:: images/turtlesim_delay2.png
 

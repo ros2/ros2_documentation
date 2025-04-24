@@ -115,7 +115,7 @@ You can either install ``webots_ros2`` from the official released package, or in
 
         .. code-block:: console
 
-            sudo apt-get install ros-{DISTRO}-webots-ros2
+            $ sudo apt-get install ros-{DISTRO}-webots-ros2
 
     .. group-tab:: Install ``webots_ros2`` from sources
 
@@ -123,46 +123,46 @@ You can either install ``webots_ros2`` from the official released package, or in
 
         .. code-block:: console
 
-            sudo apt-get install git
+            $ sudo apt-get install git
 
         Create a ROS 2 workspace with its ``src`` directory.
 
         .. code-block:: console
 
-            mkdir -p ~/ros2_ws/src
+            $ mkdir -p ~/ros2_ws/src
 
         Source the ROS 2 environment.
 
         .. code-block:: console
 
-            source /opt/ros/{DISTRO}/setup.bash
+            $ source /opt/ros/{DISTRO}/setup.bash
 
         Retrieve the sources from Github.
 
         .. code-block:: console
 
-            cd ~/ros2_ws
-            git clone --recurse-submodules https://github.com/cyberbotics/webots_ros2.git src/webots_ros2
+            $ cd ~/ros2_ws
+            $ git clone --recurse-submodules https://github.com/cyberbotics/webots_ros2.git src/webots_ros2
 
         Install the package dependencies.
 
         .. code-block:: console
 
-            sudo apt install python3-pip python3-rosdep python3-colcon-common-extensions
-            sudo rosdep init && rosdep update
-            rosdep install --from-paths src --ignore-src --rosdistro {DISTRO}
+            $ sudo apt install python3-pip python3-rosdep python3-colcon-common-extensions
+            $ sudo rosdep init && rosdep update
+            $ rosdep install --from-paths src --ignore-src --rosdistro {DISTRO}
 
         Build the package using ``colcon``.
 
         .. code-block:: console
 
-            colcon build
+            $ colcon build
 
         Source this workspace.
 
         .. code-block:: console
 
-            source install/local_setup.bash
+            $ source install/local_setup.bash
 
 4 Launch the ``webots_ros2_universal_robot`` example
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -175,8 +175,8 @@ Specify the Webots installation folder in ``WEBOTS_HOME`` environment variable (
 
 .. code-block:: console
 
-        export WEBOTS_HOME=/Applications/Webots.app
-        python3 local_simulation_server.py
+        $ export WEBOTS_HOME=/Applications/Webots.app
+        $ python3 local_simulation_server.py
 
 In the VM, open a terminal and execute the following commands to start a package:
 
@@ -184,26 +184,26 @@ First source the ROS 2 environment, if not done already.
 
 .. code-block:: console
 
-        source /opt/ros/{DISTRO}/setup.bash
+        $ source /opt/ros/{DISTRO}/setup.bash
 
 If installed from sources, source your ROS 2 workspace, if not done already.
 
 .. code-block:: console
 
-        cd ~/ros2_ws
-        source install/local_setup.bash
+        $ cd ~/ros2_ws
+        $ source install/local_setup.bash
 
 If not already set in ``~/.bashrc``, set ``WEBOTS_SHARED_FOLDER`` (see previous sections for details).
 Be sure to change the paths according to the location of your respective directories.
 
 .. code-block:: console
 
-        export WEBOTS_SHARED_FOLDER=/Users/username/shared:/home/ubuntu/shared
+        $ export WEBOTS_SHARED_FOLDER=/Users/username/shared:/home/ubuntu/shared
 
 Use the ROS 2 launch command to start demo packages (e.g. ``webots_ros2_universal_robot``).
 
 .. code-block:: console
 
-        ros2 launch webots_ros2_universal_robot multirobot_launch.py
+        $ ros2 launch webots_ros2_universal_robot multirobot_launch.py
 
 If Webots is closed or the ROS 2 process is interrupted, the local server will automatically wait for a new package launch and the shared folder will be cleaned for the next run.
