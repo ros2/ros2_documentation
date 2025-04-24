@@ -6,7 +6,7 @@ The sources from this repository are built and uploaded to the site nightly by a
 ## Contributing to the documentation
 
 Contributions to this site are most welcome.
-Please see the [Contributing to ROS 2 Documentation](https://docs.ros.org/en/rolling/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.html) page to learn how to contribute.
+Please see the [Contributing to ROS 2 Documentation](https://docs.ros.org/en/rolling/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.html) page to learn how to build and contribute.
 
 ## Contributing to ROS 2
 
