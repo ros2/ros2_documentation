@@ -180,7 +180,8 @@ See https://github.com/ros2/rosidl_dynamic_typesupport/issues/11 for more detail
 Renaming package from fastrtps to fastdds
 """""""""""""""""""""""""""""""""""""""""
 
-``fastrtps`` was renamed to ``fastdds`` rmw's stay the same.
+``fastrtps`` was renamed to ``fastdds``.
+The names of the rmw implementations stay the same.
 XML Profile ENV strings will change.
 
 See https://github.com/ros2/ros2/pull/1641 for more details.
