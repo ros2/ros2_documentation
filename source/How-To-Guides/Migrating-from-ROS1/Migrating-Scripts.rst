@@ -18,30 +18,30 @@ ROS 2 arguments should be scoped with ``--ros-args`` and a trailing ``--`` (the 
 Remapping names is similar to ROS 1, taking on the form ``from:=to``, except that it must be preceded by a ``--remap`` (or ``-r``) flag.
 For example:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 run some_package some_ros_executable --ros-args -r foo:=bar
+   $ ros2 run some_package some_ros_executable --ros-args -r foo:=bar
 
 We use a similar syntax for parameters, using the ``--param`` (or ``-p``) flag:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 run some_package some_ros_executable --ros-args -p my_param:=value
+   $ ros2 run some_package some_ros_executable --ros-args -p my_param:=value
 
 Note, this is different than using a leading underscore in ROS 1.
 
 To change a node name use ``__node`` (the ROS 1 equivalent is ``__name``):
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 run some_package some_ros_executable --ros-args -r __node:=new_node_name
+   $ ros2 run some_package some_ros_executable --ros-args -r __node:=new_node_name
 
 Note the use of the ``-r`` flag.
 The same remap flag is needed for changing the namespace ``__ns``:
 
 .. code-block:: bash
 
-   ros2 run some_package some_ros_executable --ros-args -r __ns:=/new/namespace
+   $ ros2 run some_package some_ros_executable --ros-args -r __ns:=/new/namespace
 
 There is no equivalent in ROS 2 for the following ROS 1 keys:
 

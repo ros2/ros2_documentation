@@ -32,9 +32,9 @@ Updating Changelog
 
 For your users and for the developers, keep the changelog concise and up to date.
 
-.. code-block:: bash
+.. code-block:: console
 
-   catkin_generate_changelog
+   $ catkin_generate_changelog
 
 .. include:: _Clean-Up-Changelog.rst
 
@@ -50,7 +50,7 @@ Run the following command, replacing ``my_repo`` with the name of your repositor
 
 .. code-block:: bash
 
-   bloom-release --rosdistro {DISTRO} my_repo
+   $ bloom-release --rosdistro {DISTRO} my_repo
 
 Bloom will automatically create a pull request for you against `rosdistro <https://github.com/ros/rosdistro>`_.
 

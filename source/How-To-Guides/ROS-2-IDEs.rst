@@ -23,9 +23,9 @@ Installed Python Code
 
 By default, when building workspaces with:
 
-.. code-block:: bash
+.. code-block:: console
 
-   colcon build
+   $ colcon build
 
 The Python code will be coped over into the ``build``/``install`` directories.
 So when attaching a debugger to a ``ros2 run`` command from within an IDE, the code being run (from the ``build``/``install``) is not the same as the files opened in the IDE project.
@@ -54,37 +54,41 @@ So:
 
    .. group-tab:: Linux
 
-      .. code-block:: bash
+      .. code-block:: console
 
-        source /opt/ros/{DISTRO}/setup.bash
-        cd ~/dev_ws
-        source ./install/setup.bash
-        /usr/bin/code ./src/my_node/
+        $ source /opt/ros/{DISTRO}/setup.bash
+        $ cd ~/dev_ws
+        $ source ./install/setup.bash
+        $ /usr/bin/code ./src/my_node/
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-        . ~/ros2_install/ros2-osx/setup.bash
-        cd ~/dev_ws
-        . ./install/setup.bash
-        /Applications/Visual Studio Code.app/Contents/Resources/app/bin/code ./src/my_node/
+        $ . ~/ros2_install/ros2-osx/setup.bash
+        $ cd ~/dev_ws
+        $ . ./install/setup.bash
+        $ /Applications/Visual Studio Code.app/Contents/Resources/app/bin/code ./src/my_node/
 
    .. group-tab:: Windows
 
+      In a Windows command line interface:
+
       .. code-block:: console
 
-        # For CMD:
-        call C:\dev\ros2\local_setup.bat
-        cd C:\dev_ws
-        call .\install\local_setup.bat
-        "C:\Program Files\Microsoft VS Code\Code.exe" .\src\my_node\
+        $ call C:\dev\ros2\local_setup.bat
+        $ cd C:\dev_ws
+        $ call .\install\local_setup.bat
+        $ "C:\Program Files\Microsoft VS Code\Code.exe" .\src\my_node\
 
-        # For PowerShell:
-        C:\dev\ros2\local_setup.ps1
-        cd C:\dev_ws
-        .\install\local_setup.ps1
-        & "C:\Program Files\Microsoft VS Code\Code.exe" .\src\my_node\
+      Or in powershell:
+
+      .. code-block:: console
+
+        $ C:\dev\ros2\local_setup.ps1
+        $ cd C:\dev_ws
+        $ .\install\local_setup.ps1
+        $ & "C:\Program Files\Microsoft VS Code\Code.exe" .\src\my_node\
 
 
 VSCode and any terminal created inside VSCode will correctly inherit from the parent environment and should have ROS and installed package available.
@@ -152,11 +156,11 @@ Linux
 
 Open a terminal, source ROS and start PyCharm:
 
-.. code-block:: bash
+.. code-block:: console
 
-   source /opt/ros/humble/setup.bash
-   cd path/to/dev_ws
-   /opt/pycharm/bin/pycharm.sh
+   $ source /opt/ros/humble/setup.bash
+   $ cd path/to/dev_ws
+   $ /opt/pycharm/bin/pycharm.sh
 
 After selecting the correct interpreter, everything should work.
 
@@ -224,9 +228,9 @@ Attach to Process
 Even without any configuration to PyCharm, you can always just attach to a running Python node.
 Open your project source and simply run your node as usual:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 run my_node main
+   $ ros2 run my_node main
 
 Then in PyCharm select "Run" > "Attach to Process...".
 It might take a second, but a small window should show listing the currently running Python instances, including your node.

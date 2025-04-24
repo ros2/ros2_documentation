@@ -29,7 +29,7 @@ ROS 2 ships with one in the ``ros-{DISTRO}-demo-nodes-cpp`` package called ``par
 
 .. code-block:: console
 
-   ros2 run demo_nodes_cpp parameter_blackboard
+   $ ros2 run demo_nodes_cpp parameter_blackboard
 
 The code for the ``parameter_blackboard`` is `here <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/parameters/parameter_blackboard.cpp>`__.
 
