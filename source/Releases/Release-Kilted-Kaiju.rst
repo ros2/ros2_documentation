@@ -129,7 +129,7 @@ Support topic instances in DDS topics
 Topic instances are a way of multiplexing the transmission of updates of several objects of the same logical kind over the same resource, i.e. the topic.
 
 See https://github.com/ros2/ros2/issues/1538 for more information.
-You can also check the documentation https://github.com/ros2/design/pull/340/files
+You can also check the documentation: https://github.com/ros2/design/pull/340/files.
 
 Changes since the Jazzy release
 -------------------------------
