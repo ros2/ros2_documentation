@@ -121,7 +121,7 @@ It is much easier to update dependencies.
 The dependencies are installed in individual workspaces, with no “global” installation.
 
 See https://github.com/ros2/ci/pull/802 and https://github.com/ros2/ros2/pull/1642 for more details.
-Visit https://docs.ros.org/en/rolling/Installation/Alternatives/Windows-Development-Setup.html to install it on Windows.
+Visit :doc:`Windows source install instructions <../Installation/Alternatives/Windows-Development-Setup>` to install it on Windows.
 
 Support topic instances in DDS topics
 """""""""""""""""""""""""""""""""""""
