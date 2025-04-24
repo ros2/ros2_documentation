@@ -243,7 +243,7 @@ The ``rmw_zenoh_cpp`` is now considered Tier 1, There are many PRs (summanarized
   * A dedicated nightly CI job
   * Among others
 
-For more information see https://github.com/ros2/rmw_zenoh/issues/265
+For more information see https://github.com/ros2/rmw_zenoh/issues/265.
 
 Development progress
 --------------------
