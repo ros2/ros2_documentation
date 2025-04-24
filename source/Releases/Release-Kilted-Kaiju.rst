@@ -42,7 +42,7 @@ New features in this ROS 2 release
 ----------------------------------
 
 ``ament_cmake_ros``
-^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^
 
 Add rmw_test_fixture for supporting RMW-isolated testing
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
