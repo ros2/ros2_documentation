@@ -232,8 +232,8 @@ For more information, see `ros2/launch#835 <https://github.com/ros2/launch/issue
 ``Tier 1``
 """"""""""
 
-The ``rmw_zenoh_cpp`` is now considered Tier 1, There are many PRs (summanarized in this `issue <https://github.com/ros2/rmw_zenoh/issues/265
->`__) in the ROS 2 core packages, such as:
+The ``rmw_zenoh_cpp`` is now considered Tier 1.
+There are many PRs (summarized in `ros2/rmw_zenoh#265 <https://github.com/ros2/rmw_zenoh/issues/265>`__) in the ROS 2 core packages, such as:
 
   * Make the rmw pass all core tests.
   * Implement and document security
