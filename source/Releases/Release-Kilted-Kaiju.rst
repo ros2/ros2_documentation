@@ -98,18 +98,20 @@ Allow to record and play actions from a rosbag.
 See https://github.com/ros2/rosbag2/pull/1955 for more information.
 Design document https://github.com/ros2/rosbag2/pull/1928.
 
-Progress bar for "ros2 bag play"
-""""""""""""""""""""""""""""""""
+Progress bar for ``ros2 bag play``
+""""""""""""""""""""""""""""""""""
 
 Added a progress bar for ``ros2 bag play`` CLI, showing the bag time and duration, similar to
 what is seen in ROS 1.
 
 See https://github.com/ros2/rosbag2/pull/1836 for more details.
 
-Added support for replaying multiple bags with "ros2 bag play" CLI
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Added support for replaying multiple bags with ``ros2 bag play`` CLI
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-To replay multiple bags, use the new -i, --input CLI option.
+To replay multiple bags, use the new ``-i, --input`` CLI option:
+
+.. code-block:: console
 
     $ ros2 bag play -i bag1 -i bag2 -i bag3 [storage_id]
 
@@ -128,24 +130,22 @@ Make snapshot writing into a new file each time it is triggered
 
 See https://github.com/ros2/rosbag2/pull/1842 for more details.
 
-New "--sort" CLI option in the "ros2 bag info" command
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
+New ``--sort`` CLI option in the ``ros2 bag info`` command
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-With new ``--sort`` CLI option user will be able to sort topics, services and actions by name,
-topic type or number of recorded messages.
+With new ``--sort`` CLI option user will be able to sort topics, services and actions by name, topic type or number of recorded messages.
 
 See https://github.com/ros2/rosbag2/pull/1804 for more details.
 
-Show size contribution of each topic with "ros2 bag info"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Show size contribution of each topic with ``ros2 bag info``
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-With new ``--size-contribution`` option together with ``ros2 bag info -v`` user will be able to see
-the size contribution of each topic in the bag file.
+With new ``--size-contribution`` option together with ``ros2 bag info -v`` user will be able to see the size contribution of each topic in the bag file.
 
 See https://github.com/ros2/rosbag2/pull/1726 for more information.
 
-Added "--log-level" option to "ros2 bag play" and "ros2 bag record" to allow printing debug messages
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Added ``--log-level`` option to ``ros2 bag play`` and ``ros2 bag record`` to allow printing debug messages
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 See https://github.com/ros2/rosbag2/pull/1625 for more details.
 
