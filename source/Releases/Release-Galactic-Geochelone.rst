@@ -473,7 +473,9 @@ To resume playback:
 
   $ ros2 service call /rosbag2_player/resume rosbag2_interfaces/Resume
 
-To change the paused state of playback to its opposite. If playing, pauses. If paused, resumes.
+To change the paused state of playback to its opposite.
+If playing, pauses.
+If paused, resumes.
 
 .. code-block:: console
 
