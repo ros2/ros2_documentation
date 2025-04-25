@@ -513,7 +513,7 @@ To publish at default rate - 40Hz:
   $ ros2 bag play my_bag --clock
 
 
-To Publish at specific rate - 100Hz:
+To publish at a specific rate - 100Hz:
 
 .. code-block:: console
 
