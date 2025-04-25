@@ -150,10 +150,15 @@ Then we install all kernel deb packages
    $ sudo dpkg -i ../*.deb
 
 Now the real time kernel should be installed.
-Reboot the system and check the new kernel version
+Reboot the system:
 
 .. code-block:: console
 
    $ sudo reboot
-   uname -a
+
+And check the new kernel version:
+
+.. code-block:: console
+
+   $ uname -a
    Linux ros2host 5.4.78-rt44 #1 SMP PREEMPT_RT Fri Nov 6 10:37:59 CET 2020 x86_64 xx
