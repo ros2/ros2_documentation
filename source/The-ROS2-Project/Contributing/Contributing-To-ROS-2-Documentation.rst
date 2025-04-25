@@ -449,8 +449,8 @@ Example result:
 
 .. code-block:: bash
 
-   $ export ROS_DOMAIN_ID=42
-   $ ros2 run turtlesim turtlesim_node
+   export ROS_DOMAIN_ID=42
+   ros2 run turtlesim turtlesim_node
 
 ``console`` is meant for commands to be run in a terminal, optionally including their output.
 This makes it clear that the given commands need to be run in a terminal.
