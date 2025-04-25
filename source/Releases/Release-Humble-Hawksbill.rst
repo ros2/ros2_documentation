@@ -774,7 +774,7 @@ The number of matching subscriptions to wait before starting publishing can be c
 
 .. code-block:: console
 
-   ros2 topic pub -1 -w 3 /chatter std_msgs/msg/String "{data: 'foo'}"
+   $ ros2 topic pub -1 -w 3 /chatter std_msgs/msg/String "{data: 'foo'}"
 
 to wait for three matching subscriptions before starting to publish.
 
@@ -789,17 +789,17 @@ See https://github.com/ros2/ros2cli/pull/642 for more details.
 
     It prints to stdout by default:
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      ros2 param dump /my_node_name
+      $ ros2 param dump /my_node_name
 
   * ``--output-dir`` option for dump command was `deprecated <https://github.com/ros2/ros2cli/pull/638>`_.
 
     To dump parameters to a file, run:
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      ros2 param dump /my_node_name > my_node_name.yaml
+      $ ros2 param dump /my_node_name > my_node_name.yaml
 
 ``ros2 param set`` now accepts more YAML syntax
 """""""""""""""""""""""""""""""""""""""""""""""
