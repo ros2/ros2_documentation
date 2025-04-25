@@ -463,11 +463,11 @@ Run ``rosdep`` in the root of your workspace to check for missing dependencies.
 
    .. group-tab:: macOS
 
-        $ rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim`` dependencies yourself
+        rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim`` dependencies yourself
 
    .. group-tab:: Windows
 
-        $ rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim`` dependencies yourself
+        rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim`` dependencies yourself
 
 Still in the root of your workspace, build your package:
 
