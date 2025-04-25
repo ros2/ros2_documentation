@@ -506,7 +506,7 @@ Playback publishes /clock
 Rosbag2 can also dictate "simulation time" by publishing to the ``/clock`` topic during playback.
 The following commands will publish the clock message at a regular interval.
 
-To publish at default rate - 40Hz:
+To publish at the default rate of 40Hz:
 
 .. code-block:: console
 
