@@ -486,8 +486,8 @@ To help choose between ``bash`` and ``console``, see the following list of use-c
 
       .. code-block:: bash
 
-         $ export ROS_DOMAIN_ID=42
-         $ ros2 run turtlesim turtlesim_node
+         export ROS_DOMAIN_ID=42
+         ros2 run turtlesim turtlesim_node
 
 #. Commands meant to be run in a terminal *without* any output lines
 
@@ -495,8 +495,8 @@ To help choose between ``bash`` and ``console``, see the following list of use-c
 
       .. code-block:: bash
 
-         $ source /opt/ros/{DISTRO}/setup.bash
-         $ ros2 run turtlesim turtlesim_node
+         source /opt/ros/{DISTRO}/setup.bash
+         ros2 run turtlesim turtlesim_node
 
    * Or use ``.. code-block:: console`` with ``$`` on all command lines, i.e., all lines:
 
