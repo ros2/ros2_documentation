@@ -44,18 +44,18 @@ Install prerequisites
 
 There are a few packages that must be installed in order to get and unpack the binary release.
 
-.. code-block:: bash
+.. code-block:: console
 
-   sudo apt install tar bzip2 wget -y
+   $ sudo apt install tar bzip2 wget -y
 
 Install development tools (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you are going to build ROS packages or otherwise do development, you can also install the development tools:
 
-.. code-block:: bash
+.. code-block:: console
 
-   sudo apt update && sudo apt install ros-dev-tools
+   $ sudo apt update && sudo apt install ros-dev-tools
 
 Install ROS 2
 -------------
@@ -70,11 +70,11 @@ Instead you may download nightly :ref:`prerelease binaries <Prerelease_binaries>
 *
   Unpack it:
 
-  .. code-block:: bash
+  .. code-block:: console
 
-     mkdir -p ~/ros2_{DISTRO}
-     cd ~/ros2_{DISTRO}
-     tar xf ~/Downloads/ros2-package-linux-x86_64.tar.bz2
+     $ mkdir -p ~/ros2_{DISTRO}
+     $ cd ~/ros2_{DISTRO}
+     $ tar xf ~/Downloads/ros2-package-linux-x86_64.tar.bz2
 
 .. _linux-install-binary-install-missing-dependencies:
 
@@ -83,13 +83,13 @@ Install dependencies using rosdep
 
 .. include:: ../_Apt-Upgrade-Admonition.rst
 
-.. code-block:: bash
+.. code-block:: console
 
-   sudo apt update
-   sudo apt install -y python3-rosdep
-   sudo rosdep init
-   rosdep update
-   rosdep install --from-paths ~/ros2_{DISTRO}/ros2-linux/share --ignore-src -y --skip-keys "cyclonedds fastcdr fastrtps iceoryx_binding_c rmw_connextdds rti-connext-dds-7.3.0 urdfdom_headers"
+   $ sudo apt update
+   $ sudo apt install -y python3-rosdep
+   $ sudo rosdep init
+   $ rosdep update
+   $ rosdep install --from-paths ~/ros2_{DISTRO}/ros2-linux/share --ignore-src -y --skip-keys "cyclonedds fastcdr fastrtps iceoryx_binding_c rmw_connextdds rti-connext-dds-7.3.0 urdfdom_headers"
 
 .. include:: ../_rosdep_Linux_Mint.rst
 
@@ -104,28 +104,31 @@ Setup environment
 
 Set up your environment by sourcing the following file.
 
-.. code-block:: bash
+.. code-block:: console
 
-   # Replace ".bash" with your shell if you're not using bash
-   # Possible values are: setup.bash, setup.sh, setup.zsh
-   . ~/ros2_{DISTRO}/ros2-linux/setup.bash
+   $ . ~/ros2_{DISTRO}/ros2-linux/setup.bash
+
+.. note::
+
+   Replace ``.bash`` with your shell if you're not using bash.
+   Possible values are: ``setup.bash``, ``setup.sh``, ``setup.zsh``.
 
 Try some examples
 -----------------
 
 In one terminal, source the setup file and then run a C++ ``talker``:
 
-.. code-block:: bash
+.. code-block:: console
 
-   . ~/ros2_{DISTRO}/ros2-linux/setup.bash
-   ros2 run demo_nodes_cpp talker
+   $ . ~/ros2_{DISTRO}/ros2-linux/setup.bash
+   $ ros2 run demo_nodes_cpp talker
 
 In another terminal source the setup file and then run a Python ``listener``:
 
-.. code-block:: bash
+.. code-block:: console
 
-   . ~/ros2_{DISTRO}/ros2-linux/setup.bash
-   ros2 run demo_nodes_py listener
+   $ . ~/ros2_{DISTRO}/ros2-linux/setup.bash
+   $ ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
 This verifies both the C++ and Python APIs are working properly.
@@ -149,6 +152,6 @@ Uninstall
 
 2. If you're also trying to free up space, you can delete the entire workspace directory with:
 
-   .. code-block:: bash
+   .. code-block:: console
 
-      rm -rf ~/ros2_{DISTRO}
+      $ rm -rf ~/ros2_{DISTRO}

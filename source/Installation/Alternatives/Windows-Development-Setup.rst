@@ -35,7 +35,7 @@ We'll use ``C:\dev`` for the rest of these instructions.
 
 .. code-block:: console
 
-   md C:\dev
+   $ md C:\dev
 
 Increase the Windows maximum path length
 ----------------------------------------
@@ -46,7 +46,7 @@ Using the powershell session you started above, run the following:
 
 .. code-block:: console
 
-   New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" -Name "LongPathsEnabled" -Value 1 -PropertyType DWORD -Force
+   $ New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" -Name "LongPathsEnabled" -Value 1 -PropertyType DWORD -Force
 
 You can read more about this limitation in `Microsoft's documentation <https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=registry>`__.
 
@@ -64,13 +64,13 @@ Continue using the previous powershell session, and run the following command to
 
 .. code-block:: console
 
-   irm https://aka.ms/vs/16/release/vs_buildtools.exe -OutFile vs_buildtools_2019.exe
+   $ irm https://aka.ms/vs/16/release/vs_buildtools.exe -OutFile vs_buildtools_2019.exe
 
 Now install MSVC 2019:
 
 .. code-block:: console
 
-   .\vs_buildtools_2019.exe --quiet --wait --norestart --add Microsoft.Component.MSBuild --add Microsoft.Net.Component.4.6.1.TargetingPack --add Microsoft.Net.Component.4.8.SDK --add Microsoft.VisualStudio.Component.CoreBuildTools --add Microsoft.VisualStudio.Component.Roslyn.Compiler --add Microsoft.VisualStudio.Component.TextTemplating --add Microsoft.VisualStudio.Component.VC.CLI.Support --add Microsoft.VisualStudio.Component.VC.CoreBuildTools --add Microsoft.VisualStudio.Component.VC.CoreIde --add Microsoft.VisualStudio.Component.VC.Redist.14.Latest --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --add Microsoft.VisualStudio.Component.Windows10SDK --add Microsoft.VisualStudio.Component.Windows10SDK.19041 --add Microsoft.VisualStudio.ComponentGroup.NativeDesktop.Core --add Microsoft.VisualStudio.Workload.MSBuildTools --add Microsoft.VisualStudio.Workload.VCTools
+   $ .\vs_buildtools_2019.exe --quiet --wait --norestart --add Microsoft.Component.MSBuild --add Microsoft.Net.Component.4.6.1.TargetingPack --add Microsoft.Net.Component.4.8.SDK --add Microsoft.VisualStudio.Component.CoreBuildTools --add Microsoft.VisualStudio.Component.Roslyn.Compiler --add Microsoft.VisualStudio.Component.TextTemplating --add Microsoft.VisualStudio.Component.VC.CLI.Support --add Microsoft.VisualStudio.Component.VC.CoreBuildTools --add Microsoft.VisualStudio.Component.VC.CoreIde --add Microsoft.VisualStudio.Component.VC.Redist.14.Latest --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --add Microsoft.VisualStudio.Component.Windows10SDK --add Microsoft.VisualStudio.Component.Windows10SDK.19041 --add Microsoft.VisualStudio.ComponentGroup.NativeDesktop.Core --add Microsoft.VisualStudio.Workload.MSBuildTools --add Microsoft.VisualStudio.Workload.VCTools
 
 .. note::
 
@@ -91,14 +91,14 @@ Download the pixi configuration file in the existing powershell session:
 
 .. code-block:: console
 
-   cd C:\dev
-   irm https://raw.githubusercontent.com/ros2/ros2/refs/heads/{REPOS_FILE_BRANCH}/pixi.toml -OutFile pixi.toml
+   $ cd C:\dev
+   $ irm https://raw.githubusercontent.com/ros2/ros2/refs/heads/{REPOS_FILE_BRANCH}/pixi.toml -OutFile pixi.toml
 
 Install dependencies:
 
 .. code-block:: console
 
-   pixi install
+   $ pixi install
 
 You should now close the powershell session, as the rest of the instructions will use the Windows command prompt.
 
@@ -114,7 +114,7 @@ This is required in the command prompt you'll use to compile ROS 2, but it is *n
 
 .. code-block:: console
 
-  call "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Auxiliary\Build\vcvarsall.bat" x86_amd64
+  $ call "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Auxiliary\Build\vcvarsall.bat" x86_amd64
 
 Source the pixi environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -123,8 +123,8 @@ This is required in every command prompt you open to set up paths to the depende
 
 .. code-block:: console
 
-   cd C:\dev
-   pixi shell
+   $ cd C:\dev
+   $ pixi shell
 
 Get ROS 2 code
 ^^^^^^^^^^^^^^
@@ -133,16 +133,16 @@ Now that we have the development tools we can get the ROS 2 source code.
 
 Setup a development folder, for example ``C:\dev\{DISTRO}``:
 
-.. code-block:: bash
+.. code-block:: console
 
-   md C:\dev\{DISTRO}\src
-   cd C:\dev\{DISTRO}
+   $ md C:\dev\{DISTRO}\src
+   $ cd C:\dev\{DISTRO}
 
 Get the ``ros2.repos`` file which defines the repositories to clone from:
 
-.. code-block:: bash
+.. code-block:: console
 
-   vcs import --input https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos src
+   $ vcs import --input https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos src
 
 Install additional RMW implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -157,9 +157,9 @@ Build the code in the workspace
 
 To build the ``\{DISTRO}`` folder tree:
 
-.. code-block:: bash
+.. code-block:: console
 
-   colcon build --merge-install
+   $ colcon build --merge-install
 
 .. note::
 
@@ -178,17 +178,17 @@ This is required in every command prompt you open to set up paths to the depende
 
 .. code-block:: console
 
-   cd C:\dev
-   pixi shell
+   $ cd C:\dev
+   $ pixi shell
 
 Source the ROS 2 environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This is required in every command prompt you open to setup the ROS 2 workspace:
 
-.. code-block:: bash
+.. code-block:: console
 
-   call C:\dev\{DISTRO}\install\local_setup.bat
+   $ call C:\dev\{DISTRO}\install\local_setup.bat
 
 This will automatically set up the environment for any DDS vendors that support was built for.
 
@@ -201,9 +201,9 @@ Note that the first time you run any executable you will have to allow access to
 
 You can run the tests using this command:
 
-.. code-block:: bash
+.. code-block:: console
 
-   colcon test --merge-install
+   $ colcon test --merge-install
 
 .. note::
 
@@ -211,24 +211,24 @@ You can run the tests using this command:
 
 Afterwards you can get a summary of the tests using this command:
 
-.. code-block:: bash
+.. code-block:: console
 
-   colcon test-result
+   $ colcon test-result
 
 To run the examples, first open a clean new ``cmd.exe`` and set up the workspace by sourcing the ``local_setup.bat`` file.
 Then, run a C++ ``talker``\ :
 
-.. code-block:: bash
+.. code-block:: console
 
-   call install\local_setup.bat
-   ros2 run demo_nodes_cpp talker
+   $ call install\local_setup.bat
+   $ ros2 run demo_nodes_cpp talker
 
 In a separate command prompt you can do the same, but instead run a Python ``listener``\ :
 
-.. code-block:: bash
+.. code-block:: console
 
-   call install\local_setup.bat
-   ros2 run demo_nodes_py listener
+   $ call install\local_setup.bat
+   $ ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
 This verifies both the C++ and Python APIs are working properly.
@@ -261,6 +261,6 @@ Uninstall
 
 2. If you're also trying to free up space, you can delete the entire workspace directory with:
 
-   .. code-block:: bash
+   .. code-block:: console
 
-      rmdir /s /q C:\dev\ros2_{DISTRO}
+      $ rmdir /s /q C:\dev\ros2_{DISTRO}

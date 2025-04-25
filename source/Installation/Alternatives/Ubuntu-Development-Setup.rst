@@ -36,9 +36,9 @@ Enable required repositories
 Install development tools
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: bash
+.. code-block:: console
 
-   sudo apt update && sudo apt install -y \
+   $ sudo apt update && sudo apt install -y \
      python3-flake8-blind-except \
      python3-flake8-class-newline \
      python3-flake8-deprecated \
@@ -61,11 +61,11 @@ Get ROS 2 code
 
 Create a workspace and clone all repos:
 
-.. code-block:: bash
+.. code-block:: console
 
-   mkdir -p ~/ros2_{DISTRO}/src
-   cd ~/ros2_{DISTRO}
-   vcs import --input https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos src
+   $ mkdir -p ~/ros2_{DISTRO}/src
+   $ cd ~/ros2_{DISTRO}
+   $ vcs import --input https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos src
 
 .. _linux-development-setup-install-dependencies-using-rosdep:
 
@@ -74,11 +74,11 @@ Install dependencies using rosdep
 
 .. include:: ../_Apt-Upgrade-Admonition.rst
 
-.. code-block:: bash
+.. code-block:: console
 
-   sudo rosdep init
-   rosdep update
-   rosdep install --from-paths src --ignore-src -y --skip-keys "fastcdr rti-connext-dds-7.3.0 urdfdom_headers"
+   $ sudo rosdep init
+   $ rosdep update
+   $ rosdep install --from-paths src --ignore-src -y --skip-keys "fastcdr rti-connext-dds-7.3.0 urdfdom_headers"
 
 .. include:: ../_rosdep_Linux_Mint.rst
 
@@ -98,30 +98,33 @@ The output should be empty.
 
 More info on working with a ROS workspace can be found in :doc:`this tutorial <../../Tutorials/Beginner-Client-Libraries/Colcon-Tutorial>`.
 
-.. code-block:: bash
+.. code-block:: console
 
-   cd ~/ros2_{DISTRO}/
-   colcon build --symlink-install
+   $ cd ~/ros2_{DISTRO}/
+   $ colcon build --symlink-install
 
 .. note::
 
    If you are having trouble compiling all examples and this is preventing you from completing a successful build, you can use the ``--packages-skip`` colcon flag to ignore the package that is causing problems.
    For instance, if you don't want to install the large OpenCV library, you could skip building the packages that depend on it using the command:
 
-   .. code-block:: bash
+   .. code-block:: console
 
-      colcon build --symlink-install --packages-skip image_tools intra_process_demo
+      $ colcon build --symlink-install --packages-skip image_tools intra_process_demo
 
 Setup environment
 -----------------
 
 Set up your environment by sourcing the following file.
 
-.. code-block:: bash
+.. code-block:: console
 
-   # Replace ".bash" with your shell if you're not using bash
-   # Possible values are: setup.bash, setup.sh, setup.zsh
-   . ~/ros2_{DISTRO}/install/local_setup.bash
+   $ . ~/ros2_{DISTRO}/install/local_setup.bash
+
+.. note::
+
+   Replace ``.bash`` with your shell if you're not using bash.
+   Possible values are: ``setup.bash``, ``setup.sh``, ``setup.zsh``.
 
 .. _talker-listener:
 
@@ -130,17 +133,17 @@ Try some examples
 
 In one terminal, source the setup file and then run a C++ ``talker``\ :
 
-.. code-block:: bash
+.. code-block:: console
 
-   . ~/ros2_{DISTRO}/install/local_setup.bash
-   ros2 run demo_nodes_cpp talker
+   $ . ~/ros2_{DISTRO}/install/local_setup.bash
+   $ ros2 run demo_nodes_cpp talker
 
 In another terminal source the setup file and then run a Python ``listener``\ :
 
-.. code-block:: bash
+.. code-block:: console
 
-   . ~/ros2_{DISTRO}/install/local_setup.bash
-   ros2 run demo_nodes_py listener
+   $ . ~/ros2_{DISTRO}/install/local_setup.bash
+   $ ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
 This verifies both the C++ and Python APIs are working properly.
@@ -162,12 +165,12 @@ Clang
 
 To configure CMake to detect and use Clang:
 
-.. code-block:: bash
+.. code-block:: console
 
-   sudo apt install clang
-   export CC=clang
-   export CXX=clang++
-   colcon build --cmake-force-configure
+   $ sudo apt install clang
+   $ export CC=clang
+   $ export CXX=clang++
+   $ colcon build --cmake-force-configure
 
 Stay up to date
 ---------------
@@ -187,6 +190,6 @@ Uninstall
 
 2. If you're also trying to free up space, you can delete the entire workspace directory with:
 
-   .. code-block:: bash
+   .. code-block:: console
 
-      rm -rf ~/ros2_{DISTRO}
+      $ rm -rf ~/ros2_{DISTRO}
