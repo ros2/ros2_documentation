@@ -246,18 +246,10 @@ Enter the following command with the action type in your terminal:
 .. code-block:: console
 
   $ ros2 interface show turtlesim_msgs/action/RotateAbsolute
-
-Which will return:
-
-.. code-block:: console
-
-  # The desired heading in radians
   float32 theta
   ---
-  # The angular displacement in radians to the starting position
   float32 delta
   ---
-  # The remaining rotation in radians
   float32 remaining
 
 The section of this message above the first ``---`` is the structure (data type and name) of the goal request.

@@ -188,44 +188,26 @@ In a new terminal, run the following command from within your workspace (``ros2_
 
       $ call install/setup.bat
 
-Now you can confirm that your interface creation worked by using the ``ros2 interface show`` command:
+Now you can confirm that your interface creation worked by using the ``ros2 interface show`` command. 
+The output you see in your terminal should look similar to the following:
 
 .. code-block:: console
 
   $ ros2 interface show tutorial_interfaces/msg/Num
-
-should return:
-
-.. code-block:: bash
-
     int64 num
-
-And
 
 .. code-block:: console
 
   $ ros2 interface show tutorial_interfaces/msg/Sphere
-
-should return:
-
-.. code-block:: console
-
     geometry_msgs/Point center
             float64 x
             float64 y
             float64 z
     float64 radius
 
-And
-
 .. code-block:: console
 
   $ ros2 interface show tutorial_interfaces/srv/AddThreeInts
-
-should return:
-
-.. code-block:: bash
-
     int64 a
     int64 b
     int64 c

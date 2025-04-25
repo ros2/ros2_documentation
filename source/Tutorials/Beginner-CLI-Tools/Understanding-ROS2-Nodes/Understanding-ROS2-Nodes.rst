@@ -82,11 +82,6 @@ Open a new terminal while turtlesim is still running in the other one, and enter
 .. code-block:: console
 
   $ ros2 node list
-
-The terminal will return the node name:
-
-.. code-block:: console
-
   /turtlesim
 
 Open another new terminal and start the teleop node with the command:
@@ -102,6 +97,7 @@ You will now see the names of two active nodes:
 
 .. code-block:: console
 
+  $ ros2 node list
   /turtlesim
   /teleop_turtle
 

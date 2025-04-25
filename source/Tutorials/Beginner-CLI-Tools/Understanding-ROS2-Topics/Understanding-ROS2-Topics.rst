@@ -199,19 +199,16 @@ Specifically, what structure of data the message expects.
 .. code-block:: console
 
     $ ros2 interface show geometry_msgs/msg/Twist
+    Vector3  linear
+            float64 x
+            float64 y
+            float64 z
+    Vector3  angular
+            float64 x
+            float64 y
+            float64 z
 
-.. code-block:: console
-
-    # This expresses velocity in free space broken into its linear and angular parts.
-
-        Vector3  linear
-                float64 x
-                float64 y
-                float64 z
-        Vector3  angular
-                float64 x
-                float64 y
-                float64 z
+This expresses velocity in free space broken into its linear and angular parts.
 
 This tells you that the ``/turtlesim`` node is expecting a message with two vectors, ``linear`` and ``angular``, of three elements each.
 If you recall the data we saw ``/teleop_turtle`` passing to ``/turtlesim`` with the ``echo`` command, it's in the same structure:
@@ -316,7 +313,7 @@ c. **Using autocomplete**:
 
   .. code-block:: bash
 
-    ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist 'linear:
+    $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist 'linear:
       x: 0.0
       y: 0.0
       z: 0.0

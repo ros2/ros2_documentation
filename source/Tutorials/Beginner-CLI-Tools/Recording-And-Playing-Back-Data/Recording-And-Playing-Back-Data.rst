@@ -67,22 +67,22 @@ Let's also make a new directory to store our saved recordings, just as good prac
 
         .. code-block:: console
 
-            mkdir bag_files
-            cd bag_files
+            $ mkdir bag_files
+            $ cd bag_files
 
     .. group-tab:: macOS
 
         .. code-block:: console
 
-            mkdir bag_files
-            cd bag_files
+            $ mkdir bag_files
+            $ cd bag_files
 
     .. group-tab:: Windows
 
         .. code-block:: console
 
-            md bag_files
-            cd bag_files
+            $ md bag_files
+            $ cd bag_files
 
 
 2 Choose a topic
@@ -441,15 +441,15 @@ You can see more details for :doc:`Action Introspection Demo <../../Demos/Action
 
 Open a new terminal and run ``fibonacci_action_server``, enabling ``Action Introspection``:
 
-.. code-block:: bash
+.. code-block:: console
 
-  ros2 run action_tutorials_py fibonacci_action_server --ros-args -p action_server_configure_introspection:=contents
+  $ ros2 run action_tutorials_py fibonacci_action_server --ros-args -p action_server_configure_introspection:=contents
 
 Open another terminal and run ``fibonacci_action_client``, enabling ``Action Introspection``:
 
-.. code-block:: bash
+.. code-block:: console
 
-  ros2 run action_tutorials_cpp fibonacci_action_client --ros-args -p action_client_configure_introspection:=contents
+  $ ros2 run action_tutorials_cpp fibonacci_action_client --ros-args -p action_client_configure_introspection:=contents
 
 2 Check action availability
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -488,15 +488,15 @@ Action data can be recorded with topics and services at the same time.
 
 To record specific actions:
 
-.. code-block:: bash
+.. code-block:: console
 
-  ros2 bag record --action <action_names>
+  $ ros2 bag record --action <action_names>
 
 To record all actions:
 
-.. code-block:: bash
+.. code-block:: console
 
-  ros2 bag record --all-actions
+  $ ros2 bag record --all-actions
 
 Run the command:
 
@@ -594,16 +594,12 @@ This is because ``ros2 bag play`` sends the action goal request data from the ba
 
 We can also introspect action communication as ``ros2 bag play`` is playing it back to verify the ``fibonacci_action_server``.
 
-Run this command before ``ros2 bag play`` to see the ``fibonacci_action_server``:
-
-.. code-block:: bash
-
-  ros2 action echo --flow-style /fibonacci
-
-You can see the action goal request from the bag file and the service response from  ``fibonacci_action_server``.
+Run this command before ``ros2 bag play`` to see the ``fibonacci_action_server``.
+You can see the action goal request from the bag file and the service response from  ``fibonacci_action_server``:
 
 .. code-block:: console
 
+  $ ros2 action echo --flow-style /fibonacci
   interface: STATUS_TOPIC
   status_list: [{goal_info: {goal_id: {uuid: [34, 116, 225, 217, 48, 121, 146, 36, 240, 98, 99, 134, 55, 227, 184, 72]}, stamp: {sec: 1744953720, nanosec: 804984321}}, status: 4}]
   ---
