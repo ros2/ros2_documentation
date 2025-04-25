@@ -93,7 +93,7 @@ See https://github.com/ros2/rclcpp/pull/2759 for more details.
 Static Type Checking
 """"""""""""""""""""
 
-Added static type hints to `ActionClient` and `ActionServer`,
+Added static type hints to `ActionClient` and `ActionServer`.
 
 See https://github.com/ros2/rclpy/pull/1349 for more details.
 
