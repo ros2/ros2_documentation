@@ -93,7 +93,42 @@ See https://github.com/ros2/rclcpp/pull/2759 for more details.
 Static Type Checking
 """"""""""""""""""""
 
-Static type checking improvements to ensure that user application is using variables and functions correctly.
+Added static type hints to ``ActionClient`` and ``ActionServer``.
+
+See https://github.com/ros2/rclpy/pull/1349 for more details.
+
+Add support for `generics <https://typing.python.org/en/latest/reference/generics.html>`_ in ``pub/sub/client/server/actions``, ``Future/Task``, and ``Parameter``.
+
+``Publisher``, ``Subscription``, ``Server``, ``Task``, and ``Parameter`` should need no updates to add support for generics.
+
+``Client`` will need to be updated to resemble the following to get the improved type checking.
+
+.. code-block:: python
+
+    self._get_parameter_client: Client[GetParameters.Request,
+                                       GetParameters.Response] = self.node.create_client(
+                                        GetParameters, '/get_parameters',
+                                        qos_profile=qos_profile, callback_group=callback_group)
+
+``ActionClient`` will need to be updated to resemble the following to get the improved type checking.
+
+.. code-block:: python
+
+    ac: ActionClient[Fibonacci.Goal,
+                     Fibonacci.Result,
+                     Fibonacci.Feedback] = ActionClient(self.node, Fibonacci, 'fibonacci')
+
+``Future`` will need to be updated to resemble the following to get the improved type checking.
+
+.. code-block:: python
+
+    log_msgs_future: Future[bool] = Future()
+
+See https://github.com/ros2/rclpy/pull/1239, https://github.com/ros2/rclpy/pull/1275, https://github.com/ros2/rclpy/pull/1246, and https://github.com/ros2/rclpy/pull/1254/files for more details.
+
+Various other small improvements and corrections have also been made throughout all of ``rclpy``.
+
+Python types can be statically checked using `ament_mypy <https://github.com/ament/ament_lint/tree/kilted/ament_mypy>`_ which wraps `mypy <https://www.mypy-lang.org/>`_.
 
 EventsExecutor
 """"""""""""""
