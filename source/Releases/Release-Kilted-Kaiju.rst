@@ -98,7 +98,7 @@ Static type checking improvements to ensure that user application is using varia
 EventsExecutor
 """"""""""""""
 
-Support an experimental event executor to rclpy.
+Support an experimental events executor for ``rclpy``, which is a port of the original ``rclcpp`` events executor concept.
 
 See https://github.com/ros2/rclpy/pull/1391 for more details.
 
