@@ -577,7 +577,8 @@ You can source your workspace (if needed) and run ROS 2!
 For example:
 
 .. code-block:: console
-
+   $ root@ros2-deployment-xxxxxxxx:/opt/ros/overlay_ws# . install/setup.sh
+   $ root@ros2-deployment-xxxxxxxx:/opt/ros/overlay_ws# ros2 launch demo_nodes_cpp talker_listener_launch.py
    $ . install/setup.sh
    $ ros2 launch demo_nodes_cpp talker_listener_launch.py
 
