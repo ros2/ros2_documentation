@@ -132,7 +132,7 @@ You can run this python script in a new ROS 2 shell:
    $ python3 emulate_kobuki_node.py
 
 .. note::
-   
+
    If building ROS 2 from source adapt the path to the setup file accordingly: ``<workspace-with-bridge>/install/setup.bash``.
 
 ----

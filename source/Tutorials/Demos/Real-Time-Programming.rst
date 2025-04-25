@@ -50,7 +50,7 @@ With the memory locking, swap will not work anymore.**
 Source your ROS 2 setup.bash.
 
 Run the demo binary, and redirect the output.
-You may want to use ``sudo`` in case you get permission error. 
+You may want to use ``sudo`` in case you get permission error.
 Even though you redirected stdout, you will see some output to the console (from stderr):
 
 .. code-block:: console
