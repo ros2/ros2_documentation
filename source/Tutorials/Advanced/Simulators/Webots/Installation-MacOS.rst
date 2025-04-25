@@ -74,14 +74,14 @@ The following instructions and commands are all run inside the VM.
 
   .. code-block:: console
 
-      mkdir /home/ubuntu/shared
+      $ mkdir /home/ubuntu/shared
 
 * To mount this folder to the host, execute the following command.
   Don't forget to modify the path to the shared folder, if it is different in your case.
 
   .. code-block:: console
 
-      sudo mount -t 9p -o trans=virtio share /home/ubuntu/shared -oversion=9p2000.L
+      $ sudo mount -t 9p -o trans=virtio share /home/ubuntu/shared -oversion=9p2000.L
 
 * To automatically mount this folder to the host when starting the VM, add the following line to ``/etc/fstab``.
   Don't forget to modify the path to the shared folder, if it is different in your case.
@@ -98,7 +98,7 @@ The following instructions and commands are all run inside the VM.
 
   .. code-block:: console
 
-    export WEBOTS_SHARED_FOLDER=/Users/username/shared:/home/ubuntu/shared
+    $ export WEBOTS_SHARED_FOLDER=/Users/username/shared:/home/ubuntu/shared
 
   You can add this command line to the ``~/.bashrc`` file to automatically set this environment variable when starting a new terminal.
 

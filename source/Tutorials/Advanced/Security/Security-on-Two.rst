@@ -39,27 +39,27 @@ Begin by creating an empty keystore on ``Bob``; the keystore is actually just an
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      ssh Bob
-      mkdir ~/sros2_demo
-      exit
+      $ ssh Bob
+      $ mkdir ~/sros2_demo
+      $ exit
 
   .. group-tab:: MacOS
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      ssh Bob
-      mkdir ~/sros2_demo
-      exit
+      $ ssh Bob
+      $ mkdir ~/sros2_demo
+      $ exit
 
   .. group-tab:: Windows
 
-    .. code-block:: bat
+    .. code-block:: console
 
-      ssh Bob
-      md C:\dev\ros2\sros2_demo
-      exit
+      $ ssh Bob
+      $ md C:\dev\ros2\sros2_demo
+      $ exit
 
 
 Copy files
@@ -72,24 +72,24 @@ Since the keys are just text files, we can use ``scp`` to copy them.
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      cd ~/sros2_demo/demo_keystore
-      scp -r talker USERNAME@Bob:~/sros2_demo/demo_keystore
+      $ cd ~/sros2_demo/demo_keystore
+      $ scp -r talker USERNAME@Bob:~/sros2_demo/demo_keystore
 
   .. group-tab:: MacOS
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      cd ~/sros2_demo/demo_keystore
-      scp -r talker USERNAME@Bob:~/sros2_demo/demo_keystore
+      $ cd ~/sros2_demo/demo_keystore
+      $ scp -r talker USERNAME@Bob:~/sros2_demo/demo_keystore
 
   .. group-tab:: Windows
 
-    .. code-block:: bat
+    .. code-block:: console
 
-      cd C:\dev\ros2\sros2_demo\demo_keystore
-      scp -r talker USERNAME@Bob:/dev/ros2/sros2_demo/demo_keystore
+      $ cd C:\dev\ros2\sros2_demo\demo_keystore
+      $ scp -r talker USERNAME@Bob:/dev/ros2/sros2_demo/demo_keystore
 
 .. warning::
 
@@ -105,15 +105,15 @@ Launch the nodes
 
 Once the environment is set up, run the talker on ``Bob``:
 
-.. code-block:: bash
+.. code-block:: console
 
-  ros2 run demo_nodes_cpp talker --ros-args --enclave /talker_listener/talker
+  $ ros2 run demo_nodes_cpp talker --ros-args --enclave /talker_listener/talker
 
 and launch the listener on ``Alice``:
 
-.. code-block:: bash
+.. code-block:: console
 
-  ros2 run demo_nodes_py listener --ros-args --enclave /talker_listener/listener
+  $ ros2 run demo_nodes_py listener --ros-args --enclave /talker_listener/listener
 
 Alice will now be receiving encrypted messages from Bob.
 

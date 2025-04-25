@@ -191,11 +191,11 @@ Now run the talker node:
 .. code-block:: console
 
      $ ros2 run cpp_pubsub talker
-    [INFO] [minimal_publisher]: Publishing: "Hello World: 0"
-    [INFO] [minimal_publisher]: Publishing: "Hello World: 1"
-    [INFO] [minimal_publisher]: Publishing: "Hello World: 2"
-    [INFO] [minimal_publisher]: Publishing: "Hello World: 3"
-    [INFO] [minimal_publisher]: Publishing: "Hello World: 4"
+     [INFO] [minimal_publisher]: Publishing: "Hello World: 0"
+     [INFO] [minimal_publisher]: Publishing: "Hello World: 1"
+     [INFO] [minimal_publisher]: Publishing: "Hello World: 2"
+     [INFO] [minimal_publisher]: Publishing: "Hello World: 3"
+     [INFO] [minimal_publisher]: Publishing: "Hello World: 4"
 
 The listener will start printing messages to the console, starting at whatever message count the publisher is on at that time, like so:
 

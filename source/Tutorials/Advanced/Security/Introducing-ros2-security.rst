@@ -43,24 +43,24 @@ Before installing from source, you will need to have a recent version openssl (1
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      sudo apt update
-      sudo apt install libssl-dev
+      $ sudo apt update
+      $ sudo apt install libssl-dev
 
   .. group-tab:: MacOS
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      brew install openssl
+      $ brew install openssl
 
     You will need to have OpenSSL on your library path to run DDS-Security demos.
     Run the following command, and consider adding to your ``~/.bash_profile``:
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      export DYLD_LIBRARY_PATH=`brew --prefix openssl`/lib:$DYLD_LIBRARY_PATH
-      export OPENSSL_ROOT_DIR=`brew --prefix openssl`
+      $ export DYLD_LIBRARY_PATH=`brew --prefix openssl`/lib:$DYLD_LIBRARY_PATH
+      $ export OPENSSL_ROOT_DIR=`brew --prefix openssl`
 
 
   .. group-tab:: Windows
@@ -69,9 +69,9 @@ Before installing from source, you will need to have a recent version openssl (1
 
 Fast DDS requires an additional CMake flag to build the security plugins, so the colcon invocation needs to be modified to pass:
 
-.. code-block:: bash
+.. code-block:: console
 
-  colcon build --symlink-install --cmake-args -DSECURITY=ON --packages-select fastrtps rmw_fastrtps_cpp rmw_fastrtps_dynamic_cpp rmw_fastrtps_shared_cpp
+  $ colcon build --symlink-install --cmake-args -DSECURITY=ON --packages-select fastrtps rmw_fastrtps_cpp rmw_fastrtps_dynamic_cpp rmw_fastrtps_shared_cpp
 
 
 Selecting an alternate middleware
@@ -97,21 +97,21 @@ Run the demo
 
     .. group-tab:: Linux
 
-      .. code-block:: bash
+      .. code-block:: console
 
-        mkdir ~/sros2_demo
+        $ mkdir ~/sros2_demo
 
     .. group-tab:: MacOS
 
-      .. code-block:: bash
+      .. code-block:: console
 
-        mkdir ~/sros2_demo
+        $ mkdir ~/sros2_demo
 
     .. group-tab:: Windows
 
-      .. code-block:: bat
+      .. code-block:: console
 
-        md C:\dev\ros2\sros2_demo
+        $ md C:\dev\ros2\sros2_demo
 
 2) Generate a keystore
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -123,24 +123,24 @@ Files in the keystore will be used to enable security for all the participants i
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      cd ~/sros2_demo
-      ros2 security create_keystore demo_keystore
+      $ cd ~/sros2_demo
+      $ ros2 security create_keystore demo_keystore
 
   .. group-tab:: MacOS
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      cd ~/sros2_demo
-      ros2 security create_keystore demo_keystore
+      $ cd ~/sros2_demo
+      $ ros2 security create_keystore demo_keystore
 
   .. group-tab:: Windows
 
-    .. code-block:: bat
+    .. code-block:: console
 
-      cd sros2_demo
-      ros2 security create_keystore demo_keystore
+      $ cd sros2_demo
+      $ ros2 security create_keystore demo_keystore
 
 3) Generate keys and certificates
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -153,31 +153,31 @@ This command uses the ``create_enclave`` feature which is covered in more detail
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      ros2 security create_enclave demo_keystore /talker_listener/talker
-      ros2 security create_enclave demo_keystore /talker_listener/listener
+      $ ros2 security create_enclave demo_keystore /talker_listener/talker
+      $ ros2 security create_enclave demo_keystore /talker_listener/listener
 
   .. group-tab:: MacOS
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      ros2 security create_enclave demo_keystore /talker_listener/talker
-      ros2 security create_enclave demo_keystore /talker_listener/listener
+      $ ros2 security create_enclave demo_keystore /talker_listener/talker
+      $ ros2 security create_enclave demo_keystore /talker_listener/listener
 
   .. group-tab:: Windows
 
-    .. code-block:: bat
+    .. code-block:: console
 
-      ros2 security create_enclave demo_keystore /talker_listener/talker
-      ros2 security create_enclave demo_keystore /talker_listener/listener
+      $ ros2 security create_enclave demo_keystore /talker_listener/talker
+      $ ros2 security create_enclave demo_keystore /talker_listener/listener
 
 
     If ``unable to write 'random state'`` appears then set the environment variable ``RANDFILE``.
 
-    .. code-block:: bat
+    .. code-block:: console
 
-      set RANDFILE=C:\dev\ros2\sros2_demo\.rnd
+      $ set RANDFILE=C:\dev\ros2\sros2_demo\.rnd
 
     Then re-run the commands above.
 
@@ -192,27 +192,27 @@ These and other security-related environment variables are described in the `ROS
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      export ROS_SECURITY_KEYSTORE=~/sros2_demo/demo_keystore
-      export ROS_SECURITY_ENABLE=true
-      export ROS_SECURITY_STRATEGY=Enforce
+      $ export ROS_SECURITY_KEYSTORE=~/sros2_demo/demo_keystore
+      $ export ROS_SECURITY_ENABLE=true
+      $ export ROS_SECURITY_STRATEGY=Enforce
 
   .. group-tab:: MacOS
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      export ROS_SECURITY_KEYSTORE=~/sros2_demo/demo_keystore
-      export ROS_SECURITY_ENABLE=true
-      export ROS_SECURITY_STRATEGY=Enforce
+      $ export ROS_SECURITY_KEYSTORE=~/sros2_demo/demo_keystore
+      $ export ROS_SECURITY_ENABLE=true
+      $ export ROS_SECURITY_STRATEGY=Enforce
 
   .. group-tab:: Windows
 
-    .. code-block:: bat
+    .. code-block:: console
 
-      set ROS_SECURITY_KEYSTORE=%cd%/demo_keystore
-      set ROS_SECURITY_ENABLE=true
-      set ROS_SECURITY_STRATEGY=Enforce
+      $ set ROS_SECURITY_KEYSTORE=%cd%/demo_keystore
+      $ set ROS_SECURITY_ENABLE=true
+      $ set ROS_SECURITY_STRATEGY=Enforce
 
 These variables need to be defined in each terminal used for the demo.
 For convenience you can add them to your boot environment.
@@ -223,16 +223,16 @@ For convenience you can add them to your boot environment.
 
 Begin the demo by launching the talker node.
 
-.. code-block:: bash
+.. code-block:: console
 
-  ros2 run demo_nodes_cpp talker --ros-args --enclave /talker_listener/talker
+  $ ros2 run demo_nodes_cpp talker --ros-args --enclave /talker_listener/talker
 
 In another terminal, do the same to launch the ``listener`` node.
 The environment variables in this terminal must be properly set as described in step 4 above.
 
-.. code-block:: bash
+.. code-block:: console
 
-  ros2 run demo_nodes_py listener --ros-args --enclave /talker_listener/listener
+  $ ros2 run demo_nodes_py listener --ros-args --enclave /talker_listener/listener
 
 These nodes will be communicating using authentication and encryption!
 If you look at the packet contents (for example, using ``tcpdump`` or ``Wireshark`` as covered in another tutorial), you can see that the messages are encrypted.
@@ -254,44 +254,44 @@ Open an another terminal and set up the following environmental variables.
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      export ROS_SECURITY_KEYSTORE=~/sros2_demo/demo_keystore
-      export ROS_SECURITY_ENABLE=true
-      export ROS_SECURITY_STRATEGY=Enforce
-      export ROS_SECURITY_ENCLAVE_OVERRIDE=/talker_listener/listener
+      $ export ROS_SECURITY_KEYSTORE=~/sros2_demo/demo_keystore
+      $ export ROS_SECURITY_ENABLE=true
+      $ export ROS_SECURITY_STRATEGY=Enforce
+      $ export ROS_SECURITY_ENCLAVE_OVERRIDE=/talker_listener/listener
 
   .. group-tab:: MacOS
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      export ROS_SECURITY_KEYSTORE=~/sros2_demo/demo_keystore
-      export ROS_SECURITY_ENABLE=true
-      export ROS_SECURITY_STRATEGY=Enforce
-      export ROS_SECURITY_ENCLAVE_OVERRIDE=/talker_listener/listener
+      $ export ROS_SECURITY_KEYSTORE=~/sros2_demo/demo_keystore
+      $ export ROS_SECURITY_ENABLE=true
+      $ export ROS_SECURITY_STRATEGY=Enforce
+      $ export ROS_SECURITY_ENCLAVE_OVERRIDE=/talker_listener/listener
 
   .. group-tab:: Windows
 
-    .. code-block:: bat
+    .. code-block:: console
 
-      set ROS_SECURITY_KEYSTORE=%cd%/demo_keystore
-      set ROS_SECURITY_ENABLE=true
-      set ROS_SECURITY_STRATEGY=Enforce
-      set ROS_SECURITY_ENCLAVE_OVERRIDE=/talker_listener/listener
+      $ set ROS_SECURITY_KEYSTORE=%cd%/demo_keystore
+      $ set ROS_SECURITY_ENABLE=true
+      $ set ROS_SECURITY_STRATEGY=Enforce
+      $ set ROS_SECURITY_ENCLAVE_OVERRIDE=/talker_listener/listener
 
 
 Now you can use ``ros2cli`` to communicate with ROS 2 secured network.
 
-.. code-block:: bash
+.. code-block:: console
 
-  ros2 node list --no-daemon --spin-time 3
+  $ ros2 node list --no-daemon --spin-time 3
   [INFO] [1733862009.410918416] [rcl]: Found security directory: /root/ros2_ws/colcon_ws/demo_keystore/enclaves/talker_listener/talker
   /listener
   /talker
 
-.. code-block:: bash
+.. code-block:: console
 
-  ros2 topic list --no-daemon --spin-time 3
+  $ ros2 topic list --no-daemon --spin-time 3
   [INFO] [1733861998.562163611] [rcl]: Found security directory: /root/ros2_ws/colcon_ws/demo_keystore/enclaves/talker_listener/talker
   /chatter
   /parameter_events
