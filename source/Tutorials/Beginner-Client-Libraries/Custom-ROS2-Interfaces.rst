@@ -188,7 +188,7 @@ In a new terminal, run the following command from within your workspace (``ros2_
 
       $ call install/setup.bat
 
-Now you can confirm that your interface creation worked by using the ``ros2 interface show`` command. 
+Now you can confirm that your interface creation worked by using the ``ros2 interface show`` command.
 The output you see in your terminal should look similar to the following:
 
 .. code-block:: console

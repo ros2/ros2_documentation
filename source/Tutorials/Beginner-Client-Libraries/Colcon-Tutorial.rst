@@ -256,7 +256,7 @@ These files will add all of the required elements to your path and library paths
        $ . install/setup.bash
 
   .. group-tab:: Windows
-    
+
     In a Windows command line interface:
 
     .. code-block:: console
