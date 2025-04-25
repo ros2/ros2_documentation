@@ -20,7 +20,7 @@ This package is in a catkin workspace, located at ``~/ros1_talker``.
 
 Your ROS 1 workspace has the following directory layout:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ cd ~/ros1_talker
    $ find .
@@ -104,7 +104,7 @@ Let's start by creating a new workspace in which to work:
 
 We'll copy the source tree from our ROS 1 package into that workspace, where we can modify it:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ mkdir src
    $ cp -a ~/ros1_talker/src/talker src

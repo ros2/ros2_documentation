@@ -10,19 +10,19 @@ Install tools that you will use in the upcoming steps according to your platform
 
    .. group-tab:: RPM (e.g. RHEL)
 
-      .. code-block:: bash
+      .. code-block:: console
 
           $ sudo dnf install python3-bloom python3-catkin_pkg
 
    .. group-tab:: Other
 
-      .. code-block:: bash
+      .. code-block:: console
 
          $ pip3 install -U bloom catkin_pkg
 
 Make sure you have rosdep initialized:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ sudo rosdep init
     $ rosdep update

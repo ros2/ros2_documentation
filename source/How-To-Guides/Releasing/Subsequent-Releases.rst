@@ -48,7 +48,7 @@ Bloom Release
 
 Run the following command, replacing ``my_repo`` with the name of your repository with the packages:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ bloom-release --rosdistro {DISTRO} my_repo
 

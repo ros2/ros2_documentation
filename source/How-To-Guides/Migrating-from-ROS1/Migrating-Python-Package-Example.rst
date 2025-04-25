@@ -34,13 +34,13 @@ First, create a folder at ``~/ros2_talker_py`` to be the root of the Colcon work
 
   .. group-tab:: macOS
 
-    .. code-block:: bash
+    .. code-block:: console
 
         $ mkdir -p ~/ros2_talker_py/src
 
   .. group-tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: console
 
         $ md \ros2_talker_py\src
 
@@ -76,7 +76,7 @@ Next, create the files for the ROS 1 package.
 
   .. group-tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: console
 
         $ cd \ros2_talker_py
         $ md src\talker_py\src\talker_py

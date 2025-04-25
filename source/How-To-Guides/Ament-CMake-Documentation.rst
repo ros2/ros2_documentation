@@ -628,11 +628,11 @@ A recommended best practice when defining environment hooks is to place them wit
 
 Inside your created ``hooks`` folder, create a ``my_package.sh.in`` as follows:
 
-.. code-block:: console
+.. code-block:: bash
 
-    $ export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
-    $ export RMW_FASTRTPS_USE_QOS_FROM_XML=1
-    $ export FASTRTPS_DEFAULT_PROFILES_FILE="$COLCON_CURRENT_PREFIX/my_dds_profile.xml"
+    export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+    export RMW_FASTRTPS_USE_QOS_FROM_XML=1
+    export FASTRTPS_DEFAULT_PROFILES_FILE="$COLCON_CURRENT_PREFIX/my_dds_profile.xml"
 
 In the same folder, create a ``my_package.dsv.in`` file as follows:
 
