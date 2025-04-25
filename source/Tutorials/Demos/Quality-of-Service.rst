@@ -29,19 +29,16 @@ You will also need the ROS package ``image_tools``.
 
    .. group-tab:: Linux Binaries
 
-      .. code-block:: console
+      .. code-block:: bash
 
-        $ sudo apt-get install ros-{DISTRO}-image-tools
+        sudo apt-get install ros-{DISTRO}-image-tools
 
    .. group-tab:: From Source
 
-      .. note::
+      .. code-block:: bash
 
-       Clone and build the demos repo using the branch that matches your installation.
-
-      .. code-block:: console
-
-        $ git clone https://github.com/ros2/demos.git -b {REPOS_FILE_BRANCH}
+        # Clone and build the demos repo using the branch that matches your installation
+        git clone https://github.com/ros2/demos.git -b {REPOS_FILE_BRANCH}
 
 
 Run the demo
@@ -55,27 +52,27 @@ Once you've installed ROS 2, source your setup file:
 
   .. group-tab:: Linux
 
-    .. code-block:: console
+    .. code-block:: bash
 
-       $ . <path to ROS 2 install space>/setup.bash
+       . <path to ROS 2 install space>/setup.bash
 
   .. group-tab:: macOS
 
-    .. code-block:: console
+    .. code-block:: bash
 
-       $ . <path to ROS 2 install space>/setup.bash
+       . <path to ROS 2 install space>/setup.bash
 
   .. group-tab:: Windows
 
-    .. code-block:: console
+    .. code-block:: bash
 
-       $ call <path to ROS 2 install space>/local_setup.bat
+       call <path to ROS 2 install space>/local_setup.bat
 
 Then run:
 
-.. code-block:: console
+.. code-block:: bash
 
-   $ ros2 run image_tools showimage
+   ros2 run image_tools showimage
 
 Nothing will happen yet.
 ``showimage`` is a subscriber node that is waiting for a publisher on the ``image`` topic.
@@ -85,17 +82,23 @@ You can't just close the window.
 
 In a separate terminal, source the install file and run the publisher node:
 
-.. code-block:: console
+.. code-block:: bash
 
-   $ ros2 run image_tools cam2image
+   ros2 run image_tools cam2image
 
 This will publish an image from your webcam.
 In case you don't have a camera attached to your computer, there is a commandline option which publishes predefined images.
 
 
-.. code-block:: console
+.. code-block:: bash
 
-   $ ros2 run image_tools cam2image --ros-args -p burger_mode:=True
+   ros2 run image_tools cam2image --ros-args -p burger_mode:=True
+
+
+In this window, you'll see terminal output:
+
+.. code-block:: bash
+
    [INFO] [1715662452.055277255] [cam2image]: Publishing image #1
    [INFO] [1715662452.119336061] [cam2image]: Publishing image #2
    [INFO] [1715662452.187315139] [cam2image]: Publishing image #3
@@ -104,7 +107,7 @@ In case you don't have a camera attached to your computer, there is a commandlin
 A window will pop up with the title "view" showing your camera feed.
 In the first window, you'll see output from the subscriber:
 
-.. code-block:: console
+.. code-block:: bash
 
    [INFO] [1715662452.188906764] [showimage]: Received image #camera_frame
    Received image #camera_frame
@@ -118,7 +121,7 @@ In the first window, you'll see output from the subscriber:
 
    macOS users: If these examples do not work or you receive an error like ``ddsi_conn_write failed -1`` then you'll need to increase your system wide UDP packet size:
 
-   .. code-block:: console
+   .. code-block:: bash
 
       $ sudo sysctl -w net.inet.udp.recvspace=209715
       $ sudo sysctl -w net.inet.udp.maxdgram=65500
@@ -137,9 +140,9 @@ Command line options
 In one of your terminals, add a -h flag to the original command:
 
 
-.. code-block:: console
+.. code-block:: bash
 
-   $ ros2 run image_tools showimage -h
+   ros2 run image_tools showimage -h
 
 
 
@@ -160,9 +163,9 @@ Add network traffic
 
 We are going to use the Linux network traffic control utility, ``tc`` (`man page <http://linux.die.net/man/8/tc>`_) .
 
-.. code-block:: console
+.. code-block:: bash
 
-   $ sudo tc qdisc add dev lo root netem loss 5%
+   sudo tc qdisc add dev lo root netem loss 5%
 
 This magical incantation will simulate 5% packet loss over the local loopback device.
 If you use a higher resolution of the images (e.g. ``--ros-args -p width:=640 -p height:=480``) you might want to try a lower packet loss rate (e.g. ``1%``).
@@ -184,6 +187,6 @@ We see now that some of the frames on the ``showimage`` side were dropped, so th
 
 When you're done, remember to delete the queueing discipline:
 
-.. code-block:: console
+.. code-block:: bash
 
-   $ sudo tc qdisc delete dev lo root netem loss 5%
+   sudo tc qdisc delete dev lo root netem loss 5%

@@ -83,28 +83,19 @@ If you want to try the C++ version, you can find the source code here: `fibonacc
 Action introspection is disabled by default, so users need to enable it with ``action_server_configure_introspection`` parameter when the server starts up.
 In this demo, ``FibonacciActionServer`` enables action introspection when the value of the ``action_server_configure_introspection`` parameter is ``contents``.
 
-.. code-block:: console
+.. code-block:: bash
 
-    $ ros2 run action_tutorials_py fibonacci_action_server --ros-args -p action_server_configure_introspection:=contents
+    ros2 run action_tutorials_py fibonacci_action_server --ros-args -p action_server_configure_introspection:=contents
 
 To change action introspection state, we need to set the ``action_server_configure_introspection`` parameter as follows.
 
-To change it to user data contents with metadata:
+.. code-block:: bash
 
-.. code-block:: console
-
+    ### User data contents with metadata
     $ ros2 param set /fibonacci_action_server action_server_configure_introspection contents
-
-To change it to only metadata:
-
-.. code-block:: console
-
+    ### Or only metadata
     $ ros2 param set /fibonacci_action_server action_server_configure_introspection metadata
-
-To disable:
-
-.. code-block:: console
-
+    ### To disable
     $ ros2 param set /fibonacci_action_server action_server_configure_introspection disabled
 
 Action client
@@ -147,31 +138,21 @@ If you want to try the Python version, you can find the source code here: `fibon
 
 And then, we start and configure ``FibonacciActionClient`` in the same way.
 
-.. code-block:: console
+.. code-block:: bash
 
-    $ ros2 run action_tutorials_cpp fibonacci_action_client --ros-args -p action_client_configure_introspection:=contents
+    ros2 run action_tutorials_cpp fibonacci_action_client --ros-args -p action_client_configure_introspection:=contents
 
 To change action introspection state, we need to set the ``action_client_configure_introspection`` parameter as follows.
 Note that ``FibonacciActionClient`` only runs in short time, so it is recommended to set the parameter before running the client as above.
 
-To change it to user data contents with metadata:
+.. code-block:: bash
 
-.. code-block:: console
-
+    ### User data contents with metadata
     $ ros2 param set /fibonacci_action_client action_client_configure_introspection contents
-
-To change it to only metadata:
-
-.. code-block:: console
-
+    ### Or only metadata
     $ ros2 param set /fibonacci_action_client action_client_configure_introspection metadata
-
-To disable:
-
-.. code-block:: console
-
+    ### To disable
     $ ros2 param set /fibonacci_action_client action_client_configure_introspection disabled
-
 
 Introspect
 ^^^^^^^^^^
