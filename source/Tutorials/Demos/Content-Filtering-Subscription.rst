@@ -132,7 +132,7 @@ The ``ContentFilteringPublisher`` node publishes simulated temperature data star
 
 We can run the demo by running the ``ros2 run demo_nodes_cpp content_filtering_publisher`` executable (don't forget to source the setup file first):
 
-.. code-block:: bash
+.. code-block:: console
 
     $ ros2 run demo_nodes_cpp content_filtering_publisher
     [INFO] [1651094594.822753479] [content_filtering_publisher]: Publishing: '-100.000000'
@@ -248,7 +248,7 @@ Applications can use the ``is_cft_enabled`` method to check if content filtering
 
 To test content filtering subscription, let's run it:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ ros2 run demo_nodes_cpp content_filtering_subscriber
     [INFO] [1651094590.682660703] [content_filtering_subscriber]: subscribed to topic "/temperature" with content filter options "data < %0 OR data > %1, {-30.000000, 100.000000}"
@@ -277,7 +277,7 @@ You should see a message showing the content filtering options used and logs for
 If content filtering is not supported by the RMW implementation, the subscription will still be created without content filtering enabled.
 We can try that by executing ``RMW_IMPLEMENTATION=rmw_cyclonedds_cpp ros2 run demo_nodes_cpp content_filtering_publisher``.
 
-.. code-block:: bash
+.. code-block:: console
 
     $ RMW_IMPLEMENTATION=rmw_cyclonedds_cpp ros2 run demo_nodes_cpp content_filtering_subscriber
     [WARN] [1651096637.893842072] [content_filtering_subscriber]: Content filter is not enabled since it is not supported

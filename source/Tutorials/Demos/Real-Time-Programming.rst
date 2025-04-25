@@ -50,19 +50,12 @@ With the memory locking, swap will not work anymore.**
 Source your ROS 2 setup.bash.
 
 Run the demo binary, and redirect the output.
-You may want to use ``sudo`` in case you get permission error:
+You may want to use ``sudo`` in case you get permission error. 
+Even though you redirected stdout, you will see some output to the console (from stderr):
 
-.. code-block:: bash
+.. code-block:: console
 
-   pendulum_demo > output.txt
-
-What the heck just happened?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-First, even though you redirected stdout, you will see some output to the console (from stderr):
-
-::
-
+   $ pendulum_demo > output.txt
    mlockall failed: Cannot allocate memory
    Couldn't lock all cached virtual memory.
    Pagefaults from reading pages not yet mapped into RAM will be recorded.
@@ -108,9 +101,9 @@ To see more output, we have to run the ``pendulum_logger`` node.
 
 In one shell with your ``install/setup.bash`` sourced, invoke:
 
-.. code-block:: bash
+.. code-block:: console
 
-   pendulum_logger
+   $ pendulum_logger
 
 
 You should see the output message:
@@ -214,15 +207,15 @@ Because the code has been instrumented with `rttest <https://github.com/ros2/rtt
 
 Run the demo again with a filename to save results:
 
-.. code-block:: bash
+.. code-block:: console
 
-   pendulum_demo -f pendulum_demo_results
+   $ pendulum_demo -f pendulum_demo_results
 
 Then run the ``rttest_plot`` script on the resulting file:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 run rttest rttest_plot pendulum_demo_results
+   $ ros2 run rttest rttest_plot pendulum_demo_results
 
 This script will produce a number of files:
 
