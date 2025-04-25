@@ -87,6 +87,21 @@ Support action generic client, this is used to support actions in rosbag2.
 
 See https://github.com/ros2/rclcpp/pull/2759 for more details.
 
+``rclpy``
+^^^^^^^^^
+
+Static Type Checking
+""""""""""""""""""""
+
+Static type checking improvements to ensure that user application is using variables and functions correctly.
+
+EventsExecutor
+""""""""""""""
+
+Support an experimental events executor for ``rclpy``, which is a port of the original ``rclcpp`` events executor concept.
+
+See https://github.com/ros2/rclpy/pull/1391 for more details.
+
 ``Rosbag2``
 ^^^^^^^^^^^
 
