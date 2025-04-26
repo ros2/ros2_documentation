@@ -20,51 +20,7 @@ Only Windows 10 is supported.
 
 .. _windows-install-binary-installing-prerequisites:
 
-<<<<<<< HEAD
 .. include:: _Windows-Install-Prerequisites.rst
-=======
-Create a location for the ROS 2 installation
---------------------------------------------
-
-This location will contain both the installed binary packages, plus the ROS 2 installation itself.
-
-Start a powershell session (usually by clicking on the start menu, then typing ``powershell``).
-
-Then create a directory to store the installation.
-Because of Windows path-length limitations, this should be as short as possible.
-We'll use ``C:\dev`` for the rest of these instructions.
-
-.. code-block:: console
-
-   $ md C:\dev
-
-Install prerequisites
----------------------
-
-ROS 2 uses `conda-forge <https://conda-forge.org/>`__ as a backend for packages, with `pixi <https://pixi.sh/latest/>`__ as the frontend.
-
-Install pixi
-^^^^^^^^^^^^
-
-Continue using the previous powershell session, and use the instructions on https://pixi.sh/latest/ to install ``pixi``.
-Once ``pixi`` has been installed, close the powershell session and start it again, which will ensure ``pixi`` is on the PATH.
-
-Install dependencies
-^^^^^^^^^^^^^^^^^^^^
-
-Download the pixi configuration file in the existing powershell session:
-
-.. code-block:: console
-
-   $ cd C:\dev
-   $ irm https://raw.githubusercontent.com/ros2/ros2/refs/heads/{REPOS_FILE_BRANCH}/pixi.toml -OutFile pixi.toml
-
-Install dependencies:
-
-.. code-block:: console
-
-   $ pixi install
->>>>>>> b3d8114 (Add $ to Installation (#5356))
 
 Install ROS 2
 -------------
@@ -95,27 +51,9 @@ Setup environment
 
 Start a command shell and source the ROS 2 setup file to set up the workspace:
 
-.. code-block:: bash
-
-<<<<<<< HEAD
-   call C:\dev\ros2_{DISTRO}\local_setup.bat
-=======
-Source the pixi environment to set up dependencies:
-
 .. code-block:: console
 
-   $ cd C:\dev
-   $ pixi shell
-
-Source the ROS 2 environment
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-This is required in every command prompt you open to setup the ROS 2 workspace:
-
-.. code-block:: console
-
-   $ call ros2_{DISTRO}\local_setup.bat
->>>>>>> b3d8114 (Add $ to Installation (#5356))
+   $ call C:\dev\ros2_{DISTRO}\local_setup.bat
 
 It is normal that the previous command, if nothing else went wrong, outputs ``The system cannot find the path specified.`` exactly once.
 
@@ -159,8 +97,7 @@ Uninstall
 
    .. code-block:: console
 
-<<<<<<< HEAD
-      rmdir /s /q \ros2_{DISTRO}
+      $ rmdir /s /q \ros2_{DISTRO}
 
 Extra Stuff for Debug
 ---------------------
@@ -189,6 +126,3 @@ Python installation may require modification to enable debugging symbols and deb
          :width: 500 px
 
 * Click Install.
-=======
-      $ rmdir /s /q C:\dev
->>>>>>> b3d8114 (Add $ to Installation (#5356))
