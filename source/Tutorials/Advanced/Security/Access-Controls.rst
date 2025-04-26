@@ -37,17 +37,10 @@ Begin by making a backup of your permissions files, and open ``permissions.xml``
 
 .. code-block:: console
 
-<<<<<<< HEAD
-  cd ~/sros2_demo/demo_keys/enclaves/talker_listener/talker
-  mv permissions.p7s permissions.p7s~
-  mv permissions.xml permissions.xml~
-  vi permissions.xml
-=======
-  $ cd ~/sros2_demo/demo_keystore/enclaves/talker_listener/talker
+  $ cd ~/sros2_demo/demo_keys/enclaves/talker_listener/talker
   $ mv permissions.p7s permissions.p7s~
   $ mv permissions.xml permissions.xml~
   $ vi permissions.xml
->>>>>>> 65905c8 (add $ Security Webots and Topic-Statics-Tutorial (#5358))
 
 We will be modifying the ``<allow_rule>`` for ``<publish>`` and ``<subscribe>``.
 The topics in this XML file use the DDS naming format, not the ROS name.

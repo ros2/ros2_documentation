@@ -58,13 +58,8 @@ Use ``openssl`` to view this x509 certificate and display it as text:
 
 .. code-block:: console
 
-<<<<<<< HEAD
-  cd ~/sros2_demo/demo_keys/public
-  openssl x509 -in ca.cert.pem -text -noout
-=======
-  $ cd ~/sros2_demo/demo_keystore/public
+  $ cd ~/sros2_demo/demo_keys/public
   $ openssl x509 -in ca.cert.pem -text -noout
->>>>>>> 65905c8 (add $ Security Webots and Topic-Statics-Tutorial (#5358))
 
 The output should look similar to the following::
 
@@ -130,19 +125,9 @@ It can safely be stored offline in another system or removable media.
 The ``sros2`` utilities use `elliptic curve cryptograpy <https://en.wikipedia.org/wiki/Elliptic-curve_cryptography>`_ rather than RSA for improved security and reduced key size.
 Use the following command to show details about this elliptic curve private key:
 
-
-<<<<<<< HEAD
-.. code-block:: bash
-
-  cd ~/sros2_demo/demo_keys/private
-  openssl ec -in ca.key.pem -text -noout
-
-Your output should look similar to the following::
-=======
 .. code-block:: console
->>>>>>> 65905c8 (add $ Security Webots and Topic-Statics-Tutorial (#5358))
 
-  $ cd ~/sros2_demo/demo_keystore/private
+  $ cd ~/sros2_demo/demo_keys/private
   $ openssl ec -in ca.key.pem -text -noout
   read EC key
   Private-Key: (256 bit)
@@ -222,11 +207,7 @@ Begin with a new terminal session and enable security with the keystore created 
   $ export ROS_SECURITY_ENABLE=true
   $ export ROS_SECURITY_STRATEGY=Enforce
 
-<<<<<<< HEAD
-  cd ~/sros2_demo/demo_keys/enclaves/talker_listener/listener
-=======
-  $ cd ~/sros2_demo/demo_keystore/enclaves/talker_listener/listener
->>>>>>> 65905c8 (add $ Security Webots and Topic-Statics-Tutorial (#5358))
+  $ cd ~/sros2_demo/demo_keys/enclaves/talker_listener/listener
 
 Make a backup copy of ``permissions.p7s`` before beginning.
 
