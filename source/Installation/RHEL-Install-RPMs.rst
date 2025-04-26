@@ -32,13 +32,8 @@ You will need to enable the EPEL repositories and the PowerTools repository:
 
 .. code-block:: console
 
-<<<<<<< HEAD
-   sudo dnf install 'dnf-command(config-manager)' epel-release -y
-   sudo dnf config-manager --set-enabled powertools
-=======
    $ sudo dnf install 'dnf-command(config-manager)' epel-release -y
-   $ sudo dnf config-manager --set-enabled crb
->>>>>>> b3d8114 (Add $ to Installation (#5356))
+   $ sudo dnf config-manager --set-enabled powertools
 
 .. note:: This step may be slightly different depending on the distribution you are using.
           `Check the EPEL documentation <https://docs.fedoraproject.org/en-US/epel/#_quickstart>`_
@@ -59,41 +54,8 @@ DNF may prompt you to verify the GPG key, which should match the location ``http
 
 .. _rhel-install-rpms-install-ros-2-packages:
 
-<<<<<<< HEAD
 Install ROS 2 packages
 ----------------------
-=======
-If you are going to build ROS packages or otherwise do development, you can also install the development tools:
-
-.. code-block:: console
-
-   $ sudo dnf install -y \
-     cmake \
-     gcc-c++ \
-     git \
-     make \
-     patch \
-     python3-colcon-common-extensions \
-     python3-mypy \
-     python3-pip \
-     python3-pytest \
-     python3-pytest-repeat \
-     python3-pytest-rerunfailures \
-     python3-rosdep \
-     python3-setuptools \
-     python3-vcstool \
-     wget
-
-   ~ install some pip packages needed for testing and
-   ~ not available as RPMs
-   $ python3 -m pip install -U --user \
-     flake8-blind-except==0.1.1 \
-     flake8-class-newline \
-     flake8-deprecated
-
-Install ROS 2
--------------
->>>>>>> b3d8114 (Add $ to Installation (#5356))
 
 .. include:: _Dnf-Update-Admonition.rst
 
@@ -172,8 +134,4 @@ have already installed from binaries, run the following command:
 
 .. code-block:: console
 
-<<<<<<< HEAD
-  sudo dnf remove ros-{DISTRO}-*
-=======
    $ sudo dnf remove ros-{DISTRO}-*
->>>>>>> b3d8114 (Add $ to Installation (#5356))

@@ -37,22 +37,8 @@ Setup Sources
 
 .. _linux-install-debs-install-ros-2-packages:
 
-<<<<<<< HEAD
 Install ROS 2 packages
 ----------------------
-=======
-Install development tools (optional)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-If you are going to build ROS packages or otherwise do development, you can also install the development tools:
-
-.. code-block:: console
-
-   $ sudo apt update && sudo apt install ros-dev-tools
-
-Install ROS 2
--------------
->>>>>>> b3d8114 (Add $ to Installation (#5356))
 
 Update your apt repository caches after setting up the repositories.
 
@@ -158,25 +144,13 @@ have already installed from binaries, run the following command:
 
 .. code-block:: console
 
-<<<<<<< HEAD
-  sudo apt remove ~nros-{DISTRO}-* && sudo apt autoremove
-=======
    $ sudo apt remove ~nros-{DISTRO}-* && sudo apt autoremove
->>>>>>> b3d8114 (Add $ to Installation (#5356))
 
 You may also want to remove the repository:
 
 .. code-block:: console
 
-<<<<<<< HEAD
-  sudo rm /etc/apt/sources.list.d/ros2.list
-  sudo apt update
-  sudo apt autoremove
-  # Consider upgrading for packages previously shadowed.
-  sudo apt upgrade
-=======
    $ sudo rm /etc/apt/sources.list.d/ros2.list
    $ sudo apt update
    $ sudo apt autoremove
    $ sudo apt upgrade # Consider upgrading for packages previously shadowed.
->>>>>>> b3d8114 (Add $ to Installation (#5356))
