@@ -290,7 +290,7 @@ One way is to pass the ``target_frame`` argument to the launch file directly fro
 
 .. code-block:: console
 
-    ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo_launch.py target_frame:=carrot1
+    $ ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo_launch.py target_frame:=carrot1
 
 The second way is to update the launch file.
 To do so, open the ``turtle_tf2_fixed_frame_demo_launch.py`` file, and add the ``'target_frame': 'carrot1'`` parameter via ``launch_arguments`` argument.
@@ -322,13 +322,13 @@ Inside the ``src`` directory download the dynamic frame broadcaster code by ente
 
       .. code-block:: console
 
-          wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/dynamic_frame_tf2_broadcaster.cpp
+          $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/dynamic_frame_tf2_broadcaster.cpp
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-          wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/dynamic_frame_tf2_broadcaster.cpp
+          $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/dynamic_frame_tf2_broadcaster.cpp
 
    .. group-tab:: Windows
 
@@ -336,13 +336,13 @@ Inside the ``src`` directory download the dynamic frame broadcaster code by ente
 
       .. code-block:: console
 
-          curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/dynamic_frame_tf2_broadcaster.cpp -o dynamic_frame_tf2_broadcaster.cpp
+          $ curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/dynamic_frame_tf2_broadcaster.cpp -o dynamic_frame_tf2_broadcaster.cpp
 
       Or in powershell:
 
       .. code-block:: console
 
-          curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/dynamic_frame_tf2_broadcaster.cpp -o dynamic_frame_tf2_broadcaster.cpp
+          $ curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/dynamic_frame_tf2_broadcaster.cpp -o dynamic_frame_tf2_broadcaster.cpp
 
 Now open the file called ``dynamic_frame_tf2_broadcaster.cpp``:
 
@@ -459,7 +459,7 @@ Run ``rosdep`` in the root of your workspace to check for missing dependencies.
 
       .. code-block:: console
 
-          rosdep install -i --from-path src --rosdistro {DISTRO} -y
+          $ rosdep install -i --from-path src --rosdistro {DISTRO} -y
 
    .. group-tab:: macOS
 
@@ -477,19 +477,19 @@ Still in the root of your workspace, build your package:
 
       .. code-block:: console
 
-          colcon build --packages-select learning_tf2_cpp
+          $ colcon build --packages-select learning_tf2_cpp
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-          colcon build --packages-select learning_tf2_cpp
+          $ colcon build --packages-select learning_tf2_cpp
 
    .. group-tab:: Windows
 
       .. code-block:: console
 
-          colcon build --merge-install --packages-select learning_tf2_cpp
+          $ colcon build --merge-install --packages-select learning_tf2_cpp
 
 Open a new terminal, navigate to the root of your workspace, and source the setup files:
 
@@ -499,13 +499,13 @@ Open a new terminal, navigate to the root of your workspace, and source the setu
 
       .. code-block:: console
 
-          . install/setup.bash
+          $ . install/setup.bash
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-          . install/setup.bash
+          $ . install/setup.bash
 
    .. group-tab:: Windows
 

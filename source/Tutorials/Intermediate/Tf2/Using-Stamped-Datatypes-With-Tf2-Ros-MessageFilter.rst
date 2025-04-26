@@ -645,11 +645,6 @@ Now if you echo the topic ``turtle3/turtle_point_stamped``:
 .. code-block:: console
 
     $ ros2 topic echo /turtle3/turtle_point_stamped
-
-Then there will be output like this:
-
-.. code-block:: console
-
     header:
       stamp:
         sec: 1629877510
