@@ -34,7 +34,7 @@ Initialize the rosdep database by calling:
 
 .. code:: console
 
-  $ sudo rosdep inituuu
+  $ sudo rosdep init
   $ rosdep update
 
 Note that the ``rosdep init`` command may fail if it has already been initialized in the past; this can safely be ignored.
