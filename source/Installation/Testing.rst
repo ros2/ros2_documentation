@@ -26,42 +26,42 @@ For Debian-based operating systems, you can install binary packages from the **r
 2. Edit (with sudo) the file ``/etc/apt/sources.list.d/ros2.list`` and change ``ros2`` with ``ros2-testing``.
    For example, on Ubuntu Noble the contents should look like the following:
 
-   .. code-block:: sh
+   .. code-block:: bash
 
       # deb http://packages.ros.org/ros2/ubuntu noble main
       deb http://packages.ros.org/ros2-testing/ubuntu noble main
 
 3. Update the ``apt`` index:
 
-   .. code-block:: sh
+   .. code-block:: console
 
-      sudo apt update
+      $ sudo apt update
 
 4. You can now install individual packages from the testing repository, for example:
 
-   .. code-block:: sh
+   .. code-block:: console
 
-      sudo apt install ros-{DISTRO}-my-just-released-package
+      $ sudo apt install ros-{DISTRO}-my-just-released-package
 
 5. Alternatively, you can move your entire ROS 2 installation to the testing repository:
 
-   .. code-block:: sh
+   .. code-block:: console
 
-      sudo apt dist-upgrade
+      $ sudo apt dist-upgrade
 
 6. Once you are finished testing, you can switch back to the normal repository by changing back the contents of ``/etc/apt/sources.list.d/ros2.list``:
 
-   .. code-block:: sh
+   .. code-block:: bash
 
       deb http://packages.ros.org/ros2/ubuntu noble main
       # deb http://packages.ros.org/ros2-testing/ubuntu noble main
 
    and doing an update and upgrade:
 
-   .. code-block:: sh
+   .. code-block:: console
 
-      sudo apt update
-      sudo apt dist-upgrade
+      $ sudo apt update
+      $ sudo apt dist-upgrade
 
 .. _Prerelease_binaries:
 
@@ -85,15 +85,15 @@ These packaging jobs produce archives with pre-built binaries that can be downlo
 
      .. group-tab:: Ubuntu Linux and RHEL
 
-       .. code-block:: sh
+       .. code-block:: console
 
-          source path/to/extracted/archive/setup.bash
+          $ source path/to/extracted/archive/setup.bash
 
      .. group-tab:: Windows
 
-       .. code-block:: sh
+       .. code-block:: console
 
-          call path\to\extracted\archive\setup.bat
+          $ call path\to\extracted\archive\setup.bat
 
 Docker
 ------
@@ -102,14 +102,14 @@ For Ubuntu Linux, there is also a nightly Docker image based on the nightly bina
 
 1. Pull the Docker image:
 
-   .. code-block:: sh
+   .. code-block:: console
 
-      docker pull osrf/ros2:nightly
+      $ docker pull osrf/ros2:nightly
 
 2. Start an interactive container:
 
-   .. code-block:: sh
+   .. code-block:: console
 
-      docker run -it osrf/ros2:nightly
+      $ docker run -it osrf/ros2:nightly
 
 For support on running GUI applications in Docker, take a look at the tutorial `User GUI's with Docker <https://wiki.ros.org/docker/Tutorials/GUI>`_ or the tool `rocker <https://github.com/osrf/rocker>`_.
