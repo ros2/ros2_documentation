@@ -108,7 +108,7 @@ Generating the Docker Image
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In order to build a new docker image, a Dockerfile is required.
-To download the Dockerfile run:
+To download the Dockerfile proposed for this tutorial, run:
 
 .. code-block:: console
 

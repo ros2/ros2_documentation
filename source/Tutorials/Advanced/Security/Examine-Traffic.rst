@@ -157,7 +157,8 @@ In terminal 2:
 Display encrypted discovery packets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Run the same ``tcpdump`` command used earlier to examine the output of discovery traffic with encryption enabled:
+Run the same ``tcpdump`` command used earlier to examine the output of discovery traffic with encryption enabled
+The typical discovery packet looks somewhat like the following:
 
 .. code-block:: console
 
@@ -190,7 +191,8 @@ Take a look at the excellent paper `Network Reconnaissance and Vulnerability Exc
 Display encrypted data packets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Now use ``tcpdump`` to capture data packets:
+Now use ``tcpdump`` to capture data packets.
+A typical data packet looks like the following:
 
 .. code-block:: console
 
