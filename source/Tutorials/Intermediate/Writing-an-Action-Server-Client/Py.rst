@@ -232,7 +232,7 @@ You should see messages printed by the action server as it successfully executes
       [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2])
       [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2, 3])
       [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2, 3, 5])
-      # etc.
+      ~ etc.
 
 
   .. group-tab:: macOS
@@ -245,7 +245,7 @@ You should see messages printed by the action server as it successfully executes
       [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2])
       [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2, 3])
       [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2, 3, 5])
-      # etc.
+      ~ etc.
 
 
   .. group-tab:: Windows
