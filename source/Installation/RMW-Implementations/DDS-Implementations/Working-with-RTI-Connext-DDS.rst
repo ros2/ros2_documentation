@@ -34,15 +34,15 @@ RTI Connext Pro is available through a variety of channels:
 
      .. group-tab:: v7.3.0
 
-        .. code-block:: bash
+        .. code-block:: console
 
-           sudo apt update && sudo apt install -q -y rti-connext-dds-7.3.0
+           $ sudo apt update && sudo apt install -q -y rti-connext-dds-7.3.0
 
      .. group-tab:: v6.0.1
 
         .. code-block:: console
 
-           sudo apt update && sudo apt install -q -y rti-connext-dds-6.0.1
+           $ sudo apt update && sudo apt install -q -y rti-connext-dds-6.0.1
 
   Note that this includes the RTI Connext libraries only, and does not include the full RTI Connext Pro suite of tools and services.
   Note also that the Connext libraries are automatically installed when installing ``rmw_connextdds`` using apt.
@@ -58,9 +58,9 @@ Install rmw_connextdds binary packages
 
 To install the binary packages for ``rmw_connextdds`` and the Connext libraries from the ROS 2 apt repositories, use the following command:
 
-.. code-block:: bash
+.. code-block:: console
 
-   sudo apt update && sudo apt install -q -y ros-{DISTRO}-rmw-connextdds
+   $ sudo apt update && sudo apt install -q -y ros-{DISTRO}-rmw-connextdds
 
 
 Building rmw_connextdds from source code
@@ -72,29 +72,29 @@ pages have instructions for building for other platforms and targets, including 
 
 Clone the repository for ``rmw_connextdds`` into your ROS 2 workspace and select the branch that matches the ROS 2 distribution in use:
 
-.. code-block:: bash
+.. code-block:: console
 
-   cd ros2_ws/src
-   git clone https://github.com/ros2/rmw_connextdds -b {DISTRO}
+   $ cd ros2_ws/src
+   $ git clone https://github.com/ros2/rmw_connextdds -b {DISTRO}
 
 Set up the environment to help colcon discover where RTI Connext is installed.
 This can be done by manually setting the environment variable ``NDDSHOME`` to the location of the RTI Connext installation, or by using a script that comes with the RTI Connext installation:
 
-.. code-block:: bash
+.. code-block:: console
 
-   source ${RTI_CONNEXT_INSTALL_LOCATION}/resource/scripts/rtisetenv_x64Linux4gcc7.3.0.bash
+   $ source ${RTI_CONNEXT_INSTALL_LOCATION}/resource/scripts/rtisetenv_x64Linux4gcc7.3.0.bash
 
 Build the RMW using colcon:
 
-.. code-block:: bash
+.. code-block:: console
 
-   colcon build --symlink-install
+   $ colcon build --symlink-install
 
 After the build completes successfully, be sure to source the setup file for the workspace:
 
-.. code-block:: bash
+.. code-block:: console
 
-   source install/setup.bash
+   $ source install/setup.bash
 
 
 Use the resulting rmw_connextdds
@@ -102,9 +102,9 @@ Use the resulting rmw_connextdds
 
 Set the environment variable ``RMW_IMPLEMENTATION`` to tell ROS 2 which RMW to use:
 
-.. code-block:: bash
+.. code-block:: console
 
-   export RMW_IMPLEMENTATION=rmw_connextdds
+   $ export RMW_IMPLEMENTATION=rmw_connextdds
 
 See also: :doc:`Working with multiple RMW implementations <../../../How-To-Guides/Working-with-multiple-RMW-implementations>`
 
@@ -113,11 +113,11 @@ Run the talker and listener
 
 Now run ``talker`` and ``listener`` to test RTI Connext DDS
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 run demo_nodes_cpp talker
+   $ ros2 run demo_nodes_cpp talker
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 run demo_nodes_cpp listener
+   $ ros2 run demo_nodes_cpp listener
 
