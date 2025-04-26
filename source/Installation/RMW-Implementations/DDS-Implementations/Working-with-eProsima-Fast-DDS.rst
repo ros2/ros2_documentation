@@ -67,9 +67,4 @@ Now run ``talker`` and ``listener`` to test Fast DDS.
 
 .. code-block:: console
 
-<<<<<<< HEAD
-   ros2 run demo_nodes_cpp listener
-
-=======
    $ ros2 run demo_nodes_cpp listener
->>>>>>> 93a7d34 (Add $ DDS-Implementations (#5355))
