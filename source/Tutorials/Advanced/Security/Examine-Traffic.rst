@@ -46,10 +46,10 @@ Install ``tcpdump``
 Begin in a new terminal window by installing `tcpdump <https://www.tcpdump.org/manpages/tcpdump.1.html>`_, a command-line tool for capturing and displaying network traffic.
 Although this tutorial describes ``tcpdump`` commands, you can also use `Wireshark <https://www.wireshark.org/>`_, a similar graphical tool for capturing and analyzing traffic.
 
-.. code-block:: bash
+.. code-block:: console
 
-  sudo apt update
-  sudo apt install tcpdump
+  $ sudo apt update
+  $ sudo apt install tcpdump
 
 Run following commands on a single machine through multiple ``ssh`` sessions.
 
@@ -58,17 +58,19 @@ Start the talker and listener
 
 Start both the talker and the listener again, each in its own terminal.
 The security environment variables are not set so security is not enabled for these sessions.
+In one terminal run:
 
-.. code-block:: bash
+.. code-block:: console
 
-  # Disable ROS Security for both terminals
-  unset ROS_SECURITY_ENABLE
+  $ unset ROS_SECURITY_ENABLE
+  $ ros2 run demo_nodes_cpp talker --ros-args --enclave /talker_listener/talker
 
-  # In terminal 1:
-  ros2 run demo_nodes_cpp talker --ros-args --enclave /talker_listener/talker
+In another terminal run:
 
-  # In terminal 2:
-  ros2 run demo_nodes_cpp listener --ros-args --enclave /talker_listener/listener
+.. code-block:: console
+
+  $ unset ROS_SECURITY_ENABLE
+  $ ros2 run demo_nodes_cpp listener --ros-args --enclave /talker_listener/listener
 
 
 Display unencrypted discovery packets
@@ -79,12 +81,9 @@ You need to use ``sudo`` since reading raw network traffic is a privileged opera
 
 The command below uses the ``-X`` option to print packet contents, the ``-i`` option to listen for packets on any interface, and captures only `UDP <https://en.wikipedia.org/wiki/User_Datagram_Protocol>`_ port 7400 traffic.
 
-.. code-block:: bash
+.. code-block:: console
 
-  sudo tcpdump -X -i any udp port 7400
-
-You should see packets like the following::
-
+  $ sudo tcpdump -X -i any udp port 7400
   20:18:04.400770 IP 8_xterm.46392 > 239.255.0.1.7400: UDP, length 252
     0x0000:  4500 0118 d48b 4000 0111 7399 c0a8 8007  E.....@...s.....
     0x0010:  efff 0001 b538 1ce8 0104 31c6 5254 5053  .....8....1.RTPS
@@ -109,14 +108,12 @@ Some other features of a typical discovery packet:
 Display unencrypted data packets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Use ``tcpdump`` to capture non-discovery RTPS packets by filtering on UDP ports above 7400:
+Use ``tcpdump`` to capture non-discovery RTPS packets by filtering on UDP ports above 7400.
+You will see few different types of packets, but watch for something like the following which is obviously data being sent from a talker to a listener:
 
-.. code-block:: bash
+.. code-block:: console
 
-  sudo tcpdump -i any -X udp portrange 7401-7500
-
-You will see few different types of packets, but watch for something like the following which is obviously data being sent from a talker to a listener::
-
+  $ sudo tcpdump -i any -X udp portrange 7401-7500
   20:49:17.927303 IP localhost.46392 > localhost.7415: UDP, length 84
     0x0000:  4500 0070 5b53 4000 4011 e127 7f00 0001  E..p[S@.@..'....
     0x0010:  7f00 0001 b538 1cf7 005c fe6f 5254 5053  .....8...\.oRTPS
@@ -138,32 +135,34 @@ Enable encryption
 Stop both the talker and the listener nodes.
 Enable encryption for both by setting the security environment variables and run them again.
 
-.. code-block:: bash
+In terminal 1:
 
-  # In terminal 1:
-  export ROS_SECURITY_KEYSTORE=~/sros2_demo/demo_keystore
-  export ROS_SECURITY_ENABLE=true
-  export ROS_SECURITY_STRATEGY=Enforce
-  ros2 run demo_nodes_cpp talker --ros-args --enclave /talker_listener/talker
+.. code-block:: console
 
-  # In terminal 2:
-  export ROS_SECURITY_KEYSTORE=~/sros2_demo/demo_keystore
-  export ROS_SECURITY_ENABLE=true
-  export ROS_SECURITY_STRATEGY=Enforce
-  ros2 run demo_nodes_cpp listener --ros-args --enclave /talker_listener/listener
+  $ export ROS_SECURITY_KEYSTORE=~/sros2_demo/demo_keystore
+  $ export ROS_SECURITY_ENABLE=true
+  $ export ROS_SECURITY_STRATEGY=Enforce
+  $ ros2 run demo_nodes_cpp talker --ros-args --enclave /talker_listener/talker
+
+In terminal 2:
+
+.. code-block:: console
+
+  $ export ROS_SECURITY_KEYSTORE=~/sros2_demo/demo_keystore
+  $ export ROS_SECURITY_ENABLE=true
+  $ export ROS_SECURITY_STRATEGY=Enforce
+  $ ros2 run demo_nodes_cpp listener --ros-args --enclave /talker_listener/listener
 
 
 Display encrypted discovery packets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Run the same ``tcpdump`` command used earlier to examine the output of discovery traffic with encryption enabled:
+Run the same ``tcpdump`` command used earlier to examine the output of discovery traffic with encryption enabled
+The typical discovery packet looks somewhat like the following:
 
-.. code-block:: bash
+.. code-block:: console
 
-  sudo tcpdump -X -i any udp port 7400
-
-The typical discovery packet looks somewhat like the following::
-
+  $ sudo tcpdump -X -i any udp port 7400
   21:09:07.336617 IP 8_xterm.60409 > 239.255.0.1.7400: UDP, length 596
     0x0000:  4500 0270 c2f6 4000 0111 83d6 c0a8 8007  E..p..@.........
     0x0010:  efff 0001 ebf9 1ce8 025c 331e 5254 5053  .........\3.RTPS
@@ -192,14 +191,12 @@ Take a look at the excellent paper `Network Reconnaissance and Vulnerability Exc
 Display encrypted data packets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Now use ``tcpdump`` to capture data packets:
+Now use ``tcpdump`` to capture data packets.
+A typical data packet looks like the following:
 
-.. code-block:: bash
+.. code-block:: console
 
-  sudo tcpdump -i any -X udp portrange 7401-7500
-
-A typical data packet looks like the following::
-
+  $ sudo tcpdump -i any -X udp portrange 7401-7500
   21:18:14.531102 IP localhost.54869 > localhost.7415: UDP, length 328
     0x0000:  4500 0164 bb42 4000 4011 8044 7f00 0001  E..d.B@.@..D....
     0x0010:  7f00 0001 d655 1cf7 0150 ff63 5254 5053  .....U...P.cRTPS

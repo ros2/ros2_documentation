@@ -99,28 +99,26 @@ Starting from the image, three containers will be created with the aim of:
 In this example, the local host serves as the organization's system.
 Let us start by creating a workspace folder:
 
-.. code-block:: bash
+.. code-block:: console
 
-  mkdir ~/security_gd_tutorial
-  cd ~/security_gd_tutorial
+  $ mkdir ~/security_gd_tutorial
+  $ cd ~/security_gd_tutorial
 
 Generating the Docker Image
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In order to build a new docker image, a Dockerfile is required.
-The one proposed for this tutorial can be retrieved with the following command:
+To download the Dockerfile proposed for this tutorial, run:
 
-.. code-block:: bash
+.. code-block:: console
 
-  # Download the Dockerfile
-  wget https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Security/resources/deployment_gd/Dockerfile
+  $ wget https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Security/resources/deployment_gd/Dockerfile
 
 Now, build the docker image with the command:
 
-.. code-block:: bash
+.. code-block:: console
 
-  # Build the base image
-  docker build -t ros2_security/deployment_tutorial --build-arg ROS_DISTRO={DISTRO} .
+  $ docker build -t ros2_security/deployment_tutorial --build-arg ROS_DISTRO={DISTRO} .
 
 Understanding the compose file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -137,20 +135,18 @@ In this tutorial, three services are defined within the configuration:
 
 The compose configuration yaml file can be downloaded with:
 
-.. code-block:: bash
+.. code-block:: console
 
-  # Download the compose file
-  wget https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Security/resources/deployment_gd/compose.deployment.yaml
+  $ wget https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Security/resources/deployment_gd/compose.deployment.yaml
 
 Running the example
 -------------------
 
-In the same working directory ``~/security_gd_tutorial``, run:
+In the same working directory ``~/security_gd_tutorial``, to start the example run:
 
-.. code-block:: bash
+.. code-block:: console
 
-  # Start the example
-  docker compose -f compose.deployment.yaml up
+  $ docker compose -f compose.deployment.yaml up
 
 This should result in the following output:
 
@@ -162,19 +158,22 @@ This should result in the following output:
 Examining the containers
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-While having the containers running that simulate the two remote devices for this tutorial, attach to each of them by opening two different terminals and enter:
+While having the containers running that simulate the two remote devices for this tutorial, attach to each of them by opening two different terminals.
+In the first terminal, run:
 
-.. code-block:: bash
+.. code-block:: console
 
-  # Terminal 1
-  docker exec -it tutorial-listener-1 bash
-  cd keystore
-  tree
+  $ docker exec -it tutorial-listener-1 bash
+  $ cd keystore
+  $ tree
 
-  # Terminal 2
-  docker exec -it tutorial-talker-1 bash
-  cd keystore
-  tree
+In the second terminal, run:
+
+.. code-block:: console
+
+  $ docker exec -it tutorial-talker-1 bash
+  $ cd keystore
+  $ tree
 
 A similar output to the one depicted below should be obtained:
 

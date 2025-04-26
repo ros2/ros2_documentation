@@ -56,10 +56,15 @@ In most cases a ROS system security plan does not require a separation between t
 
 Use ``openssl`` to view this x509 certificate and display it as text:
 
-.. code-block:: bash
+.. code-block:: console
 
+<<<<<<< HEAD
   cd ~/sros2_demo/demo_keys/public
   openssl x509 -in ca.cert.pem -text -noout
+=======
+  $ cd ~/sros2_demo/demo_keystore/public
+  $ openssl x509 -in ca.cert.pem -text -noout
+>>>>>>> 65905c8 (add $ Security Webots and Topic-Statics-Tutorial (#5358))
 
 The output should look similar to the following::
 
@@ -126,13 +131,19 @@ The ``sros2`` utilities use `elliptic curve cryptograpy <https://en.wikipedia.or
 Use the following command to show details about this elliptic curve private key:
 
 
+<<<<<<< HEAD
 .. code-block:: bash
 
   cd ~/sros2_demo/demo_keys/private
   openssl ec -in ca.key.pem -text -noout
 
 Your output should look similar to the following::
+=======
+.. code-block:: console
+>>>>>>> 65905c8 (add $ Security Webots and Topic-Statics-Tutorial (#5358))
 
+  $ cd ~/sros2_demo/demo_keystore/private
+  $ openssl ec -in ca.key.pem -text -noout
   read EC key
   Private-Key: (256 bit)
   priv:
@@ -161,9 +172,9 @@ The ``governance.p7s`` file contains domain-wide settings such as how to handle 
 
 Use the following command to validate the `S/MIME signature <https://en.wikipedia.org/wiki/S/MIME>`_ of the governance file:
 
-.. code-block:: bash
+.. code-block:: console
 
-  openssl smime -verify -in governance.p7s -CAfile ../public/permissions_ca.cert.pem
+  $ openssl smime -verify -in governance.p7s -CAfile ../public/permissions_ca.cert.pem
 
 This command will print out the XML document, and the last line will be ``Verification successful`` to show that the document was properly signed by the Permissions CA.
 
@@ -205,13 +216,17 @@ Take the quiz!
 See if you can answer these questions about the ROS security keystore.
 Begin with a new terminal session and enable security with the keystore created in the prior tutorial:
 
-.. code-block:: bash
+.. code-block:: console
 
-  export ROS_SECURITY_KEYSTORE=~/sros2_demo/demo_keystore
-  export ROS_SECURITY_ENABLE=true
-  export ROS_SECURITY_STRATEGY=Enforce
+  $ export ROS_SECURITY_KEYSTORE=~/sros2_demo/demo_keystore
+  $ export ROS_SECURITY_ENABLE=true
+  $ export ROS_SECURITY_STRATEGY=Enforce
 
+<<<<<<< HEAD
   cd ~/sros2_demo/demo_keys/enclaves/talker_listener/listener
+=======
+  $ cd ~/sros2_demo/demo_keystore/enclaves/talker_listener/listener
+>>>>>>> 65905c8 (add $ Security Webots and Topic-Statics-Tutorial (#5358))
 
 Make a backup copy of ``permissions.p7s`` before beginning.
 
@@ -223,17 +238,17 @@ Make a backup copy of ``permissions.p7s`` before beginning.
     Make a negligible change to the XML content (e.g., add a space or a blank line) and save the file.
     Launch the listener node:
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      ros2 run demo_nodes_cpp listener --ros-args --enclave /talker_listener/listener
+      $ ros2 run demo_nodes_cpp listener --ros-args --enclave /talker_listener/listener
 
     What do you expect to happen?
 
     Can you launch the talker node?
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      ros2 run demo_nodes_cpp talker --ros-args --enclave /talker_listener/talker
+      $ ros2 run demo_nodes_cpp talker --ros-args --enclave /talker_listener/talker
 
     What is the difference between launching the listener and launching the talker?
 
@@ -256,8 +271,8 @@ Make a backup copy of ``permissions.p7s`` before beginning.
 
     Check that ``permissions.p7s`` has been properly signed by the Permissions CA using the ``openssl smime`` command:
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      openssl smime -verify -in permissions.p7s -CAfile permissions_ca.cert.pem
+      $ openssl smime -verify -in permissions.p7s -CAfile permissions_ca.cert.pem
 
 Restore your original, properly signed ``permissions.p7s`` file before proceeding to the next tutorial.
