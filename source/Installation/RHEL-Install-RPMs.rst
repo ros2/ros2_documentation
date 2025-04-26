@@ -30,47 +30,85 @@ Setup Sources
 
 You will need to enable the EPEL repositories and the PowerTools repository:
 
-.. code-block:: bash
+.. code-block:: console
 
+<<<<<<< HEAD
    sudo dnf install 'dnf-command(config-manager)' epel-release -y
    sudo dnf config-manager --set-enabled powertools
+=======
+   $ sudo dnf install 'dnf-command(config-manager)' epel-release -y
+   $ sudo dnf config-manager --set-enabled crb
+>>>>>>> b3d8114 (Add $ to Installation (#5356))
 
 .. note:: This step may be slightly different depending on the distribution you are using.
           `Check the EPEL documentation <https://docs.fedoraproject.org/en-US/epel/#_quickstart>`_
 
 Next, download the ROS 2 ``.repo`` file:
 
-.. code-block:: bash
+.. code-block:: console
 
-   sudo dnf install curl
-   sudo curl --output /etc/yum.repos.d/ros2.repo http://packages.ros.org/ros2/rhel/ros2.repo
+   $ sudo dnf install curl
+   $ sudo curl --output /etc/yum.repos.d/ros2.repo http://packages.ros.org/ros2/rhel/ros2.repo
 
 Then, update your metadata cache.
 DNF may prompt you to verify the GPG key, which should match the location ``https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc``.
 
-.. code-block:: bash
+.. code-block:: console
 
-   sudo dnf makecache
+   $ sudo dnf makecache
 
 .. _rhel-install-rpms-install-ros-2-packages:
 
+<<<<<<< HEAD
 Install ROS 2 packages
 ----------------------
+=======
+If you are going to build ROS packages or otherwise do development, you can also install the development tools:
+
+.. code-block:: console
+
+   $ sudo dnf install -y \
+     cmake \
+     gcc-c++ \
+     git \
+     make \
+     patch \
+     python3-colcon-common-extensions \
+     python3-mypy \
+     python3-pip \
+     python3-pytest \
+     python3-pytest-repeat \
+     python3-pytest-rerunfailures \
+     python3-rosdep \
+     python3-setuptools \
+     python3-vcstool \
+     wget
+
+   ~ install some pip packages needed for testing and
+   ~ not available as RPMs
+   $ python3 -m pip install -U --user \
+     flake8-blind-except==0.1.1 \
+     flake8-class-newline \
+     flake8-deprecated
+
+Install ROS 2
+-------------
+>>>>>>> b3d8114 (Add $ to Installation (#5356))
 
 .. include:: _Dnf-Update-Admonition.rst
 
 Desktop Install (Recommended): ROS, RViz, demos, tutorials.
 
-.. code-block:: bash
+.. code-block:: console
 
-   sudo dnf install ros-{DISTRO}-desktop
+   $ sudo dnf install ros-{DISTRO}-desktop
 
 ROS-Base Install (Bare Bones): Communication libraries, message packages, command line tools.
 No GUI tools.
 
-.. code-block:: bash
+.. code-block:: console
 
-   sudo dnf install ros-{DISTRO}-ros-base
+   $ sudo dnf install ros-{DISTRO}-ros-base
 
 Environment setup
 -----------------
@@ -80,11 +118,14 @@ Sourcing the setup script
 
 Set up your environment by sourcing the following file.
 
-.. code-block:: bash
+.. code-block:: console
 
-   # Replace ".bash" with your shell if you're not using bash
-   # Possible values are: setup.bash, setup.sh, setup.zsh
-   source /opt/ros/{DISTRO}/setup.bash
+   $ source /opt/ros/{DISTRO}/setup.bash
+
+.. note::
+
+   Replace ``.bash`` with your shell if you're not using console.
+   Possible values are: ``setup.bash``, ``setup.sh``, ``setup.zsh``.
 
 Try some examples
 -----------------
@@ -93,17 +134,17 @@ If you installed ``ros-{DISTRO}-desktop`` above you can try some examples.
 
 In one terminal, source the setup file and then run a C++ ``talker``\ :
 
-.. code-block:: bash
+.. code-block:: console
 
-   source /opt/ros/{DISTRO}/setup.bash
-   ros2 run demo_nodes_cpp talker
+   $ source /opt/ros/{DISTRO}/setup.bash
+   $ ros2 run demo_nodes_cpp talker
 
 In another terminal source the setup file and then run a Python ``listener``\ :
 
-.. code-block:: bash
+.. code-block:: console
 
-   source /opt/ros/{DISTRO}/setup.bash
-   ros2 run demo_nodes_py listener
+   $ source /opt/ros/{DISTRO}/setup.bash
+   $ ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
 This verifies both the C++ and Python APIs are working properly.
@@ -129,6 +170,10 @@ Uninstall
 If you need to uninstall ROS 2 or switch to a source-based install once you
 have already installed from binaries, run the following command:
 
-.. code-block:: bash
+.. code-block:: console
 
+<<<<<<< HEAD
   sudo dnf remove ros-{DISTRO}-*
+=======
+   $ sudo dnf remove ros-{DISTRO}-*
+>>>>>>> b3d8114 (Add $ to Installation (#5356))

@@ -37,14 +37,28 @@ Setup Sources
 
 .. _linux-install-debs-install-ros-2-packages:
 
+<<<<<<< HEAD
 Install ROS 2 packages
 ----------------------
+=======
+Install development tools (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you are going to build ROS packages or otherwise do development, you can also install the development tools:
+
+.. code-block:: console
+
+   $ sudo apt update && sudo apt install ros-dev-tools
+
+Install ROS 2
+-------------
+>>>>>>> b3d8114 (Add $ to Installation (#5356))
 
 Update your apt repository caches after setting up the repositories.
 
-.. code-block:: bash
+.. code-block:: console
 
-   sudo apt update
+   $ sudo apt update
 
 .. include:: _Apt-Upgrade-Admonition.rst
 
@@ -57,16 +71,16 @@ Update your apt repository caches after setting up the repositories.
 
 Desktop Install (Recommended): ROS, RViz, demos, tutorials.
 
-.. code-block:: bash
+.. code-block:: console
 
-   sudo apt install ros-{DISTRO}-desktop
+   $ sudo apt install ros-{DISTRO}-desktop
 
 ROS-Base Install (Bare Bones): Communication libraries, message packages, command line tools.
 No GUI tools.
 
-.. code-block:: bash
+.. code-block:: console
 
-   sudo apt install ros-{DISTRO}-ros-base
+   $ sudo apt install ros-{DISTRO}-ros-base
 
 Development tools: Compilers and other tools to build ROS packages
 
@@ -82,11 +96,14 @@ Sourcing the setup script
 
 Set up your environment by sourcing the following file.
 
-.. code-block:: bash
+.. code-block:: console
 
-   # Replace ".bash" with your shell if you're not using bash
-   # Possible values are: setup.bash, setup.sh, setup.zsh
-   source /opt/ros/{DISTRO}/setup.bash
+   $ source /opt/ros/{DISTRO}/setup.bash
+
+.. note::
+
+   Replace ``.bash`` with your shell if you're not using bash.
+   Possible values are: ``setup.bash``, ``setup.sh``, ``setup.zsh``.
 
 Try some examples
 -----------------
@@ -98,17 +115,17 @@ If you installed ``ros-{DISTRO}-desktop`` above you can try some examples.
 
 In one terminal, source the setup file and then run a C++ ``talker``\ :
 
-.. code-block:: bash
+.. code-block:: console
 
-   source /opt/ros/{DISTRO}/setup.bash
-   ros2 run demo_nodes_cpp talker
+   $ source /opt/ros/{DISTRO}/setup.bash
+   $ ros2 run demo_nodes_cpp talker
 
 In another terminal source the setup file and then run a Python ``listener``\ :
 
-.. code-block:: bash
+.. code-block:: console
 
-   source /opt/ros/{DISTRO}/setup.bash
-   ros2 run demo_nodes_py listener
+   $ source /opt/ros/{DISTRO}/setup.bash
+   $ ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
 This verifies both the C++ and Python APIs are working properly.
@@ -139,16 +156,27 @@ Uninstall
 If you need to uninstall ROS 2 or switch to a source-based install once you
 have already installed from binaries, run the following command:
 
-.. code-block:: bash
+.. code-block:: console
 
+<<<<<<< HEAD
   sudo apt remove ~nros-{DISTRO}-* && sudo apt autoremove
+=======
+   $ sudo apt remove ~nros-{DISTRO}-* && sudo apt autoremove
+>>>>>>> b3d8114 (Add $ to Installation (#5356))
 
 You may also want to remove the repository:
 
-.. code-block:: bash
+.. code-block:: console
 
+<<<<<<< HEAD
   sudo rm /etc/apt/sources.list.d/ros2.list
   sudo apt update
   sudo apt autoremove
   # Consider upgrading for packages previously shadowed.
   sudo apt upgrade
+=======
+   $ sudo rm /etc/apt/sources.list.d/ros2.list
+   $ sudo apt update
+   $ sudo apt autoremove
+   $ sudo apt upgrade # Consider upgrading for packages previously shadowed.
+>>>>>>> b3d8114 (Add $ to Installation (#5356))

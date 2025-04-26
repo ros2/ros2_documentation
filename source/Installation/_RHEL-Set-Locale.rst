@@ -3,11 +3,11 @@ If you are in a minimal environment (such as a docker container), the locale may
 We test with the following settings.
 However, it should be fine if you're using a different UTF-8 supported locale.
 
-.. code-block:: bash
+.. code-block:: console
 
-   locale  # check for UTF-8
+   $ locale  # check for UTF-8
 
-   sudo dnf install langpacks-en glibc-langpack-en
-   export LANG=en_US.UTF-8
+   $ sudo dnf install langpacks-en glibc-langpack-en
+   $ export LANG=en_US.UTF-8
 
-   locale  # verify settings
+   $ locale  # verify settings
