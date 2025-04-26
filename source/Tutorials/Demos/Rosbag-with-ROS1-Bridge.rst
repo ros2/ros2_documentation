@@ -76,7 +76,6 @@ First we'll run the ``cam2image`` program with the ``-b`` option so it doesn't r
    $ ros2 run image_tools cam2image -- -b
 
 TODO: use namespaced topic names
-What is this comment about?
 
 Then we'll run a simple Python script to emulate the ``odom`` and ``imu_data`` topics from a Kobuki base.
 I would use the more accurate ``~sensors/imu_data`` topic name for the imu data, but we don't have namespace support just yet in ROS 2 (it's coming!).
