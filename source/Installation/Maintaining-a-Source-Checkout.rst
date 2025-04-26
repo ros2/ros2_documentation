@@ -48,7 +48,7 @@ If you wish to checkout the latest code for ROS 2 {DISTRO_TITLE}, you can get th
 
   .. group-tab:: Windows
 
-    Use a windows comand line interface:
+    Use a Windows comand line interface:
 
     .. code-block:: console
 
@@ -99,14 +99,14 @@ You should now be able to download the sources associated with the new repositor
 
    In a Windows command line interface:
 
-      .. code-block:: console
+   .. code-block:: console
 
        $ vcs import --input ros2.repos src
        $ vcs pull src
 
-      Or in powershell:
+   Or in powershell:
 
-      .. code-block:: console
+   .. code-block:: console
 
        $ vcs import --input ros2.repos src
        $ vcs pull src

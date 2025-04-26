@@ -142,5 +142,4 @@ You may also want to remove the repository:
    $ sudo rm /etc/apt/sources.list.d/ros2.list
    $ sudo apt update
    $ sudo apt autoremove
-
    $ sudo apt upgrade # Consider upgrading for packages previously shadowed.
