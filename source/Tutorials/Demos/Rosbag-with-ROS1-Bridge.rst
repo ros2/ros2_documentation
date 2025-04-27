@@ -27,8 +27,6 @@ First we'll run a ROS 1 ``roscore`` in a new shell:
 
          $ . /opt/ros/kinetic/setup.bash
          $ roscore
-
-
    .. group-tab:: macOS
 
       .. code-block:: console
@@ -40,6 +38,7 @@ First we'll run a ROS 1 ``roscore`` in a new shell:
 Then we'll run the ROS 1 <=> ROS 2 ``dynamic_bridge`` with the ``--bridge-all-topics`` option (so we can do ``rostopic list`` and see them) in another shell:
 
 .. note::
+
    If you installed rosbridge from source, adapt the path to the setup file accordingly:
    ``. <workspace-with-bridge>/install/setup.bash``.
    Remember to replace ``<workspace-with-bridge>`` with the path to where you either extracted the ROS 2 binary or where you built ROS 2 from source.
@@ -68,7 +67,8 @@ Then we'll run the ROS 1 <=> ROS 2 ``dynamic_bridge`` with the ``--bridge-all-to
 ----
 
 Now we can start up the ROS 2 programs that will emulate our turtlebot-like robot.
-First we'll run the ``cam2image`` program with the ``-b`` option so it doesn't require a camera to work, open another shell:
+First we'll run the ``cam2image`` program with the ``-b`` option so it doesn't require a camera to work.
+In another shell:
 
 .. code-block:: console
 
@@ -124,7 +124,6 @@ Place this script in a file called ``emulate_kobuki_node.py``:
 
 You can run this python script in a new ROS 2 shell:
 
-
 .. code-block:: console
 
    $ . /opt/ros/ardent/setup.bash
@@ -151,8 +150,6 @@ Now that all the data sources and the dynamic bridge are running, we can look at
        /odom
        /rosout
        /rosout_agg
-
-
    .. group-tab:: macOS
 
       .. code-block:: console
@@ -209,7 +206,6 @@ Then in a new shell start the ``roscore``:
        $ . ~/ros_catkin_ws/install_isolated/setup.bash
        $ roscore
 
-
 Then run the ``dynamic_bridge`` in another shell:
 
 .. tabs::
@@ -232,7 +228,6 @@ Then run the ``dynamic_bridge`` in another shell:
        $ export ROS_MASTER_URI=http://localhost:11311
        $ ros2 run ros1_bridge dynamic_bridge --bridge-all-topics
 
-
 Then play the bag data back with ``rosbag play`` in another new shell, using the ``--loop`` option so that we don't have to keep restarting it for short bags:
 
 .. tabs::
@@ -251,9 +246,9 @@ Then play the bag data back with ``rosbag play`` in another new shell, using the
        $ . ~/ros_catkin_ws/install_isolated/setup.bash
        $ rosbag play --loop path/to/bag_file
 
-
 .. note::
-   Make sure to replace ``path/to/bag_file`` with the path to the bag file you want to playback.
+
+   Make sure to replace ``path/to/bag_file`` with the path to the bag file you want to play back.
 
 ----
 
@@ -269,7 +264,6 @@ Now that the data is being played back and the bridge is running we can see the 
    /odom
    /parameter_events
    $ ros2 topic echo /odom
-
 
 You can also see the image being played from the bag by using the ``showimage`` tool:
 

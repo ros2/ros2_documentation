@@ -172,7 +172,6 @@ To disable:
 
     $ ros2 param set /fibonacci_action_client action_client_configure_introspection disabled
 
-
 Introspect
 ^^^^^^^^^^
 
