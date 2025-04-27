@@ -28,6 +28,16 @@ To start the demo, we execute the demo bringup launch file, which we are going t
        $ cd .. && colcon build --packages-up-to dummy_robot_bringup
        $ source ~/ros2_ws/install/setup.bash
        $ ros2 launch dummy_robot_bringup dummy_robot_bringup_launch.py
+       [INFO] [launch]: Default logging verbosity is set to INFO
+       [INFO] [dummy_map_server-1]: process started with pid [2922]
+       [INFO] [robot_state_publisher-2]: process started with pid [2923]
+       [INFO] [dummy_joint_states-3]: process started with pid [2924]
+       [INFO] [dummy_laser-4]: process started with pid [2925]
+       [dummy_laser-4] [INFO] [1714837459.645517297] [dummy_laser]: angle inc:    0.004363
+       [dummy_laser-4] [INFO] [1714837459.645613393] [dummy_laser]: scan size:    1081
+       [dummy_laser-4] [INFO] [1714837459.645626640] [dummy_laser]: scan time increment:     0.000000
+       [robot_state_publisher-2] [INFO] [1714837459.652977937] [robot_state_publisher]: Robot initialized
+
 
   .. group-tab:: deb Package
 

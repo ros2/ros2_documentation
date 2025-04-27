@@ -41,7 +41,6 @@ Then we'll run the ROS 1 <=> ROS 2 ``dynamic_bridge`` with the ``--bridge-all-to
 
    If you installed rosbridge from source, adapt the path to the setup file accordingly:
    ``. <workspace-with-bridge>/install/setup.bash``.
-   Remember to replace ``<workspace-with-bridge>`` with the path to where you either extracted the ROS 2 binary or where you built ROS 2 from source.
 
 .. tabs::
 
@@ -49,19 +48,19 @@ Then we'll run the ROS 1 <=> ROS 2 ``dynamic_bridge`` with the ``--bridge-all-to
 
       .. code-block:: console
 
-       $ . /opt/ros/kinetic/setup.bash
-       $ . /opt/ros/ardent/setup.bash
-       $ export ROS_MASTER_URI=http://localhost:11311
-       $ ros2 run ros1_bridge dynamic_bridge --bridge-all-topics
+        $ . /opt/ros/kinetic/setup.bash
+        $ . /opt/ros/ardent/setup.bash
+        $ export ROS_MASTER_URI=http://localhost:11311
+        $ ros2 run ros1_bridge dynamic_bridge --bridge-all-topics
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-       $ . ~/ros_catkin_ws/install_isolated/setup.bash
-       $ . /opt/ros/ardent/setup.bash
-       $ export ROS_MASTER_URI=http://localhost:11311
-       $ ros2 run ros1_bridge dynamic_bridge --bridge-all-topics
+        $ . ~/ros_catkin_ws/install_isolated/setup.bash
+        $ . /opt/ros/ardent/setup.bash
+        $ export ROS_MASTER_URI=http://localhost:11311
+        $ ros2 run ros1_bridge dynamic_bridge --bridge-all-topics
 
 
 ----
@@ -150,6 +149,7 @@ Now that all the data sources and the dynamic bridge are running, we can look at
        /odom
        /rosout
        /rosout_agg
+
    .. group-tab:: macOS
 
       .. code-block:: console
@@ -161,8 +161,6 @@ Now that all the data sources and the dynamic bridge are running, we can look at
        /odom
        /rosout
        /rosout_agg
-
-
 
 We can now record this data with ``rosbag record`` in the same shell:
 
@@ -203,8 +201,8 @@ Then in a new shell start the ``roscore``:
 
       .. code-block:: console
 
-       $ . ~/ros_catkin_ws/install_isolated/setup.bash
-       $ roscore
+        $ . ~/ros_catkin_ws/install_isolated/setup.bash
+        $ roscore
 
 Then run the ``dynamic_bridge`` in another shell:
 
@@ -236,15 +234,15 @@ Then play the bag data back with ``rosbag play`` in another new shell, using the
 
       .. code-block:: console
 
-       $ . /opt/ros/kinetic/setup.bash
-       $ rosbag play --loop path/to/bag_file
+        $ . /opt/ros/kinetic/setup.bash
+        $ rosbag play --loop path/to/bag_file
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-       $ . ~/ros_catkin_ws/install_isolated/setup.bash
-       $ rosbag play --loop path/to/bag_file
+        $ . ~/ros_catkin_ws/install_isolated/setup.bash
+        $ rosbag play --loop path/to/bag_file
 
 .. note::
 

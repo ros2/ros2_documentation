@@ -51,11 +51,19 @@ Source your ROS 2 setup.bash.
 
 Run the demo binary, and redirect the output.
 You may want to use ``sudo`` in case you get permission error.
-Even though you redirected stdout, you will see some output to the console (from stderr):
 
 .. code-block:: console
 
    $ pendulum_demo > output.txt
+
+
+What the heck just happened?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+First, even though you redirected stdout, you will see some output to the console (from stderr):
+
+.. code-block:: console
+
    mlockall failed: Cannot allocate memory
    Couldn't lock all cached virtual memory.
    Pagefaults from reading pages not yet mapped into RAM will be recorded.
