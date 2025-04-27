@@ -249,7 +249,7 @@ Enter the following command with the action type in your terminal:
 
 Which will return:
 
-.. code-block:: console
+.. code-block:: text
 
   # The desired heading in radians
   float32 theta

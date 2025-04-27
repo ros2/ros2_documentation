@@ -67,22 +67,22 @@ Let's also make a new directory to store our saved recordings, just as good prac
 
         .. code-block:: console
 
-            mkdir bag_files
-            cd bag_files
+            $ mkdir bag_files
+            $ cd bag_files
 
     .. group-tab:: macOS
 
         .. code-block:: console
 
-            mkdir bag_files
-            cd bag_files
+            $ mkdir bag_files
+            $ cd bag_files
 
     .. group-tab:: Windows
 
         .. code-block:: console
 
-            md bag_files
-            cd bag_files
+            $ md bag_files
+            $ cd bag_files
 
 
 2 Choose a topic
@@ -427,6 +427,218 @@ You can see the service request from the bag file and the service response from 
   request: []
   response: [{sum: 5}]
 
+<<<<<<< HEAD
+=======
+Managing Action Data
+--------------------
+
+1 Setup
+^^^^^^^
+
+You'll be recording action data between ``fibonacci_action_client`` and ``fibonacci_action_server``, then display and replay that same data later on.
+To record action data between action client and server, ``Action Introspection`` must be enabled on the nodes.
+
+Let's start ``fibonacci_action_client`` and ``fibonacci_action_server`` nodes and enable ``Action Introspection``.
+You can see more details for :doc:`Action Introspection Demo <../../Demos/Action-Introspection>`.
+
+Open a new terminal and run ``fibonacci_action_server``, enabling ``Action Introspection``:
+
+.. code-block:: console
+
+  $ ros2 run action_tutorials_py fibonacci_action_server --ros-args -p action_server_configure_introspection:=contents
+
+Open another terminal and run ``fibonacci_action_client``, enabling ``Action Introspection``:
+
+.. code-block:: console
+
+  $ ros2 run action_tutorials_cpp fibonacci_action_client --ros-args -p action_client_configure_introspection:=contents
+
+2 Check action availability
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+``ros2 bag`` can only record data from available actions.
+To see the list of your system's actions, open a new terminal and run the command:
+
+.. code-block:: console
+
+  $ ros2 action list
+  /fibonacci
+
+To check if ``Action Introspection`` is enabled on the action, run the command:
+
+.. code-block:: console
+
+  $ ros2 action echo --flow-style /fibonacci
+  interface: GOAL_SERVICE
+  info:
+    event_type: REQUEST_SENT
+    stamp:
+      sec: 1744917904
+      nanosec: 760683446
+    client_gid: [1, 15, 165, 231, 234, 109, 65, 202, 0, 0, 0, 0, 0, 0, 19, 4]
+    sequence_number: 1
+  request: [{goal_id: {uuid: [81, 55, 121, 145, 81, 66, 209, 93, 214, 113, 255, 100, 120, 6, 102, 83]}, goal: {order: 10}}]
+  response: []
+  ---
+  ...
+
+3 Record actions
+^^^^^^^^^^^^^^^^
+
+To record action data, the following options are supported.
+Action data can be recorded with topics and services at the same time.
+
+To record specific actions:
+
+.. code-block:: console
+
+  $ ros2 bag record --action <action_names>
+
+To record all actions:
+
+.. code-block:: console
+
+  $ ros2 bag record --all-actions
+
+Run the command:
+
+.. code-block:: console
+
+  $ ros2 bag record --action /fibonacci
+  [INFO] [1744953225.214114862] [rosbag2_recorder]: Press SPACE for pausing/resuming
+  [INFO] [1744953225.218369761] [rosbag2_recorder]: Listening for topics...
+  [INFO] [1744953225.218386223] [rosbag2_recorder]: Event publisher thread: Starting
+  [INFO] [1744953225.218580294] [rosbag2_recorder]: Recording...
+  [INFO] [1744953225.725417634] [rosbag2_recorder]: Subscribed to topic '/fibonacci/_action/cancel_goal/_service_event'
+  [INFO] [1744953225.727901848] [rosbag2_recorder]: Subscribed to topic '/fibonacci/_action/feedback'
+  [INFO] [1744953225.729655213] [rosbag2_recorder]: Subscribed to topic '/fibonacci/_action/get_result/_service_event'
+  [INFO] [1744953225.731315612] [rosbag2_recorder]: Subscribed to topic '/fibonacci/_action/send_goal/_service_event'
+  [INFO] [1744953225.735061252] [rosbag2_recorder]: Subscribed to topic '/fibonacci/_action/status'
+  ...
+
+Now ``ros2 bag`` is recording the action data for the ``/fibonacci`` action: goal, result, and feedback.
+To stop the recording, enter ``Ctrl+C`` in the terminal.
+
+The data will be accumulated in a new bag directory with a name in the pattern of ``rosbag2_year_month_day-hour_minute_second``.
+This directory will contain a ``metadata.yaml`` along with the bag file in the recorded format.
+
+4 Inspect action data
+^^^^^^^^^^^^^^^^^^^^^
+
+You can see details about your recording by running:
+
+.. code-block:: console
+
+  $ ros2 bag info <bag_file_name>
+  Files:             rosbag2_2025_04_17-22_20_40_0.mcap
+  Bag size:          20.7 KiB
+  Storage id:        mcap
+  ROS Distro:        rolling
+  Duration:          9.019568080s
+  Start:             Apr 17 2025 22:20:47.263125070 (1744953647.263125070)
+  End:               Apr 17 2025 22:20:56.282693150 (1744953656.282693150)
+  Messages:          0
+  Topic information:
+  Services:          0
+  Service information:
+  Actions:           1
+  Action information:
+    Action: /fibonacci | Type: example_interfaces/action/Fibonacci | Topics: 2 | Service: 3 | Serialization Format: cdr
+      Topic: feedback | Count: 9
+      Topic: status | Count: 3
+      Service: send_goal | Event Count: 4
+      Service: cancel_goal | Event Count: 0
+      Service: get_result | Event Count: 4
+
+5 Play action data
+^^^^^^^^^^^^^^^^^^
+
+Before replaying the bag file, enter :kbd:`Ctrl-C` in the terminal where ``fibonacci_action_client`` is running.
+When ``fibonacci_action_client`` stops running, ``fibonacci_action_server`` also stops printing the result because there are no incoming requests.
+
+Replaying the action data from the bag file will start sending the requests to ``fibonacci_action_server``.
+
+Enter the command:
+
+.. code-block:: console
+
+  $ ros2 bag play --send-actions-as-client <bag_file_name>
+  [INFO] [1744953720.691068674] [rosbag2_player]: Set rate to 1
+  [INFO] [1744953720.702365209] [rosbag2_player]: Adding keyboard callbacks.
+  [INFO] [1744953720.702409447] [rosbag2_player]: Press SPACE for Pause/Resume
+  [INFO] [1744953720.702423063] [rosbag2_player]: Press CURSOR_RIGHT for Play Next Message
+  [INFO] [1744953720.702431404] [rosbag2_player]: Press CURSOR_UP for Increase Rate 10%
+  [INFO] [1744953720.702437677] [rosbag2_player]: Press CURSOR_DOWN for Decrease Rate 10%
+  Progress bar enabled at 3 Hz.
+  Progress bar [?]: [R]unning, [P]aused, [B]urst, [D]elayed, [S]topped
+  [INFO] [1744953720.702577680] [rosbag2_player]: Playback until timestamp: -1
+
+
+  ====== Playback Progress ======
+  [1744953656.281683207] Duration 9.02/9.02 [R]
+
+Your ``fibonacci_action_server`` terminal will once again start printing the following service messages:
+
+.. code-block:: console
+
+  [INFO] [1744953720.815577088] [fibonacci_action_server]: Executing goal...
+  [INFO] [1744953720.815927050] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1])
+  [INFO] [1744953721.816509658] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2])
+  [INFO] [1744953722.817220270] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2, 3])
+  [INFO] [1744953723.817876426] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2, 3, 5])
+  [INFO] [1744953724.818498515] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2, 3, 5, 8])
+  [INFO] [1744953725.819182228] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2, 3, 5, 8, 13])
+  [INFO] [1744953726.820032562] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2, 3, 5, 8, 13, 21])
+  [INFO] [1744953727.820738690] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2, 3, 5, 8, 13, 21, 34])
+  [INFO] [1744953728.821449308] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55])
+
+This is because ``ros2 bag play`` sends the action goal request data from the bag file to the ``/fibonacci`` action.
+
+We can also introspect action communication as ``ros2 bag play`` is playing it back to verify the ``fibonacci_action_server``.
+
+Run this command before ``ros2 bag play`` to see the ``fibonacci_action_server``.
+You can see the action goal request from the bag file and the service response from  ``fibonacci_action_server``:
+
+.. code-block:: console
+
+  $ ros2 action echo --flow-style /fibonacci
+  interface: STATUS_TOPIC
+  status_list: [{goal_info: {goal_id: {uuid: [34, 116, 225, 217, 48, 121, 146, 36, 240, 98, 99, 134, 55, 227, 184, 72]}, stamp: {sec: 1744953720, nanosec: 804984321}}, status: 4}]
+  ---
+  interface: GOAL_SERVICE
+  info:
+    event_type: REQUEST_RECEIVED
+    stamp:
+      sec: 1744953927
+      nanosec: 957359210
+    client_gid: [1, 15, 165, 231, 190, 254, 1, 50, 0, 0, 0, 0, 0, 0, 19, 4]
+    sequence_number: 1
+  request: [{goal_id: {uuid: [191, 200, 153, 122, 221, 251, 152, 172, 60, 69, 94, 20, 212, 160, 40, 12]}, goal: {order: 10}}]
+  response: []
+  ---
+  interface: GOAL_SERVICE
+  info:
+    event_type: RESPONSE_SENT
+    stamp:
+      sec: 1744953927
+      nanosec: 957726145
+    client_gid: [1, 15, 165, 231, 190, 254, 1, 50, 0, 0, 0, 0, 0, 0, 19, 4]
+    sequence_number: 1
+  request: []
+  response: [{accepted: true, stamp: {sec: 1744953927, nanosec: 957615866}}]
+  ---
+  interface: STATUS_TOPIC
+  status_list: [{goal_info: {goal_id: {uuid: [191, 200, 153, 122, 221, 251, 152, 172, 60, 69, 94, 20, 212, 160, 40, 12]}, stamp: {sec: 1744953927, nanosec: 957663383}}, status: 2}]
+  ---
+  interface: FEEDBACK_TOPIC
+  goal_id:
+    uuid: [191, 200, 153, 122, 221, 251, 152, 172, 60, 69, 94, 20, 212, 160, 40, 12]
+  feedback:
+    sequence: [0, 1, 1]
+  ---
+  ...
+
+>>>>>>> 278c507 (Add $ to Beginner-CLI-Tools and Beginner-Client Libraires (#5359))
 Summary
 -------
 
