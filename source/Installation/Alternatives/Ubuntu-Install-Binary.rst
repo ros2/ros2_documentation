@@ -81,19 +81,11 @@ Install dependencies using rosdep
 
 .. code-block:: console
 
-<<<<<<< HEAD
-   sudo apt update
-   sudo apt install -y python3-rosdep
-   sudo rosdep init
-   rosdep update
-   rosdep install --from-paths ~/ros2_{DISTRO}/ros2-linux/share --ignore-src -y --skip-keys "cyclonedds fastcdr fastrtps iceoryx_binding_c rmw_connextdds rti-connext-dds-6.0.1 urdfdom_headers"
-=======
    $ sudo apt update
    $ sudo apt install -y python3-rosdep
    $ sudo rosdep init
    $ rosdep update
-   $ rosdep install --from-paths ~/ros2_{DISTRO}/ros2-linux/share --ignore-src -y --skip-keys "cyclonedds fastcdr fastrtps iceoryx_binding_c rmw_connextdds rti-connext-dds-7.3.0 urdfdom_headers"
->>>>>>> 2901e65 (Add $ to Installation/Alternatives (#5354))
+   $ rosdep install --from-paths ~/ros2_{DISTRO}/ros2-linux/share --ignore-src -y --skip-keys "cyclonedds fastcdr fastrtps iceoryx_binding_c rmw_connextdds rti-connext-dds-6.0.1 urdfdom_headers"
 
 .. include:: ../_rosdep_Linux_Mint.rst
 
