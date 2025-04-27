@@ -199,7 +199,7 @@ Specifically, what structure of data the message expects.
 .. code-block:: console
 
     $ ros2 interface show geometry_msgs/msg/Twist
-    
+
 Which will return:
 
 .. code-block:: text
@@ -212,7 +212,7 @@ Which will return:
         Vector3  angular
                 float64 x
                 float64 y
-                float64 z    
+                float64 z
 
 This expresses velocity in free space broken into its linear and angular parts.
 
