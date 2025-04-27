@@ -1,9 +1,9 @@
 Visualizing ROS 2 data with Foxglove Studio
 ===========================================
 
-`Foxglove Studio <https://foxglove.dev/studio>`__ is an open source visualization and debugging tool for your robotics data.
+`Foxglove Studio <https://foxglove.dev/studio>`__ is a (fomerly open source) visualization and debugging tool for your robotics data and now exists as a free (academic or individual) or paid (teams/orgs) service.
 
-It is available in a variety of ways to make development as convenient as possible – it can be run as a standalone desktop app, accessed via your browser, or even self-hosted on your own domain.
+It is available in a variety of ways to make development as convenient as possible – it can be run as a standalone desktop app, or accessed via your browser; with a foxglove hosted or self-hosted (for enterprise clients) primary site. 
 
 View the source code on `GitHub <https://www.github.com/foxglove/studio>`__.
 
