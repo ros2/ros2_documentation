@@ -87,7 +87,6 @@ Press ``Ctrl+C`` in the terminal where you ran the ``ros2 topic pub`` command to
 
 ROS 2's logger levels are ordered by severity:
 
-
  1. Fatal
  2. Error
  3. Warn
