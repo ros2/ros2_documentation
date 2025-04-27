@@ -36,32 +36,48 @@ For example, to run the talker demo using the C++ talker and Python listener wit
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
 
-       RMW_IMPLEMENTATION=rmw_connextdds ros2 run demo_nodes_cpp talker
+    Run in one terminal:
 
-       # Run in another terminal
-       RMW_IMPLEMENTATION=rmw_connextdds ros2 run demo_nodes_py listener
+    .. code-block:: console
+
+       $ RMW_IMPLEMENTATION=rmw_connextdds ros2 run demo_nodes_cpp talker
+
+    Run in another terminal:
+
+    .. code-block:: console
+
+       $ RMW_IMPLEMENTATION=rmw_connextdds ros2 run demo_nodes_py listener
 
   .. group-tab:: macOS
 
-    .. code-block:: bash
+    Run in one terminal:
 
-       RMW_IMPLEMENTATION=rmw_connextdds ros2 run demo_nodes_cpp talker
+    .. code-block:: console
 
-       # Run in another terminal
-       RMW_IMPLEMENTATION=rmw_connextdds ros2 run demo_nodes_py listener
+       $ RMW_IMPLEMENTATION=rmw_connextdds ros2 run demo_nodes_cpp talker
+
+    Run in another terminal:
+
+    .. code-block:: console
+
+       $ RMW_IMPLEMENTATION=rmw_connextdds ros2 run demo_nodes_py listener
 
   .. group-tab:: Windows
 
-    .. code-block:: bat
+    Run in one terminal:
 
-       set RMW_IMPLEMENTATION=rmw_connextdds
-       ros2 run demo_nodes_cpp talker
+    .. code-block:: console
 
-       REM run in another terminal
-       set RMW_IMPLEMENTATION=rmw_connextdds
-       ros2 run demo_nodes_py listener
+       $ set RMW_IMPLEMENTATION=rmw_connextdds
+       $ ros2 run demo_nodes_cpp talker
+
+    Run in another terminal:
+
+    .. code-block:: console
+
+       $ set RMW_IMPLEMENTATION=rmw_connextdds
+       $ ros2 run demo_nodes_py listener
 
 Adding RMW implementations to your workspace
 --------------------------------------------
@@ -164,7 +180,7 @@ To increase the settings permanently, you will need to edit or create the file `
 Creating or editing this file will require root permissions.
 Either add to your existing ``etc/sysctl.conf`` file or create ``/etc/sysctl.conf`` with the following lines:
 
-.. code-block:: console
+.. code-block:: bash
 
    kern.sysv.shmmax=419430400
    kern.sysv.shmmin=1

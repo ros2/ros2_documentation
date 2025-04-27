@@ -1,9 +1,9 @@
 Every release of the package must have a unique version number higher than the previous release.
 Run:
 
-.. code-block:: bash
+.. code-block:: console
 
-   catkin_prepare_release
+   $ catkin_prepare_release
 
 which performs the following:
 

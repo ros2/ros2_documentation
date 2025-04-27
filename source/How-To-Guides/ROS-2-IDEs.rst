@@ -204,11 +204,11 @@ Resolve this by:
 
 * Making sure the ``PATH`` override in the run/debug configuration includes both the ROS 2 install and your workspace, e.g.:
 
-  .. code-block:: bash
+  .. code-block:: console
 
-     C:\dev\ros2_humble\local_setup.ps1
-     C:\dev_ws\install\local_setup.ps1
-     echo $ENV:Path
+     $ C:\dev\ros2_humble\local_setup.ps1
+     $ C:\dev_ws\install\local_setup.ps1
+     $ echo $ENV:Path
 
 * Adding the relevant folders from the ``install/`` directory to your project sources.
 

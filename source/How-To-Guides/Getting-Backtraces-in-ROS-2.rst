@@ -113,7 +113,7 @@ Once your program crashes, it will return a gdb session prompt denoted by ``(gdb
 At this prompt you can access the information you're interested in.
 However, since this is a ROS project with lots of node configurations and other things going on, this isn't a great option for beginners or those that don't like tons of commandline work and understanding the filesystem.
 
-.. code-block:: bash
+.. code-block:: console
 
   $ gdb ex run --args /path/to/exe/program
 
@@ -143,7 +143,7 @@ This is because GDB, when launched this way, lacks the environment setup that no
 Rather than having to revert to finding the install path of the executable and typing it all out, we can instead use ``--prefix``.
 This allows us to use the same ``ros2 run`` syntax you're used to without having to worry about some of the GDB details.
 
-.. code-block:: bash
+.. code-block:: console
 
   $ ros2 run --prefix 'gdb -ex run --args' <pkg> <node> --all-other-launch arguments
 
