@@ -26,10 +26,15 @@ Enable required repositories
 The rosdep database contains packages from the EPEL and PowerTools repositories, which are not enabled by default.
 They can be enabled by running:
 
-.. code-block:: bash
+.. code-block:: console
 
+<<<<<<< HEAD
    sudo dnf install 'dnf-command(config-manager)' epel-release -y
    sudo dnf config-manager --set-enabled powertools
+=======
+   $ sudo dnf install 'dnf-command(config-manager)' epel-release -y
+   $ sudo dnf config-manager --set-enabled crb
+>>>>>>> 2901e65 (Add $ to Installation/Alternatives (#5354))
 
 .. note:: This step may be slightly different depending on the distribution you are using.
           `Check the EPEL documentation <https://docs.fedoraproject.org/en-US/epel/#_quickstart>`_
@@ -39,12 +44,51 @@ Installing prerequisites
 
 There are a few packages that must be installed in order to get and unpack the binary release.
 
-.. code-block:: bash
+.. code-block:: console
 
-   sudo dnf install tar bzip2 wget -y
+   $ sudo dnf install tar bzip2 wget -y
 
+<<<<<<< HEAD
 Downloading ROS 2
 -----------------
+=======
+Install development tools (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you are going to build ROS packages or otherwise do development, you can also install the development tools:
+
+.. code-block:: console
+
+   $ sudo dnf install -y \
+     cmake \
+     gcc-c++ \
+     git \
+     make \
+     patch \
+     python3-colcon-common-extensions \
+     python3-mypy \
+     python3-pip \
+     python3-pytest \
+     python3-pytest-repeat \
+     python3-pytest-rerunfailures \
+     python3-rosdep \
+     python3-setuptools \
+     python3-vcstool \
+     wget
+
+   ~ install some pip packages needed for testing and
+   ~ not available as RPMs
+   $ python3 -m pip install -U --user \
+     flake8-blind-except==0.1.1 \
+     flake8-class-newline \
+     flake8-deprecated
+
+Install ROS 2
+-------------
+
+Binary releases of Rolling Ridley are not provided.
+Instead you may download nightly :ref:`prerelease binaries <Prerelease_binaries>`.
+>>>>>>> 2901e65 (Add $ to Installation/Alternatives (#5354))
 
 * Go to the `releases page <https://github.com/ros2/ros2/releases>`_
 * Download the latest package for RHEL; let's assume that it ends up at ``~/Downloads/ros2-package-linux-x86_64.tar.bz2``.
@@ -53,20 +97,32 @@ Downloading ROS 2
 
 * Unpack it:
 
-  .. code-block:: bash
+  .. code-block:: console
 
+<<<<<<< HEAD
        mkdir -p ~/ros2_{DISTRO}
        cd ~/ros2_{DISTRO}
        tar xf ~/Downloads/ros2-package-linux-x86_64.tar.bz2
+=======
+     $ mkdir -p ~/ros2_{DISTRO}
+     $ cd ~/ros2_{DISTRO}
+     $ tar xf ~/Downloads/ros2-package-linux-x86_64.tar.bz2
+>>>>>>> 2901e65 (Add $ to Installation/Alternatives (#5354))
 
 Installing and initializing rosdep
 ----------------------------------
 
-.. code-block:: bash
+.. code-block:: console
 
+<<<<<<< HEAD
        sudo dnf install -y python3-rosdep
        sudo rosdep init
        rosdep update
+=======
+   $ sudo rosdep init
+   $ rosdep update
+   $ rosdep install --from-paths ~/ros2_{DISTRO}/ros2-linux/share --ignore-src -y --skip-keys "cyclonedds fastcdr fastrtps iceoryx_binding_c rti-connext-dds-7.3.0 urdfdom_headers"
+>>>>>>> 2901e65 (Add $ to Installation/Alternatives (#5354))
 
 .. _rhel-install-binary-install-missing-dependencies:
 
@@ -94,28 +150,37 @@ Source the setup script
 
 Set up your environment by sourcing the following file.
 
-.. code-block:: bash
+.. code-block:: console
 
+<<<<<<< HEAD
    # Replace ".bash" with your shell if you're not using bash
    # Possible values are: setup.bash, setup.sh, setup.zsh
   . ~/ros2_{DISTRO}/ros2-linux/setup.bash
+=======
+   $ . ~/ros2_{DISTRO}/ros2-linux/setup.bash
+
+.. note::
+
+   Replace ``.bash`` with your shell if you're not using bash.
+   Possible values are: ``setup.bash``, ``setup.sh``, ``setup.zsh``.
+>>>>>>> 2901e65 (Add $ to Installation/Alternatives (#5354))
 
 Try some examples
 -----------------
 
 In one terminal, source the setup file and then run a C++ ``talker``:
 
-.. code-block:: bash
+.. code-block:: console
 
-   . ~/ros2_{DISTRO}/ros2-linux/setup.bash
-   ros2 run demo_nodes_cpp talker
+   $ . ~/ros2_{DISTRO}/ros2-linux/setup.bash
+   $ ros2 run demo_nodes_cpp talker
 
 In another terminal source the setup file and then run a Python ``listener``:
 
-.. code-block:: bash
+.. code-block:: console
 
-   . ~/ros2_{DISTRO}/ros2-linux/setup.bash
-   ros2 run demo_nodes_py listener
+   $ . ~/ros2_{DISTRO}/ros2-linux/setup.bash
+   $ ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
 This verifies both the C++ and Python APIs are working properly.
@@ -143,6 +208,10 @@ Uninstall
 
 2. If you're also trying to free up space, you can delete the entire workspace directory with:
 
-   .. code-block:: bash
+   .. code-block:: console
 
+<<<<<<< HEAD
     rm -rf ~/ros2_{DISTRO}
+=======
+      $ rm -rf ~/ros2_{DISTRO}
+>>>>>>> 2901e65 (Add $ to Installation/Alternatives (#5354))

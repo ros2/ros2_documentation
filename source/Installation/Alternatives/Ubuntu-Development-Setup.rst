@@ -48,10 +48,18 @@ Install development tools and ROS tools
 
 Install common packages.
 
-.. code-block:: bash
+.. code-block:: console
 
+<<<<<<< HEAD
    sudo apt update && sudo apt install -y \
      python3-flake8-docstrings \
+=======
+   $ sudo apt update && sudo apt install -y \
+     python3-flake8-blind-except \
+     python3-flake8-class-newline \
+     python3-flake8-deprecated \
+     python3-mypy \
+>>>>>>> 2901e65 (Add $ to Installation/Alternatives (#5354))
      python3-pip \
      python3-pytest-cov \
      ros-dev-tools
@@ -99,11 +107,11 @@ Get ROS 2 code
 
 Create a workspace and clone all repos:
 
-.. code-block:: bash
+.. code-block:: console
 
-   mkdir -p ~/ros2_{DISTRO}/src
-   cd ~/ros2_{DISTRO}
-   vcs import --input https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos src
+   $ mkdir -p ~/ros2_{DISTRO}/src
+   $ cd ~/ros2_{DISTRO}
+   $ vcs import --input https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos src
 
 .. _linux-development-setup-install-dependencies-using-rosdep:
 
@@ -112,11 +120,17 @@ Install dependencies using rosdep
 
 .. include:: ../_Apt-Upgrade-Admonition.rst
 
-.. code-block:: bash
+.. code-block:: console
 
+<<<<<<< HEAD
    sudo rosdep init
    rosdep update
    rosdep install --from-paths src --ignore-src -y --skip-keys "fastcdr rti-connext-dds-6.0.1 urdfdom_headers"
+=======
+   $ sudo rosdep init
+   $ rosdep update
+   $ rosdep install --from-paths src --ignore-src -y --skip-keys "fastcdr rti-connext-dds-7.3.0 urdfdom_headers"
+>>>>>>> 2901e65 (Add $ to Installation/Alternatives (#5354))
 
 .. include:: ../_rosdep_Linux_Mint.rst
 
@@ -135,16 +149,27 @@ The output should be empty.
 
 More info on working with a ROS workspace can be found in :doc:`this tutorial <../../Tutorials/Beginner-Client-Libraries/Colcon-Tutorial>`.
 
-.. code-block:: bash
+.. code-block:: console
 
-   cd ~/ros2_{DISTRO}/
-   colcon build --symlink-install
+   $ cd ~/ros2_{DISTRO}/
+   $ colcon build --symlink-install
 
 Note: if you are having trouble compiling all examples and this is preventing you from completing a successful build, you can use ``COLCON_IGNORE`` in the same manner as `CATKIN_IGNORE <https://github.com/ros-infrastructure/rep/blob/master/rep-0128.rst>`__ to ignore the subtree or remove the folder from the workspace.
 Take for instance: you would like to avoid installing the large OpenCV library.
 Well then simply run ``touch COLCON_IGNORE`` in the ``cam2image`` demo directory to leave it out of the build process.
 
+<<<<<<< HEAD
 Environment setup
+=======
+   If you are having trouble compiling all examples and this is preventing you from completing a successful build, you can use the ``--packages-skip`` colcon flag to ignore the package that is causing problems.
+   For instance, if you don't want to install the large OpenCV library, you could skip building the packages that depend on it using the command:
+
+   .. code-block:: console
+
+      $ colcon build --symlink-install --packages-skip image_tools intra_process_demo
+
+Setup environment
+>>>>>>> 2901e65 (Add $ to Installation/Alternatives (#5354))
 -----------------
 
 Source the setup script
@@ -152,11 +177,14 @@ Source the setup script
 
 Set up your environment by sourcing the following file.
 
-.. code-block:: bash
+.. code-block:: console
 
-   # Replace ".bash" with your shell if you're not using bash
-   # Possible values are: setup.bash, setup.sh, setup.zsh
-   . ~/ros2_{DISTRO}/install/local_setup.bash
+   $ . ~/ros2_{DISTRO}/install/local_setup.bash
+
+.. note::
+
+   Replace ``.bash`` with your shell if you're not using bash.
+   Possible values are: ``setup.bash``, ``setup.sh``, ``setup.zsh``.
 
 .. _talker-listener:
 
@@ -165,17 +193,17 @@ Try some examples
 
 In one terminal, source the setup file and then run a C++ ``talker``\ :
 
-.. code-block:: bash
+.. code-block:: console
 
-   . ~/ros2_{DISTRO}/install/local_setup.bash
-   ros2 run demo_nodes_cpp talker
+   $ . ~/ros2_{DISTRO}/install/local_setup.bash
+   $ ros2 run demo_nodes_cpp talker
 
 In another terminal source the setup file and then run a Python ``listener``\ :
 
-.. code-block:: bash
+.. code-block:: console
 
-   . ~/ros2_{DISTRO}/install/local_setup.bash
-   ros2 run demo_nodes_py listener
+   $ . ~/ros2_{DISTRO}/install/local_setup.bash
+   $ ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
 This verifies both the C++ and Python APIs are working properly.
@@ -206,12 +234,12 @@ Clang
 
 To configure CMake to detect and use Clang:
 
-.. code-block:: bash
+.. code-block:: console
 
-   sudo apt install clang
-   export CC=clang
-   export CXX=clang++
-   colcon build --cmake-force-configure
+   $ sudo apt install clang
+   $ export CC=clang
+   $ export CXX=clang++
+   $ colcon build --cmake-force-configure
 
 Stay up to date
 ---------------
@@ -231,6 +259,10 @@ Uninstall
 
 2. If you're also trying to free up space, you can delete the entire workspace directory with:
 
-   .. code-block:: bash
+   .. code-block:: console
 
+<<<<<<< HEAD
     rm -rf ~/ros2_{DISTRO}
+=======
+      $ rm -rf ~/ros2_{DISTRO}
+>>>>>>> 2901e65 (Add $ to Installation/Alternatives (#5354))

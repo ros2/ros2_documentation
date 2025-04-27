@@ -29,8 +29,34 @@ Add the ROS 2 apt repository
 
 .. include:: ../_Apt-Repositories.rst
 
+<<<<<<< HEAD
 Downloading ROS 2
 -----------------
+=======
+Install prerequisites
+^^^^^^^^^^^^^^^^^^^^^
+
+There are a few packages that must be installed in order to get and unpack the binary release.
+
+.. code-block:: console
+
+   $ sudo apt install tar bzip2 wget -y
+
+Install development tools (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you are going to build ROS packages or otherwise do development, you can also install the development tools:
+
+.. code-block:: console
+
+   $ sudo apt update && sudo apt install ros-dev-tools
+
+Install ROS 2
+-------------
+
+Binary releases of Rolling Ridley are not provided.
+Instead you may download nightly :ref:`prerelease binaries <Prerelease_binaries>`.
+>>>>>>> 2901e65 (Add $ to Installation/Alternatives (#5354))
 
 * Go to the `releases page <https://github.com/ros2/ros2/releases>`_
 * Download the latest package for Ubuntu; let's assume that it ends up at ``~/Downloads/ros2-package-linux-x86_64.tar.bz2``.
@@ -40,17 +66,24 @@ Downloading ROS 2
 *
   Unpack it:
 
-  .. code-block:: bash
+  .. code-block:: console
 
+<<<<<<< HEAD
        mkdir -p ~/ros2_{DISTRO}
        cd ~/ros2_{DISTRO}
        tar xf ~/Downloads/ros2-package-linux-x86_64.tar.bz2
+=======
+     $ mkdir -p ~/ros2_{DISTRO}
+     $ cd ~/ros2_{DISTRO}
+     $ tar xf ~/Downloads/ros2-package-linux-x86_64.tar.bz2
+>>>>>>> 2901e65 (Add $ to Installation/Alternatives (#5354))
 
 Installing and initializing rosdep
 ----------------------------------
 
-.. code-block:: bash
+.. code-block:: console
 
+<<<<<<< HEAD
        sudo apt update
        sudo apt install -y python3-rosdep
        sudo rosdep init
@@ -68,6 +101,13 @@ Set your rosdistro according to the release you downloaded.
 .. code-block:: bash
 
        rosdep install --from-paths ~/ros2_{DISTRO}/ros2-linux/share --ignore-src -y --skip-keys "cyclonedds fastcdr fastrtps rti-connext-dds-6.0.1 urdfdom_headers"
+=======
+   $ sudo apt update
+   $ sudo apt install -y python3-rosdep
+   $ sudo rosdep init
+   $ rosdep update
+   $ rosdep install --from-paths ~/ros2_{DISTRO}/ros2-linux/share --ignore-src -y --skip-keys "cyclonedds fastcdr fastrtps iceoryx_binding_c rmw_connextdds rti-connext-dds-7.3.0 urdfdom_headers"
+>>>>>>> 2901e65 (Add $ to Installation/Alternatives (#5354))
 
 .. include:: ../_rosdep_Linux_Mint.rst
 
@@ -93,28 +133,37 @@ Source the setup script
 
 Set up your environment by sourcing the following file.
 
-.. code-block:: bash
+.. code-block:: console
 
+<<<<<<< HEAD
    # Replace ".bash" with your shell if you're not using bash
    # Possible values are: setup.bash, setup.sh, setup.zsh
   . ~/ros2_{DISTRO}/ros2-linux/setup.bash
+=======
+   $ . ~/ros2_{DISTRO}/ros2-linux/setup.bash
+
+.. note::
+
+   Replace ``.bash`` with your shell if you're not using bash.
+   Possible values are: ``setup.bash``, ``setup.sh``, ``setup.zsh``.
+>>>>>>> 2901e65 (Add $ to Installation/Alternatives (#5354))
 
 Try some examples
 -----------------
 
 In one terminal, source the setup file and then run a C++ ``talker``:
 
-.. code-block:: bash
+.. code-block:: console
 
-   . ~/ros2_{DISTRO}/ros2-linux/setup.bash
-   ros2 run demo_nodes_cpp talker
+   $ . ~/ros2_{DISTRO}/ros2-linux/setup.bash
+   $ ros2 run demo_nodes_cpp talker
 
 In another terminal source the setup file and then run a Python ``listener``:
 
-.. code-block:: bash
+.. code-block:: console
 
-   . ~/ros2_{DISTRO}/ros2-linux/setup.bash
-   ros2 run demo_nodes_py listener
+   $ . ~/ros2_{DISTRO}/ros2-linux/setup.bash
+   $ ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
 This verifies both the C++ and Python APIs are working properly.
@@ -147,6 +196,10 @@ Uninstall
 
 2. If you're also trying to free up space, you can delete the entire workspace directory with:
 
-   .. code-block:: bash
+   .. code-block:: console
 
+<<<<<<< HEAD
     rm -rf ~/ros2_{DISTRO}
+=======
+      $ rm -rf ~/ros2_{DISTRO}
+>>>>>>> 2901e65 (Add $ to Installation/Alternatives (#5354))

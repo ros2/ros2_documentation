@@ -39,16 +39,30 @@ They can be enabled by running:
    sudo dnf install 'dnf-command(config-manager)' epel-release -y
    sudo dnf config-manager --set-enabled powertools
 
+<<<<<<< HEAD
 .. note:: This step may be slightly different depending on the distribution you are using.
           `Check the EPEL documentation <https://docs.fedoraproject.org/en-US/epel/#_quickstart>`_
+=======
+    .. code-block:: console
+
+      $ sudo dnf install 'dnf-command(config-manager)' epel-release -y
+      $ sudo dnf config-manager --set-enabled crb
+
+    .. note:: This step may be slightly different depending on the distribution you are using.
+              `Check the EPEL documentation <https://docs.fedoraproject.org/en-US/epel/#_quickstart>`_
+
+  .. group-tab:: Fedora
+
+    No additional setup required.
+>>>>>>> 2901e65 (Add $ to Installation/Alternatives (#5354))
 
 
 Install development tools and ROS tools
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: bash
+.. code-block:: console
 
-   sudo dnf install -y \
+   $ sudo dnf install -y \
      cmake \
      gcc-c++ \
      git \
@@ -64,9 +78,9 @@ Install development tools and ROS tools
      python3-setuptools \
      python3-vcstool
 
-   # install some pip packages needed for testing and
-   # not available as RPMs
-   python3 -m pip install -U --user \
+   ~ install some pip packages needed for testing and
+   ~ not available as RPMs
+   $ python3 -m pip install -U --user \
      flake8-blind-except==0.1.1 \
      flake8-builtins \
      flake8-class-newline \
@@ -84,11 +98,11 @@ Get ROS 2 code
 
 Create a workspace and clone all repos:
 
-.. code-block:: bash
+.. code-block:: console
 
-   mkdir -p ~/ros2_{DISTRO}/src
-   cd ~/ros2_{DISTRO}
-   vcs import --input https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos src
+   $ mkdir -p ~/ros2_{DISTRO}/src
+   $ cd ~/ros2_{DISTRO}
+   $ vcs import --input https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos src
 
 .. _rhel-development-setup-install-dependencies-using-rosdep:
 
@@ -97,11 +111,17 @@ Install dependencies using rosdep
 
 .. include:: ../_Dnf-Update-Admonition.rst
 
-.. code-block:: bash
+.. code-block:: console
 
+<<<<<<< HEAD
    sudo rosdep init
    rosdep update
    rosdep install --from-paths src --ignore-src -y --skip-keys "asio cyclonedds fastcdr fastrtps ignition-cmake2 ignition-math6 python3-babeltrace python3-mypy rti-connext-dds-6.0.1 urdfdom_headers"
+=======
+   $ sudo rosdep init
+   $ rosdep update
+   $ rosdep install --from-paths src --ignore-src -y --skip-keys "fastcdr rti-connext-dds-7.3.0 urdfdom_headers"
+>>>>>>> 2901e65 (Add $ to Installation/Alternatives (#5354))
 
 Install additional DDS implementations (optional)
 -------------------------------------------------
@@ -118,16 +138,32 @@ The output should be empty.
 
 More info on working with a ROS workspace can be found in :doc:`this tutorial <../../Tutorials/Beginner-Client-Libraries/Colcon-Tutorial>`.
 
-.. code-block:: bash
+.. code-block:: console
 
+<<<<<<< HEAD
    cd ~/ros2_{DISTRO}/
    colcon build --symlink-install --cmake-args -DTHIRDPARTY_Asio=ON -DPython3_EXECUTABLE=/usr/bin/python3 --no-warn-unused-cli
+=======
+   $ cd ~/ros2_{DISTRO}/
+   $ colcon build --symlink-install
+>>>>>>> 2901e65 (Add $ to Installation/Alternatives (#5354))
 
 Note: if you are having trouble compiling all examples and this is preventing you from completing a successful build, you can use ``COLCON_IGNORE`` in the same manner as `CATKIN_IGNORE <https://github.com/ros-infrastructure/rep/blob/master/rep-0128.rst>`__ to ignore the subtree or remove the folder from the workspace.
 Take for instance: you would like to avoid installing the large OpenCV library.
 Well then simply run ``touch COLCON_IGNORE`` in the ``cam2image`` demo directory to leave it out of the build process.
 
+<<<<<<< HEAD
 Environment setup
+=======
+   If you are having trouble compiling all examples and this is preventing you from completing a successful build, you can use the ``--packages-skip`` colcon flag to ignore the package that is causing problems.
+   For instance, if you don't want to install the large OpenCV library, you could skip building the packages that depend on it using the command:
+
+   .. code-block:: console
+
+      $ colcon build --symlink-install --packages-skip image_tools intra_process_demo
+
+Setup environment
+>>>>>>> 2901e65 (Add $ to Installation/Alternatives (#5354))
 -----------------
 
 Source the setup script
@@ -135,11 +171,14 @@ Source the setup script
 
 Set up your environment by sourcing the following file.
 
-.. code-block:: bash
+.. code-block:: console
 
-   # Replace ".bash" with your shell if you're not using bash
-   # Possible values are: setup.bash, setup.sh, setup.zsh
-   . ~/ros2_{DISTRO}/install/local_setup.bash
+   $ . ~/ros2_{DISTRO}/install/local_setup.bash
+
+.. note::
+
+   Replace ``.bash`` with your shell if you're not using bash.
+   Possible values are: ``setup.bash``, ``setup.sh``, ``setup.zsh``.
 
 .. _rhel_talker-listener:
 
@@ -148,17 +187,17 @@ Try some examples
 
 In one terminal, source the setup file and then run a C++ ``talker``\ :
 
-.. code-block:: bash
+.. code-block:: console
 
-   . ~/ros2_{DISTRO}/install/local_setup.bash
-   ros2 run demo_nodes_cpp talker
+   $ . ~/ros2_{DISTRO}/install/local_setup.bash
+   $ ros2 run demo_nodes_cpp talker
 
 In another terminal source the setup file and then run a Python ``listener``\ :
 
-.. code-block:: bash
+.. code-block:: console
 
-   . ~/ros2_{DISTRO}/install/local_setup.bash
-   ros2 run demo_nodes_py listener
+   $ . ~/ros2_{DISTRO}/install/local_setup.bash
+   $ ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
 This verifies both the C++ and Python APIs are working properly.
@@ -184,12 +223,12 @@ Clang
 
 To configure CMake to detect and use Clang:
 
-.. code-block:: bash
+.. code-block:: console
 
-   sudo dnf install clang
-   export CC=clang
-   export CXX=clang++
-   colcon build --cmake-force-configure
+   $ sudo dnf install clang
+   $ export CC=clang
+   $ export CXX=clang++
+   $ colcon build --cmake-force-configure
 
 Stay up to date
 ---------------
@@ -209,6 +248,6 @@ Uninstall
 
 2. If you're also trying to free up space, you can delete the entire workspace directory with:
 
-   .. code-block:: bash
+   .. code-block:: console
 
-    rm -rf ~/ros2_{DISTRO}
+    $ rm -rf ~/ros2_{DISTRO}
