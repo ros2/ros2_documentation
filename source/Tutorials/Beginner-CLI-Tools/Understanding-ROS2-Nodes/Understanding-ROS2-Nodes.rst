@@ -77,7 +77,8 @@ You can find node names by using ``ros2 node list``
 ``ros2 node list`` will show you the names of all running nodes.
 This is especially useful when you want to interact with a node, or when you have a system running many nodes and need to keep track of them.
 
-Open a new terminal while turtlesim is still running in the other one, and enter the following command:
+Open a new terminal while turtlesim is still running in the other one, and enter the following command.
+The terminal will return the node name:
 
 .. code-block:: console
 
