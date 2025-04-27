@@ -58,15 +58,9 @@ You need the following things installed to build ROS 2:
 
    .. code-block:: console
 
-<<<<<<< HEAD
-       brew install asio assimp bison bullet cmake console_bridge cppcheck \
+      $ brew install asio assimp bison bullet cmake console_bridge cppcheck \
          cunit eigen freetype graphviz opencv openssl orocos-kdl pcre poco \
          pyqt@5 python qt@5 sip spdlog osrf/simulation/tinyxml1 tinyxml2
-=======
-      $ brew install asio assimp bison bullet cmake console_bridge cppcheck \
-        cunit eigen freetype graphviz opencv openssl orocos-kdl pcre poco \
-        pyqt@5 python qt@5 sip spdlog tinyxml2
->>>>>>> 2901e65 (Add $ to Installation/Alternatives (#5354))
 
 #.
    Setup some environment variables:
@@ -112,13 +106,8 @@ You need the following things installed to build ROS 2:
 
      .. code-block:: console
 
-<<<<<<< HEAD
-          rosinstall_generator catkin common_msgs roscpp rosmsg --rosdistro kinetic --deps --wet-only --tar > kinetic-ros2-bridge-deps.rosinstall
-          wstool init -j8 src kinetic-ros2-bridge-deps.rosinstall
-=======
         $ rosinstall_generator catkin common_msgs roscpp rosmsg --rosdistro kinetic --deps --wet-only --tar > kinetic-ros2-bridge-deps.rosinstall
         $ wstool init -j8 src kinetic-ros2-bridge-deps.rosinstall
->>>>>>> 2901e65 (Add $ to Installation/Alternatives (#5354))
 
 
      Otherwise, just follow the normal instructions, then source the resulting ``install_isolated/setup.bash`` before proceeding here to build ROS 2.
@@ -222,8 +211,4 @@ Uninstall
 
    .. code-block:: console
 
-<<<<<<< HEAD
-    rm -rf ~/ros2_{DISTRO}
-=======
       $ rm -rf ~/ros2_{DISTRO}
->>>>>>> 2901e65 (Add $ to Installation/Alternatives (#5354))

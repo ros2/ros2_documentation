@@ -50,16 +50,8 @@ Install common packages.
 
 .. code-block:: console
 
-<<<<<<< HEAD
-   sudo apt update && sudo apt install -y \
-     python3-flake8-docstrings \
-=======
    $ sudo apt update && sudo apt install -y \
-     python3-flake8-blind-except \
-     python3-flake8-class-newline \
-     python3-flake8-deprecated \
-     python3-mypy \
->>>>>>> 2901e65 (Add $ to Installation/Alternatives (#5354))
+     python3-flake8-docstrings \
      python3-pip \
      python3-pytest-cov \
      ros-dev-tools
@@ -72,7 +64,7 @@ Install packages according to your Ubuntu version.
 
       .. code-block:: console
 
-         sudo apt install -y \
+         $ sudo apt install -y \
             python3-flake8-blind-except \
             python3-flake8-builtins \
             python3-flake8-class-newline \
@@ -85,9 +77,9 @@ Install packages according to your Ubuntu version.
 
    .. group-tab:: Ubuntu 20.04 LTS
 
-      .. code-block:: bash
+      .. code-block:: console
 
-         python3 -m pip install -U \
+         $ python3 -m pip install -U \
             flake8-blind-except \
             flake8-builtins \
             flake8-class-newline \
@@ -122,15 +114,9 @@ Install dependencies using rosdep
 
 .. code-block:: console
 
-<<<<<<< HEAD
-   sudo rosdep init
-   rosdep update
-   rosdep install --from-paths src --ignore-src -y --skip-keys "fastcdr rti-connext-dds-6.0.1 urdfdom_headers"
-=======
    $ sudo rosdep init
    $ rosdep update
-   $ rosdep install --from-paths src --ignore-src -y --skip-keys "fastcdr rti-connext-dds-7.3.0 urdfdom_headers"
->>>>>>> 2901e65 (Add $ to Installation/Alternatives (#5354))
+   $ rosdep install --from-paths src --ignore-src -y --skip-keys "fastcdr rti-connext-dds-6.0.1 urdfdom_headers"
 
 .. include:: ../_rosdep_Linux_Mint.rst
 
@@ -158,18 +144,7 @@ Note: if you are having trouble compiling all examples and this is preventing yo
 Take for instance: you would like to avoid installing the large OpenCV library.
 Well then simply run ``touch COLCON_IGNORE`` in the ``cam2image`` demo directory to leave it out of the build process.
 
-<<<<<<< HEAD
 Environment setup
-=======
-   If you are having trouble compiling all examples and this is preventing you from completing a successful build, you can use the ``--packages-skip`` colcon flag to ignore the package that is causing problems.
-   For instance, if you don't want to install the large OpenCV library, you could skip building the packages that depend on it using the command:
-
-   .. code-block:: console
-
-      $ colcon build --symlink-install --packages-skip image_tools intra_process_demo
-
-Setup environment
->>>>>>> 2901e65 (Add $ to Installation/Alternatives (#5354))
 -----------------
 
 Source the setup script
@@ -261,8 +236,4 @@ Uninstall
 
    .. code-block:: console
 
-<<<<<<< HEAD
-    rm -rf ~/ros2_{DISTRO}
-=======
-      $ rm -rf ~/ros2_{DISTRO}
->>>>>>> 2901e65 (Add $ to Installation/Alternatives (#5354))
+    $ rm -rf ~/ros2_{DISTRO}

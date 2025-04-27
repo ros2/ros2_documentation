@@ -34,27 +34,13 @@ Enable required repositories
 The rosdep database contains packages from the EPEL and PowerTools repositories, which are not enabled by default.
 They can be enabled by running:
 
-.. code-block:: bash
+.. code-block:: console
 
-   sudo dnf install 'dnf-command(config-manager)' epel-release -y
-   sudo dnf config-manager --set-enabled powertools
+   $ sudo dnf install 'dnf-command(config-manager)' epel-release -y
+   $ sudo dnf config-manager --set-enabled powertools
 
-<<<<<<< HEAD
 .. note:: This step may be slightly different depending on the distribution you are using.
           `Check the EPEL documentation <https://docs.fedoraproject.org/en-US/epel/#_quickstart>`_
-=======
-    .. code-block:: console
-
-      $ sudo dnf install 'dnf-command(config-manager)' epel-release -y
-      $ sudo dnf config-manager --set-enabled crb
-
-    .. note:: This step may be slightly different depending on the distribution you are using.
-              `Check the EPEL documentation <https://docs.fedoraproject.org/en-US/epel/#_quickstart>`_
-
-  .. group-tab:: Fedora
-
-    No additional setup required.
->>>>>>> 2901e65 (Add $ to Installation/Alternatives (#5354))
 
 
 Install development tools and ROS tools
@@ -113,15 +99,9 @@ Install dependencies using rosdep
 
 .. code-block:: console
 
-<<<<<<< HEAD
-   sudo rosdep init
-   rosdep update
-   rosdep install --from-paths src --ignore-src -y --skip-keys "asio cyclonedds fastcdr fastrtps ignition-cmake2 ignition-math6 python3-babeltrace python3-mypy rti-connext-dds-6.0.1 urdfdom_headers"
-=======
    $ sudo rosdep init
    $ rosdep update
-   $ rosdep install --from-paths src --ignore-src -y --skip-keys "fastcdr rti-connext-dds-7.3.0 urdfdom_headers"
->>>>>>> 2901e65 (Add $ to Installation/Alternatives (#5354))
+   $ rosdep install --from-paths src --ignore-src -y --skip-keys "asio cyclonedds fastcdr fastrtps ignition-cmake2 ignition-math6 python3-babeltrace python3-mypy rti-connext-dds-6.0.1 urdfdom_headers"
 
 Install additional DDS implementations (optional)
 -------------------------------------------------
@@ -140,30 +120,14 @@ More info on working with a ROS workspace can be found in :doc:`this tutorial <.
 
 .. code-block:: console
 
-<<<<<<< HEAD
-   cd ~/ros2_{DISTRO}/
-   colcon build --symlink-install --cmake-args -DTHIRDPARTY_Asio=ON -DPython3_EXECUTABLE=/usr/bin/python3 --no-warn-unused-cli
-=======
    $ cd ~/ros2_{DISTRO}/
-   $ colcon build --symlink-install
->>>>>>> 2901e65 (Add $ to Installation/Alternatives (#5354))
+   $ colcon build --symlink-install --cmake-args -DTHIRDPARTY_Asio=ON -DPython3_EXECUTABLE=/usr/bin/python3 --no-warn-unused-cli
 
 Note: if you are having trouble compiling all examples and this is preventing you from completing a successful build, you can use ``COLCON_IGNORE`` in the same manner as `CATKIN_IGNORE <https://github.com/ros-infrastructure/rep/blob/master/rep-0128.rst>`__ to ignore the subtree or remove the folder from the workspace.
 Take for instance: you would like to avoid installing the large OpenCV library.
 Well then simply run ``touch COLCON_IGNORE`` in the ``cam2image`` demo directory to leave it out of the build process.
 
-<<<<<<< HEAD
 Environment setup
-=======
-   If you are having trouble compiling all examples and this is preventing you from completing a successful build, you can use the ``--packages-skip`` colcon flag to ignore the package that is causing problems.
-   For instance, if you don't want to install the large OpenCV library, you could skip building the packages that depend on it using the command:
-
-   .. code-block:: console
-
-      $ colcon build --symlink-install --packages-skip image_tools intra_process_demo
-
-Setup environment
->>>>>>> 2901e65 (Add $ to Installation/Alternatives (#5354))
 -----------------
 
 Source the setup script
@@ -250,4 +214,4 @@ Uninstall
 
    .. code-block:: console
 
-    $ rm -rf ~/ros2_{DISTRO}
+     $ rm -rf ~/ros2_{DISTRO}
