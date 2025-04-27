@@ -154,19 +154,28 @@ In this demo, ``IntrospectionServiceNode`` uses a parameter named ```service_con
 
 1st we need to start ``IntrospectionServiceNode``.
 
-.. code-block:: bash
+.. code-block:: console
 
     $ ros2 run demo_nodes_cpp introspection_service
 
 To change service introspection state, we need to set the ``configure_introspection`` parameter as following.
 
-.. code-block:: bash
+To change it to user data contents with metadata:
 
-    ### User data contents with metadata
+.. code-block:: console
+
     $ ros2 param set /introspection_service service_configure_introspection contents
-    ### Or only metadata
+
+To change it to only metadata:
+
+.. code-block:: console
+
     $ ros2 param set /introspection_service service_configure_introspection metadata
-    ### To disable
+
+To disable:
+
+.. code-block:: console
+
     $ ros2 param set /introspection_service service_configure_introspection disabled
 
 IntrospectionClientNode:
@@ -282,25 +291,34 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/servic
 
 And then, we start and configure ``IntrospectionClientNode`` in the same way.
 
-.. code-block:: bash
+.. code-block:: console
 
     $ ros2 run demo_nodes_cpp introspection_client
 
 Change service introspection state to set ``configure_introspection`` parameter as following.
 
-.. code-block:: bash
+To change it to user data contents with metadata:
 
-    ### User data contents with metadata
+.. code-block:: console
+
     $ ros2 param set /introspection_client client_configure_introspection contents
-    ### Or only metadata
+
+To change it to only metadata:
+
+.. code-block:: console
+
     $ ros2 param set /introspection_client client_configure_introspection metadata
-    ### To disable
+
+To disable:
+
+.. code-block:: console
+
     $ ros2 param set /introspection_client client_configure_introspection disabled
 
 In this tutorial the following is example output with service introspection state ``CONTENTS`` on ``IntrospectionServiceNode`` and ``METADATA`` on ``IntrospectionClientNode``.
 To monitor service communication between ``IntrospectionClientNode`` and ``IntrospectionServiceNode``, let's run it:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ ros2 service echo --flow-style /add_two_ints
     info:
