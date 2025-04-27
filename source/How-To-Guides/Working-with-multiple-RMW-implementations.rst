@@ -65,7 +65,7 @@ For example, to run the talker demo using the C++ talker and Python listener wit
 
   .. group-tab:: Windows
 
-    Run in one termial:
+    Run in one terminal:
 
     .. code-block:: console
 
