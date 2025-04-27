@@ -241,64 +241,17 @@ To set the level of the demo's logger back to ``INFO``\ , call the service with:
 
 .. code-block:: console
 
-   ros2 service call /config_logger logging_demo/srv/ConfigLogger "{logger_name: 'logger_usage_demo', level: INFO}"
+   $ ros2 service call /config_logger logging_demo/srv/ConfigLogger "{logger_name: 'logger_usage_demo', level: INFO}"
 
 This service call will work on any logger that is running in the process provided that you know its name.
 This includes the loggers in the ROS 2 core, such as ``rcl`` (the common client library package).
 To enable debug logging for ``rcl``, call:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 service call /config_logger logging_demo/srv/ConfigLogger "{logger_name: 'rcl', level: DEBUG}"
+   $ ros2 service call /config_logger logging_demo/srv/ConfigLogger "{logger_name: 'rcl', level: DEBUG}"
 
-<<<<<<< HEAD
 You should see debug output from ``rcl`` start to show.
-=======
-    .. code-block:: console
-
-        $ ros2 service call /NodeWithLoggerService/get_logger_levels rcl_interfaces/srv/GetLoggerLevels '{names: ["NodeWithLoggerService", "rcl"]}'
-
-        requester: making request: rcl_interfaces.srv.GetLoggerLevels_Request(names=['NodeWithLoggerService', 'rcl'])
-
-        response:
-        rcl_interfaces.srv.GetLoggerLevels_Response(levels=[rcl_interfaces.msg.LoggerLevel(name='NodeWithLoggerService', level=0), rcl_interfaces.msg.LoggerLevel(name='rcl', level=0)])
-
-* set_logger_levels
-
-    Use this service to set logger levels for specified logger names.
-
-    Run ``ros2 service call`` to set logger levels for ``NodeWithLoggerService`` and ``rcl``.
-
-    .. code-block:: console
-
-        $ ros2 service call /NodeWithLoggerService/set_logger_levels rcl_interfaces/srv/SetLoggerLevels '{levels: [{name: "NodeWithLoggerService", level: 20}, {name: "rcl", level: 10}]}'
-
-        requester: making request: rcl_interfaces.srv.SetLoggerLevels_Request(levels=[rcl_interfaces.msg.LoggerLevel(name='NodeWithLoggerService', level=20), rcl_interfaces.msg.LoggerLevel(name='rcl', level=10)])
-
-        response:
-        rcl_interfaces.srv.SetLoggerLevels_Response(results=[rcl_interfaces.msg.SetLoggerLevelsResult(successful=True, reason=''), rcl_interfaces.msg.SetLoggerLevelsResult(successful=True, reason='')])
-
-
-There is also demo code showing how to set or get the logger level via the logger service.
-
-  * rclcpp: `demo code <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/logging/use_logger_service.cpp>`__
-
-      .. code-block:: console
-
-          $ ros2 run demo_nodes_cpp use_logger_service
-
-  * rclpy: `demo code <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/demo_nodes_py/demo_nodes_py/logging/use_logger_service.py>`__
-
-      .. code-block:: console
-
-          $ ros2 run demo_nodes_py use_logger_service
-
-.. warning::
-
-    Currently, there is a limitation that ``get_logger_levels`` and ``set_logger_levels`` services are not thread-safe.
-    This means that you need to ensure that only one thread is calling the services at a time.
-    Please see the details in https://github.com/ros2/rcutils/issues/397
->>>>>>> 8d1b99d (Add $ to Demos (#5352))
 
 Using the logger config component
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -356,19 +309,13 @@ You should see debug output from loggers from the demo itself and from the ROS 2
 As of the Galactic ROS 2 release, the severity level for individual loggers can be configured from the command-line.
 Restart the demo including the following command line arguments:
 
-<<<<<<< HEAD
 .. tabs::
 
   .. group-tab:: Galactic and newer
 
-    .. code-block:: bash
+    .. code-block:: console
 
-       ros2 run logging_demo logging_demo_main --ros-args --log-level logger_usage_demo:=debug
-=======
-.. code-block:: console
-
-   $ ros2 run logging_demo logging_demo_main --ros-args --log-level logger_usage_demo:=debug
->>>>>>> 8d1b99d (Add $ to Demos (#5352))
+      $ ros2 run logging_demo logging_demo_main --ros-args --log-level logger_usage_demo:=debug
 
 
 Console output formatting
@@ -502,20 +449,4 @@ Then run:
 
 .. code-block:: console
 
-<<<<<<< HEAD
-    ros2 run logging_demo logging_demo_main
-=======
     $ ros2 run logging_demo logging_demo_main
-
-Setting the log file name prefix
---------------------------------
-
-By default, the log file name is based on the executable file name followed by process ID and system timestamp on file creation.
-You can change the log file name prefix to one of your choice using the ``--log-file-name`` command line argument:
-
-.. code-block:: console
-
-   $ ros2 run demo_nodes_cpp talker --ros-args --log-file-name filename
-
-This configures the log file name prefix to ``filename``, instead of the executable file name (which is ``talker`` in this case).
->>>>>>> 8d1b99d (Add $ to Demos (#5352))

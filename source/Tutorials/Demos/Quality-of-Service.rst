@@ -86,24 +86,12 @@ In a separate terminal, source the install file and run the publisher node:
 .. code-block:: console
 
    $ ros2 run image_tools cam2image
-
-This will publish an image from your webcam.
-In case you don't have a camera attached to your computer, there is a commandline option which publishes predefined images.
-
-
-.. code-block:: console
-
-<<<<<<< HEAD
    Publishing image #1
    Publishing image #2
    Publishing image #3
-=======
-   $ ros2 run image_tools cam2image --ros-args -p burger_mode:=True
-   [INFO] [1715662452.055277255] [cam2image]: Publishing image #1
-   [INFO] [1715662452.119336061] [cam2image]: Publishing image #2
-   [INFO] [1715662452.187315139] [cam2image]: Publishing image #3
->>>>>>> 8d1b99d (Add $ to Demos (#5352))
-   ...
+
+This will publish an image from your webcam.
+In case you don't have a camera attached to your computer, there is a commandline option which publishes predefined images.
 
 A window will pop up with the title "view" showing your camera feed.
 In the first window, you'll see output from the subscriber:

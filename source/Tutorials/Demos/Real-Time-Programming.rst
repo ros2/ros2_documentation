@@ -222,11 +222,7 @@ Then run the ``rttest_plot`` script on the resulting file:
 
 .. code-block:: console
 
-<<<<<<< HEAD
-   rttest_plot pendulum_demo_results
-=======
-   $ ros2 run rttest rttest_plot pendulum_demo_results
->>>>>>> 8d1b99d (Add $ to Demos (#5352))
+   $ rttest_plot pendulum_demo_results
 
 This script will produce three files:
 
