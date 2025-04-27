@@ -194,16 +194,16 @@ The output you see in your terminal should look similar to the following:
 .. code-block:: console
 
   $ ros2 interface show tutorial_interfaces/msg/Num
-    int64 num
+  int64 num
 
 .. code-block:: console
 
   $ ros2 interface show tutorial_interfaces/msg/Sphere
-    geometry_msgs/Point center
-            float64 x
-            float64 y
-            float64 z
-    float64 radius
+  geometry_msgs/Point center
+          float64 x
+          float64 y
+          float64 z
+  float64 radius
 
 .. code-block:: console
 
