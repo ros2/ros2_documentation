@@ -276,7 +276,7 @@ Navigate back to the root of your workspace, ``ros2_ws``, and build your new pac
 
 .. code-block:: console
 
-    colcon build --packages-select polygon_base polygon_plugins
+    $ colcon build --packages-select polygon_base polygon_plugins
 
 From ``ros2_ws``, be sure to source the setup files:
 

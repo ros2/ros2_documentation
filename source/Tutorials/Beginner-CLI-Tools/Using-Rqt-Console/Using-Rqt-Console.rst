@@ -87,13 +87,11 @@ Press ``Ctrl+C`` in the terminal where you ran the ``ros2 topic pub`` command to
 
 ROS 2's logger levels are ordered by severity:
 
-.. code-block:: console
-
-    Fatal
-    Error
-    Warn
-    Info
-    Debug
+ 1. Fatal
+ 2. Error
+ 3. Warn
+ 4. Info
+ 5. Debug
 
 There is no exact standard for what each level indicates, but it's safe to assume that:
 
