@@ -35,7 +35,7 @@ Now you can check if the installation was successful by running the following co
 
 .. code-block:: console
 
-    docker run hello-world
+    $ docker run hello-world
 
 You might need to start the Docker Daemon first, if you cannot run hello-world out of the box:
 

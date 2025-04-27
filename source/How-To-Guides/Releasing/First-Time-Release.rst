@@ -43,9 +43,9 @@ Generate Changelog
 
 Generate a ``CHANGELOG.rst`` file per package in your repo using the following command:
 
-.. code-block:: bash
+.. code-block:: console
 
-   catkin_generate_changelog --all
+   $ catkin_generate_changelog --all
 
 .. include:: _Clean-Up-Changelog.rst
 
@@ -59,9 +59,9 @@ Bloom Release
 
 Run the following command, replacing ``my_repo`` with the name of your repository:
 
-.. code-block:: bash
+.. code-block:: console
 
-  bloom-release --new-track --rosdistro {DISTRO} --track {DISTRO} my_repo
+  $ bloom-release --new-track --rosdistro {DISTRO} --track {DISTRO} my_repo
 
 .. tip::
 

@@ -71,20 +71,20 @@ Because of the increased serialization overhead, severe performance degradation 
 **Workaround:** Use multiple arrays of primitives instead of a single array of custom types, or pack into byte array as done e.g. in ``PointCloud2`` messages.
 For example, instead of defining a ``FooArray`` message as:
 
-.. code-block:: console
+.. code-block:: bash
 
     Foo[] my_large_array
 
 with ``Foo`` is defined as:
 
-.. code-block:: console
+.. code-block:: bash
 
     uint64 foo_1
     uint32 foo_2
 
 Instead, define ``FooArray`` as:
 
-.. code-block:: console
+.. code-block:: bash
 
     uint64[] foo_1_array
     uint32[] foo_2_array
@@ -116,7 +116,7 @@ Set the maximum receive buffer size, ``rmem_max``, by running:
 
 Or permanently set it by editing the ``/etc/sysctl.d/10-cyclone-max.conf`` file to contain:
 
- .. code-block:: console
+ .. code-block:: bash
 
     net.core.rmem_max=2147483647
 
@@ -136,7 +136,7 @@ Next, to set the minimum socket receive buffer size that Cyclone requests, write
 
 Then, whenever you are going to run a node, set the following environment variable:
 
-.. code-block:: console
+.. code-block:: bash
 
     CYCLONEDDS_URI=file:///absolute/path/to/config_file.xml
 

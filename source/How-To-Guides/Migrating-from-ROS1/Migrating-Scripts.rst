@@ -39,7 +39,7 @@ To change a node name use ``__node`` (the ROS 1 equivalent is ``__name``):
 Note the use of the ``-r`` flag.
 The same remap flag is needed for changing the namespace ``__ns``:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ ros2 run some_package some_ros_executable --ros-args -r __ns:=/new/namespace
 
