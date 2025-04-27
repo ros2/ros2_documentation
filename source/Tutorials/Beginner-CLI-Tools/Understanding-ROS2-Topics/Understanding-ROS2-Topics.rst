@@ -214,8 +214,6 @@ Which will return:
                 float64 y
                 float64 z
 
-This expresses velocity in free space broken into its linear and angular parts.
-
 This tells you that the ``/turtlesim`` node is expecting a message with two vectors, ``linear`` and ``angular``, of three elements each.
 If you recall the data we saw ``/teleop_turtle`` passing to ``/turtlesim`` with the ``echo`` command, it's in the same structure:
 
@@ -326,7 +324,8 @@ c. **Using autocomplete**:
     angular:
       x: 0.0
       y: 0.0
-      z: 0.0'
+      z: 0.0
+    '
 
   This string is editable and you can change the values of the message type as required.
 
