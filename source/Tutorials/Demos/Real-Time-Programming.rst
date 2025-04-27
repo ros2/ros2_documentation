@@ -50,12 +50,11 @@ With the memory locking, swap will not work anymore.**
 Source your ROS 2 setup.bash.
 
 Run the demo binary, and redirect the output.
-You may want to use ``sudo`` in case you get permission error.
+You may want to use ``sudo`` in case you get permission error:
 
 .. code-block:: console
 
    $ pendulum_demo > output.txt
-
 
 What the heck just happened?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^

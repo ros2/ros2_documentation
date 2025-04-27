@@ -27,13 +27,13 @@ First we'll run a ROS 1 ``roscore`` in a new shell:
 
          $ . /opt/ros/kinetic/setup.bash
          $ roscore
+
    .. group-tab:: macOS
 
       .. code-block:: console
 
          $ . ~/ros_catkin_ws/install_isolated/setup.bash
          $ rocore
-
 
 Then we'll run the ROS 1 <=> ROS 2 ``dynamic_bridge`` with the ``--bridge-all-topics`` option (so we can do ``rostopic list`` and see them) in another shell:
 
