@@ -208,11 +208,11 @@ The output you see in your terminal should look similar to the following:
 .. code-block:: console
 
   $ ros2 interface show tutorial_interfaces/srv/AddThreeInts
-    int64 a
-    int64 b
-    int64 c
-    ---
-    int64 sum
+  int64 a
+  int64 b
+  int64 c
+  ---
+  int64 sum
 
 7 Test the new interfaces
 ^^^^^^^^^^^^^^^^^^^^^^^^^
