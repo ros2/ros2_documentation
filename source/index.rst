@@ -12,9 +12,9 @@ ROS 2 Documentation
 
    Installation
    Releases
+   Concepts
    Tutorials
    How-To-Guides
-   Concepts
    Contact
    The-ROS2-Project
    Package-Docs
@@ -27,7 +27,7 @@ ROS 2 Documentation
 From drivers and state-of-the-art algorithms to powerful developer tools, ROS has the open source tools you need for your next robotics project.
 
 Since ROS was started in 2007, a lot has changed in the robotics and ROS community.
-The goal of the ROS 2 project is to adapt to these changes, leveraging what is great about ROS 1 and improving what isn't.
+The goal of the ROS 2 project is to adapt to these changes, leveraging what is great about ROS 1 and improving what isn\'t.
 
 **Are you looking for documentation for a particular ROS package like MoveIt, image_proc, or octomap?**
 Please see `ROS Index <https://index.ros.org/?search_packages=true#{DISTRO}>`__ or check out `this index of per-package documentation <https://docs.ros.org/en/{DISTRO}/p/>`__.
@@ -44,6 +44,10 @@ Getting started
 
   - Instructions to set up ROS 2 for the first time
 
+* :doc:`Concepts <Concepts>`
+
+  - High-level explanations of core ROS 2 concepts covered in the :doc:`Tutorials <Tutorials>`
+
 * :doc:`Tutorials <Tutorials>`
 
   - The best place to start for new users!
@@ -54,10 +58,6 @@ Getting started
   - Quick answers to your "How do I...?"
     questions without working through the :doc:`Tutorials <Tutorials>`
 
-* :doc:`Concepts <Concepts>`
-
-  - High-level explanations of core ROS 2 concepts covered in the :doc:`Tutorials <Tutorials>`
-
 * :doc:`Contact <Contact>`
 
   - Answers to your questions or a forum to start a discussion
@@ -66,11 +66,14 @@ Getting started
 The ROS 2 project
 -----------------
 
-If you're interested in the advancement of the ROS 2 project:
+Information about the ROS 2 project:
 
 * :doc:`Contributing <The-ROS2-Project/Contributing>`
 
-  - Best practices and methodology for contributing to ROS 2, as well as instructions for migrating existing ROS 1 content to ROS 2
+  - Best practices and methodology for contributing to ROS 2 (including code, documentation, and other content), as well as instructions for migrating existing ROS 1 content to ROS 2
+
+Development and Status
+~~~~~~~~~~~~~~~~~~~~~~
 
 * :doc:`Distributions <Releases>`
 
@@ -91,6 +94,9 @@ If you're interested in the advancement of the ROS 2 project:
 * :doc:`ROSCon Talks <The-ROS2-Project/ROSCon-Content>`
 
   - Presentations by the community on ROS 2
+
+Governance and Marketing
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 * :doc:`Project Governance <The-ROS2-Project/Governance>`
 
@@ -121,8 +127,8 @@ If you need help, have an idea, or would like to contribute to the project, plea
 
   - Indexed list of all packages (i.e. `Python Package Index (PyPI) <https://pypi.org/>`_ for ROS packages)
   - See which ROS distributions a package supports
-  - Link to a package's repository, API documentation, or website
-  - Inspect a package's license, build type, maintainers, status, and dependencies
+  - Link to a package\'s repository, API documentation, or website
+  - Inspect a package\'s license, build type, maintainers, status, and dependencies
   - Get more info for a package on `Robotics Stack Exchange <https://robotics.stackexchange.com/>`__
 
 * `ROS resource status page <https://status.openrobotics.org/>`__ (ROS 1, ROS 2)

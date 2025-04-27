@@ -81,7 +81,7 @@ Here is a list of inter-vendor communication configurations that are not support
 Default RMW implementation
 --------------------------
 
-If a ROS 2 workspace has multiple RMW implementations, Fast DDS is selected as the default RMW implementation if it is available.
+Fast DDS is the default RMW implementation.
 If the Fast DDS RMW implementation is not installed, the RMW implementation with the first RMW implementation identifier in alphabetical order will be used.
 The implementation identifier is the name of the ROS package that provides the RMW implementation, e.g. ``rmw_cyclonedds_cpp``.
 For example, if both ``rmw_cyclonedds_cpp`` and ``rmw_connextdds`` ROS packages are installed, ``rmw_connextdds`` would be the default.
