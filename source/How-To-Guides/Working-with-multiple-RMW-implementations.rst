@@ -37,13 +37,13 @@ For example, to run the talker demo using the C++ talker and Python listener wit
   .. group-tab:: Linux
 
 
-   Run in one terminal:
+    Run in one terminal:
 
     .. code-block:: console
 
        $ RMW_IMPLEMENTATION=rmw_connextdds ros2 run demo_nodes_cpp talker
 
-   Run in another terminal:
+    Run in another terminal:
 
     .. code-block:: console
 
@@ -51,13 +51,13 @@ For example, to run the talker demo using the C++ talker and Python listener wit
 
   .. group-tab:: macOS
 
-   Run in one terminal:
+    Run in one terminal:
 
     .. code-block:: console
 
        $ RMW_IMPLEMENTATION=rmw_connextdds ros2 run demo_nodes_cpp talker
 
-   Run in another terminal:
+    Run in another terminal:
 
     .. code-block:: console
 
@@ -65,14 +65,14 @@ For example, to run the talker demo using the C++ talker and Python listener wit
 
   .. group-tab:: Windows
 
-   Run in one termial:
+    Run in one termial:
 
     .. code-block:: console
 
        $ set RMW_IMPLEMENTATION=rmw_connextdds
        $ ros2 run demo_nodes_cpp talker
 
-   Run in another terminal:
+    Run in another terminal:
 
     .. code-block:: console
 
