@@ -76,8 +76,8 @@ Then setup your virtual environment:
 .. code-block:: console
 
     $ virtualenv -p python3 ./venv # Make a virtual env and activate it
-    $ source ./venv/bin/activate # Make sure that colcon does not try to build the venv
-    $ touch ./venv/COLCON_IGNORE
+    $ source ./venv/bin/activate
+    $ touch ./venv/COLCON_IGNORE # Make sure that colcon does not try to build the venv
 
 Next, install the Python packages that you want in your virtual environment:
 
