@@ -382,7 +382,7 @@ Create a ``setup.cfg`` file next to the ``package.xml``.
 
 Put the following content into it:
 
-.. code-block::
+.. code-block:: ini
 
     [develop]
     script_dir=$base/lib/talker_py
