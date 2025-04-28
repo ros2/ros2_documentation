@@ -246,8 +246,12 @@ Running the ``rosdep`` command should now execute normally:
 .. code-block:: console
 
    $ rosdep install -i --from-path src --rosdistro {DISTRO} -y
-   All required rosdeps installed successfully
 
+The command should return:
+
+.. code-block:: text
+
+   #All required rosdeps installed successfully
 
 .. _windows-troubleshooting:
 
