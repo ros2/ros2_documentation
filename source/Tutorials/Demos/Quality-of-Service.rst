@@ -35,7 +35,7 @@ You will also need the ROS package ``image_tools``.
 
    .. group-tab:: From Source
 
-       Clone and build the demos repo using the branch that matches your installation.
+      Clone and build the demos repo using the branch that matches your installation.
 
       .. code-block:: console
 
