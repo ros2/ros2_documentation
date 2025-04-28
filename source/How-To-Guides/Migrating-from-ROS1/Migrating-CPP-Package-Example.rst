@@ -324,7 +324,7 @@ Changing the CMake code
 
 Require a newer version of CMake so that ``ament_cmake`` functions work correctly.
 
-.. code-block::
+.. code-block:: cmake
 
    cmake_minimum_required(VERSION 3.14.4)
 

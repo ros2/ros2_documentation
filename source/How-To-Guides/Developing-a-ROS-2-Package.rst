@@ -90,7 +90,7 @@ More details on distribution can be found in the `official documentation <https:
 
 In your ROS 2 package, you should have a ``setup.cfg`` file which looks like:
 
-.. code-block:: bash
+.. code-block:: ini
 
    [develop]
    script_dir=$base/lib/<package-name>
