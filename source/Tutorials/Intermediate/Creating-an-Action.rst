@@ -214,8 +214,7 @@ and how to verify a successful build.
 Next steps
 ----------
 
-Next, let's utilize your newly defined action interface by creating an action server
-and client (in :doc:`Python <Writing-an-Action-Server-Client/Py>` or :doc:`C++ <Writing-an-Action-Server-Client/Cpp>`).
+Next, let's utilize your newly defined action interface by creating an action server and client (in :doc:`Python <Writing-an-Action-Server-Client/Py>` or :doc:`C++ <Writing-an-Action-Server-Client/Cpp>`).
 
 Related content
 ---------------
