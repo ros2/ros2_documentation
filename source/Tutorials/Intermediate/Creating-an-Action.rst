@@ -43,7 +43,7 @@ Tasks
 
 Actions can only be created in a package using ``ament_cmake``. 
 They are not supported in Python packages using ``ament_python``.
-This restriction also applies to messages and services, so
+This restriction also applies to messages and services, so...
 
 .. note::
    It is recommended to define action interfaces in their own package.
