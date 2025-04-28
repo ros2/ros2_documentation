@@ -173,7 +173,7 @@ Here are the :ref:`from-source rosdep section <linux-development-setup-install-d
 
 If you already have all your dependencies, the console will return:
 
-.. code-block:: console
+.. code-block:: text
 
   #All required rosdeps installed successfully
 
