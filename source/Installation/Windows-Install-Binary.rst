@@ -68,7 +68,7 @@ Install ROS 2
 Binary releases of {DISTRO_TITLE_FULL} are not provided.
 Instead you may download nightly :ref:`prerelease binaries <Prerelease_binaries>`.
 
-* Download the latest package for Windows, e.g., ``ros2-package-windows-AMD64.zip``.
+* Download the latest package for Windows, e.g., ``ros2-{DISTRO}-*-windows-AMD64.zip``.
 
 .. note::
 
