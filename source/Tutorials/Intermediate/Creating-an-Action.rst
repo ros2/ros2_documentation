@@ -46,7 +46,7 @@ They are not supported in Python packages using `ament_python`.
 This restriction also applies to messages and services, so
 
 .. note::
-   It is recommended to define action interfaces in this tutorial.
+   It is recommended to define action interfaces in their own package.
    This improves modularity and makes it easier to reuse them across multiple projects.
 
 .. tabs::
