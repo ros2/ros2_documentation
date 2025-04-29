@@ -85,6 +85,12 @@ This can be done by manually setting the environment variable ``NDDSHOME`` to th
 
    $ source ${RTI_CONNEXT_INSTALL_LOCATION}/resource/scripts/rtisetenv_x64Linux4gcc7.3.0.bash
 
+Make sure you have the ROS 2 environment set up:
+
+.. code-block:: console
+
+   $ source /opt/ros/{DISTRO}/setup.bash
+
 Build the RMW using colcon:
 
 .. code-block:: console
