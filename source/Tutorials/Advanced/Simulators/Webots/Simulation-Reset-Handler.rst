@@ -152,8 +152,7 @@ This launch file contains all other nodes, including robot controllers/plugins, 
       )
 
       nav2_node = IncludeLaunchDescription(
-          PythonLaunchDescriptionSource(os.path.join(
-              get_package_share_directory('nav2_bringup'), 'launch', 'bringup_launch.py')),
+          PathJoinSubstitution([FindPackageShare('nav2_bringup'), 'launch', 'bringup_launch.py']),
           launch_arguments=[
               ('map', nav2_map),
               ('params_file', nav2_params),
