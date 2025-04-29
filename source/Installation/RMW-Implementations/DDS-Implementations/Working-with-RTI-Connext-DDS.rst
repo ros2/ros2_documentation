@@ -36,7 +36,7 @@ RTI Connext Pro is available through a variety of channels:
 
         .. code-block:: console
 
-           $ sudo apt update && sudo apt install -q -y rti-connext-dds-7.3.0
+           $ sudo apt update && sudo apt install -q -y rti-connext-dds-7.3.0-ros
 
      .. group-tab:: v6.0.1
 
@@ -74,8 +74,9 @@ Clone the repository for ``rmw_connextdds`` into your ROS 2 workspace and select
 
 .. code-block:: console
 
-   $ cd ros2_ws/src
-   $ git clone https://github.com/ros2/rmw_connextdds -b {DISTRO}
+   $ mkdir -p ros2_ws/src
+   $ cd ros2_ws
+   $ git clone -b {DISTRO} https://github.com/ros2/rmw_connextdds src/rmw_connextdds
 
 Set up the environment to help colcon discover where RTI Connext is installed.
 This can be done by manually setting the environment variable ``NDDSHOME`` to the location of the RTI Connext installation, or by using a script that comes with the RTI Connext installation:
@@ -83,6 +84,12 @@ This can be done by manually setting the environment variable ``NDDSHOME`` to th
 .. code-block:: console
 
    $ source ${RTI_CONNEXT_INSTALL_LOCATION}/resource/scripts/rtisetenv_x64Linux4gcc7.3.0.bash
+
+Make sure you have the ROS 2 environment set up:
+
+.. code-block:: console
+
+   $ source /opt/ros/{DISTRO}/setup.bash
 
 Build the RMW using colcon:
 
