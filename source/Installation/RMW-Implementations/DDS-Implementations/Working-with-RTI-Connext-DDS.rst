@@ -36,7 +36,7 @@ RTI Connext Pro is available through a variety of channels:
 
         .. code-block:: console
 
-           $ sudo apt update && sudo apt install -q -y rti-connext-dds-7.3.0
+           $ sudo apt update && sudo apt install -q -y rti-connext-dds-7.3.0-ros
 
      .. group-tab:: v6.0.1
 
