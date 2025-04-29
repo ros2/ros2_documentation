@@ -106,15 +106,12 @@ You can run the documentation tests locally (using `doc8 <https://github.com/PyC
 
    $ make test
 
-<<<<<<< HEAD
-=======
 You can run the Python documentation tools tests locally (using `pytest <https://docs.pytest.org/en/stable/>`_) with the following command:
 
 .. code-block:: console
 
    $ make test-tools
 
->>>>>>> c08c295 (Add $ to Related-Projects, Releases and Contributing. (#5357))
 You can run the documentation linter locally (using `sphinx-lint <https://github.com/sphinx-contrib/sphinx-lint>`_) with the following command:
 
 .. code-block:: console
