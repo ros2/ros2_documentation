@@ -174,7 +174,7 @@ Every nested node will inherit that namespace automatically.
 .. attention:: ``PushROSNamespace`` has to be the first action in the list for the following actions to apply the namespace.
 
 To do that, firstly, we need to remove the ``namespace='turtlesim2'`` line from the ``turtlesim_world_2_launch.py`` file.
-Afterwards, we need to update the ``launch_turtlesim_launch.py`` to change the ``turtlesim_world_2 = `` value to the following:
+Afterwards, we need to update the ``launch_turtlesim_launch.py`` to change the ``turtlesim_world_2 =`` value to the following:
 
 .. code-block:: Python
 
