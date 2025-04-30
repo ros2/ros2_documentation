@@ -50,7 +50,7 @@ Next, download the ``ros2-release`` package and install it:
    $ sudo dnf config-manager --set-enabled ros2-testing
 
 
-The `ros2-release <https://github.com/ros-infrastructure/ros-apt-source/>`_ package provide keys and repo configuration for the various ROS repositories.
+The `ros2-release <https://github.com/ros-infrastructure/ros-apt-source/>`_ package provides keys and repo configuration for the various ROS repositories.
 Updates to repository configuration will occur automatically when new versions of this package are released to the ROS repositories.
 
 Install development tools (optional)
