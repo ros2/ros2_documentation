@@ -1,5 +1,5 @@
 ROS 2 Kilted Kaiju Complete Changelog
-============================
+=====================================
 
 This page is a list of the complete changes in all ROS 2 core packages since the previous release.
 
@@ -1813,7 +1813,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `robot_state_publisher <https://github.com/ros/robot_state_publisher/tree/kilted/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Use ``emplace()`` with ``std::map``s (`#231 <https://github.com/ros/robot_state_publisher/issues/231>`__)
+* Use ``emplace()`` with ``std::map`` (`#231 <https://github.com/ros/robot_state_publisher/issues/231>`__)
 * Remove CODEOWNERS and mirror-rolling-to-main workflow (`#229 <https://github.com/ros/robot_state_publisher/issues/229>`__)
 * update urdf model header (`#223 <https://github.com/ros/robot_state_publisher/issues/223>`__)
 * Contributors: Alejandro Hernández Cordero, Patrick Roncagliolo
