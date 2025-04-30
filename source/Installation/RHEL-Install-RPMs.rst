@@ -30,29 +30,29 @@ Set locale
 Enable required repositories
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You will need to enable the EPEL repositories and the PowerTools repository:
+You will need to enable the PowerTools repository:
 
 .. code-block:: console
 
-   $ sudo dnf install 'dnf-command(config-manager)' epel-release -y
    $ sudo dnf config-manager --set-enabled crb
 
 .. note:: This step may be slightly different depending on the distribution you are using.
           `Check the EPEL documentation <https://docs.fedoraproject.org/en-US/epel/#_quickstart>`_
 
-Next, download the ROS 2 ``.repo`` file:
+Next, download the ``ros2-release`` package and install it.:
 
 .. code-block:: console
 
    $ sudo dnf install curl
-   $ sudo curl --output /etc/yum.repos.d/ros2.repo http://packages.ros.org/ros2-testing/rhel/ros2-testing.repo
+   $ curl -o /tmp/ros2-release.rpm https://ftp.osuosl.org/pub/ros/packages.ros.org/ros2-testing/rhel/$(. /etc/os-release && echo $VERSION_ID | cut -f1 -d.)/x86_64/Packages/r/ros2-release-1.0.0-1.el8.x86_64.rpm
+   $ sudo dnf install /tmp/ros2-release.rpm
+   # Necessary for the tutorial party
+   $ sudo  dnf config-manager --set-disabled ros2
+   $ sudo dnf config-manager --set-enabled ros2-testing
 
-Then, update your metadata cache.
-DNF may prompt you to verify the GPG key, which should match the location ``https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc``.
 
-.. code-block:: console
-
-   $ sudo dnf makecache
+The `ros2-release <https://github.com/ros-infrastructure/ros-apt-source/>`_ package provide keys and repo configuration for the various ROS repositories.
+Updates to repository configuration will occur automatically when new versions of this package are released to the ROS repositories.
 
 Install development tools (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
