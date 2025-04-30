@@ -39,7 +39,7 @@ You will need to enable the PowerTools repository:
 .. note:: This step may be slightly different depending on the distribution you are using.
           `Check the EPEL documentation <https://docs.fedoraproject.org/en-US/epel/#_quickstart>`_
 
-Next, download the ``ros2-release`` package and install it.:
+Next, download the ``ros2-release`` package and install it:
 
 .. code-block:: console
 
