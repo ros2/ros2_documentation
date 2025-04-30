@@ -455,7 +455,7 @@ The ament index explained
 
 For details on the design and intentions, see `here <https://github.com/ament/ament_cmake/blob/{REPOS_FILE_BRANCH}/ament_cmake_core/doc/resource_index.md>`__
 
-In principle, the ament index is contained in a folder within the install/share folder of your package.
+In principle, the ament index is contained in a folder within the `install space <https://colcon.readthedocs.io/en/released/user/what-is-a-workspace.html#install-artifacts>`_.
 It contains shallow subfolders named after different types of resources.
 Within the subfolder, each package providing said resource is referenced by name with a "marker file".
 The file may contain whatever content necessary to obtain the resources, e.g. relative paths to the installation directories of the resource, it may also be simply empty.
