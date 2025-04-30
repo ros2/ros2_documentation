@@ -42,7 +42,7 @@ For more information about RMW implementations, compiler / interpreter versions,
 Installation
 ------------
 
-TODO
+`Install Kilted Kaiju <../../kilted/Installation.html>`__
 
 New features in this ROS 2 release
 ----------------------------------
