@@ -44,8 +44,7 @@ Next, download the ``ros2-release`` package and install it.:
 .. code-block:: console
 
    $ sudo dnf install curl
-   $ curl -o /tmp/ros2-release.rpm https://ftp.osuosl.org/pub/ros/packages.ros.org/ros2-testing/rhel/$(. /etc/os-release && echo $VERSION_ID | cut -f1 -d.)/x86_64/Packages/r/ros2-release-1.0.0-1.el8.x86_64.rpm
-   $ sudo dnf install /tmp/ros2-release.rpm
+   $ sudo dnf install https://ftp.osuosl.org/pub/ros/packages.ros.org/ros2/rhel/$(rpm -E %rhel)/x86_64/Packages/r/ros2-release-1.0.0-1.noarch.rpm
    # Necessary for the tutorial party
    $ sudo dnf config-manager --set-disabled ros2
    $ sudo dnf config-manager --set-enabled ros2-testing
