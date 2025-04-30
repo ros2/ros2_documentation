@@ -241,9 +241,20 @@ Changes since the Jazzy release
 Added NV12 to pixel formats
 """""""""""""""""""""""""""
 
-Added NV12 to pixel formats, which is a common output format of hardware-accelerated decoders
+Added NV12 to pixel formats, which is a common output format of hardware-accelerated decoders.
 
 See https://github.com/ros2/common_interfaces/pull/253 for more details.
+
+``rclcpp``
+^^^^^^^^^^
+
+Consistent behavior for Subordinate nodes
+"""""""""""""""""""""""""""""""""""""""""
+
+Inconsistent behavior of subordinate nodes was fixed.
+The behavioral modification may affect existing applications relying on the previous implementation.
+
+See https://github.com/ros2/rclcpp/pull/2822 for more details.
 
 ``rmw_connextdds_cpp``
 ^^^^^^^^^^^^^^^^^^^^^^
