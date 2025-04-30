@@ -79,12 +79,6 @@ Internal compiler error
 
 If you experience an ICE when trying to compile on a memory constrained platform like a Raspberry PI you might want to build single threaded (prefix the build invocation with ``MAKEFLAGS=-j1``).
 
-Out of memory
-^^^^^^^^^^^^^
-
-The ``ros1_bridge`` in its current form requires 4Gb of free RAM to compile.
-If you don't have that amount of RAM available it's suggested to use ``COLCON_IGNORE`` in that folder and skip its compilation.
-
 Multiple host interference
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
