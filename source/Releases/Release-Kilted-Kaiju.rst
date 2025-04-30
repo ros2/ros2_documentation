@@ -16,7 +16,7 @@ Kilted Kaiju (codename 'kilted'; May, 2025)
 
 *Kilted Kaiju* is the eleventh release of ROS 2.
 What follows is highlights of the important changes and features in Kilted Kaiju since the last release.
-For a list of all of the changes since Iron, see the :doc:`long form changelog <Kilted-Kaiju-Complete-Changelog>`
+For a list of all of the changes since Jazzy, see the :doc:`long form changelog <Kilted-Kaiju-Complete-Changelog>`
 
 Supported Platforms
 -------------------
