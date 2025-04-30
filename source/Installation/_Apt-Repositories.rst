@@ -14,5 +14,6 @@ Updates to repository configuration will occur automatically when new versions o
 
 .. code-block:: console
 
+   $ sudo apt update && sudo apt install curl -y
    $ curl -o /tmp/ros2-testing-apt-source.deb https://ftp.osuosl.org/pub/ros/packages.ros.org/ros2-testing/ubuntu/pool/main/r/ros-apt-source/ros2-testing-apt-source_1.0.0~$(. /etc/os-release && echo $VERSION_CODENAME)_all.deb
    $ sudo apt install /tmp/ros2-testing-apt-source.deb
