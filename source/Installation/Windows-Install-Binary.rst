@@ -38,7 +38,7 @@ We'll use ``C:\pixi_ws`` for the rest of these instructions.
 .. note::
 
     Note: the ROS 2 binary packages are currently not relocatable, which is being tracked in a `documentation issue <https://github.com/ros2/ros2_documentation/issues/5384>`__.
-    Please use `C:\pixi_ws` in the interim.
+    Please use ``C:\pixi_ws`` in the interim.
 
 Install prerequisites
 ---------------------
