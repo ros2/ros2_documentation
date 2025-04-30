@@ -29,11 +29,16 @@ Start a powershell session (usually by clicking on the start menu, then typing `
 
 Then create a directory to store the installation.
 Because of Windows path-length limitations, this should be as short as possible.
-We'll use ``C:\dev`` for the rest of these instructions.
+We'll use ``C:\pixi_ws`` for the rest of these instructions.
 
 .. code-block:: console
 
-   $ md C:\dev
+   $ md C:\pixi_ws
+
+.. note::
+
+    Note: the ROS 2 binary packages are currently not relocatable, which is being tracked in a `documentation issue <https://github.com/ros2/ros2_documentation/issues/5384>`__.
+    Please use `C:\pixi_ws` in the interim.
 
 Install prerequisites
 ---------------------
@@ -53,7 +58,7 @@ Download the pixi configuration file in the existing powershell session:
 
 .. code-block:: console
 
-   $ cd C:\dev
+   $ cd C:\pixi_ws
    $ irm https://raw.githubusercontent.com/ros2/ros2/refs/heads/{REPOS_FILE_BRANCH}/pixi.toml -OutFile pixi.toml
 
 Install dependencies:
@@ -65,16 +70,14 @@ Install dependencies:
 Install ROS 2
 -------------
 
-Binary releases of {DISTRO_TITLE_FULL} are not provided.
-Instead you may download nightly :ref:`prerelease binaries <Prerelease_binaries>`.
-
-* Download the latest package for Windows, e.g., ``ros2-{DISTRO}-*-windows-AMD64.zip``.
+* Go to the releases page: https://github.com/ros2/ros2/releases
+* Download the latest package for Windows, e.g., ``ros2-{DISTRO}-*-windows-release-amd64.zip``.
 
 .. note::
 
    There may be more than one binary download option which might cause the file name to differ.
 
-* Unpack the zip file somewhere (we'll assume ``C:\dev\ros2_{DISTRO}``).
+* Unpack the zip file somewhere (we'll assume ``C:\pixi_ws\ros2-windows``).
 
 Install additional RMW implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -95,7 +98,7 @@ Source the pixi environment to set up dependencies:
 
 .. code-block:: console
 
-   $ cd C:\dev
+   $ cd C:\pixi_ws
    $ pixi shell
 
 Source the ROS 2 environment
@@ -105,9 +108,9 @@ This is required in every command prompt you open to setup the ROS 2 workspace:
 
 .. code-block:: console
 
-   $ call ros2_{DISTRO}\local_setup.bat
+   $ call C:\pixi_ws\ros2-windows\local_setup.bat
 
-It is normal that the previous command, if nothing else went wrong, outputs ``The system cannot find the path specified.`` exactly once.
+If you do not have RTI Connext DDS installed on your computer, it is normal to receive a warning that it is missing.
 
 Try some examples
 -----------------
@@ -149,4 +152,4 @@ Uninstall
 
    .. code-block:: console
 
-      $ rmdir /s /q C:\dev
+      $ rmdir /s /q C:\pixi_ws
