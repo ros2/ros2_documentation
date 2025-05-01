@@ -6,7 +6,7 @@ Running Tests in ROS 2 from the Command Line
 Prerequisites
 ^^^^^^^^^^^^^
 
-You will need a workspace setup with packages that have tests in them. 
+You will need a workspace setup with packages that have tests in them.
 
 Build and run your tests
 ^^^^^^^^^^^^^^^^^^^^^^^^
