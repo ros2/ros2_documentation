@@ -3,10 +3,15 @@
 Running Tests in ROS 2 from the Command Line
 ============================================
 
+Prerequisites
+^^^^^^^^^^^^^
+
+You will need a workspace setup with packages that have tests in them.
+
 Build and run your tests
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-To compile and run the tests, simply run the `test <https://colcon.readthedocs.io/en/released/reference/verb/test.html>`__ verb from ``colcon``.
+To compile and run the tests, simply run the `test <https://colcon.readthedocs.io/en/released/reference/verb/test.html>`__ verb from ``colcon`` at the root of your workspace.
 
 .. code-block:: console
 
