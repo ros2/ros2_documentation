@@ -30,10 +30,11 @@ Set locale
 Enable required repositories
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You will need to enable the PowerTools repository:
+You will need to enable the EPEL repositories and the PowerTools repository:
 
 .. code-block:: console
 
+   $ sudo dnf install 'dnf-command(config-manager)' epel-release -y
    $ sudo dnf config-manager --set-enabled crb
 
 .. note:: This step may be slightly different depending on the distribution you are using.
