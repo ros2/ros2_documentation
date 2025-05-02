@@ -86,7 +86,7 @@ To convert between them in C++, use the methods of ``tf2_geometry_msgs``.
    tf2::fromMsg(msg_quat, tf2_quat_from_msg);
 
 There is no ``tf2::Quaternion`` equivalent in Python.
-Instead, the builtin `list` is used.
+Instead, the builtin ``list`` is used.
 
 .. code-block:: python
 
