@@ -71,8 +71,6 @@ Quaternion types in ROS 2
 ROS 2 uses two quaternion datatypes: ``tf2::Quaternion`` and its equivalent ``geometry_msgs::msg::Quaternion``.
 To convert between them in C++, use the methods of ``tf2_geometry_msgs``.
 
-C++
-
 .. code-block:: C++
 
    #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
@@ -88,8 +86,8 @@ C++
    // or
    tf2::fromMsg(msg_quat, tf2_quat_from_msg);
 
-
-Python
+There is no `tf2::Quaternion` equivalent in Python.
+Instead, the builtin `list` is used.
 
 .. code-block:: python
 
