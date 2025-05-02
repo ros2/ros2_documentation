@@ -27,7 +27,7 @@ Then install rmw_zenoh binaries using the command
 Build from source code
 ----------------------
 
-Built from source, recommended if latest features are needed.
+Building from source is only recommended if latest features are needed.
 
 By default, we vendor and compile ``zenoh-cpp`` with a subset of zenoh features.
 The ``ZENOHC_CARGO_FLAGS`` CMake argument may be overwritten with other features included if required.
@@ -75,7 +75,7 @@ Start the Zenoh router
 
    # terminal 1
    source /opt/ros/{DISTRO}/setup.bash
-   ros2 run rmw_zenoh_cpp talker rmw_zenohd
+   ros2 run rmw_zenoh_cpp rmw_zenohd
 
 .. note:: Without the Zenoh router, nodes will not be able to discover each other since multicast discovery is disabled by default in the node's session config.
     Instead, nodes will receive discovery information about other peers via the Zenoh router's gossip functionality.
