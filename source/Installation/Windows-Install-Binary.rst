@@ -131,12 +131,6 @@ Start another command shell and run a Python ``listener``\ :
 
    $ ros2 run demo_nodes_py listener
 
-If you are using rmw_zenoh_cpp, you must also run the Zenoh router node:
-
-.. code-block:: console
-
-   $ ros2 run rmw_zenoh_cpp rmw_zenohd
-
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
 This verifies both the C++ and Python APIs are working properly.
 Hooray!
