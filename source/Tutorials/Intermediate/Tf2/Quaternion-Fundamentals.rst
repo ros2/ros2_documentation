@@ -36,7 +36,6 @@ You can take a look at libraries like `transforms3d <https://github.com/matthew-
 
 However, this is not a hard requirement and you can stick to any other geometric transformation library that suit you best.
 
-
 Components of a quaternion
 --------------------------
 
