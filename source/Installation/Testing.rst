@@ -26,7 +26,7 @@ For Debian-based operating systems, you can install binary packages from the **r
 2. Install the ``ros2-testing-apt-source`` package
    This will automatically uninstall the ``ros2-apt-source`` package since only one repository may be enabled at a time.
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ sudo apt install -y ros2-testing-apt-source
 
@@ -50,7 +50,7 @@ For Debian-based operating systems, you can install binary packages from the **r
 
 6. Once you are finished testing, you can switch back to the normal repository by re-installing the ``ros-apt-source`` package:
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ sudo apt install -y ros-apt-source
 
