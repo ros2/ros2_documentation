@@ -27,7 +27,7 @@ Then install rmw_zenoh binaries using the command
 Build from source code
 ----------------------
 
-Built from source, recommended if latest features are needed.
+Building from source is only recommended if latest features are needed.
 
 By default, we vendor and compile ``zenoh-cpp`` with a subset of zenoh features.
 The ``ZENOHC_CARGO_FLAGS`` CMake argument may be overwritten with other features included if required.
