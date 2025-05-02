@@ -122,9 +122,10 @@ Now run ``talker`` and ``listener`` to test RTI Connext DDS
 
 .. code-block:: console
 
+   $ source /opt/ros/{DISTRO}/setup.bash
    $ ros2 run demo_nodes_cpp talker
 
 .. code-block:: console
 
+   $ source /opt/ros/{DISTRO}/setup.bash
    $ ros2 run demo_nodes_cpp listener
-

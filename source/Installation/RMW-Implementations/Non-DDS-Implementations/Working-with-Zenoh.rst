@@ -74,6 +74,7 @@ Start the Zenoh router
 .. code-block:: bash
 
    # terminal 1
+   source /opt/ros/{DISTRO}/setup.bash
    ros2 run rmw_zenoh_cpp talker rmw_zenohd
 
 .. note:: Without the Zenoh router, nodes will not be able to discover each other since multicast discovery is disabled by default in the node's session config.
@@ -83,12 +84,14 @@ Start the Zenoh router
 
    # terminal 2
    export RMW_IMPLEMENTATION=rmw_zenoh_cpp
+   source /opt/ros/{DISTRO}/setup.bash
    ros2 run demo_nodes_cpp talker
 
 .. code-block:: bash
 
    # terminal 3
    export RMW_IMPLEMENTATION=rmw_zenoh_cpp
+   source /opt/ros/{DISTRO}/setup.bash
    ros2 run demo_nodes_cpp listener
 
 .. note:: Remember to source your ROS 2 setup script before running these commands.
