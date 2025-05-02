@@ -205,7 +205,7 @@ Here's an example to get the relative rotation from the previous robot pose to t
       y1 = q1[2]
       z1 = q1[3]
 
-      # Computer the product of the two quaternions, term by term
+      # Compute the product of the two quaternions, term by term
       q0q1_w = w0 * w1 - x0 * x1 - y0 * y1 - z0 * z1
       q0q1_x = w0 * x1 + x0 * w1 + y0 * z1 - z0 * y1
       q0q1_y = w0 * y1 - x0 * z1 + y0 * w1 + z0 * x1
