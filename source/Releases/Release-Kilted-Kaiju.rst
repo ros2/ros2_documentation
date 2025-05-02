@@ -247,9 +247,24 @@ Changes since the Jazzy release
 Added NV12 to pixel formats
 """""""""""""""""""""""""""
 
-Added NV12 to pixel formats, which is a common output format of hardware-accelerated decoders
+Added NV12 to pixel formats, which is a common output format of hardware-accelerated decoders.
 
 See https://github.com/ros2/common_interfaces/pull/253 for more details.
+
+``rclcpp``
+^^^^^^^^^^
+
+Consistent behavior for Subordinate nodes
+"""""""""""""""""""""""""""""""""""""""""
+
+Inconsistent behavior of subordinate nodes was fixed.
+The subordinate node is a secondary node associated with a primary node, that shares the same underlying context and resources while maintaining a separate name and namespace.
+The behavioral modification may affect existing applications relying on the previous implementation:
+
+1. Generic clients created from a subordinate node now correctly respect the subordinate node's sub-namespace
+2. Parameters obtained using a subordinate node now correctly use the (parent) node's ``rclcpp::node_interfaces::NodeParametersInterface``
+
+See https://github.com/ros2/rclcpp/pull/2822 for more details.
 
 ``rmw_connextdds_cpp``
 ^^^^^^^^^^^^^^^^^^^^^^
