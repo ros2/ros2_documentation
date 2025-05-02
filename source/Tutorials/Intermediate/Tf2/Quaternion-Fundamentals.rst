@@ -108,13 +108,19 @@ Quaternion operations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 It's easy for us to think of rotations about axes, but hard to think in terms of quaternions.
-A suggestion is to calculate target rotations in terms of roll (about an X-axis), pitch (about the Y-axis), and yaw (about the Z-axis), and then convert to a quaternion.
+A suggestion is to calculate target rotations in terms of the three individual rotations *roll* (about an X-axis), *pitch* (about the Y-axis), and *yaw* (about the Z-axis), and then convert to a quaternion.
 
 .. code-block:: python
 
    # quaternion_from_euler method is available in turtle_tf2_py/turtle_tf2_py/turtle_tf2_broadcaster.py
    q = quaternion_from_euler(1.5707, 0, -1.5707)
    print(f'The quaternion representation is x: {q[0]} y: {q[1]} z: {q[2]} w: {q[3]}.')
+
+This method relates to `Euler angles <https://en.wikipedia.org/wiki/Euler_angles>`_.
+There are several ways of applying Euler angles.
+The one described above, which ROS 2 adopts, is called *fixed (or static) frame* RPY.
+This means that the three individual rotations are applied to the original, unmoving coordinate axes.
+This is contrary to *relative frame*, where rotations are applied to the coordinate axes that get transformed by preceding rotations.
 
 
 2 Applying a quaternion rotation
