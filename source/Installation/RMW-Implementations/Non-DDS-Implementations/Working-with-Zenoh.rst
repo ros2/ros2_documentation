@@ -74,7 +74,7 @@ Start the Zenoh router
 .. code-block:: bash
 
    # terminal 1
-   ros2 run rmw_zenoh_cpp talker rmw_zenohd
+   ros2 run rmw_zenoh_cpp rmw_zenohd
 
 .. note:: Without the Zenoh router, nodes will not be able to discover each other since multicast discovery is disabled by default in the node's session config.
     Instead, nodes will receive discovery information about other peers via the Zenoh router's gossip functionality.
