@@ -163,6 +163,10 @@ An easy way to invert a quaternion is to negate the w-component:
 
    q[3] = -q[3]
 
+.. note::
+
+   This should not be confused with negating *all* elements of the quaternion.
+
 4 Relative rotations
 ^^^^^^^^^^^^^^^^^^^^
 
