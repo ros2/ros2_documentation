@@ -47,7 +47,7 @@ ROS 2 uses `conda-forge <https://conda-forge.org/>`__ as a backend for packages,
 
 .. note::
 
-The installation of conda-forge may trigger Windows Defender to treat it as a threat, but can be ignored by clicking "More info" and "Run anyway".
+   The installation of conda-forge may trigger Windows Defender to treat it as a threat, but can be ignored by clicking "More info" and "Run anyway".
 
 Install pixi
 ^^^^^^^^^^^^
