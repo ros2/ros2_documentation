@@ -63,8 +63,8 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics
 
 .. code-block:: c++
 
+    #include <array>
     #include <chrono>
-    #include <cstdio>
     #include <memory>
     #include <utility>
 
@@ -75,8 +75,6 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics
 
     #include "demo_nodes_cpp/visibility_control.h"
 
-    using namespace std::chrono_literals;
-
     namespace demo_nodes_cpp
     {
     // The simulated temperature data starts from -100.0 and ends at 150.0 with a step size of 10.0
@@ -84,7 +82,7 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics
 
     // Create a ContentFilteringPublisher class that subclasses the generic rclcpp::Node base class.
     // The main function below will instantiate the class as a ROS node.
-    class ContentFilteringPublisher : public rclcpp::Node
+    class ContentFilteringPublisher final : public rclcpp::Node
     {
     public:
       DEMO_NODES_CPP_PUBLIC
@@ -92,7 +90,6 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics
       : Node("content_filtering_publisher", options)
       {
         // Create a function for when messages are to be sent.
-        setvbuf(stdout, NULL, _IONBF, BUFSIZ);
         auto publish_message =
           [this]() -> void
           {
@@ -114,8 +111,10 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics
         rclcpp::QoS qos(rclcpp::KeepLast{7});
         pub_ = this->create_publisher<std_msgs::msg::Float32>("temperature", qos);
 
+        int64_t publish_ms = this->declare_parameter("publish_ms", 1000);
+
         // Use a timer to schedule periodic message publishing.
-        timer_ = this->create_wall_timer(1s, publish_message);
+        timer_ = this->create_wall_timer(std::chrono::milliseconds(publish_ms), publish_message);
       }
 
     private:
@@ -172,6 +171,9 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics
 
 .. code-block:: c++
 
+    #include <array>
+    #include <string>
+
     #include "rclcpp/rclcpp.hpp"
     #include "rclcpp_components/register_node_macro.hpp"
     #include "rcpputils/join.hpp"
@@ -194,7 +196,6 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics
       explicit ContentFilteringSubscriber(const rclcpp::NodeOptions & options)
       : Node("content_filtering_subscriber", options)
       {
-        setvbuf(stdout, NULL, _IONBF, BUFSIZ);
         // Create a callback function for when messages are received.
         auto callback =
           [this](const std_msgs::msg::Float32 & msg) -> void
