@@ -301,6 +301,7 @@ An example of an ``ament_python`` build is the `ament_index_python package <http
 A package such as `demo_nodes_cpp <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/demo_nodes_cpp>`__ uses the ``ament_cmake`` build type, and uses CMake as the build tool.
 
 For convenience, you can use the tool ``ros2 pkg create`` to create a new package based on a template.
+A full description of creating a package and how to use ``ros2 pkg create`` is in the upcoming tutorial :doc:`create a package <./Creating-Your-First-ROS2-Package>`.
 
 .. note:: For ``catkin`` users, this is the equivalent of ``catkin_create_package``.
 
