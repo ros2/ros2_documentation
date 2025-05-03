@@ -168,14 +168,14 @@ The ``main`` function accomplishes the following, line by line:
 The ``add_executable`` macro generates an executable you can run using ``ros2 run``.
 Add the following code block to ``CMakeLists.txt`` to create an executable named ``server``:
 
-.. code-block:: console
+.. code-block:: cmake
 
   add_executable(server src/add_two_ints_server.cpp)
   target_link_libraries(server PUBLIC rclcpp::rclcpp ${example_interfaces_TARGETS})
 
 So ``ros2 run`` can find the executable, add the following lines to the end of the file, right before ``ament_package()``:
 
-.. code-block:: console
+.. code-block:: cmake
 
   install(TARGETS
       server
@@ -274,7 +274,7 @@ Then the client sends its request, and the node spins until it receives its resp
 Return to ``CMakeLists.txt`` to add the executable and target for the new node.
 After removing some unnecessary boilerplate from the automatically generated file, your ``CMakeLists.txt`` should look like this:
 
-.. code-block:: console
+.. code-block:: cmake
 
   cmake_minimum_required(VERSION 3.5)
   project(cpp_srvcli)
