@@ -149,10 +149,10 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/servic
 
     }  // namespace demo_nodes_cpp
 
-Service introspection is disabled by default, so users need to enable it to call ``configure_introspection`` on service server.
-In this demo, ``IntrospectionServiceNode`` uses a parameter named ``service_configure_introspection`` to configure the service introspection state.
+Service introspection is disabled by default, so users need to enable it before any introspection can be made.
+In this demo, the ``IntrospectionServiceNode`` uses a parameter named ``service_configure_introspection`` to configure the service introspection state.
 
-1st we need to start ``IntrospectionServiceNode``.
+First we need to start the ``IntrospectionServiceNode``.
 
 .. code-block:: console
 
@@ -289,7 +289,7 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/servic
 
     }  // namespace demo_nodes_cpp
 
-And then, we start and configure ``IntrospectionClientNode`` in the same way.
+And then, we start and configure ``IntrospectionClientNode`` in the same way, which will continuously make service calls to the server.
 
 .. code-block:: console
 
@@ -315,8 +315,9 @@ To disable:
 
     $ ros2 param set /introspection_client client_configure_introspection disabled
 
+Now that both the service server and client are configured, we can use ``ros2 service echo`` to monitor the interactions happening between client and server.
+
 In this tutorial the following is example output with service introspection state ``CONTENTS`` on ``IntrospectionServiceNode`` and ``METADATA`` on ``IntrospectionClientNode``.
-To monitor service communication between ``IntrospectionClientNode`` and ``IntrospectionServiceNode``, let's run it:
 
 .. code-block:: console
 
@@ -364,8 +365,8 @@ To monitor service communication between ``IntrospectionClientNode`` and ``Intro
     ...
 
 You can see the ``event_type: REQUEST_SENT`` and ``event_type: RESPONSE_RECEIVED``, those introspection service event take place in ``IntrospectionClientNode``.
-And those events does not include any contents in ``request`` and ``response`` field, this is because ``IntrospectionClientNode``'s service introspection state is set to ``METADATA``.
-On the other hand, ``event_type: REQUEST_RECEIVED`` and ``event_type: RESPONSE_SENT`` event from ``IntrospectionServiceNode`` includes ``request: [{a: 2, b: 3}]`` and ``response: [{sum: 5}]`` as introspection state is set to ``CONTENTS``.
+And those events do not include any contents in the ``request`` and ``response`` fields, since the service introspection state of ``IntrospectionClientNode`` is set to ``METADATA``.
+On the other hand, the ``event_type: REQUEST_RECEIVED`` and ``event_type: RESPONSE_SENT`` events from ``IntrospectionServiceNode`` includes ``request: [{a: 2, b: 3}]`` and ``response: [{sum: 5}]``, as introspection state is set to ``CONTENTS``.
 
 Related content
 ---------------
