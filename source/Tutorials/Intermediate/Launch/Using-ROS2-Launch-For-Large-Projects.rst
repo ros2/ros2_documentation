@@ -129,7 +129,7 @@ Now let's create a new ``turtlesim_world_3_launch.py`` file similar to ``turtles
 
 .. literalinclude:: launch/turtlesim_world_3_launch.py
    :language: python
-   :emphasize-lines: 16
+   :emphasize-lines: 12
 
 Loading the same YAML file, however, will not affect the appearance of the third turtlesim world.
 The reason is that its parameters are stored under another namespace as shown below:
@@ -185,7 +185,7 @@ Afterwards, we need to update the ``launch_turtlesim_launch.py`` to change the `
       GroupAction(
         actions=[
             PushROSNamespace('turtlesim2'),
-            IncludeLaunchDescription(PathJoinSubstitution([launch_dir, 'turtlesim_world_2_launch.py']),
+            IncludeLaunchDescription(PathJoinSubstitution([launch_dir, 'turtlesim_world_2_launch.py'])),
          ]
       ),
 

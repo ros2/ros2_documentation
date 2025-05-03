@@ -6,7 +6,7 @@ from launch_ros.substitutions import FindPackageShare
 
 
 def generate_launch_description():
-    # ''use_sim_time'' is used to  determine whether ros2 use simulation time provided by simulation environment (Gazebo).
+    # ''use_sim_time'' is used to have ros2 use /clock topic for the time source
     use_sim_time = LaunchConfiguration('use_sim_time', default='false')
 
     urdf = FileContent(

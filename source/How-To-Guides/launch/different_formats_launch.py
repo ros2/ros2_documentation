@@ -12,7 +12,7 @@ def generate_launch_description():
         DeclareLaunchArgument('background_r', default_value='0'),
         DeclareLaunchArgument('background_g', default_value='255'),
         DeclareLaunchArgument('background_b', default_value='0'),
-        DeclareLaunchArgument( 'chatter_py_ns', default_value='chatter/py/ns'),
+        DeclareLaunchArgument('chatter_py_ns', default_value='chatter/py/ns'),
         DeclareLaunchArgument('chatter_xml_ns', default_value='chatter/xml/ns'),
         DeclareLaunchArgument('chatter_yaml_ns', default_value='chatter/yaml/ns'),
 
