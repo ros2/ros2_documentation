@@ -1,25 +1,14 @@
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
-from launch.substitutions import LaunchConfiguration, TextSubstitution
-
+from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 
 
 def generate_launch_description():
-    background_r_launch_arg = DeclareLaunchArgument(
-        'background_r', default_value=TextSubstitution(text='0')
-    )
-    background_g_launch_arg = DeclareLaunchArgument(
-        'background_g', default_value=TextSubstitution(text='84')
-    )
-    background_b_launch_arg = DeclareLaunchArgument(
-        'background_b', default_value=TextSubstitution(text='122')
-    )
-
     return LaunchDescription([
-        background_r_launch_arg,
-        background_g_launch_arg,
-        background_b_launch_arg,
+        DeclareLaunchArgument('background_r', default_value='0'),
+        DeclareLaunchArgument('background_g', default_value='84'),
+        DeclareLaunchArgument('background_b', default_value='122'),
         Node(
             package='turtlesim',
             executable='turtlesim_node',
