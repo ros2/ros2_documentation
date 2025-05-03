@@ -39,6 +39,7 @@ Install development tools
 .. code-block:: console
 
    $ sudo apt update && sudo apt install -y \
+     python3-colcon-common-extensions \
      python3-flake8-blind-except \
      python3-flake8-class-newline \
      python3-flake8-deprecated \
@@ -51,6 +52,8 @@ Install development tools
      python3-pytest-rerunfailures \
      python3-pytest-runner \
      python3-pytest-timeout \
+     python3-rosdep \
+     python3-vcstool \
      ros-dev-tools
 
 Build ROS 2
