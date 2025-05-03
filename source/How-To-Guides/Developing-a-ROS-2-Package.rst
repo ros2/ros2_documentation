@@ -61,7 +61,8 @@ You will mostly use the ``add_executable()`` CMake macro along with
 
    target_link_libraries(<executable-name> PUBLIC [targets from your dependencies])
 
-to create executable nodes and link dependencies. CMake, when used with `ament_target_dependencies` or similar functions, also automatically manages the necessary include directories for your targets.
+to create executable nodes and link dependencies.
+CMake, when used with `ament_target_dependencies` or similar functions, also automatically manages the necessary include directories for your targets.
 
 To install your launch files and nodes, you can use the ``install()`` macro placed towards the end of the file but before the ``ament_package()`` macro.
 

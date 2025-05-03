@@ -44,7 +44,23 @@ If the first command did not return a response similar to:
    Received from xx.xxx.xxx.xx:43751: 'Hello World!'
 
 then multicast may not be enabled or properly configured on your system.
-If the check above fails, refer to the platform-specific sections below for guidance on enabling multicast and configuring your firewall.
+
+If the general multicast check fails, you may need to update your firewall configuration.
+This is especially common on Linux systems where you can use `ufw <https://help.ubuntu.com/community/UFW>`__ to allow multicast.
+
+.. code-block:: console
+
+   $ sudo ufw allow in proto udp to 224.0.0.0/4
+   $ sudo ufw allow in proto udp from 224.0.0.0/4
+
+
+You can check if the multicast flag is enabled for your network interface using the :code:`ifconfig` tool.
+Look for :code:`MULTICAST` in the flags section:
+
+.. code-block:: bash
+
+   eno1: flags=4163<...,MULTICAST>
+      ...
 
 Import failing without library present on the system
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -61,24 +77,6 @@ Then, rebuilding the workspace may fix the issue.
 
 Linux
 -----
-
-Enable multicast
-^^^^^^^^^^^^^^^^
-
-If the general multicast check fails, you may need to update your firewall configuration to allow multicast using `ufw <https://help.ubuntu.com/community/UFW>`__.
-
-.. code-block:: console
-
-   $ sudo ufw allow in proto udp to 224.0.0.0/4
-   $ sudo ufw allow in proto udp from 224.0.0.0/4
-
-
-You can check if the multicast flag is enabled for your network interface using the :code:`ifconfig` tool and looking for :code:`MULTICAST` in the flags section:
-
-.. code-block:: bash
-
-   eno1: flags=4163<...,MULTICAST>
-      ...
 
 Internal compiler error
 ^^^^^^^^^^^^^^^^^^^^^^^
