@@ -248,21 +248,21 @@ Make sure to save the file.
 Now open the ``CMakeLists.txt`` file.
 Below the existing dependency ``find_package(ament_cmake REQUIRED)``, add the lines:
 
-.. code-block:: console
+.. code-block:: cmake
 
     find_package(rclcpp REQUIRED)
     find_package(std_msgs REQUIRED)
 
 After that, add the executable and name it ``talker`` so you can run your node using ``ros2 run``:
 
-.. code-block:: console
+.. code-block:: cmake
 
     add_executable(talker src/publisher_member_function.cpp)
     ament_target_dependencies(talker rclcpp std_msgs)
 
 Finally, add the ``install(TARGETS...)`` section so ``ros2 run`` can find your executable:
 
-.. code-block:: console
+.. code-block:: cmake
 
   install(TARGETS
     talker
@@ -270,7 +270,7 @@ Finally, add the ``install(TARGETS...)`` section so ``ros2 run`` can find your e
 
 You can clean up your ``CMakeLists.txt`` by removing some unnecessary sections and comments, so it looks like this:
 
-.. code-block:: console
+.. code-block:: cmake
 
   cmake_minimum_required(VERSION 3.5)
   project(cpp_pubsub)

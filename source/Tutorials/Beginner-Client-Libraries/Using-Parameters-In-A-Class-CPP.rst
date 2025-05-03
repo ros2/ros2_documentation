@@ -335,7 +335,7 @@ In there, create a new file called ``cpp_parameters_launch.py``
 Here you can see that we set ``my_parameter`` to ``earth`` when we launch our node ``minimal_param_node``.
 By adding the two lines below, we ensure our output is printed in our console.
 
-.. code-block:: console
+.. code-block:: python
 
           output="screen",
           emulate_tty=True,
