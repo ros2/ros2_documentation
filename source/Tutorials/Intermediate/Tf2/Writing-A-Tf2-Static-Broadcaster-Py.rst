@@ -431,8 +431,22 @@ The following command publishes a static coordinate transform to tf2 using an x/
 ``static_transform_publisher`` is designed both as a command-line tool for manual use, as well as for use within ``launch`` files for setting static transforms.
 For example:
 
-.. literalinclude:: launch/static_transform_publisher_launch.py
-   :language: python
+.. tabs::
+
+   .. group-tab:: XML
+
+      .. literalinclude:: launch/static_transform_publisher_launch.xml
+         :language: xml
+
+   .. group-tab:: YAML
+
+      .. literalinclude:: launch/static_transform_publisher_launch.yaml
+         :language: yaml
+
+   .. group-tab:: Python
+
+      .. literalinclude:: launch/static_transform_publisher_launch.py
+         :language: python
 
 Note that all arguments except for ``--frame-id`` and ``--child-frame-id`` are optional; if a particular option isn't specified, then the identity will be assumed.
 
