@@ -415,7 +415,7 @@ Reopen ``CMakeLists.txt`` and add the executable and target for the subscriber n
 .. code-block:: cmake
 
   add_executable(listener src/subscriber_lambda_function.cpp)
-  target_link_libraries(talker PUBLIC rclcpp::rclcpp ${std_msgs_TARGETS})
+  target_link_libraries(listener PUBLIC rclcpp::rclcpp ${std_msgs_TARGETS})
 
   install(TARGETS
     talker
