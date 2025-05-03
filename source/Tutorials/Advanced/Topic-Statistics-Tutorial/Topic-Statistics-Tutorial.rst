@@ -18,7 +18,7 @@ Enabling topic statistics (C++)
 Background
 ----------
 
-This is a short tutorial on how to enable topic statistics in ROS 2 and view the published statistics output using command line tools (:doc:`ros2topic <../../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`).
+This is a short tutorial on how to enable topic statistics in ROS 2 and view the published statistics output using command line tools (:doc:`ros2 topic <../../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`).
 
 ROS 2 provides the integrated measurement of statistics for messages received by any subscription,
 called Topic Statistics.
@@ -95,7 +95,7 @@ Open the file using your preferred text editor.
         // configure the topic name (default '/statistics')
         // options.topic_stats_options.publish_topic = "/topic_statistics"
 
-        auto callback = [this](std_msgs::msg::String::SharedPtr msg) {
+        auto callback = [this](const std_msgs::msg::String & msg) {
             this->topic_callback(msg);
           };
 
@@ -104,9 +104,9 @@ Open the file using your preferred text editor.
       }
 
     private:
-      void topic_callback(const std_msgs::msg::String::ConstSharedPtr msg) const
+      void topic_callback(const std_msgs::msg::String & msg) const
       {
-        RCLCPP_INFO(this->get_logger(), "I heard: '%s'", msg->data.c_str());
+        RCLCPP_INFO(this->get_logger(), "I heard: '%s'", msg.data.c_str());
       }
       rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription_;
     };
@@ -253,15 +253,15 @@ The terminal should start publishing statistics messages every 10 seconds, becau
       nanosec: 930797670
     statistics:
     - data_type: 1
-      data: .nan
+      data: 0.5522003000000001
     - data_type: 3
-      data: .nan
+      data: 0.756992
     - data_type: 2
-      data: .nan
+      data: 0.269039
     - data_type: 5
-      data: 0.0
+      data: 20.0
     - data_type: 4
-      data: .nan
+      data: 0.16441001797065166
     ---
     measurement_source_name: minimal_subscriber_with_topic_statistics
     metrics_source: message_period
@@ -300,10 +300,6 @@ data_type value     statistics
 
 Here we see the two currently possible calculated statistics for the ``std_msgs::msg::String`` message published
 to ``/topic`` by the ``minimal_publisher``.
-Because the ``std_msgs::msg::String`` does not have a message header, the ``message_age`` calculation cannot be performed,
-so NaNs are returned.
-However, the ``message_period`` can be calculated and we see the statistics populated
-in the message above.
 
 Summary
 -------
