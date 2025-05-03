@@ -150,7 +150,7 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/servic
     }  // namespace demo_nodes_cpp
 
 Service introspection is disabled by default, so users need to enable it to call ``configure_introspection`` on service server.
-In this demo, ``IntrospectionServiceNode`` uses a parameter named ```service_configure_introspection`` to configure the service introspection state.
+In this demo, ``IntrospectionServiceNode`` uses a parameter named ``service_configure_introspection`` to configure the service introspection state.
 
 1st we need to start ``IntrospectionServiceNode``.
 
