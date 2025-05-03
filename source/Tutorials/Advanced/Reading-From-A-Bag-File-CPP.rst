@@ -40,12 +40,12 @@ a new package:
 
 .. code-block:: console
 
-  $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 bag_reading_cpp --dependencies rclcpp rosbag2_transport turtlesim
+  $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 bag_reading_cpp --dependencies rclcpp rosbag2_transport turtlesim_msgs
 
 Your terminal will return a message verifying the creation of your package ``bag_reading_cpp`` and all its necessary files and folders.
 The ``--dependencies`` argument will automatically add the necessary dependency lines to ``package.xml`` and ``CMakeLists.txt``.
 In this case, the package will use the ``rosbag2_transport`` package as well as the ``rclcpp`` package.
-A dependency on the ``turtlesim`` package is also required for working with the custom turtlesim messages.
+A dependency on the ``turtlesim_msgs`` package is also required for working with the custom turtlesim messages.
 
 1.1 Update ``package.xml``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
