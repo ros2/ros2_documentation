@@ -125,7 +125,7 @@ Now let's create a new ``turtlesim_world_3_launch.py`` file similar to ``turtles
 
 .. literalinclude:: launch/turtlesim_world_3_launch.py
    :language: python
-   :emphasize-lines: 19
+   :emphasize-lines: 12
 
 Loading the same YAML file, however, will not affect the appearance of the third turtlesim world.
 The reason is that its parameters are stored under another namespace as shown below:
@@ -170,7 +170,7 @@ Every nested node will inherit that namespace automatically.
 .. attention:: ``PushROSNamespace`` has to be the first action in the list for the following actions to apply the namespace.
 
 To do that, firstly, we need to remove the ``namespace='turtlesim2'`` line from the ``turtlesim_world_2_launch.py`` file.
-Afterwards, we need to update the ``launch_turtlesim_launch.py`` to include the following lines:
+Afterwards, we need to update the ``launch_turtlesim_launch.py`` to change the ``IncludeLaunchDescription(... 'turtlesim_world_2_launch.py' ...)`` value to the following:
 
 .. code-block:: Python
 
@@ -178,19 +178,13 @@ Afterwards, we need to update the ``launch_turtlesim_launch.py`` to include the 
    from launch_ros.actions import PushROSNamespace
 
       ...
-      turtlesim_world_2 = IncludeLaunchDescription(
-         PythonLaunchDescriptionSource([os.path.join(
-            get_package_share_directory('launch_tutorial'), 'launch'),
-            '/turtlesim_world_2_launch.py'])
-         )
-      turtlesim_world_2_with_namespace = GroupAction(
+      GroupAction(
         actions=[
             PushROSNamespace('turtlesim2'),
-            turtlesim_world_2,
+            IncludeLaunchDescription(PathJoinSubstitution([launch_dir, 'turtlesim_world_2_launch.py'])),
          ]
-      )
+      ),
 
-Finally, we replace the ``turtlesim_world_2`` to ``turtlesim_world_2_with_namespace`` in the ``return LaunchDescription`` statement.
 As a result, each node in the ``turtlesim_world_2_launch.py`` launch description will have a ``turtlesim2`` namespace.
 
 4 Reusing nodes
@@ -217,7 +211,7 @@ In addition to that, we have passed it ``target_frame`` launch argument as shown
 
 .. literalinclude:: launch/launch_turtlesim_launch.py
    :language: python
-   :lines: 21-26
+   :lines: 16-19
 
 This syntax allows us to change the default goal target frame to ``carrot1``.
 If you would like ``turtle2`` to follow ``turtle1`` instead of the ``carrot1``, just remove the line that defines ``launch_arguments``.
