@@ -287,7 +287,7 @@ After removing some unnecessary boilerplate from the automatically generated fil
   target_link_libraries(server PUBLIC rclcpp::rclcpp ${example_interfaces_TARGETS})
 
   add_executable(client src/add_two_ints_client.cpp)
-  target_link_libraries(server PUBLIC rclcpp::rclcpp ${example_interfaces_TARGETS})
+  target_link_libraries(client PUBLIC rclcpp::rclcpp ${example_interfaces_TARGETS})
 
   install(TARGETS
     server
