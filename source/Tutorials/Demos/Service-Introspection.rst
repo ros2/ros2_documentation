@@ -19,7 +19,11 @@ Overview
 --------
 
 ROS 2 applications usually consist of services to execute specific procedures in remote nodes.
-It is possible to introspect service data communication with service introspection.
+Unlike topics, which anyone can subscribe to, service interactions are more opaque.
+By default, you cannot observe or monitor when a service gets called, nor what the request or response was.
+
+Still, it is possible to introspect service data communication with service introspection.
+To do this, the service in question needs to be configured appropriately.
 
 In this demo, we'll be highlighting how to configure service introspection state for a service client and a server and monitor service communication with ``ros2 service echo``.
 
