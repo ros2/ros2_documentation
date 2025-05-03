@@ -57,13 +57,13 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the fixed 
 
       .. code-block:: console
 
-          $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/fixed_frame_tf2_broadcaster.py
+          $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_py/turtle_tf2_py/fixed_frame_tf2_broadcaster.py
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-          $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/fixed_frame_tf2_broadcaster.py
+          $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_py/turtle_tf2_py/fixed_frame_tf2_broadcaster.py
 
    .. group-tab:: Windows
 
@@ -71,13 +71,13 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the fixed 
 
       .. code-block:: console
 
-          $ curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/fixed_frame_tf2_broadcaster.py -o fixed_frame_tf2_broadcaster.py
+          $ curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_py/turtle_tf2_py/fixed_frame_tf2_broadcaster.py -o fixed_frame_tf2_broadcaster.py
 
       Or in powershell:
 
       .. code-block:: console
 
-          $ curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/fixed_frame_tf2_broadcaster.py -o fixed_frame_tf2_broadcaster.py
+          $ curl https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_py/turtle_tf2_py/fixed_frame_tf2_broadcaster.py -o fixed_frame_tf2_broadcaster.py
 
 Now open the file called ``fixed_frame_tf2_broadcaster.py``.
 
@@ -300,13 +300,13 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the dynami
 
       .. code-block:: console
 
-          $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/dynamic_frame_tf2_broadcaster.py
+          $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_py/turtle_tf2_py/dynamic_frame_tf2_broadcaster.py
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-          $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/dynamic_frame_tf2_broadcaster.py
+          $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_py/turtle_tf2_py/dynamic_frame_tf2_broadcaster.py
 
    .. group-tab:: Windows
 
@@ -314,13 +314,13 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the dynami
 
       .. code-block:: console
 
-          $ curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/dynamic_frame_tf2_broadcaster.py -o dynamic_frame_tf2_broadcaster.py
+          $ curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_py/turtle_tf2_py/dynamic_frame_tf2_broadcaster.py -o dynamic_frame_tf2_broadcaster.py
 
       Or in powershell:
 
       .. code-block:: console
 
-          $ curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/dynamic_frame_tf2_broadcaster.py -o dynamic_frame_tf2_broadcaster.py
+          $ curl https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_py/turtle_tf2_py/dynamic_frame_tf2_broadcaster.py -o dynamic_frame_tf2_broadcaster.py
 
 Now open the file called ``dynamic_frame_tf2_broadcaster.py``:
 
