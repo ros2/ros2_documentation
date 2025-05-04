@@ -96,7 +96,8 @@ Second, we're going to replace our ``add_executable`` with a ``add_library`` wit
     add_library(vincent_driver_component src/vincent_driver.cpp)
 
 Third, replace other build commands that used the old target to act on the new target.
-i.e. ``target_link_libraries(vincent_driver ...)`` becomes ``target_link_libraries(vincent_driver_component ...)``
+Don't forget to add ``rclcpp_components::component`` in ``target_link_libraries``.
+i.e. ``target_link_libraries(vincent_driver ...)`` becomes ``target_link_libraries(vincent_driver_component rclcpp_components::component ...)``
 
 Fourth, add a new command to declare your component.
 
