@@ -238,9 +238,12 @@ In the second shell load both the talker and listener as we have before:
 .. code-block:: console
 
    $ ros2 component load /ComponentManager composition composition::Talker
+   Loaded component 1 into '/ComponentManager' container node as '/talker'
    $ ros2 component load /ComponentManager composition composition::Listener
+   Loaded component 2 into '/ComponentManager' container node as '/listener'
 
-You can get the unique ID of each component by just listing them:
+The unique ID of a component is printed when it gets loaded.
+You can also get the unique IDs of all components by just listing them now that they are loaded:
 
 .. code-block:: console
 
