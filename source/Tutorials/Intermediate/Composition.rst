@@ -238,9 +238,21 @@ In the second shell load both the talker and listener as we have before:
 .. code-block:: console
 
    $ ros2 component load /ComponentManager composition composition::Talker
+   Loaded component 1 into '/ComponentManager' container node as '/talker'
    $ ros2 component load /ComponentManager composition composition::Listener
+   Loaded component 2 into '/ComponentManager' container node as '/listener'
 
-Use the unique ID to unload the node from the component container.
+The unique ID of a component is printed when it gets loaded.
+You can also get the unique IDs of all components by just listing them now that they are loaded:
+
+.. code-block:: console
+
+   $ ros2 component list
+   /ComponentManager
+     1  /talker
+     2  /listener
+
+Use the unique ID to unload the component from the component container.
 
 .. code-block:: console
 
@@ -326,6 +338,7 @@ This functionality can be used as follows:
 .. code-block:: console
 
    $ ros2 component load /ComponentManager image_tools image_tools::Cam2Image -p burger_mode:=true
+   $ ros2 run rqt_image_view rqt_image_view  # Shows burgers bouncing, instead of image from camera
 
 Passing additional arguments into components
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
