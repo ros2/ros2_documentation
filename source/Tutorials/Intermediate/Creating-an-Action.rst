@@ -172,7 +172,7 @@ First source our workspace:
 
     .. code-block:: console
 
-      $ source install/local_setup.console
+      $ source install/local_setup.bash
 
   .. group-tab:: macOS
 
