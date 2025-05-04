@@ -40,7 +40,7 @@ Tasks
 ^^^^^^^^^^^^^^^^^^
 
 First we will create a package that will be used for this tutorial and the following ones.
-The package called ``learning_tf2_py`` will depend on ``geometry_msgs``, ``python3-numpy``, ``rclpy``, ``tf2_ros_py``, and ``turtlesim``.
+The package called ``learning_tf2_py`` will depend on ``geometry_msgs``, ``python3-numpy``, ``rclpy``, ``tf2_ros_py``, and ``turtlesim_msgs``.
 Code for this tutorial is stored `here <https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_py/turtle_tf2_py/static_turtle_tf2_broadcaster.py>`_.
 
 Open a new terminal and :doc:`source your ROS 2 installation <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
@@ -281,9 +281,9 @@ After the lines above, add the following dependencies corresponding to your node
     <exec_depend>python3-numpy</exec_depend>
     <exec_depend>rclpy</exec_depend>
     <exec_depend>tf2_ros_py</exec_depend>
-    <exec_depend>turtlesim</exec_depend>
+    <exec_depend>turtlesim_msgs</exec_depend>
 
-This declares the required ``geometry_msgs``, ``python3-numpy``, ``rclpy``, ``tf2_ros_py``, and ``turtlesim`` dependencies when its code is executed.
+This declares the required ``geometry_msgs``, ``python3-numpy``, ``rclpy``, ``tf2_ros_py``, and ``turtlesim_msgs`` dependencies when its code is executed.
 
 Make sure to save the file.
 
