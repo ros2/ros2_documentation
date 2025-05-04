@@ -606,11 +606,6 @@ Since you'll be changing the original two integer request srv to a three integer
       {
         rclcpp::init(argc, argv);
 
-        if (argc != 4) { // CHANGE
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "usage: add_three_ints_client X Y Z");      // CHANGE
-            return 1;
-        }
-
         std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("add_three_ints_client");  // CHANGE
         rclcpp::Client<tutorial_interfaces::srv::AddThreeInts>::SharedPtr client =                // CHANGE
           node->create_client<tutorial_interfaces::srv::AddThreeInts>("add_three_ints");          // CHANGE
