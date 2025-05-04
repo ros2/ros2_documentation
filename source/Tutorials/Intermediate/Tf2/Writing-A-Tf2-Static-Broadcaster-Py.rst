@@ -41,7 +41,7 @@ Tasks
 
 First we will create a package that will be used for this tutorial and the following ones.
 The package called ``learning_tf2_py`` will depend on ``geometry_msgs``, ``python3-numpy``, ``rclpy``, ``tf2_ros_py``, and ``turtlesim``.
-Code for this tutorial is stored `here <https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/static_turtle_tf2_broadcaster.py>`_.
+Code for this tutorial is stored `here <https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_py/turtle_tf2_py/static_turtle_tf2_broadcaster.py>`_.
 
 Open a new terminal and :doc:`source your ROS 2 installation <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
 Navigate to workspace's ``src`` folder and create a new package:
@@ -64,13 +64,13 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the exampl
 
         .. code-block:: console
 
-            $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/static_turtle_tf2_broadcaster.py
+            $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_py/turtle_tf2_py/static_turtle_tf2_broadcaster.py
 
     .. group-tab:: macOS
 
         .. code-block:: console
 
-            $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/static_turtle_tf2_broadcaster.py
+            $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_py/turtle_tf2_py/static_turtle_tf2_broadcaster.py
 
     .. group-tab:: Windows
 
@@ -78,13 +78,13 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the exampl
 
         .. code-block:: console
 
-                $ curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/static_turtle_tf2_broadcaster.py -o static_turtle_tf2_broadcaster.py
+                $ curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_py/turtle_tf2_py/static_turtle_tf2_broadcaster.py -o static_turtle_tf2_broadcaster.py
 
         Or in powershell:
 
         .. code-block:: console
 
-                $ curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/static_turtle_tf2_broadcaster.py -o static_turtle_tf2_broadcaster.py
+                $ curl https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_py/turtle_tf2_py/static_turtle_tf2_broadcaster.py -o static_turtle_tf2_broadcaster.py
 
 Now open the file called ``static_turtle_tf2_broadcaster.py`` using your preferred text editor.
 
@@ -431,8 +431,22 @@ The following command publishes a static coordinate transform to tf2 using an x/
 ``static_transform_publisher`` is designed both as a command-line tool for manual use, as well as for use within ``launch`` files for setting static transforms.
 For example:
 
-.. literalinclude:: launch/static_transform_publisher_launch.py
-   :language: python
+.. tabs::
+
+   .. group-tab:: XML
+
+      .. literalinclude:: launch/static_transform_publisher_launch.xml
+         :language: xml
+
+   .. group-tab:: YAML
+
+      .. literalinclude:: launch/static_transform_publisher_launch.yaml
+         :language: yaml
+
+   .. group-tab:: Python
+
+      .. literalinclude:: launch/static_transform_publisher_launch.py
+         :language: python
 
 Note that all arguments except for ``--frame-id`` and ``--child-frame-id`` are optional; if a particular option isn't specified, then the identity will be assumed.
 

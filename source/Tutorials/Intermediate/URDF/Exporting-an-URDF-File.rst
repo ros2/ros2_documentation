@@ -1,7 +1,7 @@
 Generating an URDF File
 =======================
 
-**Goal:** Learn how to Export and URDF File
+**Goal:** Learn how to Export an URDF File
 
 **Tutorial level:** Intermediate
 
