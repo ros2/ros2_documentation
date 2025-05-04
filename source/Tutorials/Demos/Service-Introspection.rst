@@ -293,7 +293,7 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/servic
 
     }  // namespace demo_nodes_cpp
 
-And then, we start and configure ``IntrospectionClientNode`` in the same way, which will continuously make service calls to the server.
+And then, we start and configure ``IntrospectionClientNode`` in the same way, which will periodically make service calls to the server.
 
 .. code-block:: console
 
@@ -370,7 +370,7 @@ In this tutorial the following is example output with service introspection stat
 
 You can see the ``event_type: REQUEST_SENT`` and ``event_type: RESPONSE_RECEIVED``, those introspection service event take place in ``IntrospectionClientNode``.
 And those events do not include any contents in the ``request`` and ``response`` fields, since the service introspection state of ``IntrospectionClientNode`` is set to ``METADATA``.
-On the other hand, the ``event_type: REQUEST_RECEIVED`` and ``event_type: RESPONSE_SENT`` events from ``IntrospectionServiceNode`` includes ``request: [{a: 2, b: 3}]`` and ``response: [{sum: 5}]``, as introspection state is set to ``CONTENTS``.
+On the other hand, the ``event_type: REQUEST_RECEIVED`` and ``event_type: RESPONSE_SENT`` events from ``IntrospectionServiceNode`` include ``request: [{a: 2, b: 3}]`` and ``response: [{sum: 5}]``, as introspection state is set to ``CONTENTS``.
 
 Related content
 ---------------
