@@ -338,7 +338,7 @@ This functionality can be used as follows:
 .. code-block:: console
 
    $ ros2 component load /ComponentManager image_tools image_tools::Cam2Image -p burger_mode:=true
-   $ ros2 run rqt_image_view rqt_image_view
+   $ ros2 run rqt_image_view rqt_image_view  # Shows that X is now Y
 
 Passing additional arguments into components
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
