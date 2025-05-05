@@ -540,13 +540,13 @@ Then, instantiate a ROS 2 Daemon using the **Super Client** configuration (remem
 
         .. code-block:: console
 
-            $ export FASTRTPS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
+            $ export FASTDDS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
 
     .. group-tab:: Windows
 
         .. code-block:: console
 
-            $ set FASTRTPS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
+            $ set FASTDDS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
 
 .. code-block:: console
 
@@ -565,13 +565,13 @@ We can also see the Node's Graph using the ROS 2 tool ``rqt_graph`` as follows (
 
         .. code-block:: console
 
-            $ export FASTRTPS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
+            $ export FASTDDS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
 
     .. group-tab:: Windows
 
         .. code-block:: console
 
-            $ set FASTRTPS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
+            $ set FASTDDS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
 
 .. code-block:: console
 
@@ -631,7 +631,7 @@ Then, run the talker and listener in separate terminals:
 
 Continue using the ROS 2 CLI with ``--no-daemon`` option with the new configuration.
 New nodes will connect with the existing Server and will know every topic.
-Exporting ``ROS_DISCOVERY_SERVER`` is not needed as the ROS 2 tools will be configured through the ``FASTRTPS_DEFAULT_PROFILES_FILE``.
+Exporting ``ROS_DISCOVERY_SERVER`` is not needed as the ROS 2 tools will be configured through the ``FASTDDS_DEFAULT_PROFILES_FILE``.
 
 .. tabs::
 
@@ -639,13 +639,13 @@ Exporting ``ROS_DISCOVERY_SERVER`` is not needed as the ROS 2 tools will be conf
 
         .. code-block:: console
 
-            $ export FASTRTPS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
+            $ export FASTDDS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
 
     .. group-tab:: Windows
 
         .. code-block:: console
 
-            $ set FASTRTPS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
+            $ set FASTDDS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
 
 .. code-block:: console
 
@@ -685,7 +685,7 @@ After both executions are done, run the Python script to generate a graph simila
 
 .. code-block:: console
 
-    $ export FASTRTPS_DEFAULT_PROFILES_FILE="no_intraprocess_configuration.xml"
+    $ export FASTDDS_DEFAULT_PROFILES_FILE="no_intraprocess_configuration.xml"
     $ sudo bash generate_discovery_packages.bash ~/ros2/install/local_setup.bash
     $ sudo bash generate_discovery_packages.bash ~/ros2/install/local_setup.bash SERVER
     $ python3 discovery_packets.py
