@@ -260,8 +260,16 @@ The terminal running the node will display a message similar to the following:
 The callback we set previously in the node has been invoked and has displayed the new updated value.
 You can now terminate the running parameter_event_handler sample using ^C in the terminal.
 
-3.1 Monitor changes to another node's parameters
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Extensions
+----------
+
+So far, we built and tested a small node that monitors a single parameter owned by the node itself.
+Using this node as a base, two other usecases where the ParameterEventHandler can be useful is presented below.
+
+
+Monitor changes to another node's parameters
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You can also use the ParameterEventHandler to monitor parameter changes to another node's parameters.
 Let's update the SampleNodeWithParameters class to monitor for changes to a parameter in another node.
@@ -332,11 +340,115 @@ Upon executing this command, you should see output in the parameter_event_handle
 
       [INFO] [1699821958.757770223] [node_with_parameters]: Received an update to parameter: a_double_param: 3.45
 
+
+Monitor all node parameters simultaneously
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you have a node with lots of parameters, it would be cumbersome to have to call ``add_parameter_callback`` once for each parameter.
+In this case, you can use ``add_parameter_event_callback`` to register a single callback that fires when *any* of the node's parameters change.
+
+To do this, first update the SampleNodeWithParameters constructor to add the following code:
+
+.. code-block:: Python
+
+    def __init__(...):
+        self.declare_parameter("another_double_param", 0.0)
+        ...
+        self.event_calback_handle = self.handler.add_parameter_event_callback(
+            callback=self.event_callback,
+        )
+
+This declares a new double parameter ``another_double_param`` and adds an event callback that will monitor both parameters.
+The event callback signature is different from that of regular single-parameter callbacks, so we need to define a suitable callback as well:
+
+.. code-block:: Python
+
+    def event_callback(self, parameter_event):
+        self.get_logger().info("Received parameter event")
+
+        for p in parameter_event.changed_parameters:
+            self.get_logger().info(
+                f"Inside event: {p.name} changed to: {rclpy.parameter.parameter_value_to_python(p.value)}"
+            )
+
+
+Note that the ``parameter_event`` is of type `rcl_interfaces/ParameterEvent <https://docs.ros.org/en/rolling/p/rcl_interfaces/msg/ParameterEvent.html>`_.
+Although it's not shown in this tutorial, event callbacks can also be used to monitor when parameters are added or deleted.
+
+
+Navigate back to the root of your workspace, ``ros2_ws``, and rebuild your updated package as before:
+
+.. code-block:: console
+
+    $ colcon build --packages-select python_parameter_event_handler
+
+Then source the setup files:
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      $ . install/setup.bash
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      $ . install/setup.bash
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      $ call install\setup.bat
+
+
+To test the new event callback, first run the parameter_event_handler node:
+
+.. code-block:: console
+
+     $ ros2 run python_parameter_event_handler node_with_parameters
+
+Then, from a second terminal (with ROS initialized), let's set the original int parameter:
+
+.. code-block:: console
+
+     $ ros2 param set node_with_parameters an_int_param 44
+
+Upon executing this command, you should see both the single-parameter callback, as well as the event callback being fired:
+
+.. code-block:: console
+
+      [INFO] [1746414766.240101027] [node_with_parameters]: Received an update to parameter: an_int_param: 44
+      [INFO] [1746414766.243499816] [node_with_parameters]: Received parameter event
+      [INFO] [1746414766.244271445] [node_with_parameters]: Inside event: an_int_param changed to: 4
+
+Now set the new doble parameter:
+
+.. code-block:: console
+
+     $ ros2 param set node_with_parameters another_double_param 4.4
+
+Since no single-parameter callback was added (via ``add_parameter_callback``) for the double parameter, we should see only the event callback fire:
+
+.. code-block:: console
+
+      [INFO] [1746414962.604832196] [node_with_parameters]: Received parameter event
+      [INFO] [1746414962.607429035] [node_with_parameters]: Inside event: another_double_param changed to: 4.4
+
+.. note::
+
+   When setting multiple parameters at once, it's best to use ``set_parameters_atomically``, explained in :doc:`../../Concepts/Basic/About-Parameters`.
+   This way, the event callback is only fired once.
+
+
 Summary
 -------
 
 You created a node with a parameter and used the ParameterEventHandler class to set a callback to monitor changes to that parameter.
-You also used the same class to monitor changes to a remote node.
+You also used the same class to monitor changes to a remote node, and to monitor all the node's parameters in a single event callback.
 The ParameterEventHandler is a convenient way to monitor for parameter changes so that you can then respond to the updated values.
 
 Related content
