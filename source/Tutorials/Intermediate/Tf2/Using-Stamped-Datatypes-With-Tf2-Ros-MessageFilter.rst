@@ -35,6 +35,27 @@ To do this ``turtle1`` must listen to the topic where ``turtle3``'s pose is bein
 To make this easier the ``tf2_ros::MessageFilter`` is very useful.
 The ``tf2_ros::MessageFilter`` will take a subscription to any ROS 2 message with a header and cache it until it is possible to transform it into the target frame.
 
+Prerequisites
+-------------
+
+This tutorial expects you to have ``turtle_tf2_py`` package installed.
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+        $ sudo apt install ros-${ROS_DISTRO}-turtle-tf2-py
+
+  .. group-tab:: macOS
+
+    Perform the source installation
+
+  .. group-tab:: Windows
+
+    Perform the source installation
+
 Tasks
 -----
 
