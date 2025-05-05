@@ -228,7 +228,25 @@ Add the following line between the ``'console_scripts':`` brackets:
 
     'turtle_tf2_message_broadcaster = learning_tf2_py.turtle_tf2_message_broadcaster:main',
 
-1.4 Build
+1.4 Add an data file
+~~~~~~~~~~~~~~~~~~~~~~
+
+To allow the ``ros2 launch`` command to launch your launch file, you must add the data file to ``setup.py`` (located in the ``src/learning_tf2_py`` directory).
+
+Import the following library in ``setup.py``
+
+.. code-block:: python
+
+    from glob import glob
+
+
+Add the following line between the ``'data_files':`` brackets:
+
+.. code-block:: python
+
+    ('share/' + package_name + '/launch', glob('launch/*.py')),
+
+1.5 Build
 ~~~~~~~~~
 
 Run ``rosdep`` in the root of your workspace to check for missing dependencies.
