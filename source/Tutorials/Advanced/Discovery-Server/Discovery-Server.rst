@@ -203,11 +203,11 @@ In several terminals, run the following code to establish a communication with r
 
 .. code-block:: console
 
-    $ fastdds discovery --server-id 0 --ip-address 127.0.0.1 --port 11811
+    $ fastdds discovery --server-id 0 --udp-address 127.0.0.1 --udp-port 11811
 
 .. code-block:: console
 
-    $ fastdds discovery --server-id 1 --ip-address 127.0.0.1 --port 11888
+    $ fastdds discovery --server-id 1 --udp-address 127.0.0.1 --udp-port 11888
 
 ``--server-id N`` means server with id N. When referencing the servers with ``ROS_DISCOVERY_SERVER``, server ``0`` must be in first place and server ``1`` in second place.
 
@@ -263,7 +263,7 @@ In different terminals, run the following code to establish a communication with
 
 .. code-block:: console
 
-    $ fastdds discovery --server-id 0 --ip-address 127.0.0.1 --port 11811 --backup
+    $ fastdds discovery --server-id 0 --udp-address 127.0.0.1 --udp-port 11811 --backup
 
 .. tabs::
 
@@ -324,13 +324,13 @@ Run the first server listening on localhost with the default port of 11811.
 
 .. code-block:: console
 
-    $ fastdds discovery --server-id 0 --ip-address 127.0.0.1 --port 11811
+    $ fastdds discovery --server-id 0 --udp-address 127.0.0.1 --udp-port 11811
 
 In another terminal run the second server listening on localhost using another port, in this case port 11888.
 
 .. code-block:: console
 
-    $ fastdds discovery --server-id 1 --ip-address 127.0.0.1 --port 11888
+    $ fastdds discovery --server-id 1 --udp-address 127.0.0.1 --udp-port 11888
 
 Now, run each node in a different terminal.
 Use ``ROS_DISCOVERY_SERVER`` environment variable to decide which server they are connected to.
