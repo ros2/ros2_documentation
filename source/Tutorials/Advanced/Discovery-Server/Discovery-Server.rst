@@ -203,11 +203,11 @@ In several terminals, run the following code to establish a communication with r
 
 .. code-block:: console
 
-    $ fastdds discovery --server-id 0 --ip-address 127.0.0.1 --port 11811
+    $ fastdds discovery --server-id 0 --udp-address 127.0.0.1 --udp-port 11811
 
 .. code-block:: console
 
-    $ fastdds discovery --server-id 1 --ip-address 127.0.0.1 --port 11888
+    $ fastdds discovery --server-id 1 --udp-address 127.0.0.1 --udp-port 11888
 
 ``--server-id N`` means server with id N. When referencing the servers with ``ROS_DISCOVERY_SERVER``, server ``0`` must be in first place and server ``1`` in second place.
 
@@ -263,7 +263,7 @@ In different terminals, run the following code to establish a communication with
 
 .. code-block:: console
 
-    $ fastdds discovery --server-id 0 --ip-address 127.0.0.1 --port 11811 --backup
+    $ fastdds discovery --server-id 0 --udp-address 127.0.0.1 --udp-port 11811 --backup
 
 .. tabs::
 
@@ -324,13 +324,13 @@ Run the first server listening on localhost with the default port of 11811.
 
 .. code-block:: console
 
-    $ fastdds discovery --server-id 0 --ip-address 127.0.0.1 --port 11811
+    $ fastdds discovery --server-id 0 --udp-address 127.0.0.1 --udp-port 11811
 
 In another terminal run the second server listening on localhost using another port, in this case port 11888.
 
 .. code-block:: console
 
-    $ fastdds discovery --server-id 1 --ip-address 127.0.0.1 --port 11888
+    $ fastdds discovery --server-id 1 --udp-address 127.0.0.1 --udp-port 11888
 
 Now, run each node in a different terminal.
 Use ``ROS_DISCOVERY_SERVER`` environment variable to decide which server they are connected to.
@@ -450,7 +450,7 @@ Therefore, this section is devoted to explain how to use ROS 2 CLI with ROS 2 Da
 This will allow the Daemon to discover the entire Node graph, and to receive all topic and endpoint information.
 To do so, a Fast DDS XML configuration file is used to configure the ROS 2 Daemon and CLI tools.
 
-Below you can find a XML configuration profile, which for this tutorial should be saved in the working directory as ```super_client_configuration_file.xml``` file.
+Below you can find a XML configuration profile, which for this tutorial should be saved in the working directory as ``super_client_configuration_file.xml`` file.
 This file will configure every new participant using it, as a **Super Client**.
 
 .. code-block:: xml
@@ -540,13 +540,13 @@ Then, instantiate a ROS 2 Daemon using the **Super Client** configuration (remem
 
         .. code-block:: console
 
-            $ export FASTRTPS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
+            $ export FASTDDS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
 
     .. group-tab:: Windows
 
         .. code-block:: console
 
-            $ set FASTRTPS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
+            $ set FASTDDS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
 
 .. code-block:: console
 
@@ -565,13 +565,13 @@ We can also see the Node's Graph using the ROS 2 tool ``rqt_graph`` as follows (
 
         .. code-block:: console
 
-            $ export FASTRTPS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
+            $ export FASTDDS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
 
     .. group-tab:: Windows
 
         .. code-block:: console
 
-            $ set FASTRTPS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
+            $ set FASTDDS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
 
 .. code-block:: console
 
@@ -631,7 +631,7 @@ Then, run the talker and listener in separate terminals:
 
 Continue using the ROS 2 CLI with ``--no-daemon`` option with the new configuration.
 New nodes will connect with the existing Server and will know every topic.
-Exporting ``ROS_DISCOVERY_SERVER`` is not needed as the ROS 2 tools will be configured through the ``FASTRTPS_DEFAULT_PROFILES_FILE``.
+Exporting ``ROS_DISCOVERY_SERVER`` is not needed as the ROS 2 tools will be configured through the ``FASTDDS_DEFAULT_PROFILES_FILE``.
 
 .. tabs::
 
@@ -639,13 +639,13 @@ Exporting ``ROS_DISCOVERY_SERVER`` is not needed as the ROS 2 tools will be conf
 
         .. code-block:: console
 
-            $ export FASTRTPS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
+            $ export FASTDDS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
 
     .. group-tab:: Windows
 
         .. code-block:: console
 
-            $ set FASTRTPS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
+            $ set FASTDDS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
 
 .. code-block:: console
 
@@ -685,7 +685,7 @@ After both executions are done, run the Python script to generate a graph simila
 
 .. code-block:: console
 
-    $ export FASTRTPS_DEFAULT_PROFILES_FILE="no_intraprocess_configuration.xml"
+    $ export FASTDDS_DEFAULT_PROFILES_FILE="no_intraprocess_configuration.xml"
     $ sudo bash generate_discovery_packages.bash ~/ros2/install/local_setup.bash
     $ sudo bash generate_discovery_packages.bash ~/ros2/install/local_setup.bash SERVER
     $ python3 discovery_packets.py
