@@ -450,7 +450,7 @@ Therefore, this section is devoted to explain how to use ROS 2 CLI with ROS 2 Da
 This will allow the Daemon to discover the entire Node graph, and to receive all topic and endpoint information.
 To do so, a Fast DDS XML configuration file is used to configure the ROS 2 Daemon and CLI tools.
 
-Below you can find a XML configuration profile, which for this tutorial should be saved in the working directory as ```super_client_configuration_file.xml``` file.
+Below you can find a XML configuration profile, which for this tutorial should be saved in the working directory as ``super_client_configuration_file.xml`` file.
 This file will configure every new participant using it, as a **Super Client**.
 
 .. code-block:: xml
