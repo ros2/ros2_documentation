@@ -87,7 +87,6 @@ Inside the ``ros2_ws/src/python_parameter_event_handler/python_parameter_event_h
 
             self.callback_handle = self.handler.add_parameter_callback(
                 parameter_name="an_int_param",
-                node_name="node_with_parameters",
                 callback=self.callback,
             )
 
@@ -132,7 +131,7 @@ Next, the code creates a ``ParameterEventHandler`` that will be used to monitor 
             self.handler = ParameterEventHandler(self)
 
 
-Finally, we add parameter callback and get callback handler for the new callback.
+Finally, we add a parameter callback and get a callback handler for the new callback.
 
 .. note::
 
@@ -142,7 +141,6 @@ Finally, we add parameter callback and get callback handler for the new callback
 
             self.callback_handle = self.handler.add_parameter_callback(
                 parameter_name="an_int_param",
-                node_name="node_with_parameters",
                 callback=self.callback,
             )
 
@@ -275,7 +273,7 @@ First update the constructor to add the following code after the existing code:
 
     def __init__(...):
         ...
-        self.callback_handle = self.handler.add_parameter_callback(
+        self.callback_handle2 = self.handler.add_parameter_callback(
             parameter_name="a_double_param",
             node_name="parameter_blackboard",
             callback=self.callback,
