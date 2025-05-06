@@ -36,13 +36,21 @@ Tasks
 1 Launch the simulation
 ^^^^^^^^^^^^^^^^^^^^^^^
 
+<<<<<<< HEAD
 In this demo you are going to simulate a simple diff drive robot in Gazebo.
 You are going to use one of the worlds defined in the Gazebo examples called
 `visualize_lidar.sdf <https://github.com/gazebosim/gz-sim/blob/main/examples/worlds/visualize_lidar.sdf>`__.
 To run this example you should execute the following command in a terminal:
+=======
+All supported combinations can be seen `here <https://gazebosim.org/docs/ionic/ros_installation#summary-of-compatible-ros-and-gazebo-combinations>`__.
+>>>>>>> 7c91c31 (Switch to gz ionic links in Gazebo tutorial (#5549))
 
 
+<<<<<<< HEAD
 .. tabs::
+=======
+If you haven't installed a version of Gazebo on your system yet, you can install Gazebo by following the `installation instructions <https://gazebosim.org/docs/ionic/ros_installation>`__.
+>>>>>>> 7c91c31 (Switch to gz ionic links in Gazebo tutorial (#5549))
 
    .. group-tab:: Linux
 
@@ -54,7 +62,11 @@ To run this example you should execute the following command in a terminal:
 
 When the simulation is running you can check the topics provided by Gazebo with the ``ign`` command line tool:
 
+<<<<<<< HEAD
 .. tabs::
+=======
+Once Gazebo is installed and is all clear on the last quick test, you can move to the `Gazebo tutorials <https://gazebosim.org/docs/ionic/tutorials>`__ to try out building your own robot!
+>>>>>>> 7c91c31 (Switch to gz ionic links in Gazebo tutorial (#5549))
 
    .. group-tab:: Linux
 
@@ -224,5 +236,9 @@ Now you should see the data from the lidar in Rviz2:
 Summary
 -------
 
+<<<<<<< HEAD
 In this tutorial, you launched a robot simulation with Gazebo, launched
 bridges with actuators and sensors, visualized data from a sensor, and moved a diff drive robot.
+=======
+In this tutorial, you have installed Gazebo and set-up your workspace to start with the `Gazebo tutorials <https://gazebosim.org/docs/ionic/tutorials>`__.
+>>>>>>> 7c91c31 (Switch to gz ionic links in Gazebo tutorial (#5549))
