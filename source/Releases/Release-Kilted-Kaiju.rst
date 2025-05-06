@@ -86,6 +86,7 @@ This allows to instrospect an action with the command line.
 Using ``ros2cli`` tools: ``ros2 action echo <action name>``.
 
 See https://github.com/ros2/ros2cli/pull/978 for more information.
+Visit `ros2 action echo <../Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.html#ros2-action-echo>`_ and :doc:`Action Introspection <../Tutorials/Demos/Action-Introspection>` to learn more about this feature.
 
 ``rclcpp``
 ^^^^^^^^^^
@@ -157,6 +158,7 @@ Allow to record and play actions from a rosbag.
 
 See https://github.com/ros2/rosbag2/pull/1955 for more information.
 Design document https://github.com/ros2/rosbag2/pull/1928.
+Visit `Managing Action Data <../Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.html#managing-action-data>`_ to learn more about this feature.
 
 Progress bar for ``ros2 bag play``
 """"""""""""""""""""""""""""""""""
