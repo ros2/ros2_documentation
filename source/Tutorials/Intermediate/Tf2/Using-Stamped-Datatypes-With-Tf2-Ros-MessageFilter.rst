@@ -52,7 +52,10 @@ This tutorial expects you to have ``turtle_tf2_py`` package installed.
 
     .. code-block:: console
 
+        # Clone the required package repository inside src directory of the ros2_ws
         $ git clone https://github.com/ros/geometry_tutorials.git -b ros2
+        # Build the required package
+        $ colcon build --packages-select  turtle_tf2_py
 
 Tasks
 -----
