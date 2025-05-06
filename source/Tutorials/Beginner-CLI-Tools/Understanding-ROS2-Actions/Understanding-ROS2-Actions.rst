@@ -323,6 +323,8 @@ To see the feedback of this goal, add ``--feedback`` to the ``ros2 action send_g
 
 You will continue to receive feedback, the remaining radians, until the goal is complete.
 
+.. _understanding-actions-ros2-action-echo:
+
 9 ros2 action echo
 ^^^^^^^^^^^^^^^^^^
 

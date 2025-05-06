@@ -427,6 +427,8 @@ You can see the service request from the bag file and the service response from 
   request: []
   response: [{sum: 5}]
 
+.. _record-play-data-action:
+
 Managing Action Data
 --------------------
 
