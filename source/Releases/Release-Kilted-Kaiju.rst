@@ -44,6 +44,10 @@ Installation
 
 `Install Kilted Kaiju <../../kilted/Installation.html>`__
 
+Supported Gazebo Release
+------------------------
+For Kilted Kaiju, the recommended Gazebo release is `Ionic <https://gazebosim.org/docs/ionic/ros_installation>`__.
+
 New features in this ROS 2 release
 ----------------------------------
 
