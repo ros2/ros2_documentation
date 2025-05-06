@@ -46,15 +46,13 @@ This tutorial expects you to have ``turtle_tf2_py`` package installed.
 
     .. code-block:: console
 
-        $ sudo apt install ros-${ROS_DISTRO}-turtle-tf2-py
+        $ sudo apt install ros-{DISTRO}-turtle-tf2-py
 
-  .. group-tab:: macOS
+  .. group-tab:: From Source
 
-    Perform the source installation
+    .. code-block:: console
 
-  .. group-tab:: Windows
-
-    Perform the source installation
+        $ git clone https://github.com/ros/geometry_tutorials.git -b ros2
 
 Tasks
 -----
@@ -254,10 +252,12 @@ Add the following line between the ``'console_scripts':`` brackets:
 
 To allow the ``ros2 launch`` command to launch your launch file, you must add the data file to ``setup.py`` (located in the ``src/learning_tf2_py`` directory).
 
-Import the following library in ``setup.py``
+Import the following libraries at the top, in ``setup.py``:
 
 .. code-block:: python
 
+    ...
+    import os
     from glob import glob
 
 
@@ -265,7 +265,10 @@ Add the following line between the ``'data_files':`` brackets:
 
 .. code-block:: python
 
-    ('share/' + package_name + '/launch', glob('launch/*.py')),
+    data_files=[
+        ...
+        (os.path.join('share', package_name, 'launch'), glob('launch/*')),
+    ],
 
 1.5 Build
 ~~~~~~~~~
