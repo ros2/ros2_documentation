@@ -75,6 +75,11 @@ The ROS PMC currently consists of the following constituents:
      - `marcoag <https://github.com/marcoag>`_
      - Member
      - SGT (UTC+8)
+   * - Emerson Knapp
+     - `Polymath Robotics <https://www.polymathrobotics.com/>`_
+     - `emersonknapp <https://github.com/emersonknapp/>`_
+     - Member
+     - PST (UTC-8)/PDT (UTC-7)
    * - Chris Lalancette
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `clalancette <https://github.com/clalancette>`_
@@ -140,10 +145,6 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
    * - Dharini Dutia
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `quarkytale <https://github.com/quarkytale>`_
-     - PST (UTC-8)/PDT (UTC-7)
-   * - Emerson Knapp
-     - `Polymath Robotics <https://www.polymathrobotics.com/>`_
-     - `emersonknapp <https://github.com/emersonknapp/>`_
      - PST (UTC-8)/PDT (UTC-7)
    * - Janosch Machowinski
      - `cellumation <https://cellumation.com/>`_
