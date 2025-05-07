@@ -403,7 +403,7 @@ Release Timeline
         Call for general testing.
 
     Thu, May 1, 2025 - Kick off of Tutorial Party
-        Tutorials hosted at https://github.com/osrf/ros2_test_cases are open for community testing.
+        Tutorials hosted at https://github.com/ros2/kilted_tutorial_party are open for community testing.
 
     Mon. May 12, 2025 - Release Candidate
         Release Candidate packages are built.
