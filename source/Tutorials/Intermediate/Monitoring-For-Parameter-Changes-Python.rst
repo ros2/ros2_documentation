@@ -427,7 +427,7 @@ Upon executing this command, you should see both the single-parameter callback, 
       [INFO] [1746414766.243499816] [node_with_parameters]: Received parameter event
       [INFO] [1746414766.244271445] [node_with_parameters]: Inside event: an_int_param changed to: 4
 
-Now set the new doble parameter:
+Now set the new double parameter:
 
 .. code-block:: console
 
