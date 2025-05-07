@@ -87,6 +87,7 @@ Inside the ``ros2_ws/src/python_parameter_event_handler/python_parameter_event_h
 
             self.callback_handle = self.handler.add_parameter_callback(
                 parameter_name="an_int_param",
+                node_name="node_with_parameters",
                 callback=self.callback,
             )
 
@@ -141,6 +142,7 @@ Finally, we add a parameter callback and get a callback handler for the new call
 
             self.callback_handle = self.handler.add_parameter_callback(
                 parameter_name="an_int_param",
+                node_name="node_with_parameters",
                 callback=self.callback,
             )
 
