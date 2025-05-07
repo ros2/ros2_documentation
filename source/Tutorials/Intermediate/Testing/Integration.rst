@@ -69,7 +69,7 @@ Only two modules are specific to testing: the general-purpose ``unittest``, and 
   import launch_ros
   import launch_testing.actions
   import rclpy
-  from turtlesim.msg import Pose
+  from turtlesim_msgs.msg import Pose
 
 1.2 Generate the test description
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -228,6 +228,7 @@ Finally, add the following dependencies to your ``package.xml``:
   <test_depend>launch_testing_ament_cmake</test_depend>
   <test_depend>rclpy</test_depend>
   <test_depend>turtlesim</test_depend>
+  <test_depend>turtlesim_msgs</test_depend>
 
 After following the above steps, your package (here named 'app') ought to look as follows:
 

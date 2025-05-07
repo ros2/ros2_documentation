@@ -87,8 +87,8 @@ Open the file using your preferred text editor.
     from rclpy.executors import ExternalShutdownException
     from rclpy.node import Node
 
-    from turtlesim.msg import Pose
-    from turtlesim.srv import Spawn
+    from turtlesim_msgs.msg import Pose
+    from turtlesim_msgs.srv import Spawn
 
 
     class PointPublisher(Node):
@@ -168,7 +168,7 @@ Open the file using your preferred text editor.
 ~~~~~~~~~~~~~~~~~~~~
 
 Now let's take a look at the code.
-First, in the ``on_timer`` callback function, we spawn the ``turtle3`` by asynchronously calling the ``Spawn`` service of ``turtlesim``, and initialize its position at (4, 2, 0), when the turtle spawning service is ready.
+First, in the ``on_timer`` callback function, we spawn the ``turtle3`` by asynchronously calling the ``Spawn`` service of ``turtlesim_msgs``, and initialize its position at (4, 2, 0), when the turtle spawning service is ready.
 
 .. code-block:: python
 
@@ -243,11 +243,11 @@ Run ``rosdep`` in the root of your workspace to check for missing dependencies.
 
    .. group-tab:: macOS
 
-        rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim`` dependencies yourself
+        rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim_msgs`` dependencies yourself
 
    .. group-tab:: Windows
 
-        rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim`` dependencies yourself
+        rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim_msgs`` dependencies yourself
 
 And then we can build the package:
 
@@ -563,11 +563,11 @@ Run ``rosdep`` in the root of your workspace to check for missing dependencies.
 
    .. group-tab:: macOS
 
-        rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim`` dependencies yourself
+        rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim_msgs`` dependencies yourself
 
    .. group-tab:: Windows
 
-        rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim`` dependencies yourself
+        rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim_msgs`` dependencies yourself
 
 Now open a new terminal, navigate to the root of your workspace, and rebuild the package with command:
 

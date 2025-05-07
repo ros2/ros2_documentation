@@ -83,7 +83,7 @@ Now open the file called ``turtle_tf2_broadcaster.py`` using your preferred text
 
     from tf2_ros import TransformBroadcaster
 
-    from turtlesim.msg import Pose
+    from turtlesim_msgs.msg import Pose
 
 
     def quaternion_from_euler(ai, aj, ak):
