@@ -415,18 +415,18 @@ This tutorial aimed to show how ``StaticTransformBroadcaster`` can be used to pu
 In your real development process you shouldn't have to write this code yourself and should use the dedicated ``tf2_ros`` tool to do so.
 ``tf2_ros`` provides an executable named ``static_transform_publisher`` that can be used either as a commandline tool or a node that you can add to your launchfiles.
 
-The following command publishes a static coordinate transform to tf2 using an x/y/z offset in meters and roll/pitch/yaw in radians.
-In ROS 2, roll/pitch/yaw refers to rotation about the x/y/z-axis, respectively.
+The following command publishes a static coordinate transform to tf2 resulting in a 1 meter offset in z and no rotation between the frames ``world`` and ``mystaticturtle``.
+In ROS 2, roll/pitch/yaw refers to rotation in radians about the x/y/z-axis, respectively.
 
 .. code-block:: console
 
-    $ ros2 run tf2_ros static_transform_publisher --x x --y y --z z --yaw yaw --pitch pitch --roll roll --frame-id frame_id --child-frame-id child_frame_id
+    $ ros2 run tf2_ros static_transform_publisher --x 0 --y 0 --z 1 --yaw 0 --pitch 0 --roll 0 --frame-id world --child-frame-id mystaticturtle
 
-The following command publishes a static coordinate transform to tf2 using an x/y/z offset in meters and roll/pitch/yaw as a quaternion.
+The following command publishes the same static coordinate transform to tf2, but using quaternion representation for the rotation.
 
 .. code-block:: console
 
-    $ ros2 run tf2_ros static_transform_publisher --x x --y y --z z --qx qx --qy qy --qz qz --qw qw --frame-id frame_id --child-frame-id child_frame_id
+    $ ros2 run tf2_ros static_transform_publisher --x 0 --y 0 --z 1 --qx 0 --qy 0 --qz 0 --qw 1 --frame-id world --child-frame-id mystaticturtle
 
 ``static_transform_publisher`` is designed both as a command-line tool for manual use, as well as for use within ``launch`` files for setting static transforms.
 For example:
