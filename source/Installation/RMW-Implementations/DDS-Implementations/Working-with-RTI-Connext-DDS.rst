@@ -28,7 +28,7 @@ Install RTI Connext DDS
 RTI Connext Pro is available through a variety of channels:
 
 **ROS 2 apt repositories**
-  ROS 2 users can install a non-commercial-use version of the RTI Connext DDS libraries for x86_64 Linux from the ROS apt repository using the following command:
+  ROS 2 users can install a non-commercial-use version of the RTI Connext DDS libraries from the ROS apt repository using the following command:
 
   .. tabs::
 
