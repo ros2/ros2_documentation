@@ -331,9 +331,19 @@ The macro still works, but it emits a CMake deprecation warning at build time li
         )
 
 Try replacing the ``ament_target_dependencies()`` call with the  ``target_link_libraries()`` call suggested by the warning.
-Note that this will have to be combined with any other calls to ``target_link_libraries()`` with the same target.
-
 For more information see `ament/ament_cmake#572 <https://github.com/ament/ament_cmake/pull/572>`__ and `ament/ament_cmake#292 <https://github.com/ament/ament_cmake/issues/292>`__.
+
+Note that the deprecation warning suggests a call to ``target_link_libraries`` with a scope keyword like ``PUBLIC``, ``PRIVATE``, or ``INTERFACE``.
+If you have already used ``target_link_libraries()`` on this target without a scope keyword, then you must remove the scope keyword from the suggested call.
+This can happen when using some ``ament_cmake`` macros, like ``ament_add_gtest``, which use the plain version of ``target_link_libraries`` internally.
+You will know if you need to remove the keyword because CMake will emit an error saying:
+
+.. code-block::
+
+   All uses of target_link_libraries with a target must be either all-keyword or all-plain.
+
+For more information, see `ament/ament_cmake#580 <https://github.com/ament/ament_cmake/issues/580>`__.
+
 
 ``launch``
 ^^^^^^^^^^
