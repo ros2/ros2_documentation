@@ -66,7 +66,7 @@ private:
   uint16_t id_{0};
   std::chrono::milliseconds period_{1000};
   std::default_random_engine generator_;
-  std::uniform_real_distribution<float> distribution_{50.0, 90.0};
+  std::uniform_real_distribution<float> distribution_{50.0f, 90.0f};
   float measurement_{0};
   std::unique_ptr<demo_keys_filtering_cpp::msg::KeyedSensorDataMsg> msg_;
   rclcpp::Publisher<demo_keys_filtering_cpp::msg::KeyedSensorDataMsg>::SharedPtr pub_;

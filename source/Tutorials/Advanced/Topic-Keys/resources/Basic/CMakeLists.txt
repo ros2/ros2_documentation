@@ -47,22 +47,11 @@ ament_export_dependencies(rosidl_default_runtime)
 
 # Prepare libraries
 add_library(single_topic_sensor_component src/single_topic_sensor.cpp)
-ament_target_dependencies(single_topic_sensor_component rclcpp rclcpp_components)
-
 add_library(single_topic_controller_component src/single_topic_controller.cpp)
-ament_target_dependencies(single_topic_controller_component rclcpp rclcpp_components)
-
 add_library(multiple_topic_sensor_component src/multiple_topic_sensor.cpp)
-ament_target_dependencies(multiple_topic_sensor_component rclcpp rclcpp_components)
-
 add_library(multiple_topic_controller_component src/multiple_topic_controller.cpp)
-ament_target_dependencies(multiple_topic_controller_component rclcpp rclcpp_components)
-
 add_library(keyed_sensor_component src/keyed_sensor.cpp)
-ament_target_dependencies(keyed_sensor_component rclcpp rclcpp_components)
-
 add_library(keyed_controller_component src/keyed_controller.cpp)
-ament_target_dependencies(keyed_controller_component rclcpp rclcpp_components)
 
 # Declare components
 rclcpp_components_register_node(
@@ -106,12 +95,12 @@ rosidl_get_typesupport_target(cpp_typesupport_target
   ${PROJECT_NAME} rosidl_typesupport_cpp)
 
 # Link against the generated source files
-target_link_libraries(single_topic_sensor_component "${cpp_typesupport_target}")
-target_link_libraries(single_topic_controller_component "${cpp_typesupport_target}")
-target_link_libraries(multiple_topic_sensor_component "${cpp_typesupport_target}")
-target_link_libraries(multiple_topic_controller_component "${cpp_typesupport_target}")
-target_link_libraries(keyed_sensor_component "${cpp_typesupport_target}")
-target_link_libraries(keyed_controller_component "${cpp_typesupport_target}")
+target_link_libraries(single_topic_sensor_component "${cpp_typesupport_target}" rclcpp::rclcpp rclcpp_components::component)
+target_link_libraries(single_topic_controller_component "${cpp_typesupport_target}" rclcpp::rclcpp rclcpp_components::component)
+target_link_libraries(multiple_topic_sensor_component "${cpp_typesupport_target}" rclcpp::rclcpp rclcpp_components::component)
+target_link_libraries(multiple_topic_controller_component "${cpp_typesupport_target}" rclcpp::rclcpp rclcpp_components::component)
+target_link_libraries(keyed_sensor_component "${cpp_typesupport_target}" rclcpp::rclcpp rclcpp_components::component)
+target_link_libraries(keyed_controller_component "${cpp_typesupport_target}" rclcpp::rclcpp rclcpp_components::component)
 
 # Install
 install(TARGETS

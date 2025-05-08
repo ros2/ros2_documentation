@@ -46,10 +46,7 @@ ament_export_dependencies(rosidl_default_runtime)
 
 # Prepare liraries
 add_library(filtered_keyed_sensor_component src/filtered_keyed_sensor.cpp)
-ament_target_dependencies(filtered_keyed_sensor_component rclcpp rclcpp_components)
-
 add_library(filtered_keyed_controller_component src/filtered_keyed_controller.cpp)
-ament_target_dependencies(filtered_keyed_controller_component rclcpp rclcpp_components)
 
 # Declare components
 rclcpp_components_register_node(
@@ -69,8 +66,8 @@ rosidl_get_typesupport_target(cpp_typesupport_target
   ${PROJECT_NAME} rosidl_typesupport_cpp)
 
 # Link against the generated source files
-target_link_libraries(filtered_keyed_sensor_component "${cpp_typesupport_target}")
-target_link_libraries(filtered_keyed_controller_component "${cpp_typesupport_target}")
+target_link_libraries(filtered_keyed_sensor_component "${cpp_typesupport_target}" rclcpp::rclcpp rclcpp_components::component)
+target_link_libraries(filtered_keyed_controller_component "${cpp_typesupport_target}" rclcpp::rclcpp rclcpp_components::component)
 
 # Install
 install(TARGETS

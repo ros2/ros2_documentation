@@ -14,6 +14,7 @@
 // limitations under the License.
 
 #include <chrono>
+#include <cstdint>
 #include <cstdio>
 #include <memory>
 #include <utility>

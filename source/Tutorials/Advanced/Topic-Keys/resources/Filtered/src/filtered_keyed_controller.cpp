@@ -13,9 +13,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include <cstdio>
+#include <memory>
+#include <string>
+
 #include <demo_keys_filtering_cpp/msg/keyed_sensor_data_msg.hpp>
 #include <rclcpp_components/register_node_macro.hpp>
 #include <rclcpp/rclcpp.hpp>
+#include <rcpputils/join.hpp>
 
 namespace demo_keys_filtering_cpp
 {

@@ -72,7 +72,7 @@ The ``@key`` annotation designates a field as a key for the given topic type, wh
 In order to specify multiple keys, separate ``@key`` annotations are used.
 The following example shows how to define a keyed message using the IDL format:
 
-.. code-block:: bash
+.. code-block:: console
 
     # KeyedMsgName.idl
     module package_name {
@@ -103,24 +103,37 @@ For this, there are two possible options:
 
 #.  Running a ROS 2 Docker image.
 
-    .. code-block:: bash
+    .. code-block:: console
 
-        docker run -it --rm osrt/ros:{DISTRO}-desktop
-
-    Then, within the container, source the ROS 2 installation with:
-
-    .. code-block:: bash
-
-            source /opt/ros/{DISTRO}/setup.bash
+        $ docker run -it --rm osrt/ros:{DISTRO}-desktop
 
 #.  Running the tutorial on the local host.
     Please, follow the :doc:`installation instructions <../../../Installation>` for details on installing ROS 2.
 
-    Source the following file to setup the ROS 2 environment:
+Source the following file to setup the ROS 2 environment:
 
-    .. code-block:: bash
+.. tabs::
 
-            source /opt/ros/{DISTRO}/setup.bash
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+        $ source /opt/ros/{DISTRO}/setup.bash
+
+      Replace ``.bash`` with your shell if you're not using bash.
+      Possible values are: ``setup.bash``, ``setup.sh``, ``setup.zsh``.
+
+   .. group-tab:: macOS
+
+      .. code-block:: console
+
+        $ . ~/ros2_install/ros2-osx/setup.bash
+
+   .. group-tab:: Windows
+
+      .. code-block:: console
+
+        $ call C:\dev\ros2\local_setup.bat
 
 
 Retrieving the sources
@@ -128,30 +141,88 @@ Retrieving the sources
 
 In order to retrieve the example demo code, create a new workspace and download the demo package sources as indicated below:
 
-.. code-block:: bash
+.. tabs::
 
-    # Create directory structure
-    mkdir -p ~/tutorial_ws/src/demo_keys_cpp
-    mkdir ~/tutorial_ws/src/demo_keys_cpp/msg
-    mkdir ~/tutorial_ws/src/demo_keys_cpp/src
-    mkdir ~/tutorial_ws/src/demo_keys_cpp/launch
-    cd ~/tutorial_ws/src/demo_keys_cpp
+   .. group-tab:: Linux
 
-    # Download demo package source code
-    wget -O CMakeLists.txt https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/CMakeLists.txt
-    wget -O package.xml https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/package.xml
-    wget -O README.md https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/README.md
-    wget -O msg/SensorDataMsg.msg https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/msg/SensorDataMsg.msg
-    wget -O msg/KeyedSensorDataMsg.msg https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/msg/KeyedSensorDataMsg.msg
-    wget -O src/multiple_topic_sensor.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/multiple_topic_sensor.cpp
-    wget -O src/multiple_topic_controller.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/multiple_topic_controller.cpp
-    wget -O src/single_topic_sensor.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/single_topic_sensor.cpp
-    wget -O src/single_topic_controller.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/single_topic_controller.cpp
-    wget -O src/keyed_sensor.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/keyed_sensor.cpp
-    wget -O src/keyed_controller.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/keyed_controller.cpp
-    wget -O launch/multiple_topic_sensors_launch.py https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/launch/multiple_topic_sensors_launch.py
-    wget -O launch/single_topic_sensors_launch.py https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/launch/single_topic_sensors_launch.py
-    wget -O launch/keyed_sensors_launch.py https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/launch/keyed_sensors_launch.py
+      .. code-block:: console
+
+        # Create directory structure
+        $ mkdir -p ~/tutorial_ws/src/demo_keys_cpp
+        $ mkdir ~/tutorial_ws/src/demo_keys_cpp/msg
+        $ mkdir ~/tutorial_ws/src/demo_keys_cpp/src
+        $ mkdir ~/tutorial_ws/src/demo_keys_cpp/launch
+        $ cd ~/tutorial_ws/src/demo_keys_cpp
+
+        # Download demo package source code
+        $ wget -O CMakeLists.txt https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/CMakeLists.txt
+        $ wget -O package.xml https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/package.xml
+        $ wget -O README.md https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/README.md
+        $ wget -O msg/SensorDataMsg.msg https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/msg/SensorDataMsg.msg
+        $ wget -O msg/KeyedSensorDataMsg.msg https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/msg/KeyedSensorDataMsg.msg
+        $ wget -O src/multiple_topic_sensor.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/multiple_topic_sensor.cpp
+        $ wget -O src/multiple_topic_controller.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/multiple_topic_controller.cpp
+        $ wget -O src/single_topic_sensor.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/single_topic_sensor.cpp
+        $ wget -O src/single_topic_controller.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/single_topic_controller.cpp
+        $ wget -O src/keyed_sensor.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/keyed_sensor.cpp
+        $ wget -O src/keyed_controller.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/keyed_controller.cpp
+        $ wget -O launch/multiple_topic_sensors_launch.py https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/launch/multiple_topic_sensors_launch.py
+        $ wget -O launch/single_topic_sensors_launch.py https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/launch/single_topic_sensors_launch.py
+        $ wget -O launch/keyed_sensors_launch.py https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/launch/keyed_sensors_launch.py
+
+   .. group-tab:: macOS
+
+      .. code-block:: console
+
+        # Create directory structure
+        $ mkdir -p ~/tutorial_ws/src/demo_keys_cpp
+        $ mkdir ~/tutorial_ws/src/demo_keys_cpp/msg
+        $ mkdir ~/tutorial_ws/src/demo_keys_cpp/src
+        $ mkdir ~/tutorial_ws/src/demo_keys_cpp/launch
+        $ cd ~/tutorial_ws/src/demo_keys_cpp
+
+        # Download demo package source code
+        $ wget -O CMakeLists.txt https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/CMakeLists.txt
+        $ wget -O package.xml https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/package.xml
+        $ wget -O README.md https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/README.md
+        $ wget -O msg/SensorDataMsg.msg https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/msg/SensorDataMsg.msg
+        $ wget -O msg/KeyedSensorDataMsg.msg https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/msg/KeyedSensorDataMsg.msg
+        $ wget -O src/multiple_topic_sensor.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/multiple_topic_sensor.cpp
+        $ wget -O src/multiple_topic_controller.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/multiple_topic_controller.cpp
+        $ wget -O src/single_topic_sensor.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/single_topic_sensor.cpp
+        $ wget -O src/single_topic_controller.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/single_topic_controller.cpp
+        $ wget -O src/keyed_sensor.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/keyed_sensor.cpp
+        $ wget -O src/keyed_controller.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/keyed_controller.cpp
+        $ wget -O launch/multiple_topic_sensors_launch.py https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/launch/multiple_topic_sensors_launch.py
+        $ wget -O launch/single_topic_sensors_launch.py https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/launch/single_topic_sensors_launch.py
+        $ wget -O launch/keyed_sensors_launch.py https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/launch/keyed_sensors_launch.py
+
+   .. group-tab:: Windows
+
+      .. code-block:: console
+
+        # Create directory structure
+        $ mkdir C:\tutorial_ws\src\demo_keys_cpp\msg
+        $ mkdir C:\tutorial_ws\src\demo_keys_cpp\src
+        $ mkdir C:\tutorial_ws\src\demo_keys_cpp\launch
+        $ cd C:\tutorial_ws\src\demo_keys_cpp
+
+        # Download demo package source code
+        # wget can be installed with '$ choco install wget'
+        $ wget -O CMakeLists.txt https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/CMakeLists.txt
+        $ wget -O package.xml https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/package.xml
+        $ wget -O README.md https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/README.md
+        $ wget -O msg/SensorDataMsg.msg https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/msg/SensorDataMsg.msg
+        $ wget -O msg/KeyedSensorDataMsg.msg https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/msg/KeyedSensorDataMsg.msg
+        $ wget -O src/multiple_topic_sensor.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/multiple_topic_sensor.cpp
+        $ wget -O src/multiple_topic_controller.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/multiple_topic_controller.cpp
+        $ wget -O src/single_topic_sensor.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/single_topic_sensor.cpp
+        $ wget -O src/single_topic_controller.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/single_topic_controller.cpp
+        $ wget -O src/keyed_sensor.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/keyed_sensor.cpp
+        $ wget -O src/keyed_controller.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/keyed_controller.cpp
+        $ wget -O launch/multiple_topic_sensors_launch.py https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/launch/multiple_topic_sensors_launch.py
+        $ wget -O launch/single_topic_sensors_launch.py https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/launch/single_topic_sensors_launch.py
+        $ wget -O launch/keyed_sensors_launch.py https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/launch/keyed_sensors_launch.py
 
 Like any other ROS 2 related package, the external dependencies are listed in the ``package.xml``.
 The ``CMakeLists.txt`` file defines the different targets to be built and the dependencies between them.
@@ -190,20 +261,42 @@ Generating the IDL files
 
 Starting from the provided ``.msg`` files, generate the corresponding IDL files using the ``msg2idl.py`` script from the ``rosidl_adapter`` package.
 
-.. code-block:: bash
+.. tabs::
 
-    source /opt/ros/{DISTRO}/setup.bash
-    cd ~/tutorial_ws/src/demo_keys_cpp/msg
-    ros2 run rosidl_adapter msg2idl.py SensorDataMsg.msg
-    ros2 run rosidl_adapter msg2idl.py KeyedSensorDataMsg.msg
-    rm SensorDataMsg.msg KeyedSensorDataMsg.msg
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+        $ cd ~/tutorial_ws/src/demo_keys_cpp/msg
+        $ ros2 run rosidl_adapter msg2idl.py SensorDataMsg.msg
+        $ ros2 run rosidl_adapter msg2idl.py KeyedSensorDataMsg.msg
+        $ rm SensorDataMsg.msg KeyedSensorDataMsg.msg
+
+   .. group-tab:: macOS
+
+      .. code-block:: console
+
+        $ cd ~/tutorial_ws/src/demo_keys_cpp/msg
+        $ ros2 run rosidl_adapter msg2idl.py SensorDataMsg.msg
+        $ ros2 run rosidl_adapter msg2idl.py KeyedSensorDataMsg.msg
+        $ rm SensorDataMsg.msg KeyedSensorDataMsg.msg
+
+   .. group-tab:: Windows
+
+      .. code-block:: console
+
+        $ cd C:\tutorial_ws\src\demo_keys_cpp\msg
+        $ ros2 run rosidl_adapter msg2idl.py SensorDataMsg.msg
+        $ ros2 run rosidl_adapter msg2idl.py KeyedSensorDataMsg.msg
+        $ del SensorDataMsg.msg KeyedSensorDataMsg.msg
+
 
 Next, annotate the ``sensor_id`` field as ``@key`` in the generated ``KeyedSensorDataMsg.idl``.
 Its content should look like the following:
 
-.. code-block:: bash
+.. code-block:: idl
 
-    # KeyedSensorDataMsg.idl
+    /* KeyedSensorDataMsg.idl */
     module demo_keys_cpp {
       module msg {
         struct KeyedSensorDataMsg {
@@ -219,11 +312,28 @@ Building the demo package
 Once the environment has been setup and the demo package sources are available, we are ready to build the workspace.
 Get into the root of the workspace and build it with the following commands:
 
-.. code-block:: bash
+.. tabs::
 
-    source /opt/ros/{DISTRO}/setup.bash
-    cd ~/tutorial_ws
-    colcon build
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+        $ cd ~/tutorial_ws
+        $ colcon build
+
+   .. group-tab:: macOS
+
+      .. code-block:: console
+
+        $ cd ~/tutorial_ws
+        $ colcon build
+
+   .. group-tab:: Windows
+
+      .. code-block:: console
+
+        $ cd C:\tutorial_ws
+        $ colcon build
 
 Running the demo
 ----------------
@@ -259,20 +369,59 @@ Run the demo by executing the following commands in separate terminals:
 
 .. tabs::
 
-    .. tab:: Shell 1 (Sensors)
+    .. group-tab:: Linux
 
-        .. code-block:: bash
+        .. tabs::
 
-            source ~/tutorial_ws/install/setup.bash
-            ros2 launch demo_keys_cpp multiple_topic_sensors_launch.py
+            .. tab:: Shell 1 (Sensors)
 
-    .. tab:: Shell 2 (Controller)
+                .. code-block:: console
 
-        .. code-block:: bash
+                    $ source ~/tutorial_ws/install/setup.bash
+                    $ ros2 launch demo_keys_cpp multiple_topic_sensors_launch.py
 
-            source ~/tutorial_ws/install/setup.bash
-            ros2 run demo_keys_cpp multiple_topic_controller
+            .. tab:: Shell 2 (Controller)
 
+                .. code-block:: console
+
+                    $ source ~/tutorial_ws/install/setup.bash
+                    $ ros2 run demo_keys_cpp multiple_topic_controller
+
+    .. group-tab:: macOS
+
+        .. tabs::
+
+            .. tab:: Shell 1 (Sensors)
+
+                .. code-block:: console
+
+                    $ source ~/tutorial_ws/install/setup.bash
+                    $ ros2 launch demo_keys_cpp multiple_topic_sensors_launch.py
+
+            .. tab:: Shell 2 (Controller)
+
+                .. code-block:: console
+
+                    $ source ~/tutorial_ws/install/setup.bash
+                    $ ros2 run demo_keys_cpp multiple_topic_controller
+
+    .. group-tab:: Windows
+
+        .. tabs::
+
+            .. tab:: Shell 1 (Sensors)
+
+                .. code-block:: console
+
+                    $ call C:\tutorial_ws\install\setup.bat
+                    $ ros2 launch demo_keys_cpp multiple_topic_sensors_launch.py
+
+            .. tab:: Shell 2 (Controller)
+
+                .. code-block:: console
+
+                    $ call C:\tutorial_ws\install\setup.bat
+                    $ ros2 run demo_keys_cpp multiple_topic_controller
 
 The resulting output should be similar to the following:
 
@@ -290,20 +439,62 @@ Run the demo by executing the following commands in separate terminals:
 
 .. tabs::
 
-    .. tab:: Shell 1 (Sensors)
+    .. group-tab:: Linux
 
-        .. code-block:: bash
+        .. tabs::
 
-            source ~/tutorial_ws/install/setup.bash
-            ros2 launch demo_keys_cpp single_topic_sensors_launch.py
+            .. tab:: Shell 1 (Sensors)
 
-    .. tab:: Shell 2 (Controller)
+                .. code-block:: console
 
-        .. code-block:: bash
+                    $ source ~/tutorial_ws/install/setup.bash
+                    $ ros2 launch demo_keys_cpp single_topic_sensors_launch.py
 
-            source ~/tutorial_ws/install/setup.bash
-            #Wait until sensor[10] publishes the first data (10 secs)
-            ros2 run demo_keys_cpp single_topic_controller
+            .. tab:: Shell 2 (Controller)
+
+                .. code-block:: console
+
+                    $ source ~/tutorial_ws/install/setup.bash
+                    #Wait until sensor[10] publishes the first data (10 secs)
+                    $ ros2 run demo_keys_cpp single_topic_controller
+
+    .. group-tab:: macOS
+
+        .. tabs::
+
+            .. tab:: Shell 1 (Sensors)
+
+                .. code-block:: console
+
+                    $ source ~/tutorial_ws/install/setup.bash
+                    $ ros2 launch demo_keys_cpp single_topic_sensors_launch.py
+
+            .. tab:: Shell 2 (Controller)
+
+                .. code-block:: console
+
+                    $ source ~/tutorial_ws/install/setup.bash
+                    #Wait until sensor[10] publishes the first data (10 secs)
+                    $ ros2 run demo_keys_cpp single_topic_controller
+
+    .. group-tab:: Windows
+
+        .. tabs::
+
+            .. tab:: Shell 1 (Sensors)
+
+                .. code-block:: console
+
+                    $ call C:\tutorial_ws\install\setup.bat
+                    $ ros2 launch demo_keys_cpp single_topic_sensors_launch.py
+
+            .. tab:: Shell 2 (Controller)
+
+                .. code-block:: console
+
+                    $ call C:\tutorial_ws\install\setup.bat
+                    #Wait until sensor[10] publishes the first data (10 secs)
+                    $ ros2 run demo_keys_cpp single_topic_controller
 
 Which leads to an output similar to the one shown below:
 
@@ -322,20 +513,62 @@ Start, or reuse previous opened terminals and run the following commands:
 
 .. tabs::
 
-    .. tab:: Shell 1 (Sensors)
+    .. group-tab:: Linux
 
-        .. code-block:: bash
+        .. tabs::
 
-            source ~/tutorial_ws/install/setup.bash
-            ros2 launch demo_keys_cpp keyed_sensors_launch.py
+            .. tab:: Shell 1 (Sensors)
 
-    .. tab:: Shell 2 (Controller)
+                .. code-block:: console
 
-        .. code-block:: bash
+                    $ source ~/tutorial_ws/install/setup.bash
+                    $ ros2 launch demo_keys_cpp keyed_sensors_launch.py
 
-            source ~/tutorial_ws/install/setup.bash
-            #Wait until sensor[10] publishes the first data (10 secs)
-            ros2 run demo_keys_cpp keyed_controller
+            .. tab:: Shell 2 (Controller)
+
+                .. code-block:: console
+
+                    $ source ~/tutorial_ws/install/setup.bash
+                    #Wait until sensor[10] publishes the first data (10 secs)
+                    $ ros2 run demo_keys_cpp keyed_controller
+
+    .. group-tab:: macOS
+
+        .. tabs::
+
+            .. tab:: Shell 1 (Sensors)
+
+                .. code-block:: console
+
+                    $ source ~/tutorial_ws/install/setup.bash
+                    $ ros2 launch demo_keys_cpp keyed_sensors_launch.py
+
+            .. tab:: Shell 2 (Controller)
+
+                .. code-block:: console
+
+                    $ source ~/tutorial_ws/install/setup.bash
+                    #Wait until sensor[10] publishes the first data (10 secs)
+                    $ ros2 run demo_keys_cpp keyed_controller
+
+    .. group-tab:: Windows
+
+        .. tabs::
+
+            .. tab:: Shell 1 (Sensors)
+
+                .. code-block:: console
+
+                    $ call C:\tutorial_ws\install\setup.bat
+                    $ ros2 launch demo_keys_cpp keyed_sensors_launch.py
+
+            .. tab:: Shell 2 (Controller)
+
+                .. code-block:: console
+
+                    $ call C:\tutorial_ws\install\setup.bat
+                    #Wait until sensor[10] publishes the first data (10 secs)
+                    $ ros2 run demo_keys_cpp keyed_controller
 
 The resulting output should be similar to the following:
 
