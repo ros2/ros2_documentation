@@ -15,7 +15,7 @@ Setting up security
 **Time:** 15 minutes
 
 .. contents:: Contents
-   :depth: 2
+   :depth: 3
    :local:
 
 
@@ -25,7 +25,6 @@ Background
 The ``sros2`` package provides the tools and instructions to use ROS 2 on top of DDS-Security.
 The security features have been tested across platforms (Linux, macOS, and Windows) as well as across different languages (C++ and Python).
 The SROS2 has been designed to work with any secure middleware, although not all middleware is open source and support varies depending on the ROS distribution in use.
-
 
 Installation
 ------------
@@ -245,6 +244,12 @@ These and other security-related environment variables are described in the `ROS
 These variables need to be defined in each terminal used for the demo.
 For convenience you can add them to your boot environment.
 
+4\.1\. Zenoh
+""""""""""""
+
+The RMW implementation Zenoh has its own tools to configure security, in particular a package called `zenoh_security_tools <https://github.com/ros2/rmw_zenoh/tree/{DISTRO}/zenoh_security_tools>`_.
+It contains the ``generate_configs`` executable which generates Zenoh session config files with access control, authentication and encryption parameters
+based on policies and keystores generated using sros2.
 
 5\. Run the ``talker/listener`` demo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -262,7 +267,7 @@ The environment variables in this terminal must be properly set as described in 
 
   ros2 run demo_nodes_py listener --ros-args --enclave /talker_listener/listener
 
-If the RMW implementation is Zenoh, in another terminal:
+If the RMW implementation is ``rmw_zenoh_cpp``, in another terminal:
 
 .. tabs::
 
@@ -406,11 +411,3 @@ Are you ready to go further with ROS Security?
 Take a look at the `Secure Turtlebot2 Demo <https://github.com/ros-swg/turtlebot3_demo>`_.
 You'll find a functioning and complex implementation of ROS 2 security, ready to try out your own custom scenarios.
 Be sure to create pull requests and issues here so we can continue improving security support in ROS!
-
-
-Zenoh
------
-
-The RMW implementation Zenoh has its own tools to configure security, in particular a package called `zenoh_security_tools <https://github.com/ros2/rmw_zenoh/tree/{DISTRO}/zenoh_security_tools>`_.
-It contains the ``generate_configs`` executable which generates Zenoh session config files with access control, authentication and encryption parameters
-based on policies and keystores generated using sros2.
