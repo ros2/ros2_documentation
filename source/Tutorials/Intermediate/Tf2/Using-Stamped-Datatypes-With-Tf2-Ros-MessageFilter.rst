@@ -35,6 +35,28 @@ To do this ``turtle1`` must listen to the topic where ``turtle3``'s pose is bein
 To make this easier the ``tf2_ros::MessageFilter`` is very useful.
 The ``tf2_ros::MessageFilter`` will take a subscription to any ROS 2 message with a header and cache it until it is possible to transform it into the target frame.
 
+Prerequisites
+-------------
+
+This tutorial expects you to have ``turtle_tf2_py`` package installed.
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+        $ sudo apt install ros-{DISTRO}-turtle-tf2-py
+
+  .. group-tab:: From Source
+
+    .. code-block:: console
+
+        # Clone the required package repository inside src directory of the ros2_ws
+        $ git clone https://github.com/ros/geometry_tutorials.git -b ros2
+        # Build the required package
+        $ colcon build --packages-select turtle_tf2_py
+
 Tasks
 -----
 
@@ -229,7 +251,30 @@ Add the following line between the ``'console_scripts':`` brackets:
 
     'turtle_tf2_message_broadcaster = learning_tf2_py.turtle_tf2_message_broadcaster:main',
 
-1.4 Build
+1.4 Add an data file
+~~~~~~~~~~~~~~~~~~~~~~
+
+To allow the ``ros2 launch`` command to launch your launch file, you must add the data file to ``setup.py`` (located in the ``src/learning_tf2_py`` directory).
+
+Import the following libraries at the top, in ``setup.py``:
+
+.. code-block:: python
+
+    ...
+    import os
+    from glob import glob
+
+
+Add the following line between the ``'data_files':`` brackets:
+
+.. code-block:: python
+
+    data_files=[
+        ...
+        (os.path.join('share', package_name, 'launch'), glob('launch/*')),
+    ],
+
+1.5 Build
 ~~~~~~~~~
 
 Run ``rosdep`` in the root of your workspace to check for missing dependencies.
