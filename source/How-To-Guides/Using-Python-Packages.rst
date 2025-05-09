@@ -86,6 +86,13 @@ Next, install the Python packages that you want in your virtual environment:
 
     python3 -m pip install gtsam pyserial… etc
 
+Next in your ``setup.cfg`` you must inform distutils of the virtual environment interpreter when installing entry points. Otherwise it will default to the system interpreter and fail to find any of the virtual environment's libraries.
+
+.. code-block:: ini
+
+   [build]
+   executable=/usr/bin/env python3
+
 Now you can build your workspace and run your python node that depends on packages installed in your virtual environment.
 
 .. code-block:: console
