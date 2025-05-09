@@ -234,13 +234,9 @@ Then run the ``rttest_plot`` script on the resulting file:
 
 .. code-block:: console
 
-<<<<<<< HEAD
-   $ rttest_plot pendulum_demo_results
-=======
    $ ros2 run rttest rttest_plot pendulum_demo_results
    Writing results to file: pendulum_demo_results
    ...
->>>>>>> 565a272 (fix up Real-Time-Programing page. (#5600))
 
 This script will produce three files:
 
