@@ -38,6 +38,7 @@ sphinx-tabs==3.4.7
 sphinx_tamer==0.2.0
 sphinxcontrib-applehelp==2.0.0
 sphinxcontrib-devhelp==2.0.0
+sphinxcontrib-googleanalytics==0.4
 sphinxcontrib-htmlhelp==2.1.0
 sphinxcontrib-jquery==4.1
 sphinxcontrib-jsmath==1.0.1
