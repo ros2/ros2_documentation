@@ -3,7 +3,7 @@
 #
 # docker build -f docker/image/Dockerfile .
 
-FROM ubuntu:jammy
+FROM ubuntu:noble
 
 ARG user=rosindex
 ARG uid=1000
@@ -20,7 +20,8 @@ RUN apt-get update && \
         graphviz \
         locales \
         make \
-        python3-pip && \
+        python3-pip \
+        python3-venv && \
     rm -rf /var/lib/apt/lists/*
 
 RUN locale-gen en_US en_US.UTF-8
@@ -32,8 +33,13 @@ ENV HOME=/home/$user
 ENV PATH=/home/$user/.local/bin:$PATH
 WORKDIR /tmp/doc_repository
 
-USER $user
 
 # https://build.ros.org/job/doc_ros2doc/ relies on "make multiversion" to build the official documentation.
 # Do not remove "make multiversion" from CMD, as it is the entrypoint for the container.
-CMD ["bash", "-c", "pip3 install --no-warn-script-location --user -r requirements.txt -c constraints.txt && make multiversion"]
+CMD ["bash", "-c", "source /opt/ros2doc/bin/activate && make multiversion"]
+RUN python3 -m venv /opt/ros2doc
+COPY requirements.txt constraints.txt .
+RUN . /opt/ros2doc/bin/activate && pip3 install -r requirements.txt -c constraints.txt
+
+RUN echo "source /opt/ros2doc/bin/activate" >> /home/$user/.bashrc
+USER $user
