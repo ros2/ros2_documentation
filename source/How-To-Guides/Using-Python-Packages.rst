@@ -34,7 +34,7 @@ In a new workspace, you can also quickly install all rosdep keys with:
 
 .. code-block:: console
 
-    $ rosdep install -yr ./path/to/your/workspace
+    $ rosdep install -yr --from-paths ./path/to/your/workspace
 
 If there aren't currently ``rosdep`` keys for the package that you are interested in, it is possible to add them by following the `rosdep key contribution guide`_.
 
