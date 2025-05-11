@@ -78,12 +78,25 @@ Clone the repository for ``rmw_connextdds`` into your ROS 2 workspace and select
    $ cd ros2_ws
    $ git clone -b {DISTRO} https://github.com/ros2/rmw_connextdds src/rmw_connextdds
 
+Then, install necessary packages for RTI Connext DDS.
+
+.. code-block:: console
+
+   $ cd ..
+   $ rosdep install --from src -i
+
 Set up the environment to help colcon discover where RTI Connext is installed.
 This can be done by manually setting the environment variable ``NDDSHOME`` to the location of the RTI Connext installation, or by using a script that comes with the RTI Connext installation:
 
 .. code-block:: console
 
    $ source ${RTI_CONNEXT_INSTALL_LOCATION}/resource/scripts/rtisetenv_x64Linux4gcc7.3.0.bash
+
+If you can't find the location of the RTI Connext installation, run this to find all Connext installations in your system:
+
+.. code-block:: console
+
+   $ find /opt -name rtisetenv*.bash
 
 Make sure you have the ROS 2 environment set up:
 
