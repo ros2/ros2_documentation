@@ -114,7 +114,7 @@ For example:
 
 .. code-block:: xml
 
-   <node pkg="my_package" exec="my_executable" name="my_node" ns="/an_absoulute_ns">
+   <node pkg="my_package" exec="my_executable" name="my_node" namespace="/an_absoulute_ns">
       <param name="group1">
          <param name="group2">
             <param name="my_param" value="1"/>
@@ -132,7 +132,7 @@ It's also possible to use full parameter names:
 
 .. code-block:: xml
 
-   <node pkg="my_package" exec="my_executable" name="my_node" ns="/an_absoulute_ns">
+   <node pkg="my_package" exec="my_executable" name="my_node" namespace="/an_absoulute_ns">
       <param name="group1.group2.my_param" value="1"/>
       <param name="group1.another_param" value="2"/>
    </node>
@@ -149,7 +149,7 @@ Example
 
 .. code-block:: xml
 
-   <node pkg="my_package" exec="my_executable" name="my_node" ns="/an_absoulute_ns">
+   <node pkg="my_package" exec="my_executable" name="my_node" namespace="/an_absoulute_ns">
       <param from="/path/to/file"/>
    </node>
 
@@ -337,7 +337,7 @@ This action can be used as a workaround:
       <!--Nodes here are namespaced with "/absolute_ns".-->
       <!--The following node receives an absolute namespace, so it will ignore the others previously pushed.-->
       <!--The full path of the node will be /asd/my_node.-->
-      <node pkg="my_pkg" exec="my_executable" name="my_node" ns="/asd"/>
+      <node pkg="my_pkg" exec="my_executable" name="my_node" namespace="/asd"/>
    </group>
    <!--Nodes outside the group action won't be namespaced.-->
    <!-Other tags-->
