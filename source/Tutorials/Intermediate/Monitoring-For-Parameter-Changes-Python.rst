@@ -450,7 +450,7 @@ Summary
 -------
 
 You created a node with a parameter and used the ParameterEventHandler class to set a callback to monitor changes to that parameter.
-You also used the same class to monitor changes to a remote node, and to monitor all the node's parameters in a single event callback.
+You also used the same class to monitor changes to a remote node, and to monitor all parameters in a single event callback.
 The ParameterEventHandler is a convenient way to monitor for parameter changes so that you can then respond to the updated values.
 
 Related content
