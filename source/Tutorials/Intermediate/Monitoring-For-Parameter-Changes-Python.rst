@@ -346,7 +346,7 @@ Upon executing this command, you should see output in the parameter_event_handle
 Monitor all node parameters simultaneously
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you have a node with lots of parameters, it would be cumbersome to have to call ``add_parameter_callback`` once for each parameter.
+If you need to monitor multiple nodes or parameters at the same time, it would be cumbersome to have to call ``add_parameter_callback`` once for each of them.
 In this case, you can use ``add_parameter_event_callback`` to register a single callback that fires when *any* of the node's parameters change.
 
 To do this, first update the SampleNodeWithParameters constructor to add the following code:
