@@ -90,6 +90,44 @@ And add this command before the ``ament_package`` command:
     ament_export_include_directories(
       include
     )
+    ament_export_libraries(
+      ${PROJECT_NAME}
+    )
+    ament_export_targets(
+      export_${PROJECT_NAME}
+    )
+
+We need to make this library available to other packages, so open ``~/ros2_ws/src/polygon_base/CMakeLists.txt`` for editing.
+Add the following lines after the ``find_package(pluginlib REQUIRED)`` command:
+
+.. code-block:: cmake
+
+    # Library (this will be used as the base class for plugins)
+    add_library(${PROJECT_NAME} SHARED src/area_node.cpp)
+    add_library(${PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
+    target_compile_features(${PROJECT_NAME} PUBLIC c_std_99 cxx_std_17)
+    target_include_directories(${PROJECT_NAME} PUBLIC
+      $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+      $<INSTALL_INTERFACE:include/${PROJECT_NAME}>
+    )
+    target_link_libraries(${PROJECT_NAME} ${pluginlib_TARGETS})
+
+    # Install headers
+    install(DIRECTORY include/
+      DESTINATION include/${PROJECT_NAME}
+    )
+
+    # Install library and export targets
+    install(TARGETS ${PROJECT_NAME}
+      EXPORT export_${PROJECT_NAME}
+      ARCHIVE DESTINATION lib
+      LIBRARY DESTINATION lib
+      RUNTIME DESTINATION bin
+    )
+    install(EXPORT export_${PROJECT_NAME}
+      NAMESPACE ${PROJECT_NAME}::
+      DESTINATION share/${PROJECT_NAME}/cmake
+    )
 
 We will return to this package later to write our test node.
 
