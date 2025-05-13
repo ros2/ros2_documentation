@@ -39,14 +39,14 @@ The base class will define a generic polygon class, and then our plugins will de
 1 Create the Base Class Package
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Create a new empty package in your ``ros2_ws/src`` folder with the following command:
+Create a new empty package in your ``~/ros2_ws/src`` folder with the following command:
 
 .. code-block:: console
 
   $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 --dependencies pluginlib --node-name area_node polygon_base
 
 
-Open your favorite editor, edit ``ros2_ws/src/polygon_base/include/polygon_base/regular_polygon.hpp``, and paste the following inside of it:
+Open your favorite editor, edit ``~/ros2_ws/src/polygon_base/include/polygon_base/regular_polygon.hpp``, and paste the following inside of it:
 
 .. code-block:: C++
 
@@ -73,7 +73,7 @@ The code above creates an abstract class called ``RegularPolygon``.
 One thing to notice is the presence of the initialize method.
 With ``pluginlib``, a constructor without parameters is required, so if any parameters to the class are needed, we use the initialize method to pass them to the object.
 
-We need to make this header available to other classes, so open ``ros2_ws/src/polygon_base/CMakeLists.txt`` for editing.
+We need to make this header available to other classes, so open ``~/ros2_ws/src/polygon_base/CMakeLists.txt`` for editing.
 Add the following lines after the ``target_link_libraries`` command:
 
 .. code-block:: cmake
@@ -97,7 +97,7 @@ We will return to this package later to write our test node.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Now we're going to write two non-virtual implementations of our abstract class.
-Create a second empty package in your ``ros2_ws/src`` folder with the following command:
+Create a second empty package in your ``~/ros2_ws/src`` folder with the following command:
 
 .. code-block:: console
 
@@ -106,7 +106,7 @@ Create a second empty package in your ``ros2_ws/src`` folder with the following 
 2.1 Source code for the plugins
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Open ``ros2_ws/src/polygon_plugins/src/polygon_plugins.cpp`` for editing, and paste the following inside of it:
+Open ``~/ros2_ws/src/polygon_plugins/src/polygon_plugins.cpp`` for editing, and paste the following inside of it:
 
 .. code-block:: C++
 
@@ -173,7 +173,7 @@ Let's go through the arguments to the ``PLUGINLIB_EXPORT_CLASS`` macro:
 The steps above enable plugin instances to be created when the containing library is loaded, but the plugin loader still needs a way to find that library and to know what to reference within that library.
 To this end, we'll also create an XML file that, along with a special export line in the package manifest, makes all the necessary information about our plugins available to the ROS toolchain.
 
-Create ``ros2_ws/src/polygon_plugins/plugins.xml`` with the following code:
+Create ``~/ros2_ws/src/polygon_plugins/plugins.xml`` with the following code:
 
 .. code-block:: XML
 
@@ -205,7 +205,7 @@ A couple things to note:
 
 The last step is to export your plugins via ``CMakeLists.txt``.
 This is a change from ROS 1, where the exporting was done via ``package.xml``.
-Add the following line to your ``ros2_ws/src/polygon_plugins/CMakeLists.txt`` after the line reading ``find_package(pluginlib REQUIRED)``:
+Add the following line to your ``~/ros2_ws/src/polygon_plugins/CMakeLists.txt`` after the line reading ``find_package(pluginlib REQUIRED)``:
 
 .. code-block:: cmake
 
@@ -221,7 +221,7 @@ The arguments to the ``pluginlib_export_plugin_description_file`` command are:
 
 Now it's time to use the plugins.
 This can be done in any package, but here we're going to do it in the base package.
-Edit ``ros2_ws/src/polygon_base/src/area_node.cpp`` to contain the following:
+Edit ``~/ros2_ws/src/polygon_base/src/area_node.cpp`` to contain the following:
 
 .. code-block:: C++
 
