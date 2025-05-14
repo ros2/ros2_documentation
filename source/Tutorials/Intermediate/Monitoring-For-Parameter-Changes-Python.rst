@@ -262,13 +262,11 @@ The terminal running the node will display a message similar to the following:
 The callback we set previously in the node has been invoked and has displayed the new updated value.
 You can now terminate the running parameter_event_handler sample using ^C in the terminal.
 
-
 Extensions
 ----------
 
 So far, we built and tested a small node that monitors a single parameter owned by the node itself.
-Using this node as a base, two other usecases where the ParameterEventHandler can be useful is presented below.
-
+Using this node as a base, two other usecases where the ParameterEventHandler can be useful are presented below.
 
 Monitor changes to another node's parameters
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -342,7 +340,6 @@ Upon executing this command, you should see output in the parameter_event_handle
 
       [INFO] [1699821958.757770223] [node_with_parameters]: Received an update to parameter: a_double_param: 3.45
 
-
 Monitor all node parameters simultaneously
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -373,10 +370,8 @@ The event callback signature is different from that of regular single-parameter 
                 f"Inside event: {p.name} changed to: {rclpy.parameter.parameter_value_to_python(p.value)}"
             )
 
-
-Note that the ``parameter_event`` is of type `rcl_interfaces/ParameterEvent <https://docs.ros.org/en/rolling/p/rcl_interfaces/msg/ParameterEvent.html>`_.
+Note that the ``parameter_event`` is of type {interface(rcl_interfaces/msg/ParameterEvent)}.
 Although it's not shown in this tutorial, event callbacks can also be used to monitor when parameters are added or deleted.
-
 
 Navigate back to the root of your workspace, ``ros2_ws``, and rebuild your updated package as before:
 
@@ -406,14 +401,13 @@ Then source the setup files:
 
       $ call install\setup.bat
 
-
 To test the new event callback, first run the parameter_event_handler node:
 
 .. code-block:: console
 
      $ ros2 run python_parameter_event_handler node_with_parameters
 
-Then, from a second terminal (with ROS initialized), let's set the original int parameter:
+Then, from a second terminal (with ROS sourced), let's set the original int parameter:
 
 .. code-block:: console
 
@@ -444,7 +438,6 @@ Since no single-parameter callback was added (via ``add_parameter_callback``) fo
 
    When setting multiple parameters at once, it's best to use ``set_parameters_atomically``, explained in :doc:`../../Concepts/Basic/About-Parameters`.
    This way, the event callback is only fired once.
-
 
 Summary
 -------

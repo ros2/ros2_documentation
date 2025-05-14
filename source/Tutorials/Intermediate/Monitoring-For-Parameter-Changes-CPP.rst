@@ -250,13 +250,11 @@ The terminal running the node will display a message similar to the following:
 The callback we set previously in the node has been invoked and has displayed the new updated value.
 You can now terminate the running parameter_event_handler sample using ^C in the terminal.
 
-
 Extensions
 ----------
 
 So far, we built and tested a small node that monitors a single parameter owned by the node itself.
-Using this node as a base, two other usecases where the ParameterEventHandler can be useful is presented below.
-
+Using this node as a base, two other usecases where the ParameterEventHandler can be useful are presented below.
 
 Monitor changes to another node's parameters
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -346,7 +344,6 @@ Upon executing this command, you should see output in the parameter_event_handle
 
     [INFO] [1606952588.237531933] [node_with_parameters]: cb2: Received an update to parameter "a_double_param" of type: double: "3.45"
 
-
 Monitor all node parameters simultaneously
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -373,9 +370,8 @@ To do this, first update the SampleNodeWithParameters constructor to add the fol
       };
     event_cb_handle_ = param_subscriber_->add_parameter_event_callback(event_cb);
 
-
 This declares a new double parameter ``another_double_param`` and adds an event callback that will monitor both parameters.
-Note that the ``parameter_event`` is of type `rcl_interfaces/ParameterEvent <https://docs.ros.org/en/rolling/p/rcl_interfaces/msg/ParameterEvent.html>`_.
+Note that the ``parameter_event`` is of type {interface(rcl_interfaces/msg/ParameterEvent)}.
 Although it's not shown in this tutorial, event callbacks can also be used to monitor when parameters are added or deleted.
 
 Finally, don't forget to add the event callback handle as a private member:
@@ -385,7 +381,6 @@ Finally, don't forget to add the event callback handle as a private member:
     private:
       ...
       std::shared_ptr<rclcpp::ParameterEventCallbackHandle> event_cb_handle_;
-
 
 Navigate back to the root of your workspace, ``ros2_ws``, and rebuild your updated package as before:
 
@@ -415,14 +410,13 @@ Then source the setup files:
 
       $ call install\setup.bat
 
-
 To test the new event callback, first run the parameter_event_handler node:
 
 .. code-block:: console
 
      $ ros2 run cpp_parameter_event_handler parameter_event_handler
 
-Then, from a second terminal (with ROS initialized), let's set the original int parameter:
+Then, from a second terminal (with ROS sourced), let's set the original int parameter:
 
 .. code-block:: console
 
@@ -435,7 +429,6 @@ Upon executing this command, you should see both the single-parameter callback, 
       [INFO] [1747144403.418980063] [node_with_parameters]: cb: Received an update to parameter "an_int_param" of type integer: "44"
       [INFO] [1747144403.419086611] [node_with_parameters]: Received parameter event
       [INFO] [1747144403.419114103] [node_with_parameters]: Inside event: "an_int_param" changed to 44
-
 
 Now set the new double parameter:
 
@@ -454,8 +447,6 @@ Since no single-parameter callback was added (via ``add_parameter_callback``) fo
 
    When setting multiple parameters at once, it's best to use ``set_parameters_atomically``, explained in :doc:`../../Concepts/Basic/About-Parameters`.
    This way, the event callback is only fired once.
-
-
 
 Summary
 -------
