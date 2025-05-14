@@ -166,6 +166,10 @@ To build the ``\{DISTRO}`` folder tree:
    We're using ``--merge-install`` here to avoid a ``PATH`` variable that is too long at the end of the build.
    If you're adapting these instructions to build a smaller workspace then you might be able to use the default behavior which is isolated install, i.e. where each package is installed to a different folder.
 
+.. note::
+
+   Source installation can take a long time given the large number of packages being pulled into the workspace.
+
 Setup environment
 -----------------
 
