@@ -110,16 +110,14 @@ To build the ``\{DISTRO}`` folder tree:
 
 .. note::
 
-<<<<<<< HEAD
    If you are doing a debug build use ``python_d path\to\colcon_executable`` ``colcon``.
    See `Extra stuff for debug mode`_ for more info on running Python code in debug builds on Windows.
 
-Environment setup
-=======
+.. note::
+
    Source installation can take a long time given the large number of packages being pulled into the workspace.
 
 Setup environment
->>>>>>> 0524967 (Update Windows-Development-Setup.rst with note about very long build times (#5620))
 -----------------
 
 Start a command shell and source the ROS 2 setup file to set up the workspace:
