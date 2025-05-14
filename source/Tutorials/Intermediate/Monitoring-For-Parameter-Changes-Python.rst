@@ -344,7 +344,7 @@ Monitor all node parameters simultaneously
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you need to monitor multiple nodes or parameters at the same time, it would be cumbersome to have to call ``add_parameter_callback`` once for each of them.
-In this case, you can use ``add_parameter_event_callback`` to register a single callback that fires when *any* of the node's parameters change.
+In this case, you can use ``add_parameter_event_callback`` to register a single callback that fires when *any* parameters of *any* nodes change.
 
 To do this, first update the SampleNodeWithParameters constructor to add the following code:
 
@@ -363,7 +363,7 @@ The event callback signature is different from that of regular single-parameter 
 .. code-block:: Python
 
     def event_callback(self, parameter_event):
-        self.get_logger().info("Received parameter event")
+        self.get_logger().info(f"Received parameter event from node {parameter_event.node}")
 
         for p in parameter_event.changed_parameters:
             self.get_logger().info(
@@ -418,7 +418,7 @@ Upon executing this command, you should see both the single-parameter callback, 
 .. code-block:: console
 
       [INFO] [1746414766.240101027] [node_with_parameters]: Received an update to parameter: an_int_param: 44
-      [INFO] [1746414766.243499816] [node_with_parameters]: Received parameter event
+      [INFO] [1746414766.243499816] [node_with_parameters]: Received parameter event from node /node_with_parameters
       [INFO] [1746414766.244271445] [node_with_parameters]: Inside event: an_int_param changed to: 4
 
 Now set the new double parameter:
@@ -431,7 +431,7 @@ Since no single-parameter callback was added (via ``add_parameter_callback``) fo
 
 .. code-block:: console
 
-      [INFO] [1746414962.604832196] [node_with_parameters]: Received parameter event
+      [INFO] [1746414962.604832196] [node_with_parameters]: Received parameter event from node /node_with_parameters
       [INFO] [1746414962.607429035] [node_with_parameters]: Inside event: another_double_param changed to: 4.4
 
 .. note::

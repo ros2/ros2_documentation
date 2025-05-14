@@ -348,7 +348,7 @@ Monitor all node parameters simultaneously
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you need to monitor multiple nodes or parameters at the same time, it would be cumbersome to have to call ``add_parameter_callback`` once for each of them.
-In this case, you can use ``add_parameter_event_callback`` to register a single callback that fires when *any* of the node's parameters change.
+In this case, you can use ``add_parameter_event_callback`` to register a single callback that fires when *any* parameters of *any* nodes change.
 
 To do this, first update the SampleNodeWithParameters constructor to add the following code:
 
@@ -359,7 +359,9 @@ To do this, first update the SampleNodeWithParameters constructor to add the fol
     ...
 
     auto event_cb = [this](const rcl_interfaces::msg::ParameterEvent & parameter_event) {
-        RCLCPP_INFO(this->get_logger(), "Received parameter event");
+        RCLCPP_INFO(
+          this->get_logger(), "Received parameter event from node \"%s\"",
+          parameter_event.node.c_str());
 
         for (const auto& p : parameter_event.changed_parameters) {
           RCLCPP_INFO(
@@ -427,7 +429,7 @@ Upon executing this command, you should see both the single-parameter callback, 
 .. code-block:: console
 
       [INFO] [1747144403.418980063] [node_with_parameters]: cb: Received an update to parameter "an_int_param" of type integer: "44"
-      [INFO] [1747144403.419086611] [node_with_parameters]: Received parameter event
+      [INFO] [1747144403.419086611] [node_with_parameters]: Received parameter event from node "/node_with_parameters"
       [INFO] [1747144403.419114103] [node_with_parameters]: Inside event: "an_int_param" changed to 44
 
 Now set the new double parameter:
@@ -440,7 +442,7 @@ Since no single-parameter callback was added (via ``add_parameter_callback``) fo
 
 .. code-block:: console
 
-      [INFO] [1747144452.917437113] [node_with_parameters]: Received parameter event
+      [INFO] [1747144452.917437113] [node_with_parameters]: Received parameter event from node "/node_with_parameters"
       [INFO] [1747144452.917591649] [node_with_parameters]: Inside event: "another_double_param" changed to 4.400000
 
 .. note::
