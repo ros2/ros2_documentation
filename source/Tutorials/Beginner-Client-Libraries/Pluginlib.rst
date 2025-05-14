@@ -87,12 +87,15 @@ And add this command before the ``ament_package`` command:
 
 .. code-block:: cmake
 
+    # Export old-style CMake variables
     ament_export_include_directories(
       include
     )
     ament_export_libraries(
       ${PROJECT_NAME}
     )
+
+    # Export modern CMake targets
     ament_export_targets(
       export_${PROJECT_NAME}
     )
