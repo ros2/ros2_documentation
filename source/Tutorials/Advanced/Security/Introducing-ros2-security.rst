@@ -275,7 +275,7 @@ If the RMW implementation is ``rmw_zenoh_cpp``, in another terminal:
 
     .. code-block:: bash
 
-      export ZENOH_ROUTER_CONFIG_URI=<path to route config with keys and certificates>
+      export ZENOH_ROUTER_CONFIG_URI=~/sros2_demo/zenohd
       ros2 run rmw_zenoh_cpp zenohd
 
   .. group-tab:: MacOS
