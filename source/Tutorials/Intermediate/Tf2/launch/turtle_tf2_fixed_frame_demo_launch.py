@@ -9,7 +9,7 @@ def generate_launch_description():
     return LaunchDescription([
         IncludeLaunchDescription(
             PathJoinSubstitution([
-                FindPackageShare('learning_tf2_cpp'), 'launch', 'turtle_tf2_demo_launch.py'])
+                FindPackageShare('learning_tf2_cpp'), 'launch', 'turtle_tf2_demo.launch.py'])
         ),
         Node(
             package='learning_tf2_cpp',

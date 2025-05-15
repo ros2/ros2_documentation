@@ -25,7 +25,7 @@ def generate_launch_description():
                 # push_ros_namespace first to set namespace of included nodes for following actions
                 PushROSNamespace(LaunchConfiguration('chatter_ns')),
                 IncludeLaunchDescription(
-                    PathJoinSubstitution([launch_dir, 'talker_listener_launch.py'])),
+                    PathJoinSubstitution([launch_dir, 'talker_listener.launch.py'])),
             ]
         ),
 
@@ -35,7 +35,7 @@ def generate_launch_description():
                 # push_ros_namespace first to set namespace of included nodes for following actions
                 PushROSNamespace('chatter_xml_ns'),
                 IncludeLaunchDescription(
-                    PathJoinSubstitution([launch_dir, 'talker_listener_launch.xml'])),
+                    PathJoinSubstitution([launch_dir, 'talker_listener.launch.xml'])),
             ]
         ),
 
@@ -45,7 +45,7 @@ def generate_launch_description():
                 # push_ros_namespace first to set namespace of included nodes for following actions
                 PushROSNamespace('chatter_yaml_ns'),
                 IncludeLaunchDescription(
-                    PathJoinSubstitution([launch_dir, 'talker_listener_launch.yaml'])),
+                    PathJoinSubstitution([launch_dir, 'talker_listener.launch.yaml'])),
             ]
         ),
 

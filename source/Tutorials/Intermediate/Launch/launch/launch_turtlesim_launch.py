@@ -8,22 +8,22 @@ def generate_launch_description():
     launch_dir = PathJoinSubstitution([FindPackageShare('launch_tutorial'), 'launch']),
     return LaunchDescription([
         IncludeLaunchDescription(
-            PathJoinSubstitution([launch_dir, 'turtlesim_world_1_launch.py'])
+            PathJoinSubstitution([launch_dir, 'turtlesim_world_1.launch.py'])
         ),
         IncludeLaunchDescription(
-            PathJoinSubstitution([launch_dir, 'turtlesim_world_2_launch.py'])
+            PathJoinSubstitution([launch_dir, 'turtlesim_world_2.launch.py'])
         ),
         IncludeLaunchDescription(
-            PathJoinSubstitution([launch_dir, 'broadcaster_listener_launch.py']),
+            PathJoinSubstitution([launch_dir, 'broadcaster_listener.launch.py']),
             launch_arguments={'target_frame': 'carrot1'}.items()
         ),
         IncludeLaunchDescription(
-            PathJoinSubstitution([launch_dir, 'mimic_launch.py'])
+            PathJoinSubstitution([launch_dir, 'mimic.launch.py'])
         ),
         IncludeLaunchDescription(
-            PathJoinSubstitution([launch_dir, 'fixed_broadcaster_launch.py'])
+            PathJoinSubstitution([launch_dir, 'fixed_broadcaster.launch.py'])
         ),
         IncludeLaunchDescription(
-            PathJoinSubstitution([launch_dir, 'turtlesim_rviz_launch.py'])
+            PathJoinSubstitution([launch_dir, 'turtlesim_rviz.launch.py'])
         ),
     ])

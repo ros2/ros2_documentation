@@ -121,7 +121,7 @@ These nodes could have different namespaces or names but still have the same par
 Defining separate YAML files that explicitly define namespaces and node names is not efficient.
 A solution is to use wildcard characters, which act as substitutions for unknown characters in a text value, to apply parameters to several different nodes.
 
-Now let's create a new ``turtlesim_world_3_launch.py`` file similar to ``turtlesim_world_2_launch.py`` to include one more ``turtlesim_node`` node in a new namespace ``turtlesim3``:
+Now let's create a new ``turtlesim_world_3.launch.py`` file similar to ``turtlesim_world_2.launch.py`` to include one more ``turtlesim_node`` node in a new namespace ``turtlesim3``:
 
 .. literalinclude:: launch/turtlesim_world_3_launch.py
    :language: python
@@ -169,8 +169,8 @@ Every nested node will inherit that namespace automatically.
 
 .. attention:: ``PushROSNamespace`` has to be the first action in the list for the following actions to apply the namespace.
 
-To do that, firstly, we need to remove the ``namespace='turtlesim2'`` line from the ``turtlesim_world_2_launch.py`` file.
-Afterwards, we need to update the ``launch_turtlesim_launch.py`` to change the ``IncludeLaunchDescription(... 'turtlesim_world_2_launch.py' ...)`` value to the following:
+To do that, firstly, we need to remove the ``namespace='turtlesim2'`` line from the ``turtlesim_world_2.launch.py`` file.
+Afterwards, we need to update the ``launch_turtlesim.launch.py`` to change the ``IncludeLaunchDescription(... 'turtlesim_world_2.launch.py' ...)`` value to the following:
 
 .. code-block:: Python
 
@@ -185,7 +185,7 @@ Afterwards, we need to update the ``launch_turtlesim_launch.py`` to change the `
          ]
       ),
 
-As a result, each node in the ``turtlesim_world_2_launch.py`` launch description will have a ``turtlesim2`` namespace.
+As a result, each node in the ``turtlesim_world_2.launch.py`` launch description will have a ``turtlesim2`` namespace.
 
 4 Reusing nodes
 ^^^^^^^^^^^^^^^

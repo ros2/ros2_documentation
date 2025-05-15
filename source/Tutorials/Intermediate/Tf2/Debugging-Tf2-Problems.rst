@@ -158,7 +158,7 @@ And now stop the running demo, build it, and run it again:
 
 .. code-block:: console
 
-   $ ros2 launch learning_tf2_cpp start_tf2_debug_demo_launch.py
+   $ ros2 launch learning_tf2_cpp start_tf2_debug_demo.launch.py
    [turtle_tf2_listener_debug-4] [INFO] [1630223704.617382464] [listener_debug]: Could not
    transform turtle2 to turtle1: Lookup would require extrapolation into the future. Requested
    time 1630223704.617054 but the latest data is at time 1630223704.616726, when looking up
@@ -207,7 +207,7 @@ Stop the demo, build and run:
 
 .. code-block:: console
 
-   $ ros2 launch turtle_tf2 start_tf2_debug_demo_launch.py
+   $ ros2 launch turtle_tf2 start_tf2_debug_demo.launch.py
 
 And you should finally see the turtle move!
 
