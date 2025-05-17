@@ -267,4 +267,4 @@ Uninstall
 
    .. code-block:: console
 
-      $ rmdir /s /q C:\dev\ros2_{DISTRO}
+      $ rmdir /s /q C:\dev\{DISTRO}
