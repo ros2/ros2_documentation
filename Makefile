@@ -58,8 +58,4 @@ linkcheck:
 	@echo
 	@echo "Check finished. Report is in $(LINKCHECKDIR)."
 
-<<<<<<< HEAD
-.PHONY: help Makefile multiversion test linkcheck
-=======
-.PHONY: help Makefile multiversion test test-unit linkcheck lint spellcheck check-dictionaries sort-dictionaries
->>>>>>> dc5e7ba (check and sort the codespell dictionaries via make target. (#5629))
+.PHONY: help Makefile multiversion test linkcheck lint spellcheck check-dictionaries sort-dictionaries
