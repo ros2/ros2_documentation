@@ -17,4 +17,4 @@ jobs:
       - uses: actions/checkout@v4
       - name: Run make check-dictionaries
         run: |
-          make check-dictionaries || (echo "check-dictionaries failed, run sort-dictionaries...")
+          make check-dictionaries || (echo "check-dictionaries failed, run: make sort-dictionaries")
