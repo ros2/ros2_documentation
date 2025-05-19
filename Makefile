@@ -44,6 +44,11 @@ check-dictionaries:
 			echo "Dictionary $$dict contains empty lines or leading/trailing spaces, triming..."; \
 			sed -E -i.bak -e 's/^[[:space:]]+//; s/[[:space:]]+$$//; /^$$/d' $$dict && rm $$dict.bak; \
 		fi; \
+	done
+
+sort-dictionaries:
+	@echo "Sorting dictionaries..."
+	@for dict in $(DICTIONARIES); do \
 		echo "Sorting $$dict..."; \
 		if ! LC_ALL=C sort -f -b -c $$dict; then \
 			echo "Dictionary $$dict is not sorted, sorting..."; \
@@ -56,4 +61,4 @@ linkcheck:
 	@echo
 	@echo "Check finished. Report is in $(LINKCHECKDIR)."
 
-.PHONY: help Makefile multiversion test test-unit linkcheck
+.PHONY: help Makefile multiversion test test-unit linkcheck lint spellcheck check-dictionaries sort-dictionaries
