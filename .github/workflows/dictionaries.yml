@@ -1,0 +1,20 @@
+name: Check Dictionaries
+
+on:
+  push:
+    paths:
+      - 'codespell_dictionary.txt'
+      - 'codespell_whitelist.txt'
+  pull_request:
+    paths:
+      - 'codespell_dictionary.txt'
+      - 'codespell_whitelist.txt'
+
+jobs:
+  check-dictionaries:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run make check-dictionaries
+        run: |
+          make check-dictionaries || (echo "check-dictionaries failed, run: make sort-dictionaries")
