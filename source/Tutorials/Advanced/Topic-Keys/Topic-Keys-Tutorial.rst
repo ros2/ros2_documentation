@@ -15,7 +15,7 @@ Background
 
 In ROS 2, a :doc:`Topic<../../../Concepts/Basic/About-Topics>` is a communication channel used for publishing and subscribing to updates of object states.
 The value of data associated with a topic changes over time and each of these values are known as *data samples*.
-Keyed topics refer to topics where each data sample represent an update of the state of a specific object  (known as *instance*) among all those objects represented in the topic.
+Keyed topics refer to topics where each data sample represent an update of the state of a specific object (known as *instance*) among all those objects represented in the topic.
 
 Unlike standard topics, where each data sample updates the entire object state with every data sample, keyed topics allow the user to reduce the number of required resources (topics, along with its associated publisher and subscriber) by multiplexing updates of several objects of the same kind into a single resource.
 

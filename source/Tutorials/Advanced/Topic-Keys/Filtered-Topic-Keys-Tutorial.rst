@@ -14,7 +14,7 @@ Background
 ----------
 
 In ROS 2, topics are a mean for representing the state of an object.
-Keyed topics are special topics where each data sample represent an update of the state of a specific object  (known as *instance*) among all those objects represented in the topic.
+Keyed topics are special topics where each data sample represent an update of the state of a specific object (known as *instance*) among all those objects represented in the topic.
 This allows the user to reduce the number of required resources (topics, along with its associated publisher and subscriber) by multiplexing updates of several objects of the same kind into a single resource.
 
 The :doc:`Content Filter Topic <../../Demos/Content-Filtering-Subscription>` facilitates efficient data distribution by allowing the subscription (reader-side) to specify criteria for the types of data they wish to receive.
