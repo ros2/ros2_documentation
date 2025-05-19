@@ -186,9 +186,9 @@ To do this, add it to the `codespell_whitelist <https://github.com/ros2/ros2_doc
 .. code-block:: text
 
    empy
-   ws
-   lets
    jupyter
+   lets
+   ws
 
 To include custom corrections that ``codespell`` should apply, you can add them to the `codespell_dictionary <https://github.com/ros2/ros2_documentation/blob/{REPOS_FILE_BRANCH}/codespell_dictionary.txt>`_ file as follows:
 
@@ -198,6 +198,11 @@ To include custom corrections that ``codespell`` should apply, you can add them 
    colcn->colcon
    rosabg->rosbag
    rosdistroy->rosdistro
+
+To check the dictionaries, you can run the ``make check-dictionaries`` command.
+This will check the blank lines and leading/trailing spaces in the dictionaries.
+If it complains about the dictionaries, you can run the ``make sort-dictionaries`` command.
+This command will automatically modify the dictionaries if any issues are found.
 
 Migrating Pages from the ROS Wiki
 ---------------------------------
