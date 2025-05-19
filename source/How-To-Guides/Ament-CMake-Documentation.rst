@@ -30,7 +30,7 @@ The basic outline of the ``CMakeLists.txt`` of an ament package contains:
 
 .. code-block:: cmake
 
-    cmake_minimum_required(VERSION 3.8)
+    cmake_minimum_required(VERSION 3.20)
     project(my_project)
 
     ament_package()
