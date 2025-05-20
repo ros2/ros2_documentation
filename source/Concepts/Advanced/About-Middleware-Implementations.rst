@@ -10,7 +10,9 @@ ROS 2 middleware implementations
 
 .. include:: ../../../global_substitutions.txt
 
-ROS middleware implementations are sets of |packages| that provide the underlying communication framework for ROS 2. These packages interact with core ROS 2 interfaces such as the ``rmw``, ``rcl``, and ``rosidl`` |APIs| to integrate with external protocols like Zenoh, DDS, or others. For example, ``rmw_fastrtps_cpp`` adapts eProsima's Fast DDS implementation to ROS 2's middleware |API|, while ``rmw_zenoh_cpp`` provides similar integration for the Zenoh protocol.
+ROS middleware implementations are sets of |packages| that provide the underlying communication framework for ROS 2.
+These packages interact with core ROS 2 interfaces such as the ``rmw``, ``rcl``, and ``rosidl`` |APIs| to integrate with external protocols like Zenoh, DDS, or others.
+For example, ``rmw_fastrtps_cpp`` adapts eProsima's Fast DDS implementation to ROS 2's middleware |API|, while ``rmw_zenoh_cpp`` provides similar integration for the Zenoh protocol.
 
 Common Packages for DDS Middleware Implementations
 --------------------------------------------------
@@ -56,15 +58,19 @@ For examples of example of DDS RMW implementation repositories,
 
 | The ``Eclipse Cyclone DDS`` ROS middleware implementation is on |GitHub|_ at `ros2/rmw_cyclonedds <https://github.com/ros2/rmw_cyclonedds>`_.
 | The RMW implementation for ``Fast DDS`` is on |GitHub|_ at `ros2/rmw_fastrtps_cpp <https://github.com/ros2/rmw_fastrtps_cpp>`_.
-| The RMW implementation for ``Connext DDS`` is on |GitHub|_ at `ros2/rmw_connextdds <https://github.com/ros2/rmw_connextdds>`_. 
+| The RMW implementation for ``Connext DDS`` is on |GitHub|_ at `ros2/rmw_connextdds <https://github.com/ros2/rmw_connextdds>`_.
 | The RMW implementation for ``GurumDDS`` is on |GitHub|_ at `ros/rmw_gurumdds <https://github.com/ros2/rmw_gurumdds>`_.
 
 Structure of the Zenoh Middleware Implementation
 ------------------------------------------------
 
-For data to be sent and received over Zenoh using ROS 2, the middleware package, ``rmw_zenoh_cpp``, maps the ROS 2 middleware |API| to Zenoh's |APIs| using `zenoh-c <https://github.com/eclipse-zenoh/zenoh-c>`_. Unlike DDS-based implementations, this middleware relies on a Zenoh router to discover peers and pass discovery information along via Zenoh's 'gossip scouting'. Therefore, ``rmw_zenoh_cpp`` requires the Zenoh router (``zenohd``) to be active on the local system or reachable over the network.
+For data to be sent and received over Zenoh using ROS 2, the middleware package, ``rmw_zenoh_cpp``, maps the ROS 2 middleware |API| to Zenoh's |APIs| using `zenoh-c <https://github.com/eclipse-zenoh/zenoh-c>`_.
+Unlike DDS-based implementations, this middleware relies on a Zenoh router to discover peers and pass discovery information along via Zenoh's 'gossip scouting'.
+Therefore, ``rmw_zenoh_cpp`` requires the Zenoh router (``zenohd``) to be active on the local system or reachable over the network.
 
-In ROS 2's Zenoh integration, each `context <https://docs.ros.org/en/rolling/p/rclcpp/generated/classrclcpp_1_1Context.html#:~:text=Context%20which%20encapsulates%20shared%20state,init%20and%20shutdown%20of%20rclcpp.>`_ is mapped to a single Zenoh session. This session is shared across all publishers, subscriptions, services, and clients within that context. The context maintains a local graph cache that tracks the network topology of ROS 2 entities and the presence of each entity is managed through unique liveliness tokens issued on creation and revoked during destruction.
+In ROS 2's Zenoh integration, each `context <https://docs.ros.org/en/rolling/p/rclcpp/generated/classrclcpp_1_1Context.html#:~:text=Context%20which%20encapsulates%20shared%20state,init%20and%20shutdown%20of%20rclcpp.>`_ is mapped to a single Zenoh session.
+This session is shared across all publishers, subscriptions, services, and clients within that context.
+The context maintains a local graph cache that tracks the network topology of ROS 2 entities and the presence of each entity is managed through unique liveliness tokens issued on creation and revoked during destruction.
 
 Here is an inexhaustive list of how the Zenoh middleware |API| adapts ROS 2 entities over its communication protocol:
 
