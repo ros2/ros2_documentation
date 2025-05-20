@@ -153,14 +153,13 @@ Create a new workspace and download the demo package sources as indicated below:
         $ cd C:\tutorial_ws\src\demo_keys_filtering_cpp
 
         # Download demo package source code
-        # wget can be installed with '$ choco install wget'
-        $ wget -O CMakeLists.txt https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Filtered/CMakeLists.txt
-        $ wget -O package.xml https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Filtered/package.xml
-        $ wget -O README.md https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Filtered/README.md
-        $ wget -O msg/KeyedSensorDataMsg.msg https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Filtered/msg/KeyedSensorDataMsg.msg
-        $ wget -O src/filtered_keyed_sensor.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Filtered/src/filtered_keyed_sensor.cpp
-        $ wget -O src/filtered_keyed_controller.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Filtered/src/filtered_keyed_controller.cpp
-        $ wget -O launch/keyed_sensors_launch.py https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Filtered/launch/keyed_sensors_launch.py
+        $ irm -OutFile CMakeLists.txt https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Filtered/CMakeLists.txt
+        $ irm -OutFile package.xml https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Filtered/package.xml
+        $ irm -OutFile README.md https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Filtered/README.md
+        $ irm -OutFile msg/KeyedSensorDataMsg.msg https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Filtered/msg/KeyedSensorDataMsg.msg
+        $ irm -OutFile src/filtered_keyed_sensor.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Filtered/src/filtered_keyed_sensor.cpp
+        $ irm -OutFile src/filtered_keyed_controller.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Filtered/src/filtered_keyed_controller.cpp
+        $ irm -OutFile launch/keyed_sensors_launch.py https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Filtered/launch/keyed_sensors_launch.py
 
 The resulting directory structure should be:
 

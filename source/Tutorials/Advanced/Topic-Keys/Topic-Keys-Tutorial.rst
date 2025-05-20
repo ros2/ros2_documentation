@@ -208,21 +208,20 @@ In order to retrieve the example demo code, create a new workspace and download 
         $ cd C:\tutorial_ws\src\demo_keys_cpp
 
         # Download demo package source code
-        # wget can be installed with '$ choco install wget'
-        $ wget -O CMakeLists.txt https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/CMakeLists.txt
-        $ wget -O package.xml https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/package.xml
-        $ wget -O README.md https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/README.md
-        $ wget -O msg/SensorDataMsg.msg https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/msg/SensorDataMsg.msg
-        $ wget -O msg/KeyedSensorDataMsg.msg https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/msg/KeyedSensorDataMsg.msg
-        $ wget -O src/multiple_topic_sensor.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/multiple_topic_sensor.cpp
-        $ wget -O src/multiple_topic_controller.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/multiple_topic_controller.cpp
-        $ wget -O src/single_topic_sensor.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/single_topic_sensor.cpp
-        $ wget -O src/single_topic_controller.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/single_topic_controller.cpp
-        $ wget -O src/keyed_sensor.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/keyed_sensor.cpp
-        $ wget -O src/keyed_controller.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/keyed_controller.cpp
-        $ wget -O launch/multiple_topic_sensors_launch.py https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/launch/multiple_topic_sensors_launch.py
-        $ wget -O launch/single_topic_sensors_launch.py https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/launch/single_topic_sensors_launch.py
-        $ wget -O launch/keyed_sensors_launch.py https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/launch/keyed_sensors_launch.py
+        $ irm -OutFile CMakeLists.txt https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/CMakeLists.txt
+        $ irm -OutFile package.xml https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/package.xml
+        $ irm -OutFile README.md https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/README.md
+        $ irm -OutFile msg/SensorDataMsg.msg https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/msg/SensorDataMsg.msg
+        $ irm -OutFile msg/KeyedSensorDataMsg.msg https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/msg/KeyedSensorDataMsg.msg
+        $ irm -OutFile src/multiple_topic_sensor.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/multiple_topic_sensor.cpp
+        $ irm -OutFile src/multiple_topic_controller.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/multiple_topic_controller.cpp
+        $ irm -OutFile src/single_topic_sensor.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/single_topic_sensor.cpp
+        $ irm -OutFile src/single_topic_controller.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/single_topic_controller.cpp
+        $ irm -OutFile src/keyed_sensor.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/keyed_sensor.cpp
+        $ irm -OutFile src/keyed_controller.cpp https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/src/keyed_controller.cpp
+        $ irm -OutFile launch/multiple_topic_sensors_launch.py https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/launch/multiple_topic_sensors_launch.py
+        $ irm -OutFile launch/single_topic_sensors_launch.py https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/launch/single_topic_sensors_launch.py
+        $ irm -OutFile launch/keyed_sensors_launch.py https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Topic-Keys/resources/Basic/launch/keyed_sensors_launch.py
 
 Like any other ROS 2 related package, the external dependencies are listed in the ``package.xml``.
 The ``CMakeLists.txt`` file defines the different targets to be built and the dependencies between them.
