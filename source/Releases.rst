@@ -205,3 +205,11 @@ We recommend that most people use the most recent stable distribution instead (s
 
 Packages released into the Rolling distribution will be automatically released into future stable distributions of ROS 2.
 :doc:`Releasing a ROS 2 package <../How-To-Guides/Releasing/Releasing-a-Package>` into the Rolling distribution follows the same procedures as all other ROS 2 distributions.
+
+Cross-Distribution Communications
+---------------------------------
+
+Nodes are not guaranteed to be able to communicate across distributions.
+For example, a node built & running against Humble is not guaranteed to be able to communicate correctly with a node built & running against Iron.
+It may or may not work, but it is not supported and should not be relied upon.
+Note that :ref:`cross-vendor (single-distro) communications are also not guaranteed <different-middleware-vendors-cross-vendor-communication>`.

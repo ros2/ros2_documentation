@@ -89,6 +89,8 @@ If ``rmw_fastrtps_cpp`` is ever installed, it would be the default.
 
 See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` for how to specify which RMW implementation is to be used when running the ROS 2 examples.
 
+.. _different-middleware-vendors-cross-vendor-communication:
+
 Cross-Vendor Communication
 --------------------------
 
