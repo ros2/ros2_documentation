@@ -43,8 +43,7 @@ Source the ROS 2 installation and verify that tracing is enabled:
 
   $ source /opt/ros/{DISTRO}/setup.bash
   $ ros2 run tracetools status
-
-You should see ``Tracing enabled`` in the output.
+  Tracing enabled
 
 Then create a workspace, and clone ``performance_test`` and ``tracetools_analysis``.
 
