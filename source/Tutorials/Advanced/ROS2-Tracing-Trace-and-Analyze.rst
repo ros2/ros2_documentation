@@ -61,7 +61,7 @@ Install dependencies with rosdep.
 .. code-block:: console
 
   $ rosdep update
-  $ rosdep install --from-paths src --ignore-src -y
+  $ rosdep install --from-paths src --ignore-src -y --skip-keys test_tracetools
 
 Then build and configure ``performance_test`` for ROS 2.
 See its `documentation <https://gitlab.com/ApexAI/performance_test/-/tree/master/performance_test#performance_test>`_.
