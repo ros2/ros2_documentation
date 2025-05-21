@@ -45,14 +45,14 @@ Navigate into ``ros2_ws/src`` and create a new package:
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_python --license Apache-2.0 py_srvcli --dependencies rclpy example_interfaces
+  $ ros2 pkg create --build-type ament_python --license Apache-2.0 py_srvcli --dependencies rclpy example_interfaces
 
 Your terminal will return a message verifying the creation of your package ``py_srvcli`` and all its necessary files and folders.
 
 The ``--dependencies`` argument will automatically add the necessary dependency lines to ``package.xml``.
 ``example_interfaces`` is the package that includes `the .srv file <https://github.com/ros2/example_interfaces/blob/{REPOS_FILE_BRANCH}/srv/AddTwoInts.srv>`__ you will need to structure your requests and responses:
 
-.. code-block:: console
+.. code-block:: bash
 
     int64 a
     int64 b
@@ -247,7 +247,7 @@ Finally it creates a new ``AddTwoInts`` request object.
           self.get_logger().info('service not available, waiting again...')
       self.req = AddTwoInts.Request()
 
-Below the constructor is the ``send_request`` method, which will send the request and return a future that can be passed to ``spin_until_future_complete``:
+Below the constructor is the ``send_request`` method, which will send the request and spin until it receives the response or fails.
 
 .. code-block:: python
 
@@ -256,7 +256,7 @@ Below the constructor is the ``send_request`` method, which will send the reques
       self.req.b = 1
       return self.cli.call_async(self.req)
 
-Finally we have the ``main`` method, which constructs a ``MinimalClientAsync`` object, sends the request using the passed-in command-line arguments, calls ``spin_until_future_complete``, and logs the results:
+Finally we have the ``main`` method, which constructs a ``MinimalClientAsync`` object, sends the request using the passed-in command-line arguments, calls ``rclpy.spin_until_future_complete`` to wait for the result, and logs the results.
 
 .. code-block:: python
 
@@ -273,6 +273,10 @@ Finally we have the ``main`` method, which constructs a ``MinimalClientAsync`` o
       except (KeyboardInterrupt, ExternalShutdownException):
           pass
 
+.. warning::
+
+  Do not use ``rclpy.spin_until_future_complete`` in a ROS 2 callback.
+  For more details see the :doc:`sync deadlock article <../../../How-To-Guides/Sync-Vs-Async>`.
 
 3.2 Add an entry point
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -301,7 +305,7 @@ It's good practice to run ``rosdep`` in the root of your workspace (``ros2_ws``)
 
       .. code-block:: console
 
-            rosdep install -i --from-path src --rosdistro {DISTRO} -y
+            $ rosdep install -i --from-path src --rosdistro {DISTRO} -y
 
    .. group-tab:: macOS
 
@@ -316,7 +320,7 @@ Navigate back to the root of your workspace, ``ros2_ws``, and build your new pac
 
 .. code-block:: console
 
-  colcon build --packages-select py_srvcli
+  $ colcon build --packages-select py_srvcli
 
 Open a new terminal, navigate to ``ros2_ws``, and source the setup files:
 
@@ -326,40 +330,35 @@ Open a new terminal, navigate to ``ros2_ws``, and source the setup files:
 
     .. code-block:: console
 
-      source install/setup.bash
+      $ source install/setup.bash
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      . install/setup.bash
+      $ . install/setup.bash
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      call install/setup.bat
+      $ call install/setup.bat
 
 Now run the service node:
 
 .. code-block:: console
 
-  ros2 run py_srvcli service
+  $ ros2 run py_srvcli service
 
 The node will wait for the client's request.
 
 Open another terminal and source the setup files from inside ``ros2_ws`` again.
-Start the client node:
+Start the client node.
+The client sends the request to the service, which computes the sum and returns the result:
 
 .. code-block:: console
 
-  ros2 run py_srvcli client
-
-The client sends the request to the service, which computes the sum and returns the result.
-The client should receive the following response:
-
-.. code-block:: console
-
+  $ ros2 run py_srvcli client
   [INFO] [minimal_client_async]: Result of add_two_ints: for 41 + 1 = 42
 
 Return to the terminal where your service node is running.

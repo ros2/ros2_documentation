@@ -50,49 +50,79 @@ The ROS PMC currently consists of the following constituents:
      - GitHub handle
      - PMC role
      - Time Zone (optional)
-   * - Chris Lalancette
-     - Intrinsic
-     - clalancette
-     - Project Leader
-     - N/A
+   * - Christophe Bédard
+     - `Apex.AI <https://www.apex.ai/>`_
+     - `christophebedard <https://github.com/christophebedard>`_
+     - Member
+     - PST (UTC-8)/PDT (UTC-7)
    * - Michael Carroll
-     - Intrinsic
-     - mjcarroll
-     - Member
+     - `Intrinsic <https://www.intrinsic.ai/>`_
+     - `mjcarroll <https://github.com/mjcarroll>`_
+     - (Interim) Project Leader
      - CST (UTC-6)/CDT (UTC-5)
-   * - Tomoya Fujita
-     - Sony
-     - fujitatomoya
-     - Member
-     - PST (UTC-8)/PDT (UTC-7)
-   * - Shane Loretz
-     - Intrinsic
-     - sloretz
-     - Member
-     - PST (UTC-8)/PDT (UTC-7)
-   * - Michael Orlov
-     - Apex.AI
-     - MichaelOrlov
-     - Member
-     - PST (UTC-8)/PDT (UTC-7)
-   * - Kat Scott
-     - Intrinsic
-     - kscottz
-     - OSRA Developer Advocate
-     - PST (UTC-8)/PDT (UTC-7)
    * - Alejandro Hernandez Cordero
-     - Independent software engineer contractor
-     - ahcorde
+     - `Honu Robotics <https://www.honurobotics.com/>`_
+     - `ahcorde <https://github.com/ahcorde>`_
      - Member
      - CET (UTC+1)/CEST (UTC+2)
-   * - Christophe Bédard
-     - Apex.AI
-     - christophebedard
+   * - Tomoya Fujita
+     - `Sony <https://www.sony.com/>`_
+     - `fujitatomoya <https://github.com/fujitatomoya>`_
      - Member
      - PST (UTC-8)/PDT (UTC-7)
+   * - Marco A. Gutiérrez
+     - `Intrinsic <https://www.intrinsic.ai/>`_
+     - `marcoag <https://github.com/marcoag>`_
+     - Member
+     - SGT (UTC+8)
+   * - Emerson Knapp
+     - `Polymath Robotics <https://www.polymathrobotics.com/>`_
+     - `emersonknapp <https://github.com/emersonknapp/>`_
+     - Member
+     - PST (UTC-8)/PDT (UTC-7)
+   * - Chris Lalancette
+     - `Intrinsic <https://www.intrinsic.ai/>`_
+     - `clalancette <https://github.com/clalancette>`_
+     - Member (former Project Leader)
+     - N/A
+   * - Scott Logan
+     - `Intrinsic <https://www.intrinsic.ai/>`_
+     - `cottsay <https://github.com/cottsay>`_
+     - Member
+     - CST (UTC-6)/CDT (UTC-5)
+   * - Shane Loretz
+     - `Intrinsic <https://www.intrinsic.ai/>`_
+     - `sloretz <https://github.com/sloretz>`_
+     - Member
+     - PST (UTC-8)/PDT (UTC-7)
+   * - Audrow Nash
+     - `Intrinsic <https://www.intrinsic.ai/>`_
+     - `Audrow <https://github.com/audrow>`_
+     - Member
+     - CST (UTC-6)/CDT (UTC-5)
+   * - Michael Orlov
+     - `Apex.AI <https://www.apex.ai/>`_
+     - `MichaelOrlov <https://github.com/MichaelOrlov>`_
+     - Member
+     - PST (UTC-8)/PDT (UTC-7)
+   * - Steven! Ragnarök
+     - `Intrinsic <https://www.intrinsic.ai/>`_
+     - `nuclearsandwich <https://github.com/nuclearsandwich>`_
+     - Member / Infrastructure Project Lead
+     - PST (UTC-8)/PDT (UTC-7)
    * - Alberto Soragna
-     - iRobot
-     - alsora
+     - `Outrider <https://www.outrider.ai/>`_
+     - `alsora <https://github.com/alsora>`_
+     - Member
+     - CET (UTC+1)/CEST (UTC+2)
+   * - Yadunund Vijay
+     - `Intrinsic <https://www.intrinsic.ai/>`_
+     - `Yadunund <https://github.com/Yadunund>`_
+     - Member
+     - PST (UTC-8)/PDT (UTC-7)
+   * - William Woodall
+     - `Intrinsic <https://www.intrinsic.ai/>`_
+     - `wjwwood <https://github.com/wjwwood>`_
      - Member
      - PST (UTC-8)/PDT (UTC-7)
 
@@ -108,10 +138,34 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
      - Affiliation
      - GitHub handle
      - Time Zone (optional)
+   * - Barry Xu
+     - `Sony <https://www.sony.com/>`_
+     - `Barry-Xu-2018 <https://github.com/Barry-Xu-2018>`_
+     - CST (UTC+8)
+   * - Dharini Dutia
+     - `Intrinsic <https://www.intrinsic.ai/>`_
+     - `quarkytale <https://github.com/quarkytale>`_
+     - PST (UTC-8)/PDT (UTC-7)
+   * - Janosch Machowinski
+     - `cellumation <https://cellumation.com/>`_
+     - `jmachowinski <https://github.com/jmachowinski>`_
+     - CET (UTC+1)
+   * - Kat Scott
+     - `Intrinsic <https://www.intrinsic.ai/>`_
+     - `kscottz <https://github.com/kscottz>`_
+     - PST (UTC-8)/PDT (UTC-7)
    * - Miguel Company
-     - eProsima
-     - MiguelCompany
+     - `eProsima <https://www.eprosima.com/>`_
+     - `MiguelCompany <https://github.com/MiguelCompany>`_
      - CET (UTC+1)/CEST (UTC+2)
+   * - Steve Peters
+     - `Intrinsic <https://www.intrinsic.ai/>`_
+     - `scpeters <https://github.com/scpeters>`_
+     - PST (UTC-8)/PDT (UTC-7)
+   * - Tully Foote
+     - `Intrinsic <https://www.intrinsic.ai/>`_
+     - `tfoote <https://github.com/tfoote>`_
+     - PST (UTC-8)/PDT (UTC-7)
 
 Past ROS PMC Constituents
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -227,8 +281,6 @@ The following repositories are managed by the ROS PMC:
    * - https://github.com/ros/eigen_stl_containers
      - Not Yet Available
    * - https://github.com/ros/geometry_tutorials
-     - Not Yet Available
-   * - https://github.com/ros/geometry2
      - Not Yet Available
    * - https://github.com/ros/kdl_parser
      - Not Yet Available
@@ -380,8 +432,8 @@ The following repositories are managed by the ROS PMC:
 Upcoming ROS Events
 -------------------
 
-Upcoming ROS Events can be found in this `Google Calendar <https://calendar.google.com/calendar/embed?src=agf3kajirket8khktupm9go748%40group.calendar.google.com&ctz=America%2FLos_Angeles>`_.
-It can be accessed via `iCal <https://calendar.google.com/calendar/ical/agf3kajirket8khktupm9go748%40group.calendar.google.com/public/basic.ics>`_.
+Upcoming official Open Source Robotics Foundation events can be found in this `Google Calendar <https://calendar.google.com/calendar/embed?src=agf3kajirket8khktupm9go748%40group.calendar.google.com&ctz=America%2FLos_Angeles>`__.
+It can be accessed via `iCal <https://calendar.google.com/calendar/ical/agf3kajirket8khktupm9go748%40group.calendar.google.com/public/basic.ics>`__.
 
 .. raw:: html
 
@@ -417,5 +469,19 @@ It can be accessed via `iCal <https://calendar.google.com/calendar/ical/agf3kaji
       <div class="phoneContent"><iframe src="https://calendar.google.com/calendar/embed?mode=AGENDA&amp;height=400&amp;wkst=1&amp;src=agf3kajirket8khktupm9go748%40group.calendar.google.com" style="border: 0" width="280" height="500" frameborder="0" scrolling="no"></iframe>
       </div>
     </div>
+    <br>
 
-If you have an individual event or series of events that you'd like to post please contact info@openrobotics.org.
+Upcoming unofficial ROS community events can be found in this `Google Calendar <https://calendar.google.com/calendar/embed?src=c_3fc5c4d6ece9d80d49f136c1dcd54d7f44e1acefdbe87228c92ff268e85e2ea0@group.calendar.google.com>`__.
+It can be accessed via `iCal <https://calendar.google.com/calendar/ical/c_3fc5c4d6ece9d80d49f136c1dcd54d7f44e1acefdbe87228c92ff268e85e2ea0@group.calendar.google.com/public/basic.ics>`__.
+If you have an individual event or series of events that you'd like to post, please `submit it using this form <https://bit.ly/OSRFCalendarForm>`_.
+
+.. raw:: html
+
+    <div class="responsiveCal">
+      <div class="deskContent">
+        <iframe src="https://calendar.google.com/calendar/embed?src=c_3fc5c4d6ece9d80d49f136c1dcd54d7f44e1acefdbe87228c92ff268e85e2ea0@group.calendar.google.com" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+      </div>
+      <div class="phoneContent"><iframe src="https://calendar.google.com/calendar/embed?mode=AGENDA&amp;height=400&amp;wkst=1&amp;src=c_3fc5c4d6ece9d80d49f136c1dcd54d7f44e1acefdbe87228c92ff268e85e2ea0@group.calendar.google.com" style="border: 0" width="280" height="500" frameborder="0" scrolling="no"></iframe>
+      </div>
+    </div>
+    <br>

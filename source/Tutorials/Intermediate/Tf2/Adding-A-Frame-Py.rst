@@ -57,13 +57,13 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the fixed 
 
       .. code-block:: console
 
-          wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/fixed_frame_tf2_broadcaster.py
+          $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_py/turtle_tf2_py/fixed_frame_tf2_broadcaster.py
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-          wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/fixed_frame_tf2_broadcaster.py
+          $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_py/turtle_tf2_py/fixed_frame_tf2_broadcaster.py
 
    .. group-tab:: Windows
 
@@ -71,13 +71,13 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the fixed 
 
       .. code-block:: console
 
-          curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/fixed_frame_tf2_broadcaster.py -o fixed_frame_tf2_broadcaster.py
+          $ curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_py/turtle_tf2_py/fixed_frame_tf2_broadcaster.py -o fixed_frame_tf2_broadcaster.py
 
       Or in powershell:
 
       .. code-block:: console
 
-          curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/fixed_frame_tf2_broadcaster.py -o fixed_frame_tf2_broadcaster.py
+          $ curl https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_py/turtle_tf2_py/fixed_frame_tf2_broadcaster.py -o fixed_frame_tf2_broadcaster.py
 
 Now open the file called ``fixed_frame_tf2_broadcaster.py``.
 
@@ -161,47 +161,17 @@ Add the following line between the ``'console_scripts':`` brackets:
 Now let's create a launch file for this example.
 With your text editor, create a new file called ``turtle_tf2_fixed_frame_demo_launch.py`` in the ``src/learning_tf2_py/launch`` directory, and add the following lines:
 
-.. code-block:: python
-
-    import os
-
-    from ament_index_python.packages import get_package_share_directory
-
-    from launch import LaunchDescription
-    from launch.actions import IncludeLaunchDescription
-    from launch.launch_description_sources import PythonLaunchDescriptionSource
-
-    from launch_ros.actions import Node
-
-
-    def generate_launch_description():
-        demo_nodes = IncludeLaunchDescription(
-            PythonLaunchDescriptionSource([os.path.join(
-                get_package_share_directory('learning_tf2_py'), 'launch'),
-                '/turtle_tf2_demo_launch.py']),
-            )
-
-        return LaunchDescription([
-            demo_nodes,
-            Node(
-                package='learning_tf2_py',
-                executable='fixed_frame_tf2_broadcaster',
-                name='fixed_broadcaster',
-            ),
-        ])
-
+.. literalinclude:: launch/py_turtle_tf2_fixed_frame_demo_launch.py
+    :name: turtle_tf2_fixed_frame_demo_launch.py
+    :language: python
 
 This launch file imports the required packages and then creates a ``demo_nodes`` variable that will store nodes that we created in the previous tutorial's launch file.
 
 The last part of the code will add our fixed ``carrot1`` frame to the turtlesim world using our ``fixed_frame_tf2_broadcaster`` node.
 
-.. code-block:: python
-
-    Node(
-        package='learning_tf2_py',
-        executable='fixed_frame_tf2_broadcaster',
-        name='fixed_broadcaster',
-    ),
+.. literalinclude:: launch/py_turtle_tf2_fixed_frame_demo_launch.py
+    :language: python
+    :lines: 14-18
 
 1.4 Build
 ~~~~~~~~~
@@ -214,7 +184,7 @@ Run ``rosdep`` in the root of your workspace to check for missing dependencies.
 
       .. code-block:: console
 
-          rosdep install -i --from-path src --rosdistro {DISTRO} -y
+          $ rosdep install -i --from-path src --rosdistro {DISTRO} -y
 
    .. group-tab:: macOS
 
@@ -232,19 +202,19 @@ Still in the root of your workspace, build your package:
 
     .. code-block:: console
 
-        colcon build --packages-select learning_tf2_py
+        $ colcon build --packages-select learning_tf2_py
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-        colcon build --packages-select learning_tf2_py
+        $ colcon build --packages-select learning_tf2_py
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-        colcon build --merge-install --packages-select learning_tf2_py
+        $ colcon build --merge-install --packages-select learning_tf2_py
 
 Open a new terminal, navigate to the root of your workspace, and source the setup files:
 
@@ -254,23 +224,27 @@ Open a new terminal, navigate to the root of your workspace, and source the setu
 
     .. code-block:: console
 
-        . install/setup.bash
+        $ . install/setup.bash
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-        . install/setup.bash
+        $ . install/setup.bash
 
   .. group-tab:: Windows
 
+    In a Windows command line prompt:
+
     .. code-block:: console
 
-        # CMD
-        call install\setup.bat
+        $ call install\setup.bat
 
-        # Powershell
-        .\install\setup.ps1
+    Or in powershell:
+
+    .. code-block:: console
+
+        $ call install\setup.bat
 
 1.5 Run
 ~~~~~~~
@@ -279,7 +253,7 @@ Now you can start the turtle broadcaster demo:
 
 .. code-block:: console
 
-    ros2 launch learning_tf2_py turtle_tf2_fixed_frame_demo_launch.py
+    $ ros2 launch learning_tf2_py turtle_tf2_fixed_frame_demo_launch.py
 
 You should notice that the new ``carrot1`` frame appeared in the transformation tree.
 
@@ -294,7 +268,7 @@ One way is to pass the ``target_frame`` argument to the launch file directly fro
 
 .. code-block:: console
 
-    ros2 launch learning_tf2_py turtle_tf2_fixed_frame_demo_launch.py target_frame:=carrot1
+    $ ros2 launch learning_tf2_py turtle_tf2_fixed_frame_demo_launch.py target_frame:=carrot1
 
 The second way is to update the launch file.
 To do so, open the ``turtle_tf2_fixed_frame_demo_launch.py`` file, and add the ``'target_frame': 'carrot1'`` parameter via ``launch_arguments`` argument.
@@ -326,13 +300,13 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the dynami
 
       .. code-block:: console
 
-          wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/dynamic_frame_tf2_broadcaster.py
+          $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_py/turtle_tf2_py/dynamic_frame_tf2_broadcaster.py
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-          wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/dynamic_frame_tf2_broadcaster.py
+          $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_py/turtle_tf2_py/dynamic_frame_tf2_broadcaster.py
 
    .. group-tab:: Windows
 
@@ -340,13 +314,13 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the dynami
 
       .. code-block:: console
 
-          curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/dynamic_frame_tf2_broadcaster.py -o dynamic_frame_tf2_broadcaster.py
+          $ curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_py/turtle_tf2_py/dynamic_frame_tf2_broadcaster.py -o dynamic_frame_tf2_broadcaster.py
 
       Or in powershell:
 
       .. code-block:: console
 
-          curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/dynamic_frame_tf2_broadcaster.py -o dynamic_frame_tf2_broadcaster.py
+          $ curl https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_py/turtle_tf2_py/dynamic_frame_tf2_broadcaster.py -o dynamic_frame_tf2_broadcaster.py
 
 Now open the file called ``dynamic_frame_tf2_broadcaster.py``:
 
@@ -426,35 +400,9 @@ Add the following line between the ``'console_scripts':`` brackets:
 
 To test this code, create a new launch file ``turtle_tf2_dynamic_frame_demo_launch.py`` in the ``src/learning_tf2_py/launch`` directory and paste the following code:
 
-.. code-block:: python
+.. literalinclude:: launch/py_turtle_tf2_dynamic_frame_demo_launch.py
+    :name: turtle_tf2_dynamic_frame_demo_launch.py
 
-    import os
-
-    from ament_index_python.packages import get_package_share_directory
-
-    from launch import LaunchDescription
-    from launch.actions import IncludeLaunchDescription
-    from launch.launch_description_sources import PythonLaunchDescriptionSource
-
-    from launch_ros.actions import Node
-
-
-    def generate_launch_description():
-        demo_nodes = IncludeLaunchDescription(
-            PythonLaunchDescriptionSource([os.path.join(
-                get_package_share_directory('learning_tf2_py'), 'launch'),
-                '/turtle_tf2_demo_launch.py']),
-           launch_arguments={'target_frame': 'carrot1'}.items(),
-           )
-
-        return LaunchDescription([
-            demo_nodes,
-            Node(
-                package='learning_tf2_py',
-                executable='dynamic_frame_tf2_broadcaster',
-                name='dynamic_broadcaster',
-            ),
-        ])
 
 2.4 Build
 ~~~~~~~~~
@@ -467,7 +415,7 @@ Run ``rosdep`` in the root of your workspace to check for missing dependencies.
 
       .. code-block:: console
 
-          rosdep install -i --from-path src --rosdistro {DISTRO} -y
+          $ rosdep install -i --from-path src --rosdistro {DISTRO} -y
 
    .. group-tab:: macOS
 
@@ -485,19 +433,19 @@ Still in the root of your workspace, build your package:
 
     .. code-block:: console
 
-        colcon build --packages-select learning_tf2_py
+        $ colcon build --packages-select learning_tf2_py
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-        colcon build --packages-select learning_tf2_py
+        $ colcon build --packages-select learning_tf2_py
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-        colcon build --merge-install --packages-select learning_tf2_py
+        $ colcon build --merge-install --packages-select learning_tf2_py
 
 Open a new terminal, navigate to the root of your workspace, and source the setup files:
 
@@ -507,23 +455,28 @@ Open a new terminal, navigate to the root of your workspace, and source the setu
 
     .. code-block:: console
 
-        . install/setup.bash
+        $ . install/setup.bash
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-        . install/setup.bash
+        $ . install/setup.bash
 
   .. group-tab:: Windows
 
+
+    In a Windows command line prompt:
+
     .. code-block:: console
 
-        # CMD
-        call install\setup.bat
+        $ call install\setup.bat
 
-        # Powershell
-        .\install\setup.ps1
+    Or in powershell:
+
+    .. code-block:: console
+
+        $ .\install\setup.ps1
 
 1.5 Run
 ~~~~~~~
@@ -532,7 +485,7 @@ Now you can start the dynamic frame demo:
 
 .. code-block:: console
 
-    ros2 launch learning_tf2_py turtle_tf2_dynamic_frame_demo_launch.py
+    $ ros2 launch learning_tf2_py turtle_tf2_dynamic_frame_demo_launch.py
 
 You should see that the second turtle is following the carrot's position that is constantly changing.
 

@@ -27,15 +27,15 @@ You can verify that your current setup allows multicast with the ROS 2 tool:
 
 In Terminal 1:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 multicast receive
+   $ ros2 multicast receive
 
 In Terminal 2:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 multicast send
+   $ ros2 multicast send
 
 If the first command did not return a response similar to:
 
@@ -45,13 +45,13 @@ If the first command did not return a response similar to:
 
 then you will need to update your firewall configuration to allow multicast using `ufw <https://help.ubuntu.com/community/UFW>`__.
 
-.. code-block:: bash
+.. code-block:: console
 
-   sudo ufw allow in proto udp to 224.0.0.0/4
-   sudo ufw allow in proto udp from 224.0.0.0/4
+   $ sudo ufw allow in proto udp to 224.0.0.0/4
+   $ sudo ufw allow in proto udp from 224.0.0.0/4
 
 
-You can check if the multicast flag is enabled for your network interface using the :code:`ifconfig` tool and looking for :code:`MULITCAST` in the flags section:
+You can check if the multicast flag is enabled for your network interface using the :code:`ifconfig` tool and looking for :code:`MULTICAST` in the flags section:
 
 .. code-block:: bash
 
@@ -66,7 +66,8 @@ If so, compare the libraries present in the directory with the one mentioned in 
 Assuming a file with a similar name exists (same prefix like ``_rclpy.`` and same suffix like ``.so`` but a different Python version / architecture) you are using a different Python interpreter than which was used to build the C extension.
 Be sure to use the same Python interpreter as the one used to build the binary.
 
-For example, such a mismatch can crop up after an update of the OS. Then, rebuilding the workspace may fix the issue.
+For example, such a mismatch can crop up after an update of the OS.
+Then, rebuilding the workspace may fix the issue.
 
 .. _linux-troubleshooting:
 
@@ -77,12 +78,6 @@ Internal compiler error
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 If you experience an ICE when trying to compile on a memory constrained platform like a Raspberry PI you might want to build single threaded (prefix the build invocation with ``MAKEFLAGS=-j1``).
-
-Out of memory
-^^^^^^^^^^^^^
-
-The ``ros1_bridge`` in its current form requires 4Gb of free RAM to compile.
-If you don't have that amount of RAM available it's suggested to use ``COLCON_IGNORE`` in that folder and skip its compilation.
 
 Multiple host interference
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -98,17 +93,21 @@ Exception sourcing setup.bash
 
 If you encounter exceptions when trying to source the environment after building from source, try to upgrade ``colcon`` related packages using
 
-.. code-block:: bash
+.. code-block:: console
 
-   colcon version-check  # check if newer versions available
-   sudo apt install python3-colcon* --only-upgrade  # upgrade installed colcon packages to latest version
+   $ colcon version-check  # check if newer versions available
+   $ sudo apt install python3-colcon* --only-upgrade  # upgrade installed colcon packages to latest version
 
-Anaconda Python Conflict
-^^^^^^^^^^^^^^^^^^^^^^^^
+Mixing conda and apt Python Conflict
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-``conda`` does not work in conjunction with ROS 2.
-Make sure that your ``PATH`` environment variable does not have any conda paths in it.
+While using ROS 2, mixing packages installed with ``apt`` with packages installed with ``conda`` does not work.
+If you are using the official ``apt`` binaries for ROS 2, make sure that your ``PATH`` environment variable does not have any conda paths in it.
 You may have to check your ``.bashrc`` for this line and comment it out.
+
+On the other hand on Windows, the official ROS 2 installation procedure uses ``conda`` packages via the ``pixi`` package manager, and that works fine as there is no mix of different package managers
+
+``conda`` packages for ROS 2 may be built (such as the one provided by the community-mantained [RoboStack](https://robostack.github.io/) project) but no official conda packages for ROS 2 are provided.
 
 Cannot start rviz2
 ^^^^^^^^^^^^^^^^^^
@@ -190,13 +189,13 @@ If you have opencv installed you might get this:
 
 If so, to build you'll have to do this:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ brew unlink libpng libtiff libjpeg
 
 But this will break opencv, so you'll also need to update it to continue working:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ sudo install_name_tool -change /usr/local/lib/libjpeg.8.dylib /usr/local/opt/jpeg/lib/libjpeg.8.dylib /usr/local/lib/libopencv_highgui.2.4.dylib
    $ sudo install_name_tool -change /usr/local/lib/libpng16.16.dylib /usr/local/opt/libpng/lib/libpng16.16.dylib /usr/local/lib/libopencv_highgui.2.4.dylib
@@ -222,13 +221,13 @@ To resolve this error, you will need to:
 
 1. Double check that you have the command line tool installed:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ xcode-select --install
 
 2. Accept the terms and conditions of Xcode by typing in terminal:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ sudo xcodebuild -license accept
 
@@ -236,34 +235,15 @@ To resolve this error, you will need to:
 
 4. Point ``xcode-select`` to the Xcode app Developer directory using the following command:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 
-qt_gui_cpp error: SIP binding generator NOT available
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. only relevant to Eloquent and Foxy
-
-When building qt_gui_cpp there may be errors look like the following:
-
-.. code-block:: bash
-
-   --- stderr: qt_gui_cpp
-
-   CMake Error at src/CMakeLists.txt:10 (message):
-     No Python binding generator found.
-
-   ---
-   Failed   <<< qt_gui_cpp [ Exited with code 1 ]
-
-To fix this issue, follow :doc:`these steps <RQt-Source-Install-MacOS>` to install dependencies for RQt.
-
 rosdep install error ``homebrew: Failed to detect successful installation of [qt5]``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-While following the :doc:`Creating a workspace <../Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>` tutorial, you might encounter the following error stating that ``rosdep`` failes to install Qt5.
+While following the :doc:`Creating a workspace <../Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>` tutorial, you might encounter the following error stating that ``rosdep`` fails to install Qt5.
 
-.. code-block:: bash
+.. code-block:: console
 
    $ rosdep install -i --from-path src --rosdistro {DISTRO} -y
    executing command [brew install qt5]
@@ -274,18 +254,22 @@ While following the :doc:`Creating a workspace <../Tutorials/Beginner-Client-Lib
 
 This error seems to stem from a `linking issue <https://github.com/ros-infrastructure/rosdep/issues/490#issuecomment-334959426>`__ and can be resolved by running the following command.
 
-.. code-block:: bash
+.. code-block:: console
 
    $ cd /usr/local/Cellar
-   $ sudo ln -s qt qt5
+   $ sudo ln -s qt qt5
 
 Running the ``rosdep`` command should now execute normally:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ rosdep install -i --from-path src --rosdistro {DISTRO} -y
-   #All required rosdeps installed successfully
 
+The command should return:
+
+.. code-block:: text
+
+   #All required rosdeps installed successfully
 
 .. _windows-troubleshooting:
 
@@ -308,7 +292,8 @@ Use this information to install additional dependencies or adjust your path as n
 CMake error setting modification time
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you run into the CMake error ``file INSTALL cannot set modification time on ...`` when installing files it is likely that an anti virus software or Windows Defender are interfering with the build. E.g. for Windows Defender you can list the workspace location to be excluded to prevent it from scanning those files.
+If you run into the CMake error ``file INSTALL cannot set modification time on ...`` when installing files it is likely that an anti virus software or Windows Defender are interfering with the build.
+E.g. for Windows Defender you can list the workspace location to be excluded to prevent it from scanning those files.
 
 260 character path limit
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -331,23 +316,8 @@ In the dialog, select Enabled and click OK.
 
 Close and open your terminal to reset the environment and try building again.
 
-CMake packages unable to find asio, tinyxml2, tinyxml, or eigen
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-We've seen that sometimes the chocolatey packages for ``asio``, ``tinyxml2``, etc. do not add important registry entries and CMake will be unable to find them when building ROS 2.
-We've not yet been able to identify the root cause, but uninstalling the chocolatey packages (with ``-n`` if the uninstall fails the first time), and then reinstalling them will fix the issue.
-
-patch.exe opens a new command window and asks for administrator
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-This will also cause the build of packages which need to use patch to fail, even you allow it to use administrator rights.
-
-- ``choco uninstall patch; colcon build --cmake-clean-cache`` - This is a bug in the `GNU Patch For Windows package <https://chocolatey.org/packages/patch>`_. If this package is not installed, the build process will instead use the version of Patch distributed with git.
-
 Failed to load Fast RTPS shared library
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. does not apply to Crystal
 
 Fast RTPS requires ``msvcr20.dll``, which is part of the ``Visual C++ Redistributable Packages for Visual Studio 2013``.
 Although it is usually installed by default in Windows 10, we know that some Windows 10-like versions don't have it installed by default (e.g.: Windows Server 2019).

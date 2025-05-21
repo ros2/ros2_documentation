@@ -67,7 +67,7 @@ Change the current directory of your terminal to ``ros2_ws/src`` and run:
 
         .. code-block:: console
 
-            ros2 pkg create --build-type ament_python --license Apache-2.0 --node-name my_robot_driver my_package --dependencies rclpy geometry_msgs webots_ros2_driver
+            $ ros2 pkg create --build-type ament_python --license Apache-2.0 --node-name my_robot_driver my_package --dependencies rclpy geometry_msgs webots_ros2_driver
 
         The ``--node-name my_robot_driver`` option will create a ``my_robot_driver.py`` template Python plugin in the ``my_package`` subfolder that you will modify later.
         The ``--dependencies rclpy geometry_msgs webots_ros2_driver`` option specifies the packages needed by the ``my_robot_driver.py`` plugin in the ``package.xml`` file.
@@ -76,9 +76,9 @@ Change the current directory of your terminal to ``ros2_ws/src`` and run:
 
         .. code-block:: console
 
-                cd my_package
-                mkdir launch
-                mkdir worlds
+                $ cd my_package
+                $ mkdir launch
+                $ mkdir worlds
 
         You should end up with the following folder structure:
 
@@ -105,7 +105,7 @@ Change the current directory of your terminal to ``ros2_ws/src`` and run:
 
         .. code-block:: console
 
-            ros2 pkg create --build-type ament_cmake --license Apache-2.0 --node-name MyRobotDriver my_package --dependencies rclcpp geometry_msgs webots_ros2_driver pluginlib
+            $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 --node-name MyRobotDriver my_package --dependencies rclcpp geometry_msgs webots_ros2_driver pluginlib
 
         The ``--node-name MyRobotDriver`` option will create a ``MyRobotDriver.cpp`` template C++ plugin in the ``my_package/src`` subfolder that you will modify later.
         The ``--dependencies rclcpp geometry_msgs webots_ros2_driver pluginlib`` option specifies the packages needed by the ``MyRobotDriver`` plugin in the ``package.xml`` file.
@@ -115,17 +115,17 @@ Change the current directory of your terminal to ``ros2_ws/src`` and run:
 
         .. code-block:: console
 
-            cd my_package
-            mkdir launch
-            mkdir worlds
-            mkdir resource
+            $ cd my_package
+            $ mkdir launch
+            $ mkdir worlds
+            $ mkdir resource
 
         Two additional files must be created: the header file for ``MyRobotDriver`` and the ``my_robot_driver.xml`` pluginlib description file.
 
         .. code-block:: console
 
-            touch my_robot_driver.xml
-            touch include/my_package/MyRobotDriver.hpp
+            $ touch my_robot_driver.xml
+            $ touch include/my_package/MyRobotDriver.hpp
 
         You should end up with the following folder structure:
 
@@ -239,7 +239,8 @@ You can use it to access the `Webots robot API  <https://cyberbotics.com/doc/ref
         It takes two arguments:
 
         * A pointer to the ``WebotsNode`` defined by ``webots_ros2_driver``, which allows to access the ROS 2 node functions.
-        * The ``parameters`` argument is an unordered map of strings, created from the XML tags given in the URDF files (:ref:`4 Create the my_robot.urdf file`) and allows to pass parameters to the controller. It is not used in this example.
+        * The ``parameters`` argument is an unordered map of strings, created from the XML tags given in the URDF files (:ref:`4 Create the my_robot.urdf file`) and allows to pass parameters to the controller.
+          It is not used in this example.
 
         It initializes the plugin by setting up the robot motors, setting their positions and velocities, and subscribing to the ``/cmd_vel`` topic.
 
@@ -384,7 +385,7 @@ After that, the two nodes are set to be launched in the ``LaunchDescription`` co
     :dedent: 4
     :lines: 24-26
 
-Finally, an optional part is added in order to shutdown all the nodes once Webots terminates (e.g., when it gets closed from the graphical user interface).
+Finally, an optional part is added in order to shutdown all the nodes once Webots terminates (e.g. when it gets closed from the graphical user interface).
 
 .. literalinclude:: Code/robot_launch.py
     :language: python
@@ -427,7 +428,7 @@ Finally, an optional part is added in order to shutdown all the nodes once Webot
         .. literalinclude:: Code/CMakeLists.txt
             :language: cmake
 
-        The CMakeLists.txt exports the plugin configuration file with the ``pluginlib_export_plugin_description_file()``, defines a shared library of the C++ plugin ``src/MyRobotDriver.cpp``, and sets the include and library dependencies using ``ament_target_dependencies()``.
+        The CMakeLists.txt exports the plugin configuration file with the ``pluginlib_export_plugin_description_file()``, defines a shared library of the C++ plugin ``src/MyRobotDriver.cpp``, and sets the include and library dependencies using ``target_link_libraries()``.
 
         The file then installs the library, the directories ``launch``, ``resource``, and ``worlds`` to the ``share/my_package`` directory.
         Finally, it exports the include directories and libraries using ``ament_export_include_directories()`` and ``ament_export_libraries()``, respectively, and declares the package using ``ament_package()``.
@@ -444,9 +445,9 @@ Finally, an optional part is added in order to shutdown all the nodes once Webot
 
         .. code-block:: console
 
-            colcon build
-            source install/local_setup.bash
-            ros2 launch my_package robot_launch.py
+            $ colcon build
+            $ source install/local_setup.bash
+            $ ros2 launch my_package robot_launch.py
 
         This will launch the simulation.
         Webots will be automatically installed on the first run in case it was not already installed.
@@ -457,10 +458,10 @@ Finally, an optional part is added in order to shutdown all the nodes once Webot
 
         .. code-block:: console
 
-            colcon build
-            export WEBOTS_HOME=/mnt/c/Program\ Files/Webots
-            source install/local_setup.bash
-            ros2 launch my_package robot_launch.py
+            $ colcon build
+            $ export WEBOTS_HOME=/mnt/c/Program\ Files/Webots
+            $ source install/local_setup.bash
+            $ ros2 launch my_package robot_launch.py
 
         Be sure to use the ``/mnt`` prefix in front of your path to the Webots installation folder to access the Windows file system from WSL.
 
@@ -476,16 +477,16 @@ Finally, an optional part is added in order to shutdown all the nodes once Webot
 
         .. code-block:: console
 
-            export WEBOTS_HOME=/Applications/Webots.app
-            python3 local_simulation_server.py
+            $ export WEBOTS_HOME=/Applications/Webots.app
+            $ python3 local_simulation_server.py
 
         From a terminal in the Linux VM in your ROS 2 workspace, build and launch your custom package with:
 
         .. code-block:: console
 
-            colcon build
-            source install/local_setup.bash
-            ros2 launch my_package robot_launch.py
+            $ colcon build
+            $ source install/local_setup.bash
+            $ ros2 launch my_package robot_launch.py
 
 
 .. note::
@@ -497,7 +498,7 @@ Then, open a second terminal and send a command with:
 
 .. code-block:: console
 
-            ros2 topic pub /cmd_vel geometry_msgs/Twist  "linear: { x: 0.1 }"
+            $ ros2 topic pub /cmd_vel geometry_msgs/Twist  "linear: { x: 0.1 }"
 
 The robot is now moving forward.
 

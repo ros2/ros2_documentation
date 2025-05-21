@@ -36,6 +36,8 @@ The categories are differentiated by their policies on versioning, testing, docu
 The following sections are the specific development rules we follow to ensure core packages are of the highest quality ('Level 1').
 We recommend all ROS developers strive to adhere to the following policies to ensure quality across the ROS ecosystem.
 
+For more specific code recommendations please see :doc:`the Quality Guide <Quality-Guide>`.
+
 .. _semver:
 
 Versioning
@@ -196,16 +198,16 @@ This might include workflows for testing the code using something like ``python 
 
 Examples:
 
-* capabilities: https://docs.ros.org/hydro/api/capabilities/html/
+* `capabilities <https://docs.ros.org/hydro/api/capabilities/html/>`_
 
   * This one gives an example of docs which describe the public API
 
-* catkin_tools: https://catkin-tools.readthedocs.org/en/latest/development/extending_the_catkin_command.html
+* `catkin_tools <https://catkin-tools.readthedocs.org/en/latest/development/extending_the_catkin_command.html>`_
 
   * This is an example of describing an extension point for a package
 
-API Documetation for ROS Packages
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+API Documentation for ROS Packages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 API documentation for all released ROS packages can be `found here <https://docs.ros.org/en/{DISTRO}/p/>`__.
 We recommend using `index.ros.org <https://index.ros.org/>`_ to search through available ROS packages to find their documentation.
@@ -418,6 +420,45 @@ Depending on the complexity, it might be useful to describe how you plan to addr
 We will update the status (if you don't have the permission) and you can start working on a pull request.
 If you contribute regularly we will likely just grant you permission to manage the labels etc. yourself.
 
+Package Naming Conventions
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Names play an important role in ROS and following naming conventions simplifies the process of learning and understanding large systems.
+
+The ROS packages occupy a flat namespace, so naming should be done carefully and consistently.
+There is a standard for package naming in `REP-144 <https://www.ros.org/reps/rep-0144.html>`__
+
+* Package names should follow common C variable naming conventions: lower case, start with a letter, use underscore separators, e.g. laser_viewer
+
+* Package names should be specific enough to identify what the package does.
+  For example, a motion planner is not called planner.
+  If it implements the wavefront propagation algorithm, it might be called wavefront_planner.
+  There's obviously tension between making a name specific and keeping it from becoming overly verbose.
+
+  * Using catchall names such as utils should be avoided as they do not scope what goes into the package or what should be outside the package.
+
+* To check whether a name is taken, consult `<https://index.ros.org/packages/>`__.
+  If you'd like your repository included in that list, see the `rosdistro Contributing Guide <https://github.com/ros/rosdistro/blob/master/CONTRIBUTING.md>`__.
+
+* Our goal is to develop a canonical set of tools for making robots do interesting things.
+  The package name should tell you what the package does, not where it came from.
+  It should be possible for us, as a community, to make this work.
+  An Ubuntu distribution offers approximately 33,000 packages without inserting origin or authorship into names.
+
+* Prefixing a package name is recommended only when the package is not meant to be used more widely (e.g., packages that are specific to the PR2 robot use the ``pr2_`` prefix).
+  You might prefix the package name when forking an existing package, but again, the prefix would hopefully communicate what changed, not who changed it.
+
+* Prefixing a package name with 'ros' is redundant for a ROS package.
+  This is not recommended except for very core packages.
+
+Units of Measure and Coordinate System Conventions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Standard units and coordinate conventions for use in ROS have been formalized in `REP-103 <https://www.ros.org/reps/rep-0103.html>`__.
+All messages should follow these guidelines unless there's a very strong reason which is very clearly documented to avoid confusion.
+
+Representation of special conditions within distance measurements like "too close" or "too far" in ROS have been formalized in `REP-0117 <https://www.ros.org/reps/rep-0117.html>`__.
+
 Programming conventions
 ^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -500,7 +541,7 @@ Don't mix the streams
 
 We strongly recommend against mixing ROS packages from upstream Debian/Ubuntu and from http://packages.ros.org on the same system.
 In some cases such a mixed system will work correctly, but there can be negative interactions between the two sets of packages.
-We’re working with Jochen and friends to minimize the chance of problems via documentation and package conflict specifications, but we expect some risks to remain, including some fairly subtle issues.
+We're working with Jochen and friends to minimize the chance of problems via documentation and package conflict specifications, but we expect some risks to remain, including some fairly subtle issues.
 
 As such, we recommend that you choose to either install packages from upstream or from http://packages.ros.org, but not both.
 Not only should you not install packages from both at the same time, but if you intend to use the upstream packages then you should not even have the http://packages.ros.org entries in your apt sources (i.e. in any files in ``/etc/apt/sources*``).
@@ -538,7 +579,8 @@ The usual workflow is:
   * In the first box "CI_BRANCH_TO_TEST" enter your feature branch name
   * Hit the ``build`` button
 
-  (if you are not a ROS 2 committer, you don't have access to the CI farm. In that case, ping the reviewer of your PR to run CI for you)
+  (if you are not a ROS 2 committer, you don't have access to the CI farm.
+  In that case, ping the reviewer of your PR to run CI for you)
 
 * If your use case requires running code coverage:
 
@@ -563,6 +605,23 @@ The usual workflow is:
       * Note: each PR should target a specific feature so Squash and Merge should make sense 99% of the time
 
 * Delete the branch once merged
+
+Gitconfig Optimization
+^^^^^^^^^^^^^^^^^^^^^^
+
+To be able to push to repositories you will need to have ssh keys setup on your system.
+However our default url schema for repositories is to use https because it's anonymously accessible.
+On your system you can use the ``gitconfig`` option ``insteadOf`` to have ``git`` automatically use your ssh key even if the remote is declared as https.
+
+Add the following to your ``~/.gitconfig``
+
+.. code-block::
+
+    [url "ssh://git@github.com/"]
+      insteadOf = https://github.com/
+
+If you're working on repositories on GitLab or Bitbucket you can do the same thing.
+
 
 Architectural Development Practices
 -----------------------------------
@@ -823,47 +882,47 @@ How to measure coverage locally using lcov (Ubuntu)
 
 To measure coverage on your own machine, install ``lcov``.
 
-.. code-block:: bash
+.. code-block:: console
 
-     sudo apt install -y lcov
+     $ sudo apt install -y lcov
 
 The rest of this section assumes you are working from your colcon workspace.
 Compile in debug with coverage flags.
 Feel free to use colcon flags to target specific packages.
 
-.. code-block:: bash
+.. code-block:: console
 
-     colcon build --cmake-args -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="${CMAKE_CXX_FLAGS} --coverage" -DCMAKE_C_FLAGS="${CMAKE_C_FLAGS} --coverage"
+     $ colcon build --cmake-args -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="${CMAKE_CXX_FLAGS} --coverage" -DCMAKE_C_FLAGS="${CMAKE_C_FLAGS} --coverage"
 
 ``lcov`` requires an initial baseline, which you can produce with the following command.
 Update the output file location for your needs.
 
-.. code-block:: bash
+.. code-block:: console
 
-     lcov --no-external --capture --initial --directory . --output-file ~/ros2_base.info
+     $ lcov --no-external --capture --initial --directory . --output-file ~/ros2_base.info
 
 Run tests for the packages that matter for your coverage measurements.
 For example, if measuring ``rclcpp`` also with ``test_rclcpp``
 
-.. code-block:: bash
+.. code-block:: console
 
-     colcon test --packages-select rclcpp test_rclcpp
+     $ colcon test --packages-select rclcpp test_rclcpp
 
 Capture the lcov results with a similar command this time dropping the ``--initial`` flag.
 
-.. code-block:: bash
+.. code-block:: console
 
-     lcov --no-external --capture --directory . --output-file ~/ros2.info
+     $ lcov --no-external --capture --directory . --output-file ~/ros2.info
 
-Combine the trace .info files:
+Combine the trace ``.info`` files:
 
-.. code-block:: bash
+.. code-block:: console
 
-     lcov --add-tracefile ~/ros2_base.info --add-tracefile ~/ros2.info --output-file ~/ros2_coverage.info
+     $ lcov --add-tracefile ~/ros2_base.info --add-tracefile ~/ros2.info --output-file ~/ros2_coverage.info
 
 Generate html for easy visualization and annotation of covered lines.
 
-.. code-block:: bash
+.. code-block:: console
 
-    mkdir -p coverage
-    genhtml ~/ros2_coverage.info --output-directory coverage
+    $ mkdir -p coverage
+    $ genhtml ~/ros2_coverage.info --output-directory coverage

@@ -72,51 +72,8 @@ to
 And save changes to the file.
 In order to run this demo, we need to create a launch file ``start_tf2_debug_demo_launch.py`` in the ``launch`` subdirectory of package ``learning_tf2_cpp``:
 
-.. code-block:: python
-
-   from launch import LaunchDescription
-   from launch.actions import DeclareLaunchArgument
-   from launch.substitutions import LaunchConfiguration
-
-   from launch_ros.actions import Node
-
-   def generate_launch_description():
-      return LaunchDescription([
-         DeclareLaunchArgument(
-            'target_frame', default_value='turtle1',
-            description='Target frame name.'
-         ),
-         Node(
-            package='turtlesim',
-            executable='turtlesim_node',
-            name='sim',
-            output='screen'
-         ),
-         Node(
-            package='learning_tf2_cpp',
-            executable='turtle_tf2_broadcaster',
-            name='broadcaster1',
-            parameters=[
-                  {'turtlename': 'turtle1'}
-            ]
-         ),
-         Node(
-            package='learning_tf2_cpp',
-            executable='turtle_tf2_broadcaster',
-            name='broadcaster2',
-            parameters=[
-                  {'turtlename': 'turtle2'}
-            ]
-         ),
-         Node(
-            package='learning_tf2_cpp',
-            executable='turtle_tf2_listener_debug',
-            name='listener_debug',
-            parameters=[
-                  {'target_frame': LaunchConfiguration('target_frame')}
-            ]
-         ),
-      ])
+.. literalinclude:: launch/start_tf2_debug_demo_launch.py
+   :language: python
 
 Don't forget to add the ``turtle_tf2_listener_debug`` executable to the ``CMakeLists.txt`` and build the package.
 
@@ -124,25 +81,21 @@ Now let's run it to see what happens:
 
 .. code-block:: console
 
-   ros2 launch learning_tf2_cpp start_tf2_debug_demo_launch.py
+   $ ros2 launch learning_tf2_cpp start_tf2_debug_demo_launch.py
 
 You will now see that the turtlesim came up.
 At the same time, if you run the ``turtle_teleop_key`` in another terminal window, you can use the arrow keys to drive the ``turtle1`` around.
 
 .. code-block:: console
 
-   ros2 run turtlesim turtle_teleop_key
+   $ ros2 run turtlesim turtle_teleop_key
+   [turtle_tf2_listener_debug-4] [INFO] [1630223454.942322623] [listener_debug]: Could not
+   transform turtle3 to turtle1: "turtle3" passed to lookupTransform argument target_frame
+   does not exist
 
 You will also notice that there is a second turtle in the lower, left corner.
 If the demo would be working correctly, this second turtle should be following the turtle you can command with the arrow keys.
 However, it is not the case because we have to solve some problems first.
-You should notice the following message:
-
-.. code-block:: console
-
-   [turtle_tf2_listener_debug-4] [INFO] [1630223454.942322623] [listener_debug]: Could not
-   transform turtle3 to turtle1: "turtle3" passed to lookupTransform argument target_frame
-   does not exist
 
 2 Finding the tf2 request
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -153,7 +106,7 @@ Open the ``src/turtle_tf2_listener_debug.cpp`` file, and take a look at line 65:
 
 .. code-block:: C++
 
-   std::string to_frame_rel = "turtle3";
+   std::string toFrameRel = "turtle3";
 
 and lines 73-77:
 
@@ -177,22 +130,19 @@ Firstly, to find out if tf2 knows about our transform between ``turtle3`` and ``
 
 .. code-block:: console
 
-   ros2 run tf2_ros tf2_echo turtle3 turtle1
-
-The output tells us that frame ``turtle3`` does not exist:
-
-.. code-block:: console
-
+   $ ros2 run tf2_ros tf2_echo turtle3 turtle1
    [INFO] [1630223557.477636052] [tf2_echo]: Waiting for transform turtle3 ->  turtle1:
    Invalid frame ID "turtle3" passed to canTransform argument target_frame - frame does
    not exist
+
+The output tells us that frame ``turtle3`` does not exist.
 
 Then what frames do exist?
 If you like to get a graphical representation of this, use ``view_frames`` tool.
 
 .. code-block:: console
 
-   ros2 run tf2_tools view_frames
+   $ ros2 run tf2_tools view_frames
 
 Open the generated ``frames.pdf`` file to see the following output:
 
@@ -205,16 +155,13 @@ And now stop the running demo, build it, and run it again:
 
 .. code-block:: console
 
-   ros2 launch turtle_tf2 start_debug_demo.launch.py
-
-And right away we run into the next problem:
-
-.. code-block:: console
-
+   $ ros2 launch learning_tf2_cpp start_tf2_debug_demo_launch.py
    [turtle_tf2_listener_debug-4] [INFO] [1630223704.617382464] [listener_debug]: Could not
    transform turtle2 to turtle1: Lookup would require extrapolation into the future. Requested
    time 1630223704.617054 but the latest data is at time 1630223704.616726, when looking up
    transform from frame [turtle1] to frame [turtle2]
+
+And right away we run into the next problem.
 
 4 Checking the timestamp
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -225,12 +172,7 @@ To get statistics on the timing, call ``tf2_monitor`` with corresponding frames.
 
 .. code-block:: console
 
-   ros2 run tf2_ros tf2_monitor turtle2 turtle1
-
-The result should look something like this:
-
-.. code-block:: console
-
+   $ ros2 run tf2_ros tf2_monitor turtle2 turtle1
    RESULTS: for turtle2 to turtle1
    Chain is: turtle1
    Net delay     avg = 0.00287347: max = 0.0167241
@@ -261,7 +203,7 @@ Stop the demo, build and run:
 
 .. code-block:: console
 
-   ros2 launch turtle_tf2 start_debug_demo.launch.py
+   $ ros2 launch turtle_tf2 start_tf2_debug_demo_launch.py
 
 And you should finally see the turtle move!
 

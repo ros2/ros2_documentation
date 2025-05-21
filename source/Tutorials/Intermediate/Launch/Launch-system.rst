@@ -22,7 +22,7 @@ Prerequisites
 
 You should have gone through the tutorial on how to :doc:`create a ROS 2 package <../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>`.
 
-As always, don’t forget to source ROS 2 in :doc:`every new terminal you open <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
+As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
 
 Background
 ----------
@@ -42,24 +42,24 @@ Create a workspace for the package to live in:
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      mkdir -p launch_ws/src
-      cd launch_ws/src
+      $ mkdir -p launch_ws/src
+      $ cd launch_ws/src
 
   .. group-tab:: macOS
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      mkdir -p launch_ws/src
-      cd launch_ws/src
+      $ mkdir -p launch_ws/src
+      $ cd launch_ws/src
 
   .. group-tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: console
 
-      md launch_ws\src
-      cd launch_ws\src
+      $ md launch_ws\src
+      $ cd launch_ws\src
 
 .. tabs::
 
@@ -67,13 +67,13 @@ Create a workspace for the package to live in:
 
     .. code-block:: console
 
-      ros2 pkg create --build-type ament_python --license Apache-2.0 py_launch_example
+      $ ros2 pkg create --build-type ament_python --license Apache-2.0 py_launch_example
 
   .. group-tab:: C++ package
 
     .. code-block:: console
 
-      ros2 pkg create --build-type ament_cmake --license Apache-2.0 cpp_launch_example
+      $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 cpp_launch_example
 
 2 Creating the structure to hold launch files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -115,7 +115,7 @@ Make sure to create a ``launch`` directory at the top-level of the package you c
           data_files=[
               # ... Other data files
               # Include all launch files.
-              (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*launch.[pxy][yma]*')))
+              (os.path.join('share', package_name, 'launch'), glob('launch/*'))
           ]
       )
 
@@ -139,6 +139,22 @@ Make sure to create a ``launch`` directory at the top-level of the package you c
 
 .. tabs::
 
+  .. group-tab:: XML launch file
+
+    Inside your ``launch`` directory, create a new launch file called ``my_script_launch.xml``.
+    ``_launch.xml`` is recommended, but not required, as the file suffix for XML launch files.
+
+    .. literalinclude:: launch/my_script_launch.xml
+      :language: xml
+
+  .. group-tab:: YAML launch file
+
+    Inside your ``launch`` directory, create a new launch file called ``my_script_launch.yaml``.
+    ``_launch.yaml`` is recommended, but not required, as the file suffix for YAML launch files.
+
+    .. literalinclude:: launch/my_script_launch.yaml
+      :language: yaml
+
   .. group-tab:: Python launch file
 
     Inside your ``launch`` directory, create a new launch file called ``my_script_launch.py``.
@@ -147,43 +163,8 @@ Make sure to create a ``launch`` directory at the top-level of the package you c
 
     Your launch file should define the ``generate_launch_description()`` function which returns a ``launch.LaunchDescription()`` to be used by the ``ros2 launch`` verb.
 
-    .. code-block:: python
-
-      import launch
-      import launch_ros.actions
-
-      def generate_launch_description():
-          return launch.LaunchDescription([
-              launch_ros.actions.Node(
-                  package='demo_nodes_cpp',
-                  executable='talker',
-                  name='talker'),
-        ])
-
-  .. group-tab:: XML launch file
-
-    Inside your ``launch`` directory, create a new launch file called ``my_script_launch.xml``.
-    ``_launch.xml`` is recommended, but not required, as the file suffix for XML launch files.
-
-    .. code-block:: xml
-
-      <launch>
-        <node pkg="demo_nodes_cpp" exec="talker" name="talker"/>
-      </launch>
-
-  .. group-tab:: YAML launch file
-
-    Inside your ``launch`` directory, create a new launch file called ``my_script_launch.yaml``.
-    ``_launch.yaml`` is recommended, but not required, as the file suffix for YAML launch files.
-
-    .. code-block:: yaml
-
-      launch:
-
-      - node:
-          pkg: "demo_nodes_cpp"
-          exec: "talker"
-          name: "talker"
+    .. literalinclude:: launch/my_script_launch.py
+      :language: python
 
 
 4 Building and running the launch file
@@ -193,7 +174,7 @@ Go to the top-level of the workspace, and build it:
 
 .. code-block:: console
 
-  colcon build
+  $ colcon build
 
 After the ``colcon build`` has been successful and you've sourced the workspace, you should be able to run the launch file as follows:
 
@@ -203,45 +184,45 @@ After the ``colcon build`` has been successful and you've sourced the workspace,
 
     .. tabs::
 
-      .. group-tab:: Python launch file
-
-        .. code-block:: console
-
-          ros2 launch py_launch_example my_script_launch.py
-
       .. group-tab:: XML launch file
 
         .. code-block:: console
 
-          ros2 launch py_launch_example my_script_launch.xml
+          $ ros2 launch py_launch_example my_script_launch.xml
 
       .. group-tab:: YAML launch file
 
         .. code-block:: console
 
-          ros2 launch py_launch_example my_script_launch.yaml
+          $ ros2 launch py_launch_example my_script_launch.yaml
+
+      .. group-tab:: Python launch file
+
+        .. code-block:: console
+
+          $ ros2 launch py_launch_example my_script_launch.py
 
   .. group-tab:: C++ package
 
     .. tabs::
 
-      .. group-tab:: Python launch file
-
-        .. code-block:: console
-
-          ros2 launch cpp_launch_example my_script_launch.py
-
       .. group-tab:: XML launch file
 
         .. code-block:: console
 
-          ros2 launch cpp_launch_example my_script_launch.xml
+          $ ros2 launch cpp_launch_example my_script_launch.xml
 
       .. group-tab:: YAML launch file
 
         .. code-block:: console
 
-          ros2 launch cpp_launch_example my_script_launch.yaml
+          $ ros2 launch cpp_launch_example my_script_launch.yaml
+
+      .. group-tab:: Python launch file
+
+        .. code-block:: console
+
+          $ ros2 launch cpp_launch_example my_script_launch.py
 
 
 Documentation

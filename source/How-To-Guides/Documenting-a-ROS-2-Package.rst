@@ -38,7 +38,7 @@ To generate the documentation for a package in HTML format with ``rosdoc2``, run
 
 .. code-block:: console
 
-   rosdoc2 build --package-path <package-path>
+   $ rosdoc2 build --package-path <package-path>
 
 The documentation is written to ``docs_output/<package-name>/index.html`` and can be viewed in a browser.
 
@@ -61,7 +61,7 @@ To generate a default ``rosdoc2.yaml`` which you can then further customize, run
 
 .. code-block:: console
 
-   rosdoc2 default_config --package-path <package-path>
+   $ rosdoc2 default_config --package-path <package-path>
 
 And add ``<rosdoc2>rosdoc2.yaml</rosdoc2>`` to the export section in your ``package.xml``:
 
@@ -240,6 +240,6 @@ On each job page, you can see when a build was last triggered, as well as the st
 Further Reading
 ---------------
 
-* ``rosdoc2`` readme: https://github.com/ros-infrastructure/rosdoc2/blob/main/README.md
-* ROS 2 design document on package documentation: https://design.ros2.org/articles/per_package_documentation.html
-* The ROS 2 cookbook: https://github.com/mikeferguson/ros2_cookbook/blob/main/pages/rosdoc2.md
+* `rosdoc2 readme <https://github.com/ros-infrastructure/rosdoc2/blob/main/README.md>`_
+* `ROS 2 design document on package documentation <https://design.ros2.org/articles/per_package_documentation.html>`_
+* `The ROS 2 cookbook <https://github.com/mikeferguson/ros2_cookbook/blob/main/pages/rosdoc2.md>`_

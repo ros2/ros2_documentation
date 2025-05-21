@@ -23,7 +23,8 @@ Using Python Packages with ROS 2
 Installing via ``rosdep``
 -------------------------
 
-The fastest way to include third-party python packages is to use their corresponding rosdep keys, if available.  ``rosdep`` keys can be checked via:
+The fastest way to include third-party python packages is to use their corresponding rosdep keys, if available.
+``rosdep`` keys can be checked via:
 
 * https://github.com/ros/rosdistro/blob/master/rosdep/base.yaml
 * https://github.com/ros/rosdistro/blob/master/rosdep/python.yaml
@@ -33,32 +34,32 @@ In a new workspace, you can also quickly install all rosdep keys with:
 
 .. code-block:: console
 
-    rosdep install -yr ./path/to/your/workspace
+    $ rosdep install -yr --from-paths ./path/to/your/workspace
 
-If there aren’t currently ``rosdep`` keys for the package that you are interested in, it is possible to add them by following the `rosdep key contribution guide`_.
+If there aren't currently ``rosdep`` keys for the package that you are interested in, it is possible to add them by following the `rosdep key contribution guide`_.
 
 To learn more about the ``rosdep`` tool and how it works, consult the `rosdep documentation`_.
 
 Installing via a package manager
 --------------------------------
 
-If you don’t want to make a rosdep key, but the package is available in your system package manager (eg ``apt``), you can install and use the package that way:
+If you don't want to make a rosdep key, but the package is available in your system package manager (eg ``apt``), you can install and use the package that way:
 
 .. code-block:: console
 
-    sudo apt install python3-serial
+    $ sudo apt install python3-serial
 
 If the package is available on `The Python Package Index (PyPI) <https://pypi.org/>`_ and you want to install globally on your system:
 
-.. code-block::
+.. code-block:: console
 
-    python3 -m pip install -U pyserial
+    $ python3 -m pip install -U pyserial
 
 If the package is available on PyPI and you want to install locally to your user:
 
 .. code-block:: console
 
-    python3 -m pip install -U --user pyserial
+    $ python3 -m pip install -U --user pyserial
 
 Installing via a virtual environment
 ------------------------------------
@@ -67,32 +68,29 @@ First, create a Colcon workspace:
 
 .. code-block:: console
 
-    mkdir -p ~/colcon_venv/src
-    cd ~/colcon_venv/
+    $ mkdir -p ~/colcon_venv/src
+    $ cd ~/colcon_venv/
 
 Then setup your virtual environment:
 
 .. code-block:: console
 
-    # Make a virtual env and activate it
-    virtualenv -p python3 ./venv
-    source ./venv/bin/activate
-    # Make sure that colcon doesn’t try to build the venv
-    touch ./venv/COLCON_IGNORE
+    $ virtualenv -p python3 ./venv # Make a virtual env and activate it
+    $ source ./venv/bin/activate
+    $ touch ./venv/COLCON_IGNORE # Make sure that colcon does not try to build the venv
 
 Next, install the Python packages that you want in your virtual environment:
 
 .. code-block:: console
 
-    python3 -m pip install gtsam pyserial… etc
+    $ python3 -m pip install gtsam pyserial… etc
 
 Now you can build your workspace and run your python node that depends on packages installed in your virtual environment.
 
 .. code-block:: console
 
-    # Source {DISTRO_TITLE} and build
-    source /opt/ros/{DISTRO}/setup.bash
-    colcon build
+    $ source /opt/ros/{DISTRO}/setup.bash # Source {DISTRO_TITLE} and build
+    $ colcon build
 
 .. note::
 

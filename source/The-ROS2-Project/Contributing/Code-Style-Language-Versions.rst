@@ -51,7 +51,8 @@ All of the following modifications only apply if we are not writing Python modul
 
 * The stuff about documentation strings doesn't apply
 
-We can use the `pep7 <https://github.com/mike-perdide/pep7>`__ python module for style checking. The editor integration seems slim, we may need to look into automated checking for C in more detail.
+We can use the `pep7 <https://github.com/mike-perdide/pep7>`__ python module for style checking.
+The editor integration seems slim, we may need to look into automated checking for C in more detail.
 
 C++
 ---
@@ -75,11 +76,11 @@ Line Length
 File Extensions
 ~~~~~~~~~~~~~~~
 
-* Header files should use the .hpp extension.
+* Header files should use the ``.hpp`` extension.
 
   * rationale: Allow tools to determine content of files, C++ or C.
 
-* Implementation files should use the .cpp extension.
+* Implementation files should use the ``.cpp`` extension.
 
   * rationale: Allow tools to determine content of files, C++ or C.
 
@@ -166,9 +167,9 @@ Pointer Syntax Alignment
 Class Privacy Keywords
 ~~~~~~~~~~~~~~~~~~~~~~
 
-* Do not put 1 space before ``public:``, ``private:``, or ``protected:``, it is more consistent for all indentions to be a multiple of 2
+* Do not put 1 space before ``public:``, ``private:``, or ``protected:``, it is more consistent for all indentations to be a multiple of 2
 
-  * rationale: most editors don't like indentions which are not a multiple of the (soft) tab size
+  * rationale: most editors don't like indentations which are not a multiple of the (soft) tab size
   * Use zero spaces before ``public:``, ``private:``, or ``protected:``, or 2 spaces
   * If you use 2 spaces before, indent other class statements by 2 additional spaces
   * Prefer zero spaces, i.e. ``public:``, ``private:``, or ``protected:`` in the same column as the class
@@ -194,7 +195,9 @@ Open Versus Cuddled Braces
 
   * Exception: when an ``if`` (or ``while``, etc.) condition is long enough to require line-wrapping, then use an open brace (i.e., don't cuddle).
 
-* When a function call cannot fit on one line, wrap at the open parenthesis (not in between arguments) and start them on the next line with a 2-space indent.  Continue with the 2-space indent on subsequent lines for more arguments.  (Note that the `Google style guide <https://google.github.io/styleguide/cppguide.html#Function_Calls>`__ is internally contradictory on this point.)
+* When a function call cannot fit on one line, wrap at the open parenthesis (not in between arguments) and start them on the next line with a 2-space indent.
+  Continue with the 2-space indent on subsequent lines for more arguments.
+  (Note that the `Google style guide <https://google.github.io/styleguide/cppguide.html#Function_Calls>`__ is internally contradictory on this point.)
 
   * Same goes for ``if`` (and ``while``, etc.) conditions that are too long to fit on one line.
 
@@ -254,7 +257,7 @@ This is **not** OK:
    }
 
 
-Use open braces rather than excessive indention, e.g. for distinguishing constructor code from constructor initializer lists
+Use open braces rather than excessive indentation, e.g. for distinguishing constructor code from constructor initializer lists
 
 This is OK:
 
@@ -335,6 +338,20 @@ We chose the following more precise rule where PEP 8 leaves some freedom:
 * `We allow up to 100 characters per line (fifth paragraph) <https://www.python.org/dev/peps/pep-0008/#maximum-line-length>`_.
 * `We pick single quotes over double quotes as long as no escaping is necessary <https://www.python.org/dev/peps/pep-0008/#string-quotes>`_.
 * `We prefer hanging indents for continuation lines <https://www.python.org/dev/peps/pep-0008/#indentation>`_.
+* `We prefer splitting having only one import per line <https://peps.python.org/pep-0008/#imports>`_:
+
+  .. code-block:: python
+
+    # This is preferred
+    from typing import Dict
+    from typing import List
+
+    # over these
+    from typing import Dict, List
+    from typing import (
+      Dict,
+      List,
+    )
 
 Tools like the ``(ament_)pycodestyle`` Python package should be used in unit-test and/or editor integration for checking Python code style.
 
@@ -342,10 +359,10 @@ The pycodestyle configuration used in the linter is `here <https://github.com/am
 
 Integration with editors:
 
-* atom: https://atom.io/packages/linter-pycodestyle
-* emacs: https://www.emacswiki.org/emacs/PythonProgrammingInEmacs
-* Sublime Text: https://sublime.wbond.net/packages/SublimeLinter-flake8
-* vim: https://github.com/nvie/vim-flake8
+* `atom <https://atom.io/packages/linter-pycodestyle>`_
+* `emacs <https://www.emacswiki.org/emacs/PythonProgrammingInEmacs>`_
+* `Sublime Text <https://sublime.wbond.net/packages/SublimeLinter-flake8>`_
+* `vim <https://github.com/nvie/vim-flake8>`_
 
 CMake
 -----
@@ -364,24 +381,45 @@ Since there is not an existing CMake style guide we will define our own:
 * Use ``snake_case`` identifiers (variables, functions, macros).
 * Use empty ``else()`` and ``end...()`` commands.
 * No whitespace before ``(``\ 's.
-* Use two spaces of indention, do not use tabs.
-* Do not use aligned indentation for parameters of multi-line macro invocations. Use two spaces only.
+* Use two spaces of indentation, do not use tabs.
+* Do not use aligned indentation for parameters of multi-line macro invocations.
+  Use two spaces only.
 * Prefer functions with ``set(PARENT_SCOPE)`` to macros.
 * When using macros prefix local variables with ``_`` or a reasonable prefix.
 
 Markdown / reStructured Text / docblocks
 ----------------------------------------
 
-Style
-^^^^^
-
 The following rules to format text is intended to increase readability as well as versioning.
 
-* *[.md, .rst only]* Each section title should be preceded by one empty line and succeeded by one empty line.
+Any Doc Type
+^^^^^^^^^^^^
+
+* Each sentence must start on a new line.
+
+  * Rationale: For longer paragraphs a single change in the beginning makes the diff unreadable since it carries forward through the whole paragraph.
+
+* Each sentence can optionally be wrapped to keep each line short.
+* The lines should not have any trailing white spaces.
+
+Markdown or RST
+^^^^^^^^^^^^^^^
+
+* Each section title should be preceded by one empty line and succeeded by one empty line.
 
   * Rationale: It expedites to get an overview about the structure when screening the document.
 
-* *[.rst only]* In reStructured Text the headings should follow the hierarchy described in the `Sphinx style guide <https://documentation-style-guide-sphinx.readthedocs.io/en/latest/style-guide.html#headings>`__:
+* A code block must be preceded and succeeded by an empty line.
+
+  * Rationale: Whitespace is significant only directly before and directly after fenced code blocks.
+    Following these instructions will ensure that highlighting works properly and consistently.
+
+* A code block should specify a syntax (e.g. ``bash``).
+
+RST only
+^^^^^^^^
+
+* In reStructured Text the headings should follow the hierarchy described in the `Sphinx style guide <https://documentation-style-guide-sphinx.readthedocs.io/en/latest/style-guide.html#headings>`__:
 
   * ``#`` with overline (only once, used for the document title)
   * ``*`` with overline
@@ -391,22 +429,12 @@ The following rules to format text is intended to increase readability as well a
   * ``"``
   * Rationale: A consistent hierarchy expedites getting an idea about the nesting level when screening the document.
 
-* *[.md only]* In Markdown the headings should follow the ATX-style described in the `Markdown syntax documentation <https://daringfireball.net/projects/markdown/syntax#header>`__
+Markdown Only
+^^^^^^^^^^^^^
+
+* In Markdown the headings should follow the ATX-style described in the `Markdown syntax documentation <https://daringfireball.net/projects/markdown/syntax#header>`__
 
   * ATX-style headers use 1-6 hash characters (``#``) at the start of the line to denote header levels 1-6.
   * A space between the hashes and the header title should be used (such as ``# Heading 1``) to make it easier to visually separate them.
   * Justification for the ATX-style preference comes from the `Google Markdown style guide <https://github.com/google/styleguide/blob/gh-pages/docguide/style.md#atx-style-headings>`__
   * Rationale: ATX-style headers are easier to search and maintain, and make the first two header levels consistent with the other levels.
-
-* *[any]* Each sentence must start on a new line.
-
-  * Rationale: For longer paragraphs a single change in the beginning makes the diff unreadable since it carries forward through the whole paragraph.
-
-* *[any]* Each sentence can optionally be wrapped to keep each line short.
-* *[any]* The lines should not have any trailing white spaces.
-* *[.md, .rst only]* A code block must be preceded and succeeded by an empty line.
-
-  * Rationale: Whitespace is significant only directly before and directly after fenced code blocks.
-    Following these instructions will ensure that highlighting works properly and consistently.
-
-* *[.md, .rst only]* A code block should specify a syntax (e.g. ``bash``).

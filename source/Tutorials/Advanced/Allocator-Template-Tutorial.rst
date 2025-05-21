@@ -212,18 +212,13 @@ To run the example executable, use:
 
 .. code-block:: console
 
-     ros2 run demo_nodes_cpp allocator_tutorial
+     $ ros2 run demo_nodes_cpp allocator_tutorial
 
 or, to run the example with the intra-process pipeline on:
 
 .. code-block:: console
 
-     ros2 run demo_nodes_cpp allocator_tutorial intra
-
-You should get numbers like:
-
-.. code-block:: console
-
+     $ ros2 run demo_nodes_cpp allocator_tutorial intra
      Global new was called 15590 times during spin
      Global delete was called 15590 times during spin
      Allocator new was called 27284 times during spin
@@ -246,7 +241,7 @@ ROS 2 offers support for the TLSF (Two Level Segregate Fit) allocator, which was
 
 https://github.com/ros2/realtime_support/tree/{REPOS_FILE_BRANCH}/tlsf_cpp
 
-For more information about TLSF, see http://www.gii.upv.es/tlsf/
+For more information about TLSF, see `this page via Universitat Politècnica de València <http://www.gii.upv.es/tlsf/>`_.
 
 Note that the TLSF allocator is licensed under a dual-GPL/LGPL license.
 

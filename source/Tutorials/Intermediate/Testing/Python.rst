@@ -48,7 +48,8 @@ Example package layout:
 Test Contents
 -------------
 
-You can now write tests to your heart's content. There are `plenty of resources on pytest <https://docs.pytest.org>`__, but in short, you can write functions with the ``test_`` prefix and include whatever assert statements you'd like.
+You can now write tests to your heart's content.
+There are `plenty of resources on pytest <https://docs.pytest.org>`__, but in short, you can write functions with the ``test_`` prefix and include whatever assert statements you'd like.
 
 
 .. code-block:: python
@@ -70,10 +71,10 @@ For example, you can specify the name of the function to run with
 
 .. code-block:: console
 
-  colcon test --packages-select <name-of-pkg> --pytest-args -k name_of_the_test_function
+  $ colcon test --packages-select <name-of-pkg> --pytest-args -k name_of_the_test_function
 
 To see the pytest output while running the tests, use these flags:
 
 .. code-block:: console
 
-  colcon test --event-handlers console_cohesion+
+  $ colcon test --event-handlers console_cohesion+

@@ -39,21 +39,21 @@ Install colcon
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
+    .. code-block:: console
 
-        sudo apt install python3-colcon-common-extensions
+        $ sudo apt install python3-colcon-common-extensions
 
   .. group-tab:: macOS
 
-    .. code-block:: bash
+    .. code-block:: console
 
-        python3 -m pip install colcon-common-extensions
+        $ python3 -m pip install colcon-common-extensions
 
   .. group-tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: console
 
-        pip install -U colcon-common-extensions
+        $ pip install -U colcon-common-extensions
 
 
 Install ROS 2
@@ -73,7 +73,7 @@ Commonly there is a ``src`` subdirectory.
 Inside that subdirectory is where the source code of ROS packages will be located.
 Typically the directory starts otherwise empty.
 
-colcon does out of source builds.
+colcon performs out-of-source builds.
 By default it will create the following directories as peers of the ``src`` directory:
 
 * The ``build`` directory will be where intermediate files are stored.
@@ -93,24 +93,24 @@ First, create a directory (``ros2_ws``) to contain our workspace:
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
+    .. code-block:: console
 
-       mkdir -p ~/ros2_ws/src
-       cd ~/ros2_ws
+       $ mkdir -p ~/ros2_ws/src
+       $ cd ~/ros2_ws
 
   .. group-tab:: macOS
 
-    .. code-block:: bash
+    .. code-block:: console
 
-       mkdir -p ~/ros2_ws/src
-       cd ~/ros2_ws
+       $ mkdir -p ~/ros2_ws/src
+       $ cd ~/ros2_ws
 
   .. group-tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: console
 
-       md \dev\ros2_ws\src
-       cd \dev\ros2_ws
+       $ md \dev\ros2_ws\src
+       $ cd \dev\ros2_ws
 
 At this point the workspace contains a single empty directory ``src``:
 
@@ -126,9 +126,9 @@ Add some sources
 
 Let's clone the `examples <https://github.com/ros2/examples>`__ repository into the ``src`` directory of the workspace:
 
-.. code-block:: bash
+.. code-block:: console
 
-    git clone https://github.com/ros2/examples src/examples -b {REPOS_FILE_BRANCH}
+    $ git clone https://github.com/ros2/examples src/examples -b {REPOS_FILE_BRANCH}
 
 Now the workspace should have the source code to the ROS 2 examples:
 
@@ -149,7 +149,7 @@ Source an underlay
 ^^^^^^^^^^^^^^^^^^
 
 It is important that we have sourced the environment for an existing ROS 2 installation that will provide our workspace with the necessary build dependencies for the example packages.
-This is achieved by sourcing the setup script provided by a binary installation or a source installation, ie. another colcon workspace (see :doc:`Installation <../../Installation>`).
+This is achieved by sourcing the setup script provided by a binary installation or a source installation, i.e. another colcon workspace (see :doc:`Installation <../../Installation>`).
 We call this environment an **underlay**.
 
 Our workspace, ``ros2_ws``, will be an **overlay** on top of the existing ROS 2 installation.
@@ -172,19 +172,19 @@ This allows the installed files to be changed by changing the files in the ``sou
 
     .. code-block:: console
 
-      colcon build --symlink-install
+      $ colcon build --symlink-install
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      colcon build --symlink-install
+      $ colcon build --symlink-install
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      colcon build --symlink-install --merge-install
+      $ colcon build --symlink-install --merge-install
 
     Windows doesn't allow long paths, so ``merge-install`` will combine all the paths into the ``install`` directory.
 
@@ -213,13 +213,13 @@ To run tests for the packages we just built, run the following:
 
     .. code-block:: console
 
-      colcon test
+      $ colcon test
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      colcon test
+      $ colcon test
 
   .. group-tab:: Windows
 
@@ -227,7 +227,7 @@ To run tests for the packages we just built, run the following:
 
     .. code-block:: console
 
-      colcon test --merge-install
+      $ colcon test --merge-install
 
     You also need to specify ``--merge-install`` here since we used it for building above.
 
@@ -245,27 +245,29 @@ These files will add all of the required elements to your path and library paths
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
+    .. code-block:: console
 
-       source install/setup.bash
+       $ source install/setup.bash
 
   .. group-tab:: macOS
 
-    .. code-block:: bash
+    .. code-block:: console
 
-       . install/setup.bash
+       $ . install/setup.bash
 
   .. group-tab:: Windows
 
-    .. code-block:: bash
+    In a Windows command line interface:
 
-       call install\setup.bat
+    .. code-block:: console
+
+       $ call install\setup.bat
 
     Or with Powershell:
 
-    .. code-block:: bash
+    .. code-block:: console
 
-       install\setup.ps1
+       $ install\setup.ps1
 
 Try a demo
 ^^^^^^^^^^
@@ -273,15 +275,15 @@ Try a demo
 With the environment sourced, we can run executables built by colcon.
 Let's run a subscriber node from the examples:
 
-.. code-block:: bash
+.. code-block:: console
 
-    ros2 run examples_rclcpp_minimal_subscriber subscriber_member_function
+    $ ros2 run examples_rclcpp_minimal_subscriber subscriber_member_function
 
 In another terminal, let's run a publisher node (don't forget to source the setup script):
 
-.. code-block:: bash
+.. code-block:: console
 
-    ros2 run examples_rclcpp_minimal_publisher publisher_member_function
+    $ ros2 run examples_rclcpp_minimal_publisher publisher_member_function
 
 You should see messages from the publisher and subscriber with numbers incrementing.
 
@@ -299,6 +301,7 @@ An example of an ``ament_python`` build is the `ament_index_python package <http
 A package such as `demo_nodes_cpp <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/demo_nodes_cpp>`__ uses the ``ament_cmake`` build type, and uses CMake as the build tool.
 
 For convenience, you can use the tool ``ros2 pkg create`` to create a new package based on a template.
+A full description of creating a package and how to use ``ros2 pkg create`` is in the upcoming tutorial :doc:`create a package <./Creating-Your-First-ROS2-Package>`.
 
 .. note:: For ``catkin`` users, this is the equivalent of ``catkin_create_package``.
 
@@ -307,6 +310,7 @@ Setup ``colcon_cd``
 
 The command ``colcon_cd`` allows you to quickly change the current working directory of your shell to the directory of a package.
 As an example ``colcon_cd some_ros_package`` would quickly bring you to the directory ``~/ros2_ws/src/some_ros_package``.
+To set up ``colcon_cd`` you need to run the following commands to modify your shell startup script:
 
 .. tabs::
 
@@ -314,15 +318,15 @@ As an example ``colcon_cd some_ros_package`` would quickly bring you to the dire
 
       .. code-block:: console
 
-        echo "source /usr/share/colcon_cd/function/colcon_cd.sh" >> ~/.bashrc
-        echo "export _colcon_cd_root=/opt/ros/{DISTRO}/" >> ~/.bashrc
+        $ echo "source /usr/share/colcon_cd/function/colcon_cd.sh" >> ~/.bashrc
+        $ echo "export _colcon_cd_root=/opt/ros/{DISTRO}/" >> ~/.bashrc
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-        echo "source /usr/local/share/colcon_cd/function/colcon_cd.sh" >> ~/.bashrc
-        echo "export _colcon_cd_root=~/ros2_install" >> ~/.bashrc
+        $ echo "source /usr/local/share/colcon_cd/function/colcon_cd.sh" >> ~/.bashrc
+        $ echo "export _colcon_cd_root=~/ros2_install" >> ~/.bashrc
 
    .. group-tab:: Windows
 
@@ -340,12 +344,40 @@ The ``colcon-argcomplete`` package must be installed, and `some setup may be req
 Tips
 ----
 
-* If you do not want to build a specific package place an empty file named ``COLCON_IGNORE`` in the directory and it will not be indexed.
+* If you do not want to build a specific package, then place an empty file named ``COLCON_IGNORE`` in the directory and it will not be indexed.
 
 * If you want to avoid configuring and building tests in CMake packages you can pass: ``--cmake-args -DBUILD_TESTING=0``.
 
 * If you want to run a single particular test from a package:
 
-  .. code-block:: bash
+  .. code-block:: console
 
-     colcon test --packages-select YOUR_PKG_NAME --ctest-args -R YOUR_TEST_IN_PKG
+     $ colcon test --packages-select YOUR_PKG_NAME --ctest-args -R YOUR_TEST_IN_PKG
+
+Setup ``colcon`` mixins
+-----------------------
+
+Various command line options are tedious to write and/or difficult to remember.
+
+For example, to change the CMake build type to debug, you normally use:
+
+.. code-block:: console
+
+    $ colcon build --cmake-args -DCMAKE_BUILD_TYPE=Debug
+
+To make common command line options easier to invoke this repository makes these "shortcuts" available.
+
+To install the default colcon mixins, run the following:
+
+.. code-block:: console
+
+    $ colcon mixin add default https://raw.githubusercontent.com/colcon/colcon-mixin-repository/master/index.yaml
+    $ colcon mixin update default
+
+Then, try out using the ``debug`` mixin:
+
+.. code-block:: console
+
+    $ colcon build --mixin debug
+
+For more details, see  the `colcon mixin repository <https://github.com/colcon/colcon-mixin-repository>`__.

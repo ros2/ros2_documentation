@@ -22,7 +22,7 @@ Background
 
 When making your own :doc:`nodes <../Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` you will sometimes need to add parameters that can be set from the launch file.
 
-This tutorial will show you how to create those parameters in a Python class, and how to set them in a launch file.
+This tutorial will show you how to create those parameters in a Python class, and how to set them using launch file.
 
 Prerequisites
 -------------
@@ -45,7 +45,7 @@ Navigate into ``ros2_ws/src`` and create a new package:
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_python --license Apache-2.0 python_parameters --dependencies rclpy
+  $ ros2 pkg create --build-type ament_python --license Apache-2.0 python_parameters --dependencies rclpy
 
 Your terminal will return a message verifying the creation of your package ``python_parameters`` and all its necessary files and folders.
 
@@ -73,9 +73,9 @@ Inside the ``ros2_ws/src/python_parameters/python_parameters`` directory, create
 
     import rclpy
     from rclpy.executors import ExternalShutdownException
-    import rclpy.node
+    from rclpy.node import Node
 
-    class MinimalParam(rclpy.node.Node):
+    class MinimalParam(Node):
         def __init__(self):
             super().__init__('minimal_param_node')
 
@@ -120,7 +120,7 @@ Next the ``timer`` is initialized with a period of 1, which causes the ``timer_c
 
 .. code-block:: Python
 
-    class MinimalParam(rclpy.node.Node):
+    class MinimalParam(Node):
         def __init__(self):
             super().__init__('minimal_param_node')
 
@@ -175,7 +175,7 @@ For that to work, the ``__init__`` code has to be changed to:
 
     # ...
 
-    class MinimalParam(rclpy.node.Node):
+    class MinimalParam(Node):
         def __init__(self):
             super().__init__('minimal_param_node')
 
@@ -227,7 +227,7 @@ It's good practice to run ``rosdep`` in the root of your workspace (``ros2_ws``)
 
       .. code-block:: console
 
-        rosdep install -i --from-path src --rosdistro {DISTRO} -y
+        $ rosdep install -i --from-path src --rosdistro {DISTRO} -y
 
    .. group-tab:: macOS
 
@@ -245,19 +245,19 @@ Navigate back to the root of your workspace, ``ros2_ws``, and build your new pac
 
     .. code-block:: console
 
-      colcon build --packages-select python_parameters
+      $ colcon build --packages-select python_parameters
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      colcon build --packages-select python_parameters
+      $ colcon build --packages-select python_parameters
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      colcon build --merge-install --packages-select python_parameters
+      $ colcon build --merge-install --packages-select python_parameters
 
 Open a new terminal, navigate to ``ros2_ws``, and source the setup files:
 
@@ -267,58 +267,54 @@ Open a new terminal, navigate to ``ros2_ws``, and source the setup files:
 
     .. code-block:: console
 
-      source install/setup.bash
+      $ source install/setup.bash
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      . install/setup.bash
+      $ . install/setup.bash
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      call install/setup.bat
+      $ call install/setup.bat
 
-Now run the node:
-
-.. code-block:: console
-
-     ros2 run python_parameters minimal_param_node
-
-The terminal should return the following message every second:
+Now run the node.
+The terminal should return ``Hello world!`` every second:
 
 .. code-block:: console
 
+     $ ros2 run python_parameters minimal_param_node
     [INFO] [parameter_node]: Hello world!
 
 Now you can see the default value of your parameter, but you want to be able to set it yourself.
-There are two ways to accomplish this.
+There are four ways to accomplish this.
 
 3.1 Change via the console
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This part will use the knowledge you have gained from the :doc:`tutoral about parameters <../Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters>` and apply it to the node you have just created.
+This part will use the knowledge you have gained from the :doc:`tutorial about parameters <../Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters>` and apply it to the node you have just created.
 
 Make sure the node is running:
 
 .. code-block:: console
 
-     ros2 run python_parameters minimal_param_node
+     $ ros2 run python_parameters minimal_param_node
 
 Open another terminal, source the setup files from inside ``ros2_ws`` again, and enter the following line:
 
 .. code-block:: console
 
-    ros2 param list
+    $ ros2 param list
 
 There you will see the custom parameter ``my_parameter``.
 To change it, simply run the following line in the console:
 
 .. code-block:: console
 
-    ros2 param set /minimal_param_node my_parameter earth
+    $ ros2 param set /minimal_param_node my_parameter earth
 
 You know it went well if you get the output ``Set parameter successful``.
 If you look at the other terminal, you should see the output change to ``[INFO] [minimal_param_node]: Hello earth!``
@@ -332,24 +328,8 @@ You can also set parameters in a launch file, but first you will need to add a l
 Inside the ``ros2_ws/src/python_parameters/`` directory, create a new directory called ``launch``.
 In there, create a new file called ``python_parameters_launch.py``
 
-.. code-block:: Python
-
-  from launch import LaunchDescription
-  from launch_ros.actions import Node
-
-  def generate_launch_description():
-      return LaunchDescription([
-          Node(
-              package='python_parameters',
-              executable='minimal_param_node',
-              name='custom_minimal_param_node',
-              output='screen',
-              emulate_tty=True,
-              parameters=[
-                  {'my_parameter': 'earth'}
-              ]
-          )
-      ])
+.. literalinclude:: launch/python_parameters_launch.py
+  :language: python
 
 Here you can see that we set ``my_parameter`` to ``earth`` when we launch our node ``parameter_node``.
 By adding the two lines below, we ensure our output is printed in our console.
@@ -372,7 +352,7 @@ Add the ``import`` statements to the top of the file, and the other new statemen
       # ...
       data_files=[
           # ...
-          (os.path.join('share', package_name), glob('launch/*launch.[pxy][yma]*')),
+          (os.path.join('share', package_name, 'launch'), glob('launch/*')),
         ]
       )
 
@@ -384,19 +364,19 @@ Open a console and navigate to the root of your workspace, ``ros2_ws``, and buil
 
     .. code-block:: console
 
-      colcon build --packages-select python_parameters
+      $ colcon build --packages-select python_parameters
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      colcon build --packages-select python_parameters
+      $ colcon build --packages-select python_parameters
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      colcon build --merge-install --packages-select python_parameters
+      $ colcon build --merge-install --packages-select python_parameters
 
 Then source the setup files in a new terminal:
 
@@ -406,33 +386,44 @@ Then source the setup files in a new terminal:
 
     .. code-block:: console
 
-      source install/setup.bash
+      $ source install/setup.bash
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      . install/setup.bash
+      $ . install/setup.bash
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      call install/setup.bat
+      $ call install/setup.bat
 
 Now run the node using the launch file we have just created:
 
 .. code-block:: console
 
-     ros2 launch python_parameters python_parameters_launch.py
-
-The terminal should return the following message the first time:
-
-.. code-block:: console
-
+     $ ros2 launch python_parameters python_parameters_launch.py
     [INFO] [custom_minimal_param_node]: Hello earth!
 
 Further outputs should show  ``[INFO] [minimal_param_node]: Hello world!`` every second.
+
+3.3 Change via launch file loading parameters from YAML file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Instead of listing parameters and their values in launch file, you can create a separate YAML file that will be loaded in launch file.
+Placing parameters in a YAML file makes it easier to organize them, for example, by assigning them to different namespaces.
+You can read more about it :ref:`here <LoadingParametersFromYAMLFile>`.
+
+.. note::
+
+  While declaring, getting and setting parameter value inside your Python node, you should use dot as a separator between parameter's namespace and name.
+
+3.4 Change via passing YAML file as an argument at node startup
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Return to :ref:`tutorial about parameters <LoadParameterFileOnNodeStartup>` to remind yourself, how to load parameters file at node startup using CLI.
 
 Summary
 -------
@@ -444,3 +435,9 @@ Next steps
 ----------
 
 Now that you have some packages and ROS 2 systems of your own, the :doc:`next tutorial <./Getting-Started-With-Ros2doctor>` will show you how to examine issues in your environment and systems in case you have problems.
+
+Related content
+---------------
+
+* For more detailed information about using YAML files to load parameters, please refer to :ref:`this section <Parameters>` of Managing large projects tutorial.
+* If you want to learn, how to monitor and respond to parameter changes, check out :doc:`Monitoring for parameter changes (Python) <../Intermediate/Monitoring-For-Parameter-Changes-Python>` tutorial.

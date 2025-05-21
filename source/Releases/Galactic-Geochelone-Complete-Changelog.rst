@@ -5133,5 +5133,3 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Patch zstd 1.4.4 to include cmake_minimum_version bump to 2.8.12 (`#579 <https://github.com/ros2/rosbag2/issues/579>`__)
 * Update the package.xml files with the latest Open Robotics maintainers (`#535 <https://github.com/ros2/rosbag2/issues/535>`__)
 * Contributors: Emerson Knapp, Michael Jeronimo, Scott K Logan
-
-

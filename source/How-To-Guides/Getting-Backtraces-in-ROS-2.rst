@@ -98,9 +98,9 @@ Here's how to ensure your ROS2 code is ready for debugging:
 
 - By using ``--cmake-args``: The easiest way to include debug symbols is by adding ``--cmake-args -DCMAKE_BUILD_TYPE=Debug`` to your ``colcon build`` command:
 
-.. code-block:: bash
+.. code-block:: console
 
-  colcon build --packages-up-to <package_name> --cmake-args -DCMAKE_BUILD_TYPE=Debug
+  $ colcon build --packages-up-to <package_name> --cmake-args -DCMAKE_BUILD_TYPE=Debug
 
 - By editing ``CMakeLists.txt`` : Another way is to add ``-g`` to your compiler flags for the ROS package you want to profile / debug.
   This flag builds debug symbols that GDB can read to tell you specific lines of code in your project are failing and why.
@@ -113,9 +113,9 @@ Once your program crashes, it will return a gdb session prompt denoted by ``(gdb
 At this prompt you can access the information you're interested in.
 However, since this is a ROS project with lots of node configurations and other things going on, this isn't a great option for beginners or those that don't like tons of commandline work and understanding the filesystem.
 
-.. code-block:: bash
+.. code-block:: console
 
-  gdb ex run --args /path/to/exe/program
+  $ gdb ex run --args /path/to/exe/program
 
 Below are sections to describe the three major situations you could run into with ROS 2-based systems.
 Read the section that best describes the problem you're attempting to solve.
@@ -134,18 +134,18 @@ For GDB debugging, use it as follows:
 **Why Direct GDB Usage Can Be Tricky**
 
 ``--prefix`` will execute some bits of code before our ROS 2 command allowing us to insert some information.
-If you attempted to do ``gdb ex run --args ros2 run <pkg> <node>`` as analog to our example in the preliminaries, you’d find that it couldn’t find the ``ros2`` command.
+If you attempted to do ``gdb ex run --args ros2 run <pkg> <node>`` as analog to our example in the preliminaries, you'd find that it couldn't find the ``ros2`` command.
 Additionally, trying to source your workspace within GDB would fail for similar reasons.
 This is because GDB, when launched this way, lacks the environment setup that normally makes the ``ros2`` command available.
 
 **Simplifying the Process with --prefix**
 
 Rather than having to revert to finding the install path of the executable and typing it all out, we can instead use ``--prefix``.
-This allows us to use the same ``ros2 run`` syntax you’re used to without having to worry about some of the GDB details.
+This allows us to use the same ``ros2 run`` syntax you're used to without having to worry about some of the GDB details.
 
-.. code-block:: bash
+.. code-block:: console
 
-  ros2 run --prefix 'gdb -ex run --args' <pkg> <node> --all-other-launch arguments
+  $ ros2 run --prefix 'gdb -ex run --args' <pkg> <node> --all-other-launch arguments
 
 **The GDB Experience**
 
@@ -168,7 +168,7 @@ After you obtain a backtrace using GDB, here's how to interpret it:
 
 **How to Debug once your Node Crashes**
 
-Once your node crashes, you’ll see a prompt like below.
+Once your node crashes, you'll see a prompt like below.
 At this point you can get a backtrace.
 
 .. code-block:: bash
@@ -219,7 +219,7 @@ From a Launch File
 Just as in our non-ROS example, we need to setup a GDB session before launching our ROS 2 launch file.
 While we could set this up through the commandline, we can instead make use of the same mechanics that we did in the ``ros2 run`` node example, now using a launch file.
 
-In your launch file, find the node that you’re interested in debugging.
+In your launch file, find the node that you're interested in debugging.
 For this section, we assume that your launch file contains only a single node (and potentially other information as well).
 The ``Node`` function used in the ``launch_ros`` package will take in a field prefix taking a list of prefix arguments.
 We will insert the GDB snippet here.
@@ -232,7 +232,7 @@ We will insert the GDB snippet here.
 
   prefix=['xterm -e gdb -ex run --args']
 
-This will provide a more interactive debbuging experience.
+This will provide a more interactive debugging experience.
 Example usecase for debugging building upon ``'start_sync_slam_toolbox_node'`` -
 
 .. code-block:: python
@@ -321,29 +321,29 @@ Since the previous build type may be cached by CMake, clean the cache and rebuil
 
 .. code-block:: console
 
-  colcon build --cmake-clean-cache --mixin debug
+  $ colcon build --cmake-clean-cache --mixin debug
 
 In order for GDB to load debug symbols for any shared libraries called, make sure to source your environment.
 This configures the value of ``LD_LIBRARY_PATH``.
 
 .. code-block:: console
 
-  source install/setup.bash
+  $ source install/setup.bash
 
 Finally, run the test directly through GDB.
 For example:
 
 .. code-block:: console
 
-  gdb -ex run ./build/rcl/test/test_logging
+  $ gdb -ex run ./build/rcl/test/test_logging
 
 If the code is throwing an unhandled exception, you can catch it in GDB before gtest handles it.
 
 .. code-block:: console
 
-  gdb ./build/rcl/test/test_logging
-  catch throw
-  run
+  $ gdb ./build/rcl/test/test_logging
+  $ catch throw
+  $ run
 
 Automatic backtrace on crash
 ----------------------------

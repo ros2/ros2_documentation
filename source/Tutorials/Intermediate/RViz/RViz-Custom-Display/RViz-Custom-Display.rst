@@ -3,14 +3,17 @@ Building a Custom RViz Display
 
 Background
 ----------
-There are many types of data that have existing visualizations in RViz. However, if there is a message type that does
+There are many types of data that have existing visualizations in RViz.
+However, if there is a message type that does
 not yet have a plugin to display it, there are two choices to see it in RViz.
 
  1. Convert the message to another type, such as ``visualization_msgs/Marker``.
  2. Write a Custom RViz Display.
 
-With the first option, there is more network traffic and limitations to how the data can be represented. It is also quick and flexible.
-The latter option is explained in this tutorial. It takes a bit of work, but can lead to much richer visualizations.
+With the first option, there is more network traffic and limitations to how the data can be represented.
+It is also quick and flexible.
+The latter option is explained in this tutorial.
+It takes a bit of work, but can lead to much richer visualizations.
 
 All of the code for this tutorial can be found in `this repository <https://github.com/MetroRobots/rviz_plugin_tutorial>`__.
 In order to see the incremental progress of the plugin written in this tutorial,
@@ -143,10 +146,10 @@ Add the following lines to the top of the standard boilerplate.
      $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
      $<INSTALL_INTERFACE:include>
    )
-   ament_target_dependencies(point_display
-     pluginlib
-     rviz_common
-     rviz_plugin_tutorial_msgs
+   target_link_libraries(point_display PUBLIC
+     pluginlib::pluginlib
+     rviz_common::rviz_common
+     ${rviz_plugin_tutorial_msgs_TARGETS}
    )
    install(TARGETS point_display
            EXPORT export_rviz_plugin_tutorial
@@ -175,7 +178,7 @@ Add the following lines to the top of the standard boilerplate.
 
   .. code-block::
 
-     [rviz2]: PluginlibFactory: The plugin for class 'rviz_plugin_tutorial::PointDisplay' failed to load. Error: Failed to load library /home/ros/ros2_ws/install/rviz_plugin_tutorial/lib/libpoint_display.so. Make sure that you are calling the PLUGINLIB_EXPORT_CLASS macro in the library code, and that names are consistent between this macro and your XML. Error string: Could not load library LoadLibrary error: /home/ros/ros2_ws/install/rviz_plugin_tutorial/lib/libpoint_display.so: undefined symbol: _ZTVN20rviz_plugin_tutorial12PointDisplayE, at /tmp/binarydeb/ros-foxy-rcutils-1.1.4/src/shared_library.c:84
+     [ERROR] [1746734178.883047840] [rviz2]: PluginlibFactory: The plugin for class 'Point2D' failed to load. Error: Failed to load library /root/ros2_ws/install/rviz_plugin_tutorial/lib/libpoint_display.so. Make sure that you are calling the PLUGINLIB_EXPORT_CLASS macro in the library code, and that names are consistent between this macro and your XML. Error string: Could not load library dlopen error: /root/ros2_ws/install/rviz_plugin_tutorial/lib/libpoint_display.so: undefined symbol: _ZTVN20rviz_plugin_tutorial12PointDisplayE, at ./src/shared_library.c:96
 
 * A lot of the other code ensures that the plugin portion works.
   Namely, calling ``pluginlib_export_plugin_description_file`` is essential to getting RViz to find your new plugin.
@@ -188,29 +191,29 @@ You should be able to add your new plugin by clicking ``Add`` in the bottom left
 
 
 .. image:: images/Step1A.png
-   :target: images/Step1A.png
+   :target: ../../../../_images/Step1A.png
    :alt: screenshot of adding display
 
 
 Initially, the display will be in an error state because you have yet to assign a topic.
 
 .. image:: images/Step1B.png
-   :target: images/Step1B.png
+   :target: ../../../../_images/Step1B.png
    :alt: screenshot of error state
 
 
 If we put the topic ``/point`` in, it should load fine but not display anything.
 
 .. image:: images/Step1C.png
-   :target: images/Step1C.png
+   :target: ../../../../_images/Step1C.png
    :alt: screenshot of functioning empty display
 
 
 You can publish messages with the following command:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 topic pub /point rviz_plugin_tutorial_msgs/msg/Point2D "{header: {frame_id: map}, x: 1, y: 2}" -r 0.5
+   $ ros2 topic pub /point rviz_plugin_tutorial_msgs/msg/Point2D "{header: {frame_id: map}, x: 1, y: 2}" -r 0.5
 
 That should result in the "We got a message" logging to appear in the ``stdout`` of RViz.
 
@@ -224,7 +227,8 @@ First, you need to add a dependency in ``CMakeLists.txt`` and ``package.xml`` on
 We need to add three lines to the header file:
 
 
-* ``#include <rviz_rendering/objects/shape.hpp>`` - There's `lots of options in the rviz_rendering package <https://github.com/ros2/rviz/tree/ros2/rviz_rendering/include/rviz_rendering/objects>`_ for objects to build your visualization on. Here we're using a simple shape.
+* ``#include <rviz_rendering/objects/shape.hpp>`` - There's `lots of options in the rviz_rendering package <https://github.com/ros2/rviz/tree/ros2/rviz_rendering/include/rviz_rendering/objects>`_ for objects to build your visualization on.
+  Here we're using a simple shape.
 * In the class, we'll add a new ``protected`` virtual method: ``void onInitialize() override;``
 * We also add a pointer to our shape object: ``std::unique_ptr<rviz_rendering::Shape> point_shape_;``
 
@@ -276,7 +280,7 @@ We also update our ``processMessage`` method:
 The result should look like this:
 
 .. image:: images/Step2A.png
-   :target: images/Step2A.png
+   :target: ../../../../_images/Step2A.png
    :alt: screenshot of functioning display
 
 
@@ -340,14 +344,14 @@ Cpp Updates
 The result should look like this:
 
 .. image:: images/Step3A.png
-   :target: images/Step3A.png
+   :target: ../../../../_images/Step3A.png
    :alt: screenshot with color property
 
 
 Ooh, pink!
 
 .. image:: images/Step3B.png
-   :target: images/Step3B.png
+   :target: ../../../../_images/Step3B.png
    :alt: screenshot with changed color
 
 
@@ -375,13 +379,13 @@ In ``processMessage``:
 
 
 .. image:: images/Step4A.png
-   :target: images/Step4A.png
+   :target: ../../../../_images/Step4A.png
    :alt: screenshot with ok status
 
 
 
 .. image:: images/Step4B.png
-   :target: images/Step4B.png
+   :target: ../../../../_images/Step4B.png
    :alt: screenshot with warning status
 
 
@@ -407,11 +411,13 @@ First, we update the plugin declaration.
 * We add the ``name`` field to the ``class`` tag.
   This changes the name that is displayed in RViz.
   In code, it makes sense to call it a ``PointDisplay`` but in RViz, we want to simplify.
-* We put actual text into the description. Don't be lazy.
+* We put actual text into the description.
+  Don't be lazy.
 * By declaring the specific message type here, when you attempt to add a Display by Topic, it will suggest this plugin for the topics of that type.
 
 We also add an icon for the plugin at ``icons/classes/Point2D.png``.
-The folder is hardcoded, and the filename should match the name from the plugin declaration (or the name of the class if not specified). `[icon source] <https://commons.wikimedia.org/wiki/File:Free_software_icon.svg>`_
+The folder is hardcoded, and the filename should match the name from the plugin declaration (or the name of the class if not specified).
+`[icon source] <https://commons.wikimedia.org/wiki/File:Free_software_icon.svg>`_
 
 We need to install the image file in the CMake.
 
@@ -425,7 +431,7 @@ Now when you add the display, it should show up with an icon and description.
 
 
 .. image:: images/Step5A.png
-   :target: images/Step5A.png
+   :target: ../../../../_images/Step5A.png
    :alt: screenshot with added icon and description
 
 
@@ -433,7 +439,7 @@ Here is the display when attempting to add by topic:
 
 
 .. image:: images/Step5B.png
-   :target: images/Step5B.png
+   :target: ../../../../_images/Step5B.png
    :alt: screenshot with add by topic dialog
 
 
@@ -441,7 +447,7 @@ And finally, here's the icon in the standard interface:
 
 
 .. image:: images/Step5C.png
-   :target: images/Step5C.png
+   :target: ../../../../_images/Step5C.png
    :alt: screenshot with icon in standard interface
 
 

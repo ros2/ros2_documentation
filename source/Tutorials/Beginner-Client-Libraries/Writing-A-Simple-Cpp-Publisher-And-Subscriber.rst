@@ -46,7 +46,7 @@ So, navigate into ``ros2_ws/src``, and run the package creation command:
 
 .. code-block:: console
 
-    ros2 pkg create --build-type ament_cmake --license Apache-2.0 cpp_pubsub
+    $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 cpp_pubsub
 
 Your terminal will return a message verifying the creation of your package ``cpp_pubsub`` and all its necessary files and folders.
 
@@ -65,13 +65,13 @@ Download the example talker code by entering the following command:
 
       .. code-block:: console
 
-            wget -O publisher_lambda_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/lambda.cpp
+            $ wget -O publisher_lambda_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/lambda.cpp
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-            wget -O publisher_lambda_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/lambda.cpp
+            $ wget -O publisher_lambda_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/lambda.cpp
 
    .. group-tab:: Windows
 
@@ -79,13 +79,13 @@ Download the example talker code by entering the following command:
 
       .. code-block:: console
 
-            curl -sk https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/lambda.cpp -o publisher_lambda_function.cpp
+            $ curl -sk https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/lambda.cpp -o publisher_lambda_function.cpp
 
       Or in powershell:
 
       .. code-block:: console
 
-            curl https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/lambda.cpp -o publisher_lambda_function.cpp
+            $ curl https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/lambda.cpp -o publisher_lambda_function.cpp
 
 Now there will be a new file named ``publisher_lambda_function.cpp``.
 Open the file using your preferred text editor.
@@ -243,21 +243,21 @@ Make sure to save the file.
 Now open the ``CMakeLists.txt`` file.
 Below the existing dependency ``find_package(ament_cmake REQUIRED)``, add the lines:
 
-.. code-block:: console
+.. code-block:: cmake
 
     find_package(rclcpp REQUIRED)
     find_package(std_msgs REQUIRED)
 
 After that, add the executable and name it ``talker`` so you can run your node using ``ros2 run``:
 
-.. code-block:: console
+.. code-block:: cmake
 
     add_executable(talker src/publisher_lambda_function.cpp)
-    ament_target_dependencies(talker rclcpp std_msgs)
+    target_link_libraries(talker PUBLIC rclcpp::rclcpp ${std_msgs_TARGETS})
 
 Finally, add the ``install(TARGETS...)`` section so ``ros2 run`` can find your executable:
 
-.. code-block:: console
+.. code-block:: cmake
 
   install(TARGETS
     talker
@@ -265,7 +265,7 @@ Finally, add the ``install(TARGETS...)`` section so ``ros2 run`` can find your e
 
 You can clean up your ``CMakeLists.txt`` by removing some unnecessary sections and comments, so it looks like this:
 
-.. code-block:: console
+.. code-block:: cmake
 
   cmake_minimum_required(VERSION 3.5)
   project(cpp_pubsub)
@@ -284,7 +284,7 @@ You can clean up your ``CMakeLists.txt`` by removing some unnecessary sections a
   find_package(std_msgs REQUIRED)
 
   add_executable(talker src/publisher_lambda_function.cpp)
-  ament_target_dependencies(talker rclcpp std_msgs)
+  target_link_libraries(talker PUBLIC rclcpp::rclcpp ${std_msgs_TARGETS})
 
   install(TARGETS
     talker
@@ -306,13 +306,13 @@ Enter the following code in your terminal:
 
       .. code-block:: console
 
-            wget -O subscriber_lambda_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/lambda.cpp
+            $ wget -O subscriber_lambda_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/lambda.cpp
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-            wget -O subscriber_lambda_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/lambda.cpp
+            $ wget -O subscriber_lambda_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/lambda.cpp
 
    .. group-tab:: Windows
 
@@ -320,13 +320,13 @@ Enter the following code in your terminal:
 
       .. code-block:: console
 
-            curl -sk https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/lambda.cpp -o subscriber_lambda_function.cpp
+            $ curl -sk https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/lambda.cpp -o subscriber_lambda_function.cpp
 
       Or in powershell:
 
       .. code-block:: console
 
-            curl https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/lambda.cpp -o subscriber_lambda_function.cpp
+            $ curl https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/lambda.cpp -o subscriber_lambda_function.cpp
 
 Check to ensure that these files exist:
 
@@ -415,7 +415,7 @@ Reopen ``CMakeLists.txt`` and add the executable and target for the subscriber n
 .. code-block:: cmake
 
   add_executable(listener src/subscriber_lambda_function.cpp)
-  ament_target_dependencies(listener rclcpp std_msgs)
+  target_link_libraries(listener PUBLIC rclcpp::rclcpp ${std_msgs_TARGETS})
 
   install(TARGETS
     talker
@@ -437,7 +437,7 @@ It's good practice to run ``rosdep`` in the root of your workspace (``ros2_ws``)
 
       .. code-block:: console
 
-            rosdep install -i --from-path src --rosdistro {DISTRO} -y
+            $ rosdep install -i --from-path src --rosdistro {DISTRO} -y
 
    .. group-tab:: macOS
 
@@ -456,19 +456,19 @@ Still in the root of your workspace, ``ros2_ws``, build your new package:
 
     .. code-block:: console
 
-      colcon build --packages-select cpp_pubsub
+      $ colcon build --packages-select cpp_pubsub
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      colcon build --packages-select cpp_pubsub
+      $ colcon build --packages-select cpp_pubsub
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      colcon build --merge-install --packages-select cpp_pubsub
+      $ colcon build --merge-install --packages-select cpp_pubsub
 
 Open a new terminal, navigate to ``ros2_ws``, and source the setup files:
 
@@ -478,51 +478,43 @@ Open a new terminal, navigate to ``ros2_ws``, and source the setup files:
 
     .. code-block:: console
 
-      . install/setup.bash
+      $ . install/setup.bash
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      . install/setup.bash
+      $ . install/setup.bash
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      call install/setup.bat
+      $ call install/setup.bat
 
-Now run the talker node:
-
-.. code-block:: console
-
-     ros2 run cpp_pubsub talker
-
+Now run the talker node.
 The terminal should start publishing info messages every 0.5 seconds, like so:
 
 .. code-block:: console
 
-    [INFO] [minimal_publisher]: Publishing: "Hello World: 0"
-    [INFO] [minimal_publisher]: Publishing: "Hello World: 1"
-    [INFO] [minimal_publisher]: Publishing: "Hello World: 2"
-    [INFO] [minimal_publisher]: Publishing: "Hello World: 3"
-    [INFO] [minimal_publisher]: Publishing: "Hello World: 4"
+     $ ros2 run cpp_pubsub talker
+     [INFO] [minimal_publisher]: Publishing: "Hello World: 0"
+     [INFO] [minimal_publisher]: Publishing: "Hello World: 1"
+     [INFO] [minimal_publisher]: Publishing: "Hello World: 2"
+     [INFO] [minimal_publisher]: Publishing: "Hello World: 3"
+     [INFO] [minimal_publisher]: Publishing: "Hello World: 4"
 
-Open another terminal, source the setup files from inside ``ros2_ws`` again, and then start the listener node:
-
-.. code-block:: console
-
-     ros2 run cpp_pubsub listener
-
-The listener will start printing messages to the console, starting at whatever message count the publisher is on at that time, like so:
+Open another terminal, source the setup files from inside ``ros2_ws`` again, and then start the listener node.
+The listener will start printing messages to the console, starting at whatever message count the publisher is on at that time:
 
 .. code-block:: console
 
-  [INFO] [minimal_subscriber]: I heard: "Hello World: 10"
-  [INFO] [minimal_subscriber]: I heard: "Hello World: 11"
-  [INFO] [minimal_subscriber]: I heard: "Hello World: 12"
-  [INFO] [minimal_subscriber]: I heard: "Hello World: 13"
-  [INFO] [minimal_subscriber]: I heard: "Hello World: 14"
+     $ ros2 run cpp_pubsub listener
+     [INFO] [minimal_subscriber]: I heard: "Hello World: 10"
+     [INFO] [minimal_subscriber]: I heard: "Hello World: 11"
+     [INFO] [minimal_subscriber]: I heard: "Hello World: 12"
+     [INFO] [minimal_subscriber]: I heard: "Hello World: 13"
+     [INFO] [minimal_subscriber]: I heard: "Hello World: 14"
 
 Enter ``Ctrl+C`` in each terminal to stop the nodes from spinning.
 

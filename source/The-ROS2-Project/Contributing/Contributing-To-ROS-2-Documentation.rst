@@ -13,7 +13,7 @@ Contributions to this site are most welcome.
 This page explains how to contribute to ROS 2 Documentation.
 Please be sure to read the below sections carefully before contributing.
 
-The site is built using `Sphinx <https://www.sphinx-doc.org/en/master/>`_, and more particularly using `Sphinx multiversion <https://holzhaus.github.io/sphinx-multiversion/master/index.html>`_.
+The site is built using `Sphinx <https://www.sphinx-doc.org/en/master/>`_, and more particularly using `Sphinx multiversion <https://sphinx-contrib.github.io/multiversion/main/index.html>`_.
 
 Branch structure
 ----------------
@@ -33,29 +33,34 @@ The root directory contains configuration and files required to locally build th
 Building the site locally
 -------------------------
 
-Start by installing requirements located in the ``requirements.txt`` file:
+Start by creating `venv <https://docs.python.org/3/library/venv.html>`__ to build the documentation:
+
+.. code-block:: console
+
+   $ python3 -m venv ros2doc  # create venv
+   $ source ros2doc/bin/activate  # activate venv
+
+And install requirements located in the ``requirements.txt`` file:
 
 .. tabs::
 
   .. group-tab:: Linux
 
-    The next command does a user-specific install, which requires ``~/.local/bin/`` to be added to ``$PATH``:
-
     .. code-block:: console
 
-       pip3 install --user --upgrade -r requirements.txt
+       $ pip install -r requirements.txt -c constraints.txt
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-       pip3 install --user --upgrade -r requirements.txt
+       $ pip install -r requirements.txt -c constraints.txt
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      python -m pip install --user --upgrade -r requirements.txt
+      $ python -m pip install -r requirements.txt -c constraints.txt
 
 In order for Sphinx to be able to generate diagrams, the ``dot`` command must be available.
 
@@ -65,13 +70,13 @@ In order for Sphinx to be able to generate diagrams, the ``dot`` command must be
 
     .. code-block:: console
 
-       sudo apt update ; sudo apt install graphviz
+       $ sudo apt update ; sudo apt install graphviz
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      brew install graphviz
+      $ brew install graphviz
 
   .. group-tab:: Windows
 
@@ -86,16 +91,44 @@ This is the recommended way to test out local changes.
 
 .. code-block:: console
 
-   make html
+   $ make html
 
 The build process can take some time.
 To see the output, open ``build/html/index.html`` in your browser.
 
-You can also run the documentation tests locally (using `doc8 <https://github.com/PyCQA/doc8>`_) with the following command:
+
+Checking / Testing the site
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can run the documentation tests locally (using `doc8 <https://github.com/PyCQA/doc8>`_) with the following command:
 
 .. code-block:: console
 
-   make test
+   $ make test
+
+You can run the Python documentation tools tests locally (using `pytest <https://docs.pytest.org/en/stable/>`_) with the following command:
+
+.. code-block:: console
+
+   $ make test-tools
+
+You can run the documentation linter locally (using `sphinx-lint <https://github.com/sphinx-contrib/sphinx-lint>`_) with the following command:
+
+.. code-block:: console
+
+   $ make lint
+
+You can run the documentation spell checker locally (using `codespell <https://github.com/codespell-project/codespell>`_) with the following command:
+
+.. code-block:: console
+
+   $ make spellcheck
+
+.. note::
+
+   If that detects specific words that need to be ignored, add it to `codespell_whitelist <https://github.com/ros2/ros2_documentation/blob/{REPOS_FILE_BRANCH}/codespell_whitelist.txt>`_ .
+
+To know more about spelling checks, refer to :ref:`Spelling check <spelling-check>`
 
 View Site Through Github CI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -134,9 +167,42 @@ To check for broken links on the site, run:
 
 .. code-block:: console
 
-   make linkcheck
+   $ make linkcheck
 
 This will check the entire site for broken links, and output the results to the screen and ``build/linkcheck``.
+
+.. _spelling-check:
+
+Spelling check
+^^^^^^^^^^^^^^
+
+The ``make spellcheck`` command scans the documentation files and flags any misspellings.
+If errors are detected, review the suggestions and update the pull request as necessary.
+
+Some words, such as technical terms or proper nouns, maybe mistakenly flagged as misspelled.
+If you encounter such instances, you can add them to the ignore list to prevent them from being flagged in the future.
+To do this, add it to the `codespell_whitelist <https://github.com/ros2/ros2_documentation/blob/{REPOS_FILE_BRANCH}/codespell_whitelist.txt>`_ file as follows:
+
+.. code-block:: text
+
+   empy
+   jupyter
+   lets
+   ws
+
+To include custom corrections that ``codespell`` should apply, you can add them to the `codespell_dictionary <https://github.com/ros2/ros2_documentation/blob/{REPOS_FILE_BRANCH}/codespell_dictionary.txt>`_ file as follows:
+
+.. code-block:: text
+
+   amnet->ament
+   colcn->colcon
+   rosabg->rosbag
+   rosdistroy->rosdistro
+
+To check the dictionaries, you can run the ``make check-dictionaries`` command.
+This will check the blank lines and leading/trailing spaces in the dictionaries.
+If it complains about the dictionaries, you can run the ``make sort-dictionaries`` command.
+This command will automatically modify the dictionaries if any issues are found.
 
 Migrating Pages from the ROS Wiki
 ---------------------------------
@@ -165,9 +231,11 @@ We've found that the easiest way to migrate a page from the ROS Wiki is to conve
 Migrating a Wiki File
 ^^^^^^^^^^^^^^^^^^^^^
 
-#. Clone the appropriate repository.  If you are migrating a page to the official documentation hosted here, then you should clone https://github.com/ros2/ros2_documentation.
+#. Clone the appropriate repository.
+   If you are migrating a page to the official documentation hosted here, then you should clone https://github.com/ros2/ros2_documentation.
 
-#. Create a new Github branch for your migrated page. We suggest something like ``pagename-migration``.
+#. Create a new Github branch for your migrated page.
+   We suggest something like ``pagename-migration``.
 
 #. Download the appropriate ROS Wiki page to an html file using wget or a similar tool (e.g. ``wget -O urdf.html https://wiki.ros.org/urdf``).
    Alternatively you can use your web browser to save the page's HTML.
@@ -175,10 +243,11 @@ Migrating a Wiki File
 #. Next you need to remove the extraneous HTML in the file you downloaded
    Using your browser's developer mode, find the name of the first useful HTML element in the Wiki page.
    In most cases all of the HTML between the third line of the file, starting with the ``<head>`` tag, through the start of the first ``<h1>`` tag can be safely removed.
-   In the case where there is a table of contents, the first useful tag may be an ``<h2>`` tag.  Similarly, the ROS wiki contains some footer text that starts with ``<div id="pagebottom"></div>`` and ends just above ``</body></html>`` that can also be removed.
+   In the case where there is a table of contents, the first useful tag may be an ``<h2>`` tag.
+   Similarly, the ROS wiki contains some footer text that starts with ``<div id="pagebottom"></div>`` and ends just above ``</body></html>`` that can also be removed.
 
 #. Convert your html file by running a PanDoc conversion between HTML and restructured text.
-   The following command coverts an HTML file to the equivalent reStructured text files: ``pandoc -f html -t rst urdf.html > URDF.rst``.
+   The following command converts an HTML file to the equivalent reStructured text files: ``pandoc -f html -t rst urdf.html > URDF.rst``.
 
 #. Attempt to build your new documentation using the ``make html`` command.
    There may be errors and warnings that you will need to address.
@@ -190,11 +259,13 @@ Migrating a Wiki File
    This process may require you alter the document considerably, and you may need to pull multiple wiki files.
    You should verify that every code sample in the document is working correctly under ROS 2.
 
-#. Find and download any images that may be in the old document. The easiest way to do this is to right click in the browser and download all of the images. Alternatively you can find images by searching for ``<img src>`` tags in the HTML file.
+#. Find and download any images that may be in the old document.
+   The easiest way to do this is to right click in the browser and download all of the images.
+   Alternatively you can find images by searching for ``<img src>`` tags in the HTML file.
 
 #. For each image files downloaded update the image file links to point to the correct image directory for the ROS Docs.
    If any of the images require updating, or could be replaced with a `Mermaid <https://mermaid.js.org/intro/>`__ chart, please make this change.
-   Be aware that Mermaid.js is only supported in the core ROS 2 documenation currently.
+   Be aware that Mermaid.js is only supported in the core ROS 2 documentation currently.
 
 #. Once your document is complete add a table of contents to the top of your new rst document using the appropriate Sphinx commands.
    This block should replace any existing table of contents from the old ROS Wiki.
@@ -218,13 +289,14 @@ After that, you can open the repository in Codespaces, it can be done just by cl
    :alt: Codespaces creation
 
 After that, you will be redirected to your Codespaces page, where you can see the progress of the Codespaces creation.
-Once it is done, a Visual Studio Code tab will be opened in your browser. You can open the terminal by clicking on the "Terminal" tab in the top panel or by pressing :kbd:`Ctrl-J`.
+Once it is done, a Visual Studio Code tab will be opened in your browser.
+You can open the terminal by clicking on the "Terminal" tab in the top panel or by pressing :kbd:`Ctrl-J`.
 
 In this terminal, you can run any command you want, for example, you can run the following command to build the site for just this branch:
 
 .. code-block:: console
 
-   make html
+   $ make html
 
 Finally, to view the site, you can click on the "Go Live" button in the right bottom panel and then, it will open the site in a new tab in your browser (you will need to browse to the ``build/html`` folder).
 
@@ -232,12 +304,48 @@ Finally, to view the site, you can click on the "Go Live" button in the right bo
    :width: 100%
    :alt: Live Server
 
+Building the Site with Devcontainer
+-----------------------------------
+
+`ROS 2 Documentation GitHub repository <https://github.com/ros2/ros2_documentation>`__ also supports ``Devcontainer`` development environment with Visual Studio Code.
+This will enable you to build the documentation much easier without changing your operating system.
+
+See :doc:`../../How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container` to install VS Code and Docker before the following procedure.
+
+Clone repository and start VS Code:
+
+.. code-block:: console
+
+   $ git clone https://github.com/ros2/ros2_documentation
+   $ cd ./ros2_documentation
+   $ code .
+
+To use ``Devcontainer``, you need to install "Remote Development" Extension within VS Code search in Extensions (CTRL+SHIFT+X) for it.
+
+And then, use ``View->Command Palette...`` or ``Ctrl+Shift+P`` to open the command palette.
+Search for the command ``Dev Containers: Reopen in Container`` and execute it.
+This will build your development docker container for you automatically.
+
+To build the documentation, open a terminal using ``View->Terminal`` or ``Ctrl+Shift+``` and ``New Terminal`` in VS Code.
+Inside the terminal, you can build the documentation:
+
+.. code-block:: console
+
+   $ make html
+
+.. image:: images/vscode_devcontainer.png
+   :width: 100%
+   :alt: VS Code Devcontainer
 
 Writing pages
 -------------
 
 The ROS 2 documentation website uses the ``reStructuredText`` format, which is the default plaintext markup language used by Sphinx.
 This section is a brief introduction to ``reStructuredText`` concepts, syntax, and best practices.
+When formatting your ``reStructuredText`` file **please make sure to write only one sentence per line as it makes reviewing and modifying your file much easier.**
+Also, be mindful of the use of white space in your file!
+The ROS 2 documentation linter will not accept pull requests with trailing white space.
+We recommend that you enable automatic white space highlighting and or cleanup if your editor supports it.
 
 You can refer to `reStructuredText User Documentation <https://docutils.sourceforge.io/rst.html>`_ for a detailed technical specification.
 
@@ -318,7 +426,7 @@ In-text code can be formatted using ``backticks`` for showing ``highlighted`` co
 
    In-text code can be formatted using ``backticks`` for showing ``highlighted`` code.
 
-Code blocks inside a page need to be captured using ``.. code-block::`` directive.
+Code blocks inside a page need to be captured using ``.. code-block::`` `directives <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-code-block>`_.
 ``.. code-block::`` supports code highlighting for syntaxes like ``C++``, ``YAML``, ``console``, ``bash``, and more.
 Code inside the directive needs to be indented.
 
@@ -334,6 +442,85 @@ Code inside the directive needs to be indented.
          return 0;
       }
 
+Code blocks: ``bash`` vs. ``console``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+``bash`` and ``console`` are similar, but they serve two different purposes.
+Choosing the right one is important to ensure that the content is formatted correctly and that the copy button copies the right content.
+Below is an explanation of each one; skip to the end of this section for a list of use-cases and corresponding examples.
+
+``bash`` is meant for scripts, e.g., for bash commands from a script file.
+Example result:
+
+.. code-block:: bash
+
+   export ROS_DOMAIN_ID=42
+   ros2 run turtlesim turtlesim_node
+
+``console`` is meant for commands to be run in a terminal, optionally including their output.
+This makes it clear that the given commands need to be run in a terminal.
+It also allows separating command lines from output lines using prompt symbols such as ``$`` or ``#``.
+Command lines are formatted as bash commands while output lines are formatted as normal text.
+The prompt symbol is not selectable, and clicking on the copy button in the upper right-hand corner copies *only* the commands, not the outputs nor the prompt symbols.
+This means that, if a ``console`` code block is used without any ``$``, the copy button will not copy any lines.
+Example result:
+
+.. code-block:: console
+
+   $ export ROS_DOMAIN_ID=42
+   $ ros2 run turtlesim turtlesim_node --ros-args --remap "__node:=my_turtle"
+   [INFO] [1742150439.022947971] [my_turtle]: Starting turtlesim with node name /my_turtle
+   [INFO] [1742150439.026043867] [my_turtle]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
+
+Compare the above with a ``bash`` ``code-block``:
+
+.. code-block:: bash
+
+   $ export ROS_DOMAIN_ID=42
+   $ ros2 run turtlesim turtlesim_node --ros-args --remap "__node:=my_turtle"
+   [INFO] [1742150439.022947971] [my_turtle]: Starting turtlesim with node name /my_turtle
+   [INFO] [1742150439.026043867] [my_turtle]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
+
+To simplify code blocks, ``bash`` can still be used without ``$`` for commands meant to be run in a terminal if the code block does not include any output lines.
+
+To help choose between ``bash`` and ``console``, see the following list of use-cases and corresponding examples:
+
+#. Commands meant to be copied into a script file
+
+   * Use ``.. code-block:: bash`` without ``$``:
+
+      .. code-block:: bash
+
+         export ROS_DOMAIN_ID=42
+         ros2 run turtlesim turtlesim_node
+
+#. Commands meant to be run in a terminal *without* any output lines
+
+   * Use ``.. code-block:: bash`` without ``$``:
+
+      .. code-block:: bash
+
+         source /opt/ros/{DISTRO}/setup.bash
+         ros2 run turtlesim turtlesim_node
+
+   * Or use ``.. code-block:: console`` with ``$`` on all command lines, i.e., all lines:
+
+      .. code-block:: console
+
+         $ source /opt/ros/{DISTRO}/setup.bash
+         $ ros2 run turtlesim turtlesim_node
+
+#. Commands meant to be run in a terminal *with* output lines
+
+   * Use ``.. code-block:: console`` with ``$`` on all command lines:
+
+      .. code-block:: console
+
+         $ source /opt/ros/{DISTRO}/setup.bash
+         $ ros2 run turtlesim turtlesim_node
+         [INFO] [1743878028.269334696] [turtlesim]: Starting turtlesim with node name /turtlesim
+         [INFO] [1743878028.275096618] [turtlesim]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
+
 Images
 ^^^^^^
 
@@ -342,6 +529,23 @@ Images can be inserted using the ``.. image::`` directive.
 .. code-block:: rst
 
    .. image:: images/turtlesim_follow1.png
+
+In this case, the image file (``turtlesim_follow1.png``) is located in the ``images/`` directory relative to the ``.rst`` file that uses the image.
+
+However, all image files end up in an ``_images/`` directory relative to the root of the docs.
+Therefore, when using ``:target:`` to add a hyperlink to the image file, use a relative link going up to the root directory and then down to the ``_images/`` directory.
+
+.. code-block:: rst
+
+   .. image:: images/turtlesim_follow1.png
+      :target: ../../_images/turtlesim_follow1.png
+
+Charts, Graphs, and Diagrams
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ROS 2 Documentation now supports charts, graphs, and diagrams written using `Mermaid Charts. <https://mermaid.js.org/intro/>`__
+We prefer that charts, graphs, and diagrams use Mermaid instead of static image files as it allows us to programmatically update and edit these resources as the project evolves.
+Full documentation of the `Mermaid graph language syntax can be found on their website. <https://mermaid.js.org/intro/syntax-reference.html>`__
 
 References and Links
 ^^^^^^^^^^^^^^^^^^^^
@@ -398,14 +602,35 @@ Macros can be used to simplify writing documentation that targets multiple distr
 Use a macro by including the macro name in curly braces.
 For example, when generating the docs for Rolling on the ``rolling`` branch:
 
+.. list-table::
+   :header-rows: 1
 
-=====================  =====================  ==================================
-Use                    Becomes (for Rolling)  Example
-=====================  =====================  ==================================
-\{DISTRO\}             rolling                ros-\{DISTRO\}-pkg
-\{DISTRO_TITLE\}       Rolling                ROS 2 \{DISTRO_TITLE\}
-\{DISTRO_TITLE_FULL\}  Rolling Ridley         ROS 2 \{DISTRO_TITLE_FULL\}
-\{REPOS_FILE_BRANCH\}  rolling                git checkout \{REPOS_FILE_BRANCH\}
-=====================  =====================  ==================================
+   * - Macro
+     - Example
+     - Becomes (for {DISTRO_TITLE})
+   * - \{DISTRO\}
+     - ros-\{DISTRO\}-pkg
+     - ros-{DISTRO}-pkg
+   * - \{DISTRO_TITLE\}
+     - ROS 2 \{DISTRO_TITLE\}
+     - ROS 2 {DISTRO_TITLE}
+   * - \{DISTRO_TITLE_FULL\}
+     - ROS 2 \{DISTRO_TITLE_FULL\}
+     - ROS 2 {DISTRO_TITLE_FULL}
+   * - \{REPOS_FILE_BRANCH\}
+     - git checkout \{REPOS_FILE_BRANCH\}
+     - git checkout {REPOS_FILE_BRANCH}
+   * - \{interface_link(std_msgs/msg/String)\}
+     - See: \{interface_link(std_msgs/msg/String)\}.
+     - See: {interface_link(std_msgs/msg/String)}.
+   * - \{interface(std_msgs/msg/String)\}
+     - Publish a \{interface(std_msgs/msg/String)\}.
+     - Publish a {interface(std_msgs/msg/String)}.
+   * - \{package_link(rclcpp)\}
+     - See: \{package_link(rclcpp)\}.
+     - See: {package_link(rclcpp)}.
+   * - \{package(rclcpp)\}
+     - Use \{package(rclcpp)\}.
+     - Use {package(rclcpp)}.
 
 The same file can be used on multiple branches (i.e., for multiple distros) and the generated content will be distro-specific.

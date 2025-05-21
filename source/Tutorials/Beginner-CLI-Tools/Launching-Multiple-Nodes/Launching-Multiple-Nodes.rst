@@ -38,6 +38,8 @@ You also won't be able to use the ``sudo apt install ros-<distro>-<package>`` co
 
 If you are using Linux and are not already familiar with the shell, `this tutorial <https://www.linux.com/training-tutorials/bash-101-working-cli/>`__ will help.
 
+As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../Configuring-ROS2-Environment>`.
+
 Tasks
 -----
 
@@ -48,24 +50,12 @@ Open a new terminal and run:
 
 .. code-block:: console
 
-   ros2 launch turtlesim multisim.launch.py
+   $ ros2 launch turtlesim multisim.launch.py
 
 This command will run the following launch file:
 
-.. code-block:: python
-
-   # turtlesim/launch/multisim.launch.py
-
-   from launch import LaunchDescription
-   import launch_ros.actions
-
-   def generate_launch_description():
-       return LaunchDescription([
-           launch_ros.actions.Node(
-               namespace= "turtlesim1", package='turtlesim', executable='turtlesim_node', output='screen'),
-           launch_ros.actions.Node(
-               namespace= "turtlesim2", package='turtlesim', executable='turtlesim_node', output='screen'),
-       ])
+.. literalinclude:: launch/multisim.launch.py
+   :language: python
 
 .. note::
 
@@ -89,13 +79,13 @@ In the second terminal:
 
 .. code-block:: console
 
-   ros2 topic pub  /turtlesim1/turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
+   $ ros2 topic pub  /turtlesim1/turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
 
 In the third terminal:
 
 .. code-block:: console
 
-   ros2 topic pub  /turtlesim2/turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -1.8}}"
+   $ ros2 topic pub  /turtlesim2/turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -1.8}}"
 
 After running these commands, you should see something like the following:
 

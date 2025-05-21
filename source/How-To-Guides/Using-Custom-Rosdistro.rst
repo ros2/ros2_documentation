@@ -47,15 +47,15 @@ This can be accomplished using the script as follows.
 If running on a local host, you may need to include ``sudo``.
 This will update list to use our tagged branch rather than the master branch.
 
-.. code-block:: bash
+.. code-block:: console
 
-    sed -i "s|ros\/rosdistro\/master|ros\/rosdistro\/rolling\/2024-02-28|" /etc/ros/rosdep/sources.list.d/20-default.list
+    $ sed -i "s|ros\/rosdistro\/master|ros\/rosdistro\/rolling\/2024-02-28|" /etc/ros/rosdep/sources.list.d/20-default.list
 
 After, we must now update the environment variable ``ROSDISTRO_INDEX_URL`` to point to our new rosdistro index.
 
-.. code-block:: bash
+.. code-block:: console
 
-    export ROSDISTRO_INDEX_URL=https://raw.githubusercontent.com/ros/rosdistro/rolling/2024-02-28/index-v4.yaml
+    $ export ROSDISTRO_INDEX_URL=https://raw.githubusercontent.com/ros/rosdistro/rolling/2024-02-28/index-v4.yaml
 
 If you plan to use this on a local host for a long time, it may be wise to include this in your ``~/.bashrc`` so that all new terminals do this automatically.
 The ``v4`` in our index points to a new version of the index format.

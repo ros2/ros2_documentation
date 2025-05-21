@@ -44,13 +44,13 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the exampl
 
         .. code-block:: console
 
-            wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py
+            $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py
 
     .. group-tab:: macOS
 
         .. code-block:: console
 
-            wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py
+            $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py
 
     .. group-tab:: Windows
 
@@ -58,13 +58,13 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the exampl
 
         .. code-block:: console
 
-            curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py -o turtle_tf2_listener.py
+            $ curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py -o turtle_tf2_listener.py
 
         Or in powershell:
 
         .. code-block:: console
 
-            curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py -o turtle_tf2_listener.py
+           $ curl https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py -o turtle_tf2_listener.py
 
 Now open the file called ``turtle_tf2_listener.py`` using your preferred text editor.
 
@@ -82,7 +82,7 @@ Now open the file called ``turtle_tf2_listener.py`` using your preferred text ed
     from tf2_ros.buffer import Buffer
     from tf2_ros.transform_listener import TransformListener
 
-    from turtlesim.srv import Spawn
+    from turtlesim_msgs.srv import Spawn
 
 
     class FrameListener(Node):
@@ -230,51 +230,9 @@ Add the following line between the ``'console_scripts':`` brackets:
 Open the launch file called ``turtle_tf2_demo_launch.py`` in the ``src/learning_tf2_py/launch`` directory with your text editor, add two new nodes to the launch description, add a launch argument, and add the imports.
 The resulting file should look like:
 
-.. code-block:: python
-
-    from launch import LaunchDescription
-    from launch.actions import DeclareLaunchArgument
-    from launch.substitutions import LaunchConfiguration
-
-    from launch_ros.actions import Node
-
-
-    def generate_launch_description():
-        return LaunchDescription([
-            Node(
-                package='turtlesim',
-                executable='turtlesim_node',
-                name='sim'
-            ),
-            Node(
-                package='learning_tf2_py',
-                executable='turtle_tf2_broadcaster',
-                name='broadcaster1',
-                parameters=[
-                    {'turtlename': 'turtle1'}
-                ]
-            ),
-            DeclareLaunchArgument(
-                'target_frame', default_value='turtle1',
-                description='Target frame name.'
-            ),
-            Node(
-                package='learning_tf2_py',
-                executable='turtle_tf2_broadcaster',
-                name='broadcaster2',
-                parameters=[
-                    {'turtlename': 'turtle2'}
-                ]
-            ),
-            Node(
-                package='learning_tf2_py',
-                executable='turtle_tf2_listener',
-                name='listener',
-                parameters=[
-                    {'target_frame': LaunchConfiguration('target_frame')}
-                ]
-            ),
-        ])
+.. literalinclude:: launch/listener_py_launch.py
+    :language: python
+    :name: turtle_tf2_demo_launch.py
 
 This will declare a ``target_frame`` launch argument, start a broadcaster for second turtle that we will spawn and listener that will subscribe to those transformations.
 
@@ -289,7 +247,7 @@ Run ``rosdep`` in the root of your workspace to check for missing dependencies.
 
       .. code-block:: console
 
-          rosdep install -i --from-path src --rosdistro {DISTRO} -y
+          $ rosdep install -i --from-path src --rosdistro {DISTRO} -y
 
    .. group-tab:: macOS
 
@@ -307,19 +265,19 @@ Still in the root of your workspace, build your package:
 
     .. code-block:: console
 
-        colcon build --packages-select learning_tf2_py
+        $ colcon build --packages-select learning_tf2_py
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-        colcon build --packages-select learning_tf2_py
+        $ colcon build --packages-select learning_tf2_py
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-        colcon build --merge-install --packages-select learning_tf2_py
+        $ colcon build --merge-install --packages-select learning_tf2_py
 
 Open a new terminal, navigate to the root of your workspace, and source the setup files:
 
@@ -329,23 +287,29 @@ Open a new terminal, navigate to the root of your workspace, and source the setu
 
     .. code-block:: console
 
-        . install/setup.bash
+        $ . install/setup.bash
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-        . install/setup.bash
+        $ . install/setup.bash
 
   .. group-tab:: Windows
 
+    In a Windows command line prompt:
+
     .. code-block:: console
 
-        # CMD
-        call install\setup.bat
+        $ call install\setup.bat
 
-        # Powershell
-        .\install\setup.ps1
+    Or in powershell:
+
+    .. code-block:: console
+
+        $ .\install\setup.ps1
+
+
 
 4 Run
 ^^^^^
@@ -354,14 +318,14 @@ Now you're ready to start your full turtle demo:
 
 .. code-block:: console
 
-    ros2 launch learning_tf2_py turtle_tf2_demo_launch.py
+    $ ros2 launch learning_tf2_py turtle_tf2_demo_launch.py
 
 You should see the turtle sim with two turtles.
 In the second terminal window type the following command:
 
 .. code-block:: console
 
-    ros2 run turtlesim turtle_teleop_key
+    $ ros2 run turtlesim turtle_teleop_key
 
 To see if things work, simply drive around the first turtle using the arrow keys (make sure your terminal window is active, not your simulator window), and you'll see the second turtle following the first one!
 

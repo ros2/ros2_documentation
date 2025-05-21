@@ -28,9 +28,9 @@ Creating a package
 
 All ROS 2 packages begin by running the command
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 pkg create --license Apache-2.0 <pkg-name> --dependencies [deps]
+   $ ros2 pkg create --license Apache-2.0 <pkg-name> --dependencies [deps]
 
 in your workspace (usually ``~/ros2_ws/src``).
 
@@ -40,15 +40,15 @@ To create a package for a specific client library:
 
   .. group-tab:: C++
 
-    .. code-block:: bash
+    .. code-block:: console
 
-       ros2 pkg create  --build-type ament_cmake --license Apache-2.0 <pkg-name> --dependencies [deps]
+       $ ros2 pkg create  --build-type ament_cmake --license Apache-2.0 <pkg-name> --dependencies [deps]
 
   .. group-tab:: Python
 
-    .. code-block:: bash
+    .. code-block:: console
 
-       ros2 pkg create  --build-type ament_python --license Apache-2.0 <pkg-name> --dependencies [deps]
+       $ ros2 pkg create  --build-type ament_python --license Apache-2.0 <pkg-name> --dependencies [deps]
 
 You can then update the ``package.xml`` with your package info such as dependencies, descriptions, and authorship.
 
@@ -59,7 +59,7 @@ You will mostly use the ``add_executable()`` CMake macro along with
 
 .. code-block:: cmake
 
-   ament_target_dependencies(<executable-name> [dependencies])
+   target_link_libraries(<executable-name> PUBLIC [targets from your dependencies])
 
 to create executable nodes and link dependencies.
 
@@ -90,7 +90,7 @@ More details on distribution can be found in the `official documentation <https:
 
 In your ROS 2 package, you should have a ``setup.cfg`` file which looks like:
 
-.. code-block:: bash
+.. code-block:: ini
 
    [develop]
    script_dir=$base/lib/<package-name>
@@ -119,7 +119,7 @@ and a ``setup.py`` file that looks like:
            # Include our package.xml file
            (os.path.join('share', package_name), ['package.xml']),
            # Include all launch files.
-           (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*launch.[pxy][yma]*'))),
+           (os.path.join('share', package_name, 'launch'), glob('launch/*')),
        ],
        # This is important as well
        install_requires=['setuptools'],

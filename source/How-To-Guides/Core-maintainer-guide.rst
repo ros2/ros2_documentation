@@ -6,7 +6,7 @@
 ROS 2 Core Maintainer Guide
 ===========================
 
-Each package in the ROS 2 core has one or more maintainers that are responsibile for the general health of the package.
+Each package in the ROS 2 core has one or more maintainers that are responsible for the general health of the package.
 This guide gives some information about the responsibilities of a ROS 2 core package maintainer.
 
 .. contents:: Table of Contents
@@ -106,7 +106,7 @@ A source release creates a changelog and a tag in the relevant repository.
 
 The process starts by generating or updating CHANGELOG.rst files with the following command:
 
-.. code-block:: bash
+.. code-block:: console
 
   $ catkin_generate_changelog
 
@@ -117,7 +117,7 @@ Once editing is done, it is important to commit the updated CHANGELOG.rst file t
 
 The next step is to bump the version in the package.xml and the changelog files with the following command:
 
-.. code-block:: bash
+.. code-block:: console
 
   $ catkin_prepare_release
 
@@ -136,13 +136,13 @@ The next step is to use the ``bloom-release`` command to create a binary release
 For full instructions on how to use bloom, please see http://wiki.ros.org/bloom.
 To do a binary release of a repository, run:
 
-.. code-block:: bash
+.. code-block:: console
 
   $ bloom-release --track <rosdistro> --rosdistro <rosdistro> <repository_name>
 
 For instance, to release the ``rclcpp`` repository to the {DISTRO_TITLE} distribution, the command would be:
 
-.. code-block:: bash
+.. code-block:: console
 
   $ bloom-release --track {DISTRO} --rosdistro {DISTRO} rclcpp
 

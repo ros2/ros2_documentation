@@ -40,12 +40,12 @@ a new package:
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_cmake --license Apache-2.0 bag_reading_cpp --dependencies rclcpp rosbag2_transport turtlesim
+  $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 bag_reading_cpp --dependencies rclcpp rosbag2_transport turtlesim_msgs
 
 Your terminal will return a message verifying the creation of your package ``bag_reading_cpp`` and all its necessary files and folders.
 The ``--dependencies`` argument will automatically add the necessary dependency lines to ``package.xml`` and ``CMakeLists.txt``.
 In this case, the package will use the ``rosbag2_transport`` package as well as the ``rclcpp`` package.
-A dependency on the ``turtlesim`` package is also required for working with the custom turtlesim messages.
+A dependency on the ``turtlesim_msgs`` package is also required for working with the custom turtlesim messages.
 
 1.1 Update ``package.xml``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -204,7 +204,7 @@ Then, we can pass both these objects to the ``rclcpp::Serialization::deserialize
     serialization_.deserialize_message(&serialized_msg, ros_msg.get());
 
 Finally, we publish the deserialized message and print out the xy coordinate to the terminal.
-We also break out of the loop so that we publish the next message during the next timer calback.
+We also break out of the loop so that we publish the next message during the next timer callback.
 
 .. code-block:: C++
 
@@ -253,7 +253,7 @@ Below the dependencies block, which contains ``find_package(rosbag2_transport RE
 .. code-block:: console
 
     add_executable(simple_bag_reader src/simple_bag_reader.cpp)
-    ament_target_dependencies(simple_bag_reader rclcpp rosbag2_transport turtlesim)
+    target_link_libraries(simple_bag_reader PUBLIC rclcpp::rclcpp rosbag2_transport::rosbag2_transport ${turtlesim_msgs_TARGETS})
 
     install(TARGETS
       simple_bag_reader
@@ -271,19 +271,19 @@ Navigate back to the root of your workspace and build your new package.
 
     .. code-block:: console
 
-      colcon build --packages-select bag_reading_cpp
+      $ colcon build --packages-select bag_reading_cpp
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      colcon build --packages-select bag_reading_cpp
+      $ colcon build --packages-select bag_reading_cpp
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      colcon build --merge-install --packages-select bag_reading_cpp
+      $ colcon build --merge-install --packages-select bag_reading_cpp
 
 Next, source the setup files.
 
@@ -293,26 +293,26 @@ Next, source the setup files.
 
     .. code-block:: console
 
-      source install/setup.bash
+      $ source install/setup.bash
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      source install/setup.bash
+      $ source install/setup.bash
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      call install/setup.bat
+      $ call install/setup.bat
 
 Now, run the script.
 Make sure to replace ``/path/to/subset`` with the path to your ``subset`` bag.
 
 .. code-block:: console
 
-    ros2 run bag_reading_cpp simple_bag_reader /path/to/subset
+    $ ros2 run bag_reading_cpp simple_bag_reader /path/to/subset
 
 You should see the (x, y) coordinates of the turtle printed to the console.
 

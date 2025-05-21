@@ -13,14 +13,16 @@ Migrating Launch Files
    :depth: 1
    :local:
 
-While launch files in ROS 1 are always specified using `.xml <https://wiki.ros.org/roslaunch/XML>`__ files, ROS 2 supports Python scripts to enable more flexibility (see `launch package <https://github.com/ros2/launch/tree/{REPOS_FILE_BRANCH}/launch>`__) as well as XML and YAML files.
+While launch files in ROS 1 are always specified using `XML <https://wiki.ros.org/roslaunch/XML>`__ files, ROS 2 supports both XML and YAML files.
+ROS 2 also supports Python launch scripts to enable more flexibility (see `launch package <https://github.com/ros2/launch/tree/{REPOS_FILE_BRANCH}/launch>`__).
+However, for typical use cases, XML and YAML should be preferred over Python.
 
 This guide describes how to write ROS 2 XML launch files for an easy migration from ROS 1.
 
 Background
 ----------
 
-A description of the ROS 2 launch system and its Python API can be found in :doc:`Launch System tutorial <../../../Tutorials/Intermediate/Launch/Launch-system>`.
+A description of the ROS 2 launch system can be found in :doc:`Launch System tutorial <../../../Tutorials/Intermediate/Launch/Launch-system>`.
 
 
 Migrating tags
@@ -112,7 +114,7 @@ For example:
 
 .. code-block:: xml
 
-   <node pkg="my_package" exec="my_executable" name="my_node" ns="/an_absoulute_ns">
+   <node pkg="my_package" exec="my_executable" name="my_node" namespace="/an_absoulute_ns">
       <param name="group1">
          <param name="group2">
             <param name="my_param" value="1"/>
@@ -130,7 +132,7 @@ It's also possible to use full parameter names:
 
 .. code-block:: xml
 
-   <node pkg="my_package" exec="my_executable" name="my_node" ns="/an_absoulute_ns">
+   <node pkg="my_package" exec="my_executable" name="my_node" namespace="/an_absoulute_ns">
       <param name="group1.group2.my_param" value="1"/>
       <param name="group1.another_param" value="2"/>
    </node>
@@ -147,7 +149,7 @@ Example
 
 .. code-block:: xml
 
-   <node pkg="my_package" exec="my_executable" name="my_node" ns="/an_absoulute_ns">
+   <node pkg="my_package" exec="my_executable" name="my_node" namespace="/an_absoulute_ns">
       <param from="/path/to/file"/>
    </node>
 
@@ -227,9 +229,9 @@ Passing an argument to the launch file
 In the XML launch file above, the ``topic_name`` defaults to the name ``chatter``, but can be configured on the command-line.
 Assuming the above launch configuration is in a file named ``mylaunch.xml``, a different topic name can be used by launching it with the following:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 launch mylaunch.xml topic_name:=custom_topic_name
+   $ ros2 launch mylaunch.xml topic_name:=custom_topic_name
 
 There is some additional information about passing command-line arguments in :doc:`Using Substitutions <../../../Tutorials/Intermediate/Launch/Using-Substitutions>`.
 
@@ -314,7 +316,7 @@ New tags in ROS 2
 set_env and unset_env
 ^^^^^^^^^^^^^^^^^^^^^
 
-See `env`_ tag decription.
+See `env`_ tag description.
 
 push_ros_namespace
 ^^^^^^^^^^^^^^^^^^
@@ -335,7 +337,7 @@ This action can be used as a workaround:
       <!--Nodes here are namespaced with "/absolute_ns".-->
       <!--The following node receives an absolute namespace, so it will ignore the others previously pushed.-->
       <!--The full path of the node will be /asd/my_node.-->
-      <node pkg="my_pkg" exec="my_executable" name="my_node" ns="/asd"/>
+      <node pkg="my_pkg" exec="my_executable" name="my_node" namespace="/asd"/>
    </group>
    <!--Nodes outside the group action won't be namespaced.-->
    <!-Other tags-->
@@ -404,7 +406,6 @@ There are, however, some changes w.r.t. ROS 1:
 * ``arg`` has been replaced with ``var``.
   It looks at configurations defined either with ``arg`` or ``let`` tag.
 * ``eval`` and ``dirname`` substitutions require escape characters for string values, e.g. ``if="$(eval '\'$(var variable)\' == \'val1\'')"``.
-* ``anon`` substitution is not supported.
 
 Type inference rules
 --------------------

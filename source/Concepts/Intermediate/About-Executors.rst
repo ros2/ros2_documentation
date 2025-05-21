@@ -59,6 +59,8 @@ The *wait set* is also used to detect when timers expire.
 
 The Single-Threaded Executor is also used by the container process for :doc:`components <./About-Composition>`, i.e. in all cases where nodes are created and executed without an explicit main function.
 
+.. _TypesOfExecutors:
+
 Types of Executors
 ------------------
 
@@ -70,20 +72,15 @@ Currently, rclcpp provides three Executor types, derived from a shared parent cl
 
       Executor -> SingleThreadedExecutor [dir = back, arrowtail = empty];
       Executor -> MultiThreadedExecutor [dir = back, arrowtail = empty];
-      Executor -> StaticSingleThreadedExecutor [dir = back, arrowtail = empty];
       Executor  [shape=polygon,sides=4];
       SingleThreadedExecutor  [shape=polygon,sides=4];
       MultiThreadedExecutor  [shape=polygon,sides=4];
-      StaticSingleThreadedExecutor  [shape=polygon,sides=4];
 
       }
 
 The *Multi-Threaded Executor* creates a configurable number of threads to allow for processing multiple messages or events in parallel.
-The *Static Single-Threaded Executor* optimizes the runtime costs for scanning the structure of a node in terms of subscriptions, timers, service servers, action servers, etc.
-It performs this scan only once when the node is added, while the other two executors regularly scan for such changes.
-Therefore, the Static Single-Threaded Executor should be used only with nodes that create all subscriptions, timers, etc. during initialization.
 
-All three executors can be used with multiple nodes by calling ``add_node(..)`` for each node.
+All executors can be used with multiple nodes by calling ``add_node(..)`` for each node.
 
 .. code-block:: cpp
 
@@ -91,13 +88,13 @@ All three executors can be used with multiple nodes by calling ``add_node(..)`` 
    rclcpp::Node::SharedPtr node2 = ...
    rclcpp::Node::SharedPtr node3 = ...
 
-   rclcpp::executors::StaticSingleThreadedExecutor executor;
+   rclcpp::executors::SingleThreadedExecutor executor;
    executor.add_node(node1);
    executor.add_node(node2);
    executor.add_node(node3);
    executor.spin();
 
-In the above example, the one thread of a Static Single-Threaded Executor is used to serve three nodes together.
+In the above example, the one thread of a Single-Threaded Executor is used to serve three nodes together.
 In case of a Multi-Threaded Executor, the actual parallelism depends on the callback groups.
 
 Callback groups
@@ -106,7 +103,7 @@ Callback groups
 ROS 2 allows organizing the callbacks of a node in groups.
 In rclcpp, such a *callback group* can be created by the ``create_callback_group`` function of the Node class.
 In rclpy, the same is done by calling the constructor of the specific callback group type.
-The callback group must be stored throughout execution of the node (eg. as a class member), or otherwise the executor won't be able to trigger the callbacks.
+The callback group must be stored throughout execution of the node (e.g. as a class member), or otherwise the executor won't be able to trigger the callbacks.
 Then, this callback group can be specified when creating a subscription, timer, etc. - for example by the subscription options:
 
 .. tabs::
@@ -161,7 +158,8 @@ The following flow diagram visualizes this scheduling semantics.
 .. image:: ../images/executors_scheduling_semantics.png
 
 This semantics was first described in a `paper by Casini et al. at ECRTS 2019 <https://drops.dagstuhl.de/opus/volltexte/2019/10743/pdf/LIPIcs-ECRTS-2019-6.pdf>`_.
-(Note: The paper also explains that timer events are prioritized over all other messages. `This prioritization was removed in Eloquent. <https://github.com/ros2/rclcpp/pull/841>`_)
+(Note: The paper also explains that timer events are prioritized over all other messages.
+`This prioritization was removed in Eloquent. <https://github.com/ros2/rclcpp/pull/841>`_)
 
 
 Outlook
@@ -178,7 +176,6 @@ Here is a summary of some of these issues:
 4. No built-in control over triggering for specific topics.
 
 Additionally, the executor overhead in terms of CPU and memory usage is considerable.
-The Static Single-Threaded Executor reduces this overhead greatly but it might not be enough for some applications.
 
 These issues have been partially addressed by the following developments:
 
@@ -191,6 +188,12 @@ These issues have been partially addressed by the following developments:
 Further information
 -------------------
 
-* Michael Pöhnl et al.: `"ROS 2 Executor: How to make it efficient, real-time and deterministic?" <https://www.apex.ai/roscon-21>`_. Workshop at ROS World 2021. Virtual event. 19 October 2021.
-* Ralph Lange: `"Advanced Execution Management with ROS 2" <https://www.youtube.com/watch?v=Sz-nllmtcc8&t=109s>`_. ROS Industrial Conference. Virtual event. 16 December 2020.
-* Daniel Casini, Tobias Blass, Ingo Lütkebohle, and Björn Brandenburg: `“Response-Time Analysis of ROS 2 Processing Chains under Reservation-Based Scheduling” <https://drops.dagstuhl.de/opus/volltexte/2019/10743/pdf/LIPIcs-ECRTS-2019-6.pdf>`_, Proc. of 31st ECRTS 2019, Stuttgart, Germany, July 2019.
+* Michael Pöhnl et al.: `"ROS 2 Executor: How to make it efficient, real-time and deterministic?" <https://www.apex.ai/roscon-21>`_.
+  Workshop at ROS World 2021.
+  Virtual event.
+  19 October 2021.
+* Ralph Lange: `"Advanced Execution Management with ROS 2" <https://www.youtube.com/watch?v=Sz-nllmtcc8&t=109s>`_.
+  ROS Industrial Conference.
+  Virtual event.
+  16 December 2020.
+* Daniel Casini, Tobias Blass, Ingo Lütkebohle, and Björn Brandenburg: `"Response-Time Analysis of ROS 2 Processing Chains under Reservation-Based Scheduling" <https://drops.dagstuhl.de/opus/volltexte/2019/10743/pdf/LIPIcs-ECRTS-2019-6.pdf>`_, Proceedings of 31st ECRTS 2019, Stuttgart, Germany, July 2019.

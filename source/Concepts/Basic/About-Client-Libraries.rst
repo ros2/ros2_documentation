@@ -45,9 +45,7 @@ The ROS Client Library for C++ (``rclcpp``) is the user facing, C++ idiomatic in
 ``rclcpp`` makes use of all the features of C++ and C++17 to make the interface as easy to use as possible, but since it reuses the implementation in ``rcl`` it is able maintain a consistent behavior with the other client libraries that use the ``rcl`` |API|.
 
 The ``rclcpp`` repository is located on GitHub at `ros2/rclcpp <https://github.com/ros2/rclcpp>`_ and contains the |package| ``rclcpp``.
-The generated |API| documentation is here:
-
-`api/rclcpp/index.html <http://docs.ros.org/en/{DISTRO}/p/rclcpp>`_
+The generated |API| documentation is at {package_link(rclcpp)}.
 
 The ``rclpy`` package
 ~~~~~~~~~~~~~~~~~~~~~
@@ -63,25 +61,24 @@ All operations happen on the Python version of the messages until they need to b
 This is avoided if possible when communicating between publishers and subscriptions in the same process to cut down on the conversion into and out of Python.
 
 The ``rclpy`` repository is located on GitHub at `ros2/rclpy <https://github.com/ros2/rclpy>`_ and contains the |package| ``rclpy``.
-The generated |API| documentation is here:
-
-`api/rclpy/index.html <https://docs.ros.org/en/{DISTRO}/p/rclpy/>`_
-
+The generated |API| documentation is at {package_link(rclpy)}.
 
 Community-maintained
 ~~~~~~~~~~~~~~~~~~~~
 
 While the C++ and Python client libraries are maintained by the core ROS 2 team, members of the ROS 2 community maintain additional client libraries:
 
+* `Ada <https://github.com/ada-ros/ada4ros2>`__  This is a set of packages (binding to ``rcl``, message generator, binding to ``tf2``, examples and tutorials) that allows the writing of Ada applications for ROS 2.
 * `C <https://github.com/ros2/rclc>`__  ``rclc`` does not put a layer on top of rcl but complements rcl to make rcl+rclc a feature-complete client library in C. See `micro.ros.org <https://micro.ros.org/>`__ for tutorials.
 * `JVM and Android <https://github.com/ros2-java>`__ Java and Android bindings for ROS 2.
 * `.NET Core, UWP and C# <https://github.com/esteve/ros2_dotnet>`__ This is a collection of projects (bindings, code generator, examples and more) for writing ROS 2 applications for .NET Core and .NET Standard.
-* `Node.js <https://www.npmjs.com/package/rclnodejs>`__ rclnodejs is a Node.js client for ROS 2. It provides a simple and easy JavaScript API for ROS 2 programming.
+* `Node.js <https://www.npmjs.com/package/rclnodejs>`__ rclnodejs is a Node.js client for ROS 2.
+  It provides a simple and easy JavaScript API for ROS 2 programming.
 * `Rust <https://github.com/ros2-rust/ros2_rust>`__ This is a set of projects (the rclrs client library, code generator, examples and more) that enables developers to write ROS 2 applications in Rust.
+* `Flutter and Dart <https://github.com/rcldart>`__ Flutter and Dart bindings for ROS 2.
 
 Older, unmaintained client libraries are:
 
-* `Ada <https://github.com/ada-ros/ada4ros2>`__
 * `C# <https://github.com/firesurfer/rclcs>`__
 * `Objective C and iOS <https://github.com/esteve/ros2_objc>`__
 * `Zig <https://github.com/jacobperron/rclzig>`__
@@ -101,13 +98,13 @@ In addition to making the client libraries light-weight, an advantage of having 
 If any changes are made to the logic/behavior of the functionality in the core RCL -- namespaces, for example -- all client libraries that use the RCL will have these changes reflected.
 Furthermore, having the common core means that maintaining multiple client libraries becomes less work when it comes to bug fixes.
 
-The API documentation for ``rcl`` can be found `here <https://docs.ros.org/en/{DISTRO}/p/rcl/>`__.
+The API documentation for ``rcl`` can be found `here <{package_link(rcl)}>`__.
 
 Language-specific functionality
 -------------------------------
 
 Client library concepts that require language-specific features/properties are not implemented in the RCL but instead are implemented in each client library.
-For example, threading models used by “spin” functions will have implementations that are specific to the language of the client library.
+For example, threading models used by "spin" functions will have implementations that are specific to the language of the client library.
 
 Demo
 ----

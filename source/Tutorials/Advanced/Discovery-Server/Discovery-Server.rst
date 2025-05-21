@@ -76,7 +76,8 @@ Run this tutorial
 The ``talker-listener`` ROS 2 demo creates a ``talker`` node that publishes a "hello world" message every second, and a ``listener`` node that listens to these messages.
 
 By :doc:`sourcing ROS 2 <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>` you will get access to the CLI tool ``fastdds``.
-This tool gives access to the `discovery tool <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastddscli/cli/cli.html#discovery>`__, which can be used to launch a discovery server. This server will manage the discovery process for the nodes that connect to it.
+This tool gives access to the `discovery tool <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastddscli/cli/cli.html#discovery>`__, which can be used to launch a discovery server.
+This server will manage the discovery process for the nodes that connect to it.
 
 .. important::
 
@@ -92,7 +93,7 @@ Open a new terminal and run:
 
 .. code-block:: console
 
-    fastdds discovery --server-id 0
+    $ fastdds discovery --server-id 0
 
 
 Launch listener node
@@ -109,19 +110,20 @@ In a new terminal, set the environment variable ``ROS_DISCOVERY_SERVER`` to the 
 
         .. code-block:: console
 
-            export ROS_DISCOVERY_SERVER=127.0.0.1:11811
+            $ export ROS_DISCOVERY_SERVER=127.0.0.1:11811
 
     .. group-tab:: Windows
 
         .. code-block:: console
 
-            set ROS_DISCOVERY_SERVER=127.0.0.1:11811
+            $ set ROS_DISCOVERY_SERVER=127.0.0.1:11811
 
-Launch the listener node. Use the argument ``--remap __node:=listener_discovery_server`` to change the node's name for this tutorial.
+Launch the listener node.
+Use the argument ``--remap __node:=listener_discovery_server`` to change the node's name for this tutorial.
 
 .. code-block:: console
 
-    ros2 run demo_nodes_cpp listener --ros-args --remap __node:=listener_discovery_server
+    $ ros2 run demo_nodes_cpp listener --ros-args --remap __node:=listener_discovery_server
 
 This will create a ROS 2 node, that will automatically create a client for the discovery server and connect to the server created previously to perform discovery, rather than using multicast.
 
@@ -137,17 +139,17 @@ Open a new terminal and set the ``ROS_DISCOVERY_SERVER`` environment variable as
 
         .. code-block:: console
 
-            export ROS_DISCOVERY_SERVER=127.0.0.1:11811
+            $ export ROS_DISCOVERY_SERVER=127.0.0.1:11811
 
     .. group-tab:: Windows
 
         .. code-block:: console
 
-            set ROS_DISCOVERY_SERVER=127.0.0.1:11811
+            $ set ROS_DISCOVERY_SERVER=127.0.0.1:11811
 
 .. code-block:: console
 
-    ros2 run demo_nodes_cpp talker --ros-args --remap __node:=talker_discovery_server
+    $ ros2 run demo_nodes_cpp talker --ros-args --remap __node:=talker_discovery_server
 
 You should now see the talker publishing "hello world" messages, and the listener receiving these messages.
 
@@ -161,7 +163,7 @@ Run a new listener (listening in ``/chatter`` topic by default) in a new termina
 
 .. code-block:: console
 
-    ros2 run demo_nodes_cpp listener --ros-args --remap __node:=simple_listener
+    $ ros2 run demo_nodes_cpp listener --ros-args --remap __node:=simple_listener
 
 The new listener node should not be receiving the "hello world" messages.
 
@@ -169,7 +171,7 @@ To finally verify that everything is running correctly, a new talker can be crea
 
 .. code-block:: console
 
-    ros2 run demo_nodes_cpp talker --ros-args --remap __node:=simple_talker
+    $ ros2 run demo_nodes_cpp talker --ros-args --remap __node:=simple_talker
 
 Now you should see the ``simple_listener`` node receiving the "hello world" messages from ``simple_talker`` but not the other messages from ``talker_discovery_server``.
 
@@ -201,11 +203,11 @@ In several terminals, run the following code to establish a communication with r
 
 .. code-block:: console
 
-    fastdds discovery --server-id 0 --ip-address 127.0.0.1 --port 11811
+    $ fastdds discovery --server-id 0 --udp-address 127.0.0.1 --udp-port 11811
 
 .. code-block:: console
 
-    fastdds discovery --server-id 1 --ip-address 127.0.0.1 --port 11888
+    $ fastdds discovery --server-id 1 --udp-address 127.0.0.1 --udp-port 11888
 
 ``--server-id N`` means server with id N. When referencing the servers with ``ROS_DISCOVERY_SERVER``, server ``0`` must be in first place and server ``1`` in second place.
 
@@ -215,17 +217,17 @@ In several terminals, run the following code to establish a communication with r
 
         .. code-block:: console
 
-            export ROS_DISCOVERY_SERVER="127.0.0.1:11811;127.0.0.1:11888"
+            $ export ROS_DISCOVERY_SERVER="127.0.0.1:11811;127.0.0.1:11888"
 
     .. group-tab:: Windows
 
         .. code-block:: console
 
-            set ROS_DISCOVERY_SERVER="127.0.0.1:11811;127.0.0.1:11888"
+            $ set ROS_DISCOVERY_SERVER="127.0.0.1:11811;127.0.0.1:11888"
 
 .. code-block:: console
 
-    ros2 run demo_nodes_cpp talker --ros-args --remap __node:=talker
+    $ ros2 run demo_nodes_cpp talker --ros-args --remap __node:=talker
 
 .. tabs::
 
@@ -233,17 +235,17 @@ In several terminals, run the following code to establish a communication with r
 
         .. code-block:: console
 
-            export ROS_DISCOVERY_SERVER="127.0.0.1:11811;127.0.0.1:11888"
+            $ export ROS_DISCOVERY_SERVER="127.0.0.1:11811;127.0.0.1:11888"
 
     .. group-tab:: Windows
 
         .. code-block:: console
 
-            set ROS_DISCOVERY_SERVER="127.0.0.1:11811;127.0.0.1:11888"
+            $ set ROS_DISCOVERY_SERVER="127.0.0.1:11811;127.0.0.1:11888"
 
 .. code-block:: console
 
-    ros2 run demo_nodes_cpp listener --ros-args --remap __node:=listener
+    $ ros2 run demo_nodes_cpp listener --ros-args --remap __node:=listener
 
 Now, if one of these servers fails, there will still be discovery capability available and nodes will still discover each other.
 
@@ -261,7 +263,7 @@ In different terminals, run the following code to establish a communication with
 
 .. code-block:: console
 
-    fastdds discovery --server-id 0 --ip-address 127.0.0.1 --port 11811 --backup
+    $ fastdds discovery --server-id 0 --udp-address 127.0.0.1 --udp-port 11811 --backup
 
 .. tabs::
 
@@ -269,17 +271,17 @@ In different terminals, run the following code to establish a communication with
 
         .. code-block:: console
 
-            export ROS_DISCOVERY_SERVER="127.0.0.1:11811"
+            $ export ROS_DISCOVERY_SERVER="127.0.0.1:11811"
 
     .. group-tab:: Windows
 
         .. code-block:: console
 
-            set ROS_DISCOVERY_SERVER="127.0.0.1:11811"
+            $ set ROS_DISCOVERY_SERVER="127.0.0.1:11811"
 
 .. code-block:: console
 
-    ros2 run demo_nodes_cpp talker --ros-args --remap __node:=talker
+    $ ros2 run demo_nodes_cpp talker --ros-args --remap __node:=talker
 
 .. tabs::
 
@@ -287,17 +289,17 @@ In different terminals, run the following code to establish a communication with
 
         .. code-block:: console
 
-            export ROS_DISCOVERY_SERVER="127.0.0.1:11811"
+            $ export ROS_DISCOVERY_SERVER="127.0.0.1:11811"
 
     .. group-tab:: Windows
 
         .. code-block:: console
 
-            set ROS_DISCOVERY_SERVER="127.0.0.1:11811"
+            $ set ROS_DISCOVERY_SERVER="127.0.0.1:11811"
 
 .. code-block:: console
 
-    ros2 run demo_nodes_cpp listener --ros-args --remap __node:=listener
+    $ ros2 run demo_nodes_cpp listener --ros-args --remap __node:=listener
 
 Several backup files are created in the discovery server's working directory (the directory it was launched in).
 The two ``SQLite`` files and two ``json`` files contain the information required to start a new server and restore the failed server's state in case of failure, avoiding the need for the discovery process to happen again, and without losing information.
@@ -322,33 +324,17 @@ Run the first server listening on localhost with the default port of 11811.
 
 .. code-block:: console
 
-    fastdds discovery --server-id 0 --ip-address 127.0.0.1 --port 11811
+    $ fastdds discovery --server-id 0 --udp-address 127.0.0.1 --udp-port 11811
 
 In another terminal run the second server listening on localhost using another port, in this case port 11888.
 
 .. code-block:: console
 
-    fastdds discovery --server-id 1 --ip-address 127.0.0.1 --port 11888
+    $ fastdds discovery --server-id 1 --udp-address 127.0.0.1 --udp-port 11888
 
-Now, run each node in a different terminal. Use ``ROS_DISCOVERY_SERVER`` environment variable to decide which server they are connected to. Be aware that the `ids must match <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/env_vars/env_vars.html>`__.
-
-.. tabs::
-
-    .. group-tab:: Linux
-
-        .. code-block:: console
-
-            export ROS_DISCOVERY_SERVER="127.0.0.1:11811;127.0.0.1:11888"
-
-    .. group-tab:: Windows
-
-        .. code-block:: console
-
-            set ROS_DISCOVERY_SERVER="127.0.0.1:11811;127.0.0.1:11888"
-
-.. code-block:: console
-
-    ros2 run demo_nodes_cpp talker --ros-args --remap __node:=talker_1
+Now, run each node in a different terminal.
+Use ``ROS_DISCOVERY_SERVER`` environment variable to decide which server they are connected to.
+Be aware that the `ids must match <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/env_vars/env_vars.html>`__.
 
 .. tabs::
 
@@ -356,17 +342,17 @@ Now, run each node in a different terminal. Use ``ROS_DISCOVERY_SERVER`` environ
 
         .. code-block:: console
 
-            export ROS_DISCOVERY_SERVER="127.0.0.1:11811;127.0.0.1:11888"
+            $ export ROS_DISCOVERY_SERVER="127.0.0.1:11811;127.0.0.1:11888"
 
     .. group-tab:: Windows
 
         .. code-block:: console
 
-            set ROS_DISCOVERY_SERVER="127.0.0.1:11811;127.0.0.1:11888"
+            $ set ROS_DISCOVERY_SERVER="127.0.0.1:11811;127.0.0.1:11888"
 
 .. code-block:: console
 
-    ros2 run demo_nodes_cpp listener --ros-args --remap __node:=listener_1
+    $ ros2 run demo_nodes_cpp talker --ros-args --remap __node:=talker_1
 
 .. tabs::
 
@@ -374,17 +360,17 @@ Now, run each node in a different terminal. Use ``ROS_DISCOVERY_SERVER`` environ
 
         .. code-block:: console
 
-            export ROS_DISCOVERY_SERVER="127.0.0.1:11811"
+            $ export ROS_DISCOVERY_SERVER="127.0.0.1:11811;127.0.0.1:11888"
 
     .. group-tab:: Windows
 
         .. code-block:: console
 
-            set ROS_DISCOVERY_SERVER="127.0.0.1:11811"
+            $ set ROS_DISCOVERY_SERVER="127.0.0.1:11811;127.0.0.1:11888"
 
 .. code-block:: console
 
-    ros2 run demo_nodes_cpp talker --ros-args --remap __node:=talker_2
+    $ ros2 run demo_nodes_cpp listener --ros-args --remap __node:=listener_1
 
 .. tabs::
 
@@ -392,17 +378,35 @@ Now, run each node in a different terminal. Use ``ROS_DISCOVERY_SERVER`` environ
 
         .. code-block:: console
 
-            export ROS_DISCOVERY_SERVER=";127.0.0.1:11888"
+            $ export ROS_DISCOVERY_SERVER="127.0.0.1:11811"
 
     .. group-tab:: Windows
 
         .. code-block:: console
 
-            set ROS_DISCOVERY_SERVER=";127.0.0.1:11888"
+            $ set ROS_DISCOVERY_SERVER="127.0.0.1:11811"
 
 .. code-block:: console
 
-    ros2 run demo_nodes_cpp listener --ros-args --remap __node:=listener_2
+    $ ros2 run demo_nodes_cpp talker --ros-args --remap __node:=talker_2
+
+.. tabs::
+
+    .. group-tab:: Linux
+
+        .. code-block:: console
+
+            $ export ROS_DISCOVERY_SERVER=";127.0.0.1:11888"
+
+    .. group-tab:: Windows
+
+        .. code-block:: console
+
+            $ set ROS_DISCOVERY_SERVER=";127.0.0.1:11888"
+
+.. code-block:: console
+
+    $ ros2 run demo_nodes_cpp listener --ros-args --remap __node:=listener_2
 
 We should see how ``Listener 1`` is receiving messages from both talker nodes, while ``Listener 2`` is in a different partition from ``Talker 2`` and so does not receive messages from it.
 
@@ -428,7 +432,8 @@ In this sense, ROS 2 introspection tools can be configured as **Super Client**, 
 
 .. note::
 
-    In this section we use the term *Participant* as a DDS entity. Each DDS *Participant* corresponds with a ROS 2 *Context*, a ROS 2 abstraction over DDS.
+    In this section we use the term *Participant* as a DDS entity.
+    Each DDS *Participant* corresponds with a ROS 2 *Context*, a ROS 2 abstraction over DDS.
     `Nodes <ROS2Nodes>` are ROS 2 entities that rely on DDS communication interfaces: ``DataWriter`` and ``DataReader``.
     Each *Participant* can hold multiple ROS 2 Nodes.
     For further details about these concepts, please visit the `Node to Participant mapping design document <http://design.ros2.org/articles/Node_to_Participant_mapping.html>`__
@@ -445,7 +450,7 @@ Therefore, this section is devoted to explain how to use ROS 2 CLI with ROS 2 Da
 This will allow the Daemon to discover the entire Node graph, and to receive all topic and endpoint information.
 To do so, a Fast DDS XML configuration file is used to configure the ROS 2 Daemon and CLI tools.
 
-Below you can find a XML configuration profile, which for this tutorial should be saved in the working directory as ```super_client_configuration_file.xml``` file.
+Below you can find a XML configuration profile, which for this tutorial should be saved in the working directory as ``super_client_configuration_file.xml`` file.
 This file will configure every new participant using it, as a **Super Client**.
 
 .. code-block:: xml
@@ -487,7 +492,7 @@ First of all, instantiate a Discovery Server using `Fast DDS CLI <https://fast-d
 
 .. code-block:: console
 
-    fastdds discovery -i 0 -l 127.0.0.1 -p 11811
+    $ fastdds discovery -i 0 -l 127.0.0.1 -p 11811
 
 Run a talker and a listener that will discover each other through the Server (notice that ``ROS_DISCOVERY_SERVER`` configuration is the same as the one in ``super_client_configuration_file.xml``).
 
@@ -497,17 +502,17 @@ Run a talker and a listener that will discover each other through the Server (no
 
         .. code-block:: console
 
-            export ROS_DISCOVERY_SERVER="127.0.0.1:11811"
+            $ export ROS_DISCOVERY_SERVER="127.0.0.1:11811"
 
     .. group-tab:: Windows
 
         .. code-block:: console
 
-            set ROS_DISCOVERY_SERVER="127.0.0.1:11811"
+            $ set ROS_DISCOVERY_SERVER="127.0.0.1:11811"
 
 .. code-block:: console
 
-    ros2 run demo_nodes_cpp listener --ros-args --remap __node:=listener
+    $ ros2 run demo_nodes_cpp listener --ros-args --remap __node:=listener
 
 .. tabs::
 
@@ -515,17 +520,17 @@ Run a talker and a listener that will discover each other through the Server (no
 
         .. code-block:: console
 
-            export ROS_DISCOVERY_SERVER="127.0.0.1:11811"
+            $ export ROS_DISCOVERY_SERVER="127.0.0.1:11811"
 
     .. group-tab:: Windows
 
         .. code-block:: console
 
-            set ROS_DISCOVERY_SERVER="127.0.0.1:11811"
+            $ set ROS_DISCOVERY_SERVER="127.0.0.1:11811"
 
 .. code-block:: console
 
-    ros2 run demo_nodes_cpp talker --ros-args --remap __node:=talker
+    $ ros2 run demo_nodes_cpp talker --ros-args --remap __node:=talker
 
 Then, instantiate a ROS 2 Daemon using the **Super Client** configuration (remember to source ROS 2 installation in every new terminal).
 
@@ -535,22 +540,22 @@ Then, instantiate a ROS 2 Daemon using the **Super Client** configuration (remem
 
         .. code-block:: console
 
-            export FASTRTPS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
+            $ export FASTDDS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
 
     .. group-tab:: Windows
 
         .. code-block:: console
 
-            set FASTRTPS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
+            $ set FASTDDS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
 
 .. code-block:: console
 
-    ros2 daemon stop
-    ros2 daemon start
-    ros2 topic list
-    ros2 node info /talker
-    ros2 topic info /chatter
-    ros2 topic echo /chatter
+    $ ros2 daemon stop
+    $ ros2 daemon start
+    $ ros2 topic list
+    $ ros2 node info /talker
+    $ ros2 topic info /chatter
+    $ ros2 topic echo /chatter
 
 We can also see the Node's Graph using the ROS 2 tool ``rqt_graph`` as follows (you may need to press the refresh button):
 
@@ -560,17 +565,17 @@ We can also see the Node's Graph using the ROS 2 tool ``rqt_graph`` as follows (
 
         .. code-block:: console
 
-            export FASTRTPS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
+            $ export FASTDDS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
 
     .. group-tab:: Windows
 
         .. code-block:: console
 
-            set FASTRTPS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
+            $ set FASTDDS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
 
 .. code-block:: console
 
-    rqt_graph
+    $ rqt_graph
 
 
 No Daemon tools
@@ -584,7 +589,7 @@ First, run a **Server**:
 
 .. code-block:: console
 
-    fastdds discovery -i 0 -l 127.0.0.1 -p 11811
+    $ fastdds discovery -i 0 -l 127.0.0.1 -p 11811
 
 Then, run the talker and listener in separate terminals:
 
@@ -594,17 +599,17 @@ Then, run the talker and listener in separate terminals:
 
         .. code-block:: console
 
-            export ROS_DISCOVERY_SERVER="127.0.0.1:11811"
+            $ export ROS_DISCOVERY_SERVER="127.0.0.1:11811"
 
     .. group-tab:: Windows
 
         .. code-block:: console
 
-            set ROS_DISCOVERY_SERVER="127.0.0.1:11811"
+            $ set ROS_DISCOVERY_SERVER="127.0.0.1:11811"
 
 .. code-block:: console
 
-    ros2 run demo_nodes_cpp listener --ros-args --remap __node:=listener
+    $ ros2 run demo_nodes_cpp listener --ros-args --remap __node:=listener
 
 .. tabs::
 
@@ -612,21 +617,21 @@ Then, run the talker and listener in separate terminals:
 
         .. code-block:: console
 
-            export ROS_DISCOVERY_SERVER="127.0.0.1:11811"
+            $ export ROS_DISCOVERY_SERVER="127.0.0.1:11811"
 
     .. group-tab:: Windows
 
         .. code-block:: console
 
-            set ROS_DISCOVERY_SERVER="127.0.0.1:11811"
+            $ set ROS_DISCOVERY_SERVER="127.0.0.1:11811"
 
 .. code-block:: console
 
-    ros2 run demo_nodes_cpp talker --ros-args --remap __node:=talker
+    $ ros2 run demo_nodes_cpp talker --ros-args --remap __node:=talker
 
 Continue using the ROS 2 CLI with ``--no-daemon`` option with the new configuration.
 New nodes will connect with the existing Server and will know every topic.
-Exporting ``ROS_DISCOVERY_SERVER`` is not needed as the ROS 2 tools will be configured through the ``FASTRTPS_DEFAULT_PROFILES_FILE``.
+Exporting ``ROS_DISCOVERY_SERVER`` is not needed as the ROS 2 tools will be configured through the ``FASTDDS_DEFAULT_PROFILES_FILE``.
 
 .. tabs::
 
@@ -634,18 +639,18 @@ Exporting ``ROS_DISCOVERY_SERVER`` is not needed as the ROS 2 tools will be conf
 
         .. code-block:: console
 
-            export FASTRTPS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
+            $ export FASTDDS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
 
     .. group-tab:: Windows
 
         .. code-block:: console
 
-            set FASTRTPS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
+            $ set FASTDDS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
 
 .. code-block:: console
 
-    ros2 topic list --no-daemon
-    ros2 node info /talker --no-daemon --spin-time 2
+    $ ros2 topic list --no-daemon
+    $ ros2 node info /talker --no-daemon --spin-time 2
 
 Compare Fast DDS Discovery Server with Simple Discovery Protocol
 ----------------------------------------------------------------
@@ -680,7 +685,7 @@ After both executions are done, run the Python script to generate a graph simila
 
 .. code-block:: console
 
-    $ export FASTRTPS_DEFAULT_PROFILES_FILE="no_intraprocess_configuration.xml"
+    $ export FASTDDS_DEFAULT_PROFILES_FILE="no_intraprocess_configuration.xml"
     $ sudo bash generate_discovery_packages.bash ~/ros2/install/local_setup.bash
     $ sudo bash generate_discovery_packages.bash ~/ros2/install/local_setup.bash SERVER
     $ python3 discovery_packets.py

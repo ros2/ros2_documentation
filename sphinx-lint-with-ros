@@ -1,0 +1,7 @@
+#!/usr/bin/env python3
+
+import plugins.ros_checkers
+import sys
+from sphinxlint.cli import main
+
+sys.exit(main(sys.argv))

@@ -3882,5 +3882,3 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Declare missing dependency on 'git' in zstd_vendor (`#890 <https://github.com/ros2/rosbag2/issues/890>`__)
 * Switch to using 'git apply' for zstd_vendor patches (`#846 <https://github.com/ros2/rosbag2/issues/846>`__)
 * Contributors: Chris Lalancette, Christophe Bedard, Michel Hidalgo, Scott K Logan, Shane Loretz
-
-

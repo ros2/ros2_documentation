@@ -19,24 +19,24 @@ The tools can still run in a traditional standalone method, but RQt makes it eas
 
 You can run any RQt tools/plugins easily by:
 
-.. code-block:: bash
+.. code-block:: console
 
-   rqt
+   $ rqt
 
 This GUI allows you to choose any available plugins on your system.
 You can also run plugins in standalone windows.
 For example, RQt Python Console:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 run rqt_py_console rqt_py_console
+   $ ros2 run rqt_py_console rqt_py_console
 
 Users can create their own plugins for RQt with either ``Python`` or ``C++``.
 To see what RQt plugins are available for your system, run:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 pkg list
+   $ ros2 pkg list
 
 And then look for packages that start with ``rqt_``.
 
@@ -46,22 +46,17 @@ System setup
 Installing From debs
 ^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: bash
+.. code-block:: console
 
-   sudo apt install ros-{DISTRO}-rqt*
+   $ sudo apt install ros-{DISTRO}-rqt*
 
-
-Building From Source
-^^^^^^^^^^^^^^^^^^^^
-
-See :doc:`Building RQt from Source <../../How-To-Guides/RQt-Source-Install>`.
 
 RQt Components Structure
 ------------------------
 
 RQt consists of two metapackages:
 
-* *rqt* - core infrastucture modules.
+* *rqt* - core infrastructure modules.
 * *rqt_common_plugins* - Commonly useful debugging tools.
 
 Advantage of RQt framework
@@ -77,7 +72,7 @@ Compared to building your own GUIs from scratch:
 From system architecture's perspective:
 
 * Support multi-platform (basically wherever `QT <http://qt-project.org/>`__ and ROS run) and multi-language (``Python``, ``C++``).
-* Manageable lifecycle: RQt plugins using a common API makes maintainance & reuse easier.
+* Manageable lifecycle: RQt plugins using a common API makes maintenance & reuse easier.
 
 
 Further Reading

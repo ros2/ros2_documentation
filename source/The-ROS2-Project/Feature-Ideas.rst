@@ -41,7 +41,8 @@ Infrastructure and tools
 
 * Documentation
 
-  * Deprecate https://design.ros2.org.  Content should move to either an REP, to https://github.com/ros2/ros2_documentation, or be removed.
+  * Deprecate https://design.ros2.org.
+    Content should move to either an REP, to https://github.com/ros2/ros2_documentation, or be removed.
   * Fix per-package documentation builder to be able to document build artifacts, i.e. messages, services, actions, etc.
   * Make https://docs.ros.org/en/ros2_documentation automatically rebuild on changes to https://github.com/ros2/ros2_documentation.
   * ``ament`` documentation
@@ -122,7 +123,7 @@ The trailing stars indicate the rough effort: 1 star for small, 2 stars for medi
 * Multi-robot supporting features and demos [\*\*\*]
 
   * Undesired that all nodes across all robots share the same domain (and discover each other)
-  * Design how to “partition” the system
+  * Design how to "partition" the system
 
 * Support more DDS / RTPS implementations:
 
@@ -133,9 +134,11 @@ The trailing stars indicate the rough effort: 1 star for small, 2 stars for medi
   * More granularity in security configuration (allow authentication only, authentication and encryption, etc.) [\*]
   * Integrate DDS-Security logging plugin (unified way to aggregate security events and report them to the users through a ROS interface) [\*\*]
   * Key storage security (right now, keys are just stored in the filesystem) [\*\*]
-  * More user friendly interface (make it easier to specify security config). Maybe a Qt GUI? This GUI could also assist in distributing keys somehow. [\*\*\*]
-  * A way to say "please secure this running system" with some UI that would auto-generate keys and policies for everything that is currently running. [\*\*\*]
-  * If there are hardware-specific features for securing keys or accelerating encryption/signing messages, that could be interesting to add to DDS/RTPS implementations that don't use it already. [\*\*\*]
+  * More user friendly interface (make it easier to specify security config).
+    Maybe a Qt GUI?
+    This GUI could also assist in distributing keys somehow [\*\*\*]
+  * A way to say "please secure this running system" with some UI that would auto-generate keys and policies for everything that is currently running [\*\*\*]
+  * If there are hardware-specific features for securing keys or accelerating encryption/signing messages, that could be interesting to add to DDS/RTPS implementations that don't use it already [\*\*\*]
 
 Reducing Technical Debt
 -----------------------

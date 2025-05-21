@@ -37,7 +37,7 @@ If it is not, you can install it using this command.
 
 .. code-block:: console
 
-  sudo apt install ros-{DISTRO}-rosbag2
+  $ sudo apt install ros-{DISTRO}-rosbag2
 
 This tutorial discusses using ROS 2 bags, including from the terminal.
 You should have already completed the :doc:`basic ROS 2 bag tutorial <../Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data>`.
@@ -56,7 +56,7 @@ Navigate into the ``ros2_ws/src`` directory and create a new package:
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_python --license Apache-2.0 bag_recorder_nodes_py --dependencies rclpy rosbag2_py example_interfaces std_msgs
+  $ ros2 pkg create --build-type ament_python --license Apache-2.0 bag_recorder_nodes_py --dependencies rclpy rosbag2_py example_interfaces std_msgs
 
 Your terminal will return a message verifying the creation of your package ``bag_recorder_nodes_py`` and all its necessary files and folders.
 The ``--dependencies`` argument will automatically add the necessary dependency lines to the ``package.xml``.
@@ -104,13 +104,13 @@ Inside the ``ros2_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory
            super().__init__('simple_bag_recorder')
            self.writer = rosbag2_py.SequentialWriter()
 
-           storage_options = rosbag2_py._storage.StorageOptions(
+           storage_options = rosbag2_py.StorageOptions(
                uri='my_bag',
                storage_id='mcap')
-           converter_options = rosbag2_py._storage.ConverterOptions('', '')
+           converter_options = rosbag2_py.ConverterOptions('', '')
            self.writer.open(storage_options, converter_options)
 
-           topic_info = rosbag2_py._storage.TopicMetadata(
+           topic_info = rosbag2_py.TopicMetadata(
                id=0,
                name='chatter',
                type='std_msgs/msg/String',
@@ -163,10 +163,10 @@ The default conversion options are used, which will perform no conversion and st
 
 .. code-block:: Python
 
-   storage_options = rosbag2_py._storage.StorageOptions(
+   storage_options = rosbag2_py.StorageOptions(
        uri='my_bag',
        storage_id='mcap')
-   converter_options = rosbag2_py._storage.ConverterOptions('', '')
+   converter_options = rosbag2_py.ConverterOptions('', '')
    self.writer.open(storage_options, converter_options)
 
 Next, we need to tell the writer about the topics we wish to store.
@@ -175,7 +175,7 @@ This object specifies the topic name, topic data type, and serialization format 
 
 .. code-block:: Python
 
-   topic_info = rosbag2_py._storage.TopicMetadata(
+   topic_info = rosbag2_py.TopicMetadata(
        id=0,
        name='chatter',
        type='std_msgs/msg/String',
@@ -244,19 +244,19 @@ Navigate back to the root of your workspace, ``ros2_ws``, and build your new pac
 
     .. code-block:: console
 
-      colcon build --packages-select bag_recorder_nodes_py
+      $ colcon build --packages-select bag_recorder_nodes_py
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      colcon build --packages-select bag_recorder_nodes_py
+      $ colcon build --packages-select bag_recorder_nodes_py
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      colcon build --merge-install --packages-select bag_recorder_nodes_py
+      $ colcon build --merge-install --packages-select bag_recorder_nodes_py
 
 Open a new terminal, navigate to ``ros2_ws``, and source the setup files.
 
@@ -266,31 +266,31 @@ Open a new terminal, navigate to ``ros2_ws``, and source the setup files.
 
     .. code-block:: console
 
-      source install/setup.bash
+      $ source install/setup.bash
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      source install/setup.bash
+      $ source install/setup.bash
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      call install/setup.bat
+      $ call install/setup.bat
 
 Now run the node:
 
 .. code-block:: console
 
-   ros2 run bag_recorder_nodes_py simple_bag_recorder
+   $ ros2 run bag_recorder_nodes_py simple_bag_recorder
 
 Open a second terminal and run the ``talker`` example node.
 
 .. code-block:: console
 
-   ros2 run demo_nodes_py talker
+   $ ros2 run demo_nodes_py talker
 
 This will start publishing data on the ``chatter`` topic.
 As the bag-writing node receives this data, it will write it to the ``my_bag`` bag.
@@ -302,13 +302,13 @@ Then, in one terminal start the ``listener`` example node.
 
 .. code-block:: console
 
-   ros2 run demo_nodes_py listener
+   $ ros2 run demo_nodes_py listener
 
 In the other terminal, use ``ros2 bag`` to play the bag recorded by your node.
 
 .. code-block:: console
 
-   ros2 bag play my_bag
+   $ ros2 bag play my_bag
 
 You will see the messages from the bag being received by the ``listener`` node.
 
@@ -346,13 +346,13 @@ Inside the ``ros2_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory
            self.data.data = 0
            self.writer = rosbag2_py.SequentialWriter()
 
-           storage_options = rosbag2_py._storage.StorageOptions(
+           storage_options = rosbag2_py.StorageOptions(
                uri='timed_synthetic_bag',
                storage_id='mcap')
-           converter_options = rosbag2_py._storage.ConverterOptions('', '')
+           converter_options = rosbag2_py.ConverterOptions('', '')
            self.writer.open(storage_options, converter_options)
 
-           topic_info = rosbag2_py._storage.TopicMetadata(
+           topic_info = rosbag2_py.TopicMetadata(
                id=0,
                name='synthetic',
                type='example_interfaces/msg/Int32',
@@ -391,7 +391,7 @@ First, the name of the bag is changed.
 
 .. code-block:: Python
 
-   storage_options = rosbag2_py._storage.StorageOptions(
+   storage_options = rosbag2_py.StorageOptions(
        uri='timed_synthetic_bag',
        storage_id='mcap')
 
@@ -399,7 +399,7 @@ The name of the topic is also changed, as is the data type stored.
 
 .. code-block:: Python
 
-   topic_info = rosbag2_py._storage.TopicMetadata(
+   topic_info = rosbag2_py.TopicMetadata(
        id=0,
        name='synthetic',
        type='example_interfaces/msg/Int32',
@@ -448,19 +448,19 @@ Navigate back to the root of your workspace, ``ros2_ws``, and build your package
 
     .. code-block:: console
 
-      colcon build --packages-select bag_recorder_nodes_py
+      $ colcon build --packages-select bag_recorder_nodes_py
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      colcon build --packages-select bag_recorder_nodes_py
+      $ colcon build --packages-select bag_recorder_nodes_py
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      colcon build --merge-install --packages-select bag_recorder_nodes_py
+      $ colcon build --merge-install --packages-select bag_recorder_nodes_py
 
 Open a new terminal, navigate to ``ros2_ws``, and source the setup files.
 
@@ -470,19 +470,19 @@ Open a new terminal, navigate to ``ros2_ws``, and source the setup files.
 
     .. code-block:: console
 
-      source install/setup.bash
+      $ source install/setup.bash
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      source install/setup.bash
+      $ source install/setup.bash
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      call install/setup.bat
+      $ call install/setup.bat
 
 If the ``timed_synthetic_bag`` directory already exists, you must first delete it before running the node.
 
@@ -490,20 +490,20 @@ Now run the node:
 
 .. code-block:: console
 
-   ros2 run bag_recorder_nodes_py data_generator_node
+   $ ros2 run bag_recorder_nodes_py data_generator_node
 
 Wait for 30 seconds or so, then terminate the node with :kbd:`ctrl-c`.
 Next, play back the created bag.
 
 .. code-block:: console
 
-   ros2 bag play timed_synthetic_bag
+   $ ros2 bag play timed_synthetic_bag
 
 Open a second terminal and echo the ``/synthetic`` topic.
 
 .. code-block:: console
 
-   ros2 topic echo /synthetic
+   $ ros2 topic echo /synthetic
 
 You will see the data that was generated and stored in the bag printed to the console at a rate of one message per second.
 
@@ -531,13 +531,13 @@ Inside the ``ros2_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory
    def main(args=None):
        writer = rosbag2_py.SequentialWriter()
 
-       storage_options = rosbag2_py._storage.StorageOptions(
+       storage_options = rosbag2_py.StorageOptions(
            uri='big_synthetic_bag',
            storage_id='mcap')
-       converter_options = rosbag2_py._storage.ConverterOptions('', '')
+       converter_options = rosbag2_py.ConverterOptions('', '')
        writer.open(storage_options, converter_options)
 
-       topic_info = rosbag2_py._storage.TopicMetadata(
+       topic_info = rosbag2_py.TopicMetadata(
            id=0,
            name='synthetic',
            type='example_interfaces/msg/Int32',
@@ -607,19 +607,19 @@ Navigate back to the root of your workspace, ``ros2_ws``, and build your package
 
     .. code-block:: console
 
-      colcon build --packages-select bag_recorder_nodes_py
+      $ colcon build --packages-select bag_recorder_nodes_py
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      colcon build --packages-select bag_recorder_nodes_py
+      $ colcon build --packages-select bag_recorder_nodes_py
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      colcon build --merge-install --packages-select bag_recorder_nodes_py
+      $ colcon build --merge-install --packages-select bag_recorder_nodes_py
 
 Open a terminal, navigate to ``ros2_ws``, and source the setup files.
 
@@ -629,19 +629,19 @@ Open a terminal, navigate to ``ros2_ws``, and source the setup files.
 
     .. code-block:: console
 
-      source install/setup.bash
+      $ source install/setup.bash
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      source install/setup.bash
+      $ source install/setup.bash
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      call install/setup.bat
+      $ call install/setup.bat
 
 If the ``big_synthetic_bag`` directory already exists, you must first delete it before running the executable.
 
@@ -649,7 +649,7 @@ Now run the executable:
 
 .. code-block:: console
 
-   ros2 run bag_recorder_nodes_py data_generator_executable
+   $ ros2 run bag_recorder_nodes_py data_generator_executable
 
 Note that the executable runs and finishes very quickly.
 
@@ -657,13 +657,13 @@ Now play back the created bag.
 
 .. code-block:: console
 
-   ros2 bag play big_synthetic_bag
+   $ ros2 bag play big_synthetic_bag
 
 Open a second terminal and echo the ``/synthetic`` topic.
 
 .. code-block:: console
 
-   ros2 topic echo /synthetic
+   $ ros2 topic echo /synthetic
 
 You will see the data that was generated and stored in the bag printed to the console at a rate of one message per second.
 Even though the bag was generated rapidly it is still played back at the rate the time stamps indicate.

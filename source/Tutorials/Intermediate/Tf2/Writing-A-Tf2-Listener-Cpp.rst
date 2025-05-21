@@ -44,13 +44,13 @@ Inside the ``src`` directory download the example listener code by entering the 
 
         .. code-block:: console
 
-            wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/turtle_tf2_listener.cpp
+            $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_cpp/src/turtle_tf2_listener.cpp
 
     .. group-tab:: macOS
 
         .. code-block:: console
 
-            wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/turtle_tf2_listener.cpp
+            $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_cpp/src/turtle_tf2_listener.cpp
 
     .. group-tab:: Windows
 
@@ -58,13 +58,13 @@ Inside the ``src`` directory download the example listener code by entering the 
 
         .. code-block:: console
 
-                curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/turtle_tf2_listener.cpp -o turtle_tf2_listener.cpp
+              $ curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_cpp/src/turtle_tf2_listener.cpp -o turtle_tf2_listener.cpp
 
         Or in powershell:
 
         .. code-block:: console
 
-                curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/turtle_tf2_listener.cpp -o turtle_tf2_listener.cpp
+              $ curl https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_cpp/src/turtle_tf2_listener.cpp -o turtle_tf2_listener.cpp
 
 Open the file using your preferred text editor.
 
@@ -78,7 +78,7 @@ Open the file using your preferred text editor.
     #include "geometry_msgs/msg/transform_stamped.hpp"
     #include "geometry_msgs/msg/twist.hpp"
     #include "rclcpp/rclcpp.hpp"
-    #include "tf2/exceptions.h"
+    #include "tf2/exceptions.hpp"
     #include "tf2_ros/transform_listener.h"
     #include "tf2_ros/buffer.h"
     #include "turtlesim_msgs/srv/spawn.hpp"
@@ -258,13 +258,13 @@ Now open the ``CMakeLists.txt`` add the executable and name it ``turtle_tf2_list
 .. code-block:: console
 
     add_executable(turtle_tf2_listener src/turtle_tf2_listener.cpp)
-    ament_target_dependencies(
-        turtle_tf2_listener
-        geometry_msgs
-        rclcpp
-        tf2
-        tf2_ros
-        turtlesim
+    target_link_libraries(
+        turtle_tf2_listener PUBLIC
+        ${geometry_msgs_TARGETS}
+        rclcpp::rclcpp
+        tf2::tf2
+        tf2_ros::tf2_ros
+        ${turtlesim_msgs_TARGETS}
     )
 
 Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your executable:
@@ -281,51 +281,8 @@ Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your e
 Open the launch file called ``turtle_tf2_demo_launch.py`` in the ``src/learning_tf2_cpp/launch`` directory with your text editor, add two new nodes to the launch description, add a launch argument, and add the imports.
 The resulting file should look like:
 
-.. code-block:: python
-
-    from launch import LaunchDescription
-    from launch.actions import DeclareLaunchArgument
-    from launch.substitutions import LaunchConfiguration
-
-    from launch_ros.actions import Node
-
-
-    def generate_launch_description():
-        return LaunchDescription([
-            Node(
-                package='turtlesim',
-                executable='turtlesim_node',
-                name='sim'
-            ),
-            Node(
-                package='learning_tf2_cpp',
-                executable='turtle_tf2_broadcaster',
-                name='broadcaster1',
-                parameters=[
-                    {'turtlename': 'turtle1'}
-                ]
-            ),
-            DeclareLaunchArgument(
-                'target_frame', default_value='turtle1',
-                description='Target frame name.'
-            ),
-            Node(
-                package='learning_tf2_cpp',
-                executable='turtle_tf2_broadcaster',
-                name='broadcaster2',
-                parameters=[
-                    {'turtlename': 'turtle2'}
-                ]
-            ),
-            Node(
-                package='learning_tf2_cpp',
-                executable='turtle_tf2_listener',
-                name='listener',
-                parameters=[
-                    {'target_frame': LaunchConfiguration('target_frame')}
-                ]
-            ),
-        ])
+.. literalinclude:: launch/listener_cpp_launch.py
+  :language: python
 
 This will declare a ``target_frame`` launch argument, start a broadcaster for the second turtle that we will spawn and a listener that will subscribe to those transformations.
 
@@ -340,7 +297,7 @@ Run ``rosdep`` in the root of your workspace to check for missing dependencies.
 
       .. code-block:: console
 
-          rosdep install -i --from-path src --rosdistro {DISTRO} -y
+          $ rosdep install -i --from-path src --rosdistro {DISTRO} -y
 
    .. group-tab:: macOS
 
@@ -358,19 +315,19 @@ Still in the root of your workspace, build your package:
 
       .. code-block:: console
 
-          colcon build --packages-select learning_tf2_cpp
+          $ colcon build --packages-select learning_tf2_cpp
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-          colcon build --packages-select learning_tf2_cpp
+          $ colcon build --packages-select learning_tf2_cpp
 
    .. group-tab:: Windows
 
       .. code-block:: console
 
-          colcon build --merge-install --packages-select learning_tf2_cpp
+          $ colcon build --merge-install --packages-select learning_tf2_cpp
 
 Open a new terminal, navigate to the root of your workspace, and source the setup files:
 
@@ -380,23 +337,27 @@ Open a new terminal, navigate to the root of your workspace, and source the setu
 
       .. code-block:: console
 
-          . install/setup.bash
+          $ . install/setup.bash
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-          . install/setup.bash
+          $ . install/setup.bash
 
    .. group-tab:: Windows
 
+      In a Windows command line prompt:
+
       .. code-block:: console
 
-          # CMD
-          call install\setup.bat
+          $ call install\setup.bat
 
-          # Powershell
-          .\install\setup.ps1
+      Or in powershell:
+
+      .. code-block:: console
+
+          $ .\install\setup.ps1
 
 4 Run
 ^^^^^
@@ -405,14 +366,14 @@ Now you're ready to start your full turtle demo:
 
 .. code-block:: console
 
-    ros2 launch learning_tf2_cpp turtle_tf2_demo_launch.py
+    $ ros2 launch learning_tf2_cpp turtle_tf2_demo_launch.py
 
 You should see the turtle sim with two turtles.
 In the second terminal window type the following command:
 
 .. code-block:: console
 
-    ros2 run turtlesim turtle_teleop_key
+    $ ros2 run turtlesim turtle_teleop_key
 
 To see if things work, simply drive around the first turtle using the arrow keys (make sure your terminal window is active, not your simulator window), and you'll see the second turtle following the first one!
 

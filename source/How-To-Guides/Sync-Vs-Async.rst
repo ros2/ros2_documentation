@@ -126,7 +126,7 @@ They can be made from anywhere without running the risk of blocking other ROS an
 An asynchronous client will immediately return ``future``, a value that indicates whether the call and response is finished (not the value of the response itself), after sending a request to a service.
 The returned ``future`` may be queried for a response at any time.
 
-Since sending a request doesn’t block anything, a loop can be used to both spin ``rclpy`` and check ``future`` in the same thread, for example:
+Since sending a request doesn't block anything, a loop can be used to both spin ``rclpy`` and check ``future`` in the same thread, for example:
 
 .. code-block:: python
 

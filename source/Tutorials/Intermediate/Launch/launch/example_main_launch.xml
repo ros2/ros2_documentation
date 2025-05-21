@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <let name="background_r" value="200" />
+  <include file="$(find-pkg-share launch_tutorial)/launch/example_substitutions_launch.xml">
+    <arg name="turtlesim_ns" value="turtlesim2" />
+    <arg name="use_provided_red" value="True" />
+    <arg name="new_background_r" value="$(var background_r)" />
+  </include>
+</launch>

@@ -43,7 +43,7 @@ The YAML schema for the profile overrides is a dictionary of topic names with ke
 
 If a policy value is not specified, the value will fallback to the default used by Ros2Bag.
 If you specify a Duration based policy such as ``deadline`` or ``lifespan``, you will need to specify both seconds and nanoseconds.
-Policy values are determined by the policy’s short keys which can be found using ``ros2topic`` verbs such as ``ros2 topic pub --help``.
+Policy values are determined by the policy's short keys which can be found using ``ros2topic`` verbs such as ``ros2 topic pub --help``.
 All values are replicated below for reference.
 
 .. code-block:: yaml
@@ -72,7 +72,7 @@ ROS 2 publishers by default request ``volatile`` Durability.
 
 .. code-block:: console
 
-    ros2 topic pub -r 0.1 --qos-durability transient_local /talker std_msgs/String "data: Hello World"
+    $ ros2 topic pub -r 0.1 --qos-durability transient_local /talker std_msgs/String "data: Hello World"
 
 In order for Ros2Bag to record the data, we would want to override the recording policy for that specific topic like so:
 
@@ -87,7 +87,7 @@ And call it from the CLI:
 
 .. code-block:: console
 
-    ros2 bag record -a -o my_bag --qos-profile-overrides-path durability_override.yaml
+    $ ros2 bag record -a -o my_bag --qos-profile-overrides-path durability_override.yaml
 
 If we want to playback the bag file but with a different Reliability policy, we can specify one as such;
 
@@ -102,10 +102,10 @@ And call it from the CLI:
 
 .. code-block:: console
 
-    ros2 bag play --qos-profile-overrides-path reliability_override.yaml my_bag
+    $ ros2 bag play --qos-profile-overrides-path reliability_override.yaml my_bag
 
 We can see the results with ``ros2 topic``
 
 .. code-block:: console
 
-    ros2 topic echo --qos-reliability best_effort /talker std_msgs/String
+    $ ros2 topic echo --qos-reliability best_effort /talker std_msgs/String

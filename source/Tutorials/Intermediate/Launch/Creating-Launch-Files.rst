@@ -23,7 +23,7 @@ This tutorial uses the :doc:`rqt_graph and turtlesim <../../Beginner-CLI-Tools/I
 
 You will also need to use a text editor of your preference.
 
-As always, don’t forget to source ROS 2 in :doc:`every new terminal you open <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
+As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
 
 Background
 ----------
@@ -32,7 +32,7 @@ The launch system in ROS 2 is responsible for helping the user describe the conf
 The configuration of the system includes what programs to run, where to run them, what arguments to pass them, and ROS-specific conventions which make it easy to reuse components throughout the system by giving them each a different configuration.
 It is also responsible for monitoring the state of the processes launched, and reporting and/or reacting to changes in the state of those processes.
 
-Launch files written in Python, XML, or YAML can start and stop different nodes as well as trigger and act on various events.
+Launch files written in XML, YAML, or Python can start and stop different nodes as well as trigger and act on various events.
 See :doc:`../../../How-To-Guides/Launch-file-different-formats` for a description of the different formats.
 The package providing this framework is ``launch_ros``, which uses the non-ROS-specific ``launch`` framework underneath.
 
@@ -48,96 +48,36 @@ Create a new directory to store your launch files:
 
 .. code-block:: console
 
-  mkdir launch
+  $ mkdir launch
 
 2 Write the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Let’s put together a ROS 2 launch file using the ``turtlesim`` package and its executables.
-As mentioned above, this can either be in Python, XML, or YAML.
+Let's put together a ROS 2 launch file using the ``turtlesim`` package and its executables.
+As mentioned above, this can either be in XML, YAML, or Python.
 
 .. tabs::
-
-  .. group-tab:: Python
-
-    Copy and paste the complete code into the ``launch/turtlesim_mimic_launch.py`` file:
-
-    .. code-block:: python
-
-      from launch import LaunchDescription
-      from launch_ros.actions import Node
-
-      def generate_launch_description():
-          return LaunchDescription([
-              Node(
-                  package='turtlesim',
-                  namespace='turtlesim1',
-                  executable='turtlesim_node',
-                  name='sim'
-              ),
-              Node(
-                  package='turtlesim',
-                  namespace='turtlesim2',
-                  executable='turtlesim_node',
-                  name='sim'
-              ),
-              Node(
-                  package='turtlesim',
-                  executable='mimic',
-                  name='mimic',
-                  remappings=[
-                      ('/input/pose', '/turtlesim1/turtle1/pose'),
-                      ('/output/cmd_vel', '/turtlesim2/turtle1/cmd_vel'),
-                  ]
-              )
-          ])
 
   .. group-tab:: XML
 
     Copy and paste the complete code into the ``launch/turtlesim_mimic_launch.xml`` file:
 
-    .. code-block:: xml
-
-      <launch>
-        <node pkg="turtlesim" exec="turtlesim_node" name="sim" namespace="turtlesim1"/>
-        <node pkg="turtlesim" exec="turtlesim_node" name="sim" namespace="turtlesim2"/>
-        <node pkg="turtlesim" exec="mimic" name="mimic">
-          <remap from="/input/pose" to="/turtlesim1/turtle1/pose"/>
-          <remap from="/output/cmd_vel" to="/turtlesim2/turtle1/cmd_vel"/>
-        </node>
-      </launch>
+    .. literalinclude:: launch/turtlesim_mimic_launch.xml
+      :language: xml
 
   .. group-tab:: YAML
 
     Copy and paste the complete code into the ``launch/turtlesim_mimic_launch.yaml`` file:
 
-    .. code-block:: yaml
+    .. literalinclude:: launch/turtlesim_mimic_launch.yaml
+      :language: yaml
 
-      launch:
+  .. group-tab:: Python
 
-      - node:
-          pkg: "turtlesim"
-          exec: "turtlesim_node"
-          name: "sim"
-          namespace: "turtlesim1"
+    Copy and paste the complete code into the ``launch/turtlesim_mimic_launch.py`` file:
 
-      - node:
-          pkg: "turtlesim"
-          exec: "turtlesim_node"
-          name: "sim"
-          namespace: "turtlesim2"
-
-      - node:
-          pkg: "turtlesim"
-          exec: "mimic"
-          name: "mimic"
-          remap:
-          -
-              from: "/input/pose"
-              to: "/turtlesim1/turtle1/pose"
-          -
-              from: "/output/cmd_vel"
-              to: "/turtlesim2/turtle1/cmd_vel"
+    .. literalinclude:: launch/turtlesim_mimic_launch.py
+      :language: python
 
 
 2.1 Examine the launch file
@@ -159,107 +99,59 @@ In other words, ``turtlesim2`` will mimic ``turtlesim1``'s movements.
 
 .. tabs::
 
-  .. group-tab:: Python
-
-    These import statements pull in some Python ``launch`` modules.
-
-    .. code-block:: python
-
-      from launch import LaunchDescription
-      from launch_ros.actions import Node
-
-    Next, the launch description itself begins:
-
-    .. code-block:: python
-
-      def generate_launch_description():
-         return LaunchDescription([
-
-         ])
-
-    The first two actions in the launch description launch the two turtlesim windows:
-
-    .. code-block:: python
-
-      Node(
-          package='turtlesim',
-          namespace='turtlesim1',
-          executable='turtlesim_node',
-          name='sim'
-      ),
-      Node(
-          package='turtlesim',
-          namespace='turtlesim2',
-          executable='turtlesim_node',
-          name='sim'
-      ),
-
-    The final action launches the mimic node with the remaps:
-
-    .. code-block:: python
-
-      Node(
-          package='turtlesim',
-          executable='mimic',
-          name='mimic',
-          remappings=[
-            ('/input/pose', '/turtlesim1/turtle1/pose'),
-            ('/output/cmd_vel', '/turtlesim2/turtle1/cmd_vel'),
-          ]
-      )
-
   .. group-tab:: XML
 
     The first two actions launch the two turtlesim windows:
 
-    .. code-block:: xml
-
-      <node pkg="turtlesim" exec="turtlesim_node" name="sim" namespace="turtlesim1"/>
-      <node pkg="turtlesim" exec="turtlesim_node" name="sim" namespace="turtlesim2"/>
+    .. literalinclude:: launch/turtlesim_mimic_launch.xml
+      :language: xml
+      :lines: 3-4
 
     The final action launches the mimic node with the remaps:
 
-    .. code-block:: xml
-
-      <node pkg="turtlesim" exec="mimic" name="mimic">
-        <remap from="/input/pose" to="/turtlesim1/turtle1/pose"/>
-        <remap from="/output/cmd_vel" to="/turtlesim2/turtle1/cmd_vel"/>
-      </node>
+    .. literalinclude:: launch/turtlesim_mimic_launch.xml
+      :language: xml
+      :lines: 5-8
 
   .. group-tab:: YAML
 
     The first two actions launch the two turtlesim windows:
 
-    .. code-block:: yaml
-
-      - node:
-          pkg: "turtlesim"
-          exec: "turtlesim_node"
-          name: "sim"
-          namespace: "turtlesim1"
-
-      - node:
-          pkg: "turtlesim"
-          exec: "turtlesim_node"
-          name: "sim"
-          namespace: "turtlesim2"
-
+    .. literalinclude:: launch/turtlesim_mimic_launch.yaml
+      :language: yaml
+      :lines: 4-14
 
     The final action launches the mimic node with the remaps:
 
-    .. code-block:: yaml
+    .. literalinclude:: launch/turtlesim_mimic_launch.yaml
+      :language: yaml
+      :lines: 16-24
 
-      - node:
-          pkg: "turtlesim"
-          exec: "mimic"
-          name: "mimic"
-          remap:
-          -
-              from: "/input/pose"
-              to: "/turtlesim1/turtle1/pose"
-          -
-              from: "/output/cmd_vel"
-              to: "/turtlesim2/turtle1/cmd_vel"
+  .. group-tab:: Python
+
+    These import statements pull in some Python ``launch`` modules.
+
+    .. literalinclude:: launch/turtlesim_mimic_launch.py
+      :language: python
+      :lines: 1-2
+
+    Next, the launch description itself begins:
+
+    .. literalinclude:: launch/turtlesim_mimic_launch.py
+      :language: python
+      :lines: 5-7,28
+
+    The first two actions in the launch description launch the two turtlesim windows:
+
+    .. literalinclude:: launch/turtlesim_mimic_launch.py
+      :language: python
+      :lines: 7-18
+
+    The final action launches the mimic node with the remaps:
+
+    .. literalinclude:: launch/turtlesim_mimic_launch.py
+      :language: python
+      :lines: 19-27
 
 
 3 ros2 launch
@@ -269,26 +161,26 @@ To run the launch file created above, enter into the directory you created earli
 
 .. tabs::
 
-  .. group-tab:: Python
-
-    .. code-block:: console
-
-      cd launch
-      ros2 launch turtlesim_mimic_launch.py
-
   .. group-tab:: XML
 
     .. code-block:: console
 
-      cd launch
-      ros2 launch turtlesim_mimic_launch.xml
+      $ cd launch
+      $ ros2 launch turtlesim_mimic_launch.xml
 
   .. group-tab:: YAML
 
     .. code-block:: console
 
-      cd launch
-      ros2 launch turtlesim_mimic_launch.yaml
+      $ cd launch
+      $ ros2 launch turtlesim_mimic_launch.yaml
+
+  .. group-tab:: Python
+
+    .. code-block:: console
+
+      $ cd launch
+      $ ros2 launch turtlesim_mimic_launch.py
 
 .. note::
 
@@ -297,7 +189,7 @@ To run the launch file created above, enter into the directory you created earli
 
   .. code-block:: console
 
-      ros2 launch <package_name> <launch_file_name>
+      $ ros2 launch <package_name> <launch_file_name>
 
   You learned about creating packages in :doc:`../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package`.
 
@@ -325,7 +217,7 @@ To see the system in action, open a new terminal and run the ``ros2 topic pub`` 
 
 .. code-block:: console
 
-  ros2 topic pub -r 1 /turtlesim1/turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -1.8}}"
+  $ ros2 topic pub -r 1 /turtlesim1/turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -1.8}}"
 
 You will see both turtles following the same path.
 
@@ -340,7 +232,7 @@ Run the command:
 
 .. code-block:: console
 
-  rqt_graph
+  $ rqt_graph
 
 .. image:: images/mimic_graph.png
 
@@ -351,4 +243,4 @@ Summary
 -------
 
 Launch files simplify running complex systems with many nodes and specific configuration details.
-You can create launch files using Python, XML, or YAML, and run them using the ``ros2 launch`` command.
+You can create launch files using XML, YAML, or Python, and run them using the ``ros2 launch`` command.

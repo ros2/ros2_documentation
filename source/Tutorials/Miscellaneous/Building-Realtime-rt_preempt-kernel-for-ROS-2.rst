@@ -6,88 +6,94 @@
 Building a real-time Linux kernel [community-contributed]
 =========================================================
 
-This tutorial begins with a clean Ubuntu 20.04.1 install on Intel x86_64. Actual kernel is 5.4.0-54-generic, but we will install the Latest Stable RT_PREEMPT Version. To build the kernel you need at least 30GB free disk space.
+This tutorial begins with a clean Ubuntu 20.04.1 install on Intel x86_64.
+Actual kernel is 5.4.0-54-generic, but we will install the Latest Stable RT_PREEMPT Version.
+To build the kernel you need at least 30GB free disk space.
 
-Check https://wiki.linuxfoundation.org/realtime/start for the latest stable version, at the time of writing this is "Latest Stable Version 5.4-rt".
+Check `this wiki <https://wiki.linuxfoundation.org/realtime/start>`_ for the latest stable version, at the time of writing this is "Latest Stable Version 5.4-rt".
 If we click on the `link <http://cdn.kernel.org/pub/linux/kernel/projects/rt/5.4/>`_, we get the exact version.
-Currently it is patch-5.4.78-rt44.patch.gz.
+Currently it is ``patch-5.4.78-rt44.patch.gz``.
 
 .. image:: images/realtime-kernel-patch-version.png
 
 We create a directory in our home dir with
 
-.. code-block:: bash
+.. code-block:: console
 
-   mkdir ~/kernel
+   $ mkdir ~/kernel
 
 and switch into it with
 
-.. code-block:: bash
+.. code-block:: console
 
-   cd ~/kernel
+   $ cd ~/kernel
 
-We can go with a browser to https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/ and see if the version is there. You can download it from the site and move it manually from /Downloads to the /kernel folder, or download it using wget by right clicking the link using "copy link location". Example:
+We can go with a browser to `this page <https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/>`_ and see if the version is there.
+You can download it from the site and move it manually from /Downloads to the /kernel folder, or download it using wget by right clicking the link using "copy link location".
+Example:
 
-.. code-block:: bash
+.. code-block:: console
 
-   wget https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/linux-5.4.78.tar.gz
-
-unpack it with
-
-.. code-block:: bash
-
-   tar -xzf linux-5.4.78.tar.gz
-
-download rt_preempt patch matching the Kernel version we just downloaded over at http://cdn.kernel.org/pub/linux/kernel/projects/rt/5.4/
-
-.. code-block:: bash
-
-   wget http://cdn.kernel.org/pub/linux/kernel/projects/rt/5.4/older/patch-5.4.78-rt44.patch.gz
+   $ wget https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/linux-5.4.78.tar.gz
 
 unpack it with
 
-.. code-block:: bash
+.. code-block:: console
 
-   gunzip patch-5.4.78-rt44.patch.gz
+   $ tar -xzf linux-5.4.78.tar.gz
+
+download rt_preempt patch matching the Kernel version we just downloaded over at `kernel.org <http://cdn.kernel.org/pub/linux/kernel/projects/rt/5.4/>`_
+
+.. code-block:: console
+
+   $ wget http://cdn.kernel.org/pub/linux/kernel/projects/rt/5.4/older/patch-5.4.78-rt44.patch.gz
+
+unpack it with
+
+.. code-block:: console
+
+   $ gunzip patch-5.4.78-rt44.patch.gz
 
 Then switch into the linux directory with
 
-.. code-block:: bash
+.. code-block:: console
 
-   cd linux-5.4.78/
+   $ cd linux-5.4.78/
 
 and patch the kernel with the realtime patch
 
-.. code-block:: bash
+.. code-block:: console
 
-   patch -p1 < ../patch-5.4.78-rt44.patch
+   $ patch -p1 < ../patch-5.4.78-rt44.patch
 
 We simply want to use the config of our Ubuntu installation, so we get the Ubuntu config with
 
-.. code-block:: bash
+.. code-block:: console
 
-   cp /boot/config-5.4.0-54-generic .config
+   $ cp /boot/config-5.4.0-54-generic .config
 
-Open Software & Updates. in the Ubuntu Software menu tick the 'Source code' box
+Open Software & Updates.
+in the Ubuntu Software menu tick the 'Source code' box
 
 We need some tools to build kernel, install them with
 
-.. code-block:: bash
+.. code-block:: console
 
-   sudo apt-get build-dep linux
-   sudo apt-get install libncurses-dev flex bison openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf fakeroot
+   $ sudo apt-get build-dep linux
+   $ sudo apt-get install libncurses-dev flex bison openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf fakeroot
 
 To enable all Ubuntu configurations, we simply use
 
-.. code-block:: bash
+.. code-block:: console
 
-   yes '' | make oldconfig
+   $ yes '' | make oldconfig
 
-Then we need to enable rt_preempt in the kernel. We call
+Then we need to enable rt_preempt in the kernel.
+We call
 
-.. code-block:: bash
+.. code-block:: console
 
-   make menuconfig
+   $ make menuconfig
 
 and set the following
 
@@ -121,30 +127,38 @@ and set the following
       -> Default CPUFreq governor (<choice> [=y])
        (X) performance
 
-Save and exit menuconfig. Now we're going to build the kernel which will take quite some time. (10-30min on a modern cpu)
+Save and exit menuconfig.
+Now we're going to build the kernel which will take quite some time.
+(10-30min on a modern cpu)
 
-.. code-block:: bash
+.. code-block:: console
 
-   make -j `nproc` deb-pkg
+   $ make -j `nproc` deb-pkg
 
 After the build is finished check the deb packages
 
-.. code-block:: bash
+.. code-block:: console
 
-   ls ../*deb
+   $ ls ../*deb
    ../linux-headers-5.4.78-rt41_5.4.78-rt44-1_amd64.deb  ../linux-image-5.4.78-rt44-dbg_5.4.78-rt44-1_amd64.deb
    ../linux-image-5.4.78-rt41_5.4.78-rt44-1_amd64.deb    ../linux-libc-dev_5.4.78-rt44-1_amd64.deb
 
 Then we install all kernel deb packages
 
-.. code-block:: bash
+.. code-block:: console
 
-   sudo dpkg -i ../*.deb
+   $ sudo dpkg -i ../*.deb
 
-Now the real time kernel should be installed. Reboot the system and check the new kernel version
+Now the real time kernel should be installed.
+Reboot the system:
 
-.. code-block:: bash
+.. code-block:: console
 
-   sudo reboot
-   uname -a
+   $ sudo reboot
+
+And check the new kernel version:
+
+.. code-block:: console
+
+   $ uname -a
    Linux ros2host 5.4.78-rt44 #1 SMP PREEMPT_RT Fri Nov 6 10:37:59 CET 2020 x86_64 xx

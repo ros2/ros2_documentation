@@ -37,19 +37,24 @@ Supported RMW implementations
    * - eProsima *Fast DDS*
      - Apache 2
      - ``rmw_fastrtps_cpp``
-     - Full support. Default RMW. Packaged with binary releases.
+     - Full support.
+       Default RMW.
+       Packaged with binary releases.
    * - Eclipse *Cyclone DDS*
      - Eclipse Public License v2.0
      - ``rmw_cyclonedds_cpp``
-     - Full support. Packaged with binary releases.
+     - Full support.
+       Packaged with binary releases.
    * - RTI *Connext DDS*
      - commercial, research
      - ``rmw_connextdds``
-     - Full support. Support included in binaries, but Connext installed separately.
+     - Full support.
+       Support included in binaries, but Connext installed separately.
    * - GurumNetworks *GurumDDS*
      - commercial
      - ``rmw_gurumdds_cpp``
-     - Community support. Support included in binaries, but GurumDDS installed separately.
+     - Community support.
+       Support included in binaries, but GurumDDS installed separately.
 
 For practical information on working with multiple RMW implementations, see the :doc:`"Working with multiple RMW implementations" <../../How-To-Guides/Working-with-multiple-RMW-implementations>` tutorial.
 
@@ -59,7 +64,7 @@ Multiple RMW implementations
 The ROS 2 binary releases for currently active distros have built-in support for several RMW implementations out of the box (Fast DDS, RTI Connext Pro, Eclipse Cyclone DDS, GurumNetworks GurumDDS).
 The default is Fast DDS, which works without any additional installation steps because we distribute it with our binary packages.
 
-Other RMWs like Cyclone DDS, Connext or GurumDDS can be enabled by :doc:`installing additional packages <../../Installation/DDS-Implementations>`, but without having to rebuild anything or replace any existing packages.
+Other RMWs like Cyclone DDS, Connext or GurumDDS can be enabled by :doc:`installing additional packages <../../Installation/RMW-Implementations>`, but without having to rebuild anything or replace any existing packages.
 
 A ROS 2 workspace that has been built from source may build and install multiple RMW implementations simultaneously.
 While the core ROS 2 code is being compiled, any RMW implementation that is found will be built if the relevant DDS/RTPS implementation has been installed properly and the relevant environment variables have been configured.
@@ -83,3 +88,11 @@ For example, if both ``rmw_cyclonedds_cpp`` and ``rmw_connextdds`` ROS packages 
 If ``rmw_fastrtps_cpp`` is ever installed, it would be the default.
 
 See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` for how to specify which RMW implementation is to be used when running the ROS 2 examples.
+
+.. _different-middleware-vendors-cross-vendor-communication:
+
+Cross-Vendor Communication
+--------------------------
+
+While different RMW implementations may be compatible in limited circumstances, this is not guaranteed.
+Thus it is suggested that users ensure that all parts of the distributed system are using the same ROS version and the same RMW implementation.

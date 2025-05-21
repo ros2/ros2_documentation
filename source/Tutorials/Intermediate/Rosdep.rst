@@ -104,8 +104,10 @@ How do I know what keys to put in my package.xml?
 
 Great question, I'm glad you asked!
 
-* If the package you want to depend in your package is ROS-based, AND has been released into the ROS ecosystem [1]_, e.g. ``nav2_bt_navigator``, you may simply use the name of the package. You can find a list of all released ROS packages in https://github.com/ros/rosdistro at ``<distro>/distribution.yaml`` (e.g. ``humble/distribution.yaml``) for your given ROS distribution.
-* If you want to depend on a non-ROS package, something often called "system dependencies", you will need to find the keys for a particular library. In general, there are two files of interest:
+* If the package you want to depend in your package is ROS-based, AND has been released into the ROS ecosystem [1]_, e.g. ``nav2_bt_navigator``, you may simply use the name of the package.
+  You can find a list of all released ROS packages in https://github.com/ros/rosdistro at ``<distro>/distribution.yaml`` (e.g. ``humble/distribution.yaml``) for your given ROS distribution.
+* If you want to depend on a non-ROS package, something often called "system dependencies", you will need to find the keys for a particular library.
+  In general, there are two files of interest:
 
   * `rosdep/base.yaml <https://github.com/ros/rosdistro/blob/master/rosdep/base.yaml>`_ contains the ``apt`` system dependencies
   * `rosdep/python.yaml <https://github.com/ros/rosdistro/blob/master/rosdep/python.yaml>`_ contains the Python dependencies
@@ -152,9 +154,9 @@ If you are using ``rosdep`` with ROS, it is conveniently packaged along with the
 This is the recommended way to get ``rosdep``.
 You can install it with:
 
-.. code-block:: bash
+.. code-block:: console
 
-    apt-get install python3-rosdep
+    $ apt-get install python3-rosdep
 
 .. note::
 
@@ -164,9 +166,9 @@ You can install it with:
 If you are using ``rosdep`` outside of ROS, the system package may not be available.
 In that case, you can install it directly from https://pypi.org:
 
-.. code-block:: bash
+.. code-block:: console
 
-    pip install rosdep
+    $ pip install rosdep
 
 rosdep operation
 ^^^^^^^^^^^^^^^^
@@ -174,10 +176,10 @@ rosdep operation
 Now that we have some understanding of ``rosdep``, ``package.xml``, and ``rosdistro``, we're ready to use the utility itself!
 Firstly, if this is the first time using ``rosdep``, it must be initialized via:
 
-.. code-block:: bash
+.. code-block:: console
 
-    sudo rosdep init
-    rosdep update
+    $ sudo rosdep init
+    $ rosdep update
 
 This will initialize rosdep and ``update`` will update the locally cached rosdistro index.
 It is a good idea to ``update`` rosdep on occasion to get the latest index.
@@ -186,9 +188,9 @@ Finally, we can run ``rosdep install`` to install dependencies.
 Typically, this is run over a workspace with many packages in a single call to install all dependencies.
 A call for that would appear as the following, if in the root of the workspace with directory ``src`` containing source code.
 
-.. code-block:: bash
+.. code-block:: console
 
-    rosdep install --from-paths src -y --ignore-src
+    $ rosdep install --from-paths src -y --ignore-src
 
 Breaking that down:
 

@@ -45,13 +45,13 @@ Open a new terminal and run:
 
 .. code-block:: console
 
-    ros2 run turtlesim turtlesim_node
+    $ ros2 run turtlesim turtlesim_node
 
 Open another terminal and run:
 
 .. code-block:: console
 
-    ros2 run turtlesim turtle_teleop_key
+    $ ros2 run turtlesim turtle_teleop_key
 
 
 2 ros2 param list
@@ -61,12 +61,7 @@ To see the parameters belonging to your nodes, open a new terminal and enter the
 
 .. code-block:: console
 
-    ros2 param list
-
-You will see the node namespaces, ``/teleop_turtle`` and ``/turtlesim``, followed by each node's parameters:
-
-.. code-block:: console
-
+  $ ros2 param list
   /teleop_turtle:
     qos_overrides./parameter_events.publisher.depth
     qos_overrides./parameter_events.publisher.durability
@@ -85,6 +80,11 @@ You will see the node namespaces, ``/teleop_turtle`` and ``/turtlesim``, followe
     qos_overrides./parameter_events.publisher.reliability
     use_sim_time
 
+
+You see the node namespaces, ``/teleop_turtle`` and ``/turtlesim``, followed by each node's parameters.
+
+The namespaces of the parameter and its name are separated using dots as you can see, for example, in ``parameter_events.publisher.depth``.
+
 Every node has the parameter ``use_sim_time``; it's not unique to turtlesim.
 
 Based on their names, it looks like ``/turtlesim``'s parameters determine the background color of the turtlesim window using RGB color values.
@@ -99,19 +99,14 @@ To display the type and current value of a parameter, use the command:
 
 .. code-block:: console
 
-    ros2 param get <node_name> <parameter_name>
+  $ ros2 param get <node_name> <parameter_name>
 
 Let's find out the current value of ``/turtlesim``'s parameter ``background_g``:
 
 .. code-block:: console
 
-    ros2 param get /turtlesim background_g
-
-Which will return the value:
-
-.. code-block:: console
-
-    Integer value is: 86
+  $ ros2 param get /turtlesim background_g
+  Integer value is: 86
 
 Now you know ``background_g`` holds an integer value.
 
@@ -124,21 +119,16 @@ To change a parameter's value at runtime, use the command:
 
 .. code-block:: console
 
-    ros2 param set <node_name> <parameter_name> <value>
+  $ ros2 param set <node_name> <parameter_name> <value>
 
 Let's change ``/turtlesim``'s background color:
 
 .. code-block:: console
 
-    ros2 param set /turtlesim background_r 150
-
-Your terminal should return the message:
-
-.. code-block:: console
-
+  $ ros2 param set /turtlesim background_r 150
   Set parameter successful
 
-And the background of your turtlesim window should change colors:
+The background of your turtlesim window should change colors:
 
 .. image:: images/set.png
 
@@ -152,14 +142,14 @@ You can view all of a node's current parameter values by using the command:
 
 .. code-block:: console
 
-  ros2 param dump <node_name>
+  $ ros2 param dump <node_name>
 
 The command prints to the standard output (stdout) by default but you can also redirect the parameter values into a file to save them for later.
 To save your current configuration of ``/turtlesim``'s parameters into the file ``turtlesim.yaml``, enter the command:
 
 .. code-block:: console
 
-  ros2 param dump /turtlesim > turtlesim.yaml
+  $ ros2 param dump /turtlesim > turtlesim.yaml
 
 You will find a new file in the current working directory your shell is running in.
 If you open this file, you'll see the following content:
@@ -189,18 +179,13 @@ You can load parameters from a file to a currently running node using the comman
 
 .. code-block:: console
 
-  ros2 param load <node_name> <parameter_file>
+  $ ros2 param load <node_name> <parameter_file>
 
 To load the ``turtlesim.yaml`` file generated with ``ros2 param dump`` into ``/turtlesim`` node's parameters, enter the command:
 
 .. code-block:: console
 
-  ros2 param load /turtlesim turtlesim.yaml
-
-Your terminal will return the message:
-
-.. code-block:: console
-
+  $ ros2 param load /turtlesim turtlesim.yaml
   Set parameter background_b successful
   Set parameter background_g successful
   Set parameter background_r successful
@@ -214,6 +199,8 @@ Your terminal will return the message:
 
   Read-only parameters can only be modified at startup and not afterwards, that is why there are some warnings for the "qos_overrides" parameters.
 
+.. _LoadParameterFileOnNodeStartup:
+
 7 Load parameter file on node startup
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -221,7 +208,7 @@ To start the same node using your saved parameter values, use:
 
 .. code-block:: console
 
-  ros2 run <package_name> <executable_name> --ros-args --params-file <file_name>
+  $ ros2 run <package_name> <executable_name> --ros-args --params-file <file_name>
 
 This is the same command you always use to start turtlesim, with the added flags ``--ros-args`` and ``--params-file``, followed by the file you want to load.
 
@@ -229,7 +216,7 @@ Stop your running turtlesim node, and try reloading it with your saved parameter
 
 .. code-block:: console
 
-  ros2 run turtlesim turtlesim_node --ros-args --params-file turtlesim.yaml
+  $ ros2 run turtlesim turtlesim_node --ros-args --params-file turtlesim.yaml
 
 The turtlesim window should appear as usual, but with the purple background you set earlier.
 

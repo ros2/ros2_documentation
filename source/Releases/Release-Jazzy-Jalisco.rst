@@ -188,9 +188,9 @@ Added a ``--log-file-name`` command line argument
 
 It is now possible to use ``--log-file-name`` command line argument to specify the log file name prefix.
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 run demo_nodes_cpp talker --ros-args --log-file-name filename
+   $ ros2 run demo_nodes_cpp talker --ros-args --log-file-name filename
 
 See https://github.com/ros2/ros2cli/issues/856 for more information.
 
@@ -214,9 +214,9 @@ It is now possible to get the number of clients created by a service.
 
 It is now possible to use the ``type`` sub-command to check the action type.
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 action type /fibonacci
+   $ ros2 action type /fibonacci
    action_tutorials_interfaces/action/Fibonacci
 
 See https://github.com/ros2/ros2cli/pull/894 for more information.
@@ -235,21 +235,21 @@ And `Service playback <https://github.com/ros2/rosbag2/pull/1481>`__ can play th
 
 Record all services data:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 bag record --all-services
+   $ ros2 bag record --all-services
 
 Record all services and all topic data:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 bag record --all
+   $ ros2 bag record --all
 
 Play service data from bag file:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 bag play --publish-service-requests bag_path
+   $ ros2 bag play --publish-service-requests bag_path
 
 See the `design document <https://github.com/ros2/rosbag2/blob/rolling/docs/design/rosbag2_record_replay_service.md>`__ for more information.
 
@@ -258,13 +258,13 @@ New filter modes
 
 It is now possible to filter by topic type.
 
-.. code-block:: bash
+.. code-block:: console
 
-    ros2 bag record --topic_types sensor_msgs/msg/Image sensor_msgs/msg/CameraInfo
+    $ ros2 bag record --topic_types sensor_msgs/msg/Image sensor_msgs/msg/CameraInfo
 
-.. code-block:: bash
+.. code-block:: console
 
-    ros2 bag record --topic_types sensor_msgs/msg/Image
+    $ ros2 bag record --topic_types sensor_msgs/msg/Image
 
 See more details https://github.com/ros2/rosbag2/pull/1577 and https://github.com/ros2/rosbag2/pull/1582.
 

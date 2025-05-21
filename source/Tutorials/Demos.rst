@@ -7,12 +7,13 @@ Demos
    Demos/Quality-of-Service
    Demos/Managed-Nodes
    Demos/Intra-Process-Communication
-   Demos/Rosbag-with-ROS1-Bridge
    Demos/Real-Time-Programming
    Demos/dummy-robot-demo
    Demos/Logging-and-logger-configuration
    Demos/Content-Filtering-Subscription
    Demos/Service-Introspection
+   Demos/Action-Introspection
+   Demos/Wait-for-Acknowledgment
 
 External resources
 ------------------
@@ -25,4 +26,3 @@ External resources
     - `Simulating <https://ubuntu.com/blog/simulate-the-turtlebot3>`__
     - `Navigating in simulation <https://github.com/cyberbotics/webots_ros2/wiki/Navigate-TurtleBot3>`__
     - `Learning SLAM in simulation <https://github.com/cyberbotics/webots_ros2/wiki/SLAM-with-TurtleBot3>`__
-

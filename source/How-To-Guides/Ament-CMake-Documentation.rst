@@ -177,33 +177,16 @@ In the case that a package has both libraries and executables, make sure to comb
 Linking to dependencies
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-There are two ways to link your targets against a dependency.
+Link to your dependencies using [target_link_libraries](https://cmake.org/cmake/help/latest/command/target_link_libraries.html)
+It will give your target the necessary headers, libraries, and all their dependencies.
 
-The first and recommended way is to use the ament macro ``ament_target_dependencies``.
 As an example, suppose we want to link ``my_library`` against the linear algebra library Eigen3.
+``Eigen3`` defines the target ``Eigen3::Eigen``.
 
 .. code-block:: cmake
 
     find_package(Eigen3 REQUIRED)
-    ament_target_dependencies(my_library PUBLIC Eigen3)
-
-It includes the necessary headers and libraries and their dependencies to be correctly found by the project.
-
-The second way is to use ``target_link_libraries``.
-
-Modern CMake prefers to use only targets, exporting and linking against them.
-CMake targets may be namespaced, similar to C++.
-Prefer to use the namespaced targets if they are available.
-For instance, ``Eigen3`` defines the target ``Eigen3::Eigen``.
-
-In the example of Eigen3, the call should then look like
-
-.. code-block:: cmake
-
     target_link_libraries(my_library PUBLIC Eigen3::Eigen)
-
-This will also include necessary headers, libraries and their dependencies.
-Note that this dependency must have been previously discovered via a call to ``find_package``.
 
 Installing
 ^^^^^^^^^^
@@ -262,7 +245,7 @@ Installing
         - The ``EXPORT`` notation of the install call requires additional attention:
           It installs the CMake files for the ``my_library`` target.
           It must be named exactly the same as the argument in ``ament_export_targets``.
-          To ensure that it can be used via ``ament_target_dependencies``, it should not be named exactly the same as the library name, but instead should have a prefix like ``export_`` (as shown above).
+          By convention the export name is given a prefix like ``export_``, but this prefix is not critical.
 
         - All install paths are relative to ``CMAKE_INSTALL_PREFIX``, which is already set correctly by colcon/ament.
 
@@ -323,7 +306,8 @@ One example of how to do so can be found in the `ament_cmake_lint_cmake document
 Testing
 ^^^^^^^
 
-Ament contains CMake macros to simplify setting up GTests. Call:
+Ament contains CMake macros to simplify setting up GTests.
+Call:
 
 .. code-block:: cmake
 
@@ -341,14 +325,16 @@ The macros have additional parameters:
 
     find_package(ament_cmake_gtest REQUIRED)
     ament_add_gtest(some_test <test_sources>
-      APPEND_ENV PATH=some/addtional/path/for/testing/resources)
+      APPEND_ENV PATH=some/additional/path/for/testing/resources)
 
 - ``APPEND_LIBRARY_DIRS``: append libraries so that they can be found by the linker at runtime.
   This can be achieved by setting environment variables like ``PATH`` on Windows and ``LD_LIBRARY_PATH`` on Linux, but this makes the call platform specific.
 
 - ``ENV``: set environment variables (same syntax as ``APPEND_ENV``).
 
-- ``TIMEOUT``: set a test timeout in second. The default for GTests is 60 seconds.  For example:
+- ``TIMEOUT``: set a test timeout in second.
+  The default for GTests is 60 seconds.
+  For example:
 
 .. code-block:: cmake
 
@@ -469,7 +455,7 @@ The ament index explained
 
 For details on the design and intentions, see `here <https://github.com/ament/ament_cmake/blob/{REPOS_FILE_BRANCH}/ament_cmake_core/doc/resource_index.md>`__
 
-In principle, the ament index is contained in a folder within the install/share folder of your package.
+In principle, the ament index is contained in a folder within the `install space <https://colcon.readthedocs.io/en/released/user/what-is-a-workspace.html#install-artifacts>`_.
 It contains shallow subfolders named after different types of resources.
 Within the subfolder, each package providing said resource is referenced by name with a "marker file".
 The file may contain whatever content necessary to obtain the resources, e.g. relative paths to the installation directories of the resource, it may also be simply empty.
@@ -550,7 +536,8 @@ For the RViz mesh resource, the corresponding choices were:
 
 - ``rviz_ogre_media_exports`` as name of the resource,
 
-- install path relative paths to all folders containing resources. This will already enable you to write the logic for using the corresponding resource in your package.
+- install path relative paths to all folders containing resources.
+  This will already enable you to write the logic for using the corresponding resource in your package.
 
 To allow users to easily register resources for your package, you should furthermore provide macros or functions such as the pluginlib function or ``rviz_ogre_media_exports`` function.
 
@@ -567,14 +554,19 @@ The macro has a number of parameters that can be useful:
 
 - the first (unnamed) parameter is the name of the resource, which amounts to the name of the folder in the resource_index
 
-- ``CONTENT``: The content of the marker file as string. This could be a list of relative paths, etc. ``CONTENT`` cannot be used together with ``CONTENT_FILE``.
+- ``CONTENT``: The content of the marker file as string.
+  This could be a list of relative paths, etc.
+  ``CONTENT`` cannot be used together with ``CONTENT_FILE``.
 
-- ``CONTENT_FILE``: The path to a file which will be use to create the marker file. The file can be a plain file or a template file expanded with ``configure_file()``.
+- ``CONTENT_FILE``: The path to a file which will be use to create the marker file.
+  The file can be a plain file or a template file expanded with ``configure_file()``.
   ``CONTENT_FILE`` cannot be used together with ``CONTENT``.
 
-- ``PACKAGE_NAME``: The name of the package/library exporting the resource, which amounts to the name of the marker file. Defaults to ``${PROJECT_NAME}``.
+- ``PACKAGE_NAME``: The name of the package/library exporting the resource, which amounts to the name of the marker file.
+  Defaults to ``${PROJECT_NAME}``.
 
-- ``AMENT_INDEX_BINARY_DIR``: The base path of the generated ament index. Unless really necessary, always use the default ``${CMAKE_BINARY_DIR}/ament_cmake_index``.
+- ``AMENT_INDEX_BINARY_DIR``: The base path of the generated ament index.
+  Unless really necessary, always use the default ``${CMAKE_BINARY_DIR}/ament_cmake_index``.
 
 - ``SKIP_INSTALL``: Skip installing the marker file.
 
@@ -598,3 +590,65 @@ In the case of ``rviz_ogre_media_exports`` this amounts to the following strateg
       "register_rviz_ogre_media_exports_hook.cmake")
 
 - The files ``register_rviz_ogre_media_exports.cmake`` and ``register_rviz_ogre_media_exports_hook-extra.cmake`` are registered as ``CONFIG_EXTRA`` with ``ament_package()``.
+
+Setting environment variables
+-----------------------------
+``ament_cmake`` provides a mechanism to automatically set environment variables for a ROS 2 workspace when it is sourced.
+This can be useful in configuring:
+
+- RMW implementations (setting up CycloneDDS, FastDDS, etc.)
+- Gazebo Simulations (setting up paths to plugins and resources)
+- Other custom robot-specific setting configurations
+
+This can be implemented through ``ament_environment_hooks``, which allows packages to define persistent environment variables that are set when the workspace is sourced.
+
+About environment hooks
+^^^^^^^^^^^^^^^^^^^^^^^
+Environment hooks are shell scripts provided by a ROS 2 package.
+When the setup file in the workspace is sourced, the hooks are also sourced.
+These scripts allow you to set or extend environment variables with requiring manual modifications to the ``setup.bash`` or ``setup.zsh`` files.
+
+These environment hooks can be implemented by creating two types of script files:
+
+- ``.dsv.in`` files: These are machine-readable files that specify expected environment variable changes.
+  Ament processes these files more efficiently than traditional shell scripts, improving performance when setting up the environment.
+
+- ``.sh.in`` files: These are shell scripts executed by Linux/macOS shells such as sh, bash, and zsh.
+  They set environment variables at runtime when sourcing the workspace.
+
+These files are processed by ``colcon`` to generate the final environment hook scripts.
+
+The actual implementation of ``ament_environment_hooks`` can be found in the official `ament-cmake repository <https://github.com/ament/ament_cmake/tree/master/ament_cmake_core/cmake/environment_hooks>`__.
+
+Defining Persistent Environment Variables through Hooks
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This section provides a quick example on how to use environment hooks to configure FastDDS XML profiles for your ROS 2 package.
+
+A recommended best practice when defining environment hooks is to place them within a dedicated ``hooks`` directory inside the package workspace.
+
+Inside your created ``hooks`` folder, create a ``my_package.sh.in`` as follows:
+
+.. code-block:: bash
+
+    export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+    export RMW_FASTRTPS_USE_QOS_FROM_XML=1
+    export FASTRTPS_DEFAULT_PROFILES_FILE="$COLCON_CURRENT_PREFIX/my_dds_profile.xml"
+
+In the same folder, create a ``my_package.dsv.in`` file as follows:
+
+.. code-block:: bash
+
+    set;RMW_IMPLEMENTATION;rmw_fastrtps_cpp
+    set;RMW_FASTRTPS_USE_QOS_FROM_XML;1
+    set;FASTRTPS_DEFAULT_PROFILES_FILE;my_dds_profile.xml
+
+Once added, you can register them using the ament_environment_hooks function in your ``CMakeLists.txt`` file:
+
+.. code-block:: bash
+
+    ament_environment_hooks(
+      "${CMAKE_CURRENT_SOURCE_DIR}/hooks/my_package.dsv.in"
+      "${CMAKE_CURRENT_SOURCE_DIR}/hooks/my_package.sh.in"
+    )
+
+Another example of using environment hooks for Gazebo plugin paths can be found in the official `ros_gz_project_template <https://github.com/gazebosim/ros_gz_project_template/tree/main/ros_gz_example_gazebo/hooks>`__.

@@ -73,7 +73,8 @@ For planned future development, see the :doc:`Roadmap <Roadmap>`.
      -
    * - Preliminary support for real-time code
      - :doc:`Demo <../Tutorials/Demos/Real-Time-Programming>`, :doc:`demo <../Tutorials/Advanced/Allocator-Template-Tutorial>`
-     - Linux only. Not available for Fast RTPS.
+     - Linux only.
+       Not available for Fast RTPS.
    * - Preliminary support for "bare-metal" microcontrollers
      - `Wiki <https://github.com/ros2/freertps/wiki>`__
      -
@@ -82,6 +83,9 @@ For planned future development, see the :doc:`Roadmap <Roadmap>`.
      - Currently only in C++.
    * - Service Introspection
      - :doc:`Demo <../Tutorials/Demos/Service-Introspection>`
+     -
+   * - Action Introspection
+     - :doc:`Demo <../Tutorials/Demos/Action-Introspection>`
      -
 
 Besides core features of the platform, the biggest impact of ROS comes from its available packages.

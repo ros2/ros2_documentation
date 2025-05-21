@@ -18,14 +18,19 @@ If not, ask a new question on `Robotics Stack Exchange <https://robotics.stackex
 Make sure to add tags, at the very least the ``ros2`` tag and the distro version you are running, e.g. ``{DISTRO}``.
 If your question is related to the documentation here, add a tag like ``docs``, or more specifically, ``tutorials``.
 
+Please don't contact the developers/maintainers directly.
+The community can't see question or answer(s) not asked or answered publicly.
+Open Source development works best when the entire community participates in discussions and helps to answer questions.
+It's better to send all questions to `Robotics Stack Exchange <https://robotics.stackexchange.com/>`__ and report all issues to the issue tracker.
+
 Contributing support
 ^^^^^^^^^^^^^^^^^^^^
 
-ROS 2 users come from a wide range of technical backgrounds, use a variety of different operating systems, and don’t necessarily have any prior experience with ROS (1 or 2).
+ROS 2 users come from a wide range of technical backgrounds, use a variety of different operating systems, and don't necessarily have any prior experience with ROS (1 or 2).
 So, it's important for users with any amount of experience to contribute support.
 
-If you see an issue on `Robotics Stack Exchange <https://robotics.stackexchange.com/>`__ that is similar to something you’ve run into yourself, please consider providing some pointers to what helped in your situation.
-Don’t worry if you aren't sure if your response is correct.
+If you see an issue on `Robotics Stack Exchange <https://robotics.stackexchange.com/>`__ that is similar to something you've run into yourself, please consider providing some pointers to what helped in your situation.
+Don't worry if you aren't sure if your response is correct.
 Simply say so, and other community members will jump in if necessary.
 
 Issues
@@ -52,9 +57,14 @@ When filing an issue, please make sure to:
 Describe exactly what you were doing or are trying to do, and exactly what, if anything, went wrong.
 If following a tutorial or online instructions provide a link to the specific instructions.
 
-* Use a descriptive headline or subject line. Bad: "rviz doesn't work". Good: "Rviz crashing looking for missing .so after latest apt update"
-* Include information about the exact platform, software, versions, and environment relevant to the problem. This includes how you installed the software (from binaries or from source) and which ROS middleware/DDS vendor you are using (if you know it).
-* Any warnings or errors. Cut and paste them directly from the terminal window to which they were printed. Please do not re-type or include a screenshot.
+* Use a descriptive headline or subject line.
+  Bad: "rviz doesn't work".
+  Good: "Rviz crashing looking for missing ``.so`` after latest apt update"
+* Include information about the exact platform, software, versions, and environment relevant to the problem.
+  This includes how you installed the software (from binaries or from source) and which ROS middleware/DDS vendor you are using (if you know it).
+* Any warnings or errors.
+  Cut and paste them directly from the terminal window to which they were printed.
+  Please do not re-type or include a screenshot.
 * In case of a bug consider providing a `short, self contained, correct (compilable), example <http://sscce.org/>`__.
 * When discussing any compiling/linking/installation issues, also provide the compiler version
 
@@ -85,7 +95,7 @@ To start a discussion with other ROS 2 community members, visit the official `RO
 Content on the Discourse should be high-level;
 it's not a place to get *questions* about code answered, but it would be suitable to start a conversation about best practices or improving standards.
 
-Discussions about ROS 2 development and plans are happening on the `“Next Generation ROS” Discourse category <https://discourse.ros.org/c/ng-ros>`__.
+Discussions about ROS 2 development and plans are happening on the `"Next Generation ROS" Discourse category <https://discourse.ros.org/c/ng-ros>`__.
 Participating in these discussions is an important way to have a say on how different features of ROS 2 will work and be implemented.
 
 The diverse community behind the ROS ecosystem is one of its greatest assets.

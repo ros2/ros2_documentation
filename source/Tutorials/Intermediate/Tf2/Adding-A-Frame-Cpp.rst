@@ -57,13 +57,13 @@ Inside the ``src`` directory download the fixed frame broadcaster code by enteri
 
       .. code-block:: console
 
-          wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/fixed_frame_tf2_broadcaster.cpp
+          $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_cpp/src/fixed_frame_tf2_broadcaster.cpp
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-          wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/fixed_frame_tf2_broadcaster.cpp
+          $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_cpp/src/fixed_frame_tf2_broadcaster.cpp
 
    .. group-tab:: Windows
 
@@ -71,13 +71,13 @@ Inside the ``src`` directory download the fixed frame broadcaster code by enteri
 
       .. code-block:: console
 
-          curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/fixed_frame_tf2_broadcaster.cpp -o fixed_frame_tf2_broadcaster.cpp
+          $ curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_cpp/src/fixed_frame_tf2_broadcaster.cpp -o fixed_frame_tf2_broadcaster.cpp
 
       Or in powershell:
 
       .. code-block:: console
 
-          curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/fixed_frame_tf2_broadcaster.cpp -o fixed_frame_tf2_broadcaster.cpp
+          $ curl https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_cpp/src/fixed_frame_tf2_broadcaster.cpp -o fixed_frame_tf2_broadcaster.cpp
 
 Now open the file called ``fixed_frame_tf2_broadcaster.cpp``.
 
@@ -163,11 +163,11 @@ Now open the ``CMakeLists.txt`` add the executable and name it ``fixed_frame_tf2
 .. code-block:: console
 
     add_executable(fixed_frame_tf2_broadcaster src/fixed_frame_tf2_broadcaster.cpp)
-    ament_target_dependencies(
-        fixed_frame_tf2_broadcaster
-        geometry_msgs
-        rclcpp
-        tf2_ros
+    target_link_libraries(
+        fixed_frame_tf2_broadcaster PUBLIC
+        ${geometry_msgs_TARGETS}
+        rclcpp::rclcpp
+        tf2_ros::tf2_ros
     )
 
 Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your executable:
@@ -184,47 +184,16 @@ Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your e
 Now let's create a launch file for this example.
 With your text editor, create a new file called ``turtle_tf2_fixed_frame_demo_launch.py`` in the ``src/learning_tf2_cpp/launch`` directory, and add the following lines:
 
-.. code-block:: python
-
-    import os
-
-    from ament_index_python.packages import get_package_share_directory
-
-    from launch import LaunchDescription
-    from launch.actions import IncludeLaunchDescription
-    from launch.launch_description_sources import PythonLaunchDescriptionSource
-
-    from launch_ros.actions import Node
-
-
-    def generate_launch_description():
-        demo_nodes = IncludeLaunchDescription(
-            PythonLaunchDescriptionSource([os.path.join(
-                get_package_share_directory('learning_tf2_cpp'), 'launch'),
-                '/turtle_tf2_demo_launch.py']),
-            )
-
-        return LaunchDescription([
-            demo_nodes,
-            Node(
-                package='learning_tf2_cpp',
-                executable='fixed_frame_tf2_broadcaster',
-                name='fixed_broadcaster',
-            ),
-        ])
-
+.. literalinclude:: launch/turtle_tf2_fixed_frame_demo_launch.py
+    :language: python
 
 This launch file imports the required packages and then creates a ``demo_nodes`` variable that will store nodes that we created in the previous tutorial's launch file.
 
 The last part of the code will add our fixed ``carrot1`` frame to the turtlesim world using our ``fixed_frame_tf2_broadcaster`` node.
 
-.. code-block:: python
-
-    Node(
-        package='learning_tf2_cpp',
-        executable='fixed_frame_tf2_broadcaster',
-        name='fixed_broadcaster',
-    ),
+.. literalinclude:: launch/turtle_tf2_fixed_frame_demo_launch.py
+    :language: python
+    :lines: 14-18
 
 1.4 Build
 ~~~~~~~~~
@@ -237,7 +206,7 @@ Run ``rosdep`` in the root of your workspace to check for missing dependencies.
 
       .. code-block:: console
 
-          rosdep install -i --from-path src --rosdistro {DISTRO} -y
+          $ rosdep install -i --from-path src --rosdistro {DISTRO} -y
 
    .. group-tab:: macOS
 
@@ -255,19 +224,19 @@ Still in the root of your workspace, build your package:
 
       .. code-block:: console
 
-          colcon build --packages-select learning_tf2_cpp
+          $ colcon build --packages-select learning_tf2_cpp
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-          colcon build --packages-select learning_tf2_cpp
+          $ colcon build --packages-select learning_tf2_cpp
 
    .. group-tab:: Windows
 
       .. code-block:: console
 
-          colcon build --merge-install --packages-select learning_tf2_cpp
+          $ colcon build --merge-install --packages-select learning_tf2_cpp
 
 Open a new terminal, navigate to the root of your workspace, and source the setup files:
 
@@ -277,23 +246,27 @@ Open a new terminal, navigate to the root of your workspace, and source the setu
 
       .. code-block:: console
 
-          . install/setup.bash
+          $ . install/setup.bash
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-          . install/setup.bash
+          $ . install/setup.bash
 
    .. group-tab:: Windows
 
-      .. code-block:: console
+        In a Windows command line prompt:
 
-          # CMD
-          call install\setup.bat
+        .. code-block:: console
 
-          # Powershell
-          .\install\setup.ps1
+            $ call install\setup.bat
+
+        Or in powershell:
+
+        .. code-block:: console
+
+            $ .\install\setup.ps1
 
 1.5 Run
 ~~~~~~~
@@ -302,7 +275,7 @@ Now you can start the turtle broadcaster demo:
 
 .. code-block:: console
 
-    ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo_launch.py
+    $ ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo_launch.py
 
 You should notice that the new ``carrot1`` frame appeared in the transformation tree.
 
@@ -317,7 +290,7 @@ One way is to pass the ``target_frame`` argument to the launch file directly fro
 
 .. code-block:: console
 
-    ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo_launch.py target_frame:=carrot1
+    $ ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo_launch.py target_frame:=carrot1
 
 The second way is to update the launch file.
 To do so, open the ``turtle_tf2_fixed_frame_demo_launch.py`` file, and add the ``'target_frame': 'carrot1'`` parameter via ``launch_arguments`` argument.
@@ -349,13 +322,13 @@ Inside the ``src`` directory download the dynamic frame broadcaster code by ente
 
       .. code-block:: console
 
-          wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/dynamic_frame_tf2_broadcaster.cpp
+          $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_cpp/src/dynamic_frame_tf2_broadcaster.cpp
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-          wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/dynamic_frame_tf2_broadcaster.cpp
+          $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_cpp/src/dynamic_frame_tf2_broadcaster.cpp
 
    .. group-tab:: Windows
 
@@ -363,13 +336,13 @@ Inside the ``src`` directory download the dynamic frame broadcaster code by ente
 
       .. code-block:: console
 
-          curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/dynamic_frame_tf2_broadcaster.cpp -o dynamic_frame_tf2_broadcaster.cpp
+          $ curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_cpp/src/dynamic_frame_tf2_broadcaster.cpp -o dynamic_frame_tf2_broadcaster.cpp
 
       Or in powershell:
 
       .. code-block:: console
 
-          curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/dynamic_frame_tf2_broadcaster.cpp -o dynamic_frame_tf2_broadcaster.cpp
+          $ curl https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_cpp/src/dynamic_frame_tf2_broadcaster.cpp -o dynamic_frame_tf2_broadcaster.cpp
 
 Now open the file called ``dynamic_frame_tf2_broadcaster.cpp``:
 
@@ -451,11 +424,11 @@ Now open the ``CMakeLists.txt`` add the executable and name it ``dynamic_frame_t
 .. code-block:: console
 
     add_executable(dynamic_frame_tf2_broadcaster src/dynamic_frame_tf2_broadcaster.cpp)
-    ament_target_dependencies(
-        dynamic_frame_tf2_broadcaster
-        geometry_msgs
-        rclcpp
-        tf2_ros
+    target_link_libraries(
+        dynamic_frame_tf2_broadcaster PUBLIC
+        ${geometry_msgs_TARGETS}
+        rclcpp::rclcpp
+        tf2_ros::tf2_ros
     )
 
 Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your executable:
@@ -471,35 +444,9 @@ Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your e
 
 To test this code, create a new launch file ``turtle_tf2_dynamic_frame_demo_launch.py`` in the ``src/learning_tf2_cpp/launch`` directory and paste the following code:
 
-.. code-block:: python
+.. literalinclude:: launch/turtle_tf2_dynamic_frame_demo_launch.py
+    :language: python
 
-    import os
-
-    from ament_index_python.packages import get_package_share_directory
-
-    from launch import LaunchDescription
-    from launch.actions import IncludeLaunchDescription
-    from launch.launch_description_sources import PythonLaunchDescriptionSource
-
-    from launch_ros.actions import Node
-
-
-    def generate_launch_description():
-        demo_nodes = IncludeLaunchDescription(
-            PythonLaunchDescriptionSource([os.path.join(
-                get_package_share_directory('learning_tf2_cpp'), 'launch'),
-                '/turtle_tf2_demo_launch.py']),
-            launch_arguments={'target_frame': 'carrot1'}.items(),
-            )
-
-        return LaunchDescription([
-            demo_nodes,
-            Node(
-                package='learning_tf2_cpp',
-                executable='dynamic_frame_tf2_broadcaster',
-                name='dynamic_broadcaster',
-            ),
-        ])
 
 2.4 Build
 ~~~~~~~~~
@@ -512,7 +459,7 @@ Run ``rosdep`` in the root of your workspace to check for missing dependencies.
 
       .. code-block:: console
 
-          rosdep install -i --from-path src --rosdistro {DISTRO} -y
+          $ rosdep install -i --from-path src --rosdistro {DISTRO} -y
 
    .. group-tab:: macOS
 
@@ -530,19 +477,19 @@ Still in the root of your workspace, build your package:
 
       .. code-block:: console
 
-          colcon build --packages-select learning_tf2_cpp
+          $ colcon build --packages-select learning_tf2_cpp
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-          colcon build --packages-select learning_tf2_cpp
+          $ colcon build --packages-select learning_tf2_cpp
 
    .. group-tab:: Windows
 
       .. code-block:: console
 
-          colcon build --merge-install --packages-select learning_tf2_cpp
+          $ colcon build --merge-install --packages-select learning_tf2_cpp
 
 Open a new terminal, navigate to the root of your workspace, and source the setup files:
 
@@ -552,23 +499,27 @@ Open a new terminal, navigate to the root of your workspace, and source the setu
 
       .. code-block:: console
 
-          . install/setup.bash
+          $ . install/setup.bash
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-          . install/setup.bash
+          $ . install/setup.bash
 
    .. group-tab:: Windows
 
+      In a Windows command line prompt:
+
       .. code-block:: console
 
-          # CMD
-          call install\setup.bat
+          $ call install\setup.bat
 
-          # Powershell
-          .\install\setup.ps1
+      Or in powershell:
+
+      .. code-block:: console
+
+          $ .\install\setup.ps1
 
 2.5 Run
 ~~~~~~~
@@ -577,7 +528,7 @@ Now you can start the dynamic frame demo:
 
 .. code-block:: console
 
-    ros2 launch learning_tf2_cpp turtle_tf2_dynamic_frame_demo_launch.py
+    $ ros2 launch learning_tf2_cpp turtle_tf2_dynamic_frame_demo_launch.py
 
 You should see that the second turtle is following the carrot's position that is constantly changing.
 

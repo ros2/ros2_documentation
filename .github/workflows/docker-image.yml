@@ -1,0 +1,27 @@
+name: Build & Run Docker Image
+
+on:
+  pull_request:
+    # Only kick workflow if docker files or this workflow are changed
+    paths:
+      - 'docker/**'
+      - '.github/workflows/docker-image.yml'
+
+jobs:
+  validate:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch full history including branches and tags
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        run: docker build --rm --build-arg user=$(id -un) --build-arg uid=$(id -u) -f ./docker/image/Dockerfile -t test-image:latest .
+
+      - name: Run container and verify
+        run: |
+          docker run --rm --user $(id -u):$(id -g) -v $(pwd):/tmp/doc_repository test-image:latest

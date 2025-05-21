@@ -22,7 +22,7 @@ Background
 
 When making your own :doc:`nodes <../Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` you will sometimes need to add parameters that can be set from the launch file.
 
-This tutorial will show you how to create those parameters in a C++ class, and how to set them in a launch file.
+This tutorial will show you how to create those parameters in a C++ class, and how to set them using launch file.
 
 Prerequisites
 -------------
@@ -45,7 +45,7 @@ Navigate into ``ros2_ws/src`` and create a new package:
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_cmake --license Apache-2.0 cpp_parameters --dependencies rclcpp
+  $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 cpp_parameters --dependencies rclcpp
 
 Your terminal will return a message verifying the creation of your package ``cpp_parameters`` and all its necessary files and folders.
 
@@ -206,12 +206,13 @@ Once you run the node, you can then run ``ros2 param describe /minimal_param_nod
 2.2 Add executable
 ~~~~~~~~~~~~~~~~~~
 
-Now open the ``CMakeLists.txt`` file. Below the dependency ``find_package(rclcpp REQUIRED)`` add the following lines of code.
+Now open the ``CMakeLists.txt`` file.
+Below the dependency ``find_package(rclcpp REQUIRED)`` add the following lines of code.
 
 .. code-block:: cmake
 
     add_executable(minimal_param_node src/cpp_parameters_node.cpp)
-    ament_target_dependencies(minimal_param_node rclcpp)
+    target_link_libraries(minimal_param_node rclcpp::rclcpp)
 
     install(TARGETS
         minimal_param_node
@@ -230,7 +231,7 @@ It's good practice to run ``rosdep`` in the root of your workspace (``ros2_ws``)
 
       .. code-block:: console
 
-        rosdep install -i --from-path src --rosdistro {DISTRO} -y
+        $ rosdep install -i --from-path src --rosdistro {DISTRO} -y
 
    .. group-tab:: macOS
 
@@ -248,19 +249,19 @@ Navigate back to the root of your workspace, ``ros2_ws``, and build your new pac
 
     .. code-block:: console
 
-      colcon build --packages-select cpp_parameters
+      $ colcon build --packages-select cpp_parameters
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      colcon build --packages-select cpp_parameters
+      $ colcon build --packages-select cpp_parameters
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      colcon build --merge-install --packages-select cpp_parameters
+      $ colcon build --merge-install --packages-select cpp_parameters
 
 Open a new terminal, navigate to ``ros2_ws``, and source the setup files:
 
@@ -270,34 +271,30 @@ Open a new terminal, navigate to ``ros2_ws``, and source the setup files:
 
     .. code-block:: console
 
-      source install/setup.bash
+      $ source install/setup.bash
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      . install/setup.bash
+      $ . install/setup.bash
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      call install/setup.bat
+      $ call install/setup.bat
 
-Now run the node:
-
-.. code-block:: console
-
-     ros2 run cpp_parameters minimal_param_node
-
-The terminal should return the following message every second:
+Now run the node.
+The terminal should return the ``Hello World`` message every second:
 
 .. code-block:: console
 
+     $ ros2 run cpp_parameters minimal_param_node
     [INFO] [minimal_param_node]: Hello world!
 
 Now you can see the default value of your parameter, but you want to be able to set it yourself.
-There are two ways to accomplish this.
+There are four ways to accomplish this.
 
 3.1 Change via the console
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -308,20 +305,20 @@ Make sure the node is running:
 
 .. code-block:: console
 
-     ros2 run cpp_parameters minimal_param_node
+     $ ros2 run cpp_parameters minimal_param_node
 
 Open another terminal, source the setup files from inside ``ros2_ws`` again, and enter the following line:
 
 .. code-block:: console
 
-    ros2 param list
+    $ ros2 param list
 
 There you will see the custom parameter ``my_parameter``.
 To change it, simply run the following line in the console:
 
 .. code-block:: console
 
-    ros2 param set /minimal_param_node my_parameter earth
+    $ ros2 param set /minimal_param_node my_parameter earth
 
 You know it went well if you got the output ``Set parameter successful``.
 If you look at the other terminal, you should see the output change to ``[INFO] [minimal_param_node]: Hello earth!``
@@ -333,29 +330,13 @@ Inside the ``ros2_ws/src/cpp_parameters/`` directory, create a new directory cal
 In there, create a new file called ``cpp_parameters_launch.py``
 
 
-.. code-block:: Python
-
-  from launch import LaunchDescription
-  from launch_ros.actions import Node
-
-  def generate_launch_description():
-      return LaunchDescription([
-          Node(
-              package="cpp_parameters",
-              executable="minimal_param_node",
-              name="custom_minimal_param_node",
-              output="screen",
-              emulate_tty=True,
-              parameters=[
-                  {"my_parameter": "earth"}
-              ]
-          )
-      ])
+.. literalinclude:: launch/cpp_parameters_launch.py
+  :language: python
 
 Here you can see that we set ``my_parameter`` to ``earth`` when we launch our node ``minimal_param_node``.
 By adding the two lines below, we ensure our output is printed in our console.
 
-.. code-block:: console
+.. code-block:: python
 
           output="screen",
           emulate_tty=True,
@@ -378,19 +359,19 @@ Open a console and navigate to the root of your workspace, ``ros2_ws``, and buil
 
     .. code-block:: console
 
-      colcon build --packages-select cpp_parameters
+      $ colcon build --packages-select cpp_parameters
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      colcon build --packages-select cpp_parameters
+      $ colcon build --packages-select cpp_parameters
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      colcon build --merge-install --packages-select cpp_parameters
+      $ colcon build --merge-install --packages-select cpp_parameters
 
 Then source the setup files in a new terminal:
 
@@ -400,33 +381,45 @@ Then source the setup files in a new terminal:
 
     .. code-block:: console
 
-      source install/setup.bash
+      $ source install/setup.bash
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      . install/setup.bash
+      $ . install/setup.bash
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      call install/setup.bat
+      $ call install/setup.bat
 
-Now run the node using the launch file we have just created:
-
-.. code-block:: console
-
-     ros2 launch cpp_parameters cpp_parameters_launch.py
-
+Now run the node using the launch file we have just created.
 The terminal should return the following message the first time:
 
 .. code-block:: console
 
-    [INFO] [custom_minimal_param_node]: Hello earth!
+     $ ros2 launch cpp_parameters cpp_parameters_launch.py
+     [INFO] [custom_minimal_param_node]: Hello earth!
 
 Further outputs should show  ``[INFO] [minimal_param_node]: Hello world!`` every second.
+
+3.3 Change via launch file loading parameters from YAML file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Instead of listing parameters and their values in launch file, you can create a separate YAML file that will be loaded in launch file.
+Placing parameters in a YAML file makes it easier to organize them, for example, by assigning them to different namespaces.
+You can read more about it :ref:`here <LoadingParametersFromYAMLFile>`.
+
+.. note::
+
+  While declaring, getting and setting parameter value inside your C++ node, you should use dot as a separator between parameter's namespace and name.
+
+3.4 Change via passing YAML file as an argument at node startup
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Return to :ref:`tutorial about parameters <LoadParameterFileOnNodeStartup>` to remind yourself, how to load parameters file at node startup using CLI.
 
 Summary
 -------
@@ -438,3 +431,9 @@ Next steps
 ----------
 
 Now that you have some packages and ROS 2 systems of your own, the :doc:`next tutorial <./Getting-Started-With-Ros2doctor>` will show you how to examine issues in your environment and systems in case you have problems.
+
+Related content
+---------------
+
+* For more detailed information about using YAML files to load parameters, please refer to :ref:`this section <Parameters>` of Managing large projects tutorial.
+* If you want to learn, how to monitor and respond to parameter changes, check out :doc:`Monitoring for parameter changes (C++) <../Intermediate/Monitoring-For-Parameter-Changes-CPP>` tutorial.

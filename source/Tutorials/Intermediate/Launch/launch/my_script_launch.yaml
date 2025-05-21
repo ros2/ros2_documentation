@@ -1,0 +1,7 @@
+%YAML 1.2
+---
+launch:
+  - node:
+      pkg: "demo_nodes_cpp"
+      exec: "talker"
+      name: "talker"

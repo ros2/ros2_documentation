@@ -17,9 +17,9 @@ Building a movable robot model
    :depth: 2
    :local:
 
-In this tutorial, we’re going to revise the R2D2 model we made in the :doc:`previous tutorial <./Building-a-Visual-Robot-Model-with-URDF-from-Scratch>` so that it has movable joints.
+In this tutorial, we're going to revise the R2D2 model we made in the :doc:`previous tutorial <./Building-a-Visual-Robot-Model-with-URDF-from-Scratch>` so that it has movable joints.
 In the previous model, all of the joints were fixed.
-Now we’ll explore three other important types of joints: continuous, revolute and prismatic.
+Now we'll explore three other important types of joints: continuous, revolute and prismatic.
 
 Make sure you have installed all prerequisites before continuing.
 See the :doc:`previous tutorial <./Building-a-Visual-Robot-Model-with-URDF-from-Scratch>` for information on what is required.
@@ -27,13 +27,13 @@ See the :doc:`previous tutorial <./Building-a-Visual-Robot-Model-with-URDF-from-
 Again, all of the robot models mentioned in this tutorial can be found in the `urdf_tutorial <https://index.ros.org/p/urdf_tutorial>`_ package.
 
 `Here is the new urdf <https://github.com/ros/urdf_tutorial/blob/ros2/urdf/06-flexible.urdf>`_ with flexible joints.
-You can compare it to the previous version to see everything that has changed, but we’re just going to focus on three example joints.
+You can compare it to the previous version to see everything that has changed, but we're just going to focus on three example joints.
 
 To visualize and control this model, run the same command as the last tutorial:
 
 .. code-block:: console
 
-  ros2 launch urdf_tutorial display.launch.py model:=urdf/06-flexible.urdf
+  $ ros2 launch urdf_tutorial display.launch.py model:=urdf/06-flexible.urdf
 
 However now this will also pop up a GUI that allows you to control the values of all the non-fixed joints.
 Play with the model some and see how it moves.
@@ -103,13 +103,14 @@ Other Types of Joints
 There are two other kinds of joints that move around in space.
 Whereas the prismatic joint can only move along one dimension, a planar joint can move around in a plane, or two dimensions.
 Furthermore, a floating joint is unconstrained, and can move around in any of the three dimensions.
-These joints cannot be specified by just one number, and therefore aren’t included in this tutorial.
+These joints cannot be specified by just one number, and therefore aren't included in this tutorial.
 
 Specifying the Pose
 -------------------
 
 As you move the sliders around in the GUI, the model moves in Rviz.
-How is this done? First the `GUI <https://index.ros.org/p/joint_state_publisher_gui>`_ parses the URDF and finds all the non-fixed joints and their limits.
+How is this done?
+First the `GUI <https://index.ros.org/p/joint_state_publisher_gui>`_ parses the URDF and finds all the non-fixed joints and their limits.
 Then, it uses the values of the sliders to publish `sensor_msgs/msg/JointState <https://github.com/ros2/common_interfaces/blob/eloquent/sensor_msgs/msg/JointState.msg>`_ messages.
 Those are then used by `robot_state_publisher <https://index.ros.org/p/robot_state_publisher>`_ to calculate all of transforms between the different parts.
 The resulting transform tree is then used to display all of the shapes in Rviz.

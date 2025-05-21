@@ -1,6 +1,8 @@
+codespell
 doc8
 docutils
 pip
+pytest
 sphinx
 sphinx-copybutton
 sphinx-lint
@@ -8,3 +10,4 @@ sphinx-multiversion
 sphinx-rtd-theme
 sphinx-tabs
 sphinxcontrib-mermaid
+sphinx-tamer

@@ -55,9 +55,8 @@ Install the turtlesim package for your ROS 2 distro:
 
       .. code-block:: console
 
-        sudo apt update
-
-        sudo apt install ros-{DISTRO}-turtlesim
+        $ sudo apt update
+        $ sudo apt install ros-{DISTRO}-turtlesim
 
    .. group-tab:: macOS
 
@@ -67,16 +66,11 @@ Install the turtlesim package for your ROS 2 distro:
 
       As long as the archive you installed ROS 2 from contains the ``ros_tutorials`` repository, you should already have turtlesim installed.
 
-Check that the package is installed:
+To check if the package is installed, run the following command, which should return a list of turtlesim's executables:
 
 .. code-block:: console
 
-  ros2 pkg executables turtlesim
-
-The above command should return a list of turtlesim's executables:
-
-.. code-block:: console
-
+  $ ros2 pkg executables turtlesim
   turtlesim draw_square
   turtlesim mimic
   turtlesim turtle_teleop_key
@@ -89,20 +83,17 @@ To start turtlesim, enter the following command in your terminal:
 
 .. code-block:: console
 
-  ros2 run turtlesim turtlesim_node
+  $ ros2 run turtlesim turtlesim_node
+  [INFO] [turtlesim]: Starting turtlesim with node name /turtlesim
+  [INFO] [turtlesim]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
+
+Under the command, you will see messages from the node.
+There you can see the default turtle's name and the coordinates where it spawns.
 
 The simulator window should appear, with a random turtle in the center.
 
 .. image:: images/turtlesim.png
 
-In the terminal, under the command, you will see messages from the node:
-
-.. code-block:: console
-
-  [INFO] [turtlesim]: Starting turtlesim with node name /turtlesim
-  [INFO] [turtlesim]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
-
-There you can see the default turtle's name and the coordinates where it spawns.
 
 3 Use turtlesim
 ^^^^^^^^^^^^^^^
@@ -113,7 +104,7 @@ Now you will run a new node to control the turtle in the first node:
 
 .. code-block:: console
 
-  ros2 run turtlesim turtle_teleop_key
+  $ ros2 run turtlesim turtle_teleop_key
 
 At this point you should have three windows open: a terminal running ``turtlesim_node``, a terminal running ``turtle_teleop_key`` and the turtlesim window.
 Arrange these windows so that you can see the turtlesim window, but also have the terminal running ``turtle_teleop_key`` active so that you can control the turtle in turtlesim.
@@ -130,10 +121,10 @@ You can see the nodes, and their associated topics, services, and actions, using
 
 .. code-block:: console
 
-  ros2 node list
-  ros2 topic list
-  ros2 service list
-  ros2 action list
+  $ ros2 node list
+  $ ros2 topic list
+  $ ros2 service list
+  $ ros2 action list
 
 You will learn more about these concepts in the coming tutorials.
 Since the goal of this tutorial is only to get a general overview of turtlesim, you will use rqt to call some of the turtlesim services and interact with ``turtlesim_node``.
@@ -149,15 +140,14 @@ Open a new terminal to install ``rqt`` and its plugins:
 
     .. code-block:: console
 
-      sudo apt update
-
-      sudo apt install '~nros-{DISTRO}-rqt*'
+      $ sudo apt update
+      $ sudo apt install '~nros-{DISTRO}-rqt*'
 
   .. group-tab:: RHEL
 
     .. code-block:: console
 
-      sudo dnf install 'ros-{DISTRO}-rqt*'
+      $ sudo dnf install 'ros-{DISTRO}-rqt*'
 
   .. group-tab:: macOS
 
@@ -171,7 +161,7 @@ To run rqt:
 
 .. code-block:: console
 
-  rqt
+  $ rqt
 
 5 Use rqt
 ^^^^^^^^^
@@ -247,7 +237,7 @@ In a new terminal, source ROS 2, and run:
 
 .. code-block:: console
 
-  ros2 run turtlesim turtle_teleop_key --ros-args --remap turtle1/cmd_vel:=turtle2/cmd_vel
+  $ ros2 run turtlesim turtle_teleop_key --ros-args --remap turtle1/cmd_vel:=turtle2/cmd_vel
 
 
 Now, you can move ``turtle2`` when this terminal is active, and ``turtle1`` when the other terminal running ``turtle_teleop_key`` is active.

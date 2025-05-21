@@ -19,9 +19,9 @@ The main entry point for the tools is the command ``ros2``, which itself has var
 
 To see all available sub-commands run:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 --help
+   $ ros2 --help
 
 Examples of sub-commands that are available include:
 
@@ -52,7 +52,7 @@ To produce the typical talker-listener example using command-line tools, the ``t
 
 Publish messages in one terminal with:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ ros2 topic pub /chatter std_msgs/msg/String "data: Hello world"
    publisher: beginning loop
@@ -62,7 +62,7 @@ Publish messages in one terminal with:
 
 Echo messages received in another terminal with:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ ros2 topic echo /chatter
    data: Hello world

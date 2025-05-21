@@ -45,13 +45,13 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the exampl
 
         .. code-block:: console
 
-            wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_broadcaster.py
+            $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_py/turtle_tf2_py/turtle_tf2_broadcaster.py
 
     .. group-tab:: macOS
 
         .. code-block:: console
 
-            wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_broadcaster.py
+            $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_py/turtle_tf2_py/turtle_tf2_broadcaster.py
 
     .. group-tab:: Windows
 
@@ -59,13 +59,13 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the exampl
 
         .. code-block:: console
 
-            curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_broadcaster.py -o turtle_tf2_broadcaster.py
+            $ curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_py/turtle_tf2_py/turtle_tf2_broadcaster.py -o turtle_tf2_broadcaster.py
 
         Or in powershell:
 
         .. code-block:: console
 
-            curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_broadcaster.py -o turtle_tf2_broadcaster.py
+            $ curl https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_py/turtle_tf2_py/turtle_tf2_broadcaster.py -o turtle_tf2_broadcaster.py
 
 Now open the file called ``turtle_tf2_broadcaster.py`` using your preferred text editor.
 
@@ -83,7 +83,7 @@ Now open the file called ``turtle_tf2_broadcaster.py`` using your preferred text
 
     from tf2_ros import TransformBroadcaster
 
-    from turtlesim.msg import Pose
+    from turtlesim_msgs.msg import Pose
 
 
     def quaternion_from_euler(ai, aj, ak):
@@ -190,7 +190,8 @@ Afterward, the node subscribes to topic ``{self.turtlename}/pose`` and runs func
 
 Now, we create a ``TransformStamped`` object and give it the appropriate metadata.
 
-#. We need to give the transform being published a timestamp, and we'll just stamp it with the current time by calling ``self.get_clock().now()``. This will return the current time used by the ``Node``.
+#. We need to give the transform being published a timestamp, and we'll just stamp it with the current time by calling ``self.get_clock().now()``.
+   This will return the current time used by the ``Node``.
 
 #. Then we need to set the name of the parent frame of the link we're creating, in this case ``world``.
 
@@ -253,28 +254,10 @@ Now create a launch file for this demo.
 Create a ``launch`` folder in the ``src/learning_tf2_py`` directory.
 With your text editor, create a new file called ``turtle_tf2_demo_launch.py`` in the ``launch`` folder, and add the following lines:
 
-.. code-block:: python
+.. literalinclude:: launch/py_turtle_tf2_demo_launch.py
+    :language: python
+    :name: turtle_tf2_demo_launch.py
 
-    from launch import LaunchDescription
-    from launch_ros.actions import Node
-
-
-    def generate_launch_description():
-        return LaunchDescription([
-            Node(
-                package='turtlesim',
-                executable='turtlesim_node',
-                name='sim'
-            ),
-            Node(
-                package='learning_tf2_py',
-                executable='turtle_tf2_broadcaster',
-                name='broadcaster1',
-                parameters=[
-                    {'turtlename': 'turtle1'}
-                ]
-            ),
-        ])
 
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
@@ -282,28 +265,15 @@ With your text editor, create a new file called ``turtle_tf2_demo_launch.py`` in
 First we import required modules from the ``launch`` and ``launch_ros`` packages.
 It should be noted that ``launch`` is a generic launching framework (not ROS 2 specific) and ``launch_ros`` has ROS 2 specific things, like nodes that we import here.
 
-.. code-block:: python
-
-    from launch import LaunchDescription
-    from launch_ros.actions import Node
+.. literalinclude:: launch/py_turtle_tf2_demo_launch.py
+    :language: python
+    :lines: 1-2
 
 Now we run our nodes that start the turtlesim simulation and broadcast ``turtle1`` state to the tf2 using our ``turtle_tf2_broadcaster`` node.
 
-.. code-block:: python
-
-    Node(
-        package='turtlesim',
-        executable='turtlesim_node',
-        name='sim'
-    ),
-    Node(
-        package='learning_tf2_py',
-        executable='turtle_tf2_broadcaster',
-        name='broadcaster1',
-        parameters=[
-            {'turtlename': 'turtle1'}
-        ]
-    ),
+.. literalinclude:: launch/py_turtle_tf2_demo_launch.py
+    :language: python
+    :lines: 7-19
 
 2.2 Add dependencies
 ~~~~~~~~~~~~~~~~~~~~
@@ -332,7 +302,7 @@ The ``data_files`` field should now look like this:
 
     data_files=[
         ...
-        (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*launch.[pxy][yma]*'))),
+        (os.path.join('share', package_name, 'launch'), glob('launch/*')),
     ],
 
 Also add the appropriate imports at the top of the file:
@@ -355,7 +325,7 @@ Run ``rosdep`` in the root of your workspace to check for missing dependencies.
 
       .. code-block:: console
 
-          rosdep install -i --from-path src --rosdistro {DISTRO} -y
+          $ rosdep install -i --from-path src --rosdistro {DISTRO} -y
 
    .. group-tab:: macOS
 
@@ -373,19 +343,19 @@ Still in the root of your workspace, build your package:
 
     .. code-block:: console
 
-        colcon build --packages-select learning_tf2_py
+        $ colcon build --packages-select learning_tf2_py
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-        colcon build --packages-select learning_tf2_py
+        $ colcon build --packages-select learning_tf2_py
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-        colcon build --merge-install --packages-select learning_tf2_py
+        $ colcon build --merge-install --packages-select learning_tf2_py
 
 Open a new terminal, navigate to the root of your workspace, and source the setup files:
 
@@ -395,23 +365,28 @@ Open a new terminal, navigate to the root of your workspace, and source the setu
 
     .. code-block:: console
 
-        . install/setup.bash
+        $ . install/setup.bash
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-        . install/setup.bash
+        $ . install/setup.bash
 
   .. group-tab:: Windows
 
+    In a Windows command line prompt:
+
     .. code-block:: console
 
-        # CMD
-        call install\setup.bat
+        $ call install\setup.bat
 
-        # Powershell
-        .\install\setup.ps1
+    Or in powershell:
+
+    .. code-block:: console
+
+        $ .\install\setup.ps1
+
 
 4 Run
 ^^^^^
@@ -420,13 +395,13 @@ Now run the launch file that will start the turtlesim simulation node and ``turt
 
 .. code-block:: console
 
-    ros2 launch learning_tf2_py turtle_tf2_demo_launch.py
+    $ ros2 launch learning_tf2_py turtle_tf2_demo_launch.py
 
 In the second terminal window type the following command:
 
 .. code-block:: console
 
-    ros2 run turtlesim turtle_teleop_key
+    $ ros2 run turtlesim turtle_teleop_key
 
 You will now see that the turtlesim simulation has started with one turtle that you can control.
 
@@ -436,7 +411,7 @@ Now, use the ``tf2_echo`` tool to check if the turtle pose is actually getting b
 
 .. code-block:: console
 
-    ros2 run tf2_ros tf2_echo world turtle1
+    $ ros2 run tf2_ros tf2_echo world turtle1
 
 This should show you the pose of the first turtle.
 Drive around the turtle using the arrow keys (make sure your ``turtle_teleop_key`` terminal window is active, not your simulator window).
