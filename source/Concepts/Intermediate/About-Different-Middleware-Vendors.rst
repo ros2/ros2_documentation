@@ -88,7 +88,7 @@ Multiple RMW implementations
 ----------------------------
 
 The ROS 2 binary releases for currently active distros have built-in support for several RMW implementations out of the box (Fast DDS, RTI Connext Pro, Eclipse Cyclone DDS, GurumNetworks GurumDDS).
-Beginning with ROS 2 Kilted, this also includes Eclipse Zenoh.
+Beginning with ROS 2 Kilted Kaiju, this also includes Eclipse Zenoh.
 The default is Fast DDS, which works without any additional installation steps because we distribute it with our binary packages.
 
 RMWs other than Fast DDS, like Cyclone DDS, Connext or GurumDDS can be enabled by :doc:`installing additional packages <../../Installation/RMW-Implementations>`, and without having to rebuild anything or replace any existing packages.
@@ -105,18 +105,9 @@ If ``rmw_fastrtps_cpp`` is ever installed, it would be the default.
 
 See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` for how to specify which RMW implementation is to be used when running the ROS 2 examples.
 
-.. _different-middleware-vendors-cross-vendor-communication:
+Cross-Vendor Communication among DDS middleware
+-----------------------------------------------
 
-Cross-Vendor Communication
---------------------------
-
-For many cases you will find that nodes using different RMW implementations are able to communicate, however this is not true under all circumstances.
-Here is a list of inter-vendor communication configurations that are not supported:
-
-- Fast DDS <-> Connext
-   - ``WString`` published by Fast DDS can't be received correctly by Connext on macOS
-- Connext <-> Cyclone DDS
-   - does not support pub/sub communication for ``WString``
-
-While different RMW implementations may be compatible in limited circumstances, this is not guaranteed.
-Thus it is suggested that users ensure that all parts of the distributed system are using the same ROS version and the same RMW implementation.
+For many cases you will find that nodes using different DDS middleware implementations are able to communicate, however this is not true under all circumstances.
+While the different DDS implementations may be compatible in limited circumstances, this is not guaranteed.
+Thus it is suggested that users ensure that all parts of a distributed system are using the same ROS version and the same RMW implementation.
