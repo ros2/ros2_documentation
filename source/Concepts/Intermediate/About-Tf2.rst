@@ -95,7 +95,8 @@ However if you are transforming data from coordinate frame ``A`` into coordinate
 Velocity
 ^^^^^^^^
 
-For representing ``Velocity`` we have three pieces of information. :math:`V^{moving\_frame - reference\_frame}_{observing\_frame}`
+For representing ``Velocity`` we have three pieces of information.
+:math:`V^{moving\_frame - reference\_frame}_{observing\_frame}`
 This velocity represents the velocity between the moving frame and the reference frame.
 And it is represented in the observing frame.
 
