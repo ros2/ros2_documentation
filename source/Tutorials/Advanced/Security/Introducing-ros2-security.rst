@@ -15,7 +15,7 @@ Setting up security
 **Time:** 15 minutes
 
 .. contents:: Contents
-   :depth: 2
+   :depth: 3
    :local:
 
 
@@ -25,7 +25,6 @@ Background
 The ``sros2`` package provides the tools and instructions to use ROS 2 on top of DDS-Security.
 The security features have been tested across platforms (Linux, macOS, and Windows) as well as across different languages (C++ and Python).
 The SROS2 has been designed to work with any secure middleware, although not all middleware is open source and support varies depending on the ROS distribution in use.
-
 
 Installation
 ------------
@@ -83,8 +82,6 @@ ROS 2 allows you to change the RMW implementation at runtime.
 See `how to work with multiple RMW implementations <../../../How-To-Guides/Working-with-multiple-RMW-implementations>` to explore different middleware implementations.
 
 Note that secure communication between vendors is not supported.
-
-
 
 Run the demo
 ------------
@@ -181,6 +178,36 @@ This command uses the ``create_enclave`` feature which is covered in more detail
 
     Then re-run the commands above.
 
+If the selected RMW implementation is Zenoh, then the Zenoh router also requires its own keys and certificates:
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+      ros2 security create_enclave demo_keystore /zenohd
+
+  .. group-tab:: MacOS
+
+    .. code-block:: bash
+
+      ros2 security create_enclave demo_keystore /zenohd
+
+  .. group-tab:: Windows
+
+    .. code-block:: bat
+
+      ros2 security create_enclave demo_keystore /zenohd
+
+
+    If ``unable to write 'random state'`` appears then set the environment variable ``RANDFILE``.
+
+    .. code-block:: bat
+
+      set RANDFILE=C:\dev\ros2\sros2_demo\.rnd
+
+    Then re-run the commands above.
 
 4) Configure environment variables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -217,6 +244,12 @@ These and other security-related environment variables are described in the `ROS
 These variables need to be defined in each terminal used for the demo.
 For convenience you can add them to your boot environment.
 
+4\.1\. Zenoh
+""""""""""""
+
+The RMW implementation Zenoh has its own tools to configure security, in particular a package called `zenoh_security_tools <https://github.com/ros2/rmw_zenoh/tree/{DISTRO}/zenoh_security_tools>`_.
+It contains the ``generate_configs`` executable which generates Zenoh session config files with access control, authentication and encryption parameters
+based on policies and keystores generated using sros2.
 
 5) Run the ``talker/listener`` demo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -233,6 +266,31 @@ The environment variables in this terminal must be properly set as described in 
 .. code-block:: console
 
   $ ros2 run demo_nodes_py listener --ros-args --enclave /talker_listener/listener
+
+If the RMW implementation is ``rmw_zenoh_cpp``, in another terminal:
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+      export ZENOH_ROUTER_CONFIG_URI=~/sros2_demo/zenohd
+      ros2 run rmw_zenoh_cpp zenohd
+
+  .. group-tab:: MacOS
+
+    .. code-block:: bash
+
+      export ZENOH_ROUTER_CONFIG_URI=<path to route config with keys and certificates>
+      ros2 run rmw_zenoh_cpp zenohd
+
+  .. group-tab:: Windows
+
+    .. code-block:: bat
+
+      set ZENOH_ROUTER_CONFIG_URI=<path to route config with keys and certificates>
+      ros2 run rmw_zenoh_cpp zenohd
 
 These nodes will be communicating using authentication and encryption!
 If you look at the packet contents (for example, using ``tcpdump`` or ``Wireshark`` as covered in another tutorial), you can see that the messages are encrypted.
