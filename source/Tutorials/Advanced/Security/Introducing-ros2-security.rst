@@ -178,7 +178,7 @@ This command uses the ``create_enclave`` feature which is covered in more detail
 
     Then re-run the commands above.
 
-If the selected RMW implementation is Zenoh, then the Zenoh router also requires its own keys and certificates too:
+If the selected RMW implementation is Zenoh, then the Zenoh router also requires its own keys and certificates:
 
 .. tabs::
 
