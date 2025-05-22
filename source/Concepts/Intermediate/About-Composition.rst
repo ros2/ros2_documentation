@@ -88,14 +88,18 @@ Using Components
 ----------------
 
 The `composition <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/composition>`__ package contains a couple of different approaches on how to use components.
-The three most common ones are:
+The composition can occur at:
 
-#. Start a (`generic container process <https://github.com/ros2/rclcpp/blob/{REPOS_FILE_BRANCH}/rclcpp_components/src/component_container.cpp>`__) and call the ROS service `load_node <https://github.com/ros2/rcl_interfaces/blob/{REPOS_FILE_BRANCH}/composition_interfaces/srv/LoadNode.srv>`__ offered by the container.
-   The ROS service will then load the component specified by the passed package name and library name and start executing it within the running process.
-   Instead of calling the ROS service programmatically you can also use a `command line tool <https://github.com/ros2/ros2cli/tree/{REPOS_FILE_BRANCH}/ros2component>`__ to invoke the ROS service with the passed command line arguments
-#. Create a `custom executable <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/composition/src/manual_composition.cpp>`__ containing multiple nodes which are known at compile time.
-   This approach requires that each component has a header file (which is not strictly needed for the first case).
-#. Create a launch file and use ``ros2 launch`` to create a container process with multiple components loaded.
+* **Compile time**: Create a `custom executable <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/composition/src/manual_composition.cpp>`__ containing multiple nodes which are known at compile time.
+ This approach requires that each component has a header file (which is not strictly needed for the other cases).
+
+* **Launch time**: Create a launch file and use ``ros2 launch`` to start a container process and load multiple components into it.
+ This often uses the underlying service call mechanism described below.
+ See the :doc:`launching composable nodes <../../How-To-Guides/Launching-composable-nodes>` how-to guide for examples.
+
+* **Run time**: Start a (`generic container process <https://github.com/ros2/rclcpp/blob/{REPOS_FILE_BRANCH}/rclcpp_components/src/component_container.cpp>`__) and then call the ROS service `load_node <https://github.com/ros2/rcl_interfaces/blob/{REPOS_FILE_BRANCH}/composition_interfaces/srv/LoadNode.srv>`__ offered by the container.
+ The ROS service will then load the component specified by the passed package name and library name and start executing it within the running process.
+ Instead of calling the ROS service programmatically you can also use the `ros2 component load <https://github.com/ros2/ros2cli/tree/{REPOS_FILE_BRANCH}/ros2component>`__ command line tool to invoke the ROS service with the passed command line arguments.
 
 Practical application
 ---------------------

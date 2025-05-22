@@ -43,7 +43,10 @@ If the first command did not return a response similar to:
 
    Received from xx.xxx.xxx.xx:43751: 'Hello World!'
 
-then you will need to update your firewall configuration to allow multicast using `ufw <https://help.ubuntu.com/community/UFW>`__.
+then multicast may not be enabled or properly configured on your system.
+
+If the general multicast check fails, you may need to update your firewall configuration.
+This is especially common on Linux systems where you can use `ufw <https://help.ubuntu.com/community/UFW>`__ to allow multicast.
 
 .. code-block:: console
 
@@ -51,7 +54,8 @@ then you will need to update your firewall configuration to allow multicast usin
    $ sudo ufw allow in proto udp from 224.0.0.0/4
 
 
-You can check if the multicast flag is enabled for your network interface using the :code:`ifconfig` tool and looking for :code:`MULTICAST` in the flags section:
+You can check if the multicast flag is enabled for your network interface using the :code:`ifconfig` tool.
+Look for :code:`MULTICAST` in the flags section:
 
 .. code-block:: bash
 
@@ -241,6 +245,7 @@ To resolve this error, you will need to:
 
 rosdep install error ``homebrew: Failed to detect successful installation of [qt5]``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 While following the :doc:`Creating a workspace <../Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>` tutorial, you might encounter the following error stating that ``rosdep`` fails to install Qt5.
 
 .. code-block:: console

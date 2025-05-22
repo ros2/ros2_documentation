@@ -22,8 +22,9 @@ Background
 
 ROS 2 relies on the notion of combining workspaces using the shell environment.
 "Workspace" is a ROS term for the location on your system where you're developing with ROS 2.
-The core ROS 2 workspace is called the underlay.
-Subsequent local workspaces are called overlays.
+Workspaces are often layered on top of each other.
+When viewing one workspace in relation to another, the base workspace it extends is often called the 'underlay', and the subsequent workspace currently being used or developed is called the 'overlay'.
+These terms are relative; a workspace could be an overlay relative to the core ROS 2 installation, but an underlay relative to a newer local workspace you create.
 When developing with ROS 2, you will typically have several workspaces active concurrently.
 
 Combining workspaces makes developing against different versions of ROS 2, or against different sets of packages, easier.

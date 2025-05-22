@@ -32,7 +32,7 @@ All ROS 2 packages begin by running the command
 
    $ ros2 pkg create --license Apache-2.0 <pkg-name> --dependencies [deps]
 
-in your workspace (usually ``~/ros2_ws/src``).
+in your workspace (e.g., ``~/your_project_ws/src``).
 
 To create a package for a specific client library:
 
@@ -62,6 +62,7 @@ You will mostly use the ``add_executable()`` CMake macro along with
    target_link_libraries(<executable-name> PUBLIC [targets from your dependencies])
 
 to create executable nodes and link dependencies.
+CMake, when used with `ament_target_dependencies` or similar functions, also automatically manages the necessary include directories for your targets.
 
 To install your launch files and nodes, you can use the ``install()`` macro placed towards the end of the file but before the ``ament_package()`` macro.
 

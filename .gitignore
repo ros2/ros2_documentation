@@ -4,3 +4,9 @@ _build/
 .vscode/
 __pycache__
 ros2doc/
+
+# --- AI Bot Generated Ignores (DO NOT MANUALLY EDIT BELOW THIS LINE) ---
+*.exe
+*.so
+.venv
+.venv/
