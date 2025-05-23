@@ -3,7 +3,7 @@
 .. _lyrical-release:
 
 Lyrical Luth (codename 'lyrical'; May, 2026)
-===========================================
+============================================
 
 .. contents:: Table of Contents
    :depth: 2
