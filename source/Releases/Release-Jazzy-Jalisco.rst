@@ -1,5 +1,3 @@
-.. _latest-release:
-
 .. _jazzy-release:
 
 Jazzy Jalisco (``jazzy``)

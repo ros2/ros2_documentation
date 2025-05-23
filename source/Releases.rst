@@ -23,6 +23,7 @@ Rows in the table marked in green are the currently supported distributions.
 .. toctree::
    :hidden:
 
+   Releases/Release-Kilted-Kaiju
    Releases/Release-Jazzy-Jalisco
    Releases/Release-Humble-Hawksbill
    Releases/Release-Rolling-Ridley
@@ -53,6 +54,9 @@ Rows in the table marked in green are the currently supported distributions.
 
 .. |rolling| image:: Releases/rolling-small.png
    :alt: Rolling logo
+
+.. |kilted| image:: Releases/kilted-small.png
+   :alt: Kilted logo
 
 .. |jazzy| image:: Releases/jazzy-small.png
    :alt: Jazzy logo
@@ -94,6 +98,11 @@ Rows in the table marked in green are the currently supported distributions.
      - Logo
      - EOL date
      - ROS Boss
+   * - :doc:`Kilted Kaiju <Releases/Release-Kilted-Kaiju>`
+     - May 23, 2025
+     - |kilted|
+     - December 2026
+     - `Scott K Logan <https://github.com/cottsay>`_
    * - :doc:`Jazzy Jalisco <Releases/Release-Jazzy-Jalisco>`
      - May 23, 2024
      - |jazzy|
@@ -181,10 +190,10 @@ There is a new ROS 2 distribution released yearly on May 23rd (`World Turtle Day
      - Release date
      - Logo
      - EOL date
-   * - :doc:`Kilted Kaiju <Releases/Release-Kilted-Kaiju>`
-     - May 2025
+   * - :doc:`Lyrical Luth <Releases/Release-Lyrical-Luth>`
+     - May 2026
      - TBD
-     - Nov 2026
+     - May 2031
 
 
 .. _rolling_distribution:
