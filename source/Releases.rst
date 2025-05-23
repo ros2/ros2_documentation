@@ -190,7 +190,7 @@ There is a new ROS 2 distribution released yearly on May 23rd (`World Turtle Day
      - Release date
      - Logo
      - EOL date
-   * - :doc:`Turtle L <Releases/Release-Turtle-L>`
+   * - :doc:`Lyrical Luth <Releases/Release-Lyrical-Luth>`
      - May 2026
      - TBD
      - May 2031
