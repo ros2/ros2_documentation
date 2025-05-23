@@ -7,15 +7,13 @@ First ensure that the `Ubuntu Universe repository <https://help.ubuntu.com/commu
    $ sudo apt install software-properties-common
    $ sudo add-apt-repository universe
 
-Now add the ROS 2 GPG key with apt.
+The `ros-apt-source <https://github.com/ros-infrastructure/ros-apt-source/>`_ packages provide keys and apt source configuration for the various ROS repositories.
+
+Installing the ros2-apt-source package will configure ROS 2 repositories for your system.
+Updates to repository configuration will occur automatically when new versions of this package are released to the ROS repositories.
 
 .. code-block:: console
 
    $ sudo apt update && sudo apt install curl -y
-   $ sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
-
-Then add the repository to your sources list.
-
-.. code-block:: console
-
-   $ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+   $ curl -o /tmp/ros2-apt-source.deb "https://ftp.osuosl.org/pub/ros/packages.ros.org/ros2/ubuntu/pool/main/r/ros-apt-source/ros2-apt-source_1.0.0~$(. /etc/os-release && echo $VERSION_CODENAME)_all.deb"
+   $ sudo apt install /tmp/ros2-apt-source.deb
