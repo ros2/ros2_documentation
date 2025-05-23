@@ -25,7 +25,8 @@ In the `ros2/rosidl_dds <https://github.com/ros2/rosidl_dds>`_ repository on |Gi
 
 -  ``rosidl_generator_dds_idl``: provides tools to generate DDS ``.idl`` files from ``rosidl`` files, e.g. ``.msg`` files, ``.srv`` files, etc.
 
-The ``rosidl_generator_dds_idl`` |package| generates a DDS ``.idl`` file for each ROS interface definition file (``.msg``, ``.srv``, ``.action``, etc.) found in ROS packages. These interface definition files specify the data structures used for topics, services, and actions in ROS 2.
+The ``rosidl_generator_dds_idl`` |package| generates a DDS ``.idl`` file for each ROS interface definition file (``.msg``, ``.srv``, ``.action``, etc.) found in ROS packages.
+These interface definition files specify the data structures used for topics, services, and actions in ROS 2.
 DDS-based ROS middleware implementations then use these generated ``.idl`` files to create vendor-specific pre-compiled type support.
 
 Structure of DDS Middleware Implementations
@@ -78,19 +79,23 @@ Here is an inexhaustive list of how the Zenoh middleware |API| adapts ROS 2 enti
 Zenoh has no direct counterpart to the node, so ``rmw_zenoh_cpp`` creates no Zenoh entities for them.
 However, when a node is created through the RMW |API|, a liveliness token of type ``NN`` is declared.
 
-**Publishers:** A ROS 2 publisher sends data to a specific topic. Because Zenoh publishers function very similarly with Keys, ``rmw_zenoh_cpp`` maps these entities directly.
+**Publishers:** A ROS 2 publisher sends data to a specific topic.
+Because Zenoh publishers function very similarly with Keys, ``rmw_zenoh_cpp`` maps these entities directly.
 When a publisher is created through the RMW |API|, a liveliness token of type ``MP`` is declared.
 
-**Subscribers:** Subscribers in ROS 2 listen on topics for new data. They are conceptually equivalent to subscribers in Zenoh so ``rmw_zenoh_cpp`` maps these entities directly.
+**Subscribers:** Subscribers in ROS 2 listen on topics for new data.
+They are conceptually equivalent to subscribers in Zenoh so ``rmw_zenoh_cpp`` maps these entities directly.
 When new data arrives, Zenoh's middleware |package| invokes an internal callback that takes ownership of the data and signals availability to ``rmw_wait``.
 When a subscriber is created through the RMW |API|, a liveliness token of type ``MS`` is declared.
 
-**Service clients:** ``rmw_zenoh_cpp`` uses Zenoh queryables to implement ROS 2 services. Clients use ``rmw_send_request`` to make requests in ROS 2.
+**Service clients:** ``rmw_zenoh_cpp`` uses Zenoh queryables to implement ROS 2 services.
+Clients use ``rmw_send_request`` to make requests in ROS 2.
 A request will carry metadata that will be used to correlate a response, like its sequence number and the GUID of the client that sent it.
 Zenoh's middleware |package| can then use ``z_get`` to send a query out into the network.
 When a client is created through the RMW |API|, a liveliness token of type ``SC`` is declared.
 
-**Service server:** ``rmw_zenoh_cpp`` uses Zenoh queryables to implement ROS 2 services. ROS 2 nodes use ``rmw_create_service`` to advertise services to the network and the Zenoh |API|, ``z_declare_queryable``, is used to create the server-side representation of a ROS 2 service.
+**Service server:** ``rmw_zenoh_cpp`` uses Zenoh queryables to implement ROS 2 services.
+ROS 2 nodes use ``rmw_create_service`` to advertise services to the network and the Zenoh |API|, ``z_declare_queryable``, is used to create the server-side representation of a ROS 2 service.
 ``rmw_take_request`` delivers the query to the use callback to be processed and after the computation is complete, ``rmw_send_reponse`` returns the result to the requester.
 When a server is created, a liveliness token of type ``SS`` is declared.
 
