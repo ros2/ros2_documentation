@@ -177,7 +177,7 @@ In the case that a package has both libraries and executables, make sure to comb
 Linking to dependencies
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Link to your dependencies using [target_link_libraries](https://cmake.org/cmake/help/latest/command/target_link_libraries.html)
+Link to your dependencies using `target_link_libraries <https://cmake.org/cmake/help/latest/command/target_link_libraries.html>`__.
 It will give your target the necessary headers, libraries, and all their dependencies.
 
 As an example, suppose we want to link ``my_library`` against the linear algebra library Eigen3.
