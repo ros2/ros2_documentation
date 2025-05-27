@@ -15,5 +15,5 @@ Updates to repository configuration will occur automatically when new versions o
 .. code-block:: console
 
    $ sudo apt update && sudo apt install curl -y
-   $ curl -o /tmp/ros2-apt-source.deb "https://ftp.osuosl.org/pub/ros/packages.ros.org/ros2/ubuntu/pool/main/r/ros-apt-source/ros2-apt-source_1.1.0~$(. /etc/os-release && echo $UBUNTU_CODENAME)_all.deb"
+   $ curl -o /tmp/ros2-apt-source.deb "https://github.com/ros-infrastructure/ros-apt-source/releases/download/1.1.0/ros2-apt-source_1.1.0~$(. /etc/os-release && echo $VERSION_CODENAME)_all.deb" # If using Ubuntu derivates use $UBUNTU_CODENAME
    $ sudo apt install /tmp/ros2-apt-source.deb
