@@ -69,12 +69,12 @@ See https://github.com/ros2/ament_cmake_ros/pull/21 for more details.
 ``common_interfaces``
 ^^^^^^^^^^^^^^^^^^^^^
 
-New PoseStampedArray message
-""""""""""""""""""""""""""""
+New nav_msgs/Goals message
+""""""""""""""""""""""""""
 
-Added a pose stamped array message to nav_msgs.
+A new message type, {interface(nav_msgs/msg/Goals)}, has been introduced to support an array of navigation goals within the nav_msgs package.
 
-See https://github.com/ros2/common_interfaces/pull/240 for more details.
+See https://github.com/ros2/common_interfaces/pull/269 for more details.
 
 ``ros2cli``
 ^^^^^^^^^^^
