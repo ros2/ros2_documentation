@@ -30,12 +30,21 @@ Build from source code
 Building from source code is also another way to install.
 
 First, clone Cyclone DDS and rmw_cyclonedds in the ROS 2 workspace source directory.
+To determine the correct branches to checkout, you need to find what versions are specified in your `ROS distribution's ros2.repos file <https://raw.githubusercontent.com/ros2/ros2/refs/heads/{DISTRO}/ros2.repos>`_.
+
+Alternatively, you can run the following code to fetch the correct branch/tag needed for Cyclone DDS:
+
+.. code-block:: console
+
+   $ CYCLONEDDS_BRANCH=$(curl -s https://raw.githubusercontent.com/ros2/ros2/refs/heads/{DISTRO}/ros2.repos | grep -A 3 "eclipse-cyclonedds/cyclonedds:" | grep "version:" | awk '{print $2}')
+
+And now, clone and checkout the code:
 
 .. code-block:: console
 
    $ cd ros2_ws/src
-   $ git clone https://github.com/ros2/rmw_cyclonedds ros2/rmw_cyclonedds -b {REPOS_FILE_BRANCH}
-   $ git clone https://github.com/eclipse-cyclonedds/cyclonedds eclipse-cyclonedds/cyclonedds
+   $ git clone https://github.com/ros2/rmw_cyclonedds ros2/rmw_cyclonedds -b {DISTRO}
+   $ git clone https://github.com/eclipse-cyclonedds/cyclonedds eclipse-cyclonedds/cyclonedds -b ${CYCLONEDDS_BRANCH}
 
 Then, install necessary packages for Cyclone DDS.
 
