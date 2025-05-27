@@ -43,8 +43,8 @@ And now clone and checkout the code:
 .. code-block:: console
 
    $ cd ros2_ws/src
-   $ git clone https://github.com/ros2/rmw_cyclonedds ros2/rmw_cyclonedds -b {RMW_CYCLONEDDS_BRANCH}
-   $ git clone https://github.com/eclipse-cyclonedds/cyclonedds eclipse-cyclonedds/cyclonedds -b {CYCLONEDDS_BRANCH}
+   $ git clone https://github.com/ros2/rmw_cyclonedds ros2/rmw_cyclonedds -b {DISTRO}
+   $ git clone https://github.com/eclipse-cyclonedds/cyclonedds eclipse-cyclonedds/cyclonedds -b ${CYCLONEDDS_BRANCH}
 
 Then, install necessary packages for Cyclone DDS.
 
