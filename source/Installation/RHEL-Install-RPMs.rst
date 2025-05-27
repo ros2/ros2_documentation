@@ -27,7 +27,7 @@ Set locale
 
 .. include:: _RHEL-Set-Locale.rst
 
-EEnable required repositories
+Enable required repositories
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You will need to enable the EPEL repositories and the PowerTools repository:
