@@ -43,6 +43,7 @@ You will need to enable the EPEL repositories and the PowerTools repository:
 Next, download the ``ros2-release`` package and install it:
 
 .. code-block:: console
+   
    $ sudo dnf install curl
    $ export ROS_APT_SOURCE_VERSION=$(curl -s https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | grep -F "tag_name" | awk -F\" '{print $4}')
    $ sudo dnf install "https://github.com/ros-infrastructure/ros-apt-source/releases/download/${ROS_APT_SOURCE_VERSION}/ros2-release-${ROS_APT_SOURCE_VERSION}-1.noarch.rpm"
