@@ -70,7 +70,7 @@ See https://github.com/ros2/ament_cmake_ros/pull/21 for more details.
 ^^^^^^^^^^^^^^^^^^^^^
 
 New nav_msgs/Goals message
-""""""""""""""""""""""""""""
+""""""""""""""""""""""""""
 
 A new message type, {interface(nav_msgs/msg/Goals)}, has been introduced to support an array of navigation goals within the nav_msgs package.
 
