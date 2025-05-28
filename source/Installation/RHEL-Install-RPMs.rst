@@ -43,10 +43,23 @@ Next, download the ROS 2 ``.repo`` file:
 .. code-block:: console
 
    $ sudo dnf install curl
+<<<<<<< HEAD
    $ sudo curl --output /etc/yum.repos.d/ros2.repo http://packages.ros.org/ros2/rhel/ros2.repo
 
 Then, update your metadata cache.
 DNF may prompt you to verify the GPG key, which should match the location ``https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc``.
+=======
+   $ export ROS_APT_SOURCE_VERSION=$(curl -s https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | grep -F "tag_name" | awk -F\" '{print $4}')
+   $ sudo dnf install "https://github.com/ros-infrastructure/ros-apt-source/releases/download/${ROS_APT_SOURCE_VERSION}/ros2-release-${ROS_APT_SOURCE_VERSION}-1.noarch.rpm"
+
+The `ros2-release <https://github.com/ros-infrastructure/ros-apt-source/>`_ package provides keys and repo configuration for the various ROS repositories.
+Updates to repository configuration will occur automatically when new versions of this package are released to the ROS repositories.
+
+Install development tools (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you are going to build ROS packages or otherwise do development, you can also install the development tools:
+>>>>>>> 9318249 (Change installation instructions to use ros-apt-source package (#5684))
 
 .. code-block:: console
 
@@ -135,3 +148,9 @@ have already installed from binaries, run the following command:
 .. code-block:: console
 
    $ sudo dnf remove ros-{DISTRO}-*
+
+To remove the repository configuration run
+
+.. code-block:: console
+
+   $ sudo dnf remove ros2-release
