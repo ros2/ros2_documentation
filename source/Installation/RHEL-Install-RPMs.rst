@@ -162,3 +162,9 @@ have already installed from binaries, run the following command:
 .. code-block:: console
 
    $ sudo dnf remove ros-{DISTRO}-*
+
+To remove the repository configuration run
+
+.. code-block:: console
+
+   $ sudo dnf remove ros2-release
