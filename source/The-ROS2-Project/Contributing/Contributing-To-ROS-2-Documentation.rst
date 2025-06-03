@@ -476,7 +476,7 @@ Compare the above with a ``bash`` ``code-block``:
    [INFO] [1742150439.022947971] [my_turtle]: Starting turtlesim with node name /my_turtle
    [INFO] [1742150439.026043867] [my_turtle]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
 
-
+To simplify code blocks, ``bash`` can still be used without ``$`` for commands meant to be run in a terminal if the code block does not include any output lines.
 To help choose between ``bash`` and ``console``, see the following list of use-cases and corresponding examples:
 
 #. Commands meant to be copied into a script file
@@ -490,7 +490,7 @@ To help choose between ``bash`` and ``console``, see the following list of use-c
 
 #. Commands meant to be run in a terminal:
 
-   * Use ``.. code-block:: console`` with ``$`` on all command lines.
+   * It is highly recommended to use ``.. code-block:: console`` with ``$`` on all command lines for consistency and clarity.
      If there is output that needs to be displayed, include it in the same block:
 
       .. code-block:: console
