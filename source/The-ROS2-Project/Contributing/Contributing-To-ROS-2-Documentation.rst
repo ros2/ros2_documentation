@@ -482,7 +482,6 @@ Compare the above with a ``bash`` ``code-block``:
    [INFO] [1742150439.026043867] [my_turtle]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
 
 To simplify code blocks, ``bash`` can still be used without ``$`` for commands meant to be run in a terminal if the code block does not include any output lines.
-
 To help choose between ``bash`` and ``console``, see the following list of use-cases and corresponding examples:
 
 #. Commands meant to be copied into a script file
@@ -494,25 +493,10 @@ To help choose between ``bash`` and ``console``, see the following list of use-c
          export ROS_DOMAIN_ID=42
          ros2 run turtlesim turtlesim_node
 
-#. Commands meant to be run in a terminal *without* any output lines
+#. Commands meant to be run in a terminal:
 
-   * Use ``.. code-block:: bash`` without ``$``:
-
-      .. code-block:: bash
-
-         source /opt/ros/{DISTRO}/setup.bash
-         ros2 run turtlesim turtlesim_node
-
-   * Or use ``.. code-block:: console`` with ``$`` on all command lines, i.e., all lines:
-
-      .. code-block:: console
-
-         $ source /opt/ros/{DISTRO}/setup.bash
-         $ ros2 run turtlesim turtlesim_node
-
-#. Commands meant to be run in a terminal *with* output lines
-
-   * Use ``.. code-block:: console`` with ``$`` on all command lines:
+   * It is highly recommended to use ``.. code-block:: console`` with ``$`` on all command lines for consistency and clarity.
+     If there is output that needs to be displayed, include it in the same block:
 
       .. code-block:: console
 
@@ -520,6 +504,11 @@ To help choose between ``bash`` and ``console``, see the following list of use-c
          $ ros2 run turtlesim turtlesim_node
          [INFO] [1743878028.269334696] [turtlesim]: Starting turtlesim with node name /turtlesim
          [INFO] [1743878028.275096618] [turtlesim]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
+
+      .. note::
+
+         If some output lines start with ``#``, it is crucial to separate commands from their output because the ``#`` symbol is used to denote a command.
+         Therefore, place the output in a separate ``.. code-block:: text``.
 
 Images
 ^^^^^^
