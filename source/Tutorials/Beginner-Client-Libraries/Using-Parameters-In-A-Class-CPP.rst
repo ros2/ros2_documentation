@@ -394,12 +394,8 @@ Then source the setup files in a new terminal:
 
       $ call install/setup.bat
 
-<<<<<<< HEAD
 Now run the node using the launch file we have just created.
-The terminal should return the following message every second:
-=======
 The terminal should return the following message the first time:
->>>>>>> 8a6ad2f (Doc update (#3532))
 
 .. code-block:: console
 
