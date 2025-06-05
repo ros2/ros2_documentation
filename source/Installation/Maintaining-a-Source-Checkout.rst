@@ -48,7 +48,7 @@ If you wish to checkout the latest code for ROS 2 {DISTRO_TITLE}, you can get th
 
   .. group-tab:: Windows
 
-    Use a Windows comand line interface:
+    Use a Windows command line interface:
 
     .. code-block:: console
 

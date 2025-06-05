@@ -84,7 +84,7 @@ This is to prevent pagefaults from loading lots of new memory into RAM.
 (See `the realtime design article <https://design.ros2.org/articles/realtime_background.html#memory-management>`__ for more information.)
 
 The demo will continue on as usual when this occurs.
-You could also see the output as followings, that means the number of pagefaults encountered during execution:
+You could also see the output as following, that means the number of pagefaults encountered during execution:
 
 ::
 
