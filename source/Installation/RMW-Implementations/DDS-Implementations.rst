@@ -1,7 +1,7 @@
 DDS implementations
 ===================
 
-These are the available DDS implementaions:
+These are the available DDS implementations:
 
 * :doc:`Working with Eclipse Cyclone DDS <DDS-Implementations/Working-with-Eclipse-CycloneDDS>` explains how to utilize Cyclone DDS.
 * :doc:`Working with eProsima Fast DDS <DDS-Implementations/Working-with-eProsima-Fast-DDS>` explains how to utilize Fast DDS.
