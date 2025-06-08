@@ -107,7 +107,7 @@ You may have to check your ``.bashrc`` for this line and comment it out.
 
 On the other hand on Windows, the official ROS 2 installation procedure uses ``conda`` packages via the ``pixi`` package manager, and that works fine as there is no mix of different package managers
 
-``conda`` packages for ROS 2 may be built (such as the one provided by the community-mantained [RoboStack](https://robostack.github.io/) project) but no official conda packages for ROS 2 are provided.
+``conda`` packages for ROS 2 may be built (such as the one provided by the community-mantained `RoboStack <https://robostack.github.io/>`_ project) but no official conda packages for ROS 2 are provided.
 
 Cannot start rviz2
 ^^^^^^^^^^^^^^^^^^
