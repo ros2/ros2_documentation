@@ -188,9 +188,9 @@ This allows the installed files to be changed by changing the files in the ``sou
 
     Windows doesn't allow long paths, so ``merge-install`` will combine all the paths into the ``install`` directory.
 
-.. note::
+.. tip::
 
-   Running ``colcon build`` may freeze the screen and mouse of systems that are CPU-, RAM- and I/O-limited (e.g., Raspberry Pi), so it might be useful to use the ``--executor sequential`` argument to build the packages one by one instead of using parallelism.
+   Running ``colcon build`` may freeze the screen and mouse of systems that are CPU-, RAM- and I/O-limited (e.g., Raspberry Pi), so it might be useful to use the ``--executor sequential`` argument to build the packages one by one instead of using parallelism. Read https://colcon.readthedocs.io/en/released/reference/executor-arguments.html for more arguments as needed.
 
 After the build is finished, we should see the ``build``, ``install``, and ``log`` directories:
 
