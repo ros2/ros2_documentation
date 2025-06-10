@@ -188,6 +188,8 @@ This allows the installed files to be changed by changing the files in the ``sou
 
     Windows doesn't allow long paths, so ``merge-install`` will combine all the paths into the ``install`` directory.
 
+.. note:: Running ``colcon build`` on Raspberry Pi is very CPU, RAM and I/O intensive (your screen and mouse might freeze) so it might be useful to use the ``--executor sequential`` argument to process the packages one by one instead of using parallelism.
+
 After the build is finished, we should see the ``build``, ``install``, and ``log`` directories:
 
 .. code-block:: bash
