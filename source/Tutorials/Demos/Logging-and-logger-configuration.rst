@@ -389,6 +389,11 @@ You should see that debug, warn, error and fatal logs aren't colorized now.
    If it is forced you will get a new warning saying that colorization failed.
    The default behavior already checks if the output is a console or not, so forcing colorization is not recommended.
 
+.. note::
+
+   If you start several nodes via ``ros2 launch``, no node has an active terminal attached to it (unless you set ``emulate_tty=True``).
+   This means that to get colorized output for ``ros2 launch``, you need to set ``RCUTILS_COLORIZED_OUTPUT=1`` explicitly.
+
 Default stream for console output
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
