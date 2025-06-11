@@ -61,14 +61,7 @@ All operations happen on the Python version of the messages until they need to b
 This is avoided if possible when communicating between publishers and subscriptions in the same process to cut down on the conversion into and out of Python.
 
 The ``rclpy`` repository is located on GitHub at `ros2/rclpy <https://github.com/ros2/rclpy>`_ and contains the |package| ``rclpy``.
-<<<<<<< HEAD
-The generated |API| documentation is here:
-
-`api/rclpy/index.html <http://docs.ros2.org/foxy/api/rclpy/index.html>`_
-
-=======
 The generated |API| documentation is at {package_link(rclpy)}.
->>>>>>> 0399880 (Add macros to link to package API docs (#5206))
 
 Community-maintained
 ~~~~~~~~~~~~~~~~~~~~
