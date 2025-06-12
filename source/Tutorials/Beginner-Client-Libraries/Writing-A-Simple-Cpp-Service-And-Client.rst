@@ -167,7 +167,7 @@ The ``main`` function accomplishes the following, line by line:
 ~~~~~~~~~~~~~~~~~~
 
 The ``add_executable`` macro generates an executable you can run using ``ros2 run``.
-Add the following code block to ``CMakeLists.txt`` to create an executable named ``server``:
+Add the following code block to ``CMakeLists.txt`` just below the dependencies to create an executable named ``server``:
 
 .. code-block:: cmake
 
