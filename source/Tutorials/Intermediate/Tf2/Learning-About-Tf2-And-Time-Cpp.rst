@@ -38,7 +38,7 @@ Open ``turtle_tf2_listener.cpp`` and take a look at the ``lookupTransform()`` ca
 
 .. code-block:: C++
 
-   transformStamped = tf_buffer_->lookupTransform(
+   t = tf_buffer_->lookupTransform(
       toFrameRel,
       fromFrameRel,
       tf2::TimePointZero);
@@ -58,7 +58,7 @@ Now, change this line to get the transform at the current time, ``this->get_cloc
 .. code-block:: C++
 
    rclcpp::Time now = this->get_clock()->now();
-   transformStamped = tf_buffer_->lookupTransform(
+   t = tf_buffer_->lookupTransform(
       toFrameRel,
       fromFrameRel,
       now);
@@ -89,7 +89,7 @@ To fix this, edit your code as shown below (add the last timeout parameter):
 .. code-block:: C++
 
    rclcpp::Time now = this->get_clock()->now();
-   transformStamped = tf_buffer_->lookupTransform(
+   t = tf_buffer_->lookupTransform(
       toFrameRel,
       fromFrameRel,
       now,
