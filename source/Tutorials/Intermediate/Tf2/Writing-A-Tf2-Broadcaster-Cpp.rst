@@ -222,8 +222,8 @@ Navigate one level back to the ``learning_tf2_cpp`` directory, where the ``CMake
 Now open the ``CMakeLists.txt`` add the executable and name it ``turtle_tf2_broadcaster``, which you'll use later with ``ros2 run``.
 
 .. code-block:: console
-    find_package(turtlesim_msgs REQUIRED)
 
+    find_package(turtlesim_msgs REQUIRED)
     add_executable(turtle_tf2_broadcaster src/turtle_tf2_broadcaster.cpp)
     target_link_libraries(
         turtle_tf2_broadcaster PUBLIC
