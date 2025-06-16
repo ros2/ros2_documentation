@@ -54,7 +54,7 @@ and change ``lookupTransform()`` call in lines 75-79 from
 .. code-block:: C++
 
    try {
-      transformStamped = tf_buffer_->lookupTransform(
+      t = tf_buffer_->lookupTransform(
         toFrameRel,
         fromFrameRel,
         tf2::TimePointZero);
@@ -65,7 +65,7 @@ to
 .. code-block:: C++
 
    try {
-      transformStamped = tf_buffer_->lookupTransform(
+      t = tf_buffer_->lookupTransform(
         toFrameRel,
         fromFrameRel,
         this->now());
@@ -115,7 +115,7 @@ and lines 75-79:
 .. code-block:: C++
 
    try {
-      transformStamped = tf_buffer_->lookupTransform(
+      t = tf_buffer_->lookupTransform(
         toFrameRel,
         fromFrameRel,
         this->now());
@@ -195,7 +195,7 @@ Let's test this quickly by changing lines 75-79 to:
 .. code-block:: C++
 
    try {
-      transformStamped = tf_buffer_->lookupTransform(
+      t = tf_buffer_->lookupTransform(
         toFrameRel,
         fromFrameRel,
         this->now() - rclcpp::Duration::from_seconds(0.1));
@@ -219,7 +219,7 @@ The real fix would look like this:
 .. code-block:: C++
 
    try {
-      transformStamped = tf_buffer_->lookupTransform(
+      t = tf_buffer_->lookupTransform(
         toFrameRel,
         fromFrameRel,
         tf2::TimePointZero);
@@ -230,7 +230,7 @@ Or like this:
 .. code-block:: C++
 
    try {
-      transformStamped = tf_buffer_->lookupTransform(
+      t = tf_buffer_->lookupTransform(
         toFrameRel,
         fromFrameRel,
         tf2::TimePoint());
@@ -241,7 +241,7 @@ You can learn more about timeouts in the :doc:`Using time <./Learning-About-Tf2-
 .. code-block:: C++
 
    try {
-      transformStamped = tf_buffer_->lookupTransform(
+      t = tf_buffer_->lookupTransform(
         toFrameRel,
         fromFrameRel,
         this->now(),
