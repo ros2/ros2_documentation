@@ -117,7 +117,7 @@ Bloom will automatically create a pull request for you against `rosdistro <https
 .. note::
 
   By default, bloom will release all packages in the source repository.
-  To selectively block the release of some packages for a particular ``{DISTRO}``, add ``{DISTRO}.ignored`` files to the ``master``` branch of the release repository.
+  To selectively block the release of some packages for a particular ``{DISTRO}``, add ``{DISTRO}.ignored`` files to the ``master`` branch of the release repository.
   In each file, list the name of the package, one per line, to block the release of the package.
   The `rosidl-release <https://github.com/ros2-gbp/rosidl-release>`_ repository may serve as a useful reference for this configuration.
 
