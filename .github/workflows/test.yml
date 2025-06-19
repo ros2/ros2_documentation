@@ -12,7 +12,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12.2'
+          python-version: '3.12'
 
       - name: Install dependencies with pip
         run: pip install --no-warn-script-location --user -r requirements.txt -c constraints.txt
@@ -32,7 +32,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12.2'
+          python-version: '3.12'
 
       - name: Install dependencies with pip
         run: pip install --no-warn-script-location --user -r requirements.txt -c constraints.txt
@@ -49,7 +49,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12.2'
+          python-version: '3.12'
 
       - name: Install dependencies with pip
         run: pip install --no-warn-script-location --user -r requirements.txt -c constraints.txt
@@ -67,7 +67,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12.2'
+          python-version: '3.12'
 
       - name: Setup Graphviz
         uses: ts-graphviz/setup-graphviz@v2
