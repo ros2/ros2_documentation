@@ -33,7 +33,6 @@ ENV HOME=/home/$user
 ENV PATH=/home/$user/.local/bin:$PATH
 WORKDIR /tmp/doc_repository
 
-
 # https://build.ros.org/job/doc_ros2doc/ relies on "make multiversion" to build the official documentation.
 # Do not remove "make multiversion" from CMD, as it is the entrypoint for the container.
 CMD ["bash", "-c", "source /opt/ros2doc/bin/activate && make multiversion"]
