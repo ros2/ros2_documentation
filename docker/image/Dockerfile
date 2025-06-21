@@ -40,5 +40,4 @@ RUN python3 -m venv /opt/ros2doc
 COPY requirements.txt constraints.txt .
 RUN . /opt/ros2doc/bin/activate && pip3 install -r requirements.txt -c constraints.txt
 
-RUN echo "source /opt/ros2doc/bin/activate" >> /home/$user/.bashrc
 USER $user
