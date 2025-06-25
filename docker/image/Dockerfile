@@ -34,4 +34,6 @@ WORKDIR /tmp/doc_repository
 
 USER $user
 
+# https://build.ros.org/job/doc_ros2doc/ relies on "make multiversion" to build the official documentation.
+# Do not remove "make multiversion" from CMD, as it is the entrypoint for the container.
 CMD ["bash", "-c", "pip3 install --no-warn-script-location --user -r requirements.txt -c constraints.txt && make multiversion"]
