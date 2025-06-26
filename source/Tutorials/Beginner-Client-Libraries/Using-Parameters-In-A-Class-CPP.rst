@@ -343,7 +343,7 @@ By adding the two lines below, we ensure our output is printed in our console.
 Now open the ``CMakeLists.txt`` file.
 Below the lines you added earlier, add the following lines of code.
 
-.. code-block:: console
+.. code-block:: cmake
 
     install(
       DIRECTORY launch
