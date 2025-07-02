@@ -89,7 +89,8 @@ Install packages according to your Ubuntu version.
             flake8-quotes \
             "pytest>=5.3" \
             pytest-repeat \
-            pytest-rerunfailures
+            pytest-rerunfailures \
+            empy==3.3.4
 
 
 .. _linux-dev-get-ros2-code:
