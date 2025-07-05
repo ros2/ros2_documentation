@@ -34,7 +34,7 @@ def generate_launch_description():
                 'ros2 service call ',
                 turtlesim_ns,
                 '/spawn ',
-                'turtlesim_msgs/srv/Spawn ',
+                'turtlesim/srv/Spawn ',
                 '"{x: 2, y: 2, theta: 0.2}"'
             ]],
             shell=True
