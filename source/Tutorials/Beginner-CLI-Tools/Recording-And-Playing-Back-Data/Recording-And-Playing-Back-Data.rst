@@ -163,7 +163,7 @@ This directory will contain a ``metadata.yaml`` along with the bag file in the r
 3.2 Record multiple topics
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can also record multiple topics, as well as change the name of the file ``ros2 bag`` saves to.
+You can also record multiple topics, as well as change the name of the bag directory ``ros2 bag`` saves to.
 
 Run the following command:
 
@@ -176,8 +176,8 @@ Run the following command:
   [INFO] [rosbag2_transport]: Subscribed to topic '/turtle1/pose'
   [INFO] [rosbag2_transport]: All requested topics are subscribed. Stopping discovery...
 
-The ``-o`` option allows you to choose a unique name for your bag file.
-The following string, in this case ``subset``, is the file name.
+The ``-o`` option allows you to choose a unique name for your bag directory.
+The following string, in this case ``subset``, is the bag directory name.
 
 To record more than one topic at a time, simply list each topic separated by a space after ``--topics``.
 In this case, the command output above confirms that both topics are being recorded.
@@ -197,12 +197,12 @@ You can see details about your recording by running:
 
     $ ros2 bag info <bag_file_name>
 
-Running this command on the ``subset`` bag file will return a list of information on the file:
+Running this command on the ``subset/subset_0.mcap`` bag file will return a list of information on the file:
 
 .. code-block:: console
 
-    $ ros2 bag info subset
-    Files:             subset.mcap
+    $ ros2 bag info subset/subset_0.mcap
+    Files:             subset_0.mcap
     Bag size:          228.5 KiB
     Storage id:        mcap
     Duration:          48.47s
@@ -211,6 +211,9 @@ Running this command on the ``subset`` bag file will return a list of informatio
     Messages:          3013
     Topic information: Topic: /turtle1/cmd_vel | Type: geometry_msgs/msg/Twist | Count: 9 | Serialization Format: cdr
                        Topic: /turtle1/pose | Type: turtlesim_msgs/msg/Pose | Count: 3004 | Serialization Format: cdr
+
+Alternatively, you can also call ``ros2 bag info`` on a bag directory ``subset``,
+and all bag files within it will be analyzed as one.
 
 5 Play topic data
 ^^^^^^^^^^^^^^^^^
@@ -222,7 +225,7 @@ Enter the command:
 
 .. code-block:: console
 
-    $ ros2 bag play subset
+    $ ros2 bag play subset/subset_0.mcap
     [INFO] [rosbag2_storage]: Opened database 'subset'.
 
 Your turtle will follow the same path you entered while recording (though not 100% exactly; turtlesim is sensitive to small changes in the system's timing).
