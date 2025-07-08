@@ -135,7 +135,7 @@ To record the data published to a topic use the command syntax:
 
 .. code-block:: console
 
-    $ ros2 bag record <topic_name>
+    $ ros2 bag record --topics <topic_name>
 
 Before running this command on your chosen topic, open a new terminal and move into the ``bag_files`` directory you created earlier, because the rosbag file will save in the directory where you run it.
 
@@ -143,7 +143,7 @@ Run the command:
 
 .. code-block:: console
 
-    $ ros2 bag record /turtle1/cmd_vel
+    $ ros2 bag record --topics /turtle1/cmd_vel
     [INFO] [rosbag2_storage]: Opened database 'rosbag2_2019_10_11-05_18_45'.
     [INFO] [rosbag2_transport]: Listening for topics...
     [INFO] [rosbag2_transport]: Subscribed to topic '/turtle1/cmd_vel'
@@ -169,7 +169,7 @@ Run the following command:
 
 .. code-block:: console
 
-  $ ros2 bag record -o subset /turtle1/cmd_vel /turtle1/pose
+  $ ros2 bag record -o subset --topics /turtle1/cmd_vel /turtle1/pose
   [INFO] [rosbag2_storage]: Opened database 'subset'.
   [INFO] [rosbag2_transport]: Listening for topics...
   [INFO] [rosbag2_transport]: Subscribed to topic '/turtle1/cmd_vel'
@@ -179,9 +179,8 @@ Run the following command:
 The ``-o`` option allows you to choose a unique name for your bag file.
 The following string, in this case ``subset``, is the file name.
 
-To record more than one topic at a time, simply list each topic separated by a space.
+To record more than one topic at a time, simply list each topic separated by a space after ``--topics``.
 In this case, the command output above confirms that both topics are being recorded.
-
 
 You can move the turtle around and press ``Ctrl+C`` when you're finished.
 
