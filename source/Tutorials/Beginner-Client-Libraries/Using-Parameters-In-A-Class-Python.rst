@@ -186,13 +186,11 @@ For that to work, the ``__init__`` code has to be changed to:
 
             self.timer = self.create_timer(1, self.timer_callback)
 
-Since we are importing ``rcl_interfaces``, we need to add the dependency to ``package.xml`` to avoid any dependency issue in the future.
+Since we are importing ``rcl_interfaces``, we need to add the dependency to ``package.xml`` to avoid any dependency issue in the future:
 
 .. code-block:: xml
 
     # ...
-
-    <license>Apache-2.0</license>
     <depend>rclpy</depend>
     <depend>rcl_interfaces</depend>
 
