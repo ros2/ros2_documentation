@@ -188,6 +188,33 @@ You can move the turtle around and press ``Ctrl+C`` when you're finished.
 
     There is another option you can add to the command, ``-a``, which records all the topics on your system.
 
+3.3 Split recording into multiple files
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can also divide your recording over multiple files, based on either recording duration or file size.
+``-d <max_bag_duration>`` ensures that each file only lasts ``<max_bag_duration>`` seconds before it starts writing to
+a new file, or ``-b <max_bag_size>`` ensures that each file does not exceed ``<max_bag_size>`` bytes in file size.
+
+Run the following for at least 15 seconds, allowing for three 5-second bag files to be written:
+
+.. code-block:: console
+
+    $ ros2 bag record -o subset_separate -d 5 --topics /turtle1/cmd_vel /turtle1/pose
+    [INFO] [rosbag2_recorder]: Press SPACE for pausing/resuming
+    [INFO] [rosbag2_recorder]: Listening for topics...
+    [INFO] [rosbag2_recorder]: Event publisher thread: Starting
+    [INFO] [rosbag2_recorder]: Recording...
+    [INFO] [rosbag2_recorder]: Subscribed to topic '/turtle1/cmd_vel'
+    [INFO] [rosbag2_recorder]: Subscribed to topic '/turtle1/pose'
+    [INFO] [rosbag2_recorder]: All requested topics are subscribed. Stopping discovery...
+    [INFO] [rosbag2_cpp]: Writing remaining messages from cache to the bag. It may take a while
+    [INFO] [rosbag2_cpp]: Writing remaining messages from cache to the bag. It may take a while
+    [INFO] [rosbag2_cpp]: Writing remaining messages from cache to the bag. It may take a while
+
+Press ``Ctrl+C`` when you're finished.
+You should find a ``subset_separate`` directory with these files inside:
+``subset_separate_0.mcap``, ``subset_separate_1.mcap``, and so on.
+
 4 Inspect topic data
 ^^^^^^^^^^^^^^^^^^^^
 
@@ -221,6 +248,9 @@ and all bag files within it will be analyzed as one.
 
 5 Play topic data
 ^^^^^^^^^^^^^^^^^
+
+5.1 Play a single bag file
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Before replaying the bag file, enter ``Ctrl+C`` in the terminal where the teleop is running.
 Then make sure your turtlesim window is visible so you can see the bag file in action.
@@ -260,6 +290,29 @@ To get an idea of how often position data is published, you can run the command:
 .. code-block:: console
 
     $ ros2 topic hz /turtle1/pose
+
+5.2 Play multiple bag files
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you want to play multiple bag files that are all a part of the same recording,
+simply call ``ros2 bag play`` on the bag directory, instead of a file:
+
+.. code-block:: console
+
+    $ ros2 bag play subset_separate
+
+This will play all the files inside of the ``subset_separate`` recording consecutively.
+
+If you want to play a specific selection of files, that can be done by calling ``-i <bag_file_name>``
+for each file.
+
+.. code-block:: console
+
+    $ ros2 bag play -i subset_separate/subset_separate_0.mcap -i subset_separate/subset_separate_2.mcap
+
+This will play the first and third bag files in ``subset_separate``, skipping the second.
+They will play with the same relative time as when recorded, meaning there will be a 5 second pause
+in between, where the ``subset_separate_1.mcap`` would have played if not omitted.
 
 Managing Service Data
 ---------------------
