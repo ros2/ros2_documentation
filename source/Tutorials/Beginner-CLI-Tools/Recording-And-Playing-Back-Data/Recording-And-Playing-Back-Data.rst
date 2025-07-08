@@ -211,6 +211,10 @@ Running this command on the ``subset/subset_0.mcap`` bag file will return a list
     Messages:          3013
     Topic information: Topic: /turtle1/cmd_vel | Type: geometry_msgs/msg/Twist | Count: 9 | Serialization Format: cdr
                        Topic: /turtle1/pose | Type: turtlesim_msgs/msg/Pose | Count: 3004 | Serialization Format: cdr
+    Services:          0
+    Service information:
+    Actions:           0
+    Action information:
 
 Alternatively, you can also call ``ros2 bag info`` on a bag directory ``subset``,
 and all bag files within it will be analyzed as one.
@@ -226,7 +230,19 @@ Enter the command:
 .. code-block:: console
 
     $ ros2 bag play subset/subset_0.mcap
-    [INFO] [rosbag2_storage]: Opened database 'subset'.
+    [INFO] [rosbag2_player]: Set rate to 1
+    [INFO] [rosbag2_player]: Adding keyboard callbacks.
+    [INFO] [rosbag2_player]: Press SPACE for Pause/Resume
+    [INFO] [rosbag2_player]: Press CURSOR_RIGHT for Play Next Message
+    [INFO] [rosbag2_player]: Press CURSOR_UP for Increase Rate 10%
+    [INFO] [rosbag2_player]: Press CURSOR_DOWN for Decrease Rate 10%
+    Progress bar enabled at 3 Hz.
+    Progress bar [?]: [R]unning, [P]aused, [B]urst, [D]elayed, [S]topped
+    [INFO] [rosbag2_player]: Playback until timestamp: -1
+
+
+    ====== Playback Progress ======
+    [1751923361.427372456] Duration 0.00/48.47 [R]
 
 Your turtle will follow the same path you entered while recording (though not 100% exactly; turtlesim is sensitive to small changes in the system's timing).
 
