@@ -155,7 +155,7 @@ The movements don't matter, but try to make a recognizable pattern to see when y
 
 .. image:: images/record.png
 
-Press ``Ctrl+C`` to stop recording.
+Press :kbd:`Ctrl-C` to stop recording.
 
 The data will be accumulated in a new bag directory with a name in the pattern of ``rosbag2_year_month_day-hour_minute_second``.
 This directory will contain a ``metadata.yaml`` along with the bag file in the recorded format.
@@ -182,7 +182,7 @@ The following string, in this case ``subset``, is the bag directory name.
 To record more than one topic at a time, simply list each topic separated by a space after ``--topics``.
 In this case, the command output above confirms that both topics are being recorded.
 
-You can move the turtle around and press ``Ctrl+C`` when you're finished.
+You can move the turtle around and press :kbd:`Ctrl-C` when you're finished.
 
 .. note::
 
@@ -211,7 +211,7 @@ Run the following for at least 15 seconds, allowing for three 5-second bag files
     [INFO] [rosbag2_cpp]: Writing remaining messages from cache to the bag. It may take a while
     [INFO] [rosbag2_cpp]: Writing remaining messages from cache to the bag. It may take a while
 
-Press ``Ctrl+C`` when you're finished.
+Press :kbd:`Ctrl-C` when you're finished.
 You should find a ``subset_separate`` directory with these files inside:
 ``subset_separate_0.mcap``, ``subset_separate_1.mcap``, and so on.
 
@@ -252,7 +252,7 @@ and all bag files within it will be analyzed as one.
 5.1 Play a single bag file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Before replaying the bag file, enter ``Ctrl+C`` in the terminal where the teleop is running.
+Before replaying the bag file, enter :kbd:`Ctrl-C` in the terminal where the teleop is running.
 Then make sure your turtlesim window is visible so you can see the bag file in action.
 
 Enter the command:
@@ -411,7 +411,7 @@ Run the command:
   [INFO] [1713995957.666092458] [rosbag2_recorder]: Recording...
 
 Now ``ros2 bag`` is recording the service data published on the ``/add_two_ints`` service.
-To stop the recording, enter ``Ctrl+C`` in the terminal.
+To stop the recording, enter :kbd:`Ctrl-C` in the terminal.
 
 The data will be accumulated in a new bag directory with a name in the pattern of ``rosbag2_year_month_day-hour_minute_second``.
 This directory will contain a ``metadata.yaml`` along with the bag file in the recorded format.
@@ -439,7 +439,7 @@ You can see details about your recording by running:
 5 Play service data
 ^^^^^^^^^^^^^^^^^^^
 
-Before replaying the bag file, enter ``Ctrl+C`` in the terminal where ``introspection_client`` is running.
+Before replaying the bag file, enter :kbd:`Ctrl-C` in the terminal where ``introspection_client`` is running.
 When ``introspection_client`` stops running, ``introspection_service`` also stops printing the result because there are no incoming requests.
 
 Replaying the service data from the bag file will start sending the requests to ``introspection_service``.
@@ -588,7 +588,7 @@ Run the command:
   ...
 
 Now ``ros2 bag`` is recording the action data for the ``/fibonacci`` action: goal, result, and feedback.
-To stop the recording, enter ``Ctrl+C`` in the terminal.
+To stop the recording, enter :kbd:`Ctrl-C` in the terminal.
 
 The data will be accumulated in a new bag directory with a name in the pattern of ``rosbag2_year_month_day-hour_minute_second``.
 This directory will contain a ``metadata.yaml`` along with the bag file in the recorded format.
