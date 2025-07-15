@@ -43,7 +43,7 @@ Create a new empty package in your ``ros2_ws/src`` folder with the following com
 
 .. code-block:: console
 
-  $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 --dependencies pluginlib --node-name area_node polygon_base
+  $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 --dependencies pluginlib polygon_base
 
 
 Open your favorite editor, edit ``ros2_ws/src/polygon_base/include/polygon_base/regular_polygon.hpp``, and paste the following inside of it:
@@ -167,6 +167,8 @@ Let's go through the arguments to the ``PLUGINLIB_EXPORT_CLASS`` macro:
 1. The fully-qualified type of the plugin class, in this case, ``polygon_plugins::Square``.
 2. The fully-qualified type of the base class, in this case, ``polygon_base::RegularPolygon``.
 
+Note that for the Triangle class, we're implementing a method ``getHeight()`` that isn't in the base class. We'll come back to this method later, when we call it.
+
 2.2 Plugin Declaration XML
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -220,40 +222,56 @@ The arguments to the ``pluginlib_export_plugin_description_file`` command are:
 ^^^^^^^^^^^^^^^^^
 
 Now it's time to use the plugins.
-This can be done in any package, but here we're going to do it in the base package.
+We're going to do it in a new package.
+
+.. code-block:: console
+
+  $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 --dependencies pluginlib polygon_base polygon_plugins polygon_area --node-name area_node polygon_area
+  
+Open your favorite editor, edit ``ros2_ws/src/polygon_area/src/area_node.cpp``, and paste the following inside of it:
+
+
+
 Edit ``ros2_ws/src/polygon_base/src/area_node.cpp`` to contain the following:
 
 .. code-block:: C++
 
     #include <pluginlib/class_loader.hpp>
     #include <polygon_base/regular_polygon.hpp>
+    #include <polygon_plugins/polygon_plugins.hpp>
 
     int main(int argc, char** argv)
     {
-      // To avoid unused parameter warnings
-      (void) argc;
-      (void) argv;
+        // To avoid unused parameter warnings
+        (void) argc;
+        (void) argv;
 
-      pluginlib::ClassLoader<polygon_base::RegularPolygon> poly_loader("polygon_base", "polygon_base::RegularPolygon");
+        pluginlib::ClassLoader<polygon_base::RegularPolygon> poly_loader("polygon_base", "polygon_base::RegularPolygon");
 
-      try
-      {
-        std::shared_ptr<polygon_base::RegularPolygon> triangle = poly_loader.createSharedInstance("polygon_plugins::Triangle");
-        triangle->initialize(10.0);
+        try
+        {
+            std::shared_ptr<polygon_base::RegularPolygon> triangle = poly_loader.createSharedInstance("polygon_plugins::Triangle");
+            triangle->initialize(10.0);
 
-        std::shared_ptr<polygon_base::RegularPolygon> square = poly_loader.createSharedInstance("polygon_plugins::Square");
-        square->initialize(10.0);
+            std::shared_ptr<polygon_base::RegularPolygon> square = poly_loader.createSharedInstance("polygon_plugins::Square");
+            square->initialize(10.0);
 
-        printf("Triangle area: %.2f\n", triangle->area());
-        printf("Square area: %.2f\n", square->area());
-      }
-      catch(pluginlib::PluginlibException& ex)
-      {
-        printf("The plugin failed to load for some reason. Error: %s\n", ex.what());
-      }
+            printf("Triangle area: %.2f\n", triangle->area());
+    
+            auto custom_plugin = std::dynamic_pointer_cast<polygon_plugins::Triangle>(triangle);
+            if (custom_plugin) printf("Triangle height	: %.2f\n", custom_plugin->getHeight());
 
-      return 0;
+            printf("Square area: %.2f\n", square->area());
+
+        }
+        catch(pluginlib::PluginlibException& ex)
+        {
+            printf("The plugin failed to load for some reason. Error: %s\n", ex.what());
+        }
+
+    return 0;
     }
+
 
 The ``ClassLoader`` is the key class to understand, defined in the ``class_loader.hpp`` `header file <https://github.com/ros/pluginlib/blob/ros2/pluginlib/include/pluginlib/class_loader.hpp>`_:
 
@@ -265,8 +283,8 @@ There are a number of ways to instantiate an instance of the class.
 In this example, we're using shared pointers.
 We just need to call ``createSharedInstance`` with the fully-qualified type of the plugin class, in this case, ``polygon_plugins::Square``.
 
-Important note: the ``polygon_base`` package in which this node is defined does NOT depend on the ``polygon_plugins`` class.
-The plugins will be loaded dynamically without any dependency needing to be declared.
+Important note: If we only use the methods of the plugin's base class ``polygon_base``, the ``polygon_area`` package in which this node is defined does NOT depend on the ``polygon_plugins`` class. Here the node is using a method specific to one of the a dervied class (``getHeight()`` of the Triangle class). This creates  dependency to ``polygon_plugins``.
+In the first situation, using only the properties of the base class, the plugins will be loaded dynamically without any dependency needing to be declared.
 Furthermore, we're instantiating the classes with hardcoded plugin names, but you can also do so dynamically with parameters, etc.
 
 4 Build and run
@@ -306,6 +324,7 @@ Now run the node:
 
      $ ros2 run polygon_base area_node
      Triangle area: 43.30
+     Triangle height: 8.66
      Square area: 100.00
 
 Summary
