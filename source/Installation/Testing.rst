@@ -66,7 +66,7 @@ RHEL testing repository
 
 For RHEL you can install binary packages from the **ros-testing** repository, by enabling the testing repository on the source configuration:
 
-1. Make sure you have a working ROS 2 installation for rpm packages (see :doc:`../RHEL-Install-RPMs`).
+1. Make sure you have a working ROS 2 installation for rpm packages (see the :doc:`RHEL installation instructions <RHEL-Install-RPMs>`).
 
 2. Enable testing and disable main repository:
 
