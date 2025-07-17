@@ -32,7 +32,7 @@ For Debian-based operating systems, you can install binary packages from the **r
 3. Update the apt index:
 
    .. code-block:: console
-      
+
       $ sudo apt update
 
 4. You can now install individual packages from the testing repository, for example:
@@ -64,17 +64,19 @@ For Debian-based operating systems, you can install binary packages from the **r
 RHEL testing repository
 ----------------------
 
-For RHEL you can install binary packages from the **ros-testing** repository, by enabling the testing repository on the source configuration: 
+For RHEL you can install binary packages from the **ros-testing** repository, by enabling the testing repository on the source configuration:
 
 1. Make sure you have a working ROS 2 installation for rpm packages (see :doc:`../RHEL-Install-RPMs`).
 
 2. Enable testing and disable main repository:
+
    .. code-block:: console
 
       $ sudo dnf config-manager setopt ros2-testing.enabled=1
       $ sudo dnf config-manager setopt ros2.enabled=0
 
-3. Update the dnf index: 
+3. Update the dnf index:
+
    .. code-block:: console
 
       $ sudo dnf update
@@ -88,7 +90,7 @@ For RHEL you can install binary packages from the **ros-testing** repository, by
 5.  Once you are finished testing, you can switch back to the normal repository by re-enabling the main repository:
 
    .. code-block:: bash
-      
+
       $ sudo dnf config-manager setopt ros2-testing.enabled=0
       $ sudo dnf config-manager setopt ros2.enabled=1
 
