@@ -62,7 +62,7 @@ For Debian-based operating systems, you can install binary packages from the **r
 
 
 RHEL testing repository
-----------------------
+-----------------------
 
 For RHEL you can install binary packages from the **ros-testing** repository, by enabling the testing repository on the source configuration:
 
