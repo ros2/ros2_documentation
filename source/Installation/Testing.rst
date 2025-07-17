@@ -89,7 +89,7 @@ For RHEL you can install binary packages from the **ros-testing** repository, by
 
 5.  Once you are finished testing, you can switch back to the normal repository by re-enabling the main repository:
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ sudo dnf config-manager setopt ros2-testing.enabled=0
       $ sudo dnf config-manager setopt ros2.enabled=1
