@@ -353,7 +353,8 @@ CMake
 Version
 ^^^^^^^
 
-We will target CMake 3.16.5
+Read [REP 2000](https://www.ros.org/reps/rep-2000.html) to determine the minimum CMake version you should support.
+Currently the minimum version of any supported ROS distro is **3.14.4** (ROS Humble on macOS).
 
 Style
 ^^^^^
