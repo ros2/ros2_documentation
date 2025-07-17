@@ -39,6 +39,8 @@ Content filtering subscriptions require RMW implementation support.
      - supported
    * - rmw_cyclonedds
      - not supported
+   * - rmw_zenoh_cpp
+     - not supported
 
 Currently all RMW implementations that support content filtering subscriptions are `DDS <https://www.omg.org/omg-dds-portal/>`__ based.
 That means that the supported filtering expressions and parameters are also dependent on `DDS <https://www.omg.org/omg-dds-portal/>`__, you can refer to `DDS specification <https://www.omg.org/spec/DDS/1.4/PDF>`__ ``Annex B - Syntax for Queries and Filters`` for details.
