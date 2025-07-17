@@ -49,7 +49,7 @@ For Debian-based operating systems, you can install binary packages from the **r
 
 6. Once you are finished testing, you can switch back to the normal repository by re-installing the ros-apt-source package:
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ sudo apt install -y ros2-apt-source
 
