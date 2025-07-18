@@ -73,7 +73,7 @@ Install development tools and ROS tools
      flake8-comprehensions \
      flake8-deprecated \
      flake8-docstrings \
-     flake8-import-order \
+     flake8-import-order==0.18.2 \
      flake8-quotes \
      mypy==0.931
 
