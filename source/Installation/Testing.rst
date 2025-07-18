@@ -23,22 +23,12 @@ For Debian-based operating systems, you can install binary packages from the **r
 
 1. Make sure you have a working ROS 2 installation from deb packages (see :doc:`../Installation`).
 
-<<<<<<< HEAD
-2. Edit (with sudo) the file ``/etc/apt/sources.list.d/ros2.list`` and change ``ros2`` with ``ros2-testing``.
-   For example, on Ubuntu Jammy the contents should look like the following:
-=======
 2. Install the ros2-testing-apt-source package.
    This will automatically uninstall the ros2-apt-source package since only one repository may be enabled at a time.
->>>>>>> 9a74c30 (Update testing installation docs to use ros-apt-source package (#5783))
 
    .. code-block:: console
 
-<<<<<<< HEAD
-      # deb http://packages.ros.org/ros2/ubuntu jammy main
-      deb http://packages.ros.org/ros2-testing/ubuntu jammy main
-=======
       $ sudo apt install -y ros2-testing-apt-source
->>>>>>> 9a74c30 (Update testing installation docs to use ros-apt-source package (#5783))
 
 3. Update the apt index:
 
@@ -62,12 +52,7 @@ For Debian-based operating systems, you can install binary packages from the **r
 
    .. code-block:: console
 
-<<<<<<< HEAD
-      deb http://packages.ros.org/ros2/ubuntu jammy main
-      # deb http://packages.ros.org/ros2-testing/ubuntu jammy main
-=======
       $ sudo apt install -y ros2-apt-source
->>>>>>> 9a74c30 (Update testing installation docs to use ros-apt-source package (#5783))
 
    and doing an update and upgrade:
 
