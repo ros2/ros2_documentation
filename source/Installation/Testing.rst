@@ -23,7 +23,8 @@ For Debian-based operating systems, you can install binary packages from the **r
 
 1. Make sure you have a working ROS 2 installation from deb packages (see :doc:`../Installation`).
 
-2. Install the ros2-testing-apt-source package This will automatically uninstall the ros2-apt-source package since only one repository may be enabled at a time.
+2. Install the ros2-testing-apt-source package.
+   This will automatically uninstall the ros2-apt-source package since only one repository may be enabled at a time.
 
    .. code-block:: console
 
