@@ -47,6 +47,7 @@ Rows in the table marked in green are the currently supported distributions.
      why it is like this.
    -->
    <style>
+     .rst-content table.docutils:not(.field-list) tr:nth-child(1) td {background-color: #33cc66;}
      .rst-content tr:nth-child(2) {background-color: #33cc66;}
      .rst-content tr:nth-child(4) {background-color: #33cc66;}
    </style>
