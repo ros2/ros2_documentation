@@ -93,7 +93,7 @@ Second, we're going to replace our ``add_executable`` with a ``add_library`` wit
 
 .. code-block:: cmake
 
-    add_library(vincent_driver_component src/vincent_driver.cpp)
+    add_library(vincent_driver_component SHARED src/vincent_driver.cpp)
 
 Third, replace other build commands that used the old target to act on the new target.
 Don't forget to add ``rclcpp_components::component`` in ``target_link_libraries``.
