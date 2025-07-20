@@ -66,7 +66,7 @@ Installing via a virtual environment
 ------------------------------------
 
 ROS 2 packages using the ``ament_python`` build type can be modified to install Python entry point scripts using a virtual environment interpreter.
-This allows Python nodes to run with dependencies installed in a virtual environment.
+This allows Python nodes to run with dependencies installed in virtual environments.
 
 First, create a Colcon workspace:
 
@@ -106,7 +106,7 @@ After, install the Python packages that you want in your virtual environment:
 
     $ python3 -m pip install gtsam pyserial # ... etc.
 
-Place the ROS 2 package containing your Python node into the ``src``` directory of your Colcon workspace.
+Place the ROS 2 package containing your Python node into the ``src`` directory of your Colcon workspace.
 Open ``setup.py`` and add the ``options`` field to the ``setup`` call:
 
 .. code-block:: python
@@ -135,7 +135,7 @@ Now you can build the ROS 2 package in your workspace and run your Python node t
 Installing via a virtual environment with symbolic links
 --------------------------------------------------------
 
-If you want to run your Python nodes using dependencies installed in a virtual environment, but you also build your ROS 2 package using the ``--symlink-install`` option to create symbolic links to those Python nodes, then the process varies slightly.
+If you want to run your Python nodes using dependencies installed in a virtual environment, but you also want to build your ROS 2 package using the ``--symlink-install`` option to create symbolic links to those Python nodes, then the process varies slightly.
 
 First, create a Colcon workspace:
 
@@ -144,7 +144,7 @@ First, create a Colcon workspace:
     $ mkdir -p ~/colcon_venv/src
     $ cd ~/colcon_venv/
 
-There are several system Python packages required to build your Python nodes with symbolic links and then run them using a virtual environment.
+There are several required Python packages installed in your system environment Python.
 Export these packages and their version dependencies to a ``requirements.txt`` file:
 
 .. code-block:: console
@@ -166,7 +166,13 @@ Next, install the required Python packages:
 
     $ python3 -m pip install -r requirements.txt
 
-Now, with your virtual environment active, you can build the ROS 2 package with symbolic links and run your Python node that depends on packages installed in your virtual environment.
+After, install the Python packages that you want in your virtual environment:
+
+.. code-block:: console
+
+    $ python3 -m pip install gtsam pyserial # ... etc.
+
+Now, while your virtual environment is active, you can build your ROS 2 package and run your Python node that depends on packages installed in your virtual environment.
 Replace ``<YOUR_PACKAGE>`` with the name of the package containing your Python node.
 
 .. code-block:: console
