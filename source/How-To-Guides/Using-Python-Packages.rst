@@ -81,7 +81,7 @@ Export these packages and their version dependencies to a ``requirements.txt`` f
 
 .. code-block:: console
 
-    $ source /opt/ros/rolling/setup.bash # Source installation to ensure correct Python interpreter is used
+    $ source /opt/ros/{DISTRO}/setup.bash # Source installation to ensure correct Python interpreter is used
     $ python3 -m pip freeze | grep -E '^(PyYAML|setuptools|typing_extensions)==' > requirements.txt
 
 
@@ -129,7 +129,7 @@ Now you can build the ROS 2 package in your workspace and run your Python node t
 
 .. code-block:: console
 
-    $ source /opt/ros/rolling/setup.bash # Source Rolling and build
+    $ source /opt/ros/{DISTRO}/setup.bash # Source {DISTRO_TITLE} and build
     $ colcon build
 
 Installing via a virtual environment with symbolic links
@@ -149,7 +149,7 @@ Export these packages and their version dependencies to a ``requirements.txt`` f
 
 .. code-block:: console
 
-    $ source /opt/ros/rolling/setup.bash # Source installation to ensure correct Python interpreter is used
+    $ source /opt/ros/{DISTRO}/setup.bash # Source installation to ensure correct Python interpreter is used
     $ python3 -m pip freeze | grep -E '^(colcon-common-extensions|PyYAML|setuptools|typing_extensions)==' > requirements.txt
 
 After exporting these requirements, setup your virtual environment:
@@ -177,7 +177,7 @@ Replace ``<YOUR_PACKAGE>`` with the name of the package containing your Python n
 
 .. code-block:: console
 
-    $ source /opt/ros/rolling/setup.bash # Source Rolling and build
+    $ source /opt/ros/{DISTRO}/setup.bash # Source {DISTRO_TITLE} and build
     $ python3 -m colcon build --symlink-install --packages-select <YOUR_PACKAGE>
 
 .. note::
