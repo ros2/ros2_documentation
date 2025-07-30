@@ -43,7 +43,6 @@ Examples of sub-commands that are available include:
 * ``test``: Run a ROS launch test
 * ``topic``: Introspect/publish ROS topics
 * ``trace``: Tracing tools to get information on ROS nodes execution (only available on Linux)
-* ``wtf``: An alias for ``doctor``
 
 Example
 -------
