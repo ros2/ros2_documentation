@@ -49,7 +49,7 @@ RTI Connext Pro is available through a variety of channels:
 
 **Other Installation Options**
 RTI Connext DDS is a proprietary DDS implementation with a number of advanced features and commercial support options.
-RTI provides both a `non-commercial / research license <https://www.rti.com/free-trial/university-program>`__ for students and researchers and a `time-limited free trial license <https://www.rti.com/free-trial>`__ for commercial users.
+RTI provides both a `non-commercial / research license <https://www.rti.com/free-trial/university-program>`__ for students and researchers and a `time-limited free trial license <https://content.rti.com/l/983311/2025-06-26/q5tyw3>`__ for commercial users.
 Detailed instructions for building and tuning the RMW and ROS 2 applications for a variety of platforms, and enabling DDS Security and safety-cert options are available on the `RTI ROS Community <https://community.rti.com/ros>`__ pages.
 
 
