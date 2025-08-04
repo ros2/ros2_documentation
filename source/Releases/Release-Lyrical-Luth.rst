@@ -42,6 +42,6 @@ New features in this ROS 2 release
 Development progress
 --------------------
 
-For progress on the development of Lyrical Luth, see `this project board <https://github.com/orgs/ros2/projects/63>`__.
+For progress on the development of Lyrical Luth, see `this project board <https://github.com/orgs/ros2/projects/70>`__.
 
 For the broad process followed by Lyrical Luth, see the :doc:`process description page <Release-Process>`.
