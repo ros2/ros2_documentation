@@ -222,13 +222,13 @@ You can see details about your recording by running:
 
 .. code-block:: console
 
-    $ ros2 bag info <bag_file_name>
+    $ ros2 bag info <bag_name>
 
-Running this command on the ``subset/subset_0.mcap`` bag file will return a list of information on the file:
+Running this command on the ``subset`` bag recording will return a list of information on the file:
 
 .. code-block:: console
 
-    $ ros2 bag info subset/subset_0.mcap
+    $ ros2 bag info subset
     Files:             subset_0.mcap
     Bag size:          228.5 KiB
     Storage id:        mcap
@@ -249,17 +249,17 @@ and all bag files within it will be analyzed as one.
 5 Play topic data
 ^^^^^^^^^^^^^^^^^
 
-5.1 Play a single bag file
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+5.1 Play a single bag
+~~~~~~~~~~~~~~~~~~~~~
 
-Before replaying the bag file, enter :kbd:`Ctrl-C` in the terminal where the teleop is running.
+Before replaying the bag, enter :kbd:`Ctrl-C` in the terminal where the teleop is running.
 Then make sure your turtlesim window is visible so you can see the bag file in action.
 
 Enter the command:
 
 .. code-block:: console
 
-    $ ros2 bag play subset/subset_0.mcap
+    $ ros2 bag play subset
     [INFO] [rosbag2_player]: Set rate to 1
     [INFO] [rosbag2_player]: Adding keyboard callbacks.
     [INFO] [rosbag2_player]: Press SPACE for Pause/Resume
