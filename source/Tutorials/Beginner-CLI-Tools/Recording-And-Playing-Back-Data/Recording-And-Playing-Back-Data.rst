@@ -293,28 +293,37 @@ To get an idea of how often position data is published, you can run the command:
 
     $ ros2 topic hz /turtle1/pose
 
-5.2 Play multiple bag files
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+5.2 Play multiple bags
+~~~~~~~~~~~~~~~~~~~~~~
 
-If you want to play multiple bag files that are all a part of the same recording,
-simply call ``ros2 bag play`` on the bag directory, instead of a file:
+At times, it is relevant to split the desired recorded topics amongst multiple recordings, as a way to distribute the recording workload.
+As an example, we can record ``/turtle1/cmd_vel`` and ``/turtle1/pose`` each to their own topic.
 
-.. code-block:: console
-
-    $ ros2 bag play subset_separate
-
-This will play all the files inside of the ``subset_separate`` recording consecutively.
-
-If you want to play a specific selection of files, that can be done by calling ``-i <bag_file_name>``
-for each file.
+Create two terminal instances. In the first one, run the following:
 
 .. code-block:: console
 
-    $ ros2 bag play -i subset_separate/subset_separate_0.mcap -i subset_separate/subset_separate_2.mcap
+    $ ros2 bag record -o subset_cmd_vel --topics /turtle1/cmd_vel
 
-This will play the first and third bag files in ``subset_separate``, skipping the second.
-They will play with the same relative time as when recorded, meaning there will be a 5 second pause
-in between, where the ``subset_separate_1.mcap`` would have played if not omitted.
+In the second terminal, run this:
+
+.. code-block:: console
+
+    $ ros2 bag record -o subset_pose --topics /turtle1/pose
+
+Move the turtle around as you did before, then end both recordings with :kbd:`Ctrl-C` when finished.
+
+To have these two recordings play in parallel with correct timing, call ``ros2 bag play`` with ``-i <bag_name>``
+for each bag you want to include. In this case, run:
+
+.. code-block:: console
+
+    $ ros2 bag play -i subset_cmd_vel -i subset_pose
+
+This will play the ``subset_cmd_vel`` and ``subset_pose`` recordings together, with the playback synced to replicate the
+original order of messages.
+If used, the optional argument ``--message-order {received,sent}`` determines whether the messages are sequenced according to
+the time they were received or published (defaults to received). This applies to playing a single bag as well.
 
 Managing Service Data
 ---------------------
