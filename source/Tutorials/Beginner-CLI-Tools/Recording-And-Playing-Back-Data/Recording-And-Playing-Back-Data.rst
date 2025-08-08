@@ -224,7 +224,7 @@ You can see details about your recording by running:
 
     $ ros2 bag info <bag_name>
 
-Running this command on the ``subset`` bag recording will return a list of information on the file:
+Running this command on the ``subset`` bag recording will return a list of information:
 
 .. code-block:: console
 
@@ -243,8 +243,8 @@ Running this command on the ``subset`` bag recording will return a list of infor
     Actions:           0
     Action information:
 
-Alternatively, you can also call ``ros2 bag info`` on a bag directory ``subset``,
-and all bag files within it will be analyzed as one.
+Alternatively, you can also call ``ros2 bag info`` on an individual file, such as ``subset_split/subset_split_0.mcap``,
+and it will only show information for that portion of the recording; in this case, the first 5 seconds.
 
 5 Play topic data
 ^^^^^^^^^^^^^^^^^
