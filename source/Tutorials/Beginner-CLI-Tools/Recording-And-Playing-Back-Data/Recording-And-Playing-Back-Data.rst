@@ -191,15 +191,17 @@ You can move the turtle around and press :kbd:`Ctrl-C` when you're finished.
 3.3 Split recording into multiple files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can also divide your recording over multiple files, based on either recording duration or file size.
+You can also split your recording into multiple files, based on either recording duration or file size.
 ``-d <max_bag_duration>`` ensures that each file only lasts ``<max_bag_duration>`` seconds before it starts writing to
 a new file, or ``-b <max_bag_size>`` ensures that each file does not exceed ``<max_bag_size>`` bytes in file size.
+This prevents large and unwieldy file sizes, and protects against losing all data if the recording operation becomes
+corrupted at some point.
 
 Run the following for at least 15 seconds, allowing for three 5-second bag files to be written:
 
 .. code-block:: console
 
-    $ ros2 bag record -o subset_separate -d 5 --topics /turtle1/cmd_vel /turtle1/pose
+    $ ros2 bag record -o subset_split -d 5 --topics /turtle1/cmd_vel /turtle1/pose
     [INFO] [rosbag2_recorder]: Press SPACE for pausing/resuming
     [INFO] [rosbag2_recorder]: Listening for topics...
     [INFO] [rosbag2_recorder]: Event publisher thread: Starting
@@ -212,8 +214,8 @@ Run the following for at least 15 seconds, allowing for three 5-second bag files
     [INFO] [rosbag2_cpp]: Writing remaining messages from cache to the bag. It may take a while
 
 Press :kbd:`Ctrl-C` when you're finished.
-You should find a ``subset_separate`` directory with these files inside:
-``subset_separate_0.mcap``, ``subset_separate_1.mcap``, and so on.
+You should find a ``subset_split`` directory with these files inside:
+``subset_split_0.mcap``, ``subset_split_1.mcap``, and so on.
 
 4 Inspect topic data
 ^^^^^^^^^^^^^^^^^^^^
