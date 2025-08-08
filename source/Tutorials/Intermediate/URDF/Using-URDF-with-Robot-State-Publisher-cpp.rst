@@ -113,7 +113,7 @@ Fire up your favorite editor and paste the following code into
               // robot_state_publisher will deal with this transformation
               broadcaster = std::make_shared<tf2_ros::TransformBroadcaster>(this);
               // create a broadcaster to tell the tf2 state information
-              // this broadcaster will determine the position of coordinate system 'asix' in coordinate system 'odom'
+              // this broadcaster will determine the position of coordinate system 'axis' in coordinate system 'odom'
               RCLCPP_INFO(this->get_logger(),"Starting state publisher");
 
               loop_rate_=std::make_shared<rclcpp::Rate>(33ms);
