@@ -18,7 +18,8 @@ Only Windows 10 is supported.
 
 .. warning::
 
-   We recommend using a clean Windows environment for the build, such as a fresh install, Docker container, or Virtual Machine. This is because existing software, such as other Python versions, can pollute the build configuration and cause compilation errors.
+   We recommend using a clean Windows environment for the build, such as a fresh install, Docker container, or Virtual Machine.
+   This is because existing software, such as other Python versions, can pollute the build configuration and cause compilation errors.
 
 Language support
 ^^^^^^^^^^^^^^^^
