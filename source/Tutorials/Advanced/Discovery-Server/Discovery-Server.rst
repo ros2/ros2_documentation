@@ -575,7 +575,7 @@ We can also see the Node's Graph using the ROS 2 tool ``rqt_graph`` as follows (
 
 .. code-block:: console
 
-    $ rqt_graph
+    $ ros2 run rqt_graph rqt_graph
 
 
 No Daemon tools
