@@ -232,7 +232,7 @@ Run the command:
 
 .. code-block:: console
 
-  $ rqt_graph
+  $ ros2 run rqt_graph rqt_graph
 
 .. image:: images/mimic_graph.png
 
