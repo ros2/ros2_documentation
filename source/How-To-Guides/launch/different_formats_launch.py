@@ -1,7 +1,7 @@
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, GroupAction, IncludeLaunchDescription
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
-from launch_ros.actions import Node, PushROSNamespace
+from launch_ros.actions import Node, PushRosNamespace
 from launch_ros.substitutions import FindPackageShare
 
 
@@ -23,7 +23,7 @@ def generate_launch_description():
         GroupAction(
             actions=[
                 # push_ros_namespace first to set namespace of included nodes for following actions
-                PushROSNamespace(LaunchConfiguration('chatter_ns')),
+                PushRosNamespace(LaunchConfiguration('chatter_ns')),
                 IncludeLaunchDescription(
                     PathJoinSubstitution([launch_dir, 'talker_listener.launch.py'])),
             ]
@@ -33,7 +33,7 @@ def generate_launch_description():
         GroupAction(
             actions=[
                 # push_ros_namespace first to set namespace of included nodes for following actions
-                PushROSNamespace('chatter_xml_ns'),
+                PushRosNamespace('chatter_xml_ns'),
                 IncludeLaunchDescription(
                     PathJoinSubstitution([launch_dir, 'talker_listener.launch.xml'])),
             ]
@@ -43,7 +43,7 @@ def generate_launch_description():
         GroupAction(
             actions=[
                 # push_ros_namespace first to set namespace of included nodes for following actions
-                PushROSNamespace('chatter_yaml_ns'),
+                PushRosNamespace('chatter_yaml_ns'),
                 IncludeLaunchDescription(
                     PathJoinSubstitution([launch_dir, 'talker_listener.launch.yaml'])),
             ]
