@@ -192,10 +192,8 @@ You can move the turtle around and press :kbd:`Ctrl-C` when you're finished.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can also split your recording into multiple files, based on either recording duration or file size.
-``-d <max_bag_duration>`` ensures that each file only lasts ``<max_bag_duration>`` seconds before it starts writing to
-a new file, or ``-b <max_bag_size>`` ensures that each file does not exceed ``<max_bag_size>`` bytes in file size.
-This prevents large and unwieldy file sizes, and protects against losing all data if the recording operation becomes
-corrupted at some point.
+``-d <max_bag_duration>`` ensures that each file only lasts ``<max_bag_duration>`` seconds before it starts writing to a new file, or ``-b <max_bag_size>`` ensures that each file does not exceed ``<max_bag_size>`` bytes in file size.
+This prevents large and unwieldy file sizes, and protects against losing all data if the recording operation becomes corrupted at some point.
 
 Run the following for at least 15 seconds, allowing for three 5-second bag files to be written:
 
@@ -214,8 +212,7 @@ Run the following for at least 15 seconds, allowing for three 5-second bag files
     [INFO] [rosbag2_cpp]: Writing remaining messages from cache to the bag. It may take a while
 
 Press :kbd:`Ctrl-C` when you're finished.
-You should find a ``subset_split`` directory with these files inside:
-``subset_split_0.mcap``, ``subset_split_1.mcap``, and so on.
+You should find a ``subset_split`` directory with these files inside: ``subset_split_0.mcap``, ``subset_split_1.mcap``, and so on.
 
 4 Inspect topic data
 ^^^^^^^^^^^^^^^^^^^^
@@ -245,8 +242,7 @@ Running this command on the ``subset`` bag recording will return a list of infor
     Actions:           0
     Action information:
 
-Alternatively, you can also call ``ros2 bag info`` on an individual file, such as ``subset_split/subset_split_0.mcap``,
-and it will only show information for that portion of the recording; in this case, the first 5 seconds.
+Alternatively, you can also call ``ros2 bag info`` on an individual file, such as ``subset_split/subset_split_0.mcap``, and it will only show information for that portion of the recording; in this case, the first 5 seconds.
 
 5 Play topic data
 ^^^^^^^^^^^^^^^^^
@@ -297,9 +293,10 @@ To get an idea of how often position data is published, you can run the command:
 ~~~~~~~~~~~~~~~~~~~~~~
 
 At times, it is relevant to split the desired recorded topics amongst multiple recordings, as a way to distribute the recording workload.
-As an example, we can record ``/turtle1/cmd_vel`` and ``/turtle1/pose`` each to their own topic.
+As an example, we can record ``/turtle1/cmd_vel`` and ``/turtle1/pose`` each to their own bag.
 
-Create two terminal instances. In the first one, run the following:
+Create two terminal instances.
+In the first one, run the following:
 
 .. code-block:: console
 
@@ -313,17 +310,16 @@ In the second terminal, run this:
 
 Move the turtle around as you did before, then end both recordings with :kbd:`Ctrl-C` when finished.
 
-To have these two recordings play in parallel with correct timing, call ``ros2 bag play`` with ``-i <bag_name>``
-for each bag you want to include. In this case, run:
+To have these two recordings play in parallel with correct timing, call ``ros2 bag play`` with ``-i <bag_name>`` for each bag you want to include.
+In this case, run:
 
 .. code-block:: console
 
     $ ros2 bag play -i subset_cmd_vel -i subset_pose
 
-This will play the ``subset_cmd_vel`` and ``subset_pose`` recordings together, with the playback synced to replicate the
-original order of messages.
-If used, the optional argument ``--message-order {received,sent}`` determines whether the messages are sequenced according to
-the time they were received or published (defaults to received). This applies to playing a single bag as well.
+This will play the ``subset_cmd_vel`` and ``subset_pose`` recordings together, with the playback synced to replicate the original order of messages.
+If used, the optional argument ``--message-order {received,sent}`` determines whether the messages are sequenced according to the time they were received or published (defaults to received).
+This applies to playing a single bag as well.
 
 Managing Service Data
 ---------------------
