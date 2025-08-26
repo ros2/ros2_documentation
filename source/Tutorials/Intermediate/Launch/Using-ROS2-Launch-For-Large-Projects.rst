@@ -167,7 +167,7 @@ However, if the launch file contains a large number of nodes, defining namespace
 To solve that issue, the ``PushRosNamespace`` action can be used to define the global namespace for each launch file description.
 Every nested node will inherit that namespace automatically.
 
-.. attention:: ``PushROSNamespace`` has to be the first action in the list for the following actions to apply the namespace.
+.. attention:: ``PushRosNamespace`` has to be the first action in the list for the following actions to apply the namespace.
 
 To do that, firstly, we need to remove the ``namespace='turtlesim2'`` line from the ``turtlesim_world_2.launch.py`` file.
 Afterwards, we need to update the ``launch_turtlesim.launch.py`` to change the ``IncludeLaunchDescription(... 'turtlesim_world_2.launch.py' ...)`` value to the following:
@@ -180,7 +180,7 @@ Afterwards, we need to update the ``launch_turtlesim.launch.py`` to change the `
       ...
       GroupAction(
         actions=[
-            PushROSNamespace('turtlesim2'),
+            PushRosNamespace('turtlesim2'),
             IncludeLaunchDescription(PathJoinSubstitution([launch_dir, 'turtlesim_world_2.launch.py'])),
          ]
       ),
