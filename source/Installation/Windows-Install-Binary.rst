@@ -20,7 +20,56 @@ Only Windows 10 is supported.
 
 .. _windows-install-binary-installing-prerequisites:
 
-.. include:: _Windows-Install-Prerequisites.rst
+Create a location for the ROS 2 installation
+--------------------------------------------
+
+This location will contain both the installed binary packages, plus the ROS 2 installation itself.
+
+Start a powershell session (usually by clicking on the start menu, then typing ``powershell``).
+
+Then create a directory to store the installation.
+Because of Windows path-length limitations, this should be as short as possible.
+We'll use ``C:\pixi_ws`` for the rest of these instructions.
+
+.. code-block:: console
+
+   $ md C:\pixi_ws
+
+.. note::
+
+    Note: the ROS 2 binary packages are currently not relocatable, which is being tracked in a `documentation issue <https://github.com/ros2/ros2_documentation/issues/5384>`__.
+    Please use ``C:\pixi_ws`` in the interim.
+
+Install prerequisites
+---------------------
+
+ROS 2 uses `conda-forge <https://conda-forge.org/>`__ as a backend for packages, with `pixi <https://pixi.sh/latest/>`__ as the frontend.
+
+.. note::
+
+   The installation of conda-forge may trigger Windows Defender to treat it as a threat, but this can be safely ignored by clicking "More info" and "Run anyway".
+
+Install pixi
+^^^^^^^^^^^^
+
+Continue using the previous powershell session, and use the instructions on https://pixi.sh/latest/ to install ``pixi``.
+Once ``pixi`` has been installed, close the powershell session and start it again, which will ensure ``pixi`` is on the PATH.
+
+Install dependencies
+^^^^^^^^^^^^^^^^^^^^
+
+Download the pixi configuration file in the existing powershell session:
+
+.. code-block:: console
+
+   $ cd C:\pixi_ws
+   $ irm https://raw.githubusercontent.com/ros2/ros2/refs/heads/{REPOS_FILE_BRANCH}/pixi.toml -OutFile pixi.toml
+
+Install dependencies:
+
+.. code-block:: console
+
+   $ pixi install
 
 Install ROS 2
 -------------
@@ -32,12 +81,7 @@ Install ROS 2
 
    There may be more than one binary download option which might cause the file name to differ.
 
-.. note::
-
-   To install debug libraries for ROS 2, see `Extra Stuff for Debug`_.
-   Then continue on with downloading ``ros2-{DISTRO}-*-windows-debug-amd64.zip``.
-
-* Unpack the zip file somewhere (we'll assume ``C:\dev\ros2_{DISTRO}``\ ).
+* Unpack the zip file somewhere (we'll assume ``C:\pixi_ws\ros2-windows``).
 
 Install additional RMW implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -49,18 +93,33 @@ See the :doc:`guide <../How-To-Guides/Working-with-multiple-RMW-implementations>
 Setup environment
 -----------------
 
-Start a command shell and source the ROS 2 setup file to set up the workspace:
+Start a new Windows command prompt, which will be used in the examples.
+
+Source the pixi environment
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Source the pixi environment to set up dependencies:
 
 .. code-block:: console
 
-   $ call C:\dev\ros2_{DISTRO}\local_setup.bat
+   $ cd C:\pixi_ws
+   $ pixi shell
 
-It is normal that the previous command, if nothing else went wrong, outputs ``The system cannot find the path specified.`` exactly once.
+Source the ROS 2 environment
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This is required in every command prompt you open to setup the ROS 2 workspace:
+
+.. code-block:: console
+
+   $ call C:\pixi_ws\ros2-windows\local_setup.bat
+
+If you do not have RTI Connext DDS installed on your computer, it is normal to receive a warning that it is missing.
 
 Try some examples
 -----------------
 
-In a command shell, set up the ROS 2 environment as described above and then run a C++ ``talker``\ :
+In a command prompt, set up the ROS 2 environment as described above and then run a C++ ``talker``\ :
 
 .. code-block:: console
 
@@ -97,32 +156,4 @@ Uninstall
 
    .. code-block:: console
 
-      $ rmdir /s /q \ros2_{DISTRO}
-
-Extra Stuff for Debug
----------------------
-
-To download the ROS 2 debug libraries you'll need to download ``ros2-{DISTRO}-*-windows-debug-AMD64.zip``.
-Please note that debug libraries require some more additional configuration/setup to work as given below.
-
-Python installation may require modification to enable debugging symbols and debug binaries:
-
-* Search in windows **Search Bar** and open **Apps and Features**.
-* Search for the installed Python version.
-
-* Click Modify.
-
-      .. image:: images/python_installation_modify.png
-         :width: 500 px
-
-* Click Next to go to **Advanced Options**.
-
-      .. image:: images/python_installation_next.png
-         :width: 500 px
-
-* Make sure **Download debugging symbols** and **Download debug binaries** are checked.
-
-      .. image:: images/python_installation_enable_debug.png
-         :width: 500 px
-
-* Click Install.
+      $ rmdir /s /q C:\pixi_ws
