@@ -181,7 +181,7 @@ Create ``ros2_ws/src/polygon_plugins/plugins.xml`` with the following code:
       <class type="polygon_plugins::Square" base_class_type="polygon_base::RegularPolygon">
         <description>This is a square plugin.</description>
       </class>
-      <class type="polygon_plugins::Triangle" base_class_type="polygon_base::RegularPolygon">
+      <class type="polygon_plugins::Triangle" base_class_type="polygon_base::RegularPolygon" name="awesome_triangle>
         <description>This is a triangle plugin.</description>
       </class>
     </library>
@@ -199,6 +199,7 @@ A couple things to note:
   * ``base_class``: The fully qualified base class type for the plugin.
     For us, that's ``polygon_base::RegularPolygon``.
   * ``description``: A description of the plugin and what it does.
+  * ``name`` (optional): A lookup name (i.e. magic name) used by the class loader.
 
 2.3 CMake Plugin Declaration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -238,7 +239,7 @@ Edit ``ros2_ws/src/polygon_base/src/area_node.cpp`` to contain the following:
 
       try
       {
-        std::shared_ptr<polygon_base::RegularPolygon> triangle = poly_loader.createSharedInstance("polygon_plugins::Triangle");
+        std::shared_ptr<polygon_base::RegularPolygon> triangle = poly_loader.createSharedInstance("awesome_triangle");
         triangle->initialize(10.0);
 
         std::shared_ptr<polygon_base::RegularPolygon> square = poly_loader.createSharedInstance("polygon_plugins::Square");
@@ -263,7 +264,7 @@ The ``ClassLoader`` is the key class to understand, defined in the ``class_loade
 
 There are a number of ways to instantiate an instance of the class.
 In this example, we're using shared pointers.
-We just need to call ``createSharedInstance`` with the fully-qualified type of the plugin class, in this case, ``polygon_plugins::Square``.
+We just need to call ``createSharedInstance`` with a reference to the plugin: This can be either the fully-qualified type of the plugin class (the ``type`` attribute of the declaration XML file, e.g. ``polygon_plugins::Square``), or the optional magic name (the ``name`` attribute of the declaration XML file, e.g., ``awesome_triangle``).
 
 Important note: the ``polygon_base`` package in which this node is defined does NOT depend on the ``polygon_plugins`` class.
 The plugins will be loaded dynamically without any dependency needing to be declared.
