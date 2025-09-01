@@ -305,7 +305,7 @@ The ``ClassLoader`` is the key class to understand, defined in the ``class_loade
 
 There are a number of ways to instantiate an instance of the class.
 In this example, we're using shared pointers.
-We just need to call ``createSharedInstance`` with the the lookup name of the plugin. It can be either the fully-qualified type of the plugin class (the ``type`` attribute of the declaration XML file, e.g. ``polygon_plugins::Square``), or the magic name (the ``name`` attribute of the declaration XML file, e.g., ``awesome_triangle``).
+We just need to call ``createSharedInstance`` with a reference to the plugin: This can be either the fully-qualified type of the plugin class (the ``type`` attribute of the declaration XML file, e.g. ``polygon_plugins::Square``), or the optional magic name (the ``name`` attribute of the declaration XML file, e.g., ``awesome_triangle``).
 
 Important note: the ``polygon_base`` package in which this node is defined does NOT depend on the ``polygon_plugins`` class.
 The plugins will be loaded dynamically without any dependency needing to be declared.
