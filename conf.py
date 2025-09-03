@@ -473,7 +473,11 @@ def download_files(app: Sphinx) -> None:
 
     for local_name, url in files_to_download.items():
         local_path = os.path.join(dl_dir, local_name)
-        temp_path = os.path.join(tempfile.gettempdir(), f"{local_name}.tmp")
+
+        with tempfile.NamedTemporaryFile(
+        delete=False, prefix=f"{local_name}_", suffix=".tmp"
+        ) as tmp:
+            temp_path = tmp.name
 
         logger.info(f"Checking for updates: {url}")
         try:
