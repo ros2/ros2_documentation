@@ -1,5 +1,6 @@
 build/
 _build/
+_downloaded/
 .idea/
 .vscode/
 __pycache__

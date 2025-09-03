@@ -92,71 +92,33 @@ Now there will be a new file named ``publisher_member_function.py`` adjacent to 
 
 Open the file using your preferred text editor.
 
-.. code-block:: python
-
-  import rclpy
-  from rclpy.executors import ExternalShutdownException
-  from rclpy.node import Node
-
-  from std_msgs.msg import String
-
-
-  class MinimalPublisher(Node):
-
-      def __init__(self):
-          super().__init__('minimal_publisher')
-          self.publisher_ = self.create_publisher(String, 'topic', 10)
-          timer_period = 0.5  # seconds
-          self.timer = self.create_timer(timer_period, self.timer_callback)
-          self.i = 0
-
-      def timer_callback(self):
-          msg = String()
-          msg.data = 'Hello World: %d' % self.i
-          self.publisher_.publish(msg)
-          self.get_logger().info('Publishing: "%s"' % msg.data)
-          self.i += 1
-
-
-  def main(args=None):
-      try:
-          with rclpy.init(args=args):
-              minimal_publisher = MinimalPublisher()
-
-              rclpy.spin(minimal_publisher)
-      except (KeyboardInterrupt, ExternalShutdownException):
-          pass
-
-
-  if __name__ == '__main__':
-      main()
-
+.. literalinclude:: ../../_downloaded/{DISTRO}/publisher_member_function.py
+  :language: python
+  :lines: 15-50
 
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
 
 The first lines of code after the comments import ``rclpy`` so its ``Node`` class can be used.
 
-.. code-block:: python
-
-  import rclpy
-  from rclpy.executors import ExternalShutdownException
-  from rclpy.node import Node
+.. literalinclude:: ../../_downloaded/{DISTRO}/publisher_member_function.py
+  :language: python
+  :lines: 15-17
 
 The next statement imports the built-in string message type that the node uses to structure the data that it passes on the topic.
 
-.. code-block:: python
-
-  from std_msgs.msg import String
+.. literalinclude:: ../../_downloaded/{DISTRO}/publisher_member_function.py
+  :language: python
+  :lines: 19
 
 These lines represent the node's dependencies.
 Recall that dependencies have to be added to ``package.xml``, which you'll do in the next section.
 
 Next, the ``MinimalPublisher`` class is created, which inherits from (or is a subclass of) ``Node``.
 
-.. code-block:: python
-
-  class MinimalPublisher(Node):
+.. literalinclude:: ../../_downloaded/{DISTRO}/publisher_member_function.py
+  :language: python
+  :lines: 22
 
 Following is the definition of the class's constructor.
 ``super().__init__`` calls the ``Node`` class's constructor and gives it your node name, in this case ``minimal_publisher``.
@@ -167,39 +129,21 @@ Queue size is a required QoS (quality of service) setting that limits the amount
 Next, a timer is created with a callback to execute every 0.5 seconds.
 ``self.i`` is a counter used in the callback.
 
-.. code-block:: python
-
-  def __init__(self):
-      super().__init__('minimal_publisher')
-      self.publisher_ = self.create_publisher(String, 'topic', 10)
-      timer_period = 0.5  # seconds
-      self.timer = self.create_timer(timer_period, self.timer_callback)
-      self.i = 0
+.. literalinclude:: ../../_downloaded/{DISTRO}/publisher_member_function.py
+  :language: python
+  :lines: 24-29
 
 ``timer_callback`` creates a message with the counter value appended, and publishes it to the console with ``get_logger().info``.
 
-.. code-block:: python
-
-  def timer_callback(self):
-      msg = String()
-      msg.data = 'Hello World: %d' % self.i
-      self.publisher_.publish(msg)
-      self.get_logger().info('Publishing: "%s"' % msg.data)
-      self.i += 1
+.. literalinclude:: ../../_downloaded/{DISTRO}/publisher_member_function.py
+  :language: python
+  :lines: 31-36
 
 Lastly, the main function is defined.
 
-.. code-block:: python
-
-  def main(args=None):
-      try:
-          with rclpy.init(args=args):
-              minimal_publisher = MinimalPublisher()
-
-              rclpy.spin(minimal_publisher)
-      except (KeyboardInterrupt, ExternalShutdownException):
-          pass
-
+.. literalinclude:: ../../_downloaded/{DISTRO}/publisher_member_function.py
+  :language: python
+  :lines: 39-46
 
 First the ``rclpy`` library is initialized, then the node is created, and then it "spins" the node so its callbacks are called.
 
@@ -315,54 +259,17 @@ Now the directory should have these files:
 
 Open the ``subscriber_member_function.py`` with your text editor.
 
-.. code-block:: python
-
-  import rclpy
-  from rclpy.executors import ExternalShutdownException
-  from rclpy.node import Node
-
-  from std_msgs.msg import String
-
-
-  class MinimalSubscriber(Node):
-
-      def __init__(self):
-          super().__init__('minimal_subscriber')
-          self.subscription = self.create_subscription(
-              String,
-              'topic',
-              self.listener_callback,
-              10)
-          self.subscription  # prevent unused variable warning
-
-      def listener_callback(self, msg):
-          self.get_logger().info('I heard: "%s"' % msg.data)
-
-
-  def main(args=None):
-      try:
-          with rclpy.init(args=args):
-              minimal_subscriber = MinimalSubscriber()
-
-              rclpy.spin(minimal_subscriber)
-      except (KeyboardInterrupt, ExternalShutdownException):
-          pass
-
-
-  if __name__ == '__main__':
-      main()
+.. literalinclude:: ../../_downloaded/{DISTRO}/subscriber_member_function.py
+  :language: python
+  :lines: 15-48
 
 The subscriber node's code is nearly identical to the publisher's.
 The constructor creates a subscriber with the same arguments as the publisher.
 Recall from the :doc:`topics tutorial <../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics>` that the topic name and message type used by the publisher and subscriber must match to allow them to communicate.
 
-.. code-block:: python
-
-  self.subscription = self.create_subscription(
-      String,
-      'topic',
-      self.listener_callback,
-      10)
+.. literalinclude:: ../../_downloaded/{DISTRO}/subscriber_member_function.py
+  :language: python
+  :lines: 26-31
 
 The subscriber's constructor and callback don't include any timer definition, because it doesn't need one.
 Its callback gets called as soon as it receives a message.
@@ -370,18 +277,15 @@ Its callback gets called as soon as it receives a message.
 The callback definition simply prints an info message to the console, along with the data it received.
 Recall that the publisher defines ``msg.data = 'Hello World: %d' % self.i``
 
-.. code-block:: python
-
-  def listener_callback(self, msg):
-      self.get_logger().info('I heard: "%s"' % msg.data)
+.. literalinclude:: ../../_downloaded/{DISTRO}/subscriber_member_function.py
+  :language: python
+  :lines: 33-34
 
 The ``main`` definition is almost exactly the same, replacing the creation and spinning of the publisher with the subscriber.
 
-.. code-block:: python
-
-  minimal_subscriber = MinimalSubscriber()
-
-  rclpy.spin(minimal_subscriber)
+.. literalinclude:: ../../_downloaded/{DISTRO}/subscriber_member_function.py
+  :language: python
+  :lines: 40-42
 
 Since this node has the same dependencies as the publisher, there's nothing new to add to ``package.xml``.
 The ``setup.cfg`` file can also remain untouched.

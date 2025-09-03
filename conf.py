@@ -17,15 +17,20 @@
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
 
+import hashlib
 import itertools
 import os
 import re
 import sys
+import tempfile
 import time
 from typing import Dict
 from typing import Text
+import urllib.request
 
 from docutils.parsers.rst import Directive
+from sphinx.application import Sphinx
+from sphinx.util import logging
 
 sys.path.append(os.path.abspath('./sphinx-multiversion'))
 sys.path.append(os.path.abspath('plugins'))
@@ -328,7 +333,8 @@ def expand_macros(app, docname, source):
     result = expand_text_macros(result, app.config.macros)
     source[0] = result
 
-def setup(app):
+def setup(app: Sphinx) -> None:
+    app.connect("builder-inited", download_files)
     app.connect('config-inited', smv_rewrite_configs)
     app.connect('html-page-context', github_link_rewrite_branch)
     app.connect('source-read', expand_macros)
@@ -429,3 +435,59 @@ def expand_text_macros(text: Text, macros: Dict[Text, Text]) -> Text:
     for key, value in macros.items():
         text = text.replace(f'{{{key}}}', value)
     return text
+
+
+logger = logging.getLogger(__name__)
+
+
+def _hash_file(path: str) -> str:
+    """Return SHA256 of a file."""
+    if not os.path.exists(path):
+        return ""
+    h = hashlib.sha256()
+    with open(path, "rb") as f:
+        for chunk in iter(lambda: f.read(8192), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def download_files(app: Sphinx) -> None:
+    distro = app.config.macros['DISTRO']
+
+    srcdir = app.srcdir
+    dl_dir = os.path.join(srcdir, "_downloaded", distro)
+    os.makedirs(dl_dir, exist_ok=True)
+
+    files_to_download = {
+        "publisher_member_function.py": (
+            f"https://raw.githubusercontent.com/ros2/examples/{distro}/"
+            "rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/"
+            "publisher_member_function.py"
+        ),
+        "subscriber_member_function.py": (
+            f"https://raw.githubusercontent.com/ros2/examples/{distro}/"
+            "rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber/"
+            "subscriber_member_function.py"
+        ),
+    }
+
+    for local_name, url in files_to_download.items():
+        local_path = os.path.join(dl_dir, local_name)
+        temp_path = os.path.join(tempfile.gettempdir(), f"{local_name}.tmp")
+
+        logger.info(f"Checking for updates: {url}")
+        try:
+            urllib.request.urlretrieve(url, temp_path)
+        except Exception as e:
+            logger.warning(f"Failed to fetch {url}: {e}")
+            continue
+
+        # Compare hashes
+        old_hash = _hash_file(local_path)
+        new_hash = _hash_file(temp_path)
+
+        if old_hash != new_hash:
+            logger.info(f"Updating {local_name} (content changed)")
+            os.replace(temp_path, local_path)
+        else:
+            os.remove(temp_path)
