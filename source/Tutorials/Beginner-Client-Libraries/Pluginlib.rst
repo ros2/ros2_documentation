@@ -181,7 +181,7 @@ Create ``ros2_ws/src/polygon_plugins/plugins.xml`` with the following code:
       <class type="polygon_plugins::Square" base_class_type="polygon_base::RegularPolygon">
         <description>This is a square plugin.</description>
       </class>
-      <class type="polygon_plugins::Triangle" base_class_type="polygon_base::RegularPolygon" name="awesome_triangle>
+      <class type="polygon_plugins::Triangle" base_class_type="polygon_base::RegularPolygon" name="awesome_triangle">
         <description>This is a triangle plugin.</description>
       </class>
     </library>
