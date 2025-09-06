@@ -19,3 +19,4 @@ Advanced
    Advanced/ROS2-Tracing-Trace-and-Analyze
    Advanced/Simulators/Simulation-Main
    Advanced/Security/Security-Main
+   Advanced/rate_limited_teleop
