@@ -139,3 +139,17 @@ Notes
 
 This page adds a reusable pattern for safer teleoperation by inserting a simple
 acceleration limiter; it’s intentionally minimal and can be dropped into any ROS 2 package.
+
+See also
+--------
+
+If you use ``ros2_control``, consider controller-side rate limiting via
+``control_toolbox::RateLimiter`` (C++), which can constrain value, velocity
+(first derivative), and jerk (second derivative) directly in your controller
+update loop. This keeps smoothing in the control stack rather than as a
+separate node from teleop.
+
+- API: control_toolbox RateLimiter (rolling)
+  https://docs.ros.org/en/rolling/p/control_toolbox/generated/classcontrol__toolbox_1_1RateLimiter.html
+- Filter plugin variant: control_filters::RateLimiter
+  https://control.ros.org/rolling/doc/api/classcontrol__filters_1_1RateLimiter.html
