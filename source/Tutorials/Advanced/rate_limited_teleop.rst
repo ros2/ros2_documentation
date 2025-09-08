@@ -144,10 +144,10 @@ See also
 --------
 
 If you use ``ros2_control``, consider controller-side rate limiting via
-``control_toolbox::RateLimiter`` (C++), which can constrain value, velocity
-(first derivative), and jerk (second derivative) directly in your controller
-update loop. This keeps smoothing in the control stack rather than as a
-separate node from teleop.
+``control_toolbox::RateLimiter`` (C++).
+It can constrain value, velocity (first derivative), and jerk (second derivative) directly in your controller update loop.
+This keeps smoothing in the control stack rather than as a separate node from teleop.
+
 
 - API: control_toolbox RateLimiter (rolling)
   https://docs.ros.org/en/rolling/p/control_toolbox/generated/classcontrol__toolbox_1_1RateLimiter.html
