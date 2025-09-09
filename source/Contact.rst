@@ -65,7 +65,7 @@ If following a tutorial or online instructions provide a link to the specific in
 * Any warnings or errors.
   Cut and paste them directly from the terminal window to which they were printed.
   Please do not re-type or include a screenshot.
-* In case of a bug consider providing a `short, self contained, correct (compilable), example <http://sscce.org/>`__.
+* In case of a bug consider providing a `short, self contained, correct (compilable), example <https://sscce.org/>`__.
 * When discussing any compiling/linking/installation issues, also provide the compiler version
 
 As appropriate, also include your:
