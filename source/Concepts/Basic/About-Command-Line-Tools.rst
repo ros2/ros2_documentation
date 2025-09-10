@@ -69,7 +69,7 @@ Echo messages received in another terminal with:
    data: Hello world
 
 ROS 2 Daemon: Background Discovery Service
--------------------------------------------
+------------------------------------------
 
 ROS 2 uses a distributed discovery process for nodes to connect to each other.
 As this process purposefully does not use a centralized discovery mechanism, it can take time for ROS nodes to discover all other participants in the ROS graph.
@@ -78,9 +78,9 @@ To address this, ROS 2 runs a background daemon process that maintains informati
 The ROS 2 daemon is automatically started when you first use command-line tools like ``ros2 node list``, ``ros2 topic list``, or other introspection commands.
 If no daemon is running, these tools will instantiate a new daemon process in the background before executing the requested command.
 
-The daemon communicates using the localhost network interface (127.0.0.1) and uses the ``ROS_DOMAIN_ID`` environment variable as a port number offset.
-This means that if you want to control a specific daemon instance (for example, using ``ros2 daemon stop``), you must ensure that your ``ROS_DOMAIN_ID`` matches the domain ID used by that daemon.
-Different ``ROS_DOMAIN_ID`` values will result in separate daemon instances running on different ports.
+The daemon communicates using the localhost network interface (127.0.0.1) and uses the :doc:`ROS_DOMAIN_ID <../Intermediate/About-Domain-ID>` environment variable as a port number offset.
+This means that if you want to control a specific daemon instance (for example, using ``ros2 daemon stop``), you must ensure that your :doc:`ROS_DOMAIN_ID <../Intermediate/About-Domain-ID>` matches the domain ID used by that daemon.
+Different :doc:`ROS_DOMAIN_ID <../Intermediate/About-Domain-ID>` values will result in separate daemon instances running on different ports.
 
 You can run ``ros2 daemon --help`` for more options for interacting with the daemon, including commands to start, stop, or check the status of the daemon process.
 
