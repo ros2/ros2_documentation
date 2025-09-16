@@ -51,7 +51,8 @@ Install some dependencies:
      python3-numpy \
      python3-packaging \
      python3-psutil \
-     python3-lark-parser
+     python3-lark-parser \
+     console-bridge-devel
 
 Next, download the ``ros2-release`` package and install it:
 
