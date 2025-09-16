@@ -40,6 +40,19 @@ You will need to enable the EPEL repositories and the PowerTools repository:
 .. note:: This step may be slightly different depending on the distribution you are using.
           `Check the EPEL documentation <https://docs.fedoraproject.org/en-US/epel/#_quickstart>`_
 
+Install some dependencies:
+
+.. code-block:: console
+
+   $ sudo dnf install -y \
+     spdlog-devel \
+     lttng-ust \
+     python3-typing-extensions \
+     python3-numpy \
+     python3-packaging \
+     python3-psutil \
+     python3-lark-parser
+
 Next, download the ``ros2-release`` package and install it:
 
 .. code-block:: console
