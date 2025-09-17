@@ -454,7 +454,7 @@ def download_files(app: Sphinx) -> None:
     distro: str = app.config.macros['DISTRO']
 
     dl_dir = Path(app.srcdir) / "_downloaded" / distro
-    dl_dir.mkdir(exist_ok=True)
+    dl_dir.mkdir(parents=True, exist_ok=True)
 
     files_to_download = {
         "publisher_member_function.py": (
