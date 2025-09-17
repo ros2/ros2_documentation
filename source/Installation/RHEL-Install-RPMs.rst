@@ -127,7 +127,7 @@ If you installed ``ros-{DISTRO}-desktop`` above you can try some examples.
 
 First, if you use ``Zenoh`` as the RMW implementation, you will require a router for node discovery and communication.
 
-In one terminal start the Zenoh router daemon
+In one terminal, start the Zenoh router daemon:
 
 .. code-block:: console
 
