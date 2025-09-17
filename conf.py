@@ -20,6 +20,7 @@
 import hashlib
 import itertools
 import os
+from pathlib import Path
 import re
 import sys
 import tempfile
@@ -440,23 +441,20 @@ def expand_text_macros(text: Text, macros: Dict[Text, Text]) -> Text:
 logger = logging.getLogger(__name__)
 
 
-def _hash_file(path: str) -> str:
+def _hash_file(path: Path) -> str:
     """Return SHA256 of a file."""
-    if not os.path.exists(path):
+    if not path.exists():
         return ""
     h = hashlib.sha256()
-    with open(path, "rb") as f:
-        for chunk in iter(lambda: f.read(8192), b""):
-            h.update(chunk)
+    h.update(path.read_bytes())
     return h.hexdigest()
 
 
 def download_files(app: Sphinx) -> None:
-    distro = app.config.macros['DISTRO']
+    distro: str = app.config.macros['DISTRO']
 
-    srcdir = app.srcdir
-    dl_dir = os.path.join(srcdir, "_downloaded", distro)
-    os.makedirs(dl_dir, exist_ok=True)
+    dl_dir = Path(app.srcdir) / "_downloaded" / distro
+    dl_dir.mkdir(exist_ok=True)
 
     files_to_download = {
         "publisher_member_function.py": (
@@ -472,12 +470,12 @@ def download_files(app: Sphinx) -> None:
     }
 
     for local_name, url in files_to_download.items():
-        local_path = os.path.join(dl_dir, local_name)
+        local_path = dl_dir / local_name
 
         with tempfile.NamedTemporaryFile(
         delete=False, prefix=f"{local_name}_", suffix=".tmp"
         ) as tmp:
-            temp_path = tmp.name
+            temp_path = Path(tmp.name)
 
         logger.info(f"Checking for updates: {url}")
         try:
@@ -492,6 +490,6 @@ def download_files(app: Sphinx) -> None:
 
         if old_hash != new_hash:
             logger.info(f"Updating {local_name} (content changed)")
-            os.replace(temp_path, local_path)
+            temp_path.replace(local_path)
         else:
-            os.remove(temp_path)
+            temp_path.unlink()   
