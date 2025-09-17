@@ -23,15 +23,15 @@ from conf import _hash_file
 
 def test_hash_file(tmp_path: pathlib.Path) -> None:
     non_existent = tmp_path / "does_not_exist.txt"
-    assert _hash_file(str(non_existent)) == ""
+    assert _hash_file(non_existent) == ""
 
     empty_file = tmp_path / "empty.txt"
     empty_file.write_text("")
     expected_empty_hash = hashlib.sha256(b"").hexdigest()
-    assert _hash_file(str(empty_file)) == expected_empty_hash
+    assert _hash_file(empty_file) == expected_empty_hash
 
     content = b"Hello, World!"
     known_file = tmp_path / "known.txt"
     known_file.write_bytes(content)
     expected_known_hash = hashlib.sha256(content).hexdigest()
-    assert _hash_file(str(known_file)) == expected_known_hash
+    assert _hash_file(known_file) == expected_known_hash
