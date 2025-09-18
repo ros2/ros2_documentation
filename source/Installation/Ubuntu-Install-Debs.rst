@@ -102,6 +102,7 @@ First, if you use ``Zenoh`` as the RMW implementation, you will require a router
 In one terminal, start the Zenoh router daemon:
 
 .. code-block:: console
+
    $ source /opt/ros/{DISTRO}/setup.bash
    $ ros2 run rmw_zenoh_cpp rmw_zenohd
 
