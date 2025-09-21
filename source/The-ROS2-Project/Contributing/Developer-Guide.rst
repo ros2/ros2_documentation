@@ -159,13 +159,11 @@ Guidelines for backporting PRs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 When changing an older version of ROS:
-
 * Make sure the features or fixes are accepted and merged in the rolling branch before opening a PR to backport the changes to older versions.
 * When backporting to older versions, also consider backporting to any other :doc:`still supported versions <../../Releases>`, even non-LTS versions.
 * If you are backporting a single PR in its entirety, title the backport PR "[Distro] <name of original PR>".
-  If backporting a subset of changes from one or multiple PRs, the title should be "[Distro] <description of changes>".
 * Link to all PRs whose changes you're backporting from the description of your backport PR.
-  In a Dashing backport of a Foxy change, you do not need to link to the Eloquent backport of the same change.
+* Package maintainers typically use `Mergifyio <https://mergify.com/>`_ to automatically backport PRs to downstream distributions when needed, however developers can still perform manual backporting operations as described above when necessary.
 
 Documentation
 ^^^^^^^^^^^^^
@@ -360,7 +358,8 @@ Pull requests
   As the opener of a pull-request, if you are working in a fork, checking the box to `allow edits from upstream contributors <https://github.com/blog/2247-improving-collaboration-with-forks>`__ will assist with the aforementioned.
   As a reviewer, also feel free to make more substantial improvements, but consider putting them in a separate branch (either mention the new branch in a comment, or open another pull request from the new branch to the original branch).
 
-* Any developer (the author, the reviewer, or somebody else) can merge any approved pull request.
+* Only maintainers and committers can merge approved pull requests into the mainline.
+  See the `current ROS PMC constituents <https://docs.ros.org/en/rolling/The-ROS2-Project/Governance.html#current-ros-pmc-constituents>`_ and `current ROS committers <https://docs.ros.org/en/rolling/The-ROS2-Project/Governance.html#current-ros-committers>`_ for the list of people with merge permissions.
 
 Library versioning
 ^^^^^^^^^^^^^^^^^^
@@ -767,6 +766,10 @@ This is the current set of target platforms and architectures, though it evolves
   * amd64
   * aarch64
 
+* Red Hat Enterprise Linux 9
+
+  * amd64
+
 * Windows 10
 
   * amd64
@@ -779,6 +782,7 @@ There are several categories of jobs on the buildfarm:
   * ci_linux: build + test the code on Ubuntu
   * ci_linux-aarch64: build + test the code on Ubuntu on an ARM 64-bit machine (aarch64)
   * ci_linux_coverage: build + test + generation of test coverage
+  * ci_linux-rhel: build + test the code on Red Hat Enterprise Linux
   * ci_windows: build + test the code on Windows
   * ci_launcher: trigger all the jobs listed above
 
@@ -788,18 +792,21 @@ There are several categories of jobs on the buildfarm:
 
     * nightly_linux_debug
     * nightly_linux-aarch64_debug
+    * nightly_linux-rhel_debug
     * nightly_win_deb
 
   * Release: build + test the code with CMAKE_BUILD_TYPE=Release
 
     * nightly_linux_release
     * nightly_linux-aarch64_release
+    * nightly_linux-rhel_release
     * nightly_win_rel
 
   * Repeated: build then run each test up to 20 times or until failed (aka flakiness hunter)
 
     * nightly_linux_repeated
     * nightly_linux-aarch64_repeated
+    * nightly_linux-rhel_repeated
     * nightly_win_rep
 
   * Coverage:
@@ -812,6 +819,7 @@ There are several categories of jobs on the buildfarm:
 * packaging (run every night; result is bundled into an archive):
 
   * packaging_linux
+  * packaging_linux-rhel
   * packaging_windows
 
 Two additional build farms support the ROS / ROS 2 ecosystem by providing building of source and
