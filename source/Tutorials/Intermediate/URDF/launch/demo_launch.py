@@ -8,7 +8,7 @@ from launch_ros.substitutions import FindPackageShare
 def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time', default='false')
     urdf = FileContent(
-        PathJoinSubstitution([FindPackageShare('urdf_tutorial_r2d2', 'r2d2.urdf.xml')]))
+        PathJoinSubstitution([FindPackageShare('urdf_tutorial_r2d2'), 'r2d2.urdf.xml']))
 
     return LaunchDescription([
         DeclareLaunchArgument(
