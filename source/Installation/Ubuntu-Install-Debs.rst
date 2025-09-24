@@ -99,7 +99,7 @@ Talker-listener
 
 If you installed ``ros-{DISTRO}-desktop`` above you can try some examples.
 
-First, if you use ``Zenoh`` as the RMW implementation, you will require a router for node discovery and communication.
+First, if you use ``Zenoh`` as the RMW implementation, you will require a router for node discovery and communication. The Zenoh RMW implementation (rmw_zenoh_cpp) is not installed by default with ``ros-{DISTRO}-desktop``. If you are using the default FastDDS RMW, you can skip this step entirely.
 
 In one terminal, start the Zenoh router daemon:
 
