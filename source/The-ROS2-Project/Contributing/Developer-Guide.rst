@@ -359,7 +359,7 @@ Pull requests
   As a reviewer, also feel free to make more substantial improvements, but consider putting them in a separate branch (either mention the new branch in a comment, or open another pull request from the new branch to the original branch).
 
 * Only maintainers and committers can merge approved pull requests into the mainline.
-  See the `current ROS PMC constituents <https://docs.ros.org/en/rolling/The-ROS2-Project/Governance.html#current-ros-pmc-constituents>`_ and `current ROS committers <https://docs.ros.org/en/rolling/The-ROS2-Project/Governance.html#current-ros-committers>`_ for the list of people with merge permissions.
+  See the :doc:`current ROS PMC constituents and committers <../Governance>` for the list of people with merge permissions.
 
 Library versioning
 ^^^^^^^^^^^^^^^^^^
