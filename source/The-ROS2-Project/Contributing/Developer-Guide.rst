@@ -758,21 +758,7 @@ The build farm is located at `ci.ros2.org <https://ci.ros2.org/>`__.
 Every night we run nightly jobs which build and run all the tests in various scenarios on various platforms.
 Additionally, we test all pull requests against these platforms before merging.
 
-<<<<<<< HEAD
-This is the current set of target platforms and architectures, though it evolves overtime:
-
-
-* Ubuntu 22.04 Jammy
-
-  * amd64
-  * aarch64
-
-* Windows 10
-
-  * amd64
-=======
 Check :ref:`the current set of target platforms and architectures <binary-package-platforms>`, though it evolves overtime.
->>>>>>> c3ef599 (Cosmetic fixes for Developer Guide. (#5872))
 
 There are several categories of jobs on the buildfarm:
 
