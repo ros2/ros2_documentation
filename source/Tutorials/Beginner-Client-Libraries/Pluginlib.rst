@@ -74,7 +74,7 @@ One thing to notice is the presence of the initialize method.
 With ``pluginlib``, a constructor without parameters is required, so if any parameters to the class are needed, we use the initialize method to pass them to the object.
 
 We need to make this header available to other classes by exporting it as an interface library.
-To do so, so open ``~/ros2_ws/src/polygon_base/CMakeLists.txt`` for editing
+To do so, open ``~/ros2_ws/src/polygon_base/CMakeLists.txt`` for editing
 and add the following lines after the ``find_package(pluginlib REQUIRED)`` command:
 
 .. code-block:: cmake
