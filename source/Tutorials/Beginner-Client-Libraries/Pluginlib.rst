@@ -74,16 +74,7 @@ One thing to notice is the presence of the initialize method.
 With ``pluginlib``, a constructor without parameters is required, so if any parameters to the class are needed, we use the initialize method to pass them to the object.
 
 We need to make this header available to other classes, so open ``~/ros2_ws/src/polygon_base/CMakeLists.txt`` for editing.
-Add the following lines after the ``target_link_libraries`` command:
-
-.. code-block:: cmake
-
-    install(
-      DIRECTORY include/
-      DESTINATION include
-    )
-
-And add this command before the ``ament_package`` command:
+Add this command before the ``ament_package`` command:
 
 .. code-block:: cmake
 
@@ -91,25 +82,21 @@ And add this command before the ``ament_package`` command:
     ament_export_include_directories(
       include
     )
-    ament_export_libraries(
-      ${PROJECT_NAME}
-    )
 
     # Export modern CMake targets
     ament_export_targets(
       export_${PROJECT_NAME}
     )
 
-We need to make this library available to other packages, so open ``~/ros2_ws/src/polygon_base/CMakeLists.txt`` for editing.
-Add the following lines after the ``find_package(pluginlib REQUIRED)`` command:
+We need to make this library available to other packages. To do so, add the following lines after the ``find_package(pluginlib REQUIRED)`` command:
 
 .. code-block:: cmake
 
     # Library (this will be used as the base class for plugins)
-    add_library(${PROJECT_NAME} SHARED src/area_node.cpp)
+    add_library(${PROJECT_NAME} INTERFACE)
     add_library(${PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
-    target_compile_features(${PROJECT_NAME} PUBLIC c_std_99 cxx_std_17)
-    target_include_directories(${PROJECT_NAME} PUBLIC
+    target_compile_features(${PROJECT_NAME} INTERFACE c_std_99 cxx_std_17)
+    target_include_directories(${PROJECT_NAME} INTERFACE
       $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
       $<INSTALL_INTERFACE:include/${PROJECT_NAME}>
     )
