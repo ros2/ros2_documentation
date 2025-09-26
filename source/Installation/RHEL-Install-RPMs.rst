@@ -35,7 +35,7 @@ You will need to enable the EPEL repositories and the PowerTools repository:
 .. code-block:: console
 
    $ sudo dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -E %rhel).noarch.rpm
-   $ sudo crb enable
+   $ sudo env FORCE_DNF=1 crb enable
 
 .. note:: This step may be slightly different depending on the distribution you are using.
           `Check the EPEL documentation <https://docs.fedoraproject.org/en-US/epel/getting-started/>`_
