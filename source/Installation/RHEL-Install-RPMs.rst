@@ -32,11 +32,11 @@ You will need to enable the EPEL repositories and the PowerTools repository:
 
 .. code-block:: console
 
-   $ sudo dnf install 'dnf-command(config-manager)' epel-release -y
-   $ sudo dnf config-manager --set-enabled crb
+   $ sudo dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -E %rhel).noarch.rpm
+   $ sudo env FORCE_DNF=1 crb enable
 
 .. note:: This step may be slightly different depending on the distribution you are using.
-          `Check the EPEL documentation <https://docs.fedoraproject.org/en-US/epel/#_quickstart>`_
+          `Check the EPEL documentation <https://docs.fedoraproject.org/en-US/epel/getting-started/>`_
 
 Next, download the ``ros2-release`` package and install it:
 
