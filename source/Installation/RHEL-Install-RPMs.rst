@@ -32,13 +32,8 @@ You will need to enable the EPEL repositories and the PowerTools repository:
 
 .. code-block:: console
 
-<<<<<<< HEAD
-   $ sudo dnf install 'dnf-command(config-manager)' epel-release -y
-   $ sudo dnf config-manager --set-enabled powertools
-=======
    $ sudo dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -E %rhel).noarch.rpm
    $ sudo env FORCE_DNF=1 crb enable
->>>>>>> 01ec8ed (Fix doc install RHEL from RPM - crb repo do not exist in RHEL (#5857))
 
 .. note:: This step may be slightly different depending on the distribution you are using.
           `Check the EPEL documentation <https://docs.fedoraproject.org/en-US/epel/getting-started/>`_
