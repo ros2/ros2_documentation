@@ -73,6 +73,7 @@ The code above creates an abstract class called ``RegularPolygon``.
 One thing to notice is the presence of the initialize method.
 With ``pluginlib``, a constructor without parameters is required, so if any parameters to the class are needed, we use the initialize method to pass them to the object.
 
+<<<<<<< HEAD
 We need to make this header available to other classes, so open ``ros2_ws/src/polygon_base/CMakeLists.txt`` for editing.
 Add the following lines after the ``ament_target_dependencies`` command:
 
@@ -89,6 +90,53 @@ And add this command before the ``ament_package`` command:
 
     ament_export_include_directories(
       include
+=======
+We need to make this header available to other classes by exporting it as an interface library.
+To do so, open ``~/ros2_ws/src/polygon_base/CMakeLists.txt`` for editing
+and add the following lines after the ``find_package(pluginlib REQUIRED)`` command:
+
+.. code-block:: cmake
+
+    # Library (this will be used as the base class for plugins)
+    add_library(${PROJECT_NAME} INTERFACE)
+    add_library(${PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
+    target_compile_features(${PROJECT_NAME} INTERFACE c_std_99 cxx_std_17)
+    target_include_directories(${PROJECT_NAME} INTERFACE
+      $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+      $<INSTALL_INTERFACE:include/${PROJECT_NAME}>
+    )
+    target_link_libraries(${PROJECT_NAME} ${pluginlib_TARGETS})
+
+    # Install headers
+    install(DIRECTORY include/
+      DESTINATION include/${PROJECT_NAME}
+    )
+
+    # Install library and export targets
+    install(TARGETS ${PROJECT_NAME}
+      EXPORT export_${PROJECT_NAME}
+      ARCHIVE DESTINATION lib
+      LIBRARY DESTINATION lib
+      RUNTIME DESTINATION bin
+    )
+    install(EXPORT export_${PROJECT_NAME}
+      NAMESPACE ${PROJECT_NAME}::
+      DESTINATION share/${PROJECT_NAME}/cmake
+>>>>>>> c87aa57 (Update Pluginlib.rst (#5894))
+    )
+
+And add this commands before the ``ament_package`` command:
+
+.. code-block:: cmake
+
+    # Export old-style CMake variables
+    ament_export_include_directories(
+      include
+    )
+
+    # Export modern CMake targets
+    ament_export_targets(
+      export_${PROJECT_NAME}
     )
 
 We will return to this package later to write our test node.
