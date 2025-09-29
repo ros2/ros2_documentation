@@ -7,7 +7,7 @@
 URDF
 ====
 
-URDF (Unified Robot Description Format) is a file format for specifying the geometry and organization of robots in ROS.
+URDF (Unified Robot Description Format) is a file format for specifying the geometry and organization of robots in ROS. It is based on XML language. The XML specifications used in URDF are explained here<https://wiki.ros.org/urdf/XML>.
 
 .. contents:: Contents
    :depth: 0
