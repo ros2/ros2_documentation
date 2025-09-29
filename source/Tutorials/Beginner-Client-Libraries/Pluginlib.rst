@@ -73,24 +73,6 @@ The code above creates an abstract class called ``RegularPolygon``.
 One thing to notice is the presence of the initialize method.
 With ``pluginlib``, a constructor without parameters is required, so if any parameters to the class are needed, we use the initialize method to pass them to the object.
 
-<<<<<<< HEAD
-We need to make this header available to other classes, so open ``ros2_ws/src/polygon_base/CMakeLists.txt`` for editing.
-Add the following lines after the ``ament_target_dependencies`` command:
-
-.. code-block:: cmake
-
-    install(
-      DIRECTORY include/
-      DESTINATION include
-    )
-
-And add this command before the ``ament_package`` command:
-
-.. code-block:: cmake
-
-    ament_export_include_directories(
-      include
-=======
 We need to make this header available to other classes by exporting it as an interface library.
 To do so, open ``~/ros2_ws/src/polygon_base/CMakeLists.txt`` for editing
 and add the following lines after the ``find_package(pluginlib REQUIRED)`` command:
@@ -122,7 +104,6 @@ and add the following lines after the ``find_package(pluginlib REQUIRED)`` comma
     install(EXPORT export_${PROJECT_NAME}
       NAMESPACE ${PROJECT_NAME}::
       DESTINATION share/${PROJECT_NAME}/cmake
->>>>>>> c87aa57 (Update Pluginlib.rst (#5894))
     )
 
 And add this commands before the ``ament_package`` command:
