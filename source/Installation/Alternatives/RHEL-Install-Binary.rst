@@ -77,13 +77,6 @@ If you are going to build ROS packages or otherwise do development, you can also
      python3-vcstool \
      wget
 
-   ~ install some pip packages needed for testing and
-   ~ not available as RPMs
-   $ python3 -m pip install -U --user \
-     flake8-blind-except==0.1.1 \
-     flake8-class-newline \
-     flake8-deprecated
-
 Install ROS 2
 -------------
 
