@@ -150,6 +150,10 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
      - `cellumation <https://cellumation.com/>`_
      - `jmachowinski <https://github.com/jmachowinski>`_
      - CET (UTC+1)
+   * - Julien Enoch
+     - `Zettascale <https://www.zettascale.tech/>`_
+     - `JEnoch <https://github.com/JEnoch>`_
+     - CET (UTC+1)/CEST (UTC+2)
    * - Kat Scott
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `kscottz <https://github.com/kscottz>`_
@@ -170,6 +174,10 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `tfoote <https://github.com/tfoote>`_
      - PST (UTC-8)/PDT (UTC-7)
+   * - Yuyuan Yuan
+     - `Zettascale <https://www.zettascale.tech/>`_
+     - `YuanYuYuan <https://github.com/YuanYuYuan>`_
+     - TST (UTC+8)
 
 Past ROS PMC Constituents
 ^^^^^^^^^^^^^^^^^^^^^^^^^
