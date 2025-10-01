@@ -177,7 +177,6 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
    * - Andrew Symington
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `asymingt <https://github.com/asymingt>`_
-     - Member
      - PST (UTC-8)/PDT (UTC-7)
    * - Yuyuan Yuan
      - `Zettascale <https://www.zettascale.tech/>`_
