@@ -86,7 +86,8 @@ Then, install necessary packages for RTI Connext DDS.
    $ rosdep install --from src -i
 
 Set up the environment to help colcon discover where RTI Connext is installed.
-This can be done by manually setting the environment variable ``NDDSHOME`` to the location of the RTI Connext installation, or by using a script that comes with the RTI Connext installation. For example, for version 7.3.0, you can run the following code to execute the helper script:
+This can be done by manually setting the environment variable ``NDDSHOME`` to the location of the RTI Connext installation, or by using a script that comes with the RTI Connext installation.
+For example, for version 7.3.0, you can run the following code to execute the helper script:
 
 .. code-block:: console
 
