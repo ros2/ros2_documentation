@@ -51,7 +51,7 @@ RUN python3 -m venv /opt/ros2doc
 #   (docker)$ . ./venv-constraints/bin/activate
 #   (docker)$ pip3 install -U -r requirements.txt
 #   (docker)$ pip3 freeze > constraints.txt
-COPY requirements.txt constraints.txt .
+COPY requirements.txt constraints.txt ./
 RUN . /opt/ros2doc/bin/activate && pip3 install -r requirements.txt -c constraints.txt
 
 USER $user
