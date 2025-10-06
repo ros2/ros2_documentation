@@ -10,7 +10,7 @@ Migrating Launch Files
 ======================
 
 .. contents:: Table of Contents
-   :depth: 1
+   :depth: 2
    :local:
 
 While launch files in ROS 1 are always specified using `XML <https://wiki.ros.org/roslaunch/XML>`__ files, ROS 2 supports both XML and YAML files.
