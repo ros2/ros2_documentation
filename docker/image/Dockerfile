@@ -1,7 +1,11 @@
 # This dockerfile is expecting to be run with the following build command
 # (from the root of the git repository):
 #
-# docker build -f docker/image/Dockerfile .
+# $ docker build -f docker/image/Dockerfile . -t ros2_documentation
+#
+# Then, to use the image to build the docs:
+#
+# $ docker run --rm --user $(id -u):$(id -g) -v $(pwd):/tmp/doc_repository ros2_documentation
 
 FROM ubuntu:noble
 
