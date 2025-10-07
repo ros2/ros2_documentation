@@ -6,7 +6,7 @@ launch:
       value: "200"
   - include:
       file: "$(find-pkg-share launch_tutorial)/launch/example_substitutions_launch.yaml"
-      arg:
+      let:
         - name: "turtlesim_ns"
           value: "turtlesim2"
         - name: "use_provided_red"
