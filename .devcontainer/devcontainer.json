@@ -1,12 +1,11 @@
 {
 	"name": "ROS 2 Documentation",
 	"build": {
-		"dockerfile": "../docker/image/Dockerfile",
-		"context": ".."
+		"dockerfile": "../docker/image/Dockerfile"
 	},
 	"workspaceMount": "source=${localWorkspaceFolder},target=/tmp/doc_repository,type=bind",
 	"workspaceFolder": "/tmp/doc_repository",
-	"postCreateCommand": ". /opt/ros2doc/bin/activate && pip3 install -r requirements.txt -c constraints.txt",
+	"postCreateCommand": "pip3 install --no-warn-script-location --user --break-system-packages -r requirements.txt -c constraints.txt",
 	"features": {
 		"ghcr.io/devcontainers/features/git:1": {}
 	},

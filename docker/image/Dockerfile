@@ -1,11 +1,11 @@
 # This dockerfile is expecting to be run with the following build command
 # (from the root of the git repository):
 #
-# $ docker build -f docker/image/Dockerfile . -t ros2_documentation
+# $ docker build -f docker/image/Dockerfile --build-arg user=$(id -un) --build-arg uid=$(id -u) -t ros2_documentation .
 #
 # Then, to use the image to build the docs:
 #
-# $ docker run --rm --user $(id -u):$(id -g) -v $(pwd):/tmp/doc_repository ros2_documentation
+# $ docker run --rm -v $(pwd):/tmp/doc_repository ros2_documentation
 
 FROM ubuntu:noble
 
@@ -24,8 +24,7 @@ RUN apt-get update && \
         graphviz \
         locales \
         make \
-        python3-pip \
-        python3-venv && \
+        python3-pip && \
     rm -rf /var/lib/apt/lists/*
 
 RUN locale-gen en_US en_US.UTF-8
@@ -37,11 +36,11 @@ ENV HOME=/home/$user
 ENV PATH=/home/$user/.local/bin:$PATH
 WORKDIR /tmp/doc_repository
 
+USER $user
+
 # https://build.ros.org/job/doc_ros2doc/ relies on "make multiversion" to build the official documentation.
 # Do not remove "make multiversion" from CMD, as it is the entrypoint for the container.
-CMD ["bash", "-c", "source /opt/ros2doc/bin/activate && make multiversion"]
-RUN python3 -m venv /opt/ros2doc
-# constraints.txt was generated with:
+# The constraints.txt file was generated with:
 #   $ cd ros2_documentation
 #   $ docker run -v $PWD:/ros2_documentation -it ubuntu:24.04
 #   (docker)$ cd /ros2_documentation
@@ -51,7 +50,4 @@ RUN python3 -m venv /opt/ros2doc
 #   (docker)$ . ./venv-constraints/bin/activate
 #   (docker)$ pip3 install -U -r requirements.txt
 #   (docker)$ pip3 freeze > constraints.txt
-COPY requirements.txt constraints.txt ./
-RUN . /opt/ros2doc/bin/activate && pip3 install -r requirements.txt -c constraints.txt
-
-USER $user
+CMD ["bash", "-c", "pip3 install --no-warn-script-location --user --break-system-packages -r requirements.txt -c constraints.txt && make multiversion"]
