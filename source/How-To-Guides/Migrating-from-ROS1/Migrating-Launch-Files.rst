@@ -10,7 +10,7 @@ Migrating Launch Files
 ======================
 
 .. contents:: Table of Contents
-   :depth: 1
+   :depth: 2
    :local:
 
 While launch files in ROS 1 are always specified using `XML <https://wiki.ros.org/roslaunch/XML>`__ files, ROS 2 supports both XML and YAML files.
@@ -186,7 +186,9 @@ include
      Nest includes in ``group`` tags to scope them.
    * ``ns`` attribute is not supported.
      See example of ``push_ros_namespace`` tag for a workaround.
-   * ``arg`` tags nested in an ``include`` tag don't support conditionals (``if``, ``unless``) or the ``description`` attribute.
+   * ``arg`` tag nested in an ``include`` tag is now ``let``.
+     However, ``arg`` is still supported for now.
+   * ``let`` tags nested in an ``include`` tag don't support conditionals (``if``, ``unless``) or the ``description`` attribute.
    * There is no support for nested ``env`` tags.
      ``set_env`` and ``unset_env`` can be used instead.
    * Both ``clear_params`` and ``pass_all_args`` attributes aren't supported.
@@ -206,7 +208,10 @@ arg
    * ``value`` attribute is not allowed.
      Use ``let`` tag for this.
    * ``doc`` is now ``description``.
-   * When nested within an ``include`` tag, ``if``, ``unless``, and ``description`` attributes aren't allowed.
+   * When nested within an ``include`` tag:
+
+      * Use ``let`` instead of ``arg``.
+      * ``if``, ``unless``, and ``description`` attributes aren't allowed.
 
 Example
 ~~~~~~~
@@ -350,6 +355,13 @@ It's a replacement of ``arg`` tag with a value attribute.
 .. code-block:: xml
 
    <let name="foo" value="asd"/>
+
+``let`` and ``arg`` serve two different purposes in ROS 2:
+
+* ``let`` sets a launch configuration value.
+* ``arg`` declares a launch argument/configuration and optionally provides a default value.
+  The value can separately be set from the CLI or when including the given launch file.
+  If no value is set, the default value is used if one was provided, otherwise an error is reported.
 
 executable
 ^^^^^^^^^^

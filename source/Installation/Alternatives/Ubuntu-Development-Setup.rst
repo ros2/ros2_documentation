@@ -39,9 +39,6 @@ Install development tools
 .. code-block:: console
 
    $ sudo apt update && sudo apt install -y \
-     python3-flake8-blind-except \
-     python3-flake8-class-newline \
-     python3-flake8-deprecated \
      python3-mypy \
      python3-pip \
      python3-pytest \

@@ -34,11 +34,11 @@ You will need to enable the EPEL repositories and the PowerTools repository:
 
 .. code-block:: console
 
-   $ sudo dnf install 'dnf-command(config-manager)' epel-release -y
-   $ sudo dnf config-manager --set-enabled crb
+   $ sudo dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -E %rhel).noarch.rpm
+   $ sudo env FORCE_DNF=1 crb enable
 
 .. note:: This step may be slightly different depending on the distribution you are using.
-          `Check the EPEL documentation <https://docs.fedoraproject.org/en-US/epel/#_quickstart>`_
+          `Check the EPEL documentation <https://docs.fedoraproject.org/en-US/epel/getting-started/>`_
 
 Next, download the ``ros2-release`` package and install it:
 
@@ -74,13 +74,6 @@ If you are going to build ROS packages or otherwise do development, you can also
      python3-setuptools \
      python3-vcstool \
      wget
-
-   ~ install some pip packages needed for testing and
-   ~ not available as RPMs
-   $ python3 -m pip install -U --user \
-     flake8-blind-except==0.1.1 \
-     flake8-class-newline \
-     flake8-deprecated
 
 Install ROS 2
 -------------
@@ -125,14 +118,23 @@ Try some examples
 
 If you installed ``ros-{DISTRO}-desktop`` above you can try some examples.
 
-In one terminal, source the setup file and then run a C++ ``talker``\ :
+First, if you use ``Zenoh`` as the RMW implementation, you will require a router for node discovery and communication.
+
+In one terminal, start the Zenoh router daemon:
+
+.. code-block:: console
+
+   $ source /opt/ros/{DISTRO}/setup.bash
+   $ ros2 run rmw_zenoh_cpp rmw_zenohd
+
+In another terminal, source the setup file and then run a C++ ``talker``\ :
 
 .. code-block:: console
 
    $ source /opt/ros/{DISTRO}/setup.bash
    $ ros2 run demo_nodes_cpp talker
 
-In another terminal source the setup file and then run a Python ``listener``\ :
+In a third terminal source the setup file and then run a Python ``listener``\ :
 
 .. code-block:: console
 

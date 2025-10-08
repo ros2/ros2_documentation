@@ -18,6 +18,8 @@ Options for installing ROS 2 {DISTRO_TITLE_FULL}:
    Installation/Testing
    Installation/RMW-Implementations
 
+.. _binary-package-platforms:
+
 Binary packages
 ---------------
 
@@ -27,17 +29,17 @@ If you are not running any of the following operating systems you may need to bu
 
 We provide ROS 2 binary packages for the following platforms:
 
-* Ubuntu Linux - Noble Numbat (24.04)
+* Ubuntu Linux (amd64 / aarch64) - Noble Numbat (24.04)
 
   * :doc:`deb packages <Installation/Ubuntu-Install-Debs>` (recommended)
   * :doc:`binary archive <Installation/Alternatives/Ubuntu-Install-Binary>`
 
-* RHEL 9
+* Red Hat Enterprise Linux 9 (amd64)
 
   * :doc:`RPM packages <Installation/RHEL-Install-RPMs>` (recommended)
   * :doc:`binary archive <Installation/Alternatives/RHEL-Install-Binary>`
 
-* Windows 10
+* Windows 10 (amd64)
 
   * :doc:`Windows Binary (VS 2019) <Installation/Windows-Install-Binary>`
 

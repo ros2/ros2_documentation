@@ -27,10 +27,10 @@ API Documentation
 
 You can find the API level documentation for the ROS client libraries in the {DISTRO_TITLE} distribution using the links below:
 
-* `rclcpp - C++ client library <http://docs.ros.org/en/{DISTRO}/p/rclcpp/generated/index.html>`_
-* `rclcpp_lifecycle - C++ lifecycle library <http://docs.ros.org/en/{DISTRO}/p/rclcpp_lifecycle/generated/index.html>`_
-* `rclcpp_components - C++ components library <http://docs.ros.org/en/{DISTRO}/p/rclcpp_components/generated/index.html>`_
-* `rclcpp_action - C++ actions library <http://docs.ros.org/en/{DISTRO}/p/rclcpp_action/generated/index.html>`_
+* `rclcpp - C++ client library <https://docs.ros.org/en/{DISTRO}/p/rclcpp/generated/index.html>`_
+* `rclcpp_lifecycle - C++ lifecycle library <https://docs.ros.org/en/{DISTRO}/p/rclcpp_lifecycle/generated/index.html>`_
+* `rclcpp_components - C++ components library <https://docs.ros.org/en/{DISTRO}/p/rclcpp_components/generated/index.html>`_
+* `rclcpp_action - C++ actions library <https://docs.ros.org/en/{DISTRO}/p/rclcpp_action/generated/index.html>`_
 
 Adding Your Package to docs.ros.org
 -----------------------------------

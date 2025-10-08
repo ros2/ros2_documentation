@@ -141,7 +141,7 @@ General ROS project resources
   - Showcases robots projects from the community
   - Instructions on how to contribute a robot
 
-* `ROS Wiki <http://wiki.ros.org/>`__ (ROS 1)
+* `ROS Wiki <https://wiki.ros.org/>`__ (ROS 1)
 
   - ROS 1 documentation and user modifiable content
   - Active until at least the last ROS 1 distribution is EOL
