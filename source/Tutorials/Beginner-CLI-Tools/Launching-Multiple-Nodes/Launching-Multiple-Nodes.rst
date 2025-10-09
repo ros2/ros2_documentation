@@ -54,7 +54,7 @@ Open a new terminal and run:
 
 This command will run the following launch file:
 
-.. literalinclude:: modules/ros_tutorials/turtlesim/launch/multisim.launch.py
+.. literalinclude:: /_gitmodules/ros_tutorials/turtlesim/launch/multisim.launch.py
    :language: python
 
 .. note::
