@@ -400,7 +400,7 @@ This will allow building and running/testing the implementation incrementally.
 Most ``rmw`` functions have to perform input validation, as defined by the function's documentation.
 There are various utility macros to simplify this, such as ``RMW_CHECK_ARGUMENT_FOR_NULL()`` and ``RMW_CHECK_TYPE_IDENTIFIERS_MATCH()``.
 
-``rmw`` structs usually include a type-erased pointer (or something an opaque pointer) for ``rmw`` implementation-specific data.
+``rmw`` structs usually include a type-erased pointer (or sometimes an opaque pointer) for ``rmw`` implementation-specific data.
 For instance, ``rmw_publisher_t`` has a ``void * data``.
 The implementation can place whatever it wants there, e.g., a pointer to an internal object that wraps the underlying middleware's publisher object and any relevant information, like type support.
 This data/object can be fetched and used later when ``rmw_publish()`` is called with the corresponding ``rmw_publisher_t``.
@@ -415,7 +415,7 @@ Here is an example for message type support for publishers/subscriptions.
 A publisher is created through ``rmw_create_publisher()``, which takes in a handle for the type support information: ``const rosidl_message_type_support_t *``.
 This is the base language-dependent type support: ``rosidl_typesupport_c`` / ``rosidl_typesupport_cpp``.
 From this, we can get the concrete type support handle, depending on the available type supports, e.g., ``rosidl_typesupport_fastrtps_c`` / ``rosidl_typesupport_fastrtps_cpp`` and ``rosidl_typesupport_introspection_c`` / ``rosidl_typesupport_introspection_cpp``.
-The confusing part is that these are also ``const rosidl_message_type_support_t *``!
+The confusing part is that these are also of type ``const rosidl_message_type_support_t *``!
 However, the concrete type support handles are the ones that contain actual useful information.
 See `this example function <https://github.com/christophebedard/rmw_email/blob/f5e622bab24edaad8e0da054c7dbc698c6fb809c/rmw_email_cpp/src/type_support.cpp#L29-L62>`__, which extracts the concrete C or C++ dynamic message type support handle (``rosidl_typesupport_introspection_{c,cpp}``) given a base type support handle (``rosidl_typesupport_{c,cpp}``).
 Publishers created by ``rclcpp`` will use C++ type support, while publishers created by ``rclpy`` will use C type support, since Python messages get converted into C messages.
@@ -446,7 +446,7 @@ These tests can use ``rmw``'s ``rmw_get_implementation_identifier()`` `function 
 Middleware- and ``rmw`` implementation-specific configuration
 -------------------------------------------------------------
 
-The ``rmw`` interface does not allow for arbitrary configuration of the implementation or underlying middleware.
+The ``rmw`` interface as defined by that package does not support passing arbitrary configuration data to the implementation or the underlying middleware.
 To get around that and introduce some flexibility, some implementations use environment variables: ``RMW_FASTRTPS_*``, ``RMW_CONNEXT_*``, etc.
 The underlying middleware may also be configurable through environment variables: ``FASTDDS_*``, ``ZENOH_*``, ``CYCLONEDDS_*``, ``EMAIL_*``, etc.
 For example, the ``CYCLONEDDS_URI``, ``FASTDDS_DEFAULT_PROFILES_FILE``, and ``ZENOH_SESSION_CONFIG_URI`` environment variables can be used to provide a path to a full configuration file if the relevant middleware is used.
