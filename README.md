@@ -14,6 +14,12 @@ To contribute to the ROS 2 source code project please refer to the [ROS 2 contri
 
 ## Prerequisites
 
+First clone this repo and its submodules.
+
+```console
+git clone --recursive git@github.com:ros2/ros2_documentation.git
+```
+
 To build this you need to install
 
 * make
