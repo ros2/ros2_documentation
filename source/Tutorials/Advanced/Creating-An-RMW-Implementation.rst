@@ -48,7 +48,8 @@ For example, the ``rmw_fastrtps_cpp`` package implements the interface for ePros
 Example implementations
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-The following ``rmw`` :doc:`implementations <../../Concepts/Advanced/About-Middleware-Implementations>` can be used as references:
+The following ``rmw`` :doc:`implementations <../../Concepts/Advanced/About-Middleware-Implementations>` can be used as references.
+Note that there are different `support tiers, which are defined by REP 2000 <https://www.ros.org/reps/rep-2000.html#support-tiers>`_.
 
 #. DDS:
 
