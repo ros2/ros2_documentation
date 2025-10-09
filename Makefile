@@ -25,7 +25,7 @@ multiversion: Makefile
 	@$(BUILD) -M $@ "$(SOURCE)" "$(OUT)" $(OPTS)
 
 lint:
-	./sphinx-lint-with-ros source
+	./sphinx-lint-with-ros source -i _gitmodules
 
 test:
 	doc8 --ignore D001 --ignore-path build
