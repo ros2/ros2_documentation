@@ -1,3 +1,4 @@
 [submodule "source/_gitmodules/ros_tutorials"]
 	path = source/_gitmodules/ros_tutorials
 	url = git@github.com:ros/ros_tutorials.git
+	branch = rolling
