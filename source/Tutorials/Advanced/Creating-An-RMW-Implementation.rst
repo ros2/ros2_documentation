@@ -73,16 +73,23 @@ Note that there are different `support tiers, which are defined by REP 2000 <htt
 Build-time and runtime ``rmw`` implementation selection mechanism
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The dependency on the actual ``rmw`` implementation is done through the ``rmw_implementation`` package.
+The dependency on the actual ``rmw`` implementation is done through the ``rmw_implementation`` `package <https://index.ros.org/p/rmw_implementation/#rolling>`_.
 Users of ``rmw``, such as ``rcl``, depend on the ``rmw`` package for the interface (headers) and some utility functions.
 They also depend on the ``rmw_implementation`` package to get the actual implementation.
 
+By default, ROS 2 allows you to choose which ``rmw`` implementation to use at runtime.
+This is convenient for comparing two implementations on the same machine, and it lets ROS 2 distribute a single set of binaries that is compatible with multiple ``rmw`` implementations.
+The :doc:`implementation is selected at runtime <../../How-To-Guides/Working-with-multiple-RMW-implementations>` through the ``RMW_IMPLEMENTATION`` environment variable, or, if that variable is unset, a default ``rmw`` implementation is loaded.
+
+This is accomplished by the ``rmw_implementation`` package, which acts as a proxy for an actual ``rmw`` implementation.
+It works by creating placeholder ``rmw`` functions.
+When they are called, it will ``dlopen()`` the appropriate library for the selected ``rmw`` implementation and then look up the corresponding symbols in the loaded shared library using the ``dlsym()`` function before calling them.
+
+The ``rmw_implementation`` package can be configured at build-time to change the default option or disable runtime selection.
 The default implementation can be selected at build-time with the ``RMW_IMPLEMENTATION`` CMake variable (e.g., ``-DRMW_IMPLEMENTATION=rmw_other``) or the ``RMW_IMPLEMENTATION`` environment variable.
 If only one implementation is available at build-time, or if runtime selection is disabled (``-DRMW_IMPLEMENTATION_DISABLE_RUNTIME_SELECTION=ON``), the ``rmw_implementation`` target will be a simple ``INTERFACE`` library for the single implementation.
-If more than one implementation is available at build-time and runtime selection is not disabled, which is the default with a typical ROS 2 binary installation, the ``rmw_implementation`` package acts as a proxy.
-It dynamically loads the shared library for the :doc:`implementation selected at runtime <../../How-To-Guides/Working-with-multiple-RMW-implementations>` through the ``RMW_IMPLEMENTATION`` environment variable or the default implementation if unset.
-The ``rmw`` function implementations then look up the corresponding symbols in the loaded shared library using the ``dlsym()`` function.
-This means that an implementation that does not implement all interface functions will only fail at runtime, when the symbol lookup fails, as opposed to failing at build-time (specifically at link-time) if runtime selection is disabled.
+
+Because of the proxy mechanism and the CMake logic described above, an ``rmw`` implementation that does not implement all of the functions in the interface will only fail at runtime, when the symbol lookup fails, as opposed to failing at build-time (specifically at link-time) if runtime selection is disabled.
 
 Features
 --------
