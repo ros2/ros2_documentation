@@ -422,7 +422,7 @@ See `this example function <https://github.com/christophebedard/rmw_email/blob/f
 Publishers created by ``rclcpp`` will use C++ type support, while publishers created by ``rclpy`` will use C type support, since Python messages get converted into C messages.
 The ``/rosout`` publisher is managed by ``rcl``, which is written in C, so it uses C type support.
 
-Then, using the concrete type support handle's type-erased pointer, ``const data *``, we get type support-specific information.
+Then, using the concrete type support handle's type-erased pointer, ``const void * data``, we get type support-specific information.
 For example, for C++ dynamic type support, this will be a ``const rosidl_typesupport_introspection_cpp::MessageMembers *``, which contains information about each field of the message.
 See `this example function <https://github.com/christophebedard/rmw_email/blob/f5e622bab24edaad8e0da054c7dbc698c6fb809c/rmw_email_cpp/src/conversion.cpp#L116-L153>`__, which extracts language-dependent type support information from the concrete type support handle.
 The information is used to read the type-erased message pointer and convert the message to a YAML object and then convert that to a string for the underlying middleware to publish.
