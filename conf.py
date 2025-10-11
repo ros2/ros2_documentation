@@ -86,6 +86,7 @@ extensions = [
     'sphinx_tabs.tabs',
     'sphinx_rtd_theme',
     'sphinx_sitemap_ros',
+    'sphinxcontrib.googleanalytics',
     'sphinxcontrib.mermaid',
 ]
 
@@ -109,6 +110,9 @@ intersphinx_mapping = {
 # See: https://sphinx-copybutton.readthedocs.io/en/latest/use.html#automatic-exclusion-of-prompts-from-the-copies
 copybutton_exclude = '.linenos, .gp, .go'
 
+# Google Analytics configuration
+googleanalytics_id = 'G-EVD5Z6G6NH'
+googleanalytics_enabled = True
 # -- Options for HTML output ----------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
@@ -116,7 +120,6 @@ copybutton_exclude = '.linenos, .gp, .go'
 #
 html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
-    'analytics_id': 'G-EVD5Z6G6NH',
     'collapse_navigation': False,
     'sticky_navigation': True,
     'navigation_depth': -1,
