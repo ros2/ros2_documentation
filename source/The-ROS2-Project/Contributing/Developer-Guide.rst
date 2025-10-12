@@ -159,6 +159,7 @@ Guidelines for backporting PRs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 When changing an older version of ROS:
+
 * Make sure the features or fixes are accepted and merged in the rolling branch before opening a PR to backport the changes to older versions.
 * When backporting to older versions, also consider backporting to any other :doc:`still supported versions <../../Releases>`, even non-LTS versions.
 * If you are backporting a single PR in its entirety, title the backport PR "[Distro] <name of original PR>".
