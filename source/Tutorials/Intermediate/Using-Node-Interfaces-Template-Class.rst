@@ -16,7 +16,7 @@ Overview
 --------
 
 Not all ROS Nodes are created equally!
-the ``rclcpp::Node`` and ``rclcpp_lifecycle::LifecycleNode`` classes do not share an inheritance tree, which means ROS developers can run into compile time type issues when they want to write a function that takes in a ROS node pointer as an argument.
+The ``rclcpp::Node`` and ``rclcpp_lifecycle::LifecycleNode`` classes do not share an inheritance tree, which means ROS developers can run into compile time type issues when they want to write a function that takes in a ROS node pointer as an argument.
 To address this issue, ``rclcpp`` includes the ``rclcpp::NodeInterfaces<>`` template type that should be used as the preferred convention for passing for both conventional and lifecycle nodes to functions.
 This `ROSCon 2023 lightning talk <https://vimeo.com/879001243#t=16m0s>`_ summarizes the issue and remedy succinctly.
 The following tutorial will show you how to use ``rclcpp::NodeInterfaces<>`` as reliable and compact interface for all ROS node types.

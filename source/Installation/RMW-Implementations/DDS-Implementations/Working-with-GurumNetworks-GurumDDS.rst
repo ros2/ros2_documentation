@@ -10,7 +10,7 @@ For more information about GurumDDS, visit the `GurumNetworks website <https://g
 
 Prerequisites
 -------------
-This guide assumes you have completed the ROS 2 environment setup process, either by :doc:`Installing ROS 2 via Deb Packages <../Ubuntu-Install-Debs>` or :doc:`Building ROS 2 from source on Ubuntu <../Alternatives/Ubuntu-Development-Setup>`.
+This guide assumes you have completed the ROS 2 environment setup process, either by :doc:`Installing ROS 2 via Deb Packages <../../Ubuntu-Install-Debs>` or :doc:`Building ROS 2 from source on Ubuntu <../../Alternatives/Ubuntu-Development-Setup>`.
 
 Version Requirements (`see the README for details <https://github.com/ros2/rmw_gurumdds>`_):
 
@@ -35,9 +35,9 @@ Installation
 Option 1: Install from the ROS 2 apt repository (Recommended)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: bash
+.. code-block:: console
 
-   sudo apt install ros-{DISTRO}-rmw-gurumdds-cpp
+   $ sudo apt install ros-{DISTRO}-rmw-gurumdds-cpp
 
 This installs both ``rmw_gurumdds_cpp`` and ``gurumdds``.
 
@@ -45,47 +45,48 @@ Option 2: Build from source code
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 1. Clone the repository
 
-.. code-block:: bash
+.. code-block:: console
 
-   cd ros2_ws/src
-   git clone https://github.com/ros2/rmw_gurumdds -b {DISTRO} ros2/rmw_gurumdds
+   $ cd ros2_ws/src
+   $ git clone https://github.com/ros2/rmw_gurumdds -b {DISTRO} ros2/rmw_gurumdds
 
 2. Install dependencies:
 
-.. code-block:: bash
+.. code-block:: console
 
-   cd ..
-   rosdep install --from src -i --rosdistro {DISTRO}
+   $ cd ..
+   $ rosdep install --from src -i --rosdistro {DISTRO}
 
-3. Build the worksapce using Colcon:
+3. Build the workspace using Colcon:
 
-.. code-block:: bash
+.. code-block:: console
 
-   colcon build --symlink-install
+   $ colcon build --symlink-install
 
 
 Switch to rmw_gurumdds
 ----------------------
 Switch from other RMW implementations to rmw_gurumdds by setting the environment variable:
 
-.. code-block:: bash
+.. code-block:: console
 
-   export RMW_IMPLEMENTATION=rmw_gurumdds_cpp
+   $ export RMW_IMPLEMENTATION=rmw_gurumdds_cpp
 
-For more information on working with multiple RMW implementations, see :doc:`Working with multiple RMW implementations <../../How-To-Guides/Working-with-multiple-RMW-implementations>`.
-
+For more information on working with multiple RMW implementations, see :doc:`Working with multiple RMW implementations <../../../How-To-Guides/Working-with-multiple-RMW-implementations>`.
 
 Testing the installation
 ------------------------
 Run the ``talker`` and ``listener`` nodes to verify your installation:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 run demo_nodes_cpp talker
+   $ source /opt/ros/{DISTRO}/setup.bash
+   $ ros2 run demo_nodes_cpp talker
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 run demo_nodes_cpp listener
+   $ source /opt/ros/{DISTRO}/setup.bash
+   $ ros2 run demo_nodes_cpp listener
 
 If the nodes communicate successfully, your installation is working correctly.
 

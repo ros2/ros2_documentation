@@ -91,9 +91,9 @@ The node is imported using the ``importMFNodeFromString(nodeString)`` `API funct
 
 Here is an example to import a simple Robot named ``imported_robot``:
 
-.. code-block:: bash
+.. code-block:: console
 
-    ros2 service call /Ros2Supervisor/spawn_node_from_string webots_ros2_msgs/srv/SpawnNodeFromString "data: Robot { name \"imported_robot\" }"
+    $ ros2 service call /Ros2Supervisor/spawn_node_from_string webots_ros2_msgs/srv/SpawnNodeFromString "data: Robot { name \"imported_robot\" }"
 
 .. note::
     If you try to import some PROTOs in the node string, their respective URLs must be declared in the ``.wbt`` world file as EXTERNPROTO or as IMPORTABLE EXTERNPROTO.
@@ -111,9 +111,9 @@ If the node is indeed in the imported list, it is removed with the ``remove()`` 
 
 Here is an example on how to remove the ``imported_robot`` Robot:
 
-.. code-block:: bash
+.. code-block:: console
 
-    ros2 topic pub --once /Ros2Supervisor/remove_node std_msgs/msg/String "{data: imported_robot}"
+    $ ros2 topic pub --once /Ros2Supervisor/remove_node std_msgs/msg/String "{data: imported_robot}"
 
 Record animations
 -----------------
@@ -126,16 +126,16 @@ The input ``value`` represents the absolute path to the directory where the anim
 
 Here is an example on how to start an animation:
 
-.. code-block:: bash
+.. code-block:: console
 
-    ros2 service call /Ros2Supervisor/animation_start_recording webots_ros2_msgs/srv/SetString "{value: "<ABSOLUTE_PATH>/index.html"}"
+    $ ros2 service call /Ros2Supervisor/animation_start_recording webots_ros2_msgs/srv/SetString "{value: "<ABSOLUTE_PATH>/index.html"}"
 
 
 The ``/Ros2Supervisor/animation_stop_recording`` service is of type ``webots_ros2_msgs/srv/GetBool`` and allows to stop the animation.
 
-.. code-block:: bash
+.. code-block:: console
 
-    ros2 service call /Ros2Supervisor/animation_stop_recording webots_ros2_msgs/srv/GetBool "{ask: True}"
+    $ ros2 service call /Ros2Supervisor/animation_stop_recording webots_ros2_msgs/srv/GetBool "{ask: True}"
 
 
 Summary

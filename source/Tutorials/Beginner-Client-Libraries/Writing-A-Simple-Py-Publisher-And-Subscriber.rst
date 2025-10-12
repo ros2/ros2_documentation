@@ -259,7 +259,7 @@ Don't forget to save.
 
 The contents of the ``setup.cfg`` file should be correctly populated automatically, like so:
 
-.. code-block:: console
+.. code-block:: ini
 
   [develop]
   script_dir=$base/lib/py_pubsub

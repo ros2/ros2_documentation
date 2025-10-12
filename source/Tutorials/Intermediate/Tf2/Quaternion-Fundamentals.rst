@@ -32,8 +32,9 @@ In this tutorial, you will learn how quaternions and conversion methods work in 
 Prerequisites
 -------------
 
-However, this is not a hard requirement and you can stick to any other geometric transformation library that suit you best.
 You can take a look at libraries like `transforms3d <https://github.com/matthew-brett/transforms3d>`_, `scipy.spatial.transform <https://github.com/scipy/scipy/tree/master/scipy/spatial/transform>`_, `pytransform3d <https://github.com/rock-learning/pytransform3d>`_, `numpy-quaternion <https://github.com/moble/quaternion>`_ or `blender.mathutils <https://docs.blender.org/api/master/mathutils.html>`_.
+
+However, this is not a hard requirement and you can stick to any other geometric transformation library that suit you best.
 
 Components of a quaternion
 --------------------------
@@ -69,8 +70,6 @@ Quaternion types in ROS 2
 ROS 2 uses two quaternion datatypes: ``tf2::Quaternion`` and its equivalent ``geometry_msgs::msg::Quaternion``.
 To convert between them in C++, use the methods of ``tf2_geometry_msgs``.
 
-C++
-
 .. code-block:: C++
 
    #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
@@ -86,8 +85,8 @@ C++
    // or
    tf2::fromMsg(msg_quat, tf2_quat_from_msg);
 
-
-Python
+There is no ``tf2::Quaternion`` equivalent in Python.
+Instead, the builtin ``list`` is used.
 
 .. code-block:: python
 
@@ -108,13 +107,19 @@ Quaternion operations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 It's easy for us to think of rotations about axes, but hard to think in terms of quaternions.
-A suggestion is to calculate target rotations in terms of roll (about an X-axis), pitch (about the Y-axis), and yaw (about the Z-axis), and then convert to a quaternion.
+A suggestion is to calculate target rotations in terms of the three individual rotations *roll* (about an X-axis), *pitch* (about the Y-axis), and *yaw* (about the Z-axis), and then convert to a quaternion.
 
 .. code-block:: python
 
    # quaternion_from_euler method is available in turtle_tf2_py/turtle_tf2_py/turtle_tf2_broadcaster.py
    q = quaternion_from_euler(1.5707, 0, -1.5707)
    print(f'The quaternion representation is x: {q[0]} y: {q[1]} z: {q[2]} w: {q[3]}.')
+
+This method relates to `Euler angles <https://en.wikipedia.org/wiki/Euler_angles>`_.
+There are several ways of applying Euler angles.
+The one described above, which ROS 2 adopts, is called *fixed (or static) frame* RPY.
+This means that the three individual rotations are applied to the original, unmoving coordinate axes.
+This is contrary to *relative frame*, where rotations are applied to the coordinate axes that get transformed by preceding rotations.
 
 
 2 Applying a quaternion rotation
@@ -156,6 +161,10 @@ An easy way to invert a quaternion is to negate the w-component:
 .. code-block:: python
 
    q[3] = -q[3]
+
+.. note::
+
+   This should not be confused with negating *all* elements of the quaternion.
 
 4 Relative rotations
 ^^^^^^^^^^^^^^^^^^^^
@@ -203,7 +212,7 @@ Here's an example to get the relative rotation from the previous robot pose to t
       y1 = q1[2]
       z1 = q1[3]
 
-      # Computer the product of the two quaternions, term by term
+      # Compute the product of the two quaternions, term by term
       q0q1_w = w0 * w1 - x0 * x1 - y0 * y1 - z0 * z1
       q0q1_x = w0 * x1 + x0 * w1 + y0 * z1 - z0 * y1
       q0q1_y = w0 * y1 - x0 * z1 + y0 * w1 + z0 * x1

@@ -39,6 +39,8 @@ Content filtering subscriptions require RMW implementation support.
      - supported
    * - rmw_cyclonedds
      - not supported
+   * - rmw_zenoh_cpp
+     - not supported
 
 Currently all RMW implementations that support content filtering subscriptions are `DDS <https://www.omg.org/omg-dds-portal/>`__ based.
 That means that the supported filtering expressions and parameters are also dependent on `DDS <https://www.omg.org/omg-dds-portal/>`__, you can refer to `DDS specification <https://www.omg.org/spec/DDS/1.4/PDF>`__ ``Annex B - Syntax for Queries and Filters`` for details.
@@ -63,8 +65,8 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics
 
 .. code-block:: c++
 
+    #include <array>
     #include <chrono>
-    #include <cstdio>
     #include <memory>
     #include <utility>
 
@@ -75,8 +77,6 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics
 
     #include "demo_nodes_cpp/visibility_control.h"
 
-    using namespace std::chrono_literals;
-
     namespace demo_nodes_cpp
     {
     // The simulated temperature data starts from -100.0 and ends at 150.0 with a step size of 10.0
@@ -84,7 +84,7 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics
 
     // Create a ContentFilteringPublisher class that subclasses the generic rclcpp::Node base class.
     // The main function below will instantiate the class as a ROS node.
-    class ContentFilteringPublisher : public rclcpp::Node
+    class ContentFilteringPublisher final : public rclcpp::Node
     {
     public:
       DEMO_NODES_CPP_PUBLIC
@@ -92,7 +92,6 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics
       : Node("content_filtering_publisher", options)
       {
         // Create a function for when messages are to be sent.
-        setvbuf(stdout, NULL, _IONBF, BUFSIZ);
         auto publish_message =
           [this]() -> void
           {
@@ -114,8 +113,10 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics
         rclcpp::QoS qos(rclcpp::KeepLast{7});
         pub_ = this->create_publisher<std_msgs::msg::Float32>("temperature", qos);
 
+        int64_t publish_ms = this->declare_parameter("publish_ms", 1000);
+
         // Use a timer to schedule periodic message publishing.
-        timer_ = this->create_wall_timer(1s, publish_message);
+        timer_ = this->create_wall_timer(std::chrono::milliseconds(publish_ms), publish_message);
       }
 
     private:
@@ -132,7 +133,7 @@ The ``ContentFilteringPublisher`` node publishes simulated temperature data star
 
 We can run the demo by running the ``ros2 run demo_nodes_cpp content_filtering_publisher`` executable (don't forget to source the setup file first):
 
-.. code-block:: bash
+.. code-block:: console
 
     $ ros2 run demo_nodes_cpp content_filtering_publisher
     [INFO] [1651094594.822753479] [content_filtering_publisher]: Publishing: '-100.000000'
@@ -172,6 +173,9 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics
 
 .. code-block:: c++
 
+    #include <array>
+    #include <string>
+
     #include "rclcpp/rclcpp.hpp"
     #include "rclcpp_components/register_node_macro.hpp"
     #include "rcpputils/join.hpp"
@@ -194,7 +198,6 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics
       explicit ContentFilteringSubscriber(const rclcpp::NodeOptions & options)
       : Node("content_filtering_subscriber", options)
       {
-        setvbuf(stdout, NULL, _IONBF, BUFSIZ);
         // Create a callback function for when messages are received.
         auto callback =
           [this](const std_msgs::msg::Float32 & msg) -> void
@@ -248,7 +251,7 @@ Applications can use the ``is_cft_enabled`` method to check if content filtering
 
 To test content filtering subscription, let's run it:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ ros2 run demo_nodes_cpp content_filtering_subscriber
     [INFO] [1651094590.682660703] [content_filtering_subscriber]: subscribed to topic "/temperature" with content filter options "data < %0 OR data > %1, {-30.000000, 100.000000}"
@@ -277,7 +280,7 @@ You should see a message showing the content filtering options used and logs for
 If content filtering is not supported by the RMW implementation, the subscription will still be created without content filtering enabled.
 We can try that by executing ``RMW_IMPLEMENTATION=rmw_cyclonedds_cpp ros2 run demo_nodes_cpp content_filtering_publisher``.
 
-.. code-block:: bash
+.. code-block:: console
 
     $ RMW_IMPLEMENTATION=rmw_cyclonedds_cpp ros2 run demo_nodes_cpp content_filtering_subscriber
     [WARN] [1651096637.893842072] [content_filtering_subscriber]: Content filter is not enabled since it is not supported

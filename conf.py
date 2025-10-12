@@ -86,6 +86,7 @@ extensions = [
     'sphinx_tabs.tabs',
     'sphinx_rtd_theme',
     'sphinx_sitemap_ros',
+    'sphinxcontrib.googleanalytics',
     'sphinxcontrib.mermaid',
 ]
 
@@ -109,6 +110,9 @@ intersphinx_mapping = {
 # See: https://sphinx-copybutton.readthedocs.io/en/latest/use.html#automatic-exclusion-of-prompts-from-the-copies
 copybutton_exclude = '.linenos, .gp, .go'
 
+# Google Analytics configuration
+googleanalytics_id = 'G-EVD5Z6G6NH'
+googleanalytics_enabled = True
 # -- Options for HTML output ----------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
@@ -116,7 +120,6 @@ copybutton_exclude = '.linenos, .gp, .go'
 #
 html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
-    'analytics_id': 'G-EVD5Z6G6NH',
     'collapse_navigation': False,
     'sticky_navigation': True,
     'navigation_depth': -1,
@@ -135,12 +138,12 @@ templates_path = [
 
 # smv_tag_whitelist = None
 
-smv_branch_whitelist = r'^(rolling|jazzy|iron|humble|galactic|foxy|eloquent|dashing|crystal)$'
+smv_branch_whitelist = r'^(rolling|kilted|jazzy|iron|humble|galactic|foxy|eloquent|dashing|crystal)$'
 
 
-smv_released_pattern = r'^refs/(heads|remotes/[^/]+)/(jazzy|iron|humble|galactic|foxy|eloquent|dashing|crystal).*$'
+smv_released_pattern = r'^refs/(heads|remotes/[^/]+)/(kilted|jazzy|iron|humble|galactic|foxy|eloquent|dashing|crystal).*$'
 smv_remote_whitelist = r'^(origin)$'
-smv_latest_version = 'jazzy'
+smv_latest_version = 'kilted'
 smv_eol_versions = ['crystal', 'dashing', 'eloquent', 'foxy', 'galactic', 'iron']
 
 distro_full_names = {
@@ -152,6 +155,7 @@ distro_full_names = {
     'humble': 'Humble Hawksbill',
     'iron': 'Iron Irwini',
     'jazzy': 'Jazzy Jalisco',
+    'kilted': 'Kilted Kaiju',
     'rolling': 'Rolling Ridley',
 }
 
@@ -168,10 +172,13 @@ html_favicon = 'favicon.ico'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-# html_static_path = ['_static']
+html_static_path = ['source/_static']
 
 # Drop any source link suffix
 html_sourcelink_suffix = ''
+
+# Relative to html_static_path
+html_css_files = ['custom.css']
 
 # -- Options for HTMLHelp output ------------------------------------------
 

@@ -171,9 +171,9 @@ Launch the simulation from a terminal in your ROS 2 workspace:
 
         .. code-block:: console
 
-            colcon build
-            source install/local_setup.bash
-            ros2 launch my_package robot_launch.py
+            $ colcon build
+            $ source install/local_setup.bash
+            $ ros2 launch my_package robot_launch.py
 
     .. group-tab:: Windows
 
@@ -181,10 +181,10 @@ Launch the simulation from a terminal in your ROS 2 workspace:
 
         .. code-block:: console
 
-            colcon build
-            export WEBOTS_HOME=/mnt/c/Program\ Files/Webots
-            source install/local_setup.bash
-            ros2 launch my_package robot_launch.py
+            $ colcon build
+            $ export WEBOTS_HOME=/mnt/c/Program\ Files/Webots
+            $ source install/local_setup.bash
+            $ ros2 launch my_package robot_launch.py
 
         Be sure to use the ``/mnt`` prefix in front of your path to the Webots installation folder to access the Windows file system from WSL.
 
@@ -194,8 +194,8 @@ Launch the simulation from a terminal in your ROS 2 workspace:
 
         .. code-block:: console
 
-            export WEBOTS_HOME=/Applications/Webots.app
-            python3 local_simulation_server.py
+            $ export WEBOTS_HOME=/Applications/Webots.app
+            $ python3 local_simulation_server.py
 
         Note that the server keeps running once the ROS 2 nodes are ended.
         You don't need to restart it every time you want to launch a new simulation.
@@ -203,10 +203,10 @@ Launch the simulation from a terminal in your ROS 2 workspace:
 
         .. code-block:: console
 
-            cd ~/ros2_ws
-            colcon build
-            source install/local_setup.bash
-            ros2 launch my_package robot_launch.py
+            $ cd ~/ros2_ws
+            $ colcon build
+            $ source install/local_setup.bash
+            $ ros2 launch my_package robot_launch.py
 
 Your robot should go forward and before hitting the wall it should turn clockwise.
 You can press ``Ctrl+F10`` in Webots or go to the ``View`` menu, ``Optional Rendering`` and ``Show DistanceSensor Rays`` to display the range of the distance sensors of the robot.

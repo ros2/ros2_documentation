@@ -37,12 +37,12 @@ Modify ``permissions.xml``
 
 Begin by making a backup of your permissions files, and open ``permissions.xml`` for editing:
 
-.. code-block:: bash
+.. code-block:: console
 
-  cd ~/sros2_demo/demo_keystore/enclaves/talker_listener/talker
-  mv permissions.p7s permissions.p7s~
-  mv permissions.xml permissions.xml~
-  vi permissions.xml
+  $ cd ~/sros2_demo/demo_keystore/enclaves/talker_listener/talker
+  $ mv permissions.p7s permissions.p7s~
+  $ mv permissions.xml permissions.xml~
+  $ vi permissions.xml
 
 We will be modifying the ``<allow_rule>`` for ``<publish>`` and ``<subscribe>``.
 The topics in this XML file use the DDS naming format, not the ROS name.
@@ -113,9 +113,9 @@ This next command creates the new S/MIME signed policy file ``permissions.p7s`` 
 The file must be signed with the Permissions CA certificate, **which requires access to the Permission CA private key**.
 If the private key has been protected, additional steps may be required to unlock and use it according to your security plan.
 
-.. code-block:: bash
+.. code-block:: console
 
-  openssl smime -sign -text -in permissions.xml -out permissions.p7s \
+  $ openssl smime -sign -text -in permissions.xml -out permissions.p7s \
     --signer permissions_ca.cert.pem \
     -inkey ~/sros2_demo/demo_keystore/private/permissions_ca.key.pem
 
@@ -125,15 +125,15 @@ Launch the node
 
 With the updated permissions in place, we can launch the node successfully using the same command used in prior tutorials:
 
-.. code-block:: bash
+.. code-block:: console
 
-  ros2 run demo_nodes_cpp talker --ros-args --enclave /talker_listener/talker
+  $ ros2 run demo_nodes_cpp talker --ros-args --enclave /talker_listener/talker
 
 However, attempting to remap the ``chatter`` topic prevents the node from launching (note that this requires the ``ROS_SECURITY_STRATEGY`` set to ``Enforce``).
 
-.. code-block:: bash
+.. code-block:: console
 
-  ros2 run demo_nodes_cpp talker --ros-args --enclave /talker_listener/talker \
+  $ ros2 run demo_nodes_cpp talker --ros-args --enclave /talker_listener/talker \
     --remap chatter:=not_chatter
 
 
@@ -146,18 +146,18 @@ Let's creates a policy for both the ``talker`` and the ``listener`` to only use 
 
 Begin by downloading the ``sros2`` repository with the sample policy files:
 
-.. code-block:: bash
+.. code-block:: console
 
-  git clone https://github.com/ros2/sros2.git /tmp/sros2
+  $ git clone https://github.com/ros2/sros2.git /tmp/sros2
 
 Then use the ``create_permission`` verb while pointing to the sample policy to generate the XML permission files:
 
-.. code-block:: bash
+.. code-block:: console
 
-  ros2 security create_permission demo_keystore \
+  $ ros2 security create_permission demo_keystore \
     /talker_listener/talker \
     /tmp/sros2/sros2/test/policies/sample.policy.xml
-  ros2 security create_permission demo_keystore \
+  $ ros2 security create_permission demo_keystore \
     /talker_listener/listener \
     /tmp/sros2/sros2/test/policies/sample.policy.xml
 
@@ -165,20 +165,20 @@ These permission files allow nodes to only publish or subscribe to the ``chatter
 
 In one terminal with security enabled as in previous security tutorials, run the ``talker`` demo program:
 
-.. code-block:: bash
+.. code-block:: console
 
-  ros2 run demo_nodes_cpp talker --ros-args -e /talker_listener/talker
+  $ ros2 run demo_nodes_cpp talker --ros-args -e /talker_listener/talker
 
 In another terminal do the same with the ``listener`` program:
 
-.. code-block:: bash
+.. code-block:: console
 
-  ros2 run demo_nodes_py listener --ros-args -e /talker_listener/listener
+  $ ros2 run demo_nodes_py listener --ros-args -e /talker_listener/listener
 
 At this point, your ``talker`` and ``listener`` nodes will be communicating securely using explicit access control lists.
 However, the following attempt for the ``listener`` node to subscribe to a topic other than ``chatter`` will fail:
 
-.. code-block:: bash
+.. code-block:: console
 
-  ros2 run demo_nodes_py listener --ros-args --enclave /talker_listener/listener \
+  $ ros2 run demo_nodes_py listener --ros-args --enclave /talker_listener/listener \
     --remap chatter:=not_chatter

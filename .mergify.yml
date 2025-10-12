@@ -6,6 +6,7 @@ pull_request_rules:
     actions:
       backport:
         branches:
+          - kilted 
           - jazzy
           - humble
 
@@ -16,8 +17,18 @@ pull_request_rules:
     actions:
       backport:
         branches:
+          - kilted
           - jazzy
           - humble
+
+  - name: backport to kilted at reviewers discretion
+    conditions:
+      - base=rolling
+      - "label=backport-kilted"
+    actions:
+      backport:
+        branches:
+          - kilted
 
   - name: backport to jazzy at reviewers discretion
     conditions:

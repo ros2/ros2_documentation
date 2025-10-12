@@ -1,23 +1,19 @@
-import os
-
-from ament_index_python.packages import get_package_share_directory
-
 from launch import LaunchDescription
+from launch.substitutions import PathJoinSubstitution
 from launch_ros.actions import Node
+from launch_ros.substitutions import FindPackageShare
 
 
 def generate_launch_description():
-    config = os.path.join(
-        get_package_share_directory('launch_tutorial'),
-        'config',
-        'turtlesim.yaml')
-
     return LaunchDescription([
         Node(
             package='turtlesim',
             executable='turtlesim_node',
             namespace='turtlesim3',
             name='sim',
-            parameters=[config]
-        )
+            parameters=[
+                PathJoinSubstitution([
+                    FindPackageShare('launch_tutorial'), 'config', 'turtlesim.yaml']),
+            ],
+        ),
     ])

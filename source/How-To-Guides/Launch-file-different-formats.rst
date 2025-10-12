@@ -54,13 +54,13 @@ To try them locally, you can either create a new package and use
 
 .. code-block:: console
 
-  ros2 launch <package_name> <launch_file_name>
+  $ ros2 launch <package_name> <launch_file_name>
 
 or run the file directly by specifying the path to the launch file
 
 .. code-block:: console
 
-  ros2 launch <path_to_launch_file>
+  $ ros2 launch <path_to_launch_file>
 
 Setting arguments
 ^^^^^^^^^^^^^^^^^
@@ -70,13 +70,13 @@ For example, you can set the value of ``background_r`` in the following way:
 
 .. code-block:: console
 
-  ros2 launch <package_name> <launch_file_name> background_r:=255
+  $ ros2 launch <package_name> <launch_file_name> background_r:=255
 
 or
 
 .. code-block:: console
 
-  ros2 launch <path_to_launch_file> background_r:=255
+  $ ros2 launch <path_to_launch_file> background_r:=255
 
 Controlling the turtles
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -85,7 +85,7 @@ To test that the remapping is working, you can control the turtles by running th
 
 .. code-block:: console
 
-  ros2 run turtlesim turtle_teleop_key --ros-args --remap __ns:=/turtlesim1
+  $ ros2 run turtlesim turtle_teleop_key --ros-args --remap __ns:=/turtlesim1
 
 
 .. _launch-file-different-formats-which:

@@ -49,8 +49,8 @@ Since we will use the pub/sub and service/client packages created in earlier tut
   $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 tutorial_interfaces
 
 ``tutorial_interfaces`` is the name of the new package.
-Note that it is, and can only be, a CMake package, but this doesn't restrict in which type of packages you can use your messages and services.
-You can create your own custom interfaces in a CMake package, and then use it in a C++ or Python node, which will be covered in the last section.
+Note that it is, and can only be, an ament_cmake package, but this doesn't restrict in which type of packages you can use your messages and services.
+You can create your own custom interfaces in an ament_cmake package, and then use it in a C++ or Python node, which will be covered in the last section.
 
 The ``.msg`` and ``.srv`` files are required to be placed in directories called ``msg`` and ``srv`` respectively.
 Create the directories in ``ros2_ws/src/tutorial_interfaces``:
@@ -188,49 +188,31 @@ In a new terminal, run the following command from within your workspace (``ros2_
 
       $ call install/setup.bat
 
-Now you can confirm that your interface creation worked by using the ``ros2 interface show`` command:
+Now you can confirm that your interface creation worked by using the ``ros2 interface show`` command.
+The output you see in your terminal should look similar to the following:
 
 .. code-block:: console
 
   $ ros2 interface show tutorial_interfaces/msg/Num
-
-should return:
-
-.. code-block:: bash
-
-    int64 num
-
-And
+  int64 num
 
 .. code-block:: console
 
   $ ros2 interface show tutorial_interfaces/msg/Sphere
-
-should return:
-
-.. code-block:: console
-
-    geometry_msgs/Point center
-            float64 x
-            float64 y
-            float64 z
-    float64 radius
-
-And
+  geometry_msgs/Point center
+          float64 x
+          float64 y
+          float64 z
+  float64 radius
 
 .. code-block:: console
 
   $ ros2 interface show tutorial_interfaces/srv/AddThreeInts
-
-should return:
-
-.. code-block:: bash
-
-    int64 a
-    int64 b
-    int64 c
-    ---
-    int64 sum
+  int64 a
+  int64 b
+  int64 c
+  ---
+  int64 sum
 
 7 Test the new interfaces
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -623,11 +605,6 @@ Since you'll be changing the original two integer request srv to a three integer
       int main(int argc, char **argv)
       {
         rclcpp::init(argc, argv);
-
-        if (argc != 4) { // CHANGE
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "usage: add_three_ints_client X Y Z");      // CHANGE
-            return 1;
-        }
 
         std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("add_three_ints_client");  // CHANGE
         rclcpp::Client<tutorial_interfaces::srv::AddThreeInts>::SharedPtr client =                // CHANGE

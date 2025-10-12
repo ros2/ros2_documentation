@@ -38,7 +38,7 @@ To generate the documentation for a package in HTML format with ``rosdoc2``, run
 
 .. code-block:: console
 
-   rosdoc2 build --package-path <package-path>
+   $ rosdoc2 build --package-path <package-path>
 
 The documentation is written to ``docs_output/<package-name>/index.html`` and can be viewed in a browser.
 
@@ -61,7 +61,7 @@ To generate a default ``rosdoc2.yaml`` which you can then further customize, run
 
 .. code-block:: console
 
-   rosdoc2 default_config --package-path <package-path>
+   $ rosdoc2 default_config --package-path <package-path>
 
 And add ``<rosdoc2>rosdoc2.yaml</rosdoc2>`` to the export section in your ``package.xml``:
 

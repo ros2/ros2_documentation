@@ -57,7 +57,7 @@ You can either install the official released package, or install it from the lat
 
         .. code-block:: console
 
-            sudo apt-get install ros-{DISTRO}-webots-ros2
+            $ sudo apt-get install ros-{DISTRO}-webots-ros2
 
     .. group-tab:: Install ``webots_ros2`` from sources
 
@@ -65,40 +65,40 @@ You can either install the official released package, or install it from the lat
 
         .. code-block:: console
 
-            mkdir -p ~/ros2_ws/src
+            $ mkdir -p ~/ros2_ws/src
 
         Source the ROS 2 environment.
 
         .. code-block:: console
 
-            source /opt/ros/{DISTRO}/setup.bash
+            $ source /opt/ros/{DISTRO}/setup.bash
 
         Retrieve the sources from Github.
 
         .. code-block:: console
 
-            cd ~/ros2_ws
-            git clone --recurse-submodules https://github.com/cyberbotics/webots_ros2.git src/webots_ros2
+            $ cd ~/ros2_ws
+            $ git clone --recurse-submodules https://github.com/cyberbotics/webots_ros2.git src/webots_ros2
 
         Install the package dependencies.
 
         .. code-block:: console
 
-            sudo apt install python3-pip python3-rosdep python3-colcon-common-extensions
-            sudo rosdep init && rosdep update
-            rosdep install --from-paths src --ignore-src --rosdistro {DISTRO}
+            $ sudo apt install python3-pip python3-rosdep python3-colcon-common-extensions
+            $ sudo rosdep init && rosdep update
+            $ rosdep install --from-paths src --ignore-src --rosdistro {DISTRO}
 
         Build the package using ``colcon``.
 
         .. code-block:: console
 
-            colcon build
+            $ colcon build
 
         Source this workspace.
 
         .. code-block:: console
 
-            source install/local_setup.bash
+            $ source install/local_setup.bash
 
 2 Launch the ``webots_ros2_universal_robot`` example
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -109,23 +109,23 @@ First source the ROS 2 environment, if not done already.
 
 .. code-block:: console
 
-        source /opt/ros/{DISTRO}/setup.bash
+        $ source /opt/ros/{DISTRO}/setup.bash
 
 Setting the ``WEBOTS_HOME`` environment variable allows you to start a specific Webots installation.
 
 .. code-block:: console
 
-        export WEBOTS_HOME=/usr/local/webots
+        $ export WEBOTS_HOME=/usr/local/webots
 
 If installed from sources, source your ROS 2 workspace, if not done already.
 
 .. code-block:: console
 
-        cd ~/ros2_ws
-        source install/local_setup.bash
+        $ cd ~/ros2_ws
+        $ source install/local_setup.bash
 
 Use the ROS 2 launch command to start demo packages (e.g. ``webots_ros2_universal_robot``).
 
 .. code-block:: console
 
-        ros2 launch webots_ros2_universal_robot multirobot_launch.py
+        $ ros2 launch webots_ros2_universal_robot multirobot_launch.py

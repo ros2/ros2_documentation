@@ -210,13 +210,13 @@ As an example, a command line using Dashing syntax like:
 
 .. code-block:: console
 
-    ros2 run some_package some_node foo:=bar __params:=/path/to/params.yaml __log_level:=WARN --user-flag
+    $ ros2 run some_package some_node foo:=bar __params:=/path/to/params.yaml __log_level:=WARN --user-flag
 
 is written using Eloquent (and onwards) syntax as:
 
 .. code-block:: console
 
-    ros2 run some_package some_node --ros-args --remap foo:=bar --params-file /path/to/params.yaml --log-level WARN -- --user-flag
+    $ ros2 run some_package some_node --ros-args --remap foo:=bar --params-file /path/to/params.yaml --log-level WARN -- --user-flag
 
 This explicit syntax affords new features, like single parameter assignment ``--param name:=value``.
 For further reference and rationale, check the `ROS command line arguments design document <https://design.ros2.org/articles/ros_command_line_arguments.html>`__.

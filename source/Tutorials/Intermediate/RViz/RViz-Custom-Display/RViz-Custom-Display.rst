@@ -178,7 +178,7 @@ Add the following lines to the top of the standard boilerplate.
 
   .. code-block::
 
-     [rviz2]: PluginlibFactory: The plugin for class 'rviz_plugin_tutorial::PointDisplay' failed to load. Error: Failed to load library /home/ros/ros2_ws/install/rviz_plugin_tutorial/lib/libpoint_display.so. Make sure that you are calling the PLUGINLIB_EXPORT_CLASS macro in the library code, and that names are consistent between this macro and your XML. Error string: Could not load library LoadLibrary error: /home/ros/ros2_ws/install/rviz_plugin_tutorial/lib/libpoint_display.so: undefined symbol: _ZTVN20rviz_plugin_tutorial12PointDisplayE, at /tmp/binarydeb/ros-foxy-rcutils-1.1.4/src/shared_library.c:84
+     [ERROR] [1746734178.883047840] [rviz2]: PluginlibFactory: The plugin for class 'Point2D' failed to load. Error: Failed to load library /root/ros2_ws/install/rviz_plugin_tutorial/lib/libpoint_display.so. Make sure that you are calling the PLUGINLIB_EXPORT_CLASS macro in the library code, and that names are consistent between this macro and your XML. Error string: Could not load library dlopen error: /root/ros2_ws/install/rviz_plugin_tutorial/lib/libpoint_display.so: undefined symbol: _ZTVN20rviz_plugin_tutorial12PointDisplayE, at ./src/shared_library.c:96
 
 * A lot of the other code ensures that the plugin portion works.
   Namely, calling ``pluginlib_export_plugin_description_file`` is essential to getting RViz to find your new plugin.
@@ -211,9 +211,9 @@ If we put the topic ``/point`` in, it should load fine but not display anything.
 
 You can publish messages with the following command:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 topic pub /point rviz_plugin_tutorial_msgs/msg/Point2D "{header: {frame_id: map}, x: 1, y: 2}" -r 0.5
+   $ ros2 topic pub /point rviz_plugin_tutorial_msgs/msg/Point2D "{header: {frame_id: map}, x: 1, y: 2}" -r 0.5
 
 That should result in the "We got a message" logging to appear in the ``stdout`` of RViz.
 

@@ -18,7 +18,7 @@ Enabling topic statistics (C++)
 Background
 ----------
 
-This is a short tutorial on how to enable topic statistics in ROS 2 and view the published statistics output using command line tools (:doc:`ros2topic <../../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`).
+This is a short tutorial on how to enable topic statistics in ROS 2 and view the published statistics output using command line tools (:doc:`ros2 topic <../../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`).
 
 ROS 2 provides the integrated measurement of statistics for messages received by any subscription,
 called Topic Statistics.
@@ -52,13 +52,13 @@ download the example talker code by entering the following command:
 
       .. code-block:: console
 
-            wget -O member_function_with_topic_statistics.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function_with_topic_statistics.cpp
+            $ wget -O member_function_with_topic_statistics.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function_with_topic_statistics.cpp
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-            wget -O member_function_with_topic_statistics.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function_with_topic_statistics.cpp
+            $ wget -O member_function_with_topic_statistics.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function_with_topic_statistics.cpp
 
    .. group-tab:: Windows
 
@@ -95,7 +95,7 @@ Open the file using your preferred text editor.
         // configure the topic name (default '/statistics')
         // options.topic_stats_options.publish_topic = "/topic_statistics"
 
-        auto callback = [this](std_msgs::msg::String::SharedPtr msg) {
+        auto callback = [this](const std_msgs::msg::String & msg) {
             this->topic_callback(msg);
           };
 
@@ -104,9 +104,9 @@ Open the file using your preferred text editor.
       }
 
     private:
-      void topic_callback(const std_msgs::msg::String::ConstSharedPtr msg) const
+      void topic_callback(const std_msgs::msg::String & msg) const
       {
-        RCLCPP_INFO(this->get_logger(), "I heard: '%s'", msg->data.c_str());
+        RCLCPP_INFO(this->get_logger(), "I heard: '%s'", msg.data.c_str());
       }
       rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription_;
     };
@@ -184,23 +184,18 @@ Run the subscriber with statistics enabled node:
 
 .. code-block:: console
 
-     ros2 run cpp_pubsub listener_with_topic_statistics
+     $ ros2 run cpp_pubsub listener_with_topic_statistics
 
 Now run the talker node:
 
 .. code-block:: console
 
-     ros2 run cpp_pubsub talker
-
-The terminal should start publishing info messages every 0.5 seconds, like so:
-
-.. code-block:: console
-
-    [INFO] [minimal_publisher]: Publishing: "Hello World: 0"
-    [INFO] [minimal_publisher]: Publishing: "Hello World: 1"
-    [INFO] [minimal_publisher]: Publishing: "Hello World: 2"
-    [INFO] [minimal_publisher]: Publishing: "Hello World: 3"
-    [INFO] [minimal_publisher]: Publishing: "Hello World: 4"
+     $ ros2 run cpp_pubsub talker
+     [INFO] [minimal_publisher]: Publishing: "Hello World: 0"
+     [INFO] [minimal_publisher]: Publishing: "Hello World: 1"
+     [INFO] [minimal_publisher]: Publishing: "Hello World: 2"
+     [INFO] [minimal_publisher]: Publishing: "Hello World: 3"
+     [INFO] [minimal_publisher]: Publishing: "Hello World: 4"
 
 The listener will start printing messages to the console, starting at whatever message count the publisher is on at that time, like so:
 
@@ -219,17 +214,11 @@ We will observe these messages in the next section.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 While the nodes are running, open a new terminal window.
-Execute the following command:
+Execute the following command, which will list all currently active topics.
 
 .. code-block:: console
 
-    ros2 topic list
-
-This will list all currently active topics.
-You should see the following:
-
-.. code-block:: console
-
+    $ ros2 topic list
     /parameter_events
     /rosout
     /statistics
@@ -245,17 +234,13 @@ We can visualize this using :doc:`RQt <../../../Concepts/Intermediate/About-RQt>
 
 .. image:: images/topic_stats_rqt.png
 
-Now we can view the statistics data published to this topic with the following command:
-
-.. code-block:: console
-
-    ros2 topic echo /statistics
-
+Now we can view the statistics data published to this topic with the following command.
 The terminal should start publishing statistics messages every 10 seconds, because the
-``topic_stats_options.publish_period`` subscription configuration was optionally changed earlier in the tutorial.
+``topic_stats_options.publish_period`` subscription configuration was optionally changed earlier in the tutorial:
 
 .. code-block:: console
 
+    $ ros2 topic echo /statistics
     ---
     measurement_source_name: minimal_subscriber_with_topic_statistics
     metrics_source: message_age
@@ -268,15 +253,15 @@ The terminal should start publishing statistics messages every 10 seconds, becau
       nanosec: 930797670
     statistics:
     - data_type: 1
-      data: .nan
+      data: 0.5522003000000001
     - data_type: 3
-      data: .nan
+      data: 0.756992
     - data_type: 2
-      data: .nan
+      data: 0.269039
     - data_type: 5
-      data: 0.0
+      data: 20.0
     - data_type: 4
-      data: .nan
+      data: 0.16441001797065166
     ---
     measurement_source_name: minimal_subscriber_with_topic_statistics
     metrics_source: message_period
@@ -315,10 +300,6 @@ data_type value     statistics
 
 Here we see the two currently possible calculated statistics for the ``std_msgs::msg::String`` message published
 to ``/topic`` by the ``minimal_publisher``.
-Because the ``std_msgs::msg::String`` does not have a message header, the ``message_age`` calculation cannot be performed,
-so NaNs are returned.
-However, the ``message_period`` can be calculated and we see the statistics populated
-in the message above.
 
 Summary
 -------

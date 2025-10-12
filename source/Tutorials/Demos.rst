@@ -7,7 +7,6 @@ Demos
    Demos/Quality-of-Service
    Demos/Managed-Nodes
    Demos/Intra-Process-Communication
-   Demos/Rosbag-with-ROS1-Bridge
    Demos/Real-Time-Programming
    Demos/dummy-robot-demo
    Demos/Logging-and-logger-configuration

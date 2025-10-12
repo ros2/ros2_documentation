@@ -44,7 +44,7 @@ Reduce the value, for example, to 3s, by running:
 
 .. code-block:: console
 
-    sudo sysctl net.ipv4.ipfrag_time=3
+    $ sudo sysctl net.ipv4.ipfrag_time=3
 
 Reducing this parameter's value also reduces the window of time where no fragments are received.
 The parameter is global for all incoming fragments, so the feasibility of reducing its value needs to be considered for every environment.
@@ -58,7 +58,7 @@ Increase the value, for example, to 128MB, by running:
 
 .. code-block:: console
 
-    sudo sysctl net.ipv4.ipfrag_high_thresh=134217728     # (128 MB)
+    $ sudo sysctl net.ipv4.ipfrag_high_thresh=134217728     # (128 MB)
 
 Significantly increasing this parameter's value is an attempt to ensure that the buffer never becomes completely full.
 However, the value would likely have to be significantly high to hold all data received during the time window of ``ipfrag_time``, assuming every UDP packet lacks one fragment.
@@ -71,20 +71,20 @@ Because of the increased serialization overhead, severe performance degradation 
 **Workaround:** Use multiple arrays of primitives instead of a single array of custom types, or pack into byte array as done e.g. in ``PointCloud2`` messages.
 For example, instead of defining a ``FooArray`` message as:
 
-.. code-block:: console
+.. code-block:: bash
 
     Foo[] my_large_array
 
 with ``Foo`` is defined as:
 
-.. code-block:: console
+.. code-block:: bash
 
     uint64 foo_1
     uint32 foo_2
 
 Instead, define ``FooArray`` as:
 
-.. code-block:: console
+.. code-block:: bash
 
     uint64[] foo_1_array
     uint32[] foo_2_array
@@ -112,11 +112,11 @@ Set the maximum receive buffer size, ``rmem_max``, by running:
 
  .. code-block:: console
 
-    sudo sysctl -w net.core.rmem_max=2147483647
+    $ sudo sysctl -w net.core.rmem_max=2147483647
 
 Or permanently set it by editing the ``/etc/sysctl.d/10-cyclone-max.conf`` file to contain:
 
- .. code-block:: console
+ .. code-block:: bash
 
     net.core.rmem_max=2147483647
 
@@ -136,7 +136,7 @@ Next, to set the minimum socket receive buffer size that Cyclone requests, write
 
 Then, whenever you are going to run a node, set the following environment variable:
 
-.. code-block:: console
+.. code-block:: bash
 
     CYCLONEDDS_URI=file:///absolute/path/to/config_file.xml
 
@@ -151,7 +151,7 @@ Set the maximum receive buffer size, ``rmem_max``, by running:
 
  .. code-block:: console
 
-    sudo sysctl -w net.core.rmem_max=4194304
+    $ sudo sysctl -w net.core.rmem_max=4194304
 
 By tuning ``net.core.rmem_max`` to 4MB in the Linux kernel, the QoS profile can produce truly reliable behavior.
 

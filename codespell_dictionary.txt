@@ -1,11 +1,11 @@
-amnet->ament
 amemt->ament
 amentt->ament
+amnet->ament
+caktin->catkin
 catikn->catkin
 catin->catkin
-caktin->catkin
-colcno->colcon
 colcn->colcon
+colcno->colcon
 colcom->colcon
 colconb->colcon
 colconm->colcon

@@ -188,6 +188,11 @@ This allows the installed files to be changed by changing the files in the ``sou
 
     Windows doesn't allow long paths, so ``merge-install`` will combine all the paths into the ``install`` directory.
 
+.. tip::
+
+   Running ``colcon build`` may freeze the screen and mouse of systems that are CPU-, RAM- and I/O-limited (e.g., Raspberry Pi), so it might be useful to use the ``--executor sequential`` argument to build the packages one by one instead of using parallelism.
+   See the `colcon documentation <https://colcon.readthedocs.io/en/released/reference/executor-arguments.html>`_ for more arguments as needed.
+
 After the build is finished, we should see the ``build``, ``install``, and ``log`` directories:
 
 .. code-block:: bash
@@ -257,6 +262,8 @@ These files will add all of the required elements to your path and library paths
 
   .. group-tab:: Windows
 
+    In a Windows command line interface:
+
     .. code-block:: console
 
        $ call install\setup.bat
@@ -299,6 +306,7 @@ An example of an ``ament_python`` build is the `ament_index_python package <http
 A package such as `demo_nodes_cpp <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/demo_nodes_cpp>`__ uses the ``ament_cmake`` build type, and uses CMake as the build tool.
 
 For convenience, you can use the tool ``ros2 pkg create`` to create a new package based on a template.
+A full description of creating a package and how to use ``ros2 pkg create`` is in the upcoming tutorial :doc:`create a package <./Creating-Your-First-ROS2-Package>`.
 
 .. note:: For ``catkin`` users, this is the equivalent of ``catkin_create_package``.
 

@@ -29,15 +29,15 @@ Connect to a live data source
 
 To connect to a live ROS 2 stack, you will need to `install the Foxglove ROS 2 bridge <https://docs.foxglove.dev/docs/connecting-to-data/ros-foxglove-bridge>`__ with:
 
-.. code-block:: bash
+.. code-block:: console
 
-   sudo apt install ros-$ROS_DISTRO-foxglove-bridge
+   $ sudo apt install ros-$ROS_DISTRO-foxglove-bridge
 
 Once you have the bridge installed, launch it with:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 launch foxglove_bridge foxglove_bridge_launch.xml
+   $ ros2 launch foxglove_bridge foxglove_bridge_launch.xml
 
 With the bridge running on your robot, you're ready to connect view data in Foxglove.
 Make sure you are on the same network as your robot, open Foxglove (web or desktop) and click "Open connection".
@@ -57,9 +57,9 @@ Foxglove is particularly convenient for recorded data because it does not requir
 
 Use the :doc:`ros2 bag command line tool <../Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data>` to record data from your robot to a ``.mcap`` file:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 bag record -a
+   $ ros2 bag record -a
 
 From the Foxglove dashboard or menu, select "Open local file" and navigate to your recorded ``.mcap`` file.
 

@@ -5,6 +5,8 @@ Advanced
    :maxdepth: 1
 
    Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial
+   Advanced/Topic-Keys/Topic-Keys-Tutorial
+   Advanced/Topic-Keys/Filtered-Topic-Keys-Tutorial
    Advanced/Discovery-Server/Discovery-Server
    Advanced/Allocator-Template-Tutorial
    Advanced/Ament-Lint-For-Clean-Code

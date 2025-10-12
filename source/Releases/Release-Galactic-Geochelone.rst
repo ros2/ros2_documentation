@@ -52,9 +52,9 @@ Ability to specify per-logger log levels
 
 It is now possible to specify different logging levels for different loggers on the command line:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 run demo_nodes_cpp talker --ros-args --log-level WARN --log-level talker:=DEBUG
+   $ ros2 run demo_nodes_cpp talker --ros-args --log-level WARN --log-level talker:=DEBUG
 
 The above command sets a global log level of WARN, but sets the log level of the talker node messages to DEBUG.
 The ``--log-level`` command-line option can be passed an arbitrary number of times to set different log levels for each logger.
@@ -94,11 +94,11 @@ Source code generators and interface definition translators are accessible throu
 
 For example, given a ``Demo`` message in some ``demo`` package like:
 
-.. code-block:: bash
+.. code-block:: console
 
-  mkdir -p demo/msg
-  cd demo
-  cat << EOF > msg/Demo.msg
+  $ mkdir -p demo/msg
+  $ cd demo
+  $ cat << EOF > msg/Demo.msg
   std_msgs/Header header
   geometry_msgs/Twist twist
   geometry_msgs/Accel accel
@@ -106,18 +106,18 @@ For example, given a ``Demo`` message in some ``demo`` package like:
 
 it is easy to generate C, C++, and Python support source code:
 
-.. code-block:: bash
+.. code-block:: console
 
-  rosidl generate -o gen -t c -t cpp -t py -I$(ros2 pkg prefix --share std_msgs)/.. \
+  $ rosidl generate -o gen -t c -t cpp -t py -I$(ros2 pkg prefix --share std_msgs)/.. \
     -I$(ros2 pkg prefix --share geometry_msgs)/.. demo msg/Demo.msg
 
 Generated source code will be put in the ``gen`` directory.
 
 One may also translate the message definition to a different format for a third-party code generation tool to consume:
 
-.. code-block:: bash
+.. code-block:: console
 
-  rosidl translate -o gen --to idl -I$(ros2 pkg prefix --share std_msgs)/.. \
+  $ rosidl translate -o gen --to idl -I$(ros2 pkg prefix --share std_msgs)/.. \
     -I$(ros2 pkg prefix --share geometry_msgs)/.. demo msg/Demo.msg
 
 The translated message definition will be put in the ``gen`` directory.
@@ -181,13 +181,13 @@ To see this in action, run the following commands.
 
 Terminal 1:
 
-.. code-block:: bash
+.. code-block:: console
 
   $ ros2 topic pub /chatter std_msgs/msg/String "data: 'hello'"
 
 Terminal 2:
 
-.. code-block:: bash
+.. code-block:: console
 
   $ ros2 topic echo --raw /chatter
   b'\x00\x01\x00\x00\x06\x00\x00\x00hello\x00\x00\x00'
@@ -222,13 +222,13 @@ For example:
 
 Terminal 1:
 
-.. code-block:: bash
+.. code-block:: console
 
   $ ros2 run demo_nodes_cpp parameter_blackboard
 
 Terminal 2:
 
-.. code-block:: bash
+.. code-block:: console
 
   $ ros2 param set /parameter_blackboard foo bar  # sets 'foo' parameter to value 'bar'
   $ ros2 param dump /parameter_blackboard  # dumps current value of parameters to ./parameter_blackboard.yaml
@@ -244,28 +244,28 @@ Given a publisher and a subscription with `incompatible QoS settings <../../Conc
 
 Terminal 1:
 
-.. code-block:: bash
+.. code-block:: console
 
   $ ros2 run demo_nodes_py talker_qos -n 1000  # i.e. best_effort publisher
 
 Terminal 2:
 
-.. code-block:: bash
+.. code-block:: console
 
   $ ros2 run demo_nodes_py listener_qos --reliable -n 1000  # i.e. reliable subscription
 
 ``ros2doctor`` reports:
 
-.. code-block:: bash
+.. code-block:: console
 
   $ ros2 doctor --report
-  # ...
+  ~ ...
      QOS COMPATIBILITY LIST
   topic [type]            : /chatter [std_msgs/msg/String]
   publisher node          : talker_qos
   subscriber node         : listener_qos
   compatibility status    : ERROR: Best effort publisher and reliable subscription;
-  # ...
+  ~ ...
 
 while ``rqt_graph`` shows:
 
@@ -328,16 +328,16 @@ To see this in action, you may run these C++ examples (to be found in the `ros2/
 
 Terminal 1:
 
-.. code-block:: bash
+.. code-block:: console
 
-  ros2 run examples_rclcpp_minimal_publisher publisher_member_function_with_unique_network_flow_endpoints
+  $ ros2 run examples_rclcpp_minimal_publisher publisher_member_function_with_unique_network_flow_endpoints
 
 
 Terminal 2:
 
-.. code-block:: bash
+.. code-block:: console
 
-  ros2 run examples_rclcpp_minimal_subscriber subscriber_member_function_with_unique_network_flow_endpoints
+  $ ros2 run examples_rclcpp_minimal_subscriber subscriber_member_function_with_unique_network_flow_endpoints
 
 
 See the `Unique Network Flows design document <https://github.com/ros2/design/pull/304>`_ for further reference.
@@ -351,16 +351,16 @@ Split recording by time
 In Foxy, you could only split bags as they were recording by the size of the bag, now you can also split by the elapsed time.
 The following command will split bagfiles into 100-second chunks.
 
-.. code-block:: bash
+.. code-block:: console
 
-  ros2 bag record --all --max-bag-duration 100
+  $ ros2 bag record --all --max-bag-duration 100
 
 ros2 bag list
 """""""""""""
 
 This new command lists installed plugins of various types that rosbag2 uses.
 
-.. code-block:: bash
+.. code-block:: console
 
   $ ros2 bag list storage
   rosbag2_v2
@@ -383,9 +383,9 @@ Compress per-message
 
 In Foxy, you could automatically compress each rosbag file as it was split (per-file compression), but now you can also specify per-message compression.
 
-.. code-block:: bash
+.. code-block:: console
 
-  ros2 bag record --all --compression-format zstd --compression-mode message
+  $ ros2 bag record --all --compression-format zstd --compression-mode message
 
 
 Rosbag2 Python API
@@ -415,15 +415,15 @@ These options may be used together or separately, and in conjunction with ``--al
 
 The following command will record only topics with "scan" in the name.
 
-.. code-block:: bash
+.. code-block:: console
 
-  ros2 bag record --regex "*scan*"
+  $ ros2 bag record --regex "*scan*"
 
 The following command will record all topics except for ones in ``/my_namespace/``
 
-.. code-block:: bash
+.. code-block:: console
 
-  ros2 bag record --all --exclude "/my_namespace/*"
+  $ ros2 bag record --all --exclude "/my_namespace/*"
 
 
 ``ros2 bag reindex``
@@ -440,12 +440,16 @@ New controls have been added for rosbag2 playback - pause & resume, change rate,
 As of the Galactic release, these controls are exposed only as services on the rosbag2 player node.
 Development is in progress to expose them to keyboard controls as well in ``ros2 bag play``, but until then a user application with buttons or keyboard controls may be trivially implemented to call these services.
 
-.. code-block:: bash
+In one shell:
 
-  # In one shell
+.. code-block:: console
+
   $ ros2 bag play my_bag
 
-  # In another shell
+In another shell:
+
+.. code-block:: console
+
   $ ros2 service list -t
   /rosbag2_player/get_rate [rosbag2_interfaces/srv/GetRate]
   /rosbag2_player/is_paused [rosbag2_interfaces/srv/IsPaused]
@@ -455,25 +459,44 @@ Development is in progress to expose them to keyboard controls as well in ``ros2
   /rosbag2_player/set_rate [rosbag2_interfaces/srv/SetRate]
   /rosbag2_player/toggle_paused [rosbag2_interfaces/srv/TogglePaused]
 
-  # Check if playback is paused
   $ ros2 service call /rosbag2_player/is_paused rosbag2_interfaces/IsPaused
 
-  # Pause playback
+To pause playback:
+
+.. code-block:: console
+
   $ ros2 service call /rosbag2_player/pause rosbag2_interfaces/Pause
 
-  # Resume playback
+To resume playback:
+
+.. code-block:: console
+
   $ ros2 service call /rosbag2_player/resume rosbag2_interfaces/Resume
 
-  # Change the paused state of playback to its opposite. If playing, pauses. If paused, resumes.
+To change the paused state of playback to its opposite.
+If playing, pauses.
+If paused, resumes.
+
+.. code-block:: console
+
   $ ros2 service call /rosbag2_player/toggle_paused rosbag2_interfaces/TogglePaused
 
-  # Get the current playback rate
+To get the current playback rate:
+
+.. code-block:: console
+
   $ ros2 service call /rosbag2_player/get_rate
 
-  # Set the current playback rate (must be > 0)
+To set the current playback rate (must be > 0):
+
+.. code-block:: console
+
   $ ros2 service call /rosbag2_player/set_rate rosbag2_interfaces/SetRate "rate: 0.1"
 
-  # Play a single next message (only works while paused)
+To play a single next message (only works while paused):
+
+.. code-block:: console
+
   $ ros2 service call /rosbag2_player/play_next rosbag2_interfaces/PlayNext
 
 
@@ -483,13 +506,18 @@ Playback publishes /clock
 Rosbag2 can also dictate "simulation time" by publishing to the ``/clock`` topic during playback.
 The following commands will publish the clock message at a regular interval.
 
-.. code-block:: bash
+To publish at the default rate of 40Hz:
 
-  # Publish at default rate - 40Hz
-  ros2 bag play my_bag --clock
+.. code-block:: console
 
-  # Publish at specific rate - 100Hz
-  ros2 bag play my_bag --clock 100
+  $ ros2 bag play my_bag --clock
+
+
+To publish at a specific rate, e.g., 100Hz:
+
+.. code-block:: console
+
+  $ ros2 bag play my_bag --clock 100
 
 Changes since the Foxy release
 ------------------------------
@@ -579,9 +607,9 @@ This means that the node's namespace will no longer have an effect on the ``/tf`
 
 For example:
 
-.. code-block:: bash
+.. code-block:: console
 
-  ros2 run tf2_ros tf2_echo --ros-args -r __ns:=/test -- odom base_link
+  $ ros2 run tf2_ros tf2_echo --ros-args -r __ns:=/test -- odom base_link
 
 will subscribe to ``/tf`` and ``/tf_static``, as ``ros2 topic list`` will show.
 
@@ -900,9 +928,9 @@ Daemon slows down CLI on Windows
 
 As a workaround, CLI commands may be used without a daemon e.g.:
 
-.. code-block:: bash
+.. code-block:: console
 
-  ros2 topic list --no-daemon
+  $ ros2 topic list --no-daemon
 
 
 Issue is tracked by `ros2/ros2cli#637 <https://github.com/ros2/ros2cli/issues/637>`_.

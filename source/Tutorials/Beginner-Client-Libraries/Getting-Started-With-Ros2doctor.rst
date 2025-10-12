@@ -149,20 +149,35 @@ To get a full report, enter the following command in the terminal:
 
     $ ros2 doctor --report
 
-Which will return a list of information categorized into five groups:
+Which will return a list of information categorized into the following groups:
 
 .. code-block:: console
+
+  ACTION LIST
+  ...
+
+  ROS ENVIRONMENT
+  ...
 
   NETWORK CONFIGURATION
   ...
 
+  PACKAGE VERSIONS
+  ...
+
   PLATFORM INFORMATION
+  ...
+
+  QOS COMPATIBILITY LIST
   ...
 
   RMW MIDDLEWARE
   ...
 
   ROS 2 INFORMATION
+  ...
+
+  SERVICE LIST
   ...
 
   TOPIC LIST

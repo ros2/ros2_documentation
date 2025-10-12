@@ -19,24 +19,24 @@ The tools can still run in a traditional standalone method, but RQt makes it eas
 
 You can run any RQt tools/plugins easily by:
 
-.. code-block:: bash
+.. code-block:: console
 
-   rqt
+   $ rqt
 
 This GUI allows you to choose any available plugins on your system.
 You can also run plugins in standalone windows.
 For example, RQt Python Console:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 run rqt_py_console rqt_py_console
+   $ ros2 run rqt_py_console rqt_py_console
 
 Users can create their own plugins for RQt with either ``Python`` or ``C++``.
 To see what RQt plugins are available for your system, run:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 pkg list
+   $ ros2 pkg list
 
 And then look for packages that start with ``rqt_``.
 
@@ -46,9 +46,9 @@ System setup
 Installing From debs
 ^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: bash
+.. code-block:: console
 
-   sudo apt install ros-{DISTRO}-rqt*
+   $ sudo apt install ros-{DISTRO}-rqt*
 
 
 RQt Components Structure

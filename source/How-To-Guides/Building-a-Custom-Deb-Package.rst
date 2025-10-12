@@ -23,7 +23,7 @@ Install dependencies
 
 Run the following command to install utilities needed for the build:
 
-.. code:: bash
+.. code:: console
 
   $ sudo apt install python3-bloom python3-rosdep fakeroot debhelper dh-python
 
@@ -32,7 +32,7 @@ Initialize rosdep
 
 Initialize the rosdep database by calling:
 
-.. code:: bash
+.. code:: console
 
   $ sudo rosdep init
   $ rosdep update
@@ -44,7 +44,7 @@ Build the deb from the package
 
 Run the following commands to build the deb:
 
-.. code:: bash
+.. code:: console
 
   $ cd /path/to/pkg_source  # this should be the directory that contains the package.xml
   $ bloom-generate rosdebian

@@ -185,7 +185,7 @@ To do this, create following file in the ``launch`` folder of the ``launch_tutor
 
     .. literalinclude:: launch/example_main_launch.py
       :language: python
-      :lines: 16-20
+      :lines: 14-18
 
     .. tip::
 
@@ -208,11 +208,10 @@ To do this, create following file in the ``launch`` folder of the ``launch_tutor
       In this case, by default, the last path component provided to ``PathJoinSubstitution`` would resolve to ``example_substitutions_launch.py`` and would then be joined with the other path components.
 
     The ``launch_arguments`` dictionary with ``turtlesim_ns`` and ``use_provided_red`` arguments is passed to the ``IncludeLaunchDescription`` action.
-    The ``TextSubstitution`` substitution is used to define the ``new_background_r`` argument with the value of the ``background_r`` key in the ``colors`` dictionary.
 
     .. literalinclude:: launch/example_main_launch.py
       :language: python
-      :lines: 22-26
+      :lines: 19-23
 
 
 3 Substitutions example launch file
@@ -310,14 +309,14 @@ Now create the substitution launch file in the same folder:
       :language: python
 
     The ``turtlesim_ns``, ``use_provided_red``, and ``new_background_r`` launch configurations are defined.
-    They are used to store values of launch arguments in the above variables and to pass them to required actions.
+    They are used to represent values of launch arguments in the above variables and to pass them to required actions.
     These ``LaunchConfiguration`` substitutions allow us to acquire the value of the launch argument in any part of the launch description.
 
     ``DeclareLaunchArgument`` is used to define the launch argument that can be passed from the above launch file or from the console.
 
     .. literalinclude:: launch/example_substitutions_launch.py
       :language: python
-      :lines: 13-24
+      :lines: 14-25
 
     The ``turtlesim_node`` node with the ``namespace`` set to ``turtlesim_ns`` ``LaunchConfiguration`` substitution is defined.
 
@@ -325,22 +324,21 @@ Now create the substitution launch file in the same folder:
       :language: python
       :lines: 26-31
 
-    Afterwards, the ``ExecuteProcess`` action called ``spawn_turtle`` is defined with the corresponding ``cmd`` argument.
-    This command makes a call to the spawn service of the turtlesim node.
+    The next action, ``ExecuteProcess``,  is defined with the corresponding ``cmd`` argument to call the spawn service of the turtlesim node.
 
-    Additionally, the ``LaunchConfiguration`` substitution is used to get the value of the ``turtlesim_ns`` launch argument to construct a command string.
+    Additionally, the ``LaunchConfiguration`` substitution is used to provide the value of the ``turtlesim_ns`` launch argument in the command string.
 
     .. literalinclude:: launch/example_substitutions_launch.py
       :language: python
       :lines: 32-41
 
     The same approach is used for the ``change_background_r`` and ``change_background_r_conditioned`` actions that change the turtlesim background's red color parameter.
-    The difference is that the ``change_background_r_conditioned`` action is only executed if the provided ``new_background_r`` argument equals ``200`` and the ``use_provided_red`` launch argument is set to ``True``.
+    The difference is that the next action is only executed if the provided ``new_background_r`` argument equals ``200`` and the ``use_provided_red`` launch argument is set to ``True``.
     The evaluation inside the ``IfCondition`` is done using the ``PythonExpression`` substitution.
 
     .. literalinclude:: launch/example_substitutions_launch.py
       :language: python
-      :lines: 42-67
+      :lines: 51-72
 
 4 Build the package
 ^^^^^^^^^^^^^^^^^^^

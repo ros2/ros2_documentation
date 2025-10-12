@@ -226,40 +226,40 @@ For example, the following commands will limit the ROS 2 communication only with
 
       .. code-block:: console
 
-        export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
-        export ROS_STATIC_PEERS='192.168.0.1;remote.com'
+        $ export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
+        $ export ROS_STATIC_PEERS='192.168.0.1;remote.com'
 
       To maintain this setting between shell sessions, you can add the command to your shell startup script:
 
       .. code-block:: console
 
-        echo "export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST" >> ~/.bashrc
-        echo "export ROS_STATIC_PEERS='192.168.0.1;remote.com'" >> ~/.bashrc
+        $ echo "export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST" >> ~/.bashrc
+        $ echo "export ROS_STATIC_PEERS='192.168.0.1;remote.com'" >> ~/.bashrc
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-        export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
-        export ROS_STATIC_PEERS='192.168.0.1;remote.com'
+        $ export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
+        $ export ROS_STATIC_PEERS='192.168.0.1;remote.com'
 
       To maintain this setting between shell sessions, you can add the command to your shell startup script:
 
       .. code-block:: console
 
-        echo "export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST" >> ~/.bash_profile
-        echo "export ROS_STATIC_PEERS='192.168.0.1;remote.com'" >> ~/.bash_profile
+        $ echo "export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST" >> ~/.bash_profile
+        $ echo "export ROS_STATIC_PEERS='192.168.0.1;remote.com'" >> ~/.bash_profile
 
    .. group-tab:: Windows
 
       .. code-block:: console
 
-        set ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
-        set ROS_STATIC_PEERS=192.168.0.1;remote.com
+        $ set ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
+        $ set ROS_STATIC_PEERS=192.168.0.1;remote.com
 
       If you want to make this permanent between shell sessions, also run:
 
       .. code-block:: console
 
-        setx ROS_AUTOMATIC_DISCOVERY_RANGE LOCALHOST
-        setx ROS_STATIC_PEERS 192.168.0.1;remote.com
+        $ setx ROS_AUTOMATIC_DISCOVERY_RANGE LOCALHOST
+        $ setx ROS_STATIC_PEERS 192.168.0.1;remote.com

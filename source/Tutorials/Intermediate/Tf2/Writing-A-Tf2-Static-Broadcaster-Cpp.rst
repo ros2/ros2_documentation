@@ -41,14 +41,14 @@ Tasks
 
 First we will create a package that will be used for this tutorial and the following ones.
 The package called ``learning_tf2_cpp`` will depend on ``geometry_msgs``, ``rclcpp``, ``tf2``, ``tf2_ros``, and ``turtlesim``.
-Code for this tutorial is stored `here <https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/static_turtle_tf2_broadcaster.cpp>`_.
+Code for this tutorial is stored `here <https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_cpp/src/static_turtle_tf2_broadcaster.cpp>`_.
 
 Open a new terminal and :doc:`source your ROS 2 installation <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
 Navigate to workspace's ``src`` folder and create a new package:
 
 .. code-block:: console
 
-   ros2 pkg create --build-type ament_cmake --license Apache-2.0 --dependencies geometry_msgs rclcpp tf2 tf2_ros turtlesim -- learning_tf2_cpp
+   $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 --dependencies geometry_msgs rclcpp tf2 tf2_ros turtlesim -- learning_tf2_cpp
 
 Your terminal will return a message verifying the creation of your package ``learning_tf2_cpp`` and all its necessary files and folders.
 
@@ -64,13 +64,13 @@ Inside the ``src/learning_tf2_cpp/src`` directory download the example static br
 
       .. code-block:: console
 
-          wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/static_turtle_tf2_broadcaster.cpp
+          $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_cpp/src/static_turtle_tf2_broadcaster.cpp
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-          wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/static_turtle_tf2_broadcaster.cpp
+          $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_cpp/src/static_turtle_tf2_broadcaster.cpp
 
    .. group-tab:: Windows
 
@@ -78,13 +78,13 @@ Inside the ``src/learning_tf2_cpp/src`` directory download the example static br
 
       .. code-block:: console
 
-          curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/static_turtle_tf2_broadcaster.cpp -o static_turtle_tf2_broadcaster.cpp
+          $ curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_cpp/src/static_turtle_tf2_broadcaster.cpp -o static_turtle_tf2_broadcaster.cpp
 
       Or in powershell:
 
       .. code-block:: console
 
-          curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/static_turtle_tf2_broadcaster.cpp -o static_turtle_tf2_broadcaster.cpp
+          $ curl https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_cpp/src/static_turtle_tf2_broadcaster.cpp -o static_turtle_tf2_broadcaster.cpp
 
 Open the file using your preferred text editor.
 
@@ -290,7 +290,7 @@ It's good practice to run ``rosdep`` in the root of your workspace to check for 
 
       .. code-block:: console
 
-          rosdep install -i --from-path src --rosdistro {DISTRO} -y
+          $ rosdep install -i --from-path src --rosdistro {DISTRO} -y
 
    .. group-tab:: macOS
 
@@ -308,19 +308,19 @@ Still in the root of your workspace, build your new package:
 
       .. code-block:: console
 
-          colcon build --packages-select learning_tf2_cpp
+          $ colcon build --packages-select learning_tf2_cpp
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-          colcon build --packages-select learning_tf2_cpp
+          $ colcon build --packages-select learning_tf2_cpp
 
    .. group-tab:: Windows
 
       .. code-block:: console
 
-          colcon build --merge-install --packages-select learning_tf2_cpp
+          $ colcon build --merge-install --packages-select learning_tf2_cpp
 
 Open a new terminal, navigate to the root of your workspace, and source the setup files:
 
@@ -330,23 +330,29 @@ Open a new terminal, navigate to the root of your workspace, and source the setu
 
       .. code-block:: console
 
-          . install/setup.bash
+          $ . install/setup.bash
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-          . install/setup.bash
+          $ . install/setup.bash
 
    .. group-tab:: Windows
 
+      In a Windows command line prompt:
+
       .. code-block:: console
 
-          # CMD
-          call install\setup.bat
+          $ call install\setup.bat
 
-          # Powershell
-          .\install\setup.ps1
+      Or in powershell:
+
+      .. code-block:: console
+
+          $ .\install\setup.ps1
+
+
 
 4 Run
 ^^^^^
@@ -355,20 +361,16 @@ Now run the ``static_turtle_tf2_broadcaster`` node:
 
 .. code-block:: console
 
-    ros2 run learning_tf2_cpp static_turtle_tf2_broadcaster mystaticturtle 0 0 1 0 0 0
+    $ ros2 run learning_tf2_cpp static_turtle_tf2_broadcaster mystaticturtle 0 0 1 0 0 0
 
 This sets a turtle pose broadcast for ``mystaticturtle`` to float 1 meter above the ground.
 
-We can now check that the static transform has been published by echoing the ``tf_static`` topic
+We can now check that the static transform has been published by echoing the ``tf_static`` topic.
+If everything is well you should see a single static transform:
 
 .. code-block:: console
 
-    ros2 topic echo /tf_static
-
-If everything went well you should see a single static transform
-
-.. code-block:: console
-
+    $ ros2 topic echo /tf_static
     transforms:
     - header:
        stamp:
@@ -394,24 +396,38 @@ This tutorial aimed to show how ``StaticTransformBroadcaster`` can be used to pu
 In your real development process you shouldn't have to write this code yourself and should use the dedicated ``tf2_ros`` tool to do so.
 ``tf2_ros`` provides an executable named ``static_transform_publisher`` that can be used either as a commandline tool or a node that you can add to your launchfiles.
 
-The following command publishes a static coordinate transform to tf2 using an x/y/z offset in meters and roll/pitch/yaw in radians.
+The following command publishes a static coordinate transform to tf2 resulting in a 1 meter offset in z and no rotation between the frames ``world`` and ``mystaticturtle``.
 In ROS 2, roll/pitch/yaw refers to rotation about the x/y/z-axis, respectively.
 
 .. code-block:: console
 
-    ros2 run tf2_ros static_transform_publisher --x x --y y --z z --yaw yaw --pitch pitch --roll roll --frame-id frame_id --child-frame-id child_frame_id
+    $ ros2 run tf2_ros static_transform_publisher --x 0 --y 0 --z 1 --yaw 0 --pitch 0 --roll 0 --frame-id world --child-frame-id mystaticturtle
 
-The following command publishes a static coordinate transform to tf2 using an x/y/z offset in meters and roll/pitch/yaw as a quaternion.
+The following command publishes the same static coordinate transform to tf2, but using quaternion representation for the rotation.
 
 .. code-block:: console
 
-    ros2 run tf2_ros static_transform_publisher --x x --y y --z z --qx qx --qy qy --qz qz --qw qw --frame-id frame_id --child-frame-id child_frame_id
+    $ ros2 run tf2_ros static_transform_publisher --x 0 --y 0 --z 1 --qx 0 --qy 0 --qz 0 --qw 1 --frame-id world --child-frame-id mystaticturtle
 
 ``static_transform_publisher`` is designed both as a command-line tool for manual use, as well as for use within ``launch`` files for setting static transforms.
 For example:
 
-.. literalinclude:: launch/static_transform_publisher_launch.py
-   :language: python
+.. tabs::
+
+   .. group-tab:: XML
+
+      .. literalinclude:: launch/static_transform_publisher_launch.xml
+         :language: xml
+
+   .. group-tab:: YAML
+
+      .. literalinclude:: launch/static_transform_publisher_launch.yaml
+         :language: yaml
+
+   .. group-tab:: Python
+
+      .. literalinclude:: launch/static_transform_publisher_launch.py
+         :language: python
 
 Note that all arguments except for ``--frame-id`` and ``--child-frame-id`` are optional; if a particular option isn't specified, then the identity will be assumed.
 

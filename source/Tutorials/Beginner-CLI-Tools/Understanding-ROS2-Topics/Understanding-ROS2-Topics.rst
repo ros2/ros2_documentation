@@ -73,7 +73,7 @@ To run rqt_graph, open a new terminal and enter the command:
 
 .. code-block:: console
 
-    $ rqt_graph
+    $ ros2 run rqt_graph rqt_graph
 
 You can also open rqt_graph by opening ``rqt`` and selecting **Plugins** > **Introspection** > **Node Graph**.
 
@@ -200,10 +200,11 @@ Specifically, what structure of data the message expects.
 
     $ ros2 interface show geometry_msgs/msg/Twist
 
-.. code-block:: console
+Which will return:
+
+.. code-block:: text
 
     # This expresses velocity in free space broken into its linear and angular parts.
-
         Vector3  linear
                 float64 x
                 float64 y

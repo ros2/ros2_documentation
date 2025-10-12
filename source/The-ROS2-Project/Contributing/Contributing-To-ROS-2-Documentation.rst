@@ -48,19 +48,19 @@ And install requirements located in the ``requirements.txt`` file:
 
     .. code-block:: console
 
-       pip install -r requirements.txt -c constraints.txt
+       $ pip install -r requirements.txt -c constraints.txt
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-       pip install -r requirements.txt -c constraints.txt
+       $ pip install -r requirements.txt -c constraints.txt
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      python -m pip install -r requirements.txt -c constraints.txt
+      $ python -m pip install -r requirements.txt -c constraints.txt
 
 In order for Sphinx to be able to generate diagrams, the ``dot`` command must be available.
 
@@ -70,13 +70,13 @@ In order for Sphinx to be able to generate diagrams, the ``dot`` command must be
 
     .. code-block:: console
 
-       sudo apt update ; sudo apt install graphviz
+       $ sudo apt update ; sudo apt install graphviz
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      brew install graphviz
+      $ brew install graphviz
 
   .. group-tab:: Windows
 
@@ -99,7 +99,7 @@ This is the recommended way to test out local changes.
 
 .. code-block:: console
 
-   make html
+   $ make html
 
 The build process can take some time.
 To see the output, open ``build/html/index.html`` in your browser.
@@ -112,25 +112,25 @@ You can run the documentation tests locally (using `doc8 <https://github.com/PyC
 
 .. code-block:: console
 
-   make test
+   $ make test
 
 You can run the Python documentation tools tests locally (using `pytest <https://docs.pytest.org/en/stable/>`_) with the following command:
 
 .. code-block:: console
 
-   make test-tools
+   $ make test-tools
 
 You can run the documentation linter locally (using `sphinx-lint <https://github.com/sphinx-contrib/sphinx-lint>`_) with the following command:
 
 .. code-block:: console
 
-   make lint
+   $ make lint
 
 You can run the documentation spell checker locally (using `codespell <https://github.com/codespell-project/codespell>`_) with the following command:
 
 .. code-block:: console
 
-   make spellcheck
+   $ make spellcheck
 
 .. note::
 
@@ -175,7 +175,7 @@ To check for broken links on the site, run:
 
 .. code-block:: console
 
-   make linkcheck
+   $ make linkcheck
 
 This will check the entire site for broken links, and output the results to the screen and ``build/linkcheck``.
 
@@ -194,9 +194,9 @@ To do this, add it to the `codespell_whitelist <https://github.com/ros2/ros2_doc
 .. code-block:: text
 
    empy
-   ws
-   lets
    jupyter
+   lets
+   ws
 
 To include custom corrections that ``codespell`` should apply, you can add them to the `codespell_dictionary <https://github.com/ros2/ros2_documentation/blob/{REPOS_FILE_BRANCH}/codespell_dictionary.txt>`_ file as follows:
 
@@ -206,6 +206,11 @@ To include custom corrections that ``codespell`` should apply, you can add them 
    colcn->colcon
    rosabg->rosbag
    rosdistroy->rosdistro
+
+To check the dictionaries, you can run the ``make check-dictionaries`` command.
+This will check the blank lines and leading/trailing spaces in the dictionaries.
+If it complains about the dictionaries, you can run the ``make sort-dictionaries`` command.
+This command will automatically modify the dictionaries if any issues are found.
 
 Migrating Pages from the ROS Wiki
 ---------------------------------
@@ -299,7 +304,7 @@ In this terminal, you can run any command you want, for example, you can run the
 
 .. code-block:: console
 
-   make html
+   $ make html
 
 Finally, to view the site, you can click on the "Go Live" button in the right bottom panel and then, it will open the site in a new tab in your browser (you will need to browse to the ``build/html`` folder).
 
@@ -319,9 +324,9 @@ Clone repository and start VS Code:
 
 .. code-block:: console
 
-   git clone https://github.com/ros2/ros2_documentation
-   cd ./ros2_documentation
-   code .
+   $ git clone https://github.com/ros2/ros2_documentation
+   $ cd ./ros2_documentation
+   $ code .
 
 To use ``Devcontainer``, you need to install "Remote Development" Extension within VS Code search in Extensions (CTRL+SHIFT+X) for it.
 
@@ -334,7 +339,7 @@ Inside the terminal, you can build the documentation:
 
 .. code-block:: console
 
-   make html
+   $ make html
 
 .. image:: images/vscode_devcontainer.png
    :width: 100%
@@ -485,7 +490,6 @@ Compare the above with a ``bash`` ``code-block``:
    [INFO] [1742150439.026043867] [my_turtle]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
 
 To simplify code blocks, ``bash`` can still be used without ``$`` for commands meant to be run in a terminal if the code block does not include any output lines.
-
 To help choose between ``bash`` and ``console``, see the following list of use-cases and corresponding examples:
 
 #. Commands meant to be copied into a script file
@@ -497,25 +501,10 @@ To help choose between ``bash`` and ``console``, see the following list of use-c
          export ROS_DOMAIN_ID=42
          ros2 run turtlesim turtlesim_node
 
-#. Commands meant to be run in a terminal *without* any output lines
+#. Commands meant to be run in a terminal:
 
-   * Use ``.. code-block:: bash`` without ``$``:
-
-      .. code-block:: bash
-
-         source /opt/ros/{DISTRO}/setup.bash
-         ros2 run turtlesim turtlesim_node
-
-   * Or use ``.. code-block:: console`` with ``$`` on all command lines, i.e., all lines:
-
-      .. code-block:: console
-
-         $ source /opt/ros/{DISTRO}/setup.bash
-         $ ros2 run turtlesim turtlesim_node
-
-#. Commands meant to be run in a terminal *with* output lines
-
-   * Use ``.. code-block:: console`` with ``$`` on all command lines:
+   * It is highly recommended to use ``.. code-block:: console`` with ``$`` on all command lines for consistency and clarity.
+     If there is output that needs to be displayed, include it in the same block:
 
       .. code-block:: console
 
@@ -523,6 +512,11 @@ To help choose between ``bash`` and ``console``, see the following list of use-c
          $ ros2 run turtlesim turtlesim_node
          [INFO] [1743878028.269334696] [turtlesim]: Starting turtlesim with node name /turtlesim
          [INFO] [1743878028.275096618] [turtlesim]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
+
+      .. note::
+
+         If some output lines start with ``#``, it is crucial to separate commands from their output because the ``#`` symbol is used to denote a command.
+         Therefore, place the output in a separate ``.. code-block:: text``.
 
 Images
 ^^^^^^

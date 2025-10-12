@@ -249,7 +249,7 @@ Enter the following command with the action type in your terminal:
 
 Which will return:
 
-.. code-block:: console
+.. code-block:: text
 
   # The desired heading in radians
   float32 theta
@@ -322,6 +322,8 @@ To see the feedback of this goal, add ``--feedback`` to the ``ros2 action send_g
   Goal finished with status: SUCCEEDED
 
 You will continue to receive feedback, the remaining radians, until the goal is complete.
+
+.. _understanding-actions-ros2-action-echo:
 
 9 ros2 action echo
 ^^^^^^^^^^^^^^^^^^

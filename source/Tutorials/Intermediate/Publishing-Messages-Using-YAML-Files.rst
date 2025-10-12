@@ -33,7 +33,7 @@ We can use the ``echo`` verb to capture the message and save it in a YAML file `
 
 .. code-block:: console
 
-    ros2 topic echo --once  /cmd_vel > cmd_vel.yaml
+    $ ros2 topic echo --once  /cmd_vel > cmd_vel.yaml
 
 This creates a ``cmd_vel.yaml`` file with the following content in the directory the command was executed:
 
@@ -56,12 +56,7 @@ The following command will publish the message contained in the ``YAML`` file to
 
 .. code-block:: console
 
-    ros2 topic pub /cmd_vel geometry_msgs/msg/Twist --yaml-file cmd_vel.yaml
-
-Output:
-
-.. code-block:: console
-
+    $ ros2 topic pub /cmd_vel geometry_msgs/msg/Twist --yaml-file cmd_vel.yaml
     publisher: beginning loop
     publishing geometry_msgs.msg.Twist(linear=geometry_msgs.msg.Vector3(x=1.0, y=0.0, z=0.0), angular=geometry_msgs.msg.Vector3(x=0.0, y=0.0, z=0.0))
 
@@ -102,12 +97,7 @@ By executing the same command as before, we publish three different messages to 
 
 .. code-block:: console
 
-    ros2 topic pub /cmd_vel geometry_msgs/msg/Twist --yaml-file cmd_vel.yaml
-
-Output:
-
-.. code-block:: console
-
+    $ ros2 topic pub /cmd_vel geometry_msgs/msg/Twist --yaml-file cmd_vel.yaml
     publisher: beginning loop
     publishing #1: geometry_msgs.msg.Twist(linear=geometry_msgs.msg.Vector3(x=1.0, y=0.0, z=0.0), angular=geometry_msgs.msg.Vector3(x=0.0, y=0.0, z=0.0))
 

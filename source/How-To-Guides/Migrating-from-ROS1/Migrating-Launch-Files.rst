@@ -10,7 +10,7 @@ Migrating Launch Files
 ======================
 
 .. contents:: Table of Contents
-   :depth: 1
+   :depth: 2
    :local:
 
 While launch files in ROS 1 are always specified using `XML <https://wiki.ros.org/roslaunch/XML>`__ files, ROS 2 supports both XML and YAML files.
@@ -114,7 +114,7 @@ For example:
 
 .. code-block:: xml
 
-   <node pkg="my_package" exec="my_executable" name="my_node" ns="/an_absoulute_ns">
+   <node pkg="my_package" exec="my_executable" name="my_node" namespace="/an_absoulute_ns">
       <param name="group1">
          <param name="group2">
             <param name="my_param" value="1"/>
@@ -132,7 +132,7 @@ It's also possible to use full parameter names:
 
 .. code-block:: xml
 
-   <node pkg="my_package" exec="my_executable" name="my_node" ns="/an_absoulute_ns">
+   <node pkg="my_package" exec="my_executable" name="my_node" namespace="/an_absoulute_ns">
       <param name="group1.group2.my_param" value="1"/>
       <param name="group1.another_param" value="2"/>
    </node>
@@ -149,7 +149,7 @@ Example
 
 .. code-block:: xml
 
-   <node pkg="my_package" exec="my_executable" name="my_node" ns="/an_absoulute_ns">
+   <node pkg="my_package" exec="my_executable" name="my_node" namespace="/an_absoulute_ns">
       <param from="/path/to/file"/>
    </node>
 
@@ -186,7 +186,9 @@ include
      Nest includes in ``group`` tags to scope them.
    * ``ns`` attribute is not supported.
      See example of ``push_ros_namespace`` tag for a workaround.
-   * ``arg`` tags nested in an ``include`` tag don't support conditionals (``if``, ``unless``) or the ``description`` attribute.
+   * ``arg`` tag nested in an ``include`` tag is now ``let``.
+     However, ``arg`` is still supported for now.
+   * ``let`` tags nested in an ``include`` tag don't support conditionals (``if``, ``unless``) or the ``description`` attribute.
    * There is no support for nested ``env`` tags.
      ``set_env`` and ``unset_env`` can be used instead.
    * Both ``clear_params`` and ``pass_all_args`` attributes aren't supported.
@@ -206,7 +208,10 @@ arg
    * ``value`` attribute is not allowed.
      Use ``let`` tag for this.
    * ``doc`` is now ``description``.
-   * When nested within an ``include`` tag, ``if``, ``unless``, and ``description`` attributes aren't allowed.
+   * When nested within an ``include`` tag:
+
+      * Use ``let`` instead of ``arg``.
+      * ``if``, ``unless``, and ``description`` attributes aren't allowed.
 
 Example
 ~~~~~~~
@@ -229,9 +234,9 @@ Passing an argument to the launch file
 In the XML launch file above, the ``topic_name`` defaults to the name ``chatter``, but can be configured on the command-line.
 Assuming the above launch configuration is in a file named ``mylaunch.xml``, a different topic name can be used by launching it with the following:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 launch mylaunch.xml topic_name:=custom_topic_name
+   $ ros2 launch mylaunch.xml topic_name:=custom_topic_name
 
 There is some additional information about passing command-line arguments in :doc:`Using Substitutions <../../../Tutorials/Intermediate/Launch/Using-Substitutions>`.
 
@@ -337,7 +342,7 @@ This action can be used as a workaround:
       <!--Nodes here are namespaced with "/absolute_ns".-->
       <!--The following node receives an absolute namespace, so it will ignore the others previously pushed.-->
       <!--The full path of the node will be /asd/my_node.-->
-      <node pkg="my_pkg" exec="my_executable" name="my_node" ns="/asd"/>
+      <node pkg="my_pkg" exec="my_executable" name="my_node" namespace="/asd"/>
    </group>
    <!--Nodes outside the group action won't be namespaced.-->
    <!-Other tags-->
@@ -350,6 +355,13 @@ It's a replacement of ``arg`` tag with a value attribute.
 .. code-block:: xml
 
    <let name="foo" value="asd"/>
+
+``let`` and ``arg`` serve two different purposes in ROS 2:
+
+* ``let`` sets a launch configuration value.
+* ``arg`` declares a launch argument/configuration and optionally provides a default value.
+  The value can separately be set from the CLI or when including the given launch file.
+  If no value is set, the default value is used if one was provided, otherwise an error is reported.
 
 executable
 ^^^^^^^^^^

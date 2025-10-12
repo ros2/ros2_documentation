@@ -28,19 +28,19 @@ Let's start by installing the demo package and its dependencies.
 
       .. code-block:: console
 
-         sudo apt-get install ros-{DISTRO}-rviz2 ros-{DISTRO}-turtle-tf2-py ros-{DISTRO}-tf2-ros ros-{DISTRO}-tf2-tools ros-{DISTRO}-turtlesim
+         $ sudo apt-get install ros-{DISTRO}-rviz2 ros-{DISTRO}-turtle-tf2-py ros-{DISTRO}-tf2-ros ros-{DISTRO}-tf2-tools ros-{DISTRO}-turtlesim
 
    .. group-tab:: RHEL Packages
 
       .. code-block:: console
 
-         sudo dnf install ros-{DISTRO}-rviz2 ros-{DISTRO}-turtle-tf2-py ros-{DISTRO}-tf2-ros ros-{DISTRO}-tf2-tools ros-{DISTRO}-turtlesim
+         $ sudo dnf install ros-{DISTRO}-rviz2 ros-{DISTRO}-turtle-tf2-py ros-{DISTRO}-tf2-ros ros-{DISTRO}-tf2-tools ros-{DISTRO}-turtlesim
 
    .. group-tab:: From Source
 
       .. code-block:: console
 
-         git clone https://github.com/ros/geometry_tutorials.git -b ros2
+         $ git clone https://github.com/ros/geometry_tutorials.git -b ros2
 
 Running the demo
 ----------------
@@ -51,7 +51,7 @@ Then run the following command:
 
 .. code-block:: console
 
-   ros2 launch turtle_tf2_py turtle_tf2_demo.launch.py
+   $ ros2 launch turtle_tf2_py turtle_tf2_demo.launch.py
 
 You will see the turtlesim start with two turtles.
 
@@ -61,7 +61,7 @@ In the second terminal window type the following command:
 
 .. code-block:: console
 
-   ros2 run turtlesim turtle_teleop_key
+   $ ros2 run turtlesim turtle_teleop_key
 
 Once the turtlesim is started you can drive the central turtle around in the turtlesim using the keyboard arrow keys,
 select the second terminal window so that your keystrokes will be captured to drive the turtle.
@@ -90,12 +90,7 @@ Note that this utility only works on Linux; if you are Windows, skip to "Using t
 
 .. code-block:: console
 
-   ros2 run tf2_tools view_frames
-
-You will see:
-
-.. code-block:: console
-
+   $ ros2 run tf2_tools view_frames
    Listening to tf data during 5 seconds...
    Generating graph in frames.pdf file...
 
@@ -118,18 +113,13 @@ Usage:
 
 .. code-block:: console
 
-   ros2 run tf2_ros tf2_echo [source_frame] [target_frame]
+   $ ros2 run tf2_ros tf2_echo [source_frame] [target_frame]
 
 Let's look at the transform of the ``turtle2`` frame with respect to ``turtle1`` frame which is equivalent to:
 
 .. code-block:: console
 
-   ros2 run tf2_ros tf2_echo turtle2 turtle1
-
-You will see the transform displayed as the ``tf2_echo`` listener receives the frames broadcast over ROS 2.
-
-.. code-block:: console
-
+   $ ros2 run tf2_ros tf2_echo turtle2 turtle1
    At time 1683385337.850619099
    - Translation: [2.157, 0.901, 0.000]
    - Rotation: in Quaternion [0.000, 0.000, 0.172, 0.985]
@@ -151,6 +141,9 @@ You will see the transform displayed as the ``tf2_echo`` listener receives the f
     -0.000  0.000  1.000  0.000
      0.000  0.000  0.000  1.000
 
+
+You will see the transform displayed as the ``tf2_echo`` listener receives the frames broadcast over ROS 2.
+
 As you drive your turtle around you will see the transform change as the two turtles move relative to each other.
 
 rviz2 and tf2
@@ -165,13 +158,13 @@ Let's look at our turtle frames using ``rviz2`` by starting it with a configurat
 
     .. code-block:: console
 
-      ros2 run rviz2 rviz2 -d $(ros2 pkg prefix --share turtle_tf2_py)/rviz/turtle_rviz.rviz
+      $ ros2 run rviz2 rviz2 -d $(ros2 pkg prefix --share turtle_tf2_py)/rviz/turtle_rviz.rviz
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      for /f "usebackq tokens=*" %a in (`ros2 pkg prefix --share turtle_tf2_py`) do rviz2 -d %a/rviz/turtle_rviz.rviz
+      $ for /f "usebackq tokens=*" %a in (`ros2 pkg prefix --share turtle_tf2_py`) do rviz2 -d %a/rviz/turtle_rviz.rviz
 
 .. image:: images/turtlesim_rviz.png
 

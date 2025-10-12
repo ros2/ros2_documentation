@@ -302,9 +302,9 @@ You should see your label and button in the panel now.
 
 To change the label, we simply have to publish a message on the ``/input`` topic, which you can do with this command:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 topic pub /input std_msgs/msg/String "{data: 'Please be kind.'}"
+   $ ros2 topic pub /input std_msgs/msg/String "{data: 'Please be kind.'}"
 
 Since the widget is subscribed to this topic, it will trigger the callback and change the text of the label.
 
@@ -315,9 +315,9 @@ Since the widget is subscribed to this topic, it will trigger the callback and c
 
 Pressing the button will publish a message, which you can see by echoing the ``/output`` topic, like with this command.
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 topic echo /output
+   $ ros2 topic echo /output
 
 
 Cleanup

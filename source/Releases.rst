@@ -23,6 +23,7 @@ Rows in the table marked in green are the currently supported distributions.
 .. toctree::
    :hidden:
 
+   Releases/Release-Kilted-Kaiju
    Releases/Release-Jazzy-Jalisco
    Releases/Release-Humble-Hawksbill
    Releases/Release-Rolling-Ridley
@@ -47,12 +48,15 @@ Rows in the table marked in green are the currently supported distributions.
    -->
    <style>
      .rst-content table.docutils:not(.field-list) tr:nth-child(1) td {background-color: #33cc66;}
-     .rst-content table.docutils:not(.field-list) tr:nth-child(3) td {background-color: #33cc66;}
-     .rst-content tr:nth-child(3) {background-color: #33cc66;}
+     .rst-content tr:nth-child(2) {background-color: #33cc66;}
+     .rst-content tr:nth-child(4) {background-color: #33cc66;}
    </style>
 
 .. |rolling| image:: Releases/rolling-small.png
    :alt: Rolling logo
+
+.. |kilted| image:: Releases/kilted-small.png
+   :alt: Kilted logo
 
 .. |jazzy| image:: Releases/jazzy-small.png
    :alt: Jazzy logo
@@ -94,6 +98,11 @@ Rows in the table marked in green are the currently supported distributions.
      - Logo
      - EOL date
      - ROS Boss
+   * - :doc:`Kilted Kaiju <Releases/Release-Kilted-Kaiju>`
+     - May 23, 2025
+     - |kilted|
+     - December 2026
+     - `Scott K Logan <https://github.com/cottsay>`_
    * - :doc:`Jazzy Jalisco <Releases/Release-Jazzy-Jalisco>`
      - May 23, 2024
      - |jazzy|
@@ -181,10 +190,10 @@ There is a new ROS 2 distribution released yearly on May 23rd (`World Turtle Day
      - Release date
      - Logo
      - EOL date
-   * - :doc:`Kilted Kaiju <Releases/Release-Kilted-Kaiju>`
-     - May 2025
+   * - :doc:`Lyrical Luth <Releases/Release-Lyrical-Luth>`
+     - May 2026
      - TBD
-     - Nov 2026
+     - May 2031
 
 
 .. _rolling_distribution:
@@ -205,3 +214,11 @@ We recommend that most people use the most recent stable distribution instead (s
 
 Packages released into the Rolling distribution will be automatically released into future stable distributions of ROS 2.
 :doc:`Releasing a ROS 2 package <../How-To-Guides/Releasing/Releasing-a-Package>` into the Rolling distribution follows the same procedures as all other ROS 2 distributions.
+
+Cross-Distribution Communications
+---------------------------------
+
+Nodes are not guaranteed to be able to communicate across distributions.
+For example, a node built & running against Humble is not guaranteed to be able to communicate correctly with a node built & running against Iron.
+It may or may not work, but it is not supported and should not be relied upon.
+Note that :ref:`cross-vendor (single-distro) communications are also not guaranteed <different-middleware-vendors-cross-vendor-communication>`.

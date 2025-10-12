@@ -45,7 +45,7 @@ Navigate into ``ros2_ws/src`` and create a new package:
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_cmake --license Apache-2.0 cpp_parameters --dependencies rclcpp
+  $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 cpp_parameters --dependencies rclcpp
 
 Your terminal will return a message verifying the creation of your package ``cpp_parameters`` and all its necessary files and folders.
 
@@ -336,7 +336,7 @@ In there, create a new file called ``cpp_parameters_launch.py``
 Here you can see that we set ``my_parameter`` to ``earth`` when we launch our node ``minimal_param_node``.
 By adding the two lines below, we ensure our output is printed in our console.
 
-.. code-block:: console
+.. code-block:: python
 
           output="screen",
           emulate_tty=True,
@@ -344,7 +344,7 @@ By adding the two lines below, we ensure our output is printed in our console.
 Now open the ``CMakeLists.txt`` file.
 Below the lines you added earlier, add the following lines of code.
 
-.. code-block:: console
+.. code-block:: cmake
 
     install(
       DIRECTORY launch

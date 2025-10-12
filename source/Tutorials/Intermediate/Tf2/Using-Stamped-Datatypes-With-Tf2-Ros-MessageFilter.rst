@@ -35,6 +35,28 @@ To do this ``turtle1`` must listen to the topic where ``turtle3``'s pose is bein
 To make this easier the ``tf2_ros::MessageFilter`` is very useful.
 The ``tf2_ros::MessageFilter`` will take a subscription to any ROS 2 message with a header and cache it until it is possible to transform it into the target frame.
 
+Prerequisites
+-------------
+
+This tutorial expects you to have ``turtle_tf2_py`` package installed.
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+        $ sudo apt install ros-{DISTRO}-turtle-tf2-py
+
+  .. group-tab:: From Source
+
+    .. code-block:: console
+
+        # Clone the required package repository inside src directory of the ros2_ws
+        $ git clone https://github.com/ros/geometry_tutorials.git -b ros2
+        # Build the required package
+        $ colcon build --packages-select turtle_tf2_py
+
 Tasks
 -----
 
@@ -54,13 +76,13 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the exampl
 
     .. code-block:: console
 
-        wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_message_broadcaster.py
+        $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_py/turtle_tf2_py/turtle_tf2_message_broadcaster.py
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-        wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_message_broadcaster.py
+        $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_py/turtle_tf2_py/turtle_tf2_message_broadcaster.py
 
   .. group-tab:: Windows
 
@@ -68,13 +90,13 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the exampl
 
     .. code-block:: console
 
-        curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_message_broadcaster.py -o turtle_tf2_message_broadcaster.py
+        $ curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_py/turtle_tf2_py/turtle_tf2_message_broadcaster.py -o turtle_tf2_message_broadcaster.py
 
     Or in powershell:
 
     .. code-block:: console
 
-        curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_message_broadcaster.py -o turtle_tf2_message_broadcaster.py
+        $ curl https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_py/turtle_tf2_py/turtle_tf2_message_broadcaster.py -o turtle_tf2_message_broadcaster.py
 
 Open the file using your preferred text editor.
 
@@ -87,8 +109,8 @@ Open the file using your preferred text editor.
     from rclpy.executors import ExternalShutdownException
     from rclpy.node import Node
 
-    from turtlesim.msg import Pose
-    from turtlesim.srv import Spawn
+    from turtlesim_msgs.msg import Pose
+    from turtlesim_msgs.srv import Spawn
 
 
     class PointPublisher(Node):
@@ -168,7 +190,7 @@ Open the file using your preferred text editor.
 ~~~~~~~~~~~~~~~~~~~~
 
 Now let's take a look at the code.
-First, in the ``on_timer`` callback function, we spawn the ``turtle3`` by asynchronously calling the ``Spawn`` service of ``turtlesim``, and initialize its position at (4, 2, 0), when the turtle spawning service is ready.
+First, in the ``on_timer`` callback function, we spawn the ``turtle3`` by asynchronously calling the ``Spawn`` service of ``turtlesim_msgs``, and initialize its position at (4, 2, 0), when the turtle spawning service is ready.
 
 .. code-block:: python
 
@@ -228,7 +250,30 @@ Add the following line between the ``'console_scripts':`` brackets:
 
     'turtle_tf2_message_broadcaster = learning_tf2_py.turtle_tf2_message_broadcaster:main',
 
-1.4 Build
+1.4 Add an data file
+~~~~~~~~~~~~~~~~~~~~~~
+
+To allow the ``ros2 launch`` command to launch your launch file, you must add the data file to ``setup.py`` (located in the ``src/learning_tf2_py`` directory).
+
+Import the following libraries at the top, in ``setup.py``:
+
+.. code-block:: python
+
+    ...
+    import os
+    from glob import glob
+
+
+Add the following line between the ``'data_files':`` brackets:
+
+.. code-block:: python
+
+    data_files=[
+        ...
+        (os.path.join('share', package_name, 'launch'), glob('launch/*')),
+    ],
+
+1.5 Build
 ~~~~~~~~~
 
 Run ``rosdep`` in the root of your workspace to check for missing dependencies.
@@ -239,15 +284,15 @@ Run ``rosdep`` in the root of your workspace to check for missing dependencies.
 
       .. code-block:: console
 
-          rosdep install -i --from-path src --rosdistro {DISTRO} -y
+          $ rosdep install -i --from-path src --rosdistro {DISTRO} -y
 
    .. group-tab:: macOS
 
-        rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim`` dependencies yourself
+        rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim_msgs`` dependencies yourself
 
    .. group-tab:: Windows
 
-        rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim`` dependencies yourself
+        rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim_msgs`` dependencies yourself
 
 And then we can build the package:
 
@@ -257,19 +302,19 @@ And then we can build the package:
 
     .. code-block:: console
 
-        colcon build --packages-select learning_tf2_py
+        $ colcon build --packages-select learning_tf2_py
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-        colcon build --packages-select learning_tf2_py
+        $ colcon build --packages-select learning_tf2_py
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-        colcon build --merge-install --packages-select learning_tf2_py
+        $ colcon build --merge-install --packages-select learning_tf2_py
 
 
 2 Writing the message filter/listener node
@@ -286,13 +331,13 @@ Inside the ``src/learning_tf2_cpp/src`` directory download file ``turtle_tf2_mes
 
     .. code-block:: console
 
-        wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/turtle_tf2_message_filter.cpp
+        $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_cpp/src/turtle_tf2_message_filter.cpp
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-        wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/turtle_tf2_message_filter.cpp
+        $ wget https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_cpp/src/turtle_tf2_message_filter.cpp
 
   .. group-tab:: Windows
 
@@ -300,13 +345,13 @@ Inside the ``src/learning_tf2_cpp/src`` directory download file ``turtle_tf2_mes
 
     .. code-block:: console
 
-        curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/turtle_tf2_message_filter.cpp -o turtle_tf2_message_filter.cpp
+        $ curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_cpp/src/turtle_tf2_message_filter.cpp -o turtle_tf2_message_filter.cpp
 
     Or in powershell:
 
     .. code-block:: console
 
-        curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/turtle_tf2_message_filter.cpp -o turtle_tf2_message_filter.cpp
+        $ curl https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_cpp/src/turtle_tf2_message_filter.cpp -o turtle_tf2_message_filter.cpp
 
 Open the file using your preferred text editor.
 
@@ -559,15 +604,15 @@ Run ``rosdep`` in the root of your workspace to check for missing dependencies.
 
       .. code-block:: console
 
-          rosdep install -i --from-path src --rosdistro {DISTRO} -y
+          $ rosdep install -i --from-path src --rosdistro {DISTRO} -y
 
    .. group-tab:: macOS
 
-        rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim`` dependencies yourself
+        rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim_msgs`` dependencies yourself
 
    .. group-tab:: Windows
 
-        rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim`` dependencies yourself
+        rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim_msgs`` dependencies yourself
 
 Now open a new terminal, navigate to the root of your workspace, and rebuild the package with command:
 
@@ -577,19 +622,19 @@ Now open a new terminal, navigate to the root of your workspace, and rebuild the
 
     .. code-block:: console
 
-        colcon build --packages-select learning_tf2_cpp
+        $ colcon build --packages-select learning_tf2_cpp
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-        colcon build --packages-select learning_tf2_cpp
+        $ colcon build --packages-select learning_tf2_cpp
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-        colcon build --merge-install --packages-select learning_tf2_cpp
+        $ colcon build --merge-install --packages-select learning_tf2_cpp
 
 Open a new terminal, navigate to the root of your workspace, and source the setup files:
 
@@ -599,23 +644,27 @@ Open a new terminal, navigate to the root of your workspace, and source the setu
 
       .. code-block:: console
 
-          . install/setup.bash
+          $ . install/setup.bash
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-          . install/setup.bash
+          $ . install/setup.bash
 
    .. group-tab:: Windows
 
+      In a windows command line prompt:
+
       .. code-block:: console
 
-          # CMD
-          call install\setup.bat
+          $ call install\setup.bat
 
-          # Powershell
-          .\install\setup.ps1
+      Or in powershell:
+
+      .. code-block:: console
+
+          $ .\install\setup.ps1
 
 3 Run
 ^^^^^
@@ -624,14 +673,14 @@ First we need to run several nodes (including the broadcaster node of PointStamp
 
 .. code-block:: console
 
-    ros2 launch learning_tf2_py turtle_tf2_sensor_message_launch.py
+    $ ros2 launch learning_tf2_py turtle_tf2_sensor_message_launch.py
 
 This will bring up the ``turtlesim`` window with two turtles, where ``turtle3`` is moving along a circle, while ``turtle1`` isn't moving at first.
 But you can run the ``turtle_teleop_key`` node in another terminal to drive ``turtle1`` to move:
 
 .. code-block:: console
 
-    ros2 run turtlesim turtle_teleop_key
+    $ ros2 run turtlesim turtle_teleop_key
 
 .. image:: images/turtlesim_messagefilter.png
 
@@ -639,12 +688,7 @@ Now if you echo the topic ``turtle3/turtle_point_stamped``:
 
 .. code-block:: console
 
-    ros2 topic echo /turtle3/turtle_point_stamped
-
-Then there will be output like this:
-
-.. code-block:: console
-
+    $ ros2 topic echo /turtle3/turtle_point_stamped
     header:
       stamp:
         sec: 1629877510
@@ -680,12 +724,7 @@ When the demo is running, open another terminal and run the message filter/liste
 
 .. code-block:: console
 
-    ros2 run learning_tf2_cpp turtle_tf2_message_filter
-
-If it's running correctly you should see streaming data like this:
-
-.. code-block:: console
-
+    $ ros2 run learning_tf2_cpp turtle_tf2_message_filter
     [INFO] [1630016162.006173900] [turtle_tf2_pose_drawer]: Point of turtle3 in frame of turtle1: x:-6.493231 y:-2.961614 z:0.000000
 
     [INFO] [1630016162.006291983] [turtle_tf2_pose_drawer]: Point of turtle3 in frame of turtle1: x:-6.472169 y:-3.004742 z:0.000000

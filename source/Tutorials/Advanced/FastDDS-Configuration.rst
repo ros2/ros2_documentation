@@ -64,25 +64,25 @@ First, create a new package named ``sync_async_node_example_cpp`` on a new works
 
        .. code-block:: console
 
-         mkdir -p ~/ros2_ws/src
-         cd ~/ros2_ws/src
-         ros2 pkg create --build-type ament_cmake --license Apache-2.0 --dependencies rclcpp std_msgs -- sync_async_node_example_cpp
+         $ mkdir -p ~/ros2_ws/src
+         $ cd ~/ros2_ws/src
+         $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 --dependencies rclcpp std_msgs -- sync_async_node_example_cpp
 
     .. group-tab:: macOS
 
       .. code-block:: console
 
-        mkdir -p ~/ros2_ws/src
-        cd ~/ros2_ws/src
-        ros2 pkg create --build-type ament_cmake --license Apache-2.0 --dependencies rclcpp std_msgs -- sync_async_node_example_cpp
+        $ mkdir -p ~/ros2_ws/src
+        $ cd ~/ros2_ws/src
+        $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 --dependencies rclcpp std_msgs -- sync_async_node_example_cpp
 
     .. group-tab:: Windows
 
       .. code-block:: console
 
-        md \ros2_ws\src
-        cd \ros2_ws\src
-        ros2 pkg create --build-type ament_cmake --license Apache-2.0 --dependencies rclcpp std_msgs -- sync_async_node_example_cpp
+        $ md \ros2_ws\src
+        $ cd \ros2_ws\src
+        $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 --dependencies rclcpp std_msgs -- sync_async_node_example_cpp
 
 
 Then, add a file named ``src/sync_async_writer.cpp`` to the package, with the following content.
@@ -270,37 +270,32 @@ You will need to export the following environment variables for the XML to be lo
 
     .. code-block:: console
 
-      export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
-      export RMW_FASTRTPS_USE_QOS_FROM_XML=1
-      export FASTRTPS_DEFAULT_PROFILES_FILE=path/to/SyncAsync.xml
+      $ export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+      $ export RMW_FASTRTPS_USE_QOS_FROM_XML=1
+      $ export FASTRTPS_DEFAULT_PROFILES_FILE=path/to/SyncAsync.xml
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
-      export RMW_FASTRTPS_USE_QOS_FROM_XML=1
-      export FASTRTPS_DEFAULT_PROFILES_FILE=path/to/SyncAsync.xml
+      $ export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+      $ export RMW_FASTRTPS_USE_QOS_FROM_XML=1
+      $ export FASTRTPS_DEFAULT_PROFILES_FILE=path/to/SyncAsync.xml
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      SET RMW_IMPLEMENTATION=rmw_fastrtps_cpp
-      SET RMW_FASTRTPS_USE_QOS_FROM_XML=1
-      SET FASTRTPS_DEFAULT_PROFILES_FILE=path/to/SyncAsync.xml
+      $ SET RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+      $ SET RMW_FASTRTPS_USE_QOS_FROM_XML=1
+      $ SET FASTRTPS_DEFAULT_PROFILES_FILE=path/to/SyncAsync.xml
 
 Finally, ensure you have sourced your setup files and run the node:
 
 .. code-block:: console
 
-    source install/setup.bash
-    ros2 run sync_async_node_example_cpp SyncAsyncWriter
-
-You should see the publishers sending the data from the publishing node, like so:
-
-.. code-block:: console
-
+    $ source install/setup.bash
+    $ ros2 run sync_async_node_example_cpp SyncAsyncWriter
     [INFO] [1612972049.994630332] [sync_async_publisher]: Synchronously publishing: 'SYNC: Hello, world! 0'
     [INFO] [1612972049.995097767] [sync_async_publisher]: Asynchronously publishing: 'ASYNC: Hello, world! 0'
     [INFO] [1612972050.494478706] [sync_async_publisher]: Synchronously publishing: 'SYNC: Hello, world! 1'
@@ -388,37 +383,32 @@ With the publisher node running in one terminal, open another one and export the
 
     .. code-block:: console
 
-      export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
-      export RMW_FASTRTPS_USE_QOS_FROM_XML=1
-      export FASTRTPS_DEFAULT_PROFILES_FILE=path/to/SyncAsync.xml
+      $ export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+      $ export RMW_FASTRTPS_USE_QOS_FROM_XML=1
+      $ export FASTRTPS_DEFAULT_PROFILES_FILE=path/to/SyncAsync.xml
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
-      export RMW_FASTRTPS_USE_QOS_FROM_XML=1
-      export FASTRTPS_DEFAULT_PROFILES_FILE=path/to/SyncAsync.xml
+      $ export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+      $ export RMW_FASTRTPS_USE_QOS_FROM_XML=1
+      $ export FASTRTPS_DEFAULT_PROFILES_FILE=path/to/SyncAsync.xml
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      SET RMW_IMPLEMENTATION=rmw_fastrtps_cpp
-      SET RMW_FASTRTPS_USE_QOS_FROM_XML=1
-      SET FASTRTPS_DEFAULT_PROFILES_FILE=path/to/SyncAsync.xml
+      $ SET RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+      $ SET RMW_FASTRTPS_USE_QOS_FROM_XML=1
+      $ SET FASTRTPS_DEFAULT_PROFILES_FILE=path/to/SyncAsync.xml
 
 Finally, ensure you have sourced your setup files and run the node:
 
 .. code-block:: console
 
-    source install/setup.bash
-    ros2 run sync_async_node_example_cpp SyncAsyncReader
-
-You should see the subscribers receiving the data from the publishing node, like so:
-
-.. code-block:: console
-
+    $ source install/setup.bash
+    $ ros2 run sync_async_node_example_cpp SyncAsyncReader
     [INFO] [1612972054.495429090] [sync_async_subscriber]: I heard: 'SYNC: Hello, world! 10'
     [INFO] [1612972054.995410057] [sync_async_subscriber]: I heard: 'ASYNC: Hello, world! 10'
     [INFO] [1612972055.495453494] [sync_async_subscriber]: I heard: 'SYNC: Hello, world! 11'
@@ -764,50 +754,42 @@ Then set the required environment variables for the XML to be loaded:
 
     .. code-block:: console
 
-      export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
-      export RMW_FASTRTPS_USE_QOS_FROM_XML=1
-      export FASTRTPS_DEFAULT_PROFILES_FILE=path/to/ping.xml
+      $ export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+      $ export RMW_FASTRTPS_USE_QOS_FROM_XML=1
+      $ export FASTRTPS_DEFAULT_PROFILES_FILE=path/to/ping.xml
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
-      export RMW_FASTRTPS_USE_QOS_FROM_XML=1
-      export FASTRTPS_DEFAULT_PROFILES_FILE=path/to/ping.xml
+      $ export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+      $ export RMW_FASTRTPS_USE_QOS_FROM_XML=1
+      $ export FASTRTPS_DEFAULT_PROFILES_FILE=path/to/ping.xml
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      SET RMW_IMPLEMENTATION=rmw_fastrtps_cpp
-      SET RMW_FASTRTPS_USE_QOS_FROM_XML=1
-      SET FASTRTPS_DEFAULT_PROFILES_FILE=path/to/ping.xml
+      $ SET RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+      $ SET RMW_FASTRTPS_USE_QOS_FROM_XML=1
+      $ SET FASTRTPS_DEFAULT_PROFILES_FILE=path/to/ping.xml
 
 
 On the first terminal run the service node.
-
-.. code-block:: console
-
-    ros2 run sync_async_node_example_cpp ping_service
-
 You should see the service waiting for requests:
 
 .. code-block:: console
 
+    $ ros2 run sync_async_node_example_cpp ping_service
     [INFO] [1612977403.805799037] [ping_server]: Ready to serve.
 
 On the second terminal, run the client node.
-
-
-.. code-block:: console
-
-    ros2 run sync_async_node_example_cpp ping_client
-
 You should see the client sending the request and receiving the response:
 
+
 .. code-block:: console
 
+    $ ros2 run sync_async_node_example_cpp ping_client
     [INFO] [1612977404.805799037] [ping_client]: Sending request
     [INFO] [1612977404.825473835] [ping_client]: Response received
 

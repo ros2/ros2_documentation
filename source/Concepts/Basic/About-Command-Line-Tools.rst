@@ -19,9 +19,9 @@ The main entry point for the tools is the command ``ros2``, which itself has var
 
 To see all available sub-commands run:
 
-.. code-block:: bash
+.. code-block:: console
 
-   ros2 --help
+   $ ros2 --help
 
 Examples of sub-commands that are available include:
 
@@ -43,7 +43,6 @@ Examples of sub-commands that are available include:
 * ``test``: Run a ROS launch test
 * ``topic``: Introspect/publish ROS topics
 * ``trace``: Tracing tools to get information on ROS nodes execution (only available on Linux)
-* ``wtf``: An alias for ``doctor``
 
 Example
 -------
@@ -69,15 +68,21 @@ Echo messages received in another terminal with:
 
    data: Hello world
 
-Behind the scenes
------------------
+ROS 2 Daemon: Background Discovery Service
+------------------------------------------
 
 ROS 2 uses a distributed discovery process for nodes to connect to each other.
 As this process purposefully does not use a centralized discovery mechanism, it can take time for ROS nodes to discover all other participants in the ROS graph.
-Because of this, there is a long-running daemon in the background that stores information about the ROS graph to provide faster responses to queries, e.g. the list of node names.
+To address this, ROS 2 runs a background daemon process that maintains information about the ROS graph to provide faster responses to queries, such as the list of node names.
 
-The daemon is automatically started when the relevant command-line tools are used for the first time.
-You can run ``ros2 daemon --help`` for more options for interacting with the daemon.
+The ROS 2 daemon is automatically started when you first use command-line tools like ``ros2 node list``, ``ros2 topic list``, or other introspection commands.
+If no daemon is running, these tools will instantiate a new daemon process in the background before executing the requested command.
+
+The daemon communicates using the localhost network interface (127.0.0.1) and uses the :doc:`ROS_DOMAIN_ID <../Intermediate/About-Domain-ID>` environment variable as a port number offset.
+This means that if you want to control a specific daemon instance (for example, using ``ros2 daemon stop``), you must ensure that your :doc:`ROS_DOMAIN_ID <../Intermediate/About-Domain-ID>` matches the domain ID used by that daemon.
+Different :doc:`ROS_DOMAIN_ID <../Intermediate/About-Domain-ID>` values will result in separate daemon instances running on different ports.
+
+You can run ``ros2 daemon --help`` for more options for interacting with the daemon, including commands to start, stop, or check the status of the daemon process.
 
 Implementation
 --------------
