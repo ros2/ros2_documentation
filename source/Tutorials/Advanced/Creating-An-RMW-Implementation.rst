@@ -19,7 +19,7 @@ From top to bottom:
 #. The client library interface, ``rcl``, which supports the user-facing :doc:`client libraries <../../Concepts/Basic/About-Client-Libraries>`, such as ``rclcpp`` and ``rclpy``
 #. The middleware interface, ``rmw``, which abstracts away the :doc:`underlying middleware implementation <../../Concepts/Intermediate/About-Different-Middleware-Vendors>`, such as a specific DDS implementation, Zenoh, etc.
 
-The ``rmw`` `API includes function-level documentation <https://docs.ros.org/en/rolling/p/rmw/generated/index.html#functions>`_, but there is no higher-level documentation on the features of the interface and what it expects from the underlying middleware.
+The ``rmw`` `API includes function-level documentation <https://docs.ros.org/en/{DISTRO}/p/rmw/generated/index.html#functions>`_, but there is no higher-level documentation on the features of the interface and what it expects from the underlying middleware.
 
 This guide is for developers who want to implement the ``rmw`` interface for a specific middleware.
 It will first go over the ``rmw`` interface and how it works.
@@ -34,14 +34,10 @@ It will link to other pages and source code for more details where appropriate.
     ROS 2 design articles on `design.ros2.org <https://design.ros2.org/>`_ are historical documents and may not reflect the current state of ROS 2.
     However, in some cases, they provide useful context and information, so they may still be referenced by this guide or by pages that this guide links to.
 
-.. note::
-
-    This guide intends to follow the latest state of the ``rmw`` interface; it may be different in older (non-Rolling) ROS 2 distributions.
-
 The ``rmw`` interface
 ---------------------
 
-The ``rmw`` interface is declared by the ``rmw`` package through `C header files <https://github.com/ros2/rmw/tree/rolling/rmw/include/rmw>`_.
+The ``rmw`` interface is declared by the ``rmw`` package through `C header files <https://github.com/ros2/rmw/tree/{DISTRO}/rmw/include/rmw>`_.
 Implementations of the C functions declared in these headers are provided by ``rmw`` implementations, which are separate packages.
 For example, the ``rmw_fastrtps_cpp`` package implements the interface for eProsima Fast DDS.
 
@@ -62,7 +58,7 @@ Note that there are different `support tiers, which are defined by REP 2000 <htt
 
 #. ``rmw_zenoh_cpp``: `ros2/rmw_zenoh <https://github.com/ros2/rmw_zenoh>`_
 
-    * See :ref:`this overview <about-middleware-impls_struct_zenoh>` and the `design document <https://github.com/ros2/rmw_zenoh/blob/rolling/docs/design.md>`_
+    * See :ref:`this overview <about-middleware-impls_struct_zenoh>` and the `design document <https://github.com/ros2/rmw_zenoh/blob/{DISTRO}/docs/design.md>`_
 
 #. ``rmw_email_cpp``, an email-based implementation: `christophebedard/rmw_email <https://github.com/christophebedard/rmw_email>`_
 
@@ -73,7 +69,7 @@ Note that there are different `support tiers, which are defined by REP 2000 <htt
 Build-time and runtime ``rmw`` implementation selection mechanism
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The dependency on the actual ``rmw`` implementation is done through the ``rmw_implementation`` `package <https://index.ros.org/p/rmw_implementation/#rolling>`_.
+The dependency on the actual ``rmw`` implementation is done through the ``rmw_implementation`` `package <https://index.ros.org/p/rmw_implementation/#{DISTRO}>`_.
 Users of ``rmw``, such as ``rcl``, depend on the ``rmw`` package for the interface (headers) and some utility functions.
 They also depend on the ``rmw_implementation`` package to get the actual implementation.
 
@@ -108,12 +104,12 @@ The ``rmw`` implementation simply has to use the given (resolved) topic name.
 This might involve adapting or mangling the ROS topic name to fit the underlying middleware's topic name conventions or constraints, or encode useful information.
 For example, a pub/sub topic called ``/chatter`` is usually mangled into ``rt/chatter`` for DDS-based implementations, making ROS topics on DDS easily distinguishable from normal DDS topics.
 See the `"Mapping of ROS 2 Topic and Service Names to DDS Concepts" section in this design document <https://design.ros2.org/articles/topic_and_service_names.html#mapping-of-ros-2-topic-and-service-names-to-dds-concepts>`_.
-For Zenoh, the domain ID, resolved topic name, topic type name, and topic type hash are `encoded in the underlying Zenoh key <https://github.com/ros2/rmw_zenoh/blob/rolling/docs/design.md#topic-and-service-name-mapping-to-zenoh-key-expressions>`_ to avoid communications between different ROS topic names & types.
+For Zenoh, the domain ID, resolved topic name, topic type name, and topic type hash are `encoded in the underlying Zenoh key <https://github.com/ros2/rmw_zenoh/blob/{DISTRO}/docs/design.md#topic-and-service-name-mapping-to-zenoh-key-expressions>`_ to avoid communications between different ROS topic names & types.
 
 As for :doc:`services <../../Concepts/Basic/About-Services>`, they are not always natively supported by the underlying middleware.
 For DDS-based implementations, they are simply built on top of pub/sub: 1 request topic and 1 response topic.
 [#fn_dds_rpc]_
-On the other hand, Zenoh natively supports services through `queryables <https://github.com/ros2/rmw_zenoh/blob/rolling/docs/design.md#service-servers>`_, so they are used to implement services in ``rmw_zenoh_cpp``.
+On the other hand, Zenoh natively supports services through `queryables <https://github.com/ros2/rmw_zenoh/blob/{DISTRO}/docs/design.md#service-servers>`_, so they are used to implement services in ``rmw_zenoh_cpp``.
 
 Note that, while services are a part of the ``rmw`` interface, :doc:`actions <../../Concepts/Basic/About-Actions>` are not.
 They are an ``rcl`` concept implemented in the ``rcl_action`` package on top of services and pub/sub.
@@ -134,7 +130,7 @@ Wait sets and waiting
 :doc:`Executors <../../Concepts/Intermediate/About-Executors>` are responsible for triggering user-provided callbacks when a new message is received, for example.
 Executors are implemented at the client library level (``rclcpp``, ``rclpy``), but they rely on the underlying middleware to wait for new messages using a polling mechanism.
 This is done using wait sets, which allow waiting on different entities at the same time in a standard way, e.g., subscriptions, service clients, and service servers.
-The ``rmw_wait()`` `function <https://docs.ros.org/en/rolling/p/rmw/generated/function_rmw_8h_1a5f480dd59075e80288fb596b2951be2b.html>`_ is called with lists of entities to wait on, as well as an implementation-specific wait set object.
+The ``rmw_wait()`` `function <https://docs.ros.org/en/{DISTRO}/p/rmw/generated/function_rmw_8h_1a5f480dd59075e80288fb596b2951be2b.html>`_ is called with lists of entities to wait on, as well as an implementation-specific wait set object.
 It adds all entities to the wait set and asks it to wait until at least one entity has new data available or until it times out.
 Then the executor checks the lists of entities to see which ones have new data available and triggers the corresponding callbacks.
 
@@ -205,7 +201,7 @@ On the other hand, dynamic type support involves generating a bit of middleware-
 
 This information can be used at runtime by any ``rmw`` implementation to interpret a type-erased pointer to data: names & types of fields, functions to read from/write to fields depending on their type, functions to get the size of an array field, etc.
 For C++, this is ``rosidl_typesupport_introspection_cpp``, which is used by ``rmw_fastrtps_dynamic_cpp`` (hence the "dynamic" part), for example.
-Dynamic type support is generally slower than static type support at runtime, but it is does not require generating middleware-specific code.
+Dynamic type support is generally slower than static type support at runtime, but it does not require generating middleware-specific code.
 
 ``rmw_email_cpp`` uses dynamic type support to convert messages to and from YAML string to be sent over email.
 It gets the type support introspection information, and passes it and the message to an external/experimental package, `dynmsg <https://github.com/osrf/dynamic_message_introspection/>`_, which converts the message to/from YAML.
@@ -230,7 +226,7 @@ For instance, ``rmw_zenoh_cpp`` doesn't implement the deadline and lifespan QoS 
 One important aspect of QoS is that two profiles, e.g., a publisher's profile and a subscription's profile, may be incompatible, meaning they cannot communicate.
 It is up to the implementation to decide if two QoS profiles are compatible: ``rmw_qos_profile_check_compatible()``.
 DDS-based implementations rely on ``rmw_dds_common::qos_profile_check_compatible()``, since :ref:`QoS profile compatibility <about-qos_compatibilities>` is standard in DDS.
-In Zenoh, `QoS settings are essentially never incompatible <https://github.com/ros2/rmw_zenoh/blob/rolling/docs/design.md#quality-of-service>`_.
+In Zenoh, `QoS settings are essentially never incompatible <https://github.com/ros2/rmw_zenoh/blob/{DISTRO}/docs/design.md#quality-of-service>`_.
 
 To support a universal "default" behavior, QoS policies include a ``*_SYSTEM_DEFAULT`` setting (e.g., ``rmw_qos_reliability_policy_t``'s ``RMW_QOS_POLICY_RELIABILITY_SYSTEM_DEFAULT``), which leaves the value up to the middleware implementation.
 Then the ``rmw_*_get_actual_qos()`` functions retrieve the actual QoS profile used by the implementation.
@@ -252,7 +248,7 @@ This context indirectly belongs to the ``rclcpp`` context (e.g., initialized by 
 
 Since DDS-based ``rmw`` implementations are very similar in this regard, they share a common graph cache implementation in the ``rmw_dds_common`` `package <https://github.com/ros2/rmw_dds_common>`__.
 It uses an internal topic (usually ``ros_discovery_info``) to share information about new entities.
-``rmw_zenoh_cpp`` `creates a Zenoh liveliness token <https://github.com/ros2/rmw_zenoh/blob/rolling/docs/design.md#graph-cache>`_ with the entity type & info and shares it with other participants.
+``rmw_zenoh_cpp`` `creates a Zenoh liveliness token <https://github.com/ros2/rmw_zenoh/blob/{DISTRO}/docs/design.md#graph-cache>`_ with the entity type & info and shares it with other participants.
 
 Events
 ^^^^^^
@@ -273,7 +269,7 @@ The interface only defines a few security options as part of the context initial
 
 However, in practice, the structure of the :doc:`keystore <./Security/The-Keystore>` directory and its security enclaves is based on the DDS Security specification.
 Therefore, :doc:`security artifacts generated <./Security/Introducing-ros2-security>` with the ``sros2`` package can only be directly used by DDS-based ``rmw`` implementations.
-For ``rmw_zenoh_cpp``, `Zenoh-specific security configuration files can be generated <https://github.com/ros2/rmw_zenoh/tree/rolling/zenoh_security_tools>`_ from ``sros2``-generated artifacts using the ``zenoh_security_tools`` package and provided through the ``ZENOH_SESSION_CONFIG_URI`` environment variable, bypassing the ``ROS_SECURITY_*`` environment variables.
+For ``rmw_zenoh_cpp``, `Zenoh-specific security configuration files can be generated <https://github.com/ros2/rmw_zenoh/tree/{DISTRO}/zenoh_security_tools>`_ from ``sros2``-generated artifacts using the ``zenoh_security_tools`` package and provided through the ``ZENOH_SESSION_CONFIG_URI`` environment variable, bypassing the ``ROS_SECURITY_*`` environment variables.
 
 Implementation
 --------------
@@ -441,15 +437,15 @@ Tests
 
 The ``rmw`` package contains some tests, but they are mostly for utilities (e.g., getting zero-initialized structs) and non-implementation-specific functions such as topic/node name/namespace validation.
 
-As for testing the new ``rmw`` implementation, the ``test_rmw_implementation`` package `contains tests for the interface <https://github.com/ros2/rmw_implementation/tree/rolling/test_rmw_implementation/test>`_.
+As for testing the new ``rmw`` implementation, the ``test_rmw_implementation`` package `contains tests for the interface <https://github.com/ros2/rmw_implementation/tree/{DISTRO}/test_rmw_implementation/test>`_.
 Test executables are defined first and then a CMake function creates test targets for a given ``rmw`` implementation by setting the ``RMW_IMPLEMENTATION`` environment variable.
 ``rmw_implementation_cmake``'s ``call_for_each_rmw_implementation()`` is called and is provided with this CMake function, which is called with each available implementation.
-See the `CMakeLists.txt file <https://github.com/ros2/rmw_implementation/blob/rolling/test_rmw_implementation/CMakeLists.txt>`__.
-Many other packages, including the ``test_rclcpp`` test-only package, also `use this mechanism <https://github.com/ros2/system_tests/blob/rolling/test_rclcpp/CMakeLists.txt>`__ to run tests against all available ``rmw`` implementations, otherwise tests are simply run with the default implementation.
+See the `CMakeLists.txt file <https://github.com/ros2/rmw_implementation/blob/{DISTRO}/test_rmw_implementation/CMakeLists.txt>`__.
+Many other packages, including the ``test_rclcpp`` test-only package, also `use this mechanism <https://github.com/ros2/system_tests/blob/{DISTRO}/test_rclcpp/CMakeLists.txt>`__ to run tests against all available ``rmw`` implementations, otherwise tests are simply run with the default implementation.
 Packages can also use ``get_available_rmw_implementations()`` to get the actual list of available implementations.
 
 Some tests have implementation-specific code, which is done for various reasons, such as unsupported interface subsets.
-These tests can use ``rmw``'s ``rmw_get_implementation_identifier()`` `function <https://docs.ros.org/en/rolling/p/rmw/generated/function_rmw_8h_1aeb8a815b9be5eb3f38ab28363ef63920.html>`__ for this.
+These tests can use ``rmw``'s ``rmw_get_implementation_identifier()`` `function <https://docs.ros.org/en/{DISTRO}/p/rmw/generated/function_rmw_8h_1aeb8a815b9be5eb3f38ab28363ef63920.html>`__ for this.
 
 Middleware- and ``rmw`` implementation-specific configuration
 -------------------------------------------------------------
