@@ -101,7 +101,6 @@ Variable Naming
   * For new projects, developers should follow the existing conventions in related ROS 2 packages
   * When in doubt, prefer consistency with surrounding code over strict adherence to Google style
 
-
 Function and Method Naming
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
