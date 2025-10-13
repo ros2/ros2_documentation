@@ -201,7 +201,12 @@ On the other hand, dynamic type support involves generating a bit of middleware-
 
 This information can be used at runtime by any ``rmw`` implementation to interpret a type-erased pointer to data: names & types of fields, functions to read from/write to fields depending on their type, functions to get the size of an array field, etc.
 For C++, this is ``rosidl_typesupport_introspection_cpp``, which is used by ``rmw_fastrtps_dynamic_cpp`` (hence the "dynamic" part), for example.
-Dynamic type support is generally slower than static type support at runtime, but it does not require generating middleware-specific code.
+
+Dynamic type support is generally slower than static type support at runtime because it has to iterate over each message field, figure out what type it is, and then process it, e.g., serialize it.
+Static type support knows exactly how to process the message thanks to the code it generated for each interface type.
+This is why most ``rmw`` implementations use static type support.
+However, dynamic type support does not require generating middleware-specific code.
+Choosing between static and dynamic type support is an orthogonal decision to the ``rmw`` implementation itself.
 
 ``rmw_email_cpp`` uses dynamic type support to convert messages to and from YAML string to be sent over email.
 It gets the type support introspection information, and passes it and the message to an external/experimental package, `dynmsg <https://github.com/osrf/dynamic_message_introspection/>`_, which converts the message to/from YAML.
