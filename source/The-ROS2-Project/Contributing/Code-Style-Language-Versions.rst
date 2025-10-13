@@ -93,6 +93,14 @@ Variable Naming
   * rationale: easy to tell the scope of a variable at a glance
   * consistency across languages
 
+* **Note on naming conventions**: ROS 2 deviates from the Google C++ Style Guide in several naming areas:
+
+  * The Google style guide recommends ``kPascalCase`` for constants (e.g., ``kDaysInAWeek``)
+  * ROS 2 projects currently use a mix of ``snake_case``, ``PascalCase``, and ``UPPER_CASE`` naming conventions
+  * This deviation is for historical reasons and consistency with existing ROS codebases
+  * For new projects, developers should follow the existing conventions in related ROS 2 packages
+  * When in doubt, prefer consistency with surrounding code over strict adherence to Google style
+
 Function and Method Naming
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
