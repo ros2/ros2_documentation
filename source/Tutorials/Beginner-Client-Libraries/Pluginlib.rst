@@ -330,6 +330,15 @@ From ``ros2_ws``, be sure to source the setup files:
 
       $ call install/setup.bat
 
+You can verify that your plugins were successfully registered by listing them:
+
+.. code-block:: console
+
+     $ ros2 plugin list
+     polygon_plugins:
+        Plugin(name='polygon_plugins::Square', type='polygon_plugins::Square', base='polygon_base::RegularPolygon')
+        Plugin(name='polygon_plugins::Triangle', type='polygon_plugins::Triangle', base='polygon_base::RegularPolygon')
+
 Now run the node:
 
 .. code-block:: console
