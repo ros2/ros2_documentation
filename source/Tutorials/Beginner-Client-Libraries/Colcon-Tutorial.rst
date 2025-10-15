@@ -184,9 +184,10 @@ This allows the installed files to be changed by changing the files in the ``sou
 
     .. code-block:: console
 
-      $ colcon build --symlink-install --merge-install
+      $ colcon build --merge-install
 
     Windows doesn't allow long paths, so ``merge-install`` will combine all the paths into the ``install`` directory.
+    On Windows, you need special permissions to create symbolic links, so `--symlink-install` is not used by default. To use it, you need to run the command as administrator or enable developer mode in system settings.
 
 .. tip::
 
