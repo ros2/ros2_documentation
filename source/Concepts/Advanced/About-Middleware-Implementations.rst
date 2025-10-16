@@ -14,6 +14,8 @@ ROS middleware implementations are sets of |packages| that provide the underlyin
 These packages interact with core ROS 2 interfaces such as the ``rmw``, ``rcl``, and ``rosidl`` |APIs| to integrate with external protocols like Zenoh, DDS, or others.
 For example, ``rmw_fastrtps_cpp`` adapts eProsima's Fast DDS implementation to ROS 2's middleware |API|, while ``rmw_zenoh_cpp`` provides similar integration for the Zenoh protocol.
 
+For a more practical in-depth overview of how ROS 2 integrates with different middleware implementations, see :doc:`the middleware implementation tutorial <../../Tutorials/Advanced/Creating-An-RMW-Implementation>`.
+
 Common Packages for DDS Middleware Implementations
 --------------------------------------------------
 
@@ -28,6 +30,8 @@ In the `ros2/rosidl_dds <https://github.com/ros2/rosidl_dds>`_ repository on |Gi
 The ``rosidl_generator_dds_idl`` |package| generates a DDS ``.idl`` file for each ROS interface definition file (``.msg``, ``.srv``, ``.action``, etc.) found in ROS packages.
 These interface definition files specify the data structures used for topics, services, and actions in ROS 2.
 DDS-based ROS middleware implementations then use these generated ``.idl`` files to create vendor-specific pre-compiled type support.
+
+.. _about-middleware-impls_struct_dds:
 
 Structure of DDS Middleware Implementations
 -------------------------------------------
@@ -61,6 +65,8 @@ For examples of example of DDS RMW implementation repositories,
 | The RMW implementation for ``Fast DDS`` is on |GitHub|_ at `ros2/rmw_fastrtps_cpp <https://github.com/ros2/rmw_fastrtps_cpp>`_.
 | The RMW implementation for ``Connext DDS`` is on |GitHub|_ at `ros2/rmw_connextdds <https://github.com/ros2/rmw_connextdds>`_.
 | The RMW implementation for ``GurumDDS`` is on |GitHub|_ at `ros/rmw_gurumdds <https://github.com/ros2/rmw_gurumdds>`_.
+
+.. _about-middleware-impls_struct_zenoh:
 
 Structure of the Zenoh Middleware Implementation
 ------------------------------------------------
@@ -99,6 +105,6 @@ ROS 2 nodes use ``rmw_create_service`` to advertise services to the network and 
 ``rmw_take_request`` delivers the query to the use callback to be processed and after the computation is complete, ``rmw_send_reponse`` returns the result to the requester.
 When a server is created, a liveliness token of type ``SS`` is declared.
 
-The RMW implementation for ``Zenoh`` is on |GitHub|_ at `ros/rmw_zenoh <https://github.com/ros2/rmw_zenoh/tree/rolling>`_.
+The RMW implementation for ``Zenoh`` is on |GitHub|_ at `ros2/rmw_zenoh <https://github.com/ros2/rmw_zenoh/tree/rolling>`_.
 
 

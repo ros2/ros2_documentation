@@ -4,7 +4,7 @@ on: pull_request
 
 jobs:
   test:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -14,7 +14,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.12'
 
       - name: Install dependencies with pip
         run: pip install --no-warn-script-location --user -r requirements.txt -c constraints.txt
@@ -26,7 +26,7 @@ jobs:
         run: make test-tools
 
   lint:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -36,7 +36,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.12'
 
       - name: Install dependencies with pip
         run: pip install --no-warn-script-location --user -r requirements.txt -c constraints.txt
@@ -45,7 +45,7 @@ jobs:
         run: make lint
 
   spellcheck:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -55,7 +55,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.12'
 
       - name: Install dependencies with pip
         run: pip install --no-warn-script-location --user -r requirements.txt -c constraints.txt
@@ -65,7 +65,7 @@ jobs:
 
   build:
     needs: [test, lint]
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -75,7 +75,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.12'
 
       - name: Setup Graphviz
         uses: ts-graphviz/setup-graphviz@v2
