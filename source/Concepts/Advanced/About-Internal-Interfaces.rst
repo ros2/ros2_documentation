@@ -65,6 +65,8 @@ In this context, type support means: meta data or functions that are specific to
 The type support for a given message might include things like a list of the names and types for each field in the message.
 It might also contain a reference to code that can perform particular tasks for that type, e.g. publish a message.
 
+.. _internal-interfaces_static-type-support:
+
 Static Type Support
 ^^^^^^^^^^^^^^^^^^^
 
@@ -83,6 +85,8 @@ The above diagram shows this on the left hand side, where the ``.msg`` files are
 For example, consider the Fast DDS implementation, which has a package called ``rosidl_typesupport_fastrtps_cpp``.
 This package is responsible for generating code to handle things like converting a C++ message object into a serialized octet buffer to be written over the network.
 This code, while specific to Fast DDS, is still not exposed to the user because of the abstraction in the type support code.
+
+.. _internal-interfaces_dynamic-type-support:
 
 Dynamic Type Support
 ^^^^^^^^^^^^^^^^^^^^
@@ -137,13 +141,14 @@ The ``rmw`` repository
 
 The ROS middleware interface (``rmw`` |API|) is the minimal set of primitive middleware capabilities needed to build ROS on top.
 Providers of different middleware implementations must implement this interface in order to support the entire ROS stack on top.
-Currently all of the middleware implementations are for different DDS vendors.
+Currently most of the middleware implementations are for different DDS vendors.
 
 The ``rmw`` |API| is located in the `ros2/rmw <https://github.com/ros2/rmw>`_ repository.
 The ``rmw`` |package| contains the C headers which define the interface, the implementation of which is provided by the various |packages| of rmw implementations for different DDS vendors.
 
 For a definition of the ``rmw`` |API|, see `the rmw docs <http://docs.ros.org/en/{DISTRO}/p/rmw/>`_.
 
+For a more practical in-depth overview of how ROS 2 integrates with different middleware implementations, see :doc:`the middleware implementation tutorial <../../Tutorials/Advanced/Creating-An-RMW-Implementation>`.
 
 The ``rosidl`` repository
 -------------------------

@@ -459,6 +459,8 @@ To do so:
 Ament extensions work by defining a variable containing the name of the extension point and filling it with the macros to be executed.
 Upon calling ``ament_execute_extensions``, the scripts defined in the variable are then executed one after another.
 
+.. _ament-cmake-doc_adding-resources:
+
 Adding resources
 ----------------
 
