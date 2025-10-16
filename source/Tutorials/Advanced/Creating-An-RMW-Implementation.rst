@@ -58,7 +58,7 @@ Note that there are different `support tiers, which are defined by REP 2000 <htt
 
 #. ``rmw_zenoh_cpp``: `ros2/rmw_zenoh <https://github.com/ros2/rmw_zenoh>`_
 
-    * See :ref:`this overview <about-middleware-impls_struct_zenoh>` and the `design document <https://github.com/ros2/rmw_zenoh/blob/{DISTRO}/docs/design.md>`_
+    * See the `design document <https://github.com/ros2/rmw_zenoh/blob/{DISTRO}/docs/design.md>`_
 
 #. ``rmw_email_cpp``, an email-based implementation: `christophebedard/rmw_email <https://github.com/christophebedard/rmw_email>`_
 
@@ -258,7 +258,7 @@ It uses an internal topic (usually ``ros_discovery_info``) to share information 
 Events
 ^^^^^^
 
-Users can provide callbacks for publishers & subscriptions to be triggered by the middleware (but executed by the client library) on certain events (``rmw_event_type_t``), such as :ref:`quality of service-related events <about-qos_qos-events>` and :ref:`pub-sub match events <about-qos_matched-events>`.
+Users can provide callbacks for publishers & subscriptions to be triggered by the middleware (but executed by the client library) on certain events (``rmw_event_type_t``), such as :ref:`quality of service-related events <about-qos_qos-events>` and pub-sub match events.
 Some of these events could be triggered on relevant changes to the graph cache.
 
 Security
