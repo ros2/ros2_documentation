@@ -121,6 +121,7 @@ The currently defined QoS profiles are:
 `Click here <https://github.com/ros2/rmw/blob/{REPOS_FILE_BRANCH}/rmw/include/rmw/qos_profiles.h>`__ for the specific policies in use for the above profiles.
 The settings in these profiles are subject to further tweaks, based on the feedback from the community.
 
+.. _about-qos_compatibilities:
 
 QoS compatibilities
 -------------------
@@ -279,6 +280,7 @@ Comparison to ROS 1
 Historically in ROS 1, any publisher and subscriber with the same message type on the same topic would be connected.
 The possibility of incompatible requested and offered QoS profiles is something new to be aware of when using ROS 2.
 
+.. _about-qos_qos-events:
 
 QoS events
 ----------
@@ -313,3 +315,24 @@ Developers may subscribe to the following QoS events that are associated with a 
 * Requested incompatible QoS
 
   The subscription has encountered a publisher on the same topic that is offering a QoS profile that does not satisfy the requested QoS profile, resulting in no connection between the subscription and that publisher.
+<<<<<<< HEAD
+=======
+
+.. _about-qos_matched-events:
+
+Matched events
+--------------
+
+In addition to QoS events, matched events can be generated when any publisher and subscription establishes or drops the connection between them.
+Developers may provide each publisher and subscription with callback functions that are triggered by matched events and handle them in a way they see fit, similar to how messages received on a topic are handled.
+
+Developers can subscribe to this event with a publisher or a subscription.
+
+* publisher: this event happens when it finds a subscription which matches the topic and has compatible QoS or a connected subscription is disconnected
+* subscription: this event happens when it finds a publisher which matches the topic and has compatible QoS or a connected publisher is disconnected
+
+There are demos showing how to use the event:
+
+* rclcpp: `demo code <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/events/matched_event_detect.cpp>`__
+* rclpy: `demo code <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_py/demo_nodes_py/events/matched_event_detect.py>`__
+>>>>>>> e831830 (Add rmw implementation tutorial (#5927))
