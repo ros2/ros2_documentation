@@ -17,5 +17,6 @@ Advanced
    Advanced/Reading-From-A-Bag-File-CPP
    Advanced/Reading-From-A-Bag-File-Python
    Advanced/ROS2-Tracing-Trace-and-Analyze
+   Advanced/Creating-An-RMW-Implementation
    Advanced/Simulators/Simulation-Main
    Advanced/Security/Security-Main
