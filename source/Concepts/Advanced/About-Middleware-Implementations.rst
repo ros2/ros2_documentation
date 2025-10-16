@@ -12,6 +12,8 @@ ROS 2 middleware implementations
 
 ROS middleware implementations are sets of |packages| that implement some of the internal ROS interfaces, e.g. the ``rmw``, ``rcl``, and ``rosidl`` |APIs|.
 
+For a more practical in-depth overview of how ROS 2 integrates with different middleware implementations, see :doc:`the middleware implementation tutorial <../../Tutorials/Advanced/Creating-An-RMW-Implementation>`.
+
 Common Packages for DDS Middleware Packages
 -------------------------------------------
 
@@ -25,6 +27,8 @@ In the `ros2/rosidl_dds <https://github.com/ros2/rosidl_dds>`_ repository on |Gi
 
 The ``rosidl_generator_dds_idl`` |package| generates a DDS ``.idl`` file for each ``rosidl`` file, e.g. ``.msg`` file, defined by |packages| containing messages.
 Currently DDS based ROS middleware implementations make use of this generator's output ``.idl`` files to generate pre-compiled type support that is vendor specific.
+
+.. _about-middleware-impls_struct_dds:
 
 Structure of ROS Middleware Implementations
 -------------------------------------------

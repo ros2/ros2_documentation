@@ -121,6 +121,7 @@ The currently defined QoS profiles are:
 `Click here <https://github.com/ros2/rmw/blob/{REPOS_FILE_BRANCH}/rmw/include/rmw/qos_profiles.h>`__ for the specific policies in use for the above profiles.
 The settings in these profiles are subject to further tweaks, based on the feedback from the community.
 
+.. _about-qos_compatibilities:
 
 QoS compatibilities
 -------------------
@@ -279,6 +280,7 @@ Comparison to ROS 1
 Historically in ROS 1, any publisher and subscriber with the same message type on the same topic would be connected.
 The possibility of incompatible requested and offered QoS profiles is something new to be aware of when using ROS 2.
 
+.. _about-qos_qos-events:
 
 QoS events
 ----------
