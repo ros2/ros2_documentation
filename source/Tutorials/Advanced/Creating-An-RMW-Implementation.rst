@@ -58,7 +58,7 @@ Note that there are different `support tiers, which are defined by REP 2000 <htt
 
 #. ``rmw_zenoh_cpp``: `ros2/rmw_zenoh <https://github.com/ros2/rmw_zenoh>`_
 
-    * See :ref:`this overview <about-middleware-impls_struct_zenoh>` and the `design document <https://github.com/ros2/rmw_zenoh/blob/{DISTRO}/docs/design.md>`_
+    * See the `design document <https://github.com/ros2/rmw_zenoh/blob/{DISTRO}/docs/design.md>`_
 
 #. ``rmw_email_cpp``, an email-based implementation: `christophebedard/rmw_email <https://github.com/christophebedard/rmw_email>`_
 
