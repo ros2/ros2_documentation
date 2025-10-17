@@ -198,6 +198,8 @@ The ROS PMC thanks the following past constituents for their service:
      - None yet
      - None yet
 
+
+
 Repositories managed by the ROS PMC
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -207,243 +209,122 @@ The following repositories are managed by the ROS PMC:
    :header-rows: 1
 
    * - Repository URL
-     - Committers
    * - https://github.com/ament/ament_cmake
-     - Not Yet Available
    * - https://github.com/ament/ament_index
-     - Not Yet Available
    * - https://github.com/ament/ament_lint
-     - Not Yet Available
    * - https://github.com/ament/ament_package
-     - Not Yet Available
    * - https://github.com/ament/google_benchmark_vendor
-     - Not Yet Available
    * - https://github.com/ament/googletest
-     - Not Yet Available
    * - https://github.com/ament/uncrustify_vendor
-     - Not Yet Available
    * - https://github.com/gazebo-release/gz_cmake_vendor
-     - Not Yet Available
    * - https://github.com/gazebo-release/gz_math_vendor
-     - Not Yet Available
    * - https://github.com/gazebo-release/gz_utils_vendor
-     - Not Yet Available
    * - https://github.com/osrf/osrf_pycommon
-     - Not Yet Available
    * - https://github.com/osrf/osrf_testing_tools_cpp
-     - Not Yet Available
    * - https://github.com/ros-infrastructure/rep
-     - Not Yet Available
    * - https://github.com/ros-infrastructure/rosdoc2
-     - Not Yet Available
    * - https://github.com/ros-perception/image_common
-     - Not Yet Available
    * - https://github.com/ros-perception/laser_geometry
-     - Not Yet Available
    * - https://github.com/ros-perception/point_cloud_transport
-     - Not Yet Available
    * - https://github.com/ros-perception/pointcloud_to_laserscan
-     - Not Yet Available
    * - https://github.com/ros-planning/navigation_msgs
-     - Not Yet Available
    * - https://github.com/ros-tooling/keyboard_handler
-     - Not Yet Available
    * - https://github.com/ros-tooling/libstatistics_collector
-     - Not Yet Available
    * - https://github.com/ros-visualization/interactive_markers
-     - Not Yet Available
    * - https://github.com/ros-visualization/python_qt_binding
-     - Not Yet Available
    * - https://github.com/ros-visualization/qt_gui_core
-     - Not Yet Available
    * - https://github.com/ros-visualization/rqt
-     - Not Yet Available
    * - https://github.com/ros-visualization/rqt_action
-     - Not Yet Available
    * - https://github.com/ros-visualization/rqt_bag
-     - Not Yet Available
    * - https://github.com/ros-visualization/rqt_console
-     - Not Yet Available
    * - https://github.com/ros-visualization/rqt_graph
-     - Not Yet Available
    * - https://github.com/ros-visualization/rqt_msg
-     - Not Yet Available
    * - https://github.com/ros-visualization/rqt_plot
-     - Not Yet Available
    * - https://github.com/ros-visualization/rqt_publisher
-     - Not Yet Available
    * - https://github.com/ros-visualization/rqt_py_console
-     - Not Yet Available
    * - https://github.com/ros-visualization/rqt_reconfigure
-     - Not Yet Available
    * - https://github.com/ros-visualization/rqt_service_caller
-     - Not Yet Available
    * - https://github.com/ros-visualization/rqt_shell
-     - Not Yet Available
    * - https://github.com/ros-visualization/rqt_srv
-     - Not Yet Available
    * - https://github.com/ros-visualization/rqt_topic
-     - Not Yet Available
    * - https://github.com/ros-visualization/tango_icons_vendor
-     - Not Yet Available
    * - https://github.com/ros-visualization/visualization_tutorials
-     - Not Yet Available
    * - https://github.com/ros/angles
-     - Not Yet Available
    * - https://github.com/ros/class_loader
-     - Not Yet Available
    * - https://github.com/ros/console_bridge
-     - Not Yet Available
    * - https://github.com/ros/eigen_stl_containers
-     - Not Yet Available
    * - https://github.com/ros/geometry_tutorials
-     - Not Yet Available
    * - https://github.com/ros/kdl_parser
-     - Not Yet Available
    * - https://github.com/ros/pluginlib
-     - Not Yet Available
    * - https://github.com/ros/resource_retriever
-     - Not Yet Available
    * - https://github.com/ros/robot_state_publisher
-     - Not Yet Available
    * - https://github.com/ros/ros_environment
-     - Not Yet Available
    * - https://github.com/ros/ros_tutorials
-     - Not Yet Available
    * - https://github.com/ros/rosdistro
-     - Not Yet Available
    * - https://github.com/ros/urdf_parser_py
-     - Not Yet Available
    * - https://github.com/ros/urdfdom
-     - Not Yet Available
    * - https://github.com/ros/urdfdom_headers
-     - Not Yet Available
    * - https://github.com/ros2/ament_cmake_ros
-     - Not Yet Available
    * - https://github.com/ros2/common_interfaces
-     - Not Yet Available
    * - https://github.com/ros2/console_bridge_vendor
-     - Not Yet Available
    * - https://github.com/ros2/demos
-     - Not Yet Available
    * - https://github.com/ros2/design
-     - Not Yet Available
    * - https://github.com/ros2/eigen3_cmake_module
-     - Not Yet Available
    * - https://github.com/ros2/example_interfaces
-     - Not Yet Available
    * - https://github.com/ros2/examples
-     - Not Yet Available
    * - https://github.com/ros2/geometry2
-     - Not Yet Available
    * - https://github.com/ros2/launch
-     - Not Yet Available
    * - https://github.com/ros2/launch_ros
-     - Not Yet Available
    * - https://github.com/ros2/libyaml_vendor
-     - Not Yet Available
    * - https://github.com/ros2/message_filters
-     - Not Yet Available
    * - https://github.com/ros2/mimick_vendor
-     - Not Yet Available
    * - https://github.com/ros2/orocos_kdl_vendor
-     - Not Yet Available
    * - https://github.com/ros2/performance_test_fixture
-     - Not Yet Available
    * - https://github.com/ros2/pybind11_vendor
-     - Not Yet Available
-   * - https://github.com/ros2/python_cmake_module
-     - Not Yet Available
    * - https://github.com/ros2/rcl
-     - Not Yet Available
    * - https://github.com/ros2/rcl_interfaces
-     - Not Yet Available
    * - https://github.com/ros2/rcl_logging
-     - Not Yet Available
    * - https://github.com/ros2/rclcpp
-     - Not Yet Available
    * - https://github.com/ros2/rclpy
-     - Not Yet Available
    * - https://github.com/ros2/rcpputils
-     - Not Yet Available
    * - https://github.com/ros2/rcutils
-     - Not Yet Available
    * - https://github.com/ros2/realtime_support
-     - Not Yet Available
    * - https://github.com/ros2/rmw
-     - Not Yet Available
    * - https://github.com/ros2/rmw_connextdds
-     - Not Yet Available
    * - https://github.com/ros2/rmw_cyclonedds
-     - Not Yet Available
    * - https://github.com/ros2/rmw_dds_common
-     - Not Yet Available
    * - https://github.com/ros2/rmw_fastrtps
-     - Not Yet Available
    * - https://github.com/ros2/rmw_implementation
-     - Not Yet Available
    * - https://github.com/ros2/rmw_zenoh
-     - Not Yet Available
    * - https://github.com/ros2/ros_testing
-     - Not Yet Available
-   * - https://github.com/ros2/ros1_bridge
-     - Not Yet Available
    * - https://github.com/ros2/ros2
-     - Not Yet Available
    * - https://github.com/ros2/ros2_documentation
-     - Not Yet Available
    * - https://github.com/ros2/ros2_tracing
-     - Not Yet Available
    * - https://github.com/ros2/ros2cli
-     - Not Yet Available
    * - https://github.com/ros2/ros2cli_common_extensions
-     - Not Yet Available
    * - https://github.com/ros2/rosbag2
-     - Not Yet Available
    * - https://github.com/ros2/rosidl
-     - Not Yet Available
    * - https://github.com/ros2/rosidl_core
-     - Not Yet Available
    * - https://github.com/ros2/rosidl_dds
-     - Not Yet Available
    * - https://github.com/ros2/rosidl_defaults
-     - Not Yet Available
    * - https://github.com/ros2/rosidl_dynamic_typesupport
-     - Not Yet Available
    * - https://github.com/ros2/rosidl_dynamic_typesupport_fastrtps
-     - Not Yet Available
    * - https://github.com/ros2/rosidl_python
-     - Not Yet Available
    * - https://github.com/ros2/rosidl_runtime_py
-     - Not Yet Available
    * - https://github.com/ros2/rosidl_typesupport
-     - Not Yet Available
    * - https://github.com/ros2/rosidl_typesupport_fastrtps
-     - Not Yet Available
    * - https://github.com/ros2/rpyutils
-     - Not Yet Available
    * - https://github.com/ros2/rviz
-     - Not Yet Available
    * - https://github.com/ros2/spdlog_vendor
-     - Not Yet Available
    * - https://github.com/ros2/sros2
-     - Not Yet Available
    * - https://github.com/ros2/system_tests
-     - Not Yet Available
    * - https://github.com/ros2/test_interface_files
-     - Not Yet Available
    * - https://github.com/ros2/tinyxml_vendor
-     - Not Yet Available
    * - https://github.com/ros2/tinyxml2_vendor
-     - Not Yet Available
    * - https://github.com/ros2/tlsf
-     - Not Yet Available
    * - https://github.com/ros2/unique_identifier_msgs
-     - Not Yet Available
    * - https://github.com/ros2/urdf
-     - Not Yet Available
    * - https://github.com/ros2/yaml_cpp_vendor
-     - Not Yet Available
 
 Upcoming ROS Events
 -------------------
