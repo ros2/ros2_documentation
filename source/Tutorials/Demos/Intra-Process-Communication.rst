@@ -163,6 +163,7 @@ In this case, since they only come once per second, usually only the first messa
 Finally, you can see that "Published message..." and "Received message ..." lines with the same value also have the same address.
 This shows that the address of the message being received is the same as the one that was published and that it is not a copy.
 This is because we're publishing and subscribing with ``std::unique_ptr``\ s which allow ownership of a message to be moved around the system safely.
+
 Understanding publish() behavior with different message types
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -178,7 +179,7 @@ The behavior of the ``publish()`` function varies depending on the message type 
 - Ownership is moved from publisher to the first subscriber
 - This is the recommended approach for intra-process communication
 
-**Raw messages (both ``msg`` and ``std::move(msg)``):**
+**Raw messages** (both ``msg`` and ``std::move(msg)``):
 - Both result in copying
 - No zero-copy benefits are obtained
 - Use ``const &`` for subscription callbacks with raw messages
@@ -398,7 +399,7 @@ When a ``unique_ptr`` message is published and there are multiple intra-process 
 - This applies regardless of whether subscribers use ``unique_ptr`` or ``shared_ptr`` callbacks
 
 Note that the image view nodes are not subscribed with ``unique_ptr`` callbacks.
-Instead they are subscribed with ``const shared_ptr``s.
+Instead they are subscribed with ``const shared_ptr`` s.
 This means the system delivers the original message to the first callback and copies to subsequent callbacks.
 When the first intraprocess subscription is handled, the internally stored ``unique_ptr`` is promoted to a ``shared_ptr`` for delivery to multiple subscribers.
 
