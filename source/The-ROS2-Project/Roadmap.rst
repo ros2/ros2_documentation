@@ -22,7 +22,7 @@ Lyrical Luth is the ROS 2 release expected in May 2026.
 See the :doc:`release page <../Releases/Release-Lyrical-Luth>` for a detailed timeline.
 
 Lyrical Roadmap
---------------
+---------------
 
 The features being worked on are tracked on the `GitHub Project Board <https://github.com/orgs/ros2/projects/70>`__.
 The items in the roadmap are the major features being worked on by the ROS 2 community.
