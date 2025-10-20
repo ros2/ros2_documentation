@@ -198,8 +198,6 @@ The ROS PMC thanks the following past constituents for their service:
      - None yet
      - None yet
 
-
-
 Repositories managed by the ROS PMC
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
