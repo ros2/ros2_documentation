@@ -455,8 +455,11 @@ These tests can use ``rmw``'s ``rmw_get_implementation_identifier()`` `function 
 Middleware- and ``rmw`` implementation-specific configuration
 -------------------------------------------------------------
 
-The ``rmw`` interface as defined by that package does not support passing arbitrary configuration data to the implementation or the underlying middleware.
-To get around that and introduce some flexibility, some implementations use environment variables: ``RMW_FASTRTPS_*``, ``RMW_CONNEXT_*``, etc.
+The ``rmw`` interface allows providing arbitrary implementation-specific configuration payloads for publishers and subscriptions through the type-erased ``rmw_specific_publisher_payload`` / ``rmw_specific_subscription_payload`` fields in ``rmw_publisher_options_t`` / ``rmw_subscription_options_t``.
+This is set by users through ``RMWImplementationSpecificPublisherPayload`` / ``RMWImplementationSpecificSubscriptionPayload`` in ``rclcpp``, for example.
+This is an advanced, non-portable feature that is not currently used by any (tier 1) implementations.
+
+For a bit more flexibility, some implementations use environment variables: ``RMW_FASTRTPS_*``, ``RMW_CONNEXT_*``, etc.
 The underlying middleware may also be configurable through environment variables: ``FASTDDS_*``, ``ZENOH_*``, ``CYCLONEDDS_*``, ``EMAIL_*``, etc.
 For example, the ``CYCLONEDDS_URI``, ``FASTDDS_DEFAULT_PROFILES_FILE``, and ``ZENOH_SESSION_CONFIG_URI`` environment variables can be used to provide a path to a full configuration file if the relevant middleware is used.
 
