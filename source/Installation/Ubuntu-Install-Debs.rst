@@ -117,16 +117,10 @@ You should see the ``talker`` saying that it's ``Publishing`` messages and the `
 This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
-<<<<<<< HEAD
-Next steps after installing
----------------------------
-=======
 If you want to use other RMW implementations, you can check the :doc:`guide <./RMW-Implementations>`.
 
-Next steps
-----------
-
->>>>>>> ecc26c2 (Fixing misleading Zenoh usage in try-some-example #5954 (#5957))
+Next steps after installing
+---------------------------
 Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
 
 Using the ROS 1 bridge
