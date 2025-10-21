@@ -49,12 +49,12 @@ Navigate into ``ros2_ws/src`` and create a new package:
 
 Your terminal will return a message verifying the creation of your package ``python_parameters`` and all its necessary files and folders.
 
-The ``--dependencies`` argument will automatically add the necessary dependency lines to ``package.xml`` and ``CMakeLists.txt``.
+The ``--dependencies`` argument will automatically add the necessary dependency lines to ``package.xml``.
 
 1.1 Update ``package.xml``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Because you used the ``--dependencies`` option during package creation, you don't have to manually add dependencies to ``package.xml`` or ``CMakeLists.txt``.
+Because you used the ``--dependencies`` option during package creation, you don't have to manually add dependencies to ``package.xml``.
 
 As always, though, make sure to add the description, maintainer email and name, and license information to ``package.xml``.
 
