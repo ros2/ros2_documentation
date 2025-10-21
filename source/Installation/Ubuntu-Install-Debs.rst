@@ -99,23 +99,14 @@ Talker-listener
 
 If you installed ``ros-{DISTRO}-desktop`` above you can try some examples.
 
-First, if you use ``Zenoh`` as the RMW implementation, you will require a router for node discovery and communication.
-
-In one terminal, start the Zenoh router daemon:
-
-.. code-block:: console
-
-   $ source /opt/ros/{DISTRO}/setup.bash
-   $ ros2 run rmw_zenoh_cpp rmw_zenohd
-
-In another terminal, source the setup file and then run a C++ ``talker``\ :
+In one terminal, source the setup file and then run a C++ ``talker``\ :
 
 .. code-block:: console
 
    $ source /opt/ros/{DISTRO}/setup.bash
    $ ros2 run demo_nodes_cpp talker
 
-In a third terminal source the setup file and then run a Python ``listener``\ :
+In another terminal source the setup file and then run a Python ``listener``\ :
 
 .. code-block:: console
 
@@ -126,8 +117,16 @@ You should see the ``talker`` saying that it's ``Publishing`` messages and the `
 This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
+<<<<<<< HEAD
 Next steps after installing
 ---------------------------
+=======
+If you want to use other RMW implementations, you can check the :doc:`guide <./RMW-Implementations>`.
+
+Next steps
+----------
+
+>>>>>>> ecc26c2 (Fixing misleading Zenoh usage in try-some-example #5954 (#5957))
 Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
 
 Using the ROS 1 bridge
