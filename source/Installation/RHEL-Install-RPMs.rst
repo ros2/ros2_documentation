@@ -136,6 +136,8 @@ You should see the ``talker`` saying that it's ``Publishing`` messages and the `
 This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
+If you want to use other RMW implementations, you can check the :doc:`guide <./RMW-Implementations>`.
+
 Next steps
 ----------
 
