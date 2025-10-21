@@ -49,7 +49,7 @@ Navigate into ``ros2_ws/src`` and create a new package:
 
 Your terminal will return a message verifying the creation of your package ``python_parameters`` and all its necessary files and folders.
 
-The ``--dependencies`` argument will automatically add the necessary dependency lines to ``package.xml``. For ament_cmake packages, it would also update ``CMakeLists.txt``.
+The ``--dependencies`` argument will automatically add the necessary dependency lines to ``package.xml``.
 
 1.1 Update ``package.xml``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
