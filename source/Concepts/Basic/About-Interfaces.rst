@@ -159,7 +159,7 @@ Field types can be:
      - builtins.str*
      - string
 
-All types that are more permissive than their ROS definition enforce the ROS constraints in range and length by software.
+(*) All types that are more permissive than their ROS definition enforce the ROS constraints in range and length by software.
 
 *Example of message definition using arrays and bounded types:*
 
