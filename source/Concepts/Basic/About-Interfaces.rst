@@ -166,7 +166,6 @@ If a container or type is not mentioned then the default mapping is used.
 
 .. list-table::
    :header-rows: 1
-   :widths: 1 4 4 3
 
    * - IDL type
      - IDL details
