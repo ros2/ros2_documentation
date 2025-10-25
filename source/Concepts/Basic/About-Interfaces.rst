@@ -161,6 +161,48 @@ Field types can be:
 
 (*) All types that are more permissive than their ROS definition enforce the ROS constraints in range and length by software.
 
+These array and sequence types have special mappings in Python.
+If a container or type is not mentioned then the default mapping is used.
+
+.. list-table::
+   :header-rows: 1
+   :widths: 1 4 4 3
+
+   * - IDL type
+     - IDL details
+     - Python type
+     - Notes
+   * - T[N]
+     - Numeric types:
+       float, double,
+       int8, uint8,
+       int16, uint16,
+       int32, uint32,
+       int64, uint64
+     - numpy.ndarray
+     - shape = (N,)
+       dtype based on T:
+       float -> float32
+       double -> float64
+       intX -> intX
+       uintX -> uintX
+   * - sequence<T>
+     - Unbounded sequence
+       of numeric T
+     - array.array(
+       typecode )
+     - typecode based on T:
+       f, d, b, B,
+       h, H, l, L,
+       q, Q
+   * - sequence<T, N>
+     - Bounded sequence
+       of numeric T
+     - array.array(
+       typecode )
+     - Same typecodes
+       as above
+
 *Example of message definition using arrays and bounded types:*
 
 .. code-block:: bash
