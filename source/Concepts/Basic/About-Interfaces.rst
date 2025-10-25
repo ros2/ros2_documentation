@@ -178,9 +178,11 @@ If a container or type is not mentioned then the default mapping is used.
        int16, uint16,
        int32, uint32,
        int64, uint64
-     - numpy.ndarray
+     - numpy.ndarray(
+       shape=(N, ),
+       dtype=numpy.DT)
      - shape = (N,)
-       dtype based on T:
+       where DT is based on T:
        float -> float32
        double -> float64
        intX -> intX
