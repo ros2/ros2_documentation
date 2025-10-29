@@ -161,7 +161,7 @@ Field types can be:
 
 (*) All types that are more permissive than their ROS definition enforce the ROS constraints in range and length by software.
 
-These array and sequence types have special mappings in Python.
+These array and sequence types have special mappings in Python. Any subclass of **collections.abc.Sequence** can be passed in for an array.
 If a container or type is not mentioned then the default mapping is used.
 
 .. list-table::
