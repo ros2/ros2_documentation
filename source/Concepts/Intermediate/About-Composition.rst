@@ -87,28 +87,28 @@ For an example, :doc:`check out this tutorial <../../Tutorials/Intermediate/Writ
 CMake Registration Macros
 -------------------------
 
-ROS 2 provides two CMake macros for registering components, each serving a different purpose: 
+ROS 2 provides two CMake macros for registering components, each serving a different purpose:
 
 ``rclcpp_components_register_node``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-This macro registers a component and generates a standalone executable.  
-Use this when you want both composability and the ability to run the node as a standalone process.  
+This macro registers a component and generates a standalone executable.
+Use this when you want both composability and the ability to run the node as a standalone process.
 
-.. code-block:: cmake  
-  
-   add_library(talker_component SHARED src/talker_component.cpp)  
-   rclcpp_components_register_node(talker_component   
-     PLUGIN "composition::Talker"   
-     EXECUTABLE talker)  
+.. code-block:: cmake
+
+   add_library(talker_component SHARED src/talker_component.cpp)
+   rclcpp_components_register_node(talker_component
+     PLUGIN "composition::Talker"
+     EXECUTABLE talker)
 
 ``rclcpp_components_register_nodes``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-This macro registers one or more components for runtime composition **without** creating standalone executables.  
+This macro registers one or more components for runtime composition **without** creating standalone executables.
 Use this when you want pure component libraries that will be loaded into component containers at runtime.
 
-.. code-block:: cmake  
-  
-   add_library(talker_component SHARED src/talker_component.cpp)  
+.. code-block:: cmake
+
+   add_library(talker_component SHARED src/talker_component.cpp)
    rclcpp_components_register_nodes(talker_component "composition::Talker")
 
 Using Components
