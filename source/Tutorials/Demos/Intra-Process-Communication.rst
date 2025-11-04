@@ -363,8 +363,7 @@ Let's run it with the command:
 Just like the last example, you can pause the rendering with the spacebar and continue by pressing the spacebar a second time.
 You can stop the updating to inspect the pointers written to the screen.
 
-As you can see in the example image above, both image windows show the same memory addresses for all three pointers.  
-This demonstrates that all nodes are sharing the same message instance through zero-copy intra-process communication.  
+As you can see in the example image above, both image windows show the same memory addresses for all three pointers.
 To understand why this is happening consider the graph's topology:
 
 .. code-block:: bash
@@ -378,7 +377,7 @@ For the link between the ``watermark_node`` and the two image view nodes the rel
 Note that the image view nodes are not subscribed with ``unique_ptr`` callbacks.
 Instead they are subscribed with ``const shared_ptr``\ s.
 When the first intraprocess subscription is handled, the internally stored ``unique_ptr`` is promoted to a ``shared_ptr``.
-The system then delivers the same ``shared_ptr`` to both callbacks, allowing each callback to receive shared ownership of the same message.  
+The system then delivers the same ``shared_ptr`` to both callbacks, allowing each callback to receive shared ownership of the same message.
 This means all six addresses shown in the image windows will be identical, demonstrating efficient zero-copy memory sharing even in a one-to-many publisher-subscriber relationship.
 
 Pipeline with interprocess viewer
