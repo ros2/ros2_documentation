@@ -363,7 +363,8 @@ Let's run it with the command:
 Just like the last example, you can pause the rendering with the spacebar and continue by pressing the spacebar a second time.
 You can stop the updating to inspect the pointers written to the screen.
 
-As you can see in the example image above, we have one image with all of the pointers the same and then another image with the same pointers as the first image for the first two entries, but the last pointer on the second image is different.
+As you can see in the example image above, both image windows show the same memory addresses for all three pointers.  
+This demonstrates that all nodes are sharing the same message instance through zero-copy intra-process communication.  
 To understand why this is happening consider the graph's topology:
 
 .. code-block:: bash
@@ -372,15 +373,13 @@ To understand why this is happening consider the graph's topology:
                                  -> image_view_node2
 
 The link between the ``camera_node`` and the ``watermark_node`` can use the same pointer without copying because there is only one intra process subscription to which the message should be delivered.
-But for the link between the ``watermark_node`` and the two image view nodes the relationship is one to many, so if the image view nodes were using ``unique_ptr`` callbacks then it would be impossible to deliver the ownership of the same pointer to both.
-It can be, however, delivered to one of them.
-Which one would get the original pointer is not defined, but instead is simply the last to be delivered.
 
+For the link between the ``watermark_node`` and the two image view nodes the relationship is one to many.
 Note that the image view nodes are not subscribed with ``unique_ptr`` callbacks.
 Instead they are subscribed with ``const shared_ptr``\ s.
-This means the system deliveres the same ``shared_ptr`` to both callbacks.
 When the first intraprocess subscription is handled, the internally stored ``unique_ptr`` is promoted to a ``shared_ptr``.
-Each of the callbacks will receive shared ownership of the same message.
+The system then delivers the same ``shared_ptr`` to both callbacks, allowing each callback to receive shared ownership of the same message.  
+This means all six addresses shown in the image windows will be identical, demonstrating efficient zero-copy memory sharing even in a one-to-many publisher-subscriber relationship.
 
 Pipeline with interprocess viewer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
