@@ -72,7 +72,7 @@ Development tools: Compilers and other tools to build ROS packages
 
 .. code-block:: bash
 
-   sudo apt install ros-dev-tools
+   $ sudo apt install ros-dev-tools
 
 Environment setup
 -----------------
