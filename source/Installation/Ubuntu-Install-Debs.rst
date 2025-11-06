@@ -73,10 +73,18 @@ No GUI tools.
 Install additional RMW implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+<<<<<<< HEAD
 The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
 See the :doc:`guide <../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
 Setup environment
+=======
+.. code-block:: console
+
+   $ sudo apt install ros-dev-tools
+
+Environment setup
+>>>>>>> 33c5e06 (add missing '$' in humble ubuntu install instruction section (#5993))
 -----------------
 
 Set up your environment by sourcing the following file.
