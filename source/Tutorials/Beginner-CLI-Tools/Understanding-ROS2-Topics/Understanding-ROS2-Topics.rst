@@ -178,6 +178,74 @@ Another way to look at this is running:
   Publisher count: 1
   Subscription count: 2
 
+5.1 ros2 topic info --verbose
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+For more detailed information about a topic, you can use the ``--verbose`` (or ``-v``) flag:
+
+.. code-block:: console
+
+  $ ros2 topic info /turtle1/cmd_vel --verbose
+
+This will return additional details including:
+
+- Node names and namespaces of publishers and subscribers
+- Topic type
+- QoS profiles
+
+.. code-block:: console
+
+  Type: geometry_msgs/msg/Twist
+
+  Publisher count: 1
+
+  Node name: teleop_turtle
+  Node namespace: /
+  Topic type: geometry_msgs/msg/Twist
+  Topic type hash: RIHS01_9c45bf16fe0983d80e3cfe750d6835843d265a9a6c46bd2e609fcddde6fb8d2a
+  Endpoint type: PUBLISHER
+  GID: 24.ba.3e.e7.c1.51.bb.46.21.41.de.36.1b.14.73.5e
+  QoS profile:
+    Reliability: RELIABLE
+    History (Depth): KEEP_LAST (7)
+    Durability: VOLATILE
+    Lifespan: Infinite
+    Deadline: Infinite
+    Liveliness: AUTOMATIC
+    Liveliness lease duration: Infinite
+
+  Subscription count: 2
+
+  Node name: _ros2cli_300492
+  Node namespace: /
+  Topic type: geometry_msgs/msg/Twist
+  Topic type hash: RIHS01_9c45bf16fe0983d80e3cfe750d6835843d265a9a6c46bd2e609fcddde6fb8d2a
+  Endpoint type: SUBSCRIPTION
+  GID: cc.4d.98.79.29.91.fe.25.8a.0a.c9.03.db.1a.ec.81
+  QoS profile:
+    Reliability: RELIABLE
+    History (Depth): KEEP_LAST (5)
+    Durability: VOLATILE
+    Lifespan: Infinite
+    Deadline: Infinite
+    Liveliness: AUTOMATIC
+    Liveliness lease duration: Infinite
+
+  Node name: turtlesim
+  Node namespace: /
+  Topic type: geometry_msgs/msg/Twist
+  Topic type hash: RIHS01_9c45bf16fe0983d80e3cfe750d6835843d265a9a6c46bd2e609fcddde6fb8d2a
+  Endpoint type: SUBSCRIPTION
+  GID: 9c.33.59.38.b2.f2.42.47.69.1b.7f.0e.5e.1d.86.f5
+  QoS profile:
+    Reliability: RELIABLE
+    History (Depth): KEEP_LAST (7)
+    Durability: VOLATILE
+    Lifespan: Infinite
+    Deadline: Infinite
+    Liveliness: AUTOMATIC
+    Liveliness lease duration: Infinite
+
 6 ros2 interface show
 ^^^^^^^^^^^^^^^^^^^^^
 
