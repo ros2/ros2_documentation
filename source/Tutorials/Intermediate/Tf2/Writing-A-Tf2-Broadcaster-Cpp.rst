@@ -107,7 +107,7 @@ Open the file using your preferred text editor.
       }
 
     private:
-      void handle_turtle_pose(const std::shared_ptr<turtlesim::msg::Pose> msg)
+      void handle_turtle_pose(const std::shared_ptr<const turtlesim::msg::Pose> msg)
       {
         geometry_msgs::msg::TransformStamped t;
 

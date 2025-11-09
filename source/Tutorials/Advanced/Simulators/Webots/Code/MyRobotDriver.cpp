@@ -29,7 +29,7 @@ void MyRobotDriver::init(
 }
 
 void MyRobotDriver::cmdVelCallback(
-    const geometry_msgs::msg::Twist::SharedPtr msg) {
+    const geometry_msgs::msg::Twist::ConstSharedPtr msg) {
   cmd_vel_msg.linear = msg->linear;
   cmd_vel_msg.angular = msg->angular;
 }

@@ -17,12 +17,12 @@ ObstacleAvoider::ObstacleAvoider() : Node("obstacle_avoider") {
 }
 
 void ObstacleAvoider::leftSensorCallback(
-    const sensor_msgs::msg::Range::SharedPtr msg) {
+    const sensor_msgs::msg::Range::ConstSharedPtr msg) {
   left_sensor_value = msg->range;
 }
 
 void ObstacleAvoider::rightSensorCallback(
-    const sensor_msgs::msg::Range::SharedPtr msg) {
+    const sensor_msgs::msg::Range::ConstSharedPtr msg) {
   right_sensor_value = msg->range;
 
   auto command_message = std::make_unique<geometry_msgs::msg::Twist>();
