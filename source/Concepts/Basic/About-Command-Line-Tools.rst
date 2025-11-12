@@ -37,6 +37,7 @@ Examples of sub-commands that are available include:
 * ``node``: Introspect ROS nodes
 * ``param``: Introspect/configure parameters on a node
 * ``pkg``: Introspect ROS packages
+* ``plugin``: Introspect ROS plugins
 * ``run``: Run ROS nodes
 * ``security``: Configure security settings
 * ``service``: Introspect/call ROS services
