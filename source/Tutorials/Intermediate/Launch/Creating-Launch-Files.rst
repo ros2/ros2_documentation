@@ -92,8 +92,8 @@ Both turtles in this system receive commands over the same topic and publish the
 With unique namespaces, messages meant for different turtles can be distinguished.
 
 The two turtlesim nodes also demonstrate different ways to pass ROS arguments.
-The first node uses ``args`` with ``--ros-args --log-level info`` which sets the log level to ``info``.
-The second node uses ``ros_args`` (``ros_arguments`` in Python) with ``--log-level warn`` (more concise syntax) which sets the log level to ``warn``. 
+The first node uses ``args`` with ``--ros-args --log-level info``.
+The second node uses ``ros_args`` (``ros_arguments`` in Python) with ``--log-level warn``, which is designed specifically for ROS arguments.
 
 The final node is also from the ``turtlesim`` package, but a different executable: ``mimic``.
 This node has added configuration details in the form of remappings.
