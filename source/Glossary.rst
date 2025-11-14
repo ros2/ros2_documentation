@@ -21,7 +21,7 @@ Glossary of terms used throughout this documentation:
        A single unit of software, including source code, build system files, documentation, tests, and other associated resources.
 
    REP
-        ROS Enhancement Proposal.
+        Robotics Enhancement Proposal.
         A document that describes an enhancement, standardization, or convention for the ROS community.
         The associated REP approval process allows the community to iterate on a proposal until some consensus has been made, at which point it can be ratified and implemented, which then becomes documentation.
         All REPs are viewable from the `REP index <https://reps.openrobotics.org/>`_.
