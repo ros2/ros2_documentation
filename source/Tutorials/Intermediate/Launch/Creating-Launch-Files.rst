@@ -91,9 +91,10 @@ Unique namespaces allow the system to start two nodes without node name or topic
 Both turtles in this system receive commands over the same topic and publish their pose over the same topic.
 With unique namespaces, messages meant for different turtles can be distinguished.
 
-The two turtlesim nodes also demonstrate different ways to pass ROS arguments.
-The first node uses ``args`` with ``--ros-args --log-level info``.
-The second node uses ``ros_args`` (``ros_arguments`` in Python) with ``--log-level warn``, which is designed specifically for ROS arguments.
+The two turtlesim nodes also demonstrate different ways to pass arguments to nodes.
+The first node uses ``args`` to pass arguments directly to the executable, requiring the ``--ros-args`` flag for ROS-specific arguments.
+The second node uses ``ros_args`` (``ros_arguments`` in Python), designed specifically for ROS arguments.
+Use ``args`` when mixing ROS and non-ROS arguments (e.g., ``my_custom_arg --ros-args --log-level info``), or ``ros_args`` for cleaner syntax with only ROS arguments like remappings, parameters, or log levels.
 
 The final node is also from the ``turtlesim`` package, but a different executable: ``mimic``.
 This node has added configuration details in the form of remappings.
