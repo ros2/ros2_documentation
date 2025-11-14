@@ -189,4 +189,4 @@ Deprecated
 * `ROS 2 Design <http://design.ros2.org/>`__
 
   - Early design decisions behind ROS 2 development
-  - New design proposals should be submitted via `ROS Enhancement Proposals (REPs) <https://reps.openrobotics.org/>`__
+  - New design proposals should be submitted via `Robotics Enhancement Proposals (REPs) <https://reps.openrobotics.org/>`__
