@@ -132,7 +132,7 @@ If you need help, have an idea, or would like to contribute to the project, plea
 General ROS project resources
 -----------------------------
 
-* `ROS Enhancement Proposals (REPs) <https://reps.openrobotics.org/>`__ (ROS 1, ROS 2)
+* `Robotics Enhancement Proposals (REPs) <https://reps.openrobotics.org/>`__ (ROS 1, ROS 2)
 
   - Proposals for new designs and conventions
 
