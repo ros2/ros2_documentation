@@ -142,6 +142,10 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
      - `Sony <https://www.sony.com/>`_
      - `Barry-Xu-2018 <https://github.com/Barry-Xu-2018>`_
      - CST (UTC+8)
+   * - Brandon Ong
+     - `Intrinsic <https://www.intrinsic.ai/>`_
+     - `methylDragon <https://github.com/methylDragon>`_
+     - PST (UTC-8)/PDT (UTC-7)
    * - Dharini Dutia
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `quarkytale <https://github.com/quarkytale>`_
