@@ -1,0 +1,12 @@
+%YAML 1.2
+---
+launch:
+  - arg:
+      name: "node_prefix"
+      default: "$(env USER '')_"
+      description: "prefix for node name"
+  - node:
+      pkg: "turtle_tf2_py"
+      exec: "fixed_frame_tf2_broadcaster"
+      name: "$(var node_prefix)fixed_broadcaster"
+

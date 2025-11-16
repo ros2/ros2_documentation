@@ -1,0 +1,19 @@
+%YAML 1.2
+---
+launch:
+  - include:
+      file: "$(find-pkg-share launch_tutorial)/launch/turtlesim_world_1_launch.yaml"
+  - include:
+      file: "$(find-pkg-share launch_tutorial)/launch/turtlesim_world_2_launch.yaml"
+  - include:
+      file: "$(find-pkg-share launch_tutorial)/launch/broadcaster_listener_launch.yaml"
+      let:
+        - name: "target_frame"
+          value: "carrot1"
+  - include:
+      file: "$(find-pkg-share launch_tutorial)/launch/mimic_launch.yaml"
+  - include:
+      file: "$(find-pkg-share launch_tutorial)/launch/fixed_broadcaster_launch.yaml"
+  - include:
+      file: "$(find-pkg-share launch_tutorial)/launch/turtlesim_rviz_launch.yaml"
+

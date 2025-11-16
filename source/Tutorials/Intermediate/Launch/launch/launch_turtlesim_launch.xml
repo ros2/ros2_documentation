@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <include file="$(find-pkg-share launch_tutorial)/launch/turtlesim_world_1_launch.xml" />
+  <include file="$(find-pkg-share launch_tutorial)/launch/turtlesim_world_2_launch.xml" />
+  <include file="$(find-pkg-share launch_tutorial)/launch/broadcaster_listener_launch.xml">
+    <arg name="target_frame" value="carrot1" />
+  </include>
+  <include file="$(find-pkg-share launch_tutorial)/launch/mimic_launch.xml" />
+  <include file="$(find-pkg-share launch_tutorial)/launch/fixed_broadcaster_launch.xml" />
+  <include file="$(find-pkg-share launch_tutorial)/launch/turtlesim_rviz_launch.xml" />
+</launch>
+
