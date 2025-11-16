@@ -30,7 +30,7 @@ Some principles are common to all ROS 2 development:
 Quality Practices
 -----------------
 
-Packages can ascribe to different levels of quality based on the development practices they adhere to, as per the guidelines in `REP 2004: Package Quality Categories <https://www.ros.org/reps/rep-2004.html>`_.
+Packages can ascribe to different levels of quality based on the development practices they adhere to, as per the guidelines in `REP 2004: Package Quality Categories <https://reps.openrobotics.org/rep-2004/>`_.
 The categories are differentiated by their policies on versioning, testing, documentation, and more.
 
 The following sections are the specific development rules we follow to ensure core packages are of the highest quality ('Level 1').
@@ -145,7 +145,7 @@ Change control process
 
   * DCO is *not* required for pull requests that only address whitespace removal, typo correction, and other `trivial changes <http://cr.openjdk.java.net/~jrose/draft/trivial-fixes.html>`_.
 
-* Always run CI jobs for all `tier 1 platforms <https://www.ros.org/reps/rep-2000.html#support-tiers>`_ for every pull request and include links to jobs in the pull request.
+* Always run CI jobs for all `tier 1 platforms <https://reps.openrobotics.org/rep-2000/#support-tiers>`_ for every pull request and include links to jobs in the pull request.
   (If you don't have access to the Jenkins jobs someone will trigger the jobs for you.)
 
 * A minimum of 1 approval from a fellow developer who did not author the pull request is required to consider it approved.
@@ -261,7 +261,7 @@ General Practices
 
 Some practices are common to all ROS 2 development.
 
-These practices don't affect package quality level as described in `REP 2004 <https://www.ros.org/reps/rep-2004.html>`_, but are still highly recommended for the development process.
+These practices don't affect package quality level as described in `REP 2004 <https://reps.openrobotics.org/rep-2004/>`_, but are still highly recommended for the development process.
 
 Issues
 ^^^^^^
@@ -393,7 +393,7 @@ For example, a new function ``rmw_foo()`` introduced to the RMW API must be impl
 * `rmw_fastrtps <https://github.com/ros2/rmw_fastrtps>`__
 
 Updates for non-Tier 1 middleware libraries should also be considered if feasible (e.g. depending on the size of the change).
-See `REP-2000 <https://www.ros.org/reps/rep-2000.html>`__ for the list of middleware libraries and their tiers.
+See `REP-2000 <https://reps.openrobotics.org/rep-2000/>`__ for the list of middleware libraries and their tiers.
 
 Tracking tasks
 ^^^^^^^^^^^^^^
@@ -426,7 +426,7 @@ Package Naming Conventions
 Names play an important role in ROS and following naming conventions simplifies the process of learning and understanding large systems.
 
 The ROS packages occupy a flat namespace, so naming should be done carefully and consistently.
-There is a standard for package naming in `REP-144 <https://www.ros.org/reps/rep-0144.html>`__
+There is a standard for package naming in `REP-144 <https://reps.openrobotics.org/rep-0144/>`__
 
 * Package names should follow common C variable naming conventions: lower case, start with a letter, use underscore separators, e.g. laser_viewer
 
@@ -454,10 +454,10 @@ There is a standard for package naming in `REP-144 <https://www.ros.org/reps/rep
 Units of Measure and Coordinate System Conventions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Standard units and coordinate conventions for use in ROS have been formalized in `REP-103 <https://www.ros.org/reps/rep-0103.html>`__.
+Standard units and coordinate conventions for use in ROS have been formalized in `REP-0103 <https://reps.openrobotics.org/rep-0103/>`__.
 All messages should follow these guidelines unless there's a very strong reason which is very clearly documented to avoid confusion.
 
-Representation of special conditions within distance measurements like "too close" or "too far" in ROS have been formalized in `REP-0117 <https://www.ros.org/reps/rep-0117.html>`__.
+Representation of special conditions within distance measurements like "too close" or "too far" in ROS have been formalized in `REP-0117 <https://reps.openrobotics.org/rep-0117/>`__.
 
 Programming conventions
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -499,7 +499,7 @@ Package layout
 * ``msg``: contains all ROS Message definitions
 * ``srv``: contains all ROS Service definitions
 * ``action``: contains all ROS Action definitions
-* ``package.xml``: as defined by `REP-0140 <https://www.ros.org/reps/rep-0140.html>`_ (may be updated for prototyping)
+* ``package.xml``: as defined by `REP-0140 <https://reps.openrobotics.org/rep-0140/>`_ (may be updated for prototyping)
 * ``CMakeLists.txt``: only ROS packages which use CMake
 * ``setup.py``: only ROS packages which use Python code only
 * ``README``: can be rendered on GitHub as a landing page for the project
@@ -513,7 +513,7 @@ Package layout
   * This might include license implication, e.g. when using the Apache 2 License.
 
 * ``LICENSE``: a copy of the license or licenses for this package
-* ``CHANGELOG.rst``: `REP-0132 <https://www.ros.org/reps/rep-0132.html>`_ compliant changelog
+* ``CHANGELOG.rst``: `REP-0132 <https://reps.openrobotics.org/rep-0132/>`_ compliant changelog
 
 Repository layout
 ~~~~~~~~~~~~~~~~~
@@ -676,7 +676,7 @@ Design document review
 
 Once the design is ready for review, a pull request should be opened and appropriate reviewers should be assigned.
 It is recommended to include project owner(s) -
-maintainers of all impacted packages (as defined by ``package.xml`` maintainer field, see `REP-140 <https://www.ros.org/reps/rep-0140.html#maintainer-multiple-but-at-least-one>`__) - as reviewers.
+maintainers of all impacted packages (as defined by ``package.xml`` maintainer field, see `REP-140 <https://reps.openrobotics.org/rep-0140/#required-tags>`__) - as reviewers.
 
 * If the design doc is complex or reviewers have conflicting schedules, an optional design review meeting can be set up.
   In this case,
