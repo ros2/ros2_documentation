@@ -26,19 +26,21 @@ launch:
     - include:
         file: "$(find-pkg-share demo_nodes_cpp)/launch/topics/talker_listener.launch.py"
 
-# start a turtlesim_node in the turtlesim1 namespace
+# start a turtlesim_node in the turtlesim1 namespace and use args to set the log level
 - node:
     pkg: "turtlesim"
     exec: "turtlesim_node"
     name: "sim"
     namespace: "turtlesim1"
+    args: "--ros-args --log-level info"
 
-# start another turtlesim_node in the turtlesim2 namespace and use args to set parameters
+# start another turtlesim_node in the turtlesim2 namespace, use ros_args to set the log level, and param to set the parameters
 - node:
     pkg: "turtlesim"
     exec: "turtlesim_node"
     name: "sim"
     namespace: "turtlesim2"
+    ros_args: "--log-level warn"
     param:
     - name: "background_r"
       value: "$(var background_r)"
