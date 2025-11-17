@@ -6,12 +6,14 @@ launch:
       exec: "turtlesim_node"
       name: "sim"
       namespace: "turtlesim1"
+      args: "--ros-args --log-level info"
 
   - node:
       pkg: "turtlesim"
       exec: "turtlesim_node"
       name: "sim"
       namespace: "turtlesim2"
+      ros_args: "--log-level warn"
 
   - node:
       pkg: "turtlesim"
