@@ -49,21 +49,23 @@ def generate_launch_description():
             ]
         ),
 
-        # start a turtlesim_node in the turtlesim1 namespace
+        # start a turtlesim_node in the turtlesim1 namespace and use arguments to set the log level
         Node(
             package='turtlesim',
             namespace='turtlesim1',
             executable='turtlesim_node',
-            name='sim'
+            name='sim',
+            arguments=['--ros-args', '--log-level', 'info']
         ),
 
-        # start another turtlesim_node in the turtlesim2 namespace
-        # and use args to set parameters
+        # start another turtlesim_node in the turtlesim2 namespace,
+        # use ros_arguments to set the log level, and parameters to set the parameters
         Node(
             package='turtlesim',
             namespace='turtlesim2',
             executable='turtlesim_node',
             name='sim',
+            ros_arguments=['--log-level', 'warn'],
             parameters=[{
                 'background_r': LaunchConfiguration('background_r'),
                 'background_g': LaunchConfiguration('background_g'),
