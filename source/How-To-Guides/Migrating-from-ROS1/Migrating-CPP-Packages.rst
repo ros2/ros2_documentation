@@ -32,8 +32,8 @@ Require a newer version of CMake
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ROS 2 relies on newer versions of CMake than used by ROS 1.
-Find the minimum version of CMake used by the ROS distribution you want to support in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__, and use that version at the top of your ``CMakeLists.txt``.
-For example, `3.14.4 is the minimum recommended support for ROS Humble <https://www.ros.org/reps/rep-2000.html#humble-hawksbill-may-2022-may-2027>`__.
+Find the minimum version of CMake used by the ROS distribution you want to support in `REP 2000 <https://reps.openrobotics.org/rep-2000/>`__, and use that version at the top of your ``CMakeLists.txt``.
+For example, `3.14.4 is the minimum recommended support for ROS Humble <https://reps.openrobotics.org/rep-2000/#humble-hawksbill-may-2022-may-2027>`__.
 
 .. code-block::
 
