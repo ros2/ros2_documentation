@@ -19,7 +19,7 @@ The current Debian-based target platforms for {DISTRO_TITLE_FULL} are:
 - Tier 3: Ubuntu Linux - Jammy (22.04) 64-bit
 - Tier 3: Debian Linux - Bookworm (12) 64-bit
 
-As defined in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`_.
+As defined in `REP 2000 <https://reps.openrobotics.org/rep-2000/>`_.
 
 System setup
 ------------

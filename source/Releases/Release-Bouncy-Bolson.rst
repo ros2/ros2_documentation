@@ -14,7 +14,7 @@ Bouncy Bolson (``bouncy``)
 Supported Platforms
 -------------------
 
-This version of ROS 2 is supported on four platforms (see `REP 2000 <https://www.ros.org/reps/rep-2000.html#bouncy-bolson-june-2018-june-2019>`__ for full details):
+This version of ROS 2 is supported on four platforms (see `REP 2000 <https://reps.openrobotics.org/rep-2000/#bouncy-bolson-june-2018-june-2019>`__ for full details):
 
 
 * Ubuntu 18.04 (Bionic)

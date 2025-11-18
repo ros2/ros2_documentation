@@ -8,9 +8,9 @@ Variants are a list of official metapackages for commonly useful groups of ROS p
 .. [#] https://wiki.debian.org/metapackage
 .. [#] https://help.ubuntu.com/community/MetaPackages
 
-The different variants in ROS 2 are specified in `REP-2001 <https://ros.org/reps/rep-2001.html>`_.
+The different variants in ROS 2 are specified in `REP-2001 <https://reps.openrobotics.org/rep-2001/>`_.
 
-In addition to the official variants, there may be metapackages for specific institutions or robots as described in `REP-108 <https://www.ros.org/reps/rep-0108.html#institution-specific>`_.
+In addition to the official variants, there may be metapackages for specific institutions or robots as described in `REP-108 <https://reps.openrobotics.org/rep-0108/#institution-specific>`_.
 
 Adding variants
 ---------------
