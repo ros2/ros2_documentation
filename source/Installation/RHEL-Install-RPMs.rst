@@ -5,15 +5,8 @@ RHEL (RPM packages)
    :depth: 2
    :local:
 
-<<<<<<< HEAD
 RPM packages for ROS 2 {DISTRO_TITLE_FULL} are currently available for RHEL 8.
-The target platforms are defined in `REP 2000 <https://ros.org/reps/rep-2000.html>`__.
-=======
-RPM packages for ROS 2 {DISTRO_TITLE_FULL} are currently available for RHEL 9.
-The Rolling Ridley distribution will change target platforms from time to time as new platforms are selected for development.
 The target platforms are defined in `REP 2000 <https://reps.openrobotics.org/rep-2000/>`__.
-Most people will want to use a stable ROS distribution.
->>>>>>> 6f986a1 (Updated REP links (#6016))
 
 Resources
 ---------
