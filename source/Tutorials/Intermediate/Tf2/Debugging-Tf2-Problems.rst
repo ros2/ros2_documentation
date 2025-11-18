@@ -76,8 +76,8 @@ In order to run this demo, we need to create a launch file ``start_tf2_debug_dem
 
   .. group-tab:: Python
 
-.. literalinclude:: launch/start_tf2_debug_demo_launch.py
-   :language: python
+    .. literalinclude:: launch/start_tf2_debug_demo_launch.py
+        :language: python
 
   .. group-tab:: XML
 

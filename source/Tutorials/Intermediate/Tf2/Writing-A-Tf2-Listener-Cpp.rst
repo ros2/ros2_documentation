@@ -285,8 +285,8 @@ The resulting file should look like:
 
   .. group-tab:: Python
 
-.. literalinclude:: launch/listener_cpp_launch.py
-  :language: python
+    .. literalinclude:: launch/listener_cpp_launch.py
+        :language: python
 
   .. group-tab:: XML
 

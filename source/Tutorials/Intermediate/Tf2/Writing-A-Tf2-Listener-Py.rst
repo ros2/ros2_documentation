@@ -234,9 +234,9 @@ The resulting file should look like:
 
   .. group-tab:: Python
 
-.. literalinclude:: launch/listener_py_launch.py
-    :language: python
-    :name: turtle_tf2_demo_launch.py
+    .. literalinclude:: launch/listener_py_launch.py
+        :language: python
+        :name: turtle_tf2_demo_launch.py
 
   .. group-tab:: XML
 
