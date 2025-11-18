@@ -13,7 +13,7 @@ Rolling Ridley (``rolling``)
   It is used for ROS 2 development and by maintainers who want their packages released and ready for the next stable distribution.
   We recommend that most users of ROS 2 use the latest `stable distribution <latest-release>`.
 
-For more information see `REP-2002 <https://www.ros.org/reps/rep-2002.html>`_
+For more information see `REP-2002 <https://reps.openrobotics.org/rep-2002/>`_
 
 Currently Supported Platforms
 -----------------------------

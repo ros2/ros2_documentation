@@ -71,7 +71,7 @@ Improvements since the Beta 3 release:
 * Logging API improvements, now also used in the demos
 * Time support in C++ with different clocks
 * wait-for-service support in the Python client library
-* Draft implementation of `REP 149 <https://www.ros.org/reps/rep-0149.html>`__ specifying format 3 of the package manifest files
+* Draft implementation of `REP 149 <https://reps.openrobotics.org/rep-0149/>`__ specifying format 3 of the package manifest files
 
 Known Issues
 ------------

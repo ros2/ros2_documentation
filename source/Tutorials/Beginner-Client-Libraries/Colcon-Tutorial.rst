@@ -295,7 +295,7 @@ You should see messages from the publisher and subscriber with numbers increment
 Create your own package
 -----------------------
 
-colcon uses the ``package.xml`` specification defined in `REP 149 <https://www.ros.org/reps/rep-0149.html>`__ (`format 2 <https://www.ros.org/reps/rep-0140.html>`__ is also supported).
+colcon uses the ``package.xml`` specification defined in `REP 149 <https://reps.openrobotics.org/rep-0149/>`__ (`format 2 <https://reps.openrobotics.org/rep-0140/>`__ is also supported).
 
 colcon supports multiple build types.
 The recommended build types are ``ament_cmake`` and ``ament_python``.
