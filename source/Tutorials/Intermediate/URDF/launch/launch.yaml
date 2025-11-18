@@ -1,0 +1,27 @@
+%YAML 1.2
+---
+launch:
+  # 'use_sim_time' is used to have ros2 use /clock topic for the time source
+  - arg:
+      name: "use_sim_time"
+      default: "false"
+      description: "Use simulation (Gazebo) clock if true"
+
+  - node:
+      pkg: "robot_state_publisher"
+      exec: "robot_state_publisher"
+      name: "robot_state_publisher"
+      output: "screen"
+      args: "$(file-content $(find-pkg-share urdf_tutorial_cpp)/urdf/r2d2.urdf.xml)"
+      param:
+      - name: "use_sim_time"
+        value: "$(var use_sim_time)"
+      - name: "robot_description"
+        value: "$(file-content $(find-pkg-share urdf_tutorial_cpp)/urdf/r2d2.urdf.xml)"
+
+  - node:
+      pkg: "urdf_tutorial_cpp"
+      exec: "urdf_tutorial_cpp"
+      name: "urdf_tutorial_cpp"
+      output: "screen"
+

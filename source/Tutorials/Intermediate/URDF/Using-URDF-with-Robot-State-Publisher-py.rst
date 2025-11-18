@@ -203,10 +203,24 @@ Fire up your favorite editor and paste the following code into ``second_ros2_ws/
 ^^^^^^^^^^^^^^^^^^^^^^
 
 Create a new ``second_ros2_ws/src/urdf_tutorial_r2d2/launch`` folder.
-Open your editor and paste the following code, saving it as ``second_ros2_ws/src/urdf_tutorial_r2d2/launch/demo_launch.py``
+Open your editor and paste the following code, saving it as ``second_ros2_ws/src/urdf_tutorial_r2d2/launch/demo_launch`` with the extension ``.py``, ``.xml``, or ``.yaml``
 
-.. literalinclude:: launch/demo_launch.py
-  :language: python
+.. tabs::
+
+  .. group-tab:: Python
+
+    .. literalinclude:: launch/demo_launch.py
+        :language: python
+
+  .. group-tab:: XML
+
+    .. literalinclude:: launch/demo_launch.xml
+        :language: xml
+
+  .. group-tab:: YAML
+
+    .. literalinclude:: launch/demo_launch.yaml
+        :language: yaml
 
 
 5 Edit the setup.py file
@@ -278,7 +292,7 @@ Source the setup files:
 7 View the results
 ^^^^^^^^^^^^^^^^^^
 
-Launch the package
+Launch the package (using ``demo_launch`` with extension ``.py``, ``.xml``, or ``.yaml``)
 
 .. code-block:: console
 

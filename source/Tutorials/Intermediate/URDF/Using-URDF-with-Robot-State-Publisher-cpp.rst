@@ -205,10 +205,24 @@ The code file will also tell ``tf2`` how to place the whole model using the  ``t
 ^^^^^^^^^^^^^^^^^^^^^^
 
 Create a new ``urdf_tutorial_cpp/launch`` folder.
-Open your editor and paste the following code, saving it as ``urdf_tutorial_cpp/launch/launch.py``
+Open your editor and paste the following code, saving it as ``urdf_tutorial_cpp/launch/launch`` with the extension ``.py``, ``.xml``, or ``.yaml``
 
-.. literalinclude:: launch/launch.py
-  :language: python
+.. tabs::
+
+  .. group-tab:: Python
+
+    .. literalinclude:: launch/launch.py
+        :language: python
+
+  .. group-tab:: XML
+
+    .. literalinclude:: launch/launch.xml
+        :language: xml
+
+  .. group-tab:: YAML
+
+    .. literalinclude:: launch/launch.yaml
+        :language: yaml
 
 
 5 Edit the CMakeLists.txt file
@@ -298,7 +312,7 @@ Source the setup files:
 7 View the results
 ^^^^^^^^^^^^^^^^^^
 
-To launch your new package run the following command:
+To launch your new package run the following command (using ``launch`` with extension ``.py``, ``.xml``, or ``.yaml``):
 
 .. code-block:: console
 

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <include file="$(find-pkg-share urdf_launch)/launch/display.launch.py">
+    <let name="urdf_package" value="turtlebot3_description" />
+    <let name="urdf_package_path" value="urdf/turtlebot3_burger.urdf" />
+  </include>
+</launch>
+
