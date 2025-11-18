@@ -70,10 +70,24 @@ to
     } catch (const tf2::TransformException & ex) {
 
 And save changes to the file.
-In order to run this demo, we need to create a launch file ``start_tf2_debug_demo_launch.py`` in the ``launch`` subdirectory of package ``learning_tf2_cpp``:
+In order to run this demo, we need to create a launch file ``start_tf2_debug_demo_launch`` with extension ``.py``, ``.xml``, or ``.yaml`` in the ``launch`` subdirectory of package ``learning_tf2_cpp``:
+
+.. tabs::
+
+  .. group-tab:: Python
 
 .. literalinclude:: launch/start_tf2_debug_demo_launch.py
    :language: python
+
+  .. group-tab:: XML
+
+    .. literalinclude:: launch/start_tf2_debug_demo_launch.xml
+        :language: xml
+
+  .. group-tab:: YAML
+
+    .. literalinclude:: launch/start_tf2_debug_demo_launch.yaml
+        :language: yaml
 
 Don't forget to add the ``turtle_tf2_listener_debug`` executable to the ``CMakeLists.txt`` and build the package.
 
@@ -81,7 +95,7 @@ Now let's run it to see what happens:
 
 .. code-block:: console
 
-   $ ros2 launch learning_tf2_cpp start_tf2_debug_demo_launch.py
+   $ ros2 launch learning_tf2_cpp start_tf2_debug_demo_launch.xml # .py or .yaml are also acceptable
 
 You will now see that the turtlesim came up.
 At the same time, if you run the ``turtle_teleop_key`` in another terminal window, you can use the arrow keys to drive the ``turtle1`` around.
@@ -155,7 +169,7 @@ And now stop the running demo, build it, and run it again:
 
 .. code-block:: console
 
-   $ ros2 launch learning_tf2_cpp start_tf2_debug_demo_launch.py
+   $ ros2 launch learning_tf2_cpp start_tf2_debug_demo_launch.xml # .py or .yaml are also acceptable
    [turtle_tf2_listener_debug-4] [INFO] [1630223704.617382464] [listener_debug]: Could not
    transform turtle2 to turtle1: Lookup would require extrapolation into the future. Requested
    time 1630223704.617054 but the latest data is at time 1630223704.616726, when looking up
@@ -203,7 +217,7 @@ Stop the demo, build and run:
 
 .. code-block:: console
 
-   $ ros2 launch turtle_tf2 start_tf2_debug_demo_launch.py
+   $ ros2 launch turtle_tf2 start_tf2_debug_demo_launch.xml # .py or .yaml are also acceptable
 
 And you should finally see the turtle move!
 

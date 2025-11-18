@@ -1,0 +1,33 @@
+%YAML 1.2
+---
+launch:
+  - node:
+      pkg: "turtlesim"
+      exec: "turtlesim_node"
+      name: "sim"
+  - node:
+      pkg: "learning_tf2_cpp"
+      exec: "turtle_tf2_broadcaster"
+      name: "broadcaster1"
+      param:
+      - name: "turtlename"
+        value: "turtle1"
+  - arg:
+      name: "target_frame"
+      default: "turtle1"
+      description: "Target frame name."
+  - node:
+      pkg: "learning_tf2_cpp"
+      exec: "turtle_tf2_broadcaster"
+      name: "broadcaster2"
+      param:
+      - name: "turtlename"
+        value: "turtle2"
+  - node:
+      pkg: "learning_tf2_cpp"
+      exec: "turtle_tf2_listener"
+      name: "listener"
+      param:
+      - name: "target_frame"
+        value: "$(var target_frame)"
+

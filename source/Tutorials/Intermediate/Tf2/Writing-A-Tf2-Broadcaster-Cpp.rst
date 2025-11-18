@@ -247,10 +247,24 @@ Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your e
 
 Now create a launch file for this demo.
 Create a ``launch`` folder in the ``src/learning_tf2_cpp`` directory.
-With your text editor, create a new file called ``turtle_tf2_demo_launch.py`` in the ``launch`` folder, and add the following lines:
+With your text editor, create a new file called ``turtle_tf2_demo_launch`` with extension ``.py``, ``.xml``, or ``.yaml`` in the ``launch`` folder, and add the following lines:
+
+.. tabs::
+
+  .. group-tab:: Python
 
 .. literalinclude:: launch/turtle_tf2_demo_launch.py
     :language: python
+
+  .. group-tab:: XML
+
+    .. literalinclude:: launch/turtle_tf2_demo_launch.xml
+        :language: xml
+
+  .. group-tab:: YAML
+
+    .. literalinclude:: launch/turtle_tf2_demo_launch.yaml
+        :language: yaml
 
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
@@ -258,15 +272,47 @@ With your text editor, create a new file called ``turtle_tf2_demo_launch.py`` in
 First we import required modules from the ``launch`` and ``launch_ros`` packages.
 It should be noted that ``launch`` is a generic launching framework (not ROS 2 specific) and ``launch_ros`` has ROS 2 specific things, like nodes that we import here.
 
+.. tabs::
+
+  .. group-tab:: Python
+
 .. literalinclude:: launch/turtle_tf2_demo_launch.py
     :language: python
     :lines: 1-2
 
+  .. group-tab:: XML
+
+    .. literalinclude:: launch/turtle_tf2_demo_launch.xml
+        :language: xml
+        :lines: 1-2
+
+  .. group-tab:: YAML
+
+    .. literalinclude:: launch/turtle_tf2_demo_launch.yaml
+        :language: yaml
+        :lines: 1-3
+
 Now we run our nodes that start the turtlesim simulation and broadcast ``turtle1`` state to the tf2 using our ``turtle_tf2_broadcaster`` node.
+
+.. tabs::
+
+  .. group-tab:: Python
 
 .. literalinclude:: launch/turtle_tf2_demo_launch.py
     :language: python
     :lines: 7-19
+
+  .. group-tab:: XML
+
+    .. literalinclude:: launch/turtle_tf2_demo_launch.xml
+        :language: xml
+        :lines: 3-6
+
+  .. group-tab:: YAML
+
+    .. literalinclude:: launch/turtle_tf2_demo_launch.yaml
+        :language: yaml
+        :lines: 4-9
 
 2.2 Add dependencies
 ~~~~~~~~~~~~~~~~~~~~
@@ -377,7 +423,7 @@ Now run the launch file that will start the turtlesim simulation node and ``turt
 
 .. code-block:: console
 
-    $ ros2 launch learning_tf2_cpp turtle_tf2_demo_launch.py
+    $ ros2 launch learning_tf2_cpp turtle_tf2_demo_launch.xml # .py or .yaml are also acceptable
 
 In the second terminal window type the following command:
 

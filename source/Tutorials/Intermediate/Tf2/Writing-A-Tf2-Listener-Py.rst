@@ -227,12 +227,26 @@ Add the following line between the ``'console_scripts':`` brackets:
 2 Update the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Open the launch file called ``turtle_tf2_demo_launch.py`` in the ``src/learning_tf2_py/launch`` directory with your text editor, add two new nodes to the launch description, add a launch argument, and add the imports.
+Open the launch file called ``turtle_tf2_demo_launch`` with extension ``.py``, ``.xml``, or ``.yaml`` in the ``src/learning_tf2_py/launch`` directory with your text editor, add two new nodes to the launch description, add a launch argument, and add the imports.
 The resulting file should look like:
+
+.. tabs::
+
+  .. group-tab:: Python
 
 .. literalinclude:: launch/listener_py_launch.py
     :language: python
     :name: turtle_tf2_demo_launch.py
+
+  .. group-tab:: XML
+
+    .. literalinclude:: launch/listener_py_launch.xml
+        :language: xml
+
+  .. group-tab:: YAML
+
+    .. literalinclude:: launch/listener_py_launch.yaml
+        :language: yaml
 
 This will declare a ``target_frame`` launch argument, start a broadcaster for second turtle that we will spawn and listener that will subscribe to those transformations.
 
@@ -318,7 +332,7 @@ Now you're ready to start your full turtle demo:
 
 .. code-block:: console
 
-    $ ros2 launch learning_tf2_py turtle_tf2_demo_launch.py
+    $ ros2 launch learning_tf2_py turtle_tf2_demo_launch.xml # .py or .yaml are also acceptable
 
 You should see the turtle sim with two turtles.
 In the second terminal window type the following command:
