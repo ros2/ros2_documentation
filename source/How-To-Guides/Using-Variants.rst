@@ -10,7 +10,7 @@ Variants are a list of official metapackages for commonly useful groups of ROS p
 
 The different variants in ROS 2 are specified in `REP-2001 <https://reps.openrobotics.org/rep-2001/>`_.
 
-In addition to the official variants, there may be metapackages for specific institutions or robots as described in `REP-108 <https://reps.openrobotics.org/rep-0108/>`_.
+In addition to the official variants, there may be metapackages for specific institutions or robots as described in `REP-108 <https://reps.openrobotics.org/rep-0108/#institution-specific>`_.
 
 Adding variants
 ---------------
