@@ -36,7 +36,7 @@ Tier 3 platforms:
 * macOS: ``amd64``
 * Debian Bullseye: ``amd64``
 
-For more information about RMW implementations, compiler / interpreter versions, and system dependency versions see `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__.
+For more information about RMW implementations, compiler / interpreter versions, and system dependency versions see `REP 2000 <https://reps.openrobotics.org/rep-2000/>`__.
 
 Installation
 ------------
@@ -627,7 +627,7 @@ And an example of how the type adapter can be used:
      [](const std::string & msg) {...});
 
 To learn more, see the `publisher <https://github.com/ros2/examples/blob/b83b18598b198b4a5ba44f9266c1bb39a393fa17/rclcpp/topics/minimal_publisher/member_function_with_type_adapter.cpp>`_ and `subscription <https://github.com/ros2/examples/blob/b83b18598b198b4a5ba44f9266c1bb39a393fa17/rclcpp/topics/minimal_subscriber/member_function_with_type_adapter.cpp>`_ examples, as well as a more complex `demo <https://github.com/ros2/demos/pull/482>`_.
-For more details, see `REP 2007 <https://ros.org/reps/rep-2007.html>`_.
+For more details, see `REP 2007 <https://reps.openrobotics.org/rep-2007/>`_.
 
 ``Client::asnyc_send_request(request)`` returns a ``std::future`` instead of a ``std::shared_future``
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -996,5 +996,5 @@ Release Timeline
         Release announcement.
         ``rosdistro`` is reopened for Humble PRs.
 
-.. [1] The ``ros_base`` variant is described in `REP 2001 (ros-base) <https://www.ros.org/reps/rep-2001.html#ros-base>`_.
-.. [2] The ``desktop`` variant is described in `REP 2001 (desktop-variants) <https://www.ros.org/reps/rep-2001.html#desktop-variants>`_.
+.. [1] The ``ros_base`` variant is described in `REP 2001 (ros-base) <https://reps.openrobotics.org/rep-2001/#ros-base>`_.
+.. [2] The ``desktop`` variant is described in `REP 2001 (desktop-variants) <https://reps.openrobotics.org/rep-2001/#desktop-variants>`_.

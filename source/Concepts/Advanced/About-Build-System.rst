@@ -46,7 +46,7 @@ Parsing of the :term:`package.xml` files is provided by ``catkin_pkg`` (as in RO
 
    package.xml
        Package manifest file which marks the root of a :term:`package` and contains meta information about the :term:`package` including its name, version, description, maintainer, license, dependencies, and more.
-       The contents of the manifest are in machine readable XML format and the contents are described in the |REPs| `127 <http://www.ros.org/reps/rep-0127.html>`_ and `140 <http://www.ros.org/reps/rep-0140.html>`_, with the possibility of further modifications in future |REPs|.
+       The contents of the manifest are in machine readable XML format and the contents are described in the |REPs| `127 <https://reps.openrobotics.org/rep-0127/>`_ and `140 <https://reps.openrobotics.org/rep-0140/>`_, with the possibility of further modifications in future |REPs|.
 
 So anytime some |package| is referred to as an :term:`ament package`, it means that it is a single unit of software (source code, build files, tests, documentation, and other resources) which is described using a :term:`package.xml` manifest file.
 

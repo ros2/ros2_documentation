@@ -28,7 +28,7 @@ Other Linux platforms with varying support levels include:
 - Fedora Linux, see :doc:`alternate instructions <Fedora-Development-Setup>`
 - OpenEmbedded / webOS OSE, see `alternate instructions <https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions>`__
 
-As defined in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`_.
+As defined in `REP 2000 <https://reps.openrobotics.org/rep-2000/>`_.
 
 System setup
 ------------

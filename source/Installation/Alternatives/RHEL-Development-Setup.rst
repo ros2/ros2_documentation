@@ -18,7 +18,11 @@ The current target Red Hat platforms for {DISTRO_TITLE_FULL} are:
 
 - Tier 2: RHEL 8 64-bit
 
+<<<<<<< HEAD
 As defined in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`_
+=======
+As defined in `REP 2000 <https://reps.openrobotics.org/rep-2000/>`_.
+>>>>>>> 6f986a1 (Updated REP links (#6016))
 
 System setup
 ------------
