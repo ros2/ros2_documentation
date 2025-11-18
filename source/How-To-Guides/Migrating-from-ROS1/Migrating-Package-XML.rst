@@ -5,7 +5,7 @@ Migrating your package.xml to format 2
    :depth: 2
    :local:
 
-ROS 2 requires ``package.xml`` files to use at least `format 2 <https://ros.org/reps/rep-0140.html>`__.
+ROS 2 requires ``package.xml`` files to use at least `format 2 <https://reps.openrobotics.org/rep-0140/>`__.
 This guide shows how to migrate a ``package.xml`` from format 1 to format 2.
 
 If the ``<package>`` tag at the start of your ``package.xml`` looks like either of the following, then it is using format 1 and you must migrate it.
@@ -29,7 +29,7 @@ Migrate from format 1 to 2
 --------------------------
 
 Format 1 and format 2 differ in how they specify dependencies.
-Read the `compatibility section in REP-0140 <https://www.ros.org/reps/rep-0140.html#compatibility>`__ for a summary of the differences.
+Read the `compatibility section in REP-0140 <https://reps.openrobotics.org/rep-0140/#compatibility>`__ for a summary of the differences.
 
 Add ``format`` attribute to ``<package>``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
