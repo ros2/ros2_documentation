@@ -63,6 +63,11 @@ We will now go over the top-level launch file structure that makes this possible
 Firstly, we will create a launch file that will call separate launch files.
 To do this, let's create a ``launch_turtlesim_launch`` file in the ``/launch`` folder of our ``launch_tutorial`` package.
 
+.. attention::
+
+  Earlier launch system versions may not support ``let`` inside ``include`` statements and require ``arg`` instead.
+  The syntax is the same: ``name`` and ``value`` attributes remain unchanged (e.g., ``<arg name="target_frame" value="carrot1" />``).
+
 .. tabs::
 
   .. group-tab:: XML
