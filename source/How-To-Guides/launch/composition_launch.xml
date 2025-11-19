@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
-  <node_container pkg="rclcpp_components" exec="component_container" name="image_container">
+  <node_container pkg="rclcpp_components" exec="component_container" name="image_container" namespace="">
     <composable_node pkg="image_tools" plugin="image_tools::Cam2Image" name="cam2image">
       <remap from="/image" to="/burgerimage" />
       <param name="width" value="320" />
