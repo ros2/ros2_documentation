@@ -86,10 +86,15 @@ As mentioned above, this can either be in XML, YAML, or Python.
 All of the launch files above are launching a system of three nodes, all from the ``turtlesim`` package.
 The goal of the system is to launch two turtlesim windows, and have one turtle mimic the movements of the other.
 
-When launching the two turtlesim nodes, the only difference between them is their namespace values.
+When launching the two turtlesim nodes, the primary difference between them is their namespace values.
 Unique namespaces allow the system to start two nodes without node name or topic name conflicts.
 Both turtles in this system receive commands over the same topic and publish their pose over the same topic.
 With unique namespaces, messages meant for different turtles can be distinguished.
+
+The two turtlesim nodes also demonstrate different ways to pass arguments to nodes.
+The first node uses ``args`` to pass arguments directly to the executable, requiring the ``--ros-args`` flag for ROS-specific arguments.
+The second node uses ``ros_args`` (``ros_arguments`` in Python), designed specifically for ROS arguments.
+Use ``args`` when mixing ROS and non-ROS arguments (e.g., ``my_custom_arg --ros-args --log-level info``), or ``ros_args`` for cleaner syntax with only ROS arguments like remappings, parameters, or log levels.
 
 The final node is also from the ``turtlesim`` package, but a different executable: ``mimic``.
 This node has added configuration details in the form of remappings.
@@ -101,7 +106,7 @@ In other words, ``turtlesim2`` will mimic ``turtlesim1``'s movements.
 
   .. group-tab:: XML
 
-    The first two actions launch the two turtlesim windows:
+    The first two actions launch the two turtlesim windows with different argument passing approaches:
 
     .. literalinclude:: launch/turtlesim_mimic_launch.xml
       :language: xml
@@ -115,17 +120,17 @@ In other words, ``turtlesim2`` will mimic ``turtlesim1``'s movements.
 
   .. group-tab:: YAML
 
-    The first two actions launch the two turtlesim windows:
+    The first two actions launch the two turtlesim windows with different argument passing approaches:
 
     .. literalinclude:: launch/turtlesim_mimic_launch.yaml
       :language: yaml
-      :lines: 4-14
+      :lines: 4-16
 
     The final action launches the mimic node with the remaps:
 
     .. literalinclude:: launch/turtlesim_mimic_launch.yaml
       :language: yaml
-      :lines: 16-24
+      :lines: 18-26
 
   .. group-tab:: Python
 
@@ -139,19 +144,19 @@ In other words, ``turtlesim2`` will mimic ``turtlesim1``'s movements.
 
     .. literalinclude:: launch/turtlesim_mimic_launch.py
       :language: python
-      :lines: 5-7,28
+      :lines: 5-6,30
 
-    The first two actions in the launch description launch the two turtlesim windows:
+    The first two actions in the launch description launch the two turtlesim windows with different argument passing approaches:
 
     .. literalinclude:: launch/turtlesim_mimic_launch.py
       :language: python
-      :lines: 7-18
+      :lines: 7-20
 
     The final action launches the mimic node with the remaps:
 
     .. literalinclude:: launch/turtlesim_mimic_launch.py
       :language: python
-      :lines: 19-27
+      :lines: 21-29
 
 
 3 ros2 launch

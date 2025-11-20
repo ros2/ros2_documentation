@@ -28,7 +28,7 @@ If the ROS packages in your repository have different licenses, create a ``LICEN
 
 Give your packages REP 144 compliant names
 ------------------------------------------
-Packages released into a ROS distribution must have names that comply with `REP 144 <https://www.ros.org/reps/rep-0144.html>`__.
+Packages released into a ROS distribution must have names that comply with `REP 144 <https://reps.openrobotics.org/rep-0144/>`__.
 Read the full REP to understand the rules.
 If one of your ROS package names doesn't comply, then change the name before continuing.
 
@@ -79,7 +79,7 @@ Here's how to fill out each item:
 * YOUR-BRANCH-NAME: This is the git branch on your repository from which you will release your package into this ROS distribution.
   This is commonly one of: ``main``, ``master``, or the name of the ROS distribution itself.
   For example, the `rosidl repository <https://github.com/ros2/rosidl>`__ uses the branch ``rolling`` to hold changes to be released into ROS Rolling.
-* YOUR-STATUS: This is a status from the list in `REP 141 <https://www.ros.org/reps/rep-0141.html#distribution-file>`__.
+* YOUR-STATUS: This is a status from the list in `REP 141 <https://reps.openrobotics.org/rep-0141/#distribution-file>`__.
   You likely want either ``maintained`` or ``developed``.
 
 Open a pull request to ros/rosdistro

@@ -29,7 +29,7 @@ Tier 3 platforms:
 
 * TODO
 
-For more information about RMW implementations, compiler / interpreter versions, and system dependency versions see `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__.
+For more information about RMW implementations, compiler / interpreter versions, and system dependency versions see `REP 2000 <https://reps.openrobotics.org/rep-2000/>`__.
 
 Installation
 ------------
