@@ -35,7 +35,7 @@ Tier 3 platforms:
 * macOS: ``amd64``
 * Debian Bookworm: ``amd64``
 
-For more information about RMW implementations, compiler / interpreter versions, and system dependency versions see `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__.
+For more information about RMW implementations, compiler / interpreter versions, and system dependency versions see `REP 2000 <https://reps.openrobotics.org/rep-2000/>`__.
 
 Installation
 ------------
@@ -660,12 +660,12 @@ Release Timeline
         Updated releases of ROS Desktop [2]_ packages available.
 
     Mon. May 20, 2024 - Distro Freeze
-        Freeze all Jazzy branches on all `ROS 2 desktop packages <https://www.ros.org/reps/rep-2001.html#jazzy-jalisco-may-2024-may-2029>`__ and ``rosdistro``.
+        Freeze all Jazzy branches on all `ROS 2 desktop packages <https://reps.openrobotics.org/rep-2001/#jazzy-jalisco-may-2024-may-2029>`__ and ``rosdistro``.
         No pull requests for any ``jazzy`` branch or targeting ``jazzy/distribution.yaml`` in ``rosdistro`` repo will be merged.
 
     Thu. May 23, 2024 - General Availability
         Release announcement.
-        `ROS 2 desktop packages <https://www.ros.org/reps/rep-2001.html#jazzy-jalisco-may-2024-may-2029>`__ source freeze is lifted and ``rosdistro`` is reopened for Jazzy pull requests.
+        `ROS 2 desktop packages <https://reps.openrobotics.org/rep-2001/#jazzy-jalisco-may-2024-may-2029>`__ source freeze is lifted and ``rosdistro`` is reopened for Jazzy pull requests.
 
-.. [1] The ``ros_base`` variant is described in `REP 2001 (ros-base) <https://www.ros.org/reps/rep-2001.html#ros-base>`_.
-.. [2] The ``desktop`` variant is described in `REP 2001 (desktop-variants) <https://www.ros.org/reps/rep-2001.html#desktop-variants>`_.
+.. [1] The ``ros_base`` variant is described in `REP 2001 (ros-base) <https://reps.openrobotics.org/rep-2001/#ros-base>`_.
+.. [2] The ``desktop`` variant is described in `REP 2001 (desktop-variants) <https://reps.openrobotics.org/rep-2001/#desktop-variants>`_.

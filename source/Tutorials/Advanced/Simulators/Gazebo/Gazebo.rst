@@ -41,6 +41,7 @@ You are going to use one of the worlds defined in the Gazebo examples called
 `visualize_lidar.sdf <https://github.com/gazebosim/gz-sim/blob/main/examples/worlds/visualize_lidar.sdf>`__.
 To run this example you should execute the following command in a terminal:
 
+`ROS REP-2000 <https://reps.openrobotics.org/rep-2000/>`__ standardizes what the default version of Gazebo is for each ROS distribution.
 
 .. tabs::
 

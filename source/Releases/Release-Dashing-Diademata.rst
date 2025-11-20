@@ -27,7 +27,7 @@ Tier 3 platforms:
 * Debian Stretch (9): ``amd64``, ``arm64`` and ``arm32``
 * OpenEmbedded Thud (2.6) / webOS OSE: ``arm32`` and ``x86``
 
-For more information about RMW implementations, compiler / interpreter versions, and system dependency versions see `REP 2000 <https://www.ros.org/reps/rep-2000.html#dashing-diademata-may-2019-may-2021>`__.
+For more information about RMW implementations, compiler / interpreter versions, and system dependency versions see `REP 2000 <https://reps.openrobotics.org/rep-2000/#dashing-diademata-may-2019-may-2021>`__.
 
 Installation
 ------------

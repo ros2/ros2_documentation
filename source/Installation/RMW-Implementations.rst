@@ -11,7 +11,7 @@ There is currently support for eProsima's Fast DDS, RTI's Connext DDS, Eclipse C
 
 It also supports non DDS RMW implementations such as Zenoh.
 
-See `REP-2000 <https://ros.org/reps/rep-2000.html>`__ for supported RMW vendors by distribution.
+See `REP-2000 <https://reps.openrobotics.org/rep-2000/>`__ for supported RMW vendors by distribution.
 
 The default RMW vendor is eProsima's Fast DDS.
 

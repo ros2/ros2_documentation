@@ -37,7 +37,7 @@ Tier 3 platforms:
 * OpenEmbedded Thud (2.6) / webOS OSE: ``arm32`` and ``arm64``
 * Mac macOS 10.14 (Mojave): ``amd64``
 
-For more information about RMW implementations, compiler / interpreter versions, and system dependency versions see `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__.
+For more information about RMW implementations, compiler / interpreter versions, and system dependency versions see `REP 2000 <https://reps.openrobotics.org/rep-2000/>`__.
 
 Installation
 ------------
@@ -540,8 +540,8 @@ Large improvements in testing and overall quality
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Galactic contains many changes that fix race conditions, plug memory leaks, and fix user reported problems.
-Besides these changes, there was a concerted effort during Galactic development to improve overall quality of the system by implementing `REP 2004 <https://www.ros.org/reps/rep-2004.html>`__.
-The ``rclcpp`` package and all of its dependencies (which include most of the ROS 2 non-Python core packages) were brought up to `Quality Level 1 <https://www.ros.org/reps/rep-2004.html#quality-level-1>`__ by:
+Besides these changes, there was a concerted effort during Galactic development to improve overall quality of the system by implementing `REP 2004 <https://reps.openrobotics.org/rep-2004/>`__.
+The ``rclcpp`` package and all of its dependencies (which include most of the ROS 2 non-Python core packages) were brought up to `Quality Level 1 <https://reps.openrobotics.org/rep-2004/#quality-level-1>`__ by:
 
 * Having a version policy (QL1 requirement 1)
 * Having a documented change control process (QL1 requirement 2)
@@ -993,5 +993,5 @@ Timeline before the release
       Release announcement.
         ``rosdistro`` is reopened for Galactic PRs.
 
-.. [1] The ``ros_core`` variant is described in `REP 2001 (ros-core) <https://www.ros.org/reps/rep-2001.html#ros-core>`_.
-.. [2] The ``desktop`` variant is described in `REP 2001 (desktop-variants) <https://www.ros.org/reps/rep-2001.html#desktop-variants>`_.
+.. [1] The ``ros_core`` variant is described in `REP 2001 (ros-core) <https://reps.openrobotics.org/rep-2001/#ros-core>`_.
+.. [2] The ``desktop`` variant is described in `REP 2001 (desktop-variants) <https://reps.openrobotics.org/rep-2001/#desktop-variants>`_.
