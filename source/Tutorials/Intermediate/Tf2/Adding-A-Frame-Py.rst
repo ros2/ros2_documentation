@@ -201,7 +201,7 @@ The last part of the code will add our fixed ``carrot1`` frame to the turtlesim 
 
     .. literalinclude:: launch/py_turtle_tf2_fixed_frame_demo_launch.yaml
         :language: yaml
-        :lines: 5-6
+        :lines: 6-9
 
 1.4 Build
 ~~~~~~~~~

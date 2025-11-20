@@ -51,7 +51,7 @@ Then run the following command:
 
 .. code-block:: console
 
-   $ ros2 launch turtle_tf2_py turtle_tf2_demo.launch.xml # .py or .yaml are also acceptable
+   $ ros2 launch turtle_tf2_py turtle_tf2_demo.launch.py
 
 You will see the turtlesim start with two turtles.
 

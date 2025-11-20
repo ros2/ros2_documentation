@@ -269,12 +269,15 @@ With your text editor, create a new file called ``turtle_tf2_demo_launch`` with 
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
 
-First we import required modules from the ``launch`` and ``launch_ros`` packages.
-It should be noted that ``launch`` is a generic launching framework (not ROS 2 specific) and ``launch_ros`` has ROS 2 specific things, like nodes that we import here.
+Let's examine the launch file structure.
+Each format has its own way of setting up the launch file:
 
 .. tabs::
 
   .. group-tab:: Python
+
+    In Python launch files, we first import required modules from the ``launch`` and ``launch_ros`` packages.
+    It should be noted that ``launch`` is a generic launching framework (not ROS 2 specific) and ``launch_ros`` has ROS 2 specific things, like nodes that we import here.
 
     .. literalinclude:: launch/turtle_tf2_demo_launch.py
         :language: python
@@ -282,11 +285,15 @@ It should be noted that ``launch`` is a generic launching framework (not ROS 2 s
 
   .. group-tab:: XML
 
+    XML launch files start with an XML declaration and a root ``<launch>`` element.
+
     .. literalinclude:: launch/turtle_tf2_demo_launch.xml
         :language: xml
         :lines: 1-2
 
   .. group-tab:: YAML
+
+    YAML launch files start with a YAML version declaration and a ``launch:`` key.
 
     .. literalinclude:: launch/turtle_tf2_demo_launch.yaml
         :language: yaml
