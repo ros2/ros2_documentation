@@ -39,7 +39,7 @@ Gazebo and ROS support different combinations of versions.
 
 All supported combinations can be seen `here <https://gazebosim.org/docs/harmonic/ros_installation#summary-of-compatible-ros-and-gazebo-combinations>`__.
 
-`ROS REP-2000 <https://www.ros.org/reps/rep-2000.html>`__ standardizes what the default version of Gazebo is for each ROS distribution.
+`ROS REP-2000 <https://reps.openrobotics.org/rep-2000/>`__ standardizes what the default version of Gazebo is for each ROS distribution.
 
 If you haven't installed a version of Gazebo on your system yet, you can install Gazebo by following the `installation instructions <https://gazebosim.org/docs/harmonic/ros_installation>`__.
 

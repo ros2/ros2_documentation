@@ -45,7 +45,7 @@ Example implementations
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 The following ``rmw`` :doc:`implementations <../../Concepts/Advanced/About-Middleware-Implementations>` can be used as references.
-Note that there are different `support tiers, which are defined by REP 2000 <https://www.ros.org/reps/rep-2000.html#support-tiers>`_.
+Note that there are different `support tiers, which are defined by REP 2000 <https://reps.openrobotics.org/rep-2000/#support-tiers>`_.
 
 #. DDS:
 
