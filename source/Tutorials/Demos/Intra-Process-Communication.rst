@@ -163,7 +163,26 @@ In this case, since they only come once per second, usually only the first messa
 Finally, you can see that "Published message..." and "Received message ..." lines with the same value also have the same address.
 This shows that the address of the message being received is the same as the one that was published and that it is not a copy.
 This is because we're publishing and subscribing with ``std::unique_ptr``\ s which allow ownership of a message to be moved around the system safely.
-You can also publish and subscribe with ``const &`` and ``std::shared_ptr``, but zero-copy will not occur in that case.
+
+Understanding publish() behavior with different message types
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The behavior of the ``publish()`` function varies depending on the message type used:
+
+**std::shared_ptr messages:**
+- Cannot be published directly
+- This is a limitation of the current ROS 2 implementation
+
+**std::unique_ptr messages:**
+- Zero-copy transfer is achieved for the first subscriber
+- Additional subscribers receive copies of the message
+- Ownership is moved from publisher to the first subscriber
+- This is the recommended approach for intra-process communication
+
+**Raw messages** (both ``msg`` and ``std::move(msg)``):
+- Both result in copying
+- No zero-copy benefits are obtained
+- Use ``const &`` for subscription callbacks with raw messages
 
 The cyclic pipeline demo
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -372,15 +391,17 @@ To understand why this is happening consider the graph's topology:
                                  -> image_view_node2
 
 The link between the ``camera_node`` and the ``watermark_node`` can use the same pointer without copying because there is only one intra process subscription to which the message should be delivered.
-But for the link between the ``watermark_node`` and the two image view nodes the relationship is one to many, so if the image view nodes were using ``unique_ptr`` callbacks then it would be impossible to deliver the ownership of the same pointer to both.
-It can be, however, delivered to one of them.
-Which one would get the original pointer is not defined, but instead is simply the last to be delivered.
+But for the link between the ``watermark_node`` and the two image view nodes the relationship is one to many.
+
+When a ``unique_ptr`` message is published and there are multiple intra-process subscribers, the behavior is as follows:
+- The last subscriber receives the original pointer (zero-copy)
+- Additional subscribers receive copies of the message
+- This applies regardless of whether subscribers use ``unique_ptr`` or ``shared_ptr`` callbacks
 
 Note that the image view nodes are not subscribed with ``unique_ptr`` callbacks.
-Instead they are subscribed with ``const shared_ptr``\ s.
-This means the system deliveres the same ``shared_ptr`` to both callbacks.
-When the first intraprocess subscription is handled, the internally stored ``unique_ptr`` is promoted to a ``shared_ptr``.
-Each of the callbacks will receive shared ownership of the same message.
+Instead they are subscribed with ``const shared_ptr`` s.
+This means the system delivers the original message to the first callback and copies to subsequent callbacks.
+When the first intraprocess subscription is handled, the internally stored ``unique_ptr`` is promoted to a ``shared_ptr`` for delivery to multiple subscribers.
 
 Pipeline with interprocess viewer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
