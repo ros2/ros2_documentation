@@ -3,7 +3,7 @@
 launch:
   - include:
       file: "$(find-pkg-share urdf_launch)/launch/display.launch.py"
-      let:
+      arg:
       - name: "urdf_package"
         value: "turtlebot3_description"
       - name: "urdf_package_path"
