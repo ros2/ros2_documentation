@@ -318,7 +318,7 @@ The ``camera_node`` reads from camera device ``0`` on your computer, writes some
 The ``watermark_node`` subscribes to the output of the ``camera_node`` and adds more text before publishing it too.
 Finally, the ``image_view_node`` subscribes to the output of the ``watermark_node``, writes more text to the image and then visualizes it with ``cv::imshow``.
 
-In each node the address of the message which is being sent, or which has been received, or both, is written to the image.
+In each node the process id and the pointer address of the ROS message is written onto the image with ``cv::putText``.
 The watermark and image view nodes are designed to modify the image without copying it and so the addresses imprinted on the image should all be the same as long as the nodes are in the same process and the graph remains organized in a pipeline as sketched above.
 
 .. note::
@@ -348,7 +348,7 @@ Pipeline with two image viewers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Now let's look at an example just like the one above, except it has two image view nodes.
-All the nodes are still in the same process, but now two image view windows should show up.
+All the nodes are still in the same process, but now there will be two instances of the ``image_view_node`` and so two image view windows should show up.
 (Note for macOS users: your image view windows might be on top of each other).
 Let's run it with the command:
 
@@ -375,12 +375,7 @@ The link between the ``camera_node`` and the ``watermark_node`` can use the same
 But for the link between the ``watermark_node`` and the two image view nodes the relationship is one to many, so if the image view nodes were using ``unique_ptr`` callbacks then it would be impossible to deliver the ownership of the same pointer to both.
 It can be, however, delivered to one of them.
 Which one would get the original pointer is not defined, but instead is simply the last to be delivered.
-
-Note that the image view nodes are not subscribed with ``unique_ptr`` callbacks.
-Instead they are subscribed with ``const shared_ptr``\ s.
-This means the system deliveres the same ``shared_ptr`` to both callbacks.
-When the first intraprocess subscription is handled, the internally stored ``unique_ptr`` is promoted to a ``shared_ptr``.
-Each of the callbacks will receive shared ownership of the same message.
+And so one of the images being viewed is the original, with all the pointers the same, and the other is a copy of the original image, made between the ``watermark_node`` and one of the ``image_view_node`` instances, which will have a different pointer for the third line of text.
 
 Pipeline with interprocess viewer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
