@@ -378,7 +378,7 @@ Which one would get the original pointer is not defined, but instead is simply t
 And so one of the images being viewed is the original, with all the pointers the same, and the other is a copy of the original image, made between the ``watermark_node`` and one of the ``image_view_node`` instances, which will have a different pointer for the third line of text.
 
 Pipeline with inter-process viewer
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 One other important thing to get right is to avoid interruption of the intra-process zero-copy behavior when inter-process subscriptions are made.
 To test this we can run the first image pipeline demo, ``image_pipeline_all_in_one``, and then run an instance of the stand alone ``image_view_node`` (don't forget to prefix them with ``ros2 run intra_process_demo`` in the terminal).
