@@ -125,7 +125,7 @@ Additionally, it will log messages to the console when:
 Documentation
 -------------
 
-`The launch documentation <https://docs.ros.org/en/{DISTRO}/p/launch/architecture.html>`_ provides detailed information about available event handlers.
+`The launch documentation <https://docs.ros.org/en/{DISTRO}/p/launch/doc/source/architecture.html>`_ provides detailed information about available event handlers.
 
 Summary
 -------
