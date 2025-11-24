@@ -381,8 +381,8 @@ If you would like more or less verbose formatting, you can use the ``RCUTILS_CON
 It provides the following options for formatting the log line:
 
 * ``{severity}`` - ``DEBUG``, ``INFO``, ``WARN``, ``ERROR``, or ``FATAL``
-* ``{severity_with_color}`` - The same as ``{severity}``, but will set the output color of the severity level text. If
-  ``RCUTILS_COLORIZED_OUTPUT`` is set to 1, ``{severity_with_color}`` is the same as ``{severity}``, because the entire
+* ``{severity_with_color}`` - The same as ``{severity}``, but will set the output color of the severity level text.
+  If ``RCUTILS_COLORIZED_OUTPUT`` is set to 1, ``{severity_with_color}`` is the same as ``{severity}``, because the entire
   line is colorized.
 * ``{name}`` - The name of the logger.
 * ``{message}`` - The log message.
@@ -468,8 +468,8 @@ You should see that debug, warn, error and fatal logs aren't colorized now.
 
 .. note::
 
-   Disabling colorizing will disable colorizing the entire line. If you use ``{severity_with_color}`` in the log format,
-   the severity will still be colorized.
+   Disabling colorizing will disable colorizing the entire line.
+   If you use ``{severity_with_color}`` in the log format, the severity will still be colorized.
 
 Default stream for console output
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
