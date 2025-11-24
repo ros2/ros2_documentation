@@ -10,9 +10,7 @@ ROSCon Talks
 The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2 and provide information about the workings of ROS 2 and various demos:
 
 .. tabs::
-
-.. group-tab:: 2025
-
+  .. group-tab:: 2025
     .. list-table::
        :header-rows: 1
 
@@ -136,9 +134,8 @@ The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2
          - `video <https://vimeo.com/1136376172>`__
        * - From Off-the-Shelf Drones to Research Platforms
          - `video <https://vimeo.com/1136158052>`__
-   
-  .. group-tab:: 2024
 
+  .. group-tab:: 2024
     .. list-table::
        :header-rows: 1
 
