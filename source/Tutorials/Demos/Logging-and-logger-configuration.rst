@@ -378,6 +378,21 @@ Console output formatting
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you would like more or less verbose formatting, you can use the ``RCUTILS_CONSOLE_OUTPUT_FORMAT`` environment variable.
+It provides the following options for formatting the log line:
+
+* ``{severity}`` - ``DEBUG``, ``INFO``, ``WARN``, ``ERROR``, or ``FATAL``
+* ``{severity_with_color}`` - The same as ``{severity}``, but will set the output color of the severity level text. If
+  ``RCUTILS_COLORIZED_OUTPUT`` is set to 1, ``{severity_with_color}`` is the same as ``{severity}``, because the entire
+  line is colorized.
+* ``{name}`` - The name of the logger.
+* ``{message}`` - The log message.
+* ``{function_name}`` - The function that contains the log line.
+* ``{file_name}`` - The file that contains the log line.
+* ``{line_number}`` - The line number of the log line.
+* ``{time}`` - The time, in seconds since epoch, of the log line invocation.
+* ``{date_time_with_ms}`` - The time, formatted as ``YYYY-MM-DD HH:MM:SS.sss``.
+* ``{time_as_nanoseconds}`` - The time, in nanoseconds since epoch.
+
 For example, to additionally get the timestamp and location of the log calls, stop the demo and restart it with the environment variable set:
 
 .. tabs::
@@ -450,6 +465,11 @@ You should see that debug, warn, error and fatal logs aren't colorized now.
 
    If you start several nodes via ``ros2 launch``, no node has an active terminal attached to it (unless you set ``emulate_tty=True``).
    This means that to get colorized output for ``ros2 launch``, you need to set ``RCUTILS_COLORIZED_OUTPUT=1`` explicitly.
+
+.. note::
+
+   Disabling colorizing will disable colorizing the entire line. If you use ``{severity_with_color}`` in the log format,
+   the severity will still be colorized.
 
 Default stream for console output
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
