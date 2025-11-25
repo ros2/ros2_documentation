@@ -40,6 +40,7 @@ New features in this ROS 2 release
 ----------------------------------
 
 ``rosidl_python``
+^^^^^^^^^^^^^^^^^
 
 Passing in Python ``set`` objects into array or sequence fields is now deprecated.
 Instead pass in something that implements ``collections.abc.Sequence`` most commonly a ``list``, ``tuple``, or a ``numpy.ndarray``. To be removed in ROS M.
