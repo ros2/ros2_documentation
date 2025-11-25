@@ -37,7 +37,7 @@ The day-to-day operations of the ROS PMC include managing the members and commit
 
 For more details about the ROS PMC, please see the `Charter for the ROS Project <https://osralliance.org/staging/wp-content/uploads/2024/03/ros_project_charter.pdf>`__.
 
-ROS Project Management Comittee (PMC) Meetings
+ROS Project Management Committee (PMC) Meetings
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Community members are encouraged to observe the ROS 2 PMC meetings and submit agenda items via a PMC constituent.
