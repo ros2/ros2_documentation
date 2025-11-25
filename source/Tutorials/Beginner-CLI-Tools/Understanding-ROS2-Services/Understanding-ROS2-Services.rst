@@ -153,16 +153,15 @@ For example, you can find the count of clients and servers for the ``/clear`` se
    Clients count: 0
    Services count: 1
 
-4.1 ros2 service info --verbose
-
-
-For more detailed information about a service, you can append the ``--verbose`` option to the ``info`` command:
+4.1 ros2 service info --verbose  
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  
+For more detailed information about a service, you can append the ``--verbose`` (or ``-v``) option to the ``info`` command:  
 
 .. code-block:: console
 
   $ ros2 service info --verbose <service_name>
 
-for example: you can get verbose information about the ``/clear`` service:
+For example: you can get verbose information about the ``/clear`` service:
 
 .. code-block:: console
 
@@ -203,9 +202,7 @@ An important information for Developers that the ``Endpoint count`` will be 2 fo
           Liveliness: AUTOMATIC
           Liveliness lease duration: Infinite
 
-
-
-Where as for non-DDS based RMW implementations like zenoh, the Endpoint count will be 1 because they use a single endpoint for both request and response.
+Where as for non-DDS based RMW implementations like ``rmw_zenoh_cpp``, the ``Endpoint count`` will be 1 because it uses a single endpoint for both request and response.  
 
 .. code-block:: console
 
@@ -228,9 +225,7 @@ Where as for non-DDS based RMW implementations like zenoh, the Endpoint count wi
       Liveliness: AUTOMATIC
       Liveliness lease duration: Infinite
 
-
 If you want to learn more about different RMW implementations, refer to the :doc:`About Different Middleware Vendors <../../../Concepts/Intermediate/About-Different-Middleware-Vendors>` concept.
-
 
 5 ros2 service find
 ^^^^^^^^^^^^^^^^^^^
