@@ -202,7 +202,7 @@ An important information for Developers that the ``Endpoint count`` will be 2 fo
           Liveliness: AUTOMATIC
           Liveliness lease duration: Infinite
 
-Where as for non-DDS based RMW implementations like ``rmw_zenoh_cpp``, the ``Endpoint count`` will be 1 because it uses a single endpoint for both request and response.  
+Where as for non-DDS based RMW implementations like ``rmw_zenoh_cpp``, the ``Endpoint count`` will be 1 because it uses a single endpoint for both request and response.
 
 .. code-block:: console
 
