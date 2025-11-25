@@ -155,7 +155,7 @@ For example, you can find the count of clients and servers for the ``/clear`` se
 
 4.1 ros2 service info --verbose  
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  
-For more detailed information about a service, you can append the ``--verbose`` (or ``-v``) option to the ``info`` command:  
+For more detailed information about a service, you can append the ``--verbose`` (or ``-v``) option to the ``info`` command:
 
 .. code-block:: console
 
