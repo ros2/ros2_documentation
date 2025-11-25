@@ -43,7 +43,7 @@ ROS Project Management Committee (PMC) Meetings
 Community members are encouraged to observe the ROS 2 PMC meetings and submit agenda items via a PMC constituent.
 To add an item to the ROS PMC agenda please contact one of the ROS PMC constituents list below.
 ROS PMC meetings are conducted using Zoom and presently occur every Tuesday at 17:00 UTC (09:00 PST / 12:00 EST / 18:00 CET / +1 02:00 JST).
-To join the ROS PMC meeting please use the `link available in our official OSRA Google calendar <https://calendar.google.com/calendar/u/0/embed?src=agf3kajirket8khktupm9go748@group.calendar.google.com&ctz=Etc%2FUTC>`__. 
+To join the ROS PMC meeting please use the `link available in our official OSRA Google calendar <https://calendar.google.com/calendar/u/0/embed?src=agf3kajirket8khktupm9go748@group.calendar.google.com&ctz=Etc%2FUTC>`__.
 
 Current ROS PMC Constituents
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
