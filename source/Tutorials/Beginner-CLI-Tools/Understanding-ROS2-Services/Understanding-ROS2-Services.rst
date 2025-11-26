@@ -153,6 +153,80 @@ For example, you can find the count of clients and servers for the ``/clear`` se
    Clients count: 0
    Services count: 1
 
+4.1 ros2 service info --verbose
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+For more detailed information about a service, you can append the ``--verbose`` (or ``-v``) option to the ``info`` command:
+
+.. code-block:: console
+
+  $ ros2 service info --verbose <service_name>
+
+For example: you can get verbose information about the ``/clear`` service:
+
+.. code-block:: console
+
+  $ ros2 service info --verbose /clear
+
+This will return additional information including the node name and namespace of the service server, as well as the underlying middleware (RMW) implementation details.
+An important information for Developers that the ``Endpoint count`` will be 2 for DDS based RMW implementations (connextdds, cyclone, fastrtps) because DDS creates two endpoints (one for request and one for response) for each service server.
+
+.. code-block:: console
+
+    Type: std_srvs/srv/Empty
+    Clients count: 0
+    Services count: 1
+    Node name: turtlesim
+    Node namespace: /
+    Service type: std_srvs/srv/Empty
+    Service type hash: RIHS01_5888399dedec5ccc85ea6451949fd2c9f97bfdf963f9a588821639fcd31b5d19
+    Endpoint type: SERVER
+    Endpoint count: 2
+    GIDs:
+    - Request Reader : 01.0f.93.f0.07.92.53.47.00.00.00.00.00.00.13.04
+    - Response Writer : 01.0f.93.f0.07.92.53.47.00.00.00.00.00.00.14.03
+    QoS profiles:
+    - Request Reader :
+          Reliability: RELIABLE
+          History (Depth): KEEP_LAST (10)
+          Durability: VOLATILE
+          Lifespan: Infinite
+          Deadline: Infinite
+          Liveliness: AUTOMATIC
+          Liveliness lease duration: Infinite
+    - Response Writer :
+          Reliability: RELIABLE
+          History (Depth): KEEP_LAST (10)
+          Durability: VOLATILE
+          Lifespan: Infinite
+          Deadline: Infinite
+          Liveliness: AUTOMATIC
+          Liveliness lease duration: Infinite
+
+Where as for non-DDS based RMW implementations like ``rmw_zenoh_cpp``, the ``Endpoint count`` will be 1 because it uses a single endpoint for both request and response.
+
+.. code-block:: console
+
+    Type: std_srvs/srv/Empty
+    Clients count: 0
+    Services count: 1
+    Node name: turtlesim
+    Node namespace: /
+    Service type: std_srvs/srv/Empty
+    Service type hash: RIHS01_5888399dedec5ccc85ea6451949fd2c9f97bfdf963f9a588821639fcd31b5d19
+    Endpoint type: SERVER
+    Endpoint count: 1
+    GID: 59.b0.ea.78.57.3c.52.b4.c6.e9.af.44.22.3d.7c.f5
+    QoS profile:
+      Reliability: RELIABLE
+      History (Depth): KEEP_LAST (10)
+      Durability: VOLATILE
+      Lifespan: Infinite
+      Deadline: Infinite
+      Liveliness: AUTOMATIC
+      Liveliness lease duration: Infinite
+
+If you want to learn more about different RMW implementations, refer to the :doc:`About Different Middleware Vendors <../../../Concepts/Intermediate/About-Different-Middleware-Vendors>` concept.
+
 5 ros2 service find
 ^^^^^^^^^^^^^^^^^^^
 
