@@ -28,7 +28,7 @@ The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2
          - `video <https://vimeo.com/1136205031>`__
        * - ⚡In-advance Lightning Talks⚡
          - `video <https://vimeo.com/1136158488>`__
-       * - rmw_what? Implementing the ROS 2 Middleware Interface
+       * - rmw_what❓ Implementing the ROS 2 Middleware Interface
          - `video <https://vimeo.com/1136204122>`__
        * - Zenoh Strikes Back: From a New Hope to Tier-1
          - `video <https://vimeo.com/1136377715>`__
