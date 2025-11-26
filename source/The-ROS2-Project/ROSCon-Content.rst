@@ -27,7 +27,7 @@ The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2
        * - Seeing is Believing: Enhancing Robot Acceptance with Perception-Aware ...
          - `video <https://vimeo.com/1136205031>`__
        * - ⚡In-advance Lightning Talks⚡
-         - `video <https://vimeo.com/1136163574>`__
+         - `video <https://vimeo.com/1136158488>`__
        * - rmw_what? Implementing the ROS 2 Middleware Interface
          - `video <https://vimeo.com/1136204122>`__
        * - Zenoh Strikes Back: From a New Hope to Tier-1
@@ -72,7 +72,7 @@ The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2
          - `video <https://vimeo.com/1136772381>`__
        * - Traceability System for Autonomous Robots
          - `video <https://vimeo.com/1136377674>`__
-       * - ⚡Lightning Talks⚡
+       * - ⚡Lightning Talks 1⚡
          - `video <https://vimeo.com/1136163574>`__
        * - Open-RMF Project Update
          - `video <https://vimeo.com/1136163138>`__
@@ -88,8 +88,8 @@ The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2
          - `video <https://vimeo.com/1136158328>`__
        * - Infrastructure Project Update
          - `video <https://vimeo.com/1136158416>`__
-       * - ⚡ Lightning Talks ⚡
-         - `video <https://vimeo.com/1136163574>`__
+       * - ⚡ Lightning Talks 2⚡
+         - `video <https://vimeo.com/1136158629>`__
        * - Our Ten Most Common ROS Questions Answered
          - `video <https://vimeo.com/1136376218>`__
        * - Practical guide for ROS 2 on Windows
