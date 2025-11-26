@@ -36,7 +36,7 @@ The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2
          - `video <https://vimeo.com/1136375669>`__
        * - Enhancing ROS 2 Communications: What's New in Fast DDS v3
          - `video <https://vimeo.com/1136157825>`__
-       * - Agnocast: A ROS 2-Compatible Middleware Enabling True Zero-Copy IPC fo...
+       * - Agnocast: A ROS 2-Compatible Middleware Enabling True Zero-Copy IPC ...
          - `video <https://vimeo.com/1136159023>`__
        * - Replay Testing: Fast, Iterative Robotics Testing
          - `video <https://vimeo.com/1136204393>`__
@@ -46,7 +46,7 @@ The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2
          - `video <https://vimeo.com/1136157972>`__
        * - Cloudini: the Pointcloud Compression Library That You Missed in Your Life
          - `video <https://vimeo.com/1136159131>`__
-       * - Unlock FFmpeg in ROS 2: A Flexible Audio/Video Pipeline with ffmpeg_pi...
+       * - Unlock FFmpeg in ROS 2: A Flexible Audio/Video Pipeline with...
          - `video <https://vimeo.com/1136204514>`__
        * - Smarter Vision Pipelines for ROS 2: Compress, Transport, and Sync at Scale
          - `video <https://vimeo.com/1136204802>`__
@@ -56,7 +56,7 @@ The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2
          - `video <https://vimeo.com/1136163914>`__
        * - Roadmap-Explorer: A fast and reliable robot exploration module
          - `video <https://vimeo.com/1136177427>`__
-       * - Peer-2-Peer Agriculture Robotics Communication, Planning, Coverage and...
+       * - Peer-2-Peer Agriculture Robotics Communication, Planning, Coverage ...
          - `video <https://vimeo.com/1136163436>`__
        * - From Sensors to Sensei: Mastering ROS Hardware with Analog Devices
          - `video <https://vimeo.com/1136158125>`__
@@ -78,9 +78,9 @@ The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2
          - `video <https://vimeo.com/1136163138>`__
        * - Robots at Your Service: Deploying Open-RMF in Singapore’s Hospitality Industry
          - `video <https://vimeo.com/1136206211>`__
-       * - Optimizing Hospital Robotics Deployments with Open RMF: Implementing E...
+       * - Optimizing Hospital Robotics Deployments with Open RMF
          - `video <https://vimeo.com/1136163298>`__
-       * - Orchestrating Interoperable Indoor Robots at Scale with Open-RMF: The ...
+       * - Orchestrating Interoperable Indoor Robots at Scale with Open-RMF...
          - `video <https://vimeo.com/1136163354>`__
        * - Workflows for multi-agent orchestration
          - `video <https://vimeo.com/1136377685>`__
@@ -120,7 +120,7 @@ The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2
          - `video <https://vimeo.com/1136370681>`__
        * - PlanSys2, the ROS 2 Planning System: Past, present and future
          - `video <https://vimeo.com/1136377384>`__
-       * - Building Foundation Models for Generalist Robots: Insights and Challen...
+       * - Building Foundation Models for Generalist Robots: Insights ...
          - `video <https://vimeo.com/1136370637>`__
        * - Introducing rclrs: the ROS 2 client library for Rust
          - `video <https://vimeo.com/1136376117>`__
