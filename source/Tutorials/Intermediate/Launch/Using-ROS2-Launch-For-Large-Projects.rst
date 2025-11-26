@@ -204,6 +204,7 @@ Now let's create a new ``turtlesim_world_3_launch`` file similar to ``turtlesim_
 
     .. literalinclude:: launch/turtlesim_world_3_launch.xml
       :language: xml
+      :emphasize-lines: 3
 
   .. group-tab:: YAML
 
@@ -211,6 +212,7 @@ Now let's create a new ``turtlesim_world_3_launch`` file similar to ``turtlesim_
 
     .. literalinclude:: launch/turtlesim_world_3_launch.yaml
       :language: yaml
+      :emphasize-lines: 7
 
   .. group-tab:: Python
 
