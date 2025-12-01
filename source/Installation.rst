@@ -39,6 +39,10 @@ We provide ROS 2 binary packages for the following platforms:
   * :doc:`RPM packages <Installation/RHEL-Install-RPMs>` (recommended)
   * :doc:`binary archive <Installation/Alternatives/RHEL-Install-Binary>`
 
+* SUSE
+
+  * `See the progress on 2025 hackweek! <https://hackweek.opensuse.org/projects/suse-robotics>`_
+
 * Windows 10 (amd64)
 
   * :doc:`Windows Binary (VS 2019) <Installation/Windows-Install-Binary>`
