@@ -123,7 +123,7 @@ In a Command Prompt, set up the ROS 2 environment as described above and then ru
 
    $ ros2 run demo_nodes_cpp talker
 
-Start another Command Promt terminal and run a Python ``listener``\ :
+Start another Command Prompt terminal and run a Python ``listener``\ :
 
 .. code-block:: console
 
