@@ -47,9 +47,9 @@ ROS 2 uses `conda-forge <https://conda-forge.org/>`__ as a backend for packages,
 Install pixi
 ^^^^^^^^^^^^
 
-Use use the instructions on https://pixi.sh/latest/ to install ``pixi`` either with the Windows Installer or using their terminal prompt in your opened command prompt terminal. 
+Use use the instructions on https://pixi.sh/latest/ to install ``pixi`` either with the Windows Installer or using command line in your opened Command Prompt terminal.  
 
-Once ``pixi`` has been installed, close the command prompt session and start it again, which will ensure ``pixi`` is on the PATH.
+Once ``pixi`` has been installed, close the Command Prompt session and start it again, which will ensure ``pixi`` is on the PATH.
 
 
 Install ROS 2
@@ -106,7 +106,7 @@ Source the pixi environment to set up dependencies:
 Source the ROS 2 environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This is required in every command prompt you open to setup the ROS 2 workspace:
+This is required in every Command Prompt you open to setup the ROS 2 workspace:
 
 .. code-block:: console
 
@@ -117,13 +117,13 @@ If you do not have RTI Connext DDS installed on your computer, it is normal to r
 Try some examples
 -----------------
 
-In a command prompt, set up the ROS 2 environment as described above and then run a C++ ``talker``\ :
+In a Command Prompt, set up the ROS 2 environment as described above and then run a C++ ``talker``\ :
 
 .. code-block:: console
 
    $ ros2 run demo_nodes_cpp talker
 
-Start another command shell and run a Python ``listener``\ :
+Start another Command Promt terminal and run a Python ``listener``\ :
 
 .. code-block:: console
 

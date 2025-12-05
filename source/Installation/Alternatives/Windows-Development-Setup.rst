@@ -85,9 +85,9 @@ ROS 2 uses `conda-forge <https://conda-forge.org/>`__ as a backend for packages,
 
    The installation of conda-forge may trigger Windows Defender to treat it as a threat, but this can be safely ignored by clicking "More info" and "Run anyway".
 
-Use use the instructions on https://pixi.sh/latest/ to install ``pixi`` either with the Windows Installer or using their terminal prompt in your opened command prompt terminal. 
+Use use the instructions on https://pixi.sh/latest/ to install ``pixi`` either with the Windows Installer or using command line in your opened Command Prompt terminal. 
 
-Once ``pixi`` has been installed, close the command prompt session and start it again, which will ensure ``pixi`` is on the PATH.
+Once ``pixi`` has been installed, close the Command Prompt session and start it again, which will ensure ``pixi`` is on the PATH.
 
 Install dependencies
 ^^^^^^^^^^^^^^^^^^^^
@@ -105,17 +105,17 @@ Install dependencies:
 
    $ pixi install
 
-You should now close the cmd session, as the rest of the instructions will use the Windows command prompt.
+You should now close the cmd session, as the rest of the instructions will use the Windows Command Prompt.
 
 Build ROS 2
 -----------
 
-Start a new Windows command prompt, which will be used for the build.
+Start a new Windows Command Prompt, which will be used for the build.
 
 Source the MSVC compiler
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-This is required in the command prompt you'll use to compile ROS 2, but it is *not* required when running:
+This is required in the Command Prompt you'll use to compile ROS 2, but it is *not* required when running:
 
 .. code-block:: console
 
@@ -124,7 +124,7 @@ This is required in the command prompt you'll use to compile ROS 2, but it is *n
 Source the pixi environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This is required in every command prompt you open to set up paths to the dependencies:
+This is required in every Command Prompt you open to set up paths to the dependencies:
 
 .. code-block:: console
 
@@ -178,12 +178,12 @@ To build the ``\{DISTRO}`` folder tree:
 Setup environment
 -----------------
 
-Start a new Windows command prompt, which will be used in the examples.
+Start a new Windows Command Prompt, which will be used in the examples.
 
 Source the pixi environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This is required in every command prompt you open to set up paths to the dependencies:
+This is required in every Command Prompt you open to set up paths to the dependencies:
 
 .. code-block:: console
 
@@ -193,7 +193,7 @@ This is required in every command prompt you open to set up paths to the depende
 Source the ROS 2 environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This is required in every command prompt you open to setup the ROS 2 workspace:
+This is required in every Command Prompt you open to setup the ROS 2 workspace:
 
 .. code-block:: console
 
@@ -232,7 +232,7 @@ Then, run a C++ ``talker``\ :
    $ call install\local_setup.bat
    $ ros2 run demo_nodes_cpp talker
 
-In a separate command prompt you can do the same, but instead run a Python ``listener``\ :
+In a separate Command Prompt you can do the same, but instead run a Python ``listener``\ :
 
 .. code-block:: console
 
