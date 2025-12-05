@@ -56,21 +56,6 @@ Use use the instructions on https://pixi.sh/latest/ to install ``pixi`` either w
 
 Once ``pixi`` has been installed, close the command prompt session and start it again, which will ensure ``pixi`` is on the PATH.
 
-Install dependencies
-^^^^^^^^^^^^^^^^^^^^
-
-Download the pixi configuration file in the existing command prompt session:
-
-.. code-block:: console
-
-   $ cd C:\pixi_ws
-   $ powershell irm https://raw.githubusercontent.com/ros2/ros2/refs/heads/{REPOS_FILE_BRANCH}/pixi.toml -OutFile pixi.toml
-
-Install dependencies:
-
-.. code-block:: console
-
-   $ pixi install
 
 Install ROS 2
 -------------
@@ -80,6 +65,26 @@ Instead you may download nightly :ref:`prerelease binaries <Prerelease_binaries>
 
 * Download the latest package for Windows, e.g., ``ros2-package-windows-AMD64.zip``.
 * Unpack the zip file somewhere (we'll assume ``C:\pixi_ws\ros2-windows``).
+
+
+Install Pixi dependencies
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Go to the folder where you unzipped the ROS 2 prereleased binaries and install the dependencies
+
+.. code-block:: console
+
+   $ pixi install
+
+Run preinstall installation script
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Run the preinstall installation setup script to make sure that the zipped file are able to run in the current folder the ROS 2 binaries have been exctrated to:
+
+.. code-block:: console
+
+   $ pixi run python preinstall_setup_windows.py
+
 
 Install additional RMW implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -91,7 +96,7 @@ See the :doc:`guide <../How-To-Guides/Working-with-multiple-RMW-implementations>
 Setup environment
 -----------------
 
-Start a new Windows Command Prompt, which will be used in the examples.
+In either the same Command Prompt terminal or a new one, you can source the ROS 2 environment
 
 Source the pixi environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
