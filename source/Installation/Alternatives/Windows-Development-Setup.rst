@@ -92,7 +92,7 @@ Once ``pixi`` has been installed, close the Command Prompt session and start it 
 Install dependencies
 ^^^^^^^^^^^^^^^^^^^^
 
-Download the pixi configuration file in the existing cmd session:
+Download the pixi configuration file in the existing Command Prompt session:
 
 .. code-block:: console
 
@@ -105,12 +105,11 @@ Install dependencies:
 
    $ pixi install
 
-You should now close the cmd session, as the rest of the instructions will use the Windows Command Prompt.
 
 Build ROS 2
 -----------
 
-Start a new Windows Command Prompt, which will be used for the build.
+You can use the same Windows Command Prompt for the build.
 
 Source the MSVC compiler
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -224,7 +223,7 @@ Afterwards you can get a summary of the tests using this command:
 
    $ colcon test-result
 
-To run the examples, first open a clean new ``cmd.exe`` and set up the workspace by sourcing the ``local_setup.bat`` file.
+To run the examples, first open a clean new Command Prompt and set up the workspace by sourcing the ``local_setup.bat`` file.
 Then, run a C++ ``talker``\ :
 
 .. code-block:: console
@@ -245,7 +244,7 @@ Hooray!
 
 .. note::
 
-   It is not recommended to build in the same cmd prompt that you've sourced the ``local_setup.bat``.
+   It is not recommended to build in the same Command Prompt that you've sourced the ``local_setup.bat``.
 
 Next steps
 ----------
