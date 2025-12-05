@@ -25,7 +25,7 @@ Create a location for the ROS 2 installation
 
 This location will contain both the installed binary packages, plus the ROS 2 installation itself.
 
-Start a powershell session (usually by clicking on the start menu, then typing ``powershell``).
+Start a Command Prompt session (usually by clicking on the start menu, then typing ``Command Prompt``).
 
 Then create a directory to store the installation.
 Because of Windows path-length limitations, this should be as short as possible.
@@ -52,18 +52,19 @@ ROS 2 uses `conda-forge <https://conda-forge.org/>`__ as a backend for packages,
 Install pixi
 ^^^^^^^^^^^^
 
-Continue using the previous powershell session, and use the instructions on https://pixi.sh/latest/ to install ``pixi``.
-Once ``pixi`` has been installed, close the powershell session and start it again, which will ensure ``pixi`` is on the PATH.
+Use use the instructions on https://pixi.sh/latest/ to install ``pixi`` either with the Windows Installer or using their terminal prompt in your opened command prompt terminal. 
+
+Once ``pixi`` has been installed, close the command prompt session and start it again, which will ensure ``pixi`` is on the PATH.
 
 Install dependencies
 ^^^^^^^^^^^^^^^^^^^^
 
-Download the pixi configuration file in the existing powershell session:
+Download the pixi configuration file in the existing command prompt session:
 
 .. code-block:: console
 
    $ cd C:\pixi_ws
-   $ irm https://raw.githubusercontent.com/ros2/ros2/refs/heads/{REPOS_FILE_BRANCH}/pixi.toml -OutFile pixi.toml
+   $ powershell irm https://raw.githubusercontent.com/ros2/ros2/refs/heads/{REPOS_FILE_BRANCH}/pixi.toml -OutFile pixi.toml
 
 Install dependencies:
 
@@ -78,11 +79,6 @@ Binary releases of {DISTRO_TITLE_FULL} are not provided.
 Instead you may download nightly :ref:`prerelease binaries <Prerelease_binaries>`.
 
 * Download the latest package for Windows, e.g., ``ros2-package-windows-AMD64.zip``.
-
-.. note::
-
-   There may be more than one binary download option which might cause the file name to differ.
-
 * Unpack the zip file somewhere (we'll assume ``C:\pixi_ws\ros2-windows``).
 
 Install additional RMW implementations (optional)
@@ -95,7 +91,7 @@ See the :doc:`guide <../How-To-Guides/Working-with-multiple-RMW-implementations>
 Setup environment
 -----------------
 
-Start a new Windows command prompt, which will be used in the examples.
+Start a new Windows Command Prompt, which will be used in the examples.
 
 Source the pixi environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
