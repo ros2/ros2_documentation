@@ -29,16 +29,11 @@ Start a Command Prompt session (usually by clicking on the start menu, then typi
 
 Then create a directory to store the installation.
 Because of Windows path-length limitations, this should be as short as possible.
-We'll use ``C:\pixi_ws`` for the rest of these instructions.
+We'll use ``C:\dev`` for the rest of these instructions.
 
 .. code-block:: console
 
-   $ md C:\pixi_ws
-
-.. note::
-
-    Note: the ROS 2 binary packages are currently not relocatable, which is being tracked in a `documentation issue <https://github.com/ros2/ros2_documentation/issues/5384>`__.
-    Please use ``C:\pixi_ws`` in the interim.
+   $ md C:\dev
 
 Install prerequisites
 ---------------------
@@ -64,7 +59,8 @@ Binary releases of {DISTRO_TITLE_FULL} are not provided.
 Instead you may download nightly :ref:`prerelease binaries <Prerelease_binaries>`.
 
 * Download the latest package for Windows, e.g., ``ros2-package-windows-AMD64.zip``.
-* Unpack the zip file somewhere (we'll assume ``C:\pixi_ws\ros2-windows``).
+* Unpack the zip file somewhere on your system (we'll assume ``C:\dev\``).
+* Change the name of the extracted folder to match the distro (we'll assume ``C:\dev\{DISTRO}``)
 
 
 Install Pixi dependencies
@@ -73,7 +69,7 @@ Install Pixi dependencies
 Go to the folder where you unzipped the ROS 2 prereleased binaries and install the dependencies
 
 .. code-block:: console
-
+   $ cd C:\dev\{DISTRO}
    $ pixi install
 
 Run preinstall installation script
@@ -105,8 +101,7 @@ Source the pixi environment to set up dependencies:
 
 .. code-block:: console
 
-   $ cd C:\pixi_ws
-   $ pixi shell
+   $ cd C:\dev\{DISTRO}
 
 Source the ROS 2 environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -115,7 +110,7 @@ This is required in every command prompt you open to setup the ROS 2 workspace:
 
 .. code-block:: console
 
-   $ call C:\pixi_ws\ros2-windows\local_setup.bat
+   $ call C:\dev\{DISTRO}\local_setup.bat
 
 If you do not have RTI Connext DDS installed on your computer, it is normal to receive a warning that it is missing.
 
@@ -134,7 +129,7 @@ Start another command shell and run a Python ``listener``\ :
 
    $ ros2 run demo_nodes_py listener
 
-You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
+You should see the ``talker`` saying that it is ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
 This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
@@ -159,4 +154,4 @@ Uninstall
 
    .. code-block:: console
 
-      $ rmdir /s /q C:\pixi_ws
+      $ rmdir /s /q C:\dev\{DISTRO}
