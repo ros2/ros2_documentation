@@ -229,7 +229,7 @@ Here's an example to get the relative rotation from the previous robot pose to t
   q1_inv[0] = -prev_pose.pose.orientation.x   # Negate for inverse
   q1_inv[1] = -prev_pose.pose.orientation.y   # Negate for inverse
   q1_inv[2] = -prev_pose.pose.orientation.z   # Negate for inverse
-  q1_inv[3] = prev_pose.pose.orientation.w 
+  q1_inv[3] = prev_pose.pose.orientation.w
 
   q2[0] = current_pose.pose.orientation.x
   q2[1] = current_pose.pose.orientation.y
