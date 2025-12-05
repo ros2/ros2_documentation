@@ -85,7 +85,7 @@ ROS 2 uses `conda-forge <https://conda-forge.org/>`__ as a backend for packages,
 
    The installation of conda-forge may trigger Windows Defender to treat it as a threat, but this can be safely ignored by clicking "More info" and "Run anyway".
 
-Use use the instructions on https://pixi.sh/latest/ to install ``pixi`` either with the Windows Installer or using command line in your opened Command Prompt terminal. 
+Use use the instructions on https://pixi.sh/latest/ to install ``pixi`` either with the Windows Installer or using command line in your opened Command Prompt terminal.
 
 Once ``pixi`` has been installed, close the Command Prompt session and start it again, which will ensure ``pixi`` is on the PATH.
 
