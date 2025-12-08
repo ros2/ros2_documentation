@@ -25,6 +25,7 @@ void MyRobotDriver::init(
 
   cmd_vel_subscription_ = node->create_subscription<geometry_msgs::msg::Twist>(
       "/cmd_vel", rclcpp::SensorDataQoS().reliable(),
+<<<<<<< HEAD
       std::bind(&MyRobotDriver::cmdVelCallback, this, std::placeholders::_1));
 }
 
@@ -32,6 +33,13 @@ void MyRobotDriver::cmdVelCallback(
     const geometry_msgs::msg::Twist::SharedPtr msg) {
   cmd_vel_msg.linear = msg->linear;
   cmd_vel_msg.angular = msg->angular;
+=======
+      [this](const geometry_msgs::msg::Twist::ConstSharedPtr msg){
+        this->cmd_vel_msg.linear = msg->linear;
+        this->cmd_vel_msg.angular = msg->angular;
+      }
+  );
+>>>>>>> bf46139 (Update subscription callback signatures (#6005))
 }
 
 void MyRobotDriver::step() {
