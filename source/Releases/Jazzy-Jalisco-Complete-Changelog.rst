@@ -3243,7 +3243,8 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-`turtlesim <https://github.com/ros/ros_tutorials/tree/jazzy/turtlesim/CHANGELOG.rst>`__
+* ``turtlesim`` <https://github.com/ros/ros_tutorials/tree/jazzy/turtlesim/CHANGELOG.rst>`__
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Add icon for Jazzy. (`#167 <https://github.com/ros/ros_tutorials/issues/167>`__) (`#168 <https://github.com/ros/ros_tutorials/issues/168>`__) (cherry picked from commit 014955e15a6ac3b1649cbf21e11c8547ebd47af7) Co-authored-by: Marco A. Gutierrez <marcogg@marcogg.com>
