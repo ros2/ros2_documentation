@@ -28,7 +28,7 @@ Save your GitHub username and PAT to a new file called ``~/.config/bloom``, with
       "oauth_token": "<token-you-created-for-bloom>"
    }
 
-Configure in your ``~/.gitconfig`` that your GitHub account and PAT are used for all release repositories under https://github.com/ros2-gbp:
+Configure in your ``~/.gitconfig`` that your GitHub account and PAT are used for all release repositories under `ros2-gbp <https://github.com/ros2-gbp>`_:
 
 .. code-block:: ini
 
