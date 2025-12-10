@@ -23,4 +23,4 @@ For a brief video introduction to ROS 2, see this community contributed content:
 
 For a deep dive video on ROS Interfaces, see this community contributed content:
 
-* `The ROS Interface Primer <https://youtu.be/FOTif0DWBfE>`
+* `The ROS Interface Primer <https://youtu.be/FOTif0DWBfE>`_
