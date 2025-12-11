@@ -39,9 +39,18 @@ Simulation of multiple turtles in the turtle simulator can serve as a good examp
 The turtle simulation consists of multiple turtle nodes, the world configuration, and the TF broadcaster and listener nodes.
 Between all of the nodes, there are a large number of ROS parameters that affect the behavior and appearance of these nodes.
 ROS 2 launch files allow us to start all nodes and set corresponding parameters in one place.
+<<<<<<< HEAD
 By the end of a tutorial, you will build the ``launch_turtlesim.launch.py`` launch file in the ``launch_tutorial`` package.
+=======
+By the end of a tutorial, you will build the ``launch_turtlesim_launch`` launch file in the ``launch_tutorial`` package.
+>>>>>>> 536c723 (Add XML/YAML launch equivalents for large project tutorial (#6021))
 This launch file will bring up different nodes responsible for the simulation of two turtlesim simulations, starting TF broadcasters and listener, loading parameters, and launching an RViz configuration.
 In this tutorial, we'll go over this launch file and all related features used.
+
+.. attention:: Launch files can be written in XML, YAML, or Python format.
+  Throughout this tutorial, launch files are shown in all three formats using tabs.
+  You can choose whichever format you prefer - they are functionally equivalent.
+  Wherever you see the file name ``launch_turtlesim_launch`` make sure to use the correct file extension for your launch file type (i.e. ``launch_turtlesim_launch.py`` for Python, ``launch_turtlesim_launch.xml`` for XML, and ``launch_turtlesim_launch.yaml`` for YAML.
 
 Writing launch files
 --------------------
@@ -57,10 +66,39 @@ Even a change such as moving from a real robot to a simulated one can be done wi
 
 We will now go over the top-level launch file structure that makes this possible.
 Firstly, we will create a launch file that will call separate launch files.
+<<<<<<< HEAD
 To do this, let's create a ``launch_turtlesim.launch.py`` file in the ``/launch`` folder of our ``launch_tutorial`` package.
+=======
+To do this, let's create a ``launch_turtlesim_launch`` file in the ``/launch`` folder of our ``launch_tutorial`` package.
+>>>>>>> 536c723 (Add XML/YAML launch equivalents for large project tutorial (#6021))
 
-.. literalinclude:: launch/launch_turtlesim_launch.py
-   :language: python
+.. attention::
+
+  Earlier launch system versions may not support ``let`` inside ``include`` statements and require ``arg`` instead.
+  The syntax is the same: ``name`` and ``value`` attributes remain unchanged (e.g., ``<arg name="target_frame" value="carrot1" />``).
+
+.. tabs::
+
+  .. group-tab:: XML
+
+    Copy and paste the complete code into the ``launch/launch_turtlesim_launch.xml`` file:
+
+    .. literalinclude:: launch/launch_turtlesim_launch.xml
+      :language: xml
+
+  .. group-tab:: YAML
+
+    Copy and paste the complete code into the ``launch/launch_turtlesim_launch.yaml`` file:
+
+    .. literalinclude:: launch/launch_turtlesim_launch.yaml
+      :language: yaml
+
+  .. group-tab:: Python
+
+    Copy and paste the complete code into the ``launch/launch_turtlesim_launch.py`` file:
+
+    .. literalinclude:: launch/launch_turtlesim_launch.py
+      :language: python
 
 This launch file includes a set of other launch files.
 Each of these included launch files contains nodes, parameters, and possibly, nested includes, which pertain to one part of the system.
@@ -80,10 +118,34 @@ However, there are cases when some nodes or launch files have to be launched sep
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We will begin by writing a launch file that will start our first turtlesim simulation.
+<<<<<<< HEAD
 First, create a new file called ``turtlesim_world_1.launch.py``.
+=======
+First, create a new file called ``turtlesim_world_1_launch``.
+>>>>>>> 536c723 (Add XML/YAML launch equivalents for large project tutorial (#6021))
 
-.. literalinclude:: launch/turtlesim_world_1_launch.py
-   :language: python
+.. tabs::
+
+  .. group-tab:: XML
+
+    Copy and paste the complete code into the ``launch/turtlesim_world_1_launch.xml`` file:
+
+    .. literalinclude:: launch/turtlesim_world_1_launch.xml
+      :language: xml
+
+  .. group-tab:: YAML
+
+    Copy and paste the complete code into the ``launch/turtlesim_world_1_launch.yaml`` file:
+
+    .. literalinclude:: launch/turtlesim_world_1_launch.yaml
+      :language: yaml
+
+  .. group-tab:: Python
+
+    Copy and paste the complete code into the ``launch/turtlesim_world_1_launch.py`` file:
+
+    .. literalinclude:: launch/turtlesim_world_1_launch.py
+      :language: python
 
 This launch file starts the ``turtlesim_node`` node, which starts the turtlesim simulation, with simulation configuration parameters that are defined and passed to the nodes.
 
@@ -91,13 +153,38 @@ This launch file starts the ``turtlesim_node`` node, which starts the turtlesim 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In the second launch, we will start a second turtlesim simulation with a different configuration.
+<<<<<<< HEAD
 Now create a ``turtlesim_world_2.launch.py`` file.
+=======
+Now create a ``turtlesim_world_2_launch`` file.
+>>>>>>> 536c723 (Add XML/YAML launch equivalents for large project tutorial (#6021))
 
-.. literalinclude:: launch/turtlesim_world_2_launch.py
-   :language: python
+.. tabs::
+
+  .. group-tab:: XML
+
+    Copy and paste the complete code into the ``launch/turtlesim_world_2_launch.xml`` file:
+
+    .. literalinclude:: launch/turtlesim_world_2_launch.xml
+      :language: xml
+
+  .. group-tab:: YAML
+
+    Copy and paste the complete code into the ``launch/turtlesim_world_2_launch.yaml`` file:
+
+    .. literalinclude:: launch/turtlesim_world_2_launch.yaml
+      :language: yaml
+
+  .. group-tab:: Python
+
+    Copy and paste the complete code into the ``launch/turtlesim_world_2_launch.py`` file:
+
+    .. literalinclude:: launch/turtlesim_world_2_launch.py
+      :language: python
 
 This launch file will launch the same ``turtlesim_node`` with parameter values that are loaded directly from the YAML configuration file.
 Defining arguments and parameters in YAML files make it easy to store and load a large number of variables.
+It is also worth noting that this YAML file is not another launch file, it is a configuration file for the ``turtlesim_node`` that sets parameters for the node.
 In addition, YAML files can be easily exported from the current ``ros2 param`` list.
 To learn how to do that, refer to the :doc:`Understand parameters <../../Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters>` tutorial.
 
@@ -121,11 +208,37 @@ These nodes could have different namespaces or names but still have the same par
 Defining separate YAML files that explicitly define namespaces and node names is not efficient.
 A solution is to use wildcard characters, which act as substitutions for unknown characters in a text value, to apply parameters to several different nodes.
 
+<<<<<<< HEAD
 Now let's create a new ``turtlesim_world_3.launch.py`` file similar to ``turtlesim_world_2.launch.py`` to include one more ``turtlesim_node`` node in a new namespace ``turtlesim3``:
+=======
+Now let's create a new ``turtlesim_world_3_launch`` file similar to ``turtlesim_world_2_launch`` to include one more ``turtlesim_node`` node in a new namespace ``turtlesim3``:
+>>>>>>> 536c723 (Add XML/YAML launch equivalents for large project tutorial (#6021))
 
-.. literalinclude:: launch/turtlesim_world_3_launch.py
-   :language: python
-   :emphasize-lines: 12
+.. tabs::
+
+  .. group-tab:: XML
+
+    Copy and paste the complete code into the ``launch/turtlesim_world_3_launch.xml`` file:
+
+    .. literalinclude:: launch/turtlesim_world_3_launch.xml
+      :language: xml
+      :emphasize-lines: 3
+
+  .. group-tab:: YAML
+
+    Copy and paste the complete code into the ``launch/turtlesim_world_3_launch.yaml`` file:
+
+    .. literalinclude:: launch/turtlesim_world_3_launch.yaml
+      :language: yaml
+      :emphasize-lines: 7
+
+  .. group-tab:: Python
+
+    Copy and paste the complete code into the ``launch/turtlesim_world_3_launch.py`` file:
+
+    .. literalinclude:: launch/turtlesim_world_3_launch.py
+      :language: python
+      :emphasize-lines: 12
 
 Loading the same YAML file, however, will not affect the appearance of the third turtlesim world.
 The reason is that its parameters are stored under another namespace as shown below:
@@ -150,13 +263,21 @@ We will now update the ``turtlesim.yaml``, in the ``/config`` folder in the foll
          background_g: 86
          background_r: 150
 
+<<<<<<< HEAD
 Now include the ``turtlesim_world_3.launch.py`` launch description in our main launch file.
+=======
+Now include the ``turtlesim_world_3_launch`` launch description in our main launch file.
+>>>>>>> 536c723 (Add XML/YAML launch equivalents for large project tutorial (#6021))
 Using that configuration file in our launch descriptions will assign ``background_b``, ``background_g``, and ``background_r`` parameters to specified values in ``turtlesim3/sim`` and ``turtlesim2/sim`` nodes.
 
 3 Namespaces
 ^^^^^^^^^^^^
 
+<<<<<<< HEAD
 As you may have noticed, we have defined the namespace for the turlesim world in the ``turtlesim_world_2.launch.py`` file.
+=======
+As you may have noticed, we have defined the namespace for the turlesim world in the ``turtlesim_world_2_launch`` file.
+>>>>>>> 536c723 (Add XML/YAML launch equivalents for large project tutorial (#6021))
 Unique namespaces allow the system to start two similar nodes without node name or topic name conflicts.
 
 .. code-block:: Python
@@ -169,11 +290,17 @@ Every nested node will inherit that namespace automatically.
 
 .. attention:: ``PushRosNamespace`` has to be the first action in the list for the following actions to apply the namespace.
 
+<<<<<<< HEAD
 To do that, firstly, we need to remove the ``namespace='turtlesim2'`` line from the ``turtlesim_world_2.launch.py`` file.
 Afterwards, we need to update the ``launch_turtlesim.launch.py`` to change the ``IncludeLaunchDescription(... 'turtlesim_world_2.launch.py' ...)`` value to the following:
+=======
+To do that, firstly, we need to remove the ``namespace='turtlesim2'`` line from the ``turtlesim_world_2_launch`` file.
+Afterwards, we need to update the ``launch_turtlesim_launch`` to change the include statement to the following:
+>>>>>>> 536c723 (Add XML/YAML launch equivalents for large project tutorial (#6021))
 
-.. code-block:: Python
+.. tabs::
 
+<<<<<<< HEAD
    from launch.actions import GroupAction
    from launch_ros.actions import PushRosNamespace
 
@@ -186,14 +313,75 @@ Afterwards, we need to update the ``launch_turtlesim.launch.py`` to change the `
       ),
 
 As a result, each node in the ``turtlesim_world_2.launch.py`` launch description will have a ``turtlesim2`` namespace.
+=======
+  .. group-tab:: XML
+
+    .. code-block:: xml
+
+       <group>
+         <push_ros_namespace namespace="turtlesim2" />
+         <include file="$(find-pkg-share launch_tutorial)/launch/turtlesim_world_2_launch.xml" />
+       </group>
+
+  .. group-tab:: YAML
+
+    .. code-block:: yaml
+
+       - group:
+           - push_ros_namespace:
+               namespace: "turtlesim2"
+           - include:
+               file: "$(find-pkg-share launch_tutorial)/launch/turtlesim_world_2_launch.yaml"
+
+  .. group-tab:: Python
+
+    .. code-block:: python
+
+       from launch.actions import GroupAction
+       from launch_ros.actions import PushROSNamespace
+
+          ...
+          GroupAction(
+            actions=[
+                PushROSNamespace('turtlesim2'),
+                IncludeLaunchDescription(PathJoinSubstitution([launch_dir, 'turtlesim_world_2_launch.py'])),
+             ]
+          ),
+
+As a result, each node in the ``turtlesim_world_2_launch`` launch description will have a ``turtlesim2`` namespace.
+>>>>>>> 536c723 (Add XML/YAML launch equivalents for large project tutorial (#6021))
 
 4 Reusing nodes
 ^^^^^^^^^^^^^^^
 
+<<<<<<< HEAD
 Now create a ``broadcaster_listener.launch.py`` file.
+=======
+Now create a ``broadcaster_listener_launch`` file.
+>>>>>>> 536c723 (Add XML/YAML launch equivalents for large project tutorial (#6021))
 
-.. literalinclude:: launch/broadcast_listener_launch.py
-   :language: python
+.. tabs::
+
+  .. group-tab:: XML
+
+    Copy and paste the complete code into the ``launch/broadcaster_listener_launch.xml`` file:
+
+    .. literalinclude:: launch/broadcaster_listener_launch.xml
+      :language: xml
+
+  .. group-tab:: YAML
+
+    Copy and paste the complete code into the ``launch/broadcaster_listener_launch.yaml`` file:
+
+    .. literalinclude:: launch/broadcaster_listener_launch.yaml
+      :language: yaml
+
+  .. group-tab:: Python
+
+    Copy and paste the complete code into the ``launch/broadcaster_listener_launch.py`` file:
+
+    .. literalinclude:: launch/broadcaster_listener_launch.py
+      :language: python
 
 In this file, we have declared the ``target_frame`` launch argument with a default value of ``turtle1``.
 The default value means that the launch file can receive an argument to forward to its nodes, or in case the argument is not provided, it will pass the default value to its nodes.
@@ -206,24 +394,68 @@ We also start a ``turtle_tf2_listener`` node and set its ``target_frame`` parame
 5 Parameter overrides
 ^^^^^^^^^^^^^^^^^^^^^
 
+<<<<<<< HEAD
 Recall that we called the ``broadcaster_listener.launch.py`` file in our top-level launch file.
+=======
+Recall that we called the ``broadcaster_listener_launch`` file in our top-level launch file.
+>>>>>>> 536c723 (Add XML/YAML launch equivalents for large project tutorial (#6021))
 In addition to that, we have passed it ``target_frame`` launch argument as shown below:
 
-.. literalinclude:: launch/launch_turtlesim_launch.py
-   :language: python
-   :lines: 16-19
+.. tabs::
+
+  .. group-tab:: XML
+
+    .. literalinclude:: launch/launch_turtlesim_launch.xml
+      :language: xml
+      :lines: 5-7
+
+  .. group-tab:: YAML
+
+    .. literalinclude:: launch/launch_turtlesim_launch.yaml
+      :language: yaml
+      :lines: 8-12
+
+  .. group-tab:: Python
+
+    .. literalinclude:: launch/launch_turtlesim_launch.py
+      :language: python
+      :lines: 16-19
 
 This syntax allows us to change the default goal target frame to ``carrot1``.
-If you would like ``turtle2`` to follow ``turtle1`` instead of the ``carrot1``, just remove the line that defines ``launch_arguments``.
+If you would like ``turtle2`` to follow ``turtle1`` instead of the ``carrot1``, just remove the line that passes the ``target_frame`` argument.
 This will assign ``target_frame`` its default value, which is ``turtle1``.
 
 6 Remapping
 ^^^^^^^^^^^
 
+<<<<<<< HEAD
 Now create a ``mimic.launch.py`` file.
+=======
+Now create a ``mimic_launch`` file.
+>>>>>>> 536c723 (Add XML/YAML launch equivalents for large project tutorial (#6021))
 
-.. literalinclude:: launch/mimic_launch.py
-   :language: python
+.. tabs::
+
+  .. group-tab:: XML
+
+    Copy and paste the complete code into the ``launch/mimic_launch.xml`` file:
+
+    .. literalinclude:: launch/mimic_launch.xml
+      :language: xml
+
+  .. group-tab:: YAML
+
+    Copy and paste the complete code into the ``launch/mimic_launch.yaml`` file:
+
+    .. literalinclude:: launch/mimic_launch.yaml
+      :language: yaml
+
+  .. group-tab:: Python
+
+    Copy and paste the complete code into the ``launch/mimic_launch.py`` file:
+
+    .. literalinclude:: launch/mimic_launch.py
+      :language: python
 
 This launch file will start the ``mimic`` node, which will give commands to one turtlesim to follow the other.
 The node is designed to receive the target pose on the topic ``/input/pose``.
@@ -234,10 +466,34 @@ This way ``turtle1`` in our ``turtlesim2`` simulation world will follow ``turtle
 7 Config files
 ^^^^^^^^^^^^^^
 
+<<<<<<< HEAD
 Let's now create a file called ``turtlesim_rviz.launch.py``.
+=======
+Let's now create a file called ``turtlesim_rviz_launch``.
+>>>>>>> 536c723 (Add XML/YAML launch equivalents for large project tutorial (#6021))
 
-.. literalinclude:: launch/turtlesim_rviz_launch.py
-   :language: python
+.. tabs::
+
+  .. group-tab:: XML
+
+    Copy and paste the complete code into the ``launch/turtlesim_rviz_launch.xml`` file:
+
+    .. literalinclude:: launch/turtlesim_rviz_launch.xml
+      :language: xml
+
+  .. group-tab:: YAML
+
+    Copy and paste the complete code into the ``launch/turtlesim_rviz_launch.yaml`` file:
+
+    .. literalinclude:: launch/turtlesim_rviz_launch.yaml
+      :language: yaml
+
+  .. group-tab:: Python
+
+    Copy and paste the complete code into the ``launch/turtlesim_rviz_launch.py`` file:
+
+    .. literalinclude:: launch/turtlesim_rviz_launch.py
+      :language: python
 
 This launch file will start the RViz with the configuration file defined in the ``turtle_tf2_py`` package.
 This RViz configuration will set the world frame, enable TF visualization, and start RViz with a top-down view.
@@ -245,15 +501,39 @@ This RViz configuration will set the world frame, enable TF visualization, and s
 8 Environment Variables
 ^^^^^^^^^^^^^^^^^^^^^^^
 
+<<<<<<< HEAD
 Let's now create the last launch file called ``fixed_broadcaster.launch.py`` in our package.
+=======
+Let's now create the last launch file called ``fixed_broadcaster_launch`` in our package.
+>>>>>>> 536c723 (Add XML/YAML launch equivalents for large project tutorial (#6021))
 
-.. literalinclude:: launch/fixed_broadcaster_launch.py
-   :language: python
+.. tabs::
+
+  .. group-tab:: XML
+
+    Copy and paste the complete code into the ``launch/fixed_broadcaster_launch.xml`` file:
+
+    .. literalinclude:: launch/fixed_broadcaster_launch.xml
+      :language: xml
+
+  .. group-tab:: YAML
+
+    Copy and paste the complete code into the ``launch/fixed_broadcaster_launch.yaml`` file:
+
+    .. literalinclude:: launch/fixed_broadcaster_launch.yaml
+      :language: yaml
+
+  .. group-tab:: Python
+
+    Copy and paste the complete code into the ``launch/fixed_broadcaster_launch.py`` file:
+
+    .. literalinclude:: launch/fixed_broadcaster_launch.py
+      :language: python
 
 This launch file shows the way environment variables can be called inside the launch files.
 Environment variables can be used to define or push namespaces for distinguishing nodes on different computers or robots.
 
-.. note:: If you are running the launch file where the ``USER`` environment variable is not defined (like in the ROS docker file), then you can replace the ``EnvironmentVariable('USER')`` above with any other word of your liking.
+.. note:: If you are running the launch file where the ``USER`` environment variable is not defined (like in the ROS docker file), then you can replace the environment variable reference above with any other word of your liking.
 
 Running launch files
 --------------------
@@ -286,9 +566,29 @@ The ``data_files`` field should now look like this:
 
 To finally see the result of our code, build the package and launch the top-level launch file using the following command:
 
-.. code-block:: console
+.. tabs::
 
+<<<<<<< HEAD
    $ ros2 launch launch_tutorial launch_turtlesim.launch.py
+=======
+  .. group-tab:: XML
+
+    .. code-block:: console
+
+       $ ros2 launch launch_tutorial launch_turtlesim_launch.xml
+
+  .. group-tab:: YAML
+
+    .. code-block:: console
+
+       $ ros2 launch launch_tutorial launch_turtlesim_launch.yaml
+
+  .. group-tab:: Python
+
+    .. code-block:: console
+
+       $ ros2 launch launch_tutorial launch_turtlesim_launch.py
+>>>>>>> 536c723 (Add XML/YAML launch equivalents for large project tutorial (#6021))
 
 You will now see the two turtlesim simulations started.
 There are two turtles in the first one and one in the second one.
