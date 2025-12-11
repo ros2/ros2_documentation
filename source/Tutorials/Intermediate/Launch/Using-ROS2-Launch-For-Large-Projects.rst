@@ -43,7 +43,7 @@ By the end of a tutorial, you will build the ``launch_turtlesim_launch`` launch 
 This launch file will bring up different nodes responsible for the simulation of two turtlesim simulations, starting TF broadcasters and listener, loading parameters, and launching an RViz configuration.
 In this tutorial, we'll go over this launch file and all related features used.
 
-.. note:: Launch files can be written in XML, YAML, or Python format.
+.. attention:: Launch files can be written in XML, YAML, or Python format.
   Throughout this tutorial, launch files are shown in all three formats using tabs.
   You can choose whichever format you prefer - they are functionally equivalent.
   Wherever you see the file name ``launch_turtlesim_launch`` make sure to use the correct file extension for your launch file type (i.e. ``launch_turtlesim_launch.py`` for Python, ``launch_turtlesim_launch.xml`` for XML, and ``launch_turtlesim_launch.yaml`` for YAML.
