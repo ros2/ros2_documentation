@@ -172,6 +172,7 @@ Now create a ``turtlesim_world_2_launch`` file.
 
 This launch file will launch the same ``turtlesim_node`` with parameter values that are loaded directly from the YAML configuration file.
 Defining arguments and parameters in YAML files make it easy to store and load a large number of variables.
+It is also worth noting that this YAML file is not another launch file, it is a configuration file for the ``turtlesim_node`` that sets parameters for the node.
 In addition, YAML files can be easily exported from the current ``ros2 param`` list.
 To learn how to do that, refer to the :doc:`Understand parameters <../../Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters>` tutorial.
 
