@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<launch>
-  <node pkg="turtlesim" exec="mimic" name="mimic">
-    <remap from="/input/pose" to="/turtle2/pose" />
-    <remap from="/output/cmd_vel" to="/turtlesim2/turtle1/cmd_vel" />
-  </node>
-</launch>
-

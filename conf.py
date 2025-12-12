@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+#nano conf.pynano conf.py -*- coding: utf-8 -*-
 #
 # rosindex documentation build configuration file, created by
 # sphinx-quickstart on Tue Oct  2 16:34:57 2018.
@@ -172,7 +172,7 @@ html_favicon = 'favicon.ico'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['source/_static']
+html_static_path = ['_static']
 
 # Drop any source link suffix
 html_sourcelink_suffix = ''

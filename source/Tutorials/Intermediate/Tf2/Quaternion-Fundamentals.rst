@@ -156,13 +156,11 @@ Python
 3 Inverting a quaternion
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-An easy way to invert a quaternion is to negate the x-, y-, and z-components:
+An easy way to invert a quaternion is to negate the w-component:
 
 .. code-block:: python
 
-   q[0] = -q[0]
-   q[1] = -q[1]
-   q[2] = -q[2]
+   q[3] = -q[3]
 
 .. note::
 
@@ -203,16 +201,16 @@ Here's an example to get the relative rotation from the previous robot pose to t
 
       """
       # Extract the values from q0
-      x0 = q0[0]
-      y0 = q0[1]
-      z0 = q0[2]
-      w0 = q0[3]
+      w0 = q0[0]
+      x0 = q0[1]
+      y0 = q0[2]
+      z0 = q0[3]
 
       # Extract the values from q1
-      x1 = q1[0]
-      y1 = q1[1]
-      z1 = q1[2]
-      w1 = q1[3]
+      w1 = q1[0]
+      x1 = q1[1]
+      y1 = q1[2]
+      z1 = q1[3]
 
       # Compute the product of the two quaternions, term by term
       q0q1_w = w0 * w1 - x0 * x1 - y0 * y1 - z0 * z1
@@ -226,10 +224,10 @@ Here's an example to get the relative rotation from the previous robot pose to t
       # Return a 4 element array containing the final quaternion (q02,q12,q22,q32)
       return final_quaternion
 
-  q1_inv[0] = -prev_pose.pose.orientation.x   # Negate for inverse
-  q1_inv[1] = -prev_pose.pose.orientation.y   # Negate for inverse
-  q1_inv[2] = -prev_pose.pose.orientation.z   # Negate for inverse
-  q1_inv[3] = prev_pose.pose.orientation.w
+  q1_inv[0] = prev_pose.pose.orientation.x
+  q1_inv[1] = prev_pose.pose.orientation.y
+  q1_inv[2] = prev_pose.pose.orientation.z
+  q1_inv[3] = -prev_pose.pose.orientation.w # Negate for inverse
 
   q2[0] = current_pose.pose.orientation.x
   q2[1] = current_pose.pose.orientation.y

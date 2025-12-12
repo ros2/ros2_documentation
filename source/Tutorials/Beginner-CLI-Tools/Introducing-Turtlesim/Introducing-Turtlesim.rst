@@ -263,3 +263,5 @@ Related content
 ---------------
 
 The turtlesim package can be found in the `ros_tutorials <https://github.com/ros/ros_tutorials/tree/{REPOS_FILE_BRANCH}/turtlesim>`_ repo.
+
+`This community contributed video <https://youtu.be/xwT7XWflMdc>`_ demonstrates many of the items covered in this tutorial.
