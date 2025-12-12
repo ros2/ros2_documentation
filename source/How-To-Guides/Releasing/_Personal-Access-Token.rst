@@ -36,7 +36,7 @@ Configure in your ``~/.gitconfig`` that your GitHub account and PAT are used for
         username = x-access-token
         helper = "!f() { test \"$1\" = get && echo \"password=<token-you-created-for-bloom>\"; }; f"
 
-You can additionally use different GitHub accounts and PATs for different release repos:
+You can additionally use different GitHub accounts and PATs for individual release repositories:
 
 .. code-block:: ini
 
