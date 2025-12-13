@@ -7,26 +7,26 @@ ObstacleAvoider::ObstacleAvoider() : Node("obstacle_avoider") {
 
   left_sensor_sub_ = create_subscription<sensor_msgs::msg::Range>(
       "/left_sensor", 1,
-      [this](const sensor_msgs::msg::Range::SharedPtr msg){
+      [this](const sensor_msgs::msg::Range::ConstSharedPtr msg){
         return this->leftSensorCallback(msg);
       }
   );
 
   right_sensor_sub_ = create_subscription<sensor_msgs::msg::Range>(
       "/right_sensor", 1,
-      [this](const sensor_msgs::msg::Range::SharedPtr msg){
+      [this](const sensor_msgs::msg::Range::ConstSharedPtr msg){
         return this->rightSensorCallback(msg);
       }
   );
 }
 
 void ObstacleAvoider::leftSensorCallback(
-    const sensor_msgs::msg::Range::SharedPtr msg) {
+    const sensor_msgs::msg::Range::ConstSharedPtr msg) {
   left_sensor_value = msg->range;
 }
 
 void ObstacleAvoider::rightSensorCallback(
-    const sensor_msgs::msg::Range::SharedPtr msg) {
+    const sensor_msgs::msg::Range::ConstSharedPtr msg) {
   right_sensor_value = msg->range;
 
   auto command_message = std::make_unique<geometry_msgs::msg::Twist>();

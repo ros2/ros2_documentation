@@ -9,8 +9,8 @@ public:
   explicit ObstacleAvoider();
 
 private:
-  void leftSensorCallback(const sensor_msgs::msg::Range::SharedPtr msg);
-  void rightSensorCallback(const sensor_msgs::msg::Range::SharedPtr msg);
+  void leftSensorCallback(const sensor_msgs::msg::Range::ConstSharedPtr msg);
+  void rightSensorCallback(const sensor_msgs::msg::Range::ConstSharedPtr msg);
 
   rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr publisher_;
   rclcpp::Subscription<sensor_msgs::msg::Range>::SharedPtr left_sensor_sub_;

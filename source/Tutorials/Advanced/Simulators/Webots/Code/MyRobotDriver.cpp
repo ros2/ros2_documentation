@@ -25,7 +25,7 @@ void MyRobotDriver::init(
 
   cmd_vel_subscription_ = node->create_subscription<geometry_msgs::msg::Twist>(
       "/cmd_vel", rclcpp::SensorDataQoS().reliable(),
-      [this](const geometry_msgs::msg::Twist::SharedPtr msg){
+      [this](const geometry_msgs::msg::Twist::ConstSharedPtr msg){
         this->cmd_vel_msg.linear = msg->linear;
         this->cmd_vel_msg.angular = msg->angular;
       }
