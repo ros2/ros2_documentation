@@ -171,7 +171,7 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
      - `kscottz <https://github.com/kscottz>`_
      - PST (UTC-8)/PDT (UTC-7)
    * - Michael (Robert) Carlstrom
-     - `Civ Robotics <https://www.civrobotics.com/>`_
+     - `CivRobotics <https://www.civrobotics.com/>`_
      - `InvincibleRMC <https://github.com/InvincibleRMC>`_
      - PST (UTC-8)/PDT (UTC-7)
    * - Miguel Company
