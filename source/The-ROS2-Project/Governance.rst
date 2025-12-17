@@ -170,6 +170,10 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `kscottz <https://github.com/kscottz>`_
      - PST (UTC-8)/PDT (UTC-7)
+   * - Michael (Robert) Carlstrom
+     - `CivRobotics <https://www.civrobotics.com/>`_
+     - `InvincibleRMC <https://github.com/InvincibleRMC>`_
+     - PST (UTC-8)/PDT (UTC-7)
    * - Miguel Company
      - `eProsima <https://www.eprosima.com/>`_
      - `MiguelCompany <https://github.com/MiguelCompany>`_
