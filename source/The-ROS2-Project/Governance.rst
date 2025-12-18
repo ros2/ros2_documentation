@@ -68,9 +68,9 @@ The ROS PMC currently consists of the following constituents:
      - `mjcarroll <https://github.com/mjcarroll>`_
      - (Interim) Project Leader
      - CST (UTC-6)/CDT (UTC-5)
-   * - Alejandro Hernandez Cordero
-     - `Honu Robotics <https://www.honurobotics.com/>`_
-     - `ahcorde <https://github.com/ahcorde>`_
+   * - Miguel Company
+     - `eProsima <https://www.eprosima.com/>`_
+     - `MiguelCompany <https://github.com/MiguelCompany>`_
      - Member
      - CET (UTC+1)/CEST (UTC+2)
    * - Tomoya Fujita
@@ -83,6 +83,11 @@ The ROS PMC currently consists of the following constituents:
      - `marcoag <https://github.com/marcoag>`_
      - Member
      - SGT (UTC+8)
+   * - Alejandro Hernandez Cordero
+     - `Honu Robotics <https://www.honurobotics.com/>`_
+     - `ahcorde <https://github.com/ahcorde>`_
+     - Member
+     - CET (UTC+1)/CEST (UTC+2)
    * - Emerson Knapp
      - `Polymath Robotics <https://www.polymathrobotics.com/>`_
      - `emersonknapp <https://github.com/emersonknapp/>`_
@@ -133,11 +138,6 @@ The ROS PMC currently consists of the following constituents:
      - `wjwwood <https://github.com/wjwwood>`_
      - Member
      - PST (UTC-8)/PDT (UTC-7)
-   * - Miguel Company
-     - `eProsima <https://www.eprosima.com/>`_
-     - `MiguelCompany <https://github.com/MiguelCompany>`_
-     - Member
-     - CET (UTC+1)/CEST (UTC+2)
 
 Current ROS Committers
 ^^^^^^^^^^^^^^^^^^^^^^
