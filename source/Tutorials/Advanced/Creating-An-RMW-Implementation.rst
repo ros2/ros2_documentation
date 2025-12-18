@@ -461,7 +461,7 @@ This is an advanced, non-portable feature that is not currently used by any (tie
 
 For a bit more flexibility, some implementations use environment variables: ``RMW_FASTRTPS_*``, ``RMW_CONNEXT_*``, etc.
 The underlying middleware may also be configurable through environment variables: ``FASTDDS_*``, ``ZENOH_*``, ``CYCLONEDDS_*``, ``EMAIL_*``, etc.
-For example, the ``CYCLONEDDS_URI``, ``FASTDDS_DEFAULT_PROFILES_FILE``, and ``ZENOH_SESSION_CONFIG_URI`` environment variables can be used to provide a path to a full configuration file if the relevant middleware is used.
+For example, the ``CYCLONEDDS_URI``, ``FASTRTPS_DEFAULT_PROFILES_FILE``, and ``ZENOH_SESSION_CONFIG_URI`` environment variables can be used to provide a path to a full configuration file if the relevant middleware is used.
 
 Footnotes
 ---------
