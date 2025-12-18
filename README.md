@@ -70,3 +70,9 @@ To test building the multisite version deployed to the website use:
 `sensible-browser build/html/rolling/index.html`
 
 **NB:** This will ignore local workspace changes and build from the branches.
+
+### Note for windows (wsl) Users
+
+When building the documentation on windows using wsl, it is recommened to clone and work with this repository inside the Linux filesystem (for example, under `/home/<user>/`) rather than under `/mnt/c`.
+
+Woking under `/mnt/c` can lead to slower builds and filesystem-related issues with Sphinx and ROS tooling.
