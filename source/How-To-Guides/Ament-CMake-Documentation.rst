@@ -634,7 +634,7 @@ Inside your created ``hooks`` folder, create a ``my_package.sh.in`` as follows:
 
     export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
     export RMW_FASTRTPS_USE_QOS_FROM_XML=1
-    export FASTRTPS_DEFAULT_PROFILES_FILE="$COLCON_CURRENT_PREFIX/my_dds_profile.xml"
+    export FASTDDS_DEFAULT_PROFILES_FILE="$COLCON_CURRENT_PREFIX/my_dds_profile.xml"
 
 In the same folder, create a ``my_package.dsv.in`` file as follows:
 
@@ -642,7 +642,7 @@ In the same folder, create a ``my_package.dsv.in`` file as follows:
 
     set;RMW_IMPLEMENTATION;rmw_fastrtps_cpp
     set;RMW_FASTRTPS_USE_QOS_FROM_XML;1
-    set;FASTRTPS_DEFAULT_PROFILES_FILE;my_dds_profile.xml
+    set;FASTDDS_DEFAULT_PROFILES_FILE;my_dds_profile.xml
 
 Once added, you can register them using the ament_environment_hooks function in your ``CMakeLists.txt`` file:
 
