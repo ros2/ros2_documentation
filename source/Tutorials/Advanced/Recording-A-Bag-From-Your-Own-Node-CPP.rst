@@ -94,7 +94,7 @@ Inside the ``ros2_ws/src/bag_recorder_nodes/src`` directory, create a new file c
 
         writer_->open("my_bag");
 
-        auto subscription_callback_lambda = [this](std::shared_ptr<rclcpp::SerializedMessage> msg){
+        auto subscription_callback_lambda = [this](std::shared_ptr<const rclcpp::SerializedMessage> msg){
           rclcpp::Time time_stamp = this->now();
 
           writer_->write(msg, "chatter", "std_msgs/msg/String", time_stamp);
@@ -144,7 +144,7 @@ We will write data to the bag in the callback.
 
 .. code-block:: C++
 
-        auto subscription_callback_lambda = [this](std::shared_ptr<rclcpp::SerializedMessage> msg){
+        auto subscription_callback_lambda = [this](std::shared_ptr<const rclcpp::SerializedMessage> msg){
           rclcpp::Time time_stamp = this->now();
 
           writer_->write(msg, "chatter", "std_msgs/msg/String", time_stamp);
@@ -162,7 +162,7 @@ We do this for two reasons.
 
 .. code-block:: C++
 
-        auto subscription_callback_lambda = [this](std::shared_ptr<rclcpp::SerializedMessage> msg){
+        auto subscription_callback_lambda = [this](std::shared_ptr<const rclcpp::SerializedMessage> msg){
 
 Within the subscription callback, the first thing to do is determine the time stamp to use for the stored message.
 This can be anything appropriate to your data, but two common values are the time at which the data was produced, if known, and the time it is received.
