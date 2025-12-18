@@ -133,6 +133,11 @@ The ROS PMC currently consists of the following constituents:
      - `wjwwood <https://github.com/wjwwood>`_
      - Member
      - PST (UTC-8)/PDT (UTC-7)
+   * - Miguel Company
+     - `eProsima <https://www.eprosima.com/>`_
+     - `MiguelCompany <https://github.com/MiguelCompany>`_
+     - Member
+     - CET (UTC+1)/CEST (UTC+2)
 
 Current ROS Committers
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -174,10 +179,6 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
      - `CivRobotics <https://www.civrobotics.com/>`_
      - `InvincibleRMC <https://github.com/InvincibleRMC>`_
      - PST (UTC-8)/PDT (UTC-7)
-   * - Miguel Company
-     - `eProsima <https://www.eprosima.com/>`_
-     - `MiguelCompany <https://github.com/MiguelCompany>`_
-     - CET (UTC+1)/CEST (UTC+2)
    * - Skyler Medeiros
      - `iRobot <https://www.irobot.com/>`_
      - `skyegalaxy <https://github.com/skyegalaxy>`_
