@@ -63,6 +63,9 @@ If you are going to build ROS packages or otherwise do development, you can also
      make \
      patch \
      python3-colcon-common-extensions \
+     python3-flake8-blind-except \
+     python3-flake8-class-newline \
+     python3-flake8-deprecated \
      python3-mypy \
      python3-pip \
      python3-pydocstyle \
@@ -73,13 +76,6 @@ If you are going to build ROS packages or otherwise do development, you can also
      python3-setuptools \
      python3-vcstool \
      wget
-
-   ~ install some pip packages needed for testing and
-   ~ not available as RPMs
-   $ python3 -m pip install -U --user \
-     flake8-blind-except==0.1.1 \
-     flake8-class-newline \
-     flake8-deprecated
 
 Install ROS 2
 -------------
