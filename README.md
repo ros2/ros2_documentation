@@ -73,6 +73,6 @@ To test building the multisite version deployed to the website use:
 
 ### Note for Windows (WSL) Users
 
-When building the documentation on windows using WSL, it is recommened to clone and work with this repository inside the Linux filesystem (for example, under `/home/<user>/`) rather than under `/mnt/c`.
+When building the documentation on windows using WSL, it is recommended to clone and work with this repository inside the Linux filesystem (for example, under `/home/<user>/`) rather than under `/mnt/c`.
 
 Working under `/mnt/c` can lead to slower builds and filesystem-related issues with Sphinx and ROS tooling.
