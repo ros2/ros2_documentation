@@ -209,7 +209,25 @@ In several terminals, run the following code to establish a communication with r
 
     $ fastdds discovery --server-id 1 --ip-address 127.0.0.1 --port 11888
 
-``--server-id N`` means server with id N. When referencing the servers with ``ROS_DISCOVERY_SERVER``, server ``0`` must be in first place and server ``1`` in second place.
+.. important::
+
+    **Understanding Server ID Mapping**
+
+    The ``ROS_DISCOVERY_SERVER`` environment variable uses a **semicolon-separated list** where each position corresponds to a server ID.
+    The server ID is determined by the **index position** (0-based) in this semicolon-delimited list, NOT by the order servers appear.
+
+    * Server with ``--server-id 0``: First position (no leading semicolon needed)
+    * Server with ``--server-id 1``: Second position (one leading semicolon)
+    * Server with ``--server-id 2``: Third position (two leading semicolons)
+
+    **Examples:**
+
+    * For ``--server-id 0``: ``ROS_DISCOVERY_SERVER="127.0.0.1:11811"``
+    * For ``--server-id 1``: ``ROS_DISCOVERY_SERVER=";127.0.0.1:11888"``
+    * For ``--server-id 2``: ``ROS_DISCOVERY_SERVER=";;127.0.0.1:11999"``
+    * For multiple servers (0 and 1): ``ROS_DISCOVERY_SERVER="127.0.0.1:11811;127.0.0.1:11888"``
+
+    If the server ID doesn't match the position in the environment variable, clients will not be able to connect to the server.
 
 .. tabs::
 
