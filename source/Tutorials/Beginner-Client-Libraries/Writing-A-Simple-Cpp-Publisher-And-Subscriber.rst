@@ -111,15 +111,15 @@ Open the file using your preferred text editor.
       MinimalPublisher()
       : Node("minimal_publisher"), count_(0)
       {
-        publisher_ = this->create_publisher<std_msgs::msg::String>("topic", 10);
+        publisher_ = create_publisher<std_msgs::msg::String>("topic", 10);
         auto timer_callback =
           [this]() -> void {
             auto message = std_msgs::msg::String();
-            message.data = "Hello, world! " + std::to_string(this->count_++);
-            RCLCPP_INFO(this->get_logger(), "Publishing: '%s'", message.data.c_str());
-            this->publisher_->publish(message);
+            message.data = "Hello, world! " + std::to_string(count_++);
+            RCLCPP_INFO(get_logger(), "Publishing: '%s'", message.data.c_str());
+            publisher_->publish(message);
           };
-        timer_ = this->create_wall_timer(500ms, timer_callback);
+        timer_ = create_wall_timer(500ms, timer_callback);
       }
 
     private:
@@ -178,15 +178,15 @@ At last, ``timer_`` is initialized, which causes the ``timer_callback`` function
       MinimalPublisher()
       : Node("minimal_publisher"), count_(0)
       {
-        publisher_ = this->create_publisher<std_msgs::msg::String>("topic", 10);
+        publisher_ = create_publisher<std_msgs::msg::String>("topic", 10);
         auto timer_callback =
           [this]() -> void {
             auto message = std_msgs::msg::String();
-            message.data = "Hello, world! " + std::to_string(this->count_++);
-            RCLCPP_INFO(this->get_logger(), "Publishing: '%s'", message.data.c_str());
-            this->publisher_->publish(message);
+            message.data = "Hello, world! " + std::to_string(count_++);
+            RCLCPP_INFO(get_logger(), "Publishing: '%s'", message.data.c_str());
+            publisher_->publish(message);
           };
-        timer_ = this->create_wall_timer(500ms, timer_callback);
+        timer_ = create_wall_timer(500ms, timer_callback);
       }
 
 In the bottom of the class is the declaration of the timer, publisher, and counter fields.
@@ -351,10 +351,10 @@ Open the ``subscriber_lambda_function.cpp`` with your text editor.
       {
         auto topic_callback =
           [this](std_msgs::msg::String::UniquePtr msg) -> void {
-            RCLCPP_INFO(this->get_logger(), "I heard: '%s'", msg->data.c_str());
+            RCLCPP_INFO(get_logger(), "I heard: '%s'", msg->data.c_str());
           };
         subscription_ =
-          this->create_subscription<std_msgs::msg::String>("topic", 10, topic_callback);
+          create_subscription<std_msgs::msg::String>("topic", 10, topic_callback);
       }
 
     private:
@@ -389,10 +389,10 @@ Recall from the :doc:`topic tutorial <../Beginner-CLI-Tools/Understanding-ROS2-T
       {
         auto topic_callback =
           [this](std_msgs::msg::String::UniquePtr msg) -> void {
-            RCLCPP_INFO(this->get_logger(), "I heard: '%s'", msg->data.c_str());
+            RCLCPP_INFO(get_logger(), "I heard: '%s'", msg->data.c_str());
           };
         subscription_ =
-          this->create_subscription<std_msgs::msg::String>("topic", 10, topic_callback);
+          create_subscription<std_msgs::msg::String>("topic", 10, topic_callback);
       }
 
 The only field declaration in this class is the subscription.
