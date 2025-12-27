@@ -671,3 +671,95 @@ Once added, you can register them using the ament_environment_hooks function in 
     )
 
 Another example of using environment hooks for Gazebo plugin paths can be found in the official `ros_gz_project_template <https://github.com/gazebosim/ros_gz_project_template/tree/main/ros_gz_example_gazebo/hooks>`__.
+
+API Version Management
+----------------------
+
+ROS 2 provides automatic version header generation through ``ament_generate_version_header``, which creates compile-time macros for API versioning and feature detection.
+This is particularly useful for maintaining backward compatibility and conditionally enabling features based on library versions.
+
+.. note::
+
+    The ``ament_generate_version_header`` functionality is designed for C, C++, and other C-based languages only.
+    It generates C/C++ header files with preprocessor macros and is not applicable to Python or other non-C-based packages.
+
+Understanding auto-generated version macros
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Many ROS 2 C/C++ packages (such as ``rclcpp``, ``rcl``, and ``rmw``) automatically generate version header files containing macros that expose the library's version information.
+These version headers are generated from the ``package.xml`` file using the `ament_generate_version_header.cmake <https://github.com/ament/ament_cmake/blob/${ROS_DISTRO}/ament_cmake_gen_version_h/cmake/ament_generate_version_header.cmake>`__ script.
+
+The generated version macros follow this naming convention:
+
+- ``<PACKAGE_NAME>_VERSION_MAJOR``: Major version number
+- ``<PACKAGE_NAME>_VERSION_MINOR``: Minor version number
+- ``<PACKAGE_NAME>_VERSION_PATCH``: Patch version number
+- ``<PACKAGE_NAME>_VERSION``: Combined version as a single integer (major * 10000 + minor * 100 + patch)
+- ``<PACKAGE_NAME>_VERSION_STR``: String representation of the version (e.g., "1.2.3")
+- ``<PACKAGE_NAME>_VERSION_GTE(major, minor, patch)``: Macro to check if version is greater than or equal to specified version
+
+For example, ``rclcpp`` provides macros like:
+
+- ``RCLCPP_VERSION_MAJOR``
+- ``RCLCPP_VERSION_MINOR``
+- ``RCLCPP_VERSION_PATCH``
+- ``RCLCPP_VERSION``
+- ``RCLCPP_VERSION_STR``
+- ``RCLCPP_VERSION_GTE(major, minor, patch)``
+
+Generating version headers for your package
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To generate version headers for your own package, add the following to your ``CMakeLists.txt``:
+
+.. code-block:: cmake
+
+    find_package(ament_cmake_gen_version_h REQUIRED)
+    ament_generate_version_header(my_library)
+
+This generates a header file at ``<build_dir>/my_library/version.h`` that can be included in your code:
+
+.. code-block:: cpp
+
+    #include "my_library/version.h"
+
+The version information is automatically extracted from the ``<version>`` tag in your ``package.xml``.
+
+By default, the generated header file is placed in the build directory under ``<package_name>/version.h``.
+You can customize the output location:
+
+.. code-block:: cmake
+
+    ament_generate_version_header(my_library HEADER_PATH "my_library/my_version.h")
+
+Using version macros for API negotiation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Version macros enable runtime and compile-time feature detection, which is essential for writing portable code across different ROS 2 distributions.
+
+While ROS 2 guarantees ABI (Application Binary Interface) compatibility within the same distribution, new interfaces and features can be backported.
+This means that within a single distribution, different API versions may be available depending on which patch release is installed.
+Version macros allow developers to check if a specific feature is available before using it.
+
+Example: Version checking
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: cpp
+
+    #include "rclcpp/version.h"
+
+    // Check if new feature is available
+    #if RCLCPP_VERSION_GTE(28, 3, 0)
+      use_new_api_with_feature();
+    #else
+      use_old_api_without_feature();
+    #endif
+
+Best practices
+~~~~~~~~~~~~~~
+
+- **Check before using new features**: Always use version macros when utilizing features that may not be available in older versions of a library.
+- **Provide fallback implementations**: When possible, provide alternative implementations for older API versions to maintain backward compatibility.
+- **Document version requirements**: Clearly document the minimum required versions for specific features in your package documentation.
+- **Test across versions**: If your package needs to support multiple ROS 2 distributions, test it against the minimum supported version.
+- **Use the GTE macro**: Prefer using the ``_VERSION_GTE(major, minor, patch)`` macro for version comparisons, as it provides a cleaner and more readable syntax than manually comparing individual version components.
