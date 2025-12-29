@@ -330,15 +330,7 @@ From ``ros2_ws``, be sure to source the setup files:
 
       $ call install/setup.bat
 
-You can verify that your plugins were successfully registered by listing them:
-
-.. code-block:: console
-
-     $ ros2 plugin list
-     polygon_plugins:
-        Plugin(name='polygon_plugins::Square', type='polygon_plugins::Square', base='polygon_base::RegularPolygon')
-        Plugin(name='polygon_plugins::Triangle', type='polygon_plugins::Triangle', base='polygon_base::RegularPolygon')
-
+In ROS 2, there is no CLI command to list plugins. Plugins are discovered at runtime using the plugin description XML file registered in the ament index. To verify available plugins, inspect the plugin XML file and ensure it is correctly exported in ``CMakeLists.txt``.
 Now run the node:
 
 .. code-block:: console
