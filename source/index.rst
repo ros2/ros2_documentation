@@ -104,7 +104,7 @@ ROS community resources
 
 If you need help, have an idea, or would like to contribute to the project, please visit our ROS community resources.
 
-* `Official ROS Discord Channel for discussion and support <https://discord.com/servers/open-robotics-1077825543698927656>`__ (ROS 1, ROS 2)
+* `Official ROS Zulip Channel for discussion and support <https://openrobotics.zulipchat.com/>`__ (ROS 1, ROS 2)
 
 * `Robotics Stack Exchange - community Q&A website <https://robotics.stackexchange.com/>`__ (ROS 1, ROS 2)
 
