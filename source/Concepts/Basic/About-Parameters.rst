@@ -117,6 +117,13 @@ The ``ros2 param`` command is the general way to interact with parameters for no
 ``ros2 param`` uses the parameter service API as described above to perform the various operations.
 See :doc:`this how-to guide <../../How-To-Guides/Using-ros2-param>` for details on how to use ``ros2 param``.
 
+In addition to the command-line interface, parameters can also be manipulated programmatically at runtime using the ROS 2 client libraries.
+All client libraries provide APIs to get, set, and react to parameter changes while a node is running.
+
+Client library support includes:
+ * **C++ (rclcpp)**: see :doc:`../../Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-CPP` and :doc:`../../Tutorials/Intermediate/Monitoring-For-Parameter-Changes-CPP`.
+ * **Python (rclpy)**: see :doc:`../../Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python`.
+
 Migrating from ROS 1
 --------------------
 
