@@ -27,3 +27,19 @@ Save your GitHub username and PAT to a new file called ``~/.config/bloom``, with
       "github_user": "<your-github-username>",
       "oauth_token": "<token-you-created-for-bloom>"
    }
+
+Configure in your ``~/.gitconfig`` that your GitHub account and PAT are used for all release repositories under `ros2-gbp <https://github.com/ros2-gbp>`_:
+
+.. code-block:: ini
+
+    [credential "https://github.com/ros2-gbp"]
+        username = x-access-token
+        helper = "!f() { test \"$1\" = get && echo \"password=<token-you-created-for-bloom>\"; }; f"
+
+You can additionally use different GitHub accounts and PATs for individual release repositories:
+
+.. code-block:: ini
+
+    [credential "https://github.com/ros2-gbp/my_package-release.git"]
+        username = x-access-token
+        helper = "!f() { test \"$1\" = get && echo \"password=<other-token-you-created-for-bloom>\"; }; f"
