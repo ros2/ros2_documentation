@@ -122,7 +122,7 @@ All client libraries provide APIs to get, set, and react to parameter changes wh
 
 Client library support includes:
  * **C++ (rclcpp)**: see :doc:`../../Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-CPP` and :doc:`../../Tutorials/Intermediate/Monitoring-For-Parameter-Changes-CPP`.
- * **Python (rclpy)**: see :doc:`../../Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python`.
+ * **Python (rclpy)**: see :doc:`../../Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python` and :doc:`../../Tutorials/Intermediate/Monitoring-For-Parameter-Changes-Python`.
 
 Migrating from ROS 1
 --------------------
