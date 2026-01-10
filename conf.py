@@ -305,7 +305,9 @@ def smv_rewrite_configs(app, config):
     # conf.py).  Instead, hook into the 'config-inited' event which is late enough
     # to rewrite the various configuration items with the current version.
     if app.config.smv_current_version != '':
-        app.config.html_baseurl = app.config.html_baseurl + '/' + app.config.smv_current_version
+        app.config.html_baseurl = (
+            f"https://docs.ros.org/en/{app.config.smv_current_version}"
+        )
         app.config.project = 'ROS 2 Documentation: ' + app.config.smv_current_version.title()
 
         app.config.html_logo = 'source/Releases/' + app.config.smv_current_version + '-small.png'
