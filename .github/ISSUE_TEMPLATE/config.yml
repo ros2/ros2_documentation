@@ -10,5 +10,5 @@ contact_links:
     url: https://discourse.ros.org/
     about: ROS Discourse is our community discussion forum.
   - name: 🔗 Do you need real time support from other ROS users?
-    url: https://discord.com/servers/open-robotics-1077825543698927656
-    about: Visit our community Discord server. ROS questions belong in "#ros-help" channel.
+    url: https://openrobotics.zulipchat.com/
+    about: Visit our community Zulip server. ROS questions belong in "ROS General" channel.
