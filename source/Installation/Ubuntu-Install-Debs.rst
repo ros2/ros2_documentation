@@ -135,7 +135,7 @@ have already installed from binaries, run the following command:
 
 .. code-block:: console
 
-   $ sudo apt remove ~nros-{DISTRO}-* && sudo apt autoremove
+   $ sudo apt remove '~nros-{DISTRO}-*' && sudo apt autoremove
 
 You may also want to remove the repository:
 
