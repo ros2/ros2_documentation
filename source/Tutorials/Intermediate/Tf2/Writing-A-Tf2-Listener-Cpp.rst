@@ -78,9 +78,9 @@ Open the file using your preferred text editor.
     #include "geometry_msgs/msg/transform_stamped.hpp"
     #include "geometry_msgs/msg/twist.hpp"
     #include "rclcpp/rclcpp.hpp"
-    #include "tf2/exceptions.h"
-    #include "tf2_ros/transform_listener.h"
-    #include "tf2_ros/buffer.h"
+    #include "tf2/exceptions.hpp"
+    #include "tf2_ros/transform_listener.hpp"
+    #include "tf2_ros/buffer.hpp"
     #include "turtlesim/srv/spawn.hpp"
 
     using namespace std::chrono_literals;
@@ -216,7 +216,7 @@ The ``tf2_ros`` contains a ``TransformListener`` class that makes the task of re
 
 .. code-block:: C++
 
-    #include "tf2_ros/transform_listener.h"
+    #include "tf2_ros/transform_listener.hpp"
 
 Here, we create a ``TransformListener`` object.
 Once the listener is created, it starts receiving tf2 transformations over the wire, and buffers them for up to 10 seconds.

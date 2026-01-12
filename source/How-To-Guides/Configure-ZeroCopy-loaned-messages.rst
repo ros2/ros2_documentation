@@ -68,7 +68,7 @@ The `talker_loaned_message example <https://github.com/ros2/demos/blob/{REPOS_FI
     #include "std_msgs/msg/float64.hpp"
     #include "std_msgs/msg/string.hpp"
 
-    #include "demo_nodes_cpp/visibility_control.h"
+    #include "demo_nodes_cpp/visibility_control.hpp"
 
     using namespace std::chrono_literals;
 

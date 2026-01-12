@@ -363,17 +363,13 @@ Open the file using your preferred text editor.
     #include <string>
 
     #include "geometry_msgs/msg/point_stamped.hpp"
-    #include "message_filters/subscriber.h"
+    #include "message_filters/subscriber.hpp"
     #include "rclcpp/rclcpp.hpp"
-    #include "tf2_ros/buffer.h"
-    #include "tf2_ros/create_timer_ros.h"
-    #include "tf2_ros/message_filter.h"
-    #include "tf2_ros/transform_listener.h"
-    #ifdef TF2_CPP_HEADERS
-      #include "tf2_geometry_msgs/tf2_geometry_msgs.hpp"
-    #else
-      #include "tf2_geometry_msgs/tf2_geometry_msgs.h"
-    #endif
+    #include "tf2_ros/buffer.hpp"
+    #include "tf2_ros/create_timer_ros.hpp"
+    #include "tf2_ros/message_filter.hpp"
+    #include "tf2_ros/transform_listener.hpp"
+    #include "tf2_geometry_msgs/tf2_geometry_msgs.hpp"
 
     using namespace std::chrono_literals;
 
@@ -448,17 +444,13 @@ First, you must include the ``tf2_ros::MessageFilter`` headers from the ``tf2_ro
 .. code-block:: C++
 
     #include "geometry_msgs/msg/point_stamped.hpp"
-    #include "message_filters/subscriber.h"
+    #include "message_filters/subscriber.hpp"
     #include "rclcpp/rclcpp.hpp"
-    #include "tf2_ros/buffer.h"
-    #include "tf2_ros/create_timer_ros.h"
-    #include "tf2_ros/message_filter.h"
-    #include "tf2_ros/transform_listener.h"
-    #ifdef TF2_CPP_HEADERS
-      #include "tf2_geometry_msgs/tf2_geometry_msgs.hpp"
-    #else
-      #include "tf2_geometry_msgs/tf2_geometry_msgs.h"
-    #endif
+    #include "tf2_ros/buffer.hpp"
+    #include "tf2_ros/create_timer_ros.hpp"
+    #include "tf2_ros/message_filter.hpp"
+    #include "tf2_ros/transform_listener.hpp"
+    #include "tf2_geometry_msgs/tf2_geometry_msgs.hpp"
 
 
 Second, there needs to be persistent instances of ``tf2_ros::Buffer``, ``tf2_ros::TransformListener`` and ``tf2_ros::MessageFilter``.

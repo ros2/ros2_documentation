@@ -75,7 +75,7 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics
 
     #include "std_msgs/msg/float32.hpp"
 
-    #include "demo_nodes_cpp/visibility_control.h"
+    #include "demo_nodes_cpp/visibility_control.hpp"
 
     namespace demo_nodes_cpp
     {
@@ -182,7 +182,7 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics
 
     #include "std_msgs/msg/float32.hpp"
 
-    #include "demo_nodes_cpp/visibility_control.h"
+    #include "demo_nodes_cpp/visibility_control.hpp"
 
     namespace demo_nodes_cpp
     {
