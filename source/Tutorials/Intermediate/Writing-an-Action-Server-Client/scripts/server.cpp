@@ -7,7 +7,7 @@
 #include "rclcpp_action/rclcpp_action.hpp"
 #include "rclcpp_components/register_node_macro.hpp"
 
-#include "custom_action_cpp/visibility_control.h"
+#include "custom_action_cpp/visibility_control.hpp"
 
 namespace custom_action_cpp
 {
