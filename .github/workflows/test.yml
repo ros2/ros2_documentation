@@ -58,7 +58,7 @@ jobs:
         run: make spellcheck
 
   build:
-    needs: [test, lint]
+    needs: [test, lint, spellcheck]
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
@@ -115,7 +115,7 @@ jobs:
           edit-mode: replace
 
   multi-build:
-    needs: [test, lint]
+    needs: [test, lint, spellcheck]
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
