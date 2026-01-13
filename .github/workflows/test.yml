@@ -121,6 +121,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Create a fake remote ref matching the target branch name
+      - name: Setup branch for multiversion
+        run: |
+          TARGET_BRANCH="${{ github.base_ref }}"
+          echo "PR target branch: $TARGET_BRANCH"
+
+          # Create a remote ref that sphinx-multiversion will find
+          git update-ref "refs/remotes/origin/$TARGET_BRANCH" HEAD
+
+          # Verify the ref was created
+          echo "Created refs:"
+          git show-ref | grep "$TARGET_BRANCH"
+
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
