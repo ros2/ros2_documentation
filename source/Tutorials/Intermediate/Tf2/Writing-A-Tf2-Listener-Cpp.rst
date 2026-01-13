@@ -378,9 +378,25 @@ Open a new terminal, navigate to the root of your workspace, and source the setu
 
 Now you're ready to start your full turtle demo:
 
-.. code-block:: console
+.. tabs::
 
-    $ ros2 launch learning_tf2_cpp turtle_tf2_demo_launch.xml # .py or .yaml are also acceptable
+  .. group-tab:: XML
+
+    .. code-block:: console
+
+        $ ros2 launch learning_tf2_cpp turtle_tf2_demo_launch.xml
+
+  .. group-tab:: YAML
+
+    .. code-block:: console
+
+        $ ros2 launch learning_tf2_cpp turtle_tf2_demo_launch.yaml
+
+  .. group-tab:: Python
+
+    .. code-block:: console
+
+        $ ros2 launch learning_tf2_cpp turtle_tf2_demo_launch.py
 
 You should see the turtle sim with two turtles.
 In the second terminal window type the following command:
