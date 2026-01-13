@@ -93,9 +93,25 @@ Don't forget to add the ``turtle_tf2_listener_debug`` executable to the ``CMakeL
 
 Now let's run it to see what happens:
 
-.. code-block:: console
+.. tabs::
 
-   $ ros2 launch learning_tf2_cpp start_tf2_debug_demo_launch.xml # .py or .yaml are also acceptable
+  .. group-tab:: XML
+
+    .. code-block:: console
+
+        $ ros2 launch learning_tf2_cpp start_tf2_debug_demo_launch.xml
+
+  .. group-tab:: YAML
+
+    .. code-block:: console
+
+        $ ros2 launch learning_tf2_cpp start_tf2_debug_demo_launch.yaml
+
+  .. group-tab:: Python
+
+    .. code-block:: console
+
+        $ ros2 launch learning_tf2_cpp start_tf2_debug_demo_launch.py
 
 You will now see that the turtlesim came up.
 At the same time, if you run the ``turtle_teleop_key`` in another terminal window, you can use the arrow keys to drive the ``turtle1`` around.
@@ -167,13 +183,37 @@ To fix this bug, just replace ``turtle3`` with ``turtle2`` in line 65.
 
 And now stop the running demo, build it, and run it again:
 
-.. code-block:: console
+.. tabs::
 
-   $ ros2 launch learning_tf2_cpp start_tf2_debug_demo_launch.xml # .py or .yaml are also acceptable
-   [turtle_tf2_listener_debug-4] [INFO] [1630223704.617382464] [listener_debug]: Could not
-   transform turtle2 to turtle1: Lookup would require extrapolation into the future. Requested
-   time 1630223704.617054 but the latest data is at time 1630223704.616726, when looking up
-   transform from frame [turtle1] to frame [turtle2]
+  .. group-tab:: XML
+
+    .. code-block:: console
+
+        $ ros2 launch learning_tf2_cpp start_tf2_debug_demo_launch.xml
+        [turtle_tf2_listener_debug-4] [INFO] [1630223704.617382464] [listener_debug]: Could not
+        transform turtle2 to turtle1: Lookup would require extrapolation into the future. Requested
+        time 1630223704.617054 but the latest data is at time 1630223704.616726, when looking up
+        transform from frame [turtle1] to frame [turtle2]
+
+  .. group-tab:: YAML
+
+    .. code-block:: console
+
+        $ ros2 launch learning_tf2_cpp start_tf2_debug_demo_launch.yaml
+        [turtle_tf2_listener_debug-4] [INFO] [1630223704.617382464] [listener_debug]: Could not
+        transform turtle2 to turtle1: Lookup would require extrapolation into the future. Requested
+        time 1630223704.617054 but the latest data is at time 1630223704.616726, when looking up
+        transform from frame [turtle1] to frame [turtle2]
+
+  .. group-tab:: Python
+
+    .. code-block:: console
+
+        $ ros2 launch learning_tf2_cpp start_tf2_debug_demo_launch.py
+        [turtle_tf2_listener_debug-4] [INFO] [1630223704.617382464] [listener_debug]: Could not
+        transform turtle2 to turtle1: Lookup would require extrapolation into the future. Requested
+        time 1630223704.617054 but the latest data is at time 1630223704.616726, when looking up
+        transform from frame [turtle1] to frame [turtle2]
 
 And right away we run into the next problem.
 
@@ -215,9 +255,25 @@ In the new code we are asking for the transform between the turtles 100 millisec
 It is usual to use a longer periods, just to make sure that the transform will arrive.
 Stop the demo, build and run:
 
-.. code-block:: console
+.. tabs::
 
-   $ ros2 launch turtle_tf2 start_tf2_debug_demo_launch.xml # .py or .yaml are also acceptable
+  .. group-tab:: XML
+
+    .. code-block:: console
+
+        $ ros2 launch turtle_tf2 start_tf2_debug_demo_launch.xml
+
+  .. group-tab:: YAML
+
+    .. code-block:: console
+
+        $ ros2 launch turtle_tf2 start_tf2_debug_demo_launch.yaml
+
+  .. group-tab:: Python
+
+    .. code-block:: console
+
+        $ ros2 launch turtle_tf2 start_tf2_debug_demo_launch.py
 
 And you should finally see the turtle move!
 

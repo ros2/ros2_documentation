@@ -685,9 +685,25 @@ Open a new terminal, navigate to the root of your workspace, and source the setu
 
 First we need to run several nodes (including the broadcaster node of PointStamped messages) by launching the launch file ``turtle_tf2_sensor_message_launch``:
 
-.. code-block:: console
+.. tabs::
 
-    $ ros2 launch learning_tf2_py turtle_tf2_sensor_message_launch.xml # .py or .yaml are also acceptable
+  .. group-tab:: XML
+
+    .. code-block:: console
+
+        $ ros2 launch learning_tf2_py turtle_tf2_sensor_message_launch.xml
+
+  .. group-tab:: YAML
+
+    .. code-block:: console
+
+        $ ros2 launch learning_tf2_py turtle_tf2_sensor_message_launch.yaml
+
+  .. group-tab:: Python
+
+    .. code-block:: console
+
+        $ ros2 launch learning_tf2_py turtle_tf2_sensor_message_launch.py
 
 This will bring up the ``turtlesim`` window with two turtles, where ``turtle3`` is moving along a circle, while ``turtle1`` isn't moving at first.
 But you can run the ``turtle_teleop_key`` node in another terminal to drive ``turtle1`` to move:

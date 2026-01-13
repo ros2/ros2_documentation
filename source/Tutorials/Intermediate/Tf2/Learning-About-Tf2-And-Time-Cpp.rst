@@ -108,9 +108,25 @@ It will block for up to that duration waiting for it to timeout.
 
 You can now build the package and run the launch file.
 
-.. code-block:: console
+.. tabs::
 
-   $ ros2 launch learning_tf2_cpp turtle_tf2_demo_launch.xml # .py or .yaml are also acceptable
+  .. group-tab:: XML
+
+    .. code-block:: console
+
+        $ ros2 launch learning_tf2_cpp turtle_tf2_demo_launch.xml
+
+  .. group-tab:: YAML
+
+    .. code-block:: console
+
+        $ ros2 launch learning_tf2_cpp turtle_tf2_demo_launch.yaml
+
+  .. group-tab:: Python
+
+    .. code-block:: console
+
+        $ ros2 launch learning_tf2_cpp turtle_tf2_demo_launch.py
 
 You should notice that ``lookupTransform()`` will actually block until the transform between the two turtles becomes available (this will usually take a few milliseconds).
 Once the timeout has been reached (fifty milliseconds in this case), an exception will be raised only if the transform is still not available.
