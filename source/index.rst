@@ -129,6 +129,11 @@ If you need help, have an idea, or would like to contribute to the project, plea
 
   - Check the current status of ROS resources like Discourse or the ROS build farm.
 
+* `ROS Infrastructure Project Page <https://infrastructure.openrobotics.org/>`__ (ROS 1, ROS 2)
+
+  - The ROS Infrastructure Project maintains the `ROS Build Farm <https://build.ros2.org/>`__ which builds the binary packages available on `ROS Index <https://index.ros.org/>`__.
+  - The ROS Infrastructure Project also develops and maintains tools commonly associated with ROS like `Bloom <https://bloom.readthedocs.io/>`__ and `Colcon <https://colcon.readthedocs.io/en/released/>`__.
+
 General ROS project resources
 -----------------------------
 
