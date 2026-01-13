@@ -1,0 +1,9 @@
+%YAML 1.2
+---
+launch:
+  - node:
+      pkg: "rviz2"
+      exec: "rviz2"
+      name: "rviz2"
+      args: "-d $(find-pkg-share turtle_tf2_py)/rviz/turtle_rviz.rviz"
+

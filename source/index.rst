@@ -106,7 +106,7 @@ ROS community resources
 
 If you need help, have an idea, or would like to contribute to the project, please visit our ROS community resources.
 
-* `Official ROS Discord Channel for discussion and support <https://discord.com/servers/open-robotics-1077825543698927656>`__ (ROS 1, ROS 2)
+* `Official ROS Zulip Channel for discussion and support <https://openrobotics.zulipchat.com/>`__ (ROS 1, ROS 2)
 
 * `Robotics Stack Exchange - community Q&A website <https://robotics.stackexchange.com/>`__ (ROS 1, ROS 2)
 
@@ -128,6 +128,11 @@ If you need help, have an idea, or would like to contribute to the project, plea
 * `ROS resource status page <https://status.openrobotics.org/>`__ (ROS 1, ROS 2)
 
   - Check the current status of ROS resources like Discourse or the ROS build farm.
+
+* `ROS Infrastructure Project Page <https://infrastructure.openrobotics.org/>`__ (ROS 1, ROS 2)
+
+  - The ROS Infrastructure Project maintains the `ROS Build Farm <https://build.ros2.org/>`__ which builds the binary packages available on `ROS Index <https://index.ros.org/>`__.
+  - The ROS Infrastructure Project also develops and maintains tools commonly associated with ROS like `Bloom <https://bloom.readthedocs.io/>`__ and `Colcon <https://colcon.readthedocs.io/en/released/>`__.
 
 General ROS project resources
 -----------------------------
