@@ -253,11 +253,7 @@ Add the following line between the ``'console_scripts':`` brackets:
 
 Now create a launch file for this demo.
 Create a ``launch`` folder in the ``src/learning_tf2_py`` directory.
-<<<<<<< HEAD
-With your text editor, create a new file called ``turtle_tf2_demo.launch.py`` in the ``launch`` folder, and add the following lines:
-=======
 With your text editor, create a new file called ``turtle_tf2_demo_launch`` with extension ``.py``, ``.xml``, or ``.yaml`` in the ``launch`` folder, and add the following lines:
->>>>>>> 81786ba (Add XML/YAML launch file equivalents to Tf2 tutorials (#6031))
 
 .. tabs::
 
@@ -455,9 +451,6 @@ Now run the launch file that will start the turtlesim simulation node and ``turt
 
 .. tabs::
 
-<<<<<<< HEAD
-    $ ros2 launch learning_tf2_py turtle_tf2_demo.launch.py
-=======
   .. group-tab:: XML
 
     .. code-block:: console
@@ -475,7 +468,6 @@ Now run the launch file that will start the turtlesim simulation node and ``turt
     .. code-block:: console
 
         $ ros2 launch learning_tf2_py turtle_tf2_demo_launch.py
->>>>>>> 81786ba (Add XML/YAML launch file equivalents to Tf2 tutorials (#6031))
 
 In the second terminal window type the following command:
 

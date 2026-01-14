@@ -72,11 +72,7 @@ to
    } catch (tf2::TransformException & ex) {
 
 And save changes to the file.
-<<<<<<< HEAD
-In order to run this demo, we need to create a launch file ``start_tf2_debug_demo.launch.py`` in the ``launch`` subdirectory of package ``learning_tf2_cpp``:
-=======
 In order to run this demo, we need to create a launch file ``start_tf2_debug_demo_launch`` with extension ``.py``, ``.xml``, or ``.yaml`` in the ``launch`` subdirectory of package ``learning_tf2_cpp``:
->>>>>>> 81786ba (Add XML/YAML launch file equivalents to Tf2 tutorials (#6031))
 
 .. tabs::
 
@@ -101,9 +97,6 @@ Now let's run it to see what happens:
 
 .. tabs::
 
-<<<<<<< HEAD
-   $ ros2 launch learning_tf2_cpp start_tf2_debug_demo.launch.py
-=======
   .. group-tab:: XML
 
     .. code-block:: console
@@ -121,7 +114,6 @@ Now let's run it to see what happens:
     .. code-block:: console
 
         $ ros2 launch learning_tf2_cpp start_tf2_debug_demo_launch.py
->>>>>>> 81786ba (Add XML/YAML launch file equivalents to Tf2 tutorials (#6031))
 
 You will now see that the turtlesim came up.
 At the same time, if you run the ``turtle_teleop_key`` in another terminal window, you can use the arrow keys to drive the ``turtle1`` around.
@@ -196,13 +188,6 @@ And now stop the running demo, build it, and run it again:
 
 .. tabs::
 
-<<<<<<< HEAD
-   $ ros2 launch learning_tf2_cpp start_tf2_debug_demo.launch.py
-   [turtle_tf2_listener_debug-4] [INFO] [1630223704.617382464] [listener_debug]: Could not
-   transform turtle2 to turtle1: Lookup would require extrapolation into the future. Requested
-   time 1630223704.617054 but the latest data is at time 1630223704.616726, when looking up
-   transform from frame [turtle1] to frame [turtle2]
-=======
   .. group-tab:: XML
 
     .. code-block:: console
@@ -232,7 +217,6 @@ And now stop the running demo, build it, and run it again:
         transform turtle2 to turtle1: Lookup would require extrapolation into the future. Requested
         time 1630223704.617054 but the latest data is at time 1630223704.616726, when looking up
         transform from frame [turtle1] to frame [turtle2]
->>>>>>> 81786ba (Add XML/YAML launch file equivalents to Tf2 tutorials (#6031))
 
 And right away we run into the next problem.
 
@@ -277,9 +261,6 @@ Stop the demo, build and run:
 
 .. tabs::
 
-<<<<<<< HEAD
-   $ ros2 launch learning_tf2_cpp start_tf2_debug_demo.launch.py
-=======
   .. group-tab:: XML
 
     .. code-block:: console
@@ -297,7 +278,6 @@ Stop the demo, build and run:
     .. code-block:: console
 
         $ ros2 launch turtle_tf2 start_tf2_debug_demo_launch.py
->>>>>>> 81786ba (Add XML/YAML launch file equivalents to Tf2 tutorials (#6031))
 
 And you should finally see the turtle move!
 

@@ -278,11 +278,7 @@ Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your e
 2 Update the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-<<<<<<< HEAD
-Open the launch file called ``turtle_tf2_demo.launch.py`` in the ``src/learning_tf2_cpp/launch`` directory with your text editor, add two new nodes to the launch description, add a launch argument, and add the imports.
-=======
 Open the launch file called ``turtle_tf2_demo_launch`` with extension ``.py``, ``.xml``, or ``.yaml`` in the ``src/learning_tf2_cpp/launch`` directory with your text editor, add two new nodes to the launch description, add a launch argument, and add the imports.
->>>>>>> 81786ba (Add XML/YAML launch file equivalents to Tf2 tutorials (#6031))
 The resulting file should look like:
 
 .. tabs::
@@ -384,9 +380,6 @@ Now you're ready to start your full turtle demo:
 
 .. tabs::
 
-<<<<<<< HEAD
-    $ ros2 launch learning_tf2_cpp turtle_tf2_demo.launch.py
-=======
   .. group-tab:: XML
 
     .. code-block:: console
@@ -404,7 +397,6 @@ Now you're ready to start your full turtle demo:
     .. code-block:: console
 
         $ ros2 launch learning_tf2_cpp turtle_tf2_demo_launch.py
->>>>>>> 81786ba (Add XML/YAML launch file equivalents to Tf2 tutorials (#6031))
 
 You should see the turtle sim with two turtles.
 In the second terminal window type the following command:

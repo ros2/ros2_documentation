@@ -234,11 +234,7 @@ Then we fill up the ``PointStamped`` messages of ``turtle3`` with incoming ``Pos
 1.2 Write the launch file
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-<<<<<<< HEAD
-In order to run this demo, we need to create a launch file ``turtle_tf2_sensor_message.launch.py`` in the ``launch`` subdirectory of package ``learning_tf2_py``:
-=======
 In order to run this demo, we need to create a launch file ``turtle_tf2_sensor_message_launch`` with extension ``.py``, ``.xml``, or ``.yaml`` in the ``launch`` subdirectory of package ``learning_tf2_py``:
->>>>>>> 81786ba (Add XML/YAML launch file equivalents to Tf2 tutorials (#6031))
 
 .. tabs::
 
@@ -688,17 +684,10 @@ Open a new terminal, navigate to the root of your workspace, and source the setu
 3 Run
 ^^^^^
 
-<<<<<<< HEAD
-First we need to run several nodes (including the broadcaster node of PointStamped messages) by launching the launch file ``turtle_tf2_sensor_message.launch.py``:
-=======
 First we need to run several nodes (including the broadcaster node of PointStamped messages) by launching the launch file ``turtle_tf2_sensor_message_launch``:
->>>>>>> 81786ba (Add XML/YAML launch file equivalents to Tf2 tutorials (#6031))
 
 .. tabs::
 
-<<<<<<< HEAD
-    $ ros2 launch learning_tf2_py turtle_tf2_sensor_message.launch.py
-=======
   .. group-tab:: XML
 
     .. code-block:: console
@@ -716,7 +705,6 @@ First we need to run several nodes (including the broadcaster node of PointStamp
     .. code-block:: console
 
         $ ros2 launch learning_tf2_py turtle_tf2_sensor_message_launch.py
->>>>>>> 81786ba (Add XML/YAML launch file equivalents to Tf2 tutorials (#6031))
 
 This will bring up the ``turtlesim`` window with two turtles, where ``turtle3`` is moving along a circle, while ``turtle1`` isn't moving at first.
 But you can run the ``turtle_teleop_key`` node in another terminal to drive ``turtle1`` to move:
