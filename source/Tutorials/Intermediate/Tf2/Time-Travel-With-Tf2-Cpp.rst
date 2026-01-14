@@ -49,9 +49,25 @@ Now if you run this, during the first 5 seconds, the second turtle would not kno
 But what happens after these 5 seconds?
 Let's just give it a try:
 
-.. code-block:: console
+.. tabs::
 
-    $ ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo.launch.py
+  .. group-tab:: XML
+
+    .. code-block:: console
+
+        $ ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo_launch.xml
+
+  .. group-tab:: YAML
+
+    .. code-block:: console
+
+        $ ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo_launch.yaml
+
+  .. group-tab:: Python
+
+    .. code-block:: console
+
+        $ ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo_launch.py
 
 .. image:: images/turtlesim_delay1.png
 
@@ -106,9 +122,25 @@ Checking the results
 
 Let's run the simulation again, this time with the advanced time-travel API:
 
-.. code-block:: console
+.. tabs::
 
-    $ ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo.launch.py
+  .. group-tab:: XML
+
+    .. code-block:: console
+
+        $ ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo_launch.xml
+
+  .. group-tab:: YAML
+
+    .. code-block:: console
+
+        $ ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo_launch.yaml
+
+  .. group-tab:: Python
+
+    .. code-block:: console
+
+        $ ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo_launch.py
 
 .. image:: images/turtlesim_delay2.png
 

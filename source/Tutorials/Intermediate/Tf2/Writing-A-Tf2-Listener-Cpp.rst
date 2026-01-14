@@ -278,11 +278,25 @@ Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your e
 2 Update the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Open the launch file called ``turtle_tf2_demo.launch.py`` in the ``src/learning_tf2_cpp/launch`` directory with your text editor, add two new nodes to the launch description, add a launch argument, and add the imports.
+Open the launch file called ``turtle_tf2_demo_launch`` with extension ``.py``, ``.xml``, or ``.yaml`` in the ``src/learning_tf2_cpp/launch`` directory with your text editor, add two new nodes to the launch description, add a launch argument, and add the imports.
 The resulting file should look like:
 
-.. literalinclude:: launch/listener_cpp_launch.py
-  :language: python
+.. tabs::
+
+  .. group-tab:: Python
+
+    .. literalinclude:: launch/listener_cpp_launch.py
+        :language: python
+
+  .. group-tab:: XML
+
+    .. literalinclude:: launch/listener_cpp_launch.xml
+        :language: xml
+
+  .. group-tab:: YAML
+
+    .. literalinclude:: launch/listener_cpp_launch.yaml
+        :language: yaml
 
 This will declare a ``target_frame`` launch argument, start a broadcaster for the second turtle that we will spawn and a listener that will subscribe to those transformations.
 
@@ -364,9 +378,25 @@ Open a new terminal, navigate to the root of your workspace, and source the setu
 
 Now you're ready to start your full turtle demo:
 
-.. code-block:: console
+.. tabs::
 
-    $ ros2 launch learning_tf2_cpp turtle_tf2_demo.launch.py
+  .. group-tab:: XML
+
+    .. code-block:: console
+
+        $ ros2 launch learning_tf2_cpp turtle_tf2_demo_launch.xml
+
+  .. group-tab:: YAML
+
+    .. code-block:: console
+
+        $ ros2 launch learning_tf2_cpp turtle_tf2_demo_launch.yaml
+
+  .. group-tab:: Python
+
+    .. code-block:: console
+
+        $ ros2 launch learning_tf2_cpp turtle_tf2_demo_launch.py
 
 You should see the turtle sim with two turtles.
 In the second terminal window type the following command:
