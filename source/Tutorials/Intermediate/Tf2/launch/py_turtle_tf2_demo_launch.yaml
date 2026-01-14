@@ -1,0 +1,15 @@
+%YAML 1.2
+---
+launch:
+  - node:
+      pkg: "turtlesim"
+      exec: "turtlesim_node"
+      name: "sim"
+  - node:
+      pkg: "learning_tf2_py"
+      exec: "turtle_tf2_broadcaster"
+      name: "broadcaster1"
+      param:
+      - name: "turtlename"
+        value: "turtle1"
+
