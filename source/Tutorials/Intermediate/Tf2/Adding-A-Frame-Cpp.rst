@@ -184,18 +184,52 @@ Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your e
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Now let's create a launch file for this example.
+<<<<<<< HEAD
 With your text editor, create a new file called ``turtle_tf2_fixed_frame_demo.launch.py`` in the ``src/learning_tf2_cpp/launch`` directory, and add the following lines:
+=======
+With your text editor, create a new file called ``turtle_tf2_fixed_frame_demo_launch`` with extension ``.py``, ``.xml``, or ``.yaml`` in the ``src/learning_tf2_cpp/launch`` directory, and add the following lines:
+>>>>>>> 81786ba (Add XML/YAML launch file equivalents to Tf2 tutorials (#6031))
 
-.. literalinclude:: launch/turtle_tf2_fixed_frame_demo_launch.py
-    :language: python
+.. tabs::
+
+  .. group-tab:: Python
+
+    .. literalinclude:: launch/turtle_tf2_fixed_frame_demo_launch.py
+        :language: python
+
+  .. group-tab:: XML
+
+    .. literalinclude:: launch/turtle_tf2_fixed_frame_demo_launch.xml
+        :language: xml
+
+  .. group-tab:: YAML
+
+    .. literalinclude:: launch/turtle_tf2_fixed_frame_demo_launch.yaml
+        :language: yaml
 
 This launch file imports the required packages and then creates a ``demo_nodes`` variable that will store nodes that we created in the previous tutorial's launch file.
 
 The last part of the code will add our fixed ``carrot1`` frame to the turtlesim world using our ``fixed_frame_tf2_broadcaster`` node.
 
-.. literalinclude:: launch/turtle_tf2_fixed_frame_demo_launch.py
-    :language: python
-    :lines: 14-18
+.. tabs::
+
+  .. group-tab:: Python
+
+    .. literalinclude:: launch/turtle_tf2_fixed_frame_demo_launch.py
+        :language: python
+        :lines: 14-18
+
+  .. group-tab:: XML
+
+    .. literalinclude:: launch/turtle_tf2_fixed_frame_demo_launch.xml
+        :language: xml
+        :lines: 3-4
+
+  .. group-tab:: YAML
+
+    .. literalinclude:: launch/turtle_tf2_fixed_frame_demo_launch.yaml
+        :language: yaml
+        :lines: 6-9
 
 1.4 Build
 ~~~~~~~~~
@@ -277,7 +311,11 @@ Now you can start the turtle broadcaster demo:
 
 .. code-block:: console
 
+<<<<<<< HEAD
     $ ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo.launch.py
+=======
+    $ ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo_launch.xml # .py or .yaml are also acceptable
+>>>>>>> 81786ba (Add XML/YAML launch file equivalents to Tf2 tutorials (#6031))
 
 You should notice that the new ``carrot1`` frame appeared in the transformation tree.
 
@@ -292,7 +330,11 @@ One way is to pass the ``target_frame`` argument to the launch file directly fro
 
 .. code-block:: console
 
+<<<<<<< HEAD
     $ ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo.launch.py target_frame:=carrot1
+=======
+    $ ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo_launch.xml target_frame:=carrot1 # .py or .yaml are also acceptable
+>>>>>>> 81786ba (Add XML/YAML launch file equivalents to Tf2 tutorials (#6031))
 
 The second way is to update the launch file.
 To do so, open the ``turtle_tf2_fixed_frame_demo.launch.py`` file, and add the ``'target_frame': 'carrot1'`` parameter via ``launch_arguments`` argument.
@@ -446,10 +488,28 @@ Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your e
 2.3 Write the launch file
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
+<<<<<<< HEAD
 To test this code, create a new launch file ``turtle_tf2_dynamic_frame_demo.launch.py`` in the ``src/learning_tf2_cpp/launch`` directory and paste the following code:
+=======
+To test this code, create a new launch file ``turtle_tf2_dynamic_frame_demo_launch`` with extension ``.py``, ``.xml``, or ``.yaml`` in the ``src/learning_tf2_cpp/launch`` directory and paste the following code:
+>>>>>>> 81786ba (Add XML/YAML launch file equivalents to Tf2 tutorials (#6031))
 
-.. literalinclude:: launch/turtle_tf2_dynamic_frame_demo_launch.py
-    :language: python
+.. tabs::
+
+  .. group-tab:: Python
+
+    .. literalinclude:: launch/turtle_tf2_dynamic_frame_demo_launch.py
+        :language: python
+
+  .. group-tab:: XML
+
+    .. literalinclude:: launch/turtle_tf2_dynamic_frame_demo_launch.xml
+        :language: xml
+
+  .. group-tab:: YAML
+
+    .. literalinclude:: launch/turtle_tf2_dynamic_frame_demo_launch.yaml
+        :language: yaml
 
 
 2.4 Build
@@ -532,7 +592,11 @@ Now you can start the dynamic frame demo:
 
 .. code-block:: console
 
+<<<<<<< HEAD
     $ ros2 launch learning_tf2_cpp turtle_tf2_dynamic_frame_demo.launch.py
+=======
+    $ ros2 launch learning_tf2_cpp turtle_tf2_dynamic_frame_demo_launch.xml # .py or .yaml are also acceptable
+>>>>>>> 81786ba (Add XML/YAML launch file equivalents to Tf2 tutorials (#6031))
 
 You should see that the second turtle is following the carrot's position that is constantly changing.
 
