@@ -228,12 +228,28 @@ Add the following line between the ``'console_scripts':`` brackets:
 2 Update the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Open the launch file called ``turtle_tf2_demo_launch.py`` in the ``src/learning_tf2_py/launch`` directory with your text editor, add two new nodes to the launch description, add a launch argument, and add the imports.
+Open the launch file called ``turtle_tf2_demo_launch`` with extension ``.py``, ``.xml``, or ``.yaml`` in the ``src/learning_tf2_py/launch`` directory with your text editor, add two new nodes to the launch description, add a launch argument, and add the imports.
 The resulting file should look like:
 
-.. literalinclude:: launch/listener_py_launch.py
-    :language: python
-    :name: turtle_tf2_demo_launch.py
+.. tabs::
+
+  .. group-tab:: XML
+
+    .. literalinclude:: launch/listener_py_launch.xml
+        :language: xml
+        :name: turtle_tf2_demo_launch.xml
+
+  .. group-tab:: YAML
+
+    .. literalinclude:: launch/listener_py_launch.yaml
+        :language: yaml
+        :name: turtle_tf2_demo_launch.yaml
+
+  .. group-tab:: Python
+
+    .. literalinclude:: launch/listener_py_launch.py
+        :language: python
+        :name: turtle_tf2_demo_launch.py
 
 This will declare a ``target_frame`` launch argument, start a broadcaster for second turtle that we will spawn and listener that will subscribe to those transformations.
 
@@ -317,9 +333,25 @@ Open a new terminal, navigate to the root of your workspace, and source the setu
 
 Now you're ready to start your full turtle demo:
 
-.. code-block:: console
+.. tabs::
 
-    $ ros2 launch learning_tf2_py turtle_tf2_demo_launch.py
+  .. group-tab:: XML
+
+    .. code-block:: console
+
+        $ ros2 launch learning_tf2_py turtle_tf2_demo_launch.xml
+
+  .. group-tab:: YAML
+
+    .. code-block:: console
+
+        $ ros2 launch learning_tf2_py turtle_tf2_demo_launch.yaml
+
+  .. group-tab:: Python
+
+    .. code-block:: console
+
+        $ ros2 launch learning_tf2_py turtle_tf2_demo_launch.py
 
 You should see the turtle sim with two turtles.
 In the second terminal window type the following command:
