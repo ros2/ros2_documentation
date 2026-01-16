@@ -19,6 +19,11 @@ Overview
 By default, ROS 2 will attempt to find all nodes on all hosts on the same subnet automatically.
 However, the following options are available to control the ROS 2 discovery range.
 
+.. warning::
+
+   These environment variables (``ROS_AUTOMATIC_DISCOVERY_RANGE`` and ``ROS_STATIC_PEERS``) are **not supported** by ``rmw_zenoh``.
+   If you are using ``rmw_zenoh`` as your RMW implementation, please refer to the `rmw_zenoh configuration documentation <https://github.com/ros2/rmw_zenoh?tab=readme-ov-file#configuration>`_ for instructions on how to configure discovery and communication behavior.
+
 
 Configuration Parameters
 ------------------------
