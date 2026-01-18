@@ -202,7 +202,8 @@ Runtime Dynamic Loading vs Static Linking
 
 The logging system supports two build configurations:
 
-**Dynamic Loading (Default)**
+Dynamic Loading (Default)
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 By default, ``rcl`` links against ``rcl_logging_implementation``, which dynamically loads the logging backend at runtime.
 This approach provides maximum flexibility, allowing the logging implementation to be changed via environment variables without recompilation.
@@ -214,7 +215,8 @@ When using dynamic loading:
 * No rebuild is required to switch between logging implementations
 * All logging interface function symbols are resolved lazily when first accessed
 
-**Static Linking**
+Static Linking
+~~~~~~~~~~~~~~
 
 For embedded systems or deployment scenarios requiring static linking, the build system can be configured to link directly to a specific logging implementation:
 
@@ -228,18 +230,21 @@ Environment Variable Configuration
 
 When using dynamic loading (the default), the ``RCL_LOGGING_IMPLEMENTATION`` environment variable controls which logging backend is loaded at runtime.
 
-**Syntax:**
+Syntax
+''''''
 
 .. code-block:: bash
 
    export RCL_LOGGING_IMPLEMENTATION=<implementation_name>
 
-**Available implementations:**
+Available implementations
+'''''''''''''''''''''''''
 
 * ``rcl_logging_spdlog`` - Full-featured logging using the spdlog library (default)
 * ``rcl_logging_noop`` - No-op implementation that discards all log messages (useful for performance-critical applications)
 
-**Example usage:**
+Example usage
+'''''''''''''
 
 .. code-block:: bash
 
@@ -247,13 +252,14 @@ When using dynamic loading (the default), the ``RCL_LOGGING_IMPLEMENTATION`` env
    export RCL_LOGGING_IMPLEMENTATION=rcl_logging_spdlog
    ros2 run demo_nodes_cpp talker
 
-   # Disable logging backend sink completely
+   # Use no-op logging implementation that discards all log messages to the logging backend
    export RCL_LOGGING_IMPLEMENTATION=rcl_logging_noop
    ros2 run demo_nodes_cpp talker
 
 If the environment variable is not set, the system defaults to ``rcl_logging_spdlog``.
 
-**Implementation Details:**
+Implementation Details
+''''''''''''''''''''''
 
 The ``rcl_logging_implementation`` package:
 
