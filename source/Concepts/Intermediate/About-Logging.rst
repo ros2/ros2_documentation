@@ -231,20 +231,20 @@ Environment Variable Configuration
 When using dynamic loading (the default), the ``RCL_LOGGING_IMPLEMENTATION`` environment variable controls which logging backend is loaded at runtime.
 
 Syntax
-''''''
+~~~~~~
 
 .. code-block:: bash
 
    export RCL_LOGGING_IMPLEMENTATION=<implementation_name>
 
 Available implementations
-'''''''''''''''''''''''''
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * ``rcl_logging_spdlog`` - Full-featured logging using the spdlog library (default)
 * ``rcl_logging_noop`` - No-op implementation that discards all log messages (useful for performance-critical applications)
 
 Example usage
-'''''''''''''
+~~~~~~~~~~~~~
 
 .. code-block:: bash
 
@@ -259,7 +259,7 @@ Example usage
 If the environment variable is not set, the system defaults to ``rcl_logging_spdlog``.
 
 Implementation Details
-''''''''''''''''''''''
+~~~~~~~~~~~~~~~~~~~~~~
 
 The ``rcl_logging_implementation`` package:
 
