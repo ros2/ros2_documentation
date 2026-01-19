@@ -197,6 +197,11 @@ rcl_logging_implementation
 ``rcl_logging_implementation`` is a package that enables runtime dynamic loading of logging backends in ROS 2, similar to how ``rmw_implementation`` works for middleware selection.
 This abstraction layer allows users to switch between different logging implementations (such as ``rcl_logging_spdlog`` and ``rcl_logging_noop``) without rebuilding RCL or application code.
 
+.. figure:: ../images/rcl_logging_implementation.png
+   :alt: rcl_logging_implementation architecture
+   :width: 550px
+   :align: center
+
 Runtime Dynamic Loading vs Static Linking
 """"""""""""""""""""""""""""""""""""""""""
 
