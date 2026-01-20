@@ -238,9 +238,25 @@ When using dynamic loading (the default), the ``RCL_LOGGING_IMPLEMENTATION`` env
 Syntax
 ~~~~~~
 
-.. code-block:: bash
+.. tabs::
 
-   export RCL_LOGGING_IMPLEMENTATION=<implementation_name>
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+       export RCL_LOGGING_IMPLEMENTATION=<implementation_name>
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+       export RCL_LOGGING_IMPLEMENTATION=<implementation_name>
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+       set RCL_LOGGING_IMPLEMENTATION=<implementation_name>
 
 Available implementations
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -251,15 +267,43 @@ Available implementations
 Example usage
 ~~~~~~~~~~~~~
 
-.. code-block:: bash
+.. tabs::
 
-   # Use spdlog for logging (default behavior)
-   export RCL_LOGGING_IMPLEMENTATION=rcl_logging_spdlog
-   ros2 run demo_nodes_cpp talker
+  .. group-tab:: Linux
 
-   # Use no-op logging implementation that discards all log messages to the logging backend
-   export RCL_LOGGING_IMPLEMENTATION=rcl_logging_noop
-   ros2 run demo_nodes_cpp talker
+    .. code-block:: console
+
+       # Use spdlog for logging (default behavior)
+       export RCL_LOGGING_IMPLEMENTATION=rcl_logging_spdlog
+       ros2 run demo_nodes_cpp talker
+
+       # Use no-op logging implementation that discards all log messages to the logging backend
+       export RCL_LOGGING_IMPLEMENTATION=rcl_logging_noop
+       ros2 run demo_nodes_cpp talker
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+       # Use spdlog for logging (default behavior)
+       export RCL_LOGGING_IMPLEMENTATION=rcl_logging_spdlog
+       ros2 run demo_nodes_cpp talker
+
+       # Use no-op logging implementation that discards all log messages to the logging backend
+       export RCL_LOGGING_IMPLEMENTATION=rcl_logging_noop
+       ros2 run demo_nodes_cpp talker
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+       # Use spdlog for logging (default behavior)
+       set RCL_LOGGING_IMPLEMENTATION=rcl_logging_spdlog
+       ros2 run demo_nodes_cpp talker
+
+       # Use no-op logging implementation that discards all log messages to the logging backend
+       set RCL_LOGGING_IMPLEMENTATION=rcl_logging_noop
+       ros2 run demo_nodes_cpp talker
 
 If the environment variable is not set, the system defaults to ``rcl_logging_spdlog``.
 
