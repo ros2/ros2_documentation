@@ -289,7 +289,7 @@ In order to separate testing from building the library with colcon, wrap all cal
 Linting
 ^^^^^^^
 
-It's advised to use the combined call from `ament_lint_auto <https://github.com/ament/ament_lint/blob/{REPOS_FILE_BRANCH}/ament_lint_auto/doc/index.rst#ament_lint_auto>`_:
+It's advised to use the combined call from `ament_lint_auto <https://github.com/ament/ament_lint/blob/{REPOS_FILE_BRANCH}/ament_lint_auto/doc/index.rst>`_:
 
 .. code-block:: cmake
 

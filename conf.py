@@ -90,6 +90,29 @@ extensions = [
     'sphinxcontrib.mermaid',
 ]
 
+# Linkcheck configuration
+# Ignore patterns for links that return 403 (sites blocking automated requests)
+# or have anchor format issues that aren't actually broken
+linkcheck_ignore = [
+    r'https://www\.zazzle\.com/.*',  # 403 - works in browser
+    r'https://www\.raspberrypi\.com/.*',  # 403 - works in browser
+    r'https://www\.intel\.com/.*',  # 403 - works in browser
+    r'https://www\.science\.org/.*',  # 403 - works in browser
+    r'https://matrix\.to/.*',  # Matrix links use fragment identifiers that aren't anchors
+    r'https://linux\.die\.net/.*',  # 403 - works in browser
+    r'https://pyyaml\.docsforge\.com/.*',  # SSL issues
+    r'https://www2\.cs\.sfu\.ca/.*',  # SSL certificate issues
+]
+
+# Anchors to ignore (patterns that look like anchors but aren't standard HTML anchors)
+linkcheck_anchors_ignore = [
+    r'^L\d+',  # GitHub line number anchors (e.g., #L41, #L399-L401)
+    r'^/\+',  # Matrix.to space identifiers
+    r'^/#',  # Matrix.to room identifiers
+    r'^/!',  # Matrix.to event identifiers
+    r'^t=',  # Video timestamp anchors (e.g., #t=29m15s)
+]
+
 # Intersphinx mapping
 
 intersphinx_mapping = {

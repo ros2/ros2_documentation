@@ -8,7 +8,7 @@ Maintain source checkout
   .. note::
 
      For instructions on maintaining a source checkout of the **latest development version** of ROS 2, refer to
-     `Maintaining a source checkout of ROS 2 Rolling <../../rolling/Installation/Maintaining-a-Source-Checkout.html>`__
+     `Maintaining a source checkout of ROS 2 Rolling <https://docs.ros.org/en/rolling/Installation/Maintaining-a-Source-Checkout.html>`__
 
 .. contents::
    :depth: 2

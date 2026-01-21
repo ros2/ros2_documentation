@@ -32,7 +32,7 @@ For more information about RMW implementations, compiler / interpreter versions,
 Installation
 ------------
 
-`Install Eloquent Elusor <../../eloquent/Installation.html>`__
+`Install Eloquent Elusor <https://docs.ros.org/en/eloquent/Installation.html>`__
 
 New features in this ROS 2 release
 ----------------------------------
@@ -44,7 +44,7 @@ A few features and improvements we would like to highlight:
 * `Passing key-value parameters on CLI <https://github.com/ros2/design/pull/245>`__
 * `Support stream logging macros <https://github.com/ros2/rclcpp/pull/926>`__
 * `Per-node logging <https://github.com/ros2/ros2/issues/789>`__ - All stdout/stderr output from nodes are logged in ~/.ros
-* `ros2doctor <https://index.ros.org/doc/ros2/Tutorials/Getting-Started-With-Ros2doctor/>`__
+* `ros2doctor <https://docs.ros.org/en/rolling/Tutorials/Beginner-Client-Libraries/Getting-Started-With-Ros2doctor.html>`__
 * `Improved performance of sourcing setup files <https://github.com/ros2/ros2/issues/764>`__
 * rviz: `interactive markers <https://github.com/ros2/rviz/pull/457>`__, `torque ring <https://github.com/ros2/rviz/pull/396>`__, `tf message filters <https://github.com/ros2/rviz/pull/375>`__
 * rqt: `parameter plugin <https://github.com/ros-visualization/rqt_reconfigure/pull/31>`__, `tf tree plugin <https://github.com/ros-visualization/rqt_tf_tree/pull/13>`__, `robot steering plugin <https://github.com/ros-visualization/rqt_robot_steering/pull/7>`__ (also backported to Dashing)

@@ -41,7 +41,7 @@ For more information about RMW implementations, compiler / interpreter versions,
 Installation
 ------------
 
-`Install Humble Hawksbill <../../humble/Installation.html>`__
+`Install Humble Hawksbill <https://docs.ros.org/en/humble/Installation.html>`__
 
 Changes in Patch Release 1 (2022-11-23)
 ---------------------------------------
@@ -53,7 +53,7 @@ ros2topic
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 ``ros2 topic pub`` now allows to set a ``builtin_interfaces.msg.Time`` message to the current time via the ``now`` keyword.
 Similarly, a ``std_msg.msg.Header`` message will be automatically generated when passed the keyword ``auto``.
-This behavior matches that of ROS 1's ``rostopic`` (http://wiki.ros.org/ROS/YAMLCommandLine#Headers.2Ftimestamps)
+This behavior matches that of ROS 1's ``rostopic`` (https://wiki.ros.org/ROS/YAMLCommandLine)
 
 Related PR: `ros2/ros2cli#751 <https://github.com/ros2/ros2cli/pull/751>`_
 
@@ -949,7 +949,7 @@ These topics will no longer be automatically added to the bag.
 Known Issues
 ------------
 
-* When `installing ROS 2 on an Ubuntu 22.04 Jammy host <../../humble/Installation/Ubuntu-Install-Debians.html>`__ it is important to update your system before installing ROS 2 packages.
+* When `installing ROS 2 on an Ubuntu 22.04 Jammy host <https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html>`__ it is important to update your system before installing ROS 2 packages.
   It is *particularly* important to make sure that ``systemd`` and ``udev`` are updated to the latest available version otherwise installing ``ros-humble-desktop``, which depends on ``libudev1``, could cause the removal of system critical packages.
   Details can be found in `ros2/ros2#1272 <https://github.com/ros2/ros2/issues/1272>`_ and `Launchpad #1974196 <https://bugs.launchpad.net/ubuntu/+source/systemd/+bug/1974196>`_
 
