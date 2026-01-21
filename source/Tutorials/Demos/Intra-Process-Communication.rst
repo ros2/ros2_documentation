@@ -7,7 +7,7 @@ Setting up efficient intra-process communication
 ================================================
 
 .. contents:: Table of Contents
-   :depth: 1
+   :depth: 2
    :local:
 
 Background
