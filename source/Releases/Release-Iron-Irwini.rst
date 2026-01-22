@@ -40,7 +40,7 @@ For more information about RMW implementations, compiler / interpreter versions,
 Installation
 ------------
 
-`Install Iron Irwini <../../iron/Installation.html>`__
+`Install Iron Irwini <https://docs.ros.org/en/iron/Installation.html>`__
 
 New features in this ROS 2 release
 ----------------------------------

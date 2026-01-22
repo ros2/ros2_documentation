@@ -453,7 +453,7 @@ a) Creating the Cluster
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 Create a cluster using the Console.
-The instructions are found `here <https://cloud.ibm.com/docs/containers?topic=containers-clusters#clusters_ui>`__.
+The instructions are found `here <https://cloud.ibm.com/docs/containers?topic=containers-clusters>`__.
 The settings used are detailed below.
 These are merely suggestions and can be changed if you need to.
 However, make sure you understand the implications of your choices:
@@ -526,7 +526,7 @@ b) Deploying your Docker Image *Finally!*
            image: <region>.icr.io/<namespace>/<image>:<tag>
 
 You should replace the tags shown between *"<" ">"* as described
-`here <https://cloud.ibm.com/docs/containers?topic=containers-images#namespace>`__.
+`here <https://cloud.ibm.com/docs/containers?topic=containers-images>`__.
 The file in my case would look something like this:
 
 .. code-block:: bash

@@ -87,7 +87,7 @@ The ``SpawnNodeFromString`` type expects a ``data`` string as input and returns 
 
 From the given string, the Supervisor node is getting the name of the imported node and adding it to an intern list for potential later removal (see :ref:`Remove a Webots imported node`).
 
-The node is imported using the ``importMFNodeFromString(nodeString)`` `API function <https://cyberbotics.com/doc/reference/supervisor?tab-language=python#wb_supervisor_field_import_mf_node_from_string>`_.
+The node is imported using the ``importMFNodeFromString(nodeString)`` `API function <https://cyberbotics.com/doc/reference/supervisor?tab-language=python>`_.
 
 Here is an example to import a simple Robot named ``imported_robot``:
 
@@ -107,7 +107,7 @@ Once a node has been imported with the ``/Ros2Supervisor/spawn_node_from_string`
 
 This can be achieved by sending the name of the node to the topic named ``/Ros2Supervisor/remove_node`` of type ``std_msgs/msg/String``.
 
-If the node is indeed in the imported list, it is removed with the ``remove()`` `API method <https://cyberbotics.com/doc/reference/supervisor?tab-language=python#wb_supervisor_node_remove>`_.
+If the node is indeed in the imported list, it is removed with the ``remove()`` `API method <https://cyberbotics.com/doc/reference/supervisor?tab-language=python>`_.
 
 Here is an example on how to remove the ``imported_robot`` Robot:
 
