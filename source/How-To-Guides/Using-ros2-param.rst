@@ -28,9 +28,18 @@ To get all of the parameters on all nodes in the system (this can take a long ti
 ``ros2 param get``
 ------------------
 
-This command will get the value of a particular parameter on a particular node.
+This command will get the value of a particular parameter.
+It can query a specific node or search across all nodes.
 
-To get the value of a parameter on a node:
+To get the value of a parameter across all nodes:
+
+.. code-block:: console
+
+  $ ros2 param get use_sim_time
+
+This will display the parameter value for each node that has this parameter set.
+
+To get the value of a parameter on a specific node:
 
 .. code-block:: console
 
