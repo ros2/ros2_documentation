@@ -121,9 +121,13 @@ Closing remarks
 
 The toy example above only hints at what is possible with custom rosdep keys.
 
-- **Is your dependency a apt package hosted in a third party PPA?** Not a problem. Since all ``rosdep`` does is converting the key to a ``apt install`` invocation, ``apt`` will have no problem installing the package (provided you have added the PPA).
-- **Is your dependency a pip package hosted in a third party index?** Add the index to your ``pip.conf`` and you're good to go.
-- **Sources files don't have to point to files on the local machine.** Both ``file://`` and ``https://`` syntax is supported.
+- **Is your dependency a apt package hosted in a third party PPA?**
+  Not a problem.
+  Since all ``rosdep`` does is converting the key to a ``apt install`` invocation, ``apt`` will have no problem installing the package (provided you have added the PPA).
+- **Is your dependency a pip package hosted in a third party index?**
+  Add the index to your ``pip.conf`` and you're good to go.
+- **Sources files don't have to point to files on the local machine.**
+  Both ``file://`` and ``https://`` syntax is supported.
 
 Further reading
 ---------------
