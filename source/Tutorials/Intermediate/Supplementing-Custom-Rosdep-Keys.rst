@@ -128,10 +128,11 @@ The toy example above only hints at what is possible with custom rosdep keys.
   Add the index to your ``pip.conf`` and you're good to go.
 - **Sources files don't have to point to files on the local machine.**
   Both ``file://`` and ``https://`` syntax is supported.
-- **Sources are loaded in alphabetical order** 
+- **Sources are loaded in alphabetical order.** 
   If you add a conflicting rule in the 30 prefix it will not be used.
   If you created a sources file with a 10 prefix it will override packages in the default list (prefix 20).
   If you're using anything from binaries it's highly recommended not to override dependency declarations as it will likely cause binary incompatibilities which can be very hard to debug.
+
 Further reading
 ---------------
 
