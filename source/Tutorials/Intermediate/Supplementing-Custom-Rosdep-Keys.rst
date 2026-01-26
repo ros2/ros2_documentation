@@ -80,7 +80,7 @@ Extending ``rosdep`` with a custom sources file
 The above hopefully makes it clear what needs to be done to get ``rosdep`` to understand new keys: add a new custom sources file!
 
 As a toy example, let's add a new sources file telling ``rosdep`` to fetch keys from a YAML file stored on the local machine.
-Fire up your favorite text editor and write the following into ``/etc/ros/rosdep/sources.list.d/10-custom.list``:
+Fire up your favorite text editor and write the following into ``/etc/ros/rosdep/sources.list.d/30-custom.list``:
 
 .. code-block:: yaml
 
@@ -102,7 +102,7 @@ This defines two new rosdep rules:
 1. The key ``awesome_library``, defined only for Ubuntu, mapping to the ``apt`` package of the same name
 2. The key ``that_other_library``, defined only for Ubuntu, mapping to the ``pip`` package named ``another_library``
 
-After running ``rosdep update``, ``rosdep`` will detect the new ``10-custom.list``, prompting it to scan the contents of the ``custom_rules.yaml`` file.
+After running ``rosdep update``, ``rosdep`` will detect the new ``30-custom.list``, prompting it to scan the contents of the ``custom_rules.yaml`` file.
 Now ``rosdep`` is set up to recognize these new keys and what they should map to:
 
 .. code-block:: console
