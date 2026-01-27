@@ -26,10 +26,6 @@ This tutorial explains how to achieve this.
 Preliminaries: How ``rosdep`` fetches rosdep keys
 -------------------------------------------------
 
-.. Let's first review some details of ``rosdep`` which will be relevant to the remainder of this tutorial.
-
-.. In order to get a good understanding of what we're about to do, let's first explore how ``rosdep`` works from first principles.
-
 In order to get a good understanding of what we're about to do, let's first explore some relevant details about how ``rosdep`` works.
 
 ``rosdep`` is similar to other tools like ``apt`` that use a sources list to maintain a local index.
@@ -74,8 +70,6 @@ On RHEL, the key instead resolves to the DNF package ``opencv-devel``:
 
 Extending ``rosdep`` with a custom sources file
 -----------------------------------------------
-
-.. This sheds light on what we need to do to get ``rosdep`` to understand new keys: add a new custom sources file!
 
 The above hopefully makes it clear what needs to be done to get ``rosdep`` to understand new keys: add a new custom sources file!
 
@@ -133,7 +127,8 @@ The toy example above only hints at what is possible with custom rosdep keys.
   If you created a sources file with a 10 prefix it will override packages in the default list (prefix 20).
   If you're using packages installed from binary repositories it's highly recommended to not override dependency declarations as it will likely cause binary incompatibilities which can be very hard to debug.
 - **Merging keys is not possible.**
-  It is not possible to e.g. only add a ``fedora`` installation rule to an existing rosdep key. Depending on the load order, such rule would either be ignored, or it would completely override the whole rosdep key, removing all other installers.
+  It is not possible to e.g. only add a ``fedora`` installation rule to an existing rosdep key.
+  Depending on the load order, such rule would either be ignored, or it would completely override the whole rosdep key, removing all other installers.
 
 Further reading
 ---------------
