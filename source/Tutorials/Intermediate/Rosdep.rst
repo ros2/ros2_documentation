@@ -145,7 +145,7 @@ Pull requests for rosdistro are typically merged well within a week.
 If for some reason these may not be contributed openly, other options exist:
 
 1. Forking rosdistro and maintaining a alternate index containing the extra keys (:doc:`../../How-To-Guides/Using-Custom-Rosdistro`)
-2. Creating a new file containing custom keys and instructing ``rosdep`` to check it when populating the local index (:doc:`Supplementing-Custom-Rosdep-Keys`)
+2. Creating a new file containing custom keys and instructing ``rosdep`` to check it when populating the local index (:doc:`../Advanced/Supplementing-Custom-Rosdep-Keys`)
 
 How do I use the rosdep tool?
 -----------------------------
