@@ -14,7 +14,6 @@ Intermediate
    Intermediate/Publishing-Messages-Using-YAML-Files
    Intermediate/Monitoring-For-Parameter-Changes-CPP
    Intermediate/Monitoring-For-Parameter-Changes-Python
-   Intermediate/Supplementing-Custom-Rosdep-Keys
    Intermediate/Launch/Launch-Main
    Intermediate/Tf2/Tf2-Main
    Intermediate/Testing/Testing-Main
