@@ -34,7 +34,7 @@ In order to get a good understanding of what we're about to do, let's first expl
 
 ``rosdep`` is similar to other tools like ``apt`` that use a sources list to maintain a local index.
 These sources are stored in ``/etc/ros/rosdep/sources.list.d``.
-This is identical to how apt stores repositories in ``/etc/apt/sources.list.d``.
+This is similar to how apt stores repositories in ``/etc/apt/sources.list.d``.
 
 By default (as part of first-time setup, ``rosdep init``), you only have a single sources file: ``/etc/ros/rosdep/sources.list.d/20-default.list``.
 Inspecting its contents, you will see entries like these:
@@ -51,7 +51,7 @@ These entries are what dictates where ``rosdep`` fetches rosdep keys and their m
 When called, ``rosdep`` compiles the relevant contents from all declared entries in all sources files into a local cached index.
 This local index is then used when installing or looking up ("resolving") rosdep keys.
 
-For example, the fact that the first entry defines the ``libopencv-dev`` key (see `here <https://github.com/ros/rosdistro/blob/72f24d6/rosdep/base.yaml#L5240-L5252>`_) is what allows ``rosdep`` to resolve it:
+For example, the fact that the first entry (``base.yaml``) defines the ``libopencv-dev`` key (see `here <https://github.com/ros/rosdistro/blob/72f24d6/rosdep/base.yaml#L5240-L5252>`_) is what allows ``rosdep`` to resolve it:
 
 .. code-block:: console
 
@@ -80,7 +80,7 @@ Extending ``rosdep`` with a custom sources file
 The above hopefully makes it clear what needs to be done to get ``rosdep`` to understand new keys: add a new custom sources file!
 
 As a toy example, let's add a new sources file telling ``rosdep`` to fetch keys from a YAML file stored on the local machine.
-Fire up your favorite text editor and write the following into ``/etc/ros/rosdep/sources.list.d/30-custom.list``:
+Fire up your favorite text editor and write the following into ``/etc/ros/rosdep/sources.list.d/30-custom.list`` (the editor will need to be launched with root privileges, e.g. via ``sudo``):
 
 .. code-block:: yaml
 
@@ -121,17 +121,19 @@ Closing remarks
 
 The toy example above only hints at what is possible with custom rosdep keys.
 
-- **Is your dependency a apt package hosted in a third party PPA?**
+- **Is your dependency an APT package hosted in a third party PPA?**
   Not a problem.
-  Since all ``rosdep`` does is converting the key to a ``apt install`` invocation, ``apt`` will have no problem installing the package (provided you have added the PPA).
+  Since all ``rosdep`` does is converting the key to a ``apt install`` invocation, APT will have no problem installing the package (provided you have added the PPA).
 - **Is your dependency a pip package hosted in a third party index?**
   Add the index to your ``pip.conf`` and you're good to go.
 - **Sources files don't have to point to files on the local machine.**
-  Both ``file://`` and ``https://`` syntax is supported.
+  Both ``file://`` and ``https://`` syntax is supported (on Linux, absolute paths start with ``/``, which leads to a triple slash like ``file:///etc/rosdep/my.file``).
 - **Sources are loaded in alphabetical order.**
   If you add a conflicting rule in the 30 prefix it will not be used.
   If you created a sources file with a 10 prefix it will override packages in the default list (prefix 20).
-  If you're using anything from binaries it's highly recommended not to override dependency declarations as it will likely cause binary incompatibilities which can be very hard to debug.
+  If you're using packages installed from binary repositories it's highly recommended to not override dependency declarations as it will likely cause binary incompatibilities which can be very hard to debug.
+- **Merging keys is not possible.**
+  It is not possible to e.g. only add a ``fedora`` installation rule to an existing rosdep key. Depending on the load order, such rule would either be ignored, or it would completely override the whole rosdep key, removing all other installers.
 
 Further reading
 ---------------
