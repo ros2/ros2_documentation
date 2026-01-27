@@ -22,6 +22,9 @@ For example, if the dependency
 
 While the option exists to :doc:`fork rosdistro <../../How-To-Guides/Using-Custom-Rosdistro>` in its entirety, this might be overkill if you just want to keep using a official ROS distribution as usual, only with some extra rosdep keys defined on top.
 This tutorial explains how to achieve this.
+As a word of warning though, please don't use this indiscriminately.
+It can cause very hard to debug problems.
+And if you're asking anyone for help on a system with this enabled, make sure to explain everything that's being added or overridden.
 
 Preliminaries: How ``rosdep`` fetches rosdep keys
 -------------------------------------------------
