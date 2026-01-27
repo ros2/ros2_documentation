@@ -8,7 +8,7 @@ Supplementing custom rosdep keys
 Overview and motivation
 -----------------------
 
-As explained in :doc:`Rosdep`, ``rosdep`` looks for rosdep keys in ``package.xml`` files and maps them to packages to be installed for the ROS distribution and OS in use.
+As explained in :doc:`../Intermediate/Rosdep`, ``rosdep`` looks for rosdep keys in ``package.xml`` files and maps them to packages to be installed for the ROS distribution and OS in use.
 Anyone can request for new rosdep keys to be added by `contributing to rosdistro <https://github.com/ros/rosdistro/blob/master/CONTRIBUTING.md#rosdep-rules-contributions>`_.
 This is the preferred course of action when you have some dependency (like a ``apt`` or ``pip`` package) that you wish to be able to install via ``rosdep``.
 
