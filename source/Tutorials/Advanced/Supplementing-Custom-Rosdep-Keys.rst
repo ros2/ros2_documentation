@@ -24,7 +24,7 @@ While the option exists to :doc:`fork rosdistro <../../How-To-Guides/Using-Custo
 This tutorial explains how to achieve this.
 
 As a word of warning though, please don't use this indiscriminately.
-It can cause very hard to debug problems.
+It can cause very hard to debug problems because of binary incompatibilities which can manifest in silent failures, unexplained crashes, or data corruption.
 And if you're asking anyone for help on a system with this enabled, make sure to explain everything that's being added or overridden.
 
 Preliminaries: How ``rosdep`` fetches rosdep keys
