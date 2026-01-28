@@ -4,6 +4,7 @@ Advanced
 .. toctree::
    :maxdepth: 1
 
+   Advanced/Supplementing-Custom-Rosdep-Keys
    Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial
    Advanced/Discovery-Server/Discovery-Server
    Advanced/Allocator-Template-Tutorial
