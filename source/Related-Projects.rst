@@ -14,7 +14,7 @@ Large community projects involve multiple developers from all over the globe and
 
 * **ros2_control** `(control.ros.org) <https://control.ros.org/>`_: Flexible framework for real-time control of robots implemented with ROS 2.
 * **Navigation2** `(navigation.ros.org) <https://navigation.ros.org/>`_: Comprehensive and flexible navigation stack for mobile robots using ROS 2.
-* **MoveIt** `(moveit.ros.org) <https://moveit.ros.org/>`_: A rich platform for building manipulation applications featuring advanced kinematics, motion planning, control, collision checking, and much more.
+* **MoveIt** `(moveit.ai) <https://moveit.ai/>`_: A rich platform for building manipulation applications featuring advanced kinematics, motion planning, control, collision checking, and much more.
 * **micro-ROS** `(micro.ros.org) <https://micro.ros.org/>`_: A platform for putting ROS 2 onto microcontrollers, starting at less than 100 kB of RAM.
 
 Further Community Projects
