@@ -142,7 +142,10 @@ If your library isn't in ``rosdistro``, you can experience the greatness that is
 Pull requests for rosdistro are typically merged well within a week.
 
 `Detailed instructions may be found here <https://github.com/ros/rosdistro/blob/master/CONTRIBUTING.md#rosdep-rules-contributions>`_ for how to contribute new rosdep keys.
-If for some reason these may not be contributed openly, it is possible to fork rosdistro and maintain a alternate index for use.
+If for some reason these may not be contributed openly, other options exist:
+
+1. Forking rosdistro and maintaining a alternate index containing the extra keys (:doc:`../../How-To-Guides/Using-Custom-Rosdistro`)
+2. Creating a new file containing custom keys and instructing ``rosdep`` to check it when populating the local index (:doc:`../Advanced/Supplementing-Custom-Rosdep-Keys`)
 
 How do I use the rosdep tool?
 -----------------------------
