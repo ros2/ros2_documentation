@@ -75,7 +75,8 @@ If you have previously released your packages for ROS 2, when raising the `Add N
 
 .. note::
 
+   **When releasing your packages into the Rolling distribution, you must use a release repository hosted in the ros2-gbp organization**.
    Release repositories hosted elsewhere are still supported for stable distributions if you are not planning to release the repository into Rolling.
    Since stable distributions created from Rolling will start with release repositories in the ros2-gbp organization it is recommend that you use the ros2-gbp release repositories for all ROS 2 distributions to avoid fragmenting the release information.
 
-   A ros2-gbp release repository may become a hard requirement in the future and maintaining a single release repository for all ROS 2 distributions simplifies the maintenance of releases for both the Rolling distribution maintainers and package maintainers.
+   A ros2-gbp release repository may become a hard requirement for all distros in the future and maintaining a single release repository for all ROS 2 distributions simplifies the maintenance of releases for both the Rolling distribution maintainers and package maintainers.
