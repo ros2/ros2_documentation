@@ -58,7 +58,7 @@ jobs:
         run: make spellcheck
 
   build:
-    needs: [test, lint]
+    needs: [test, lint, spellcheck]
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
@@ -113,3 +113,37 @@ jobs:
             2. Extract it
             3. Open `html-artifacts-${{ github.event.pull_request.number }}/index.html` in your favorite browser
           edit-mode: replace
+
+  multi-build:
+    needs: [test, lint, spellcheck]
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Create a fake remote ref matching the target branch name
+      - name: Setup branch for multiversion
+        run: |
+          TARGET_BRANCH="${{ github.base_ref }}"
+          echo "PR target branch: $TARGET_BRANCH"
+
+          # Create a remote ref that sphinx-multiversion will find
+          git update-ref "refs/remotes/origin/$TARGET_BRANCH" HEAD
+
+          # Verify the ref was created
+          echo "Created refs:"
+          git show-ref | grep "$TARGET_BRANCH"
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Setup Graphviz
+        uses: ts-graphviz/setup-graphviz@v2
+
+      - name: Install dependencies with pip
+        run: pip install --no-warn-script-location --user -r requirements.txt -c constraints.txt
+
+      - name: Build the docs
+        run: make multiversion
