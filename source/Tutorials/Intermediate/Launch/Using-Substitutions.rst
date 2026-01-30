@@ -438,7 +438,7 @@ Now you can pass the desired arguments to the launch file as follows:
 Documentation
 -------------
 
-`The launch documentation <https://docs.ros.org/en/{DISTRO}/p/launch/architecture.html>`_ provides detailed information about available substitutions.
+`The launch documentation <https://docs.ros.org/en/{DISTRO}/p/launch/doc/source/architecture.html>`_ provides detailed information about available substitutions.
 
 Summary
 -------
