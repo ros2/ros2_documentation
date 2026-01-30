@@ -3,7 +3,8 @@ index 65ac7e8..abcd123 100644
 --- a/source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst
 +++ b/source/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.rst
 @@ -360,7 +360,7 @@ Build the workspace
- .. code-block:: console
+.. code-block:: bash
+
 
     colcon build --cmake-args -DCMAKE_BUILD_TYPE=Debug
 
