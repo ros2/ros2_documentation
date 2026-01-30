@@ -438,11 +438,7 @@ Now you can pass the desired arguments to the launch file as follows:
 Documentation
 -------------
 
-<<<<<<< HEAD
-`The launch documentation <https://github.com/ros2/launch/blob/{REPOS_FILE_BRANCH}/launch/doc/source/architecture.rst>`_ provides detailed information about available substitutions.
-=======
 `The launch documentation <https://docs.ros.org/en/{DISTRO}/p/launch/doc/source/architecture.html>`_ provides detailed information about available substitutions.
->>>>>>> 45a5e50 (Fix dead link to launch architecture documentation (#6195))
 
 Summary
 -------
