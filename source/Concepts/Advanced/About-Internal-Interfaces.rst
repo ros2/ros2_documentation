@@ -186,11 +186,12 @@ This is because typically a particular rmw implementation will require data to b
 See the :ref:`Type Specific Interfaces` section above for more details.
 
 The ``rosidl_generator_cpp`` package
-^^^^^^^^^^^^^^^^^^^^
-This package is responsible for generating the C++ structures representing the IDL. It also generates utilities for user-convenience and to facilitate interoperability with the C++ language.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This package is responsible for generating the C++ structures representing the IDL.
+It also generates utilities for user-convenience and to facilitate interoperability with the C++ language.
 
 Message member names
-""""""""""""""""""""""""""
+""""""""""""""""""""
 The names of the members in a message can be retrieved at compile-time using ``rosidl_generator_traits::MessageTraits``.  
 
 .. code-block:: cpp
@@ -203,8 +204,10 @@ The names of the members in a message can be retrieved at compile-time using ``r
   std::array<std::string_view, 2> member_names = MessageTraitsTime::member_names;  // Returns {"sec", "nanosec"}
 
 Message member metaprogramming
-""""""""""""""""""""""""""
-To facilitate metaprogramming techniques ahead of C++26 reflection, an ``as_tuple_ref`` utility has been added to the code generation. It returns references to each member of the structure as a tuple. This makes it possible to both read and write message contents without accessing it through the member access operator (e.g., msg.member). The structure can thus be treated as a sequence of references to data.
+""""""""""""""""""""""""""""""
+To facilitate metaprogramming techniques ahead of C++26 reflection, an ``as_tuple_ref`` utility has been added to the code generation.
+It returns references to each member of the structure as a tuple. This makes it possible to both read and write message contents without accessing it through the member access operator (e.g., msg.member).
+The structure can thus be treated as a sequence of references to data.
 
 .. code-block:: cpp
 
@@ -221,8 +224,10 @@ To facilitate metaprogramming techniques ahead of C++26 reflection, an ``as_tupl
 
 .. warning::
 
-   - Members of the same type can be swapped without detection using this technique. Use with care if the interfaces can change.
-   - The ``as_tuple_ref`` function does not extend the lifetime of the message passed to is. It is the responsibility of the programmer to ensure that the lifetime of the message object exeeds the use of the references.
+   Members of the same type can be swapped without detection using this technique.
+   Use with care if the interfaces can change.
+   The ``as_tuple_ref`` function does not extend the lifetime of the message passed to is.
+   It is the responsibility of the programmer to ensure that the lifetime of the message object exeeds the use of the references.
 
 The ``rcutils`` repository
 --------------------------
