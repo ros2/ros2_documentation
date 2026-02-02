@@ -192,7 +192,7 @@ It also generates utilities for user-convenience and to facilitate interoperabil
 
 Message member names
 """"""""""""""""""""
-The names of the members in a message can be retrieved at compile-time using ``rosidl_generator_traits::MessageTraits``. 
+The names of the members in a message can be retrieved at compile-time using ``rosidl_generator_traits::MessageTraits``.
 
 .. code-block:: cpp
 
