@@ -192,22 +192,22 @@ It also generates utilities for user-convenience and to facilitate interoperabil
 
 Message member names
 """"""""""""""""""""
-The names of the members in a message can be retrieved at compile-time using ``rosidl_generator_traits::MessageTraits``.  
+The names of the members in a message can be retrieved at compile-time using ``rosidl_generator_traits::MessageTraits``. 
 
 .. code-block:: cpp
 
   #include <builtin_interfaces/msg/time.hpp>
-  
+
   // ...
-  
+
   using MessageTraitsTime = rosidl_generator_traits::MessageTraits<builtin_interfaces::msg::Time>;
   std::array<std::string_view, 2> member_names = MessageTraitsTime::member_names;  // Returns {"sec", "nanosec"}
 
 Message member metaprogramming
 """"""""""""""""""""""""""""""
 To facilitate metaprogramming techniques ahead of C++26 reflection, an ``as_tuple_ref`` utility has been added to the code generation.
-It returns references to each member of the structure as a tuple. This makes it possible to both read and write message contents without accessing it through the member access operator (e.g., msg.member).
-The structure can thus be treated as a sequence of references to data.
+It returns references to each member of the structure as a tuple.
+This makes it possible to both read and write message contents without accessing it through the member name.
 
 .. code-block:: cpp
 
@@ -227,7 +227,7 @@ The structure can thus be treated as a sequence of references to data.
    Members of the same type can be swapped without detection using this technique.
    Use with care if the interfaces can change.
    The ``as_tuple_ref`` function does not extend the lifetime of the message passed to is.
-   It is the responsibility of the programmer to ensure that the lifetime of the message object exeeds the use of the references.
+   It is the responsibility of the programmer to ensure that the lifetime of the message object exceeds the use of the references.
 
 The ``rcutils`` repository
 --------------------------
