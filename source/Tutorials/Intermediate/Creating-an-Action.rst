@@ -69,6 +69,7 @@ Tasks
 
 ``custom_action_interfaces`` is the name of the new package.
 Note that it is, and can only be, a CMake package, but this doesn't restrict in which type of packages you can use your actions.
+The ``--build-type ament_cmake`` flag is largely optional when creating a new ROS 2 package but we are including it here for completeness.
 You can create your own custom interfaces in a CMake package, and then use it in a C++ or Python node.
 
 .. note::
