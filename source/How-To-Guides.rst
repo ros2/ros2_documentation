@@ -21,6 +21,7 @@ If you are new and looking to learn the ropes, start with the :doc:`Tutorials <T
    :maxdepth: 1
 
    How-To-Guides/Installation-Troubleshooting
+   How-To-Guides/Using-ROS-2-Mirrors
    How-To-Guides/Developing-a-ROS-2-Package
    How-To-Guides/Documenting-a-ROS-2-Package
    How-To-Guides/Ament-CMake-Documentation
