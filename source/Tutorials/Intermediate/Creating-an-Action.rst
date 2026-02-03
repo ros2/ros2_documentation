@@ -41,42 +41,25 @@ Set up a :doc:`workspace <../Beginner-Client-Libraries/Creating-A-Workspace/Crea
 
     .. code-block:: console
 
-<<<<<<< HEAD
       $ mkdir -p ros2_ws/src # you can reuse an existing workspace with this naming convention
       $ cd ros2_ws/src
-      $ ros2 pkg create action_tutorials_interfaces
-=======
-      $ mkdir -p ~/ros2_ws/src # you can reuse an existing workspace with this naming convention
-      $ cd ~/ros2_ws/src
-      $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 custom_action_interfaces
->>>>>>> 83a1fe2 (Add --build-type ament_cmake to action tutorial (#6179))
+      $ ros2 pkg create --build-type ament_cmake action_tutorials_interfaces
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-<<<<<<< HEAD
       $ mkdir -p ros2_ws/src
       $ cd ros2_ws/src
-      $ ros2 pkg create action_tutorials_interfaces
-=======
-      $ mkdir -p ~/ros2_ws/src
-      $ cd ~/ros2_ws/src
-      $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 custom_action_interfaces
->>>>>>> 83a1fe2 (Add --build-type ament_cmake to action tutorial (#6179))
+      $ ros2 pkg create --build-type ament_cmake action_tutorials_interfaces
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-<<<<<<< HEAD
       $ md ros2_ws\src
       $ cd ros2_ws\src
-      $ ros2 pkg create action_tutorials_interfaces
-=======
-      $ md \ros2_ws\src
-      $ cd \ros2_ws\src
-      $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 custom_action_interfaces
+      $ ros2 pkg create --build-type ament_cmake action_tutorials_interfaces
 
 ``custom_action_interfaces`` is the name of the new package.
 Note that it is, and can only be, a CMake package, but this doesn't restrict in which type of packages you can use your actions.
@@ -87,7 +70,6 @@ You can create your own custom interfaces in a CMake package, and then use it in
 
   It is good practice to keep ``.msg``, ``.srv``, and ``.action`` files in separate packages from the nodes that use them.
   This makes it easier to reuse the interface definitions across different packages.
->>>>>>> 83a1fe2 (Add --build-type ament_cmake to action tutorial (#6179))
 
 Tasks
 -----
