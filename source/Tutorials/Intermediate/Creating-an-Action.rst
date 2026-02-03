@@ -43,7 +43,7 @@ Set up a :doc:`workspace <../Beginner-Client-Libraries/Creating-A-Workspace/Crea
 
       $ mkdir -p ros2_ws/src # you can reuse an existing workspace with this naming convention
       $ cd ros2_ws/src
-      $ ros2 pkg create action_tutorials_interfaces
+      $ ros2 pkg create --build-type ament_cmake action_tutorials_interfaces
 
   .. group-tab:: macOS
 
@@ -51,7 +51,7 @@ Set up a :doc:`workspace <../Beginner-Client-Libraries/Creating-A-Workspace/Crea
 
       $ mkdir -p ros2_ws/src
       $ cd ros2_ws/src
-      $ ros2 pkg create action_tutorials_interfaces
+      $ ros2 pkg create --build-type ament_cmake action_tutorials_interfaces
 
   .. group-tab:: Windows
 
@@ -59,7 +59,17 @@ Set up a :doc:`workspace <../Beginner-Client-Libraries/Creating-A-Workspace/Crea
 
       $ md ros2_ws\src
       $ cd ros2_ws\src
-      $ ros2 pkg create action_tutorials_interfaces
+      $ ros2 pkg create --build-type ament_cmake action_tutorials_interfaces
+
+``custom_action_interfaces`` is the name of the new package.
+Note that it is, and can only be, a CMake package, but this doesn't restrict in which type of packages you can use your actions.
+The ``--build-type ament_cmake`` flag is largely optional when creating a new ROS 2 package but we are including it here for completeness.
+You can create your own custom interfaces in a CMake package, and then use it in a C++ or Python node.
+
+.. note::
+
+  It is good practice to keep ``.msg``, ``.srv``, and ``.action`` files in separate packages from the nodes that use them.
+  This makes it easier to reuse the interface definitions across different packages.
 
 Tasks
 -----
