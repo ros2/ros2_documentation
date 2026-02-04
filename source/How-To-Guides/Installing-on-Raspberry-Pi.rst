@@ -16,7 +16,7 @@ Ubuntu for Raspberry Pi is available `here <https://ubuntu.com/download/raspberr
 
 Make sure to confirm that you have selected the correct version as described in `REP-2000 <https://reps.openrobotics.org/rep-2000/>`__.
 
-Ubuntu for Raspberry Pi doesn't include the *backports* and *updates* software suites by default. These are required for the ROS 2 binary install to work. So, please make check and edit the */etc/apt/sources.list.d/ubuntu.sources* file on your Raspberry Pi before istalling ROS 2. For example, the Ubuntu 24.04 "Noble Numbat" release should have an entry that looks like this:
+Ubuntu for Raspberry Pi doesn't include the *backports* and *updates* software suites by default. These are required for the ROS 2 binary install to work. So, please make check and edit the */etc/apt/sources.list.d/ubuntu.sources* file on your Raspberry Pi before installing ROS 2. For example, the Ubuntu 24.04 "Noble Numbat" release should have an entry that looks like this:
 
 .. code-block:: console
 
