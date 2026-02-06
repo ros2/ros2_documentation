@@ -12,5 +12,6 @@ Check out the resources below to learn more about the advancement of the ROS 2 p
    The-ROS2-Project/Roadmap
    The-ROS2-Project/ROSCon-Content
    The-ROS2-Project/Governance
+   The-ROS2-Project/Groups
    The-ROS2-Project/Marketing
    The-ROS2-Project/Metrics
