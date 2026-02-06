@@ -429,7 +429,8 @@ There are, however, some changes w.r.t. ROS 1:
   You can also use HTML escapes like ``&quot;`` .
 * ``eval`` does not pass configurations ( ``arg`` ) as local Python variables.
   They have to be accessed via ``$(var name)``.
-* The argument of ``eval`` has to be a quoted string in ROS 2. That is also the reason why quotes inside the expression have to be escaped.
+* The argument of ``eval`` has to be a quoted string in ROS 2.
+  That is also the reason why quotes inside the expression have to be escaped.
 
 Type inference rules
 --------------------
