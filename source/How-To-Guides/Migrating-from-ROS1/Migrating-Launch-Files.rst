@@ -182,11 +182,11 @@ include
 * Differences from ROS 1:
 
    * Available in ROS 1, included content was scoped.
-     In ROS 2, it's not. This means the values of ``arg`` tags are propated into included launch files
-     as if ``pass_all_args=true`` were used in ROS 1. However, this propagation only works for args
-     that have a default value (in the inner/included launch file). Required args have to be passed
-     explicitly.
-     Nest includes in ``group`` tags to scope them (see also ``group`` attributes ``scoped`` and ``forwarding``).
+     In ROS 2, it's not.
+     This means the values of ``arg`` tags are propated into included launch files as if ``pass_all_args="true"`` were used in ROS 1.
+     However, this propagation only works for args that have a default value (in the inner/included launch file).
+     Required args have to be passed explicitly.
+     Nest includes in ``group`` tags to scope them (see also ``group`` attributes ``scoped`` and ``forwarding`` ).
    * ``ns`` attribute is not supported.
      See example of ``push_ros_namespace`` tag for a workaround.
    * ``arg`` tag nested in an ``include`` tag is now ``let``.
@@ -290,11 +290,9 @@ group
    * ``clear_params`` attribute isn't available.
    * It doesn't accept ``remap`` nor ``param`` tags as children.
    * It has two new attributes: ``scoped`` and ``forwarding`` (both are true by default).
-     If ``scoped`` is false, the group does not introduce a new variable scope, so actions
-     done to variables inside the group also affect the outside variables.
-     If ``forwarding`` is false, no outside launch configurations (``arg``s) are available
-     inside the group. This can be useful to isolate an included launch file and thus
-     prevent collisions in argument names.
+     If ``scoped`` is false, the group does not introduce a new variable scope, so actions done to variables inside the group also affect the outside variables.
+     If ``forwarding`` is false, no outside launch configurations ( ``arg`` ) are available inside the group.
+     This can be useful to isolate an included launch file and thus prevent collisions in argument names.
 
 .. _launch-prefix-example:
 
