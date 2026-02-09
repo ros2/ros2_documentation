@@ -64,8 +64,8 @@ Finally, we're going to define the plugin in an xml file called ``plugins.xml`` 
      </class>
    </library>
 
-The name is the name of the class we'll create.
-The type is the way we would import the class in Python, i.e. ``package_name.name_of_file.class_name``
+The ``name`` attribute is the name of the class we'll create.
+The ``type`` attribute is the way we would import the class in Python, i.e. ``package_name.name_of_file.class_name``
 
 Defining the Plugin
 -------------------
