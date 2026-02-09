@@ -4,7 +4,7 @@ Create an rqt_bag Plugin
 Let's say you have bags of data and you want to be able to visualize them.
 ``rqt_bag`` gives you the ability to scroll through the recorded messages and visualize the raw message values.
 However, often may want something more visual, or to do some post-processing on the raw message.
-For that, you can write an rqt_bag plugin, using the proof-of-concept Python plugin system.
+For that, you can write an rqt_bag plugin, using the Python plugin system.
 That way you can go from a simple visualization of the messages...
 
 .. image:: images/rqtbag_plugin_base.png
@@ -36,6 +36,7 @@ Start with a basic ``ament_python`` package, and insert the following into your 
          <rqt_bag plugin="${prefix}/plugins.xml"/>
        </export>
 
+What we're doing here is making our package depend on the RQT Bag and Diagnostic Messages packages and then exporting an XML file that defines our RQT plugins.
 In ``setup.py``, insert the following line:
 
 .. code:: python
