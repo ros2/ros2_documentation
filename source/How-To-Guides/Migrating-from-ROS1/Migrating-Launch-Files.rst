@@ -183,7 +183,7 @@ include
 
    * Available in ROS 1, included content was scoped.
      In ROS 2, it's not.
-     This means the values of ``arg`` tags are propated into included launch files as if ``pass_all_args="true"`` were used in ROS 1.
+     This means the values of ``arg`` tags are propagated into included launch files as if ``pass_all_args="true"`` were used in ROS 1.
      However, this propagation only works for args that have a default value (in the inner/included launch file).
      Required args have to be passed explicitly.
      Nest includes in ``group`` tags to scope them (see also ``group`` attributes ``scoped`` and ``forwarding`` ).
