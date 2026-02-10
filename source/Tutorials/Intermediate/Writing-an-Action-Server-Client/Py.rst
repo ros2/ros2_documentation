@@ -347,7 +347,7 @@ Here's the callback function for feedback messages:
     :language: python
     :lines: 41-43
 
-In the callback we get the feedback portion of the message and print the ``partial_sequence`` field to the screen.
+In the callback we get the feedback portion of the message and print the ``sequence`` field to the screen.
 
 We need to register the callback with the action client.
 This is achieved by additionally passing the callback to the action client when we send a goal:
