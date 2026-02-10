@@ -117,7 +117,7 @@ Rows in the table marked in green are the currently supported distributions.
      - May 23, 2022
      - |humble|
      - May 2027
-     - `Audrow Nash <https://github.com/audrow>`_
+     - `Christophe Bédard <https://github.com/christophebedard>`_ / `Audrow Nash <https://github.com/audrow>`_
    * - :doc:`Galactic Geochelone <Releases/Release-Galactic-Geochelone>`
      - May 23, 2021
      - |galactic|
