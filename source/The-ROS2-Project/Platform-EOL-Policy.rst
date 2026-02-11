@@ -36,10 +36,10 @@ Before a target platform reaches EOL:
 
 After a target platform reaches EOL:
 
-* Update ROS distribution to state the target platform is EOL, and will not receive any more updates.
+* Update ROS distribution to state the target platform will not receive updated ROS packages.
 * Announce that the ROS distribution has dropped support for that target platform on Discourse.
 * Consider making one last release to that target platform if:
-    * You did not already do so just prior to EOL, and
+    * You did not already do so prior to EOL, and
     * The updates seem unlikely to have regressions, and
     * The ROS Buildfarm still has runners for that target platform.
 * Merge your pull request to disable buildfarm jobs.
