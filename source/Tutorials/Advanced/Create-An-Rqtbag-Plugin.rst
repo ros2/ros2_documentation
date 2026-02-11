@@ -342,7 +342,6 @@ Here are the new imports:
 
    from python_qt_binding.QtGui import QPen
    from rclpy.time import Time
-   import math
    from rclpy.serialization import deserialize_message
    from rqt_bag.bag_helper import to_sec
 
