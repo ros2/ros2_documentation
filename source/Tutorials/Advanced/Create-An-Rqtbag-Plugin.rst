@@ -1,9 +1,9 @@
 Create an rqt_bag Plugin
 ========================
 
-Let's say you have bags of data and you want to be able to visualize them.
+Let's say you have bag files and you want to be able to create a custom visualization of some data.
 ``rqt_bag`` gives you the ability to scroll through the recorded messages and visualize the raw message values.
-However, often may want something more visual, or to do some post-processing on the raw message.
+However, you may sometimes want a more visual presentation, or you need to do some post-processing on the raw messages.
 For that, you can write an rqt_bag plugin, using the Python plugin system.
 That way you can go from a simple visualization of the messages...
 
@@ -25,25 +25,29 @@ Package Setup
 -------------
 
 We're going to create a package called ``rqt_bag_diagnostics_demo``.
-Start with a basic ``ament_python`` package, and insert the following into your ``package.xml``.
+Start by creating a basic ``ament_python`` package, e.g. by calling:
+
+.. code:: console
+
+       $ ros2 pkg create --build-type ament_python --dependencies diagnostic_msgs python_qt_binding rqt_bag \
+         --description "rqt_bag plugin for diagnostics_msgs" --license Apache-2.0 \
+         --maintainer-name "My Name" --maintainer-email "my@name.robots" \
+         rqt_bag_diagnostics_demo
+
+Edit the relevant parts of the generated ``package.xml`` to look like this:
 
 .. code:: xml
 
-       <depend>diagnostic_msgs</depend>
-       <depend>rqt_bag</depend>
+       <exec_depend>diagnostic_msgs</exec_depend>
+       <exec_depend>python_qt_binding</exec_depend>
+       <exec_depend>rqt_bag</exec_depend>
        <export>
          <build_type>ament_python</build_type>
          <rqt_bag plugin="${prefix}/plugins.xml"/>
        </export>
 
-What we're doing here is making our package depend on the RQT Bag and Diagnostic Messages packages and then exporting an XML file that defines our RQT plugins.
-In ``setup.py``, insert the following line:
-
-.. code:: python
-
-       package_dir={'': 'src'},
-
-and add
+What we're doing here is making our package depend on the rqt_bag, python_qt_binding and diagnostic_msgs packages and then exporting an XML file that defines our rqt_bag plugins.
+In ``setup.py``, add the following line
 
 .. code:: python
 
@@ -51,27 +55,35 @@ and add
 
 to the ``data_files``.
 
-Finally, we're going to define the plugin in an xml file called ``plugins.xml`` (as referenced in the ``package.xml``)
+Next, we're going to define the plugin in an XML file called ``plugins.xml`` (as referenced in ``package.xml``).
+This file describes all plugins provided by this package (there can be multiple plugins per package).
 
 .. code:: xml
 
-   <library path="src">
+   <library path=".">
      <class name="DiagnosticBagPlugin"
             type="rqt_bag_diagnostics_demo.the_plugin.DiagnosticBagPlugin"
             base_class_type="rqt_bag::Plugin">
-       <description>
-       </description>
+       <description>Awesome Diagnostic</description>
      </class>
    </library>
 
 The ``name`` attribute is the name of the class we'll create.
-The ``type`` attribute is the way we would import the class in Python, i.e. ``package_name.name_of_file.class_name``
+The ``type`` attribute is the way we would import the plugin's class in Python, i.e. ``package_name.module_name.class_name``
 
 Defining the Plugin
 -------------------
 
-In this particular Python library, we need to define the package within the ``src`` folder, so the ``__init__.py`` should be located at ``src/package_name/__init__.py`` relative to the package root.
-As referenced in the ``plugins.xml``, all the code that follows will be in ``src/rqt_bag_diagnostics_demo/the_plugin.py``.
+Now we need to actually implement the ``the_plugin.py`` Python module (as referenced in ``plugins.xml``).
+First, make sure there is an empty file ``__init__.py`` in ``rqt_bag_diagnostics_demo`` subfolder, turning it into a Python package.
+
+.. note::
+
+   Please note that according to the current Python standards in ROS, the folder with ROS package (``rqt_bag_diagnostics_demo``) contains a subfolder with the same name.
+   Therefore, the full path will be ``WORKSPACE/src/rqt_bag_diagnostics_demo/rqt_bag_diagnostics_demo/__init__.py``.
+
+Now create ``the_plugin.py`` next to ``__init__.py``.
+This file will contain all code of the plugin.
 
 First, the core Plugin class.
 
@@ -96,6 +108,7 @@ First, the core Plugin class.
            pass
 
        def get_view_class(self):
+           # This method is required; we will implement it later
            return None
 
        def get_renderer_class(self):
@@ -120,7 +133,7 @@ TopicMessageView
 Version 1
 ~~~~~~~~~
 
-We're going to create a class that extends the ``TopicMessageView`` class.
+We're going to create a class that extends the ``TopicMessageView`` class (still in ``the_plugin.py``).
 First, add the import:
 
 .. code:: python
@@ -139,7 +152,7 @@ Then define this new class:
            print(f'{topic}: {ros_message}')
 
 Here we define two things.
-The name string defines what we'll see in the menu of ``rqt_bag``.
+The ``name`` class variable defines what rqt_bag shows when right-clicking a ``DiagnosticStatus`` topic in the timeline.
 The ``message_viewed`` method defines what to do when the message is selected.
 So here, we'll just print the message to terminal for now.
 
@@ -149,6 +162,11 @@ We need to hook this class we've created into the plugin infrastructure, and for
 
        def get_view_class(self):
            return DiagnosticPanel
+
+.. note::
+
+   Do not type in ``return DiagnosticPanel()`` (with the ``()``).
+   Just ``return DiagnosticPanel`` is correct.
 
 To see this in action, open up the provided bag file, and right click on the diagnostic track.
 It will give you two options under the "View": Raw, and our "Awesome Diagnostic."
@@ -206,6 +224,7 @@ Then update the ``DiagnosticPanel`` class to the following:
 
 In the constructor, we create a ``QWidget`` and override its ``paintEvent`` method.
 Now when we get a message with ``message_viewed``, we save it, and update the widget, which will in turn call our ``paintEvent``.
+Do not call ``paintEvent`` manually, that has to be done by Qt.
 Before a message is selected, we'll just paint a white rectangle.
 Otherwise, we'll draw a circle, using our handy helper method to relate the color to what level the diagnostic is at.
 
@@ -221,7 +240,7 @@ TimelineRenderer
 Version 1
 ~~~~~~~~~
 
-To draw on the timeline, we extend the ``TimelineRenderer`` class.
+To draw on the timeline, we extend the ``TimelineRenderer`` class (still in ``the_plugin.py``).
 Add an import:
 
 .. code:: python
@@ -241,7 +260,7 @@ Then add the new class.
            painter.drawRect(x, y, width, height)
 
 You can customize how tall the message's portion of the timeline is with the ``msg_combine_px`` parameter.
-The key method to override is the ``draw_timeline_segment`` method which gives you potions of the timeline to draw.
+The key method to override is ``draw_timeline_segment()`` which gives you portions of the timeline to draw.
 For now we'll just draw blue rectangles on each segment.
 
 Just like the message view, you also have to edit the plugin to return your class.
@@ -273,7 +292,7 @@ Here are the new imports:
    import math
    from rclpy.serialization import deserialize_message
 
-Then update ``draw_timeline_segment``:
+Then update ``draw_timeline_segment()``:
 
 .. code:: python
 
@@ -296,7 +315,7 @@ Then update ``draw_timeline_segment``:
                p_x = self.timeline.map_stamp_to_x(t / 1e9)
                painter.drawLine(p_x, y, p_x, y + height - 1)
 
-Using the topic, start and end parameters of the method, we can get the bag entries that correspond with this segment of the timeline.
+Using the ``topic``, ``start`` and ``end`` parameters of the method, we can get the bag entries that correspond with this segment of the timeline.
 We can then get the actual message and use it to draw.
 Here we are drawing a line based on the level of the diagnostic message.
 We can automatically figure out where to draw the message horizontally using the ``map_stamp_to_x`` method.
@@ -305,7 +324,7 @@ We can automatically figure out where to draw the message horizontally using the
    :alt: screenshot of rqt_bag with differently colored bars on the timeline
 
 
-The alternative to this weird way of accessing the messages is to use the
+If computing the message representation on timeline is more computationally demanding, you should use
 `Timeline Cache <https://github.com/ros-visualization/rqt_bag/blob/rolling/rqt_bag/src/rqt_bag/timeline_cache.py>`__
 like the
 `ImageTimelineViewer <https://github.com/ros-visualization/rqt_bag/blob/rolling/rqt_bag_plugins/src/rqt_bag_plugins/image_timeline_renderer.py>`__
