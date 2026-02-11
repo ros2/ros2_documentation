@@ -134,9 +134,9 @@ Within the ``action`` directory, create a file called ``Fibonacci.action`` with 
   ---
   int32[] sequence
   ---
-  int32[] partial_sequence
+  int32[] sequence
 
-The goal request is the ``order`` of the Fibonacci sequence we want to compute, the result is the final ``sequence``, and the feedback is the ``partial_sequence`` computed so far.
+The goal request is the ``order`` of the Fibonacci sequence we want to compute, the result is the final ``sequence``, and the feedback is the ``sequence`` computed so far.
 
 3 Building an action
 ^^^^^^^^^^^^^^^^^^^^
