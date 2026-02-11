@@ -3,14 +3,20 @@ Create an rqt_bag Plugin
 
 Let's say you have bag files and you want to be able to create a custom visualization of some data.
 ``rqt_bag`` gives you the ability to scroll through the recorded messages and visualize the raw message values.
-However, you may sometimes want a more visual presentation, or you need to do some post-processing on the raw messages.
-For that, you can write an rqt_bag plugin, using the Python plugin system.
-That way you can go from a simple visualization of the messages...
+
+.. code:: console
+
+    $ ros2 run rqt_bag rqt_bag ~/path/to/BagFile
+    $ rqt_bag ~/path/to/BagFile                     # alternative
+
+This provides a standard uniform visualization:
 
 .. image:: images/rqtbag_plugin_base.png
    :alt: screenshot of standard rqt_bag view
 
-to something like this:
+However, you may sometimes want a more visual presentation, or you need to do some post-processing on the raw messages.
+For that, you can write an ``rqt_bag`` plugin, using the Python plugin system.
+This gives you the ability to get a customized visualization of the messages like this:
 
 .. image:: images/rqtbag_plugin_full.png
    :alt: screenshot of rqt_bag with colored timeline and extra panel on the side
@@ -213,7 +219,7 @@ We need to hook this class we've created into the plugin infrastructure, and for
    Do not type in ``return DiagnosticPanel()`` (with the ``()``).
    Just ``return DiagnosticPanel`` is correct.
 
-To see this in action, open up the provided bag file, and right click on the diagnostic track.
+To see this in action, run ``rqt_bag`` with your bag file, and right click on the diagnostic track.
 It will give you two options under the "View": Raw, and our "Awesome Diagnostic."
 Clicking this should open a panel and you can scroll through the messages and watch them print.
 
@@ -226,7 +232,7 @@ Version 2
 
 ``TopicMessageView`` is itself an extension of a ``QObject``.
 There's lots of things you could do with this using all the might and power of Qt.
-This is not a python Qt tutorial sadly.
+This is not a python Qt tutorial sadly, `though there are many available online <https://doc.qt.io/qtforpython-6/examples/example_widgets_painting_basicdrawing.html>`_.
 So we're going to just add a simple QWidget and draw on it.
 First, add the following imports:
 
@@ -249,9 +255,10 @@ Then update the ``DiagnosticPanel`` class to the following:
            self.msg = None
            self.widget.paintEvent = self.paintEvent
 
-       def message_viewed(self, bag, msg_details):
-           super(DiagnosticPanel, self).message_viewed(bag, msg_details)
-           _, self.msg, _ = msg_details
+       def message_viewed(self, bag, entry, ros_message, msg_type_name, topic):
+           super(DiagnosticPanel, self).message_viewed(bag=bag, entry=entry,
+                                                       ros_message=ros_message, msg_type_name=msg_type_name, topic=topic)
+           self.msg = ros_message
            self.widget.update()
 
        def paintEvent(self, event):
@@ -266,6 +273,7 @@ Then update the ``DiagnosticPanel`` class to the following:
                color = get_color(self.msg)
                qp.setBrush(QBrush(color))
                qp.drawEllipse(0, 0, rect.width(), rect.height())
+           qp.end()
 
 In the constructor, we create a ``QWidget`` and override its ``paintEvent`` method.
 Now when we get a message with ``message_viewed``, we save it, and update the widget, which will in turn call our ``paintEvent``.
@@ -327,7 +335,7 @@ Version 2
 ~~~~~~~~~
 
 Okay, now we actually want to customize how the messages are drawn in the timeline based on the messages themselves.
-For that, there's a wonky bunch of magical incantations you need to read the messages out of the bag files.
+For that, you will need to read and deserialize the messages from the bag file.
 Here are the new imports:
 
 .. code:: python
@@ -361,7 +369,7 @@ Then update ``draw_timeline_segment()``:
 Using the ``topic``, ``start`` and ``end`` parameters of the method, we can get the bag entries that correspond with this segment of the timeline.
 We can then get the actual message and use it to draw.
 Here we are drawing a line based on the level of the diagnostic message.
-We can automatically figure out where to draw the message horizontally using the ``map_stamp_to_x`` method.
+We can automatically figure out where to draw the message horizontally using the ``map_stamp_to_x()`` method which converts float seconds to widget pixels.
 
 .. image:: images/rqtbag_plugin_timeline.png
    :alt: screenshot of rqt_bag with differently colored bars on the timeline
