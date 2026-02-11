@@ -210,17 +210,17 @@ Then update the ``DiagnosticPanel`` class to the following:
            self.widget.update()
 
        def paintEvent(self, event):
-           self.qp = QPainter()
-           self.qp.begin(self.widget)
+           qp = QPainter()
+           qp.begin(self.widget)
 
            rect = event.rect()
 
            if self.msg is None:
-               self.qp.fillRect(0, 0, rect.width(), rect.height(), Qt.white)
+               qp.fillRect(0, 0, rect.width(), rect.height(), Qt.white)
            else:
                color = get_color(self.msg)
-               self.qp.setBrush(QBrush(color))
-               self.qp.drawEllipse(0, 0, rect.width(), rect.height())
+               qp.setBrush(QBrush(color))
+               qp.drawEllipse(0, 0, rect.width(), rect.height())
 
 In the constructor, we create a ``QWidget`` and override its ``paintEvent`` method.
 Now when we get a message with ``message_viewed``, we save it, and update the widget, which will in turn call our ``paintEvent``.
@@ -255,9 +255,9 @@ Then add the new class.
        def __init__(self, timeline, height=80):
            TimelineRenderer.__init__(self, timeline, msg_combine_px=height)
 
-       def draw_timeline_segment(self, painter, topic, start, end, x, y, width, height):
+       def draw_timeline_segment(self, painter: QPainter, topic, start: float, end: float, x: float, y: int, width: float, height: int):
            painter.setBrush(QBrush(Qt.blue))
-           painter.drawRect(x, y, width, height)
+           painter.drawRect(int(x), y, int(width), height)
 
 You can customize how tall the message's portion of the timeline is with the ``msg_combine_px`` parameter.
 The key method to override is ``draw_timeline_segment()`` which gives you portions of the timeline to draw.
@@ -291,19 +291,16 @@ Here are the new imports:
    from rclpy.time import Time
    import math
    from rclpy.serialization import deserialize_message
+   from rqt_bag.bag_helper import to_sec
 
 Then update ``draw_timeline_segment()``:
 
 .. code:: python
 
-       def draw_timeline_segment(self, painter, topic, start, end, x, y, width, height):
-           def _convert_stamp(float_t):
-               nano, sec = math.modf(float_t)
-               return Time(seconds=int(sec), nanoseconds=int(nano * 1e9))
-
+       def draw_timeline_segment(self, painter: QPainter, topic, start: float, end: float, x: float, y: int, width: float, height: int):
            bag_timeline = self.timeline.scene()
-           start_t = _convert_stamp(start)
-           end_t = _convert_stamp(end)
+           start_t = Time(seconds=start)
+           end_t = Time(seconds=end)
 
            for bag, entry in bag_timeline.get_entries_with_bags([topic], start_t, end_t):
                topic, raw_data, t = bag_timeline.read_message(bag, entry.timestamp, topic)
@@ -312,7 +309,8 @@ Then update ``draw_timeline_segment()``:
                painter.setBrush(QBrush(color))
                painter.setPen(QPen(color, 5))
 
-               p_x = self.timeline.map_stamp_to_x(t / 1e9)
+               t_float = to_sec(Time(nanoseconds=t))
+               p_x = int(self.timeline.map_stamp_to_x(t_float))
                painter.drawLine(p_x, y, p_x, y + height - 1)
 
 Using the ``topic``, ``start`` and ``end`` parameters of the method, we can get the bag entries that correspond with this segment of the timeline.
