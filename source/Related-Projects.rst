@@ -36,4 +36,5 @@ Company-driven Projects
 
    Related-Projects/Intel-ROS2-Projects
    Related-Projects/Nvidia-ROS2-Projects
+   Related-Projects/Visualizing-Data-And-Teleoperating-With-Phantom-Bridge
    Related-Projects/Visualizing-ROS-2-Data-With-Foxglove

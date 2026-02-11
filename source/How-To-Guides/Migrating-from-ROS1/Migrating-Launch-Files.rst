@@ -43,6 +43,7 @@ node
 
    * ``type`` attribute is now ``exec``.
    * ``ns`` attribute is now ``namespace``.
+   * ``required="true"`` is now ``on_exit="shutdown"``.
    * The following attributes aren't available: ``machine``, ``respawn_delay``, ``clear_params``.
 
 Example
@@ -183,7 +184,10 @@ include
 
    * Available in ROS 1, included content was scoped.
      In ROS 2, it's not.
-     Nest includes in ``group`` tags to scope them.
+     This means the values of ``arg`` tags are propagated into included launch files as if ``pass_all_args="true"`` were used in ROS 1.
+     However, this propagation only works for args that have a default value (in the inner/included launch file).
+     Required args have to be passed explicitly.
+     Nest includes in ``group`` tags to scope them (see also ``group`` attributes ``scoped`` and ``forwarding`` ).
    * ``ns`` attribute is not supported.
      See example of ``push_ros_namespace`` tag for a workaround.
    * ``arg`` tag nested in an ``include`` tag is now ``let``.
@@ -192,6 +196,7 @@ include
    * There is no support for nested ``env`` tags.
      ``set_env`` and ``unset_env`` can be used instead.
    * Both ``clear_params`` and ``pass_all_args`` attributes aren't supported.
+     ROS 2 launch behaves as if ``pass_all_args`` were set to true (see above).
 
 Examples
 ~~~~~~~~
@@ -285,6 +290,10 @@ group
      See the new ``push_ros_namespace`` tag as a workaround.
    * ``clear_params`` attribute isn't available.
    * It doesn't accept ``remap`` nor ``param`` tags as children.
+   * It has two new attributes: ``scoped`` and ``forwarding`` (both are true by default).
+     If ``scoped`` is false, the group does not introduce a new variable scope, so actions done to variables inside the group also affect the outside variables.
+     If ``forwarding`` is false, no outside launch configurations ( ``arg`` ) are available inside the group.
+     This can be useful to isolate an included launch file and thus prevent collisions in argument names.
 
 .. _launch-prefix-example:
 
@@ -418,6 +427,11 @@ There are, however, some changes w.r.t. ROS 1:
 * ``arg`` has been replaced with ``var``.
   It looks at configurations defined either with ``arg`` or ``let`` tag.
 * ``eval`` and ``dirname`` substitutions require escape characters for string values, e.g. ``if="$(eval '\'$(var variable)\' == \'val1\'')"``.
+  You can also use HTML escapes like ``&quot;`` .
+* ``eval`` does not pass configurations ( ``arg`` ) as local Python variables.
+  They have to be accessed via ``$(var name)``.
+* The argument of ``eval`` has to be a quoted string in ROS 2.
+  That is also the reason why quotes inside the expression have to be escaped.
 
 Type inference rules
 --------------------

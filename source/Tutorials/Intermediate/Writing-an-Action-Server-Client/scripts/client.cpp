@@ -63,7 +63,7 @@ public:
     {
       std::stringstream ss;
       ss << "Next number in sequence received: ";
-      for (auto number : feedback->partial_sequence) {
+      for (auto number : feedback->sequence) {
         ss << number << " ";
       }
       RCLCPP_INFO(this->get_logger(), ss.str().c_str());

@@ -7,7 +7,7 @@ Setting up efficient intra-process communication
 ================================================
 
 .. contents:: Table of Contents
-   :depth: 1
+   :depth: 2
    :local:
 
 Background
@@ -256,7 +256,7 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/intra_process_demo/src/cy
 Unlike the previous demo, this demo uses only one Node, instantiated twice with different names and configurations.
 The graph ends up being ``pipe1`` -> ``pipe2`` -> ``pipe1`` ... in a loop.
 
-The line ``pipe1->pub->publish(msg);`` kicks the process off, but from then on the messages are passed back and forth between the nodes by each one calling publish within its own subscription callback.
+The line ``pipe1->pub->publish(std::move(msg));`` kicks the process off, but from then on the messages are passed back and forth between the nodes by each one calling publish within its own subscription callback.
 
 The expectation here is that the nodes pass the message back and forth, once a second, incrementing the value of the message each time.
 Because the message is being published and subscribed to as a ``unique_ptr`` the same message created at the beginning is continuously used.

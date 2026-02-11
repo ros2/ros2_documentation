@@ -101,6 +101,12 @@ To display the type and current value of a parameter, use the command:
 
   $ ros2 param get <node_name> <parameter_name>
 
+You can also query a parameter across all nodes by omitting the node name:
+
+.. code-block:: console
+
+  $ ros2 param get <parameter_name>
+
 Let's find out the current value of ``/turtlesim``'s parameter ``background_g``:
 
 .. code-block:: console
@@ -111,6 +117,14 @@ Let's find out the current value of ``/turtlesim``'s parameter ``background_g``:
 Now you know ``background_g`` holds an integer value.
 
 If you run the same command on ``background_r`` and ``background_b``, you will get the values ``69`` and ``255``, respectively.
+
+You can also check the ``use_sim_time`` parameter across all nodes:
+
+.. code-block:: console
+
+  $ ros2 param get use_sim_time
+
+This will display the parameter value for each node that has this parameter set.
 
 4 ros2 param set
 ^^^^^^^^^^^^^^^^
