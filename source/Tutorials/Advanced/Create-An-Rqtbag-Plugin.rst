@@ -119,7 +119,8 @@ This file describes all plugins provided by this package (there can be multiple 
      </class>
    </library>
 
-The ``name`` attribute is the name of the plugin we create. It has to be unique among all plugins, but you will not use it in any other way.
+The ``name`` attribute is the name of the plugin we create.
+It has to be unique among all plugins, but you will not use it in any other way.
 The ``type`` attribute is the way we would import the plugin's class in Python, i.e. ``package_name.module_name.class_name``
 
 Defining the Plugin
