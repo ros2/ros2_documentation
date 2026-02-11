@@ -43,6 +43,7 @@ node
 
    * ``type`` attribute is now ``exec``.
    * ``ns`` attribute is now ``namespace``.
+   * ``required="true"`` is now ``on_exit="shutdown"``.
    * The following attributes aren't available: ``machine``, ``respawn_delay``, ``clear_params``.
 
 Example
