@@ -429,7 +429,7 @@ We won't create a subscriber in this tutorial, but you can try to write one your
          contact.first_name = "John";
          contact.last_name = "Doe";
          contact.phone_number = "1234567890";
-         contact.phone_type = message.PHONE_TYPE_MOBILE;
+         contact.phone_type = contact.PHONE_TYPE_MOBILE;
          msg->address_book.push_back(contact);
        }
        {
@@ -437,7 +437,7 @@ We won't create a subscriber in this tutorial, but you can try to write one your
          contact.first_name = "Jane";
          contact.last_name = "Doe";
          contact.phone_number = "4254242424";
-         contact.phone_type = message.PHONE_TYPE_HOME;
+         contact.phone_type = contact.PHONE_TYPE_HOME;
          msg->address_book.push_back(contact);
        }
 
