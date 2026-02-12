@@ -16,7 +16,7 @@ What to expect
 When a target platform reaches EOL:
 
 * All ROS distributions immediately drop support for that platform.
-* Existing ROS packages will remain functional, but they will not be updated.
+* Existing ROS packages will remain available and functional, but they will no longer be updated.
 
 When a target platform reaches EOL, it stops receiving critical bug and security fixes.
 ROS distributions drop support immediately so that the ROS buildfarm may remove those runners to protect itself from potential unpatched security vulnerabilities.
