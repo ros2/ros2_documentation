@@ -7,7 +7,7 @@ Platform EOL Policy
    :depth: 1
    :local:
 
-Every :doc:`ROS distribution <Releases>` has **target platforms**, such as Windows 11 or Ubuntu 24.04.
+Every :doc:`ROS distribution <Releases>` has **target platforms**, also known as operating systems, such as Windows 11 or Ubuntu 24.04.
 This page explains what happens when a target platform reaches its own end-of-life (EOL) before the ROS distribution reaches EOL.
 
 What to expect
