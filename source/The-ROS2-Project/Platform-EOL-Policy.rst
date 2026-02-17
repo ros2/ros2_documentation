@@ -22,7 +22,7 @@ When a target platform reaches EOL, it stops receiving critical bug and security
 To protect ourselves from potentially unpatched security vulnerabilities, we proactively drop all EOL platform job runners from the ROS build farm.
 
 If you're using a target platform that has reached EOL, you should expect to stop receiving updated ROS packages.
-However, ROS Bosses may choose to perform one last update on a target platform after it reaches EOL.
+However, ROS Bosses may choose to perform an update on a target platform after it reaches EOL in exceptional circumstances if the infrastructure is still available.
 
 For ROS Bosses
 --------------
