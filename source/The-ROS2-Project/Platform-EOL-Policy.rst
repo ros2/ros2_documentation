@@ -17,7 +17,7 @@ Policy
 ------
 
 Every ROS distribution supports certain **platforms**, such as Windows 11 or Ubuntu 24.04.
-**Vendors**, such as Microsoft or Canonical, decide how long they will support one of their platforms.
+**Vendors** of these platforms, such as Microsoft or Canonical, decide how long they will support one of their platforms.
 When a vendor decides a platform has reached EOL, they usually stop publishing critical bug and security fixes.
 To protect ourselves from potentially unpatched security vulnerabilities, we proactively remove all jobs on EOL platforms from the ROS build farm.
 
