@@ -94,7 +94,7 @@ The ROS PMC currently consists of the following constituents:
      - Member
      - PST (UTC-8)/PDT (UTC-7)
    * - Chris Lalancette
-     - `Intrinsic <https://www.intrinsic.ai/>`_
+     - Independent
      - `clalancette <https://github.com/clalancette>`_
      - Member (former Project Leader)
      - N/A
