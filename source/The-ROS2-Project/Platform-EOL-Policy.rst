@@ -31,7 +31,7 @@ For ROS Bosses
 Before a target platform reaches EOL:
 
 * Make sure the ROS distribution documentation includes EOL dates for any platform that reaches EOL before the ROS distribution.
-* Post an announcement about the platform reaching EOL at least 2 syncs beforehand so that package maintainers have time to update their packages.
+* Post an announcement about the platform reaching EOL at least 2 syncs (roughly 60-90 days) beforehand so that package maintainers have time to update their packages.
 * Open a `pull request disabling buildfarm jobs for that platform <https://github.com/ros2/ros_buildfarm_config>`_ and seek review from the `Infrastructure PMC <https://osralliance.org/wp-content/uploads/2024/03/infrastructure_project_charter.pdf>`_.
 * Make one last sync to that platform.
 
