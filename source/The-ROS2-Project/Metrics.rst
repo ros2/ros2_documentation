@@ -19,7 +19,7 @@ Live Project Metrics
 - `Our OSU OSL AWStats dashboard <https://awstats.osuosl.org/reports/packages.ros.org/2026/01/awstats.packages.ros.org.html>`_ provides real time data on ROS package downloads.
 *Note that you will need to specify the current month and year in the AWStats URL to get the latest information.*
 - Github mains a complete list of packages and projects tagged with `#ROS <https://github.com/topics/ros>`_ and `#ROS2 <https://github.com/topics/ros2>`_.
-- An up to date list of citations for the original `ROS paper <https://scholar.google.com/scholar?cites=1227661396257612398&as_sdt=2005&sciodt=0,5&hl=en>`_ (`Quigley et al., 2009 <http://lars.mec.ua.pt/public/LAR%20Projects/BinPicking/2016_RodrigoSalgueiro/LIB/ROS/icraoss09-ROS.pdf>`_), and the canonical `ROS 2 paper <https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1227661396257612398&as_sdt=5>`_ (`Macenski et al., 2022 <https://www.science.org/doi/abs/10.1126/scirobotics.abm6074>`_) are both available on Google Scholar. 
+- An up to date list of citations for the original `ROS paper <https://scholar.google.com/scholar?cites=1227661396257612398&as_sdt=2005&sciodt=0,5&hl=en>`_ (`Quigley et al., 2009 <http://lars.mec.ua.pt/public/LAR%20Projects/BinPicking/2016_RodrigoSalgueiro/LIB/ROS/icraoss09-ROS.pdf>`_), and the canonical `ROS 2 paper <https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1227661396257612398&as_sdt=5>`_ (`Macenski et al., 2022 <https://www.science.org/doi/abs/10.1126/scirobotics.abm6074>`_) are both available on Google Scholar.
 
 Periodic Metrics Report
 -----------------------
