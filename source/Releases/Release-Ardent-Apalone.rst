@@ -16,6 +16,7 @@ Supported Platforms
 
 This version of ROS 2 is supported on three platforms:
 
+
 * Ubuntu 16.04 (Xenial)
 * Mac macOS 10.12 (Sierra)
 * Windows 10
