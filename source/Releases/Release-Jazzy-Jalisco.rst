@@ -35,7 +35,301 @@ Tier 3 platforms:
 * macOS: ``amd64``
 * Debian Bookworm: ``amd64``
 
-For more information about RMW implementations, compiler / interpreter versions, and system dependency versions see `REP 2000 <https://reps.openrobotics.org/rep-2000/>`__.
+Targeted platforms:
+
+<table border="1">
+  <colgroup>
+    <col width="11%">
+    <col width="14%">
+    <col width="12%">
+    <col width="14%">
+    <col width="11%">
+    <col width="10%">
+    <col width="14%">
+    <col width="13%">
+  </colgroup>
+  <thead valign="bottom">
+    <tr><th class="head">Architecture</th>
+      <th class="head">Ubuntu Noble
+	(24.04)</th>
+      <th class="head">Windows 10
+	(VS2019)</th>
+      <th class="head">RHEL 9</th>
+      <th class="head">Ubuntu Jammy
+	(22.04)</th>
+      <th class="head">macOS</th>
+      <th class="head">Debian Bookworm
+	(12)</th>
+      <th class="head">OpenEmbedded /
+	Yocto Project</th>
+    </tr>
+  </thead>
+  <tbody valign="top">
+    <tr><td>amd64</td>
+      <td>Tier 1 [d][a][s]</td>
+      <td>Tier 1 [a][s]</td>
+      <td>Tier 2 [d][a][s]</td>
+      <td>Tier 3 [s]</td>
+      <td>Tier 3 [s]</td>
+      <td>Tier 3 [s]</td>
+      <td>Tier 3 [s]</td>
+    </tr>
+    <tr><td>arm64</td>
+      <td>Tier 1 [d][a][s]</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>Tier 3 [s]</td>
+      <td>Tier 3 [s]</td>
+    </tr>
+    <tr><td>arm32</td>
+      <td>Tier 3 [s]</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>Tier 3 [s]</td>
+      <td>Tier 3 [s]</td>
+    </tr>
+  </tbody>
+</table>
+
+
+The following indicators show what delivery mechanisms are available for
+each platform.
+
+\" \[d\] \" Distribution-specific (Debian, RPM, etc.) packages will be
+provided for this platform for packages submitted to the rosdistro.
+
+\" \[a\] \" Binary releases are provided as a single archive per
+platform containing all packages in the Jazzy ROS 2 repos file[^13].
+
+\" \[s\] \" Compilation from source.
+
+Middleware Implementation Support:
+
+<table border="1">
+  <colgroup>
+    <col width="21%">
+    <col width="19%">
+    <col width="12%">
+    <col width="22%">
+    <col width="26%">
+  </colgroup>
+  <thead valign="bottom">
+    <tr><th class="head">Middleware Library</th>
+      <th class="head">Middleware Provider</th>
+      <th class="head">Support Level</th>
+      <th class="head">Platforms</th>
+      <th class="head">Architectures</th>
+    </tr>
+  </thead>
+  <tbody valign="top">
+    <tr><td>rmw_fastrtps_cpp*</td>
+      <td>eProsima Fast-DDS</td>
+      <td>Tier 1</td>
+      <td>All Platforms</td>
+      <td>All Architectures</td>
+    </tr>
+    <tr><td>rmw_cyclonedds_cpp</td>
+      <td>Eclipse Cyclone DDS</td>
+      <td>Tier 1</td>
+      <td>All Platforms</td>
+      <td>All Architectures</td>
+    </tr>
+    <tr><td>rmw_connextdds</td>
+      <td>RTI Connext</td>
+      <td>Tier 1</td>
+      <td>Ubuntu, Windows, and macOS</td>
+      <td>All Architectures except arm64</td>
+    </tr>
+    <tr><td>rmw_fastrtps_dynamic_cpp</td>
+      <td>eProsima Fast-DDS</td>
+      <td>Tier 2</td>
+      <td>All Platforms</td>
+      <td>All Architectures</td>
+    </tr>
+    <tr><td>rmw_gurumdds_cpp</td>
+      <td>GurumNetworks GurumDDS</td>
+      <td>Tier 3</td>
+      <td>Ubuntu and Windows</td>
+      <td>All Architectures except arm32</td>
+    </tr>
+  </tbody>
+</table>
+
+\" \* \" means default RMW implementation.
+
+Middleware implementation support is dependent upon the platform support
+tier. For example a Tier 1 middleware implementation on a Tier 2
+platform can only receive Tier 2 support.
+
+Minimum language requirements:
+
+- C++17
+- Python 3.8
+
+Dependency Requirements:
+
+<table border="1">
+  <colgroup>
+    <col width="13%">
+    <col width="13%">
+    <col width="13%">
+    <col width="8%">
+    <col width="13%">
+    <col width="12%">
+    <col width="14%">
+    <col width="16%">
+  </colgroup>
+  <thead valign="bottom">
+    <tr><th class="head">&nbsp;</th>
+      <th class="head" colspan="2">Required Support</th>
+      <th class="head" colspan="5">Recommended Support</th>
+    </tr>
+    <tr><th class="head">Package</th>
+      <th class="head">Ubuntu Noble</th>
+      <th class="head">Windows 10**</th>
+      <th class="head">RHEL 9</th>
+      <th class="head">Ubuntu Jammy</th>
+      <th class="head">macOS**</th>
+      <th class="head">Debian Bookworm</th>
+      <th class="head">OpenEmbedded**</th>
+    </tr>
+  </thead>
+  <tbody valign="top">
+    <tr><td>CMake</td>
+      <td>3.28.3</td>
+      <td>3.22.0</td>
+      <td>3.20.2</td>
+      <td>3.22.1</td>
+      <td>3.20.0</td>
+      <td>3.25.1</td>
+      <td>3.22.3</td>
+    </tr>
+    <tr><td>EmPY</td>
+      <td>3.3.4</td>
+      <td>3.3.2</td>
+      <td colspan="5">3.3.4</td>
+    </tr>
+    <tr><td>Gazebo</td>
+      <td>Harmonic*</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>Harmonic*</td>
+      <td>Harmonic*</td>
+      <td>Harmonic*</td>
+      <td>N/A</td>
+    </tr>
+    <tr><td>NumPy</td>
+      <td>1.26.4</td>
+      <td>1.18.4</td>
+      <td>1.20.1</td>
+      <td>1.21.5</td>
+      <td>1.18.4</td>
+      <td>1.24.2</td>
+      <td>N/A</td>
+    </tr>
+    <tr><td>Ogre</td>
+      <td colspan="6">1.12.10</td>
+      <td>N/A</td>
+    </tr>
+    <tr><td>OpenCV</td>
+      <td>4.6.0</td>
+      <td>3.4.6*</td>
+      <td>4.6.0</td>
+      <td>4.5.4</td>
+      <td>4.2.0</td>
+      <td>4.6.0</td>
+      <td>4.1.0 / 3.2.0***</td>
+    </tr>
+    <tr><td>OpenSSL</td>
+      <td>3.0.13</td>
+      <td>1.1.1l</td>
+      <td>3.0.7</td>
+      <td>1.1.1l</td>
+      <td>1.1.1f</td>
+      <td>3.0.11</td>
+      <td>1.1.1d / 1.1.1b***</td>
+    </tr>
+    <tr><td>Python</td>
+      <td>3.12.3</td>
+      <td>3.8.3</td>
+      <td>3.9.16</td>
+      <td>3.10.4</td>
+      <td>3.10.8</td>
+      <td>3.11.2</td>
+      <td>3.8.2 / 3.7.5***</td>
+    </tr>
+    <tr><td>Qt</td>
+      <td>5.15.10</td>
+      <td>5.12.12</td>
+      <td>5.15.3</td>
+      <td>5.15.3</td>
+      <td>5.12.3</td>
+      <td>5.15.8</td>
+      <td>5.14.1 / 5.12.5***</td>
+    </tr>
+    <tr><td colspan="2">&nbsp;</td>
+      <td colspan="6"><strong>Linux only</strong></td>
+    </tr>
+    <tr><td>PCL</td>
+      <td>1.14.0</td>
+      <td>N/A</td>
+      <td>1.12.0</td>
+      <td>1.12.1</td>
+      <td>N/A</td>
+      <td>1.13.0</td>
+      <td>1.10.0</td>
+    </tr>
+    <tr><td colspan="8"><strong>RMW DDS Middleware</strong></td>
+    </tr>
+    <tr><td>Cyclone DDS</td>
+      <td colspan="7">0.10.4</td>
+    </tr>
+    <tr><td>Fast-DDS</td>
+      <td colspan="7">2.14.0</td>
+    </tr>
+    <tr><td>Connext DDS</td>
+      <td colspan="5">6.0.1</td>
+      <td colspan="2">N/A</td>
+    </tr>
+    <tr><td>Gurum DDS</td>
+      <td colspan="2">4.2.0</td>
+      <td colspan="5">N/A</td>
+    </tr>
+  </tbody>
+</table>
+
+\" \* \" means that this is not the upstream version (available on the
+official Operating System repositories) but a package distributed by
+OSRF or the community (package built and distributed on custom
+repositories).
+
+\" \*\* \" means that the dependency may see multiple version changes,
+because the dependency uses a package manager that continually updates
+the dependency without a stable API.
+
+\" \*\*\* \" webOS OSE provides this different version.
+
+This document only captures the version at the first release of a ROS
+distribution and will not be updated as the dependencies move forward.
+These versions are thus a low watermark.
+
+Package manager use for dependencies:
+
+- Ubuntu, Debian: apt, pip
+- Windows: Chocolatey, pip
+- macOS: Homebrew, pip
+- RHEL: dnf
+- OpenEmbedded: opkg
+
+Build System Support:
+
+- ament_cmake
+- cmake
+- setuptools
 
 Installation
 ------------
