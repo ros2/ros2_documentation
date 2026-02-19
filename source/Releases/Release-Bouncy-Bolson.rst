@@ -32,45 +32,15 @@ Binary packages as well as instructions for how to compile from source are provi
 
 Targeted platforms:
 
-<table border="1">
-  <colgroup>
-    <col width="10%">
-    <col width="16%">
-    <col width="21%">
-    <col width="17%">
-    <col width="19%">
-    <col width="17%">
-  </colgroup>
-  <thead valign="bottom">
-    <tr><th class="head">&nbsp;</th>
-      <th class="head" colspan="4">Required Support</th>
-      <th class="head">Recommended Support</th>
-    </tr>
-    <tr><th class="head">Architecture</th>
-      <th class="head">Ubuntu Bionic (18.04)</th>
-      <th class="head">MacOS Sierra (10.12)</th>
-      <th class="head">Windows 10 (VS2017)</th>
-      <th class="head">Ubuntu Xenial (16.04) [s]</th>
-      <th class="head">Debian Stretch (9) [s]</th>
-    </tr>
-  </thead>
-  <tbody valign="top">
-    <tr><td>amd64</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X [s]</td>
-      <td>X [s]</td>
-    </tr>
-    <tr><td>arm64</td>
-      <td>X</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>X [s]</td>
-      <td>X [s]</td>
-    </tr>
-  </tbody>
-</table>
++--------------+------------------------------------------------------------------------------------------------+------------------------+
+|              | Required Support                                                                               | Recommended Support    |
++--------------+-----------------------+----------------------+---------------------+---------------------------+------------------------+
+| Architecture | Ubuntu Bionic (18.04) | MacOS Sierra (10.12) | Windows 10 (VS2017) | Ubuntu Xenial (16.04) [s] | Debian Stretch (9) [s] |
++==============+=======================+======================+=====================+===========================+========================+
+| amd64        | X                     | X                    | X                   | X [s]                     | X [s]                  |
++--------------+-----------------------+----------------------+---------------------+---------------------------+------------------------+
+| arm64        | X                     |                      |                     | X [s]                     | X [s]                  |
++--------------+-----------------------+----------------------+---------------------+---------------------------+------------------------+
 
 \" \[s\] \" Compilation from source, the ROS buildfarm will not produce
 any binary packages for these platforms.
@@ -83,89 +53,30 @@ Minimum language requirements:
 
 Dependency Requirements:
 
-<table border="1">
-  <colgroup>
-    <col width="9%">
-    <col width="17%">
-    <col width="16%">
-    <col width="17%">
-    <col width="20%">
-    <col width="22%">
-  </colgroup>
-  <thead valign="bottom">
-    <tr><th class="head">&nbsp;</th>
-      <th class="head" colspan="4">Required Support</th>
-      <th class="head">Recommended Support</th>
-    </tr>
-    <tr><th class="head">Package</th>
-      <th class="head">Ubuntu  Bionic</th>
-      <th class="head">MacOS**</th>
-      <th class="head">Windows 10**</th>
-      <th class="head">Ubuntu Xenial [s]</th>
-      <th class="head">Debian Stretch [s]</th>
-    </tr>
-  </thead>
-  <tbody valign="top">
-    <tr><td>CMake</td>
-      <td>3.10.2</td>
-      <td>3.11.0</td>
-      <td>3.10.2</td>
-      <td>3.5.1</td>
-      <td>3.7.2</td>
-    </tr>
-    <tr><td>EmPY</td>
-      <td>3.3.2</td>
-      <td>3.6.5</td>
-      <td>3.3.2</td>
-      <td>3.3.2</td>
-      <td>3.3.2</td>
-    </tr>
-    <tr><td>Ogre</td>
-      <td>1.10*</td>
-      <td>1.10*</td>
-      <td>1.10*</td>
-      <td>1.10*</td>
-      <td>1.10*</td>
-    </tr>
-    <tr><td>OpenCV</td>
-      <td>3.2.0</td>
-      <td>3.4.1</td>
-      <td>3.4.1*</td>
-      <td>2.4.9</td>
-      <td>3.2*</td>
-    </tr>
-    <tr><td>Poco</td>
-      <td>1.8.0</td>
-      <td>1.9.0</td>
-      <td>1.8.0*</td>
-      <td>1.8.0*</td>
-      <td>1.8.0*</td>
-    </tr>
-    <tr><td>Python</td>
-      <td>3.6.5</td>
-      <td>3.6.5</td>
-      <td>3.6.5</td>
-      <td>3.5.1</td>
-      <td>3.5.3</td>
-    </tr>
-    <tr><td>Qt</td>
-      <td>5.9.5</td>
-      <td>5.10.0</td>
-      <td>5.10.0</td>
-      <td>5.5.1</td>
-      <td>5.7.1</td>
-    </tr>
-    <tr><td colspan="6"><strong>Linux only (used for turtlebot demo)</strong></td>
-    </tr>
-    <tr><td>PCL</td>
-      <td>1.8.1</td>
-      <td>N/A</td>
-      <td>N/A</td>
-      <td>1.7.2</td>
-      <td>1.8.0</td>
-    </tr>
-  </tbody>
-</table>
++---------+-------------------------------------------------------+---------------------+
+|         | Required Support                                      | Recommended Support |
++---------+---------------+-----------+------------+--------------+---------------------+
+| Package | Ubuntu Bionic | MacOS** | Windows 10 | Ubuntu       | Debian              |
+|         |               |           | ** | Xenial [s]   | Stretch [s]         |
++=========+===============+===========+============+==============+=====================+
+| CMake   | 3.10.2        | 3.11.0    | 3.10.2     | 3.5.1        | 3.7.2               |
++---------+---------------+-----------+------------+--------------+---------------------+
+| EmPY    | 3.3.2         | 3.6.5     | 3.3.2      | 3.3.2        | 3.3.2               |
++---------+---------------+-----------+------------+--------------+---------------------+
+| Ogre    | 1.10* | 1.10* | 1.10* | 1.10* | 1.10* |
++---------+---------------+-----------+------------+--------------+---------------------+
+| OpenCV  | 3.2.0         | 3.4.1     | 3.4.1* | 2.4.9        | 3.2* |
++---------+---------------+-----------+------------+--------------+---------------------+
+| Poco    | 1.8.0         | 1.9.0     | 1.8.0* | 1.8.0* | 1.8.0* |
++---------+---------------+-----------+------------+--------------+---------------------+
+| Python  | 3.6.5         | 3.6.5     | 3.6.5      | 3.5.1        | 3.5.3               |
++---------+---------------+-----------+------------+--------------+---------------------+
+| Qt      | 5.9.5         | 5.10.0    | 5.10.0     | 5.5.1        | 5.7.1               |
++---------+---------------+-----------+------------+--------------+---------------------+
+| **Linux only (used for turtlebot demo)** |
++---------+---------------+-----------+------------+--------------+---------------------+
+| PCL     | 1.8.1         | N/A       | N/A        | 1.7.2        | 1.8.0               |
++---------+---------------+-----------+------------+--------------+---------------------+
 
 \" \* \" means that this is not the upstream version (available on the
 official Operating System repositories) but a package distributed by

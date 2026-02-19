@@ -23,35 +23,15 @@ This version of ROS 2 is supported on three platforms:
 
 Binary packages as well as instructions for how to compile from source are provided for all 3 platforms (see `install instructions <../../Installation>` as well as `documentation <https://docs.ros2.org/ardent/>`__).
 
-<table>
-  <colgroup>
-    <col width="15%">
-    <col width="25%">
-    <col width="33%">
-    <col width="26%">
-  </colgroup>
-  <thead valign="bottom">
-    <tr><th class="head" colspan="4">Required support</th>
-    </tr>
-    <tr><th class="head">Architecture</th>
-      <th class="head">Ubuntu Xenial (16.04)</th>
-      <th class="head">MacOS Sierra (10.12)</th>
-      <th class="head">Windows 10 (VS2015)</th>
-    </tr>
-  </thead>
-  <tbody valign="top">
-    <tr><td>amd64</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-    <tr><td>arm64</td>
-      <td>X</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-  </tbody>
-</table>
++--------------+-----------------------+----------------------+--------------------+
+|                                  Required support                                |
++--------------+-----------------------+----------------------+--------------------+
+| Architecture | Ubuntu Xenial (16.04) | MacOS Sierra (10.12) | Windows 10 (VS2015)|
++==============+=======================+======================+====================+
+| amd64        | X                     | X                    | X                  |
++--------------+-----------------------+----------------------+--------------------+
+| arm64        | X                     |                      |                    |
++--------------+-----------------------+----------------------+--------------------+
 
 Minimum language requirements:
 
@@ -64,65 +44,27 @@ Minimum language requirements:
 
 Dependency Requirements:
 
-<table>
-  <colgroup>
-    <col width="16%">
-    <col width="27%">
-    <col width="27%">
-    <col width="29%">
-  </colgroup>
-  <thead valign="bottom">
-    <tr><th class="head">Package</th>
-      <th class="head">Ubuntu Xenial</th>
-      <th class="head">MacOS**</th>
-      <th class="head">Windows 10**</th>
-    </tr>
-  </thead>
-  <tbody valign="top">
-    <tr><td>CMake</td>
-      <td>3.5.1</td>
-      <td>3.11.0</td>
-      <td>3.10.2</td>
-    </tr>
-    <tr><td>EmPY</td>
-      <td>3.3.2</td>
-      <td>3.6.5</td>
-      <td>3.3.2</td>
-    </tr>
-    <tr><td>Ogre</td>
-      <td>1.10*</td>
-      <td>1.10*</td>
-      <td>1.10*</td>
-    </tr>
-    <tr><td>OpenCV</td>
-      <td>2.4.9</td>
-      <td>3.4.1</td>
-      <td>2.4.13.2*</td>
-    </tr>
-    <tr><td>Poco</td>
-      <td>1.7.7*</td>
-      <td>1.7.7*</td>
-      <td>1.7.7*</td>
-    </tr>
-    <tr><td>Python</td>
-      <td>3.5.1</td>
-      <td>3.6.5</td>
-      <td>3.6.4</td>
-    </tr>
-    <tr><td>Qt</td>
-      <td>5.5.1</td>
-      <td>5.10.0</td>
-      <td>5.10.0</td>
-    </tr>
-    <tr><td colspan="4"><strong>Linux only (used for turtlebot demo)</strong></td>
-    </tr>
-    <tr><td>PCL</td>
-      <td>1.7.2</td>
-      <td>N/A</td>
-      <td>N/A</td>
-    </tr>
-  </tbody>
-</table>
++--------------+----------------+------------+--------------+
+| Package      | Ubuntu Xenial  | MacOS** | Windows 10** |
++==============+================+============+==============+
+| CMake        | 3.5.1          | 3.11.0     | 3.10.2       |
++--------------+----------------+------------+--------------+
+| EmPY         | 3.3.2          | 3.6.5      | 3.3.2        |
++--------------+----------------+------------+--------------+
+| Ogre         | 1.10* | 1.10* | 1.10* |
++--------------+----------------+------------+--------------+
+| OpenCV       | 2.4.9          | 3.4.1      | 2.4.13.2* |
++--------------+----------------+------------+--------------+
+| Poco         | 1.7.7* | 1.7.7* | 1.7.7* |
++--------------+----------------+------------+--------------+
+| Python       | 3.5.1          | 3.6.5      | 3.6.4        |
++--------------+----------------+------------+--------------+
+| Qt           | 5.5.1          | 5.10.0     | 5.10.0       |
++--------------+----------------+------------+--------------+
+| **Linux only (used for turtlebot demo)** |
++--------------+----------------+------------+--------------+
+| PCL          | 1.7.2          | N/A        | N/A          |
++--------------+----------------+------------+--------------+
 
 \" \* \" means that this is not the upstream version (available on the
 official Operating System repositories) but a package distributed by

@@ -28,41 +28,13 @@ Tier 2 platforms:
 
 Targeted platforms:
 
-<table border="1">
-  <colgroup>
-    <col width="10%">
-    <col width="16%">
-    <col width="21%">
-    <col width="17%">
-    <col width="19%">
-    <col width="17%">
-  </colgroup>
-  <thead valign="bottom">
-    <tr><th class="head">Architecture</th>
-      <th class="head">Ubuntu Bionic (18.04)</th>
-      <th class="head">MacOS Sierra (10.12)</th>
-      <th class="head">Windows 10 (VS2017)</th>
-      <th class="head">Ubuntu Xenial (16.04)</th>
-      <th class="head">Debian Stretch (9)</th>
-    </tr>
-  </thead>
-  <tbody valign="top">
-    <tr><td>amd64</td>
-      <td>Tier 1 [d][a][s]</td>
-      <td>Tier 1 [a][s]</td>
-      <td>Tier 1 [a][s]</td>
-      <td>Tier 2 [s]</td>
-      <td>Tier 3  [s]</td>
-    </tr>
-    <tr><td>arm64</td>
-      <td>Tier 1 [d][a][s]</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>Tier 2  [s]</td>
-      <td>Tier 3 [s]</td>
-    </tr>
-  </tbody>
-</table>
++--------------+-----------------------+----------------------+--------------------+-----------------------+-------------------+
+| Architecture | Ubuntu Bionic (18.04) | MacOS Sierra (10.12) | Windows 10 (VS2017)| Ubuntu Xenial (16.04) | Debian Stretch (9)|
++==============+=======================+======================+====================+=======================+===================+
+| amd64        | Tier 1 [d][a][s]      | Tier 1 [a][s]        | Tier 1 [a][s]      | Tier 2 [s]            | Tier 3  [s]       |
++--------------+-----------------------+----------------------+--------------------+-----------------------+-------------------+
+| arm64        | Tier 1 [d][a][s]      |                      |                    | Tier 2  [s]           | Tier 3 [s]        |
++--------------+-----------------------+----------------------+--------------------+-----------------------+-------------------+
 
 The following indicators show what delivery mechanisms are available for
 each platform.
@@ -77,55 +49,19 @@ platform containing all packages in the Crystal ROS 2 repos file[^4].
 
 Middleware Implementation Support:
 
-<table border="1">
-  <colgroup>
-    <col width="21%">
-    <col width="17%">
-    <col width="12%">
-    <col width="24%">
-    <col width="26%">
-  </colgroup>
-  <thead valign="bottom">
-    <tr><th class="head">Middleware Library</th>
-      <th class="head">Middleware Provider</th>
-      <th class="head">Support Level</th>
-      <th class="head">Platforms</th>
-      <th class="head">Architectures</th>
-    </tr>
-  </thead>
-  <tbody valign="top">
-    <tr><td>rmw_fastrtps_cpp*</td>
-      <td>eProsima Fast-RTPS</td>
-      <td>Tier 1</td>
-      <td>All Platforms</td>
-      <td>All Architectures</td>
-    </tr>
-    <tr><td>rmw_connext_cpp</td>
-      <td>RTI Connext</td>
-      <td>Tier 1</td>
-      <td>All Platforms except Debian</td>
-      <td>All Architectures except arm64</td>
-    </tr>
-    <tr><td>rmw_opensplice_cpp</td>
-      <td>ADLINK OpenSplice</td>
-      <td>Tier 2</td>
-      <td>All Platforms except Debian</td>
-      <td>All Architectures</td>
-    </tr>
-    <tr><td>rmw_fastrtps_dynamic_cpp</td>
-      <td>eProsima Fast-RTPS</td>
-      <td>Tier 2</td>
-      <td>All Platforms</td>
-      <td>All Architectures</td>
-    </tr>
-    <tr><td>rmw_connext_dynamic_cpp</td>
-      <td>RTI Connext</td>
-      <td>Tier 2</td>
-      <td>All platforms except Debian</td>
-      <td>All architectures except arm64</td>
-    </tr>
-  </tbody>
-</table>
++--------------------------+---------------------+---------------+-----------------------------+--------------------------------+
+| Middleware Library       | Middleware Provider | Support Level | Platforms                   | Architectures                  |
++==========================+=====================+===============+=============================+================================+
+| rmw_fastrtps_cpp* | eProsima Fast-RTPS  | Tier 1        | All Platforms               | All Architectures              |
++--------------------------+---------------------+---------------+-----------------------------+--------------------------------+
+| rmw_connext_cpp          | RTI Connext         | Tier 1        | All Platforms except Debian | All Architectures except arm64 |
++--------------------------+---------------------+---------------+-----------------------------+--------------------------------+
+| rmw_opensplice_cpp       | ADLINK OpenSplice   | Tier 2        | All Platforms except Debian | All Architectures              |
++--------------------------+---------------------+---------------+-----------------------------+--------------------------------+
+| rmw_fastrtps_dynamic_cpp | eProsima Fast-RTPS  | Tier 2        | All Platforms               | All Architectures              |
++--------------------------+---------------------+---------------+-----------------------------+--------------------------------+
+| rmw_connext_dynamic_cpp  | RTI Connext         | Tier 2        | All platforms except Debian | All architectures except arm64 |
++--------------------------+---------------------+---------------+-----------------------------+--------------------------------+
 
 \" \* \" means default RMW implementation.
 
@@ -141,113 +77,41 @@ Minimum language requirements:
 
 Dependency Requirements:
 
-<table border="1">
-  <colgroup>
-    <col width="13%">
-    <col width="16%">
-    <col width="15%">
-    <col width="16%">
-    <col width="19%">
-    <col width="21%">
-  </colgroup>
-  <thead valign="bottom">
-    <tr><th class="head">&nbsp;</th>
-      <th class="head" colspan="4">Required Support</th>
-      <th class="head">Recommended Support</th>
-    </tr>
-    <tr><th class="head">Package</th>
-      <th class="head">Ubuntu  Bionic</th>
-      <th class="head">MacOS**</th>
-      <th class="head">Windows 10**</th>
-      <th class="head">Ubuntu Xenial [s]</th>
-      <th class="head">Debian Stretch [s]</th>
-    </tr>
-  </thead>
-  <tbody valign="top">
-    <tr><td>CMake</td>
-      <td>3.10.2</td>
-      <td>3.13.3</td>
-      <td>3.13.3</td>
-      <td>3.5.1</td>
-      <td>3.7.2</td>
-    </tr>
-    <tr><td>EmPY</td>
-      <td>3.3.2</td>
-      <td>3.3.2</td>
-      <td>3.3.2</td>
-      <td>3.3.2</td>
-      <td>3.3.2</td>
-    </tr>
-    <tr><td>Gazebo</td>
-      <td>9.0.0</td>
-      <td>9.9.0</td>
-      <td>N/A</td>
-      <td>9.9.0*</td>
-      <td>9.8.0*</td>
-    </tr>
-    <tr><td>Ogre</td>
-      <td colspan="5">1.10*</td>
-    </tr>
-    <tr><td>OpenCV</td>
-      <td>3.2.0</td>
-      <td>4.0.1</td>
-      <td>3.4.1*</td>
-      <td>2.4.9</td>
-      <td>3.2*</td>
-    </tr>
-    <tr><td>OpenSSL</td>
-      <td>1.1.0g</td>
-      <td>1.0.2q</td>
-      <td>1.0.2q</td>
-      <td>1.0.2g</td>
-      <td>1.1.0j</td>
-    </tr>
-    <tr><td>Poco</td>
-      <td>1.8.0</td>
-      <td>1.9.0</td>
-      <td>1.8.0*</td>
-      <td>1.8.0*</td>
-      <td>1.8.0*</td>
-    </tr>
-    <tr><td>Python</td>
-      <td>3.6.5</td>
-      <td>3.7.2</td>
-      <td>3.7.2</td>
-      <td>3.5.1</td>
-      <td>3.5.3</td>
-    </tr>
-    <tr><td>Qt</td>
-      <td>5.9.5</td>
-      <td>5.12.0</td>
-      <td>5.10.0</td>
-      <td>5.5.1</td>
-      <td>5.7.1</td>
-    </tr>
-    <tr><td colspan="2">&nbsp;</td>
-      <td colspan="2"><strong>Linux only</strong></td>
-      <td colspan="2">&nbsp;</td>
-    </tr>
-    <tr><td>PCL</td>
-      <td>1.8.1</td>
-      <td>N/A</td>
-      <td>N/A</td>
-      <td>1.7.2</td>
-      <td>1.8.0</td>
-    </tr>
-    <tr><td colspan="6"><strong>RMW DDS Middleware Providers</strong></td>
-    </tr>
-    <tr><td>Connext DDS</td>
-      <td colspan="4">5.3.1</td>
-      <td>N/A</td>
-    </tr>
-    <tr><td>Fast-RTPS</td>
-      <td colspan="5">1.7.0</td>
-    </tr>
-    <tr><td>OpenSplice</td>
-      <td colspan="5">6.9.181127OSS</td>
-    </tr>
-  </tbody>
-</table>
++------------+---------------------------------------------------------+--------------------+
+|            | Required Support                                        | Recommended Support|
++------------+---------------+----------+------------+-----------------+--------------------+
+| Package    | Ubuntu Bionic | MacOS** | Windows 10*| Ubuntu Xenial[s]| Debian Stretch [s] |
++============+===============+==========+============+=================+====================+
+| CMake      | 3.10.2        | 3.13.3   | 3.13.3     | 3.5.1           | 3.7.2              |
++------------+---------------+----------+------------+-----------------+--------------------+
+| EmPY       | 3.3.2         | 3.3.2    | 3.3.2      | 3.3.2           | 3.3.2              |
++------------+---------------+----------+------------+-----------------+--------------------+
+| Gazebo     | 9.0.0         | 9.9.0    | N/A        | 9.9.0* | 9.8.0* |
++------------+---------------+----------+------------+-----------------+--------------------+
+| Ogre       | 1.10* | 1.10* |
++------------+---------------+----------+------------+-----------------+--------------------+
+| OpenCV     | 3.2.0         | 4.0.1    | 3.4.1* | 2.4.9           | 3.2* |
++------------+---------------+----------+------------+-----------------+--------------------+
+| OpenSSL    | 1.1.0g        | 1.0.2q   | 1.0.2q     | 1.0.2g          | 1.1.0j             |
++------------+---------------+----------+------------+-----------------+--------------------+
+| Poco       | 1.8.0         | 1.9.0    | 1.8.0* | 1.8.0* | 1.8.0* |
++------------+---------------+----------+------------+-----------------+--------------------+
+| Python     | 3.6.5         | 3.7.2    | 3.7.2      | 3.5.1           | 3.5.3              |
++------------+---------------+----------+------------+-----------------+--------------------+
+| Qt         | 5.9.5         | 5.12.0   | 5.10.0     | 5.5.1           | 5.7.1              |
++------------+---------------+----------+------------+-----------------+--------------------+
+|            |               | **Linux only** |                    |
++------------+---------------+----------+------------+-----------------+--------------------+
+| PCL        | 1.8.1         | N/A      | N/A        | 1.7.2           | 1.8.0              |
++------------+---------------+----------+------------+-----------------+--------------------+
+| **RMW DDS Middleware Providers** |
++------------+---------------+----------+------------+-----------------+--------------------+
+| Connext DDS| 5.3.1                                                   | N/A                |
++------------+---------------------------------------------------------+--------------------+
+| Fast-RTPS  | 1.7.0                                                                        |
++------------+------------------------------------------------------------------------------+
+| OpenSplice | 6.9.181127OSS                                                                |
++------------+------------------------------------------------------------------------------+
 
 \" \* \" means that this is not the upstream version (available on the
 official Operating System repositories) but a package distributed by

@@ -29,49 +29,16 @@ Tier 3 platforms:
 
 Targeted platforms:
 
-<table border="1">
-  <colgroup>
-    <col width="12%">
-    <col width="20%">
-    <col width="19%">
-    <col width="19%">
-    <col width="17%">
-    <col width="13%">
-  </colgroup>
-  <thead valign="bottom">
-    <tr><th class="head">Architecture</th>
-      <th class="head">Ubuntu Bionic (18.04)</th>
-      <th class="head">MacOS Mojave (10.14)</th>
-      <th class="head">Windows 10 (VS2019)</th>
-      <th class="head">Debian Buster (10)</th>
-      <th class="head">OpenEmbedded /
- webOS OSE</th>
-    </tr>
-  </thead>
-  <tbody valign="top">
-    <tr><td>amd64</td>
-      <td>Tier 1 [d][a][s]</td>
-      <td>Tier 1 [a][s]</td>
-      <td>Tier 1 [a][s]</td>
-      <td>Tier 3 [s]</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr><td>arm64</td>
-      <td>Tier 1 [d][a][s]</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>Tier 3 [s]</td>
-      <td>Tier 3 [s]</td>
-    </tr>
-    <tr><td>arm32</td>
-      <td>Tier 2 [a][s]</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>Tier 3 [s]</td>
-      <td>Tier 3 [s]</td>
-    </tr>
-  </tbody>
-</table>
++--------------+----------------------+----------------------+----------------------+------------------+----------------+
+| Architecture | Ubuntu Bionic (18.04)| MacOS Mojave (10.14) | Windows 10 (VS2019)  | Debian Buster (10)| OpenEmbedded / |
+|              |                      |                      |                      |                  | webOS OSE      |
++==============+======================+======================+======================+==================+================+
+| amd64        | Tier 1 [d][a][s]     | Tier 1 [a][s]        | Tier 1 [a][s]        | Tier 3 [s]       |                |
++--------------+----------------------+----------------------+----------------------+------------------+----------------+
+| arm64        | Tier 1 [d][a][s]     |                      |                      | Tier 3 [s]       | Tier 3 [s]     |
++--------------+----------------------+----------------------+----------------------+------------------+----------------+
+| arm32        | Tier 2 [a][s]        |                      |                      | Tier 3 [s]       | Tier 3 [s]     |
++--------------+----------------------+----------------------+----------------------+------------------+----------------+
 
 
 The following indicators show what delivery mechanisms are available for
@@ -87,58 +54,21 @@ platform containing all packages in the Eloquent ROS 2 repos file[^7].
 
 Middleware Implementation Support:
 
-<table border="1">
-  <colgroup>
-    <col width="20%">
-    <col width="16%">
-    <col width="12%">
-    <col width="22%">
-    <col width="29%">
-  </colgroup>
-  <thead valign="bottom">
-    <tr><th class="head">Middleware Library</th>
-      <th class="head">Middleware Provider</th>
-      <th class="head">Support Level</th>
-      <th class="head">Platforms</th>
-      <th class="head">Architectures</th>
-    </tr>
-  </thead>
-  <tbody valign="top">
-    <tr><td>rmw_fastrtps_cpp*</td>
-      <td>eProsima Fast-RTPS</td>
-      <td>Tier 1</td>
-      <td>All Platforms</td>
-      <td>All Architectures</td>
-    </tr>
-    <tr><td>rmw_connext_cpp</td>
-      <td>RTI Connext</td>
-      <td>Tier 1</td>
-      <td>All Platforms except Debian
- and OpenEmbedded</td>
-      <td>All Architectures except arm64/arm32</td>
-    </tr>
-    <tr><td>rmw_cyclonedds_cpp</td>
-      <td>Eclipse Cyclone DDS</td>
-      <td>Tier 2</td>
-      <td>All Platforms</td>
-      <td>All Architectures</td>
-    </tr>
-    <tr><td>rmw_opensplice_cpp</td>
-      <td>ADLINK OpenSplice</td>
-      <td>Tier 2</td>
-      <td>All Platforms except Debian
- and OpenEmbedded</td>
-      <td>All Architectures</td>
-    </tr>
-    <tr><td>rmw_fastrtps_dynamic_cpp</td>
-      <td>eProsima Fast-RTPS</td>
-      <td>Tier 2</td>
-      <td>All Platforms</td>
-      <td>All Architectures</td>
-    </tr>
-  </tbody>
-</table>
-
++--------------------------+---------------------+---------------+-----------------------------------+-----------------------------------+
+| Middleware Library       | Middleware Provider | Support Level | Platforms                         | Architectures                     |
++==========================+=====================+===============+===================================+===================================+
+| rmw_fastrtps_cpp* | eProsima Fast-RTPS  | Tier 1        | All Platforms                     | All Architectures                 |
++--------------------------+---------------------+---------------+-----------------------------------+-----------------------------------+
+| rmw_connext_cpp          | RTI Connext         | Tier 1        | All Platforms except Debian and   | All Architectures except          |
+|                          |                     |               | OpenEmbedded                      | arm64/arm32                       |
++--------------------------+---------------------+---------------+-----------------------------------+-----------------------------------+
+| rmw_cyclonedds_cpp       | Eclipse Cyclone DDS | Tier 2        | All Platforms                     | All Architectures                 |
++--------------------------+---------------------+---------------+-----------------------------------+-----------------------------------+
+| rmw_opensplice_cpp       | ADLINK OpenSplice   | Tier 2        | All Platforms except Debian and   | All Architectures                 |
+|                          |                     |               | OpenEmbedded                      |                                   |
++--------------------------+---------------------+---------------+-----------------------------------+-----------------------------------+
+| rmw_fastrtps_dynamic_cpp | eProsima Fast-RTPS  | Tier 2        | All Platforms                     | All Architectures                 |
++--------------------------+---------------------+---------------+-----------------------------------+-----------------------------------+
 
 \" \* \" means default RMW implementation.
 
@@ -153,113 +83,43 @@ Minimum language requirements:
 
 Dependency Requirements:
 
-<table border="1">
-  <colgroup>
-    <col width="14%">
-    <col width="17%">
-    <col width="16%">
-    <col width="17%">
-    <col width="17%">
-    <col width="20%">
-  </colgroup>
-  <thead valign="bottom">
-    <tr><th class="head">&nbsp;</th>
-      <th class="head" colspan="3">Required Support</th>
-      <th class="head" colspan="2">Recommended Support</th>
-    </tr>
-    <tr><th class="head">Package</th>
-      <th class="head">Ubuntu  Bionic</th>
-      <th class="head">MacOS**</th>
-      <th class="head">Windows 10**</th>
-      <th class="head">Debian Buster</th>
-      <th class="head">OpenEmbedded**</th>
-    </tr>
-  </thead>
-  <tbody valign="top">
-    <tr><td>CMake</td>
-      <td>3.10.2</td>
-      <td>3.14.4</td>
-      <td>3.14.4</td>
-      <td>3.13.4</td>
-      <td>3.16.1 / 3.12.2****</td>
-    </tr>
-    <tr><td>EmPY</td>
-      <td colspan="5">3.3.2</td>
-    </tr>
-    <tr><td>Gazebo</td>
-      <td>9.0.0</td>
-      <td>9.9.0</td>
-      <td>N/A</td>
-      <td>9.8.0*</td>
-      <td>N/A</td>
-    </tr>
-    <tr><td>Ogre</td>
-      <td colspan="4">1.10*</td>
-      <td>N/A</td>
-    </tr>
-    <tr><td>OpenCV</td>
-      <td>3.2.0</td>
-      <td>4.1.0</td>
-      <td>3.4.6*</td>
-      <td>3.2.0</td>
-      <td>4.1.0 / 3.2.0****</td>
-    </tr>
-    <tr><td>OpenSSL</td>
-      <td>1.1.0g</td>
-      <td>1.0.2r</td>
-      <td>1.0.2r</td>
-      <td>1.1.1c</td>
-      <td>1.1.1d / 1.1.1b****</td>
-    </tr>
-    <tr><td>Poco</td>
-      <td>1.8.0</td>
-      <td>1.9.0</td>
-      <td>1.8.0*</td>
-      <td>1.9.0</td>
-      <td>1.9.4</td>
-    </tr>
-    <tr><td>Python</td>
-      <td>3.6.5</td>
-      <td>3.7.3</td>
-      <td>3.7.3</td>
-      <td>3.7.3</td>
-      <td>3.8.2 / 3.7.5****</td>
-    </tr>
-    <tr><td>Qt</td>
-      <td>5.9.5</td>
-      <td>5.12.3</td>
-      <td>5.10.0</td>
-      <td>5.11.3</td>
-      <td>5.14.1 / 5.12.5****</td>
-    </tr>
-    <tr><td colspan="2">&nbsp;</td>
-      <td colspan="4"><strong>Linux only</strong></td>
-    </tr>
-    <tr><td>PCL</td>
-      <td>1.8.1</td>
-      <td>N/A</td>
-      <td>N/A</td>
-      <td>1.9.1</td>
-      <td>1.8.1</td>
-    </tr>
-    <tr><td colspan="6"><strong>RMW DDS Middleware Providers</strong></td>
-    </tr>
-    <tr><td>Connext DDS</td>
-      <td colspan="3">5.3.1***</td>
-      <td colspan="2">N/A</td>
-    </tr>
-    <tr><td>Cyclone DDS</td>
-      <td colspan="5">0.7.x (Coquette)</td>
-    </tr>
-    <tr><td>Fast-RTPS</td>
-      <td colspan="5">1.9.0</td>
-    </tr>
-    <tr><td>OpenSplice</td>
-      <td colspan="4">6.9.190705OSS</td>
-      <td>N/A</td>
-    </tr>
-  </tbody>
-</table>
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
+|              | Required Support                                    | Recommended Support                    |
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
+| Package      | Ubuntu Bionic     | MacOS** | Windows 10** | Debian Buster  | OpenEmbedded** |
++==============+===================+================+================+================+=======================+
+| CMake        | 3.10.2            | 3.14.4         | 3.14.4         | 3.13.4         | 3.16.1 / 3.12.2**** |
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
+| EmPY         | 3.3.2                                                                                        |
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
+| Gazebo       | 9.0.0             | 9.9.0          | N/A            | 9.8.0* | N/A                   |
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
+| Ogre         | 1.10* | N/A                                    |
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
+| OpenCV       | 3.2.0             | 4.1.0          | 3.4.6* | 3.2.0          | 4.1.0 / 3.2.0**** |
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
+| OpenSSL      | 1.1.0g            | 1.0.2r         | 1.0.2r         | 1.1.1c         | 1.1.1d / 1.1.1b**** |
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
+| Poco         | 1.8.0             | 1.9.0          | 1.8.0* | 1.9.0          | 1.9.4                 |
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
+| Python       | 3.6.5             | 3.7.3          | 3.7.3          | 3.7.3          | 3.8.2 / 3.7.5**** |
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
+| Qt           | 5.9.5             | 5.12.3         | 5.10.0         | 5.11.3         | 5.14.1 / 5.12.5**** |
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
+|              |                   | **Linux only** |
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
+| PCL          | 1.8.1             | N/A            | N/A            | 1.9.1          | 1.8.1                 |
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
+| **RMW DDS Middleware Providers** |
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
+| Connext DDS  | 5.3.1*** | N/A                             |
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
+| Cyclone DDS  | 0.7.x (Coquette)                                                                             |
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
+| Fast-RTPS    | 1.9.0                                                                                        |
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
+| OpenSplice   | 6.9.190705OSS                                       | N/A                                    |
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
 
 
 \" \* \" means that this is not the upstream version (available on the

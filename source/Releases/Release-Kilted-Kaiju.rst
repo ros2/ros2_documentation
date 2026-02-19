@@ -39,57 +39,16 @@ Tier 3 platforms:
 
 Targeted platforms:
 
-<table border="1">
-  <colgroup>
-    <col width="13%">
-    <col width="16%">
-    <col width="14%">
-    <col width="16%">
-    <col width="12%">
-    <col width="15%">
-    <col width="14%">
-  </colgroup>
-  <thead valign="bottom">
-    <tr><th class="head">Architecture</th>
-      <th class="head">Ubuntu Noble
- (24.04)</th>
-      <th class="head">Windows 10
- (VS2019)</th>
-      <th class="head">RHEL 9</th>
-      <th class="head">macOS</th>
-      <th class="head">Debian Bookworm
- (12)</th>
-      <th class="head">OpenEmbedded /
- Yocto Project</th>
-    </tr>
-  </thead>
-  <tbody valign="top">
-    <tr><td>amd64</td>
-      <td>Tier 1 [d][a][s]</td>
-      <td>Tier 1 [a][s]</td>
-      <td>Tier 2 [d][a][s]</td>
-      <td>Tier 3 [s]</td>
-      <td>Tier 3 [s]</td>
-      <td>Tier 3 [s]</td>
-    </tr>
-    <tr><td>arm64</td>
-      <td>Tier 1 [d][a][s]</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>Tier 3 [s]</td>
-      <td>Tier 3 [s]</td>
-    </tr>
-    <tr><td>arm32</td>
-      <td>Tier 3 [s]</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>Tier 3 [s]</td>
-      <td>Tier 3 [s]</td>
-    </tr>
-  </tbody>
-</table>
++--------------+-------------------+------------+-------------------+-----------+-----------------+----------------+
+| Architecture | Ubuntu Noble      | Windows 10 | RHEL 9            | macOS     | Debian Bookworm | OpenEmbedded / |
+|              | (24.04)           | (VS2019)   |                   |           | (12)            | Yocto Project  |
++==============+===================+============+===================+===========+=================+================+
+| amd64        | Tier 1 [d][a][s]  | Tier 1 [a] | Tier 2 [d][a][s]  | Tier 3 [s]| Tier 3 [s]      | Tier 3 [s]     |
++--------------+-------------------+------------+-------------------+-----------+-----------------+----------------+
+| arm64        | Tier 1 [d][a][s]  |            |                   |           | Tier 3 [s]      | Tier 3 [s]     |
++--------------+-------------------+------------+-------------------+-----------+-----------------+----------------+
+| arm32        | Tier 3 [s]        |            |                   |           | Tier 3 [s]      | Tier 3 [s]     |
++--------------+-------------------+------------+-------------------+-----------+-----------------+----------------+
 
 The following indicators show what delivery mechanisms are available for
 each platform.
@@ -104,61 +63,21 @@ platform containing all packages in the Jazzy ROS 2 repos file[^14].
 
 Middleware Implementation Support:
 
-<table border="1">
-  <colgroup>
-    <col width="21%">
-    <col width="19%">
-    <col width="12%">
-    <col width="22%">
-    <col width="26%">
-  </colgroup>
-  <thead valign="bottom">
-    <tr><th class="head">Middleware Library</th>
-      <th class="head">Middleware Provider</th>
-      <th class="head">Support Level</th>
-      <th class="head">Platforms</th>
-      <th class="head">Architectures</th>
-    </tr>
-  </thead>
-  <tbody valign="top">
-    <tr><td>rmw_fastrtps_cpp*</td>
-      <td>eProsima Fast-DDS</td>
-      <td>Tier 1</td>
-      <td>All Platforms</td>
-      <td>All Architectures</td>
-    </tr>
-    <tr><td>rmw_connextdds</td>
-      <td>RTI Connext</td>
-      <td>Tier 1</td>
-      <td>Ubuntu, Windows, and macOS</td>
-      <td>All Architectures except arm64</td>
-    </tr>
-    <tr><td>rmw_cyclonedds_cpp</td>
-      <td>Eclipse Cyclone DDS</td>
-      <td>Tier 1</td>
-      <td>All Platforms</td>
-      <td>All Architectures</td>
-    </tr>
-    <tr><td>rmw_zenoh_cpp</td>
-      <td>Eclipse Zenoh</td>
-      <td>Tier 1</td>
-      <td>All Platforms</td>
-      <td>All Architectures</td>
-    </tr>
-    <tr><td>rmw_fastrtps_dynamic_cpp</td>
-      <td>eProsima Fast-DDS</td>
-      <td>Tier 2</td>
-      <td>All Platforms</td>
-      <td>All Architectures</td>
-    </tr>
-    <tr><td>rmw_gurumdds_cpp</td>
-      <td>GurumNetworks GurumDDS</td>
-      <td>Tier 3</td>
-      <td>Ubuntu and Windows</td>
-      <td>All Architectures except arm32</td>
-    </tr>
-  </tbody>
-</table>
++---------------------------+-------------------------+---------------+----------------------------+------------------------------+
+| Middleware Library        | Middleware Provider     | Support Level | Platforms                  | Architectures                |
++===========================+=========================+===============+============================+==============================+
+| rmw_fastrtps_cpp* | eProsima Fast-DDS       | Tier 1        | All Platforms              | All Architectures            |
++---------------------------+-------------------------+---------------+----------------------------+------------------------------+
+| rmw_connextdds            | RTI Connext             | Tier 1        | Ubuntu, Windows, and macOS | All Architectures except arm64|
++---------------------------+-------------------------+---------------+----------------------------+------------------------------+
+| rmw_cyclonedds_cpp        | Eclipse Cyclone DDS     | Tier 1        | All Platforms              | All Architectures            |
++---------------------------+-------------------------+---------------+----------------------------+------------------------------+
+| rmw_zenoh_cpp             | Eclipse Zenoh           | Tier 1        | All Platforms              | All Architectures            |
++---------------------------+-------------------------+---------------+----------------------------+------------------------------+
+| rmw_fastrtps_dynamic_cpp  | eProsima Fast-DDS       | Tier 2        | All Platforms              | All Architectures            |
++---------------------------+-------------------------+---------------+----------------------------+------------------------------+
+| rmw_gurumdds_cpp          | GurumNetworks GurumDDS  | Tier 3        | Ubuntu and Windows         | All Architectures except arm32|
++---------------------------+-------------------------+---------------+----------------------------+------------------------------+
 
 \" \* \" means default RMW implementation.
 
@@ -173,129 +92,45 @@ Minimum language requirements:
 
 Dependency Requirements:
 
-<table border="1">
-  <colgroup>
-    <col width="14%">
-    <col width="14%">
-    <col width="14%">
-    <col width="9%">
-    <col width="13%">
-    <col width="16%">
-    <col width="19%">
-  </colgroup>
-  <thead valign="bottom">
-    <tr><th class="head">&nbsp;</th>
-      <th class="head" colspan="2">Required Support</th>
-      <th class="head" colspan="4">Recommended Support</th>
-    </tr>
-    <tr><th class="head">Package</th>
-      <th class="head">Ubuntu Noble</th>
-      <th class="head">Windows 10**</th>
-      <th class="head">RHEL 9</th>
-      <th class="head">macOS**</th>
-      <th class="head">Debian Bookworm</th>
-      <th class="head">OpenEmbedded**</th>
-    </tr>
-  </thead>
-  <tbody valign="top">
-    <tr><td>CMake</td>
-      <td>3.28.3</td>
-      <td>3.28.3</td>
-      <td>3.26.5</td>
-      <td>3.31.1</td>
-      <td>3.25.1</td>
-      <td>3.22.3</td>
-    </tr>
-    <tr><td>EmPY</td>
-      <td>3.3.4</td>
-      <td>3.3.4</td>
-      <td>3.3.4a</td>
-      <td colspan="3">3.3.4</td>
-    </tr>
-    <tr><td>Gazebo</td>
-      <td>Ionic*</td>
-      <td>N/A</td>
-      <td>N/A</td>
-      <td>Ionic*</td>
-      <td>Ionic*</td>
-      <td>N/A</td>
-    </tr>
-    <tr><td>NumPy</td>
-      <td>1.26.4</td>
-      <td>1.26.4</td>
-      <td>1.20.1</td>
-      <td>2.1.3</td>
-      <td>1.24.2</td>
-      <td>N/A</td>
-    </tr>
-    <tr><td>Ogre</td>
-      <td colspan="5">1.12.10</td>
-      <td>N/A</td>
-    </tr>
-    <tr><td>OpenCV</td>
-      <td>4.6.0</td>
-      <td>4.9.0</td>
-      <td>4.6.0</td>
-      <td>4.10.0</td>
-      <td>4.6.0</td>
-      <td>4.1.0 / 3.2.0***</td>
-    </tr>
-    <tr><td>OpenSSL</td>
-      <td>3.0.13</td>
-      <td>3.3.2</td>
-      <td>3.2.2</td>
-      <td>1.1.1w</td>
-      <td>3.0.15</td>
-      <td>1.1.1d / 1.1.1b***</td>
-    </tr>
-    <tr><td>Python</td>
-      <td>3.12.3</td>
-      <td>3.12.3</td>
-      <td>3.9.19</td>
-      <td>3.13.0</td>
-      <td>3.11.2</td>
-      <td>3.8.2 / 3.7.5***</td>
-    </tr>
-    <tr><td>Qt</td>
-      <td>5.15.13</td>
-      <td>5.15.8</td>
-      <td>5.15.9</td>
-      <td>5.15.16</td>
-      <td>5.15.8</td>
-      <td>5.14.1 / 5.12.5***</td>
-    </tr>
-    <tr><td colspan="2">&nbsp;</td>
-      <td colspan="5"><strong>Linux only</strong></td>
-    </tr>
-    <tr><td>PCL</td>
-      <td>1.14.0</td>
-      <td>N/A</td>
-      <td>1.12.0</td>
-      <td>1.14.1</td>
-      <td>1.13.0</td>
-      <td>1.10.0</td>
-    </tr>
-    <tr><td colspan="7"><strong>RMW Middleware</strong></td>
-    </tr>
-    <tr><td>Connext DDS</td>
-      <td colspan="4">7.3.0.0</td>
-      <td colspan="2">N/A</td>
-    </tr>
-    <tr><td>Cyclone DDS</td>
-      <td colspan="6">0.10.5</td>
-    </tr>
-    <tr><td>Fast-DDS</td>
-      <td colspan="6">2.14.4</td>
-    </tr>
-    <tr><td>Gurum DDS</td>
-      <td colspan="2">4.2.0</td>
-      <td colspan="4">N/A</td>
-    </tr>
-    <tr><td>Zenoh</td>
-      <td colspan="6">1.0.4</td>
-    </tr>
-  </tbody>
-</table>
++---------------+-------------------------------+-------------------------------------------------------------+
+|               | Required Support              | Recommended Support                                         |
++===============+===============+===============+==========+==========+==================+====================+
+| Package       | Ubuntu Noble  | Windows 10** | RHEL 9   | macOS** | Debian Bookworm  | OpenEmbedded** |
++---------------+---------------+---------------+----------+----------+------------------+--------------------+
+| CMake         | 3.28.3        | 3.28.3        | 3.26.5   | 3.31.1   | 3.25.1           | 3.22.3             |
++---------------+---------------+---------------+----------+----------+------------------+--------------------+
+| EmPY          | 3.3.4         | 3.3.4         | 3.3.4a   | 3.3.4                                            |
++---------------+---------------+---------------+----------+--------------------------------------------------+
+| Gazebo        | Ionic* | N/A           | N/A      | Ionic* | Ionic* | N/A                |
++---------------+---------------+---------------+----------+----------+------------------+--------------------+
+| NumPy         | 1.26.4        | 1.26.4        | 1.20.1   | 2.1.3    | 1.24.2           | N/A                |
++---------------+---------------+---------------+----------+----------+------------------+--------------------+
+| Ogre          | 1.12.10                                                                | N/A                |
++---------------+------------------------------------------------------------------------+--------------------+
+| OpenCV        | 4.6.0         | 4.9.0         | 4.6.0    | 4.10.0   | 4.6.0            | 4.1.0 / 3.2.0*** |
++---------------+---------------+---------------+----------+----------+------------------+--------------------+
+| OpenSSL       | 3.0.13        | 3.3.2         | 3.2.2    | 1.1.1w   | 3.0.15           | 1.1.1d / 1.1.1b*** |
++---------------+---------------+---------------+----------+----------+------------------+--------------------+
+| Python        | 3.12.3        | 3.12.3        | 3.9.19   | 3.13.0   | 3.11.2           | 3.8.2 / 3.7.5*** |
++---------------+---------------+---------------+----------+----------+------------------+--------------------+
+| Qt            | 5.15.13       | 5.15.8        | 5.15.9   | 5.15.16  | 5.15.8           | 5.14.1 / 5.12.5*** |
++---------------+---------------+---------------+----------+----------+------------------+--------------------+
+|                               | **Linux only** |
++-------------------------------+-----------------------------------------------------------------------------+
+| PCL           | 1.14.0        | N/A           | 1.12.0   | 1.14.1   | 1.13.0           | 1.10.0             |
++---------------+---------------+---------------+----------+----------+------------------+--------------------+
+| **RMW Middleware** |
++-------------------------------------------------------------------------------------------------------------+
+| Connext DDS   | 7.3.0.0                                             | N/A                                   |
++---------------+-----------------------------------------------------+---------------------------------------+
+| Cyclone DDS   | 0.10.5                                                                                      |
++---------------+---------------------------------------------------------------------------------------------+
+| Fast-DDS      | 2.14.4                                                                                      |
++---------------+---------------------------------------------------------------------------------------------+
+| Gurum DDS     | 4.2.0                         | N/A                                                         |
++---------------+-------------------------------+-------------------------------------------------------------+
+| Zenoh         | 1.0.4                                                                                       |
++---------------+---------------------------------------------------------------------------------------------+
 
 \" \* \" means that this is not the upstream version (available on the
 official Operating System repositories) but a package distributed by
