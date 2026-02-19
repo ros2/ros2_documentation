@@ -59,12 +59,12 @@ The ROS PMC currently consists of the following constituents:
      - PMC role
      - Time Zone (optional)
    * - Christophe Bédard
-     - `Apex.AI <https://www.apex.ai/>`_
+     - `KUKA <https://www.kuka.com/>`_
      - `christophebedard <https://github.com/christophebedard>`_
      - Member
      - PST (UTC-8)/PDT (UTC-7)
    * - Michael Carroll
-     - `Intrinsic <https://www.intrinsic.ai/>`_
+     - `KUKA <https://www.kuka.com/>`_
      - `mjcarroll <https://github.com/mjcarroll>`_
      - (Interim) Project Leader
      - CST (UTC-6)/CDT (UTC-5)
@@ -94,7 +94,7 @@ The ROS PMC currently consists of the following constituents:
      - Member
      - PST (UTC-8)/PDT (UTC-7)
    * - Chris Lalancette
-     - `Intrinsic <https://www.intrinsic.ai/>`_
+     - Independent
      - `clalancette <https://github.com/clalancette>`_
      - Member (former Project Leader)
      - N/A
