@@ -16,12 +16,142 @@ Supported Platforms
 
 This version of ROS 2 is supported on three platforms:
 
-
 * Ubuntu 16.04 (Xenial)
 * Mac macOS 10.12 (Sierra)
 * Windows 10
 
 Binary packages as well as instructions for how to compile from source are provided for all 3 platforms (see `install instructions <../../Installation>` as well as `documentation <https://docs.ros2.org/ardent/>`__).
+
+<table>
+  <colgroup>
+    <col width="15%">
+    <col width="25%">
+    <col width="33%">
+    <col width="26%">
+  </colgroup>
+  <thead valign="bottom">
+    <tr><th class="head" colspan="4">Required support</th>
+    </tr>
+    <tr><th class="head">Architecture</th>
+      <th class="head">Ubuntu Xenial (16.04)</th>
+      <th class="head">MacOS Sierra (10.12)</th>
+      <th class="head">Windows 10 (VS2015)</th>
+    </tr>
+  </thead>
+  <tbody valign="top">
+    <tr><td>amd64</td>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
+    <tr><td>arm64</td>
+      <td>X</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+Minimum language requirements:
+
+- C11[^2]
+- C++14
+- Python 3.5
+
+[^2]: C11 is required, but support for some non-compliant systems is
+    also provided, e.g. MSVC.
+
+Dependency Requirements:
+
+<table>
+  <colgroup>
+    <col width="16%">
+    <col width="27%">
+    <col width="27%">
+    <col width="29%">
+  </colgroup>
+  <thead valign="bottom">
+    <tr><th class="head">Package</th>
+      <th class="head">Ubuntu Xenial</th>
+      <th class="head">MacOS**</th>
+      <th class="head">Windows 10**</th>
+    </tr>
+  </thead>
+  <tbody valign="top">
+    <tr><td>CMake</td>
+      <td>3.5.1</td>
+      <td>3.11.0</td>
+      <td>3.10.2</td>
+    </tr>
+    <tr><td>EmPY</td>
+      <td>3.3.2</td>
+      <td>3.6.5</td>
+      <td>3.3.2</td>
+    </tr>
+    <tr><td>Ogre</td>
+      <td>1.10*</td>
+      <td>1.10*</td>
+      <td>1.10*</td>
+    </tr>
+    <tr><td>OpenCV</td>
+      <td>2.4.9</td>
+      <td>3.4.1</td>
+      <td>2.4.13.2*</td>
+    </tr>
+    <tr><td>Poco</td>
+      <td>1.7.7*</td>
+      <td>1.7.7*</td>
+      <td>1.7.7*</td>
+    </tr>
+    <tr><td>Python</td>
+      <td>3.5.1</td>
+      <td>3.6.5</td>
+      <td>3.6.4</td>
+    </tr>
+    <tr><td>Qt</td>
+      <td>5.5.1</td>
+      <td>5.10.0</td>
+      <td>5.10.0</td>
+    </tr>
+    <tr><td colspan="4"><strong>Linux only (used for turtlebot demo)</strong></td>
+    </tr>
+    <tr><td>PCL</td>
+      <td>1.7.2</td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+  </tbody>
+</table>
+
+\" \* \" means that this is not the upstream version (available on the
+official Operating System repositories) but a package distributed by
+OSRF or the community (package built and distributed on custom
+repositories).
+
+\" \*\* \" Rolling distributions will see multiple version changes of
+these dependencies during their lifetime.
+
+This document only captures the version at the first release of a ROS
+distribution and will not be updated as the dependencies move forward.
+These versions are thus a low watermark.
+
+Package manager use for dependencies:
+
+- Ubuntu Xenial: apt
+- MacOS: Homebrew, pip
+- Windows: Chocolatey, pip
+
+Build System Support:
+
+- ament_cmake
+- cmake
+- setuptools
+
+Middleware Implementation Support:
+
+- eProsima Fast-RTPS
+- RTI Connext
+- ADLINK OpenSplice
 
 Features
 --------
