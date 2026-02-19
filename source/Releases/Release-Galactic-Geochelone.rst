@@ -52,15 +52,15 @@ Targeted platforms:
   <thead valign="bottom">
     <tr><th class="head">Architecture</th>
       <th class="head">Ubuntu Focal
-	(20.04)</th>
+ (20.04)</th>
       <th class="head">Windows 10
-	(VS2019)</th>
+ (VS2019)</th>
       <th class="head">RHEL 8</th>
       <th class="head">macOS</th>
       <th class="head">Debian Bullseye
-	(11)</th>
+ (11)</th>
       <th class="head">OpenEmbedded /
-	webOS OSE</th>
+ webOS OSE</th>
     </tr>
   </thead>
   <tbody valign="top">

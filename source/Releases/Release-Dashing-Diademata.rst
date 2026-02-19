@@ -45,7 +45,7 @@ Targeted platforms:
       <th class="head">Windows 10 (VS2019)</th>
       <th class="head">Debian Stretch (9)</th>
       <th class="head">OpenEmbedded /
-	webOS OSE</th>
+ webOS OSE</th>
     </tr>
   </thead>
   <tbody valign="top">
@@ -114,7 +114,7 @@ Middleware Implementation Support:
       <td>RTI Connext</td>
       <td>Tier 1</td>
       <td>All Platforms except Debian
-	and OpenEmbedded</td>
+ and OpenEmbedded</td>
       <td>All Architectures except arm64/arm32</td>
     </tr>
     <tr><td>rmw_cyclonedds_cpp</td>
@@ -127,7 +127,7 @@ Middleware Implementation Support:
       <td>ADLink OpenSplice</td>
       <td>Tier 2</td>
       <td>All Platforms except Debian
-	and OpenEmbedded</td>
+ and OpenEmbedded</td>
       <td>All Architectures</td>
     </tr>
     <tr><td>rmw_fastrtps_dynamic_cpp</td>

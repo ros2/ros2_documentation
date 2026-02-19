@@ -51,17 +51,17 @@ Targeted platforms:
   <thead valign="bottom">
     <tr><th class="head">Architecture</th>
       <th class="head">Ubuntu Noble
-	(24.04)</th>
+ (24.04)</th>
       <th class="head">Windows 10
-	(VS2019)</th>
+ (VS2019)</th>
       <th class="head">RHEL 9</th>
       <th class="head">Ubuntu Jammy
-	(22.04)</th>
+ (22.04)</th>
       <th class="head">macOS</th>
       <th class="head">Debian Bookworm
-	(12)</th>
+ (12)</th>
       <th class="head">OpenEmbedded /
-	Yocto Project</th>
+ Yocto Project</th>
     </tr>
   </thead>
   <tbody valign="top">
