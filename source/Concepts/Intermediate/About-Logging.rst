@@ -120,6 +120,7 @@ For each of the environment settings, note that this is a process-wide setting, 
   * ``{message}`` - The log message (may be empty).
   * ``{function_name}`` - The function name this was called from (may be empty).
   * ``{file_name}`` - The file name this was called from (may be empty).
+  * ``{short_file_name}`` - The file name without the directory path (basename only) this was called from (may be empty).
   * ``{time}`` - The time in seconds since the epoch.
   * ``{time_as_nanoseconds}`` - The time in nanoseconds since the epoch.
   * ``{date_time_with_ms}`` - The time in ISO format, e.g. ``2024-06-11 09:29:19.304``
