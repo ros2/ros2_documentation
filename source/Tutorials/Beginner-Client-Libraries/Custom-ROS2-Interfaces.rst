@@ -711,8 +711,12 @@ Add the following lines (C++ only):
       rclcpp tutorial_interfaces)                      # CHANGE
 
     add_executable(client src/add_two_ints_client.cpp)
+<<<<<<< HEAD
     ament_target_dependencies(client
       rclcpp tutorial_interfaces)                      # CHANGE
+=======
+    target_link_libraries(client PUBLIC rclcpp::rclcpp ${tutorial_interfaces_TARGETS})  # CHANGE
+>>>>>>> 8329650 (Add missing # CHANGE comment (#6256))
 
     install(TARGETS
       server
