@@ -180,7 +180,7 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
      - `InvincibleRMC <https://github.com/InvincibleRMC>`_
      - PST (UTC-8)/PDT (UTC-7)
    * - Skyler Medeiros
-     - `iRobot <https://www.irobot.com/>`_
+     - Independent
      - `skyegalaxy <https://github.com/skyegalaxy>`_
      - PST (UTC-8)/PDT (UTC-7)
    * - Steve Peters
