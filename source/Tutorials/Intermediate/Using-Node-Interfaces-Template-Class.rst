@@ -53,7 +53,7 @@ The function retrieves and prints the name of the ``Node``.
     {
       rclcpp::init(argc, argv);
       auto node = std::make_shared<SimpleNode>("Simple_Node");
-      node_info(*node);
+      node_info(node);
     }
 
 Output:
@@ -161,7 +161,7 @@ Below, similar to the previous example, a ``rclcpp_lifecycle::LifecycleNode`` an
       : rclcpp_lifecycle::LifecycleNode(node_name,
           rclcpp::NodeOptions().use_intra_process_comms(intra_process_comms))
       {}
-    }
+    };
 
     int main(int argc, char * argv[])
     {
@@ -224,7 +224,7 @@ Then, it retrieves and prints the node name.
       : rclcpp_lifecycle::LifecycleNode(node_name,
           rclcpp::NodeOptions().use_intra_process_comms(intra_process_comms))
       {}
-    }
+    };
 
 Next, we create a ``rclcpp::Node`` as well as a ``rclcpp_lifecycle::LifecycleNode`` class.
 The ``rclcpp_lifecycle::LifecycleNode`` class often includes functions for the state transitions  ``Unconfigured``, ``Inactive``, ``Active``, and ``Finalized``.
