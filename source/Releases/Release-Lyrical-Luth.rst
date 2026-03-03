@@ -40,6 +40,7 @@ New features in this ROS 2 release
 ----------------------------------
 
 ``class_loader``
+^^^^^^^^^^^^^^^^
 
 Add support for passing arguments to constructors.
 As a result, users can now create plugins that are not default constructible, removing the need for initialize method.
@@ -47,10 +48,25 @@ As a result, users can now create plugins that are not default constructible, re
 See https://github.com/ros/class_loader/pull/223 for more details.
 
 ``plugin_lib``
+^^^^^^^^^^^^^^
 
 Add support for passing arguments to constructors.
 
 See https://github.com/ros/pluginlib/pull/291 for more details.
+
+``image_transport``
+^^^^^^^^^^^^^^^^^^^
+
+``image_transport`` now supports lifecycle nodes.
+
+See https://github.com/ros-perception/image_common/pull/352 for more details.
+
+``point_cloud_transport``
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+``point_cloud_transport`` now supports lifecycle nodes.
+
+See https://github.com/ros-perception/point_cloud_transport/pull/109 for more details.
 
 ``rosidl_python``
 ^^^^^^^^^^^^^^^^^
