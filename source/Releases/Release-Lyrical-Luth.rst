@@ -39,6 +39,19 @@ TODO
 New features in this ROS 2 release
 ----------------------------------
 
+``class_loader``
+
+Add support for passing arguments to constructors.
+As a result, users can now create plugins that are not default constructible, removing the need for initialize method.
+
+See https://github.com/ros/class_loader/pull/223 for more details.
+
+``plugin_lib``
+
+Add support for passing arguments to constructors.
+
+See https://github.com/ros/pluginlib/pull/291 for more details.
+
 ``rosidl_python``
 ^^^^^^^^^^^^^^^^^
 
