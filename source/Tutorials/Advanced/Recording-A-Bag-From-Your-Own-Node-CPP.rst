@@ -101,7 +101,7 @@ Inside the ``ros2_ws/src/bag_recorder_nodes/src`` directory, create a new file c
       }
 
     private:
-      void topic_callback(std::shared_ptr<const rclcpp::SerializedMessage> msg) const
+      void topic_callback(std::shared_ptr<rclcpp::SerializedMessage> msg) const
       {
         rclcpp::Time time_stamp = this->now();
 
@@ -158,7 +158,7 @@ We do this for two reasons.
 
 .. code-block:: C++
 
-      void topic_callback(std::shared_ptr<const rclcpp::SerializedMessage> msg) const
+      void topic_callback(std::shared_ptr<rclcpp::SerializedMessage> msg) const
       {
 
 Within the subscription callback, the first thing to do is determine the time stamp to use for the stored message.
