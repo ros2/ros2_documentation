@@ -15,7 +15,7 @@ A single ROS 2 distribution will only have full Tier 1 support for a **single** 
 The rationale is that fully supporting two Ubuntu LTS versions is a tremendous overhead for our maintainers as there may be upstream dependencies that differ by up to two years .
 On a case-by-case basis, a ROS 2 distribution may support an older Ubuntu LTS distribution as a Tier 3, community-supported platform.
 
-Since macOS (or at least brew) as well as Windows are rolling platforms we aim to support the latest version available at the time of a ROS 2 distribution release.
+Since both macOS (or at least brew) and Windows are rolling platforms, we aim to support the latest version available at the time of a ROS 2 distribution's release.
 For Debian we also aim to target the latest stable version though if that version is two years behind the Ubuntu version that might not be possible.
 
 Support
