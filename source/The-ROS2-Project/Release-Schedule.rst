@@ -10,7 +10,7 @@ On the other hand a longer cycle (like 2 years) is too long for users to wait fo
 Targeted Platforms
 ------------------
 
-Since regular Ubuntu releases are only supported for 9 months ROS 2 will not target those.
+Since non-LTS (long term support) Ubuntu releases are only supported for 9 months, ROS 2 will not target those non-LTS Ubuntu releases.
 A single ROS 2 distribution will only have full Tier 1 support for a **single** Ubuntu LTS.
 The rationale is that fully supporting two LTS versions - which means 2-year-different versions of upstream dependencies - is a tremendous overhead and sometimes even impossible.
 On a case-by-case basis, a ROS 2 distribution may support an older Ubuntu LTS distribution as a Tier 3, community-supported platform.
