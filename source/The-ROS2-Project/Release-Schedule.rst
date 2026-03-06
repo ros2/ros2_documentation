@@ -3,7 +3,7 @@ Release Schedule
 
 Frequency
 ---------
-New ROS 2 releases will be published in a time based fashion **every 12 months**.
+New ROS 2 releases are produced every **every 12 months**.
 The rationale is that a shorter cycle (like 6 months) results in significant overhead and potentially many active releases at the same time (assuming they have the same support length).
 On the other hand a longer cycle (like 2 years) is too long for users to wait for new features to be available in a ROS 2 release.
 
