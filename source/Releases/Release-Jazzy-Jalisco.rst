@@ -19,7 +19,7 @@ For a list of all of the changes since Iron, see the :doc:`long form changelog <
 Supported Platforms
 -------------------
 
-Jazzy Jalisco is primarily supported on the following platforms:
+Jazzy Jalisco supports the following platforms according to `the platform support tiers <../The-ROS2-Project/Platform-Support-Tiers>`:
 
 Tier 1 platforms:
 

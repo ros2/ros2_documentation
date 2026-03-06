@@ -10,7 +10,7 @@ Eloquent Elusor (``eloquent``)
 Supported Platforms
 -------------------
 
-Eloquent Elusor is primarily supported on the following platforms:
+Eloquent Elusor supports the following platforms according to `the platform support tiers <../The-ROS2-Project/Platform-Support-Tiers>`:
 
 Tier 1 platforms:
 

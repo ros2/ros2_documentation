@@ -10,7 +10,7 @@ Dashing Diademata (``dashing``)
 Supported Platforms
 -------------------
 
-Dashing Diademata is primarily supported on the following platforms:
+Dashing Diademata supports the following platforms according to `the platform support tiers <../The-ROS2-Project/Platform-Support-Tiers>`:
 
 Tier 1 platforms:
 

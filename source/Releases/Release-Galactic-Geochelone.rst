@@ -19,7 +19,7 @@ For a list of all of the changes since Foxy, see the `long form changelog <Galac
 Supported Platforms
 -------------------
 
-Galactic Geochelone is primarily supported on the following platforms:
+Galactic Geochelone supports the following platforms according to `the platform support tiers <../The-ROS2-Project/Platform-Support-Tiers>`:
 
 Tier 1 platforms:
 

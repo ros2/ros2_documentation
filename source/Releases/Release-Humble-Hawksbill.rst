@@ -19,7 +19,7 @@ For a list of all of the changes since Galactic, see the `long form changelog <H
 Supported Platforms
 -------------------
 
-Humble Hawksbill is primarily supported on the following platforms:
+Humble Hawksbill supports the following platforms according to `the platform support tiers <../The-ROS2-Project/Platform-Support-Tiers>`:
 
 Tier 1 platforms:
 
