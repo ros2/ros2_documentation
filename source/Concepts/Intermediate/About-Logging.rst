@@ -98,6 +98,11 @@ For each of the environment settings, note that this is a process-wide setting, 
   If empty or not set, defaults to ``rcl_logging_spdlog``.
   This variable has no effect when RCL is built with static linking to a specific logging implementation.
   See the ``rcl_logging_implementation`` section below for more details.
+* ``RCL_LOGGING_SPDLOG_FLUSH_PERIOD_SECONDS`` - Control the periodic flush interval for log files when using the ``rcl_logging_spdlog`` backend.
+  By default, logs are flushed every 5 seconds and immediately on error-level messages.
+  If set to ``0``, logs are flushed immediately on every log message (unbuffered mode, which may impact performance).
+  If set to a positive integer ``N``, logs are flushed every ``N`` seconds plus immediately on error-level messages.
+  If set to an invalid value (non-integer, negative, or trailing characters), initialization will fail with an error.
 * ``ROS_LOG_DIR`` - Control the logging directory that is used for writing logging messages to disk (if that is enabled).
   If non-empty, use the exact directory as specified in this variable.
   If empty, use the contents of the ``ROS_HOME`` environment variable to construct a path of the form ``$ROS_HOME/.log``.
