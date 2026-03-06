@@ -14,6 +14,11 @@ Advanced
    Advanced/Recording-A-Bag-From-Your-Own-Node-CPP
    Advanced/Recording-A-Bag-From-Your-Own-Node-Py
    Advanced/Reading-From-A-Bag-File-CPP
+<<<<<<< HEAD
+=======
+   Advanced/Reading-From-A-Bag-File-Python
+   Advanced/Create-An-Rqtbag-Plugin
+>>>>>>> e5ef935 (Create an rqt_bag plugin (#6212))
    Advanced/ROS2-Tracing-Trace-and-Analyze
    Advanced/Creating-An-RMW-Implementation
    Advanced/Simulators/Simulation-Main
