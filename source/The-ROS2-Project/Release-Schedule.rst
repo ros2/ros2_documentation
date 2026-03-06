@@ -24,7 +24,7 @@ Support
 LTS releases
 ^^^^^^^^^^^^
 
-Since Ubuntu LTS releases come with **5 years** of standard support we aim to match the same duration.
+Since Ubuntu LTS releases come with **5 years** of standard support, we aim for each ROS LTS distribution to have a similar support lifetime.
 In even years new ROS 2 releases will happen one month after the Ubuntu LTS has been released (which usually means a ROS 2 release in May).
 The ROS 2 release will be supported until the end of the standard support of the Ubuntu LTS release which is 4 years and 11 months from the ROS 2 release date.
 
