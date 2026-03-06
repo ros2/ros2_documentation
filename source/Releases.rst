@@ -37,19 +37,19 @@ Rows in the table marked in green are the currently supported distributions.
      This CSS overrides the styles of certain rows to mark them green, indicating they are supported releases.
      For the odd number rows, a line like the following must be used:
 
-       .rst-content table.docutils:not(.field-list) tr:nth-child(1) td {background-color: #33cc66;}
+       .rst-content table.docutils:not(.field-list) tr:nth-child(1) td {...}
 
      For the even number rows, a line like the following must be used:
 
-       .rst-content tr:nth-child(2) {background-color: #33cc66;}
+       .rst-content tr:nth-child(2) {...}
 
      No other combination I've found has worked.  Yes, this is extremely fragile.  No, I don't understand
      why it is like this.
    -->
    <style>
-     .rst-content table.docutils:not(.field-list) tr:nth-child(1) td {background-color: #33cc66;}
-     .rst-content tr:nth-child(2) {background-color: #33cc66;}
-     .rst-content tr:nth-child(4) {background-color: #33cc66;}
+     .rst-content table.docutils:not(.field-list) tr:nth-child(1) td {background-color: #22314E; color: white}
+     .rst-content tr:nth-child(2) {background-color: #22314E; color: white}
+     .rst-content tr:nth-child(4) {background-color: #22314E; color: white}
    </style>
 
 .. |rolling| image:: Releases/rolling-small.png
