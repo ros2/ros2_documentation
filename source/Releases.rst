@@ -18,7 +18,7 @@ List of Distributions
 ---------------------
 
 Below is a list of current and historic ROS 2 distributions.
-Rows in the table marked in green are the currently supported distributions.
+Rows in the table marked in blue are the currently supported distributions.
 
 .. toctree::
    :hidden:
@@ -34,7 +34,7 @@ Rows in the table marked in green are the currently supported distributions.
 .. raw:: html
 
    <!--
-     This CSS overrides the styles of certain rows to mark them green, indicating they are supported releases.
+     This CSS overrides the styles of certain rows to mark them blue, indicating they are supported releases.
      For the odd number rows, a line like the following must be used:
 
        .rst-content table.docutils:not(.field-list) tr:nth-child(1) td {...}
