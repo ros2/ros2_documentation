@@ -47,9 +47,20 @@ Rows in the table marked in green are the currently supported distributions.
      why it is like this.
    -->
    <style>
-     .rst-content table.docutils:not(.field-list) tr:nth-child(1) td {background-color: #22314E; color: white}
-     .rst-content tr:nth-child(2) {background-color: #22314E; color: white}
-     .rst-content tr:nth-child(4) {background-color: #22314E; color: white}
+     /* Targeting the cells and rows for the background and plain text */
+    .rst-content table.docutils:not(.field-list) tr:nth-child(1) td,
+    .rst-content tr:nth-child(2),
+    .rst-content tr:nth-child(4) {
+      background-color: #22314E;
+      color: white;
+    }
+
+    /* Targeting the links inside those specific rows to force them to be not-blue */
+    .rst-content table.docutils:not(.field-list) tr:nth-child(1) td a,
+    .rst-content tr:nth-child(2) a,
+    .rst-content tr:nth-child(4) a {
+      color: #B0B0B0;
+    }
    </style>
 
 .. |rolling| image:: Releases/rolling-small.png
