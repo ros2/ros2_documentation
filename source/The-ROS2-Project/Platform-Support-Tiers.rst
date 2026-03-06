@@ -2,7 +2,7 @@ Platform Support Tiers
 ======================
 
 Platforms are defined as a combination of the OS, the architecture, and the RMW implementation.
-By default the tiers are expected to apply up to the desktop variant in a rosdistro, unless otherwise specified.
+If a platform / operating system provides multiple variants, (e.g. Ubuntu Desktop)  the ROS distro will be built for the desktop variant unless otherwise specified. 
 ROS 2 variants are defined in `REP 2001 <https://www.ros.org/reps/rep-2001.html>`_.
 
 Tier 1
