@@ -16,7 +16,7 @@ The rationale is that fully supporting two Ubuntu LTS versions is a tremendous o
 On a case-by-case basis, a ROS 2 distribution may support an older Ubuntu LTS distribution as a Tier 3, community-supported platform.
 
 Since both macOS (or at least brew) and Windows are rolling platforms, we aim to support the latest version available at the time of a ROS 2 distribution's release.
-For Debian we also aim to target the latest stable version though if that version is two years behind the Ubuntu version that might not be possible.
+For Debian we also aim to target the latest stable version; however, if that version is two years behind the Ubuntu version then it might not be possible.
 
 Support
 -------
