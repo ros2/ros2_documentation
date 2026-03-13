@@ -93,7 +93,7 @@ TODO - this section will show a table of important system package versions acros
 Middleware Implementation support
 ---------------------------------
 
-The default middleware in ROS Lyrical is `rmw_fastrtps_cpp`.
+The default middleware in ROS Lyrical is **rmw_fastrtps_cpp**.
 
 +---------------------------+-------------------------+---------------+----------------------------+-------------------------------+
 | Middleware Library        | Middleware Provider     | Support Level | Platforms                  | Architectures                 |
