@@ -17,7 +17,7 @@ To compile and run the tests, simply run the `test <https://colcon.readthedocs.i
 
   $ colcon test --ctest-args tests [package_selection_args]
 
-Where ``package_selection_args`` are optional package selection arguments for ``colcon`` to limit which packages are built and run.
+Where ``package_selection_args`` are optional package selection arguments for ``colcon`` to limit which packages are built and run, *e.g.* ``--packages-select my_ros_package```.
 Find more info in the `colcon documentation on Package selection arguments <https://colcon.readthedocs.io/en/released/reference/package-selection-arguments.html>`__
 
 :ref:`Sourcing the workspace <colcon-tutorial-source-the-environment>` before testing **IS** necessary. If you don’t, you risk running into the following issue:
