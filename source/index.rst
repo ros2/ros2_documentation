@@ -17,6 +17,7 @@ ROS 2 Documentation
    Concepts
    Contact
    The-ROS2-Project
+   Mirrors
    Package-Docs
    Related-Projects
    Glossary
@@ -100,6 +101,28 @@ If you're interested in the advancement of the ROS 2 project:
 
   - Downloadable marketing materials
   - `Information about the ROS trademark <https://www.ros.org/blog/media/>`__
+
+Mirrors
+-------
+
+Mirrors are secondary sources of ROS binaries that greatly speed up the process of installing ROS for users that reside far away from our main servers
+
+- A partial list of ROS mirrors and how to use them
+
+  * :doc:`A list of mirrors and their usage. <Mirrors/List-of-mirrors-and-their-usage>`
+
+- If you already have a ROS 2 mirror and would like to add it to our list use this guide.
+
+  * :doc:`Adding your mirror. <Mirrors/Adding-your-mirror>`
+
+- A brief guide to setting up your own mirror of ROS packages.
+
+  * :doc:`Creating your own ROS mirror. <Mirrors/Creating-your-own-ROS-mirror>`
+
+- If you would like to mirror the ROS 2 documentation, and potentially translate it into your local language.
+
+  * :doc:`Mirroring ROS Documentation. <Mirrors/Mirroring-ROS-documentation>`
+
 
 ROS community resources
 -----------------------
