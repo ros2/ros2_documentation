@@ -14,10 +14,6 @@ These are the concepts that will help you get started understanding the basics o
    Basic/Interfaces-Topics-Services-Actions
    Basic/About-Nodes
    Basic/About-Discovery
-   Basic/About-Interfaces
-   Basic/About-Topics
-   Basic/About-Services
-   Basic/About-Actions
    Basic/About-Parameters
    Basic/About-Command-Line-Tools
    Basic/About-Launch

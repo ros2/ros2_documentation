@@ -13,6 +13,14 @@ Interfaces (topics, services, actions)
    :depth: 2
    :local:
 
+.. toctree::
+   :hidden:
+   
+   About-Interfaces
+   About-Topics
+   About-Services
+   About-Actions
+
 Summary
 -------
 
@@ -25,8 +33,6 @@ ROS nodes typically communicate through the following three types of interfaces:
 For consistent communication, each interface uses definitions provided in ``.msg``, ``.srv``, or ``.action`` files.
 
 :doc:`Learn more about nodes <About-Nodes>`
-
-:doc:`Learn more about how ROS works </Tutorials>`
 
 Topics
 ------
