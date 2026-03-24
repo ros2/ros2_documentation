@@ -15,7 +15,7 @@ What follows is highlights of the important changes and features in Lyrical Luth
 Supported Platforms
 -------------------
 
-Lyrical Luth is primarily supported on the following platforms:
+Lyrical Luth supports the following platforms according to `the platform support tiers <../The-ROS2-Project/Platform-Support-Tiers>`:
 
 Tier 1 platforms:
 
