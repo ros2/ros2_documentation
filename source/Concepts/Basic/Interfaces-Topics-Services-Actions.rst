@@ -22,7 +22,11 @@ ROS nodes typically communicate through the following three types of interfaces:
 * Services: For synchronous request/response interactions.
 * Actions: For long-running tasks with feedback.
 
-For consistent communication, each interface uses definitions provided in ``.msg``, ``.srv``, or ``.action files``.
+For consistent communication, each interface uses definitions provided in ``.msg``, ``.srv``, or ``.action`` files.
+
+:doc:`Learn more about nodes <About-Nodes>`
+
+:doc:`Learn more about how ROS works </Tutorials>`
 
 Topics
 ------
@@ -33,6 +37,13 @@ This interface type has the following main characteristics:
 
 * Asynchronous, one-way communication
 * Multiple publishers and subscribers can share the same topic
+
+.. mermaid::
+
+   flowchart LR
+    P[Publisher node] -->|Publishes messages| T[Topic]
+    T -->|Delivers messages| S1[Subscriber node]
+    T -->|Delivers messages| S2[Subscriber node]
 
 Topic keys identify individual publishers on a topic so nodes and tools can distinguish where messages come from. 
 Each topic key makes it easier to track data sources when several publishers share the same topic.
@@ -53,6 +64,8 @@ This gives you a clear view of timing patterns, delays, and irregularities, maki
 
    The default interval is 1 second. The default statistics topic is ``/statistics``.
 
+:doc:`Learn how to enable topic statistics </Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial>`
+
 Services
 --------
 
@@ -63,6 +76,14 @@ This interface type has the following main characteristics:
 * Synchronous communication
 * Ideal for short-lived operations that require confirmation, or provide a result in response to a request
 
+.. mermaid::
+
+   sequenceDiagram
+    participant Service client
+    participant Service server
+    Service client->>Service server: Request
+    Service server-->>Service client: Response
+
 Actions
 -------
 
@@ -72,6 +93,15 @@ This interface type has the following main characteristics:
 
 * Asynchronous, with feedback and result
 * Suitable for operations that take time
+
+.. mermaid::
+
+   sequenceDiagram
+    participant Action client
+    participant Action server
+    Client->>Action Server: Sends a goal
+    Action server-->>Action client: Provides feedback (periodic)
+    Action server-->>Action client: Sends a result
 
 Key differences between ROS interfaces
 --------------------------------------
