@@ -21,7 +21,7 @@ For a list of all of the changes since Jazzy, see the :doc:`long form changelog 
 Supported Platforms
 -------------------
 
-Kilted Kaiju is primarily supported on the following platforms:
+Kilted Kaiju supports the following platforms according to `the platform support tiers <../The-ROS2-Project/Platform-Support-Tiers>`:
 
 Tier 1 platforms:
 
@@ -37,7 +37,130 @@ Tier 3 platforms:
 * macOS: ``amd64``
 * Debian Bookworm: ``amd64``
 
-For more information about RMW implementations, compiler / interpreter versions, and system dependency versions see `REP 2000 <https://reps.openrobotics.org/rep-2000/>`__.
+Targeted platforms:
+
++--------------+-------------------+---------------+-------------------+-----------+-----------------+----------------+
+| Architecture | Ubuntu Noble      | Windows 10    | RHEL 9            | macOS     | Debian Bookworm | OpenEmbedded / |
+|              | (24.04)           | (VS2019)      |                   |           | (12)            | Yocto Project  |
++==============+===================+===============+===================+===========+=================+================+
+| amd64        | Tier 1 [d][a][s]  | Tier 1 [a][s] | Tier 2 [d][a][s]  | Tier 3 [s]| Tier 3 [s]      | Tier 3 [s]     |
++--------------+-------------------+---------------+-------------------+-----------+-----------------+----------------+
+| arm64        | Tier 1 [d][a][s]  |               |                   |           | Tier 3 [s]      | Tier 3 [s]     |
++--------------+-------------------+---------------+-------------------+-----------+-----------------+----------------+
+| arm32        | Tier 3 [s]        |               |                   |           | Tier 3 [s]      | Tier 3 [s]     |
++--------------+-------------------+---------------+-------------------+-----------+-----------------+----------------+
+
+The following indicators show what delivery mechanisms are available for
+each platform.
+
+\" \[d\] \" Distribution-specific (Debian, RPM, etc.) packages will be
+provided for this platform for packages submitted to the rosdistro.
+
+\" \[a\] \" Binary releases are provided as a single archive per
+platform containing all packages in the Jazzy ROS 2 repos file[^14].
+
+\" \[s\] \" Compilation from source.
+
+Middleware Implementation Support:
+
++---------------------------+-------------------------+---------------+----------------------------+-------------------------------+
+| Middleware Library        | Middleware Provider     | Support Level | Platforms                  | Architectures                 |
++===========================+=========================+===============+============================+===============================+
+| rmw_fastrtps_cpp*         | eProsima Fast-DDS       | Tier 1        | All Platforms              | All Architectures             |
++---------------------------+-------------------------+---------------+----------------------------+-------------------------------+
+| rmw_connextdds            | RTI Connext             | Tier 1        | Ubuntu, Windows, and macOS | All Architectures except arm64|
++---------------------------+-------------------------+---------------+----------------------------+-------------------------------+
+| rmw_cyclonedds_cpp        | Eclipse Cyclone DDS     | Tier 1        | All Platforms              | All Architectures             |
++---------------------------+-------------------------+---------------+----------------------------+-------------------------------+
+| rmw_zenoh_cpp             | Eclipse Zenoh           | Tier 1        | All Platforms              | All Architectures             |
++---------------------------+-------------------------+---------------+----------------------------+-------------------------------+
+| rmw_fastrtps_dynamic_cpp  | eProsima Fast-DDS       | Tier 2        | All Platforms              | All Architectures             |
++---------------------------+-------------------------+---------------+----------------------------+-------------------------------+
+| rmw_gurumdds_cpp          | GurumNetworks GurumDDS  | Tier 3        | Ubuntu and Windows         | All Architectures except arm32|
++---------------------------+-------------------------+---------------+----------------------------+-------------------------------+
+
+\" \* \" means default RMW implementation.
+
+Middleware implementation support is dependent upon the platform support
+tier. For example a Tier 1 middleware implementation on a Tier 2
+platform can only receive Tier 2 support.
+
+Minimum language requirements:
+
+- C++17
+- Python 3.9
+
+Dependency Requirements:
+
++---------------+-------------------------------+-------------------------------------------------------------+
+|               | Required Support              | Recommended Support                                         |
++===============+===============+===============+==========+==========+==================+====================+
+| Package       | Ubuntu Noble  | Windows 10**  | RHEL 9   | macOS**  | Debian Bookworm  | OpenEmbedded**     |
++---------------+---------------+---------------+----------+----------+------------------+--------------------+
+| CMake         | 3.28.3        | 3.28.3        | 3.26.5   | 3.31.1   | 3.25.1           | 3.22.3             |
++---------------+---------------+---------------+----------+----------+------------------+--------------------+
+| EmPY          | 3.3.4         | 3.3.4         | 3.3.4a   | 3.3.4                                            |
++---------------+---------------+---------------+----------+----------+------------------+--------------------+
+| Gazebo        | Ionic*        | N/A           | N/A      | Ionic*   | Ionic*           | N/A                |
++---------------+---------------+---------------+----------+----------+------------------+--------------------+
+| NumPy         | 1.26.4        | 1.26.4        | 1.20.1   | 2.1.3    | 1.24.2           | N/A                |
++---------------+---------------+---------------+----------+----------+------------------+--------------------+
+| Ogre          | 1.12.10                                                                | N/A                |
++---------------+---------------+---------------+----------+----------+------------------+--------------------+
+| OpenCV        | 4.6.0         | 4.9.0         | 4.6.0    | 4.10.0   | 4.6.0            | 4.1.0 / 3.2.0***   |
++---------------+---------------+---------------+----------+----------+------------------+--------------------+
+| OpenSSL       | 3.0.13        | 3.3.2         | 3.2.2    | 1.1.1w   | 3.0.15           | 1.1.1d / 1.1.1b*** |
++---------------+---------------+---------------+----------+----------+------------------+--------------------+
+| Python        | 3.12.3        | 3.12.3        | 3.9.19   | 3.13.0   | 3.11.2           | 3.8.2 / 3.7.5***   |
++---------------+---------------+---------------+----------+----------+------------------+--------------------+
+| Qt            | 5.15.13       | 5.15.8        | 5.15.9   | 5.15.16  | 5.15.8           | 5.14.1 / 5.12.5*** |
++---------------+---------------+---------------+----------+----------+------------------+--------------------+
+|                               | **Linux only**                                                              |
++---------------+---------------+---------------+----------+----------+------------------+--------------------+
+| PCL           | 1.14.0        | N/A           | 1.12.0   | 1.14.1   | 1.13.0           | 1.10.0             |
++---------------+---------------+---------------+----------+----------+------------------+--------------------+
+| **RMW Middleware**                                                                                          |
++---------------------------------------------------------------------+---------------------------------------+
+| Connext DDS   | 7.3.0.0                                             | N/A                                   |
++---------------+-----------------------------------------------------+---------------------------------------+
+| Cyclone DDS   | 0.10.5                                                                                      |
++---------------+---------------------------------------------------------------------------------------------+
+| Fast-DDS      | 2.14.4                                                                                      |
++---------------+-------------------------------+-------------------------------------------------------------+
+| Gurum DDS     | 4.2.0                         | N/A                                                         |
++---------------+-------------------------------+-------------------------------------------------------------+
+| Zenoh         | 1.0.4                                                                                       |
++---------------+---------------------------------------------------------------------------------------------+
+
+\" \* \" means that this is not the upstream version (available on the
+official Operating System repositories) but a package distributed by
+OSRF or the community (package built and distributed on custom
+repositories).
+
+\" \*\* \" means that the dependency may see multiple version changes,
+because the dependency uses a package manager that continually updates
+the dependency without a stable API.
+
+\" \*\*\* \" webOS OSE provides this different version.
+
+This document only captures the version at the first release of a ROS
+distribution and will not be updated as the dependencies move forward.
+These versions are thus a low watermark.
+
+Package manager use for dependencies:
+
+- Ubuntu, Debian: apt, pip
+- Windows: pixi/conda, pip
+- macOS: Homebrew, pip
+- RHEL: dnf
+- OpenEmbedded: opkg
+
+Build System Support:
+
+- ament_cmake
+- cargo
+- cmake
+- setuptools
 
 Installation
 ------------
