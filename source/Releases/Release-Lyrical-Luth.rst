@@ -151,6 +151,15 @@ See https://github.com/ros-perception/image_common/pull/352 for more details.
 
 See https://github.com/ros-perception/point_cloud_transport/pull/109 for more details.
 
+``rcl_logging_implementation``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+A new ``rcl_logging_implementation`` package has been introduced to allow users to select the logging backend implementation at runtime without rebuilding ``rcl``.
+Users can set the ``RCL_LOGGING_IMPLEMENTATION`` environment variable to switch between available logging backends (e.g., ``rcl_logging_spdlog``, ``rcl_logging_noop``, or custom implementations).
+If not specified, ``rcl_logging_spdlog`` is used by default.
+
+See https://github.com/ros2/rcl/issues/1178, https://github.com/ros2/rcl/pull/1276, and https://github.com/ros2/rcl_logging/pull/135 for more details.
+
 ``rosidl_python``
 ^^^^^^^^^^^^^^^^^
 

@@ -18,7 +18,7 @@ For more information see `REP-2002 <https://reps.openrobotics.org/rep-2002/>`_
 Currently Supported Platforms
 -----------------------------
 
-Rolling Ridley is currently supported on the following platforms:
+Rolling Ridley supports the following platforms according to `the platform support tiers <../The-ROS2-Project/Platform-Support-Tiers>`:
 
 Tier 1 platforms:
 

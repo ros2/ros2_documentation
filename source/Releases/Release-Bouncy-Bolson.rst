@@ -30,6 +30,88 @@ This version of ROS 2 is supported on four platforms (see `REP 2000 <https://rep
 
 Binary packages as well as instructions for how to compile from source are provided (see `install instructions <../../Installation>` as well as `documentation <https://docs.ros2.org/bouncy/>`__).
 
+Targeted platforms:
+
++--------------+------------------------------------------------------------------------------------------------+------------------------+
+|              | Required Support                                                                               | Recommended Support    |
++--------------+-----------------------+----------------------+---------------------+---------------------------+------------------------+
+| Architecture | Ubuntu Bionic (18.04) | MacOS Sierra (10.12) | Windows 10 (VS2017) | Ubuntu Xenial (16.04) [s] | Debian Stretch (9) [s] |
++==============+=======================+======================+=====================+===========================+========================+
+| amd64        | X                     | X                    | X                   | X [s]                     | X [s]                  |
++--------------+-----------------------+----------------------+---------------------+---------------------------+------------------------+
+| arm64        | X                     |                      |                     | X [s]                     | X [s]                  |
++--------------+-----------------------+----------------------+---------------------+---------------------------+------------------------+
+
+\" \[s\] \" Compilation from source, the ROS buildfarm will not produce
+any binary packages for these platforms.
+
+Minimum language requirements:
+
+- C11[^3]
+- C++14
+- Python 3.5
+
+Dependency Requirements:
+
++---------+-------------------------------------------------------+---------------------+
+|         | Required Support                                      | Recommended Support |
++---------+---------------+-----------+------------+--------------+---------------------+
+| Package | Ubuntu Bionic | MacOS**   | Windows 10 | Ubuntu       | Debian              |
+|         |               |           | **         | Xenial [s]   | Stretch [s]         |
++=========+===============+===========+============+==============+=====================+
+| CMake   | 3.10.2        | 3.11.0    | 3.10.2     | 3.5.1        | 3.7.2               |
++---------+---------------+-----------+------------+--------------+---------------------+
+| EmPY    | 3.3.2         | 3.6.5     | 3.3.2      | 3.3.2        | 3.3.2               |
++---------+---------------+-----------+------------+--------------+---------------------+
+| Ogre    | 1.10*         | 1.10*     | 1.10*      | 1.10*        | 1.10*               |
++---------+---------------+-----------+------------+--------------+---------------------+
+| OpenCV  | 3.2.0         | 3.4.1     | 3.4.1*     | 2.4.9        | 3.2*                |
++---------+---------------+-----------+------------+--------------+---------------------+
+| Poco    | 1.8.0         | 1.9.0     | 1.8.0*     | 1.8.0*       | 1.8.0*              |
++---------+---------------+-----------+------------+--------------+---------------------+
+| Python  | 3.6.5         | 3.6.5     | 3.6.5      | 3.5.1        | 3.5.3               |
++---------+---------------+-----------+------------+--------------+---------------------+
+| Qt      | 5.9.5         | 5.10.0    | 5.10.0     | 5.5.1        | 5.7.1               |
++---------+---------------+-----------+------------+--------------+---------------------+
+| **Linux only (used for turtlebot demo)**                                              |
++---------+---------------+-----------+------------+--------------+---------------------+
+| PCL     | 1.8.1         | N/A       | N/A        | 1.7.2        | 1.8.0               |
++---------+---------------+-----------+------------+--------------+---------------------+
+
+\" \* \" means that this is not the upstream version (available on the
+official Operating System repositories) but a package distributed by
+OSRF or the community (package built and distributed on custom
+repositories).
+
+\" \*\* \" Rolling distributions will see multiple version changes of
+these dependencies during their lifetime.
+
+\" \[s\] \" Compilation from source, the ROS buildfarm will not produce
+any binary packages for these platforms.
+
+This document only captures the version at the first release of a ROS
+distribution and will not be updated as the dependencies move forward.
+These versions are thus a low watermark.
+
+Package manager use for dependencies:
+
+- Ubuntu Bionic: apt
+- MacOS: Homebrew, pip
+- Windows: Chocolatey, pip
+- Ubuntu Xenial, Debian Stretch: apt
+
+Build System Support:
+
+- ament_cmake
+- cmake
+- setuptools
+
+Middleware Implementation Support:
+
+- eProsima Fast-RTPS
+- RTI Connext
+- ADLINK OpenSplice
+
 Features
 --------
 
