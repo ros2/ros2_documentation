@@ -8,7 +8,7 @@ About ROS
 
 .. parsed-literal::
 
-    Area: ROS-framework, ROS-tools, R    OS-capabilities | Content-type: about | Experience: beginner
+    Area: ROS-framework, ROS-tools, ROS-capabilities | Content-type: about | Experience: beginner
 
 .. contents:: Table of Contents
    :depth: 2
