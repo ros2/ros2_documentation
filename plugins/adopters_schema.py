@@ -16,10 +16,12 @@
 Shared schema constants and validation for the ROS 2 adopters YAML file.
 This module has NO Sphinx dependency so it can be used in tests and CI scripts.
 
-NOTE: The domain and status constants defined here must be kept in sync with
-the corresponding values in source/_static/adopters.js (VALID_DOMAINS and
-VALID_STATUSES). Any additions or changes must be applied to both files.
+NOTE: The domain constants defined here must be kept in sync with
+the corresponding values in source/_static/adopters.js (VALID_DOMAINS).
+Any additions or changes must be applied to both files.
 """
+
+import re
 
 VALID_DOMAINS = [
     'Agriculture',         # Farming, harvesting, crop monitoring, and precision agriculture
@@ -39,19 +41,14 @@ VALID_DOMAINS = [
     'Service Robot',       # Hospitality, cleaning, retail, and public-facing service robots
 ]
 
-VALID_STATUSES = [
-    'Active',     # Currently in active development or deployment
-    'Maintained', # Deployed and stable, receiving only maintenance or bug fixes
-    'Archived',   # No longer actively developed or deployed
-    'PoC',        # Proof of concept, not yet in production
-    'Research',   # Academic or experimental project, not intended for production
-]
+# YYYY-MM-DD format for date_added field.
+_DATE_ADDED_RE = re.compile(r'^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$')
 
 REQUIRED_FIELDS = [
     'organization',
     'project',
     'domain',
-    'status',
+    'date_added',
     'country',
     'description'
 ]
@@ -83,17 +80,21 @@ def validate_adopters(adopters):
                             f'{prefix}: invalid domain "{d}". '
                             f'Must be one of: {", ".join(VALID_DOMAINS)}'
                         )
-        if 'status' in entry and entry['status']:
-            if entry['status'] not in VALID_STATUSES:
+        if 'date_added' in entry and entry['date_added']:
+            date_str = str(entry['date_added'])
+            if not _DATE_ADDED_RE.match(date_str):
                 errors.append(
-                    f'{prefix}: invalid status "{entry["status"]}". '
-                    f'Must be one of: {", ".join(VALID_STATUSES)}'
+                    f'{prefix}: "date_added" must be in YYYY-MM-DD format, '
+                    f'got "{date_str}"'
                 )
         if 'country' in entry and entry['country']:
-            code = entry['country']
-            if not isinstance(code, str) or len(code) != 2 or not code.isalpha():
-                errors.append(
-                    f'{prefix}: "country" must be a 2-letter ISO 3166-1 alpha-2 code, '
-                    f'got "{code}"'
-                )
+            if not isinstance(entry['country'], list):
+                errors.append(f'{prefix}: "country" must be a list')
+            else:
+                for code in entry['country']:
+                    if not isinstance(code, str) or len(code) != 2 or not code.isalpha():
+                        errors.append(
+                            f'{prefix}: each "country" entry must be a 2-letter '
+                            f'ISO 3166-1 alpha-2 code, got "{code}"'
+                        )
     return errors

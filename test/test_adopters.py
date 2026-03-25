@@ -22,7 +22,7 @@ import yaml
 # Make the plugins directory importable.
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'plugins'))
 
-from adopters_schema import VALID_DOMAINS, VALID_STATUSES, validate_adopters
+from adopters_schema import VALID_DOMAINS, validate_adopters
 
 
 def _valid_entry(**overrides):
@@ -31,8 +31,8 @@ def _valid_entry(**overrides):
         'organization': 'Test Org',
         'project': 'Test Project',
         'domain': ['Research'],
-        'status': 'Active',
-        'country': 'US',
+        'date_added': '2026-03-25',
+        'country': ['US'],
         'description': 'A test project.',
     }
     entry.update(overrides)
@@ -53,6 +53,10 @@ class TestValidateAdopters:
 
     def test_multiple_domains(self):
         entry = _valid_entry(domain=['Research', 'Education'])
+        assert validate_adopters([entry]) == []
+
+    def test_multiple_countries(self):
+        entry = _valid_entry(country=['US', 'JP', 'DE'])
         assert validate_adopters([entry]) == []
 
     def test_missing_organization(self):
@@ -76,12 +80,12 @@ class TestValidateAdopters:
         assert len(errors) == 1
         assert 'domain' in errors[0]
 
-    def test_missing_status(self):
+    def test_missing_date_added(self):
         entry = _valid_entry()
-        del entry['status']
+        del entry['date_added']
         errors = validate_adopters([entry])
         assert len(errors) == 1
-        assert 'status' in errors[0]
+        assert 'date_added' in errors[0]
 
     def test_missing_country(self):
         entry = _valid_entry()
@@ -103,23 +107,70 @@ class TestValidateAdopters:
         assert len(errors) == 1
         assert 'InvalidDomain' in errors[0]
 
-    def test_invalid_status(self):
-        entry = _valid_entry(status='InvalidStatus')
+    def test_invalid_date_added_year_only(self):
+        entry = _valid_entry(date_added='2026')
         errors = validate_adopters([entry])
         assert len(errors) == 1
-        assert 'InvalidStatus' in errors[0]
+        assert 'YYYY-MM-DD' in errors[0]
+
+    def test_invalid_date_added_month_only(self):
+        entry = _valid_entry(date_added='2026-03')
+        errors = validate_adopters([entry])
+        assert len(errors) == 1
+        assert 'YYYY-MM-DD' in errors[0]
+
+    def test_invalid_date_added_bad_month(self):
+        entry = _valid_entry(date_added='2026-13-01')
+        errors = validate_adopters([entry])
+        assert len(errors) == 1
+        assert 'YYYY-MM-DD' in errors[0]
+
+    def test_invalid_date_added_bad_month_zero(self):
+        entry = _valid_entry(date_added='2026-00-15')
+        errors = validate_adopters([entry])
+        assert len(errors) == 1
+        assert 'YYYY-MM-DD' in errors[0]
+
+    def test_invalid_date_added_bad_day_zero(self):
+        entry = _valid_entry(date_added='2026-03-00')
+        errors = validate_adopters([entry])
+        assert len(errors) == 1
+        assert 'YYYY-MM-DD' in errors[0]
+
+    def test_invalid_date_added_bad_day_32(self):
+        entry = _valid_entry(date_added='2026-03-32')
+        errors = validate_adopters([entry])
+        assert len(errors) == 1
+        assert 'YYYY-MM-DD' in errors[0]
+
+    def test_valid_date_added_formats(self):
+        for date in ['2020-01-01', '2026-12-31', '1999-06-15']:
+            entry = _valid_entry(date_added=date)
+            assert validate_adopters([entry]) == [], f'Date {date} should be valid'
+
+    def test_country_not_a_list(self):
+        entry = _valid_entry(country='US')
+        errors = validate_adopters([entry])
+        assert len(errors) == 1
+        assert 'list' in errors[0]
 
     def test_invalid_country_too_long(self):
-        entry = _valid_entry(country='USA')
+        entry = _valid_entry(country=['USA'])
         errors = validate_adopters([entry])
         assert len(errors) == 1
         assert 'country' in errors[0]
 
     def test_invalid_country_numeric(self):
-        entry = _valid_entry(country='12')
+        entry = _valid_entry(country=['12'])
         errors = validate_adopters([entry])
         assert len(errors) == 1
         assert 'country' in errors[0]
+
+    def test_invalid_country_in_list(self):
+        entry = _valid_entry(country=['US', 'INVALID', 'JP'])
+        errors = validate_adopters([entry])
+        assert len(errors) == 1
+        assert 'INVALID' in errors[0]
 
     def test_domain_not_a_list(self):
         entry = _valid_entry(domain='Research')
@@ -139,11 +190,6 @@ class TestValidateAdopters:
         for domain in VALID_DOMAINS:
             entry = _valid_entry(domain=[domain])
             assert validate_adopters([entry]) == [], f'Domain {domain} should be valid'
-
-    def test_all_valid_statuses_accepted(self):
-        for status in VALID_STATUSES:
-            entry = _valid_entry(status=status)
-            assert validate_adopters([entry]) == [], f'Status {status} should be valid'
 
 
 class TestAdoptersYamlFile:

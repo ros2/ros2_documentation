@@ -79,13 +79,13 @@ class AdoptersTableDirective(Directive):
                 'Adopters YAML validation failed:\n' + '\n'.join(f'  - {e}' for e in errors)
             )
 
-        # Sort by organization name (case-insensitive).
+        # Sort by date_added descending (newest first), then organization name (A-Z).
         adopters.sort(key=lambda a: a.get('organization', '').lower())
+        adopters.sort(key=lambda a: a.get('date_added', ''), reverse=True)
 
         # Collect unique values for filters.
         all_domains = sorted({d for a in adopters for d in a.get('domain', [])})
-        all_statuses = sorted({a.get('status', '') for a in adopters})
-        all_countries = sorted({a.get('country', '') for a in adopters})
+        all_countries = sorted({c for a in adopters for c in a.get('country', [])})
 
         # Build HTML.
         html_parts = []
@@ -99,13 +99,6 @@ class AdoptersTableDirective(Directive):
             html_parts.append(f'<option value="{_escape(d)}">{_escape(d)}</option>')
         html_parts.append('</select>')
 
-        html_parts.append('<label for="adopters-filter-status">Status:</label>')
-        html_parts.append('<select id="adopters-filter-status">')
-        html_parts.append('<option value="">All</option>')
-        for s in all_statuses:
-            html_parts.append(f'<option value="{_escape(s)}">{_escape(s)}</option>')
-        html_parts.append('</select>')
-
         html_parts.append('<label for="adopters-filter-country">Country:</label>')
         html_parts.append('<select id="adopters-filter-country">')
         html_parts.append('<option value="">All</option>')
@@ -117,6 +110,19 @@ class AdoptersTableDirective(Directive):
         html_parts.append(
             '<input type="text" id="adopters-filter-search" placeholder="Filter by keyword...">'
         )
+
+        # Show-all-history toggle.
+        html_parts.append(
+            '<label class="adopters-toggle-label">'
+            '<input type="checkbox" id="adopters-show-all">'
+            ' Show all history'
+            '</label>'
+            '<span class="adopters-filter-note">'
+            'Showing entries from the past 3 years. '
+            'Check &ldquo;Show all history&rdquo; to see all entries.'
+            '</span>'
+        )
+
         html_parts.append('</div>')
 
         # Table.
@@ -125,7 +131,7 @@ class AdoptersTableDirective(Directive):
         html_parts.append('<th>Organization</th>')
         html_parts.append('<th>Project</th>')
         html_parts.append('<th>Domain</th>')
-        html_parts.append('<th>Status</th>')
+        html_parts.append('<th>Date Added</th>')
         html_parts.append('<th>Country</th>')
         html_parts.append('<th>Description</th>')
         html_parts.append('</tr></thead>')
@@ -141,22 +147,24 @@ class AdoptersTableDirective(Directive):
                 adopter.get('project_url'),
             )
             domains = ', '.join(adopter.get('domain', []))
-            status = adopter.get('status', '')
-            country = adopter.get('country', '')
+            date_added = adopter.get('date_added', '')
+            countries = adopter.get('country', [])
+            country_str = ', '.join(countries)
             description = _escape(adopter.get('description', ''))
 
             # Data attributes for filtering.
             data_domains = ' '.join(_escape(d) for d in adopter.get('domain', []))
+            data_countries = ' '.join(_escape(c) for c in countries)
             html_parts.append(
                 f'<tr data-domains="{data_domains}" '
-                f'data-status="{_escape(status)}" '
-                f'data-country="{_escape(country)}">'
+                f'data-date-added="{_escape(str(date_added))}" '
+                f'data-countries="{data_countries}">'
             )
             html_parts.append(f'<td>{org}</td>')
             html_parts.append(f'<td>{project}</td>')
             html_parts.append(f'<td>{_escape(domains)}</td>')
-            html_parts.append(f'<td>{_escape(status)}</td>')
-            html_parts.append(f'<td>{_escape(country)}</td>')
+            html_parts.append(f'<td>{_escape(str(date_added))}</td>')
+            html_parts.append(f'<td>{_escape(country_str)}</td>')
             html_parts.append(f'<td>{description}</td>')
             html_parts.append('</tr>')
 

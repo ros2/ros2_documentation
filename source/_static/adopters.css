@@ -31,6 +31,22 @@
   min-width: 180px;
 }
 
+.adopters-toggle-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.adopters-filter-note {
+  width: 100%;
+  font-size: 0.85rem;
+  color: #6c757d;
+  font-style: italic;
+}
+
 /* ===== Adopters table ===== */
 
 .adopters-table {

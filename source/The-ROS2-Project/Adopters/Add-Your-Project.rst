@@ -6,6 +6,13 @@ Once generated, you can copy the YAML snippet and submit a pull request to the
 `adopters.yaml <https://github.com/ros2/ros2_documentation/blob/rolling/source/The-ROS2-Project/Adopters/adopters.yaml>`__
 file on the ``rolling`` branch.
 
+Policy
+------
+
+This list is **self-reported and self-attested**.
+Entries are accepted with minimal scrutiny unless a complaint is received.
+Since contributions come via Pull Request, they are easy to audit and can be cleaned up later if necessary.
+
 How to contribute
 -----------------
 
@@ -75,21 +82,15 @@ How to contribute
      </div>
 
      <div class="form-group">
-       <label for="field-status">Status *</label>
-       <select id="field-status">
-         <option value="">-- Select --</option>
-         <option value="Active">Active</option>
-         <option value="Maintained">Maintained</option>
-         <option value="Archived">Archived</option>
-         <option value="PoC">PoC</option>
-         <option value="Research">Research</option>
-       </select>
+       <label for="field-date-added">Date Added *</label>
+       <span class="form-hint">Auto-generated (YYYY-MM-DD)</span>
+       <input type="text" id="field-date-added" readonly style="width: 120px; background: #e9ecef;">
      </div>
 
      <div class="form-group">
        <label for="field-country">Country *</label>
-       <span class="form-hint">ISO 3166-1 alpha-2 code (e.g., US, JP, DE, GB)</span>
-       <input type="text" id="field-country" maxlength="2" placeholder="e.g., US" style="width: 80px; text-transform: uppercase;">
+       <span class="form-hint">One or more ISO 3166-1 alpha-2 codes, comma-separated (e.g., US, JP, DE)</span>
+       <input type="text" id="field-country" placeholder="e.g., US, JP" style="width: 200px; text-transform: uppercase;">
      </div>
 
      <div class="form-group">
