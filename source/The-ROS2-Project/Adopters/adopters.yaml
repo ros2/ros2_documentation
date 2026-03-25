@@ -15,8 +15,8 @@
 #   description (required): Brief explanation of how they use ROS
 #
 # Domain values:
-#   Agriculture, Aerial/Drone, Automotive, Construction, Consumer Robot,
-#   Defense/Government, Education, Healthcare/Medical, Humanoid,
+#   Agriculture, Aerial/Drone, Automotive, Components, Construction, Consumer Robot,
+#   Defense/Government, Education, Energy, Healthcare/Medical, Humanoid,
 #   Logistics/Warehouse, Manufacturing, Marine, Research, Space, Service Robot
 
 adopters:

@@ -9,6 +9,108 @@
  * Any additions or changes must be applied to both files.
  */
 
+/* ===== ISO 3166-1 alpha-2 country codes ===== */
+
+var ISO_COUNTRIES = [
+  {code:'AD',name:'Andorra'},{code:'AE',name:'United Arab Emirates'},
+  {code:'AF',name:'Afghanistan'},{code:'AG',name:'Antigua and Barbuda'},
+  {code:'AL',name:'Albania'},{code:'AM',name:'Armenia'},
+  {code:'AO',name:'Angola'},{code:'AR',name:'Argentina'},
+  {code:'AT',name:'Austria'},{code:'AU',name:'Australia'},
+  {code:'AZ',name:'Azerbaijan'},{code:'BA',name:'Bosnia and Herzegovina'},
+  {code:'BB',name:'Barbados'},{code:'BD',name:'Bangladesh'},
+  {code:'BE',name:'Belgium'},{code:'BF',name:'Burkina Faso'},
+  {code:'BG',name:'Bulgaria'},{code:'BH',name:'Bahrain'},
+  {code:'BI',name:'Burundi'},{code:'BJ',name:'Benin'},
+  {code:'BN',name:'Brunei'},{code:'BO',name:'Bolivia'},
+  {code:'BR',name:'Brazil'},{code:'BS',name:'Bahamas'},
+  {code:'BT',name:'Bhutan'},{code:'BW',name:'Botswana'},
+  {code:'BY',name:'Belarus'},{code:'BZ',name:'Belize'},
+  {code:'CA',name:'Canada'},{code:'CD',name:'Congo (Democratic Republic)'},
+  {code:'CF',name:'Central African Republic'},{code:'CG',name:'Congo'},
+  {code:'CH',name:'Switzerland'},{code:'CI',name:"Cote d'Ivoire"},
+  {code:'CL',name:'Chile'},{code:'CM',name:'Cameroon'},
+  {code:'CN',name:'China'},{code:'CO',name:'Colombia'},
+  {code:'CR',name:'Costa Rica'},{code:'CU',name:'Cuba'},
+  {code:'CV',name:'Cape Verde'},{code:'CY',name:'Cyprus'},
+  {code:'CZ',name:'Czechia'},{code:'DE',name:'Germany'},
+  {code:'DJ',name:'Djibouti'},{code:'DK',name:'Denmark'},
+  {code:'DM',name:'Dominica'},{code:'DO',name:'Dominican Republic'},
+  {code:'DZ',name:'Algeria'},{code:'EC',name:'Ecuador'},
+  {code:'EE',name:'Estonia'},{code:'EG',name:'Egypt'},
+  {code:'ER',name:'Eritrea'},{code:'ES',name:'Spain'},
+  {code:'ET',name:'Ethiopia'},{code:'FI',name:'Finland'},
+  {code:'FJ',name:'Fiji'},{code:'FR',name:'France'},
+  {code:'GA',name:'Gabon'},{code:'GB',name:'United Kingdom'},
+  {code:'GD',name:'Grenada'},{code:'GE',name:'Georgia'},
+  {code:'GH',name:'Ghana'},{code:'GM',name:'Gambia'},
+  {code:'GN',name:'Guinea'},{code:'GQ',name:'Equatorial Guinea'},
+  {code:'GR',name:'Greece'},{code:'GT',name:'Guatemala'},
+  {code:'GW',name:'Guinea-Bissau'},{code:'GY',name:'Guyana'},
+  {code:'HK',name:'Hong Kong'},{code:'HN',name:'Honduras'},
+  {code:'HR',name:'Croatia'},{code:'HT',name:'Haiti'},
+  {code:'HU',name:'Hungary'},{code:'ID',name:'Indonesia'},
+  {code:'IE',name:'Ireland'},{code:'IL',name:'Israel'},
+  {code:'IN',name:'India'},{code:'IQ',name:'Iraq'},
+  {code:'IR',name:'Iran'},{code:'IS',name:'Iceland'},
+  {code:'IT',name:'Italy'},{code:'JM',name:'Jamaica'},
+  {code:'JO',name:'Jordan'},{code:'JP',name:'Japan'},
+  {code:'KE',name:'Kenya'},{code:'KG',name:'Kyrgyzstan'},
+  {code:'KH',name:'Cambodia'},{code:'KI',name:'Kiribati'},
+  {code:'KM',name:'Comoros'},{code:'KN',name:'Saint Kitts and Nevis'},
+  {code:'KP',name:'North Korea'},{code:'KR',name:'South Korea'},
+  {code:'KW',name:'Kuwait'},{code:'KZ',name:'Kazakhstan'},
+  {code:'LA',name:'Laos'},{code:'LB',name:'Lebanon'},
+  {code:'LC',name:'Saint Lucia'},{code:'LI',name:'Liechtenstein'},
+  {code:'LK',name:'Sri Lanka'},{code:'LR',name:'Liberia'},
+  {code:'LS',name:'Lesotho'},{code:'LT',name:'Lithuania'},
+  {code:'LU',name:'Luxembourg'},{code:'LV',name:'Latvia'},
+  {code:'LY',name:'Libya'},{code:'MA',name:'Morocco'},
+  {code:'MC',name:'Monaco'},{code:'MD',name:'Moldova'},
+  {code:'ME',name:'Montenegro'},{code:'MG',name:'Madagascar'},
+  {code:'MK',name:'North Macedonia'},{code:'ML',name:'Mali'},
+  {code:'MM',name:'Myanmar'},{code:'MN',name:'Mongolia'},
+  {code:'MR',name:'Mauritania'},{code:'MT',name:'Malta'},
+  {code:'MU',name:'Mauritius'},{code:'MV',name:'Maldives'},
+  {code:'MW',name:'Malawi'},{code:'MX',name:'Mexico'},
+  {code:'MY',name:'Malaysia'},{code:'MZ',name:'Mozambique'},
+  {code:'NA',name:'Namibia'},{code:'NE',name:'Niger'},
+  {code:'NG',name:'Nigeria'},{code:'NI',name:'Nicaragua'},
+  {code:'NL',name:'Netherlands'},{code:'NO',name:'Norway'},
+  {code:'NP',name:'Nepal'},{code:'NR',name:'Nauru'},
+  {code:'NZ',name:'New Zealand'},{code:'OM',name:'Oman'},
+  {code:'PA',name:'Panama'},{code:'PE',name:'Peru'},
+  {code:'PG',name:'Papua New Guinea'},{code:'PH',name:'Philippines'},
+  {code:'PK',name:'Pakistan'},{code:'PL',name:'Poland'},
+  {code:'PR',name:'Puerto Rico'},{code:'PS',name:'Palestine'},
+  {code:'PT',name:'Portugal'},{code:'PW',name:'Palau'},
+  {code:'PY',name:'Paraguay'},{code:'QA',name:'Qatar'},
+  {code:'RO',name:'Romania'},{code:'RS',name:'Serbia'},
+  {code:'RU',name:'Russia'},{code:'RW',name:'Rwanda'},
+  {code:'SA',name:'Saudi Arabia'},{code:'SB',name:'Solomon Islands'},
+  {code:'SC',name:'Seychelles'},{code:'SD',name:'Sudan'},
+  {code:'SE',name:'Sweden'},{code:'SG',name:'Singapore'},
+  {code:'SI',name:'Slovenia'},{code:'SK',name:'Slovakia'},
+  {code:'SL',name:'Sierra Leone'},{code:'SM',name:'San Marino'},
+  {code:'SN',name:'Senegal'},{code:'SO',name:'Somalia'},
+  {code:'SR',name:'Suriname'},{code:'SS',name:'South Sudan'},
+  {code:'SV',name:'El Salvador'},{code:'SY',name:'Syria'},
+  {code:'SZ',name:'Eswatini'},{code:'TD',name:'Chad'},
+  {code:'TG',name:'Togo'},{code:'TH',name:'Thailand'},
+  {code:'TJ',name:'Tajikistan'},{code:'TL',name:'Timor-Leste'},
+  {code:'TM',name:'Turkmenistan'},{code:'TN',name:'Tunisia'},
+  {code:'TO',name:'Tonga'},{code:'TR',name:'Turkey'},
+  {code:'TT',name:'Trinidad and Tobago'},{code:'TV',name:'Tuvalu'},
+  {code:'TW',name:'Taiwan'},{code:'TZ',name:'Tanzania'},
+  {code:'UA',name:'Ukraine'},{code:'UG',name:'Uganda'},
+  {code:'US',name:'United States'},{code:'UY',name:'Uruguay'},
+  {code:'UZ',name:'Uzbekistan'},{code:'VC',name:'Saint Vincent and the Grenadines'},
+  {code:'VE',name:'Venezuela'},{code:'VN',name:'Vietnam'},
+  {code:'VU',name:'Vanuatu'},{code:'WS',name:'Samoa'},
+  {code:'YE',name:'Yemen'},{code:'ZA',name:'South Africa'},
+  {code:'ZM',name:'Zambia'},{code:'ZW',name:'Zimbabwe'}
+];
+
 /* ===== Table filtering ===== */
 
 function initAdoptersTableFilters() {
@@ -19,11 +121,12 @@ function initAdoptersTableFilters() {
 
   if (!filterDomain) return;  // Not on the adopters table page.
 
-  // Compute the cutoff date (3 years ago) as YYYY-MM string.
+  // Compute the cutoff date (3 years ago) as YYYY-MM-DD string.
   var now = new Date();
   var cutoffYear = now.getFullYear() - 3;
   var cutoffMonth = String(now.getMonth() + 1).padStart(2, '0');
-  var cutoffDate = cutoffYear + '-' + cutoffMonth;
+  var cutoffDay = String(now.getDate()).padStart(2, '0');
+  var cutoffDate = cutoffYear + '-' + cutoffMonth + '-' + cutoffDay;
 
   function applyFilters() {
     var domain = filterDomain.value;
@@ -66,7 +169,7 @@ function initAdoptersForm() {
   var output = document.getElementById('adopters-yaml-output');
   var errorDiv = document.getElementById('adopters-form-errors');
 
-  // Auto-populate date_added with current YYYY-MM.
+  // Auto-populate date_added with current YYYY-MM-DD.
   var dateField = document.getElementById('field-date-added');
   if (dateField) {
     var now = new Date();
@@ -76,14 +179,58 @@ function initAdoptersForm() {
     dateField.value = yyyy + '-' + mm + '-' + dd;
   }
 
+  // Populate country dropdown from ISO_COUNTRIES list.
+  var countrySelect = document.getElementById('field-country');
+  var addCountryBtn = document.getElementById('adopters-add-country-btn');
+  var selectedCountriesDiv = document.getElementById('adopters-selected-countries');
+  var selectedCountries = [];
+
+  if (countrySelect) {
+    ISO_COUNTRIES.forEach(function(c) {
+      var opt = document.createElement('option');
+      opt.value = c.code;
+      opt.textContent = c.name + ' (' + c.code + ')';
+      countrySelect.appendChild(opt);
+    });
+  }
+
+  function renderCountryTags() {
+    selectedCountriesDiv.innerHTML = '';
+    selectedCountries.forEach(function(code) {
+      var tag = document.createElement('span');
+      tag.className = 'adopters-country-tag';
+      var entry = ISO_COUNTRIES.find(function(c) { return c.code === code; });
+      var label = entry ? entry.name + ' (' + code + ')' : code;
+      tag.textContent = label + ' ';
+      var removeBtn = document.createElement('button');
+      removeBtn.type = 'button';
+      removeBtn.className = 'adopters-country-tag-remove';
+      removeBtn.textContent = '\u00d7';
+      removeBtn.addEventListener('click', function() {
+        selectedCountries = selectedCountries.filter(function(c) { return c !== code; });
+        renderCountryTags();
+      });
+      tag.appendChild(removeBtn);
+      selectedCountriesDiv.appendChild(tag);
+    });
+  }
+
+  if (addCountryBtn) {
+    addCountryBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      var code = countrySelect.value;
+      if (code && selectedCountries.indexOf(code) === -1) {
+        selectedCountries.push(code);
+        renderCountryTags();
+      }
+      countrySelect.value = '';
+    });
+  }
+
   function getFormValues() {
     var domains = [];
     var checkboxes = form.querySelectorAll('input[name="domain"]:checked');
     checkboxes.forEach(function(cb) { domains.push(cb.value); });
-
-    // Parse comma-separated country codes.
-    var countryRaw = form.querySelector('#field-country').value.trim().toUpperCase();
-    var countries = countryRaw.split(/[,\s]+/).filter(function(c) { return c.length > 0; });
 
     return {
       organization: form.querySelector('#field-organization').value.trim(),
@@ -92,7 +239,7 @@ function initAdoptersForm() {
       project_url: form.querySelector('#field-project-url').value.trim(),
       domain: domains,
       date_added: form.querySelector('#field-date-added').value.trim(),
-      country: countries,
+      country: selectedCountries.slice(),
       description: form.querySelector('#field-description').value.trim()
     };
   }
@@ -106,12 +253,7 @@ function initAdoptersForm() {
     if (values.date_added && !/^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/.test(values.date_added)) {
       errors.push('Date added must be in YYYY-MM-DD format.');
     }
-    if (values.country.length === 0) errors.push('At least one country is required.');
-    values.country.forEach(function(c) {
-      if (c.length !== 2 || !/^[A-Z]{2}$/.test(c)) {
-        errors.push('Country "' + c + '" must be a 2-letter ISO 3166-1 alpha-2 code (e.g., US, JP, DE).');
-      }
-    });
+    if (values.country.length === 0) errors.push('At least one country must be selected.');
     if (!values.description) errors.push('Description is required.');
     if (values.organization_url && !isValidUrl(values.organization_url)) {
       errors.push('Organization URL is not a valid URL.');

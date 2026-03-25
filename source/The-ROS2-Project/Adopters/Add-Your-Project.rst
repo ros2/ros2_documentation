@@ -66,10 +66,12 @@ How to contribute
          <label><input type="checkbox" name="domain" value="Agriculture"> Agriculture</label>
          <label><input type="checkbox" name="domain" value="Aerial/Drone"> Aerial/Drone</label>
          <label><input type="checkbox" name="domain" value="Automotive"> Automotive</label>
+         <label><input type="checkbox" name="domain" value="Components"> Components</label>
          <label><input type="checkbox" name="domain" value="Construction"> Construction</label>
          <label><input type="checkbox" name="domain" value="Consumer Robot"> Consumer Robot</label>
          <label><input type="checkbox" name="domain" value="Defense/Government"> Defense/Government</label>
          <label><input type="checkbox" name="domain" value="Education"> Education</label>
+         <label><input type="checkbox" name="domain" value="Energy"> Energy</label>
          <label><input type="checkbox" name="domain" value="Healthcare/Medical"> Healthcare/Medical</label>
          <label><input type="checkbox" name="domain" value="Humanoid"> Humanoid</label>
          <label><input type="checkbox" name="domain" value="Logistics/Warehouse"> Logistics/Warehouse</label>
@@ -89,8 +91,14 @@ How to contribute
 
      <div class="form-group">
        <label for="field-country">Country *</label>
-       <span class="form-hint">One or more ISO 3166-1 alpha-2 codes, comma-separated (e.g., US, JP, DE)</span>
-       <input type="text" id="field-country" placeholder="e.g., US, JP" style="width: 200px; text-transform: uppercase;">
+       <span class="form-hint">Select one or more countries</span>
+       <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+         <select id="field-country" style="width: 280px;">
+           <option value="">-- Select a country --</option>
+         </select>
+         <button type="button" id="adopters-add-country-btn" class="btn btn-secondary" style="margin-top: 0;">Add</button>
+       </div>
+       <div id="adopters-selected-countries" class="adopters-country-tags"></div>
      </div>
 
      <div class="form-group">

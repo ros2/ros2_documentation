@@ -27,10 +27,12 @@ VALID_DOMAINS = [
     'Agriculture',         # Farming, harvesting, crop monitoring, and precision agriculture
     'Aerial/Drone',        # UAVs, drones, aerial inspection, and survey systems
     'Automotive',          # Self-driving cars, ADAS, and ground vehicle autonomy
+    'Components',          # Robot parts and peripherals (cameras, LIDAR, RADAR, SONAR, etc)
     'Construction',        # Site inspection, surveying, and construction automation
     'Consumer Robot',      # Home robots, entertainment robots, and personal companions
     'Defense/Government',  # Military, public safety, and national research programs
     'Education',           # University courses, student projects, and teaching platforms
+    'Energy',              # Oil, gas, solar, nuclear, and power infrastructure operations
     'Healthcare/Medical',  # Surgical robots, rehabilitation systems, and medical diagnostics
     'Humanoid',            # Bipedal and human-form robots
     'Logistics/Warehouse', # AMRs, inventory management, and last-mile delivery systems

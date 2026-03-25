@@ -171,6 +171,38 @@
   background: #229954;
 }
 
+.adopters-country-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.4rem;
+}
+
+.adopters-country-tag {
+  display: inline-flex;
+  align-items: center;
+  background: #e9ecef;
+  border: 1px solid #ced4da;
+  border-radius: 3px;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.85rem;
+}
+
+.adopters-country-tag-remove {
+  background: none;
+  border: none;
+  color: #721c24;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0 0.2rem;
+  margin-left: 0.2rem;
+  line-height: 1;
+}
+
+.adopters-country-tag-remove:hover {
+  color: #c0392b;
+}
+
 #adopters-form-errors {
   background: #f8d7da;
   border: 1px solid #f5c6cb;
