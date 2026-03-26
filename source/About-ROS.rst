@@ -125,7 +125,7 @@ ROS has two main versions:
 
 .. _ROS 1: https://index.ros.org/
 
-ROS 1 has reached the end of development,  with no new releases planned, while ROS 2 continues to be developed and releases new distributions every year.
+ROS 1 has reached the end of development, with no new releases planned, while ROS 2 continues to be developed and releases new distributions every year.
 These distributions include updates and improvements, so developers can choose between stability and the latest features.
 
 Supported systems
