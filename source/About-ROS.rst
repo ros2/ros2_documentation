@@ -107,7 +107,7 @@ ROS works with other Open Robotics platforms to make development and deployment 
 
 .. _Gazebo: https://gazebosim.org/home
 .. _Open-RMF: https://www.open-rmf.org/
-.. _ros-controls: https://github.com/ros-controls
+.. _ros-controls: https://control.ros.org/rolling/index.html
 
 These integrations make it simpler to design, test, and manage robots in complex environments on any budget and with any team size.
 
