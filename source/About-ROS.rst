@@ -135,19 +135,4 @@ ROS runs on Ubuntu, Windows, and macOS.
 Ubuntu support depends on the ROS distribution, with newer distributions usually matching the latest Ubuntu LTS (long-term support) releases.
 Other platforms may require building from source or using containers.
 
-The following table presents system support for the most popular ROS distributions.
-
-* \* : Combinations recommended for new users
-* x : Combinations not supported
-
-+------------------+----------------+----------------+--------------+-------------------+
-| Version          | Ubuntu Noble   | Ubuntu Jammy   | Windows 10   | MacOS             |
-+==================+================+================+==============+===================+
-| Kilted Kaiju     | Full support * | x              | Full support | Community support |
-+------------------+----------------+----------------+--------------+-------------------+
-| Jazzy Jalisco    | Full support * | x              | Full support | Community support |
-+------------------+----------------+----------------+--------------+-------------------+
-| Humble Hawksbill | x              | Full support * | Full support | Community support |
-+------------------+----------------+----------------+--------------+-------------------+
-| Rolling Ridley   | Full support   | x              | Full support | Community support |
-+------------------+----------------+----------------+--------------+-------------------+
+`See full details of supported systems <https://docs.ros.org/#ros-for-beginners>`__
