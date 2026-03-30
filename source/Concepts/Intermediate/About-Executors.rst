@@ -64,7 +64,7 @@ The Single-Threaded Executor is also used by the container process for :doc:`com
 Types of Executors
 ------------------
 
-Currently, rclcpp provides three Executor types, derived from a shared parent class:
+Currently, rclcpp provides two Executor types, derived from a shared parent class:
 
 .. graphviz::
 
@@ -165,7 +165,7 @@ This semantics was first described in a `paper by Casini et al. at ECRTS 2019 <h
 Outlook
 -------
 
-While the three Executors of rclcpp work well for most applications, there are some issues that make them not suitable for real-time applications, which require well-defined execution times, determinism, and custom control over the execution order.
+While the two Executors of rclcpp work well for most applications, there are some issues that make them not suitable for real-time applications, which require well-defined execution times, determinism, and custom control over the execution order.
 Here is a summary of some of these issues:
 
 1. Complex and mixed scheduling semantics.
