@@ -17,7 +17,8 @@ About ROS
 Summary
 -------
 
-ROS is used in many areas of robotics. In logistics, it helps robots move goods in warehouses by providing navigation, mapping, motion control, and coordination between multiple robots.
+ROS is used in many areas of robotics.
+In logistics, it helps robots move goods in warehouses by providing navigation, mapping, motion control, and coordination between multiple robots.
 In manufacturing, it enables advanced tasks such as automated pick-and-place operations using vision systems for accurate handling.
 In healthcare, ROS supports robotic systems that assist with patient care and improve efficiency in clinical workflows.
 
@@ -52,7 +53,8 @@ ROS consists of the following basic components:
 Tools
 -----
 
-Tools in ROS help developers build, test, and monitor robotic systems. They do not add new robot behaviours but make development easier.
+Tools in ROS help developers build, test, and monitor robotic systems.
+They do not add new robot behaviours but make development easier.
 
 For example, visualisation tools can be used to display a robot's sensors, position, and environment in 3D during testing, which is common in projects involving drones or mobile robots.
 With launch control tools, developers can define and verify how a robot starts up and manages its operation before actual deployment.
