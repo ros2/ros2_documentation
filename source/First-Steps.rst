@@ -47,18 +47,14 @@ Steps
 
 ROS installation includes the essential packages for working with ROS.
 If you're familiar with Linux, our recommended platform is Ubuntu (deb packages).
-Otherwise, a good alternative installation platform is Windows (binaries).
+Otherwise, a good alternative installation platform is Windows (binaries): :doc:`Installation options </Installation>`
 
-:doc:`Installation options </Installation>`
-
-With turtlesim, a lightweight 2D simulation tool designed for beginners, you can learn core ROS concepts in a simple visual environment.
-
-:doc:`Install and set up turtlesim </Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim>`
+With turtlesim, a lightweight 2D simulation tool designed for beginners, you can learn core ROS concepts in a simple visual environment: :doc:`Install and set up turtlesim </Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim>`
 
 3 Try out working with the main communication components of the ROS framework
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Use turtlesim to familiarise yourself with the main communication components and try out messaging in the ROS framework.
+Use turtlesim to familiarize yourself with the main communication components and try out messaging in the ROS framework.
 
 #. Complete the nodes tutorial: :doc:`/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes`
 #. Complete the topics tutorial: :doc:`/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics`
@@ -72,31 +68,23 @@ Use turtlesim to familiarise yourself with the main communication components and
 Introspection enables you to see information about how a system is operating.
 Nodes use logs to output messages concerning events and status in a variety of ways.
 
-To see introspection through logs in action, complete the rqt_console tutorial:
-
-:doc:`/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console`
+To see introspection through logs in action, complete the rqt_console tutorial: :doc:`/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console`
 
 5 Learn about using launch files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Launch files allow you to start and configure a number of processes containing ROS nodes simultaneously, instead of opening multiple terminals and reentering configuration details for each node.
+Launch files allow you to start and configure a number of processes containing ROS nodes simultaneously, instead of opening multiple terminals and re-entering configuration details for each node.
 
-Complete the launch files tutorial:
-
-:doc:`/Tutorials/Beginner-CLI-Tools/Launching-Multiple-Nodes/Launching-Multiple-Nodes`
+Complete the launch files tutorial: :doc:`/Tutorials/Beginner-CLI-Tools/Launching-Multiple-Nodes/Launching-Multiple-Nodes`
 
 6 Learn about data recording and playback
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Sometimes it's useful to replay data to reproduce the results of your tests and experiments, to debug your robot's behaviour, or to share your work with others.
 
-Complete the recording and playback tutorial:
-
-:doc:`/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data`
+Complete the recording and playback tutorial: :doc:`/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data`
 
 Next steps
 ----------
 
-To complete your knowledge of the ROS framework, we recommend familiarising yourself with ROS client libraries:
-
-:doc:`/Tutorials/Beginner-Client-Libraries`
+To complete your knowledge of the ROS framework, we recommend familiarizing yourself with ROS client libraries: :doc:`/Tutorials/Beginner-Client-Libraries`
