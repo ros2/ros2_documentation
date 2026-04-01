@@ -86,6 +86,7 @@ extensions = [
     'sphinx_tabs.tabs',
     'sphinx_rtd_theme',
     'sphinx_sitemap_ros',
+    'sphinx_adopters',
     'sphinxcontrib.googleanalytics',
     'sphinxcontrib.mermaid',
 ]
@@ -177,7 +178,8 @@ html_static_path = [os.path.abspath('source/_static')]
 html_sourcelink_suffix = ''
 
 # Relative to html_static_path
-html_css_files = ['custom.css']
+html_css_files = ['custom.css', 'adopters.css']
+html_js_files = ['adopters.js']
 
 # -- Options for HTMLHelp output ------------------------------------------
 
