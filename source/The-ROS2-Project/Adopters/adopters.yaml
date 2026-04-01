@@ -1,0 +1,67 @@
+# ROS 2 Adopters
+#
+# This file is the source of truth for the ROS 2 Adopters page.
+# To add your organization/project, submit a PR to the rolling branch.
+# Use the YAML generator at https://docs.ros.org/en/rolling/The-ROS2-Project/Adopters/Add-Your-Project.html
+#
+# Schema:
+#   organization (required): Company or institution name
+#   organization_url (optional): URL of the organization
+#   project (required): The specific project using ROS
+#   project_url (optional): URL of the project
+#   domain (required): List of industry categories from the enumerated values
+#   date_added (required): Date the entry was added, in YYYY-MM-DD format (auto-generated)
+#   country (required): List of ISO 3166-1 alpha-2 country codes
+#   description (required): Brief explanation of how they use ROS
+#
+# Domain values:
+#   Agriculture, Aerial/Drone, Automotive, Components, Construction, Consumer Robot,
+#   Defense/Government, Education, Energy, Healthcare/Medical, Humanoid,
+#   Logistics/Warehouse, Manufacturing, Marine, Research, Space, Service Robot
+
+adopters:
+  - organization: "Sony Group Corporation"
+    organization_url: "https://www.sony.com"
+    project: "aibo"
+    project_url: "https://aibo.sony.jp"
+    domain:
+      - Consumer Robot
+    date_added: "2026-03-25"
+    country:
+      - JP
+    description: "An autonomous robotic companion dog that develops its own unique personality."
+
+  - organization: "Sony Group Corporation"
+    organization_url: "https://www.sony.com"
+    project: "poiq"
+    project_url: "https://www.sony.com/en/brand/futureproof/project/poiq/"
+    domain:
+      - Consumer Robot
+    date_added: "2026-03-25"
+    country:
+      - JP
+    description: "Small AI entertainment robot with conversational capabilities."
+
+  - organization: "Sony Group Corporation"
+    organization_url: "https://www.sony.com"
+    project: "Airpeak S1"
+    project_url: "https://www.sony.com/en/articles/product-specifications-airpeak-s1"
+    domain:
+      - Aerial/Drone
+    date_added: "2026-03-25"
+    country:
+      - JP
+    description: "Professional drone carrying full-frame mirrorless cameras."
+
+  - organization: "Sony Semiconductor Solutions"
+    organization_url: "https://www.sony-semicon.com"
+    project: "AITRIOS Robotics Package"
+    project_url: "https://www.aitrios.sony-semicon.com/robotics"
+    domain:
+      - Logistics/Warehouse
+      - Manufacturing
+      - Service Robot
+    date_added: "2026-03-25"
+    country:
+      - JP
+    description: "Development platform for autonomous mobile robots across logistics, construction, and retail."
