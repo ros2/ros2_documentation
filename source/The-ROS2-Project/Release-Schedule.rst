@@ -38,8 +38,8 @@ This duration ensures that the non-LTS will overlap with the next ROS LTS releas
 Releases and support duration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- May 2021: G Turtle: non-LTS release, supported for 1.5 years
-- May 2022: H Turtle: LTS release, supported for 5 years
-- May 2023: I Turtle: non-LTS release, supported for 1.5 years
-- May 2024: J Turtle: LTS release, supported for 5 years
+- May 2025: Kilted Kaiju: non-LTS release, supported for 1.5 years
+- May 2026: Lyrical Luth: LTS release, supported for 5 years
+- May 2027: M Turtle: non-LTS release, supported for 1.5 years
+- May 2028: N Turtle: LTS release, supported for 5 years
 - and so on, alternating annually between LTS and non-LTS releases
