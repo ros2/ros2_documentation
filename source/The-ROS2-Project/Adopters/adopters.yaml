@@ -65,3 +65,15 @@ adopters:
     country:
       - JP
     description: "Development platform for autonomous mobile robots across logistics, construction, and retail."
+
+  - organization: "RT Corporation"
+    organization_url: "https://rt-net.jp"
+    project: "CRANE-X7"
+    project_url: "https://github.com/rt-net/crane_x7_ros"
+    domain:
+      - Education
+      - Research
+    date_added: "2026-04-02"
+    country:
+      - JP
+    description: "A 7-axis robotic arm for studying dynamics and collaborative robots."
