@@ -67,7 +67,8 @@ Oceania
 South America and Africa
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-There are currently no officially verified ROS 2 mirrors for these regions. If you are hosting a mirror in South America or Africa and would like it listed here, please see the **Hosting a Mirror** section below.
+There are currently no officially verified ROS 2 mirrors for these regions.
+If you are hosting a mirror in South America or Africa and would like it listed here, please see the **Hosting a Mirror** section below.
 
 Creating a mirror
 -----------------
@@ -88,7 +89,8 @@ To use a mirror, replace ``packages.ros.org`` with the mirror URL in your ``ros2
 Setting up a Mirror
 -------------------
 
-The ROS infrastructure uses ``rsync`` to distribute packages. To create a local mirror of the ROS 2 repositories:
+The ROS infrastructure uses ``rsync`` to distribute packages.
+To create a local mirror of the ROS 2 repositories:
 
 1. **Storage Requirement:** Ensure you have at least 500GB of available disk space.
 2. **Sync Command:** Use ``rsync`` to pull from the official OSUOSL endpoints:
@@ -114,4 +116,5 @@ Once verified, please open a Pull Request against this page or post in the `Mirr
 Mirroring docs.ros.org
 ----------------------
 
-Mirroring the documentation site requires specific configuration to prevent search engine fragmentation. If you are interested in hosting a regional mirror of the documentation, please **contact the infrastructure team** via Discourse before proceeding.
+Mirroring the documentation site requires specific configuration to prevent search engine fragmentation.
+If you are interested in hosting a regional mirror of the documentation, please **contact the infrastructure team** via Discourse before proceeding.
