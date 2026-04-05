@@ -170,75 +170,79 @@ Steps
       target_link_libraries(publish_address_book "${cpp_typesupport_target}")
 
 #. To test your new interface, do the following:
-   a. In your workspace root, build the package.
-   b. Source the workspace and run the node that uses the interface.
-   For example:
 
-   .. tabs::
+   a) In your workspace root, build the package.
 
-     .. group-tab:: Linux
+   b) Source the workspace and run the node that uses the interface.
 
-       .. code-block:: console
+      For example:
 
-         $ cd ~/ros2_ws
-         $ colcon build --packages-up-to more_interfaces
-         $ source install/local_setup.bash
-         $ ros2 run more_interfaces publish_address_book
+      .. tabs::
 
-     .. group-tab:: macOS
+        .. group-tab:: Linux
 
-       .. code-block:: console
+          .. code-block:: console
 
-         $ cd ~/ros2_ws
-         $ colcon build --packages-up-to more_interfaces
-         $ . install/local_setup.bash
-         $ ros2 run more_interfaces publish_address_book
+            $ cd ~/ros2_ws
+            $ colcon build --packages-up-to more_interfaces
+            $ source install/local_setup.bash
+            $ ros2 run more_interfaces publish_address_book
 
-     .. group-tab:: Windows
+        .. group-tab:: macOS
 
-       .. code-block:: console
+          .. code-block:: console
 
-         $ cd /ros2_ws
-         $ colcon build --merge-install --packages-up-to more_interfaces
-         $ call install/local_setup.bat
-         $ ros2 run more_interfaces publish_address_book
+            $ cd ~/ros2_ws
+            $ colcon build --packages-up-to more_interfaces
+            $ . install/local_setup.bash
+            $ ros2 run more_interfaces publish_address_book
 
-       Or using Powershell:
+        .. group-tab:: Windows
 
-       .. code-block:: console
+          .. code-block:: console
 
-         $ install/local_setup.ps1
-         $ ros2 run more_interfaces publish_address_book
+            $ cd /ros2_ws
+            $ colcon build --merge-install --packages-up-to more_interfaces
+            $ call install/local_setup.bat
+            $ ros2 run more_interfaces publish_address_book
 
-   c. Check the interface or interact with it.
-   For example, for a message interface, you could open another terminal and use the following code:
+          Or using Powershell:
 
-   .. tabs::
+          .. code-block:: console
 
-     .. group-tab:: Linux
+            $ install/local_setup.ps1
+            $ ros2 run more_interfaces publish_address_book
 
-       .. code-block:: console
+   c) Check the interface or interact with it.
 
-         $ source install/setup.bash
-         $ ros2 topic echo /address_book
+      For example, for a message interface, you could open another terminal and use the following code:
 
-     .. group-tab:: macOS
+      .. tabs::
 
-       .. code-block:: console
+        .. group-tab:: Linux
 
-         $ . install/setup.bash
-         $ ros2 topic echo /address_book
+          .. code-block:: console
 
-     .. group-tab:: Windows
+            $ source install/setup.bash
+            $ ros2 topic echo /address_book
 
-       .. code-block:: console
+        .. group-tab:: macOS
 
-         $ call install/setup.bat
-         $ ros2 topic echo /address_book
+          .. code-block:: console
 
-       Or using Powershell:
+            $ . install/setup.bash
+            $ ros2 topic echo /address_book
 
-       .. code-block:: console
+        .. group-tab:: Windows
 
-         $ install/setup.ps1
-         $ ros2 topic echo /address_book
+          .. code-block:: console
+
+            $ call install/setup.bat
+            $ ros2 topic echo /address_book
+
+          Or using Powershell:
+
+          .. code-block:: console
+
+            $ install/setup.ps1
+            $ ros2 topic echo /address_book
