@@ -138,14 +138,14 @@ Open the file using your preferred text editor.
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
 
-The first lines of code after the comments import ``rclpy`` so its ``Node`` class can be used.
+The first lines of code after the comments import {package(rclpy)} so its `Node <{package_link(rclpy)}api/node.html>`__ class can be used.
 
 .. code-block:: python
 
   import rclpy
   from rclpy.node import Node
 
-The next statement imports the built-in string message type that the node uses to structure the data that it passes on the topic.
+The next statement imports the built-in {interface(std_msgs/msg/String)} message type that the node uses to structure the data that it passes on the topic.
 
 .. code-block:: python
 
@@ -154,19 +154,19 @@ The next statement imports the built-in string message type that the node uses t
 These lines represent the node's dependencies.
 Recall that dependencies have to be added to ``package.xml``, which you'll do in the next section.
 
-Next, the ``MinimalPublisher`` class is created, which inherits from (or is a subclass of) ``Node``.
+Next, the ``MinimalPublisher`` class is created, which inherits from (or is a subclass of) `Node <{package_link(rclpy)}api/node.html>`__.
 
 .. code-block:: python
 
   class MinimalPublisher(Node):
 
 Following is the definition of the class's constructor.
-``super().__init__`` calls the ``Node`` class's constructor and gives it your node name, in this case ``minimal_publisher``.
+``super().__init__`` calls the `Node <{package_link(rclpy)}api/node.html>`__ class's constructor and gives it your node name, in this case ``minimal_publisher``.
 
-``create_publisher`` declares that the node publishes messages of type ``String`` (imported from the ``std_msgs.msg`` module), over a topic named ``topic``, and that the "queue size" is 10.
-Queue size is a required QoS (quality of service) setting that limits the amount of queued messages if a subscriber is not receiving them fast enough.
+`create_publisher <{package_link(rclpy)}api/node.html#rclpy.node.Node.create_publisher>`__ declares that the node publishes messages of type {interface(std_msgs/msg/String)} (imported from the ``std_msgs.msg`` module), over a topic named ``topic``, and that the "queue size" is 10.
+Queue size is a required :doc:`Quality of Service </Concepts/Intermediate/About-Quality-of-Service-Settings>` (QoS) setting that limits the amount of queued messages if a subscriber is not receiving them fast enough.
 
-Next, a timer is created with a callback to execute every 0.5 seconds.
+Next, `create_timer <{package_link(rclpy)}api/node.html#rclpy.node.Node.create_timer>`__ is used to create a callback that executes every 0.5 seconds.
 ``self.i`` is a counter used in the callback.
 
 .. code-block:: python
@@ -178,7 +178,7 @@ Next, a timer is created with a callback to execute every 0.5 seconds.
       self.timer = self.create_timer(timer_period, self.timer_callback)
       self.i = 0
 
-``timer_callback`` creates a message with the counter value appended, and publishes it to the console with ``get_logger().info``.
+``timer_callback`` creates a message with the counter value appended, publishes it, and prints it to the console with `get_logger() <{package_link(rclpy)}api/node.html#rclpy.node.Node.get_logger>`__'s `info() <{package_link(rclpy)}rclpy.impl.rcutils_logger.html#rclpy.impl.rcutils_logger.RcutilsLogger.info>`__ function.
 
 .. code-block:: python
 
@@ -206,7 +206,7 @@ Lastly, the main function is defined.
       minimal_publisher.destroy_node()
       rclpy.shutdown()
 
-First the ``rclpy`` library is initialized, then the node is created, and then it "spins" the node so its callbacks are called.
+First the {package(rclpy)} library is initialized, then the node is created, and then it "spins" the node (using `spin() <{package_link(rclpy)}api/init_shutdown.html#rclpy.spin>`__) so its callbacks are called.
 
 2.2 Add dependencies
 ~~~~~~~~~~~~~~~~~~~~
@@ -230,7 +230,7 @@ After the lines above, add the following dependencies corresponding to your node
   <exec_depend>rclpy</exec_depend>
   <exec_depend>std_msgs</exec_depend>
 
-This declares the package needs ``rclpy`` and ``std_msgs`` when its code is executed.
+This declares the package needs {package(rclpy)} and  {package(std_msgs)} when its code is executed.
 
 Make sure to save the file.
 
@@ -247,7 +247,7 @@ Again, match the ``maintainer``, ``maintainer_email``, ``description`` and ``lic
   description='Examples of minimal publisher/subscriber using rclpy',
   license='Apache License 2.0',
 
-Add the following line within the ``console_scripts`` brackets of the ``entry_points`` field:
+Add the following line within the ``console_scripts`` brackets of the `entry_points <https://setuptools.pypa.io/en/latest/userguide/entry_point.html>`__ field:
 
 .. code-block:: python
 
@@ -271,7 +271,7 @@ The contents of the ``setup.cfg`` file should be correctly populated automatical
   [install]
   install_scripts=$base/lib/py_pubsub
 
-This is simply telling setuptools to put your executables in ``lib``, because ``ros2 run`` will look for them there.
+This is simply telling `setuptools <https://setuptools.pypa.io/en/latest/userguide>`__ to put your executables in ``lib``, because ``ros2 run`` will look for them there.
 
 You could build your package now, source the local setup files, and run it, but let's create the subscriber node first so you can see the full system at work.
 
@@ -361,7 +361,7 @@ Open the ``subscriber_member_function.py`` with your text editor.
       main()
 
 The subscriber node's code is nearly identical to the publisher's.
-The constructor creates a subscriber with the same arguments as the publisher.
+The constructor creates a subscriber with the same arguments as the publisher using `create_subscription <{package_link(rclpy)}api/node.html#rclpy.node.Node.create_subscription>`__.
 Recall from the :doc:`topics tutorial <../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics>` that the topic name and message type used by the publisher and subscriber must match to allow them to communicate.
 
 .. code-block:: python
@@ -399,7 +399,7 @@ The ``setup.cfg`` file can also remain untouched.
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Reopen ``setup.py`` and add the entry point for the subscriber node below the publisher's entry point.
-The ``entry_points`` field should now look like this:
+The `entry_points <https://setuptools.pypa.io/en/latest/userguide/entry_point.html>`__ field should now look like this:
 
 .. code-block:: python
 
@@ -414,8 +414,8 @@ Make sure to save the file, and then your pub/sub system should be ready.
 
 4 Build and run
 ^^^^^^^^^^^^^^^
-You likely already have the ``rclpy`` and ``std_msgs`` packages installed as part of your ROS 2 system.
-It's good practice to run ``rosdep`` in the root of your workspace (``ros2_ws``) to check for missing dependencies before building:
+You likely already have the {package(rclpy)} and {package(std_msgs)} packages installed as part of your ROS 2 system.
+It's good practice to run `rosdep <https://docs.ros.org/en/independent/api/rosdep/html/>`__ (check the :doc:`rosdep tutorial </Tutorials/Intermediate/Rosdep>`) in the root of your workspace (``ros2_ws``) to check for missing dependencies before building:
 
 .. tabs::
 
