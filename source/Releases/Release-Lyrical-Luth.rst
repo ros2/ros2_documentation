@@ -22,12 +22,12 @@ Release Timeline
     * Preliminary testing of ROS Base packages
     * API and feature freeze for RMW provider packages.
 
-**Mon. April 20, 2026** - Freeze *Delayed; was originally April 13th*
+**Mon. April 20, 2026** - Freeze (*Delayed; was originally April 13th*)
     * API and feature freeze for ROS Base packages in Rolling Ridley.
     * Only bug fix releases should be made after this point.
     * New packages can be released.
 
-**Mon. April 21, 2026** - Branch *Delayed; was originally April 20th*
+**Mon. April 21, 2026** - Branch (*Delayed; was originally April 20th*)
     * Branch from Rolling Ridley
     * ``rosdistro`` is reopened for Rolling PRs for ROS Base packages.
     * Lyrical development shifts from ``ros-rolling-*`` packages to ``ros-lyrical-*`` packages.
