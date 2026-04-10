@@ -69,7 +69,7 @@ Development Guides
    Contributing/Quality-Guide
    Contributing/Build-Farms
    Contributing/Windows-Tips-and-Tricks
-   Contributing/Contributing-To-ROS-2-Documentation
+   Contributing/Documentation
 
 What to work on
 ^^^^^^^^^^^^^^^
