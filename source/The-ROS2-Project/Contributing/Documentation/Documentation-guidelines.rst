@@ -3,9 +3,18 @@
 Documentation guidelines
 ========================
 
+.. centered:: TBC
+
+.. parsed-literal::
+
+    Area: Contributing | Content-type: reference| Experience: beginner
+
 .. contents:: Table of Contents
    :depth: 2
    :local:
+
+Summary
+-------
 
 Writing pages
 -------------

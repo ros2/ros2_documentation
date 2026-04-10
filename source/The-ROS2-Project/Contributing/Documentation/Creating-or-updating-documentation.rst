@@ -3,6 +3,12 @@
 Creating or updating documentation
 ==================================
 
+.. centered:: This article explains how to create or update the ROS 2 
+
+.. parsed-literal::
+
+    Area: Contributing | Content-type: how-to | Experience: beginner
+
 .. contents:: Table of Contents
    :depth: 2
    :local:

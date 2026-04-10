@@ -3,6 +3,10 @@
 Migrating docs from ROS 1 wiki
 ==================================
 
+.. parsed-literal::
+
+    Area: Contributing | Content-type: how-to | Experience: beginner
+
 The first step in migrating a page from the `ROS Wiki <https://wiki.ros.org>`_ to the ROS 2 documentation is to determine if the page needs to be migrated.
 Check if the content, or something similar, is available on https://docs.ros.org/en/rolling by searching for related terms.
 If it has already been migrated, congratulations!
