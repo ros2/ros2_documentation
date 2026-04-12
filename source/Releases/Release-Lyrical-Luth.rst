@@ -81,7 +81,7 @@ To use ROS Lyrical on any Tier 3 platform, you must build ROS Lyrical from sourc
 Minimum Language Requirements
 -----------------------------
 
-* [C++20](https://discourse.openrobotics.org/t/ros-2-lyrical-c-version/52551)
+* `C++20 <https://discourse.openrobotics.org/t/ros-2-lyrical-c-version/52551>`__
 * C17
 * Python 3.12 - 3.14
 
