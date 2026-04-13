@@ -123,3 +123,12 @@ adopters:
     country:
       - BE
     description: "Autonomous navigation for iXi, the golf trolley of the future."
+    - organization: "Sourav Hawaldar"
+    project: "ROS2 Studio"
+    project_url: "https://github.com/Sourav0607/ROS2-STUDIO"
+    domain:
+      - Research
+    date_added: "2026-04-13"
+    country:
+      - DE
+    description: "A PyQt5-based CLI monitoring tool for ROS 2 nodes, topics, and system diagnostics"
