@@ -123,3 +123,15 @@ adopters:
     country:
       - BE
     description: "Autonomous navigation for iXi, the golf trolley of the future."
+
+  - organization: "Kai Tung Yu"
+    organization_url: "https://bristolgram.uk/lgdxrobot2/"
+    project: "LGDXRobot2"
+    project_url: "https://github.com/yukaitung/lgdxrobot2-ros2"
+    domain:
+      - Education
+      - Research
+    date_added: "2026-04-13"
+    country:
+      - GB
+    description: "LGDXRobot2 is a mecanum wheel mobile robot designed to achieve decent performance with low-cost hardware. It is fully integrated with the ROS 2 ecosystem, including Nav2 and Gazebo."
