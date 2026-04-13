@@ -132,3 +132,16 @@ adopters:
     country:
       - DE
     description: "A PyQt5-based CLI monitoring tool for ROS 2 nodes, topics, bag recording, bag playing, bag converter from .db3 to csv for analysis and system diagnostics"
+    
+  - organization: "Manan Kharwar"
+    organization_url: "https://github.com/manankharwar"
+    project: "FusionCore"
+    project_url: "https://github.com/manankharwar/fusioncore"
+    domain:
+      - Agriculture
+      - Components
+      - Research
+    date_added: "2026-04-13"
+    country:
+      - CA
+    description: "ROS 2 sensor fusion SDK replacing deprecated robot_localization. Fuses IMU, wheel encoders, and GPS via Unscented Kalman Filter at 100Hz. Automatic IMU bias estimation, Mahalanobis outlier rejection, adaptive noise covariance, TF validation at startup. Apache 2.0."
