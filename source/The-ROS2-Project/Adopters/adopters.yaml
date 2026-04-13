@@ -123,3 +123,16 @@ adopters:
     country:
       - BE
     description: "Autonomous navigation for iXi, the golf trolley of the future."
+    
+  - organization: "Manan Kharwar"
+    organization_url: "https://github.com/manankharwar"
+    project: "FusionCore"
+    project_url: "https://github.com/manankharwar/fusioncore"
+    domain:
+      - Agriculture
+      - Components
+      - Research
+    date_added: "2026-04-13"
+    country:
+      - CA
+    description: "ROS 2 sensor fusion SDK replacing deprecated robot_localization. Fuses IMU, wheel encoders, and GPS via Unscented Kalman Filter at 100Hz. Automatic IMU bias estimation, Mahalanobis outlier rejection, adaptive noise covariance, TF validation at startup. Apache 2.0."
