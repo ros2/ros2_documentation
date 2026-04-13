@@ -113,3 +113,13 @@ adopters:
     country:
       - NL
     description: "A small autnonomous tool carrier for applications in tree nurseries, vineyards, orchards, sofdt fruits with tasks as weeding, harrowing, UV-C, sspraying, scouting. The robot can run a full workday on swappable batteries"
+  - organization: "Botronics"
+    organization_url: "https://botronics.be"
+    project: "iXi"
+    project_url: "https://ixi.golf"
+    domain:
+      - Service Robot
+    date_added: "2026-04-13"
+    country:
+      - BE
+    description: "Autonomous navigation for iXi, the golf trolley of the future."
