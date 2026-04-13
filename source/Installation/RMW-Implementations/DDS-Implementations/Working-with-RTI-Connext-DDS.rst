@@ -32,6 +32,12 @@ RTI Connext Pro is available through a variety of channels:
 
   .. tabs::
 
+     .. group-tab:: v7.7.0
+
+        .. code-block:: console
+
+           $ sudo apt update && sudo apt install -q -y rti-connext-dds-7.7.0-ros
+
      .. group-tab:: v7.3.0
 
         .. code-block:: console
@@ -87,11 +93,11 @@ Then, install necessary packages for RTI Connext DDS.
 
 Set up the environment to help colcon discover where RTI Connext is installed.
 This can be done by manually setting the environment variable ``NDDSHOME`` to the location of the RTI Connext installation, or by using a script that comes with the RTI Connext installation.
-For example, for version 7.3.0, you can run the following code to execute the helper script:
+For example, for version 7.7.0, you can run the following code to execute the helper script:
 
 .. code-block:: console
 
-   $ source /opt/rti.com/rti_connext_dds-7.3.0/resource/scripts/rtisetenv_x64Linux4gcc7.3.0.bash
+   $ source /opt/rti.com/rti_connext_dds-7.7.0/resource/scripts/rtisetenv_x64Linux4gcc7.7.0.bash
 
 If the previous command failed, and you can't find the location of the RTI Connext installation, run this to find all Connext installations (and their corresponding helper scripts) in your system:
 
