@@ -131,4 +131,4 @@ adopters:
     date_added: "2026-04-13"
     country:
       - DE
-    description: "A PyQt5-based CLI monitoring tool for ROS 2 nodes, topics, and system diagnostics"
+    description: "A PyQt5-based CLI monitoring tool for ROS 2 nodes, topics, bag recording, bag playing, bag converter from .db3 to csv for analysis and system diagnostics"
