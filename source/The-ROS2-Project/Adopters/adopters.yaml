@@ -103,3 +103,13 @@ adopters:
     country:
       - CZ
     description: "Research lab focused on outdoor robotics in harsh terrain, both with real hardware and in differentiable simulation. #MonoForce #DarpaSubT"
+  - organization: "Aigro"
+    organization_url: "https://aigro.nl/index_en.html"
+    project: "Autonomous tool carrier for agricultural use"
+    project_url: "https://aigro.nl/index_en.html#products"
+    domain:
+      - Agriculture
+    date_added: "2026-04-13"
+    country:
+      - NL
+    description: "A small autnonomous tool carrier for applications in tree nurseries, vineyards, orchards, sofdt fruits with tasks as weeding, harrowing, UV-C, sspraying, scouting. The robot can run a full workday on swappable batteries"
