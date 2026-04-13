@@ -77,3 +77,15 @@ adopters:
     country:
       - JP
     description: "A 7-axis robotic arm for studying dynamics and collaborative robots."
+
+  - organization: "Helhest"
+    organization_url: "https://www.helhest.com/"
+    project: "Helhest Robot"
+    project_url: "https://www.helhest.com/"
+    domain:
+      - Defense/Government
+      - Research
+    date_added: "2026-04-13"
+    country:
+      - CZ
+    description: "A unique 3-wheeled outdoor platform for the most demanding terrains, from the DARPA SubT finalists. Shrink the gap of not-yet-perfect autonomy software with clever hardware! Robot flipped or rolled over? No problem!"
