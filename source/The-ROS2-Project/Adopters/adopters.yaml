@@ -89,3 +89,17 @@ adopters:
     country:
       - CZ
     description: "A unique 3-wheeled outdoor platform for the most demanding terrains, from the DARPA SubT finalists. Shrink the gap of not-yet-perfect autonomy software with clever hardware! Robot flipped or rolled over? No problem!"
+
+  - organization: "Czech Technical University in Prague"
+    organization_url: "https://cvut.cz"
+    project: "Vision for Robotics and Autonomous Systems"
+    project_url: "https://cyber.felk.cvut.cz/vras/"
+    domain:
+      - Defense/Government
+      - Education
+      - Humanoid
+      - Research
+    date_added: "2026-04-13"
+    country:
+      - CZ
+    description: "Research lab focused on outdoor robotics in harsh terrain, both with real hardware and in differentiable simulation. #MonoForce #DarpaSubT"
