@@ -97,7 +97,7 @@ For example, for version 7.7.0, you can run the following code to execute the he
 
 .. code-block:: console
 
-   $ source /opt/rti.com/rti_connext_dds-7.7.0/resource/scripts/rtisetenv_x64Linux4gcc7.7.0.bash
+   $ source /opt/rti.com/rti_connext_dds-7.7.0/resource/scripts/rtisetenv_x64Linux4gcc8.5.0.bash
 
 If the previous command failed, and you can't find the location of the RTI Connext installation, run this to find all Connext installations (and their corresponding helper scripts) in your system:
 
