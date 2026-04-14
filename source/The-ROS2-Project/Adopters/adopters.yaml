@@ -77,3 +77,83 @@ adopters:
     country:
       - JP
     description: "A 7-axis robotic arm for studying dynamics and collaborative robots."
+
+  - organization: "Helhest"
+    organization_url: "https://www.helhest.com/"
+    project: "Helhest Robot"
+    project_url: "https://www.helhest.com/"
+    domain:
+      - Defense/Government
+      - Research
+    date_added: "2026-04-13"
+    country:
+      - CZ
+    description: "A unique 3-wheeled outdoor platform for the most demanding terrains, from the DARPA SubT finalists. Shrink the gap of not-yet-perfect autonomy software with clever hardware! Robot flipped or rolled over? No problem!"
+
+  - organization: "Czech Technical University in Prague"
+    organization_url: "https://cvut.cz"
+    project: "Vision for Robotics and Autonomous Systems"
+    project_url: "https://cyber.felk.cvut.cz/vras/"
+    domain:
+      - Defense/Government
+      - Education
+      - Humanoid
+      - Research
+    date_added: "2026-04-13"
+    country:
+      - CZ
+    description: "Research lab focused on outdoor robotics in harsh terrain, both with real hardware and in differentiable simulation. #MonoForce #DarpaSubT"
+  - organization: "Aigro"
+    organization_url: "https://aigro.nl/index_en.html"
+    project: "Autonomous tool carrier for agricultural use"
+    project_url: "https://aigro.nl/index_en.html#products"
+    domain:
+      - Agriculture
+    date_added: "2026-04-13"
+    country:
+      - NL
+    description: "A small autnonomous tool carrier for applications in tree nurseries, vineyards, orchards, sofdt fruits with tasks as weeding, harrowing, UV-C, sspraying, scouting. The robot can run a full workday on swappable batteries"
+  - organization: "Botronics"
+    organization_url: "https://botronics.be"
+    project: "iXi"
+    project_url: "https://ixi.golf"
+    domain:
+      - Service Robot
+    date_added: "2026-04-13"
+    country:
+      - BE
+    description: "Autonomous navigation for iXi, the golf trolley of the future."
+  - organization: "Sourav Hawaldar"
+    project: "ROS2 Studio"
+    project_url: "https://github.com/Sourav0607/ROS2-STUDIO"
+    domain:
+      - Research
+    date_added: "2026-04-14"
+    country:
+      - DE
+    description: "A PyQt5-based CLI monitoring tool for ROS 2 nodes, topics, bag recording, bag playing, bag converter from .db3 to csv for analysis and system diagnostics"
+    
+  - organization: "Manan Kharwar"
+    organization_url: "https://github.com/manankharwar"
+    project: "FusionCore"
+    project_url: "https://github.com/manankharwar/fusioncore"
+    domain:
+      - Agriculture
+      - Components
+      - Research
+    date_added: "2026-04-13"
+    country:
+      - CA
+    description: "ROS 2 sensor fusion SDK replacing deprecated robot_localization. Fuses IMU, wheel encoders, and GPS via Unscented Kalman Filter at 100Hz. Automatic IMU bias estimation, Mahalanobis outlier rejection, adaptive noise covariance, TF validation at startup. Apache 2.0."
+
+  - organization: "Kai Tung Yu"
+    organization_url: "https://bristolgram.uk/lgdxrobot2/"
+    project: "LGDXRobot2"
+    project_url: "https://github.com/yukaitung/lgdxrobot2-ros2"
+    domain:
+      - Education
+      - Research
+    date_added: "2026-04-13"
+    country:
+      - GB
+    description: "LGDXRobot2 is a mecanum wheel mobile robot designed to achieve decent performance with low-cost hardware. It is fully integrated with the ROS 2 ecosystem, including Nav2 and Gazebo."
