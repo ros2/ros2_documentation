@@ -157,4 +157,3 @@ adopters:
     country:
       - GB
     description: "LGDXRobot2 is a mecanum wheel mobile robot designed to achieve decent performance with low-cost hardware. It is fully integrated with the ROS 2 ecosystem, including Nav2 and Gazebo."
-    
