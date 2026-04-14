@@ -7,7 +7,7 @@ Documentation guidelines
 
 .. parsed-literal::
 
-    Area: Contributing | Content-type: reference| Experience: beginner
+    Area: ROS-community | Content-type: reference | Experience: beginner, intermediate, expert
 
 .. contents:: Table of Contents
    :depth: 2
@@ -15,6 +15,8 @@ Documentation guidelines
 
 Summary
 -------
+
+TBC
 
 Writing pages
 -------------

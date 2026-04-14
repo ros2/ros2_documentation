@@ -3,126 +3,155 @@
 Creating or updating documentation
 ==================================
 
-.. centered:: This article explains how to create or update the ROS 2 
+.. centered:: TBC
 
 .. parsed-literal::
 
-    Area: Contributing | Content-type: how-to | Experience: beginner
+    Area: ROS-community | Content-type: how-to | Experience: beginner, intermediate, expert
 
 .. contents:: Table of Contents
    :depth: 2
    :local:
 
+Summary
+-------
+
+TBC
+
+The following steps relate to updating the ROS 2 user documentation. 
+If you are working on developing a ROS 2 package, then you must also create or update the documentation for that package.
+   
+For more information on how to document ROS 2 packages, see :doc:`/How-To-Guides/Documenting-a-ROS-2-Package`.
+
+Planning documentation changes
+------------------------------
+
+When you see a change to the documentation you'd like to make, we recommend checking the `docs issue list <https://github.com/ros2/ros2_documentation/issues>`__ to see if your proposed update has already been tracked.
+You can also check for issues relating to nearby updates you could make to the article at the same time.
+
+If you are creating a new article, decide on the content type for the article before you start. 
+Follow the structure of that content type in the relevant example topic from the :doc:`./Documentation-guidelines`.
+
+For more information about the docs source, tools, and workflow to use when making your updates, see :doc:`./Documentation-tooling-and-workflow`.
+
 Building the site locally
 -------------------------
 
-Start by creating `venv <https://docs.python.org/3/library/venv.html>`__ to build the documentation:
+Set up the following prerequisites to build the docs site locally:
 
-.. code-block:: console
+#. Create a `venv <https://docs.python.org/3/library/venv.html>`__ to build the documentation:
 
-   $ python3 -m venv ros2doc  # create venv
-   $ source ros2doc/bin/activate  # activate venv
+   .. code-block:: console
 
-And install requirements located in the ``requirements.txt`` file:
+      $ python3 -m venv ros2doc  # create venv
+      $ source ros2doc/bin/activate  # activate venv
 
-.. tabs::
+#. Install requirements located in the ``requirements.txt`` file:
 
-  .. group-tab:: Linux
+   .. tabs::
 
-    .. code-block:: console
+      .. group-tab:: Linux
 
-       $ pip install -r requirements.txt -c constraints.txt
+         .. code-block:: console
 
-  .. group-tab:: macOS
+            $ pip install -r requirements.txt -c constraints.txt
 
-    .. code-block:: console
+      .. group-tab:: macOS
 
-       $ pip install -r requirements.txt -c constraints.txt
+         .. code-block:: console
 
-  .. group-tab:: Windows
+            $ pip install -r requirements.txt -c constraints.txt
 
-    .. code-block:: console
+      .. group-tab:: Windows
 
-      $ python -m pip install -r requirements.txt -c constraints.txt
+         .. code-block:: console
 
-In order for Sphinx to be able to generate diagrams, the ``dot`` command must be available.
+            $ python -m pip install -r requirements.txt -c constraints.txt
 
-.. tabs::
+#. In order for Sphinx to be able to generate diagrams, the ``dot`` command must be available:
 
-  .. group-tab:: Linux
+   .. tabs::
 
-    .. code-block:: console
+      .. group-tab:: Linux
 
-       $ sudo apt update ; sudo apt install graphviz
+         .. code-block:: console
 
-  .. group-tab:: macOS
+            $ sudo apt update ; sudo apt install graphviz
 
-    .. code-block:: console
+      .. group-tab:: macOS
 
-      $ brew install graphviz
+         .. code-block:: console
 
-  .. group-tab:: Windows
+            $ brew install graphviz
 
-      Download an installer from `the Graphviz Download page <https://graphviz.gitlab.io/_pages/Download/Download_windows.html>`__ and install it.
-      Make sure to allow the installer to add it to the Windows ``%PATH%``, otherwise Sphinx will not be able to find it.
+      .. group-tab:: Windows
+
+         Download an installer from the `Graphviz Download page <https://graphviz.gitlab.io/_pages/Download/Download_windows.html>`__ and install it.
+         Make sure to allow the installer to add it to the Windows ``%PATH%``, otherwise Sphinx will not be able to find it.
 
 Building the site for one branch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To build the site for just this branch, type ``make html`` at the top-level of the repository.
-This is the recommended way to test out local changes.
+To build the site for just this branch:
 
-.. code-block:: console
+#. Run the following command at the top level of the repository.
+   The build process can take some time.
+   This is the recommended way to test out local changes.
 
-   $ make html
+   .. code-block:: console
 
-The build process can take some time.
-To see the output, open ``build/html/index.html`` in your browser.
+      $ make html
+
+#. Open ``build/html/index.html`` in your browser to see the output.
 
 
 Checking / Testing the site
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You can run the documentation tests locally (using `doc8 <https://github.com/PyCQA/doc8>`_) with the following command:
+* You can run the documentation tests locally (using `doc8 <https://github.com/PyCQA/doc8>`_) with the following command:
 
-.. code-block:: console
+  .. code-block:: console
 
-   $ make test
+     $ make test
 
-You can run the Python documentation tools tests locally (using `pytest <https://docs.pytest.org/en/stable/>`_) with the following command:
+* You can run the Python documentation tools tests locally (using `pytest <https://docs.pytest.org/en/stable/>`_) with the following command:
 
-.. code-block:: console
+  .. code-block:: console
 
-   $ make test-tools
+     $ make test-tools
 
-You can run the documentation linter locally (using `sphinx-lint <https://github.com/sphinx-contrib/sphinx-lint>`_) with the following command:
+* You can run the documentation linter locally (using `sphinx-lint <https://github.com/sphinx-contrib/sphinx-lint>`_) with the following command:
 
-.. code-block:: console
+  .. code-block:: console
 
-   $ make lint
+     $ make lint
 
-You can run the documentation spell checker locally (using `codespell <https://github.com/codespell-project/codespell>`_) with the following command:
+* You can run the documentation spell checker locally (using `codespell <https://github.com/codespell-project/codespell>`_) with the following command:
 
-.. code-block:: console
+  .. code-block:: console
 
-   $ make spellcheck
+     $ make spellcheck
 
 .. note::
 
-   If that detects specific words that need to be ignored, add it to `codespell_whitelist <https://github.com/ros2/ros2_documentation/blob/{REPOS_FILE_BRANCH}/codespell_whitelist.txt>`_ .
+   If the spellcheck command detects a specific word that needs to be ignored, add it to `codespell_whitelist <https://github.com/ros2/ros2_documentation/blob/{REPOS_FILE_BRANCH}/codespell_whitelist.txt>`_ .
 
-To know more about spelling checks, refer to :ref:`Spelling check <spelling-check>`
+For more information about spelling checks, see :ref:`Spelling check <spelling-check>`.
 
 View Site Through Github CI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For small changes to the ROS 2 Docs you can view your changes as rendered HTML using artifacts generated in our Github Actions.
-The "build" action produces the entire ROS Docs as a downloadable Zip file that contains all HTML for `docs.ros.org <https://docs.ros.org/>`_
+The "build" action produces the entire ROS Docs as a downloadable zip file that contains all HTML for `docs.ros.org <https://docs.ros.org/>`_
 This build action is triggered after passing the test action and lint action.
 
-To download and view your changes first go to your pull request and under the title click the "Checks" tab.
-On the left hand side of the checks page, click on the "Test" section under the "tests" section  click on "build" dialog.
-This will open a menu on the right, where you can click on "Upload document artifacts" and scroll to the bottom to see the download link for the Zipped' HTML files under the heading "Artifact download URL".
+To download and view your changes:
+
+#. Go to your pull request and under the title, click the "Checks" tab.
+#. On the left hand side of the checks page, click the "Test" section.
+#. Under the "tests" section, click "build" to open the build dialog.
+#. In the menu on the right, click "Upload document artifacts".
+#. Scroll to the bottom to see the download link for the zipped HTML files under heading "Artifact download URL".
 
 .. image:: ./images/github_action.png
   :width: 100%
@@ -131,22 +160,31 @@ This will open a menu on the right, where you can click on "Upload document arti
 Building the site for all branches
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To build the site for all branches, type ``make multiversion`` from the ``rolling`` branch.
+To build the site for all branches:
+
+Run the following command at the top level of the repository, from the ``rolling`` branch.
+
+.. code-block:: console
+   
+   $ make multiversion
+
 This has two drawbacks:
 
-#. The multiversion plugin doesn't understand how to do incremental builds, so it always rebuilds everything.
-   This can be slow.
+* The multiversion plugin doesn't understand how to do incremental builds, so it always rebuilds everything.
+  This can be slow.
 
-#. When typing ``make multiversion``, it will always check out exactly the branches listed in the ``conf.py`` file.
-   That means that local changes will not be shown.
+* The build process will always check out exactly the branches listed in the ``conf.py`` file.
+  This means that local changes will not be shown.
 
-To show local changes in the multiversion output, you must first commit the changes to a local branch.
-Then you must edit the `conf.py <https://github.com/ros2/ros2_documentation/blob/rolling/conf.py>`_ file and change the ``smv_branch_whitelist`` variable to point to your branch.
+To show local changes in the multiversion output:
+
+#. Commit the changes to a local branch.
+#. Edit the `conf.py <https://github.com/ros2/ros2_documentation/blob/rolling/conf.py>`_ file and change the ``smv_branch_whitelist`` variable to point to your branch.
 
 Checking for broken links
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To check for broken links on the site, run:
+To check for broken links on the site, run the following command:
 
 .. code-block:: console
 
@@ -159,12 +197,17 @@ This will check the entire site for broken links, and output the results to the 
 Spelling check
 ^^^^^^^^^^^^^^
 
-The ``make spellcheck`` command scans the documentation files and flags any misspellings.
+To scan the documentation files and flag any misspellings, run the following command:
+
+.. code-block:: console
+
+   $ make spellcheck
+
 If errors are detected, review the suggestions and update the pull request as necessary.
 
 Some words, such as technical terms or proper nouns, maybe mistakenly flagged as misspelled.
 If you encounter such instances, you can add them to the ignore list to prevent them from being flagged in the future.
-To do this, add it to the `codespell_whitelist <https://github.com/ros2/ros2_documentation/blob/{REPOS_FILE_BRANCH}/codespell_whitelist.txt>`_ file as follows:
+To do this, add the term or noun to the `codespell_whitelist <https://github.com/ros2/ros2_documentation/blob/{REPOS_FILE_BRANCH}/codespell_whitelist.txt>`_ file as follows:
 
 .. code-block:: text
 
@@ -182,32 +225,50 @@ To include custom corrections that ``codespell`` should apply, you can add them 
    rosabg->rosbag
    rosdistroy->rosdistro
 
-To check the dictionaries, you can run the ``make check-dictionaries`` command.
-This will check the blank lines and leading/trailing spaces in the dictionaries.
-If it complains about the dictionaries, you can run the ``make sort-dictionaries`` command.
-This command will automatically modify the dictionaries if any issues are found.
+To check the dictionaries, run the following command:
+
+.. code-block:: console
+   
+   $ make check-dictionaries
+
+This command checks the blank lines and leading/trailing spaces in the dictionaries.
+
+If the check-dictionaries command complains about the dictionaries, run the following command:
+
+.. code-block:: console
+   
+   $ make sort-dictionaries
+
+This command automatically modifies the dictionaries if any issues are found.
 
 Building the site with GitHub Codespaces
 ----------------------------------------
-First, you need to have a GitHub account (if you don't have one, you can create one for free).
-Then, you need to go to the `ROS 2 Documentation GitHub repository <https://github.com/ros2/ros2_documentation>`__.
-After that, you can open the repository in Codespaces, it can be done just by clicking on the "Code" button on the repository page, then choose "Open with Codespaces" from the dropdown menu.
 
-.. image:: images/codespaces.png
-   :width: 100%
-   :alt: Codespaces creation
+Before you can build the site with GitHub Codespaces, you need to have a GitHub account (if you don't have one, you can create one for free).
 
-After that, you will be redirected to your Codespaces page, where you can see the progress of the Codespaces creation.
-Once it is done, a Visual Studio Code tab will be opened in your browser.
+To build the site with GitHub Codespaces:
+
+#. Go to the `ROS 2 Documentation GitHub repository <https://github.com/ros2/ros2_documentation>`__.
+#. On the repository page, click "Code > Open with Codespaces" from the dropdown menu.
+   You are redirected to your Codespaces page, where you can see the progress of the Codespaces creation.
+
+   .. image:: images/codespaces.png
+      :width: 100%
+      :alt: Codespaces creation
+
+When this completes, a Visual Studio Code tab is opened in your browser.
 You can open the terminal by clicking on the "Terminal" tab in the top panel or by pressing :kbd:`Ctrl-J`.
 
-In this terminal, you can run any command you want, for example, you can run the following command to build the site for just this branch:
+In this terminal, you can run any command you want, for example, to build the site for just this branch:
 
 .. code-block:: console
 
    $ make html
 
-Finally, to view the site, you can click on the "Go Live" button in the right bottom panel and then, it will open the site in a new tab in your browser (you will need to browse to the ``build/html`` folder).
+To view the site:
+
+#. Click "Go Live" in the right bottom panel to open the site in a new tab in your browser.
+#. Open ``build/html/index.html`` in your browser.
 
 .. image:: images/live_server.png
    :width: 100%
@@ -216,31 +277,29 @@ Finally, to view the site, you can click on the "Go Live" button in the right bo
 Building the site with Devcontainer
 -----------------------------------
 
-`ROS 2 Documentation GitHub repository <https://github.com/ros2/ros2_documentation>`__ also supports ``Devcontainer`` development environment with Visual Studio Code.
-This will enable you to build the documentation much easier without changing your operating system.
+The `ROS 2 Documentation GitHub repository <https://github.com/ros2/ros2_documentation>`__ also supports a ``Devcontainer`` development environment with Visual Studio Code.
+This enables you to build the documentation without changing your operating system.
 
 See :doc:`/How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container` to install VS Code and Docker before the following procedure.
 
-Clone repository and start VS Code:
+#. Clone repository and start VS Code:
 
-.. code-block:: console
+   .. code-block:: console
 
-   $ git clone https://github.com/ros2/ros2_documentation
-   $ cd ./ros2_documentation
-   $ code .
+      $ git clone https://github.com/ros2/ros2_documentation
+      $ cd ./ros2_documentation
+      $ code .
 
-To use ``Devcontainer``, you need to install "Remote Development" Extension within VS Code search in Extensions (CTRL+SHIFT+X) for it.
+#. Install the "Remote Development" Extension within VS Code search in Extensions (CTRL+SHIFT+X).
+#. Use ``View->Command Palette...`` or ``Ctrl+Shift+P`` to open the command palette.
+#. Search for the command ``Dev Containers: Reopen in Container`` in the command palette and execute it.
+   This builds your development docker container for you automatically.
+#. Open a terminal using ``View->Terminal`` or ``Ctrl+Shift+``` and ``New Terminal`` in VS Code.
+#. Inside the terminal, use the following command to build the documentation:
 
-And then, use ``View->Command Palette...`` or ``Ctrl+Shift+P`` to open the command palette.
-Search for the command ``Dev Containers: Reopen in Container`` and execute it.
-This will build your development docker container for you automatically.
+   .. code-block:: console
 
-To build the documentation, open a terminal using ``View->Terminal`` or ``Ctrl+Shift+``` and ``New Terminal`` in VS Code.
-Inside the terminal, you can build the documentation:
-
-.. code-block:: console
-
-   $ make html
+      $ make html
 
 .. image:: images/vscode_devcontainer.png
    :width: 100%
