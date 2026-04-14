@@ -157,3 +157,22 @@ adopters:
     country:
       - GB
     description: "LGDXRobot2 is a mecanum wheel mobile robot designed to achieve decent performance with low-cost hardware. It is fully integrated with the ROS 2 ecosystem, including Nav2 and Gazebo."
+
+  - organization: "INSAION"
+    organization_url: "https://insaion.com"
+    project: "Insaion Agent"
+    project_url: "https://app.insaion.com/login"
+    domain:
+      - Agriculture
+      - Aerial/Drone
+      - Automotive
+      - Construction
+      - Energy
+      - Logistics/Warehouse
+      - Manufacturing
+      - Marine
+      - Service Robot
+    date_added: "2026-04-14"
+    country:
+      - ES
+    description: "INSAION is a specialized monitoring and observability platform that integrates natively with the ROS2 ecosystem to provide deep visibility into robotic fleet performance. By leveraging the MCAP standard, it seamlessly unifies data logging and real-time telemetry into a streamlined workflow for scalable robotics operations."
