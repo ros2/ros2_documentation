@@ -20,6 +20,34 @@
 #   Logistics/Warehouse, Manufacturing, Marine, Research, Space, Service Robot
 
 adopters:
+  - organization: "Nathan Shankar"
+    organization_url: "https://nathanshankar.github.io/"
+    project: "Terminal RViz"
+    project_url: "https://github.com/nathanshankar/terminal_rviz"
+    domain:
+      - Agriculture
+      - Aerial/Drone
+      - Automotive
+      - Components
+      - Construction
+      - Consumer Robot
+      - Defense/Government
+      - Education
+      - Energy
+      - Healthcare/Medical
+      - Humanoid
+      - Logistics/Warehouse
+      - Manufacturing
+      - Marine
+      - Research
+      - Space
+      - Service Robot
+    date_added: "2026-04-14"
+    country:
+      - GB
+      - IN
+    description: "Terminal RViz is a high-performance 3D visualizer for ROS 2 that runs entirely within a terminal environment. Built using FTXUI and a custom Braille-based software renderer, it provides a feature-rich alternative to standard RViz for headless systems, remote SSH sessions, or resource-constrained environments"
+  
   - organization: "Sony Group Corporation"
     organization_url: "https://www.sony.com"
     project: "aibo"
