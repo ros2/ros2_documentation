@@ -123,6 +123,28 @@ adopters:
     country:
       - BE
     description: "Autonomous navigation for iXi, the golf trolley of the future."
+  - organization: "Sourav Hawaldar"
+    project: "ROS2 Studio"
+    project_url: "https://github.com/Sourav0607/ROS2-STUDIO"
+    domain:
+      - Research
+    date_added: "2026-04-14"
+    country:
+      - DE
+    description: "A PyQt5-based CLI monitoring tool for ROS 2 nodes, topics, bag recording, bag playing, bag converter from .db3 to csv for analysis and system diagnostics"
+    
+  - organization: "Manan Kharwar"
+    organization_url: "https://github.com/manankharwar"
+    project: "FusionCore"
+    project_url: "https://github.com/manankharwar/fusioncore"
+    domain:
+      - Agriculture
+      - Components
+      - Research
+    date_added: "2026-04-13"
+    country:
+      - CA
+    description: "ROS 2 sensor fusion SDK replacing deprecated robot_localization. Fuses IMU, wheel encoders, and GPS via Unscented Kalman Filter at 100Hz. Automatic IMU bias estimation, Mahalanobis outlier rejection, adaptive noise covariance, TF validation at startup. Apache 2.0."
 
   - organization: "Kai Tung Yu"
     organization_url: "https://bristolgram.uk/lgdxrobot2/"
@@ -135,3 +157,4 @@ adopters:
     country:
       - GB
     description: "LGDXRobot2 is a mecanum wheel mobile robot designed to achieve decent performance with low-cost hardware. It is fully integrated with the ROS 2 ecosystem, including Nav2 and Gazebo."
+    
