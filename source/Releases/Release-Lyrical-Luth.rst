@@ -18,16 +18,16 @@ Release Timeline
     * RHEL 10 + Ubuntu 26.04: Migrate as soon as core packages successfully build on both platforms.
     * Windows 11: Migrate as soon as we have a green build
 
-**Mon. April 6, 2026** - Alpha + RMW freeze
+**Mon. April 13, 2026** - Alpha + RMW freeze (*Delayed; was originally April 6th*)
     * Preliminary testing of ROS Base packages
     * API and feature freeze for RMW provider packages.
 
-**Mon. April 13, 2026** - Freeze
+**Mon. April 20, 2026** - Freeze (*Delayed; was originally April 13th*)
     * API and feature freeze for ROS Base packages in Rolling Ridley.
     * Only bug fix releases should be made after this point.
     * New packages can be released.
 
-**Mon. April 20, 2026** - Branch
+**Mon. April 21, 2026** - Branch (*Delayed; was originally April 20th*)
     * Branch from Rolling Ridley
     * ``rosdistro`` is reopened for Rolling PRs for ROS Base packages.
     * Lyrical development shifts from ``ros-rolling-*`` packages to ``ros-lyrical-*`` packages.
@@ -81,7 +81,7 @@ To use ROS Lyrical on any Tier 3 platform, you must build ROS Lyrical from sourc
 Minimum Language Requirements
 -----------------------------
 
-* [C++20](https://discourse.openrobotics.org/t/ros-2-lyrical-c-version/52551)
+* `C++20 <https://discourse.openrobotics.org/t/ros-2-lyrical-c-version/52551>`__
 * C17
 * Python 3.12 - 3.14
 
