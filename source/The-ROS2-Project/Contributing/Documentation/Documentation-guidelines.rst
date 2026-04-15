@@ -3,11 +3,10 @@
 Documentation guidelines
 ========================
 
-.. centered:: TBC
+The ROS documentation uses reStructuredText (RST) to create consistent, reviewable articles for the documentation site.
+This article describes the main RST formatting patterns, directives, and roles used in the ROS documentation.
 
-.. parsed-literal::
-
-    Area: ROS-community | Content-type: reference | Experience: beginner, intermediate, expert
+**Area: ROS-community | Content-type: reference | Experience: beginner, intermediate, expert**
 
 .. contents:: Table of Contents
    :depth: 2
@@ -16,25 +15,29 @@ Documentation guidelines
 Summary
 -------
 
-TBC
+When creating content for the ROS documentation, write in reStructuredText (RST) and ensure that you follow good practice guidelines, or your pull request may not be accepted.
 
-Writing pages
--------------
+General formatting guidelines
+-----------------------------
 
-The ROS 2 documentation website uses the ``reStructuredText`` format, which is the default plaintext markup language used by Sphinx.
+The ROS documentation website uses the ``reStructuredText`` format, which is the default plaintext markup language used by Sphinx.
 This section is a brief introduction to ``reStructuredText`` concepts, syntax, and best practices.
-When formatting your ``reStructuredText`` file **please make sure to write only one sentence per line as it makes reviewing and modifying your file much easier.**
+When formatting your ``reStructuredText`` file **make sure to write only one sentence per line as it makes reviewing and modifying your file much easier.**
 Also, be mindful of the use of white space in your file!
-The ROS 2 documentation linter will not accept pull requests with trailing white space.
-We recommend that you enable automatic white space highlighting and or cleanup if your editor supports it.
+The ROS documentation linter will not accept pull requests with trailing white space.
+We recommend that you enable automatic white space highlighting and cleanup if your editor supports it.
 
 You can refer to `reStructuredText User Documentation <https://docutils.sourceforge.io/rst.html>`_ for a detailed technical specification.
 
-Table of Contents
-^^^^^^^^^^^^^^^^^
+This article relates to contributing to the ROS documentation site.
+For more information about creating or updating package documentation, see :doc:`/How-To-Guides/Documenting-a-ROS-2-Package`.
 
-There are two types of directives used for the generation of a table of contents, ``.. toctree::`` and ``.. contents::``.
-The ``.. toctree::`` is used in top-level pages like ``Tutorials.rst`` to set ordering and visibility of its child pages.
+Table of contents
+-----------------
+
+There are two types of directives used for the generation of a table of contents: ``.. toctree::`` and ``.. contents::``.
+
+The ``.. toctree::`` directive is used in top-level pages like ``Tutorials.rst`` to set ordering and visibility of its child pages.
 This directive creates both left navigation panel and in-page navigation links to the child pages listed.
 It helps readers to understand the structure of separate documentation sections and navigate between pages.
 
@@ -48,7 +51,7 @@ It parses all present headings in a page and builds an in-page nested table of c
 It helps readers to see an overview of the content and navigate inside a page.
 
 The ``.. contents::`` directive supports the definition of maximum depth of nested sections.
-Using ``:depth: 2`` will only show Sections and Subsections in the table of contents.
+Using ``:depth: 2`` will only show sections and subsections in the table of contents.
 
 .. code-block:: rst
 
@@ -57,9 +60,9 @@ Using ``:depth: 2`` will only show Sections and Subsections in the table of cont
       :local:
 
 Headings
-^^^^^^^^
+--------
 
-There are four main Heading types used in the documentation.
+There are four main heading types used in the documentation.
 Note that the number of symbols has to match the length of the title.
 
 .. code-block:: rst
@@ -76,12 +79,12 @@ Note that the number of symbols has to match the length of the title.
    2.4 Subsubsection Header
    ~~~~~~~~~~~~~~~~~~~~~~~~
 
-We usually use one digit for numbering subsections and two digits (dot separated) for numbering subsubsections in Tutorials and How-To-Guides.
+We usually use one digit for numbering subsections and two digits (dot separated) for numbering subsubsections in tutorials and how-to guides.
 
 Lists
-^^^^^
+-----
 
-Stars ``*`` are used for listing unordered items with bullet points and number sign ``#.``  is used for listing numbered items.
+Stars ``*`` are used for listing unordered items with bullet points, and number sign ``#.``  is used for listing numbered items.
 Both of them support nested definitions and will render accordingly.
 
 .. code-block:: rst
@@ -98,8 +101,8 @@ Both of them support nested definitions and will render accordingly.
   #. first listed item
   #. second lited item
 
-Code Formatting
-^^^^^^^^^^^^^^^
+Code formatting
+---------------
 
 In-text code can be formatted using ``backticks`` for showing ``highlighted`` code.
 
@@ -124,7 +127,7 @@ Code inside the directive needs to be indented.
       }
 
 Code blocks: ``bash`` vs. ``console``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ``bash`` and ``console`` are similar, but they serve two different purposes.
 Choosing the right one is important to ensure that the content is formatted correctly and that the copy button copies the right content.
@@ -143,7 +146,7 @@ This makes it clear that the given commands need to be run in a terminal.
 It also allows separating command lines from output lines using prompt symbols such as ``$`` or ``#``.
 Command lines are formatted as bash commands while output lines are formatted as normal text.
 The prompt symbol is not selectable, and clicking on the copy button in the upper right-hand corner copies *only* the commands, not the outputs nor the prompt symbols.
-This means that, if a ``console`` code block is used without any ``$``, the copy button will not copy any lines.
+This means that if a ``console`` code block is used without any ``$``, the copy button will not copy any lines.
 Example result:
 
 .. code-block:: console
@@ -153,7 +156,7 @@ Example result:
    [INFO] [1742150439.022947971] [my_turtle]: Starting turtlesim with node name /my_turtle
    [INFO] [1742150439.026043867] [my_turtle]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
 
-Compare the above with a ``bash`` ``code-block``:
+Compare the above with a ``bash`` code-block:
 
 .. code-block:: bash
 
@@ -165,34 +168,33 @@ Compare the above with a ``bash`` ``code-block``:
 To simplify code blocks, ``bash`` can still be used without ``$`` for commands meant to be run in a terminal if the code block does not include any output lines.
 To help choose between ``bash`` and ``console``, see the following list of use-cases and corresponding examples:
 
-#. Commands meant to be copied into a script file
+* Commands meant to be copied into a script file.
+  Use ``.. code-block:: bash`` without ``$``:
 
-   * Use ``.. code-block:: bash`` without ``$``:
+  .. code-block:: bash
 
-      .. code-block:: bash
+     export ROS_DOMAIN_ID=42
+     ros2 run turtlesim turtlesim_node
 
-         export ROS_DOMAIN_ID=42
-         ros2 run turtlesim turtlesim_node
+* Commands meant to be run in a terminal.
+  It is highly recommended to use ``.. code-block:: console`` with ``$`` on all command lines for consistency and clarity.
 
-#. Commands meant to be run in a terminal:
+  If there is output that needs to be displayed, include it in the same block:
 
-   * It is highly recommended to use ``.. code-block:: console`` with ``$`` on all command lines for consistency and clarity.
-     If there is output that needs to be displayed, include it in the same block:
+  .. code-block:: console
 
-      .. code-block:: console
+     $ source /opt/ros/{DISTRO}/setup.bash
+     $ ros2 run turtlesim turtlesim_node
+     [INFO] [1743878028.269334696] [turtlesim]: Starting turtlesim with node name /turtlesim
+     [INFO] [1743878028.275096618] [turtlesim]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
 
-         $ source /opt/ros/{DISTRO}/setup.bash
-         $ ros2 run turtlesim turtlesim_node
-         [INFO] [1743878028.269334696] [turtlesim]: Starting turtlesim with node name /turtlesim
-         [INFO] [1743878028.275096618] [turtlesim]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
+  .. note::
 
-      .. note::
-
-         If some output lines start with ``#``, it is crucial to separate commands from their output because the ``#`` symbol is used to denote a command.
-         Therefore, place the output in a separate ``.. code-block:: text``.
+     If some output lines start with ``#``, it is crucial to separate commands from their output because the ``#`` symbol is used to denote a command.
+     Therefore, place the output in a separate ``.. code-block:: text``.
 
 Images
-^^^^^^
+------
 
 Images can be inserted using the ``.. image::`` directive.
 
@@ -210,18 +212,18 @@ Therefore, when using ``:target:`` to add a hyperlink to the image file, use a r
    .. image:: images/turtlesim_follow1.png
       :target: ../../_images/turtlesim_follow1.png
 
-Charts, Graphs, and Diagrams
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Charts, graphs, and diagrams
+----------------------------
 
-The ROS 2 Documentation now supports charts, graphs, and diagrams written using `Mermaid Charts. <https://mermaid.js.org/intro/>`__
+ROS documentation now supports charts, graphs, and diagrams written using `Mermaid Charts. <https://mermaid.js.org/intro/>`__
 We prefer that charts, graphs, and diagrams use Mermaid instead of static image files as it allows us to programmatically update and edit these resources as the project evolves.
-Full documentation of the `Mermaid graph language syntax can be found on their website. <https://mermaid.js.org/intro/syntax-reference.html>`__
+Full documentation of the Mermaid graph language syntax can be found `on their website. <https://mermaid.js.org/intro/syntax-reference.html>`__
 
-References and Links
-^^^^^^^^^^^^^^^^^^^^
+References and links
+--------------------
 
 External links
-~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^
 
 The syntax of creating links to external web pages is shown below.
 
@@ -233,7 +235,7 @@ The above link will appear as `ROS Docs <https://docs.ros.org>`_.
 Note the underscore after the final single quote.
 
 Internal links
-~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^
 
 The ``:doc:`` directive is used to create in-text links to other pages.
 
@@ -265,7 +267,7 @@ Now the link from any page in the documentation to that header can be created.
 This link will navigate a reader to the target page with an HTML anchor link ``#talker-listener``.
 
 Macros
-~~~~~~
+------
 
 Macros can be used to simplify writing documentation that targets multiple distributions.
 
