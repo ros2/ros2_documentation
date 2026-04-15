@@ -10,7 +10,7 @@ Eloquent Elusor (``eloquent``)
 Supported Platforms
 -------------------
 
-Eloquent Elusor is primarily supported on the following platforms:
+Eloquent Elusor supports the following platforms according to `the platform support tiers <../The-ROS2-Project/Platform-Support-Tiers>`:
 
 Tier 1 platforms:
 
@@ -27,7 +27,139 @@ Tier 3 platforms:
 * Debian Stretch (9): ``amd64``, ``arm64`` and ``arm32``
 * OpenEmbedded Thud (2.6) / webOS OSE: ``arm32`` and ``x86``
 
-For more information about RMW implementations, compiler / interpreter versions, and system dependency versions see `REP 2000 <https://reps.openrobotics.org/rep-2000/>`__.
+Targeted platforms:
+
++--------------+----------------------+----------------------+----------------------+-------------------+----------------+
+| Architecture | Ubuntu Bionic (18.04)| MacOS Mojave (10.14) | Windows 10 (VS2019)  | Debian Buster (10)| OpenEmbedded / |
+|              |                      |                      |                      |                   | webOS OSE      |
++==============+======================+======================+======================+===================+================+
+| amd64        | Tier 1 [d][a][s]     | Tier 1 [a][s]        | Tier 1 [a][s]        | Tier 3 [s]        |                |
++--------------+----------------------+----------------------+----------------------+-------------------+----------------+
+| arm64        | Tier 1 [d][a][s]     |                      |                      | Tier 3 [s]        | Tier 3 [s]     |
++--------------+----------------------+----------------------+----------------------+-------------------+----------------+
+| arm32        | Tier 2 [a][s]        |                      |                      | Tier 3 [s]        | Tier 3 [s]     |
++--------------+----------------------+----------------------+----------------------+-------------------+----------------+
+
+
+The following indicators show what delivery mechanisms are available for
+each platform.
+
+\" \[d\] \" Debian packages will be provided for this platform for
+packages submitted to the rosdistro.
+
+\" \[a\] \" Binary releases are provided as a single archive per
+platform containing all packages in the Eloquent ROS 2 repos file[^7].
+
+\" \[s\] \" Compilation from source.
+
+Middleware Implementation Support:
+
++--------------------------+---------------------+---------------+-----------------------------------+-----------------------------------+
+| Middleware Library       | Middleware Provider | Support Level | Platforms                         | Architectures                     |
++==========================+=====================+===============+===================================+===================================+
+| rmw_fastrtps_cpp*        | eProsima Fast-RTPS  | Tier 1        | All Platforms                     | All Architectures                 |
++--------------------------+---------------------+---------------+-----------------------------------+-----------------------------------+
+| rmw_connext_cpp          | RTI Connext         | Tier 1        | All Platforms except Debian and   | All Architectures except          |
+|                          |                     |               | OpenEmbedded                      | arm64/arm32                       |
++--------------------------+---------------------+---------------+-----------------------------------+-----------------------------------+
+| rmw_cyclonedds_cpp       | Eclipse Cyclone DDS | Tier 2        | All Platforms                     | All Architectures                 |
++--------------------------+---------------------+---------------+-----------------------------------+-----------------------------------+
+| rmw_opensplice_cpp       | ADLINK OpenSplice   | Tier 2        | All Platforms except Debian and   | All Architectures                 |
+|                          |                     |               | OpenEmbedded                      |                                   |
++--------------------------+---------------------+---------------+-----------------------------------+-----------------------------------+
+| rmw_fastrtps_dynamic_cpp | eProsima Fast-RTPS  | Tier 2        | All Platforms                     | All Architectures                 |
++--------------------------+---------------------+---------------+-----------------------------------+-----------------------------------+
+
+\" \* \" means default RMW implementation.
+
+Middleware implementation support is dependent upon the platform support
+tier. For example a Tier 1 middleware implementation on a Tier 2
+platform can only receive Tier 2 support.
+
+Minimum language requirements:
+
+- C++14
+- Python 3.6
+
+Dependency Requirements:
+
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
+|              | Required Support                                    | Recommended Support                    |
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
+| Package      | Ubuntu Bionic     | MacOS**        | Windows 10**   | Debian Buster  | OpenEmbedded**        |
++==============+===================+================+================+================+=======================+
+| CMake        | 3.10.2            | 3.14.4         | 3.14.4         | 3.13.4         | 3.16.1 / 3.12.2****   |
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
+| EmPY         | 3.3.2                                                                                        |
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
+| Gazebo       | 9.0.0             | 9.9.0          | N/A            | 9.8.0*         | N/A                   |
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
+| Ogre         | 1.10*                                                                | N/A                   |
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
+| OpenCV       | 3.2.0             | 4.1.0          | 3.4.6*         | 3.2.0          | 4.1.0 / 3.2.0****     |
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
+| OpenSSL      | 1.1.0g            | 1.0.2r         | 1.0.2r         | 1.1.1c         | 1.1.1d / 1.1.1b****   |
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
+| Poco         | 1.8.0             | 1.9.0          | 1.8.0*         | 1.9.0          | 1.9.4                 |
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
+| Python       | 3.6.5             | 3.7.3          | 3.7.3          | 3.7.3          | 3.8.2 / 3.7.5****     |
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
+| Qt           | 5.9.5             | 5.12.3         | 5.10.0         | 5.11.3         | 5.14.1 / 5.12.5****   |
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
+|                                  | **Linux only**                                                           |
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
+| PCL          | 1.8.1             | N/A            | N/A            | 1.9.1          | 1.8.1                 |
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
+| **RMW DDS Middleware Providers**                                                                            |
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
+| Connext DDS  | 5.3.1***                                            | N/A                                    |
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
+| Cyclone DDS  | 0.7.x (Coquette)                                                                             |
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
+| Fast-RTPS    | 1.9.0                                                                                        |
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
+| OpenSplice   | 6.9.190705OSS                                                        | N/A                   |
++--------------+-------------------+----------------+----------------+----------------+-----------------------+
+
+
+\" \* \" means that this is not the upstream version (available on the
+official Operating System repositories) but a package distributed by
+OSRF or the community (package built and distributed on custom
+repositories).
+
+\" \*\* \" Rolling distributions will see multiple version changes of
+these dependencies during their lifetime. The versions shown for
+OpenEmbedded are those provided by the 3.1 Dunfell release series; the
+versions provided by the other supported release series are listed here:
+<https://github.com/ros/meta-ros/wiki/Package-Version-Differences> .
+Note that the OpenEmbedded releases series for which a ROS distro has
+support will change during its support time frame, as per the
+OpenEmbedded support policy shown here:
+<https://github.com/ros/meta-ros/wiki/Policies#openembedded-release-series-support>
+. However, it will always be supported by least one stable OpenEmbedded
+release series.
+
+\" \*\*\* \" It is anticipated that this will be increased to Connext
+DDS 6.0.0 pending migration patches[^8].
+
+\" \*\*\*\* \" webOS OSE provides this different version.
+
+This document only captures the version at the first release of a ROS
+distribution and will not be updated as the dependencies move forward.
+These versions are thus a low watermark.
+
+Package manager use for dependencies:
+
+- Ubuntu, Debian: apt
+- MacOS: Homebrew, pip
+- Windows: Chocolatey, pip
+- OpenEmbedded: opkg
+
+Build System Support:
+
+- ament_cmake
+- cmake
+- setuptools
 
 Installation
 ------------
