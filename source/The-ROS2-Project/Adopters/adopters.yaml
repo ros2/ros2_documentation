@@ -204,3 +204,18 @@ adopters:
     country:
       - ES
     description: "INSAION is a specialized monitoring and observability platform that integrates natively with the ROS2 ecosystem to provide deep visibility into robotic fleet performance. By leveraging the MCAP standard, it seamlessly unifies data logging and real-time telemetry into a streamlined workflow for scalable robotics operations."
+
+  - organization: "Politecnico di Milano"
+    organization_url: "https://www.polimi.it"
+    project: "ROSETEA laboratory"
+    project_url: "https://rosetea.deib.polimi.it/"
+    domain:
+      - Agriculture
+      - Aerial/Drone
+      - Education
+      - Research
+    date_added: "2026-04-15"
+    country:
+      - IT
+    description: "The RObotic SEnsors Technologies for Environment and Agriculture (ROSETEA) laboratory at Politecnico di Milano studies innovative methodologies and technologies to support the development of sustainable food production systems, and of resilient agricultural practices, increasing productivity and production while reducing the environmental footprint."
+    
