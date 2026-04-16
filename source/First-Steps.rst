@@ -3,13 +3,11 @@
 First steps with ROS - learning path
 ====================================
 
-.. centered:: ROS (Robot Operating System) is an open-source ecosystem that provides framework, tools, and libraries for building, deploying, running, and maintaining robotic applications.
-    This page presents a set of articles and hands-on activities to introduce the main concepts behind the ROS framework.
-    Working through these will give you the essential knowledge needed to start developing applications with ROS.
+ROS (Robot Operating System) is an open-source ecosystem that provides framework, tools, and libraries for building, deploying, running, and maintaining robotic applications.
+This page presents a set of articles and hands-on activities to introduce the main concepts behind the ROS framework.
+Working through these will give you the essential knowledge needed to start developing applications with ROS.
 
-.. parsed-literal::
-
-    Area: ROS-framework | Content-type: learning-path | Experience: beginner
+**Area: ROS-framework | Content-type: learning-path | Experience: beginner**
 
 .. contents:: Contents
     :depth: 2
