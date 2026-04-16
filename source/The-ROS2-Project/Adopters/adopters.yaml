@@ -219,3 +219,12 @@ adopters:
       - IT
     description: "The RObotic SEnsors Technologies for Environment and Agriculture (ROSETEA) laboratory at Politecnico di Milano studies innovative methodologies and technologies to support the development of sustainable food production systems, and of resilient agricultural practices, increasing productivity and production while reducing the environmental footprint."
     
+  - organization: "Power Stow"
+    project: "Autonomous Luggage Handling"
+    project_url: "https://www.powerstow.com"
+    domain:
+      - Airport
+    date_added: "2026-04-16"
+    country:
+      - DK
+    description: "Autonomous luggage handling with a custom manipulator and tool using ROS 2, ros2_control and MoveIt"
