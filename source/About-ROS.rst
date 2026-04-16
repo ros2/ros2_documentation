@@ -133,9 +133,10 @@ These distributions include updates and improvements, so developers can choose b
 Supported systems
 -----------------
 
-ROS runs on Ubuntu, Windows, and macOS.
-ROS on macOS is supported by the community, and is not recommended for new users.
+ROS runs on Ubuntu, Windows, and macOS, but we strongly recommend that you use a Tier 1 platform for your ROS distribution.
+ROS on macOS is supported by the community, and we do not recommended it for new users.
+
 Ubuntu support depends on the ROS distribution, with each distribution requiring a specific Ubuntu LTS (long-term support) release.
 Other platforms may require building from source or using containers.
 
-`See full details of supported systems <https://docs.ros.org/#ros-for-beginners>`__
+:doc:`See full details of currently supported platforms and support tiers <./Releases/Release-Rolling-Ridley>`
