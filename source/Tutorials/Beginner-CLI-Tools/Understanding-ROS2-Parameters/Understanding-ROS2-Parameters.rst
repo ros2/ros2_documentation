@@ -150,13 +150,8 @@ To save your current configuration of ``/turtlesim``'s parameters, enter the com
 
 .. code-block:: console
 
-  ros2 param dump /turtlesim
+  ros2 param dump /turtlesim > turtlesim.yaml
 
-Your terminal will return the message:
-
-.. code-block:: console
-
-  Saving to:  ./turtlesim.yaml
 
 You will find a new file in the current working directory your shell is running in.
 If you open this file, you'll see the following content:
