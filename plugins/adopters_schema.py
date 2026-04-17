@@ -25,6 +25,7 @@ import re
 
 VALID_DOMAINS = [
     'Agriculture',         # Farming, harvesting, crop monitoring, and precision agriculture
+    'Aviation',            # Aircraft systems, avionics, luggage handling, passenger service, and airport operations
     'Aerial/Drone',        # UAVs, drones, aerial inspection, and survey systems
     'Automotive',          # Self-driving cars, ADAS, and ground vehicle autonomy
     'Components',          # Robot parts and peripherals (cameras, LIDAR, RADAR, SONAR, etc)
