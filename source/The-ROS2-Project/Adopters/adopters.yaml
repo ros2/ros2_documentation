@@ -228,3 +228,15 @@ adopters:
     country:
       - DK
     description: "Autonomous luggage handling with a custom manipulator and tool using ROS 2, ros2_control and MoveIt"
+
+  - organization: "StereoLabs"
+    organization_url: "https://stereolabs.com"
+    project: "ZED ROS 2 Wrapper"
+    project_url: "https://www.stereolabs.com/docs/ros2"
+    domain:
+      - Components
+    date_added: "2026-04-18"
+    country:
+      - US
+      - FR
+    description: "Wrapper around the ZED SDK to bring all the capabilities of the ZED Stereo and Monocular cameras into the ROS 2 ecosystem."
