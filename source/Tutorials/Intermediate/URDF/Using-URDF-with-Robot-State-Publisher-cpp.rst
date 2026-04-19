@@ -237,10 +237,10 @@ Edit the ``CMakeLists.txt`` file as follows:
   add_executable(urdf_tutorial_cpp src/urdf_tutorial.cpp)
 
   target_link_libraries(urdf_tutorial_cpp PUBLIC
-    ${geometry_msgs_TARGETS}
-    ${sensor_msgs_TARGETS}
+    geometry_msgs::geometry_msgs
+    sensor_msgs::sensor_msgs
     tf2_ros::tf2_ros
-    ${tf2_geometry_msgs_TARGETS}
+    tf2_geometry_msgs::tf2_geometry_msgs
     rclcpp::rclcpp
   )
 

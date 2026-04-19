@@ -265,7 +265,7 @@ Add the executable to the CMakeLists.txt and name it ``static_turtle_tf2_broadca
     add_executable(static_turtle_tf2_broadcaster src/static_turtle_tf2_broadcaster.cpp)
     target_link_libraries(
        static_turtle_tf2_broadcaster PUBLIC
-       ${geometry_msgs_TARGETS}
+       geometry_msgs::geometry_msgs
        rclcpp::rclcpp
        tf2::tf2
        tf2_ros::tf2_ros
