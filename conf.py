@@ -215,10 +215,10 @@ class RedirectFrom(Directive):
             return
 
         redirect_html_fragment = """
-            <link rel="canonical" href="{base_url}/{url}" />
+            <link rel="canonical" href="{canonical_abs_url}" />
             <meta http-equiv="refresh" content="0; url={url}" />
             <script>
-                window.location.href = '{url}';
+            window.location.href = '{url}';
             </script>
         """
         redirections = {
@@ -265,7 +265,7 @@ class RedirectFrom(Directive):
                     'skip_sitemap': 'redirect',
                     'title': os.path.basename(redirect_url),
                     'metatags': redirect_html_fragment.format(
-                        base_url=app.config.html_baseurl,
+                        canonical_abs_url=app.config.html_baseurl.rstrip('/') + '/' + canonical_url + app.builder.out_suffix,
                         url=app.builder.get_relative_uri(
                             redirect_url, canonical_url
                         )
