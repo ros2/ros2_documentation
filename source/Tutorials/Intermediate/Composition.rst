@@ -204,7 +204,7 @@ You can choose the most appropriate component container type for your requiremen
       $ ros2 run rclcpp_components component_container
 
 * ``component_container`` with ``MultiThreadedExecutor`` composed of 4 threads.
-   * ``thread_num`` parameter option is available to specify the number of threads in ``MultiThreadedExecutor``. 
+   * ``thread_num`` parameter option is available to specify the number of threads in ``MultiThreadedExecutor``.
      If omitted, the executor will run with the maximum available threads on the system.
 
    .. code-block:: console
@@ -212,7 +212,7 @@ You can choose the most appropriate component container type for your requiremen
       $ ros2 run rclcpp_components component_container --executor-type multi-threaded --ros-args -p thread_num:=4
 
 * ``component_container`` with ``EventsCBGExecutor`` composed of a single thread.
-   * ``thread_num`` parameter option is available to specify the number of threads in ``EventsCBGExecutor``. 
+   * ``thread_num`` parameter option is available to specify the number of threads in ``EventsCBGExecutor``.
      If omitted, the executor will run with the maximum available threads on the system.
 
    .. code-block:: console
