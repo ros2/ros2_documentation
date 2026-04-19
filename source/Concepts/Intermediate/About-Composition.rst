@@ -44,15 +44,19 @@ As of now, the following generic component container types are available:
 
 * ``component_container``
 
-  * The most generic component container that uses a single ``SingleThreadedExecutor`` to execute all components.
+  * Component container that uses a single ``SingleThreadedExecutor`` to execute the components.
 
 * ``component_container --executor-type multi-threaded``
 
   * Component container that uses a single ``MultiThreadedExecutor`` to execute the components.
 
+* ``component_container --executor-type events-cbg``
+
+  * Component container that uses a single ``EventsCBGExecutor`` to execute the components.
+
 * ``component_container --executor-type single-threaded --isolated``
 
-  * Component container that uses a dedicated executor for each component: either ``SingleThreadedExecutor`` (default) or ``MultiThreadedExecutor``.
+  * Component container that uses a dedicated executor for each component: available options are ``SingleThreadedExecutor`` (default), ``MultiThreadedExecutor``, and ``EventsCBGExecutor``.
 
 For more information about the types of executors, see the :ref:`TypesOfExecutors`.
 For more information about the options of each component container, see :ref:`ComponentContainerTypes` in the composition tutorial.
