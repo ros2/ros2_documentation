@@ -228,3 +228,14 @@ adopters:
     country:
       - DK
     description: "Autonomous luggage handling with a custom manipulator and tool using ROS 2, ros2_control and MoveIt"
+
+  - organization: "Kamath Robotics"
+    organization_url: "https://kamathrobotics.com"
+    project: "LeKiwi ROS 2"
+    domain:
+      - Education
+      - Research
+    date_added: "2026-04-17"
+    country:
+      - NL
+    description: "ROS 2-powered mobile robot for education and research, based on the LeKiwi platform, upgraded with a pan-tilt mechanism, a depth camera, a laser scanner, an IMU, and a lightweight AI agent with a ROS 2-specific agent skill."
