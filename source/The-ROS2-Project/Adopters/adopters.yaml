@@ -261,3 +261,29 @@ adopters:
     country:
       - GB
     description: "Autonomous navigation for warehouse logistics using ROS 2 and Nav2. Founding sponsor and contributor of Nav2."
+
+  - organization: "Fictionlab"
+    organization_url: "https://fictionlab.pl/"
+    project: "Leo Rover"
+    project_url: "https://fictionlab.pl/leo-rover/"
+    domain:
+      - Education
+      - Research
+      - Space
+    date_added: "2026-04-20"
+    country:
+      - PL
+    description: "Leo Rover is a rugged, open-source, modular mobile robot powered by ROS 2. Engineered for versatility and reliability, it serves as an accessible development platform for engineers,  researchers, educators, and robotics enthusiasts alike."
+
+  - organization: "Fictionlab"
+    organization_url: "https://fictionlab.pl/"
+    project: "Raph Rover"
+    project_url: "https://fictionlab.pl/raph-rover/"
+    domain:
+      - Education
+      - Research
+      - Space
+    date_added: "2026-04-20"
+    country:
+      - PL
+    description: "Raph Rover is an advanced,  open-source,  modular mobile robotic platform powered by ROS 2. Developed based on years of experience and feedback from Leo Rover users. It combines a proven, field-ready design with new capabilities in autonomous navigation, mapping, and long-range unmanned missions. Designed as an open R&D platform, Raph Rover provides a solid foundation for research and development projects in sectors such as space industry, defense, monitoring, technical inspections, and precision agriculture."
