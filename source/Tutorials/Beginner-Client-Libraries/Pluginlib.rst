@@ -87,7 +87,7 @@ and add the following lines after the ``find_package(pluginlib REQUIRED)`` comma
       $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
       $<INSTALL_INTERFACE:include/${PROJECT_NAME}>
     )
-    target_link_libraries(${PROJECT_NAME} INTERFACE ${pluginlib_TARGETS})
+    target_link_libraries(${PROJECT_NAME} INTERFACE pluginlib::pluginlib)
 
     # Install headers
     install(DIRECTORY include/

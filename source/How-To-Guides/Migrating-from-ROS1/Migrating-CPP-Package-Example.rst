@@ -362,7 +362,7 @@ Make the ``target_link_libraries`` call modern CMake targets provided by ``rclcp
 
    target_link_libraries(talker PUBLIC
      rclcpp::rclcpp
-     ${std_msgs_TARGETS})
+     std_msgs::std_msgs)
 
 Delete the call to ``include_directories()``.
 Add a call to ``target_include_directories()`` below ``add_executable(talker talker.cpp)``.
@@ -403,7 +403,7 @@ The new ``CMakeLists.txt`` looks like this:
       "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
    target_link_libraries(talker PUBLIC
      rclcpp::rclcpp
-     ${std_msgs_TARGETS})
+     std_msgs::std_msgs)
    install(TARGETS talker
      DESTINATION lib/${PROJECT_NAME})
    ament_package()

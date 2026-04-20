@@ -149,7 +149,7 @@ Add the following lines to the top of the standard boilerplate.
    target_link_libraries(point_display PUBLIC
      pluginlib::pluginlib
      rviz_common::rviz_common
-     ${rviz_plugin_tutorial_msgs_TARGETS}
+     rviz_plugin_tutorial_msgs::rviz_plugin_tutorial_msgs
    )
    install(TARGETS point_display
            EXPORT export_rviz_plugin_tutorial

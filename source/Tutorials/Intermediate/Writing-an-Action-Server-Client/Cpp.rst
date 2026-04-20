@@ -222,7 +222,7 @@ Open up ``custom_action_cpp/CMakeLists.txt``, and add the following right after 
   target_compile_definitions(action_server
     PRIVATE "CUSTOM_ACTION_CPP_BUILDING_DLL")
   target_link_libraries(action_server PUBLIC
-    ${custom_action_interfaces_TARGETS}
+    custom_action_interfaces::custom_action_interfaces
     rclcpp::rclcpp
     rclcpp_action::rclcpp_action
     rclcpp_components::component)
@@ -352,7 +352,7 @@ Open up ``custom_action_cpp/CMakeLists.txt``, and add the following right after 
   target_compile_definitions(action_client
     PRIVATE "CUSTOM_ACTION_CPP_BUILDING_DLL")
   target_link_libraries(action_client PUBLIC
-    ${custom_action_interfaces_TARGETS}
+    custom_action_interfaces::custom_action_interfaces
     rclcpp::rclcpp
     rclcpp_action::rclcpp_action
     rclcpp_components::component)
