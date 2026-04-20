@@ -240,3 +240,24 @@ adopters:
       - US
       - FR
     description: "Wrapper around the ZED SDK to bring all the capabilities of the ZED Stereo and Monocular cameras into the ROS 2 ecosystem."
+
+  - organization: "Kamath Robotics"
+    organization_url: "https://kamathrobotics.com"
+    project: "LeKiwi ROS 2"
+    domain:
+      - Education
+      - Research
+    date_added: "2026-04-17"
+    country:
+      - NL
+    description: "ROS 2-powered mobile robot for education and research, based on the LeKiwi platform, upgraded with a pan-tilt mechanism, a depth camera, a laser scanner, an IMU, and a lightweight AI agent with a ROS 2-specific agent skill."
+
+  - organization: "Dexory"
+    organization_url: "https://www.dexory.com/"
+    project: "Warehouse logistics"
+    domain:
+      - Logistics/Warehouse
+    date_added: "2026-04-19"
+    country:
+      - GB
+    description: "Autonomous navigation for warehouse logistics using ROS 2 and Nav2. Founding sponsor and contributor of Nav2."
