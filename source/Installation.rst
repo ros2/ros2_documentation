@@ -17,6 +17,7 @@ Options for installing ROS 2 {DISTRO_TITLE_FULL}:
    Installation/Maintaining-a-Source-Checkout
    Installation/Testing
    Installation/RMW-Implementations
+   Installation/ROS-2-Mirrors
 
 .. _binary-package-platforms:
 
