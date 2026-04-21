@@ -17,6 +17,15 @@ Large community projects involve multiple developers from all over the globe and
 * **MoveIt** `(moveit.ai) <https://moveit.ai/>`_: A rich platform for building manipulation applications featuring advanced kinematics, motion planning, control, collision checking, and much more.
 * **micro-ROS** `(micro.ros.org) <https://micro.ros.org/>`_: A platform for putting ROS 2 onto microcontrollers, starting at less than 100 kB of RAM.
 
+Community ``rosidl::Buffer`` backends
+-------------------------------------
+
+Out-of-tree :doc:`buffer backend <Concepts/Intermediate/About-Buffer-Backends>` plugins let ``rosidl::Buffer`` fields (``uint8[]``, etc.) use vendor-specific memory domains such as GPU memory.
+For background, see :doc:`How-To-Guides/Using-Buffer-Backends` and :doc:`Tutorials/Advanced/Writing-a-Buffer-Backend`.
+
+* **rosidl_buffer_backends** `(github.com/ros2/rosidl_buffer_backends) <https://github.com/ros2/rosidl_buffer_backends>`_: CUDA and PyTorch buffer backend implementations for ``rosidl::Buffer``, enabling zero-copy GPU memory sharing between ROS 2 publishers and subscribers.
+* **rosidl_buffer_backends_tutorials** `(github.com/ros2/rosidl_buffer_backends_tutorials) <https://github.com/ros2/rosidl_buffer_backends_tutorials>`_: End-to-end demos exercising ``rosidl_buffer_backends``, including the ``robot_arm_demo`` featured in :doc:`Tutorials/Demos/GPU-Buffer-Transport`.
+
 Further Community Projects
 --------------------------
 
