@@ -53,25 +53,42 @@ Open your favorite editor, edit ``~/ros2_ws/src/polygon_base/include/polygon_bas
     #ifndef POLYGON_BASE_REGULAR_POLYGON_HPP
     #define POLYGON_BASE_REGULAR_POLYGON_HPP
 
+    #include <class_loader/interface_traits.hpp>
+
     namespace polygon_base
     {
       class RegularPolygon
       {
         public:
-          virtual void initialize(double side_length) = 0;
           virtual double area() = 0;
-          virtual ~RegularPolygon(){}
+          virtual ~RegularPolygon() = default;
 
         protected:
-          RegularPolygon(){}
+          RegularPolygon() = default;
       };
     }  // namespace polygon_base
+
+    // Interface traits specialized for our interface `polygon_base::RegularPolygon`
+    // to define constructor parameters.
+    template<>
+    struct class_loader::InterfaceTraits<polygon_base::RegularPolygon>
+    {
+      // The constructor of the plugins will take a `double`.
+      // You can use constructor with more arguments by listing them inside the
+      // angle brackets.
+      // Eg.: class_loader::ConstructorParameters<std::string, std::vector<int>>
+      using constructor_parameters = class_loader::ConstructorParameters<double>;
+    };
 
     #endif  // POLYGON_BASE_REGULAR_POLYGON_HPP
 
 The code above creates an abstract class called ``RegularPolygon``.
-One thing to notice is the presence of the initialize method.
-With ``pluginlib``, a constructor without parameters is required, so if any parameters to the class are needed, we use the initialize method to pass them to the object.
+One thing to notice is the presence of the ``class_loader::InterfaceTraits`` struct specialization.
+To allow passing arguments to constructor, we need to tell ``pluginlib`` (and the underlying ``class_loader``), what type of arguments will be expected.
+This is done by creating the specialization as shown in the example above.
+If we do not create this specialization, the plugins must be constructible without any arguments.
+
+.. note:: Parameters of the base class constructor can be different from what is declared for the plugins using the ``InterfaceTraits``.
 
 We need to make this header available to other classes by exporting it as an interface library.
 To do so, open ``~/ros2_ws/src/polygon_base/CMakeLists.txt`` for editing
@@ -87,7 +104,7 @@ and add the following lines after the ``find_package(pluginlib REQUIRED)`` comma
       $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
       $<INSTALL_INTERFACE:include/${PROJECT_NAME}>
     )
-    target_link_libraries(${PROJECT_NAME} INTERFACE ${pluginlib_TARGETS})
+    target_link_libraries(${PROJECT_NAME} INTERFACE pluginlib::pluginlib)
 
     # Install headers
     install(DIRECTORY include/
@@ -147,9 +164,9 @@ Open ``~/ros2_ws/src/polygon_plugins/src/polygon_plugins.cpp`` for editing, and 
       class Square : public polygon_base::RegularPolygon
       {
         public:
-          void initialize(double side_length) override
+          Square(double side_length)
+            : side_length_(side_length)
           {
-            side_length_ = side_length;
           }
 
           double area() override
@@ -164,9 +181,9 @@ Open ``~/ros2_ws/src/polygon_plugins/src/polygon_plugins.cpp`` for editing, and 
       class Triangle : public polygon_base::RegularPolygon
       {
         public:
-          void initialize(double side_length) override
+          Triangle(double side_length)
+            : side_length_(side_length)
           {
-            side_length_ = side_length;
           }
 
           double area() override
@@ -268,11 +285,9 @@ Edit ``~/ros2_ws/src/polygon_base/src/area_node.cpp`` to contain the following:
 
       try
       {
-        std::shared_ptr<polygon_base::RegularPolygon> triangle = poly_loader.createSharedInstance("awesome_triangle");
-        triangle->initialize(10.0);
+        std::shared_ptr<polygon_base::RegularPolygon> triangle = poly_loader.createSharedInstance("awesome_triangle", 10.0);
 
-        std::shared_ptr<polygon_base::RegularPolygon> square = poly_loader.createSharedInstance("polygon_plugins::Square");
-        square->initialize(10.0);
+        std::shared_ptr<polygon_base::RegularPolygon> square = poly_loader.createSharedInstance("polygon_plugins::Square", 10.0);
 
         printf("Triangle area: %.2f\n", triangle->area());
         printf("Square area: %.2f\n", square->area());
@@ -294,6 +309,7 @@ The ``ClassLoader`` is the key class to understand, defined in the ``class_loade
 There are a number of ways to instantiate an instance of the class.
 In this example, we're using shared pointers.
 We just need to call ``createSharedInstance`` with a reference to the plugin: This can be either the fully-qualified type of the plugin class (the ``type`` attribute of the declaration XML file, e.g. ``polygon_plugins::Square``), or the optional magic name (the ``name`` attribute of the declaration XML file, e.g., ``awesome_triangle``).
+The rest of the parameters in the call must match the types defined in the ``InterfaceTraits<polygon_base::RegularPolygon>`` and are passed to the constructor of the plugin.
 
 Important note: the ``polygon_base`` package in which this node is defined does NOT depend on the ``polygon_plugins`` class.
 The plugins will be loaded dynamically without any dependency needing to be declared.
