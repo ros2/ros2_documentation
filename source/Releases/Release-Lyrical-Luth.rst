@@ -59,7 +59,7 @@ Supported Platforms
 ROS Lyrical supports the following platforms according to `the platform support tiers <../The-ROS2-Project/Platform-Support-Tiers>`:
 
 +--------------+-------------------+-------------------+---------------+-------------------+-----------+-----------------+----------------+
-| Architecture | Ubuntu Resolute   | Ubuntu Noble*     | Windows 11    | RHEL 10*          | macOS     | Debian Trixie*  | OpenEmbedded / |
+| Architecture | Ubuntu Resolute   | Ubuntu Noble*     | Windows 11    | RHEL 10           | macOS     | Debian Trixie*  | OpenEmbedded / |
 |              | (26.04)           | (24.04)           | (VS2022)      |                   |           | (13)            | Yocto Project  |
 +==============+===================+===================+===============+===================+===========+=================+================+
 | amd64        | Tier 1 [d][a]     | Tier 3            | Tier 1 [a]    | Tier 2 [d][a]     | Tier 3    | Tier 3          | Tier 3         |
@@ -71,7 +71,6 @@ ROS Lyrical supports the following platforms according to `the platform support 
 
 * ``*`` Early EOL per `the platform EOL policy <../The-ROS2-Project/Platform-EOL-Policy>`
     * Ubuntu Noble is supported until ``2029-06-01``
-    * RHEL 10 is supported until ``2030-05-31``
     * Debian Trixie is supported until ``2028-08-09``
 * ``[d]`` You may install ROS Lyrical on this platform using Distribution-specific packaegs (Debian, RPM, etc.).
 * ``[a]`` You may install ROS Lyrical by downloading an archive containing pre-built packages for all packages in the `ROS Lyrical ros2.repos file <https://github.com/ros2/ros2/blob/lyrical/ros2.repos>`__
