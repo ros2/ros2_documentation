@@ -29,7 +29,8 @@ What the demo does
 ``robot_arm_demo`` renders an SDF-based pencil-sketch robot arm animation
 entirely on the GPU via LibTorch tensor operations, publishes BGRA frames
 as ``sensor_msgs/msg/Image``, and displays them in an SDL2/OpenGL window
-with CUDA-GL interop. Two processes are involved:
+with CUDA-GL interop.
+Two processes are involved:
 
 #. ``renderer_node`` -- renders BGRA frames on the GPU using LibTorch
    operations and publishes them as ``sensor_msgs/msg/Image``.
@@ -44,7 +45,8 @@ Two transport modes are compared:
   carries a CUDA IPC handle.
 * **CPU** -- the frame is rendered on the GPU, copied back to host memory
   with ``cudaMemcpy``, and then serialised through the RMW as a regular
-  ``uint8[]``. No buffer backend is involved.
+  ``uint8[]``.
+  No buffer backend is involved.
 
 Both modes render on the GPU; the only difference is the transport path,
 making this a clean comparison of zero-copy CUDA IPC versus traditional
@@ -54,12 +56,14 @@ Prerequisites
 -------------
 
 This demo is not part of the ROS 2 binary distribution; it lives in its own
-repository and has GPU-specific dependencies. You need:
+repository and has GPU-specific dependencies.
+You need:
 
 * A CUDA-capable GPU and the CUDA Toolkit (>= 11.8).
 * SDL2, GLEW, OpenGL, X11 development packages.
-* A ROS 2 Rolling source workspace. See the :doc:`Installation
-  instructions <../../Installation>` for the canonical source-build flow.
+* A ROS 2 Rolling source workspace.
+  See the :doc:`Installation instructions <../../Installation>` for the
+  canonical source-build flow.
 
 The demo's ``libtorch_vendor`` package will download and install a
 pre-built LibTorch distribution automatically at build time if one is not
@@ -153,8 +157,8 @@ Benchmark results
 -----------------
 
 The demo's README includes reference numbers measured on a single machine
-(inter-process, headless mode, RTX 3090, ``rmw_fastrtps_cpp``). You can
-reproduce them with:
+(inter-process, headless mode, RTX 3090, ``rmw_fastrtps_cpp``).
+You can reproduce them with:
 
 .. code-block:: console
 
@@ -202,10 +206,11 @@ reproduce them with:
      - --
 
 The CUDA path maintains high throughput across resolutions because the
-zero-copy IPC transfer only carries a handle, not the pixel data. The CPU
-path must copy frames from GPU to host and serialise them through the
-middleware, so throughput drops as image size grows. At 4K (31.6 MB per
-frame) the CUDA backend is roughly 6x faster than the raw CPU path.
+zero-copy IPC transfer only carries a handle, not the pixel data.
+The CPU path must copy frames from GPU to host and serialise them through
+the middleware, so throughput drops as image size grows.
+At 4K (31.6 MB per frame) the CUDA backend is roughly 6x faster than the
+raw CPU path.
 
 What to look at in the source
 -----------------------------

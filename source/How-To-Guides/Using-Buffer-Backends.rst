@@ -121,12 +121,13 @@ It accepts the following forms:
    * - Value
      - Meaning
    * - empty or ``"cpu"``
-     - CPU only. This is the default and preserves backward compatibility.
+     - CPU only.
+       This is the default and preserves backward compatibility.
    * - ``"any"``
      - Accept any backend that is installed in this process.
    * - ``"cuda,torch"``
-     - Accept only the listed backends, in addition to CPU. Names match the
-       plugin ``name`` attribute in the backend's plugin XML.
+     - Accept only the listed backends, in addition to CPU.
+       Names match the plugin ``name`` attribute in the backend's plugin XML.
 
 CPU is always implicitly acceptable, so no matter what is specified, a
 subscription can always receive CPU-backed messages (for example, when the
@@ -335,8 +336,9 @@ Interaction with other transport features
 * :doc:`Loaned messages <Configure-ZeroCopy-loaned-messages>` operate at a
   different layer: they let the RMW own the *message* memory, while
   ``rosidl::Buffer`` backends control the storage of individual variable-length
-  array fields. The two features can be combined when both the RMW and the
-  backend support it.
+  array fields.
+  The two features can be combined when both the RMW and the backend support
+  it.
 * :doc:`Intra-process communication <../Tutorials/Demos/Intra-Process-Communication>`
   is orthogonal: a backend may implement its own intra-process fast path
   (the CUDA backend does), but the decision is up to the backend.

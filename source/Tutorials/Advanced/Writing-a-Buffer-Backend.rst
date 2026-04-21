@@ -52,14 +52,16 @@ All three are small enough to read in full:
 
 * ``cuda_buffer_backend``: a realistic **base backend** built on CUDA VMM
   and CUDA IPC, with intra-process, inter-process same-host, and CPU-fallback
-  paths. See `ros2/rosidl_buffer_backends <https://github.com/ros2/rosidl_buffer_backends>`__.
+  paths.
+  See `ros2/rosidl_buffer_backends <https://github.com/ros2/rosidl_buffer_backends>`__.
 * ``torch_buffer_backend``: a **composed backend** that wraps a device
   backend (CUDA today, CPU as a fallback) and adds tensor semantics.
   Same repository.
 * ``demo_buffer_backend``: a minimal CPU-to-CPU backend used by the
-  ``rosidl::Buffer`` system tests. Useful as a pedagogical example with no
-  device dependencies. See ``rcl_buffer/demo_buffer_backend`` in the
-  workspace used by this tutorial.
+  ``rosidl::Buffer`` system tests.
+  Useful as a pedagogical example with no device dependencies.
+  See ``rcl_buffer/demo_buffer_backend`` in the workspace used by this
+  tutorial.
 
 The ``BufferBackend`` interface
 -------------------------------
@@ -140,8 +142,8 @@ buffer whose size and contents match the publisher's buffer.
 Two important constraints:
 
 * The serialized descriptor must be no larger than
-  ``rosidl::kMaxBufferDescriptorSize`` bytes (4096). The RMW plans its
-  serialization buffers around this bound.
+  ``rosidl::kMaxBufferDescriptorSize`` bytes (4096).
+  The RMW plans its serialization buffers around this bound.
 * The descriptor package must be a plain ``rosidl_default_generators``
   message package so that the generic
   ``rosidl_typesupport_cpp::get_message_type_support_handle<T>()`` returns an
@@ -174,7 +176,8 @@ and Torch backend (``torch_buffer_backend_msgs/TorchBufferDescriptor.msg``)
 illustrate two different descriptor shapes: the CUDA descriptor carries IPC
 handles directly, while the Torch descriptor carries a ``uint8[]``
 ``device_data`` field that the RMW re-serializes using the *inner* buffer's
-backend. The second pattern is what makes a composed backend base-agnostic.
+backend.
+The second pattern is what makes a composed backend base-agnostic.
 
 Step 2: Implement ``BufferImplBase<T>``
 ---------------------------------------
@@ -244,13 +247,15 @@ Current RMW integrations resolve the aggregate to
 These are the two hot-path methods.
 
 ``create_descriptor_with_endpoint`` is called on the publisher side once per
-matched remote endpoint. It receives a type-erased non-owning pointer to a
+matched remote endpoint.
+It receives a type-erased non-owning pointer to a
 ``BufferImplBase<uint8_t>`` and the peer's ``rmw_topic_endpoint_info_t``.
 Return a filled-in descriptor for that peer, or ``nullptr`` to tell the RMW
 *"I cannot serve this peer with my backend; please fall back to CPU
 serialization."*
 
-Returning ``nullptr`` is a first-class signal. Use it whenever:
+Returning ``nullptr`` is a first-class signal.
+Use it whenever:
 
 * the peer does not support your backend (check
   ``endpoint_supported_backends`` during discovery and cache the answer);
@@ -259,11 +264,12 @@ Returning ``nullptr`` is a first-class signal. Use it whenever:
 * any other reason a non-CPU path is not available for *this* peer.
 
 ``from_descriptor_with_endpoint`` is the inverse, invoked on the subscriber
-side. It must produce a ``std::unique_ptr<void, void (*)(void *)>`` owning a
-freshly-constructed ``BufferImplBase<T>``. The custom deleter is
-**required** because the plugin may be unloaded independently of the rest
-of the process; the deleter ensures destruction happens inside the correct
-shared library.
+side.
+It must produce a ``std::unique_ptr<void, void (*)(void *)>`` owning a
+freshly-constructed ``BufferImplBase<T>``.
+The custom deleter is **required** because the plugin may be unloaded
+independently of the rest of the process; the deleter ensures destruction
+happens inside the correct shared library.
 
 A typical deleter looks like:
 
@@ -285,17 +291,18 @@ register themselves.
 It returns a ``std::pair<bool, std::vector<std::set<uint32_t>>>``:
 
 * The ``bool`` tells the RMW whether this peer is served by the backend at
-  all. Returning ``false`` permanently routes this peer to CPU
-  serialization.
+  all.
+  Returning ``false`` permanently routes this peer to CPU serialization.
 * The ``std::vector<std::set<uint32_t>>`` is for backends that need to
   group endpoints (e.g. which subscribers share the same device and can use
-  the same IPC handle). Most backends leave this empty.
+  the same IPC handle).
+  Most backends leave this empty.
 
 The ``endpoint_supported_backends`` argument is a map from the peer's
-advertised backend names to their metadata strings. A correct backend
-**must** check that its own name is in this map before declaring the peer
-compatible; otherwise a publisher will waste descriptor work on a
-subscription that cannot consume it.
+advertised backend names to their metadata strings.
+A correct backend **must** check that its own name is in this map before
+declaring the peer compatible; otherwise a publisher will waste descriptor
+work on a subscription that cannot consume it.
 
 Example from the Torch backend:
 
@@ -487,12 +494,12 @@ Typical auxiliary considerations:
   to live in some other backend (CPU, another device backend, ...), a
   helpful pattern is to allocate a new buffer in *your* domain and copy
   into it transparently, keeping ownership via a ``get_promoted_buffer()``
-  getter on the returned handle. The CUDA backend does this for CPU-to-CUDA
-  inputs.
+  getter on the returned handle.
+  The CUDA backend does this for CPU-to-CUDA inputs.
 * **Synchronisation**: if your backend is asynchronous (streams, events,
   queues), encode the synchronisation policy into your handle types rather
-  than on the free functions. RAII on destruction makes correct use the
-  default.
+  than on the free functions.
+  RAII on destruction makes correct use the default.
 * **Reading is safe by default**: for read handles, a ``clone=true`` default
   that returns an independent copy is a useful safety net; offer a
   ``clone=false`` zero-copy overload for callers that explicitly want it.
@@ -507,12 +514,13 @@ metadata, ...).
 The recommended pattern is:
 
 * Your ``BufferImplBase<T>`` subclass *contains* a ``rosidl::Buffer<T>``
-  member for the device bytes. The inner buffer's backend is whichever base
-  is appropriate for the current device (``"cuda"``, ``"cpu"``, and so on).
+  member for the device bytes.
+  The inner buffer's backend is whichever base is appropriate for the
+  current device (``"cuda"``, ``"cpu"``, and so on).
 * Your descriptor ``.msg`` carries the high-level metadata plus a
-  ``uint8[]`` field holding the inner buffer. The RMW serializes that inner
-  field using the *inner* backend's logic, so your composed backend never
-  has to know each base's wire format.
+  ``uint8[]`` field holding the inner buffer.
+  The RMW serializes that inner field using the *inner* backend's logic, so
+  your composed backend never has to know each base's wire format.
 * In discovery, accept the peer if and only if it also supports your
   composed backend name (not the base name): two endpoints that both happen
   to support ``"cuda"`` do not automatically understand each other's
@@ -538,7 +546,8 @@ Testing
 -------
 
 The most useful tests for a backend are launch tests that exercise real
-pub/sub topologies. The reference CUDA backend ships a representative set:
+pub/sub topologies.
+The reference CUDA backend ships a representative set:
 
 * intra-process (publisher and subscriber in the same process);
 * inter-process on the same host;
