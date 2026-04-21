@@ -3,11 +3,11 @@
 Interfaces (topics, services, actions)
 ======================================
 
-.. centered:: Interfaces in ROS define how nodes exchange data. This article explains the different types of ROS interface and the differences between them. With this information, you'll be able to select the right interfaces for your purposes.
+Interfaces in ROS define how nodes exchange data.
+This article explains the different types of ROS interface and the differences between them.
+With this information, you'll be able to select the right interfaces for your purposes.
 
-.. parsed-literal::
-
-   Area: ROS-framework | Content-type: concept | Experience: beginner
+**Area: ROS-framework | Content-type: concept | Experience: beginner**
 
 .. contents:: Table of Contents
    :depth: 2
@@ -15,7 +15,7 @@ Interfaces (topics, services, actions)
 
 .. toctree::
    :hidden:
-   
+
    About-Interfaces
    About-Topics
    About-Services
@@ -37,8 +37,10 @@ For consistent communication, each interface uses definitions provided in ``.msg
 Topics
 ------
 
-The topic interface is meant for continuous data streams, for example, streaming sensor data or the status of your robot. Topic definitions are stored in ``.msg`` files. 
-Topics implement a publish/subscribe pattern. A node publishes data to a topic, and other nodes subscribe to receive that data. 
+The topic interface is meant for continuous data streams, for example, streaming sensor data or the status of your robot.
+Topic definitions are stored in ``.msg`` files.
+Topics implement a publish/subscribe pattern.
+A node publishes data to a topic, and other nodes subscribe to receive that data.
 This interface type has the following main characteristics:
 
 * Asynchronous, one-way communication
@@ -51,32 +53,36 @@ This interface type has the following main characteristics:
     T -->|Delivers messages| S1[Subscriber node]
     T -->|Delivers messages| S2[Subscriber node]
 
-Topic keys identify individual publishers on a topic so nodes and tools can distinguish where messages come from. 
+Topic keys identify individual publishers on a topic so nodes and tools can distinguish where messages come from.
 Each topic key makes it easier to track data sources when several publishers share the same topic.
 
 Topic statistics
 ----------------
-Topic statistics are built-in measurements that help you understand how messages behave when a subscription receives them. They automatically track two things:
+Topic statistics are built-in measurements that help you understand how messages behave when a subscription receives them.
+They automatically track two things:
 
 :Message age: How old a message is when it arrives, based on its timestamp.
 :Message period: The time between incoming messages.
 
-For both message age and period, ROS calculates the average, minimum, maximum, standard deviation, and the number of samples, using a moving window that updates every time a new message arrives. 
+For both message age and period, ROS calculates the average, minimum, maximum, standard deviation, and the number of samples, using a moving window that updates every time a new message arrives.
 These calculations run in constant time and memory using the dedicated utilities.
-When you enable topic statistics for a subscription, ROS publishes the collected data at regular intervals as a ``MetricsMessage`` on a statistics topic. 
+When you enable topic statistics for a subscription, ROS publishes the collected data at regular intervals as a ``MetricsMessage`` on a statistics topic.
 This gives you a clear view of timing patterns, delays, and irregularities, making it easier to assess system performance or diagnose problems related to the message flow.
 
 .. tip::
 
-   The default interval is 1 second. The default statistics topic is ``/statistics``.
+   The default interval is 1 second.
+   The default statistics topic is ``/statistics``.
 
 :doc:`Learn how to enable topic statistics </Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial>`
 
 Services
 --------
 
-The service interface is meant for synchronous request/response interactions, for example, when you want to send a query requesting the configuration of a specific robot. 
-Service definitions are stored in ``.srv`` files. Services implement a request/response pattern. A client sends a request, and a server replies with a response. 
+The service interface is meant for synchronous request/response interactions, for example, when you want to send a query requesting the configuration of a specific robot.
+Service definitions are stored in ``.srv`` files.
+Services implement a request/response pattern.
+A client sends a request, and a server replies with a response.
 This interface type has the following main characteristics:
 
 * Synchronous communication
@@ -93,8 +99,9 @@ This interface type has the following main characteristics:
 Actions
 -------
 
-The action interface is meant for long-running tasks with feedback, for example, moving a robot to a specific position, or asking the robot to perform a complex motion. 
-Action definitions are stored in .action files. Actions allow clients to send goals, receive feedback during the execution, cancel if needed, and return a result if available. 
+The action interface is meant for long-running tasks with feedback, for example, moving a robot to a specific position, or asking the robot to perform a complex motion.
+Action definitions are stored in ``.action`` files.
+Actions allow clients to send goals, receive feedback during the execution, cancel if needed, and return a result if available.
 This interface type has the following main characteristics:
 
 * Asynchronous, with feedback and result
@@ -112,7 +119,8 @@ This interface type has the following main characteristics:
 Key differences between ROS interfaces
 --------------------------------------
 
-All three interfaces enable communication between nodes, but each serves a different purpose. The table below summarizes the differences between ROS interface types:
+All three interfaces enable communication between nodes, but each serves a different purpose.
+The table below summarizes the differences between ROS interface types:
 
 +--------------+----------------------+-----------------------+-----------------+--------------------+---------------+
 |              | Pattern              | Direction             | Provided result | Typical use case   | Cancellation  |
