@@ -40,8 +40,8 @@ Europe
 .. list-table::
    :widths: 30 20 50
 
-   * - TU Delft
-     - Netherlands
+   * - Delft University of Technology
+     - the Netherlands
      - `http://ftp.tudelft.nl/ros2/ubuntu/ <http://ftp.tudelft.nl/ros2/ubuntu/>`_
 
 North America
