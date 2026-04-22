@@ -114,20 +114,20 @@ class TestCanonicalURL:
 
     def test_canonical_without_multiversion_still_correct(self):
         """
-        Regression: mirrors that build without sphinx-multiversion leave
-        html_baseurl as 'https://docs.ros.org/en' (no version).
-        The canonical URL must still resolve correctly and not 404.
-        Even without the version prefix in html_baseurl, the path must
-        be absolute and not contain relative segments.
+        Regression: a plain `make html` build (no sphinx-multiversion) now
+        defaults html_baseurl to 'https://docs.ros.org/en/rolling'.
+        The canonical URL must include the version prefix and be absolute.
         """
         metatags = build_metatags(
-            html_baseurl='https://docs.ros.org/en',
+            html_baseurl='https://docs.ros.org/en/rolling',
             redirect_url='How-To-Guides/Old-Page',
             canonical_url='How-To-Guides/Using-Custom-Rosdistro',
         )
         href = extract_canonical_href(metatags)
         assert href.startswith('https://'), \
             f"Canonical href must be absolute, got: {href}"
+        assert 'rolling' in href, \
+            f"Canonical href must contain the version prefix, got: {href}"
         assert 'Using-Custom-Rosdistro.html' in href, \
             f"Canonical href must contain the page name, got: {href}"
         assert '..' not in href, \
