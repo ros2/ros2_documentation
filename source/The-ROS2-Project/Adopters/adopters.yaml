@@ -301,3 +301,78 @@ adopters:
     country:
       - US
     description: "Polymath Robotics provides the core building blocks for production-grade off highway autonomy."
+
+  - organization: "ROBOTIS"
+    organization_url: "https://robotis.com/en/"
+    project: "AI Worker"
+    project_url: "https://ai.robotis.com/ai_worker/introduction_ai_worker.html"
+    domain:
+      - Humanoid
+      - Logistics/Warehouse
+      - Research
+    date_added: "2026-04-22"
+    country:
+      - KR
+    description: "Control architectures and imitation learning for dual-arm manipulation and omnidirectional navigation using ROS 2."
+
+  - organization: "ROBOTIS"
+    organization_url: "https://robotis.com/en/"
+    project: "Robotis Hand"
+    project_url: "https://ai.robotis.com/hands/introduction_hands.html"
+    domain:
+      - Components
+      - Humanoid
+      - Research
+    date_added: "2026-04-22"
+    country:
+      - KR
+    description: "Real-time 20-DOF control and tactile sensor broadcasting for high-dexterity manipulation using ROS 2."
+
+  - organization: "ROBOTIS"
+    organization_url: "https://robotis.com/en/"
+    project: "OMY"
+    project_url: "https://ai.robotis.com/omy/introduction_omy.html"
+    domain:
+      - Logistics/Warehouse
+      - Manufacturing
+      - Research
+    date_added: "2026-04-22"
+    country:
+      - KR
+    description: "Physical AI-driven 6-DOF leader-follower manipulation and real-time control architectures using ROS 2."
+
+  - organization: "ROBOTIS"
+    organization_url: "https://robotis.com/en/"
+    project: "OMX"
+    project_url: "https://ai.robotis.com/omx/introduction_omx.html"
+    domain:
+      - Education
+      - Research
+    date_added: "2026-04-22"
+    country:
+      - KR
+    description: "Physical AI-driven 5-DOF manipulation and user-centric leader-follower control architectures using ROS 2."
+
+  - organization: "ROBOTIS"
+    organization_url: "https://robotis.com/en/"
+    project: "TurtleBot3"
+    project_url: "https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/"
+    domain:
+      - Education
+      - Research
+    date_added: "2026-04-22"
+    country:
+      - KR
+    description: "SLAM-driven mobile robotics and highly customizable navigation architectures using ROS 2."
+
+  - organization: "ROBOTIS"
+    organization_url: "https://robotis.com/en/"
+    project: "OpenMANIPULATOR-X"
+    project_url: "https://emanual.robotis.com/docs/en/platform/openmanipulator_x/overview/"
+    domain:
+      - Education
+      - Research
+    date_added: "2026-04-22"
+    country:
+      - KR
+    description: "Open-source DYNAMIXEL-driven manipulation and embedded real-time control architectures using ROS2."
