@@ -10,14 +10,12 @@ Options for installing ROS 2 {DISTRO_TITLE_FULL}:
    :hidden:
    :glob:
 
-   Installation/Ubuntu-Install-Debs
-   Installation/Windows-Install-Binary
-   Installation/RHEL-Install-RPMs
-   Installation/Alternatives
-   Installation/Maintaining-a-Source-Checkout
-   Installation/Testing
-   Installation/RMW-Implementations
-   Installation/ROS-2-Mirrors
+   Get-Started/Installation/Ubuntu-Install-Debs
+   Get-Started/Installation/Windows-Install-Binary
+   Get-Started/Installation/RHEL-Install-RPMs
+   Get-Started/Installation/Alternatives   
+   Get-Started/Installation/RMW-Implementations
+   Get-Started/Installation/ROS-2-Mirrors
 
 .. _binary-package-platforms:
 

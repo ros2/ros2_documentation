@@ -23,14 +23,14 @@ Rows in the table marked in blue are the currently supported distributions.
 .. toctree::
    :hidden:
 
-   Releases/Release-Kilted-Kaiju
-   Releases/Release-Jazzy-Jalisco
-   Releases/Release-Humble-Hawksbill
-   Releases/Release-Rolling-Ridley
-   Releases/Development
-   Releases/End-of-Life
-   Releases/Release-Process
-
+   Get-Started/Releases/Release-Process
+   Get-Started/Releases/Release-Kilted-Kaiju
+   Get-Started/Releases/Release-Jazzy-Jalisco
+   Get-Started/Releases/Release-Humble-Hawksbill
+   Get-Started/Releases/Release-Rolling-Ridley
+   Get-Started/Releases/Development
+   Get-Started/Releases/End-of-Life
+   
 .. raw:: html
 
    <!--
