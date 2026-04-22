@@ -171,7 +171,7 @@ Add the following code block to ``CMakeLists.txt`` just below the dependencies t
 .. code-block:: cmake
 
   add_executable(server src/add_two_ints_server.cpp)
-  target_link_libraries(server PUBLIC rclcpp::rclcpp ${example_interfaces_TARGETS})
+  target_link_libraries(server PUBLIC rclcpp::rclcpp example_interfaces::example_interfaces)
 
 So ``ros2 run`` can find the executable, add the following lines to the end of the file, right before ``ament_package()``:
 
@@ -284,10 +284,10 @@ After removing some unnecessary boilerplate from the automatically generated fil
   find_package(example_interfaces REQUIRED)
 
   add_executable(server src/add_two_ints_server.cpp)
-  target_link_libraries(server PUBLIC rclcpp::rclcpp ${example_interfaces_TARGETS})
+  target_link_libraries(server PUBLIC rclcpp::rclcpp example_interfaces::example_interfaces)
 
   add_executable(client src/add_two_ints_client.cpp)
-  target_link_libraries(client PUBLIC rclcpp::rclcpp ${example_interfaces_TARGETS})
+  target_link_libraries(client PUBLIC rclcpp::rclcpp example_interfaces::example_interfaces)
 
   install(TARGETS
     server
