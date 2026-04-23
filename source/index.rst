@@ -10,7 +10,7 @@ ROS 2 Documentation
    :maxdepth: 1
    :hidden:
 
-   About-ROS
+   Get-Started
    Installation
    Releases
    Tutorials
