@@ -27,8 +27,8 @@ Summary
 ROS nodes typically communicate through the following three types of interfaces:
 
 * Topics: For continuous data streams.
-* Services: For synchronous request/response interactions.
-* Actions: For long-running tasks with feedback.
+* Services: Services: For synchronous request/response interactions (short tasks which happen immediately).
+* Actions: For long-running tasks with feedback (tasks that may take some time to complete).
 
 For consistent communication, each interface uses definitions provided in ``.msg``, ``.srv``, or ``.action`` files.
 
@@ -59,7 +59,7 @@ Each topic key makes it easier to track data sources when several publishers sha
 Topic statistics
 ----------------
 Topic statistics are built-in measurements that help you understand how messages behave when a subscription receives them.
-They automatically track two things:
+When enabled, they automatically track two things:
 
 :Message age: How old a message is when it arrives, based on its timestamp.
 :Message period: The time between incoming messages.
