@@ -11,8 +11,8 @@ ROS 2 Documentation
    :hidden:
 
    Get-Started
-   Installation
-   Releases
+   ROS-Framework
+   Capabilities
    Tutorials
    How-To-Guides
    Concepts

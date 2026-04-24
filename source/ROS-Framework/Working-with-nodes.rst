@@ -1,7 +1,7 @@
 .. _InstallationGuide:
 .. _RollingInstall:
 
-Installation
+Working with nodes
 ============
 
 Options for installing ROS 2 {DISTRO_TITLE_FULL}:
@@ -9,12 +9,15 @@ Options for installing ROS 2 {DISTRO_TITLE_FULL}:
 .. toctree::
    :maxdepth: 1
    
-   Installation/Ubuntu-Install-Debs
-   Installation/Windows-Install-Binary
-   Installation/RHEL-Install-RPMs
-   Installation/Alternatives   
-   Installation/RMW-Implementations
-   Installation/ROS-2-Mirrors
+   Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes
+   Working-with-nodes/Using-Rqt-Console/Using-Rqt-Console
+   Working-with-nodes/Launching-Multiple-Nodes/Launching-Multiple-Nodes
+   Working-with-nodes/Writing-a-Composable-Node
+   Working-with-nodes/Composition
+   Working-with-nodes/Using-Node-Interfaces-Template-Class
+   Working-with-nodes/Managed-Nodes
+   Working-with-nodes/Intra-Process-Communication
+   Working-with-nodes/Using-callback-groups
 
 .. _binary-package-platforms:
 

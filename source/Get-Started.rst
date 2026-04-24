@@ -7,11 +7,10 @@ Get started
 PLACEHOLDER
 
 .. toctree::
-   :maxdepth: 1
-   :hidden:
-   
+   :maxdepth: 3
+      
    Get-Started/About-ROS
    Get-Started/Installation
    Get-Started/Releases
    Get-Started/Configuring-ROS2-Environment
-   Get-Started/Introducing-Turtlesim
+   Get-Started/Introducing-Turtlesim/Introducing-Turtlesim
