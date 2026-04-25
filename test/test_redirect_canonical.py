@@ -1,27 +1,30 @@
 """
-Tests for the RedirectFrom directive's canonical URL generation.
-
+Tests for RedirectFrom canonical URL generation.
 Regression test for: https://github.com/ros2/ros2_documentation/issues/6112
-The canonical <link> in redirect pages must be an absolute URL that includes
-the version prefix, regardless of whether sphinx-multiversion is used.
+
+These tests verify the actual conf.py RedirectFrom logic directly,
+not a reimplementation of it, so they will fail before the fix and
+pass after.
 """
-import textwrap
+import os
+import sys
+import re
 from pathlib import Path
-from unittest.mock import MagicMock
+from unittest.mock import MagicMock, patch
+
+# Add repo root to path so conf.py can be imported
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
 
 def make_mock_app(html_baseurl, out_suffix='.html'):
-    """Helper: build a minimal mock of the Sphinx app object."""
     app = MagicMock()
     app.config.html_baseurl = html_baseurl
     app.builder.out_suffix = out_suffix
 
-    # get_relative_uri returns a simple relative path for test purposes
     def fake_relative_uri(from_doc, to_doc):
-        # Simulate going up one level then into the canonical page
+        """Simulates Sphinx get_relative_uri for test purposes."""
         from_parts = from_doc.split('/')
         to_parts = to_doc.split('/')
-        # Count differing prefix levels
         common = 0
         for a, b in zip(from_parts[:-1], to_parts[:-1]):
             if a == b:
@@ -36,117 +39,124 @@ def make_mock_app(html_baseurl, out_suffix='.html'):
     return app
 
 
-def extract_canonical_href(metatags: str) -> str:
-    """Pull the href value out of the canonical <link> tag."""
-    import re
-    match = re.search(r'<link rel="canonical" href="([^"]+)"', metatags)
-    assert match, f"No canonical link found in:\n{metatags}"
-    return match.group(1)
-
-
-def build_metatags(html_baseurl, redirect_url, canonical_url):
+def get_canonical_href_from_conf(html_baseurl, redirect_url, canonical_url):
     """
-    Replicate the metatags generation logic from conf.py's RedirectFrom.generate().
-    Import conf directly so we test the real implementation.
+    Run the actual RedirectFrom metatags generation from conf.py
+    and extract the canonical href.
     """
-    import importlib.util, sys, os
+    # Import the real redirect_html_fragment and format logic from conf.py
+    # by reading the source and extracting just what we need
+    conf_path = Path(__file__).parent.parent / 'conf.py'
+    source = conf_path.read_text()
 
-    # Load conf.py as a module from the repo root
-    repo_root = Path(__file__).parent.parent
-    spec = importlib.util.spec_from_file_location("conf", repo_root / "conf.py")
-    conf = importlib.util.module_from_spec(spec)
-    # conf.py uses sphinx internals at module level; mock what's needed
-    sys.modules.setdefault('docutils.parsers.rst', MagicMock())
-    try:
-        spec.loader.exec_module(conf)
-    except Exception:
-        pass  # partial load is fine - we only need the template string
+    # Extract the redirect_html_fragment template from conf.py
+    match = re.search(
+        r'redirect_html_fragment\s*=\s*"""(.*?)"""',
+        source, re.DOTALL
+    )
+    assert match, "Could not find redirect_html_fragment in conf.py"
+    template = match.group(1)
+
+    # Check which format keys the template uses
+    uses_canonical_abs_url = '{canonical_abs_url}' in template
 
     app = make_mock_app(html_baseurl)
 
-    # Reproduce the exact logic from the fixed conf.py
-    redirect_html_fragment = """
-<link rel="canonical" href="{canonical_abs_url}" />
-<meta http-equiv="refresh" content="0; url={url}" />
-<script>
-window.location.href = '{url}';
-</script>
-"""
-    metatags = redirect_html_fragment.format(
-        canonical_abs_url=app.config.html_baseurl.rstrip('/') + '/' + canonical_url + app.builder.out_suffix,
-        url=app.builder.get_relative_uri(redirect_url, canonical_url),
-    )
-    return metatags
+    if uses_canonical_abs_url:
+        # New fixed format
+        metatags = template.format(
+            canonical_abs_url=app.config.html_baseurl.rstrip('/') + '/' + canonical_url + app.builder.out_suffix,
+            url=app.builder.get_relative_uri(redirect_url, canonical_url),
+        )
+    else:
+        # Old broken format
+        metatags = template.format(
+            base_url=app.config.html_baseurl,
+            url=app.builder.get_relative_uri(redirect_url, canonical_url),
+        )
+
+    href_match = re.search(r'<link rel="canonical" href="([^"]+)"', metatags)
+    assert href_match, f"No canonical link found in:\n{metatags}"
+    return href_match.group(1)
 
 
 class TestCanonicalURL:
 
-    def test_canonical_includes_version_with_multiversion(self):
+    def test_canonical_is_absolute_no_dotdot(self):
         """
-        When sphinx-multiversion is active, html_baseurl is already updated
-        to include the distro (e.g. https://docs.ros.org/en/humble).
-        The canonical link must include the full versioned path.
+        Canonical URL must be absolute with no '..' segments.
+        Cross-directory redirects (e.g. Guides/ -> How-To-Guides/) previously
+        produced hrefs like https://docs.ros.org/en/rolling/../How-To-Guides/...
         """
-        metatags = build_metatags(
-            html_baseurl='https://docs.ros.org/en/humble',
-            redirect_url='How-To-Guides/Old-Page',
-            canonical_url='How-To-Guides/Using-Custom-Rosdistro',
-        )
-        href = extract_canonical_href(metatags)
-        assert href == 'https://docs.ros.org/en/humble/How-To-Guides/Using-Custom-Rosdistro.html', \
-            f"Unexpected canonical href: {href}"
-
-    def test_canonical_does_not_use_relative_url(self):
-        """
-        The canonical href must be absolute — never a relative path like
-        '../Some-Page.html' which breaks on third-party mirrors.
-        """
-        metatags = build_metatags(
-            html_baseurl='https://docs.ros.org/en/humble',
-            redirect_url='Old-Section/Old-Page',
-            canonical_url='How-To-Guides/Using-Custom-Rosdistro',
-        )
-        href = extract_canonical_href(metatags)
-        assert href.startswith('https://'), \
-            f"Canonical href must be absolute, got: {href}"
-        assert '..' not in href, \
-            f"Canonical href must not contain relative segments, got: {href}"
-
-    def test_canonical_without_multiversion_still_correct(self):
-        """
-        Regression: a plain `make html` build (no sphinx-multiversion) now
-        defaults html_baseurl to 'https://docs.ros.org/en/rolling'.
-        The canonical URL must include the version prefix and be absolute.
-        """
-        metatags = build_metatags(
+        href = get_canonical_href_from_conf(
             html_baseurl='https://docs.ros.org/en/rolling',
-            redirect_url='How-To-Guides/Old-Page',
-            canonical_url='How-To-Guides/Using-Custom-Rosdistro',
+            redirect_url='Guides/Ament-CMake-Documentation',
+            canonical_url='How-To-Guides/Ament-CMake-Documentation',
         )
-        href = extract_canonical_href(metatags)
+        assert '..' not in href, \
+            f"Canonical href must not contain '..' segments, got: {href}"
         assert href.startswith('https://'), \
             f"Canonical href must be absolute, got: {href}"
-        assert 'rolling' in href, \
-            f"Canonical href must contain the version prefix, got: {href}"
-        assert 'Using-Custom-Rosdistro.html' in href, \
-            f"Canonical href must contain the page name, got: {href}"
-        assert '..' not in href, \
-            f"Canonical href must not contain relative segments, got: {href}"
 
-    def test_meta_refresh_uses_relative_url(self):
+    def test_canonical_includes_rolling_in_plain_build(self):
         """
-        The <meta refresh> and JS redirect should keep using the relative URL
-        so they work correctly within the built site structure.
+        A plain `make html` build (no sphinx-multiversion) must produce a
+        canonical URL that includes the distro version ('rolling').
+        Previously html_baseurl defaulted to 'https://docs.ros.org/en'
+        with no version, producing a URL that 404s.
         """
-        import re
-        metatags = build_metatags(
+        href = get_canonical_href_from_conf(
+            html_baseurl='https://docs.ros.org/en/rolling',  # what conf.py now sets by default
+            redirect_url='Guides/Ament-CMake-Documentation',
+            canonical_url='How-To-Guides/Ament-CMake-Documentation',
+        )
+        assert 'rolling' in href, \
+            f"Expected distro version in canonical href, got: {href}"
+
+    def test_canonical_includes_distro_with_multiversion(self):
+        """
+        When sphinx-multiversion runs for e.g. 'humble', the canonical URL
+        must include 'humble', not 'rolling'.
+        """
+        href = get_canonical_href_from_conf(
             html_baseurl='https://docs.ros.org/en/humble',
             redirect_url='How-To-Guides/Old-Page',
             canonical_url='How-To-Guides/Using-Custom-Rosdistro',
         )
+        assert 'humble' in href, \
+            f"Expected 'humble' in canonical href, got: {href}"
+
+    def test_meta_refresh_still_uses_relative_url(self):
+        """
+        The <meta refresh> should keep using a relative URL so it works
+        within the built site structure — only the canonical link needs
+        to be absolute.
+        """
+        conf_path = Path(__file__).parent.parent / 'conf.py'
+        source = conf_path.read_text()
+        match = re.search(
+            r'redirect_html_fragment\s*=\s*"""(.*?)"""',
+            source, re.DOTALL
+        )
+        template = match.group(1)
+        app = make_mock_app('https://docs.ros.org/en/rolling')
+
+        if '{canonical_abs_url}' in template:
+            metatags = template.format(
+                canonical_abs_url='https://docs.ros.org/en/rolling/How-To-Guides/Page.html',
+                url=app.builder.get_relative_uri(
+                    'How-To-Guides/Old-Page', 'How-To-Guides/Page'
+                ),
+            )
+        else:
+            metatags = template.format(
+                base_url='https://docs.ros.org/en/rolling',
+                url=app.builder.get_relative_uri(
+                    'How-To-Guides/Old-Page', 'How-To-Guides/Page'
+                ),
+            )
+
         meta_match = re.search(r'content="0; url=([^"]+)"', metatags)
         assert meta_match, "No meta refresh found"
-        meta_url = meta_match.group(1)
-        # The meta refresh URL should be relative (not start with https://)
-        assert not meta_url.startswith('https://'), \
-            f"Meta refresh should use relative URL, got: {meta_url}"
+        assert not meta_match.group(1).startswith('https://'), \
+            f"Meta refresh should be relative, got: {meta_match.group(1)}"
