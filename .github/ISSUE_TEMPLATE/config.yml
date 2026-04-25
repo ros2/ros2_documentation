@@ -7,8 +7,8 @@ contact_links:
     url: https://docs.ros.org/
     about: The ROS documentation is available at docs.ros.org
   - name: 🔗 Want to discuss a ROS feature or get the latest ROS news?
-    url: https://discourse.ros.org/
-    about: ROS Discourse is our community discussion forum.
+    url: https://discourse.openrobotics.org/c/ros/111
+    about: Open Robotics Discourse is our community discussion forum.
   - name: 🔗 Do you need real time support from other ROS users?
     url: https://openrobotics.zulipchat.com/
     about: Visit our community Zulip server. ROS questions belong in "ROS General" channel.
