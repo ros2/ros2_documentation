@@ -1,0 +1,14 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 🔗 Have a question on how to use ROS?
+    url: https://robotics.stackexchange.com/
+    about: We use Robotics Stack Exchange for general project questions.
+  - name: 🔗 Looking for documentation on active ROS distros?
+    url: https://docs.ros.org/
+    about: The ROS documentation is available at docs.ros.org
+  - name: 🔗 Want to discuss a ROS feature or get the latest ROS news?
+    url: https://discourse.openrobotics.org/c/ros/111
+    about: Open Robotics Discourse is our community discussion forum.
+  - name: 🔗 Do you need real time support from other ROS users?
+    url: https://openrobotics.zulipchat.com/
+    about: Visit our community Zulip server. ROS questions belong in "ROS General" channel.
