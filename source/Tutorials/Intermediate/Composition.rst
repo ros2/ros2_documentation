@@ -378,7 +378,7 @@ If you want to export a composable node as a shared library from a package and u
 
 Then install the generated file and export the generated file.
 
-A practical example can be seen here: `ROS Discourse - Ament best practice for sharing libraries <https://discourse.ros.org/t/ament-best-practice-for-sharing-libraries/3602>`__
+A practical example can be seen here: `ROS Discourse - Ament best practice for sharing libraries <https://discourse.openrobotics.org/t/ament-best-practice-for-sharing-libraries/3602>`__
 
 Composing Non-Node Derived Components
 -------------------------------------
