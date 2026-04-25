@@ -119,7 +119,7 @@ If you need help, have an idea, or would like to contribute to the project, plea
 
   - See :ref:`Contact Page <Using Robotics Stack Exchange>` for more information
 
-* `ROS Discourse <https://discourse.ros.org/>`__ (ROS 1, ROS 2)
+* `Open Robotics Discourse <https://discourse.openrobotics.org/>`__ (ROS 1, ROS 2)
 
   - Forum for general discussions and announcements for the ROS community
   - See the :ref:`Contact Page <Using ROS Discourse>` for more information
