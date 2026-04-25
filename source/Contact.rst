@@ -91,11 +91,11 @@ See the :doc:`Contributing <The-ROS2-Project/Contributing>` page for more detail
 Discussion
 ----------
 
-To start a discussion with other ROS 2 community members, visit the official `ROS Discourse <https://discourse.ros.org/>`__.
+To start a discussion with other ROS 2 community members, visit the official `Open Robotics Discourse <https://discourse.openrobotics.org/>`__.
 Content on the Discourse should be high-level;
 it's not a place to get *questions* about code answered, but it would be suitable to start a conversation about best practices or improving standards.
 
-Discussions about ROS 2 development and plans are happening on the `"Next Generation ROS" Discourse category <https://discourse.ros.org/c/ng-ros>`__.
+Discussions about ROS 2 development and plans are happening on the `Open Robotics Discourse' ROS category <https://discourse.openrobotics.org/c/ros/111>`__.
 Participating in these discussions is an important way to have a say on how different features of ROS 2 will work and be implemented.
 
 The diverse community behind the ROS ecosystem is one of its greatest assets.
@@ -129,10 +129,10 @@ Do not add unrelated content to posts.
 The content of posts should be focused on the topic at hand and not include unrelated content.
 Content, links, and images unrelated to the topic are considered spam.
 
-For commercial posts, see also `this discussion <https://discourse.ros.org/t/sponsorship-notation-in-posts-on-ros-org/2078>`_.
+For commercial posts, see also `this discussion <https://discourse.openrobotics.org/t/sponsorship-notation-in-posts-on-ros-org/2078>`_.
 
 Minimize references to content behind pay walls.
-The content posted on `ROS Discourse <https://discourse.ros.org/>`__ and `Robotics Stack Exchange <https://robotics.stackexchange.com/>`__ should "generally" be free and open to all users.
+The content posted on `Open Robotics Discourse <https://discourse.openrobotics.org/>`__ and `Robotics Stack Exchange <https://robotics.stackexchange.com/>`__ should "generally" be free and open to all users.
 Links to content behind pay walls such as private journal articles, text books, and paid news websites, while helpful and relevant, may not be accessible to all users.
 Where possible primary sources should be free and open with paid content playing a supporting role.
 
