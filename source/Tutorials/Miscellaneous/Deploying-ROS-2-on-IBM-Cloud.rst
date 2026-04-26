@@ -87,7 +87,7 @@ b) ROS 2 Image
 ^^^^^^^^^^^^^^
 
 ROS
-`announced <https://discourse.ros.org/t/announcing-official-docker-images-for-ros2/7381/2>`__
+`announced <https://discourse.openrobotics.org/t/announcing-official-docker-images-for-ros2/7381/2>`__
 image containers for several ROS distributions in January 2019.
 More detailed instructions on the use of ROS 2 docker images can be found
 `here <https://hub.docker.com/_/ros/>`__.

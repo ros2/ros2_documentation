@@ -21,7 +21,7 @@ There are two hosted instance for open source packages:
 #. https://build.ros2.org/ for ROS 2 packages
 
 If you are going to use any of the provided infrastructure please consider signing up for the
-`build farm discussion forum <http://discourse.ros.org/c/buildfarm>`__ in order to receive notifications,
+`build farm discussion forum <https://discourse.openrobotics.org/c/infrastructure-project/infra-buildfarm/20>`__ in order to receive notifications,
 e.g., about any upcoming changes.
 
 
