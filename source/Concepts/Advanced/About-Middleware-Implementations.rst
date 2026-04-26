@@ -58,7 +58,55 @@ As such, rmw implementations may provide support for the X-Types standard, and/o
 
 As an example of an rmw implementation repository, the ``Eclipse Cyclone DDS`` ROS middleware implementation is on |GitHub|_ at `ros2/rmw_cyclonedds <https://github.com/ros2/rmw_cyclonedds>`_.
 
+<<<<<<< HEAD
 The rmw implementation for ``Fast DDS`` is on |GitHub|_ at `ros2/rmw_fastrtps_cpp <https://github.com/ros2/rmw_fastrtps_cpp>`_.
+=======
+| The ``Eclipse Cyclone DDS`` ROS middleware implementation is on |GitHub|_ at `ros2/rmw_cyclonedds <https://github.com/ros2/rmw_cyclonedds>`_.
+| The RMW implementation for ``Fast DDS`` is on |GitHub|_ at `ros2/rmw_fastrtps_cpp <https://github.com/ros2/rmw_fastrtps_cpp>`_.
+| The RMW implementation for ``Connext DDS`` is on |GitHub|_ at `ros2/rmw_connextdds <https://github.com/ros2/rmw_connextdds>`_.
+| The RMW implementation for ``GurumDDS`` is on |GitHub|_ at `ros/rmw_gurumdds <https://github.com/ros2/rmw_gurumdds>`_.
+
+.. _about-middleware-impls_struct_zenoh:
+
+Structure of the Zenoh Middleware Implementation
+------------------------------------------------
+
+For data to be sent and received over Zenoh using ROS 2, the middleware package, ``rmw_zenoh_cpp``, maps the ROS 2 middleware |API| to Zenoh's |APIs| using `zenoh-c <https://github.com/eclipse-zenoh/zenoh-c>`_.
+Unlike DDS-based implementations, this middleware relies on a Zenoh router to discover peers and pass discovery information along via Zenoh's 'gossip scouting'.
+Therefore, ``rmw_zenoh_cpp`` requires the Zenoh router (``zenohd``) to be active on the local system or reachable over the network.
+
+In ROS 2's Zenoh integration, each `context <https://docs.ros.org/en/{DISTRO}/p/rclcpp/generated/classrclcpp_1_1Context.html>`_ is mapped to a single Zenoh session.
+This session is shared across all publishers, subscriptions, services, and clients within that context.
+The context maintains a local graph cache that tracks the network topology of ROS 2 entities and the presence of each entity is managed through unique liveliness tokens issued on creation and revoked during destruction.
+
+Here is an inexhaustive list of how the Zenoh middleware |API| adapts ROS 2 entities over its communication protocol:
+
+**Nodes:** Nodes in ROS 2 have been referred to as "units of computation" in a ROS 2 graph, whereby each node should be responsible for a single, modular purpose.
+Zenoh has no direct counterpart to the node, so ``rmw_zenoh_cpp`` creates no Zenoh entities for them.
+However, when a node is created through the RMW |API|, a liveliness token of type ``NN`` is declared.
+
+**Publishers:** A ROS 2 publisher sends data to a specific topic.
+Because Zenoh publishers function very similarly with Keys, ``rmw_zenoh_cpp`` maps these entities directly.
+When a publisher is created through the RMW |API|, a liveliness token of type ``MP`` is declared.
+
+**Subscribers:** Subscribers in ROS 2 listen on topics for new data.
+They are conceptually equivalent to subscribers in Zenoh so ``rmw_zenoh_cpp`` maps these entities directly.
+When new data arrives, Zenoh's middleware |package| invokes an internal callback that takes ownership of the data and signals availability to ``rmw_wait``.
+When a subscriber is created through the RMW |API|, a liveliness token of type ``MS`` is declared.
+
+**Service clients:** ``rmw_zenoh_cpp`` uses Zenoh queryables to implement ROS 2 services.
+Clients use ``rmw_send_request`` to make requests in ROS 2.
+A request will carry metadata that will be used to correlate a response, like its sequence number and the GUID of the client that sent it.
+Zenoh's middleware |package| can then use ``z_get`` to send a query out into the network.
+When a client is created through the RMW |API|, a liveliness token of type ``SC`` is declared.
+
+**Service server:** ``rmw_zenoh_cpp`` uses Zenoh queryables to implement ROS 2 services.
+ROS 2 nodes use ``rmw_create_service`` to advertise services to the network and the Zenoh |API|, ``z_declare_queryable``, is used to create the server-side representation of a ROS 2 service.
+``rmw_take_request`` delivers the query to the use callback to be processed and after the computation is complete, ``rmw_send_reponse`` returns the result to the requester.
+When a server is created, a liveliness token of type ``SS`` is declared.
+
+The RMW implementation for ``Zenoh`` is on |GitHub|_ at `ros2/rmw_zenoh <https://github.com/ros2/rmw_zenoh/tree/rolling>`_.
+>>>>>>> 172c384 (use {DISTRO} macro. (#6464))
 
 The rmw implementation for ``Connext DDS`` is on |GitHub|_ at `ros2/rmw_connextdds <https://github.com/ros2/rmw_connextdds>`_.
 
