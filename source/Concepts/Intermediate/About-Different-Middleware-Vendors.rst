@@ -21,20 +21,8 @@ There are many factors you might consider while choosing a middleware implementa
 Vendors may provide more than one DDS or RTPS implementation targeted at meeting different needs.
 For example, RTI has a few variations of their Connext implementation that vary in purpose, like one that specifically targets microcontrollers and another which targets applications requiring special safety certifications (we only support their standard desktop version at this time).
 
-<<<<<<< HEAD
 In order to use a DDS/RTPS implementation with ROS 2, a "\ **R**\ OS **M**\ iddle\ **w**\ are interface" (a.k.a. ``rmw`` interface or just ``rmw``\ ) package needs to be created that implements the abstract ROS middleware interface using the DDS or RTPS implementation's API and tools.
 It's a lot of work to implement and maintain RMW packages for supporting DDS implementations, but supporting at least a few implementations is important for ensuring that the ROS 2 codebase is not tied to any one particular implementation, as users may wish to switch out implementations depending on their project's needs.
-=======
-Zenoh middleware
-----------------
-
-`Zenoh <https://docs.ros.org/en/{DISTRO}/Installation/RMW-Implementations/Non-DDS-Implementations/Working-with-Zenoh.html>`_ is a protocol that integrates internet-scale publish/subscribe with distributed querying.
-It is designed for efficient communication in a wide range of deployments that vary from server-grade hardware and networks to resource-constrained edge devices.
-Zenoh extends the privilege of location transparency to storage data, allowing queries to be addressed with no concerns about where the data is stored.
-
-As an RMW implementation for ROS 2, Zenoh offers a more lightweight alternative to DDS and maintains Quality of Service features (in Zenoh, there are essentially no "incompatible" QoS settings).
-Its minimal wire overhead and flexible routing make Zenoh well-suited for challenging network conditions.
->>>>>>> 172c384 (use {DISTRO} macro. (#6464))
 
 Supported RMW implementations
 -----------------------------
