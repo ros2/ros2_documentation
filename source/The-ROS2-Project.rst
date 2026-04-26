@@ -17,5 +17,4 @@ Check out the resources below to learn more about the advancement of the ROS 2 p
    The-ROS2-Project/Release-Schedule
    The-ROS2-Project/Marketing
    The-ROS2-Project/Metrics
-   The-ROS2-Project/Adopters/Adopters
-   The-ROS2-Project/Adopters/Add-Your-Project
+   The-ROS2-Project/Adopters
