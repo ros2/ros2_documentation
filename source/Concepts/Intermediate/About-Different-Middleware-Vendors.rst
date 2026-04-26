@@ -25,7 +25,7 @@ In summary, DDS is an end-to-end middleware that provides features which are rel
 Zenoh middleware
 ----------------
 
-`Zenoh <https://docs.ros.org/en/rolling/Installation/RMW-Implementations/Non-DDS-Implementations/Working-with-Zenoh.html>`_ is a protocol that integrates internet-scale publish/subscribe with distributed querying.
+`Zenoh <https://docs.ros.org/en/{DISTRO}/Installation/RMW-Implementations/Non-DDS-Implementations/Working-with-Zenoh.html>`_ is a protocol that integrates internet-scale publish/subscribe with distributed querying.
 It is designed for efficient communication in a wide range of deployments that vary from server-grade hardware and networks to resource-constrained edge devices.
 Zenoh extends the privilege of location transparency to storage data, allowing queries to be addressed with no concerns about where the data is stored.
 

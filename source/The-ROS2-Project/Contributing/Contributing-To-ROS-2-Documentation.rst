@@ -218,7 +218,7 @@ Pages for ROS projects and features that are no longer supported by a current di
 The next step for migrating a ROS Wiki page is to determine the correct location for the migrated page.
 Only ROS Wiki pages that cover core ROS concepts belong in the ROS Documentation, these pages should be migrated to a logical location within the ROS documentation.
 Package specific documentation should be migrated to the package-level documentation generated in the package's source repository.
-Once the package level documentation has been updated it will be visible `as part of the package-level documentation <https://docs.ros.org/en/rolling/p/>`__.
+Once the package level documentation has been updated it will be visible `as part of the package-level documentation <https://docs.ros.org/en/{DISTRO}/p/>`__.
 If you are unsure whether and where to migrate a page, please get in touch via an issue on https://github.com/ros2/ros2_documentation or on https://discourse.openrobotics.org/.
 
 Once you've determined that a ROS Wiki page is worth migrating, and found an appropriate landing spot in the ROS documentation, the next step in the migration process is to set up the conversion tools necessary to migrate the page.
