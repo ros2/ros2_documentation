@@ -58,7 +58,7 @@ class AdoptersTableDirective(Directive):
         env = self.state.document.settings.env
         # Locate adopters.yaml relative to the source file containing the directive.
         source_dir = os.path.dirname(env.doc2path(env.docname))
-        yaml_path = os.path.join(source_dir, 'adopters.yaml')
+        yaml_path = os.path.join(source_dir, 'Adopters', 'adopters.yaml')
 
         if not os.path.isfile(yaml_path):
             raise ExtensionError(
