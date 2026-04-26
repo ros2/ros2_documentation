@@ -104,7 +104,7 @@ If you're interested in the advancement of the ROS 2 project:
   - Downloadable marketing materials
   - `Information about the ROS trademark <https://www.ros.org/blog/media/>`__
 
-* :doc:`Adopters <The-ROS2-Project/Adopters/Adopters>`
+* :doc:`Adopters <The-ROS2-Project/Adopters>`
 
   - Organizations and projects using ROS
 
