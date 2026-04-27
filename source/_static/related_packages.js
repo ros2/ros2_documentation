@@ -58,28 +58,52 @@
   }
 
   /**
+   * Prefer Sphinx-emitted ``data-bundled-cache-href`` (relative to page); then derive from script URL.
+   *
+   * @param {HTMLElement|null} widget
    * @param {string} distro
-   * @returns {Promise<Record<string, string>>}
+   * @returns {string|null}
    */
-  function loadXmls(distro) {
-    if (cacheByDistro[distro]) {
-      return cacheByDistro[distro];
+  function resolveBundledAbsoluteUrl(widget, distro) {
+    var rel = widget && widget.getAttribute('data-bundled-cache-href');
+    if (rel && typeof URL !== 'undefined') {
+      try {
+        return new URL(rel, window.location.href).href;
+      } catch (e1) {
+        /* ignore */
+      }
     }
-    cacheByDistro[distro] = fetchAndParse(distro);
-    return cacheByDistro[distro];
+    return bundledCacheUrl(distro);
   }
 
   /**
    * @param {string} distro
+   * @param {HTMLElement|null} sampleWidget widget from this page (for data-bundled-cache-href)
    * @returns {Promise<Record<string, string>>}
    */
-  function fetchAndParse(distro) {
+  function loadXmls(distro, sampleWidget) {
+    var bundledKey =
+      distro +
+      '|' +
+      (sampleWidget ? sampleWidget.getAttribute('data-bundled-cache-href') || '' : '');
+    if (cacheByDistro[bundledKey]) {
+      return cacheByDistro[bundledKey];
+    }
+    cacheByDistro[bundledKey] = fetchAndParse(distro, resolveBundledAbsoluteUrl(sampleWidget, distro));
+    return cacheByDistro[bundledKey];
+  }
+
+  /**
+   * @param {string} distro
+   * @param {string|null} bundledAbsolute resolved same-origin URL to gzip, if any
+   * @returns {Promise<Record<string, string>>}
+   */
+  function fetchAndParse(distro, bundledAbsolute) {
     var remote =
       'https://repo.ros2.org/rosdistro_cache/' + encodeURIComponent(distro) + '-cache.yaml.gz';
     var urls = [];
-    var bundled = bundledCacheUrl(distro);
-    if (bundled) {
-      urls.push(bundled);
+    if (bundledAbsolute) {
+      urls.push(bundledAbsolute);
     }
     urls.push(remote);
 
@@ -117,6 +141,7 @@
           return /** @type {Record<string, string>} */ (xmls);
         })
         .catch(function (err) {
+          /* Try next URL (e.g. bundled 404 then HTTPS remote — remote may hit CORS). */
           return next(err);
         });
     }
@@ -257,7 +282,7 @@
     for (di = 0; di < distroKeys.length; di += 1) {
       (function (distro) {
         var group = byDistro[distro];
-        loadXmls(distro).then(
+        loadXmls(distro, group[0]).then(
           function (xmls) {
             var gi;
             for (gi = 0; gi < group.length; gi += 1) {

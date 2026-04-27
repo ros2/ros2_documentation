@@ -79,6 +79,16 @@ def _meta_content_from_docutils(document: nodes.document, meta_name: str) -> str
     return None
 
 
+def _bundled_cache_href(docname: str, distro: str) -> str:
+    """Relative URL from this page's HTML file to the downloaded gzip in ``_static/``.
+
+    Sphinx emits sibling paths like ``_static/`` under the HTML root (including per-version
+    directories for multiversion builds). Depth follows ``docname`` segments (slashes).
+    """
+    depth = docname.count('/')
+    return ('../' * depth) + f'_static/rosdistro_cache/{distro}-cache.yaml.gz'
+
+
 def _positive_int_option(argument: str) -> int:
     """Parse a positive integer option for the directive."""
     if argument is None:
@@ -137,12 +147,15 @@ class RosRelatedPackagesDirective(SphinxDirective):
 
         escaped_type = html.escape(build_type, quote=True)
         escaped_distro = html.escape(distro, quote=True)
+        bundled_href = _bundled_cache_href(self.env.docname, distro)
+        escaped_bundled = html.escape(bundled_href, quote=True)
 
         html_body = (
             '<div class="related-packages related-packages--loading js-related-packages" '
             f'data-build-type="{escaped_type}" '
             f'data-max="{int(max_pkgs)}" '
             f'data-distro="{escaped_distro}" '
+            f'data-bundled-cache-href="{escaped_bundled}" '
             'role="region" aria-live="polite">'
             '<p class="related-packages__status">Loading related packages…</p>'
             '</div>'
@@ -150,9 +163,13 @@ class RosRelatedPackagesDirective(SphinxDirective):
         return [nodes.raw('', html_body, format='html')]
 
 
-def download_rosdistro_cache(app, builder) -> None:
-    """Fetch the gzipped rosdistro cache into ``source/_static`` for same-origin loads."""
-    if builder.format != 'html':
+def download_rosdistro_cache(app) -> None:
+    """Fetch the gzipped rosdistro cache into ``source/_static`` for same-origin loads.
+
+    Sphinx 8+ passes only ``app`` to ``builder-inited``; the builder is ``app.builder``.
+    """
+    builder = app.builder
+    if builder is None or builder.format != 'html':
         return
 
     macros = getattr(app.config, 'macros', {}) or {}
