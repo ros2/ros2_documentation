@@ -22,7 +22,7 @@ import yaml
 # Make the plugins directory importable.
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'plugins'))
 
-from adopters_schema import VALID_DOMAINS, validate_adopters
+from adopters_schema import VALID_DOMAINS, validate_adopters, validate_adopter_urls
 
 
 def _valid_entry(**overrides):
@@ -190,6 +190,35 @@ class TestValidateAdopters:
         for domain in VALID_DOMAINS:
             entry = _valid_entry(domain=[domain])
             assert validate_adopters([entry]) == [], f'Domain {domain} should be valid'
+
+class TestValidateAdopterUrls:
+
+    def test_no_urls_returns_empty(self):
+        entry = _valid_entry()
+        assert validate_adopter_urls([entry]) == []
+
+    def test_valid_url(self):
+        entry = _valid_entry(organization_url='https://www.google.com')
+        errors = validate_adopter_urls([entry])
+        assert errors == []
+
+    def test_unreachable_url(self):
+        entry = _valid_entry(
+            organization_url='https://this-domain-does-not-exist-abc123xyz.example'
+        )
+        errors = validate_adopter_urls([entry])
+        assert len(errors) == 1
+        assert 'organization_url' in errors[0]
+        assert 'not reachable' in errors[0]
+
+    def test_not_a_list(self):
+        errors = validate_adopter_urls('not a list')
+        assert len(errors) == 1
+        assert 'must be a list' in errors[0]
+
+    def test_skips_non_dict_entries(self):
+        errors = validate_adopter_urls(['not a dict'])
+        assert errors == []
 
 
 class TestAdoptersYamlFile:
