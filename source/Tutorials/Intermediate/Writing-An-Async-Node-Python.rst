@@ -113,7 +113,7 @@ Its constructor initializes the node with the name ``trigger_server`` and create
           )
 
 The service callback is a coroutine.
-Inside it you can ``await`` any async operation - here the node calls ``self.get_clock().sleep(2.0)``, which is the async replacement for the blocking ``clock.sleep_for()``.
+Inside it you can ``await`` any async operation — here the node calls ``self.get_clock().sleep(2.0)``, similar to ``asyncio.sleep`` but with ROS sim time support.
 While this coroutine is suspended, the node remains responsive to other callbacks.
 
 .. code-block:: python
@@ -321,6 +321,12 @@ Because the package was built with ``--symlink-install``, edits to the Python fi
 Executing a blocking function from a callback
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. note::
+
+   Just like ``asyncio``, ``AsyncNode`` is not thread-safe.
+   If you spawn your own thread, do not access ``AsyncNode`` API from it.
+   Schedule that work back onto the event loop thread with ``loop.call_soon_threadsafe`` or ``asyncio.run_coroutine_threadsafe``.
+
 Many useful libraries are still written with synchronous APIs.
 Calling them directly from an async callback would block the event loop and stall every other callback on the node.
 To work around this, ``asyncio.to_thread`` runs the sync function on a worker thread and returns an awaitable, allowing the node to stay responsive.
@@ -382,7 +388,7 @@ Restart the service in one terminal, then run the client in another:
 .. code-block:: console
 
   $ ros2 run python_async_node client
-  [INFO] [trigger_client]: Service responded: success=True, message="Latest ROS 2 release: release-jazzy-2024-12-19"
+  [INFO] [trigger_client]: Service responded: success=True, message="Latest ROS 2 release: <release-tag>"
 
 Calling another service from inside a callback
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
