@@ -89,6 +89,7 @@ extensions = [
     'sphinx_adopters',
     'sphinxcontrib.googleanalytics',
     'sphinxcontrib.mermaid',
+    'ros_related_packages',
 ]
 
 # Intersphinx mapping
@@ -180,7 +181,12 @@ html_sourcelink_suffix = ''
 
 # Relative to html_static_path
 html_css_files = ['custom.css', 'adopters.css']
-html_js_files = ['adopters.js']
+html_js_files = [
+    ('https://cdn.jsdelivr.net/npm/pako@2.1.0/dist/pako.min.js', {'defer': ''}),
+    ('https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js', {'defer': ''}),
+    'adopters.js',
+    'related_packages.js',
+]
 
 # -- Options for HTMLHelp output ------------------------------------------
 
