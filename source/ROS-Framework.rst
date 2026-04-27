@@ -15,6 +15,9 @@ PLACEHOLDER
    ROS-Framework/About-Logging
    ROS-Framework/About-Composition
    ROS-Framework/Working-with-nodes
+   ROS-Framework/About-Interfaces
+   ROS-Framework/Topics-Services-Actions
+   ROS-Framework/About-Tf2
    ROS-Framework/Working-with-interfaces
    ROS-Framework/Working-with-actions
    ROS-Framework/Working-with-services
