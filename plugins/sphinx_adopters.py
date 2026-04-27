@@ -21,7 +21,7 @@ from docutils import nodes
 from docutils.parsers.rst import Directive
 from sphinx.errors import ExtensionError
 
-from adopters_schema import validate_adopters
+from adopters_schema import validate_adopters, validate_adopter_urls
 
 
 def _escape(text):
@@ -74,14 +74,15 @@ class AdoptersTableDirective(Directive):
 
         adopters = data.get('adopters', [])
         errors = validate_adopters(adopters)
+        errors.extend(validate_adopter_urls(adopters))
         if errors:
             raise ExtensionError(
                 'Adopters YAML validation failed:\n' + '\n'.join(f'  - {e}' for e in errors)
             )
 
-        # Sort by date_added descending (newest first), then organization name (A-Z).
-        adopters.sort(key=lambda a: a.get('organization', '').lower())
+        # Sort by organization name (A-Z), then date_added descending (newest first).
         adopters.sort(key=lambda a: a.get('date_added', ''), reverse=True)
+        adopters.sort(key=lambda a: a.get('organization', '').lower())
 
         # Collect unique values for filters.
         all_domains = sorted({d for a in adopters for d in a.get('domain', [])})
