@@ -160,8 +160,7 @@ If not specified, ``rcl_logging_spdlog`` is used by default.
 See https://github.com/ros2/rcl/issues/1178, https://github.com/ros2/rcl/pull/1276, and https://github.com/ros2/rcl_logging/pull/135 for more details.
 
 ``rclcpp``
-^^^^^^^^^^^^^^^^
-
+^^^^^^^^^^
 Added new `Callback Group Events Executor <https://github.com/ros2/rclcpp/pull/3097>`.
 Like its predecessor the experimental ``EventsExecutor``, the ``EventsCBGExecutor`` uses an events queue to process ready entities.
 Builds on the experimental ``EventsExecutor`` by adding support for multiple sources of ROS time and multiple threads.
