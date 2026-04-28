@@ -159,12 +159,6 @@ If not specified, ``rcl_logging_spdlog`` is used by default.
 
 See https://github.com/ros2/rcl/issues/1178, https://github.com/ros2/rcl/pull/1276, and https://github.com/ros2/rcl_logging/pull/135 for more details.
 
-``rosidl_python``
-^^^^^^^^^^^^^^^^^
-
-Passing in Python ``set`` objects into array or sequence fields is now deprecated.
-Instead pass in something that implements ``collections.abc.Sequence`` most commonly a ``list``, ``tuple``, or a ``numpy.ndarray``. To be removed in ROS M.
-
 ``rclcpp``
 ^^^^^^^^^^^^^^^^
 
@@ -175,3 +169,9 @@ Compared to the Single and Multithreaded Executors, the ``EventsCBGExecutor`` ex
 Note: The experimental ``EventsExecutor`` is now deprecated. For similar performance, use the ``EventsCBGExecutor`` with one thread.
 
 `Unified component container interface <https://github.com/ros2/rclcpp/pull/3134>` - ``component_container`` is now the single entrypoint for launching both regular and isolated component containers with all types of executors.
+
+``rosidl_python``
+^^^^^^^^^^^^^^^^^
+
+Passing in Python ``set`` objects into array or sequence fields is now deprecated.
+Instead pass in something that implements ``collections.abc.Sequence`` most commonly a ``list``, ``tuple``, or a ``numpy.ndarray``. To be removed in ROS M.
