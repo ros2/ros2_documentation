@@ -15,12 +15,17 @@ Background
 ----------
 
 ``AsyncNode`` is an asyncio-native alternative to the executor based ``Node`` you used in the beginner tutorial.
-This lets you ``await`` other asyncio operations from inside a ROS 2 callback without blocking the rest of the node.
+This lets you ``await`` other async operations from inside a ROS 2 callback without blocking the rest of the node.
 
 Beyond services and clients, ``AsyncNode`` supports timers, subscriptions, and publishers as well.
 Actions are not yet supported.
 Callbacks can be either ``async def`` coroutines or regular ``def`` functions.
 Keep in mind that a sync callback can't ``await`` anything.
+
+.. note::
+
+   Async support already exists in ``Node``: entities accept ``async def`` callbacks, and futures from ``client.call_async()`` can be awaited (see `client_async_callback example <https://github.com/ros2/examples/blob/{REPOS_FILE_BRANCH}/rclpy/services/minimal_client/examples_rclpy_minimal_client/client_async_callback.py>`__).
+   Where ``AsyncNode`` differs is in the underlying runtime: callbacks run on the ``asyncio`` event loop rather than rclpy's custom executor, allowing it to natively compose with other libraries within the ``asyncio`` ecosystem.
 
 Prerequisites
 -------------
@@ -194,7 +199,6 @@ At that point any subscriptions, services, and timers that were already created 
 The node keeps running for the duration of the block, and when the block exits ``destroy_node()`` is called automatically and all entities are torn down.
 This is the right choice for short programs like a one shot client.
 
-
 .. code-block:: python
 
   async with AsyncNode('trigger_client') as node:
@@ -249,7 +253,7 @@ It's good practice to run ``rosdep`` in the root of your workspace (``ros2_ws``)
 
    .. group-tab:: macOS
 
-      rosdep only runs on Linux, so you can skip ahead to next step.
+      rosdep only runs on Linux, so you can skip ahead to the next step.
 
    .. group-tab:: Windows
 
