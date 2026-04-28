@@ -18,9 +18,12 @@ Background
 This lets you ``await`` other async operations from inside a ROS 2 callback without blocking the rest of the node.
 
 Beyond services and clients, ``AsyncNode`` supports timers, subscriptions, and publishers as well.
-Actions are not yet supported.
 Callbacks can be either ``async def`` coroutines or regular ``def`` functions.
 Keep in mind that a sync callback can't ``await`` anything.
+
+.. note::
+
+   Actions are not yet supported.
 
 .. note::
 
