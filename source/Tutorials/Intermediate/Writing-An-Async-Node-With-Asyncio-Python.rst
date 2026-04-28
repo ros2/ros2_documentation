@@ -1,5 +1,5 @@
-Writing an async node (Python)
-==============================
+Writing an async node with asyncio (Python)
+===========================================
 
 **Goal:** Create and run a service and client using ``AsyncNode``, the asyncio-native node API.
 
@@ -26,7 +26,7 @@ Prerequisites
 -------------
 
 - You should have completed the :doc:`beginner service and client tutorial <../Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client>`.
-- You should be comfortable with basic ``asyncio`` concepts like ``async def``, ``await`` and ``asyncio.run``.
+- You should be comfortable with basic :py:mod:`asyncio` concepts like `async def and await <https://docs.python.org/3/howto/a-conceptual-overview-of-asyncio.html>`_ and :py:func:`asyncio.run`.
 - ``AsyncNode`` currently lives in ``rclpy.experimental`` and requires Python 3.12 or newer.
 
 Tasks
@@ -52,9 +52,9 @@ Inside the ``ros2_ws/src/python_async_node/python_async_node`` directory, create
 
   import asyncio
 
+  from example_interfaces.srv import Trigger
   import rclpy
   from rclpy.experimental import AsyncNode
-  from example_interfaces.srv import Trigger
 
 
   class TriggerServer(AsyncNode):
@@ -95,9 +95,9 @@ The first ``import`` statements pull in ``asyncio``, ``rclpy``, the ``AsyncNode`
 
   import asyncio
 
+  from example_interfaces.srv import Trigger
   import rclpy
   from rclpy.experimental import AsyncNode
-  from example_interfaces.srv import Trigger
 
 The ``TriggerServer`` class inherits from ``AsyncNode`` instead of ``Node``.
 Its constructor initializes the node with the name ``trigger_server`` and creates a service.
@@ -134,9 +134,9 @@ The bottom of the file defines an ``async`` helper that initializes ``rclpy``, c
           node = TriggerServer()
           await node.run()
 
-To run an ``AsyncNode``, you need to ``await node.run()`` - the equivalent of ``rclpy.spin(node)``.
+To run an ``AsyncNode``, you need to ``await node.run()`` — the equivalent of ``rclpy.spin(node)``.
 
-Finally, ``main`` itself is regular sync function so that ``ros2 run`` can use it as an entry point — ``ros2 run`` invokes the entry point as a regular function, so it cannot be ``async def``.
+Finally, ``main`` itself is a regular sync function so that ``ros2 run`` can use it as an entry point — ``ros2 run`` invokes the entry point as a regular function, so it cannot be ``async def``.
 It just calls ``asyncio.run`` to execute the ``_async_main`` coroutine:
 
 .. code-block:: python
@@ -308,7 +308,7 @@ You will see that it logged the incoming request:
 
   [INFO] [trigger_server]: Incoming trigger request
 
-Enter ``Ctrl+C`` in the server terminal to stop the node.
+Press :kbd:`Ctrl-C` in the server terminal to stop the node.
 
 Extensions
 ----------
@@ -316,7 +316,7 @@ Extensions
 The basic ``Trigger`` server above uses ``await clock.sleep(2.0)`` as an example for async work.
 Two more substantial use cases are shown below — both are straightforward modifications to ``async_service.py``.
 
-Because the package was built with ``--symlink-install``, edits to the Python file take effect without rebuilding — stop the running service with ``Ctrl+C`` and start it again to pick up the changes.
+Because the package was built with ``--symlink-install``, edits to the Python file take effect without rebuilding — stop the running service with :kbd:`Ctrl-C` and start it again to pick up the changes.
 
 Executing a blocking function from a callback
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -331,7 +331,8 @@ Many useful libraries are still written with synchronous APIs.
 Calling them directly from an async callback would block the event loop and stall every other callback on the node.
 To work around this, ``asyncio.to_thread`` runs the sync function on a worker thread and returns an awaitable, allowing the node to stay responsive.
 
-Replace the body of ``async_service.py`` with the following to fetch the latest ROS 2 release tag from GitHub:
+For example, we can make a synchronous HTTP request to fetch the latest ROS 2 release tag from GitHub through ``asyncio.to_thread``.
+Replace the body of ``async_service.py`` with the following:
 
 .. code-block:: python
 
@@ -339,9 +340,9 @@ Replace the body of ``async_service.py`` with the following to fetch the latest 
   import json
   import urllib.request
 
+  from example_interfaces.srv import Trigger
   import rclpy
   from rclpy.experimental import AsyncNode
-  from example_interfaces.srv import Trigger
 
   ROS2_LATEST_RELEASE_URL = 'https://api.github.com/repos/ros2/ros2/releases/latest'
 
@@ -401,9 +402,9 @@ Replace the body of ``async_service.py`` so that the ``Trigger`` callback delega
 
   import asyncio
 
+  from example_interfaces.srv import AddTwoInts, Trigger
   import rclpy
   from rclpy.experimental import AsyncNode
-  from example_interfaces.srv import AddTwoInts, Trigger
 
 
   class TriggerServer(AsyncNode):
@@ -443,6 +444,12 @@ Replace the body of ``async_service.py`` so that the ``Trigger`` callback delega
 
 The client is created in ``__init__`` and used inside the callback.
 Because the call is awaited, the coroutine doesn't block the node — other callbacks continue to make progress while it waits for ``add_two_ints`` to respond.
+
+.. note::
+
+   The standard ``Node`` utilizes :doc:`callback groups <../../How-To-Guides/Using-callback-groups>` to manage callback execution.
+   Any attempt to perform a service call from within a callback with the default ``MutuallyExclusiveCallbackGroup`` would result in deadlocking the node.
+   With ``AsyncNode``, all callbacks run cooperatively on the ``asyncio`` event loop, so ``await client.call(request)`` works from any callback without additional configuration.
 
 Run the underlying ``add_two_ints`` server in one terminal:
 
