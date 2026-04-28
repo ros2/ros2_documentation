@@ -161,13 +161,13 @@ See https://github.com/ros2/rcl/issues/1178, https://github.com/ros2/rcl/pull/12
 
 ``rclcpp``
 ^^^^^^^^^^
-Added new `Callback Group Events Executor <https://github.com/ros2/rclcpp/pull/3097>`.
+Added new `Callback Group Events Executor <https://github.com/ros2/rclcpp/pull/3097>`__.
 Like its predecessor the experimental ``EventsExecutor``, the ``EventsCBGExecutor`` uses an events queue to process ready entities.
 Builds on the experimental ``EventsExecutor`` by adding support for multiple sources of ROS time and multiple threads.
 Compared to the Single and Multithreaded Executors, the ``EventsCBGExecutor`` exhibits around 10 to 15% less CPU usage.
 Note: The experimental ``EventsExecutor`` is now deprecated. For similar performance, use the ``EventsCBGExecutor`` with one thread.
 
-`Unified component container interface <https://github.com/ros2/rclcpp/pull/3134>` - ``component_container`` is now the single entrypoint for launching both regular and isolated component containers with all types of executors.
+`Unified component container interface <https://github.com/ros2/rclcpp/pull/3134>`__ - ``component_container`` is now the single entrypoint for launching both regular and isolated component containers with all types of executors.
 
 ``rosidl_python``
 ^^^^^^^^^^^^^^^^^
