@@ -1,3 +1,7 @@
+.. redirect-from::
+
+  How-To-Guides/Topics-Services-Actions
+
 .. _interfaces-topics-services-actions:
 
 Interfaces (topics, services, actions)
