@@ -53,7 +53,7 @@ Download the pixi configuration file in the existing terminal session:
 .. code-block:: console
 
    $ cd ~/ros_ws_pixi
-   $ wget https://raw.githubusercontent.com/ros2/ros2/refs/heads/rolling/pixi.toml -O pixi.toml
+   $ wget https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/pixi.toml -O pixi.toml
 
 Install dependencies:
 
