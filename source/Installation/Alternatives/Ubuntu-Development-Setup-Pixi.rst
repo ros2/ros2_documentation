@@ -53,7 +53,7 @@ Download the pixi configuration file in the existing terminal session:
 .. code-block:: console
 
    $ cd ~/ros_ws_pixi
-   $ wget https://raw.githubusercontent.com/ros2/ros2/refs/heads/ahcorde/rolling/pixi_linux/pixi_linux.toml -O pixi.toml
+   $ wget https://raw.githubusercontent.com/ros2/ros2/refs/heads/rolling/pixi.toml -O pixi.toml
 
 Install dependencies:
 
@@ -130,7 +130,7 @@ This is required in every command prompt you open to setup the ROS 2 workspace:
 
    $ source ~/ros_ws_pixi/install/local_setup.bash
 
-This will automatically set up the environment for any DDS vendors that support was built for.
+This will automatically set up the environment for any DDS vendors for which support was built.
 
 Try some examples
 -----------------
@@ -156,14 +156,14 @@ Then, run a C++ ``talker``\ :
 
 .. code-block:: console
 
-   $ source install/local_setup.bash
+   $ source ~/ros_ws_pixi/install/local_setup.bash
    $ ros2 run demo_nodes_cpp talker
 
 In a separate command prompt you can do the same, but instead run a Python ``listener``\ :
 
 .. code-block:: console
 
-   $ source install/local_setup.bash
+   $ source ~/ros_ws_pixi/install/local_setup.bash
    $ ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
