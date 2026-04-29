@@ -82,10 +82,10 @@ The header sets the frame ID and timestamp for the marker.
 .. code-block:: c++
 
    visualization_msgs::msg::Marker marker;
-   marker.header.frame_id = "/my_frame";
+   marker.header.frame_id = "my_frame";
    marker.header.stamp = rclcpp::Clock().now();
 
-We set ``frame_id`` to ``/my_frame`` as an example.
+We set ``frame_id`` to ``my_frame`` as an example.
 In a running system, this should be the frame relative to which you want the marker pose to be interpreted.
 Because this tutorial does not publish transforms, RViz will need to use the same fixed frame later.
 
@@ -214,7 +214,7 @@ Now that the node is publishing markers, start RViz so you can view them.
 
 If you have never used RViz before, start with the :doc:`RViz User Guide <../RViz-User-Guide/RViz-User-Guide>`.
 
-Because we do not have any transforms set up, the first thing to do is set the ``Fixed Frame`` to the frame used in the marker message, ``/my_frame``.
+Because we do not have any transforms set up, the first thing to do is set the ``Fixed Frame`` to the frame used in the marker message, ``my_frame``.
 Then add a ``Marker`` display.
 Notice that the default topic, ``visualization_marker``, is the same one being published by the node.
 

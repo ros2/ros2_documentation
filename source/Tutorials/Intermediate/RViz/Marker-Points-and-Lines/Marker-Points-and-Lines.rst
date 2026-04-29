@@ -78,7 +78,7 @@ By default, a marker message contains a pose whose quaternion is initialized to 
 .. code-block:: c++
 
    visualization_msgs::msg::Marker points, line_strip, line_list;
-   points.header.frame_id = line_strip.header.frame_id = line_list.header.frame_id = "/my_frame";
+   points.header.frame_id = line_strip.header.frame_id = line_list.header.frame_id = "my_frame";
    points.header.stamp = line_strip.header.stamp = line_list.header.stamp = rclcpp::Clock().now();
    points.ns = line_strip.ns = line_list.ns = "points_and_lines";
    points.action = line_strip.action = line_list.action = visualization_msgs::msg::Marker::ADD;
@@ -137,7 +137,7 @@ The ``POINTS`` and ``LINE_STRIP`` markers both require only one point for each v
      float z = 5 * cos(f + i / 100.0f * 2 * M_PI);
 
      geometry_msgs::msg::Point p;
-     p.x = (int32_t)i - 50;
+     p.x = static_cast<int32_t>(i) - 50;
      p.y = y;
      p.z = z;
 
@@ -190,7 +190,7 @@ Now run RViz:
 If you have never used RViz before, start with the :doc:`RViz User Guide <../RViz-User-Guide/RViz-User-Guide>`.
 
 Set up RViz the same way you did in the last tutorial.
-Because we do not have any transforms set up, set the ``Fixed Frame`` to ``/my_frame``.
+Because we do not have any transforms set up, set the ``Fixed Frame`` to ``my_frame``.
 Then add a ``Marker`` display.
 The default topic, ``visualization_marker``, is the same one being published by the node.
 
