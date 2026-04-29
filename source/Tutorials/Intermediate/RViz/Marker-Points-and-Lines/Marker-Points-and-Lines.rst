@@ -28,7 +28,6 @@ The ``POINTS`` type places a point at each point added.
 The ``LINE_STRIP`` type uses each point as a vertex in a connected set of lines, where point 0 is connected to point 1, 1 to 2, 2 to 3, and so on.
 The ``LINE_LIST`` type creates unconnected lines out of each pair of points, such as point 0 to 1, 2 to 3, and so on.
 
-Anyway, let's get to the code.
 
 The code
 ^^^^^^^^
