@@ -184,9 +184,11 @@ This allows the installed files to be changed by changing the files in the ``sou
 
     .. code-block:: console
 
-      $ colcon build --symlink-install --merge-install
+      $ colcon build --merge-install
 
     Windows doesn't allow long paths, so ``merge-install`` will combine all the paths into the ``install`` directory.
+    On Windows, you need special permissions to create symbolic links, so ``--symlink-install`` is not used by default.
+    To use it, you need to run the command as administrator or enable developer mode in system settings.
 
 .. tip::
 
@@ -295,7 +297,7 @@ You should see messages from the publisher and subscriber with numbers increment
 Create your own package
 -----------------------
 
-colcon uses the ``package.xml`` specification defined in `REP 149 <https://www.ros.org/reps/rep-0149.html>`__ (`format 2 <https://www.ros.org/reps/rep-0140.html>`__ is also supported).
+colcon uses the ``package.xml`` specification defined in `REP 149 <https://reps.openrobotics.org/rep-0149/>`__ (`format 2 <https://reps.openrobotics.org/rep-0140/>`__ is also supported).
 
 colcon supports multiple build types.
 The recommended build types are ``ament_cmake`` and ``ament_python``.

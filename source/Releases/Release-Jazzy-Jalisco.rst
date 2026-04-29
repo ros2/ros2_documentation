@@ -19,7 +19,7 @@ For a list of all of the changes since Iron, see the :doc:`long form changelog <
 Supported Platforms
 -------------------
 
-Jazzy Jalisco is primarily supported on the following platforms:
+Jazzy Jalisco supports the following platforms according to `the platform support tiers <../The-ROS2-Project/Platform-Support-Tiers>`:
 
 Tier 1 platforms:
 
@@ -35,7 +35,127 @@ Tier 3 platforms:
 * macOS: ``amd64``
 * Debian Bookworm: ``amd64``
 
-For more information about RMW implementations, compiler / interpreter versions, and system dependency versions see `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__.
+Targeted platforms:
+
++--------------+-----------------------+----------------------+----------------------+-----------------------+---------+-----------------------+-----------------------------+
+| Architecture | Ubuntu Noble (24.04)  | Windows 10 (VS2019)  | RHEL 9               | Ubuntu Jammy (22.04)  | macOS   | Debian Bookworm (12)  | OpenEmbedded /              |
+|              |                       |                      |                      |                       |         |                       | Yocto Project               |
++==============+=======================+======================+======================+=======================+=========+=======================+=============================+
+| amd64        | Tier 1 [d][a][s]      | Tier 1 [a][s]        | Tier 2 [d][a][s]     | Tier 3 [s]            | Tier 3  | Tier 3 [s]            | Tier 3 [s]                  |
+|              |                       |                      |                      |                       | [s]     |                       |                             |
++--------------+-----------------------+----------------------+----------------------+-----------------------+---------+-----------------------+-----------------------------+
+| arm64        | Tier 1 [d][a][s]      |                      |                      |                       |         | Tier 3 [s]            | Tier 3 [s]                  |
++--------------+-----------------------+----------------------+----------------------+-----------------------+---------+-----------------------+-----------------------------+
+| arm32        | Tier 3 [s]            |                      |                      |                       |         | Tier 3 [s]            | Tier 3 [s]                  |
++--------------+-----------------------+----------------------+----------------------+-----------------------+---------+-----------------------+-----------------------------+
+
+
+The following indicators show what delivery mechanisms are available for
+each platform.
+
+\" \[d\] \" Distribution-specific (Debian, RPM, etc.) packages will be
+provided for this platform for packages submitted to the rosdistro.
+
+\" \[a\] \" Binary releases are provided as a single archive per
+platform containing all packages in the Jazzy ROS 2 repos file[^13].
+
+\" \[s\] \" Compilation from source.
+
+Middleware Implementation Support:
+
++--------------------------+-------------------------+---------------+----------------------------+--------------------------------+
+| Middleware Library       | Middleware Provider     | Support Level | Platforms                  | Architectures                  |
++==========================+=========================+===============+============================+================================+
+| rmw_fastrtps_cpp*        | eProsima Fast-DDS       | Tier 1        | All Platforms              | All Architectures              |
++--------------------------+-------------------------+---------------+----------------------------+--------------------------------+
+| rmw_cyclonedds_cpp       | Eclipse Cyclone DDS     | Tier 1        | All Platforms              | All Architectures              |
++--------------------------+-------------------------+---------------+----------------------------+--------------------------------+
+| rmw_connextdds           | RTI Connext             | Tier 1        | Ubuntu, Windows, and macOS | All Architectures except arm64 |
++--------------------------+-------------------------+---------------+----------------------------+--------------------------------+
+| rmw_fastrtps_dynamic_cpp | eProsima Fast-DDS       | Tier 2        | All Platforms              | All Architectures              |
++--------------------------+-------------------------+---------------+----------------------------+--------------------------------+
+| rmw_gurumdds_cpp         | GurumNetworks GurumDDS  | Tier 3        | Ubuntu and Windows         | All Architectures except arm32 |
++--------------------------+-------------------------+---------------+----------------------------+--------------------------------+
+
+\" \* \" means default RMW implementation.
+
+Middleware implementation support is dependent upon the platform support
+tier. For example a Tier 1 middleware implementation on a Tier 2
+platform can only receive Tier 2 support.
+
+Minimum language requirements:
+
+- C++17
+- Python 3.8
+
+Dependency Requirements:
+
++-------------+---------------+---------------+--------+--------------+------------+-----------------+---------------------+
+|             | Required Support              | Recommended Support                                                        |
++-------------+---------------+---------------+--------+--------------+------------+-----------------+---------------------+
+| Package     | Ubuntu Noble  | Windows 10**  | RHEL 9 | Ubuntu Jammy | macOS**    | Debian Bookworm | OpenEmbedded**      |
++=============+===============+===============+========+==============+============+=================+=====================+
+| CMake       | 3.28.3        | 3.22.0        | 3.20.2 | 3.22.1       | 3.20.0     | 3.25.1          | 3.22.3              |
++-------------+---------------+---------------+--------+--------------+------------+-----------------+---------------------+
+| EmPY        | 3.3.4         | 3.3.2         | 3.3.4                                                                      |
++-------------+---------------+---------------+--------+--------------+------------+-----------------+---------------------+
+| Gazebo      | Harmonic*     | N/A           | N/A    | Harmonic*    | Harmonic*  | Harmonic*       | N/A                 |
++-------------+---------------+---------------+--------+--------------+------------+-----------------+---------------------+
+| NumPy       | 1.26.4        | 1.18.4        | 1.20.1 | 1.21.5       | 1.18.4     | 1.24.2          | N/A                 |
++-------------+---------------+---------------+--------+--------------+------------+-----------------+---------------------+
+| Ogre        | 1.12.10                                                                              | N/A                 |
++-------------+---------------+---------------+--------+--------------+------------+-----------------+---------------------+
+| OpenCV      | 4.6.0         | 3.4.6*        | 4.6.0  | 4.5.4        | 4.2.0      | 4.6.0           | 4.1.0 / 3.2.0***    |
++-------------+---------------+---------------+--------+--------------+------------+-----------------+---------------------+
+| OpenSSL     | 3.0.13        | 1.1.1l        | 3.0.7  | 1.1.1l       | 1.1.1f     | 3.0.11          | 1.1.1d / 1.1.1b***  |
++-------------+---------------+---------------+--------+--------------+------------+-----------------+---------------------+
+| Python      | 3.12.3        | 3.8.3         | 3.9.16 | 3.10.4       | 3.10.8     | 3.11.2          | 3.8.2 / 3.7.5***    |
++-------------+---------------+---------------+--------+--------------+------------+-----------------+---------------------+
+| Qt          | 5.15.10       | 5.12.12       | 5.15.3 | 5.15.3       | 5.12.3     | 5.15.8          | 5.14.1 / 5.12.5***  |
++-------------+---------------+---------------+--------+--------------+------------+-----------------+---------------------+
+|                             | **Linux only**                                                                             |
++-------------+---------------+---------------+--------+--------------+------------+-----------------+---------------------+
+| PCL         | 1.14.0        | N/A           | 1.12.0 | 1.12.1       | N/A        | 1.13.0          | 1.10.0              |
++-------------+---------------+---------------+--------+--------------+------------+-----------------+---------------------+
+| **RMW DDS Middleware**                                                                                                   |
++-------------+---------------+---------------+--------+--------------+------------+-----------------+---------------------+
+| Cyclone DDS | 0.10.4                                                                                                     |
++-------------+---------------+---------------+--------+--------------+------------+-----------------+---------------------+
+| Fast-DDS    | 2.14.0                                                                                                     |
++-------------+---------------+---------------+--------+--------------+------------+-----------------+---------------------+
+| Connext DDS | 6.0.1                                                              | N/A                                   |
++-------------+---------------+---------------+--------+--------------+------------+-----------------+---------------------+
+| Gurum DDS   | 4.2.0                         | N/A                                                                        |
++-------------+---------------+---------------+--------+--------------+------------+-----------------+---------------------+
+
+\" \* \" means that this is not the upstream version (available on the
+official Operating System repositories) but a package distributed by
+OSRF or the community (package built and distributed on custom
+repositories).
+
+\" \*\* \" means that the dependency may see multiple version changes,
+because the dependency uses a package manager that continually updates
+the dependency without a stable API.
+
+\" \*\*\* \" webOS OSE provides this different version.
+
+This document only captures the version at the first release of a ROS
+distribution and will not be updated as the dependencies move forward.
+These versions are thus a low watermark.
+
+Package manager use for dependencies:
+
+- Ubuntu, Debian: apt, pip
+- Windows: Chocolatey, pip
+- macOS: Homebrew, pip
+- RHEL: dnf
+- OpenEmbedded: opkg
+
+Build System Support:
+
+- ament_cmake
+- cmake
+- setuptools
 
 Installation
 ------------
@@ -660,12 +780,12 @@ Release Timeline
         Updated releases of ROS Desktop [2]_ packages available.
 
     Mon. May 20, 2024 - Distro Freeze
-        Freeze all Jazzy branches on all `ROS 2 desktop packages <https://www.ros.org/reps/rep-2001.html#jazzy-jalisco-may-2024-may-2029>`__ and ``rosdistro``.
+        Freeze all Jazzy branches on all `ROS 2 desktop packages <https://reps.openrobotics.org/rep-2001/#jazzy-jalisco-may-2024-may-2029>`__ and ``rosdistro``.
         No pull requests for any ``jazzy`` branch or targeting ``jazzy/distribution.yaml`` in ``rosdistro`` repo will be merged.
 
     Thu. May 23, 2024 - General Availability
         Release announcement.
-        `ROS 2 desktop packages <https://www.ros.org/reps/rep-2001.html#jazzy-jalisco-may-2024-may-2029>`__ source freeze is lifted and ``rosdistro`` is reopened for Jazzy pull requests.
+        `ROS 2 desktop packages <https://reps.openrobotics.org/rep-2001/#jazzy-jalisco-may-2024-may-2029>`__ source freeze is lifted and ``rosdistro`` is reopened for Jazzy pull requests.
 
-.. [1] The ``ros_base`` variant is described in `REP 2001 (ros-base) <https://www.ros.org/reps/rep-2001.html#ros-base>`_.
-.. [2] The ``desktop`` variant is described in `REP 2001 (desktop-variants) <https://www.ros.org/reps/rep-2001.html#desktop-variants>`_.
+.. [1] The ``ros_base`` variant is described in `REP 2001 (ros-base) <https://reps.openrobotics.org/rep-2001/#ros-base>`_.
+.. [2] The ``desktop`` variant is described in `REP 2001 (desktop-variants) <https://reps.openrobotics.org/rep-2001/#desktop-variants>`_.

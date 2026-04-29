@@ -93,6 +93,16 @@ Environment variables
 The following environment variables control some aspects of the ROS 2 loggers.
 For each of the environment settings, note that this is a process-wide setting, so it applies to all nodes in that process.
 
+* ``RCL_LOGGING_IMPLEMENTATION`` - Control which logging backend implementation to use at runtime (when using dynamic loading, which is the default).
+  If non-empty, use the specified logging implementation library (e.g., ``rcl_logging_spdlog``, ``rcl_logging_noop``).
+  If empty or not set, defaults to ``rcl_logging_spdlog``.
+  This variable has no effect when RCL is built with static linking to a specific logging implementation.
+  See the ``rcl_logging_implementation`` section below for more details.
+* ``RCL_LOGGING_SPDLOG_FLUSH_PERIOD_SECONDS`` - Control the periodic flush interval for log files when using the ``rcl_logging_spdlog`` backend.
+  By default, logs are flushed every 5 seconds and immediately on error-level messages.
+  If set to ``0``, logs are flushed immediately on every log message (unbuffered mode, which may impact performance).
+  If set to a positive integer ``N``, logs are flushed every ``N`` seconds plus immediately on error-level messages.
+  If set to an invalid value (non-integer, negative, or trailing characters), initialization will fail with an error.
 * ``ROS_LOG_DIR`` - Control the logging directory that is used for writing logging messages to disk (if that is enabled).
   If non-empty, use the exact directory as specified in this variable.
   If empty, use the contents of the ``ROS_HOME`` environment variable to construct a path of the form ``$ROS_HOME/.log``.
@@ -120,6 +130,7 @@ For each of the environment settings, note that this is a process-wide setting, 
   * ``{message}`` - The log message (may be empty).
   * ``{function_name}`` - The function name this was called from (may be empty).
   * ``{file_name}`` - The file name this was called from (may be empty).
+  * ``{short_file_name}`` - The file name without the directory path (basename only) this was called from (may be empty).
   * ``{time}`` - The time in seconds since the epoch.
   * ``{time_as_nanoseconds}`` - The time in nanoseconds since the epoch.
   * ``{date_time_with_ms}`` - The time in ISO format, e.g. ``2024-06-11 09:29:19.304``
@@ -169,7 +180,8 @@ Since these are per-node options, they can be set differently for different node
 Logging subsystem design
 ------------------------
 
-The image below shows the five main pieces to the logging subsystem and how they interact.
+The image below shows the main pieces to the logging subsystem and how they interact.
+Note that ``rcl`` can link to logging implementations either through the ``rcl_logging_implementation`` abstraction layer (for runtime dynamic loading, the default) or directly to a specific implementation like ``rcl_logging_spdlog`` (for static linking).
 
 .. figure:: ../images/ros2_logging_architecture.png
    :alt: ROS 2 logging architecture
@@ -184,6 +196,140 @@ rcutils
 This will become more evident when we talk about the ``rcl`` layer below.
 
 Note that this is a *per-process* logging implementation, so anything that is configured at this level will affect the entire process, not just individual nodes.
+
+rcl_logging_implementation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+``rcl_logging_implementation`` is a package that enables runtime dynamic loading of logging backends in ROS 2, similar to how ``rmw_implementation`` works for middleware selection.
+This abstraction layer allows users to switch between different logging implementations (such as ``rcl_logging_spdlog`` and ``rcl_logging_noop``) without rebuilding RCL or application code.
+
+.. figure:: ../images/rcl_logging_implementation.png
+   :alt: rcl_logging_implementation architecture
+   :width: 550px
+   :align: center
+
+Runtime Dynamic Loading vs Static Linking
+""""""""""""""""""""""""""""""""""""""""""
+
+The logging system supports two build configurations:
+
+Dynamic Loading (Default)
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+By default, ``rcl`` links against ``rcl_logging_implementation``, which dynamically loads the logging backend at runtime.
+This approach provides maximum flexibility, allowing the logging implementation to be changed via environment variables without recompilation.
+
+When using dynamic loading:
+
+* The logging implementation is loaded as a shared library at runtime
+* The actual implementation can be selected via the ``RCL_LOGGING_IMPLEMENTATION`` environment variable
+* No rebuild is required to switch between logging implementations
+* All logging interface function symbols are resolved lazily when first accessed
+
+Static Linking
+~~~~~~~~~~~~~~
+
+For embedded systems or deployment scenarios requiring static linking, the build system can be configured to link directly to a specific logging implementation:
+
+* Set the CMake variable ``RCL_LOGGING_IMPLEMENTATION`` at build time to specify the implementation (e.g., ``rcl_logging_spdlog``, ``rcl_logging_noop``)
+* Alternatively, set the ``RCL_LOGGING_IMPLEMENTATION`` environment variable before running CMake
+* The specified implementation will be statically linked into the final executable
+* Runtime switching is NOT available with static linking
+
+Environment Variable Configuration
+"""""""""""""""""""""""""""""""""""
+
+When using dynamic loading (the default), the ``RCL_LOGGING_IMPLEMENTATION`` environment variable controls which logging backend is loaded at runtime.
+
+Syntax
+~~~~~~
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+       export RCL_LOGGING_IMPLEMENTATION=<implementation_name>
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+       export RCL_LOGGING_IMPLEMENTATION=<implementation_name>
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+       set RCL_LOGGING_IMPLEMENTATION=<implementation_name>
+
+Available implementations
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* ``rcl_logging_spdlog`` - Full-featured logging using the spdlog library (default)
+* ``rcl_logging_noop`` - No-op implementation that discards all log messages (useful for performance-critical applications)
+
+Example usage
+~~~~~~~~~~~~~
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+       # Use spdlog for logging (default behavior)
+       export RCL_LOGGING_IMPLEMENTATION=rcl_logging_spdlog
+       ros2 run demo_nodes_cpp talker
+
+       # Use no-op logging implementation that discards all log messages to the logging backend
+       export RCL_LOGGING_IMPLEMENTATION=rcl_logging_noop
+       ros2 run demo_nodes_cpp talker
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+       # Use spdlog for logging (default behavior)
+       export RCL_LOGGING_IMPLEMENTATION=rcl_logging_spdlog
+       ros2 run demo_nodes_cpp talker
+
+       # Use no-op logging implementation that discards all log messages to the logging backend
+       export RCL_LOGGING_IMPLEMENTATION=rcl_logging_noop
+       ros2 run demo_nodes_cpp talker
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+       # Use spdlog for logging (default behavior)
+       set RCL_LOGGING_IMPLEMENTATION=rcl_logging_spdlog
+       ros2 run demo_nodes_cpp talker
+
+       # Use no-op logging implementation that discards all log messages to the logging backend
+       set RCL_LOGGING_IMPLEMENTATION=rcl_logging_noop
+       ros2 run demo_nodes_cpp talker
+
+If the environment variable is not set, the system defaults to ``rcl_logging_spdlog``.
+
+Implementation Details
+~~~~~~~~~~~~~~~~~~~~~~
+
+The ``rcl_logging_implementation`` package:
+
+* Uses ``rcpputils::SharedLibrary`` for cross-platform dynamic library loading
+* Loads all logging interface function symbols at initialization
+* Maintains symbol references until the process exits
+* Falls back to the default implementation if the requested implementation cannot be found
+* Provides the same API surface as the underlying implementations, ensuring transparency to client code
+
+This architecture allows system integrators to:
+
+* Select appropriate logging implementations for different deployment scenarios
+* Disable logging in production for improved performance without code changes
+* Switch logging backends for debugging or development purposes
+* Package different logging implementations and select them at runtime
 
 rcl_logging_spdlog
 ^^^^^^^^^^^^^^^^^^

@@ -30,7 +30,7 @@ Some principles are common to all ROS 2 development:
 Quality Practices
 -----------------
 
-Packages can ascribe to different levels of quality based on the development practices they adhere to, as per the guidelines in `REP 2004: Package Quality Categories <https://www.ros.org/reps/rep-2004.html>`_.
+Packages can ascribe to different levels of quality based on the development practices they adhere to, as per the guidelines in `REP 2004: Package Quality Categories <https://reps.openrobotics.org/rep-2004/>`_.
 The categories are differentiated by their policies on versioning, testing, documentation, and more.
 
 The following sections are the specific development rules we follow to ensure core packages are of the highest quality ('Level 1').
@@ -145,7 +145,7 @@ Change control process
 
   * DCO is *not* required for pull requests that only address whitespace removal, typo correction, and other `trivial changes <http://cr.openjdk.java.net/~jrose/draft/trivial-fixes.html>`_.
 
-* Always run CI jobs for all `tier 1 platforms <https://www.ros.org/reps/rep-2000.html#support-tiers>`_ for every pull request and include links to jobs in the pull request.
+* Always run CI jobs for all `tier 1 platforms <https://reps.openrobotics.org/rep-2000/#support-tiers>`_ for every pull request and include links to jobs in the pull request.
   (If you don't have access to the Jenkins jobs someone will trigger the jobs for you.)
 
 * A minimum of 1 approval from a fellow developer who did not author the pull request is required to consider it approved.
@@ -163,9 +163,8 @@ When changing an older version of ROS:
 * Make sure the features or fixes are accepted and merged in the rolling branch before opening a PR to backport the changes to older versions.
 * When backporting to older versions, also consider backporting to any other :doc:`still supported versions <../../Releases>`, even non-LTS versions.
 * If you are backporting a single PR in its entirety, title the backport PR "[Distro] <name of original PR>".
-  If backporting a subset of changes from one or multiple PRs, the title should be "[Distro] <description of changes>".
 * Link to all PRs whose changes you're backporting from the description of your backport PR.
-  In a Dashing backport of a Foxy change, you do not need to link to the Eloquent backport of the same change.
+* Package maintainers typically use `Mergifyio <https://mergify.com/>`_ to automatically backport PRs to downstream distributions when needed, however developers can still perform manual backporting operations as described above when necessary.
 
 Documentation
 ^^^^^^^^^^^^^
@@ -262,7 +261,7 @@ General Practices
 
 Some practices are common to all ROS 2 development.
 
-These practices don't affect package quality level as described in `REP 2004 <https://www.ros.org/reps/rep-2004.html>`_, but are still highly recommended for the development process.
+These practices don't affect package quality level as described in `REP 2004 <https://reps.openrobotics.org/rep-2004/>`_, but are still highly recommended for the development process.
 
 Issues
 ^^^^^^
@@ -360,7 +359,8 @@ Pull requests
   As the opener of a pull-request, if you are working in a fork, checking the box to `allow edits from upstream contributors <https://github.com/blog/2247-improving-collaboration-with-forks>`__ will assist with the aforementioned.
   As a reviewer, also feel free to make more substantial improvements, but consider putting them in a separate branch (either mention the new branch in a comment, or open another pull request from the new branch to the original branch).
 
-* Any developer (the author, the reviewer, or somebody else) can merge any approved pull request.
+* Only maintainers and committers can merge approved pull requests into the mainline.
+  See the :doc:`current ROS PMC constituents and committers <../Governance>` for the list of people with merge permissions.
 
 Library versioning
 ^^^^^^^^^^^^^^^^^^
@@ -393,7 +393,7 @@ For example, a new function ``rmw_foo()`` introduced to the RMW API must be impl
 * `rmw_fastrtps <https://github.com/ros2/rmw_fastrtps>`__
 
 Updates for non-Tier 1 middleware libraries should also be considered if feasible (e.g. depending on the size of the change).
-See `REP-2000 <https://www.ros.org/reps/rep-2000.html>`__ for the list of middleware libraries and their tiers.
+See `REP-2000 <https://reps.openrobotics.org/rep-2000/>`__ for the list of middleware libraries and their tiers.
 
 Tracking tasks
 ^^^^^^^^^^^^^^
@@ -426,7 +426,7 @@ Package Naming Conventions
 Names play an important role in ROS and following naming conventions simplifies the process of learning and understanding large systems.
 
 The ROS packages occupy a flat namespace, so naming should be done carefully and consistently.
-There is a standard for package naming in `REP-144 <https://www.ros.org/reps/rep-0144.html>`__
+There is a standard for package naming in `REP-144 <https://reps.openrobotics.org/rep-0144/>`__
 
 * Package names should follow common C variable naming conventions: lower case, start with a letter, use underscore separators, e.g. laser_viewer
 
@@ -454,10 +454,10 @@ There is a standard for package naming in `REP-144 <https://www.ros.org/reps/rep
 Units of Measure and Coordinate System Conventions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Standard units and coordinate conventions for use in ROS have been formalized in `REP-103 <https://www.ros.org/reps/rep-0103.html>`__.
+Standard units and coordinate conventions for use in ROS have been formalized in `REP-0103 <https://reps.openrobotics.org/rep-0103/>`__.
 All messages should follow these guidelines unless there's a very strong reason which is very clearly documented to avoid confusion.
 
-Representation of special conditions within distance measurements like "too close" or "too far" in ROS have been formalized in `REP-0117 <https://www.ros.org/reps/rep-0117.html>`__.
+Representation of special conditions within distance measurements like "too close" or "too far" in ROS have been formalized in `REP-0117 <https://reps.openrobotics.org/rep-0117/>`__.
 
 Programming conventions
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -499,7 +499,7 @@ Package layout
 * ``msg``: contains all ROS Message definitions
 * ``srv``: contains all ROS Service definitions
 * ``action``: contains all ROS Action definitions
-* ``package.xml``: as defined by `REP-0140 <https://www.ros.org/reps/rep-0140.html>`_ (may be updated for prototyping)
+* ``package.xml``: as defined by `REP-0140 <https://reps.openrobotics.org/rep-0140/>`_ (may be updated for prototyping)
 * ``CMakeLists.txt``: only ROS packages which use CMake
 * ``setup.py``: only ROS packages which use Python code only
 * ``README``: can be rendered on GitHub as a landing page for the project
@@ -513,7 +513,7 @@ Package layout
   * This might include license implication, e.g. when using the Apache 2 License.
 
 * ``LICENSE``: a copy of the license or licenses for this package
-* ``CHANGELOG.rst``: `REP-0132 <https://www.ros.org/reps/rep-0132.html>`_ compliant changelog
+* ``CHANGELOG.rst``: `REP-0132 <https://reps.openrobotics.org/rep-0132/>`_ compliant changelog
 
 Repository layout
 ~~~~~~~~~~~~~~~~~
@@ -676,7 +676,7 @@ Design document review
 
 Once the design is ready for review, a pull request should be opened and appropriate reviewers should be assigned.
 It is recommended to include project owner(s) -
-maintainers of all impacted packages (as defined by ``package.xml`` maintainer field, see `REP-140 <https://www.ros.org/reps/rep-0140.html#maintainer-multiple-but-at-least-one>`__) - as reviewers.
+maintainers of all impacted packages (as defined by ``package.xml`` maintainer field, see `REP-140 <https://reps.openrobotics.org/rep-0140/#required-tags>`__) - as reviewers.
 
 * If the design doc is complex or reviewers have conflicting schedules, an optional design review meeting can be set up.
   In this case,
@@ -759,26 +759,16 @@ The build farm is located at `ci.ros2.org <https://ci.ros2.org/>`__.
 Every night we run nightly jobs which build and run all the tests in various scenarios on various platforms.
 Additionally, we test all pull requests against these platforms before merging.
 
-This is the current set of target platforms and architectures, though it evolves overtime:
-
-
-* Ubuntu 24.04 Noble
-
-  * amd64
-  * aarch64
-
-* Windows 10
-
-  * amd64
+Check :ref:`the current set of target platforms and architectures <binary-package-platforms>`, though it evolves overtime.
 
 There are several categories of jobs on the buildfarm:
-
 
 * manual jobs (triggered manually by developers):
 
   * ci_linux: build + test the code on Ubuntu
   * ci_linux-aarch64: build + test the code on Ubuntu on an ARM 64-bit machine (aarch64)
   * ci_linux_coverage: build + test + generation of test coverage
+  * ci_linux-rhel: build + test the code on Red Hat Enterprise Linux
   * ci_windows: build + test the code on Windows
   * ci_launcher: trigger all the jobs listed above
 
@@ -788,18 +778,21 @@ There are several categories of jobs on the buildfarm:
 
     * nightly_linux_debug
     * nightly_linux-aarch64_debug
+    * nightly_linux-rhel_debug
     * nightly_win_deb
 
   * Release: build + test the code with CMAKE_BUILD_TYPE=Release
 
     * nightly_linux_release
     * nightly_linux-aarch64_release
+    * nightly_linux-rhel_release
     * nightly_win_rel
 
   * Repeated: build then run each test up to 20 times or until failed (aka flakiness hunter)
 
     * nightly_linux_repeated
     * nightly_linux-aarch64_repeated
+    * nightly_linux-rhel_repeated
     * nightly_win_rep
 
   * Coverage:
@@ -812,6 +805,7 @@ There are several categories of jobs on the buildfarm:
 * packaging (run every night; result is bundled into an archive):
 
   * packaging_linux
+  * packaging_linux-rhel
   * packaging_windows
 
 Two additional build farms support the ROS / ROS 2 ecosystem by providing building of source and

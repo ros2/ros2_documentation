@@ -4,6 +4,7 @@ Advanced
 .. toctree::
    :maxdepth: 1
 
+   Advanced/Supplementing-Custom-Rosdep-Keys
    Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial
    Advanced/Topic-Keys/Topic-Keys-Tutorial
    Advanced/Topic-Keys/Filtered-Topic-Keys-Tutorial
@@ -16,6 +17,8 @@ Advanced
    Advanced/Recording-A-Bag-From-Your-Own-Node-Py
    Advanced/Reading-From-A-Bag-File-CPP
    Advanced/Reading-From-A-Bag-File-Python
+   Advanced/Create-An-Rqtbag-Plugin
    Advanced/ROS2-Tracing-Trace-and-Analyze
+   Advanced/Creating-An-RMW-Implementation
    Advanced/Simulators/Simulation-Main
    Advanced/Security/Security-Main

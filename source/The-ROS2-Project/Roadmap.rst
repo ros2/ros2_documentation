@@ -15,38 +15,21 @@ This page describes planned work for ROS 2.
 The set of planned features and development efforts should provide insight into the overall direction of ROS 2.
 If you would like to see other features on the roadmap, please get in touch with us at info@openrobotics.org.
 
-Kilted Roadmap
---------------
+Lyrical Luth
+------------
 
-Kilted Kaiju is the ROS 2 release expected in May 2025.
-See the :doc:`release page <../Releases/Release-Kilted-Kaiju>` for a detailed timeline.
+Lyrical Luth is the ROS 2 release expected in May 2026.
+See the :doc:`release page <../Releases/Release-Lyrical-Luth>` for a detailed timeline.
 
-The items in the roadmap below are the major features being worked on by the ROS 2 community.
+Lyrical Roadmap
+---------------
+
+The features being worked on are tracked on the `GitHub Project Board <https://github.com/orgs/ros2/projects/70>`__.
+The items in the roadmap are the major features being worked on by the ROS 2 community.
 The "Size" is an estimated size of the task, where *Small* means person-days to complete, *Medium* means person-weeks to complete, and *Large* means person-months to complete.
 
-If you are working on a feature for ROS 2 and would like to have it listed, please open a pull request to `ROS 2 Documentation <https://github.com/ros2/ros2_documentation>`__.
+If you are working on a feature for ROS 2 and would like to have it listed, please open an issue on `ROS 2 Documentation <https://github.com/ros2/ros2_documentation>`__.
 If you'd like to take on one of these tasks, please :doc:`get in touch with us <../Contact>`.
-
-.. raw:: html
-
-   <style>
-     .wy-table-responsive table td, .wy-table-responsive table th {
-       white-space: normal;
-     }
-   </style>
-
-.. list-table::
-   :widths: 40 10 25 25
-   :header-rows: 1
-
-   * - Task
-     - Size
-     - Owner
-     - Expected Completion
-   * - Make ``rmw_zenoh_cpp`` a Tier-1 RMW
-     - Large
-     - Intrinsic
-     - May 2025
 
 Planned releases
 ----------------
@@ -63,5 +46,5 @@ Here are a few resources to get you going.
 2. Check out the list of :doc:`Feature Ideas <Feature-Ideas>` for inspiration.
 3. For more information on the design of ROS 2 please see `design.ros2.org <https://design.ros2.org>`__.
 4. The core code for ROS 2 is in the `ros2 GitHub organization <https://github.com/ros2>`__.
-5. The Discourse forum/mailing list for discussing ROS 2 design is `ng-ros <https://discourse.ros.org/c/ng-ros>`__.
+5. The forum discussing ROS 2 design is `Open Robotics Discourse's ROS category <https://discourse.openrobotics.org/c/ros/111>`__.
 6. Questions should be asked on `Robotics Stack Exchange <https://robotics.stackexchange.com/>`__\ , make sure to include at least the ``ros2`` tag and the rosdistro version you are running, e.g. ``{DISTRO}``.

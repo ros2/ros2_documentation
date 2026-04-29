@@ -94,7 +94,7 @@ Inside the ``ros2_ws/src/bag_recorder_nodes/src`` directory, create a new file c
 
         writer_->open("my_bag");
 
-        auto subscription_callback_lambda = [this](std::shared_ptr<rclcpp::SerializedMessage> msg){
+        auto subscription_callback_lambda = [this](std::shared_ptr<const rclcpp::SerializedMessage> msg){
           rclcpp::Time time_stamp = this->now();
 
           writer_->write(msg, "chatter", "std_msgs/msg/String", time_stamp);
@@ -144,7 +144,7 @@ We will write data to the bag in the callback.
 
 .. code-block:: C++
 
-        auto subscription_callback_lambda = [this](std::shared_ptr<rclcpp::SerializedMessage> msg){
+        auto subscription_callback_lambda = [this](std::shared_ptr<const rclcpp::SerializedMessage> msg){
           rclcpp::Time time_stamp = this->now();
 
           writer_->write(msg, "chatter", "std_msgs/msg/String", time_stamp);
@@ -162,7 +162,7 @@ We do this for two reasons.
 
 .. code-block:: C++
 
-        auto subscription_callback_lambda = [this](std::shared_ptr<rclcpp::SerializedMessage> msg){
+        auto subscription_callback_lambda = [this](std::shared_ptr<const rclcpp::SerializedMessage> msg){
 
 Within the subscription callback, the first thing to do is determine the time stamp to use for the stored message.
 This can be anything appropriate to your data, but two common values are the time at which the data was produced, if known, and the time it is received.
@@ -223,7 +223,7 @@ Below the dependencies block, which contains ``find_package(rosbag2_cpp REQUIRED
 .. code-block:: console
 
     add_executable(simple_bag_recorder src/simple_bag_recorder.cpp)
-    target_link_libraries(simple_bag_recorder rclcpp::rclcpp rosbag2_cpp::rosbag2_cpp ${std_msgs_TARGETS})
+    target_link_libraries(simple_bag_recorder rclcpp::rclcpp rosbag2_cpp::rosbag2_cpp std_msgs::std_msgs)
 
     install(TARGETS
       simple_bag_recorder
@@ -433,7 +433,7 @@ Open the ``CMakeLists.txt`` file and add the following lines after the previousl
 .. code-block:: console
 
     add_executable(data_generator_node src/data_generator_node.cpp)
-    target_link_libraries(data_generator_node PUBLIC rclcpp::rclcpp rosbag2_cpp::rosbag2_cpp ${example_interfaces_TARGETS})
+    target_link_libraries(data_generator_node PUBLIC rclcpp::rclcpp rosbag2_cpp::rosbag2_cpp example_interfaces::example_interfaces)
 
     install(TARGETS
       data_generator_node
@@ -593,7 +593,7 @@ Open the ``CMakeLists.txt`` file and add the following lines after the previousl
 .. code-block:: console
 
     add_executable(data_generator_executable src/data_generator_executable.cpp)
-    target_link_libraries(data_generator_executable PUBLIC rclcpp::rclcpp rosbag2_cpp::rosbag2_cpp ${example_interfaces_TARGETS})
+    target_link_libraries(data_generator_executable PUBLIC rclcpp::rclcpp rosbag2_cpp::rosbag2_cpp example_interfaces::example_interfaces)
 
     install(TARGETS
       data_generator_executable

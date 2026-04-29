@@ -72,9 +72,11 @@ Currently, rclcpp provides three Executor types, derived from a shared parent cl
 
       Executor -> SingleThreadedExecutor [dir = back, arrowtail = empty];
       Executor -> MultiThreadedExecutor [dir = back, arrowtail = empty];
+      Executor -> EventsCBGExecutor [dir = back, arrowtail = empty];
       Executor  [shape=polygon,sides=4];
       SingleThreadedExecutor  [shape=polygon,sides=4];
       MultiThreadedExecutor  [shape=polygon,sides=4];
+      EventsCBGExecutor  [shape=polygon,sides=4];
 
       }
 

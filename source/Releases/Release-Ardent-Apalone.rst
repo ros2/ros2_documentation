@@ -23,6 +23,79 @@ This version of ROS 2 is supported on three platforms:
 
 Binary packages as well as instructions for how to compile from source are provided for all 3 platforms (see `install instructions <../../Installation>` as well as `documentation <https://docs.ros2.org/ardent/>`__).
 
++--------------+-----------------------+----------------------+--------------------+
+|                                  Required support                                |
++--------------+-----------------------+----------------------+--------------------+
+| Architecture | Ubuntu Xenial (16.04) | MacOS Sierra (10.12) | Windows 10 (VS2015)|
++==============+=======================+======================+====================+
+| amd64        | X                     | X                    | X                  |
++--------------+-----------------------+----------------------+--------------------+
+| arm64        | X                     |                      |                    |
++--------------+-----------------------+----------------------+--------------------+
+
+Minimum language requirements:
+
+- C11[^2]
+- C++14
+- Python 3.5
+
+[^2]: C11 is required, but support for some non-compliant systems is
+    also provided, e.g. MSVC.
+
+Dependency Requirements:
+
++--------------+----------------+------------+--------------+
+| Package      | Ubuntu Xenial  | MacOS**    | Windows 10** |
++==============+================+============+==============+
+| CMake        | 3.5.1          | 3.11.0     | 3.10.2       |
++--------------+----------------+------------+--------------+
+| EmPY         | 3.3.2          | 3.6.5      | 3.3.2        |
++--------------+----------------+------------+--------------+
+| Ogre         | 1.10*          | 1.10*      | 1.10*        |
++--------------+----------------+------------+--------------+
+| OpenCV       | 2.4.9          | 3.4.1      | 2.4.13.2*    |
++--------------+----------------+------------+--------------+
+| Poco         | 1.7.7*         | 1.7.7*     | 1.7.7*       |
++--------------+----------------+------------+--------------+
+| Python       | 3.5.1          | 3.6.5      | 3.6.4        |
++--------------+----------------+------------+--------------+
+| Qt           | 5.5.1          | 5.10.0     | 5.10.0       |
++--------------+----------------+------------+--------------+
+| **Linux only (used for turtlebot demo)**                  |
++--------------+----------------+------------+--------------+
+| PCL          | 1.7.2          | N/A        | N/A          |
++--------------+----------------+------------+--------------+
+
+\" \* \" means that this is not the upstream version (available on the
+official Operating System repositories) but a package distributed by
+OSRF or the community (package built and distributed on custom
+repositories).
+
+\" \*\* \" Rolling distributions will see multiple version changes of
+these dependencies during their lifetime.
+
+This document only captures the version at the first release of a ROS
+distribution and will not be updated as the dependencies move forward.
+These versions are thus a low watermark.
+
+Package manager use for dependencies:
+
+- Ubuntu Xenial: apt
+- MacOS: Homebrew, pip
+- Windows: Chocolatey, pip
+
+Build System Support:
+
+- ament_cmake
+- cmake
+- setuptools
+
+Middleware Implementation Support:
+
+- eProsima Fast-RTPS
+- RTI Connext
+- ADLINK OpenSplice
+
 Features
 --------
 
@@ -71,7 +144,7 @@ Improvements since the Beta 3 release:
 * Logging API improvements, now also used in the demos
 * Time support in C++ with different clocks
 * wait-for-service support in the Python client library
-* Draft implementation of `REP 149 <https://www.ros.org/reps/rep-0149.html>`__ specifying format 3 of the package manifest files
+* Draft implementation of `REP 149 <https://reps.openrobotics.org/rep-0149/>`__ specifying format 3 of the package manifest files
 
 Known Issues
 ------------

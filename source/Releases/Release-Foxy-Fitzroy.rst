@@ -10,7 +10,7 @@ Foxy Fitzroy (``foxy``)
 Supported Platforms
 -------------------
 
-Foxy Fitzroy is primarily supported on the following platforms:
+Foxy Fitzroy supports the following platforms according to `the platform support tiers <../The-ROS2-Project/Platform-Support-Tiers>`:
 
 Tier 1 platforms:
 
@@ -24,7 +24,137 @@ Tier 3 platforms:
 * Debian Buster (10): ``amd64``, ``arm64`` and ``arm32``
 * OpenEmbedded Thud (2.6) / webOS OSE: ``arm32`` and ``x86``
 
-For more information about RMW implementations, compiler / interpreter versions, and system dependency versions see `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__.
+Targeted platforms:
+
++--------------+-----------------------+----------------------+--------------------+-------------------+----------------+
+| Architecture | Ubuntu Focal (20.04)  | MacOS Mojave (10.14) | Windows 10 (VS2019)| Debian Buster (10)| OpenEmbedded / |
+|              |                       |                      |                    |                   | webOS OSE      |
++==============+=======================+======================+====================+===================+================+
+| amd64        | Tier 1 [d][a][s]      | Tier 1 [a][s]        | Tier 1 [a][s]      | Tier 3 [s]        |                |
++--------------+-----------------------+----------------------+--------------------+-------------------+----------------+
+| arm64        | Tier 1 [d][a][s]      |                      |                    | Tier 3 [s]        | Tier 3 [s]     |
++--------------+-----------------------+----------------------+--------------------+-------------------+----------------+
+| arm32        | Tier 3 [s]            |                      |                    | Tier 3 [s]        | Tier 3 [s]     |
++--------------+-----------------------+----------------------+--------------------+-------------------+----------------+
+
+The following indicators show what delivery mechanisms are available for
+each platform.
+
+\" \[d\] \" Debian packages will be provided for this platform for
+packages submitted to the rosdistro.
+
+\" \[a\] \" Binary releases are provided as a single archive per
+platform containing all packages in the Foxy ROS 2 repos file[^9].
+
+\" \[s\] \" Compilation from source.
+
+Middleware Implementation Support:
+
++--------------------------+-----------------------+---------------+-------------------------+-----------------------------------+
+| Middleware Library       | Middleware Provider   | Support Level | Platforms               | Architectures                     |
++==========================+=======================+===============+=========================+===================================+
+| rmw_fastrtps_cpp*        | eProsima Fast-RTPS    | Tier 1        | All Platforms           | All Architectures                 |
++--------------------------+-----------------------+---------------+-------------------------+-----------------------------------+
+| rmw_cyclonedds_cpp       | Eclipse Cyclone DDS   | Tier 1        | All Platforms           | All Architectures                 |
++--------------------------+-----------------------+---------------+-------------------------+-----------------------------------+
+| rmw_connext_cpp          | RTI Connext           | Tier 1        | All Platforms except    | All Architectures except          |
+|                          |                       |               | Debian and OpenEmbedded | arm64/arm32                       |
++--------------------------+-----------------------+---------------+-------------------------+-----------------------------------+
+| rmw_fastrtps_dynamic_cpp | eProsima Fast-RTPS    | Tier 2        | All Platforms           | All Architectures                 |
++--------------------------+-----------------------+---------------+-------------------------+-----------------------------------+
+| rmw_gurumdds_cpp         | GurumNetworks         | Tier 3        | Ubuntu and Windows      | All Architectures except arm32    |
+|                          | GurumDDS              |               |                         |                                   |
++--------------------------+-----------------------+---------------+-------------------------+-----------------------------------+
+
+
+\" \* \" means default RMW implementation.
+
+Middleware implementation support is dependent upon the platform support
+tier. For example a Tier 1 middleware implementation on a Tier 2
+platform can only receive Tier 2 support.
+
+Minimum language requirements:
+
+- C++14
+- Python 3.7
+
+Dependency Requirements:
+
++--------------+------------------+------------------+------------------+------------------+-----------------------+
+|              | Required Support                                       | Recommended Support                      |
++--------------+------------------+------------------+------------------+------------------+-----------------------+
+| Package      | Ubuntu Focal     | MacOS**          | Windows 10**     | Debian Buster    | OpenEmbedded**        |
++==============+==================+==================+==================+==================+=======================+
+| CMake        | 3.16.3           | 3.14.4           | 3.14.4           | 3.13.4           | 3.16.1 / 3.12.2****   |
++--------------+------------------+------------------+------------------+------------------+-----------------------+
+| EmPY         | 3.3.2                                                                                             |
++--------------+------------------+------------------+------------------+------------------+-----------------------+
+| Gazebo       | 11.0.0*          | 11.0.0           | N/A              | 11.0.0*          | N/A                   |
++--------------+------------------+------------------+------------------+------------------+-----------------------+
+| Ignition     | Citadel*                            | N/A              | Citadel*         | N/A                   |
++--------------+-------------------------------------+------------------+------------------+-----------------------+
+| Ogre         | 1.10*                                                                     | N/A                   |
++--------------+------------------+------------------+------------------+------------------+-----------------------+
+| OpenCV       | 4.2.0            | 4.2.0            | 3.4.6*           | 3.2.0            | 4.1.0 / 3.2.0****     |
++--------------+------------------+------------------+------------------+------------------+-----------------------+
+| OpenSSL      | 1.1.1d           | 1.1.1f           | 1.1.1f           | 1.1.1d           | 1.1.1d / 1.1.1b****   |
++--------------+------------------+------------------+------------------+------------------+-----------------------+
+| Poco         | 1.9.2            | 1.9.0            | 1.8.0*           | 1.9.0            | 1.9.4                 |
++--------------+------------------+------------------+------------------+------------------+-----------------------+
+| Python       | 3.8.0            | 3.8.2            | 3.8.0            | 3.7.3            | 3.8.2 / 3.7.5****     |
++--------------+------------------+------------------+------------------+------------------+-----------------------+
+| Qt           | 5.12.5           | 5.12.3           | 5.10.0           | 5.11.3           | 5.14.1 / 5.12.5****   |
++--------------+------------------+------------------+------------------+------------------+-----------------------+
+|                                 | **Linux only**                                                                 |
++--------------+------------------+------------------+------------------+------------------+-----------------------+
+| PCL          | 1.10.0           | N/A              | N/A              | 1.9.1            | 1.10.0                |
++--------------+------------------+------------------+------------------+------------------+-----------------------+
+| **RMW DDS Middleware Providers**                                                                                 |
++--------------+------------------+------------------+------------------+------------------+-----------------------+
+| Connext DDS  | 5.3.1                                                  | N/A                                      |
++--------------+-------------------------------------+------------------+------------------------------------------+
+| Cyclone DDS  | 0.7.x (Coquette)                                                                                  |
++--------------+---------------------------------------------------------------------------------------------------+
+| Fast-RTPS    | 2.0.x                                                                                             |
++--------------+------------------+------------------+------------------+------------------+-----------------------+
+| Gurum DDS    | 2.7.x            | N/A              | 2.7.x            | N/A                                      |
++--------------+------------------+------------------+------------------+------------------------------------------+
+
+\" \* \" means that this is not the upstream version (available on the
+official Operating System repositories) but a package distributed by
+OSRF or the community (package built and distributed on custom
+repositories).
+
+\" \*\* \" Rolling distributions will see multiple version changes of
+these dependencies during their lifetime. The versions shown for
+OpenEmbedded are those provided by the 3.1 Dunfell release series; the
+versions provided by the other supported release series are listed here:
+<https://github.com/ros/meta-ros/wiki/Package-Version-Differences> .
+Note that the OpenEmbedded releases series for which a ROS distro has
+support will change during its support time frame, as per the
+OpenEmbedded support policy shown here:
+<https://github.com/ros/meta-ros/wiki/Policies#openembedded-release-series-support>
+. However, it will always be supported by least one stable OpenEmbedded
+release series.
+
+\" \*\*\*\* \" webOS OSE provides this different version.
+
+This document only captures the version at the first release of a ROS
+distribution and will not be updated as the dependencies move forward.
+These versions are thus a low watermark.
+
+Package manager use for dependencies:
+
+- Ubuntu, Debian: apt
+- MacOS: Homebrew, pip
+- Windows: Chocolatey, pip
+- OpenEmbedded: opkg
+
+Build System Support:
+
+- ament_cmake
+- cmake
+- setuptools
 
 Installation
 ------------

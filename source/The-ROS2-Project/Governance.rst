@@ -37,6 +37,14 @@ The day-to-day operations of the ROS PMC include managing the members and commit
 
 For more details about the ROS PMC, please see the `Charter for the ROS Project <https://osralliance.org/staging/wp-content/uploads/2024/03/ros_project_charter.pdf>`__.
 
+ROS Project Management Committee (PMC) Meetings
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Community members are encouraged to observe the ROS 2 PMC meetings and submit agenda items via a PMC constituent.
+To add an item to the ROS PMC agenda please contact one of the ROS PMC constituents list below.
+ROS PMC meetings are conducted using Zoom and presently occur every Tuesday at 17:00 UTC (09:00 PST / 12:00 EST / 18:00 CET / +1 02:00 JST).
+To join the ROS PMC meeting please use the `link available in our official OSRA Google calendar <https://calendar.google.com/calendar/u/0/embed?src=agf3kajirket8khktupm9go748@group.calendar.google.com&ctz=Etc%2FUTC>`__.
+
 Current ROS PMC Constituents
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -51,37 +59,42 @@ The ROS PMC currently consists of the following constituents:
      - PMC role
      - Time Zone (optional)
    * - Christophe Bédard
-     - `Apex.AI <https://www.apex.ai/>`_
+     - `KUKA <https://www.kuka.com/>`_
      - `christophebedard <https://github.com/christophebedard>`_
      - Member
      - PST (UTC-8)/PDT (UTC-7)
    * - Michael Carroll
-     - `Intrinsic <https://www.intrinsic.ai/>`_
+     - `KUKA <https://www.kuka.com/>`_
      - `mjcarroll <https://github.com/mjcarroll>`_
      - (Interim) Project Leader
      - CST (UTC-6)/CDT (UTC-5)
-   * - Alejandro Hernandez Cordero
-     - `Honu Robotics <https://www.honurobotics.com/>`_
-     - `ahcorde <https://github.com/ahcorde>`_
+   * - Miguel Company
+     - `eProsima <https://www.eprosima.com/>`_
+     - `MiguelCompany <https://github.com/MiguelCompany>`_
      - Member
      - CET (UTC+1)/CEST (UTC+2)
    * - Tomoya Fujita
      - `Sony <https://www.sony.com/>`_
      - `fujitatomoya <https://github.com/fujitatomoya>`_
      - Member
-     - PST (UTC-8)/PDT (UTC-7)
+     - JST (UTC+9)
    * - Marco A. Gutiérrez
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `marcoag <https://github.com/marcoag>`_
      - Member
      - SGT (UTC+8)
+   * - Alejandro Hernandez Cordero
+     - `Honu Robotics <https://www.honurobotics.com/>`_
+     - `ahcorde <https://github.com/ahcorde>`_
+     - Member
+     - CET (UTC+1)/CEST (UTC+2)
    * - Emerson Knapp
      - `Polymath Robotics <https://www.polymathrobotics.com/>`_
      - `emersonknapp <https://github.com/emersonknapp/>`_
      - Member
      - PST (UTC-8)/PDT (UTC-7)
    * - Chris Lalancette
-     - `Intrinsic <https://www.intrinsic.ai/>`_
+     - Independent
      - `clalancette <https://github.com/clalancette>`_
      - Member (former Project Leader)
      - N/A
@@ -142,6 +155,10 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
      - `Sony <https://www.sony.com/>`_
      - `Barry-Xu-2018 <https://github.com/Barry-Xu-2018>`_
      - CST (UTC+8)
+   * - Brandon Ong
+     - `Intrinsic <https://www.intrinsic.ai/>`_
+     - `methylDragon <https://github.com/methylDragon>`_
+     - PST (UTC-8)/PDT (UTC-7)
    * - Dharini Dutia
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `quarkytale <https://github.com/quarkytale>`_
@@ -150,14 +167,22 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
      - `cellumation <https://cellumation.com/>`_
      - `jmachowinski <https://github.com/jmachowinski>`_
      - CET (UTC+1)
+   * - Julien Enoch
+     - `Zettascale <https://www.zettascale.tech/>`_
+     - `JEnoch <https://github.com/JEnoch>`_
+     - CET (UTC+1)/CEST (UTC+2)
    * - Kat Scott
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `kscottz <https://github.com/kscottz>`_
      - PST (UTC-8)/PDT (UTC-7)
-   * - Miguel Company
-     - `eProsima <https://www.eprosima.com/>`_
-     - `MiguelCompany <https://github.com/MiguelCompany>`_
-     - CET (UTC+1)/CEST (UTC+2)
+   * - Michael (Robert) Carlstrom
+     - `CivRobotics <https://www.civrobotics.com/>`_
+     - `InvincibleRMC <https://github.com/InvincibleRMC>`_
+     - PST (UTC-8)/PDT (UTC-7)
+   * - Skyler Medeiros
+     - `Polymath Robotics <https://www.polymathrobotics.com/>`_
+     - `skyegalaxy <https://github.com/skyegalaxy>`_
+     - PST (UTC-8)/PDT (UTC-7)
    * - Steve Peters
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `scpeters <https://github.com/scpeters>`_
@@ -166,6 +191,14 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `tfoote <https://github.com/tfoote>`_
      - PST (UTC-8)/PDT (UTC-7)
+   * - Andrew Symington
+     - `Intrinsic <https://www.intrinsic.ai/>`_
+     - `asymingt <https://github.com/asymingt>`_
+     - PST (UTC-8)/PDT (UTC-7)
+   * - Yuyuan Yuan
+     - `Zettascale <https://www.zettascale.tech/>`_
+     - `YuanYuYuan <https://github.com/YuanYuYuan>`_
+     - TST (UTC+8)
 
 Past ROS PMC Constituents
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -191,243 +224,122 @@ The following repositories are managed by the ROS PMC:
    :header-rows: 1
 
    * - Repository URL
-     - Committers
    * - https://github.com/ament/ament_cmake
-     - Not Yet Available
    * - https://github.com/ament/ament_index
-     - Not Yet Available
    * - https://github.com/ament/ament_lint
-     - Not Yet Available
    * - https://github.com/ament/ament_package
-     - Not Yet Available
    * - https://github.com/ament/google_benchmark_vendor
-     - Not Yet Available
    * - https://github.com/ament/googletest
-     - Not Yet Available
    * - https://github.com/ament/uncrustify_vendor
-     - Not Yet Available
    * - https://github.com/gazebo-release/gz_cmake_vendor
-     - Not Yet Available
    * - https://github.com/gazebo-release/gz_math_vendor
-     - Not Yet Available
    * - https://github.com/gazebo-release/gz_utils_vendor
-     - Not Yet Available
    * - https://github.com/osrf/osrf_pycommon
-     - Not Yet Available
    * - https://github.com/osrf/osrf_testing_tools_cpp
-     - Not Yet Available
    * - https://github.com/ros-infrastructure/rep
-     - Not Yet Available
    * - https://github.com/ros-infrastructure/rosdoc2
-     - Not Yet Available
    * - https://github.com/ros-perception/image_common
-     - Not Yet Available
    * - https://github.com/ros-perception/laser_geometry
-     - Not Yet Available
    * - https://github.com/ros-perception/point_cloud_transport
-     - Not Yet Available
    * - https://github.com/ros-perception/pointcloud_to_laserscan
-     - Not Yet Available
    * - https://github.com/ros-planning/navigation_msgs
-     - Not Yet Available
    * - https://github.com/ros-tooling/keyboard_handler
-     - Not Yet Available
    * - https://github.com/ros-tooling/libstatistics_collector
-     - Not Yet Available
    * - https://github.com/ros-visualization/interactive_markers
-     - Not Yet Available
    * - https://github.com/ros-visualization/python_qt_binding
-     - Not Yet Available
    * - https://github.com/ros-visualization/qt_gui_core
-     - Not Yet Available
    * - https://github.com/ros-visualization/rqt
-     - Not Yet Available
    * - https://github.com/ros-visualization/rqt_action
-     - Not Yet Available
    * - https://github.com/ros-visualization/rqt_bag
-     - Not Yet Available
    * - https://github.com/ros-visualization/rqt_console
-     - Not Yet Available
    * - https://github.com/ros-visualization/rqt_graph
-     - Not Yet Available
    * - https://github.com/ros-visualization/rqt_msg
-     - Not Yet Available
    * - https://github.com/ros-visualization/rqt_plot
-     - Not Yet Available
    * - https://github.com/ros-visualization/rqt_publisher
-     - Not Yet Available
    * - https://github.com/ros-visualization/rqt_py_console
-     - Not Yet Available
    * - https://github.com/ros-visualization/rqt_reconfigure
-     - Not Yet Available
    * - https://github.com/ros-visualization/rqt_service_caller
-     - Not Yet Available
    * - https://github.com/ros-visualization/rqt_shell
-     - Not Yet Available
    * - https://github.com/ros-visualization/rqt_srv
-     - Not Yet Available
    * - https://github.com/ros-visualization/rqt_topic
-     - Not Yet Available
    * - https://github.com/ros-visualization/tango_icons_vendor
-     - Not Yet Available
    * - https://github.com/ros-visualization/visualization_tutorials
-     - Not Yet Available
    * - https://github.com/ros/angles
-     - Not Yet Available
    * - https://github.com/ros/class_loader
-     - Not Yet Available
    * - https://github.com/ros/console_bridge
-     - Not Yet Available
    * - https://github.com/ros/eigen_stl_containers
-     - Not Yet Available
    * - https://github.com/ros/geometry_tutorials
-     - Not Yet Available
    * - https://github.com/ros/kdl_parser
-     - Not Yet Available
    * - https://github.com/ros/pluginlib
-     - Not Yet Available
    * - https://github.com/ros/resource_retriever
-     - Not Yet Available
    * - https://github.com/ros/robot_state_publisher
-     - Not Yet Available
    * - https://github.com/ros/ros_environment
-     - Not Yet Available
    * - https://github.com/ros/ros_tutorials
-     - Not Yet Available
    * - https://github.com/ros/rosdistro
-     - Not Yet Available
    * - https://github.com/ros/urdf_parser_py
-     - Not Yet Available
    * - https://github.com/ros/urdfdom
-     - Not Yet Available
    * - https://github.com/ros/urdfdom_headers
-     - Not Yet Available
    * - https://github.com/ros2/ament_cmake_ros
-     - Not Yet Available
    * - https://github.com/ros2/common_interfaces
-     - Not Yet Available
    * - https://github.com/ros2/console_bridge_vendor
-     - Not Yet Available
    * - https://github.com/ros2/demos
-     - Not Yet Available
    * - https://github.com/ros2/design
-     - Not Yet Available
    * - https://github.com/ros2/eigen3_cmake_module
-     - Not Yet Available
    * - https://github.com/ros2/example_interfaces
-     - Not Yet Available
    * - https://github.com/ros2/examples
-     - Not Yet Available
    * - https://github.com/ros2/geometry2
-     - Not Yet Available
    * - https://github.com/ros2/launch
-     - Not Yet Available
    * - https://github.com/ros2/launch_ros
-     - Not Yet Available
    * - https://github.com/ros2/libyaml_vendor
-     - Not Yet Available
    * - https://github.com/ros2/message_filters
-     - Not Yet Available
    * - https://github.com/ros2/mimick_vendor
-     - Not Yet Available
    * - https://github.com/ros2/orocos_kdl_vendor
-     - Not Yet Available
    * - https://github.com/ros2/performance_test_fixture
-     - Not Yet Available
    * - https://github.com/ros2/pybind11_vendor
-     - Not Yet Available
-   * - https://github.com/ros2/python_cmake_module
-     - Not Yet Available
    * - https://github.com/ros2/rcl
-     - Not Yet Available
    * - https://github.com/ros2/rcl_interfaces
-     - Not Yet Available
    * - https://github.com/ros2/rcl_logging
-     - Not Yet Available
    * - https://github.com/ros2/rclcpp
-     - Not Yet Available
    * - https://github.com/ros2/rclpy
-     - Not Yet Available
    * - https://github.com/ros2/rcpputils
-     - Not Yet Available
    * - https://github.com/ros2/rcutils
-     - Not Yet Available
    * - https://github.com/ros2/realtime_support
-     - Not Yet Available
    * - https://github.com/ros2/rmw
-     - Not Yet Available
    * - https://github.com/ros2/rmw_connextdds
-     - Not Yet Available
    * - https://github.com/ros2/rmw_cyclonedds
-     - Not Yet Available
    * - https://github.com/ros2/rmw_dds_common
-     - Not Yet Available
    * - https://github.com/ros2/rmw_fastrtps
-     - Not Yet Available
    * - https://github.com/ros2/rmw_implementation
-     - Not Yet Available
    * - https://github.com/ros2/rmw_zenoh
-     - Not Yet Available
    * - https://github.com/ros2/ros_testing
-     - Not Yet Available
-   * - https://github.com/ros2/ros1_bridge
-     - Not Yet Available
    * - https://github.com/ros2/ros2
-     - Not Yet Available
    * - https://github.com/ros2/ros2_documentation
-     - Not Yet Available
    * - https://github.com/ros2/ros2_tracing
-     - Not Yet Available
    * - https://github.com/ros2/ros2cli
-     - Not Yet Available
    * - https://github.com/ros2/ros2cli_common_extensions
-     - Not Yet Available
    * - https://github.com/ros2/rosbag2
-     - Not Yet Available
    * - https://github.com/ros2/rosidl
-     - Not Yet Available
    * - https://github.com/ros2/rosidl_core
-     - Not Yet Available
    * - https://github.com/ros2/rosidl_dds
-     - Not Yet Available
    * - https://github.com/ros2/rosidl_defaults
-     - Not Yet Available
    * - https://github.com/ros2/rosidl_dynamic_typesupport
-     - Not Yet Available
    * - https://github.com/ros2/rosidl_dynamic_typesupport_fastrtps
-     - Not Yet Available
    * - https://github.com/ros2/rosidl_python
-     - Not Yet Available
    * - https://github.com/ros2/rosidl_runtime_py
-     - Not Yet Available
    * - https://github.com/ros2/rosidl_typesupport
-     - Not Yet Available
    * - https://github.com/ros2/rosidl_typesupport_fastrtps
-     - Not Yet Available
    * - https://github.com/ros2/rpyutils
-     - Not Yet Available
    * - https://github.com/ros2/rviz
-     - Not Yet Available
    * - https://github.com/ros2/spdlog_vendor
-     - Not Yet Available
    * - https://github.com/ros2/sros2
-     - Not Yet Available
    * - https://github.com/ros2/system_tests
-     - Not Yet Available
    * - https://github.com/ros2/test_interface_files
-     - Not Yet Available
    * - https://github.com/ros2/tinyxml_vendor
-     - Not Yet Available
    * - https://github.com/ros2/tinyxml2_vendor
-     - Not Yet Available
    * - https://github.com/ros2/tlsf
-     - Not Yet Available
    * - https://github.com/ros2/unique_identifier_msgs
-     - Not Yet Available
    * - https://github.com/ros2/urdf
-     - Not Yet Available
    * - https://github.com/ros2/yaml_cpp_vendor
-     - Not Yet Available
 
 Upcoming ROS Events
 -------------------

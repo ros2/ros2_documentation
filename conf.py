@@ -86,12 +86,15 @@ extensions = [
     'sphinx_tabs.tabs',
     'sphinx_rtd_theme',
     'sphinx_sitemap_ros',
+    'sphinx_adopters',
+    'sphinxcontrib.googleanalytics',
     'sphinxcontrib.mermaid',
 ]
 
 # Intersphinx mapping
 
 intersphinx_mapping = {
+    'python':        ('https://docs.python.org/3', None),
     'catkin_pkg':    ('http://docs.ros.org/en/independent/api/catkin_pkg/html', None),
     'jenkins_tools': ('http://docs.ros.org/en/independent/api/jenkins_tools/html', None),
     'rosdep':        ('http://docs.ros.org/en/independent/api/rosdep/html', None),
@@ -109,6 +112,9 @@ intersphinx_mapping = {
 # See: https://sphinx-copybutton.readthedocs.io/en/latest/use.html#automatic-exclusion-of-prompts-from-the-copies
 copybutton_exclude = '.linenos, .gp, .go'
 
+# Google Analytics configuration
+googleanalytics_id = 'G-EVD5Z6G6NH'
+googleanalytics_enabled = True
 # -- Options for HTML output ----------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
@@ -116,7 +122,6 @@ copybutton_exclude = '.linenos, .gp, .go'
 #
 html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
-    'analytics_id': 'G-EVD5Z6G6NH',
     'collapse_navigation': False,
     'sticky_navigation': True,
     'navigation_depth': -1,
@@ -175,7 +180,8 @@ html_static_path = ['source/_static']
 html_sourcelink_suffix = ''
 
 # Relative to html_static_path
-html_css_files = ['custom.css']
+html_css_files = ['custom.css', 'adopters.css']
+html_js_files = ['adopters.js']
 
 # -- Options for HTMLHelp output ------------------------------------------
 

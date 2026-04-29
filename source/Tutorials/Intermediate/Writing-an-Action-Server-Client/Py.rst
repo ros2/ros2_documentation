@@ -65,7 +65,7 @@ In the constructor we also instantiate a new action server:
 
 An action server requires four arguments:
 
-1. A ROS 2 node to add the action client to: ``self``.
+1. A ROS 2 node to add the action server to: ``self``.
 2. The type of the action: ``Fibonacci`` (imported in line 5).
 3. The action name: ``'fibonacci'``.
 4. A callback function for executing accepted goals: ``self.execute_callback``.
@@ -347,7 +347,7 @@ Here's the callback function for feedback messages:
     :language: python
     :lines: 41-43
 
-In the callback we get the feedback portion of the message and print the ``partial_sequence`` field to the screen.
+In the callback we get the feedback portion of the message and print the ``sequence`` field to the screen.
 
 We need to register the callback with the action client.
 This is achieved by additionally passing the callback to the action client when we send a goal:

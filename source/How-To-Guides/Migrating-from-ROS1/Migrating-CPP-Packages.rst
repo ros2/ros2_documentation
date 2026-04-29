@@ -32,8 +32,8 @@ Require a newer version of CMake
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ROS 2 relies on newer versions of CMake than used by ROS 1.
-Find the minimum version of CMake used by the ROS distribution you want to support in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__, and use that version at the top of your ``CMakeLists.txt``.
-For example, `3.14.4 is the minimum recommended support for ROS Humble <https://www.ros.org/reps/rep-2000.html#humble-hawksbill-may-2022-may-2027>`__.
+Find the minimum version of CMake used by the ROS distribution you want to support in `REP 2000 <https://reps.openrobotics.org/rep-2000/>`__, and use that version at the top of your ``CMakeLists.txt``.
+For example, `3.14.4 is the minimum recommended support for ROS Humble <https://reps.openrobotics.org/rep-2000/#humble-hawksbill-may-2022-may-2027>`__.
 
 .. code-block::
 
@@ -125,11 +125,10 @@ For example, if your package in ROS 1 uses old-style standard CMake variables li
    target_link_libraries(my_library ${catkin_LIBRARIES} ${baz_LIBRARIES})
 
 Then change it to use specific modern CMake targets instead.
-Use ``${package_name_TARGETS}`` if the package you're depending on is a message package such as ``std_msgs``.
 
 .. code-block:: cmake
 
-   target_link_libraries(my_library PUBLIC foo::foo bar::bar ${std_msgs_TARGETS} baz::baz)
+   target_link_libraries(my_library PUBLIC foo::foo bar::bar std_msgs::std_msgs baz::baz)
 
 Choose ``PUBLIC`` or ``PRIVATE`` based on how the dependency is used by your library (`example <https://github.com/ros2/geometry2/blob/d85102217f692746abea8546c8e41f0abc95c8b8/tf2/CMakeLists.txt#L27-L31>`__).
 

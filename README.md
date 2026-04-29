@@ -37,7 +37,7 @@ pip install -r requirements.txt -c constraints.txt
 
 ### Pinned versions
 
-For development we currently use Jammy (Ubuntu 22.04) as our build platform.
+For development we currently use Noble (Ubuntu 24.04) as our build platform.
 And all python versions are pinned in the constraints file to make sure that things are reproducible.
 To upgrade the system validate that things are working and then use `pip freeze > constraints.txt` to lock in the versions to upgrade.
 
@@ -70,3 +70,9 @@ To test building the multisite version deployed to the website use:
 `sensible-browser build/html/rolling/index.html`
 
 **NB:** This will ignore local workspace changes and build from the branches.
+
+### Note for Windows (WSL) Users
+
+When building the documentation on windows using WSL, it is recommended to clone and work with this repository inside the Linux filesystem (for example, under `/home/<user>/`) rather than under `/mnt/c`.
+
+Working under `/mnt/c` can lead to slower builds and filesystem-related issues with Sphinx and ROS tooling.

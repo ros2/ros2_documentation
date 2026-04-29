@@ -49,7 +49,7 @@ Tasks
 
       $ mkdir -p ~/ros2_ws/src # you can reuse an existing workspace with this naming convention
       $ cd ~/ros2_ws/src
-      $ ros2 pkg create --license Apache-2.0 custom_action_interfaces
+      $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 custom_action_interfaces
 
   .. group-tab:: macOS
 
@@ -57,7 +57,7 @@ Tasks
 
       $ mkdir -p ~/ros2_ws/src
       $ cd ~/ros2_ws/src
-      $ ros2 pkg create --license Apache-2.0 custom_action_interfaces
+      $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 custom_action_interfaces
 
   .. group-tab:: Windows
 
@@ -65,7 +65,17 @@ Tasks
 
       $ md \ros2_ws\src
       $ cd \ros2_ws\src
-      $ ros2 pkg create --license Apache-2.0 custom_action_interfaces
+      $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 custom_action_interfaces
+
+``custom_action_interfaces`` is the name of the new package.
+Note that it is, and can only be, a CMake package, but this doesn't restrict in which type of packages you can use your actions.
+The ``--build-type ament_cmake`` flag is largely optional when creating a new ROS 2 package but we are including it here for completeness.
+You can create your own custom interfaces in a CMake package, and then use it in a C++ or Python node.
+
+.. note::
+
+  It is good practice to keep ``.msg``, ``.srv``, and ``.action`` files in separate packages from the nodes that use them.
+  This makes it easier to reuse the interface definitions across different packages.
 
 
 2 Defining an action
@@ -124,9 +134,9 @@ Within the ``action`` directory, create a file called ``Fibonacci.action`` with 
   ---
   int32[] sequence
   ---
-  int32[] partial_sequence
+  int32[] sequence
 
-The goal request is the ``order`` of the Fibonacci sequence we want to compute, the result is the final ``sequence``, and the feedback is the ``partial_sequence`` computed so far.
+The goal request is the ``order`` of the Fibonacci sequence we want to compute, the result is the final ``sequence``, and the feedback is the ``sequence`` computed so far.
 
 3 Building an action
 ^^^^^^^^^^^^^^^^^^^^

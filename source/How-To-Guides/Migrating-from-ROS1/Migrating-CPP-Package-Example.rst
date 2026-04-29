@@ -328,7 +328,7 @@ Require a newer version of CMake so that ``ament_cmake`` functions work correctl
 
    cmake_minimum_required(VERSION 3.14.4)
 
-Use a newer C++ standard matching the version used by your target ROS distro in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__.
+Use a newer C++ standard matching the version used by your target ROS distro in `REP 2000 <https://reps.openrobotics.org/rep-2000/>`__.
 If you are using C++17, then set that version with the following snippet after the ``project(talker)`` call.
 Add extra compiler checks too because it is a good practice.
 
@@ -362,7 +362,7 @@ Make the ``target_link_libraries`` call modern CMake targets provided by ``rclcp
 
    target_link_libraries(talker PUBLIC
      rclcpp::rclcpp
-     ${std_msgs_TARGETS})
+     std_msgs::std_msgs)
 
 Delete the call to ``include_directories()``.
 Add a call to ``target_include_directories()`` below ``add_executable(talker talker.cpp)``.
@@ -403,7 +403,7 @@ The new ``CMakeLists.txt`` looks like this:
       "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
    target_link_libraries(talker PUBLIC
      rclcpp::rclcpp
-     ${std_msgs_TARGETS})
+     std_msgs::std_msgs)
    install(TARGETS talker
      DESTINATION lib/${PROJECT_NAME})
    ament_package()

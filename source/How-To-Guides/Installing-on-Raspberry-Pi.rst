@@ -2,7 +2,7 @@ ROS 2 on Raspberry Pi
 =====================
 
 ROS 2 is supported on both 32 bit (arm32) and 64 bit (arm64) ARM processors.
-However, you can see `here <https://www.ros.org/reps/rep-2000.html>`__ that arm64 receives Tier 1 support, while arm32 is Tier 3.
+However, you can see `here <https://reps.openrobotics.org/rep-2000/>`__ that arm64 receives Tier 1 support, while arm32 is Tier 3.
 Tier 1 support means distribution specific packages and binary archives are available, while Tier 3 requires the user to compile ROS 2 from source.
 
 The fastest and simplest way to use ROS 2 is to use a Tier 1 supported configuration.
@@ -14,7 +14,21 @@ Ubuntu Linux on Raspberry Pi with binary ROS 2 install
 
 Ubuntu for Raspberry Pi is available `here <https://ubuntu.com/download/raspberry-pi>`__.
 
-Make sure to confirm that you have selected the correct version as described in `REP-2000 <https://www.ros.org/reps/rep-2000.html>`__.
+Make sure to confirm that you have selected the correct version as described in `REP-2000 <https://reps.openrobotics.org/rep-2000/>`__.
+
+Ubuntu for Raspberry Pi doesn't include the *backports* and *updates* software suites by default, which are required for the ROS 2 binary install to work.
+
+So, please check and edit the ``/etc/apt/sources.list.d/ubuntu.sources`` file on your Raspberry Pi before installing ROS 2.
+
+For example, the Ubuntu 24.04 "Noble Numbat" release should have an entry that looks like this:
+
+.. code-block:: console
+
+    Types: deb
+    URIs: http://ports.ubuntu.com/ubuntu-ports/
+    Suites: noble noble-updates noble-backports       # <-- IMPORTANT LINE
+    Components: main universe restricted multiverse
+    Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
 
 You can now install ROS 2 using the normal binary installation instructions for Ubuntu Linux.
 
@@ -30,7 +44,7 @@ After flashing the OS, `install Docker <https://docs.docker.com/engine/install/d
 The official ROS 2 Docker images can be found `here <https://hub.docker.com/_/ros/tags>`__.
 
 You may choose from ros-core, ros-base, or perception.
-See `here <https://www.ros.org/reps/rep-2001.html>`__ for more information on these variants.
+See `here <https://reps.openrobotics.org/rep-2001/>`__ for more information on these variants.
 
 Fetch and run an image:
 

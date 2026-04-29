@@ -17,27 +17,30 @@ Options for installing ROS 2 {DISTRO_TITLE_FULL}:
    Installation/Maintaining-a-Source-Checkout
    Installation/Testing
    Installation/RMW-Implementations
+   Installation/ROS-2-Mirrors
+
+.. _binary-package-platforms:
 
 Binary packages
 ---------------
 
-Binaries are only created for the Tier 1 operating systems listed in `REP-2000 <https://www.ros.org/reps/rep-2000.html#rolling-ridley-june-2020-ongoing>`__.
+Binaries are only created for the Tier 1 operating systems listed in `REP-2000 <https://reps.openrobotics.org/rep-2000/#rolling-ridley-june-2020---ongoing>`__.
 Given the nature of Rolling, this list may be updated at any time.
 If you are not running any of the following operating systems you may need to build from source or use a :doc:`container solution <How-To-Guides/Run-2-nodes-in-single-or-separate-docker-containers>` to run ROS 2 on your platform.
 
 We provide ROS 2 binary packages for the following platforms:
 
-* Ubuntu Linux - Noble Numbat (24.04)
+* Ubuntu Linux (amd64 / aarch64) - Noble Numbat (24.04)
 
   * :doc:`deb packages <Installation/Ubuntu-Install-Debs>` (recommended)
   * :doc:`binary archive <Installation/Alternatives/Ubuntu-Install-Binary>`
 
-* RHEL 9
+* Red Hat Enterprise Linux 9 (amd64)
 
   * :doc:`RPM packages <Installation/RHEL-Install-RPMs>` (recommended)
   * :doc:`binary archive <Installation/Alternatives/RHEL-Install-Binary>`
 
-* Windows 10
+* Windows 10 (amd64)
 
   * :doc:`Windows Binary (VS 2019) <Installation/Windows-Install-Binary>`
 

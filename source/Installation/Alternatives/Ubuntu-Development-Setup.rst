@@ -18,7 +18,7 @@ The current Debian-based target platforms for {DISTRO_TITLE_FULL} are:
 - Tier 1: Ubuntu Linux - Noble (24.04) 64-bit
 - Tier 3: Debian Linux - Bookworm (12) 64-bit
 
-As defined in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`_.
+As defined in `REP 2000 <https://reps.openrobotics.org/rep-2000/>`_.
 
 System setup
 ------------
@@ -39,9 +39,6 @@ Install development tools
 .. code-block:: console
 
    $ sudo apt update && sudo apt install -y \
-     python3-flake8-blind-except \
-     python3-flake8-class-newline \
-     python3-flake8-deprecated \
      python3-mypy \
      python3-pip \
      python3-pytest \
@@ -78,7 +75,7 @@ Install dependencies using rosdep
 
    $ sudo rosdep init
    $ rosdep update
-   $ rosdep install --from-paths src --ignore-src -y --skip-keys "fastcdr rti-connext-dds-7.3.0 urdfdom_headers"
+   $ rosdep install --from-paths src --ignore-src -y --skip-keys "fastcdr rti-connext-dds-7.7.0 urdfdom_headers"
 
 .. include:: ../_rosdep_Linux_Mint.rst
 

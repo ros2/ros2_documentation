@@ -7,7 +7,7 @@ Setting up efficient intra-process communication
 ================================================
 
 .. contents:: Table of Contents
-   :depth: 1
+   :depth: 2
    :local:
 
 Background
@@ -31,12 +31,12 @@ If you downloaded the archive or built ROS 2 from source, it will already be par
 Running and understanding the demos
 -----------------------------------
 
-There are a few different demos: some are toy problems designed to highlight features of the intra process communications functionality and some are end to end examples which use OpenCV and demonstrate the ability to recombine nodes into different configurations.
+There are a few different demos: some are toy problems designed to highlight features of the intra-process communications functionality and some are end to end examples which use OpenCV and demonstrate the ability to recombine nodes into different configurations.
 
 The two node pipeline demo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This demo is designed to show that the intra process publish/subscribe connection can result in zero-copy transport of messages when publishing and subscribing with ``std::unique_ptr``\ s.
+This demo is designed to show that the intra-process publish/subscribe connection can result in zero-copy transport of messages when publishing and subscribing with ``std::unique_ptr``\ s.
 
 First let's take a look at the source:
 
@@ -131,7 +131,7 @@ If you look at the "producer" node's implementation in the ``Producer`` struct, 
 The "consumer" node is a bit simpler, you can see its implementation in the ``Consumer`` struct, as it only subscribes to the "number" topic and prints the address and value of the message it receives.
 
 The expectation is that the producer will print out an address and value and the consumer will print out a matching address and value.
-This demonstrates that intra process communication is indeed working and unnecessary copies are avoided, at least for simple graphs.
+This demonstrates that intra-process communication is indeed working and unnecessary copies are avoided, at least for simple graphs.
 
 Let's run the demo by executing ``ros2 run intra_process_demo two_node_pipeline`` executable (don't forget to source the setup file first):
 
@@ -256,7 +256,7 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/intra_process_demo/src/cy
 Unlike the previous demo, this demo uses only one Node, instantiated twice with different names and configurations.
 The graph ends up being ``pipe1`` -> ``pipe2`` -> ``pipe1`` ... in a loop.
 
-The line ``pipe1->pub->publish(msg);`` kicks the process off, but from then on the messages are passed back and forth between the nodes by each one calling publish within its own subscription callback.
+The line ``pipe1->pub->publish(std::move(msg));`` kicks the process off, but from then on the messages are passed back and forth between the nodes by each one calling publish within its own subscription callback.
 
 The expectation here is that the nodes pass the message back and forth, once a second, incrementing the value of the message each time.
 Because the message is being published and subscribed to as a ``unique_ptr`` the same message created at the beginning is continuously used.
@@ -318,7 +318,7 @@ The ``camera_node`` reads from camera device ``0`` on your computer, writes some
 The ``watermark_node`` subscribes to the output of the ``camera_node`` and adds more text before publishing it too.
 Finally, the ``image_view_node`` subscribes to the output of the ``watermark_node``, writes more text to the image and then visualizes it with ``cv::imshow``.
 
-In each node the address of the message which is being sent, or which has been received, or both, is written to the image.
+In each node the process id and the pointer address of the ROS message is written onto the image with ``cv::putText``.
 The watermark and image view nodes are designed to modify the image without copying it and so the addresses imprinted on the image should all be the same as long as the nodes are in the same process and the graph remains organized in a pipeline as sketched above.
 
 .. note::
@@ -348,7 +348,7 @@ Pipeline with two image viewers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Now let's look at an example just like the one above, except it has two image view nodes.
-All the nodes are still in the same process, but now two image view windows should show up.
+All the nodes are still in the same process, but now there will be two instances of the ``image_view_node`` and so two image view windows should show up.
 (Note for macOS users: your image view windows might be on top of each other).
 Let's run it with the command:
 
@@ -371,21 +371,16 @@ To understand why this is happening consider the graph's topology:
    camera_node -> watermark_node -> image_view_node
                                  -> image_view_node2
 
-The link between the ``camera_node`` and the ``watermark_node`` can use the same pointer without copying because there is only one intra process subscription to which the message should be delivered.
+The link between the ``camera_node`` and the ``watermark_node`` can use the same pointer without copying because there is only one intra-process subscription to which the message should be delivered.
 But for the link between the ``watermark_node`` and the two image view nodes the relationship is one to many, so if the image view nodes were using ``unique_ptr`` callbacks then it would be impossible to deliver the ownership of the same pointer to both.
 It can be, however, delivered to one of them.
 Which one would get the original pointer is not defined, but instead is simply the last to be delivered.
+And so one of the images being viewed is the original, with all the pointers the same, and the other is a copy of the original image, made between the ``watermark_node`` and one of the ``image_view_node`` instances, which will have a different pointer for the third line of text.
 
-Note that the image view nodes are not subscribed with ``unique_ptr`` callbacks.
-Instead they are subscribed with ``const shared_ptr``\ s.
-This means the system deliveres the same ``shared_ptr`` to both callbacks.
-When the first intraprocess subscription is handled, the internally stored ``unique_ptr`` is promoted to a ``shared_ptr``.
-Each of the callbacks will receive shared ownership of the same message.
+Pipeline with inter-process viewer
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Pipeline with interprocess viewer
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-One other important thing to get right is to avoid interruption of the intra process zero-copy behavior when interprocess subscriptions are made.
+One other important thing to get right is to avoid interruption of the intra-process zero-copy behavior when inter-process subscriptions are made.
 To test this we can run the first image pipeline demo, ``image_pipeline_all_in_one``, and then run an instance of the stand alone ``image_view_node`` (don't forget to prefix them with ``ros2 run intra_process_demo`` in the terminal).
 This will look something like this:
 
@@ -394,5 +389,5 @@ This will look something like this:
 
 
 It's hard to pause both images at the same time so the images may not line up, but the important thing to notice is that the ``image_pipeline_all_in_one`` image view shows the same address for each step.
-This means that the intra process zero-copy is preserved even when an external view is subscribed as well.
-You can also see that the interprocess image view has different process IDs for the first two lines of text and the process ID of the standalone image viewer in the third line of text.
+This means that the intra-process zero-copy is preserved even when an external view is subscribed as well.
+You can also see that the inter-process image view has different process IDs for the first two lines of text and the process ID of the standalone image viewer in the third line of text.

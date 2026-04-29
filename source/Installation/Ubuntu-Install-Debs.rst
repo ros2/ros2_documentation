@@ -12,7 +12,7 @@ Ubuntu (deb packages)
 
 Deb packages for ROS 2 {DISTRO_TITLE_FULL} are currently available for Ubuntu Noble (24.04).
 The Rolling Ridley distribution will change target platforms from time to time as new platforms are selected for development.
-The target platforms are defined in `REP 2000 <https://ros.org/reps/rep-2000.html>`__.
+The target platforms are defined in `REP 2000 <https://reps.openrobotics.org/rep-2000/>`__.
 Most people will want to use a stable ROS distribution.
 
 Resources
@@ -115,6 +115,8 @@ You should see the ``talker`` saying that it's ``Publishing`` messages and the `
 This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
+If you want to use other RMW implementations, you can check the :doc:`guide <./RMW-Implementations>`.
+
 Next steps
 ----------
 
@@ -133,7 +135,7 @@ have already installed from binaries, run the following command:
 
 .. code-block:: console
 
-   $ sudo apt remove ~nros-{DISTRO}-* && sudo apt autoremove
+   $ sudo apt remove '~nros-{DISTRO}-*' && sudo apt autoremove
 
 You may also want to remove the repository:
 

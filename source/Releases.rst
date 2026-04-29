@@ -18,7 +18,7 @@ List of Distributions
 ---------------------
 
 Below is a list of current and historic ROS 2 distributions.
-Rows in the table marked in green are the currently supported distributions.
+Rows in the table marked in blue are the currently supported distributions.
 
 .. toctree::
    :hidden:
@@ -34,22 +34,33 @@ Rows in the table marked in green are the currently supported distributions.
 .. raw:: html
 
    <!--
-     This CSS overrides the styles of certain rows to mark them green, indicating they are supported releases.
+     This CSS overrides the styles of certain rows to mark them blue, indicating they are supported releases.
      For the odd number rows, a line like the following must be used:
 
-       .rst-content table.docutils:not(.field-list) tr:nth-child(1) td {background-color: #33cc66;}
+       .rst-content table.distros:not(.field-list) tr:nth-child(1) td {...}
 
      For the even number rows, a line like the following must be used:
 
-       .rst-content tr:nth-child(2) {background-color: #33cc66;}
+       .rst-content tr:nth-child(2) {...}
 
      No other combination I've found has worked.  Yes, this is extremely fragile.  No, I don't understand
      why it is like this.
    -->
    <style>
-     .rst-content table.docutils:not(.field-list) tr:nth-child(1) td {background-color: #33cc66;}
-     .rst-content tr:nth-child(2) {background-color: #33cc66;}
-     .rst-content tr:nth-child(4) {background-color: #33cc66;}
+     /* Targeting the cells and rows for the background and plain text */
+    .rst-content table.distros:not(.field-list) tr:nth-child(1) td,
+    .rst-content table.distros tr:nth-child(2),
+    .rst-content table.distros tr:nth-child(4) {
+      background-color: #22314E;
+      color: white;
+    }
+
+    /* Targeting the links inside those specific rows to force them to be not-blue */
+    .rst-content table.distros:not(.field-list) tr:nth-child(1) td a,
+    .rst-content table.distros tr:nth-child(2) a,
+    .rst-content table.distros tr:nth-child(4) a {
+      color: #B0B0B0 !important;
+    }
    </style>
 
 .. |rolling| image:: Releases/rolling-small.png
@@ -117,7 +128,7 @@ Rows in the table marked in green are the currently supported distributions.
      - May 23, 2022
      - |humble|
      - May 2027
-     - `Audrow Nash <https://github.com/audrow>`_
+     - `Christophe Bédard <https://github.com/christophebedard>`_ / `Audrow Nash <https://github.com/audrow>`_
    * - :doc:`Galactic Geochelone <Releases/Release-Galactic-Geochelone>`
      - May 23, 2021
      - |galactic|
@@ -202,7 +213,7 @@ Rolling Distribution
 --------------------
 
 :doc:`ROS 2 Rolling Ridley <Releases/Release-Rolling-Ridley>` is the rolling development distribution of ROS 2.
-It is described in `REP 2002 <https://www.ros.org/reps/rep-2002.html>`_ and was first introduced in June 2020.
+It is described in `REP 2002 <https://reps.openrobotics.org/rep-2002/>`_ and was first introduced in June 2020.
 
 The Rolling distribution of ROS 2 serves two purposes:
 

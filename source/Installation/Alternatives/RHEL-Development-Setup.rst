@@ -18,7 +18,7 @@ The current target Red Hat platforms for {DISTRO_TITLE_FULL} are:
 
 - Tier 2: RHEL 9 64-bit
 
-As defined in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`_.
+As defined in `REP 2000 <https://reps.openrobotics.org/rep-2000/>`_.
 
 System setup
 ------------
@@ -76,13 +76,6 @@ Install development tools
      python3-vcstool \
      wget
 
-   ~ install some pip packages needed for testing and
-   ~ not available as RPMs
-   $ python3 -m pip install -U --user \
-     flake8-blind-except==0.1.1 \
-     flake8-class-newline \
-     flake8-deprecated
-
 Build ROS 2
 -----------
 
@@ -106,7 +99,7 @@ Install dependencies using rosdep
 
    $ sudo rosdep init
    $ rosdep update
-   $ rosdep install --from-paths src --ignore-src -y --skip-keys "fastcdr rti-connext-dds-7.3.0 urdfdom_headers"
+   $ rosdep install --from-paths src --ignore-src -y --skip-keys "fastcdr rti-connext-dds-7.7.0 urdfdom_headers"
 
 Install additional RMW implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

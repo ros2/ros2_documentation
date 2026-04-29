@@ -170,7 +170,7 @@ Now open the ``CMakeLists.txt`` file and add a new executable and name it ``Sync
 .. code-block:: cmake
 
     add_executable(SyncAsyncWriter src/sync_async_writer.cpp)
-    target_link_libraries(SyncAsyncWriter PUBLIC rclcpp::rclcpp ${std_msgs_TARGETS})
+    target_link_libraries(SyncAsyncWriter PUBLIC rclcpp::rclcpp std_msgs::std_msgs)
 
 Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your executable:
 
@@ -201,7 +201,7 @@ You can clean up your ``CMakeLists.txt`` by removing some unnecessary sections a
     find_package(std_msgs REQUIRED)
 
     add_executable(SyncAsyncWriter src/sync_async_writer.cpp)
-    target_link_libraries(SyncAsyncWriter PUBLIC rclcpp::rclcpp ${std_msgs_TARGETS})
+    target_link_libraries(SyncAsyncWriter PUBLIC rclcpp::rclcpp std_msgs::std_msgs)
 
     install(TARGETS
         SyncAsyncWriter
@@ -272,7 +272,7 @@ You will need to export the following environment variables for the XML to be lo
 
       $ export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
       $ export RMW_FASTRTPS_USE_QOS_FROM_XML=1
-      $ export FASTRTPS_DEFAULT_PROFILES_FILE=path/to/SyncAsync.xml
+      $ export FASTDDS_DEFAULT_PROFILES_FILE=path/to/SyncAsync.xml
 
   .. group-tab:: macOS
 
@@ -280,7 +280,7 @@ You will need to export the following environment variables for the XML to be lo
 
       $ export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
       $ export RMW_FASTRTPS_USE_QOS_FROM_XML=1
-      $ export FASTRTPS_DEFAULT_PROFILES_FILE=path/to/SyncAsync.xml
+      $ export FASTDDS_DEFAULT_PROFILES_FILE=path/to/SyncAsync.xml
 
   .. group-tab:: Windows
 
@@ -288,7 +288,7 @@ You will need to export the following environment variables for the XML to be lo
 
       $ SET RMW_IMPLEMENTATION=rmw_fastrtps_cpp
       $ SET RMW_FASTRTPS_USE_QOS_FROM_XML=1
-      $ SET FASTRTPS_DEFAULT_PROFILES_FILE=path/to/SyncAsync.xml
+      $ SET FASTDDS_DEFAULT_PROFILES_FILE=path/to/SyncAsync.xml
 
 Finally, ensure you have sourced your setup files and run the node:
 
@@ -365,7 +365,7 @@ Open the ``CMakeLists.txt`` file and add a new executable and name it ``SyncAsyn
 .. code-block:: cmake
 
     add_executable(SyncAsyncReader src/sync_async_reader.cpp)
-    target_link_libraries(SyncAsyncReader PUBLIC rclcpp::rclcpp ${std_msgs_TARGETS})
+    target_link_libraries(SyncAsyncReader PUBLIC rclcpp::rclcpp std_msgs::std_msgs)
 
     install(TARGETS
         SyncAsyncReader
@@ -385,7 +385,7 @@ With the publisher node running in one terminal, open another one and export the
 
       $ export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
       $ export RMW_FASTRTPS_USE_QOS_FROM_XML=1
-      $ export FASTRTPS_DEFAULT_PROFILES_FILE=path/to/SyncAsync.xml
+      $ export FASTDDS_DEFAULT_PROFILES_FILE=path/to/SyncAsync.xml
 
   .. group-tab:: macOS
 
@@ -393,7 +393,7 @@ With the publisher node running in one terminal, open another one and export the
 
       $ export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
       $ export RMW_FASTRTPS_USE_QOS_FROM_XML=1
-      $ export FASTRTPS_DEFAULT_PROFILES_FILE=path/to/SyncAsync.xml
+      $ export FASTDDS_DEFAULT_PROFILES_FILE=path/to/SyncAsync.xml
 
   .. group-tab:: Windows
 
@@ -401,7 +401,7 @@ With the publisher node running in one terminal, open another one and export the
 
       $ SET RMW_IMPLEMENTATION=rmw_fastrtps_cpp
       $ SET RMW_FASTRTPS_USE_QOS_FROM_XML=1
-      $ SET FASTRTPS_DEFAULT_PROFILES_FILE=path/to/SyncAsync.xml
+      $ SET FASTDDS_DEFAULT_PROFILES_FILE=path/to/SyncAsync.xml
 
 Finally, ensure you have sourced your setup files and run the node:
 
@@ -432,7 +432,7 @@ In order to define a configuration for a specific topic, just name the profile a
 and ``rmw_fastrtps`` will apply this profile to all publishers and subscribers for that topic.
 The default configuration profile is identified by the attribute ``is_default_profile`` set to ``true``, and acts as a fallback profile when there is no other one with a name matching the topic name.
 
-The environment variable ``FASTRTPS_DEFAULT_PROFILES_FILE`` is used to inform *Fast DDS* the path to the XML file with the configuration profiles to load.
+The environment variable ``FASTDDS_DEFAULT_PROFILES_FILE`` is used to inform *Fast DDS* the path to the XML file with the configuration profiles to load.
 
 RMW_FASTRTPS_USE_QOS_FROM_XML
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -679,10 +679,10 @@ Open the ``CMakeLists.txt`` file and add two new executables ``ping_service`` an
     find_package(example_interfaces REQUIRED)
 
     add_executable(ping_service src/ping_service.cpp)
-    target_link_libraries(ping_service PUBLIC ${example_interfaces_TARGETS} rclcpp::rclcpp)
+    target_link_libraries(ping_service PUBLIC example_interfaces::example_interfaces rclcpp::rclcpp)
 
     add_executable(ping_client src/ping_client.cpp)
-    target_link_libraries(ping_client PUBLIC ${example_interfaces_TARGETS} rclcpp::rclcpp)
+    target_link_libraries(ping_client PUBLIC example_interfaces::example_interfaces rclcpp::rclcpp)
 
     install(TARGETS
         ping_service
@@ -756,7 +756,7 @@ Then set the required environment variables for the XML to be loaded:
 
       $ export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
       $ export RMW_FASTRTPS_USE_QOS_FROM_XML=1
-      $ export FASTRTPS_DEFAULT_PROFILES_FILE=path/to/ping.xml
+      $ export FASTDDS_DEFAULT_PROFILES_FILE=path/to/ping.xml
 
   .. group-tab:: macOS
 
@@ -764,7 +764,7 @@ Then set the required environment variables for the XML to be loaded:
 
       $ export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
       $ export RMW_FASTRTPS_USE_QOS_FROM_XML=1
-      $ export FASTRTPS_DEFAULT_PROFILES_FILE=path/to/ping.xml
+      $ export FASTDDS_DEFAULT_PROFILES_FILE=path/to/ping.xml
 
   .. group-tab:: Windows
 
@@ -772,7 +772,7 @@ Then set the required environment variables for the XML to be loaded:
 
       $ SET RMW_IMPLEMENTATION=rmw_fastrtps_cpp
       $ SET RMW_FASTRTPS_USE_QOS_FROM_XML=1
-      $ SET FASTRTPS_DEFAULT_PROFILES_FILE=path/to/ping.xml
+      $ SET FASTDDS_DEFAULT_PROFILES_FILE=path/to/ping.xml
 
 
 On the first terminal run the service node.

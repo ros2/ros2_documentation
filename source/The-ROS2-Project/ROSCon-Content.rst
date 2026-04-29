@@ -10,9 +10,132 @@ ROSCon Talks
 The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2 and provide information about the workings of ROS 2 and various demos:
 
 .. tabs::
+  .. group-tab:: 2025
+    .. list-table::
+       :header-rows: 1
+
+       * - Title
+         - Links
+       * - Advancing Robot Learning with ROS 2
+         - `video <https://vimeo.com/1136158846>`__
+       * - ROS Project Update
+         - `video <https://vimeo.com/1136205502>`__
+       * - ros-controls Project Update
+         - `video <https://vimeo.com/1136205235>`__
+       * - On Use of Nav2 Route Server
+         - `video <https://vimeo.com/1136164030>`__
+       * - Seeing is Believing: Enhancing Robot Acceptance with Perception-Aware ...
+         - `video <https://vimeo.com/1136205031>`__
+       * - ⚡In-advance Lightning Talks⚡
+         - `video <https://vimeo.com/1136158488>`__
+       * - rmw_what❓ Implementing the ROS 2 Middleware Interface
+         - `video <https://vimeo.com/1136204122>`__
+       * - Zenoh Strikes Back: From a New Hope to Tier-1
+         - `video <https://vimeo.com/1136377715>`__
+       * - From DDS to Zenoh: Migrating the Dexory Autonomy ROS Stack—Configurati...
+         - `video <https://vimeo.com/1136375669>`__
+       * - Enhancing ROS 2 Communications: What's New in Fast DDS v3
+         - `video <https://vimeo.com/1136157825>`__
+       * - Agnocast: A ROS 2-Compatible Middleware Enabling True Zero-Copy IPC ...
+         - `video <https://vimeo.com/1136159023>`__
+       * - Replay Testing: Fast, Iterative Robotics Testing
+         - `video <https://vimeo.com/1136204393>`__
+       * - Rtest - Reliable ROS 2 Unit Tests Framework
+         - `video <https://vimeo.com/1136205163>`__
+       * - Formally Verifying Robot Behavior with Statistical Model Checking
+         - `video <https://vimeo.com/1136157972>`__
+       * - Cloudini: the Pointcloud Compression Library That You Missed in Your Life
+         - `video <https://vimeo.com/1136159131>`__
+       * - Unlock FFmpeg in ROS 2: A Flexible Audio/Video Pipeline with...
+         - `video <https://vimeo.com/1136204514>`__
+       * - Smarter Vision Pipelines for ROS 2: Compress, Transport, and Sync at Scale
+         - `video <https://vimeo.com/1136204802>`__
+       * - SWAGGER: Sparse WAypoint Graph Generation for Efficient Routing
+         - `video <https://vimeo.com/1136204717>`__
+       * - Mapping Together: Collaborative SLAM for Distributed Robot Fleets
+         - `video <https://vimeo.com/1136163914>`__
+       * - Roadmap-Explorer: A fast and reliable robot exploration module
+         - `video <https://vimeo.com/1136177427>`__
+       * - Peer-2-Peer Agriculture Robotics Communication, Planning, Coverage ...
+         - `video <https://vimeo.com/1136163436>`__
+       * - From Sensors to Sensei: Mastering ROS Hardware with Analog Devices
+         - `video <https://vimeo.com/1136158125>`__
+       * - Help Me with the Bags: Quick & Easy ROS 2 Data Handling
+         - `video <https://vimeo.com/1136377079>`__
+       * - Open-source robotics observability at scale!
+         - `video <https://vimeo.com/1136163245>`__
+       * - Simplifying Diagnostics: A Ready to Use Robot Webserver
+         - `video <https://vimeo.com/1136204915>`__
+       * - Detecting Complex Events in ROS Data
+         - `video <https://vimeo.com/1136157744>`__
+       * - ROS 2 logging subsystem and alternative syslog implementation
+         - `video <https://vimeo.com/1136772381>`__
+       * - Traceability System for Autonomous Robots
+         - `video <https://vimeo.com/1136377674>`__
+       * - ⚡Lightning Talks 1⚡
+         - `video <https://vimeo.com/1136163574>`__
+       * - Open-RMF Project Update
+         - `video <https://vimeo.com/1136163138>`__
+       * - Robots at Your Service: Deploying Open-RMF in Singapore’s Hospitality Industry
+         - `video <https://vimeo.com/1136206211>`__
+       * - Optimizing Hospital Robotics Deployments with Open RMF
+         - `video <https://vimeo.com/1136163298>`__
+       * - Orchestrating Interoperable Indoor Robots at Scale with Open-RMF...
+         - `video <https://vimeo.com/1136163354>`__
+       * - Workflows for multi-agent orchestration
+         - `video <https://vimeo.com/1136377685>`__
+       * - Gazebo Project Update
+         - `video <https://vimeo.com/1136158328>`__
+       * - Infrastructure Project Update
+         - `video <https://vimeo.com/1136158416>`__
+       * - ⚡ Lightning Talks 2⚡
+         - `video <https://vimeo.com/1136158629>`__
+       * - Our Ten Most Common ROS Questions Answered
+         - `video <https://vimeo.com/1136376218>`__
+       * - Practical guide for ROS 2 on Windows
+         - `video <https://vimeo.com/1136377428>`__
+       * - Solving ROS package management with Pixi and RoboStack
+         - `video <https://vimeo.com/1136377632>`__
+       * - Escape Velocity: Smarter, Cleaner ROS 2 Launch Patterns
+         - `video <https://vimeo.com/1136376252>`__
+       * - Build, Iterate, Deploy - A Modular ROS 2 Workflow that Scales
+         - `video <https://vimeo.com/1136370578>`__
+       * - Toward Scalable Collaborative Robot Controllers: Internalizing ROS 2 with Zenoh
+         - `video <https://vimeo.com/1136204650>`__
+       * - Motions Made Easy: Simplifying Repetitive Robot Motions
+         - `video <https://vimeo.com/1136163966>`__
+       * - Running ROS natively on an industrial robot's control box
+         - `video <https://vimeo.com/1136205077>`__
+       * - ros2_control goes Industrial
+         - `video <https://vimeo.com/1136205404>`__
+       * - Transforming Robotics with Auto Bots from Outer Space
+         - `video <https://vimeo.com/1136204579>`__
+       * - Real-Time Meets Cloud Native - ROS 2 on RTOS and Linux with Kubernetes
+         - `video <https://vimeo.com/1136204466>`__
+       * - ROS 2: The Backbone for Physical AI
+         - `video <https://vimeo.com/1136205583>`__
+       * - From Simulation to Soil: Lessons from a ROS 2-Powered Tractor
+         - `video <https://vimeo.com/1136158260>`__
+       * - Easy ROS-based AI Robot Development with genesis/libtorch
+         - `video <https://vimeo.com/1136370681>`__
+       * - PlanSys2, the ROS 2 Planning System: Past, present and future
+         - `video <https://vimeo.com/1136377384>`__
+       * - Building Foundation Models for Generalist Robots: Insights ...
+         - `video <https://vimeo.com/1136370637>`__
+       * - Introducing rclrs: the ROS 2 client library for Rust
+         - `video <https://vimeo.com/1136376117>`__
+       * - Realistic Terrain Simulation in Gazebo
+         - `video <https://vimeo.com/1136377469>`__
+       * - Evaluation of ROS 2 Simulators 2025
+         - `video <https://vimeo.com/1136157883>`__
+       * - Ray-Tracing Everywhere: Vendor Agnostic Ray Tracing in Gazebo
+         - `video <https://vimeo.com/1136163508>`__
+       * - Introducing the new ROS simulation standard
+         - `video <https://vimeo.com/1136376172>`__
+       * - From Off-the-Shelf Drones to Research Platforms
+         - `video <https://vimeo.com/1136158052>`__
 
   .. group-tab:: 2024
-
     .. list-table::
        :header-rows: 1
 
