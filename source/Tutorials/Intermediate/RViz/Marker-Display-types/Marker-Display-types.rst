@@ -20,9 +20,7 @@ The Markers display allows programmatic addition of various primitive shapes to 
 
 .. image:: images/marker_overview.png
 
-..
-    This is a comment, the next line will be added to the file once the Markers-Sending-Basic-Shapes-CPP is merged to point to the start of the tutorial series.
-    The :doc:`Marker: Sending Basic Shapes <../Markers-Sending-Basic-Shapes-CPP/Markers-Sending-Basic-Shapes-CPP>` that tutorial begins a series of tutorials on sending markers.
+Start with :doc:`Marker: Sending Basic Shapes <../Marker-Sending-Basic-Shapes/Marker-Sending-Basic-Shapes>` for a minimal publisher example that introduces the marker message used throughout this page.
 
 The Marker Message
 ------------------
