@@ -139,7 +139,11 @@ templates_path = [
 
 # smv_tag_whitelist = None
 
+<<<<<<< HEAD
 smv_branch_whitelist = r'^(rolling|jazzy|iron|humble|galactic|foxy|eloquent|dashing|crystal)$'
+=======
+smv_branch_whitelist = r'^(rolling|lyrical|kilted|jazzy|iron|humble|galactic|foxy|eloquent|dashing|crystal)$'
+>>>>>>> f696450 (Add support for ROS Lyrical (#6484))
 
 
 smv_released_pattern = r'^refs/(heads|remotes/[^/]+)/(kilted|jazzy|iron|humble|galactic|foxy|eloquent|dashing|crystal).*$'
@@ -156,6 +160,11 @@ distro_full_names = {
     'humble': 'Humble Hawksbill',
     'iron': 'Iron Irwini',
     'jazzy': 'Jazzy Jalisco',
+<<<<<<< HEAD
+=======
+    'kilted': 'Kilted Kaiju',
+    'lyrical': 'Lyrical Luth',
+>>>>>>> f696450 (Add support for ROS Lyrical (#6484))
     'rolling': 'Rolling Ridley',
 }
 
