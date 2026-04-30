@@ -172,7 +172,7 @@ Note: The experimental ``EventsExecutor`` is now deprecated. For similar perform
 ``rosbag2``
 ^^^^^^^^^^^
 
-`Rosbag2` received several new recording, playback, observability, and API improvements.
+``Rosbag2`` received several new recording, playback, observability, and API improvements.
 
 * Added support for repeating transient-local messages when recording bags.
   Users can configure selected transient-local topics with ``--repeat-transient-local`` and
@@ -215,7 +215,7 @@ Note: The experimental ``EventsExecutor`` is now deprecated. For similar perform
   See `ros2/rosbag2#2289 <https://github.com/ros2/rosbag2/pull/2289>`__ for more details.
 
 * Added message-loss observability during recording.
-  `Rosbag2` can now collect message-loss statistics from the transport layer and recorder
+  ``Rosbag2`` can now collect message-loss statistics from the transport layer and recorder
   internals, and publish incremental per-topic loss events on the predefined
   ``events/rosbag2_messages_lost`` topic.
   The publishing rate can be configured with ``--stats_max_publishing_rate``.
@@ -224,7 +224,7 @@ Note: The experimental ``EventsExecutor`` is now deprecated. For similar perform
   `ros2/rosbag2#2144 <https://github.com/ros2/rosbag2/pull/2144>`__, and
   `ros2/rosbag2#2150 <https://github.com/ros2/rosbag2/pull/2150>`__ for more details.
 
-* Expanded the `rosbag2_py` player and recorder APIs.
+* Expanded the ``rosbag2_py`` player and recorder APIs.
   Python users can now programmatically control playback and recording with APIs such as
   pause, resume, stop, seek, play-next, spin control, and wait helpers, instead of relying
   only on blocking command-line-style helpers.
@@ -240,7 +240,7 @@ Note: The experimental ``EventsExecutor`` is now deprecated. For similar perform
   `ros2/rosbag2#2095 <https://github.com/ros2/rosbag2/pull/2095>`__ for more details.
 
 * Improved message definition resolution for recorded data.
-  `Rosbag2` can now find message definitions in nested subdirectories, better resolve inner
+  ``Rosbag2`` can now find message definitions in nested subdirectories, better resolve inner
   message definitions for service and action introspection data, and support relative includes
   in local IDL message definitions.
 
@@ -254,7 +254,7 @@ Note: The experimental ``EventsExecutor`` is now deprecated. For similar perform
 
   See `ros2/rosbag2#2265 <https://github.com/ros2/rosbag2/pull/2265>`__ for more details.
 
-* Enabled the `rosbag2_performance_benchmarking` package to be built by default, making the
+* Enabled the ``rosbag2_performance_benchmarking`` package to be built by default, making the
   benchmarking tools easier to use for recorder and player performance evaluation.
 
   See `ros2/rosbag2#2093 <https://github.com/ros2/rosbag2/pull/2093>`__ for more details.
