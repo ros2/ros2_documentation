@@ -161,13 +161,34 @@ See https://github.com/ros2/rcl/issues/1178, https://github.com/ros2/rcl/pull/12
 
 ``rclcpp``
 ^^^^^^^^^^
-Added new `Callback Group Events Executor <https://github.com/ros2/rclcpp/pull/3097>`__.
-Like its predecessor the experimental ``EventsExecutor``, the ``EventsCBGExecutor`` uses an events queue to process ready entities.
-Builds on the experimental ``EventsExecutor`` by adding support for multiple sources of ROS time and multiple threads.
-Compared to the Single and Multithreaded Executors, the ``EventsCBGExecutor`` exhibits around 10 to 15% less CPU usage.
-Note: The experimental ``EventsExecutor`` is now deprecated. For similar performance, use the ``EventsCBGExecutor`` with one thread.
 
-`Unified component container interface <https://github.com/ros2/rclcpp/pull/3134>`__ - ``component_container`` is now the single entrypoint for launching both regular and isolated component containers with all types of executors.
+* Added new `Callback Group Events Executor <https://github.com/ros2/rclcpp/pull/3097>`__.
+  Like its predecessor the experimental ``EventsExecutor``, the ``EventsCBGExecutor`` uses
+  an events queue to process ready entities.
+  Builds on the experimental ``EventsExecutor`` by adding support for multiple sources of
+  ROS time and multiple threads.
+  Compared to the Single and Multithreaded Executors, the ``EventsCBGExecutor`` exhibits
+  around 10 to 15% less CPU usage.
+  Note: The experimental ``EventsExecutor`` is now deprecated. For similar performance, use
+  the ``EventsCBGExecutor`` with one thread.
+
+* `Unified component container interface <https://github.com/ros2/rclcpp/pull/3134>`__ -
+  ``component_container`` is now the single entrypoint for launching both regular and
+  isolated component containers with all types of executors.
+
+* Added ``disable_callbacks()`` and ``enable_callbacks()`` APIs to ``SubscriptionBase``.
+  By design the subscription itself is a shared pointer and its callbacks are propagated to
+  the executor, making it difficult to manage subscription lifecycle from the application
+  side.
+  When a subscription is deleted at the application layer, it may still be referenced by
+  the node and executor, causing callbacks to be invoked unexpectedly.
+  This can lead to undefined behavior when the callback accesses resources that have been
+  cleaned up.
+  The new APIs allow users to disable subscription callbacks at runtime without destroying
+  the subscription, preventing unexpected callback invocations.
+
+  See `ros2/rclcpp#2984 <https://github.com/ros2/rclcpp/issues/2984>`__ and
+  `ros2/rclcpp#2985 <https://github.com/ros2/rclcpp/pull/2985>`__ for more details.
 
 ``rosbag2``
 ^^^^^^^^^^^
