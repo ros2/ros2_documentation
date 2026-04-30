@@ -20,6 +20,7 @@ Build from source
 Follow the links below for the latest setup instructions for your platform:
 
 * :doc:`Ubuntu Linux <Ubuntu-Development-Setup>`
+* :doc:`Ubuntu Linux (Pixi) <Ubuntu-Development-Setup-Pixi>`
 * :doc:`Windows <Windows-Development-Setup>`
 * :doc:`RHEL <RHEL-Development-Setup>`
 * :doc:`macOS <macOS-Development-Setup>`

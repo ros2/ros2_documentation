@@ -7,6 +7,7 @@ A list of alternative ways to install ROS 2 – whether it's by building from s
    :maxdepth: 1
 
    Alternatives/Ubuntu-Development-Setup
+   Alternatives/Ubuntu-Development-Setup-Pixi
    Alternatives/Ubuntu-Install-Binary
    Alternatives/Windows-Development-Setup
    Alternatives/RHEL-Development-Setup

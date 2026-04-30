@@ -165,7 +165,7 @@ Now open the ``CMakeLists.txt`` add the executable and name it ``fixed_frame_tf2
     add_executable(fixed_frame_tf2_broadcaster src/fixed_frame_tf2_broadcaster.cpp)
     target_link_libraries(
         fixed_frame_tf2_broadcaster PUBLIC
-        ${geometry_msgs_TARGETS}
+        geometry_msgs::geometry_msgs
         rclcpp::rclcpp
         tf2_ros::tf2_ros
     )
@@ -456,7 +456,7 @@ Now open the ``CMakeLists.txt`` add the executable and name it ``dynamic_frame_t
     add_executable(dynamic_frame_tf2_broadcaster src/dynamic_frame_tf2_broadcaster.cpp)
     target_link_libraries(
         dynamic_frame_tf2_broadcaster PUBLIC
-        ${geometry_msgs_TARGETS}
+        geometry_msgs::geometry_msgs
         rclcpp::rclcpp
         tf2_ros::tf2_ros
     )

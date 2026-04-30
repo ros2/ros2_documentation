@@ -15,7 +15,7 @@
 #   description (required): Brief explanation of how they use ROS
 #
 # Domain values:
-#   Agriculture, Aerial/Drone, Automotive, Components, Construction, Consumer Robot,
+#   Agriculture, Aerial/Drone, Automotive, Aviation, Components, Construction, Consumer Robot,
 #   Defense/Government, Education, Energy, Healthcare/Medical, Humanoid,
 #   Logistics/Warehouse, Manufacturing, Marine, Research, Space, Service Robot
 
@@ -121,7 +121,7 @@ adopters:
   - organization: "Czech Technical University in Prague"
     organization_url: "https://cvut.cz"
     project: "Vision for Robotics and Autonomous Systems"
-    project_url: "https://cyber.felk.cvut.cz/vras/"
+    project_url: "https://cyber.felk.cvut.cz/research/groups-teams/vras/"
     domain:
       - Defense/Government
       - Education
@@ -219,3 +219,160 @@ adopters:
       - IT
     description: "The RObotic SEnsors Technologies for Environment and Agriculture (ROSETEA) laboratory at Politecnico di Milano studies innovative methodologies and technologies to support the development of sustainable food production systems, and of resilient agricultural practices, increasing productivity and production while reducing the environmental footprint."
     
+  - organization: "Power Stow"
+    organization_url: "https://www.powerstow.com"
+    project: "Autonomous Luggage Handling"
+    domain:
+      - Aviation
+    date_added: "2026-04-16"
+    country:
+      - DK
+    description: "Autonomous luggage handling with a custom manipulator and tool using ROS 2, ros2_control and MoveIt"
+
+  - organization: "StereoLabs"
+    organization_url: "https://stereolabs.com"
+    project: "ZED ROS 2 Wrapper"
+    project_url: "https://www.stereolabs.com/docs/ros2"
+    domain:
+      - Components
+    date_added: "2026-04-18"
+    country:
+      - US
+      - FR
+    description: "Wrapper around the ZED SDK to bring all the capabilities of the ZED Stereo and Monocular cameras into the ROS 2 ecosystem."
+
+  - organization: "Kamath Robotics"
+    organization_url: "https://kamathrobotics.com"
+    project: "LeKiwi ROS 2"
+    domain:
+      - Education
+      - Research
+    date_added: "2026-04-17"
+    country:
+      - NL
+    description: "ROS 2-powered mobile robot for education and research, based on the LeKiwi platform, upgraded with a pan-tilt mechanism, a depth camera, a laser scanner, an IMU, and a lightweight AI agent with a ROS 2-specific agent skill."
+
+  - organization: "Dexory"
+    organization_url: "https://www.dexory.com/"
+    project: "Warehouse logistics"
+    domain:
+      - Logistics/Warehouse
+    date_added: "2026-04-19"
+    country:
+      - GB
+    description: "Autonomous navigation for warehouse logistics using ROS 2 and Nav2. Founding sponsor and contributor of Nav2."
+
+  - organization: "Fictionlab"
+    organization_url: "https://fictionlab.pl/"
+    project: "Leo Rover"
+    project_url: "https://fictionlab.pl/leo-rover/"
+    domain:
+      - Education
+      - Research
+      - Space
+    date_added: "2026-04-20"
+    country:
+      - PL
+    description: "Leo Rover is a rugged, open-source, modular mobile robot powered by ROS 2. Engineered for versatility and reliability, it serves as an accessible development platform for engineers,  researchers, educators, and robotics enthusiasts alike."
+
+  - organization: "Fictionlab"
+    organization_url: "https://fictionlab.pl/"
+    project: "Raph Rover"
+    project_url: "https://fictionlab.pl/raph-rover/"
+    domain:
+      - Education
+      - Research
+      - Space
+    date_added: "2026-04-20"
+    country:
+      - PL
+    description: "Raph Rover is an advanced,  open-source,  modular mobile robotic platform powered by ROS 2. Developed based on years of experience and feedback from Leo Rover users. It combines a proven, field-ready design with new capabilities in autonomous navigation, mapping, and long-range unmanned missions. Designed as an open R&D platform, Raph Rover provides a solid foundation for research and development projects in sectors such as space industry, defense, monitoring, technical inspections, and precision agriculture."
+    
+  - organization: "Polymath Robotics"
+    organization_url: "https://www.polymathrobotics.com/"
+    project: "Off-highway autonomy"
+    domain:
+      - Agriculture
+      - Construction
+      - Defense/Government
+      - Logistics/Warehouse
+      - Research
+    date_added: "2026-04-20"
+    country:
+      - US
+    description: "Polymath Robotics provides the core building blocks for production-grade off highway autonomy."
+
+  - organization: "ROBOTIS"
+    organization_url: "https://robotis.com/en/"
+    project: "AI Worker"
+    project_url: "https://ai.robotis.com/ai_worker/introduction_ai_worker.html"
+    domain:
+      - Humanoid
+      - Logistics/Warehouse
+      - Research
+    date_added: "2026-04-22"
+    country:
+      - KR
+    description: "Control architectures and imitation learning for dual-arm manipulation and omnidirectional navigation using ROS 2."
+
+  - organization: "ROBOTIS"
+    organization_url: "https://robotis.com/en/"
+    project: "Robotis Hand"
+    project_url: "https://ai.robotis.com/hands/introduction_hands.html"
+    domain:
+      - Components
+      - Humanoid
+      - Research
+    date_added: "2026-04-22"
+    country:
+      - KR
+    description: "Real-time 20-DOF control and tactile sensor broadcasting for high-dexterity manipulation using ROS 2."
+
+  - organization: "ROBOTIS"
+    organization_url: "https://robotis.com/en/"
+    project: "OMY"
+    project_url: "https://ai.robotis.com/omy/introduction_omy.html"
+    domain:
+      - Logistics/Warehouse
+      - Manufacturing
+      - Research
+    date_added: "2026-04-22"
+    country:
+      - KR
+    description: "Physical AI-driven 6-DOF leader-follower manipulation and real-time control architectures using ROS 2."
+
+  - organization: "ROBOTIS"
+    organization_url: "https://robotis.com/en/"
+    project: "OMX"
+    project_url: "https://ai.robotis.com/omx/introduction_omx.html"
+    domain:
+      - Education
+      - Research
+    date_added: "2026-04-22"
+    country:
+      - KR
+    description: "Physical AI-driven 5-DOF manipulation and user-centric leader-follower control architectures using ROS 2."
+
+  - organization: "ROBOTIS"
+    organization_url: "https://robotis.com/en/"
+    project: "TurtleBot3"
+    project_url: "https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/"
+    domain:
+      - Education
+      - Research
+    date_added: "2026-04-22"
+    country:
+      - KR
+    description: "SLAM-driven mobile robotics and highly customizable navigation architectures using ROS 2."
+
+  - organization: "ROBOTIS"
+    organization_url: "https://robotis.com/en/"
+    project: "OpenMANIPULATOR-X"
+    project_url: "https://emanual.robotis.com/docs/en/platform/openmanipulator_x/overview/"
+    domain:
+      - Education
+      - Research
+    date_added: "2026-04-22"
+    country:
+      - KR
+    description: "Open-source DYNAMIXEL-driven manipulation and embedded real-time control architectures using ROS2."
