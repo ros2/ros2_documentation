@@ -54,6 +54,9 @@ As of now, the following generic component container types are available:
 
   * Component container that uses a dedicated executor for each component: either ``SingleThreadedExecutor`` (default) or ``MultiThreadedExecutor``.
 
+For both isolated and non-isolated component containers using the ``MultiThreadedExecutor`` or ``EventsCBGExecutor``, the number of event processing threads can be configured via the ROS parameter ``thread_num``.
+In isolated mode, every dedicated executor will be created with ``thread_num`` threads.
+
 For more information about the types of executors, see the :ref:`TypesOfExecutors`.
 For more information about the options of each component container, see :ref:`ComponentContainerTypes` in the composition tutorial.
 
