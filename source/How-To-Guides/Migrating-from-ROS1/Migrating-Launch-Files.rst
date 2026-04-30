@@ -422,7 +422,7 @@ There are, however, some changes w.r.t. ROS 1:
 * ``find`` has been replaced with ``find-pkg-share`` (substituting the share directory of an installed package).
   Alternatively ``find-pkg-prefix`` will return the root of an installed package.
 * There is a new ``exec-in-pkg`` substitution.
-  e.g.: ``$(exec-in-pkg <package_name> <exec_name>)``.
+  e.g.: ``$(exec-in-pkg <exec_name> <package_name>)``.
 * There is a new ``find-exec`` substitution.
 * ``arg`` has been replaced with ``var``.
   It looks at configurations defined either with ``arg`` or ``let`` tag.

@@ -86,6 +86,7 @@ extensions = [
     'sphinx_tabs.tabs',
     'sphinx_rtd_theme',
     'sphinx_sitemap_ros',
+    'sphinx_adopters',
     'sphinxcontrib.googleanalytics',
     'sphinxcontrib.mermaid',
 ]
@@ -93,6 +94,7 @@ extensions = [
 # Intersphinx mapping
 
 intersphinx_mapping = {
+    'python':        ('https://docs.python.org/3', None),
     'catkin_pkg':    ('http://docs.ros.org/en/independent/api/catkin_pkg/html', None),
     'jenkins_tools': ('http://docs.ros.org/en/independent/api/jenkins_tools/html', None),
     'rosdep':        ('http://docs.ros.org/en/independent/api/rosdep/html', None),
@@ -172,13 +174,14 @@ html_favicon = 'favicon.ico'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = [os.path.abspath('source/_static')]
+html_static_path = ['source/_static']
 
 # Drop any source link suffix
 html_sourcelink_suffix = ''
 
 # Relative to html_static_path
-html_css_files = ['custom.css']
+html_css_files = ['custom.css', 'adopters.css']
+html_js_files = ['adopters.js']
 
 # -- Options for HTMLHelp output ------------------------------------------
 

@@ -17,6 +17,7 @@ Options for installing ROS 2 {DISTRO_TITLE_FULL}:
    Installation/Maintaining-a-Source-Checkout
    Installation/Testing
    Installation/RMW-Implementations
+   Installation/ROS-2-Mirrors
 
 .. _binary-package-platforms:
 
@@ -51,6 +52,7 @@ Building from source
 We support building ROS 2 from source on the following platforms:
 
 * :doc:`Ubuntu Linux 24.04 <Installation/Alternatives/Ubuntu-Development-Setup>`
+* :doc:`Ubuntu Linux 24.04 (Pixi) <Installation/Alternatives/Ubuntu-Development-Setup-Pixi>`
 * :doc:`Windows 10 <Installation/Alternatives/Windows-Development-Setup>`
 * :doc:`RHEL-9/Fedora <Installation/Alternatives/RHEL-Development-Setup>`
 * :doc:`macOS <Installation/Alternatives/macOS-Development-Setup>`
