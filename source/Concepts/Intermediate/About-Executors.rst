@@ -108,6 +108,44 @@ All three executors can be used with multiple nodes by calling ``add_node(..)`` 
 In the above example, the one thread of a Single-Threaded Executor is used to serve three nodes together.
 In case of a Multi-Threaded Executor, the actual parallelism depends on the callback groups.
 
+.. _TheCallbackGroupEventsExecutor:
+
+The Callback Group Events Executor
+----------------------------------
+
+Historically, both the Single and Multi-threaded executors, while simple enough in their implementation and how to reason about their execution, `were a significant performance bottleneck. <https://discourse.openrobotics.org/t/the-ros-2-c-executors/38296>`_
+
+Available in Lyrical Luth onward, the `EventsCBGExecutor <https://github.com/ros2/rclcpp/blob/rolling/rclcpp/include/rclcpp/executors/events_cbg_executor/events_cbg_executor.hpp>`_ is the result of years of work towards reducing the CPU overhead compared to existing executors.
+Instead of the wait sets, it utilizes a *first-in first-out events queue* to process ready events.
+It builds off the core idea that you don't pay for what you're not using, because rather than polling for changes on entities, an entity will enqueue an event to be processed *only when it becomes ready*.
+
+This new executor improves on its predecessor, the ``rclcpp::experimental::EventsExecutor``, by adding support for multiple sources of ROS time (including sim time), addressing `issues with slow running timers leading to a burst of timer events <https://github.com/ros2/rclcpp/issues/2771>`_, and multithreading support.
+Therefore, the new executor can also act as a drop-in replacement for the ``MultiThreadedExecutor``, as it will also create a configurable number of worker threads to process ready events.
+In single-threaded mode, the ``EventsCBGExecutor`` results in less context switching and `exhibits similar performance characteristics to its predecessor <https://discourse.openrobotics.org/t/ros2-state-of-the-events-executors-benchmark-comparison-between-rclcpp-eventsexecutor-and-cm-executors-eventscbgexecutor/50337>`_.
+
+Note: Currently, there is no limit to the number of events that can be added to the queue.
+This means that if the process is overloaded and starts slowing down, the number of ready entities inside the queue can grow unbounded.
+
+.. code-block:: cpp
+
+   rclcpp::Node::SharedPtr node1 = ...
+   rclcpp::Node::SharedPtr node2 = ...
+   rclcpp::Node::SharedPtr node3 = ...
+   rclcpp::Node::SharedPtr node4 = ...
+
+   rclcpp::executors::EventsCBGExecutor st_cbg_exec(rclcpp::ExecutorOptions(), 1);
+   st_cbg_exec.add_node(node1);
+   st_cbg_exec.add_node(node2);
+   st_cbg_exec.spin();
+
+   rclcpp::executors::EventsCBGExecutor mt_cbg_exec;
+   mt_cbg_exec.add_node(node3);
+   mt_cbg_exec.add_node(node4);
+   mt_cbg_exec.spin();
+
+In the above example, ``st_cbg_exec`` will use one thread for processing all of ``node1`` and ``node2``'s ready events, while ``mt_cbg_exec`` will use the maximum threads available on the system to process ``node3`` and ``node4``'s ready events.
+Like the Multi-Threaded Executor, the actual parallelism depends on the callback groups when using the CBG Executor with more than one thread.
+
 Callback groups
 ---------------
 
@@ -176,7 +214,7 @@ This semantics was first described in a `paper by Casini et al. at ECRTS 2019 <h
 Outlook
 -------
 
-While the three Executors of rclcpp work well for most applications, there are some issues that make them not suitable for real-time applications, which require well-defined execution times, determinism, and custom control over the execution order.
+While the Single and Multi-threaded Executors of rclcpp work well for most applications, there are some issues that make them not suitable for real-time applications, which require well-defined execution times, determinism, and custom control over the execution order.
 Here is a summary of some of these issues:
 
 1. Complex and mixed scheduling semantics.
@@ -186,7 +224,7 @@ Here is a summary of some of these issues:
 3. No explicit control over the callbacks execution order.
 4. No built-in control over triggering for specific topics.
 
-Additionally, the executor overhead in terms of CPU and memory usage is considerable.
+Additionally, the overhead of the Single and Multi-threaded Executors in terms of CPU and memory usage is considerable.
 
 These issues have been partially addressed by the following developments:
 
@@ -195,6 +233,7 @@ These issues have been partially addressed by the following developments:
   The `examples_rclcpp_wait_set package <https://github.com/ros2/examples/tree/{REPOS_FILE_BRANCH}/rclcpp/wait_set>`_ provides several examples for the use of this user-level wait set mechanism.
 * `rclc Executor <https://github.com/ros2/rclc/blob/master/rclc/include/rclc/executor.h>`_: This Executor from the C Client Library *rclc*, developed for micro-ROS, gives the user fine-grained control over the execution order of callbacks and allows for custom trigger conditions to activate callbacks.
   Furthermore, it implements ideas of the Logical Execution Time (LET) semantics.
+* :ref:`The Callback Group Events Executor <TheCallbackGroupEventsExecutor>` utilizes between 10 and 15% less CPU compared to the single and multi-threaded executors, and makes use of a FIFO queue to handle events.
 
 Further information
 -------------------
