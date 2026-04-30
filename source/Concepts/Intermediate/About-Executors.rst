@@ -107,7 +107,7 @@ The Callback Group Events Executor
 Historically, both the Single and Multi-threaded executors, while simple enough in their implementation and how to reason about their execution, `were a significant performance bottleneck. <https://discourse.openrobotics.org/t/the-ros-2-c-executors/38296>`_
 
 Available in Lyrical Luth onward, the `EventsCBGExecutor <https://github.com/ros2/rclcpp/blob/rolling/rclcpp/include/rclcpp/executors/events_cbg_executor/events_cbg_executor.hpp>`_ is the result of years of work towards reducing the CPU overhead compared to existing executors.
-Instead of the wait sets, it utilizes an *events queue* to process ready events.
+Instead of the wait sets, it utilizes a *first-in first-out events queue* to process ready events.
 It builds off the core idea that you don't pay for what you're not using, because rather than polling for changes on entities, an entity will enqueue an event to be processed *only when it becomes ready*.
 
 The Callback Group Events Executor is a drop-in replacement for the Multi-Threaded Executor.
@@ -224,7 +224,7 @@ These issues have been partially addressed by the following developments:
   The `examples_rclcpp_wait_set package <https://github.com/ros2/examples/tree/{REPOS_FILE_BRANCH}/rclcpp/wait_set>`_ provides several examples for the use of this user-level wait set mechanism.
 * `rclc Executor <https://github.com/ros2/rclc/blob/master/rclc/include/rclc/executor.h>`_: This Executor from the C Client Library *rclc*, developed for micro-ROS, gives the user fine-grained control over the execution order of callbacks and allows for custom trigger conditions to activate callbacks.
   Furthermore, it implements ideas of the Logical Execution Time (LET) semantics.
-* :ref:`The Callback Group Events Executor <TheCallbackGroupEventsExecutor>` utilizes between 10 and 15% less CPU compared to the single and multi-threaded executors.
+* :ref:`The Callback Group Events Executor <TheCallbackGroupEventsExecutor>` utilizes between 10 and 15% less CPU compared to the single and multi-threaded executors, and makes use of a FIFO queue to handle events.
 
 Further information
 -------------------
