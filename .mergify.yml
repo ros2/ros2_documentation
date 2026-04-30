@@ -6,6 +6,11 @@ pull_request_rules:
     actions:
       backport:
         branches:
+<<<<<<< HEAD
+=======
+          - lyrical
+          - kilted 
+>>>>>>> f696450 (Add support for ROS Lyrical (#6484))
           - jazzy
           - humble
 
@@ -16,9 +21,35 @@ pull_request_rules:
     actions:
       backport:
         branches:
+<<<<<<< HEAD
           - jazzy
           - humble
 
+=======
+          - lyrical
+          - kilted
+          - jazzy
+          - humble
+
+  - name: backport to lyrical at reviewers discretion
+    conditions:
+      - base=rolling
+      - "label=backport-lyrical"
+    actions:
+      backport:
+        branches:
+          - lyrical
+
+  - name: backport to kilted at reviewers discretion
+    conditions:
+      - base=rolling
+      - "label=backport-kilted"
+    actions:
+      backport:
+        branches:
+          - kilted
+
+>>>>>>> f696450 (Add support for ROS Lyrical (#6484))
   - name: backport to jazzy at reviewers discretion
     conditions:
       - base=rolling
