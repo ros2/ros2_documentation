@@ -209,6 +209,7 @@ You can run the tests using this command:
 
 .. code-block:: console
 
+   $ cd C:\dev\{DISTRO}
    $ colcon test --merge-install
 
 .. note::
