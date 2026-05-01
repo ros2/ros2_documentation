@@ -25,7 +25,7 @@ Create a location for the ROS 2 installation
 
 This location will contain both the installed binary packages, plus the ROS 2 installation itself.
 
-Start a Command Prompt session (usually by clicking on the start menu, then typing ``command prompt``).
+Start an Administrator Command Prompt session (usually by clicking on the start menu, then typing ``command prompt``, then right-click and ``Run as administrator``).
 
 Then create a directory to store the installation.
 Because of Windows path-length limitations, this should be as short as possible.
@@ -45,9 +45,13 @@ Using the session you started above, run the following:
 .. code-block:: console
 
    $ powershell New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" -Name "LongPathsEnabled" -Value 1 -PropertyType DWORD -Force
+.. note::
+
+   Execute as administrator.
 
 You can read more about this limitation in `Microsoft's documentation <https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=registry>`__.
 
+Close the administrator terminal and follow using a new Command Prompt session. 
 
 Install prerequisites
 ---------------------
