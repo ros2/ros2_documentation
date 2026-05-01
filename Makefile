@@ -24,6 +24,9 @@ multiversion: Makefile
 %: Makefile
 	@$(BUILD) -M $@ "$(SOURCE)" "$(OUT)" $(OPTS)
 
+enhance-topics:
+	git diff --name-only "$(PR_BASE_SHA)" "$(PR_HEAD_SHA)" | xargs -r $(PYTHON) scripts/enhance_topics.py
+
 lint:
 	./sphinx-lint-with-ros source
 
