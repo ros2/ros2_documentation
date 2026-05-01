@@ -14,13 +14,11 @@ This page explains how to setup a development environment for ROS 2 on Windows.
 System requirements
 -------------------
 
-Only Windows 11 is supported.
-
 Language support
 ^^^^^^^^^^^^^^^^
 
 Make sure you have a locale which supports ``UTF-8``.
-For example, for a Chinese-language Windows 11 installation, you may need to install an `English language pack <https://support.microsoft.com/en-us/windows/language-packs-for-windows-a5094319-a92d-18de-5b53-1cfc697cfca8>`_.
+For example, for a Chinese-language Windows installation, you may need to install an `English language pack <https://support.microsoft.com/en-us/windows/language-packs-for-windows-a5094319-a92d-18de-5b53-1cfc697cfca8>`_.
 
 Create a location for the ROS 2 installation
 --------------------------------------------

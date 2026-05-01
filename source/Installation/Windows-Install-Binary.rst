@@ -13,11 +13,6 @@ This page explains how to install ROS 2 on Windows from a pre-built binary packa
     All packages in the `ROS base variant <https://reps.openrobotics.org/rep-2001/#ros-base>`_ are included, and only a subset of packages in the `ROS desktop variant <https://reps.openrobotics.org/rep-2001/#desktop-variants>`_ are included.
     The exact list of packages are described by the repositories listed in `this ros2.repos file <https://github.com/ros2/ros2/blob/{REPOS_FILE_BRANCH}/ros2.repos>`_.
 
-System requirements
--------------------
-
-Only Windows 11 is supported.
-
 .. _windows-install-binary-installing-prerequisites:
 
 Create a location for the ROS 2 installation
