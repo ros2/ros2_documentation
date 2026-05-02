@@ -121,6 +121,16 @@ TODO
 New features in this ROS 2 release
 ----------------------------------
 
+``ament_cmake``
+^^^^^^^^^^^^^^^
+
+Allow multiple ``ament_python_install_package()`` calls per package
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+This enables shipping a single package with both python code and generated interfaces (from ``rosidl_generate_interfaces()``).
+Source directories from each call are merged at install time, with the last call winning on file conflicts.
+
+See https://github.com/ament/ament_cmake/pull/587 for more details.
+
 ``class_loader``
 ^^^^^^^^^^^^^^^^
 
@@ -168,6 +178,19 @@ Compared to the Single and Multithreaded Executors, the ``EventsCBGExecutor`` ex
 Note: The experimental ``EventsExecutor`` is now deprecated. For similar performance, use the ``EventsCBGExecutor`` with one thread.
 
 `Unified component container interface <https://github.com/ros2/rclcpp/pull/3134>`__ - ``component_container`` is now the single entrypoint for launching both regular and isolated component containers with all types of executors.
+
+``rclpy``
+^^^^^^^^^
+
+Native asyncio support with ``AsyncNode`` (experimental)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Added ``AsyncNode``, a new node type that runs on the ``asyncio`` event loop.
+Subscription, service, and timer callbacks can now ``await`` any asyncio operation.
+The new async ``client.call(request)`` and sim-time aware ``clock.sleep(...)`` are awaitable from any asyncio task.
+CPU usage is significantly reduced compared to the ``SingleThreadedExecutor``.
+
+See the :doc:`Writing an async node with asyncio <../Tutorials/Intermediate/Writing-An-Async-Node-With-Asyncio-Python>` tutorial and https://github.com/ros2/rclpy/pull/1620 for more details.
 
 ``rosbag2``
 ^^^^^^^^^^^
