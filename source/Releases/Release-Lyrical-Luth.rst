@@ -211,7 +211,7 @@ Subscription, service, and timer callbacks can now ``await`` any asyncio operati
 The new async ``client.call(request)`` and sim-time aware ``clock.sleep(...)`` are awaitable from any asyncio task.
 CPU usage is significantly reduced compared to the ``SingleThreadedExecutor``.
 
-See the :doc:`Writing an async node with asyncio <../Tutorials/Intermediate/Writing-An-Async-Node-With-Asyncio-Python>` tutorial and https://github.com/ros2/rclpy/pull/1620 for more details.
+See the `Writing an async node with asyncio <../../lyrical/Tutorials/Intermediate/Writing-An-Async-Node-With-Asyncio-Python.html>`__ tutorial and https://github.com/ros2/rclpy/pull/1620 for more details.
 
 ``rosbag2``
 ^^^^^^^^^^^
