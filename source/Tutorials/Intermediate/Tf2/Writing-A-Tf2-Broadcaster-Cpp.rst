@@ -101,7 +101,7 @@ Open the file using your preferred text editor.
         stream << "/" << turtlename_.c_str() << "/pose";
         std::string topic_name = stream.str();
 
-        auto handle_turtle_pose = [this](const std::shared_ptr<const turtlesim_msgs::msg::Pose> msg){
+        auto handle_turtle_pose = [this](const std::shared_ptr<const turtlesim::msg::Pose> msg){
             geometry_msgs::msg::TransformStamped t;
 
             // Read message content and assign it to
