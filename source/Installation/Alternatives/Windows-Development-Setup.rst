@@ -51,7 +51,7 @@ Using the session you started above, run the following:
 
 You can read more about this limitation in `Microsoft's documentation <https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=registry>`__.
 
-Close the administrator terminal and follow using a new Command Prompt session. 
+Close the administrator terminal and follow using a new Command Prompt session.
 
 Install prerequisites
 ---------------------
