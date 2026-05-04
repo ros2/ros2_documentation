@@ -29,7 +29,11 @@ For example, for a Chinese-language Windows 10 installation, you may need to ins
 Additional prerequisites
 ------------------------
 
+<<<<<<< HEAD
 When building from source you'll need a few additional prerequisites installed.
+=======
+Start an Administrator Command Prompt session (usually by clicking on the start menu, then typing ``command prompt``, then right-click and ``Run as administrator``).
+>>>>>>> 746fc7f (Administrator permission and testing correction for Windows Source install (#6519))
 
 Install additional prerequisites from Chocolatey
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -38,9 +42,28 @@ Install additional prerequisites from Chocolatey
 
    $ choco install -y cppcheck curl git winflexbison3
 
+<<<<<<< HEAD
 You will need to append the Git cmd folder ``C:\Program Files\Git\cmd`` to the PATH (you can do this by clicking the Windows icon, typing "Environment Variables", then clicking on "Edit the system environment variables".
 In the resulting dialog, click "Environment Variables", the click "Path" on the bottom pane, then click "Edit" and add the path).
+=======
+Increase the Windows maximum path length
+----------------------------------------
 
+By default, Windows is restricted to a maximum path length (MAX_PATH) of 260 characters.
+The ROS 2 build will use significantly longer path lengths, so we will increase that.
+Using the session you started above, run the following:
+
+.. code-block:: console
+
+   $ powershell New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" -Name "LongPathsEnabled" -Value 1 -PropertyType DWORD -Force
+.. note::
+
+   Execute as administrator.
+
+You can read more about this limitation in `Microsoft's documentation <https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=registry>`__.
+>>>>>>> 746fc7f (Administrator permission and testing correction for Windows Source install (#6519))
+
+Close the administrator terminal and follow using a new Command Prompt session.
 
 Install Python prerequisites
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -139,6 +162,7 @@ You can run the tests using this command:
 
 .. code-block:: console
 
+   $ cd C:\dev\{DISTRO}
    $ colcon test --merge-install
 
 .. note::
