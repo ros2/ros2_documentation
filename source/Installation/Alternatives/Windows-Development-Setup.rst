@@ -32,7 +32,11 @@ Create a location for the ROS 2 installation
 
 This location will contain both the installed binary packages, plus the ROS 2 installation itself.
 
+<<<<<<< HEAD
 Start a powershell session (usually by clicking on the start menu, then typing ``powershell``).
+=======
+Start an Administrator Command Prompt session (usually by clicking on the start menu, then typing ``command prompt``, then right-click and ``Run as administrator``).
+>>>>>>> 746fc7f (Administrator permission and testing correction for Windows Source install (#6519))
 
 Then create a directory to store the installation.
 Because of Windows path-length limitations, this should be as short as possible.
@@ -51,10 +55,18 @@ Using the powershell session you started above, run the following:
 
 .. code-block:: console
 
+<<<<<<< HEAD
    $ New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" -Name "LongPathsEnabled" -Value 1 -PropertyType DWORD -Force
+=======
+   $ powershell New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" -Name "LongPathsEnabled" -Value 1 -PropertyType DWORD -Force
+.. note::
+
+   Execute as administrator.
+>>>>>>> 746fc7f (Administrator permission and testing correction for Windows Source install (#6519))
 
 You can read more about this limitation in `Microsoft's documentation <https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=registry>`__.
 
+Close the administrator terminal and follow using a new Command Prompt session.
 
 Install prerequisites
 ---------------------
@@ -212,6 +224,7 @@ You can run the tests using this command:
 
 .. code-block:: console
 
+   $ cd C:\dev\{DISTRO}
    $ colcon test --merge-install
 
 .. note::
