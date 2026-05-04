@@ -148,7 +148,6 @@ def analyze_files(files: list[str], client: OpenAI, prompts: dict[str, str], tim
 
         # Check if the content is not empty
         if content.strip():
-            filename = os.path.basename(file_path)  # Extract filename from file path
             for prompt_name, prompt in prompts.items():  # Iterate through each prompt in the dictionary
                 logger.debug(f"Running analysis: {prompt_name}")
                 try:
@@ -161,21 +160,21 @@ def analyze_files(files: list[str], client: OpenAI, prompts: dict[str, str], tim
                     )
                     if result:
                         # Add the analysis result to the data structure
-                        data = add_analysis_result(data, filename, prompt_name, result)
+                        data = add_analysis_result(data, file_path, prompt_name, result)
                     else:
-                        logger.warning(f"No result for {filename} with prompt name: {prompt_name}")
+                        logger.warning(f"No result for {file_path} with prompt name: {prompt_name}")
 
                 except (RateLimitError, APIConnectionError) as e:
                     # Exhausted all retries due to rate limits or connection errors
-                    logger.error(f"Failed to analyse {filename} with prompt {prompt_name} after {MAX_RETRIES} retries: {e}")
+                    logger.error(f"Failed to analyse {file_path} with prompt {prompt_name} after {MAX_RETRIES} retries: {e}")
                     continue
                 except TimeoutError as e:
                     # Timeout error due to an individual API call timing out
-                    logger.error(f"Analysis timed out for {filename} with prompt {prompt_name}: {e}")
+                    logger.error(f"Analysis timed out for {file_path} with prompt {prompt_name}: {e}")
                     continue
                 except (OpenAIError, ValueError) as e:
                     # Other API errors and value errors
-                    logger.error(f"Failed to analyse {filename} with prompt {prompt_name}: {e}")
+                    logger.error(f"Failed to analyse {file_path} with prompt {prompt_name}: {e}")
                     continue
         else:
             logger.info(f"No analysable content found for {file_path}")
@@ -256,15 +255,14 @@ def update_meta_files(files: list[str], data: EnhanceData) -> EnhanceData:
 
     for file_path in files:
         logger.debug("Updating metadata in file: %s", file_path)
-        filename = os.path.basename(file_path)  # Keys in ``EnhanceData.results`` are basenames only
-        metadata = get_results_for_file(current_data, filename)
+        metadata = get_results_for_file(current_data, file_path)
 
         # Confirm the metadata is not empty for the file, else skip
         if not metadata:
-            logger.info("Skipping %s as it has no results for enhancement", filename)
+            logger.info("Skipping %s as it has no results for enhancement", file_path)
             continue
 
-        logger.debug("Metadata found for %s, proceeding with updates.", filename)
+        logger.debug("Metadata found for %s, proceeding with updates.", file_path)
 
         try:
             with open(file_path, encoding="utf-8") as file:
@@ -280,7 +278,7 @@ def update_meta_files(files: list[str], data: EnhanceData) -> EnhanceData:
 
         # Confirm that at least one metadata has been changed for the file, else skip
         if not changed:
-            logger.debug("No metadata changes applied for %s", filename)
+            logger.debug("No metadata changes applied for %s", file_path)
             continue  # All keys already present or no additions—do not touch the file
 
         try:
@@ -293,8 +291,8 @@ def update_meta_files(files: list[str], data: EnhanceData) -> EnhanceData:
             logger.error("Unicode encode error while writing RST file %s: %s", file_path, exc)
             continue
 
-        current_data = mark_file_updated(current_data, filename)  # Record success for metrics only after a clean write
-        logger.debug("Updated file with supplied metadata: %s", filename)
+        current_data = mark_file_updated(current_data, file_path)  # Record success for metrics only after a clean write
+        logger.debug("Updated file with supplied metadata: %s", file_path)
         logger.debug("-" * 50)
 
     metrics = calculate_metrics(current_data)  # ``updated_files_count`` reflects files we rewrote
