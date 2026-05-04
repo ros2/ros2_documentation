@@ -89,6 +89,20 @@ Install additional RMW implementations (optional)
 The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
 See the :doc:`guide <../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
+Install Visual Studio Build Tools 2022 (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To compile packages written in C++, install Visual Studio Build Tools 2022.
+During installation, select the "Desktop development with C++" workload to
+ensure the MSVC compiler and Windows SDK are available. 
+Download from `here <https://visualstudio.microsoft.com/vs/older-downloads/#visual-studio-2022-and-other-products>`_.
+
+Run all commands in the "x64 Native Tools Command Prompt for VS 2022"
+(available from the Start Menu), which configures the required build environment.
+
+.. note::
+
+   The full Visual Studio IDE is not required.
 
 Setup environment
 -----------------
@@ -103,6 +117,7 @@ Source the pixi environment to set up dependencies:
 .. code-block:: console
 
    $ cd C:\dev\{DISTRO}
+   $ pixi shell
 
 Source the ROS 2 environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
