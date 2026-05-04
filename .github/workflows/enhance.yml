@@ -1,0 +1,23 @@
+name: Enhance content
+
+on: push
+
+jobs:
+  enhance:
+    # Runs only on forks when contributor pushes to their fork
+    if: github.event.repository.fork == true
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Enhance topics
+        env:
+          BASE_SHA: ${{ github.event.before }}
+          HEAD_SHA: ${{ github.event.after }}
+        run: make enhance-topics
