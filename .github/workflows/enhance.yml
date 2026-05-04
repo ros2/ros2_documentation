@@ -9,10 +9,14 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        # Using checkout v5, as v4 was warning that it will soon be deprecated (Node 20)
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        # Using setup-python v6, as v5 has same warning as above
+        uses: actions/setup-python@v6
         with:
           python-version: '3.12'
 
