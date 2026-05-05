@@ -28,21 +28,17 @@ MAX_RETRIES = 10     # Maximum number of retry attempts for exponential backoff
 MIN_WAIT = 10        # Minimum wait time between retries in seconds
 MAX_WAIT = 120        # Maximum wait time between retries in seconds
 
-# Content type classification prompt
-CONTENT_TYPE_PROMPT = """You are a content analyst, and your role is to analyze text content within supplied HTML documents. You can distinguish between three types of content: task, concept, and reference. 
+KEYWORDS_PROMPT = """You are a content analyst, and your role is to analyze text content within supplied documents.
 
-*Concept topics*
-Concept topics explain or define ideas. These topics often include background information that users need to understand before they start working with a specific product. Concept topics help the users understand the product, its purpose and benefits, before using the product. Concept topics do the following: describe a system, product, or a solution, outline a process, introduce tools or features, explain features, components, characteristics, restrictions, or capabilities, define terms in more detail than a simple glossary. 
+Your role is to extract 3 to 5 keywords from the content for use in metadata. The keywords should be single words that are the most important and relevant words to the content topic.
 
-*Task topics*
-Task topics help achieve a specific goal by presenting instructions as 'procedures'. The first paragraph of the topic usually provides an overview and the benefits or importance of the task. A task is usually a numbered list of individual steps that help users achieve the goal. 
+Finally, generate a comma-separated list of these keywords, in lowercase, with no additional styling, characters, or formatting."""
 
-*Reference topics*
-Reference topics provide quick access to information that users need to perform a task effectively. For example, lists all necessary links. Information in the main body of a reference topic may also be presented in a list or table format, for quick access and easy readability.
+DESCRIPTION_PROMPT = """You are a content analyst, and your role is to analyze text content within supplied documents.
 
-When analyzed content is a mixture of different content types, classify based on the majority of content.
+Your role is to create a concise description of the content for use in metadata. The description should be a single sentence (of a maximum of 130 characters) that captures the main idea of the content.
 
-Finally, generate a single-word lowercase output which is the recognized content type, with no additional styling, characters, or formatting."""
+Finally, generate this description, with no additional styling, characters, or formatting."""
 
 @retry(
     retry=retry_if_exception_type((RateLimitError, APIConnectionError)),
@@ -228,7 +224,7 @@ def enhance_metadata(files: list[str], client: Optional[OpenAI] = None) -> Enhan
         return create_enhance_data()
     
     # TODO: Make this config-driven, so that we can easily add more prompts and analysis types
-    prompts: dict[str, str] = {"content-type": CONTENT_TYPE_PROMPT}
+    prompts: dict[str, str] = {"description": DESCRIPTION_PROMPT, "keywords": KEYWORDS_PROMPT}
 
     data = analyze_files(files, client, prompts)  # Populate ``EnhanceData.results`` from the model
     data = update_meta_files(files, data)  # Persist results as metadata fields and set ``updated_files``

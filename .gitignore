@@ -5,3 +5,4 @@ _build/
 __pycache__
 ros2doc/
 .DS_Store
+.env
