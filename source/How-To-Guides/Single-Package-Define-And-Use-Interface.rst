@@ -5,13 +5,11 @@
 Implementing custom interfaces - how-to
 =======================================
 
-.. centered:: **When predefined interface definitions are not enough, you need to create custom interfaces.
-   In this article, you will learn how to define and build interfaces with different field types.
-   This will help you implement custom interfaces in ROS to suit your needs.**
+When predefined interface definitions are not enough, you need to create custom interfaces.
+In this article, you will learn how to define and build interfaces with different field types.
+This will help you implement custom interfaces in ROS to suit your needs.
 
-::
-
-   Area: ROS-framework | Content-type: how-to | Experience: beginner, intermediate
+**Area: ROS-framework | Content-type: how-to | Experience: beginner, intermediate**
 
 .. contents:: Contents
    :depth: 2
@@ -29,8 +27,12 @@ ROS offers three main interface types:
 
 `Learn more about interfaces <https://docs.ros.org/en/{DISTRO}/Concepts/Basic/Interfaces-Topics-Services-Actions.html>`__
 
-While predefined interface definitions are useful at the beginning, you soon realize that they can't meet all your needs.
-That's why the ability to create custom interfaces is essential.
+Before creating a custom interface, do the following:
+
+1. Check whether a suitable standard message already exists.
+2. If no single standard message fits your use case, consider creating a new message composed of standard messages. See standard messages here: https://github.com/ros2/common_interfaces.
+
+Creating a completely custom message should be the last resort.
 
 Creating custom interfaces involves preparing a package, specifying interface definitions, and registering the interfaces in ``package.xml`` and ``CMakeLists.txt``.
 Using custom interfaces involves configuring a node to include the interfaces in its source, and configuring the node to build with the interfaces in ``CMakeLists.txt``.
@@ -38,6 +40,7 @@ Using custom interfaces involves configuring a node to include the interfaces in
 .. tip::
 
    The best practice is to declare interfaces in dedicated interface packages, but sometimes it may be more convenient for you to declare, create and use an interface all in one package.
+   Using a dedicated interface package is preferred because it allows multiple packages to share message definitions without sharing any other code contained in the package.
 
 Prerequisites
 -------------
@@ -67,6 +70,7 @@ Steps
 
 #. In your interface definitions folder, create a file in which you provide the definitions for the interface.
    For example, for a message interface, you can create an ``AddressBook.msg`` file that collects personal data:
+   The ``PHONE_TYPE_*`` constants in this example form an enumerated type pattern for ``phone_type`` values.
 
    .. code-block:: text
 
@@ -77,6 +81,7 @@ Steps
       string last_name
       string phone_number
       uint8 phone_type
+      geometry_msgs/Point location
 
 #. In ``package.xml``, add the following code to register your package as part of interface groups:
    ``rosidl_default_generators``: Needed to generate the code during the build.
@@ -86,6 +91,7 @@ Steps
 
       <build_depend>rosidl_default_generators</build_depend>
       <exec_depend>rosidl_default_runtime</exec_depend>
+      <depend>geometry_msgs</depend>
       <member_of_group>rosidl_interface_packages</member_of_group>
 
 #. In ``CMakeLists.txt``, add the required code to make the runtime libraries available and to generate source files from your interface definition.
@@ -94,8 +100,11 @@ Steps
    .. code-block:: cmake
 
       find_package(rosidl_default_generators REQUIRED)
+      find_package(geometry_msgs REQUIRED)
       set(msg_files "msg/AddressBook.msg")
-      rosidl_generate_interfaces(${PROJECT_NAME} ${msg_files})
+      rosidl_generate_interfaces(${PROJECT_NAME} ${msg_files}
+        DEPENDENCIES geometry_msgs
+      )
       ament_export_dependencies(rosidl_default_runtime)
 
 #. In the ``more_interfaces/src`` folder, create a node to interact with your new interface.
@@ -127,6 +136,9 @@ Steps
               message.last_name = "Doe";
               message.phone_number = "1234567890";
               message.phone_type = message.PHONE_TYPE_MOBILE;
+              message.location.x = 37.7749;
+              message.location.y = -122.4194;
+              message.location.z = 0.0;
 
               std::cout << "Publishing Contact\nFirst:" << message.first_name <<
                 "  Last:" << message.last_name << std::endl;
