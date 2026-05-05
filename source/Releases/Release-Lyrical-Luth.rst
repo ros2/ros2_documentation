@@ -135,7 +135,7 @@ See https://github.com/ament/ament_cmake/pull/587 for more details.
 ^^^^^^^^^^^^^^^
 
 Has new ``--ament-strict`` option to allow more strict type checking.
-The ROS core is slowly being switch to this stricter standard to help prevent regressions in python packages.
+The ROS core is slowly being switch to this stricter standard to help prevent regressions in Python packages.
 
 ``class_loader``
 ^^^^^^^^^^^^^^^^
