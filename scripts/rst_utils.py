@@ -3,15 +3,7 @@ Utilities for editing reStructuredText source, in particular ``.. meta::`` direc
 """
 
 import logging
-import os
 import re
-
-from enhance_data import (
-    EnhanceData,
-    calculate_metrics,
-    get_results_for_file,
-    mark_file_updated,
-)
 
 logger = logging.getLogger(__name__)
 
@@ -60,7 +52,7 @@ def _find_meta_block(content: str) -> tuple[int, int, int, str, str]:
     return start, marker_end, block_end, inner, indent
 
 
-def _get_existing_meta_names(meta_block_inner: str) -> set[str]:
+def _extract_meta_names_from_block(meta_block_inner: str) -> set[str]:
     """
     Collect field names from the body of a ``.. meta::`` directive.
 
@@ -73,6 +65,16 @@ def _get_existing_meta_names(meta_block_inner: str) -> set[str]:
     for field_match in re.finditer(r"^[ \t]+:([^:\n]+?):", meta_block_inner, re.MULTILINE):
         names.add(field_match.group(1).strip())
     return names
+
+
+def get_meta_names_from_content(content: str) -> set[str]:
+    """
+    Return the set of field names already present in the first ``.. meta::`` block.
+
+    If no ``.. meta::`` directive exists, returns an empty set.
+    """
+    _start, _marker_end, _block_end, inner, _indent = _find_meta_block(content)
+    return _extract_meta_names_from_block(inner)
 
 
 def _normalise_meta_field_value(value: str) -> str:
@@ -93,7 +95,7 @@ def inject_metadata_to_content(content: str, metadata: dict[str, str]) -> tuple[
         Updated source and whether any change was made.
     """
     start, marker_end, block_end, inner, indent = _find_meta_block(content)
-    names = _get_existing_meta_names(inner)  # Snapshot before we add keys from this same batch
+    names = _extract_meta_names_from_block(inner)  # Snapshot before we add keys from this same batch
     additions: list[str] = []
 
     for key, raw_value in metadata.items():

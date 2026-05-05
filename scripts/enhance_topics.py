@@ -8,8 +8,8 @@ from openai import OpenAI, RateLimitError, APIConnectionError, OpenAIError
 from tenacity import retry, stop_after_attempt, wait_random_exponential, retry_if_exception_type
 from concurrent.futures import ThreadPoolExecutor
 
-from enhance_data import EnhanceData, create_enhance_data, add_analysis_result, calculate_metrics
-from rst_utils import get_results_for_file, inject_metadata_to_content, mark_file_updated
+from enhance_data import EnhanceData, add_analysis_result, calculate_metrics, create_enhance_data, get_results_for_file, mark_file_updated
+from rst_utils import get_meta_names_from_content, inject_metadata_to_content
 
 logger = logging.getLogger(__name__)
 
@@ -144,7 +144,15 @@ def analyze_files(files: list[str], client: OpenAI, prompts: dict[str, str], tim
 
         # Check if the content is not empty
         if content.strip():
+            existing_meta_names = get_meta_names_from_content(content)
             for prompt_name, prompt in prompts.items():  # Iterate through each prompt in the dictionary
+                if prompt_name in existing_meta_names:
+                    logger.info(
+                        "Skipping analysis for %s: meta field %r already present in .. meta::",
+                        file_path,
+                        prompt_name,
+                    )
+                    continue
                 logger.debug(f"Running analysis: {prompt_name}")
                 try:
                     # Analyse the content using API with timeout and retry logic
