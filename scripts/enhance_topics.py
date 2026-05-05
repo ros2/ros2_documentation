@@ -23,7 +23,7 @@ RST_EXTENSION = '.rst' # File extension for RST files
 # - Individual API calls timeout after DEFAULT_TIMEOUT seconds
 # - On rate limits/connection errors, retry up to MAX_RETRIES times
 # - Wait between retries, increasing exponentially: MIN_WAIT → MAX_WAIT (capped)
-DEFAULT_TIMEOUT = 60  # Default timeout in seconds for an individual API call
+DEFAULT_TIMEOUT = 30  # Default timeout in seconds for an individual API call
 MAX_RETRIES = 10     # Maximum number of retry attempts for exponential backoff
 MIN_WAIT = 10        # Minimum wait time between retries in seconds
 MAX_WAIT = 120        # Maximum wait time between retries in seconds
@@ -300,7 +300,7 @@ def update_meta_files(files: list[str], data: EnhanceData) -> EnhanceData:
         logger.debug("-" * 50)
 
     metrics = calculate_metrics(current_data)  # ``updated_files_count`` reflects files we rewrote
-    logger.info("Enhanced %s files' metadata out of %s files processed.", metrics.updated_files_count, len(files))
+    logger.info("Updated metadata in %s files out of %s files processed.", metrics.updated_files_count, len(files))
     return current_data
 
 def main() -> None:
@@ -317,7 +317,7 @@ def main() -> None:
 
     Only files with the .rst extension will be processed. 
     Logs the number of files successfully enhanced.
-    """
+    """b
     
     logging.basicConfig(
         level=logging.INFO,
@@ -339,7 +339,7 @@ def main() -> None:
     data = enhance_metadata(rst_files)
     # Log the metrics for the enhancement data
     metrics = calculate_metrics(data)
-    logger.info(f"Enhanced {metrics.updated_files_count} RST files metadata out of {len(rst_files)} files processed.")
+    logger.info(f"Enhanced files: {metrics.files_with_results_count} with analysis results, and {metrics.updated_files_count} files updated, out of {len(rst_files)} RST files.")
 
 if __name__ == "__main__":
     main()
