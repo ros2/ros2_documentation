@@ -276,7 +276,7 @@ After removing some unnecessary boilerplate from the automatically generated fil
 
 .. code-block:: cmake
 
-  cmake_minimum_required(VERSION 3.5)
+  cmake_minimum_required(VERSION 3.20)
   project(cpp_srvcli)
 
   find_package(ament_cmake REQUIRED)

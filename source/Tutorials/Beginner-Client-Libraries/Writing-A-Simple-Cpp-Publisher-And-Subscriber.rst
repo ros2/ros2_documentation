@@ -267,7 +267,7 @@ You can clean up your ``CMakeLists.txt`` by removing some unnecessary sections a
 
 .. code-block:: cmake
 
-  cmake_minimum_required(VERSION 3.5)
+  cmake_minimum_required(VERSION 3.20)
   project(cpp_pubsub)
 
   # Default to C++14
