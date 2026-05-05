@@ -22,18 +22,6 @@ class EnhanceMetrics(NamedTuple):
     counts_by_analysis: Dict[str, Dict[str, int]]
     files_with_results_count: int
     updated_files_count: int
-    
-    def get_total_analysis_count(self) -> int:
-        """
-        Calculate the total number of analysis results across all analysis types.
-        
-        Note: Files with multiple analysis types contribute multiple counts.
-        For unique file count, use files_with_results_count instead.
-        
-        Returns:
-            Total count of all analysis results across all analysis types.
-        """
-        return sum(sum(counts.values()) for counts in self.counts_by_analysis.values())
 
 
 class EnhanceData(NamedTuple):
@@ -41,12 +29,28 @@ class EnhanceData(NamedTuple):
     Immutable data structure representing enhancement results.
     
     Attributes:
-        results: Dictionary mapping filename to analysis results.
-            Format: {filename: {analysis_type: result_value}}
-        updated_files: Set of filenames that had metadata successfully updated.
+        results: Dictionary mapping file paths to analysis results.
+            Format: {file_path: {analysis_type: result_value}}
+        updated_files: Set of file paths that had metadata successfully updated.
     """
     results: Dict[str, Dict[str, str]]
     updated_files: Set[str]
+
+
+def get_total_analysis_count(metrics: EnhanceMetrics) -> int:
+    """
+    Calculate the total number of analysis results across all analysis types.
+    
+    Note: Files with multiple analysis types contribute multiple counts.
+    For unique file count, use metrics.files_with_results_count instead.
+    
+    Args:
+        metrics: The metrics structure to analyse.
+        
+    Returns:
+        Total count of all analysis results across all analysis types.
+    """
+    return sum(sum(counts.values()) for counts in metrics.counts_by_analysis.values())
 
 
 def create_enhance_data() -> EnhanceData:
@@ -67,7 +71,7 @@ def add_analysis_result(data: EnhanceData, filename: str, analysis_type: str, re
     
     Args:
         data: Current enhancement data.
-        filename: Name of the file.
+        filename: Path to the file (relative to repository root).
         analysis_type: Type of analysis (e.g., "content-type").
         result: Analysis result value.
         
@@ -89,12 +93,12 @@ def mark_file_updated(data: EnhanceData, filename: str) -> EnhanceData:
     
     Args:
         data: Current enhancement data.
-        filename: Name of the file that was updated.
+        filename: Path to the file that was updated (relative to repository root).
         
     Returns:
         New EnhanceData with the file marked as updated.
     """
-    return EnhanceData(results=data.results, updated_files=data.updated_files | {filename})  # Set union adds one basename
+    return EnhanceData(results=data.results, updated_files=data.updated_files | {filename})  # Set union adds one file path
 
 
 def calculate_metrics(data: EnhanceData) -> EnhanceMetrics:
@@ -130,26 +134,26 @@ def calculate_metrics(data: EnhanceData) -> EnhanceMetrics:
 
 def get_files_with_results(data: EnhanceData) -> List[str]:
     """
-    Get list of filenames that had analysis results.
+    Get list of file paths that had analysis results.
     
     Args:
         data: Current enhancement data.
         
     Returns:
-        List of filenames with at least one analysis result.
+        List of file paths with at least one analysis result.
     """
     return [filename for filename, file_results in data.results.items() if file_results]
 
 
 def get_updated_files(data: EnhanceData) -> List[str]:
     """
-    Get list of filenames that had metadata successfully updated.
+    Get list of file paths that had metadata successfully updated.
     
     Args:
         data: Current enhancement data.
         
     Returns:
-        List of filenames that were updated with metadata.
+        List of file paths that were updated with metadata.
     """
     return list(data.updated_files)
 
@@ -160,7 +164,7 @@ def is_file_updated(data: EnhanceData, filename: str) -> bool:
     
     Args:
         data: Current enhancement data.
-        filename: Name of the file to check.
+        filename: Path to the file to check (relative to repository root).
         
     Returns:
         True if the file was updated, False otherwise.
@@ -190,7 +194,7 @@ def get_result_for_file(data: EnhanceData, filename: str, analysis_type: str) ->
     
     Args:
         data: Current enhancement data.
-        filename: Name of the file.
+        filename: Path to the file (relative to repository root).
         analysis_type: Type of analysis (e.g., "content-type").
         
     Returns:
@@ -205,7 +209,7 @@ def get_results_for_file(data: EnhanceData, filename: str) -> Dict[str, str]:
     
     Args:
         data: Current enhancement data.
-        filename: Name of the file.
+        filename: Path to the file (relative to repository root).
         
     Returns:
         Dictionary of analysis results for the file, or empty dict if not found.

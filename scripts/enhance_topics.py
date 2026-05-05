@@ -213,7 +213,7 @@ def get_openai_client() -> OpenAI:
 
 def enhance_metadata(files: list[str], client: Optional[OpenAI] = None) -> EnhanceData:
     """
-    Enhance RST files with metadata based on content analysis.
+    Enhance files with metadata based on content analysis.
 
     Args:
         files (list[str]): Paths to files to enhance.
@@ -272,10 +272,10 @@ def update_meta_files(files: list[str], data: EnhanceData) -> EnhanceData:
             with open(file_path, encoding="utf-8") as file:
                 content = file.read()  # Full document; helpers locate or synthesise ``.. meta::``
         except (OSError, PermissionError) as exc:
-            logger.error("Error reading RST file %s: %s", file_path, exc)
+            logger.error("Error reading file %s: %s", file_path, exc)
             continue
         except UnicodeDecodeError as exc:
-            logger.error("Unicode decode error reading RST file %s: %s", file_path, exc)
+            logger.error("Unicode decode error reading file %s: %s", file_path, exc)
             continue
 
         new_content, changed = inject_metadata_to_content(content, metadata)
@@ -289,10 +289,10 @@ def update_meta_files(files: list[str], data: EnhanceData) -> EnhanceData:
             with open(file_path, "w", encoding="utf-8") as file:
                 file.write(new_content)  # Full-document rewrite (same path as read)
         except (OSError, PermissionError) as exc:
-            logger.error("Error writing RST file %s: %s", file_path, exc)
+            logger.error("Error writing file %s: %s", file_path, exc)
             continue
         except UnicodeEncodeError as exc:
-            logger.error("Unicode encode error while writing RST file %s: %s", file_path, exc)
+            logger.error("Unicode encode error while writing file %s: %s", file_path, exc)
             continue
 
         current_data = mark_file_updated(current_data, file_path)  # Record success for metrics only after a clean write
@@ -304,22 +304,42 @@ def update_meta_files(files: list[str], data: EnhanceData) -> EnhanceData:
     return current_data
 
 def main() -> None:
+    """
+    Main entry point for the script.
+
+    - Parses command-line arguments to collect input file paths.
+    - Filters the provided files to include only reStructuredText (.rst) files.
+    - Enhances the metadata of each RST file using AI-based analysis (keywords and description).
+    - Writes updated metadata back to files and logs processing metrics.
+
+    Usage:
+        python enhance_topics.py <rst_file1> <rst_file2> ...
+
+    Only files with the .rst extension will be processed. 
+    Logs the number of files successfully enhanced.
+    """
+    
     logging.basicConfig(
         level=logging.INFO,
         format="%(levelname)s %(name)s: %(message)s",
     )
 
-    # Collect filenames from command line arguments
-    rst_files = sys.argv[1:]
+    # Collect filenames from command line arguments and filter for RST files
+    input_files = sys.argv[1:]
+    rst_files = [f for f in input_files if f.lower().endswith(RST_EXTENSION)]
+
     if not rst_files:
-        logger.error("No input files provided. Pass a list of RST files as arguments.")
-        sys.exit(1)
+        if input_files:
+            logger.info("No RST files found among provided arguments. Skipping enhancement.")
+        else:
+            logger.error("No input files provided. Pass a list of RST files as arguments.")
+        sys.exit(0)
     
     # Enhance the metadata in the RST files and return the enhancement data with updated files
     data = enhance_metadata(rst_files)
     # Log the metrics for the enhancement data
     metrics = calculate_metrics(data)
-    logger.info(f"Enhanced {metrics.updated_files_count} RST files metadata out of {len(rst_files)} files with results.")
+    logger.info(f"Enhanced {metrics.updated_files_count} RST files metadata out of {len(rst_files)} files processed.")
 
 if __name__ == "__main__":
     main()
