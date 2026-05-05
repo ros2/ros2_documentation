@@ -131,6 +131,12 @@ Source directories from each call are merged at install time, with the last call
 
 See https://github.com/ament/ament_cmake/pull/587 for more details.
 
+``ament_mypy``
+^^^^^^^^^^^^^^^
+
+Has new ``--ament-strict`` option to allow more strict type checking.
+The ROS core is slowly being switch to this stricter standard to help prevent regressions in python packages.
+
 ``class_loader``
 ^^^^^^^^^^^^^^^^
 
