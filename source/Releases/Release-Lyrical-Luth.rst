@@ -320,4 +320,4 @@ All methods and classes now have proper type hints.
 Passing in Python ``set`` objects into array or sequence fields is now deprecated.
 Instead pass in something that implements ``collections.abc.Sequence`` most commonly a ``list``, ``tuple``, or a ``numpy.ndarray``. To be removed in ROS M.
 
-All generated messages, services, and Actions are fully statically typed.
+All generated messages, services, and actions are fully statically typed.
