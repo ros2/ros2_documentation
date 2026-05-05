@@ -213,6 +213,11 @@ CPU usage is significantly reduced compared to the ``SingleThreadedExecutor``.
 
 See the :doc:`Writing an async node with asyncio <../Tutorials/Intermediate/Writing-An-Async-Node-With-Asyncio-Python>` tutorial and https://github.com/ros2/rclpy/pull/1620 for more details.
 
+Static typing stablization
+""""""""""""""""""""""""""
+
+All methods and classes now have proper type hints.
+
 ``rosbag2``
 ^^^^^^^^^^^
 
@@ -308,3 +313,5 @@ See the :doc:`Writing an async node with asyncio <../Tutorials/Intermediate/Writ
 
 Passing in Python ``set`` objects into array or sequence fields is now deprecated.
 Instead pass in something that implements ``collections.abc.Sequence`` most commonly a ``list``, ``tuple``, or a ``numpy.ndarray``. To be removed in ROS M.
+
+All generated messages, services, and Actions are fully statically typed.
