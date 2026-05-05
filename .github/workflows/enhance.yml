@@ -20,6 +20,9 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Install dependencies
+        run: pip install --no-warn-script-location --user -r requirements.txt -c constraints.txt
+
       - name: Enhance topics
         env:
           BASE_SHA: ${{ github.event.before }}
