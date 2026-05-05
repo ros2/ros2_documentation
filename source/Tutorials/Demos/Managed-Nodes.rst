@@ -3,16 +3,14 @@
     Managed-Nodes
     Tutorials/Managed-Nodes
 
-Managing nodes with managed lifecycles - example
+Managing node lifecycles - example
 ================================================
 
-.. centered:: **Managed lifecycles for nodes allow greater control over the state of the ROS system.
-   This example uses a simple talker/listener pair of managed nodes to show how a managed lifecycle can be implemented and used.
-   You can use the example to understand and experiment with managing nodes in this way.**
+Managed lifecycles for nodes allow greater control over the state of the ROS system.
+This example uses a simple talker/listener pair of managed nodes to show how a managed lifecycle can be implemented and used.
+You can use the example to understand and experiment with managing nodes in this way.
 
-::
-
-   Area: ROS-framework | Content-type: example | Experience: expert
+**Area: ROS-framework | Content-type: example | Experience: expert**
 
 .. contents:: Contents
    :depth: 2
@@ -22,7 +20,10 @@ Summary
 -------
 
 ROS 2 introduces the concept of managed nodes, also called lifecycle nodes.
-These nodes can be used to ensure that resources are correctly initialized, activated, deactivated, and cleaned up as the node moves between lifecycle states.
+These nodes can be used to ensure that resources are correctly initialised, activated, deactivated, and cleaned up as the node moves between lifecycle states.
+A common use case is nodes that control hardware, where devices such as cameras, lidars, motor drivers, and other sensors and actuators must be started, configured, and shut down in a controlled order.
+
+Using lifecycle nodes helps ensure hardware is only initialised when it is ready, and is safely released during shutdown or error recovery.
 The following packages enable you to implement these managed nodes: `rclcpp_lifecycle <https://index.ros.org/p/rclcpp_lifecycle/>`__ (implementation library) and `lifecycle_msgs <https://index.ros.org/p/lifecycle_msgs/>`__ (interface definitions).
 
 Prerequisites
