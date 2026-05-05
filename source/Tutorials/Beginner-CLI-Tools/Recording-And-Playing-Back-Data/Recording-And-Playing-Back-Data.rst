@@ -212,7 +212,7 @@ Run the following for at least 15 seconds, allowing for three 5-second bag files
     [INFO] [rosbag2_cpp]: Writing remaining messages from cache to the bag. It may take a while
 
 Press :kbd:`Ctrl-C` when you're finished.
-You should find a ``subset_split`` directory with these files inside: ``subset_split_0.mcap``, ``subset_split_1.mcap``, and so on.
+You should find a ``subset_split`` directory with these files inside: ``0_subset_split_YYYY_MM_DD-HH_MM_SS.mcap``, ``1_subset_split_YYYY_MM_DD-HH_MM_SS.mcap``, and so on.
 
 4 Inspect topic data
 ^^^^^^^^^^^^^^^^^^^^
@@ -231,6 +231,7 @@ Running this command on the ``subset`` bag recording will return a list of infor
     Files:             subset_0.mcap
     Bag size:          228.5 KiB
     Storage id:        mcap
+    ROS Distro:        lyrical
     Duration:          48.47s
     Start:             Oct 11 2019 06:09:09.12 (1570799349.12)
     End                Oct 11 2019 06:09:57.60 (1570799397.60)
@@ -242,7 +243,7 @@ Running this command on the ``subset`` bag recording will return a list of infor
     Actions:           0
     Action information:
 
-Alternatively, you can also call ``ros2 bag info`` on an individual file, such as ``subset_split/subset_split_0.mcap``, and it will only show information for that portion of the recording; in this case, the first 5 seconds.
+Alternatively, you can also call ``ros2 bag info`` on an individual file, such as ``subset_split/0_subset_split_YYYY_MM_DD-HH_MM_SS.mcap``, and it will only show information for that portion of the recording; in this case, the first 5 seconds.
 
 5 Play topic data
 ^^^^^^^^^^^^^^^^^
