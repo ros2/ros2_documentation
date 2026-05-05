@@ -326,7 +326,7 @@ Require a newer version of CMake so that ``ament_cmake`` functions work correctl
 
 .. code-block:: cmake
 
-   cmake_minimum_required(VERSION 3.14.4)
+   cmake_minimum_required(VERSION 3.20)
 
 Use a newer C++ standard matching the version used by your target ROS distro in `REP 2000 <https://reps.openrobotics.org/rep-2000/>`__.
 If you are using C++17, then set that version with the following snippet after the ``project(talker)`` call.
@@ -386,7 +386,7 @@ The new ``CMakeLists.txt`` looks like this:
 
 .. code-block:: cmake
 
-   cmake_minimum_required(VERSION 3.14.4)
+   cmake_minimum_required(VERSION 3.20)
    project(talker)
    if(NOT CMAKE_CXX_STANDARD)
      set(CMAKE_CXX_STANDARD 17)
