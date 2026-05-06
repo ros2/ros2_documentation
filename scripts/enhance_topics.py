@@ -1,4 +1,5 @@
 import logging
+import re
 import sys
 import os
 from typing import Optional
@@ -15,7 +16,7 @@ logger = logging.getLogger(__name__)
 
 # Define constants
 GPT_MODEL = "gpt-5.4-nano" # GPT model to use for the API calls
-# Maximum content length in characters for topic analysis , approximately 300k tokens (leaving 100k for instructions/output)
+# Maximum content length in characters, approximately 300k tokens (leaving 100k for instructions/output)
 MAX_CONTENT_LENGTH = 1200000
 RST_EXTENSION = '.rst' # File extension for RST files
 
@@ -39,6 +40,10 @@ DESCRIPTION_PROMPT = """You are a content analyst, and your role is to analyze t
 Your role is to create a concise description of the content for use in metadata. The description should be a single sentence (of a maximum of 130 characters) that captures the main idea of the content.
 
 Finally, generate this description, with no additional styling, characters, or formatting."""
+
+ENGLISH_LANGUAGE_CHECK_PROMPT = """You are a validation assistant, and your role is to determine whether the following text is written entirely in English. Common technical terms, acronyms, and internationally recognised proper nouns are acceptable if they are normally used in English technical documentation.
+
+Answer ONLY with the single word yes or no in lowercase, with no punctuation, explanation, or additional text."""
 
 @retry(
     retry=retry_if_exception_type((RateLimitError, APIConnectionError)),
@@ -109,6 +114,113 @@ def analyze_content(client: OpenAI, content: str, prompt: str, timeout: int = DE
             logger.error(f"API call timed out after {timeout} seconds")
             raise  # Re-raise the original timeout error
 
+@retry(
+    retry=retry_if_exception_type((RateLimitError, APIConnectionError)),
+    stop=stop_after_attempt(MAX_RETRIES),
+    wait=wait_random_exponential(multiplier=MIN_WAIT, max=MAX_WAIT),
+    reraise=True
+)
+def validate_content(client: OpenAI, generated: str, timeout: int = DEFAULT_TIMEOUT) -> bool:
+    """
+    Validate generated content using the moderation API and a separate English-language check.
+
+    Intended for any model-generated text before it is persisted (metadata today; other content later).
+    Uses ThreadPoolExecutor for cross-platform timeout handling and retries for transient API errors.
+
+    Args:
+        client (OpenAI): OpenAI client instance.
+        generated (str): Model-generated text to validate.
+        timeout (int): Maximum time to wait for the combined validation calls in seconds.
+
+    Returns:
+        bool: True if content passes moderation and the language check; False otherwise.
+
+    Raises:
+        TimeoutError: If the validation calls exceed the specified timeout.
+        RateLimitError: If API rate limits are exceeded (will trigger retry).
+        APIConnectionError: If connection fails (will trigger retry).
+    """
+    if not generated.strip():
+        logger.debug("Validation skipped: empty generated content")
+        return False
+
+    text = generated
+    if len(text) > MAX_CONTENT_LENGTH:
+        logger.warning(
+            "Generated text truncated to %s characters for validation.",
+            MAX_CONTENT_LENGTH,
+        )
+        text = text[:MAX_CONTENT_LENGTH]
+
+    def _run_validation() -> bool:
+        """
+        Run moderation and English checks sequentially.
+
+        Returns:
+            bool: True if both checks pass.
+
+        Raises:
+            RateLimitError, APIConnectionError: Propagated for retry handling.
+        """
+        try:
+            logger.debug("Sending generated text to moderation API...")
+            moderation = client.moderations.create(input=text)
+        except (RateLimitError, APIConnectionError) as e:
+            logger.warning("Retryable error during moderation: %s", e)
+            raise
+
+        if not moderation.results:
+            logger.warning("Moderation API returned no results; treating as validation failure")
+            return False
+
+        result0 = moderation.results[0]
+        if result0.flagged:
+            categories = [
+                name
+                for name, flagged in result0.categories.model_dump().items()
+                if flagged
+            ]
+            logger.warning(
+                "Content failed moderation (flagged). Categories: %s",
+                ", ".join(categories) if categories else "unknown",
+            )
+            return False
+
+        try:
+            logger.debug("Sending generated text for English-language validation...")
+            completion = client.chat.completions.create(
+                model=GPT_MODEL,
+                messages=[
+                    {"role": "system", "content": ENGLISH_LANGUAGE_CHECK_PROMPT},
+                    {"role": "user", "content": f"Text:\n\n{text}"},
+                ],
+            )
+        except (RateLimitError, APIConnectionError) as e:
+            logger.warning("Retryable error during language validation: %s", e)
+            raise
+
+        answer = completion.choices[0].message.content
+        raw = (answer or "").strip().lower()
+        # Accept a single leading yes/no token even if the model adds stray whitespace
+        match = re.match(r"^(yes|no)\b", raw)
+        if not match or match.group(1) != "yes":
+            logger.warning(
+                "Content failed English-language validation (model answer: %r)",
+                answer,
+            )
+            return False
+
+        logger.debug("Generated content passed moderation and English-language validation")
+        return True
+
+    with ThreadPoolExecutor() as executor:
+        try:
+            future = executor.submit(_run_validation)
+            return future.result(timeout=timeout)
+        except TimeoutError:
+            logger.error("Validation timed out after %s seconds", timeout)
+            raise
+
 def analyze_files(files: list[str], client: OpenAI, prompts: dict[str, str], timeout: int = DEFAULT_TIMEOUT) -> EnhanceData:
     """
     Process a list of files and analyse their content using each of the passed prompts.
@@ -144,10 +256,11 @@ def analyze_files(files: list[str], client: OpenAI, prompts: dict[str, str], tim
 
         # Check if the content is not empty
         if content.strip():
+            # Check if the content has any meta fields already
             existing_meta_names = get_meta_names_from_content(content)
             for prompt_name, prompt in prompts.items():  # Iterate through each prompt in the dictionary
                 if prompt_name in existing_meta_names:
-                    logger.info(
+                    logger.warning(
                         "Skipping analysis for %s: meta field %r already present in .. meta::",
                         file_path,
                         prompt_name,
@@ -163,8 +276,15 @@ def analyze_files(files: list[str], client: OpenAI, prompts: dict[str, str], tim
                         timeout=timeout
                     )
                     if result:
-                        # Add the analysis result to the data structure
-                        data = add_analysis_result(data, file_path, prompt_name, result)
+                        if validate_content(client, result, timeout=timeout):
+                            # Add the analysis result to the data structure
+                            data = add_analysis_result(data, file_path, prompt_name, result)
+                        else:
+                            logger.warning(
+                                "Validation failed for generated %s in %s; result not stored",
+                                prompt_name,
+                                file_path,
+                            )
                     else:
                         logger.warning(f"No result for {file_path} with prompt name: {prompt_name}")
 
@@ -183,8 +303,6 @@ def analyze_files(files: list[str], client: OpenAI, prompts: dict[str, str], tim
         else:
             logger.info(f"No analysable content found for {file_path}")
 
-    metrics = calculate_metrics(data)
-    logger.info(f"Analysed {metrics.files_with_results_count} out of {len(files)} files with the configured prompts.")
     return data
 
 
@@ -234,7 +352,7 @@ def enhance_metadata(files: list[str], client: Optional[OpenAI] = None) -> Enhan
     # TODO: Make this config-driven, so that we can easily add more prompts and analysis types
     prompts: dict[str, str] = {"description": DESCRIPTION_PROMPT, "keywords": KEYWORDS_PROMPT}
 
-    data = analyze_files(files, client, prompts)  # Populate ``EnhanceData.results`` from the model
+    data = analyze_files(files, client, prompts)  # Populate and validate ``EnhanceData.results`` from the model
     data = update_meta_files(files, data)  # Persist results as metadata fields and set ``updated_files``
 
     return data
@@ -299,7 +417,8 @@ def update_meta_files(files: list[str], data: EnhanceData) -> EnhanceData:
         logger.debug("Updated file with supplied metadata: %s", file_path)
         logger.debug("-" * 50)
 
-    metrics = calculate_metrics(current_data)  # ``updated_files_count`` reflects files we rewrote
+    # ``files_with_results_count`` reflects files with at least one valid analysis result, and ``updated_files_count`` reflects files we rewrote
+    metrics = calculate_metrics(current_data)
     logger.info("Updated metadata in %s files out of %s files processed.", metrics.updated_files_count, len(files))
     return current_data
 
@@ -317,7 +436,7 @@ def main() -> None:
 
     Only files with the .rst extension will be processed. 
     Logs the number of files successfully enhanced.
-    """b
+    """
     
     logging.basicConfig(
         level=logging.INFO,
@@ -339,7 +458,7 @@ def main() -> None:
     data = enhance_metadata(rst_files)
     # Log the metrics for the enhancement data
     metrics = calculate_metrics(data)
-    logger.info(f"Enhanced files: {metrics.files_with_results_count} with analysis results, and {metrics.updated_files_count} files updated, out of {len(rst_files)} RST files.")
+    logger.info(f"Enhanced files: {metrics.files_with_results_count} with at least one valid analysis result, and {metrics.updated_files_count} files updated, out of {len(rst_files)} RST files.")
 
 if __name__ == "__main__":
     main()
