@@ -295,6 +295,10 @@
       p.textContent = 'No packages matched this filter.';
       el.appendChild(p);
     } else {
+      var intro = document.createElement('p');
+      intro.className = 'related-packages__intro';
+      intro.textContent = 'Packages/reference: ';
+      el.appendChild(intro);
       el.appendChild(ul);
     }
   }
