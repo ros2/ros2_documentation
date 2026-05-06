@@ -3,7 +3,7 @@ Writing a ``rosidl::Buffer`` backend
 
 **Goal:** Learn how to implement and package a new ``rosidl::Buffer``
 backend plugin so that a vendor-specific memory domain (GPU, shared memory,
-tensor library, ...) can back ``uint8[]`` fields of ROS 2 messages.
+accelerator memory, ...) can back ``uint8[]`` fields of ROS 2 messages.
 
 **Tutorial level:** Advanced
 
@@ -24,8 +24,8 @@ package.
 
 This guide shows how to build such a plugin, end to end.
 It uses a hypothetical ``mydev`` backend in the prose (for a vendor device
-memory domain) and refers to the real CUDA, Torch, and demo backends in the
-reference links for concrete code.
+memory domain) and refers to the real CUDA backend, the ``torch_conversions``
+helper library, and the demo backend in the reference links for concrete code.
 
 This guide is intended as a starting point; the existing reference backends
 go into much more detail than is practical to reproduce here.
@@ -47,21 +47,18 @@ instead.
 Reference implementations
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Three open-source backends are good reading.
-All three are small enough to read in full:
+Two open-source backends and one user-level tensor library are good reading.
+All are small enough to read in full:
 
-* ``cuda_buffer_backend``: a realistic **base backend** built on CUDA VMM
+* ``cuda_buffer_backend``: a realistic CUDA backend built on CUDA VMM
   and CUDA IPC, with intra-process, inter-process same-host, and CPU-fallback
   paths.
   See `ros2/rosidl_buffer_backends <https://github.com/ros2/rosidl_buffer_backends>`__.
-* ``torch_buffer_backend``: a **composed backend** that wraps a device
-  backend (CUDA today, CPU as a fallback) and adds tensor semantics.
+* ``torch_conversions``: a header-only user library, not a backend plugin.
+  It converts between ``tensor_msgs/msg/ExperimentalTensor`` and ``at::Tensor``.
+  The tensor message's ``uint8[] data`` field is transported by an ordinary
+  buffer backend such as ``cuda`` or ``cpu``.
   Same repository.
-* ``demo_buffer_backend``: a minimal CPU-to-CPU backend used by the
-  ``rosidl::Buffer`` system tests.
-  Useful as a pedagogical example with no device dependencies.
-  See ``rcl_buffer/demo_buffer_backend`` in the workspace used by this
-  tutorial.
 
 The ``BufferBackend`` interface
 -------------------------------
@@ -128,9 +125,9 @@ A complete backend is usually split across three or four ROS 2 packages:
    shared library that implements ``rosidl::BufferBackend`` and is
    registered via ``pluginlib``.
 #. **User-facing API header** (optional, usually shipped inside the core
-   library): helpers like ``allocate_msg``, ``from_buffer``, and
-   ``to_buffer`` that application authors use to produce and consume
-   backend-native data.
+   library): helpers like ``allocate_buffer``, ``from_output_buffer``,
+   ``from_input_buffer``, and ``to_buffer`` that application authors use to
+   produce and consume backend-native data.
 
 Step 1: Design the descriptor message
 -------------------------------------
@@ -171,13 +168,11 @@ For example, a simplified device-IPC descriptor might look like:
     # CPU fallback (empty when IPC is used)
     uint8[] serialized_data
 
-The real CUDA backend (``cuda_buffer_backend_msgs/CudaBufferDescriptor.msg``)
-and Torch backend (``torch_buffer_backend_msgs/TorchBufferDescriptor.msg``)
-illustrate two different descriptor shapes: the CUDA descriptor carries IPC
-handles directly, while the Torch descriptor carries a ``uint8[]``
-``device_data`` field that the RMW re-serializes using the *inner* buffer's
-backend.
-The second pattern is what makes a composed backend base-agnostic.
+The real CUDA backend
+(``cuda_buffer_backend_msgs/CudaBufferDescriptor.msg``) illustrates the
+device-IPC shape: the descriptor carries CUDA IPC metadata when the peer can
+use CUDA IPC, and the backend returns ``nullptr`` when that peer should receive
+the field through CPU fallback instead.
 
 Step 2: Implement ``BufferImplBase<T>``
 ---------------------------------------
@@ -304,19 +299,25 @@ A correct backend **must** check that its own name is in this map before
 declaring the peer compatible; otherwise a publisher will waste descriptor
 work on a subscription that cannot consume it.
 
-Example from the Torch backend:
+Simplified example from the CUDA backend:
 
 .. code-block:: c++
 
     std::pair<bool, std::vector<std::set<uint32_t>>>
-    TorchBufferBackend::on_discovering_endpoint(
+    CudaBufferBackend::on_discovering_endpoint(
       const rmw_topic_endpoint_info_t & /*endpoint_info*/,
       const std::vector<rmw_topic_endpoint_info_t> & /*existing_endpoints*/,
       const std::unordered_map<std::string, std::string> & endpoint_supported_backends)
     {
-      return {
-        endpoint_supported_backends.find("torch") != endpoint_supported_backends.end(),
-        {}};
+      if (endpoint_supported_backends.find("cuda") ==
+          endpoint_supported_backends.end())
+      {
+        return {false, {}};
+      }
+
+      // The full implementation also checks VMM IPC support, endpoint
+      // locality, device id, and user id before returning true.
+      return {true, {}};
     }
 
 Step 4: Register the plugin
@@ -465,13 +466,12 @@ Application authors do not typically construct ``BufferImplBase`` subclasses
 by hand; they go through a user-facing API header shipped by the backend.
 A minimal API usually provides three operations:
 
-#. **Allocate a message** whose ``uint8[]`` field is already backed by your
-   backend's memory:
+#. **Allocate a buffer** whose storage is already backed by your backend's
+   memory:
 
    .. code-block:: c++
 
-       template<typename MsgT>
-       MsgT allocate_msg(std::size_t byte_count);
+       rosidl::Buffer<uint8_t> allocate_buffer(std::size_t byte_count);
 
 #. **Obtain a writable handle** to a backend-backed buffer so the caller can
    produce data in place (e.g. launch a kernel writing into the device
@@ -479,14 +479,14 @@ A minimal API usually provides three operations:
 
    .. code-block:: c++
 
-       WriteHandle from_buffer(rosidl::Buffer<uint8_t> & buffer, ...);
+       WriteHandle from_output_buffer(rosidl::Buffer<uint8_t> & buffer, ...);
 
 #. **Obtain a readable handle** on the subscriber side, synchronised with
    whatever the publisher's write did (e.g. waiting on a shared event):
 
    .. code-block:: c++
 
-       ReadHandle from_buffer(const rosidl::Buffer<uint8_t> & buffer, ...);
+       ReadHandle from_input_buffer(const rosidl::Buffer<uint8_t> & buffer, ...);
 
 Typical auxiliary considerations:
 
@@ -500,47 +500,30 @@ Typical auxiliary considerations:
   queues), encode the synchronisation policy into your handle types rather
   than on the free functions.
   RAII on destruction makes correct use the default.
-* **Reading is safe by default**: for read handles, a ``clone=true`` default
-  that returns an independent copy is a useful safety net; offer a
-  ``clone=false`` zero-copy overload for callers that explicitly want it.
-  See the Torch backend's ``from_buffer`` for an example.
 
-Composed backends (layering on a base backend)
-----------------------------------------------
+Higher-level libraries on top of backends
+-----------------------------------------
 
-A **composed backend** reuses an existing base backend for the actual bytes
-and only adds a higher-level data model (tensor metadata, point-cloud
-metadata, ...).
-The recommended pattern is:
+Do not write a new backend just to add application-level metadata such as
+tensor shape, point-cloud fields, or image color-space information.
+Those semantics fit better in a normal ROS 2 message whose payload field is a
+``uint8[]`` and therefore a ``rosidl::Buffer<uint8_t>`` in generated C++ code.
+The message can then ride on whichever storage backend is negotiated for that
+field.
 
-* Your ``BufferImplBase<T>`` subclass *contains* a ``rosidl::Buffer<T>``
-  member for the device bytes.
-  The inner buffer's backend is whichever base is appropriate for the
-  current device (``"cuda"``, ``"cpu"``, and so on).
-* Your descriptor ``.msg`` carries the high-level metadata plus a
-  ``uint8[]`` field holding the inner buffer.
-  The RMW serializes that inner field using the *inner* backend's logic, so
-  your composed backend never has to know each base's wire format.
-* In discovery, accept the peer if and only if it also supports your
-  composed backend name (not the base name): two endpoints that both happen
-  to support ``"cuda"`` do not automatically understand each other's
-  composed semantics.
+The tensor packages in ``rosidl_buffer_backends`` follow this model:
 
-The Torch backend demonstrates all three points in fewer than 100 lines:
-``torch_buffer_backend/torch_buffer_backend/include/torch_buffer_backend/torch_buffer_backend.hpp``.
+* ``tensor_msgs/msg/ExperimentalTensor`` stores DLPack-aligned dtype, shape,
+  stride, and byte-offset metadata plus a ``uint8[] data`` field.
+* ``torch_conversions`` converts between that message and ``at::Tensor``.
+  It allocates CUDA-backed ``data`` when requested and available, otherwise it
+  uses CPU storage.
+* Subscribers opt in to the underlying storage backend (for example
+  ``acceptable_buffer_backends = "cuda"`` or ``"any"``), not to a separate
+  tensor backend name.
 
-Consequences for the ecosystem
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-This layering is the recommended shape for the backend ecosystem:
-
-* Vendors ship one or two **base backends** close to the memory substrate.
-* A handful of well-known, cross-vendor **composed backends** (tensor
-  libraries, point-cloud libraries, ...) layer on top.
-
-For the layering to stay clean, composed backends should treat the set of
-acceptable bases as a configuration choice (compile-time or runtime), never
-hard-coded, and their descriptors should stay base-agnostic.
+This keeps the backend ecosystem focused on memory transport while allowing
+ordinary user libraries to add richer programming models above it.
 
 Testing
 -------
@@ -596,5 +579,5 @@ Where to go next
   of the same feature; useful for understanding what your plugin is
   expected to look like from a subscription's point of view.
 * :doc:`../Demos/GPU-Buffer-Transport` -- end-to-end demo of a
-  GPU-backed pub/sub pipeline that exercises both a base and a composed
-  backend.
+  GPU-backed tensor pub/sub pipeline using the CUDA backend and
+  ``torch_conversions``.

@@ -24,6 +24,8 @@ This guide covers:
 * how to opt a subscription in to a specific set of backends;
 * how to use a backend's user-facing API to read and write its native data
   type;
+* how ``tensor_msgs/msg/ExperimentalTensor`` and ``torch_conversions`` use the
+  same backend mechanism for tensor data;
 * how to make sure publisher and subscriber are configured compatibly.
 
 Default behavior (no changes required)
@@ -56,27 +58,9 @@ RMW support
 Buffer backends require support from the RMW implementation to negotiate
 and serialize descriptors on the wire.
 
-.. list-table:: Buffer backend support status
-   :widths: 25 25 50
-   :header-rows: 1
-
-   * - RMW implementation
-     - Support status
-     - Notes
-   * - ``rmw_fastrtps_cpp``
-     - supported
-     - First and currently only supported RMW implementation.
-   * - ``rmw_cyclonedds_cpp``
-     - not supported
-     - Subscriptions fall back to CPU even when a non-CPU backend is
-       requested.
-   * - ``rmw_connextdds``
-     - not supported
-     - Subscriptions fall back to CPU even when a non-CPU backend is
-       requested.
-
-On an unsupported RMW, a subscription that requests a non-CPU backend still
-functions -- it simply receives CPU-backed data, exactly as if
+The first supported RMW integration is ``rmw_fastrtps_cpp``.
+With other RMW implementations, a subscription that requests a non-CPU
+backend still functions -- it simply receives CPU-backed data, exactly as if
 ``acceptable_buffer_backends`` had not been set.
 
 Discovering installed backends
@@ -94,13 +78,12 @@ To see which backends are installed in the current environment:
 Each backend package usually installs two things:
 
 * the backend plugin itself (a shared library), registered under a short
-  name such as ``cuda`` or ``torch`` in the plugin XML;
+  name such as ``cuda`` in the plugin XML;
 * a descriptor-message package (``*_msgs``) containing the backend's
   descriptor ``.msg`` type.
 
 Both must be installed on every node that participates in the topic --
-publishers, subscribers, and (for composed backends) the underlying base
-backends as well.
+publishers and subscribers.
 
 Enabling a backend on a subscription
 ------------------------------------
@@ -125,7 +108,7 @@ It accepts the following forms:
        This is the default and preserves backward compatibility.
    * - ``"any"``
      - Accept any backend that is installed in this process.
-   * - ``"cuda,torch"``
+   * - ``"cuda,mydev"``
      - Accept only the listed backends, in addition to CPU.
        Names match the plugin ``name`` attribute in the backend's plugin XML.
 
@@ -160,7 +143,7 @@ C++ example
           [this](sensor_msgs::msg::Image::SharedPtr msg) {
             if (msg->data.get_backend_type() == "cuda") {
               // Zero-copy GPU path: read the device pointer directly.
-              auto rh = cuda_buffer_backend::from_buffer(msg->data, stream_);
+              auto rh = cuda_buffer_backend::from_input_buffer(msg->data, stream_);
               process_on_gpu(rh.get_ptr(), msg->data.size(), stream_);
             } else {
               // CPU fallback: msg->data behaves like std::vector<uint8_t>.
@@ -182,8 +165,8 @@ Two things to note:
   negotiation.
   Always branch on ``msg->data.get_backend_type()`` before using a
   backend-specific API.
-* Backend APIs (``cuda_buffer_backend::from_buffer``,
-  ``torch_buffer_backend::from_buffer``, ...) are provided by the backend
+* Backend APIs (``cuda_buffer_backend::from_input_buffer``,
+  ``cuda_buffer_backend::from_output_buffer``, ...) are provided by the backend
   package, not by ``rclcpp``.
   Consult each backend's own documentation for its full API surface.
 
@@ -219,8 +202,8 @@ For example, with the CUDA backend:
 
     #include "cuda_buffer/cuda_buffer_api.hpp"
 
-    auto msg = cuda_buffer_backend::allocate_msg<sensor_msgs::msg::Image>(
-      width * height * 3);
+    sensor_msgs::msg::Image msg;
+    msg.data = cuda_buffer_backend::allocate_buffer(width * height * 3);
     msg.header.stamp = this->now();
     msg.width = width;
     msg.height = height;
@@ -228,7 +211,7 @@ For example, with the CUDA backend:
     msg.step = width * 3;
 
     {
-      auto wh = cuda_buffer_backend::from_buffer(msg.data, stream_);
+      auto wh = cuda_buffer_backend::from_output_buffer(msg.data, stream_);
       my_kernel<<<grid, block, 0, stream_>>>(wh.get_ptr(), ...);
     }
 
@@ -239,6 +222,49 @@ buffer inside the message is what the RMW sees at publish time.
 If a given subscriber has not opted in to that backend, the RMW falls back
 to CPU serialization for that peer transparently -- the publisher writes the
 same message either way.
+
+Tensor messages with ``torch_conversions``
+------------------------------------------
+
+The experimental tensor path uses a normal ROS 2 message,
+``tensor_msgs/msg/ExperimentalTensor``.
+Its ``data`` field is a ``rosidl::Buffer<uint8_t>``, while the other fields
+carry DLPack-aligned tensor metadata such as dtype, shape, strides, and byte
+offset.
+The ``torch_conversions`` package is a header-only helper library that fills
+that message and converts it to or from ``at::Tensor``; it does not register a
+separate buffer backend.
+
+On the publisher side:
+
+.. code-block:: c++
+
+    #include "torch_conversions/torch_conversions.hpp"
+    #include "tensor_msgs/msg/experimental_tensor.hpp"
+
+    auto guard = torch_conversions::set_stream();
+    auto msg = torch_conversions::allocate_tensor_msg(
+      {height, width, 4}, torch::kByte, c10::kCUDA);
+    torch_conversions::to_tensor_msg(msg, rendered_frame);
+    publisher_->publish(msg);
+
+On the subscriber side, opt in to the storage backend you want to accept and
+then convert the received tensor message:
+
+.. code-block:: c++
+
+    rclcpp::SubscriptionOptions sub_opts;
+    sub_opts.acceptable_buffer_backends = "cuda";
+
+    subscription_ = this->create_subscription<tensor_msgs::msg::ExperimentalTensor>(
+      "image", 10,
+      [](const tensor_msgs::msg::ExperimentalTensor::SharedPtr msg) {
+        auto guard = torch_conversions::set_stream();
+        at::Tensor frame =
+          torch_conversions::from_input_tensor_msg(*msg, /*clone=*/false);
+        consume(frame);
+      },
+      sub_opts);
 
 Ensuring a compatible pub/sub pair
 ----------------------------------
@@ -259,11 +285,12 @@ Check with:
 
 .. code-block:: console
 
-    $ ros2 pkg list | grep -E 'cuda_buffer|torch_buffer'
+    $ ros2 pkg list | grep cuda_buffer
 
-For composed backends (see :doc:`../Concepts/Intermediate/About-Buffer-Backends`)
-the base backend must be installed too: e.g. ``torch_buffer_backend``
-generally requires ``cuda_buffer_backend`` to run its CUDA path.
+Libraries built on top of ``rosidl::Buffer`` may have their own dependencies.
+For example, ``torch_conversions`` uses the ``cuda`` backend for CUDA tensor
+storage when the CUDA packages are available, but it does not register a
+separate buffer backend name.
 
 2. Use the same RMW on both sides
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -308,8 +335,7 @@ Inspecting negotiated transport
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Inside a subscription callback, ``msg->data.get_backend_type()`` returns the
-backend of the just-received message (``"cpu"``, ``"cuda"``, ``"torch"``,
-...).
+backend of the just-received message (``"cpu"``, ``"cuda"``, ...).
 Comparing it to what you expected is the quickest way to tell whether the
 zero-copy path actually engaged or the RMW fell back to CPU.
 

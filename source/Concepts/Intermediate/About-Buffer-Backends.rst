@@ -79,8 +79,8 @@ User-facing containers and implementation pimpls
    │  ┌────────────────────────┐  │
    │  │ BufferImplBase<T>  ◄──-┼──┼── CpuBufferImpl<T>      (default)
    │  │ (pimpl)                │  │── CudaBufferImpl<T>     (vendor)
-   │  └────────────────────────┘  │── TorchBufferImpl<T>    (vendor)
-   └──────────────────────────────┘── ...
+   │  └────────────────────────┘  │── OtherBufferImpl<T>    (vendor)
+   └──────────────────────────────┘
 
 A freshly-constructed ``rosidl::Buffer<T>`` uses ``CpuBufferImpl<T>``, which
 simply wraps a ``std::vector<T, Allocator>``.
@@ -141,34 +141,28 @@ The current ``rmw_fastrtps_cpp`` integration resolves this aggregate to
 ``rosidl_typesupport_fastrtps_cpp``, but nothing in the backend API ties
 it to a specific RMW.
 
-Base backends and composed backends
+Backends and higher-level libraries
 -----------------------------------
 
-The backend interface is narrow enough that vendors typically ship
-backends in two layers:
+A backend should represent a memory substrate or transport technology.
+Examples include a CUDA backend built on CUDA VMM and CUDA IPC, a ROCm
+backend, or a shared-memory backend.
+The backend knows how to allocate memory, package that memory into a
+descriptor, and re-import it on another endpoint.
 
-* **Base backends** are tied to a memory substrate or a transport
-  technology.
-  Examples: a CUDA backend built on CUDA VMM and CUDA IPC; a ROCm backend;
-  a shared-memory backend.
-  A base backend knows how to allocate its memory, how to package it into a
-  descriptor, and how to re-import it on another endpoint.
-
-* **Composed backends** add a higher-level programming model on top of a
-  base backend while staying agnostic to *which* base they run on.
-  The canonical example is a PyTorch backend whose buffers are tensors with
-  shape/strides/dtype; the tensor storage is delegated to whatever base
-  backend is appropriate for the current device (CUDA today, CPU as a
-  portable fallback, other device backends in principle).
-
-Descriptors for composed backends typically embed a ``uint8[]`` field that
-the RMW serializes using the *inner* buffer's backend, so the composition
-does not require the composed backend to know the wire format of each base.
-
-This is the expected shape of the backend ecosystem: one or two
-vendor-specific base backends, plus a handful of well-known user-facing
-composed backends (tensor libraries, point-cloud libraries, etc.) that can
-be layered on top.
+Higher-level data models can live above this layer as ordinary messages and
+libraries.
+For example, ``tensor_msgs/msg/ExperimentalTensor`` carries DLPack-aligned
+tensor metadata (dtype, shape, strides, byte offset) plus a ``uint8[] data``
+field.
+That ``data`` field is a ``rosidl::Buffer<uint8_t>`` in generated C++ code, so
+it can be transported by whichever backend is negotiated for the connection.
+The ``torch_conversions`` helper library converts between
+``ExperimentalTensor`` and ``at::Tensor``; it is not itself a buffer backend.
+When the message's data buffer uses the ``cuda`` backend, tensor bytes can
+move through CUDA IPC.
+When it uses the CPU backend, the same message and helper APIs still work with
+ordinary host memory.
 
 Relationship to other ROS 2 mechanisms
 --------------------------------------

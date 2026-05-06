@@ -45,12 +45,9 @@ Glossary of terms used throughout this documentation:
    Buffer backend
        A ``pluginlib`` plugin, implementing the ``rosidl::BufferBackend`` interface, that teaches the RMW how to transport a ``rosidl::Buffer`` whose storage lives in a vendor-specific memory domain (for example, GPU memory).
 
-   Base backend
-       A ``rosidl::Buffer`` backend tied to a specific memory substrate or transport technology (for example a CUDA backend over CUDA IPC).
-       Base backends know how to allocate their memory, serialize it into a descriptor, and re-import it on another endpoint.
-
-   Composed backend
-       A ``rosidl::Buffer`` backend that layers a higher-level programming model (tensor metadata, point-cloud metadata, ...) on top of one or more base backends while remaining agnostic to which base backend actually holds the bytes.
+   Tensor message
+       A normal ROS 2 message, such as ``tensor_msgs/msg/ExperimentalTensor``, that carries tensor metadata and stores the raw tensor bytes in a ``uint8[]`` field backed by ``rosidl::Buffer``.
+       Libraries such as ``torch_conversions`` can map these messages to framework-native tensor types while the underlying bytes use a regular buffer backend such as ``cpu`` or ``cuda``.
 
    Buffer descriptor
        A normal ROS 2 ``.msg`` produced by a ``BufferBackend`` that travels on the wire in place of the raw ``uint8[]`` contents of a buffer-backed field.

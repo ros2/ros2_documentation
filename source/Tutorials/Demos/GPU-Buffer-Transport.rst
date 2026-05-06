@@ -14,9 +14,10 @@ vendor-specific memory domains such as GPU memory, with the descriptor
 round-trip handled transparently by the RMW.
 
 This demo exercises the full pipeline using the community-maintained CUDA
-and PyTorch backends, publishing ``sensor_msgs/msg/Image`` frames between
-two processes either over a zero-copy CUDA path or over the traditional
-CPU-serialised path, and comparing throughput at several resolutions.
+backend and the ``torch_conversions`` helper library.
+It publishes ``tensor_msgs/msg/ExperimentalTensor`` frames between two
+processes either over a zero-copy CUDA path or over the traditional
+CPU-serialised path, and compares throughput at several resolutions.
 
 The underlying demo is maintained in
 `ros2/rosidl_buffer_backends_tutorials
@@ -28,25 +29,27 @@ What the demo does
 
 ``robot_arm_demo`` renders an SDF-based pencil-sketch robot arm animation
 entirely on the GPU via LibTorch tensor operations, publishes BGRA frames
-as ``sensor_msgs/msg/Image``, and displays them in an SDL2/OpenGL window
-with CUDA-GL interop.
+as ``tensor_msgs/msg/ExperimentalTensor``, and displays them in an
+SDL2/OpenGL window with CUDA-GL interop.
 Two processes are involved:
 
 #. ``renderer_node`` -- renders BGRA frames on the GPU using LibTorch
-   operations and publishes them as ``sensor_msgs/msg/Image``.
-#. ``display_node`` -- subscribes to the image topic, displays frames, and
-   reports FPS.
+   operations, copies them into an ``ExperimentalTensor`` message with
+   ``torch_conversions``, and publishes that message.
+#. ``display_node`` -- subscribes to the tensor topic, wraps the received
+   message as an ``at::Tensor`` with ``torch_conversions``, displays frames,
+   and reports FPS.
 
 Two transport modes are compared:
 
-* **CUDA** -- the ``Image.data`` field is backed by the ``torch`` buffer
-  backend which in turn sits on top of the ``cuda`` base backend.
+* **CUDA** -- the ``ExperimentalTensor.data`` field is backed by the ``cuda``
+  buffer backend.
   The bytes never leave GPU memory: the descriptor on the wire only
   carries a CUDA IPC handle.
 * **CPU** -- the frame is rendered on the GPU, copied back to host memory
   with ``cudaMemcpy``, and then serialised through the RMW as a regular
   ``uint8[]``.
-  No buffer backend is involved.
+  No non-CPU buffer backend is involved.
 
 Both modes render on the GPU; the only difference is the transport path,
 making this a clean comparison of zero-copy CUDA IPC versus traditional
@@ -64,6 +67,7 @@ You need:
 * A ROS 2 Rolling source workspace.
   See the :doc:`Installation instructions <../../Installation>` for the
   canonical source-build flow.
+* ``rmw_fastrtps_cpp`` for the non-CPU buffer path.
 
 The demo's ``libtorch_vendor`` package will download and install a
 pre-built LibTorch distribution automatically at build time if one is not
@@ -88,34 +92,38 @@ Install the system dependencies:
     $ rosdep install --from-paths src --ignore-src -y \
         --skip-keys "fastcdr rti-connext-dds-7.7.0 urdfdom_headers qt6-svg-dev"
 
-Build the CUDA backend first, source it, then build the demo:
+Build ``torch_conversions`` and its CUDA transport dependency first, source
+the workspace, then build the demo:
 
 .. code-block:: console
 
-    $ colcon build --symlink-install --packages-up-to cuda_buffer_backend
+    $ colcon build --symlink-install --packages-up-to torch_conversions
     $ source install/setup.sh
     $ colcon build --symlink-install --packages-up-to robot_arm_demo
     $ source install/setup.sh
 
-The intermediate ``source install/setup.sh`` is required so that the Torch
-backend can discover the CUDA backend at CMake configure time and compile
-its CUDA path.
+The intermediate ``source install/setup.sh`` is required so that
+``torch_conversions`` can discover ``cuda_buffer`` at CMake configure time and
+compile its CUDA path.
 
 Running
 -------
 
 The demo ships three launch files.
+Run them with ``RMW_IMPLEMENTATION=rmw_fastrtps_cpp`` when exercising the
+CUDA path.
 
 CUDA zero-copy (default)
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: console
 
+    $ export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
     $ ros2 launch robot_arm_demo robot_arm_demo.launch.py
 
-The renderer and display processes negotiate the ``torch`` backend on top
-of ``cuda``; the image payload never leaves GPU memory between the two
-processes.
+The renderer and display processes negotiate the ``cuda`` backend for the
+tensor message's data field; the payload never leaves GPU memory between the
+two processes.
 
 CPU transport
 ^^^^^^^^^^^^^
@@ -148,7 +156,7 @@ When the CUDA path is active, the display node logs the negotiated backend:
 
 .. code-block:: console
 
-    [display_node]: Received frame: backend=torch, size=31457280
+    [display_node]: Received frame: backend=cuda, size=31457280
 
 When the path falls back to CPU, the same log line shows ``backend=cpu``
 and the FPS drops accordingly as image size grows.
@@ -218,14 +226,14 @@ What to look at in the source
 Two files are worth reading to see exactly what an application does
 differently on each side:
 
-* The renderer's publisher code shows how ``torch_buffer_backend::allocate_msg``
-  is used to produce a GPU-backed ``sensor_msgs::msg::Image`` and how the
-  tensor is written in place via ``torch_buffer_backend::to_buffer``.
+* The renderer's publisher code shows how
+  ``torch_conversions::allocate_tensor_msg`` and
+  ``torch_conversions::to_tensor_msg`` produce an
+  ``ExperimentalTensor`` whose ``data`` field is CUDA-backed.
 * The display's subscriber sets
-  ``SubscriptionOptions::acceptable_buffer_backends = "torch"`` and branches
-  on ``msg->data.get_backend_type()`` to either consume the data as a
-  PyTorch tensor (zero-copy) or fall back to a host-side copy when the CPU
-  path is in use.
+  ``SubscriptionOptions::acceptable_buffer_backends = "any"`` for the CUDA
+  path and uses ``torch_conversions::from_input_tensor_msg`` to consume the
+  message as a PyTorch tensor.
 
 Both files are reasonably short and make good reading after
 :doc:`../../How-To-Guides/Using-Buffer-Backends`.

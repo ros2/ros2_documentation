@@ -23,7 +23,7 @@ Community ``rosidl::Buffer`` backends
 Out-of-tree :doc:`buffer backend <Concepts/Intermediate/About-Buffer-Backends>` plugins let ``rosidl::Buffer`` fields (``uint8[]``, etc.) use vendor-specific memory domains such as GPU memory.
 For background, see :doc:`How-To-Guides/Using-Buffer-Backends` and :doc:`Tutorials/Advanced/Writing-a-Buffer-Backend`.
 
-* **rosidl_buffer_backends** `(github.com/ros2/rosidl_buffer_backends) <https://github.com/ros2/rosidl_buffer_backends>`_: CUDA and PyTorch buffer backend implementations for ``rosidl::Buffer``, enabling zero-copy GPU memory sharing between ROS 2 publishers and subscribers.
+* **rosidl_buffer_backends** `(github.com/ros2/rosidl_buffer_backends) <https://github.com/ros2/rosidl_buffer_backends>`_: CUDA buffer backend implementation for ``rosidl::Buffer`` plus ``tensor_msgs/msg/ExperimentalTensor`` and ``torch_conversions`` helpers, enabling zero-copy GPU memory sharing between ROS 2 publishers and subscribers.
 * **rosidl_buffer_backends_tutorials** `(github.com/ros2/rosidl_buffer_backends_tutorials) <https://github.com/ros2/rosidl_buffer_backends_tutorials>`_: End-to-end demos exercising ``rosidl_buffer_backends``, including the ``robot_arm_demo`` featured in :doc:`Tutorials/Demos/GPU-Buffer-Transport`.
 
 Further Community Projects
