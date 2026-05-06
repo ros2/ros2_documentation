@@ -131,6 +131,12 @@ Source directories from each call are merged at install time, with the last call
 
 See https://github.com/ament/ament_cmake/pull/587 for more details.
 
+``ament_mypy``
+^^^^^^^^^^^^^^^
+
+Has new ``--ament-strict`` option to allow more strict type checking.
+The ROS core is slowly being switch to this stricter standard to help prevent regressions in Python packages.
+
 ``class_loader``
 ^^^^^^^^^^^^^^^^
 
@@ -212,6 +218,11 @@ The new async ``client.call(request)`` and sim-time aware ``clock.sleep(...)`` a
 CPU usage is significantly reduced compared to the ``SingleThreadedExecutor``.
 
 See the `Writing an async node with asyncio <../../lyrical/Tutorials/Intermediate/Writing-An-Async-Node-With-Asyncio-Python.html>`__ tutorial and https://github.com/ros2/rclpy/pull/1620 for more details.
+
+Static typing stablization
+""""""""""""""""""""""""""
+
+All methods and classes now have proper type hints.
 
 ``rosbag2``
 ^^^^^^^^^^^
@@ -308,3 +319,5 @@ See the `Writing an async node with asyncio <../../lyrical/Tutorials/Intermediat
 
 Passing in Python ``set`` objects into array or sequence fields is now deprecated.
 Instead pass in something that implements ``collections.abc.Sequence`` most commonly a ``list``, ``tuple``, or a ``numpy.ndarray``. To be removed in ROS M.
+
+All generated messages, services, and actions are fully statically typed.
