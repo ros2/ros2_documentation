@@ -188,6 +188,14 @@ html_js_files = [
     'related_packages.js',
 ]
 
+# Optional runtime proxy endpoint for freshest rosdistro cache data.
+# Use same-origin endpoint to avoid browser CORS limits, for example:
+# ros_related_packages_proxy_url = '/api/rosdistro-cache/{distro}-cache.yaml.gz'
+# For local testing you can export environment variable:
+# ROS_RELATED_PACKAGES_PROXY_URL=http://127.0.0.1:9000/api/rosdistro-cache/{distro}-cache.yaml.gz
+# Leave empty to skip proxy and use bundled _static fallback.
+ros_related_packages_proxy_url = os.environ.get('ROS_RELATED_PACKAGES_PROXY_URL', '')
+
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.

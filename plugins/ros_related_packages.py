@@ -89,6 +89,13 @@ def _bundled_cache_href(docname: str, distro: str) -> str:
     return ('../' * depth) + f'_static/rosdistro_cache/{distro}-cache.yaml.gz'
 
 
+def _proxy_cache_href(proxy_template: str, distro: str) -> str:
+    """Build runtime proxy URL from template, replacing ``{distro}``."""
+    if not proxy_template:
+        return ''
+    return proxy_template.replace('{distro}', distro)
+
+
 def _positive_int_option(argument: str) -> int:
     """Parse a positive integer option for the directive."""
     if argument is None:
@@ -149,6 +156,9 @@ class RosRelatedPackagesDirective(SphinxDirective):
         escaped_distro = html.escape(distro, quote=True)
         bundled_href = _bundled_cache_href(self.env.docname, distro)
         escaped_bundled = html.escape(bundled_href, quote=True)
+        proxy_template = getattr(self.env.config, 'ros_related_packages_proxy_url', '')
+        proxy_href = _proxy_cache_href(proxy_template, distro)
+        escaped_proxy = html.escape(proxy_href, quote=True)
 
         html_body = (
             '<div class="related-packages related-packages--loading js-related-packages" '
@@ -156,6 +166,7 @@ class RosRelatedPackagesDirective(SphinxDirective):
             f'data-max="{int(max_pkgs)}" '
             f'data-distro="{escaped_distro}" '
             f'data-bundled-cache-href="{escaped_bundled}" '
+            f'data-proxy-cache-href="{escaped_proxy}" '
             'role="region" aria-live="polite">'
             '<p class="related-packages__status">Loading related packages…</p>'
             '</div>'
@@ -197,6 +208,7 @@ def download_rosdistro_cache(app) -> None:
 
 
 def setup(app):
+    app.add_config_value('ros_related_packages_proxy_url', '', 'html')
     app.add_directive('ros-related-packages', RosRelatedPackagesDirective)
     app.connect('builder-inited', download_rosdistro_cache)
     return {

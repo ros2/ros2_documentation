@@ -77,34 +77,60 @@
   }
 
   /**
+   * Proxy URL configured by Sphinx via data attribute.
+   *
+   * @param {HTMLElement|null} widget
+   * @param {string} distro
+   * @returns {string|null}
+   */
+  function resolveProxyUrl(widget, distro) {
+    var templateUrl = widget && widget.getAttribute('data-proxy-cache-href');
+    if (!templateUrl) {
+      return null;
+    }
+    return templateUrl.replace('{distro}', encodeURIComponent(distro));
+  }
+
+  /**
    * @param {string} distro
    * @param {HTMLElement|null} sampleWidget widget from this page (for data-bundled-cache-href)
    * @returns {Promise<Record<string, string>>}
    */
   function loadXmls(distro, sampleWidget) {
-    var bundledKey =
+    var cacheKey =
       distro +
       '|' +
+      (sampleWidget ? sampleWidget.getAttribute('data-proxy-cache-href') || '' : '') +
+      '|' +
       (sampleWidget ? sampleWidget.getAttribute('data-bundled-cache-href') || '' : '');
-    if (cacheByDistro[bundledKey]) {
-      return cacheByDistro[bundledKey];
+    if (cacheByDistro[cacheKey]) {
+      return cacheByDistro[cacheKey];
     }
-    cacheByDistro[bundledKey] = fetchAndParse(distro, resolveBundledAbsoluteUrl(sampleWidget, distro));
-    return cacheByDistro[bundledKey];
+    cacheByDistro[cacheKey] = fetchAndParse(
+      distro,
+      resolveProxyUrl(sampleWidget, distro),
+      resolveBundledAbsoluteUrl(sampleWidget, distro)
+    );
+    return cacheByDistro[cacheKey];
   }
 
   /**
    * @param {string} distro
+   * @param {string|null} proxyUrl same-origin backend proxy endpoint (freshest)
    * @param {string|null} bundledAbsolute resolved same-origin URL to gzip, if any
    * @returns {Promise<Record<string, string>>}
    */
-  function fetchAndParse(distro, bundledAbsolute) {
+  function fetchAndParse(distro, proxyUrl, bundledAbsolute) {
     var remote =
       'https://repo.ros2.org/rosdistro_cache/' + encodeURIComponent(distro) + '-cache.yaml.gz';
     var urls = [];
+    if (proxyUrl) {
+      urls.push(proxyUrl);
+    }
     if (bundledAbsolute) {
       urls.push(bundledAbsolute);
     }
+    /* Final fallback may still fail in browsers due to upstream CORS. */
     urls.push(remote);
 
     return tryUrls(urls);
@@ -123,8 +149,19 @@
       }
       var url = urls[i];
       i += 1;
-      return fetch(url, { cache: 'no-cache' })
+      var controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+      var timer = null;
+      if (controller && i === 1) {
+        /* Keep proxy attempt snappy so fallback isn't delayed. */
+        timer = setTimeout(function () {
+          controller.abort();
+        }, 6000);
+      }
+      return fetch(url, { cache: 'no-cache', signal: controller ? controller.signal : undefined })
         .then(function (res) {
+          if (timer) {
+            clearTimeout(timer);
+          }
           if (!res.ok) {
             throw new Error('HTTP ' + res.status + ' for ' + url);
           }
@@ -141,6 +178,9 @@
           return /** @type {Record<string, string>} */ (xmls);
         })
         .catch(function (err) {
+          if (timer) {
+            clearTimeout(timer);
+          }
           /* Try next URL (e.g. bundled 404 then HTTPS remote — remote may hit CORS). */
           return next(err);
         });
