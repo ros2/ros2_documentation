@@ -94,7 +94,7 @@ Install Visual Studio Build Tools 2022 (optional)
 
 To compile packages written in C++, install Visual Studio Build Tools 2022.
 During installation, select the "Desktop development with C++" workload to
-ensure the MSVC compiler and Windows SDK are available. 
+ensure the MSVC compiler and Windows SDK are available.
 Download from `here <https://visualstudio.microsoft.com/vs/older-downloads/#visual-studio-2022-and-other-products>`_.
 
 Run all commands in the "x64 Native Tools Command Prompt for VS 2022"
