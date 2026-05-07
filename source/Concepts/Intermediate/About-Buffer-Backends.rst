@@ -96,8 +96,8 @@ Its job is essentially to translate between an in-memory
 ``BufferImplBase<T>`` and a **descriptor message** -- a normal ROS 2 ``.msg``
 that describes how to locate or reconstruct the payload on the receiving
 side.
-For a CPU-only backend the descriptor would just carry the bytes;
-for a GPU backend it typically carries an IPC handle plus metadata.
+For a CPU-only backend the descriptor can carry the bytes directly.
+For a non-CPU backend the descriptor is usually a small reference that the receiving side uses to re-attach to the payload; the exact mechanism is backend-specific.
 
 Descriptor messages are bounded (``rosidl::kMaxBufferDescriptorSize``, 4096
 bytes) so that the RMW can plan serialization buffer sizes up front.
@@ -120,9 +120,8 @@ Discovery hooks
 
 Backends are told about every matched endpoint via
 ``on_creating_endpoint`` (local) and ``on_discovering_endpoint`` (remote).
-They use these hooks to decide whether a given pub/sub pair is actually
-compatible with the backend's transport -- for instance, a GPU IPC backend
-might only accept peers on the same host and the same physical device.
+They use these hooks to decide whether a given pub/sub pair is actually compatible with the backend's transport.
+For instance, the CUDA backend currently accepts peers only when it can share CUDA VMM allocations safely.
 If a backend cannot serve a particular peer, it returns ``nullptr`` from
 ``create_descriptor_with_endpoint`` and the RMW falls back to normal CPU
 serialization of the field.
@@ -180,6 +179,21 @@ Relationship to other ROS 2 mechanisms
   still ``uint8[]``; only its generated C++ type changed from
   ``std::vector<uint8_t>`` to ``rosidl::Buffer<uint8_t>``, and implicit
   conversion keeps most existing code working.
+* The current RMW integration applies to topic publish/subscribe.
+  Services and actions continue to use their normal serialization paths and do not negotiate non-CPU buffer backends.
+
+Relationship to type adaptation
+------------------------------------------
+
+``rosidl::Buffer`` backends operate at the generated-message container layer.
+The ROS message definition remains the topic type, while selected variable-length primitive array fields can use backend-specific storage and descriptor-based transport.
+
+Type adaptation and systems such as Isaac ROS NITROS solve a different problem: they let application code work with framework-native types and negotiate adapted representations above the ROS message type, using mechanisms such as `REP 2007 <https://reps.openrobotics.org/rep-2007/>`__ and `REP 2009 <https://reps.openrobotics.org/rep-2009/>`__.
+The two approaches are not part of the same abstraction and are not intended to depend on each other; their scopes are different.
+They can coexist in an application when both are useful.
+For example, an adapted application type can still contain or produce a ROS message whose ``uint8[]`` field is backed by ``rosidl::Buffer``.
+
+One practical difference is that buffer backends are visible to the RMW publish/subscribe path, so a backend can provide cross-process transport support while type adaptation can only work within a single process.
 
 Where to go next
 ----------------

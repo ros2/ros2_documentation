@@ -148,9 +148,8 @@ Two important constraints:
   (Today that sub-handle is the one the RMW layer extracts; see
   :ref:`writing-buffer-backend_type-support`.)
 
-A descriptor typically carries either enough information to open an IPC
-handle on the receiving side, or a serialized copy of the payload for the
-CPU-fallback case, or both.
+A descriptor typically carries either a small reference that the receiving side uses to re-attach to the payload, a serialized copy of the payload for the CPU-fallback case, or both.
+The exact re-attachment mechanism is backend-specific.
 For example, a simplified device-IPC descriptor might look like:
 
 .. code-block:: text
@@ -170,9 +169,12 @@ For example, a simplified device-IPC descriptor might look like:
 
 The real CUDA backend
 (``cuda_buffer_backend_msgs/CudaBufferDescriptor.msg``) illustrates the
-device-IPC shape: the descriptor carries CUDA IPC metadata when the peer can
-use CUDA IPC, and the backend returns ``nullptr`` when that peer should receive
-the field through CPU fallback instead.
+device-IPC shape: the descriptor carries the publisher process id, block id,
+socket path, and synchronization metadata needed to import a CUDA VMM block.
+The exported file descriptor itself is passed out-of-band over the Unix-domain
+socket named by the descriptor.
+If the backend cannot serve a peer through CUDA IPC, it returns ``nullptr`` so
+that peer receives the field through CPU fallback instead.
 
 Step 2: Implement ``BufferImplBase<T>``
 ---------------------------------------
@@ -194,7 +196,7 @@ Its interface is intentionally minimal:
     };
 
 * ``get_backend_type()`` must return the same short name your plugin's XML
-  declares (``"cuda"``, ``"torch"``, ``"mydev"``, ...).
+  declares (``"cuda"``, ``"mydev"``, ...).
 * ``size()`` returns the element count (not byte count, unless ``T`` is
   ``uint8_t``).
 * ``to_cpu()`` is the escape hatch used by ``Buffer<T>::to_vector()`` when a

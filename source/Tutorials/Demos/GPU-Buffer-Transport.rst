@@ -44,12 +44,11 @@ Two transport modes are compared:
 
 * **CUDA** -- the ``ExperimentalTensor.data`` field is backed by the ``cuda``
   buffer backend.
-  The bytes never leave GPU memory: the descriptor on the wire only
-  carries a CUDA IPC handle.
+  The bytes never leave GPU memory: the descriptor on the wire carries a small reference that lets the subscriber re-attach to the publisher-owned CUDA allocation.
 * **CPU** -- the frame is rendered on the GPU, copied back to host memory
   with ``cudaMemcpy``, and then serialised through the RMW as a regular
   ``uint8[]``.
-  No non-CPU buffer backend is involved.
+  The default CPU buffer backend is used.
 
 Both modes render on the GPU; the only difference is the transport path,
 making this a clean comparison of zero-copy CUDA IPC versus traditional
@@ -64,7 +63,7 @@ You need:
 
 * A CUDA-capable GPU and the CUDA Toolkit (>= 11.8).
 * SDL2, GLEW, OpenGL, X11 development packages.
-* A ROS 2 Rolling source workspace.
+* A ROS 2 Lyrical Luth or later source workspace.
   See the :doc:`Installation instructions <../../Installation>` for the
   canonical source-build flow.
 * ``rmw_fastrtps_cpp`` for the non-CPU buffer path.

@@ -63,6 +63,9 @@ With other RMW implementations, a subscription that requests a non-CPU
 backend still functions -- it simply receives CPU-backed data, exactly as if
 ``acceptable_buffer_backends`` had not been set.
 
+The non-CPU backend path currently applies to topic publish/subscribe only.
+Services and actions do not expose an ``acceptable_buffer_backends`` option and continue to use their normal request, response, feedback, status, and result serialization paths.
+
 Discovering installed backends
 ------------------------------
 
@@ -140,7 +143,7 @@ C++ example
 
         subscription_ = this->create_subscription<sensor_msgs::msg::Image>(
           "image", 10,
-          [this](sensor_msgs::msg::Image::SharedPtr msg) {
+          [this](sensor_msgs::msg::Image::ConstSharedPtr msg) {
             if (msg->data.get_backend_type() == "cuda") {
               // Zero-copy GPU path: read the device pointer directly.
               auto rh = cuda_buffer_backend::from_input_buffer(msg->data, stream_);
@@ -222,6 +225,16 @@ buffer inside the message is what the RMW sees at publish time.
 If a given subscriber has not opted in to that backend, the RMW falls back
 to CPU serialization for that peer transparently -- the publisher writes the
 same message either way.
+
+QoS considerations
+------------------
+
+QoS compatibility is still checked by the RMW implementation in the usual way.
+The backend selection controls how eligible buffer fields are represented once a sample is being delivered; it does not replace DDS reliability, history, deadline, lifespan, or liveliness behavior.
+
+The CUDA backend's zero-copy path is intended for live topic samples.
+Use volatile durability for CUDA-backed topics.
+Transient-local durability for late-joining subscribers is not a supported zero-copy CUDA use case, because the descriptor refers to publisher-owned live memory that may be recycled by the backend.
 
 Tensor messages with ``torch_conversions``
 ------------------------------------------
@@ -323,7 +336,7 @@ For reference, the CUDA backend currently supports:
 
 * intra-process (same Python/C++ process);
 * inter-process on the same host, same GPU, same user (via CUDA VMM IPC);
-* inter-host is not supported; the RMW falls back to CPU serialization.
+* inter-host CUDA transport is not currently supported by this backend, so it declines that peer and the publish/subscribe path uses CPU serialization for the field.
 
 Other backends have their own constraints, documented in their own
 repositories.
