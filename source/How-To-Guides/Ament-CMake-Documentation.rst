@@ -64,17 +64,17 @@ The only difference is again the order in which the files are added with the fol
 Compiler and linker options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-ROS 2 targets compilers which comply with the C++17 and C99 standard.
+ROS 2 targets compilers which comply with the C++20 and C17 standard.
 Newer versions might be targeted in the future and are referenced `here <https://reps.openrobotics.org/rep-2000/>`__.
 Therefore it is customary to set the corresponding CMake flags:
 
 .. code-block:: cmake
 
     if(NOT CMAKE_C_STANDARD)
-      set(CMAKE_C_STANDARD 99)
+      set(CMAKE_C_STANDARD 17)
     endif()
     if(NOT CMAKE_CXX_STANDARD)
-      set(CMAKE_CXX_STANDARD 17)
+      set(CMAKE_CXX_STANDARD 20)
     endif()
 
 To keep the code clean, compilers should throw warnings for questionable code and these warnings should be fixed.
