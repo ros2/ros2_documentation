@@ -51,18 +51,24 @@ Install the turtlesim package for your ROS 2 distro:
 
 .. tabs::
 
-   .. group-tab:: Linux
+  .. group-tab:: Ubuntu
 
       .. code-block:: console
 
         $ sudo apt update
         $ sudo apt install ros-{DISTRO}-turtlesim
 
-   .. group-tab:: macOS
+  .. group-tab:: RHEL
+
+      .. code-block:: console
+
+        $ sudo dnf install ros-{DISTRO}-turtlesim
+
+  .. group-tab:: macOS
 
       As long as the archive you installed ROS 2 from contains the ``ros_tutorials`` repository, you should already have turtlesim installed.
 
-   .. group-tab:: Windows
+  .. group-tab:: Windows
 
       As long as the archive you installed ROS 2 from contains the ``ros_tutorials`` repository, you should already have turtlesim installed.
 
