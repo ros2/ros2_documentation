@@ -209,13 +209,13 @@ The file finishes with the ``main`` function used to create an instance of the n
 
 Now open the ``CMakeLists.txt`` file.
 
-Near the top of the file, change ``CMAKE_CXX_STANDARD`` from ``14`` to ``17``.
+Near the top of the file, add the following lines to set the C++ standard to C++20.
 
 .. code-block:: console
 
-    # Default to C++17
+    # Default to C++20
     if(NOT CMAKE_CXX_STANDARD)
-      set(CMAKE_CXX_STANDARD 17)
+      set(CMAKE_CXX_STANDARD 20)
     endif()
 
 Below the dependencies block, which contains ``find_package(rosbag2_cpp REQUIRED)``, add the following lines of code.
