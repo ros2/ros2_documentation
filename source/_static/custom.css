@@ -1,36 +1,3 @@
 .wy-nav-content {
     max-width: 64rem;
 }
-
-/* Runtime “related packages” list (see ros_related_packages extension) */
-.related-packages {
-    margin-top: 0.75rem;
-}
-
-.related-packages--loading .related-packages__status {
-    color: #666;
-    font-style: italic;
-}
-
-.related-packages__list {
-    margin: 0.35em 0 0;
-    padding-left: 1.25rem;
-}
-
-.related-packages__list li {
-    margin: 0.35em 0;
-}
-
-.related-packages__list a {
-    font-weight: 500;
-}
-
-.related-packages__empty,
-.related-packages--error .related-packages__status {
-    color: #555;
-    margin: 0.35em 0 0;
-}
-
-.related-packages--error .related-packages__status {
-    color: #a94442;
-}
