@@ -253,7 +253,7 @@ Using that configuration file in our launch descriptions will assign ``backgroun
 3 Namespaces
 ^^^^^^^^^^^^
 
-As you may have noticed, we have defined the namespace for the turlesim world in the ``turtlesim_world_2_launch`` file.
+As you may have noticed, we have defined the namespace for the turtlesim world in the ``turtlesim_world_2_launch`` file.
 Unique namespaces allow the system to start two similar nodes without node name or topic name conflicts.
 
 .. code-block:: Python
