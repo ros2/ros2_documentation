@@ -41,11 +41,7 @@ Using event handlers
 1 Event handlers example launch file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-<<<<<<< HEAD
-Create a new file called ``example_event_handlers.launch.py`` file in the ``launch`` folder of the ``launch_tutorial`` package.
-=======
-Create a new file called ``example_event_handlers_launch.py`` in the ``launch`` folder of the ``launch_tutorial`` package.
->>>>>>> 7e39b16e (Fixed typo Event handler (#6604))
+Create a new file called ``example_event_handlers.launch.py`` in the ``launch`` folder of the ``launch_tutorial`` package.
 
 .. literalinclude:: launch/example_event_handlers_launch.py
     :language: python
