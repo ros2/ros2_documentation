@@ -20,6 +20,7 @@ from __future__ import annotations
 import argparse
 import gzip
 import re
+import traceback
 import time
 import urllib.error
 import urllib.request
@@ -59,41 +60,62 @@ class ProxyHandler(BaseHTTPRequestHandler):
     cache: CacheStore
     timeout_seconds: int
 
-    def do_GET(self) -> None:  # noqa: N802 (BaseHTTPRequestHandler interface)
-        match = PATH_RE.match(self.path)
-        if not match:
-            self.send_error(404, 'Unknown path')
-            return
+    def _send_cors_headers(self) -> None:
+        """Allow browser fetches from local docs hosts on another port."""
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('Access-Control-Allow-Methods', 'GET, OPTIONS')
+        self.send_header('Access-Control-Allow-Headers', 'Content-Type')
 
-        distro = match.group(1).lower()
-        if not DISTRO_RE.match(distro):
-            self.send_error(400, 'Invalid distro name')
-            return
-
-        payload = self.cache.get(distro)
-        if payload is None:
-            try:
-                payload = self._fetch_upstream(distro)
-            except urllib.error.HTTPError as exc:
-                self.send_error(exc.code, f'Upstream HTTP error: {exc.reason}')
-                return
-            except urllib.error.URLError as exc:
-                self.send_error(502, f'Upstream URL error: {exc.reason}')
-                return
-            except TimeoutError:
-                self.send_error(504, 'Upstream timeout')
-                return
-            except ValueError as exc:
-                self.send_error(502, f'Bad upstream payload: {exc}')
-                return
-            self.cache.put(distro, payload)
-
-        self.send_response(200)
-        self.send_header('Content-Type', 'application/gzip')
-        self.send_header('Cache-Control', 'public, max-age=300')
-        self.send_header('Content-Length', str(len(payload)))
+    def do_OPTIONS(self) -> None:  # noqa: N802 (BaseHTTPRequestHandler interface)
+        self.send_response(204)
+        self._send_cors_headers()
         self.end_headers()
-        self.wfile.write(payload)
+
+    def do_GET(self) -> None:  # noqa: N802 (BaseHTTPRequestHandler interface)
+        try:
+            match = PATH_RE.match(self.path)
+            if not match:
+                self.send_error(404, 'Unknown path')
+                return
+
+            distro = match.group(1).lower()
+            if not DISTRO_RE.match(distro):
+                self.send_error(400, 'Invalid distro name')
+                return
+
+            if not hasattr(self, 'cache'):
+                raise RuntimeError('Proxy handler is missing cache configuration')
+            if not hasattr(self, 'timeout_seconds'):
+                raise RuntimeError('Proxy handler is missing timeout configuration')
+
+            payload = self.cache.get(distro)
+            if payload is None:
+                try:
+                    payload = self._fetch_upstream(distro)
+                except urllib.error.HTTPError as exc:
+                    self.send_error(exc.code, f'Upstream HTTP error: {exc.reason}')
+                    return
+                except urllib.error.URLError as exc:
+                    self.send_error(502, f'Upstream URL error: {exc.reason}')
+                    return
+                except TimeoutError:
+                    self.send_error(504, 'Upstream timeout')
+                    return
+                except ValueError as exc:
+                    self.send_error(502, f'Bad upstream payload: {exc}')
+                    return
+                self.cache.put(distro, payload)
+
+            self.send_response(200)
+            self._send_cors_headers()
+            self.send_header('Content-Type', 'application/gzip')
+            self.send_header('Cache-Control', 'public, max-age=300')
+            self.send_header('Content-Length', str(len(payload)))
+            self.end_headers()
+            self.wfile.write(payload)
+        except Exception as exc:  # pragma: no cover - defensive safety net for local proxy.
+            traceback.print_exc()
+            self.send_error(500, f'Proxy internal error: {exc}')
 
     def log_message(self, fmt: str, *args) -> None:
         """Compact log format."""
@@ -133,13 +155,13 @@ def main() -> None:
 
     cache = CacheStore(ttl_seconds=args.cache_ttl)
 
-    def handler_factory(*factory_args, **factory_kwargs):
-        handler = ProxyHandler(*factory_args, **factory_kwargs)
-        handler.cache = cache
-        handler.timeout_seconds = args.upstream_timeout
-        return handler
+    class ConfiguredProxyHandler(ProxyHandler):
+        """Proxy handler class with shared cache and timeout configuration."""
 
-    server = ThreadingHTTPServer((args.host, args.port), handler_factory)
+    ConfiguredProxyHandler.cache = cache
+    ConfiguredProxyHandler.timeout_seconds = args.upstream_timeout
+
+    server = ThreadingHTTPServer((args.host, args.port), ConfiguredProxyHandler)
     print(
         f'Proxy running on http://{args.host}:{args.port} '
         '(endpoint: /api/rosdistro-cache/<distro>-cache.yaml.gz)'
