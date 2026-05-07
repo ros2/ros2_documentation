@@ -90,6 +90,7 @@ extensions = [
     'sphinxcontrib.googleanalytics',
     'sphinxcontrib.mermaid',
     'ros_related_packages',
+    'ros_related_articles',
 ]
 
 # Intersphinx mapping

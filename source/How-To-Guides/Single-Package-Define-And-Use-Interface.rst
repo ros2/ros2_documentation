@@ -4,6 +4,8 @@
 
 .. meta::
    :build-type: ament_cmake
+   :area: ROS-framework
+   :experience: beginner, intermediate
 
 Implementing custom interfaces - how-to
 =======================================
@@ -252,6 +254,8 @@ Steps
 
 Related content
 ---------------
+
+.. ros-related-articles::
 
 .. ros-related-packages::
 

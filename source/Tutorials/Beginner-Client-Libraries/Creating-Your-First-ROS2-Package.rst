@@ -4,6 +4,10 @@
 
 .. _CreatePkg:
 
+.. meta::
+   :area: ROS-framework
+   :experience: beginner, intermediate
+
 Creating a package
 ==================
 
@@ -533,3 +537,8 @@ Next steps
 
 Next, let's add something meaningful to a package.
 You'll start with a simple publisher/subscriber system, which you can choose to write in either :doc:`C++ <./Writing-A-Simple-Cpp-Publisher-And-Subscriber>` or :doc:`Python <./Writing-A-Simple-Py-Publisher-And-Subscriber>`.
+
+Related content
+---------------
+
+.. ros-related-articles::
