@@ -231,7 +231,7 @@ Running this command on the ``subset`` bag recording will return a list of infor
     Files:             subset_0.mcap
     Bag size:          228.5 KiB
     Storage id:        mcap
-    ROS Distro:        rolling
+    ROS Distro:        lyrical
     Duration:          48.47s
     Start:             Oct 11 2019 06:09:09.12 (1570799349.12)
     End                Oct 11 2019 06:09:57.60 (1570799397.60)
@@ -435,7 +435,7 @@ You can see details about your recording by running:
   Files:             rosbag2_2024_04_24-14_59_17_0.mcap
   Bag size:          15.1 KiB
   Storage id:        mcap
-  ROS Distro:        rolling
+  ROS Distro:        lyrical
   Duration:          9.211s
   Start:             Apr 24 2024 14:59:17.676 (1713995957.676)
   End:               Apr 24 2024 14:59:26.888 (1713995966.888)
@@ -612,7 +612,7 @@ You can see details about your recording by running:
   Files:             rosbag2_2025_04_17-22_20_40_0.mcap
   Bag size:          20.7 KiB
   Storage id:        mcap
-  ROS Distro:        rolling
+  ROS Distro:        lyrical
   Duration:          9.019568080s
   Start:             Apr 17 2025 22:20:47.263125070 (1744953647.263125070)
   End:               Apr 17 2025 22:20:56.282693150 (1744953656.282693150)
