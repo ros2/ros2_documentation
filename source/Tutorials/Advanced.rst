@@ -20,5 +20,6 @@ Advanced
    Advanced/Create-An-Rqtbag-Plugin
    Advanced/ROS2-Tracing-Trace-and-Analyze
    Advanced/Creating-An-RMW-Implementation
+   Advanced/Writing-a-Buffer-Backend
    Advanced/Simulators/Simulation-Main
    Advanced/Security/Security-Main
