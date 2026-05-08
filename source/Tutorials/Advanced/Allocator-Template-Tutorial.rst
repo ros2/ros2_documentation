@@ -69,7 +69,6 @@ But first, we'll declare a few aliases to shorten the names.
 
 .. code-block:: c++
 
-     using rclcpp::memory_strategies::allocator_memory_strategy::AllocatorMemoryStrategy;
      using Alloc = std::pmr::polymorphic_allocator<void>;
      using MessageAllocTraits =
        rclcpp::allocator::AllocRebind<std_msgs::msg::UInt32, Alloc>;
@@ -96,11 +95,7 @@ Now we can create our resources with the custom allocator:
      auto subscriber = node->create_subscription<std_msgs::msg::UInt32>(
        "allocator_tutorial", 10, callback, subscription_options, msg_mem_strat);
 
-     std::shared_ptr<rclcpp::memory_strategy::MemoryStrategy> memory_strategy =
-       std::make_shared<AllocatorMemoryStrategy<Alloc>>(alloc);
-
      rclcpp::ExecutorOptions options;
-     options.memory_strategy = memory_strategy;
      rclcpp::executors::SingleThreadedExecutor executor(options);
 
 You must also instantiate a custom deleter and allocator for use when allocating messages:
