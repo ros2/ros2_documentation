@@ -415,6 +415,61 @@ We should see how ``Listener 1`` is receiving messages from both talker nodes, w
     Once two endpoints (ROS nodes) have discovered each other, they do not need the discovery server network between them to listen to each other's messages.
 
 
+Large number of participants
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When running more than 100 DDS participants on a single host (e.g., launching more than 100 ROS 2 nodes simultaneously), participants may fail to discover each other and become unresponsive.
+This applies to both the Discovery Server protocol and the Simple Discovery Protocol.
+
+The root cause is the ``mutation_tries`` parameter in Fast DDS, which defaults to ``100``.
+This parameter controls how many attempts Fast DDS makes to find a unique unicast listening port for each participant.
+When the number of participants exceeds ``mutation_tries``, port allocation is exhausted and new participants cannot listen for incoming traffic, effectively becoming deaf.
+
+.. warning::
+
+    Having more than 119 participants on the same host within a single domain will cause their listening ports to collide with those of the next domain ID.
+
+To support more participants, increase ``mutation_tries`` by applying the following XML configuration via the ``FASTDDS_DEFAULT_PROFILES_FILE`` environment variable:
+
+.. code-block:: xml
+
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <dds xmlns="http://www.eprosima.com">
+        <profiles>
+            <participant profile_name="participant_profile" is_default_profile="true">
+                <rtps>
+                    <builtin>
+                        <mutation_tries>1000</mutation_tries>
+                    </builtin>
+                </rtps>
+            </participant>
+        </profiles>
+    </dds>
+
+Save this file (e.g. as ``large_scale_configuration.xml``) and set the environment variable before launching your nodes:
+
+.. tabs::
+
+    .. group-tab:: Linux
+
+        .. code-block:: console
+
+            $ export FASTDDS_DEFAULT_PROFILES_FILE=large_scale_configuration.xml
+
+    .. group-tab:: Windows
+
+        .. code-block:: console
+
+            $ set FASTDDS_DEFAULT_PROFILES_FILE=large_scale_configuration.xml
+
+.. note::
+
+    The ``mutation_tries`` value should be set to at least the number of participants you intend to run on a single host.
+    Increasing it beyond what is needed has no negative side effects.
+    This configuration must be applied to **all** participants in the system, including the discovery server itself.
+
+For more details, see the `Fast DDS documentation on participant configuration <https://fast-dds.docs.eprosima.com/en/latest/fastdds/xml_configuration/xml_configuration.html>`__.
+
 
 ROS 2 Introspection
 -------------------
