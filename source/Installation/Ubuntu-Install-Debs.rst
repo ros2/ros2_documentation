@@ -10,7 +10,7 @@ Ubuntu (deb packages)
    :depth: 2
    :local:
 
-Deb packages for ROS 2 {DISTRO_TITLE_FULL} are currently available for Ubuntu Noble (24.04).
+Deb packages for ROS 2 {DISTRO_TITLE_FULL} are currently available for Ubuntu Resolute (26.04).
 The Rolling Ridley distribution will change target platforms from time to time as new platforms are selected for development.
 The target platforms are defined in `REP 2000 <https://reps.openrobotics.org/rep-2000/>`__.
 Most people will want to use a stable ROS distribution.

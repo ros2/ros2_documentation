@@ -24,23 +24,22 @@ Options for installing ROS 2 {DISTRO_TITLE_FULL}:
 Binary packages
 ---------------
 
-Binaries are only created for the Tier 1 operating systems listed in `REP-2000 <https://reps.openrobotics.org/rep-2000/#rolling-ridley-june-2020---ongoing>`__.
-Given the nature of Rolling, this list may be updated at any time.
+Binaries are only created for the Tier 1 operating systems listed in :doc:`Lyrical Luth release docs <Releases/Release-Lyrical-Luth>`.
 If you are not running any of the following operating systems you may need to build from source or use a :doc:`container solution <How-To-Guides/Run-2-nodes-in-single-or-separate-docker-containers>` to run ROS 2 on your platform.
 
 We provide ROS 2 binary packages for the following platforms:
 
-* Ubuntu Linux (amd64 / aarch64) - Noble Numbat (24.04)
+* Ubuntu Linux (amd64 / aarch64) - Resolute Raccoon (26.04)
 
   * :doc:`deb packages <Installation/Ubuntu-Install-Debs>` (recommended)
   * :doc:`binary archive <Installation/Alternatives/Ubuntu-Install-Binary>`
 
-* Red Hat Enterprise Linux 9 (amd64)
+* Red Hat Enterprise Linux 10 (amd64)
 
   * :doc:`RPM packages <Installation/RHEL-Install-RPMs>` (recommended)
   * :doc:`binary archive <Installation/Alternatives/RHEL-Install-Binary>`
 
-* Windows 10 (amd64)
+* Windows 11 (amd64)
 
   * :doc:`Windows Binary (VS 2019) <Installation/Windows-Install-Binary>`
 
@@ -51,9 +50,16 @@ Building from source
 
 We support building ROS 2 from source on the following platforms:
 
+<<<<<<< HEAD
 * :doc:`Ubuntu Linux 24.04 <Installation/Alternatives/Ubuntu-Development-Setup>`
 * :doc:`Windows 10 <Installation/Alternatives/Windows-Development-Setup>`
 * :doc:`RHEL-9/Fedora <Installation/Alternatives/RHEL-Development-Setup>`
+=======
+* :doc:`Ubuntu Linux 26.04 <Installation/Alternatives/Ubuntu-Development-Setup>`
+* :doc:`Ubuntu Linux 26.04 (Pixi) <Installation/Alternatives/Ubuntu-Development-Setup-Pixi>`
+* :doc:`Windows 11 <Installation/Alternatives/Windows-Development-Setup>`
+* :doc:`RHEL-10/Fedora <Installation/Alternatives/RHEL-Development-Setup>`
+>>>>>>> 0f43149 (Update Ubuntu version to 26.04 (Resolute) for ROS 2 Lyrical (#6514))
 * :doc:`macOS <Installation/Alternatives/macOS-Development-Setup>`
 
 Which install should you choose?
