@@ -376,3 +376,17 @@ adopters:
     country:
       - KR
     description: "Open-source DYNAMIXEL-driven manipulation and embedded real-time control architectures using ROS2."
+  - organization: "Fraunhofer IOSB"
+    organization_url: "https://www.iosb.fraunhofer.de/en.html"
+    project: "ATB"
+    project_url: "https://www.iosb.fraunhofer.de/en/competences/system-technology/systems-measurement-control-diagnosis/research-topics/autonomous-robot-systems.html"
+    domain:
+      - Agriculture
+      - Construction
+      - Defense/Government
+      - Marine
+      - Research
+    date_added: "2026-05-08"
+    country:
+      - DE
+    description: "A universal algorithm toolbox / autonomy stack for robotics in unstructured environments. Configurable for different platforms, ranging from unmanned surface vessels to autonomous excavators. Part of the Large-scale offroad robotics Lab of the RIG (Robotics Institute Germany)."
