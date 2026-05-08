@@ -15,9 +15,15 @@ System requirements
 -------------------
 The current Debian-based target platforms for {DISTRO_TITLE_FULL} are:
 
+<<<<<<< HEAD
 - Tier 1: Ubuntu Linux - Noble (24.04) 64-bit
 - Tier 3: Ubuntu Linux - Jammy (22.04) 64-bit
 - Tier 3: Debian Linux - Bookworm (12) 64-bit
+=======
+- Tier 1: Ubuntu Linux - Resolute (26.04) 64-bit
+- Tier 3: Ubuntu Linux - Noble (24.04) 64-bit
+- Tier 3: Debian Linux - Trixie (13) 64-bit
+>>>>>>> 0f43149 (Update Ubuntu version to 26.04 (Resolute) for ROS 2 Lyrical (#6514))
 
 As defined in `REP 2000 <https://reps.openrobotics.org/rep-2000/>`_.
 
