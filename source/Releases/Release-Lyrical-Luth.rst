@@ -322,7 +322,6 @@ It behaves like ``std::vector<T>`` with the default CPU backend, while allowing 
 
 The first RMW integration is for topic publish/subscribe with ``rmw_fastrtps_cpp``.
 
-See :doc:`../Concepts/Intermediate/About-Buffer-Backends` and :doc:`../How-To-Guides/Using-Buffer-Backends` for more details.
 
 ``rosidl_buffer_backend``
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -331,7 +330,6 @@ Added the ``rosidl::BufferBackend`` plugin interface for packages that implement
 Backend plugins provide descriptor message type support, build per-endpoint descriptors, reconstruct buffers on the receiving side, and participate in endpoint discovery.
 
 Backends are discovered through ``pluginlib`` and registered by RMW automatically.
-See :doc:`../Tutorials/Advanced/Writing-a-Buffer-Backend` for the backend implementer guide.
 
 ``rosidl_python``
 ^^^^^^^^^^^^^^^^^
