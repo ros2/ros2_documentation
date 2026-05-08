@@ -314,6 +314,25 @@ All methods and classes now have proper type hints.
 
   See `ros2/rosbag2#2093 <https://github.com/ros2/rosbag2/pull/2093>`__ for more details.
 
+``rosidl_buffer``
+^^^^^^^^^^^^^^^^^
+
+Added ``rosidl::Buffer<T>``, a generated C++ container for variable-length primitive array fields such as ``uint8[]``.
+It behaves like ``std::vector<T>`` with the default CPU backend, while allowing backend plugins to provide externally managed storage such as GPU memory.
+
+The first RMW integration is for topic publish/subscribe with ``rmw_fastrtps_cpp``.
+
+See :doc:`../Concepts/Intermediate/About-Buffer-Backends` and :doc:`../How-To-Guides/Using-Buffer-Backends` for more details.
+
+``rosidl_buffer_backend``
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Added the ``rosidl::BufferBackend`` plugin interface for packages that implement storage and transport backends for ``rosidl::Buffer`` fields.
+Backend plugins provide descriptor message type support, build per-endpoint descriptors, reconstruct buffers on the receiving side, and participate in endpoint discovery.
+
+Backends are discovered through ``pluginlib`` and registered by RMW automatically.
+See :doc:`../Tutorials/Advanced/Writing-a-Buffer-Backend` for the backend implementer guide.
+
 ``rosidl_python``
 ^^^^^^^^^^^^^^^^^
 
