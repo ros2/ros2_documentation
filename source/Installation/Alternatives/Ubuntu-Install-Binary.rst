@@ -22,7 +22,13 @@ There are also :doc:`deb packages <../Ubuntu-Install-Debs>` available.
 System Requirements
 -------------------
 
+<<<<<<< HEAD
 We currently support Ubuntu Linux Jammy (22.04) 64-bit x86 and 64-bit ARM.
+=======
+We currently support Ubuntu Resolute (26.04) 64-bit x86 and 64-bit ARM.
+The Rolling Ridley distribution will change target platforms from time to time as new platforms are selected for development.
+Most people will want to use a stable ROS distribution.
+>>>>>>> 0f431494 (Update Ubuntu version to 26.04 (Resolute) for ROS 2 Lyrical (#6514))
 
 Add the ROS 2 apt repository
 ----------------------------
