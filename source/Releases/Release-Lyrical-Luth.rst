@@ -322,7 +322,6 @@ It behaves like ``std::vector<T>`` with the default CPU backend, while allowing 
 
 The first RMW integration is for topic publish/subscribe with ``rmw_fastrtps_cpp``.
 
-
 ``rosidl_buffer_backend``
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
