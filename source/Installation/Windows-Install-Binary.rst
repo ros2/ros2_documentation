@@ -109,23 +109,15 @@ Setup environment
 
 In either the same Command Prompt terminal or a new one, you can source the ROS 2 environment
 
-Source the pixi environment
+Source the environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Source the pixi environment to set up dependencies:
+In every Command Prompt you open to setup the ROS 2 workspace, source the pixi environment and the ROS2 environment:
 
 .. code-block:: console
 
    $ cd C:\dev\{DISTRO}
    $ pixi shell
-
-Source the ROS 2 environment
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-This is required in every Command Prompt you open to setup the ROS 2 workspace:
-
-.. code-block:: console
-
    $ call C:\dev\{DISTRO}\local_setup.bat
 
 If you do not have RTI Connext DDS installed on your computer, it is normal to receive a warning that it is missing.
