@@ -341,18 +341,6 @@ Binary installation specific
 * If your example does not start because of missing DLLs, please verify that all libraries from external dependencies such as OpenCV are located inside your ``PATH`` variable.
 * If you forget to call the ``local_setup.bat`` file from your terminal, the demo programs will most likely crash immediately.
 
-Qt platform plugin "windows" not found
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Some ROS 2 tools (such as turtlesim) use Qt for graphical interfaces.
-If the Qt platform plugins cannot be located, applications may fail to start.
-
-Set the ``QT_QPA_PLATFORM_PLUGIN_PATH`` environment variable to the directory containing the Qt platform plugins:
-
-.. code-block:: console
-
-   $ set QT_QPA_PLATFORM_PLUGIN_PATH=C:\dev\{DISTRO}\bin\platforms
-
 Running RViz with WSL2
 ^^^^^^^^^^^^^^^^^^^^^^
 
