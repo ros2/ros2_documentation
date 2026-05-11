@@ -203,5 +203,8 @@ Where to go next
   backend-native data.
 * :doc:`../../Tutorials/Advanced/Writing-a-Buffer-Backend` -- vendor-facing
   guide on implementing and packaging a new ``BufferBackend`` plugin.
+* :doc:`../../Tutorials/Advanced/Writing-a-Buffer-Compatible-Conversions-Package` --
+  guide on creating ``*_conversions`` packages for messages with
+  buffer-backed ``uint8[]`` fields.
 * :doc:`../../Tutorials/Demos/GPU-Buffer-Transport` -- end-to-end demo that
   exercises a GPU-backed publish/subscribe pipeline.
