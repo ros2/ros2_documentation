@@ -418,8 +418,14 @@ We should see how ``Listener 1`` is receiving messages from both talker nodes, w
 Large number of participants
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-When running more than 100 DDS participants on a single host (e.g., launching more than 100 ROS 2 nodes simultaneously), participants may fail to discover each other and become unresponsive.
+When running more than 100 DDS participants on a single host (e.g., launching more than 100 ROS 2 `contexts <http://design.ros2.org/articles/Node_to_Participant_mapping.html>`__ simultaneously), participants may fail to discover each other and become unresponsive.
 This applies to both the Discovery Server protocol and the Simple Discovery Protocol.
+
+.. note::
+
+    Each DDS *Participant* corresponds to a ROS 2 *Context*, not a ROS 2 *Node*.
+    Multiple nodes can share a single context, and each process typically creates one context by default.
+    Therefore, the number of participants depends on the number of processes (contexts), not the number of nodes.
 
 The root cause is the ``mutation_tries`` parameter in Fast DDS, which defaults to ``100``.
 This parameter controls how many attempts Fast DDS makes to find a unique unicast listening port for each participant.
