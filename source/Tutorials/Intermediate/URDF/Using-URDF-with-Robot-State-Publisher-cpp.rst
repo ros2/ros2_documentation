@@ -124,7 +124,7 @@ Fire up your favorite editor and paste the following code into
       std::shared_ptr<tf2_ros::TransformBroadcaster> broadcaster;
       rclcpp::TimerBase::SharedPtr timer_;
 
-      //Robot state variables (one degree in radians)
+      // Robot state variables (one degree in radians)
       const double degree = M_PI/180.0;
       double tilt = 0.;
       double tinc = degree;
