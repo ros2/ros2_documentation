@@ -79,7 +79,7 @@ For example, you can specify the name of the function to run with
 
          $ colcon test --packages-select <name-of-pkg> --pytest-args -k name_of_the_test_function
 
-   .. group-tab:: Windows
+  .. group-tab:: Windows
 
       .. code-block:: console
 
