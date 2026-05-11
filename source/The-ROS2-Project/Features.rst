@@ -87,6 +87,11 @@ For planned future development, see the :doc:`Roadmap <Roadmap>`.
    * - Action Introspection
      - :doc:`Demo <../Tutorials/Demos/Action-Introspection>`
      -
+   * - :doc:`Pluggable buffer backends <../Concepts/Intermediate/About-Buffer-Backends>` for ``uint8[]`` fields (e.g. GPU memory transport)
+     - :doc:`Concept <../Concepts/Intermediate/About-Buffer-Backends>`, :doc:`How-to Guide <../How-To-Guides/Using-Buffer-Backends>`, :doc:`Demo <../Tutorials/Demos/GPU-Buffer-Transport>`
+     - Experimental.
+       Currently supported in ``rmw_fastrtps_cpp``.
+       User-facing backend APIs are C++-only today.
 
 Besides core features of the platform, the biggest impact of ROS comes from its available packages.
 The following are a few high-profile packages which are available in the latest release:
