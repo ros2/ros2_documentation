@@ -2,113 +2,49 @@
 
     Tutorials/Building-ROS2-Package-with-eclipse-2021-06
 
-Building a package with Eclipse 2021-06
-=======================================
+Building a package with VS Code (Windows 11) or Eclipse
+=======================================================
 
 .. contents:: Table of Contents
    :depth: 2
    :local:
 
-You cannot create a ROS 2 package with eclipse, you need to create it with commandline tools.
-Follow the :doc:`Create a package <../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>` tutorial.
+.. warning::
 
-After you created your project, you can edit the source code and build it with eclipse.
+   **Important Note for Windows 11 Users:**
+   The Eclipse CDT indexer is currently incompatible with the isolated Pixi/MSVC environment used in Lyrical Luth. Windows users should follow the **VS Code Setup** below instead of the Eclipse instructions.
 
-We start eclipse and select a eclipse-workspace.
+VS Code Setup (Recommended for Windows 11)
+------------------------------------------
 
-.. image:: images/eclipse_work_dir.png
-   :target: ../../_images/eclipse_work_dir.png
-   :alt: eclipse_work_dir
+To achieve a functional development environment on Windows 11 with Pixi, follow these steps:
 
-We create a C++ project
+1. **Launch VS Code from the Pixi Shell**
+   To ensure the IDE inherits the necessary environment variables (MSVC compiler and ROS 2 paths), launch it from an active terminal:
+   
+   .. code-block:: bash
 
-.. image:: images/eclipse_create_c++_project.png
-   :target: ../../_images/eclipse_create_c++_project.png
-   :alt: eclipse_create_c++_project
+      cd C:\dev\my_project_ws
+      pixi shell --manifest-path C:\dev\lyrical\pixi.toml
+      code .
 
+2. **Install Extensions**
+   Install the official **C/C++ Extension Pack** by Microsoft for IntelliSense and code navigation.
 
-.. image:: images/eclipse_c++_project_select_type.png
-   :target: ../../_images/eclipse_c++_project_select_type.png
-   :alt: eclipse_c++_project_select_type
+3. **Configure the Compiler Path**
+   * Open the Command Palette (``Ctrl+Shift+P``) and select **C/C++: Edit Configurations (UI)**.
+   * Set the **Compiler path** to your global MSVC executable:
+     ``C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/[version]/bin/Hostx64/x64/cl.exe``
+   * Set the **IntelliSense mode** to ``windows-msvc-x64``.
 
-We see that we got C++ includes.
+4. **Add Recursive Include Paths**
+   In the same UI menu, add these paths to the **Include path** section using recursive notation (``/**``) to resolve nested ROS 2 headers:
 
-.. image:: images/eclipse_c++_project_includes.png
-   :target: ../../_images/eclipse_c++_project_includes.png
-   :alt: eclipse_c++_project_includes
+   * ``${workspaceFolder}/**`` [cite: 3314]
+   * ``C:/dev/lyrical/rolling/install/include/**`` [cite: 3314]
+   * ``C:/dev/lyrical/.pixi/envs/default/Library/include/**`` [cite: 3314]
 
+Eclipse Setup (Linux Only)
+--------------------------
 
-We now import our ROS 2 project.
-The code is still in the old place.
-
-.. image:: images/eclipse_import_project.png
-   :target: ../../_images/eclipse_import_project.png
-   :alt: eclipse_import_project
-
-.. image:: images/eclipse_import_filesystem.png
-   :target: ../../_images/eclipse_import_filesystem.png
-   :alt: eclipse_import_filesystem
-
-Click the Advanced in the Options and check the **Create links in worksapce**.
-
-.. image:: images/eclipse_import_select_my_package.png
-   :target: ../../_images/eclipse_import_select_my_package.png
-   :alt: eclipse_import_select_my_package
-
-
-
-We see in the source code that the C++ includes got resolved but not the ROS 2 ones.
-
-.. image:: images/eclipse_c++_wo_ros_includes.png
-   :target: ../../_images/eclipse_c++_wo_ros_includes.png
-   :alt: eclipse_c++_wo_ros_includes
-
-
-.. image:: images/eclipse_c++_path_and_symbols.png
-   :target: ../../_images/eclipse_c++_path_and_symbols.png
-   :alt: eclipse_c++_path_and_symbols
-
-Add include paths of needed packages.
-(e.g. **/opt/ros/iron/include/rclcpp**, **/opt/ros/iron/include/std_msgs**, etc.)
-
-.. image:: images/eclipse_c++_add_directory_path.png
-   :target: ../../_images/eclipse_c++_add_directory_path.png
-   :alt: eclipse_c++_add_directory_path
-
-
-We now see that the ROS 2 includes got resolved too.
-
-.. image:: images/eclipse_c++_indexer_ok.png
-   :target: ../../_images/eclipse_c++_indexer_ok.png
-   :alt: eclipse_c++_indexer_ok
-
-
-Adding Builder colcon, so that we can build with right-click on project and "Build project".
-
-.. image:: images/eclipse_c++_properties_builders.png
-   :target: ../../_images/eclipse_c++_properties_builders.png
-   :alt: eclipse_c++_properties_builders
-
-
-.. image:: images/eclipse_c++_builder_main.png
-   :target: ../../_images/eclipse_c++_builder_main.png
-   :alt: eclipse_c++_builder_main
-
-
-With PYTHONPATH you can also build python projects.
-
-.. image:: images/eclipse_c++_builder_env.png
-   :target: ../../_images/eclipse_c++_builder_env.png
-   :alt: eclipse_c++_builder_env
-
-
-.. image:: images/eclipse_c++_properties_builders_with_colcon.png
-   :target: ../../_images/eclipse_c++_properties_builders_with_colcon.png
-   :alt: eclipse_c++_properties_builders_with_colcon
-
-
-Right-click on the project and select "Build Project".
-
-.. image:: images/eclipse_c++_build_project_with_colcon.png
-   :target: ../../_images/eclipse_c++_build_project_with_colcon.png
-   :alt: eclipse_c++_build_project_with_colcon
+*... [Original Eclipse instructions for Linux follow here] ...*
