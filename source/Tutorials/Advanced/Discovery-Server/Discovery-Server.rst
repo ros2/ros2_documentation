@@ -472,7 +472,7 @@ Save this file (e.g. as ``large_scale_configuration.xml``) and set the environme
 
     The ``mutation_tries`` value should be set to at least the number of participants you intend to run on a single host.
     Increasing it beyond what is needed has no negative side effects.
-    This configuration must be applied to **all** participants in the system, including the discovery server itself.
+    This configuration must be applied to **all** participants in the system, except the discovery server, for which a specific unicast port is already configured at launch.
 
 For more details, see the `Fast DDS documentation on participant configuration <https://fast-dds.docs.eprosima.com/en/latest/fastdds/xml_configuration/xml_configuration.html>`__.
 
