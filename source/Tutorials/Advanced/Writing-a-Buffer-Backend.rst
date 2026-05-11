@@ -526,6 +526,9 @@ The tensor packages in ``rosidl_buffer_backends`` follow this model:
 
 This keeps the backend ecosystem focused on memory transport while allowing
 ordinary user libraries to add richer programming models above it.
+See :doc:`Writing-a-Buffer-Compatible-Conversions-Package` for a dedicated
+guide to creating ``*_conversions`` packages on top of buffer-backed message
+fields.
 
 Testing
 -------
