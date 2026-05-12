@@ -14,6 +14,7 @@
 
 """Sphinx extension to render and validate the ROS 2 adopters YAML file. """
 
+import logging
 import os
 
 import yaml
@@ -22,6 +23,17 @@ from docutils.parsers.rst import Directive
 from sphinx.errors import ExtensionError
 
 from adopters_schema import validate_adopters, validate_adopter_urls
+
+# Use the stdlib logger (not sphinx.util.logging) so URL reachability
+# warnings are not promoted to errors when Sphinx is invoked with ``-W``
+# (warnings-as-errors).  External URL availability is inherently flaky
+# and must not fail the CI workflow on transient outages.
+logger = logging.getLogger(__name__)
+if not logger.handlers:
+    _handler = logging.StreamHandler()
+    _handler.setFormatter(logging.Formatter('%(levelname)s: %(name)s: %(message)s'))
+    logger.addHandler(_handler)
+    logger.setLevel(logging.WARNING)
 
 
 def _escape(text):
@@ -74,11 +86,17 @@ class AdoptersTableDirective(Directive):
 
         adopters = data.get('adopters', [])
         errors = validate_adopters(adopters)
-        errors.extend(validate_adopter_urls(adopters))
         if errors:
             raise ExtensionError(
                 'Adopters YAML validation failed:\n' + '\n'.join(f'  - {e}' for e in errors)
             )
+
+        # URL reachability is best-effort: external sites can be transiently
+        # unavailable, so surface failures as warnings rather than failing the
+        # build (and the CI workflow) on flaky network conditions.
+        url_warnings = validate_adopter_urls(adopters)
+        for w in url_warnings:
+            logger.warning('Adopters YAML URL check: %s', w)
 
         # Sort by organization name (A-Z), then date_added descending (newest first).
         adopters.sort(key=lambda a: a.get('date_added', ''), reverse=True)
