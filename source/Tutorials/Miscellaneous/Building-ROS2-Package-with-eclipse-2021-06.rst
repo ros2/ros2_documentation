@@ -69,7 +69,7 @@ We see in the source code that the C++ includes got resolved but not the ROS 2 o
    :alt: eclipse_c++_path_and_symbols
 
 Add include paths of needed packages.
-(e.g. **/opt/ros/iron/include/rclcpp**, **/opt/ros/iron/include/std_msgs**, etc.)
+(e.g. **/opt/ros/lyrical/include/rclcpp**, **/opt/ros/lyrical/include/std_msgs**, etc.)
 
 .. image:: images/eclipse_c++_add_directory_path.png
    :target: ../../_images/eclipse_c++_add_directory_path.png
