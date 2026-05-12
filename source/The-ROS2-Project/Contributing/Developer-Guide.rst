@@ -677,7 +677,7 @@ maintainers of all impacted packages (as defined by ``package.xml`` maintainer f
 Implementation
 ~~~~~~~~~~~~~~
 
-Before starting, go through the `Pull requests`_ section for best practices.
+Before starting, go through the Pull requests section for best practices.
 
 * For each repo to be modified:
 
@@ -701,7 +701,7 @@ Once the change is ready for code review:
 
 * Open a pull request for each modified repository.
 
-  * Remember to follow `Pull requests`_ best practices.
+  * Remember to follow Pull requests best practices.
   * `GitHub <https://hub.github.com/>`__ can be used to create pull requests from the command-line.
   * If the task is planned to be released with a specific version of ROS, this information should be included in each pull request.
 
