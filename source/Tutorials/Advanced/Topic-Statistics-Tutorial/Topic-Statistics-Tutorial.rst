@@ -161,7 +161,7 @@ Now open the ``CMakeLists.txt`` file.
 
 Add the executable and name it ``listener_with_topic_statistics`` so you can run your node using ``ros2 run``:
 
-.. code-block:: console
+.. code-block:: cmake
 
     add_executable(listener_with_topic_statistics src/member_function_with_topic_statistics.cpp)
     ament_target_dependencies(listener_with_topic_statistics rclcpp std_msgs)
