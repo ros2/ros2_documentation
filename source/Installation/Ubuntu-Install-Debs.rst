@@ -191,6 +191,15 @@ More articles:
 * :doc:`First steps with ROS <../First-Steps>`
 * :doc:`About ROS <../About-ROS>`
 
+Packages/reference:
+
+* `ros-{DISTRO}-desktop <https://index.ros.org/p/desktop/#{DISTRO}>`__
+* `ros-{DISTRO}-ros-base <https://index.ros.org/p/ros_base/#{DISTRO}>`__
+* `demo_nodes_cpp <https://index.ros.org/p/demo_nodes_cpp/#{DISTRO}>`__
+* `demo_nodes_py <https://index.ros.org/p/demo_nodes_py/#{DISTRO}>`__
+* `ros2-apt-source <https://github.com/ros-infrastructure/ros-apt-source/>`__
+* `ros-dev-tools <https://github.com/ros-infrastructure/infra-variants/tree/latest/ros-dev-tools>`__
+
 FAQs
 ----
 
