@@ -67,6 +67,11 @@ We see in the source code that the C++ includes got resolved but not the ROS 2 o
    :target: ../../_images/eclipse_c++_path_and_symbols.png
    :alt: eclipse_c++_path_and_symbols
 
+<<<<<<< HEAD
+=======
+Add include paths of needed packages.
+(e.g. **/opt/ros/lyrical/include/rclcpp**, **/opt/ros/lyrical/include/std_msgs**, etc.)
+>>>>>>> 1e7eda6c (Update Eclipse tutorial screenshots and ROS path examples (#6689))
 
 .. image:: images/eclipse_c++_add_directory_path.png
    :target: ../../_images/eclipse_c++_add_directory_path.png
