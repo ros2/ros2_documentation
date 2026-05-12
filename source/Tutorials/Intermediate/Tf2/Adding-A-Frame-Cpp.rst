@@ -182,7 +182,7 @@ Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your e
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Now let's create a launch file for this example.
-With your text editor, create a new file called ``turtle_tf2_fixed_frame_demo_launch`` with extension ``.py``, ``.xml``, or ``.yaml`` in the ``src/learning_tf2_cpp/launch`` directory, check the type (.py, .xml, or .yaml) of previous tutorial's launch file and add the following lines:
+With your text editor, create a new file called ``turtle_tf2_fixed_frame_demo_launch`` with extension ``.py``, ``.xml``, or ``.yaml`` in the ``src/learning_tf2_cpp/launch`` directory, check the type (``.py``, ``.xml``, or ``.yaml``) of previous tutorial's launch file and add the following lines:
 
 .. tabs::
 
@@ -472,7 +472,7 @@ Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your e
 2.3 Write the launch file
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To test this code, create a new launch file ``turtle_tf2_dynamic_frame_demo_launch`` with extension ``.py``, ``.xml``, or ``.yaml`` in the ``src/learning_tf2_cpp/launch`` directory and check the type (.py, .xml, or .yaml) of previous tutorial's launch file and paste the following code:
+To test this code, create a new launch file ``turtle_tf2_dynamic_frame_demo_launch`` with extension ``.py``, ``.xml``, or ``.yaml`` in the ``src/learning_tf2_cpp/launch`` directory and check the type (``.py``, ``.xml``, or ``.yaml``) of previous tutorial's launch file and paste the following code:
 
 .. tabs::
 
