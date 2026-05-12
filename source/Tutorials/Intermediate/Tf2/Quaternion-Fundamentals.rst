@@ -222,7 +222,7 @@ Here's an example to get the relative rotation from the previous robot pose to t
 
       # Create a 4 element array containing the final quaternion
       final_quaternion = np.array([q0q1_w, q0q1_x, q0q1_y, q0q1_z])
-      
+
       # Return a 4 element array containing the final quaternion (q02,q12,q22,q32)
       return final_quaternion
 
