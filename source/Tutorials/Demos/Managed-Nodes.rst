@@ -4,7 +4,7 @@
     Tutorials/Managed-Nodes
 
 Managing node lifecycles - example
-================================================
+==================================
 
 Managed lifecycles for nodes allow greater control over the state of the ROS system.
 This example uses a simple talker/listener pair of managed nodes to show how a managed lifecycle can be implemented and used.
@@ -29,7 +29,7 @@ The following packages enable you to implement these managed nodes: `rclcpp_life
 Prerequisites
 -------------
 
-Install :doc:`ROS <../../Installation>`.
+See the :doc:`installation instructions <../../Installation>` for details on installing ROS 2.
 
 Example
 -------
