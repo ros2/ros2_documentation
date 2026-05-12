@@ -21,5 +21,6 @@ Advanced
    Advanced/ROS2-Tracing-Trace-and-Analyze
    Advanced/Creating-An-RMW-Implementation
    Advanced/Writing-a-Buffer-Backend
+   Advanced/Writing-a-Buffer-Compatible-Conversions-Package
    Advanced/Simulators/Simulation-Main
    Advanced/Security/Security-Main
