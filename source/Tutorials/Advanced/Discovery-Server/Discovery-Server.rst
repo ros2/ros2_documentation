@@ -416,7 +416,7 @@ We should see how ``Listener 1`` is receiving messages from both talker nodes, w
 
 
 Large number of participants
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 When running more than 100 DDS participants on a single host (e.g., launching more than 100 ROS 2 `contexts <http://design.ros2.org/articles/Node_to_Participant_mapping.html>`__ simultaneously), participants may fail to discover each other and become unresponsive.
 This applies to both the Discovery Server protocol and the Simple Discovery Protocol.
