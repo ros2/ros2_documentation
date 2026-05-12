@@ -179,7 +179,7 @@ With your text editor, create a new file called ``turtle_tf2_fixed_frame_demo_la
     .. literalinclude:: launch/py_turtle_tf2_fixed_frame_demo_launch.yaml
         :language: yaml
 
-This launch file imports the required packages and then creates a ``demo_nodes`` variable that will store nodes that we created in the previous tutorial's launch file. Check the type (.py, .xml, or .yaml) of previous tutorial's launch file and update it in this launch file. 
+This launch file imports the required packages and then creates a ``demo_nodes`` variable that will store nodes that we created in the previous tutorial's launch file. Check the type (.py, .xml, or .yaml) of previous tutorial's launch file and update it in this launch file.
 
 The last part of the code will add our fixed ``carrot1`` frame to the turtlesim world using our ``fixed_frame_tf2_broadcaster`` node.
 
@@ -428,7 +428,7 @@ Add the following line between the ``'console_scripts':`` brackets:
 2.3 Write the launch file
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To test this code, create a new launch file ``turtle_tf2_dynamic_frame_demo_launch`` with extension ``.py``, ``.xml``, or ``.yaml`` in the ``src/learning_tf2_py/launch`` directory and check the type (.py, .xml, or .yaml) of previous tutorial's launch file and update it in the following code: 
+To test this code, create a new launch file ``turtle_tf2_dynamic_frame_demo_launch`` with extension ``.py``, ``.xml``, or ``.yaml`` in the ``src/learning_tf2_py/launch`` directory and check the type (.py, .xml, or .yaml) of previous tutorial's launch file and update it in the following code:
 
 .. tabs::
 
