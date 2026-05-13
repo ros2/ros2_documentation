@@ -243,7 +243,7 @@ The following code shows how to enable the logger service while creating the nod
     .. code-block:: C++
 
         // Create a node with logger service enabled
-        auto node = std::make_shared<rclcpp::Node>("NodeWithLoggerService", rclcpp::NodeOptions().enable_logger_service(true))
+        auto node = std::make_shared<rclcpp::Node>("NodeWithLoggerService", rclcpp::NodeOptions().enable_logger_service(true));
 
   .. group-tab:: Python
 

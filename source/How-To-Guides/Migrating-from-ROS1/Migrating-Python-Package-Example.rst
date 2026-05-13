@@ -112,7 +112,7 @@ Put the following content into each file.
 
 .. code-block:: cmake
 
-    cmake_minimum_required(VERSION 3.0.2)
+    cmake_minimum_required(VERSION 3.20)
     project(talker_py)
 
     find_package(catkin REQUIRED)

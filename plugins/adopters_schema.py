@@ -22,6 +22,7 @@ Any additions or changes must be applied to both files.
 """
 
 import re
+import time
 import urllib.request
 import urllib.error
 
@@ -143,7 +144,7 @@ def validate_adopter_urls(adopters, timeout=10):
     return warnings
 
 
-def _check_url(url, timeout):
+def _check_url(url, timeout, retries=3, backoff_factor=2):
     """Return an error message string if the URL is unreachable, else None.
 
     Only flags URLs that are genuinely dead — connection failures and
@@ -151,25 +152,37 @@ def _check_url(url, timeout):
     down.  Any other HTTP response (even 403, 429, etc.) proves the host
     is alive, so those are treated as reachable.  SSL/TLS errors also
     indicate the host responded at the TCP level, so those are not flagged.
+
+    Retries transient failures (timeouts, network errors, 5xx codes) up to
+    ``retries`` times with exponential backoff to avoid false alarms from
+    flaky network conditions.
     """
     # HTTP codes that mean the server/origin is down or unreachable.
     _UNREACHABLE_CODES = (502, 503, 504, 521, 522, 523, 525, 530)
 
-    try:
-        req = urllib.request.Request(url, method='HEAD')
-        with urllib.request.urlopen(req, timeout=timeout) as resp:
-            if resp.status in _UNREACHABLE_CODES:
-                return f'URL returned HTTP {resp.status}: {url}'
-        return None
-    except urllib.error.HTTPError as e:
-        if e.code in _UNREACHABLE_CODES:
-            return f'URL returned HTTP {e.code}: {url}'
-        return None  # any other HTTP response means the server is alive
-    except (urllib.error.URLError, OSError) as e:
-        # SSL/TLS errors mean the TCP connection succeeded — host is alive.
-        err_str = str(e)
-        if 'SSL' in err_str or 'CERTIFICATE' in err_str:
+    last_error = None
+    for attempt in range(retries):
+        if attempt > 0:
+            time.sleep(backoff_factor ** attempt)
+        try:
+            req = urllib.request.Request(url, method='HEAD')
+            with urllib.request.urlopen(req, timeout=timeout) as resp:
+                if resp.status in _UNREACHABLE_CODES:
+                    last_error = f'URL returned HTTP {resp.status}: {url}'
+                    continue
             return None
-        return f'URL is not reachable: {url} ({e})'
-    except ValueError as e:
-        return f'invalid URL: {url} ({e})'
+        except urllib.error.HTTPError as e:
+            if e.code in _UNREACHABLE_CODES:
+                last_error = f'URL returned HTTP {e.code}: {url}'
+                continue
+            return None  # any other HTTP response means the server is alive
+        except (urllib.error.URLError, OSError) as e:
+            # SSL/TLS errors mean the TCP connection succeeded — host is alive.
+            err_str = str(e)
+            if 'SSL' in err_str or 'CERTIFICATE' in err_str:
+                return None
+            last_error = f'URL is not reachable: {url} ({e})'
+            continue
+        except ValueError as e:
+            return f'invalid URL: {url} ({e})'
+    return last_error

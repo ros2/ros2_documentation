@@ -16,7 +16,7 @@ Background
 
 In this tutorial, you will learn how to enable the ``Ros2Supervisor`` node which enhances the interface by creating additional services and topics to interact with the simulation.
 You can, for example, record animations or spawn Webots nodes directly from the ROS 2 interface while the simulation is running.
-These instructions list in details the current implemented features and how to use them.
+These instructions list in detail the current implemented features and how to use them.
 
 Prerequisites
 -------------
@@ -34,7 +34,7 @@ The ``Ros2Supervisor`` is made of two main parts:
 
 * A Webots Robot node added to the simulation world.
   Its ``supervisor`` field is set to TRUE.
-* A ROS 2 node that connects to the Webots Robot as an extern controller (in a similar way to your own robot plugin).
+* A ROS 2 node that connects to the Webots Robot as an external controller (in a similar way to your own robot plugin).
 
 The ROS 2 node acts as a controller that calls Supervisor API functions to control or interact with the simulation world.
 User interactions with the ROS 2 node are mainly performed through services and topics.
@@ -85,7 +85,7 @@ The ``Ros2Supervisor`` node also allows you to spawn Webots nodes from strings t
 The service is named ``/Ros2Supervisor/spawn_node_from_string`` and is of type ``webots_ros2_msgs/srv/SpawnNodeFromString``.
 The ``SpawnNodeFromString`` type expects a ``data`` string as input and returns a ``success`` boolean.
 
-From the given string, the Supervisor node is getting the name of the imported node and adding it to an intern list for potential later removal (see :ref:`Remove a Webots imported node`).
+From the given string, the Supervisor node is getting the name of the imported node and adding it to an internal list for potential later removal (see :ref:`Remove a Webots imported node`).
 
 The node is imported using the ``importMFNodeFromString(nodeString)`` `API function <https://cyberbotics.com/doc/reference/supervisor?tab-language=python#wb_supervisor_field_import_mf_node_from_string>`_.
 

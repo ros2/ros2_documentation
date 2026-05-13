@@ -73,8 +73,8 @@ For RHEL you can install binary packages from the **ros-testing** repository, by
 
    .. code-block:: console
 
-      $ sudo dnf config-manager setopt ros2-testing.enabled=1
-      $ sudo dnf config-manager setopt ros2.enabled=0
+      $ sudo dnf config-manager --set-enabled ros2-testing
+      $ sudo dnf config-manager --set-disabled ros2
 
 3. Update the dnf index:
 
@@ -92,8 +92,8 @@ For RHEL you can install binary packages from the **ros-testing** repository, by
 
    .. code-block:: console
 
-      $ sudo dnf config-manager setopt ros2-testing.enabled=0
-      $ sudo dnf config-manager setopt ros2.enabled=1
+      $ sudo dnf config-manager --set-disabled ros2-testing
+      $ sudo dnf config-manager --set-enabled ros2
 
    and doing an update and upgrade:
 

@@ -5,6 +5,11 @@
 Lyrical Luth (codename 'lyrical'; May, 2026)
 ============================================
 
+.. toctree::
+   :hidden:
+
+   Lyrical-Luth-Complete-Changelog
+
 .. contents:: Table of Contents
    :depth: 2
    :local:
@@ -118,8 +123,27 @@ Installation
 
 TODO
 
-New features in this ROS 2 release
-----------------------------------
+New Features in Lyrical
+-----------------------
+
+This section highlights some of the new features and changes in ROS Lyrical.
+For all changes, see the :doc:`full ROS Lyrical changelog <Lyrical-Luth-Complete-Changelog>`.
+
+``ament_cmake``
+^^^^^^^^^^^^^^^
+
+Allow multiple ``ament_python_install_package()`` calls per package
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+This enables shipping a single package with both python code and generated interfaces (from ``rosidl_generate_interfaces()``).
+Source directories from each call are merged at install time, with the last call winning on file conflicts.
+
+See https://github.com/ament/ament_cmake/pull/587 for more details.
+
+``ament_mypy``
+^^^^^^^^^^^^^^^
+
+Has new ``--ament-strict`` option to allow more strict type checking.
+The ROS core is slowly being switch to this stricter standard to help prevent regressions in Python packages.
 
 ``class_loader``
 ^^^^^^^^^^^^^^^^
@@ -189,6 +213,24 @@ See https://github.com/ros2/rcl/issues/1178, https://github.com/ros2/rcl/pull/12
 
   See `ros2/rclcpp#2984 <https://github.com/ros2/rclcpp/issues/2984>`__ and
   `ros2/rclcpp#2985 <https://github.com/ros2/rclcpp/pull/2985>`__ for more details.
+
+``rclpy``
+^^^^^^^^^
+
+Native asyncio support with ``AsyncNode`` (experimental)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Added ``AsyncNode``, a new node type that runs on the ``asyncio`` event loop.
+Subscription, service, and timer callbacks can now ``await`` any asyncio operation.
+The new async ``client.call(request)`` and sim-time aware ``clock.sleep(...)`` are awaitable from any asyncio task.
+CPU usage is significantly reduced compared to the ``SingleThreadedExecutor``.
+
+See the :doc:`Writing an async node with asyncio <../Tutorials/Intermediate/Writing-An-Async-Node-With-Asyncio-Python>` tutorial and https://github.com/ros2/rclpy/pull/1620 for more details.
+
+Static typing stablization
+""""""""""""""""""""""""""
+
+All methods and classes now have proper type hints.
 
 ``rosbag2``
 ^^^^^^^^^^^
@@ -280,8 +322,29 @@ See https://github.com/ros2/rcl/issues/1178, https://github.com/ros2/rcl/pull/12
 
   See `ros2/rosbag2#2093 <https://github.com/ros2/rosbag2/pull/2093>`__ for more details.
 
+``rosidl_buffer``
+^^^^^^^^^^^^^^^^^
+
+Added ``rosidl::Buffer<T>``, a generated C++ container for variable-length primitive array fields such as ``uint8[]``.
+It behaves like ``std::vector<T>`` with the default CPU backend, while allowing backend plugins to provide externally managed storage such as GPU memory.
+
+The first RMW integration is for topic publish/subscribe with ``rmw_fastrtps_cpp``.
+
+See :doc:`../Concepts/Intermediate/About-Buffer-Backends` and :doc:`../How-To-Guides/Using-Buffer-Backends` for more details.
+
+``rosidl_buffer_backend``
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Added the ``rosidl::BufferBackend`` plugin interface for packages that implement storage and transport backends for ``rosidl::Buffer`` fields.
+Backend plugins provide descriptor message type support, build per-endpoint descriptors, reconstruct buffers on the receiving side, and participate in endpoint discovery.
+
+Backends are discovered through ``pluginlib`` and registered by RMW automatically.
+See :doc:`../Tutorials/Advanced/Writing-a-Buffer-Backend` for the backend implementer guide.
+
 ``rosidl_python``
 ^^^^^^^^^^^^^^^^^
 
 Passing in Python ``set`` objects into array or sequence fields is now deprecated.
 Instead pass in something that implements ``collections.abc.Sequence`` most commonly a ``list``, ``tuple``, or a ``numpy.ndarray``. To be removed in ROS M.
+
+All generated messages, services, and actions are fully statically typed.
