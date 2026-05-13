@@ -38,6 +38,7 @@ Modify ``permissions.xml``
 Begin by making a backup of your permissions files, and open ``permissions.xml`` for editing:
 
 .. code-block:: console
+
   $ cd ~/sros2_demo/demo_keystore/enclaves/talker_listener/talker
   $ mv permissions.p7s permissions.p7s~
   $ mv permissions.xml permissions.xml~
