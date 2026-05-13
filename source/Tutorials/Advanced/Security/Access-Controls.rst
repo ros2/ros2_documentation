@@ -38,7 +38,6 @@ Modify ``permissions.xml``
 Begin by making a backup of your permissions files, and open ``permissions.xml`` for editing:
 
 .. code-block:: console
-
   $ cd ~/sros2_demo/demo_keystore/enclaves/talker_listener/talker
   $ mv permissions.p7s permissions.p7s~
   $ mv permissions.xml permissions.xml~
@@ -48,7 +47,7 @@ We will be modifying the ``<allow_rule>`` for ``<publish>`` and ``<subscribe>``.
 The topics in this XML file use the DDS naming format, not the ROS name.
 Find details on mapping topic names between ROS and DDS in the `Topic and Service Names design document <https://design.ros2.org/articles/topic_and_service_names.html#mapping-of-ros-2-topic-and-service-names-to-dds-concepts>`_.
 
-Paste the following XML content into ``permission.xml``, save the file and exit the text editor.
+Paste the following XML content into ``permissions.xml``, save the file and exit the text editor.
 This shows the ``chatter`` and ``rosout`` ROS topics renamed to the DDS ``rt/chatter`` and ``rt/rosout`` topics, respectively:
 
 .. code-block:: xml
@@ -102,7 +101,7 @@ This shows the ``chatter`` and ``rosout`` ROS topics renamed to the DDS ``rt/cha
   </dds>
 
 This policy allows the talker to publish on the ``chatter`` and the ``rosout`` topics.
-It also allows includes publish and subscribe permissions needed for the talker node to manage parameters (a requirement for all nodes).
+It also includes publish and subscribe permissions needed for the talker node to manage parameters (a requirement for all nodes).
 Discovery permissions remain unchanged from the original template.
 
 
@@ -110,7 +109,7 @@ Sign the policy file
 ^^^^^^^^^^^^^^^^^^^^
 
 This next command creates the new S/MIME signed policy file ``permissions.p7s`` from the updated XML file ``permissions.xml``.
-The file must be signed with the Permissions CA certificate, **which requires access to the Permission CA private key**.
+The file must be signed with the Permissions CA certificate, **which requires access to the Permissions CA private key**.
 If the private key has been protected, additional steps may be required to unlock and use it according to your security plan.
 
 .. code-block:: console
@@ -142,7 +141,7 @@ Use the templates
 
 Security policies can quickly become confusing, so the ``sros2`` utilities add the ability to create policies from templates.
 Do this by using the `sample policy file <https://github.com/ros2/sros2/blob/{REPOS_FILE_BRANCH}/sros2/test/policies/sample.policy.xml#L1>`_ provided in the ``sros2`` repository.
-Let's creates a policy for both the ``talker`` and the ``listener`` to only use the ``chatter`` topic.
+Let's create a policy for both the ``talker`` and the ``listener`` to only use the ``chatter`` topic.
 
 Begin by downloading the ``sros2`` repository with the sample policy files:
 
