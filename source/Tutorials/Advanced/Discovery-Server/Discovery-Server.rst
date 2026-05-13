@@ -184,7 +184,7 @@ Remember, in order to use ``rqt_graph`` with the discovery server protocol (i.e.
 
 
 Advanced use cases
------------------
+------------------
 
 The following sections show different features of the discovery server that allow you to build a robust discovery server over the network.
 
