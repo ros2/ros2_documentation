@@ -5,6 +5,11 @@
 Lyrical Luth (codename 'lyrical'; May, 2026)
 ============================================
 
+.. toctree::
+   :hidden:
+
+   Lyrical-Luth-Complete-Changelog
+
 .. contents:: Table of Contents
    :depth: 2
    :local:
@@ -118,8 +123,11 @@ Installation
 
 TODO
 
-New features in this ROS 2 release
-----------------------------------
+New Features in Lyrical
+-----------------------
+
+This section highlights some of the new features and changes in ROS Lyrical.
+For all changes, see the :doc:`full ROS Lyrical changelog <Lyrical-Luth-Complete-Changelog>`.
 
 ``ament_cmake``
 ^^^^^^^^^^^^^^^
