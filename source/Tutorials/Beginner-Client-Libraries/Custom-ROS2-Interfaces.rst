@@ -411,8 +411,13 @@ Add the following lines (C++ only):
     add_executable(talker src/publisher_lambda_function.cpp)
     target_link_libraries(talker PUBLIC rclcpp::rclcpp ${tutorial_interfaces_TARGETS})    # CHANGE
 
+<<<<<<< HEAD
     add_executable(listener src/subscriber_member_function.cpp)
     target_link_libraries(listener PUBLIC rclcpp::rclcpp ${tutorial_interfaces_TARGETS})  # CHANGE
+=======
+    add_executable(listener src/subscriber_lambda_function.cpp)
+    target_link_libraries(listener PUBLIC rclcpp::rclcpp tutorial_interfaces::tutorial_interfaces)  # CHANGE
+>>>>>>> 0f14890 (Fix executable name in custom interfaces tutorial (#6705))
 
     install(TARGETS
       talker
