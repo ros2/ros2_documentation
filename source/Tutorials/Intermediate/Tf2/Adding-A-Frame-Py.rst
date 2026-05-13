@@ -159,7 +159,7 @@ Add the following line between the ``'console_scripts':`` brackets:
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Now let's create a launch file for this example.
-With your text editor, create a new file called ``turtle_tf2_fixed_frame_demo_launch`` with extension ``.py``, ``.xml``, or ``.yaml`` in the ``src/learning_tf2_py/launch`` directory, and add the following lines:
+With your text editor, create a new file called ``turtle_tf2_fixed_frame_demo_launch`` with extension ``.py``, ``.xml``, or ``.yaml`` in the ``src/learning_tf2_py/launch`` directory, check the type (``.py``, ``.xml``, or ``yaml``) of the previous tutorial's launch file and add the following lines:
 
 .. tabs::
 
@@ -428,7 +428,7 @@ Add the following line between the ``'console_scripts':`` brackets:
 2.3 Write the launch file
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To test this code, create a new launch file ``turtle_tf2_dynamic_frame_demo_launch`` with extension ``.py``, ``.xml``, or ``.yaml`` in the ``src/learning_tf2_py/launch`` directory and paste the following code:
+To test this code, create a new launch file ``turtle_tf2_dynamic_frame_demo_launch`` with extension ``.py``, ``.xml``, or ``.yaml`` in the ``src/learning_tf2_py/launch`` directory and check the type (``.py``, ``.xml``, or ``.yaml``) of previous tutorial's launch file and update it in the following code:
 
 .. tabs::
 

@@ -390,3 +390,23 @@ adopters:
     country:
       - DE
     description: "A universal algorithm toolbox / autonomy stack for robotics in unstructured environments. Configurable for different platforms, ranging from unmanned surface vessels to autonomous excavators. Part of the Large-scale offroad robotics Lab of the RIG (Robotics Institute Germany)."
+  - organization: "SMAROBIX GmbH"
+    organization_url: "https://smarobix.com"
+    project: "Insights Engine and Development Environment"
+    domain:
+      - Agriculture
+      - Aerial/Drone
+      - Construction
+      - Consumer Robot
+      - Healthcare/Medical
+      - Humanoid
+      - Logistics/Warehouse
+      - Manufacturing
+      - Marine
+      - Research
+      - Space
+      - Service Robot
+    date_added: "2026-05-13"
+    country:
+      - DE
+    description: "SMAROBIX builds an AI-enhanced software that provides engineers with explainable system insights and guided, robot-in-the-loop workflows throughout the whole engineering process to diagnose bottlenecks, validate safety, real-time behavior, and iteratively improve performance based on measurable evidence."
