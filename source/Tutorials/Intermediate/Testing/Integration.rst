@@ -196,7 +196,7 @@ To ease adding several integration tests, we define the CMake function ``add_ros
 
 .. code-block:: cmake
 
-  cmake_minimum_required(VERSION 3.8)
+  cmake_minimum_required(VERSION 3.20)
   project(app)
 
   ########

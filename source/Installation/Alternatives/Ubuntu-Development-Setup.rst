@@ -15,8 +15,9 @@ System requirements
 -------------------
 The current Debian-based target platforms for {DISTRO_TITLE_FULL} are:
 
-- Tier 1: Ubuntu Linux - Noble (24.04) 64-bit
-- Tier 3: Debian Linux - Bookworm (12) 64-bit
+- Tier 1: Ubuntu Linux - Resolute (26.04) 64-bit
+- Tier 3: Ubuntu Linux - Noble (24.04) 64-bit
+- Tier 3: Debian Linux - Trixie (13) 64-bit
 
 As defined in `REP 2000 <https://reps.openrobotics.org/rep-2000/>`_.
 
@@ -75,7 +76,7 @@ Install dependencies using rosdep
 
    $ sudo rosdep init
    $ rosdep update
-   $ rosdep install --from-paths src --ignore-src -y --skip-keys "fastcdr rti-connext-dds-7.3.0 urdfdom_headers"
+   $ rosdep install --from-paths src --ignore-src -y --skip-keys "fastcdr rti-connext-dds-7.7.0 urdfdom_headers"
 
 .. include:: ../_rosdep_Linux_Mint.rst
 

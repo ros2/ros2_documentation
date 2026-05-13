@@ -10,6 +10,7 @@ ROS 2 Documentation
    :maxdepth: 1
    :hidden:
 
+   About-ROS
    Installation
    Releases
    Tutorials
@@ -25,6 +26,8 @@ ROS 2 Documentation
 
 **The Robot Operating System (ROS) is a set of software libraries and tools for building robot applications.**
 From drivers and state-of-the-art algorithms to powerful developer tools, ROS has the open source tools you need for your next robotics project.
+
+:ref:`Learn more about ROS <AboutROS>`
 
 Since ROS was started in 2007, a lot has changed in the robotics and ROS community.
 The goal of the ROS 2 project is to adapt to these changes, leveraging what is great about ROS 1 and improving what isn't.
@@ -101,6 +104,10 @@ If you're interested in the advancement of the ROS 2 project:
   - Downloadable marketing materials
   - `Information about the ROS trademark <https://www.ros.org/blog/media/>`__
 
+* :doc:`Adopters <The-ROS2-Project/Adopters>`
+
+  - Organizations and projects using ROS
+
 ROS community resources
 -----------------------
 
@@ -112,7 +119,7 @@ If you need help, have an idea, or would like to contribute to the project, plea
 
   - See :ref:`Contact Page <Using Robotics Stack Exchange>` for more information
 
-* `ROS Discourse <https://discourse.ros.org/>`__ (ROS 1, ROS 2)
+* `Open Robotics Discourse <https://discourse.openrobotics.org/>`__ (ROS 1, ROS 2)
 
   - Forum for general discussions and announcements for the ROS community
   - See the :ref:`Contact Page <Using ROS Discourse>` for more information

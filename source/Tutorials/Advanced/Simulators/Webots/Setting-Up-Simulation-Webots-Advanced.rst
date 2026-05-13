@@ -139,7 +139,7 @@ You have to modify these two other files to launch your new node.
         .. literalinclude:: Code/setup_sensor.py
             :language: python
             :dedent: 8
-            :lines: 24-27
+            :lines: 26-29
 
         This will add an entry point for the ``obstacle_avoider`` node.
 

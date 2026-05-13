@@ -27,7 +27,7 @@ In order to get more information about the available discovery configuration, pl
 The `Simple Discovery Protocol <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/discovery/simple.html>`__ is the standard protocol defined in the `DDS standard <https://www.omg.org/omg-dds-portal/>`__.
 However, it has known disadvantages in some scenarios.
 
-* It does not **Scale** efficiently, as the number of exchanged packets increases significantly as new nodes are added.
+* It does not **scale** efficiently, as the number of exchanged packets increases significantly as new nodes are added.
 * It requires **multicasting** capabilities that may not work reliably in some scenarios, e.g. WiFi.
 
 The **Fast DDS Discovery Server** provides a Client-Server Architecture that allows nodes to connect with each other using an intermediate server.
@@ -183,8 +183,8 @@ The ``rqt_graph`` tool can be used to verify the nodes and structure of this exa
 Remember, in order to use ``rqt_graph`` with the discovery server protocol (i.e., to see the ``listener_discovery_server`` and ``talker_discovery_server`` nodes) the ``ROS_DISCOVERY_SERVER`` environment variable must be set before launching it.
 
 
-Advance use cases
------------------
+Advanced use cases
+------------------
 
 The following sections show different features of the discovery server that allow you to build a robust discovery server over the network.
 
@@ -193,7 +193,7 @@ Server Redundancy
 
 By using ``fastdds`` tool, multiple discovery servers can be created.
 Discovery clients (ROS nodes) can connect to as many servers as desired.
-This allows to have a redundant network that will work even if some servers or nodes shut down unexpectedly.
+This allows us to have a redundant network that will work even if some servers or nodes shut down unexpectedly.
 The figure below shows a simple architecture that provides server redundancy.
 
 .. image:: figures/ds_redundancy_example.svg
@@ -415,6 +415,67 @@ We should see how ``Listener 1`` is receiving messages from both talker nodes, w
     Once two endpoints (ROS nodes) have discovered each other, they do not need the discovery server network between them to listen to each other's messages.
 
 
+Large number of participants
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When running more than 100 DDS participants on a single host (e.g., launching more than 100 ROS 2 `contexts <http://design.ros2.org/articles/Node_to_Participant_mapping.html>`__ simultaneously), participants may fail to discover each other and become unresponsive.
+This applies to both the Discovery Server protocol and the Simple Discovery Protocol.
+
+.. note::
+
+    Each DDS *Participant* corresponds to a ROS 2 *Context*, not a ROS 2 *Node*.
+    Multiple nodes can share a single context, and each process typically creates one context by default.
+    Therefore, the number of participants depends on the number of processes (contexts), not the number of nodes.
+
+The root cause is the ``mutation_tries`` parameter in Fast DDS, which defaults to ``100``.
+This parameter controls how many attempts Fast DDS makes to find a unique unicast listening port for each participant.
+When the number of participants exceeds ``mutation_tries``, port allocation is exhausted and new participants cannot listen for incoming traffic, effectively becoming deaf.
+
+.. warning::
+
+    Having more than 119 participants on the same host within a single domain will cause their listening ports to collide with those of the next domain ID.
+
+To support more participants, increase ``mutation_tries`` by applying the following XML configuration via the ``FASTDDS_DEFAULT_PROFILES_FILE`` environment variable:
+
+.. code-block:: xml
+
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <dds xmlns="http://www.eprosima.com">
+        <profiles>
+            <participant profile_name="participant_profile" is_default_profile="true">
+                <rtps>
+                    <builtin>
+                        <mutation_tries>1000</mutation_tries>
+                    </builtin>
+                </rtps>
+            </participant>
+        </profiles>
+    </dds>
+
+Save this file (e.g. as ``large_scale_configuration.xml``) and set the environment variable before launching your nodes:
+
+.. tabs::
+
+    .. group-tab:: Linux
+
+        .. code-block:: console
+
+            $ export FASTDDS_DEFAULT_PROFILES_FILE=large_scale_configuration.xml
+
+    .. group-tab:: Windows
+
+        .. code-block:: console
+
+            $ set FASTDDS_DEFAULT_PROFILES_FILE=large_scale_configuration.xml
+
+.. note::
+
+    The ``mutation_tries`` value should be set to at least the number of participants you intend to run on a single host.
+    Increasing it beyond what is needed has no negative side effects.
+    This configuration must be applied to **all** participants in the system, except the discovery server, for which a specific unicast port is already configured at launch.
+
+For more details, see the `Fast DDS documentation on participant configuration <https://fast-dds.docs.eprosima.com/en/latest/fastdds/xml_configuration/xml_configuration.html>`__.
+
 
 ROS 2 Introspection
 -------------------
@@ -444,7 +505,7 @@ Daemon's related tools
 
 The ROS 2 Daemon is used in several ROS 2 CLI introspection tools.
 It creates its own Participant to add a ROS 2 Node to the network graph, in order to receive all the data sent.
-In order for the ROS 2 CLI to work when using Discovery Server mechanism, the ROS 2 Daemon needs to be
+In order for the ROS 2 CLI to work when using the Discovery Server mechanism, the ROS 2 Daemon needs to be
 configured as **Super Client**.
 Therefore, this section is devoted to explain how to use ROS 2 CLI with ROS 2 Daemon running as a **Super Client**.
 This will allow the Daemon to discover the entire Node graph, and to receive all topic and endpoint information.
@@ -582,7 +643,7 @@ No Daemon tools
 ^^^^^^^^^^^^^^^
 
 Some ROS 2 CLI tools do not use the ROS 2 Daemon.
-In order for these tools to connect with a Discovery Server and receive all the topics information they need to be instantiated as a **Super Client** that connects to the **Server**.
+In order for these tools to connect with a Discovery Server and receive all the topic information they need to be instantiated as a **Super Client** that connects to the **Server**.
 
 Following the previous configuration, build a simple system with a talker and a listener.
 First, run a **Server**:
@@ -695,9 +756,9 @@ After both executions are done, run the Python script to generate a graph simila
 
 This graph is the result of a specific run of the experiment.
 The reader can execute the scripts and generate their own results for comparison.
-It can easily be seen that network traffic is reduced when using discovery service.
+It can easily be seen that network traffic is reduced when using the discovery service.
 
-The reduction in traffic is a result of avoiding every node announcing itself and waiting a response from every other node on the network.
+The reduction in traffic is a result of avoiding every node announcing itself and waiting for a response from every other node on the network.
 This creates a huge amount of traffic in large architectures.
 The reduction from this method increases with the number of nodes, making this architecture more scalable than the Simple Discovery Protocol approach.
 

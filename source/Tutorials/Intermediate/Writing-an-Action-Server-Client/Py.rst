@@ -65,7 +65,7 @@ In the constructor we also instantiate a new action server:
 
 An action server requires four arguments:
 
-1. A ROS 2 node to add the action client to: ``self``.
+1. A ROS 2 node to add the action server to: ``self``.
 2. The type of the action: ``Fibonacci`` (imported in line 5).
 3. The action name: ``'fibonacci'``.
 4. A callback function for executing accepted goals: ``self.execute_callback``.
@@ -218,7 +218,6 @@ Let's test our action client by first running the action server built earlier:
       $ python fibonacci_action_server.py
 
 In another terminal, run the action client.
-You should see messages printed by the action server as it successfully executes the goal:
 
 .. tabs::
 
@@ -227,12 +226,6 @@ You should see messages printed by the action server as it successfully executes
     .. code-block:: console
 
       $ python3 fibonacci_action_client.py
-      [INFO] [fibonacci_action_server]: Executing goal...
-      [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1])
-      [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2])
-      [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2, 3])
-      [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2, 3, 5])
-      ~ etc.
 
 
   .. group-tab:: macOS
@@ -240,12 +233,6 @@ You should see messages printed by the action server as it successfully executes
     .. code-block:: console
 
       $ python3 fibonacci_action_client.py
-      [INFO] [fibonacci_action_server]: Executing goal...
-      [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1])
-      [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2])
-      [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2, 3])
-      [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2, 3, 5])
-      ~ etc.
 
 
   .. group-tab:: Windows
@@ -253,12 +240,17 @@ You should see messages printed by the action server as it successfully executes
     .. code-block:: console
 
       $ python fibonacci_action_client.py
-      [INFO] [fibonacci_action_server]: Executing goal...
-      [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1])
-      [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2])
-      [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2, 3])
-      [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2, 3, 5])
-      # etc.
+
+You should see messages printed by the action server as it successfully executes the goal:
+
+.. code-block:: console
+
+    [INFO] [fibonacci_action_server]: Executing goal...
+    [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1])
+    [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2])
+    [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2, 3])
+    [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2, 3, 5])
+    ~ etc.
 
 The action client should start up, and then quickly finish.
 At this point, we have a functioning action client, but we don't see any results or get any feedback.
