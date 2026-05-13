@@ -28,16 +28,10 @@ Prerequisites
 Steps
 -----
 
-#. Create a pull request from the branch containing your changes in your fork, to the **rolling** branch of the target repository.
+1 Preparing the PR
+^^^^^^^^^^^^^^^^^^
 
-   For more information about creating a pull request from a fork, see `the GitHub documentation <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork>`__.
-
-#. You can create your pull request using the GitHub CLI, GitHub Desktop, or using other methods.
-
-   For more information about each of these methods, see `the GitHub documentation <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request>`__.
-
-Pull request guidelines
------------------------
+Use the following guidelines to prepare your pull request:
 
 * **Scope and focus**
    * Limit each pull request to a single, well defined change.
@@ -54,4 +48,22 @@ Pull request guidelines
 * **Dependent pull requests**
    * If a pull request depends on another pull request, clearly reference the dependency in the pull request description.
    * Ensure dependent pull requests are merged in the correct order.
-   
+
+If your pull request is for a code change, ensure you have followed the guidance in the :doc:`../Developer-Guide`.
+
+If your pull request is for a documentation change, ensure you have followed the guidance in :doc:`../Contributing-To-ROS-2-Documentation`.
+
+2 Submitting the PR
+^^^^^^^^^^^^^^^^^^^
+
+Create a pull request from the branch containing your changes in your fork, to the **rolling** branch of the target repository.
+You can create your pull request using the GitHub CLI, GitHub Desktop, or using other methods.
+
+For more information about creating a pull request from a fork, see `the GitHub documentation <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork>`__.
+
+For more information about each of the available pull request methods, see `the GitHub documentation <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request>`__.
+
+3 Responding to comments
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+TBC

@@ -6,4 +6,3 @@ Contributing to code
 
    Contributing-to-code/Making-a-PR
    Contributing-to-code/Reviewing-a-PR
-   
