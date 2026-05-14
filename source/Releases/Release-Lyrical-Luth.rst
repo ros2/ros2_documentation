@@ -489,16 +489,47 @@ Try out the new ``setup.fish`` script.
 See `ros2/ros2cli#1211 <https://github.com/ros2/ros2cli/pull/1211>`_ and `ament/ament_package#164 <https://github.com/ament/ament_package/pull/164>`_ for more info.
 To use ``fish`` shell with ``colcon``, check out `@Sunrisepeak's <https://github.com/Sunrisepeak>`_ `colcon-fish package <https://github.com/ros-x/colcon-fish>`_.
 
-ros2 param get on all nodes (for use_sim_time)
-""""""""""""""""""""""""""""""""""""""""""""""
+``ros2 param get`` a parameter from all nodes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* https://github.com/ros2/ros2cli/commit/a588c01474a2c54440a62729a4ba549575abc4b9
+Are you using simulated time?
+How do you know if all of your nodes are using simulated time?
+Use ``ros2 param get <parmeter name>`` to get a parameter value from all nodes.
 
-Get and set multiple parameters on the same node in one call
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+.. code-block:: shell
 
-* https://github.com/ros2/ros2cli/commit/ed992f7982716f6c80a5fcd5257561c0d54646a2
-* https://github.com/ros2/ros2cli/commit/21c08c61a2b44cf5e44f232cf6febfa5d3ef5ac4
+    ros2 param get use_sim_time
+
+
+See `ros2/ros2cli#1174 <https://github.com/ros2/ros2cli/pull/1174>`_ for more info.
+
+``ros2 param`` get and set multipe parameters on one node
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Want to get and set multiple parameters on one node at the same time?
+Use ``ros2 param get <node name> <param1> <param2> ...`` to get multiple values from a single node.
+
+.. code-block:: console
+
+    $ ros2 param get /robot_state_publisher frame_prefix ignore_timestamp publish_frequency
+    frame_prefix:
+      String value is: 
+    ignore_timestamp:
+      Boolean value is: False
+    publish_frequency:
+      Double value is: 20.0
+
+Use ``ros2 param set <node name> <param1> <value1> <param2> <value2> ...`` to set multiple values on a single node.
+
+.. code-block:: console
+
+    $ ros2 param set /robot_state_publisher frame_prefix foo ignore_timestamp True publish_frequency 10.0
+    frame_prefix: Set parameter successful
+    ignore_timestamp: Set parameter successful
+    publish_frequency: Set parameter successful
+
+
+See `ros2/ros2cli#1203 <https://github.com/ros2/ros2cli/pull/1203>`_ and `ros2/ros2cli#1204 <https://github.com/ros2/ros2cli/pull/1204>`_ for more details.
 
 ros2 doctor features
 """"""""""""""""""""
