@@ -204,17 +204,40 @@ See `ros2/rclcpp#2828 <>`_ for more info.
 Rclpy
 """""
 
-Async node!
-~~~~~~~~~~~
+AsyncNode
+~~~~~~~~~
 
-* https://github.com/ros2/rclpy/commit/4095493ac95d6c3db69aa68ee20236e96a5bd3e3
+Want to use ``asyncio`` and ``rclpy`` at the same time?
+Check out the new ``AsyncNode`` class.
+This node runs an ``asyncio`` event loop.
+Call ``await`` on any ``asyncio`` operation from any subscription, service, and timer callback.
+Try ``await client.call(request)`` to wait for service calls, and the sim-time aware ``await clock.sleep(...)``.
+This class uses significantly less CPU compared to the default ``SingleThreadedExecutor``.
 
-Added AsyncNode, a new node type that runs on the asyncio event loop.
-Subscription, service, and timer callbacks can now await any asyncio operation.
-The new async client.call(request) and sim-time aware clock.sleep(...) are awaitable from any asyncio task.
-CPU usage is significantly reduced compared to the SingleThreadedExecutor.
+.. code-block:: python
 
-See the :doc:`Writing an async node with asyncio <../Tutorials/Intermediate/Writing-An-Async-Node-With-Asyncio-Python>` tutorial and https://github.com/ros2/rclpy/pull/1620 for more details.
+    import asyncio
+    import rclpy
+    from rclpy.experimental import AsyncNode
+
+    class HelloWorldNode(AsyncNode):
+        def __init__(self):
+            super().__init__('hello_world_node')
+            self._timer = self.create_timer(5.0, self._cb)
+
+        async def _cb(self):
+            self.get_logger().info('Hello')
+            await self.get_clock().sleep(1.0)
+            self.get_logger().info('World!')
+
+    async def _main():
+        with rclpy.init():
+            await HelloWorldNode().run()
+
+    if __name__ == '__main__':
+        asyncio.run(_main())
+
+See the :doc:`Writing an async node with asyncio <../Tutorials/Intermediate/Writing-An-Async-Node-With-Asyncio-Python>` tutorial and `ros2/rclpy#1620 <https://github.com/ros2/rclpy/pull/1620>`_ for more details.
 
 Expose action graph functions as node class methods
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
