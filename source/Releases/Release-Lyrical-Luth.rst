@@ -422,15 +422,34 @@ Playback example:
 
 See `ros2/rosbag2#2047 <https://github.com/ros2/rosbag2/pull/2047>`_, `ros2/rosbag2#2062 <https://github.com/ros2/rosbag2/pull/2062>`_, `ros2/rosbag2#2061 <https://github.com/ros2/rosbag2/pull/2061>`_, and `ros2/rosbag2#2095 <https://github.com/ros2/rosbag2/pull/2095>`_ for more details.
 
-Circular logging
-""""""""""""""""
+Circular recording by bag split
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Added circular logging by split count.
-When recording with bag splitting enabled, --max-bag-files limits the maximum number of bag files stored on disk by automatically deleting the oldest split files as new ones are created.
+Recording data on your robot with limited disk space?
+Try the new ``--max-bag-files`` option.
+It limits the maximum number of bag files stored on disk by automatically deleting the oldest split files as new ones are created.
+
+.. code-block:: bash
+
+    # Max bag size: 100MB
+    ros2 bag record --all --max-bag-size 100000000 --max-bag-files 5
 
 See `ros2/rosbag2#2218 <https://github.com/ros2/rosbag2/pull/2218>`__ for more details.
 
-Updated split bag file naming to include the split index, bag name, and timestamp, making split files easier to identify and sort.
+More descriptive bag split names
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Do you having trouble finding bag splits?
+``rosbag2`` now names bag splits so that each is self-descriptive and chronologically traceable.
+
+.. code-block:: text
+
+   {counter}_{prefix}_{timestamp}.{extension}
+
+* **counter**: split index (integer starting from 0, *not zero-padded*)
+* **prefix**: derived from the bag directory name, with any default timestamp suffix removed
+* **timestamp**: local time at file creation, formatted as ``YYYY_MM_DD-HH_MM_SS``
+* **extension**: bag file extension. e.g., ``.mcap``, ``.db3``
 
 See `ros2/rosbag2#2265 <https://github.com/ros2/rosbag2/pull/2265>`__ for more details.
 
