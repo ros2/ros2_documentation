@@ -382,15 +382,20 @@ Users can now query the player’s starting time and playback duration, and Pyth
 
 See `ros2/rosbag2#2061 <https://github.com/ros2/rosbag2/pull/2061>`__ and `ros2/rosbag2#2095 <https://github.com/ros2/rosbag2/pull/2095>`__ for more details.
 
-Command Line and Graphical User Interface Improvements
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+``fish`` shell support
+^^^^^^^^^^^^^^^^^^^^^^
 
-ament_package fish shell support
-""""""""""""""""""""""""""""""""
+Do you enjoy `fish shell <https://fishshell.com/>`_?
+Do you want to use it with ROS?
+Now you can!
+Try out the new ``setup.fish`` script.
 
-* https://github.com/ament/ament_package/commit/26dc815b5de66ab47941ad7e4ddbe211b2d398f6
+.. code-block:: shell
 
-TODO Test debs with docker image to make sure this file is present
+    source /opt/ros/lyrical/setup.fish
+
+See `ros2/ros2cli#1211 <https://github.com/ros2/ros2cli/pull/1211>`_ and `ament/ament_package#164 <https://github.com/ament/ament_package/pull/164>`_ for more info.
+To use ``fish`` shell with ``colcon``, check out `@Sunrisepeak's <https://github.com/Sunrisepeak>`_ `colcon-fish package <https://github.com/ros-x/colcon-fish>`_.
 
 ros2 param get on all nodes (for use_sim_time)
 """"""""""""""""""""""""""""""""""""""""""""""
