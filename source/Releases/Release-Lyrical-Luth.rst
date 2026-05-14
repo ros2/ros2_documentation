@@ -233,8 +233,8 @@ This class uses significantly less CPU compared to the default ``SingleThreadedE
 
 See the :doc:`Writing an async node with asyncio <../Tutorials/Intermediate/Writing-An-Async-Node-With-Asyncio-Python>` tutorial and `ros2/rclpy#1620 <https://github.com/ros2/rclpy/pull/1620>`_ for more details.
 
-Process Launching improvements
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Launching improvements
+^^^^^^^^^^^^^^^^^^^^^^
 
 Use YAML tags in parameter files
 """"""""""""""""""""""""""""""""
@@ -332,18 +332,6 @@ You can benefit from this too.
 See :doc:`../Tutorials/Advanced/Writing-a-Buffer-Backend` to learn how to implement your own ``rosidl::BufferBackend``.
 
 See :doc:`../Concepts/Intermediate/About-Buffer-Backends` and :doc:`../How-To-Guides/Using-Buffer-Backends` for more details.
-
-Content filtering support
-"""""""""""""""""""""""""
-
-* https://github.com/ros2/rcl/commit/be6ba458057f6a1cb48a5bed007a9be70d986e76
-* https://github.com/ros2/rclcpp/commit/02caec12c30d83ff71f2564f328c54d7d38e6a41
-* https://github.com/ros2/rclcpp/commit/df2ac887ed518e704a3c4150a6041e16542a6d7a
-* https://github.com/ros2/rmw/commit/403ee71b0a987b701a1e7b6c72f6820917151f69
-
-TODO figure out how this works and make example
-
-I think only FastDDS and connex accoring to ros2/rclpy#1611
 
 rosbag Improvements
 ^^^^^^^^^^^^^^^^^^^
