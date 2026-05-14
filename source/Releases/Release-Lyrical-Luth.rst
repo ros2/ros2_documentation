@@ -670,13 +670,20 @@ See `ros/urdfdom#235 <https://github.com/ros/urdfdom/pull/235>`_, `ros/urdfdom#2
 Note that the Robot Model plugin `does not yet support capsule geometry <https://github.com/ros2/rviz/issues/1734>`_.
 Please consider opening a pull request for this feature!
 
-robot_state_publisher read description from topic
-"""""""""""""""""""""""""""""""""""""""""""""""""
+``robot_state_publisher`` can read the robot description from a topic
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Allows generating a robot description via code, while still having robot_state_publisher turn joint states into tf transforms.
-Useful for cases where the robot description is managed by something else, like another simulator
+Most of the time in a ROS system the ``robot_state_publisher`` node does two things:
 
-* https://github.com/ros/robot_state_publisher/commit/5f0b74096fdcdea5bcf40d261e71696cf6d1913f
+* It publishes the ``robot_description`` on a topic, and
+* It publishes TF transforms given joint positions.
+
+If you have ever tried to add ROS interfaces to a framework with its own internal robot model, you may have wished these were two separate utilies.
+Now they can be!
+Set the ``use_robot_description_topic`` parameter to ``true`` to make ``robot_state_publisher`` subscribe to the ``robot_description`` topic instead of publishing it.
+Then, make the other robot framework publish its own robot description on that topic.
+
+See `ros/robot_state_publisher#234 <https://github.com/ros/robot_state_publisher/pull/234>`_ for more info.
 
 RViz resource retriever service
 """""""""""""""""""""""""""""""
