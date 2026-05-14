@@ -257,10 +257,26 @@ See `ros2/rcl#1275 <https://github.com/ros2/rcl/pull/1275>`_ for more info.
 
 * https://github.com/ros2/rcl/commit/b7d6d69e670aa97bf69a6b92d12321ed31e68a4c
 
-more log_info log_warn etc actions (New!)
-"""""""""""""""""""""""""""""""""""""""""
+New log actions
+"""""""""""""""
 
-* https://github.com/ros2/launch/commit/f580507c270cf3d459762581a92a1aba5b04fb12
+Have different kinds of messages in your log files that you want to log with different severity?
+Specify the log level using the the new ``level`` argument on the ``log`` action.
+Alternatively, use the new ``log_debug``, ``log_info``, ``log_warning``, or ``log_error`` actions.
+
+.. code-block:: xml
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <launch>
+      <log level="INFO" message="Hello world! (log level=INFO)" />
+      <log_debug message="Hello world debug!" />
+      <log_info message="Hello world!" />
+      <log_warning message="Hello world warning!" />
+      <log_error message="Hello world error!" />
+    </launch>
+
+
+See more info at `ros2/launch#866 <https://github.com/ros2/launch/pull/866>`_
 
 Declare boolean launch arguments (New!)
 """""""""""""""""""""""""""""""""""""""
