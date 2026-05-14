@@ -714,12 +714,19 @@ This lets others depend on just the messages, as they might not need the code or
 
 See `ament/ament_cmake#587 <https://github.com/ament/ament_cmake/pull/587>`_ for more info.
 
-ament_ros_defaults
-""""""""""""""""""
+New CMake target: ``ament_cmake_ros_core::ament_ros_defaults``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* https://github.com/ros2/ament_cmake_ros/commit/6a84b6f31dc047adfe525fa0d01af4eef8652c35
+Tired of specifying different C and C++ versions on different branches?
+Let the new CMake target ``ament_cmake_ros_core::ament_ros_defaults`` set those for you.
+This target uses `target_compile_features <https://cmake.org/cmake/help/v3.20/command/target_compile_features.html>`_ to specify C and C++ version requirements.
 
-Get default CMake settings for a given ROS distro - C17; c++ 20 etc
+.. code-block:: cmake
+
+    find_package(ament_cmake_ros REQUIRED)
+    target_link_libraries(my_library PUBLIC ament_cmake_ros_core::ament_ros_defaults)
+
+See `ros2/ament_cmake_ros#62 <https://github.com/ros2/ament_cmake_ros/pull/62>`_ for more info.
 
 Utility Improvements
 ^^^^^^^^^^^^^^^^^^^^
