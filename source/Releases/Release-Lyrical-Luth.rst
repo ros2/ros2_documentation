@@ -129,6 +129,396 @@ New Features in Lyrical
 This section highlights some of the new features and changes in ROS Lyrical.
 For all changes, see the :doc:`full ROS Lyrical changelog <Lyrical-Luth-Complete-Changelog>`.
 
+Client Library Improvements
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Rclcpp improvements
+"""""""""""""""""""
+
+Callback Group Events executor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Looking for better executor performance?
+Check out the new Callback Group Events Executor.
+Like its predecessor the ``EventsExecutor``, the ``EventsCBGExecutor`` uses an events queue to process ready entities.
+However, ``EventsCBGExecutor`` adds support for multiple sources of ROS time and multiple threads.
+Compared to the Single and Multithreaded executors, the ``EventsCBGExecutor`` uses 10% to 15% less CPU.
+
+Try it out by instantiating ``rclcpp::executors::EventsCBGExecutor``;
+
+.. code-block:: c++
+
+    #include <rclcpp/rclcpp.hpp>
+
+    // ... class MyNode ...
+
+    int main(int argc, char ** argv)
+    {
+      rclcpp::init(argc, argv);
+      auto node = std::make_shared<MyNode>();
+      rclcpp::executors::EventsCBGExecutor executor;
+      executor.add_node(node);
+      executor.spin();
+      rclcpp::shutdown();
+      return 0;
+    }
+
+Using composable nodes?
+Launch a component container with the ``EventsCBGExecutor`` using the new ``--executor-type`` argument.
+
+.. code-block:: console
+
+    ros2 run rclcpp_components component_container --executor-type events-cbg
+
+.. code-block:: xml
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <launch>
+      <node_container pkg="rclcpp_components" exec="component_container" name="my_node_container" namespace="" args="--executor-type events-cbg">
+        <!-- Your composable nodes here -->
+      </node_container>
+    </launch>
+
+For more info, see `ros2/rclcpp#3097 <https://github.com/ros2/rclcpp/pull/3097>`_, `ros2/rclcpp#3134 <https://github.com/ros2/rclcpp/pull/3134>`_, and `ros2/rclcpp#3137 <https://github.com/ros2/rclcpp/pull/3137>`_.
+
+Parameter range descriptors now check bounds for array types (integer, double)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* https://github.com/ros2/rclcpp/commit/7bd14d812c0bdf38b666d83cbe9db210513a52bd
+
+Rclpy
+"""""
+
+Async node!
+~~~~~~~~~~~
+
+* https://github.com/ros2/rclpy/commit/4095493ac95d6c3db69aa68ee20236e96a5bd3e3
+
+Added AsyncNode, a new node type that runs on the asyncio event loop.
+Subscription, service, and timer callbacks can now await any asyncio operation.
+The new async client.call(request) and sim-time aware clock.sleep(...) are awaitable from any asyncio task.
+CPU usage is significantly reduced compared to the SingleThreadedExecutor.
+
+See the :doc:`Writing an async node with asyncio <../Tutorials/Intermediate/Writing-An-Async-Node-With-Asyncio-Python>` tutorial and https://github.com/ros2/rclpy/pull/1620 for more details.
+
+Expose action graph functions as node class methods
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* https://github.com/ros2/rclpy/commit/ad4d4d74dd15ed051ae6c09f81d8ce2a5be0a9cc
+
+All methods and classes have proper type hints
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Process Launching improvements
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+rcl Yaml tags support
+"""""""""""""""""""""
+
+Example with parameter file using yaml tags
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* https://github.com/ros2/rcl/commit/b7d6d69e670aa97bf69a6b92d12321ed31e68a4c
+
+more log_info log_warn etc actions (New!)
+"""""""""""""""""""""""""""""""""""""""""
+
+* https://github.com/ros2/launch/commit/f580507c270cf3d459762581a92a1aba5b04fb12
+
+Declare boolean launch arguments (New!)
+"""""""""""""""""""""""""""""""""""""""
+
+* https://github.com/ros2/launch/commit/7b15f52c9ba0d14175468672994c66ed372d8f47
+
+Expose existing things to frontends
+"""""""""""""""""""""""""""""""""""
+
+StringJoinSubstitution exposed to frontend
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* https://github.com/ros2/launch/commit/3bd49d64f030f3f6d462cb88c7b11ab1d13c4a58
+
+PathJointSubstitution exposed to frontend
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* https://github.com/ros2/launch/commit/cf96072c2045e821eecf43c80c326ab74cb74b7a
+
+Expose composable_lifecycle_node in frontend
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* https://github.com/ros2/launch_ros/commit/2f27466bbfe125229d2c9c65f96df7ad700bfe40
+
+rcl_logging - support changing logger implementation at runtime; no longer have to rebuild rcl
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+* https://github.com/ros2/rcl_logging/commit/00227a560b5332217854ef96db3524710390f71e
+
+A new rcl_logging_implementation package has been introduced to allow users to select the logging backend implementation at runtime without rebuilding rcl.
+Users can set the RCL_LOGGING_IMPLEMENTATION environment variable to switch between available logging backends (e.g., rcl_logging_spdlog, rcl_logging_noop, or custom implementations).
+If not specified, rcl_logging_spdlog is used by default.
+
+See https://github.com/ros2/rcl/issues/1178, https://github.com/ros2/rcl/pull/1276, and https://github.com/ros2/rcl_logging/pull/135 for more details.
+
+Middleware Improvements
+^^^^^^^^^^^^^^^^^^^^^^^
+
+New RMW implementation versions
+"""""""""""""""""""""""""""""""
+
+Connext 7.7.0
+~~~~~~~~~~~~~
+
+* https://github.com/ros2/rmw_connextdds/commit/6b387541eca2231dcb60caa8646a4d9350fa5ba1
+
+Zenoh
+~~~~~
+
+FastDDS
+~~~~~~~
+
+CycloneDDS
+~~~~~~~~~~
+
+Buffer type
+"""""""""""
+
+* https://github.com/ros2/rclpy/commit/5437ec64b0e8df88000a31e472bb64969a1b6cfa
+
+Added rosidl::Buffer<T>, a generated C++ container for variable-length primitive array fields such as uint8[].
+It behaves like std::vector<T> with the default CPU backend, while allowing backend plugins to provide externally managed storage such as GPU memory.
+
+The first RMW integration is for topic publish/subscribe with rmw_fastrtps_cpp.
+
+See :doc:`../Concepts/Intermediate/About-Buffer-Backends` and :doc:`../How-To-Guides/Using-Buffer-Backends` for more details.
+
+Added the rosidl::BufferBackend plugin interface for packages that implement storage and transport backends for rosidl::Buffer fields.
+Backend plugins provide descriptor message type support, build per-endpoint descriptors, reconstruct buffers on the receiving side, and participate in endpoint discovery.
+
+Backends are discovered through pluginlib and registered by RMW automatically.
+See :doc:`../Tutorials/Advanced/Writing-a-Buffer-Backend` for the backend implementer guide.
+
+Content filtering support
+"""""""""""""""""""""""""
+
+* https://github.com/ros2/rcl/commit/be6ba458057f6a1cb48a5bed007a9be70d986e76
+* https://github.com/ros2/rclcpp/commit/02caec12c30d83ff71f2564f328c54d7d38e6a41
+* https://github.com/ros2/rclcpp/commit/df2ac887ed518e704a3c4150a6041e16542a6d7a
+* https://github.com/ros2/rmw/commit/403ee71b0a987b701a1e7b6c72f6820917151f69
+
+TODO figure out how this works and make example
+
+I think only FastDDS and connex accoring to ros2/rclpy#1611
+
+rosbag Improvements
+^^^^^^^^^^^^^^^^^^^
+
+Remotely control recording service
+""""""""""""""""""""""""""""""""""
+
+Added recorder service APIs for starting and stopping recording, starting and stopping topic discovery, and querying whether discovery is running.
+This makes it possible to control a recorder process remotely through ROS services instead of only through the command-line process lifecycle.
+
+See `ros2/rosbag2#2248 <https://github.com/ros2/rosbag2/pull/2248>`__ for more details.
+
+Circular logging
+""""""""""""""""
+
+Added circular logging by split count.
+When recording with bag splitting enabled, --max-bag-files limits the maximum number of bag files stored on disk by automatically deleting the oldest split files as new ones are created.
+
+See `ros2/rosbag2#2218 <https://github.com/ros2/rosbag2/pull/2218>`__ for more details.
+
+Updated split bag file naming to include the split index, bag name, and timestamp, making split files easier to identify and sort.
+
+See `ros2/rosbag2#2265 <https://github.com/ros2/rosbag2/pull/2265>`__ for more details.
+
+Observability
+"""""""""""""
+
+Added message-loss observability during recording.
+Rosbag2 can now collect message-loss statistics from the transport layer and recorder internals, and publish incremental per-topic loss events on the predefined events/rosbag2_messages_lost topic.
+The publishing rate can be configured with --stats_max_publishing_rate.
+
+See `ros2/rosbag2#2039 <https://github.com/ros2/rosbag2/pull/2039>`__, `ros2/rosbag2#2144 <https://github.com/ros2/rosbag2/pull/2144>`__, and `ros2/rosbag2#2150 <https://github.com/ros2/rosbag2/pull/2150>`__ for more details.
+
+Python APIs
+"""""""""""
+
+Expanded the rosbag2_py player and recorder APIs.
+Python users can now programmatically control playback and recording with APIs such as pause, resume, stop, seek, play-next, spin control, and wait helpers, instead of relying only on blocking command-line-style helpers.
+
+See `ros2/rosbag2#2047 <https://github.com/ros2/rosbag2/pull/2047>`__ and `ros2/rosbag2#2062 <https://github.com/ros2/rosbag2/pull/2062>`__ for more details.
+
+Added APIs for querying player timing metadata.
+Users can now query the player’s starting time and playback duration, and Python readers can access the send timestamp when reading serialized messages.
+
+See `ros2/rosbag2#2061 <https://github.com/ros2/rosbag2/pull/2061>`__ and `ros2/rosbag2#2095 <https://github.com/ros2/rosbag2/pull/2095>`__ for more details.
+
+Command Line and Graphical User Interface Improvements
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ament_package fish shell support
+""""""""""""""""""""""""""""""""
+
+* https://github.com/ament/ament_package/commit/26dc815b5de66ab47941ad7e4ddbe211b2d398f6
+
+TODO Test debs with docker image to make sure this file is present
+
+ros2 param get on all nodes (for use_sim_time)
+""""""""""""""""""""""""""""""""""""""""""""""
+
+* https://github.com/ros2/ros2cli/commit/a588c01474a2c54440a62729a4ba549575abc4b9
+
+Get and set multiple parameters on the same node in one call
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+* https://github.com/ros2/ros2cli/commit/ed992f7982716f6c80a5fcd5257561c0d54646a2
+* https://github.com/ros2/ros2cli/commit/21c08c61a2b44cf5e44f232cf6febfa5d3ef5ac4
+
+ros2 doctor features
+""""""""""""""""""""
+
+Help debug issues - give examples
+
+Service report
+~~~~~~~~~~~~~~
+
+* https://github.com/ros2/ros2cli/commit/b9f066f9eeaf6716d17bf115c5ef30f85e7c3435
+
+Action Report
+~~~~~~~~~~~~~
+
+* https://github.com/ros2/ros2cli/commit/af1d67ea0ba0172e79ed7e1704551f69ddaf081d
+
+Environment Report
+~~~~~~~~~~~~~~~~~~
+
+* https://github.com/ros2/ros2cli/commit/26dccbf5021a5d4010e1a603d17402e94b25caf4
+
+service-info --verbose
+""""""""""""""""""""""
+
+* https://github.com/ros2/ros2cli/commit/d88ccc977defd69aa03bd3f03245033624ce2e17
+
+ros2 topic bw improvements
+""""""""""""""""""""""""""
+
+Multiple topics, including --all with screen refresh (gif opportunity)
+
+* https://github.com/ros2/ros2cli/commit/48f597d5564129366c8051ce3b3740d654bd3579
+* https://github.com/ros2/ros2cli/commit/e6ab7c09b52aa41d137d5debf6ba8f7667bde1c7
+
+Robot Description Improvements
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+URDF improvements
+"""""""""""""""""
+
+Quaternion support: in 1.1 - pose attribute quat_xyzw instead of rpy - unit test has examples
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* https://github.com/ros/urdfdom/commit/4caee7c75cb65086d4d8f0d39a7e67218eae4d3b
+
+Capsule geometry support - TODO can RViz render this?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* https://github.com/ros/urdfdom/commit/e6c9575cddf67a0992bfb2bf8973179391dd2c58
+
+Extended joint limits - 1.2 acceleration limit, deceleration limit, jerk limit - units in readme
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* https://github.com/ros/urdfdom/commit/bd4d6956d90df4ec7be91bf1ed035481efb7e14c
+
+robot_state_publisher read description from topic
+"""""""""""""""""""""""""""""""""""""""""""""""""
+
+Allows generating a robot description via code, while still having robot_state_publisher turn joint states into tf transforms.
+Useful for cases where the robot description is managed by something else, like another simulator
+
+* https://github.com/ros/robot_state_publisher/commit/5f0b74096fdcdea5bcf40d261e71696cf6d1913f
+
+RViz resource retriever service
+"""""""""""""""""""""""""""""""
+
+No longer need to install robot_description on the same machine you launch RViz.
+Use resource_retriever_service to publish meshes etc from the robot itself
+
+* https://github.com/ros2/rviz/commit/7190270e0c32f531a6d4b12a3623bc0cace3e9e0
+
+Beware the wisdom of (insert discourse post here about robots should be clients)
+
+CMake improvements
+^^^^^^^^^^^^^^^^^^
+
+ament_python_install_package
+""""""""""""""""""""""""""""
+
+* https://github.com/ament/ament_cmake/commit/abd86f5a12eb085cd975ad9e02ff6b66cc372170
+
+Install a Python package multiple times with the same name; allows rosidl_generate_interfaces and ament_python_install_package in the same package.
+Useful for existing packages that combine code and interface files.
+Note: new packages should consider message, service, and action definitions live in their own package so that downstream users can use messages without depending on your code
+
+ament_ros_defaults
+""""""""""""""""""
+
+* https://github.com/ros2/ament_cmake_ros/commit/6a84b6f31dc047adfe525fa0d01af4eef8652c35
+
+Get default CMake settings for a given ROS distro - C17; c++ 20 etc
+
+Utility Improvements
+^^^^^^^^^^^^^^^^^^^^
+
+Get client and server info
+""""""""""""""""""""""""""
+
+* https://github.com/ros2/rclcpp/commit/63bdf2add403ac38ff51969acf02919911e89724
+* https://github.com/ros2/rcl/commit/4e0829cedd4ff9d50fb8de40f7b351bcfaa2317a
+
+Add examples for all client libraries
+
+rcpputils
+"""""""""
+
+New thread naming utilities to aid in debugging
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* https://github.com/ros2/rcpputils/commit/8e29c4c16857656244e7fd9d5450569d0208a0ab
+
+rcutils
+"""""""
+
+New rcutils_strnlen
+~~~~~~~~~~~~~~~~~~~
+
+* https://github.com/ros2/rcutils/commit/ead8874667205525a2d16f5adb694ab0dd01a325
+
+base64 functions
+~~~~~~~~~~~~~~~~
+
+* https://github.com/ros2/rcutils/commit/f32243642b1d95f2dd2ea42ef468ccb377df0e13
+
+rcl changes
+"""""""""""
+
+New RCL APIs
+~~~~~~~~~~~~
+
+* https://github.com/ros2/rcl/commit/d290ab955ceb57fae6c76f96bdb5b649a5e3f4bd
+* https://github.com/ros2/rcl/commit/819c78db03753216dd5b1ac38be96ad811bb6cad
+* https://github.com/ros2/rcl/commit/be6ba458057f6a1cb48a5bed007a9be70d986e76
+* https://github.com/ros2/rcl/commit/5990da469eff7071913cca793bf7f7b5f7979873
+* https://github.com/ros2/rcl/commit/33ad697c5386ffd89cea386a2b530649fdb4e5fd
+
+class_loader arguments to constructors
+""""""""""""""""""""""""""""""""""""""
+
+* https://github.com/ros/class_loader/commit/5c279488cb9fd4b168502c5ffdd533fabab20168
+
+Must specialize class_loader::InterfaceTraits to specify constructor arguments
+
+Show loader creating class with arguments; plugins no longer need to be default constructible
+
 ``ament_cmake``
 ^^^^^^^^^^^^^^^
 
@@ -185,16 +575,6 @@ See https://github.com/ros2/rcl/issues/1178, https://github.com/ros2/rcl/pull/12
 
 ``rclcpp``
 ^^^^^^^^^^
-
-* Added new `Callback Group Events Executor <https://github.com/ros2/rclcpp/pull/3097>`__.
-  Like its predecessor the experimental ``EventsExecutor``, the ``EventsCBGExecutor`` uses
-  an events queue to process ready entities.
-  Builds on the experimental ``EventsExecutor`` by adding support for multiple sources of
-  ROS time and multiple threads.
-  Compared to the Single and Multithreaded Executors, the ``EventsCBGExecutor`` exhibits
-  around 10 to 15% less CPU usage.
-  Note: The experimental ``EventsExecutor`` is now deprecated. For similar performance, use
-  the ``EventsCBGExecutor`` with one thread.
 
 * `Unified component container interface <https://github.com/ros2/rclcpp/pull/3134>`__ -
   ``component_container`` is now the single entrypoint for launching both regular and
