@@ -531,25 +531,38 @@ Use ``ros2 param set <node name> <param1> <value1> <param2> <value2> ...`` to se
 
 See `ros2/ros2cli#1203 <https://github.com/ros2/ros2cli/pull/1203>`_ and `ros2/ros2cli#1204 <https://github.com/ros2/ros2cli/pull/1204>`_ for more details.
 
-ros2 doctor features
-""""""""""""""""""""
+Actions, Services, and Environment variables in ``ros2 doctor --report``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Help debug issues - give examples
+``ros2 doctor --report`` now includes information about Actions, Services, and ROS-related environment variables.
+Include this report in your github issues, or AI prompts, to debug problems faster.
 
-Service report
-~~~~~~~~~~~~~~
+.. code-block:: console
 
-* https://github.com/ros2/ros2cli/commit/b9f066f9eeaf6716d17bf115c5ef30f85e7c3435
+    $ ros2 doctor --report
 
-Action Report
-~~~~~~~~~~~~~
+      ACTION LIST
+    action                 : none
+    action server count    : 0
+    action client count    : 0
 
-* https://github.com/ros2/ros2cli/commit/af1d67ea0ba0172e79ed7e1704551f69ddaf081d
+      ROS ENVIRONMENT
+    ROS environment variables        : ROS_AUTOMATIC_DISCOVERY_RANGE=SUBNET, ROS_DISTRO=lyrical
+    rcutils environment variables    : 
+    rmw environment variables        : 
+    # ...
 
-Environment Report
-~~~~~~~~~~~~~~~~~~
+      SERVICE LIST
+    service          : /dummy_joint_states/describe_parameters
+    service count    : 1
+    client count     : 0
+    service          : /dummy_joint_states/get_parameter_types
+    service count    : 1
+    client count     : 0
+    # ...
 
-* https://github.com/ros2/ros2cli/commit/26dccbf5021a5d4010e1a603d17402e94b25caf4
+
+For more information see `ros2/ros2cli#1059 <https://github.com/ros2/ros2cli/pull/1059>`_, `ros2/ros2cli#1076 <https://github.com/ros2/ros2cli/pull/1076>`_, and `ros2/ros2cli#1045 <https://github.com/ros2/ros2cli/pull/1045>`_.
 
 service-info --verbose
 """"""""""""""""""""""
