@@ -324,14 +324,27 @@ If not specified, ROS uses ``rcl_logging_spdlog`` by default.
 
 See `ros2/rcl#1178 <https://github.com/ros2/rcl/issues/1178>`_, `ros2/rcl#1276 <https://github.com/ros2/rcl/pull/1276>`_, and `ros2/rcl_logging#135 <https://github.com/ros2/rcl_logging/pull/135>`_ for more details.
 
-rosbag Improvements
-^^^^^^^^^^^^^^^^^^^
+Control bag recording remotely using ROS services
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Remotely control recording service
-""""""""""""""""""""""""""""""""""
+Want to remotely control bag recording?
+Use ``rosbag2``'s new services to:
 
-Added recorder service APIs for starting and stopping recording, starting and stopping topic discovery, and querying whether discovery is running.
-This makes it possible to control a recorder process remotely through ROS services instead of only through the command-line process lifecycle.
+* start recording ``~/record``
+* stop recording ``~/stop``
+* start topic discovery ``~/start_discovery``
+* stop topic discovery ``~/stop_discovery``
+* query discovery state ``~/is_discovery_running``
+
+.. code-block:: bash
+
+    ros2 bag record --all -o /tmp/my_awesome_bag
+
+    # In another terminal, stop the existing recording
+    ros2 service call /rosbag2_recorder/stop rosbag2_interfaces/srv/Stop "{}"
+    # Start recording again at a new location
+    ros2 service call /rosbag2_recorder/record rosbag2_interfaces/srv/Record "{uri: 'file:///tmp/my_awesome_bag_2'}"
+
 
 See `ros2/rosbag2#2248 <https://github.com/ros2/rosbag2/pull/2248>`__ for more details.
 
