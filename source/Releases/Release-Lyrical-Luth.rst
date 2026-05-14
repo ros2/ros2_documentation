@@ -276,12 +276,7 @@ Alternatively, use the new ``log_debug``, ``log_info``, ``log_warning``, or ``lo
     </launch>
 
 
-See more info at `ros2/launch#866 <https://github.com/ros2/launch/pull/866>`_
-
-Declare boolean launch arguments (New!)
-"""""""""""""""""""""""""""""""""""""""
-
-* https://github.com/ros2/launch/commit/7b15f52c9ba0d14175468672994c66ed372d8f47
+For more info see `ros2/launch#866 <https://github.com/ros2/launch/pull/866>`_
 
 Expose existing things to frontends
 """""""""""""""""""""""""""""""""""
