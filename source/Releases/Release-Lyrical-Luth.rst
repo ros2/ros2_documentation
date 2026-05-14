@@ -564,10 +564,47 @@ Include this report in your github issues, or AI prompts, to debug problems fast
 
 For more information see `ros2/ros2cli#1059 <https://github.com/ros2/ros2cli/pull/1059>`_, `ros2/ros2cli#1076 <https://github.com/ros2/ros2cli/pull/1076>`_, and `ros2/ros2cli#1045 <https://github.com/ros2/ros2cli/pull/1045>`_.
 
-service-info --verbose
-""""""""""""""""""""""
+``ros2 service info --verbose``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* https://github.com/ros2/ros2cli/commit/d88ccc977defd69aa03bd3f03245033624ce2e17
+Are you debugging mismatched QoS settings between ROS clients and ROS services?
+Try out the new ``--verbose`` option to ``ros2 service info``.
+Like ``ros2 topic info``, this flag outputs detailed information about clients and services to help you troubleshoot issues.
+
+.. code-block:: console
+
+    $ ros2 service info --verbose /robot_state_publisher/list_parameters
+    Type: rcl_interfaces/srv/ListParameters
+    Clients count: 0
+    Services count: 1
+    Node name: robot_state_publisher
+    Node namespace: /
+    Service type: rcl_interfaces/srv/ListParameters
+    Service type hash: RIHS01_3e6062bfbb27bfb8730d4cef2558221f51a11646d78e7bb30a1e83afac3aad9d
+    Endpoint type: SERVER
+    Endpoint count: 2
+    GIDs:
+    - Request Reader : 01.0f.c8.b6.fe.43.b3.44.00.00.00.00.00.00.0e.04
+    - Response Writer : 01.0f.c8.b6.fe.43.b3.44.00.00.00.00.00.00.0f.03
+    QoS profiles:
+    - Request Reader :
+          Reliability: RELIABLE
+          History (Depth): KEEP_LAST (1000)
+          Durability: VOLATILE
+          Lifespan: Infinite
+          Deadline: Infinite
+          Liveliness: AUTOMATIC
+          Liveliness lease duration: Infinite
+    - Response Writer :
+          Reliability: RELIABLE
+          History (Depth): KEEP_LAST (1000)
+          Durability: VOLATILE
+          Lifespan: Infinite
+          Deadline: Infinite
+          Liveliness: AUTOMATIC
+          Liveliness lease duration: Infinite
+
+See `ros2/ros2cli#916 <https://github.com/ros2/ros2cli/pull/916>` for more info.
 
 ros2 topic bw improvements
 """"""""""""""""""""""""""
