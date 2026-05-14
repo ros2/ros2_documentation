@@ -316,40 +316,22 @@ See `ros2/rcl#1178 <https://github.com/ros2/rcl/issues/1178>`_, `ros2/rcl#1276 <
 Middleware Improvements
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-New RMW implementation versions
-"""""""""""""""""""""""""""""""
+Publish messages without copying data using ``rosidl::Buffer``
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-Connext 7.7.0
-~~~~~~~~~~~~~
+Are you publishing data on ROS topics, but using the data elsewhere, like a GPU?
+Tired of copying data out of the GPU before publishing just to copy it back into the GPU in the subscriber?
+``rosidl::Buffer`` publish and subscribe ROS messages without moving the data from elsewhere.
 
-* https://github.com/ros2/rmw_connextdds/commit/6b387541eca2231dcb60caa8646a4d9350fa5ba1
+All ``uint8[]`` fields now have the type ``rosidl::Buffer<uint8_t>`` in C++ instead of  ``std::vector<uint8_t>``.
+Define your ROS messages with ``uint8[]`` fields and install an appropriate ``rosidl::BufferBackend`` implementation.
+Note that only publishers and subscribers using ``rmw_fastrtps_cpp`` may use this feature for now, but `support in Zenoh is comming <https://github.com/ros2/rmw_zenoh/pull/930>`_.
 
-Zenoh
-~~~~~
-
-FastDDS
-~~~~~~~
-
-CycloneDDS
-~~~~~~~~~~
-
-Buffer type
-"""""""""""
-
-* https://github.com/ros2/rclpy/commit/5437ec64b0e8df88000a31e472bb64969a1b6cfa
-
-Added rosidl::Buffer<T>, a generated C++ container for variable-length primitive array fields such as uint8[].
-It behaves like std::vector<T> with the default CPU backend, while allowing backend plugins to provide externally managed storage such as GPU memory.
-
-The first RMW integration is for topic publish/subscribe with rmw_fastrtps_cpp.
+Using a custom hardware accelerator or machine learning library?
+You can benefit from this too.
+See :doc:`../Tutorials/Advanced/Writing-a-Buffer-Backend` to learn how to implement your own ``rosidl::BufferBackend``.
 
 See :doc:`../Concepts/Intermediate/About-Buffer-Backends` and :doc:`../How-To-Guides/Using-Buffer-Backends` for more details.
-
-Added the rosidl::BufferBackend plugin interface for packages that implement storage and transport backends for rosidl::Buffer fields.
-Backend plugins provide descriptor message type support, build per-endpoint descriptors, reconstruct buffers on the receiving side, and participate in endpoint discovery.
-
-Backends are discovered through pluginlib and registered by RMW automatically.
-See :doc:`../Tutorials/Advanced/Writing-a-Buffer-Backend` for the backend implementer guide.
 
 Content filtering support
 """""""""""""""""""""""""
