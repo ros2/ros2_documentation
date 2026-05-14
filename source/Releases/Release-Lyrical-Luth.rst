@@ -278,18 +278,23 @@ Alternatively, use the new ``log_debug``, ``log_info``, ``log_warning``, or ``lo
 
 For more info see `ros2/launch#866 <https://github.com/ros2/launch/pull/866>`_
 
-Expose existing things to frontends
-"""""""""""""""""""""""""""""""""""
+New substitutions in XML and YAML launch files
+""""""""""""""""""""""""""""""""""""""""""""""
 
-StringJoinSubstitution exposed to frontend
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Use XML or YAML launch files?
+:doc:`Substitutions <../Tutorials/Intermediate/Launch/Using-Substitutions>` make your launch files evaluate variables at launch time.
+Launch frontends (the things that make it possible to use XML and YAML launch files) may now use ``string-join`` and ``path-join`` substitutions.
 
-* https://github.com/ros2/launch/commit/3bd49d64f030f3f6d462cb88c7b11ab1d13c4a58
+.. code-block:: xml
 
-PathJointSubstitution exposed to frontend
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    <?xml version="1.0" encoding="UTF-8"?>
+    <launch>
+      <log_info message="Check out $(string-join . https://docs ros org)"/>
+      <log_info message="Don't forget to source /$(path-join opt ros lyrical $(string-join . setup bash))"/>
+    </launch>
 
-* https://github.com/ros2/launch/commit/cf96072c2045e821eecf43c80c326ab74cb74b7a
+
+See `ros2/launch#857 <https://github.com/ros2/launch/pull/857>`_  and `ros2/launch#943 <https://github.com/ros2/launch/pull/943>`_ for more info.
 
 Expose composable_lifecycle_node in frontend
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
