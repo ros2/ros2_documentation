@@ -31,7 +31,7 @@ Summary
 ROS nodes typically communicate through the following three types of interfaces:
 
 * Topics: For continuous data streams.
-* Services: Services: For synchronous request/response interactions (short tasks which happen immediately).
+* Services: For synchronous request/response interactions (short tasks which happen immediately).
 * Actions: For long-running tasks with feedback (tasks that may take some time to complete).
 
 For consistent communication, each interface uses definitions provided in ``.msg``, ``.srv``, or ``.action`` files.
