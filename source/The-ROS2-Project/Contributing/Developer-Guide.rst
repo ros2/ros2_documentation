@@ -153,8 +153,6 @@ Change control process
 
   * Packages may choose to increase this number.
 
-* Any required changes to documentation (API documentation, feature documentation, release notes, etc.) must be proposed before merging related changes.
-
 Guidelines for backporting PRs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
