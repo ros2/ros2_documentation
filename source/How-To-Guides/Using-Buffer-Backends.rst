@@ -247,6 +247,10 @@ offset.
 The ``torch_conversions`` package is a header-only helper library that fills
 that message and converts it to or from ``at::Tensor``; it does not register a
 separate buffer backend.
+Framework-specific packages can follow the same pattern for other tensor
+libraries.
+See :doc:`../Tutorials/Advanced/Writing-a-Buffer-Compatible-Conversions-Package`
+for guidance on writing a ``*_conversions`` package.
 
 On the publisher side:
 
