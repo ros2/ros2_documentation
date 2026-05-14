@@ -132,11 +132,8 @@ For all changes, see the :doc:`full ROS Lyrical changelog <Lyrical-Luth-Complete
 Client Library Improvements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Rclcpp improvements
-"""""""""""""""""""
-
-Callback Group Events executor
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Callback Group Events executor (``rclcpp``)
+"""""""""""""""""""""""""""""""""""""""""""
 
 Looking for better executor performance?
 Check out the new Callback Group Events Executor.
@@ -181,8 +178,8 @@ Launch a component container with the ``EventsCBGExecutor`` using the new ``--ex
 
 For more info, see `ros2/rclcpp#3097 <https://github.com/ros2/rclcpp/pull/3097>`_, `ros2/rclcpp#3134 <https://github.com/ros2/rclcpp/pull/3134>`_, and `ros2/rclcpp#3137 <https://github.com/ros2/rclcpp/pull/3137>`_.
 
-Parameter range descriptors check bounds for integer and double arrays
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Parameter range descriptors check bounds for integer and double arrays (``rclcpp``)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 Do your nodes have integer or double arrays?
 Do you need to constrain the values in those arrays?
@@ -199,13 +196,10 @@ Using the code below, the node will only allow setting ``my_integer_array`` to a
     integer_range.step = 2;
     node->declare_parameter("my_integer_array", std::vector<int64_t>{2, 4, 6, 8, 10}, descriptor);
 
-See `ros2/rclcpp#2828 <>`_ for more info.
+See `ros2/rclcpp#2828 <https://github.com/ros2/rclcpp/pull/2828>`_ for more info.
 
-Rclpy
-"""""
-
-AsyncNode
-~~~~~~~~~
+AsyncNode (``rclpy``)
+"""""""""""""""""""""
 
 Want to use ``asyncio`` and ``rclpy`` at the same time?
 Check out the new ``AsyncNode`` class.
@@ -239,22 +233,27 @@ This class uses significantly less CPU compared to the default ``SingleThreadedE
 
 See the :doc:`Writing an async node with asyncio <../Tutorials/Intermediate/Writing-An-Async-Node-With-Asyncio-Python>` tutorial and `ros2/rclpy#1620 <https://github.com/ros2/rclpy/pull/1620>`_ for more details.
 
-Expose action graph functions as node class methods
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-* https://github.com/ros2/rclpy/commit/ad4d4d74dd15ed051ae6c09f81d8ce2a5be0a9cc
-
-All methods and classes have proper type hints
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 Process Launching improvements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-rcl Yaml tags support
-"""""""""""""""""""""
+Use YAML tags in parameter files
+""""""""""""""""""""""""""""""""
 
-Example with parameter file using yaml tags
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Tired of ``rcl`` interpretting ambiguous YAML parameter values as the wrong type?
+Prevent that by specifying the type using YAML tags.
+
+.. code-block:: yaml
+
+  my_node:
+    ros__parameters:
+      string_param: !!str true
+      bool_param: !!bool yes
+      int_param: !!int 0
+      float_param: !!float 10
+      seq_param: !!seq [10, 0, -10]
+      map_param: !!map {str: string, bool: true, int: 10, float: 1.1}
+
+See `ros2/rcl#1275 <https://github.com/ros2/rcl/pull/1275>`_ for more info.
 
 * https://github.com/ros2/rcl/commit/b7d6d69e670aa97bf69a6b92d12321ed31e68a4c
 
