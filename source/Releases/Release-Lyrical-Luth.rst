@@ -129,11 +129,8 @@ New Features in Lyrical
 This section highlights some of the new features and changes in ROS Lyrical.
 For all changes, see the :doc:`full ROS Lyrical changelog <Lyrical-Luth-Complete-Changelog>`.
 
-Client Library Improvements
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 Callback Group Events executor (``rclcpp``)
-"""""""""""""""""""""""""""""""""""""""""""
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Looking for better executor performance?
 Check out the new Callback Group Events Executor.
@@ -179,7 +176,7 @@ Launch a component container with the ``EventsCBGExecutor`` using the new ``--ex
 For more info, see `ros2/rclcpp#3097 <https://github.com/ros2/rclcpp/pull/3097>`_, `ros2/rclcpp#3134 <https://github.com/ros2/rclcpp/pull/3134>`_, and `ros2/rclcpp#3137 <https://github.com/ros2/rclcpp/pull/3137>`_.
 
 Parameter range descriptors check bounds for integer and double arrays (``rclcpp``)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Do your nodes have integer or double arrays?
 Do you need to constrain the values in those arrays?
@@ -198,8 +195,8 @@ Using the code below, the node will only allow setting ``my_integer_array`` to a
 
 See `ros2/rclcpp#2828 <https://github.com/ros2/rclcpp/pull/2828>`_ for more info.
 
-AsyncNode (``rclpy``)
-"""""""""""""""""""""
+``AsyncNode`` lets you use ``asyncio`` (``rclpy``)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Want to use ``asyncio`` and ``rclpy`` at the same time?
 Check out the new ``AsyncNode`` class.
@@ -233,11 +230,25 @@ This class uses significantly less CPU compared to the default ``SingleThreadedE
 
 See the :doc:`Writing an async node with asyncio <../Tutorials/Intermediate/Writing-An-Async-Node-With-Asyncio-Python>` tutorial and `ros2/rclpy#1620 <https://github.com/ros2/rclpy/pull/1620>`_ for more details.
 
-Launching improvements
-^^^^^^^^^^^^^^^^^^^^^^
+Publish messages without copying data using ``rosidl::Buffer``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Are you publishing data on ROS topics, but using the data elsewhere, like a GPU?
+Tired of copying data out of the GPU before publishing just to copy it back into the GPU in the subscriber?
+``rosidl::Buffer`` publish and subscribe ROS messages without moving the data from elsewhere.
+
+All ``uint8[]`` fields now have the type ``rosidl::Buffer<uint8_t>`` in C++ instead of  ``std::vector<uint8_t>``.
+Define your ROS messages with ``uint8[]`` fields and install an appropriate ``rosidl::BufferBackend`` implementation.
+Note that only publishers and subscribers using ``rmw_fastrtps_cpp`` may use this feature for now, but `support in Zenoh is comming <https://github.com/ros2/rmw_zenoh/pull/930>`_.
+
+Using a custom hardware accelerator or machine learning library?
+You can benefit from this too.
+See :doc:`../Tutorials/Advanced/Writing-a-Buffer-Backend` to learn how to implement your own ``rosidl::BufferBackend``.
+
+See :doc:`../Concepts/Intermediate/About-Buffer-Backends` and :doc:`../How-To-Guides/Using-Buffer-Backends` for more details.
 
 Use YAML tags in parameter files
-""""""""""""""""""""""""""""""""
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Tired of ``rcl`` interpretting ambiguous YAML parameter values as the wrong type?
 Prevent that by specifying the type using YAML tags.
@@ -257,8 +268,8 @@ See `ros2/rcl#1275 <https://github.com/ros2/rcl/pull/1275>`_ for more info.
 
 * https://github.com/ros2/rcl/commit/b7d6d69e670aa97bf69a6b92d12321ed31e68a4c
 
-New log actions
-"""""""""""""""
+More logging options in launch files
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Have different kinds of messages in your log files that you want to log with different severity?
 Specify the log level using the the new ``level`` argument on the ``log`` action.
@@ -279,7 +290,7 @@ Alternatively, use the new ``log_debug``, ``log_info``, ``log_warning``, or ``lo
 For more info see `ros2/launch#866 <https://github.com/ros2/launch/pull/866>`_
 
 New substitutions in XML and YAML launch files
-""""""""""""""""""""""""""""""""""""""""""""""
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Use XML or YAML launch files?
 :doc:`Substitutions <../Tutorials/Intermediate/Launch/Using-Substitutions>` make your launch files evaluate variables at launch time.
@@ -296,8 +307,8 @@ Launch frontends (the things that make it possible to use XML and YAML launch fi
 
 See `ros2/launch#857 <https://github.com/ros2/launch/pull/857>`_  and `ros2/launch#943 <https://github.com/ros2/launch/pull/943>`_ for more info.
 
-Choose logging implementation at runtime
-""""""""""""""""""""""""""""""""""""""""
+Choose ROS logging backend at runtime
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Have you ever needed to use ROS with another framework that has its own logging system?
 ROS supports replacing its logging backend, but previously you had to rebuild ``rcl`` from source change it.
@@ -312,26 +323,6 @@ Valid values are:
 If not specified, ROS uses ``rcl_logging_spdlog`` by default.
 
 See `ros2/rcl#1178 <https://github.com/ros2/rcl/issues/1178>`_, `ros2/rcl#1276 <https://github.com/ros2/rcl/pull/1276>`_, and `ros2/rcl_logging#135 <https://github.com/ros2/rcl_logging/pull/135>`_ for more details.
-
-Middleware Improvements
-^^^^^^^^^^^^^^^^^^^^^^^
-
-Publish messages without copying data using ``rosidl::Buffer``
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-Are you publishing data on ROS topics, but using the data elsewhere, like a GPU?
-Tired of copying data out of the GPU before publishing just to copy it back into the GPU in the subscriber?
-``rosidl::Buffer`` publish and subscribe ROS messages without moving the data from elsewhere.
-
-All ``uint8[]`` fields now have the type ``rosidl::Buffer<uint8_t>`` in C++ instead of  ``std::vector<uint8_t>``.
-Define your ROS messages with ``uint8[]`` fields and install an appropriate ``rosidl::BufferBackend`` implementation.
-Note that only publishers and subscribers using ``rmw_fastrtps_cpp`` may use this feature for now, but `support in Zenoh is comming <https://github.com/ros2/rmw_zenoh/pull/930>`_.
-
-Using a custom hardware accelerator or machine learning library?
-You can benefit from this too.
-See :doc:`../Tutorials/Advanced/Writing-a-Buffer-Backend` to learn how to implement your own ``rosidl::BufferBackend``.
-
-See :doc:`../Concepts/Intermediate/About-Buffer-Backends` and :doc:`../How-To-Guides/Using-Buffer-Backends` for more details.
 
 rosbag Improvements
 ^^^^^^^^^^^^^^^^^^^
