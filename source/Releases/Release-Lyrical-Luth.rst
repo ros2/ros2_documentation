@@ -348,6 +348,80 @@ Use ``rosbag2``'s new services to:
 
 See `ros2/rosbag2#2248 <https://github.com/ros2/rosbag2/pull/2248>`__ for more details.
 
+Control bag Playback and Recording using Python
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Want to control bag playback and reporting programmatically?
+Previously Python users had to rely on blocking command-line-style helpers.
+Python users can now programmatically control playback and recording with APIs for: pause, resume, stop, seek, play-next, spin control, and wait helpers.
+
+Recording example:
+
+.. code-block:: python
+
+    import rclpy
+    import rosbag2_py
+
+    with rclpy.init():
+        # Configure storage and initialize the recorder
+        storage_opts = rosbag2_py.StorageOptions(uri='/tmp/my_awesome_bag', storage_id='mcap')
+        record_opts = rosbag2_py.RecordOptions()
+        record_opts.all_topics = True
+
+        recorder = rosbag2_py.Recorder(storage_opts, record_opts)
+
+        # Start the ROS node spinner and kick off the recording thread
+        recorder.start_spin()
+        recorder.record()
+
+        # Pause the recording and verify the current state
+        recorder.pause()
+        print(recorder.is_paused())
+
+        # Terminate recording and shut down the spinner threads
+        recorder.stop()
+        recorder.stop_spin()
+
+Playback example:
+
+.. code-block:: python
+
+    import rclpy
+    import rosbag2_py
+
+    with rclpy.init():
+        # Configure storage and initialize the player
+        storage_opts = rosbag2_py.StorageOptions(uri='/tmp/my_awesome_bag', storage_id='mcap')
+        play_opts = rosbag2_py.PlayOptions()
+        play_opts.start_paused = True
+
+        player = rosbag2_py.Player(storage_opts, play_opts)
+
+        # Start the ROS node spinner and kick off the playback thread
+        player.start_spin()
+        player.play()
+
+        # Verify playback startup and retrieve bag timing metadata
+        print(player.wait_for_playback_to_start(1.0))
+        print(player.wait_for_playback_to_start_exclusively(1.0))
+        print(player.get_starting_time())
+        print(player.get_playback_duration())
+
+        # Control the playback state and step through messages manually
+        print(player.is_paused())
+        print(player.play_next())
+        player.resume()
+        player.pause()
+        player.seek(0)
+
+        # Await playback completion and terminate the worker threads
+        print(player.wait_for_playback_to_finish(1.0))
+        print(player.wait_for_playback_to_finish_exclusively(1.0))
+        player.stop()
+        player.stop_spin()
+
+See `ros2/rosbag2#2047 <https://github.com/ros2/rosbag2/pull/2047>`_, `ros2/rosbag2#2062 <https://github.com/ros2/rosbag2/pull/2062>`_, `ros2/rosbag2#2061 <https://github.com/ros2/rosbag2/pull/2061>`_, and `ros2/rosbag2#2095 <https://github.com/ros2/rosbag2/pull/2095>`_ for more details.
+
 Circular logging
 """"""""""""""""
 
@@ -369,18 +443,6 @@ The publishing rate can be configured with --stats_max_publishing_rate.
 
 See `ros2/rosbag2#2039 <https://github.com/ros2/rosbag2/pull/2039>`__, `ros2/rosbag2#2144 <https://github.com/ros2/rosbag2/pull/2144>`__, and `ros2/rosbag2#2150 <https://github.com/ros2/rosbag2/pull/2150>`__ for more details.
 
-Python APIs
-"""""""""""
-
-Expanded the rosbag2_py player and recorder APIs.
-Python users can now programmatically control playback and recording with APIs such as pause, resume, stop, seek, play-next, spin control, and wait helpers, instead of relying only on blocking command-line-style helpers.
-
-See `ros2/rosbag2#2047 <https://github.com/ros2/rosbag2/pull/2047>`__ and `ros2/rosbag2#2062 <https://github.com/ros2/rosbag2/pull/2062>`__ for more details.
-
-Added APIs for querying player timing metadata.
-Users can now query the player’s starting time and playback duration, and Python readers can access the send timestamp when reading serialized messages.
-
-See `ros2/rosbag2#2061 <https://github.com/ros2/rosbag2/pull/2061>`__ and `ros2/rosbag2#2095 <https://github.com/ros2/rosbag2/pull/2095>`__ for more details.
 
 ``fish`` shell support
 ^^^^^^^^^^^^^^^^^^^^^^
