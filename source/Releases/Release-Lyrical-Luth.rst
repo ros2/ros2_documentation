@@ -606,13 +606,22 @@ Like ``ros2 topic info``, this flag outputs detailed information about clients a
 
 See `ros2/ros2cli#916 <https://github.com/ros2/ros2cli/pull/916>` for more info.
 
-ros2 topic bw improvements
-""""""""""""""""""""""""""
+``ros2 topic bw`` multiple topics at once
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Multiple topics, including --all with screen refresh (gif opportunity)
+Trying to figure out which topics are using most of your network bandwidth?
+Now you can use ``ros2 topic bw`` with multiple topics at the same time.
+Pass multiple topics by name:
 
-* https://github.com/ros2/ros2cli/commit/48f597d5564129366c8051ce3b3740d654bd3579
-* https://github.com/ros2/ros2cli/commit/e6ab7c09b52aa41d137d5debf6ba8f7667bde1c7
+.. code-block:: bash
+
+    ros2 topic bw /tf /joint_states
+
+Or pass ``--all`` to watch bandwidth statistics in real time.
+
+.. image:: images/ros2_topic_bw_all.gif
+
+See `ros2/ros2cli#1124 <https://github.com/ros2/ros2cli/pull/1124>`_ and `ros2/ros2cli#1130 <https://github.com/ros2/ros2cli/pull/1130>`_ for more info.
 
 Robot Description Improvements
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
