@@ -453,12 +453,23 @@ Do you having trouble finding bag splits?
 
 See `ros2/rosbag2#2265 <https://github.com/ros2/rosbag2/pull/2265>`__ for more details.
 
-Observability
-"""""""""""""
+``rosbag2`` message-loss observability
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Added message-loss observability during recording.
-Rosbag2 can now collect message-loss statistics from the transport layer and recorder internals, and publish incremental per-topic loss events on the predefined events/rosbag2_messages_lost topic.
-The publishing rate can be configured with --stats_max_publishing_rate.
+Say you've built a robust system for recording data on your robot, but there is a problem.
+How do you *know* there's a problem?
+With ``rosbag2``'s new message-loss observability of course!
+
+``rosbag2`` now collects message-loss statistics from the transport layer and recorder internals.
+It publishes incremental per-topic loss events on the ``events/rosbag2_messages_lost`` topic.
+Control the publishing rate using ``--stats_max_publishing_rate``.
+
+.. code-block:: bash
+
+    # Publish message loss statistics at most 10 Hz
+    ros2 bag record --all --stats_max_publishing_rate 10 -o /tmp/my_awesome_bag
+    # If all is going well, you should see no output from this command
+    ros2 topic echo /events/rosbag2_messages_lost
 
 See `ros2/rosbag2#2039 <https://github.com/ros2/rosbag2/pull/2039>`__, `ros2/rosbag2#2144 <https://github.com/ros2/rosbag2/pull/2144>`__, and `ros2/rosbag2#2150 <https://github.com/ros2/rosbag2/pull/2150>`__ for more details.
 
