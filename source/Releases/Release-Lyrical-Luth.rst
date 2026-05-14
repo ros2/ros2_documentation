@@ -623,26 +623,52 @@ Or pass ``--all`` to watch bandwidth statistics in real time.
 
 See `ros2/ros2cli#1124 <https://github.com/ros2/ros2cli/pull/1124>`_ and `ros2/ros2cli#1130 <https://github.com/ros2/ros2cli/pull/1130>`_ for more info.
 
-Robot Description Improvements
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 URDF improvements
-"""""""""""""""""
+^^^^^^^^^^^^^^^^^
 
-Quaternion support: in 1.1 - pose attribute quat_xyzw instead of rpy - unit test has examples
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+URDF released a few new features:
 
-* https://github.com/ros/urdfdom/commit/4caee7c75cb65086d4d8f0d39a7e67218eae4d3b
+* Quaternions
+* Capsule geometry
+* Accelreation, decelleration, and jerk limits
 
-Capsule geometry support - TODO can RViz render this?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Add ``version="1.2"`` to your robot description to start using them.
 
-* https://github.com/ros/urdfdom/commit/e6c9575cddf67a0992bfb2bf8973179391dd2c58
+.. code-block:: xml
 
-Extended joint limits - 1.2 acceleration limit, deceleration limit, jerk limit - units in readme
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    <?xml version="1.0" ?>
+    <robot name="simple_capsule_arm" version="1.2">
 
-* https://github.com/ros/urdfdom/commit/bd4d6956d90df4ec7be91bf1ed035481efb7e14c
+      <link name="link1">
+        <visual>
+          <origin xyz="0 0 0.25" quat_xyzw="0 0 0 1"/>
+          <geometry>
+            <capsule radius="0.1" length="0.5"/>
+          </geometry>
+        </visual>
+        <collision>
+          <origin xyz="0 0 0.25" quat_xyzw="0 0 0 1"/>
+          <geometry>
+            <capsule radius="0.1" length="0.5"/>
+          </geometry>
+        </collision>
+      </link>
+
+      <joint name="joint1" type="revolute">
+        <!-- ... -->
+        <!-- Using quaternion for a 90-degree pitch rotation (y-axis) -->
+        <origin xyz="0 0 0.5" quat_xyzw="0 0.7071068 0 0.7071068"/>
+        <!-- Demonstrating new and existing limits -->
+        <limit lower="-1.57" upper="1.57" effort="100.0" velocity="2.0" acceleration="10.0" deceleration="5.0" jerk="50.0"/>
+      </joint>
+
+      <!-- ... -->
+    </robot>
+
+See `ros/urdfdom#235 <https://github.com/ros/urdfdom/pull/235>`_, `ros/urdfdom#238 <https://github.com/ros/urdfdom/pull/238>`_, and `ros/urdfdom#212 <https://github.com/ros/urdfdom/pull/212>`_ for more info.
+
+Note that the Robot Model plugin `does not yet support capsule geometry <https://github.com/ros2/rviz/issues/1734>`_.
+Please consider opening a pull request for this feature!
 
 robot_state_publisher read description from topic
 """""""""""""""""""""""""""""""""""""""""""""""""
