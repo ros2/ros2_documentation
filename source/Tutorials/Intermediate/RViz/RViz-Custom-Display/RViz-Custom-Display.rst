@@ -137,7 +137,7 @@ Add the following lines to the top of the standard boilerplate.
    find_package(rviz_plugin_tutorial_msgs REQUIRED)
 
    set(CMAKE_AUTOMOC ON)
-   qt5_wrap_cpp(MOC_FILES
+   qt6_wrap_cpp(MOC_FILES
      include/rviz_plugin_tutorial/point_display.hpp
    )
 
