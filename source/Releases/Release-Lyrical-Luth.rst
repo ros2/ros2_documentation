@@ -296,17 +296,22 @@ Launch frontends (the things that make it possible to use XML and YAML launch fi
 
 See `ros2/launch#857 <https://github.com/ros2/launch/pull/857>`_  and `ros2/launch#943 <https://github.com/ros2/launch/pull/943>`_ for more info.
 
+Choose logging implementation at runtime
+""""""""""""""""""""""""""""""""""""""""
 
-rcl_logging - support changing logger implementation at runtime; no longer have to rebuild rcl
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Have you ever needed to use ROS with another framework that has its own logging system?
+ROS supports replacing its logging backend, but previously you had to rebuild ``rcl`` from source change it.
+Now you can change the logging implementation at runtime!
+Set the `RCL_LOGGING_IMPLEMENTATION` environment variable to switch between logging backends.
+Valid values are:
 
-* https://github.com/ros2/rcl_logging/commit/00227a560b5332217854ef96db3524710390f71e
+* ``rcl_logging_spdlog``
+* ``rcl_loggin_noop``
+* or your own custom logging implementation!
 
-A new rcl_logging_implementation package has been introduced to allow users to select the logging backend implementation at runtime without rebuilding rcl.
-Users can set the RCL_LOGGING_IMPLEMENTATION environment variable to switch between available logging backends (e.g., rcl_logging_spdlog, rcl_logging_noop, or custom implementations).
-If not specified, rcl_logging_spdlog is used by default.
+If not specified, ROS uses ``rcl_logging_spdlog`` by default.
 
-See https://github.com/ros2/rcl/issues/1178, https://github.com/ros2/rcl/pull/1276, and https://github.com/ros2/rcl_logging/pull/135 for more details.
+See `ros2/rcl#1178 <https://github.com/ros2/rcl/issues/1178>`_, `ros2/rcl#1276 <https://github.com/ros2/rcl/pull/1276>`_, and `ros2/rcl_logging#135 <https://github.com/ros2/rcl_logging/pull/135>`_ for more details.
 
 Middleware Improvements
 ^^^^^^^^^^^^^^^^^^^^^^^
