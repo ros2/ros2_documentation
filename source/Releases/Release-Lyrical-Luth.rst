@@ -296,10 +296,6 @@ Launch frontends (the things that make it possible to use XML and YAML launch fi
 
 See `ros2/launch#857 <https://github.com/ros2/launch/pull/857>`_  and `ros2/launch#943 <https://github.com/ros2/launch/pull/943>`_ for more info.
 
-Expose composable_lifecycle_node in frontend
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-* https://github.com/ros2/launch_ros/commit/2f27466bbfe125229d2c9c65f96df7ad700bfe40
 
 rcl_logging - support changing logger implementation at runtime; no longer have to rebuild rcl
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
