@@ -685,15 +685,23 @@ Then, make the other robot framework publish its own robot description on that t
 
 See `ros/robot_state_publisher#234 <https://github.com/ros/robot_state_publisher/pull/234>`_ for more info.
 
-RViz resource retriever service
-"""""""""""""""""""""""""""""""
+Resource retriever service
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-No longer need to install robot_description on the same machine you launch RViz.
-Use resource_retriever_service to publish meshes etc from the robot itself
+Say you are debugging a robot in the field.
+You open up RViz on your laptop, but you don't have the right version of the robot description installed.
+In ROS Kilted, RViz added the ability to load meshes over the network using a ROS service ``/rviz/get_resource``; however, that ability was limited to RViz.
+ROS Lyrical comes with a generic ``resource_retriever_service`` so that any node can load meshes over the network.
 
-* https://github.com/ros2/rviz/commit/7190270e0c32f531a6d4b12a3623bc0cace3e9e0
+.. code-block:: c++
 
-Beware the wisdom of (insert discourse post here about robots should be clients)
+    resource_retriever::RetrieverVec plugins = resource_retriever::default_plugins();
+    // Create a RosServiceResourceRetriever plugin
+    plugins.push_back(std::make_shared<RosServiceResourceRetriever>(*node));
+    // Give that plugin to your Retriever instance
+    resource_retriever::Retriever retriever(plugins);
+
+See `ros2/rviz#1698 <https://github.com/ros2/rviz/pull/1698>`_ for more details.
 
 CMake improvements
 ^^^^^^^^^^^^^^^^^^
