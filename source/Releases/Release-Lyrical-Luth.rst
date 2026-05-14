@@ -181,10 +181,25 @@ Launch a component container with the ``EventsCBGExecutor`` using the new ``--ex
 
 For more info, see `ros2/rclcpp#3097 <https://github.com/ros2/rclcpp/pull/3097>`_, `ros2/rclcpp#3134 <https://github.com/ros2/rclcpp/pull/3134>`_, and `ros2/rclcpp#3137 <https://github.com/ros2/rclcpp/pull/3137>`_.
 
-Parameter range descriptors now check bounds for array types (integer, double)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Parameter range descriptors check bounds for integer and double arrays
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* https://github.com/ros2/rclcpp/commit/7bd14d812c0bdf38b666d83cbe9db210513a52bd
+Do your nodes have integer or double arrays?
+Do you need to constrain the values in those arrays?
+``rclcpp`` nodes now validate range constraints on these arrays.
+Using the code below, the node will only allow setting ``my_integer_array`` to a list containing even integers between 2 and 10 (inclusive).
+
+.. code-block:: c++
+
+    rcl_interfaces::msg::ParameterDescriptor descriptor;
+    descriptor.integer_range.resize(1);
+    auto & integer_range = descriptor.integer_range.at(0);
+    integer_range.from_value = 2;
+    integer_range.to_value = 10;
+    integer_range.step = 2;
+    node->declare_parameter("my_integer_array", std::vector<int64_t>{2, 4, 6, 8, 10}, descriptor);
+
+See `ros2/rclcpp#2828 <>`_ for more info.
 
 Rclpy
 """""
