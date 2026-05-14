@@ -703,17 +703,16 @@ ROS Lyrical comes with a generic ``resource_retriever_service`` so that any node
 
 See `ros2/rviz#1698 <https://github.com/ros2/rviz/pull/1698>`_ for more details.
 
-CMake improvements
-^^^^^^^^^^^^^^^^^^
+Call ``ament_python_install_package`` multiple times
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-ament_python_install_package
-""""""""""""""""""""""""""""
+Packages may now call ``ament_python_install_package()`` multiple times with the same Python package name.
+This allows you to use ``rosidl_generate_interfaces()`` and ``ament_python_install_package()`` to put generated messages and code into the same Python package.
 
-* https://github.com/ament/ament_cmake/commit/abd86f5a12eb085cd975ad9e02ff6b66cc372170
+While you can include code and message definitions in the same package, a best practice is to put message definitions in their own package.
+This lets others depend on just the messages, as they might not need the code or its dependencies.
 
-Install a Python package multiple times with the same name; allows rosidl_generate_interfaces and ament_python_install_package in the same package.
-Useful for existing packages that combine code and interface files.
-Note: new packages should consider message, service, and action definitions live in their own package so that downstream users can use messages without depending on your code
+See `ament/ament_cmake#587 <https://github.com/ament/ament_cmake/pull/587>`_ for more info.
 
 ament_ros_defaults
 """"""""""""""""""
