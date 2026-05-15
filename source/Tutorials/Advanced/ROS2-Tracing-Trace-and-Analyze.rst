@@ -9,9 +9,14 @@ Overview
 
 This tutorial covers:
 
+<<<<<<< HEAD
 1. installing tracing-related tools and building ROS 2 with the core instrumentation enabled
 2. running and tracing a ``performance_test`` run
 3. analyzing the trace data using `tracetools_analysis <https://github.com/ros-tracing/tracetools_analysis>`_ to plot the callback durations
+=======
+1. running and tracing a ``performance_test`` run
+2. analyzing the trace data using `tracetools_analysis <https://github.com/ros-tracing/tracetools_analysis>`_ to plot the callback durations using `Jupyter Notebook <https://jupyter.org/>`_
+>>>>>>> baf33b04 (Mention Jupyter Notebook early in the ros2_tracing analysis tutorial (#6764))
 
 Prerequisites
 -------------
