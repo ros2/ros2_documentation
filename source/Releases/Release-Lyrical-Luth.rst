@@ -502,7 +502,7 @@ Use ``ros2 param get <param name>`` to get a parameter value from all nodes.
 See `ros2/ros2cli#1174 <https://github.com/ros2/ros2cli/pull/1174>`_ for more info.
 
 ``ros2 param`` get and set multiple parameters on one node
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Want to get and set multiple parameters on one node at the same time?
 Use ``ros2 param get <node name> <param1> <param2> ...`` to get multiple values from a single node.
@@ -511,7 +511,7 @@ Use ``ros2 param get <node name> <param1> <param2> ...`` to get multiple values 
 
     $ ros2 param get /robot_state_publisher frame_prefix ignore_timestamp publish_frequency
     frame_prefix:
-      String value is: 
+      String value is:
     ignore_timestamp:
       Boolean value is: False
     publish_frequency:
@@ -546,8 +546,8 @@ Include this report in your GitHub issues or AI prompts to debug problems faster
 
       ROS ENVIRONMENT
     ROS environment variables        : ROS_AUTOMATIC_DISCOVERY_RANGE=SUBNET, ROS_DISTRO=lyrical
-    rcutils environment variables    : 
-    rmw environment variables        : 
+    rcutils environment variables    :
+    rmw environment variables        :
     # ...
 
       SERVICE LIST
@@ -793,7 +793,7 @@ Try the new ``rcutils_encode_base64`` and ``rcutils_decode_base64`` functions.
 
     int main() {
         rcutils_allocator_t allocator = rcutils_get_default_allocator();
-        
+
         rcutils_uint8_array_t input = rcutils_get_zero_initialized_uint8_array();
         assert(rcutils_uint8_array_init(&input, 11, &allocator) == RCUTILS_RET_OK);
         memcpy(input.buffer, "Hello World", 11);
