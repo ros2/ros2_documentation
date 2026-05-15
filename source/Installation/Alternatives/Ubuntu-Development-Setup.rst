@@ -86,6 +86,14 @@ Install additional RMW implementations (optional)
 The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at build or runtime.
 See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
+Install colcon mixins
+^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: console
+
+   $ colcon mixin add default https://github.com/colcon/colcon-defaults/raw/master/index.yaml
+   $ colcon mixin update default
+
 Build the code in the workspace
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -99,7 +107,7 @@ More info on working with a ROS workspace can be found in :doc:`this tutorial <.
 .. code-block:: console
 
    $ cd ~/ros2_{DISTRO}/
-   $ colcon build --symlink-install
+   $ colcon build --symlink-install --mixin release
 
 .. note::
 
