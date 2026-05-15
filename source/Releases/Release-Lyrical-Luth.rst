@@ -817,17 +817,48 @@ Try the new ``rcutils_encode_base64`` and ``rcutils_decode_base64`` functions.
 
 See `ros2/rcutils#430 <https://github.com/ros2/rcutils/pull/430>`_ and `ros2/rcutils#533 <https://github.com/ros2/rcutils/pull/533>`_ for more info
 
-rcl changes
-"""""""""""
+New ``rcl`` APIs
+^^^^^^^^^^^^^^^^
 
-New RCL APIs
-~~~~~~~~~~~~
+If you maintain a ROS client library, you might be interested in these new ``rcl`` APIs:
 
-* https://github.com/ros2/rcl/commit/d290ab955ceb57fae6c76f96bdb5b649a5e3f4bd
-* https://github.com/ros2/rcl/commit/819c78db03753216dd5b1ac38be96ad811bb6cad
-* https://github.com/ros2/rcl/commit/be6ba458057f6a1cb48a5bed007a9be70d986e76
-* https://github.com/ros2/rcl/commit/5990da469eff7071913cca793bf7f7b5f7979873
-* https://github.com/ros2/rcl/commit/33ad697c5386ffd89cea386a2b530649fdb4e5fd
+``rcl_lifecycle_get_transition_label_by_id``
+""""""""""""""""""""""""""""""""""""""""""""
+Retrieve the human-readable string label for a lifecycle transition ID.
+Use this label to log, debug, or display state transitions without manually mapping IDs to strings.
+
+``rcl_subscription_is_cft_supported``
+"""""""""""""""""""""""""""""""""""""
+Check whether a subscription supports Content Filtered Topics (CFT) on the underlying middleware.
+Verify filtering support safely before applying or configuring message content filters.
+
+``rcl_action_count_clients``
+""""""""""""""""""""""""""""
+Query the ROS graph to count active action clients for a specific action name.
+Action servers can verify client presence before expending resources, or tools can inspect graph state.
+
+``rcl_action_count_servers``
+""""""""""""""""""""""""""""
+Query the ROS graph to count active action servers for a specific action name.
+Action clients can confirm a server is online before sending goal requests.
+
+``rcl_timer_exchange_callback_data``
+""""""""""""""""""""""""""""""""""""
+Update the user data pointer passed to a timer callback upon execution.
+Dynamically swap callback context or state without recreating the active timer instance.
+
+``rcl_action_server_set_expired_event_callback``
+""""""""""""""""""""""""""""""""""""""""""""""""
+Register a custom event callback that triggers when an action server goal expiration timer fires.
+Enable event-based execution patterns to asynchronously handle clean-up routines or notifications for expired goals.
+
+For more information see these pull requests:
+
+* `ros2/rcl#1229 <https://github.com/ros2/rcl/pull/1229>`_
+* `ros2/rcl#1257 <https://github.com/ros2/rcl/pull/1257>`_
+* `ros2/rcl#1293 <https://github.com/ros2/rcl/pull/1293>`_
+* `ros2/rcl#1294 <https://github.com/ros2/rcl/pull/1294>`_
+* `ros2/rcl#1295 <https://github.com/ros2/rcl/pull/1295>`_
 
 class_loader arguments to constructors
 """"""""""""""""""""""""""""""""""""""
