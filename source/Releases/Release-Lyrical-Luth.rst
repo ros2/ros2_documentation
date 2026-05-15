@@ -564,8 +564,8 @@ Include this report in your github issues, or AI prompts, to debug problems fast
 
 For more information see `ros2/ros2cli#1059 <https://github.com/ros2/ros2cli/pull/1059>`_, `ros2/ros2cli#1076 <https://github.com/ros2/ros2cli/pull/1076>`_, and `ros2/ros2cli#1045 <https://github.com/ros2/ros2cli/pull/1045>`_.
 
-``ros2 service info --verbose``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Verbose service information ``ros2 service info --verbose``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Are you debugging mismatched QoS settings between ROS clients and ROS services?
 Try out the new ``--verbose`` option to ``ros2 service info``.
@@ -604,7 +604,20 @@ Like ``ros2 topic info``, this flag outputs detailed information about clients a
           Liveliness: AUTOMATIC
           Liveliness lease duration: Infinite
 
-See `ros2/ros2cli#916 <https://github.com/ros2/ros2cli/pull/916>` for more info.
+Want to get client and service informaton programmatically?
+Use these new C++ and Python APIs.
+
+.. code-block:: python
+
+    node.get_servers_info_by_service('some/service/name')
+    node.get_clients_info_by_service('some/service/name')
+
+.. code-block:: c++
+
+    node->get_servers_info_by_service("some/service/name");
+    node->get_clients_info_by_service("some/service/name");
+
+See `ros2/ros2cli#916 <https://github.com/ros2/ros2cli/pull/916>`, `ros2/rclpy#1307 <https://github.com/ros2/rclpy/pull/1307>`_, and `ros2/rclcpp#2569 <https://github.com/ros2/rclcpp/pull/2569>`_ for more info.
 
 ``ros2 topic bw`` multiple topics at once
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -727,17 +740,6 @@ This target uses `target_compile_features <https://cmake.org/cmake/help/v3.20/co
     target_link_libraries(my_library PUBLIC ament_cmake_ros_core::ament_ros_defaults)
 
 See `ros2/ament_cmake_ros#62 <https://github.com/ros2/ament_cmake_ros/pull/62>`_ for more info.
-
-Utility Improvements
-^^^^^^^^^^^^^^^^^^^^
-
-Get client and server info
-""""""""""""""""""""""""""
-
-* https://github.com/ros2/rclcpp/commit/63bdf2add403ac38ff51969acf02919911e89724
-* https://github.com/ros2/rcl/commit/4e0829cedd4ff9d50fb8de40f7b351bcfaa2317a
-
-Add examples for all client libraries
 
 rcpputils
 """""""""
