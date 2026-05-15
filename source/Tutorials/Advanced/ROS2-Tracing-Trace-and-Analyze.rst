@@ -158,10 +158,15 @@ Install Jupyter notebook and bokeh, and then open the sample notebook.
 
 .. code-block:: console
 
-  $ pip3 install bokeh
+  $ source install/setup.bash
+  $ python3 -m venv venv --system-site-packages
+  $ source venv/bin/activate
+  $ pip3 install bokeh ipykernel
+  $ python3 -m ipykernel install --user --name=venv
   $ jupyter notebook ~/tracing_ws/src/tracetools_analysis/tracetools_analysis/analysis/callback_duration.ipynb
 
 This will open the notebook in the browser.
+Click ``Kernel``, then ``Change kernel``, and select ``venv``.
 
 Replace the value for the ``path`` variable in the second cell to the path to the trace directory:
 
