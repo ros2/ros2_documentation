@@ -761,18 +761,61 @@ This makes it easier to identify threads in debuggers like ``gdb``.
 
 See `ros2/rcpputils#213 <https://github.com/ros2/rcpputils/pull/213>`_ for more details.
 
-rcutils
-"""""""
+New ``rcutils`` APIs
+^^^^^^^^^^^^^^^^^^^^
 
-New rcutils_strnlen
-~~~~~~~~~~~~~~~~~~~
+The ``rcutils`` package includes some new utilities.
+If your platform lacks ``strnlen``, you may now use ``rcutils_strnlen`` instead.
 
-* https://github.com/ros2/rcutils/commit/ead8874667205525a2d16f5adb694ab0dd01a325
+.. code-block:: C
 
-base64 functions
-~~~~~~~~~~~~~~~~
+    #include <stdio.h>
 
-* https://github.com/ros2/rcutils/commit/f32243642b1d95f2dd2ea42ef468ccb377df0e13
+    #include <rcutils/strnlen.h>
+
+    int main() {
+        const char *str = "Hello world";
+        size_t len = rcutils_strnlen(str, 100);
+        printf("%zu\n", len);
+        return 0;
+    }
+
+Need to encode or decode base64 data?
+Try the new ``rcutils_encode_base64`` and ``rcutils_decode_base64`` functions.
+
+.. code-block:: c
+
+    #include <assert.h>
+    #include <stdio.h>
+    #include <string.h>
+
+    #include <rcutils/allocator.h>
+    #include <rcutils/base64.h>
+    #include <rcutils/types/uint8_array.h>
+
+    int main() {
+        rcutils_allocator_t allocator = rcutils_get_default_allocator();
+        
+        rcutils_uint8_array_t input = rcutils_get_zero_initialized_uint8_array();
+        assert(rcutils_uint8_array_init(&input, 11, &allocator) == RCUTILS_RET_OK);
+        memcpy(input.buffer, "Hello World", 11);
+        input.buffer_length = 11;
+
+        char *encoded = NULL;
+        assert(rcutils_encode_base64(&input, &encoded, &allocator) == RCUTILS_RET_OK);
+        printf("%s\n", encoded);
+
+        rcutils_uint8_array_t decoded = rcutils_get_zero_initialized_uint8_array();
+        assert(rcutils_decode_base64(encoded, &decoded, &allocator) == RCUTILS_RET_OK);
+        printf("%.*s\n", (int)decoded.buffer_length, (char *)decoded.buffer);
+
+        allocator.deallocate(encoded, allocator.state);
+        assert(rcutils_uint8_array_fini(&input) == RCUTILS_RET_OK);
+        assert(rcutils_uint8_array_fini(&decoded) == RCUTILS_RET_OK);
+        return 0;
+    }
+
+See `ros2/rcutils#430 <https://github.com/ros2/rcutils/pull/430>`_ and `ros2/rcutils#533 <https://github.com/ros2/rcutils/pull/533>`_ for more info
 
 rcl changes
 """""""""""
