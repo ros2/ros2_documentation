@@ -233,13 +233,9 @@ See :doc:`../Tutorials/Intermediate/Writing-An-Async-Node-With-Asyncio-Python` a
 Publish messages without copying data using ``rosidl::Buffer``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-<<<<<<< HEAD
-See the `Writing an async node with asyncio <../../lyrical/Tutorials/Intermediate/Writing-An-Async-Node-With-Asyncio-Python.html>`__ tutorial and https://github.com/ros2/rclpy/pull/1620 for more details.
-=======
 Are you publishing data on ROS topics, but using the data elsewhere, like a GPU?
 Tired of copying data out of the GPU before publishing just to copy it back into the GPU in the subscriber?
 Use ``rosidl::Buffer`` to publish and subscribe ROS messages without moving data from elsewhere.
->>>>>>> 5c6892f (Highlight ROS Lyrical changes with examples (#6765))
 
 All ``uint8[]`` fields now have the type ``rosidl::Buffer<uint8_t>`` in C++ instead of ``std::vector<uint8_t>``.
 Define your ROS messages with ``uint8[]`` fields and install an appropriate ``rosidl::BufferBackend`` implementation.
@@ -249,24 +245,15 @@ Using a custom hardware accelerator or machine learning library?
 You can benefit from this too.
 See :doc:`../Tutorials/Advanced/Writing-a-Buffer-Backend` to learn how to implement your own ``rosidl::BufferBackend``.
 
-<<<<<<< HEAD
-``rosidl_buffer_backend``
-^^^^^^^^^^^^^^^^^^^^^^^^^
-=======
 See :doc:`../Concepts/Intermediate/About-Buffer-Backends` and :doc:`../How-To-Guides/Using-Buffer-Backends` for more details.
 
 Use YAML tags in parameter files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
->>>>>>> 5c6892f (Highlight ROS Lyrical changes with examples (#6765))
 
 Tired of ``rcl`` interpreting ambiguous YAML parameter values as the wrong type?
 Prevent that by specifying the type using YAML tags.
 
-<<<<<<< HEAD
-Backends are discovered through ``pluginlib`` and registered by RMW automatically.
-=======
 .. code-block:: yaml
->>>>>>> 5c6892f (Highlight ROS Lyrical changes with examples (#6765))
 
   my_node:
     ros__parameters:
