@@ -6,6 +6,14 @@
 Interfaces
 ==========
 
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+
+   interfaces/Topics-Services-Actions
+   interfaces/About-Tf2
+   interfaces/Working-with-interfaces
+   
 .. contents:: Table of Contents
    :local:
 

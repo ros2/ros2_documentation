@@ -10,17 +10,9 @@ PLACEHOLDER
    :maxdepth: 3
 
    ROS-Framework/About-Nodes
-   ROS-Framework/About-Discovery
-   ROS-Framework/About-Domain-ID
-   ROS-Framework/About-Logging
-   ROS-Framework/About-Composition
-   ROS-Framework/Working-with-nodes
    ROS-Framework/About-Interfaces
-   ROS-Framework/Topics-Services-Actions
-   ROS-Framework/About-Tf2
-   ROS-Framework/Working-with-interfaces
-   ROS-Framework/Working-with-actions
-   ROS-Framework/Working-with-services
-   ROS-Framework/Working-with-topics
-   ROS-Framework/Working-with-parameters
-   ROS-Framework/Working-with-client-libraries
+   ROS-Framework/About-Actions
+   ROS-Framework/About-Services
+   ROS-Framework/About-Topics
+   ROS-Framework/About-Parameters
+   ROS-Framework/About-Client-Libraries

@@ -1,6 +1,12 @@
 Actions
 =======
 
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   
+   actions/Working-with-actions
+
 .. contents:: Table of Contents
    :local:
 
@@ -54,3 +60,4 @@ An action client is an entity that will request a remote action server to perfor
 Following the example above, the action client is the entity that creates the initial message containing the ``order``, and waits for the action server to compute the sequence and return it (with feedback along the way).
 
 Unlike the action server, there can be arbitrary numbers of action clients using the same action name.
+
