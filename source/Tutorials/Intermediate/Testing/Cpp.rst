@@ -50,11 +50,16 @@ CMakeLists.txt
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:include>
       )
-      target_link_libraries(${PROJECT_NAME}_tutorial_test name_of_local_library)
+      # target_link_libraries(${PROJECT_NAME}_tutorial_test name_of_local_library)
     endif()
 
 The testing code is wrapped in the ``if/endif`` block to avoid building tests where possible.
+<<<<<<< HEAD
 ``ament_add_gtest`` functions much like ``add_executable`` so you'll need to call ``target_include_directories``, ``ament_target_dependencies`` and ``target_link_libraries`` as you normally would.
+=======
+``ament_add_gtest`` functions much like ``add_executable`` so you'll need to call ``target_include_directories`` and ``target_link_libraries`` as you normally would.
+The ``target_link_libraries`` call is shown commented out because ``name_of_local_library`` is a placeholder, uncomment it and replace ``name_of_local_library`` with the actual target name from your ``add_library()`` call only if your tests depend on a library built in this package.
+>>>>>>> a1c1d3e8 (Fix C++ testing tutorial: comment out placeholder target_link_libraries > Cpp Testing #2833 (#6766))
 
 
 Running Tests
