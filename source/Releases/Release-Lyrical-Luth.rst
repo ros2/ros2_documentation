@@ -741,13 +741,25 @@ This target uses `target_compile_features <https://cmake.org/cmake/help/v3.20/co
 
 See `ros2/ament_cmake_ros#62 <https://github.com/ros2/ament_cmake_ros/pull/62>`_ for more info.
 
-rcpputils
-"""""""""
+New thread naming utilities
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-New thread naming utilities to aid in debugging
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Debugging multithreading issues?
+Use two new utilities in ``rcpputils`` to get and set thread names.
+This makes it easier to identify threads in debuggers like ``gdb``.
 
-* https://github.com/ros2/rcpputils/commit/8e29c4c16857656244e7fd9d5450569d0208a0ab
+.. code-block:: c++
+
+    #include <iostream>
+    #include <rcpputils/thread_name.hpp>
+
+    int main() {
+        rcpputils::set_thread_name("map_thread");
+        std::cout << rcpputils::get_thread_name() << "\n";
+    }
+
+
+See `ros2/rcpputils#213 <https://github.com/ros2/rcpputils/pull/213>`_ for more details.
 
 rcutils
 """""""
