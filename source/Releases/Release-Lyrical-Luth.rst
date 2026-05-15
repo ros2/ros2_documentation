@@ -126,7 +126,7 @@ TODO
 New Features in Lyrical
 -----------------------
 
-This section highlights some of the new features and changes in ROS Lyrical.
+This section highlights some of the new features in ROS Lyrical.
 For all changes, see the :doc:`full ROS Lyrical changelog <Lyrical-Luth-Complete-Changelog>`.
 
 Callback Group Events executor (``rclcpp``)
@@ -138,7 +138,7 @@ Like its predecessor the ``EventsExecutor``, the ``EventsCBGExecutor`` uses an e
 However, ``EventsCBGExecutor`` adds support for multiple sources of ROS time and multiple threads.
 Compared to the Single and Multithreaded executors, the ``EventsCBGExecutor`` uses 10% to 15% less CPU.
 
-Try it out by instantiating ``rclcpp::executors::EventsCBGExecutor``;
+Try it out by instantiating ``rclcpp::executors::EventsCBGExecutor``:
 
 .. code-block:: c++
 
@@ -235,11 +235,11 @@ Publish messages without copying data using ``rosidl::Buffer``
 
 Are you publishing data on ROS topics, but using the data elsewhere, like a GPU?
 Tired of copying data out of the GPU before publishing just to copy it back into the GPU in the subscriber?
-``rosidl::Buffer`` publish and subscribe ROS messages without moving the data from elsewhere.
+Use ``rosidl::Buffer`` to publish and subscribe ROS messages without moving data from elsewhere.
 
-All ``uint8[]`` fields now have the type ``rosidl::Buffer<uint8_t>`` in C++ instead of  ``std::vector<uint8_t>``.
+All ``uint8[]`` fields now have the type ``rosidl::Buffer<uint8_t>`` in C++ instead of ``std::vector<uint8_t>``.
 Define your ROS messages with ``uint8[]`` fields and install an appropriate ``rosidl::BufferBackend`` implementation.
-Note that only publishers and subscribers using ``rmw_fastrtps_cpp`` may use this feature for now, but `support in Zenoh is comming <https://github.com/ros2/rmw_zenoh/pull/930>`_.
+Note that only publishers and subscribers using ``rmw_fastrtps_cpp`` may use this feature for now, but `support in Zenoh is coming <https://github.com/ros2/rmw_zenoh/pull/930>`_.
 
 Using a custom hardware accelerator or machine learning library?
 You can benefit from this too.
@@ -250,7 +250,7 @@ See :doc:`../Concepts/Intermediate/About-Buffer-Backends` and :doc:`../How-To-Gu
 Use YAML tags in parameter files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Tired of ``rcl`` interpretting ambiguous YAML parameter values as the wrong type?
+Tired of ``rcl`` interpreting ambiguous YAML parameter values as the wrong type?
 Prevent that by specifying the type using YAML tags.
 
 .. code-block:: yaml
@@ -266,13 +266,11 @@ Prevent that by specifying the type using YAML tags.
 
 See `ros2/rcl#1275 <https://github.com/ros2/rcl/pull/1275>`_ for more info.
 
-* https://github.com/ros2/rcl/commit/b7d6d69e670aa97bf69a6b92d12321ed31e68a4c
-
 More logging options in launch files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Have different kinds of messages in your log files that you want to log with different severity?
-Specify the log level using the the new ``level`` argument on the ``log`` action.
+Specify the log level using the new ``level`` argument on the ``log`` action.
 Alternatively, use the new ``log_debug``, ``log_info``, ``log_warning``, or ``log_error`` actions.
 
 .. code-block:: xml
@@ -287,7 +285,7 @@ Alternatively, use the new ``log_debug``, ``log_info``, ``log_warning``, or ``lo
     </launch>
 
 
-For more info see `ros2/launch#866 <https://github.com/ros2/launch/pull/866>`_
+For more info see `ros2/launch#866 <https://github.com/ros2/launch/pull/866>`_.
 
 New substitutions in XML and YAML launch files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -305,19 +303,19 @@ Launch frontends (the things that make it possible to use XML and YAML launch fi
     </launch>
 
 
-See `ros2/launch#857 <https://github.com/ros2/launch/pull/857>`_  and `ros2/launch#943 <https://github.com/ros2/launch/pull/943>`_ for more info.
+See `ros2/launch#857 <https://github.com/ros2/launch/pull/857>`_ and `ros2/launch#943 <https://github.com/ros2/launch/pull/943>`_ for more info.
 
 Choose ROS logging backend at runtime
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Have you ever needed to use ROS with another framework that has its own logging system?
-ROS supports replacing its logging backend, but previously you had to rebuild ``rcl`` from source change it.
+ROS supports replacing its logging backend, but it previously required rebuilding ``rcl`` from source.
 Now you can change the logging implementation at runtime!
-Set the `RCL_LOGGING_IMPLEMENTATION` environment variable to switch between logging backends.
+Set the ``RCL_LOGGING_IMPLEMENTATION`` environment variable to switch between logging backends.
 Valid values are:
 
 * ``rcl_logging_spdlog``
-* ``rcl_loggin_noop``
+* ``rcl_logging_noop``
 * or your own custom logging implementation!
 
 If not specified, ROS uses ``rcl_logging_spdlog`` by default.
@@ -346,14 +344,14 @@ Use ``rosbag2``'s new services to:
     ros2 service call /rosbag2_recorder/record rosbag2_interfaces/srv/Record "{uri: 'file:///tmp/my_awesome_bag_2'}"
 
 
-See `ros2/rosbag2#2248 <https://github.com/ros2/rosbag2/pull/2248>`__ for more details.
+See `ros2/rosbag2#2248 <https://github.com/ros2/rosbag2/pull/2248>`_ for more details.
 
 Control bag Playback and Recording using Python
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Want to control bag playback and reporting programmatically?
-Previously Python users had to rely on blocking command-line-style helpers.
-Python users can now programmatically control playback and recording with APIs for: pause, resume, stop, seek, play-next, spin control, and wait helpers.
+Want to control bag playback and recording programmatically?
+Previously, Python users relied on blocking command-line style helpers.
+Now Python users may call APIs to pause, resume, stop, seek, play next, control spinning, and wait for events.
 
 Recording example:
 
@@ -434,12 +432,12 @@ It limits the maximum number of bag files stored on disk by automatically deleti
     # Max bag size: 100MB
     ros2 bag record --all --max-bag-size 100000000 --max-bag-files 5
 
-See `ros2/rosbag2#2218 <https://github.com/ros2/rosbag2/pull/2218>`__ for more details.
+See `ros2/rosbag2#2218 <https://github.com/ros2/rosbag2/pull/2218>`_ for more details.
 
 More descriptive bag split names
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Do you having trouble finding bag splits?
+Do you have trouble identifying which bag is which?
 ``rosbag2`` now names bag splits so that each is self-descriptive and chronologically traceable.
 
 .. code-block:: text
@@ -451,7 +449,7 @@ Do you having trouble finding bag splits?
 * **timestamp**: local time at file creation, formatted as ``YYYY_MM_DD-HH_MM_SS``
 * **extension**: bag file extension. e.g., ``.mcap``, ``.db3``
 
-See `ros2/rosbag2#2265 <https://github.com/ros2/rosbag2/pull/2265>`__ for more details.
+See `ros2/rosbag2#2265 <https://github.com/ros2/rosbag2/pull/2265>`_ for more details.
 
 ``rosbag2`` message-loss observability
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -471,7 +469,7 @@ Control the publishing rate using ``--stats_max_publishing_rate``.
     # If all is going well, you should see no output from this command
     ros2 topic echo /events/rosbag2_messages_lost
 
-See `ros2/rosbag2#2039 <https://github.com/ros2/rosbag2/pull/2039>`__, `ros2/rosbag2#2144 <https://github.com/ros2/rosbag2/pull/2144>`__, and `ros2/rosbag2#2150 <https://github.com/ros2/rosbag2/pull/2150>`__ for more details.
+See `ros2/rosbag2#2039 <https://github.com/ros2/rosbag2/pull/2039>`_, `ros2/rosbag2#2144 <https://github.com/ros2/rosbag2/pull/2144>`_, and `ros2/rosbag2#2150 <https://github.com/ros2/rosbag2/pull/2150>`_ for more details.
 
 
 ``fish`` shell support
@@ -494,7 +492,7 @@ To use ``fish`` shell with ``colcon``, check out `@Sunrisepeak's <https://github
 
 Are you using simulated time?
 How do you know if all of your nodes are using simulated time?
-Use ``ros2 param get <parmeter name>`` to get a parameter value from all nodes.
+Use ``ros2 param get <param name>`` to get a parameter value from all nodes.
 
 .. code-block:: shell
 
@@ -503,7 +501,7 @@ Use ``ros2 param get <parmeter name>`` to get a parameter value from all nodes.
 
 See `ros2/ros2cli#1174 <https://github.com/ros2/ros2cli/pull/1174>`_ for more info.
 
-``ros2 param`` get and set multipe parameters on one node
+``ros2 param`` get and set multiple parameters on one node
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Want to get and set multiple parameters on one node at the same time?
@@ -535,7 +533,7 @@ Actions, Services, and Environment variables in ``ros2 doctor --report``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ``ros2 doctor --report`` now includes information about Actions, Services, and ROS-related environment variables.
-Include this report in your github issues, or AI prompts, to debug problems faster.
+Include this report in your GitHub issues or AI prompts to debug problems faster.
 
 .. code-block:: console
 
@@ -604,7 +602,7 @@ Like ``ros2 topic info``, this flag outputs detailed information about clients a
           Liveliness: AUTOMATIC
           Liveliness lease duration: Infinite
 
-Want to get client and service informaton programmatically?
+Want to get client and service information programmatically?
 Use these new C++ and Python APIs.
 
 .. code-block:: python
@@ -643,7 +641,7 @@ URDF released a few new features:
 
 * Quaternions
 * Capsule geometry
-* Accelreation, decelleration, and jerk limits
+* Acceleration, deceleration, and jerk limits
 
 Add ``version="1.2"`` to your robot description to start using them.
 
@@ -691,7 +689,7 @@ Most of the time in a ROS system the ``robot_state_publisher`` node does two thi
 * It publishes the ``robot_description`` on a topic, and
 * It publishes TF transforms given joint positions.
 
-If you have ever tried to add ROS interfaces to a framework with its own internal robot model, you may have wished these were two separate utilies.
+If you have ever tried to add ROS interfaces to a framework with its own internal robot model, you may have wished these were two separate utilities.
 Now they can be!
 Set the ``use_robot_description_topic`` parameter to ``true`` to make ``robot_state_publisher`` subscribe to the ``robot_description`` topic instead of publishing it.
 Then, make the other robot framework publish its own robot description on that topic.
@@ -767,7 +765,7 @@ New ``rcutils`` APIs
 The ``rcutils`` package includes some new utilities.
 If your platform lacks ``strnlen``, you may now use ``rcutils_strnlen`` instead.
 
-.. code-block:: C
+.. code-block:: c
 
     #include <stdio.h>
 
@@ -815,7 +813,7 @@ Try the new ``rcutils_encode_base64`` and ``rcutils_decode_base64`` functions.
         return 0;
     }
 
-See `ros2/rcutils#430 <https://github.com/ros2/rcutils/pull/430>`_ and `ros2/rcutils#533 <https://github.com/ros2/rcutils/pull/533>`_ for more info
+See `ros2/rcutils#430 <https://github.com/ros2/rcutils/pull/430>`_ and `ros2/rcutils#533 <https://github.com/ros2/rcutils/pull/533>`_ for more info.
 
 New ``rcl`` APIs
 ^^^^^^^^^^^^^^^^
@@ -860,221 +858,32 @@ For more information see these pull requests:
 * `ros2/rcl#1294 <https://github.com/ros2/rcl/pull/1294>`_
 * `ros2/rcl#1295 <https://github.com/ros2/rcl/pull/1295>`_
 
-class_loader arguments to constructors
-""""""""""""""""""""""""""""""""""""""
-
-* https://github.com/ros/class_loader/commit/5c279488cb9fd4b168502c5ffdd533fabab20168
-
-Must specialize class_loader::InterfaceTraits to specify constructor arguments
-
-Show loader creating class with arguments; plugins no longer need to be default constructible
-
-``ament_cmake``
-^^^^^^^^^^^^^^^
-
-Allow multiple ``ament_python_install_package()`` calls per package
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-This enables shipping a single package with both python code and generated interfaces (from ``rosidl_generate_interfaces()``).
-Source directories from each call are merged at install time, with the last call winning on file conflicts.
-
-See https://github.com/ament/ament_cmake/pull/587 for more details.
-
-``ament_mypy``
-^^^^^^^^^^^^^^^
-
-Has new ``--ament-strict`` option to allow more strict type checking.
-The ROS core is slowly being switch to this stricter standard to help prevent regressions in Python packages.
-
-``class_loader``
-^^^^^^^^^^^^^^^^
-
-Add support for passing arguments to constructors.
-As a result, users can now create plugins that are not default constructible, removing the need for initialize method.
-
-See https://github.com/ros/class_loader/pull/223 for more details.
-
-``plugin_lib``
-^^^^^^^^^^^^^^
-
-Add support for passing arguments to constructors.
-
-See https://github.com/ros/pluginlib/pull/291 for more details.
-
-``image_transport``
-^^^^^^^^^^^^^^^^^^^
-
-``image_transport`` now supports lifecycle nodes.
-
-See https://github.com/ros-perception/image_common/pull/352 for more details.
-
-``point_cloud_transport``
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-``point_cloud_transport`` now supports lifecycle nodes.
-
-See https://github.com/ros-perception/point_cloud_transport/pull/109 for more details.
-
-``rcl_logging_implementation``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-A new ``rcl_logging_implementation`` package has been introduced to allow users to select the logging backend implementation at runtime without rebuilding ``rcl``.
-Users can set the ``RCL_LOGGING_IMPLEMENTATION`` environment variable to switch between available logging backends (e.g., ``rcl_logging_spdlog``, ``rcl_logging_noop``, or custom implementations).
-If not specified, ``rcl_logging_spdlog`` is used by default.
-
-See https://github.com/ros2/rcl/issues/1178, https://github.com/ros2/rcl/pull/1276, and https://github.com/ros2/rcl_logging/pull/135 for more details.
-
-``rclcpp``
-^^^^^^^^^^
-
-* `Unified component container interface <https://github.com/ros2/rclcpp/pull/3134>`__ -
-  ``component_container`` is now the single entrypoint for launching both regular and
-  isolated component containers with all types of executors.
-
-* Added ``disable_callbacks()`` and ``enable_callbacks()`` APIs to ``SubscriptionBase``.
-  By design the subscription itself is a shared pointer and its callbacks are propagated to
-  the executor, making it difficult to manage subscription lifecycle from the application
-  side.
-  When a subscription is deleted at the application layer, it may still be referenced by
-  the node and executor, causing callbacks to be invoked unexpectedly.
-  This can lead to undefined behavior when the callback accesses resources that have been
-  cleaned up.
-  The new APIs allow users to disable subscription callbacks at runtime without destroying
-  the subscription, preventing unexpected callback invocations.
-
-  See `ros2/rclcpp#2984 <https://github.com/ros2/rclcpp/issues/2984>`__ and
-  `ros2/rclcpp#2985 <https://github.com/ros2/rclcpp/pull/2985>`__ for more details.
-
-``rclpy``
-^^^^^^^^^
-
-Native asyncio support with ``AsyncNode`` (experimental)
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-Added ``AsyncNode``, a new node type that runs on the ``asyncio`` event loop.
-Subscription, service, and timer callbacks can now ``await`` any asyncio operation.
-The new async ``client.call(request)`` and sim-time aware ``clock.sleep(...)`` are awaitable from any asyncio task.
-CPU usage is significantly reduced compared to the ``SingleThreadedExecutor``.
-
-See the :doc:`Writing an async node with asyncio <../Tutorials/Intermediate/Writing-An-Async-Node-With-Asyncio-Python>` tutorial and https://github.com/ros2/rclpy/pull/1620 for more details.
-
-Static typing stablization
-""""""""""""""""""""""""""
-
-All methods and classes now have proper type hints.
-
-``rosbag2``
-^^^^^^^^^^^
-
-``Rosbag2`` received several new recording, playback, observability, and API improvements.
-
-* Added support for repeating transient-local messages when recording bags.
-  Users can configure selected transient-local topics with ``--repeat-transient-local`` and
-  an optional per-topic depth, or use ``--repeat-all-transient-local`` to automatically apply
-  the behavior to topics whose publishers offer ``TRANSIENT_LOCAL`` durability QoS.
-  This helps preserve latched/static state, such as maps or static transforms, across bag
-  splits and snapshots.
-
-  See `ros2/rosbag2#2385 <https://github.com/ros2/rosbag2/pull/2385>`__,
-  `ros2/rosbag2#2386 <https://github.com/ros2/rosbag2/pull/2386>`__,
-  `ros2/rosbag2#2387 <https://github.com/ros2/rosbag2/pull/2387>`__, and
-  `ros2/rosbag2#2391 <https://github.com/ros2/rosbag2/pull/2391>`__ for more details.
-
-* Added recorder service APIs for starting and stopping recording, starting and stopping topic
-  discovery, and querying whether discovery is running.
-  This makes it possible to control a recorder process remotely through ROS services instead
-  of only through the command-line process lifecycle.
-
-  See `ros2/rosbag2#2248 <https://github.com/ros2/rosbag2/pull/2248>`__ for more details.
-
-* Added scheduled service operations for coordinated recording and playback workflows.
-  Record, play, resume, and split operations can now be scheduled by time, with support for
-  node time, publish time, and receive time modes where applicable.
-  Service responses were also extended with explicit return codes and error strings.
-
-  See `ros2/rosbag2#2330 <https://github.com/ros2/rosbag2/pull/2330>`__ and
-  `ros2/rosbag2#2357 <https://github.com/ros2/rosbag2/pull/2357>`__ for more details.
-
-* Added circular logging by split count.
-  When recording with bag splitting enabled, ``--max-bag-files`` limits the maximum number of
-  bag files stored on disk by automatically deleting the oldest split files as new ones are
-  created.
-
-  See `ros2/rosbag2#2218 <https://github.com/ros2/rosbag2/pull/2218>`__ for more details.
-
-* Added a time-bounded snapshot cache option, ``--max-cache-duration``.
-  This allows snapshot-mode recording to bound the cached data by duration in addition to
-  existing cache controls.
-
-  See `ros2/rosbag2#2289 <https://github.com/ros2/rosbag2/pull/2289>`__ for more details.
-
-* Added message-loss observability during recording.
-  ``Rosbag2`` can now collect message-loss statistics from the transport layer and recorder
-  internals, and publish incremental per-topic loss events on the predefined
-  ``events/rosbag2_messages_lost`` topic.
-  The publishing rate can be configured with ``--stats_max_publishing_rate``.
-
-  See `ros2/rosbag2#2039 <https://github.com/ros2/rosbag2/pull/2039>`__,
-  `ros2/rosbag2#2144 <https://github.com/ros2/rosbag2/pull/2144>`__, and
-  `ros2/rosbag2#2150 <https://github.com/ros2/rosbag2/pull/2150>`__ for more details.
-
-* Expanded the ``rosbag2_py`` player and recorder APIs.
-  Python users can now programmatically control playback and recording with APIs such as
-  pause, resume, stop, seek, play-next, spin control, and wait helpers, instead of relying
-  only on blocking command-line-style helpers.
-
-  See `ros2/rosbag2#2047 <https://github.com/ros2/rosbag2/pull/2047>`__ and
-  `ros2/rosbag2#2062 <https://github.com/ros2/rosbag2/pull/2062>`__ for more details.
-
-* Added APIs for querying player timing metadata.
-  Users can now query the player's starting time and playback duration, and Python readers
-  can access the send timestamp when reading serialized messages.
-
-  See `ros2/rosbag2#2061 <https://github.com/ros2/rosbag2/pull/2061>`__ and
-  `ros2/rosbag2#2095 <https://github.com/ros2/rosbag2/pull/2095>`__ for more details.
-
-* Improved message definition resolution for recorded data.
-  ``Rosbag2`` can now find message definitions in nested subdirectories, better resolve inner
-  message definitions for service and action introspection data, and support relative includes
-  in local IDL message definitions.
-
-  See `ros2/rosbag2#2041 <https://github.com/ros2/rosbag2/pull/2041>`__,
-  `ros2/rosbag2#2052 <https://github.com/ros2/rosbag2/pull/2052>`__,
-  `ros2/rosbag2#2055 <https://github.com/ros2/rosbag2/pull/2055>`__, and
-  `ros2/rosbag2#2241 <https://github.com/ros2/rosbag2/pull/2241>`__ for more details.
-
-* Updated split bag file naming to include the split index, bag name, and timestamp, making
-  split files easier to identify and sort.
-
-  See `ros2/rosbag2#2265 <https://github.com/ros2/rosbag2/pull/2265>`__ for more details.
-
-* Enabled the ``rosbag2_performance_benchmarking`` package to be built by default, making the
-  benchmarking tools easier to use for recorder and player performance evaluation.
-
-  See `ros2/rosbag2#2093 <https://github.com/ros2/rosbag2/pull/2093>`__ for more details.
-
-``rosidl_buffer``
-^^^^^^^^^^^^^^^^^
-
-Added ``rosidl::Buffer<T>``, a generated C++ container for variable-length primitive array fields such as ``uint8[]``.
-It behaves like ``std::vector<T>`` with the default CPU backend, while allowing backend plugins to provide externally managed storage such as GPU memory.
-
-The first RMW integration is for topic publish/subscribe with ``rmw_fastrtps_cpp``.
-
-See :doc:`../Concepts/Intermediate/About-Buffer-Backends` and :doc:`../How-To-Guides/Using-Buffer-Backends` for more details.
-
-``rosidl_buffer_backend``
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Added the ``rosidl::BufferBackend`` plugin interface for packages that implement storage and transport backends for ``rosidl::Buffer`` fields.
-Backend plugins provide descriptor message type support, build per-endpoint descriptors, reconstruct buffers on the receiving side, and participate in endpoint discovery.
-
-Backends are discovered through ``pluginlib`` and registered by RMW automatically.
-See :doc:`../Tutorials/Advanced/Writing-a-Buffer-Backend` for the backend implementer guide.
-
-``rosidl_python``
-^^^^^^^^^^^^^^^^^
-
-Passing in Python ``set`` objects into array or sequence fields is now deprecated.
-Instead pass in something that implements ``collections.abc.Sequence`` most commonly a ``list``, ``tuple``, or a ``numpy.ndarray``. To be removed in ROS M.
-
-All generated messages, services, and actions are fully statically typed.
+Pass constructor arguments to plugins using ``class_loader``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You may now pass arguments to plugins using ``class_loader``.
+This removes the need for an initialization method in a plugin's API.
+All you need to do is specialize ``class_loader::InterfaceTraits<>`` in your plugin's base class.
+
+.. code-block:: c++
+
+    class MyPluginWithConstructor
+    {
+    public:
+      // constructor parameters for the base class do not need to match the derived classes
+      explicit MyPluginWithConstructor(std::string) {}
+      virtual ~MyPluginWithConstructor() = default;
+
+      virtual int some_api() = 0;
+    };
+
+    template<>
+    struct class_loader::InterfaceTraits<MyPluginWithConstructor>
+    {
+      // Define constructor arguments that you must pass to instantiate a plugin
+      using constructor_parameters = class_loader::ConstructorParameters<std::string,
+          std::unique_ptr<int>>;
+    };
+
+
+For more information see `ros/class_loader#223 <https://github.com/ros/class_loader/pull/223>`_.
