@@ -205,17 +205,6 @@ Call ``await`` on any ``asyncio`` operation from any subscription, service, and 
 Try ``await client.call(request)`` to wait for service calls, and the sim-time aware ``await clock.sleep(...)``.
 This class uses significantly less CPU compared to the default ``SingleThreadedExecutor``.
 
-<<<<<<< HEAD
-``rclcpp``
-^^^^^^^^^^
-Added new `Callback Group Events Executor <https://github.com/ros2/rclcpp/pull/3097>`__.
-Like its predecessor the experimental ``EventsExecutor``, the ``EventsCBGExecutor`` uses an events queue to process ready entities.
-Builds on the experimental ``EventsExecutor`` by adding support for multiple sources of ROS time and multiple threads.
-Compared to the Single and Multithreaded Executors, the ``EventsCBGExecutor`` exhibits around 10 to 15% less CPU usage.
-Note: The experimental ``EventsExecutor`` is now deprecated. For similar performance, use the ``EventsCBGExecutor`` with one thread.
-
-`Unified component container interface <https://github.com/ros2/rclcpp/pull/3134>`__ - ``component_container`` is now the single entrypoint for launching both regular and isolated component containers with all types of executors.
-=======
 .. code-block:: python
 
     import asyncio
@@ -235,7 +224,6 @@ Note: The experimental ``EventsExecutor`` is now deprecated. For similar perform
     async def _main():
         with rclpy.init():
             await HelloWorldNode().run()
->>>>>>> 5c6892f (Highlight ROS Lyrical changes with examples (#6765))
 
     if __name__ == '__main__':
         asyncio.run(_main())
