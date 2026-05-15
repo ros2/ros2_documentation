@@ -228,7 +228,7 @@ This class uses significantly less CPU compared to the default ``SingleThreadedE
     if __name__ == '__main__':
         asyncio.run(_main())
 
-See the :doc:`Writing an async node with asyncio <../Tutorials/Intermediate/Writing-An-Async-Node-With-Asyncio-Python>` tutorial and `ros2/rclpy#1620 <https://github.com/ros2/rclpy/pull/1620>`_ for more details.
+See :doc:`../Tutorials/Intermediate/Writing-An-Async-Node-With-Asyncio-Python` and `ros2/rclpy#1620 <https://github.com/ros2/rclpy/pull/1620>`_ for more details.
 
 Publish messages without copying data using ``rosidl::Buffer``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -615,7 +615,7 @@ Use these new C++ and Python APIs.
     node->get_servers_info_by_service("some/service/name");
     node->get_clients_info_by_service("some/service/name");
 
-See `ros2/ros2cli#916 <https://github.com/ros2/ros2cli/pull/916>`, `ros2/rclpy#1307 <https://github.com/ros2/rclpy/pull/1307>`_, and `ros2/rclcpp#2569 <https://github.com/ros2/rclcpp/pull/2569>`_ for more info.
+See `ros2/ros2cli#916 <https://github.com/ros2/ros2cli/pull/916>`_, `ros2/rclpy#1307 <https://github.com/ros2/rclpy/pull/1307>`_, and `ros2/rclcpp#2569 <https://github.com/ros2/rclcpp/pull/2569>`_ for more info.
 
 ``ros2 topic bw`` multiple topics at once
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
