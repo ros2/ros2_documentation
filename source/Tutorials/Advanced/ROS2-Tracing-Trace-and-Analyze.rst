@@ -10,7 +10,7 @@ Overview
 This tutorial covers:
 
 1. running and tracing a ``performance_test`` run
-2. analyzing the trace data using `tracetools_analysis <https://github.com/ros-tracing/tracetools_analysis>`_ to plot the callback durations
+2. analyzing the trace data using `tracetools_analysis <https://github.com/ros-tracing/tracetools_analysis>`_ to plot the callback durations using `Jupyter Notebook <https://jupyter.org/>`_
 
 Prerequisites
 -------------
