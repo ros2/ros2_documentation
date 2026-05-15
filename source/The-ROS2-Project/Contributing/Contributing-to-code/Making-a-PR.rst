@@ -18,7 +18,7 @@ Pull requests (PRs) are proposals to merge your changes into a ROS project.
 Making a pull request allows you to collaborate with other ROS contributors, providing a space to discuss and review your ROS code changes before merging them.
 Pull requests are welcome for any of `the ROS repositories <https://github.com/ros2>`__.
 
-For more information about contribution etiquette, see :doc:`Contributing <The-ROS2-Project/Contributing>`.
+For more information about contribution etiquette, see :doc:`Contributing <../../Contributing>`.
 
 Prerequisites
 -------------
