@@ -5,7 +5,7 @@ RHEL (RPM packages)
    :depth: 2
    :local:
 
-RPM packages for ROS 2 {DISTRO_TITLE_FULL} are currently available for RHEL 9.
+RPM packages for ROS 2 {DISTRO_TITLE_FULL} are currently available for RHEL 10.
 The Rolling Ridley distribution will change target platforms from time to time as new platforms are selected for development.
 The target platforms are defined in `REP 2000 <https://reps.openrobotics.org/rep-2000/>`__.
 Most people will want to use a stable ROS distribution.
@@ -15,7 +15,7 @@ Resources
 
 * Status Page:
 
-  * ROS 2 {DISTRO_TITLE} (RHEL 9): `amd64 <http://repo.ros2.org/status_page/ros_{DISTRO}_rhel.html>`__
+  * ROS 2 {DISTRO_TITLE} (RHEL 10): `amd64 <http://repo.ros2.org/status_page/ros_{DISTRO}_rhel.html>`__
 * `Jenkins Instance <http://build.ros2.org/>`__
 * `Repositories <http://repo.ros2.org>`__
 
