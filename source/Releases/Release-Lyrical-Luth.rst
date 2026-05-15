@@ -228,8 +228,6 @@ This class uses significantly less CPU compared to the default ``SingleThreadedE
     if __name__ == '__main__':
         asyncio.run(_main())
 
-See :doc:`../Tutorials/Intermediate/Writing-An-Async-Node-With-Asyncio-Python` and `ros2/rclpy#1620 <https://github.com/ros2/rclpy/pull/1620>`_ for more details.
-
 Publish messages without copying data using ``rosidl::Buffer``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -243,9 +241,6 @@ Note that only publishers and subscribers using ``rmw_fastrtps_cpp`` may use thi
 
 Using a custom hardware accelerator or machine learning library?
 You can benefit from this too.
-See :doc:`../Tutorials/Advanced/Writing-a-Buffer-Backend` to learn how to implement your own ``rosidl::BufferBackend``.
-
-See :doc:`../Concepts/Intermediate/About-Buffer-Backends` and :doc:`../How-To-Guides/Using-Buffer-Backends` for more details.
 
 Use YAML tags in parameter files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
