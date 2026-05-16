@@ -247,11 +247,11 @@ See :doc:`../Tutorials/Advanced/Writing-a-Buffer-Backend` to learn how to implem
 
 See :doc:`../Concepts/Intermediate/About-Buffer-Backends` and :doc:`../How-To-Guides/Using-Buffer-Backends` for more details.
 
-Use YAML tags in parameter files
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Annotate types in YAML Parameter Files
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Tired of ``rcl`` interpreting ambiguous YAML parameter values as the wrong type?
-Prevent that by specifying the type using YAML tags.
+In ROS Lyrical, use YAML tags to specify the correct type.
 
 .. code-block:: yaml
 
@@ -266,10 +266,12 @@ Prevent that by specifying the type using YAML tags.
 
 See `ros2/rcl#1275 <https://github.com/ros2/rcl/pull/1275>`_ for more info.
 
-More logging options in launch files
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Per-message log severity in launch files
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Have different kinds of messages in your log files that you want to log with different severity?
+ROS Lyrical now supports per-message log severity levels in launch files.
+This makes it easier to find important messages or ignore unimportant ones in log files when debugging!
+
 Specify the log level using the new ``level`` argument on the ``log`` action.
 Alternatively, use the new ``log_debug``, ``log_info``, ``log_warning``, or ``log_error`` actions.
 
@@ -420,8 +422,8 @@ Playback example:
 
 See `ros2/rosbag2#2047 <https://github.com/ros2/rosbag2/pull/2047>`_, `ros2/rosbag2#2062 <https://github.com/ros2/rosbag2/pull/2062>`_, `ros2/rosbag2#2061 <https://github.com/ros2/rosbag2/pull/2061>`_, and `ros2/rosbag2#2095 <https://github.com/ros2/rosbag2/pull/2095>`_ for more details.
 
-Circular recording by bag split
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Circular bag recording with limit on number of bags
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Recording data on your robot with limited disk space?
 Try the new ``--max-bag-files`` option.
@@ -451,8 +453,8 @@ Do you have trouble identifying which bag is which?
 
 See `ros2/rosbag2#2265 <https://github.com/ros2/rosbag2/pull/2265>`_ for more details.
 
-``rosbag2`` message-loss observability
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Catch data loss early with ``rosbag2`` message-loss observability
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Say you've built a robust system for recording data on your robot, but there is a problem.
 How do you *know* there's a problem?
@@ -494,10 +496,7 @@ Are you using simulated time?
 How do you know if all of your nodes are using simulated time?
 Use ``ros2 param get <param name>`` to get a parameter value from all nodes.
 
-.. code-block:: shell
-
-    ros2 param get use_sim_time
-
+.. image:: images/ros2_param_get_use_sim_time.gif
 
 See `ros2/ros2cli#1174 <https://github.com/ros2/ros2cli/pull/1174>`_ for more info.
 
@@ -529,8 +528,8 @@ Use ``ros2 param set <node name> <param1> <value1> <param2> <value2> ...`` to se
 
 See `ros2/ros2cli#1203 <https://github.com/ros2/ros2cli/pull/1203>`_ and `ros2/ros2cli#1204 <https://github.com/ros2/ros2cli/pull/1204>`_ for more details.
 
-Actions, Services, and Environment variables in ``ros2 doctor --report``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+``ros2 doctor --report`` now reports Actions, Services, and Environment variables
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ``ros2 doctor --report`` now includes information about Actions, Services, and ROS-related environment variables.
 Include this report in your GitHub issues or AI prompts to debug problems faster.
