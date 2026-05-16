@@ -175,7 +175,7 @@ adopters:
     description: "ROS 2 sensor fusion SDK replacing deprecated robot_localization. Fuses IMU, wheel encoders, and GPS via Unscented Kalman Filter at 100Hz. Automatic IMU bias estimation, Mahalanobis outlier rejection, adaptive noise covariance, TF validation at startup. Apache 2.0."
 
   - organization: "Kai Tung Yu"
-    organization_url: "https://bristolgram.uk/lgdxrobot2/"
+    organization_url: "https://lgdxrobot.uk/lgdxrobot2/"
     project: "LGDXRobot2"
     project_url: "https://github.com/yukaitung/lgdxrobot2-ros2"
     domain:
@@ -410,3 +410,16 @@ adopters:
     country:
       - DE
     description: "SMAROBIX builds an AI-enhanced software that provides engineers with explainable system insights and guided, robot-in-the-loop workflows throughout the whole engineering process to diagnose bottlenecks, validate safety, real-time behavior, and iteratively improve performance based on measurable evidence."
+
+  - organization: "Kai Tung Yu"
+    organization_url: "https://lgdxrobot.uk/cloud/"
+    project: "LGDXRobot Cloud Adapter"
+    project_url: "https://github.com/yukaitung/lgdxrobot-cloud-adapter"
+    domain:
+      - Education
+      - Logistics/Warehouse
+      - Research
+    date_added: "2026-05-16"
+    country:
+      - GB
+    description: "LGDXRobot Cloud is a robot management system for AGVs. It can monitor the status of robots and manage automated logistics tasks. LGDXRobot Cloud Adapter is an integration layer for ROS 2-compatible robots using topics and services."
