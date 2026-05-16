@@ -423,3 +423,4 @@ adopters:
     country:
       - GB
     description: "LGDXRobot Cloud is a robot management system for AGVs. It can monitor the status of robots and manage automated logistics tasks. LGDXRobot Cloud Adapter is an integration layer for ROS 2-compatible robots using topics and services."
+    
