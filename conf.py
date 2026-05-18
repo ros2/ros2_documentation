@@ -94,6 +94,7 @@ extensions = [
 # Intersphinx mapping
 
 intersphinx_mapping = {
+    'python':        ('https://docs.python.org/3', None),
     'catkin_pkg':    ('http://docs.ros.org/en/independent/api/catkin_pkg/html', None),
     'jenkins_tools': ('http://docs.ros.org/en/independent/api/jenkins_tools/html', None),
     'rosdep':        ('http://docs.ros.org/en/independent/api/rosdep/html', None),
@@ -139,7 +140,7 @@ templates_path = [
 
 # smv_tag_whitelist = None
 
-smv_branch_whitelist = r'^(rolling|kilted|jazzy|iron|humble|galactic|foxy|eloquent|dashing|crystal)$'
+smv_branch_whitelist = r'^(rolling|lyrical|kilted|jazzy|iron|humble|galactic|foxy|eloquent|dashing|crystal)$'
 
 
 smv_released_pattern = r'^refs/(heads|remotes/[^/]+)/(kilted|jazzy|iron|humble|galactic|foxy|eloquent|dashing|crystal).*$'
@@ -157,6 +158,7 @@ distro_full_names = {
     'iron': 'Iron Irwini',
     'jazzy': 'Jazzy Jalisco',
     'kilted': 'Kilted Kaiju',
+    'lyrical': 'Lyrical Luth',
     'rolling': 'Rolling Ridley',
 }
 

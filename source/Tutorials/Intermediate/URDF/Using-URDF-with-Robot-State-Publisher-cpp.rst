@@ -23,7 +23,7 @@ Background
 This tutorial will show you how to model a walking robot, publish the state as a tf2 message and view the simulation in Rviz.
 First, we create the URDF model describing the robot assembly.
 Next we write a node which simulates the motion and publishes the JointState and transforms.
-We then use ``robot_state_publisher`` to publish the entire robot state to ``/tf2``.
+We then use ``robot_state_publisher`` to publish the entire robot state to ``/tf``.
 
 .. image:: images/r2d2_rviz_demo.gif
 
@@ -40,12 +40,12 @@ Tasks
 1 Create a package
 ^^^^^^^^^^^^^^^^^^
 
-Go to your ROS 2 workplace and create a package names ``urdf_tutorial_cpp``:
+Go to your ROS 2 workspace and create a package named ``urdf_tutorial_cpp``:
 
 .. code-block:: console
 
     $ cd src
-    $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 urdf_tutorial_cpp --dependencies rclcpp
+    $ ros2 pkg create --build-type ament_cmake --license Apache-2.0 urdf_tutorial_cpp --dependencies rclcpp geometry_msgs sensor_msgs tf2_ros tf2_geometry_msgs
     $ cd urdf_tutorial_cpp
 
 You should now see a ``urdf_tutorial_cpp`` folder.
@@ -95,7 +95,7 @@ Fire up your favorite editor and paste the following code into
   #include <rclcpp/rclcpp.hpp>
   #include <geometry_msgs/msg/quaternion.hpp>
   #include <sensor_msgs/msg/joint_state.hpp>
-  #include <tf2_ros/transform_broadcaster.h>
+  #include <tf2_ros/transform_broadcaster.hpp>
   #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
   #include <cmath>
   #include <thread>
@@ -103,11 +103,11 @@ Fire up your favorite editor and paste the following code into
 
   using namespace std::chrono;
 
-  class StatePublisher : public rclcpp::Node{
+  class StatePublisher : public rclcpp::Node {
       public:
 
       StatePublisher(rclcpp::NodeOptions options=rclcpp::NodeOptions()):
-          Node("state_publisher",options){
+          Node("state_publisher", options){
               joint_pub_ = this->create_publisher<sensor_msgs::msg::JointState>("joint_states",10);
               // create a publisher to tell robot_state_publisher the JointState information.
               // robot_state_publisher will deal with this transformation
@@ -116,27 +116,24 @@ Fire up your favorite editor and paste the following code into
               // this broadcaster will determine the position of coordinate system 'axis' in coordinate system 'odom'
               RCLCPP_INFO(this->get_logger(),"Starting state publisher");
 
-              loop_rate_=std::make_shared<rclcpp::Rate>(33ms);
-
               timer_=this->create_wall_timer(33ms,std::bind(&StatePublisher::publish,this));
           }
 
-          void publish();
       private:
       rclcpp::Publisher<sensor_msgs::msg::JointState>::SharedPtr joint_pub_;
       std::shared_ptr<tf2_ros::TransformBroadcaster> broadcaster;
-      rclcpp::Rate::SharedPtr loop_rate_;
       rclcpp::TimerBase::SharedPtr timer_;
 
-      //Robot state variables
-      // degree means one degree
-      const double degree=M_PI/180.0;
+      // Robot state variables (one degree in radians)
+      const double degree = M_PI/180.0;
       double tilt = 0.;
       double tinc = degree;
       double swivel = 0.;
       double angle = 0.;
       double height = 0.;
       double hinc = 0.005;
+
+      void publish();
   };
 
   void StatePublisher::publish(){
@@ -144,14 +141,14 @@ Fire up your favorite editor and paste the following code into
       geometry_msgs::msg::TransformStamped t;
       sensor_msgs::msg::JointState joint_state;
 
-      // add time stamp
-      joint_state.header.stamp=this->get_clock()->now();
+      const auto ts = this->get_clock()->now();
+      joint_state.header.stamp = ts;
       // Specify joints' name which are defined in the r2d2.urdf.xml and their content
       joint_state.name={"swivel","tilt","periscope"};
       joint_state.position={swivel,tilt,height};
 
       // add time stamp
-      t.header.stamp=this->get_clock()->now();
+      t.header.stamp = ts;
       // specify the father and child frame
 
       // odom is the base coordinate system of tf2
@@ -164,7 +161,7 @@ Fire up your favorite editor and paste the following code into
       t.transform.translation.y=sin(angle)*2;
       t.transform.translation.z=0.7;
       tf2::Quaternion q;
-      // euler angle into Quanternion and add rotation change
+      // euler angle into Quaternion and add rotation change
       q.setRPY(0,0,angle+M_PI/2);
       t.transform.rotation.x=q.x();
       t.transform.rotation.y=q.y();
@@ -187,7 +184,7 @@ Fire up your favorite editor and paste the following code into
       broadcaster->sendTransform(t);
       joint_pub_->publish(joint_state);
 
-      RCLCPP_INFO(this->get_logger(),"Publishing joint state");
+      RCLCPP_INFO_THROTTLE(this->get_logger(), *this->get_clock(), 1000, "Publishing joint state");
   }
 
   int main(int argc, char * argv[]){
@@ -197,9 +194,9 @@ Fire up your favorite editor and paste the following code into
       return 0;
   }
 
-This file will send ``joint_state`` values  to ``robot_state_publisher`` which in turn will tell tf2 how to place model.
-
-The code file will also tell ``tf2`` how to place the whole model using the  ``transform_broadcaster``
+This node does two things:
+- Publishes ``JointState`` message to the ``/joint_states`` topic so that ``robot_state_publisher`` can compute all the per-joint transforms and broadcasts them via ``/tf``.
+- Broadcasts a single root transform that places the robot model (``axis`` frame) in the world (``odom`` frame), making the whole robot walk in a circle.
 
 4 Create a launch file
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -219,7 +216,7 @@ Edit the ``CMakeLists.txt`` file as follows:
 
 .. code-block:: cmake
 
-  cmake_minimum_required(VERSION 3.8)
+  cmake_minimum_required(VERSION 3.20)
   project(urdf_tutorial_cpp)
 
   if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
@@ -237,10 +234,10 @@ Edit the ``CMakeLists.txt`` file as follows:
   add_executable(urdf_tutorial_cpp src/urdf_tutorial.cpp)
 
   target_link_libraries(urdf_tutorial_cpp PUBLIC
-    ${geometry_msgs_TARGETS}
-    ${sensor_msgs_TARGETS}
+    geometry_msgs::geometry_msgs
+    sensor_msgs::sensor_msgs
     tf2_ros::tf2_ros
-    ${tf2_geometry_msgs_TARGETS}
+    tf2_geometry_msgs::tf2_geometry_msgs
     rclcpp::rclcpp
   )
 
@@ -261,12 +258,12 @@ Edit the ``CMakeLists.txt`` file as follows:
 
   ament_package()
 
-we use ``install`` command to put the ``r2d2.rviz`` into ``install`` dir
+The ``install(DIRECTORY urdf ...)`` rule copies both ``r2d2.urdf.xml`` and ``r2d2.rviz`` into the install tree so they can be found at runtime.
 
-6 Install the package
+6 Build the package
 ^^^^^^^^^^^^^^^^^^^^^
 
-To visualize the results you will need to open a new terminal and run RViz using your RViz configuration file.
+Return to your workspace root and build:
 
 .. code-block:: console
 

@@ -7,6 +7,7 @@ Demos
    Demos/Quality-of-Service
    Demos/Managed-Nodes
    Demos/Intra-Process-Communication
+   Demos/GPU-Buffer-Transport
    Demos/Real-Time-Programming
    Demos/dummy-robot-demo
    Demos/Logging-and-logger-configuration

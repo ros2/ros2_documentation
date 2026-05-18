@@ -2,8 +2,8 @@ RTI Connext DDS
 =================
 
 RTI Connext DDS is trusted in over 2000 of the world's most demanding system designs, distributing critical real-time data with the highest levels of performance, reliability, and security.
-It is available on a free academic or non-commercial license, or a commercial license with support, for dozens of production-grade platforms.
-More information can be found at the `RTI website <https://www.rti.com/products>`__.
+It is free-of-charge for prototyping, research, non-commercial and academic use.
+Visit the `RTI website <https://www.rti.com/ros>`__ for more information and to learn about options for support and commercial licenses.
 
 
 Prerequisites
@@ -18,10 +18,9 @@ Install RTI Connext DDS
   ==================  ===================  ====================
   ROS 2 Distribution  Installed using apt  To Build from Source
   ==================  ===================  ====================
-  rolling             n/a                  ``7.3.0``
+  rolling             n/a                  ``7.7.0``
   kilted              ``7.3.0``            ``7.3.0``
   jazzy               ``6.0.1``            ``6.0.1``
-  iron                ``6.0.1``            ``6.0.1``
   humble              ``6.0.1``            ``6.0.1``
   ==================  ===================  ====================
 
@@ -31,6 +30,12 @@ RTI Connext Pro is available through a variety of channels:
   ROS 2 users can install a non-commercial-use version of the RTI Connext DDS libraries from the ROS apt repository using the following command:
 
   .. tabs::
+
+     .. group-tab:: v7.7.0
+
+        .. code-block:: console
+
+           $ sudo apt update && sudo apt install -q -y rti-connext-dds-7.7.0-ros
 
      .. group-tab:: v7.3.0
 
@@ -44,13 +49,15 @@ RTI Connext Pro is available through a variety of channels:
 
            $ sudo apt update && sudo apt install -q -y rti-connext-dds-6.0.1
 
-  Note that this includes the RTI Connext libraries only, and does not include the full RTI Connext Pro suite of tools and services.
-  Note also that the Connext libraries are automatically installed when installing ``rmw_connextdds`` using apt.
+  This package includes the RTI Connext core DDS libraries only; it does not include the full Connext Professional suite of tools and run-time services.
+  Note that these Connext libraries are automatically installed when installing ``rmw_connextdds`` using apt.
 
 **Other Installation Options**
-RTI Connext DDS is a proprietary DDS implementation with a number of advanced features and commercial support options.
-RTI provides both a `non-commercial / research license <https://www.rti.com/free-trial/university-program>`__ for students and researchers and a `time-limited free trial license <https://content.rti.com/l/983311/2025-06-26/q5tyw3>`__ for commercial users.
-Detailed instructions for building and tuning the RMW and ROS 2 applications for a variety of platforms, and enabling DDS Security and safety-cert options are available on the `RTI ROS Community <https://community.rti.com/ros>`__ pages.
+The `Connext Robotics Toolkit <https://www.rti.com/developers/connext-robotics-toolkit>`__ includes the full suite of Connext tools and infrastructure services.
+It provides a single step installation of ROS and Connext using apt.
+It is free for prototype development, research, non-commercial and academic use.
+
+Detailed instructions for building and tuning the RMW and ROS 2 applications for a variety of platforms, and enabling DDS Security are available on the `RTI ROS Community <https://community.rti.com/ros>`__ pages.
 
 
 Install rmw_connextdds binary packages
@@ -87,11 +94,11 @@ Then, install necessary packages for RTI Connext DDS.
 
 Set up the environment to help colcon discover where RTI Connext is installed.
 This can be done by manually setting the environment variable ``NDDSHOME`` to the location of the RTI Connext installation, or by using a script that comes with the RTI Connext installation.
-For example, for version 7.3.0, you can run the following code to execute the helper script:
+For example, for version 7.7.0, you can run the following code to execute the helper script:
 
 .. code-block:: console
 
-   $ source /opt/rti.com/rti_connext_dds-7.3.0/resource/scripts/rtisetenv_x64Linux4gcc7.3.0.bash
+   $ source /opt/rti.com/rti_connext_dds-7.7.0/resource/scripts/rtisetenv_x64Linux4gcc8.5.0.bash
 
 If the previous command failed, and you can't find the location of the RTI Connext installation, run this to find all Connext installations (and their corresponding helper scripts) in your system:
 

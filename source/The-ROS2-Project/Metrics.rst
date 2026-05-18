@@ -29,7 +29,7 @@ Periodic Metrics Report
 We periodically publish a metrics report that provides a quantitative view of the ROS community.
 We're collectively learning what to measure and how and evolving as systems change.
 Please provide feedback!
-Add your suggestions on how to improve these reports by posting them to `ROS Discourse Site Feedback Category <http://discourse.ros.org/c/site-feedback>`_.
+Add your suggestions on how to improve these reports by posting them to `Open Robotics Discourse Site Feedback Category <https://discourse.openrobotics.org/c/site-feedback/3>`_.
 
 Historical Metrics Reports
 ..........................

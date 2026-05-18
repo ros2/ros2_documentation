@@ -22,9 +22,13 @@ Any additions or changes must be applied to both files.
 """
 
 import re
+import time
+import urllib.request
+import urllib.error
 
 VALID_DOMAINS = [
     'Agriculture',         # Farming, harvesting, crop monitoring, and precision agriculture
+    'Aviation',            # Aircraft systems, avionics, luggage handling, passenger service, and airport operations
     'Aerial/Drone',        # UAVs, drones, aerial inspection, and survey systems
     'Automotive',          # Self-driving cars, ADAS, and ground vehicle autonomy
     'Components',          # Robot parts and peripherals (cameras, LIDAR, RADAR, SONAR, etc)
@@ -100,3 +104,85 @@ def validate_adopters(adopters):
                             f'ISO 3166-1 alpha-2 code, got "{code}"'
                         )
     return errors
+
+
+def validate_adopter_urls(adopters, timeout=10):
+    """Check URL availability for adopter entries. Returns list of warning strings.
+
+    Only flags URLs that are genuinely unreachable (connection failures
+    or server-down HTTP status codes).  Any HTTP response — even an
+    error like 403 — proves the host is alive.
+    """
+    warnings = []
+    if not isinstance(adopters, list):
+        return ["'adopters' must be a list"]
+
+    seen_urls = {}  # cache results to avoid duplicate requests
+
+    for i, entry in enumerate(adopters):
+        if not isinstance(entry, dict):
+            continue
+        prefix = (
+            f'Entry {i + 1} '
+            f'({entry.get("organization", "unknown")}/{entry.get("project", "unknown")})'
+        )
+        for url_field in ('organization_url', 'project_url'):
+            url = entry.get(url_field)
+            if not url:
+                continue
+
+            # Use cached result if we already checked this URL.
+            if url in seen_urls:
+                if seen_urls[url] is not None:
+                    warnings.append(f'{prefix}: "{url_field}" {seen_urls[url]}')
+                continue
+
+            error_msg = _check_url(url, timeout)
+            seen_urls[url] = error_msg
+            if error_msg:
+                warnings.append(f'{prefix}: "{url_field}" {error_msg}')
+    return warnings
+
+
+def _check_url(url, timeout, retries=3, backoff_factor=2):
+    """Return an error message string if the URL is unreachable, else None.
+
+    Only flags URLs that are genuinely dead — connection failures and
+    HTTP status codes that explicitly indicate the server or origin is
+    down.  Any other HTTP response (even 403, 429, etc.) proves the host
+    is alive, so those are treated as reachable.  SSL/TLS errors also
+    indicate the host responded at the TCP level, so those are not flagged.
+
+    Retries transient failures (timeouts, network errors, 5xx codes) up to
+    ``retries`` times with exponential backoff to avoid false alarms from
+    flaky network conditions.
+    """
+    # HTTP codes that mean the server/origin is down or unreachable.
+    _UNREACHABLE_CODES = (502, 503, 504, 521, 522, 523, 525, 530)
+
+    last_error = None
+    for attempt in range(retries):
+        if attempt > 0:
+            time.sleep(backoff_factor ** attempt)
+        try:
+            req = urllib.request.Request(url, method='HEAD')
+            with urllib.request.urlopen(req, timeout=timeout) as resp:
+                if resp.status in _UNREACHABLE_CODES:
+                    last_error = f'URL returned HTTP {resp.status}: {url}'
+                    continue
+            return None
+        except urllib.error.HTTPError as e:
+            if e.code in _UNREACHABLE_CODES:
+                last_error = f'URL returned HTTP {e.code}: {url}'
+                continue
+            return None  # any other HTTP response means the server is alive
+        except (urllib.error.URLError, OSError) as e:
+            # SSL/TLS errors mean the TCP connection succeeded — host is alive.
+            err_str = str(e)
+            if 'SSL' in err_str or 'CERTIFICATE' in err_str:
+                return None
+            last_error = f'URL is not reachable: {url} ({e})'
+            continue
+        except ValueError as e:
+            return f'invalid URL: {url} ({e})'
+    return last_error
