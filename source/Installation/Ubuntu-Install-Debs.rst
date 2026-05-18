@@ -179,8 +179,7 @@ After the installation is complete, you can proceed with :doc:`configuring your 
 
 We recommend that you get familiar with key ROS concepts and check out the tutorials:
 
-* :doc:`../Concepts`
-* :doc:`../Tutorials`
+* :doc:`First steps with ROS - learning path <../First-Steps>`
 
 Related content
 ---------------
@@ -188,7 +187,6 @@ Related content
 More articles:
 
 * :doc:`Create a workspace <../Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>`
-* :doc:`First steps with ROS <../First-Steps>`
 * :doc:`About ROS <../About-ROS>`
 
 Packages/reference:
