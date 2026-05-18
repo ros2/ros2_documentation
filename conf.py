@@ -89,33 +89,7 @@ extensions = [
     'sphinx_adopters',
     'sphinxcontrib.googleanalytics',
     'sphinxcontrib.mermaid',
-    'pagefind_meta',
-    'showmeta',
 ]
-
-# Pagefind mergeIndex: optional per-package API doc bundles.
-# Enable only when upstream sites publish Pagefind at .../en/{distro}/p/{pkg}/pagefind
-pagefind_merge_enabled = False
-pagefind_merge_package_pkgs = []
-pagefind_merge_index_base = 'https://docs.ros.org'
-pagefind_merge_index_overrides = {}
-pagefind_merge_filter_per_pkg = None
-pagefind_merge_index_weight_per_pkg = None
-
-# Optional display labels for Pagefind filter UI (key → label). Unlisted keys use title-case.
-pagefind_filter_labels = {
-    'contentType': 'Content Type',
-}
-
-pagefind_result_meta_order = [
-    'product',
-    'distro',
-    'area',
-    'capability',
-    'contentType',
-    'experience',
-]
-
 
 # Intersphinx mapping
 
@@ -194,7 +168,6 @@ macros = {
     'DISTRO_TITLE': 'Rolling',
     'DISTRO_TITLE_FULL': 'Rolling Ridley',
     'REPOS_FILE_BRANCH': 'rolling',
-    'PRODUCT': 'ROS 2', 
 }
 
 html_favicon = 'favicon.ico'
@@ -208,7 +181,7 @@ html_static_path = ['source/_static']
 html_sourcelink_suffix = ''
 
 # Relative to html_static_path
-html_css_files = ['custom.css', 'adopters.css', 'pagefind-docsearch.css']
+html_css_files = ['custom.css', 'adopters.css']
 html_js_files = ['adopters.js']
 
 # -- Options for HTMLHelp output ------------------------------------------

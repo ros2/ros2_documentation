@@ -20,12 +20,6 @@ multiversion: Makefile
 	sphinx-multiversion $(OPTS) "$(SOURCE)" build/html
 	@echo "<html><head><meta http-equiv=\"refresh\" content=\"0; url=kilted/index.html\" /></head></html>" > build/html/index.html
 	$(PYTHON) make_sitemapindex.py
-	
-# Pagefind static search index (requires Node.js / npx). Run after html or multiversion.
-PAGEFIND_VERSION ?= 1.5.2
-pagefind:
-	npx -y pagefind@$(PAGEFIND_VERSION) --site "$(OUT)/html"
-
 
 %: Makefile
 	@$(BUILD) -M $@ "$(SOURCE)" "$(OUT)" $(OPTS)

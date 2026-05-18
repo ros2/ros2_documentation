@@ -3,22 +3,10 @@
 About ROS
 =========
 
-.. meta::
-  :contentType: about
-  :experience: beginner
-  :area: framework, tools, capabilities
-  :capability: simulation
-  :distro: {DISTRO}
-  :product: {PRODUCT}
-  
-  
-
 ROS (Robot Operating System) is an open-source ecosystem that provides the framework, tools, and libraries for building, deploying, running, and maintaining robotic applications.
 This article introduces the main areas of the ecosystem and outlines their intended use.
 
-.. showmeta::
-   :order: product, area, capability, contentType, experience
-   :labels: product=Product, area=Area, capability=Capability, contentType=Content type, experience=Level
+**Area: ROS-framework, ROS-tools, ROS-capabilities | Content-type: about | Experience: beginner**
 
 .. contents:: Table of Contents
    :depth: 2
