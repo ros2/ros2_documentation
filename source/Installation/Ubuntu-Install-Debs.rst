@@ -191,12 +191,12 @@ More articles:
 
 Packages/reference:
 
-* `ros-{DISTRO}-desktop <https://index.ros.org/p/desktop/#{DISTRO}>`__
-* `ros-{DISTRO}-ros-base <https://index.ros.org/p/ros_base/#{DISTRO}>`__
-* `demo_nodes_cpp <https://index.ros.org/p/demo_nodes_cpp/#{DISTRO}>`__
-* `demo_nodes_py <https://index.ros.org/p/demo_nodes_py/#{DISTRO}>`__
-* `ros2-apt-source <https://github.com/ros-infrastructure/ros-apt-source/>`__
-* `ros-dev-tools <https://github.com/ros-infrastructure/infra-variants/tree/latest/ros-dev-tools>`__
+* `ros-{DISTRO}-desktop <https://index.ros.org/p/desktop/#{DISTRO}>`__: A package which extends ``ros_base`` and includes high level packages like vizualization tools and demos.
+* `ros-{DISTRO}-ros-base <https://index.ros.org/p/ros_base/#{DISTRO}>`__: A package which extends ``ros_core`` and includes other basic functionalities like tf2 and urdf.
+* `demo_nodes_cpp <https://index.ros.org/p/demo_nodes_cpp/#{DISTRO}>`__: C++ nodes which were previously in the ros2/examples repository but are now just used for demo purposes.
+* `demo_nodes_py <https://index.ros.org/p/demo_nodes_py/#{DISTRO}>`__: Python nodes which were previously in the ros2/examples repository but are now just used for demo purposes.
+* `ros2-apt-source <https://github.com/ros-infrastructure/ros-apt-source/>`__: Source and key configuration for the ROS 2 apt repository.
+* `ros-dev-tools <https://github.com/ros-infrastructure/infra-variants/tree/latest/ros-dev-tools>`__: Variant which includes packages generally useful during ROS development.
 
 FAQs
 ----
