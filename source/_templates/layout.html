@@ -1,0 +1,9 @@
+{% extends "!layout.html" %}
+{% block extrahead %}
+  {{ super() }}
+  {% if pagefind_seo_filter_metas %}
+  <!-- Pagefind / SEO docinfo -->
+  {{ pagefind_seo_filter_metas|safe }}
+  <meta name="pagefind-page-meta" data-pagefind-meta="{{ pagefind_data_meta_attr|safe }}" content="1">
+  {% endif %}
+{% endblock %}

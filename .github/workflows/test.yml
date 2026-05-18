@@ -77,6 +77,14 @@ jobs:
 
       - name: Build the docs
         run: make html
+        
+      - name: Setup Node.js (Pagefind)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Index HTML with Pagefind
+        run: make pagefind   
 
       - name: Upload document artifacts
         uses: actions/upload-artifact@v4
@@ -147,3 +155,11 @@ jobs:
 
       - name: Build the docs
         run: make multiversion
+        
+      - name: Setup Node.js (Pagefind)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Index HTML with Pagefind
+        run: make pagefind
