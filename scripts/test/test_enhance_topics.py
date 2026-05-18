@@ -13,7 +13,9 @@ from enhance_topics import (
     analyze_files,
     update_meta_files,
     enhance_metadata,
-    MAX_CONTENT_LENGTH
+    enhance_short_descriptions,
+    _metadata_enhancement_task,
+    MAX_CONTENT_LENGTH,
 )
 from enhance_data import EnhanceData
 
@@ -99,10 +101,10 @@ def test_analyze_files_basic_flow(
     )
 
     files = ["file1.rst"]
-    prompts = {"description": "desc prompt"}
-    
+    tasks = [_metadata_enhancement_task("description", "desc prompt")]
+
     with patch("builtins.open", mock_open(read_data="File content")):
-        analyze_files(files, mock_client, prompts)
+        analyze_files(files, mock_client, tasks)
 
     mock_analyze.assert_called_once()
     mock_validate.assert_called_once()
@@ -111,14 +113,14 @@ def test_analyze_files_basic_flow(
 @patch('enhance_topics.get_meta_names_from_content')
 def test_analyze_files_skips_existing_meta(mock_get_meta, mock_client):
     """Test that files with existing metadata are skipped."""
-    mock_get_meta.return_value = ["description"] # Description already exists
-    
+    mock_get_meta.return_value = {"description"}
+
     files = ["file1.rst"]
-    prompts = {"description": "desc prompt"}
-    
+    tasks = [_metadata_enhancement_task("description", "desc prompt")]
+
     with patch("builtins.open", mock_open(read_data="File content")):
         with patch('enhance_topics.analyze_content') as mock_analyze:
-            analyze_files(files, mock_client, prompts)
+            analyze_files(files, mock_client, tasks)
             mock_analyze.assert_not_called()
 
 # --- Tests for update_meta_files ---
@@ -189,3 +191,39 @@ def test_enhance_metadata_orchestration(mock_update, mock_analyze, mock_get_clie
     mock_get_client.assert_called_once()
     mock_analyze.assert_called_once()
     mock_update.assert_called_once()
+
+
+@patch("enhance_topics.cleanup_short_description_resources")
+@patch("enhance_topics.update_enhanced_files")
+@patch("enhance_topics.analyze_files")
+@patch("enhance_topics.create_short_description_assistant")
+@patch("enhance_topics.ensure_example_vector_store")
+@patch("enhance_topics.get_openai_client")
+def test_enhance_short_descriptions_orchestration(
+    mock_get_client,
+    mock_ensure_vs,
+    mock_create_asst,
+    mock_analyze,
+    mock_update,
+    mock_cleanup,
+):
+    """Short-description path creates VS + assistant, analyses, updates, and cleans up."""
+    mock_client = MagicMock()
+    mock_get_client.return_value = mock_client
+    mock_ensure_vs.return_value = "vs_1"
+    mock_create_asst.return_value = "asst_1"
+    empty = EnhanceData(results={}, updated_files=set())
+    mock_analyze.return_value = empty
+    mock_update.return_value = empty
+
+    enhance_short_descriptions(["article.rst"])
+
+    mock_ensure_vs.assert_called_once()
+    mock_create_asst.assert_called_once()
+    mock_analyze.assert_called_once()
+    mock_update.assert_called_once()
+    mock_cleanup.assert_called_once()
+    res = mock_cleanup.call_args[0][1]
+    assert res is not None
+    assert res.assistant_id == "asst_1"
+    assert res.vector_store_id == "vs_1"
