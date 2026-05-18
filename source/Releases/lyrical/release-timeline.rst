@@ -2,7 +2,7 @@ Lyrical Luth Release Timeline
 =============================
 
 For progress on the development of Lyrical Luth, see `this project board <https://github.com/orgs/ros2/projects/70>`__.
-For the broad process followed by Lyrical Luth, see the :doc:`process description page <Release-Process>`.
+For the broad process followed by Lyrical Luth, see the :doc:`process description page <../Release-Process>`.
 
 **As soon as possible** - Migrate ROS Rolling to ROS Lyrical's target platforms
     * RHEL 10 + Ubuntu 26.04: Migrate as soon as core packages successfully build on both platforms.
