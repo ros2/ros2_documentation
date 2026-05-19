@@ -1,7 +1,7 @@
 Lyrical Luth Supported Platforms
 ================================
 
-ROS Lyrical supports the following platforms according to `the platform support tiers <../../The-ROS2-Project/Platform-Support-Tiers>`:
+ROS Lyrical supports the following platforms according to :doc:`the platform support tiers <../../The-ROS2-Project/Platform-Support-Tiers>`:
 
 +--------------+-------------------+-------------------+---------------+-------------------+-----------+-----------------+----------------+
 | Architecture | Ubuntu Resolute   | Ubuntu Noble*     | Windows 11    | RHEL 10           | macOS     | Debian Trixie*  | OpenEmbedded / |
@@ -14,7 +14,7 @@ ROS Lyrical supports the following platforms according to `the platform support 
 | arm32        | Tier 3            | Tier 3            |               |                   |           | Tier 3          | Tier 3         |
 +--------------+-------------------+-------------------+---------------+-------------------+-----------+-----------------+----------------+
 
-* ``*`` Early EOL per `the platform EOL policy <../../The-ROS2-Project/Platform-EOL-Policy>`
+* ``*`` Early EOL per :doc:`the platform EOL policy <../../The-ROS2-Project/Platform-EOL-Policy>`
     * Ubuntu Noble is supported until ``2029-06-01``
     * Debian Trixie is supported until ``2028-08-09``
 * ``[d]`` You may install ROS Lyrical on this platform using Distribution-specific packaegs (Debian, RPM, etc.).
