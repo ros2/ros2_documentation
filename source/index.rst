@@ -104,7 +104,7 @@ If you're interested in the advancement of the ROS 2 project:
   - Downloadable marketing materials
   - `Information about the ROS trademark <https://www.ros.org/blog/media/>`__
 
-* :doc:`Adopters <The-ROS2-Project/Adopters/Adopters>`
+* :doc:`Adopters <The-ROS2-Project/Adopters>`
 
   - Organizations and projects using ROS
 
@@ -119,7 +119,7 @@ If you need help, have an idea, or would like to contribute to the project, plea
 
   - See :ref:`Contact Page <Using Robotics Stack Exchange>` for more information
 
-* `ROS Discourse <https://discourse.ros.org/>`__ (ROS 1, ROS 2)
+* `Open Robotics Discourse <https://discourse.openrobotics.org/>`__ (ROS 1, ROS 2)
 
   - Forum for general discussions and announcements for the ROS community
   - See the :ref:`Contact Page <Using ROS Discourse>` for more information

@@ -326,16 +326,16 @@ Require a newer version of CMake so that ``ament_cmake`` functions work correctl
 
 .. code-block:: cmake
 
-   cmake_minimum_required(VERSION 3.14.4)
+   cmake_minimum_required(VERSION 3.20)
 
 Use a newer C++ standard matching the version used by your target ROS distro in `REP 2000 <https://reps.openrobotics.org/rep-2000/>`__.
-If you are using C++17, then set that version with the following snippet after the ``project(talker)`` call.
+If you are using C++20, then set that version with the following snippet after the ``project(talker)`` call.
 Add extra compiler checks too because it is a good practice.
 
 .. code-block:: cmake
 
    if(NOT CMAKE_CXX_STANDARD)
-     set(CMAKE_CXX_STANDARD 17)
+     set(CMAKE_CXX_STANDARD 20)
    endif()
    if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
      add_compile_options(-Wall -Wextra -Wpedantic)
@@ -362,7 +362,7 @@ Make the ``target_link_libraries`` call modern CMake targets provided by ``rclcp
 
    target_link_libraries(talker PUBLIC
      rclcpp::rclcpp
-     ${std_msgs_TARGETS})
+     std_msgs::std_msgs)
 
 Delete the call to ``include_directories()``.
 Add a call to ``target_include_directories()`` below ``add_executable(talker talker.cpp)``.
@@ -386,10 +386,10 @@ The new ``CMakeLists.txt`` looks like this:
 
 .. code-block:: cmake
 
-   cmake_minimum_required(VERSION 3.14.4)
+   cmake_minimum_required(VERSION 3.20)
    project(talker)
    if(NOT CMAKE_CXX_STANDARD)
-     set(CMAKE_CXX_STANDARD 17)
+     set(CMAKE_CXX_STANDARD 20)
    endif()
    if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
      add_compile_options(-Wall -Wextra -Wpedantic)
@@ -403,7 +403,7 @@ The new ``CMakeLists.txt`` looks like this:
       "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
    target_link_libraries(talker PUBLIC
      rclcpp::rclcpp
-     ${std_msgs_TARGETS})
+     std_msgs::std_msgs)
    install(TARGETS talker
      DESTINATION lib/${PROJECT_NAME})
    ament_package()

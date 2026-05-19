@@ -170,7 +170,7 @@ Now open the ``CMakeLists.txt`` file and add a new executable and name it ``Sync
 .. code-block:: cmake
 
     add_executable(SyncAsyncWriter src/sync_async_writer.cpp)
-    target_link_libraries(SyncAsyncWriter PUBLIC rclcpp::rclcpp ${std_msgs_TARGETS})
+    target_link_libraries(SyncAsyncWriter PUBLIC rclcpp::rclcpp std_msgs::std_msgs)
 
 Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your executable:
 
@@ -184,7 +184,7 @@ You can clean up your ``CMakeLists.txt`` by removing some unnecessary sections a
 
 .. code-block:: cmake
 
-    cmake_minimum_required(VERSION 3.8)
+    cmake_minimum_required(VERSION 3.20)
     project(sync_async_node_example_cpp)
 
     # Default to C++14
@@ -201,7 +201,7 @@ You can clean up your ``CMakeLists.txt`` by removing some unnecessary sections a
     find_package(std_msgs REQUIRED)
 
     add_executable(SyncAsyncWriter src/sync_async_writer.cpp)
-    target_link_libraries(SyncAsyncWriter PUBLIC rclcpp::rclcpp ${std_msgs_TARGETS})
+    target_link_libraries(SyncAsyncWriter PUBLIC rclcpp::rclcpp std_msgs::std_msgs)
 
     install(TARGETS
         SyncAsyncWriter
@@ -365,7 +365,7 @@ Open the ``CMakeLists.txt`` file and add a new executable and name it ``SyncAsyn
 .. code-block:: cmake
 
     add_executable(SyncAsyncReader src/sync_async_reader.cpp)
-    target_link_libraries(SyncAsyncReader PUBLIC rclcpp::rclcpp ${std_msgs_TARGETS})
+    target_link_libraries(SyncAsyncReader PUBLIC rclcpp::rclcpp std_msgs::std_msgs)
 
     install(TARGETS
         SyncAsyncReader
@@ -679,10 +679,10 @@ Open the ``CMakeLists.txt`` file and add two new executables ``ping_service`` an
     find_package(example_interfaces REQUIRED)
 
     add_executable(ping_service src/ping_service.cpp)
-    target_link_libraries(ping_service PUBLIC ${example_interfaces_TARGETS} rclcpp::rclcpp)
+    target_link_libraries(ping_service PUBLIC example_interfaces::example_interfaces rclcpp::rclcpp)
 
     add_executable(ping_client src/ping_client.cpp)
-    target_link_libraries(ping_client PUBLIC ${example_interfaces_TARGETS} rclcpp::rclcpp)
+    target_link_libraries(ping_client PUBLIC example_interfaces::example_interfaces rclcpp::rclcpp)
 
     install(TARGETS
         ping_service

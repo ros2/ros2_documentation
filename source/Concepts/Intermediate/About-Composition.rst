@@ -42,17 +42,24 @@ A component container is a host process that allows you to load and manage multi
 
 As of now, the following generic component container types are available:
 
-* `component_container <https://github.com/ros2/rclcpp/blob/{REPOS_FILE_BRANCH}/rclcpp_components/src/component_container.cpp>`__
+* ``component_container``
 
-  * The most generic component container that uses a single ``SingleThreadedExecutor`` to execute all components.
+  * Component container that uses a single ``SingleThreadedExecutor`` to execute the components.
 
-* `component_container_mt <https://github.com/ros2/rclcpp/blob/{REPOS_FILE_BRANCH}/rclcpp_components/src/component_container_mt.cpp>`__
+* ``component_container --executor-type multi-threaded``
 
   * Component container that uses a single ``MultiThreadedExecutor`` to execute the components.
 
-* `component_container_isolated <https://github.com/ros2/rclcpp/blob/{REPOS_FILE_BRANCH}/rclcpp_components/src/component_container_isolated.cpp>`__
+* ``component_container --executor-type events-cbg``
 
-  * Component container that uses a dedicated executor for each component: either ``SingleThreadedExecutor`` (default) or ``MultiThreadedExecutor``.
+  * Component container that uses a single ``EventsCBGExecutor`` to execute the components.
+
+* ``component_container --executor-type single-threaded --isolated``
+
+  * Component container that uses a dedicated executor for each component: available options are ``SingleThreadedExecutor`` (default), ``MultiThreadedExecutor``, and ``EventsCBGExecutor``.
+
+For both isolated and non-isolated component containers using the ``MultiThreadedExecutor`` or ``EventsCBGExecutor``, the number of event processing threads can be configured via the ROS parameter ``thread_num``.
+In isolated mode, every dedicated executor will be created with ``thread_num`` threads.
 
 For more information about the types of executors, see the :ref:`TypesOfExecutors`.
 For more information about the options of each component container, see :ref:`ComponentContainerTypes` in the composition tutorial.

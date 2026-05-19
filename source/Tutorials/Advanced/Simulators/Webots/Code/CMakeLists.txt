@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.20)
 project(my_package)
 
 if(NOT CMAKE_CXX_STANDARD)

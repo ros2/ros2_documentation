@@ -165,7 +165,7 @@ Now open the ``CMakeLists.txt`` add the executable and name it ``fixed_frame_tf2
     add_executable(fixed_frame_tf2_broadcaster src/fixed_frame_tf2_broadcaster.cpp)
     target_link_libraries(
         fixed_frame_tf2_broadcaster PUBLIC
-        ${geometry_msgs_TARGETS}
+        geometry_msgs::geometry_msgs
         rclcpp::rclcpp
         tf2_ros::tf2_ros
     )
@@ -182,7 +182,7 @@ Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your e
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Now let's create a launch file for this example.
-With your text editor, create a new file called ``turtle_tf2_fixed_frame_demo_launch`` with extension ``.py``, ``.xml``, or ``.yaml`` in the ``src/learning_tf2_cpp/launch`` directory, and add the following lines:
+With your text editor, create a new file called ``turtle_tf2_fixed_frame_demo_launch`` with extension ``.py``, ``.xml``, or ``.yaml`` in the ``src/learning_tf2_cpp/launch`` directory, check the type (``.py``, ``.xml``, or ``.yaml``) of previous tutorial's launch file and add the following lines:
 
 .. tabs::
 
@@ -456,7 +456,7 @@ Now open the ``CMakeLists.txt`` add the executable and name it ``dynamic_frame_t
     add_executable(dynamic_frame_tf2_broadcaster src/dynamic_frame_tf2_broadcaster.cpp)
     target_link_libraries(
         dynamic_frame_tf2_broadcaster PUBLIC
-        ${geometry_msgs_TARGETS}
+        geometry_msgs::geometry_msgs
         rclcpp::rclcpp
         tf2_ros::tf2_ros
     )
@@ -472,7 +472,7 @@ Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your e
 2.3 Write the launch file
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To test this code, create a new launch file ``turtle_tf2_dynamic_frame_demo_launch`` with extension ``.py``, ``.xml``, or ``.yaml`` in the ``src/learning_tf2_cpp/launch`` directory and paste the following code:
+To test this code, create a new launch file ``turtle_tf2_dynamic_frame_demo_launch`` with extension ``.py``, ``.xml``, or ``.yaml`` in the ``src/learning_tf2_cpp/launch`` directory and check the type (``.py``, ``.xml``, or ``.yaml``) of previous tutorial's launch file and paste the following code:
 
 .. tabs::
 

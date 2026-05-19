@@ -3,4 +3,4 @@ If your package build is successful, in 24-48 hours your packages will become av
 
 Approximately every two to four weeks, the distribution's release manager manually synchronizes the contents of ros-testing into the main ROS repository.
 This is when your packages actually become available to the rest of the ROS community.
-To get updates on when the next synchronization (sync) is coming, subscribe to the `Packaging and Release Management Category on ROS Discourse <https://discourse.ros.org/c/release/16>`_.
+To get updates on when the next synchronization (sync) is coming, subscribe to the `Packaging and Release Management Category on Open Robotics Discourse <https://discourse.openrobotics.org/c/ros/release/16>`_.
