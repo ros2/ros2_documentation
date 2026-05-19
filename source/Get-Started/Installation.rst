@@ -7,15 +7,12 @@ Installation
 Options for installing ROS 2 {DISTRO_TITLE_FULL}:
 
 .. toctree::
-   :hidden:
-   :glob:
-
+   :maxdepth: 1
+   
    Installation/Ubuntu-Install-Debs
    Installation/Windows-Install-Binary
    Installation/RHEL-Install-RPMs
-   Installation/Alternatives
-   Installation/Maintaining-a-Source-Checkout
-   Installation/Testing
+   Installation/Alternatives   
    Installation/RMW-Implementations
    Installation/ROS-2-Mirrors
 

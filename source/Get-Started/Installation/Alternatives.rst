@@ -1,4 +1,4 @@
-Alternatives
+Advanced installation options
 ============
 
 A list of alternative ways to install ROS 2 – whether it's by building from source or installing a binary.
@@ -14,3 +14,4 @@ A list of alternative ways to install ROS 2 – whether it's by building from s
    Alternatives/RHEL-Install-Binary
    Alternatives/macOS-Development-Setup
    Alternatives/Latest-Development-Setup
+   Alternatives/Maintaining-a-Source-Checkout

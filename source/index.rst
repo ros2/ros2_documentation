@@ -10,9 +10,9 @@ ROS 2 Documentation
    :maxdepth: 1
    :hidden:
 
-   About-ROS
-   Installation
-   Releases
+   Get-Started
+   ROS-Framework
+   Capabilities
    Tutorials
    How-To-Guides
    Concepts
