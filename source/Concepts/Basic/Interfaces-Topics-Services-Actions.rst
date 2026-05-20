@@ -7,9 +7,10 @@
 Interfaces (topics, services, actions)
 ======================================
 
-Interfaces in ROS define how nodes exchange data.
-This article explains the different types of ROS interface and the differences between them.
-With this information, you'll be able to select the right interfaces for your purposes.
+.. short-description::
+   Interfaces in ROS define how nodes exchange data.
+   This article explains the different types of ROS interface and the differences between them.
+   With this information, you'll be able to select the right interfaces for your purposes.  
 
 **Area: ROS-framework | Content-type: concept | Experience: beginner**
 

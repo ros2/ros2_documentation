@@ -30,6 +30,8 @@ ASSISTANT_POLL_INTERVAL = 1.5
 # Example RST paths (relative to repository root) indexed into the vector store for file_search
 SHORT_DESCRIPTION_EXAMPLE_PATHS = [
     "source/About-ROS.rst",
+    "source/First-Steps.rst",
+    "source/Concepts/Basic/Interfaces-Topics-Services-Actions.rst",
 ]
 
 # Define prompts for the AI model
