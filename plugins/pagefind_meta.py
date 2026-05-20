@@ -151,7 +151,7 @@ def _search_results_href(app, pagename: str) -> str:
     """
     builder = getattr(app, 'builder', None)
     if builder is None:
-        return 'search.html'
+        return 'search'
     try:
         current = builder.get_target_uri(pagename, typ='html')
         target = builder.get_target_uri('search', typ='html')
@@ -160,7 +160,7 @@ def _search_results_href(app, pagename: str) -> str:
             return rel
     except (AttributeError, KeyError, ValueError):
         pass
-    return 'search.html'
+    return 'search'
 
 
 def _merge_index_entries(app, distro: str) -> List[Dict[str, Any]]:
@@ -211,7 +211,7 @@ def _html_page_context(
         'pagefind_result_meta_order': list(
             getattr(app.config, 'pagefind_result_meta_order', []) or []
         ),
-        'pagefind_search_results_href': 'search.html',
+        'pagefind_search_results_href': 'search',
     }
     context.update(empty)
 

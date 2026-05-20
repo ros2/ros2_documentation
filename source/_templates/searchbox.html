@@ -3,7 +3,7 @@
 <script type="module">
   const js = {{ pagefind_component_js|tojson }};
   const mergeIndex = {{ pagefind_merge_index|tojson }};
-  const searchResultsUrl = {{ pathto('search_results')|tojson }};
+  const searchResultsUrl = {{ pagefind_search_results_href|tojson }};
 
   function getPagefindInstance() {
     return window.PagefindComponents?.getInstanceManager?.()?.getInstance?.('default') ?? null;
