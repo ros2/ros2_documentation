@@ -7,6 +7,7 @@ from openai import OpenAIError
 # Add the scripts directory to sys.path to allow importing enhance_topics
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+from config import MAX_CONTENT_LENGTH
 from enhance_topics import (
     analyze_content,
     get_openai_client,
@@ -14,10 +15,10 @@ from enhance_topics import (
     update_meta_files,
     enhance_metadata,
     enhance_short_descriptions,
+    main,
     _metadata_enhancement_task,
-    MAX_CONTENT_LENGTH,
 )
-from enhance_data import EnhanceData
+from enhance_data import EnhanceData, create_enhance_data, calculate_metrics
 
 @pytest.fixture
 def mock_client():
@@ -174,6 +175,32 @@ def test_update_meta_files_skips_no_change(mock_inject, mock_get_results):
     # Verify write was NOT called
     m_open().write.assert_not_called()
 
+@patch("enhance_topics.get_meta_names_from_content")
+@patch("enhance_topics.analyze_content")
+@patch("enhance_topics.validate_content")
+def test_analyze_files_accumulates_onto_initial_data(
+    mock_validate,
+    mock_analyze,
+    mock_get_meta,
+    mock_client,
+):
+    """Passing an accumulator extends per-file results via add_analysis_result."""
+    mock_get_meta.return_value = []
+    mock_analyze.return_value = "Generated description"
+    mock_validate.return_value = True
+    initial = EnhanceData(
+        results={"file1.rst": {"keywords": "existing"}},
+        updated_files=set(),
+    )
+    tasks = [_metadata_enhancement_task("description", "desc prompt")]
+
+    with patch("builtins.open", mock_open(read_data="File content")):
+        result = analyze_files(["file1.rst"], mock_client, tasks, initial)
+
+    assert result.results["file1.rst"]["keywords"] == "existing"
+    assert result.results["file1.rst"]["description"] == "Generated description"
+
+
 # --- Tests for enhance_metadata ---
 
 @patch('enhance_topics.get_openai_client')
@@ -227,3 +254,43 @@ def test_enhance_short_descriptions_orchestration(
     assert res is not None
     assert res.assistant_id == "asst_1"
     assert res.vector_store_id == "vs_1"
+
+
+@patch("enhance_topics.enhance_short_descriptions")
+@patch("enhance_topics.enhance_metadata")
+@patch("enhance_topics.get_openai_client")
+def test_main_threads_accumulator_through_both_enhancements(
+    mock_get_client,
+    mock_metadata,
+    mock_short_descriptions,
+):
+    """CLI entry point folds one EnhanceData through metadata then short description."""
+    mock_get_client.return_value = MagicMock()
+    empty = create_enhance_data()
+    after_meta = EnhanceData(
+        results={"topic.rst": {"description": "d"}},
+        updated_files={"topic.rst"},
+    )
+    after_short = EnhanceData(
+        results={"topic.rst": {"description": "d", "short-description": "s"}},
+        updated_files={"topic.rst"},
+    )
+
+    def metadata_side_effect(files, client, data):
+        assert data == empty
+        return after_meta
+
+    def short_side_effect(files, client, data):
+        assert data == after_meta
+        return after_short
+
+    mock_metadata.side_effect = metadata_side_effect
+    mock_short_descriptions.side_effect = short_side_effect
+
+    with patch.object(sys, "argv", ["enhance_topics.py", "topic.rst"]):
+        main()
+
+    mock_get_client.assert_called_once()
+    metrics = calculate_metrics(after_short)
+    assert metrics.files_with_results_count == 1
+    assert metrics.updated_files_count == 1

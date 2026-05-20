@@ -16,20 +16,16 @@ from typing import Iterable
 from openai import OpenAI, RateLimitError, APIConnectionError
 from tenacity import retry, stop_after_attempt, wait_random_exponential, retry_if_exception_type
 
+from config import (
+    ASSISTANT_POLL_INTERVAL,
+    ASSISTANT_RUN_TIMEOUT,
+    MAX_CONTENT_LENGTH,
+    MAX_RETRIES,
+    MAX_WAIT,
+    MIN_WAIT,
+)
+
 logger = logging.getLogger(__name__)
-
-# Align with enhance_topics retry policy for vector store / assistant creation
-MAX_RETRIES = 10
-MIN_WAIT = 10
-MAX_WAIT = 120
-
-# Maximum time for one assistant run (thread message + run + polling)
-ASSISTANT_RUN_TIMEOUT = 120
-# Interval between run status polls
-ASSISTANT_POLL_INTERVAL = 1.5
-
-# Match enhance_topics.MAX_CONTENT_LENGTH for user message payload
-MAX_CONTENT_LENGTH = 1_200_000
 
 _SCRIPTS_DIR = Path(__file__).resolve().parent
 REPO_ROOT = _SCRIPTS_DIR.parent

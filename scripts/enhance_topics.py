@@ -2,6 +2,7 @@ import logging
 import re
 import sys
 import os
+from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from typing import Callable, Optional
 
@@ -10,6 +11,21 @@ from openai import OpenAI, RateLimitError, APIConnectionError, OpenAIError
 from tenacity import retry, stop_after_attempt, wait_random_exponential, retry_if_exception_type
 from concurrent.futures import ThreadPoolExecutor
 
+from config import (
+    ASSISTANT_RUN_TIMEOUT,
+    DEFAULT_TIMEOUT,
+    DESCRIPTION_PROMPT,
+    ENGLISH_LANGUAGE_CHECK_PROMPT,
+    GPT_MODEL,
+    KEYWORDS_PROMPT,
+    MAX_CONTENT_LENGTH,
+    MAX_RETRIES,
+    MAX_WAIT,
+    MIN_WAIT,
+    RST_EXTENSION,
+    SHORT_DESCRIPTION_EXAMPLE_PATHS,
+    SHORT_DESCRIPTION_PROMPT,
+)
 from enhance_data import (
     EnhanceData,
     add_analysis_result,
@@ -19,7 +35,6 @@ from enhance_data import (
     mark_file_updated,
 )
 from openai_retrieval import (
-    ASSISTANT_RUN_TIMEOUT,
     RetrievalResources,
     analyze_with_file_search,
     cleanup_short_description_resources,
@@ -35,67 +50,46 @@ from rst_utils import (
 
 logger = logging.getLogger(__name__)
 
-# Define constants
-GPT_MODEL = "gpt-5.4-nano" # GPT model to use for the API calls
-# Maximum content length in characters, approximately 300k tokens (leaving 100k for instructions/output)
-MAX_CONTENT_LENGTH = 1200000
-RST_EXTENSION = '.rst' # File extension for RST files
 
-# Define timeout and retry parameters for API calls
-# - Individual API calls timeout after DEFAULT_TIMEOUT seconds
-# - On rate limits/connection errors, retry up to MAX_RETRIES times
-# - Wait between retries, increasing exponentially: MIN_WAIT → MAX_WAIT (capped)
-DEFAULT_TIMEOUT = 30  # Default timeout in seconds for an individual API call
-MAX_RETRIES = 10     # Maximum number of retry attempts for exponential backoff
-MIN_WAIT = 10        # Minimum wait time between retries in seconds
-MAX_WAIT = 120        # Maximum wait time between retries in seconds
+@dataclass(frozen=True)
+class AppliedContent:
+    """RST body after applying analysis results, and whether it differs from the input."""
 
-# Example RST paths (relative to repository root) indexed into the vector store for file_search
-SHORT_DESCRIPTION_EXAMPLE_PATHS = [
-    "source/About-ROS.rst",
-]
+    content: str
+    changed: bool
 
-# Define prompts for the AI model
 
-SHORT_DESCRIPTION_PROMPT = """You are a Technical Author in the technology industry working on documenting a robotics product, and your role is to analyze RST content within supplied documents. 
-You'll then create new content based on this analysis for a new draft article, which I can use to supplement that article.
+class ApplyHook(ABC):
+    """Apply stored analysis results to an RST file body."""
 
-## Examples
-Use file_search to read through the following RST files in their entirety as examples of completed articles:
+    @abstractmethod
+    def apply(self, content: str, results: dict[str, str]) -> AppliedContent:
+        """Return updated content and whether the source was modified."""
 
-- About-ROS.rst
-- First-Steps.rst
-- Interfaces-Topics-Services-Actions.rst
 
-## Short Description
-For each article in this set of examples, analyse the content associated with the "short-description" directive, and what it constitutes in relation to the article it describes. For example, in the First-Steps article, the 3 sentences which begin as follows comprise the specified short description:
+@dataclass(frozen=True)
+class MetadataApplyHook(ApplyHook):
+    """Merge ``description`` / ``keywords`` results into ``.. meta::``."""
 
-* "Interfaces in ROS..."
-* "This article explains the..."
-* "With this information..."
+    def apply(self, content: str, results: dict[str, str]) -> AppliedContent:
+        subset = {k: v for k, v in results.items() if k in ("description", "keywords")}
+        if not subset:
+            return AppliedContent(content=content, changed=False)
+        new_content, changed = inject_metadata_to_content(content, subset)
+        return AppliedContent(content=new_content, changed=changed)
 
-This short description content does not include the single line of text commencing with "**Area...", or the "contents" (Table of Contents) directive.
 
-When you have identified the short description in all example articles, remember the formatting and how the paragraph is constructed, including tone/style and length. We call this the article Short Description.
+@dataclass(frozen=True)
+class ShortDescriptionApplyHook(ApplyHook):
+    """Insert or fill ``.. short-description::`` from analysis results."""
 
-Finally, generate the short description for the new article given in the user message, with no additional styling, characters, or formatting.
-"""
+    def apply(self, content: str, results: dict[str, str]) -> AppliedContent:
+        val = results.get("short-description")
+        if not val or not val.strip():
+            return AppliedContent(content=content, changed=False)
+        new_content, changed = inject_short_description_to_content(content, val)
+        return AppliedContent(content=new_content, changed=changed)
 
-KEYWORDS_PROMPT = """You are a content analyst, and your role is to analyze text content within supplied documents.
-
-Your role is to extract 3 to 5 keywords from the content for use in metadata. The keywords should be single words that are the most important and relevant words to the content topic.
-
-Finally, generate a comma-separated list of these keywords, in lowercase, with no additional styling, characters, or formatting."""
-
-DESCRIPTION_PROMPT = """You are a content analyst, and your role is to analyze text content within supplied documents.
-
-Your role is to create a concise description of the content for use in metadata. The description should be a single sentence (of a maximum of 130 characters) that captures the main idea of the content.
-
-Finally, generate this description, with no additional styling, characters, or formatting."""
-
-ENGLISH_LANGUAGE_CHECK_PROMPT = """You are a validation assistant, and your role is to determine whether the following text is written entirely in English. Common technical terms, acronyms, and internationally recognised proper nouns are acceptable if they are normally used in English technical documentation.
-
-Answer ONLY with the single word yes or no in lowercase, with no punctuation, explanation, or additional text."""
 
 @dataclass(frozen=True)
 class EnhancementTask:
@@ -122,13 +116,13 @@ def _metadata_enhancement_task(key: str, prompt: str) -> EnhancementTask:
 def _short_description_enhancement_task(assistant_id: str) -> EnhancementTask:
     """Build a task that writes to the ``.. short-description::`` directive body."""
 
-    def analyze(cl: OpenAI, content: str, to: int) -> str:
-        return analyze_with_file_search(cl, assistant_id, content, timeout=to)
-
     def should_skip(content: str) -> bool:
         return has_short_description_content(content)
 
-    return EnhancementTask("short-description", should_skip, analyze, ASSISTANT_RUN_TIMEOUT)
+    def analyze(cl: OpenAI, content: str, to: int) -> str:
+        return analyze_with_file_search(cl, assistant_id, content, timeout=to)
+
+    return EnhancementTask(key="short-description", should_skip=should_skip, analyze=analyze, timeout=ASSISTANT_RUN_TIMEOUT)
 
 
 @retry(
@@ -285,6 +279,7 @@ def validate_content(client: OpenAI, generated: str, timeout: int = DEFAULT_TIME
             logger.warning("Retryable error during language validation: %s", e)
             raise
 
+        # Get the answer from the completion (should be yes or no)
         answer = completion.choices[0].message.content
         raw = (answer or "").strip().lower()
         # Accept a single leading yes/no token even if the model adds stray whitespace
@@ -307,7 +302,12 @@ def validate_content(client: OpenAI, generated: str, timeout: int = DEFAULT_TIME
             logger.error("Validation timed out after %s seconds", timeout)
             raise
 
-def analyze_files(files: list[str], client: OpenAI, tasks: list[EnhancementTask]) -> EnhanceData:
+def analyze_files(
+    files: list[str],
+    client: OpenAI,
+    tasks: list[EnhancementTask],
+    data: Optional[EnhanceData] = None,
+) -> EnhanceData:
     """
     Process a list of files and analyse their content using each enhancement task.
 
@@ -315,11 +315,12 @@ def analyze_files(files: list[str], client: OpenAI, tasks: list[EnhancementTask]
         files (list[str]): List of paths to files.
         client (OpenAI): OpenAI client instance.
         tasks (list[EnhancementTask]): Enhancement tasks to run per file.
+        data (EnhanceData, optional): Accumulator for results; empty if omitted.
 
     Returns:
         EnhanceData: Enhancement data structure containing analysis results and update tracking.
     """
-    data = create_enhance_data()
+    acc = data if data is not None else create_enhance_data()
 
     logger.debug("============================")
     logger.debug("Performing content analysis:")
@@ -355,10 +356,13 @@ def analyze_files(files: list[str], client: OpenAI, tasks: list[EnhancementTask]
                 continue
             logger.debug("Running analysis: %s", task.key)
             try:
+                # Analyse the content using the task's analyze function
                 result = task.analyze(client, content, task.timeout)
                 if result:
+                    # Validate the generated content
                     if validate_content(client, result, timeout=DEFAULT_TIMEOUT):
-                        data = add_analysis_result(data, file_path, task.key, result)
+                        # Add the analysis result to the enhancement data
+                        acc = add_analysis_result(acc, file_path, task.key, result)
                     else:
                         logger.warning(
                             "Validation failed for generated %s in %s; result not stored",
@@ -366,6 +370,7 @@ def analyze_files(files: list[str], client: OpenAI, tasks: list[EnhancementTask]
                             file_path,
                         )
                 else:
+                    # Log a warning if no result was generated
                     logger.warning("No result for %s with task %r", file_path, task.key)
 
             except (RateLimitError, APIConnectionError) as e:
@@ -378,7 +383,7 @@ def analyze_files(files: list[str], client: OpenAI, tasks: list[EnhancementTask]
                 logger.error("Failed to analyse %s with task %r: %s", file_path, task.key, e)
                 continue
 
-    return data
+    return acc
 
 
 def get_openai_client() -> OpenAI:
@@ -405,37 +410,17 @@ def get_openai_client() -> OpenAI:
     return OpenAI(api_key=api_key)
 
 
-def _apply_metadata_results(content: str, results: dict[str, str]) -> tuple[str, bool]:
-    """Merge ``description`` / ``keywords`` results into ``.. meta::``."""
-    # Create a subset of the results dictionary containing only the description and keywords
-    subset = {k: v for k, v in results.items() if k in ("description", "keywords")}
-    if not subset:
-        return content, False
-    return inject_metadata_to_content(content, subset)
-
-
-def _apply_short_description_results(content: str, results: dict[str, str]) -> tuple[str, bool]:
-    """Insert or fill ``.. short-description::`` from analysis results."""
-    # Get the short description result from the results dictionary
-    val = results.get("short-description")
-    # If the short description is not found or is empty, return the content and False
-    if not val or not val.strip():
-        return content, False
-    return inject_short_description_to_content(content, val)
-
-
 def update_enhanced_files(
     files: list[str],
     data: EnhanceData,
-    apply_hooks: list[Callable[[str, dict[str, str]], tuple[str, bool]]],
+    apply_hook: ApplyHook,
     log_label: str,
 ) -> EnhanceData:
     """
-    Process a list of files and apply enhancement hooks that may rewrite RST.
+    Process a list of files and apply an enhancement hook that may rewrite RST.
 
-    Each hook receives the current file content and the per-file results dictionary,
-    and returns ``(new_content, changed)``. Hooks run in order; the file is written
-    once if any hook reported a change.
+    The hook receives the file content and the per-file results dictionary, and
+    returns ``AppliedContent``. The file is written when ``changed`` is true.
     """
     logger.debug("===========================")
     logger.debug("Updating %s in files:", log_label)
@@ -463,23 +448,16 @@ def update_enhanced_files(
             logger.error("Unicode decode error reading file %s: %s", file_path, exc)
             continue
 
-        # Apply the enhancement hooks to the content
-        working = content
-        changed_any = False
-        # Iterate through each hook and apply it to the content
-        for hook in apply_hooks:
-            working, changed = hook(working, file_results)
-            changed_any = changed_any or changed
+        applied = apply_hook.apply(content, file_results)
 
-        # If no changes were made, log a message and continue
-        if not changed_any:
+        if not applied.changed:
             logger.debug("No %s changes applied for %s", log_label, file_path)
             continue
 
         # Write the updated content to the file
         try:
             with open(file_path, "w", encoding="utf-8") as file:
-                file.write(working)
+                file.write(applied.content)
         except (OSError, PermissionError) as exc:
             logger.error("Error writing file %s: %s", file_path, exc)
             continue
@@ -502,13 +480,18 @@ def update_enhanced_files(
     return current_data
 
 
-def enhance_metadata(files: list[str], client: Optional[OpenAI] = None) -> EnhanceData:
+def enhance_metadata(
+    files: list[str],
+    client: Optional[OpenAI] = None,
+    data: Optional[EnhanceData] = None,
+) -> EnhanceData:
     """
     Enhance files with metadata based on content analysis.
 
     Args:
         files (list[str]): Paths to files to enhance.
         client (OpenAI, optional): OpenAI client instance. If None, creates new instance.
+        data (EnhanceData, optional): Accumulator to extend (for multi-phase CLI runs).
 
     Returns:
         EnhanceData: Enhancement data structure containing analysis results and update tracking.
@@ -516,45 +499,50 @@ def enhance_metadata(files: list[str], client: Optional[OpenAI] = None) -> Enhan
     Raises:
         OpenAIError: If no valid API key is found when creating a new client.
     """
+    acc = data if data is not None else create_enhance_data()
     try:
         client = client or get_openai_client()
     except OpenAIError as e:
         logger.error(f"Failed to initialise OpenAI client: {e}")
-        return create_enhance_data()
+        return acc
     
-    # TODO: Make this config-driven, so that we can easily add more prompts and analysis types
+    # Create the list of enhancement tasks for the metadata analysis
     tasks = [
         _metadata_enhancement_task("description", DESCRIPTION_PROMPT),
         _metadata_enhancement_task("keywords", KEYWORDS_PROMPT),
     ]
 
-    data = analyze_files(files, client, tasks)
-    data = update_meta_files(files, data)
-
-    return data
+    acc = analyze_files(files, client, tasks, acc)
+    return update_meta_files(files, acc)
 
 
-def enhance_short_descriptions(files: list[str], client: Optional[OpenAI] = None) -> EnhanceData:
+def enhance_short_descriptions(
+    files: list[str],
+    client: Optional[OpenAI] = None,
+    data: Optional[EnhanceData] = None,
+) -> EnhanceData:
     """
     Enhance RST files with a ``.. short-description::`` body using an assistant with file_search.
 
     Example articles are taken from ``SHORT_DESCRIPTION_EXAMPLE_PATHS`` (indexed once per run).
     Each target file is sent in its own thread; the vector store and assistant are deleted
-    afterwards. Not wired to ``main()``; import and call from a REPL or another script.
+    afterwards.
 
     Args:
         files: Paths to RST files to enhance.
         client: Optional pre-built OpenAI client.
+        data: Optional accumulator to extend (for multi-phase CLI runs).
 
     Returns:
         ``EnhanceData`` with results under the key ``short-description`` and ``updated_files`` set
         after successful writes.
     """
+    acc = data if data is not None else create_enhance_data()
     try:
         client = client or get_openai_client()
     except OpenAIError as e:
         logger.error("Failed to initialise OpenAI client: %s", e)
-        return create_enhance_data()
+        return acc
 
     resources: RetrievalResources | None = None
     try:
@@ -568,14 +556,13 @@ def enhance_short_descriptions(files: list[str], client: Optional[OpenAI] = None
         resources = RetrievalResources(assistant_id, vector_store_id)
 
         tasks = [_short_description_enhancement_task(assistant_id)]
-        data = analyze_files(files, client, tasks)
-        data = update_enhanced_files(
+        acc = analyze_files(files, client, tasks, acc)
+        return update_enhanced_files(
             files,
-            data,
-            [_apply_short_description_results],
+            acc,
+            ShortDescriptionApplyHook(),
             "short description",
         )
-        return data
     finally:
         cleanup_short_description_resources(client, resources)
 
@@ -591,7 +578,7 @@ def update_meta_files(files: list[str], data: EnhanceData) -> EnhanceData:
     Returns:
         EnhanceData: Updated enhancement data with files marked as updated.
     """
-    return update_enhanced_files(files, data, [_apply_metadata_results], "metadata")
+    return update_enhanced_files(files, data, MetadataApplyHook(), "metadata")
 
 def main() -> None:
     """
@@ -599,14 +586,13 @@ def main() -> None:
 
     - Parses command-line arguments to collect input file paths.
     - Filters the provided files to include only reStructuredText (.rst) files.
-    - Enhances the metadata of each RST file using AI-based analysis (keywords and description).
-    - Writes updated metadata back to files and logs processing metrics.
+    - Enhances ``.. meta::`` fields and ``.. short-description::`` bodies.
+    - Writes updates back to files and logs a single combined metrics summary.
 
     Usage:
         python enhance_topics.py <rst_file1> <rst_file2> ...
 
-    Only files with the .rst extension will be processed. 
-    Logs the number of files successfully enhanced.
+    Only files with the .rst extension will be processed.
     """
     
     logging.basicConfig(
@@ -625,11 +611,25 @@ def main() -> None:
             logger.error("No input files provided. Pass a list of RST files as arguments.")
         sys.exit(0)
     
-    # Enhance the metadata in the RST files and return the enhancement data with updated files
-    data = enhance_metadata(rst_files)
-    # Log the metrics for the enhancement data
+    # Get the OpenAI client and create the enhancement data
+    try:
+        client = get_openai_client()
+    except OpenAIError as e:
+        logger.error("Failed to initialise OpenAI client: %s", e)
+        data = create_enhance_data()
+    else:
+        data = create_enhance_data()
+        data = enhance_metadata(rst_files, client, data)
+        data = enhance_short_descriptions(rst_files, client, data)
+
     metrics = calculate_metrics(data)
-    logger.info(f"Enhanced files: {metrics.files_with_results_count} with at least one valid analysis result, and {metrics.updated_files_count} files updated, out of {len(rst_files)} RST files.")
+    logger.info(
+        "Enhanced files: %s with at least one valid analysis result, and %s files updated, "
+        "out of %s RST files.",
+        metrics.files_with_results_count,
+        metrics.updated_files_count,
+        len(rst_files),
+    )
 
 if __name__ == "__main__":
     main()
