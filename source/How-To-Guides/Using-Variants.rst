@@ -50,7 +50,7 @@ To do so you need only create two files:
 
    .. code-block:: cmake
 
-    cmake_minimum_required(VERSION 3.5)
+    cmake_minimum_required(VERSION 3.20)
 
     project(my_project_variant NONE)
     find_package(ament_cmake REQUIRED)

@@ -184,7 +184,7 @@ You can clean up your ``CMakeLists.txt`` by removing some unnecessary sections a
 
 .. code-block:: cmake
 
-    cmake_minimum_required(VERSION 3.8)
+    cmake_minimum_required(VERSION 3.20)
     project(sync_async_node_example_cpp)
 
     # Default to C++14

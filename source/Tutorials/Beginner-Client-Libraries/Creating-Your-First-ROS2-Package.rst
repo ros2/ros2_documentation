@@ -508,7 +508,9 @@ This is where your ``package.xml`` would list its dependencies on other packages
         maintainer_email='TODO',
         description='TODO: Package description',
         license='TODO: License declaration',
-        tests_require=['pytest'],
+        extras_require={
+            'test': ['pytest'],
+        },
         entry_points={
             'console_scripts': [
                     'my_node = my_py_pkg.my_node:main'
