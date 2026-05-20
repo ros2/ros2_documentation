@@ -19,12 +19,12 @@ After you follow these steps, you'll be ready to work with ROS.
 Summary
 -------
 
-Deb packages for {DISTRO_TITLE_FULL} are available for Ubuntu Noble (24.04).
+Deb packages for {DISTRO_TITLE_FULL} are available for {DISTRO_UBUNTU_DEB_PLATFORM}.
 We recommend using this current distribution for most situations, the support for this platform is stable.
 
 Resources for this distribution are as follows:
 
-* Status page: ROS 2 {DISTRO_TITLE} (Ubuntu Noble 24.04): `amd64 <http://repo.ros2.org/status_page/ros_{DISTRO}_default.html>`__\ , `arm64 <http://repo.ros2.org/status_page/ros_{DISTRO}_unv8.html>`__
+* Status page: ROS 2 {DISTRO_TITLE}, {DISTRO_UBUNTU_DEB_PLATFORM}: `amd64 <http://repo.ros2.org/status_page/ros_{DISTRO}_default.html>`__\ , `arm64 <http://repo.ros2.org/status_page/ros_{DISTRO}_{DISTRO_ARM_STATUS_SUFFIX}.html>`__
 * `Jenkins Instance <http://build.ros2.org/>`__
 * `Repositories <http://repo.ros2.org>`__
 
@@ -202,7 +202,7 @@ FAQs
 ----
 
 Which Ubuntu platforms are supported?
-   ROS 2 {DISTRO_TITLE_FULL} is available for Ubuntu Noble (24.04).
+   ROS 2 {DISTRO_TITLE_FULL} is available for {DISTRO_UBUNTU_DEB_PLATFORM}.
 
 Why am I seeing <some error or symptom of installation issue>?
    See :doc:`../How-To-Guides/Installation-Troubleshooting`.
@@ -214,7 +214,7 @@ Can I switch from binaries to a source-based install?
 .. _ubuntu-debs-uninstall:
 
 How do I uninstall ROS?
-   If you need to uninstall ROS 2 or switch to a source-based install once you have already installed from binaries, run the following command:
+   If you need to uninstall ROS or switch to a source-based install once you have already installed from binaries, run the following command:
 
    .. code-block:: console
 
