@@ -39,9 +39,7 @@ SHORT_DESCRIPTION_PROMPT = """You are a technical author, and your role is to an
 ## Examples
 Use file_search to read through the following RST files in their entirety as examples of completed articles:
 
-- About-ROS.rst
-- First-Steps.rst
-- Interfaces-Topics-Services-Actions.rst
+{"\n".join(f"- {path.split('/')[-1]}" for path in SHORT_DESCRIPTION_EXAMPLE_PATHS)}
 
 ## Short Description
 For each article in this set of examples, analyse the content associated with the "short-description" directive, and what it constitutes in relation to the article it describes. 
@@ -55,7 +53,7 @@ This short description content does not include the single line of text commenci
 
 When you have identified the short description in all example articles, remember the formatting and how the paragraph is constructed, including tone/style and length. We call this the article Short Description.
 
-Finally, generate the short description for the new article given in the attached article file, with no additional styling, characters, or formatting.
+Finally, generate the short description for the new article given in the attached article file, with no additional styling, characters, or formatting. Each sentence must start on a new line.
 """
 
 KEYWORDS_PROMPT = """You are a content analyst, and your role is to analyze text content within supplied documents.

@@ -7,7 +7,7 @@ from openai import OpenAIError
 # Add the scripts directory to sys.path to allow importing enhance_topics
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from config import MAX_CONTENT_LENGTH
+from config import DEFAULT_TIMEOUT
 from enhance_topics import (
     analyze_content,
     get_openai_client,
@@ -28,36 +28,27 @@ def mock_client():
 # --- Tests for analyze_content ---
 
 def test_analyze_content_success(mock_client):
-    """Test successful content analysis."""
-    mock_completion = MagicMock()
-    mock_completion.choices = [MagicMock(message=MagicMock(content='Analysis result'))]
-    mock_client.chat.completions.create.return_value = mock_completion
+    """Test successful content analysis via Responses API."""
+    mock_response = MagicMock()
+    mock_response.status = "completed"
+    mock_response.output_text = "Analysis result"
+    mock_client.responses.create.return_value = mock_response
 
-    result = analyze_content(mock_client, "Some content", "Some prompt")
-    assert result == 'Analysis result'
-    mock_client.chat.completions.create.assert_called_once()
+    result = analyze_content(mock_client, "file_abc", "Some prompt")
+    assert result == "Analysis result"
+    mock_client.responses.create.assert_called_once()
+    rc = mock_client.responses.create.call_args.kwargs
+    assert rc["instructions"] == "Some prompt"
+    assert rc["input"][0]["content"][0]["file_id"] == "file_abc"
 
-def test_analyze_content_truncation(mock_client):
-    """Test that content is truncated if it exceeds MAX_CONTENT_LENGTH."""
-    long_content = "a" * (MAX_CONTENT_LENGTH + 100)
-    mock_completion = MagicMock()
-    mock_completion.choices = [MagicMock(message=MagicMock(content='Result'))]
-    mock_client.chat.completions.create.return_value = mock_completion
 
-    analyze_content(mock_client, long_content, "Prompt")
-    
-    # Check the call arguments to ensure content was truncated
-    args, kwargs = mock_client.chat.completions.create.call_args
-    sent_content = kwargs['messages'][1]['content']
-    assert len(sent_content) <= MAX_CONTENT_LENGTH + len("Content:\n\n")
+def test_analyze_content_non_completed_returns_empty(mock_client):
+    """Test handling of non-completed Responses API status."""
+    mock_response = MagicMock()
+    mock_response.status = "failed"
+    mock_client.responses.create.return_value = mock_response
 
-def test_analyze_content_empty_response(mock_client):
-    """Test handling of empty response from API."""
-    mock_completion = MagicMock()
-    mock_completion.choices = [MagicMock(message=MagicMock(content=None))]
-    mock_client.chat.completions.create.return_value = mock_completion
-
-    result = analyze_content(mock_client, "Content", "Prompt")
+    result = analyze_content(mock_client, "file_xyz", "Prompt")
     assert result == ""
 
 # --- Tests for get_openai_client ---
@@ -91,7 +82,7 @@ def test_analyze_files_basic_flow(
     mock_get_meta, 
     mock_client
 ):
-    """Test the basic flow of analyze_files."""
+    """Test the basic flow of analyze_files with hoisted file upload."""
     mock_create_data.return_value = EnhanceData(results={}, updated_files=set())
     mock_get_meta.return_value = [] # No existing metadata
     mock_analyze.return_value = "Generated result"
@@ -100,6 +91,9 @@ def test_analyze_files_basic_flow(
         results={"file1.rst": {"description": "res"}}, 
         updated_files=set()
     )
+    uploaded = MagicMock()
+    uploaded.id = "file_hosted_1"
+    mock_client.files.create.return_value = uploaded
 
     files = ["file1.rst"]
     tasks = [_metadata_enhancement_task("description", "desc prompt")]
@@ -107,7 +101,11 @@ def test_analyze_files_basic_flow(
     with patch("builtins.open", mock_open(read_data="File content")):
         analyze_files(files, mock_client, tasks)
 
-    mock_analyze.assert_called_once()
+    mock_client.files.create.assert_called_once()
+    mock_client.files.delete.assert_called_once_with("file_hosted_1")
+    mock_analyze.assert_called_once_with(
+        mock_client, "file_hosted_1", "desc prompt", timeout=DEFAULT_TIMEOUT
+    )
     mock_validate.assert_called_once()
     mock_add_result.assert_called_once()
 
@@ -188,6 +186,9 @@ def test_analyze_files_accumulates_onto_initial_data(
     mock_get_meta.return_value = []
     mock_analyze.return_value = "Generated description"
     mock_validate.return_value = True
+    uploaded = MagicMock()
+    uploaded.id = "file_hosted_2"
+    mock_client.files.create.return_value = uploaded
     initial = EnhanceData(
         results={"file1.rst": {"keywords": "existing"}},
         updated_files=set(),

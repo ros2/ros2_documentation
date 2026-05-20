@@ -6,16 +6,16 @@ from unittest.mock import MagicMock
 
 from openai_retrieval import (
     RetrievalResources,
-    _extract_response_output_text,
     analyze_with_responses,
     cleanup_short_description_resources,
+    extract_response_output_text,
 )
 
 
 def test_extract_response_output_text_prefers_output_text_attribute() -> None:
     response = MagicMock()
     response.output_text = "  hello  "
-    assert _extract_response_output_text(response) == "hello"
+    assert extract_response_output_text(response) == "hello"
 
 
 def test_extract_response_output_text_walks_output_blocks() -> None:
@@ -31,18 +31,11 @@ def test_extract_response_output_text_walks_output_blocks() -> None:
     class FakeResp:
         output = [msg]
 
-    assert _extract_response_output_text(FakeResp()) == "from blocks"
+    assert extract_response_output_text(FakeResp()) == "from blocks"
 
 
-def test_analyze_with_responses_success(tmp_path) -> None:
-    article = tmp_path / "article.rst"
-    article.write_text("Title\n=====\n\nBody.\n", encoding="utf-8")
-
+def test_analyze_with_responses_success() -> None:
     client = MagicMock()
-    uploaded = MagicMock()
-    uploaded.id = "file_uploaded_1"
-    client.files.create.return_value = uploaded
-
     resp = MagicMock()
     resp.status = "completed"
     resp.output_text = "Generated short description."
@@ -51,15 +44,15 @@ def test_analyze_with_responses_success(tmp_path) -> None:
     out = analyze_with_responses(
         client,
         "vs_store_1",
-        str(article),
+        "file_uploaded_1",
         "system instructions here",
         "gpt-test-model",
         timeout=60,
     )
 
     assert out == "Generated short description."
-    client.files.create.assert_called_once()
-    assert client.files.create.call_args.kwargs["purpose"] == "user_data"
+    client.files.create.assert_not_called()
+    client.files.delete.assert_not_called()
 
     rc = client.responses.create.call_args.kwargs
     assert rc["model"] == "gpt-test-model"
@@ -72,18 +65,9 @@ def test_analyze_with_responses_success(tmp_path) -> None:
     file_part = next(c for c in user_block if c["type"] == "input_file")
     assert file_part["file_id"] == "file_uploaded_1"
 
-    client.files.delete.assert_called_once_with("file_uploaded_1")
 
-
-def test_analyze_with_responses_non_completed_status_returns_empty(tmp_path) -> None:
-    article = tmp_path / "b.rst"
-    article.write_text("x", encoding="utf-8")
-
+def test_analyze_with_responses_non_completed_status_returns_empty() -> None:
     client = MagicMock()
-    uploaded = MagicMock()
-    uploaded.id = "file_2"
-    client.files.create.return_value = uploaded
-
     resp = MagicMock()
     resp.status = "failed"
     client.responses.create.return_value = resp
@@ -92,14 +76,13 @@ def test_analyze_with_responses_non_completed_status_returns_empty(tmp_path) -> 
         analyze_with_responses(
             client,
             "vs_1",
-            str(article),
+            "file_2",
             "instr",
             "m",
             timeout=60,
         )
         == ""
     )
-    client.files.delete.assert_called_once_with("file_2")
 
 
 def test_cleanup_short_description_resources_no_assistants_delete() -> None:

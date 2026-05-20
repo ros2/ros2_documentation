@@ -39,6 +39,7 @@ from openai_retrieval import (
     analyze_with_responses,
     cleanup_short_description_resources,
     ensure_example_vector_store,
+    extract_response_output_text,
 )
 from rst_utils import (
     get_meta_names_from_content,
@@ -84,6 +85,16 @@ class MetadataApplyHook(ApplyHook):
     """Merge ``description`` / ``keywords`` results into ``.. meta::``."""
 
     def apply(self, content: str, results: dict[str, str]) -> AppliedContent:
+        """
+        Merge description and keywords from results into the RST meta block.
+
+        Args:
+            content: Original RST file content.
+            results: Dictionary of analysis results for the file.
+
+        Returns:
+            AppliedContent containing the updated content and change status.
+        """
         subset = {k: v for k, v in results.items() if k in ("description", "keywords")}
         if not subset:
             return AppliedContent(content=content, changed=False)
@@ -96,6 +107,16 @@ class ShortDescriptionApplyHook(ApplyHook):
     """Insert or fill ``.. short-description::`` from analysis results."""
 
     def apply(self, content: str, results: dict[str, str]) -> AppliedContent:
+        """
+        Insert or fill the short-description directive from analysis results.
+
+        Args:
+            content: Original RST file content.
+            results: Dictionary of analysis results for the file.
+
+        Returns:
+            AppliedContent containing the updated content and change status.
+        """
         val = results.get("short-description")
         if not val or not val.strip():
             return AppliedContent(content=content, changed=False)
@@ -109,7 +130,7 @@ class EnhancementTask:
 
     key: str
     should_skip: Callable[[str], bool]
-    analyze: Callable[[OpenAI, str, str, int], str]
+    analyze: Callable[[OpenAI, str, int], str]
     timeout: int = DEFAULT_TIMEOUT
 
 
@@ -117,10 +138,12 @@ def _metadata_enhancement_task(key: str, prompt: str) -> EnhancementTask:
     """Build a task that writes to ``.. meta::`` under the given field name."""
 
     def should_skip(content: str) -> bool:
+        """Check if the metadata key already exists in the content."""
         return key in get_meta_names_from_content(content)
 
-    def analyze(cl: OpenAI, _file_path: str, content: str, to: int) -> str:
-        return analyze_content(cl, content, prompt, timeout=to)
+    def analyze(cl: OpenAI, file_id: str, to: int) -> str:
+        """Analyse the content for the specific metadata key."""
+        return analyze_content(cl, file_id, prompt, timeout=to)
 
     return EnhancementTask(key=key, should_skip=should_skip, analyze=analyze, timeout=DEFAULT_TIMEOUT)
 
@@ -129,13 +152,15 @@ def _short_description_enhancement_task(vector_store_id: str) -> EnhancementTask
     """Build a task that writes to the ``.. short-description::`` directive body."""
 
     def should_skip(content: str) -> bool:
+        """Check if the short-description directive already has content."""
         return has_short_description_content(content)
 
-    def analyze(cl: OpenAI, file_path: str, _content: str, to: int) -> str:
+    def analyze(cl: OpenAI, file_id: str, to: int) -> str:
+        """Analyse the content to generate a short description."""
         return analyze_with_responses(
             cl,
             vector_store_id,
-            file_path,
+            file_id,
             SHORT_DESCRIPTION_PROMPT,
             GPT_MODEL,
             timeout=to,
@@ -155,68 +180,63 @@ def _short_description_enhancement_task(vector_store_id: str) -> EnhancementTask
     wait=wait_random_exponential(multiplier=MIN_WAIT, max=MAX_WAIT),
     reraise=True
 )
-def analyze_content(client: OpenAI, content: str, prompt: str, timeout: int = DEFAULT_TIMEOUT) -> str:
+def analyze_content(
+    client: OpenAI,
+    file_id: str,
+    prompt: str,
+    timeout: int = DEFAULT_TIMEOUT,
+) -> str:
     """
-    Analyse content using OpenAI's API with retry and timeout logic.
-    Uses ThreadPoolExecutor for cross-platform timeout handling and retries for transient API errors.
+    Analyse an uploaded RST file using the Responses API with retry and timeout logic.
+
+    Expects ``file_id`` from a prior Files API upload (see ``analyze_files``).
 
     Args:
-        client (OpenAI): OpenAI client instance.
-        content (str): Preprocessed content.
-        prompt (str): Prompt for the AI model.
-        timeout (int): Maximum time to wait for response in seconds.
+        client: OpenAI client instance.
+        file_id: Hosted file ID (``purpose=user_data``).
+        prompt: Instructions for the model.
+        timeout: Maximum time to wait for response in seconds.
 
     Returns:
-        str: Analysis result from the AI model, or empty string if analysis fails.
+        Analysis result from the model, or empty string if analysis fails.
 
     Raises:
         TimeoutError: If the API call exceeds the specified timeout.
         RateLimitError: If API rate limits are exceeded (will trigger retry).
         APIConnectionError: If connection fails (will trigger retry).
     """
-    # Log the content length before potential truncation
-    logger.debug(f"Processing content of length: {len(content)} characters")
-    
-    # Truncate content if its too long
-    if len(content) > MAX_CONTENT_LENGTH:
-        logger.warning(f"Content truncated to {MAX_CONTENT_LENGTH} characters for analysis.")
-        content = content[:MAX_CONTENT_LENGTH]
-    
-    def _make_api_call() -> str:
-        """
-        Inner function to handle the OpenAI API call.
-        Separated to allow for clean timeout handling via ThreadPoolExecutor.
-        
-        Returns:
-            str: The model's response content
-            
-        Raises:
-            RateLimitError, APIConnectionError: Propagated for retry handling
-        """
-        try:
-            logger.info("Calling OpenAI Chat Completions API for content analysis")
-            completion = client.chat.completions.create(
-                model=GPT_MODEL,
-                messages=[
-                    {"role": "system", "content": prompt},
-                    {"role": "user", "content": f"Content:\n\n{content}"}
-                ]
-            )
-            result = completion.choices[0].message.content
-            logger.debug("Successfully received response from OpenAI API")
-            return result if result is not None else ""
-        except (RateLimitError, APIConnectionError) as e:
-            logger.warning(f"Retryable error occurred: {str(e)}")
-            raise  # Re-raise for retry decorator to handle
 
-    # Use ThreadPoolExecutor for cross-platform timeout handling
+    def _make_api_call() -> str:
+        try:
+            logger.info("Calling OpenAI Responses API for metadata analysis using uploaded file")
+            response = client.responses.create(
+                model=GPT_MODEL,
+                instructions=prompt,
+                input=[
+                    {
+                        "role": "user",
+                        "content": [{"type": "input_file", "file_id": file_id}],
+                    },
+                ],
+            )
+            status = getattr(response, "status", None)
+            if status and status != "completed":
+                logger.error("Responses API ended with status %r", status)
+                return ""
+            result = extract_response_output_text(response)
+            logger.debug("Successfully received response from OpenAI API")
+            return result
+        except (RateLimitError, APIConnectionError) as e:
+            logger.warning("Retryable error occurred: %s", e)
+            raise
+
     with ThreadPoolExecutor() as executor:
         try:
             future = executor.submit(_make_api_call)
             return future.result(timeout=timeout)
         except TimeoutError:
-            logger.error(f"API call timed out after {timeout} seconds")
-            raise  # Re-raise the original timeout error
+            logger.error("API call timed out after %s seconds", timeout)
+            raise
 
 @retry(
     retry=retry_if_exception_type((RateLimitError, APIConnectionError)),
@@ -293,19 +313,29 @@ def validate_content(client: OpenAI, generated: str, timeout: int = DEFAULT_TIME
             return False
 
         try:
-            completion = client.chat.completions.create(
+            response = client.responses.create(
                 model=GPT_MODEL,
-                messages=[
-                    {"role": "system", "content": ENGLISH_LANGUAGE_CHECK_PROMPT},
-                    {"role": "user", "content": f"Text:\n\n{text}"},
+                instructions=ENGLISH_LANGUAGE_CHECK_PROMPT,
+                input=[
+                    {
+                        "role": "user",
+                        "content": [{"type": "input_text", "text": f"Text:\n\n{text}"}],
+                    },
                 ],
             )
         except (RateLimitError, APIConnectionError) as e:
             logger.warning("Retryable error during language validation: %s", e)
             raise
 
-        # Get the answer from the completion (should be yes or no)
-        answer = completion.choices[0].message.content
+        status = getattr(response, "status", None)
+        if status and status != "completed":
+            logger.warning(
+                "English-language validation Responses API ended with status %r",
+                status,
+            )
+            return False
+
+        answer = extract_response_output_text(response)
         raw = (answer or "").strip().lower()
         # Accept a single leading yes/no token even if the model adds stray whitespace
         match = re.match(r"^(yes|no)\b", raw)
@@ -354,7 +384,7 @@ def analyze_files(
     for file_path in files:  # Iterate through each file in the list
         logger.debug("Analysing file: %s", file_path)
 
-        # Read the content of the file
+        # Read the content of the file for empty and skip checks
         try:
             with open(file_path, encoding="utf-8") as f:
                 content = f.read()
@@ -370,41 +400,75 @@ def analyze_files(
             logger.info("No analysable content found for %s", file_path)
             continue
 
-        # Iterate through each task and run the analysis
-        for task in tasks:
-            if task.should_skip(content):
-                logger.info(f"Skipping analysis for {file_path}: task {task.key} (already satisfies skip rule)")
-           
-                continue
-            logger.debug("Running analysis: %s", task.key)
-            try:
-                logger.info("Analyzing content for %s: task %r", file_path, task.key)
-                # Analyse the content using the task's analyze function
-                result = task.analyze(client, file_path, content, task.timeout)
-                if result:
-                    # Validate the generated content
-                    if validate_content(client, result, timeout=DEFAULT_TIMEOUT):
-                        # Add the analysis result to the enhancement data
-                        acc = add_analysis_result(acc, file_path, task.key, result)
-                    else:
-                        logger.warning(
-                            "Validation failed for generated %s in %s; result not stored",
-                            task.key,
-                            file_path,
-                        )
-                else:
-                    # Log a warning if no result was generated
-                    logger.warning("No result for %s with task %r", file_path, task.key)
+        # Check if the content should be skipped based on the skip function
+        pending = [t for t in tasks if not t.should_skip(content)]
+        if not pending:
+            continue
 
-            except (RateLimitError, APIConnectionError) as e:
-                logger.error("Failed to analyse %s with task %r after %s retries: %s", file_path, task.key, MAX_RETRIES, e)
-                continue
-            except TimeoutError as e:
-                logger.error("Analysis timed out for %s with task %r: %s", file_path, task.key, e)
-                continue
-            except (OpenAIError, ValueError) as e:
-                logger.error("Failed to analyse %s with task %r: %s", file_path, task.key, e)
-                continue
+        # Content is not empty and should not be skipped, so we upload the file and run the analysis
+        uploaded = None
+        try:
+            with open(file_path, "rb") as f:
+                uploaded = client.files.create(file=f, purpose="user_data")
+            file_id = uploaded.id
+            logger.debug("Uploaded %s as file_id=%s for %s task(s)", file_path, file_id, len(pending))
+
+            # Run the analysis for each task that is not skipped
+            for task in pending:
+                logger.debug("Running analysis: %s", task.key)
+                try:
+                    logger.info("Analyzing content for %s: task %r", file_path, task.key)
+                    # Analyse the content using the task's analyze function
+                    result = task.analyze(client, file_id, task.timeout)
+                    if result:
+                        # Validate the generated content
+                        if validate_content(client, result, timeout=DEFAULT_TIMEOUT):
+                            # Add the analysis result to the enhancement data
+                            acc = add_analysis_result(acc, file_path, task.key, result)
+                        else:
+                            # Validation failed, so we log a warning and do not add the result to the enhancement data
+                            logger.warning(
+                                "Validation failed for generated %s in %s; result not stored",
+                                task.key,
+                                file_path,
+                            )
+                    else:
+                        logger.warning("No result for %s with task %r", file_path, task.key)
+
+                except (RateLimitError, APIConnectionError) as e:
+                    logger.error(
+                        "Failed to analyse %s with task %r after %s retries: %s",
+                        file_path,
+                        task.key,
+                        MAX_RETRIES,
+                        e,
+                    )
+                    continue
+                except TimeoutError as e:
+                    logger.error("Analysis timed out for %s with task %r: %s", file_path, task.key, e)
+                    continue
+                except (OpenAIError, ValueError) as e:
+                    logger.error("Failed to analyse %s with task %r: %s", file_path, task.key, e)
+                    continue
+        except (RateLimitError, APIConnectionError) as e:
+            logger.error("Failed to upload %s for analysis after %s retries: %s", file_path, MAX_RETRIES, e)
+            continue
+        except (OpenAIError, ValueError, OSError, PermissionError) as e:
+            logger.error("Failed to upload %s for analysis: %s", file_path, e)
+            continue
+        finally:
+            # Delete the uploaded file after the analysis is complete
+            if uploaded is not None:
+                try:
+                    client.files.delete(uploaded.id)
+                    logger.debug("Deleted uploaded file %s for %s", uploaded.id, file_path)
+                except Exception as exc:  # noqa: BLE001
+                    logger.warning(
+                        "Could not delete uploaded file %s for %s: %s",
+                        uploaded.id,
+                        file_path,
+                        exc,
+                    )
 
     return acc
 
@@ -444,6 +508,15 @@ def update_enhanced_files(
 
     The hook receives the file content and the per-file results dictionary, and
     returns ``AppliedContent``. The file is written when ``changed`` is true.
+
+    Args:
+        files: List of paths to files to process.
+        data: Current enhancement data containing analysis results.
+        apply_hook: The hook to apply to each file's content.
+        log_label: Label for logging purposes (e.g., "metadata").
+
+    Returns:
+        Updated EnhanceData with files marked as updated where changes were made.
     """
     current_data = data
 
@@ -543,8 +616,8 @@ def enhance_short_descriptions(
     Enhance RST files with a ``.. short-description::`` body using the Responses API.
 
     Example articles are taken from ``SHORT_DESCRIPTION_EXAMPLE_PATHS`` (indexed once per run
-    into a vector store for ``file_search``). Each target file is uploaded with the Files API
-    and referenced as ``input_file``; the vector store is deleted afterwards.
+    into a vector store for ``file_search``). Each target file is uploaded once in
+    ``analyze_files`` and referenced as ``input_file``; the vector store is deleted afterwards.
 
     Args:
         files: Paths to RST files to enhance.

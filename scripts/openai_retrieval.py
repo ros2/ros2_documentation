@@ -2,8 +2,7 @@
 OpenAI Responses API helpers for short-description generation.
 
 Example RSTs are indexed into a vector store once per run and attached via ``file_search``.
-Each target article is uploaded with the Files API (``purpose=user_data``) and referenced as
-``input_file`` so the full extracted text is available in the request context.
+Target articles are uploaded once per file in ``analyze_files`` and passed by ``file_id``.
 """
 
 from __future__ import annotations
@@ -22,31 +21,54 @@ from config import (
     MIN_WAIT,
 )
 
+# Define the logger for the module
 logger = logging.getLogger(__name__)
-
-# File-input guidance (see OpenAI file inputs documentation).
-_MAX_INPUT_FILE_BYTES = 50 * 1024 * 1024
 
 _SCRIPTS_DIR = Path(__file__).resolve().parent
 REPO_ROOT = _SCRIPTS_DIR.parent
 
+# Define the user preamble for the short description
 SHORT_DESCRIPTION_USER_PREAMBLE = (
     "Article RST (generate only the short description prose per your instructions; "
     "use file_search on the indexed examples for tone and structure). "
     "The article to enhance is attached as a file."
 )
 
-
+# Define the class for the retrieval resources
+# Used to store the vector store id for the retrieval resources
 class RetrievalResources:
-    """IDs created for one enhance_short_descriptions run (for cleanup)."""
+    """
+    Immutable data structure to store IDs created for one enhancement run.
+    
+    Used for cleaning up resources after the run completes.
+    """
 
     __slots__ = ("vector_store_id",)
 
     def __init__(self, vector_store_id: str) -> None:
+        """
+        Initialise the retrieval resources with a vector store ID.
+
+        Args:
+            vector_store_id: The ID of the OpenAI vector store.
+        """
         self.vector_store_id = vector_store_id
 
 
 def _resolve_example_paths(example_paths: Iterable[str]) -> list[Path]:
+    """
+    Resolve a sequence of example RST file paths (relative to the repository root)
+    into absolute, validated Path objects. Raises FileNotFoundError if any file does not exist.
+
+    Args:
+        example_paths (Iterable[str]): Iterable of example file paths (relative to repo root).
+
+    Returns:
+        list[Path]: List of absolute Path objects for the example RST files.
+
+    Raises:
+        FileNotFoundError: If any example file cannot be found at the expected path.
+    """
     paths: list[Path] = []
     for rel in example_paths:
         p = (REPO_ROOT / rel).resolve()
@@ -93,8 +115,16 @@ def ensure_example_vector_store(client: OpenAI, example_paths: Iterable[str]) ->
     return vs.id
 
 
-def _extract_response_output_text(response: object) -> str:
-    """Return concatenated assistant output text from a Responses API result."""
+def extract_response_output_text(response: object) -> str:
+    """
+    Return concatenated assistant output text from a Responses API result.
+
+    Args:
+        response: The response object from the OpenAI API.
+
+    Returns:
+        The extracted and concatenated output text.
+    """
     output_text = getattr(response, "output_text", None)
     if isinstance(output_text, str) and output_text.strip():
         return output_text.strip()
@@ -123,88 +153,84 @@ def _extract_response_output_text(response: object) -> str:
     wait=wait_random_exponential(multiplier=MIN_WAIT, max=MAX_WAIT),
     reraise=True,
 )
-def _upload_article_and_create_response(
+def _create_short_description_response(
     client: OpenAI,
-    article_path: str,
+    file_id: str,
     vector_store_id: str,
     instructions: str,
     model: str,
-) -> tuple[object, str]:
-    path = Path(article_path)
-    size = path.stat().st_size
-    if size > _MAX_INPUT_FILE_BYTES:
-        logger.warning(
-            "Article file %s is %s bytes (exceeds %s byte file-input guidance); request may fail.",
-            article_path,
-            size,
-            _MAX_INPUT_FILE_BYTES,
-        )
+) -> object:
+    """
+    Create a request for short-description generation via the OpenAI Responses API.
 
-    logger.info(
-        "Generating short description via Responses API for %s",
-        article_path,
+    Args:
+        client: OpenAI client instance.
+        file_id: ID of the uploaded RST file.
+        vector_store_id: ID of the vector store containing examples.
+        instructions: System instructions for the model.
+        model: The GPT model to use.
+
+    Returns:
+        The response object from the OpenAI API.
+    """
+    logger.info("Generating short description via Responses API using vector store and uploaded file")
+    return client.responses.create(
+        model=model,
+        instructions=instructions,
+        tools=[{"type": "file_search", "vector_store_ids": [vector_store_id]}],
+        input=[
+            {
+                "role": "user",
+                "content": [
+                    {"type": "input_text", "text": SHORT_DESCRIPTION_USER_PREAMBLE},
+                    {"type": "input_file", "file_id": file_id},
+                ],
+            },
+        ],
     )
-    with open(path, "rb") as f:
-        uploaded = client.files.create(file=f, purpose="user_data")
-
-    try:
-        return client.responses.create(
-            model=model,
-            instructions=instructions,
-            tools=[{"type": "file_search", "vector_store_ids": [vector_store_id]}],
-            input=[
-                {
-                    "role": "user",
-                    "content": [
-                        {"type": "input_text", "text": SHORT_DESCRIPTION_USER_PREAMBLE},
-                        {"type": "input_file", "file_id": uploaded.id},
-                    ],
-                },
-            ],
-        ), uploaded.id
-    except Exception:
-        try:
-            client.files.delete(uploaded.id)
-        except Exception as exc:  # noqa: BLE001
-            logger.warning("Could not delete uploaded article file %s: %s", uploaded.id, exc)
-        raise
 
 
-def _run_responses_once(
+def _run_short_description_response(
     client: OpenAI,
+    file_id: str,
     vector_store_id: str,
-    article_path: str,
     instructions: str,
     model: str,
 ) -> str:
-    response, file_id = _upload_article_and_create_response(
+    """
+    Execute a short-description generation request and extract the text.
+
+    Args:
+        client: OpenAI client instance.
+        file_id: ID of the uploaded RST file.
+        vector_store_id: ID of the vector store containing examples.
+        instructions: System instructions for the model.
+        model: The GPT model to use.
+
+    Returns:
+        The generated short description text, or an empty string on failure.
+    """
+    response = _create_short_description_response(
         client,
-        article_path,
+        file_id,
         vector_store_id,
         instructions,
         model,
     )
-    try:
-        status = getattr(response, "status", None)
-        if status and status != "completed":
-            logger.error("Responses API ended with status %r", status)
-            return ""
+    status = getattr(response, "status", None)
+    if status and status != "completed":
+        logger.error("Responses API ended with status %r", status)
+        return ""
 
-        text = _extract_response_output_text(response)
-        logger.debug("Responses API completed; output length %s", len(text))
-        return text
-    finally:
-        try:
-            client.files.delete(file_id)
-            logger.debug("Deleted uploaded article file %s", file_id)
-        except Exception as exc:  # noqa: BLE001
-            logger.warning("Could not delete uploaded article file %s: %s", file_id, exc)
+    text = extract_response_output_text(response)
+    logger.debug("Responses API completed; output length %s", len(text))
+    return text
 
 
 def analyze_with_responses(
     client: OpenAI,
     vector_store_id: str,
-    article_path: str,
+    file_id: str,
     instructions: str,
     model: str,
     timeout: int,
@@ -212,17 +238,27 @@ def analyze_with_responses(
     """
     Run short-description generation for one article via the Responses API.
 
-    Uploads the article with the Files API, calls ``responses.create`` with ``input_file`` and
-    ``file_search`` over the example vector store, then deletes the uploaded file.
+    Expects ``file_id`` from a prior Files API upload (see ``analyze_files``).
+    Uses ThreadPoolExecutor so ``timeout`` bounds wall-clock time for the response.
 
-    Uses ThreadPoolExecutor so ``timeout`` bounds wall-clock time for upload plus the response.
+    Args:
+        client: OpenAI client instance.
+        vector_store_id: ID of the vector store containing examples.
+        file_id: ID of the uploaded RST file.
+        instructions: System instructions for the model.
+        model: The GPT model to use.
+        timeout: Maximum time to wait for the response in seconds.
+
+    Returns:
+        The generated short description text.
     """
 
     def _bounded_attempt() -> str:
-        return _run_responses_once(
+        """Execute the response generation within the thread pool."""
+        return _run_short_description_response(
             client,
+            file_id,
             vector_store_id,
-            article_path,
             instructions,
             model,
         )
@@ -237,7 +273,13 @@ def analyze_with_responses(
 
 
 def cleanup_short_description_resources(client: OpenAI, resources: RetrievalResources | None) -> None:
-    """Best-effort deletion of vector store and hosted example files."""
+    """
+    Best-effort deletion of vector store and hosted example files.
+
+    Args:
+        client: OpenAI client instance.
+        resources: The retrieval resources to clean up.
+    """
     if resources is None:
         return
 

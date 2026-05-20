@@ -17,6 +17,9 @@ def _find_meta_block(content: str) -> tuple[int, int, int, str, str]:
     contiguous indented lines; a blank line or a less-indented line ends the
     block (per reStructuredText directive block rules).
 
+    Args:
+        content: The RST file content to search.
+
     Returns:
         Tuple of ``(start, marker_end, block_end, inner, indent)``.
         If no directive is found, ``start``, ``marker_end``, and ``block_end``
@@ -60,6 +63,12 @@ def _extract_meta_names_from_block(meta_block_inner: str) -> set[str]:
     Each line of the form ``:name: value`` contributes ``name`` (Docutils also
     allows forms such as ``:name attr=value:``; the captured segment matches
     that usage).
+
+    Args:
+        meta_block_inner: The inner text of the meta block.
+
+    Returns:
+        A set of field names found in the block.
     """
     names: set[str] = set()
     # Field list lines only; group 1 is the name segment (includes ``attr=value`` forms before the final ``:``)
@@ -73,13 +82,27 @@ def get_meta_names_from_content(content: str) -> set[str]:
     Return the set of field names already present in the first ``.. meta::`` block.
 
     If no ``.. meta::`` directive exists, returns an empty set.
+
+    Args:
+        content: The RST file content to search.
+
+    Returns:
+        A set of field names present in the meta block.
     """
     _start, _marker_end, _block_end, inner, _indent = _find_meta_block(content)
     return _extract_meta_names_from_block(inner)
 
 
 def _normalise_meta_field_value(value: str) -> str:
-    """Collapse whitespace so the meta field body stays a single logical line."""
+    """
+    Collapse whitespace so the meta field body stays a single logical line.
+
+    Args:
+        value: The raw field value.
+
+    Returns:
+        The normalised field value.
+    """
     return " ".join(value.split())  # Docutils treats the field body as one string; keep it one physical line
 
 
@@ -133,6 +156,9 @@ def _find_short_description_block(content: str) -> tuple[int, int, int, str, str
     Uses the same block-boundary rules as ``_find_meta_block``: the body is
     contiguous indented lines until a blank line or a line starting at column 0.
 
+    Args:
+        content: The RST file content to search.
+
     Returns:
         Tuple of ``(start, marker_end, block_end, inner, indent)``.
         If no directive is found, ``start``, ``marker_end``, and ``block_end``
@@ -168,7 +194,15 @@ def _find_short_description_block(content: str) -> tuple[int, int, int, str, str
 
 
 def _short_description_inner_has_content(inner: str) -> bool:
-    """True when the directive body contains non-whitespace text."""
+    """
+    True when the directive body contains non-whitespace text.
+
+    Args:
+        inner: The inner text of the short-description block.
+
+    Returns:
+        True if the body has content, False otherwise.
+    """
     for line in inner.splitlines():
         if line.strip():
             return True
@@ -178,6 +212,12 @@ def _short_description_inner_has_content(inner: str) -> bool:
 def has_short_description_content(content: str) -> bool:
     """
     Return whether the document already has a non-empty ``.. short-description::`` body.
+
+    Args:
+        content: The RST file content to search.
+
+    Returns:
+        True if a non-empty short-description block exists, False otherwise.
     """
     _s, _m, _b, inner, _i = _find_short_description_block(content)
     return _short_description_inner_has_content(inner)
@@ -208,7 +248,16 @@ def get_short_description_body(content: str) -> str | None:
 
 
 def _format_short_description_inner(text: str, indent: str) -> str:
-    """Turn model output into RST directive body lines (indented paragraphs)."""
+    """
+    Turn model output into RST directive body lines (indented paragraphs).
+
+    Args:
+        text: The model-generated prose.
+        indent: The indentation string to use.
+
+    Returns:
+        The formatted and indented inner text for the directive.
+    """
     chunks = [p.strip() for p in text.split("\n\n") if p.strip()]
     lines_out: list[str] = []
     for i, para in enumerate(chunks):
@@ -228,6 +277,12 @@ def _find_insertion_point_after_title(content: str) -> int:
     A title block is a non-blank text line followed by a line of ``=``, ``-``, or ``~``
     underline characters (classic reStructuredText transition marker).
     If no title is found, returns ``0``.
+
+    Args:
+        content: The RST file content to search.
+
+    Returns:
+        The byte index where the title block ends.
     """
     lines = content.splitlines(keepends=True)
     i = 0
