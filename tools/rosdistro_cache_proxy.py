@@ -20,9 +20,11 @@ from __future__ import annotations
 import argparse
 import gzip
 import re
+import socket
 import traceback
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from typing import Dict, Tuple
@@ -73,7 +75,8 @@ class ProxyHandler(BaseHTTPRequestHandler):
 
     def do_GET(self) -> None:  # noqa: N802 (BaseHTTPRequestHandler interface)
         try:
-            match = PATH_RE.match(self.path)
+            path = urllib.parse.urlparse(self.path).path
+            match = PATH_RE.match(path)
             if not match:
                 self.send_error(404, 'Unknown path')
                 return
@@ -135,6 +138,22 @@ class ProxyHandler(BaseHTTPRequestHandler):
         return payload
 
 
+def _assert_port_free(host: str, port: int) -> None:
+    """Fail fast when another local server already owns the port (common on Windows)."""
+    probe = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    try:
+        if hasattr(socket, 'SO_EXCLUSIVEADDRUSE'):
+            probe.setsockopt(socket.SOL_SOCKET, socket.SO_EXCLUSIVEADDRUSE, 1)
+        probe.bind((host, port))
+    except OSError as exc:
+        raise SystemExit(
+            f'Port {port} on {host} is already in use ({exc}).\n'
+            'Stop leftover python/http.server processes or pass --port with a free value.'
+        ) from exc
+    finally:
+        probe.close()
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description='Local proxy for rosdistro cache gz files.')
     parser.add_argument('--host', default='127.0.0.1', help='Listen host (default: 127.0.0.1)')
@@ -152,6 +171,8 @@ def main() -> None:
         help='Upstream timeout seconds (default: 20)',
     )
     args = parser.parse_args()
+
+    _assert_port_free(args.host, args.port)
 
     cache = CacheStore(ttl_seconds=args.cache_ttl)
 

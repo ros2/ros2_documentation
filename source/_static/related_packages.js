@@ -175,11 +175,17 @@
           if (!xmls || typeof xmls !== 'object') {
             throw new Error('release_package_xmls missing in rosdistro cache');
           }
+          if (typeof console !== 'undefined' && console.info) {
+            console.info('related_packages: loaded rosdistro cache from', url);
+          }
           return /** @type {Record<string, string>} */ (xmls);
         })
         .catch(function (err) {
           if (timer) {
             clearTimeout(timer);
+          }
+          if (typeof console !== 'undefined' && console.warn) {
+            console.warn('related_packages: failed', url, err);
           }
           /* Try next URL (e.g. bundled 404 then HTTPS remote — remote may hit CORS). */
           return next(err);
