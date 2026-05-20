@@ -226,6 +226,37 @@
   }
 
   /**
+   * @param {string} xmlStr
+   * @returns {string}
+   */
+  function extractDescription(xmlStr) {
+    if (typeof DOMParser !== 'undefined') {
+      try {
+        var doc = new DOMParser().parseFromString(xmlStr, 'application/xml');
+        var parseErr = doc.getElementsByTagName('parsererror');
+        if (!parseErr.length) {
+          var nodes = doc.getElementsByTagName('description');
+          if (nodes.length && nodes[0].textContent) {
+            return nodes[0].textContent.replace(/\s+/g, ' ').trim();
+          }
+        }
+      } catch (err) {
+        /* Fall through to regex extraction. */
+      }
+    }
+
+    var match = /<description\b[^>]*>([\s\S]*?)<\/description>/i.exec(xmlStr);
+    if (!match) {
+      return '';
+    }
+    return match[1]
+      .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1')
+      .replace(/<[^>]*>/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  /**
    * @param {string} distro
    * @param {string} pkg
    * @returns {string}
@@ -285,10 +316,12 @@
       var pkg = picked[j];
       var li = document.createElement('li');
       var a = document.createElement('a');
+      var description = extractDescription(xmls[pkg] || '');
       a.href = docsPackageUrl(distro, pkg);
       a.textContent = pkg;
       a.rel = 'noopener noreferrer';
       li.appendChild(a);
+      li.appendChild(document.createTextNode(': ' + description));
       ul.appendChild(li);
     }
 
