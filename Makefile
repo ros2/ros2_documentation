@@ -21,6 +21,20 @@ multiversion: Makefile
 	@echo "<html><head><meta http-equiv=\"refresh\" content=\"0; url=kilted/index.html\" /></head></html>" > build/html/index.html
 	$(PYTHON) make_sitemapindex.py
 
+# Pagefind static search index (requires Node.js / npx). Run after html or multiversion.
+PAGEFIND_VERSION ?= 1.5.2
+pagefind:
+	npx -y pagefind@$(PAGEFIND_VERSION) --site "$(OUT)/html"
+
+
+# Convenience: Sphinx build + Pagefind index (does not replace plain html / multiversion).
+html-search:
+	$(MAKE) html
+	$(MAKE) pagefind
+
+multiversion-search: multiversion
+	$(MAKE) pagefind	
+
 %: Makefile
 	@$(BUILD) -M $@ "$(SOURCE)" "$(OUT)" $(OPTS)
 
@@ -64,4 +78,4 @@ linkcheck:
 	@echo
 	@echo "Check finished. Report is in $(LINKCHECKDIR)."
 
-.PHONY: help Makefile multiversion test test-tools linkcheck lint spellcheck check-dictionaries sort-dictionaries
+.PHONY: help Makefile multiversion pagefind test test-tools linkcheck lint spellcheck check-dictionaries sort-dictionaries

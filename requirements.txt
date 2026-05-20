@@ -1,3 +1,7 @@
+# Non-Python build dependency (install separately; used by `make pagefind`):
+#   Node.js 18+ with npx — https://nodejs.org/
+# Verify: node -v && npx -v
+
 codespell
 doc8
 docutils
