@@ -1,14 +1,14 @@
 """
-OpenAI Assistants API helpers for short-description generation with file_search.
+OpenAI Responses API helpers for short-description generation.
 
-Uses a vector store of example RST files so each target article is sent once per run,
-without inlining full examples in every request.
+Example RSTs are indexed into a vector store once per run and attached via ``file_search``.
+Each target article is uploaded with the Files API (``purpose=user_data``) and referenced as
+``input_file`` so the full extracted text is available in the request context.
 """
 
 from __future__ import annotations
 
 import logging
-import time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from typing import Iterable
@@ -17,9 +17,6 @@ from openai import OpenAI, RateLimitError, APIConnectionError
 from tenacity import retry, stop_after_attempt, wait_random_exponential, retry_if_exception_type
 
 from config import (
-    ASSISTANT_POLL_INTERVAL,
-    ASSISTANT_RUN_TIMEOUT,
-    MAX_CONTENT_LENGTH,
     MAX_RETRIES,
     MAX_WAIT,
     MIN_WAIT,
@@ -27,17 +24,25 @@ from config import (
 
 logger = logging.getLogger(__name__)
 
+# File-input guidance (see OpenAI file inputs documentation).
+_MAX_INPUT_FILE_BYTES = 50 * 1024 * 1024
+
 _SCRIPTS_DIR = Path(__file__).resolve().parent
 REPO_ROOT = _SCRIPTS_DIR.parent
+
+SHORT_DESCRIPTION_USER_PREAMBLE = (
+    "Article RST (generate only the short description prose per your instructions; "
+    "use file_search on the indexed examples for tone and structure). "
+    "The article to enhance is attached as a file."
+)
 
 
 class RetrievalResources:
     """IDs created for one enhance_short_descriptions run (for cleanup)."""
 
-    __slots__ = ("assistant_id", "vector_store_id")
+    __slots__ = ("vector_store_id",)
 
-    def __init__(self, assistant_id: str, vector_store_id: str) -> None:
-        self.assistant_id = assistant_id
+    def __init__(self, vector_store_id: str) -> None:
         self.vector_store_id = vector_store_id
 
 
@@ -65,7 +70,10 @@ def ensure_example_vector_store(client: OpenAI, example_paths: Iterable[str]) ->
         vector_store_id
     """
     paths = _resolve_example_paths(example_paths)
-    logger.debug("Creating vector store for %s example file(s)", len(paths))
+    logger.info(
+        "Indexing %s example RST file(s) into OpenAI vector store",
+        len(paths),
+    )
     vs = client.vector_stores.create(name="ros2-doc-short-description-examples")
 
     from contextlib import ExitStack
@@ -85,171 +93,157 @@ def ensure_example_vector_store(client: OpenAI, example_paths: Iterable[str]) ->
     return vs.id
 
 
+def _extract_response_output_text(response: object) -> str:
+    """Return concatenated assistant output text from a Responses API result."""
+    output_text = getattr(response, "output_text", None)
+    if isinstance(output_text, str) and output_text.strip():
+        return output_text.strip()
+
+    parts: list[str] = []
+    output = getattr(response, "output", None) or []
+    for item in output:
+        item_type = getattr(item, "type", None)
+        if item_type != "message":
+            continue
+        role = getattr(item, "role", None)
+        if role is not None and role != "assistant":
+            continue
+        for block in getattr(item, "content", []) or []:
+            btype = getattr(block, "type", None)
+            if btype == "output_text":
+                text = getattr(block, "text", None)
+                if text:
+                    parts.append(text)
+    return "".join(parts).strip()
+
+
 @retry(
     retry=retry_if_exception_type((RateLimitError, APIConnectionError)),
     stop=stop_after_attempt(MAX_RETRIES),
     wait=wait_random_exponential(multiplier=MIN_WAIT, max=MAX_WAIT),
     reraise=True,
 )
-def create_short_description_assistant(
+def _upload_article_and_create_response(
     client: OpenAI,
+    article_path: str,
     vector_store_id: str,
     instructions: str,
     model: str,
-) -> str:
-    """Create an assistant with file_search over the given vector store. Returns assistant_id."""
-    assistant = client.beta.assistants.create(
-        name="ROS documentation short description",
-        instructions=instructions,
-        model=model,
-        tools=[{"type": "file_search"}],
-        tool_resources={"file_search": {"vector_store_ids": [vector_store_id]}},
-    )
-    logger.debug("Created assistant %s", assistant.id)
-    return assistant.id
-
-
-def _extract_assistant_message_text(client: OpenAI, thread_id: str) -> str:
-    messages = client.beta.threads.messages.list(thread_id=thread_id, order="desc", limit=10)
-    for msg in messages.data:
-        if msg.role != "assistant":
-            continue
-        parts: list[str] = []
-        for block in msg.content:
-            if block.type == "text":
-                parts.append(block.text.value)
-        return "".join(parts).strip()
-    return ""
-
-
-def _retrieve_run_with_backoff(
-    client: OpenAI,
-    thread_id: str,
-    run_id: str,
-    deadline: float,
-) -> object:
-    """Retrieve run status; on rate limit / connection errors sleep and retry until deadline."""
-    attempt = 0
-    while True:
-        if time.monotonic() >= deadline:
-            raise TimeoutError(f"Assistant run {run_id}: deadline before status retrieve")
-        try:
-            return client.beta.threads.runs.retrieve(thread_id=thread_id, run_id=run_id)
-        except (RateLimitError, APIConnectionError) as exc:
-            attempt += 1
-            wait = min(ASSISTANT_POLL_INTERVAL * (2**attempt), 30.0)
-            logger.warning("Run retrieve retry %s after %s: sleeping %.1fs", attempt, exc, wait)
-            time.sleep(wait)
-
-
-def _poll_run_until_terminal(
-    client: OpenAI,
-    thread_id: str,
-    run_id: str,
-    deadline: float,
-) -> object:
-    """Poll run status until terminal state or deadline. Returns final run object."""
-    run = _retrieve_run_with_backoff(client, thread_id, run_id, deadline)
-    while run.status in ("queued", "in_progress", "cancelling"):
-        if time.monotonic() >= deadline:
-            raise TimeoutError(
-                f"Assistant run {run_id} still {run.status!r} after polling deadline",
-            )
-        time.sleep(ASSISTANT_POLL_INTERVAL)
-        run = _retrieve_run_with_backoff(client, thread_id, run_id, deadline)
-    return run
-
-
-def _run_assistant_once(client: OpenAI, assistant_id: str, content: str, run_timeout: int) -> str:
-    """Single attempt: new thread, user message, run, poll until terminal, read assistant text."""
-    if len(content) > MAX_CONTENT_LENGTH:
+) -> tuple[object, str]:
+    path = Path(article_path)
+    size = path.stat().st_size
+    if size > _MAX_INPUT_FILE_BYTES:
         logger.warning(
-            "Article RST truncated to %s characters for assistant message.",
-            MAX_CONTENT_LENGTH,
+            "Article file %s is %s bytes (exceeds %s byte file-input guidance); request may fail.",
+            article_path,
+            size,
+            _MAX_INPUT_FILE_BYTES,
         )
-        content = content[:MAX_CONTENT_LENGTH]
 
-    user_text = (
-        "Article RST (generate only the short description prose per your instructions; "
-        "use file_search on the indexed examples for tone and structure):\n\n"
-        f"{content}"
+    logger.info(
+        "Generating short description via Responses API for %s",
+        article_path,
     )
+    with open(path, "rb") as f:
+        uploaded = client.files.create(file=f, purpose="user_data")
 
-    thread = client.beta.threads.create()
-    client.beta.threads.messages.create(
-        thread_id=thread.id,
-        role="user",
-        content=user_text,
-    )
-    run = client.beta.threads.runs.create(
-        thread_id=thread.id,
-        assistant_id=assistant_id,
-    )
-    deadline = time.monotonic() + float(run_timeout)
-    run = _poll_run_until_terminal(client, thread.id, run.id, deadline)
-
-    if run.status == "completed":
-        text = _extract_assistant_message_text(client, thread.id)
-        logger.debug("Assistant run completed; response length %s", len(text))
-        return text
-
-    if run.status == "failed":
-        err = getattr(run, "last_error", None)
-        logger.error("Assistant run failed: %s", err)
-        return ""
-
-    if run.status == "expired":
-        logger.error("Assistant run expired")
-        return ""
-
-    if run.status == "cancelled":
-        logger.warning("Assistant run cancelled")
-        return ""
-
-    if run.status == "requires_action":
-        logger.error("Assistant run requires_action (unexpected for file_search-only flow)")
-        return ""
-
-    logger.error("Assistant run ended with unexpected status %r", run.status)
-    return ""
+    try:
+        return client.responses.create(
+            model=model,
+            instructions=instructions,
+            tools=[{"type": "file_search", "vector_store_ids": [vector_store_id]}],
+            input=[
+                {
+                    "role": "user",
+                    "content": [
+                        {"type": "input_text", "text": SHORT_DESCRIPTION_USER_PREAMBLE},
+                        {"type": "input_file", "file_id": uploaded.id},
+                    ],
+                },
+            ],
+        ), uploaded.id
+    except Exception:
+        try:
+            client.files.delete(uploaded.id)
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("Could not delete uploaded article file %s: %s", uploaded.id, exc)
+        raise
 
 
-def analyze_with_file_search(
+def _run_responses_once(
     client: OpenAI,
-    assistant_id: str,
-    content: str,
-    timeout: int = ASSISTANT_RUN_TIMEOUT,
+    vector_store_id: str,
+    article_path: str,
+    instructions: str,
+    model: str,
+) -> str:
+    response, file_id = _upload_article_and_create_response(
+        client,
+        article_path,
+        vector_store_id,
+        instructions,
+        model,
+    )
+    try:
+        status = getattr(response, "status", None)
+        if status and status != "completed":
+            logger.error("Responses API ended with status %r", status)
+            return ""
+
+        text = _extract_response_output_text(response)
+        logger.debug("Responses API completed; output length %s", len(text))
+        return text
+    finally:
+        try:
+            client.files.delete(file_id)
+            logger.debug("Deleted uploaded article file %s", file_id)
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("Could not delete uploaded article file %s: %s", file_id, exc)
+
+
+def analyze_with_responses(
+    client: OpenAI,
+    vector_store_id: str,
+    article_path: str,
+    instructions: str,
+    model: str,
+    timeout: int,
 ) -> str:
     """
-    Run the short-description assistant on one article's RST.
+    Run short-description generation for one article via the Responses API.
 
-    Uses ThreadPoolExecutor so ``timeout`` bounds wall-clock time including polling
-    (same value as the internal poll deadline for the run).
+    Uploads the article with the Files API, calls ``responses.create`` with ``input_file`` and
+    ``file_search`` over the example vector store, then deletes the uploaded file.
+
+    Uses ThreadPoolExecutor so ``timeout`` bounds wall-clock time for upload plus the response.
     """
 
     def _bounded_attempt() -> str:
-        return _run_assistant_once(client, assistant_id, content, timeout)
+        return _run_responses_once(
+            client,
+            vector_store_id,
+            article_path,
+            instructions,
+            model,
+        )
 
     with ThreadPoolExecutor(max_workers=1) as executor:
         future = executor.submit(_bounded_attempt)
         try:
             return future.result(timeout=timeout)
         except TimeoutError:
-            logger.error("analyze_with_file_search timed out after %s seconds", timeout)
+            logger.error("analyze_with_responses timed out after %s seconds", timeout)
             raise
 
 
 def cleanup_short_description_resources(client: OpenAI, resources: RetrievalResources | None) -> None:
-    """Best-effort deletion of assistant and vector store (and hosted files in the store)."""
+    """Best-effort deletion of vector store and hosted example files."""
     if resources is None:
         return
 
-    try:
-        client.beta.assistants.delete(resources.assistant_id)
-        logger.debug("Deleted assistant %s", resources.assistant_id)
-    except Exception as exc:  # noqa: BLE001 — cleanup must not raise
-        logger.warning("Could not delete assistant %s: %s", resources.assistant_id, exc)
-
+    logger.info(
+        "Cleaning up OpenAI vector store and hosted files",
+    )
     try:
         listed = client.vector_stores.files.list(vector_store_id=resources.vector_store_id)
         file_entries = getattr(listed, "data", None)

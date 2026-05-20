@@ -12,7 +12,6 @@ from tenacity import retry, stop_after_attempt, wait_random_exponential, retry_i
 from concurrent.futures import ThreadPoolExecutor
 
 from config import (
-    ASSISTANT_RUN_TIMEOUT,
     DEFAULT_TIMEOUT,
     DESCRIPTION_PROMPT,
     ENGLISH_LANGUAGE_CHECK_PROMPT,
@@ -22,6 +21,7 @@ from config import (
     MAX_RETRIES,
     MAX_WAIT,
     MIN_WAIT,
+    RESPONSE_TIMEOUT,
     RST_EXTENSION,
     SHORT_DESCRIPTION_EXAMPLE_PATHS,
     SHORT_DESCRIPTION_PROMPT,
@@ -36,9 +36,8 @@ from enhance_data import (
 )
 from openai_retrieval import (
     RetrievalResources,
-    analyze_with_file_search,
+    analyze_with_responses,
     cleanup_short_description_resources,
-    create_short_description_assistant,
     ensure_example_vector_store,
 )
 from rst_utils import (
@@ -49,6 +48,19 @@ from rst_utils import (
 )
 
 logger = logging.getLogger(__name__)
+
+# OpenAI SDK uses httpx; httpcore may also emit request-level INFO lines.
+_QUIET_HTTP_LOGGERS = ("httpx", "httpcore")
+
+
+def configure_logging() -> None:
+    """Configure application logging and quiet noisy HTTP client libraries."""
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(levelname)s %(asctime)s: %(message)s",
+    )
+    for name in _QUIET_HTTP_LOGGERS:
+        logging.getLogger(name).setLevel(logging.WARNING)
 
 
 @dataclass(frozen=True)
@@ -97,7 +109,7 @@ class EnhancementTask:
 
     key: str
     should_skip: Callable[[str], bool]
-    analyze: Callable[[OpenAI, str, int], str]
+    analyze: Callable[[OpenAI, str, str, int], str]
     timeout: int = DEFAULT_TIMEOUT
 
 
@@ -107,22 +119,34 @@ def _metadata_enhancement_task(key: str, prompt: str) -> EnhancementTask:
     def should_skip(content: str) -> bool:
         return key in get_meta_names_from_content(content)
 
-    def analyze(cl: OpenAI, content: str, to: int) -> str:
+    def analyze(cl: OpenAI, _file_path: str, content: str, to: int) -> str:
         return analyze_content(cl, content, prompt, timeout=to)
 
     return EnhancementTask(key=key, should_skip=should_skip, analyze=analyze, timeout=DEFAULT_TIMEOUT)
 
 
-def _short_description_enhancement_task(assistant_id: str) -> EnhancementTask:
+def _short_description_enhancement_task(vector_store_id: str) -> EnhancementTask:
     """Build a task that writes to the ``.. short-description::`` directive body."""
 
     def should_skip(content: str) -> bool:
         return has_short_description_content(content)
 
-    def analyze(cl: OpenAI, content: str, to: int) -> str:
-        return analyze_with_file_search(cl, assistant_id, content, timeout=to)
+    def analyze(cl: OpenAI, file_path: str, _content: str, to: int) -> str:
+        return analyze_with_responses(
+            cl,
+            vector_store_id,
+            file_path,
+            SHORT_DESCRIPTION_PROMPT,
+            GPT_MODEL,
+            timeout=to,
+        )
 
-    return EnhancementTask(key="short-description", should_skip=should_skip, analyze=analyze, timeout=ASSISTANT_RUN_TIMEOUT)
+    return EnhancementTask(
+        key="short-description",
+        should_skip=should_skip,
+        analyze=analyze,
+        timeout=RESPONSE_TIMEOUT,
+    )
 
 
 @retry(
@@ -170,7 +194,7 @@ def analyze_content(client: OpenAI, content: str, prompt: str, timeout: int = DE
             RateLimitError, APIConnectionError: Propagated for retry handling
         """
         try:
-            logger.debug("Sending request to OpenAI API...")
+            logger.info("Calling OpenAI Chat Completions API for content analysis")
             completion = client.chat.completions.create(
                 model=GPT_MODEL,
                 messages=[
@@ -243,7 +267,9 @@ def validate_content(client: OpenAI, generated: str, timeout: int = DEFAULT_TIME
             RateLimitError, APIConnectionError: Propagated for retry handling.
         """
         try:
-            logger.debug("Sending generated text to moderation API...")
+            logger.info(
+                "Validating generated content via moderation and language APIs"
+            )
             moderation = client.moderations.create(input=text)
         except (RateLimitError, APIConnectionError) as e:
             logger.warning("Retryable error during moderation: %s", e)
@@ -267,7 +293,6 @@ def validate_content(client: OpenAI, generated: str, timeout: int = DEFAULT_TIME
             return False
 
         try:
-            logger.debug("Sending generated text for English-language validation...")
             completion = client.chat.completions.create(
                 model=GPT_MODEL,
                 messages=[
@@ -348,16 +373,14 @@ def analyze_files(
         # Iterate through each task and run the analysis
         for task in tasks:
             if task.should_skip(content):
-                logger.warning(
-                    "Skipping analysis for %s: task %r (content already satisfies skip rule)",
-                    file_path,
-                    task.key,
-                )
+                logger.info(f"Skipping analysis for {file_path}: task {task.key} (already satisfies skip rule)")
+           
                 continue
             logger.debug("Running analysis: %s", task.key)
             try:
+                logger.info("Analyzing content for %s: task %r", file_path, task.key)
                 # Analyse the content using the task's analyze function
-                result = task.analyze(client, content, task.timeout)
+                result = task.analyze(client, file_path, content, task.timeout)
                 if result:
                     # Validate the generated content
                     if validate_content(client, result, timeout=DEFAULT_TIMEOUT):
@@ -422,21 +445,16 @@ def update_enhanced_files(
     The hook receives the file content and the per-file results dictionary, and
     returns ``AppliedContent``. The file is written when ``changed`` is true.
     """
-    logger.debug("===========================")
-    logger.debug("Updating %s in files:", log_label)
-    logger.debug("===========================")
-
     current_data = data
 
     for file_path in files:
-        logger.debug("Updating %s in file: %s", log_label, file_path)
         file_results = get_results_for_file(current_data, file_path)
 
         if not file_results:
             logger.info("Skipping %s as it has no results for enhancement", file_path)
             continue
 
-        logger.debug("Results found for %s, proceeding with updates.", file_path)
+        logger.info("Enhancing %s in file: %s", log_label, file_path)
 
         try:
             with open(file_path, encoding="utf-8") as file:
@@ -522,11 +540,11 @@ def enhance_short_descriptions(
     data: Optional[EnhanceData] = None,
 ) -> EnhanceData:
     """
-    Enhance RST files with a ``.. short-description::`` body using an assistant with file_search.
+    Enhance RST files with a ``.. short-description::`` body using the Responses API.
 
-    Example articles are taken from ``SHORT_DESCRIPTION_EXAMPLE_PATHS`` (indexed once per run).
-    Each target file is sent in its own thread; the vector store and assistant are deleted
-    afterwards.
+    Example articles are taken from ``SHORT_DESCRIPTION_EXAMPLE_PATHS`` (indexed once per run
+    into a vector store for ``file_search``). Each target file is uploaded with the Files API
+    and referenced as ``input_file``; the vector store is deleted afterwards.
 
     Args:
         files: Paths to RST files to enhance.
@@ -547,15 +565,9 @@ def enhance_short_descriptions(
     resources: RetrievalResources | None = None
     try:
         vector_store_id = ensure_example_vector_store(client, SHORT_DESCRIPTION_EXAMPLE_PATHS)
-        assistant_id = create_short_description_assistant(
-            client,
-            vector_store_id,
-            SHORT_DESCRIPTION_PROMPT,
-            GPT_MODEL,
-        )
-        resources = RetrievalResources(assistant_id, vector_store_id)
+        resources = RetrievalResources(vector_store_id)
 
-        tasks = [_short_description_enhancement_task(assistant_id)]
+        tasks = [_short_description_enhancement_task(vector_store_id)]
         acc = analyze_files(files, client, tasks, acc)
         return update_enhanced_files(
             files,
@@ -595,10 +607,7 @@ def main() -> None:
     Only files with the .rst extension will be processed.
     """
     
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(levelname)s %(name)s: %(message)s",
-    )
+    configure_logging()
 
     # Collect filenames from command line arguments and filter for RST files
     input_files = sys.argv[1:]

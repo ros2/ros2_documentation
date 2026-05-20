@@ -223,22 +223,19 @@ def test_enhance_metadata_orchestration(mock_update, mock_analyze, mock_get_clie
 @patch("enhance_topics.cleanup_short_description_resources")
 @patch("enhance_topics.update_enhanced_files")
 @patch("enhance_topics.analyze_files")
-@patch("enhance_topics.create_short_description_assistant")
 @patch("enhance_topics.ensure_example_vector_store")
 @patch("enhance_topics.get_openai_client")
 def test_enhance_short_descriptions_orchestration(
     mock_get_client,
     mock_ensure_vs,
-    mock_create_asst,
     mock_analyze,
     mock_update,
     mock_cleanup,
 ):
-    """Short-description path creates VS + assistant, analyses, updates, and cleans up."""
+    """Short-description path creates vector store, analyses, updates, and cleans up."""
     mock_client = MagicMock()
     mock_get_client.return_value = mock_client
     mock_ensure_vs.return_value = "vs_1"
-    mock_create_asst.return_value = "asst_1"
     empty = EnhanceData(results={}, updated_files=set())
     mock_analyze.return_value = empty
     mock_update.return_value = empty
@@ -246,13 +243,11 @@ def test_enhance_short_descriptions_orchestration(
     enhance_short_descriptions(["article.rst"])
 
     mock_ensure_vs.assert_called_once()
-    mock_create_asst.assert_called_once()
     mock_analyze.assert_called_once()
     mock_update.assert_called_once()
     mock_cleanup.assert_called_once()
     res = mock_cleanup.call_args[0][1]
     assert res is not None
-    assert res.assistant_id == "asst_1"
     assert res.vector_store_id == "vs_1"
 
 

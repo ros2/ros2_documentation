@@ -21,11 +21,9 @@ MAX_RETRIES = 10     # Maximum number of retry attempts for exponential backoff
 MIN_WAIT = 10        # Minimum wait time between retries in seconds
 MAX_WAIT = 120        # Maximum wait time between retries in seconds
 
-# Assistant-run tuning (used by openai_retrieval)
-# Maximum time for one assistant run (thread message + run + polling)
-ASSISTANT_RUN_TIMEOUT = 120
-# Interval between run status polls
-ASSISTANT_POLL_INTERVAL = 1.5
+# Responses API tuning (used by openai_retrieval for short descriptions)
+# Maximum wall-clock time for one article: file upload plus responses.create
+RESPONSE_TIMEOUT = 120
 
 # Example RST paths (relative to repository root) indexed into the vector store for file_search
 SHORT_DESCRIPTION_EXAMPLE_PATHS = [
@@ -57,7 +55,7 @@ This short description content does not include the single line of text commenci
 
 When you have identified the short description in all example articles, remember the formatting and how the paragraph is constructed, including tone/style and length. We call this the article Short Description.
 
-Finally, generate the short description for the new article given in the user message, with no additional styling, characters, or formatting.
+Finally, generate the short description for the new article given in the attached article file, with no additional styling, characters, or formatting.
 """
 
 KEYWORDS_PROMPT = """You are a content analyst, and your role is to analyze text content within supplied documents.
