@@ -86,23 +86,6 @@ Plain `make html` and `make multiversion` do **not** run Pagefind (Node.js is on
 
 This requires **Node.js** (for `npx`). Pin the CLI with `PAGEFIND_VERSION` in the Makefile if needed.
 
-To preview search locally, serve the site over HTTP (Pagefind may not load from `file://`), for example from the repo root:
-
-`python -m http.server 8000 --directory build/html`
-
-Then open `http://localhost:8000/` in a browser.
-
-#### Search results page verification
-
-After `make html` and `make pagefind`, serve `build/html` over HTTP and check:
-
-1. **Direct URL** — Open `http://localhost:8000/search.html?q=tutorial` (or the same path under a distro prefix for multiversion builds). The input should show the query and results should load (not stay empty or skeleton-only).
-2. **Modal redirect** — From a nested page (e.g. a tutorial), open the sidebar search modal (Ctrl/Cmd+K), type a term, press Enter. You should land on the search page with `?q=` set and matching results visible.
-3. **Empty query** — Open `search.html` with no `q` parameter. The page should load without errors; no search is run until you type in the input.
-4. **Result metadata** — Search for `Ubuntu deb` and open a result card. Metadata labels (e.g. Area, Content Type, Experience) should match that page’s `<head>` `<meta name="..." content="...">` tags from its `.. meta::` block (e.g. `area: installation` on the Ubuntu deb install page), not URL-path guesses.
-
-In DevTools Network, confirm `pagefind/` bundle requests return 200 (not 404).
-
 The production [Jenkins doc job](https://build.ros.org/job/doc_ros2doc) should run the same `pagefind` step on `build/html` after Sphinx so deployed pages include the search bundle.
 
 
