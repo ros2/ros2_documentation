@@ -82,11 +82,11 @@ class ApplyHook(ABC):
 
 @dataclass(frozen=True)
 class MetadataApplyHook(ApplyHook):
-    """Merge ``description`` / ``keywords`` results into ``.. meta::``."""
+    """Merge metadata results into ``.. meta::``."""
 
     def apply(self, content: str, results: dict[str, str]) -> AppliedContent:
         """
-        Merge description and keywords from results into the RST meta block.
+        Merge description, keywords, distro, and product from results into the RST meta block.
 
         Args:
             content: Original RST file content.
@@ -95,7 +95,11 @@ class MetadataApplyHook(ApplyHook):
         Returns:
             AppliedContent containing the updated content and change status.
         """
-        subset = {k: v for k, v in results.items() if k in ("description", "keywords")}
+        subset = {
+            k: v
+            for k, v in results.items()
+            if k in ("description", "keywords", "distro", "product")
+        }
         if not subset:
             return AppliedContent(content=content, changed=False)
         new_content, changed = inject_metadata_to_content(content, subset)
@@ -132,6 +136,7 @@ class EnhancementTask:
     should_skip: Callable[[str], bool]
     analyze: Callable[[OpenAI, str, int], str]
     timeout: int = DEFAULT_TIMEOUT
+    skip_validation: bool = False
 
 
 def _metadata_enhancement_task(key: str, prompt: str) -> EnhancementTask:
@@ -146,6 +151,26 @@ def _metadata_enhancement_task(key: str, prompt: str) -> EnhancementTask:
         return analyze_content(cl, file_id, prompt, timeout=to)
 
     return EnhancementTask(key=key, should_skip=should_skip, analyze=analyze, timeout=DEFAULT_TIMEOUT)
+
+
+def _fixed_metadata_enhancement_task(key: str, value: str) -> EnhancementTask:
+    """Build a task that writes a fixed value to ``.. meta::`` under the given field name."""
+
+    def should_skip(content: str) -> bool:
+        """Check if the metadata key already exists in the content."""
+        return key in get_meta_names_from_content(content)
+
+    def analyze(cl: OpenAI, file_id: str, to: int) -> str:
+        """Return the fixed value."""
+        return value
+
+    return EnhancementTask(
+        key=key,
+        should_skip=should_skip,
+        analyze=analyze,
+        timeout=0,
+        skip_validation=True,
+    )
 
 
 def _short_description_enhancement_task(vector_store_id: str) -> EnhancementTask:
@@ -421,8 +446,8 @@ def analyze_files(
                     # Analyse the content using the task's analyze function
                     result = task.analyze(client, file_id, task.timeout)
                     if result:
-                        # Validate the generated content
-                        if validate_content(client, result, timeout=DEFAULT_TIMEOUT):
+                        # Validate the generated content if required
+                        if task.skip_validation or validate_content(client, result, timeout=DEFAULT_TIMEOUT):
                             # Add the analysis result to the enhancement data
                             acc = add_analysis_result(acc, file_path, task.key, result)
                         else:
@@ -601,6 +626,8 @@ def enhance_metadata(
     tasks = [
         _metadata_enhancement_task("description", DESCRIPTION_PROMPT),
         _metadata_enhancement_task("keywords", KEYWORDS_PROMPT),
+        _fixed_metadata_enhancement_task("distro", "{DISTRO}"),
+        _fixed_metadata_enhancement_task("product", "{PRODUCT}"),
     ]
 
     acc = analyze_files(files, client, tasks, acc)

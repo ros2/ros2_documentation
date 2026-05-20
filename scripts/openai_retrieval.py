@@ -8,6 +8,7 @@ Target articles are uploaded once per file in ``analyze_files`` and passed by ``
 from __future__ import annotations
 
 import logging
+import time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from typing import Iterable
@@ -19,6 +20,7 @@ from config import (
     MAX_RETRIES,
     MAX_WAIT,
     MIN_WAIT,
+    RESPONSE_TIMEOUT,
 )
 
 # Define the logger for the module
@@ -107,8 +109,28 @@ def ensure_example_vector_store(client: OpenAI, example_paths: Iterable[str]) ->
             files=streams,
         )
 
+    # If upload_and_poll returns before completion (e.g. due to internal timeout),
+    # we continue polling manually.
+    poll_start = time.time()
+    while batch.status in ("in_progress", "queued"):
+        if time.time() - poll_start > RESPONSE_TIMEOUT:
+            logger.error(
+                "Vector store indexing timed out after %s seconds (status: %s)",
+                RESPONSE_TIMEOUT,
+                batch.status,
+            )
+            break
+        time.sleep(5)
+        batch = client.vector_stores.file_batches.retrieve(
+            vector_store_id=vs.id,
+            batch_id=batch.id,
+        )
+        logger.debug("Polled vector store batch %s: status=%s", batch.id, batch.status)
+
     if batch.status != "completed":
         logger.error("Vector store file batch ended with status %r", batch.status)
+        if batch.status == "failed":
+            logger.error("Vector store batch failed with error details: %r", getattr(batch, "last_error", None))
         raise RuntimeError(f"Vector store indexing did not complete: {batch.status}")
 
     logger.debug("Vector store %s ready (batch status=%s)", vs.id, batch.status)

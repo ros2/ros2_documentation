@@ -140,7 +140,9 @@ def inject_metadata_to_content(content: str, metadata: dict[str, str]) -> tuple[
 
     if start >= 0:
         # Replace only the directive body slice; ``marker_end``/``block_end`` bracket the original inner
-        new_content = content[:marker_end] + new_inner + content[block_end:]
+        # Normalise trailing whitespace: one blank line after the block
+        remainder = content[block_end:].lstrip()
+        new_content = content[:marker_end] + new_inner + "\n" + remainder
     else:
         # No ``.. meta::`` yet: insert at document start; strip leading whitespace so the block is truly first
         remainder = content.lstrip()
@@ -323,11 +325,15 @@ def inject_short_description_to_content(content: str, text: str) -> tuple[str, b
                 "Existing .. short-description:: body has content; skipping replacement",
             )
             return content, False
-        new_content = content[:marker_end] + new_inner + content[block_end:]
+        # Normalise trailing whitespace: one blank line after the block
+        remainder = content[block_end:].lstrip()
+        new_content = content[:marker_end] + new_inner + "\n" + remainder
         return new_content, True
 
     insert_at = _find_insertion_point_after_title(content)
+    # Normalise trailing whitespace: one blank line before and after the block
+    remainder = content[insert_at:].lstrip()
     block = f"\n.. short-description::\n{new_inner}\n"
-    new_content = content[:insert_at] + block + content[insert_at:]
+    new_content = content[:insert_at] + block + remainder
     return new_content, True
 
