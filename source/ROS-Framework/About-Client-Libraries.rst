@@ -8,6 +8,17 @@
 Client libraries
 ================
 
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+
+   client-libraries/About-Different-Middleware-Vendors
+   client-libraries/About-Executors
+   client-libraries/About-Client-Interfaces
+   client-libraries/About-Middleware-Implementations
+   client-libraries/Working-with-Client-Libraries
+
+
 .. contents:: Table of Contents
    :local:
 

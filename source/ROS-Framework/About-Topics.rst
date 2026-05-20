@@ -7,6 +7,7 @@ Topics
    topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics
    topics/About-Quality-of-Service-Settings
    topics/About-Topic-Statistics
+   topics/Working-with-topics
    
 .. contents:: Table of Contents
    :local:

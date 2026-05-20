@@ -1,5 +1,10 @@
 Services
 ========
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+
+   services/Working-with-services
 
 .. contents:: Table of Contents
    :local:

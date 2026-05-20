@@ -6,6 +6,12 @@
 Parameters
 ==========
 
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+
+   parameters/Working-with-parameters
+
 .. contents:: Table of Contents
    :local:
 
