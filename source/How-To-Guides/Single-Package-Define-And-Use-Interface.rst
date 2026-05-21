@@ -10,13 +10,11 @@
 Implementing custom interfaces - how-to
 =======================================
 
-.. centered:: **When predefined interface definitions are not enough, you need to create custom interfaces.
-   In this article, you will learn how to define and build interfaces with different field types.
-   This will help you implement custom interfaces in ROS to suit your needs.**
+When predefined interface definitions are not enough, you need to create custom interfaces.
+In this article, you will learn how to define and build interfaces with different field types.
+This will help you implement custom interfaces in ROS to suit your needs.
 
-::
-
-   Area: ROS-framework | Content-type: how-to | Experience: beginner, intermediate
+**Area: ROS-framework | Content-type: how-to | Experience: beginner, intermediate**
 
 .. contents:: Contents
    :depth: 2
