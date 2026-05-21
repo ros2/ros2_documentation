@@ -16,5 +16,5 @@ PLACEHOLDER
    Working-with-nodes/Composition
    Working-with-nodes/Using-Node-Interfaces-Template-Class
    Working-with-nodes/Managed-Nodes
-   Working-with-nodes/Intra-Process-Communication
+   Working-with-nodes/intra-process/Intra-Process-Communication
    Working-with-nodes/Using-callback-groups

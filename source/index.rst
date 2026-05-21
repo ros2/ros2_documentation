@@ -13,13 +13,10 @@ ROS 2 Documentation
    Get-Started
    ROS-Framework
    Capabilities
-   Tutorials
-   How-To-Guides
-   Concepts
-   Contact
+   Developer-Tools
    The-ROS2-Project
-   Package-Docs
    Related-Projects
+   Contact
    Glossary
    Citations
 
