@@ -89,9 +89,29 @@ extensions = [
     'sphinx_adopters',
     'sphinxcontrib.googleanalytics',
     'sphinxcontrib.mermaid',
-    'ros_related_packages',
-    'ros_related_articles',
-    'short_description',
+    'pagefind_meta',
+    'showmeta',
+]
+
+pagefind_merge_enabled = False
+pagefind_merge_package_pkgs = []
+pagefind_merge_index_base = 'https://docs.ros.org'
+pagefind_merge_index_overrides = {}
+pagefind_merge_filter_per_pkg = None
+pagefind_merge_index_weight_per_pkg = None
+
+pagefind_filter_labels = {
+    'contentType': 'Content type',
+}
+
+pagefind_result_meta_order = [
+    'product',
+    'distro',
+    'area',
+    'capability',
+    'contentType',
+    'experience',
+    
 ]
 
 # Intersphinx mapping
@@ -195,6 +215,7 @@ macros = {
     'DISTRO_UBUNTU_DEB_PLATFORM': distro_ubuntu_deb_platform['rolling'],
     'DISTRO_ARM_STATUS_SUFFIX': distro_arm_status_suffix.get('rolling', 'unv8'),
     'REPOS_FILE_BRANCH': 'rolling',
+    'PRODUCT': 'ROS 2',
 }
 
 html_favicon = 'favicon.ico'
@@ -208,7 +229,7 @@ html_static_path = ['source/_static']
 html_sourcelink_suffix = ''
 
 # Relative to html_static_path
-html_css_files = ['custom.css', 'adopters.css']
+html_css_files = ['custom.css', 'adopters.css', 'pagefind-docsearch.css']
 html_js_files = [
     ('vendor/pako.min.js', {'defer': ''}),
     ('vendor/js-yaml.min.js', {'defer': ''}),

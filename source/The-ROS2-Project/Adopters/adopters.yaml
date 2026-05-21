@@ -95,7 +95,7 @@ adopters:
     description: "Development platform for autonomous mobile robots across logistics, construction, and retail."
 
   - organization: "RT Corporation"
-    organization_url: "https://rt-net.jp"
+    organization_url: "https://en.rt-net.jp"
     project: "CRANE-X7"
     project_url: "https://github.com/rt-net/crane_x7_ros"
     domain:

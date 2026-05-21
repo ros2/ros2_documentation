@@ -71,6 +71,24 @@ To test building the multisite version deployed to the website use:
 
 **NB:** This will ignore local workspace changes and build from the branches.
 
+### Pagefind search index
+
+After `make html` or `make multiversion`, run [Pagefind](https://pagefind.app/) so the built HTML under `build/html` is indexed and `build/html/pagefind/` is written (search bundle and Component UI assets). From the repo root:
+
+`make pagefind`
+
+Or use convenience targets that run Sphinx and Pagefind in one step:
+
+- `make html-search` — `make html` then `make pagefind`
+- `make multiversion-search` — `make multiversion` then `make pagefind`
+
+Plain `make html` and `make multiversion` do **not** run Pagefind (Node.js is only required when you index search).
+
+This requires **Node.js** (for `npx`). Pin the CLI with `PAGEFIND_VERSION` in the Makefile if needed.
+
+The production [Jenkins doc job](https://build.ros.org/job/doc_ros2doc) should run the same `pagefind` step on `build/html` after Sphinx so deployed pages include the search bundle.
+
+
 ### Note for Windows (WSL) Users
 
 When building the documentation on windows using WSL, it is recommended to clone and work with this repository inside the Linux filesystem (for example, under `/home/<user>/`) rather than under `/mnt/c`.
