@@ -5,9 +5,8 @@ Use this instead of ``python -m http.server`` when testing proxy-first related
 packages. The browser can fetch ``/api/rosdistro-cache/<distro>-cache.yaml.gz``
 same-origin (no cross-port CORS quirks).
 
-Build docs with::
+Build docs (proxy URL is the conf.py default; env override optional)::
 
-    set ROS_RELATED_PACKAGES_PROXY_URL=/api/rosdistro-cache/{distro}-cache.yaml.gz
     make html
 
 Then run::
@@ -190,7 +189,7 @@ def main() -> None:
     print(f'Open http://{args.host}:{args.port}/')
     print('API: /api/rosdistro-cache/<distro>-cache.yaml.gz')
     print(
-        'Build with: ROS_RELATED_PACKAGES_PROXY_URL=/api/rosdistro-cache/{distro}-cache.yaml.gz'
+        'Proxy URL default is in conf.py; override with ROS_RELATED_PACKAGES_PROXY_URL if needed'
     )
     server.serve_forever()
 

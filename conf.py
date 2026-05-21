@@ -189,15 +189,11 @@ html_js_files = [
     'related_packages.js',
 ]
 
-# Optional runtime proxy endpoint for freshest rosdistro cache data.
-# Use a same-origin path (recommended), for example:
-#   /api/rosdistro-cache/{distro}-cache.yaml.gz
-# Local testing: build with that path, then serve with:
-#   python tools/serve_docs_with_proxy.py
-# (serves build/html and /api/... on http://127.0.0.1:8000).
-# Separate-port proxy (http://127.0.0.1:9001/...) works only if that process is
-# healthy; otherwise the bundled _static fallback is used (see browser console).
-# Leave empty to skip proxy and use bundled _static fallback only.
+# Runtime proxy endpoint for freshest rosdistro cache data (same-origin).
+# Default matches production: /api/rosdistro-cache/{distro}-cache.yaml.gz
+# Override with ROS_RELATED_PACKAGES_PROXY_URL; set to empty string to disable
+# proxy and use bundled _static fallback only.
+# Local testing: python tools/serve_docs_with_proxy.py (serves build/html + /api/).
 def _normalize_ros_related_packages_proxy_url(raw: str) -> str:
     """Return a browser-safe proxy template.
 
@@ -221,8 +217,15 @@ def _normalize_ros_related_packages_proxy_url(raw: str) -> str:
     return value
 
 
+_DEFAULT_ROS_RELATED_PACKAGES_PROXY_URL = (
+    '/api/rosdistro-cache/{distro}-cache.yaml.gz'
+)
+
 ros_related_packages_proxy_url = _normalize_ros_related_packages_proxy_url(
-    os.environ.get('ROS_RELATED_PACKAGES_PROXY_URL', '')
+    os.environ.get(
+        'ROS_RELATED_PACKAGES_PROXY_URL',
+        _DEFAULT_ROS_RELATED_PACKAGES_PROXY_URL,
+    )
 )
 
 # -- Options for HTMLHelp output ------------------------------------------
