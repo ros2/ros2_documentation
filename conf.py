@@ -89,6 +89,9 @@ extensions = [
     'sphinx_adopters',
     'sphinxcontrib.googleanalytics',
     'sphinxcontrib.mermaid',
+    'ros_related_packages',
+    'ros_related_articles',
+    'short_description',
     'pagefind_meta',
     'showmeta',
 ]
@@ -111,7 +114,6 @@ pagefind_result_meta_order = [
     'capability',
     'contentType',
     'experience',
-    
 ]
 
 # Intersphinx mapping
