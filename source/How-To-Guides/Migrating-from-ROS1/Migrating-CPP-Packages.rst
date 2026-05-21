@@ -37,7 +37,7 @@ For example, `3.14.4 is the minimum recommended support for ROS Humble <https://
 
 .. code-block::
 
-   cmake_minimum_required(VERSION 3.14.4)
+   cmake_minimum_required(VERSION 3.20)
 
 Set the build type to ament_cmake
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

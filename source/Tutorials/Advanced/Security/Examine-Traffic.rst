@@ -51,7 +51,7 @@ Although this tutorial describes ``tcpdump`` commands, you can also use `Wiresha
   $ sudo apt update
   $ sudo apt install tcpdump
 
-Run following commands on a single machine through multiple ``ssh`` sessions.
+Run the following commands on a single machine through multiple ``ssh`` sessions.
 
 Start the talker and listener
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
