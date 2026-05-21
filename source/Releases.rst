@@ -66,6 +66,9 @@ Rows in the table marked in blue are the currently supported distributions.
 .. |rolling| image:: Releases/rolling-small.png
    :alt: Rolling logo
 
+.. |lyrical| image:: Releases/lyrical-small.png
+   :alt: Lyrical logo
+
 .. |kilted| image:: Releases/kilted-small.png
    :alt: Kilted logo
 
@@ -109,6 +112,11 @@ Rows in the table marked in blue are the currently supported distributions.
      - Logo
      - EOL date
      - ROS Boss
+   * - :doc:`Lyrical Luth <Releases/Release-Lyrical-Luth>`
+     - May 23, 2026
+     - |lyrical|
+     - May 2031
+     - `Shane Loretz <https://github.com/sloretz>`_
    * - :doc:`Kilted Kaiju <Releases/Release-Kilted-Kaiju>`
      - May 23, 2025
      - |kilted|
@@ -201,10 +209,10 @@ There is a new ROS 2 distribution released yearly on May 23rd (`World Turtle Day
      - Release date
      - Logo
      - EOL date
-   * - :doc:`Lyrical Luth <Releases/Release-Lyrical-Luth>`
-     - May 2026
+   * - :doc:`Makoa Mata-mata <Releases/Release-Makoa-Mata-mata>`
+     - May 2027
      - TBD
-     - May 2031
+     - Dec 2028
 
 
 .. _rolling_distribution:
