@@ -8,3 +8,4 @@ ros2doc/
 
 # Downloaded at HTML build time for browser-side package lists (large).
 source/_static/rosdistro_cache/*.yaml.gz
+.env

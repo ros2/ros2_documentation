@@ -1,6 +1,8 @@
 codespell
 doc8
 docutils
+openai
+python-dotenv
 pip
 pytest
 sphinx
@@ -12,3 +14,5 @@ sphinx-tabs
 sphinx-tamer
 sphinxcontrib-googleanalytics
 sphinxcontrib-mermaid
+tenacity
+timeout-decorator

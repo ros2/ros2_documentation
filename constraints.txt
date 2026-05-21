@@ -11,11 +11,13 @@ imagesize==1.4.1
 iniconfig==2.1.0
 Jinja2==3.1.6
 MarkupSafe==3.0.3
+openai==2.33.0
 packaging==25.0
 pluggy==1.6.0
 polib==1.2.0
 Pygments==2.19.2
 pytest==8.4.2
+python-dotenv==1.1.0
 PyYAML==6.0.3
 regex==2025.9.18
 requests==2.32.5
@@ -39,4 +41,6 @@ sphinxcontrib-mermaid==1.0.0
 sphinxcontrib-qthelp==2.0.0
 sphinxcontrib-serializinghtml==2.0.0
 stevedore==5.5.0
+tenacity==9.1.4
+timeout-decorator==0.5.0
 urllib3==2.5.0
