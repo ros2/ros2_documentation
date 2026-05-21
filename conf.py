@@ -89,6 +89,8 @@ extensions = [
     'sphinx_adopters',
     'sphinxcontrib.googleanalytics',
     'sphinxcontrib.mermaid',
+    'ros_related_packages',
+    'ros_related_articles',
     'short_description',
 ]
 
@@ -207,7 +209,51 @@ html_sourcelink_suffix = ''
 
 # Relative to html_static_path
 html_css_files = ['custom.css', 'adopters.css']
-html_js_files = ['adopters.js']
+html_js_files = [
+    ('vendor/pako.min.js', {'defer': ''}),
+    ('vendor/js-yaml.min.js', {'defer': ''}),
+    'adopters.js',
+    'related_packages.js',
+]
+
+# Runtime proxy endpoint for freshest rosdistro cache data (same-origin).
+# Default matches production: /api/rosdistro-cache/{distro}-cache.yaml.gz
+# Override with ROS_RELATED_PACKAGES_PROXY_URL; set to empty string to disable
+# proxy and use bundled _static fallback only.
+# Local testing: python tools/serve_docs_with_proxy.py (serves build/html + /api/).
+def _normalize_ros_related_packages_proxy_url(raw: str) -> str:
+    """Return a browser-safe proxy template.
+
+    On Windows, GNU make / MSYS (common even when the terminal is PowerShell) can
+    rewrite ``/api/...`` into ``C:/Program Files/Git/api/...``. Recover the
+    intended same-origin path when that happens.
+    """
+    value = (raw or '').strip()
+    if not value:
+        return ''
+
+    normalized = value.replace('\\', '/')
+    marker = '/api/rosdistro-cache/'
+    idx = normalized.find(marker)
+    if idx != -1:
+        return normalized[idx:]
+
+    if normalized.startswith('api/rosdistro-cache/'):
+        return '/' + normalized
+
+    return value
+
+
+_DEFAULT_ROS_RELATED_PACKAGES_PROXY_URL = (
+    '/api/rosdistro-cache/{distro}-cache.yaml.gz'
+)
+
+ros_related_packages_proxy_url = _normalize_ros_related_packages_proxy_url(
+    os.environ.get(
+        'ROS_RELATED_PACKAGES_PROXY_URL',
+        _DEFAULT_ROS_RELATED_PACKAGES_PROXY_URL,
+    )
+)
 
 # -- Options for HTMLHelp output ------------------------------------------
 
