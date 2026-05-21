@@ -198,7 +198,32 @@ html_js_files = [
 # Separate-port proxy (http://127.0.0.1:9001/...) works only if that process is
 # healthy; otherwise the bundled _static fallback is used (see browser console).
 # Leave empty to skip proxy and use bundled _static fallback only.
-ros_related_packages_proxy_url = os.environ.get('ROS_RELATED_PACKAGES_PROXY_URL', '')
+def _normalize_ros_related_packages_proxy_url(raw: str) -> str:
+    """Return a browser-safe proxy template.
+
+    On Windows, GNU make / MSYS (common even when the terminal is PowerShell) can
+    rewrite ``/api/...`` into ``C:/Program Files/Git/api/...``. Recover the
+    intended same-origin path when that happens.
+    """
+    value = (raw or '').strip()
+    if not value:
+        return ''
+
+    normalized = value.replace('\\', '/')
+    marker = '/api/rosdistro-cache/'
+    idx = normalized.find(marker)
+    if idx != -1:
+        return normalized[idx:]
+
+    if normalized.startswith('api/rosdistro-cache/'):
+        return '/' + normalized
+
+    return value
+
+
+ros_related_packages_proxy_url = _normalize_ros_related_packages_proxy_url(
+    os.environ.get('ROS_RELATED_PACKAGES_PROXY_URL', '')
+)
 
 # -- Options for HTMLHelp output ------------------------------------------
 
