@@ -7,15 +7,18 @@ from openai import OpenAIError
 # Add the scripts directory to sys.path to allow importing enhance_topics
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+from config import DEFAULT_TIMEOUT
 from enhance_topics import (
     analyze_content,
     get_openai_client,
     analyze_files,
     update_meta_files,
     enhance_metadata,
-    MAX_CONTENT_LENGTH
+    enhance_short_descriptions,
+    main,
+    _metadata_enhancement_task,
 )
-from enhance_data import EnhanceData
+from enhance_data import EnhanceData, create_enhance_data, calculate_metrics
 
 @pytest.fixture
 def mock_client():
@@ -25,36 +28,27 @@ def mock_client():
 # --- Tests for analyze_content ---
 
 def test_analyze_content_success(mock_client):
-    """Test successful content analysis."""
-    mock_completion = MagicMock()
-    mock_completion.choices = [MagicMock(message=MagicMock(content='Analysis result'))]
-    mock_client.chat.completions.create.return_value = mock_completion
+    """Test successful content analysis via Responses API."""
+    mock_response = MagicMock()
+    mock_response.status = "completed"
+    mock_response.output_text = "Analysis result"
+    mock_client.responses.create.return_value = mock_response
 
-    result = analyze_content(mock_client, "Some content", "Some prompt")
-    assert result == 'Analysis result'
-    mock_client.chat.completions.create.assert_called_once()
+    result = analyze_content(mock_client, "file_abc", "Some prompt")
+    assert result == "Analysis result"
+    mock_client.responses.create.assert_called_once()
+    rc = mock_client.responses.create.call_args.kwargs
+    assert rc["instructions"] == "Some prompt"
+    assert rc["input"][0]["content"][0]["file_id"] == "file_abc"
 
-def test_analyze_content_truncation(mock_client):
-    """Test that content is truncated if it exceeds MAX_CONTENT_LENGTH."""
-    long_content = "a" * (MAX_CONTENT_LENGTH + 100)
-    mock_completion = MagicMock()
-    mock_completion.choices = [MagicMock(message=MagicMock(content='Result'))]
-    mock_client.chat.completions.create.return_value = mock_completion
 
-    analyze_content(mock_client, long_content, "Prompt")
-    
-    # Check the call arguments to ensure content was truncated
-    args, kwargs = mock_client.chat.completions.create.call_args
-    sent_content = kwargs['messages'][1]['content']
-    assert len(sent_content) <= MAX_CONTENT_LENGTH + len("Content:\n\n")
+def test_analyze_content_non_completed_returns_empty(mock_client):
+    """Test handling of non-completed Responses API status."""
+    mock_response = MagicMock()
+    mock_response.status = "failed"
+    mock_client.responses.create.return_value = mock_response
 
-def test_analyze_content_empty_response(mock_client):
-    """Test handling of empty response from API."""
-    mock_completion = MagicMock()
-    mock_completion.choices = [MagicMock(message=MagicMock(content=None))]
-    mock_client.chat.completions.create.return_value = mock_completion
-
-    result = analyze_content(mock_client, "Content", "Prompt")
+    result = analyze_content(mock_client, "file_xyz", "Prompt")
     assert result == ""
 
 # --- Tests for get_openai_client ---
@@ -88,7 +82,7 @@ def test_analyze_files_basic_flow(
     mock_get_meta, 
     mock_client
 ):
-    """Test the basic flow of analyze_files."""
+    """Test the basic flow of analyze_files with hoisted file upload."""
     mock_create_data.return_value = EnhanceData(results={}, updated_files=set())
     mock_get_meta.return_value = [] # No existing metadata
     mock_analyze.return_value = "Generated result"
@@ -97,28 +91,35 @@ def test_analyze_files_basic_flow(
         results={"file1.rst": {"description": "res"}}, 
         updated_files=set()
     )
+    uploaded = MagicMock()
+    uploaded.id = "file_hosted_1"
+    mock_client.files.create.return_value = uploaded
 
     files = ["file1.rst"]
-    prompts = {"description": "desc prompt"}
-    
-    with patch("builtins.open", mock_open(read_data="File content")):
-        analyze_files(files, mock_client, prompts)
+    tasks = [_metadata_enhancement_task("description", "desc prompt")]
 
-    mock_analyze.assert_called_once()
+    with patch("builtins.open", mock_open(read_data="File content")):
+        analyze_files(files, mock_client, tasks)
+
+    mock_client.files.create.assert_called_once()
+    mock_client.files.delete.assert_called_once_with("file_hosted_1")
+    mock_analyze.assert_called_once_with(
+        mock_client, "file_hosted_1", "desc prompt", timeout=DEFAULT_TIMEOUT
+    )
     mock_validate.assert_called_once()
     mock_add_result.assert_called_once()
 
 @patch('enhance_topics.get_meta_names_from_content')
 def test_analyze_files_skips_existing_meta(mock_get_meta, mock_client):
     """Test that files with existing metadata are skipped."""
-    mock_get_meta.return_value = ["description"] # Description already exists
-    
+    mock_get_meta.return_value = {"description"}
+
     files = ["file1.rst"]
-    prompts = {"description": "desc prompt"}
-    
+    tasks = [_metadata_enhancement_task("description", "desc prompt")]
+
     with patch("builtins.open", mock_open(read_data="File content")):
         with patch('enhance_topics.analyze_content') as mock_analyze:
-            analyze_files(files, mock_client, prompts)
+            analyze_files(files, mock_client, tasks)
             mock_analyze.assert_not_called()
 
 # --- Tests for update_meta_files ---
@@ -172,6 +173,35 @@ def test_update_meta_files_skips_no_change(mock_inject, mock_get_results):
     # Verify write was NOT called
     m_open().write.assert_not_called()
 
+@patch("enhance_topics.get_meta_names_from_content")
+@patch("enhance_topics.analyze_content")
+@patch("enhance_topics.validate_content")
+def test_analyze_files_accumulates_onto_initial_data(
+    mock_validate,
+    mock_analyze,
+    mock_get_meta,
+    mock_client,
+):
+    """Passing an accumulator extends per-file results via add_analysis_result."""
+    mock_get_meta.return_value = []
+    mock_analyze.return_value = "Generated description"
+    mock_validate.return_value = True
+    uploaded = MagicMock()
+    uploaded.id = "file_hosted_2"
+    mock_client.files.create.return_value = uploaded
+    initial = EnhanceData(
+        results={"file1.rst": {"keywords": "existing"}},
+        updated_files=set(),
+    )
+    tasks = [_metadata_enhancement_task("description", "desc prompt")]
+
+    with patch("builtins.open", mock_open(read_data="File content")):
+        result = analyze_files(["file1.rst"], mock_client, tasks, initial)
+
+    assert result.results["file1.rst"]["keywords"] == "existing"
+    assert result.results["file1.rst"]["description"] == "Generated description"
+
+
 # --- Tests for enhance_metadata ---
 
 @patch('enhance_topics.get_openai_client')
@@ -189,3 +219,74 @@ def test_enhance_metadata_orchestration(mock_update, mock_analyze, mock_get_clie
     mock_get_client.assert_called_once()
     mock_analyze.assert_called_once()
     mock_update.assert_called_once()
+
+
+@patch("enhance_topics.cleanup_short_description_resources")
+@patch("enhance_topics.update_enhanced_files")
+@patch("enhance_topics.analyze_files")
+@patch("enhance_topics.ensure_example_vector_store")
+@patch("enhance_topics.get_openai_client")
+def test_enhance_short_descriptions_orchestration(
+    mock_get_client,
+    mock_ensure_vs,
+    mock_analyze,
+    mock_update,
+    mock_cleanup,
+):
+    """Short-description path creates vector store, analyses, updates, and cleans up."""
+    mock_client = MagicMock()
+    mock_get_client.return_value = mock_client
+    mock_ensure_vs.return_value = "vs_1"
+    empty = EnhanceData(results={}, updated_files=set())
+    mock_analyze.return_value = empty
+    mock_update.return_value = empty
+
+    enhance_short_descriptions(["article.rst"])
+
+    mock_ensure_vs.assert_called_once()
+    mock_analyze.assert_called_once()
+    mock_update.assert_called_once()
+    mock_cleanup.assert_called_once()
+    res = mock_cleanup.call_args[0][1]
+    assert res is not None
+    assert res.vector_store_id == "vs_1"
+
+
+@patch("enhance_topics.enhance_short_descriptions")
+@patch("enhance_topics.enhance_metadata")
+@patch("enhance_topics.get_openai_client")
+def test_main_threads_accumulator_through_both_enhancements(
+    mock_get_client,
+    mock_metadata,
+    mock_short_descriptions,
+):
+    """CLI entry point folds one EnhanceData through metadata then short description."""
+    mock_get_client.return_value = MagicMock()
+    empty = create_enhance_data()
+    after_meta = EnhanceData(
+        results={"topic.rst": {"description": "d"}},
+        updated_files={"topic.rst"},
+    )
+    after_short = EnhanceData(
+        results={"topic.rst": {"description": "d", "short-description": "s"}},
+        updated_files={"topic.rst"},
+    )
+
+    def metadata_side_effect(files, client, data):
+        assert data == empty
+        return after_meta
+
+    def short_side_effect(files, client, data):
+        assert data == after_meta
+        return after_short
+
+    mock_metadata.side_effect = metadata_side_effect
+    mock_short_descriptions.side_effect = short_side_effect
+
+    with patch.object(sys, "argv", ["enhance_topics.py", "topic.rst"]):
+        main()
+
+    mock_get_client.assert_called_once()
+    metrics = calculate_metrics(after_short)
+    assert metrics.files_with_results_count == 1
+    assert metrics.updated_files_count == 1

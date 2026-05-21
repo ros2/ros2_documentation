@@ -89,6 +89,7 @@ extensions = [
     'sphinx_adopters',
     'sphinxcontrib.googleanalytics',
     'sphinxcontrib.mermaid',
+    'short_description',
 ]
 
 # Intersphinx mapping
