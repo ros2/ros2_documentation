@@ -15,8 +15,9 @@ System requirements
 -------------------
 The current Debian-based target platforms for {DISTRO_TITLE_FULL} are:
 
-- Tier 1: Ubuntu Linux - Noble (24.04) 64-bit
-- Tier 3: Debian Linux - Bookworm (12) 64-bit
+- Tier 1: Ubuntu Linux - Resolute (26.04) 64-bit
+- Tier 3: Ubuntu Linux - Noble (24.04) 64-bit
+- Tier 3: Debian Linux - Trixie (13) 64-bit
 
 As defined in `REP 2000 <https://reps.openrobotics.org/rep-2000/>`_.
 
@@ -85,6 +86,14 @@ Install additional RMW implementations (optional)
 The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at build or runtime.
 See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
+Install colcon mixins
+^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: console
+
+   $ colcon mixin add default https://github.com/colcon/colcon-defaults/raw/master/index.yaml
+   $ colcon mixin update default
+
 Build the code in the workspace
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -98,7 +107,7 @@ More info on working with a ROS workspace can be found in :doc:`this tutorial <.
 .. code-block:: console
 
    $ cd ~/ros2_{DISTRO}/
-   $ colcon build --symlink-install
+   $ colcon build --symlink-install --mixin release
 
 .. note::
 

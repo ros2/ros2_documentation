@@ -51,18 +51,24 @@ Install the turtlesim package for your ROS 2 distro:
 
 .. tabs::
 
-   .. group-tab:: Linux
+  .. group-tab:: Ubuntu
 
       .. code-block:: console
 
         $ sudo apt update
         $ sudo apt install ros-{DISTRO}-turtlesim
 
-   .. group-tab:: macOS
+  .. group-tab:: RHEL
+
+      .. code-block:: console
+
+        $ sudo dnf install ros-{DISTRO}-turtlesim
+
+  .. group-tab:: macOS
 
       As long as the archive you installed ROS 2 from contains the ``ros_tutorials`` repository, you should already have turtlesim installed.
 
-   .. group-tab:: Windows
+  .. group-tab:: Windows
 
       As long as the archive you installed ROS 2 from contains the ``ros_tutorials`` repository, you should already have turtlesim installed.
 
@@ -141,7 +147,7 @@ Open a new terminal to install ``rqt`` and its plugins:
     .. code-block:: console
 
       $ sudo apt update
-      $ sudo apt install '~nros-{DISTRO}-rqt*'
+      $ sudo apt install ros-{DISTRO}-rqt ros-{DISTRO}-rqt-common-plugins
 
   .. group-tab:: RHEL
 
@@ -231,13 +237,13 @@ That's because there is no teleop node for ``turtle2``.
 
 You need a second teleop node in order to control ``turtle2``.
 However, if you try to run the same command as before, you will notice that this one also controls ``turtle1``.
-The way to change this behavior is by remapping the ``cmd_vel`` topic.
+The way to change this behavior is by remapping the ``cmd_vel`` topic and the ``rotate_absolute`` action.
 
 In a new terminal, source ROS 2, and run:
 
 .. code-block:: console
 
-  $ ros2 run turtlesim turtle_teleop_key --ros-args --remap turtle1/cmd_vel:=turtle2/cmd_vel
+  $ ros2 run turtlesim turtle_teleop_key --ros-args --remap turtle1/cmd_vel:=turtle2/cmd_vel --remap turtle1/rotate_absolute:=turtle2/rotate_absolute
 
 
 Now, you can move ``turtle2`` when this terminal is active, and ``turtle1`` when the other terminal running ``turtle_teleop_key`` is active.

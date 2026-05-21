@@ -20,12 +20,14 @@ def test_validate_content_success(mock_client):
     mock_result.flagged = False
     mock_client.moderations.create.return_value.results = [mock_result]
     
-    # Mock Chat: Returns 'yes'
-    mock_completion = MagicMock()
-    mock_completion.choices = [MagicMock(message=MagicMock(content='yes'))]
-    mock_client.chat.completions.create.return_value = mock_completion
+    # Mock Responses API: Returns 'yes'
+    mock_response = MagicMock()
+    mock_response.status = "completed"
+    mock_response.output_text = "yes"
+    mock_client.responses.create.return_value = mock_response
 
     assert validate_content(mock_client, "This is a valid English sentence.") is True
+    mock_client.responses.create.assert_called_once()
 
 def test_validate_content_moderation_fail(mock_client):
     """Test that content flagged by moderation returns False."""
@@ -37,8 +39,7 @@ def test_validate_content_moderation_fail(mock_client):
     mock_client.moderations.create.return_value.results = [mock_result]
 
     assert validate_content(mock_client, "Some offensive content.") is False
-    # Verify chat.completions was NOT called (short-circuit)
-    mock_client.chat.completions.create.assert_not_called()
+    mock_client.responses.create.assert_not_called()
 
 def test_validate_content_language_fail(mock_client):
     """Test that non-English content (as determined by the LLM) returns False."""
@@ -47,10 +48,11 @@ def test_validate_content_language_fail(mock_client):
     mock_result.flagged = False
     mock_client.moderations.create.return_value.results = [mock_result]
     
-    # Mock Chat: Returns 'no'
-    mock_completion = MagicMock()
-    mock_completion.choices = [MagicMock(message=MagicMock(content='no'))]
-    mock_client.chat.completions.create.return_value = mock_completion
+    # Mock Responses API: Returns 'no'
+    mock_response = MagicMock()
+    mock_response.status = "completed"
+    mock_response.output_text = "no"
+    mock_client.responses.create.return_value = mock_response
 
     assert validate_content(mock_client, "Ceci n'est pas anglais.") is False
 

@@ -43,11 +43,11 @@ In your ``package.xml``:
 
 In your ``CMakeLists.txt``:
 
-* Enable C++17
+* Enable C++20
 
 .. code-block:: cmake
 
-   set(CMAKE_CXX_STANDARD 17)
+   set(CMAKE_CXX_STANDARD 20)
 
 * Add ``find_package(rosidl_default_generators REQUIRED)``
 * For each dependent message package, add ``find_package(message_package REQUIRED)`` and replace the CMake function call to ``generate_messages`` with ``rosidl_generate_interfaces``.

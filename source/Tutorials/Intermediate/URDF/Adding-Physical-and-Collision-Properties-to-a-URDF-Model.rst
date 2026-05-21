@@ -24,7 +24,7 @@ Collision
 
 So far, we've only specified our links with a single sub-element, ``visual``, which defines (not surprisingly) what the robot looks like.
 However, in order to get collision detection to work or to simulate the robot, we need to define a ``collision`` element as well.
-`Here is the new urdf <https://raw.githubusercontent.com/ros/urdf_tutorial/master/urdf/07-physics.urdf>`_ with collision and physical properties.
+`Here is the new urdf <https://raw.githubusercontent.com/ros/urdf_tutorial/ros2/urdf/07-physics.urdf>`_ with collision and physical properties.
 
 Here is the code for our new base link.
 
