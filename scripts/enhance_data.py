@@ -78,8 +78,11 @@ def add_analysis_result(data: EnhanceData, filename: str, analysis_type: str, re
     Returns:
         New EnhanceData with the result added.
     """
-    new_results = {**data.results}  # Shallow copy: replace one filename entry immutably
-    file_results = {**new_results.get(filename, {})}  # Preserve other analysis keys for this file
+
+    # Creates a new EnhanceData object with the analysis result added for the given file and analysis type,
+    # making copies so that original data is not changed (keeping EnhanceData immutable).
+    new_results = {**data.results}
+    file_results = {**new_results.get(filename, {})}
     file_results[analysis_type] = result
     new_results[filename] = file_results
     return EnhanceData(results=new_results, updated_files=data.updated_files)  # ``updated_files`` unchanged here

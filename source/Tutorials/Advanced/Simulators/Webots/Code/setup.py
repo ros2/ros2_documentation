@@ -19,7 +19,9 @@ setup(
     maintainer_email='user.name@mail.com',
     description='TODO: Package description',
     license='TODO: License declaration',
-    tests_require=['pytest'],
+    extras_require={
+        'test': ['pytest'],
+    },
     entry_points={
         'console_scripts': [
             'my_robot_driver = my_package.my_robot_driver:main',

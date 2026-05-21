@@ -4,6 +4,10 @@
 
 .. _ROS2Workspace:
 
+.. meta::
+   :area: ROS-framework
+   :experience: beginner, intermediate
+
 Creating a workspace
 ====================
 

@@ -4,6 +4,10 @@
 
 .. _CreatePkg:
 
+.. meta::
+   :area: ROS-framework
+   :experience: beginner, intermediate
+
 Creating a package
 ==================
 
@@ -508,7 +512,9 @@ This is where your ``package.xml`` would list its dependencies on other packages
         maintainer_email='TODO',
         description='TODO: Package description',
         license='TODO: License declaration',
-        tests_require=['pytest'],
+        extras_require={
+            'test': ['pytest'],
+        },
         entry_points={
             'console_scripts': [
                     'my_node = my_py_pkg.my_node:main'
@@ -533,3 +539,8 @@ Next steps
 
 Next, let's add something meaningful to a package.
 You'll start with a simple publisher/subscriber system, which you can choose to write in either :doc:`C++ <./Writing-A-Simple-Cpp-Publisher-And-Subscriber>` or :doc:`Python <./Writing-A-Simple-Py-Publisher-And-Subscriber>`.
+
+Related content
+---------------
+
+.. ros-related-articles::

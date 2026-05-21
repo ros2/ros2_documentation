@@ -1,19 +1,21 @@
+.. meta::
+   :contentType: about
+   :experience: beginner
+   :area: framework, tools, capabilities
+   :capability: simulation
+   :distro: {DISTRO}
+   :product: {PRODUCT}
+   :description: Overview of ROS, its ecosystem framework/tools/capabilities, community and integrations, plus distributions and supported platforms.
+   :keywords: robotics, framework, tools, capabilities, navigation
+
 .. _AboutROS:
 
 About ROS
 =========
 
-.. meta::
-  :contentType: about
-  :experience: beginner
-  :area: framework, tools, capabilities
-  :capability: simulation
-  :distro: {DISTRO}
-  :product: {PRODUCT}
-
-
-ROS (Robot Operating System) is an open-source ecosystem that provides the framework, tools, and libraries for building, deploying, running, and maintaining robotic applications.
-This article introduces the main areas of the ecosystem and outlines their intended use.
+.. short-description::
+   ROS (Robot Operating System) is an open-source ecosystem that provides the framework, tools, and libraries for building, deploying, running, and maintaining robotic applications.
+   This article introduces the main areas of the ecosystem and outlines their intended use.
 
 .. showmeta::
    :order: product, distro, area, capability, contentType, experience
@@ -26,7 +28,7 @@ This article introduces the main areas of the ecosystem and outlines their inten
 Summary
 -------
 
-ROS is used in many areas of robotics.
+ROS is used in many areas of robotics...
 In logistics, it helps robots move goods in warehouses by providing navigation, mapping, motion control, and coordination between multiple robots.
 In manufacturing, it enables advanced tasks such as automated pick-and-place operations using vision systems for accurate handling.
 In healthcare, ROS supports robotic systems that assist with patient care and improve efficiency in clinical workflows.
