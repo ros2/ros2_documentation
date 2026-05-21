@@ -423,3 +423,15 @@ adopters:
     country:
       - GB
     description: "LGDXRobot Cloud is an open source robot management system for AGVs, used for monitoring the status of robots and managing automated logistics tasks. LGDXRobot Cloud Adapter is an integration software for ROS 2 compatible robots using topics and services."
+  - organization: "Széchenyi University's Vehicle Research Center"
+    organization_url: "https://jkk-research.github.io/latest/"
+    project: "Automous Roboshuttle"
+    domain:
+      - Aerial/Drone
+      - Automotive
+      - Energy
+      - Research
+    date_added: "2026-05-20"
+    country:
+      - HU
+    description: "Research and Development of an Autoware-Based Autonomous Shuttle"

@@ -163,11 +163,35 @@ distro_full_names = {
     'rolling': 'Rolling Ridley',
 }
 
+# Tier 1 Ubuntu platform for binary deb installs (see the release page for each distro)
+distro_ubuntu_deb_platform = {
+    'crystal': 'Ubuntu Bionic (18.04)',
+    'dashing': 'Ubuntu Bionic (18.04)',
+    'eloquent': 'Ubuntu Bionic (18.04)',
+    'foxy': 'Ubuntu Focal (20.04)',
+    'galactic': 'Ubuntu Focal (20.04)',
+    'humble': 'Ubuntu Jammy (22.04)',
+    'iron': 'Ubuntu Jammy (22.04)',
+    'jazzy': 'Ubuntu Noble (24.04)',
+    'kilted': 'Ubuntu Noble (24.04)',
+    'lyrical': 'Ubuntu Resolute Raccoon (26.04)',
+    'rolling': 'Ubuntu Resolute Raccoon (26.04)',
+}
+
+# ARM64 Ubuntu status page suffix on repo.ros2.org (ros_{distro}_{suffix}.html)
+distro_arm_status_suffix = {
+    'humble': 'ujv8',
+    'iron': 'ujv8',
+    'lyrical': 'armv8',
+}
+
 # These default values will be overridden when building multiversion
 macros = {
     'DISTRO': 'rolling',
     'DISTRO_TITLE': 'Rolling',
     'DISTRO_TITLE_FULL': 'Rolling Ridley',
+    'DISTRO_UBUNTU_DEB_PLATFORM': distro_ubuntu_deb_platform['rolling'],
+    'DISTRO_ARM_STATUS_SUFFIX': distro_arm_status_suffix.get('rolling', 'unv8'),
     'REPOS_FILE_BRANCH': 'rolling',
 }
 
@@ -321,6 +345,10 @@ def smv_rewrite_configs(app, config):
             'DISTRO': distro,
             'DISTRO_TITLE': distro.title(),
             'DISTRO_TITLE_FULL': distro_full_names[distro],
+            'DISTRO_UBUNTU_DEB_PLATFORM': distro_ubuntu_deb_platform.get(
+                distro, 'Ubuntu Noble (24.04)'
+            ),
+            'DISTRO_ARM_STATUS_SUFFIX': distro_arm_status_suffix.get(distro, 'unv8'),
             'REPOS_FILE_BRANCH' : distro,
         }
 
