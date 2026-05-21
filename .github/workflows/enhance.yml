@@ -1,0 +1,30 @@
+name: Enhance content
+
+on: push
+
+jobs:
+  enhance:
+    # Runs only on forks when contributor pushes to their fork
+    if: github.event.repository.fork == true
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        # Using checkout v5, as v4 was warning that it will soon be deprecated (Node 20)
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        # Using setup-python v6, as v5 has same warning as above
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install --no-warn-script-location --user -r requirements.txt -c constraints.txt
+
+      - name: Enhance topics
+        env:
+          BASE_SHA: ${{ github.event.before }}
+          HEAD_SHA: ${{ github.event.after }}
+        run: make enhance-topics
