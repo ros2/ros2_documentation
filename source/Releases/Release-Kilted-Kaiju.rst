@@ -1,5 +1,3 @@
-.. _latest-release:
-
 .. _kilted-release:
 
 Kilted Kaiju (codename 'kilted'; May, 2025)
