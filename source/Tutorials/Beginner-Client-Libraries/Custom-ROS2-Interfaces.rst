@@ -408,10 +408,10 @@ Add the following lines (C++ only):
     find_package(rclcpp REQUIRED)
     find_package(tutorial_interfaces REQUIRED)                      # CHANGE
 
-    add_executable(talker src/publisher_member_function.cpp)
+    add_executable(talker src/publisher_lambda_function.cpp)
     target_link_libraries(talker PUBLIC rclcpp::rclcpp ${tutorial_interfaces_TARGETS})    # CHANGE
 
-    add_executable(listener src/subscriber_member_function.cpp)
+    add_executable(listener src/subscriber_lambda_function.cpp)
     target_link_libraries(listener PUBLIC rclcpp::rclcpp ${tutorial_interfaces_TARGETS})  # CHANGE
 
     install(TARGETS
