@@ -96,6 +96,7 @@ extensions = [
     'showmeta',
 ]
 
+# pagefind search index configuration.
 pagefind_merge_enabled = False
 pagefind_merge_package_pkgs = []
 pagefind_merge_index_base = 'https://docs.ros.org'
@@ -103,18 +104,20 @@ pagefind_merge_index_overrides = {}
 pagefind_merge_filter_per_pkg = None
 pagefind_merge_index_weight_per_pkg = None
 
-pagefind_filter_labels = {
+# Pagefind search result metadata (modal + /search.html).
+# Dict keys = .. meta:: field names; values = labels on each result line.
+# Order here is display order. Only listed keys are shown (allowlist).
+# Facet filters in the sidebar are separate (all data-pagefind-filter meta).
+pagefind_result_meta_order = {
+    'product': 'Product',
+    'distribution': 'Distribution',
+    'area': 'Area',
+    'capability': 'Capability',
+    'framework': 'Framework',
+    'tools': 'Tools',
     'contentType': 'Content type',
+    'experience': 'Level',
 }
-
-pagefind_result_meta_order = [
-    'product',
-    'distro',
-    'area',
-    'capability',
-    'contentType',
-    'experience',
-]
 
 # Intersphinx mapping
 

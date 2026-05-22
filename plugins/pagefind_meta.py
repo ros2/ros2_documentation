@@ -17,8 +17,11 @@ from pathlib import PurePosixPath
 from typing import Any, Dict, List, Optional, Tuple
 
 from docutils import nodes
+from sphinx.util import logging
 
 from meta_util import all_doctree_meta, expand_all_meta_values, split_meta_values
+
+logger = logging.getLogger(__name__)
 
 
 def _macros_flat(app) -> Dict[str, str]:
@@ -36,15 +39,30 @@ def _default_filter_label(key: str) -> str:
     return spaced.replace('_', ' ').replace('-', ' ').strip().title()
 
 
-def _metadata_fields_for_keys(app, sorted_keys: List[str]) -> List[List[str]]:
-    labels = getattr(app.config, 'pagefind_filter_labels', None) or {}
-    out: List[List[str]] = []
-    for k in sorted_keys:
-        if isinstance(labels, dict) and labels.get(k):
-            lbl = str(labels[k])
-        else:
-            lbl = _default_filter_label(k)
-        out.append([k, lbl])
+def _parse_result_meta_fields(app) -> List[Dict[str, str]]:
+    """Build ordered ``{key, label}`` list from ``pagefind_result_meta_order`` (dict or legacy list)."""
+    raw = getattr(app.config, 'pagefind_result_meta_order', None) or {}
+    out: List[Dict[str, str]] = []
+
+    if isinstance(raw, dict):
+        for key, label in raw.items():
+            k = str(key).strip()
+            if not k:
+                continue
+            lbl = str(label).strip() if label is not None else ''
+            out.append({'key': k, 'label': lbl or _default_filter_label(k)})
+        return out
+
+    if isinstance(raw, (list, tuple)):
+        logger.warning(
+            'pagefind_result_meta_order should be a dict mapping field names to labels; '
+            'list form is deprecated.',
+            type='pagefind',
+        )
+        for item in raw:
+            k = str(item).strip()
+            if k:
+                out.append({'key': k, 'label': _default_filter_label(k)})
     return out
 
 
@@ -194,8 +212,8 @@ def _html_page_context(
     doctree,
 ) -> None:
     sorted_keys = _union_meta_keys(app.env)
-    metadata_fields = _metadata_fields_for_keys(app, sorted_keys)
     filter_csv = ','.join(sorted_keys)
+    result_meta_fields = _parse_result_meta_fields(app)
 
     empty = {
         'pagefind_seo_filter_metas': '',
@@ -205,10 +223,7 @@ def _html_page_context(
         'pagefind_component_js': './pagefind/pagefind-component-ui.js',
         'pagefind_merge_index': [],
         'pagefind_filter_keys_csv': filter_csv,
-        'pagefind_metadata_fields': metadata_fields,
-        'pagefind_result_meta_order': list(
-            getattr(app.config, 'pagefind_result_meta_order', []) or []
-        ),
+        'pagefind_result_meta_fields': result_meta_fields,
         'pagefind_search_results_href': 'search.html',
     }
     context.update(empty)
@@ -226,7 +241,11 @@ def _html_page_context(
     css_href, js_href = _pagefind_component_urls(app, pagename)
     bundle_prefix = _pagefind_bundle_prefix(app, pagename)
 
-    merge_distro = values.get('distro') or str(default_distro)
+    merge_distro = (
+        values.get('distro')
+        or values.get('distribution')
+        or str(default_distro)
+    )
     merge = _merge_index_entries(app, merge_distro)
     context['pagefind_seo_filter_metas'] = seo_filters
     context['pagefind_data_meta_attr'] = data_attr
@@ -244,8 +263,7 @@ def setup(app) -> Dict[str, Any]:
     app.add_config_value('pagefind_merge_index_overrides', default={}, rebuild='html')
     app.add_config_value('pagefind_merge_filter_per_pkg', default=None, rebuild='html')
     app.add_config_value('pagefind_merge_index_weight_per_pkg', default=None, rebuild='html')
-    app.add_config_value('pagefind_filter_labels', default={}, rebuild='html')
-    app.add_config_value('pagefind_result_meta_order', default=[], rebuild='html')
+    app.add_config_value('pagefind_result_meta_order', default={}, rebuild='html')
 
     app.connect('html-page-context', _html_page_context)
     app.connect('doctree-resolved', _collect_meta_keys)

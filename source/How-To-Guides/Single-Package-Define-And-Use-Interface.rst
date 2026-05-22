@@ -22,8 +22,8 @@ Implementing custom interfaces - how-to
    This will help you implement custom interfaces in ROS to suit your needs.
 
 .. showmeta::
-   :order: product, distro, area, capability, contentType, experience
-   :labels: product=Product, distro=Distribution, area=Area, capability=Capability, contentType=Content type, experience=Level
+   :order: area, capability, contentType, experience
+   :labels: area=Area, capability=Capability, contentType=Content type, experience=Level
 
 .. contents:: Contents
    :depth: 2
