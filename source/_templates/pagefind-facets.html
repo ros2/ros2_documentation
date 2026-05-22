@@ -1,0 +1,4 @@
+{# Labeled Pagefind facet dropdowns (keys/labels from pagefind_result_meta_order). #}
+{% for facet in pagefind_result_meta_fields %}
+<pagefind-filter-dropdown filter="{{ facet.key }}" label="{{ facet.label }}"></pagefind-filter-dropdown>
+{% endfor %}

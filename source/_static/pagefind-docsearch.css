@@ -111,13 +111,18 @@ dialog.pf-modal .pf-result-meta-block {
   padding-right: 0.75rem;
 }
 
-.ros2-pagefind-search .ros-search-facets pagefind-filter-pane,
+.ros2-pagefind-search .ros-search-facets pagefind-filter-dropdown,
 .ros2-pagefind-search .ros-search-results pagefind-summary,
 .ros2-pagefind-search .ros-search-results pagefind-results,
-#ros-search-page .ros-search-facets pagefind-filter-pane,
+#ros-search-page .ros-search-facets pagefind-filter-dropdown,
 #ros-search-page .ros-search-results pagefind-summary,
 #ros-search-page .ros-search-results pagefind-results {
   display: block;
+}
+
+.ros2-pagefind-search .ros-search-facets pagefind-filter-dropdown,
+#ros-search-page .ros-search-facets pagefind-filter-dropdown {
+  margin-bottom: 0.5rem;
 }
 
 .ros2-pagefind-search .ros-search-results pagefind-summary,

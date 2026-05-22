@@ -26,7 +26,7 @@
     </div>
     <div class="ros-search-two-col ros-search-page-two-col">
       <aside class="ros-search-facets" aria-label="Search filters">
-        <pagefind-filter-pane open="{{ pagefind_filter_keys_csv }}"></pagefind-filter-pane>
+        {% include "pagefind-facets.html" %}
       </aside>
       <main class="ros-search-results" aria-label="Search results">
         <pagefind-summary></pagefind-summary>
