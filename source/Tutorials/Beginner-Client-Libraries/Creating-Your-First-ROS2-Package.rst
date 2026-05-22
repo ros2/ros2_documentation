@@ -5,7 +5,7 @@
 .. _CreatePkg:
 
 .. meta::
-   :area: ROS-framework
+   :area: framework
    :experience: beginner, intermediate
 
 Creating a package

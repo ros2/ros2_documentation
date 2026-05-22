@@ -3,18 +3,27 @@
    How-To-Guides/Implementing-custom-interfaces
 
 .. meta::
-   :build-type: ament_cmake
-   :area: ROS-framework
+   :contentType: how-to
    :experience: beginner, intermediate
+   :area: framework
+   :capability: interfaces
+   :description: Learn to define and build ROS 2 custom interfaces (.msg) and integrate them into a node using CMake and package.xml.
+   :keywords: interfaces, rosidl, package, cmakelists, publisher
+   :distro: {DISTRO}
+   :product: {PRODUCT}
+   :build-type: ament_cmake
 
 Implementing custom interfaces - how-to
 =======================================
 
-When predefined interface definitions are not enough, you need to create custom interfaces.
-In this article, you will learn how to define and build interfaces with different field types.
-This will help you implement custom interfaces in ROS to suit your needs.
+.. short-description::
+   When predefined interface definitions are not enough, you need to create custom interfaces.
+   In this article, you will learn how to define and build interfaces with different field types.
+   This will help you implement custom interfaces in ROS to suit your needs.
 
-**Area: ROS-framework | Content-type: how-to | Experience: beginner, intermediate**
+.. showmeta::
+   :order: product, distro, area, capability, contentType, experience
+   :labels: product=Product, distro=Distribution, area=Area, capability=Capability, contentType=Content type, experience=Level
 
 .. contents:: Contents
    :depth: 2

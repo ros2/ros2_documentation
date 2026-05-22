@@ -2,7 +2,7 @@ Migrating Interfaces
 ====================
 
 .. meta::
-   :area: ROS-framework
+   :area: framework
    :experience: beginner, intermediate
 
 .. contents:: Table of Contents
