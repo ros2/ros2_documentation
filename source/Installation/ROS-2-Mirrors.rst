@@ -33,6 +33,9 @@ Asia
    * - Qilu University of Technology (QLU)
      - China
      - `https://mirrors.qlu.edu.cn/ros2/ubuntu/ <https://mirrors.qlu.edu.cn/ros2/ubuntu/>`_
+   * - Chongqing University (CQU)
+     - China
+     - `https://mirrors.cqu.edu.cn/ros2/ubuntu/ <https://mirrors.cqu.edu.cn/ros2/ubuntu/>`_
 
 Europe
 ^^^^^^
