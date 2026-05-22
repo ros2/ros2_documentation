@@ -5,7 +5,7 @@ Writing Basic Tests with Python
 
 Starting point: we'll assume you have a :ref:`basic ament_python package<CreatePkg>` set up already and you want to add some tests to it.
 
-If you are using ament_cmake_python, refer to the the :doc:`ament_cmake_python docs<../../../How-To-Guides/Ament-CMake-Python-Documentation>` for how to make tests dicoverable.
+If you are using ament_cmake_python, refer to the :doc:`ament_cmake_python docs<../../../How-To-Guides/Ament-CMake-Python-Documentation>` for how to make tests discoverable.
 The test contents and invocation with ``colcon`` remain the same.
 
 Package Setup
@@ -69,9 +69,19 @@ Beyond the :doc:`standard colcon testing commands <CLI>` you can also specify ar
 For example, you can specify the name of the function to run with
 
 
-.. code-block:: console
+.. tabs::
 
-  $ colcon test --packages-select <name-of-pkg> --pytest-args -k name_of_the_test_function
+  .. group-tab:: Linux/macOS
+
+      .. code-block:: console
+
+         $ colcon test --packages-select <name-of-pkg> --pytest-args -k name_of_the_test_function
+
+  .. group-tab:: Windows
+
+      .. code-block:: console
+
+         $ colcon test --merge-install --packages-select <name-of-pkg> --pytest-args -k name_of_the_test_function
 
 To see the pytest output while running the tests, use these flags:
 

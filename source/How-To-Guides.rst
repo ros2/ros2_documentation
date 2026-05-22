@@ -41,7 +41,6 @@ If you are new and looking to learn the ropes, start with the :doc:`Tutorials <T
    How-To-Guides/Core-maintainer-guide
    How-To-Guides/Building-a-Custom-Deb-Package
    How-To-Guides/Building-ROS-2-with-Tracing-Instrumentation
-   How-To-Guides/Topics-Services-Actions
    How-To-Guides/Using-Variants
    How-To-Guides/Using-ros2-param
    How-To-Guides/Using-ros1_bridge-Jammy-upstream

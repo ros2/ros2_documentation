@@ -126,6 +126,14 @@ Install additional DDS implementations (optional)
 
 If you would like to use another DDS or RTPS vendor besides the default, you can find instructions :doc:`here <../RMW-Implementations>`.
 
+Install colcon mixins
+^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: console
+
+   $ colcon mixin add default https://github.com/colcon/colcon-defaults/raw/master/index.yaml
+   $ colcon mixin update default
+
 Build the code in the workspace
 -------------------------------
 
@@ -139,7 +147,7 @@ More info on working with a ROS workspace can be found in :doc:`this tutorial <.
 .. code-block:: console
 
    $ cd ~/ros2_{DISTRO}/
-   $ colcon build --symlink-install
+   $ colcon build --symlink-install --mixin release
 
 Note: if you are having trouble compiling all examples and this is preventing you from completing a successful build, you can use ``COLCON_IGNORE`` in the same manner as `CATKIN_IGNORE <https://github.com/ros-infrastructure/rep/blob/master/rep-0128.rst>`__ to ignore the subtree or remove the folder from the workspace.
 Take for instance: you would like to avoid installing the large OpenCV library.
