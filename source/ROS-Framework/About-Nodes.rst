@@ -7,7 +7,7 @@ Nodes
 
    nodes/About-Discovery
    nodes/About-Domain-ID
-   nodes/About-Logging
+   nodes/About-Logging/About-Logging
    nodes/About-Composition
    nodes/Working-with-nodes
 

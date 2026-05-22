@@ -14,6 +14,8 @@ ROS 2 Documentation
    ROS-Framework
    Capabilities
    Developer-Tools
+   Migration-and-Upgrades
+   Integrations-and-related
    The-ROS2-Project
    Related-Projects
    Contact

@@ -6,6 +6,7 @@ Launch
 
    Launch/Launch-Main
    Launch/Launching-composable-nodes
+   Launch/Launch-file-different-formats
 
 .. contents:: Table of Contents
    :local:

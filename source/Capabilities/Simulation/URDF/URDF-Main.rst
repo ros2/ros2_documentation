@@ -20,7 +20,6 @@ A URDF file follows the XML format as described on `here <https://wiki.ros.org/u
    Building-a-Visual-Robot-Model-with-URDF-from-Scratch
    Building-a-Movable-Robot-Model-with-URDF
    Adding-Physical-and-Collision-Properties-to-a-URDF-Model
-   Using-Xacro-to-Clean-Up-a-URDF-File
    Using-URDF-with-Robot-State-Publisher-cpp
    Using-URDF-with-Robot-State-Publisher-py
    Exporting-an-URDF-File

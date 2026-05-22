@@ -10,8 +10,9 @@ Interfaces
    :maxdepth: 1
    :hidden:
 
+   interfaces/Interfaces-Topics-Services-Actions
    interfaces/Topics-Services-Actions
-   interfaces/About-Tf2
+   interfaces/About-Tf2/About-Tf2
    interfaces/Working-with-interfaces
    
 .. contents:: Table of Contents

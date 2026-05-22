@@ -13,7 +13,7 @@ Client libraries
    :hidden:
 
    client-libraries/About-Different-Middleware-Vendors
-   client-libraries/About-Executors
+   client-libraries/About-Executors/About-Executors
    client-libraries/About-Client-Interfaces
    client-libraries/About-Middleware-Implementations
    client-libraries/Working-with-Client-Libraries

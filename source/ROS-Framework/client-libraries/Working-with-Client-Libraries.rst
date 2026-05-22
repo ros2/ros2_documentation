@@ -26,3 +26,4 @@ Working with Client libraries
    Working-with-Client-Libraries/Recording-A-Bag-From-Your-Own-Node-Cpp
    Working-with-Client-Libraries/Creating-An-RMW-Implementation
    Working-with-Client-Libraries/Config-ZeroCopy-loaned-messages
+   Working-with-Client-Libraries/About-Internal-Interfaces/About-Internal-Interfaces

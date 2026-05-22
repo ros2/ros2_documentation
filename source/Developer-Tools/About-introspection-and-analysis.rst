@@ -6,6 +6,7 @@ PLACEHOLDER
 .. toctree::
    :maxdepth: 3
 
+   Introspection-and-analysis/About-Command-Line-Tools
    Introspection-and-analysis/About-Security
    Introspection-and-analysis/Publishing-Messages-Using-YAML-Files
    Introspection-and-analysis/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial
