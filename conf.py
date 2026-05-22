@@ -97,6 +97,7 @@ extensions = [
 ]
 
 # pagefind search index configuration.
+
 pagefind_merge_enabled = False
 pagefind_merge_package_pkgs = []
 pagefind_merge_index_base = 'https://docs.ros.org'
@@ -109,6 +110,7 @@ pagefind_merge_index_weight_per_pkg = None
 # Order here is facet dropdown order and result-meta line order (allowlist).
 # Only listed keys are indexed as facets; keys must exist on at least one page in the build.
 # Other meta (e.g. description, keywords) stays SEO-only and does not appear in the facet sidebar.
+
 pagefind_result_meta_order = {
     'product': 'Product',
     'distribution': 'Distribution',
