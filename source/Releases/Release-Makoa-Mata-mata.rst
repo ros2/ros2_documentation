@@ -2,8 +2,8 @@
 
 .. _makoa-release:
 
-Makoa Mata-mata (codename `makoa`; May, 2027)
-============================================
+Makoa Mata-mata (codename ``makoa``; May, 2027)
+===============================================
 
 .. toctree::
    :hidden:

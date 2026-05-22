@@ -23,6 +23,7 @@ Rows in the table marked in blue are the currently supported distributions.
 .. toctree::
    :hidden:
 
+   Releases/Release-Lyrical-Luth
    Releases/Release-Kilted-Kaiju
    Releases/Release-Jazzy-Jalisco
    Releases/Release-Humble-Hawksbill
