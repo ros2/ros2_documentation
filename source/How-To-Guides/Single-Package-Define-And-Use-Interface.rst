@@ -9,7 +9,7 @@
    :capability: interfaces
    :description: Learn to define and build ROS 2 custom interfaces (.msg) and integrate them into a node using CMake and package.xml.
    :keywords: interfaces, rosidl, package, cmakelists, publisher
-   :distro: {DISTRO}
+   :distribution: {DISTRO}
    :product: {PRODUCT}
    :build-type: ament_cmake
 

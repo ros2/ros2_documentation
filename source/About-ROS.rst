@@ -3,7 +3,7 @@
    :experience: beginner
    :area: framework, tools, capabilities
    :capability: simulation
-   :distro: {DISTRO}
+   :distribution: {DISTRO}
    :product: {PRODUCT}
    :description: Overview of ROS, its ecosystem framework/tools/capabilities, community and integrations, plus distributions and supported platforms.
    :keywords: robotics, framework, tools, capabilities, navigation
