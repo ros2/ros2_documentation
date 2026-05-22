@@ -66,6 +66,9 @@ Rows in the table marked in blue are the currently supported distributions.
 .. |rolling| image:: Releases/rolling-small.png
    :alt: Rolling logo
 
+.. |lyrical| image:: Releases/lyrical-small.png
+   :alt: Lyrical logo
+
 .. |kilted| image:: Releases/kilted-small.png
    :alt: Kilted logo
 
@@ -109,6 +112,11 @@ Rows in the table marked in blue are the currently supported distributions.
      - Logo
      - EOL date
      - ROS Boss
+   * - :doc:`Lyrical Luth  <Releases/Release-Lyrical-Luth>`
+     - May 22, 2026
+     - |Lyrical|
+     - May 2031
+     - `Shane Loretz  <https://github.com/sloretz>`_
    * - :doc:`Kilted Kaiju <Releases/Release-Kilted-Kaiju>`
      - May 23, 2025
      - |kilted|
