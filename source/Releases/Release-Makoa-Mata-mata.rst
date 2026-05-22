@@ -14,7 +14,7 @@ Makoa Mata-mata (codename ``makoa``; May, 2027)
 *Makoa Mata-mata* is the thirtienth release of ROS 2.
 It is a regular release, and is supported until December 2028.
 
-* `Install Makoa Mata-mata <../../makoa/Installation.html>`_
+* TODO - link installation docs
 * :doc:`makoa/release-timeline`
 * :doc:`makoa/supported-platforms`
 
