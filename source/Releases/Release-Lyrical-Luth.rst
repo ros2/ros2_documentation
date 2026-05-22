@@ -9,125 +9,25 @@ Lyrical Luth (codename 'lyrical'; May, 2026)
    :hidden:
 
    Lyrical-Luth-Complete-Changelog
-
-.. contents:: Table of Contents
-   :depth: 2
-   :local:
+   lyrical/release-timeline.rst
+   lyrical/supported-platforms.rst
 
 *Lyrical Luth* is the twelfth release of ROS 2.
+It is a Long Term Support (LTS) release, and it is supported until May 2031.
 
-Release Timeline
-----------------
-
-**As soon as possible** - Migrate ROS Rolling to ROS Lyrical's target platforms
-    * RHEL 10 + Ubuntu 26.04: Migrate as soon as core packages successfully build on both platforms.
-    * Windows 11: Migrate as soon as we have a green build
-
-**Mon. April 13, 2026** - Alpha + RMW freeze (*Delayed; was originally April 6th*)
-    * Preliminary testing of ROS Base packages
-    * API and feature freeze for RMW provider packages.
-
-**Mon. April 20, 2026** - Freeze (*Delayed; was originally April 13th*)
-    * API and feature freeze for ROS Base packages in Rolling Ridley.
-    * Only bug fix releases should be made after this point.
-    * New packages can be released.
-
-**Mon. April 21, 2026** - Branch (*Delayed; was originally April 20th*)
-    * Branch from Rolling Ridley
-    * ``rosdistro`` is reopened for Rolling PRs for ROS Base packages.
-    * Lyrical development shifts from ``ros-rolling-*`` packages to ``ros-lyrical-*`` packages.
-
-**Mon. April 27, 2026** - Beta
-    * Updated releases of ROS Desktop packages available.
-    * Call for general testing.
-
-**Thu, April 30, 2026** - Kick off Tutorial Party
-    * Open up tutorials for community testing.
-
-**Mon. May 11, 2026** - Release Candidate
-    * Build release candidate packages up to ROS Desktop
-
-**Mon. May 18, 2026** - Distro Freeze
-    * Freeze all Lyrical branches on all ROS desktop packages
-    * No pull requests for any Lyrical branch or targeting ``lyrical/distribution.yaml`` in ``rosdistro`` repo will be merged.
-
-**Friday May 22nd, 2026** - General Availability
-    * Release announcement.
-    * ROS desktop packages source freeze is lifted and ``rosdistro`` is reopened for Lyrical pull requests.
-
-For progress on the development of Lyrical Luth, see `this project board <https://github.com/orgs/ros2/projects/70>`__.
-For the broad process followed by Lyrical Luth, see the :doc:`process description page <Release-Process>`.
-
-Supported Platforms
--------------------
-
-ROS Lyrical supports the following platforms according to `the platform support tiers <../The-ROS2-Project/Platform-Support-Tiers>`:
-
-+--------------+-------------------+-------------------+---------------+-------------------+-----------+-----------------+----------------+
-| Architecture | Ubuntu Resolute   | Ubuntu Noble*     | Windows 11    | RHEL 10           | macOS     | Debian Trixie*  | OpenEmbedded / |
-|              | (26.04)           | (24.04)           | (VS2022)      |                   |           | (13)            | Yocto Project  |
-+==============+===================+===================+===============+===================+===========+=================+================+
-| amd64        | Tier 1 [d][a]     | Tier 3            | Tier 1 [a]    | Tier 2 [d][a]     | Tier 3    | Tier 3          | Tier 3         |
-+--------------+-------------------+-------------------+---------------+-------------------+-----------+-----------------+----------------+
-| arm64        | Tier 1 [d][a]     | Tier 3            |               |                   |           | Tier 3          | Tier 3         |
-+--------------+-------------------+-------------------+---------------+-------------------+-----------+-----------------+----------------+
-| arm32        | Tier 3            | Tier 3            |               |                   |           | Tier 3          | Tier 3         |
-+--------------+-------------------+-------------------+---------------+-------------------+-----------+-----------------+----------------+
-
-* ``*`` Early EOL per `the platform EOL policy <../The-ROS2-Project/Platform-EOL-Policy>`
-    * Ubuntu Noble is supported until ``2029-06-01``
-    * Debian Trixie is supported until ``2028-08-09``
-* ``[d]`` You may install ROS Lyrical on this platform using Distribution-specific packaegs (Debian, RPM, etc.).
-* ``[a]`` You may install ROS Lyrical by downloading an archive containing pre-built packages for all packages in the `ROS Lyrical ros2.repos file <https://github.com/ros2/ros2/blob/lyrical/ros2.repos>`__
-
-To use ROS Lyrical on any Tier 3 platform, you must build ROS Lyrical from source.
-
-Minimum Language Requirements
------------------------------
-
-* `C++20 <https://discourse.openrobotics.org/t/ros-2-lyrical-c-version/52551>`__
-* C17
-* Python 3.12 - 3.14
-
-Dependency Requirements
------------------------
-
-TODO - this section will show a table of important system package versions across supported platforms.
-
-Middleware Implementation support
----------------------------------
-
-The default middleware in ROS Lyrical is **rmw_fastrtps_cpp**.
-
-+---------------------------+-------------------------+---------------+----------------------------+-------------------------------+
-| Middleware Library        | Middleware Provider     | Support Level | Platforms                  | Architectures                 |
-+===========================+=========================+===============+============================+===============================+
-| rmw_fastrtps_cpp          | eProsima Fast-DDS       | Tier 1        | All Platforms              | All Architectures             |
-+---------------------------+-------------------------+---------------+----------------------------+-------------------------------+
-| rmw_connextdds            | RTI Connext             | Tier 1        | Ubuntu, Windows, and macOS | All Architectures except arm64|
-+---------------------------+-------------------------+---------------+----------------------------+-------------------------------+
-| rmw_cyclonedds_cpp        | Eclipse Cyclone DDS     | Tier 1        | All Platforms              | All Architectures             |
-+---------------------------+-------------------------+---------------+----------------------------+-------------------------------+
-| rmw_zenoh_cpp             | Eclipse Zenoh           | Tier 1        | All Platforms              | All Architectures             |
-+---------------------------+-------------------------+---------------+----------------------------+-------------------------------+
-| rmw_fastrtps_dynamic_cpp  | eProsima Fast-DDS       | Tier 2        | All Platforms              | All Architectures             |
-+---------------------------+-------------------------+---------------+----------------------------+-------------------------------+
-| rmw_gurumdds_cpp          | GurumNetworks GurumDDS  | Tier 3        | Ubuntu and Windows         | All Architectures except arm32|
-+---------------------------+-------------------------+---------------+----------------------------+-------------------------------+
-
-Middleware implementation support is dependent upon the platform support tier.
-For example, a Tier 1 middleware implementation on a Tier 2 platform will only receive Tier 2 support.
-
-Installation
-------------
-
-TODO
+* `Install Lyrical Luth <../../lyrical/Installation.html>`_
+* :doc:`lyrical/release-timeline`
+* :doc:`lyrical/supported-platforms`
 
 New Features in Lyrical
 -----------------------
 
 This section highlights some of the new features in ROS Lyrical.
 For all changes, see the :doc:`full ROS Lyrical changelog <Lyrical-Luth-Complete-Changelog>`.
+
+.. contents:: Table of Contents
+   :depth: 1
+   :local:
 
 Callback Group Events executor (``rclcpp``)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -247,11 +147,11 @@ See :doc:`../Tutorials/Advanced/Writing-a-Buffer-Backend` to learn how to implem
 
 See :doc:`../Concepts/Intermediate/About-Buffer-Backends` and :doc:`../How-To-Guides/Using-Buffer-Backends` for more details.
 
-Use YAML tags in parameter files
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Annotate types in YAML Parameter Files
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Tired of ``rcl`` interpreting ambiguous YAML parameter values as the wrong type?
-Prevent that by specifying the type using YAML tags.
+In ROS Lyrical, use YAML tags to specify the correct type.
 
 .. code-block:: yaml
 
@@ -266,10 +166,12 @@ Prevent that by specifying the type using YAML tags.
 
 See `ros2/rcl#1275 <https://github.com/ros2/rcl/pull/1275>`_ for more info.
 
-More logging options in launch files
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Per-message log severity in launch files
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Have different kinds of messages in your log files that you want to log with different severity?
+ROS Lyrical now supports per-message log severity levels in launch files.
+This makes it easier to find important messages or ignore unimportant ones in log files when debugging!
+
 Specify the log level using the new ``level`` argument on the ``log`` action.
 Alternatively, use the new ``log_debug``, ``log_info``, ``log_warning``, or ``log_error`` actions.
 
@@ -420,8 +322,8 @@ Playback example:
 
 See `ros2/rosbag2#2047 <https://github.com/ros2/rosbag2/pull/2047>`_, `ros2/rosbag2#2062 <https://github.com/ros2/rosbag2/pull/2062>`_, `ros2/rosbag2#2061 <https://github.com/ros2/rosbag2/pull/2061>`_, and `ros2/rosbag2#2095 <https://github.com/ros2/rosbag2/pull/2095>`_ for more details.
 
-Circular recording by bag split
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Circular bag recording with limit on number of bags
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Recording data on your robot with limited disk space?
 Try the new ``--max-bag-files`` option.
@@ -451,8 +353,8 @@ Do you have trouble identifying which bag is which?
 
 See `ros2/rosbag2#2265 <https://github.com/ros2/rosbag2/pull/2265>`_ for more details.
 
-``rosbag2`` message-loss observability
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Catch data loss early with ``rosbag2`` message-loss observability
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Say you've built a robust system for recording data on your robot, but there is a problem.
 How do you *know* there's a problem?
@@ -494,10 +396,7 @@ Are you using simulated time?
 How do you know if all of your nodes are using simulated time?
 Use ``ros2 param get <param name>`` to get a parameter value from all nodes.
 
-.. code-block:: shell
-
-    ros2 param get use_sim_time
-
+.. image:: images/ros2_param_get_use_sim_time.gif
 
 See `ros2/ros2cli#1174 <https://github.com/ros2/ros2cli/pull/1174>`_ for more info.
 
@@ -529,8 +428,8 @@ Use ``ros2 param set <node name> <param1> <value1> <param2> <value2> ...`` to se
 
 See `ros2/ros2cli#1203 <https://github.com/ros2/ros2cli/pull/1203>`_ and `ros2/ros2cli#1204 <https://github.com/ros2/ros2cli/pull/1204>`_ for more details.
 
-Actions, Services, and Environment variables in ``ros2 doctor --report``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+``ros2 doctor --report`` now reports Actions, Services, and Environment variables
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ``ros2 doctor --report`` now includes information about Actions, Services, and ROS-related environment variables.
 Include this report in your GitHub issues or AI prompts to debug problems faster.
