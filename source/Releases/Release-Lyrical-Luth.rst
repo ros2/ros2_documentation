@@ -786,3 +786,19 @@ All you need to do is specialize ``class_loader::InterfaceTraits<>`` in your plu
 
 
 For more information see `ros/class_loader#223 <https://github.com/ros/class_loader/pull/223>`_.
+
+Runtime tracing opt-out mechanism
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`Removing the built-in tracing instrumentation from ROS 2 <https://github.com/ros2/ros2_tracing/blob/lyrical/README.md#removing-the-instrumentation>`_ or `excluding tracepoints from the instrumentation <https://github.com/ros2/ros2_tracing/blob/lyrical/README.md#excluding-tracepoints>`_ have so far been build-time options only.
+This is all enabled by default in the Linux binaries.
+
+To avoid loading the tracer at runtime (and therefore disable all instrumentation), set the ``TRACETOOLS_RUNTIME_DISABLE`` environment variable to ``1``:
+
+.. code-block:: console
+
+    $ export TRACETOOLS_RUNTIME_DISABLE=1
+    $ ros2 run tracetools status
+    Tracing disabled
+
+See `ros2/ros2_tracing#185 <https://github.com/ros2/ros2_tracing/pull/185>`_ for more info.
