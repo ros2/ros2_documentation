@@ -1,6 +1,11 @@
 {# Pagefind Component UI (plan §3) + DocSearch-inspired styling via pagefind-docsearch.css #}
 <link rel="stylesheet" href="{{ pagefind_component_css }}">
 <script type="module">
+  const bundlePrefix = {{ pagefind_bundle_prefix|tojson }};
+  const configEl = document.createElement('pagefind-config');
+  configEl.setAttribute('bundle-path', new URL(bundlePrefix, document.baseURI).href);
+  document.head.appendChild(configEl);
+
   const js = {{ pagefind_component_js|tojson }};
   const mergeIndex = {{ pagefind_merge_index|tojson }};
   const searchResultsUrl = {{ pagefind_search_results_href|tojson }};
@@ -534,9 +539,12 @@
 
   try {
     await import(new URL(js, document.baseURI).href);
-    const { configureInstance } = window.PagefindComponents;
-    if (Array.isArray(mergeIndex) && mergeIndex.length) {
-      configureInstance('default', { mergeIndex });
+    const instance = getPagefindInstance();
+    if (instance && Array.isArray(mergeIndex) && mergeIndex.length) {
+      if (!instance.pagefindOptions) {
+        instance.pagefindOptions = {};
+      }
+      instance.pagefindOptions.mergeIndex = mergeIndex;
     }
     setupPagefindResultsMetaListener();
     setupResultMetadataRendering();
@@ -549,7 +557,7 @@
 <div class="ros2-pagefind-search">
   <pagefind-modal-trigger
     shortcut="mod+k"
-    placeholder="Go on, give it a search...">
+    placeholder="Enter search...">
   </pagefind-modal-trigger>
   <pagefind-modal reset-on-close="true">
     <pagefind-modal-header>
