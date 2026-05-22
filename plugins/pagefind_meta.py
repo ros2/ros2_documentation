@@ -1,10 +1,12 @@
 # Copyright 2026 Open Robotics — Pagefind metadata for ROS 2 documentation
 """
 Emit SEO <meta> tags, Pagefind ``data-pagefind-meta``, and ``data-pagefind-filter``
-from ``.. meta::`` fields on each page.
+from every ``.. meta::`` field on the page (passthrough, no whitelist).
 
-Only keys listed in ``pagefind_result_meta_order`` receive ``data-pagefind-filter``
-(facet sidebar + filtering). Other meta fields are emitted as plain ``<meta>`` for SEO.
+Sphinx / the HTML theme typically also emits plain ``<meta>`` tags for the same
+``.. meta::`` fields. We intentionally emit an additional block with
+``data-pagefind-filter`` (and split comma-separated values) so Pagefind faceting
+works; crawlers may see duplicate name/content pairs for non-split fields.
 """
 
 from __future__ import annotations
@@ -64,11 +66,6 @@ def _parse_result_meta_fields(app) -> List[Dict[str, str]]:
     return out
 
 
-def _facet_key_set(app) -> set[str]:
-    """Meta field names that are indexed as Pagefind facet filters."""
-    return {field['key'] for field in _parse_result_meta_fields(app)}
-
-
 def _pagefind_data_meta_attr(values: Dict[str, str]) -> str:
     """Single data-pagefind-meta attribute value with repeated keys for multi-values."""
     parts: List[str] = []
@@ -79,21 +76,17 @@ def _pagefind_data_meta_attr(values: Dict[str, str]) -> str:
     return html.escape(inner, quote=True)
 
 
-def _seo_and_filter_metas(app, values: Dict[str, str]) -> str:
-    """One <meta> per value; ``data-pagefind-filter`` only for ``pagefind_result_meta_order`` keys."""
-    facet_keys = _facet_key_set(app)
+def _seo_and_filter_metas(values: Dict[str, str]) -> str:
+    """One <meta> per value: SEO name/content + data-pagefind-filter (Pagefind filtering docs)."""
     lines: List[str] = []
     for key in sorted(values.keys()):
         esc_name = html.escape(key, quote=True)
         for value in split_meta_values(values.get(key, '')):
             esc_val = html.escape(value, quote=True)
-            if key in facet_keys:
-                lines.append(
-                    f'<meta name="{esc_name}" content="{esc_val}" '
-                    f'data-pagefind-filter="{esc_name}[content]">'
-                )
-            else:
-                lines.append(f'<meta name="{esc_name}" content="{esc_val}">')
+            lines.append(
+                f'<meta name="{esc_name}" content="{esc_val}" '
+                f'data-pagefind-filter="{esc_name}[content]">'
+            )
     return '\n    '.join(lines)
 
 
@@ -218,8 +211,9 @@ def _html_page_context(
     context: Dict[str, Any],
     doctree,
 ) -> None:
+    sorted_keys = _union_meta_keys(app.env)
+    filter_csv = ','.join(sorted_keys)
     result_meta_fields = _parse_result_meta_fields(app)
-    filter_csv = ','.join(field['key'] for field in result_meta_fields)
 
     empty = {
         'pagefind_seo_filter_metas': '',
@@ -242,7 +236,7 @@ def _html_page_context(
     default_distro = (getattr(app.config, 'macros', {}) or {}).get('DISTRO', 'rolling')
     values = _resolved_page_meta(app, doctree)
 
-    seo_filters = _seo_and_filter_metas(app, values)
+    seo_filters = _seo_and_filter_metas(values)
     data_attr = _pagefind_data_meta_attr(values)
     css_href, js_href = _pagefind_component_urls(app, pagename)
     bundle_prefix = _pagefind_bundle_prefix(app, pagename)

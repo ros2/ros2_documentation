@@ -557,7 +557,7 @@
     <pagefind-modal-body>
       <div class="ros-search-two-col">
         <aside class="ros-search-facets" aria-label="Search filters">
-          {% include "pagefind-facets.html" %}
+          <pagefind-filter-pane{% if pagefind_filter_keys_csv %} open="{{ pagefind_filter_keys_csv }}"{% endif %}></pagefind-filter-pane>
         </aside>
         <main class="ros-search-results" aria-label="Search results">
           <pagefind-summary></pagefind-summary>
