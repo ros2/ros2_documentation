@@ -39,7 +39,7 @@ multiversion-search: multiversion
 	@$(BUILD) -M $@ "$(SOURCE)" "$(OUT)" $(OPTS)
 
 enhance-topics:
-	git diff --name-only --diff-filter=d HEAD | xargs -r $(PYTHON) scripts/enhance_topics.py
+	git diff --name-only --diff-filter=d HEAD | xargs -r $(PYTHON) tools/enhance_topics.py
 
 lint:
 	./sphinx-lint-with-ros source

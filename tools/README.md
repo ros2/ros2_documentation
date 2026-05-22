@@ -118,11 +118,11 @@ You can call the script directly to process specific files or directories:
 
 ```bash
 # Process a single file
-python scripts/enhance_topics.py source/path/to/article.rst
+python tools/enhance_topics.py source/path/to/article.rst
 
 # Process multiple files
-python scripts/enhance_topics.py file1.rst file2.rst
+python tools/enhance_topics.py file1.rst file2.rst
 ```
 
 ### Configuration
-Tuning constants, such as the model version (`gpt-5.4-nano`), timeouts, and prompt strings, are centrally managed in `scripts/config.py`.
+Tuning constants, such as the model version (`gpt-5.4-nano`), timeouts, and prompt strings, are centrally managed in `tools/config.py`.
