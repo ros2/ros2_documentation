@@ -51,7 +51,8 @@ Rows in the table marked in blue are the currently supported distributions.
      /* Targeting the cells and rows for the background and plain text */
     .rst-content table.distros:not(.field-list) tr:nth-child(1) td,
     .rst-content table.distros tr:nth-child(2),
-    .rst-content table.distros tr:nth-child(4) {
+    .rst-content table.distros:not(.field-list) tr:nth-child(3) td,
+    .rst-content table.distros:not(.field-list) tr:nth-child(5) td {
       background-color: #22314E;
       color: white;
     }
@@ -59,7 +60,8 @@ Rows in the table marked in blue are the currently supported distributions.
     /* Targeting the links inside those specific rows to force them to be not-blue */
     .rst-content table.distros:not(.field-list) tr:nth-child(1) td a,
     .rst-content table.distros tr:nth-child(2) a,
-    .rst-content table.distros tr:nth-child(4) a {
+    .rst-content table.distros:not(.field-list) tr:nth-child(3) td a,
+    .rst-content table.distros:not(.field-list) tr:nth-child(3) td a {
       color: #B0B0B0 !important;
     }
    </style>
