@@ -23,6 +23,7 @@ Rows in the table marked in blue are the currently supported distributions.
 .. toctree::
    :hidden:
 
+   Releases/Release-Lyrical-Luth
    Releases/Release-Kilted-Kaiju
    Releases/Release-Jazzy-Jalisco
    Releases/Release-Humble-Hawksbill
@@ -50,7 +51,8 @@ Rows in the table marked in blue are the currently supported distributions.
      /* Targeting the cells and rows for the background and plain text */
     .rst-content table.distros:not(.field-list) tr:nth-child(1) td,
     .rst-content table.distros tr:nth-child(2),
-    .rst-content table.distros tr:nth-child(4) {
+    .rst-content table.distros:not(.field-list) tr:nth-child(3) td,
+    .rst-content table.distros:not(.field-list) tr:nth-child(5) td {
       background-color: #22314E;
       color: white;
     }
@@ -58,13 +60,17 @@ Rows in the table marked in blue are the currently supported distributions.
     /* Targeting the links inside those specific rows to force them to be not-blue */
     .rst-content table.distros:not(.field-list) tr:nth-child(1) td a,
     .rst-content table.distros tr:nth-child(2) a,
-    .rst-content table.distros tr:nth-child(4) a {
+    .rst-content table.distros:not(.field-list) tr:nth-child(3) td a,
+    .rst-content table.distros:not(.field-list) tr:nth-child(3) td a {
       color: #B0B0B0 !important;
     }
    </style>
 
 .. |rolling| image:: Releases/rolling-small.png
    :alt: Rolling logo
+
+.. |lyrical| image:: Releases/lyrical-small.png
+   :alt: Lyrical logo
 
 .. |kilted| image:: Releases/kilted-small.png
    :alt: Kilted logo
@@ -109,6 +115,11 @@ Rows in the table marked in blue are the currently supported distributions.
      - Logo
      - EOL date
      - ROS Boss
+   * - :doc:`Lyrical Luth <Releases/Release-Lyrical-Luth>`
+     - May 22, 2026
+     - |lyrical|
+     - May 2031
+     - `Shane Loretz <https://github.com/sloretz>`_
    * - :doc:`Kilted Kaiju <Releases/Release-Kilted-Kaiju>`
      - May 23, 2025
      - |kilted|
@@ -201,10 +212,10 @@ There is a new ROS 2 distribution released yearly on May 23rd (`World Turtle Day
      - Release date
      - Logo
      - EOL date
-   * - :doc:`Lyrical Luth <Releases/Release-Lyrical-Luth>`
-     - May 2026
+   * - :doc:`Makoa Mata-mata <Releases/Release-Makoa-Mata-mata>`
+     - May 2027
      - TBD
-     - May 2031
+     - Dec 2028
 
 
 .. _rolling_distribution:
