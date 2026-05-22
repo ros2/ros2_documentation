@@ -104,17 +104,20 @@ pagefind_merge_index_overrides = {}
 pagefind_merge_filter_per_pkg = None
 pagefind_merge_index_weight_per_pkg = None
 
-# Pagefind search result metadata (modal + /search.html).
-# Dict keys = .. meta:: field names; values = labels on each result line.
-# Order here is display order. Only listed keys are shown (allowlist).
-# Facet filters in the sidebar are separate (all data-pagefind-filter meta).
+# Pagefind search UI (modal + /search.html): result metadata lines and facet sidebar.
+# Dict keys = .. meta:: field names; values = display labels.
+# Order here is facet dropdown order and result-meta line order (allowlist).
+# Only listed keys are indexed as facets; keys must exist on at least one page in the build.
+# Other meta (e.g. description, keywords) stays SEO-only and does not appear in the facet sidebar.
 pagefind_result_meta_order = {
     'product': 'Product',
     'distribution': 'Distribution',
     'area': 'Area',
     'capability': 'Capability',
+    'community': 'Community',
+    'installation': 'Installation',
     'framework': 'Framework',
-    'tools': 'Tools',
+    'tool': 'Tools',
     'contentType': 'Content type',
     'experience': 'Level',
 }

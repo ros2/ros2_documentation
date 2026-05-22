@@ -10,7 +10,11 @@ import pytest
 
 sys.path.insert(0, 'plugins')
 
-from pagefind_meta import _parse_result_meta_fields  # noqa: E402
+from pagefind_meta import (  # noqa: E402
+    _facet_filter_keys_for_context,
+    _parse_result_meta_fields,
+    _seo_and_filter_metas,
+)
 
 
 def _app(result_meta_order):
@@ -59,3 +63,30 @@ def test_parse_result_meta_fields_allowlist_only_configured_keys() -> None:
 def test_parse_result_meta_fields_empty_config() -> None:
     app = _app({})
     assert _parse_result_meta_fields(app) == []
+
+
+def test_seo_and_filter_metas_facet_allowlist() -> None:
+    app = _app({'product': 'Product', 'area': 'Area'})
+    html = _seo_and_filter_metas(
+        app,
+        {
+            'product': 'ROS 2',
+            'description': 'Long overview text',
+            'area': 'framework',
+        },
+    )
+    assert 'data-pagefind-filter="product[content]"' in html
+    assert 'data-pagefind-filter="area[content]"' in html
+    assert 'name="description"' in html
+    assert 'data-pagefind-filter="description' not in html
+
+
+def test_facet_filter_keys_for_context_order_and_corpus() -> None:
+    app = _app({'product': 'Product', 'area': 'Area', 'tool': 'Tool'})
+    env = SimpleNamespace(
+        pagefind_meta_keys_by_doc={
+            'a': {'product', 'area'},
+            'b': {'description'},
+        },
+    )
+    assert _facet_filter_keys_for_context(app, env) == ['product', 'area']
