@@ -114,7 +114,7 @@ Rows in the table marked in blue are the currently supported distributions.
      - EOL date
      - ROS Boss
    * - :doc:`Lyrical Luth <Releases/Release-Lyrical-Luth>`
-     - May 23, 2026
+     - May 22, 2026
      - |lyrical|
      - May 2031
      - `Shane Loretz <https://github.com/sloretz>`_
