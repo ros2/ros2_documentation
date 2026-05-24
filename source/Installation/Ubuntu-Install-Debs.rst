@@ -42,6 +42,29 @@ Install development tools (optional)
 
 If you are going to build ROS packages or otherwise do development, you can also install the development tools:
 
+.. warning::
+
+   On Ubuntu 24.04 installs your apt sources may only include the base ``noble`` suite.
+   This can cause dependency conflicts when installing ``ros-dev-tools``.
+
+   Check ``/etc/apt/sources.list.d/ubuntu.sources`` and ensure the ``Suites:`` line includes ``noble-updates`` and ``noble-backports``:
+
+   .. code-block:: console
+
+      $ grep Suites /etc/apt/sources.list.d/ubuntu.sources
+
+   If ``noble-updates`` or ``noble-backports`` are missing then edit the file and update the line to:
+
+   .. code-block:: text
+
+      Suites: noble noble-updates noble-backports
+
+   Then run:
+
+   .. code-block:: console
+
+      $ sudo apt clean && sudo apt update && sudo apt full-upgrade -y
+
 .. code-block:: console
 
    $ sudo apt update && sudo apt install ros-dev-tools
