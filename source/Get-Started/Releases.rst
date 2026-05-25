@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Releases
+
 .. _Releases:
 
 Distributions
@@ -188,7 +192,7 @@ Rows in the table marked in blue are the currently supported distributions.
 Future Distributions
 --------------------
 
-For details on upcoming features see the :doc:`roadmap <The-ROS2-Project/Roadmap>`.
+For details on upcoming features see the :doc:`roadmap <../The-ROS2-Project/Roadmap>`.
 
 There is a new ROS 2 distribution released yearly on May 23rd (`World Turtle Day <https://www.worldturtleday.org/>`_).
 

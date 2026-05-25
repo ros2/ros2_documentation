@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Advanced/Reading-From-A-Bag-File-CPP
+
 Reading from a bag file (C++)
 =============================
 
@@ -23,9 +27,9 @@ Prerequisites
 
 You should have the ``rosbag2`` packages installed as part of your regular ROS 2 setup.
 
-If you need to install ROS 2, see the :doc:`Installation instructions <../../Installation>`.
+If you need to install ROS 2, see the :doc:`Installation instructions <../../../Get-Started/Installation>`.
 
-You should have already completed the :doc:`basic ROS 2 bag tutorial <../Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data>`, and we will be using the ``subset`` bag you created there.
+You should have already completed the :doc:`basic ROS 2 bag tutorial <../../interfaces/Working-with-interfaces/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data>`, and we will be using the ``subset`` bag you created there.
 
 Tasks
 -----
@@ -33,7 +37,7 @@ Tasks
 1 Create a Package
 ^^^^^^^^^^^^^^^^^^
 
-Open a new terminal and :doc:`source your ROS 2 installation <../Beginner-CLI-Tools/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
+Open a new terminal and :doc:`source your ROS 2 installation <../../../Get-Started/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
 
 In a new or existing :ref:`workspace <new-directory>`, navigate to the ``src`` directory and create
 a new package:

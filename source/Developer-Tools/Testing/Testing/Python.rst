@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Intermediate/Testing/Python
+
 .. TestingPython:
 
 Writing Basic Tests with Python
@@ -5,7 +9,7 @@ Writing Basic Tests with Python
 
 Starting point: we'll assume you have a :ref:`basic ament_python package<CreatePkg>` set up already and you want to add some tests to it.
 
-If you are using ament_cmake_python, refer to the :doc:`ament_cmake_python docs<../../../How-To-Guides/Ament-CMake-Python-Documentation>` for how to make tests discoverable.
+If you are using ament_cmake_python, refer to the :doc:`ament_cmake_python docs <../../Build/Ament-CMake-Python-Documentation>` for how to make tests discoverable.
 The test contents and invocation with ``colcon`` remain the same.
 
 Package Setup

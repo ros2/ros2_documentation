@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    How-To-Guides/Releasing/Release-Team-Repository
+
 Release Team / Repository
 =========================
 

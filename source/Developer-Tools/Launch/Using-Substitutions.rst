@@ -2,6 +2,7 @@
 
     Tutorials/Launch-Files/Using-Substitutions
     Tutorials/Launch/Using-Substitutions
+    Tutorials/Intermediate/Launch/Using-Substitutions
 
 Using substitutions
 ===================
@@ -29,10 +30,10 @@ This tutorial shows usage examples of substitutions in ROS 2 launch files.
 Prerequisites
 -------------
 
-This tutorial uses the :doc:`turtlesim <../../Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim>` package.
-This tutorial also assumes you are familiar with :doc:`creating packages <../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>`.
+This tutorial uses the :doc:`turtlesim <../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>` package.
+This tutorial also assumes you are familiar with :doc:`creating packages <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-Your-First-ROS2-Package>`.
 
-As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
+As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../../Get-Started/Configuring-ROS2-Environment>`.
 
 Using substitutions
 -------------------
@@ -466,4 +467,4 @@ Summary
 In this tutorial, you learned about using substitutions in launch files.
 You learned about their possibilities and capabilities to create reusable launch files.
 
-You can now learn more about :doc:`using event handlers in launch files <./Using-Event-Handlers>` which are used to define a complex set of rules which can be used to dynamically modify the launch file.
+You can now learn more about :doc:`using event handlers in launch files <Using-Event-Handlers>` which are used to define a complex set of rules which can be used to dynamically modify the launch file.

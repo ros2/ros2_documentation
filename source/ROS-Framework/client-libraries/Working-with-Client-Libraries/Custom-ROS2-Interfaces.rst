@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Tutorials/Custom-ROS2-Interfaces
+    Tutorials/Beginner-Client-Libraries/Custom-ROS2-Interfaces
 
 .. _CustomInterfaces:
 
@@ -20,7 +21,7 @@ Creating custom msg and srv files
 Background
 ----------
 
-In previous tutorials you utilized message and service interfaces to learn about :doc:`topics <../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`, :doc:`services <../Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services>`, and simple publisher/subscriber (:doc:`C++ <./Writing-A-Simple-Cpp-Publisher-And-Subscriber>`/:doc:`Python<./Writing-A-Simple-Py-Publisher-And-Subscriber>`) and service/client (:doc:`C++ <./Writing-A-Simple-Cpp-Service-And-Client>`/:doc:`Python<./Writing-A-Simple-Py-Service-And-Client>`) nodes.
+In previous tutorials you utilized message and service interfaces to learn about :doc:`topics <../../topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`, :doc:`services <../../services/Working-with-services/Understanding-ROS2-Services/Understanding-ROS2-Services>`, and simple publisher/subscriber (:doc:`C++ <Writing-A-Simple-Cpp-Publisher-And-Subscriber>`/:doc:`Python <Writing-A-Simple-Py-Publisher-And-Subscriber>`) and service/client (:doc:`C++ <Writing-A-Simple-Cpp-Service-And-Client>`/:doc:`Python <Writing-A-Simple-Py-Service-And-Client>`) nodes.
 The interfaces you used were predefined in those cases.
 
 While it's good practice to use predefined interface definitions, you will probably need to define your own messages and services sometimes as well.
@@ -29,9 +30,9 @@ This tutorial will introduce you to the simplest method of creating custom inter
 Prerequisites
 -------------
 
-You should have a :doc:`ROS 2 workspace <./Creating-A-Workspace/Creating-A-Workspace>`.
+You should have a :doc:`ROS 2 workspace <Creating-A-Workspace/Creating-A-Workspace>`.
 
-This tutorial also uses the packages created in the publisher/subscriber (:doc:`C++ <./Writing-A-Simple-Cpp-Publisher-And-Subscriber>` and :doc:`Python<./Writing-A-Simple-Py-Publisher-And-Subscriber>`) and service/client  (:doc:`C++ <./Writing-A-Simple-Cpp-Service-And-Client>` and :doc:`Python<./Writing-A-Simple-Py-Service-And-Client>`) tutorials to try out the new custom messages.
+This tutorial also uses the packages created in the publisher/subscriber (:doc:`C++ <Writing-A-Simple-Cpp-Publisher-And-Subscriber>` and :doc:`Python <Writing-A-Simple-Py-Publisher-And-Subscriber>`) and service/client  (:doc:`C++ <Writing-A-Simple-Cpp-Service-And-Client>` and :doc:`Python <Writing-A-Simple-Py-Service-And-Client>`) tutorials to try out the new custom messages.
 
 Tasks
 -----
@@ -223,7 +224,7 @@ A few simple modifications to the nodes, ``CMakeLists.txt`` and ``package.xml`` 
 7.1 Testing ``Num.msg`` with pub/sub
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-With a few modifications to the publisher/subscriber package created in a previous tutorial (:doc:`C++ <./Writing-A-Simple-Cpp-Publisher-And-Subscriber>` or :doc:`Python <./Writing-A-Simple-Py-Publisher-And-Subscriber>`), you can see ``Num.msg`` in action.
+With a few modifications to the publisher/subscriber package created in a previous tutorial (:doc:`C++ <Writing-A-Simple-Cpp-Publisher-And-Subscriber>` or :doc:`Python <Writing-A-Simple-Py-Publisher-And-Subscriber>`), you can see ``Num.msg`` in action.
 Since you'll be changing the standard string msg to a numerical one, the output will be slightly different.
 
 **Publisher**
@@ -509,7 +510,7 @@ Since ``Num.msg`` relays only an integer, the talker should only be publishing i
 7.2 Testing ``AddThreeInts.srv`` with service/client
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-With a few modifications to the service/client package created in a previous tutorial (:doc:`C++ <./Writing-A-Simple-Cpp-Service-And-Client>` or :doc:`Python <./Writing-A-Simple-Py-Service-And-Client>`), you can see ``AddThreeInts.srv`` in action.
+With a few modifications to the service/client package created in a previous tutorial (:doc:`C++ <Writing-A-Simple-Cpp-Service-And-Client>` or :doc:`Python <Writing-A-Simple-Py-Service-And-Client>`), you can see ``AddThreeInts.srv`` in action.
 Since you'll be changing the original two integer request srv to a three integer request srv, the output will be slightly different.
 
 **Service**
@@ -791,9 +792,9 @@ Summary
 In this tutorial, you learned how to create custom interfaces in their own package and how to utilize those interfaces in other packages.
 
 This tutorial only scratches the surface about defining custom interfaces.
-You can learn more about it in :doc:`About ROS 2 interfaces <../../Concepts/Basic/About-Interfaces>`.
+You can learn more about it in :doc:`About ROS 2 interfaces <../../About-Interfaces>`.
 
 Next steps
 ----------
 
-The :doc:`next tutorial <./Single-Package-Define-And-Use-Interface>` covers more ways to use interfaces in ROS 2.
+The :doc:`next tutorial <Single-Package-Define-And-Use-Interface>` covers more ways to use interfaces in ROS 2.

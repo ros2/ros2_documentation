@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    How-To-Guides/Migrating-from-ROS1/Migrating-Packages
+
 Migrating Packages
 ==================
 
@@ -21,12 +25,12 @@ Package.xml format version
 --------------------------
 
 ROS 2 only supports ``package.xml`` format versions 2 and higher.
-If your package's ``package.xml`` uses format 1, then update it using the :doc:`Package.xml format 1 to 2 migration guide <./Migrating-Package-XML>`.
+If your package's ``package.xml`` uses format 1, then update it using the :doc:`Package.xml format 1 to 2 migration guide <Migrating-Package-XML>`.
 
 Dependency names
 ----------------
 
-Dependency names that come from :doc:`rosdep <../../Tutorials/Intermediate/Rosdep>` should not need to change, as those are shared across ROS 1 and ROS 2.
+Dependency names that come from :doc:`rosdep <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Rosdep>` should not need to change, as those are shared across ROS 1 and ROS 2.
 
 Some packages released into ROS might have different names in ROS 2 so the dependencies might need to be updated accordingly.
 
@@ -36,7 +40,7 @@ Metapackages
 ROS 2 doesn't have a special package type for metapackages.
 Metapackages can still exist as regular packages that only contain runtime dependencies.
 When migrating metapackages from ROS 1, simply remove the ``<metapackage />`` tag in your package manifest.
-See :doc:`Using variants <../Using-Variants>` for more information on metapackages/variants.
+See :doc:`Using variants <../../Developer-Tools/Build/Using-Variants>` for more information on metapackages/variants.
 
 Licensing
 ---------

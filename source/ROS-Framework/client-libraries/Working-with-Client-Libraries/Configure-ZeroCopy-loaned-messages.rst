@@ -1,6 +1,7 @@
 .. redirect-from::
 
   How-To-Guides/Disabling-ZeroCopy-loaned-messages
+  How-To-Guides/Configure-ZeroCopy-loaned-messages
 
 Configure Zero Copy Loaned Messages
 ===================================

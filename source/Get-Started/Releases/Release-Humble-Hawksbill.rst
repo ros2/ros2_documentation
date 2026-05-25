@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Releases/Release-Humble-Hawksbill
+
 .. _humble-release:
 
 Humble Hawksbill (``humble``)
@@ -686,7 +690,7 @@ ROS_DISABLE_LOANED_MESSAGES environment variable added
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
 This environment variable can be used to disable loaned messages support, independently if the rmw supports them or not.
-For more details, see the guide :doc:`Configure Zero Copy Loaned Messages <../How-To-Guides/Configure-ZeroCopy-loaned-messages>`.
+For more details, see the guide :doc:`Configure Zero Copy Loaned Messages <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Configure-ZeroCopy-loaned-messages>`.
 
 rclcpp
 ^^^^^^
@@ -863,7 +867,7 @@ ros1_bridge
 ^^^^^^^^^^^
 
 Since there is no official ROS 1 distribution on Ubuntu Jammy and forward, ``ros1_bridge`` is now compatible with the Ubuntu-packaged versions of ROS 1.
-More details about using ``ros1_bridge`` with Jammy packages are available in :doc:`the how-to guides <../How-To-Guides/Using-ros1_bridge-Jammy-upstream>`.
+More details about using ``ros1_bridge`` with Jammy packages are available in :doc:`the how-to guides <../../Migration-and-Upgrades/Using-ros1_bridge-Jammy-upstream>`.
 
 ros2cli
 ^^^^^^^
@@ -1074,7 +1078,7 @@ Known Issues
   It is *particularly* important to make sure that ``systemd`` and ``udev`` are updated to the latest available version otherwise installing ``ros-humble-desktop``, which depends on ``libudev1``, could cause the removal of system critical packages.
   Details can be found in `ros2/ros2#1272 <https://github.com/ros2/ros2/issues/1272>`_ and `Launchpad #1974196 <https://bugs.launchpad.net/ubuntu/+source/systemd/+bug/1974196>`_
 
-* When ROS 2 apt repositories are available, ROS 1 packages in Ubuntu are not installable.  See the :doc:`ros1_bridge on Ubuntu Jammy <../How-To-Guides/Using-ros1_bridge-Jammy-upstream>` document for more information.
+* When ROS 2 apt repositories are available, ROS 1 packages in Ubuntu are not installable.  See the :doc:`ros1_bridge on Ubuntu Jammy <../../Migration-and-Upgrades/Using-ros1_bridge-Jammy-upstream>` document for more information.
 
 * Some major Linux distributions have started patching Python to install packages to ``/usr/local``, which is breaking some parts of ``ament_package`` and builds with ``colcon``.
   In particular, using Ubuntu Jammy with ``setuptools`` installed from pip will manifest this misbehavior, and is therefore not recommended.

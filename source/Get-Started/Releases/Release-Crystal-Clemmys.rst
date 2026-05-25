@@ -1,6 +1,7 @@
 .. redirect-from::
 
   Release-Crystal-Clemmys
+  Releases/Release-Crystal-Clemmys
 
 Crystal Clemmys (``crystal``)
 =============================

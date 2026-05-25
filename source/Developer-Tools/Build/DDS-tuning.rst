@@ -2,6 +2,7 @@
 
   Guides/DDS-tuning
   Troubleshooting/DDS-tuning
+  How-To-Guides/DDS-tuning
 
 DDS tuning information
 ======================

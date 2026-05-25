@@ -2,6 +2,7 @@
 
     About-ROS-2-Parameters
     Concepts/About-ROS-2-Parameters
+    Concepts/Basic/About-Parameters
 
 Parameters
 ==========
@@ -29,7 +30,7 @@ Each parameter consists of a key, a value, and a descriptor.
 The key is a string and the value is one of the following types: ``bool``, ``int64``, ``float64``, ``string``, ``byte[]``, ``bool[]``, ``int64[]``, ``float64[]`` or ``string[]``.
 By default all descriptors are empty, but can contain parameter descriptions, value ranges, type information, and additional constraints.
 
-For a hands-on tutorial with ROS parameters see :doc:`../../Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters`.
+For a hands-on tutorial with ROS parameters see :doc:`parameters/Working-with-parameters/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters`.
 
 Parameters background
 ---------------------
@@ -39,7 +40,7 @@ Declaring parameters
 
 By default, a node needs to *declare* all of the parameters that it will accept during its lifetime.
 This is so that the type and name of the parameters are well-defined at node startup time, which reduces the chances of misconfiguration later on.
-See :doc:`../../Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-CPP` or :doc:`../../Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python` for tutorials on declaring and using parameters from a node.
+See :doc:`client-libraries/Working-with-Client-Libraries/Using-Parameters-In-A-Class-CPP` or :doc:`client-libraries/Working-with-Client-Libraries/Using-Parameters-In-A-Class-Python` for tutorials on declaring and using parameters from a node.
 
 For some types of nodes, not all of the parameters will be known ahead of time.
 In these cases, the node can be instantiated with ``allow_undeclared_parameters`` set to ``true``, which will allow parameters to be get and set on the node even if they haven't been declared.
@@ -84,7 +85,7 @@ The ROS 2 demos have an `example <https://github.com/ros2/demos/blob/{DISTRO}/de
 Interacting with parameters
 ---------------------------
 
-ROS 2 nodes can perform parameter operations through node APIs as described in :doc:`../../Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-CPP` or :doc:`../../Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python`.
+ROS 2 nodes can perform parameter operations through node APIs as described in :doc:`client-libraries/Working-with-Client-Libraries/Using-Parameters-In-A-Class-CPP` or :doc:`client-libraries/Working-with-Client-Libraries/Using-Parameters-In-A-Class-Python`.
 External processes can perform parameter operations via parameter services that are created by default when a node is instantiated.
 The services that are created by default are:
 
@@ -114,25 +115,25 @@ Setting initial parameter values when launching nodes
 -----------------------------------------------------
 
 Initial parameter values can also be set when running the node through the ROS 2 launch facility.
-See :doc:`this document <../../Tutorials/Intermediate/Launch/Using-ROS2-Launch-For-Large-Projects>` for information on how to specify parameters via launch.
+See :doc:`this document <../Developer-Tools/Launch/Using-ROS2-Launch-For-Large-Projects>` for information on how to specify parameters via launch.
 
 Manipulating parameter values at runtime
 ----------------------------------------
 
 The ``ros2 param`` command is the general way to interact with parameters for nodes that are already running.
 ``ros2 param`` uses the parameter service API as described above to perform the various operations.
-See :doc:`this how-to guide <../../How-To-Guides/Using-ros2-param>` for details on how to use ``ros2 param``.
+See :doc:`this how-to guide <parameters/Working-with-parameters/Using-ros2-param>` for details on how to use ``ros2 param``.
 
 In addition to the command-line interface, parameters can also be manipulated programmatically at runtime using the ROS 2 client libraries.
 All client libraries provide APIs to get, set, and react to parameter changes while a node is running.
 
 Client library support includes:
- * **C++ (rclcpp)**: see :doc:`../../Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-CPP` and :doc:`../../Tutorials/Intermediate/Monitoring-For-Parameter-Changes-CPP`.
- * **Python (rclpy)**: see :doc:`../../Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python` and :doc:`../../Tutorials/Intermediate/Monitoring-For-Parameter-Changes-Python`.
+ * **C++ (rclcpp)**: see :doc:`client-libraries/Working-with-Client-Libraries/Using-Parameters-In-A-Class-CPP` and :doc:`parameters/Working-with-parameters/Monitoring-For-Parameter-Changes-CPP`.
+ * **Python (rclpy)**: see :doc:`client-libraries/Working-with-Client-Libraries/Using-Parameters-In-A-Class-Python` and :doc:`parameters/Working-with-parameters/Monitoring-For-Parameter-Changes-Python`.
 
 Migrating from ROS 1
 --------------------
 
-The :doc:`Launch file migration guide <../../How-To-Guides/Migrating-from-ROS1/Migrating-Launch-Files>` explains how to migrate ``param`` and ``rosparam`` launch tags from ROS 1 to ROS 2.
+The :doc:`Launch file migration guide <../Migration-and-Upgrades/Migrating-from-ROS1/Migrating-Launch-Files>` explains how to migrate ``param`` and ``rosparam`` launch tags from ROS 1 to ROS 2.
 
-The :doc:`Migration guide <../../How-To-Guides/Migrating-from-ROS1/Migrating-Parameters>` explains how to migrate parameter from ROS 1 to ROS 2.
+The :doc:`Migration guide <../Migration-and-Upgrades/Migrating-from-ROS1/Migrating-Parameters>` explains how to migrate parameter from ROS 1 to ROS 2.

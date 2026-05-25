@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Tutorials/Actions/Creating-an-Action
+    Tutorials/Intermediate/Creating-an-Action
 
 .. _ActionCreate:
 
@@ -20,7 +21,7 @@ Creating an action
 Background
 ----------
 
-You learned about actions previously in the :doc:`../Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions` tutorial.
+You learned about actions previously in the :doc:`Understanding-ROS2-Actions/Understanding-ROS2-Actions` tutorial.
 Like the other communication types and their respective interfaces (topics/msg and services/srv),
 you can also custom-define actions in your packages.
 This tutorial shows you how to define and build an action that you can use
@@ -29,11 +30,11 @@ with the action server and action client you will write in the next tutorial.
 Prerequisites
 -------------
 
-You should have :doc:`ROS 2 <../../Installation>` and `colcon <https://colcon.readthedocs.org>`__ installed.
+You should have :doc:`ROS 2 <../../../Get-Started/Installation>` and `colcon <https://colcon.readthedocs.org>`__ installed.
 
-You should know how to set up a :doc:`workspace <../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>` and create packages.
+You should know how to set up a :doc:`workspace <../../client-libraries/Working-with-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>` and create packages.
 
-Remember to :doc:`source your ROS 2 installation <../Beginner-CLI-Tools/Configuring-ROS2-Environment>` first.
+Remember to :doc:`source your ROS 2 installation <../../../Get-Started/Configuring-ROS2-Environment>` first.
 
 Tasks
 -----

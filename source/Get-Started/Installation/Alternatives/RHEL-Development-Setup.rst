@@ -3,6 +3,7 @@
   Installation/Alternatives/Fedora-Development-Setup
   Installation/Fedora-Development-Setup
   Installation/RHEL-Development-Setup
+  Installation/Alternatives/RHEL-Development-Setup
 
 RHEL (source)
 =============
@@ -105,7 +106,7 @@ Install additional RMW implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at build or runtime.
-See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
+See the :doc:`guide <../RMW-Implementations/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
 Build the code in the workspace
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -115,7 +116,7 @@ Also ensure that you do not have ``source /opt/ros/${ROS_DISTRO}/setup.bash`` in
 You can make sure that ROS 2 is not sourced with the command ``printenv | grep -i ROS``.
 The output should be empty.
 
-More info on working with a ROS workspace can be found in :doc:`this tutorial <../../Tutorials/Beginner-Client-Libraries/Colcon-Tutorial>`.
+More info on working with a ROS workspace can be found in :doc:`this tutorial <../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Colcon-Tutorial>`.
 
 .. code-block:: console
 
@@ -169,7 +170,7 @@ Hooray!
 Next steps
 ----------
 
-Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
+Continue with the :doc:`tutorials and demos <../../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
 
 Alternate compilers
 -------------------
@@ -192,7 +193,7 @@ To configure CMake to detect and use Clang:
 Stay up to date
 ---------------
 
-See :doc:`../Maintaining-a-Source-Checkout` to periodically refresh your source installation.
+See :doc:`Maintaining-a-Source-Checkout` to periodically refresh your source installation.
 
 Troubleshoot
 ------------

@@ -3,6 +3,7 @@
    RQt-Overview-Usage
    Tutorials/RQt-Overview-Usage
    Concepts/About-RQt
+   Concepts/Intermediate/About-RQt
 
 Overview and usage of RQt
 =========================

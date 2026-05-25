@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Advanced/Improved-Dynamic-Discovery
+
 .. _ImprovedDynamicDiscovery:
 
 Improved Dynamic Discovery

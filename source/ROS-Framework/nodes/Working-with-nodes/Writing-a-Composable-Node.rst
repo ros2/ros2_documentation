@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Intermediate/Writing-a-Composable-Node
+
 Writing a Composable Node (C++)
 ===============================
 

@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Intermediate/RViz/RViz-User-Guide/RViz-User-Guide
+
 RViz User Guide
 ===============
 
@@ -18,7 +22,7 @@ RViz is a 3D visualizer for the Robot Operating System (ROS) framework.
 
 Install or build rviz
 ---------------------
-Follow the :doc:`installation instructions <../../../../Installation>` for your operating system to install RViz.
+Follow the :doc:`installation instructions <../../../../Get-Started/Installation>` for your operating system to install RViz.
 
 Startup
 -------

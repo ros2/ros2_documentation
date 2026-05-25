@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    How-To-Guides/Getting-Backtraces-in-ROS-2
+
 Getting Backtraces in ROS 2
 ###########################
 

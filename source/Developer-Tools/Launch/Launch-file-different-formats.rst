@@ -1,6 +1,7 @@
 .. redirect-from::
 
   Guides/Launch-file-different-formats
+  How-To-Guides/Launch-file-different-formats
 
 Using XML, YAML, and Python for ROS 2 Launch Files
 ==================================================

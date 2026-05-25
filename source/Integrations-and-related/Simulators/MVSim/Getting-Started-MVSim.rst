@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Advanced/Simulators/MVSim/Getting-Started-MVSim
+
 Getting started with MVSim
 ==========================
 

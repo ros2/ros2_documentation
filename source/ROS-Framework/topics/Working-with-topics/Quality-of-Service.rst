@@ -2,6 +2,7 @@
 
     Quality-of-Service
     Tutorials/Quality-of-Service
+    Tutorials/Demos/Quality-of-Service
 
 Using quality-of-service settings for lossy networks
 ====================================================
@@ -21,7 +22,7 @@ We will then simulate a lossy network connection between them and show how diffe
 
 Prerequisites
 -------------
-This tutorial assumes you have a :doc:`working ROS 2 installation <../../Installation>` and OpenCV.
+This tutorial assumes you have a :doc:`working ROS 2 installation <../../../Get-Started/Installation>` and OpenCV.
 See the `OpenCV documentation <http://docs.opencv.org/doc/tutorials/introduction/table_of_content_introduction/table_of_content_introduction.html#table-of-content-introduction>`__ for its installation instructions.
 You will also need the ROS package ``image_tools``.
 

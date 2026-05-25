@@ -3,6 +3,7 @@
     Node-arguments
     Guides/Node-arguments
     Tutorials/Node-arguments
+    How-To-Guides/Node-arguments
 
 Passing ROS arguments to nodes via the command-line
 ===================================================
@@ -49,7 +50,7 @@ The namespace, which must start with a forward slash, is set to ``/demo``, which
 Passing remapping arguments to specific nodes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If multiple nodes are being run within a single process (e.g. using :doc:`Composition <../Concepts/Intermediate/About-Composition>`), remapping arguments can be passed to a specific node using its name as a prefix.
+If multiple nodes are being run within a single process (e.g. using :doc:`Composition <../../ROS-Framework/nodes/About-Composition>`), remapping arguments can be passed to a specific node using its name as a prefix.
 For example, the following will pass the remapping arguments to the specified nodes:
 
 .. code-block:: console
@@ -69,7 +70,7 @@ Logger configuration
 
 The per-node logging level can be specified using the ``--log-level`` command line argument.
 The executable log file name prefix, which includes all nodes in the executable, can be specified using ``--log-file-name`` command line argument.
-For more information please see :doc:`the logging page <../Tutorials/Demos/Logging-and-logger-configuration>`.
+For more information please see :doc:`the logging page <Logging-and-logger-configuration>`.
 
 Parameters
 ----------

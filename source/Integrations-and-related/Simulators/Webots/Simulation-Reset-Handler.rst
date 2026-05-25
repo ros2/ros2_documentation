@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Advanced/Simulators/Webots/Simulation-Reset-Handler
+
 Setting up a Reset Handler
 ==========================
 
@@ -25,9 +29,9 @@ Prerequisites
 
 Before proceeding with this tutorial, make sure you have completed the following:
 
-- Understanding of ROS 2 nodes and topics covered in the beginner :doc:`../../../../Tutorials`.
+- Understanding of ROS 2 nodes and topics covered in the beginner :doc:`../../../Tutorials`.
 - Knowledge of Webots and ROS 2 and its interface package.
-- Familiarity with :doc:`./Setting-Up-Simulation-Webots-Basic`.
+- Familiarity with :doc:`Setting-Up-Simulation-Webots-Basic`.
 
 
 Reset Handler for Simple Cases (Controllers Only)

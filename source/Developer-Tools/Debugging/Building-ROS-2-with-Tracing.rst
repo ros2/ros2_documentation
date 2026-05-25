@@ -1,6 +1,7 @@
 .. redirect-from::
 
     How-To-Guides/Building-ROS-2-with-Tracing-Instrumentation
+    How-To-Guides/Building-ROS-2-with-Tracing
 
 Building ROS 2 with tracing
 ===========================
@@ -24,7 +25,7 @@ Prerequisites
 -------------
 
 Set up your system to build ROS 2 from source.
-See :doc:`the source installation page <../Installation/Alternatives/Ubuntu-Development-Setup>` for more information.
+See :doc:`the source installation page <../../Get-Started/Installation/Alternatives/Ubuntu-Development-Setup>` for more information.
 
 Build configurations
 --------------------
@@ -40,7 +41,7 @@ Furthermore, the functions can be completely removed through a CMake option, whi
 Building without tracepoints
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This step depends on whether you are :doc:`building ROS 2 from source <../Installation/Alternatives/Ubuntu-Development-Setup>` or using ROS 2 binaries (:doc:`deb packages <../Installation/Ubuntu-Install-Debs>` or :doc:`binary archive <../Installation/Alternatives/Ubuntu-Install-Binary>`).
+This step depends on whether you are :doc:`building ROS 2 from source <../../Get-Started/Installation/Alternatives/Ubuntu-Development-Setup>` or using ROS 2 binaries (:doc:`deb packages <../../Get-Started/Installation/Ubuntu-Install-Debs>` or :doc:`binary archive <../../Get-Started/Installation/Alternatives/Ubuntu-Install-Binary>`).
 To remove the tracepoints, (re)build ``tracetools`` and set the ``TRACETOOLS_TRACEPOINTS_EXCLUDED`` CMake option to ``ON``:
 
 .. tabs::
@@ -65,7 +66,7 @@ To remove the tracepoints, (re)build ``tracetools`` and set the ``TRACETOOLS_TRA
 Building without instrumentation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To completely remove both tracepoints and function calls, :doc:`build ROS 2 from source <../Installation/Alternatives/Ubuntu-Development-Setup>` and set the ``TRACETOOLS_DISABLED`` CMake option to ``ON``:
+To completely remove both tracepoints and function calls, :doc:`build ROS 2 from source <../../Get-Started/Installation/Alternatives/Ubuntu-Development-Setup>` and set the ``TRACETOOLS_DISABLED`` CMake option to ``ON``:
 
 .. code-block:: console
 

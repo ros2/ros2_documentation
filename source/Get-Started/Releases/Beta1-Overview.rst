@@ -1,6 +1,7 @@
 .. redirect-from::
 
   Beta1-Overview
+  Releases/Beta1-Overview
 
 Beta 1 (``Asphalt``)
 ====================

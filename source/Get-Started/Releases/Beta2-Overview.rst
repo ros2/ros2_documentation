@@ -1,6 +1,7 @@
 .. redirect-from::
 
   Beta2-Overview
+  Releases/Beta2-Overview
 
 Beta 2 (``r2b2``)
 =================

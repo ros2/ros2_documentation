@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Installation/RMW-Implementations/DDS-Implementations/Working-with-eProsima-Fast-DDS
+
 eProsima Fast DDS
 =================
 
@@ -8,7 +12,7 @@ See also: https://www.eprosima.com/index.php/products-all/eprosima-fast-dds
 Prerequisites
 -------------
 
-Have :doc:`rosdep installed <../../../Tutorials/Intermediate/Rosdep>`.
+Have :doc:`rosdep installed <../../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Rosdep>`.
 
 Install packages
 ----------------
@@ -54,7 +58,7 @@ The eProsima Fast DDS RMW can be selected by specifying the environment variable
 
    $ export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
 
-See also: :doc:`Working with multiple RMW implementations <../../../How-To-Guides/Working-with-multiple-RMW-implementations>`
+See also: :doc:`Working with multiple RMW implementations <../Working-with-multiple-RMW-implementations>`
 
 Run the talker and listener
 ---------------------------

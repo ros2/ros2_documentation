@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    How-To-Guides/Using-ros1_bridge-Jammy-upstream
+
 Using ``ros1_bridge`` with upstream ROS on Ubuntu 22.04
 =======================================================
 
@@ -15,7 +19,7 @@ This provides a migration path for users who still depend on ROS 1, but desire m
 ROS 2 via deb packages
 ----------------------
 
-Installing :doc:`ROS 2 from deb packages <../Installation/Ubuntu-Install-Debs>` currently does not work for ROS 2 on Ubuntu Jammy.
+Installing :doc:`ROS 2 from deb packages <../Get-Started/Installation/Ubuntu-Install-Debs>` currently does not work for ROS 2 on Ubuntu Jammy.
 The version of ``catkin-pkg-modules`` available in the Ubuntu repository conflicts with that in the ROS 2 package repository.
 
 If the ROS 2 apt repository is in the available apt repositories (``/etc/apt/sources.list.d``), no ROS 1 packages will be installable.
@@ -45,7 +49,7 @@ For now, to support ``ros1_bridge``, follow the instructions below for building 
 ROS 2 from source
 -----------------
 
-Installing :doc:`ROS 2 from Source <../Installation/Alternatives/Ubuntu-Development-Setup>` is the only configuration that works for ROS 2 on Ubuntu Jammy.
+Installing :doc:`ROS 2 from Source <../Get-Started/Installation/Alternatives/Ubuntu-Development-Setup>` is the only configuration that works for ROS 2 on Ubuntu Jammy.
 
 Below is a summary of the necessary instructions from the source build instructions.
 The substantial deviation is that we skip using the ROS 2 apt repositories because of conflicting packages.
@@ -82,7 +86,7 @@ Since we aren't using the ROS 2 apt repositories, ``colcon`` must be installed v
    # Install colcon from PyPI, rather than apt packages
    python3 -m pip install -U colcon-common-extensions vcstool
 
-From here, continue with the :doc:`source install guide <../Installation/Alternatives/Ubuntu-Development-Setup>` to build ROS 2.
+From here, continue with the :doc:`source install guide <../Get-Started/Installation/Alternatives/Ubuntu-Development-Setup>` to build ROS 2.
 
 Install ROS 1 from Ubuntu packages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

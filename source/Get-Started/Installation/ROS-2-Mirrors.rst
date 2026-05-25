@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Installation/ROS-2-Mirrors
+
 =======
 Mirrors
 =======

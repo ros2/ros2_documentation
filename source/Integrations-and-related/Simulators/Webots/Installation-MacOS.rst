@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Advanced/Simulators/Webots/Installation-MacOS
+
 Installation (macOS)
 ====================
 
@@ -22,8 +26,8 @@ In this tutorial, you are going to install the package and learn how to run one 
 Prerequisites
 -------------
 
-It is recommended to understand basic ROS principles covered in the beginner :doc:`../../../../Tutorials`.
-In particular, :doc:`../../../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace` and :doc:`../../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package` are useful prerequisites.
+It is recommended to understand basic ROS principles covered in the beginner :doc:`../../../Tutorials`.
+In particular, :doc:`../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace` and :doc:`../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-Your-First-ROS2-Package` are useful prerequisites.
 
 It is necessary to install Webots natively on the mac in order to use the ``webots_ros2`` package in the virtual machine as explained below.
 You can follow the `installation procedure <https://cyberbotics.com/doc/guide/installation-procedure>`_ or `build it from sources <https://github.com/cyberbotics/webots/wiki/macOS-installation/>`_.
@@ -68,7 +72,7 @@ In the UTM software:
 In this section, ROS 2 is installed in the VM and the shared folder is configured.
 The following instructions and commands are all run inside the VM.
 
-* Open a terminal in the started VM and install the ROS 2 distribution you need by following the instructions in :doc:`../../../../Installation/Ubuntu-Install-Debs`:
+* Open a terminal in the started VM and install the ROS 2 distribution you need by following the instructions in :doc:`../../../Get-Started/Installation/Ubuntu-Install-Debs`:
 * Create a folder in the VM to use as a shared folder.
   In this example, the shared folder in the VM is ``/home/ubuntu/shared``.
 

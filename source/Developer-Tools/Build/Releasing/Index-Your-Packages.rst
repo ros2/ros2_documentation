@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    How-To-Guides/Releasing/Index-Your-Packages
+
 Index Your Packages
 ===================
 

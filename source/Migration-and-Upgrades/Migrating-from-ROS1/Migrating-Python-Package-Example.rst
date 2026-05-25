@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    How-To-Guides/Migrating-from-ROS1/Migrating-Python-Package-Example
+
 Migrating a Python Package Example
 ==================================
 
@@ -10,7 +14,7 @@ This guide shows how to migrate an example Python package from ROS 1 to ROS 2.
 Prerequisites
 -------------
 
-You need a working ROS 2 installation, such as :doc:`ROS {DISTRO} <../../Installation>`.
+You need a working ROS 2 installation, such as :doc:`ROS {DISTRO} <../../Get-Started/Installation>`.
 
 The ROS 1 code
 --------------
@@ -504,7 +508,7 @@ Execute callbacks in the background
 
 Both ROS 1 and ROS 2 use `callbacks <https://en.wikipedia.org/wiki/Callback_(computer_programming)>`__.
 In ROS 1, callbacks are always executed in background threads, and users are free to block the main thread with calls like ``rate.sleep()``.
-In ROS 2, ``rclpy`` uses :doc:`Executors <../../Concepts/Intermediate/About-Executors>` to give users more control over where callbacks are called.
+In ROS 2, ``rclpy`` uses :doc:`Executors <../../ROS-Framework/client-libraries/About-Executors/About-Executors>` to give users more control over where callbacks are called.
 When porting code that uses blocking calls like ``rate.sleep()``, you must make sure that those calls won't interfere with the executor.
 One way to do this is to create a dedicated thread for the executor.
 
@@ -858,4 +862,4 @@ Conclusion
 ----------
 
 You have learned how to migrate an example Python ROS 1 package to ROS 2.
-From now on, refer to the :doc:`Migrating Python Packages reference page <./Migrating-Python-Packages>` as you migrate your own Python packages.
+From now on, refer to the :doc:`Migrating Python Packages reference page <Migrating-Python-Packages>` as you migrate your own Python packages.

@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    How-To-Guides/Migrating-from-ROS1/Migrating-Scripts
+
 Migrating Scripts
 =================
 

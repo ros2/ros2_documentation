@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Advanced/Topic-Keys/Filtered-Topic-Keys-Tutorial
+
 .. _filtered_topic_keys_tutorial:
 
 Topic Keys Subscription Filtering Tutorial
@@ -17,7 +21,7 @@ In ROS 2, topics are a mean for representing the state of an object.
 Keyed topics are special topics where each data sample represent an update of the state of a specific object (known as *instance*) among all those objects represented in the topic.
 This allows the user to reduce the number of required resources (topics, along with its associated publisher and subscriber) by multiplexing updates of several objects of the same kind into a single resource.
 
-The :doc:`Content Filter Topic <../../Demos/Content-Filtering-Subscription>` facilitates efficient data distribution by allowing the subscription (reader-side) to specify criteria for the types of data they wish to receive.
+The :doc:`Content Filter Topic <../Content-Filtering-Subscription>` facilitates efficient data distribution by allowing the subscription (reader-side) to specify criteria for the types of data they wish to receive.
 By defining this criteria, irrelevant data can be filtered out and applications can focus only on the information that is relevant to their needs.
 This functionality not only reduces the amount of data transmitted over the network but also minimizes processing overhead on the receiving end, leading to improved system performance and scalability.
 
@@ -67,7 +71,7 @@ For this, there are two possible options:
         $ docker run -it --rm osrt/ros:{DISTRO}-desktop
 
 #.  Running the tutorial on the local host.
-    Please, follow the :doc:`installation instructions <../../../Installation>` for details on installing ROS 2.
+    Please, follow the :doc:`installation instructions <../../../../Get-Started/Installation>` for details on installing ROS 2.
 
 Source the following file to setup the ROS 2 environment:
 

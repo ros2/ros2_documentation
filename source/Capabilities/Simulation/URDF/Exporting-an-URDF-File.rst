@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Intermediate/URDF/Exporting-an-URDF-File
+
 Generating an URDF File
 =======================
 

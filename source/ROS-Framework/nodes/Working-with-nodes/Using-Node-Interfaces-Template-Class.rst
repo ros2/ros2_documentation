@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Intermediate/Using-Node-Interfaces-Template-Class
+
 Using the Node Interfaces Template Class (C++)
 ==============================================
 

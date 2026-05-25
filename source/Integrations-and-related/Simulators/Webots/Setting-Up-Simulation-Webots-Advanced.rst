@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced
+
 Setting up a robot simulation (Advanced)
 ========================================
 
@@ -14,14 +18,14 @@ Setting up a robot simulation (Advanced)
 Background
 ----------
 
-In this tutorial you will extend the package created in the first part of the tutorial: :doc:`./Setting-Up-Simulation-Webots-Basic`.
+In this tutorial you will extend the package created in the first part of the tutorial: :doc:`Setting-Up-Simulation-Webots-Basic`.
 The aim is to implement a ROS 2 node that avoids obstacles using the robot's distance sensors.
 This tutorial focuses on using robot devices with the ``webots_ros2_driver`` interface.
 
 Prerequisites
 -------------
 
-This is a continuation of the first part of the tutorial: :doc:`./Setting-Up-Simulation-Webots-Basic`.
+This is a continuation of the first part of the tutorial: :doc:`Setting-Up-Simulation-Webots-Basic`.
 It is mandatory to start with the first part to set up the custom packages and necessary files.
 
 This tutorial is compatible with version 2023.1.0 of ``webots_ros2`` and Webots R2023b, as well as upcoming versions.
@@ -32,7 +36,7 @@ Tasks
 1 Updating ``my_robot.urdf``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-As mentioned in :doc:`./Setting-Up-Simulation-Webots-Basic`, ``webots_ros2_driver`` contains plugins to interface most of Webots devices with ROS 2 directly.
+As mentioned in :doc:`Setting-Up-Simulation-Webots-Basic`, ``webots_ros2_driver`` contains plugins to interface most of Webots devices with ROS 2 directly.
 These plugins can be loaded using the ``<device>`` tag in the URDF file of the robot.
 The ``reference`` attribute should match the Webots device ``name`` parameter.
 The list of all existing interfaces and the corresponding parameters can be found `on the devices reference page <https://github.com/cyberbotics/webots_ros2/wiki/References-Devices>`_.
@@ -224,4 +228,4 @@ Next steps
 You might want to improve the plugin or create new nodes to change the behavior of the robot.
 You can also implement a reset handler to automatically restart your ROS nodes when the simulation is reset from the Webots interface:
 
-* :doc:`./Simulation-Reset-Handler`.
+* :doc:`Simulation-Reset-Handler`.

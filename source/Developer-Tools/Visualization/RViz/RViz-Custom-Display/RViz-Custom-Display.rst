@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Intermediate/RViz/RViz-Custom-Display/RViz-Custom-Display
+
 Building a Custom RViz Display
 ==============================
 

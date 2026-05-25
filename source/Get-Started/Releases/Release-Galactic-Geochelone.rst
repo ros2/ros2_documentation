@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Releases/Release-Galactic-Geochelone
+
 .. _galactic-release:
 
 Galactic Geochelone (``galactic``)

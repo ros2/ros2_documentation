@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Tutorials/Security/Examine-Traffic
+    Tutorials/Advanced/Security/Examine-Traffic
 
 .. _Examine-Traffic:
 
@@ -35,7 +36,7 @@ In this tutorial we'll take a look at capturing live network traffic to show the
 Prerequisites
 -------------
 
-This guide only runs on Linux, and assumes you have already :doc:`installed ROS 2 <../../../Installation>`.
+This guide only runs on Linux, and assumes you have already :doc:`installed ROS 2 <../../../Get-Started/Installation>`.
 
 Run the demo
 ------------

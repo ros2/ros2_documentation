@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Concepts/Basic/About-Launch
+
 Launch
 ======
 .. toctree::

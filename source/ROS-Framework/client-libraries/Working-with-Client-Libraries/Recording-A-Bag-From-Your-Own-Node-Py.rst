@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Tutorials/Ros2bag/Recording-A-Bag-From-Your-Own-Node-Python
+    Tutorials/Advanced/Recording-A-Bag-From-Your-Own-Node-Py
 
 .. _ROS2BagOwnNodePython:
 
@@ -40,7 +41,7 @@ If it is not, you can install it using this command.
   $ sudo apt install ros-{DISTRO}-rosbag2
 
 This tutorial discusses using ROS 2 bags, including from the terminal.
-You should have already completed the :doc:`basic ROS 2 bag tutorial <../Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data>`.
+You should have already completed the :doc:`basic ROS 2 bag tutorial <../../interfaces/Working-with-interfaces/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data>`.
 
 Tasks
 -----
@@ -48,7 +49,7 @@ Tasks
 1 Create a package
 ^^^^^^^^^^^^^^^^^^
 
-Open a new terminal and :doc:`source your ROS 2 installation <../Beginner-CLI-Tools/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
+Open a new terminal and :doc:`source your ROS 2 installation <../../../Get-Started/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
 
 Follow :ref:`these instructions <new-directory>` to create a new workspace named ``ros2_ws``.
 

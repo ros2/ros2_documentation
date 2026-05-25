@@ -1,6 +1,7 @@
 .. redirect-from::
 
    Installation/Windows-Development-Setup
+   Installation/Alternatives/Windows-Development-Setup
 
 Windows (source)
 ================
@@ -154,7 +155,7 @@ Install additional RMW implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at build or runtime.
-See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
+See the :doc:`guide <../RMW-Implementations/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
 Build the code in the workspace
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -252,12 +253,12 @@ Hooray!
 Next steps
 ----------
 
-Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
+Continue with the :doc:`tutorials and demos <../../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
 
 Stay up to date
 ---------------
 
-See :doc:`../Maintaining-a-Source-Checkout` to periodically refresh your source installation.
+See :doc:`Maintaining-a-Source-Checkout` to periodically refresh your source installation.
 
 Troubleshoot
 ------------

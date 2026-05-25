@@ -2,12 +2,13 @@
 
    Migration-Guide-Python
    The-ROS2-Project/Contributing/Migration-Guide-Python
+   How-To-Guides/Migrating-from-ROS1/Migrating-Python-Packages
 
 Migrating Python Packages Reference
 ===================================
 
 This page is a reference on how to migrate Python packages from ROS 1 to ROS 2.
-If this is your first time migrating a Python package, then follow :doc:`this guide to migrate an example Python package <./Migrating-Python-Package-Example>` first.
+If this is your first time migrating a Python package, then follow :doc:`this guide to migrate an example Python package <Migrating-Python-Package-Example>` first.
 
 .. contents:: Table of Contents
    :depth: 2
@@ -17,7 +18,7 @@ Build tool
 ----------
 
 Instead of using ``catkin_make``, ``catkin_make_isolated`` or ``catkin build`` ROS 2 uses the command line tool `colcon <https://design.ros2.org/articles/build_tool.html>`__ to build and install a set of packages.
-See the :doc:`beginner tutorial <../../Tutorials/Beginner-Client-Libraries/Colcon-Tutorial>` to get started with ``colcon``.
+See the :doc:`beginner tutorial <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Colcon-Tutorial>` to get started with ``colcon``.
 
 Build system
 ------------
@@ -174,4 +175,4 @@ In ROS 2:
 .. warning::
 
    Do not use ``rclpy.spin_until_future_complete`` in a ROS 2 callback.
-   For more details see the :doc:`sync deadlock article <../Sync-Vs-Async>`.
+   For more details see the :doc:`sync deadlock article <../../ROS-Framework/services/Working-with-services/Sync-Vs-Async>`.

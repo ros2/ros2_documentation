@@ -2,6 +2,7 @@
 
   Tutorials/Launch-Files/Creating-Launch-Files
   Tutorials/Launch/Creating-Launch-Files
+  Tutorials/Intermediate/Launch/Creating-Launch-Files
 
 Creating a launch file
 ======================
@@ -19,11 +20,11 @@ Creating a launch file
 Prerequisites
 -------------
 
-This tutorial uses the :doc:`rqt_graph and turtlesim <../../Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim>` packages.
+This tutorial uses the :doc:`rqt_graph and turtlesim <../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>` packages.
 
 You will also need to use a text editor of your preference.
 
-As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
+As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../../Get-Started/Configuring-ROS2-Environment>`.
 
 Background
 ----------
@@ -33,7 +34,7 @@ The configuration of the system includes what programs to run, where to run them
 It is also responsible for monitoring the state of the processes launched, and reporting and/or reacting to changes in the state of those processes.
 
 Launch files written in XML, YAML, or Python can start and stop different nodes as well as trigger and act on various events.
-See :doc:`../../../How-To-Guides/Launch-file-different-formats` for a description of the different formats.
+See :doc:`Launch-file-different-formats` for a description of the different formats.
 The package providing this framework is ``launch_ros``, which uses the non-ROS-specific ``launch`` framework underneath.
 
 The `design document <https://design.ros2.org/articles/roslaunch.html>`__ details the goal of the design of ROS 2's launch system (not all functionality is currently available).
@@ -196,7 +197,7 @@ To run the launch file created above, enter into the directory you created earli
 
       $ ros2 launch <package_name> <launch_file_name>
 
-  You learned about creating packages in :doc:`../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package`.
+  You learned about creating packages in :doc:`../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-Your-First-ROS2-Package`.
 
 .. note::
 
@@ -207,7 +208,7 @@ To run the launch file created above, enter into the directory you created earli
     <exec_depend>ros2launch</exec_depend>
 
   This helps make sure that the ``ros2 launch`` command is available after building your package.
-  It also ensures that all :doc:`launch file formats <../../../How-To-Guides/Launch-file-different-formats>` are recognized.
+  It also ensures that all :doc:`launch file formats <Launch-file-different-formats>` are recognized.
 
 Two turtlesim windows will open, and you will see the following ``[INFO]`` messages telling you which nodes your launch file has started:
 

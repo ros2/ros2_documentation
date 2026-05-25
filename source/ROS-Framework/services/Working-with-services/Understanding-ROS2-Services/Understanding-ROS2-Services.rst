@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Tutorials/Services/Understanding-ROS2-Services
+    Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services
 
 .. _ROS2Services:
 
@@ -31,11 +32,11 @@ While topics allow nodes to subscribe to data streams and get continual updates,
 Prerequisites
 -------------
 
-Some concepts mentioned in this tutorial, like :doc:`Nodes <../Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` and :doc:`Topics <../Understanding-ROS2-Topics/Understanding-ROS2-Topics>`, were covered in previous tutorials in the series.
+Some concepts mentioned in this tutorial, like :doc:`Nodes <../../../nodes/Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` and :doc:`Topics <../../../topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`, were covered in previous tutorials in the series.
 
-You will need the :doc:`turtlesim package <../Introducing-Turtlesim/Introducing-Turtlesim>`.
+You will need the :doc:`turtlesim package <../../../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>`.
 
-As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../Configuring-ROS2-Environment>`.
+As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../../../../Get-Started/Configuring-ROS2-Environment>`.
 
 Tasks
 -----
@@ -90,7 +91,7 @@ There will be more about parameters in the next tutorial.
 In this tutorial, the parameter services will be omitted from the discussion.
 
 For now, let's focus on the turtlesim-specific services, ``/clear``, ``/kill``, ``/reset``, ``/spawn``, ``/turtle1/set_pen``, ``/turtle1/teleport_absolute``, and ``/turtle1/teleport_relative``.
-You may recall interacting with some of these services using rqt in the :doc:`Use turtlesim, ros2, and rqt <../Introducing-Turtlesim/Introducing-Turtlesim>` tutorial.
+You may recall interacting with some of these services using rqt in the :doc:`Use turtlesim, ros2, and rqt <../../../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>` tutorial.
 
 
 3 ros2 service type
@@ -225,7 +226,7 @@ Where as for non-DDS based RMW implementations like ``rmw_zenoh_cpp``, the ``End
       Liveliness: AUTOMATIC
       Liveliness lease duration: Infinite
 
-If you want to learn more about different RMW implementations, refer to the :doc:`About Different Middleware Vendors <../../../Concepts/Intermediate/About-Different-Middleware-Vendors>` concept.
+If you want to learn more about different RMW implementations, refer to the :doc:`About Different Middleware Vendors <../../../client-libraries/About-Different-Middleware-Vendors>` concept.
 
 5 ros2 service find
 ^^^^^^^^^^^^^^^^^^^
@@ -407,7 +408,7 @@ In this tutorial you used command line tools to identify, introspect, and call s
 Next steps
 ----------
 
-In the next tutorial, :doc:`../Understanding-ROS2-Parameters/Understanding-ROS2-Parameters`, you will learn about configuring node settings.
+In the next tutorial, :doc:`../../../parameters/Working-with-parameters/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters`, you will learn about configuring node settings.
 
 Related content
 ---------------

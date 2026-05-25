@@ -1,6 +1,7 @@
 .. redirect-from::
 
    Concepts/About-Internal-Interfaces
+   Concepts/Advanced/About-Internal-Interfaces
 
 Internal ROS 2 interfaces
 =========================
@@ -148,7 +149,7 @@ The ``rmw`` |package| contains the C headers which define the interface, the imp
 
 For a definition of the ``rmw`` |API|, see `the rmw docs <http://docs.ros.org/en/{DISTRO}/p/rmw/>`_.
 
-For a more practical in-depth overview of how ROS 2 integrates with different middleware implementations, see :doc:`the middleware implementation tutorial <../../Tutorials/Advanced/Creating-An-RMW-Implementation>`.
+For a more practical in-depth overview of how ROS 2 integrates with different middleware implementations, see :doc:`the middleware implementation tutorial <../Creating-An-RMW-Implementation>`.
 
 The ``rosidl`` repository
 -------------------------

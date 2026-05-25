@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    How-To-Guides/Releasing/Subsequent-Releases
+
 Subsequent Releases
 ===================
 

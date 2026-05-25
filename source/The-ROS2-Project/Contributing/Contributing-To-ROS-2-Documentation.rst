@@ -310,7 +310,7 @@ Building the Site with Devcontainer
 `ROS 2 Documentation GitHub repository <https://github.com/ros2/ros2_documentation>`__ also supports ``Devcontainer`` development environment with Visual Studio Code.
 This will enable you to build the documentation much easier without changing your operating system.
 
-See :doc:`../../How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container` to install VS Code and Docker before the following procedure.
+See :doc:`../../Developer-Tools/Build/Setup-ROS-2-with-VSCode-and-Docker-Container` to install VS Code and Docker before the following procedure.
 
 Clone repository and start VS Code:
 

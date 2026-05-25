@@ -2,6 +2,7 @@
 
   Guides/Installation-Troubleshooting
   Troubleshooting/Installation-Troubleshooting
+  How-To-Guides/Installation-Troubleshooting
 
 Installation troubleshooting
 ============================
@@ -241,7 +242,7 @@ To resolve this error, you will need to:
 
 rosdep install error ``homebrew: Failed to detect successful installation of [qt5]``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-While following the :doc:`Creating a workspace <../Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>` tutorial, you might encounter the following error stating that ``rosdep`` fails to install Qt5.
+While following the :doc:`Creating a workspace <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>` tutorial, you might encounter the following error stating that ``rosdep`` fails to install Qt5.
 
 .. code-block:: console
 

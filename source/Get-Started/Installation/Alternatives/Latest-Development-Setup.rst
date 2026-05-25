@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Installation/Alternatives/Latest-Development-Setup
+
 Latest development (source)
 ===========================
 
@@ -7,7 +11,7 @@ This will give you the latest bug fixes and features.
 Testing binaries
 ----------------
 
-See :doc:`Testing <../Testing>`.
+See :doc:`Testing <../../../Developer-Tools/Testing/Testing>`.
 
 Build from source
 -----------------
@@ -25,4 +29,4 @@ Follow the links below for the latest setup instructions for your platform:
 * :doc:`RHEL <RHEL-Development-Setup>`
 * :doc:`macOS <macOS-Development-Setup>`
 
-For keeping your source code up-to-date, see :doc:`Maintain a source checkout <../Maintaining-a-Source-Checkout>`.
+For keeping your source code up-to-date, see :doc:`Maintain a source checkout <Maintaining-a-Source-Checkout>`.

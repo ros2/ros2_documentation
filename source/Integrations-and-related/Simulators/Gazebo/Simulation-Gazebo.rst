@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Advanced/Simulators/Gazebo/Simulation-Gazebo
+
 Gazebo
 ======
 

@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Releases/Development
+
 Development Distribution
 ========================
 

@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Intermediate/Testing/Testing-Main
+
 .. _TestingMain:
 
 Testing

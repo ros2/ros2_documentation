@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    How-To-Guides/Releasing/_Install-Dependencies
+
 Install tools that you will use in the upcoming steps according to your platform:
 
 .. tabs::

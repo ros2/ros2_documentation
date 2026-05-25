@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Installation/DDS-Implementations
+    Installation/RMW-Implementations
 
 RMW implementations
 ===================

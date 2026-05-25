@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    How-To-Guides/Migrating-from-ROS1/Migrating-Interfaces
+
 Migrating Interfaces
 ====================
 
@@ -17,7 +21,7 @@ Actions files must end in ``.action`` and must be located in the subfolder ``act
 These files might need to be updated to comply with the `ROS Interface definition <http://design.ros2.org/articles/legacy_interface_definition.html>`__.
 Some primitive types have been removed and the types ``duration`` and ``time`` which were builtin types in ROS 1 have been replaced with normal message definitions and must be used from the `builtin_interfaces <https://github.com/ros2/rcl_interfaces/tree/{REPOS_FILE_BRANCH}/builtin_interfaces>`__ package.
 Also some naming conventions are stricter than in ROS 1.
-There is additional information in the :doc:`conceptual article <../../Concepts/Basic/About-Interfaces>`.
+There is additional information in the :doc:`conceptual article <../../ROS-Framework/About-Interfaces>`.
 
 Building interfaces
 -------------------
@@ -25,7 +29,7 @@ Building interfaces
 The way in which interfaces are built in ROS 2 differs substantially from ROS 1.
 Interfaces can only be built from packages containing a ``CMakeLists.txt``.
 If you are developing a pure Python package, then the interfaces should be placed in a different package containing only the interfaces (which is best practice anyway).
-See the :doc:`custom interfaces tutorial<../../Tutorials/Beginner-Client-Libraries/Custom-ROS2-Interfaces>` for more information.
+See the :doc:`custom interfaces tutorial <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Custom-ROS2-Interfaces>` for more information.
 
 Migrating interface package to ROS 2
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

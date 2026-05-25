@@ -2,6 +2,7 @@
 
     DDS-and-ROS-middleware-implementations
     Concepts/About-Different-Middleware-Vendors
+    Concepts/Intermediate/About-Different-Middleware-Vendors
 
 Different ROS 2 middleware vendors
 ==================================
@@ -69,7 +70,7 @@ Supported RMW implementations
      - Full support.
        Packaged with binary releases starting with Kilted Kaiju.
 
-For practical information on working with multiple RMW implementations, see the :doc:`"Working with multiple RMW implementations" <../../How-To-Guides/Working-with-multiple-RMW-implementations>` tutorial.
+For practical information on working with multiple RMW implementations, see the :doc:`"Working with multiple RMW implementations" <../../Get-Started/Installation/RMW-Implementations/Working-with-multiple-RMW-implementations>` tutorial.
 
 Choosing a middleware implementation
 ------------------------------------
@@ -91,7 +92,7 @@ The ROS 2 binary releases for currently active distros have built-in support for
 Beginning with ROS 2 Kilted Kaiju, this also includes Eclipse Zenoh.
 The default is Fast DDS, which works without any additional installation steps because we distribute it with our binary packages.
 
-RMWs other than Fast DDS, like Cyclone DDS, Connext or GurumDDS can be enabled by :doc:`installing additional packages <../../Installation/RMW-Implementations>`, and without having to rebuild anything or replace any existing packages.
+RMWs other than Fast DDS, like Cyclone DDS, Connext or GurumDDS can be enabled by :doc:`installing additional packages <../../Get-Started/Installation/RMW-Implementations>`, and without having to rebuild anything or replace any existing packages.
 
 A ROS 2 workspace that has been built from source may build and install multiple RMW implementations simultaneously.
 While the core ROS 2 code is being compiled, any RMW implementation that is found will be built if the relevant middleware implementation has been installed properly and the relevant environment variables have been configured.
@@ -103,7 +104,7 @@ The implementation identifier is the name of the ROS package that provides the R
 For example, if both ``rmw_cyclonedds_cpp`` and ``rmw_connextdds`` ROS packages are installed, ``rmw_connextdds`` would be the default.
 If ``rmw_fastrtps_cpp`` is ever installed, it would be the default.
 
-See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` for how to specify which RMW implementation is to be used when running the ROS 2 examples.
+See the :doc:`guide <../../Get-Started/Installation/RMW-Implementations/Working-with-multiple-RMW-implementations>` for how to specify which RMW implementation is to be used when running the ROS 2 examples.
 
 .. _different-middleware-vendors-cross-vendor-communication:
 

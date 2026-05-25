@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Tutorials/Tf2/Introduction-To-Tf2
+    Tutorials/Intermediate/Tf2/Introduction-To-Tf2
 
 .. _IntroToTf2:
 
@@ -46,7 +47,7 @@ Running the demo
 ----------------
 
 Now that we've installed the ``turtle_tf2_py`` tutorial package let's run the demo.
-First, open a new terminal and :doc:`source your ROS 2 installation <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
+First, open a new terminal and :doc:`source your ROS 2 installation <../../../Get-Started/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
 Then run the following command:
 
 .. code-block:: console

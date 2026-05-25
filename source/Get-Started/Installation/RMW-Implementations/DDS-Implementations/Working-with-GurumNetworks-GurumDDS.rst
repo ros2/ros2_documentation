@@ -1,6 +1,7 @@
 .. redirect-from::
 
    Working-with-GurumNetworks-GurumDDS
+   Installation/RMW-Implementations/DDS-Implementations/Working-with-GurumNetworks-GurumDDS
 
 GurumNetworks GurumDDS
 ======================
@@ -72,7 +73,7 @@ Switch from other RMW implementations to rmw_gurumdds by setting the environment
 
    $ export RMW_IMPLEMENTATION=rmw_gurumdds_cpp
 
-For more information on working with multiple RMW implementations, see :doc:`Working with multiple RMW implementations <../../../How-To-Guides/Working-with-multiple-RMW-implementations>`.
+For more information on working with multiple RMW implementations, see :doc:`Working with multiple RMW implementations <../Working-with-multiple-RMW-implementations>`.
 
 Testing the installation
 ------------------------

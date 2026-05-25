@@ -3,6 +3,7 @@
    Guides/Parameters-YAML-files-migration-guide
    Tutorials/Parameters-YAML-files-migration-guide
    How-To-Guides/Parameters-YAML-files-migration-guide
+   How-To-Guides/Migrating-from-ROS1/Migrating-Parameters
 
 Migrating Parameters
 ====================
@@ -16,7 +17,7 @@ In ROS 2, parameters are associated per node and are configurable at runtime wit
 
 * See `ROS 2 Parameter design document <https://design.ros2.org/articles/ros_parameters.html>`_ for more details about the system model.
 
-* See :doc:`ROS 2 CLI usage <../../Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters>` for a better understanding of how the CLI tools work and its differences with ROS 1 tooling.
+* See :doc:`ROS 2 CLI usage <../../ROS-Framework/parameters/Working-with-parameters/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters>` for a better understanding of how the CLI tools work and its differences with ROS 1 tooling.
 
 Global Parameter Server
 -----------------------

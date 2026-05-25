@@ -3,6 +3,7 @@
    Guides/Launch-files-migration-guide
    Tutorials/Launch-files-migration-guide
    How-To-Guides/Launch-files-migration-guide
+   How-To-Guides/Migrating-from-ROS1/Migrating-Launch-Files
 
 .. _MigratingLaunch:
 

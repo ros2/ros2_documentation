@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Tutorials/Writing-A-Simple-Py-Publisher-And-Subscriber
+    Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber
 
 .. _PyPubSub:
 
@@ -20,7 +21,7 @@ Writing a simple publisher and subscriber (Python)
 Background
 ----------
 
-In this tutorial, you will create :doc:`nodes <../Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` that pass information in the form of string messages to each other over a :doc:`topic <../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`.
+In this tutorial, you will create :doc:`nodes <../../nodes/Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` that pass information in the form of string messages to each other over a :doc:`topic <../../topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`.
 The example used here is a simple "talker" and "listener" system;
 one node publishes data and the other subscribes to the topic so it can receive that data.
 
@@ -29,7 +30,7 @@ The code used in these examples can be found `here <https://github.com/ros2/exam
 Prerequisites
 -------------
 
-In previous tutorials, you learned how to :doc:`create a workspace <./Creating-A-Workspace/Creating-A-Workspace>` and :doc:`create a package <./Creating-Your-First-ROS2-Package>`.
+In previous tutorials, you learned how to :doc:`create a workspace <Creating-A-Workspace/Creating-A-Workspace>` and :doc:`create a package <Creating-Your-First-ROS2-Package>`.
 
 A basic understanding of Python is recommended, but not entirely necessary.
 
@@ -39,7 +40,7 @@ Tasks
 1 Create a package
 ^^^^^^^^^^^^^^^^^^
 
-Open a new terminal and :doc:`source your ROS 2 installation <../Beginner-CLI-Tools/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
+Open a new terminal and :doc:`source your ROS 2 installation <../../../Get-Started/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
 
 Navigate into the ``ros2_ws`` directory created in a :ref:`previous tutorial <new-directory>`.
 
@@ -162,7 +163,7 @@ Following is the definition of the class's constructor.
 ``super().__init__`` calls the `Node <{package_link(rclpy)}api/node.html>`__ class's constructor and gives it your node name, in this case ``minimal_publisher``.
 
 `create_publisher <{package_link(rclpy)}api/node.html#rclpy.node.Node.create_publisher>`__ declares that the node publishes messages of type {interface(std_msgs/msg/String)} (imported from the ``std_msgs.msg`` module), over a topic named ``topic``, and that the "queue size" is 10.
-Queue size is a required :doc:`Quality of Service </Concepts/Intermediate/About-Quality-of-Service-Settings>` (QoS) setting that limits the amount of queued messages if a subscriber is not receiving them fast enough.
+Queue size is a required :doc:`Quality of Service <../../topics/About-Quality-of-Service-Settings>` (QoS) setting that limits the amount of queued messages if a subscriber is not receiving them fast enough.
 
 Next, `create_timer <{package_link(rclpy)}api/node.html#rclpy.node.Node.create_timer>`__ is used to create a callback that executes every 0.5 seconds.
 ``self.i`` is a counter used in the callback.
@@ -210,7 +211,7 @@ Navigate one level back to the ``ros2_ws/src/py_pubsub`` directory, where the ``
 
 Open ``package.xml`` with your text editor.
 
-As mentioned in the :doc:`previous tutorial <./Creating-Your-First-ROS2-Package>`, make sure to fill in the ``<description>``, ``<maintainer>`` and ``<license>`` tags:
+As mentioned in the :doc:`previous tutorial <Creating-Your-First-ROS2-Package>`, make sure to fill in the ``<description>``, ``<maintainer>`` and ``<license>`` tags:
 
 .. code-block:: xml
 
@@ -354,7 +355,7 @@ Open the ``subscriber_member_function.py`` with your text editor.
 
 The subscriber node's code is nearly identical to the publisher's.
 The constructor creates a subscriber with the same arguments as the publisher using `create_subscription <{package_link(rclpy)}api/node.html#rclpy.node.Node.create_subscription>`__.
-Recall from the :doc:`topics tutorial <../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics>` that the topic name and message type used by the publisher and subscriber must match to allow them to communicate.
+Recall from the :doc:`topics tutorial <../../topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>` that the topic name and message type used by the publisher and subscriber must match to allow them to communicate.
 
 .. code-block:: python
 
@@ -407,7 +408,7 @@ Make sure to save the file, and then your pub/sub system should be ready.
 4 Build and run
 ^^^^^^^^^^^^^^^
 You likely already have the {package(rclpy)} and {package(std_msgs)} packages installed as part of your ROS 2 system.
-It's good practice to run `rosdep <https://docs.ros.org/en/independent/api/rosdep/html/>`__ (check the :doc:`rosdep tutorial </Tutorials/Intermediate/Rosdep>`) in the root of your workspace (``ros2_ws``) to check for missing dependencies before building:
+It's good practice to run `rosdep <https://docs.ros.org/en/independent/api/rosdep/html/>`__ (check the :doc:`rosdep tutorial <Rosdep>`) in the root of your workspace (``ros2_ws``) to check for missing dependencies before building:
 
 .. tabs::
 
@@ -507,7 +508,7 @@ Next steps
 ----------
 
 Next you'll create another simple ROS 2 package using the service/client model.
-Again, you can choose to write it in either :doc:`C++ <./Writing-A-Simple-Cpp-Service-And-Client>` or :doc:`Python <./Writing-A-Simple-Py-Service-And-Client>`.
+Again, you can choose to write it in either :doc:`C++ <Writing-A-Simple-Cpp-Service-And-Client>` or :doc:`Python <Writing-A-Simple-Py-Service-And-Client>`.
 
 Related content
 ---------------

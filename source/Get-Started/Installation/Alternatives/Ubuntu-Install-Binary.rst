@@ -1,6 +1,7 @@
 .. redirect-from::
 
    Installation/Linux-Install-Binary
+   Installation/Alternatives/Ubuntu-Install-Binary
 
 Ubuntu (binary)
 ===============
@@ -97,7 +98,7 @@ Install additional RMW implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
-See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
+See the :doc:`guide <../RMW-Implementations/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
 Setup environment
 -----------------
@@ -137,12 +138,12 @@ Hooray!
 Next steps
 ----------
 
-Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
+Continue with the :doc:`tutorials and demos <../../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
 
 Troubleshoot
 ------------
 
-Troubleshooting techniques can be found :doc:`here <../../How-To-Guides/Installation-Troubleshooting>`.
+Troubleshooting techniques can be found :doc:`here <../Installation-Troubleshooting>`.
 
 Uninstall
 ---------

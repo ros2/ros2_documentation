@@ -1,6 +1,7 @@
 .. redirect-from::
 
   Intel-ROS2-Projects
+  Related-Projects/Intel-ROS2-Projects
 
 Intel ROS 2 Projects
 ====================

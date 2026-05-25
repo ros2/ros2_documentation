@@ -2,6 +2,7 @@
 
     About-Quality-of-Service-Settings
     Concepts/About-Quality-of-Service-Settings
+    Concepts/Intermediate/About-Quality-of-Service-Settings
 
 Quality of Service settings
 ===========================

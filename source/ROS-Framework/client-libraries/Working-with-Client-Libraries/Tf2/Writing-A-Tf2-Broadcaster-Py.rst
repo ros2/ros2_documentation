@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Tutorials/Tf2/Writing-A-Tf2-Broadcaster-Py
+    Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Py
 
 Writing a broadcaster (Python)
 ==============================
@@ -18,16 +19,16 @@ Writing a broadcaster (Python)
 Background
 ----------
 
-In the next two tutorials we will write the code to reproduce the demo from the :doc:`Introduction to tf2 <./Introduction-To-Tf2>` tutorial.
+In the next two tutorials we will write the code to reproduce the demo from the :doc:`Introduction to tf2 <../../../interfaces/Working-with-interfaces/Introduction-To-Tf2>` tutorial.
 After that, the following tutorials focus on extending the demo with more advanced tf2 features, including the usage of timeouts in transformation lookups and time travel.
 
 Prerequisites
 -------------
 
-This tutorial assumes you have a working knowledge of ROS 2 and you have completed the :doc:`Introduction to tf2 tutorial <./Introduction-To-Tf2>` and :doc:`tf2 static broadcaster tutorial (Python) <./Writing-A-Tf2-Static-Broadcaster-Py>`.
+This tutorial assumes you have a working knowledge of ROS 2 and you have completed the :doc:`Introduction to tf2 tutorial <../../../interfaces/Working-with-interfaces/Introduction-To-Tf2>` and :doc:`tf2 static broadcaster tutorial (Python) <Writing-A-Tf2-Static-Broadcaster-Py>`.
 We'll be reusing the ``learning_tf2_py`` package from that last tutorial.
 
-In previous tutorials, you learned how to :doc:`create a workspace <../../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>` and :doc:`create a package <../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>`.
+In previous tutorials, you learned how to :doc:`create a workspace <../Creating-A-Workspace/Creating-A-Workspace>` and :doc:`create a package <../Creating-Your-First-ROS2-Package>`.
 
 Tasks
 -----
@@ -367,7 +368,7 @@ Also add the appropriate imports at the top of the file:
     import os
     from glob import glob
 
-You can learn more about creating launch files in :doc:`this tutorial <../Launch/Creating-Launch-Files>`.
+You can learn more about creating launch files in :doc:`this tutorial <../../../../Developer-Tools/Launch/Creating-Launch-Files>`.
 
 3 Build
 ^^^^^^^
@@ -508,4 +509,4 @@ Summary
 -------
 
 In this tutorial you learned how to broadcast the pose of the robot (position and orientation of the turtle) to tf2 and how to use the ``tf2_echo`` tool.
-To actually use the transforms broadcasted to tf2, you should move on to the next tutorial about creating a :doc:`tf2 listener <./Writing-A-Tf2-Listener-Py>`.
+To actually use the transforms broadcasted to tf2, you should move on to the next tutorial about creating a :doc:`tf2 listener <Writing-A-Tf2-Listener-Py>`.

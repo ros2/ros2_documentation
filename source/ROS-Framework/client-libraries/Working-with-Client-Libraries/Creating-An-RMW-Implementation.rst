@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Advanced/Creating-An-RMW-Implementation
+
 Creating an ``rmw`` implementation
 ==================================
 
@@ -13,11 +17,11 @@ Creating an ``rmw`` implementation
 Introduction
 ------------
 
-ROS 2's architecture has two main :doc:`abstraction layers <../../Concepts/Advanced/About-Internal-Interfaces>`.
+ROS 2's architecture has two main :doc:`abstraction layers <About-Internal-Interfaces/About-Internal-Interfaces>`.
 From top to bottom:
 
-#. The client library interface, ``rcl``, which supports the user-facing :doc:`client libraries <../../Concepts/Basic/About-Client-Libraries>`, such as ``rclcpp`` and ``rclpy``
-#. The middleware interface, ``rmw``, which abstracts away the :doc:`underlying middleware implementation <../../Concepts/Intermediate/About-Different-Middleware-Vendors>`, such as a specific DDS implementation, Zenoh, etc.
+#. The client library interface, ``rcl``, which supports the user-facing :doc:`client libraries <../../About-Client-Libraries>`, such as ``rclcpp`` and ``rclpy``
+#. The middleware interface, ``rmw``, which abstracts away the :doc:`underlying middleware implementation <../About-Different-Middleware-Vendors>`, such as a specific DDS implementation, Zenoh, etc.
 
 The ``rmw`` `API includes function-level documentation <https://docs.ros.org/en/{DISTRO}/p/rmw/generated/index.html#functions>`_, but there is no higher-level documentation on the features of the interface and what it expects from the underlying middleware.
 
@@ -44,7 +48,7 @@ For example, the ``rmw_fastrtps_cpp`` package implements the interface for ePros
 Example implementations
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-The following ``rmw`` :doc:`implementations <../../Concepts/Advanced/About-Middleware-Implementations>` can be used as references.
+The following ``rmw`` :doc:`implementations <../About-Middleware-Implementations>` can be used as references.
 Note that there are different `support tiers, which are defined by REP 2000 <https://reps.openrobotics.org/rep-2000/#support-tiers>`_.
 
 #. DDS:
@@ -75,7 +79,7 @@ They also depend on the ``rmw_implementation`` package to get the actual impleme
 
 By default, ROS 2 allows you to choose which ``rmw`` implementation to use at runtime.
 This is convenient for comparing two implementations on the same machine, and it lets ROS 2 distribute a single set of binaries that is compatible with multiple ``rmw`` implementations.
-The :doc:`implementation is selected at runtime <../../How-To-Guides/Working-with-multiple-RMW-implementations>` through the ``RMW_IMPLEMENTATION`` environment variable, or, if that variable is unset, a default ``rmw`` implementation is loaded.
+The :doc:`implementation is selected at runtime <../../../Get-Started/Installation/RMW-Implementations/Working-with-multiple-RMW-implementations>` through the ``RMW_IMPLEMENTATION`` environment variable, or, if that variable is unset, a default ``rmw`` implementation is loaded.
 
 This is accomplished by the ``rmw_implementation`` package, which acts as a proxy for an actual ``rmw`` implementation.
 It works by creating placeholder ``rmw`` functions.
@@ -98,7 +102,7 @@ In any case, any special behavior of the ``rmw`` implementation should ideally b
 Topics, pub/sub, services
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-:doc:`Topics <../../Concepts/Basic/About-Topics>` are a common concept in publish/subscribe middleware.
+:doc:`Topics <../../About-Topics>` are a common concept in publish/subscribe middleware.
 However, ROS 2 has its own topic name conventions, which is validated using ``rmw_validate_full_topic_name()``.
 The ``rmw`` implementation simply has to use the given (resolved) topic name.
 This might involve adapting or mangling the ROS topic name to fit the underlying middleware's topic name conventions or constraints, or encode useful information.
@@ -106,18 +110,18 @@ For example, a pub/sub topic called ``/chatter`` is usually mangled into ``rt/ch
 See the `"Mapping of ROS 2 Topic and Service Names to DDS Concepts" section in this design document <https://design.ros2.org/articles/topic_and_service_names.html#mapping-of-ros-2-topic-and-service-names-to-dds-concepts>`_.
 For Zenoh, the domain ID, resolved topic name, topic type name, and topic type hash are `encoded in the underlying Zenoh key <https://github.com/ros2/rmw_zenoh/blob/{DISTRO}/docs/design.md#topic-and-service-name-mapping-to-zenoh-key-expressions>`_ to avoid communications between different ROS topic names & types.
 
-As for :doc:`services <../../Concepts/Basic/About-Services>`, they are not always natively supported by the underlying middleware.
+As for :doc:`services <../../About-Services>`, they are not always natively supported by the underlying middleware.
 For DDS-based implementations, they are simply built on top of pub/sub: 1 request topic and 1 response topic.
 [#fn_dds_rpc]_
 On the other hand, Zenoh natively supports services through `queryables <https://github.com/ros2/rmw_zenoh/blob/{DISTRO}/docs/design.md#service-servers>`_, so they are used to implement services in ``rmw_zenoh_cpp``.
 
-Note that, while services are a part of the ``rmw`` interface, :doc:`actions <../../Concepts/Basic/About-Actions>` are not.
+Note that, while services are a part of the ``rmw`` interface, :doc:`actions <../../About-Actions>` are not.
 They are an ``rcl`` concept implemented in the ``rcl_action`` package on top of services and pub/sub.
 
 Nodes
 ^^^^^
 
-:doc:`Nodes <../../Concepts/Basic/About-Nodes>` are mostly a ROS concept.
+:doc:`Nodes <../../About-Nodes>` are mostly a ROS concept.
 Neither DDS nor Zenoh has a corresponding concept, so they are mostly a logical concept in the ``rmw`` implementation.
 Topic names get resolved with the node namespace/name, if needed, by ``rcl`` before they are passed to ``rmw`` when creating a pub/sub object.
 Implementations just have to make sure to include nodes in :ref:`introspection data <rmw-impl-guide_introspection>`.
@@ -127,7 +131,7 @@ Implementations just have to make sure to include nodes in :ref:`introspection d
 Wait sets and waiting
 ^^^^^^^^^^^^^^^^^^^^^
 
-:doc:`Executors <../../Concepts/Intermediate/About-Executors>` are responsible for triggering user-provided callbacks when a new message is received, for example.
+:doc:`Executors <../About-Executors/About-Executors>` are responsible for triggering user-provided callbacks when a new message is received, for example.
 Executors are implemented at the client library level (``rclcpp``, ``rclpy``), but they rely on the underlying middleware to wait for new messages using a polling mechanism.
 This is done using wait sets, which allow waiting on different entities at the same time in a standard way, e.g., subscriptions, service clients, and service servers.
 The ``rmw_wait()`` `function <https://docs.ros.org/en/{DISTRO}/p/rmw/generated/function_rmw_8h_1a5f480dd59075e80288fb596b2951be2b.html>`_ is called with lists of entities to wait on, as well as an implementation-specific wait set object.
@@ -176,7 +180,7 @@ For instance, DDS natively supports all of it for pub/sub through DDS sample inf
 Type support
 ^^^^^^^^^^^^
 
-To bridge the gap between ROS 2 :doc:`interfaces <../../Concepts/Basic/About-Interfaces>` (specifically :doc:`custom interfaces <../Beginner-Client-Libraries/Custom-ROS2-Interfaces>`) and the underlying middleware, some glue code is needed.
+To bridge the gap between ROS 2 :doc:`interfaces <../../About-Interfaces>` (specifically :doc:`custom interfaces <Custom-ROS2-Interfaces>`) and the underlying middleware, some glue code is needed.
 This is referred to as :ref:`type support <Type Specific Interfaces>`.
 When publishing a message of type {interface(std_msgs/msg/String)}, ``rmw_publish()`` only gets a ``void *`` to the message, which could point to a C++ instance, or a C instance, and so on.
 The pointer will be interpreted based on the type support information provided when the publisher was created.
@@ -216,14 +220,14 @@ When a new message is received by the middleware, the YAML string is converted i
 Domain ID
 ^^^^^^^^^
 
-:doc:`Domain IDs <../../Concepts/Intermediate/About-Domain-ID>` are a way to have separate logical networks on the same physical network.
+:doc:`Domain IDs <../../nodes/About-Domain-ID>` are a way to have separate logical networks on the same physical network.
 It is a native feature of DDS, but not Zenoh.
 DDS achieves this by using the domain ID as a network port offset, while Zenoh implements it by making the domain ID the first component of the internal Zenoh key corresponding to each ROS 2 topic.
 
 Quality of service (QoS)
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-:doc:`Quality of service settings <../../Concepts/Intermediate/About-Quality-of-Service-Settings>` in ROS 2 are largely derived from DDS.
+:doc:`Quality of service settings <../../topics/About-Quality-of-Service-Settings>` in ROS 2 are largely derived from DDS.
 Basic QoS policies like history, depth, and durability are the same as ROS 1's, but more advanced policies simply come from DDS.
 Implementations may simply ignore some settings.
 For instance, ``rmw_zenoh_cpp`` doesn't implement the deadline and lifespan QoS policies.
@@ -243,7 +247,7 @@ ROS graph introspection
 
 Nodes are able to get a list of other nodes, topics, etc.
 This also allows publishers to know if any subscriptions exist for their topic, for example.
-This same mechanism is used to :doc:`list nodes <../Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>`, :doc:`topics <../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`, and so on with the ROS 2 CLI: ``ros2 node list``, ``ros2 topic list``, etc.
+This same mechanism is used to :doc:`list nodes <../../nodes/Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>`, :doc:`topics <../../topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`, and so on with the ROS 2 CLI: ``ros2 node list``, ``ros2 topic list``, etc.
 
 This is supported by a number of ``rmw`` functions: ``rmw_get_node_names()``, ``rmw_get_topic_names_and_types()``, ``rmw_publisher_count_matched_subscriptions()``, and many more.
 While the implementation is not specified by the interface, ``rmw`` implementations usually maintain a cache of the ROS graph.
@@ -264,7 +268,7 @@ Some of these events could be triggered on relevant changes to the graph cache.
 Security
 ^^^^^^^^
 
-:doc:`Security <../../Concepts/Intermediate/About-Security>` is not well-specified by the ``rmw`` interface; most of it is specified by :doc:`SROS2 <../Advanced/Security/Introducing-ros2-security>`.
+:doc:`Security <../../../Developer-Tools/Introspection-and-analysis/About-Security>` is not well-specified by the ``rmw`` interface; most of it is specified by :doc:`SROS2 <../../../Developer-Tools/Introspection-and-analysis/Security/Introducing-ros2-security>`.
 The interface only defines a few security options as part of the context initialization options, ``rmw_init_options_t``:
 
 #. ``rmw_security_options_t``, which includes a security policy (enforce/permissive) and a path to a directory containing security artifacts, i.e., a keystore.
@@ -272,8 +276,8 @@ The interface only defines a few security options as part of the context initial
 #. The name of a security enclave from the keystore to use for the given process.
    This is set, for example, through the ``--enclave`` option when running a node with ``ros2 run``.
 
-However, in practice, the structure of the :doc:`keystore <./Security/The-Keystore>` directory and its security enclaves is based on the DDS Security specification.
-Therefore, :doc:`security artifacts generated <./Security/Introducing-ros2-security>` with the ``sros2`` package can only be directly used by DDS-based ``rmw`` implementations.
+However, in practice, the structure of the :doc:`keystore <../../../Developer-Tools/Build/The-Keystore>` directory and its security enclaves is based on the DDS Security specification.
+Therefore, :doc:`security artifacts generated <../../../Developer-Tools/Introspection-and-analysis/Security/Introducing-ros2-security>` with the ``sros2`` package can only be directly used by DDS-based ``rmw`` implementations.
 For ``rmw_zenoh_cpp``, `Zenoh-specific security configuration files can be generated <https://github.com/ros2/rmw_zenoh/tree/{DISTRO}/zenoh_security_tools>`_ from ``sros2``-generated artifacts using the ``zenoh_security_tools`` package and provided through the ``ZENOH_SESSION_CONFIG_URI`` environment variable, bypassing the ``ROS_SECURITY_*`` environment variables.
 
 Implementation
@@ -284,7 +288,7 @@ Implementation skeleton
 
 This section covers concrete steps to create the base files and directories for the new implementation package, including special handling in ``package.xml`` and ``CMakeLists.txt``.
 
-Start with the :doc:`package creation tutorial <../../Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>` to create an empty package.
+Start with the :doc:`package creation tutorial <Creating-Your-First-ROS2-Package>` to create an empty package.
 Then make the following changes:
 
 #. ``package.xml``
@@ -294,7 +298,7 @@ Then make the following changes:
         The package name is also the name of the ``rmw`` implementation.
         It will be used to :ref:`select the implementation <rmw-impl-guide_selection-mechanism>` through the ``RMW_IMPLEMENTATION`` environment variable or CMake option, for example.
         The name usually starts with ``rmw_`` and is followed by the name of the underlying middleware.
-        Most :doc:`implementations in the ROS 2 ecosystem <../../Concepts/Intermediate/About-Different-Middleware-Vendors>` then append a suffix such as ``_cpp`` to indicate that the implementation is written in C++.
+        Most :doc:`implementations in the ROS 2 ecosystem <../About-Different-Middleware-Vendors>` then append a suffix such as ``_cpp`` to indicate that the implementation is written in C++.
         However, that is not required.
         Examples: ``rmw_fastrtps_cpp``, ``rmw_cyclonedds_cpp``, ``rmw_connextdds``, ``rmw_zenoh_cpp``, and ``rmw_email_cpp``.
 

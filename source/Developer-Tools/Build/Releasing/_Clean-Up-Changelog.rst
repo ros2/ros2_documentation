@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    How-To-Guides/Releasing/_Clean-Up-Changelog
+
 Open all ``CHANGELOG.rst`` files in an editor.
 You will see that ``catkin_generate_changelog`` has auto-generated a forthcoming section with notes from commit messages:
 

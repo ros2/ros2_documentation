@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Related-Projects/Visualizing-Data-And-Teleoperating-With-Phantom-Bridge
+
 Visualizing Data and Teleoperating with Phantom Bridge
 ======================================================
 

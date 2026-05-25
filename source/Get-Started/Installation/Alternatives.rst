@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Installation/Alternatives
+
 Advanced installation options
 ============
 

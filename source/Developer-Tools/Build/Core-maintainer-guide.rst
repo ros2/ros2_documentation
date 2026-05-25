@@ -2,6 +2,7 @@
 
   Guides/Package-maintainer-guide
   How-To-Guides/Package-maintainer-guide
+  How-To-Guides/Core-maintainer-guide
 
 ROS 2 Core Maintainer Guide
 ===========================
@@ -22,8 +23,8 @@ The review is looking for:
 * Correct code
 * Conforms to developer guidelines:
 
-    * :doc:`Developer Guide <../The-ROS2-Project/Contributing/Developer-Guide>`
-    * :doc:`Code Style Guide <../The-ROS2-Project/Contributing/Code-Style-Language-Versions>`
+    * :doc:`Developer Guide <../../The-ROS2-Project/Contributing/Developer-Guide>`
+    * :doc:`Code Style Guide <../../The-ROS2-Project/Contributing/Code-Style-Language-Versions>`
 
 * Adds tests for the bug/feature
 * Adds documentation for new features
@@ -179,6 +180,6 @@ Getting help
 
 While doing maintenance on a package, questions about general procedures or individual issues may come up.
 
-For general questions, please follow the :doc:`contributing guidelines <../The-ROS2-Project/Contributing>`.
+For general questions, please follow the :doc:`contributing guidelines <../../The-ROS2-Project/Contributing>`.
 
 For questions on individual issues, please tag the ROS 2 GitHub team (@ros/team), and someone on the team will take a look.

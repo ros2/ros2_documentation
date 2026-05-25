@@ -3,6 +3,7 @@
    Migration-Guide
    Contributing/Migration-Guide
    The-ROS2-Project/Contributing/Migration-Guide
+   How-To-Guides/Migrating-from-ROS1/Migrating-CPP-Packages
 
 Migrating C++ Packages Reference
 ================================
@@ -19,7 +20,7 @@ Build tool
 ----------
 
 Instead of using ``catkin_make``, ``catkin_make_isolated`` or ``catkin build`` ROS 2 uses the command line tool `colcon <https://design.ros2.org/articles/build_tool.html>`__ to build and install a set of packages.
-See the :doc:`beginner tutorial <../../Tutorials/Beginner-Client-Libraries/Colcon-Tutorial>` to get started with ``colcon``.
+See the :doc:`beginner tutorial <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Colcon-Tutorial>` to get started with ``colcon``.
 
 Update your ``CMakeLists.txt`` to use *ament_cmake*
 ---------------------------------------------------

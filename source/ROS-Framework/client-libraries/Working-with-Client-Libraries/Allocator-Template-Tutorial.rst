@@ -2,6 +2,7 @@
 
     Allocator-Template-Tutorial
     Tutorials/Allocator-Template-Tutorial
+    Tutorials/Advanced/Allocator-Template-Tutorial
 
 Implementing a custom memory allocator
 ======================================

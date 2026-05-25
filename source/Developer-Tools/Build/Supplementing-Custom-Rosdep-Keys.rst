@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Advanced/Supplementing-Custom-Rosdep-Keys
+
 Supplementing custom rosdep keys
 ================================
 
@@ -8,7 +12,7 @@ Supplementing custom rosdep keys
 Overview and motivation
 -----------------------
 
-As explained in :doc:`../Intermediate/Rosdep`, ``rosdep`` looks for rosdep keys in ``package.xml`` files and maps them to packages to be installed for the ROS distribution and OS in use.
+As explained in :doc:`../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Rosdep`, ``rosdep`` looks for rosdep keys in ``package.xml`` files and maps them to packages to be installed for the ROS distribution and OS in use.
 Anyone can request for new rosdep keys to be added by `contributing to rosdistro <https://github.com/ros/rosdistro/blob/master/CONTRIBUTING.md#rosdep-rules-contributions>`_.
 This is the preferred course of action when you have some dependency (like a ``apt`` or ``pip`` package) that you wish to be able to install via ``rosdep``.
 
@@ -18,9 +22,9 @@ For example, if the dependency
 1. is not available on the target distributions default APT (or pip) repositories
 2. is a proprietary library
 3. is some niche library which is useful only for you or your organization
-4. is a ROS package you :doc:`built and packaged yourself <../../How-To-Guides/Building-a-Custom-Deb-Package>`, but don't wish to share with the broader ROS community
+4. is a ROS package you :doc:`built and packaged yourself <Building-a-Custom-Deb-Package>`, but don't wish to share with the broader ROS community
 
-While the option exists to :doc:`fork rosdistro <../../How-To-Guides/Using-Custom-Rosdistro>` in its entirety, this might be overkill if you just want to keep using a official ROS distribution as usual, only with some extra rosdep keys defined on top.
+While the option exists to :doc:`fork rosdistro <../../Migration-and-Upgrades/Using-Custom-Rosdistro>` in its entirety, this might be overkill if you just want to keep using a official ROS distribution as usual, only with some extra rosdep keys defined on top.
 This tutorial explains how to achieve this.
 
 As a word of warning though, please don't use this indiscriminately.

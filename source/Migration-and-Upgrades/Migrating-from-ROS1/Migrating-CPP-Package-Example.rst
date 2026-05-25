@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    How-To-Guides/Migrating-from-ROS1/Migrating-CPP-Package-Example
+
 Migrating a C++ Package Example
 ===============================
 
@@ -10,7 +14,7 @@ This example shows how to migrate an example C++ package from ROS 1 to ROS 2.
 Prerequisites
 -------------
 
-You need a working ROS 2 installation, such as :doc:`ROS {DISTRO} <../../Installation>`.
+You need a working ROS 2 installation, such as :doc:`ROS {DISTRO} <../../Get-Started/Installation>`.
 
 The ROS 1 code
 --------------
@@ -164,7 +168,7 @@ To further control how message delivery is handled, a quality of service
 The default profile is ``rmw_qos_profile_default``.
 For more details, see the
 `design document <https://design.ros2.org/articles/qos.html>`__
-and :doc:`concept overview <../../Concepts/Intermediate/About-Quality-of-Service-Settings>`.
+and :doc:`concept overview <../../ROS-Framework/topics/About-Quality-of-Service-Settings>`.
 
 The creation of the outgoing message is different in the namespace:
 
@@ -436,4 +440,4 @@ Conclusion
 ----------
 
 You have learned how to migrate an example C++ ROS 1 package to ROS 2.
-Use the :doc:`Migrating C++ Packages reference page <./Migrating-CPP-Packages>` to help you migrate your own C++ packages from ROS 1 to ROS 2.
+Use the :doc:`Migrating C++ Packages reference page <Migrating-CPP-Packages>` to help you migrate your own C++ packages from ROS 1 to ROS 2.

@@ -2,6 +2,7 @@
 
   Guides/Using-Python-Packages
   Tutorials/Using-Python-Packages
+  How-To-Guides/Using-Python-Packages
 
 .. _PythonPackages:
 

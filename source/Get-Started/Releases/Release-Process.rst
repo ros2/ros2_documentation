@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Releases/Release-Process
+
 Development process for a release
 =================================
 

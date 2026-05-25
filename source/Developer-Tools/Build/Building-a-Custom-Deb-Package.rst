@@ -2,11 +2,12 @@
 
   Guides/Building-a-Custom-Debian-Package
   How-To-Guides/Building-a-Custom-Debian-Package
+  How-To-Guides/Building-a-Custom-Deb-Package
 
 Building a custom deb package
 =============================
 
-Many Ubuntu users install ROS 2 on their system by installing :doc:`deb packages <../Installation/Ubuntu-Install-Debs>`.
+Many Ubuntu users install ROS 2 on their system by installing :doc:`deb packages <../../Get-Started/Installation/Ubuntu-Install-Debs>`.
 This guide gives a short set of instructions to build local, custom deb packages.
 
 .. contents:: Table of Contents

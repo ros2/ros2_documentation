@@ -2,6 +2,7 @@
 
     Managed-Nodes
     Tutorials/Managed-Nodes
+    Tutorials/Demos/Managed-Nodes
 
 Managing node lifecycles - example
 ==================================
@@ -29,7 +30,7 @@ The following packages enable you to implement these managed nodes: `rclcpp_life
 Prerequisites
 -------------
 
-See the :doc:`installation instructions <../../Installation>` for details on installing ROS 2.
+See the :doc:`installation instructions <../../../Get-Started/Installation>` for details on installing ROS 2.
 
 Example
 -------

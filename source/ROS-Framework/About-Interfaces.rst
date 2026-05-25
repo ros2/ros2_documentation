@@ -2,6 +2,7 @@
 
     About-ROS-Interfaces
     Concepts/About-ROS-Interfaces
+    Concepts/Basic/About-Interfaces
 
 Interfaces
 ==========

@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Intermediate/Publishing-Messages-Using-YAML-Files
+
 Publishing messages using YAML files
 ====================================
 
@@ -23,7 +27,7 @@ Prerequisites
 
 This tutorial uses concepts like ROS 2 topics and CLI tools covered in the following tutorial:
 
-- :doc:`Understanding topics <../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`
+- :doc:`Understanding topics <../../ROS-Framework/topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`
 
 Tasks
 -----
@@ -108,4 +112,4 @@ By executing the same command as before, we publish three different messages to 
 Next steps
 ----------
 
-If you are interested in publishing multiple topics using the CLI, you can take a look at the :doc:`Recording and playing back data <../Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data>` tutorial.
+If you are interested in publishing multiple topics using the CLI, you can take a look at the :doc:`Recording and playing back data <../../ROS-Framework/interfaces/Working-with-interfaces/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data>` tutorial.

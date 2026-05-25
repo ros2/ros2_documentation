@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    How-To-Guides/Releasing/_Personal-Access-Token
+
 .. warning::
 
    If the file ``~/.config/bloom`` exists on your computer, it is likely that you have done this before so you should skip this section.

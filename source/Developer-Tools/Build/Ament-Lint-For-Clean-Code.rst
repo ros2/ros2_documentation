@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Advanced/Ament-Lint-For-Clean-Code
+
 Ament Lint CLI Utilities
 ========================
 
@@ -25,7 +29,7 @@ Prerequisites
 
 You should have the ``ament`` packages installed as part of your regular ROS 2 setup.
 
-If you need to install ROS 2, see the :doc:`Installation instructions <../../Installation>`.
+If you need to install ROS 2, see the :doc:`Installation instructions <../../Get-Started/Installation>`.
 
 
 Ament Lint CLI Tools

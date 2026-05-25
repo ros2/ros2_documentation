@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Advanced/Security/Deployment-Guidelines
+
 Deployment Guidelines
 =====================
 

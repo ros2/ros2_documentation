@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Installation/RMW-Implementations/Non-DDS-Implementations/Working-with-Zenoh
+
 Zenoh
 =====
 
@@ -8,7 +12,7 @@ See also: https://zenoh.io/docs/getting-started/first-app/
 Prerequisites
 -------------
 
-Have :doc:`rosdep installed <../../../Tutorials/Intermediate/Rosdep>`.
+Have :doc:`rosdep installed <../../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Rosdep>`.
 
 Installation packages
 ---------------------
@@ -95,4 +99,3 @@ Start the Zenoh router
    ros2 run demo_nodes_cpp listener
 
 .. note:: Remember to source your ROS 2 setup script before running these commands.
-

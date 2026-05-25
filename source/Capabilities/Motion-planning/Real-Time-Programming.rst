@@ -2,6 +2,7 @@
 
     Real-Time-Programming
     Tutorials/Real-Time-Programming
+    Tutorials/Demos/Real-Time-Programming
 
 Understanding real-time programming
 ===================================
@@ -39,7 +40,7 @@ Since many of the operations done in the demo to optimize performance are OS-spe
 Also this must be built from source using a static DDS API.
 **Currently the only supported implementation is ConnextDDS**.
 
-First, follow the instructions to build ROS 2 :doc:`from source <../../Installation/Alternatives/Ubuntu-Development-Setup>` using Connext DDS as the middleware.
+First, follow the instructions to build ROS 2 :doc:`from source <../../Get-Started/Installation/Alternatives/Ubuntu-Development-Setup>` using Connext DDS as the middleware.
 
 Run the tests
 ^^^^^^^^^^^^^

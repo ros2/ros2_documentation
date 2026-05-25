@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Related-Projects
+
 
 Related Projects
 ================
@@ -10,7 +14,7 @@ Gazebo
 Large Community Projects
 ------------------------
 
-Large community projects involve multiple developers from all over the globe and are typically backed by a dedicated working group (cf. :doc:`The-ROS2-Project/Governance`).
+Large community projects involve multiple developers from all over the globe and are typically backed by a dedicated working group (cf. :doc:`../The-ROS2-Project/Governance`).
 
 * **ros2_control** `(control.ros.org) <https://control.ros.org/>`_: Flexible framework for real-time control of robots implemented with ROS 2.
 * **Navigation2** `(nav2.org) <https://nav2.org/>`_: Comprehensive and flexible navigation stack for mobile robots using ROS 2.

@@ -3,6 +3,7 @@
     Tutorials/Simulators/Ignition/Setting-up-a-Robot-Simulation-Ignition
     Tutorials/Advanced/Simulators/Ignition
     Tutorials/Advanced/Simulators/Gazebo
+    Tutorials/Advanced/Simulators/Gazebo/Gazebo
 
 Setting up a robot simulation (Gazebo)
 ======================================
@@ -30,7 +31,7 @@ You'll need to install both ROS 2 and Gazebo.
 ROS 2
 ^^^^^
 
-For ROS 2 you should follow the :doc:`ROS 2 install instructions <../../../../Installation>`.
+For ROS 2 you should follow the :doc:`ROS 2 install instructions <../../../Get-Started/Installation>`.
 
 Gazebo
 ^^^^^^

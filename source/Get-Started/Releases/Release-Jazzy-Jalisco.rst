@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Releases/Release-Jazzy-Jalisco
+
 .. _jazzy-release:
 
 Jazzy Jalisco (``jazzy``)

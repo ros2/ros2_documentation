@@ -42,7 +42,7 @@ If you use ROS 2 in your work, please see :doc:`Citations <Citations>` to cite R
 Getting started
 ---------------
 
-* :doc:`Installation <Installation>`
+* :doc:`Installation <Get-Started/Installation>`
 
   - Instructions to set up ROS 2 for the first time
 
@@ -74,7 +74,7 @@ If you're interested in the advancement of the ROS 2 project:
 
   - Best practices and methodology for contributing to ROS 2, as well as instructions for migrating existing ROS 1 content to ROS 2
 
-* :doc:`Distributions <Releases>`
+* :doc:`Distributions <Get-Started/Releases>`
 
   - Past, present and future ROS 2 distributions
 

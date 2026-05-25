@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Tutorials/Rqt-Console/Using-Rqt-Console
+    Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console
 
 .. _rqt_console:
 
@@ -30,9 +31,9 @@ Their content is usually informational, for the sake of the user.
 Prerequisites
 -------------
 
-You will need :doc:`rqt_console and turtlesim <../Introducing-Turtlesim/Introducing-Turtlesim>` installed.
+You will need :doc:`rqt_console and turtlesim <../../../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>` installed.
 
-As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../Configuring-ROS2-Environment>`.
+As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../../../../Get-Started/Configuring-ROS2-Environment>`.
 
 
 Tasks
@@ -69,7 +70,7 @@ Now start ``turtlesim`` in a new terminal with the following command:
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To produce log messages for ``rqt_console`` to display, let's have the turtle run into the wall.
-In a new terminal, enter the ``ros2 topic pub`` command (discussed in detail in the :doc:`topics tutorial <../Understanding-ROS2-Topics/Understanding-ROS2-Topics>`) below:
+In a new terminal, enter the ``ros2 topic pub`` command (discussed in detail in the :doc:`topics tutorial <../../../topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`) below:
 
 .. code-block:: console
 

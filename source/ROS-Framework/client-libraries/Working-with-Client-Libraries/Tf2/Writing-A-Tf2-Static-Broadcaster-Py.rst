@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Tutorials/Tf2/Writing-A-Tf2-Static-Broadcaster-Py
+    Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Py
 
 Writing a static broadcaster (Python)
 =====================================
@@ -25,13 +26,13 @@ This is a standalone tutorial covering the basics of static transforms, which co
 In the first part we will write code to publish static transforms to tf2.
 In the second part we will explain how to use the commandline ``static_transform_publisher`` executable tool in ``tf2_ros``.
 
-In the next two tutorials we will write the code to reproduce the demo from the :doc:`Introduction to tf2 <./Introduction-To-Tf2>` tutorial.
+In the next two tutorials we will write the code to reproduce the demo from the :doc:`Introduction to tf2 <../../../interfaces/Working-with-interfaces/Introduction-To-Tf2>` tutorial.
 After that, the following tutorials focus on extending the demo with more advanced tf2 features.
 
 Prerequisites
 -------------
 
-In previous tutorials, you learned how to :doc:`create a workspace <../../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>` and :doc:`create a package <../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>`.
+In previous tutorials, you learned how to :doc:`create a workspace <../Creating-A-Workspace/Creating-A-Workspace>` and :doc:`create a package <../Creating-Your-First-ROS2-Package>`.
 
 Tasks
 -----
@@ -43,7 +44,7 @@ First we will create a package that will be used for this tutorial and the follo
 The package called ``learning_tf2_py`` will depend on ``geometry_msgs``, ``python3-numpy``, ``rclpy``, ``tf2_ros_py``, and ``turtlesim_msgs``.
 Code for this tutorial is stored `here <https://raw.githubusercontent.com/ros/geometry_tutorials/{DISTRO}/turtle_tf2_py/turtle_tf2_py/static_turtle_tf2_broadcaster.py>`_.
 
-Open a new terminal and :doc:`source your ROS 2 installation <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
+Open a new terminal and :doc:`source your ROS 2 installation <../../../../Get-Started/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
 Navigate to workspace's ``src`` folder and create a new package:
 
 .. code-block:: console
@@ -265,7 +266,7 @@ Navigate one level back to the ``src/learning_tf2_py`` directory, where the ``se
 
 Open ``package.xml`` with your text editor.
 
-As mentioned in the :doc:`Create a package <../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>` tutorial, make sure to fill in the ``<description>``, ``<maintainer>`` and ``<license>`` tags:
+As mentioned in the :doc:`Create a package <../Creating-Your-First-ROS2-Package>` tutorial, make sure to fill in the ``<description>``, ``<maintainer>`` and ``<license>`` tags:
 
 .. code-block:: xml
 

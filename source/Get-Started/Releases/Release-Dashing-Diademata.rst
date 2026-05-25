@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Releases/Release-Dashing-Diademata
+
 Dashing Diademata (``dashing``)
 ===============================
 
@@ -167,9 +171,9 @@ New features in this ROS 2 release
 
 A few features and improvements we would like to highlight:
 
-* :doc:`Components <../Tutorials/Intermediate/Composition>` are now the recommended way to write your node.
+* :doc:`Components <../../ROS-Framework/nodes/Working-with-nodes/Composition>` are now the recommended way to write your node.
   They can be used standalone as well as being composed within a process and both ways are fully support from ``launch`` files.
-* The :doc:`intra-process communication <../Tutorials/Demos/Intra-Process-Communication>` (C++ only) has been improved - both in terms of latency as well as minimizing copies.
+* The :doc:`intra-process communication <../../ROS-Framework/nodes/Working-with-nodes/intra-process/Intra-Process-Communication>` (C++ only) has been improved - both in terms of latency as well as minimizing copies.
 * The Python client library has been updated to match most of the C++ equivalent and some important bug fixes and improvements have landed related to memory usage and performance.
 * Parameters are now a complete alternative to ``dynamic_reconfigure`` from ROS 1 including constraints like ranges or being read-only.
 * By relying on (a subset of) `IDL 4.2 <https://www.omg.org/spec/IDL/4.2>`__ for the message generation pipeline it is now possible to use ``.idl`` files (beside ``.msg`` / ``.srv`` / ``.action`` files).

@@ -2,6 +2,7 @@
 
     Topic-Statistics-Tutorial
     Tutorials/Topics/Topic-Statistics-Tutorial
+    Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial
 
 Enabling topic statistics (C++)
 ===============================
@@ -18,24 +19,24 @@ Enabling topic statistics (C++)
 Background
 ----------
 
-This is a short tutorial on how to enable topic statistics in ROS 2 and view the published statistics output using command line tools (:doc:`ros2 topic <../../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`).
+This is a short tutorial on how to enable topic statistics in ROS 2 and view the published statistics output using command line tools (:doc:`ros2 topic <../../../ROS-Framework/topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`).
 
 ROS 2 provides the integrated measurement of statistics for messages received by any subscription,
 called Topic Statistics.
 With Topic Statistics enabled for your subscription, you can characterize the performance of your
 system or use the data to help diagnose any present issues.
 
-For more details please see the :doc:`Topic Statistics Concepts Page <../../../Concepts/Intermediate/About-Topic-Statistics>`.
+For more details please see the :doc:`Topic Statistics Concepts Page <../../../ROS-Framework/topics/About-Topic-Statistics>`.
 
 Prerequisites
 -------------
 
 An installation from either binaries or source.
 
-In previous tutorials, you learned how to :doc:`create a workspace <../../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>`,
-:doc:`create a package <../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>`, and create a :doc:`C++ <../../Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber>` publisher and subscriber.
+In previous tutorials, you learned how to :doc:`create a workspace <../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>`,
+:doc:`create a package <../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-Your-First-ROS2-Package>`, and create a :doc:`C++ <../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber>` publisher and subscriber.
 
-This tutorial assumes that you still have your ``cpp_pubsub`` package from the :doc:`C++ <../../Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber>` tutorial.
+This tutorial assumes that you still have your ``cpp_pubsub`` package from the :doc:`C++ <../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber>` tutorial.
 
 Tasks
 -----
@@ -43,7 +44,7 @@ Tasks
 1 Write the subscriber node with statistics enabled
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Navigate into the ``ros2_ws/src/cpp_pubsub/src`` folder, created in the :doc:`previous tutorial <../../Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber>`, and
+Navigate into the ``ros2_ws/src/cpp_pubsub/src`` folder, created in the :doc:`previous tutorial <../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber>`, and
 download the example talker code by entering the following command:
 
 .. tabs::
@@ -122,7 +123,7 @@ Open the file using your preferred text editor.
 1.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
 
-As in the :doc:`C++ <../../Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber>` tutorial, we have a subscriber node which receives string messages from the
+As in the :doc:`C++ <../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber>` tutorial, we have a subscriber node which receives string messages from the
 ``topic`` topic from the ``topic_callback`` function.
 However, we've now added options to configure the subscription to enable topic statistics with
 the ``rclcpp::SubscriptionOptions()`` options struct.
@@ -230,7 +231,7 @@ then you will see that name instead of ``/statistics``.
 The subscriber node you created is publishing statistics, for the topic ``topic``, to the output topic
 ``/statistics``.
 
-We can visualize this using :doc:`RQt <../../../Concepts/Intermediate/About-RQt>`
+We can visualize this using :doc:`RQt <../../Visualization/About-RQt>`
 
 .. image:: images/topic_stats_rqt.png
 
@@ -305,7 +306,7 @@ Summary
 -------
 
 You created a subscriber node with topic statistics enabled, which published statistics data from
-the :doc:`C++ <../../Beginner-Client-Libraries/Writing-A-Simple-Cpp-Service-And-Client>`'s publisher node.
+the :doc:`C++ <../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Writing-A-Simple-Cpp-Service-And-Client>`'s publisher node.
 You were able to compile and run this node.
 While running, you were able to observe the statistics data.
 

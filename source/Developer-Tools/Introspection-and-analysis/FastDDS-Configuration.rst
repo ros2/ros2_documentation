@@ -2,6 +2,7 @@
 
     FastDDS-Configuration
     Tutorials/FastDDS-Configuration/FastDDS-Configuration
+    Tutorials/Advanced/FastDDS-Configuration
 
 Unlocking the potential of Fast DDS middleware [community-contributed]
 ======================================================================
@@ -23,7 +24,7 @@ The interface between the ROS 2 stack and *Fast DDS* is provided by the ROS 2 mi
 This implementation is available in all ROS 2 distributions, both from binaries and from sources.
 
 ROS 2 RMW only allows for the configuration of certain middleware QoS
-(see :doc:`ROS 2 QoS policies <../../Concepts/Intermediate/About-Quality-of-Service-Settings>`).
+(see :doc:`ROS 2 QoS policies <../../ROS-Framework/topics/About-Quality-of-Service-Settings>`).
 However, ``rmw_fastrtps`` offers extended configuration capabilities to take full advantage of the features in *Fast DDS*.
 This tutorial will guide you through a series of examples explaining how to use XML files to unlock this extended configuration.
 
@@ -33,8 +34,8 @@ In order to get more information about using *Fast DDS* on ROS 2, please check t
 Prerequisites
 -------------
 
-This tutorial assumes that you know how to :doc:`create a package <../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>`.
-It also assumes you know how to write a :doc:`simple publisher and subscriber<../Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber>` and a :doc:`simple service and client <../Beginner-Client-Libraries/Writing-A-Simple-Cpp-Service-And-Client>`.
+This tutorial assumes that you know how to :doc:`create a package <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-Your-First-ROS2-Package>`.
+It also assumes you know how to write a :doc:`simple publisher and subscriber <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber>` and a :doc:`simple service and client <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Writing-A-Simple-Cpp-Service-And-Client>`.
 Although the examples are implemented in C++, the same concepts apply to Python packages.
 
 

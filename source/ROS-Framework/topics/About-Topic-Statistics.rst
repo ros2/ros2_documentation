@@ -2,6 +2,7 @@
 
     About-Topic-Statistics
     Concepts/About-Topic-Statistics
+    Concepts/Intermediate/About-Topic-Statistics
 
 Topic statistics
 ================

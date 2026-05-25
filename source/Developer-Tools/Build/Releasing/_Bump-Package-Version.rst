@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    How-To-Guides/Releasing/_Bump-Package-Version
+
 Every release of the package must have a unique version number higher than the previous release.
 
 Run:

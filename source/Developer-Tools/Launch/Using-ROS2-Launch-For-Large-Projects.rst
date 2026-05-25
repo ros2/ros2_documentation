@@ -2,6 +2,7 @@
 
     Tutorials/Launch-Files/Using-ROS2-Launch-for-Large-Projects
     Tutorials/Launch/Using-ROS2-Launch-for-Large-Projects
+    Tutorials/Intermediate/Launch/Using-ROS2-Launch-For-Large-Projects
 
 .. _UsingROS2LaunchForLargeProjects:
 
@@ -28,8 +29,8 @@ Additionally, it covers usage examples of different ROS 2 launch tools, like par
 Prerequisites
 -------------
 
-This tutorial uses the :doc:`turtlesim <../../Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim>` and :doc:`turtle_tf2_py <../Tf2/Introduction-To-Tf2>` packages.
-This tutorial also assumes you have :doc:`created a new package <../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>` of build type ``ament_python`` called ``launch_tutorial``.
+This tutorial uses the :doc:`turtlesim <../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>` and :doc:`turtle_tf2_py <../../ROS-Framework/interfaces/Working-with-interfaces/Introduction-To-Tf2>` packages.
+This tutorial also assumes you have :doc:`created a new package <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-Your-First-ROS2-Package>` of build type ``ament_python`` called ``launch_tutorial``.
 
 Introduction
 ------------
@@ -174,7 +175,7 @@ This launch file will launch the same ``turtlesim_node`` with parameter values t
 Defining arguments and parameters in YAML files make it easy to store and load a large number of variables.
 It is also worth noting that this YAML file is not another launch file, it is a configuration file for the ``turtlesim_node`` that sets parameters for the node.
 In addition, YAML files can be easily exported from the current ``ros2 param`` list.
-To learn how to do that, refer to the :doc:`Understand parameters <../../Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters>` tutorial.
+To learn how to do that, refer to the :doc:`Understand parameters <../../ROS-Framework/parameters/Working-with-parameters/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters>` tutorial.
 
 Let's now create a configuration file, ``turtlesim.yaml``, in the ``/config`` folder of our package, which will be loaded by our launch file.
 
@@ -186,7 +187,7 @@ Let's now create a configuration file, ``turtlesim.yaml``, in the ``/config`` fo
          background_g: 86
          background_r: 150
 
-To learn more about using parameters and using YAML files, take a look at the :doc:`Understand parameters <../../Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters>` tutorial.
+To learn more about using parameters and using YAML files, take a look at the :doc:`Understand parameters <../../ROS-Framework/parameters/Working-with-parameters/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters>` tutorial.
 
 2.3 Using wildcards in YAML files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

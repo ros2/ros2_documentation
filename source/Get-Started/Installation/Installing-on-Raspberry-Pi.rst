@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    How-To-Guides/Installing-on-Raspberry-Pi
+
 ROS 2 on Raspberry Pi
 =====================
 

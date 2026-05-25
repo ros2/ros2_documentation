@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Intermediate/RViz/Marker-Display-types/Marker-Display-types
+
 Marker: Display types
 =====================
 

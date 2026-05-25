@@ -1,6 +1,7 @@
 .. redirect-from::
 
   Guides/Ament-CMake-Python-Documentation
+  How-To-Guides/Ament-CMake-Python-Documentation
 
 ament_cmake_python user documentation
 =====================================
@@ -11,7 +12,7 @@ See the :doc:`ament_cmake user documentation <Ament-CMake-Documentation>` for mo
 .. note::
 
    Pure Python packages should use the ``ament_python`` build type in most cases.
-   To create an ``ament_python`` package, see :doc:`Creating your first ROS 2 package <../Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>`.
+   To create an ``ament_python`` package, see :doc:`Creating your first ROS 2 package <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-Your-First-ROS2-Package>`.
    ``ament_cmake_python`` should only be used in cases where that is not possible, like when mixing C/C++ and Python code.
 
 
@@ -121,4 +122,4 @@ The ``CMakeLists.txt`` should contain:
 Compared to the usage of ament_python, which supports automatic test discovery, ament_cmake_pytest must be called with the path to each test file.
 The timeout can be reduced as needed.
 
-Now, you can invoke your tests with the :doc:`standard colcon testing commands <../Tutorials/Intermediate/Testing/CLI>`.
+Now, you can invoke your tests with the :doc:`standard colcon testing commands <../Testing/Testing/CLI>`.

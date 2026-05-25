@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Installation/RHEL-Install-RPMs
+
 RHEL (RPM packages)
 ===================
 
@@ -97,7 +101,7 @@ Install additional RMW implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
-See the :doc:`guide <../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
+See the :doc:`guide <RMW-Implementations/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
 Setup environment
 -----------------
@@ -136,7 +140,7 @@ You should see the ``talker`` saying that it's ``Publishing`` messages and the `
 This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
-If you want to use other RMW implementations, you can check the :doc:`guide <./RMW-Implementations>`.
+If you want to use other RMW implementations, you can check the :doc:`guide <RMW-Implementations>`.
 
 Next steps
 ----------
@@ -146,7 +150,7 @@ Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your
 Troubleshoot
 ------------
 
-Troubleshooting techniques can be found :doc:`here <../How-To-Guides/Installation-Troubleshooting>`.
+Troubleshooting techniques can be found :doc:`here <Installation-Troubleshooting>`.
 
 Uninstall
 ---------

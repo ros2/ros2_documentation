@@ -1,12 +1,13 @@
 .. redirect-from::
 
    Installation/Prerelease-Testing
+   Installation/Testing
 
 Testing with pre-release binaries
 =================================
 
 Many ROS packages are provided as pre-built binaries.
-Usually, you will get the released version of binaries when following :doc:`../Installation`.
+Usually, you will get the released version of binaries when following :doc:`../../Get-Started/Installation`.
 There are also pre-released versions of binaries that are useful for testing before making an official release.
 This article describes several options if you would like to try out pre-released versions of ROS binaries.
 
@@ -21,7 +22,7 @@ deb testing repository
 
 For Debian-based operating systems, you can install binary packages from the **ros-testing** repository.
 
-1. Make sure you have a working ROS 2 installation from deb packages (see :doc:`../Installation`).
+1. Make sure you have a working ROS 2 installation from deb packages (see :doc:`../../Get-Started/Installation`).
 
 2. Install the ros2-testing-apt-source package.
    This will automatically uninstall the ros2-apt-source package since only one repository may be enabled at a time.

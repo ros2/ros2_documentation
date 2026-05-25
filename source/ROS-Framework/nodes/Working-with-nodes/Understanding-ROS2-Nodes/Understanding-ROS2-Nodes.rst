@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Tutorials/Understanding-ROS2-Nodes
+    Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes
 
 .. _ROS2Nodes:
 
@@ -42,9 +43,9 @@ In ROS 2, a single executable (C++ program, Python program, etc.) can contain on
 Prerequisites
 -------------
 
-The :doc:`previous tutorial <../Introducing-Turtlesim/Introducing-Turtlesim>` shows you how to install the ``turtlesim`` package used here.
+The :doc:`previous tutorial <../../../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>` shows you how to install the ``turtlesim`` package used here.
 
-As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../Configuring-ROS2-Environment>`.
+As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../../../../Get-Started/Configuring-ROS2-Environment>`.
 
 Tasks
 -----
@@ -64,7 +65,7 @@ To run turtlesim, open a new terminal, and enter the following command:
 
   $ ros2 run turtlesim turtlesim_node
 
-The turtlesim window will open, as you saw in the :doc:`previous tutorial <../Introducing-Turtlesim/Introducing-Turtlesim>`.
+The turtlesim window will open, as you saw in the :doc:`previous tutorial <../../../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>`.
 
 Here, the package name is ``turtlesim`` and the executable name is ``turtlesim_node``.
 
@@ -187,10 +188,10 @@ These tools are vital to understanding the flow of data in a complex, real-world
 Next steps
 ----------
 
-Now that you understand nodes in ROS 2, you can move on to the :doc:`topics tutorial <../Understanding-ROS2-Topics/Understanding-ROS2-Topics>`.
+Now that you understand nodes in ROS 2, you can move on to the :doc:`topics tutorial <../../../topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`.
 Topics are one of the communication types that connects nodes.
 
 Related content
 ---------------
 
-The :doc:`../../../Concepts` page adds some more detail to the concept of nodes.
+The :doc:`../../../../Concepts` page adds some more detail to the concept of nodes.

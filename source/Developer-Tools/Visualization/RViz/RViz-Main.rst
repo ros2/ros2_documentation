@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Intermediate/RViz/RViz-Main
+
 RViz
 ====
 

@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    How-To-Guides/Using-callback-groups
+
 Using Callback Groups
 =====================
 
@@ -5,7 +9,7 @@ When running a node in a Multi-Threaded Executor, ROS 2 offers callback
 groups as a tool for controlling the execution of different callbacks.
 This page is meant as a guide on how to use callback groups efficiently.
 It is assumed that the reader has a basic understanding
-about the concept of :doc:`executors <../Concepts/Intermediate/About-Executors>`.
+about the concept of :doc:`executors <../../client-libraries/About-Executors/About-Executors>`.
 
 .. contents:: Table of Contents
    :local:

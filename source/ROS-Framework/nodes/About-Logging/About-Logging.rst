@@ -2,6 +2,7 @@
 
     Logging
     Concepts/About-Logging
+    Concepts/Intermediate/About-Logging
 
 Logging and logger configuration
 ================================
@@ -375,7 +376,7 @@ Logging usage
   .. group-tab:: C++
 
     * See the `rclcpp logging demo <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/logging_demo>`_ for some simple examples.
-    * See the :doc:`logging demo <../../Tutorials/Demos/Logging-and-logger-configuration>` for example usage.
+    * See the :doc:`logging demo <../../../Developer-Tools/Introspection-and-analysis/Logging-and-logger-configuration>` for example usage.
 
   .. group-tab:: Python
 

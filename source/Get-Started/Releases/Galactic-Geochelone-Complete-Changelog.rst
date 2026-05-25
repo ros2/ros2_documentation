@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Releases/Galactic-Geochelone-Complete-Changelog
+
 Galactic Geochelone changelog
 =============================
 

@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Intermediate/Testing/BuildFarmTesting
+
 .. BuildFarmTesting:
 
 Testing Your Code with the ROS Build Farm

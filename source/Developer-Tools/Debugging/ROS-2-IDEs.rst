@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    How-To-Guides/ROS-2-IDEs
+
 IDEs and Debugging [community-contributed]
 ==========================================
 

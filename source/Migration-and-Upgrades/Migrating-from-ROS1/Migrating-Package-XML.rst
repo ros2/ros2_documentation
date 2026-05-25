@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    How-To-Guides/Migrating-from-ROS1/Migrating-Package-XML
+
 Migrating your package.xml to format 2
 ======================================
 
@@ -105,7 +109,7 @@ while Python packages might have this one:
 
   <doc_depend>python3-sphinx</doc_depend>
 
-See :doc:`the guide on documenting ROS 2 packages <../Documenting-a-ROS-2-Package>` for more information.
+See :doc:`the guide on documenting ROS 2 packages <../../Developer-Tools/Build/Documenting-a-ROS-2-Package>` for more information.
 
 Simplify dependencies with ``<depend>``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

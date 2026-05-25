@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Tutorials/Tf2/Writing-A-Tf2-Listener-Cpp
+    Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp
 
 Writing a listener (C++)
 ========================
@@ -25,7 +26,7 @@ In this tutorial we'll create a tf2 listener to start using tf2.
 Prerequisites
 -------------
 
-This tutorial assumes you have completed the :doc:`tf2 static broadcaster tutorial (C++) <./Writing-A-Tf2-Static-Broadcaster-Cpp>` and the :doc:`tf2 broadcaster tutorial (C++) <./Writing-A-Tf2-Broadcaster-Cpp>`.
+This tutorial assumes you have completed the :doc:`tf2 static broadcaster tutorial (C++) <Writing-A-Tf2-Static-Broadcaster-Cpp>` and the :doc:`tf2 broadcaster tutorial (C++) <Writing-A-Tf2-Broadcaster-Cpp>`.
 In the previous tutorial, we created a ``learning_tf2_cpp`` package, which is where we will continue working from.
 
 Tasks
@@ -209,7 +210,7 @@ Open the file using your preferred text editor.
 1.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
 
-To understand how the service behind spawning turtle works, please refer to :doc:`writing a simple service and client (C++) <../../Beginner-Client-Libraries/Writing-A-Simple-Cpp-Service-And-Client>` tutorial.
+To understand how the service behind spawning turtle works, please refer to :doc:`writing a simple service and client (C++) <../Writing-A-Simple-Cpp-Service-And-Client>` tutorial.
 
 Now, let's take a look at the code that is relevant to get access to frame transformations.
 The ``tf2_ros`` contains a ``TransformListener`` class that makes the task of receiving transforms easier.
@@ -246,7 +247,7 @@ All this is wrapped in a try-catch block to handle possible exceptions.
 
 The resulting transformation represents the position and orientation of the target turtle relative to ``turtle2``.
 The angle between the turtles is then used to calculate a velocity command to follow the target turtle.
-For more general information about tf2 see also the :doc:`tf2 page in the Concepts section <../../../Concepts/Intermediate/About-Tf2>`.
+For more general information about tf2 see also the :doc:`tf2 page in the Concepts section <../../../interfaces/About-Tf2/About-Tf2>`.
 
 1.2 CMakeLists.txt
 ~~~~~~~~~~~~~~~~~~
@@ -411,4 +412,4 @@ Summary
 -------
 
 In this tutorial you learned how to use tf2 to get access to frame transformations.
-You also have finished writing your own turtlesim demo that you first tried in :doc:`Introduction to tf2 <./Introduction-To-Tf2>` tutorial.
+You also have finished writing your own turtlesim demo that you first tried in :doc:`Introduction to tf2 <../../../interfaces/Working-with-interfaces/Introduction-To-Tf2>` tutorial.

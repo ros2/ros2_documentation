@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Advanced/Topic-Keys/Topic-Keys-Tutorial
+
 .. _topic_keys_tutorial:
 
 Topic Keys Tutorial
@@ -13,7 +17,7 @@ This tutorial aims to demonstrate the use of topic keys by simulating a scenario
 Background
 ----------
 
-In ROS 2, a :doc:`Topic<../../../Concepts/Basic/About-Topics>` is a communication channel used for publishing and subscribing to updates of object states.
+In ROS 2, a :doc:`Topic <../../../About-Topics>` is a communication channel used for publishing and subscribing to updates of object states.
 The value of data associated with a topic changes over time and each of these values are known as *data samples*.
 Keyed topics refer to topics where each data sample represent an update of the state of a specific object (known as *instance*) among all those objects represented in the topic.
 
@@ -108,7 +112,7 @@ For this, there are two possible options:
         $ docker run -it --rm osrt/ros:{DISTRO}-desktop
 
 #.  Running the tutorial on the local host.
-    Please, follow the :doc:`installation instructions <../../../Installation>` for details on installing ROS 2.
+    Please, follow the :doc:`installation instructions <../../../../Get-Started/Installation>` for details on installing ROS 2.
 
 Source the following file to setup the ROS 2 environment:
 

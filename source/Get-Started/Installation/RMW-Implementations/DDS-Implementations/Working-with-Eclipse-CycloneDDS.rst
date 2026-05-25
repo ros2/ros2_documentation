@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Working-with-Eclipse-CycloneDDS
+    Installation/RMW-Implementations/DDS-Implementations/Working-with-Eclipse-CycloneDDS
 
 Eclipse Cyclone DDS
 ===================
@@ -13,7 +14,7 @@ See also: https://projects.eclipse.org/projects/iot.cyclonedds
 Prerequisites
 -------------
 
-Have :doc:`rosdep installed <../../../Tutorials/Intermediate/Rosdep>`.
+Have :doc:`rosdep installed <../../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Rosdep>`.
 
 Install packages
 ----------------
@@ -68,7 +69,7 @@ Switch from other rmw to rmw_cyclonedds by specifying the environment variable.
 
    $ export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 
-See also: :doc:`Working with multiple RMW implementations <../../../How-To-Guides/Working-with-multiple-RMW-implementations>`
+See also: :doc:`Working with multiple RMW implementations <../Working-with-multiple-RMW-implementations>`
 
 Run the talker and listener
 ---------------------------

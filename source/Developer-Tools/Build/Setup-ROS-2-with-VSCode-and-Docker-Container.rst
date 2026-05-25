@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container
+
 Setup ROS 2 with VSCode and Docker [community-contributed]
 ==========================================================
 

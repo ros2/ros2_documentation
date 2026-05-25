@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Tutorials/URDF/URDF-Main
+    Tutorials/Intermediate/URDF/URDF-Main
 
 .. _URDFMain:
 

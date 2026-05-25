@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Advanced/Security/Security-Main
+
 Security
 ========
 

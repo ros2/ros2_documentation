@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Tutorials/Ros2bag/Recording-And-Playing-Back-Data
+    Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data
 
 .. _ROS2Bag:
 
@@ -31,12 +32,12 @@ Prerequisites
 
 You should have ``ros2 bag`` installed as a part of your regular ROS 2 setup.
 
-If you need to install ROS 2, see the :doc:`Installation instructions <../../../Installation>`.
+If you need to install ROS 2, see the :doc:`Installation instructions <../../../../Get-Started/Installation>`.
 
-This tutorial talks about concepts covered in previous tutorials, like :doc:`nodes <../Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>`, :doc:`topics <../Understanding-ROS2-Topics/Understanding-ROS2-Topics>`, :doc:`services <../Understanding-ROS2-Services/Understanding-ROS2-Services>` and :doc:`actions <../Understanding-ROS2-Actions/Understanding-ROS2-Actions>`.
-It also uses the :doc:`turtlesim package <../Introducing-Turtlesim/Introducing-Turtlesim>`, :doc:`Service Introspection Demo <../../Demos/Service-Introspection>` and :doc:`Action Introspection Demo <../../Demos/Action-Introspection>`.
+This tutorial talks about concepts covered in previous tutorials, like :doc:`nodes <../../../nodes/Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>`, :doc:`topics <../../../topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`, :doc:`services <../../../services/Working-with-services/Understanding-ROS2-Services/Understanding-ROS2-Services>` and :doc:`actions <../../../actions/Working-with-actions/Understanding-ROS2-Actions/Understanding-ROS2-Actions>`.
+It also uses the :doc:`turtlesim package <../../../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>`, :doc:`Service Introspection Demo <../../../../Developer-Tools/Introspection-and-analysis/Service-Introspection>` and :doc:`Action Introspection Demo <../../../actions/Working-with-actions/Action-Introspection>`.
 
-As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../Configuring-ROS2-Environment>`.
+As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../../../../Get-Started/Configuring-ROS2-Environment>`.
 
 
 Managing Topic Data
@@ -332,7 +333,7 @@ You'll be recording service data between ``introspection_client`` and ``introspe
 To record service data between service client and server, ``Service Introspection`` must be enabled on the node.
 
 Let's start ``introspection_client`` and ``introspection_service`` nodes and enable ``Service Introspection``.
-You can see more details for :doc:`Service Introspection Demo <../../Demos/Service-Introspection>`.
+You can see more details for :doc:`Service Introspection Demo <../../../../Developer-Tools/Introspection-and-analysis/Service-Introspection>`.
 
 Open a new terminal and run ``introspection_service``, enabling ``Service Introspection``:
 
@@ -518,7 +519,7 @@ You'll be recording action data between ``fibonacci_action_client`` and ``fibona
 To record action data between action client and server, ``Action Introspection`` must be enabled on the nodes.
 
 Let's start ``fibonacci_action_client`` and ``fibonacci_action_server`` nodes and enable ``Action Introspection``.
-You can see more details for :doc:`Action Introspection Demo <../../Demos/Action-Introspection>`.
+You can see more details for :doc:`Action Introspection Demo <../../../actions/Working-with-actions/Action-Introspection>`.
 
 Open a new terminal and run ``fibonacci_action_server``, enabling ``Action Introspection``:
 
@@ -727,7 +728,7 @@ Next steps
 ----------
 
 You've completed the "Beginner: CLI Tools" tutorials!
-The next step is tackling the "Beginner: Client Libraries" tutorials, starting with :doc:`../../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace`.
+The next step is tackling the "Beginner: Client Libraries" tutorials, starting with :doc:`../../../client-libraries/Working-with-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace`.
 
 Related content
 ---------------
@@ -735,4 +736,4 @@ Related content
 A more thorough explanation of ``ros2 bag`` can be found in the README `here <https://github.com/ros2/rosbag2>`__.
 For more information on service recording and playback can be found in the design document `here <https://github.com/ros2/rosbag2/blob/{DISTRO}/docs/design/rosbag2_record_replay_service.md>`__.
 For more information on action recording and playback can be found in the design document `here <https://github.com/ros2/rosbag2/blob/{DISTRO}/docs/design/rosbag2_record_replay_action.md>`__.
-For more information on QoS compatibility and ``ros2 bag``, see :doc:`../../../How-To-Guides/Overriding-QoS-Policies-For-Recording-And-Playback`.
+For more information on QoS compatibility and ``ros2 bag``, see :doc:`../../../../Developer-Tools/Testing/Overriding-QoS-Policies-For-Recording-And-Playback`.

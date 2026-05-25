@@ -1,6 +1,7 @@
 .. redirect-from::
 
   Release-Ardent-Apalone
+  Releases/Release-Ardent-Apalone
 
 Ardent Apalone (``ardent``)
 ===========================

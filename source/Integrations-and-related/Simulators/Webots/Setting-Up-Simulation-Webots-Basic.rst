@@ -2,6 +2,7 @@
 
     Tutorials/Simulators/Webots/Setting-up-a-Robot-Simulation-Webots
     Tutorials/Advanced/Simulators/Webots
+    Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic
 
 Setting up a robot simulation (Basic)
 ======================================
@@ -29,25 +30,25 @@ They are documented in the `Webots ROS 2 examples <https://github.com/cyberbotic
 Prerequisites
 -------------
 
-It is recommended to understand basic ROS principles covered in the beginner :doc:`../../../../Tutorials`.
-In particular, :doc:`../../../Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim`, :doc:`../../../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics`, :doc:`../../../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace`, :doc:`../../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package` and :doc:`../../../Intermediate/Launch/Creating-Launch-Files` are useful prerequisites.
+It is recommended to understand basic ROS principles covered in the beginner :doc:`../../../Tutorials`.
+In particular, :doc:`../../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim`, :doc:`../../../ROS-Framework/topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics`, :doc:`../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace`, :doc:`../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-Your-First-ROS2-Package` and :doc:`../../../Developer-Tools/Launch/Creating-Launch-Files` are useful prerequisites.
 
 .. tabs::
 
     .. group-tab:: Linux
 
         The Linux and ROS commands of this tutorial can be run in a standard Linux terminal.
-        The following page :doc:`./Installation-Ubuntu` explains how to install the ``webots_ros2`` package on Linux.
+        The following page :doc:`Installation-Ubuntu` explains how to install the ``webots_ros2`` package on Linux.
 
     .. group-tab:: Windows
 
         The Linux and ROS commands of this tutorial must be run in a WSL (Windows Subsystem for Linux) environment.
-        The following page :doc:`./Installation-Windows` explains how to install the ``webots_ros2`` package on Windows.
+        The following page :doc:`Installation-Windows` explains how to install the ``webots_ros2`` package on Windows.
 
     .. group-tab:: macOS
 
         The Linux and ROS commands of this tutorial must be run in a pre-configured Linux Virtual Machine (VM).
-        The following page :doc:`./Installation-MacOS` explains how to install the ``webots_ros2`` package on macOS.
+        The following page :doc:`Installation-MacOS` explains how to install the ``webots_ros2`` package on macOS.
 
 This tutorial is compatible with version 2023.1.0 of ``webots_ros2`` and Webots R2023b, as well as upcoming versions.
 
@@ -162,7 +163,7 @@ A simple robot is already included in this ``my_world.wbt`` world file.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The ``webots_ros2_driver`` sub-package automatically creates a ROS 2 interface for most sensors.
-More details on existing device interfaces and how to configure them is given in the second part of the tutorial: :doc:`./Setting-Up-Simulation-Webots-Advanced`.
+More details on existing device interfaces and how to configure them is given in the second part of the tutorial: :doc:`Setting-Up-Simulation-Webots-Advanced`.
 In this task, you will extend this interface by creating your own custom plugin.
 This custom plugin is a ROS node equivalent to a robot controller.
 You can use it to access the `Webots robot API  <https://cyberbotics.com/doc/reference/robot?tab-language=python>`_ and create your own topics and services to control your robot.
@@ -305,7 +306,7 @@ In the ``my_package/resource`` folder create a text file named ``my_robot.urdf``
 .. note::
 
     This simple URDF file doesn't contain any link or joint information about the robot as it is not needed in this tutorial.
-    However, URDF files usually contain much more information as explained in the :doc:`../../../Intermediate/URDF/URDF-Main` tutorial.
+    However, URDF files usually contain much more information as explained in the :doc:`../../../Capabilities/Simulation/URDF/URDF-Main` tutorial.
 
 .. note::
 
@@ -330,7 +331,7 @@ In the ``my_package/resource`` folder create a text file named ``my_robot.urdf``
                 </plugin>
 
 
-    This is namely used to pass parameters to existing Webots device plugins (see :doc:`./Setting-Up-Simulation-Webots-Advanced`).
+    This is namely used to pass parameters to existing Webots device plugins (see :doc:`Setting-Up-Simulation-Webots-Advanced`).
 
 5 Create the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -523,4 +524,4 @@ Next steps
 To improve the simulation, the robot's sensors can be used to detect obstacles and avoid them.
 The second part of the tutorial shows how to implement such behaviour:
 
-* :doc:`./Setting-Up-Simulation-Webots-Advanced`.
+* :doc:`Setting-Up-Simulation-Webots-Advanced`.

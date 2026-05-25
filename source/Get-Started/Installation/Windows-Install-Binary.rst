@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Installation/Windows-Install-Binary
+
 Windows (binary)
 ================
 
@@ -87,7 +91,7 @@ Install additional RMW implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
-See the :doc:`guide <../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
+See the :doc:`guide <RMW-Implementations/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
 
 Setup environment

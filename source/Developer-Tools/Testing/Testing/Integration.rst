@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Intermediate/Testing/Integration
+
 Writing Basic Integration Tests with launch_testing
 ===================================================
 
@@ -16,8 +20,8 @@ Prerequisites
 
 Before starting this tutorial, it is recommended to have completed the following tutorials on launching nodes:
 
-* :doc:`Launching Multiple Nodes <../../Beginner-CLI-Tools/Launching-Multiple-Nodes/Launching-Multiple-Nodes>`
-* :doc:`Creating Launch files <../../Intermediate/Launch/Creating-Launch-Files>`
+* :doc:`Launching Multiple Nodes <../../../ROS-Framework/nodes/Working-with-nodes/Launching-Multiple-Nodes/Launching-Multiple-Nodes>`
+* :doc:`Creating Launch files <../../Launch/Creating-Launch-Files>`
 
 Background
 ----------
@@ -27,7 +31,7 @@ In ROS 2 this is often accomplished by launching a system of one or several node
 As a result, these tests are more complex both to set up and to run.
 
 A key aspect of ROS 2 integration testing is that nodes that are part of different tests shouldn't communicate with each other, even when run in parallel.
-This will be achieved here using a specific test runner that picks unique :doc:`ROS domain IDs <../../../Concepts/Intermediate/About-Domain-ID>`.
+This will be achieved here using a specific test runner that picks unique :doc:`ROS domain IDs <../../../ROS-Framework/nodes/About-Domain-ID>`.
 In addition, integration tests have to fit in the overall testing workflow.
 A standardized approach is to ensure each test outputs an XUnit file, which are easily parsed using common test tooling.
 
@@ -157,13 +161,13 @@ It's highly recommended to go through `launch_testing's detailed documentation o
               'Spawning turtle [turtle1] at x=',
               timeout=5, stream='stderr')
 
-Note that the way we listen to the 'turtle1/pose' topic in ``test_publishes_pose`` differs from :doc:`the usual approach <../../Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber>`.
+Note that the way we listen to the 'turtle1/pose' topic in ``test_publishes_pose`` differs from :doc:`the usual approach <../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber>`.
 Instead of calling the blocking ``rclpy.spin``, we trigger the ``spin_once`` method - which executes the first available callback (our subscriber callback if a message arrived within 1 second) - until we have gathered all messages published over the last 10 seconds.
 The package `launch_testing_ros <https://docs.ros.org/en/{DISTRO}/p/launch_testing_ros/index.html>`_ provides some convenience functions to achieve similar behavior,
 such as `WaitForTopics <https://docs.ros.org/en/{DISTRO}/p/launch_testing_ros/launch_testing_ros.wait_for_topics.html>`_.
 
 If you want to go further, you can implement a third test that publishes a twist message, asking the turtle to move, and subsequently checks that it moved by asserting that the pose message changed.
-This effectively automates part of the :doc:`Turtlesim introduction tutorial <../../Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim>`.
+This effectively automates part of the :doc:`Turtlesim introduction tutorial <../../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>`.
 
 1.4 Post-shutdown tests
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -247,7 +251,7 @@ In this tutorial, we go with the first option as we will test the existing turtl
 4 Running tests and report generation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-For running the integration test and examining the results, see the tutorial :doc:`Running Tests in ROS 2 from the Command Line<../../Intermediate/Testing/CLI>`.
+For running the integration test and examining the results, see the tutorial :doc:`Running Tests in ROS 2 from the Command Line <CLI>`.
 
 Summary
 -------
@@ -267,8 +271,8 @@ avoiding undesired cross communication.
 Related content
 ---------------
 
-* :doc:`Why automatic tests? <../../Intermediate/Testing/Testing-Main>`
+* :doc:`Why automatic tests? <Testing-Main>`
 * :doc:`C++ unit testing with GTest <../../Intermediate/Testing/Cpp>`
-  and :doc:`Python unit testing with Pytest <../../Intermediate/Testing/Python>`
+  and :doc:`Python unit testing with Pytest <Python>`
 * `launch_pytest documentation <https://docs.ros.org/en/{DISTRO}/p/launch_pytest/index.html>`_,
   an alternative launch integration testing package to ``launch_testing``

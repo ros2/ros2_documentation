@@ -2,6 +2,7 @@
 
     Logging-and-logger-configuration
     Tutorials/Logging-and-logger-configuration
+    Tutorials/Demos/Logging-and-logger-configuration
 
 Logging
 =======

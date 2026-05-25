@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Releases/Release-Lyrical-Luth
+
 .. _upcoming-release:
 
 .. _lyrical-release:
@@ -193,7 +197,7 @@ New substitutions in XML and YAML launch files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Use XML or YAML launch files?
-:doc:`Substitutions <../Tutorials/Intermediate/Launch/Using-Substitutions>` make your launch files evaluate variables at launch time.
+:doc:`Substitutions <../../Developer-Tools/Launch/Using-Substitutions>` make your launch files evaluate variables at launch time.
 Launch frontends (the things that make it possible to use XML and YAML launch files) may now use ``string-join`` and ``path-join`` substitutions.
 
 .. code-block:: xml

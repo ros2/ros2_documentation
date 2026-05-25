@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Demos/Wait-for-Acknowledgment
+
 Wait for acknowledgment
 =======================
 
@@ -38,7 +42,7 @@ The publisher's :ref:`QoS reliability policy <about_qos_policies>` needs to be `
 Installing the demo
 -------------------
 
-See the :doc:`installation instructions <../../Installation>` for details on installing ROS 2.
+See the :doc:`installation instructions <../../../Get-Started/Installation>` for details on installing ROS 2.
 
 If you've installed ROS 2 from packages, ensure that you have ``ros-{DISTRO}-examples-rclcpp-minimal-publisher`` and ``ros-{DISTRO}-examples-rclcpp-minimal-subscriber`` installed.
 If you downloaded the archive or built ROS 2 from source, it will already be part of the installation.

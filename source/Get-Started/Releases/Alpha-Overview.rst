@@ -1,6 +1,7 @@
 .. redirect-from::
 
    Alpha-Overview
+   Releases/Alpha-Overview
 
 Alphas
 ======

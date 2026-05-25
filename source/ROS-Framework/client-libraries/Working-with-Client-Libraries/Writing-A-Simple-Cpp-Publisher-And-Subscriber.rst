@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Tutorials/Writing-A-Simple-Cpp-Publisher-And-Subscriber
+    Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber
 
 .. _CppPubSub:
 
@@ -20,8 +21,8 @@ Writing a simple publisher and subscriber (C++)
 Background
 ----------
 
-:doc:`Nodes <../Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` are executable processes that communicate over the ROS graph.
-In this tutorial, the nodes will pass information in the form of string messages to each other over a :doc:`topic <../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`.
+:doc:`Nodes <../../nodes/Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` are executable processes that communicate over the ROS graph.
+In this tutorial, the nodes will pass information in the form of string messages to each other over a :doc:`topic <../../topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`.
 The example used here is a simple "talker" and "listener" system; one node publishes data and the other subscribes to the topic so it can receive that data.
 
 The code used in these examples can be found `here <https://github.com/ros2/examples/tree/{REPOS_FILE_BRANCH}/rclcpp/topics>`__.
@@ -29,7 +30,7 @@ The code used in these examples can be found `here <https://github.com/ros2/exam
 Prerequisites
 -------------
 
-In previous tutorials, you learned how to :doc:`create a workspace <./Creating-A-Workspace/Creating-A-Workspace>` and :doc:`create a package <./Creating-Your-First-ROS2-Package>`.
+In previous tutorials, you learned how to :doc:`create a workspace <Creating-A-Workspace/Creating-A-Workspace>` and :doc:`create a package <Creating-Your-First-ROS2-Package>`.
 
 Tasks
 -----
@@ -37,7 +38,7 @@ Tasks
 1 Create a package
 ^^^^^^^^^^^^^^^^^^
 
-Open a new terminal and :doc:`source your ROS 2 installation <../Beginner-CLI-Tools/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
+Open a new terminal and :doc:`source your ROS 2 installation <../../../Get-Started/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
 
 Navigate into the ``ros2_ws`` directory created in a :ref:`previous tutorial <new-directory>`.
 
@@ -218,7 +219,7 @@ Navigate one level back to the ``ros2_ws/src/cpp_pubsub`` directory, where the `
 
 Open ``package.xml`` with your text editor.
 
-As mentioned in the :doc:`previous tutorial <./Creating-Your-First-ROS2-Package>`, make sure to fill in the ``<description>``, ``<maintainer>`` and ``<license>`` tags:
+As mentioned in the :doc:`previous tutorial <Creating-Your-First-ROS2-Package>`, make sure to fill in the ``<description>``, ``<maintainer>`` and ``<license>`` tags:
 
 .. code-block:: xml
 
@@ -379,7 +380,7 @@ There is no timer because the subscriber simply responds whenever data is publis
 
 The ``topic_callback`` function receives the string message data published over the topic, and simply writes it to the console using the ``RCLCPP_INFO`` macro.
 
-Recall from the :doc:`topic tutorial <../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics>` that the topic name and message type used by the publisher and subscriber must match to allow them to communicate.
+Recall from the :doc:`topic tutorial <../../topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>` that the topic name and message type used by the publisher and subscriber must match to allow them to communicate.
 
 .. code-block:: C++
 
@@ -528,7 +529,7 @@ Next steps
 ----------
 
 Next you'll create another simple ROS 2 package using the service/client model.
-Again, you can choose to write it in either :doc:`C++ <./Writing-A-Simple-Cpp-Service-And-Client>` or :doc:`Python <./Writing-A-Simple-Py-Service-And-Client>`.
+Again, you can choose to write it in either :doc:`C++ <Writing-A-Simple-Cpp-Service-And-Client>` or :doc:`Python <Writing-A-Simple-Py-Service-And-Client>`.
 
 Related content
 ---------------

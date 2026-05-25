@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Installation/Maintaining-a-Source-Checkout
+
 .. _MaintainingSource:
 
 Maintain source checkout

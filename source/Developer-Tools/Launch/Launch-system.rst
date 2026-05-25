@@ -3,6 +3,7 @@
   Tutorials/Launch-system
   Tutorials/Launch-Files/Launch-system
   Tutorials/Launch/Launch-system
+  Tutorials/Intermediate/Launch/Launch-system
 
 Integrating launch files into ROS 2 packages
 ============================================
@@ -20,9 +21,9 @@ Integrating launch files into ROS 2 packages
 Prerequisites
 -------------
 
-You should have gone through the tutorial on how to :doc:`create a ROS 2 package <../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>`.
+You should have gone through the tutorial on how to :doc:`create a ROS 2 package <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-Your-First-ROS2-Package>`.
 
-As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
+As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../../Get-Started/Configuring-ROS2-Environment>`.
 
 Background
 ----------

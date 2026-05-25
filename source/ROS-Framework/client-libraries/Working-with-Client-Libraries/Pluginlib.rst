@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Tutorials/Pluginlib
+    Tutorials/Beginner-Client-Libraries/Pluginlib
 
 Creating and using plugins (C++)
 ================================
@@ -28,7 +29,7 @@ Plugins are useful for extending/modifying application behavior without needing 
 Prerequisites
 -------------
 
-This tutorial assumes basic C++ knowledge and that you have successfully :doc:`installed ROS 2 <../../Installation>`.
+This tutorial assumes basic C++ knowledge and that you have successfully :doc:`installed ROS 2 <../../../Get-Started/Installation>`.
 
 Tasks
 -----

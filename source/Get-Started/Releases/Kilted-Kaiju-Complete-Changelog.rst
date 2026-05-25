@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Releases/Kilted-Kaiju-Complete-Changelog
+
 ROS 2 Kilted Kaiju Complete Changelog
 =====================================
 
@@ -3284,6 +3288,5 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 
 * Add zenoh_security_tools (`#595 <https://github.com/ros2/rmw_zenoh/issues/595>`__)
 * Contributors: yadunund
-
 
 

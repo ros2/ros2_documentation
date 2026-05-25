@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Tutorials/Parameters/Understanding-ROS2-Parameters
+    Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters
 
 .. _ROS2Params:
 
@@ -24,14 +25,14 @@ A parameter is a configuration value of a node.
 You can think of parameters as node settings.
 A node can store parameters as integers, floats, booleans, strings, and lists.
 In ROS 2, each node maintains its own parameters.
-For more background on parameters, please see :doc:`the concept document <../../../Concepts/Basic/About-Parameters>`.
+For more background on parameters, please see :doc:`the concept document <../../../About-Parameters>`.
 
 Prerequisites
 -------------
 
-This tutorial uses the :doc:`turtlesim package <../Introducing-Turtlesim/Introducing-Turtlesim>`.
+This tutorial uses the :doc:`turtlesim package <../../../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>`.
 
-As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../Configuring-ROS2-Environment>`.
+As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../../../../Get-Started/Configuring-ROS2-Environment>`.
 
 Tasks
 -----
@@ -248,4 +249,4 @@ You can also save the parameter settings to a file to reload them in a future se
 Next steps
 ----------
 
-Jumping back to ROS 2 communication methods, in the next tutorial you'll learn about :doc:`actions <../Understanding-ROS2-Actions/Understanding-ROS2-Actions>`.
+Jumping back to ROS 2 communication methods, in the next tutorial you'll learn about :doc:`actions <../../../actions/Working-with-actions/Understanding-ROS2-Actions/Understanding-ROS2-Actions>`.

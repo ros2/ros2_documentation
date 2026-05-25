@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Advanced/Create-An-Rqtbag-Plugin
+
 Create an rqt_bag Plugin
 ========================
 

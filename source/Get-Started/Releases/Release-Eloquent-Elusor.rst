@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Releases/Release-Eloquent-Elusor
+
 Eloquent Elusor (``eloquent``)
 ==============================
 

@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Tutorials/Service-Introspection
+    Tutorials/Demos/Service-Introspection
 
 Configure service introspection
 ===============================
@@ -30,7 +31,7 @@ In this demo, we'll be highlighting how to configure service introspection state
 Installing the demo
 -------------------
 
-See the :doc:`installation instructions <../../Installation>` for details on installing ROS 2.
+See the :doc:`installation instructions <../../Get-Started/Installation>` for details on installing ROS 2.
 
 If you've installed ROS 2 binary packages, ensure that you have ``ros-{DISTRO}-demo-nodes-cpp`` installed.
 If you downloaded the archive or built ROS 2 from source, it will already be part of the installation.

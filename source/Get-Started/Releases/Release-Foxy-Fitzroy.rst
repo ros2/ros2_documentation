@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Releases/Release-Foxy-Fitzroy
+
 Foxy Fitzroy (``foxy``)
 =======================
 

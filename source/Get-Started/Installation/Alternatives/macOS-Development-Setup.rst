@@ -2,6 +2,7 @@
 
   Installation/Rolling/OSX-Development-Setup
   Installation/macOS-Development-Setup
+  Installation/Alternatives/macOS-Development-Setup
 
 macOS (source)
 ==============
@@ -144,12 +145,12 @@ Install additional RMW implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at build or runtime.
-See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
+See the :doc:`guide <../RMW-Implementations/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
 Build the code in the workspace
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Run the ``colcon`` tool to build everything (more on using ``colcon`` in :doc:`this tutorial <../../Tutorials/Beginner-Client-Libraries/Colcon-Tutorial>`):
+Run the ``colcon`` tool to build everything (more on using ``colcon`` in :doc:`this tutorial <../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Colcon-Tutorial>`):
 
 .. code-block:: console
 
@@ -197,7 +198,7 @@ Continue with the `tutorials and demos <../../Tutorials>` to configure your envi
 Stay up to date
 ---------------
 
-See :doc:`../Maintaining-a-Source-Checkout` to periodically refresh your source installation.
+See :doc:`Maintaining-a-Source-Checkout` to periodically refresh your source installation.
 
 Troubleshoot
 ------------

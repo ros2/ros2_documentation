@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Intermediate/Monitoring-For-Parameter-Changes-Python
+
 Monitoring for parameter changes (Python)
 =========================================
 
@@ -23,8 +27,8 @@ Prerequisites
 
 Before starting this tutorial, you should first complete the following tutorials:
 
-- :doc:`../Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters`
-- :doc:`../Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python`
+- :doc:`Understanding-ROS2-Parameters/Understanding-ROS2-Parameters`
+- :doc:`../../client-libraries/Working-with-Client-Libraries/Using-Parameters-In-A-Class-Python`
 
 Tasks
 -----
@@ -35,7 +39,7 @@ In this tutorial, you will create a new package to contain some sample code, wri
 1 Create a package
 ^^^^^^^^^^^^^^^^^^
 
-First, open a new terminal and :doc:`source your ROS 2 installation <../Beginner-CLI-Tools/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
+First, open a new terminal and :doc:`source your ROS 2 installation <../../../Get-Started/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
 
 Follow :ref:`these instructions <new-directory>` to create a new workspace named ``ros2_ws``.
 
@@ -436,7 +440,7 @@ Since no single-parameter callback was added (via ``add_parameter_callback``) fo
 
 .. note::
 
-   When setting multiple parameters at once, it's best to use ``set_parameters_atomically``, explained in :doc:`../../Concepts/Basic/About-Parameters`.
+   When setting multiple parameters at once, it's best to use ``set_parameters_atomically``, explained in :doc:`../../About-Parameters`.
    This way, the event callback is only fired once.
 
 Summary
@@ -449,4 +453,4 @@ The ParameterEventHandler is a convenient way to monitor for parameter changes s
 Related content
 ---------------
 
-To learn how to adapt ROS 1 parameter files for ROS 2, see the :doc:`Migrating YAML parameter files from ROS 1 to ROS2 <../../How-To-Guides/Migrating-from-ROS1/Migrating-Parameters>` tutorial.
+To learn how to adapt ROS 1 parameter files for ROS 2, see the :doc:`Migrating YAML parameter files from ROS 1 to ROS2 <../../../Migration-and-Upgrades/Migrating-from-ROS1/Migrating-Parameters>` tutorial.

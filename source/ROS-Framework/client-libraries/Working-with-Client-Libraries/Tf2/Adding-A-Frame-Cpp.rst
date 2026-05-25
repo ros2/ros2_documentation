@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Tutorials/Tf2/Adding-A-Frame-Cpp
+    Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp
 
 Adding a frame (C++)
 ====================
@@ -18,7 +19,7 @@ Adding a frame (C++)
 Background
 ----------
 
-In previous tutorials, we recreated the turtle demo by writing a :doc:`tf2 broadcaster <./Writing-A-Tf2-Broadcaster-Cpp>` and a :doc:`tf2 listener <Writing-A-Tf2-Listener-Cpp>`.
+In previous tutorials, we recreated the turtle demo by writing a :doc:`tf2 broadcaster <Writing-A-Tf2-Broadcaster-Cpp>` and a :doc:`tf2 listener <Writing-A-Tf2-Listener-Cpp>`.
 This tutorial will teach you how to add extra fixed and dynamic frames to the transformation tree.
 In fact, adding a frame in tf2 is very similar to creating the tf2 broadcaster, but this example will show you some additional features of tf2.
 

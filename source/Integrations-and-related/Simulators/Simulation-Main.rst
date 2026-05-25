@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Tutorials/Simulators/Simulation-Main
+    Tutorials/Advanced/Simulators/Simulation-Main
 
 .. _SimulationMain:
 

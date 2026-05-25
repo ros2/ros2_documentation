@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Tutorials/URDF/Adding-Physical-and-Collision-Properties-to-a-URDF-Model
+    Tutorials/Intermediate/URDF/Adding-Physical-and-Collision-Properties-to-a-URDF-Model
 
 .. _URDFProperties:
 
@@ -144,4 +145,4 @@ Check out the `spec <https://wiki.ros.org/urdf/XML/joint>`_, as they are not inc
 
 Next Steps
 ----------
-Reduce the amount of code and annoying math you have to do by :doc:`using xacro <./Using-Xacro-to-Clean-Up-a-URDF-File>`.
+Reduce the amount of code and annoying math you have to do by :doc:`using xacro <../../../Developer-Tools/Build/Using-Xacro-to-Clean-Up-a-URDF-File>`.

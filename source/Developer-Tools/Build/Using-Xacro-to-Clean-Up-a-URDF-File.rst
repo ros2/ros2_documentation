@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Tutorials/URDF/Using-Xacro-to-Clean-Up-a-URDF-File
+    Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File
 
 .. _URDFXacro:
 

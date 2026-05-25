@@ -1,6 +1,7 @@
 .. redirect-from::
 
    Concepts/About-Cross-Compilation
+   Concepts/Intermediate/About-Cross-Compilation
 
 Cross-compilation
 =================

@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    How-To-Guides/Releasing/_Ensure-Repositories-Are-Up-To-Date
+
 Make sure that:
 
 * Your repository is hosted on a remote such as GitHub.

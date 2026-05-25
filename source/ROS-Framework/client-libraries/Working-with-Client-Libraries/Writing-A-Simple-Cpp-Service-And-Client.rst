@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Tutorials/Writing-A-Simple-Cpp-Service-And-Client
+    Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Service-And-Client
 
 .. _CppSrvCli:
 
@@ -20,7 +21,7 @@ Writing a simple service and client (C++)
 Background
 ----------
 
-When :doc:`nodes <../Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` communicate using :doc:`services <../Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services>`, the node that sends a request for data is called the client node, and the one that responds to the request is the service node.
+When :doc:`nodes <../../nodes/Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` communicate using :doc:`services <../../services/Working-with-services/Understanding-ROS2-Services/Understanding-ROS2-Services>`, the node that sends a request for data is called the client node, and the one that responds to the request is the service node.
 The structure of the request and response is determined by a ``.srv`` file.
 
 The example used here is a simple integer addition system; one node requests the sum of two integers, and the other responds with the result.
@@ -29,7 +30,7 @@ The example used here is a simple integer addition system; one node requests the
 Prerequisites
 -------------
 
-In previous tutorials, you learned how to :doc:`create a workspace <./Creating-A-Workspace/Creating-A-Workspace>` and :doc:`create a package <./Creating-Your-First-ROS2-Package>`.
+In previous tutorials, you learned how to :doc:`create a workspace <Creating-A-Workspace/Creating-A-Workspace>` and :doc:`create a package <Creating-Your-First-ROS2-Package>`.
 
 Tasks
 -----
@@ -37,7 +38,7 @@ Tasks
 1 Create a package
 ^^^^^^^^^^^^^^^^^^
 
-Open a new terminal and :doc:`source your ROS 2 installation <../Beginner-CLI-Tools/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
+Open a new terminal and :doc:`source your ROS 2 installation <../../../Get-Started/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
 
 Navigate into the ``ros2_ws`` directory created in a :ref:`previous tutorial <new-directory>`.
 
@@ -401,7 +402,7 @@ Next steps
 ----------
 
 In the last few tutorials you've been utilizing interfaces to pass data across topics and services.
-Next, you'll learn how to :doc:`create custom interfaces <./Custom-ROS2-Interfaces>`.
+Next, you'll learn how to :doc:`create custom interfaces <Custom-ROS2-Interfaces>`.
 
 Related content
 ---------------

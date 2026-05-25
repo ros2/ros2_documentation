@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Tutorials/Using-Parameters-In-A-Class-CPP
+    Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-CPP
 
 .. _CppParamNode:
 
@@ -20,15 +21,15 @@ Using parameters in a class (C++)
 Background
 ----------
 
-When making your own :doc:`nodes <../Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` you will sometimes need to add parameters that can be set from the launch file.
+When making your own :doc:`nodes <../../nodes/Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` you will sometimes need to add parameters that can be set from the launch file.
 
 This tutorial will show you how to create those parameters in a C++ class, and how to set them using launch file.
 
 Prerequisites
 -------------
 
-In previous tutorials, you learned how to :doc:`create a workspace <./Creating-A-Workspace/Creating-A-Workspace>` and :doc:`create a package <./Creating-Your-First-ROS2-Package>`.
-You have also learned about :doc:`parameters <../Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters>` and their function in a ROS 2 system.
+In previous tutorials, you learned how to :doc:`create a workspace <Creating-A-Workspace/Creating-A-Workspace>` and :doc:`create a package <Creating-Your-First-ROS2-Package>`.
+You have also learned about :doc:`parameters <../../parameters/Working-with-parameters/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters>` and their function in a ROS 2 system.
 
 Tasks
 -----
@@ -36,7 +37,7 @@ Tasks
 1 Create a package
 ^^^^^^^^^^^^^^^^^^
 
-Open a new terminal and :doc:`source your ROS 2 installation <../Beginner-CLI-Tools/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
+Open a new terminal and :doc:`source your ROS 2 installation <../../../Get-Started/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
 
 Follow :ref:`these instructions <new-directory>` to create a new workspace named ``ros2_ws``.
 
@@ -299,7 +300,7 @@ There are four ways to accomplish this.
 3.1 Change via the console
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This part will use the knowledge you have gained from the :doc:`tutorial about parameters <../Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters>` and apply it to the node you have just created.
+This part will use the knowledge you have gained from the :doc:`tutorial about parameters <../../parameters/Working-with-parameters/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters>` and apply it to the node you have just created.
 
 Make sure the node is running:
 
@@ -430,10 +431,10 @@ You added the dependencies, executables, and a launch file to the package config
 Next steps
 ----------
 
-Now that you have some packages and ROS 2 systems of your own, the :doc:`next tutorial <./Getting-Started-With-Ros2doctor>` will show you how to examine issues in your environment and systems in case you have problems.
+Now that you have some packages and ROS 2 systems of your own, the :doc:`next tutorial <Getting-Started-With-Ros2doctor>` will show you how to examine issues in your environment and systems in case you have problems.
 
 Related content
 ---------------
 
 * For more detailed information about using YAML files to load parameters, please refer to :ref:`this section <Parameters>` of Managing large projects tutorial.
-* If you want to learn, how to monitor and respond to parameter changes, check out :doc:`Monitoring for parameter changes (C++) <../Intermediate/Monitoring-For-Parameter-Changes-CPP>` tutorial.
+* If you want to learn, how to monitor and respond to parameter changes, check out :doc:`Monitoring for parameter changes (C++) <../../parameters/Working-with-parameters/Monitoring-For-Parameter-Changes-CPP>` tutorial.

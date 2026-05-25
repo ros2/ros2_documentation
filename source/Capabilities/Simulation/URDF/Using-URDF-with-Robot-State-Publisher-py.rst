@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Tutorials/URDF/Using-URDF-with-Robot-State-Publisher
+    Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher-py
 
 .. _URDFPlusRSPPYTHON:
 
@@ -32,7 +33,7 @@ Prerequisites
 
 - `rviz2 <https://index.ros.org/p/rviz2/>`__
 
-As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
+As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../../../Get-Started/Configuring-ROS2-Environment>`.
 
 Tasks
 -----

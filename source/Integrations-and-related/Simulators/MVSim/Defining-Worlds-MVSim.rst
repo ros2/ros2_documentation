@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Advanced/Simulators/MVSim/Defining-Worlds-MVSim
+
 Defining worlds, robots, and sensors
 =====================================
 

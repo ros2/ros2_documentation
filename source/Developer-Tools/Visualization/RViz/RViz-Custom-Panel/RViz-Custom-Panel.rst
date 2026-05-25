@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Intermediate/RViz/RViz-Custom-Panel/RViz-Custom-Panel
+
 Building a Custom RViz Panel
 ============================
 

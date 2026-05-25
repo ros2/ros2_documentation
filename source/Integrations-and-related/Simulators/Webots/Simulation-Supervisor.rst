@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor
+
 The Ros2Supervisor Node
 =======================
 
@@ -23,9 +27,9 @@ Prerequisites
 
 Before proceeding with this tutorial, make sure you have completed the following:
 
-- Understanding of ROS 2 nodes and topics covered in the beginner :doc:`../../../../Tutorials`.
+- Understanding of ROS 2 nodes and topics covered in the beginner :doc:`../../../Tutorials`.
 - Knowledge of Webots and ROS 2 and its interface package.
-- Familiarity with :doc:`./Setting-Up-Simulation-Webots-Basic`.
+- Familiarity with :doc:`Setting-Up-Simulation-Webots-Basic`.
 
 The ``Ros2Supervisor``
 ----------------------
@@ -68,7 +72,7 @@ The ``webots._supervisor`` object must also be included in the ``LaunchDescripti
         )
     ])
 
-More information about launch files for ``webots_ros2`` projects can be found in :doc:`./Setting-Up-Simulation-Webots-Basic`.
+More information about launch files for ``webots_ros2`` projects can be found in :doc:`Setting-Up-Simulation-Webots-Basic`.
 
 Clock topic
 -----------

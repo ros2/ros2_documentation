@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Advanced/Simulators/Webots/Simulation-Webots
+
 Webots
 ======
 

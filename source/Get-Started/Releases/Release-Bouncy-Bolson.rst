@@ -1,6 +1,7 @@
 .. redirect-from::
 
   Release-Bouncy-Bolson
+  Releases/Release-Bouncy-Bolson
 
 Bouncy Bolson (``bouncy``)
 ==========================

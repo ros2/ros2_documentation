@@ -1,6 +1,7 @@
 .. redirect-from::
 
    Concepts/About-Executors
+   Concepts/Intermediate/About-Executors
 
 Executors
 =========
@@ -57,7 +58,7 @@ The *wait set* is also used to detect when timers expire.
 
 .. image:: ../images/executors_basic_principle.png
 
-The Single-Threaded Executor is also used by the container process for :doc:`components <./About-Composition>`, i.e. in all cases where nodes are created and executed without an explicit main function.
+The Single-Threaded Executor is also used by the container process for :doc:`components <../../nodes/About-Composition>`, i.e. in all cases where nodes are created and executed without an explicit main function.
 
 .. _TypesOfExecutors:
 
@@ -178,7 +179,7 @@ There are two types of callback groups, where the type has to be specified at in
 
 Callbacks of different callback groups may always be executed in parallel.
 The Multi-Threaded Executor uses its threads as a pool to process as many callbacks as possible in parallel according to these conditions.
-For tips on how to use callback groups efficiently, see :doc:`Using Callback Groups <../../How-To-Guides/Using-callback-groups>`.
+For tips on how to use callback groups efficiently, see :doc:`Using Callback Groups <../../nodes/Working-with-nodes/Using-callback-groups>`.
 
 The Executor base class in rclcpp also has the function ``add_callback_group(..)``, which allows distributing callback groups to different Executors.
 By configuring the underlying threads using the operating system scheduler, specific callbacks can be prioritized over other callbacks.

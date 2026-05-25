@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Tutorials/Security/Access-Controls
+    Tutorials/Advanced/Security/Access-Controls
 
 .. _Access-Controls:
 

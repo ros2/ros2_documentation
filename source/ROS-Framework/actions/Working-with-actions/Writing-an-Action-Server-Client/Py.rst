@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Tutorials/Actions/Writing-a-Py-Action-Server-Client
+    Tutorials/Intermediate/Writing-an-Action-Server-Client/Py
 
 .. _ActionsPy:
 

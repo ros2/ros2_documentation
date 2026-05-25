@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    How-To-Guides/Releasing/First-Time-Release
+
 First Time Release
 ==================
 

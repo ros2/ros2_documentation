@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Releases/Iron-Irwini-Complete-Changelog
+
 Iron Irwini Changelog
 =====================
 

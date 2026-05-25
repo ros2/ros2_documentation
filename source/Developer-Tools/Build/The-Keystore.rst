@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Tutorials/Security/The-Keystore
+    Tutorials/Advanced/Security/The-Keystore
 
 .. _The-Keystore:
 

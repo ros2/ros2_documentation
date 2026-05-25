@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Advanced/ROS2-Tracing-Trace-and-Analyze
+
 How to use ros2_tracing to trace and analyze an application
 ===========================================================
 
@@ -16,13 +20,13 @@ Prerequisites
 -------------
 
 This tutorial is aimed at real-time Linux systems.
-See the :doc:`real-time system setup tutorial <../Miscellaneous/Building-Realtime-rt_preempt-kernel-for-ROS-2>`.
+See the :doc:`real-time system setup tutorial <../../../Tutorials/Miscellaneous/Building-Realtime-rt_preempt-kernel-for-ROS-2>`.
 However, the tutorial will work if you are using a non-real-time Linux system.
 
 Installing and building
 -----------------------
 
-Install ROS 2 on Linux by following the :doc:`installation instructions <../../Installation>`.
+Install ROS 2 on Linux by following the :doc:`installation instructions <../../../Get-Started/Installation>`.
 
 .. note::
 

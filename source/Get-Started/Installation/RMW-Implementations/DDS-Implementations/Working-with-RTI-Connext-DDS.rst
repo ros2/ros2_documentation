@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Installation/RMW-Implementations/DDS-Implementations/Working-with-RTI-Connext-DDS
+
 RTI Connext DDS
 =================
 
@@ -139,7 +143,7 @@ Set the environment variable ``RMW_IMPLEMENTATION`` to tell ROS 2 which RMW to u
 
    $ export RMW_IMPLEMENTATION=rmw_connextdds
 
-See also: :doc:`Working with multiple RMW implementations <../../../How-To-Guides/Working-with-multiple-RMW-implementations>`
+See also: :doc:`Working with multiple RMW implementations <../Working-with-multiple-RMW-implementations>`
 
 Run the talker and listener
 ---------------------------

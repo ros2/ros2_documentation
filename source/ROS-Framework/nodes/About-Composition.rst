@@ -1,6 +1,7 @@
 .. redirect-from::
 
    Concepts/About-Composition
+   Concepts/Intermediate/About-Composition
 
 Composition
 ===========
@@ -29,7 +30,7 @@ Having different APIs, which was the biggest drawback in ROS 1, is avoided in RO
 By making the process layout a deploy-time decision the user can choose between:
 
 * running multiple nodes in separate processes with the benefits of process/fault isolation as well as easier debugging of individual nodes and
-* running multiple nodes in a single process with the lower overhead and optionally more efficient communication (see :doc:`Intra Process Communication <../../Tutorials/Demos/Intra-Process-Communication>`).
+* running multiple nodes in a single process with the lower overhead and optionally more efficient communication (see :doc:`Intra Process Communication <Working-with-nodes/intra-process/Intra-Process-Communication>`).
 
 Additionally ``ros2 launch`` can be used to automate these actions through specialized launch actions.
 
@@ -85,7 +86,7 @@ Additionally, once a component is created, it must be registered with the index 
    # To register multiple components in the same shared library, use multiple calls
    # rclcpp_components_register_nodes(talker_component "composition::Talker2")
 
-For an example, :doc:`check out this tutorial <../../Tutorials/Intermediate/Writing-a-Composable-Node>`
+For an example, :doc:`check out this tutorial <Working-with-nodes/Writing-a-Composable-Node>`
 
 .. note::
 
@@ -134,4 +135,4 @@ The three most common ones are:
 Practical application
 ---------------------
 
-Try the :doc:`Composition demos <../../Tutorials/Intermediate/Composition>`.
+Try the :doc:`Composition demos <Working-with-nodes/Composition>`.

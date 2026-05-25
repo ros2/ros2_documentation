@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Tutorials/Actions/Writing-a-Cpp-Action-Server-Client
+    Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp
 
 .. _ActionsCpp:
 
@@ -36,7 +37,7 @@ Tasks
 1 Creating the custom_action_cpp package
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-As we saw in the :doc:`../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package` tutorial, we need to create a new package to hold our C++ and supporting code.
+As we saw in the :doc:`../../../client-libraries/Working-with-Client-Libraries/Creating-Your-First-ROS2-Package` tutorial, we need to create a new package to hold our C++ and supporting code.
 
 1.1 Creating the custom_action_cpp package
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

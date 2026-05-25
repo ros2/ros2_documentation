@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Tutorials/Workspace/Creating-A-Workspace
+    Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace
 
 .. _ROS2Workspace:
 
@@ -33,11 +34,11 @@ It's also possible to have several layers of underlays and overlays, with each s
 Prerequisites
 -------------
 
-* :doc:`ROS 2 installation <../../../Installation>`
+* :doc:`ROS 2 installation <../../../../Get-Started/Installation>`
 * :doc:`colcon installation <../Colcon-Tutorial>`
 * `git installation <https://git-scm.com/book/en/v2/Getting-Started-Installing-Git>`__
-* :doc:`turtlesim installation <../../Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim>`
-* Have :doc:`rosdep installed <../../Intermediate/Rosdep>`
+* :doc:`turtlesim installation <../../../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>`
+* Have :doc:`rosdep installed <../Rosdep>`
 * Understanding of basic terminal commands (`here's a guide for Linux <https://www2.cs.sfu.ca/~ggbaker/reference/unix/>`__)
 * Text editor of your choice
 
@@ -74,7 +75,7 @@ Depending on how you installed ROS 2 (from source or binaries), and which platfo
 
         $ call C:\dev\ros2\local_setup.bat
 
-Consult the :doc:`installation guide <../../../Installation>` you followed if these commands don't work for you.
+Consult the :doc:`installation guide <../../../../Get-Started/Installation>` you followed if these commands don't work for you.
 
 .. _new-directory:
 
@@ -120,7 +121,7 @@ Ensure you're still in the ``ros2_ws/src`` directory before you clone.
 
 In the rest of the beginner developer tutorials, you will create your own packages, but for now you will practice putting a workspace together using existing packages.
 
-If you went through the :doc:`Beginner: CLI Tools <../../Beginner-CLI-Tools>` tutorials, you'll be familiar with ``turtlesim``, one of the packages in `ros_tutorials <https://github.com/ros/ros_tutorials/>`__.
+If you went through the :doc:`Beginner: CLI Tools <../../../../Tutorials/Beginner-CLI-Tools>` tutorials, you'll be familiar with ``turtlesim``, one of the packages in `ros_tutorials <https://github.com/ros/ros_tutorials/>`__.
 
 A repo can have multiple branches.
 You need to check out the one that targets your installed ROS 2 distro.

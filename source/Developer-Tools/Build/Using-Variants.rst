@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    How-To-Guides/Using-Variants
+
 Using variants
 ==============
 

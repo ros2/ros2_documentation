@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Tutorials/Content-Filtering-Subscription
+    Tutorials/Demos/Content-Filtering-Subscription
 
 Creating a content filtering subscription
 =========================================
@@ -48,7 +49,7 @@ That means that the supported filtering expressions and parameters are also depe
 Installing the demo
 -------------------
 
-See the :doc:`installation instructions <../../Installation>` for details on installing ROS 2.
+See the :doc:`installation instructions <../../../Get-Started/Installation>` for details on installing ROS 2.
 
 If you've installed ROS 2 from packages, ensure that you have ``ros-{DISTRO}-demo-nodes-cpp`` installed.
 If you downloaded the archive or built ROS 2 from source, it will already be part of the installation.

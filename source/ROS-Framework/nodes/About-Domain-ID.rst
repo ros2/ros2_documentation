@@ -1,6 +1,7 @@
 .. redirect-from::
 
    Concepts/About-Domain-ID
+   Concepts/Intermediate/About-Domain-ID
 
 The ROS_DOMAIN_ID
 =================

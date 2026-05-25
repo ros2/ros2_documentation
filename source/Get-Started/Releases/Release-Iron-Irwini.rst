@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Releases/Release-Iron-Irwini
+
 .. _iron-release:
 
 Iron Irwini (``iron``)
@@ -949,7 +953,7 @@ In Iron, the tracing instrumentation and tracepoints are included by default; th
 Note that this only applies to Linux.
 
 See https://github.com/ros2/ros2_tracing/pull/31 and https://github.com/ros2/ros2/issues/1177 for more information.
-See :doc:`this how-to guide to remove the instrumentation (or add the instrumentation with Humble and older) <../How-To-Guides/Building-ROS-2-with-Tracing>`.
+See :doc:`this how-to guide to remove the instrumentation (or add the instrumentation with Humble and older) <../../Developer-Tools/Debugging/Building-ROS-2-with-Tracing>`.
 
 New tracepoints for ``rclcpp`` intra-process are added
 """"""""""""""""""""""""""""""""""""""""""""""""""""""

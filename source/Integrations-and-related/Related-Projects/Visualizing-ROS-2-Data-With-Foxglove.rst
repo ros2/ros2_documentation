@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Visualizing-ROS-2-Data-With-Foxglove-Studio
+    Related-Projects/Visualizing-ROS-2-Data-With-Foxglove
 
 Visualizing ROS 2 data with Foxglove
 ====================================
@@ -55,7 +56,7 @@ View and replay recorded data
 If you'd rather visualize recorded data, you can use Foxglove to replay ROS 2 ``.mcap`` as well as older ROS 2 ``.db3``, and ROS 1 ``.bag`` files.
 Foxglove is particularly convenient for recorded data because it does not require ROS 2 to be running to view data.
 
-Use the :doc:`ros2 bag command line tool <../Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data>` to record data from your robot to a ``.mcap`` file:
+Use the :doc:`ros2 bag command line tool <../../ROS-Framework/interfaces/Working-with-interfaces/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data>` to record data from your robot to a ``.mcap`` file:
 
 .. code-block:: console
 

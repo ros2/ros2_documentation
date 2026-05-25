@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Releases/End-of-Life
+
 End-of-Life Distributions
 =========================
 

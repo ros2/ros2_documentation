@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    How-To-Guides/Documenting-a-ROS-2-Package
+
 Documenting a ROS 2 package
 ###########################
 
@@ -8,7 +12,7 @@ Documenting a ROS 2 package
 
 This guide introduces the standard way to create documentation for ROS 2 packages.
 For packages with binary releases this also results in the docs being hosted at ``docs.ros.org/en/<distro>/p/<package>/``.
-For information on how to contribute to this documentation on docs.ros.org, see :doc:`Contributing to ROS 2 Documentation <../The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation>`.
+For information on how to contribute to this documentation on docs.ros.org, see :doc:`Contributing to ROS 2 Documentation <../../The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation>`.
 
 Prerequisites
 -------------

@@ -2,6 +2,7 @@
 
     Intra-Process-Communication
     Tutorials/Intra-Process-Communication
+    Tutorials/Demos/Intra-Process-Communication
 
 Setting up efficient intra-process communication
 ================================================
@@ -23,7 +24,7 @@ In this demo we'll be highlighting how nodes can be composed manually, by defini
 Installing the demos
 --------------------
 
-See the :doc:`installation instructions <../../Installation>` for details on installing ROS 2.
+See the :doc:`installation instructions <../../../../Get-Started/Installation>` for details on installing ROS 2.
 
 If you've installed ROS 2 from packages, ensure that you have ``ros-{DISTRO}-intra-process-demo`` installed.
 If you downloaded the archive or built ROS 2 from source, it will already be part of the installation.

@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Tutorials/Tf2/Quaternion-Fundamentals
+    Tutorials/Intermediate/Tf2/Quaternion-Fundamentals
 
 .. _QuaternionFundamentals:
 

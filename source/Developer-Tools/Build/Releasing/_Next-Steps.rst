@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    How-To-Guides/Releasing/_Next-Steps
+
 Once your pull request has been submitted, usually within one or two days, one of the maintainers of rosdistro will review and merge your Pull Request.
 If your package build is successful, in 24-48 hours your packages will become available in the **ros-testing** repository, where you can :doc:`test your pre-release binaries <../../../Installation/Testing>`.
 

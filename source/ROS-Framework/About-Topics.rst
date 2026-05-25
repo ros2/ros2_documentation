@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Concepts/Basic/About-Topics
+
 Topics
 ======
 .. toctree::
@@ -60,4 +64,3 @@ That has two meanings in this context:
    There is no automated mechanism to ensure this, but all of the core ROS types have strong semantics associated with them.
    For instance, the IMU message contains a 3-dimensional vector for the measured angular velocity, and each of the dimensions is specified to be in radians/second.
    Other interpretations should not be placed into the message.
-

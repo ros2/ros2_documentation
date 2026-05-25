@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Tutorials/Turtlesim/Introducing-Turtlesim
+    Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim
 
 .. _Turtlesim:
 
@@ -263,7 +264,7 @@ Using turtlesim and rqt is a great way to learn the core concepts of ROS 2.
 Next steps
 ----------
 
-Now that you have turtlesim and rqt up and running, and an idea of how they work, let's dive into the first core ROS 2 concept with the next tutorial, :doc:`../Understanding-ROS2-Nodes/Understanding-ROS2-Nodes`.
+Now that you have turtlesim and rqt up and running, and an idea of how they work, let's dive into the first core ROS 2 concept with the next tutorial, :doc:`../../ROS-Framework/nodes/Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes`.
 
 Related content
 ---------------

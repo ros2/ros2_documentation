@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Related-Projects/Nvidia-ROS2-Projects
+
 NVIDIA ROS 2 Projects
 =====================
 

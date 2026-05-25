@@ -2,6 +2,7 @@
 
     dummy-robot-demo
     Tutorials/dummy-robot-demo
+    Tutorials/Demos/dummy-robot-demo
 
 Experimenting with a dummy robot
 ================================

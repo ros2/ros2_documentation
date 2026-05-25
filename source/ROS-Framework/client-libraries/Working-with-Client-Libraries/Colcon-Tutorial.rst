@@ -4,6 +4,7 @@
 
     Colcon-Tutorial
     Tutorials/Colcon-Tutorial
+    Tutorials/Beginner-Client-Libraries/Colcon-Tutorial
 
 Using ``colcon`` to build packages
 ==================================
@@ -61,7 +62,7 @@ Install ROS 2
 
 To build the samples, you will need to install ROS 2.
 
-Follow the :doc:`installation instructions <../../Installation>`.
+Follow the :doc:`installation instructions <../../../Get-Started/Installation>`.
 
 .. attention:: If installing from deb packages, this tutorial requires the :ref:`desktop installation <linux-install-debs-install-ros-2-packages>`.
 
@@ -149,7 +150,7 @@ Source an underlay
 ^^^^^^^^^^^^^^^^^^
 
 It is important that we have sourced the environment for an existing ROS 2 installation that will provide our workspace with the necessary build dependencies for the example packages.
-This is achieved by sourcing the setup script provided by a binary installation or a source installation, i.e. another colcon workspace (see :doc:`Installation <../../Installation>`).
+This is achieved by sourcing the setup script provided by a binary installation or a source installation, i.e. another colcon workspace (see :doc:`Installation <../../../Get-Started/Installation>`).
 We call this environment an **underlay**.
 
 Our workspace, ``ros2_ws``, will be an **overlay** on top of the existing ROS 2 installation.
@@ -308,7 +309,7 @@ An example of an ``ament_python`` build is the `ament_index_python package <http
 A package such as `demo_nodes_cpp <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/demo_nodes_cpp>`__ uses the ``ament_cmake`` build type, and uses CMake as the build tool.
 
 For convenience, you can use the tool ``ros2 pkg create`` to create a new package based on a template.
-A full description of creating a package and how to use ``ros2 pkg create`` is in the upcoming tutorial :doc:`create a package <./Creating-Your-First-ROS2-Package>`.
+A full description of creating a package and how to use ``ros2 pkg create`` is in the upcoming tutorial :doc:`create a package <Creating-Your-First-ROS2-Package>`.
 
 .. note:: For ``catkin`` users, this is the equivalent of ``catkin_create_package``.
 

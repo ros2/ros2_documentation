@@ -1,6 +1,7 @@
 .. redirect-from::
 
    Concepts/About-Build-System
+   Concepts/Advanced/About-Build-System
 
 The build system
 ================
@@ -112,7 +113,7 @@ Here a list of the |packages| in the repository along with a short description:
 -  ``ament_cmake_python``
 
    - provides CMake functions for |packages| that contain Python code
-   - see the :doc:`ament_cmake_python user documentation <../../How-To-Guides/Ament-CMake-Python-Documentation>`
+   - see the :doc:`ament_cmake_python user documentation <Ament-CMake-Python-Documentation>`
 
 -  ``ament_cmake_test``
 
