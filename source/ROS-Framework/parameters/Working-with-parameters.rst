@@ -2,7 +2,7 @@
 .. _RollingInstall:
 
 Working with parameters
-============
+=======================
 
 PLACEHOLDER
 

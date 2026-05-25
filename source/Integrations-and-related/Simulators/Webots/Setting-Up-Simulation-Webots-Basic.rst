@@ -5,7 +5,7 @@
     Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Basic
 
 Setting up a robot simulation (Basic)
-======================================
+=====================================
 
 **Goal:** Setup a robot simulation and control it from ROS 2.
 

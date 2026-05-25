@@ -3,7 +3,7 @@
     Tutorials/Advanced/Simulators/MVSim/Defining-Worlds-MVSim
 
 Defining worlds, robots, and sensors
-=====================================
+====================================
 
 **Goal:** Learn the basics of defining MVSim world files, adding vehicles and sensors, and the main features available.
 

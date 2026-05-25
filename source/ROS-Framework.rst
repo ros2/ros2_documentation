@@ -2,7 +2,7 @@
 .. _RollingInstall:
 
 ROS framework
-============
+=============
 
 PLACEHOLDER
 

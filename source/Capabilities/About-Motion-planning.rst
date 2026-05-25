@@ -1,5 +1,5 @@
 Motion planning
-=======
+===============
 
 .. toctree::
    :maxdepth: 1

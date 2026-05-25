@@ -1,5 +1,5 @@
 Introspection and analysis
-=======
+==========================
 
 PLACEHOLDER
 

@@ -2,7 +2,7 @@
 .. _RollingInstall:
 
 Working with services
-============
+=====================
 
 PLACEHOLDER
 

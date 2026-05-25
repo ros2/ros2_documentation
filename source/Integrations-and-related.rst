@@ -1,6 +1,6 @@
 
 Integrations and related projects
-============
+=================================
 
 PLACEHOLDER
 

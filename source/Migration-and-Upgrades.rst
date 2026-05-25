@@ -1,5 +1,5 @@
 Migration and Upgrades
-=====================
+======================
 
 PLACEHOLDER
 

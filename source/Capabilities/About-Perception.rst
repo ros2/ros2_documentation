@@ -1,5 +1,5 @@
 Perception
-=======
+==========
 
 .. toctree::
    :maxdepth: 1

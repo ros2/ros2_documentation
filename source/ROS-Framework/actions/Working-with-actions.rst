@@ -2,7 +2,7 @@
 .. _RollingInstall:
 
 Working with actions
-============
+====================
 
 PLACEHOLDER
 

@@ -3,7 +3,7 @@
     Tutorials/Advanced/Simulators/Webots/Installation-Windows
 
 Installation (Windows)
-======================================
+======================
 
 **Goal:** Install the ``webots_ros2`` package and run simulation examples on Windows.
 

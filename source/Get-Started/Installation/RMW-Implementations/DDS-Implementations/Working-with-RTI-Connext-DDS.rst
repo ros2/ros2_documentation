@@ -3,7 +3,7 @@
     Installation/RMW-Implementations/DDS-Implementations/Working-with-RTI-Connext-DDS
 
 RTI Connext DDS
-=================
+===============
 
 RTI Connext DDS is trusted in over 2000 of the world's most demanding system designs, distributing critical real-time data with the highest levels of performance, reliability, and security.
 It is free-of-charge for prototyping, research, non-commercial and academic use.

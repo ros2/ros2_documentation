@@ -1,5 +1,5 @@
 Working with Client libraries
-==========================
+=============================
 
 .. toctree::
    :maxdepth: 1

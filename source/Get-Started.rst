@@ -2,7 +2,7 @@
 .. _RollingInstall:
 
 Get started
-============
+===========
 
 PLACEHOLDER
 
