@@ -86,6 +86,14 @@ When you feel comfortable enough to suggest a specific change directly to the co
 Pull requests are welcome for any of `the ros2 repositories <https://github.com/ros2>`__.
 See the :doc:`Contributing <The-ROS2-Project/Contributing>` page for more details and etiquette on how to contribute.
 
+Step-by-step guides:
+
+* :doc:`Making a Pull Request <The-ROS2-Project/Contributing/Making-A-Pull-Request>`
+* :doc:`Reviewing a Pull Request <The-ROS2-Project/Contributing/Reviewing-A-Pull-Request>`
+* :doc:`Reporting an Issue <The-ROS2-Project/Contributing/Reporting-An-Issue>`
+* :doc:`Triaging an Issue <The-ROS2-Project/Contributing/Triaging-An-Issue>`
+* :doc:`Community Contributing <The-ROS2-Project/Contributing/Community-Contributing>`
+
 .. _Using ROS Discourse:
 
 Discussion
