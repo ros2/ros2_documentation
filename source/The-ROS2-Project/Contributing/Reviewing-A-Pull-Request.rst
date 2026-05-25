@@ -7,7 +7,8 @@ Reviewing a Pull Request
    :depth: 1
    :local:
 
-Anyone can review a PR. You do not need to be a maintainer.
+Anyone can review a PR.
+You do not need to be a maintainer.
 
 Finding PRs to review
 ---------------------
