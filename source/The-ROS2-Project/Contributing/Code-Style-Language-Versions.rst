@@ -38,6 +38,7 @@ Summary
    * - CMake
      - 3.14.4 minimum
      - ROS 2 internal style guide
+
 For example, everyone should have a PEP8 checker built into their editor to cut down on review iterations related to style.
 
 Also where possible, packages should check style as part of their unit tests to help with the automated detection of style issues (see `ament_lint_auto <https://github.com/ament/ament_lint/blob/{REPOS_FILE_BRANCH}/ament_lint_auto/doc/index.rst>`__).
