@@ -46,17 +46,17 @@ Getting started
 
   - Instructions to set up ROS 2 for the first time
 
-* :doc:`Tutorials <Tutorials>`
+* :doc:`First-Steps`
 
   - The best place to start for new users!
   - Hands-on sample projects that help you build a progression of necessary skills
 
-* :doc:`How-To-Guides`
+* :doc:`Developer-Tools`
 
   - Quick answers to your "How do I...?"
-    questions without working through the :doc:`Tutorials <Tutorials>`
+    questions without working through the tutorials
 
-* :doc:`Concepts <Concepts>`
+* :doc:`Capabilities <Capabilities>`
 
   - High-level explanations of core ROS 2 concepts covered in the :doc:`Tutorials <Tutorials>`
 
@@ -65,7 +65,7 @@ Getting started
   - Answers to your questions or a forum to start a discussion
 
 
-The ROS 2 project
+The ROS 2 Community
 -----------------
 
 If you're interested in the advancement of the ROS 2 project:

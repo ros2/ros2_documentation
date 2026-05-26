@@ -12,5 +12,6 @@ PLACEHOLDER
    Get-Started/About-ROS
    Get-Started/Installation
    Get-Started/Releases
+   Get-Started/First-Steps
    Get-Started/Configuring-ROS2-Environment
    Get-Started/Introducing-Turtlesim/Introducing-Turtlesim
