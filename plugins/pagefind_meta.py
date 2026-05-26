@@ -1,12 +1,10 @@
 # Copyright 2026 Open Robotics — Pagefind metadata for ROS 2 documentation
 """
 Emit SEO <meta> tags, Pagefind ``data-pagefind-meta``, and ``data-pagefind-filter``
-from every ``.. meta::`` field on the page (passthrough, no whitelist).
+from ``.. meta::`` fields on each page.
 
-Sphinx / the HTML theme typically also emits plain ``<meta>`` tags for the same
-``.. meta::`` fields. We intentionally emit an additional block with
-``data-pagefind-filter`` (and split comma-separated values) so Pagefind faceting
-works; crawlers may see duplicate name/content pairs for non-split fields.
+Only keys in ``pagefind_result_meta_order`` receive ``data-pagefind-filter`` (facet
+sidebar + filtering). Other meta fields are plain ``<meta>`` for SEO only.
 """
 
 from __future__ import annotations
@@ -17,8 +15,11 @@ from pathlib import PurePosixPath
 from typing import Any, Dict, List, Optional, Tuple
 
 from docutils import nodes
+from sphinx.util import logging
 
 from meta_util import all_doctree_meta, expand_all_meta_values, split_meta_values
+
+logger = logging.getLogger(__name__)
 
 
 def _macros_flat(app) -> Dict[str, str]:
@@ -36,15 +37,44 @@ def _default_filter_label(key: str) -> str:
     return spaced.replace('_', ' ').replace('-', ' ').strip().title()
 
 
-def _metadata_fields_for_keys(app, sorted_keys: List[str]) -> List[List[str]]:
-    labels = getattr(app.config, 'pagefind_filter_labels', None) or {}
-    out: List[List[str]] = []
-    for k in sorted_keys:
-        if isinstance(labels, dict) and labels.get(k):
-            lbl = str(labels[k])
-        else:
-            lbl = _default_filter_label(k)
-        out.append([k, lbl])
+def _parse_result_meta_fields(app) -> List[Dict[str, str]]:
+    """Build ordered ``{key, label}`` list from ``pagefind_result_meta_order`` (dict or legacy list)."""
+    raw = getattr(app.config, 'pagefind_result_meta_order', None) or {}
+    out: List[Dict[str, str]] = []
+
+    if isinstance(raw, dict):
+        for key, label in raw.items():
+            k = str(key).strip()
+            if not k:
+                continue
+            lbl = str(label).strip() if label is not None else ''
+            out.append({'key': k, 'label': lbl or _default_filter_label(k)})
+        return out
+
+    if isinstance(raw, (list, tuple)):
+        logger.warning(
+            'pagefind_result_meta_order should be a dict mapping field names to labels; '
+            'list form is deprecated.',
+            type='pagefind',
+        )
+        for item in raw:
+            k = str(item).strip()
+            if k:
+                out.append({'key': k, 'label': _default_filter_label(k)})
+    return out
+
+
+def _facet_key_set(app) -> set[str]:
+    return {field['key'] for field in _parse_result_meta_fields(app)}
+
+
+def _facet_filter_keys_for_context(app, env) -> List[str]:
+    """Configured facet keys that appear in at least one document's ``.. meta::``, in dict order."""
+    corpus = set(_union_meta_keys(env))
+    out: List[str] = []
+    for field in _parse_result_meta_fields(app):
+        if field['key'] in corpus:
+            out.append(field['key'])
     return out
 
 
@@ -58,17 +88,21 @@ def _pagefind_data_meta_attr(values: Dict[str, str]) -> str:
     return html.escape(inner, quote=True)
 
 
-def _seo_and_filter_metas(values: Dict[str, str]) -> str:
-    """One <meta> per value: SEO name/content + data-pagefind-filter (Pagefind filtering docs)."""
+def _seo_and_filter_metas(app, values: Dict[str, str]) -> str:
+    """One <meta> per value; ``data-pagefind-filter`` only for ``pagefind_result_meta_order`` keys."""
+    facet_keys = _facet_key_set(app)
     lines: List[str] = []
     for key in sorted(values.keys()):
         esc_name = html.escape(key, quote=True)
         for value in split_meta_values(values.get(key, '')):
             esc_val = html.escape(value, quote=True)
-            lines.append(
-                f'<meta name="{esc_name}" content="{esc_val}" '
-                f'data-pagefind-filter="{esc_name}[content]">'
-            )
+            if key in facet_keys:
+                lines.append(
+                    f'<meta name="{esc_name}" content="{esc_val}" '
+                    f'data-pagefind-filter="{esc_name}[content]">'
+                )
+            else:
+                lines.append(f'<meta name="{esc_name}" content="{esc_val}">')
     return '\n    '.join(lines)
 
 
@@ -193,9 +227,9 @@ def _html_page_context(
     context: Dict[str, Any],
     doctree,
 ) -> None:
-    sorted_keys = _union_meta_keys(app.env)
-    metadata_fields = _metadata_fields_for_keys(app, sorted_keys)
-    filter_csv = ','.join(sorted_keys)
+    facet_keys_ordered = _facet_filter_keys_for_context(app, app.env)
+    filter_csv = ','.join(facet_keys_ordered)
+    result_meta_fields = _parse_result_meta_fields(app)
 
     empty = {
         'pagefind_seo_filter_metas': '',
@@ -205,10 +239,7 @@ def _html_page_context(
         'pagefind_component_js': './pagefind/pagefind-component-ui.js',
         'pagefind_merge_index': [],
         'pagefind_filter_keys_csv': filter_csv,
-        'pagefind_metadata_fields': metadata_fields,
-        'pagefind_result_meta_order': list(
-            getattr(app.config, 'pagefind_result_meta_order', []) or []
-        ),
+        'pagefind_result_meta_fields': result_meta_fields,
         'pagefind_search_results_href': 'search.html',
     }
     context.update(empty)
@@ -221,12 +252,16 @@ def _html_page_context(
     default_distro = (getattr(app.config, 'macros', {}) or {}).get('DISTRO', 'rolling')
     values = _resolved_page_meta(app, doctree)
 
-    seo_filters = _seo_and_filter_metas(values)
+    seo_filters = _seo_and_filter_metas(app, values)
     data_attr = _pagefind_data_meta_attr(values)
     css_href, js_href = _pagefind_component_urls(app, pagename)
     bundle_prefix = _pagefind_bundle_prefix(app, pagename)
 
-    merge_distro = values.get('distro') or str(default_distro)
+    merge_distro = (
+        values.get('distro')
+        or values.get('distribution')
+        or str(default_distro)
+    )
     merge = _merge_index_entries(app, merge_distro)
     context['pagefind_seo_filter_metas'] = seo_filters
     context['pagefind_data_meta_attr'] = data_attr
@@ -244,8 +279,7 @@ def setup(app) -> Dict[str, Any]:
     app.add_config_value('pagefind_merge_index_overrides', default={}, rebuild='html')
     app.add_config_value('pagefind_merge_filter_per_pkg', default=None, rebuild='html')
     app.add_config_value('pagefind_merge_index_weight_per_pkg', default=None, rebuild='html')
-    app.add_config_value('pagefind_filter_labels', default={}, rebuild='html')
-    app.add_config_value('pagefind_result_meta_order', default=[], rebuild='html')
+    app.add_config_value('pagefind_result_meta_order', default={}, rebuild='html')
 
     app.connect('html-page-context', _html_page_context)
     app.connect('doctree-resolved', _collect_meta_keys)

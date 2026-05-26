@@ -4,6 +4,8 @@ Migrating Interfaces
 .. meta::
    :area: framework
    :experience: beginner, intermediate
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
 
 .. contents:: Table of Contents
    :depth: 2

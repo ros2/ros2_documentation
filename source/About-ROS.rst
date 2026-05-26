@@ -18,8 +18,8 @@ About ROS
    This article introduces the main areas of the ecosystem and outlines their intended use.
 
 .. showmeta::
-   :order: product, distro, area, capability, contentType, experience
-   :labels: product=Product, distro=Distribution, area=Area, capability=Capability, contentType=Content type, experience=Level
+   :order: area, capability, contentType, experience
+   :labels: area=Area, capability=Capability, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2

@@ -7,6 +7,8 @@
 .. meta::
    :area: framework
    :experience: beginner, intermediate
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
 
 Creating a workspace
 ====================

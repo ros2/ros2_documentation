@@ -50,8 +50,7 @@
     },
     true,
   );
-  const metadataFields = {{ pagefind_metadata_fields|tojson }};
-  const metaDisplayOrder = {{ pagefind_result_meta_order|tojson }};
+  const resultMetaFields = {{ pagefind_result_meta_fields|tojson }};
   const excerptCache = new Map();
   const pageMetaCache = new Map();
   const decoratedExcerptItems = new WeakSet();
@@ -143,21 +142,13 @@
   }
 
   function orderedMetaKeys() {
-    const known = new Set();
-    const keys = [];
-    metaDisplayOrder.forEach((key) => {
-      if (key && !known.has(key)) {
-        known.add(key);
-        keys.push(key);
-      }
-    });
-    metadataFields.forEach(([key]) => {
-      if (key && !known.has(key)) {
-        known.add(key);
-        keys.push(key);
-      }
-    });
-    return keys;
+    return resultMetaFields.map((field) => field.key).filter(Boolean);
+  }
+
+  function labelForMetaKey(key) {
+    const field = resultMetaFields.find((f) => f.key === key);
+    const label = (field?.label || '').trim();
+    return label || pascalCaseMetaKeyLabel(key);
   }
 
   function getIndexedMetaValue(indexed, key) {
@@ -233,7 +224,7 @@
         block.appendChild(document.createTextNode(' | '));
       }
       const nameEl = document.createElement('b');
-      nameEl.textContent = `${pascalCaseMetaKeyLabel(key)}:`;
+      nameEl.textContent = `${labelForMetaKey(key)}:`;
       block.appendChild(nameEl);
       block.appendChild(document.createTextNode(` ${titleCaseMetaValue(value)}`));
     });
@@ -333,7 +324,191 @@
   }
 
   const shadowMetaObservedHosts = new WeakSet();
+  const facetPaneObserved = new WeakSet();
   let refreshMetaRaf = null;
+  let facetPaneRefreshRaf = null;
+  let facetPaneListenerRegistered = false;
+
+  function filterKeyInTotalFilters(key, totalFilters) {
+    if (!key || !totalFilters || typeof totalFilters !== 'object') {
+      return false;
+    }
+    if (Object.prototype.hasOwnProperty.call(totalFilters, key)) {
+      return true;
+    }
+    const lower = String(key).toLowerCase();
+    return Object.keys(totalFilters).some((k) => k.toLowerCase() === lower);
+  }
+
+  function isConfiguredFacetKey(key) {
+    const lower = String(key || '').toLowerCase();
+    return resultMetaFields.some((f) => f.key && f.key.toLowerCase() === lower);
+  }
+
+  function resolveFilterKeyFromGroup(el, totalFilters) {
+    if (!(el instanceof HTMLElement)) {
+      return null;
+    }
+    if (el.dataset.rosPfFilterKey) {
+      return el.dataset.rosPfFilterKey;
+    }
+    const attr = el.getAttribute('data-pf-filter') || el.getAttribute('data-filter');
+    if (attr) {
+      return attr;
+    }
+    const summary = el.querySelector('summary, button');
+    const text = (summary?.textContent || '').trim();
+    if (!text) {
+      return null;
+    }
+    for (const field of resultMetaFields) {
+      if (field.key && text.toLowerCase() === field.key.toLowerCase()) {
+        return field.key;
+      }
+      if (field.label && text.toLowerCase() === field.label.toLowerCase()) {
+        return field.key;
+      }
+    }
+    for (const k of Object.keys(totalFilters || {})) {
+      if (text.toLowerCase() === k.toLowerCase()) {
+        return k;
+      }
+    }
+    return null;
+  }
+
+  function collectFilterGroups(shadowRoot) {
+    const details = [...shadowRoot.querySelectorAll('details')];
+    if (details.length) {
+      return details;
+    }
+    const tagged = [...shadowRoot.querySelectorAll('[data-pf-filter], [data-filter]')];
+    if (tagged.length) {
+      return tagged;
+    }
+    return [...shadowRoot.children].filter((n) => n instanceof HTMLElement);
+  }
+
+  function customizeFilterPane(pane, totalFilters) {
+    if (!(pane instanceof HTMLElement)) {
+      return;
+    }
+    const sr = pane.shadowRoot;
+    if (!sr) {
+      return;
+    }
+    const groups = collectFilterGroups(sr);
+    const matched = [];
+    groups.forEach((group) => {
+      const key = resolveFilterKeyFromGroup(group, totalFilters);
+      if (!key) {
+        group.style.display = 'none';
+        return;
+      }
+      group.dataset.rosPfFilterKey = key;
+      const show =
+        isConfiguredFacetKey(key) &&
+        filterKeyInTotalFilters(key, totalFilters);
+      group.style.display = show ? '' : 'none';
+      if (!show) {
+        return;
+      }
+      const summary = group.querySelector('summary, button');
+      if (summary) {
+        summary.textContent = labelForMetaKey(key);
+      }
+      matched.push({ key, el: group });
+    });
+    const container = matched[0]?.el?.parentElement;
+    if (!container) {
+      return;
+    }
+    resultMetaFields.forEach((field) => {
+      const entry = matched.find(
+        (m) => m.key.toLowerCase() === field.key.toLowerCase(),
+      );
+      if (entry) {
+        container.appendChild(entry.el);
+      }
+    });
+  }
+
+  function refreshFacetPanes() {
+    const instance = getPagefindInstance();
+    const totalFilters = instance?.totalFilters ?? null;
+    [document.querySelector('pagefind-modal'), document.querySelector('#ros-search-page')]
+      .filter(Boolean)
+      .forEach((scope) => {
+        scope.querySelectorAll('pagefind-filter-pane').forEach((pane) => {
+          customizeFilterPane(pane, totalFilters);
+        });
+      });
+  }
+
+  function scheduleRefreshFacetPanes() {
+    if (facetPaneRefreshRaf !== null) {
+      return;
+    }
+    facetPaneRefreshRaf = requestAnimationFrame(() => {
+      facetPaneRefreshRaf = null;
+      refreshFacetPanes();
+    });
+  }
+
+  function bindFacetPaneObservers(scopeEl) {
+    if (!(scopeEl instanceof Element)) {
+      return;
+    }
+    scopeEl.querySelectorAll('pagefind-filter-pane').forEach((pane) => {
+      if (!(pane instanceof HTMLElement)) {
+        return;
+      }
+      const attach = () => {
+        const sr = pane.shadowRoot;
+        if (!sr || facetPaneObserved.has(pane)) {
+          return;
+        }
+        facetPaneObserved.add(pane);
+        const observer = new MutationObserver(() => {
+          scheduleRefreshFacetPanes();
+        });
+        observer.observe(sr, { childList: true, subtree: true });
+        scheduleRefreshFacetPanes();
+      };
+
+      attach();
+      if (!pane.shadowRoot && pane.dataset.pfFacetShadowPolling !== '1') {
+        pane.dataset.pfFacetShadowPolling = '1';
+        let n = 0;
+        const poll = () => {
+          attach();
+          if (!facetPaneObserved.has(pane) && n++ < 150) {
+            requestAnimationFrame(poll);
+          }
+        };
+        poll();
+      }
+    });
+  }
+
+  function setupFacetPaneCustomization() {
+    const instance = getPagefindInstance();
+    if (!instance) {
+      return;
+    }
+    if (!facetPaneListenerRegistered) {
+      facetPaneListenerRegistered = true;
+      instance.on('filters', () => {
+        scheduleRefreshFacetPanes();
+      });
+    }
+    [document.querySelector('pagefind-modal'), document.querySelector('#ros-search-page')]
+      .filter(Boolean)
+      .forEach((scope) => {
+        bindFacetPaneObservers(scope);
+      });
+    scheduleRefreshFacetPanes();
+  }
 
   function scheduleRefreshResultMetadata() {
     if (refreshMetaRaf !== null) {
@@ -509,10 +684,13 @@
       target.dataset.metaEnhanced = '1';
 
       bindShadowObserversForTarget(target);
+      bindFacetPaneObservers(target);
 
       const observer = new MutationObserver(() => {
         bindShadowObserversForTarget(target);
+        bindFacetPaneObservers(target);
         scheduleRefreshResultMetadata();
+        scheduleRefreshFacetPanes();
       });
       observer.observe(target, { childList: true, subtree: true });
 
@@ -547,6 +725,7 @@
       instance.pagefindOptions.mergeIndex = mergeIndex;
     }
     setupPagefindResultsMetaListener();
+    setupFacetPaneCustomization();
     setupResultMetadataRendering();
     applySearchQueryFromUrl();
   } catch (err) {
