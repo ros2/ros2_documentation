@@ -38,7 +38,7 @@ multiversion-search: multiversion
 %: Makefile
 	@$(BUILD) -M $@ "$(SOURCE)" "$(OUT)" $(OPTS)
 
-enhance-topics:
+enhance:
 	git diff --name-only --diff-filter=d HEAD | xargs -r $(PYTHON) tools/enhance_topics.py
 
 lint:

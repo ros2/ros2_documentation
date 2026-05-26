@@ -626,7 +626,7 @@ def enhance_metadata(
     tasks = [
         _metadata_enhancement_task("description", DESCRIPTION_PROMPT),
         _metadata_enhancement_task("keywords", KEYWORDS_PROMPT),
-        _fixed_metadata_enhancement_task("distro", "{DISTRO}"),
+        _fixed_metadata_enhancement_task("distribution", "{DISTRO}"),
         _fixed_metadata_enhancement_task("product", "{PRODUCT}"),
     ]
 
