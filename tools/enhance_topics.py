@@ -86,7 +86,7 @@ class MetadataApplyHook(ApplyHook):
 
     def apply(self, content: str, results: dict[str, str]) -> AppliedContent:
         """
-        Merge description, keywords, distro, and product from results into the RST meta block.
+        Merge description, keywords, distribution, and product from results into the RST meta block.
 
         Args:
             content: Original RST file content.
@@ -98,7 +98,7 @@ class MetadataApplyHook(ApplyHook):
         subset = {
             k: v
             for k, v in results.items()
-            if k in ("description", "keywords", "distro", "product")
+            if k in ("description", "keywords", "distribution", "product")
         }
         if not subset:
             return AppliedContent(content=content, changed=False)
