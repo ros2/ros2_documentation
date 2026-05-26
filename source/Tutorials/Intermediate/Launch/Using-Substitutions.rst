@@ -455,6 +455,8 @@ Now you can pass the desired arguments to the launch file as follows:
 
         $ ros2 launch launch_tutorial example_substitutions_launch.py turtlesim_ns:='turtlesim3' use_provided_red:='True' new_background_r:=200
 
+.. _BooleanSubstitutions:
+
 Boolean substitutions
 ---------------------
 
