@@ -26,4 +26,3 @@ Working with Client libraries
    Working-with-Client-Libraries/Reading-From-A-Bag-File-Python
    Working-with-Client-Libraries/Creating-An-RMW-Implementation
    Working-with-Client-Libraries/Configure-ZeroCopy-loaned-messages
-   Working-with-Client-Libraries/About-Internal-Interfaces/About-Internal-Interfaces

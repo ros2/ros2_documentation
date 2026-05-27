@@ -177,7 +177,7 @@ If you like to get a graphical representation of this, use ``view_frames`` tool.
 
 Open the generated ``frames.pdf`` file to see the following output:
 
-.. image:: ../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Tf2/images/turtlesim_frames.png
+.. image:: ../../../ROS-Framework/interfaces/Working-with-interfaces/Introduction-To-Tf2/images/turtlesim_frames.png
 
 So obviously the problem is that we are requesting transform from frame ``turtle3``, which does not exist.
 To fix this bug, just replace ``turtle3`` with ``turtle2`` in line 65.
@@ -278,7 +278,7 @@ Stop the demo, build and run:
 
 And you should finally see the turtle move!
 
-.. image:: ../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Tf2/images/turtlesim_follow1.png
+.. image:: ../../../ROS-Framework/interfaces/Working-with-interfaces/Introduction-To-Tf2/images/turtlesim_follow1.png
 
 That last fix we made is not really what you want to do, it was just to make sure that was our problem.
 The real fix would look like this:

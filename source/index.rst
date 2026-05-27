@@ -17,7 +17,6 @@ ROS 2 Documentation
    Migration-and-Upgrades
    Integrations-and-related
    The-ROS2-Project
-   Integrations-and-related
    Contact
    Glossary
    Citations
@@ -66,7 +65,7 @@ Getting started
 
 
 The ROS 2 Community
------------------
+-------------------
 
 If you're interested in the advancement of the ROS 2 project:
 

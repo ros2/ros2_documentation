@@ -37,7 +37,7 @@ Currently, our tf2 tree contains three frames: ``world``, ``turtle1`` and ``turt
 The two turtle frames are children of the ``world`` frame.
 If we want to add a new frame to tf2, one of the three existing frames needs to be the parent frame, and the new one will become its child frame.
 
-.. image:: images/turtlesim_frames.png
+.. image:: ../../../interfaces/Working-with-interfaces/Introduction-To-Tf2/images/turtlesim_frames.png
 
 Tasks
 -----

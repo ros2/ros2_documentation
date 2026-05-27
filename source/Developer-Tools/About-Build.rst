@@ -27,9 +27,6 @@ PLACEHOLDER
    Build/Using-Python-Packages
    Build/Developing-a-ROS-2-Package
    Build/Documenting-a-ROS-2-Package
-   Build/Releasing/Index-Your-Packages
-   Build/Releasing/Release-Team-Repository
-   Build/Releasing/First-Time-Release
    Build/Releasing/Releasing-a-Package
-   Build/Releasing/Release-Track
-   Build/Releasing/Subsequent-Releases
+   Build/Building-Realtime-rt_preempt-kernel-for-ROS-2/Building-Realtime-rt_preempt-kernel-for-ROS-2
+   Build/Building-ROS2-Package-with-eclipse-2021-06/Building-ROS2-Package-with-eclipse-2021-06

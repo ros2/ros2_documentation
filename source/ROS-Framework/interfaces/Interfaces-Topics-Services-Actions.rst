@@ -9,18 +9,6 @@ With this information, you'll be able to select the right interfaces for your pu
 
 **Area: ROS-framework | Content-type: concept | Experience: beginner**
 
-.. contents:: Table of Contents
-   :depth: 2
-   :local:
-
-.. toctree::
-   :hidden:
-
-   About-Interfaces
-   About-Topics
-   About-Services
-   About-Actions
-
 Summary
 -------
 

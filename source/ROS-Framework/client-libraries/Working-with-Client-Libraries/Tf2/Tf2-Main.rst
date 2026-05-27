@@ -39,7 +39,7 @@ If you have not yet created a workspace in which to complete the tutorials, :doc
 Learning tf2
 ------------
 
-#. :doc:`Introduction to tf2 <../../../interfaces/Working-with-interfaces/Introduction-To-Tf2>`.
+#. :doc:`Introduction to tf2 <../../../interfaces/Working-with-interfaces/Introduction-To-Tf2/Introduction-To-Tf2>`.
 
    This tutorial will give you a good idea of what tf2 can do for you.
    It shows off some of the tf2 power in a multi-robot example using turtlesim.
