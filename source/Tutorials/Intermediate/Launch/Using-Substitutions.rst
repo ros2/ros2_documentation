@@ -463,6 +463,10 @@ Boolean substitutions
 In addition to ``$(eval <python-expression>)``, a set of dedicated boolean substitutions is available for comparing values and combining the results.
 They can be used anywhere a substitution is allowed, including the ``if`` and ``unless`` attributes of any action.
 
+.. note::
+
+   Comparison is performed on the string representation of each argument.
+
 .. list-table::
    :header-rows: 1
    :widths: 25 30 45
