@@ -484,10 +484,10 @@ They can be used anywhere a substitution is allowed, including the ``if`` and ``
      - Logical OR of two boolean substitutions.
    * - ``$(any A B ...)``
      - ``AnySubstitution``
-     - Resolves to ``'true'`` if any argument is truthy.
+     - Resolves to ``'true'`` if any argument is true.
    * - ``$(all A B ...)``
      - ``AllSubstitution``
-     - Resolves to ``'true'`` only if every argument is truthy.
+     - Resolves to ``'true'`` only if every argument is true.
 
 The ``if`` predicate from the previous section can also be expressed using boolean substitutions instead of a Python expression:
 
