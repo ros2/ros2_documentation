@@ -32,7 +32,7 @@ ROS nodes typically communicate through the following three types of interfaces:
 
 For consistent communication, each interface uses definitions provided in ``.msg``, ``.srv``, or ``.action`` files.
 
-:doc:`Learn more about nodes <About-Nodes>`
+:doc:`Learn more about nodes <../About-Nodes>`
 
 Topics
 ------

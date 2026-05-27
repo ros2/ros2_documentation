@@ -277,7 +277,7 @@ Finally we have the ``main`` method, which constructs a ``MinimalClientAsync`` o
 .. warning::
 
   Do not use ``rclpy.spin_until_future_complete`` in a ROS 2 callback.
-  For more details see the :doc:`sync deadlock article <../../../How-To-Guides/Sync-Vs-Async>`.
+  For more details see the :doc:`sync deadlock article <../../services/Working-with-services/Sync-Vs-Async>`.
 
 3.2 Add an entry point
 ~~~~~~~~~~~~~~~~~~~~~~

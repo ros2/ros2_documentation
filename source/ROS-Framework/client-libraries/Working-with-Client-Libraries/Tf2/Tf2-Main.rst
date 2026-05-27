@@ -19,7 +19,6 @@ If you want to learn both C++ and Python, you should go through the tutorials on
 .. toctree::
    :hidden:
 
-   Introduction-To-Tf2
    Writing-A-Tf2-Static-Broadcaster-Py
    Writing-A-Tf2-Static-Broadcaster-Cpp
    Writing-A-Tf2-Broadcaster-Py
@@ -30,7 +29,6 @@ If you want to learn both C++ and Python, you should go through the tutorials on
    Adding-A-Frame-Cpp
    Learning-About-Tf2-And-Time-Cpp
    Time-Travel-With-Tf2-Cpp
-   Quaternion-Fundamentals
    Using-Stamped-Datatypes-With-Tf2-Ros-MessageFilter
 
 Workspace setup
@@ -79,7 +77,7 @@ Debugging tf2
 
    This tutorial teaches you basics of quaternion usage in ROS 2.
 
-#. :doc:`Debugging tf2 problems <../../../../Developer-Tools/Debugging/Debugging-Tf2-Problems>`.
+#. :doc:`Debugging tf2 problems <../../../../Developer-Tools/Debugging/Debugging-Tf2-Problems/Debugging-Tf2-Problems>`.
 
    This tutorial teaches you about a systematic approach for debugging tf2 related problems.
 

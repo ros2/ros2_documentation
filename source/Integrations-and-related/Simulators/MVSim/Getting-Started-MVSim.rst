@@ -29,7 +29,7 @@ or as a ROS 2 node that publishes sensor data and accepts velocity commands thro
 Prerequisites
 -------------
 
-You should have MVSim installed following the :doc:`Installation-Ubuntu` tutorial.
+You should have MVSim installed following the :doc:`../Webots/Installation-Ubuntu` tutorial.
 
 Tasks
 -----

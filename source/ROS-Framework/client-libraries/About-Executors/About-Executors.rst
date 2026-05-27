@@ -56,7 +56,7 @@ In order not to counteract the QoS settings of the middleware, an incoming messa
 A *wait set* is used to inform the Executor about available messages on the middleware layer, with one binary flag per queue.
 The *wait set* is also used to detect when timers expire.
 
-.. image:: ../images/executors_basic_principle.png
+.. image:: images/executors_basic_principle.png
 
 The Single-Threaded Executor is also used by the container process for :doc:`components <../../nodes/About-Composition>`, i.e. in all cases where nodes are created and executed without an explicit main function.
 
@@ -196,7 +196,7 @@ In detail, it only reports whether there are any messages for a certain topic or
 The Executor uses this information to process the messages (including services and actions) in a round-robin fashion - but not in FIFO order.
 The following flow diagram visualizes this scheduling semantics.
 
-.. image:: ../images/executors_scheduling_semantics.png
+.. image:: images/executors_scheduling_semantics.png
 
 This semantics was first described in a `paper by Casini et al. at ECRTS 2019 <https://drops.dagstuhl.de/opus/volltexte/2019/10743/pdf/LIPIcs-ECRTS-2019-6.pdf>`_.
 (Note: The paper also explains that timer events are prioritized over all other messages.

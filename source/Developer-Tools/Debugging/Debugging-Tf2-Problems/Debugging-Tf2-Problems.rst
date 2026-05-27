@@ -23,7 +23,7 @@ Background
 
 This tutorial walks you through the steps to debug a typical tf2 problem.
 It will also use many of the tf2 debugging tools, such as ``tf2_echo``, ``tf2_monitor``, and ``view_frames``.
-This tutorial assumes you have completed the :doc:`learning tf2 <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Tf2/Tf2-Main>` tutorials.
+This tutorial assumes you have completed the :doc:`learning tf2 <../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Tf2/Tf2-Main>` tutorials.
 
 Debugging example
 -----------------
@@ -35,7 +35,7 @@ For this tutorial we will set up a demo application that has a number of problem
 The goal of this tutorial is to apply a systematic approach to find and tackle these problems.
 First, let's create the source file.
 
-Go to the ``learning_tf2_cpp`` package we created in :doc:`tf2 tutorials <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Tf2/Tf2-Main>`.
+Go to the ``learning_tf2_cpp`` package we created in :doc:`tf2 tutorials <../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Tf2/Tf2-Main>`.
 Inside the ``src`` directory make a copy of the source file ``turtle_tf2_listener.cpp`` and rename it to ``turtle_tf2_listener_debug.cpp``.
 
 Open the file using your preferred text editor, and change line 65 from
@@ -177,7 +177,7 @@ If you like to get a graphical representation of this, use ``view_frames`` tool.
 
 Open the generated ``frames.pdf`` file to see the following output:
 
-.. image:: images/turtlesim_frames.png
+.. image:: ../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Tf2/images/turtlesim_frames.png
 
 So obviously the problem is that we are requesting transform from frame ``turtle3``, which does not exist.
 To fix this bug, just replace ``turtle3`` with ``turtle2`` in line 65.
@@ -278,7 +278,7 @@ Stop the demo, build and run:
 
 And you should finally see the turtle move!
 
-.. image:: images/turtlesim_follow1.png
+.. image:: ../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Tf2/images/turtlesim_follow1.png
 
 That last fix we made is not really what you want to do, it was just to make sure that was our problem.
 The real fix would look like this:
@@ -301,7 +301,7 @@ Or like this:
         tf2::TimePoint());
     } catch (const tf2::TransformException & ex) {
 
-You can learn more about timeouts in the :doc:`Using time <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Tf2/Learning-About-Tf2-And-Time-Cpp>` tutorial, and use them as below:
+You can learn more about timeouts in the :doc:`Using time <../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Tf2/Learning-About-Tf2-And-Time-Cpp>` tutorial, and use them as below:
 
 .. code-block:: C++
 

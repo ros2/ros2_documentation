@@ -27,7 +27,7 @@ The underlying middleware used for ROS 2 is either a DDS or RTPS implementation,
 
 The ``rcl`` |API| is a slightly higher level |API| which is used to implement the |client libraries| and does not touch the middleware implementation directly, but rather does so through the ROS middleware interface (``rmw`` |API|) abstraction.
 
-.. figure:: ../images/ros_client_library_api_stack.png
+.. figure:: images/ros_client_library_api_stack.png
    :alt: ros2 software stack
 
 As the diagram shows, these |APIs| are stacked such that the typical ROS user will use the |client library| |API|, e.g. ``rclcpp``, to implement their code (executable or library).
@@ -51,7 +51,7 @@ Type Specific Interfaces
 All along the way there are some parts of the |APIs| that are necessarily specific to the message types being exchanged, e.g. publishing a message or subscribing to a topic, and therefore require generated code for each message type.
 The following diagram layouts the path from user defined ``rosidl`` files, e.g. ``.msg`` files, to the type specific code used by the user and system to perform type specific functions:
 
-.. figure:: ../images/ros_idl_api_stack_static.png
+.. figure:: images/ros_idl_api_stack_static.png
    :alt: ros2 idl static type support stack
 
    Figure: flow chart of "static" type support generation, from ``rosidl`` files to user facing code.
@@ -97,7 +97,7 @@ In order to accomplish this, this generic function needs some meta information a
 Then to publish a message, you call a generic publish function and pass a message to be published along with a structure which contains the necessary meta data about the message type.
 This is referred to as "dynamic" type support, as opposed to "static" type support which requires generated versions of a function for each type.
 
-.. figure:: ../images/ros_idl_api_stack_dynamic.png
+.. figure:: images/ros_idl_api_stack_dynamic.png
    :alt: ros2 idl dynamic type support stack
 
    Figure: flow chart of "dynamic" type support generation, from ``rosidl`` files to user facing code.

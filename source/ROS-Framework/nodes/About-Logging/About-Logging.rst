@@ -184,7 +184,7 @@ Logging subsystem design
 The image below shows the main pieces to the logging subsystem and how they interact.
 Note that ``rcl`` can link to logging implementations either through the ``rcl_logging_implementation`` abstraction layer (for runtime dynamic loading, the default) or directly to a specific implementation like ``rcl_logging_spdlog`` (for static linking).
 
-.. figure:: ../images/ros2_logging_architecture.png
+.. figure:: images/ros2_logging_architecture.png
    :alt: ROS 2 logging architecture
    :width: 550px
    :align: center
@@ -204,7 +204,7 @@ rcl_logging_implementation
 ``rcl_logging_implementation`` is a package that enables runtime dynamic loading of logging backends in ROS 2, similar to how ``rmw_implementation`` works for middleware selection.
 This abstraction layer allows users to switch between different logging implementations (such as ``rcl_logging_spdlog`` and ``rcl_logging_noop``) without rebuilding RCL or application code.
 
-.. figure:: ../images/rcl_logging_implementation.png
+.. figure:: images/rcl_logging_implementation.png
    :alt: rcl_logging_implementation architecture
    :width: 550px
    :align: center

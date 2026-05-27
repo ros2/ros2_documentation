@@ -15,7 +15,7 @@ Overview
 tf2 is the transform library, which lets the user keep track of multiple coordinate frames over time.
 tf2 maintains the relationship between coordinate frames in a tree structure buffered in time and lets the user transform points, vectors, etc. between any two coordinate frames at any desired point in time.
 
-.. image:: ../images/ros2_tf2_frames.png
+.. image:: images/ros2_tf2_frames.png
 
 Properties of tf2
 -----------------

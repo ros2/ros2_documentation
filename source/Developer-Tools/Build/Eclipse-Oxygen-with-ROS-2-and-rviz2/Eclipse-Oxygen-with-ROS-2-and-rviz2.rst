@@ -22,7 +22,6 @@ HINT: We use nested projects and one Eclipse Workspace for each ROS-2 package.
 
 .. image:: images/eclipse-oxygen-01.png
 
-
 Create a C++ Project.
 
 .. image:: images/eclipse-oxygen-02.png

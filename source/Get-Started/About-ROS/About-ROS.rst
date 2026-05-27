@@ -141,4 +141,4 @@ ROS on macOS is supported by the community, and we do not recommended it for new
 Ubuntu support depends on the ROS distribution, with each distribution requiring a specific Ubuntu LTS (long-term support) release.
 Other platforms may require building from source or using containers.
 
-:doc:`See full details of currently supported platforms and support tiers <Releases/Release-Rolling-Ridley>`
+:doc:`See full details of currently supported platforms and support tiers <../Releases/Release-Rolling-Ridley>`

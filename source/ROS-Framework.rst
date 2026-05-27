@@ -1,5 +1,4 @@
-.. _InstallationGuide:
-.. _RollingInstall:
+
 
 ROS framework
 =============

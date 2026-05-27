@@ -136,7 +136,7 @@ An example of ``launch.json`` could be:
 Instead you could also create a configuration for attaching to a running process, under "Attach using Process Id".
 
 
-See :doc:`Setup ROS 2 with VSCode and Docker<Setup-ROS-2-with-VSCode-and-Docker-Container>` for full instructions on how to use VSCode, in combination with Docker.
+See :doc:`Setup ROS 2 with VSCode and Docker <../Build/Setup-ROS-2-with-VSCode-and-Docker-Container>` for full instructions on how to use VSCode, in combination with Docker.
 
 
 PyCharm

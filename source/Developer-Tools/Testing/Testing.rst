@@ -68,7 +68,7 @@ RHEL testing repository
 
 For RHEL you can install binary packages from the **ros-testing** repository, by enabling the testing repository on the source configuration:
 
-1. Make sure you have a working ROS 2 installation for rpm packages (see the :doc:`RHEL installation instructions <RHEL-Install-RPMs>`).
+1. Make sure you have a working ROS 2 installation for rpm packages (see the :doc:`RHEL installation instructions <../../Get-Started/Installation/RHEL-Install-RPMs>`).
 
 2. Enable testing and disable main repository:
 
@@ -111,7 +111,7 @@ Binary archives
 For core packages, we run nightly packaging jobs for Ubuntu Linux, RHEL, and Windows.
 These packaging jobs produce archives with pre-built binaries that can be downloaded and extracted to your filesystem.
 
-1. Make sure you have all dependencies installed according to the :doc:`latest development setup <Alternatives/Latest-Development-Setup>` for your platform.
+1. Make sure you have all dependencies installed according to the :doc:`latest development setup <../../Get-Started/Installation/Alternatives/Latest-Development-Setup>` for your platform.
 
 2. Go to https://ci.ros2.org/view/packaging/ and select a packaging job from the list corresponding to your platform.
 

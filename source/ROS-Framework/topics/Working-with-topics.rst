@@ -1,5 +1,4 @@
-.. _InstallationGuide:
-.. _RollingInstall:
+
 
 Working with topics
 ===================

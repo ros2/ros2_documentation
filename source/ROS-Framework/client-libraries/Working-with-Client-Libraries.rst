@@ -20,10 +20,10 @@ Working with Client libraries
    Working-with-Client-Libraries/Rosdep
    Working-with-Client-Libraries/Tf2/Tf2-Main
    Working-with-Client-Libraries/Allocator-Template-Tutorial
+   Working-with-Client-Libraries/Recording-A-Bag-From-Your-Own-Node-CPP
    Working-with-Client-Libraries/Recording-A-Bag-From-Your-Own-Node-Py
-   Working-with-Client-Libraries/Recording-A-Bag-From-Your-Own-Node-Cpp
-   Working-with-Client-Libraries/Recording-A-Bag-From-Your-Own-Node-Py
-   Working-with-Client-Libraries/Recording-A-Bag-From-Your-Own-Node-Cpp
+   Working-with-Client-Libraries/Reading-From-A-Bag-File-CPP
+   Working-with-Client-Libraries/Reading-From-A-Bag-File-Python
    Working-with-Client-Libraries/Creating-An-RMW-Implementation
-   Working-with-Client-Libraries/Config-ZeroCopy-loaned-messages
+   Working-with-Client-Libraries/Configure-ZeroCopy-loaned-messages
    Working-with-Client-Libraries/About-Internal-Interfaces/About-Internal-Interfaces

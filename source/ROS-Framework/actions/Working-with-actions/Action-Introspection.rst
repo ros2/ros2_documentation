@@ -21,7 +21,7 @@ Overview
 ROS 2 applications usually consist of actions to execute specific long-running procedures or work in remote nodes.
 It is possible to introspect action data communication with action introspection.
 
-ROS 2 actions are built on topics and services, so action introspection is based on :doc:`Service Introspection <Service-Introspection>`.
+ROS 2 actions are built on topics and services, so action introspection is based on :doc:`Service Introspection <../../../Developer-Tools/Introspection-and-analysis/Service-Introspection>`.
 
 In this demo, we'll be highlighting how to configure action introspection state for an action client and an action server and monitor action communication with ``ros2 action echo``.
 

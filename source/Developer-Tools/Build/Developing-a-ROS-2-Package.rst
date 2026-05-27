@@ -18,7 +18,7 @@ It is intended for developers who want to learn how to create custom packages in
 Prerequisites
 -------------
 
-- :doc:`Install ROS <../../Installation>`
+- :doc:`Install ROS <../../Get-Started/Installation>`
 
 - `Install colcon <https://colcon.readthedocs.io/en/released/user/installation.html>`__
 

@@ -27,13 +27,13 @@ Rows in the table marked in blue are the currently supported distributions.
 .. toctree::
    :hidden:
 
-   Get-Started/Releases/Release-Process
-   Get-Started/Releases/Release-Kilted-Kaiju
-   Get-Started/Releases/Release-Jazzy-Jalisco
-   Get-Started/Releases/Release-Humble-Hawksbill
-   Get-Started/Releases/Release-Rolling-Ridley
-   Get-Started/Releases/Development
-   Get-Started/Releases/End-of-Life
+   Releases/Release-Process
+   Releases/Release-Kilted-Kaiju
+   Releases/Release-Jazzy-Jalisco
+   Releases/Release-Humble-Hawksbill
+   Releases/Release-Rolling-Ridley
+   Releases/Development
+   Releases/End-of-Life
    
 .. raw:: html
 
@@ -228,7 +228,7 @@ As the name implies, Rolling is continuously updated and **can have in-place upd
 We recommend that most people use the most recent stable distribution instead (see :ref:`list_of_distributions`).
 
 Packages released into the Rolling distribution will be automatically released into future stable distributions of ROS 2.
-:doc:`Releasing a ROS 2 package <../How-To-Guides/Releasing/Releasing-a-Package>` into the Rolling distribution follows the same procedures as all other ROS 2 distributions.
+:doc:`Releasing a ROS 2 package <../Developer-Tools/Build/Releasing/Releasing-a-Package>` into the Rolling distribution follows the same procedures as all other ROS 2 distributions.
 
 Cross-Distribution Communications
 ---------------------------------

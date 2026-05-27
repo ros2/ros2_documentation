@@ -17,7 +17,7 @@ ROS 2 Documentation
    Migration-and-Upgrades
    Integrations-and-related
    The-ROS2-Project
-   Related-Projects
+   Integrations-and-related
    Contact
    Glossary
    Citations
@@ -58,7 +58,7 @@ Getting started
 
 * :doc:`Capabilities <Capabilities>`
 
-  - High-level explanations of core ROS 2 concepts covered in the :doc:`Tutorials <Tutorials>`
+  - High-level explanations of core ROS 2 concepts
 
 * :doc:`Contact <Contact>`
 
