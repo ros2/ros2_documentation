@@ -428,6 +428,9 @@ There are, however, some changes w.r.t. ROS 1:
   It looks at configurations defined either with ``arg`` or ``let`` tag.
 * ``eval`` and ``dirname`` substitutions require escape characters for string values, e.g. ``if="$(eval '\'$(var variable)\' == \'val1\'')"``.
   You can also use HTML escapes like ``&quot;`` .
+* Boolean predicates can also be expressed directly with the ``equals``, ``not-equals``, ``and``, ``or``, ``any``, and ``all`` substitutions.
+  For example, ``if="$(equals $(var variable) val1)"`` is equivalent to ``if="$(eval '\'$(var variable)\' == \'val1\'')"``.
+  See :ref:`Boolean substitutions <BooleanSubstitutions>` for details.
 * ``eval`` does not pass configurations ( ``arg`` ) as local Python variables.
   They have to be accessed via ``$(var name)``.
 * The argument of ``eval`` has to be a quoted string in ROS 2.
