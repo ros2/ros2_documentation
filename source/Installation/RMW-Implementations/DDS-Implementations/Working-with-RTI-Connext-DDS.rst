@@ -19,6 +19,7 @@ Install RTI Connext DDS
   ROS 2 Distribution  Installed using apt  To Build from Source
   ==================  ===================  ====================
   rolling             n/a                  ``7.7.0``
+  lyrical             ``7.7.0``            ``7.7.0``
   kilted              ``7.3.0``            ``7.3.0``
   jazzy               ``6.0.1``            ``6.0.1``
   humble              ``6.0.1``            ``6.0.1``
