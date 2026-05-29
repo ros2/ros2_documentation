@@ -2,8 +2,8 @@
 
    How-To-Guides/Implementing-custom-interfaces
 
-Implementing custom interfaces - how-to
-=======================================
+Implementing custom interfaces
+==============================
 
 When predefined interface definitions are not enough, you need to create custom interfaces.
 In this article, you will learn how to define and build interfaces with different field types.
@@ -40,6 +40,7 @@ Using custom interfaces involves configuring a node to include the interfaces in
 .. tip::
 
    The best practice is to declare interfaces in dedicated interface packages, but sometimes it may be more convenient for you to declare, create and use an interface all in one package.
+   Using a dedicated interface package is preferred because it allows multiple packages to share message definitions without sharing any other code contained in the package.
    Using a dedicated interface package is preferred because it allows multiple packages to share message definitions without sharing any other code contained in the package.
 
 Prerequisites
