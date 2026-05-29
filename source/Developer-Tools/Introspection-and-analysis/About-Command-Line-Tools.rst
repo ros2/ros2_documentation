@@ -86,6 +86,23 @@ Different :doc:`ROS_DOMAIN_ID <../../ROS-Framework/nodes/About-Domain-ID>` value
 
 You can run ``ros2 daemon --help`` for more options for interacting with the daemon, including commands to start, stop, or check the status of the daemon process.
 
+Running the Daemon in the Foreground
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For debugging purposes, it can be useful to run the ROS 2 daemon in the foreground so that its output is printed directly to stdout and stderr.
+This can be done using the ``_ros2_daemon`` command, which is the entry point for the daemon process itself:
+
+.. code-block:: console
+
+   $ _ros2_daemon --ros-domain-id 0 --rmw-implementation rmw_fastrtps_cpp
+
+This will start the daemon without daemonizing, allowing you to observe all discovery activity and XML-RPC requests in real time.
+Replace ``--ros-domain-id`` and ``--rmw-implementation`` values with those appropriate for your setup.
+
+.. note::
+
+   Make sure to stop any existing daemon instance (``ros2 daemon stop``) before starting one in the foreground to avoid port conflicts.
+
 Implementation
 --------------
 

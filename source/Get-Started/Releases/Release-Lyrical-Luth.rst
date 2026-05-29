@@ -2,7 +2,7 @@
 
     Releases/Release-Lyrical-Luth
 
-.. _upcoming-release:
+.. _latest-release:
 
 .. _lyrical-release:
 
@@ -790,3 +790,45 @@ All you need to do is specialize ``class_loader::InterfaceTraits<>`` in your plu
 
 
 For more information see `ros/class_loader#223 <https://github.com/ros/class_loader/pull/223>`_.
+
+Runtime tracing opt-out mechanism
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`Removing the built-in tracing instrumentation from ROS 2 <https://github.com/ros2/ros2_tracing/blob/lyrical/README.md#removing-the-instrumentation>`_ or `excluding tracepoints from the instrumentation <https://github.com/ros2/ros2_tracing/blob/lyrical/README.md#excluding-tracepoints>`_ have so far been build-time options only.
+This is all enabled by default in the Linux binaries.
+
+To avoid loading the tracer at runtime (and therefore disable all instrumentation), set the ``TRACETOOLS_RUNTIME_DISABLE`` environment variable to ``1``:
+
+.. code-block:: console
+
+    $ export TRACETOOLS_RUNTIME_DISABLE=1
+    $ ros2 run tracetools status
+    Tracing disabled
+
+See `ros2/ros2_tracing#185 <https://github.com/ros2/ros2_tracing/pull/185>`_ for more info.
+
+Long-term tracing improvements
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Snapshot mode tracing
+"""""""""""""""""""""
+
+By default, tracing sessions write trace data continuously to disk.
+Tracing sessions using LTTng's `snapshot mode <https://lttng.org/docs/v2.13/#doc-tracing-session-mode>`_ store trace data in memory and only write to disk when a `snapshot is taken <https://lttng.org/docs/v2.13/#doc-taking-a-snapshot>`_.
+When memory buffers fill up, the oldest data is discarded, maintaining a rolling history whose size can be controlled by configuring sub-buffer size.
+This "flight recorder" mode is useful for capturing trace data only when something interesting occurs, avoiding continuous disk writes and thus lowering the runtime performance impact even more.
+
+`Snapshot mode tracing <https://github.com/ros2/ros2_tracing/tree/lyrical#tracing-in-snapshot-mode>`_ is available in ``ros2_tracing`` through the `ros2 trace command <https://github.com/ros2/ros2_tracing/tree/lyrical#trace-command-1>`_ and the the `Trace launch file action <https://github.com/ros2/ros2_tracing/tree/lyrical#launch-file-trace-action-1>`_.
+
+See `ros2/ros2_tracing#195 <https://github.com/ros2/ros2_tracing/pull/195>`_ and `ros2/ros2_tracing#206 <https://github.com/ros2/ros2_tracing/pull/206>`_ for more info.
+
+Dual session tracing
+""""""""""""""""""""
+
+`Dual session mode <https://github.com/ros2/ros2_tracing/tree/lyrical#dual-session-tracing>`_ solves the problem of losing initialization trace data by using two separate tracing sessions: one for initialization events in snapshot mode, and another normal tracing session for runtime events.
+This allows starting to actively record trace data at any point without losing initialization data.
+
+Use the ``Trace`` action with ``dual_session=True`` to start the initialization data session in snapshot mode.
+Then use the trace commands with ``--dual-session`` option to take a snapshot of the initialization session and start the runtime session.
+
+See `ros2/ros2_tracing#191 <https://github.com/ros2/ros2_tracing/pull/191>`_ and `ros2/ros2_tracing#196 <https://github.com/ros2/ros2_tracing/pull/196>`_ for more info.

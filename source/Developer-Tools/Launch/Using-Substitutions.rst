@@ -456,6 +456,85 @@ Now you can pass the desired arguments to the launch file as follows:
 
         $ ros2 launch launch_tutorial example_substitutions_launch.py turtlesim_ns:='turtlesim3' use_provided_red:='True' new_background_r:=200
 
+.. _BooleanSubstitutions:
+
+Boolean substitutions
+---------------------
+
+In addition to ``$(eval <python-expression>)``, a set of dedicated boolean substitutions is available for comparing values and combining the results.
+They can be used anywhere a substitution is allowed, including the ``if`` and ``unless`` attributes of any action.
+
+.. note::
+
+   Comparison is performed on the string representation of each argument.
+
+.. list-table::
+   :header-rows: 1
+   :widths: 25 30 45
+
+   * - XML / YAML name
+     - Python class
+     - Description
+   * - ``$(equals A B)``
+     - ``EqualsSubstitution``
+     - Resolves to ``'true'`` if ``A`` equals ``B``, otherwise ``'false'``.
+   * - ``$(not-equals A B)``
+     - ``NotEqualsSubstitution``
+     - Resolves to ``'true'`` if ``A`` does not equal ``B``, otherwise ``'false'``.
+   * - ``$(and A B)``
+     - ``AndSubstitution``
+     - Logical AND of two boolean substitutions.
+   * - ``$(or A B)``
+     - ``OrSubstitution``
+     - Logical OR of two boolean substitutions.
+   * - ``$(any A B ...)``
+     - ``AnySubstitution``
+     - Resolves to ``'true'`` if any argument is true.
+   * - ``$(all A B ...)``
+     - ``AllSubstitution``
+     - Resolves to ``'true'`` only if every argument is true.
+
+The ``if`` predicate from the previous section can also be expressed using boolean substitutions instead of a Python expression:
+
+.. tabs::
+
+  .. group-tab:: XML
+
+    .. code-block:: xml
+
+      <executable cmd="ros2 param set /turtlesim background_r $(var new_background_r)"
+                  if="$(and $(equals $(var new_background_r) 200) $(var use_provided_red))"/>
+
+  .. group-tab:: YAML
+
+    .. code-block:: yaml
+
+      - executable:
+          cmd: ros2 param set /turtlesim background_r $(var new_background_r)
+          if: $(and $(equals $(var new_background_r) 200) $(var use_provided_red))
+
+  .. group-tab:: Python
+
+    .. code-block:: python
+
+      from launch.conditions import IfCondition
+      from launch.substitutions import AndSubstitution, EqualsSubstitution, LaunchConfiguration
+
+      ExecuteProcess(
+          cmd=[[
+              FindExecutable(name='ros2'),
+              ' param set ',
+              '/turtlesim background_r ',
+              LaunchConfiguration('new_background_r'),
+          ]],
+          condition=IfCondition(
+              AndSubstitution(
+                  EqualsSubstitution(LaunchConfiguration('new_background_r'), '200'),
+                  LaunchConfiguration('use_provided_red'),
+              )
+          ),
+      )
+
 Documentation
 -------------
 
