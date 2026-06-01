@@ -18,6 +18,8 @@ Version Requirements (`see the README for details <https://github.com/ros2/rmw_g
 ROS 2 Distro      GurumDDS Version
 ================  ================
 rolling           ``>= 3.2.0``
+lyrical           ``>= 3.2.0``
+kilted            ``>= 3.2.0``
 jazzy             ``>= 3.2.0``
 humble            ``3.1.x``
 ================  ================
