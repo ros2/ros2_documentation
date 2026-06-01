@@ -14,7 +14,7 @@ Crystal Clemmys (``crystal``)
 Supported Platforms
 -------------------
 
-Crystal Clemmys is primarily supported on the following platforms (see `REP 2000 <https://reps.openrobotics.org/rep-2000/#crystal-clemmys-december-2018-december-2019>`__ for full details):
+Crystal Clemmys supports the following platforms according to `the platform support tiers <../The-ROS2-Project/Platform-Support-Tiers>`:
 
 Tier 1 platforms:
 
@@ -26,6 +26,119 @@ Tier 2 platforms:
 
 * Ubuntu 16.04 (Xenial)
 
+Targeted platforms:
+
++--------------+-----------------------+----------------------+--------------------+-----------------------+-------------------+
+| Architecture | Ubuntu Bionic (18.04) | MacOS Sierra (10.12) | Windows 10 (VS2017)| Ubuntu Xenial (16.04) | Debian Stretch (9)|
++==============+=======================+======================+====================+=======================+===================+
+| amd64        | Tier 1 [d][a][s]      | Tier 1 [a][s]        | Tier 1 [a][s]      | Tier 2 [s]            | Tier 3  [s]       |
++--------------+-----------------------+----------------------+--------------------+-----------------------+-------------------+
+| arm64        | Tier 1 [d][a][s]      |                      |                    | Tier 2  [s]           | Tier 3 [s]        |
++--------------+-----------------------+----------------------+--------------------+-----------------------+-------------------+
+
+The following indicators show what delivery mechanisms are available for
+each platform.
+
+\" \[d\] \" Debian packages will be provided for this platform for
+packages submitted to the rosdistro.
+
+\" \[a\] \" Binary releases are provided as a single archive per
+platform containing all packages in the Crystal ROS 2 repos file[^4].
+
+\" \[s\] \" Compilation from source.
+
+Middleware Implementation Support:
+
++--------------------------+---------------------+---------------+-----------------------------+--------------------------------+
+| Middleware Library       | Middleware Provider | Support Level | Platforms                   | Architectures                  |
++==========================+=====================+===============+=============================+================================+
+| rmw_fastrtps_cpp*        | eProsima Fast-RTPS  | Tier 1        | All Platforms               | All Architectures              |
++--------------------------+---------------------+---------------+-----------------------------+--------------------------------+
+| rmw_connext_cpp          | RTI Connext         | Tier 1        | All Platforms except Debian | All Architectures except arm64 |
++--------------------------+---------------------+---------------+-----------------------------+--------------------------------+
+| rmw_opensplice_cpp       | ADLINK OpenSplice   | Tier 2        | All Platforms except Debian | All Architectures              |
++--------------------------+---------------------+---------------+-----------------------------+--------------------------------+
+| rmw_fastrtps_dynamic_cpp | eProsima Fast-RTPS  | Tier 2        | All Platforms               | All Architectures              |
++--------------------------+---------------------+---------------+-----------------------------+--------------------------------+
+| rmw_connext_dynamic_cpp  | RTI Connext         | Tier 2        | All platforms except Debian | All architectures except arm64 |
++--------------------------+---------------------+---------------+-----------------------------+--------------------------------+
+
+\" \* \" means default RMW implementation.
+
+Middleware implementation support is dependent upon the platform support
+tier. For example a Tier 1 middleware implementation on a Tier 2
+platform can only receive Tier 2 support.
+
+Minimum language requirements:
+
+- C11[^5]
+- C++14
+- Python 3.5
+
+Dependency Requirements:
+
++------------+----------------------------------------------------------+--------------------+
+|            | Required Support                                         | Recommended Support|
++------------+---------------+----------+-------------+-----------------+--------------------+
+| Package    | Ubuntu Bionic | MacOS**  | Windows 10* | Ubuntu Xenial[s]| Debian Stretch [s] |
++============+===============+==========+=============+=================+====================+
+| CMake      | 3.10.2        | 3.13.3   | 3.13.3      | 3.5.1           | 3.7.2              |
++------------+---------------+----------+-------------+-----------------+--------------------+
+| EmPY       | 3.3.2         | 3.3.2    | 3.3.2       | 3.3.2           | 3.3.2              |
++------------+---------------+----------+-------------+-----------------+--------------------+
+| Gazebo     | 9.0.0         | 9.9.0    | N/A         | 9.9.0*          | 9.8.0*             |
++------------+---------------+----------+-------------+-----------------+--------------------+
+| Ogre       | 1.10*                                                                         |
++------------+---------------+----------+-------------+-----------------+--------------------+
+| OpenCV     | 3.2.0         | 4.0.1    | 3.4.1*      | 2.4.9           | 3.2*               |
++------------+---------------+----------+-------------+-----------------+--------------------+
+| OpenSSL    | 1.1.0g        | 1.0.2q   | 1.0.2q      | 1.0.2g          | 1.1.0j             |
++------------+---------------+----------+-------------+-----------------+--------------------+
+| Poco       | 1.8.0         | 1.9.0    | 1.8.0*      | 1.8.0*          | 1.8.0*             |
++------------+---------------+----------+-------------+-----------------+--------------------+
+| Python     | 3.6.5         | 3.7.2    | 3.7.2       | 3.5.1           | 3.5.3              |
++------------+---------------+----------+-------------+-----------------+--------------------+
+| Qt         | 5.9.5         | 5.12.0   | 5.10.0      | 5.5.1           | 5.7.1              |
++------------+---------------+----------+-------------+-----------------+--------------------+
+|                            | **Linux only**         |                                      |
++------------+---------------+----------+-------------+-----------------+--------------------+
+| PCL        | 1.8.1         | N/A      | N/A         | 1.7.2           | 1.8.0              |
++------------+---------------+----------+-------------+-----------------+--------------------+
+| **RMW DDS Middleware Providers**                                                           |
++------------+---------------+----------+-------------+-----------------+--------------------+
+| Connext DDS| 5.3.1                                                    | N/A                |
++------------+----------------------------------------------------------+--------------------+
+| Fast-RTPS  | 1.7.0                                                                         |
++------------+-------------------------------------------------------------------------------+
+| OpenSplice | 6.9.181127OSS                                                                 |
++------------+-------------------------------------------------------------------------------+
+
+\" \* \" means that this is not the upstream version (available on the
+official Operating System repositories) but a package distributed by
+OSRF or the community (package built and distributed on custom
+repositories).
+
+\" \*\* \" Rolling distributions will see multiple version changes of
+these dependencies during their lifetime.
+
+\" \[s\] \" Compilation from source, the ROS buildfarm will not produce
+any binary packages for these platforms.
+
+This document only captures the version at the first release of a ROS
+distribution and will not be updated as the dependencies move forward.
+These versions are thus a low watermark.
+
+Package manager use for dependencies:
+
+- Ubuntu, Debian: apt
+- MacOS: Homebrew, pip
+- Windows: Chocolatey, pip
+
+Build System Support:
+
+- ament_cmake
+- cmake
+- setuptools
 
 New features in this ROS 2 release
 ----------------------------------

@@ -18,7 +18,7 @@ There are also :doc:`RPM packages <../RHEL-Install-RPMs>` available.
 System requirements
 -------------------
 
-We currently support RHEL 9 64-bit.
+We currently support RHEL 10 64-bit.
 The Rolling Ridley distribution will change target platforms from time to time as new platforms are selected for development.
 Most people will want to use a stable ROS distribution.
 
@@ -104,7 +104,7 @@ Install dependencies using rosdep
 
    $ sudo rosdep init
    $ rosdep update
-   $ rosdep install --from-paths ~/ros2_{DISTRO}/ros2-linux/share --ignore-src -y --skip-keys "cyclonedds fastcdr fastdds iceoryx_binding_c rti-connext-dds-7.3.0 urdfdom_headers"
+   $ rosdep install --from-paths ~/ros2_{DISTRO}/ros2-linux/share --ignore-src -y --skip-keys "cyclonedds fastcdr fastdds iceoryx_binding_c rti-connext-dds-7.7.0 urdfdom_headers"
 
 Install additional RMW implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

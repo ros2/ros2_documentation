@@ -168,4 +168,4 @@ you can replace it with
 
 .. caution::
 
-    If you need multi-threading, instead of setting your executable to ``component_container``, set it to ``component_container_mt``
+    If you need multi-threading, simply add the ``--executor-type multi-threaded`` argument to your container node.

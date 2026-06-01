@@ -199,7 +199,7 @@ Here's an example to get the relative rotation from the previous robot pose to t
       :param q1: A 4 element array containing the second quaternion (q02, q12, q22, q32)
 
       Output
-      :return: A 4 element array containing the final quaternion (q03,q13,q23,q33)
+      :return: A 4 element array containing the final quaternion (q03,q13,q23,q33) in (w, x, y, z) order
 
       """
       # Extract the values from q0

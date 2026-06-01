@@ -227,11 +227,11 @@ Now open the ``CMakeLists.txt`` add the executable and name it ``turtle_tf2_broa
     add_executable(turtle_tf2_broadcaster src/turtle_tf2_broadcaster.cpp)
     target_link_libraries(
         turtle_tf2_broadcaster PUBLIC
-        ${geometry_msgs_TARGETS}
+        geometry_msgs::geometry_msgs
         rclcpp::rclcpp
         tf2::tf2
         tf2_ros::tf2_ros
-        ${turtlesim_msgs_TARGETS}
+        turtlesim_msgs::turtlesim_msgs
     )
 
 Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your executable:

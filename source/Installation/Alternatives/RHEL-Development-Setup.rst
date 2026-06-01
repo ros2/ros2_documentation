@@ -16,7 +16,7 @@ System requirements
 -------------------
 The current target Red Hat platforms for {DISTRO_TITLE_FULL} are:
 
-- Tier 2: RHEL 9 64-bit
+- Tier 2: RHEL 10 64-bit
 
 As defined in `REP 2000 <https://reps.openrobotics.org/rep-2000/>`_.
 
@@ -99,7 +99,7 @@ Install dependencies using rosdep
 
    $ sudo rosdep init
    $ rosdep update
-   $ rosdep install --from-paths src --ignore-src -y --skip-keys "fastcdr rti-connext-dds-7.3.0 urdfdom_headers"
+   $ rosdep install --from-paths src --ignore-src -y --skip-keys "fastcdr rti-connext-dds-7.7.0 urdfdom_headers"
 
 Install additional RMW implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

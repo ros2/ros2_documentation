@@ -253,7 +253,7 @@ Below the dependencies block, which contains ``find_package(rosbag2_transport RE
 .. code-block:: console
 
     add_executable(simple_bag_reader src/simple_bag_reader.cpp)
-    target_link_libraries(simple_bag_reader PUBLIC rclcpp::rclcpp rosbag2_transport::rosbag2_transport ${turtlesim_msgs_TARGETS})
+    target_link_libraries(simple_bag_reader PUBLIC rclcpp::rclcpp rosbag2_transport::rosbag2_transport turtlesim_msgs::turtlesim_msgs)
 
     install(TARGETS
       simple_bag_reader

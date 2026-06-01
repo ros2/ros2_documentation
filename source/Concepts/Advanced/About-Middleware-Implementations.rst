@@ -75,7 +75,7 @@ For data to be sent and received over Zenoh using ROS 2, the middleware package,
 Unlike DDS-based implementations, this middleware relies on a Zenoh router to discover peers and pass discovery information along via Zenoh's 'gossip scouting'.
 Therefore, ``rmw_zenoh_cpp`` requires the Zenoh router (``zenohd``) to be active on the local system or reachable over the network.
 
-In ROS 2's Zenoh integration, each `context <https://docs.ros.org/en/rolling/p/rclcpp/generated/classrclcpp_1_1Context.html>`_ is mapped to a single Zenoh session.
+In ROS 2's Zenoh integration, each `context <https://docs.ros.org/en/{DISTRO}/p/rclcpp/generated/classrclcpp_1_1Context.html>`_ is mapped to a single Zenoh session.
 This session is shared across all publishers, subscriptions, services, and clients within that context.
 The context maintains a local graph cache that tracks the network topology of ROS 2 entities and the presence of each entity is managed through unique liveliness tokens issued on creation and revoked during destruction.
 
