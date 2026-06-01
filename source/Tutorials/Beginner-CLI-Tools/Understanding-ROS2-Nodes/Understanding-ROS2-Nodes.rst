@@ -4,17 +4,17 @@
 
 .. _ROS2Nodes:
 
-Understanding nodes
-===================
+Learning about nodes - tutorial
+===============================
 
-**Goal:** Learn about the function of nodes in ROS 2, and the tools to interact with them.
+Nodes are the fundamental building blocks of a ROS system, each responsible for a single task.
+In this tutorial, you will use the ``ros2`` command-line tools to run nodes and inspect how they appear on the ROS graph.
+By the end, you will be able to list the active nodes in a running system and examine the connections of any individual node.
 
-**Tutorial level:** Beginner
-
-**Time:** 10 minutes
+**Area: ROS-tutorials | Content-type: tutorial | Experience: beginner**
 
 .. contents:: Contents
-   :depth: 2
+   :depth: 3
    :local:
 
 Background
@@ -46,7 +46,7 @@ The :doc:`previous tutorial <../Introducing-Turtlesim/Introducing-Turtlesim>` sh
 
 As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../Configuring-ROS2-Environment>`.
 
-Tasks
+Steps
 -----
 
 1 ros2 run
@@ -194,3 +194,18 @@ Related content
 ---------------
 
 The :doc:`../../../Concepts` page adds some more detail to the concept of nodes.
+
+FAQs
+----
+
+Can a single executable contain more than one node?
+   Yes.
+   In ROS 2, a single executable, such as a C++ or Python program, can contain one or more nodes.
+
+Why does another turtlesim window open when I remap the node name?
+   Each call to ``ros2 run turtlesim turtlesim_node`` starts a new node, and turtlesim opens a window for it.
+   Remapping ``__node`` only changes the node's name; it does not reuse the existing node.
+
+What is the difference between ``ros2 node list`` and ``ros2 node info``?
+   ``ros2 node list`` shows the names of all running nodes.
+   ``ros2 node info`` shows the connections of a single node, including its publishers, subscribers, services, and actions.
