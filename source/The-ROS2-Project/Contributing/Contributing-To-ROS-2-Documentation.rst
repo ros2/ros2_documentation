@@ -96,6 +96,27 @@ This is the recommended way to test out local changes.
 The build process can take some time.
 To see the output, open ``build/html/index.html`` in your browser.
 
+Live-reload local development
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When iterating on documentation, instead of re-running ``make html`` and refreshing the browser after every edit, use `sphinx-autobuild <https://github.com/sphinx-doc/sphinx-autobuild>`__ to watch the source files, rebuild incrementally on save, and serve the result with automatic browser reload.
+
+``sphinx-autobuild`` is installed as part of ``requirements.txt``.
+Start the live server with:
+
+.. code-block:: console
+
+   $ make serve
+
+Then open ``http://localhost:8000`` in a browser.
+
+The ``serve`` target binds to ``0.0.0.0:8000`` by default so the server is reachable through devcontainer / port forwarding.
+Override the bind address or port if needed:
+
+.. code-block:: console
+
+   $ make serve LIVE_HOST=127.0.0.1 LIVE_PORT=8080
+
 
 Checking / Testing the site
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
