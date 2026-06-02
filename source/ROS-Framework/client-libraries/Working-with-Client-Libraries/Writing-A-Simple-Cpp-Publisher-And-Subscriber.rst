@@ -22,7 +22,7 @@ Background
 ----------
 
 :doc:`Nodes <../../nodes/Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` are executable processes that communicate over the ROS graph.
-In this tutorial, the nodes will pass information in the form of string messages to each other over a :doc:`topic <../../topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`.
+In this tutorial, the nodes will pass information in the form of string messages to each other over a :doc:`topic <../../interfaces/topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`.
 The example used here is a simple "talker" and "listener" system; one node publishes data and the other subscribes to the topic so it can receive that data.
 
 The code used in these examples can be found `here <https://github.com/ros2/examples/tree/{REPOS_FILE_BRANCH}/rclcpp/topics>`__.
@@ -380,7 +380,7 @@ There is no timer because the subscriber simply responds whenever data is publis
 
 The ``topic_callback`` function receives the string message data published over the topic, and simply writes it to the console using the ``RCLCPP_INFO`` macro.
 
-Recall from the :doc:`topic tutorial <../../topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>` that the topic name and message type used by the publisher and subscriber must match to allow them to communicate.
+Recall from the :doc:`topic tutorial <../../interfaces/topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>` that the topic name and message type used by the publisher and subscriber must match to allow them to communicate.
 
 .. code-block:: C++
 

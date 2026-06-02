@@ -163,26 +163,26 @@ If you installed ``ros-{DISTRO}-desktop``, you can try some examples to check if
    You should see the talker saying that it's publishing messages and the listener saying that it hears those messages.
    This verifies both the C++ and Python APIs are working properly.
 
-If you have issues with the installation, check the :doc:`troubleshooting techniques <../How-To-Guides/Installation-Troubleshooting>`.
+If you have issues with the installation, check the :doc:`troubleshooting techniques <Installation-Troubleshooting>`.
 
 If you want to use other RMW implementations, you can check the :doc:`guide <RMW-Implementations>`.
 
 Next steps
 ----------
 
-After the installation is complete, you can proceed with :doc:`configuring your environment <../Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
+After the installation is complete, you can proceed with :doc:`configuring your environment <../Configuring-ROS2-Environment>`.
 
 We recommend that you get familiar with key ROS concepts and check out the tutorials:
 
-* :doc:`First steps with ROS - learning path <../First-Steps>`
+* :doc:`First steps with ROS - learning path <../../First-Steps>`
 
 Related content
 ---------------
 
 More articles:
 
-* :doc:`Create a workspace <../Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>`
-* :doc:`About ROS <../About-ROS>`
+* :doc:`Create a workspace <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>`
+* :doc:`About ROS <../About-ROS/About-ROS>`
 
 Packages/reference:
 
@@ -200,7 +200,7 @@ Which Ubuntu platforms are supported?
    ROS 2 {DISTRO_TITLE_FULL} is available for {DISTRO_UBUNTU_DEB_PLATFORM}.
 
 Why am I seeing <some error or symptom of installation issue>?
-   See :doc:`../How-To-Guides/Installation-Troubleshooting`.
+   See :doc:`Installation-Troubleshooting`.
 
 Can I switch from binaries to a source-based install?
    Yes.

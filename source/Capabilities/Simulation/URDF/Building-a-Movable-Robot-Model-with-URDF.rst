@@ -119,4 +119,4 @@ The resulting transform tree is then used to display all of the shapes in Rviz.
 Next steps
 ----------
 
-Now that you have a visibly functional model, you can :doc:`add in some physical properties <Adding-Physical-and-Collision-Properties-to-a-URDF-Model>`, or :doc:`start using xacro to simplify your code <../../../Developer-Tools/Build/Using-Xacro-to-Clean-Up-a-URDF-File>`.
+Now that you have a visibly functional model, you can :doc:`add in some physical properties <Adding-Physical-and-Collision-Properties-to-a-URDF-Model>`, or :doc:`start using xacro to simplify your code <../../../Developer-Tools/Build/Using-Xacro-to-Clean-Up-a-URDF-File/Using-Xacro-to-Clean-Up-a-URDF-File>`.

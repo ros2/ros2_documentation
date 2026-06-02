@@ -19,13 +19,13 @@ Writing a broadcaster (Python)
 Background
 ----------
 
-In the next two tutorials we will write the code to reproduce the demo from the :doc:`Introduction to tf2 <../../../interfaces/Working-with-interfaces/Introduction-To-Tf2>` tutorial.
+In the next two tutorials we will write the code to reproduce the demo from the :doc:`Introduction to tf2 <../../../interfaces/Working-with-interfaces/Introduction-To-Tf2/Introduction-To-Tf2>` tutorial.
 After that, the following tutorials focus on extending the demo with more advanced tf2 features, including the usage of timeouts in transformation lookups and time travel.
 
 Prerequisites
 -------------
 
-This tutorial assumes you have a working knowledge of ROS 2 and you have completed the :doc:`Introduction to tf2 tutorial <../../../interfaces/Working-with-interfaces/Introduction-To-Tf2>` and :doc:`tf2 static broadcaster tutorial (Python) <Writing-A-Tf2-Static-Broadcaster-Py>`.
+This tutorial assumes you have a working knowledge of ROS 2 and you have completed the :doc:`Introduction to tf2 tutorial <../../../interfaces/Working-with-interfaces/Introduction-To-Tf2/Introduction-To-Tf2>` and :doc:`tf2 static broadcaster tutorial (Python) <Writing-A-Tf2-Static-Broadcaster-Py>`.
 We'll be reusing the ``learning_tf2_py`` package from that last tutorial.
 
 In previous tutorials, you learned how to :doc:`create a workspace <../Creating-A-Workspace/Creating-A-Workspace>` and :doc:`create a package <../Creating-Your-First-ROS2-Package>`.

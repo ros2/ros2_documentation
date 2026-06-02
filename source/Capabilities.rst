@@ -9,8 +9,8 @@ PLACEHOLDER
    :hidden:
    :glob:
 
-   Capabilities/About-Motion-planning
-   Capabilities/About-Perception
-   Capabilities/About-Navigation
-   Capabilities/About-User-interfaces
    Capabilities/About-Simulation
+   Capabilities/About-Motion-planning
+   Capabilities/About-Navigation
+   Capabilities/About-Manipulation
+   Capabilities/About-Perception

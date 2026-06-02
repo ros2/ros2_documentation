@@ -27,7 +27,7 @@ Prerequisites
 
 This tutorial uses concepts like ROS 2 topics and CLI tools covered in the following tutorial:
 
-- :doc:`Understanding topics <../../ROS-Framework/topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`
+- :doc:`Understanding topics <../../ROS-Framework/interfaces/topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`
 
 Tasks
 -----

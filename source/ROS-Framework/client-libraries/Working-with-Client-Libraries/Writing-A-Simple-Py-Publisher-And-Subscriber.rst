@@ -21,7 +21,7 @@ Writing a simple publisher and subscriber (Python)
 Background
 ----------
 
-In this tutorial, you will create :doc:`nodes <../../nodes/Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` that pass information in the form of string messages to each other over a :doc:`topic <../../topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`.
+In this tutorial, you will create :doc:`nodes <../../nodes/Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` that pass information in the form of string messages to each other over a :doc:`topic <../../interfaces/topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`.
 The example used here is a simple "talker" and "listener" system;
 one node publishes data and the other subscribes to the topic so it can receive that data.
 
@@ -163,7 +163,7 @@ Following is the definition of the class's constructor.
 ``super().__init__`` calls the `Node <{package_link(rclpy)}api/node.html>`__ class's constructor and gives it your node name, in this case ``minimal_publisher``.
 
 `create_publisher <{package_link(rclpy)}api/node.html#rclpy.node.Node.create_publisher>`__ declares that the node publishes messages of type {interface(std_msgs/msg/String)} (imported from the ``std_msgs.msg`` module), over a topic named ``topic``, and that the "queue size" is 10.
-Queue size is a required :doc:`Quality of Service <../../topics/About-Quality-of-Service-Settings>` (QoS) setting that limits the amount of queued messages if a subscriber is not receiving them fast enough.
+Queue size is a required :doc:`Quality of Service <../../interfaces/topics/About-Quality-of-Service-Settings>` (QoS) setting that limits the amount of queued messages if a subscriber is not receiving them fast enough.
 
 Next, `create_timer <{package_link(rclpy)}api/node.html#rclpy.node.Node.create_timer>`__ is used to create a callback that executes every 0.5 seconds.
 ``self.i`` is a counter used in the callback.
@@ -355,7 +355,7 @@ Open the ``subscriber_member_function.py`` with your text editor.
 
 The subscriber node's code is nearly identical to the publisher's.
 The constructor creates a subscriber with the same arguments as the publisher using `create_subscription <{package_link(rclpy)}api/node.html#rclpy.node.Node.create_subscription>`__.
-Recall from the :doc:`topics tutorial <../../topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>` that the topic name and message type used by the publisher and subscriber must match to allow them to communicate.
+Recall from the :doc:`topics tutorial <../../interfaces/topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>` that the topic name and message type used by the publisher and subscriber must match to allow them to communicate.
 
 .. code-block:: python
 

@@ -39,7 +39,7 @@ For planned future development, see the :doc:`Roadmap <Roadmap>`.
      - `Tutorial <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__
      - Available for topics and services, not yet available for actions.
    * - Quality of service settings for handling non-ideal networks
-     - :doc:`Demo <../ROS-Framework/topics/Working-with-topics/Quality-of-Service>`
+     - :doc:`Demo <../ROS-Framework/interfaces/topics/Working-with-topics/Quality-of-Service>`
      -
    * - Inter- and intra-process communication using the same API
      - :doc:`Demo <../ROS-Framework/nodes/Working-with-nodes/intra-process/Intra-Process-Communication>`
@@ -79,13 +79,13 @@ For planned future development, see the :doc:`Roadmap <Roadmap>`.
      - `Wiki <https://github.com/ros2/freertps/wiki>`__
      -
    * - Content filtering subscription
-     - :doc:`Demo <../ROS-Framework/topics/Working-with-topics/Content-Filtering-Subscription>`
+     - :doc:`Demo <../ROS-Framework/interfaces/topics/Working-with-topics/Content-Filtering-Subscription>`
      - Currently only in C++.
    * - Service Introspection
      - :doc:`Demo <../Developer-Tools/Introspection-and-analysis/Service-Introspection>`
      -
    * - Action Introspection
-     - :doc:`Demo <../ROS-Framework/actions/Working-with-actions/Action-Introspection>`
+     - :doc:`Demo <../ROS-Framework/interfaces/actions/Working-with-actions/Action-Introspection>`
      -
    * - :doc:`Pluggable buffer backends <../Concepts/Intermediate/About-Buffer-Backends>` for ``uint8[]`` fields (e.g. GPU memory transport)
      - :doc:`Concept <../Concepts/Intermediate/About-Buffer-Backends>`, :doc:`How-to Guide <../How-To-Guides/Using-Buffer-Backends>`, :doc:`Demo <../Tutorials/Demos/GPU-Buffer-Transport>`

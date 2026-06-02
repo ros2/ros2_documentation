@@ -17,7 +17,7 @@ Creating an ``rmw`` implementation
 Introduction
 ------------
 
-ROS 2's architecture has two main :doc:`abstraction layers <About-Internal-Interfaces/About-Internal-Interfaces>`.
+ROS 2's architecture has two main :doc:`abstraction layers <../About-Internal-Interfaces/About-Internal-Interfaces>`.
 From top to bottom:
 
 #. The client library interface, ``rcl``, which supports the user-facing :doc:`client libraries <../../About-Client-Libraries>`, such as ``rclcpp`` and ``rclpy``
@@ -102,7 +102,7 @@ In any case, any special behavior of the ``rmw`` implementation should ideally b
 Topics, pub/sub, services
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-:doc:`Topics <../../About-Topics>` are a common concept in publish/subscribe middleware.
+:doc:`Topics <../../interfaces/About-Topics>` are a common concept in publish/subscribe middleware.
 However, ROS 2 has its own topic name conventions, which is validated using ``rmw_validate_full_topic_name()``.
 The ``rmw`` implementation simply has to use the given (resolved) topic name.
 This might involve adapting or mangling the ROS topic name to fit the underlying middleware's topic name conventions or constraints, or encode useful information.
@@ -110,12 +110,12 @@ For example, a pub/sub topic called ``/chatter`` is usually mangled into ``rt/ch
 See the `"Mapping of ROS 2 Topic and Service Names to DDS Concepts" section in this design document <https://design.ros2.org/articles/topic_and_service_names.html#mapping-of-ros-2-topic-and-service-names-to-dds-concepts>`_.
 For Zenoh, the domain ID, resolved topic name, topic type name, and topic type hash are `encoded in the underlying Zenoh key <https://github.com/ros2/rmw_zenoh/blob/{DISTRO}/docs/design.md#topic-and-service-name-mapping-to-zenoh-key-expressions>`_ to avoid communications between different ROS topic names & types.
 
-As for :doc:`services <../../About-Services>`, they are not always natively supported by the underlying middleware.
+As for :doc:`services <../../interfaces/About-Services>`, they are not always natively supported by the underlying middleware.
 For DDS-based implementations, they are simply built on top of pub/sub: 1 request topic and 1 response topic.
 [#fn_dds_rpc]_
 On the other hand, Zenoh natively supports services through `queryables <https://github.com/ros2/rmw_zenoh/blob/{DISTRO}/docs/design.md#service-servers>`_, so they are used to implement services in ``rmw_zenoh_cpp``.
 
-Note that, while services are a part of the ``rmw`` interface, :doc:`actions <../../About-Actions>` are not.
+Note that, while services are a part of the ``rmw`` interface, :doc:`actions <../../interfaces/About-Actions>` are not.
 They are an ``rcl`` concept implemented in the ``rcl_action`` package on top of services and pub/sub.
 
 Nodes
@@ -180,7 +180,7 @@ For instance, DDS natively supports all of it for pub/sub through DDS sample inf
 Type support
 ^^^^^^^^^^^^
 
-To bridge the gap between ROS 2 :doc:`interfaces <../../About-Interfaces>` (specifically :doc:`custom interfaces <Custom-ROS2-Interfaces>`) and the underlying middleware, some glue code is needed.
+To bridge the gap between ROS 2 :doc:`interfaces <../../interfaces/About-Interfaces>` (specifically :doc:`custom interfaces <Custom-ROS2-Interfaces>`) and the underlying middleware, some glue code is needed.
 This is referred to as :ref:`type support <Type Specific Interfaces>`.
 When publishing a message of type {interface(std_msgs/msg/String)}, ``rmw_publish()`` only gets a ``void *`` to the message, which could point to a C++ instance, or a C instance, and so on.
 The pointer will be interpreted based on the type support information provided when the publisher was created.
@@ -227,7 +227,7 @@ DDS achieves this by using the domain ID as a network port offset, while Zenoh i
 Quality of service (QoS)
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-:doc:`Quality of service settings <../../topics/About-Quality-of-Service-Settings>` in ROS 2 are largely derived from DDS.
+:doc:`Quality of service settings <../../interfaces/topics/About-Quality-of-Service-Settings>` in ROS 2 are largely derived from DDS.
 Basic QoS policies like history, depth, and durability are the same as ROS 1's, but more advanced policies simply come from DDS.
 Implementations may simply ignore some settings.
 For instance, ``rmw_zenoh_cpp`` doesn't implement the deadline and lifespan QoS policies.
@@ -247,7 +247,7 @@ ROS graph introspection
 
 Nodes are able to get a list of other nodes, topics, etc.
 This also allows publishers to know if any subscriptions exist for their topic, for example.
-This same mechanism is used to :doc:`list nodes <../../nodes/Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>`, :doc:`topics <../../topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`, and so on with the ROS 2 CLI: ``ros2 node list``, ``ros2 topic list``, etc.
+This same mechanism is used to :doc:`list nodes <../../nodes/Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>`, :doc:`topics <../../interfaces/topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`, and so on with the ROS 2 CLI: ``ros2 node list``, ``ros2 topic list``, etc.
 
 This is supported by a number of ``rmw`` functions: ``rmw_get_node_names()``, ``rmw_get_topic_names_and_types()``, ``rmw_publisher_count_matched_subscriptions()``, and many more.
 While the implementation is not specified by the interface, ``rmw`` implementations usually maintain a cache of the ROS graph.

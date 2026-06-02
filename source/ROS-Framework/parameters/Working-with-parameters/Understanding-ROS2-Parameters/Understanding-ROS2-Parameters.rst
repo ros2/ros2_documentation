@@ -249,4 +249,4 @@ You can also save the parameter settings to a file to reload them in a future se
 Next steps
 ----------
 
-Jumping back to ROS 2 communication methods, in the next tutorial you'll learn about :doc:`actions <../../../actions/Working-with-actions/Understanding-ROS2-Actions/Understanding-ROS2-Actions>`.
+Jumping back to ROS 2 communication methods, in the next tutorial you'll learn about :doc:`actions <../../../interfaces/actions/Working-with-actions/Understanding-ROS2-Actions/Understanding-ROS2-Actions>`.

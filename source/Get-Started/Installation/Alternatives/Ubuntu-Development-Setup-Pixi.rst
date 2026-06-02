@@ -183,7 +183,7 @@ Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your
 Stay up to date
 ---------------
 
-See :doc:`../Maintaining-a-Source-Checkout` to periodically refresh your source installation.
+See :doc:`Maintaining-a-Source-Checkout` to periodically refresh your source installation.
 
 1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
    This way, your environment will behave as though there is no {DISTRO_TITLE} install on your system.

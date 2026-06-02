@@ -1,7 +1,23 @@
+.. redirect-from::
+
+    About-ROS-Interfaces
+    How-To-Guides/Topics-Services-Actions
+
 .. _interfaces-topics-services-actions:
+.. _TopicsServicesActions:
 
 Interfaces (topics, services, actions)
 ======================================
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+
+   interfaces/About-Interfaces
+   interfaces/About-Topics
+   interfaces/About-Services
+   interfaces/About-Actions
+
 
 Interfaces in ROS define how nodes exchange data.
 This article explains the different types of ROS interface and the differences between them.
@@ -14,13 +30,13 @@ Summary
 
 ROS nodes typically communicate through the following three types of interfaces:
 
-* Topics: For continuous data streams.
-* Services: For synchronous request/response interactions (short tasks which happen immediately).
-* Actions: For long-running tasks with feedback (tasks that may take some time to complete).
+* :doc:`Topics <interfaces/About-Topics>`: For continuous data streams.
+* :doc:`Services <interfaces/About-Services>`: For synchronous request/response interactions (short tasks which happen immediately).
+* :doc:`Actions <interfaces/About-Actions>`: For long-running tasks with feedback (tasks that may take some time to complete).
 
 For consistent communication, each interface uses definitions provided in ``.msg``, ``.srv``, or ``.action`` files.
 
-:doc:`Learn more about nodes <../About-Nodes>`
+:doc:`Learn more about nodes <About-Nodes>`
 
 Topics
 ------
@@ -62,7 +78,7 @@ This gives you a clear view of timing patterns, delays, and irregularities, maki
    The default interval is 1 second.
    The default statistics topic is ``/statistics``.
 
-:doc:`Learn how to enable topic statistics <../../Developer-Tools/Introspection-and-analysis/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial>`
+:doc:`Learn how to enable topic statistics <../Developer-Tools/Introspection-and-analysis/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial>`
 
 Services
 --------

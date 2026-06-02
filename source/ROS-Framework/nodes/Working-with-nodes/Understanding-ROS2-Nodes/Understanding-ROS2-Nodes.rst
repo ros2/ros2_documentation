@@ -188,7 +188,7 @@ These tools are vital to understanding the flow of data in a complex, real-world
 Next steps
 ----------
 
-Now that you understand nodes in ROS 2, you can move on to the :doc:`topics tutorial <../../../topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`.
+Now that you understand nodes in ROS 2, you can move on to the :doc:`topics tutorial <../../../interfaces/topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`.
 Topics are one of the communication types that connects nodes.
 
 Related content

@@ -21,7 +21,7 @@ Creating custom msg and srv files
 Background
 ----------
 
-In previous tutorials you utilized message and service interfaces to learn about :doc:`topics <../../topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`, :doc:`services <../../services/Working-with-services/Understanding-ROS2-Services/Understanding-ROS2-Services>`, and simple publisher/subscriber (:doc:`C++ <Writing-A-Simple-Cpp-Publisher-And-Subscriber>`/:doc:`Python <Writing-A-Simple-Py-Publisher-And-Subscriber>`) and service/client (:doc:`C++ <Writing-A-Simple-Cpp-Service-And-Client>`/:doc:`Python <Writing-A-Simple-Py-Service-And-Client>`) nodes.
+In previous tutorials you utilized message and service interfaces to learn about :doc:`topics <../../interfaces/topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`, :doc:`services <../../interfaces/services/Working-with-services/Understanding-ROS2-Services/Understanding-ROS2-Services>`, and simple publisher/subscriber (:doc:`C++ <Writing-A-Simple-Cpp-Publisher-And-Subscriber>`/:doc:`Python <Writing-A-Simple-Py-Publisher-And-Subscriber>`) and service/client (:doc:`C++ <Writing-A-Simple-Cpp-Service-And-Client>`/:doc:`Python <Writing-A-Simple-Py-Service-And-Client>`) nodes.
 The interfaces you used were predefined in those cases.
 
 While it's good practice to use predefined interface definitions, you will probably need to define your own messages and services sometimes as well.
@@ -792,7 +792,7 @@ Summary
 In this tutorial, you learned how to create custom interfaces in their own package and how to utilize those interfaces in other packages.
 
 This tutorial only scratches the surface about defining custom interfaces.
-You can learn more about it in :doc:`About ROS 2 interfaces <../../About-Interfaces>`.
+You can learn more about it in :doc:`About ROS 2 interfaces <../../interfaces/About-Interfaces>`.
 
 Next steps
 ----------

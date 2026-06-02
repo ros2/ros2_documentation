@@ -219,7 +219,7 @@ API Documentation for ROS Packages
 API documentation for all released ROS packages can be `found here <https://docs.ros.org/en/{DISTRO}/p/>`__.
 We recommend using `index.ros.org <https://index.ros.org/>`_ to search through available ROS packages to find their documentation.
 
-If you are a ROS package developer looking for guidance on documenting your package please see :doc:`our "how to" guide on package level documentation <../../Developer-Tools/Build/Documenting-a-ROS-2-Package>`.
+If you are a ROS package developer looking for guidance on documenting your package please see :doc:`our "how to" guide on package level documentation <../../Developer-Tools/Package-documentation/Documenting-a-ROS-2-Package>`.
 The documentation for all released ROS 2 packages is automatically hosted on `docs.ros.org <https://docs.ros.org/en/{DISTRO}/p/>`_.
 
 Testing

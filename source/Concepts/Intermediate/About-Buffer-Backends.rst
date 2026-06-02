@@ -26,10 +26,10 @@ Why a new type is needed
 
 ROS 2 messages already have two complementary mechanisms for reducing copies:
 
-* :doc:`Intra-process communication <../../Tutorials/Demos/Intra-Process-Communication>`
+* :doc:`Intra-process communication <../../ROS-Framework/nodes/Working-with-nodes/intra-process/Intra-Process-Communication>`
   avoids copies between publishers and subscriptions in the same process by
   passing ``std::unique_ptr`` ownership.
-* :doc:`Loaned messages <../../How-To-Guides/Configure-ZeroCopy-loaned-messages>`
+* :doc:`Loaned messages <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Configure-ZeroCopy-loaned-messages>`
   let the RMW manage message memory to enable shared-memory transport between
   processes, for message types the underlying middleware can lay out.
 
@@ -168,7 +168,7 @@ Relationship to other ROS 2 mechanisms
 
 * ``rosidl::Buffer`` is orthogonal to :doc:`intra-process communication
   <../../Tutorials/Demos/Intra-Process-Communication>` and to
-  :doc:`loaned messages <../../How-To-Guides/Configure-ZeroCopy-loaned-messages>`.
+  :doc:`loaned messages <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Configure-ZeroCopy-loaned-messages>`.
   A backend may implement either, both, or neither for a given pub/sub pair;
   the decision lives entirely inside the backend.
 * Whether a given publisher/subscriber pair can actually use a non-CPU

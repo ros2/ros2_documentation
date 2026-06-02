@@ -64,7 +64,7 @@ You need:
 * A CUDA-capable GPU and the CUDA Toolkit (>= 11.8).
 * SDL2, GLEW, OpenGL, X11 development packages.
 * A ROS 2 Lyrical Luth or later source workspace.
-  See the :doc:`Installation instructions <../../Installation>` for the
+  See the :doc:`Installation instructions <../../Get-Started/Installation>` for the
   canonical source-build flow.
 * ``rmw_fastrtps_cpp`` for the non-CPU buffer path.
 

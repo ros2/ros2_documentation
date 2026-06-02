@@ -21,7 +21,7 @@ Building a visual robot model from scratch
 .. note:: This tutorial assumes you know how to write well-formatted XML code
 
 In this tutorial, we're going to build a visual model of a robot that vaguely looks like R2D2.
-In later tutorials, you'll learn how to :doc:`articulate the model <Building-a-Movable-Robot-Model-with-URDF>`, :doc:`add in some physical properties <Adding-Physical-and-Collision-Properties-to-a-URDF-Model>`, and :doc:`generate neater code with xacro <../../../Developer-Tools/Build/Using-Xacro-to-Clean-Up-a-URDF-File>`, but for now, we're going to focus on getting the visual geometry correct.
+In later tutorials, you'll learn how to :doc:`articulate the model <Building-a-Movable-Robot-Model-with-URDF>`, :doc:`add in some physical properties <Adding-Physical-and-Collision-Properties-to-a-URDF-Model>`, and :doc:`generate neater code with xacro <../../../Developer-Tools/Build/Using-Xacro-to-Clean-Up-a-URDF-File/Using-Xacro-to-Clean-Up-a-URDF-File>`, but for now, we're going to focus on getting the visual geometry correct.
 
 Before continuing, make sure you have the `joint_state_publisher <https://index.ros.org/p/joint_state_publisher>`_ package installed.
 If you installed `urdf_tutorial <https://index.ros.org/p/urdf_tutorial>`_ binaries, this should already be the case.

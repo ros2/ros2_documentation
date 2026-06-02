@@ -41,7 +41,7 @@ variable-length primitive array fields.
 If your goal is to reduce copies within CPU memory, you are almost
 certainly looking for :doc:`intra-process communication
 <../Demos/Intra-Process-Communication>` or
-:doc:`loaned messages <../../How-To-Guides/Configure-ZeroCopy-loaned-messages>`
+:doc:`loaned messages <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Configure-ZeroCopy-loaned-messages>`
 instead.
 
 Reference implementations

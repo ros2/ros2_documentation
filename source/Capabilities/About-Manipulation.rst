@@ -1,5 +1,5 @@
-User interfaces
-===============
+Manipulation
+============
 
 .. toctree::
    :maxdepth: 1

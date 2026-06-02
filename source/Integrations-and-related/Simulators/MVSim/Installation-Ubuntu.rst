@@ -24,10 +24,10 @@ Prerequisites
 -------------
 
 It is recommended to understand basic ROS principles covered in the beginner :doc:`../../../../Tutorials`.
-In particular, :doc:`../../../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace` is a useful prerequisite.
+In particular, :doc:`../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace` is a useful prerequisite.
 
 You should have a working ROS 2 installation.
-Follow the :doc:`ROS 2 install instructions <../../../../Installation>` if needed.
+Follow the :doc:`ROS 2 install instructions <../../../Get-Started/Installation>` if needed.
 
 Tasks
 -----

@@ -70,7 +70,7 @@ Now start ``turtlesim`` in a new terminal with the following command:
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To produce log messages for ``rqt_console`` to display, let's have the turtle run into the wall.
-In a new terminal, enter the ``ros2 topic pub`` command (discussed in detail in the :doc:`topics tutorial <../../../topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`) below:
+In a new terminal, enter the ``ros2 topic pub`` command (discussed in detail in the :doc:`topics tutorial <../../../interfaces/topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`) below:
 
 .. code-block:: console
 

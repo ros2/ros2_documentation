@@ -21,7 +21,7 @@ Writing a simple service and client (Python)
 Background
 ----------
 
-When :doc:`nodes <../../nodes/Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` communicate using :doc:`services <../../services/Working-with-services/Understanding-ROS2-Services/Understanding-ROS2-Services>`, the node that sends a request for data is called the client node, and the one that responds to the request is the service node.
+When :doc:`nodes <../../nodes/Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` communicate using :doc:`services <../../interfaces/services/Working-with-services/Understanding-ROS2-Services/Understanding-ROS2-Services>`, the node that sends a request for data is called the client node, and the one that responds to the request is the service node.
 The structure of the request and response is determined by a ``.srv`` file.
 
 The example used here is a simple integer addition system; one node requests the sum of two integers, and the other responds with the result.
@@ -277,7 +277,7 @@ Finally we have the ``main`` method, which constructs a ``MinimalClientAsync`` o
 .. warning::
 
   Do not use ``rclpy.spin_until_future_complete`` in a ROS 2 callback.
-  For more details see the :doc:`sync deadlock article <../../services/Working-with-services/Sync-Vs-Async>`.
+  For more details see the :doc:`sync deadlock article <../../interfaces/services/Working-with-services/Sync-Vs-Async>`.
 
 3.2 Add an entry point
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -392,4 +392,4 @@ Related content
 
 * In this tutorial, you used the ``call_async()`` API in your client node to call the service.
   There is another service call API available for Python called synchronous calls.
-  We do not recommend using synchronous calls, but if you'd like to learn more about them, read the guide to :doc:`Synchronous vs. asynchronous clients <../../services/Working-with-services/Sync-Vs-Async>`.
+  We do not recommend using synchronous calls, but if you'd like to learn more about them, read the guide to :doc:`Synchronous vs. asynchronous clients <../../interfaces/services/Working-with-services/Sync-Vs-Async>`.

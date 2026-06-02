@@ -26,7 +26,7 @@ This is a standalone tutorial covering the basics of static transforms, which co
 In the first part we will write code to publish static transforms to tf2.
 In the second part we will explain how to use the commandline ``static_transform_publisher`` executable tool in ``tf2_ros``.
 
-In the next two tutorials we will write the code to reproduce the demo from the :doc:`Introduction to tf2 <../../../interfaces/Working-with-interfaces/Introduction-To-Tf2>` tutorial.
+In the next two tutorials we will write the code to reproduce the demo from the :doc:`Introduction to tf2 <../../../interfaces/Working-with-interfaces/Introduction-To-Tf2/Introduction-To-Tf2>` tutorial.
 After that, the following tutorials focus on extending the demo with more advanced tf2 features.
 
 Prerequisites

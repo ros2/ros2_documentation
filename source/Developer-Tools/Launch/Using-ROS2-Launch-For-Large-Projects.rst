@@ -29,7 +29,7 @@ Additionally, it covers usage examples of different ROS 2 launch tools, like par
 Prerequisites
 -------------
 
-This tutorial uses the :doc:`turtlesim <../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>` and :doc:`turtle_tf2_py <../../ROS-Framework/interfaces/Working-with-interfaces/Introduction-To-Tf2>` packages.
+This tutorial uses the :doc:`turtlesim <../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>` and :doc:`turtle_tf2_py <../../ROS-Framework/interfaces/Working-with-interfaces/Introduction-To-Tf2/Introduction-To-Tf2>` packages.
 This tutorial also assumes you have :doc:`created a new package <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-Your-First-ROS2-Package>` of build type ``ament_python`` called ``launch_tutorial``.
 
 Introduction

@@ -20,7 +20,7 @@ Prerequisites
 -------------
 
 This tutorial is aimed at real-time Linux systems.
-See the :doc:`real-time system setup tutorial <../../../Tutorials/Miscellaneous/Building-Realtime-rt_preempt-kernel-for-ROS-2>`.
+See the :doc:`real-time system setup tutorial <../../Build/Building-Realtime-rt_preempt-kernel-for-ROS-2/Building-Realtime-rt_preempt-kernel-for-ROS-2>`.
 However, the tutorial will work if you are using a non-real-time Linux system.
 
 Installing and building

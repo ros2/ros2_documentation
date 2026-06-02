@@ -9,7 +9,7 @@ Internal ROS 2 interfaces
 .. contents:: Table of Contents
    :local:
 
-.. include:: ../../../global_substitutions.txt
+.. include:: ../../../../global_substitutions.txt
 
 The internal ROS interfaces are public C |APIs| that are intended for use by developers who are creating |client libraries| or adding a new underlying middleware, but are not intended for use by typical ROS users.
 The ROS |client libraries| provide the user facing |APIs| that most ROS users are familiar with, and may come in a variety of programming languages.
@@ -149,7 +149,7 @@ The ``rmw`` |package| contains the C headers which define the interface, the imp
 
 For a definition of the ``rmw`` |API|, see `the rmw docs <http://docs.ros.org/en/{DISTRO}/p/rmw/>`_.
 
-For a more practical in-depth overview of how ROS 2 integrates with different middleware implementations, see :doc:`the middleware implementation tutorial <../Creating-An-RMW-Implementation>`.
+For a more practical in-depth overview of how ROS 2 integrates with different middleware implementations, see :doc:`the middleware implementation tutorial <../Working-with-Client-Libraries/Creating-An-RMW-Implementation>`.
 
 The ``rosidl`` repository
 -------------------------

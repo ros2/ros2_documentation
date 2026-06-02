@@ -1,9 +1,3 @@
-.. redirect-from::
-
-    How-To-Guides/Topics-Services-Actions
-
-.. _TopicsServicesActions:
-
 Topics vs Services vs Actions
 =============================
 
@@ -12,7 +6,7 @@ Topics vs Services vs Actions
    :local:
 
 When designing a system there are three primary styles of interfaces.
-The specifications for the content is in the :doc:`Interfaces Overview <../About-Interfaces>`.
+The specifications for the content is in the :doc:`Interfaces Overview <About-Interfaces>`.
 This is written to provide the reader with guidelines about when to use each type of interface.
 
 Topics
