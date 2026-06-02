@@ -9,6 +9,8 @@ ifeq ($(OS),Windows_NT)
 endif
 BUILD      = $(PYTHON) -m sphinx
 OPTS       =-c . -W # Treat warnings as errors
+LIVE_HOST  ?= 0.0.0.0
+LIVE_PORT  ?= 2022
 
 DICTIONARIES := codespell_dictionary.txt codespell_whitelist.txt
 
@@ -61,4 +63,7 @@ linkcheck:
 	@echo
 	@echo "Check finished. Report is in $(LINKCHECKDIR)."
 
-.PHONY: help Makefile multiversion test test-tools linkcheck lint spellcheck check-dictionaries sort-dictionaries
+serve:
+	sphinx-autobuild --host $(LIVE_HOST) --port $(LIVE_PORT) -c . $(SOURCE) $(OUT)/html
+
+.PHONY: help Makefile multiversion test test-tools linkcheck serve lint spellcheck check-dictionaries sort-dictionaries
