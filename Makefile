@@ -10,7 +10,7 @@ endif
 BUILD      = $(PYTHON) -m sphinx
 OPTS       =-c . -W # Treat warnings as errors
 LIVE_HOST  ?= 0.0.0.0
-LIVE_PORT  ?= 8000
+LIVE_PORT  ?= 2022
 
 DICTIONARIES := codespell_dictionary.txt codespell_whitelist.txt
 
