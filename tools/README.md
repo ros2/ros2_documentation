@@ -12,13 +12,81 @@ Both model-generated metadata (`description`, `keywords`) and short descriptions
 
 ## Code layout
 
-| Module | Role |
-|--------|------|
-| `enhance_topics.py` | CLI entry point, orchestration, `EnhancementTask` / `ApplyHook`, metadata analysis (`analyze_content`), and shared `analyze_files` / validation |
-| `openai_retrieval.py` | Vector-store setup, short description Responses calls (`analyze_with_responses`), and cleanup of hosted retrieval resources |
-| `enhance_data.py` | `EnhanceData` accumulator, per-file results, and metrics |
-| `rst_utils.py` | Regex-based read/write of `.. meta::` and `.. short-description::` in RST source |
-| `config.py` | Model name, timeouts, retries, prompts, and example paths for RAG (leaf module; no imports from sibling scripts) |
+- **`enhance_topics.py`**
+  - CLI entry point and orchestration
+  - `EnhancementTask` / `ApplyHook` definitions
+  - Metadata analysis (`analyze_content`)
+  - Shared `analyze_files` and validation
+- **`openai_retrieval.py`**
+  - Vector-store setup
+  - Short-description Responses calls (`analyze_with_responses`)
+  - Cleanup of hosted retrieval resources
+- **`enhance_data.py`**
+  - `EnhanceData` accumulator, per-file results, and metrics
+- **`rst_utils.py`**
+  - Regex-based read/write of `.. meta::` and `.. short-description::` in RST source
+- **`config.py`**
+  - Model name, timeouts, retries, prompts, and example paths for RAG
+  - Leaf module (no imports from sibling scripts)
+
+## Configuration
+
+Tuning constants and prompt strings live in `tools/config.py`. Authentication is **not** configured here: `OPENAI_API_KEY` is read from the environment or a `.env` file in the repository root by `get_openai_client()` in `enhance_topics.py`.
+
+### Model and input limits
+
+- **`GPT_MODEL`** (default: `gpt-5.4-nano`)
+  - Used by: `enhance_topics` (metadata analysis, validation, short-description task)
+  - Purpose: model for all Responses API calls
+- **`MAX_CONTENT_LENGTH`** (default: `1_200_000`)
+  - Used by: `validate_content`
+  - Purpose: truncate generated text before moderation and language checks (~300k tokens)
+- **`RST_EXTENSION`** (default: `.rst`)
+  - Used by: `main()`
+  - Purpose: filter CLI arguments to reStructuredText files only
+
+### Timeouts and retries
+
+- **`DEFAULT_TIMEOUT`** (default: `30` seconds)
+  - Used by: metadata `analyze_content`, `validate_content`, metadata tasks
+  - Purpose: wall-clock limit per individual API call
+- **`RESPONSE_TIMEOUT`** (default: `120` seconds)
+  - Used by: short-description task, `openai_retrieval`
+  - Purpose: wall-clock limit for one short-description Responses call (includes file reference)
+- **`MAX_RETRIES`** (default: `10`)
+  - Used by: `analyze_content`, `validate_content`, `openai_retrieval`
+  - Purpose: retry attempts on rate limits and connection errors (`tenacity`)
+- **`MIN_WAIT`** (default: `10` seconds)
+  - Used by: same as retry constants above
+  - Purpose: minimum wait between retries (exponential backoff base)
+- **`MAX_WAIT`** (default: `120` seconds)
+  - Used by: same as retry constants above
+  - Purpose: maximum wait between retries (backoff cap)
+
+### RAG example articles
+
+- **`SHORT_DESCRIPTION_EXAMPLE_PATHS`**
+  - Used by: `enhance_short_descriptions`, `SHORT_DESCRIPTION_PROMPT`
+  - Purpose: paths relative to the repository root; uploaded once per run into an OpenAI vector store for `file_search` when generating short descriptions
+
+To change style or tone guidance for short descriptions, update this list and/or `SHORT_DESCRIPTION_PROMPT` together so the prompt’s example list stays in sync.
+
+### Prompts
+
+- **`DESCRIPTION_PROMPT`**
+  - Used by: Phase 1 (`description` task)
+  - Purpose: instructions for the meta `description` field (single sentence, max 130 characters)
+- **`KEYWORDS_PROMPT`**
+  - Used by: Phase 1 (`keywords` task)
+  - Purpose: instructions for comma-separated lowercase keywords (3–5 words)
+- **`SHORT_DESCRIPTION_PROMPT`**
+  - Used by: Phase 2 (`analyze_with_responses`)
+  - Purpose: instructions for short-description prose; references example paths via `file_search`
+- **`ENGLISH_LANGUAGE_CHECK_PROMPT`**
+  - Used by: `validate_content`
+  - Purpose: yes/no check that model output is English before results are stored
+
+Fixed metadata placeholders (`{DISTRO}`, `{PRODUCT}`) are defined in `enhance_topics.py`, not in `config.py`.
 
 ## Orchestration Logic
 
