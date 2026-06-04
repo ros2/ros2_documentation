@@ -12,25 +12,6 @@ This guide gives some information about the responsibilities of a ROS 2 core pac
 .. contents:: Table of Contents
    :local:
 
-Reviews
--------
-
-All incoming code to ROS 2 core repositories must be reviewed.
-The review is looking for:
-
-* Suitability in the package
-* Correct code
-* Conforms to developer guidelines:
-
-    * :doc:`Developer Guide <../The-ROS2-Project/Contributing/Developer-Guide>`
-    * :doc:`Code Style Guide <../The-ROS2-Project/Contributing/Code-Style-Language-Versions>`
-
-* Adds tests for the bug/feature
-* Adds documentation for new features
-* Clean Continuous Integration run
-* Targets default branch (usually "rolling")
-* Has at least one approval from a maintainer that is not the author
-
 Continuous Integration
 ----------------------
 
