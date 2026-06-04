@@ -35,7 +35,7 @@ You can also check for issues relating to nearby updates you could make to the a
 
 If you are creating a new article, decide on the content type for the article before you start.
 
-For more information about the docs source, tools, and workflow to use when making your updates, see :doc:`../Documentation`.
+For more information about the docs source, tools, and workflow to use when making your updates, see :doc:`../Contributing-to-documentation`.
 
 Building the site locally
 ^^^^^^^^^^^^^^^^^^^^^^^^^
