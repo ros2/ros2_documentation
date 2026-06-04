@@ -55,15 +55,8 @@ To start the demo, we execute the demo bringup launch file, which we are going t
        [dummy_laser-4] [INFO] [1714837459.645626640] [dummy_laser]: scan time increment:     0.000000
        [robot_state_publisher-2] [INFO] [1714837459.652977937] [robot_state_publisher]: Robot initialized
 
-If you now open RViz2 in a new terminal, you'll see your robot.
-🎉
+This opens RViz2, you'll see your robot 🎉.
 
-.. code-block:: console
-
-   $ source ~/ros2_ws/install/setup.bash
-   $ rviz2
-
-This opens RViz2.
 Assuming you have your dummy_robot_bringup still launched, you can now add the TF display plugin and configure your global frame to ``world``.
 Once you did that, you should see a similar picture:
 

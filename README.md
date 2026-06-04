@@ -51,6 +51,27 @@ For local testing of the current tree use:
 
 `sensible-browser build/html/index.html`
 
+### Live-reload local development
+
+To iterate on documentation without manually rebuilding and refreshing the browser, use [`sphinx-autobuild`](https://github.com/sphinx-doc/sphinx-autobuild).
+It watches the source files, rebuilds incrementally on save, and serves the result with automatic browser reload.
+
+`sphinx-autobuild` is installed as part of `requirements.txt`.
+Start the live server with:
+
+```
+make serve
+```
+
+Then open `http://localhost:2022` in a browser.
+
+The `serve` target binds to `0.0.0.0:2022` by default (a little ROS 2 vibe) so the server is reachable through devcontainer / port forwarding.
+Override the bind address or port if needed:
+
+```
+make serve LIVE_HOST=127.0.0.1 LIVE_PORT=8080
+```
+
 ### Spelling Check
 
 To check the spelling, use:
