@@ -4,7 +4,7 @@
    Concepts/About-ROS-2-Client-Libraries
    Concepts/Basic/About-Client-Libraries
 
-.. include:: ../../../global_substitutions.txt
+.. include:: ../../global_substitutions.txt
 
 Client libraries
 ================
