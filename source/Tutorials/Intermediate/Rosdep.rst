@@ -159,7 +159,7 @@ You can install it with:
 
 .. code-block:: console
 
-    $ apt-get install python3-rosdep
+    $ sudo apt-get install python3-rosdep
 
 .. note::
 
@@ -171,7 +171,7 @@ In that case, you can install it directly from https://pypi.org:
 
 .. code-block:: console
 
-    $ pip install rosdep
+    $ sudo apt-get install python3-rosdep
 
 rosdep operation
 ^^^^^^^^^^^^^^^^
