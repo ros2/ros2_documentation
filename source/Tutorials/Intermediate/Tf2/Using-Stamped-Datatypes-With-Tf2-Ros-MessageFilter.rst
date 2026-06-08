@@ -42,11 +42,17 @@ This tutorial expects you to have ``turtle_tf2_py`` package installed.
 
 .. tabs::
 
-  .. group-tab:: Linux
+  .. group-tab:: Ubuntu
 
     .. code-block:: console
 
         $ sudo apt install ros-{DISTRO}-turtle-tf2-py
+
+  .. group-tab:: RHEL
+
+    .. code-block:: console
+
+        $ sudo dnf install ros-{DISTRO}-turtle-tf2-py
 
   .. group-tab:: From Source
 
