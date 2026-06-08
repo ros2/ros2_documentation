@@ -157,9 +157,19 @@ If you are using ``rosdep`` with ROS, it is conveniently packaged along with the
 This is the recommended way to get ``rosdep``.
 You can install it with:
 
-.. code-block:: console
+.. tabs::
 
-    $ apt-get install python3-rosdep
+  .. group-tab:: Ubuntu
+
+    .. code-block:: console
+
+        $ sudo apt install python3-rosdep
+
+  .. group-tab:: RHEL
+
+    .. code-block:: console
+
+        $ sudo dnf install python3-rosdep
 
 .. note::
 
