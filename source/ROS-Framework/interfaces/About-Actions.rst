@@ -8,7 +8,7 @@ Actions
 .. toctree::
    :maxdepth: 1
    :hidden:
-   
+
    actions/Working-with-actions
 
 .. contents:: Table of Contents

@@ -7,7 +7,7 @@ PLACEHOLDER
 
 .. toctree::
    :maxdepth: 1
-   
+
    Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes
    Working-with-nodes/Using-Rqt-Console/Using-Rqt-Console
    Working-with-nodes/Launching-Multiple-Nodes/Launching-Multiple-Nodes

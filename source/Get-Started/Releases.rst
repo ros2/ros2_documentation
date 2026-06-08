@@ -35,7 +35,7 @@ Rows in the table marked in blue are the currently supported distributions.
    Releases/Release-Rolling-Ridley
    Releases/Development
    Releases/End-of-Life
-   
+
 .. raw:: html
 
    <!--

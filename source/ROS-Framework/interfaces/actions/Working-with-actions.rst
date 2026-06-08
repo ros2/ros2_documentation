@@ -7,7 +7,7 @@ PLACEHOLDER
 
 .. toctree::
    :maxdepth: 1
-   
+
    Working-with-actions/Understanding-ROS2-Actions/Understanding-ROS2-Actions
    Working-with-actions/Action-Introspection
    Working-with-actions/Creating-an-Action

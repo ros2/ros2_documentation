@@ -12,11 +12,11 @@ Options for installing ROS 2 {DISTRO_TITLE_FULL}:
 
 .. toctree::
    :maxdepth: 1
-   
+
    Installation/Ubuntu-Install-Debs
    Installation/Windows-Install-Binary
    Installation/RHEL-Install-RPMs
-   Installation/Alternatives   
+   Installation/Alternatives
    Installation/RMW-Implementations
    Installation/ROS-2-Mirrors
    Installation/Installing-on-Raspberry-Pi
