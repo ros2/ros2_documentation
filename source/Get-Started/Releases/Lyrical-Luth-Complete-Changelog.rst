@@ -4693,5 +4693,3 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update CMakeLists.txt (`#617 <https://github.com/ros2/rmw_zenoh/issues/617>`__)
 * Fix warning on Windows (`#615 <https://github.com/ros2/rmw_zenoh/issues/615>`__)
 * Contributors: Alejandro Hernández Cordero, Barry Xu, Christophe Bedard, Julien Enoch, Tomoya Fujita, Yadunund, mosfet80
-
-
