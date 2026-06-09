@@ -9,6 +9,8 @@ ifeq ($(OS),Windows_NT)
 endif
 BUILD      = $(PYTHON) -m sphinx
 OPTS       =-c . -W # Treat warnings as errors
+LIVE_HOST  ?= 0.0.0.0
+LIVE_PORT  ?= 2022
 
 DICTIONARIES := codespell_dictionary.txt codespell_whitelist.txt
 
@@ -18,7 +20,7 @@ help:
 
 multiversion: Makefile
 	sphinx-multiversion $(OPTS) "$(SOURCE)" build/html
-	@echo "<html><head><meta http-equiv=\"refresh\" content=\"0; url=kilted/index.html\" /></head></html>" > build/html/index.html
+	@echo "<html><head><meta http-equiv=\"refresh\" content=\"0; url=lyrical/index.html\" /></head></html>" > build/html/index.html
 	$(PYTHON) make_sitemapindex.py
 
 # Pagefind static search index (requires Node.js / npx). Run after html or multiversion.
@@ -78,4 +80,7 @@ linkcheck:
 	@echo
 	@echo "Check finished. Report is in $(LINKCHECKDIR)."
 
-.PHONY: help Makefile multiversion pagefind test test-tools linkcheck lint spellcheck check-dictionaries sort-dictionaries
+serve:
+	sphinx-autobuild --host $(LIVE_HOST) --port $(LIVE_PORT) -c . $(SOURCE) $(OUT)/html
+
+.PHONY: help Makefile multiversion pagefind test test-tools linkcheck serve lint spellcheck check-dictionaries sort-dictionaries
