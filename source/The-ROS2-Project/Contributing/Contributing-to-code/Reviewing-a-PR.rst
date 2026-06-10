@@ -30,7 +30,7 @@ Steps
 ^^^^^^^^^^^^^^^^^^^^^^
 
 * :ref:`Any developer <general-principles>` is welcome to review a pull request.
-  
+
   A pull request generally requires two reviews before it can be merged.
 
 * Treat reviewing a pull request as a collaborative activity involving the submitter and other developers, rather than a passive or one-way process.
