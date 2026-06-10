@@ -197,25 +197,33 @@ Component container types
 As introduced in :ref:`ComponentContainer`, there are a few component container types with different options.
 You can choose the most appropriate component container type for your requirement.
 
-* ``component_container`` (No options / parameters available)
+* ``component_container`` with ``SingleThreadedExecutor``.
 
    .. code-block:: console
 
       $ ros2 run rclcpp_components component_container
 
-* ``component_container_mt`` with ``MultiThreadedExecutor`` composed of 4 threads.
+* ``component_container`` with ``MultiThreadedExecutor`` composed of 4 threads.
    * ``thread_num`` parameter option is available to specify the number of threads in ``MultiThreadedExecutor``.
+     If omitted, the executor will run with the maximum available threads on the system.
 
    .. code-block:: console
 
-      $ ros2 run rclcpp_components component_container_mt --ros-args -p thread_num:=4
+      $ ros2 run rclcpp_components component_container --executor-type multi-threaded --ros-args -p thread_num:=4
 
-* ``component_container_isolated`` with ``MultiThreadedExecutor`` for each component.
-   * ``--use_multi_threaded_executor`` argument specifies executor type used for each component to ``MultiThreadedExecutor``.
+* ``component_container`` with ``EventsCBGExecutor`` composed of a single thread.
+   * ``thread_num`` parameter option is available to specify the number of threads in ``EventsCBGExecutor``.
+     If omitted, the executor will run with the maximum available threads on the system.
 
    .. code-block:: console
 
-      $ ros2 run rclcpp_components component_container_isolated --use_multi_threaded_executor
+      $ ros2 run rclcpp_components component_container --executor-type events-cbg --ros-args -p thread_num:=1
+
+* ``component_container`` with a dedicated ``MultiThreadedExecutor`` for each component.
+
+   .. code-block:: console
+
+      $ ros2 run rclcpp_components component_container --executor-type multi-threaded --isolated
 
 Unloading components
 ^^^^^^^^^^^^^^^^^^^^
@@ -402,7 +410,7 @@ If you want to export a composable node as a shared library from a package and u
 
 Then install the generated file and export the generated file.
 
-A practical example can be seen here: `ROS Discourse - Ament best practice for sharing libraries <https://discourse.ros.org/t/ament-best-practice-for-sharing-libraries/3602>`__
+A practical example can be seen here: `ROS Discourse - Ament best practice for sharing libraries <https://discourse.openrobotics.org/t/ament-best-practice-for-sharing-libraries/3602>`__
 
 Composing Non-Node Derived Components
 -------------------------------------

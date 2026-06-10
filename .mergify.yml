@@ -6,6 +6,7 @@ pull_request_rules:
     actions:
       backport:
         branches:
+          - lyrical
           - kilted 
           - jazzy
           - humble
@@ -17,9 +18,19 @@ pull_request_rules:
     actions:
       backport:
         branches:
+          - lyrical
           - kilted
           - jazzy
           - humble
+
+  - name: backport to lyrical at reviewers discretion
+    conditions:
+      - base=rolling
+      - "label=backport-lyrical"
+    actions:
+      backport:
+        branches:
+          - lyrical
 
   - name: backport to kilted at reviewers discretion
     conditions:

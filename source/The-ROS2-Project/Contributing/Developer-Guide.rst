@@ -38,6 +38,14 @@ We recommend all ROS developers strive to adhere to the following policies to en
 
 For more specific code recommendations please see :doc:`the Quality Guide <Quality-Guide>`.
 
+Use of generative AI
+^^^^^^^^^^^^^^^^^^^^
+
+When making contributions of any kind to ROS code or documentation, you must follow the `OSRF Policy <https://osralliance.org/wp-content/uploads/2025/05/OSRF-Policy-on-the-Use-of-Generative-Tools-Generative-AI-in-Contributions.pdf>`__ on the use of generative AI.
+
+This includes tools which automatically create any part of your contribution using models trained on existing human-created content.
+It does not include tools which generate content through standard algorithms, or appropriately licensed content libraries.
+
 .. _semver:
 
 Versioning
