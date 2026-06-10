@@ -685,7 +685,7 @@ maintainers of all impacted packages (as defined by ``package.xml`` maintainer f
 Implementation
 ~~~~~~~~~~~~~~
 
-Before starting, go through the Pull requests section for best practices.
+Before starting, look at :doc:`Contributing-to-code/Making-a-PR` for best practices in pull requests.
 
 * For each repo to be modified:
 
