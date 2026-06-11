@@ -14,6 +14,8 @@ With this information, you'll be able to route issues to the right place, with c
 Summary
 -------
 
+We welcome anyone to triage issues.
+
 * **Code issue trackers**: in a repository under the `ROS organization <https://github.com/orgs/ros2/repositories>`__.
 * **Documentation issue tracker**: `ROS documentation repository <https://github.com/ros2/ros2_documentation/issues>`__.
 * **Catch-all issue tracker**: `top level ROS repository <https://github.com/ros2/ros2>`__.

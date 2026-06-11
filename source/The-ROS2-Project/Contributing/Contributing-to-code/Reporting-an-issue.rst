@@ -36,7 +36,7 @@ You can search for individual ROS repositories on `ROS GitHub <https://github.co
 
 Before opening an issue:
 
-#. Check if other users have reported similar issues by searching across the ``ros2`` and ``ament`` GitHub organizations using, for example, this search query: `<https://github.com/search?q=user%3Aros2+user%3Aament+turtlesim&type=Issues>`__.
+#. Check if other users have reported similar issues by searching across the ``ros2`` and ``ament`` GitHub organizations using, for example, this `search query <https://github.com/search?q=user%3Aros2+user%3Aament+turtlesim&type=Issues>`__.
 #. Check the `Robotics Stack Exchange <https://robotics.stackexchange.com/>`__ to see if someone else has already reported your issue.
 
 If your issue has not been reported, you can open an issue in the appropriate repository's issue tracker.
