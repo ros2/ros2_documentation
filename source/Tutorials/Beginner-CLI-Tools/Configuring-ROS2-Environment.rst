@@ -7,8 +7,8 @@
 Setting up your environment - how-to
 ====================================
 
-After you install ROS, you need to configure your shell before commands and packages are available.
-In this guide, you will learn how to access ROS commands and packages by sourcing setup files and configuring environment variables.
+After you install ROS, you need to configure your shell to access the relevant commands and packages.
+This article describes how to access ROS commands and packages by sourcing setup files and configuring environment variables.
 
 **Area: ROS-installation | Content-type: how-to | Experience: beginner, intermediate**
 
@@ -19,33 +19,23 @@ In this guide, you will learn how to access ROS commands and packages by sourcin
 Summary
 -------
 
-You need to configure the ROS development environment before use.
-If you ever face any problems locating or using packages with ROS, the first thing you should do is check your environment variables and ensure they are set to the version and distro you intended.
-
-ROS relies on the notion of combining workspaces using the shell environment.
-"Workspace" is the location on your system where you are developing with ROS.
-The core ROS workspace is called the underlay.
-Subsequent local workspaces are called overlays.
-When developing with ROS, you will typically have several workspaces active at the same time.
-
-Combining workspaces makes it easier to develop against different versions of ROS 2 or different sets of packages.
-It also allows the installation of several ROS 2 distributions (or "distros", such as Dashing or Eloquent) on the same computer and switching between them.
+You always need to source the setup files to configure your shell environment.
 
 You can do this in one of the two ways:
 
 * Source the setup files in every new shell you open.
 * Add the source command to your startup script.
 
-Without sourcing the setup files, you won't be able to access ROS commands or find or use ROS packages.
+Without sourcing the setup files, you won't be able to access ROS commands or find and use ROS packages.
 
 Prerequisites
 -------------
 
 Install ROS by following the instructions on the ROS :doc:`../../Installation` page.
 
-The commands in this guide assume you installed binary packages for your operating system (deb packages on Linux).
+This guide assumes you have installed binary packages for your operating system (deb packages on Linux).
 If you built ROS from source, you can still follow this guide, but the path to your setup files is probably different.
-If you install from source, you cannot use ``sudo apt install ros-<distro>-<package>``, which appears often in the beginner tutorials.
+If you install from source, you cannot use ``sudo apt install ros-<distro>-<package>``, which is often used in the beginner tutorials.
 
 If you use Linux or macOS, but are not already familiar with the shell, follow `this tutorial <https://www.linux.com/training-tutorials/bash-101-working-cli/>`__.
 
@@ -55,7 +45,8 @@ Steps
 1 Source the setup files
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-To access the ROS commands, you need to run the following command on every new shell you open:
+Use the source command to import the environment variables which enable your shell to access the ROS commands.
+You need to run this on every new shell you open:
 
 .. tabs::
 
@@ -85,8 +76,8 @@ To access the ROS commands, you need to run the following command on every new s
     The exact command depends on where you installed ROS.
     If you have problems, make sure that the file path leads to your installation.
 
-2 Add sourcing to your shell startup script
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Add sourcing to your shell startup script
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you don't want to source the setup file every time you open a new shell, you can add the following command to your shell startup script:
 
@@ -98,7 +89,7 @@ If you don't want to source the setup file every time you open a new shell, you 
 
         $ echo "source /opt/ros/{DISTRO}/setup.bash" >> ~/.bashrc
 
-      To undo this, locate your system's shell startup script and remove the appended source command.
+      To undo this, locate your system's shell startup script and remove the source command.
 
    .. group-tab:: macOS
 
@@ -131,7 +122,9 @@ If you don't want to source the setup file every time you open a new shell, you 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Sourcing ROS setup files sets the environment variables that ROS needs.
-If you cannot find or use packages, confirm your environment with the following command:
+
+.. note::
+    If you can't find or use packages, check your environment variables and ensure they are set to the version and distro you intended to use.
 
 .. tabs::
 
@@ -214,13 +207,14 @@ After you determine a unique integer for your group of ROS nodes, set the variab
 
 By default, ROS communication is not limited to localhost.
 ``ROS_AUTOMATIC_DISCOVERY_RANGE`` environment variable allows you to limit ROS discovery range.
-Using ``ROS_AUTOMATIC_DISCOVERY_RANGE`` is helpful in certain settings, such as classrooms, where multiple robots may publish to the same topic causing strange behaviors.
-See :ref:`Improved Dynamic Discovery <ImprovedDynamicDiscovery>` for more details.
+Using ``ROS_AUTOMATIC_DISCOVERY_RANGE`` is helpful in certain settings, such as classrooms, where multiple robots may publish to the same topic, which can cause strange behaviors.
+
+For more details, see :ref:`Improved Dynamic Discovery <ImprovedDynamicDiscovery>`.
 
 4 Verify your environment configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Use this step to confirm that your shell has the ROS paths and variables from the earlier steps in this guide, including any optional variables you set.
+Confirm that your shell has the ROS paths and variables from the earlier steps in this guide, including any optional variables you set.
 
 Choose a terminal session that matches how you configured ROS:
 
