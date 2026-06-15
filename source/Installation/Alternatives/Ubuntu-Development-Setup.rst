@@ -91,7 +91,7 @@ Install colcon mixins
 
 .. code-block:: console
 
-   $ colcon mixin add default https://github.com/colcon/colcon-defaults/raw/master/index.yaml
+   $ colcon mixin add default https://github.com/colcon/colcon-mixin-repository/raw/master/index.yaml
    $ colcon mixin update default
 
 Build the code in the workspace
