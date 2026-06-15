@@ -37,11 +37,17 @@ Install colcon
 
 .. tabs::
 
-  .. group-tab:: Linux
+  .. group-tab:: Ubuntu
 
     .. code-block:: console
 
         $ sudo apt install python3-colcon-common-extensions
+
+  .. group-tab:: RHEL
+
+    .. code-block:: console
+
+        $ sudo dnf install python3-colcon-common-extensions
 
   .. group-tab:: macOS
 

@@ -121,7 +121,7 @@ adopters:
   - organization: "Czech Technical University in Prague"
     organization_url: "https://cvut.cz"
     project: "Vision for Robotics and Autonomous Systems"
-    project_url: "https://cyber.felk.cvut.cz/vras/"
+    project_url: "https://cyber.felk.cvut.cz/research/groups-teams/vras/"
     domain:
       - Defense/Government
       - Education
@@ -175,7 +175,7 @@ adopters:
     description: "ROS 2 sensor fusion SDK replacing deprecated robot_localization. Fuses IMU, wheel encoders, and GPS via Unscented Kalman Filter at 100Hz. Automatic IMU bias estimation, Mahalanobis outlier rejection, adaptive noise covariance, TF validation at startup. Apache 2.0."
 
   - organization: "Kai Tung Yu"
-    organization_url: "https://bristolgram.uk/lgdxrobot2/"
+    organization_url: "https://lgdxrobot.uk/lgdxrobot2/"
     project: "LGDXRobot2"
     project_url: "https://github.com/yukaitung/lgdxrobot2-ros2"
     domain:
@@ -184,7 +184,7 @@ adopters:
     date_added: "2026-04-13"
     country:
       - GB
-    description: "LGDXRobot2 is a mecanum wheel mobile robot designed to achieve decent performance with low-cost hardware. It is fully integrated with the ROS 2 ecosystem, including Nav2 and Gazebo."
+    description: "LGDXRobot2 is a mecanum wheel mobile robot designed to achieve decent performance with low cost hardware. It is fully integrated with the ROS 2 ecosystem, including Nav2 and Gazebo with fully open source for both hardware and software."
 
   - organization: "INSAION"
     organization_url: "https://insaion.com"
@@ -376,3 +376,62 @@ adopters:
     country:
       - KR
     description: "Open-source DYNAMIXEL-driven manipulation and embedded real-time control architectures using ROS2."
+  - organization: "Fraunhofer IOSB"
+    organization_url: "https://www.iosb.fraunhofer.de/en.html"
+    project: "ATB"
+    project_url: "https://www.iosb.fraunhofer.de/en/competences/system-technology/systems-measurement-control-diagnosis/research-topics/autonomous-robot-systems.html"
+    domain:
+      - Agriculture
+      - Construction
+      - Defense/Government
+      - Marine
+      - Research
+    date_added: "2026-05-08"
+    country:
+      - DE
+    description: "A universal algorithm toolbox / autonomy stack for robotics in unstructured environments. Configurable for different platforms, ranging from unmanned surface vessels to autonomous excavators. Part of the Large-scale offroad robotics Lab of the RIG (Robotics Institute Germany)."
+  - organization: "SMAROBIX GmbH"
+    organization_url: "https://smarobix.com"
+    project: "Insights Engine and Development Environment"
+    domain:
+      - Agriculture
+      - Aerial/Drone
+      - Construction
+      - Consumer Robot
+      - Healthcare/Medical
+      - Humanoid
+      - Logistics/Warehouse
+      - Manufacturing
+      - Marine
+      - Research
+      - Space
+      - Service Robot
+    date_added: "2026-05-13"
+    country:
+      - DE
+    description: "SMAROBIX builds an AI-enhanced software that provides engineers with explainable system insights and guided, robot-in-the-loop workflows throughout the whole engineering process to diagnose bottlenecks, validate safety, real-time behavior, and iteratively improve performance based on measurable evidence."
+
+  - organization: "Kai Tung Yu"
+    organization_url: "https://lgdxrobot.uk/cloud/"
+    project: "LGDXRobot Cloud Adapter"
+    project_url: "https://github.com/yukaitung/lgdxrobot-cloud-adapter"
+    domain:
+      - Education
+      - Logistics/Warehouse
+      - Research
+    date_added: "2026-05-16"
+    country:
+      - GB
+    description: "LGDXRobot Cloud is an open source robot management system for AGVs, used for monitoring the status of robots and managing automated logistics tasks. LGDXRobot Cloud Adapter is an integration software for ROS 2 compatible robots using topics and services."
+  - organization: "Széchenyi University's Vehicle Research Center"
+    organization_url: "https://jkk-research.github.io/latest/"
+    project: "Automous Roboshuttle"
+    domain:
+      - Aerial/Drone
+      - Automotive
+      - Energy
+      - Research
+    date_added: "2026-05-20"
+    country:
+      - HU
+    description: "Research and Development of an Autoware-Based Autonomous Shuttle"

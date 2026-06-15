@@ -209,18 +209,18 @@ The file finishes with the ``main`` function used to create an instance of the n
 
 Now open the ``CMakeLists.txt`` file.
 
-Near the top of the file, change ``CMAKE_CXX_STANDARD`` from ``14`` to ``17``.
+Near the top of the file, add the following lines to set the C++ standard to C++20.
 
-.. code-block:: console
+.. code-block:: cmake
 
-    # Default to C++17
+    # Default to C++20
     if(NOT CMAKE_CXX_STANDARD)
-      set(CMAKE_CXX_STANDARD 17)
+      set(CMAKE_CXX_STANDARD 20)
     endif()
 
 Below the dependencies block, which contains ``find_package(rosbag2_cpp REQUIRED)``, add the following lines of code.
 
-.. code-block:: console
+.. code-block:: cmake
 
     add_executable(simple_bag_recorder src/simple_bag_recorder.cpp)
     target_link_libraries(simple_bag_recorder rclcpp::rclcpp rosbag2_cpp::rosbag2_cpp std_msgs::std_msgs)
@@ -430,7 +430,7 @@ The writer will serialize the data for us before writing it into the bag.
 
 Open the ``CMakeLists.txt`` file and add the following lines after the previously-added lines (specifically, after the ``install(TARGETS ...)`` macro call).
 
-.. code-block:: console
+.. code-block:: cmake
 
     add_executable(data_generator_node src/data_generator_node.cpp)
     target_link_libraries(data_generator_node PUBLIC rclcpp::rclcpp rosbag2_cpp::rosbag2_cpp example_interfaces::example_interfaces)
@@ -590,7 +590,7 @@ This allows us to generate a lot of data covering a wide span of time in much le
 
 Open the ``CMakeLists.txt`` file and add the following lines after the previously-added lines.
 
-.. code-block:: console
+.. code-block:: cmake
 
     add_executable(data_generator_executable src/data_generator_executable.cpp)
     target_link_libraries(data_generator_executable PUBLIC rclcpp::rclcpp rosbag2_cpp::rosbag2_cpp example_interfaces::example_interfaces)
