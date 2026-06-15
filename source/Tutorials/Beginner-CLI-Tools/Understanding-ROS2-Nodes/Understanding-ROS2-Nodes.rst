@@ -7,9 +7,9 @@
 Learning about nodes - tutorial
 ===============================
 
-Nodes are the fundamental building blocks of a ROS system, each responsible for a single task.
-In this tutorial, you will use the ``ros2`` command-line tools to run nodes and inspect how they appear on the ROS graph.
-By the end, you will be able to list the active nodes in a running system and examine the connections of any individual node.
+Nodes are the fundamental building blocks of a robotic system, with each node responsible for a single task.
+This article walks you through running nodes with the ``ros2`` command-line tools and inspecting how they appear on the ROS graph.
+A hands-on exercise gives you practice listing active nodes and examining their connections.
 
 **Area: ROS-tutorials | Content-type: tutorial | Experience: beginner**
 
@@ -17,34 +17,42 @@ By the end, you will be able to list the active nodes in a running system and ex
    :depth: 3
    :local:
 
+Summary
+-------
+
+Each node in ROS serves a single, modular purpose in a robotics system.
+
+Nodes appear on the ROS graph and communicate with other nodes through topics, services, actions, and parameters.
+A single executable can contain one or more nodes.
+
 Background
 ----------
 
-1 The ROS 2 graph
+1 The ROS graph
 ^^^^^^^^^^^^^^^^^
 
-Over the next few tutorials, you will learn about a series of core ROS 2 concepts that make up what is referred to as the "ROS (2) graph".
+The ROS graph is a network of ROS elements processing data together at the same time.
+It visually represents all the executables and the connections between them.
 
-The ROS graph is a network of ROS 2 elements processing data together at the same time.
-It encompasses all executables and the connections between them if you were to map them all out and visualize them.
-
-2 Nodes in ROS 2
+2 Nodes in ROS
 ^^^^^^^^^^^^^^^^
 
-Each node in ROS should be responsible for a single, modular purpose, e.g. controlling the wheel motors or publishing the sensor data from a laser range-finder.
+Each node in ROS should be responsible for a single modular purpose, for example, controlling the wheel motors or publishing the sensor data from a laser range-finder.
 Each node can send and receive data from other nodes via topics, services, actions, or parameters.
 
 .. image:: images/Nodes-TopicandService.gif
 
-A full robotic system is comprised of many nodes working in concert.
-In ROS 2, a single executable (C++ program, Python program, etc.) can contain one or more nodes.
+A full robotic system is comprised of many nodes working together.
+In ROS, a single executable (C++ program, Python program, etc.) can contain one or more nodes.
 
 Prerequisites
 -------------
 
-The :doc:`previous tutorial <../Introducing-Turtlesim/Introducing-Turtlesim>` shows you how to install the ``turtlesim`` package used here.
+:doc:`Using turtlesim, ros2, and rqt <../Introducing-Turtlesim/Introducing-Turtlesim>` shows you how to install the ``turtlesim`` package used here.
 
-As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../Configuring-ROS2-Environment>`.
+.. note::
+    Make sure to source ROS in every new terminal you open.
+    See :doc:`Configuring environment <../Configuring-ROS2-Environment>`.
 
 Steps
 -----
@@ -58,34 +66,34 @@ The command ``ros2 run`` launches an executable from a package.
 
   $ ros2 run <package_name> <executable_name>
 
-To run turtlesim, open a new terminal, and enter the following command:
+To run Turtlesim, open a new terminal and enter the following command:
 
 .. code-block:: console
 
   $ ros2 run turtlesim turtlesim_node
 
-The turtlesim window will open, as you saw in the :doc:`previous tutorial <../Introducing-Turtlesim/Introducing-Turtlesim>`.
+The Turtlesim window opens, as shown in :doc:`Using turtlesim, ros2, and rqt <../Introducing-Turtlesim/Introducing-Turtlesim>`.
 
-Here, the package name is ``turtlesim`` and the executable name is ``turtlesim_node``.
-
-We still don't know the node name, however.
-You can find node names by using ``ros2 node list``
+In this example, the package name is ``turtlesim`` and the executable name is ``turtlesim_node``.
+However, we still don't know the node name.
+You can find node names by using ``ros2 node list``.
 
 2 ros2 node list
 ^^^^^^^^^^^^^^^^
 
-``ros2 node list`` will show you the names of all running nodes.
-This is especially useful when you want to interact with a node, or when you have a system running many nodes and need to keep track of them.
+``ros2 node list`` shows you the names of all running nodes.
+This is especially useful when you want to interact with a node, or when your system runs many nodes and you need to keep track of them.
 
-Open a new terminal while turtlesim is still running in the other one, and enter the following command.
-The terminal will return the node name:
+While Turtlesim is still running in the other terminal, open a new terminal and enter the following command:
 
 .. code-block:: console
 
   $ ros2 node list
   /turtlesim
 
-Open another new terminal and start the teleop node with the command:
+The terminal returns the node name.
+
+Open another new terminal and start the teleoperation node with the command:
 
 .. code-block:: console
 
@@ -94,7 +102,7 @@ Open another new terminal and start the teleop node with the command:
 Here, we are referring to the ``turtlesim`` package again, but this time we target the executable named ``turtle_teleop_key``.
 
 Return to the terminal where you ran ``ros2 node list`` and run it again.
-You will now see the names of two active nodes:
+You will see the names of two active nodes:
 
 .. code-block:: console
 
@@ -105,18 +113,19 @@ You will now see the names of two active nodes:
 2.1 Remapping
 ~~~~~~~~~~~~~
 
-`Remapping <https://design.ros2.org/articles/ros_command_line_arguments.html#name-remapping-rules>`__ allows you to reassign default node properties, like node name, topic names, service names, etc., to custom values.
-In the last tutorial, you used remapping on ``turtle_teleop_key`` to change the cmd_vel topic and target **turtle2**.
+`Remapping <https://design.ros2.org/articles/ros_command_line_arguments.html#name-remapping-rules>`__ allows you to reassign default node properties, like node name, topic names, or service names, to custom values.
+In :doc:`Using turtlesim, ros2, and rqt <../Introducing-Turtlesim/Introducing-Turtlesim>`, you used remapping on ``turtle_teleop_key`` to change the cmd_vel topic and target **turtle2**.
 
 Now, let's reassign the name of our ``/turtlesim`` node.
+
 In a new terminal, run the following command:
 
 .. code-block:: console
 
   $ ros2 run turtlesim turtlesim_node --ros-args --remap __node:=my_turtle
 
-Since you're calling ``ros2 run`` on turtlesim again, another turtlesim window will open.
-However, now if you return to the terminal where you ran ``ros2 node list``, and run it again, you will see three node names:
+Because you are calling ``ros2 run`` on Turtlesim again, another Turtlesim window opens.
+However, if you return to the terminal where you ran ``ros2 node list`` and run it again, you will see three node names:
 
 .. code-block:: console
 
@@ -168,42 +177,28 @@ To examine your latest node, ``my_turtle``, run the following command:
     Action Clients:
 
 ``ros2 node info`` returns a list of subscribers, publishers, services, and actions.
-i.e. the ROS graph connections that interact with that node.
+These are the ROS graph connections that interact with that node.
 
 Now try running the same command on the ``/teleop_turtle`` node, and see how its connections differ from ``my_turtle``.
-
-You will learn more about the ROS graph connection concepts including the message types in the upcoming tutorials.
-
-Summary
--------
-
-A node is a fundamental ROS 2 element that serves a single, modular purpose in a robotics system.
-
-In this tutorial, you utilized nodes created in the ``turtlesim`` package by running the executables ``turtlesim_node`` and ``turtle_teleop_key``.
-
-You learned how to use ``ros2 node list`` to discover active node names and ``ros2 node info`` to introspect a single node.
-These tools are vital to understanding the flow of data in a complex, real-world robot system.
-
-Next steps
-----------
-
-Now that you understand nodes in ROS 2, you can move on to the :doc:`topics tutorial <../Understanding-ROS2-Topics/Understanding-ROS2-Topics>`.
-Topics are one of the communication types that connects nodes.
 
 Related content
 ---------------
 
-The :doc:`../../../Concepts` page adds some more detail to the concept of nodes.
+More articles:
+
+* :doc:`Learning about topics <../Understanding-ROS2-Topics/Understanding-ROS2-Topics>`
+* :doc:`Interfaces (topics, services, actions) </Concepts/Basic/Interfaces-Topics-Services-Actions>`
+* :doc:`Concepts </Concepts>`
 
 FAQs
 ----
 
 Can a single executable contain more than one node?
    Yes.
-   In ROS 2, a single executable, such as a C++ or Python program, can contain one or more nodes.
+   In ROS, a single executable, such as a C++ or Python program, can contain one or more nodes.
 
-Why does another turtlesim window open when I remap the node name?
-   Each call to ``ros2 run turtlesim turtlesim_node`` starts a new node, and turtlesim opens a window for it.
+Why does another Turtlesim window open when I remap the node name?
+   Each call to ``ros2 run turtlesim turtlesim_node`` starts a new node, and Turtlesim opens a window for it.
    Remapping ``__node`` only changes the node's name; it does not reuse the existing node.
 
 What is the difference between ``ros2 node list`` and ``ros2 node info``?
