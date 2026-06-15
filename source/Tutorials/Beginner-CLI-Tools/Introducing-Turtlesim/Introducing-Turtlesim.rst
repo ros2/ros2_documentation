@@ -7,10 +7,11 @@
 Setting up Turtlesim - how-to
 =============================
 
-The beginner ROS tutorials use Turtlesim, a simple simulator, to demonstrate core concepts without any real hardware.
-This article walks you through installing Turtlesim along with the rqt GUI, then helps you run a short exercise to get hands-on experience with the basics.
+Turtlesim is a simple simulator to demonstrate core concepts without any hardware.
+This article walks you through installation of Turtlesim and the rqt GUI.
+A short exercise provides you with basic experience with these tools.
 
-**Area: ROS-tutorials | Content-type: how-to | Experience: beginner**
+**Area: Framework | Content-type: how-to | Experience: beginner**
 
 .. contents:: Contents
    :depth: 3
@@ -20,10 +21,10 @@ Summary
 -------
 
 Turtlesim is a lightweight simulator for learning ROS basics.
-It helps you practice core concepts such as nodes, topics, and services, before you can work with larger systems.
+Install the package ``ros-{DISTRO}-turtlesim``.
 
 The rqt tool is a graphical interface for interacting with ROS.
-You can do the same tasks from the command line, but rqt gives you a faster way to inspect and call services while learning.
+Install the package ``ros-{DISTRO}-rqt``.
 
 Prerequisites
 -------------
@@ -41,7 +42,7 @@ Steps
 Turtlesim is a lightweight simulator that represents a robot as a turtle you can control on the screen.
 It lets you practice core ROS concepts without the need for any real hardware.
 
-As always, start by sourcing your setup files in a new terminal, as described in the :doc:`previous tutorial <../Configuring-ROS2-Environment>`.
+Start by sourcing your setup files in a new terminal, as described in :doc:`Configuring environment <../Configuring-ROS2-Environment>`.
 
 Install the Turtlesim package for your ROS distribution:
 
@@ -81,7 +82,8 @@ To check if the package is installed, run the following command, which should re
 2 Install rqt (recommended)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The rqt tool is a graphical interface for ROS. Instead of typing commands by hand, you can use rqt to explore and call Turtlesim's services with a few clicks.
+The rqt tool is a graphical interface for ROS.
+Instead of typing commands by hand, you can use rqt to explore and call Turtlesim's services with a few clicks.
 
 In a new terminal, install ``rqt`` and the common plugins:
 
@@ -108,10 +110,18 @@ In a new terminal, install ``rqt`` and the common plugins:
 
     The standard archive for installing ROS on Windows contains ``rqt`` and its plugins, so you should already have ``rqt`` installed.
 
+To check if the packages are installed, in a terminal, enter the following:
+
+.. code-block:: console
+
+  $ ros2 pkg list | grep -E '^rqt$|^rqt_common_plugins$'
+  rqt
+  rqt_common_plugins
+
 3 Try out Turtlesim with rqt
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The following example uses rqt, but you can also operate Turtlesim by using the command line only.
+The following example uses rqt but you can also operate Turtlesim by entering the same commands in the command line.
 
 #. Start Turtlesim:
 
@@ -135,10 +145,10 @@ The following example uses rqt, but you can also operate Turtlesim by using the 
 
    .. note::
 
-      Pressing an arrow key will only cause the turtle to move a short distance and then stop.
-      This is because, realistically, you wouldn't want a robot to continue carrying on an instruction if, for example, the operator lost the connection to the robot.
+      Pressing an arrow key causes the turtle to move a short distance and then stop.
+      This behaviour ensures a robot doesn't continue carrying on an instruction if, for example, the operator loses connection to the robot.
 
-#. Optional: Inspect the running system:
+#. (Optional) Inspect the running system:
 
    .. code-block:: console
 
@@ -162,30 +172,32 @@ The following example uses rqt, but you can also operate Turtlesim by using the 
 
    .. image:: images/rqt.png
 
-#. Select the ``/spawn`` service, then enter:
+#. To spawn a second turtle, select the ``/spawn`` service, then enter:
 
    - ``name`` = ``turtle2``
    - ``x`` = ``1.0``
    - ``y`` = ``1.0``
 
-   Click **Call** to spawn the second turtle.
+   Click **Call**.
 
    .. image:: images/spawn.png
 
    .. note::
 
-      If you try to spawn a new turtle with the same name as an existing turtle, like the default ``turtle1``, you will get an error message in the terminal that runs ``turtlesim_node``:
+      Each turtle needs a unique name.
+      If you spawn a turtle with an existing name, you get an error message in the terminal that runs ``turtlesim_node``:
 
       .. code-block:: console
 
          [ERROR] [turtlesim]: A turtle named [turtle1] already exists
 
-#. Select the ``/turtle1/set_pen`` service, then set:
+#. Set the turtle to draw a red, thicker line.
+   Select the ``/turtle1/set_pen`` service, then set:
 
    - ``r`` = ``255``
    - ``width`` = ``5``
 
-   Click **Call**, then use arrow keys in the teleop terminal to confirm the turtle draws a red, thicker line.
+   Click **Call**, then use arrow keys in the teleoperation terminal to confirm the turtle draws a red, thicker line.
 
    .. image:: images/set_pen.png
 
@@ -198,7 +210,7 @@ The following example uses rqt, but you can also operate Turtlesim by using the 
       $ ros2 run turtlesim turtle_teleop_key --ros-args --remap turtle1/cmd_vel:=turtle2/cmd_vel --remap turtle1/rotate_absolute:=turtle2/rotate_absolute
 
    Keep this new terminal active to move ``turtle2``.
-   Use the original teleop terminal to move ``turtle1``.
+   Continue using the original teleoperation terminal to move ``turtle1``.
 
    .. image:: images/remap.png
 
@@ -207,16 +219,12 @@ The following example uses rqt, but you can also operate Turtlesim by using the 
    - In the ``turtlesim_node`` terminal, press ``Ctrl + C``.
    - In ``turtle_teleop_key`` terminals, press ``q``.
 
-Next steps
-----------
-
-Now that you have Turtlesim and rqt running, you can continue with :doc:`../Understanding-ROS2-Nodes/Understanding-ROS2-Nodes`.
-
 Related content
 ---------------
 
 More articles:
 
+* :doc:`First steps with ROS <../../../First-Steps>`
 * :doc:`../Configuring-ROS2-Environment`
 * :doc:`../Understanding-ROS2-Nodes/Understanding-ROS2-Nodes`
 * :doc:`../Understanding-ROS2-Topics/Understanding-ROS2-Topics`
@@ -231,7 +239,9 @@ FAQs
 ----
 
 Do I need rqt to use Turtlesim?
-   No. You can use Turtlesim entirely from the command line. The rqt tool is recommended because it helps you visualise the instructions you send to the turtle.
+   No.
+   You can use Turtlesim entirely from the command line.
+   The rqt tool is recommended because it helps you visualize the instructions you send to the turtle.
 
 Why can I move only one turtle at a time?
    Each ``turtle_teleop_key`` instance controls one turtle namespace.
