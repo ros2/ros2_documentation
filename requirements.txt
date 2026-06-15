@@ -4,6 +4,7 @@ docutils
 pip
 pytest
 sphinx
+sphinx-autobuild
 sphinx-copybutton
 sphinx-lint
 sphinx-multiversion
