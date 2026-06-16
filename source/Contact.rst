@@ -1,9 +1,9 @@
 Contact
 =======
 
-Contact ROS to ask for support, offer help, or suggest ways we can improve. This article introduces the ways in which you can contact ROS.
+Contact us the ROS community to ask for support, offer help, or suggest ways we can improve. This article introduces the ways in which you can contact us.
 
-**Area: ros-community | content-type: about | experience: beginner, intermediate, expert**
+**Area: community | content-type: about | experience: beginner, intermediate, expert**
 
 .. contents:: Table of Contents
    :local:
@@ -13,11 +13,15 @@ Summary
 
 You can contact the ROS community in the following ways:
 
-* Ask for support on Stack Exchange: :ref:`asking-for-support`
-  
-* Report an issue or suggest an enhancement through issue trackers: :ref:`reporting-an-issue` 
+* :ref:`Stack Exchange <asking-for-support>`: Ask for support or discuss an issue
 
-* Join the community conversation to share ideas and best practices by checking our `Contact page <https://docs.ros.org/en/kilted/Contact.htm>`_ or `ROS Developer Documentation rosdocs <https://docs.ros.org/>`_ to get the full list and links.
+* :ref:`Issue tracker <reporting-an-issue>`: Submit an issue or suggest an enhancement: <Placeholder link to new "Submitting an issue" article>
+
+* :ref:`Discourse discussion boards <discussion-boards>`: Share ideas or discuss best practices 
+
+* `Zulip chat <https://openrobotics.zulipchat.com/Recent>`_ (QUESTION FOR THE REVIEWER: What is the purpose for this one? Is it meant more for people who are involved in developing ROS rather than for users with questions?)
+
+* `Email <mailto:ros@osrfoundation.org>`_: Contact us directly if you have a private, sensitive, or security issue
 
 .. _asking-for-support:
 Asking for support
@@ -39,20 +43,16 @@ It's better to send all questions to `Robotics Stack Exchange <https://robotics.
 .. note:: If you can provide support to others, please do: <Placeholder link to new Contributing to ROS article> 
 
 .. _reporting-an-issue:
-Reporting an issue
-------------------
+Reporting an issue 
+-----------------
 
-If you identify issues, have suggestions for improvements, or a question specific to one package, you can open an issue on GitHub.
+If you identify issues, have suggestions for enhancements, or have a question specific to one package, you can raise an issue on GitHub.
 
 <Placeholder link to new "Reporting an issue" article>
 
-Suggesting an enhancement
--------------------------
+.. note:: If you have a private, sensitive, or security issue, contact us directly at ``ros@osrfoundation.org``.
 
-If you spot a way to improve the code, we encourage you to suggest an enhancement.
-
-<Placeholder link to new Contribution to ROS article>
-
+.. _discussion-boards:
 Discussing ideas and best practices
 ------------------------------------
 
@@ -73,7 +73,7 @@ If you are in a position to support others, share your knowledge and help fellow
 Contacting us privately
 -----------------------
 
-If you'd like to contact us privately (e.g., if your question contains information sensitive to your organization or project, or if it's regarding a security issue), you can email us directly at ``ros@osrfoundation.org``.
+If you'd like to contact us privately, for example. if your question contains information sensitive to your organization or project, or if it's regarding a security issue, you can email us directly at ``ros@osrfoundation.org``.
 
 Etiquette
 ---------
