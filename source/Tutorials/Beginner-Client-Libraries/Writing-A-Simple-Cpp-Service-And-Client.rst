@@ -197,35 +197,59 @@ Inside the ``ros2_ws/src/cpp_srvcli/src`` directory, create a new file called ``
   #include "example_interfaces/srv/add_two_ints.hpp"
   #include "rclcpp/rclcpp.hpp"
 
+  using namespace std::chrono_literals;
+
   using AddTwoInts = example_interfaces::srv::AddTwoInts;
+
+  class MinimalClient : public rclcpp::Node
+  {
+  public:
+    MinimalClient()
+    : Node("minimal_client"),
+      count_(0)
+    {
+      client_ = this->create_client<AddTwoInts>("add_two_ints");
+      while (!client_->wait_for_service(std::chrono::seconds(1))) {
+        if (!rclcpp::ok()) {
+          RCLCPP_ERROR(this->get_logger(), "client interrupted while waiting for service to appear.");
+          throw 1;
+        }
+        RCLCPP_INFO(this->get_logger(), "waiting for service to appear...");
+      }
+
+      auto response_received_callback =
+        [this](rclcpp::Client<example_interfaces::srv::AddTwoInts>::SharedFuture future) -> void {
+        auto response = future.get();
+        RCLCPP_INFO(this->get_logger(), "Received response: %ld", response->sum);
+      };
+
+      auto timer_callback = [this, response_received_callback]() -> void {
+        auto request       = std::make_shared<AddTwoInts::Request>();
+        request->a         = ++count_;
+        request->b         = 10;
+        auto future_result = client_->async_send_request(request, response_received_callback);
+        RCLCPP_INFO(
+          this->get_logger(), "Async request sent, it was: %ld + %ld. And then exiting", request->a,
+          request->b);
+      };
+
+      timer_ = this->create_wall_timer(500ms, timer_callback);
+    }
+
+  private:
+    rclcpp::TimerBase::SharedPtr timer_;
+    rclcpp::Client<example_interfaces::srv::AddTwoInts>::SharedPtr client_;
+    int count_;
+  };
 
   int main(int argc, char * argv[])
   {
     rclcpp::init(argc, argv);
-    auto node = rclcpp::Node::make_shared("minimal_client");
-    auto client = node->create_client<AddTwoInts>("add_two_ints");
-    while (!client->wait_for_service(std::chrono::seconds(1))) {
-      if (!rclcpp::ok()) {
-        RCLCPP_ERROR(node->get_logger(), "client interrupted while waiting for service to appear.");
-        return 1;
-      }
-      RCLCPP_INFO(node->get_logger(), "waiting for service to appear...");
+    try {
+      auto node = std::make_shared<MinimalClient>();
+      rclcpp::spin(node);
+    } catch (...) {
     }
-    auto request = std::make_shared<AddTwoInts::Request>();
-    request->a = 41;
-    request->b = 1;
-    auto result_future = client->async_send_request(request);
-    if (rclcpp::spin_until_future_complete(node, result_future) !=
-      rclcpp::FutureReturnCode::SUCCESS)
-    {
-      RCLCPP_ERROR(node->get_logger(), "service call failed :(");
-      client->remove_pending_request(result_future);
-      return 1;
-    }
-    auto result = result_future.get();
-    RCLCPP_INFO(
-      node->get_logger(), "result of %" PRId64 " + %" PRId64 " = %" PRId64,
-      request->a, request->b, result->sum);
     rclcpp::shutdown();
     return 0;
   }
@@ -234,39 +258,102 @@ Inside the ``ros2_ws/src/cpp_srvcli/src`` directory, create a new file called ``
 3.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
 
-Similar to the service node, the following lines of code create the node and then create the client for that node:
+Similar to the nodes in previous examples, the ``MinimalClient`` class inherits from ``Node``.
+It has three attributes: a timer object, a service client, and an integer.
 
-.. code-block:: C++
+All initialization occurs in the constructor.
+First, The client for sending requests is created.
+Then, the code waits for the service to appear.
 
-  auto node = rclcpp::Node::make_shared("minimal_client");
-  auto client = node->create_client<AddTwoInts>("add_two_ints");
-
-Next, the code waits for the service to appear.
 The ``while`` loop gives the client 1 second to search for service nodes in the network.
 If it can't find any, it will continue waiting.
-If the client is canceled (e.g. by you entering ``Ctrl+C`` into the terminal), it will return an error log message stating it was interrupted.
+If the client is canceled (e.g. by you entering ``Ctrl+C`` into the terminal), it logs a message indicating the interruption and raises an exception to exit.
+
 
 .. code-block:: C++
 
-  while (!client->wait_for_service(std::chrono::seconds(1))) {
+  client_ = this->create_client<AddTwoInts>("add_two_ints");
+  while (!client_->wait_for_service(std::chrono::seconds(1))) {
     if (!rclcpp::ok()) {
-      RCLCPP_ERROR(node->get_logger(), "client interrupted while waiting for service to appear.");
-      return 1;
+      RCLCPP_ERROR(this->get_logger(), "client interrupted while waiting for service to appear.");
+      throw std::runtime_error("client interrupted while waiting for service to appear");
     }
-    RCLCPP_INFO(node->get_logger(), "waiting for service to appear...");
+    RCLCPP_INFO(this->get_logger(), "waiting for service to appear...");
   }
+
+
+Two callbacks are defined to handle incoming events: one for the service response and another for the timer.
+Both are implemented as lambda functions.
+
+The service response callback takes a parameter containing the response.
+It extracts the result object and logs it.
+
+.. code-block:: C++
+
+  auto response_received_callback =
+    [this](rclcpp::Client<example_interfaces::srv::AddTwoInts>::SharedFuture future) -> void {
+    auto response = future.get();
+    RCLCPP_INFO(this->get_logger(), "Received response: %ld", response->sum);
+  };
+
+
+The timer callback is responsible for making service requests.
+To do so, it must capture the previous callback within the lambda’s context, which is why it appears inside the square brackets.
+
+.. code-block:: C++
+
+  auto timer_callback = [this, response_received_callback]() -> void
 
 Next, the request is created.
 Its structure is defined by the ``.srv`` file mentioned earlier.
 
 .. code-block:: C++
 
-  auto request = std::make_shared<example_interfaces::srv::AddTwoInts::Request>();
-  request->a = 41;
-  request->b = 1;
+  auto request       = std::make_shared<AddTwoInts::Request>();
+  request->a         = ++count_;
+  request->b         = 10;
+
+The client sends its request, logs a message, and exits the callback.
+
+It is important to note that ``async_send_request`` returns immediately, taking only the time required to send the request without waiting for a response.
+As a result, the callback execution completes, and the node continues spinning.
+
+Processing the response within this callback is not possible since it has not yet been received.
+However, this is not an issue, as response handling is already implemented in the previous callback, which will be triggered upon receiving the response.
+
+.. code-block:: C++
+
+  auto future_result = client_->async_send_request(request, response_received_callback);
+  RCLCPP_INFO(
+    this->get_logger(), "Async request sent, it was: %ld + %ld. And then exiting", request->a,
+    request->b);
 
 
-Then the client sends its request, and the node spins until it receives its response, or fails.
+Finally, the timer is created:
+
+.. code-block:: C++
+
+  timer_ = this->create_wall_timer(500ms, timer_callback);
+
+The main function initializes rclcpp, creates the node, and starts spinning.
+
+Since the node constructor may throw an exception, a try/catch block is used for handling it.
+This exception occurs when the user signals the program to exit, so no additional action is needed, allowing the program to terminate naturally.
+
+.. code-block:: C++
+
+  int main(int argc, char * argv[])
+  {
+    rclcpp::init(argc, argv);
+    try {
+      auto node = std::make_shared<MinimalClient>();
+      rclcpp::spin(node);
+    } catch (...) {
+    }
+    rclcpp::shutdown();
+    return 0;
+  }
+
 
 3.2 Add executable
 ~~~~~~~~~~~~~~~~~~
