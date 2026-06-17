@@ -2,14 +2,14 @@
 
    How-To-Guides/Implementing-custom-interfaces
 
-Implementing custom interfaces
-==============================
+Implementing custom interfaces - how-to
+=======================================
 
 When predefined interface definitions are not enough, you need to create custom interfaces.
 In this article, you will learn how to define and build interfaces with different field types.
 This will help you implement custom interfaces in ROS to suit your needs.
 
-**Area: ROS-framework | Content-type: how-to | Experience: beginner, intermediate**
+**Area: Framework | Content-type: how-to | Experience: beginner, intermediate**
 
 .. contents:: Contents
    :depth: 2
@@ -30,7 +30,8 @@ ROS offers three main interface types:
 Before creating a custom interface, do the following:
 
 1. Check whether a suitable standard message already exists.
-2. If no single standard message fits your use case, consider creating a new message composed of standard messages. See standard messages here: https://github.com/ros2/common_interfaces.
+2. If no single standard message fits your use case, consider creating a new message composed of standard messages.
+   See standard messages here: https://github.com/ros2/common_interfaces.
 
 Creating a completely custom message should be the last resort.
 
