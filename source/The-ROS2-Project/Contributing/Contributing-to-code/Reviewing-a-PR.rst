@@ -59,7 +59,7 @@ Use the following guidelines to review the submitted pull request:
 * For documentation changes, ensure the changes follow the :doc:`documentation guidance <../Contributing-To-ROS-2-Documentation>`.
 * Confirm that the Continuous Integration (CI) run for the pull request passes cleanly.
 
-You can comment on the pull request for the submitter (`see the GitHub documentation for guidance <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request>`__), or suggest changes directly in the pull request.
+You can comment on the pull request for the submitter, or suggest changes directly in the pull request (`see the GitHub documentation for guidance <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request>`__).
 
 3 Approving and merging the pull request
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
