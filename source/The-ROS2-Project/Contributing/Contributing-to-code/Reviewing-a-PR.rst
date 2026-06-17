@@ -15,7 +15,8 @@ Summary
 -------
 
 Reviewing a pull request (PR) from a contributor allows you to check that their changes meet the appropriate guidelines and standards.
-Any developer is welcome to review and approve a pull request after review, when the changes are ready to merge.
+Any developer is welcome to review and approve a pull request.
+Changes are ready to merge after they have been approved.
 Only a ROS core maintainer for the target repository can merge a pull request into that repository.
 
 Prerequisites

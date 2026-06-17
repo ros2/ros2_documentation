@@ -24,7 +24,7 @@ Prerequisites
 -------------
 
 #. `Create a fork <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo>`__ of the target ROS repository for your code changes.
-#. Complete your code changes on a development branch, in your fork of the `target ROS repository <https://github.com/ros2>`__.
+#. Complete your code changes on a development branch taken from the **rolling** branch, in your fork of the `target ROS repository <https://github.com/ros2>`__.
 #. Make sure your changes comply with ROS guidelines.
 
    * If your pull request is for a code change:
@@ -62,7 +62,7 @@ Use the following guidelines to prepare your pull request:
    * If your pull request depends on another pull request, clearly reference the dependency in the pull request description.
    * If your changes are planned to be released with a specific version of ROS, include that version of ROS in the pull request description.
 * **Documenting your code changes**
-   * If your pull request is for code changes, ensure you propose any required documentation updates (including API documentation, feature documentation, and release notes) in another pull request.
+   * If your pull request is for code changes, try to make any relevant documentation updates (including API documentation, feature documentation, and release notes) in the same pull request.
 
 2 Submitting the pull request
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -82,6 +82,8 @@ Use the following guidelines to prepare your pull request:
    * **Generative AI**: if this pull request was generated using Generative AI, specify the model and version (for example, GitHub Copilot v3.2).
    * **Additional information**: provide any context or details you think will be useful for understanding your changes.
 
+#. Select the `Allow edits by maintainers <https://github.blog/news-insights/product-news/improving-collaboration-with-forks/>`__ checkbox, to help ROS maintainers make small changes directly when needed.
+
 After you've submitted your pull request, other developers and contributors in the ROS community will :doc:`review your changes <Reviewing-a-PR>`, including checking against the relevant guidelines.
 
 3 Responding to review comments
@@ -100,4 +102,6 @@ Aim to reply back to review comments within one week, so that you and the review
 
 After you've actioned any feedback, your pull request must be approved by a core maintainer for the target ROS repository before it can be merged.
 
-When the core maintainer approves your pull request, they merge it to the target branch, and you receive a notification from GitHub.
+When the core maintainer approves your pull request, they merge it to the target branch (usually **rolling**), and you receive a notification from GitHub.
+
+Your changes may also be backported to older distributions of ROS.
