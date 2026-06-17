@@ -60,7 +60,7 @@ Use the following guidelines to review the submitted pull request:
 * For documentation changes, ensure the changes follow the :doc:`documentation guidance <../Contributing-To-ROS-2-Documentation>`.
 * Confirm that the Continuous Integration (CI) run for the pull request passes cleanly.
 
-You can comment on the pull request for the submitter (`see the GitHub documentation for guidance <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request>`__), or suggest changes directly in the pull request.
+You can comment on the pull request for the submitter, or suggest changes directly in the pull request (`see the GitHub documentation for guidance <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request>`__).
 
 3 Approving and merging the pull request
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -69,7 +69,7 @@ After you have reviewed the pull request and provided feedback, the submitter ma
 
 When you are satisfied with the changes and they are ready to be merged, approve the pull request (`see the GitHub documentation for guidance <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/approving-a-pull-request-with-required-reviews>`__).
 
-* :ref:`Any developer <general-principles>` is welcome to approve a pull request when the changes are ready to be merged.
+* :ref:`Any developer <general-principles>` is welcome to review a pull request, even if it already has a review.
 * A pull request must have at least one approval from a developer (other than the author) before it can be merged to the target branch.
 * Only a ROS core maintainer for the target repository can merge an approved pull request.
 
