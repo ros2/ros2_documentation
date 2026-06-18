@@ -7,7 +7,7 @@ Contributing to ROS documentation helps keep guidance accurate, useful, and cons
 This article explains how to plan documentation changes, build the site, run checks, and preview your updates.
 With this information, you can prepare documentation updates that are ready to review and publish.
 
-**Area: ROS-community | Content-type: how-to | Experience: beginner, intermediate, expert**
+**Area: contributing, community | Content-type: how-to | Experience: beginner, intermediate, expert**
 
 .. contents:: Table of Contents
    :depth: 2
@@ -23,6 +23,11 @@ Alternatively, you can also build and test in GitHub Codespaces, or by using a D
 
 This article relates to contributing to the ROS documentation site.
 For more information about creating or updating package documentation, see :doc:`/How-To-Guides/Documenting-a-ROS-2-Package`.
+
+Prerequisites
+-------------
+
+There are no prerequisites.
 
 Steps
 -----
@@ -227,8 +232,30 @@ To show local changes in the multiversion output:
 #. Commit the changes to a local branch.
 #. Edit the `conf.py <https://github.com/ros2/ros2_documentation/blob/rolling/conf.py>`_ file and change the ``smv_branch_whitelist`` variable to point to your branch.
 
-Viewing site through GitHub CI
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Using the live server
+^^^^^^^^^^^^^^^^^^^^^
+
+While working on the ROS documentation, instead of re-running ``make html`` and refreshing the browser after every edit, use the live server to watch the source files, rebuild incrementally on save, and serve the result with automatic browser reload.
+
+The live server uses `sphinx-autobuild <https://github.com/sphinx-doc/sphinx-autobuild>`__.
+
+#. Start the live server with:
+
+   .. code-block:: console
+
+      $ make serve
+
+#. Open ``http://localhost:8000`` in a browser.
+
+The ``serve`` target binds to ``0.0.0.0:8000`` by default, so the server is reachable through a Devcontainer using port forwarding.
+You can override the bind address or port number if needed:
+
+.. code-block:: console
+
+   $ make serve LIVE_HOST=127.0.0.1 LIVE_PORT=8080
+
+Viewing the site through GitHub CI
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For small changes to the ROS documentation, you can view your changes as rendered HTML using artifacts generated in our GitHub Actions.
 The ``build`` action produces the entire ROS documentation as a downloadable ZIP file that contains all HTML for `docs.ros.org <https://docs.ros.org/>`_.
