@@ -48,7 +48,7 @@ If you identify issues, have suggestions for enhancements, or have a question sp
 
 <Placeholder link to new "Reporting an issue" article>
 
-.. note:: If you have a private, sensitive, or security issue, contact us directly at `<mailto:ros@osrfoundation.org>`_
+.. note:: If you have a private, sensitive, or security issue, email us directly at `ros@rosfoundation.org <mailto:ros@osrfoundation.org>`_.
 
 .. _discussion-boards:
 Discussing ideas and best practices
@@ -71,7 +71,7 @@ If you are in a position to support others, share your knowledge and help fellow
 Contacting us privately
 -----------------------
 
-If you'd like to contact us privately, for example. if your question contains information sensitive to your organization or project, or if it's regarding a security issue, you can email us directly at ``ros@osrfoundation.org``.
+If you'd like to contact us privately, for example. if your question contains information sensitive to your organization or project, or if it's regarding a security issue, you can email us directly at `ros@rosfoundation.org <mailto:ros@rosfoundation.org>`_.
 
 Etiquette
 ---------
