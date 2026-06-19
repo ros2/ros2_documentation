@@ -68,6 +68,7 @@ Community-maintained
 
 While the C++ and Python client libraries are maintained by the core ROS 2 team, members of the ROS 2 community maintain additional client libraries:
 
+* `GoLang <https://github.com/merlindrones/rclgo>`__ rclgo - GoLang bindings for ROS 2.
 * `Ada <https://github.com/ada-ros/ada4ros2>`__  This is a set of packages (binding to ``rcl``, message generator, binding to ``tf2``, examples and tutorials) that allows the writing of Ada applications for ROS 2.
 * `C <https://github.com/ros2/rclc>`__  ``rclc`` does not put a layer on top of rcl but complements rcl to make rcl+rclc a feature-complete client library in C. See `micro.ros.org <https://micro.ros.org/>`__ for tutorials.
 * `JVM and Android <https://github.com/ros2-java>`__ Java and Android bindings for ROS 2.
