@@ -60,7 +60,52 @@ Use the following guidelines to review the submitted pull request:
 * For documentation changes, ensure the changes follow the :doc:`documentation guidance <../Contributing-To-ROS-2-Documentation>`.
 * Confirm that the Continuous Integration (CI) run for the pull request passes cleanly.
 
-You can comment on the pull request for the submitter, or suggest changes directly in the pull request (`see the GitHub documentation for guidance <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request>`__).
+You can add review comments to the pull request for the submitter, or suggest changes directly in the pull request (`see the GitHub documentation for guidance <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request>`__).
+
+Use the following guidance to make sure your review comments are useful and actionable:
+
+* Start with high-level comments (for example, asking for refactoring), then move on to lower-level comments about specifics.
+* To be helpful to the submitter of the pull request, consider providing the following types of comment:
+
+  * **Positive feedback** — praise or positive reinforcement highlighting good work, for example:
+
+    Nice work on handling edge cases here — the early return makes the logic much easier to follow.
+
+  * **Questions** — asking for clarification to understand intent or decisions made in the changes, for example:
+
+    Is there a reason we're using a custom sorting function here instead of ``localeCompare``?
+    Just want to make sure Im not missing a specific requirement.
+
+  * **Suggestions** — an improvement that enhances code quality but is not required to merge the pull request, for example:
+
+    You could simplify this loop using ``Array.map`` to make it more concise:
+
+    .. code-block:: javascript
+
+       const names = users.map(user => user.name)
+
+  * **Issues** — a concrete problem which must be fixed before merging the pull request, ideally with a suggested solution, for example:
+
+    This function doesn't handle the case where ``response`` is null, which could cause a runtime error.
+    Add a guard clause:
+
+    .. code-block:: javascript
+
+       if (!response) {
+         return [...];
+       }
+
+  * **Housekeeping** — a change that isn't related to the main purpose of the pull request, but helps to keep the repository healthy, for example:
+
+    Since this file is already being updated, could we also remove the unused ``formatDate`` import at the top?
+
+  * **Minor details** — small, nitpicking details such as improving style or readability, for example:
+
+    Minor naming suggestion; ``user_list`` could be ``users`` to better reflect that it's a collection.
+    (Non-blocking; feel free to ignore if you prefer the current name.)
+
+* Be clear about what you expect to happen in response to each comment, including whether the comment blocks merging the pull request.
+* Remember to include positive feedback and thanks for the work done by the submitter.
 
 3 Approving and merging the pull request
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
