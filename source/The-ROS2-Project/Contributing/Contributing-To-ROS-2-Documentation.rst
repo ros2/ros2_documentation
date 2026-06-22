@@ -337,7 +337,7 @@ Clone repository and start VS Code:
 
 .. code-block:: console
 
-   $ git clone https://github.com/ros2/ros2_documentation
+   $ git clone --recursive https://github.com/ros2/ros2_documentation
    $ cd ./ros2_documentation
    $ code .
 
