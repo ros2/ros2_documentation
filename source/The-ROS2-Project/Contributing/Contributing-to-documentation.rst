@@ -10,7 +10,7 @@ Contributing to documentation
 ROS documentation is maintained by the community and helps users learn, build, and contribute effectively.
 This article describes where the documentation source lives, how it is structured, and how contributors submit changes.
 
-**Area: ROS-community | Content-type: about | Experience: beginner, intermediate, expert**
+**Area: contributing, community | Content-type: about | Experience: beginner, intermediate, expert**
 
 .. toctree::
    :hidden:
