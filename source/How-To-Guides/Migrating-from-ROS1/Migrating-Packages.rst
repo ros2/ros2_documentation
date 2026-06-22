@@ -15,7 +15,9 @@ There are two different kinds of package migrations:
 Prerequisites
 -------------
 
-Before being able to migrate a ROS 1 package to ROS 2 all of its dependencies must be available in ROS 2.
+Virtually all ROS packages depend on at least one other package, and no package can be migrated to ROS 2 until its dependencies are available.
+Are all of your package's dependencies available in ROS 2?
+Read the :doc:`Migrating Dependencies guide <./Migrating-Dependencies>` to learn how to figure that out.
 
 Package.xml format version
 --------------------------
