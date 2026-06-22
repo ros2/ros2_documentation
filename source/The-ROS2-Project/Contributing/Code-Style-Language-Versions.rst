@@ -25,17 +25,17 @@ C
 Standard
 ^^^^^^^^
 
-We will target C99.
+We will target C17.
 
 Style
 ^^^^^
 
 We will use `Python's PEP7 <https://www.python.org/dev/peps/pep-0007/>`__ for our C style guide, with some modifications and additions:
 
-* We will target C99, as we do not need to support C89 (as PEP7 recommends)
+* We will target C17, as we do not need to support C89 (as PEP7 recommends)
 
   * rationale: among other things it allows us to use both ``//`` and ``/* */`` style comments
-  * rationale: C99 is pretty much ubiquitous now
+  * rationale: C17 is pretty much ubiquitous now
 
 * C++ style ``//`` comments are allowed
 * (optional) Always place literals on the left-hand side of comparison operators, e.g. ``0 == ret`` instead of ``ret == 0``
@@ -60,7 +60,7 @@ C++
 Standard
 ^^^^^^^^
 
-{DISTRO_TITLE} targets C++17.
+{DISTRO_TITLE} targets C++20.
 
 Style
 ^^^^^

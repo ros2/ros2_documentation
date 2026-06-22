@@ -49,7 +49,7 @@ Here's about as simple as a urdf as you can make.
     </robot>
 
 To translate the XML into English, this is a robot with the name ``myfirst``, that contains only one link (a.k.a. part), whose visual component is just a cylinder 0.6 meters long with a 0.2 meter radius.
-This may seem like a lot of enclosing tags for a simple "hello world" type example, but it will get more complicated, trust me.
+This may seem like a lot of enclosing tags for a simple "hello world" type example.
 
 To examine the model, launch the ``display.launch.py`` file:
 
@@ -276,7 +276,7 @@ Finishing the Model
 -------------------
 
 Now we finish the model off with a few more shapes: feet, wheels, and head.
-Most notably, we add a sphere and a some meshes.
+Most notably, we add a sphere and some meshes.
 We'll also add few other pieces that we'll use later.
 `[Source: 05-visual.urdf] <https://github.com/ros/urdf_tutorial/blob/ros2/urdf/05-visual.urdf>`_
 

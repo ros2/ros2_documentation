@@ -42,11 +42,17 @@ This tutorial expects you to have ``turtle_tf2_py`` package installed.
 
 .. tabs::
 
-  .. group-tab:: Linux
+  .. group-tab:: Ubuntu
 
     .. code-block:: console
 
         $ sudo apt install ros-{DISTRO}-turtle-tf2-py
+
+  .. group-tab:: RHEL
+
+    .. code-block:: console
+
+        $ sudo dnf install ros-{DISTRO}-turtle-tf2-py
 
   .. group-tab:: From Source
 
@@ -587,11 +593,11 @@ After that, add the executable and name it ``turtle_tf2_message_filter``, which 
     add_executable(turtle_tf2_message_filter src/turtle_tf2_message_filter.cpp)
     target_link_libraries(
       turtle_tf2_message_filter PUBLIC
-      ${geometry_msgs_TARGETS}
+      geometry_msgs::geometry_msgs
       message_filters::message_filters
       rclcpp::rclcpp
       tf2::tf2
-      ${tf2_geometry_msgs_TARGETS}
+      tf2_geometry_msgs::tf2_geometry_msgs
       tf2_ros::tf2_ros
     )
 

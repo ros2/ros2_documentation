@@ -8,6 +8,7 @@ Intermediate
    Intermediate/Creating-an-Action
    Intermediate/Writing-an-Action-Server-Client/Cpp
    Intermediate/Writing-an-Action-Server-Client/Py
+   Intermediate/Writing-An-Async-Node-With-Asyncio-Python
    Intermediate/Writing-a-Composable-Node
    Intermediate/Composition
    Intermediate/Using-Node-Interfaces-Template-Class
