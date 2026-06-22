@@ -16,6 +16,7 @@ Releasing a Package
    Subsequent-Releases
    Release-Team-Repository
    Release-Track
+   Check-package-build-status
 
 **Releasing a package makes your package available on the public ROS 2 buildfarm.**
 This will:
