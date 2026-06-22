@@ -45,67 +45,66 @@ Steps
 2 Reviewing the pull request
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Use the following guidelines to review the submitted pull request:
+#. Review the pull request against the following guidelines:
 
-* Confirm the code or documentation changes are appropriate for the repository.
-* Verify the code is correct and complete, and scoped to a single, well defined change.
-* Check that the pull request targets the default branch (usually ``rolling``).
-* If the changes are based on a design document, verify that the changes are consistent with the design.
-* For code changes, ensure that the changes:
+   * Confirm the code or documentation changes are appropriate for the repository.
+   * Verify the code is correct and complete, and scoped to a single, well defined change.
+   * Check that the pull request targets the default branch (usually ``rolling``).
+   * If the changes are based on a design document, verify that the changes are consistent with the design.
+   * For code changes, ensure that the changes:
 
-    * Follow the :doc:`Developer guide <../Developer-Guide>`.
-    * Follow the :doc:`Code style guide <../Code-Style-Language-Versions>`.
-    * Include tests for the new feature or bug fix.
+     * Follow the :doc:`Developer guide <../Developer-Guide>`.
+     * Follow the :doc:`Code style guide <../Code-Style-Language-Versions>`.
+     * Include tests for the new feature or bug fix.
 
-* For documentation changes, ensure the changes follow the :doc:`documentation guidance <../Contributing-To-ROS-2-Documentation>`.
-* Confirm that the Continuous Integration (CI) run for the pull request passes cleanly.
+   * For documentation changes, ensure the changes follow the :doc:`documentation guidance <../Contributing-To-ROS-2-Documentation>`.
+   * Confirm that the Continuous Integration (CI) run for the pull request passes cleanly.
 
-You can add review comments to the pull request for the submitter, or suggest changes directly in the pull request (`see the GitHub documentation for guidance <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request>`__).
+#. Provide your review comments.
 
-Use the following guidance to make sure your review comments are useful and actionable:
+   You can add review comments to the pull request for the submitter, or suggest changes directly in the pull request (`see the GitHub documentation for guidance <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request>`__).
 
-* Start with high-level comments (for example, asking for refactoring), then move on to lower-level comments about specifics.
-* To be helpful to the submitter of the pull request, consider providing the following types of comment:
+#. Follow these guidelines to make sure your review comments are useful and actionable:
 
-  * **Positive feedback** — praise or positive reinforcement highlighting good work, for example:
+   * Start with high-level comments (for example, asking for refactoring), then move on to lower-level comments about specifics.
+   * Consider providing the following types of comment:
 
-    Nice work on handling edge cases here — the early return makes the logic much easier to follow.
+     * **Positive feedback** — for example:
 
-  * **Questions** — asking for clarification to understand intent or decisions made in the changes, for example:
+       ``Nice work on handling edge cases here — the early return makes the logic much easier to follow.``
 
-    Is there a reason we're using a custom sorting function here instead of ``localeCompare``?
-    Just want to make sure Im not missing a specific requirement.
+     * **Questions** — for example:
 
-  * **Suggestions** — an improvement that enhances code quality but is not required to merge the pull request, for example:
+       ``Just to make sure I'm not missing a requirement, is there a reason we're using a custom sorting function here instead of localeCompare?``
 
-    You could simplify this loop using ``Array.map`` to make it more concise:
+     * **Suggestions** — for example:
 
-    .. code-block:: javascript
+       ``You could simplify this loop using Array.map to make it more concise:``
 
-       const names = users.map(user => user.name)
+       .. code-block:: javascript
 
-  * **Issues** — a concrete problem which must be fixed before merging the pull request, ideally with a suggested solution, for example:
+         const names = users.map(user => user.name)
 
-    This function doesn't handle the case where ``response`` is null, which could cause a runtime error.
-    Add a guard clause:
+     * **Issues** — for example:
 
-    .. code-block:: javascript
+       ``This function doesn't handle the case where response is null, which could cause a runtime error — add a guard clause:``
 
-       if (!response) {
-         return [...];
-       }
+       .. code-block:: javascript
 
-  * **Housekeeping** — a change that isn't related to the main purpose of the pull request, but helps to keep the repository healthy, for example:
+         if (!response) {
+           return [...];
+         }
 
-    Since this file is already being updated, could we also remove the unused ``formatDate`` import at the top?
+     * **Housekeeping** — a change that isn't related to the main purpose of the pull request, but helps to keep the repository healthy, for example:
 
-  * **Minor details** — small, nitpicking details such as improving style or readability, for example:
+       ``Since this file is already being updated, could we also remove the unused formatDate import at the top?``
 
-    Minor naming suggestion; ``user_list`` could be ``users`` to better reflect that it's a collection.
-    (Non-blocking; feel free to ignore if you prefer the current name.)
+     * **Minor details** — small, nitpicking details such as improving style or readability, for example:
 
-* Be clear about what you expect to happen in response to each comment, including whether the comment blocks merging the pull request.
-* Remember to include positive feedback and thanks for the work done by the submitter.
+       ``Minor naming suggestion; user_list could be named users to better reflect that it's a collection.``
+
+   * Be clear about what you expect to happen in response to each comment, including whether the comment blocks merging the pull request.
+   * Remember to include positive feedback and thanks for the work done by the submitter.
 
 3 Approving and merging the pull request
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
