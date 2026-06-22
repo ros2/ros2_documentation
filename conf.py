@@ -94,17 +94,7 @@ extensions = [
 # Intersphinx mapping
 
 intersphinx_mapping = {
-<<<<<<< HEAD
-    'catkin_pkg':    ('http://docs.ros.org/en/independent/api/catkin_pkg/html', None),
-    'jenkins_tools': ('http://docs.ros.org/en/independent/api/jenkins_tools/html', None),
-    'rosdep':        ('http://docs.ros.org/en/independent/api/rosdep/html', None),
-    'rosdistro':     ('http://docs.ros.org/en/independent/api/rosdistro/html', None),
-    'rosinstall':    ('http://docs.ros.org/en/independent/api/rosinstall/html', None),
-    'rospkg':        ('http://docs.ros.org/en/independent/api/rospkg/html', None),
-    'vcstools':      ('http://docs.ros.org/en/independent/api/vcstools/html', None)
-=======
     'python':        ('https://docs.python.org/3', None),
->>>>>>> 1a70bf8b (Fix warning on deprecated ROS release notes.  (#6907))
 }
 
 # sphinx-copybutton config
