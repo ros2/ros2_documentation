@@ -42,7 +42,6 @@ Using custom interfaces involves configuring a node to include the interfaces in
 
    The best practice is to declare interfaces in dedicated interface packages, but sometimes it may be more convenient for you to declare, create and use an interface all in one package.
    Using a dedicated interface package is preferred because it allows multiple packages to share message definitions without sharing any other code contained in the package.
-   Using a dedicated interface package is preferred because it allows multiple packages to share message definitions without sharing any other code contained in the package.
 
 Prerequisites
 -------------
