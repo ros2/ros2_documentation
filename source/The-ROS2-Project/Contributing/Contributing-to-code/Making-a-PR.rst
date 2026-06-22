@@ -5,7 +5,7 @@ Pull requests are used to contribute code and documentation changes to ROS proje
 This article explains how to prepare and create a pull request from your fork of a ROS repository.
 With this information, you'll be able to submit focused changes in a pull request, ready for review.
 
-**Area: community | Content-type: how-to | Experience: beginner, intermediate, expert**
+**Area: contributing, community | Content-type: how-to | Experience: beginner, intermediate, expert**
 
 .. contents:: Table of Contents
    :depth: 2
@@ -84,15 +84,15 @@ Use the following guidelines to prepare your pull request:
 
 #. Select the `Allow edits by maintainers <https://github.blog/news-insights/product-news/improving-collaboration-with-forks/>`__ checkbox, to help ROS maintainers make small changes directly when needed.
 
-After you've submitted your pull request, other developers and contributors in the ROS community will :doc:`review your changes <Reviewing-a-PR>`, including checking against the relevant guidelines.
+After you've submitted your pull request, other developers and contributors in the ROS community will review your changes, including checking against the relevant guidelines.
 
 3 Responding to review comments
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 When another developer or contributor adds a review comment or suggestion to your pull request, you receive a notification from GitHub.
 
-You can view and discuss `review comments directly in GitHub <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/viewing-a-pull-request-review>`__, and add further commits to your branch to address them when needed.
-You can also directly `accept any suggested changes <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request>`__ in the pull request, which adds a new commit to your branch automatically.
+You can view and discuss review comments directly in GitHub (see `the GitHub documentation for assistance <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/viewing-a-pull-request-review>`__), and add further commits to your branch to address them when needed.
+You can also directly accept any suggested changes in the pull request, which adds a new commit to your branch automatically (see `the GitHub documentation for how to accept suggested changes <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request>`__).
 
 Discuss and iterate on your changes with this feedback, amending and updating your development branch with new commits as needed.
 Aim to reply back to review comments within one week, so that you and the reviewers do not lose the context of your changes.
@@ -105,3 +105,9 @@ After you've actioned any feedback, your pull request must be approved by a core
 When the core maintainer approves your pull request, they merge it to the target branch (usually **rolling**), and you receive a notification from GitHub.
 
 Your changes may also be backported to older distributions of ROS.
+
+Related content
+---------------
+
+* :ref:`ROS development general principles <general-principles>`
+* :doc:`Reviewing-a-PR`
