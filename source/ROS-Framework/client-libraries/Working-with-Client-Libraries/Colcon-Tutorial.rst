@@ -332,7 +332,7 @@ To set up ``colcon_cd`` you need to run the following commands to modify your sh
 
       .. code-block:: console
 
-        $ echo "source /usr/share/colcon_cd/function/colcon_cd.sh" >> ~/.bashrc
+        $ echo "source /etc/profile.d/colcon_cd.sh" >> ~/.bashrc
         $ echo "export _colcon_cd_root=/opt/ros/{DISTRO}/" >> ~/.bashrc
 
    .. group-tab:: macOS

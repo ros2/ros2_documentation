@@ -391,4 +391,4 @@ A few milestones leading up to the release:
 
     Tue. Nov 19th
         Freeze rosdistro.
-        No PRs for Eloquent on the `rosdistro` repo will be merged (reopens after the release announcement).
+        No PRs for Eloquent on the rosdistro repo will be merged (reopens after the release announcement).

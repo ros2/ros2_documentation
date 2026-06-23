@@ -188,9 +188,9 @@ First, let's take an example of a simple macro used in R2D2.
     <xacro:macro name="default_inertial" params="mass">
         <inertial>
                 <mass value="${mass}" />
-                <inertia ixx="1e-3" ixy="0.0" ixz="0.0"
-                     iyy="1e-3" iyz="0.0"
-                     izz="1e-3" />
+                <inertia ixx="${(1e-3) * mass}" ixy="0.0" ixz="0.0"
+                     iyy="${(1e-3) * mass}" iyz="0.0"
+                     izz="${(1e-3) * mass}" />
         </inertial>
     </xacro:macro>
 
