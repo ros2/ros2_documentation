@@ -35,9 +35,9 @@ Steps
 1 Learn about fundamental concepts behind ROS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* About ROS
+* :doc:`About ROS </About-ROS>`
 * :doc:`ROS-Framework/About-Nodes`
-* Interfaces (topics, services, actions)
+* Interfaces-Topics-Services-Actions`
 * :doc:`ROS-Framework/About-Parameters`
 
 2 Install ROS and turtlesim
