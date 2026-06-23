@@ -96,7 +96,7 @@ the workspace, then build the demo:
 
 .. code-block:: console
 
-    $ colcon build --symlink-install --packages-up-to torch_conversions
+    $ colcon build --symlink-install --packages-up-to cuda_buffer_backend
     $ source install/setup.sh
     $ colcon build --symlink-install --packages-up-to robot_arm_demo
     $ source install/setup.sh
