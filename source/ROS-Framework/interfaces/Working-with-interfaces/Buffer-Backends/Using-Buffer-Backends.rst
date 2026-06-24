@@ -15,7 +15,7 @@ so that vendors can back those fields with non-CPU memory (for example, GPU
 memory) and transport them with as few copies as the RMW and the backend
 allow.
 
-See :doc:`../Concepts/Intermediate/About-Buffer-Backends` for a conceptual
+See :doc:`About-Buffer-Backends` for a conceptual
 overview.
 
 This guide covers:
