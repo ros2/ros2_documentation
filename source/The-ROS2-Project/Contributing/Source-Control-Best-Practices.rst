@@ -10,12 +10,17 @@ Source Control Best Practices
    :depth: 2
    :local:
 
-This page highlights source control considerations commonly encountered when contributing to ROS 2 projects. It is not intended to replace Git documentation. Instead, it focuses on ROS-specific recommendations and references to external resources where appropriate.
+This page highlights source control considerations commonly
+encountered when contributing to ROS 2 projects.
+It is not intended to replace Git documentation.
+Instead, it focuses on ROS-specific recommendations and
+references to external resources where appropriate.
 
 Avoid committing generated workspace artifacts
 ----------------------------------------------
 
-ROS 2 workspaces generate build artifacts that should generally not be committed to source control.
+ROS 2 workspaces generate build artifacts that should
+generally not be committed to source control.
 
 Common examples include:
 
@@ -25,14 +30,20 @@ Common examples include:
    install/
    log/
 
-These directories are commonly generated when building ROS 2 workspaces with ``colcon build``. They can be recreated locally and generally should not be committed to source control. Repository ``.gitignore`` files should exclude them.
+These directories are commonly generated when
+building ROS 2 workspaces with ``colcon build``.
+They can be recreated locally and
+generally should not be committed to source control.
+Repository ``.gitignore`` files should exclude them.
 
-Before committing changes, review the files included in a commit to ensure that generated workspace artifacts have not been added accidentally.
+Before committing changes, review the files included in a commit
+to ensure that generated workspace artifacts have not been added accidentally.
 
 Editor-specific files
 ---------------------
 
-Editors and IDEs often generate project-specific or user-specific configuration files.
+Editors and IDEs often generate project-specific or
+user-specific configuration files.
 
 Common examples include:
 
@@ -41,16 +52,23 @@ Common examples include:
    .vscode/
    .idea/
 
-In most ROS 2 repositories, editor-specific files are not committed to source control.
+In most ROS 2 repositories, editor-specific files are
+not committed to source control.
 
-Many ROS 2 repositories ignore editor-specific files such as ``.vscode/`` and ``.idea/``. Contributors should avoid committing personal editor configuration unless it is explicitly required by the repository.
+Many ROS 2 repositories ignore editor-specific
+files such as ``.vscode/`` and ``.idea/``.
+Contributors should avoid committing personal editor
+configuration unless it is explicitly required by the repository.
 
 Using a global gitignore
 ------------------------
 
-A global gitignore can help prevent accidentally committing files that are unrelated to a repository, such as operating system metadata files or personal editor configuration.
+A global gitignore can help prevent accidentally committing
+files that are unrelated to a repository, such as
+operating system metadata files or personal editor configuration.
 
-Git supports configuring a global excludes file through the ``core.excludesfile`` configuration option.
+Git supports configuring a global excludes file
+through the ``core.excludesfile`` configuration option.
 
 For example:
 
@@ -58,16 +76,24 @@ For example:
 
    $ git config --global core.excludesfile ~/.gitignore_global
 
-A global gitignore is useful for excluding files that are specific to a developer's machine or editor and are not intended to be committed to any repository.
+A global gitignore is useful for excluding files that are
+specific to a developer's machine or editor and
+are not intended to be committed to any repository.
 
 Authentication and credentials
 ------------------------------
 
-When contributing to ROS 2 repositories, contributors will often interact with Git hosting services such as GitHub.
+When contributing to ROS 2 repositories,
+contributors will often interact with Git
+hosting services such as GitHub.
 
-SSH keys and Git credential helpers can simplify authentication and avoid repeatedly entering credentials when pushing changes or interacting with remote repositories.
+SSH keys and Git credential helpers can simplify authentication.
+Avoid repeatedly entering credentials when
+pushing changes or interacting with remote repositories.
 
-Rather than duplicating setup instructions here, refer to the official GitHub and Git documentation for recommended configuration steps.
+Rather than duplicating setup instructions here,
+refer to the official GitHub and Git documentation
+for recommended configuration steps.
 
 Additional resources
 --------------------
