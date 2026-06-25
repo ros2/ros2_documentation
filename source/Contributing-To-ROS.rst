@@ -4,7 +4,7 @@ Contributing to ROS
 ROS (Robot Operating System) is an open-source ecosystem. We rely on contributions from our community to help us grow and improve. 
 This article introduces the ways in which you can contribute to ROS.
 
-**Area: community, contributing | Content-type: about | Experience: beginner, intermediate, expert**
+**Area: contributing, community | Content-type: about | Experience: beginner, intermediate, expert**
 
 .. contents:: Table of Contents
    :local:
@@ -20,19 +20,19 @@ Everyone can contribute to ROS. Depending on your skills and experience, you can
 
 **Complete beginner?**
 
-* Work through the beginner tutorials, checking them for accuracy: :ref:`test-and-review-documentation`
+* Work through the beginner tutorials, and check them for accuracy. :ref:`See Test and review documentation <test-and-review-documentation>`
 
 **Getting familiar with ROS?**
 
-* Check the issue lists and fix one of the issues labelled "good first issue" (QUESTION FOR THE REVIEWER: Are you still using the "good first issues" label?): :ref:`contribute-to-code`
+* Check the issue lists and fix one of the issues labelled "good first issue". :ref:`See Contribute to code <contribute-to-code>`
 
 OR
 
-* Triage an issue: :ref:`triage-an-issue`
+* Triage an issue. :ref:`See Triage an issue <triage-an-issue>`
 
 **Experienced robotics developer?**
 
-* Follow the discussion on Stack Exchange, and offer support: :ref:`provide-support` (QUESTION FOR THE REVIEWER: This is a placeholder suggestion. Is there something better we should encourage experienced developers to take on as their first contribution?) 
+* Follow the discussion on Stack Exchange, and offer support. :ref:`See Provide support <provide-support>` (QUESTION FOR THE REVIEWER: This is a placeholder suggestion. Is there something better we should encourage experienced developers to take on as their first contribution?) 
 
 Contribute to ROS development
 -----------------------------
@@ -44,19 +44,19 @@ Anyone can contribute to the development of ROS. If you are a complete beginner 
 Contribute to code
 ~~~~~~~~~~~~~~~~~~
 
-Contributing to our open source involves reviewing an existing project and making improvements such as fixing issues or developing features.
+Contributing to our open source code involves reviewing an existing project and making improvements such as fixing issues or developing features.
 
 **Ready to contribute?**
 
-1. Familiarize yourself with our developer guidelines and tools: `Developer Guide <https://docs.ros.org/en/lyrical/The-ROS2-Project/Contributing/Developer-Guide.html>`_
+1. Familiarize yourself with our developer guidelines and tools. :ref:`More information is in our developer guide <developer-guide>`
 
 2. Pick an issue from one of the issue lists: 
    
-   * `Good first issues <https://github.com/search?q=user%3Aament+user%3Aros2+is%3Aopen+label%3A%22good+first+issue%22&type=Issues>`_
+   * `Good first issues <https://github.com/ros2/ros2_documentation/issues?q=state%3Aopen%20label%3A%22good%20first%20issue%22>`_
    
-   * `Help wanted issues <https://github.com/search?q=user%3Aament+user%3Aros2+is%3Aopen+label%3A%22help+wanted%22&type=Issues>`_ 
+   * `Help wanted issues <https://github.com/search?q=user%3Aament+user%3Aros2+is%3Aopen+label%3A%22help+wanthttps://github.com/ros2/ros2_documentation/pullsed%22&type=Issues>`_
   
-3. Fix the issue and submit the pull request <Placeholder link to new "Make a pull request" article>
+3. Fix the issue and submit the pull request. More information is in <Placeholder link to new "Make a pull request" article>
 
 Review a pull request
 ~~~~~~~~~~~~~~~~~~~~~
@@ -64,8 +64,10 @@ Review a pull request
 Reviewing a pull request involves carefully checking proposed changes to make sure they are correct, well written, and do not introduce issues. Anyone can review a pull request. If you are a beginner, reviewing a pull request is a great way to learn the codebase and ask questions where something is unclear. If you are a more experienced developer, you can contribute by identifying performance or security issues and ensuring overall code quality.
 
 **Ready to contribute?**
-  
-* Review your first pull request: <Placeholder link to new "Reviewing a pull request" article>
+
+1. Familiarize your with how to review a pull request. :ref:`See Reviewing a pull request <reviewing-a-pull-request>`
+
+2. Pick an issue from the pull request list: `Pull request list <https://github.com/ros2/ros2_documentation/pulls>`_
 
 Contribute to QA
 ~~~~~~~~~~~~~~~~~
@@ -73,17 +75,17 @@ Contribute to QA
 Report an issue
 ^^^^^^^^^^^^^^^
 
-Reporting issues involves identifying and describing problems in the software so they can be understood and fixed. If you are a beginner, you can report issues you encounter, for example, when following a tutorial, and include the steps needed to reproduce the problem. If you are a more experienced contributor, you can provide detailed technical information to help developers quickly diagnose and resolve the issue.
+Reporting issues involves identifying and describing problems in the software so they can be understood and fixed. You can report any issues you encounter with information to help developers quickly diagnose and resolve the issue. If you are a beginner following a tutorial, for example, you can include the steps needed to reproduce the problem. If you are a more experienced contributor, you can also provide relevant technical details.
 
 **Ready to contribute?**
 
-* Report your first issue: <Placeholder link to new "Reporting an issue" article> 
+* Report your first issue. More information is in <Placeholder link to new "Reporting an issue" article> 
 
 .. _triage-an-issue:
 Triage an issue
 ^^^^^^^^^^^^^^^
 
-Triaging an issue involves reviewing reported issues to understand the problem, assess its impact, and decide what action to take next. If you are a beginner, you can help by checking whether an issue can be reproduced and providing additional details where needed. If you are a more experienced contributor, you can prioritize issues, identify root causes, and guide how and when they should be resolved.
+Triaging an issue involves reviewing the reported issue to understand the problem, assess its impact, and decide what action to take next. If you are a beginner, you can help by checking whether an issue can be reproduced and providing additional details where needed. If you are a more experienced contributor, you can prioritize issues, identify root causes, and guide how and when they should be resolved.
 
 **Ready to contribute?**
 
@@ -93,7 +95,7 @@ Triaging an issue involves reviewing reported issues to understand the problem, 
    
    * Other important issue trackers (QUESTION FOR THE REVIEWER: Are there any other issue trackers you suggest we link to?)
 
-2. Triage the issue: <Placeholder link to new "Triaging an issue" article>
+2. Triage the issue. More information is in <Placeholder link to new "Triaging an issue" article>
 
 Report security vulnerabilities
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -122,15 +124,15 @@ ROS continues to evolve, and suggesting features is a valuable way to help impro
 
 **Ready to contribute?**
 
-1. Check the enhancements requests list:
+1. Check the if the enhancement idea has already been suggested in the following:
 
-   * `Feature ideas <https://docs.ros.org/en/kilted/The-ROS2-Project/Feature-Ideas.html>`_ (QUESTION FOR the REVIEWER: Is this list being maintained?)
+   * `Feature idea list <https://docs.ros.org/en/kilted/The-ROS2-Project/Feature-Ideas.html>`_. (QUESTION FOR the REVIEWER: Is this list being maintained?)
 
-   *  Enhancements logged in the issue trackers: For example, take a look at this `list of enhancement requests <https://github.com/ros2/ros2/issues?q=state%3Aopen%20label%3Aenhancement>`_
+   *  Enhancement issues on GitHub. For example, take a look at this `list of enhancement requests <https://github.com/ros2/ros2/issues?q=state%3Aopen%20label%3Aenhancement>`_.
 
-2. Chat to the ROS community about your suggested enhancement: `ROS Open discussion board <https://discourse.openrobotics.org/c/ros/111>`_
+2. Chat to the ROS community about your suggested enhancement: `ROS Open discussion board <https://discourse.openrobotics.org/c/ros/111>`_.
 
-3. Submit an enhancement suggestion: <Placeholder link to new "Reporting an issue" article>
+3. Submit an enhancement suggestion. More information is in <Placeholder link to new "Reporting an issue" article>.
 
 Improve graphical interfaces
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -139,17 +141,17 @@ ROS includes a number of graphical interfaces. Anyone can suggest interface impr
 
 **Ready to contribute?**
 
-* Submit a UI improvement, for example, your suggestion or your design work: <Placeholder link to new "Submitting an issue" article>
+* Submit a UI improvement, for example, your suggestion or your design work. More information is in <Placeholder link to new "Submitting an issue" article>
 
 OR
 
-* Implement a UI improvement: :ref:`contribute-to-code`
+* Implement a UI improvement. :ref:`See Contribute to code <contribute-to-code>`
 
 
 Become a core maintainer
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-ROS core maintainers ensure that the project is generally making progress. The responsibilities of maintainers include:
+ROS core maintainers ensure that the project is making progress. The responsibilities of maintainers include:
 
 * Reviewing incoming code contributions for style, quality, and overall fit into the goals of the repository and ROS
 
@@ -185,11 +187,11 @@ Contributing to ROS documentation is a great way to learn about and improve ROS.
 
 **Ready to contribute?**
 
-1. Read our documentation contribution guidelines: <Placeholder link to updated contribution to docs article>
+1. Read our documentation contribution guidelines: <Placeholder link to updated contribution to docs article>.
 
-2. Browse the documentation issue list, and choose an issue to fix: `ROS documentation issue tracker <https://github.com/ros2/ros2_documentation/issues>`_
+2. Browse the documentation issue list, and choose an issue to fix: `ROS documentation issue tracker <https://github.com/ros2/ros2_documentation/issues>`_.
 
-3. Update the documentation to fix the issue: <Placeholder link to new "Creating and updating documentation" article>
+3. Update the documentation to fix the issue. More information is in <Placeholder link to new "Creating and updating documentation" article>.
 
 .. _test-and-review-documentation:
 Test and review documentation
@@ -199,7 +201,7 @@ Testing and reviewing documentation makes sure it is clear, accurate, and easy t
 
 **Ready to contribute?**
 
-* Follow a tutorial, how-to guide, or other documentation. If you spot something inaccurate or unclear provide your feedback: <Placeholder link to new "Reporting an issue" article> 
+* Follow a tutorial, how-to guide, or other documentation. If you spot something inaccurate or unclear provide your feedback. More information is in <Placeholder link to new "Reporting an issue" article> 
 
 .. _provide-support:
 Provide support
@@ -207,7 +209,7 @@ Provide support
 
 ROS users come from a wide range of technical backgrounds and use different operating systems. Some are completely new to ROS, so even those with a little experience can play an important role in supporting others as they get started.
 
-If you notice a question on `Robotics Stack Exchange <https://robotics.stackexchange.com/>`_ that relates to an issue you have encountered, consider sharing what worked for you. If you aren't entirely sure your answer is correct, just say so. The community is there to help, and others will step in to clarify or add more detail if needed.
+If you notice a question on Robotics Stack Exchange that relates to an issue you have encountered, consider sharing what worked for you. If you aren't entirely sure your answer is correct, just say so. The community is there to help, and others will step in to clarify or add more detail if needed.
 
 **Ready to contribute?**
 
@@ -225,9 +227,9 @@ There are various ways to join the ROS community, allowing you to participate, c
 
    * Official Open Robotics events: `View the calendar <https://calendar.google.com/calendar/u/0/embed?src=agf3kajirket8khktupm9go748@group.calendar.google.com&ctz=Etc%2FUTC/>`_
 
-* Host an online community group event: `Fill in the form to add your event to the calendar <https://bit.ly/OSRFCalendarForm/>`_
+* Host an online community group event: `Fill in the form to add your event to the calendar <https://bit.ly/OSRFCalendarForm/>`_ (QUESTION FOR THE REVIEWER: Is there someone or a channel people can contact if they are thinking of doing this, but need a bit of guidance or support? If so, can we link to that here?)
 
-* Host a local meet-up: `Fill in the form to add your event to the calendar <https://bit.ly/OSRFCalendarForm/>`_
+* Host a local meet-up: `Fill in the form to add your event to the calendar <https://bit.ly/OSRFCalendarForm/>`_ (QUESTION FOR THE REVIEWER: Is there someone or a channel people can contact if they are thinking of doing this, but need a bit of guidance or support? If so, can we link to that here?)
 
 * Join discussion groups and chats:
 
