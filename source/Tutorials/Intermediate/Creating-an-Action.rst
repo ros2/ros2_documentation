@@ -41,6 +41,14 @@ Tasks
 1 Creating an interface package
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Actions can only be created in a package using ``ament_cmake``. 
+They are not supported in Python packages using ``ament_python``.
+This restriction also applies to messages and services, so...
+
+.. note::
+   It is recommended to define action interfaces in their own package.
+   This improves modularity and makes it easier to reuse them across multiple projects.
+
 .. tabs::
 
   .. group-tab:: Linux
@@ -214,9 +222,11 @@ and how to verify a successful build.
 Next steps
 ----------
 
-Next, let's utilize your newly defined action interface by creating an action service and client (in :doc:`Python <Writing-an-Action-Server-Client/Py>` or :doc:`C++ <Writing-an-Action-Server-Client/Cpp>`).
+Next, let's utilize your newly defined action interface by creating an action server and client (in :doc:`Python <Writing-an-Action-Server-Client/Py>` or :doc:`C++ <Writing-an-Action-Server-Client/Cpp>`).
 
 Related content
 ---------------
 
-For more detailed information about ROS actions, please refer to the `design article <http://design.ros2.org/articles/actions.html>`__.
+For more detailed information about ROS actions, please refer to the `design article <https://design.ros2.org/articles/actions.html>`__.
+
+[blank line]
