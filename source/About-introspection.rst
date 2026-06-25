@@ -1,14 +1,16 @@
 Introspection
 =============
 
-**Area: ROS-tools | Content-type: about | Experience: beginner, intermediate, expert**
+Sometimes you need to understand what is happening inside your robot's software. This article summarizes the ROS developer tools and guidance available to help with introspection.
+
+**Area: introspection, tools | Content-type: about | Experience: beginner, intermediate, expert**
 
 .. contents:: Table of Contents
    :local:
 
 Summary
 -------   
-Understanding what is happening inside your robot's software is key to understanding how to improve it. Introspection tools in ROS allow you to understand and modify at run-time node state, parameters, flowing data, and more.
+Understanding what is happening inside your robot's software is key to understanding how to improve it. Introspection tools in ROS allow you to understand, and modify at run-time,node state, parameters, flowing data, and more.
 
 Core ROS packages:
 
