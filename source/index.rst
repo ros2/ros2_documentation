@@ -22,6 +22,7 @@ ROS 2 Documentation
    Related-Projects
    Glossary
    Citations
+   About-introspection
 
 
 **The Robot Operating System (ROS) is a set of software libraries and tools for building robot applications.**
