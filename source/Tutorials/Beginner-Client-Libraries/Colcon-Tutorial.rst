@@ -37,11 +37,17 @@ Install colcon
 
 .. tabs::
 
-  .. group-tab:: Linux
+  .. group-tab:: Ubuntu
 
     .. code-block:: console
 
         $ sudo apt install python3-colcon-common-extensions
+
+  .. group-tab:: RHEL
+
+    .. code-block:: console
+
+        $ sudo dnf install python3-colcon-common-extensions
 
   .. group-tab:: macOS
 
@@ -325,7 +331,7 @@ To set up ``colcon_cd`` you need to run the following commands to modify your sh
 
       .. code-block:: console
 
-        $ echo "source /usr/share/colcon_cd/function/colcon_cd.sh" >> ~/.bashrc
+        $ echo "source /etc/profile.d/colcon_cd.sh" >> ~/.bashrc
         $ echo "export _colcon_cd_root=/opt/ros/{DISTRO}/" >> ~/.bashrc
 
    .. group-tab:: macOS
