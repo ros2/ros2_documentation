@@ -2,8 +2,23 @@
 
     Concepts/Basic/About-Nodes
 
+.. meta::
+   :contentType: about
+   :experience: beginner
+   :area: nodes, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Nodes
 =====
+
+.. short-description::
+   Nodes are the main units of computation in a ROS graph.
+   This article explains what nodes are, how they communicate, and how they provide functionality to other parts of a ROS system.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. toctree::
    :maxdepth: 1
@@ -17,6 +32,20 @@ Nodes
 
 .. contents:: Table of Contents
    :local:
+
+Summary
+-------
+
+Nodes can use the following ROS interfaces:
+
+:doc:Topics <interfaces/About-Topics> to publish or subscribe to data.
+:doc:Services <interfaces/About-Services> to request or provide computations.
+:doc:Actions <interfaces/About-Actions> for long-running computations with feedback.
+
+Nodes can also provide configurable :doc:parameters <About-Parameters> and use :doc:discovery <nodes/About-Discovery> to establish connections.
+
+Overview of nodes
+-----------------
 
 A node is a participant in the ROS 2 graph, which uses a :doc:`client library <About-Client-Libraries>` to communicate with other nodes.
 Nodes can communicate with other nodes within the same process, in a different process, or on a different machine.
