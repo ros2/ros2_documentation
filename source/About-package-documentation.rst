@@ -12,4 +12,30 @@ Sometimes you need to document your package so others can easily understand and 
 Summary
 -------  
 
-If you are creating a new package, it is good practice to document that package for others who may use it - whether the wider community or just within your own organization. The package documentation tools enable you to easily document your package and then build that documentation source into a web-browseable version, such as those seen on index.ros.org.
+When creating a new package, clear documentation is essential for others who may use it. Package documentation tools in ROS make it easy to write, maintain, and generate web-browsable documentation from your source code. 
+
+Core ROS packages:
+
+* `rosdoc2 <https://docs.ros.org/en/rolling/How-To-Guides/Documenting-a-ROS-2-Package.html>`_: Tool for documenting a ROS package.  QUESTION FOR THE REVIEWER: IN THE SPREADSHEET THERE IS A QUESTION MARK NEXT TO THIS ENTRY. DO WE NEED TO INCLUDE IN THIS LIST?
+
+QUESTION FOR THE REVIEWER: ARE THERE ANY OTHER CORE ROS PACKAGES THAT WE CAN LIST HERE?
+
+Community-contributed packages:
+
+QUESTION FOR THE REVIEWER: ARE THERE ANY COMMUNITY-CONTRIBUTED PACKAGES THAT WE CAN LIST HERE?
+
+Related content (placeholder)
+---------------
+
+More articles about package documentation:
+
+* Example
+
+* Example
+
+FAQs (placeholder)
+----
+
+* Example
+
+* Example

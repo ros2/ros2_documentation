@@ -11,4 +11,30 @@ Sometimes you need to manage many interconnected nodes at once to reliably start
 
 Summary
 -------  
-Complex robotics systems typically involve many interconnected nodes each with multiple parameters and interfaces. Node management helps you automate start up, configuration, and shut down of a number of ROS nodes simultaneously, via launch files.
+Complex robotic systems can include many interconnected nodes, each with different settings and interfaces. Node management tools in ROS help you start, configure, and stop multiple nodes together using launch files.
+
+Core ROS packages:
+
+* `ros2launch <https://github.com/ros2/launch>`_:  Command line tool for launching multiple processes and for writing tests involving multiple processes.
+
+QUESTION FOR THE REVIEWER: ARE THERE ANY OTHER CORE ROS PACKAGES THAT WE CAN LIST HERE?
+
+Community-contributed packages:
+
+QUESTION FOR THE REVIEWER: ARE THERE ANY COMMUNITY-CONTRIBUTED PACKAGES THAT WE CAN LIST HERE?
+
+Related content (placeholder)
+---------------
+
+More articles about node management:
+
+* Example
+
+* Example
+
+FAQs (placeholder)
+----
+
+* Example
+
+* Example

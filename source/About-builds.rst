@@ -12,4 +12,34 @@ Sometimes you need to work with multiple packages together to build, share, and 
 Summary
 -------
 
-ROS is a federated ecosystem and nearly every robotics system implemented in ROS makes use of multiple ROS packages. The build tools enable you to work with multiple packages in a single project - both packages of your own and those from the community. The build tools also enable you to share your own packages with the community.
+Most ROS systems use multiple packages working together. Build tools in ROS enable you to work with multiple packages in a single project and to share your packages with other members of the ROS community. 
+
+Core ROS packages:
+
+* `colcon <https://docs.ros.org/en/lyrical/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html>`_: Tool for creating and building a ROS workspace.
+
+* `ament_cmake <https://docs.ros.org/en/lyrical/How-To-Guides/Ament-CMake-Documentation.html>`_: Build system for CMake-based packages in ROS.
+
+* `rosdoc2 <https://docs.ros.org/en/rolling/How-To-Guides/Documenting-a-ROS-2-Package.html>`_: Tool for documenting a ROS package. QUESTION FOR THE REVIEWER: IN THE SPREADSHEET THERE IS A QUESTION MARK NEXT TO THIS ENTRY. DO WE NEED TO INCLUDE ros2doc IN THIS LIST?
+
+QUESTION FOR THE REVIEWER: ARE THERE ANY OTHER CORE ROS PACKAGES THAT WE CAN LIST HERE?
+
+Community-contributed packages:
+
+QUESTION FOR THE REVIEWER: ARE THERE ANY COMMUNITY-CONTRIBUTED PACKAGES THAT WE CAN LIST HERE?
+
+Related content (placeholder)
+---------------
+
+More articles about builds:
+
+* Example
+
+* Example
+
+FAQs (placeholder)
+----
+
+* Example
+
+* Example
