@@ -4,25 +4,31 @@
 
 .. _ROS2Services:
 
-Understanding services
-======================
+Learning about services - tutorial
+===================================
 
-**Goal:** Learn about services in ROS 2 using command line tools.
+Services are one of the communication types used to exchange data in a ROS system.
+This article walks you through using command-line tools to examine and call services between nodes.
+A hands-on exercise with Turtlesim helps you understand how the call-and-response model works in the ROS graph.
 
-**Tutorial level:** Beginner
-
-**Time:** 10 minutes
+**Area: Framework | Content-type: tutorial | Experience: beginner**
 
 .. contents:: Contents
    :depth: 2
    :local:
 
+Summary
+-------
+
+Services use a call-and-response model: a client sends a request to a server, which processes it and returns a response.
+Unlike topics, services only provide data when specifically called, so they are not suited for continuous data streams.
+
 Background
 ----------
 
 Services are another method of communication for nodes in the ROS graph.
-Services are based on a call-and-response model versus the publisher-subscriber model of topics.
-While topics allow nodes to subscribe to data streams and get continual updates, services only provide data when they are specifically called by a client.
+Services are based on a call-and-response model, as opposed to the publisher-subscriber model of topics.
+While topics allow nodes to subscribe to data streams and get continual updates, services only provide data when specifically called by a client.
 
 .. image:: images/Service-SingleServiceClient.gif
 
@@ -31,18 +37,20 @@ While topics allow nodes to subscribe to data streams and get continual updates,
 Prerequisites
 -------------
 
-Some concepts mentioned in this tutorial, like :doc:`Nodes <../Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` and :doc:`Topics <../Understanding-ROS2-Topics/Understanding-ROS2-Topics>`, were covered in previous tutorials in the series.
+#. Make sure you understand the concepts of :doc:`nodes <../Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` and :doc:`topics <../Understanding-ROS2-Topics/Understanding-ROS2-Topics>`.
+#. You will need the :doc:`turtlesim package <../Introducing-Turtlesim/Introducing-Turtlesim>`.
 
-You will need the :doc:`turtlesim package <../Introducing-Turtlesim/Introducing-Turtlesim>`.
-
-As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../Configuring-ROS2-Environment>`.
-
-Tasks
+Steps
 -----
+
+.. note::
+    Do not forget to source ROS in every new terminal you open.
+    See :doc:`Configuring environment <../Configuring-ROS2-Environment>`.
 
 1 Setup
 ^^^^^^^
-Start up the two turtlesim nodes, ``/turtlesim`` and ``/teleop_turtle``.
+
+Start up the two Turtlesim nodes, ``/turtlesim`` and ``/teleop_turtle``.
 
 Open a new terminal and run:
 
@@ -59,7 +67,7 @@ Open another terminal and run:
 2 ros2 service list
 ^^^^^^^^^^^^^^^^^^^
 
-Running the ``ros2 service list`` command in a new terminal will return a list of all the services currently active in the system:
+To list all the services currently active in the system, run ``ros2 service list`` in a new terminal:
 
 .. code-block:: console
 
@@ -85,12 +93,12 @@ Running the ``ros2 service list`` command in a new terminal will return a list o
   /turtlesim/set_parameters_atomically
 
 You will see that both nodes have the same six services with ``parameters`` in their names.
-Nearly every node in ROS 2 has these infrastructure services that parameters are built off of.
-There will be more about parameters in the next tutorial.
-In this tutorial, the parameter services will be omitted from the discussion.
+Nearly every node in ROS has these infrastructure services that parameters are built off of.
+Parameters are covered in :doc:`Learning about parameters <../Understanding-ROS2-Parameters/Understanding-ROS2-Parameters>`.
+In this tutorial, the parameter services will not be discussed in detail.
 
-For now, let's focus on the turtlesim-specific services, ``/clear``, ``/kill``, ``/reset``, ``/spawn``, ``/turtle1/set_pen``, ``/turtle1/teleport_absolute``, and ``/turtle1/teleport_relative``.
-You may recall interacting with some of these services using rqt in the :doc:`Use turtlesim, ros2, and rqt <../Introducing-Turtlesim/Introducing-Turtlesim>` tutorial.
+The turtlesim-specific services are ``/clear``, ``/kill``, ``/reset``, ``/spawn``, ``/turtle1/set_pen``, ``/turtle1/teleport_absolute``, and ``/turtle1/teleport_relative``.
+Some of these services were covered in the :doc:`Using turtlesim, ros2, and rqt <../Introducing-Turtlesim/Introducing-Turtlesim>` tutorial.
 
 
 3 ros2 service type
@@ -99,14 +107,13 @@ You may recall interacting with some of these services using rqt in the :doc:`Us
 Services have types that describe how the request and response data of a service is structured.
 Service types are defined similarly to topic types, except service types have two parts: one message for the request and another for the response.
 
-To find out the type of a service, use the command:
+To find out the type of a service, run:
 
 .. code-block:: console
 
   $ ros2 service type <service_name>
 
-Let's take a look at turtlesim's ``/clear`` service.
-In a new terminal, enter the command:
+For example, to check Turtlesim's ``/clear`` service, open a new terminal and run:
 
 .. code-block:: console
 
@@ -118,7 +125,7 @@ The ``Empty`` type means the service call sends no data when making a request an
 3.1 ros2 service list -t
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-To see the types of all the active services at the same time, you can append the ``--show-types`` option, abbreviated as ``-t``, to the ``list`` command:
+To see the types of all the active services at the same time, append the ``--show-types`` option (abbreviated as ``-t``) to the ``list`` command:
 
 .. code-block:: console
 
@@ -136,7 +143,7 @@ To see the types of all the active services at the same time, you can append the
 4 ros2 service info
 ^^^^^^^^^^^^^^^^^^^
 
-To see information of a particular service, use the command:
+To see information about a particular service, run:
 
 .. code-block:: console
 
@@ -144,7 +151,7 @@ To see information of a particular service, use the command:
 
 This returns the service type and the count of service clients and servers.
 
-For example, you can find the count of clients and servers for the ``/clear`` service:
+For example, to check the ``/clear`` service:
 
 .. code-block:: console
 
@@ -155,20 +162,21 @@ For example, you can find the count of clients and servers for the ``/clear`` se
 
 4.1 ros2 service info --verbose
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-For more detailed information about a service, you can append the ``--verbose`` (or ``-v``) option to the ``info`` command:
+
+For more detailed information about a service, append the ``--verbose`` (or ``-v``) option to the command:
 
 .. code-block:: console
 
   $ ros2 service info --verbose <service_name>
 
-For example: you can get verbose information about the ``/clear`` service:
+For example, to get verbose information about the ``/clear`` service:
 
 .. code-block:: console
 
   $ ros2 service info --verbose /clear
 
-This will return additional information including the node name and namespace of the service server, as well as the underlying middleware (RMW) implementation details.
-An important information for Developers that the ``Endpoint count`` will be 2 for DDS based RMW implementations (connextdds, cyclone, fastrtps) because DDS creates two endpoints (one for request and one for response) for each service server.
+The verbose output includes additional information such as the node name and namespace of the service server, as well as the underlying middleware (RMW) implementation details.
+Note that ``Endpoint count`` is 2 for DDS-based RMW implementations (connextdds, cyclone, fastrtps), because DDS creates two endpoints per service server: one for request and one for response.
 
 .. code-block:: console
 
@@ -202,7 +210,7 @@ An important information for Developers that the ``Endpoint count`` will be 2 fo
           Liveliness: AUTOMATIC
           Liveliness lease duration: Infinite
 
-Where as for non-DDS based RMW implementations like ``rmw_zenoh_cpp``, the ``Endpoint count`` will be 1 because it uses a single endpoint for both request and response.
+For non-DDS RMW implementations such as ``rmw_zenoh_cpp``, ``Endpoint count`` is 1 because a single endpoint handles both request and response.
 
 .. code-block:: console
 
@@ -225,18 +233,18 @@ Where as for non-DDS based RMW implementations like ``rmw_zenoh_cpp``, the ``End
       Liveliness: AUTOMATIC
       Liveliness lease duration: Infinite
 
-If you want to learn more about different RMW implementations, refer to the :doc:`About Different Middleware Vendors <../../../Concepts/Intermediate/About-Different-Middleware-Vendors>` concept.
+To learn more about different RMW implementations, see :doc:`About Different Middleware Vendors <../../../Concepts/Intermediate/About-Different-Middleware-Vendors>`.
 
 5 ros2 service find
 ^^^^^^^^^^^^^^^^^^^
 
-If you want to find all the services of a specific type, you can use the command:
+To find all the services of a specific type, run:
 
 .. code-block:: console
 
   $ ros2 service find <type_name>
 
-For example, you can find all the ``Empty`` typed services like this:
+For example, to find all ``Empty`` typed services:
 
 .. code-block:: console
 
@@ -249,25 +257,26 @@ For example, you can find all the ``Empty`` typed services like this:
 
 You can call services from the command line, but first you need to know the structure of the input arguments.
 
+To inspect a service type's structure, run:
+
 .. code-block:: console
 
   $ ros2 interface show <type_name>
 
-Try this on the ``/clear`` service's type, ``Empty``:
+Try the following command on the ``/clear`` service's type, ``Empty``:
 
 .. code-block:: console
 
   $ ros2 interface show std_srvs/srv/Empty
   ---
 
-The ``---`` separates the request structure (above) from the response structure (below).
-But, as you learned earlier, the ``Empty`` type doesn't send or receive any data.
-So, naturally, its structure is blank.
+The ``---`` separates the request structure from the response structure.
+The ``Empty`` type doesn't send or receive any data, so its structure is blank on both sides.
 
 Let's introspect a service with a type that sends and receives data, like ``/spawn``.
 From the results of ``ros2 service list -t``, we know ``/spawn``'s type is ``turtlesim_msgs/srv/Spawn``.
 
-To see the request and response arguments of the ``/spawn`` service, run the command:
+To see the request and response arguments of the ``/spawn`` service, run:
 
 .. code-block:: console
 
@@ -279,35 +288,35 @@ To see the request and response arguments of the ``/spawn`` service, run the com
   ---
   string name
 
-The information above the ``---`` line tells us the arguments needed to call ``/spawn``.
-``x``, ``y`` and ``theta`` determine the 2D pose of the spawned turtle, and ``name`` is clearly optional.
+The fields above the ``---`` line are the arguments needed to call ``/spawn``:
+``x``, ``y`` and ``theta`` determine the 2D pose of the spawned turtle, and ``name`` is optional.
 
-The information below the line isn't something you need to know in this case, but it can help you understand the data type of the response you get from the call.
+The field below the line is the response: the name assigned to the new turtle.
 
 7 ros2 service call
 ^^^^^^^^^^^^^^^^^^^
 
-Now that you know what a service type is, how to find a service's type, and how to find the structure of that type's arguments, you can call a service using:
+To call a service from the command line, use:
 
 .. code-block:: console
 
   $ ros2 service call <service_name> <service_type> <arguments>
 
 The ``<arguments>`` part is optional.
-For example, you know that ``Empty`` typed services don't have any arguments:
+For example, ``Empty`` typed services don't have any arguments:
 
 .. code-block:: console
 
   $ ros2 service call /clear std_srvs/srv/Empty
 
-This command will clear the turtlesim window of any lines your turtle has drawn.
+This clears the Turtlesim window of any lines drawn by the turtle.
 
 .. image:: images/clear.png
 
 Now let's spawn a new turtle by calling ``/spawn`` and setting arguments.
-Input ``<arguments>`` in a service call from the command-line need to be in YAML syntax.
+Arguments in a service call from the command line must be in YAML syntax.
 
-Enter the command:
+To spawn a new turtle, run:
 
 .. code-block:: console
 
@@ -317,38 +326,38 @@ Enter the command:
   response:
   turtlesim_msgs.srv.Spawn_Response(name='turtle2')
 
-You will get this method-style view of what's happening, and then the service response.
+The terminal shows the request that was sent and the service response.
 
-Your turtlesim window will update with the newly spawned turtle right away:
+The Turtlesim window updates with the newly spawned turtle:
 
 .. image:: images/spawn.png
 
 8 ros2 service echo
 ^^^^^^^^^^^^^^^^^^^
 
-To see the data communication between a service client and a service server you can ``echo`` the service using:
+To monitor the data communication between a service client and a service server, use:
 
 .. code-block:: console
 
   $ ros2 service echo <service_name | service_type> <arguments>
 
-``ros2 service echo`` depends on service introspection of a service client and server, that is disabled by default.
-To enable it, users must call ``configure_introspection`` after creating a service client or server.
+``ros2 service echo`` depends on service introspection, which is disabled by default.
+To enable it, call ``configure_introspection`` after creating a service client or server.
 
-Start up the ``introspection_client`` and ``introspection_service`` service introspection demo.
+To try this, start up the ``introspection_client`` and ``introspection_service`` demo:
 
 .. code-block:: console
 
   $ ros2 launch demo_nodes_cpp introspect_services_launch.py
 
-Open another terminal and run the following to enable service introspection for ``introspection_client`` and ``introspection_service``.
+Open another terminal and enable service introspection for both nodes:
 
 .. code-block:: console
 
   $ ros2 param set /introspection_service service_configure_introspection contents
   $ ros2 param set /introspection_client client_configure_introspection contents
 
-Now we are able to see the service communication between ``introspection_client`` and ``introspection_service`` via ``ros2 service echo``.
+To see the live communication between ``introspection_client`` and ``introspection_service``, run:
 
 .. code-block:: console
 
@@ -394,22 +403,41 @@ Now we are able to see the service communication between ``introspection_client`
    response: [{sum: 5}]
    ---
 
-Summary
--------
-
-Nodes can communicate using services in ROS 2.
-Unlike a topic - a one way communication pattern where a node publishes information that can be consumed by one or more subscribers - a service is a request/response pattern where a client makes a request to a node providing the service and the service processes the request and generates a response.
-
-You generally don't want to use a service for continuous calls; topics or even actions would be better suited.
-
-In this tutorial you used command line tools to identify, introspect, and call services.
-
-Next steps
-----------
-
-In the next tutorial, :doc:`../Understanding-ROS2-Parameters/Understanding-ROS2-Parameters`, you will learn about configuring node settings.
-
 Related content
 ---------------
 
-Check out `this tutorial <https://discourse.ubuntu.com/t/call-services-in-ros-2/15261>`_; it's an excellent realistic application of ROS services using a Robotis robot arm.
+More articles:
+
+* :doc:`Learning about topics <../Understanding-ROS2-Topics/Understanding-ROS2-Topics>`
+* :doc:`Learning about nodes <../Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>`
+* :doc:`Interfaces (topics, services, actions) </Concepts/Basic/Interfaces-Topics-Services-Actions>`
+
+External resources:
+
+* `Calling ROS 2 services <https://discourse.ubuntu.com/t/call-services-in-ros-2/15261>`_: a realistic application of services using a Robotis robot arm.
+
+FAQs
+----
+
+What is the difference between a service and a topic?
+   Topics use a publish-subscribe model where data is broadcast continuously to any subscriber.
+   Services use a call-and-response model: a client sends a specific request and waits for a single response.
+   Use topics for continuous data streams and services for discrete, one-time interactions.
+
+Why do I see so many services with ``parameters`` in their names?
+   Nearly every ROS node automatically exposes a set of parameter services.
+   These are infrastructure services that the parameter system is built on.
+   This tutorial focuses on application-specific services; parameter services are covered in the parameters tutorial.
+
+What does the ``---`` separator mean in ``ros2 interface show`` for a service?
+   The ``---`` separates the request fields from the response fields.
+   For ``Empty`` typed services, both halves are blank because no data is sent or received.
+
+When should I use a service instead of a topic?
+   Use a service when you need a discrete, one-time interaction with a guaranteed response, such as spawning an entity or resetting a node's state.
+   For continuous data streams, use a topic.
+   For long-running goals that provide feedback, consider using an action.
+
+Why does ``ros2 service echo`` show no output?
+   Service introspection is disabled by default.
+   Enable it by calling ``configure_introspection`` on both the client and server nodes, which in this tutorial is done via ``ros2 param set`` on the demo nodes.
