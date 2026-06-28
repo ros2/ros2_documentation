@@ -4,30 +4,37 @@
 
 .. _ROS2Actions:
 
-Understanding actions
-=====================
+Learning about actions - tutorial
+==================================
 
-**Goal:** Introspect actions in ROS 2.
+Actions are one of the communication types used for long-duration tasks in a ROS system.
+This article walks you through using command-line tools to examine and send action goals.
+A hands-on exercise with Turtlesim helps you understand how goals, feedback, and results work together.
 
-**Tutorial level:** Beginner
-
-**Time:** 15 minutes
+**Area: Framework | Content-type: tutorial | Experience: beginner**
 
 .. contents:: Contents
    :depth: 2
    :local:
 
+Summary
+-------
+
+Actions provide a way to execute long-duration tasks with continuous feedback and the ability to cancel mid-execution.
+An action client sends a goal to an action server.
+The action server then acknowledges the goal, streams feedback, and returns a result when done.
+
 Background
 ----------
 
-Actions are one of the communication types in ROS 2 and are intended for long running tasks.
+Actions are one of the communication types in ROS, and are intended for long-duration tasks.
 They consist of three parts: a goal, feedback, and a result.
 
 Actions are built on topics and services.
-Their functionality is similar to services, except actions can be canceled.
-They also provide steady feedback, as opposed to services which return a single response.
+Their functionality is similar to services, except actions can be cancelled.
+They also provide steady feedback, as opposed to services, which return a single response.
 
-Actions use a client-server model, similar to the publisher-subscriber model (described in the :doc:`topics tutorial <../Understanding-ROS2-Topics/Understanding-ROS2-Topics>`).
+Actions use a client-server model.
 An "action client" node sends a goal to an "action server" node that acknowledges the goal and returns a stream of feedback and a result.
 
 .. image:: images/Action-SingleActionClient.gif
@@ -35,19 +42,20 @@ An "action client" node sends a goal to an "action server" node that acknowledge
 Prerequisites
 -------------
 
-This tutorial builds off concepts, like :doc:`nodes <../Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` and :doc:`topics <../Understanding-ROS2-Topics/Understanding-ROS2-Topics>`, covered in previous tutorials.
+#. Make sure you understand the concepts of :doc:`nodes <../Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` and :doc:`topics <../Understanding-ROS2-Topics/Understanding-ROS2-Topics>`.
+#. You will need the :doc:`turtlesim package <../Introducing-Turtlesim/Introducing-Turtlesim>`.
 
-This tutorial uses the :doc:`turtlesim package <../Introducing-Turtlesim/Introducing-Turtlesim>`.
-
-As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../Configuring-ROS2-Environment>`.
-
-Tasks
+Steps
 -----
+
+.. note::
+    Do not forget to source ROS in every new terminal you open.
+    See :doc:`Configuring environment <../Configuring-ROS2-Environment>`.
 
 1 Setup
 ^^^^^^^
 
-Start up the two turtlesim nodes, ``/turtlesim`` and ``/teleop_turtle``.
+Start up the two Turtlesim nodes, ``/turtlesim`` and ``/teleop_turtle``.
 
 Open a new terminal and run:
 
@@ -72,17 +80,17 @@ When you launch the ``/teleop_turtle`` node, you will see the following message 
     Use arrow keys to move the turtle.
     Use G|B|V|C|D|E|R|T keys to rotate to absolute orientations. 'F' to cancel a rotation.
 
-Let's focus on the second line, which corresponds to an action.
-(The first instruction corresponds to the "cmd_vel" topic, discussed previously in the :doc:`topics tutorial <../Understanding-ROS2-Topics/Understanding-ROS2-Topics>`.)
+The first line corresponds to the ``cmd_vel`` topic, covered in :doc:`Learning about topics <../Understanding-ROS2-Topics/Understanding-ROS2-Topics>`.
+The second line corresponds to an action.
 
 Notice that the letter keys ``G|B|V|C|D|E|R|T`` form a "box" around the ``F`` key on a US QWERTY keyboard (if you are not using a QWERTY keyboard, see `this link <https://upload.wikimedia.org/wikipedia/commons/d/da/KB_United_States.svg>`__ to follow along).
-Each key's position around ``F`` corresponds to that orientation in turtlesim.
-For example, the ``E`` will rotate the turtle's orientation to the upper left corner.
+Each key's position around ``F`` corresponds to that orientation in Turtlesim.
+For example, the ``E`` key will rotate the turtle's orientation to the upper left corner.
 
 Pay attention to the terminal where the ``/turtlesim`` node is running.
-Each time you press one of these keys, you are sending a goal to an action server that is part of the ``/turtlesim`` node.
+Each time you press one of these keys, you send a goal to an action server that is part of the ``/turtlesim`` node.
 The goal is to rotate the turtle to face a particular direction.
-A message relaying the result of the goal should display once the turtle completes its rotation:
+Once the turtle completes its rotation, the terminal should display the result:
 
 .. code-block:: console
 
@@ -91,17 +99,17 @@ A message relaying the result of the goal should display once the turtle complet
 The ``F`` key will cancel a goal mid-execution.
 
 Try pressing the ``C`` key, and then pressing the ``F`` key before the turtle can complete its rotation.
-In the terminal where the ``/turtlesim`` node is running, you will see the message:
+In the terminal where the ``/turtlesim`` node is running, you should see the following message:
 
 .. code-block:: console
 
   [INFO] [turtlesim]: Rotation goal canceled
 
-Not only can the client-side (your input in the teleop) stop a goal, but the server-side (the ``/turtlesim`` node) can as well.
-When the server-side chooses to stop processing a goal, it is said to "abort" the goal.
+Not only can the client side (your input in the teleoperation node) stop a goal, but the server side (the ``/turtlesim`` node) can as well.
+When the server side chooses to stop processing a goal, this is known as "aborting" the goal.
 
 Try hitting the ``D`` key, then the ``G`` key before the first rotation can complete.
-In the terminal where the ``/turtlesim`` node is running, you will see the message:
+In the terminal where the ``/turtlesim`` node is running, you should see the message:
 
 .. code-block:: console
 
@@ -109,12 +117,12 @@ In the terminal where the ``/turtlesim`` node is running, you will see the messa
 
 This action server chose to abort the first goal because it got a new one.
 It could have chosen something else, like reject the new goal or execute the second goal after the first one finished.
-Don't assume every action server will choose to abort the current goal when it gets a new one.
+Do not assume every action server will choose to abort the current goal when it gets a new one.
 
 3 ros2 node info
 ^^^^^^^^^^^^^^^^
 
-To see the list of actions a node provides, ``/turtlesim`` in this case, open a new terminal and run the command:
+To see the list of actions a node provides, run:
 
 .. code-block:: console
 
@@ -153,7 +161,7 @@ The command returns a list of ``/turtlesim``'s subscribers, publishers, services
 Notice that the ``/turtle1/rotate_absolute`` action for ``/turtlesim`` is under ``Action Servers``.
 This means ``/turtlesim`` responds to and provides feedback for the ``/turtle1/rotate_absolute`` action.
 
-The ``/teleop_turtle`` node has the name ``/turtle1/rotate_absolute`` under ``Action Clients`` meaning that it sends goals for that action name.
+The ``/teleop_turtle`` node has the name ``/turtle1/rotate_absolute`` under ``Action Clients``, meaning that it sends goals for that action.
 To see that, run:
 
 .. code-block:: console
@@ -183,7 +191,7 @@ To see that, run:
 4 ros2 action list
 ^^^^^^^^^^^^^^^^^^
 
-To identify all the actions in the ROS graph, run the command:
+To identify all the actions in the ROS graph, run:
 
 .. code-block:: console
 
@@ -191,14 +199,15 @@ To identify all the actions in the ROS graph, run the command:
   /turtle1/rotate_absolute
 
 This is the only action in the ROS graph right now.
-It controls the turtle's rotation, as you saw earlier.
-You also already know that there is one action client (part of ``/teleop_turtle``) and one action server (part of ``/turtlesim``) for this action from using the ``ros2 node info <node_name>`` command.
+It controls the turtle's rotation.
+From the ``ros2 node info`` output, there is one action client (part of ``/teleop_turtle``) and one action server (part of ``/turtlesim``) for this action.
 
 4.1 ros2 action list -t
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 Actions have types, similar to topics and services.
-To find ``/turtle1/rotate_absolute``'s type, run the command:
+
+To find ``/turtle1/rotate_absolute``'s type, run:
 
 .. code-block:: console
 
@@ -211,7 +220,7 @@ You will need this when you want to execute an action from the command line or f
 5 ros2 action type
 ^^^^^^^^^^^^^^^^^^
 
-If you want to check the action type for the action, run the command:
+To check the type of an action, run:
 
 .. code-block:: console
 
@@ -221,7 +230,7 @@ If you want to check the action type for the action, run the command:
 6 ros2 action info
 ^^^^^^^^^^^^^^^^^^
 
-You can further introspect the ``/turtle1/rotate_absolute`` action with the command:
+To further introspect the ``/turtle1/rotate_absolute`` action, run:
 
 .. code-block:: console
 
@@ -232,22 +241,21 @@ You can further introspect the ``/turtle1/rotate_absolute`` action with the comm
   Action servers: 1
       /turtlesim
 
-This tells us what we learned earlier from running ``ros2 node info`` on each node:
-The ``/teleop_turtle`` node has an action client and the ``/turtlesim`` node has an action server for the ``/turtle1/rotate_absolute`` action.
+This confirms what ``ros2 node info`` showed: the ``/teleop_turtle`` node has an action client and the ``/turtlesim`` node has an action server for the ``/turtle1/rotate_absolute`` action.
 
 7 ros2 interface show
 ^^^^^^^^^^^^^^^^^^^^^
 
-One more piece of information you will need before sending or executing an action goal yourself is the structure of the action type.
+Before sending an action goal, you need to know the structure of the action type.
 
-Recall that you identified ``/turtle1/rotate_absolute``'s type when running the command ``ros2 action list -t``.
-Enter the following command with the action type in your terminal:
+From the ``ros2 action list -t`` output, the type of ``/turtle1/rotate_absolute`` is ``turtlesim_msgs/action/RotateAbsolute``.
+To see its structure, run:
 
 .. code-block:: console
 
   $ ros2 interface show turtlesim_msgs/action/RotateAbsolute
 
-Which will return:
+The output should look like this:
 
 .. code-block:: text
 
@@ -260,14 +268,14 @@ Which will return:
   # The remaining rotation in radians
   float32 remaining
 
-The section of this message above the first ``---`` is the structure (data type and name) of the goal request.
+The section before the first ``---`` is the structure of the goal request.
 The next section is the structure of the result.
 The last section is the structure of the feedback.
 
 8 ros2 action send_goal
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Now let's send an action goal from the command line with the following syntax:
+To send an action goal from the command line, use:
 
 .. code-block:: console
 
@@ -275,7 +283,7 @@ Now let's send an action goal from the command line with the following syntax:
 
 ``<values>`` need to be in YAML format.
 
-Keep an eye on the turtlesim window, and enter the following command into your terminal:
+Keep an eye on the Turtlesim window, then run:
 
 .. code-block:: console
 
@@ -293,7 +301,6 @@ Keep an eye on the turtlesim window, and enter the following command into your t
 
 
 You should see the turtle rotating.
-
 
 All goals have a unique ID, shown in the return message.
 You can also see the result, a field with the name ``delta``, which is the displacement to the starting position.
@@ -321,23 +328,23 @@ To see the feedback of this goal, add ``--feedback`` to the ``ros2 action send_g
 
   Goal finished with status: SUCCEEDED
 
-You will continue to receive feedback, the remaining radians, until the goal is complete.
+You should continue to receive feedback, the remaining radians, until the goal is complete.
 
 .. _understanding-actions-ros2-action-echo:
 
 9 ros2 action echo
 ^^^^^^^^^^^^^^^^^^
 
-To see the data communication between an action client and an action server you can ``echo`` the action data using:
+To see the data communication between an action client and an action server, use:
 
 .. code-block:: console
 
   $ ros2 action echo <action_name> <optional arguments/action_type>
 
-``ros2 action echo`` depends on action introspection of an action client and server, that is disabled by default.
-To enable it, users must call ``configure_introspection`` after creating an action client or server.
+``ros2 action echo`` depends on action introspection, which is disabled by default.
+To enable it, call ``configure_introspection`` after creating an action client or server.
 
-Start up the ``fibonacci_action_server`` and ``fibonacci_action_client``, enabling ``action_server_configure_introspection`` parameter for demonstration.
+Start up the ``fibonacci_action_server`` and ``fibonacci_action_client``, enabling the ``action_server_configure_introspection`` parameter for demonstration:
 
 .. code-block:: console
 
@@ -347,7 +354,7 @@ Start up the ``fibonacci_action_server`` and ``fibonacci_action_client``, enabli
 
   $ ros2 run action_tutorials_py fibonacci_action_client --ros-args -p action_client_configure_introspection:=contents
 
-Now we are able to see the action communication between ``fibonacci_action_server`` and ``fibonacci_action_client`` via ``ros2 action echo``.
+To see the action communication between ``fibonacci_action_server`` and ``fibonacci_action_client``, run:
 
 .. code-block:: console
 
@@ -400,25 +407,35 @@ Now we are able to see the action communication between ``fibonacci_action_serve
 
    This feature is available on ``Kilted Kaiju`` or later.
 
-Summary
--------
-
-Actions are like services that allow you to execute long running tasks, provide regular feedback, and are cancelable.
-
-A robot system would likely use actions for navigation.
-An action goal could tell a robot to travel to a position.
-While the robot navigates to the position, it can send updates along the way (i.e. feedback), and then a final result message once it's reached its destination.
-
-Turtlesim has an action server that action clients can send goals to for rotating turtles.
-In this tutorial, you introspected that action, ``/turtle1/rotate_absolute``, to get a better idea of what actions are and how they work.
-
-Next steps
-----------
-
-Now you've covered all of the core ROS 2 concepts.
-The last few tutorials in this set will introduce you to some tools and techniques that will make using ROS 2 easier, starting with :doc:`../Using-Rqt-Console/Using-Rqt-Console`.
-
 Related content
 ---------------
 
-You can read more about the design decisions behind actions in ROS 2 `here <https://design.ros2.org/articles/actions.html>`__.
+More articles:
+
+* :doc:`Learning about topics <../Understanding-ROS2-Topics/Understanding-ROS2-Topics>`
+* :doc:`Learning about services <../Understanding-ROS2-Services/Understanding-ROS2-Services>`
+* :doc:`Interfaces (topics, services, actions) </Concepts/Basic/Interfaces-Topics-Services-Actions>`
+
+External resources:
+
+* `Actions design article <https://design.ros2.org/articles/actions.html>`_: background on the design decisions behind actions in ROS.
+
+FAQs
+----
+
+What is the difference between an action and a service?
+   Services use a single call-and-response: a client sends a request and receives one response.
+   Actions are for long-duration tasks: a client sends a goal, receives a continuous stream of feedback while the task runs, and gets a final result on completion.
+   Actions can also be cancelled mid-execution.
+
+What happens if a new goal is sent before the current one finishes?
+   It depends on the action server's implementation.
+   The Turtlesim server aborts the current goal when it receives a new one, but a server could also reject the new goal or queue it.
+   Do not assume every action server aborts the current goal automatically.
+
+Can an action be cancelled from either side?
+   Yes. The client can cancel a goal at any time.
+   The server can also choose to abort a goal, for example when it receives a conflicting new goal.
+
+What is the structure of an action type?
+   An action type has three sections separated by ``---``: the goal (sent by the client), the result (returned when the action completes), and the feedback (streamed while the action is running).
