@@ -18,7 +18,7 @@ There are also :doc:`RPM packages <../RHEL-Install-RPMs>` available.
 System requirements
 -------------------
 
-We currently support RHEL 9 64-bit.
+We currently support RHEL 10 64-bit.
 The Rolling Ridley distribution will change target platforms from time to time as new platforms are selected for development.
 Most people will want to use a stable ROS distribution.
 

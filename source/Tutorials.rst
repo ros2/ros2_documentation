@@ -12,6 +12,7 @@ For quick solutions to more specific questions, see the :doc:`How-To-Guides`.
 .. toctree::
    :maxdepth: 2
 
+   First-Steps
    Tutorials/Beginner-CLI-Tools
    Tutorials/Beginner-Client-Libraries
    Tutorials/Intermediate
