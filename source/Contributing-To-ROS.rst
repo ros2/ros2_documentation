@@ -16,6 +16,7 @@ ROS is an open source set of tools and libraries that depends on contributions f
 
 Your first contribution
 -----------------------
+
 Everyone can contribute to ROS. Depending on your skills and experience, you can review and update the ROS documentation, contribute code, or fix issues.
 
 **Complete beginner?**
@@ -69,6 +70,7 @@ Reviewing a pull request involves carefully checking proposed changes to make su
 
 2. Pick an issue from the pull request list: `Pull request list <https://github.com/ros2/ros2_documentation/pulls>`_
 
+
 Contribute to QA
 ~~~~~~~~~~~~~~~~~
 
@@ -82,6 +84,7 @@ Reporting issues involves identifying and describing problems in the software so
 * Report your first issue. More information is in <Placeholder link to new "Reporting an issue" article> 
 
 .. _triage-an-issue:
+
 Triage an issue
 ^^^^^^^^^^^^^^^
 
@@ -106,6 +109,7 @@ If you spot a security vulnerability, contact ros@osrfoundation.org
 
 Contribute to future design
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Contributing to design involves shaping how features are structured and interact, ensuring they are intuitive, scalable, and aligned with user needs.
 
 Join a discussion
@@ -219,6 +223,7 @@ If you notice a question on Robotics Stack Exchange that relates to an issue you
 
 Participate in the community
 ----------------------------
+
 There are various ways to join the ROS community, allowing you to participate, collaborate, and contribute effectively. Here are some ways you can join in:
 
 * Attend events, from local informal meetings to our annual developer conference, `ROSCON <https://roscon.ros.org/OSR/>`_: 

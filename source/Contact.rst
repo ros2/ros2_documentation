@@ -42,7 +42,7 @@ It's better to send all questions to `Robotics Stack Exchange <https://robotics.
 
 .. _reporting-an-issue:
 Reporting an issue or suggesting an enhancement 
------------------
+-----------------------------------------------
 
 If you identify issues, have suggestions for enhancements, or have a question specific to one package, you can raise an issue on GitHub.
 
