@@ -14,3 +14,26 @@ Summary
 
 Motion planning capabilities enable the control of complex chains of actuators and links, such as those found in industrial manipulators.
 These capabilities let you think about where you want the end effector to be and not worry about controlling every actuator individually.
+
+Core ROS packages
+
+*
+
+*
+
+*
+
+Community-contributed packages
+
+* `Move it <https://moveit.ai/>`_ `
+
+*
+
+*
+
+Related content (placeholder)
+-----------------------------
+
+FAQs (placeholder)
+------------------
+
