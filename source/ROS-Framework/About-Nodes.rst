@@ -33,17 +33,6 @@ Nodes
 .. contents:: Table of Contents
    :local:
 
-Summary
--------
-
-Nodes can use the following ROS interfaces:
-
-:doc:Topics <interfaces/About-Topics> to publish or subscribe to data.
-:doc:Services <interfaces/About-Services> to request or provide computations.
-:doc:Actions <interfaces/About-Actions> for long-running computations with feedback.
-
-Nodes can also provide configurable :doc:parameters <About-Parameters> and use :doc:discovery <nodes/About-Discovery> to establish connections.
-
 Overview of nodes
 -----------------
 
