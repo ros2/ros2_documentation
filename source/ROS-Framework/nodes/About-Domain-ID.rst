@@ -13,7 +13,6 @@
 The ROS_DOMAIN_ID
 =================
 
-
 .. short-description::
    ROS Domain IDs separate groups of nodes that share the same physical network.
    This article explains how Domain IDs affect discovery, communication, UDP port selection, and platform-specific constraints.
