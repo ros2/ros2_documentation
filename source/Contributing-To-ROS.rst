@@ -153,7 +153,7 @@ If you are a more experienced contributor, you can help shape design decisions, 
 
 **Ready to contribute?**
 
-* Join an ongoing discussion, and share your thoughts: `Open Robotics Discourse <https://discourse.openrobotics.org/c/ros/ros-general/8 />`_
+* Join an ongoing discussion, and share your thoughts: `Open Robotics Discourse <https://discourse.openrobotics.org/c/ros/ros-general/8 />`__
   (QUESTION FOR THE REVIEWER: Is this the best place to link to?)
 
 Suggest a feature
@@ -172,7 +172,7 @@ Don't forget to check the existing list of requests first!
    *  Enhancement issues on GitHub.
       For example, take a look at this `list of enhancement requests <https://github.com/ros2/ros2/issues?q=state%3Aopen%20label%3Aenhancement>`_.
 
-2. Chat to the ROS community about your suggested enhancement: `ROS Open discussion board <https://discourse.openrobotics.org/c/ros/111>`_.
+2. Chat to the ROS community about your suggested enhancement: `ROS Open discussion board <https://discourse.openrobotics.org/c/ros/111>`__.
 
 3. Submit an enhancement suggestion.
 
@@ -288,7 +288,7 @@ The community is there to help, and others will step in to clarify or add more d
 
 * Provide pointers on Robotics Stack Exchange: `Robotics Stack Exchange <https://robotics.stackexchange.com/>`_
 
-* Chat with new community members by visiting the official Open Robotics Discourse: `Open Robotics Discourse <https://discourse.openrobotics.org/c/ros/111>`_
+* Chat with new community members by visiting the official Open Robotics Discourse: `Open Robotics Discourse <https://discourse.openrobotics.org/c/ros/111>`__
 
 Participate in the community
 ----------------------------
@@ -299,10 +299,10 @@ Here are some ways you can join in:
 * Attend events, from local informal meetings to our annual developer conference, `ROSCON <https://roscon.ros.org/OSR/>`_:
 
    * Community organized events: `View the calendar <https://calendar.google.com/calendar/u/0/newembed?
-     src=c_3fc5c4d6ece9d80d49f136c1dcd54d7f44e1acefdbe87228c92ff268e85e2ea0@group.calendar.google.com&ctz=Etc/UTC/>`_
+     src=c_3fc5c4d6ece9d80d49f136c1dcd54d7f44e1acefdbe87228c92ff268e85e2ea0@group.calendar.google.com&ctz=Etc/UTC/>`__
 
    * Official Open Robotics events: `View the calendar <https://calendar.google.com/calendar/u/0/embed?src=agf3kajirket8khktupm9go748@group.calendar.google.com&
-     ctz=Etc%2FUTC/>`_
+     ctz=Etc%2FUTC/>`__
 
 * Host an online community group event: `Fill in the form to add your event to the calendar <https://bit.ly/OSRFCalendarForm/>`_
   (QUESTION FOR THE REVIEWER: Is there someone or a channel people can contact if they are thinking of doing this, but need a bit of guidance or support?
@@ -314,7 +314,7 @@ Here are some ways you can join in:
 
 * Join discussion groups and chats:
 
-    * `Discussions <https://discourse.openrobotics.org/c/ros/111>`_
+    * `Discussions <https://discourse.openrobotics.org/c/ros/111>`__
 
     * `Developer chat <https://openrobotics.zulipchat.com/>`_
 

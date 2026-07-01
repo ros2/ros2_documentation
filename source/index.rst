@@ -117,12 +117,12 @@ If you need help, have an idea, or would like to contribute to the project, plea
 
 * `Robotics Stack Exchange - community Q&A website <https://robotics.stackexchange.com/>`__ (ROS 1, ROS 2)
 
-  - See :ref:`Contact Page <Using Robotics Stack Exchange>` for more information
+  - See the :doc:`Contact Page <Contact>` for more information
 
 * `Open Robotics Discourse <https://discourse.openrobotics.org/>`__ (ROS 1, ROS 2)
 
   - Forum for general discussions and announcements for the ROS community
-  - See the :ref:`Contact Page <Using ROS Discourse>` for more information
+  - See the :doc:`Contact Page <Contact>` for more information
 
 * `ROS Index <https://index.ros.org/>`__ (ROS 1, ROS 2)
 
