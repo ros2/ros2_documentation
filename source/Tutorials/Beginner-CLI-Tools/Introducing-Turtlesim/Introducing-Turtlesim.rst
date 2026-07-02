@@ -7,7 +7,7 @@
 Setting up Turtlesim - how-to
 =============================
 
-Turtlesim is a simple simulator to demonstrate core concepts without any hardware.
+Turtlesim is a simple simulator to demonstrate core ROS concepts without any hardware.
 This article walks you through installation of Turtlesim and the rqt GUI.
 A short exercise provides you with basic experience with these tools.
 
@@ -44,6 +44,9 @@ Steps
 ^^^^^^^^^^^^^^^^^^^
 
 Turtlesim is a lightweight simulator that represents a robot as a turtle you can control on the screen.
+It lets you practice core ROS concepts without the need for any hardware.
+
+Start by sourcing your setup files in a new terminal, as described in :doc:`Configuring environment <../Configuring-ROS2-Environment>`.
 It lets you practice core ROS concepts without the need for any real hardware.
 
 Install the Turtlesim package for your ROS distribution:
@@ -90,6 +93,8 @@ The output should list Turtlesim's executables:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The rqt tool is a graphical interface for ROS.
+For more information about rqt, see :doc:`../../../../Concepts/Intermediate/About-RQt`.
+
 Instead of typing commands by hand, you can use rqt to explore and call Turtlesim's services with a few clicks.
 
 In a new terminal, install ``rqt`` and the common plugins:
@@ -147,7 +152,7 @@ The following example uses rqt but you can also operate Turtlesim by entering th
       [INFO] [turtlesim]: Starting turtlesim with node name /turtlesim
       [INFO] [turtlesim]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
 
-   The simulator window appears with a random turtle in the center.
+   The simulator window opens with a random turtle in the center.
 
    .. image:: images/turtlesim.png
 
