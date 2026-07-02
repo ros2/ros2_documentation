@@ -15,6 +15,30 @@ In order to achieve a consistent looking product we will all follow externally (
 For other things like package layout or documentation layout we will need to come up with our own guidelines, drawing on current, popular styles in use now.
 
 Additionally, wherever possible, developers should use integrated tools to allow them to check that these guidelines are followed in their editors.
+
+Summary
+-------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 20 20 60
+
+   * - Language
+     - Standard
+     - Style Guide
+   * - C
+     - C17
+     - `PEP7 <https://www.python.org/dev/peps/pep-0007/>`__ with modifications
+   * - C++
+     - C++20
+     - `Google C++ Style Guide <https://google.github.io/styleguide/cppguide.html>`__ with modifications
+   * - Python
+     - Python 3
+     - `PEP8 <https://www.python.org/dev/peps/pep-0008/>`__ with modifications
+   * - CMake
+     - 3.14.4 minimum
+     - ROS 2 internal style guide
+
 For example, everyone should have a PEP8 checker built into their editor to cut down on review iterations related to style.
 
 Also where possible, packages should check style as part of their unit tests to help with the automated detection of style issues (see `ament_lint_auto <https://github.com/ament/ament_lint/blob/{REPOS_FILE_BRANCH}/ament_lint_auto/doc/index.rst>`__).

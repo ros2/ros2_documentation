@@ -114,3 +114,16 @@ Becoming a maintainer of one or more of those repositories is an invitation-only
 Approximately every 3 months, the ROS 2 team will review the contributions in all of the repositories and send out invitations to new maintainers.
 Once the invitation is accepted, the new maintainer will be asked to go through a short training process on the mechanisms and policies of the ROS 2 repositories.
 After that training process is completed, the new maintainer will be given write access to the appropriate repositories.
+
+Community contributions
+-----------------------
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   Contributing/Community-Contributing
+   Contributing/Reporting-An-Issue
+   Contributing/Making-A-Pull-Request
+   Contributing/Reviewing-A-Pull-Request
+   Contributing/Triaging-An-Issue

@@ -15,6 +15,18 @@ Please be sure to read the below sections carefully before contributing.
 
 The site is built using `Sphinx <https://www.sphinx-doc.org/en/master/>`_, and more particularly using `Sphinx multiversion <https://sphinx-contrib.github.io/multiversion/main/index.html>`_.
 
+Quick start
+-----------
+
+For small fixes, you do not need a local build:
+
+1. Fork `ros2/ros2_documentation <https://github.com/ros2/ros2_documentation>`__ on GitHub.
+2. Edit the relevant ``.rst`` file in the ``source/`` directory.
+3. Open a pull request against the ``rolling`` branch.
+4. GitHub Actions will build and lint your changes automatically.
+
+For larger changes, follow the steps in `Building the site locally`_.
+
 Branch structure
 ----------------
 

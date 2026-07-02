@@ -74,6 +74,7 @@ If you're interested in the advancement of the ROS 2 project:
 * :doc:`Contributing <The-ROS2-Project/Contributing>`
 
   - Best practices and methodology for contributing to ROS 2, as well as instructions for migrating existing ROS 1 content to ROS 2
+  - Includes guides on filing issues, making and reviewing pull requests, triaging, and community participation
 
 * :doc:`Distributions <Releases>`
 
