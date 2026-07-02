@@ -36,13 +36,15 @@ To learn how to set up your environment, see :doc:`../Configuring-ROS2-Environme
 Steps
 -----
 
+.. note::
+    Do not forget to source ROS in every new terminal you open.
+    See :doc:`Configuring environment <../Configuring-ROS2-Environment>`.
+
 1 Install Turtlesim
 ^^^^^^^^^^^^^^^^^^^
 
 Turtlesim is a lightweight simulator that represents a robot as a turtle you can control on the screen.
 It lets you practice core ROS concepts without the need for any real hardware.
-
-Start by sourcing your setup files in a new terminal, as described in :doc:`Configuring environment <../Configuring-ROS2-Environment>`.
 
 Install the Turtlesim package for your ROS distribution:
 
@@ -69,11 +71,16 @@ Install the Turtlesim package for your ROS distribution:
 
       As long as the archive you installed ROS from contains the ``ros_tutorials`` repository, you should already have Turtlesim installed.
 
-To check if the package is installed, run the following command, which should return a list of Turtlesim's executables:
+To check if the package is installed, run:
 
 .. code-block:: console
 
   $ ros2 pkg executables turtlesim
+
+The output should list Turtlesim's executables:
+
+.. code-block:: console
+
   turtlesim draw_square
   turtlesim mimic
   turtlesim turtle_teleop_key
@@ -110,13 +117,22 @@ In a new terminal, install ``rqt`` and the common plugins:
 
     The standard archive for installing ROS on Windows contains ``rqt`` and its plugins, so you should already have ``rqt`` installed.
 
-To check if the packages are installed, in a terminal, enter the following:
+To check if the packages are installed, in a terminal, run:
 
 .. code-block:: console
 
-  $ ros2 pkg list | grep -E '^rqt$|^rqt_common_plugins$'
-  rqt
+  $ ros2 pkg list | grep -E '^rqt_gui$|^rqt_common_plugins$'
+
+The output should include:
+
+.. code-block:: console
+
   rqt_common_plugins
+  rqt_gui
+
+.. note::
+
+   If the packages do not appear in the list, make sure you have sourced ROS in the current terminal.
 
 3 Try out Turtlesim with rqt
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -148,7 +164,7 @@ The following example uses rqt but you can also operate Turtlesim by entering th
       Pressing an arrow key causes the turtle to move a short distance and then stop.
       This behaviour ensures a robot doesn't continue carrying on an instruction if, for example, the operator loses connection to the robot.
 
-#. (Optional) Inspect the running system:
+#. (Optional) In a new terminal, source ROS again and inspect the running system:
 
    .. code-block:: console
 
@@ -169,6 +185,10 @@ The following example uses rqt but you can also operate Turtlesim by entering th
 
       It may take some time for rqt to locate all the plugins.
       If you click on **Plugins** but don't see **Services** or any other options, close rqt and enter the command ``rqt --force-discover`` in your terminal.
+
+   .. note::
+
+      You might need to select the **Refresh Service** button to the left of the **Service** drop-down.
 
    .. image:: images/rqt.png
 
@@ -203,7 +223,7 @@ The following example uses rqt but you can also operate Turtlesim by entering th
 
    .. image:: images/new_pen.png
 
-#. Control ``turtle2`` from another terminal by remapping:
+#. In a new terminal, control ``turtle2`` by remapping:
 
    .. code-block:: console
 
