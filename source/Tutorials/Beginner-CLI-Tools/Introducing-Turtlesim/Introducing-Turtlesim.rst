@@ -44,9 +44,6 @@ Steps
 ^^^^^^^^^^^^^^^^^^^
 
 Turtlesim is a lightweight simulator that represents a robot as a turtle you can control on the screen.
-It lets you practice core ROS concepts without the need for any hardware.
-
-Start by sourcing your setup files in a new terminal, as described in :doc:`Configuring environment <../Configuring-ROS2-Environment>`.
 It lets you practice core ROS concepts without the need for any real hardware.
 
 Install the Turtlesim package for your ROS distribution:
