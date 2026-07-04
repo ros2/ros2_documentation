@@ -108,9 +108,9 @@ Start the live server with:
 
    $ make serve
 
-Then open ``http://localhost:8000`` in a browser.
+Then open ``http://localhost:2022`` in a browser.
 
-The ``serve`` target binds to ``0.0.0.0:8000`` by default so the server is reachable through devcontainer / port forwarding.
+The ``serve`` target binds to ``0.0.0.0:2022`` by default so the server is reachable through devcontainer / port forwarding.
 Override the bind address or port if needed:
 
 .. code-block:: console
