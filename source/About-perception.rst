@@ -18,6 +18,9 @@ This includes sensor fusion, the combining of data from multiple sensors into a 
 
 Core ROS packages
 
+QUESTION FOR THE REVIEWER: Are there any core ROS packages that should be listed here?
+If so, please provide them.
+
 *
 
 *
@@ -25,6 +28,9 @@ Core ROS packages
 *
 
 Community-contributed packages
+
+QUESTION FOR THE REVIEWER: Are there any community-contributed packages that should be listed here?
+If so, please provide them.
 
 *
 
@@ -37,4 +43,3 @@ Related content (placeholder)
 
 FAQs (placeholder)
 ------------------
-

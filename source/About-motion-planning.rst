@@ -17,6 +17,9 @@ These capabilities let you think about where you want the end effector to be and
 
 Core ROS packages
 
+QUESTION FOR THE REVIEWER: Are there any core ROS packages that should be listed here?
+If so, please provide them.
+
 *
 
 *
@@ -25,7 +28,10 @@ Core ROS packages
 
 Community-contributed packages
 
-* `Move it <https://moveit.ai/>`_ `
+QUESTION FOR THE REVIEWER: Are there any other community-contributed packages that should be listed here?
+If so, please provide them.
+
+* `Move it <https://moveit.ai/>`_
 
 *
 
@@ -36,4 +42,3 @@ Related content (placeholder)
 
 FAQs (placeholder)
 ------------------
-

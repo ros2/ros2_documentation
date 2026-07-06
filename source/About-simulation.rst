@@ -17,6 +17,9 @@ Simulation capabilities support development by making it possible to use the sam
 
 Core ROS packages
 
+QUESTION FOR THE REVIEWER: Are there any core ROS packages that should be listed here?
+If so, please provide them.
+
 *
 
 *
@@ -25,15 +28,15 @@ Core ROS packages
 
 Community-contributed packages
 
-*
+QUESTION FOR THE REVIEWER: Are there any other community-contributed packages that should be listed here?
+If so, please provide them.
 
-*
+* `Gazebo <https://docs.ros.org/en/lyrical/Tutorials/Advanced/Simulators/Gazebo/Simulation-Gazebo.html>`_
 
-*
+* `Webots <https://docs.ros.org/en/lyrical/Tutorials/Advanced/Simulators/Webots/Simulation-Webots.html>`_
 
 Related content (placeholder)
 -----------------------------
 
 FAQs (placeholder)
 ------------------
-

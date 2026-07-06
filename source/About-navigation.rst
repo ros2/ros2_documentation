@@ -16,6 +16,9 @@ Navigation capabilities are focused on producing maps of an environment, then pl
 
 Core ROS packages
 
+QUESTION FOR THE REVIEWER: Are there any core ROS packages that should be listed here?
+If so, please provide them.
+
 *
 
 *
@@ -23,6 +26,9 @@ Core ROS packages
 *
 
 Community-contributed packages
+
+QUESTION FOR THE REVIEWER: Are there any other community-contributed packages that should be listed here?
+If so, please provide them.
 
 * `Navigation 2 <https://nav2.org/>`_ `
 
@@ -35,5 +41,3 @@ Related content (placeholder)
 
 FAQs (placeholder)
 ------------------
-
-
