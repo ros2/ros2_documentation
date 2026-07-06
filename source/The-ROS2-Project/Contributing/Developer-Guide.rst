@@ -288,7 +288,7 @@ When filing an issue please make sure to:
   - **The specific version of ROS 2.**
     Reasoning: Some bugs may be present in a particular ROS 2 release and later fixed.
     It is important to know if your installation includes these fixes.
-  - **The DDS/RMW implementation being used** (see `this page <../../Concepts/Intermediate/About-Different-Middleware-Vendors>` for how to determine which one).
+  - **The DDS/RMW implementation being used** (see `this page <../../ROS-Framework/client-libraries/About-Different-Middleware-Vendors>` for how to determine which one).
     Reasoning: Communication issues may be specific to the underlying ROS middleware being used.
   - **The ROS 2 client library being used.**
     Reasoning: This helps us narrow down the layer in the stack at which the issue might be.
@@ -302,7 +302,7 @@ When filing an issue please make sure to:
   - Upgrading to the latest version of the code, which may include bug fixes that have not been released yet.
     See `this section <building-from-source>` and follow the instructions to get the "rolling" branches.
   - Trying with a different RMW implementation.
-    See `this page <../../How-To-Guides/Working-with-multiple-RMW-implementations>` for how to do that.
+    See `this page <../../Get-Started/Installation/RMW-Implementations/Working-with-multiple-RMW-implementations>` for how to do that.
 
 Branches
 ^^^^^^^^
