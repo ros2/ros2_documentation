@@ -19,12 +19,12 @@ This article describes how to access ROS commands and packages by sourcing setup
 Summary
 -------
 
-You always need to source the setup files to configure your shell environment.
+You always need to ``source`` the setup files to configure your shell environment.
 
 You can do this in one of the two ways:
 
 * Source the setup files in every new shell you open.
-* Add the source command to your startup script.
+* Add the ``source`` command to your startup script.
 
 Without sourcing the setup files, you won't be able to access ROS commands or find and use ROS packages.
 
@@ -35,7 +35,10 @@ Install ROS by following the instructions on the ROS :doc:`../../Installation` p
 
 This guide assumes you have installed binary packages for your operating system (deb packages on Linux).
 If you built ROS from source, you can still follow this guide, but the path to your setup files is probably different.
-If you install from source, you cannot use ``sudo apt install ros-<distro>-<package>``, which is often used in the beginner tutorials.
+
+.. note::
+
+   If you installed from source, you cannot use ``sudo apt install ros-<distro>-<package>``.
 
 If you use Linux or macOS, but are not already familiar with the shell, follow `this tutorial <https://www.linux.com/training-tutorials/bash-101-working-cli/>`__.
 
@@ -45,7 +48,7 @@ Steps
 1 Source the setup files
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Use the source command to import the environment variables which enable your shell to access the ROS commands.
+Use the ``source`` command to import the environment variables which enable your shell to access the ROS commands.
 You need to run this on every new shell you open:
 
 .. tabs::
@@ -57,8 +60,7 @@ You need to run this on every new shell you open:
         $ source /opt/ros/{DISTRO}/setup.bash
 
 
-      Replace ``.bash`` with your shell if you're not using bash.
-      Possible values are: ``setup.bash``, ``setup.sh``, ``setup.zsh``.
+      If you're not using bash, replace ``.bash`` with one of the possible values: ``setup.bash``, ``setup.sh``, or ``setup.zsh``.
 
    .. group-tab:: macOS
 
@@ -89,7 +91,7 @@ If you don't want to source the setup file every time you open a new shell, you 
 
         $ echo "source /opt/ros/{DISTRO}/setup.bash" >> ~/.bashrc
 
-      To undo this, locate your system's shell startup script and remove the source command.
+      To undo this, locate your system's shell startup script and remove the ``source`` command.
 
    .. group-tab:: macOS
 
@@ -97,7 +99,7 @@ If you don't want to source the setup file every time you open a new shell, you 
 
         $ echo "source ~/ros2_install/ros2-osx/setup.bash" >> ~/.bash_profile
 
-      To undo this, locate your system's shell startup script and remove the appended source command.
+      To undo this, locate your system's shell startup script and remove the appended ``source`` command.
 
    .. group-tab:: Windows
 
@@ -155,14 +157,18 @@ Confirm that variables such as ``ROS_DISTRO`` and ``ROS_VERSION`` are set.
   ROS_DISTRO={DISTRO}
 
 If the environment variables are not set correctly, return to the ROS package installation section of the installation guide you followed.
-If you need more specific help (because environment setup files can come from different places), you can `get answers <https://robotics.stackexchange.com/>`__ from the community.
+If you need more specific help (because environment setup files can come from different places), :doc:`get answers from the community <../../The-ROS2-Project/Contributing>`.
 
-3.1 The ``ROS_DOMAIN_ID`` variable
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+3.1 (Optional) Set the ``ROS_DOMAIN_ID`` variable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-For details on domain IDs, read :doc:`About Domain ID <../../Concepts/Intermediate/About-Domain-ID>`.
+``ROS_DOMAIN_ID`` places your nodes in a DDS domain.
+Nodes only communicate with other nodes in the same domain, so a unique value prevents your nodes from seeing or being seen by other ROS nodes on the same network.
 
-After you determine a unique integer for your group of ROS nodes, set the variable with the following command:
+For the value of ``ROS_DOMAIN_ID``, choose any integer between 0 and 101 that no other ROS user on your network is using.
+If you are working alone or on an isolated network, any value in that range is fine.
+
+To set the ``ROS_DOMAIN_ID`` variable, run:
 
 .. tabs::
 
@@ -202,12 +208,12 @@ After you determine a unique integer for your group of ROS nodes, set the variab
 
         $ setx ROS_DOMAIN_ID <your_domain_id>
 
-3.2 The ``ROS_AUTOMATIC_DISCOVERY_RANGE`` variable
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+3.2 (Optional) The ``ROS_AUTOMATIC_DISCOVERY_RANGE`` variable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 By default, ROS communication is not limited to localhost.
-``ROS_AUTOMATIC_DISCOVERY_RANGE`` environment variable allows you to limit ROS discovery range.
-Using ``ROS_AUTOMATIC_DISCOVERY_RANGE`` is helpful in certain settings, such as classrooms, where multiple robots may publish to the same topic, which can cause strange behaviors.
+The ``ROS_AUTOMATIC_DISCOVERY_RANGE`` environment variable allows you to limit ROS discovery range.
+Using ``ROS_AUTOMATIC_DISCOVERY_RANGE`` is helpful in settings such as classrooms, where multiple robots may publish to the same topic, which can cause strange behaviors.
 
 For more details, see :ref:`Improved Dynamic Discovery <ImprovedDynamicDiscovery>`.
 
@@ -219,9 +225,7 @@ Confirm that your shell has the ROS paths and variables from the earlier steps i
 Choose a terminal session that matches how you configured ROS:
 
 * If you only source manually, run the commands below after you run your ``source``, ``.``, or ``call`` command in that terminal.
-* If you use a startup script, open a new terminal window first, then run the commands below.
-
-Run:
+* If you use a startup script, open a new terminal window, then run the commands below:
 
 .. code-block:: console
 
@@ -247,7 +251,7 @@ FAQs
 Do I need to source the setup files in every new terminal?
    Yes.
    ROS commands and packages are only available in shells where you have sourced the setup files.
-   To avoid doing this manually each time, add the source command to your shell startup script.
+   To avoid doing this manually each time, add the ``source`` command to your shell startup script.
 
 How do I check that my ROS environment is configured correctly?
    List ROS-related environment variables (for example with ``printenv | grep -i ROS`` on Linux or macOS, or ``set | findstr -i ROS`` on Windows).
