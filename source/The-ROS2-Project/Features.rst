@@ -87,8 +87,8 @@ For planned future development, see the :doc:`Roadmap <Roadmap>`.
    * - Action Introspection
      - :doc:`Demo <../ROS-Framework/interfaces/actions/Working-with-actions/Action-Introspection>`
      -
-   * - :doc:`Pluggable buffer backends <../Concepts/Intermediate/About-Buffer-Backends>` for ``uint8[]`` fields (e.g. GPU memory transport)
-     - :doc:`Concept <../Concepts/Intermediate/About-Buffer-Backends>`, :doc:`How-to Guide <../How-To-Guides/Using-Buffer-Backends>`, :doc:`Demo <../Tutorials/Demos/GPU-Buffer-Transport>`
+   * - :doc:`Pluggable buffer backends <../ROS-Framework/interfaces/Working-with-interfaces/Buffer-Backends/About-Buffer-Backends>` for ``uint8[]`` fields (e.g. GPU memory transport)
+     - :doc:`Concept <../ROS-Framework/interfaces/Working-with-interfaces/Buffer-Backends/About-Buffer-Backends>`, :doc:`How-to Guide <../ROS-Framework/interfaces/Working-with-interfaces/Buffer-Backends/Using-Buffer-Backends>`, :doc:`Demo <../ROS-Framework/interfaces/Working-with-interfaces/Buffer-Backends/GPU-Buffer-Transport>`
      - Experimental.
        Currently supported in ``rmw_fastrtps_cpp``.
        User-facing backend APIs are C++-only today.
