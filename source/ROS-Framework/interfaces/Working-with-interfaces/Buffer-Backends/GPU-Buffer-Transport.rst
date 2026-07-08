@@ -8,7 +8,7 @@ GPU buffer transport with ``rosidl::Buffer``
 Background
 ----------
 
-:doc:`rosidl::Buffer backends <../../Concepts/Intermediate/About-Buffer-Backends>`
+:doc:`rosidl::Buffer backends <About-Buffer-Backends>`
 let ROS 2 messages carry large payloads (images, tensors, ...) in
 vendor-specific memory domains such as GPU memory, with the descriptor
 round-trip handled transparently by the RMW.
@@ -64,7 +64,7 @@ You need:
 * A CUDA-capable GPU and the CUDA Toolkit (>= 11.8).
 * SDL2, GLEW, OpenGL, X11 development packages.
 * A ROS 2 Lyrical Luth or later source workspace.
-  See the :doc:`Installation instructions <../../Get-Started/Installation>` for the
+  See the :doc:`Installation instructions <../../../../Get-Started/Installation>` for the
   canonical source-build flow.
 * ``rmw_fastrtps_cpp`` for the non-CPU buffer path.
 
@@ -235,14 +235,14 @@ differently on each side:
   message as a PyTorch tensor.
 
 Both files are reasonably short and make good reading after
-:doc:`../../How-To-Guides/Using-Buffer-Backends`.
+:doc:`Using-Buffer-Backends`.
 
 Where to go next
 ----------------
 
-* :doc:`../../Concepts/Intermediate/About-Buffer-Backends` for the
+* :doc:`About-Buffer-Backends` for the
   conceptual background.
-* :doc:`../../How-To-Guides/Using-Buffer-Backends` for the user-facing
+* :doc:`Using-Buffer-Backends` for the user-facing
   guide applied to your own nodes.
-* :doc:`../Advanced/Writing-a-Buffer-Backend` if you want to implement a
+* :doc:`Writing-a-Buffer-Backend` if you want to implement a
   backend for a different memory domain.

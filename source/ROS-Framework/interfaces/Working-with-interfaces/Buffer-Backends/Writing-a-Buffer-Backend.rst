@@ -15,7 +15,7 @@ accelerator memory, ...) can back ``uint8[]`` fields of ROS 2 messages.
 Introduction
 ------------
 
-:doc:`rosidl::Buffer backends <../../Concepts/Intermediate/About-Buffer-Backends>`
+:doc:`rosidl::Buffer backends <About-Buffer-Backends>`
 let vendors transport the bytes of a ``uint8[]`` message field through ROS 2
 pub/sub with as few copies as their memory technology permits.
 A backend is a ``pluginlib`` plugin that implements the
@@ -41,7 +41,7 @@ variable-length primitive array fields.
 If your goal is to reduce copies within CPU memory, you are almost
 certainly looking for :doc:`intra-process communication
 <../Demos/Intra-Process-Communication>` or
-:doc:`loaned messages <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Configure-ZeroCopy-loaned-messages>`
+:doc:`loaned messages <../../../client-libraries/Working-with-Client-Libraries/Configure-ZeroCopy-loaned-messages>`
 instead.
 
 Reference implementations
@@ -340,7 +340,7 @@ Add a ``pluginlib`` XML file that declares your backend class:
 
 The ``name`` attribute is the short name that users put into
 ``acceptable_buffer_backends`` (see
-:doc:`../../How-To-Guides/Using-Buffer-Backends`) and that your
+:doc:`Using-Buffer-Backends`) and that your
 ``get_backend_type()`` must return.
 
 Export it from ``CMakeLists.txt``:
@@ -578,11 +578,11 @@ Before releasing a backend, verify that:
 Where to go next
 ----------------
 
-* :doc:`../../Concepts/Intermediate/About-Buffer-Backends` -- conceptual
+* :doc:`About-Buffer-Backends` -- conceptual
   overview of the feature.
-* :doc:`../../How-To-Guides/Using-Buffer-Backends` -- the user-facing side
+* :doc:`Using-Buffer-Backends` -- the user-facing side
   of the same feature; useful for understanding what your plugin is
   expected to look like from a subscription's point of view.
-* :doc:`../Demos/GPU-Buffer-Transport` -- end-to-end demo of a
+* :doc:`GPU-Buffer-Transport` -- end-to-end demo of a
   GPU-backed tensor pub/sub pipeline using the CUDA backend and
   ``torch_conversions``.

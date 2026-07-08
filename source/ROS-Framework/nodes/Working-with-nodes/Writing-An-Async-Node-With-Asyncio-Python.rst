@@ -33,7 +33,7 @@ Keep in mind that a sync callback can't ``await`` anything.
 Prerequisites
 -------------
 
-- You should have completed the :doc:`beginner service and client tutorial <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Writing-A-Simple-Py-Service-And-Client>`.
+- You should have completed the :doc:`beginner service and client tutorial <../../client-libraries/Working-with-Client-Libraries/Writing-A-Simple-Py-Service-And-Client>`.
 - You should be comfortable with basic :py:mod:`asyncio` concepts like `async def and await <https://docs.python.org/3/howto/a-conceptual-overview-of-asyncio.html>`_ and :py:func:`asyncio.run`.
 - ``AsyncNode`` currently lives in ``rclpy.experimental`` and requires Python 3.12 or newer.
 
@@ -43,7 +43,7 @@ Tasks
 1 Create a package
 ^^^^^^^^^^^^^^^^^^
 
-Open a new terminal and :doc:`source your ROS 2 installation <../../Get-Started/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
+Open a new terminal and :doc:`source your ROS 2 installation <../../../Get-Started/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
 
 Navigate into the ``ros2_ws/src`` directory created in a :ref:`previous tutorial <new-directory>` and create a new package:
 
@@ -454,7 +454,7 @@ Because the call is awaited, the coroutine doesn't block the node — other call
 
 .. note::
 
-   The standard ``Node`` utilizes :doc:`callback groups <../../ROS-Framework/nodes/Working-with-nodes/Using-callback-groups>` to manage callback execution.
+   The standard ``Node`` utilizes :doc:`callback groups <Using-callback-groups>` to manage callback execution.
    Any attempt to perform a service call from within a callback with the default ``MutuallyExclusiveCallbackGroup`` would result in deadlocking the node.
    With ``AsyncNode``, all callbacks run cooperatively on the ``asyncio`` event loop, so ``await client.call(request)`` works from any callback without additional configuration.
 

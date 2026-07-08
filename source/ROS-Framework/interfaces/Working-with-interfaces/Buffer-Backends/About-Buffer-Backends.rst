@@ -36,10 +36,10 @@ Why a new type is needed
 
 ROS 2 messages already have two complementary mechanisms for reducing copies:
 
-* :doc:`Intra-process communication <../../ROS-Framework/nodes/Working-with-nodes/intra-process/Intra-Process-Communication>`
+* :doc:`Intra-process communication <../../../nodes/Working-with-nodes/intra-process/Intra-Process-Communication>`
   avoids copies between publishers and subscriptions in the same process by
   passing ``std::unique_ptr`` ownership.
-* :doc:`Loaned messages <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Configure-ZeroCopy-loaned-messages>`
+* :doc:`Loaned messages <../../../client-libraries/Working-with-Client-Libraries/Configure-ZeroCopy-loaned-messages>`
   let the RMW manage message memory to enable shared-memory transport between
   processes, for message types the underlying middleware can lay out.
 
@@ -178,7 +178,7 @@ Relationship to other ROS 2 mechanisms
 
 * ``rosidl::Buffer`` is orthogonal to :doc:`intra-process communication
   <../../Tutorials/Demos/Intra-Process-Communication>` and to
-  :doc:`loaned messages <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Configure-ZeroCopy-loaned-messages>`.
+  :doc:`loaned messages <../../../client-libraries/Working-with-Client-Libraries/Configure-ZeroCopy-loaned-messages>`.
   A backend may implement either, both, or neither for a given pub/sub pair;
   the decision lives entirely inside the backend.
 * Whether a given publisher/subscriber pair can actually use a non-CPU
@@ -208,13 +208,13 @@ One practical difference is that buffer backends are visible to the RMW publish/
 Where to go next
 ----------------
 
-* :doc:`../../How-To-Guides/Using-Buffer-Backends` -- user-facing guide on
+* :doc:`Using-Buffer-Backends` -- user-facing guide on
   enabling a buffer backend for a subscription and reading/writing the
   backend-native data.
-* :doc:`../../Tutorials/Advanced/Writing-a-Buffer-Backend` -- vendor-facing
+* :doc:`Writing-a-Buffer-Backend` -- vendor-facing
   guide on implementing and packaging a new ``BufferBackend`` plugin.
-* :doc:`../../Tutorials/Advanced/Writing-a-Buffer-Compatible-Conversions-Package` --
+* :doc:`Writing-a-Buffer-Compatible-Conversions-Package` --
   guide on creating ``*_conversions`` packages for messages with
   buffer-backed ``uint8[]`` fields.
-* :doc:`../../Tutorials/Demos/GPU-Buffer-Transport` -- end-to-end demo that
+* :doc:`GPU-Buffer-Transport` -- end-to-end demo that
   exercises a GPU-backed publish/subscribe pipeline.
