@@ -15,8 +15,8 @@ Summary
 -------
 
 * **Documentation issue tracker**: `ROS documentation repository <https://github.com/ros2/ros2_documentation/issues>`__.
-* **Code issues lists**: in a repository under the `ROS organisation <https://github.com/orgs/ros2/repositories>`__.
-* **Catch-all issues list**: `top level ROS repository <https://github.com/ros2/ros2/issues>`__.
+* **Code issue trackers**: in a repository under the `ROS organisation <https://github.com/orgs/ros2/repositories>`__ or elsewhere on GitHub.
+* **Catch-all issue tracker**: `top level ROS repository <https://github.com/ros2/ros2/issues>`__.
 
 Prerequisites
 -------------
@@ -26,73 +26,55 @@ There are no prerequisites.
 Steps
 -----
 
-1 Checking the issue
+1 Identifying where to report the issue
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you identify bugs, have suggestions for enhancements, or a question specific to one package, you can report an issue on GitHub.
+For example, if you are following the :doc:`/Tutorials` and come across an instruction that doesn't work on your system, you can report an issue in the `ROS documentation repository <https://github.com/ros2/ros2_documentation/issues>`__.
+
+You can report code issues in the ROS repository for the package where the error occurred.
+This is generally the last file listed in the stack trace.
+
+You can search for individual ROS packages in the following locations:
+
+* Core ROS 2 packages are found in the `ROS organisation <https://github.com/ros2>`__
+* ROS binary packages are found on the `ROS Index <index.ros.org>`__, which point to the appropriate GitHub repository.
+* Source ROS packages that are located elsewhere on GitHub.
+
+If it's not clear which issue tracker to use for a particular issue, report the issue in the `top-level ROS repository <https://github.com/ros2/ros2/issues>`__ and we'll have a look at it.
+
+2 Checking the issue
 ^^^^^^^^^^^^^^^^^^^^
-
-If you identify bugs, have suggestions for enhancements, or a question specific to one package, you can open an issue on GitHub.
-For example, if you are following the :doc:`/Tutorials` and come across an instruction that doesn't work on your system, you can open an issue in the `ROS documentation <https://github.com/ros2/ros2_documentation>`__ repo.
-
-You can search for individual ROS repositories on `ROS GitHub <https://github.com/ros2>`__.
 
 Before opening an issue:
 
 #. Check if other users have reported similar issues by searching across the ``ros2`` and ``ament`` GitHub organizations using, for example, this `search query <https://github.com/search?q=user%3Aros2+user%3Aament+turtlesim&type=Issues>`__.
 #. Check the `Robotics Stack Exchange <https://robotics.stackexchange.com/>`__ to see if someone else has already reported your issue.
 
-If your issue has not been reported, you can open an issue in the appropriate repository's issue tracker.
-If it's not clear which tracker to use for a particular issue, create it in the `ros2/ros2 repository <https://github.com/ros2/ros2/issues>`__ and we'll have a look at it.
+If your issue has not been reported, you can open an issue in the issue tracker for the repository you have identified.
 
-2 Reporting the issue
+3 Reporting the issue
 ^^^^^^^^^^^^^^^^^^^^^
 
-When reporting an issue, use the following guidelines to make sure you include enough information for another person to understand and (where relevant) reproduce the issue.
-It's particularly helpful if you test for your issue with as many alternatives as you can in each category.
+When reporting an issue, use the following steps to make sure you include enough information for another person to understand and (where relevant) reproduce the issue.
 
-Required information
-""""""""""""""""""""
+#. In the issue tracker of your selected repository, select **New issue**.
+#. From the options shown, select the issue type which is most appropriate for the issue you are raising:
 
-#. Use a descriptive **title** for the issue.
+   * If you are in the ROS documentation repository, select **Documentation issue**.
+   * If you are in a ROS code repository or the top-level ROS repository, select **Bug report** or **Feature request**.
+   * Alternatively, if the specific ROS repository you are in has a unique issue template, you can use that instead.
+
+#. Add a descriptive **Title** for the issue.
 
    **Bad**: "rviz doesn't work".
 
    **Good**: "Rviz crashing looking for missing ``.so`` after latest apt update"
 
-#. Add steps to the issue **description** describing exactly how to reproduce the issue.
-   If you are following a ROS tutorial or online instructions, provide a link to those specific instructions.
+#. Complete the remaining fields in the issue template, following the prompt text shown and the formatting of any pre-filled fields.
 
-   Issues are more likely to be resolved if others can reproduce them easily.
-
-#. Include the following information:
-
-   * **Operating system and version**
-
-     ROS supports multiple platforms, and some bugs are specific to particular versions of operating systems/compilers.
-
-   * **Installation method**
-
-     Some issues only manifest if ROS has been installed from binary archives or from deb packages.
-     This can help us determine if the issue is with the packaging process.
-
-   * **Specific version of ROS**
-
-     Some bugs may be present in a particular ROS release, but fixed in a later release.
-     It is important to know if your installation includes these fixes.
-
-   * **DDS/RMW implementation** (see `this page </Concepts/Intermediate/About-Different-Middleware-Vendors>` for how to determine which one).
-
-     Communication issues may be specific to the underlying ROS middleware being used.
-
-   * **ROS client library**
-
-     This helps us narrow down the layer in the stack where the issue might be.
-
-#. Include any warnings or errors which are displayed as part of the issue.
-
-   Cut and paste the warnings or errors directly from the terminal window to which they were printed.
-   Please do not re-type the warnings or errors or use screenshots of the terminal.
-
-Useful additional information
-"""""""""""""""""""""""""""""
+Additional information
+""""""""""""""""""""""
 
 * If you are reporting a bug, consider providing a `short, self contained, correct (compilable) example <https://sscce.org/>`__.
 * When discussing any compiling/linking/installation issues, provide the version number of your compiler.
@@ -105,6 +87,7 @@ Useful additional information
   * ``Ogre.log`` for rviz, if possible (run with ``rviz -l``)
   * Bag files and code samples which reproduce the problem
   * GIFs or video clips to demonstrate the problem
+  * Log files (see :doc:`/Concepts/Intermediate/About-Logging`) or logs from the RQT console (see :doc:`/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console`)
 
 * Also describe any troubleshooting which you have already attempted, for example:
 
@@ -114,7 +97,7 @@ Useful additional information
 
   * Trying to reproduce your issue with a different RMW implementation.
 
-    For more information, see :doc:`../../../How-To-Guides/Working-with-multiple-RMW-implementations`.
+    For more information, see :doc:`/How-To-Guides/Working-with-multiple-RMW-implementations`.
 
 Related content
 ---------------
