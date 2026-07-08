@@ -812,4 +812,4 @@ You can learn more about it in :doc:`About ROS 2 interfaces <../../Concepts/Basi
 Next steps
 ----------
 
-The :doc:`next tutorial <./Single-Package-Define-And-Use-Interface>` covers more ways to use interfaces in ROS 2.
+The :doc:`next article <../../How-To-Guides/Single-Package-Define-And-Use-Interface>` covers more ways to use interfaces in ROS 2.
