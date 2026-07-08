@@ -74,7 +74,7 @@ The ROS PMC currently consists of the following constituents:
      - Member
      - CET (UTC+1)/CEST (UTC+2)
    * - Tomoya Fujita
-     - `Sony <https://www.sony.com/>`_
+     - `TriOrb Inc. <https://triorb.co.jp/>`_
      - `fujitatomoya <https://github.com/fujitatomoya>`_
      - Member
      - JST (UTC+9)
