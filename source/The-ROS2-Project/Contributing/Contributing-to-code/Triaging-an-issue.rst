@@ -48,6 +48,7 @@ For more information about the information the reporter of the issue is expected
 
 #. If the issue ``Description`` is actually posing a question, close the issue and add a comment directing the user to the `Robotics Stack Exchange <https://robotics.stackexchange.com/>`__ to get help with their question.
 #. If the issue looks like a genuine issue (bug or enhancement), but is not relevant to the repository it has been raised in, transfer the issue to the appropriate ROS repository (`see the GitHub documentation for guidance about how to transfer between repositories <https://docs.github.com/en/issues/tracking-your-work-with-issues/administering-issues/transferring-an-issue-to-another-repository>`__).
+#. If the issue appears to be a valid but lacks sufficient details to appropriately replicate it (e.g. the host operating system, platform, RMW implementation, ROS distro, and offending code) please request that author provide additional information, 
 #. If the issue is a bug, try to reproduce the bug using the provided steps — if you cannot reproduce the bug, add a comment to the reporter asking for clarification.
 
 3 Assigning and labelling the issue
