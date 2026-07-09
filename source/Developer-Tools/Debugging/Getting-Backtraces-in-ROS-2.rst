@@ -2,10 +2,27 @@
 
     How-To-Guides/Getting-Backtraces-in-ROS-2
 
-Getting Backtraces in ROS 2
-###########################
+.. meta::
+   :contentType: how-to
+   :experience: intermediate
+   :area: debugging, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Getting Backtraces in ROS 2 - how-to
+====================================
+
+.. short-description::
+   Backtraces help you identify where a crashing ROS node failed and how execution reached that point.
+   This article describes how to use GDB to collect and read backtraces from nodes, launch files, larger systems, and tests.
+   After following these steps, you will be able to debug crashes and collect useful failure details.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
+   :depth: 2
    :local:
 
 **Goal:** Show various methods for getting backtraces in ROS 2
@@ -14,7 +31,24 @@ Getting Backtraces in ROS 2
 
 **Time:** 15 minutes
 
-The following steps show ROS 2 users how to get backtraces when they encounter a problem.
+Summary
+-------
+
+Build C++ packages with debug symbols before collecting backtraces, using ``--cmake-args -DCMAKE_BUILD_TYPE=Debug`` or suitable compiler flags.
+
+Use GDB in the situation that matches your system:
+
+* For a single node, run ``ros2 run --prefix 'gdb -ex run --args' <pkg> <node>``.
+
+* For launch files, add ``prefix=['gdb -ex run --args']`` or ``prefix=['xterm -e gdb -ex run --args']`` to the target node.
+
+* For larger systems, isolate the failing node and launch it separately.
+
+* For tests, run the test executable directly with GDB.
+
+At the ``(gdb)`` prompt, enter ``backtrace`` and read from the bottom upward.
+
+The following steps show ROS users how to get backtraces when they encounter a problem.
 
 Overview
 --------

@@ -2,14 +2,45 @@
 
     How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container
 
-Setup ROS 2 with VSCode and Docker [community-contributed]
-==========================================================
+.. meta::
+   :contentType: how-to
+   :experience: 
+   :area: builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
 
+Setting up ROS with VSCode and Docker [community-contributed] - how-to
+========================================================================
+
+.. short-description::
+   VS Code development containers let you work with a ROS distribution without changing your host operating system or using a virtual machine.
+   This article describes how to install Docker, configure VS Code, and create a workspace container.
+   After following these steps, you will be able to build and test ROS projects inside a Docker-based development environment.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Contents
     :depth: 2
     :local:
 
+Summary
+-------
+
+Install Docker, ``vcstool``, VS Code, and the VS Code Remote Development extension before creating the workspace.
+
+Configure the workspace with:
+
+* A ``.devcontainer`` directory containing ``devcontainer.json`` and ``Dockerfile``.
+
+* A ``src`` directory containing your ROS packages.
+
+* ``YOUR_USERNAME`` replaced with your Linux username.
+
+* ``ROS_DISTRO`` replaced with the ROS distribution used as the base image.
+
+Open the workspace in VS Code, run ``Dev Containers: Reopen in Container``, and test the container by installing and launching ``rviz2``.
 
 Install VS Code and Docker
 --------------------------

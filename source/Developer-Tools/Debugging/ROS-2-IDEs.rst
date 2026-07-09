@@ -2,23 +2,52 @@
 
     How-To-Guides/ROS-2-IDEs
 
-IDEs and Debugging [community-contributed]
-==========================================
+.. meta::
+   :contentType: how-to
+   :experience:
+   :area: debugging, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
 
-ROS 2 is not made around a specific development environment and the main focus is on building / running from the command line.
-Nonetheless Integrated Development Environments (IDEs) can be used to develop, run and/or debug ROS 2 nodes.
+Debugging with IDEs [community-contributed] - how-to
+===================================================
 
-Below are listed some IDEs and instructions on how to use them with ROS 2.
+.. short-description::
+   ROS development is usually command-line focused, but IDEs can help with editing, running, and debugging nodes.
+   This article describes how to configure Visual Studio Code and PyCharm for ROS workspaces.
+   After following these steps, you will be able to use IDE debugging tools while keeping your sourced environment and workspace paths available.
 
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Contents
     :depth: 2
     :local:
 
+Summary
+-------
+
+When debugging Python code, remember that colcon build copies files into build and install by default.
+Use ``--symlink-install`` or set breakpoints in the installed files.
+
+Start VSCode from a sourced terminal so it inherits ROS and workspace environment variables:
+
+* Source ROS and your workspace install setup file.
+
+* Open VSCode from that same terminal.
+
+* Restart VSCode after adding packages or making major workspace changes.
+
+For PyCharm, configure the correct interpreter and update paths before running or attaching to Python
 
 General
 -------
 
+ROS 2 is not made around a specific development environment and the main focus is on building / running from the command line.
+Nonetheless Integrated Development Environments (IDEs) can be used to develop, run and/or debug ROS 2 nodes.
+
+Below are listed some IDEs and instructions on how to use them with ROS 2.
 
 .. _InstalledPythonCode:
 

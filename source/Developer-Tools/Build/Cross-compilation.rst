@@ -4,8 +4,19 @@
   Tutorials/Cross-compilation
   How-To-Guides/Cross-compilation
 
+.. meta::
+   :contentType:
+   :experience:
+   :area: builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Cross-compilation
 =================
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 The `cross_compile <https://github.com/ros-tooling/cross_compile>`__ tool is not supported anymore.
 
