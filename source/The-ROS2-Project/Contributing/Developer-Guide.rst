@@ -332,6 +332,8 @@ For example: Development commits targeting ``foxy`` are made to the ``foxy`` bra
 
 ``main`` typically targets :doc:`Rolling <../../Releases/Release-Rolling-Ridley>` (and so, the next unreleased ROS distribution), though the maintainers may decide to develop and release from a ``rolling`` branch instead.
 
+.. _DeveloperGuidePullRequests:
+
 Pull requests
 ^^^^^^^^^^^^^
 
