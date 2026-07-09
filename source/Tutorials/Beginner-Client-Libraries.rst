@@ -12,7 +12,6 @@ Beginner: Client libraries
    Beginner-Client-Libraries/Writing-A-Simple-Cpp-Service-And-Client
    Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client
    Beginner-Client-Libraries/Custom-ROS2-Interfaces
-   Beginner-Client-Libraries/Single-Package-Define-And-Use-Interface
    Beginner-Client-Libraries/Using-Parameters-In-A-Class-CPP
    Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python
    Beginner-Client-Libraries/Getting-Started-With-Ros2doctor
