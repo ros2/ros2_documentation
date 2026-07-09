@@ -27,7 +27,7 @@ In this tutorial, you are going to install the package and learn how to run one 
 Prerequisites
 -------------
 
-It is recommended to understand basic ROS principles covered in the beginner :doc:`../../../Tutorials`.
+It is recommended to understand basic ROS principles covered in the beginner tutorials.
 In particular, :doc:`../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace` and :doc:`../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-Your-First-ROS2-Package` are useful prerequisites.
 
 The Webots software should be installed in order to use the ``webots_ros2`` interface.

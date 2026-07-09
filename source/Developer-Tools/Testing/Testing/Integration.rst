@@ -272,7 +272,7 @@ Related content
 ---------------
 
 * :doc:`Why automatic tests? <Testing-Main>`
-* :doc:`C++ unit testing with GTest <../../Intermediate/Testing/Cpp>`
+* :doc:`C++ unit testing with GTest <Cpp>`
   and :doc:`Python unit testing with Pytest <Python>`
 * `launch_pytest documentation <https://docs.ros.org/en/{DISTRO}/p/launch_pytest/index.html>`_,
   an alternative launch integration testing package to ``launch_testing``

@@ -38,7 +38,7 @@ Issues
 
 If you identify bugs, have suggestions for improvements, or a question specific to one package, you can open an issue on GitHub.
 
-For example, if you are following the :doc:`tutorials here <Tutorials>` and come across an instruction that doesn't work on your system,
+For example, if you are following the tutorials and come across an instruction that doesn't work on your system,
 you can open an issue in the `ros2_documentation <https://github.com/ros2/ros2_documentation>`__ repo.
 
 You can search for individual ROS 2 repositories on `ROS 2's GitHub <https://github.com/ros2>`__.
