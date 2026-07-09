@@ -14,8 +14,8 @@ With this information, you can provide clear, complete issue details in the righ
 Summary
 -------
 
-* **Documentation issue tracker**: `ROS documentation repository <https://github.com/ros2/ros2_documentation/issues>`__.
 * **Code issue trackers**: in a repository under the `ROS organisation <https://github.com/orgs/ros2/repositories>`__ or elsewhere on GitHub.
+* **Documentation issue tracker**: `ROS documentation repository <https://github.com/ros2/ros2_documentation/issues>`__.
 * **Catch-all issue tracker**: `top level ROS repository <https://github.com/ros2/ros2/issues>`__.
 
 Prerequisites
@@ -29,17 +29,17 @@ Steps
 1 Identifying where to report the issue
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you identify bugs, have suggestions for enhancements, or a question specific to one package, you can report an issue on GitHub.
+If you identify a bug, have a suggestion for enhancement, or a question specific to one package, you can report an issue on GitHub.
 For example, if you are following the :doc:`/Tutorials` and come across an instruction that doesn't work on your system, you can report an issue in the `ROS documentation repository <https://github.com/ros2/ros2_documentation/issues>`__.
 
 You can report code issues in the ROS repository for the package where the error occurred.
 This is generally the last file listed in the stack trace.
 
-You can search for individual ROS packages in the following locations:
+You can search for ROS packages in the following locations:
 
-* Core ROS 2 packages are found in the `ROS organisation <https://github.com/ros2>`__
-* ROS binary packages are found on the `ROS Index <index.ros.org>`__, which point to the appropriate GitHub repository.
-* Source ROS packages that are located elsewhere on GitHub.
+* Core ROS 2 packages, found in the `ROS organisation <https://github.com/ros2>`__
+* ROS binary packages, found on the `ROS Index <index.ros.org>`__, which point to the appropriate GitHub repository.
+* Source ROS packages which are located elsewhere on GitHub.
 
 If it's not clear which issue tracker to use for a particular issue, report the issue in the `top-level ROS repository <https://github.com/ros2/ros2/issues>`__ and we'll have a look at it.
 
@@ -51,7 +51,7 @@ Before opening an issue:
 #. Check if other users have reported similar issues by searching across the ``ros2`` and ``ament`` GitHub organizations using, for example, this `search query <https://github.com/search?q=user%3Aros2+user%3Aament+turtlesim&type=Issues>`__.
 #. Check the `Robotics Stack Exchange <https://robotics.stackexchange.com/>`__ to see if someone else has already reported your issue.
 
-If your issue has not been reported, you can open an issue in the issue tracker for the repository you have identified.
+If your issue has not been reported, you can open an issue in the issue tracker of the repository you have identified.
 
 3 Reporting the issue
 ^^^^^^^^^^^^^^^^^^^^^
@@ -61,8 +61,8 @@ When reporting an issue, use the following steps to make sure you include enough
 #. In the issue tracker of your selected repository, select **New issue**.
 #. From the options shown, select the issue type which is most appropriate for the issue you are raising:
 
-   * If you are in the ROS documentation repository, select **Documentation issue**.
    * If you are in a ROS code repository or the top-level ROS repository, select **Bug report** or **Feature request**.
+   * If you are in the ROS documentation repository, select **Documentation issue**.
    * Alternatively, if the specific ROS repository you are in has a unique issue template, you can use that instead.
 
 #. Add a descriptive **Title** for the issue.
