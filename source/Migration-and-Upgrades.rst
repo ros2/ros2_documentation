@@ -1,7 +1,7 @@
 Migration and Upgrades
 ======================
 
-PLACEHOLDER
+Coming Soon
 
 .. toctree::
    :hidden:

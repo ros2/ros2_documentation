@@ -3,7 +3,7 @@
 ROS framework
 =============
 
-PLACEHOLDER
+Coming Soon
 
 .. toctree::
    :maxdepth: 3

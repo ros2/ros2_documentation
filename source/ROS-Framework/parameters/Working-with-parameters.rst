@@ -3,7 +3,7 @@
 Working with parameters
 =======================
 
-PLACEHOLDER
+Coming Soon
 
 .. toctree::
    :maxdepth: 1

@@ -3,7 +3,7 @@
 Capabilities
 ============
 
-PLACEHOLDER
+Coming Soon
 
 .. toctree::
    :hidden:

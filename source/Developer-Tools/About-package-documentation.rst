@@ -2,7 +2,7 @@ Package documentation
 =====================
 
 
-PLACEHOLDER
+Coming Soon
 
 .. toctree::
    :maxdepth: 3

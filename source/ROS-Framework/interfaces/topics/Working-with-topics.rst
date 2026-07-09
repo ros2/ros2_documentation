@@ -3,7 +3,7 @@
 Working with topics
 ===================
 
-PLACEHOLDER
+Coming Soon
 
 .. toctree::
    :maxdepth: 1
