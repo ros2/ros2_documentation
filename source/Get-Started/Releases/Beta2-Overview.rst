@@ -53,7 +53,7 @@ New demo application
 Selected features from previous Alpha/Beta releases
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-For the complete list, see `earlier release notes <../index>`.
+For the complete list, see `earlier release notes <../Releases>`.
 
 
 * C++ and Python implementations of ROS 2 client libraries including APIs for:

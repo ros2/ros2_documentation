@@ -40,7 +40,7 @@ A backend is the right tool when you want to change the *memory domain* of
 variable-length primitive array fields.
 If your goal is to reduce copies within CPU memory, you are almost
 certainly looking for :doc:`intra-process communication
-<../Demos/Intra-Process-Communication>` or
+<../../../nodes/Working-with-nodes/intra-process/Intra-Process-Communication.rst>` or
 :doc:`loaned messages <../../../client-libraries/Working-with-Client-Libraries/Configure-ZeroCopy-loaned-messages>`
 instead.
 
