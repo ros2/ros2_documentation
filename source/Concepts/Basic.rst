@@ -13,6 +13,7 @@ These are the concepts that will help you get started understanding the basics o
 
    Basic/Interfaces-Topics-Services-Actions
    Basic/About-Nodes
+   Basic/About-ROS-Graph
    Basic/About-Discovery
    Basic/About-Parameters
    Basic/About-Command-Line-Tools
