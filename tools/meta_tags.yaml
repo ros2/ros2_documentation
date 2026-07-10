@@ -1,0 +1,5 @@
+# Default values for missing .. meta:: fields injected by ensure_meta_tags.py.
+# Sphinx expands {PRODUCT} and {DISTRO} at build time (see conf.py).
+meta:
+  product: "{PRODUCT}"
+  distribution: "{DISTRO}"

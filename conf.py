@@ -185,6 +185,7 @@ macros = {
     'DISTRO_UBUNTU_DEB_PLATFORM': distro_ubuntu_deb_platform['rolling'],
     'DISTRO_ARM_STATUS_SUFFIX': distro_arm_status_suffix.get('rolling', 'unv8'),
     'REPOS_FILE_BRANCH': 'rolling',
+    'PRODUCT': 'ROS 2',
 }
 
 html_favicon = 'favicon.ico'

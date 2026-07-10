@@ -1,0 +1,70 @@
+name: Enhance
+
+# pull_request_target grants GITHUB_TOKEN write access on fork PRs.
+# PR code is checked out as data only; scripts run from the trusted base checkout.
+on:
+  pull_request_target:
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  ensure-meta-tags:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout PR code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          fetch-depth: 0
+
+      - name: Checkout trusted base scripts
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: .trusted-base
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install PyYAML
+        run: pip install --no-warn-script-location pyyaml
+
+      - name: Ensure product and distribution meta tags
+        run: |
+          git fetch origin "${{ github.event.pull_request.base.sha }}"
+
+          mapfile -t changed_rst < <(
+            git diff --name-only --diff-filter=ACMR \
+              "${{ github.event.pull_request.base.sha }}...${{ github.event.pull_request.head.sha }}" \
+              -- '*.rst'
+          )
+
+          if [ "${#changed_rst[@]}" -eq 0 ]; then
+            echo "No changed RST files in this pull request."
+            exit 0
+          fi
+
+          python3 .trusted-base/tools/ensure_meta_tags.py \
+            --config .trusted-base/tools/meta_tags.yaml \
+            "${changed_rst[@]}"
+
+          echo "Working tree after ensure_meta_tags:"
+          git status --short -- "${changed_rst[@]}"
+          git diff -- "${changed_rst[@]}"
+
+      - name: Suggest meta tag changes
+        uses: parkerbxyz/suggest-changes@v3
+        with:
+          comment: >-
+            Missing product/distribution meta tags were added using values from
+            config. Please review and commit the suggestions.
+          event: COMMENT
