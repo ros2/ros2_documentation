@@ -142,7 +142,7 @@ That's because it's waiting for ``/teleop_turtle`` to publish something.
 Return to the terminal where ``turtle_teleop_key`` is running and use the arrow keys to move the turtle around.
 
 .. note::
-    The ``turtle_teleop_key`` terminal must remain the active window to capture your key presses.
+    The ``turtle_teleop_key`` terminal must be the active window to capture your key presses.
 
 You should see position data being published for every movement that you make:
 
@@ -561,8 +561,8 @@ Related content
 
 More articles:
 
-* :doc:`Trying out nodes <../Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>`
-* :doc:`Trying out services <../Understanding-ROS2-Services/Understanding-ROS2-Services>`
+* :doc:`Understanding nodes <../Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>`
+* :doc:`Understanding services <../Understanding-ROS2-Services/Understanding-ROS2-Services>`
 * :doc:`Interfaces (topics, services, actions) </Concepts/Basic/Interfaces-Topics-Services-Actions>`
 
 FAQs
