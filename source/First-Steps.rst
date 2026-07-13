@@ -35,7 +35,7 @@ Steps
 1 Learn about fundamental concepts behind ROS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* :doc:`About ROS </About-ROS>`
+* :doc:`About ROS <Get-Started/About-ROS/About-ROS>`
 * :doc:`ROS-Framework/About-Nodes`
 * Interfaces-Topics-Services-Actions`
 * :doc:`ROS-Framework/About-Parameters`
@@ -85,4 +85,4 @@ Complete the recording and playback tutorial: :doc:`ROS-Framework/interfaces/Wor
 Next steps
 ----------
 
-To complete your knowledge of the ROS framework, we recommend familiarizing yourself with ROS client libraries: :doc:`/Tutorials/Beginner-Client-Libraries`
+To complete your knowledge of the ROS framework, we recommend familiarizing yourself with ROS client libraries: :doc:`ROS-Framework/About-Client-Libraries`

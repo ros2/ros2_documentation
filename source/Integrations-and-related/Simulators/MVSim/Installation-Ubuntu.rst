@@ -23,7 +23,7 @@ MVSim is licensed under the BSD 3-clause license.
 Prerequisites
 -------------
 
-It is recommended to understand basic ROS principles covered in the beginner :doc:`../../../../Tutorials`.
+It is recommended to understand basic ROS principles covered in the beginner tutorials.
 In particular, :doc:`../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace` is a useful prerequisite.
 
 You should have a working ROS 2 installation.

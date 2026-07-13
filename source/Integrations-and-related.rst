@@ -2,7 +2,7 @@
 Integrations and related projects
 =================================
 
-PLACEHOLDER
+Coming Soon
 
 .. toctree::
    :hidden:

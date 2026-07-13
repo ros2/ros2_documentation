@@ -26,6 +26,6 @@ It is also responsible for monitoring the state of the processes launched, and r
 All of the above is specified in a "launch file", which can be written in XML, YAML, or Python.
 This launch file can then be run using the ``ros2 launch`` command, and all of the nodes specified will be run.
 
-To get started writing and using launch files, see `the launch tutorials <../../Tutorials/Intermediate/Launch/Launch-Main>`.
+To get started writing and using launch files, see `the launch tutorials <Launch/Launch-Main>`.
 
 For more detailed information, see `the launch documentation <https://docs.ros.org/en/{DISTRO}/p/launch>`__.

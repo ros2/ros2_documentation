@@ -335,9 +335,9 @@ Before releasing a conversions package, test:
 Where to go next
 ----------------
 
-* :doc:`../../Concepts/Intermediate/About-Buffer-Backends` -- conceptual
+* :doc:`About-Buffer-Backends` -- conceptual
   background on ``rosidl::Buffer`` and backend negotiation.
-* :doc:`../../How-To-Guides/Using-Buffer-Backends` -- user-facing examples for
+* :doc:`Using-Buffer-Backends` -- user-facing examples for
   publishing and subscribing with buffer-backed tensor messages.
 * :doc:`Writing-a-Buffer-Backend` -- implementer guide for creating a new
   storage backend when an existing backend is not enough.

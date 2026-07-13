@@ -249,7 +249,7 @@ that message and converts it to or from ``at::Tensor``; it does not register a
 separate buffer backend.
 Framework-specific packages can follow the same pattern for other tensor
 libraries.
-See :doc:`../Tutorials/Advanced/Writing-a-Buffer-Compatible-Conversions-Package`
+See :doc:`Writing-a-Buffer-Compatible-Conversions-Package`
 for guidance on writing a ``*_conversions`` package.
 
 On the publisher side:
@@ -315,7 +315,7 @@ separate buffer backend name.
 Use the same RMW implementation for publisher and subscriber.
 Buffer descriptors are serialized through the RMW's normal type-support
 pipeline, so the ordinary advice for
-:doc:`multiple RMW implementations <../Get-Started/Installation/RMW-Implementations/Working-with-multiple-RMW-implementations>`
+:doc:`multiple RMW implementations <../../../../Get-Started/Installation/RMW-Implementations/Working-with-multiple-RMW-implementations>`
 applies: set ``RMW_IMPLEMENTATION`` consistently.
 
 3. Keep backend versions aligned with ROS 2 core
@@ -376,12 +376,12 @@ serialization, which is visible at the default log level.
 Interaction with other transport features
 -----------------------------------------
 
-* :doc:`Loaned messages <../ROS-Framework/client-libraries/Working-with-Client-Libraries/Configure-ZeroCopy-loaned-messages>` operate at a
+* :doc:`Loaned messages <../../../client-libraries/Working-with-Client-Libraries/Configure-ZeroCopy-loaned-messages>` operate at a
   different layer: they let the RMW own the *message* memory, while
   ``rosidl::Buffer`` backends control the storage of individual variable-length
   array fields.
   The two features can be combined when both the RMW and the backend support
   it.
-* :doc:`Intra-process communication <../ROS-Framework/nodes/Working-with-nodes/intra-process/Intra-Process-Communication>`
+* :doc:`Intra-process communication <../../../nodes/Working-with-nodes/intra-process/Intra-Process-Communication>`
   is orthogonal: a backend may implement its own intra-process fast path
   (the CUDA backend does), but the decision is up to the backend.
