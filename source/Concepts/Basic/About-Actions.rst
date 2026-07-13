@@ -38,7 +38,7 @@ For instance, consider an action to calculate the Fibonacci sequence with the fo
    ---
    int32[] sequence
    ---
-   int32[] sequence
+   int32[] partial_sequence
 
 The action server is the entity that receives this message, starts calculating the sequence up to ``order`` (providing feedback along the way), and finally returns a full result in ``sequence``.
 
