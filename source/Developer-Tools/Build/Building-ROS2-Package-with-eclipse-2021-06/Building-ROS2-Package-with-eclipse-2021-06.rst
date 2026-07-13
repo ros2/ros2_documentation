@@ -2,12 +2,42 @@
 
     Tutorials/Building-ROS2-Package-with-eclipse-2021-06
 
-Building a package with Eclipse 2021-06
-=======================================
+.. meta::
+   :contentType: tutorial
+   :experience:
+   :area: builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Building a package with Eclipse 2021-06 - tutorial
+==================================================
+
+.. short-description:
+ROS packages are created with command-line tools, but Eclipse can edit source code and run colcon builds.
+This article shows how to import an existing package into Eclipse 2021-06, configure include paths, and add a colcon builder.
+After following these steps, you can resolve ROS includes and build the package from Eclipse.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2
    :local:
+
+Summary
+-------
+
+Create the ROS package with command-line tools before opening it in Eclipse.
+In Eclipse 2021-06, create a C++ project and import the existing package from the file system.
+
+* Select Create links in workspace when importing, so source code stays in its original location.
+
+* Add required include paths such as `/opt/ros/{DISTRO}/include/rclcpp` and `/opt/ros/{DISTRO}/include/std_msgs`.
+
+* Add a `colcon` builder to use **Build Project** from the project context menu.
+
+For Python packages, configure `PYTHONPATH` in the builder environment.
 
 You cannot create a ROS 2 package with eclipse, you need to create it with commandline tools.
 Follow the :doc:`Create a package <../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-Your-First-ROS2-Package>` tutorial.
