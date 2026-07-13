@@ -1,8 +1,8 @@
 Package documentation
 =====================
 
-Sometimes you need to document your package so others can easily understand and use it through a web-browseable format.
-This article summarizes the ROS developer tools and guidance available to help with package documentation.
+Package documentation is essential for others to understand and use the package you've developed.
+This article summarizes the tools and guidance available to help with creating documentation for ROS packages.
 
 **Area: package documentation, tools | Content-type: about | Experience: beginner, intermediate, expert**
 
@@ -15,6 +15,19 @@ Summary
 When creating a new package, clear documentation is essential for others who may use it.
 Package documentation tools in ROS make it easy to write, maintain, and generate web-browsable documentation from your source code.
 
+Core ROS packages:
+
+* `rosdoc2 <https://docs.ros.org/en/rolling/How-To-Guides/Documenting-a-ROS-2-Package.html>`_: Tool for documenting a ROS package.
+QUESTION FOR THE REVIEWER: IN THE SPREADSHEET THERE IS A QUESTION MARK NEXT TO THIS ENTRY.
+DO WE NEED TO INCLUDE IN THIS LIST?
+
+QUESTION FOR THE REVIEWER: ARE THERE ANY OTHER CORE ROS PACKAGES THAT WE CAN LIST HERE?
+
+Community-contributed packages:
+
+QUESTION FOR THE REVIEWER: ARE THERE ANY COMMUNITY-CONTRIBUTED PACKAGES THAT WE CAN LIST HERE?
+
+
 Package documentation locations
 -------------------------------
 
@@ -25,7 +38,7 @@ Here is a brief list of where to look for specific ROS package documentation.
 
 * All ROS package documentation is hosted alongside its information on the `ROS Index <https://index.ros.org/>`_.
 
-  Searching for packages on ROS Index will yield their information such as released distributions, README.md files, URLs, and other important metadata.
+Searching for packages on ROS Index will yield their information such as released distributions, README.md files, URLs, and other important metadata.
 
 Larger packages
 ---------------
@@ -60,18 +73,6 @@ Guidelines for adding your package documentation
 All released ROS packages are automatically added to docs.ros.org and `ROS Index <https://index.ros.org/>`_.
 If you would like to enable or configure your own package, see `Documenting a ROS package <https://docs.ros.org/en/lyrical/How-To-Guides/
 Documenting-a-ROS-2-Package.html>`_.
-
-Core ROS packages:
-
-* `rosdoc2 <https://docs.ros.org/en/rolling/How-To-Guides/Documenting-a-ROS-2-Package.html>`_: Tool for documenting a ROS package.
-QUESTION FOR THE REVIEWER: IN THE SPREADSHEET THERE IS A QUESTION MARK NEXT TO THIS ENTRY.
-DO WE NEED TO INCLUDE IN THIS LIST?
-
-QUESTION FOR THE REVIEWER: ARE THERE ANY OTHER CORE ROS PACKAGES THAT WE CAN LIST HERE?
-
-Community-contributed packages:
-
-QUESTION FOR THE REVIEWER: ARE THERE ANY COMMUNITY-CONTRIBUTED PACKAGES THAT WE CAN LIST HERE?
 
 Related content (placeholder)
 -----------------------------

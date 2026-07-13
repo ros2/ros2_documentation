@@ -2,6 +2,7 @@ Node management
 ===============
 
 Sometimes you need to manage many interconnected nodes at once to reliably start, configure, and shut down your system.
+Managing multiple interconnected nodes is essential for complex robotic systems. 
 This article summarizes the ROS developer tools and guidance available to help with node management.
 
 

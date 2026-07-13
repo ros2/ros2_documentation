@@ -14,21 +14,19 @@ Summary
 
 Understanding what is happening inside your robot's software is key to understanding how to improve it.
 Introspection tools in ROS allow you to understand and modify, at run-time, node state, parameters, flowing data, and more.
+ROS Analysis tools build further on this ability by enabling you to analyze the data gathered by introspection. 
+
+See more at `About analysis <https://docs.ros.org/en/lyrical/About-analysis.html>`_.
 
 Core ROS packages:
 
-* `ros2doctor <https://docs.ros.org/en/kilted/p/ros2doctor/>`_: Command line tool to check for common misconfigurations in a ROS system.
+* `ros2 <https://github.com/ros2>`_: A set of software libraries and tools for building robot applications.
 
-* `ros2launch <https://github.com/ros2/launch>`_:  Command line tool for launching multiple processes and for writing tests involving multiple processes.
+* `rqt <https://github.com/ros-visualization/rqt>`_: A set of graphical tools for visualizing and interacting with ROS data.
 
 * `rosbag2 <https://docs.ros.org/en/kilted/p/ros2bag/>`_: Tool for recording and playing back data moving across topics, services and actions in a ROS application.
 
-* `ros2cli <https://github.com/ros2/ros2cli>`_: A set of command line tools for ROS, used to manage nodes, topics, services, and other ROS components, including introspection.
-
-* `RViz <https://docs.ros.org/en/kilted/Tutorials/Intermediate/RViz/RViz-User-Guide/RViz-User-Guide.html>`_: Provides a 3D visualization of the robot's perspective, including sensor data and intentions.
-
-* `rosdoc2 <https://docs.ros.org/en/rolling/How-To-Guides/Documenting-a-ROS-2-Package.html>`_: Tool for documenting a ROS2 package.
-
+* `rosconsole <https://github.com/ros/rosconsole/>`_: A logging tool for monitoring, debugging, and diagnosing running applications.
 
 Community-contributed packages:
 
