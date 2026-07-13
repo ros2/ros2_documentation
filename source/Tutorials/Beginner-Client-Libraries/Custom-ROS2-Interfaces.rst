@@ -567,7 +567,7 @@ Since you'll be changing the original two integer request srv to a three integer
               super().__init__('minimal_service')
               self.srv = self.create_service(AddThreeInts, 'add_three_ints', self.add_three_ints_callback)       # CHANGE
 
-          def add_three_ints_callback(self, request, response):
+          def add_three_ints_callback(self, request, response):                                                  # CHANGE
               response.sum = request.a + request.b + request.c                                                   # CHANGE
               self.get_logger().info('Incoming request\na: %d b: %d c: %d' % (request.a, request.b, request.c))  # CHANGE
 
