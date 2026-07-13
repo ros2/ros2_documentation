@@ -110,6 +110,9 @@ You will see the names of two active nodes:
   /turtlesim
   /teleop_turtle
 
+.. note::
+    You can start multiple nodes at once without opening a separate terminal for each. See :ref:`Launching nodes - how-to <ROS2Launch>`.
+
 2.1 Remapping
 ~~~~~~~~~~~~~
 
@@ -189,6 +192,7 @@ More articles:
 * :doc:`Learning about topics <../Understanding-ROS2-Topics/Understanding-ROS2-Topics>`
 * :doc:`Interfaces (topics, services, actions) </Concepts/Basic/Interfaces-Topics-Services-Actions>`
 * :doc:`Concepts </Concepts>`
+* :ref:`Launching nodes - how-to <ROS2Launch>`
 
 FAQs
 ----
