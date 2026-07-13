@@ -43,23 +43,61 @@ However, it does take time to generate, so be aware that your launch file might 
 
 To run xacro within your launch file, you need to put the ``Command`` substitution as a parameter to the ``robot_state_publisher``.
 
-.. code-block:: python
+.. tabs::
 
-    path_to_urdf = get_package_share_path('turtlebot3_description') / 'urdf' / 'turtlebot3_burger.urdf'
-    robot_state_publisher_node = launch_ros.actions.Node(
-        package='robot_state_publisher',
-        executable='robot_state_publisher',
-        parameters=[{
-            'robot_description': ParameterValue(
-                Command(['xacro ', str(path_to_urdf)]), value_type=str
-            )
-        }]
-    )
+  .. group-tab:: Python
+
+    .. code-block:: python
+
+        path_to_urdf = get_package_share_path('turtlebot3_description') / 'urdf' / 'turtlebot3_burger.urdf'
+        robot_state_publisher_node = launch_ros.actions.Node(
+            package='robot_state_publisher',
+            executable='robot_state_publisher',
+            parameters=[{
+                'robot_description': ParameterValue(
+                    Command(['xacro ', str(path_to_urdf)]), value_type=str
+                )
+            }]
+        )
+
+  .. group-tab:: XML
+
+    .. code-block:: xml
+
+        <node pkg="robot_state_publisher" exec="robot_state_publisher" name="robot_state_publisher">
+            <param name="robot_description" value="$(command 'xacro $(find-pkg-share turtlebot3_description)/urdf/turtlebot3_burger.urdf')" />
+        </node>
+
+  .. group-tab:: YAML
+
+    .. code-block:: yaml
+
+        - node:
+            pkg: "robot_state_publisher"
+            exec: "robot_state_publisher"
+            name: "robot_state_publisher"
+            param:
+            - name: "robot_description"
+              value: "$(command 'xacro $(find-pkg-share turtlebot3_description)/urdf/turtlebot3_burger.urdf')"
 
 An easier way to load the robot model is to use the `urdf_launch <https://github.com/ros/urdf_launch>`_ package to automatically load the xacro/urdf.
 
-.. literalinclude:: launch/urdf_display_launch.py
-    :language: python
+.. tabs::
+
+  .. group-tab:: Python
+
+    .. literalinclude:: launch/urdf_display_launch.py
+        :language: python
+
+  .. group-tab:: XML
+
+    .. literalinclude:: launch/urdf_display_launch.xml
+        :language: xml
+
+  .. group-tab:: YAML
+
+    .. literalinclude:: launch/urdf_display_launch.yaml
+        :language: yaml
 
 At the top of the URDF file, you must specify a namespace in order for the file to parse properly.
 For example, these are the first two lines of a valid xacro file:
