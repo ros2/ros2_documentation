@@ -16,7 +16,7 @@ Understanding what is happening inside your robot's software is key to understan
 Introspection tools in ROS allow you to understand and modify, at run-time, node state, parameters, flowing data, and more.
 ROS Analysis tools build further on this ability by enabling you to analyze the data gathered by introspection. 
 
-See more at `About analysis <https://docs.ros.org/en/lyrical/About-analysis.html>`_.
+See more at :doc:`About analysis <About-analysis>`
 
 Core ROS packages:
 
