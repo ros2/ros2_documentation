@@ -40,7 +40,7 @@ Glossary of terms used throughout this documentation:
    Buffer
        ``rosidl::Buffer<T>``, the in-memory container used by generated C++ messages for variable-length primitive array fields (``uint8[]``, ``float32[]``, ...).
        It behaves like a ``std::vector<T>`` by default and supports pluggable memory backends so that vendors can back those fields with non-CPU memory.
-       See :doc:`Concepts/Intermediate/About-Buffer-Backends`.
+       See :doc:`ROS-Framework/interfaces/Working-with-interfaces/Buffer-Backends/About-Buffer-Backends`.
 
    Buffer backend
        A ``pluginlib`` plugin, implementing the ``rosidl::BufferBackend`` interface, that teaches the RMW how to transport a ``rosidl::Buffer`` whose storage lives in a vendor-specific memory domain (for example, GPU memory).
@@ -56,4 +56,4 @@ Glossary of terms used throughout this documentation:
    Acceptable backend list
        The value of ``rclcpp::SubscriptionOptions::acceptable_buffer_backends`` (or ``acceptable_buffer_backends`` in ``rclpy``).
        A comma-separated list of backend names the subscription is willing to receive; ``"cpu"`` (or empty) means CPU-only, ``"any"`` means any installed backend, and CPU is always implicitly acceptable.
-       See :doc:`How-To-Guides/Using-Buffer-Backends`.
+       See :doc:`ROS-Framework/interfaces/Working-with-interfaces/Buffer-Backends/Using-Buffer-Backends`.
