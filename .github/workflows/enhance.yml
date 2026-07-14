@@ -44,6 +44,7 @@ jobs:
           BASE_SHA="${{ github.event.pull_request.base.sha }}"
           git fetch origin "$BASE_SHA"
 
+          # Collect changed RST files
           mapfile -t changed_rst < <(
             git diff --name-only --diff-filter=ACMR \
               "${BASE_SHA}...${{ github.event.pull_request.head.sha }}" \
@@ -52,11 +53,13 @@ jobs:
 
           if [ "${#changed_rst[@]}" -eq 0 ]; then
             echo "No changed RST files in this pull request."
+            echo "meta_checked=false" >> "$GITHUB_OUTPUT"
             echo "suggestable=false" >> "$GITHUB_OUTPUT"
             echo "fallback=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
+          # Check meta tags for changed RST files
           python3 .trusted-base/tools/ensure_meta_tags.py \
             --config .trusted-base/tools/meta_tags.yaml \
             --diff-base "$BASE_SHA" \
@@ -67,8 +70,59 @@ jobs:
           git status --short -- "${changed_rst[@]}"
           git diff -- "${changed_rst[@]}"
 
+      - name: Supersede stale meta-tag reviews
+        id: supersede
+        if: steps.ensure.outputs.meta_checked == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          HAS_RESULTS: ${{ steps.ensure.outputs.has_results }}
+        run: |
+          set -euo pipefail
+          PR="${{ github.event.pull_request.number }}"
+          REPO="${{ github.repository }}"
+          MARKER="ros2-meta-tags-ensure"
+
+          echo "Marking prior meta-tag reviews as outdated."
+
+          # Find all previous PR reviews containing the meta-tag marker,
+          # and extract their node IDs
+          mapfile -t review_ids < <(
+            gh api "repos/${REPO}/pulls/${PR}/reviews" --paginate \
+              --jq ".[] | select(.body != null and (.body | contains(\"${MARKER}\"))) | .node_id"
+          )
+
+          # Prepare a GraphQL mutation string to minimize comments (mark them as outdated)
+          minimize_query='
+            mutation($subjectId: ID!) {
+              minimizeComment(input: {
+                subjectId: $subjectId
+                classifier: OUTDATED
+              }) {
+                minimizedComment { isMinimized }
+              }
+            }
+          '
+
+          # Run the GraphQL mutation for each eligible review
+          for node_id in "${review_ids[@]}"; do
+            [ -z "$node_id" ] && continue
+            gh api graphql \
+              -f query="${minimize_query}" \
+              -f subjectId="${node_id}" \
+              || true
+          done
+
+          if [ "$HAS_RESULTS" = "true" ]; then
+            echo "should_post=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "All meta-tag issues resolved; not posting a new review."
+            echo "should_post=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Suggest meta tag changes
-        if: steps.ensure.outputs.suggestable == 'true'
+        if: >-
+          steps.supersede.outputs.should_post == 'true'
+          && steps.ensure.outputs.suggestable == 'true'
         uses: parkerbxyz/suggest-changes@v3
         with:
           comment: ${{ steps.ensure.outputs.comment }}
@@ -76,7 +130,8 @@ jobs:
 
       - name: Comment fallback meta tag instructions
         if: >-
-          steps.ensure.outputs.fallback == 'true'
+          steps.supersede.outputs.should_post == 'true'
+          && steps.ensure.outputs.fallback == 'true'
           && steps.ensure.outputs.suggestable != 'true'
         env:
           GH_TOKEN: ${{ github.token }}

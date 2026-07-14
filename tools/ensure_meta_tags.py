@@ -27,7 +27,6 @@ if str(_TOOLS_DIR) not in sys.path:
     sys.path.insert(0, str(_TOOLS_DIR))
 
 from rst_utils import (
-    first_heading_line_span,
     get_meta_names_from_content,
     has_meta_block,
     inject_metadata_to_content,
@@ -39,6 +38,9 @@ logger = logging.getLogger(__name__)
 DEFAULT_CONFIG_PATH = _TOOLS_DIR / "meta_tags.yaml"
 RST_EXTENSION = ".rst"
 _HUNK_HEADER = re.compile(r"^@@ -\d+(?:,\d+)? \+(\d+)(?:,(\d+))? @@")
+
+# Hidden marker in review bodies so CI can find and supersede prior bot reviews.
+REVIEW_MARKER = "<!-- ros2-meta-tags-ensure -->"
 
 
 def load_meta_config(config_path: Path) -> dict[str, str]:
@@ -168,36 +170,23 @@ def _span_overlaps(span: tuple[int, int] | None, pr_lines: set[int]) -> bool:
     return any(line in pr_lines for line in range(start, end + 1))
 
 
-def choose_suggestable_placement(
-    content: str,
-    pr_lines: set[int],
-) -> str | None:
+def can_suggest_inline(content: str, pr_lines: set[int]) -> bool:
     """
-    Return how to apply an in-diff edit, or ``None`` if only fallback is possible.
+    Return whether a meta-tag edit can be anchored to the pull request diff.
 
-    Returns:
-        ``append``, ``after_heading``, ``at_top``, or ``None``.
+    Existing ``.. meta::`` blocks are suggestable when they overlap the diff
+    (wherever they already sit). New blocks are only suggestable when line 1 is
+    in the diff, since inserts always go at the top of the file.
     """
     if has_meta_block(content):
         span = meta_block_line_span(content)
         if span is None:
-            return None
+            return False
         start, end = span
         # Include the line after the block where fields would be appended.
-        if _span_overlaps((start, end + 1), pr_lines):
-            return "append"
-        return None
+        return _span_overlaps((start, end + 1), pr_lines)
 
-    heading = first_heading_line_span(content)
-    if heading is not None:
-        start, end = heading
-        if _span_overlaps((start, end + 1), pr_lines):
-            return "after_heading"
-
-    if _span_overlaps((1, 1), pr_lines):
-        return "at_top"
-
-    return None
+    return _span_overlaps((1, 1), pr_lines)
 
 
 def ensure_meta_tags_in_file(
@@ -213,13 +202,13 @@ def ensure_meta_tags_in_file(
     land on lines already in the PR diff (inline-suggestion path). Otherwise the
     result is a fallback entry without writing the file.
 
-    When ``pr_lines`` is ``None`` (local CLI use), behaviour is unconditional
-    write using append / after-heading placement.
+    When ``pr_lines`` is ``None`` (local CLI use), behaviour is an unconditional
+    write: append to an existing block, or insert a new block at the top.
 
     Returns:
         A result dict when action is needed, otherwise ``None``.
         Keys include ``path``, ``fields``, ``mode`` (``suggestable`` or
-        ``fallback``), ``placement``, and ``snippet``.
+        ``fallback``), and ``snippet``.
     """
     content = path.read_text(encoding="utf-8")
     missing = _missing_meta_fields(content, meta_config)
@@ -231,37 +220,7 @@ def ensure_meta_tags_in_file(
     snippet = format_meta_block(meta_config, missing)
     path_str = str(path).replace("\\", "/")
 
-    if pr_lines is None:
-        if has_meta_block(content):
-            placement = "append"
-        elif first_heading_line_span(content) is not None:
-            placement = "after_heading"
-        else:
-            placement = "at_top"
-
-        if placement == "append":
-            new_content, changed = inject_metadata_to_content(content, metadata)
-        else:
-            new_content, changed = inject_metadata_to_content(
-                content,
-                metadata,
-                new_block_placement=placement,
-            )
-
-        if not changed:
-            return None
-        path.write_text(new_content, encoding="utf-8")
-        logger.info("%s: added meta fields %s (%s)", path, ", ".join(missing), placement)
-        return {
-            "path": path_str,
-            "fields": missing,
-            "mode": "suggestable",
-            "placement": placement,
-            "snippet": snippet,
-        }
-
-    placement = choose_suggestable_placement(content, pr_lines)
-    if placement is None:
+    if pr_lines is not None and not can_suggest_inline(content, pr_lines):
         logger.info(
             "%s: missing %s but edit is outside the PR diff; fallback review only",
             path,
@@ -271,33 +230,26 @@ def ensure_meta_tags_in_file(
             "path": path_str,
             "fields": missing,
             "mode": "fallback",
-            "placement": "at_top",
             "snippet": snippet,
         }
 
-    if placement == "append":
-        new_content, changed = inject_metadata_to_content(content, metadata)
-    else:
-        new_content, changed = inject_metadata_to_content(
-            content,
-            metadata,
-            new_block_placement=placement,
-        )
+    new_content, changed = inject_metadata_to_content(content, metadata)
     if not changed:
         return None
 
     path.write_text(new_content, encoding="utf-8")
-    logger.info(
-        "%s: added meta fields %s via %s (inline suggestion)",
-        path,
-        ", ".join(missing),
-        placement,
-    )
+    if pr_lines is None:
+        logger.info("%s: added meta fields %s", path, ", ".join(missing))
+    else:
+        logger.info(
+            "%s: added meta fields %s (inline suggestion)",
+            path,
+            ", ".join(missing),
+        )
     return {
         "path": path_str,
         "fields": missing,
         "mode": "suggestable",
-        "placement": placement,
         "snippet": snippet,
     }
 
@@ -314,6 +266,11 @@ def _collect_rst_paths(paths: list[str]) -> list[Path]:
             continue
         rst_paths.append(path)
     return rst_paths
+
+
+def stamp_review_comment(body: str) -> str:
+    """Append a hidden marker so CI can find and supersede this review later."""
+    return body.rstrip() + f"\n\n{REVIEW_MARKER}\n"
 
 
 def build_review_comment(results: list[dict[str, object]]) -> str:
@@ -349,7 +306,8 @@ def build_review_comment(results: list[dict[str, object]]) -> str:
             lines.append("```")
             lines.append("")
 
-    return "\n".join(lines).rstrip() + "\n"
+    body = "\n".join(lines).rstrip() + "\n"
+    return stamp_review_comment(body)
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -423,9 +381,12 @@ def main(argv: list[str] | None = None) -> int:
     if args.status_file is not None:
         has_suggestable = any(r["mode"] == "suggestable" for r in results)
         has_fallback = any(r["mode"] == "fallback" for r in results)
+        has_results = bool(results)
         with args.status_file.open("a", encoding="utf-8") as f:
+            f.write("meta_checked=true\n")
             f.write(f"suggestable={'true' if has_suggestable else 'false'}\n")
             f.write(f"fallback={'true' if has_fallback else 'false'}\n")
+            f.write(f"has_results={'true' if has_results else 'false'}\n")
             if results:
                 review_body = build_review_comment(results)
                 f.write("comment<<EOF_META_TAGS_COMMENT\n")

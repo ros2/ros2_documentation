@@ -123,27 +123,18 @@ def _normalise_meta_field_value(value: str) -> str:
 def inject_metadata_to_content(
     content: str,
     metadata: dict[str, str],
-    *,
-    new_block_placement: str = "after_heading",
 ) -> tuple[str, bool]:
     """
     Insert or append ``.. meta::`` field entries for the given name/value pairs.
 
     Appends to an existing ``.. meta::`` block when present. Otherwise inserts a
-    new block according to ``new_block_placement``:
-
-    - ``after_heading`` — immediately after the first document heading, with a
-      blank line before and after (or at the start if no heading is found)
-    - ``at_top`` — at the start of the document
+    new block at the start of the document.
 
     Skips keys that already appear in the block.
 
     Returns:
         Updated source and whether any change was made.
     """
-    if new_block_placement not in {"after_heading", "at_top"}:
-        raise ValueError(f"Unknown new_block_placement: {new_block_placement!r}")
-
     start, marker_end, block_end, inner, indent = _find_meta_block(content)
     names = _extract_meta_names_from_block(inner)  # Snapshot before we add keys from this same batch
     additions: list[str] = []
@@ -169,15 +160,9 @@ def inject_metadata_to_content(
         # Normalise trailing whitespace: one blank line after the block
         remainder = content[block_end:].lstrip()
         new_content = content[:marker_end] + new_inner + "\n" + remainder
-    elif new_block_placement == "at_top":
+    else:
         remainder = content.lstrip()
         new_content = ".. meta::\n" + "".join(additions) + "\n" + remainder
-    else:
-        # after_heading: blank line before and after the meta block
-        insert_at = _find_insertion_point_after_title(content)
-        remainder = content[insert_at:].lstrip()
-        block = f"\n.. meta::\n{''.join(additions)}\n"
-        new_content = content[:insert_at] + block + remainder
 
     return new_content, True
 
@@ -203,20 +188,6 @@ def meta_block_line_span(content: str) -> tuple[int, int] | None:
     start_line = _byte_offset_to_line_number(content, start)
     end_offset = block_end - 1 if block_end > start else start
     end_line = _byte_offset_to_line_number(content, end_offset)
-    return start_line, end_line
-
-
-def first_heading_line_span(content: str) -> tuple[int, int] | None:
-    """
-    Return the inclusive 1-based line span of the first title (text + underline).
-
-    Returns ``None`` if no heading is found.
-    """
-    insert_at = _find_insertion_point_after_title(content)
-    if insert_at <= 0:
-        return None
-    end_line = _byte_offset_to_line_number(content, insert_at - 1)
-    start_line = max(1, end_line - 1)
     return start_line, end_line
 
 

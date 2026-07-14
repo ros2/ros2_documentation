@@ -29,7 +29,7 @@ The `meta` map lists every field the script checks. Add a new key to extend cove
 Low-level utilities for locating and editing Sphinx directives in RST source:
 
 - **`get_meta_names_from_content`** — field names already present in the first `.. meta::` block
-- **`inject_metadata_to_content`** — append missing `:name: value` lines to an existing block, or insert a new `.. meta::` block (`after_heading` or `at_top`); never overwrites existing fields
+- **`inject_metadata_to_content`** — append missing `:name: value` lines to an existing block, or insert a new `.. meta::` block at the top of the file; never overwrites existing fields
 
 The module also contains helpers for `.. short-description::` directives for future use.
 
@@ -55,7 +55,7 @@ Options:
 
 - `--config PATH` — YAML config file (default: `tools/meta_tags.yaml`)
 - `--diff-base SHA` — PR base commit; only write edits that overlap the PR diff (CI)
-- `--status-file PATH` — write `suggestable=`, `fallback=`, and the review comment for CI
+- `--status-file PATH` — write `meta_checked=`, `suggestable=`, `fallback=`, `has_results=`, and the review comment for CI
 - `-v` / `--verbose` — enable debug logging
 
 ### Example
@@ -69,15 +69,15 @@ My Article
 Some content.
 ```
 
-After a local run (new `.. meta::` after the first heading by default):
+After a local run (new `.. meta::` at the top of the file by default):
 
 ```rst
-My Article
-==========
-
 .. meta::
    :product: {PRODUCT}
    :distribution: {DISTRO}
+
+My Article
+==========
 
 Some content.
 ```
@@ -102,13 +102,20 @@ GitHub only allows review suggestions on [lines already in the pull request diff
 | Situation | What happens |
 |-----------|----------------|
 | Missing fields; existing `.. meta::` overlaps the PR diff | Write append to the working tree → inline “Commit suggestion” via [`suggest-changes`](https://github.com/marketplace/actions/suggest-changes-action). Review text asks the submitter to accept it and why. |
-| No `.. meta::`; first-heading region overlaps the PR diff | Insert after the first heading → inline suggestion + same review text. |
 | No `.. meta::`; top of file overlaps the PR diff | Insert at top of file → inline suggestion + same review text. |
 | Needed edit does **not** overlap the PR diff (new block or out-of-diff append) | **Do not** write an unsuggestable hunk. Review / comment only, with a copy-paste `.. meta::` block to place at the **top of the file**. |
 | All configured fields already present | No action |
 | No changed `.rst` files in the PR | Workflow exits early |
 
 Mixed PRs are supported: suggestable files get working-tree edits + inline suggestions; fallback-only files appear only in the review body. If every file is fallback-only, a `COMMENT` review is posted without `suggest-changes`.
+
+### Superseding outdated reviews
+
+Each bot review body includes a hidden marker (`<!-- ros2-meta-tags-ensure -->`). On every run that checks changed RST files:
+
+1. All prior stamped reviews on the pull request are minimized as **Outdated** via the GitHub API (no external state store).
+2. A fresh review is posted only when work still remains.
+3. When all issues are fixed, stale reviews are minimized and no new “all clear” comment is posted.
 
 Typical examples:
 
