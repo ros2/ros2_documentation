@@ -66,7 +66,7 @@ Workflow
 
 Contributors to the ROS documentation on GitHub use the standard fork and pull request (PR) workflow.
 
-#. After cloning the ``ros2_documentation`` repository, create your own fork, then take a branch on that fork for your changes.
+#. After creating your own fork of the ``ros2_documentation`` repository, clone it locally, and then create a branch from the existing ``rolling`` branch for your changes.
 #. When your change to the documentation source is ready on your branch, create a pull request to the upstream repository.
    Your PR will attract review comments and suggestions from the ROS community, which you can then action and agree on.
 #. When your PR is accepted, it is merged to the target branch and published to the respective versions of the site.
