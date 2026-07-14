@@ -11,7 +11,7 @@ Logging
    :depth: 2
    :local:
 
-See `the logging page <../../Concepts/Intermediate/About-Logging>` for details on available functionality.
+See `the logging page <../../ROS-Framework/nodes/About-Logging/About-Logging>` for details on available functionality.
 
 Using log statements in code
 ----------------------------
@@ -318,7 +318,7 @@ Using the logger config component
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The server that responds to the logger configuration requests has been developed as a component so that it may be added to an existing composition-based system.
-For example, if you are using `a container to run your nodes <../Intermediate/Composition>`, to be able to configure your loggers you only need to request that it additionally load the ``logging_demo::LoggerConfig`` component into the container.
+For example, if you are using `a container to run your nodes <../../ROS-Framework/nodes/About-Composition>`, to be able to configure your loggers you only need to request that it additionally load the ``logging_demo::LoggerConfig`` component into the container.
 
 As an example, if you want to debug the ``composition::Talker`` demo, you can start the talker as normal with:
 

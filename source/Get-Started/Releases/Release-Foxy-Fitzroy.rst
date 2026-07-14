@@ -14,7 +14,7 @@ Foxy Fitzroy (``foxy``)
 Supported Platforms
 -------------------
 
-Foxy Fitzroy supports the following platforms according to `the platform support tiers <../The-ROS2-Project/Platform-Support-Tiers>`:
+Foxy Fitzroy supports the following platforms according to `the platform support tiers </The-ROS2-Project/Platform-Support-Tiers>`:
 
 Tier 1 platforms:
 

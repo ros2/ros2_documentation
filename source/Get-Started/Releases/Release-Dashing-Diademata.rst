@@ -14,7 +14,7 @@ Dashing Diademata (``dashing``)
 Supported Platforms
 -------------------
 
-Dashing Diademata supports the following platforms according to `the platform support tiers <../The-ROS2-Project/Platform-Support-Tiers>`:
+Dashing Diademata supports the following platforms according to `the platform support tiers </The-ROS2-Project/Platform-Support-Tiers>`:
 
 Tier 1 platforms:
 
@@ -631,7 +631,7 @@ If not present, registration macros must be added to the project's CMake.
   add_library(listener src/listener.cpp)
   rclcpp_components_register_nodes(listener "composition::Listener")
 
-For more information on composition, see `the tutorial <../Tutorials/Intermediate/Writing-a-Composable-Node>`
+For more information on composition, see `the tutorial </ROS-Framework/nodes/Working-with-nodes/Writing-a-Composable-Node>`
 
 rclpy
 ^^^^^

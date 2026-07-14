@@ -14,7 +14,7 @@ There are four prerequisites.
 
  * The GitHub user `@ros-pull-request-builder <https://github.com/ros-pull-request-builder>`_ must have access to the repository.
  * The GitHub repository must have the webhooks set up.
- * `Your package must be indexed in rosdistro </How-To-Guides/Releasing/Index-Your-Packages>`
+ * `Your package must be indexed in rosdistro </Developer-Tools/Build/Releasing/Index-Your-Packages>`
  * The ``test_pull_requests`` flag must be true.
 
 
@@ -61,7 +61,7 @@ test_pull_requests
 
 For each ROS distro that you want pull request testing for, you must enable the ``test_pull_requests`` flag in the appropriate section of the `rosdistro <https://github.com/ros/rosdistro/>`_.
 
- * **Option 1** - You have the option when running `bloom </How-To-Guides/Releasing/Releasing-a-Package>` to turn on pull request testing.
+ * **Option 1** - You have the option when running `bloom </Developer-Tools/Build/Releasing/Releasing-a-Package>` to turn on pull request testing.
  * **Option 2** - You can **carefully** manually edit the appropriate file in the rosdistro repo, and make a new pull request.
    `Example <https://github.com/ros/rosdistro/blob/3c295f76b0755989e9ed526c0b5f28a5f6a94da3/rolling/distribution.yaml#L4708>`_.
    `Documented in REP 143 <http://docs.ros.org/en/independent/api/rep/html/rep-0143.html#distribution-file>`_.

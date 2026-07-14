@@ -177,7 +177,7 @@ Relationship to other ROS 2 mechanisms
 --------------------------------------
 
 * ``rosidl::Buffer`` is orthogonal to :doc:`intra-process communication
-  <../../../nodes/Working-with-nodes/intra-process/Intra-Process-Communication.rst>` and to
+  </ROS-Framework/nodes/Working-with-nodes/intra-process/Intra-Process-Communication>` and to
   :doc:`loaned messages <../../../client-libraries/Working-with-Client-Libraries/Configure-ZeroCopy-loaned-messages>`.
   A backend may implement either, both, or neither for a given pub/sub pair;
   the decision lives entirely inside the backend.
