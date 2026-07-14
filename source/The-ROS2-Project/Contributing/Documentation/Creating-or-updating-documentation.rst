@@ -196,7 +196,7 @@ This will check the entire site for broken links, and output the results to the 
 5 Building the site for the active branch
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To build the site for just this branch:
+To build the site for just the current active branch:
 
 #. Run the following command at the top level of the repository.
    The build process can take some time.
