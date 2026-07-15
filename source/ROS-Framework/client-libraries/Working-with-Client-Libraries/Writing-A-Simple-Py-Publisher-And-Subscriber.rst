@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: tutorial
+   :experience: beginner
+   :area: client-libraries, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Writing-A-Simple-Py-Publisher-And-Subscriber
@@ -5,8 +12,17 @@
 
 .. _PyPubSub:
 
-Writing a simple publisher and subscriber (Python)
-==================================================
+Writing a simple publisher and subscriber (Python) — tutorial
+=============================================================
+
+.. short-description::
+   Publisher and subscriber nodes let separate parts of a robotic system exchange data over topics.
+   This article shows how to create, configure, build, and run a simple Python talker and listener.
+   After you follow these steps, you will have a working package that sends and receives string messages.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Create and run a publisher and subscriber node using Python.
 
@@ -17,6 +33,20 @@ Writing a simple publisher and subscriber (Python)
 .. contents:: Contents
    :depth: 2
    :local:
+
+Summary
+-------
+
+Create a Python package named ``py_pubsub`` with the ``ament_python`` build type.
+
+Add two nodes:
+
+* ``talker``, which publishes ``{interface(std_msgs/msg/String)}`` messages on the topic topic every 0.5 seconds.
+* ``listener``, which subscribes to the same topic and prints each received message.
+
+Declare the ``{package(rclpy)}`` and ``{package(std_msgs)}`` dependencies in package.xml.
+Add both entry points in `setup.py`, build with ``colcon``, source the workspace setup file, and run the nodes with ``ros2 run``.
+
 
 Background
 ----------
