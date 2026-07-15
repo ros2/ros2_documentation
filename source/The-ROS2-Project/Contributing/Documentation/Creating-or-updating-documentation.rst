@@ -194,7 +194,7 @@ To check for broken links on the site, run the following command:
 This will check the entire site for broken links, and output the results to the screen and ``build/linkcheck``.
 
 5 Building the site for the active branch
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To build the site for just the current active branch:
 
