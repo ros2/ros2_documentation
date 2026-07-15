@@ -328,7 +328,7 @@ launch_ros
 Passing ROS arguments to node actions
 """""""""""""""""""""""""""""""""""""
 
-It is now possible to provide `ROS-specific node arguments <../../How-To-Guides/Node-arguments>` directly, without needing to use ``args`` with a leading ``--ros-args`` flag:
+It is now possible to provide `ROS-specific node arguments </Developer-Tools/Introspection-and-analysis/Node-arguments>` directly, without needing to use ``args`` with a leading ``--ros-args`` flag:
 
 .. tabs::
 

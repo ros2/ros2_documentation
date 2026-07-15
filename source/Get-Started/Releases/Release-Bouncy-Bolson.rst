@@ -29,7 +29,7 @@ This version of ROS 2 is supported on four platforms (see `REP 2000 <https://rep
 * Mac macOS 10.12 (Sierra)
 * Windows 10 with Visual Studio 2017
 
-Binary packages as well as instructions for how to compile from source are provided (see `install instructions <../../Installation>` as well as `documentation <https://docs.ros2.org/bouncy/>`__).
+Binary packages as well as instructions for how to compile from source are provided (see `install instructions </Get-Started/Installation>` as well as `documentation <https://docs.ros2.org/bouncy/>`__).
 
 Targeted platforms:
 
@@ -120,13 +120,13 @@ New features in this ROS 2 release
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-* `New launch system <../Tutorials/Intermediate/Launch/Launch-system>` featuring a much more capable and flexible Python API.
-* Parameters can be passed as `command line arguments <../How-To-Guides/Node-arguments>` to C++ executables.
-* Static remapping via `command line arguments <../How-To-Guides/Node-arguments>`.
+* `New launch system </Developer-Tools/Launch/Launch-system>` featuring a much more capable and flexible Python API.
+* Parameters can be passed as `command line arguments </Developer-Tools/Introspection-and-analysis/Node-arguments>` to C++ executables.
+* Static remapping via `command line arguments </Developer-Tools/Introspection-and-analysis/Node-arguments>`.
 * Various improvements to the Python client library.
 * Support for publishing and subscribing to serialized data.
   This is the foundation for the upcoming work towards a native rosbag implementation.
-* More `command line tools <../../Concepts/Basic/About-Command-Line-Tools>`\ , e.g. for working with parameters and lifecycle states.
+* More `command line tools </Developer-Tools/Introspection-and-analysis/About-Command-Line-Tools>`\ , e.g. for working with parameters and lifecycle states.
 * Binary packages / fat archives support three RMW implementations by default (without the need to build from source):
 
   * eProsima's Fast RTPS (default)

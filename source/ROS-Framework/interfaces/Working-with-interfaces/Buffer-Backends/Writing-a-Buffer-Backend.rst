@@ -36,13 +36,8 @@ else is polish.
 When **not** to write a backend
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-A backend is the right tool when you want to change the *memory domain* of
-variable-length primitive array fields.
-If your goal is to reduce copies within CPU memory, you are almost
-certainly looking for :doc:`intra-process communication
-<../../../nodes/Working-with-nodes/intra-process/Intra-Process-Communication.rst>` or
-:doc:`loaned messages <../../../client-libraries/Working-with-Client-Libraries/Configure-ZeroCopy-loaned-messages>`
-instead.
+A backend is the right tool when you want to change the *memory domain* of variable-length primitive array fields.
+If your goal is to reduce copies within CPU memory, you are almost certainly looking for :doc:`intra-process communication </ROS-Framework/nodes/Working-with-nodes/intra-process/Intra-Process-Communication>` or :doc:`loaned messages <../../../client-libraries/Working-with-Client-Libraries/Configure-ZeroCopy-loaned-messages>` instead.
 
 Reference implementations
 ^^^^^^^^^^^^^^^^^^^^^^^^^

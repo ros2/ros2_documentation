@@ -20,7 +20,7 @@ ROS 2 alpha8 release (code name *Hook-and-Loop*; October 2016)
 Changes to supported DDS vendors
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-ROS 2 supports multiple middleware implementations (see `this page <../../Concepts/Intermediate/About-Different-Middleware-Vendors>` for more details).
+ROS 2 supports multiple middleware implementations (see `this page </ROS-Framework/client-libraries/About-Different-Middleware-Vendors>` for more details).
 Until Alpha 8, ROS 2 was supporting ROS middleware implementations for eProsima's Fast RTPS, RTI's Connext and PrismTech's OpenSplice.
 To streamline our efforts, as of Alpha 8, Fast RTPS and Connext (static) will be supported, with Fast RTPS (`now Apache 2.0-licensed <http://www.eprosima.com/index.php/company-all/news/61-eprosima-goes-apache>`__) shipped as the default.
 
@@ -402,9 +402,9 @@ The major features included in this release are:
 * Support `multiple DDS vendors <https://design.ros2.org/articles/ros_on_dds.html#vendors-and-licensing>`__
 * Support messaging primitives: topics (publish / subscribe), services (request / response), and parameters
 * Support Linux (Ubuntu Trusty), OS X (Yosemite) and Windows (8)
-* `Use quality-of-service settings to handle lossy networks <../Tutorials/Demos/Quality-of-Service>`
-* `Communicate inter-process or intra-process with the same API <../Tutorials/Demos/Intra-Process-Communication>`
-* `Write real-time safe code that uses the ROS 2 APIs <../Tutorials/Demos/Real-Time-Programming>`
+* `Use quality-of-service settings to handle lossy networks </ROS-Framework/interfaces/topics/About-Quality-of-Service-Settings>`
+* `Communicate inter-process or intra-process with the same API </ROS-Framework/nodes/Working-with-nodes/intra-process/Intra-Process-Communication>`
+* `Write real-time safe code that uses the ROS 2 APIs </Capabilities/Motion-planning/Real-Time-Programming>`
 * `Run ROS 2 on "bare-metal" microcontrollers (no operating system) <https://github.com/ros2/freertps/wiki>`__
 * `Bridge communication between ROS 1 and ROS 2 <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__
 
