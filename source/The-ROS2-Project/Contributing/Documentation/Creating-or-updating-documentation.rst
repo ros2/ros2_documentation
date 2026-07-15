@@ -79,7 +79,7 @@ Set up the following prerequisites to build the docs site locally:
 
             $ python -m pip install -r requirements.txt -c constraints.txt
 
-#. Make sure the ``dot`` command, typically provided as part of ``graphviz``, is available, so that Sphinx is able to generate diagrams:
+#. Sphinx generates diagrams using the ``graphviz`` library, so make sure that it is installed and available:
 
    .. tabs::
 
