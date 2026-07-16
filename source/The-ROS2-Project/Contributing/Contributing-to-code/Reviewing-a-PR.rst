@@ -40,7 +40,7 @@ Steps
   * You can make small improvements to code or documentation in-place, such as fixing typos or addressing minor style issues.
   * You should make a best effort attempt to comment on the pull request within one week of submission.
 
-* When you begin reviewing a pull request, leave a comment to let others know it is under review.
+* When you begin reviewing a pull request, leave a comment to let others know you are performing a review.
 
 2 Reviewing the pull request
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
