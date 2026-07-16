@@ -29,7 +29,7 @@ Prerequisites
 
    * If your pull request is for a code change:
 
-     * Make sure you've followed the guidance in the :doc:`Developer guide <../Developer-Guide>`.
+     * Make sure you've followed the guidance in the :doc:`Developer guide </The-ROS2-Project/Contributing/Developer-Guide>`.
      * Check that your code complies with the relevant section of the :doc:`Code style guide </The-ROS2-Project/Contributing/Code-Style-Language-Versions>`.
      * Make sure you've :ref:`run the tests <colcon-run-the-tests>` and the appropriate linter for your code changes.
 
