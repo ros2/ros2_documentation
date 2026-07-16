@@ -56,7 +56,7 @@ Use the following guidelines to prepare your pull request:
 * **Draft pull requests**
    * Use draft pull requests to request early feedback while work is in progress.
    * Don't expect draft pull requests to be formally reviewed or merged until you have marked them as ready.
-   * If you want early feedback from a specific person on a draft pull request, mention them (using @) in the pull request description or in a comment.
+   * If you want early feedback from a specific person on a draft pull request, mention them (using ``@``) in the pull request description or in a comment.
 * **Mentions and references**
    * If your changes are based on a design document, mention the package owners who reviewed the design in the pull request description.
    * If your pull request depends on another pull request, clearly reference the dependency in the pull request description.
