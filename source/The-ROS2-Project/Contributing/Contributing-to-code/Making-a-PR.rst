@@ -69,7 +69,7 @@ Use the following guidelines to prepare your pull request:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Create a pull request from the branch containing your changes in your fork, to the **rolling** branch of the target ROS repository.
-   You can create your pull request using the GitHub CLI, GitHub Desktop, or using other methods.
+   You can create your pull request using the GitHub CLI, GitHub Desktop, or the GitHub web interface.
 
    For more information about creating a pull request from a fork, see `the GitHub documentation <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork>`__.
 
