@@ -101,7 +101,7 @@ Aim to reply back to review comments within one week, so that you and the review
 4 Merging the pull request
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-After you've actioned any feedback, your pull request must be approved by a :doc:`Committer for the target ROS repository <The-ROS2-Project/Governance>` before it can be merged.
+After you've actioned any feedback, your pull request must be approved by a :doc:`Committer for the target ROS repository </The-ROS2-Project/Governance>` before it can be merged.
 
 When the Committer approves your pull request, they will merge it to the target branch (usually **rolling**), and you will receive a notification from GitHub.
 

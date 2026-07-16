@@ -17,7 +17,7 @@ Summary
 Reviewing a pull request (PR) from a contributor allows you to check that their changes meet the appropriate guidelines and standards.
 Anyone is welcome to review and approve a pull request.
 Changes are ready to merge after they have been approved.
-Only a :doc:`Committer <The-ROS2-Project/Governance>` for the target repository can merge a pull request into that repository, and they will not do so until it has been approved.
+Only a :doc:`Committer </The-ROS2-Project/Governance>` for the target repository can merge a pull request into that repository, and they will not do so until it has been approved.
 
 Prerequisites
 -------------
