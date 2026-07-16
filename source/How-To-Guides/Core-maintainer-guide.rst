@@ -12,6 +12,7 @@ This guide gives some information about the responsibilities of a ROS 2 core pac
 .. contents:: Table of Contents
    :local:
 
+<<<<<<< HEAD:source/How-To-Guides/Core-maintainer-guide.rst
 Reviews
 -------
 
@@ -31,6 +32,8 @@ The review is looking for:
 * Targets default branch (usually "rolling")
 * Has at least one approval from a maintainer that is not the author
 
+=======
+>>>>>>> a6fdb55 (3di | Making and reviewing a PR (#6967)):source/Developer-Tools/Build/Core-maintainer-guide.rst
 Continuous Integration
 ----------------------
 
@@ -63,7 +66,7 @@ This can be accomplished by using the colcon arguments ``--packages-up-to``, ``-
 See the `colcon documentation <https://colcon.readthedocs.io/en/released/user/how-to.html#build-only-a-single-package-or-selected-packages>`__ for more examples on the flags that can be used.
 Further documentation on how to use the CI machinery is available at https://github.com/ros2/ci/blob/master/CI_BUILDERS.md.
 
-Merging Pull Requests
+Merging pull requests
 ---------------------
 
 A pull request can be merged if all of the following are true:
@@ -71,7 +74,9 @@ A pull request can be merged if all of the following are true:
 * The DCO bot reports a passing result
 * The PR build reports a passing result
 * The CI build reports a passing result on all platforms
-* The code has been reviewed and approved by at least one maintainer
+* The PR has been reviewed and approved by at least one maintainer
+
+For more information about what happens when a PR is reviewed, see :doc:`/The-ROS2-Project/Contributing/Contributing-to-code/Reviewing-a-PR`.
 
 After a PR is merged, it will automatically get built with the next `nightlies <https://ci.ros2.org/view/nightly>`__.
 It is highly recommended to check the nightlies after merging pull requests to ensure no regressions have occurred.
