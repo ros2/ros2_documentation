@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: tutorial
+   :experience: beginner
+   :area: client-libraries, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+   
 .. redirect-from::
 
     Tutorials/Creating-Your-First-ROS2-Package
@@ -5,8 +12,17 @@
 
 .. _CreatePkg:
 
-Creating a package
-==================
+Creating a package — tutorial
+=============================
+
+.. short-description::
+   Packages organise ROS code so it can be built, installed, and shared.
+   This tutorial shows you how to create a CMake or Python package, build it with ``colcon``, and run its executable.
+   After following these steps, you will have a working package ready for custom code.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Create a new package using either CMake or Python, and run its executable.
 
@@ -17,6 +33,19 @@ Creating a package
 .. contents:: Contents
    :depth: 2
    :local:
+
+
+Summary
+-------
+
+Create a package from the workspace ``src`` directory using ``ros2 pkg create`` with either ``ament_cmake`` or ``ament_python``.
+Use the ``--node-name`` option to generate a simple executable, then build the workspace with ``colcon build``.
+
+To use the package:
+
+* Source the workspace setup file from the ``install`` directory.
+* Run the executable with ``ros2 run my_package my_node``.
+* Update ``package.xml`` with maintainer, description, and license details.
 
 Background
 ----------
