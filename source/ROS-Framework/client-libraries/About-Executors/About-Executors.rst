@@ -111,9 +111,9 @@ Available in Lyrical Luth onward, the `EventsCBGExecutor <https://github.com/ros
 Instead of the wait sets, it utilizes a *first-in first-out events queue* to process ready events.
 It builds off the core idea that you don't pay for what you're not using, because rather than polling for changes on entities, an entity will enqueue an event to be processed *only when it becomes ready*.
 
-This new executor improves on its predecessor, the ``rclcpp::experimental::EventsExecutor``, by adding support for multiple sources of ROS time (including sim time), addressing `issues with slow running timers leading to a burst of timer events <https://github.com/ros2/rclcpp/issues/2771>`_, and multithreading support.
-Therefore, the new executor can also act as a drop-in replacement for the ``MultiThreadedExecutor``, as it will also create a configurable number of worker threads to process ready events.
-In single-threaded mode, the ``EventsCBGExecutor`` results in less context switching and `exhibits similar performance characteristics to its predecessor <https://discourse.openrobotics.org/t/ros2-state-of-the-events-executors-benchmark-comparison-between-rclcpp-eventsexecutor-and-cm-executors-eventscbgexecutor/50337>`_.
+This executor supports multiple sources of ROS time (including sim time), addresses `issues with slow running timers leading to a burst of timer events <https://github.com/ros2/rclcpp/issues/2771>`_, and provides multithreading support.
+Therefore, the executor can also act as a drop-in replacement for the ``MultiThreadedExecutor``, as it will also create a configurable number of worker threads to process ready events.
+In single-threaded mode, the ``EventsCBGExecutor`` results in less context switching and `exhibits strong performance characteristics <https://discourse.openrobotics.org/t/ros2-state-of-the-events-executors-benchmark-comparison-between-rclcpp-eventsexecutor-and-cm-executors-eventscbgexecutor/50337>`_.
 
 Note: Currently, there is no limit to the number of events that can be added to the queue.
 This means that if the process is overloaded and starts slowing down, the number of ready entities inside the queue can grow unbounded.
