@@ -104,7 +104,7 @@ Steps
        ``Minor naming suggestion; user_list could be named users to better reflect that it's a collection.``
 
    * Be clear about what you expect to happen in response to each comment, including whether the comment blocks merging the pull request.
-   * Remember to include positive feedback and thanks for the work done by the submitter.
+   * Remember to include positive feedback and thanks for the work done by the submitter, and always be constructive.
 
 3 Approving and merging the pull request
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
