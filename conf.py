@@ -206,7 +206,7 @@ html_js_files = ['adopters.js']
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'ros2_docsdoc'
 
-html_baseurl = 'https://docs.ros.org/en'
+html_baseurl = 'https://docs.ros.org/en/rolling'
 
 # The sitemap_url_scheme is used by the sitemap generator to figure out how
 # to generate links.  Essentially, the sitemap generator uses the following:
@@ -234,10 +234,10 @@ class RedirectFrom(Directive):
             return
 
         redirect_html_fragment = """
-            <link rel="canonical" href="{base_url}/{url}" />
+            <link rel="canonical" href="{canonical_abs_url}" />
             <meta http-equiv="refresh" content="0; url={url}" />
             <script>
-                window.location.href = '{url}';
+            window.location.href = '{url}';
             </script>
         """
         redirections = {
@@ -284,7 +284,7 @@ class RedirectFrom(Directive):
                     'skip_sitemap': 'redirect',
                     'title': os.path.basename(redirect_url),
                     'metatags': redirect_html_fragment.format(
-                        base_url=app.config.html_baseurl,
+                        canonical_abs_url=app.config.html_baseurl.rstrip('/') + '/' + canonical_url + app.builder.out_suffix,
                         url=app.builder.get_relative_uri(
                             redirect_url, canonical_url
                         )
@@ -325,8 +325,9 @@ def smv_rewrite_configs(app, config):
     # external defines are setup, and environment variables aren't passed through to
     # conf.py).  Instead, hook into the 'config-inited' event which is late enough
     # to rewrite the various configuration items with the current version.
+
     if app.config.smv_current_version != '':
-        app.config.html_baseurl = app.config.html_baseurl + '/' + app.config.smv_current_version
+        app.config.html_baseurl = 'https://docs.ros.org/en/' + app.config.smv_current_version
         app.config.project = 'ROS 2 Documentation: ' + app.config.smv_current_version.title()
 
         app.config.html_logo = 'source/Get-Started/Releases/' + app.config.smv_current_version + '-small.png'
