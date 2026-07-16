@@ -22,7 +22,7 @@ Only a :doc:`Committer <The-ROS2-Project/Governance>` for the target repository 
 Prerequisites
 -------------
 
-A code or documentation contributor has made a pull request to merge their changes into one of `the ROS repositories <https://github.com/ros2>`__.
+A code or documentation contributor has :doc:`made a pull request </The-ROS2-Project/Contributing/Contributing-to-code/Making-a-PR>` to merge their changes into one of `the ROS repositories <https://github.com/ros2>`__.
 
 Steps
 -----
