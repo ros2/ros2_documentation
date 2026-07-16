@@ -13,25 +13,6 @@ This guide gives some information about the responsibilities of a ROS 2 core pac
 .. contents:: Table of Contents
    :local:
 
-Reviews
--------
-
-All incoming code to ROS 2 core repositories must be reviewed.
-The review is looking for:
-
-* Suitability in the package
-* Correct code
-* Conforms to developer guidelines:
-
-    * :doc:`Developer Guide <../../The-ROS2-Project/Contributing/Developer-Guide>`
-    * :doc:`Code Style Guide <../../The-ROS2-Project/Contributing/Code-Style-Language-Versions>`
-
-* Adds tests for the bug/feature
-* Adds documentation for new features
-* Clean Continuous Integration run
-* Targets default branch (usually "rolling")
-* Has at least one approval from a maintainer that is not the author
-
 Continuous Integration
 ----------------------
 
@@ -64,7 +45,7 @@ This can be accomplished by using the colcon arguments ``--packages-up-to``, ``-
 See the `colcon documentation <https://colcon.readthedocs.io/en/released/user/how-to.html#build-only-a-single-package-or-selected-packages>`__ for more examples on the flags that can be used.
 Further documentation on how to use the CI machinery is available at https://github.com/ros2/ci/blob/master/CI_BUILDERS.md.
 
-Merging Pull Requests
+Merging pull requests
 ---------------------
 
 A pull request can be merged if all of the following are true:
@@ -72,7 +53,9 @@ A pull request can be merged if all of the following are true:
 * The DCO bot reports a passing result
 * The PR build reports a passing result
 * The CI build reports a passing result on all platforms
-* The code has been reviewed and approved by at least one maintainer
+* The PR has been reviewed and approved by at least one maintainer
+
+For more information about what happens when a PR is reviewed, see :doc:`/The-ROS2-Project/Contributing/Contributing-to-code/Reviewing-a-PR`.
 
 After a PR is merged, it will automatically get built with the next `nightlies <https://ci.ros2.org/view/nightly>`__.
 It is highly recommended to check the nightlies after merging pull requests to ensure no regressions have occurred.
