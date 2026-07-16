@@ -90,7 +90,7 @@ After you've submitted your pull request, other developers and contributors in t
 3 Responding to review comments
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-When another developer or contributor adds a review comment or suggestion to your pull request, you receive a notification from GitHub.
+When another developer or contributor adds a review comment or suggestion to your pull request, you will receive a notification from GitHub.
 
 You can view and discuss review comments directly in GitHub (see `the GitHub documentation for assistance <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/viewing-a-pull-request-review>`__), and add further commits to your branch to address them when needed.
 You can also directly accept any suggested changes in the pull request, which adds a new commit to your branch automatically (see `the GitHub documentation for how to accept suggested changes <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request>`__).
