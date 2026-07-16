@@ -66,7 +66,7 @@ Steps
 
 #. Follow these guidelines to make sure your review comments are useful and actionable:
 
-   * Start with high-level comments (for example, asking for refactoring), then move on to lower-level comments about specifics.
+   * Start with high-level comments (for example, asking for refactoring or design changes), then move on to lower-level comments about specifics.
    * Consider providing the following types of comment:
 
      * **Positive feedback** — for example:
