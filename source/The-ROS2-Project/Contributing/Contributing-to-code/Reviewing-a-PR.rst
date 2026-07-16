@@ -30,7 +30,7 @@ Steps
 1 Preparing for review
 ^^^^^^^^^^^^^^^^^^^^^^
 
-* Any developer is welcome to review a pull request.
+* Anyone is welcome to review a pull request.
 
   A pull request generally requires two reviews before it can be merged.
 
