@@ -114,7 +114,7 @@ After you have reviewed the pull request and provided feedback, the submitter ma
 When you are satisfied with the changes and they are ready to be merged, approve the pull request (`see the GitHub documentation for guidance <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/approving-a-pull-request-with-required-reviews>`__).
 
 * Anyone is welcome to review a pull request, even if it already has a review.
-* A pull request must have at least one approval from a developer (other than the author) before it can be merged to the target branch.
+* A pull request must have at least one approval, and in most cases, two approvals, from a developer (other than the author) before it can be merged to the target branch.
 * Only a ROS core maintainer for the target repository can merge an approved pull request.
 
   * See the :doc:`current ROS PMC constituents and committers </The-ROS2-Project/Governance>` for the list of people with merge permissions for the target repository.
