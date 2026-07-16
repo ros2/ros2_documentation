@@ -35,7 +35,7 @@ Prerequisites
 
    * If your pull request is for a documentation change:
 
-     * Make sure you've followed the guidance in :doc:`../Contributing-To-ROS-2-Documentation`.
+     * Make sure you've followed the guidance in :doc:`/The-ROS2-Project/Contributing/Contributing-to-documentation`.
 
 Steps
 -----
