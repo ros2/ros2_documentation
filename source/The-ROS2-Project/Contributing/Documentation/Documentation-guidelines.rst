@@ -30,7 +30,7 @@ We recommend that you enable automatic white space highlighting and cleanup if y
 You can refer to `reStructuredText User Documentation <https://docutils.sourceforge.io/rst.html>`_ for a detailed technical specification.
 
 This article relates to contributing to the ROS documentation site.
-For more information about creating or updating package documentation, see :doc:`/How-To-Guides/Documenting-a-ROS-2-Package`.
+For more information about creating or updating package documentation, see :doc:`/Developer-Tools/Package-documentation/Documenting-a-ROS-2-Package`.
 
 Table of contents
 -----------------
