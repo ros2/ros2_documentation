@@ -114,7 +114,7 @@ The ROS PMC currently consists of the following constituents:
      - Member
      - CST (UTC-6)/CDT (UTC-5)
    * - Michael Orlov
-     - `Apex.AI <https://www.apex.ai/>`_
+     - Independent
      - `MichaelOrlov <https://github.com/MichaelOrlov>`_
      - Member
      - PST (UTC-8)/PDT (UTC-7)
