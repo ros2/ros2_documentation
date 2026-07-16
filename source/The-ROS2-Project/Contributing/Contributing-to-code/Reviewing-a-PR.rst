@@ -50,7 +50,7 @@ Steps
    * Confirm the code or documentation changes are appropriate for the repository.
    * Verify the code is correct and complete, and scoped to a single, well defined change.
    * Check that the pull request targets the default branch (usually ``rolling``).
-   * If the changes are based on a design document, verify that the changes are consistent with the design.
+   * If the changes are based on a design document, such as a `REP <https://reps.openrobotics.org/>`__, verify that the changes are consistent with the design.
    * For code changes, ensure that the changes:
 
      * Follow the :doc:`Developer guide <../Developer-Guide>`.
