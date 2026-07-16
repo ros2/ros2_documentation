@@ -79,7 +79,7 @@ Use the following guidelines to prepare your pull request:
 
    * **Description**: summarize your code changes, linking to related GitHub issue(s) and PRs by ID, highlighting any key points or areas of concern.
    * **Issue**: include the ID of the GitHub issue fixed by your changes, in the format ``Fixes #(issue)``.
-     This ensures that this issue is automatically closed when the pull request is merged.
+     This ensures that the issue is automatically closed when the pull request is merged.
    * **Generative AI**: if this pull request was generated using Generative AI, specify the model and version (for example, GitHub Copilot v3.2).
    * **Additional information**: provide any context or details you think will be useful for understanding your changes.
 
