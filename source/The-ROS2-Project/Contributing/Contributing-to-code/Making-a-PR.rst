@@ -18,7 +18,7 @@ Summary
 Making a pull request allows you to collaborate with other ROS contributors, providing a space to discuss and review your code changes before a ROS maintainer merges them.
 Pull requests are welcome for any of `the ROS repositories <https://github.com/ros2>`__.
 
-For more information about contribution etiquette, see :doc:`Contributing <../../Contributing>`.
+For more information about contribution etiquette, see :doc:`Contributing </The-ROS2-Project/Contributing>`.
 
 Prerequisites
 -------------
