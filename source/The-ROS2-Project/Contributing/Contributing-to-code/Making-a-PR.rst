@@ -14,7 +14,7 @@ With this information, you'll be able to submit focused changes in a pull reques
 Summary
 -------
 
-Pull requests (PRs) are proposals to merge your changes into a ROS project.
+`Pull requests (PRs) <https://docs.github.com/en/pull-requests>`__ are proposals to merge your changes into a ROS repository.
 Making a pull request allows you to collaborate with other ROS contributors, providing a space to discuss and review your code changes before a ROS maintainer merges them.
 Pull requests are welcome for any of `the ROS repositories <https://github.com/ros2>`__.
 
