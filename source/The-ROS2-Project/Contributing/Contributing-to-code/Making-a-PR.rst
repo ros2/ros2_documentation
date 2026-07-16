@@ -58,7 +58,7 @@ Use the following guidelines to prepare your pull request:
    * Don't expect draft pull requests to be formally reviewed or merged until you have marked them as ready.
    * If you want early feedback from a specific person on a draft pull request, mention them (using ``@``) in the pull request description or in a comment.
 * **Mentions and references**
-   * If your changes are based on a design document, mention the package owners who reviewed the design in the pull request description.
+   * If your changes are based on a design document, such as a `REP <https://reps.openrobotics.org/>`__, mention other people involved in the design, such as those who reviewed the REP, in the pull request description.
    * If your pull request depends on another pull request, clearly reference the dependency in the pull request description.
    * If your changes are planned to be released with a specific version of ROS, include that version of ROS in the pull request description.
 * **Documenting your code changes**
