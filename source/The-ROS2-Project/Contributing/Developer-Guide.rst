@@ -169,7 +169,7 @@ Guidelines for backporting PRs
 When changing an older version of ROS:
 
 * Make sure the features or fixes are accepted and merged in the rolling branch before opening a PR to backport the changes to older versions.
-* When backporting to older versions, also consider backporting to any other :doc:`still supported versions <../../Releases>`, even non-LTS versions.
+* When backporting to older versions, also consider backporting to any other :doc:`still supported versions <../../Get-Started/Releases>`, even non-LTS versions.
 * If you are backporting a single PR in its entirety, title the backport PR "[Distro] <name of original PR>".
 * Link to all PRs whose changes you're backporting from the description of your backport PR.
 * Package maintainers typically use `Mergifyio <https://mergify.com/>`_ to automatically backport PRs to downstream distributions when needed, however developers can still perform manual backporting operations as described above when necessary.
@@ -219,7 +219,7 @@ API Documentation for ROS Packages
 API documentation for all released ROS packages can be `found here <https://docs.ros.org/en/{DISTRO}/p/>`__.
 We recommend using `index.ros.org <https://index.ros.org/>`_ to search through available ROS packages to find their documentation.
 
-If you are a ROS package developer looking for guidance on documenting your package please see :doc:`our "how to" guide on package level documentation <../../How-To-Guides/Documenting-a-ROS-2-Package>`.
+If you are a ROS package developer looking for guidance on documenting your package please see :doc:`our "how to" guide on package level documentation <../../Developer-Tools/Package-documentation/Documenting-a-ROS-2-Package>`.
 The documentation for all released ROS 2 packages is automatically hosted on `docs.ros.org <https://docs.ros.org/en/{DISTRO}/p/>`_.
 
 Testing
@@ -288,7 +288,7 @@ When filing an issue please make sure to:
   - **The specific version of ROS 2.**
     Reasoning: Some bugs may be present in a particular ROS 2 release and later fixed.
     It is important to know if your installation includes these fixes.
-  - **The DDS/RMW implementation being used** (see `this page <../../Concepts/Intermediate/About-Different-Middleware-Vendors>` for how to determine which one).
+  - **The DDS/RMW implementation being used** (see `this page <../../ROS-Framework/client-libraries/About-Different-Middleware-Vendors>` for how to determine which one).
     Reasoning: Communication issues may be specific to the underlying ROS middleware being used.
   - **The ROS 2 client library being used.**
     Reasoning: This helps us narrow down the layer in the stack at which the issue might be.
@@ -302,7 +302,7 @@ When filing an issue please make sure to:
   - Upgrading to the latest version of the code, which may include bug fixes that have not been released yet.
     See `this section <building-from-source>` and follow the instructions to get the "rolling" branches.
   - Trying with a different RMW implementation.
-    See `this page <../../How-To-Guides/Working-with-multiple-RMW-implementations>` for how to do that.
+    See `this page <../../Get-Started/Installation/RMW-Implementations/Working-with-multiple-RMW-implementations>` for how to do that.
 
 Branches
 ^^^^^^^^
@@ -330,7 +330,9 @@ For example: Development commits targeting ``foxy`` are made to the ``foxy`` bra
 
 **What about** ``main`` **and** ``rolling`` **?**
 
-``main`` typically targets :doc:`Rolling <../../Releases/Release-Rolling-Ridley>` (and so, the next unreleased ROS distribution), though the maintainers may decide to develop and release from a ``rolling`` branch instead.
+``main`` typically targets :doc:`Rolling <../../Get-Started/Releases/Release-Rolling-Ridley>` (and so, the next unreleased ROS distribution), though the maintainers may decide to develop and release from a ``rolling`` branch instead.
+
+.. _DeveloperGuidePullRequests:
 
 Library versioning
 ^^^^^^^^^^^^^^^^^^
@@ -503,7 +505,7 @@ The original ROS packages have been modified to follow Debian guidelines, which 
 
 In addition several of the bootstrap dependencies such as command line tools like ``vcstool`` and ``colcon`` as well as some libraries like ``osrf-pycommon`` and ``ament`` are also packaged upstream.
 
-Unlike the OSRF-provided ROS packages from http://packages.ros.org, the packages in the upstream repositories are not attached to a specific :doc:`ROS distribution <../../Releases>`.
+Unlike the OSRF-provided ROS packages from http://packages.ros.org, the packages in the upstream repositories are not attached to a specific :doc:`ROS distribution <../../Get-Started/Releases>`.
 Rather, they represent a snapshot in time that will be updated periodically within Debian unstable and then latched at various points into downstream Debian and Ubuntu distributions.
 
 Don't mix the streams
@@ -539,7 +541,7 @@ The usual workflow is:
 
 * Write tests
 * Enable and run linters
-* Run tests locally using ``colcon test`` (see the :doc:`colcon tutorial <../../Tutorials/Beginner-Client-Libraries/Colcon-Tutorial>`)
+* Run tests locally using ``colcon test`` (see the :doc:`colcon tutorial <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Colcon-Tutorial>`)
 * Once everything builds locally without warnings and all tests are passing, run CI on your feature branch:
 
   * Go to ci.ros2.org
