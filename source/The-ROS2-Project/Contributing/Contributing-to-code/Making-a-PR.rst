@@ -46,7 +46,7 @@ Steps
 Use the following guidelines to prepare your pull request:
 
 * **Scope and focus**
-   * Limit each pull request to a single, well defined change.
+   * Limit each pull request to a single, well-defined change.
    * Submit unrelated changes as separate pull requests.
    * Keep patches small and avoid unnecessary or incidental changes.
 * **Commit history and squashing**
