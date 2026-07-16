@@ -435,3 +435,16 @@ adopters:
     country:
       - HU
     description: "Research and Development of an Autoware-Based Autonomous Shuttle"
+
+  - organization: "TriOrb Inc."
+    organization_url: "https://triorb.co.jp/en/"
+    project: "TriOrb BASE"
+    project_url: "https://github.com/TriOrb-Inc"
+    domain:
+      - Logistics/Warehouse
+      - Manufacturing
+      - Research
+    date_added: "2026-07-16"
+    country:
+      - JP
+    description: "Ball-Driven Omnidirectional Mobility Platform. Powered by three spheres and three motors, enabling seamless movement in any direction. It solves challenges beyond the reach of conventional robots—navigating steps, irregular floors, millimeter-precise positioning and heavy load transport."
