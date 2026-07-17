@@ -2,8 +2,24 @@
 
     Tutorials/Advanced/Ament-Lint-For-Clean-Code
 
-Ament Lint CLI Utilities
-========================
+.. meta::
+   :contentType: tutorial
+   :experience: advanced
+   :area: builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Using ament Lint CLI Utilities - tutorial
+=========================================
+
+.. short-description::
+   Linting tools help you keep ROS code consistent, maintainable, and ready for review.
+   This article describes how to use `ament_lint` CLI utilities to check copyright notices, C++ code, Python code, XML, CMake files, and formatting.
+   After you follow these steps, you can identify and fix common code quality issues.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Learn how to use ``ament_lint`` and related tools to identify and fix code quality issues.
 
@@ -14,6 +30,32 @@ Ament Lint CLI Utilities
 .. contents:: Table of Contents
    :depth: 2
    :local:
+
+Summary
+-------
+
+Linting tools help you keep ROS code consistent, maintainable, and ready for review.
+This article describes how to use `ament_lint` CLI utilities to check copyright notices, C++ code, Python code, XML, CMake files, and formatting.
+After you follow these steps, you can identify and fix common code quality issues.
+
+Summary:
+
+All `ament_lint` tools accept files or directories, analyse them, and generate reports.
+Use `--help` for the most accurate options.
+
+Common tools include:
+
+* `ament_copyright` to check or add copyright and license notices.
+
+* `ament_cppcheck` for C++ static analysis.
+
+* `ament_cpplint` for C++ style checks.
+
+* `ament_flake8` for Python linting.
+
+* `ament_uncrustify` to check and reformat C++ code with --reformat.
+
+Other useful tools include `ament_lint_cmake`, `ament_xmllint`, and `ament_pep257`.
 
 Background
 ----------

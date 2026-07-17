@@ -21,15 +21,15 @@ Getting Backtraces in ROS 2 - how-to
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
-   :depth: 2
-   :local:
-
 **Goal:** Show various methods for getting backtraces in ROS 2
 
 **Tutorial level:** Intermediate
 
 **Time:** 15 minutes
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
 
 Summary
 -------

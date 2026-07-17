@@ -8,10 +8,6 @@
 Testing
 =======
 
-.. showmeta::
-   :order: area, contentType, experience
-   :labels: area=Area, contentType=Content type, experience=Level
-
 PLACEHOLDER
 
 .. toctree::
@@ -25,4 +21,3 @@ PLACEHOLDER
    Testing/Testing/Integration
    Testing/Testing/BuildFarmTesting
    Testing/Overriding-QoS-Policies-For-Recording-And-Playback
-
