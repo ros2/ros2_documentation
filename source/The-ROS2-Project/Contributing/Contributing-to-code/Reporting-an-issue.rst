@@ -30,7 +30,7 @@ Steps
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you identify a bug, have a suggestion for enhancement, or a question specific to one package, you can report an issue on GitHub.
-For example, if you are following the :doc:`/Tutorials` and come across an instruction that doesn't work on your system, you can report an issue in the `ROS documentation repository <https://github.com/ros2/ros2_documentation/issues>`__.
+For example, if you are following a :doc:`tutorial </First-Steps>` and come across an instruction that doesn't work on your system, you can report an issue in the `ROS documentation repository <https://github.com/ros2/ros2_documentation/issues>`__.
 
 You can report code issues in the ROS repository for the package where the error occurred.
 This is generally the last file listed in the stack trace.
@@ -87,7 +87,7 @@ Additional information
   * ``Ogre.log`` for rviz, if possible (run with ``rviz -l``)
   * Bag files and code samples which reproduce the problem
   * GIFs or video clips to demonstrate the problem
-  * Log files (see :doc:`/Concepts/Intermediate/About-Logging`) or logs from the RQT console (see :doc:`/Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console`)
+  * Log files (see :doc:`/ROS-Framework/nodes/About-Logging/About-Logging`) or logs from the RQT console (see :doc:`/ROS-Framework/nodes/Working-with-nodes/Using-Rqt-Console/Using-Rqt-Console`)
 
 * Also describe any troubleshooting which you have already attempted, for example:
 
@@ -97,7 +97,7 @@ Additional information
 
   * Trying to reproduce your issue with a different RMW implementation.
 
-    For more information, see :doc:`/How-To-Guides/Working-with-multiple-RMW-implementations`.
+    For more information, see :doc:`/Get-Started/Installation/RMW-Implementations/Working-with-multiple-RMW-implementations`.
 
 Related content
 ---------------
