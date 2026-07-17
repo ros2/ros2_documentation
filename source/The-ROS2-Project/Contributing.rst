@@ -47,7 +47,7 @@ Discussions and support
 -----------------------
 
 Some of the easiest ways to contribute to ROS 2 involve engaging in community discussions and support.
-You can find more information on how to pitch in on the :doc:`Contact <../../Contact>` page.
+You can find more information on how to pitch in on the :doc:`Contact <../Contact>` page.
 
 Contributing code
 -----------------
@@ -69,8 +69,7 @@ Development Guides
    Contributing/Quality-Guide
    Contributing/Build-Farms
    Contributing/Windows-Tips-and-Tricks
-   Contributing/Contributing-To-ROS-2-Documentation
-   Contributing/Contributing-to-code
+   Contributing/Contributing-to-documentation
 
 What to work on
 ^^^^^^^^^^^^^^^
