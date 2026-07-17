@@ -34,12 +34,6 @@ Using ament Lint CLI Utilities - tutorial
 Summary
 -------
 
-Linting tools help you keep ROS code consistent, maintainable, and ready for review.
-This article describes how to use `ament_lint` CLI utilities to check copyright notices, C++ code, Python code, XML, CMake files, and formatting.
-After you follow these steps, you can identify and fix common code quality issues.
-
-Summary:
-
 All `ament_lint` tools accept files or directories, analyse them, and generate reports.
 Use `--help` for the most accurate options.
 

@@ -17,7 +17,7 @@ Installing dependencies - how-to
    This article describes how to install the required release tools on deb, RPM, and other platforms.
    After you follow these steps, your environment will be ready for the next release task.
 
-showmeta::
+.. showmeta::
     :order: area, contentType, experience
     :labels: area=Area, contentType=Content type, experience=Level
 

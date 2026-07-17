@@ -12,6 +12,11 @@
 Debugging with IDEs [community-contributed] - how-to
 ====================================================
 
+.. short-description::
+   ROS development is usually command-line focused, but IDEs can help with editing, running, and debugging nodes.
+   This article describes how to configure Visual Studio Code and PyCharm for ROS workspaces.
+   After following these steps, you will be able to use IDE debugging tools while keeping your sourced environment and workspace paths available.
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
