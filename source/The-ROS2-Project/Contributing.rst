@@ -86,15 +86,6 @@ If you have some code to contribute that fixes a bug or improves documentation, 
 For larger changes, it is a good idea to discuss the proposal `on the ROS 2 forum <https://discourse.openrobotics.org/c/ros/111>`__ before you start to work on it so that you can identify if someone else is already working on something similar.
 If your proposal involves changes to the APIs, it is especially recommended that you discuss the approach before starting work.
 
-Submitting your code changes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Code contributions should be made via pull requests to `the appropriate ros2 repositories <https://github.com/ros2>`__.
-
-We ask all contributors to follow the practices explained in :doc:`the developer guide <Contributing/Developer-Guide>`.
-
-Please be sure to :ref:`run tests <colcon-run-the-tests>` for your code changes because most packages have tests that check that the code complies with our style guidelines.
-
 Becoming a core maintainer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
