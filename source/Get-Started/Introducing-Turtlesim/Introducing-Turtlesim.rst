@@ -91,7 +91,7 @@ The output should list Turtlesim's executables:
 
 The rqt tool is a graphical interface for ROS.
 Instead of typing commands by hand, you can use rqt to explore and call Turtlesim's services with a few clicks.
-For more information about rqt, see :doc:`../../../../Concepts/Intermediate/About-RQt`.
+For more information about rqt, see :doc:`../../Developer-Tools/Visualization/About-RQt`.
 
 In a new terminal, install ``rqt`` and the common plugins:
 
@@ -259,10 +259,10 @@ Related content
 
 More articles:
 
-* :doc:`First steps with ROS <../../../First-Steps>`
+* :doc:`First steps with ROS <../../First-Steps>`
 * :doc:`../Configuring-ROS2-Environment`
-* :doc:`../Understanding-ROS2-Nodes/Understanding-ROS2-Nodes`
-* :doc:`../Understanding-ROS2-Topics/Understanding-ROS2-Topics`
+* :doc:`../../ROS-Framework/nodes/Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes`
+* :doc:`../../ROS-Framework/interfaces/topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics`
 
 Packages/reference:
 
