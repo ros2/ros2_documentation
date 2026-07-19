@@ -1,5 +1,5 @@
-The ROS 2 Project
-=================
+ROS Community
+=============
 
 Check out the resources below to learn more about the advancement of the ROS 2 project.
 
