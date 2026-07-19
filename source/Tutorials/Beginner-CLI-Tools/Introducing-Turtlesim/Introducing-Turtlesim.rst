@@ -90,9 +90,8 @@ The output should list Turtlesim's executables:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The rqt tool is a graphical interface for ROS.
-For more information about rqt, see :doc:`../../../../Concepts/Intermediate/About-RQt`.
-
 Instead of typing commands by hand, you can use rqt to explore and call Turtlesim's services with a few clicks.
+For more information about rqt, see :doc:`../../../../Concepts/Intermediate/About-RQt`.
 
 In a new terminal, install ``rqt`` and the common plugins:
 
@@ -166,7 +165,10 @@ The following example uses rqt but you can also operate Turtlesim by entering th
       Pressing an arrow key causes the turtle to move a short distance and then stop.
       This behaviour ensures a robot doesn't continue carrying on an instruction if, for example, the operator loses connection to the robot.
 
-#. (Optional) In a new terminal, source ROS again and inspect the running system:
+#. (Optional) List the active nodes, topics, services, and actions.
+   This will help you verify what is currently running and available.
+
+   In a new terminal, source ROS again, then run:
 
    .. code-block:: console
 
@@ -174,6 +176,11 @@ The following example uses rqt but you can also operate Turtlesim by entering th
       $ ros2 topic list
       $ ros2 service list
       $ ros2 action list
+
+   ``ros2 node list`` shows the nodes currently running in the system.
+   ``ros2 topic list`` shows the topics through which nodes exchange data.
+   ``ros2 service list`` shows the services nodes expose for request-response interactions.
+   ``ros2 action list`` shows the actions available for long-running tasks such as rotating the turtle.
 
 #. Start rqt:
 
@@ -225,7 +232,13 @@ The following example uses rqt but you can also operate Turtlesim by entering th
 
    .. image:: images/new_pen.png
 
-#. In a new terminal, control ``turtle2`` by remapping:
+#. Set up a teleoperation node for ``turtle2``.
+
+   By default, ``turtle_teleop_key`` sends commands to topics and actions under the ``turtle1`` namespace.
+   To control ``turtle2`` instead, use the ``--remap`` option to point those topics and actions at the ``turtle2`` namespace.
+   This lets you reuse the same executable for a different turtle without changing any code.
+
+   In a new terminal, run:
 
    .. code-block:: console
 
