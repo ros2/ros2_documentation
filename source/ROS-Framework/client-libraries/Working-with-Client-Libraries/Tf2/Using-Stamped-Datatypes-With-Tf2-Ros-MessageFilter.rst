@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: client-libraries, framework   
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+   
 .. redirect-from::
 
     Tutorials/Tf2/Using-Stamped-Datatypes-With-Tf2-Ros-MessageFilter
@@ -5,8 +12,17 @@
 
 .. _UsingStampedDatatypesWithTf2RosMessageFilter:
 
-Using stamped datatypes with ``tf2_ros::MessageFilter``
-=======================================================
+Using stamped datatypes with ``tf2_ros::MessageFilter`` — tutorial
+==================================================================
+
+.. short-description::
+   Stamped sensor messages are common in robotics when data must be interpreted in the correct coordinate frame.
+   This article describes how to publish PointStamped data and process it with ``tf2_ros::MessageFilter``.
+   After following this tutorial, you will be able to transform streamed sensor-style data reliably when the required transforms are available.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Learn how to use ``tf2_ros::MessageFilter`` to process stamped datatypes.
 

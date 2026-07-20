@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: client-libraries, framework   
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+   
 .. redirect-from::
 
     Tutorials/Tf2/Time-Travel-With-Tf2-Cpp
@@ -5,8 +12,17 @@
 
 .. _TimeTravelWithTf2Cpp:
 
-Traveling in time (C++)
-=======================
+Traveling in time (C++) — tutorial
+==================================
+
+.. short-description::
+   tf2 can transform data across time as well as space, which is useful for tasks such as delayed following or pose monitoring.
+   This tutorial shows how to use the advanced C++ ``lookupTransform()`` API to compare past and current frames.
+   After completing it, you can make ``turtle2`` follow where ``carrot1`` was 5 seconds ago.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Learn about advanced time travel features of tf2.
 

@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: tutorial
+   :experience: beginner
+   :area: client-libraries, framework   
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Writing-A-Simple-Py-Service-And-Client
@@ -5,8 +12,17 @@
 
 .. _PySrvCli:
 
-Writing a simple service and client (Python)
-============================================
+Writing a simple service and client (Python) — tutorial
+=======================================================
+
+.. short-description::
+   Services let ROS nodes request data and receive responses from other nodes.
+   This article describes how to create a Python package containing a simple service node and client node.
+   After completing it, you will be able to build, run, and inspect a service/client system.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Create and run service and client nodes using Python.
 

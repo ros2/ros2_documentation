@@ -1,10 +1,26 @@
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: client-libraries, framework   
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp
     Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp
 
-Writing a static broadcaster (C++)
-==================================
+Writing a static broadcaster (C++) — tutorial
+=============================================
+
+.. short-description::
+   Static transforms define fixed relationships between coordinate frames, such as a robot base and a sensor frame.
+   This article describes how to write, build, and run a C++ static transform broadcaster with ``tf2``.
+   After following the steps, you will be able to publish and verify static transforms for fixed frames.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Learn how to broadcast static coordinate frames to tf2.
 

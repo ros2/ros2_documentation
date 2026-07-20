@@ -1,10 +1,26 @@
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: client-libraries, framework   
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+   
 .. redirect-from::
 
     Tutorials/Tf2/Writing-A-Tf2-Listener-Cpp
     Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Cpp
 
-Writing a listener (C++)
-========================
+Writing a listener (C++) — tutorial
+===================================
+
+.. short-description::
+   tf2 lets you track how coordinate frames relate to each other over time.
+   This tutorial shows how to write a C++ listener node that uses tf2 transformations in a turtlesim demo.
+   After completing it, you can build and run a listener that makes one turtle follow another.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Learn how to use tf2 to get access to frame transformations.
 

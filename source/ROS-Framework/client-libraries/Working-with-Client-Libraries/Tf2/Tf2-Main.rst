@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: learning-path
+   :experience: intermediate
+   :area: client-libraries, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+   
 .. redirect-from::
 
     Tutorials/Tf2/Tf2-Main
@@ -5,8 +12,17 @@
 
 .. _Tf2Main:
 
-``tf2``
-=======
+``tf2`` — learning path
+=======================
+
+.. short-description::
+   tf2 helps ROS applications track and use coordinate frames so different parts of a robot can understand spatial relationships.
+   This article presents the tf2 tutorial path for learning, debugging, and using transforms in C++ and Python.
+   After reading it, you can choose the right C++ or Python tutorials for your workflow.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 Many of the tf2 tutorials are available for both C++ and Python.
 The tutorials are streamlined to complete either the C++ track or the Python track.

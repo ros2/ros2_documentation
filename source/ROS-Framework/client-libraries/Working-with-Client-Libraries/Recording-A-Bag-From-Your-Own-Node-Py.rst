@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: client-libraries, framework   
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Ros2bag/Recording-A-Bag-From-Your-Own-Node-Python
@@ -5,8 +12,17 @@
 
 .. _ROS2BagOwnNodePython:
 
-Recording a bag from a node (Python)
-====================================
+Recording a bag from a node (Python) — tutorial
+===============================================
+
+.. short-description::
+   Recording data from inside your own code gives you more control than using the command line alone.
+   This article shows how to use the ``rosbag2_py`` Python API to write received and generated data to bags.
+   After following this tutorial, you can record topic data, synthetic data, and timestamped samples from Python.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Record data from your own Python node to a bag.
 

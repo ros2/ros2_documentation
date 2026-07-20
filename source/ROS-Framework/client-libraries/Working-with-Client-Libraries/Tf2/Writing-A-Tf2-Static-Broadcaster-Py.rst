@@ -1,10 +1,26 @@
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: client-libraries, framework   
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Tf2/Writing-A-Tf2-Static-Broadcaster-Py
     Tutorials/Intermediate/Tf2/Writing-A-Tf2-Static-Broadcaster-Py
 
-Writing a static broadcaster (Python)
-=====================================
+Writing a static broadcaster (Python) — tutorial
+================================================
+
+.. short-description::
+   Static transforms define fixed relationships between coordinate frames, such as a robot base and a sensor frame.
+   This tutorial describes how to create a Python package, write a static tf2 broadcaster, and publish a fixed transform.
+   After following these steps, you can broadcast static transforms from your own node or with ``static_transform_publisher``.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Learn how to broadcast static coordinate frames to tf2.
 
