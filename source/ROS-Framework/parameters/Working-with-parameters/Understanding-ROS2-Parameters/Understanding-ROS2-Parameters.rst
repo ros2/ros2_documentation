@@ -65,14 +65,19 @@ Open another terminal and run:
     $ ros2 run turtlesim turtle_teleop_key
 
 
-2 ros2 param list
-^^^^^^^^^^^^^^^^^
+2 View the list of parameters for your nodes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To see the parameters belonging to your nodes, open a new terminal and run:
 
 .. code-block:: console
 
   $ ros2 param list
+
+You should see output similar to:
+
+.. code-block:: console
+
   /teleop_turtle:
     qos_overrides./parameter_events.publisher.depth
     qos_overrides./parameter_events.publisher.durability
@@ -91,20 +96,17 @@ To see the parameters belonging to your nodes, open a new terminal and run:
     qos_overrides./parameter_events.publisher.reliability
     use_sim_time
 
-
-You should see the node namespaces, ``/teleop_turtle`` and ``/turtlesim``, followed by each node's parameters.
-
+The output groups parameters under each node name, ``/teleop_turtle`` and ``/turtlesim``.
 The namespace and name of a parameter are separated by dots, as in ``parameter_events.publisher.depth``.
 
-Every node has the parameter ``use_sim_time``; it is not unique to Turtlesim.
+Before you continue, notice the following parameters:
 
-Based on their names, ``/turtlesim``'s parameters appear to control the background colour of the Turtlesim window using RGB values.
+* ``use_sim_time``: Specifies whether the node uses simulated time or the computer's clock.
+* ``background_r``, ``background_g``, and ``background_b``: Define the RGB values for the background colour of the Turtlesim window
 
-To determine a parameter's type, use ``ros2 param get``.
 
-
-3 ros2 param get
-^^^^^^^^^^^^^^^^
+3 Identify the type and value of a parameter
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To display the type and current value of a parameter, use the following command:
 
@@ -129,13 +131,17 @@ This tells you ``background_g`` holds an integer value.
 
 Running the same command on ``background_r`` and ``background_b`` should return the values ``69`` and ``255``, respectively.
 
-You can also check the ``use_sim_time`` parameter across all nodes:
+You can also omit the node name. As an example, you can try querying ``use_sim_time``, because every node has it:
 
 .. code-block:: console
 
   $ ros2 param get use_sim_time
 
-This displays the parameter value for each node that has it set.
+The command displays the value for each node that has that parameter.
+
+.. note::
+   Omitting the node name works only on Lyrical, Rolling, and later distributions.
+   On earlier distributions, ``ros2 param get`` requires both a node name and a parameter name.
 
 4 ros2 param set
 ^^^^^^^^^^^^^^^^
@@ -158,10 +164,12 @@ The background of the Turtlesim window should change colour, like this:
 .. image:: images/set.png
 
 Setting parameters with the ``set`` command will only change them in your current session, not permanently.
-However, you can save your settings and reload them the next time you start a node.
+However, you can save your settings and reload them the next time you start a node. See :ref:`dumping parameters <DumpNodeParameters>` and :ref:`loading a parameter file on node startup <LoadParameterFileOnNodeStartup>`.
 
-5 ros2 param dump
-^^^^^^^^^^^^^^^^^
+.. _DumpNodeParameters:
+
+5 Save the parameters of a node to a file
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You can view all of a node's current parameter values by using the command:
 
@@ -198,8 +206,8 @@ Open the file to view the following content:
 
 Dumping parameters comes in handy if you want to reload the node with the same parameters in the future.
 
-6 ros2 param load
-^^^^^^^^^^^^^^^^^
+6 Load node parameters from a file
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You can load parameters from a file to a currently running node using the following command:
 
@@ -248,7 +256,7 @@ The Turtlesim window should appear as usual, but with the purple background set 
 
 .. note::
 
-  When a parameter file is used at node startup, all parameters, including the read-only ones, will be updated.
+  When a parameter file is used at node startup, all parameters are updated, including the read-only ones.
 
 Related content
 ---------------
