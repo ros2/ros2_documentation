@@ -79,8 +79,8 @@ You need to run this on every new shell you open:
     The exact command depends on where you installed ROS.
     If you have problems, make sure that the file path leads to your installation.
 
-Add sourcing to your shell startup script
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2 (Optional) Add sourcing to your shell startup script
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you don't want to source the setup file every time you open a new shell, you can add the following command to your shell startup script:
 
@@ -222,12 +222,14 @@ For more details, see :ref:`Improved Dynamic Discovery <ImprovedDynamicDiscovery
 4 Verify your environment configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Confirm that your shell has the ROS paths and variables from the earlier steps in this guide, including any optional variables you set.
+Confirm that your shell has the ROS paths and variables from the earlier steps in this article, including any optional variables you set.
 
-Choose a terminal session that matches how you configured ROS:
+Open a terminal session:
 
-* If you only source manually, run the commands below after you run your ``source``, ``.``, or ``call`` command in that terminal.
-* If you use a startup script, open a new terminal window, then run the commands below:
+* If you only source manually, open a new terminal window and run your ``source``, ``.``, or ``call`` command.
+* If you use a startup script, open a new terminal window.
+
+In your terminal window, run:
 
 .. code-block:: console
 
@@ -235,7 +237,27 @@ Choose a terminal session that matches how you configured ROS:
 
 If usage text appears, your shell picked up the ROS command paths from the setup files in this guide.
 
-If you set optional ``ROS_DOMAIN_ID`` or ``ROS_AUTOMATIC_DISCOVERY_RANGE`` values earlier in this guide, run the same ROS-related environment check again in this shell (for example ``printenv`` / ``set`` as when you reviewed ROS variables) and confirm you see the values you expect.
+If you set optional ``ROS_DOMAIN_ID`` or ``ROS_AUTOMATIC_DISCOVERY_RANGE`` values earlier in this guide, run the environment check again in this terminal session to confirm you see the values you expect:
+
+.. tabs::
+
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+        $ printenv | grep -i ROS
+
+   .. group-tab:: macOS
+
+      .. code-block:: console
+
+        $ printenv | grep -i ROS
+
+   .. group-tab:: Windows
+
+      .. code-block:: console
+
+        $ set | findstr -i ROS
 
 Related content
 ---------------
