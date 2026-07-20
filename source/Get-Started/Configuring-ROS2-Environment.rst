@@ -124,10 +124,10 @@ If you don't want to source the setup file every time you open a new shell, you 
 3 Check environment variables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Sourcing ROS setup files sets the environment variables that ROS needs.
+After you source the setup files, check that your shell picked up the ROS environment variables.
+This confirms which distribution is active and whether the ``source`` command succeeded.
 
-.. note::
-    If you can't find or use packages, check your environment variables and ensure they are set to the version and distro you intended to use.
+To list ROS-related environment variables, run:
 
 .. tabs::
 
@@ -156,6 +156,9 @@ Confirm that variables such as ``ROS_DISTRO`` and ``ROS_VERSION`` are set.
   ROS_VERSION=2
   ROS_PYTHON_VERSION=3
   ROS_DISTRO={DISTRO}
+
+.. note::
+    If you later can't find or use packages, check these variables again and make sure that they match the version and distribution you intended to use.
 
 If the environment variables are not set correctly, return to the ROS package installation section of the installation guide you followed.
 If you need more specific help (because environment setup files can come from different places), :doc:`get answers from the community <../The-ROS2-Project/Contributing>`.
@@ -210,14 +213,54 @@ To set the ``ROS_DOMAIN_ID`` variable, run:
 
         $ setx ROS_DOMAIN_ID <your_domain_id>
 
-3.2 (Optional) The ``ROS_AUTOMATIC_DISCOVERY_RANGE`` variable
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+3.2 (Optional) Set the ``ROS_AUTOMATIC_DISCOVERY_RANGE`` variable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-By default, ROS communication is not limited to localhost.
-The ``ROS_AUTOMATIC_DISCOVERY_RANGE`` environment variable allows you to limit ROS discovery range.
-Using ``ROS_AUTOMATIC_DISCOVERY_RANGE`` is helpful in settings such as classrooms, where multiple robots may publish to the same topic, which can cause strange behaviors.
+By default, ROS nodes try to discover other nodes across the local network, not only on your machine.
+The ``ROS_AUTOMATIC_DISCOVERY_RANGE`` environment variable lets you limit how far that discovery reaches.
+This is helpful in settings such as classrooms, where multiple robots may publish to the same topic and interfere with one another.
 
-For more details, see :ref:`Improved Dynamic Discovery <ImprovedDynamicDiscovery>`.
+To limit discovery to the local machine, set the variable to ``LOCALHOST``:
+
+.. tabs::
+
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+        $ export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
+
+      To maintain this setting between shell sessions, you can add the command to your shell startup script:
+
+      .. code-block:: console
+
+        $ echo "export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST" >> ~/.bashrc
+
+   .. group-tab:: macOS
+
+      .. code-block:: console
+
+        $ export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
+
+      To maintain this setting between shell sessions, you can add the command to your shell startup script:
+
+      .. code-block:: console
+
+        $ echo "export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST" >> ~/.bash_profile
+
+   .. group-tab:: Windows
+
+      .. code-block:: console
+
+        $ set ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
+
+      If you want to make this permanent between shell sessions, also run:
+
+      .. code-block:: console
+
+        $ setx ROS_AUTOMATIC_DISCOVERY_RANGE LOCALHOST
+
+For other values and more advanced discovery options, see :ref:`Improved Dynamic Discovery <ImprovedDynamicDiscovery>`.
 
 4 Verify your environment configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
