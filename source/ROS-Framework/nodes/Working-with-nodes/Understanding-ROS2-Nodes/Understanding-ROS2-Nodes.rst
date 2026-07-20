@@ -12,7 +12,7 @@ Nodes are the fundamental building blocks of a robotic system, with each node re
 This article walks you through running nodes with the ``ros2`` command-line tools and inspecting how they appear on the ROS graph.
 A hands-on exercise gives you practice listing active nodes and examining their connections.
 
-**Area: ROS-tutorials | Content-type: tutorial | Experience: beginner**
+**Area: Nodes, Framework | Content-type: tutorial | Experience: beginner**
 
 .. contents:: Contents
    :depth: 3
@@ -22,8 +22,9 @@ Summary
 -------
 
 Each node in ROS serves a single, modular purpose in a robotics system.
+For more information, see :doc:`About nodes <../../../About-Nodes>`.
 
-Nodes appear on the ROS graph and communicate with other nodes through topics, services, actions, and parameters.
+Nodes appear on the ROS graph and communicate with other nodes through :doc:`topics, services, actions, and parameters <../../../Interfaces-Topics-Services-Actions>`.
 A single executable can contain one or more nodes.
 
 Background
@@ -41,6 +42,8 @@ It visually represents all the executables and the connections between them.
 Each node in ROS should be responsible for a single modular purpose, for example, controlling the wheel motors or publishing the sensor data from a laser range-finder.
 Each node can send and receive data from other nodes via topics, services, actions, or parameters.
 
+The following diagram shows nodes exchanging data through a topic and a service:
+
 .. image:: images/Nodes-TopicandService.gif
 
 A full robotic system is comprised of many nodes working together.
@@ -53,15 +56,16 @@ Prerequisites
 
 .. note::
     Make sure to source ROS in every new terminal you open.
-    See :doc:`Configuring environment <../../../../Get-Started/Configuring-ROS2-Environment>`.
+
+    For more information, see :doc:`Configuring environment <../../../../Get-Started/Configuring-ROS2-Environment>`.
 
 Steps
 -----
 
-1 ros2 run
-^^^^^^^^^^
+1 Launch an executable
+^^^^^^^^^^^^^^^^^^^^^^
 
-The command ``ros2 run`` launches an executable from a package.
+The ``ros2 run`` command launches an executable from a package.
 
 .. code-block:: console
 
@@ -76,11 +80,11 @@ To run Turtlesim, open a new terminal and enter the following command:
 The Turtlesim window opens, as shown in :doc:`Using turtlesim, ros2, and rqt <../../../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>`.
 
 In this example, the package name is ``turtlesim`` and the executable name is ``turtlesim_node``.
-However, we still don't know the node name.
+The executable name is not always the same as the node name on the ROS graph.
 You can find node names by using ``ros2 node list``.
 
-2 ros2 node list
-^^^^^^^^^^^^^^^^
+2 List all running nodes
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 ``ros2 node list`` shows you the names of all running nodes.
 This is especially useful when you want to interact with a node, or when your system runs many nodes and you need to keep track of them.
@@ -90,11 +94,14 @@ While Turtlesim is still running in the other terminal, open a new terminal and 
 .. code-block:: console
 
   $ ros2 node list
+
+The terminal returns the node name:
+
+.. code-block:: console
+
   /turtlesim
 
-The terminal returns the node name.
-
-Open another new terminal and start the teleoperation node with the command:
+To see how the list changes when another node starts, in another new terminal, start the teleoperation node:
 
 .. code-block:: console
 
@@ -102,45 +109,55 @@ Open another new terminal and start the teleoperation node with the command:
 
 Here, we are referring to the ``turtlesim`` package again, but this time we target the executable named ``turtle_teleop_key``.
 
-Return to the terminal where you ran ``ros2 node list`` and run it again.
-You will see the names of two active nodes:
+Return to the terminal where you ran ``ros2 node list`` and run it again:
 
 .. code-block:: console
 
   $ ros2 node list
+
+You should see the names of two running nodes:
+
+.. code-block:: console
+
   /turtlesim
   /teleop_turtle
 
-.. note::
-    You can start multiple nodes at once without opening a separate terminal for each. See :ref:`Launching nodes - how-to <ROS2Launch>`.
+2.1 Remap a node name
+~~~~~~~~~~~~~~~~~~~~~
 
-2.1 Remapping
-~~~~~~~~~~~~~
+`Remapping <https://design.ros2.org/articles/ros_command_line_arguments.html#name-remapping-rules>`__ allows you to reassign default node properties, such as node name, topic names, or service names, to custom values.
+In :doc:`Using turtlesim, ros2, and rqt <../../../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>`, you use remapping on ``turtle_teleop_key`` to change the ``cmd_vel`` topic and target **turtle2**.
 
-`Remapping <https://design.ros2.org/articles/ros_command_line_arguments.html#name-remapping-rules>`__ allows you to reassign default node properties, like node name, topic names, or service names, to custom values.
-In :doc:`Using turtlesim, ros2, and rqt <../../../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>`, you used remapping on ``turtle_teleop_key`` to change the cmd_vel topic and target **turtle2**.
-
-Now, let's reassign the name of our ``/turtlesim`` node.
-
-In a new terminal, run the following command:
+You can also remap the node name when you start a new node.
+In a new terminal, run:
 
 .. code-block:: console
 
   $ ros2 run turtlesim turtlesim_node --ros-args --remap __node:=my_turtle
 
-Because you are calling ``ros2 run`` on Turtlesim again, another Turtlesim window opens.
-However, if you return to the terminal where you ran ``ros2 node list`` and run it again, you will see three node names:
+This starts a second Turtlesim node named ``my_turtle``.
+It does not rename the ``/turtlesim`` node that is already running.
+Another Turtlesim window opens for the new node.
+
+Return to the terminal where you ran ``ros2 node list`` and run it again:
 
 .. code-block:: console
 
-    /my_turtle
-    /turtlesim
-    /teleop_turtle
+  $ ros2 node list
 
-3 ros2 node info
-^^^^^^^^^^^^^^^^
+You will see three node names:
 
-Now that you know the names of your nodes, you can access more information about them with:
+.. code-block:: console
+
+  /my_turtle
+  /turtlesim
+  /teleop_turtle
+
+3 Access more information about nodes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Now that you know the names of your nodes, you can see how a node connects to the rest of the system.
+The ``ros2 node info`` command shows a node's publishers, subscribers, services, and actions:
 
 .. code-block:: console
 
@@ -151,6 +168,11 @@ To examine your latest node, ``my_turtle``, run the following command:
 .. code-block:: console
 
   $ ros2 node info /my_turtle
+
+You should see output similar to:
+
+.. code-block:: console
+
   /my_turtle
     Subscribers:
       /parameter_events: rcl_interfaces/msg/ParameterEvent
@@ -185,6 +207,11 @@ These are the ROS graph connections that interact with that node.
 
 Now try running the same command on the ``/teleop_turtle`` node, and see how its connections differ from ``my_turtle``.
 
+Next steps
+----------
+
+To learn how to start multiple nodes at once without opening a separate terminal for each, see :ref:`Launching nodes - how-to <ROS2Launch>`.
+
 Related content
 ---------------
 
@@ -192,8 +219,7 @@ More articles:
 
 * :doc:`Learning about topics <../../../interfaces/topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`
 * :doc:`Interfaces (topics, services, actions) <../../../Interfaces-Topics-Services-Actions>`
-* :doc:`About nodes <../../About-Nodes>`
-* :ref:`Launching nodes - how-to <ROS2Launch>`
+* :doc:`About nodes <../../../About-Nodes>`
 
 FAQs
 ----
@@ -204,7 +230,8 @@ Can a single executable contain more than one node?
 
 Why does another Turtlesim window open when I remap the node name?
    Each call to ``ros2 run turtlesim turtlesim_node`` starts a new node, and Turtlesim opens a window for it.
-   Remapping ``__node`` only changes the node's name; it does not reuse the existing node.
+   Remapping ``__node`` sets the name of that new node.
+   It does not rename or replace the ``/turtlesim`` node that is already running.
 
 What is the difference between ``ros2 node list`` and ``ros2 node info``?
    ``ros2 node list`` shows the names of all running nodes.
