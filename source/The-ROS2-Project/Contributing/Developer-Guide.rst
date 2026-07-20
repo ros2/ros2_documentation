@@ -12,6 +12,8 @@ ROS 2 developer guide
 
 This page defines the practices and policies we employ when developing ROS 2.
 
+.. _general-principles:
+
 General Principles
 ------------------
 
@@ -161,15 +163,13 @@ Change control process
 
   * Packages may choose to increase this number.
 
-* Any required changes to documentation (API documentation, feature documentation, release notes, etc.) must be proposed before merging related changes.
-
 Guidelines for backporting PRs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 When changing an older version of ROS:
 
 * Make sure the features or fixes are accepted and merged in the rolling branch before opening a PR to backport the changes to older versions.
-* When backporting to older versions, also consider backporting to any other :doc:`still supported versions <../../Releases>`, even non-LTS versions.
+* When backporting to older versions, also consider backporting to any other :doc:`still supported versions <../../Get-Started/Releases>`, even non-LTS versions.
 * If you are backporting a single PR in its entirety, title the backport PR "[Distro] <name of original PR>".
 * Link to all PRs whose changes you're backporting from the description of your backport PR.
 * Package maintainers typically use `Mergifyio <https://mergify.com/>`_ to automatically backport PRs to downstream distributions when needed, however developers can still perform manual backporting operations as described above when necessary.
@@ -219,7 +219,7 @@ API Documentation for ROS Packages
 API documentation for all released ROS packages can be `found here <https://docs.ros.org/en/{DISTRO}/p/>`__.
 We recommend using `index.ros.org <https://index.ros.org/>`_ to search through available ROS packages to find their documentation.
 
-If you are a ROS package developer looking for guidance on documenting your package please see :doc:`our "how to" guide on package level documentation <../../How-To-Guides/Documenting-a-ROS-2-Package>`.
+If you are a ROS package developer looking for guidance on documenting your package please see :doc:`our "how to" guide on package level documentation <../../Developer-Tools/Package-documentation/Documenting-a-ROS-2-Package>`.
 The documentation for all released ROS 2 packages is automatically hosted on `docs.ros.org <https://docs.ros.org/en/{DISTRO}/p/>`_.
 
 Testing
@@ -288,7 +288,7 @@ When filing an issue please make sure to:
   - **The specific version of ROS 2.**
     Reasoning: Some bugs may be present in a particular ROS 2 release and later fixed.
     It is important to know if your installation includes these fixes.
-  - **The DDS/RMW implementation being used** (see `this page <../../Concepts/Intermediate/About-Different-Middleware-Vendors>` for how to determine which one).
+  - **The DDS/RMW implementation being used** (see `this page <../../ROS-Framework/client-libraries/About-Different-Middleware-Vendors>` for how to determine which one).
     Reasoning: Communication issues may be specific to the underlying ROS middleware being used.
   - **The ROS 2 client library being used.**
     Reasoning: This helps us narrow down the layer in the stack at which the issue might be.
@@ -302,7 +302,7 @@ When filing an issue please make sure to:
   - Upgrading to the latest version of the code, which may include bug fixes that have not been released yet.
     See `this section <building-from-source>` and follow the instructions to get the "rolling" branches.
   - Trying with a different RMW implementation.
-    See `this page <../../How-To-Guides/Working-with-multiple-RMW-implementations>` for how to do that.
+    See `this page <../../Get-Started/Installation/RMW-Implementations/Working-with-multiple-RMW-implementations>` for how to do that.
 
 Branches
 ^^^^^^^^
@@ -330,45 +330,9 @@ For example: Development commits targeting ``foxy`` are made to the ``foxy`` bra
 
 **What about** ``main`` **and** ``rolling`` **?**
 
-``main`` typically targets :doc:`Rolling <../../Releases/Release-Rolling-Ridley>` (and so, the next unreleased ROS distribution), though the maintainers may decide to develop and release from a ``rolling`` branch instead.
+``main`` typically targets :doc:`Rolling <../../Get-Started/Releases/Release-Rolling-Ridley>` (and so, the next unreleased ROS distribution), though the maintainers may decide to develop and release from a ``rolling`` branch instead.
 
-Pull requests
-^^^^^^^^^^^^^
-
-* A pull request should only focus on one change.
-  Separate changes should go into separate pull requests.
-  See `GitHub's guide to writing the perfect pull request <https://github.com/blog/1943-how-to-write-the-perfect-pull-request>`__.
-
-* A patch should be minimal in size and avoid any kind of unnecessary changes.
-
-* A pull request must contain minimum number of meaningful commits.
-
-  * You can create new commits while the pull request is under review.
-
-* Before merging a pull request all changes should be squashed into a small number of semantic commits to keep the history clear.
-
-  * But avoid squashing commits while a pull request is under review.
-    Your reviewers might not notice that you made the change, thereby introducing potential for confusion.
-    Plus, you're going to squash before merging anyway; there's no benefit to doing it early.
-
-* Any developer is welcome to review and approve a pull request (see `General Principles`_).
-
-* When you are working on a change that is not ready for review or to be merged, use a draft pull request.
-  When that change is ready for review, move the pull request out of the draft state.
-  Note that if you want early feedback from specific people on a draft pull request, you can @ mention them in the pull request's description or in a comment on the pull request.
-
-* If your pull request depends on other pull requests, link to each depended on pull request by adding ``- Depends on <link>`` at the top of your pull request's description.
-  Doing so helps reviewers understand the context of the pull request.
-
-* When you start reviewing a pull request, comment on the pull request so that other developers know that you're reviewing it.
-
-* Pull-request review is not read-only, with the reviewer making comments and then waiting for the author to address them.
-  As a reviewer, feel free to make minor improvements (typos, style issues, etc.) in-place.
-  As the opener of a pull-request, if you are working in a fork, checking the box to `allow edits from upstream contributors <https://github.com/blog/2247-improving-collaboration-with-forks>`__ will assist with the aforementioned.
-  As a reviewer, also feel free to make more substantial improvements, but consider putting them in a separate branch (either mention the new branch in a comment, or open another pull request from the new branch to the original branch).
-
-* Only maintainers and committers can merge approved pull requests into the mainline.
-  See the :doc:`current ROS PMC constituents and committers <../Governance>` for the list of people with merge permissions.
+.. _DeveloperGuidePullRequests:
 
 Library versioning
 ^^^^^^^^^^^^^^^^^^
@@ -541,7 +505,7 @@ The original ROS packages have been modified to follow Debian guidelines, which 
 
 In addition several of the bootstrap dependencies such as command line tools like ``vcstool`` and ``colcon`` as well as some libraries like ``osrf-pycommon`` and ``ament`` are also packaged upstream.
 
-Unlike the OSRF-provided ROS packages from http://packages.ros.org, the packages in the upstream repositories are not attached to a specific :doc:`ROS distribution <../../Releases>`.
+Unlike the OSRF-provided ROS packages from http://packages.ros.org, the packages in the upstream repositories are not attached to a specific :doc:`ROS distribution <../../Get-Started/Releases>`.
 Rather, they represent a snapshot in time that will be updated periodically within Debian unstable and then latched at various points into downstream Debian and Ubuntu distributions.
 
 Don't mix the streams
@@ -577,7 +541,7 @@ The usual workflow is:
 
 * Write tests
 * Enable and run linters
-* Run tests locally using ``colcon test`` (see the :doc:`colcon tutorial <../../Tutorials/Beginner-Client-Libraries/Colcon-Tutorial>`)
+* Run tests locally using ``colcon test`` (see the :doc:`colcon tutorial <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Colcon-Tutorial>`)
 * Once everything builds locally without warnings and all tests are passing, run CI on your feature branch:
 
   * Go to ci.ros2.org
@@ -723,7 +687,7 @@ maintainers of all impacted packages (as defined by ``package.xml`` maintainer f
 Implementation
 ~~~~~~~~~~~~~~
 
-Before starting, go through the `Pull requests`_ section for best practices.
+Before starting, look at :doc:`Contributing-to-code/Making-a-PR` for best practices in pull requests.
 
 * For each repo to be modified:
 
@@ -739,24 +703,6 @@ Before starting, go through the `Pull requests`_ section for best practices.
     * Either the pull request description or the commit message must contain a reference to the related ros2 issue, so it gets automatically closed when the pull request is merged.
       See this `doc <https://help.github.com/articles/closing-issues-using-keywords/>`__ for more details.
     * Push the new commits.
-
-Code review
-~~~~~~~~~~~
-
-Once the change is ready for code review:
-
-* Open a pull request for each modified repository.
-
-  * Remember to follow `Pull requests`_ best practices.
-  * `GitHub <https://hub.github.com/>`__ can be used to create pull requests from the command-line.
-  * If the task is planned to be released with a specific version of ROS, this information should be included in each pull request.
-
-* Package owners who reviewed the design document should be mentioned in the pull request.
-* Code review SLO: although reviewing pull requests is best-effort,
-  it is helpful to have reviewers comment on pull requests within a week and
-  code authors to reply back to comments within a week, so there is no loss of context.
-* Iterate on feedback as usual, amend and update the development branch as needed.
-* Once the PR is approved, package maintainers will merge the changes in.
 
 
 Build Farm Introduction

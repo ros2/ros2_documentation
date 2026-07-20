@@ -1,0 +1,47 @@
+.. redirect-from::
+
+    Releases/Release-Rolling-Ridley
+
+Rolling Ridley (``rolling``)
+============================
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
+
+*Rolling Ridley* is a rolling development release of ROS 2.
+
+.. warning::
+
+  Rolling Ridley is continuously updated and is subject to in-place updates which will at times include breaking changes.
+  It is used for ROS 2 development and by maintainers who want their packages released and ready for the next stable distribution.
+  We recommend that most users of ROS 2 use the latest `stable distribution <latest-release>`.
+
+For more information see `REP-2002 <https://reps.openrobotics.org/rep-2002/>`_
+
+Currently Supported Platforms
+-----------------------------
+
+Rolling Ridley supports the following platforms according to `the platform support tiers <../../The-ROS2-Project/Platform-Support-Tiers>`:
+
+Tier 1 platforms:
+
+* Ubuntu 24.04 (Noble): ``amd64`` and ``arm64``
+* Windows 10 (Visual Studio 2019)
+
+Tier 3 platforms:
+
+* Debian Buster (10): ``amd64``, ``arm64`` and ``arm32``
+* Mac macOS 10.14 (Mojave)
+* OpenEmbedded Thud (2.6) / webOS OSE: ``arm32`` and ``x86``
+
+Installation
+------------
+
+`Install Rolling Ridley <../Installation>`
+
+New features and changes in this release
+----------------------------------------
+
+Rolling Ridley is an ongoing development distribution.
+Changes between the current stable release and the upcoming one can be found on the page for the `upcoming release <upcoming-release>`.
