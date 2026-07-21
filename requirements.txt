@@ -1,6 +1,7 @@
 codespell
 doc8
 docutils
+matplotlib
 pip
 pytest
 sphinx
