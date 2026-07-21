@@ -215,10 +215,6 @@ html_baseurl = 'https://docs.ros.org/en'
 ogp_site_url = 'https://docs.ros.org/en/rolling/'
 ogp_site_name = 'ROS 2 Documentation'
 ogp_image = '_static/rolling-small.png'
-ogp_custom_meta_tags = [
-    '<meta property="og:logo" content="https://docs.ros.org/en/rolling/_static/rolling-small.png" />',
-]
-
 
 
 # The sitemap_url_scheme is used by the sitemap generator to figure out how
@@ -345,10 +341,6 @@ def smv_rewrite_configs(app, config):
 
         app.config.html_logo = 'source/Get-Started/Releases/' + app.config.smv_current_version + '-small.png'
         app.config.ogp_image = '_static/' + app.config.smv_current_version + '-small.png'
-        app.config.ogp_custom_meta_tags = [
-            f'<meta property="og:logo" content="{app.config.ogp_site_url}_static/{app.config.smv_current_version}-small.png" />'
-        ]
-
 
 
         # Override default values
