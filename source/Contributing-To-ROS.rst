@@ -13,7 +13,7 @@ This article introduces the ways in which you can contribute to ROS.
 Summary
 -------
 
-ROS is an open source set of tools and libraries that depends on contributions from our community.
+ROS is an open source suite of tools and libraries that depends on contributions from our community.
 Whether you are a developer, researcher, company, or student, your contribution helps us to grow and improve.
 
 Your first contribution
@@ -44,8 +44,7 @@ OR
 
 * Follow the discussion on Stack Exchange, and offer support.
 
-  :ref:`See Provide support <provide-support>` (QUESTION FOR THE REVIEWER: This is a placeholder suggestion.
-  Is there something better we should encourage experienced developers to take on as their first contribution?)
+  :ref:`See Provide support <provide-support>`
 
 Contribute to ROS development
 -----------------------------
@@ -126,7 +125,7 @@ If you are a more experienced contributor, you can prioritize issues, identify r
 
    * `General ROS issue tracker <https://github.com/ros2/ros2/issues>`_
 
-   * Other important issue trackers (QUESTION FOR THE REVIEWER: Are there any other issue trackers you suggest we link to?)
+   * (LINK TO WAFFLE TO BE PROVIDED)
 
 2. Triage the issue.
 
@@ -137,7 +136,7 @@ Report security vulnerabilities
 
 Reporting security vulnerabilities involves responsibly identifying and disclosing potential security issues so they can be safely addressed and resolved.
 
-If you spot a security vulnerability, contact ros@osrfoundation.org
+If you spot a security vulnerability, contact security@openrobotics.org
 
 Contribute to future design
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -153,8 +152,7 @@ If you are a more experienced contributor, you can help shape design decisions, 
 
 **Ready to contribute?**
 
-* Join an ongoing discussion, and share your thoughts: `Open Robotics Discourse <https://discourse.openrobotics.org/c/ros/ros-general/8 />`__
-  (QUESTION FOR THE REVIEWER: Is this the best place to link to?)
+* Join an ongoing discussion, and share your thoughts: `Open Robotics Discourse <https://discourse.openrobotics.org/c/ros/111/>`__
 
 Suggest a feature
 ^^^^^^^^^^^^^^^^^
@@ -167,7 +165,7 @@ Don't forget to check the existing list of requests first!
 
 1. Check the if the enhancement idea has already been suggested in the following:
 
-   * `Feature idea list <https://docs.ros.org/en/kilted/The-ROS2-Project/Feature-Ideas.html>`_ (QUESTION FOR the REVIEWER: Is this list being maintained?)
+   * `Feature idea list <https://docs.ros.org/en/rolling/The-ROS2-Project/Feature-Ideas.html>`_ (CORRECT LINK TO BE PROVIDED)
 
    *  Enhancement issues on GitHub.
       For example, take a look at this `list of enhancement requests <https://github.com/ros2/ros2/issues?q=state%3Aopen%20label%3Aenhancement>`_.
@@ -212,7 +210,7 @@ The responsibilities of maintainers include:
 * Addressing issues opened up by users
 
 A core maintainer is responsible for guiding development, reviewing contributions, and helping ensure the quality and direction of ROS.
-At ROS, there are maintainer roles: as a Committer or a PMC Member.
+At ROS, there are two maintainer roles: as a Committer or a PMC Member.
 A committer can directly contribute code, while a Project Management Committee (PMC) member helps guide the overall direction and governance of the project.
 
 **Ready to contribute?**
@@ -228,7 +226,7 @@ Approximately every 3 months, the ROS team will review the contributions in all 
 Once the invitation is accepted, the new maintainer will be asked to go through a short training process on the mechanisms and policies of the ROS repositories.
 After that training process is completed, the new maintainer will be given write access to the appropriate repositories.
 
-* Guidance for core maintainers: `Ros2 Core Maintainer Guide <https://docs.ros.org/en/kilted/How-To-Guides/Core-maintainer-guide.html>`_
+* Guidance for core maintainers: `Ros2 Core Maintainer Guide <https://docs.ros.org/en/rolling/How-To-Guides/Core-maintainer-guide.html>`_
 
 Contribute to documentation
 ---------------------------
@@ -283,6 +281,8 @@ Some are completely new to ROS, so even those with a little experience can play 
 If you notice a question on Robotics Stack Exchange that relates to an issue you have encountered, consider sharing what worked for you.
 If you aren't entirely sure your answer is correct, just say so.
 The community is there to help, and others will step in to clarify or add more detail if needed.
+Helping others is one of the fastest and most effective ways to improve your own ROS knowledge.
+Even if you do not immediately know the answer to a question, try to find a solution, and then post it as an answer.
 
 **Ready to contribute?**
 
@@ -296,7 +296,7 @@ Participate in the community
 There are various ways to join the ROS community, allowing you to participate, collaborate, and contribute effectively.
 Here are some ways you can join in:
 
-* Attend events, from local informal meetings to our annual developer conference, `ROSCON <https://roscon.ros.org/OSR/>`_:
+* Attend events, from local informal meetings to our annual developer conference, `ROSCON <https://roscon.ros.org>`_:
 
    * Community organized events: `View the calendar <https://calendar.google.com/calendar/u/0/newembed?
      src=c_3fc5c4d6ece9d80d49f136c1dcd54d7f44e1acefdbe87228c92ff268e85e2ea0@group.calendar.google.com&ctz=Etc/UTC/>`__
@@ -305,12 +305,12 @@ Here are some ways you can join in:
      ctz=Etc%2FUTC/>`__
 
 * Host an online community group event: `Fill in the form to add your event to the calendar <https://bit.ly/OSRFCalendarForm/>`_
-  (QUESTION FOR THE REVIEWER: Is there someone or a channel people can contact if they are thinking of doing this, but need a bit of guidance or support?
-  If so, can we link to that here?)
+
+  You can also ask for help with hosting an event on `Zulip <https://openrobotics.zulipchat.com/Recent>`_ or `Discourse <https://discourse.openrobotics.org/>`_
 
 * Host a local meet-up: `Fill in the form to add your event to the calendar <https://bit.ly/OSRFCalendarForm/>`_
-  (QUESTION FOR THE REVIEWER: Is there someone or a channel people can contact if they are thinking of doing this, but need a bit of guidance or support?
-  If so, can we link to that here?)
+
+  (LINK TO CHAT BE PROVIDED - ZULIP OR DISCOURSE?)
 
 * Join discussion groups and chats:
 
@@ -327,14 +327,11 @@ If you want to get involved in promoting ROS, why not train or mentor others, or
 
 * Support people with working through the tutorials, starting with `First steps with ROS <https://docs.ros.org/en/lyrical/First-Steps.html>`_
 
-* Be part of our community on social media: <Placeholder link to ROS sm channel(s)>
-  (QUESTION FOR THE REVIEWER: Can we link to Open Robotics / ROS social media channels?)
-
+* Be part of our community on social media: <Placeholder: LINK TO LIST OF SOCIALS TO BE PROVIDED>
 
 Become an OSRA member
 ---------------------
 
-Becoming an OSRA member lets you influence the organization's direction, collaborate with a wider community, and contribute more directly to the growth and
-impact of our projects.
+Becoming an OSRA member lets you influence the organization's direction, collaborate with a wider community, and contribute more directly to the growth and impact of our projects.
 
-Learn more about becoming an OSRA member https://osralliance.org/
+`Learn more about OSRA <https://osralliance.org/>`_ and about `becoming a member <https://osralliance.org/membership/>`_
