@@ -13,3 +13,4 @@ sphinx-tabs
 sphinx-tamer
 sphinxcontrib-googleanalytics
 sphinxcontrib-mermaid
+sphinxext-opengraph
