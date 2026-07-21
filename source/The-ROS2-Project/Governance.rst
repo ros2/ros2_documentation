@@ -295,6 +295,7 @@ The following repositories are managed by the ROS PMC:
    * - https://github.com/ros2/mimick_vendor
    * - https://github.com/ros2/orocos_kdl_vendor
    * - https://github.com/ros2/performance_test_fixture
+   * - https://github.com/ros2/pmc_scripts
    * - https://github.com/ros2/pybind11_vendor
    * - https://github.com/ros2/rcl
    * - https://github.com/ros2/rcl_interfaces
