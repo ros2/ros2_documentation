@@ -9,8 +9,8 @@
    :distribution: {DISTRO}
    :product: {PRODUCT}
 
-Releasing subsequent releases - how to
-============================
+Releasing subsequent package versions - how to
+==============================================
 
 .. short-description::
    Releasing an updated ROS package requires the release repository, changelog, package version, and `rosdistro` pull request to be prepared correctly.

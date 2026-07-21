@@ -5,12 +5,31 @@
     Tutorials/Developing-a-ROS-2-Package
     How-To-Guides/Developing-a-ROS-2-Package
 
-Developing a ROS 2 package
-##########################
+.. meta::
+   :contentType: tutorial
+   :experience:
+   :area: builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Developing a ROS package - tutorial
+===================================
+
+.. short-description::
+   Custom packages let developers build their own ROS applications instead of only using existing packages.
+   This article explains how to create a package and configure C++, Python, or combined package layouts.
+   After you follow it, you can add executables, dependencies, launch files, and installation rules to a new package.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2
    :local:
+
+Summary
+-------
 
 This tutorial will teach you how to create your first ROS 2 application.
 It is intended for developers who want to learn how to create custom packages in ROS 2, not for people who want to use ROS 2 with its existing packages.

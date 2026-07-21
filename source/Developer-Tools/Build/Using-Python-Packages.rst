@@ -6,9 +6,9 @@
 
 .. _PythonPackages:
 
-meta::
+.. meta::
    :contentType: how-to
-   :experience: 
+   :experience:
    :area: builds, tools
    :distribution: {DISTRO}
    :product: {PRODUCT}
@@ -27,7 +27,7 @@ Using Python Packages with ROS 2 - how-to
 
 **Goal:** Explain how to interoperate with other Python packages from the ROS 2 ecosystem.
 
-.. contents:: Contents
+.. contents:: Table of Contents
     :depth: 2
     :local:
 

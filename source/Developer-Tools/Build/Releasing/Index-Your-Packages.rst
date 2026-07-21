@@ -2,8 +2,28 @@
 
     How-To-Guides/Releasing/Index-Your-Packages
 
-Index Your Packages
-===================
+.. meta::
+   :contentType: how-to
+   :experience:
+   :area: builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Indexing Your Packages - how-to
+===============================
+
+.. short-description::
+   Indexing a package makes it discoverable to ROS tooling and prepares it for release into a ROS distribution.
+   This article explains how to prepare package metadata and add source entries to `ros/rosdistro`.
+   After you follow it, your packages can be reviewed, merged, and listed on the ROS Index.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
 
 Are you releasing a new ROS package into a ROS distribution?
 Make the process faster by indexing your packages first.

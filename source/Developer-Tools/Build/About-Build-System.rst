@@ -3,13 +3,32 @@
    Concepts/About-Build-System
    Concepts/Advanced/About-Build-System
 
+.. meta::
+   :contentType: about
+   :experience: advanced
+   :area: builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 The build system
 ================
 
+.. short-description::
+   Building robotic applications requires a consistent way to compile packages, manage dependencies, and prepare code for development or deployment.
+   This article describes the ROS build system, including build tools, build helpers, and meta-build tools, and explains how package manifests support the build process.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
 .. contents:: Table of Contents
+   :depth: 2
    :local:
 
 .. include:: ../../../global_substitutions.txt
+
+Summary
+-------
 
 The build system is what allows developers to build their ROS 2 code as needed.
 ROS 2 relies heavily on the division of code into packages, with each package containing a manifest file (``package.xml``).

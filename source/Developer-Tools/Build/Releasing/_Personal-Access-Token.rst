@@ -2,6 +2,29 @@
 
     How-To-Guides/Releasing/_Personal-Access-Token
 
+.. meta::
+   :contentType: how-to
+   :experience:
+   :area: builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Creating a personal access token - how-to
+=========================================
+
+.. short-description::
+   Bloom performs several authenticated HTTPS Git operations during the release process.
+   This article explains how to create a GitHub Personal Access Token and configure it for Bloom and Git.
+   After you follow it, Bloom can authenticate with GitHub without repeatedly prompting for a password.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Table of Contents
+    :depth: 2
+    :local:
+
 .. warning::
 
    If the file ``~/.config/bloom`` exists on your computer, it is likely that you have done this before so you should skip this section.

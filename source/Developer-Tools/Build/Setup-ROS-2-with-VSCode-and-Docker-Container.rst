@@ -4,13 +4,13 @@
 
 .. meta::
    :contentType: how-to
-   :experience: 
+   :experience:
    :area: builds, tools
    :distribution: {DISTRO}
    :product: {PRODUCT}
 
 Setting up ROS with VSCode and Docker [community-contributed] - how-to
-========================================================================
+======================================================================
 
 .. short-description::
    VS Code development containers let you work with a ROS distribution without changing your host operating system or using a virtual machine.
@@ -21,7 +21,7 @@ Setting up ROS with VSCode and Docker [community-contributed] - how-to
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Contents
+.. contents:: Table of Contents
     :depth: 2
     :local:
 

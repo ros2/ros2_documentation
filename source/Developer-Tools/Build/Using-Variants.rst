@@ -2,8 +2,28 @@
 
     How-To-Guides/Using-Variants
 
-Using variants
-==============
+.. meta::
+   :contentType: how-to
+   :experience:
+   :area: builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Using variants - how-to
+=======================
+
+.. short-description::
+   Variants provide convenient installation groups for related ROS packages.
+   This article explains how official variants are defined and how to create project-specific metapackages.
+   After you read it, you can propose community variants or build private variants for your own packages.
+
+  .. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
 
 Metapackages do not provide software directly but depend on a group of other related packages to provide a convenient installation mechanism for the complete group of packages.
 [#]_ [#]_

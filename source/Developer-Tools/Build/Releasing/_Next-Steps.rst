@@ -9,8 +9,8 @@
    :distribution: {DISTRO}
    :product: {PRODUCT}
 
-Releasing next steps- how-to
-============================
+Releasing next steps - how-to
+=============================
 
 .. short-description::
    After a ROS release pull request is submitted, it must be reviewed, built, tested, and synchronized before it reaches users.
@@ -21,7 +21,7 @@ Releasing next steps- how-to
     :order: area, contentType, experience
     :labels: area=Area, contentType=Content type, experience=Level
 
-.. table-of-contents::
+.. contents:: Table of Contents
    :depth: 2
    :local:
 

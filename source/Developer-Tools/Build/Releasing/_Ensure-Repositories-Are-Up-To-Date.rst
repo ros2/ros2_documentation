@@ -4,7 +4,7 @@
 
 .. meta::
    :contentType: how-to
-   :experience: 
+   :experience:
    :area: builds, tools
    :distribution: {DISTRO}
    :product: {PRODUCT}
@@ -13,15 +13,15 @@ Ensuring repositories are up-to-date - how-to
 =============================================
 
 .. short-description::
-    Keeping repositories current helps avoid release problems caused by missing commits or working on the wrong branch.
-    This article describes the repository checks to complete before continuing with a ROS release.
-    After you follow these steps, your local clone and remote repository will be ready for the next release action.
+   Keeping repositories current helps avoid release problems caused by missing commits or working on the wrong branch.
+   This article describes the repository checks to complete before continuing with a ROS release.
+   After you follow these steps, your local clone and remote repository will be ready for the next release action.
 
 .. showmeta::
     :order: area, contentType, experience
     :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Contents
+.. contents:: Table of Contents
     :depth: 2
     :local:
 

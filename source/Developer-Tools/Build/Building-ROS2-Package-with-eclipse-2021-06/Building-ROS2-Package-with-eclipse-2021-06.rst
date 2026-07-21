@@ -12,10 +12,10 @@
 Building a package with Eclipse 2021-06 - tutorial
 ==================================================
 
-.. short-description:
-ROS packages are created with command-line tools, but Eclipse can edit source code and run colcon builds.
-This article shows how to import an existing package into Eclipse 2021-06, configure include paths, and add a colcon builder.
-After following these steps, you can resolve ROS includes and build the package from Eclipse.
+.. short-description::
+   ROS packages are created with command-line tools, but Eclipse can edit source code and run colcon builds.
+   This article shows how to import an existing package into Eclipse 2021-06, configure include paths, and add a colcon builder.
+   After following these steps, you can resolve ROS includes and build the package from Eclipse.
 
 .. showmeta::
    :order: area, contentType, experience

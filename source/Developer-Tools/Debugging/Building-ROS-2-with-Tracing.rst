@@ -17,10 +17,10 @@ Building ROS 2 with tracing - how-to
    Tracing instrumentation is included in ROS by default on Linux, but some systems need builds without tracepoint overhead or instrumentation.
    This article describes how to rebuild ROS components with tracing tracepoints excluded or tracing instrumentation disabled.
    After following these steps, you will be able to validate the tracing configuration for your workspace.
-   
+
    .. showmeta::
    :order: area, contentType, experience
-   :labels: area=Area, contentType=Content type, experience=Level   
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2
