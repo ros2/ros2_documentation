@@ -23,7 +23,7 @@ Using Eclipse Oxygen with ``rviz2`` [community-contributed] - tutorial
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Contents
+.. contents:: Table of Contents
    :depth: 2
    :local:
 

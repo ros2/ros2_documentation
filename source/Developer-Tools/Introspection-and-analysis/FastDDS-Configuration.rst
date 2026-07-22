@@ -5,7 +5,16 @@
     Tutorials/Advanced/FastDDS-Configuration
 
 Unlocking the potential of Fast DDS middleware [community-contributed]
-======================================================================
+=================================================================================
+
+.. short-description::
+   Fast DDS offers extended middleware configuration for ROS applications through XML profiles.
+   This article shows how to configure publishers, subscribers, services, and clients with ``rmw_fastrtps``.
+   After you follow these steps, you can use XML files to control publication modes, matching limits, partitions, and service or client profiles.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** This tutorial will show how to use the extended configuration capabilities of Fast DDS in ROS 2.
 

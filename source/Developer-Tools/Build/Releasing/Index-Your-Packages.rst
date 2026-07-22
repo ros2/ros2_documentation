@@ -14,7 +14,7 @@ Indexing Your Packages - how-to
 
 .. short-description::
    Indexing a package makes it discoverable to ROS tooling and prepares it for release into a ROS distribution.
-   This article explains how to prepare package metadata and add source entries to `ros/rosdistro`.
+   This article explains how to prepare package metadata and add source entries to ``ros/rosdistro``.
    After you follow it, your packages can be reviewed, merged, and listed on the ROS Index.
 
 .. showmeta::

@@ -14,7 +14,7 @@ Release Team / Repository - how-to
 
 .. short-description::
    Release repositories must be hosted and maintained with the correct team access before packages can be released.
-   This article explains how `ros2-gbp` organizes release teams and release repositories, and which issue templates to use.
+   This article explains how ``ros2-gbp`` organizes release teams and release repositories, and which issue templates to use.
    After you follow it, you can request team membership, create a release team, or set up a release repository.
 
 .. showmeta::

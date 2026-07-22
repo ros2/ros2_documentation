@@ -15,7 +15,7 @@ Releasing first-time packages - how-to
 .. short-description::
    A first release prepares a package repository, release repository, and Bloom configuration for a target ROS distribution.
    This article describes the standard first-time release workflow for a common GitHub-hosted project.
-   After you follow it, Bloom can create the `rosdistro` pull request for your initial release.
+   After you follow it, Bloom can create the ``rosdistro`` pull request for your initial release.
 
 .. showmeta
 

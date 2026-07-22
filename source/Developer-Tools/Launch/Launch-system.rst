@@ -14,7 +14,7 @@ Integrating launch files into ROS 2 packages
 
 **Time:** 10 minutes
 
-.. contents:: Contents
+.. contents:: Table of Contents
    :depth: 2
    :local:
 

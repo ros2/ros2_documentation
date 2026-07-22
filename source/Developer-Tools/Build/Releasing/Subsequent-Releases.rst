@@ -13,7 +13,7 @@ Releasing subsequent package versions - how to
 ==============================================
 
 .. short-description::
-   Releasing an updated ROS package requires the release repository, changelog, package version, and `rosdistro` pull request to be prepared correctly.
+   Releasing an updated ROS package requires the release repository, changelog, package version, and ``rosdistro`` pull request to be prepared correctly.
    This guide describes the process for releasing new versions of packages that have already been released.
    After you follow these steps, you can run Bloom and submit the next package release.
 
