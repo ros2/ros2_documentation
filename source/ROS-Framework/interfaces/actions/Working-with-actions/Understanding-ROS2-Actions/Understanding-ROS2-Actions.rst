@@ -84,9 +84,14 @@ When you launch the ``/teleop_turtle`` node, you will see the following message 
 The first line corresponds to the ``cmd_vel`` topic, covered in :doc:`Learning about topics <../../../topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`.
 The second line corresponds to an action.
 
-Notice that the letter keys ``G|B|V|C|D|E|R|T`` form a "box" around the ``F`` key on a US QWERTY keyboard (if you are not using a QWERTY keyboard, see `this link <https://upload.wikimedia.org/wikipedia/commons/d/da/KB_United_States.svg>`__ to follow along).
+Notice that the letter keys ``G|B|V|C|D|E|R|T`` form a "box" around the ``F`` key on a US QWERTY keyboard.
 Each key's position around ``F`` corresponds to that orientation in Turtlesim.
 For example, the ``E`` key will rotate the turtle's orientation to the upper left corner.
+
+.. image:: images/turtlesim_orientation_mapping.png
+
+The figure shows those orientation keys on a QWERTY layout.
+Teleoperation uses the letter keys themselves, so if you use a different layout such as Dvorak, press the same letters, even if they are not arranged in a box on your keyboard.
 
 Pay attention to the terminal where the ``/turtlesim`` node is running.
 Each time you press one of these keys, you send a goal to an action server that is part of the ``/turtlesim`` node.
