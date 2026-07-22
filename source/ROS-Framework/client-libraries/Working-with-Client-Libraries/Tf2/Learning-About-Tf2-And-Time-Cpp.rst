@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: client-libraries, framework   
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Tf2/Learning-About-Tf2-And-Time-Cpp
@@ -5,8 +12,17 @@
 
 .. _LearningAboutTf2AndTimeCpp:
 
-Using time (C++)
-================
+Using time (C++) — tutorial
+===========================
+
+.. short-description::
+   tf2 stores transform data over time, which lets you ask for transforms from a specific moment rather than only the latest available value.
+   This article describes how to update a C++ listener to use timed transform lookups.
+   After following this tutorial, you will be able to wait for transforms to become available using ``lookupTransform()``.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Learn how to get a transform at a specific time and wait for a transform to be available on the tf2 tree using ``lookupTransform()`` function.
 
