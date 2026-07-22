@@ -1,6 +1,7 @@
 codespell
 doc8
 docutils
+matplotlib
 pip
 pytest
 sphinx
@@ -13,3 +14,4 @@ sphinx-tabs
 sphinx-tamer
 sphinxcontrib-googleanalytics
 sphinxcontrib-mermaid
+sphinxext-opengraph
