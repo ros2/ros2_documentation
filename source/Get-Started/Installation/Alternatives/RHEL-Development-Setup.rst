@@ -170,7 +170,7 @@ Hooray!
 Next steps
 ----------
 
-Continue with the :doc:`tutorials and demos <../../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
+Continue with the tutorials to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
 
 Alternate compilers
 -------------------

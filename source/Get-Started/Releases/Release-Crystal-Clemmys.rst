@@ -15,7 +15,7 @@ Crystal Clemmys (``crystal``)
 Supported Platforms
 -------------------
 
-Crystal Clemmys supports the following platforms according to `the platform support tiers <../The-ROS2-Project/Platform-Support-Tiers>`:
+Crystal Clemmys supports the following platforms according to `the platform support tiers </The-ROS2-Project/Platform-Support-Tiers>`:
 
 Tier 1 platforms:
 
@@ -149,7 +149,7 @@ New features in this ROS 2 release
 * `image_transport <https://github.com/ros-perception/image_common/wiki/ROS2-Migration>`__
 * `navigation2 <https://github.com/ros-planning/navigation2/blob/master/README.md>`__
 * `rosbag2 <https://index.ros.org/r/rosbag2/github-ros2-rosbag2/#crystal>`__
-* `rqt <../../Concepts/Intermediate/About-RQt>`
+* `rqt </Developer-Tools/Visualization/About-RQt>`
 * Improvement in memory management
 * Introspection information about nodes
 * Launch system improvements

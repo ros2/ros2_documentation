@@ -3,7 +3,7 @@
 Working with services
 =====================
 
-PLACEHOLDER
+Coming Soon
 
 .. toctree::
    :maxdepth: 1

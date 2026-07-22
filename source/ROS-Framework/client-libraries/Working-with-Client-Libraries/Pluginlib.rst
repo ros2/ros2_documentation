@@ -347,6 +347,13 @@ From ``ros2_ws``, be sure to source the setup files:
 
       $ call install/setup.bat
 
+The ``ros2 plugin`` command is provided by the ``ros2plugin`` package.
+If this command is unavailable on a Debian package installation, install it with:
+
+.. code-block:: console
+
+   $ sudo apt install ros-{DISTRO}-ros2plugin
+
 You can verify that your plugins were successfully registered by listing them:
 
 .. code-block:: console

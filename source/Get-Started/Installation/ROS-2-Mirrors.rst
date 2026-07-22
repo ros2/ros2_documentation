@@ -60,6 +60,9 @@ North America
    * - University of Maryland (UMD)
      - USA
      - `http://mirror.umd.edu/packages.ros.org/ros2/ubuntu/ <http://mirror.umd.edu/packages.ros.org/ros2/ubuntu/>`_
+   * - nulled LLC
+     - USA
+     - `http://mirror.nulled.llc/ros2/ubuntu/ <http://mirror.nulled.llc/ros2/ubuntu/>`_
 
 Oceania
 ^^^^^^^
