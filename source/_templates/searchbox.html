@@ -1,0 +1,965 @@
+{# Pagefind Component UI (plan §3) + DocSearch-inspired styling via pagefind-docsearch.css #}
+<link rel="stylesheet" href="{{ pagefind_component_css }}">
+<script type="module">
+  const bundlePrefix = {{ pagefind_bundle_prefix|tojson }};
+  const configEl = document.createElement('pagefind-config');
+  configEl.setAttribute('bundle-path', new URL(bundlePrefix, document.baseURI).href);
+  document.head.appendChild(configEl);
+
+  const js = {{ pagefind_component_js|tojson }};
+  const mergeIndex = {{ pagefind_merge_index|tojson }};
+  const searchResultsUrl = {{ pagefind_search_results_href|tojson }};
+  const resultMetaFields = {{ pagefind_result_meta_fields|tojson }};
+  const alwaysShowFilterKeys = ({{ pagefind_always_show_filters|tojson }} || [])
+    .map((key) => String(key || '').trim())
+    .filter(Boolean);
+  const currentDistro = {{ pagefind_current_distro|tojson }};
+
+  function getPagefindInstance() {
+    return window.PagefindComponents?.getInstanceManager?.()?.getInstance?.('default') ?? null;
+  }
+
+  function normalizeSearchFilters(raw) {
+    const out = {};
+    if (!raw || typeof raw !== 'object') {
+      return out;
+    }
+    for (const field of resultMetaFields) {
+      const key = field.key;
+      if (!key) {
+        continue;
+      }
+      let values = raw[key];
+      if (values == null) {
+        const match = Object.keys(raw).find((k) => k.toLowerCase() === key.toLowerCase());
+        values = match != null ? raw[match] : null;
+      }
+      const arr = Array.isArray(values)
+        ? values
+        : (values != null && values !== '' ? [values] : []);
+      const cleaned = arr.map((v) => String(v).trim()).filter(Boolean);
+      if (cleaned.length) {
+        out[key] = cleaned;
+      }
+    }
+    return out;
+  }
+
+  function appendFiltersToParams(params, filters) {
+    for (const field of resultMetaFields) {
+      const key = field.key;
+      const values = filters[key];
+      if (!values?.length) {
+        continue;
+      }
+      values.forEach((value) => {
+        const trimmed = String(value).trim();
+        if (trimmed) {
+          params.append(key, trimmed);
+        }
+      });
+    }
+  }
+
+  function parseFiltersFromUrl(searchString) {
+    const params = new URLSearchParams(searchString ?? window.location.search);
+    const filters = {};
+    for (const field of resultMetaFields) {
+      const key = field.key;
+      if (!key) {
+        continue;
+      }
+      const values = params.getAll(key).map((v) => v.trim()).filter(Boolean);
+      if (values.length) {
+        filters[key] = values;
+      }
+    }
+    return filters;
+  }
+
+  function urlHasFacetParams(searchString) {
+    const params = new URLSearchParams(searchString ?? window.location.search);
+    return resultMetaFields.some((field) => {
+      const key = field.key;
+      return key && params.getAll(key).some((v) => v.trim());
+    });
+  }
+
+  function buildSearchResultsHref(term, searchFilters) {
+    const params = new URLSearchParams();
+    const q = (term || '').trim();
+    if (q) {
+      params.set('q', q);
+    }
+    appendFiltersToParams(params, normalizeSearchFilters(searchFilters));
+    const query = params.toString();
+    return query ? `${searchResultsUrl}?${query}` : searchResultsUrl;
+  }
+
+  function getModalSearchTerm(e) {
+    const instance = getPagefindInstance();
+    const fromInstance = (instance?.searchTerm || '').trim();
+    if (fromInstance) {
+      return fromInstance;
+    }
+    const pathInput = e.composedPath().find((n) => n instanceof HTMLInputElement);
+    return (pathInput?.value || '').trim();
+  }
+
+  document.addEventListener(
+    'keydown',
+    (e) => {
+      if (e.key !== 'Enter') {
+        return;
+      }
+      const modal = document.querySelector('pagefind-modal');
+      if (!modal) {
+        return;
+      }
+      const inModal = e.composedPath().some(
+        (n) => n instanceof Element && (n === modal || modal.contains(n)),
+      );
+      if (!inModal) {
+        return;
+      }
+      const q = getModalSearchTerm(e);
+      if (!q) {
+        return;
+      }
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      const filters = mergeDefaultDistributionFilter(
+        normalizeSearchFilters(getPagefindInstance()?.searchFilters),
+      );
+      window.location.href = buildSearchResultsHref(q, filters);
+    },
+    true,
+  );
+  const excerptCache = new Map();
+  const pageMetaCache = new Map();
+  const decoratedExcerptItems = new WeakSet();
+  const metadataDecorationInFlight = new WeakSet();
+
+  function normalizeResultUrl(href) {
+    try {
+      return new URL(href || '', document.baseURI).href;
+    } catch {
+      return href || '';
+    }
+  }
+
+  function formatMetaValue(raw) {
+    if (raw == null) {
+      return '';
+    }
+    if (Array.isArray(raw)) {
+      return raw.map((v) => String(v).trim()).filter(Boolean).join(', ');
+    }
+    return String(raw).trim();
+  }
+
+  const PAGEFIND_AUTO_META = new Set(['title', 'image', 'image_alt', 'url']);
+
+  function pascalCaseMetaKeyLabel(key) {
+    const s = String(key || '').trim();
+    if (!s) {
+      return '';
+    }
+    const words = s
+      .replace(/[_-]+/g, ' ')
+      .replace(/([a-z])([A-Z])/g, '$1 $2')
+      .split(/\s+/)
+      .filter(Boolean);
+    return words.map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join('');
+  }
+
+  function orderedMetaKeys() {
+    return resultMetaFields.map((field) => field.key).filter(Boolean);
+  }
+
+  function configuredMetaKeySet() {
+    return new Set(orderedMetaKeys().map((key) => key.toLowerCase()));
+  }
+
+  function labelForMetaKey(key) {
+    const field = resultMetaFields.find((f) => f.key === key);
+    const label = (field?.label || '').trim();
+    return label || pascalCaseMetaKeyLabel(key);
+  }
+
+  function getHeadMetaValue(meta, key) {
+    if (!meta || !key) {
+      return null;
+    }
+    if (meta[key] != null) {
+      return meta[key];
+    }
+    const lower = key.toLowerCase();
+    const match = Object.keys(meta).find((k) => k.toLowerCase() === lower);
+    return match != null ? meta[match] : null;
+  }
+
+  async function readPageMetaTags(href) {
+    const url = normalizeResultUrl(href);
+    if (pageMetaCache.has(url)) {
+      return pageMetaCache.get(url);
+    }
+    const load = fetch(url, { credentials: 'same-origin' })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Unable to read meta for ${url}`);
+        }
+        return response.text();
+      })
+      .then((html) => {
+        const parsed = new DOMParser().parseFromString(html, 'text/html');
+        const allowed = configuredMetaKeySet();
+        const meta = {};
+        parsed.querySelectorAll('head meta[name][content]').forEach((el) => {
+          const name = el.getAttribute('name');
+          const content = (el.getAttribute('content') || '').trim();
+          if (!name || !content) {
+            return;
+          }
+          if (!allowed.has(name.toLowerCase())) {
+            return;
+          }
+          if (!el.hasAttribute('data-pagefind-filter')) {
+            return;
+          }
+          const existing = meta[name];
+          if (existing == null) {
+            meta[name] = content;
+          } else if (Array.isArray(existing)) {
+            existing.push(content);
+          } else {
+            meta[name] = [existing, content];
+          }
+        });
+        return meta;
+      })
+      .catch(() => ({}));
+    pageMetaCache.set(url, load);
+    return load;
+  }
+
+  async function metaEntriesForHref(href) {
+    const headMeta = await readPageMetaTags(href);
+    if (!headMeta || !Object.keys(headMeta).length) {
+      return null;
+    }
+    const entries = [];
+    orderedMetaKeys().forEach((key) => {
+      if (PAGEFIND_AUTO_META.has(key)) {
+        return;
+      }
+      const value = formatMetaValue(getHeadMetaValue(headMeta, key));
+      if (!value) {
+        return;
+      }
+      entries.push({ key, value });
+    });
+    return entries.length ? entries : null;
+  }
+
+  function buildMetadataBlock(entries) {
+    const block = document.createElement('p');
+    block.className = 'pf-result-meta-block ros-page-meta-summary';
+
+    entries.forEach(({ key, value }, index) => {
+      if (index > 0) {
+        block.appendChild(document.createTextNode(' | '));
+      }
+      const nameEl = document.createElement('strong');
+      const label = labelForMetaKey(key);
+      nameEl.textContent = label.endsWith(':') ? label : `${label}:`;
+      block.appendChild(nameEl);
+      block.appendChild(document.createTextNode(` ${formatMetaValue(value)}`));
+    });
+
+    return block;
+  }
+
+  function metadataBlockNeedsReplace(block) {
+    return !(block instanceof HTMLElement) || block.dataset.rosMetaBuilt !== '1';
+  }
+
+  async function buildMetadataBlockForHref(href) {
+    const metaEntries = await metaEntriesForHref(href);
+    if (!metaEntries) {
+      return null;
+    }
+    return buildMetadataBlock(metaEntries);
+  }
+
+  function insertMetadataBlock(content, block) {
+    block.dataset.rosMetaBuilt = '1';
+    const title = content.querySelector('.pf-result-title');
+    if (title && title.parentNode === content) {
+      title.insertAdjacentElement('afterend', block);
+      return;
+    }
+    content.prepend(block);
+  }
+
+  function looksLikeIndexedMetaExcerpt(text) {
+    const t = (text || '').trim();
+    if (!t) {
+      return false;
+    }
+    if (/\b(Description|Keywords|Contenttype):/i.test(t)) {
+      return true;
+    }
+    if (/\w+:\s*[^,|]+,\s*\w+:/.test(t)) {
+      return true;
+    }
+    const pseudoLabels = (t.match(/\b[a-zA-Z][a-zA-Z0-9]*\s*:/g) || []).length;
+    return pseudoLabels >= 3;
+  }
+
+  function stripLeadingMetaDumpFromExcerpt(text) {
+    const t = (text || '').trim();
+    if (!t || !looksLikeIndexedMetaExcerpt(t)) {
+      return t;
+    }
+
+    const rosStart = t.search(/\bROS\s+[2\(]/i);
+    if (rosStart > 20) {
+      return t.slice(rosStart).trim();
+    }
+
+    const debStart = t.search(/\bDeb\s+packages\b/i);
+    if (debStart > 20) {
+      return t.slice(debStart).trim();
+    }
+
+    const sentenceEnd = t.search(/[.!?]\s+\S/);
+    if (sentenceEnd !== -1 && sentenceEnd < 240) {
+      const after = t.slice(sentenceEnd + 1).trim();
+      if (after && !looksLikeIndexedMetaExcerpt(after)) {
+        return after;
+      }
+    }
+
+    return '';
+  }
+
+  function trimTo150(text) {
+    const normalized = (text || '').replace(/\s+/g, ' ').trim();
+    if (!normalized) {
+      return '';
+    }
+    if (normalized.length <= 150) {
+      return normalized;
+    }
+    return `${normalized.slice(0, 150).trimEnd()}...`;
+  }
+
+  async function readArticleBodyExcerpt(href) {
+    const url = new URL(href || '', document.baseURI).href;
+    if (excerptCache.has(url)) {
+      return excerptCache.get(url);
+    }
+
+    const load = fetch(url, { credentials: 'same-origin' })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Unable to read excerpt for ${url}`);
+        }
+        return response.text();
+      })
+      .then((html) => {
+        const parsed = new DOMParser().parseFromString(html, 'text/html');
+        const body = parsed.querySelector('div[itemprop="articleBody"]');
+        if (!body) {
+          return '';
+        }
+        const paras = body.querySelectorAll('p');
+        for (const p of paras) {
+          if (p.classList.contains('ros-page-meta-summary')) {
+            continue;
+          }
+          const raw = (p.textContent || '').replace(/\s+/g, ' ').trim();
+          if (!raw) {
+            continue;
+          }
+          if (looksLikeIndexedMetaExcerpt(raw)) {
+            continue;
+          }
+          return trimTo150(raw);
+        }
+        return '';
+      })
+      .catch(() => '');
+
+    excerptCache.set(url, load);
+    return load;
+  }
+
+  const shadowMetaObservedHosts = new WeakSet();
+  const facetPaneObserved = new WeakSet();
+  let refreshMetaRaf = null;
+  let facetPaneRefreshRaf = null;
+  let facetPaneListenerRegistered = false;
+
+  function filterKeyInTotalFilters(key, totalFilters) {
+    if (!key || !totalFilters || typeof totalFilters !== 'object') {
+      return false;
+    }
+    if (Object.prototype.hasOwnProperty.call(totalFilters, key)) {
+      return true;
+    }
+    const lower = String(key).toLowerCase();
+    return Object.keys(totalFilters).some((k) => k.toLowerCase() === lower);
+  }
+
+  function isConfiguredFacetKey(key) {
+    const lower = String(key || '').toLowerCase();
+    return resultMetaFields.some((f) => f.key && f.key.toLowerCase() === lower);
+  }
+
+  function resolveFilterKeyFromGroup(el, totalFilters) {
+    if (!(el instanceof HTMLElement)) {
+      return null;
+    }
+    if (el.dataset.rosPfFilterKey) {
+      return el.dataset.rosPfFilterKey;
+    }
+    // Pagefind Component UI uses data-filter-name on each filter group.
+    const attr =
+      el.getAttribute('data-filter-name') ||
+      el.dataset.filterName ||
+      el.getAttribute('data-pf-filter') ||
+      el.getAttribute('data-filter');
+    if (attr) {
+      return attr;
+    }
+    const summary = el.querySelector('summary, button');
+    // Prefer the first text node so badge counts (e.g. "1") are ignored.
+    let text = '';
+    if (summary) {
+      for (const node of summary.childNodes) {
+        if (node.nodeType === Node.TEXT_NODE) {
+          text += node.textContent || '';
+        }
+      }
+      text = text.trim() || (summary.textContent || '').trim();
+    }
+    if (!text) {
+      return null;
+    }
+    // Strip trailing count badges like "AREA1" / "AREA 1".
+    const cleaned = text.replace(/\s*\d+\s*$/, '').trim();
+    for (const field of resultMetaFields) {
+      if (field.key && cleaned.toLowerCase() === field.key.toLowerCase()) {
+        return field.key;
+      }
+      if (field.label && cleaned.toLowerCase() === field.label.toLowerCase()) {
+        return field.key;
+      }
+    }
+    for (const k of Object.keys(totalFilters || {})) {
+      if (cleaned.toLowerCase() === k.toLowerCase()) {
+        return k;
+      }
+    }
+    return null;
+  }
+
+  function collectFilterGroups(shadowRoot) {
+    const details = [...shadowRoot.querySelectorAll('details')];
+    if (details.length) {
+      return details;
+    }
+    const tagged = [
+      ...shadowRoot.querySelectorAll(
+        '[data-filter-name], [data-pf-filter], [data-filter]',
+      ),
+    ];
+    if (tagged.length) {
+      return tagged;
+    }
+    return [...shadowRoot.children].filter((n) => n instanceof HTMLElement);
+  }
+
+  function isAlwaysShowFilterKey(key) {
+    const lower = String(key || '').toLowerCase();
+    return alwaysShowFilterKeys.some((k) => k.toLowerCase() === lower);
+  }
+
+  function facetGroupTitle(key) {
+    // Pagefind Component UI renders filter keys in uppercase (AREA, CONTENTTYPE).
+    return String(key || '').trim().toUpperCase();
+  }
+
+  function customizeFilterPane(pane, totalFilters) {
+    if (!(pane instanceof HTMLElement)) {
+      return;
+    }
+    const sr = pane.shadowRoot;
+    if (!sr) {
+      return;
+    }
+    const groups = collectFilterGroups(sr);
+    const matched = [];
+    groups.forEach((group) => {
+      const key = resolveFilterKeyFromGroup(group, totalFilters);
+      if (!key) {
+        group.style.display = 'none';
+        return;
+      }
+      group.dataset.rosPfFilterKey = key;
+      const show =
+        isConfiguredFacetKey(key) &&
+        (filterKeyInTotalFilters(key, totalFilters) || isAlwaysShowFilterKey(key));
+      group.style.display = show ? '' : 'none';
+      if (!show) {
+        return;
+      }
+      // Keep Pagefind's uppercase key titles (do not replace with friendly labels).
+      const summary = group.querySelector('summary, button');
+      const nameEl = summary?.querySelector('.pf-filter-group-name');
+      if (nameEl) {
+        nameEl.textContent = facetGroupTitle(key);
+      }
+      matched.push({ key, el: group });
+    });
+    const container = matched[0]?.el?.parentElement;
+    if (!container) {
+      return;
+    }
+    resultMetaFields.forEach((field) => {
+      const entry = matched.find(
+        (m) => m.key.toLowerCase() === field.key.toLowerCase(),
+      );
+      if (entry) {
+        container.appendChild(entry.el);
+      }
+    });
+  }
+
+  function ensureAlwaysShowPlaceholders(scopeEl, totalFilters) {
+    if (!(scopeEl instanceof Element)) {
+      return;
+    }
+    const hasIndexedFilters =
+      totalFilters &&
+      typeof totalFilters === 'object' &&
+      Object.keys(totalFilters).length > 0;
+
+    scopeEl.querySelectorAll('.ros-search-facets').forEach((aside) => {
+      if (!(aside instanceof HTMLElement)) {
+        return;
+      }
+
+      aside.classList.toggle('ros-search-facets--placeholders', !hasIndexedFilters);
+      aside.classList.toggle('ros-search-facets--native', hasIndexedFilters);
+
+      // Prefer Pagefind's native pane when the index has filters; hide empty pane
+      // so placeholders are the only facet UI when nothing is indexed yet.
+      aside.querySelectorAll('pagefind-filter-pane').forEach((pane) => {
+        if (!(pane instanceof HTMLElement)) {
+          return;
+        }
+        pane.hidden = !hasIndexedFilters;
+        pane.style.display = hasIndexedFilters ? '' : 'none';
+      });
+
+      let host = aside.querySelector('.ros-facet-placeholders');
+      if (!host) {
+        host = document.createElement('div');
+        host.className = 'ros-facet-placeholders';
+        aside.appendChild(host);
+      }
+
+      const missingFields = resultMetaFields.filter((field) => {
+        const key = field.key;
+        return (
+          key &&
+          isAlwaysShowFilterKey(key) &&
+          !filterKeyInTotalFilters(key, totalFilters)
+        );
+      });
+
+      host.hidden = missingFields.length === 0;
+
+      const wanted = new Set(missingFields.map((f) => f.key.toLowerCase()));
+      [...host.querySelectorAll('[data-ros-facet-placeholder]')].forEach((el) => {
+        const key = (el.getAttribute('data-ros-facet-placeholder') || '').toLowerCase();
+        if (!wanted.has(key)) {
+          el.remove();
+        }
+      });
+
+      missingFields.forEach((field) => {
+        const key = field.key;
+        const title = facetGroupTitle(key);
+        let details = host.querySelector(
+          `[data-ros-facet-placeholder="${CSS.escape(key)}"]`,
+        );
+        if (!details) {
+          details = document.createElement('details');
+          details.className = 'ros-facet-placeholder';
+          details.setAttribute('data-ros-facet-placeholder', key);
+          details.setAttribute('data-filter-name', key);
+          details.open = true;
+          const summary = document.createElement('summary');
+          summary.textContent = title;
+          const empty = document.createElement('p');
+          empty.className = 'ros-facet-placeholder-empty';
+          empty.textContent = 'No options available';
+          details.appendChild(summary);
+          details.appendChild(empty);
+          host.appendChild(details);
+        } else {
+          const summary = details.querySelector('summary');
+          if (summary) {
+            summary.textContent = title;
+          }
+        }
+      });
+
+      missingFields.forEach((field) => {
+        const el = host.querySelector(
+          `[data-ros-facet-placeholder="${CSS.escape(field.key)}"]`,
+        );
+        if (el) {
+          host.appendChild(el);
+        }
+      });
+    });
+  }
+
+  function refreshFacetPanes() {
+    const instance = getPagefindInstance();
+    const totalFilters = instance?.totalFilters ?? null;
+    [document.querySelector('pagefind-modal'), document.querySelector('#ros-search-page')]
+      .filter(Boolean)
+      .forEach((scope) => {
+        scope.querySelectorAll('pagefind-filter-pane').forEach((pane) => {
+          customizeFilterPane(pane, totalFilters);
+        });
+        ensureAlwaysShowPlaceholders(scope, totalFilters);
+      });
+  }
+
+  function scheduleRefreshFacetPanes() {
+    if (facetPaneRefreshRaf !== null) {
+      return;
+    }
+    facetPaneRefreshRaf = requestAnimationFrame(() => {
+      facetPaneRefreshRaf = null;
+      refreshFacetPanes();
+    });
+  }
+
+  function bindFacetPaneObservers(scopeEl) {
+    if (!(scopeEl instanceof Element)) {
+      return;
+    }
+    scopeEl.querySelectorAll('pagefind-filter-pane').forEach((pane) => {
+      if (!(pane instanceof HTMLElement)) {
+        return;
+      }
+      const attach = () => {
+        const sr = pane.shadowRoot;
+        if (!sr || facetPaneObserved.has(pane)) {
+          return;
+        }
+        facetPaneObserved.add(pane);
+        const observer = new MutationObserver(() => {
+          scheduleRefreshFacetPanes();
+        });
+        observer.observe(sr, { childList: true, subtree: true });
+        scheduleRefreshFacetPanes();
+      };
+
+      attach();
+      if (!pane.shadowRoot && pane.dataset.pfFacetShadowPolling !== '1') {
+        pane.dataset.pfFacetShadowPolling = '1';
+        let n = 0;
+        const poll = () => {
+          attach();
+          if (!facetPaneObserved.has(pane) && n++ < 150) {
+            requestAnimationFrame(poll);
+          }
+        };
+        poll();
+      }
+    });
+  }
+
+  function setupFacetPaneCustomization() {
+    const instance = getPagefindInstance();
+    if (!instance) {
+      return;
+    }
+    if (!facetPaneListenerRegistered) {
+      facetPaneListenerRegistered = true;
+      instance.on('filters', () => {
+        scheduleRefreshFacetPanes();
+      });
+    }
+    [document.querySelector('pagefind-modal'), document.querySelector('#ros-search-page')]
+      .filter(Boolean)
+      .forEach((scope) => {
+        bindFacetPaneObservers(scope);
+      });
+    scheduleRefreshFacetPanes();
+  }
+
+  function scheduleRefreshResultMetadata() {
+    if (refreshMetaRaf !== null) {
+      return;
+    }
+    refreshMetaRaf = requestAnimationFrame(() => {
+      refreshMetaRaf = null;
+      refreshResultMetadata();
+    });
+  }
+
+  function collectAllPfResultLis() {
+    const seen = new Set();
+    const addLi = (el) => {
+      if (el instanceof HTMLElement && el.matches('li.pf-result')) {
+        seen.add(el);
+      }
+    };
+    document.querySelectorAll('li.pf-result').forEach(addLi);
+    document.querySelectorAll('pagefind-results').forEach((host) => {
+      host.shadowRoot?.querySelectorAll('li.pf-result').forEach(addLi);
+    });
+    return seen;
+  }
+
+  function refreshResultMetadata() {
+    collectAllPfResultLis().forEach((item) => {
+      void decorateResultItem(item);
+    });
+  }
+
+  function bindShadowObserversForTarget(scopeEl) {
+    if (!(scopeEl instanceof Element)) {
+      return;
+    }
+    scopeEl.querySelectorAll('pagefind-results').forEach((host) => {
+      if (!(host instanceof HTMLElement)) {
+        return;
+      }
+      const attach = () => {
+        const sr = host.shadowRoot;
+        if (!sr || shadowMetaObservedHosts.has(host)) {
+          return;
+        }
+        shadowMetaObservedHosts.add(host);
+        const smo = new MutationObserver(() => {
+          scheduleRefreshResultMetadata();
+        });
+        smo.observe(sr, { childList: true, subtree: true });
+        scheduleRefreshResultMetadata();
+      };
+
+      attach();
+      if (!host.shadowRoot && host.dataset.pfMetaShadowPolling !== '1') {
+        host.dataset.pfMetaShadowPolling = '1';
+        let n = 0;
+        const poll = () => {
+          attach();
+          if (!shadowMetaObservedHosts.has(host) && n++ < 150) {
+            requestAnimationFrame(poll);
+          }
+        };
+        poll();
+      }
+    });
+  }
+
+  async function decorateResultItem(resultItem) {
+    if (!(resultItem instanceof HTMLElement)) {
+      return;
+    }
+
+    const link = resultItem.querySelector('.pf-result-link');
+    const content = resultItem.querySelector('.pf-result-content');
+    if (!link || !content) {
+      return;
+    }
+
+    const href = link.getAttribute('href');
+    const existingBlock = resultItem.querySelector('.pf-result-meta-block');
+    if (!metadataDecorationInFlight.has(resultItem) && (!existingBlock || metadataBlockNeedsReplace(existingBlock))) {
+      metadataDecorationInFlight.add(resultItem);
+      try {
+        const block = await buildMetadataBlockForHref(href);
+        if (block) {
+          existingBlock?.remove();
+          insertMetadataBlock(content, block);
+        }
+      } finally {
+        metadataDecorationInFlight.delete(resultItem);
+      }
+    }
+
+    const excerpt = content.querySelector(
+      '.pf-result-excerpt, .pf-result-preview, p:not(.pf-result-title):not(.pf-result-meta-block)',
+    );
+    if (excerpt && !decoratedExcerptItems.has(resultItem) && excerpt.dataset.articleBodyExcerpt !== '1') {
+      decoratedExcerptItems.add(resultItem);
+      const resolved = await readArticleBodyExcerpt(href);
+      const current = (excerpt.textContent || '').replace(/\s+/g, ' ').trim();
+      if (resolved) {
+        excerpt.textContent = resolved;
+      } else if (looksLikeIndexedMetaExcerpt(current)) {
+        const stripped = stripLeadingMetaDumpFromExcerpt(current);
+        excerpt.textContent = stripped && !looksLikeIndexedMetaExcerpt(stripped) ? trimTo150(stripped) : '';
+      } else {
+        excerpt.textContent = trimTo150(current);
+      }
+      excerpt.dataset.articleBodyExcerpt = '1';
+    }
+  }
+
+  function setupResultMetadataRendering() {
+    const targets = [document.querySelector('pagefind-modal'), document.querySelector('#ros-search-page')].filter(
+      Boolean,
+    );
+
+    targets.forEach((target) => {
+      if (target.dataset.metaEnhanced === '1') {
+        return;
+      }
+      target.dataset.metaEnhanced = '1';
+
+      bindShadowObserversForTarget(target);
+      bindFacetPaneObservers(target);
+
+      const observer = new MutationObserver(() => {
+        bindShadowObserversForTarget(target);
+        bindFacetPaneObservers(target);
+        scheduleRefreshResultMetadata();
+        scheduleRefreshFacetPanes();
+      });
+      observer.observe(target, { childList: true, subtree: true });
+
+      scheduleRefreshResultMetadata();
+    });
+  }
+
+  function distributionFacetAvailable() {
+    if (!currentDistro) {
+      return false;
+    }
+    if (!isConfiguredFacetKey('distribution')) {
+      return false;
+    }
+    // Only auto-apply when the index actually has distribution values.
+    return filterKeyInTotalFilters(
+      'distribution',
+      getPagefindInstance()?.totalFilters,
+    );
+  }
+
+  function mergeDefaultDistributionFilter(filters) {
+    const merged = { ...filters };
+    if (distributionFacetAvailable() && !merged.distribution?.length) {
+      merged.distribution = [currentDistro];
+    }
+    return merged;
+  }
+
+  function applyDefaultDistributionFilter() {
+    const instance = getPagefindInstance();
+    if (!instance || !distributionFacetAvailable()) {
+      return;
+    }
+    if (document.querySelector('#ros-search-page') && urlHasFacetParams()) {
+      return;
+    }
+    // Applying a filter with an empty search term leaves the results pane blank
+    // in Pagefind Component UI. Only auto-filter once the user has a query.
+    const term = (instance.searchTerm || '').trim();
+    if (!term) {
+      return;
+    }
+    const existing = normalizeSearchFilters(instance.searchFilters);
+    if (existing.distribution?.length) {
+      return;
+    }
+    instance.triggerFilter('distribution', [currentDistro]);
+  }
+
+  function applySearchQueryFromUrl() {
+    const root = document.querySelector('#ros-search-page');
+    if (!root) {
+      return;
+    }
+    const params = new URLSearchParams(window.location.search);
+    const term = (params.get('q') || '').trim();
+    const urlFilters = parseFiltersFromUrl();
+    const instance = getPagefindInstance();
+    if (!instance) {
+      return;
+    }
+    const filters = mergeDefaultDistributionFilter(urlFilters);
+    const hasFilters = Object.keys(filters).length > 0;
+    if (!term && !hasFilters) {
+      return;
+    }
+    if (term) {
+      instance.triggerSearchWithFilters(term, filters);
+      return;
+    }
+    // Filter-only URL with no query: still run a search so result cards appear.
+    if (hasFilters) {
+      instance.triggerSearchWithFilters('', filters);
+    }
+  }
+
+  try {
+    await import(new URL(js, document.baseURI).href);
+    const instance = getPagefindInstance();
+    if (instance && Array.isArray(mergeIndex) && mergeIndex.length) {
+      if (!instance.pagefindOptions) {
+        instance.pagefindOptions = {};
+      }
+      instance.pagefindOptions.mergeIndex = mergeIndex;
+    }
+    setupFacetPaneCustomization();
+    setupResultMetadataRendering();
+    applySearchQueryFromUrl();
+    // After the user types a query, optionally pin the current distro filter.
+    if (instance?.on) {
+      instance.on('search', () => {
+        applyDefaultDistributionFilter();
+      });
+    }
+  } catch (err) {
+    console.warn('Pagefind UI unavailable until Pagefind CLI is run on the build output:', err);
+  }
+</script>
+
+<div class="ros2-pagefind-search">
+  <pagefind-modal-trigger
+    shortcut="mod+k"
+    placeholder="Enter search...">
+  </pagefind-modal-trigger>
+  <pagefind-modal reset-on-close="true">
+    <pagefind-modal-header>
+      <pagefind-input></pagefind-input>
+    </pagefind-modal-header>
+    <pagefind-modal-body>
+      <div class="ros-search-two-col">
+        <aside class="ros-search-facets" aria-label="Search filters">
+          <pagefind-filter-pane{% if pagefind_filter_keys_csv %} open="{{ pagefind_filter_keys_csv }}"{% endif %}></pagefind-filter-pane>
+        </aside>
+        <main class="ros-search-results" aria-label="Search results">
+          <pagefind-summary></pagefind-summary>
+          <pagefind-results></pagefind-results>
+        </main>
+      </div>
+    </pagefind-modal-body>
+    <pagefind-modal-footer>
+      <pagefind-keyboard-hints></pagefind-keyboard-hints>
+    </pagefind-modal-footer>
+  </pagefind-modal>
+</div>
