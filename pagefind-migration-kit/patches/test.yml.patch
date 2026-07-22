@@ -1,0 +1,31 @@
+--- a/.github/workflows/test.yml
++++ b/.github/workflows/test.yml
+@@ -78,6 +78,15 @@
+       - name: Build the docs
+         run: make html
+ 
++      - name: Setup Node.js (Pagefind)
++        uses: actions/setup-node@v4
++        with:
++          node-version: '24'
++
++      - name: Index HTML with Pagefind
++        run: make pagefind
++
++
+       - name: Upload document artifacts
+         uses: actions/upload-artifact@v4
+         id: artifact-upload-step
+@@ -147,3 +156,12 @@
+ 
+       - name: Build the docs
+         run: make multiversion
++
++      - name: Setup Node.js (Pagefind)
++        uses: actions/setup-node@v4
++        with:
++          node-version: '24'
++
++      - name: Index HTML with Pagefind
++        run: make pagefind
++

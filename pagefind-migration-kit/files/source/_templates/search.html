@@ -1,0 +1,37 @@
+{#
+  Override RTD/Sphinx search page: Pagefind full-page UI instead of searchtools.js.
+#}
+{%- extends "layout.html" %}
+{% set title = _('Search') %}
+{% set display_vcs_links = False %}
+{%- block scripts %}
+    {{ super() }}
+{%- endblock %}
+{% block footer %}
+  {{ super() }}
+{% endblock %}
+{% block body %}
+  <noscript>
+  <div id="fallback" class="admonition warning">
+    <p class="last">
+      {% trans trimmed %}Please activate JavaScript to enable the search
+      functionality.{% endtrans %}
+    </p>
+  </div>
+  </noscript>
+
+  <div data-pagefind-ignore="all" class="ros-search-page" id="ros-search-page">
+    <div class="ros-search-page-input-row">
+      <pagefind-input autofocus></pagefind-input>
+    </div>
+    <div class="ros-search-two-col ros-search-page-two-col">
+      <aside class="ros-search-facets" aria-label="Search filters">
+        <pagefind-filter-pane open="{{ pagefind_filter_keys_csv }}"></pagefind-filter-pane>
+      </aside>
+      <main class="ros-search-results" aria-label="Search results">
+        <pagefind-summary></pagefind-summary>
+        <pagefind-results></pagefind-results>
+      </main>
+    </div>
+  </div>
+{% endblock %}

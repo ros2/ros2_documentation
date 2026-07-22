@@ -33,6 +33,19 @@ multiversion: Makefile
 	@echo "<html><head><meta http-equiv=\"refresh\" content=\"0; url=lyrical/index.html\" /></head></html>" > build/html/index.html
 	$(PYTHON) make_sitemapindex.py
 
+# Pagefind static search index (requires Node.js / npx). Run after html or multiversion.
+PAGEFIND_VERSION ?= 1.5.2
+pagefind:
+	npx -y pagefind@$(PAGEFIND_VERSION) --site "$(OUT)/html"
+
+# Convenience: Sphinx build + Pagefind index (does not replace plain html / multiversion).
+html-search:
+	$(MAKE) html
+	$(MAKE) pagefind
+
+multiversion-search: multiversion
+	$(MAKE) pagefind
+
 %: Makefile
 	@$(BUILD) -M $@ "$(SOURCE)" "$(OUT)" $(OPTS)
 
@@ -98,4 +111,4 @@ linkcheck:
 serve:
 	sphinx-autobuild --host $(LIVE_HOST) --port $(LIVE_PORT) -c . $(SOURCE) $(OUT)/html
 
-.PHONY: help Makefile multiversion test test-tools linkcheck serve lint spellcheck check-dictionaries sort-dictionaries ensure-enhancements supersede-enhancement-reviews $(MAKEFILE_LIST)
+.PHONY: help Makefile multiversion pagefind test test-tools linkcheck serve lint spellcheck check-dictionaries sort-dictionaries ensure-enhancements supersede-enhancement-reviews $(MAKEFILE_LIST)
