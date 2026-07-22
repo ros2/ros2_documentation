@@ -33,8 +33,8 @@ Using the Node Interfaces Template Class (C++) — tutorial
    :local:
 
 Summary
-=======   
-   
+=======
+
 * ``rclcpp`` includes the ``rclcpp::NodeInterfaces<>`` template type, which is the preferred method for passing both conventional and lifecycle nodes to functions.
 * `ROSCon 2023 lightning talk <https://vimeo.com/879001243#t=16m0s>`_ summarizes the ``rclcpp::NodeInterfaces<>`` issue and remedy.
 * You can create a simple ``Node`` using ``rclcpp::Node``, but this approach does not work for other node types like ``rclcpp_lifecycle::LifecycleNode``.

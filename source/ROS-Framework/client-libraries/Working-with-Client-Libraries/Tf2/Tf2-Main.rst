@@ -4,7 +4,7 @@
    :area: client-libraries, framework
    :distribution: {DISTRO}
    :product: {PRODUCT}
-   
+
 .. redirect-from::
 
     Tutorials/Tf2/Tf2-Main

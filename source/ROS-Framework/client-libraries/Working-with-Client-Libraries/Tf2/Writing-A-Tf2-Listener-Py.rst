@@ -1,10 +1,10 @@
 .. meta::
    :contentType: tutorial
    :experience: intermediate
-   :area: client-libraries, framework   
+   :area: client-libraries, framework
    :distribution: {DISTRO}
    :product: {PRODUCT}
-   
+
 .. redirect-from::
 
     Tutorials/Tf2/Writing-A-Tf2-Listener-Py
