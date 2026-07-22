@@ -7,8 +7,8 @@
 
 .. _TestingCpp:
 
-Writing Basic Tests with C++ with GTest
-=======================================
+Writing Basic Tests with C++ with GTest - tutorial
+==================================================
 
 .. short-description::
    Basic C++ tests help verify package behavior as you develop and maintain ROS code.

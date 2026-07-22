@@ -9,10 +9,10 @@
    :distribution: {DISTRO}
    :product: {PRODUCT}
 
-.. TestingPython:
+.. _TestingPython:
 
-Writing Basic Tests with Python
-===============================
+Writing Basic Tests with Python - tutorial
+==========================================
 
 .. short-description::
    Basic Python tests help verify package behavior while developing and maintaining ROS code.

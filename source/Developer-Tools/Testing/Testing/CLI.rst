@@ -11,8 +11,8 @@
 
 .. _TestingCLI:
 
-Running Tests in ROS 2 from the Command Line
-============================================
+Running Tests in ROS 2 from the Command Line - tutorial
+=======================================================
 
 .. short-description::
    Running tests from the command line helps verify that ROS packages build correctly and behave as expected.
