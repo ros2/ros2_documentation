@@ -34,7 +34,7 @@ Set locale
 Enable required repositories
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You will need to enable the EPEL repositories and the PowerTools repository:
+You will need to enable the EPEL repositories and the CodeReady Builder (CRB) repository:
 
 .. code-block:: console
 
@@ -145,7 +145,7 @@ If you want to use other RMW implementations, you can check the :doc:`guide <RMW
 Next steps
 ----------
 
-Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
+Continue with the tutorials to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
 
 Troubleshoot
 ------------

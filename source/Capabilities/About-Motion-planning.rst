@@ -10,4 +10,4 @@ Motion planning
 .. contents:: Table of Contents
    :local:
 
-PLACEHOLDER
+Coming Soon

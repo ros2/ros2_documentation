@@ -3,7 +3,7 @@
 Get started
 ===========
 
-PLACEHOLDER
+Coming Soon
 
 .. toctree::
    :maxdepth: 3

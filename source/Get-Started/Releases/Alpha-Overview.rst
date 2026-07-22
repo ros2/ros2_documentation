@@ -20,7 +20,7 @@ ROS 2 alpha8 release (code name *Hook-and-Loop*; October 2016)
 Changes to supported DDS vendors
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-ROS 2 supports multiple middleware implementations (see `this page <../../Concepts/Intermediate/About-Different-Middleware-Vendors>` for more details).
+ROS 2 supports multiple middleware implementations (see `this page </ROS-Framework/client-libraries/About-Different-Middleware-Vendors>` for more details).
 Until Alpha 8, ROS 2 was supporting ROS middleware implementations for eProsima's Fast RTPS, RTI's Connext and PrismTech's OpenSplice.
 To streamline our efforts, as of Alpha 8, Fast RTPS and Connext (static) will be supported, with Fast RTPS (`now Apache 2.0-licensed <http://www.eprosima.com/index.php/company-all/news/61-eprosima-goes-apache>`__) shipped as the default.
 
@@ -166,7 +166,7 @@ Status
 On February 17, 2016, we are releasing ROS 2 alpha4,
 code-named **Duct tape**.
 Our primary goal with this release is to add more features, while also addressing the feedback we received for the previous releases.
-To that end, we built a set of `demos <../../Tutorials>` that
+To that end, we built a set of tutorials that
 show some of the key features of ROS 2.
 We encourage you to try out those
 demos, look at the code that implements them, and `provide
@@ -228,7 +228,7 @@ Status
 On December 18, 2015, we are releasing ROS 2 alpha3,
 code-named **Cement**.
 Our primary goal with this release is to add more features, while also addressing the feedback we received for the previous releases.
-To that end, we built a set of `demos <../../Tutorials>` that
+To that end, we built a set of tutorials that
 show some of the key features of ROS 2.
 We encourage you to try out those
 demos, look at the code that implements them, and `provide
@@ -301,7 +301,7 @@ Status
 On November 3, 2015, we are releasing ROS 2 alpha2,
 code-named **Baling wire**.
 Our primary goal with this release is to add more features, while also addressing the feedback we received for the previous alpha 1 release.
-To that end, we built a set of `demos <../../Tutorials>` that
+To that end, we built a set of tutorials that
 show some of the key features of ROS 2.
 We encourage you to try out those
 demos, look at the code that implements them, and `provide
@@ -368,7 +368,7 @@ code-named **Anchor**.
 Our primary goal with this release is to give
 you the opportunity to understand how ROS 2 works, in particular how it
 differs from ROS 1.
-To that end, we built a set of `demos <../../Tutorials>` that
+To that end, we built a set of tutorials that
 show some of the key features of ROS 2.
 We encourage you to try out those
 demos, look at the code that implements them, and `provide
@@ -402,9 +402,9 @@ The major features included in this release are:
 * Support `multiple DDS vendors <https://design.ros2.org/articles/ros_on_dds.html#vendors-and-licensing>`__
 * Support messaging primitives: topics (publish / subscribe), services (request / response), and parameters
 * Support Linux (Ubuntu Trusty), OS X (Yosemite) and Windows (8)
-* `Use quality-of-service settings to handle lossy networks <../Tutorials/Demos/Quality-of-Service>`
-* `Communicate inter-process or intra-process with the same API <../Tutorials/Demos/Intra-Process-Communication>`
-* `Write real-time safe code that uses the ROS 2 APIs <../Tutorials/Demos/Real-Time-Programming>`
+* `Use quality-of-service settings to handle lossy networks </ROS-Framework/interfaces/topics/About-Quality-of-Service-Settings>`
+* `Communicate inter-process or intra-process with the same API </ROS-Framework/nodes/Working-with-nodes/intra-process/Intra-Process-Communication>`
+* `Write real-time safe code that uses the ROS 2 APIs </Capabilities/Motion-planning/Real-Time-Programming>`
 * `Run ROS 2 on "bare-metal" microcontrollers (no operating system) <https://github.com/ros2/freertps/wiki>`__
 * `Bridge communication between ROS 1 and ROS 2 <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__
 

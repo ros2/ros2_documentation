@@ -30,7 +30,7 @@ They are documented in the `Webots ROS 2 examples <https://github.com/cyberbotic
 Prerequisites
 -------------
 
-It is recommended to understand basic ROS principles covered in the beginner :doc:`../../../Tutorials`.
+It is recommended to understand basic ROS principles covered in the beginner tutorials.
 In particular, :doc:`../../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim`, :doc:`../../../ROS-Framework/interfaces/topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics`, :doc:`../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace`, :doc:`../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-Your-First-ROS2-Package` and :doc:`../../../Developer-Tools/Launch/Creating-Launch-Files` are useful prerequisites.
 
 .. tabs::

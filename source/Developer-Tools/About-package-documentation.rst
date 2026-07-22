@@ -12,7 +12,7 @@ Package documentation
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-PLACEHOLDER
+Coming Soon
 
 .. toctree::
    :maxdepth: 3

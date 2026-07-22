@@ -121,7 +121,7 @@ Ensure you're still in the ``ros2_ws/src`` directory before you clone.
 
 In the rest of the beginner developer tutorials, you will create your own packages, but for now you will practice putting a workspace together using existing packages.
 
-If you went through the :doc:`Beginner: CLI Tools <../../../../Tutorials/Beginner-CLI-Tools>` tutorials, you'll be familiar with ``turtlesim``, one of the packages in `ros_tutorials <https://github.com/ros/ros_tutorials/>`__.
+If you went through the beginner tutorials such as :doc:`Using TurtleSim </Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>`, you'll be familiar with ``turtlesim``, one of the packages in `ros_tutorials <https://github.com/ros/ros_tutorials/>`__.
 
 A repo can have multiple branches.
 You need to check out the one that targets your installed ROS 2 distro.

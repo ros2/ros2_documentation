@@ -3,7 +3,7 @@
 Working with actions
 ====================
 
-PLACEHOLDER
+Coming Soon
 
 .. toctree::
    :maxdepth: 1
