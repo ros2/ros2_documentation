@@ -4,7 +4,14 @@
     Tutorials/FastDDS-Configuration/FastDDS-Configuration
     Tutorials/Advanced/FastDDS-Configuration
 
-Unlocking the potential of Fast DDS middleware [community-contributed]
+.. meta::
+   :contentType: tutorial
+   :experience: advanced
+   :area: introspection, analysis
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Unlocking the potential of Fast DDS middleware [community-contributed] - tutorial
 =================================================================================
 
 .. short-description::

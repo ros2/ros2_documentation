@@ -13,7 +13,7 @@ Installing dependencies - how-to
 ================================
 
 .. short-description::
-   Release workflows require Bloom, `catkin_pkg`, and an initialised `rosdep` setup before you continue.
+   Release workflows require Bloom, ``catkin_pkg``, and an initialised ``rosdep`` setup before you continue.
    This article describes how to install the required release tools on deb, RPM, and other platforms.
    After you follow these steps, your environment will be ready for the next release task.
 
@@ -48,8 +48,8 @@ For other platforms, use:
 
    $ pip3 install -U bloom catkin_pkg
 
-Initialise and update `rosdep` with sudo `rosdep init` and `rosdep update`.
-If `rosdep init` has already been run, the error can safely be ignored.
+Initialise and update ``rosdep`` with sudo ``rosdep init`` and ``rosdep update``.
+If ``rosdep init`` has already been run, the error can safely be ignored.
 
 Install tools that you will use in the upcoming steps according to your platform:
 

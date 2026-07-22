@@ -3,10 +3,26 @@
     Tutorials/Security/Access-Controls
     Tutorials/Advanced/Security/Access-Controls
 
+.. meta::
+   :contentType: tutorial
+   :experience: advanced
+   :area:
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _Access-Controls:
 
-Setting access controls
-=======================
+Setting access controls - tutorial
+==================================
+
+.. short-description::
+   Access controls let secured ROS nodes use only the topics permitted by their security policy.
+   This article shows how to restrict a talker and listener to the ``chatter`` topic by editing or generating permissions files.
+   After you follow these steps, you can sign policies and enforce topic-level access control for secured nodes.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Limit the topics a node can use.
 
@@ -14,10 +30,9 @@ Setting access controls
 
 **Time:** 20 minutes
 
-.. contents:: Contents
+.. contents:: Table of Contents
    :depth: 2
    :local:
-
 
 Background
 ----------

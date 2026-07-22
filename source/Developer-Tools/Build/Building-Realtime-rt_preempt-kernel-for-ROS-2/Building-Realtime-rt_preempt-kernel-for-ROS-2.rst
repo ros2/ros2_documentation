@@ -5,7 +5,7 @@
 
 .. meta::
    :contentType: tutorial
-   :experience:
+   :experience: intermediate
    :area: builds, tools
    :distribution: {DISTRO}
    :product: {PRODUCT}
@@ -15,7 +15,7 @@ Building a real-time Linux kernel [community-contributed] - tutorial
 
 .. short-description::
    A real-time Linux kernel can improve scheduling behavior for latency-sensitive ROS systems.
-   This article explains how to download, patch, configure, build, and install a PREEMPT_RT kernel on Ubuntu.
+   This article explains how to download, patch, configure, build, and install a ``PREEMPT_RT`` kernel on Ubuntu.
    After you follow it, you can boot into the new kernel and verify that it is running.
 
 .. showmeta::

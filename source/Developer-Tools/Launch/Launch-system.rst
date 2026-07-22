@@ -5,8 +5,24 @@
   Tutorials/Launch/Launch-system
   Tutorials/Intermediate/Launch/Launch-system
 
-Integrating launch files into ROS 2 packages
-============================================
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: node-management, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Integrating launch files into ROS 2 packages - tutorial
+=======================================================
+
+.. short-description::
+   Launch files can be stored inside ROS packages so they can be built, installed, and run consistently.
+   This article shows how to add launch files to Python and C++ packages using the standard package structure.
+   After you follow these steps, you can run installed XML, YAML, or Python launch files with ``ros launch``.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Add a launch file to a ROS 2 package
 

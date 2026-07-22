@@ -6,7 +6,7 @@
 
 .. meta::
    :contentType: how-to
-   :experience:
+   :experience: intermediate
    :area: builds, tools
    :distribution: {DISTRO}
    :product: {PRODUCT}
@@ -26,9 +26,6 @@ Maintaining ROS Core Packages - how-to
 .. contents:: Table of Contents
    :depth: 2
    :local:
-
-Summary
--------
 
 Each package in the ROS 2 core has one or more maintainers that are responsible for the general health of the package.
 This guide gives some information about the responsibilities of a ROS 2 core package maintainer.

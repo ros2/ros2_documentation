@@ -4,10 +4,26 @@
   Tutorials/Ros2bag/Overriding-QoS-Policies-For-Recording-And-Playback
   How-To-Guides/Overriding-QoS-Policies-For-Recording-And-Playback
 
+.. meta::
+   :contentType: how-to
+   :experience: advanced
+   :area:
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _ROS2Bag-QoS-Override:
 
-rosbag2: Overriding QoS Policies
-================================
+rosbag2: Overriding QoS Policies - how-to
+=========================================
+
+.. short-description::
+   QoS compatibility can affect whether Ros2Bag records or plays back data from ROS topics correctly.
+   This article shows how to override Ros2Bag QoS profile settings with a YAML file.
+   After you follow these steps, you can apply topic-specific QoS policies for recording and playback.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Override Ros2Bag QoS profile settings for recording and playback.
 

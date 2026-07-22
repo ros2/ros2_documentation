@@ -6,7 +6,7 @@
 
 .. meta::
    :contentType: tutorial
-   :experience:
+   :experience: intermediate
    :area: builds, tools
    :distribution: {DISTRO}
    :product: {PRODUCT}
@@ -15,8 +15,8 @@ Using Eclipse Oxygen with ``rviz2`` [community-contributed] - tutorial
 ======================================================================
 
 .. short-description::
-   Eclipse Oxygen can be configured as a C++ development environment for `rviz2` and its dependencies.
-   This article explains how to import the required repositories, configure `ament` builds, and update the Eclipse indexer.
+   Eclipse Oxygen can be configured as a C++ development environment for ``rviz2`` and its dependencies.
+   This article explains how to import the required repositories, configure ``ament`` builds, and update the Eclipse indexer.
    After you follow it, Eclipse can build, index, and debug the workspace.
 
 .. showmeta::

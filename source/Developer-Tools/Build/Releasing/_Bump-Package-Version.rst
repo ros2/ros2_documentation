@@ -4,7 +4,7 @@
 
 .. meta::
    :contentType: how-to
-   :experience:
+   :experience: intermediate
    :area: builds, tools
    :distribution: {DISTRO}
    :product: {PRODUCT}
@@ -14,7 +14,7 @@ Bumping the package version - how to
 
 .. short-description::
    Each ROS package release needs a unique version number that is higher than the previous release.
-   This article describes how to use `catkin_prepare_release` to update package metadata, changelogs, commits, and tags.
+   This article describes how to use ``catkin_prepare_release`` to update package metadata, changelogs, commits, and tags.
    After you follow these steps, your repository will be versioned and tagged for release.
 
 .. showmeta::
@@ -34,9 +34,9 @@ Run `catkin_prepare_release` to prepare the next package version:
 
    $ catkin_prepare_release
 
-By default, this increments the patch version, updates `package.xml`, replaces `Forthcoming` in `CHANGELOG.rst` with the version and date, commits the changes, creates a tag, and pushes the commit and tag.
+By default, this increments the patch version, updates ``package.xml``, replaces ``Forthcoming`` in ``CHANGELOG.rst`` with the version and date, commits the changes, creates a tag, and pushes the commit and tag.
 
-Use `--bump minor` or `--bump major` to increment a different version field.
+Use ``--bump minor`` or ``--bump major`` to increment a different version field.
 If branch protection prevents direct pushes, create and merge a pull request, then re-tag the version commit if the merge changes its SHA.
 
 Every release of the package must have a unique version number higher than the previous release.

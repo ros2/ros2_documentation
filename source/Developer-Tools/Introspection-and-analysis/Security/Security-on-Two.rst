@@ -3,10 +3,26 @@
     Tutorials/Security/Security-on-Two
     Tutorials/Advanced/Security/Security-on-Two
 
+.. meta::
+   :contentType: tutorial
+   :experience: advanced
+   :area:
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _Security-on-Two:
 
-Ensuring security across machines
-=================================
+Ensuring security across machines - tutorial
+============================================
+
+.. short-description::
+   Security across machines lets ROS nodes authenticate and encrypt communication beyond the localhost interface.
+   This article shows how to move security files from one machine to another for a secured talker and listener demo.
+   After you follow these steps, you can run encrypted ROS communication between nodes on different machines.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Make two different machines communicate securely.
 
@@ -17,7 +33,6 @@ Ensuring security across machines
 .. contents:: Contents
   :depth: 2
   :local:
-
 
 Background
 ----------

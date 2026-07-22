@@ -4,7 +4,7 @@
 
 .. meta::
    :contentType: how-to
-   :experience:
+   :experience: intermediate
    :area: builds, tools
    :distribution: {DISTRO}
    :product: {PRODUCT}
@@ -17,7 +17,9 @@ Releasing first-time packages - how-to
    This article describes the standard first-time release workflow for a common GitHub-hosted project.
    After you follow it, Bloom can create the ``rosdistro`` pull request for your initial release.
 
-.. showmeta
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2

@@ -8,7 +8,7 @@
 
 .. meta::
    :contentType: how-to
-   :experience:
+   :experience: intermediate
    :area: builds, tools
    :distribution: {DISTRO}
    :product: {PRODUCT}
@@ -18,7 +18,7 @@ Using Python Packages with ROS 2 - how-to
 
 .. short-description::
    Python packages can extend ROS applications with existing third-party libraries.
-   This article describes how to install and use Python packages through `rosdep`, a package manager, or a virtual environment.
+   This article describes how to install and use Python packages through ``rosdep``, a package manager, or a virtual environment.
    After you follow these steps, you can choose an installation method that works for your ROS workspace.
 
 .. showmeta::
@@ -34,7 +34,7 @@ Using Python Packages with ROS 2 - how-to
 Summary
 -------
 
-Use `rosdep`` keys in your `package.xml` when they are available.
+Use ``rosdep`` keys in your ``package.xml`` when they are available.
 Install all workspace dependencies with:
 
 .. code-block:: console
@@ -43,8 +43,8 @@ Install all workspace dependencies with:
 
 You can also install Python packages with a system package manager, pip, or pip --user.
 
-For virtual environments, create the environment inside a Colcon workspace, activate it, and add `COLCON_IGNORE` so Colcon does not try to build it.
-Then install the required packages, source ROS, and run `colcon build`.
+For virtual environments, create the environment inside a Colcon workspace, activate it, and add ``COLCON_IGNORE`` so Colcon does not try to build it.
+Then install the required packages, source ROS, and run ``colcon build``.
 
 .. note::
 

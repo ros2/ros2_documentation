@@ -2,10 +2,26 @@
 
     Tutorials/Advanced/Improved-Dynamic-Discovery
 
+.. meta::
+   :contentType: tutorial
+   :experience: advanced
+   :area: introspection, analysis
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _ImprovedDynamicDiscovery:
 
-Improved Dynamic Discovery
-==========================
+Using Improved Dynamic Discovery - tutorial
+===========================================
+
+.. short-description::
+   ROS nodes can automatically discover each other, but some systems need more control over discovery range and peer selection.
+   This article shows how to configure improved dynamic discovery with ``ROS_AUTOMATIC_DISCOVERY_RANGE`` and ``ROS_STATIC_PEERS``.
+   After you follow these steps, you can limit discovery to localhost, the subnet, or specific remote peers.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** This tutorial will show how to use the improved dynamic discovery configuration.
 

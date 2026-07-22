@@ -3,10 +3,26 @@
    Concepts/About-Security
    Concepts/Intermediate/About-Security
 
+.. meta::
+   :contentType: about
+   :experience: intermediate
+   :area:
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 ROS 2 Security
 ==============
 
+.. short-description::
+   Security in ROS helps protect communications between nodes through authentication, encryption, data integrity, and access control.
+   This article explains the core security concepts, files, enclaves, and environment variables used to configure secure ROS systems.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
 .. contents:: Table of Contents
+   :depth: 2
    :local:
 
 Overview

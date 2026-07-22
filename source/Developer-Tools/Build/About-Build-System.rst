@@ -27,9 +27,6 @@ The build system
 
 .. include:: ../../../global_substitutions.txt
 
-Summary
--------
-
 The build system is what allows developers to build their ROS 2 code as needed.
 ROS 2 relies heavily on the division of code into packages, with each package containing a manifest file (``package.xml``).
 This manifest file contains essential metadata about the package, including its dependencies on other packages.

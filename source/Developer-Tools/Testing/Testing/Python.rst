@@ -2,10 +2,26 @@
 
     Tutorials/Intermediate/Testing/Python
 
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: builds, debugging, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. TestingPython:
 
 Writing Basic Tests with Python
 ===============================
+
+.. short-description::
+   Basic Python tests help verify package behavior while developing and maintaining ROS code.
+   This article shows how to add pytest tests to an ``ament_python`` package.
+   After you follow these steps, you can organize test files, add test dependencies, and run selected tests with ``colcon``.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 Starting point: we'll assume you have a :ref:`basic ament_python package<CreatePkg>` set up already and you want to add some tests to it.
 

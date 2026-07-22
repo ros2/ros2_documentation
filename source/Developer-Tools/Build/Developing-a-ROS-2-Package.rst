@@ -7,7 +7,7 @@
 
 .. meta::
    :contentType: tutorial
-   :experience:
+   :experience: intermediate
    :area: builds, tools
    :distribution: {DISTRO}
    :product: {PRODUCT}
@@ -27,9 +27,6 @@ Developing a ROS package - tutorial
 .. contents:: Table of Contents
    :depth: 2
    :local:
-
-Summary
--------
 
 This tutorial will teach you how to create your first ROS 2 application.
 It is intended for developers who want to learn how to create custom packages in ROS 2, not for people who want to use ROS 2 with its existing packages.

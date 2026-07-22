@@ -3,14 +3,14 @@
     Package-Docs
 
 .. meta::
-   :contentType: how-to
+   :contentType: about
    :experience:
-   :area: builds, tools
+   :area: package-documentation, tools
    :distribution: {DISTRO}
    :product: {PRODUCT}
 
-Finding package documentation - how-to
-======================================
+Finding package documentation
+=============================
 
 .. short-description::
    ROS package documentation is published in several places depending on the package type and scope.

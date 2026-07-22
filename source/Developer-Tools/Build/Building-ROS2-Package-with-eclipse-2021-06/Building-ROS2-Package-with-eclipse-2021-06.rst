@@ -33,11 +33,11 @@ In Eclipse 2021-06, create a C++ project and import the existing package from th
 
 * Select Create links in workspace when importing, so source code stays in its original location.
 
-* Add required include paths such as `/opt/ros/{DISTRO}/include/rclcpp` and `/opt/ros/{DISTRO}/include/std_msgs`.
+* Add required include paths such as ``/opt/ros/{DISTRO}/include/rclcpp`` and ``/opt/ros/{DISTRO}/include/std_msgs``.
 
-* Add a `colcon` builder to use **Build Project** from the project context menu.
+* Add a ``colcon`` builder to use **Build Project** from the project context menu.
 
-For Python packages, configure `PYTHONPATH` in the builder environment.
+For Python packages, configure ``PYTHONPATH`` in the builder environment.
 
 You cannot create a ROS 2 package with eclipse, you need to create it with commandline tools.
 Follow the :doc:`Create a package <../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-Your-First-ROS2-Package>` tutorial.

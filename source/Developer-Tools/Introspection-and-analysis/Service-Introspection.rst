@@ -3,8 +3,28 @@
     Tutorials/Service-Introspection
     Tutorials/Demos/Service-Introspection
 
-Configure service introspection
-===============================
+.. meta::
+   :contentType: tutorial
+   :experience: advanced
+   :area: introspection, analysis
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Configuring service introspection - tutorial
+============================================
+
+.. short-description::
+   Service introspection lets you observe ROS service requests, responses, and event metadata that are otherwise hidden from topic inspection.
+   This article shows how to configure service introspection for a C++ service server and client.
+   After you follow these steps, you can monitor service communication with ``ros2 service echo``.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Configure service introspection for a service client and a server.
 
@@ -13,7 +33,7 @@ Configure service introspection
 **Time:** 15 minutes
 
 .. contents:: Table of Contents
-   :depth: 1
+   :depth: 2
    :local:
 
 Overview

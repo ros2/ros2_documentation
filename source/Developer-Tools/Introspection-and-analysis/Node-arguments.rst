@@ -5,13 +5,28 @@
     Tutorials/Node-arguments
     How-To-Guides/Node-arguments
 
-Passing ROS arguments to nodes via the command-line
-===================================================
+.. meta::
+   :contentType: how-to
+   :experience:
+   :area: instrospection, analysis
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Passing ROS arguments to nodes via the command-line - how-to
+============================================================
+
+.. short-description::
+   ROS nodes accept command-line arguments that reconfigure names, namespaces, remappings, logging, and parameters.
+   This article describes how to pass ROS-specific arguments after the ``--ros-args`` flag.
+   After you follow these examples, you can rename nodes, remap topics, configure logging, and set parameters from the command line or YAML files.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2
    :local:
-
 
 All ROS nodes take a set of arguments that allow various properties to be reconfigured.
 Examples include configuring the name/namespace of the node, topic/service names used, and parameters on the node.

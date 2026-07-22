@@ -3,11 +3,27 @@
     Tutorials/Security/Introducing-ros2-security
     Tutorials/Advanced/Security/Introducing-ros2-security
 
+.. meta::
+   :contentType: tutorial
+   :experience: advanced
+   :area:
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _sros2:
 .. _ROS-2-Security-Tutorials:
 
-Setting up security
-===================
+Setting up security - tutorial
+==============================
+
+.. short-description::
+   Security helps protect ROS communication by using DDS-Security features for authentication and encryption.
+   This article shows how to set up ``sros2``, create security files, and run a secured talker and listener demo.
+   After you follow these steps, you can run nodes and command-line tools in a secured ROS network.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Set up security with ``sros2``.
 
@@ -15,10 +31,9 @@ Setting up security
 
 **Time:** 15 minutes
 
-.. contents:: Contents
-   :depth: 3
+.. contents:: Table of Contents
+   :depth: 2
    :local:
-
 
 Background
 ----------

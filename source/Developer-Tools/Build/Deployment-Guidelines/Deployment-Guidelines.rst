@@ -10,7 +10,7 @@
    :product: {PRODUCT}
 
 Understanding security-enabled deployments - tutorial
-====================================================
+=====================================================
 
 .. short-description::
    Security-enabled ROS deployments require careful handling of certificates, keys, and enclave files.
