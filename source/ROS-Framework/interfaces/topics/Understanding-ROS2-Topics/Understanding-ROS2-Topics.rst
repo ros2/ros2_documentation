@@ -345,7 +345,7 @@ There are four main ways to use the ``pub`` command.
 
   .. note::
       This feature is not supported on Windows and requires ``argcomplete`` to be configured.
-      :doc:`Sourcing the ROS setup script <../Configuring-ROS2-Environment>` sets this up automatically.
+      :doc:`Sourcing the ROS setup script <../../../../Get-Started/Configuring-ROS2-Environment>` sets this up automatically.
       If pressing :kbd:`Tab` completes files and directories instead of command options, ``argcomplete`` is not active in your shell.
 
   You can trigger the auto-complete feature of your terminal by entering the following:
@@ -406,7 +406,7 @@ There are four main ways to use the ``pub`` command.
 
   .. note::
       This feature is not supported on Windows and requires ``argcomplete`` to be configured.
-      :doc:`Sourcing the ROS setup script <../Configuring-ROS2-Environment>` sets this up automatically.
+      :doc:`Sourcing the ROS setup script <../../../../Get-Started/Configuring-ROS2-Environment>` sets this up automatically.
       If pressing :kbd:`Tab` completes files and directories instead of command options, ``argcomplete`` is not active in your shell.
 
   The auto-completed string for ``geometry_msgs/msg/Twist`` looks like this:
