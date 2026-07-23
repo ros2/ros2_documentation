@@ -12,9 +12,12 @@ This article summarizes ROS developer tools and guidance available to help with 
 Summary
 -------
 
-Motion planning enables your robot to plan movements, including responding to real-world effects such as wheel slip or things in the environment moving. This can involve controlling complex chains of actuators and links, such as those found in industrial manipulators. ROS motion planning capabilities let you focus on where you want the end effector to be, rather than focusing on controlling every actuator individually.
+Motion planning enables your robot to plan movements, including responding to real-world effects such as wheel slip or things in the environment moving.
+This can involve controlling complex chains of actuators and links, such as those found in industrial manipulators.
+ROS motion planning capabilities let you focus on where you want the end effector to be, rather than focusing on controlling every actuator individually.
 
-For mobile robots, ROS also supports navigation capabilities. See :doc:`About navigation <About-navigation>`
+For mobile robots, ROS also supports navigation capabilities.
+See :doc:`About navigation <About-navigation>`
 
 Core ROS packages
 

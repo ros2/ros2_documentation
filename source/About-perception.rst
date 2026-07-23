@@ -48,7 +48,6 @@ Related content (placeholder)
 FAQs (placeholder)
 ------------------
 
-* Example 
-
 * Example
 
+* Example

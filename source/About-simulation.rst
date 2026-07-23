@@ -33,7 +33,7 @@ If so, please provide them.
 
 * `Gazebo <https://docs.ros.org/en/lyrical/Tutorials/Advanced/Simulators/Gazebo/Simulation-Gazebo.html>`_: A toolbox of development libraries and cloud services for simulation.
 
-* `Webots <https://docs.ros.org/en/lyrical/Tutorials/Advanced/Simulators/Webots/Simulation-Webots.html>`_: A robotics simulator for modeling, programming, and testing robots in a realistic 3D physics environment. 
+* `Webots <https://docs.ros.org/en/lyrical/Tutorials/Advanced/Simulators/Webots/Simulation-Webots.html>`_: A robotics simulator for modeling, programming, and testing robots in a realistic 3D physics environment.
 
 * Placeholder
 
@@ -47,7 +47,6 @@ Related content (placeholder)
 FAQs (placeholder)
 ------------------
 
-* Example 
-
 * Example
 
+* Example
