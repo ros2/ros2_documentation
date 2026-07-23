@@ -34,7 +34,7 @@ Set locale
 Enable required repositories
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You will need to enable the EPEL repositories and the PowerTools repository:
+You will need to enable the EPEL repositories and the CodeReady Builder (CRB) repository:
 
 .. code-block:: console
 
