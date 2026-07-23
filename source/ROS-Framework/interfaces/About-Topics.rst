@@ -13,7 +13,8 @@ Topics
 ======
 
 .. short-description::
-   
+   Topics in ROS provide a publish/subscribe interface for sharing continuous data streams between nodes.
+   This article explains how topics connect publishers and subscribers, and describes the anonymous, strongly typed communication model that makes topic-based systems flexible and reliable.
 
 .. showmeta::
    :order: area, contentType, experience
