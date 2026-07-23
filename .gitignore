@@ -1,4 +1,4 @@
-build/
+/build/
 _build/
 .idea/
 .vscode/
