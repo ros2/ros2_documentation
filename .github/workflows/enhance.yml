@@ -40,6 +40,7 @@ jobs:
 
       - name: Ensure product and distribution meta tags
         id: ensure
+        continue-on-error: true
         run: |
           BASE_SHA="${{ github.event.pull_request.base.sha }}"
           git fetch origin "$BASE_SHA"

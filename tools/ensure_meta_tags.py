@@ -8,6 +8,10 @@ Existing fields are never overwritten.
 When ``--diff-base`` is set, edits are only written to disk when they overlap
 the pull request diff (so GitHub can offer inline suggestions). Otherwise the
 review comment carries a top-of-file copy-paste fallback.
+
+In CI (``--status-file``), emits GitHub Actions ``::warning`` annotations per
+affected file and exits with code ``1`` when issues remain so the workflow can
+soft-fail the step without failing the job.
 """
 
 from __future__ import annotations
@@ -47,8 +51,11 @@ def load_meta_config(config_path: Path) -> dict[str, str]:
     """
     Load the ``meta`` mapping from a YAML config file.
 
+    Args:
+        config_path: Path to the YAML configuration file.
+
     Returns:
-        Field name to value mapping.
+        A mapping from each configured meta field name to its default value.
 
     Raises:
         SystemExit: If the file is missing, invalid, or has no usable ``meta`` map.
@@ -91,7 +98,19 @@ def load_meta_config(config_path: Path) -> dict[str, str]:
 
 
 def format_meta_block(meta_config: dict[str, str], fields: list[str]) -> str:
-    """Return an RST ``.. meta::`` block for the given fields."""
+    """
+    Build an RST ``.. meta::`` block for the requested fields.
+
+    Args:
+        meta_config: Mapping from meta field names to their default values.
+        fields: Field names to include in the block, in output order.
+
+    Returns:
+        A formatted ``.. meta::`` directive ending with a blank line.
+
+    Raises:
+        KeyError: If a requested field is absent from ``meta_config``.
+    """
     lines = [".. meta::"]
     for field in fields:
         lines.append(f"   :{field}: {meta_config[field]}")
@@ -100,6 +119,16 @@ def format_meta_block(meta_config: dict[str, str], fields: list[str]) -> str:
 
 
 def _missing_meta_fields(content: str, meta_config: dict[str, str]) -> list[str]:
+    """
+    Find configured meta fields that are absent from RST content.
+
+    Args:
+        content: RST source to inspect.
+        meta_config: Mapping of meta fields that should be present.
+
+    Returns:
+        Missing field names in configuration order.
+    """
     present = get_meta_names_from_content(content)
     return [field for field in meta_config if field not in present]
 
@@ -114,6 +143,12 @@ def parse_diff_new_side_lines(diff_text: str) -> set[int]:
     File headers (``---`` / ``+++``) are only skipped outside hunks. Inside a
     hunk those prefixes are ordinary ``-`` / ``+`` lines (e.g. RST table rows of
     ``+`` characters), and must advance ``new_line`` accordingly.
+
+    Args:
+        diff_text: Unified diff text to parse.
+
+    Returns:
+        One-based line numbers represented on the new side of diff hunks.
     """
     lines: set[int] = set()
     new_line = 0
@@ -145,7 +180,16 @@ def parse_diff_new_side_lines(diff_text: str) -> set[int]:
 
 
 def pr_diff_lines_for_file(diff_base: str, path: Path) -> set[int]:
-    """Return PR-diff line numbers for ``path`` on the head side vs ``diff_base``."""
+    """
+    Find pull-request diff lines for a file on the head side.
+
+    Args:
+        diff_base: Base commit SHA used for the three-dot comparison.
+        path: Repository-relative path to inspect.
+
+    Returns:
+        One-based new-side line numbers, or an empty set if ``git diff`` fails.
+    """
     result = subprocess.run(
         ["git", "diff", "-U3", f"{diff_base}...HEAD", "--", str(path)],
         check=False,
@@ -164,10 +208,89 @@ def pr_diff_lines_for_file(diff_base: str, path: Path) -> set[int]:
 
 
 def _span_overlaps(span: tuple[int, int] | None, pr_lines: set[int]) -> bool:
+    """
+    Test whether an inclusive line span overlaps pull-request lines.
+
+    Args:
+        span: Inclusive one-based start and end lines, or ``None``.
+        pr_lines: One-based line numbers represented by the pull-request diff.
+
+    Returns:
+        ``True`` when at least one line overlaps; otherwise ``False``.
+    """
     if span is None or not pr_lines:
         return False
     start, end = span
     return any(line in pr_lines for line in range(start, end + 1))
+
+
+def _warning_line_for_content(content: str) -> int:
+    """
+    Select a line for a GitHub annotation on RST content.
+
+    Args:
+        content: RST source to inspect.
+
+    Returns:
+        The first line of an existing meta block, or line 1 if none exists.
+    """
+    span = meta_block_line_span(content)
+    if span is not None:
+        return span[0]
+    return 1
+
+
+def _escape_workflow_command_message(message: str) -> str:
+    """
+    Escape a message for use in a GitHub Actions workflow command.
+
+    Args:
+        message: Unescaped annotation message.
+
+    Returns:
+        The message with workflow-command control characters escaped.
+    """
+    return message.replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
+
+
+def emit_github_warning(path: str, fields: list[str], line: int) -> None:
+    """
+    Print a GitHub Actions warning annotation for missing meta fields.
+
+    Args:
+        path: Repository-relative path to annotate.
+        fields: Missing meta field names.
+        line: One-based source line to annotate.
+
+    Returns:
+        None.
+    """
+    field_list = ", ".join(fields)
+    message = _escape_workflow_command_message(
+        f"Missing meta fields: {field_list}",
+    )
+    print(f"::warning file={path},line={line}::{message}")
+
+
+def emit_github_error(path: str, fields: list[str], line: int) -> None:
+    """
+    Print a GitHub Actions error annotation for missing meta fields.
+
+    This helper is reserved for future checks that should be reported as errors.
+
+    Args:
+        path: Repository-relative path to annotate.
+        fields: Missing meta field names.
+        line: One-based source line to annotate.
+
+    Returns:
+        None.
+    """
+    field_list = ", ".join(fields)
+    message = _escape_workflow_command_message(
+        f"Missing meta fields: {field_list}",
+    )
+    print(f"::error file={path},line={line}::{message}")
 
 
 def can_suggest_inline(content: str, pr_lines: set[int]) -> bool:
@@ -177,6 +300,13 @@ def can_suggest_inline(content: str, pr_lines: set[int]) -> bool:
     Existing ``.. meta::`` blocks are suggestable when they overlap the diff
     (wherever they already sit). New blocks are only suggestable when line 1 is
     in the diff, since inserts always go at the top of the file.
+
+    Args:
+        content: RST source before metadata is injected.
+        pr_lines: One-based lines represented by the pull-request diff.
+
+    Returns:
+        ``True`` if GitHub can anchor the metadata edit to the diff.
     """
     if has_meta_block(content):
         span = meta_block_line_span(content)
@@ -205,10 +335,19 @@ def ensure_meta_tags_in_file(
     When ``pr_lines`` is ``None`` (local CLI use), behaviour is an unconditional
     write: append to an existing block, or insert a new block at the top.
 
+    Args:
+        path: RST file to inspect and, where permitted, update.
+        meta_config: Mapping from required field names to default values.
+        pr_lines: One-based pull-request diff lines, or ``None`` for local mode.
+
     Returns:
         A result dict when action is needed, otherwise ``None``.
         Keys include ``path``, ``fields``, ``mode`` (``suggestable`` or
-        ``fallback``), and ``snippet``.
+        ``fallback``), ``snippet``, and ``line`` (for annotations).
+
+    Raises:
+        OSError: If the RST file cannot be read or an eligible edit cannot be written.
+        UnicodeError: If the RST file cannot be decoded or encoded as UTF-8.
     """
     content = path.read_text(encoding="utf-8")
     missing = _missing_meta_fields(content, meta_config)
@@ -219,6 +358,7 @@ def ensure_meta_tags_in_file(
     metadata = {field: meta_config[field] for field in missing}
     snippet = format_meta_block(meta_config, missing)
     path_str = str(path).replace("\\", "/")
+    warning_line = _warning_line_for_content(content)
 
     if pr_lines is not None and not can_suggest_inline(content, pr_lines):
         logger.info(
@@ -231,6 +371,7 @@ def ensure_meta_tags_in_file(
             "fields": missing,
             "mode": "fallback",
             "snippet": snippet,
+            "line": warning_line,
         }
 
     new_content, changed = inject_metadata_to_content(content, metadata)
@@ -251,10 +392,20 @@ def ensure_meta_tags_in_file(
         "fields": missing,
         "mode": "suggestable",
         "snippet": snippet,
+        "line": warning_line,
     }
 
 
 def _collect_rst_paths(paths: list[str]) -> list[Path]:
+    """
+    Collect existing RST files from command-line path strings.
+
+    Args:
+        paths: Candidate filesystem paths.
+
+    Returns:
+        Existing paths whose suffix is ``.rst`` (case-insensitive).
+    """
     rst_paths: list[Path] = []
     for raw in paths:
         path = Path(raw)
@@ -269,12 +420,28 @@ def _collect_rst_paths(paths: list[str]) -> list[Path]:
 
 
 def stamp_review_comment(body: str) -> str:
-    """Append a hidden marker so CI can find and supersede this review later."""
+    """
+    Stamp a review comment so CI can supersede it later.
+
+    Args:
+        body: Unstamped review comment body.
+
+    Returns:
+        The body with the hidden review marker appended.
+    """
     return body.rstrip() + f"\n\n{REVIEW_MARKER}\n"
 
 
 def build_review_comment(results: list[dict[str, object]]) -> str:
-    """Build the pull request review / comment body for suggestable and fallback results."""
+    """
+    Build a pull-request review body from metadata check results.
+
+    Args:
+        results: Suggestable and fallback result dictionaries.
+
+    Returns:
+        A stamped Markdown review body containing the relevant instructions.
+    """
     suggestable = [r for r in results if r["mode"] == "suggestable"]
     fallback = [r for r in results if r["mode"] == "fallback"]
 
@@ -311,6 +478,19 @@ def build_review_comment(results: list[dict[str, object]]) -> str:
 
 
 def main(argv: list[str] | None = None) -> int:
+    """
+    Run the command-line metadata check.
+
+    Args:
+        argv: Command-line arguments excluding the executable name, or ``None``
+            to read them from ``sys.argv``.
+
+    Returns:
+        Process exit code: ``1`` for outstanding CI results, otherwise ``0``.
+
+    Raises:
+        SystemExit: If command-line arguments or metadata configuration are invalid.
+    """
     parser = argparse.ArgumentParser(
         description=(
             "Ensure configured meta tags exist in RST files. "
@@ -378,6 +558,13 @@ def main(argv: list[str] | None = None) -> int:
             fallback_count,
         )
 
+    for result in results:
+        emit_github_warning(
+            str(result["path"]),
+            list(result["fields"]),
+            int(result["line"]),
+        )
+
     if args.status_file is not None:
         has_suggestable = any(r["mode"] == "suggestable" for r in results)
         has_fallback = any(r["mode"] == "fallback" for r in results)
@@ -395,6 +582,8 @@ def main(argv: list[str] | None = None) -> int:
                     f.write("\n")
                 f.write("EOF_META_TAGS_COMMENT\n")
 
+    if args.status_file is not None and results:
+        return 1
     return 0
 
 

@@ -55,8 +55,10 @@ Options:
 
 - `--config PATH` — YAML config file (default: `tools/meta_tags.yaml`)
 - `--diff-base SHA` — PR base commit; only write edits that overlap the PR diff (CI)
-- `--status-file PATH` — write `meta_checked=`, `suggestable=`, `fallback=`, `has_results=`, and the review comment for CI
+- `--status-file PATH` — write `meta_checked=`, `suggestable=`, `fallback=`, `has_results=`, and the review comment for CI; when issues remain, the script also emits GitHub Actions warning annotations and exits with code `1` (the workflow soft-fails that step without failing the job)
 - `-v` / `--verbose` — enable debug logging
+
+Local runs without `--status-file` still exit `0` after applying edits, even when fields were missing.
 
 ### Example
 
@@ -91,9 +93,31 @@ The workflow [`.github/workflows/enhance.yml`](../.github/workflows/enhance.yml)
 1. Checks out the PR’s `.rst` files as untrusted data
 2. Checks out the base branch into `.trusted-base/` for the script and config
 3. Runs the trusted `ensure_meta_tags.py` with `--diff-base` against changed RST files
-4. Posts inline suggestions and/or a review comment
+4. Emits per-file warning annotations and soft-fails the ensure step when metadata is still missing
+5. Posts inline suggestions and/or a review comment
 
 Priority: **inline suggestions wherever GitHub allows them**. Copy-paste in the review body is only a fallback.
+
+The ensure step uses `continue-on-error: true`, so the Enhance job still **succeeds** and does not block merge. Contributors see a warning on that step in Actions when work remains.
+
+### Warnings and annotations
+
+When metadata is missing, the script prints one [workflow warning](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/workflow-commands-for-github-actions#setting-a-warning-message) per affected file:
+
+```text
+::warning file=path/to/file.rst,line=N::Missing meta fields: product, distribution
+```
+
+`N` is the start line of an existing `.. meta::` block, or `1` when a new block would be inserted at the top of the file.
+
+### Contributor experience
+
+| Situation | Actions ensure step | File annotations | Pull request review |
+|-----------|---------------------|------------------|---------------------|
+| All configured fields present | Green | None | None (stale bot reviews cleared) |
+| Missing fields; edit overlaps PR diff | Soft warning | Yes | Inline “Commit suggestion” |
+| Missing fields; edit outside PR diff | Soft warning | Yes | Copy-paste `.. meta::` block |
+| Mixed (some suggestable, some fallback) | Soft warning | Yes (all affected files) | Suggestions plus fallback blocks |
 
 ### When inline suggestions appear
 
