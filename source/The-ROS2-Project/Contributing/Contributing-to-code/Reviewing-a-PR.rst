@@ -57,7 +57,7 @@ Steps
      * Follow the :doc:`Code style guide <../Code-Style-Language-Versions>`.
      * Include tests for the new feature or bug fix.
 
-   * For documentation changes, ensure the changes follow the :doc:`documentation guidance </The-ROS2-Project/Contributing/Contributing-to-documentation>`.
+   * For documentation changes, ensure the changes follow the :doc:`documentation guidance </The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation>`.
    * Confirm that the Continuous Integration (CI) run for the pull request passes cleanly.
 
 #. Provide your review comments.
