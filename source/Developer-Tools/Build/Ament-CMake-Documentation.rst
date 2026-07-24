@@ -671,7 +671,7 @@ Understanding auto-generated version macros
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Many ROS 2 C/C++ packages (such as ``rclcpp``, ``rcl``, and ``rmw``) automatically generate version header files containing macros that expose the library's version information.
-These version headers are generated from the ``package.xml`` file using the `ament_generate_version_header.cmake <https://github.com/ament/ament_cmake/blob/${ROS_DISTRO}/ament_cmake_gen_version_h/cmake/ament_generate_version_header.cmake>`__ script.
+These version headers are generated from the ``package.xml`` file using the `ament_generate_version_header.cmake <https://github.com/ament/ament_cmake/blob/{REPOS_FILE_BRANCH}/ament_cmake_gen_version_h/cmake/ament_generate_version_header.cmake>`__ script.
 
 The generated version macros follow this naming convention:
 
