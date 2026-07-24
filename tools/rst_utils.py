@@ -9,6 +9,56 @@ import re
 logger = logging.getLogger(__name__)
 
 
+def _find_directive_block(content: str, directive: str) -> tuple[int, int, int, str, str]:
+    """
+    Locate the first ``.. <directive>::`` block in RST source.
+
+    The directive block consists of the explicit marker line followed by
+    contiguous indented lines; a blank line or a less-indented line ends the
+    block (per reStructuredText directive block rules).
+
+    Args:
+        content: The RST file content to search.
+        directive: Directive name without the ``..`` prefix (e.g. ``meta``).
+
+    Returns:
+        Tuple of ``(start, marker_end, block_end, inner, indent)``.
+        If no directive is found, ``start``, ``marker_end``, and ``block_end``
+        are ``-1``, ``inner`` is ``''``, and ``indent`` defaults to three spaces.
+    """
+    match = re.search(
+        rf"^\.\.\s+{re.escape(directive)}::\s*\n",
+        content,
+        re.MULTILINE,
+    )
+    if not match:
+        return -1, -1, -1, "", "   "
+
+    start = match.start()
+    marker_end = match.end()
+    indent = "   "
+    inner_parts: list[str] = []
+    consumed = 0
+    remainder = content[marker_end:]
+
+    for line in remainder.splitlines(keepends=True):
+        if line.strip() == "":
+            break
+        if not line.startswith((" ", "\t")):
+            break
+        if not inner_parts:
+            ws_len = len(line) - len(line.lstrip(" \t"))
+            indent = line[:ws_len]
+        inner_parts.append(line)
+        consumed += len(line)
+
+    block_end = marker_end + consumed
+    inner = "".join(inner_parts)
+    if inner and not inner.endswith("\n"):
+        inner += "\n"
+    return start, marker_end, block_end, inner, indent
+
+
 def _find_meta_block(content: str) -> tuple[int, int, int, str, str]:
     """
     Locate the first ``.. meta::`` directive in RST source.
@@ -25,35 +75,7 @@ def _find_meta_block(content: str) -> tuple[int, int, int, str, str]:
         If no directive is found, ``start``, ``marker_end``, and ``block_end``
         are ``-1``, ``inner`` is ``''``, and ``indent`` defaults to three spaces.
     """
-    # Explicit markup + directive name; block body starts on the following line only
-    match = re.search(r"^\.\.\s+meta::\s*\n", content, re.MULTILINE)
-    if not match:
-        return -1, -1, -1, "", "   "
-
-    start = match.start()  # Byte index of ``.. meta::`` (for whole-directive splice)
-    marker_end = match.end()  # First character after the marker line's newline
-    indent = "   "  # Default field indent when the block is empty or we prepend a new block
-    inner_parts: list[str] = []
-    consumed = 0  # Length of directive body in ``content`` (may omit final ``\n`` on last line)
-    remainder = content[marker_end:]  # Scan forward only inside this file slice
-
-    for line in remainder.splitlines(keepends=True):
-        if line.strip() == "":
-            break  # Blank line terminates the directive block
-        if not line.startswith((" ", "\t")):
-            break  # Body element at column 0 ends the block
-        if not inner_parts:
-            ws_len = len(line) - len(line.lstrip(" \t"))
-            indent = line[:ws_len]  # Reuse the author's indent for new ``:name:`` lines
-        inner_parts.append(line)
-        consumed += len(line)
-
-    block_end = marker_end + consumed  # Exclusive end of the directive in ``content``
-    inner = "".join(inner_parts)
-    # EOF without ``\n`` yields a last ``splitlines`` element with no newline—append one before new fields
-    if inner and not inner.endswith("\n"):
-        inner += "\n"
-    return start, marker_end, block_end, inner, indent
+    return _find_directive_block(content, "meta")
 
 
 def _extract_meta_names_from_block(meta_block_inner: str) -> set[str]:
@@ -247,33 +269,7 @@ def _find_short_description_block(content: str) -> tuple[int, int, int, str, str
         If no directive is found, ``start``, ``marker_end``, and ``block_end``
         are ``-1``, ``inner`` is ``''``, and ``indent`` defaults to three spaces.
     """
-    match = re.search(r"^\.\.\s+short-description::\s*\n", content, re.MULTILINE)
-    if not match:
-        return -1, -1, -1, "", "   "
-
-    start = match.start()
-    marker_end = match.end()
-    indent = "   "
-    inner_parts: list[str] = []
-    consumed = 0
-    remainder = content[marker_end:]
-
-    for line in remainder.splitlines(keepends=True):
-        if line.strip() == "":
-            break
-        if not line.startswith((" ", "\t")):
-            break
-        if not inner_parts:
-            ws_len = len(line) - len(line.lstrip(" \t"))
-            indent = line[:ws_len]
-        inner_parts.append(line)
-        consumed += len(line)
-
-    block_end = marker_end + consumed
-    inner = "".join(inner_parts)
-    if inner and not inner.endswith("\n"):
-        inner += "\n"
-    return start, marker_end, block_end, inner, indent
+    return _find_directive_block(content, "short-description")
 
 
 def _short_description_inner_has_content(inner: str) -> bool:

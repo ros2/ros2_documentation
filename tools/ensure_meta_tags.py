@@ -171,11 +171,10 @@ def _unresolved_fields(content: str, rules: dict[str, MetaRule]) -> list[str]:
             Unresolved field names in configuration order.
     """
     present = get_meta_fields_from_content(content)
-    unresolved: list[str] = []
-    for name in rules:
-        if name not in present or not present[name].strip():
-            unresolved.append(name)
-    return unresolved
+    return [
+        name for name in rules
+        if name not in present or not present[name].strip()
+    ]
 
 
 def parse_diff_new_side_lines(diff_text: str) -> set[int]:
@@ -297,6 +296,17 @@ def _escape_workflow_command_message(message: str) -> str:
     return message.replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
 
 
+def _emit_annotation(level: str, path: str, fields: list[str], line: int) -> None:
+    """Print a GitHub Actions workflow annotation for missing meta fields."""
+    if not fields:
+        return
+    field_list = ", ".join(fields)
+    message = _escape_workflow_command_message(
+        f"Missing meta fields: {field_list}",
+    )
+    print(f"::{level} file={path},line={line}::{message}")
+
+
 def emit_github_warning(path: str, fields: list[str], line: int) -> None:
     """
     Print a GitHub Actions warning annotation for missing meta fields.
@@ -309,13 +319,7 @@ def emit_github_warning(path: str, fields: list[str], line: int) -> None:
     Returns:
             None.
     """
-    if not fields:
-        return
-    field_list = ", ".join(fields)
-    message = _escape_workflow_command_message(
-        f"Missing meta fields: {field_list}",
-    )
-    print(f"::warning file={path},line={line}::{message}")
+    _emit_annotation("warning", path, fields, line)
 
 
 def emit_github_error(path: str, fields: list[str], line: int) -> None:
@@ -330,13 +334,7 @@ def emit_github_error(path: str, fields: list[str], line: int) -> None:
     Returns:
             None.
     """
-    if not fields:
-        return
-    field_list = ", ".join(fields)
-    message = _escape_workflow_command_message(
-        f"Missing meta fields: {field_list}",
-    )
-    print(f"::error file={path},line={line}::{message}")
+    _emit_annotation("error", path, fields, line)
 
 
 def can_suggest_inline(content: str, pr_lines: set[int]) -> bool:
@@ -550,9 +548,7 @@ def build_review_comment(
             lines.append("```")
             lines.append("")
 
-    manual_results = [
-        r for r in results if list(r.get("manual_fields", []))
-    ]
+    manual_results = [r for r in results if r.get("manual_fields")]
     if manual_results:
         lines.append(
             "The following fields must be provided with **non-empty** values in each "
@@ -675,11 +671,14 @@ def main(argv: list[str] | None = None) -> int:
         )
         has_results = bool(results)
         with args.status_file.open("a", encoding="utf-8") as f:
-            f.write("meta_checked=true\n")
-            f.write(f"suggestable={'true' if has_suggestable else 'false'}\n")
-            f.write(f"fallback={'true' if has_fallback else 'false'}\n")
-            f.write(f"has_results={'true' if has_results else 'false'}\n")
-            f.write(f"has_errors={'true' if has_errors else 'false'}\n")
+            for key, flag in (
+                ("meta_checked", True),
+                ("suggestable", has_suggestable),
+                ("fallback", has_fallback),
+                ("has_results", has_results),
+                ("has_errors", has_errors),
+            ):
+                f.write(f"{key}={'true' if flag else 'false'}\n")
             if results:
                 review_body = build_review_comment(results, rules)
                 f.write("comment<<EOF_META_TAGS_COMMENT\n")
