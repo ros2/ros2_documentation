@@ -70,11 +70,43 @@ def _extract_meta_names_from_block(meta_block_inner: str) -> set[str]:
     Returns:
         A set of field names found in the block.
     """
-    names: set[str] = set()
-    # Field list lines only; group 1 is the name segment (includes ``attr=value`` forms before the final ``:``)
-    for field_match in re.finditer(r"^[ \t]+:([^:\n]+?):", meta_block_inner, re.MULTILINE):
-        names.add(field_match.group(1).strip())
-    return names
+    return set(_extract_meta_fields_from_block(meta_block_inner))
+
+
+def _extract_meta_fields_from_block(meta_block_inner: str) -> dict[str, str]:
+    """
+    Collect field names and values from the body of a ``.. meta::`` directive.
+
+    Args:
+        meta_block_inner: The inner text of the meta block.
+
+    Returns:
+        Mapping from field name to field body text (may be empty).
+    """
+    fields: dict[str, str] = {}
+    for field_match in re.finditer(
+        r"^[ \t]+:([^:\n]+?):\s*(.*)$",
+        meta_block_inner,
+        re.MULTILINE,
+    ):
+        fields[field_match.group(1).strip()] = field_match.group(2)
+    return fields
+
+
+def get_meta_fields_from_content(content: str) -> dict[str, str]:
+    """
+    Return field names and values from the first ``.. meta::`` block.
+
+    If no ``.. meta::`` directive exists, returns an empty mapping.
+
+    Args:
+        content: The RST file content to search.
+
+    Returns:
+        Mapping from meta field name to field body text.
+    """
+    _start, _marker_end, _block_end, inner, _indent = _find_meta_block(content)
+    return _extract_meta_fields_from_block(inner)
 
 
 def get_meta_names_from_content(content: str) -> set[str]:
@@ -130,30 +162,39 @@ def inject_metadata_to_content(
     Appends to an existing ``.. meta::`` block when present. Otherwise inserts a
     new block at the start of the document.
 
-    Skips keys that already appear in the block.
+    Skips keys that already have a non-empty value in the block. Fills keys that
+    are missing or present with a blank value.
 
     Returns:
         Updated source and whether any change was made.
     """
     start, marker_end, block_end, inner, indent = _find_meta_block(content)
-    names = _extract_meta_names_from_block(inner)  # Snapshot before we add keys from this same batch
-    additions: list[str] = []
+    existing = _extract_meta_fields_from_block(inner)
+    merged: dict[str, str] = dict(existing)
+    changed = False
 
     for key, raw_value in metadata.items():
-        if key in names:
+        value = _normalise_meta_field_value(raw_value)
+        if key not in merged:
+            merged[key] = value
+            changed = True
+        elif not merged[key].strip():
+            merged[key] = value
+            changed = True
+        else:
             logger.warning(
                 "Existing meta field %r in .. meta:: block; skipping",
                 key,
             )
-            continue
-        value = _normalise_meta_field_value(raw_value)
-        additions.append(f"{indent}:{key}: {value}\n")
-        names.add(key)  # Prevent duplicate inserts if ``metadata`` repeats a key
 
-    if not additions:
-        return content, False  # Nothing new to write; leave the file untouched
+    if not changed:
+        return content, False
 
-    new_inner = inner + "".join(additions)  # Existing fields unchanged, then appended lines
+    ordered_keys: list[str] = list(existing.keys())
+    for key in metadata:
+        if key not in ordered_keys:
+            ordered_keys.append(key)
+    new_inner = "".join(f"{indent}:{key}: {merged[key]}\n" for key in ordered_keys)
 
     if start >= 0:
         # Replace only the directive body slice; ``marker_end``/``block_end`` bracket the original inner
@@ -162,7 +203,7 @@ def inject_metadata_to_content(
         new_content = content[:marker_end] + new_inner + "\n" + remainder
     else:
         remainder = content.lstrip()
-        new_content = ".. meta::\n" + "".join(additions) + "\n" + remainder
+        new_content = ".. meta::\n" + new_inner + "\n" + remainder
 
     return new_content, True
 

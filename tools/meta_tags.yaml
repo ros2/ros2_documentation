@@ -1,5 +1,20 @@
-# Default values for missing .. meta:: fields injected by ensure_meta_tags.py.
+# Metadata rules for ensure_meta_tags.py.
+# severity: warning (soft-fail step) or error (workflow fails after review).
+# value: injected when missing/blank; leave empty for contributor-provided values.
 # Sphinx expands {PRODUCT} and {DISTRO} at build time (see conf.py).
 meta:
-  product: "{PRODUCT}"
-  distribution: "{DISTRO}"
+  product:
+    severity: warning
+    value: "{PRODUCT}"
+  distribution:
+    severity: warning
+    value: "{DISTRO}"
+  area:
+    severity: error
+    value:
+  experience:
+    severity: warning
+    value:
+  content-type:
+    severity: warning
+    value:
