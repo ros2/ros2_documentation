@@ -48,17 +48,11 @@ RTI Connext Pro is available through a variety of channels:
   Note that these Connext libraries are automatically installed when installing ``rmw_connextdds`` using apt.
 
 **Other Installation Options**
-<<<<<<< HEAD
-RTI Connext DDS is a proprietary DDS implementation with a number of advanced features and commercial support options.
-RTI provides both a `non-commercial / research license <https://www.rti.com/free-trial/university-program>`__ for students and researchers and a `time-limited free trial license <https://www.rti.com/free-trial>`__ for commercial users.
-Detailed instructions for building and tuning the RMW and ROS 2 applications for a variety of platforms, and enabling DDS Security and safety-cert options are available on the `RTI ROS Community <https://community.rti.com/ros>`__ pages.
-=======
 The `Connext Robotics Toolkit <https://www.rti.com/developers/connext-robotics-toolkit>`__ includes the full suite of Connext tools and infrastructure services.
 It provides a single step installation of ROS and Connext using apt.
 It is free for prototype development, research, non-commercial and academic use.
 
 Detailed instructions for building and tuning the RMW and ROS 2 applications for a variety of platforms, and enabling DDS Security are available on the `RTI ROS Community <https://community.rti.com/ros>`__ pages.
->>>>>>> e3eca81 (Update Connext RMW documentation (#6441))
 
 
 Install rmw_connextdds binary packages
