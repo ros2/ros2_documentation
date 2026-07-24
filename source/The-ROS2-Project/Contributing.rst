@@ -69,12 +69,8 @@ Development Guides
    Contributing/Quality-Guide
    Contributing/Build-Farms
    Contributing/Windows-Tips-and-Tricks
-<<<<<<< HEAD
-   Contributing/Contributing-To-ROS-2-Documentation
-=======
    Contributing/Contributing-to-code
-   Contributing/Contributing-to-documentation
->>>>>>> a6fdb553 (3di | Making and reviewing a PR (#6967))
+   Contributing/Contributing-To-ROS-2-Documentation
 
 What to work on
 ^^^^^^^^^^^^^^^
