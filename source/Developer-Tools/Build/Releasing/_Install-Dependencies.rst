@@ -1,0 +1,34 @@
+.. redirect-from::
+
+    How-To-Guides/Releasing/_Install-Dependencies
+
+Install tools that you will use in the upcoming steps according to your platform:
+
+.. tabs::
+
+   .. group-tab:: deb (e.g. Ubuntu)
+
+      .. code-block:: console
+
+         $ sudo apt install python3-bloom python3-catkin-pkg
+
+   .. group-tab:: RPM (e.g. RHEL)
+
+      .. code-block:: console
+
+          $ sudo dnf install python3-bloom python3-catkin_pkg
+
+   .. group-tab:: Other
+
+      .. code-block:: console
+
+         $ pip3 install -U bloom catkin_pkg
+
+Make sure you have rosdep initialized:
+
+.. code-block:: console
+
+    $ sudo rosdep init
+    $ rosdep update
+
+Note that the ``rosdep init`` command may fail if it has already been initialized in the past; this can safely be ignored.
