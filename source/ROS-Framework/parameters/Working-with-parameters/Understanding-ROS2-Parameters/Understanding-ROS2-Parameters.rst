@@ -24,14 +24,6 @@ Summary
 Each node in the ROS graph stores its own set of configuration values, called parameters.
 Use the ``ros2 param`` commands to get, set, save, and reload parameter values at runtime.
 
-Background
-----------
-
-A parameter is a configuration value of a node.
-You can think of parameters as node settings.
-A node can store parameters as integers, floats, booleans, strings, and lists.
-In ROS, each node maintains its own parameters.
-
 For more information, see :doc:`About parameters <../../../About-Parameters>`.
 
 Prerequisites
