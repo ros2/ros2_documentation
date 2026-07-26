@@ -24,30 +24,8 @@ Summary
 Each node in ROS serves a single, modular purpose in a robotics system.
 For more information, see :doc:`About nodes <../../../About-Nodes>`.
 
-Nodes appear on the ROS graph and communicate with other nodes through :doc:`topics, services, actions, and parameters <../../../Interfaces-Topics-Services-Actions>`.
+Nodes appear on the :doc:`ROS graph <../../../How-ROS-Works>` and communicate with other nodes through :doc:`topics, services, actions, and parameters <../../../Interfaces-Topics-Services-Actions>`.
 A single executable can contain one or more nodes.
-
-Background
-----------
-
-1 The ROS graph
-^^^^^^^^^^^^^^^^^
-
-The ROS graph is a network of ROS elements processing data together at the same time.
-It visually represents all the executables and the connections between them.
-
-2 Nodes in ROS
-^^^^^^^^^^^^^^^^
-
-Each node in ROS should be responsible for a single modular purpose, for example, controlling the wheel motors or publishing the sensor data from a laser range-finder.
-Each node can send and receive data from other nodes via topics, services, actions, or parameters.
-
-The following diagram shows nodes exchanging data through a topic and a service:
-
-.. image:: images/Nodes-TopicandService.gif
-
-A full robotic system is comprised of many nodes working together.
-In ROS, a single executable (C++ program, Python program, etc.) can contain one or more nodes.
 
 Prerequisites
 -------------
