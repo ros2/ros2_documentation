@@ -27,18 +27,18 @@ You can use ``rqt_graph`` and command-line tools to introspect and examine the c
 Prerequisites
 -------------
 
-#. :doc:`Install ROS <../../../Installation>` and :doc:`set up your workspace <../Configuring-ROS2-Environment>`.
+#. :doc:`Install ROS <../../../../Get-Started/Installation>` and :doc:`set up your workspace <../../../../Get-Started/Configuring-ROS2-Environment>`.
 #. Make sure you understand:
 
-   * The function of :doc:`nodes <../Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` and how to work with them
-   * The different :doc:`interface types </Concepts/Basic/Interfaces-Topics-Services-Actions>`, including topics
+   * The function of :doc:`nodes <../../../nodes/Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` and how to work with them
+   * The different :doc:`interface types <../../../Interfaces-Topics-Services-Actions>`, including topics
 
 Steps
 -----
 
 .. note::
     Remember to source ROS in every new terminal you open.
-    See :doc:`Configuring environment <../Configuring-ROS2-Environment>`.
+    See :doc:`Configuring environment <../../../../Get-Started/Configuring-ROS2-Environment>`.
 
 1 Run turtlesim nodes
 ^^^^^^^^^^^^^^^^^^^^^
@@ -64,7 +64,7 @@ Names of these nodes are ``/turtlesim`` and ``/teleop_turtle`` by default.
 Throughout this tutorial, we use ``rqt_graph`` to visualize the changing nodes and topics, as well as the connections between them.
 ``rqt_graph`` is a graphical introspection tool whose highlighting feature is helpful when you examine more complex systems with multiple nodes and topics connected in many different ways.
 
-:doc:`Using turtlesim, ros2, and rqt <../Introducing-Turtlesim/Introducing-Turtlesim>` tells you how to install ``rqt`` and all its plugins, including ``rqt_graph``.
+:doc:`Using turtlesim, ros2, and rqt <../../../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>` tells you how to install ``rqt`` and all its plugins, including ``rqt_graph``.
 
 To run ``rqt_graph``, open a new terminal and enter the command:
 
@@ -345,7 +345,7 @@ There are four main ways to use the ``pub`` command.
 
   .. note::
       This feature is not supported on Windows and requires ``argcomplete`` to be configured.
-      :doc:`Sourcing the ROS setup script <../Configuring-ROS2-Environment>` sets this up automatically.
+      :doc:`Sourcing the ROS setup script <../../../../Get-Started/Configuring-ROS2-Environment>` sets this up automatically.
       If pressing :kbd:`Tab` completes files and directories instead of command options, ``argcomplete`` is not active in your shell.
 
   You can trigger the auto-complete feature of your terminal by entering the following:
@@ -406,7 +406,7 @@ There are four main ways to use the ``pub`` command.
 
   .. note::
       This feature is not supported on Windows and requires ``argcomplete`` to be configured.
-      :doc:`Sourcing the ROS setup script <../Configuring-ROS2-Environment>` sets this up automatically.
+      :doc:`Sourcing the ROS setup script <../../../../Get-Started/Configuring-ROS2-Environment>` sets this up automatically.
       If pressing :kbd:`Tab` completes files and directories instead of command options, ``argcomplete`` is not active in your shell.
 
   The auto-completed string for ``geometry_msgs/msg/Twist`` looks like this:
@@ -562,9 +562,9 @@ Related content
 
 More articles:
 
-* :doc:`Understanding nodes <../Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>`
-* :doc:`Understanding services <../Understanding-ROS2-Services/Understanding-ROS2-Services>`
-* :doc:`Interfaces (topics, services, actions) </Concepts/Basic/Interfaces-Topics-Services-Actions>`
+* :doc:`Understanding nodes <../../../nodes/Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>`
+* :doc:`Understanding services <../../services/Working-with-services/Understanding-ROS2-Services/Understanding-ROS2-Services>`
+* :doc:`Interfaces (topics, services, actions) <../../../Interfaces-Topics-Services-Actions>`
 
 FAQs
 ----
