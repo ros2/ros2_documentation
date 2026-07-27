@@ -33,7 +33,7 @@ Keep in mind that a sync callback can't ``await`` anything.
 Prerequisites
 -------------
 
-- You should have completed the :doc:`beginner service and client tutorial <../../client-libraries/Working-with-Client-Libraries/Writing-A-Simple-Py-Service-And-Client>`.
+- You should have completed the :doc:`beginner service and client tutorial <../Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client>`.
 - You should be comfortable with basic `asyncio <https://docs.python.org/3/library/asyncio.html>`__ concepts like `async def and await <https://docs.python.org/3/howto/a-conceptual-overview-of-asyncio.html>`_ and `asyncio.run <https://docs.python.org/3/library/asyncio-runner.html#asyncio.run>`__.
 - ``AsyncNode`` currently lives in ``rclpy.experimental`` and requires Python 3.12 or newer.
 
