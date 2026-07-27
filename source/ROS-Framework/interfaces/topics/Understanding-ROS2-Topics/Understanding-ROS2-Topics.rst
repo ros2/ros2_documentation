@@ -61,7 +61,7 @@ Names of these nodes are ``/turtlesim`` and ``/teleop_turtle`` by default.
 2 Visualize the nodes with rqt_graph
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Throughout this tutorial, we use ``rqt_graph`` to visualize the changing nodes and topics, as well as the connections between them.
+Throughout this tutorial, you use ``rqt_graph`` to visualize the changing nodes and topics, as well as the connections between them.
 ``rqt_graph`` is a graphical introspection tool whose highlighting feature is helpful when you examine more complex systems with multiple nodes and topics connected in many different ways.
 
 :doc:`Using turtlesim, ros2, and rqt <../../../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>` tells you how to install ``rqt`` and all its plugins, including ``rqt_graph``.
@@ -96,6 +96,11 @@ In a new terminal, run the ``ros2 topic list`` command to list of all the topics
 .. code-block:: console
 
   $ ros2 topic list
+
+The terminal returns:
+
+.. code-block:: console
+
   /parameter_events
   /rosout
   /turtle1/cmd_vel
@@ -108,6 +113,11 @@ Now run ``ros2 topic list -t`` to get the same list, but with the topic type app
 .. code-block:: console
 
   $ ros2 topic list -t
+
+The terminal returns:
+
+.. code-block:: console
+
   /parameter_events [rcl_interfaces/msg/ParameterEvent]
   /rosout [rcl_interfaces/msg/Log]
   /turtle1/cmd_vel [geometry_msgs/msg/Twist]
@@ -117,10 +127,10 @@ Now run ``ros2 topic list -t`` to get the same list, but with the topic type app
 These attributes, particularly the type, are how nodes confirm they are exchanging compatible data.
 
 To show all of the topics in the ``rqt_graph``, you can clear all of the **Hide** checkboxes.
+For now, leave those options checked to avoid confusion.
 
 .. image:: images/unhide.png
 
-For now, leave those options checked to avoid confusion.
 
 4 View the data being published to a topic
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -131,7 +141,8 @@ To see the data being published on a topic, use:
 
     $ ros2 topic echo <topic_name>
 
-Since we know that ``/teleop_turtle`` publishes data to ``/turtlesim`` over the ``/turtle1/cmd_vel`` topic, let's use ``echo`` to introspect that topic:
+In a previous step, you learned that ``/teleop_turtle`` publishes data to ``/turtlesim`` over the ``/turtle1/cmd_vel`` topic.
+Use ``echo`` to introspect that topic:
 
 .. code-block:: console
 
@@ -177,6 +188,11 @@ To see the publisher and subscriber counts for a topic, run:
 .. code-block:: console
 
   $ ros2 topic info /turtle1/cmd_vel
+
+The terminal returns:
+
+.. code-block:: console
+
   Type: geometry_msgs/msg/Twist
   Publisher count: 1
   Subscription count: 2
@@ -255,12 +271,12 @@ This will return additional details, including:
 Nodes send data over topics by using messages.
 To communicate, publishers and subscribers must send and receive the same type of message.
 
-The topic types we see after running ``ros2 topic list -t`` let us know what message type is used on each topic.
+The topic types you see after running ``ros2 topic list -t`` tell you what message type is used on each topic.
 
 For example, the ``cmd_vel`` topic has the type ``geometry_msgs/msg/Twist``.
 Here, ``geometry_msgs`` is the package and ``Twist`` is the message definition within it.
 
-Now we can run ``ros2 interface show <msg_type>`` on this type to learn its details.
+Now you can run ``ros2 interface show <msg_type>`` on this type to learn its details.
 Specifically, what structure of data the message expects.
 
 To learn the details of the ``Twist`` message, run:
@@ -313,7 +329,7 @@ The ``'<args>'`` argument is the actual data passed to the topic, in the structu
 
 There are four main ways to use the ``pub`` command.
 
-#. **a. Publish dictionary strings**:
+#. **a) Publish dictionary strings**:
 
   In order to publish data to a topic, you need to pass the data in the form of YAML strings.
 
@@ -321,7 +337,8 @@ There are four main ways to use the ``pub`` command.
 
     $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
 
-  However, you do not need to specify the entire message. If you are just changing the linear or angular velocity, you can just specify the values you want to change.
+  However, you do not need to specify the entire message.
+  If you are only changing the linear or angular velocity, specify just the values you want to change.
 
   For example, if you want to change the linear velocity to 2.0 and keep the angular velocity at 1.8, you can do the following:
 
@@ -329,7 +346,7 @@ There are four main ways to use the ``pub`` command.
 
     $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0}, angular: {z: 1.8}}"
 
-#. **b. Publishing an empty message**:
+#. **b) Publishing an empty message**:
 
   .. code-block:: console
 
@@ -341,18 +358,23 @@ There are four main ways to use the ``pub`` command.
 
     $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}" --rate 1
 
-#. **c. Use auto-complete**:
+#. **c) Use auto-complete**:
 
   .. note::
       This feature is not supported on Windows and requires ``argcomplete`` to be configured.
       :doc:`Sourcing the ROS setup script <../../../../Get-Started/Configuring-ROS2-Environment>` sets this up automatically.
-      If pressing :kbd:`Tab` completes files and directories instead of command options, ``argcomplete`` is not active in your shell.
+      If ``argcomplete`` is active in your shell, then :kbd:`Tab` completion provides command options, not file paths.
 
   You can trigger the auto-complete feature of your terminal by entering the following:
 
   .. code-block:: console
 
     $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist <TAB>
+
+  The terminal shows the available options:
+
+  .. code-block:: console
+
     --keep-alive
     --max-wait-time-secs
     --node-name
@@ -402,12 +424,12 @@ There are four main ways to use the ``pub`` command.
 
   This string is editable and you can change the values of the message type as required.
 
-#. **d. Use the raw auto-completed string**:
+#. **d) Use the raw auto-completed string**:
 
   .. note::
       This feature is not supported on Windows and requires ``argcomplete`` to be configured.
       :doc:`Sourcing the ROS setup script <../../../../Get-Started/Configuring-ROS2-Environment>` sets this up automatically.
-      If pressing :kbd:`Tab` completes files and directories instead of command options, ``argcomplete`` is not active in your shell.
+      If ``argcomplete`` is active in your shell, then :kbd:`Tab` completion provides command options, not file paths.
 
   The auto-completed string for ``geometry_msgs/msg/Twist`` looks like this:
 
@@ -422,7 +444,7 @@ There are four main ways to use the ``pub`` command.
     $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist \'linear:\^J\ \ x:\ 0.0\^J\ \ y:\ 0.0\^J\ \ z:\ 0.0\^Jangular:\^J\ \ x:\ 0.0\^J\ \ y:\ 0.0\^J\ \ z:\ 0.0\^J\'
 
 
-The turtle, like real robots, requires a steady stream of commands to operate continuously.
+The turtle, like physical robots, requires a steady stream of commands to operate continuously.
 To keep the turtle moving continuously, run:
 
 .. code-block:: console
@@ -441,7 +463,7 @@ To publish your command only once, add the ``--once`` option.
 ``--once`` is an optional argument that means "publish one message then exit".
 
 ``-w 2`` is an optional argument that means "wait for two matching subscriptions".
-The argument is needed because we have both ``turtlesim`` and the topic ``echo`` subscribed.
+The argument is needed because you have both ``turtlesim`` and the topic ``echo`` subscribed.
 
 You should see the following output in the terminal:
 
@@ -549,6 +571,11 @@ Use the ``find`` command to output the available topics based on the message typ
 .. code-block:: console
 
     $ ros2 topic find geometry_msgs/msg/Twist
+
+The terminal returns:
+
+.. code-block:: console
+
     /turtle1/cmd_vel
 
 11 Clean up
@@ -588,5 +615,5 @@ Why must publishers and subscribers use the same message type?
    Check a topic's type with ``ros2 topic list -t`` or ``ros2 topic info``, then inspect the type with ``ros2 interface show``.
 
 Why does ``ros2 topic pub`` auto-complete not work on Windows?
-   The auto-complete options described in **c.** and **d.** above rely on shell behaviour that is not supported on Windows.
+   The auto-complete options for publishing (dictionary auto-complete and the raw auto-completed string) rely on shell behaviour that is not supported on Windows.
    On Windows, type message data manually as YAML strings instead of using tab completion for the message prototype.
