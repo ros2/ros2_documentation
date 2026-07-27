@@ -92,6 +92,23 @@ To test building the multisite version deployed to the website use:
 
 **NB:** This will ignore local workspace changes and build from the branches.
 
+### Faster (parallel) builds
+
+Both `make html` and `make multiversion` build Sphinx in parallel by default,
+using one worker per CPU core (Sphinx's `-j auto`). This is handled inside
+Sphinx, so it works the same on Linux, macOS, and Windows — note that a plain
+`make -j` does **not** help, because each build is a single Sphinx invocation.
+
+To pin the number of workers instead of auto-detecting, set `JOBS`:
+
+```
+make html JOBS=8
+make multiversion JOBS=8
+```
+
+**NB:** For `make multiversion`, `JOBS` parallelizes the work *within* each
+branch's build; the branches themselves are still built one after another.
+
 ### Note for Windows (WSL) Users
 
 When building the documentation on windows using WSL, it is recommended to clone and work with this repository inside the Linux filesystem (for example, under `/home/<user>/`) rather than under `/mnt/c`.
