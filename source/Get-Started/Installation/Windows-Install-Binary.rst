@@ -1,11 +1,22 @@
+.. meta::
+   :contentType: how-to
+   :experience: beginner, intermediate, expert
+   :area: installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Installation/Windows-Install-Binary
 
-Windows (binary)
-================
+Installing on Windows (binary) - how-to
+=======================================
 
-.. contents:: Table of Contents
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -55,7 +66,6 @@ Use use the instructions on https://pixi.sh/latest/ to install ``pixi`` either w
 
 Once ``pixi`` has been installed, close the Command Prompt session and start it again, which will ensure ``pixi`` is on the PATH.
 
-
 Install ROS 2
 -------------
 
@@ -65,7 +75,6 @@ Instead you may download nightly :ref:`prerelease binaries <Prerelease_binaries>
 * Download the latest package for Windows, e.g., ``ros2-package-windows-AMD64.zip``.
 * Unpack the zip file somewhere on your system (we'll assume ``C:\dev\``).
 * Change the name of the extracted folder to match the distro (we'll assume ``C:\dev\{DISTRO}``)
-
 
 Install Pixi dependencies
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -85,7 +94,6 @@ Run the preinstall installation setup script to make sure that the zipped file a
 .. code-block:: console
 
    $ pixi run python preinstall_setup_windows.py
-
 
 Install additional RMW implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -144,7 +152,6 @@ Start another Command Prompt terminal and run a Python ``listener``\ :
 You should see the ``talker`` saying that it is ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
 This verifies both the C++ and Python APIs are working properly.
 Hooray!
-
 
 Next steps
 ----------

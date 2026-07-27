@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: about
+   :experience: beginner
+   :area: framework, tools, capabilities, community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     About-ROS
@@ -7,12 +14,15 @@
 About ROS
 =========
 
-ROS (Robot Operating System) is an open-source ecosystem that provides the framework, tools, and libraries for building, deploying, running, and maintaining robotic applications.
-This article introduces the main areas of the ecosystem and outlines their intended use.
+.. short-description::
+   ROS (Robot Operating System) is an open-source ecosystem that provides the framework, tools, and libraries for building, deploying, running, and maintaining robotic applications.
+   This article introduces the main areas of the ecosystem and outlines their intended use.
 
-**Area: ROS-framework, ROS-tools, ROS-capabilities | Content-type: about | Experience: beginner**
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

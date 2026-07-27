@@ -1,9 +1,20 @@
+.. meta::
+   :contentType:
+   :experience: intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Releases/End-of-Life
 
 End-of-Life Distributions
 =========================
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 Below is a list of historic ROS 2 distributions that are no longer supported.
 

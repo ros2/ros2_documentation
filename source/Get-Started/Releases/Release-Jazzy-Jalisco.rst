@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: release-note
+   :experience: intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Releases/Release-Jazzy-Jalisco
@@ -11,6 +18,10 @@ Jazzy Jalisco (``jazzy``)
    :hidden:
 
    Jazzy-Jalisco-Complete-Changelog
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2
@@ -52,7 +63,6 @@ Targeted platforms:
 +--------------+-----------------------+----------------------+----------------------+-----------------------+---------+-----------------------+-----------------------------+
 | arm32        | Tier 3 [s]            |                      |                      |                       |         | Tier 3 [s]            | Tier 3 [s]                  |
 +--------------+-----------------------+----------------------+----------------------+-----------------------+---------+-----------------------+-----------------------------+
-
 
 The following indicators show what delivery mechanisms are available for
 each platform.
@@ -259,7 +269,6 @@ Added rclcpp component to Republish
 Users can now start the ``image_transport`` republisher node as an rclcpp_component.
 
 See https://github.com/ros-perception/image_common/issues/275 for more details.
-
 
 ``message_filters``
 ^^^^^^^^^^^^^^^^^^^
@@ -542,7 +551,6 @@ Polygons are often used to represent specific objects but are difficult to recti
 This feature adds an ID field to disambiguate polygons.
 
 See https://github.com/ros2/common_interfaces/pull/232 for more details.
-
 
 ``geometry2``
 ^^^^^^^^^^^^^

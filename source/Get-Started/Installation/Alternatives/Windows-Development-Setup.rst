@@ -1,12 +1,28 @@
+.. meta::
+   :contentType: how-to
+   :experience: expert
+   :area: installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
    Installation/Windows-Development-Setup
    Installation/Alternatives/Windows-Development-Setup
 
-Windows (source)
-================
+Installing on Windows (source) - how-to
+=======================================
 
-.. contents:: Table of Contents
+.. short-description::
+   Building ROS from source on Windows lets you use a development checkout with the tools and dependencies needed for compilation.
+   In this article, you will learn how to prepare Windows, install prerequisites, fetch the source code, build the workspace, and run examples.
+   After you follow these steps, you will have a working ROS source installation on Windows.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -107,7 +123,6 @@ Install dependencies:
 .. code-block:: console
 
    $ pixi install
-
 
 Build ROS 2
 -----------

@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: tutorial
+   :experience: beginner
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Turtlesim/Introducing-Turtlesim
@@ -5,8 +12,17 @@
 
 .. _Turtlesim:
 
-Using ``turtlesim``, ``ros2``, and ``rqt``
-==========================================
+Using ``turtlesim``, ``ros2``, and ``rqt`` - tutorial
+=====================================================
+
+.. short-description::
+  Turtlesim is a lightweight simulator that helps beginners explore basic ROS concepts before working with real robots or larger simulations.
+  In this article, you will learn how to install and run turtlesim, use the ``ros2`` command-line tool, and interact with ROS through ``rqt``.
+  After you follow these steps, you will be able to control turtles, call services, and remap topics and actions in the turtlesim simulator.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Install and use the turtlesim package and rqt tools to prepare for upcoming tutorials.
 
@@ -100,7 +116,6 @@ There you can see the default turtle's name and the coordinates where it spawns.
 The simulator window should appear, with a random turtle in the center.
 
 .. image:: images/turtlesim.png
-
 
 3 Use turtlesim
 ^^^^^^^^^^^^^^^
@@ -245,7 +260,6 @@ In a new terminal, source ROS 2, and run:
 .. code-block:: console
 
   $ ros2 run turtlesim turtle_teleop_key --ros-args --remap turtle1/cmd_vel:=turtle2/cmd_vel --remap turtle1/rotate_absolute:=turtle2/rotate_absolute
-
 
 Now, you can move ``turtle2`` when this terminal is active, and ``turtle1`` when the other terminal running ``turtle_teleop_key`` is active.
 

@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: release-note
+   :experience: intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
   Beta1-Overview
@@ -5,6 +12,10 @@
 
 Beta 1 (``Asphalt``)
 ====================
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2
@@ -32,7 +43,6 @@ Selected features from previous Alpha releases
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For the complete list, see `earlier release notes </Get-Started/Releases>`.
-
 
 * C++ and Python implementations of ROS 2 client libraries including APIs for:
 
