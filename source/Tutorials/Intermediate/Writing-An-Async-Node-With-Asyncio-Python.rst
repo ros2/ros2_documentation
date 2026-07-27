@@ -33,8 +33,13 @@ Keep in mind that a sync callback can't ``await`` anything.
 Prerequisites
 -------------
 
+<<<<<<< HEAD:source/Tutorials/Intermediate/Writing-An-Async-Node-With-Asyncio-Python.rst
 - You should have completed the :doc:`beginner service and client tutorial <../Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client>`.
 - You should be comfortable with basic :py:mod:`asyncio` concepts like `async def and await <https://docs.python.org/3/howto/a-conceptual-overview-of-asyncio.html>`_ and :py:func:`asyncio.run`.
+=======
+- You should have completed the :doc:`beginner service and client tutorial <../../client-libraries/Working-with-Client-Libraries/Writing-A-Simple-Py-Service-And-Client>`.
+- You should be comfortable with basic `asyncio <https://docs.python.org/3/library/asyncio.html>`__ concepts like `async def and await <https://docs.python.org/3/howto/a-conceptual-overview-of-asyncio.html>`_ and `asyncio.run <https://docs.python.org/3/library/asyncio-runner.html#asyncio.run>`__.
+>>>>>>> 66035c2 ((ERROR/3) Unknown interpreted text role "py:mod". (#7020)):source/ROS-Framework/nodes/Working-with-nodes/Writing-An-Async-Node-With-Asyncio-Python.rst
 - ``AsyncNode`` currently lives in ``rclpy.experimental`` and requires Python 3.12 or newer.
 
 Tasks
