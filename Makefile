@@ -98,4 +98,4 @@ linkcheck:
 serve:
 	sphinx-autobuild --host $(LIVE_HOST) --port $(LIVE_PORT) -c . $(SOURCE) $(OUT)/html
 
-.PHONY: help Makefile multiversion test test-tools linkcheck serve lint spellcheck check-dictionaries sort-dictionaries ensure-meta-tags supersede-meta-tag-reviews
+.PHONY: help Makefile multiversion test test-tools linkcheck serve lint spellcheck check-dictionaries sort-dictionaries ensure-meta-tags supersede-meta-tag-reviews $(MAKEFILE_LIST)
