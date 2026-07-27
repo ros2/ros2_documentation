@@ -11,7 +11,7 @@ Launching multiple nodes - how-to
 A launch file lets you start multiple nodes simultaneously with a single command, without opening a separate terminal for each.
 This article shows you how to run an existing launch file using ``ros2 launch``.
 
-**Area: ROS-tutorials | Content-type: how-to | Experience: beginner**
+**Area: Framework | Content-type: how-to | Experience: beginner**
 
 .. contents:: Contents
    :depth: 2
