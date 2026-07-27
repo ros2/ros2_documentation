@@ -57,48 +57,13 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           HAS_RESULTS: ${{ steps.ensure.outputs.has_results }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPOSITORY: ${{ github.repository }}
         run: |
           set -euo pipefail
-          PR="${{ github.event.pull_request.number }}"
-          REPO="${{ github.repository }}"
-          MARKER="ros2-meta-tags-ensure"
-
-          echo "Marking prior meta-tag reviews as outdated."
-
-          # Find all previous PR reviews containing the meta-tag marker,
-          # and extract their node IDs
-          mapfile -t review_ids < <(
-            gh api "repos/${REPO}/pulls/${PR}/reviews" --paginate \
-              --jq ".[] | select(.body != null and (.body | contains(\"${MARKER}\"))) | .node_id"
-          )
-
-          # Prepare a GraphQL mutation string to minimize comments (mark them as outdated)
-          minimize_query='
-            mutation($subjectId: ID!) {
-              minimizeComment(input: {
-                subjectId: $subjectId
-                classifier: OUTDATED
-              }) {
-                minimizedComment { isMinimized }
-              }
-            }
-          '
-
-          # Run the GraphQL mutation for each eligible review
-          for node_id in "${review_ids[@]}"; do
-            [ -z "$node_id" ] && continue
-            gh api graphql \
-              -f query="${minimize_query}" \
-              -f subjectId="${node_id}" \
-              || true
-          done
-
-          if [ "$HAS_RESULTS" = "true" ]; then
-            echo "should_post=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "All meta-tag issues resolved; not posting a new review."
-            echo "should_post=false" >> "$GITHUB_OUTPUT"
-          fi
+          make -f .trusted-base/Makefile supersede-meta-tag-reviews \
+            TOOLS_DIR=.trusted-base/tools \
+            STATUS_FILE="$GITHUB_OUTPUT"
 
       - name: Suggest meta tag changes
         if: >-

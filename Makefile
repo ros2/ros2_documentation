@@ -7,14 +7,18 @@ PYTHON := python3
 ifeq ($(OS),Windows_NT)
     PYTHON := python
 endif
+BASH := bash
 BUILD      = $(PYTHON) -m sphinx
 OPTS       =-c . -W # Treat warnings as errors
 LIVE_HOST  ?= 0.0.0.0
 LIVE_PORT  ?= 2022
 
-TOOLS_DIR   ?= tools
-DIFF_BASE   ?=
-STATUS_FILE ?=
+TOOLS_DIR     ?= tools
+DIFF_BASE     ?=
+STATUS_FILE   ?=
+PR_NUMBER     ?=
+REPOSITORY    ?=
+HAS_RESULTS   ?=
 
 DICTIONARIES := codespell_dictionary.txt codespell_whitelist.txt
 
@@ -46,10 +50,25 @@ ensure-meta-tags:
 ifndef DIFF_BASE
 	$(error DIFF_BASE is required)
 endif
+ifndef STATUS_FILE
+	$(error STATUS_FILE is required)
+endif
 	$(PYTHON) $(TOOLS_DIR)/ensure_meta_tags.py \
 	  --config $(TOOLS_DIR)/meta_tags.yaml \
 	  --diff-base $(DIFF_BASE) \
-	  $(if $(STATUS_FILE),--status-file $(STATUS_FILE))
+	  --status-file $(STATUS_FILE)
+
+supersede-meta-tag-reviews:
+ifndef PR_NUMBER
+	$(error PR_NUMBER is required)
+endif
+ifndef REPOSITORY
+	$(error REPOSITORY is required)
+endif
+ifndef HAS_RESULTS
+	$(error HAS_RESULTS is required)
+endif
+	$(BASH) $(TOOLS_DIR)/supersede_meta_tag_reviews.sh
 
 check-dictionaries:
 	@echo "Checking dictionaries..."
@@ -79,4 +98,4 @@ linkcheck:
 serve:
 	sphinx-autobuild --host $(LIVE_HOST) --port $(LIVE_PORT) -c . $(SOURCE) $(OUT)/html
 
-.PHONY: help Makefile multiversion test test-tools linkcheck serve lint spellcheck check-dictionaries sort-dictionaries ensure-meta-tags
+.PHONY: help Makefile multiversion test test-tools linkcheck serve lint spellcheck check-dictionaries sort-dictionaries ensure-meta-tags supersede-meta-tag-reviews

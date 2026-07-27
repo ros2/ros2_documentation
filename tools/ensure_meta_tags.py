@@ -48,19 +48,32 @@ _HUNK_HEADER = re.compile(r"^@@ -\d+(?:,\d+)? \+(\d+)(?:,(\d+))? @@")
 Severity = Literal["warning", "error"]
 
 # Hidden marker in review bodies so CI can find and supersede prior bot reviews.
-REVIEW_MARKER = "<!-- ros2-meta-tags-ensure -->"
+REVIEW_MARKER_ID = "ros2-meta-tags-ensure"
+REVIEW_MARKER = f"<!-- {REVIEW_MARKER_ID} -->"
 
 
 @dataclass(frozen=True)
 class MetaRule:
-    """A single metadata field rule from ``meta_tags.yaml``."""
+    """
+    A single metadata field rule from ``meta_tags.yaml``.
+
+    Attributes:
+            severity: Advisory ``warning`` or blocking ``error`` in CI.
+            value: Default text to inject when missing or blank; empty when the
+                    contributor must supply a non-empty value.
+    """
 
     severity: Severity
     value: str
 
     @property
     def has_configured_value(self) -> bool:
-        """Return whether the rule supplies a non-empty default value."""
+        """
+        Return whether the rule supplies a non-empty default value.
+
+        Returns:
+                ``True`` when ``value`` is non-empty after stripping whitespace.
+        """
         return bool(self.value.strip())
 
 
@@ -291,7 +304,15 @@ def changed_rst_paths(diff_base: str) -> list[Path]:
 
 
 def _log_working_tree_summary(paths: list[Path]) -> None:
-    """Log ``git status`` and ``git diff`` for processed RST paths."""
+    """
+    Log ``git status`` and ``git diff`` for processed RST paths.
+
+    Args:
+            paths: Repository-relative RST files that were checked or updated.
+
+    Returns:
+            None.
+    """
     if not paths:
         return
     path_args = [str(p) for p in paths]
@@ -326,7 +347,23 @@ def _write_ci_status_file(
     rules: dict[str, MetaRule],
     has_errors: bool,
 ) -> None:
-    """Append GitHub Actions output flags and optional review comment."""
+    """
+    Append GitHub Actions output flags and optional review comment.
+
+    Writes ``meta_checked``, ``inline_suggestions``, ``review_comment``,
+    ``has_results``, ``has_errors``, and a multiline ``comment`` block when
+    ``results`` is non-empty.
+
+    Args:
+            status_file: Path to append to (for example ``$GITHUB_OUTPUT``).
+            meta_checked: Whether changed RST files were in scope for this run.
+            results: Per-file result dicts from ``ensure_meta_tags_in_file``.
+            rules: Configured metadata rules for building the review body.
+            has_errors: Whether any result has unresolved error-severity fields.
+
+    Returns:
+            None.
+    """
     has_inline_suggestions = any(r["mode"] == "suggestable" for r in results)
     has_review_comment = any(
         r["mode"] in ("snippet", "manual_fields") for r in results
@@ -397,7 +434,18 @@ def _escape_workflow_command_message(message: str) -> str:
 
 
 def _emit_annotation(level: str, path: str, fields: list[str], line: int) -> None:
-    """Print a GitHub Actions workflow annotation for missing meta fields."""
+    """
+    Print a GitHub Actions workflow annotation for missing meta fields.
+
+    Args:
+            level: Annotation level, typically ``warning`` or ``error``.
+            path: Repository-relative path to annotate.
+            fields: Missing meta field names.
+            line: One-based source line to annotate.
+
+    Returns:
+            None.
+    """
     if not fields:
         return
     field_list = ", ".join(fields)
@@ -466,7 +514,17 @@ def _severity_fields(
     rules: dict[str, MetaRule],
     severity: Severity,
 ) -> list[str]:
-    """Return ``field_names`` that use the given severity in ``rules``."""
+    """
+    Return field names that use the given severity in ``rules``.
+
+    Args:
+            field_names: Candidate meta field names.
+            rules: Configured metadata rules keyed by field name.
+            severity: Severity label to match.
+
+    Returns:
+            Names from ``field_names`` whose rule uses ``severity``.
+    """
     return [name for name in field_names if rules[name].severity == severity]
 
 
@@ -489,7 +547,10 @@ def ensure_meta_tags_in_file(
             pr_lines: One-based pull-request diff lines, or ``None`` for local mode.
 
     Returns:
-            A result dict when issues remain, otherwise ``None``.
+            A result dict when issues remain, otherwise ``None``. Each result
+            includes ``path``, ``line``, ``mode`` (``suggestable``, ``snippet``, or
+            ``manual_fields``), ``snippet`` (RST for copy-paste when relevant),
+            ``manual_fields``, ``warning_fields``, and ``error_fields``.
 
     Raises:
             OSError: If the RST file cannot be read or an eligible edit cannot be written.
@@ -594,7 +655,16 @@ def stamp_review_comment(body: str) -> str:
 
 
 def _field_list_markdown(field_names: list[str], rules: dict[str, MetaRule]) -> str:
-    """Format field names with severity hints for review text."""
+    """
+    Format field names with severity hints for review text.
+
+    Args:
+            field_names: Meta field names to list.
+            rules: Configured metadata rules keyed by field name.
+
+    Returns:
+            A comma-separated Markdown fragment such as `` `area` (required) ``.
+    """
     parts: list[str] = []
     for name in field_names:
         label = "required" if rules[name].severity == "error" else "warning"
@@ -674,13 +744,18 @@ def main(argv: list[str] | None = None) -> int:
     """
     Run the command-line metadata check.
 
+    When no ``paths`` are given, ``--diff-base`` must be set so changed ``.rst``
+    files are discovered with ``git diff``. With ``--status-file``, writes CI
+    outputs and exits ``1`` when any per-file results remain; without it, exits
+    ``1`` only for unresolved error-severity fields.
+
     Args:
             argv: Command-line arguments excluding the executable name, or ``None``
                     to read them from ``sys.argv``.
 
     Returns:
-            Process exit code. In CI, ``1`` when any issues remain. Locally, ``1``
-            only when error-severity fields remain unresolved.
+            Process exit code (``0`` on success, ``1`` when issues remain per mode
+            above).
 
     Raises:
             SystemExit: If command-line arguments or metadata configuration are invalid.
