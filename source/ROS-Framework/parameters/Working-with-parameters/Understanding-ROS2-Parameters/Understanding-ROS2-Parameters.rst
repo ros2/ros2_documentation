@@ -88,7 +88,7 @@ You should see output similar to:
     qos_overrides./parameter_events.publisher.reliability
     use_sim_time
 
-The output groups parameters under each node name, ``/teleop_turtle`` and ``/turtlesim``.
+The output groups the parameters under each node name, ``/teleop_turtle`` and ``/turtlesim``.
 The namespace and name of a parameter are separated by dots, as in ``parameter_events.publisher.depth``.
 
 Before you continue, notice the following parameters:
@@ -117,6 +117,11 @@ To find out the current value of ``/turtlesim``'s parameter ``background_g``, ru
 .. code-block:: console
 
   $ ros2 param get /turtlesim background_g
+
+The terminal returns:
+
+.. code-block:: console
+
   Integer value is: 86
 
 This tells you ``background_g`` holds an integer value.
@@ -135,8 +140,8 @@ The command displays the value for each node that has that parameter.
    Omitting the node name works only on Lyrical, Rolling, and later distributions.
    On earlier distributions, ``ros2 param get`` requires both a node name and a parameter name.
 
-4 ros2 param set
-^^^^^^^^^^^^^^^^
+4 Change a parameter value at runtime
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To change a parameter's value at runtime, use the following command:
 
@@ -144,11 +149,16 @@ To change a parameter's value at runtime, use the following command:
 
   $ ros2 param set <node_name> <parameter_name> <value>
 
-Let's change ``/turtlesim``'s background colour:
+Change ``/turtlesim``'s background colour:
 
 .. code-block:: console
 
   $ ros2 param set /turtlesim background_r 150
+
+The terminal returns:
+
+.. code-block:: console
+
   Set parameter successful
 
 The background of the Turtlesim window should change colour, like this:
@@ -163,7 +173,9 @@ However, you can save your settings and reload them the next time you start a no
 5 Save the parameters of a node to a file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You can view all of a node's current parameter values by using the command:
+You can save parameters of a node to a file.
+This comes in handy if you want to reload the node with the same parameters in the future.
+Use the following command:
 
 .. code-block:: console
 
@@ -196,8 +208,6 @@ Open the file to view the following content:
             reliability: reliable
       use_sim_time: false
 
-Dumping parameters comes in handy if you want to reload the node with the same parameters in the future.
-
 6 Load node parameters from a file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -212,6 +222,11 @@ To load the ``turtlesim.yaml`` file generated with ``ros2 param dump`` into ``/t
 .. code-block:: console
 
   $ ros2 param load /turtlesim turtlesim.yaml
+
+The terminal returns:
+
+.. code-block:: console
+
   Set parameter background_b successful
   Set parameter background_g successful
   Set parameter background_r successful
@@ -244,7 +259,7 @@ Stop your running Turtlesim node, and try reloading it with your saved parameter
 
   $ ros2 run turtlesim turtlesim_node --ros-args --params-file turtlesim.yaml
 
-The Turtlesim window should appear as usual, but with the purple background set in `4 ros2 param set`_.
+The Turtlesim window should appear as usual, but with the purple background you set earlier.
 
 .. note::
 
