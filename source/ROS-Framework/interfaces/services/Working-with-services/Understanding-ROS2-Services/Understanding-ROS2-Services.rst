@@ -365,7 +365,6 @@ To spawn a new turtle, run:
   $ ros2 service call /spawn turtlesim_msgs/srv/Spawn "{x: 2, y: 2, theta: 0.2, name: ''}"
 
 .. note::
-    If you see the error ``The passed service type is invalid``, run ``ros2 service type /spawn`` and use the type it prints in the call.
     On distributions older than Kilted, use the type ``turtlesim/srv/Spawn`` instead.
 
 The terminal shows the request that was sent and the service response:
