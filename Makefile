@@ -12,6 +12,10 @@ OPTS       =-c . -W # Treat warnings as errors
 LIVE_HOST  ?= 0.0.0.0
 LIVE_PORT  ?= 2022
 
+TOOLS_DIR   ?= tools
+DIFF_BASE   ?=
+STATUS_FILE ?=
+
 DICTIONARIES := codespell_dictionary.txt codespell_whitelist.txt
 
 help:
@@ -37,6 +41,15 @@ test-tools:
 
 spellcheck:
 	git ls-files '*.md' '*.rst' | xargs codespell --config codespell.cfg
+
+ensure-meta-tags:
+ifndef DIFF_BASE
+	$(error DIFF_BASE is required)
+endif
+	$(PYTHON) $(TOOLS_DIR)/ensure_meta_tags.py \
+	  --config $(TOOLS_DIR)/meta_tags.yaml \
+	  --diff-base $(DIFF_BASE) \
+	  $(if $(STATUS_FILE),--status-file $(STATUS_FILE))
 
 check-dictionaries:
 	@echo "Checking dictionaries..."
@@ -66,4 +79,4 @@ linkcheck:
 serve:
 	sphinx-autobuild --host $(LIVE_HOST) --port $(LIVE_PORT) -c . $(SOURCE) $(OUT)/html
 
-.PHONY: help Makefile multiversion test test-tools linkcheck serve lint spellcheck check-dictionaries sort-dictionaries
+.PHONY: help Makefile multiversion test test-tools linkcheck serve lint spellcheck check-dictionaries sort-dictionaries ensure-meta-tags

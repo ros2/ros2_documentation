@@ -19,6 +19,7 @@ import tempfile
 import textwrap
 import unittest
 from pathlib import Path
+from unittest import mock
 
 _TOOLS_DIR = Path(__file__).resolve().parent.parent
 if str(_TOOLS_DIR) not in sys.path:
@@ -29,6 +30,7 @@ from ensure_meta_tags import (  # noqa: E402
     _unresolved_fields,
     build_review_comment,
     can_suggest_inline,
+    changed_rst_paths,
     ensure_meta_tags_in_file,
     load_meta_config,
     main,
@@ -143,7 +145,7 @@ class TestReviewAndExit(unittest.TestCase):
         results = [
             {
                 "path": "source/Page.rst",
-                "mode": "manual_only",
+                "mode": "manual_fields",
                 "snippet": "",
                 "manual_fields": ["area", "experience"],
                 "warning_fields": ["experience"],
@@ -191,6 +193,62 @@ class TestReviewAndExit(unittest.TestCase):
                 ],
             )
             self.assertEqual(code, 1)
+
+
+class TestChangedRstPaths(unittest.TestCase):
+    def test_parses_git_diff_output(self) -> None:
+        completed = mock.Mock(returncode=0, stdout="source/A.rst\nsource/B.rst\n", stderr="")
+        with mock.patch("ensure_meta_tags.subprocess.run", return_value=completed) as run:
+            paths = changed_rst_paths("abc123")
+        self.assertEqual(paths, [Path("source/A.rst"), Path("source/B.rst")])
+        run.assert_called_once()
+        call_args = run.call_args[0][0]
+        self.assertEqual(call_args[:4], ["git", "diff", "--name-only", "--diff-filter=ACMR"])
+        self.assertIn("abc123...HEAD", call_args[4])
+
+
+class TestMainDiscovery(unittest.TestCase):
+    def test_requires_paths_or_diff_base(self) -> None:
+        with tempfile.NamedTemporaryFile("w", suffix=".yaml", delete=False) as handle:
+            handle.write(SAMPLE_CONFIG)
+            config_path = Path(handle.name)
+        try:
+            with self.assertRaises(SystemExit) as ctx:
+                main(["--config", str(config_path)])
+            self.assertEqual(ctx.exception.code, 2)
+        finally:
+            config_path.unlink()
+
+    def test_empty_discovery_writes_meta_checked_false(self) -> None:
+        with tempfile.NamedTemporaryFile("w", suffix=".yaml", delete=False) as handle:
+            handle.write(SAMPLE_CONFIG)
+            config_path = Path(handle.name)
+        try:
+            with tempfile.NamedTemporaryFile("w", delete=False) as status_handle:
+                status_path = Path(status_handle.name)
+            try:
+                with mock.patch(
+                    "ensure_meta_tags.changed_rst_paths",
+                    return_value=[],
+                ):
+                    code = main(
+                        [
+                            "--config",
+                            str(config_path),
+                            "--diff-base",
+                            "base-sha",
+                            "--status-file",
+                            str(status_path),
+                        ],
+                    )
+                self.assertEqual(code, 0)
+                status_text = status_path.read_text(encoding="utf-8")
+                self.assertIn("meta_checked=false", status_text)
+                self.assertIn("has_errors=false", status_text)
+            finally:
+                status_path.unlink()
+        finally:
+            config_path.unlink()
 
 
 if __name__ == "__main__":

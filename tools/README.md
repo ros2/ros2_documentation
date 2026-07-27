@@ -76,11 +76,20 @@ Multiple files:
 python3 tools/ensure_meta_tags.py source/Topic/A.rst source/Topic/B.rst
 ```
 
+Pull request scope (discover changed ``.rst`` files with a three-dot diff against a base commit):
+
+```bash
+make ensure-meta-tags DIFF_BASE=origin/rolling
+```
+
+The repository [`Makefile`](../Makefile) target runs `ensure_meta_tags.py` with `--diff-base` and no explicit paths; changed ACMR ``*.rst`` files are discovered via ``git diff``. For CI-style output locally, pass ``STATUS_FILE=/path/to/file``.
+
 Options:
 
+- `paths` — optional; when omitted, `--diff-base` is required and changed ``.rst`` files are discovered automatically
 - `--config PATH` — YAML config file (default: `tools/meta_tags.yaml`)
-- `--diff-base SHA` — PR base commit; only write edits that overlap the PR diff (CI)
-- `--status-file PATH` — write `meta_checked`, `suggestable`, `fallback`, `has_results`, `has_errors`, and the review comment for CI; when issues remain, emits annotations and exits `1` (the ensure step uses `continue-on-error`)
+- `--diff-base SHA` — PR base commit; limits on-disk writes to lines in the PR diff (inline suggestions); files that need a copy-paste or manual field list use a review comment instead
+- `--status-file PATH` — write `meta_checked`, `inline_suggestions`, `review_comment`, `has_results`, `has_errors`, and the review comment body for CI; when issues remain, emits annotations and exits `1` (the ensure step uses `continue-on-error`)
 - `-v` / `--verbose` — enable debug logging
 
 **Exit codes:** With `--status-file` (CI), exit `1` when any issues remain. Locally, exit `1` only when **error**-severity fields are still unresolved; warning-only issues exit `0` after applying automatic fixes.
@@ -116,13 +125,36 @@ Fields such as `area` with an empty `value` in the config are listed in the revi
 The workflow [`.github/workflows/enhance.yml`](../.github/workflows/enhance.yml) runs on every pull request (including from forks):
 
 1. Checks out the PR’s `.rst` files as untrusted data
-2. Checks out the base branch into `.trusted-base/` for the script and config
-3. Runs the trusted `ensure_meta_tags.py` with `--diff-base` against changed RST files
+2. Checks out the base branch into `.trusted-base/` for the trusted Makefile, script, and config
+3. Runs `make -f .trusted-base/Makefile ensure-meta-tags` (with `TOOLS_DIR=.trusted-base/tools`, `DIFF_BASE`, and `STATUS_FILE=$GITHUB_OUTPUT`) so discovery and metadata checks use trusted code only
 4. Emits per-file warning/error annotations and soft-fails the ensure step when metadata is still missing
-5. Posts inline suggestions and/or a review comment
+5. Posts inline suggestions (`suggest-changes`) and/or a review comment (`Post meta tag review comment`)
 6. **Fails the job** if any **error**-severity metadata remains (`Enforce required metadata`)
 
-Priority: **inline suggestions wherever GitHub allows them**. Copy-paste blocks and manual field lists in the review body are fallbacks.
+Priority: **inline suggestions wherever GitHub allows them**. Copy-paste blocks and manual field lists are delivered via a pull request review comment when inline suggestions are not possible.
+
+### Per-file modes and CI outputs
+
+Each changed `.rst` file is classified with an internal **mode**:
+
+| Mode | Meaning |
+|------|---------|
+| `suggestable` | Configured values were written to the working tree for inline “Commit suggestion” |
+| `snippet` | Configured values could not be written inline; the review includes a copy-paste `.. meta::` block |
+| `manual_fields` | Only fields with empty `value` in the config are missing; the review lists field names |
+
+The script writes **CI outputs** (for example `$GITHUB_OUTPUT`) that describe which workflow steps to run:
+
+| Output | Meaning |
+|--------|---------|
+| `meta_checked` | At least one changed `.rst` was in scope (`false` when discovery finds no changed RST; supersede and review steps are skipped) |
+| `inline_suggestions` | Run [`suggest-changes`](https://github.com/marketplace/actions/suggest-changes-action) |
+| `review_comment` | Post the generated review body with `gh pr review` when inline suggestions are not used (covers `snippet` and `manual_fields` files) |
+| `has_results` | Metadata issues remain (used to decide whether to post a new review after superseding stale ones) |
+| `has_errors` | Unresolved **error**-severity fields (triggers the final enforce step) |
+| `comment` | Full stamped review body (multiline) for suggest-changes or `gh pr review` |
+
+When `inline_suggestions` is `true`, the workflow runs suggest-changes even if `review_comment` is also `true` (mixed per-file modes). A separate review comment is posted only when `review_comment` is `true` and `inline_suggestions` is not.
 
 The ensure step uses `continue-on-error: true`, so warning-only gaps do not fail the job. Error-severity gaps (for example `area`) still fail the workflow after contributors receive review feedback.
 
@@ -143,8 +175,8 @@ When metadata is missing or blank:
 | Warning-only gaps | Soft warning | Warnings | Suggestions and/or manual list | Success |
 | Error gaps (e.g. missing `area`) | Soft warning | Errors (and warnings) | Suggestions and/or manual list | **Failure** after enforce step |
 | Auto-fix in diff | Soft warning | As above | Inline “Commit suggestion” | As per severity |
-| Auto-fix outside diff | Soft warning | As above | Copy-paste `.. meta::` for configured values | As per severity |
-| Manual-only fields | Soft warning | As above | Field list with required/warning labels | As per severity |
+| Auto-fix outside diff (`snippet`) | Soft warning | As above | Copy-paste `.. meta::` for configured values | As per severity |
+| Manual fields only (`manual_fields`) | Soft warning | As above | Field list with required/warning labels | As per severity |
 
 Reviews, annotations, and the soft-failed ensure step appear in different parts of the GitHub UI (Conversation, Files changed, Checks); only error-severity issues fail the overall workflow.
 
@@ -156,10 +188,10 @@ GitHub only allows review suggestions on [lines already in the pull request diff
 |-----------|----------------|
 | Missing configured values; existing `.. meta::` overlaps the PR diff | Write append/fill to the working tree → inline suggestion via [`suggest-changes`](https://github.com/marketplace/actions/suggest-changes-action) |
 | No `.. meta::`; top of file overlaps the PR diff | Insert at top → inline suggestion |
-| Automatic edit does **not** overlap the PR diff | No unsuggestable write; review includes a copy-paste block for configured values |
-| Only manual fields (empty `value` in config) | Review lists fields; no placeholder injection |
+| Automatic edit does **not** overlap the PR diff (`snippet` mode) | No inline write; review includes a copy-paste block for configured values |
+| Only manual fields (empty `value` in config, `manual_fields` mode) | Review lists fields; no placeholder injection |
 | All configured fields present and non-empty | No action |
-| No changed `.rst` files in the PR | Workflow exits early |
+| No changed `.rst` files in the PR | No check; `meta_checked=false`; supersede/review steps skipped |
 
 ### Superseding outdated reviews
 
@@ -169,7 +201,7 @@ Each bot review body includes a hidden marker (`<!-- ros2-meta-tags-ensure -->`)
 2. A fresh review is posted only when work still remains.
 3. When all issues are fixed, stale reviews are minimized and no new “all clear” comment is posted.
 
-The workflow uses [`pull_request_target`](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request_target) so the default `GITHUB_TOKEN` can post review suggestions on fork PRs. The workflow definition itself is taken from the repository **default branch**; the trusted script and config come from the PR **base** branch. See [Mitigating the risks of untrusted code checkout](https://docs.github.com/en/actions/reference/security/secure-use#mitigating-the-risks-of-untrusted-code-checkout).
+The workflow uses [`pull_request_target`](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request_target) so the default `GITHUB_TOKEN` can post review suggestions on fork PRs. The workflow definition itself is taken from the repository **default branch**; the trusted Makefile, script, and config come from the PR **base** branch checkout at `.trusted-base/`. See [Mitigating the risks of untrusted code checkout](https://docs.github.com/en/actions/reference/security/secure-use#mitigating-the-risks-of-untrusted-code-checkout).
 
 ## Tests
 

@@ -250,6 +250,106 @@ def pr_diff_lines_for_file(diff_base: str, path: Path) -> set[int]:
     return parse_diff_new_side_lines(result.stdout)
 
 
+def changed_rst_paths(diff_base: str) -> list[Path]:
+    """
+    List ``.rst`` files changed between a pull request base and ``HEAD``.
+
+    Args:
+            diff_base: Base commit SHA used for the three-dot comparison.
+
+    Returns:
+            Repository-relative paths for added, copied, modified, or renamed
+            ``.rst`` files, or an empty list if ``git diff`` fails.
+    """
+    result = subprocess.run(
+        [
+            "git",
+            "diff",
+            "--name-only",
+            "--diff-filter=ACMR",
+            f"{diff_base}...HEAD",
+            "--",
+            "*.rst",
+        ],
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if result.returncode not in (0, 1):
+        logger.warning(
+            "git diff failed listing changed RST files (exit %s): %s",
+            result.returncode,
+            result.stderr.strip(),
+        )
+        return []
+    paths: list[Path] = []
+    for line in result.stdout.splitlines():
+        stripped = line.strip()
+        if stripped:
+            paths.append(Path(stripped))
+    return paths
+
+
+def _log_working_tree_summary(paths: list[Path]) -> None:
+    """Log ``git status`` and ``git diff`` for processed RST paths."""
+    if not paths:
+        return
+    path_args = [str(p) for p in paths]
+    logger.info("Working tree after ensure_meta_tags:")
+    status = subprocess.run(
+        ["git", "status", "--short", "--", *path_args],
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if status.stdout.strip():
+        for line in status.stdout.splitlines():
+            logger.info("%s", line)
+    else:
+        logger.info("(no changes)")
+    diff = subprocess.run(
+        ["git", "diff", "--", *path_args],
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    if diff.stdout.strip():
+        for line in diff.stdout.splitlines():
+            logger.info("%s", line)
+
+
+def _write_ci_status_file(
+    status_file: Path,
+    *,
+    meta_checked: bool,
+    results: list[dict[str, object]],
+    rules: dict[str, MetaRule],
+    has_errors: bool,
+) -> None:
+    """Append GitHub Actions output flags and optional review comment."""
+    has_inline_suggestions = any(r["mode"] == "suggestable" for r in results)
+    has_review_comment = any(
+        r["mode"] in ("snippet", "manual_fields") for r in results
+    )
+    has_results = bool(results)
+    with status_file.open("a", encoding="utf-8") as f:
+        for key, flag in (
+            ("meta_checked", meta_checked),
+            ("inline_suggestions", has_inline_suggestions),
+            ("review_comment", has_review_comment),
+            ("has_results", has_results),
+            ("has_errors", has_errors),
+        ):
+            f.write(f"{key}={'true' if flag else 'false'}\n")
+        if results:
+            review_body = build_review_comment(results, rules)
+            f.write("comment<<EOF_META_TAGS_COMMENT\n")
+            f.write(review_body)
+            if not review_body.endswith("\n"):
+                f.write("\n")
+            f.write("EOF_META_TAGS_COMMENT\n")
+
+
 def _span_overlaps(span: tuple[int, int] | None, pr_lines: set[int]) -> bool:
     """
     Test whether an inclusive line span overlaps pull-request lines.
@@ -412,10 +512,10 @@ def ensure_meta_tags_in_file(
 
     if auto_metadata:
         if pr_lines is not None and not can_suggest_inline(content, pr_lines):
-            mode = "fallback"
+            mode = "snippet"
             snippet = format_meta_block(rules, auto_fields)
             logger.info(
-                "%s: missing %s but auto-fix is outside the PR diff; fallback review only",
+                "%s: missing %s but auto-fix is outside the PR diff; snippet review only",
                 path,
                 ", ".join(auto_fields),
             )
@@ -444,7 +544,7 @@ def ensure_meta_tags_in_file(
     error_fields = _severity_fields(still_unresolved, rules, "error")
 
     if mode is None:
-        mode = "manual_only"
+        mode = "manual_fields"
 
     return {
         "path": path_str,
@@ -516,9 +616,9 @@ def build_review_comment(
     Returns:
             A stamped Markdown review body containing the relevant instructions.
     """
-    suggestable = [r for r in results if r["mode"] == "suggestable"]
-    fallback = [r for r in results if r["mode"] == "fallback"]
-    manual_only = [r for r in results if r["mode"] == "manual_only"]
+    inline_modes = [r for r in results if r["mode"] == "suggestable"]
+    snippet_modes = [r for r in results if r["mode"] == "snippet"]
+    manual_fields_modes = [r for r in results if r["mode"] == "manual_fields"]
 
     lines = [
         "This pull request is missing configured documentation metadata "
@@ -526,14 +626,14 @@ def build_review_comment(
         "",
     ]
 
-    if suggestable:
+    if inline_modes:
         lines.append(
             "Please **review and commit the inline suggestions**. They add configured "
             "default values in place so metadata stays complete.",
         )
         lines.append("")
 
-    if fallback:
+    if snippet_modes:
         lines.append(
             "GitHub can only attach suggestions to lines already in the pull request "
             "diff, so the following files could not get an inline suggestion for "
@@ -541,7 +641,7 @@ def build_review_comment(
             "(or append the listed fields to an existing `.. meta::` block):",
         )
         lines.append("")
-        for result in fallback:
+        for result in snippet_modes:
             lines.append(f"**`{result['path']}`**")
             lines.append("```rst")
             lines.append(str(result["snippet"]).rstrip())
@@ -560,7 +660,7 @@ def build_review_comment(
             lines.append(f"**`{result['path']}`**: {_field_list_markdown(manual, rules)}")
         lines.append("")
 
-    if manual_only and not suggestable and not fallback:
+    if manual_fields_modes and not inline_modes and not snippet_modes:
         lines.append(
             "Add or complete a `.. meta::` block at the top of each affected file.",
         )
@@ -593,8 +693,11 @@ def main(argv: list[str] | None = None) -> int:
     )
     parser.add_argument(
         "paths",
-        nargs="+",
-        help="One or more .rst file paths to check",
+        nargs="*",
+        help=(
+            "One or more .rst file paths to check; when omitted, "
+            "--diff-base must be set to discover changed files"
+        ),
     )
     parser.add_argument(
         "--config",
@@ -606,15 +709,15 @@ def main(argv: list[str] | None = None) -> int:
         "--diff-base",
         help=(
             "Git commit SHA for the pull request base. When set, only writes edits "
-            "that overlap the PR diff; other files become review-comment fallbacks."
+            "that overlap the PR diff; other files receive a review comment instead."
         ),
     )
     parser.add_argument(
         "--status-file",
         type=Path,
         help=(
-            "Write meta_checked, suggestable, fallback, has_results, has_errors, "
-            "and the review comment for CI"
+            "Write meta_checked, inline_suggestions, review_comment, has_results, "
+            "has_errors, and the review comment body for CI"
         ),
     )
     parser.add_argument(
@@ -630,8 +733,32 @@ def main(argv: list[str] | None = None) -> int:
         format="%(levelname)s: %(message)s",
     )
 
+    if not args.paths and not args.diff_base:
+        parser.error("provide at least one .rst path or set --diff-base to discover changes")
+
     rules = load_meta_config(args.config)
-    rst_paths = _collect_rst_paths(args.paths)
+    checked_pull_request_rst = False
+
+    if not args.paths:
+        assert args.diff_base is not None
+        discovered = changed_rst_paths(args.diff_base)
+        if not discovered:
+            logger.info("No changed RST files in this pull request.")
+            if args.status_file is not None:
+                _write_ci_status_file(
+                    args.status_file,
+                    meta_checked=False,
+                    results=[],
+                    rules=rules,
+                    has_errors=False,
+                )
+            return 0
+        checked_pull_request_rst = True
+        rst_paths = _collect_rst_paths([str(p) for p in discovered])
+    else:
+        checked_pull_request_rst = True
+        rst_paths = _collect_rst_paths(args.paths)
+
     results: list[dict[str, object]] = []
 
     if not rst_paths:
@@ -645,16 +772,17 @@ def main(argv: list[str] | None = None) -> int:
             if result is not None:
                 results.append(result)
 
-        suggestable_count = sum(1 for r in results if r["mode"] == "suggestable")
-        fallback_count = sum(1 for r in results if r["mode"] == "fallback")
-        manual_count = sum(1 for r in results if r["mode"] == "manual_only")
+        inline_count = sum(1 for r in results if r["mode"] == "suggestable")
+        snippet_count = sum(1 for r in results if r["mode"] == "snippet")
+        manual_fields_count = sum(1 for r in results if r["mode"] == "manual_fields")
         logger.info(
-            "Processed %d file(s): %d suggestable, %d fallback, %d manual-only",
+            "Processed %d file(s): %d inline, %d snippet, %d manual_fields",
             len(rst_paths),
-            suggestable_count,
-            fallback_count,
-            manual_count,
+            inline_count,
+            snippet_count,
+            manual_fields_count,
         )
+        _log_working_tree_summary(rst_paths)
 
     for result in results:
         path = str(result["path"])
@@ -665,27 +793,13 @@ def main(argv: list[str] | None = None) -> int:
     has_errors = any(result["error_fields"] for result in results)
 
     if args.status_file is not None:
-        has_suggestable = any(r["mode"] == "suggestable" for r in results)
-        has_fallback = any(
-            r["mode"] in ("fallback", "manual_only") for r in results
+        _write_ci_status_file(
+            args.status_file,
+            meta_checked=checked_pull_request_rst,
+            results=results,
+            rules=rules,
+            has_errors=has_errors,
         )
-        has_results = bool(results)
-        with args.status_file.open("a", encoding="utf-8") as f:
-            for key, flag in (
-                ("meta_checked", True),
-                ("suggestable", has_suggestable),
-                ("fallback", has_fallback),
-                ("has_results", has_results),
-                ("has_errors", has_errors),
-            ):
-                f.write(f"{key}={'true' if flag else 'false'}\n")
-            if results:
-                review_body = build_review_comment(results, rules)
-                f.write("comment<<EOF_META_TAGS_COMMENT\n")
-                f.write(review_body)
-                if not review_body.endswith("\n"):
-                    f.write("\n")
-                f.write("EOF_META_TAGS_COMMENT\n")
 
     if args.status_file is not None and results:
         return 1
