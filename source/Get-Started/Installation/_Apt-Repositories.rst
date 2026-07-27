@@ -1,30 +1,3 @@
-.. meta::
-   :contentType: TBD
-   :experience: TBD
-   :area: installation
-   :distribution: {DISTRO}
-   :product: {PRODUCT}
-
-.. redirect-from::
-
-    Installation/_Apt-Repositories
-
-Adding apt repositories
-=======================
-
-.. short-description::
-   Ubuntu systems need the ROS apt repository before deb packages can be installed.
-   This article describes how to enable the required Ubuntu repository and install the ROS apt source package.
-   After you follow these steps, your system will be configured to receive ROS packages and repository updates.
-
-.. showmeta::
-   :order: area, contentType, experience
-   :labels: area=Area, contentType=Content type, experience=Level
-
-.. contents:: Contents
-   :depth: 2
-   :local:
-
 You will need to add the ROS 2 apt repository to your system.
 
 First ensure that the `Ubuntu Universe repository <https://help.ubuntu.com/community/Repositories/Ubuntu>`_ is enabled.
