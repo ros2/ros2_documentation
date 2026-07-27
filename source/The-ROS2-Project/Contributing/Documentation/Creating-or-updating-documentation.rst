@@ -243,7 +243,8 @@ This has two drawbacks:
 To show local changes in the multiversion output:
 
 #. Commit the changes to a local branch.
-#. Edit the `conf.py <https://github.com/ros2/ros2_documentation/blob/rolling/conf.py>`_ file and change the ``smv_branch_whitelist`` variable to point to your branch.
+#. Edit the `conf.py <https://github.com/ros2/ros2_documentation/blob/rolling/conf.py>`_ file so that the ``smv_branch_whitelist`` variable points to your branch.
+   Note that ``smv_branch_whitelist`` is now derived from ``smv_active_versions`` (the distros that are not frozen), so for a local test build the simplest change is to override it directly, for example ``smv_branch_whitelist = r'^my-branch$'``.
 
 Using the live server
 ^^^^^^^^^^^^^^^^^^^^^
