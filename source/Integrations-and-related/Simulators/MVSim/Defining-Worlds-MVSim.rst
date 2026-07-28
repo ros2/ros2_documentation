@@ -13,7 +13,9 @@ Defining worlds, robots, and sensors - tutorial
 ===============================================
 
 .. short-description::
-   Placeholder paragraph
+   MVSim world files define the environment, vehicles, sensors, and simulation settings for mobile robot tests.
+   This tutorial shows how to write XML world files, add reusable definitions, and configure common simulation features.
+   After following it, you will be able to create custom MVSim worlds for ROS experiments.
 
 .. showmeta::
    :order: area, contentType, experience

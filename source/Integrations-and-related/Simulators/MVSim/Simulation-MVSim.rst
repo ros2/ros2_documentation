@@ -13,7 +13,9 @@ Configuring MVSim with ROS 2 - tutorial
 =======================================
 
 .. short-description::
-   Placeholder paragraph
+   MVSim is useful for fast mobile robot simulation, navigation testing, and multi-robot scenarios.
+   This tutorial set introduces installation, demo launch, and world-definition tasks for MVSim.
+   After using it, you will know which MVSim tutorial to follow for setup or custom scenario work.
 
 .. showmeta::
    :order: area, contentType, experience

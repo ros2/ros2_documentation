@@ -13,7 +13,9 @@ Installing Webots on macOS - tutorial
 =====================================
 
 .. short-description::
-   Placeholder paragraph
+   Webots can run natively on macOS while ROS components run inside a Linux virtual machine.
+   This tutorial shows how to prepare the VM, install ``webots_ros2``, and run a simulation example.
+   After following it, you will have a macOS setup that connects Webots to ROS nodes in the VM.
 
 .. showmeta::
    :order: area, contentType, experience

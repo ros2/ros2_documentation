@@ -13,7 +13,9 @@ Setting up a Reset Handler - tutorial
 =====================================
 
 .. short-description::
-   Placeholder paragraph
+   Resetting a Webots world can stop controller nodes unless your launch setup restarts them correctly.
+   This tutorial shows how to add reset handling for simple controllers and multi-node simulations.
+   After following it, you will be able to keep selected ROS nodes running after a Webots reset.
 
 .. showmeta::
    :order: area, contentType, experience

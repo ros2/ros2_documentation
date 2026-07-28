@@ -13,7 +13,9 @@ Extending the interface with the Ros2Supervisor node - tutorial
 ===============================================================
 
 .. short-description::
-   Placeholder paragraph
+   The ``Ros2Supervisor`` node adds services and topics for interacting with a running Webots simulation.
+   This tutorial shows how to enable the supervisor, use simulation time, import nodes, and record animations.
+   After following it, you will be able to extend Webots simulations with supervisor-level control.
 
 .. showmeta::
    :order: area, contentType, experience

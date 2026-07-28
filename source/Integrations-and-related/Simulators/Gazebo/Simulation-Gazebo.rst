@@ -13,7 +13,9 @@ Configuring Gazebo with ROS 2 - tutorial
 ========================================
 
 .. short-description::
-   Placeholder paragraph
+   Gazebo is a simulator option for testing robotic systems with realistic physics and environment models.
+   This tutorial set points you to the Gazebo setup article for configuring Gazebo with ROS.
+   After using it, you will know which Gazebo tutorial to follow next.
 
 .. showmeta::
    :order: area, contentType, experience

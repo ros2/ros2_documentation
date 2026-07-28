@@ -13,7 +13,9 @@ Configuring Webots with ROS 2 - tutorial
 ========================================
 
 .. short-description::
-   Placeholder paragraph
+   Webots provides a simulator environment for building and testing robot behavior with ROS interfaces.
+   This tutorial set introduces installation, basic setup, advanced control, reset handling, and supervisor features.
+   After using it, you will know which Webots tutorial to follow for your simulation task.
 
 .. showmeta::
    :order: area, contentType, experience

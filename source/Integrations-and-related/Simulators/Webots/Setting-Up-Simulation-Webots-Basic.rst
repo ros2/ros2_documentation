@@ -15,7 +15,9 @@ Setting up a robot simulation (Basic) - tutorial
 ================================================
 
 .. short-description::
-   Placeholder paragraph
+   Webots simulations let you test robot behavior in a controlled virtual environment before using hardware.
+   This tutorial shows how to create a package, add a world and robot model, and control the robot from ROS.
+   After following it, you will have a basic Webots simulation that you can extend in later tutorials.
 
 .. showmeta::
    :order: area, contentType, experience

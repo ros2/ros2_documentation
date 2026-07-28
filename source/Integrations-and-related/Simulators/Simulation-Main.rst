@@ -16,7 +16,9 @@ Configuring simulators with ROS 2 - learning path
 =================================================
 
 .. short-description::
-   Placeholder paragraph
+   Advanced simulators help test robot behavior with physics, sensors, actuators, and realistic environments before hardware deployment.
+   This learning path introduces the simulator tutorials for Webots, Gazebo, and MVSim.
+   After completing it, you will know where to start when configuring a simulator for a ROS project.
 
 .. showmeta::
    :order: area, contentType, experience

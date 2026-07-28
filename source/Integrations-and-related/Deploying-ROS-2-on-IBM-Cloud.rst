@@ -15,7 +15,9 @@ Deploying on IBM Cloud Kubernetes [community-contributed] - tutorial
 ====================================================================
 
 .. short-description::
-   Placeholder paragraph
+   Cloud deployments let robotic applications run in portable containers and scale beyond a local machine.
+   This tutorial explains how Docker images, IBM Cloud Kubernetes, and custom ROS packages fit together.
+   After following it, you will be able to deploy a containerized ROS application to an IBM Cloud cluster.
 
 .. showmeta::
    :order: area, contentType, experience

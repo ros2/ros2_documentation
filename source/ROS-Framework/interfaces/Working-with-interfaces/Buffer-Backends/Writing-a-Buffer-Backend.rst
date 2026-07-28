@@ -9,7 +9,9 @@ Writing a ``rosidl::Buffer`` backend - tutorial
 ===============================================
 
 .. short-description::
-   Placeholder paragraph
+   Custom memory domains need backend plugins when message payloads should remain in GPU, shared, or accelerator memory.
+   This tutorial walks through implementing, registering, packaging, and testing a `rosidl::Buffer` backend.
+   After following it, you will understand the plugin contract and the pieces needed for a working backend.
 
 .. showmeta::
    :order: area, contentType, experience

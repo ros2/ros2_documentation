@@ -16,7 +16,9 @@ Setting up a robot simulation (Gazebo) - tutorial
 =================================================
 
 .. short-description::
-   Placeholder paragraph
+   Gazebo provides physics-based simulation for testing robot models and environments before using real hardware.
+   This tutorial shows how to install a compatible Gazebo version and verify that it starts correctly.
+   After following it, you will be ready to continue with Gazebo tutorials for building and running simulations.
 
 .. showmeta::
    :order: area, contentType, experience

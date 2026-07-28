@@ -13,7 +13,9 @@ Getting started with MVSim - tutorial
 =====================================
 
 .. short-description::
-   Placeholder paragraph
+   MVSim demo worlds are a quick way to explore mobile robot simulation and sensor behavior.
+   This tutorial shows how to launch demos from the command line and through ROS, then inspect topics and control simulated robots.
+   After following it, you will be able to run and interact with MVSim examples.
 
 .. showmeta::
    :order: area, contentType, experience

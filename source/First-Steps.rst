@@ -11,7 +11,9 @@ Taking first steps with ROS - learning path
 ===========================================
 
 .. short-description::
-   Placeholder paragraph
+   ROS provides the framework, tools, and libraries for building robotic applications.
+   This learning path introduces installation, turtlesim, core communication concepts, introspection, launch files, and data playback.
+   After completing it, you will be ready to start working with ROS client libraries and tutorials.
 
 .. showmeta::
    :order: area, contentType, experience
