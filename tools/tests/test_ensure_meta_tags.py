@@ -187,6 +187,7 @@ class TestReviewAndExit(unittest.TestCase):
                 "path": "source/Page.rst",
                 "mode": "manual_fields",
                 "snippet": "",
+                "auto_fields": [],
                 "manual_fields": ["area", "experience"],
                 "warning_fields": ["experience"],
                 "error_fields": ["area"],
@@ -197,6 +198,27 @@ class TestReviewAndExit(unittest.TestCase):
         self.assertIn("area", body)
         self.assertIn("required", body)
         self.assertIn("experience", body)
+
+    def test_build_review_comment_lists_inline_suggestion_fields(self) -> None:
+        rules = {
+            "product": MetaRule("warning", "{PRODUCT}"),
+            "experience": MetaRule("warning", ""),
+        }
+        results = [
+            {
+                "path": "source/Page.rst",
+                "mode": "suggestable",
+                "snippet": "",
+                "auto_fields": ["product"],
+                "manual_fields": ["experience"],
+                "warning_fields": ["product", "experience"],
+                "error_fields": [],
+                "line": 1,
+            },
+        ]
+        body = build_review_comment(results, rules)
+        self.assertIn("**`source/Page.rst`**: `product`", body)
+        self.assertIn("`experience` (warning)", body)
 
     def test_local_exit_nonzero_only_for_error_severity(self) -> None:
         warning_config = textwrap.dedent(

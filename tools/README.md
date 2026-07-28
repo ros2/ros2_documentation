@@ -131,6 +131,18 @@ When you open or update a pull request, CI automatically checks metadata on all 
 
 Reviews, annotations, and the soft-failed ensure step appear in different parts of the GitHub UI (Conversation, Files changed, Checks); only error-severity issues fail the overall workflow.
 
+#### Review body sections
+
+The review comment names every affected file and splits the work by how it is fixed, so the fields listed for a file match that file's annotation:
+
+| Section | Files listed | Fields listed |
+|---------|--------------|---------------|
+| Inline suggestions | `suggestable` mode | Configured values added for you — commit the suggestion |
+| Copy-paste blocks | `snippet` mode | Configured values as an RST block to paste yourself |
+| Non-empty values required | Any file with manual fields | Fields with an empty `value`, labelled required or warning |
+
+A file can appear in two sections: the suggestion covers its configured values while the manual list covers the rest.
+
 #### When inline suggestions appear
 
 GitHub only allows review suggestions on [lines already in the pull request diff](https://github.com/marketplace/actions/suggest-changes-action). The script compares each automatic edit to that diff:

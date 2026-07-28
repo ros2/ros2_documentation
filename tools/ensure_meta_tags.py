@@ -550,9 +550,10 @@ def ensure_meta_tags_in_file(
             A result dict when fields were missing in the file as read, otherwise
             ``None``. Each result includes ``path``, ``line``, ``mode``
             (``suggestable``, ``snippet``, or ``manual_fields``), ``snippet`` (RST
-            for copy-paste when relevant), ``manual_fields``, ``warning_fields``,
-            and ``error_fields``. The severity lists cover every field that was
-            missing or blank before any automatic injection.
+            for copy-paste when relevant), ``auto_fields`` (configured values the
+            tool can fill), ``manual_fields``, ``warning_fields``, and
+            ``error_fields``. The severity lists cover every field that was missing
+            or blank before any automatic injection.
 
     Raises:
             OSError: If the RST file cannot be read or an eligible edit cannot be written.
@@ -617,6 +618,7 @@ def ensure_meta_tags_in_file(
         "line": annotation_line,
         "mode": mode,
         "snippet": snippet,
+        "auto_fields": auto_fields,
         "manual_fields": manual_fields,
         "warning_fields": warning_fields,
         "error_fields": error_fields,
@@ -703,9 +705,13 @@ def build_review_comment(
 
     if inline_modes:
         lines.append(
-            "Please **review and commit the inline suggestions**. They add configured "
-            "default values in place so metadata stays complete.",
+            "Please **review and commit the inline suggestions**. They add these "
+            "configured default values in place so metadata stays complete:",
         )
+        lines.append("")
+        for result in inline_modes:
+            auto = ", ".join(f"`{name}`" for name in result["auto_fields"])
+            lines.append(f"**`{result['path']}`**: {auto}")
         lines.append("")
 
     if snippet_modes:
