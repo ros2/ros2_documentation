@@ -27,6 +27,7 @@ backends.
 **Time:** 30+ minutes
 
 .. contents:: Table of Contents
+   :depth: 2
    :local:
 
 Introduction

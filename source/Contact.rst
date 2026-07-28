@@ -1,6 +1,6 @@
 .. meta::
    :contentType: about
-   :experience: TBD
+   :experience: beginner, intermediate, expert
    :area: community
    :distribution: {DISTRO}
    :product: {PRODUCT}
@@ -17,6 +17,10 @@ Contact
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 .. _Using Robotics Stack Exchange:
 

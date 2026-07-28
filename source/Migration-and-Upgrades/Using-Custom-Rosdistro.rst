@@ -18,8 +18,8 @@ Using a custom rosdistro version - how-to
 
 
 .. contents:: Contents
-    :depth: 2
-    :local:
+   :depth: 2
+   :local:
 
 
 Overview

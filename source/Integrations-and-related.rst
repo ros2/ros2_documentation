@@ -8,6 +8,10 @@
 Integrations and related projects
 =================================
 
+.. contents:: Contents
+   :depth: 2
+   :local:
+
 Coming Soon
 
 .. toctree::

@@ -24,8 +24,8 @@ This page presents a set of articles and hands-on activities to introduce the ma
 Working through these will give you the essential knowledge needed to start developing applications with ROS.
 
 .. contents:: Contents
-    :depth: 2
-    :local:
+   :depth: 2
+   :local:
 
 Summary
 -------

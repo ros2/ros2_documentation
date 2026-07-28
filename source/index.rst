@@ -12,6 +12,10 @@
 ROS 2 Documentation
 ===================
 
+.. contents:: Contents
+   :depth: 2
+   :local:
+
 .. toctree::
    :titlesonly:
    :maxdepth: 1
