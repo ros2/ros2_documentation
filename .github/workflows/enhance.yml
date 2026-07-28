@@ -51,39 +51,50 @@ jobs:
             DIFF_BASE="$DIFF_BASE" \
             STATUS_FILE="$GITHUB_OUTPUT"
 
+      # The ensure step soft-fails whenever metadata is missing, so an empty
+      # meta_checked is the only signal that the check itself never ran.
+      - name: Verify metadata check ran
+        if: steps.ensure.outputs.meta_checked == ''
+        run: |
+          echo "The metadata check produced no outputs; see the ensure step log."
+          exit 1
+
       - name: Supersede stale meta-tag reviews
-        id: supersede
         if: steps.ensure.outputs.meta_checked == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
-          HAS_RESULTS: ${{ steps.ensure.outputs.has_results }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
           REPOSITORY: ${{ github.repository }}
         run: |
           set -euo pipefail
           make -f .trusted-base/Makefile supersede-meta-tag-reviews \
-            TOOLS_DIR=.trusted-base/tools \
-            STATUS_FILE="$GITHUB_OUTPUT"
+            TOOLS_DIR=.trusted-base/tools
 
+      # Carries the file-level "Commit suggestion" comments. Its review body is a
+      # stamped pointer only, because the action posts nothing at all when every
+      # suggestion duplicates one from an earlier run.
       - name: Suggest meta tag changes
         if: >-
-          steps.supersede.outputs.should_post == 'true'
-          && steps.ensure.outputs.inline_suggestions == 'true'
+          ${{ !cancelled()
+          && steps.ensure.outputs.inline_suggestions == 'true' }}
         uses: parkerbxyz/suggest-changes@v3
         with:
-          comment: ${{ steps.ensure.outputs.comment }}
+          comment: ${{ steps.ensure.outputs.suggestion_note }}
           event: COMMENT
 
+      # Always posts the summary so the Conversation view has a current review
+      # after the stale ones are minimised, whatever suggest-changes did.
       - name: Post meta tag review comment
         if: >-
-          steps.supersede.outputs.should_post == 'true'
-          && steps.ensure.outputs.review_comment == 'true'
-          && steps.ensure.outputs.inline_suggestions != 'true'
+          ${{ !cancelled()
+          && steps.ensure.outputs.has_results == 'true' }}
         env:
           GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
           REVIEW_COMMENT: ${{ steps.ensure.outputs.comment }}
         run: |
-          gh pr review "${{ github.event.pull_request.number }}" \
+          set -euo pipefail
+          gh pr review "$PR_NUMBER" \
             --comment \
             --body "$REVIEW_COMMENT"
 

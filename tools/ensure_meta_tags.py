@@ -24,7 +24,7 @@ import subprocess
 import sys
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Literal
+from typing import Literal, TextIO
 
 import yaml
 
@@ -50,6 +50,13 @@ Severity = Literal["warning", "error"]
 # Hidden marker in review bodies so CI can find and supersede prior bot reviews.
 REVIEW_MARKER_ID = "ros2-meta-tags-ensure"
 REVIEW_MARKER = f"<!-- {REVIEW_MARKER_ID} -->"
+
+# Header for the separate review that carries the inline suggestions. It is stamped
+# like the main body so both reviews are superseded together on the next run.
+SUGGESTION_NOTE = (
+    "Inline suggestions add configured documentation metadata defaults. "
+    "See the metadata review comment for the full list of fields to complete."
+)
 
 
 @dataclass(frozen=True)
@@ -339,6 +346,26 @@ def _log_working_tree_summary(paths: list[Path]) -> None:
             logger.info("%s", line)
 
 
+def _write_multiline_output(handle: TextIO, key: str, value: str) -> None:
+    """
+    Write a multiline GitHub Actions output using heredoc syntax.
+
+    Args:
+            handle: Open text handle for the status file.
+            key: Output name.
+            value: Output value, which may span several lines.
+
+    Returns:
+            None.
+    """
+    delimiter = f"EOF_{key.upper()}"
+    handle.write(f"{key}<<{delimiter}\n")
+    handle.write(value)
+    if not value.endswith("\n"):
+        handle.write("\n")
+    handle.write(f"{delimiter}\n")
+
+
 def _write_ci_status_file(
     status_file: Path,
     *,
@@ -350,9 +377,9 @@ def _write_ci_status_file(
     """
     Append GitHub Actions output flags and optional review comment.
 
-    Writes ``meta_checked``, ``inline_suggestions``, ``review_comment``,
-    ``has_results``, ``has_errors``, and a multiline ``comment`` block when
-    ``results`` is non-empty.
+    Writes ``meta_checked``, ``inline_suggestions``, ``has_results``, and
+    ``has_errors``, plus a multiline ``comment`` block when ``results`` is
+    non-empty and ``suggestion_note`` when inline suggestions were written.
 
     Args:
             status_file: Path to append to (for example ``$GITHUB_OUTPUT``).
@@ -365,26 +392,23 @@ def _write_ci_status_file(
             None.
     """
     has_inline_suggestions = any(r["mode"] == "suggestable" for r in results)
-    has_review_comment = any(
-        r["mode"] in ("snippet", "manual_fields") for r in results
-    )
     has_results = bool(results)
     with status_file.open("a", encoding="utf-8") as f:
         for key, flag in (
             ("meta_checked", meta_checked),
             ("inline_suggestions", has_inline_suggestions),
-            ("review_comment", has_review_comment),
             ("has_results", has_results),
             ("has_errors", has_errors),
         ):
             f.write(f"{key}={'true' if flag else 'false'}\n")
         if results:
-            review_body = build_review_comment(results, rules)
-            f.write("comment<<EOF_META_TAGS_COMMENT\n")
-            f.write(review_body)
-            if not review_body.endswith("\n"):
-                f.write("\n")
-            f.write("EOF_META_TAGS_COMMENT\n")
+            _write_multiline_output(f, "comment", build_review_comment(results, rules))
+        if has_inline_suggestions:
+            _write_multiline_output(
+                f,
+                "suggestion_note",
+                stamp_review_comment(SUGGESTION_NOTE),
+            )
 
 
 def _span_overlaps(span: tuple[int, int] | None, pr_lines: set[int]) -> bool:
@@ -802,8 +826,8 @@ def main(argv: list[str] | None = None) -> int:
         "--status-file",
         type=Path,
         help=(
-            "Write meta_checked, inline_suggestions, review_comment, has_results, "
-            "has_errors, and the review comment body for CI"
+            "Write meta_checked, inline_suggestions, has_results, has_errors, "
+            "the review comment body, and the suggestion note for CI"
         ),
     )
     parser.add_argument(

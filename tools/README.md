@@ -169,7 +169,7 @@ Information for maintainers and developers working on or extending the metadata 
 | [`rst_utils.py`](rst_utils.py) | Regex-based read/write of `.. meta::` and `.. short-description::` directives |
 | [`meta_tags.yaml`](meta_tags.yaml) | Metadata rules (severity and optional default values) |
 | [`ensure_meta_tags.py`](ensure_meta_tags.py) | CLI that checks and fixes metadata from the config |
-| [`supersede_meta_tag_reviews.sh`](supersede_meta_tag_reviews.sh) | Minimise outdated bot PR reviews and set `should_post` for CI |
+| [`supersede_meta_tag_reviews.sh`](supersede_meta_tag_reviews.sh) | Minimise outdated bot PR reviews |
 | [`tests/`](tests/) | Unit tests for the tools in this directory |
 
 ### Code modules
@@ -195,7 +195,7 @@ Add a new key under `meta` in [`meta_tags.yaml`](meta_tags.yaml) to extend cover
 - `paths` — optional; when omitted, `--diff-base` is required and changed `.rst` files are discovered automatically
 - `--config PATH` — YAML config file (default: `tools/meta_tags.yaml`)
 - `--diff-base SHA` — PR base commit; limits on-disk writes to lines in the PR diff (inline suggestions); files that need a copy-paste or manual field list use a review comment instead
-- `--status-file PATH` — write `meta_checked`, `inline_suggestions`, `review_comment`, `has_results`, `has_errors`, and the review comment body for CI; when issues remain, emits annotations and exits `1` (the ensure step uses `continue-on-error`)
+- `--status-file PATH` — write `meta_checked`, `inline_suggestions`, `has_results`, `has_errors`, the review comment body, and the suggestion note for CI; when issues remain, emits annotations and exits `1` (the ensure step uses `continue-on-error`)
 - `-v` / `--verbose` — enable debug logging
 
 #### Makefile targets (metadata CI)
@@ -205,9 +205,9 @@ Both targets live in the repository root [`Makefile`](../Makefile). CI invokes t
 | Target | Required variables | Purpose |
 |--------|-------------------|---------|
 | `ensure-meta-tags` | `DIFF_BASE`, `STATUS_FILE`; optional `TOOLS_DIR` (default `tools`) | Discover changed RST, run metadata check, append CI outputs |
-| `supersede-meta-tag-reviews` | `PR_NUMBER`, `REPOSITORY`, `HAS_RESULTS`, `STATUS_FILE` (or `GITHUB_OUTPUT`); optional `TOOLS_DIR` | Minimise stamped bot reviews; append `should_post` |
+| `supersede-meta-tag-reviews` | `PR_NUMBER`, `REPOSITORY`; optional `TOOLS_DIR` | Minimise stamped bot reviews |
 
-Environment for `supersede-meta-tag-reviews` (set by the workflow or locally): `GH_TOKEN`, plus `PR_NUMBER`, `REPOSITORY`, and `HAS_RESULTS` from the ensure step’s `has_results` output.
+Environment for `supersede-meta-tag-reviews` (set by the workflow or locally): `GH_TOKEN`, plus `PR_NUMBER` and `REPOSITORY`. It writes no CI outputs; the workflow decides what to post from the ensure step’s outputs.
 
 ### Continuous integration architecture
 
@@ -221,10 +221,13 @@ The Enhance workflow installs PyYAML in the job; it does not install the full do
 2. Check out the PR **base** into `.trusted-base/` (Makefile, `ensure_meta_tags.py`, `meta_tags.yaml`, `supersede_meta_tag_reviews.sh`).
 3. Install Python 3.12 and PyYAML.
 4. **Ensure documentation metadata** — `git fetch` the base SHA, then `make -f .trusted-base/Makefile ensure-meta-tags` with `TOOLS_DIR=.trusted-base/tools`, `DIFF_BASE`, and `STATUS_FILE=$GITHUB_OUTPUT`. Emits per-file annotations; the step uses `continue-on-error: true` so warning-only gaps do not fail the job immediately.
-5. **Supersede stale meta-tag reviews** (only if `meta_checked=true`) — `make -f .trusted-base/Makefile supersede-meta-tag-reviews` with `HAS_RESULTS` from the ensure step; writes `should_post`.
-6. **Suggest meta tag changes** — if `should_post` and `inline_suggestions`, run [`suggest-changes`](https://github.com/marketplace/actions/suggest-changes-action) with the multiline `comment` output.
-7. **Post meta tag review comment** — if `should_post`, `review_comment`, and not `inline_suggestions`, post the same `comment` body via `gh pr review`.
-8. **Enforce required metadata** — if `has_errors`, fail the job (runs `always()` so error gaps fail even when the ensure step soft-failed).
+5. **Verify metadata check ran** — fail the job if `meta_checked` is empty. The ensure step soft-fails by design, so a missing output is the only way to tell a crashed check from a clean run.
+6. **Supersede stale meta-tag reviews** (only if `meta_checked=true`) — `make -f .trusted-base/Makefile supersede-meta-tag-reviews`, which minimises stamped reviews and writes nothing back.
+7. **Suggest meta tag changes** — if `inline_suggestions`, run [`suggest-changes`](https://github.com/marketplace/actions/suggest-changes-action) for file-level “Commit suggestion” comments, using `suggestion_note` as its stamped review body.
+8. **Post meta tag review comment** — if `has_results`, post the stamped `comment` body via `gh pr review` (Conversation view). Independent of suggest-changes, which posts nothing when every suggestion duplicates one from an earlier run.
+9. **Enforce required metadata** — if `has_errors`, fail the job (runs `always()` so error gaps fail even when the ensure step soft-failed).
+
+Steps 7 and 8 use `!cancelled()` rather than depending on the supersede step, so a transient GitHub API failure while minimising old reviews cannot stop contributors receiving feedback.
 
 Priority: **inline suggestions wherever GitHub allows them**. Copy-paste blocks and manual field lists are delivered via a pull request review comment when inline suggestions are not used for that run.
 
@@ -244,16 +247,14 @@ The script writes **CI outputs** (for example `$GITHUB_OUTPUT`) that describe wh
 
 | Output | Meaning |
 |--------|---------|
-| `meta_checked` | At least one changed `.rst` was in scope (`false` when discovery finds no changed RST; supersede and review steps are skipped) |
-| `inline_suggestions` | Run [`suggest-changes`](https://github.com/marketplace/actions/suggest-changes-action) |
-| `review_comment` | Post the generated review body with `gh pr review` when inline suggestions are not used (covers `snippet` and `manual_fields` files) |
-| `has_results` | Metadata issues remain (used to decide whether to post a new review after superseding stale ones) |
+| `meta_checked` | At least one changed `.rst` was in scope (`false` when discovery finds no changed RST; supersede is skipped). Empty only when the check never ran |
+| `inline_suggestions` | Run [`suggest-changes`](https://github.com/marketplace/actions/suggest-changes-action) for file-level suggestions |
+| `has_results` | Metadata issues remain; post the Conversation review |
 | `has_errors` | Unresolved **error**-severity fields (triggers the final enforce step) |
-| `comment` | Full stamped review body (multiline heredoc) for suggest-changes or `gh pr review` |
+| `comment` | Full stamped review body (multiline heredoc) posted to Conversation via `gh pr review`; written only when `has_results` |
+| `suggestion_note` | Short stamped body for the suggest-changes review; written only when `inline_suggestions` |
 
-**Supersede step output:** `should_post` — `true` when `has_results` is `true` (post a new review after minimising old ones); `false` when all metadata issues are resolved (minimise only, no new review).
-
-When `inline_suggestions` is `true`, the workflow runs suggest-changes even if `review_comment` is also `true` (mixed per-file modes in one PR). A separate `gh pr review` runs only when `review_comment` is `true` and `inline_suggestions` is not.
+Both review bodies carry the marker, so the next run minimises the summary and the suggestion note together. The outputs are self-consistent by construction: `comment` exists whenever `has_results` is true, `suggestion_note` exists whenever `inline_suggestions` is true, and `has_errors` implies `has_results`. No step can therefore run with an empty review body, and the enforce step cannot fail the job without a review having been posted.
 
 The ensure step uses `continue-on-error: true`, so warning-only gaps do not fail the job. Error-severity gaps (for example `area`) still fail the workflow on the enforce step after contributors receive review feedback.
 
@@ -276,9 +277,8 @@ When `meta_checked=true`, the workflow runs `make -f .trusted-base/Makefile supe
 
 1. Lists pull request reviews whose body contains the marker id.
 2. Minimises each as **Outdated** via the GitHub GraphQL API (`gh api graphql`; individual failures are ignored).
-3. Appends `should_post=true` or `should_post=false` to `$GITHUB_OUTPUT` from `HAS_RESULTS` (`has_results` from the ensure step).
 
-When all issues are fixed (`has_results=false`), stale reviews are minimised and no new “all clear” comment is posted.
+When all issues are fixed (`has_results=false`), stale reviews are minimised and no new “all clear” comment is posted. Inline suggestion comments are separate from the review body and stay visible until they are committed or the file changes.
 
 #### Security
 

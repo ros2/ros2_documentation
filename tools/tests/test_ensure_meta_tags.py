@@ -26,6 +26,7 @@ if str(_TOOLS_DIR) not in sys.path:
     sys.path.insert(0, str(_TOOLS_DIR))
 
 from ensure_meta_tags import (  # noqa: E402
+    REVIEW_MARKER,
     MetaRule,
     _unresolved_fields,
     build_review_comment,
@@ -255,6 +256,67 @@ class TestReviewAndExit(unittest.TestCase):
                 ],
             )
             self.assertEqual(code, 1)
+
+
+class TestCiStatusOutputs(unittest.TestCase):
+    """The workflow gates steps on these outputs, so keep them self-consistent."""
+
+    def _run_with_status_file(self, content: str) -> str:
+        rules_path = Path(tempfile.mkdtemp()) / "meta.yaml"
+        rules_path.write_text(SAMPLE_CONFIG, encoding="utf-8")
+        with tempfile.TemporaryDirectory() as tmp:
+            page = Path(tmp) / "page.rst"
+            page.write_text(content, encoding="utf-8")
+            status_path = Path(tmp) / "status.txt"
+            main(
+                [
+                    str(page),
+                    "--config",
+                    str(rules_path),
+                    "--status-file",
+                    str(status_path),
+                ],
+            )
+            return status_path.read_text(encoding="utf-8")
+
+    def test_suggestion_note_written_with_inline_suggestions(self) -> None:
+        status = self._run_with_status_file("Title\n=====\n")
+        self.assertIn("inline_suggestions=true", status)
+        self.assertIn("suggestion_note<<", status)
+        self.assertIn(REVIEW_MARKER, status)
+
+    def test_no_suggestion_note_without_inline_suggestions(self) -> None:
+        content = textwrap.dedent(
+            """
+            .. meta::
+               :product: ROS 2
+
+            Title
+            =====
+            """
+        ).lstrip()
+        status = self._run_with_status_file(content)
+        self.assertIn("inline_suggestions=false", status)
+        self.assertNotIn("suggestion_note<<", status)
+        self.assertIn("comment<<", status)
+
+    def test_clean_file_writes_no_review_bodies(self) -> None:
+        content = textwrap.dedent(
+            """
+            .. meta::
+               :product: ROS 2
+               :area: docs
+               :experience: beginner
+
+            Title
+            =====
+            """
+        ).lstrip()
+        status = self._run_with_status_file(content)
+        self.assertIn("has_results=false", status)
+        self.assertIn("has_errors=false", status)
+        self.assertNotIn("comment<<", status)
+        self.assertNotIn("suggestion_note<<", status)
 
 
 class TestChangedRstPaths(unittest.TestCase):

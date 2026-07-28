@@ -18,7 +18,6 @@ DIFF_BASE     ?=
 STATUS_FILE   ?=
 PR_NUMBER     ?=
 REPOSITORY    ?=
-HAS_RESULTS   ?=
 
 DICTIONARIES := codespell_dictionary.txt codespell_whitelist.txt
 
@@ -64,9 +63,6 @@ ifndef PR_NUMBER
 endif
 ifndef REPOSITORY
 	$(error REPOSITORY is required)
-endif
-ifndef HAS_RESULTS
-	$(error HAS_RESULTS is required)
 endif
 	$(BASH) $(TOOLS_DIR)/supersede_meta_tag_reviews.sh
 
