@@ -135,6 +135,46 @@ class TestEnsureMetaTagsInFile(unittest.TestCase):
             fields = get_meta_fields_from_content(path.read_text(encoding="utf-8"))
             self.assertEqual(fields["product"], "{PRODUCT}")
 
+    def test_auto_injected_fields_are_still_annotated(self) -> None:
+        rules = {
+            "product": MetaRule("warning", "{PRODUCT}"),
+            "area": MetaRule("error", ""),
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "page.rst"
+            path.write_text("Title\n=====\n", encoding="utf-8")
+            result = ensure_meta_tags_in_file(path, rules)
+            self.assertIsNotNone(result)
+            self.assertIn("product", result["warning_fields"])
+            self.assertNotIn("product", result["manual_fields"])
+
+    def test_result_returned_when_only_configured_fields_missing(self) -> None:
+        rules = {"product": MetaRule("warning", "{PRODUCT}")}
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "page.rst"
+            path.write_text("Title\n=====\n", encoding="utf-8")
+            result = ensure_meta_tags_in_file(path, rules)
+            self.assertIsNotNone(result)
+            self.assertEqual(result["mode"], "suggestable")
+            self.assertEqual(result["warning_fields"], ["product"])
+            self.assertEqual(result["manual_fields"], [])
+
+    def test_no_result_when_all_fields_present(self) -> None:
+        rules = {"product": MetaRule("warning", "{PRODUCT}")}
+        content = textwrap.dedent(
+            """
+            .. meta::
+               :product: ROS 2
+
+            Title
+            =====
+            """
+        ).lstrip()
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "page.rst"
+            path.write_text(content, encoding="utf-8")
+            self.assertIsNone(ensure_meta_tags_in_file(path, rules))
+
 
 class TestReviewAndExit(unittest.TestCase):
     def test_build_review_comment_lists_manual_fields(self) -> None:

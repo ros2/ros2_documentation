@@ -547,10 +547,12 @@ def ensure_meta_tags_in_file(
             pr_lines: One-based pull-request diff lines, or ``None`` for local mode.
 
     Returns:
-            A result dict when issues remain, otherwise ``None``. Each result
-            includes ``path``, ``line``, ``mode`` (``suggestable``, ``snippet``, or
-            ``manual_fields``), ``snippet`` (RST for copy-paste when relevant),
-            ``manual_fields``, ``warning_fields``, and ``error_fields``.
+            A result dict when fields were missing in the file as read, otherwise
+            ``None``. Each result includes ``path``, ``line``, ``mode``
+            (``suggestable``, ``snippet``, or ``manual_fields``), ``snippet`` (RST
+            for copy-paste when relevant), ``manual_fields``, ``warning_fields``,
+            and ``error_fields``. The severity lists cover every field that was
+            missing or blank before any automatic injection.
 
     Raises:
             OSError: If the RST file cannot be read or an eligible edit cannot be written.
@@ -597,12 +599,15 @@ def ensure_meta_tags_in_file(
                     )
 
     still_unresolved = _unresolved_fields(content, rules)
-    if not still_unresolved:
+    if not still_unresolved and mode is None:
         return None
 
-    manual_fields = [name for name in still_unresolved if not rules[name].has_configured_value]
-    warning_fields = _severity_fields(still_unresolved, rules, "warning")
-    error_fields = _severity_fields(still_unresolved, rules, "error")
+    # Annotations and severity describe the pull request as pushed. Auto-injected
+    # values only exist in the CI working tree until the suggestion is committed,
+    # so they are reported from ``unresolved`` rather than ``still_unresolved``.
+    manual_fields = [name for name in unresolved if not rules[name].has_configured_value]
+    warning_fields = _severity_fields(unresolved, rules, "warning")
+    error_fields = _severity_fields(unresolved, rules, "error")
 
     if mode is None:
         mode = "manual_fields"

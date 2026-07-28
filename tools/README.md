@@ -254,6 +254,8 @@ When metadata is missing or blank:
 
 `N` is the start line of an existing `.. meta::` block, or `1` when a new block would be inserted at the top of the file.
 
+Annotations describe the pull request **as pushed**, so fields with a configured `value` are listed even when the same run offers them as an inline suggestion. Auto-injected values only exist in the CI working tree; they disappear from the annotations once the suggestion is committed and the workflow re-runs.
+
 #### Superseding outdated reviews
 
 Each bot review body includes a hidden HTML marker (`<!-- ros2-meta-tags-ensure -->`). The marker id `ros2-meta-tags-ensure` (constant `REVIEW_MARKER_ID` in Python; override in the shell script with `META_TAG_REVIEW_MARKER_ID`) is what the supersede script searches for in review bodies.
