@@ -6,7 +6,10 @@
    :product: {PRODUCT}
 
 Transporting GPU buffers with ``rosidl::Buffer`` - tutorial
-==========================================================
+===========================================================
+
+.. short-description::
+   Placeholder paragraph
 
 .. showmeta::
    :order: area, contentType, experience

@@ -12,6 +12,9 @@
 Visualizing Data and Teleoperating with Phantom Bridge
 ======================================================
 
+.. short-description::
+   Placeholder paragraph
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level

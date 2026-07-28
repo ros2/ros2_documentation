@@ -12,6 +12,9 @@
 Configuring Webots with ROS 2 - tutorial
 ========================================
 
+.. short-description::
+   Placeholder paragraph
+
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
