@@ -1,5 +1,16 @@
+.. meta::
+   :contentType:
+   :experience:
+   :area: installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Migration and Upgrades
 ======================
+
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 Coming Soon
 

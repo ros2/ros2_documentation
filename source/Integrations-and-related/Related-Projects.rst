@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: about
+   :experience: TBD
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Related-Projects
@@ -5,6 +12,18 @@
 
 Related Projects
 ================
+
+.. short-description::
+   Beyond the core stack, many community and company projects extend ROS for simulation, navigation, manipulation, and more.
+   This article surveys major related projects and points to further discovery resources such as the ROS Index.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 Gazebo
 ------

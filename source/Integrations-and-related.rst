@@ -1,6 +1,16 @@
+.. meta::
+   :contentType:
+   :experience:
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
 
 Integrations and related projects
 =================================
+
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 Coming Soon
 
