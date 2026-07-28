@@ -1,5 +1,16 @@
-Using ``rosidl::Buffer`` backends
-=================================
+.. meta::
+   :contentType: how-to
+   :experience: TBD
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Using ``rosidl::Buffer`` backends - how-to
+==========================================
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Contents
    :depth: 2

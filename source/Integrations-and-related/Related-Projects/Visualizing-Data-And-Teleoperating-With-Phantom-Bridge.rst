@@ -1,9 +1,20 @@
+.. meta::
+   :contentType: TBD
+   :experience: TBD
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Related-Projects/Visualizing-Data-And-Teleoperating-With-Phantom-Bridge
 
 Visualizing Data and Teleoperating with Phantom Bridge
 ======================================================
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 Redirecting to `https://docs.phntm.io/bridge <https://docs.phntm.io/bridge>`_...
 

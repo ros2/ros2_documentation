@@ -1,5 +1,16 @@
-Installation (Ubuntu)
-=====================
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: simulation, capabilities
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Installing MVSim on Ubuntu - tutorial
+=====================================
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Install the ``mvsim`` package on Ubuntu and verify it works.
 

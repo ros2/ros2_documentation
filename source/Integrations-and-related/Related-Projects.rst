@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: about
+   :experience: TBD
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Related-Projects
@@ -5,6 +12,10 @@
 
 Related Projects
 ================
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 Gazebo
 ------

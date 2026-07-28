@@ -1,5 +1,16 @@
-Writing an async node with asyncio (Python)
-===========================================
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: nodes, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Writing an async node with asyncio (Python) - tutorial
+======================================================
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Create and run a service and client using ``AsyncNode``, the asyncio-native node API.
 

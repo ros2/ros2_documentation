@@ -1,9 +1,20 @@
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: simulation, capabilities
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Advanced/Simulators/Webots/Simulation-Reset-Handler
 
-Setting up a Reset Handler
-==========================
+Setting up a Reset Handler - tutorial
+=====================================
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Extend a robot simulation with a reset handler to restart nodes when the reset button of Webots is pressed.
 

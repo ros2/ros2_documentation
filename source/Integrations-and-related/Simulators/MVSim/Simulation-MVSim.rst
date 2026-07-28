@@ -1,9 +1,20 @@
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: simulation, capabilities
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Advanced/Simulators/MVSim/Simulation-MVSim
 
-MVSim
-=====
+Configuring MVSim with ROS 2 - tutorial
+=======================================
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 This set of tutorials will teach you how to configure the `MVSim <https://mvsimulator.readthedocs.io/>`__ simulator with ROS 2.
 

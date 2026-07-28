@@ -1,9 +1,20 @@
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: simulation, capabilities
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor
 
-The Ros2Supervisor Node
-=======================
+Extending the interface with the Ros2Supervisor node - tutorial
+===============================================================
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Extend the interface with a default Supervisor robot, named ``Ros2Supervisor``.
 

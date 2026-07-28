@@ -174,7 +174,7 @@ After the installation is complete, you can proceed with :doc:`configuring your 
 
 We recommend that you get familiar with key ROS concepts and check out the tutorials:
 
-* :doc:`First steps with ROS - learning path <../../First-Steps>`
+* :doc:`Taking first steps with ROS - learning path <../../First-Steps>`
 
 Related content
 ---------------

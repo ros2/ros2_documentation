@@ -1,9 +1,20 @@
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: simulation, capabilities
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Advanced/Simulators/MVSim/Getting-Started-MVSim
 
-Getting started with MVSim
-==========================
+Getting started with MVSim - tutorial
+=====================================
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Launch MVSim demo worlds both standalone and with ROS 2, and learn how to interact with simulated robots.
 

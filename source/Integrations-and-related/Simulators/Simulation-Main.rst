@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: learning-path
+   :experience: expert
+   :area: simulation, capabilities
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Simulators/Simulation-Main
@@ -5,8 +12,12 @@
 
 .. _SimulationMain:
 
-Simulators
-==========
+Configuring simulators with ROS 2 - learning path
+=================================================
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 Several advanced robot simulators can be used with ROS 2, such as Gazebo, Webots, etc.
 Unlike turtlesim, they provide fairly realistic results relying on physics-based models for robots, sensors, actuators and objects.

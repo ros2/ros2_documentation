@@ -1,5 +1,16 @@
-Writing a ``rosidl::Buffer`` backend
-====================================
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Writing a ``rosidl::Buffer`` backend - tutorial
+===============================================
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Learn how to implement and package a new ``rosidl::Buffer``
 backend plugin so that a vendor-specific memory domain (GPU, shared memory,

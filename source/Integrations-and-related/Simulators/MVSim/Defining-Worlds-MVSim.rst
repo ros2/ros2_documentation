@@ -1,9 +1,20 @@
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: simulation, capabilities
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Advanced/Simulators/MVSim/Defining-Worlds-MVSim
 
-Defining worlds, robots, and sensors
-====================================
+Defining worlds, robots, and sensors - tutorial
+===============================================
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Learn the basics of defining MVSim world files, adding vehicles and sensors, and the main features available.
 

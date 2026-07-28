@@ -1,5 +1,16 @@
-GPU buffer transport with ``rosidl::Buffer``
-============================================
+.. meta::
+   :contentType: tutorial
+   :experience: TBD
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Transporting GPU buffers with ``rosidl::Buffer`` - tutorial
+==========================================================
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2

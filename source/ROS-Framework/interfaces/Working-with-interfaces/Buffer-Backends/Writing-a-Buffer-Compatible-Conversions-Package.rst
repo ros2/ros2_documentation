@@ -1,5 +1,16 @@
-Writing a ``rosidl::Buffer`` compatible conversions package
-===========================================================
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Writing a ``rosidl::Buffer`` compatible conversions package - tutorial
+======================================================================
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Learn how to create a ``*_conversions`` package that maps between a
 ROS 2 message containing ``uint8[]`` payload fields and a library-specific

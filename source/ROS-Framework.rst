@@ -1,4 +1,9 @@
-
+.. meta::
+   :contentType: TBD
+   :experience: beginner, intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
 
 ROS framework
 =============

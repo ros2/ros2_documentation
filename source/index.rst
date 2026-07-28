@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: TBD
+   :experience: TBD
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
   Docs-Guide

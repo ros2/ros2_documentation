@@ -1,11 +1,22 @@
+.. meta::
+   :contentType: tutorial
+   :experience: TBD
+   :area: installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Deploying-ROS2-on-IBM-Cloud
     Tutorials/Deploying-ROS-2-on-IBM-Cloud
     Tutorials/Miscellaneous/Deploying-ROS-2-on-IBM-Cloud
 
-Deploying on IBM Cloud Kubernetes [community-contributed]
-=========================================================
+Deploying on IBM Cloud Kubernetes [community-contributed] - tutorial
+====================================================================
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 
 .. contents:: Table of Contents

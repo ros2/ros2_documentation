@@ -1,9 +1,20 @@
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: simulation, capabilities
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced
 
-Setting up a robot simulation (Advanced)
-========================================
+Setting up a robot simulation (Advanced) - tutorial
+===================================================
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Extend a robot simulation with an obstacle avoider node.
 

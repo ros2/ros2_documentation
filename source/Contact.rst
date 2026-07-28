@@ -1,7 +1,18 @@
+.. meta::
+   :contentType: about
+   :experience: TBD
+   :area: community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _Help:
 
 Contact
 =======
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. _Using Robotics Stack Exchange:
 

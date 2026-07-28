@@ -1,3 +1,9 @@
+.. meta::
+   :contentType: TBD
+   :experience: TBD
+   :area: TBD
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
 
 Integrations and related projects
 =================================

@@ -1,9 +1,20 @@
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: simulation, capabilities, installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu
 
-Installation (Ubuntu)
-=====================
+Installing Webots on Ubuntu - tutorial
+======================================
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Install the ``webots_ros2`` package and run simulation examples on Ubuntu.
 
