@@ -14,7 +14,8 @@ Related Projects
 ================
 
 .. short-description::
-   Placeholder paragraph
+   Beyond the core stack, many community and company projects extend ROS for simulation, navigation, manipulation, and more.
+   This article surveys major related projects and points to further discovery resources such as the ROS Index.
 
 .. showmeta::
    :order: area, contentType, experience

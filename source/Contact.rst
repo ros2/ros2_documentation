@@ -11,7 +11,8 @@ Contact
 =======
 
 .. short-description::
-   Placeholder paragraph
+   ROS users need clear routes for troubleshooting, reporting bugs, and taking part in community discussion.
+   This article explains the main support and contact channels, including Robotics Stack Exchange and GitHub issues.
 
 .. showmeta::
    :order: area, contentType, experience

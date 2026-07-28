@@ -9,7 +9,8 @@ About ``rosidl::Buffer`` backends
 =================================
 
 .. short-description::
-   Placeholder paragraph
+   ``rosidl::Buffer`` backends let message payloads use vendor-specific memory domains such as GPU memory while keeping familiar message APIs.
+   This article explains what buffer backends are, why they exist, and how they fit into the ROS message architecture.
 
 .. showmeta::
    :order: area, contentType, experience
