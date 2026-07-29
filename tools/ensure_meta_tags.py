@@ -51,8 +51,9 @@ Severity = Literal["warning", "error"]
 REVIEW_MARKER_ID = "ros2-meta-tags-ensure"
 REVIEW_MARKER = f"<!-- {REVIEW_MARKER_ID} -->"
 
-# Header for the separate review that carries the inline suggestions. It is stamped
-# like the main body so both reviews are superseded together on the next run.
+# Short body for the suggest-changes review. Deliberately unstamped: that review is
+# the only Conversation surface that shows live inline suggestions, so it must not be
+# minimised with the summary. GitHub marks individual comments outdated when actioned.
 SUGGESTION_NOTE = (
     "Inline suggestions add configured documentation metadata defaults. "
     "See the metadata review comment for the full list of fields to complete."
@@ -404,11 +405,7 @@ def _write_ci_status_file(
         if results:
             _write_multiline_output(f, "comment", build_review_comment(results, rules))
         if has_inline_suggestions:
-            _write_multiline_output(
-                f,
-                "suggestion_note",
-                stamp_review_comment(SUGGESTION_NOTE),
-            )
+            _write_multiline_output(f, "suggestion_note", SUGGESTION_NOTE)
 
 
 def _span_overlaps(span: tuple[int, int] | None, pr_lines: set[int]) -> bool:

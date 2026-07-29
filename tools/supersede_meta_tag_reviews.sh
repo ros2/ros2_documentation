@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-# Minimise prior bot PR reviews stamped by ensure_meta_tags.py.
+# Minimise prior stamped summary reviews from ensure_meta_tags.py. Suggestion-carrying
+# reviews (unstamped suggest-changes bodies) are left visible so Conversation keeps
+# live inline suggestions until they are actioned.
 set -euo pipefail
 
 : "${GH_TOKEN:?GH_TOKEN is required}"

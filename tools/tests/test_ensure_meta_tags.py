@@ -258,6 +258,20 @@ class TestReviewAndExit(unittest.TestCase):
             self.assertEqual(code, 1)
 
 
+def _extract_multiline_output(status: str, key: str) -> str | None:
+    """Return the body of a GitHub Actions heredoc output block, or None if absent."""
+    delimiter = f"EOF_{key.upper()}"
+    header = f"{key}<<{delimiter}\n"
+    start = status.find(header)
+    if start < 0:
+        return None
+    start += len(header)
+    end = status.find(f"\n{delimiter}\n", start)
+    if end < 0:
+        return None
+    return status[start:end]
+
+
 class TestCiStatusOutputs(unittest.TestCase):
     """The workflow gates steps on these outputs, so keep them self-consistent."""
 
@@ -283,7 +297,12 @@ class TestCiStatusOutputs(unittest.TestCase):
         status = self._run_with_status_file("Title\n=====\n")
         self.assertIn("inline_suggestions=true", status)
         self.assertIn("suggestion_note<<", status)
-        self.assertIn(REVIEW_MARKER, status)
+        suggestion_note = _extract_multiline_output(status, "suggestion_note")
+        comment = _extract_multiline_output(status, "comment")
+        self.assertIsNotNone(suggestion_note)
+        self.assertIsNotNone(comment)
+        self.assertNotIn(REVIEW_MARKER, suggestion_note or "")
+        self.assertIn(REVIEW_MARKER, comment or "")
 
     def test_no_suggestion_note_without_inline_suggestions(self) -> None:
         content = textwrap.dedent(

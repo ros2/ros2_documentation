@@ -223,7 +223,7 @@ The Enhance workflow installs PyYAML in the job; it does not install the full do
 4. **Ensure documentation metadata** — `git fetch` the base SHA, then `make -f .trusted-base/Makefile ensure-meta-tags` with `TOOLS_DIR=.trusted-base/tools`, `DIFF_BASE`, and `STATUS_FILE=$GITHUB_OUTPUT`. Emits per-file annotations; the step uses `continue-on-error: true` so warning-only gaps do not fail the job immediately.
 5. **Verify metadata check ran** — fail the job if `meta_checked` is empty. The ensure step soft-fails by design, so a missing output is the only way to tell a crashed check from a clean run.
 6. **Supersede stale meta-tag reviews** (only if `meta_checked=true`) — `make -f .trusted-base/Makefile supersede-meta-tag-reviews`, which minimises stamped reviews and writes nothing back.
-7. **Suggest meta tag changes** — if `inline_suggestions`, run [`suggest-changes`](https://github.com/marketplace/actions/suggest-changes-action) for file-level “Commit suggestion” comments, using `suggestion_note` as its stamped review body.
+7. **Suggest meta tag changes** — if `inline_suggestions`, run [`suggest-changes`](https://github.com/marketplace/actions/suggest-changes-action) for file-level “Commit suggestion” comments, using `suggestion_note` as its review body (unstamped so supersede does not hide live suggestions in Conversation).
 8. **Post meta tag review comment** — if `has_results`, post the stamped `comment` body via `gh pr review` (Conversation view). Independent of suggest-changes, which posts nothing when every suggestion duplicates one from an earlier run.
 9. **Enforce required metadata** — if `has_errors`, fail the job (runs `always()` so error gaps fail even when the ensure step soft-failed).
 
@@ -252,9 +252,9 @@ The script writes **CI outputs** (for example `$GITHUB_OUTPUT`) that describe wh
 | `has_results` | Metadata issues remain; post the Conversation review |
 | `has_errors` | Unresolved **error**-severity fields (triggers the final enforce step) |
 | `comment` | Full stamped review body (multiline heredoc) posted to Conversation via `gh pr review`; written only when `has_results` |
-| `suggestion_note` | Short stamped body for the suggest-changes review; written only when `inline_suggestions` |
+| `suggestion_note` | Short unstamped body for the suggest-changes review; written only when `inline_suggestions` |
 
-Both review bodies carry the marker, so the next run minimises the summary and the suggestion note together. The outputs are self-consistent by construction: `comment` exists whenever `has_results` is true, `suggestion_note` exists whenever `inline_suggestions` is true, and `has_errors` implies `has_results`. No step can therefore run with an empty review body, and the enforce step cannot fail the job without a review having been posted.
+Only the summary `comment` carries the hidden marker, so supersede replaces that review each run while suggestion-carrying reviews stay expanded. The outputs are self-consistent by construction: `comment` exists whenever `has_results` is true, `suggestion_note` exists whenever `inline_suggestions` is true, and `has_errors` implies `has_results`. No step can therefore run with an empty review body, and the enforce step cannot fail the job without a review having been posted.
 
 The ensure step uses `continue-on-error: true`, so warning-only gaps do not fail the job. Error-severity gaps (for example `area`) still fail the workflow on the enforce step after contributors receive review feedback.
 
@@ -271,14 +271,14 @@ Annotations describe the pull request **as pushed**, so fields with a configured
 
 #### Superseding outdated reviews
 
-Each bot review body includes a hidden HTML marker (`<!-- ros2-meta-tags-ensure -->`). The marker id `ros2-meta-tags-ensure` (constant `REVIEW_MARKER_ID` in Python; override in the shell script with `META_TAG_REVIEW_MARKER_ID`) is what the supersede script searches for in review bodies.
+Only the **summary** review body includes a hidden HTML marker (`<!-- ros2-meta-tags-ensure -->`). The marker id `ros2-meta-tags-ensure` (constant `REVIEW_MARKER_ID` in Python; override in the shell script with `META_TAG_REVIEW_MARKER_ID`) is what the supersede script searches for in review bodies. The suggest-changes review uses an unstamped `suggestion_note` so it is not minimised: that card is the only place inline suggestions render in Conversation, and GitHub marks individual suggestion comments outdated once they are committed or their anchor leaves the diff.
 
 When `meta_checked=true`, the workflow runs `make -f .trusted-base/Makefile supersede-meta-tag-reviews` ([`supersede_meta_tag_reviews.sh`](supersede_meta_tag_reviews.sh)):
 
 1. Lists pull request reviews whose body contains the marker id.
 2. Minimises each as **Outdated** via the GitHub GraphQL API (`gh api graphql`; individual failures are ignored).
 
-When all issues are fixed (`has_results=false`), stale reviews are minimised and no new “all clear” comment is posted. Inline suggestion comments are separate from the review body and stay visible until they are committed or the file changes.
+When all issues are fixed (`has_results=false`), stale summary reviews are minimised and no new “all clear” comment is posted. Inline suggestion comments remain on the pull request until they are actioned; suggest-changes skips re-posting duplicates, so earlier suggestion reviews stay the Conversation surface for pending commits.
 
 #### Security
 

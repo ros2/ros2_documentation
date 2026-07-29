@@ -70,9 +70,9 @@ jobs:
           make -f .trusted-base/Makefile supersede-meta-tag-reviews \
             TOOLS_DIR=.trusted-base/tools
 
-      # Carries the file-level "Commit suggestion" comments. Its review body is a
-      # stamped pointer only, because the action posts nothing at all when every
-      # suggestion duplicates one from an earlier run.
+      # File-level "Commit suggestion" comments. suggestion_note is intentionally
+      # unstamped so supersede does not collapse this review; Conversation then
+      # keeps showing live suggestions until GitHub marks each comment outdated.
       - name: Suggest meta tag changes
         if: >-
           ${{ !cancelled()
