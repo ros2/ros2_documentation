@@ -20,7 +20,7 @@ You can contact the ROS community in the following ways:
 
 * :ref:`Discourse discussion boards <discussion-boards>`: Share ideas or discuss best practices
 
-* `Zulip chat <https://openrobotics.zulipchat.com/Recent>`_: Chat to other ROS community members in real time in the ``General`` or ``ROS General`` topics.
+* `Zulip chat <https://openrobotics.zulipchat.com/Recent>`_: Chat to other ROS community members, including maintainers, in real time in the ``General`` or ``ROS General`` topics.
 
 * `Email <mailto:ros@openrobotics.org>`_: Contact us directly if you have a private or sensitive issue
 
@@ -35,14 +35,13 @@ Need help troubleshooting your system?
 First, search `Robotics Stack Exchange <https://robotics.stackexchange.com/>`__ to see if others have had similar problems, and if their solution works for you.
 
 If not, ask a new question on `Robotics Stack Exchange <https://robotics.stackexchange.com/>`__.
-Make sure to add tags, at the very least the ``ros`` tag and the distro version you are running, e.g. ``{DISTRO}``.
-If your question relates to the documentation, add a ``docs`` tag.make
+Make sure to add tags, at the very least the ``ros`` tag and the distro version you are running, for example, ``{DISTRO}``.
+If your question relates to the documentation, add a ``docs`` tag.
 You can also add a tag for the relevant documentation area, for example, ``tutorials`` or ``concepts``.
-
+Please don't contact the developers/maintainers directly.
 The community can't benefit from private answers and questions.
 Keep your questions out in the public to help others with solving their problems.
 Open Source development works best when the entire community participates in discussions and helps to answer questions.
-It's better to send all questions to `Robotics Stack Exchange <https://robotics.stackexchange.com/>`__ and report all issues to the issue tracker.
 
 .. note:: If you can provide support to others, please do: <Placeholder link to new Contributing to ROS article>
 
@@ -66,28 +65,28 @@ Discussing ideas and best practices
 -----------------------------------
 
 To start a discussion with other ROS community members, visit the official `Open Robotics Discourse <https://discourse.openrobotics.org/>`_.
-Content on the Discourse should be high-level.
-It's not a place to get *questions* about code answered, but it would be suitable to start a conversation about best practices or improving standards.
+Content on Discourse should be discussions and announcements.
+It is not a place to get *questions* about code answered, but it would be suitable to start a conversation about new ideas, best practices, and improving standards.
 
 Discussions about ROS development and plans are also happening on the `Open Robotics Discourse' ROS category <https://discourse.openrobotics.org/c/ros/111>`_.
+Discussions about ROS are in the `ROS category <https://discourse.openrobotics.org/c/ros/111>`_.
 Participating in these discussions is an important way to have a say on how different features of ROS will work and be implemented.
 
 The diverse community behind the ROS ecosystem is one of its greatest assets.
-We encourage all members of the ROS community to participate in these design discussions so that we can leverage the experience of community members, and keep
-the varied use cases of ROS in mind.
+We encourage all members of the ROS community to participate in these design discussions so that we can leverage the experience of community members, and keep the varied use cases of ROS in mind when design decisions are made.
 
 Offering help
 -------------
 
-If you are in a position to support others, share your knowledge and help fellow developers work through challenges.
+If you are in a position to support others, share your knowledge and help fellow users work through challenges.
 
 <Placeholder link to new "Contributing to ROS" article>
 
 Contacting us privately
 -----------------------
 
-If you'd like to contact us privately, for example, if your question contains information sensitive to your organization or project, you can mail us at `ros@openrobotics.org <mailto:ros@openrobotics.org>`__.
-If it's regarding a security concern, you can email us directly at `security@openrobotics.org <mailto:security@openrobotics.org>`__.
+If you'd like to contact us privately, for example, if your question contains information sensitive to your organization or project, you can email us directly at `ros@openrobotics.org <mailto:ros@openrobotics.org>`__.
+If your message is regarding a security issue, email `security@openrobotics.org <mailto:security@openrobotics.org>`__.
 
 Etiquette
 ---------
@@ -121,7 +120,7 @@ Etiquette
 * For commercial posts, see also `this discussion <https://discourse.openrobotics.org/t/sponsorship-notation-in-posts-on-ros-org/2078>`_.
 
 * Minimize references to content behind pay walls.
-   The content posted on Open Robotics Discourse and Robotics Stack Exchange should generally be free and open to all users.
+   The content posted on Open Robotics Discourse and Robotics Stack Exchange should be free and open to all users.
    Links to content behind pay walls such as private journal articles, text books, and paid news websites, while helpful and relevant, may not be accessible to all users.
    Where possible primary sources should be free and open with paid content playing a supporting role.
 
