@@ -329,7 +329,7 @@ The ``'<args>'`` argument is the actual data passed to the topic, in the structu
 
 There are four main ways to use the ``pub`` command.
 
-#. **a) Publish dictionary strings**:
+a. **Publish dictionary strings**:
 
   In order to publish data to a topic, you need to pass the data in the form of YAML strings.
 
@@ -346,7 +346,7 @@ There are four main ways to use the ``pub`` command.
 
     $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0}, angular: {z: 1.8}}"
 
-#. **b) Publishing an empty message**:
+b. **Publishing an empty message**:
 
   .. code-block:: console
 
@@ -358,18 +358,19 @@ There are four main ways to use the ``pub`` command.
 
     $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}" --rate 1
 
-#. **c) Use auto-complete**:
+c. **Use auto-complete**:
 
   .. note::
-      This feature is not supported on Windows and requires ``argcomplete`` to be configured.
+      This feature is not supported on Windows.
+      For other operating systems, you must configure ``argcomplete``.
       :doc:`Sourcing the ROS setup script <../../../../Get-Started/Configuring-ROS2-Environment>` sets this up automatically.
       If ``argcomplete`` is active in your shell, then :kbd:`Tab` completion provides command options, not file paths.
 
-  You can trigger the auto-complete feature of your terminal by entering the following:
+  You can trigger the auto-complete feature of your terminal by entering the following, then pressing :kbd:`Tab` instead of :kbd:`Enter`:
 
   .. code-block:: console
 
-    $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist <TAB>
+    $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist
 
   The terminal shows the available options:
 
@@ -404,15 +405,20 @@ There are four main ways to use the ``pub`` command.
     \'linear:\^J\ \ x:\ 0.0\^J\ \ y:\ 0.0\^J\ \ z:\ 0.0\^Jangular:\^J\ \ x:\ 0.0\^J\ \ y:\ 0.0\^J\ \ z:\ 0.0\^J\'
 
   When you press :kbd:`Tab` after entering the first few characters of an option, the terminal auto-completes it.
-  However, the topic message prototype will only be auto-completed after ``\'<TAB>`` is entered.
-  This is because the terminal does not recognise the single quote as part of the auto-complete string.
-  To be recognised as part of the string, it needs to be escaped by using ``\'``.
+  The last item in the options list is a YAML template of the message fields with default values.
+  To insert that template, enter an escaped single quote, then press :kbd:`Tab`:
+
+  .. code-block:: console
+
+    $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist \'
+
+  The terminal does not recognise an unescaped single quote as part of the auto-complete string, so you need to escape it with ``\'``.
 
   The final auto-completed string should look like this:
 
-  .. code-block:: bash
+  .. code-block:: console
 
-    ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist 'linear:
+    $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist 'linear:
       x: 0.0
       y: 0.0
       z: 0.0
@@ -422,12 +428,14 @@ There are four main ways to use the ``pub`` command.
       z: 0.0
     '
 
-  This string is editable and you can change the values of the message type as required.
+  This string is editable.
+  Change the field values as required before you run the command.
 
-#. **d) Use the raw auto-completed string**:
+d. **Use the raw auto-completed string**:
 
   .. note::
-      This feature is not supported on Windows and requires ``argcomplete`` to be configured.
+      This feature is not supported on Windows.
+      For other operating systems, you must configure ``argcomplete``.
       :doc:`Sourcing the ROS setup script <../../../../Get-Started/Configuring-ROS2-Environment>` sets this up automatically.
       If ``argcomplete`` is active in your shell, then :kbd:`Tab` completion provides command options, not file paths.
 
@@ -443,9 +451,14 @@ There are four main ways to use the ``pub`` command.
 
     $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist \'linear:\^J\ \ x:\ 0.0\^J\ \ y:\ 0.0\^J\ \ z:\ 0.0\^Jangular:\^J\ \ x:\ 0.0\^J\ \ y:\ 0.0\^J\ \ z:\ 0.0\^J\'
 
+  This publishes the default field values for the message type.
+  For ``Twist``, those defaults are all zero values, so if you run this command exactly as shown, the turtle doesn't move.
+
+  To make the turtle move, before you run the command, replace the zero values with the velocities you want.
+
 
 The turtle, like physical robots, requires a steady stream of commands to operate continuously.
-To keep the turtle moving continuously, run:
+To keep the turtle moving continuously, use non-zero values for the velocities, like this:
 
 .. code-block:: console
 
@@ -551,10 +564,10 @@ The command will return the bandwidth utilization and number of messages being p
 .. note::
     The bandwidth reflects the receiving rate on the subscription created by the ``ros2 topic bw`` command, which might be affected by platform resources and QoS configuration, and may not exactly match the publisher's bandwidth.
 
-10 ros2 topic find
-^^^^^^^^^^^^^^^^^^
+10 List available topics of a specific type
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To list a list of available topics of a given type use:
+To list the available topics of a given type, use:
 
 .. code-block:: console
 
@@ -566,7 +579,7 @@ The ``cmd_vel`` topic has the type:
 
     geometry_msgs/msg/Twist
 
-Use the ``find`` command to output the available topics based on the message type:
+To list topics with this message type, run:
 
 .. code-block:: console
 
@@ -616,4 +629,4 @@ Why must publishers and subscribers use the same message type?
 
 Why does ``ros2 topic pub`` auto-complete not work on Windows?
    The auto-complete options for publishing (dictionary auto-complete and the raw auto-completed string) rely on shell behaviour that is not supported on Windows.
-   On Windows, type message data manually as YAML strings instead of using tab completion for the message prototype.
+   On Windows, type message data manually as YAML strings instead of using tab completion for the message field template.
