@@ -1,7 +1,7 @@
 .. meta::
    :contentType: reference
    :experience: intermediate, expert
-   :area: installation
+   :area: framework, community
    :distribution: {DISTRO}
    :product: {PRODUCT}
 

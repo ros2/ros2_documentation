@@ -12,6 +12,10 @@ Makoa Mata-mata Supported Platforms
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
+.. contents:: Contents
+   :depth: 2
+   :local:
+
 ROS Makoa supports the following platforms according to :doc:`the platform support tiers <../../../The-ROS2-Project/Platform-Support-Tiers>`:
 
 TODO

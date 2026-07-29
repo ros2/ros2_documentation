@@ -1,6 +1,6 @@
 .. meta::
-   :contentType: tutorial
-   :experience: beginner
+   :contentType: how-to
+   :experience: beginner, intermediate
    :area: installation
    :distribution: {DISTRO}
    :product: {PRODUCT}
@@ -12,7 +12,7 @@
 
 .. _ConfigROS2:
 
-Configuring environment - tutorial
+Configuring environment - how-to
 ==================================
 
 .. short-description::
@@ -26,7 +26,7 @@ Configuring environment - tutorial
 
 **Goal:** This tutorial will show you how to prepare your ROS 2 environment.
 
-**Tutorial level:** Beginner
+**Tutorial level:** Beginner, Intermediate
 
 **Time:** 5 minutes
 

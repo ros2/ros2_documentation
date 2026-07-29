@@ -12,6 +12,10 @@ Makoa Mata-mata Release Timeline
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
+.. contents:: Contents
+   :depth: 2
+   :local:
+
 For progress on the development of Makoa Mata-mata, see `this project board <https://github.com/orgs/ros2/projects/80>`__.
 For the broad process followed by Makoa Mata-mata, see the :doc:`process description page <../Release-Process>`.
 

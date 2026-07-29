@@ -17,7 +17,7 @@ Alphas
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -59,7 +59,8 @@ The next steps are described in the `Roadmap <../../The-ROS2-Project/Roadmap>`.
 ROS 2 alpha7 release (code name *Glue Gun*\ ; July 2016)
 --------------------------------------------------------
 
-.. contents:: Table of Contents
+.. contents:: Contents
+   :depth: 2
    :local:
 
 New version of Ubuntu required
@@ -91,7 +92,8 @@ The next steps are described in the `Roadmap <../../The-ROS2-Project/Roadmap>`.
 ROS 2 alpha6 release (code name *Fastener*; June 2016)
 ------------------------------------------------------
 
-.. contents:: Table of Contents
+.. contents:: Contents
+   :depth: 2
    :local:
 
 Scope
@@ -125,7 +127,8 @@ The next steps are described in the `Roadmap <../../The-ROS2-Project/Roadmap>`.
 ROS 2 alpha5 release (code name *Epoxy*; April 2016)
 ------------------------------------------------------
 
-.. contents:: Table of Contents
+.. contents:: Contents
+   :depth: 2
    :local:
 
 Scope
@@ -151,7 +154,8 @@ The next steps are described in the `Roadmap <../../The-ROS2-Project/Roadmap>`.
 ROS 2 alpha4 release (code name *Duct tape*; February 2016)
 -----------------------------------------------------------
 
-.. contents:: Table of Contents
+.. contents:: Contents
+   :depth: 2
    :local:
 
 Background
@@ -211,7 +215,8 @@ The next steps are described in the `Roadmap <../../The-ROS2-Project/Roadmap>`.
 ROS 2 alpha3 release (code name *Cement*; December 2015)
 ----------------------------------------------------------
 
-.. contents:: Table of Contents
+.. contents:: Contents
+   :depth: 2
    :local:
 
 Background
@@ -280,7 +285,8 @@ The next steps are described in the `Roadmap <../../The-ROS2-Project/Roadmap>`.
 ROS 2 alpha2 release (code name *Baling wire*; October 2015)
 --------------------------------------------------------------
 
-.. contents:: Table of Contents
+.. contents:: Contents
+   :depth: 2
    :local:
 
 Background
@@ -341,7 +347,8 @@ The next steps are described in the `Roadmap <../../The-ROS2-Project/Roadmap>`.
 ROS 2 alpha1 release (code name *Anchor*; August 2015)
 --------------------------------------------------------
 
-.. contents:: Table of Contents
+.. contents:: Contents
+   :depth: 2
    :local:
 
 Background
