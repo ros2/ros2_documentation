@@ -10,7 +10,7 @@ Writing a ``rosidl::Buffer`` compatible conversions package - tutorial
 
 .. short-description::
    Application libraries often need native tensor, image, or point cloud objects while still exchanging standard ROS messages.
-   This tutorial explains how to design a conversions package that adapts `uint8[]` payload fields without adding a new backend.
+   This tutorial explains how to design a conversions package that adapts ``uint8[]`` payload fields without adding a new backend.
    After following it, you will be able to structure conversion APIs that work with CPU or backend-backed storage.
 
 .. showmeta::
