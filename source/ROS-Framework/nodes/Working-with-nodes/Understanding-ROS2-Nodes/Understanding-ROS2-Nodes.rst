@@ -8,8 +8,8 @@
 Learning about nodes - tutorial
 ===============================
 
-Nodes are the fundamental building blocks of a robotic system, with each node responsible for a single task.
-This article walks you through running nodes with the ``ros2`` command-line tools and inspecting how they appear on the ROS graph.
+Nodes are the fundamental building blocks of a robotic system, where each node is responsible for a single task.
+This article walks you through how to run nodes with the ``ros2`` command-line tools and inspect how they are shown on the ROS graph.
 A hands-on exercise gives you practice listing active nodes and examining their connections.
 
 **Area: Nodes, Framework | Content-type: tutorial | Experience: beginner**
@@ -24,8 +24,10 @@ Summary
 Each node in ROS serves a single, modular purpose in a robotics system.
 For more information, see :doc:`About nodes <../../../About-Nodes>`.
 
-Nodes appear on the :doc:`ROS graph <../../../How-ROS-Works>` and communicate with other nodes through :doc:`topics, services, actions, and parameters <../../../Interfaces-Topics-Services-Actions>`.
+Nodes communicate with other nodes through :doc:`topics, services, actions, and parameters <../../../Interfaces-Topics-Services-Actions>`.
 A single executable can contain one or more nodes.
+
+For more information, see :doc:`How ROS works <../../../How-ROS-Works>`.
 
 Prerequisites
 -------------
@@ -43,13 +45,14 @@ Steps
 1 Launch an executable
 ^^^^^^^^^^^^^^^^^^^^^^
 
-The ``ros2 run`` command launches an executable from a package.
+Nodes run inside executables.
+To add a node to the ROS graph, launch an executable from a package with the ``ros2 run`` command, in the following format:
 
 .. code-block:: console
 
   $ ros2 run <package_name> <executable_name>
 
-To run Turtlesim, open a new terminal and enter the following command:
+To run the ``turtlesim_node`` executable from the ``turtlesim`` package, open a new terminal and enter the following command:
 
 .. code-block:: console
 
@@ -135,7 +138,8 @@ You will see three node names:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Now that you know the names of your nodes, you can see how a node connects to the rest of the system.
-The ``ros2 node info`` command shows a node's publishers, subscribers, services, and actions:
+The ``ros2 node info`` command shows a node's publishers, subscribers, services, and actions.
+These are the ROS graph connections that interact with that node.
 
 .. code-block:: console
 
@@ -179,9 +183,6 @@ You should see output similar to:
     Action Servers:
       /turtle1/rotate_absolute: turtlesim_msgs/action/RotateAbsolute
     Action Clients:
-
-``ros2 node info`` returns a list of subscribers, publishers, services, and actions.
-These are the ROS graph connections that interact with that node.
 
 Now try running the same command on the ``/teleop_turtle`` node, and see how its connections differ from ``my_turtle``.
 
