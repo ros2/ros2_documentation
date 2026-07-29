@@ -1,8 +1,0 @@
-{% extends "!layout.html" %}
-{% block extrahead %}
-  {{ super() }}
-  {% if pagefind_seo_filter_metas %}
-  <!-- Pagefind / SEO docinfo -->
-  {{ pagefind_seo_filter_metas|safe }}
-  {% endif %}
-{% endblock %}
