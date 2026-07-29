@@ -1,7 +1,7 @@
 .. meta::
    :contentType: how-to
-   :experience: TBD
-   :area: interfaces, framework
+   :experience: expert
+   :area: interfaces
    :distribution: {DISTRO}
    :product: {PRODUCT}
 

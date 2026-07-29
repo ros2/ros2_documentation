@@ -1,6 +1,6 @@
 .. meta::
-   :contentType: TBD
-   :experience: beginner, intermediate, expert
+   :contentType:
+   :experience:
    :area: framework, tools, capabilities
    :distribution: {DISTRO}
    :product: {PRODUCT}

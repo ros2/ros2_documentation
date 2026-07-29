@@ -1,16 +1,12 @@
 .. meta::
-   :contentType: TBD
-   :experience: TBD
+   :contentType:
+   :experience:
    :area: installation
    :distribution: {DISTRO}
    :product: {PRODUCT}
 
 Migration and Upgrades
 ======================
-
-.. showmeta::
-   :order: area, contentType, experience
-   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Contents
    :depth: 2
