@@ -133,13 +133,13 @@ Reviews, annotations, and the soft-failed ensure step appear in different parts 
 
 #### Review body sections
 
-The review comment names every affected file and splits the work by how it is fixed, so the fields listed for a file match that file's annotation:
+The **Documentation metadata** summary review (`## Documentation metadata`) names every affected file and splits the work by how it is fixed, so the fields listed for a file match that file's annotation. The **Inline metadata suggestions** review (`## Inline metadata suggestions`) is a short pointer to the commit suggestions; details stay in the summary.
 
-| Section | Files listed | Fields listed |
+| Heading | Files listed | Fields listed |
 |---------|--------------|---------------|
-| Inline suggestions | `suggestable` mode | Configured values added for you — commit the suggestion |
-| Copy-paste blocks | `snippet` mode | Configured values as an RST block to paste yourself |
-| Non-empty values required | Any file with manual fields | Fields with an empty `value`, labelled required or warning |
+| `### Commit inline suggestions` | `suggestable` mode | Configured values added for you — commit the suggestion |
+| `### Copy-paste \`.. meta::\` blocks` | `snippet` mode | Configured values as an RST block to paste yourself |
+| `### Provide non-empty values` | Any file with manual fields | Fields with an empty `value`, labelled required or optional |
 
 A file can appear in two sections: the suggestion covers its configured values while the manual list covers the rest.
 

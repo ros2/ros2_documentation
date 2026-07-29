@@ -51,12 +51,24 @@ Severity = Literal["warning", "error"]
 REVIEW_MARKER_ID = "ros2-meta-tags-ensure"
 REVIEW_MARKER = f"<!-- {REVIEW_MARKER_ID} -->"
 
+# Titles and section headings for pull request review bodies (GitHub Markdown).
+SUMMARY_REVIEW_TITLE = "## Documentation metadata"
+SUGGESTION_REVIEW_TITLE = "## Inline metadata suggestions"
+SECTION_INLINE_SUGGESTIONS = "### Commit inline suggestions"
+SECTION_COPY_PASTE_BLOCKS = "### Copy-paste `.. meta::` blocks"
+SECTION_NON_EMPTY_VALUES = "### Provide non-empty values"
+
 # Short body for the suggest-changes review. Deliberately unstamped: that review is
 # the only Conversation surface that shows live inline suggestions, so it must not be
 # minimised with the summary. GitHub marks individual comments outdated when actioned.
 SUGGESTION_NOTE = (
-    "Inline suggestions add configured documentation metadata defaults. "
-    "See the metadata review comment for the full list of fields to complete."
+    f"{SUGGESTION_REVIEW_TITLE}\n"
+    "\n"
+    "Each **Commit suggestion** below adds configured documentation metadata "
+    "defaults from `tools/meta_tags.yaml`.\n"
+    "\n"
+    "For copy-paste blocks, required fields, and the full per-file breakdown, "
+    "see the **Documentation metadata** review comment."
 )
 
 
@@ -695,7 +707,7 @@ def _field_list_markdown(field_names: list[str], rules: dict[str, MetaRule]) -> 
     """
     parts: list[str] = []
     for name in field_names:
-        label = "required" if rules[name].severity == "error" else "warning"
+        label = "required" if rules[name].severity == "error" else "optional"   
         parts.append(f"`{name}` ({label})")
     return ", ".join(parts)
 
@@ -719,30 +731,40 @@ def build_review_comment(
     manual_fields_modes = [r for r in results if r["mode"] == "manual_fields"]
 
     lines = [
+        SUMMARY_REVIEW_TITLE,
+        "",
         "This pull request is missing configured documentation metadata "
         "(see `tools/meta_tags.yaml`).",
         "",
     ]
 
     if inline_modes:
-        lines.append(
-            "Please **review and commit the inline suggestions**. They add these "
-            "configured default values in place so metadata stays complete:",
+        lines.extend(
+            [
+                SECTION_INLINE_SUGGESTIONS,
+                "",
+                "Please **review and commit the inline suggestions** on the "
+                "**Files changed** tab (or use the separate *Inline metadata "
+                "suggestions* review). They add these configured default values:",
+                "",
+            ]
         )
-        lines.append("")
         for result in inline_modes:
             auto = ", ".join(f"`{name}`" for name in result["auto_fields"])
-            lines.append(f"**`{result['path']}`**: {auto}")
+            lines.append(f"- **`{result['path']}`**: {auto}")
         lines.append("")
 
     if snippet_modes:
-        lines.append(
-            "GitHub can only attach suggestions to lines already in the pull request "
-            "diff, so the following files could not get an inline suggestion for "
-            "auto-filled fields. Please add this block at the **top of each file** "
-            "(or append the listed fields to an existing `.. meta::` block):",
+        lines.extend(
+            [
+                SECTION_COPY_PASTE_BLOCKS,
+                "",
+                "These files could not receive inline suggestions because the edits are "
+                "outside the pull request diff. Add this block at the **top of each "
+                "file** (or append the listed fields to an existing `.. meta::` block):",
+                "",
+            ]
         )
-        lines.append("")
         for result in snippet_modes:
             lines.append(f"**`{result['path']}`**")
             lines.append("```rst")
@@ -752,14 +774,20 @@ def build_review_comment(
 
     manual_results = [r for r in results if r.get("manual_fields")]
     if manual_results:
-        lines.append(
-            "The following fields must be provided with **non-empty** values in each "
-            "file's `.. meta::` block:",
+        lines.extend(
+            [
+                SECTION_NON_EMPTY_VALUES,
+                "",
+                "These fields must have **non-empty** values in each file's "
+                "`.. meta::` block:",
+                "",
+            ]
         )
-        lines.append("")
         for result in manual_results:
             manual = list(result["manual_fields"])
-            lines.append(f"**`{result['path']}`**: {_field_list_markdown(manual, rules)}")
+            lines.append(
+                f"- **`{result['path']}`**: {_field_list_markdown(manual, rules)}"
+            )
         lines.append("")
 
     if manual_fields_modes and not inline_modes and not snippet_modes:

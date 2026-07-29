@@ -27,6 +27,9 @@ if str(_TOOLS_DIR) not in sys.path:
 
 from ensure_meta_tags import (  # noqa: E402
     REVIEW_MARKER,
+    SECTION_INLINE_SUGGESTIONS,
+    SECTION_NON_EMPTY_VALUES,
+    SUMMARY_REVIEW_TITLE,
     MetaRule,
     _unresolved_fields,
     build_review_comment,
@@ -196,6 +199,8 @@ class TestReviewAndExit(unittest.TestCase):
             },
         ]
         body = build_review_comment(results, rules)
+        self.assertIn(SUMMARY_REVIEW_TITLE, body)
+        self.assertIn(SECTION_NON_EMPTY_VALUES, body)
         self.assertIn("area", body)
         self.assertIn("required", body)
         self.assertIn("experience", body)
@@ -218,8 +223,11 @@ class TestReviewAndExit(unittest.TestCase):
             },
         ]
         body = build_review_comment(results, rules)
-        self.assertIn("**`source/Page.rst`**: `product`", body)
-        self.assertIn("`experience` (warning)", body)
+        self.assertIn(SUMMARY_REVIEW_TITLE, body)
+        self.assertIn(SECTION_INLINE_SUGGESTIONS, body)
+        self.assertIn(SECTION_NON_EMPTY_VALUES, body)
+        self.assertIn("- **`source/Page.rst`**: `product`", body)
+        self.assertIn("`experience` (optional)", body)
 
     def test_local_exit_nonzero_only_for_error_severity(self) -> None:
         warning_config = textwrap.dedent(
@@ -301,7 +309,9 @@ class TestCiStatusOutputs(unittest.TestCase):
         comment = _extract_multiline_output(status, "comment")
         self.assertIsNotNone(suggestion_note)
         self.assertIsNotNone(comment)
+        self.assertIn("## Inline metadata suggestions", suggestion_note or "")
         self.assertNotIn(REVIEW_MARKER, suggestion_note or "")
+        self.assertIn(SUMMARY_REVIEW_TITLE, comment or "")
         self.assertIn(REVIEW_MARKER, comment or "")
 
     def test_no_suggestion_note_without_inline_suggestions(self) -> None:

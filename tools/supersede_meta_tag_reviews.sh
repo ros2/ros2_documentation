@@ -29,4 +29,4 @@ for node_id in "${review_ids[@]:-}"; do
 	gh api graphql -f query="${minimize_query}" -f subjectId="${node_id}" || true
 done
 
-echo "Superseded ${#review_ids[@]} prior meta-tag review(s)."
+echo "Superseded ${#review_ids[@]} prior review comment(s)."
