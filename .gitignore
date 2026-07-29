@@ -5,10 +5,3 @@ _build/
 __pycache__
 ros2doc/
 .DS_Store
-context/allowed-metadata.md
-context/sample/About-Services - Copy.rst
-context/sample/About-Services.rst
-context/sample/About-Topics - Copy.rst
-context/sample/About-Topics.rst
-context/scope-categories.csv
-context/Windows-docs-checks-for-Cursor.txt
