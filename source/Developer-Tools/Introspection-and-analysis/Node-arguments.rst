@@ -8,7 +8,7 @@
 .. meta::
    :contentType: how-to
    :experience:
-   :area: instrospection, analysis
+   :area: node-management
    :distribution: {DISTRO}
    :product: {PRODUCT}
 

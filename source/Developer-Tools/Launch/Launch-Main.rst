@@ -5,7 +5,7 @@
     Tutorials/Intermediate/Launch/Launch-Main
 
 .. meta::
-   :contentType: tutorial
+   :contentType: learning-path
    :experience: intermediate
    :area: node-management, tools
    :distribution: {DISTRO}

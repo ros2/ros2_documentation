@@ -8,7 +8,7 @@
 .. meta::
    :contentType: about
    :experience: beginner
-   :area: introspection, tools
+   :area: introspection
    :distribution: {DISTRO}
    :product: {PRODUCT}
 

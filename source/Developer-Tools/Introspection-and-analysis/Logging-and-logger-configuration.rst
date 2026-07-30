@@ -7,7 +7,7 @@
 .. meta::
    :contentType: about
    :experience: intermediate
-   :area: introspection, analysis
+   :area: introspection
    :distribution: {DISTRO}
    :product: {PRODUCT}
 

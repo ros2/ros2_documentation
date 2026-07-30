@@ -6,7 +6,7 @@
 .. meta::
    :contentType: about
    :experience: intermediate
-   :area:
+   :area: node-management
    :distribution: {DISTRO}
    :product: {PRODUCT}
 

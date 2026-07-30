@@ -5,7 +5,7 @@
 .. meta::
    :contentType: tutorial
    :experience: intermediate
-   :area: builds, debugging, tools
+   :area: debugging, builds, tools
    :distribution: {DISTRO}
    :product: {PRODUCT}
 

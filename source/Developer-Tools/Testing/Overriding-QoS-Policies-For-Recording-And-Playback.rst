@@ -7,7 +7,7 @@
 .. meta::
    :contentType: how-to
    :experience: expert
-   :area:
+   :area: debugging, builds, tools
    :distribution: {DISTRO}
    :product: {PRODUCT}
 

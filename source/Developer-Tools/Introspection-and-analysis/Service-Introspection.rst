@@ -6,7 +6,7 @@
 .. meta::
    :contentType: tutorial
    :experience: expert
-   :area: introspection, analysis
+   :area: introspection
    :distribution: {DISTRO}
    :product: {PRODUCT}
 

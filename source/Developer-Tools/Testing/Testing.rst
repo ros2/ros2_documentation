@@ -4,9 +4,9 @@
    Installation/Testing
 
 .. meta::
-   :contentType:
-   :experience:
-   :area: builds, debugging
+   :contentType: about
+   :experience: intermediate
+   :area: debugging, builds, tools
    :distribution: {DISTRO}
    :product: {PRODUCT}
 

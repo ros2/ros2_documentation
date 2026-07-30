@@ -1,7 +1,7 @@
 .. meta::
    :contentType: blank
    :experience:
-   :area: debugging, tools
+   :area: debugging, builds
    :distribution: {DISTRO}
    :product: {PRODUCT}
 
