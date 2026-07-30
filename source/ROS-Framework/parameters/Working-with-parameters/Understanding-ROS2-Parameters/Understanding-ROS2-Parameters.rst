@@ -128,7 +128,8 @@ This tells you ``background_g`` holds an integer value.
 
 Running the same command on ``background_r`` and ``background_b`` should return the values ``69`` and ``255``, respectively.
 
-You can also omit the node name. As an example, you can try querying ``use_sim_time``, because every node has it:
+You can also omit the node name.
+As an example, you can try querying ``use_sim_time``, because every node has it:
 
 .. code-block:: console
 
@@ -166,7 +167,8 @@ The background of the Turtlesim window should change colour, like this:
 .. image:: images/set.png
 
 Setting parameters with the ``set`` command will only change them in your current session, not permanently.
-However, you can save your settings and reload them the next time you start a node. See :ref:`dumping parameters <DumpNodeParameters>` and :ref:`loading a parameter file on node startup <LoadParameterFileOnNodeStartup>`.
+However, you can save your settings and reload them the next time you start a node.
+See :ref:`dumping parameters <DumpNodeParameters>` and :ref:`loading a parameter file on node startup <LoadParameterFileOnNodeStartup>`.
 
 .. _DumpNodeParameters:
 
@@ -281,7 +283,8 @@ What types can a parameter hold?
    Parameters can be integers, floats, booleans, strings, and lists.
 
 Do parameter changes persist after a node is restarted?
-   No. Changes made with ``ros2 param set`` apply only to the current session.
+   No.
+   Changes made with ``ros2 param set`` apply only to the current session.
    To persist them, use ``ros2 param dump`` to save the values to a YAML file and load that file when starting the node.
 
 Why do some parameters fail to load with ``ros2 param load``?
