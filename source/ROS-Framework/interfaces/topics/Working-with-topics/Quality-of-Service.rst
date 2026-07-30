@@ -23,7 +23,7 @@ We will then simulate a lossy network connection between them and show how diffe
 Prerequisites
 -------------
 This tutorial assumes you have a :doc:`working ROS 2 installation <../../../../Get-Started/Installation>` and OpenCV.
-See the `OpenCV documentation <http://docs.opencv.org/doc/tutorials/introduction/table_of_content_introduction/table_of_content_introduction.html#table-of-content-introduction>`__ for its installation instructions.
+See the `OpenCV documentation <https://docs.opencv.org/4.x/>`__ for its installation instructions.
 You will also need the ROS package ``image_tools``.
 
 .. tabs::
@@ -157,7 +157,7 @@ Add network traffic
 
    However, for macOS and Windows you can achieve a similar effect with the utilities "Network Link Conditioner" (part of the xcode tool suite) and `"Clumsy" <http://jagt.github.io/clumsy/index.html>`_, respectively, but they will not be covered in this tutorial.
 
-We are going to use the Linux network traffic control utility, ``tc`` (`man page <http://linux.die.net/man/8/tc>`_) .
+We are going to use the Linux network traffic control utility, ``tc`` (`man page <https://man7.org/linux/man-pages/man8/tc.8.html>`_) .
 
 .. code-block:: console
 

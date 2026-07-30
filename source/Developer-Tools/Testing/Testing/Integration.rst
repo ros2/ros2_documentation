@@ -27,7 +27,7 @@ Background
 ----------
 
 Where unit tests focus on validating a very specific piece of functionality, integration tests focus on validating the interaction between pieces of code.
-In ROS 2 this is often accomplished by launching a system of one or several nodes, for example the `Gazebo simulator <https://gazebosim.org/home>`__ and the `Nav2 navigation <https://github.com/ros-planning/navigation2.git>`__ stack.
+In ROS 2 this is often accomplished by launching a system of one or several nodes, for example the `Gazebo simulator <https://gazebosim.org>`__ and the `Nav2 navigation <https://github.com/ros-planning/navigation2.git>`__ stack.
 As a result, these tests are more complex both to set up and to run.
 
 A key aspect of ROS 2 integration testing is that nodes that are part of different tests shouldn't communicate with each other, even when run in parallel.
