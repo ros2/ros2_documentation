@@ -109,7 +109,7 @@ ROS works with other Open Robotics platforms to make development and deployment 
 * `Open-RMF`_ (Robotics Middleware Framework): Helps different robots work together and interact with building systems like lifts and doors.
 * `ros-controls`_: Enables real-time control of robots using ROS.
 
-.. _Gazebo: https://gazebosim.org/home
+.. _Gazebo: https://gazebosim.org
 .. _Open-RMF: https://www.open-rmf.org/
 .. _ros-controls: https://control.ros.org/rolling/index.html
 

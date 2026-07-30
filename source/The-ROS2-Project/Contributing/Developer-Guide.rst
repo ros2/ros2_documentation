@@ -153,7 +153,7 @@ Change control process
 
   * You can pass ``-s`` / ``--signoff`` to the ``git commit`` invocation or write the expected message manually (e.g. ``Signed-off-by: Your Name Developer <your.name@example.com>``).
 
-  * DCO is *not* required for pull requests that only address whitespace removal, typo correction, and other `trivial changes <http://cr.openjdk.java.net/~jrose/draft/trivial-fixes.html>`_.
+  * DCO is *not* required for pull requests that only address whitespace removal, typo correction, and other `trivial changes <https://openjdk.org/bylaws#trivial-change>`_.
 
 * Always run CI jobs for all `tier 1 platforms <https://reps.openrobotics.org/rep-2000/#support-tiers>`_ for every pull request and include links to jobs in the pull request.
   (If you don't have access to the Jenkins jobs someone will trigger the jobs for you.)
@@ -294,7 +294,7 @@ When filing an issue please make sure to:
     Reasoning: This helps us narrow down the layer in the stack at which the issue might be.
 
 - Include a list of steps to reproduce the issue.
-- In case of a bug consider to provide a `short, self contained, correct (compilable), example <http://sscce.org/>`__.
+- In case of a bug consider to provide a `short, self contained, correct (compilable), example <https://stackoverflow.com/help/minimal-reproducible-example>`__.
   Issues are much more likely to be resolved if others can reproduce them easily.
 
 - Mention troubleshooting steps that have been tried already, including:
