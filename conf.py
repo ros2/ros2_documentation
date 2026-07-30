@@ -90,6 +90,8 @@ extensions = [
     'sphinxcontrib.googleanalytics',
     'sphinxcontrib.mermaid',
     'sphinxext.opengraph',
+    'short_description',
+    'showmeta'
 ]
 
 # Intersphinx mapping
