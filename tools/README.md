@@ -18,7 +18,7 @@ Information for documentation contributors creating or updating `.rst` files.
 
 ### Metadata configuration
 
-[`meta_tags.yaml`](meta_tags.yaml) defines every `.. meta::` field checked by the tooling. Each entry has:
+[`enhance.yaml`](enhance.yaml) defines documentation enhancement rules. The `meta` section lists every `.. meta::` field checked by the tooling. Each entry has:
 
 - **`severity`**: `warning` (advisory; soft-fails the ensure step in CI) or `error` (fails the workflow after reviews are posted).
 - **`value`**: default text to inject when the field is missing or blank. Leave empty when the contributor must supply a non-empty value.
@@ -44,6 +44,24 @@ meta:
 
 `{PRODUCT}` and `{DISTRO}` are Sphinx substitution macros expanded at build time from [`conf.py`](../conf.py).
 
+The `after_title` section lists directives inserted after the first document title, in order:
+
+```yaml
+after_title:
+  - directive: short-description
+    severity: warning
+    content: first_paragraph
+
+  - directive: showmeta
+    severity: warning
+    options:
+      order: "area, contentType, experience"
+    required_options:
+      - order
+```
+
+For `short-description`, the tool wraps the first prose paragraph after the title into the directive (removing it from the body). For `showmeta`, it inserts the directive with the configured `:order:` option when missing.
+
 #### Severity behaviour
 
 | Severity | Missing or blank field | CI ensure step | Workflow job |
@@ -53,7 +71,7 @@ meta:
 
 ### Checking metadata locally
 
-`ensure_meta_tags.py` checks `.rst` files against `meta_tags.yaml`. Fields with a configured `value` are added or filled automatically when the edit can be suggested or applied locally. Fields with an empty `value` must be completed manually in the `.. meta::` block.
+`ensure_meta_tags.py` checks `.rst` files against `enhance.yaml`. Fields with a configured `value` are added or filled automatically when the edit can be suggested or applied locally. Fields with an empty `value` must be completed manually in the `.. meta::` block. After-title directives are added using the rules above.
 
 #### Usage
 
@@ -166,8 +184,8 @@ Information for maintainers and developers working on or extending the metadata 
 
 | File | Purpose |
 |------|---------|
-| [`rst_utils.py`](rst_utils.py) | Regex-based read/write of `.. meta::` and `.. short-description::` directives |
-| [`meta_tags.yaml`](meta_tags.yaml) | Metadata rules (severity and optional default values) |
+| [`rst_utils.py`](rst_utils.py) | Regex-based read/write of `.. meta::`, `.. short-description::`, and `.. showmeta::` directives |
+| [`enhance.yaml`](enhance.yaml) | Enhancement rules (`meta` fields and `after_title` directives) |
 | [`ensure_meta_tags.py`](ensure_meta_tags.py) | CLI that checks and fixes metadata from the config |
 | [`supersede_meta_tag_reviews.sh`](supersede_meta_tag_reviews.sh) | Minimise outdated bot PR reviews |
 | [`tests/`](tests/) | Unit tests for the tools in this directory |
@@ -181,19 +199,19 @@ Low-level utilities for locating and editing Sphinx directives in RST source:
 - **`get_meta_fields_from_content`** — field names and values in the first `.. meta::` block
 - **`get_meta_names_from_content`** — field names only
 - **`inject_metadata_to_content`** — add missing fields or fill blank values; never overwrites non-empty contributor values
-
-The module also contains helpers for `.. short-description::` directives for future use.
+- **`wrap_first_paragraph_as_short_description`** — wrap the first prose paragraph after the title
+- **`inject_showmeta_to_content`** — insert or fill `.. showmeta::` with configured options
 
 #### Extending configuration
 
-Add a new key under `meta` in [`meta_tags.yaml`](meta_tags.yaml) to extend coverage without changing Python code. The script applies every rule in the file.
+Add a new key under `meta` in [`enhance.yaml`](enhance.yaml) to extend metadata coverage without changing Python code. Add entries to `after_title` for additional post-heading directives supported by the tooling.
 
 ### CLI options & Makefile targets
 
 #### Options (`ensure_meta_tags.py`)
 
 - `paths` — optional; when omitted, `--diff-base` is required and changed `.rst` files are discovered automatically
-- `--config PATH` — YAML config file (default: `tools/meta_tags.yaml`)
+- `--config PATH` — YAML config file (default: `tools/enhance.yaml`)
 - `--diff-base SHA` — PR base commit; limits on-disk writes to lines in the PR diff (inline suggestions); files that need a copy-paste or manual field list use a review comment instead
 - `--status-file PATH` — write `meta_checked`, `inline_suggestions`, `has_results`, `has_errors`, the review comment body, and the suggestion note for CI; when issues remain, emits annotations and exits `1` (the ensure step uses `continue-on-error`)
 - `-v` / `--verbose` — enable debug logging
@@ -218,7 +236,7 @@ The Enhance workflow installs PyYAML in the job; it does not install the full do
 #### Job flow (`ensure-meta-tags`)
 
 1. Check out the PR **head** (`.rst` content to inspect and, where allowed, modify for suggestions).
-2. Check out the PR **base** into `.trusted-base/` (Makefile, `ensure_meta_tags.py`, `meta_tags.yaml`, `supersede_meta_tag_reviews.sh`).
+2. Check out the PR **base** into `.trusted-base/` (Makefile, `ensure_meta_tags.py`, `enhance.yaml`, `supersede_meta_tag_reviews.sh`).
 3. Install Python 3.12 and PyYAML.
 4. **Ensure documentation metadata** — `git fetch` the base SHA, then `make -f .trusted-base/Makefile ensure-meta-tags` with `TOOLS_DIR=.trusted-base/tools`, `DIFF_BASE`, and `STATUS_FILE=$GITHUB_OUTPUT`. Emits per-file annotations; the step uses `continue-on-error: true` so warning-only gaps do not fail the job immediately.
 5. **Verify metadata check ran** — fail the job if `meta_checked` is empty. The ensure step soft-fails by design, so a missing output is the only way to tell a crashed check from a clean run.

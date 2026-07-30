@@ -27,21 +27,65 @@ if str(_TOOLS_DIR) not in sys.path:
 
 from ensure_meta_tags import (  # noqa: E402
     REVIEW_MARKER,
+    SECTION_COPY_PASTE_AFTER_TITLE,
     SECTION_INLINE_SUGGESTIONS,
     SECTION_NON_EMPTY_VALUES,
     SUMMARY_REVIEW_TITLE,
+    AfterTitleRule,
+    EnhanceConfig,
     MetaRule,
     _unresolved_fields,
     build_review_comment,
+    can_suggest_after_title_inline,
     can_suggest_inline,
     changed_rst_paths,
     ensure_meta_tags_in_file,
+    load_enhance_config,
     load_meta_config,
     main,
 )
 from rst_utils import get_meta_fields_from_content, inject_metadata_to_content  # noqa: E402
 
 SAMPLE_CONFIG = textwrap.dedent(
+    """
+    meta:
+      product:
+        severity: warning
+        value: "{PRODUCT}"
+      area:
+        severity: error
+        value:
+      experience:
+        severity: warning
+        value:
+    after_title:
+      - directive: short-description
+        severity: warning
+        content: first_paragraph
+      - directive: showmeta
+        severity: warning
+        options:
+          order: "area, contentType, experience"
+        required_options:
+          - order
+    """
+).strip()
+
+AFTER_TITLE_RULES = (
+    AfterTitleRule(
+        directive="short-description",
+        severity="warning",
+        content="first_paragraph",
+    ),
+    AfterTitleRule(
+        directive="showmeta",
+        severity="warning",
+        options={"order": "area, contentType, experience"},
+        required_options=("order",),
+    ),
+)
+
+META_ONLY_CONFIG = textwrap.dedent(
     """
     meta:
       product:
@@ -72,6 +116,18 @@ class TestMetaConfig(unittest.TestCase):
         self.assertFalse(rules["area"].has_configured_value)
         self.assertEqual(rules["area"].severity, "error")
 
+    def test_load_enhance_config_parses_after_title(self) -> None:
+        with tempfile.NamedTemporaryFile("w", suffix=".yaml", delete=False) as handle:
+            handle.write(SAMPLE_CONFIG)
+            path = Path(handle.name)
+        try:
+            config = load_enhance_config(path)
+        finally:
+            path.unlink()
+        self.assertEqual(len(config.after_title), 2)
+        self.assertEqual(config.after_title[0].directive, "short-description")
+        self.assertEqual(config.after_title[1].directive, "showmeta")
+
 
 class TestCanSuggestInline(unittest.TestCase):
     def test_meta_block_overlap_uses_inclusive_span_only(self) -> None:
@@ -87,6 +143,18 @@ class TestCanSuggestInline(unittest.TestCase):
         # Meta block is lines 1-2; line 3 is blank after the block.
         self.assertFalse(can_suggest_inline(content, {3}))
         self.assertTrue(can_suggest_inline(content, {2}))
+
+    def test_after_title_overlap_uses_paragraph_span(self) -> None:
+        content = textwrap.dedent(
+            """
+            Title
+            =====
+
+            Opening paragraph.
+            """
+        ).lstrip()
+        self.assertTrue(can_suggest_after_title_inline(content, {4}, paragraph_span=(4, 4)))
+        self.assertFalse(can_suggest_after_title_inline(content, {8}, paragraph_span=(4, 4)))
 
 
 class TestUnresolvedFields(unittest.TestCase):
@@ -178,6 +246,90 @@ class TestEnsureMetaTagsInFile(unittest.TestCase):
             path = Path(tmp) / "page.rst"
             path.write_text(content, encoding="utf-8")
             self.assertIsNone(ensure_meta_tags_in_file(path, rules))
+
+
+class TestAfterTitleEnhancements(unittest.TestCase):
+    def test_inserts_short_description_and_showmeta(self) -> None:
+        config = EnhanceConfig(
+            meta={"product": MetaRule("warning", "{PRODUCT}")},
+            after_title=AFTER_TITLE_RULES,
+        )
+        content = textwrap.dedent(
+            """
+            Title
+            =====
+
+            Opening paragraph for the page.
+
+            More content.
+            """
+        ).lstrip()
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "page.rst"
+            path.write_text(content, encoding="utf-8")
+            result = ensure_meta_tags_in_file(path, config)
+            self.assertIsNotNone(result)
+            updated = path.read_text(encoding="utf-8")
+            self.assertIn(".. short-description::", updated)
+            self.assertIn(".. showmeta::", updated)
+            self.assertIn(":order: area, contentType, experience", updated)
+            self.assertIn("Opening paragraph for the page.", updated)
+            self.assertIn("More content.", updated)
+
+    def test_toctree_before_paragraph_wraps_correct_paragraph(self) -> None:
+        config = EnhanceConfig(meta={}, after_title=AFTER_TITLE_RULES)
+        content = textwrap.dedent(
+            """
+            Title
+            =====
+
+            .. toctree::
+               Page
+
+            First paragraph here.
+
+            Second paragraph.
+            """
+        ).lstrip()
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "page.rst"
+            path.write_text(content, encoding="utf-8")
+            result = ensure_meta_tags_in_file(path, config)
+            self.assertIsNotNone(result)
+            updated = path.read_text(encoding="utf-8")
+            self.assertIn("First paragraph here.", updated)
+            self.assertIn(".. showmeta::", updated)
+            toctree_pos = updated.index(".. toctree::")
+            showmeta_pos = updated.index(".. showmeta::")
+            self.assertLess(showmeta_pos, toctree_pos)
+
+    def test_build_review_comment_includes_after_title_snippets(self) -> None:
+        rules = {"area": MetaRule("error", "")}
+        results = [
+            {
+                "path": "source/Page.rst",
+                "mode": "snippet",
+                "snippet": "",
+                "auto_fields": [],
+                "manual_fields": [],
+                "warning_fields": ["short-description"],
+                "error_fields": [],
+                "line": 1,
+                "after_title_auto": [],
+                "after_title_manual": [],
+                "after_title_warning": ["short-description"],
+                "after_title_error": [],
+                "after_title_snippets": [
+                    {
+                        "directive": "showmeta",
+                        "snippet": ".. showmeta::\n   :order: area\n",
+                    },
+                ],
+            },
+        ]
+        body = build_review_comment(results, rules)
+        self.assertIn(SECTION_COPY_PASTE_AFTER_TITLE, body)
+        self.assertIn(".. showmeta::", body)
 
 
 class TestReviewAndExit(unittest.TestCase):
@@ -283,9 +435,9 @@ def _extract_multiline_output(status: str, key: str) -> str | None:
 class TestCiStatusOutputs(unittest.TestCase):
     """The workflow gates steps on these outputs, so keep them self-consistent."""
 
-    def _run_with_status_file(self, content: str) -> str:
+    def _run_with_status_file(self, content: str, *, config: str = META_ONLY_CONFIG) -> str:
         rules_path = Path(tempfile.mkdtemp()) / "meta.yaml"
-        rules_path.write_text(SAMPLE_CONFIG, encoding="utf-8")
+        rules_path.write_text(config, encoding="utf-8")
         with tempfile.TemporaryDirectory() as tmp:
             page = Path(tmp) / "page.rst"
             page.write_text(content, encoding="utf-8")
@@ -309,7 +461,7 @@ class TestCiStatusOutputs(unittest.TestCase):
         comment = _extract_multiline_output(status, "comment")
         self.assertIsNotNone(suggestion_note)
         self.assertIsNotNone(comment)
-        self.assertIn("## Inline metadata suggestions", suggestion_note or "")
+        self.assertIn("## Inline documentation suggestions", suggestion_note or "")
         self.assertNotIn(REVIEW_MARKER, suggestion_note or "")
         self.assertIn(SUMMARY_REVIEW_TITLE, comment or "")
         self.assertIn(REVIEW_MARKER, comment or "")
@@ -339,6 +491,12 @@ class TestCiStatusOutputs(unittest.TestCase):
 
             Title
             =====
+
+            .. short-description::
+               Summary for the page.
+
+            .. showmeta::
+               :order: area, contentType, experience
             """
         ).lstrip()
         status = self._run_with_status_file(content)

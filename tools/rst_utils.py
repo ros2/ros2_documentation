@@ -1,6 +1,6 @@
 """
-Utilities for editing reStructuredText source, in particular ``.. meta::`` and
-``.. short-description::`` directives.
+Utilities for editing reStructuredText source, in particular ``.. meta::``,
+``.. short-description::``, and ``.. showmeta::`` directives.
 """
 
 import logging
@@ -415,4 +415,372 @@ def inject_short_description_to_content(content: str, text: str) -> tuple[str, b
     block = f"\n.. short-description::\n{new_inner}\n"
     new_content = content[:insert_at] + block + remainder
     return new_content, True
+
+
+_SECTION_ADORNMENT_RE = re.compile(
+    r'^([!"#$%&\'()*+,\-./:;<=>?@\[\\\]^_`{|}~]+)\s*$',
+)
+
+
+def _is_section_title_at(lines: list[str], index: int) -> bool:
+    """
+    Return whether ``lines[index]`` is an RST section title with an underline.
+
+    Args:
+        lines: Document lines (with or without trailing newlines).
+        index: Zero-based line index of the candidate title line.
+
+    Returns:
+        True when the line is followed by a valid adornment underline.
+    """
+    if index + 1 >= len(lines):
+        return False
+    title_stripped = lines[index].strip()
+    if not title_stripped:
+        return False
+    ul_match = _SECTION_ADORNMENT_RE.match(lines[index + 1].rstrip("\n"))
+    if ul_match is None:
+        return False
+    ul = ul_match.group(1)
+    return len(set(ul)) == 1 and len(ul) >= len(title_stripped)
+
+
+def _line_starts_directive(line: str) -> bool:
+    """Return whether ``line`` begins an explicit RST directive marker."""
+    return bool(re.match(r"^\.\.\s+\S+::", line))
+
+
+def _skip_past_directive_block(lines: list[str], directive_index: int) -> int:
+    """
+    Return the index of the first line after a directive block.
+
+    Args:
+            lines: Document lines (with or without trailing newlines).
+            directive_index: Zero-based index of the ``.. directive::`` line.
+
+    Returns:
+            Index of the first line following the directive block.
+    """
+    i = directive_index + 1
+    while i < len(lines):
+        line = lines[i]
+        if line.strip() == "":
+            i += 1
+            continue
+        if not line.startswith((" ", "\t")):
+            return i
+        i += 1
+    return i
+
+
+def _title_line_span(content: str) -> tuple[int, int] | None:
+    """
+    Return the inclusive 1-based line span of the first document title block.
+
+    Returns ``None`` when no title is found.
+    """
+    lines = content.splitlines()
+    for i in range(len(lines) - 1):
+        if _is_section_title_at(lines, i):
+            return i + 1, i + 2
+    return None
+
+
+def extract_first_paragraph_after_title(
+    content: str,
+) -> tuple[str | None, tuple[int, int] | None]:
+    """
+    Find the first prose paragraph after the first document title.
+
+    Skips blank lines, directives, indented non-prose lines (such as toctree
+    entries), and section titles. Collects contiguous prose until the next
+    blank line, directive, or section title.
+
+    Args:
+        content: RST source to search.
+
+    Returns:
+        Normalised paragraph text and its inclusive 1-based line span, or
+        ``(None, None)`` when no prose paragraph is found.
+    """
+    lines = content.splitlines(keepends=True)
+    stripped_lines = [line.rstrip("\n") for line in lines]
+    insert_at = _find_insertion_point_after_title(content)
+    if insert_at <= 0:
+        start_index = 0
+    else:
+        start_index = content[:insert_at].count("\n")
+
+    prose_lines: list[str] = []
+    prose_start: int | None = None
+    i = start_index
+    while i < len(lines):
+        line = lines[i]
+        stripped = line.strip()
+        if not stripped:
+            if prose_lines:
+                break
+            i += 1
+            continue
+        if _line_starts_directive(stripped):
+            if prose_lines:
+                break
+            i = _skip_past_directive_block(lines, i)
+            continue
+        if _is_section_title_at(stripped_lines, i):
+            if prose_lines:
+                break
+            i += 2
+            continue
+        if not prose_lines and line.startswith((" ", "\t")):
+            i += 1
+            continue
+        if prose_lines and line.startswith((" ", "\t")):
+            prose_lines.append(stripped)
+            i += 1
+            continue
+        if line.startswith((" ", "\t")):
+            i += 1
+            continue
+        if prose_start is None:
+            prose_start = i
+        prose_lines.append(stripped)
+        i += 1
+
+    if not prose_lines or prose_start is None:
+        return None, None
+
+    start_line = prose_start + 1
+    end_line = prose_start + len(prose_lines)
+    return " ".join(prose_lines), (start_line, end_line)
+
+
+def wrap_first_paragraph_as_short_description(content: str) -> tuple[str, bool]:
+    """
+    Wrap the first prose paragraph after the title into ``.. short-description::``.
+
+    If a non-empty short-description already exists, returns unchanged. If the
+    directive exists with an empty body, fills it from the first paragraph.
+    Otherwise inserts a new directive after the title and removes the paragraph
+    from the body.
+
+    Returns:
+        Updated source and whether any change was made.
+    """
+    if has_short_description_content(content):
+        return content, False
+
+    paragraph, span = extract_first_paragraph_after_title(content)
+    if paragraph is None or span is None:
+        return content, False
+
+    without_para = _remove_line_span(content, span)
+    start, marker_end, block_end, _inner, indent = _find_short_description_block(without_para)
+    new_inner = _format_short_description_inner(paragraph, indent)
+
+    if start >= 0:
+        remainder = without_para[block_end:].lstrip()
+        new_content = without_para[:marker_end] + new_inner + "\n" + remainder
+        return new_content, True
+
+    insert_at = _find_insertion_point_after_title(without_para)
+    remainder = without_para[insert_at:].lstrip()
+    block = f"\n.. short-description::\n{new_inner}\n"
+    new_content = without_para[:insert_at] + block + remainder
+    return new_content, True
+
+
+def _remove_line_span(content: str, span: tuple[int, int]) -> str:
+    """
+    Remove an inclusive 1-based line span from RST source.
+
+    Args:
+        content: RST source.
+        span: Inclusive start and end line numbers (1-based).
+
+    Returns:
+        Source with the span removed and adjacent blank lines collapsed.
+    """
+    start_line, end_line = span
+    lines = content.splitlines(keepends=True)
+    kept = lines[: start_line - 1] + lines[end_line:]
+    result = "".join(kept)
+    while "\n\n\n" in result:
+        result = result.replace("\n\n\n", "\n\n")
+    return result
+
+
+def _find_showmeta_block(content: str) -> tuple[int, int, int, str, str]:
+    """Locate the first ``.. showmeta::`` directive in RST source."""
+    return _find_directive_block(content, "showmeta")
+
+
+def _extract_directive_options_from_block(block_inner: str) -> dict[str, str]:
+    """
+    Collect option names and values from a directive body.
+
+    Each line of the form ``:name: value`` contributes ``name``.
+    """
+    options: dict[str, str] = {}
+    for field_match in re.finditer(
+        r"^[ \t]+:([^:\n]+?):\s*(.*)$",
+        block_inner,
+        re.MULTILINE,
+    ):
+        options[field_match.group(1).strip()] = field_match.group(2)
+    return options
+
+
+def has_showmeta_with_order(content: str) -> bool:
+    """
+    Return whether the first ``.. showmeta::`` block has a non-empty ``:order:``.
+
+    Args:
+        content: RST source to search.
+
+    Returns:
+        True when showmeta exists with a non-blank order option.
+    """
+    _s, _m, _b, inner, _i = _find_showmeta_block(content)
+    if not inner.strip():
+        return False
+    options = _extract_directive_options_from_block(inner)
+    return bool(options.get("order", "").strip())
+
+
+def showmeta_line_span(content: str) -> tuple[int, int] | None:
+    """
+    Return the inclusive 1-based line span of the first ``.. showmeta::`` block.
+
+    Returns ``None`` if no showmeta block exists.
+    """
+    start, _marker_end, block_end, _inner, _indent = _find_showmeta_block(content)
+    if start < 0:
+        return None
+    start_line = _byte_offset_to_line_number(content, start)
+    end_offset = block_end - 1 if block_end > start else start
+    end_line = _byte_offset_to_line_number(content, end_offset)
+    return start_line, end_line
+
+
+def short_description_line_span(content: str) -> tuple[int, int] | None:
+    """
+    Return the inclusive 1-based line span of the first ``.. short-description::`` block.
+
+    Returns ``None`` if no short-description block exists.
+    """
+    start, _marker_end, block_end, _inner, _indent = _find_short_description_block(content)
+    if start < 0:
+        return None
+    start_line = _byte_offset_to_line_number(content, start)
+    end_offset = block_end - 1 if block_end > start else start
+    end_line = _byte_offset_to_line_number(content, end_offset)
+    return start_line, end_line
+
+
+def _insertion_point_after_short_description(content: str) -> int:
+    """
+    Return the byte index immediately after the first short-description block.
+
+    Falls back to after the title when no short-description exists.
+    """
+    _s, _m, block_end, _inner, _indent = _find_short_description_block(content)
+    if block_end >= 0:
+        return block_end
+    return _find_insertion_point_after_title(content)
+
+
+def format_showmeta_block(options: dict[str, str], indent: str = "   ") -> str:
+    """
+    Build an RST ``.. showmeta::`` block for the given options.
+
+    Args:
+        options: Option name to value mapping.
+        indent: Indentation for option lines.
+
+    Returns:
+        A formatted ``.. showmeta::`` directive ending with a blank line.
+    """
+    lines = [".. showmeta::"]
+    for key, value in options.items():
+        lines.append(f"{indent}:{key}: {value}")
+    lines.append("")
+    return "\n".join(lines)
+
+
+def inject_showmeta_to_content(
+    content: str,
+    options: dict[str, str],
+) -> tuple[str, bool]:
+    """
+    Insert or fill a ``.. showmeta::`` directive with the given options.
+
+    Appends to an existing block when present. Otherwise inserts after the first
+    short-description block, or after the title when none exists. Skips options
+    that already have non-empty values.
+
+    Returns:
+        Updated source and whether any change was made.
+    """
+    start, marker_end, block_end, inner, indent = _find_showmeta_block(content)
+    existing = _extract_directive_options_from_block(inner)
+    merged: dict[str, str] = dict(existing)
+    changed = False
+
+    for key, raw_value in options.items():
+        value = _normalise_meta_field_value(raw_value)
+        if key not in merged:
+            merged[key] = value
+            changed = True
+        elif not merged[key].strip():
+            merged[key] = value
+            changed = True
+        else:
+            logger.warning(
+                "Existing showmeta option %r; skipping",
+                key,
+            )
+
+    if not changed:
+        return content, False
+
+    ordered_keys: list[str] = list(existing.keys())
+    for key in options:
+        if key not in ordered_keys:
+            ordered_keys.append(key)
+    new_inner = "".join(f"{indent}:{key}: {merged[key]}\n" for key in ordered_keys)
+
+    if start >= 0:
+        remainder = content[block_end:].lstrip()
+        new_content = content[:marker_end] + new_inner + "\n" + remainder
+        return new_content, True
+
+    insert_at = _insertion_point_after_short_description(content)
+    remainder = content[insert_at:].lstrip()
+    block = f"\n.. showmeta::\n{new_inner}\n"
+    new_content = content[:insert_at] + block + remainder
+    return new_content, True
+
+
+def after_title_directives_line_span(content: str) -> tuple[int, int] | None:
+    """
+    Return the inclusive 1-based line span of the post-title directive area.
+
+    Covers short-description and/or showmeta blocks. When neither exists, returns
+    the line immediately after the title (or line 1 when no title is found).
+    """
+    spans: list[tuple[int, int]] = []
+    for span_fn in (short_description_line_span, showmeta_line_span):
+        span = span_fn(content)
+        if span is not None:
+            spans.append(span)
+
+    if spans:
+        return min(s[0] for s in spans), max(s[1] for s in spans)
+
+    title_span = _title_line_span(content)
+    if title_span is not None:
+        return title_span[1] + 1, title_span[1] + 1
+
+    return 1, 1
 

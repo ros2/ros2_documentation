@@ -1,0 +1,32 @@
+# Enhancement rules for ensure_meta_tags.py.
+# meta: .. meta:: field rules (severity and optional default values).
+# after_title: directives inserted after the first document title.
+# Sphinx expands {PRODUCT} and {DISTRO} at build time (see conf.py).
+meta:
+  product:
+    severity: warning
+    value: "{PRODUCT}"
+  distribution:
+    severity: warning
+    value: "{DISTRO}"
+  area:
+    severity: error
+    value:
+  experience:
+    severity: warning
+    value:
+  content-type:
+    severity: warning
+    value:
+
+after_title:
+  - directive: short-description
+    severity: warning
+    content: first_paragraph
+
+  - directive: showmeta
+    severity: warning
+    options:
+      order: "area, contentType, experience"
+    required_options:
+      - order

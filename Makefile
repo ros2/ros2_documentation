@@ -53,7 +53,7 @@ ifndef STATUS_FILE
 	$(error STATUS_FILE is required)
 endif
 	$(PYTHON) $(TOOLS_DIR)/ensure_meta_tags.py \
-	  --config $(TOOLS_DIR)/meta_tags.yaml \
+	  --config $(TOOLS_DIR)/enhance.yaml \
 	  --diff-base $(DIFF_BASE) \
 	  --status-file $(STATUS_FILE)
 
