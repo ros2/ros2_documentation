@@ -26,7 +26,7 @@ Related content
 * :doc:`About-Client-Libraries`
 * :doc:`About-Parameters`
 * :doc:`Interfaces-Topics-Services-Actions`
-* :doc:`nodes/Working-with-nodes`   
+* :doc:`nodes/Working-with-nodes`
 
 FAQs
 ----
