@@ -1,25 +1,13 @@
-.. meta::
-   :description: The ROS framework is the “plumbing” which makes communication between different parts of a robot possible.
-   :keywords: ROS, framework, communication, robotics, learning path
-   :area: framework
-   :contentType: learning-path
-   :experience: beginner
-   :product: {PRODUCT}
-   :distribution: {DISTRO}
-
 .. _First-steps-with-ROS-learning-path:
 
 First steps with ROS - learning path
 ====================================
 
-.. short-description::
-   ROS (Robot Operating System) is an open-source ecosystem that provides framework, tools, and libraries for building, deploying, running, and maintaining robotic applications.
-   This page presents a set of articles and hands-on activities to introduce the main concepts behind the ROS framework.
-   Working through these will give you the essential knowledge needed to start developing applications with ROS.
+ROS (Robot Operating System) is an open-source ecosystem that provides framework, tools, and libraries for building, deploying, running, and maintaining robotic applications.
+This page presents a set of articles and hands-on activities to introduce the main concepts behind the ROS framework.
+Working through these will give you the essential knowledge needed to start developing applications with ROS.
 
-.. showmeta::
-   :order: area, contentType, experience
-   :labels: area=Area, contentType=Content type, experience=Level
+**Area: ROS-framework | Content-type: learning-path | Experience: beginner**
 
 .. contents:: Contents
     :depth: 2
