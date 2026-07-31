@@ -25,7 +25,7 @@ _TOOLS_DIR = Path(__file__).resolve().parent.parent
 if str(_TOOLS_DIR) not in sys.path:
     sys.path.insert(0, str(_TOOLS_DIR))
 
-from ensure_meta_tags import (  # noqa: E402
+from ensure_enhancements import (  # noqa: E402
     REVIEW_MARKER,
     SECTION_COPY_PASTE_AFTER_TITLE,
     SECTION_INLINE_SUGGESTIONS,
@@ -39,9 +39,8 @@ from ensure_meta_tags import (  # noqa: E402
     can_suggest_after_title_inline,
     can_suggest_inline,
     changed_rst_paths,
-    ensure_meta_tags_in_file,
+    ensure_enhancements_in_file,
     load_enhance_config,
-    load_meta_config,
     main,
 )
 from rst_utils import get_meta_fields_from_content, inject_metadata_to_content  # noqa: E402
@@ -101,15 +100,16 @@ META_ONLY_CONFIG = textwrap.dedent(
 ).strip()
 
 
-class TestMetaConfig(unittest.TestCase):
-    def test_load_meta_config_parses_rules(self) -> None:
+class TestEnhanceConfig(unittest.TestCase):
+    def test_load_enhance_config_parses_meta_rules(self) -> None:
         with tempfile.NamedTemporaryFile("w", suffix=".yaml", delete=False) as handle:
             handle.write(SAMPLE_CONFIG)
             path = Path(handle.name)
         try:
-            rules = load_meta_config(path)
+            config = load_enhance_config(path)
         finally:
             path.unlink()
+        rules = config.meta
         self.assertEqual(rules["product"].severity, "warning")
         self.assertEqual(rules["product"].value, "{PRODUCT}")
         self.assertTrue(rules["product"].has_configured_value)
@@ -190,7 +190,7 @@ class TestUnresolvedFields(unittest.TestCase):
         self.assertEqual(fields["product"], "{PRODUCT}")
 
 
-class TestEnsureMetaTagsInFile(unittest.TestCase):
+class TestEnsureEnhancementsInFile(unittest.TestCase):
     def test_local_auto_inject_clears_configured_fields(self) -> None:
         rules = {
             "product": MetaRule("warning", "{PRODUCT}"),
@@ -199,7 +199,7 @@ class TestEnsureMetaTagsInFile(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "page.rst"
             path.write_text("Title\n=====\n", encoding="utf-8")
-            result = ensure_meta_tags_in_file(path, rules)
+            result = ensure_enhancements_in_file(path, rules)
             self.assertIsNotNone(result)
             self.assertEqual(result["mode"], "suggestable")
             self.assertIn("area", result["manual_fields"])
@@ -215,7 +215,7 @@ class TestEnsureMetaTagsInFile(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "page.rst"
             path.write_text("Title\n=====\n", encoding="utf-8")
-            result = ensure_meta_tags_in_file(path, rules)
+            result = ensure_enhancements_in_file(path, rules)
             self.assertIsNotNone(result)
             self.assertIn("product", result["warning_fields"])
             self.assertNotIn("product", result["manual_fields"])
@@ -225,7 +225,7 @@ class TestEnsureMetaTagsInFile(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "page.rst"
             path.write_text("Title\n=====\n", encoding="utf-8")
-            result = ensure_meta_tags_in_file(path, rules)
+            result = ensure_enhancements_in_file(path, rules)
             self.assertIsNotNone(result)
             self.assertEqual(result["mode"], "suggestable")
             self.assertEqual(result["warning_fields"], ["product"])
@@ -245,7 +245,7 @@ class TestEnsureMetaTagsInFile(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "page.rst"
             path.write_text(content, encoding="utf-8")
-            self.assertIsNone(ensure_meta_tags_in_file(path, rules))
+            self.assertIsNone(ensure_enhancements_in_file(path, rules))
 
 
 class TestAfterTitleEnhancements(unittest.TestCase):
@@ -267,7 +267,7 @@ class TestAfterTitleEnhancements(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "page.rst"
             path.write_text(content, encoding="utf-8")
-            result = ensure_meta_tags_in_file(path, config)
+            result = ensure_enhancements_in_file(path, config)
             self.assertIsNotNone(result)
             updated = path.read_text(encoding="utf-8")
             self.assertIn(".. short-description::", updated)
@@ -294,7 +294,7 @@ class TestAfterTitleEnhancements(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "page.rst"
             path.write_text(content, encoding="utf-8")
-            result = ensure_meta_tags_in_file(path, config)
+            result = ensure_enhancements_in_file(path, config)
             self.assertIsNotNone(result)
             updated = path.read_text(encoding="utf-8")
             self.assertIn("First paragraph here.", updated)
@@ -509,7 +509,7 @@ class TestCiStatusOutputs(unittest.TestCase):
 class TestChangedRstPaths(unittest.TestCase):
     def test_parses_git_diff_output(self) -> None:
         completed = mock.Mock(returncode=0, stdout="source/A.rst\nsource/B.rst\n", stderr="")
-        with mock.patch("ensure_meta_tags.subprocess.run", return_value=completed) as run:
+        with mock.patch("ensure_enhancements.subprocess.run", return_value=completed) as run:
             paths = changed_rst_paths("abc123")
         self.assertEqual(paths, [Path("source/A.rst"), Path("source/B.rst")])
         run.assert_called_once()
@@ -530,7 +530,7 @@ class TestMainDiscovery(unittest.TestCase):
         finally:
             config_path.unlink()
 
-    def test_empty_discovery_writes_meta_checked_false(self) -> None:
+    def test_empty_discovery_writes_enhancements_checked_false(self) -> None:
         with tempfile.NamedTemporaryFile("w", suffix=".yaml", delete=False) as handle:
             handle.write(SAMPLE_CONFIG)
             config_path = Path(handle.name)
@@ -539,7 +539,7 @@ class TestMainDiscovery(unittest.TestCase):
                 status_path = Path(status_handle.name)
             try:
                 with mock.patch(
-                    "ensure_meta_tags.changed_rst_paths",
+                    "ensure_enhancements.changed_rst_paths",
                     return_value=[],
                 ):
                     code = main(
@@ -554,7 +554,7 @@ class TestMainDiscovery(unittest.TestCase):
                     )
                 self.assertEqual(code, 0)
                 status_text = status_path.read_text(encoding="utf-8")
-                self.assertIn("meta_checked=false", status_text)
+                self.assertIn("enhancements_checked=false", status_text)
                 self.assertIn("has_errors=false", status_text)
             finally:
                 status_path.unlink()

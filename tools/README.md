@@ -1,6 +1,6 @@
 # Documentation tools
 
-Helpers for ensuring reStructuredText (`.rst`) metadata on documentation pull requests.
+Helpers for ensuring reStructuredText (`.rst`) documentation enhancements on pull requests.
 
 ---
 
@@ -12,11 +12,11 @@ Information for documentation contributors creating or updating `.rst` files.
 
 | Component | Used by |
 |-----------|---------|
-| [PyYAML](https://pyyaml.org/) (`pip install pyyaml`) | [`ensure_meta_tags.py`](ensure_meta_tags.py) and unit tests in [`tests/`](tests/) |
+| [PyYAML](https://pyyaml.org/) (`pip install pyyaml`) | [`ensure_enhancements.py`](ensure_enhancements.py) and unit tests in [`tests/`](tests/) |
 | Git (with a usable `HEAD` and refs for your base commit) | PR-scope discovery and diff overlap checks (`--diff-base`) |
-| [GitHub CLI](https://cli.github.com/) (`gh`) and `jq` | [`supersede_meta_tag_reviews.sh`](supersede_meta_tag_reviews.sh) only (Enhance workflow on `ubuntu-24.04`; optional for local supersede testing) |
+| [GitHub CLI](https://cli.github.com/) (`gh`) and `jq` | [`supersede_enhancement_reviews.sh`](supersede_enhancement_reviews.sh) only (Enhance workflow on `ubuntu-24.04`; optional for local supersede testing) |
 
-### Metadata configuration
+### Enhancement configuration
 
 [`enhance.yaml`](enhance.yaml) defines documentation enhancement rules. The `meta` section lists every `.. meta::` field checked by the tooling. Each entry has:
 
@@ -69,42 +69,42 @@ For `short-description`, the tool wraps the first prose paragraph after the titl
 | `warning` | Annotation + review | Soft warning (`continue-on-error`) | Succeeds |
 | `error` | Error annotation + review | Soft warning (same step) | **Fails** on final enforce step |
 
-### Checking metadata locally
+### Checking enhancements locally
 
-`ensure_meta_tags.py` checks `.rst` files against `enhance.yaml`. Fields with a configured `value` are added or filled automatically when the edit can be suggested or applied locally. Fields with an empty `value` must be completed manually in the `.. meta::` block. After-title directives are added using the rules above.
+[`ensure_enhancements.py`](ensure_enhancements.py) checks `.rst` files against [`enhance.yaml`](enhance.yaml). Fields with a configured `value` are added or filled automatically when the edit can be suggested or applied locally. Fields with an empty `value` must be completed manually in the `.. meta::` block. After-title directives are added using the rules above.
 
 #### Usage
 
 From the repository root:
 
 ```bash
-python3 tools/ensure_meta_tags.py path/to/article.rst
+python3 tools/ensure_enhancements.py path/to/article.rst
 ```
 
 Multiple files:
 
 ```bash
-python3 tools/ensure_meta_tags.py source/Topic/A.rst source/Topic/B.rst
+python3 tools/ensure_enhancements.py source/Topic/A.rst source/Topic/B.rst
 ```
 
 Pull request scope (discovers changed `ACMR` `*.rst` files via `git diff`; requires Makefile variables `DIFF_BASE` and `STATUS_FILE`):
 
 ```bash
-make ensure-meta-tags DIFF_BASE=origin/rolling STATUS_FILE=/tmp/meta-tags-out.txt
+make ensure-enhancements DIFF_BASE=origin/rolling STATUS_FILE=/tmp/enhance-out.txt
 ```
 
 PR scope without Make (optional `--status-file`; exit codes follow local rules when omitted):
 
 ```bash
-python3 tools/ensure_meta_tags.py --diff-base origin/rolling
-python3 tools/ensure_meta_tags.py --diff-base "$(git merge-base HEAD origin/rolling)" --status-file /tmp/out.txt
+python3 tools/ensure_enhancements.py --diff-base origin/rolling
+python3 tools/ensure_enhancements.py --diff-base "$(git merge-base HEAD origin/rolling)" --status-file /tmp/out.txt
 ```
 
-For day-to-day editing of known files, pass paths explicitly and omit `--status-file` so the tool exits `1` only when **error**-severity fields remain.
+For day-to-day editing of known files, pass paths explicitly and omit `--status-file` so the tool exits `1` only when **error**-severity issues remain.
 
 #### Exit codes
 
-With `--status-file` (CI), exit `1` when any issues remain. Locally, exit `1` only when **error**-severity fields are still unresolved; warning-only issues exit `0` after applying automatic fixes.
+With `--status-file` (CI), exit `1` when any issues remain. Locally, exit `1` only when **error**-severity issues are still unresolved; warning-only issues exit `0` after applying automatic fixes.
 
 #### Example (configured values)
 
@@ -134,32 +134,34 @@ Fields such as `area` with an empty `value` in the config are listed in the revi
 
 ### Contributor CI experience
 
-When you open or update a pull request, CI automatically checks metadata on all modified `.rst` files.
+When you open or update a pull request, CI automatically checks enhancements on all modified `.rst` files.
 
 #### Contributor experience overview
 
 | Situation | Ensure step | Annotations | Pull request review | Job result |
 |-----------|-------------|-------------|---------------------|------------|
-| All fields resolved | Green | None | None (stale bot reviews cleared) | Success |
+| All enhancements resolved | Green | None | None (stale bot reviews cleared) | Success |
 | Warning-only gaps | Soft warning | Warnings | Suggestions and/or manual list | Success |
 | Error gaps (e.g. missing `area`) | Soft warning | Errors (and warnings) | Suggestions and/or manual list | **Failure** after enforce step |
 | Auto-fix in diff | Soft warning | As above | Inline “Commit suggestion” | As per severity |
-| Auto-fix outside diff (`snippet`) | Soft warning | As above | Copy-paste `.. meta::` for configured values | As per severity |
-| Manual fields only (`manual_fields`) | Soft warning | As above | Field list with required/warning labels | As per severity |
+| Auto-fix outside diff (`snippet`) | Soft warning | As above | Copy-paste blocks for configured values | As per severity |
+| Manual fields only (`manual_fields`) | Soft warning | As above | Field/directive list with required/warning labels | As per severity |
 
 Reviews, annotations, and the soft-failed ensure step appear in different parts of the GitHub UI (Conversation, Files changed, Checks); only error-severity issues fail the overall workflow.
 
 #### Review body sections
 
-The **Documentation metadata** summary review (`## Documentation metadata`) names every affected file and splits the work by how it is fixed, so the fields listed for a file match that file's annotation. The **Inline metadata suggestions** review (`## Inline metadata suggestions`) is a short pointer to the commit suggestions; details stay in the summary.
+The **Documentation enhancements** summary review (`## Documentation enhancements`) names every affected file and splits the work by how it is fixed. The **Inline documentation suggestions** review (`## Inline documentation suggestions`) is a short pointer to the commit suggestions; details stay in the summary.
 
-| Heading | Files listed | Fields listed |
-|---------|--------------|---------------|
-| `### Commit inline suggestions` | `suggestable` mode | Configured values added for you — commit the suggestion |
-| `### Copy-paste \`.. meta::\` blocks` | `snippet` mode | Configured values as an RST block to paste yourself |
-| `### Provide non-empty values` | Any file with manual fields | Fields with an empty `value`, labelled required or optional |
+| Heading | Files listed | What is listed |
+|---------|--------------|----------------|
+| `### Commit inline suggestions` | `suggestable` mode | Configured values and directives added for you — commit the suggestion |
+| `### Copy-paste \`.. meta::\` blocks` | `snippet` mode (meta) | Configured meta values as an RST block to paste yourself |
+| `### Copy-paste after-title directives` | `snippet` mode (after-title) | `.. short-description::` / `.. showmeta::` blocks to paste after the title |
+| `### Provide non-empty values` | Any file with manual meta fields | Fields with an empty `value`, labelled required or optional |
+| `### Add after-title directives` | Manual after-title gaps | Directives that could not be added automatically |
 
-A file can appear in two sections: the suggestion covers its configured values while the manual list covers the rest.
+A file can appear in multiple sections: the suggestion covers auto-filled items while the manual lists cover the rest.
 
 #### When inline suggestions appear
 
@@ -169,16 +171,17 @@ GitHub only allows review suggestions on [lines already in the pull request diff
 |-----------|----------------|
 | Missing configured values; existing `.. meta::` overlaps the PR diff | Write append/fill to the working tree → inline suggestion via [`suggest-changes`](https://github.com/marketplace/actions/suggest-changes-action) |
 | No `.. meta::`; top of file overlaps the PR diff | Insert at top → inline suggestion |
-| Automatic edit does **not** overlap the PR diff (`snippet` mode) | No inline write; review includes a copy-paste block for configured values |
+| After-title edit overlaps the PR diff (title area or paragraph being wrapped) | Insert/wrap in working tree → inline suggestion |
+| Automatic edit does **not** overlap the PR diff (`snippet` mode) | No inline write; review includes a copy-paste block |
 | Only manual fields (empty `value` in config, `manual_fields` mode) | Review lists fields; no placeholder injection |
-| All configured fields present and non-empty | No action |
-| No changed `.rst` files in the PR | No check; `meta_checked=false`; supersede/review steps skipped |
+| All configured enhancements present | No action |
+| No changed `.rst` files in the PR | No check; `enhancements_checked=false`; supersede/review steps skipped |
 
 ---
 
 ## Developer guidance
 
-Information for maintainers and developers working on or extending the metadata tooling and CI workflows.
+Information for maintainers and developers working on or extending the enhancement tooling and CI workflows.
 
 ### Repository layout
 
@@ -186,8 +189,8 @@ Information for maintainers and developers working on or extending the metadata 
 |------|---------|
 | [`rst_utils.py`](rst_utils.py) | Regex-based read/write of `.. meta::`, `.. short-description::`, and `.. showmeta::` directives |
 | [`enhance.yaml`](enhance.yaml) | Enhancement rules (`meta` fields and `after_title` directives) |
-| [`ensure_meta_tags.py`](ensure_meta_tags.py) | CLI that checks and fixes metadata from the config |
-| [`supersede_meta_tag_reviews.sh`](supersede_meta_tag_reviews.sh) | Minimise outdated bot PR reviews |
+| [`ensure_enhancements.py`](ensure_enhancements.py) | CLI that checks and applies enhancements from the config |
+| [`supersede_enhancement_reviews.sh`](supersede_enhancement_reviews.sh) | Minimise outdated bot PR reviews |
 | [`tests/`](tests/) | Unit tests for the tools in this directory |
 
 ### Code modules
@@ -208,42 +211,42 @@ Add a new key under `meta` in [`enhance.yaml`](enhance.yaml) to extend metadata 
 
 ### CLI options & Makefile targets
 
-#### Options (`ensure_meta_tags.py`)
+#### Options (`ensure_enhancements.py`)
 
 - `paths` — optional; when omitted, `--diff-base` is required and changed `.rst` files are discovered automatically
 - `--config PATH` — YAML config file (default: `tools/enhance.yaml`)
 - `--diff-base SHA` — PR base commit; limits on-disk writes to lines in the PR diff (inline suggestions); files that need a copy-paste or manual field list use a review comment instead
-- `--status-file PATH` — write `meta_checked`, `inline_suggestions`, `has_results`, `has_errors`, the review comment body, and the suggestion note for CI; when issues remain, emits annotations and exits `1` (the ensure step uses `continue-on-error`)
+- `--status-file PATH` — write `enhancements_checked`, `inline_suggestions`, `has_results`, `has_errors`, the review comment body, and the suggestion note for CI; when issues remain, emits annotations and exits `1` (the ensure step uses `continue-on-error`)
 - `-v` / `--verbose` — enable debug logging
 
-#### Makefile targets (metadata CI)
+#### Makefile targets (enhancement CI)
 
 Both targets live in the repository root [`Makefile`](../Makefile). CI invokes them with `make -f .trusted-base/Makefile …` so recipes run from the PR **base** branch, not the PR head.
 
 | Target | Required variables | Purpose |
 |--------|-------------------|---------|
-| `ensure-meta-tags` | `DIFF_BASE`, `STATUS_FILE`; optional `TOOLS_DIR` (default `tools`) | Discover changed RST, run metadata check, append CI outputs |
-| `supersede-meta-tag-reviews` | `PR_NUMBER`, `REPOSITORY`; optional `TOOLS_DIR` | Minimise stamped bot reviews |
+| `ensure-enhancements` | `DIFF_BASE`, `STATUS_FILE`; optional `TOOLS_DIR` (default `tools`) | Discover changed RST, run enhancement check, append CI outputs |
+| `supersede-enhancement-reviews` | `PR_NUMBER`, `REPOSITORY`; optional `TOOLS_DIR` | Minimise stamped bot reviews |
 
-Environment for `supersede-meta-tag-reviews` (set by the workflow or locally): `GH_TOKEN`, plus `PR_NUMBER` and `REPOSITORY`. It writes no CI outputs; the workflow decides what to post from the ensure step’s outputs.
+Environment for `supersede-enhancement-reviews` (set by the workflow or locally): `GH_TOKEN`, plus `PR_NUMBER` and `REPOSITORY`. It writes no CI outputs; the workflow decides what to post from the ensure step’s outputs.
 
 ### Continuous integration architecture
 
 The workflow [`.github/workflows/enhance.yml`](../.github/workflows/enhance.yml) runs on **`pull_request_target`** when a pull request is **opened**, **synchronised**, or **reopened** (including from forks). That event type allows the default `GITHUB_TOKEN` to post review suggestions on fork PRs; the workflow file on the repository **default branch** defines the job, while trusted tooling comes from the PR **base** branch (see [Security](#security) below).
 
-The Enhance workflow installs PyYAML in the job; it does not install the full documentation `requirements.txt` for metadata checks.
+The Enhance workflow installs PyYAML in the job; it does not install the full documentation `requirements.txt` for enhancement checks.
 
-#### Job flow (`ensure-meta-tags`)
+#### Job flow (`ensure-enhancements`)
 
 1. Check out the PR **head** (`.rst` content to inspect and, where allowed, modify for suggestions).
-2. Check out the PR **base** into `.trusted-base/` (Makefile, `ensure_meta_tags.py`, `enhance.yaml`, `supersede_meta_tag_reviews.sh`).
+2. Check out the PR **base** into `.trusted-base/` (Makefile, `ensure_enhancements.py`, `enhance.yaml`, `supersede_enhancement_reviews.sh`).
 3. Install Python 3.12 and PyYAML.
-4. **Ensure documentation metadata** — `git fetch` the base SHA, then `make -f .trusted-base/Makefile ensure-meta-tags` with `TOOLS_DIR=.trusted-base/tools`, `DIFF_BASE`, and `STATUS_FILE=$GITHUB_OUTPUT`. Emits per-file annotations; the step uses `continue-on-error: true` so warning-only gaps do not fail the job immediately.
-5. **Verify metadata check ran** — fail the job if `meta_checked` is empty. The ensure step soft-fails by design, so a missing output is the only way to tell a crashed check from a clean run.
-6. **Supersede stale meta-tag reviews** (only if `meta_checked=true`) — `make -f .trusted-base/Makefile supersede-meta-tag-reviews`, which minimises stamped reviews and writes nothing back.
-7. **Suggest meta tag changes** — if `inline_suggestions`, run [`suggest-changes`](https://github.com/marketplace/actions/suggest-changes-action) for file-level “Commit suggestion” comments, using `suggestion_note` as its review body (unstamped so supersede does not hide live suggestions in Conversation).
-8. **Post meta tag review comment** — if `has_results`, post the stamped `comment` body via `gh pr review` (Conversation view). Independent of suggest-changes, which posts nothing when every suggestion duplicates one from an earlier run.
-9. **Enforce required metadata** — if `has_errors`, fail the job (runs `always()` so error gaps fail even when the ensure step soft-failed).
+4. **Ensure documentation enhancements** — `git fetch` the base SHA, then `make -f .trusted-base/Makefile ensure-enhancements` with `TOOLS_DIR=.trusted-base/tools`, `DIFF_BASE`, and `STATUS_FILE=$GITHUB_OUTPUT`. Emits per-file annotations; the step uses `continue-on-error: true` so warning-only gaps do not fail the job immediately.
+5. **Verify enhancement check ran** — fail the job if `enhancements_checked` is empty. The ensure step soft-fails by design, so a missing output is the only way to tell a crashed check from a clean run.
+6. **Supersede stale enhancement reviews** (only if `enhancements_checked=true`) — `make -f .trusted-base/Makefile supersede-enhancement-reviews`, which minimises stamped reviews and writes nothing back.
+7. **Suggest documentation enhancements** — if `inline_suggestions`, run [`suggest-changes`](https://github.com/marketplace/actions/suggest-changes-action) for file-level “Commit suggestion” comments, using `suggestion_note` as its review body (unstamped so supersede does not hide live suggestions in Conversation).
+8. **Post enhancement review comment** — if `has_results`, post the stamped `comment` body via `gh pr review` (Conversation view). Independent of suggest-changes, which posts nothing when every suggestion duplicates one from an earlier run.
+9. **Enforce required enhancements** — if `has_errors`, fail the job (runs `always()` so error gaps fail even when the ensure step soft-failed).
 
 Steps 7 and 8 use `!cancelled()` rather than depending on the supersede step, so a transient GitHub API failure while minimising old reviews cannot stop contributors receiving feedback.
 
@@ -255,20 +258,20 @@ Each changed `.rst` file is classified with an internal **mode**:
 
 | Mode | Meaning |
 |------|---------|
-| `suggestable` | Configured values were written to the working tree for inline “Commit suggestion” |
-| `snippet` | Configured values could not be written inline; the review includes a copy-paste `.. meta::` block |
-| `manual_fields` | Only fields with empty `value` in the config are missing; the review lists field names |
+| `suggestable` | Configured enhancements were written to the working tree for inline “Commit suggestion” |
+| `snippet` | Enhancements could not be written inline; the review includes copy-paste RST blocks |
+| `manual_fields` | Only manual items remain (empty meta `value`, or after-title gaps with no auto-fix) |
 
-A single file can still list **manual** fields in the review when its mode is `suggestable` or `snippet` (auto-filled fields were handled; empty-config fields remain for the contributor).
+A single file can still list **manual** fields in the review when its mode is `suggestable` or `snippet` (auto-filled items were handled; manual items remain for the contributor).
 
 The script writes **CI outputs** (for example `$GITHUB_OUTPUT`) that describe which workflow steps to run:
 
 | Output | Meaning |
 |--------|---------|
-| `meta_checked` | At least one changed `.rst` was in scope (`false` when discovery finds no changed RST; supersede is skipped). Empty only when the check never ran |
+| `enhancements_checked` | At least one changed `.rst` was in scope (`false` when discovery finds no changed RST; supersede is skipped). Empty only when the check never ran |
 | `inline_suggestions` | Run [`suggest-changes`](https://github.com/marketplace/actions/suggest-changes-action) for file-level suggestions |
-| `has_results` | Metadata issues remain; post the Conversation review |
-| `has_errors` | Unresolved **error**-severity fields (triggers the final enforce step) |
+| `has_results` | Enhancement issues remain; post the Conversation review |
+| `has_errors` | Unresolved **error**-severity issues (triggers the final enforce step) |
 | `comment` | Full stamped review body (multiline heredoc) posted to Conversation via `gh pr review`; written only when `has_results` |
 | `suggestion_note` | Short unstamped body for the suggest-changes review; written only when `inline_suggestions` |
 
@@ -278,20 +281,20 @@ The ensure step uses `continue-on-error: true`, so warning-only gaps do not fail
 
 #### Annotations
 
-When metadata is missing or blank:
+When enhancements are missing:
 
-- **Warning** severity → `::warning file=...,line=N::Missing meta fields: ...`
-- **Error** severity → `::error file=...,line=N::Missing meta fields: ...`
+- **Warning** severity → `::warning file=...,line=N::Missing meta fields: ...` or `Missing after-title directives: ...`
+- **Error** severity → `::error file=...,line=N::Missing meta fields: ...` or `Missing after-title directives: ...`
 
-`N` is the start line of an existing `.. meta::` block, or `1` when a new block would be inserted at the top of the file.
+`N` is the start line of an existing `.. meta::` block, the after-title area, or `1` when a new block would be inserted at the top of the file.
 
 Annotations describe the pull request **as pushed**, so fields with a configured `value` are listed even when the same run offers them as an inline suggestion. Auto-injected values only exist in the CI working tree; they disappear from the annotations once the suggestion is committed and the workflow re-runs.
 
 #### Superseding outdated reviews
 
-Only the **summary** review body includes a hidden HTML marker (`<!-- ros2-meta-tags-ensure -->`). The marker id `ros2-meta-tags-ensure` (constant `REVIEW_MARKER_ID` in Python; override in the shell script with `META_TAG_REVIEW_MARKER_ID`) is what the supersede script searches for in review bodies. The suggest-changes review uses an unstamped `suggestion_note` so it is not minimised: that card is the only place inline suggestions render in Conversation, and GitHub marks individual suggestion comments outdated once they are committed or their anchor leaves the diff.
+Only the **summary** review body includes a hidden HTML marker (`<!-- ros2-doc-enhance-ensure -->`). The marker id `ros2-doc-enhance-ensure` (constant `REVIEW_MARKER_ID` in Python; override in the shell script with `ENHANCEMENT_REVIEW_MARKER_ID`) is what the supersede script searches for in review bodies. The suggest-changes review uses an unstamped `suggestion_note` so it is not minimised: that card is the only place inline suggestions render in Conversation, and GitHub marks individual suggestion comments outdated once they are committed or their anchor leaves the diff.
 
-When `meta_checked=true`, the workflow runs `make -f .trusted-base/Makefile supersede-meta-tag-reviews` ([`supersede_meta_tag_reviews.sh`](supersede_meta_tag_reviews.sh)):
+When `enhancements_checked=true`, the workflow runs `make -f .trusted-base/Makefile supersede-enhancement-reviews` ([`supersede_enhancement_reviews.sh`](supersede_enhancement_reviews.sh)):
 
 1. Lists pull request reviews whose body contains the marker id.
 2. Minimises each as **Outdated** via the GitHub GraphQL API (`gh api graphql`; individual failures are ignored).

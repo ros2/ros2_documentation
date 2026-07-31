@@ -14,7 +14,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  ensure-meta-tags:
+  ensure-enhancements:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout PR code
@@ -38,7 +38,7 @@ jobs:
       - name: Install PyYAML
         run: pip install --no-warn-script-location pyyaml
 
-      - name: Ensure documentation metadata
+      - name: Ensure documentation enhancements
         id: ensure
         continue-on-error: true
         env:
@@ -46,34 +46,34 @@ jobs:
         run: |
           set -euo pipefail
           git fetch origin "$DIFF_BASE"
-          make -f .trusted-base/Makefile ensure-meta-tags \
+          make -f .trusted-base/Makefile ensure-enhancements \
             TOOLS_DIR=.trusted-base/tools \
             DIFF_BASE="$DIFF_BASE" \
             STATUS_FILE="$GITHUB_OUTPUT"
 
-      # The ensure step soft-fails whenever metadata is missing, so an empty
-      # meta_checked is the only signal that the check itself never ran.
-      - name: Verify metadata check ran
-        if: steps.ensure.outputs.meta_checked == ''
+      # The ensure step soft-fails whenever enhancements are missing, so an empty
+      # enhancements_checked is the only signal that the check itself never ran.
+      - name: Verify enhancement check ran
+        if: steps.ensure.outputs.enhancements_checked == ''
         run: |
-          echo "The metadata check produced no outputs; see the ensure step log."
+          echo "The enhancement check produced no outputs; see the ensure step log."
           exit 1
 
-      - name: Supersede stale meta-tag reviews
-        if: steps.ensure.outputs.meta_checked == 'true'
+      - name: Supersede stale enhancement reviews
+        if: steps.ensure.outputs.enhancements_checked == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
           REPOSITORY: ${{ github.repository }}
         run: |
           set -euo pipefail
-          make -f .trusted-base/Makefile supersede-meta-tag-reviews \
+          make -f .trusted-base/Makefile supersede-enhancement-reviews \
             TOOLS_DIR=.trusted-base/tools
 
       # File-level "Commit suggestion" comments. suggestion_note is intentionally
       # unstamped so supersede does not collapse this review; Conversation then
       # keeps showing live suggestions until GitHub marks each comment outdated.
-      - name: Suggest meta tag changes
+      - name: Suggest documentation enhancements
         if: >-
           ${{ !cancelled()
           && steps.ensure.outputs.inline_suggestions == 'true' }}
@@ -84,7 +84,7 @@ jobs:
 
       # Always posts the summary so the Conversation view has a current review
       # after the stale ones are minimised, whatever suggest-changes did.
-      - name: Post meta tag review comment
+      - name: Post enhancement review comment
         if: >-
           ${{ !cancelled()
           && steps.ensure.outputs.has_results == 'true' }}
@@ -98,8 +98,8 @@ jobs:
             --comment \
             --body "$REVIEW_COMMENT"
 
-      - name: Enforce required metadata
+      - name: Enforce required enhancements
         if: always() && steps.ensure.outputs.has_errors == 'true'
         run: |
-          echo "Required metadata (error severity) is still missing."
+          echo "Required enhancements (error level) are still missing."
           exit 1

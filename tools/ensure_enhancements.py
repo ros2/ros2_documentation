@@ -28,7 +28,7 @@ from typing import Literal, TextIO
 
 import yaml
 
-# Allow ``python3 tools/ensure_meta_tags.py`` from the repository root.
+# Allow ``python3 tools/ensure_enhancements.py`` from the repository root.
 _TOOLS_DIR = Path(__file__).resolve().parent
 if str(_TOOLS_DIR) not in sys.path:
         sys.path.insert(0, str(_TOOLS_DIR))
@@ -55,7 +55,7 @@ _HUNK_HEADER = re.compile(r"^@@ -\d+(?:,\d+)? \+(\d+)(?:,(\d+))? @@")
 Severity = Literal["warning", "error"]
 
 # Hidden marker in review bodies so CI can find and supersede prior bot reviews.
-REVIEW_MARKER_ID = "ros2-meta-tags-ensure"
+REVIEW_MARKER_ID = "ros2-doc-enhance-ensure"
 REVIEW_MARKER = f"<!-- {REVIEW_MARKER_ID} -->"
 
 # Titles and section headings for pull request review bodies (GitHub Markdown).
@@ -337,15 +337,6 @@ def load_enhance_config(config_path: Path) -> EnhanceConfig:
     )
 
 
-def load_meta_config(config_path: Path) -> dict[str, MetaRule]:
-    """
-    Load metadata rules from a YAML config file.
-
-    Deprecated alias for ``load_enhance_config(...).meta``.
-    """
-    return load_enhance_config(config_path).meta
-
-
 def format_meta_block(rules: dict[str, MetaRule], fields: list[str]) -> str:
     """
     Build an RST ``.. meta::`` block for auto-injectable fields.
@@ -511,7 +502,7 @@ def _log_working_tree_summary(paths: list[Path]) -> None:
     if not paths:
         return
     path_args = [str(p) for p in paths]
-    logger.info("Working tree after ensure_meta_tags:")
+    logger.info("Working tree after ensure_enhancements:")
     status = subprocess.run(
         ["git", "status", "--short", "--", *path_args],
         check=False,
@@ -557,7 +548,7 @@ def _write_multiline_output(handle: TextIO, key: str, value: str) -> None:
 def _write_ci_status_file(
     status_file: Path,
     *,
-    meta_checked: bool,
+    enhancements_checked: bool,
     results: list[dict[str, object]],
     rules: dict[str, MetaRule],
     has_errors: bool,
@@ -565,14 +556,14 @@ def _write_ci_status_file(
     """
     Append GitHub Actions output flags and optional review comment.
 
-    Writes ``meta_checked``, ``inline_suggestions``, ``has_results``, and
+    Writes ``enhancements_checked``, ``inline_suggestions``, ``has_results``, and
     ``has_errors``, plus a multiline ``comment`` block when ``results`` is
     non-empty and ``suggestion_note`` when inline suggestions were written.
 
     Args:
             status_file: Path to append to (for example ``$GITHUB_OUTPUT``).
-            meta_checked: Whether changed RST files were in scope for this run.
-            results: Per-file result dicts from ``ensure_meta_tags_in_file``.
+            enhancements_checked: Whether changed RST files were in scope for this run.
+            results: Per-file result dicts from ``ensure_enhancements_in_file``.
             rules: Configured metadata rules for building the review body.
             has_errors: Whether any result has unresolved error-severity fields.
 
@@ -583,7 +574,7 @@ def _write_ci_status_file(
     has_results = bool(results)
     with status_file.open("a", encoding="utf-8") as f:
         for key, flag in (
-            ("meta_checked", meta_checked),
+            ("enhancements_checked", enhancements_checked),
             ("inline_suggestions", has_inline_suggestions),
             ("has_results", has_results),
             ("has_errors", has_errors),
@@ -714,7 +705,7 @@ def emit_github_error(path: str, fields: list[str], line: int) -> None:
 
 def can_suggest_inline(content: str, pr_lines: set[int]) -> bool:
     """
-    Return whether a meta-tag edit can be anchored to the pull request diff.
+    Return whether a ``.. meta::`` edit can be anchored to the pull request diff.
 
     Existing ``.. meta::`` blocks are suggestable when the block's inclusive line
     span overlaps the diff. New blocks are only suggestable when line 1 is in
@@ -897,7 +888,7 @@ def _severity_fields(
     return [name for name in field_names if rules[name].severity == severity]
 
 
-def ensure_meta_tags_in_file(
+def ensure_enhancements_in_file(
     path: Path,
     config: EnhanceConfig | dict[str, MetaRule],
     *,
@@ -1081,7 +1072,7 @@ def build_review_comment(
     Build a pull-request review body from enhancement check results.
 
     Args:
-            results: Per-file result dictionaries from ``ensure_meta_tags_in_file``.
+            results: Per-file result dictionaries from ``ensure_enhancements_in_file``.
             rules: Configured metadata rules.
 
     Returns:
@@ -1209,7 +1200,7 @@ def build_review_comment(
 
 def main(argv: list[str] | None = None) -> int:
     """
-    Run the command-line metadata check.
+    Run the command-line documentation enhancement check.
 
     When no ``paths`` are given, ``--diff-base`` must be set so changed ``.rst``
     files are discovered with ``git diff``. With ``--status-file``, writes CI
@@ -1225,12 +1216,12 @@ def main(argv: list[str] | None = None) -> int:
             above).
 
     Raises:
-            SystemExit: If command-line arguments or metadata configuration are invalid.
+            SystemExit: If command-line arguments or enhancement configuration are invalid.
     """
     parser = argparse.ArgumentParser(
         description=(
-            "Ensure configured meta tags exist in RST files using rules from a YAML "
-            "config file."
+            "Ensure configured documentation enhancements exist in RST files "
+            "using rules from a YAML config file."
         ),
     )
     parser.add_argument(
@@ -1258,7 +1249,7 @@ def main(argv: list[str] | None = None) -> int:
         "--status-file",
         type=Path,
         help=(
-            "Write meta_checked, inline_suggestions, has_results, has_errors, "
+            "Write enhancements_checked, inline_suggestions, has_results, has_errors, "
             "the review comment body, and the suggestion note for CI"
         ),
     )
@@ -1289,7 +1280,7 @@ def main(argv: list[str] | None = None) -> int:
             if args.status_file is not None:
                 _write_ci_status_file(
                     args.status_file,
-                    meta_checked=False,
+                    enhancements_checked=False,
                     results=[],
                     rules=rules.meta,
                     has_errors=False,
@@ -1310,7 +1301,7 @@ def main(argv: list[str] | None = None) -> int:
             pr_lines: set[int] | None = None
             if args.diff_base:
                 pr_lines = pr_diff_lines_for_file(args.diff_base, path)
-            result = ensure_meta_tags_in_file(path, rules, pr_lines=pr_lines)
+            result = ensure_enhancements_in_file(path, rules, pr_lines=pr_lines)
             if result is not None:
                 results.append(result)
 
@@ -1352,7 +1343,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.status_file is not None:
         _write_ci_status_file(
             args.status_file,
-            meta_checked=checked_pull_request_rst,
+            enhancements_checked=checked_pull_request_rst,
             results=results,
             rules=rules.meta,
             has_errors=has_errors,

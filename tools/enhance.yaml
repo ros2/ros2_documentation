@@ -1,4 +1,4 @@
-# Enhancement rules for ensure_meta_tags.py.
+# Enhancement rules for ensure_enhancements.py.
 # meta: .. meta:: field rules (severity and optional default values).
 # after_title: directives inserted after the first document title.
 # Sphinx expands {PRODUCT} and {DISTRO} at build time (see conf.py).

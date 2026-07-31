@@ -45,26 +45,26 @@ test-tools:
 spellcheck:
 	git ls-files '*.md' '*.rst' | xargs codespell --config codespell.cfg
 
-ensure-meta-tags:
+ensure-enhancements:
 ifndef DIFF_BASE
 	$(error DIFF_BASE is required)
 endif
 ifndef STATUS_FILE
 	$(error STATUS_FILE is required)
 endif
-	$(PYTHON) $(TOOLS_DIR)/ensure_meta_tags.py \
+	$(PYTHON) $(TOOLS_DIR)/ensure_enhancements.py \
 	  --config $(TOOLS_DIR)/enhance.yaml \
 	  --diff-base $(DIFF_BASE) \
 	  --status-file $(STATUS_FILE)
 
-supersede-meta-tag-reviews:
+supersede-enhancement-reviews:
 ifndef PR_NUMBER
 	$(error PR_NUMBER is required)
 endif
 ifndef REPOSITORY
 	$(error REPOSITORY is required)
 endif
-	$(BASH) $(TOOLS_DIR)/supersede_meta_tag_reviews.sh
+	$(BASH) $(TOOLS_DIR)/supersede_enhancement_reviews.sh
 
 check-dictionaries:
 	@echo "Checking dictionaries..."
@@ -94,4 +94,4 @@ linkcheck:
 serve:
 	sphinx-autobuild --host $(LIVE_HOST) --port $(LIVE_PORT) -c . $(SOURCE) $(OUT)/html
 
-.PHONY: help Makefile multiversion test test-tools linkcheck serve lint spellcheck check-dictionaries sort-dictionaries ensure-meta-tags supersede-meta-tag-reviews $(MAKEFILE_LIST)
+.PHONY: help Makefile multiversion test test-tools linkcheck serve lint spellcheck check-dictionaries sort-dictionaries ensure-enhancements supersede-enhancement-reviews $(MAKEFILE_LIST)
