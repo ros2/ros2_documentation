@@ -1,6 +1,6 @@
 # Enhancement rules for ensure_enhancements.py.
 # meta: .. meta:: field rules (severity and optional default values).
-# after_title: directives inserted after the first document title.
+# after_title: mapping of directive name → rules for post-title insertion (YAML key order).
 # Sphinx expands {PRODUCT} and {DISTRO} at build time (see conf.py).
 meta:
   product:
@@ -20,13 +20,12 @@ meta:
     value:
 
 after_title:
-  - directive: short-description
+  short-description:
     severity: warning
     content: first_paragraph
-
-  - directive: showmeta
+  showmeta:
     severity: warning
     options:
-      order: "area, contentType, experience"
+      order: area, content-type, experience
     required_options:
       - order

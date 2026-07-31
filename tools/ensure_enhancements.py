@@ -2,8 +2,8 @@
 """
 Ensure configured documentation enhancements exist in RST source files.
 
-Rules are defined in ``enhance.yaml``: ``meta`` field rules for ``.. meta::``
-blocks and ``after_title`` rules for post-heading directives such as
+Rules are defined in ``enhance.yaml``: ``meta`` and ``after_title`` mappings
+for ``.. meta::`` fields and post-heading directives such as
 ``.. short-description::`` and ``.. showmeta::``.
 
 When ``--diff-base`` is set, edits are only written to disk when they overlap
@@ -86,15 +86,15 @@ class AfterTitleRule:
     """
     A single after-title directive rule from ``enhance.yaml``.
 
+    The directive name is the key in the ``after_title`` mapping (like ``meta``).
+
     Attributes:
-            directive: Directive name (e.g. ``short-description``, ``showmeta``).
             severity: Advisory ``warning`` or blocking ``error`` in CI.
             content: Content source for body directives (e.g. ``first_paragraph``).
             options: Option name/value pairs for option-only directives.
             required_options: Option names that must be non-empty when present.
     """
 
-    directive: str
     severity: Severity
     content: str | None = None
     options: dict[str, str] | None = None
@@ -106,7 +106,7 @@ class EnhanceConfig:
     """Full enhancement configuration loaded from ``enhance.yaml``."""
 
     meta: dict[str, MetaRule]
-    after_title: tuple[AfterTitleRule, ...]
+    after_title: dict[str, AfterTitleRule]
 
 
 @dataclass(frozen=True)
@@ -178,48 +178,48 @@ def _parse_meta_rules(meta: dict, config_path: Path) -> dict[str, MetaRule]:
 
 
 def _parse_after_title_rules(
-    raw_list: object,
+    raw: object,
     config_path: Path,
-) -> tuple[AfterTitleRule, ...]:
-    """Validate and parse the ``after_title`` list from config YAML."""
-    if raw_list is None:
-        return ()
-    if not isinstance(raw_list, list):
-        logger.error("Config %s: 'after_title' must be a list", config_path)
+) -> dict[str, AfterTitleRule]:
+    """Validate and parse the ``after_title`` mapping from config YAML."""
+    if raw is None:
+        return {}
+    if not isinstance(raw, dict):
+        logger.error(
+            "Config %s: 'after_title' must be a mapping keyed by directive name",
+            config_path,
+        )
         raise SystemExit(1)
 
     supported_directives = {"short-description", "showmeta"}
-    validated: list[AfterTitleRule] = []
-    for index, entry in enumerate(raw_list):
-        if not isinstance(entry, dict):
-            logger.error(
-                "Config %s: after_title[%d] must be a mapping",
-                config_path,
-                index,
-            )
-            raise SystemExit(1)
-        directive = entry.get("directive")
+    validated: dict[str, AfterTitleRule] = {}
+    for directive, entry in raw.items():
         if not isinstance(directive, str) or not directive.strip():
             logger.error(
-                "Config %s: after_title[%d] must include a non-empty 'directive'",
+                "Config %s: after_title keys must be non-empty directive names",
                 config_path,
-                index,
             )
             raise SystemExit(1)
         if directive not in supported_directives:
             logger.error(
-                "Config %s: after_title[%d] directive %r is not supported",
+                "Config %s: after_title directive %r is not supported",
                 config_path,
-                index,
+                directive,
+            )
+            raise SystemExit(1)
+        if not isinstance(entry, dict):
+            logger.error(
+                "Config %s: after_title entry for %r must be a mapping",
+                config_path,
                 directive,
             )
             raise SystemExit(1)
         severity = entry.get("severity")
         if severity not in ("warning", "error"):
             logger.error(
-                "Config %s: after_title[%d] severity must be 'warning' or 'error', got %r",
+                "Config %s: after_title entry %r severity must be 'warning' or 'error', got %r",
                 config_path,
-                index,
+                directive,
                 severity,
             )
             raise SystemExit(1)
@@ -227,9 +227,9 @@ def _parse_after_title_rules(
         content = entry.get("content")
         if content is not None and not isinstance(content, str):
             logger.error(
-                "Config %s: after_title[%d] content must be a string",
+                "Config %s: after_title entry %r content must be a string",
                 config_path,
-                index,
+                directive,
             )
             raise SystemExit(1)
 
@@ -238,18 +238,18 @@ def _parse_after_title_rules(
         if raw_options is not None:
             if not isinstance(raw_options, dict):
                 logger.error(
-                    "Config %s: after_title[%d] options must be a mapping",
+                    "Config %s: after_title entry %r options must be a mapping",
                     config_path,
-                    index,
+                    directive,
                 )
                 raise SystemExit(1)
             options = {}
             for opt_key, opt_value in raw_options.items():
                 if not isinstance(opt_key, str) or not isinstance(opt_value, str):
                     logger.error(
-                        "Config %s: after_title[%d] option keys and values must be strings",
+                        "Config %s: after_title entry %r option keys and values must be strings",
                         config_path,
-                        index,
+                        directive,
                     )
                     raise SystemExit(1)
                 options[opt_key] = opt_value
@@ -259,9 +259,9 @@ def _parse_after_title_rules(
         if raw_required is not None:
             if not isinstance(raw_required, list):
                 logger.error(
-                    "Config %s: after_title[%d] required_options must be a list",
+                    "Config %s: after_title entry %r required_options must be a list",
                     config_path,
-                    index,
+                    directive,
                 )
                 raise SystemExit(1)
             required_options = tuple(str(item) for item in raw_required)
@@ -287,16 +287,13 @@ def _parse_after_title_rules(
                 )
                 raise SystemExit(1)
 
-        validated.append(
-            AfterTitleRule(
-                directive=directive,
-                severity=severity,
-                content=content,
-                options=options,
-                required_options=required_options,
-            ),
+        validated[directive] = AfterTitleRule(
+            severity=severity,
+            content=content,
+            options=options,
+            required_options=required_options,
         )
-    return tuple(validated)
+    return validated
 
 
 def load_enhance_config(config_path: Path) -> EnhanceConfig:
@@ -749,11 +746,11 @@ def can_suggest_after_title_inline(
     return _span_overlaps(after_title_directives_line_span(content), pr_lines)
 
 
-def _after_title_rule_satisfied(content: str, rule: AfterTitleRule) -> bool:
+def _after_title_rule_satisfied(content: str, directive: str, rule: AfterTitleRule) -> bool:
     """Return whether an after-title rule is already satisfied in ``content``."""
-    if rule.directive == "short-description":
+    if directive == "short-description":
         return has_short_description_content(content)
-    if rule.directive == "showmeta":
+    if directive == "showmeta":
         return has_showmeta_with_order(content)
     return True
 
@@ -773,7 +770,7 @@ def _format_short_description_snippet(paragraph: str) -> str:
 def _process_after_title_rules(
     path: Path,
     content: str,
-    after_title_rules: tuple[AfterTitleRule, ...],
+    after_title_rules: dict[str, AfterTitleRule],
     *,
     pr_lines: set[int] | None,
 ) -> tuple[str, dict[str, object]]:
@@ -783,7 +780,11 @@ def _process_after_title_rules(
     Returns:
             Updated content and a dict of after-title result fields.
     """
-    unresolved_rules = [rule for rule in after_title_rules if not _after_title_rule_satisfied(content, rule)]
+    unresolved_rules = [
+        (directive, rule)
+        for directive, rule in after_title_rules.items()
+        if not _after_title_rule_satisfied(content, directive, rule)
+    ]
     if not unresolved_rules:
         return content, {}
 
@@ -795,16 +796,16 @@ def _process_after_title_rules(
     suggestable = False
     snippet_only = False
 
-    for rule in unresolved_rules:
+    for directive, rule in unresolved_rules:
         paragraph_span: tuple[int, int] | None = None
-        if rule.directive == "short-description":
+        if directive == "short-description":
             paragraph, paragraph_span = extract_first_paragraph_after_title(content)
             if paragraph is None:
-                after_title_manual.append(rule.directive)
+                after_title_manual.append(directive)
                 if rule.severity == "error":
-                    after_title_error.append(rule.directive)
+                    after_title_error.append(directive)
                 else:
-                    after_title_warning.append(rule.directive)
+                    after_title_warning.append(directive)
                 continue
 
             can_suggest = pr_lines is None or can_suggest_after_title_inline(
@@ -818,21 +819,21 @@ def _process_after_title_rules(
                 new_content, changed = wrap_first_paragraph_as_short_description(content)
                 if changed:
                     content = new_content
-                    after_title_auto.append(rule.directive)
+                    after_title_auto.append(directive)
                     suggestable = True
                     if rule.severity == "error":
-                        after_title_error.append(rule.directive)
+                        after_title_error.append(directive)
                     else:
-                        after_title_warning.append(rule.directive)
+                        after_title_warning.append(directive)
             else:
-                after_title_snippets.append({"directive": rule.directive, "snippet": snippet_text})
+                after_title_snippets.append({"directive": directive, "snippet": snippet_text})
                 snippet_only = True
                 if rule.severity == "error":
-                    after_title_error.append(rule.directive)
+                    after_title_error.append(directive)
                 else:
-                    after_title_warning.append(rule.directive)
+                    after_title_warning.append(directive)
 
-        elif rule.directive == "showmeta":
+        elif directive == "showmeta":
             assert rule.options is not None
             can_suggest = pr_lines is None or can_suggest_after_title_inline(content, pr_lines)
             snippet_text = format_showmeta_block(rule.options)
@@ -841,19 +842,19 @@ def _process_after_title_rules(
                 new_content, changed = inject_showmeta_to_content(content, rule.options)
                 if changed:
                     content = new_content
-                    after_title_auto.append(rule.directive)
+                    after_title_auto.append(directive)
                     suggestable = True
                     if rule.severity == "error":
-                        after_title_error.append(rule.directive)
+                        after_title_error.append(directive)
                     else:
-                        after_title_warning.append(rule.directive)
+                        after_title_warning.append(directive)
             else:
-                after_title_snippets.append({"directive": rule.directive, "snippet": snippet_text})
+                after_title_snippets.append({"directive": directive, "snippet": snippet_text})
                 snippet_only = True
                 if rule.severity == "error":
-                    after_title_error.append(rule.directive)
+                    after_title_error.append(directive)
                 else:
-                    after_title_warning.append(rule.directive)
+                    after_title_warning.append(directive)
 
     if not (after_title_auto or after_title_manual or after_title_snippets):
         return content, {}
@@ -915,7 +916,7 @@ def ensure_enhancements_in_file(
             UnicodeError: If the RST file cannot be decoded or encoded as UTF-8.
     """
     if isinstance(config, dict):
-        enhance_config = EnhanceConfig(meta=config, after_title=())
+        enhance_config = EnhanceConfig(meta=config, after_title={})
     else:
         enhance_config = config
     rules = enhance_config.meta
@@ -925,9 +926,9 @@ def ensure_enhancements_in_file(
 
     unresolved = _unresolved_fields(content, rules)
     after_title_unresolved = [
-        rule
-        for rule in enhance_config.after_title
-        if not _after_title_rule_satisfied(content, rule)
+        directive
+        for directive, rule in enhance_config.after_title.items()
+        if not _after_title_rule_satisfied(content, directive, rule)
     ]
 
     if not unresolved and not after_title_unresolved:

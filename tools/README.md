@@ -44,21 +44,22 @@ meta:
 
 `{PRODUCT}` and `{DISTRO}` are Sphinx substitution macros expanded at build time from [`conf.py`](../conf.py).
 
-The `after_title` section lists directives inserted after the first document title, in order:
+The `after_title` section maps directive names to rules, in the order they are inserted after the first document title (same shape as `meta`):
 
 ```yaml
 after_title:
-  - directive: short-description
+  short-description:
     severity: warning
     content: first_paragraph
-
-  - directive: showmeta
+  showmeta:
     severity: warning
     options:
-      order: "area, contentType, experience"
+      order: area, content-type, experience
     required_options:
       - order
 ```
+
+The `:order:` value lists `.. meta::` field names and must match the `meta` section (e.g. `content-type`, not `contentType`).
 
 For `short-description`, the tool wraps the first prose paragraph after the title into the directive (removing it from the body). For `showmeta`, it inserts the directive with the configured `:order:` option when missing.
 
@@ -207,7 +208,14 @@ Low-level utilities for locating and editing Sphinx directives in RST source:
 
 #### Extending configuration
 
-Add a new key under `meta` in [`enhance.yaml`](enhance.yaml) to extend metadata coverage without changing Python code. Add entries to `after_title` for additional post-heading directives supported by the tooling.
+Add a new key under `meta` in [`enhance.yaml`](enhance.yaml) to extend metadata coverage without changing Python code. `_parse_meta_rules` accepts any key with `severity` and `value`, and the rest of the pipeline (unresolved-field detection, auto-injection, annotations, review sections) is driven entirely by that mapping.
+
+`after_title` is only partly config-driven. Its mapping shape lets you reorder or retune the two existing directives (`short-description`, `showmeta`) from YAML alone — but `_parse_after_title_rules` whitelists `supported_directives = {"short-description", "showmeta"}`, so adding a *new* after-title directive needs Python changes:
+
+1. Add the name to `supported_directives` and its directive-specific validation in `_parse_after_title_rules`.
+2. Extend `_after_title_rule_satisfied` with an "already present" check for the new directive.
+3. Extend `_process_after_title_rules` to inject content or produce a copy-paste snippet for it.
+4. Add matching read/write/format helpers to [`rst_utils.py`](rst_utils.py) — see `has_showmeta_with_order`, `inject_showmeta_to_content`, and `format_showmeta_block` for the `showmeta` example.
 
 ### CLI options & Makefile targets
 

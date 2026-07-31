@@ -151,7 +151,7 @@ class TestShowmetaHelpers(unittest.TestCase):
         ).lstrip()
         updated, changed = inject_showmeta_to_content(
             content,
-            {"order": "area, contentType, experience"},
+            {"order": "area, content-type, experience"},
         )
         self.assertTrue(changed)
         self.assertTrue(has_showmeta_with_order(updated))
@@ -191,15 +191,15 @@ class TestShowmetaHelpers(unittest.TestCase):
         ).lstrip()
         updated, changed = inject_showmeta_to_content(
             content,
-            {"order": "area, contentType, experience"},
+            {"order": "area, content-type, experience"},
         )
         self.assertFalse(changed)
         self.assertEqual(updated, content)
 
     def test_format_showmeta_block(self) -> None:
-        block = format_showmeta_block({"order": "area, contentType, experience"})
+        block = format_showmeta_block({"order": "area, content-type, experience"})
         self.assertIn(".. showmeta::", block)
-        self.assertIn(":order: area, contentType, experience", block)
+        self.assertIn(":order: area, content-type, experience", block)
 
 
 if __name__ == "__main__":

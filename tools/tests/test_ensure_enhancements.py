@@ -58,31 +58,29 @@ SAMPLE_CONFIG = textwrap.dedent(
         severity: warning
         value:
     after_title:
-      - directive: short-description
+      short-description:
         severity: warning
         content: first_paragraph
-      - directive: showmeta
+      showmeta:
         severity: warning
         options:
-          order: "area, contentType, experience"
+          order: area, content-type, experience
         required_options:
           - order
     """
 ).strip()
 
-AFTER_TITLE_RULES = (
-    AfterTitleRule(
-        directive="short-description",
+AFTER_TITLE_RULES = {
+    "short-description": AfterTitleRule(
         severity="warning",
         content="first_paragraph",
     ),
-    AfterTitleRule(
-        directive="showmeta",
+    "showmeta": AfterTitleRule(
         severity="warning",
-        options={"order": "area, contentType, experience"},
+        options={"order": "area, content-type, experience"},
         required_options=("order",),
     ),
-)
+}
 
 META_ONLY_CONFIG = textwrap.dedent(
     """
@@ -125,8 +123,12 @@ class TestEnhanceConfig(unittest.TestCase):
         finally:
             path.unlink()
         self.assertEqual(len(config.after_title), 2)
-        self.assertEqual(config.after_title[0].directive, "short-description")
-        self.assertEqual(config.after_title[1].directive, "showmeta")
+        self.assertEqual(list(config.after_title.keys()), ["short-description", "showmeta"])
+        self.assertEqual(config.after_title["short-description"].content, "first_paragraph")
+        self.assertEqual(
+            config.after_title["showmeta"].options,
+            {"order": "area, content-type, experience"},
+        )
 
 
 class TestCanSuggestInline(unittest.TestCase):
@@ -272,7 +274,7 @@ class TestAfterTitleEnhancements(unittest.TestCase):
             updated = path.read_text(encoding="utf-8")
             self.assertIn(".. short-description::", updated)
             self.assertIn(".. showmeta::", updated)
-            self.assertIn(":order: area, contentType, experience", updated)
+            self.assertIn(":order: area, content-type, experience", updated)
             self.assertIn("Opening paragraph for the page.", updated)
             self.assertIn("More content.", updated)
 
@@ -496,7 +498,7 @@ class TestCiStatusOutputs(unittest.TestCase):
                Summary for the page.
 
             .. showmeta::
-               :order: area, contentType, experience
+               :order: area, content-type, experience
             """
         ).lstrip()
         status = self._run_with_status_file(content)
