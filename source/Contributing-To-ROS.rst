@@ -115,8 +115,6 @@ If you are a more experienced contributor, you can prioritize issues, identify r
 
    * `General ROS issue tracker <https://github.com/ros2/ros2/issues>`_
 
-   * (LINK TO WAFFLE TO BE PROVIDED)
-
 2. Triage the issue.
 
    More information is in <Placeholder link to new "Triaging an issue" article>
@@ -156,7 +154,7 @@ If you are a more experienced contributor, you can help shape design decisions, 
 
 **Ready to contribute?**
 
-* Join an ongoing discussion, and share your thoughts: `Open Robotics Discourse <https://discourse.openrobotics.org/c/ros/111/>`__
+* Join an ongoing discussion, and share your thoughts: `Open Robotics Discourse <https://discourse.openrobotics.org/c/ros/111/>`_
 
 Suggest a feature
 ^^^^^^^^^^^^^^^^^
@@ -175,11 +173,11 @@ Don't forget to check the existing list of requests first!
    * `Future ROS releases idea list <https://docs.ros.org/en/{DISTRO}/The-ROS2-Project/Feature-Ideas.html>`_
 
    *  Enhancement issues on GitHub.
-      For example, take a look at this `list of enhancement requests <https://github.com/ros2/ros2/issues?q=state%3Aopen%20label%3Aenhancement>`_.
+      For example, take a look at the project list, where you can `view project enhancement requests <https://github.com/orgs/ros2/projects?query=is%3Aopen>`_
 
-2. Talk to the community about your suggested enhancement in the `ROS Ideas category at Discourse <https://discourse.openrobotics.org/c/ros/ros-ideas/114>`__.
+2. Talk to the community about your suggested enhancement in the `ROS Ideas category at Discourse <https://discourse.openrobotics.org/c/ros/ros-ideas/114>`__
 
-3. Submit an enhancement suggestion as an issue on the appropriate repository, or, for more significant ideas (and when recommended to do so in discussion about your idea), `submit a new REP <https://reps.openrobotics.org/rep-0001-2025/>`_.
+3. Submit an enhancement suggestion as an issue on the appropriate repository, or, for more significant ideas (and when recommended to do so in discussion about your idea), `submit a new REP <https://reps.openrobotics.org/rep-0001-2025/>`_
 
    More information on submitting an issue is in <Placeholder link to new "Reporting an issue" article>.
 
@@ -224,13 +222,13 @@ A Committer can merge pull requests, while a PMC Member helps guide the overall 
 Each core repository in the ROS project has Committers who are responsible for that repository.
 Becoming a committer of one or more of those repositories is a process based on mentorship.
 The process begins with an existing PMC Member inviting you to be mentored, or you volunteering and finding a PMC Member willing to mentor you.
-For full and current details of the process, please see the `ROS Project Charter <https://github.com/openrobotics/osra-policies-and-procedures/blob/main/ros_project_charter.md#article-7-committer>`_.
+For full and current details of the process, please see the `ROS Project Charter <https://github.com/openrobotics/osra-policies-and-procedures/blob/main/ros_project_charter.md#article-7-committer>`_
 Generally, you will need to have demonstrated a sustained period of making contributions such as reviewing PRs and submitting PRs before someone is likely to invest time into mentoring you.
 Approximately every 3 months, the ROS team will review the contributions in all of the repositories and send out invitations to new maintainers.
 Once the invitation is accepted, the new maintainer will be asked to go through a short training process on the mechanisms and policies of the ROS repositories.
 After that training process is completed, the new maintainer will be given write access to the appropriate repositories.
 
-* Guidance for maintainers: `ROS Core Maintainer Guide <https://docs.ros.org/en/{DISTRO}/How-To-Guides/Core-maintainer-guide.html>`_
+* Guidance for maintainers: `ROS Core Maintainer Guide <https://docs.ros.org/en/rolling/How-To-Guides/Core-maintainer-guide.html>`_
 
 Contribute to documentation
 ---------------------------
@@ -258,7 +256,7 @@ More experienced contributors can improve and expand documentation.
 
 1. Read our documentation contribution guidelines: <Placeholder link to updated contribution to docs article>.
 
-2. Browse the documentation issue list, and choose an issue to fix: `ROS documentation issue tracker <https://github.com/ros2/ros2_documentation/issues>`_.
+2. Browse the documentation issue list, and choose an issue to fix: `ROS documentation issue tracker <https://github.com/ros2/ros2_documentation/issues>`_
 
 3. Update the documentation to fix the issue.
 
@@ -317,7 +315,7 @@ Here are some ways you can join in:
 
 * Host an online community group event: `Fill in the form to add your event to the calendar <https://bit.ly/OSRFCalendarForm/>`_
 
-  You can also ask for help with hosting an event on `Zulip <https://openrobotics.zulipchat.com/>`_ or `Discourse <https://discourse.openrobotics.org/>`_
+  You can also ask for help with hosting an event on `Zulip <https://openrobotics.zulipchat.com/#narrow/channel/526027-ROS-General>`_ or `Discourse <https://discourse.openrobotics.org/>`_
 
 * Host a local meet-up: `Fill in the form to add your event to the calendar <https://bit.ly/OSRFCalendarForm/>`_
 
@@ -325,7 +323,7 @@ Here are some ways you can join in:
 
 * Join discussion groups and chats:
 
-    * `Discussions <https://discourse.openrobotics.org/c/ros/111>`__
+    * `Discussions <https://discourse.openrobotics.org/c/ros/111>`_
 
     * `Developer chat <https://openrobotics.zulipchat.com/>`_
 
