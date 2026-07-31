@@ -226,8 +226,77 @@ pagefind-filter-pane[hidden] {
 .ros2-pagefind-search .pf-result-preview,
 #ros-search-page .pf-result-excerpt,
 #ros-search-page .pf-result-preview {
-  font-size: 0.85rem;
-  line-height: 1.35;
+  font-size: var(--pf-result-excerpt-font-size, 13px);
+  line-height: 1.4;
+  font-weight: 400;
+  color: var(--pf-text-secondary, rgba(0, 0, 0, 0.7));
+}
+
+/* Keep nested excerpt markup (lists, code, leftover spans) visually flat. */
+.ros2-pagefind-search .pf-result-excerpt :where(p, li, ul, ol, span, code, pre, strong, em, b, i),
+.ros2-pagefind-search .pf-result-preview :where(p, li, ul, ol, span, code, pre, strong, em, b, i),
+#ros-search-page .pf-result-excerpt :where(p, li, ul, ol, span, code, pre, strong, em, b, i),
+#ros-search-page .pf-result-preview :where(p, li, ul, ol, span, code, pre, strong, em, b, i) {
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+}
+
+.ros2-pagefind-search .pf-result-excerpt ul,
+.ros2-pagefind-search .pf-result-preview ul,
+#ros-search-page .pf-result-excerpt ul,
+#ros-search-page .pf-result-preview ul {
+  list-style-type: disc !important;
+  list-style-position: outside !important;
+  margin: 0.25rem 0 0;
+  padding-left: 1.35rem;
+}
+
+.ros2-pagefind-search .pf-result-excerpt ol,
+.ros2-pagefind-search .pf-result-preview ol,
+#ros-search-page .pf-result-excerpt ol,
+#ros-search-page .pf-result-preview ol {
+  list-style-type: decimal !important;
+  list-style-position: outside !important;
+  margin: 0.25rem 0 0;
+  padding-left: 1.35rem;
+}
+
+.ros2-pagefind-search .pf-result-excerpt li,
+.ros2-pagefind-search .pf-result-preview li,
+#ros-search-page .pf-result-excerpt li,
+#ros-search-page .pf-result-preview li {
+  display: list-item !important;
+  list-style: inherit !important;
+  margin: 0.1rem 0;
+}
+
+.ros2-pagefind-search .pf-result-excerpt ul ul,
+.ros2-pagefind-search .pf-result-preview ul ul,
+#ros-search-page .pf-result-excerpt ul ul,
+#ros-search-page .pf-result-preview ul ul {
+  list-style-type: circle !important;
+  margin-top: 0.1rem;
+}
+
+.ros2-pagefind-search .pf-result-excerpt li > p,
+.ros2-pagefind-search .pf-result-preview li > p,
+#ros-search-page .pf-result-excerpt li > p,
+#ros-search-page .pf-result-preview li > p {
+  margin: 0;
+  display: inline;
+}
+
+.ros2-pagefind-search .pf-result-excerpt > p.topic-title,
+.ros2-pagefind-search .pf-result-preview > p.topic-title,
+#ros-search-page .pf-result-excerpt > p.topic-title,
+#ros-search-page .pf-result-preview > p.topic-title {
+  margin: 0 0 0.15rem;
+  font-weight: inherit;
 }
 
 .ros2-pagefind-search .pf-result-meta-block,

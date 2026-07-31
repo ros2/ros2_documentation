@@ -1,10 +1,16 @@
 # Pagefind CLI indexing options (loaded when running `make pagefind` from repo root).
 # Sphinx also reads this file; the Pagefind CLI ignores keys it does not recognize.
+#
+# Whole-page exclusions: redirect stubs omit data-pagefind-body (see
+# source/_templates/layout.html). Once any page has that attribute, Pagefind
+# indexes only pages that include it.
 
 # Exclude Sphinx heading permalink anchors from the search index.
 # Without this, Pagefind title metadata includes the headerlink glyph ().
 exclude_selectors:
   - a.headerlink
+  # Keep contents lists searchable/indexable, but do not lead excerpts with the label.
+  - p.topic-title
 
 # Sphinx-only: order + labels for search result metadata and facet sidebar.
 # Keys must match .. meta:: field names on each page.

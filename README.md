@@ -124,9 +124,24 @@ Plain `make html` and `make multiversion` do **not** run Pagefind (Node.js is on
 
 This requires **Node.js** (for `npx`). Pin the CLI with `PAGEFIND_VERSION` in the Makefile if needed.
 
-CLI indexing options (including excluding Sphinx `a.headerlink` anchors so search result titles stay clean) are in [`pagefind.yml`](pagefind.yml) at the repo root.
+#### What search includes
 
-The same file defines **`search_result_meta`**: an ordered map of `.. meta::` field names to display labels for search result cards and the facet sidebar. Sphinx reads this at build time (`plugins/pagefind_config.py`); the Pagefind CLI ignores keys it does not recognize.
+Pagefind uses an opt-in body marker (`data-pagefind-body` on the article body in [`source/_templates/layout.html`](source/_templates/layout.html)). Once that attribute exists on the site, only pages that have it are indexed.
+
+**Included**
+
+- Real documentation pages (content inside `articleBody`)
+- Page titles and body text used for matching and result excerpts
+- `.. meta::` fields listed under **`search_result_meta`** in [`pagefind.yml`](pagefind.yml): shown on result cards and used as facet filters in the sidebar (Sphinx emits `data-pagefind-filter` / `data-pagefind-meta` via `plugins/pagefind_meta.py`)
+
+**Excluded**
+
+- Redirect stubs from `.. redirect-from::` (they omit `data-pagefind-body` so they do not appear as empty or duplicate hits)
+- Sphinx heading permalink anchors (`a.headerlink`), so titles stay clean
+- `p.topic-title` (“Table of Contents” labels) from the indexed lead-in; contents lists themselves remain searchable
+- In-page `.. showmeta::` summaries (`data-pagefind-ignore`), so metadata is not double-indexed as body text
+
+CLI indexing options live in [`pagefind.yml`](pagefind.yml). Sphinx also reads that file for **`search_result_meta`** (ordered field → label map) and **`always_show_filters`** (facet keys that always appear in the sidebar). The Pagefind CLI ignores keys it does not recognize.
 
 The production [Jenkins doc job](https://build.ros.org/job/doc_ros2doc) should run the same `pagefind` step on `build/html` after Sphinx so deployed pages include the search bundle.
 
