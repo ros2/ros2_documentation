@@ -1,12 +1,12 @@
 # ROS 2 Documentation
 
 This repository contains the sources for the ROS 2 documentation that is hosted at [https://docs.ros.org/en](https://docs.ros.org/en).
-The sources from this repository are built and uploaded to the site nightly by a [Jenkins job](https://build.ros.org/job/doc_ros2doc).
+The sources from this repository are built and uploaded to the site nightly by a [Jenkins job](https://build.ros2.org/job/doc_ros2doc/).
 
 ## Contributing to the documentation
 
 Contributions to this site are most welcome.
-Please see the [Contributing to ROS 2 Documentation](https://docs.ros.org/en/rolling/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.html) page to learn more.
+Please see the [Contributing to ROS 2 Documentation](https://docs.ros.org/en/rolling/The-ROS2-Project/Contributing/Contributing-to-documentation.html) page to learn more.
 
 ## Contributing to ROS 2
 
@@ -91,6 +91,23 @@ To test building the multisite version deployed to the website use:
 `sensible-browser build/html/rolling/index.html`
 
 **NB:** This will ignore local workspace changes and build from the branches.
+
+### Faster (parallel) builds
+
+Both `make html` and `make multiversion` build Sphinx in parallel by default,
+using one worker per CPU core (Sphinx's `-j auto`). This is handled inside
+Sphinx, so it works the same on Linux, macOS, and Windows — note that a plain
+`make -j` does **not** help, because each build is a single Sphinx invocation.
+
+To pin the number of workers instead of auto-detecting, set `JOBS`:
+
+```
+make html JOBS=8
+make multiversion JOBS=8
+```
+
+**NB:** For `make multiversion`, `JOBS` parallelizes the work *within* each
+branch's build; the branches themselves are still built one after another.
 
 ### Note for Windows (WSL) Users
 
