@@ -271,6 +271,7 @@ Some practices are common to all ROS 2 development.
 
 These practices don't affect package quality level as described in `REP 2004 <https://reps.openrobotics.org/rep-2004/>`_, but are still highly recommended for the development process.
 
+<<<<<<< HEAD
 Issues
 ^^^^^^
 
@@ -304,6 +305,8 @@ When filing an issue please make sure to:
   - Trying with a different RMW implementation.
     See `this page <../../How-To-Guides/Working-with-multiple-RMW-implementations>` for how to do that.
 
+=======
+>>>>>>> bf9db741 (3di | Triaging and reporting an issue (#6901))
 Branches
 ^^^^^^^^
 
