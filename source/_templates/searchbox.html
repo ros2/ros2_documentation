@@ -344,15 +344,215 @@
     return '';
   }
 
+  const EXCERPT_MAX_CHARS = 150;
+
+  function normalizeReadable(text) {
+    return (text || '').replace(/\s+/g, ' ').trim();
+  }
+
   function trimTo150(text) {
-    const normalized = (text || '').replace(/\s+/g, ' ').trim();
+    const normalized = normalizeReadable(text);
     if (!normalized) {
       return '';
     }
-    if (normalized.length <= 150) {
+    if (normalized.length <= EXCERPT_MAX_CHARS) {
       return normalized;
     }
-    return `${normalized.slice(0, 150).trimEnd()}...`;
+    return `${normalized.slice(0, EXCERPT_MAX_CHARS).trimEnd()}...`;
+  }
+
+  function isTopicTitleParagraph(el) {
+    if (!(el instanceof HTMLElement) || el.tagName !== 'P') {
+      return false;
+    }
+    if (el.classList.contains('topic-title')) {
+      return true;
+    }
+    return /^table of contents$/i.test(normalizeReadable(el.textContent));
+  }
+
+  function unwrapElement(el) {
+    const parent = el.parentNode;
+    if (!parent) {
+      el.remove();
+      return;
+    }
+    while (el.firstChild) {
+      parent.insertBefore(el.firstChild, el);
+    }
+    el.remove();
+  }
+
+  function sanitizeExcerptNode(root) {
+    const clone = root.cloneNode(true);
+    clone.querySelectorAll('a.headerlink, script, style').forEach((node) => node.remove());
+    // Keep link text, but do not render anchors inside result excerpts.
+    clone.querySelectorAll('a').forEach((anchor) => unwrapElement(anchor));
+    clone.querySelectorAll('*').forEach((el) => {
+      for (const attr of [...el.attributes]) {
+        if (attr.name.startsWith('on') || attr.name === 'style' || attr.name === 'class') {
+          el.removeAttribute(attr.name);
+        }
+      }
+    });
+    return clone;
+  }
+
+  function truncatePlainText(text, max) {
+    const normalized = normalizeReadable(text);
+    if (!normalized) {
+      return { text: '', used: 0, truncated: false };
+    }
+    if (normalized.length <= max) {
+      return { text: normalized, used: normalized.length, truncated: false };
+    }
+    return {
+      text: `${normalized.slice(0, max).trimEnd()}...`,
+      used: max,
+      truncated: true,
+    };
+  }
+
+  function appendListWithinBudget(listEl, budget) {
+    if (budget <= 0 || !(listEl instanceof HTMLElement)) {
+      return { html: '', used: 0, truncated: false };
+    }
+    const out = document.createElement(listEl.tagName);
+    let used = 0;
+    let truncated = false;
+    for (const child of listEl.children) {
+      if (child.tagName !== 'LI') {
+        continue;
+      }
+      if (used >= budget) {
+        truncated = true;
+        break;
+      }
+      const liText = normalizeReadable(child.textContent);
+      if (!liText) {
+        continue;
+      }
+      const remaining = budget - used;
+      if (liText.length <= remaining) {
+        out.appendChild(sanitizeExcerptNode(child));
+        used += liText.length;
+      } else {
+        const liOut = document.createElement('li');
+        const p = document.createElement('p');
+        p.textContent = `${liText.slice(0, remaining).trimEnd()}...`;
+        liOut.appendChild(p);
+        out.appendChild(liOut);
+        used = budget;
+        truncated = true;
+        break;
+      }
+    }
+    if (!out.children.length) {
+      return { html: '', used: 0, truncated: false };
+    }
+    return { html: out.outerHTML, used, truncated };
+  }
+
+  function buildArticleBodyExcerptHtml(body) {
+    if (!(body instanceof HTMLElement)) {
+      return '';
+    }
+    const max = EXCERPT_MAX_CHARS;
+    let used = 0;
+    const parts = [];
+
+    const walker = body.ownerDocument.createTreeWalker(body, NodeFilter.SHOW_ELEMENT, {
+      acceptNode(node) {
+        if (!(node instanceof HTMLElement)) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        const tag = node.tagName;
+        if (tag === 'P') {
+          if (node.closest('li') || node.classList.contains('ros-page-meta-summary')) {
+            return NodeFilter.FILTER_REJECT;
+          }
+          return NodeFilter.FILTER_ACCEPT;
+        }
+        if (tag === 'UL' || tag === 'OL') {
+          // Nested lists are included via their parent <li>; only walk outer lists.
+          if (node.parentElement && node.parentElement.closest('li')) {
+            return NodeFilter.FILTER_REJECT;
+          }
+          return NodeFilter.FILTER_ACCEPT;
+        }
+        return NodeFilter.FILTER_SKIP;
+      },
+    });
+
+    let node;
+    while ((node = walker.nextNode())) {
+      if (used >= max) {
+        break;
+      }
+      const remaining = max - used;
+
+      if (node.tagName === 'P') {
+        const raw = normalizeReadable(node.textContent);
+        if (!raw || looksLikeIndexedMetaExcerpt(raw)) {
+          continue;
+        }
+        const topic = isTopicTitleParagraph(node);
+        const clipped = truncatePlainText(raw, remaining);
+        const p = document.createElement('p');
+        if (topic) {
+          p.className = 'topic-title';
+        }
+        p.textContent = clipped.text;
+        parts.push(p.outerHTML);
+        used += clipped.used;
+        // Topic titles (e.g. "Table of Contents") and other short lead-ins:
+        // keep collecting following siblings such as the contents <ul>.
+        if (topic || (!clipped.truncated && used < max)) {
+          continue;
+        }
+        break;
+      }
+
+      if (node.tagName === 'UL' || node.tagName === 'OL') {
+        const listResult = appendListWithinBudget(node, remaining);
+        if (listResult.html) {
+          parts.push(listResult.html);
+          used += listResult.used;
+        }
+        if (used >= max || listResult.truncated) {
+          break;
+        }
+      }
+    }
+
+    return parts.join('');
+  }
+
+  function applyResolvedExcerpt(excerptEl, html) {
+    if (!(excerptEl instanceof HTMLElement) || !html) {
+      return excerptEl;
+    }
+    let host = excerptEl;
+    const hasBlockList = /<(ul|ol)\b/i.test(html);
+    if (hasBlockList && host.tagName === 'P') {
+      const div = document.createElement('div');
+      div.className = host.className || 'pf-result-excerpt';
+      for (const attr of host.attributes) {
+        if (attr.name === 'class') {
+          continue;
+        }
+        div.setAttribute(attr.name, attr.value);
+      }
+      host.replaceWith(div);
+      host = div;
+    }
+    if (/<[a-z][\s\S]*>/i.test(html)) {
+      host.innerHTML = html;
+    } else {
+      host.textContent = html;
+    }
+    host.dataset.articleBodyExcerpt = '1';
+    return host;
   }
 
   async function readArticleBodyExcerpt(href) {
@@ -374,21 +574,7 @@
         if (!body) {
           return '';
         }
-        const paras = body.querySelectorAll('p');
-        for (const p of paras) {
-          if (p.classList.contains('ros-page-meta-summary')) {
-            continue;
-          }
-          const raw = (p.textContent || '').replace(/\s+/g, ' ').trim();
-          if (!raw) {
-            continue;
-          }
-          if (looksLikeIndexedMetaExcerpt(raw)) {
-            continue;
-          }
-          return trimTo150(raw);
-        }
-        return '';
+        return buildArticleBodyExcerptHtml(body);
       })
       .catch(() => '');
 
@@ -806,16 +992,22 @@
     if (excerpt && !decoratedExcerptItems.has(resultItem) && excerpt.dataset.articleBodyExcerpt !== '1') {
       decoratedExcerptItems.add(resultItem);
       const resolved = await readArticleBodyExcerpt(href);
-      const current = (excerpt.textContent || '').replace(/\s+/g, ' ').trim();
+      const current = normalizeReadable(excerpt.textContent);
       if (resolved) {
-        excerpt.textContent = resolved;
+        applyResolvedExcerpt(excerpt, resolved);
       } else if (looksLikeIndexedMetaExcerpt(current)) {
         const stripped = stripLeadingMetaDumpFromExcerpt(current);
-        excerpt.textContent = stripped && !looksLikeIndexedMetaExcerpt(stripped) ? trimTo150(stripped) : '';
+        const fallback =
+          stripped && !looksLikeIndexedMetaExcerpt(stripped) ? trimTo150(stripped) : '';
+        if (fallback) {
+          applyResolvedExcerpt(excerpt, fallback);
+        } else {
+          excerpt.dataset.articleBodyExcerpt = '1';
+          excerpt.textContent = '';
+        }
       } else {
-        excerpt.textContent = trimTo150(current);
+        applyResolvedExcerpt(excerpt, trimTo150(current));
       }
-      excerpt.dataset.articleBodyExcerpt = '1';
     }
   }
 

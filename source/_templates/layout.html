@@ -6,3 +6,19 @@
   {{ pagefind_seo_filter_metas|safe }}
   {% endif %}
 {% endblock %}
+
+{#
+  Pagefind indexes only pages that contain data-pagefind-body (site-wide opt-in).
+  Redirect stubs from ``.. redirect-from::`` set skip_sitemap='redirect' and must
+  omit this attribute so they do not appear as empty/duplicate search hits.
+#}
+{% block document %}
+  <div itemprop="articleBody"{% if skip_sitemap != 'redirect' %} data-pagefind-body{% endif %}>
+    {% block body %}{% endblock %}
+  </div>
+  {%- if self.comments()|trim %}
+    <div class="articleComments">
+      {%- block comments %}{% endblock %}
+    </div>
+  {%- endif %}
+{% endblock %}
