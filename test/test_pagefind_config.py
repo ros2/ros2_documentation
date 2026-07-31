@@ -29,11 +29,9 @@ def test_load_search_result_meta_order_missing_file_returns_empty() -> None:
 def test_load_always_show_filters_from_repo_pagefind_yml() -> None:
     confdir = str(Path(__file__).resolve().parent.parent)
     keys = load_always_show_filters(confdir)
-    assert 'product' in keys
-    assert 'distribution' in keys
-    assert 'experience' in keys
+    assert keys == ['distribution', 'area', 'contentType', 'experience']
     # Only search_result_meta keys are kept; order follows always_show_filters.
-    assert keys.index('product') < keys.index('experience')
+    assert keys.index('distribution') < keys.index('experience')
 
 
 def test_load_always_show_filters_missing_file_returns_empty() -> None:

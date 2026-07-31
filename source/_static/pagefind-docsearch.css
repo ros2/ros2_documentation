@@ -215,21 +215,85 @@ pagefind-filter-pane[hidden] {
   margin-bottom: 0.75rem;
 }
 
-.ros2-pagefind-search .pf-result-link,
-#ros-search-page .pf-result-link {
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.25;
+/*
+  Result cards: keep the page background by default. Separate with a thin
+  centered rule (80% width); darker fill + card chrome on hover / selection.
+  !important beats pagefind-component-ui.css (loaded after this file).
+*/
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-results {
+  gap: 0 !important;
 }
 
-.ros2-pagefind-search .pf-result-excerpt,
-.ros2-pagefind-search .pf-result-preview,
-#ros-search-page .pf-result-excerpt,
-#ros-search-page .pf-result-preview {
-  font-size: var(--pf-result-excerpt-font-size, 13px);
-  line-height: 1.4;
-  font-weight: 400;
-  color: var(--pf-text-secondary, rgba(0, 0, 0, 0.7));
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-result-card {
+  position: relative;
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  transition:
+    background 0.15s,
+    border-color 0.15s,
+    border-radius 0.15s,
+    box-shadow 0.15s !important;
+}
+
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-result-card::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 80%;
+  height: 1px;
+  background: var(--pf-border, #e0e0e0);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-result:last-child .pf-result-card::after {
+  display: none;
+}
+
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-result-card:hover,
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-result-card:has([data-pf-selected]) {
+  background: var(--pf-hover, #f5f5f5) !important;
+  border-color: var(--pf-border-focus, #999) !important;
+  border-radius: var(--pf-border-radius, 6px) !important;
+  box-shadow: var(--pf-shadow-sm, 0 2px 8px rgba(0, 0, 0, 0.06)) !important;
+}
+
+/* Keep Pagefind's high-contrast focus ring for keyboard navigation. */
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-result-card:has(.pf-result-link:focus-visible) {
+  background: var(--pf-hover, #f5f5f5) !important;
+  border-color: var(--pf-outline-focus, #2563eb) !important;
+  border-radius: var(--pf-border-radius, 6px) !important;
+  box-shadow: 0 0 0 var(--pf-outline-width, 2px) var(--pf-outline-focus, #2563eb) !important;
+}
+
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-result-card:hover::after,
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-result-card:has(.pf-result-link:focus-visible)::after,
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-result-card:has([data-pf-selected])::after,
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-result:has(+ .pf-result .pf-result-card:hover) .pf-result-card::after,
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-result:has(+ .pf-result .pf-result-card:has(.pf-result-link:focus-visible)) .pf-result-card::after,
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-result:has(+ .pf-result .pf-result-card:has([data-pf-selected])) .pf-result-card::after {
+  display: none;
+}
+
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-result-link {
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+}
+
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-result-excerpt,
+:is(*, #\#):is(*, #\#):is(*, #\#) .pf-result-preview {
+  font-size: var(--pf-result-excerpt-font-size, 13px) !important;
+  line-height: 1.4 !important;
+  font-weight: 400 !important;
+  color: var(--pf-text-secondary, rgba(0, 0, 0, 0.7)) !important;
+  /* Allow multi-line / list excerpts from article-body injection. */
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: unset !important;
 }
 
 /* Keep nested excerpt markup (lists, code, leftover spans) visually flat. */

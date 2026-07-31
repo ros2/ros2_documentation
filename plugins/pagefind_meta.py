@@ -99,7 +99,14 @@ def _seo_and_filter_metas(app, values: Dict[str, str]) -> str:
     lines: List[str] = []
     for key in sorted(values.keys()):
         esc_name = html.escape(key, quote=True)
-        for value in split_meta_values(values.get(key, '')):
+        raw = values.get(key, '')
+        # Only facet keys are comma-split into multiple tags; SEO fields stay whole.
+        parts = (
+            split_meta_values(raw)
+            if key in facet_keys
+            else ([raw.strip()] if raw and raw.strip() else [])
+        )
+        for value in parts:
             esc_val = html.escape(value, quote=True)
             if key in facet_keys:
                 lines.append(
