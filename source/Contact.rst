@@ -33,51 +33,6 @@ If you see an issue on `Robotics Stack Exchange <https://robotics.stackexchange.
 Don't worry if you aren't sure if your response is correct.
 Simply say so, and other community members will jump in if necessary.
 
-Issues
-------
-
-If you identify bugs, have suggestions for improvements, or a question specific to one package, you can open an issue on GitHub.
-
-For example, if you are following the tutorials and come across an instruction that doesn't work on your system,
-you can open an issue in the `ros2_documentation <https://github.com/ros2/ros2_documentation>`__ repo.
-
-You can search for individual ROS 2 repositories on `ROS 2's GitHub <https://github.com/ros2>`__.
-
-Before opening an issue, check if other users have reported similar issues by searching across the ros2 and ament GitHub organizations: `example search query <https://github.com/search?q=user%3Aros2+user%3Aament+turtlesim&type=Issues>`__.
-
-Next, check `Robotics Stack Exchange <https://robotics.stackexchange.com/>`__ to see if someone else has asked your question or reported your issue.
-
-If it has not been reported, feel free to open an issue in the appropriate repository tracker.
-If it's not clear which tracker to use for a particular issue, file it in the `ros2/ros2 repository <https://github.com/ros2/ros2/issues>`__ and we'll have a look at it.
-
-When filing an issue, please make sure to:
-
-* Include enough information for another person to understand the issue.
-
-Describe exactly what you were doing or are trying to do, and exactly what, if anything, went wrong.
-If following a tutorial or online instructions provide a link to the specific instructions.
-
-* Use a descriptive headline or subject line.
-  Bad: "rviz doesn't work".
-  Good: "Rviz crashing looking for missing ``.so`` after latest apt update"
-* Include information about the exact platform, software, versions, and environment relevant to the problem.
-  This includes how you installed the software (from binaries or from source) and which ROS middleware/DDS vendor you are using (if you know it).
-* Any warnings or errors.
-  Cut and paste them directly from the terminal window to which they were printed.
-  Please do not re-type or include a screenshot.
-* In case of a bug consider providing a `short, self contained, correct (compilable), example <https://sscce.org/>`__.
-* When discussing any compiling/linking/installation issues, also provide the compiler version
-
-As appropriate, also include your:
-
-* ROS environment variables (env | grep ROS)
-* Backtraces
-* Relevant config files
-* Graphics card model and driver version
-* Ogre.log for rviz, if possible (run with rviz -l)
-* Bag files and code samples that can reproduce the problem
-* Gifs or movies to demonstrate the problem
-
 .. _Using ROS Discourse:
 
 Discussion
