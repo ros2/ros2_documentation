@@ -2,10 +2,25 @@
 
   Governance
 
+.. meta::
+   :contentType: about
+   :experience: beginner, intermediate, expert
+   :area: community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _Governance:
 
 Project Governance
 ==================
+
+.. short-description::
+   ROS governance defines how technical decisions are made and how community members can participate in project oversight.
+   This article introduces the OSRA, the Technical Governance Committee, the ROS Project Management Committee, and the meeting process used to coordinate ROS development.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2
