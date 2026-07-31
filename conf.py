@@ -206,7 +206,63 @@ html_sourcelink_suffix = ''
 
 # Relative to html_static_path
 html_css_files = ['custom.css', 'adopters.css']
-html_js_files = ['adopters.js', 'related_articles.js']
+html_js_files = [
+    ('vendor/pako.min.js', {'defer': ''}),
+    ('vendor/js-yaml.min.js', {'defer': ''}),
+    'adopters.js',
+    'related_packages.js',
+    'related_articles.js',
+]
+
+# Endpoint the browser tries first for the freshest rosdistro cache data, served
+# from the same origin as the docs. The default path,
+# /api/rosdistro-cache/{distro}-cache.yaml.gz, is an assumption. Today it is
+# provided only for local testing by tools/serve_docs_with_proxy.py. In
+# production this path does not exist yet, so the hosting layer must provide it.
+# For example, add a rewrite on the docs host that maps /api/rosdistro-cache/ to
+# repo.ros2.org/rosdistro_cache/, or add a CORS header on repo.ros2.org so the
+# browser can read that origin directly, in which case the proxy can be dropped
+# entirely. Until one of those exists, requests to this path fail and the page
+# falls back to the gzip snapshot bundled into _static at build time. Package
+# lists still work in that case, but the data is only as fresh as the last docs
+# build.
+# Override with ROS_RELATED_PACKAGES_PROXY_URL. Set it to an empty string to
+# serve the bundled _static snapshot only, with no proxy attempt.
+def _normalize_ros_related_packages_proxy_url(raw: str) -> str:
+    """Return a browser-safe proxy template.
+
+    On Windows, GNU make / MSYS (common even when the terminal is PowerShell) can
+    rewrite `/api/...` into `C:/Program Files/Git/api/...`. Recover the
+    intended path on the same origin when that happens.
+    """
+    value = (raw or '').strip()
+    if not value:
+        return ''
+
+    normalized = value.replace('\\', '/')
+    marker = '/api/rosdistro-cache/'
+    idx = normalized.find(marker)
+    if idx != -1:
+        return normalized[idx:]
+
+    if normalized.startswith('api/rosdistro-cache/'):
+        return '/' + normalized
+
+    return value
+
+
+_DEFAULT_ROS_RELATED_PACKAGES_PROXY_URL = (
+    '/api/rosdistro-cache/{distro}-cache.yaml.gz'
+)
+
+ros_related_packages_proxy_url = _normalize_ros_related_packages_proxy_url(
+    os.environ.get(
+        'ROS_RELATED_PACKAGES_PROXY_URL',
+        _DEFAULT_ROS_RELATED_PACKAGES_PROXY_URL,
+    )
+)
+
+extensions.append('ros_related_packages')
 
 # -- Options for HTMLHelp output ------------------------------------------
 
