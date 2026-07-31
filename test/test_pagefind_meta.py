@@ -91,6 +91,22 @@ def test_seo_and_filter_metas_facet_allowlist() -> None:
     assert 'pagefind-page-meta' not in html
 
 
+def test_seo_and_filter_metas_splits_facets_keeps_seo_whole() -> None:
+    app = _app({'area': 'Area'})
+    html = _seo_and_filter_metas(
+        app,
+        {
+            'area': 'framework, middleware',
+            'description': 'Alpha, beta, and gamma overview',
+        },
+    )
+    assert html.count('data-pagefind-filter="area[content]"') == 2
+    assert 'content="framework"' in html
+    assert 'content="middleware"' in html
+    assert html.count('name="description"') == 1
+    assert 'content="Alpha, beta, and gamma overview"' in html
+
+
 def test_facet_filter_keys_for_context_order_and_corpus() -> None:
     app = _app({'product': 'Product', 'area': 'Area', 'tool': 'Tool'})
     env = SimpleNamespace(

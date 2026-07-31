@@ -4,6 +4,8 @@
   const bundlePrefix = {{ pagefind_bundle_prefix|tojson }};
   const configEl = document.createElement('pagefind-config');
   configEl.setAttribute('bundle-path', new URL(bundlePrefix, document.baseURI).href);
+  // Allow filter-only searches (empty query + filters) instead of clearing results.
+  configEl.setAttribute('faceted', '');
   document.head.appendChild(configEl);
 
   const js = {{ pagefind_component_js|tojson }};
@@ -307,7 +309,7 @@
     if (!t) {
       return false;
     }
-    if (/\b(Description|Keywords|Contenttype):/i.test(t)) {
+    if (/\b(Description|Keywords|Content\s*type):/i.test(t)) {
       return true;
     }
     if (/\w+:\s*[^,|]+,\s*\w+:/.test(t)) {
@@ -652,20 +654,20 @@
     return null;
   }
 
-  function collectFilterGroups(shadowRoot) {
-    const details = [...shadowRoot.querySelectorAll('details')];
+  function collectFilterGroups(root) {
+    const details = [...root.querySelectorAll('details')];
     if (details.length) {
       return details;
     }
     const tagged = [
-      ...shadowRoot.querySelectorAll(
+      ...root.querySelectorAll(
         '[data-filter-name], [data-pf-filter], [data-filter]',
       ),
     ];
     if (tagged.length) {
       return tagged;
     }
-    return [...shadowRoot.children].filter((n) => n instanceof HTMLElement);
+    return [...root.children].filter((n) => n instanceof HTMLElement);
   }
 
   function isAlwaysShowFilterKey(key) {
@@ -678,15 +680,23 @@
     return String(key || '').trim().toUpperCase();
   }
 
+  function filterPaneRoot(pane) {
+    // Pagefind Component UI renders filters in light DOM (no shadowRoot).
+    if (!(pane instanceof HTMLElement)) {
+      return null;
+    }
+    return pane.querySelector('.pf-filter-pane') || pane;
+  }
+
   function customizeFilterPane(pane, totalFilters) {
     if (!(pane instanceof HTMLElement)) {
       return;
     }
-    const sr = pane.shadowRoot;
-    if (!sr) {
+    const root = filterPaneRoot(pane);
+    if (!root) {
       return;
     }
-    const groups = collectFilterGroups(sr);
+    const groups = collectFilterGroups(root);
     const matched = [];
     groups.forEach((group) => {
       const key = resolveFilterKeyFromGroup(group, totalFilters);
@@ -844,34 +854,19 @@
       return;
     }
     scopeEl.querySelectorAll('pagefind-filter-pane').forEach((pane) => {
-      if (!(pane instanceof HTMLElement)) {
+      if (!(pane instanceof HTMLElement) || facetPaneObserved.has(pane)) {
         return;
       }
-      const attach = () => {
-        const sr = pane.shadowRoot;
-        if (!sr || facetPaneObserved.has(pane)) {
-          return;
-        }
-        facetPaneObserved.add(pane);
-        const observer = new MutationObserver(() => {
-          scheduleRefreshFacetPanes();
-        });
-        observer.observe(sr, { childList: true, subtree: true });
-        scheduleRefreshFacetPanes();
-      };
-
-      attach();
-      if (!pane.shadowRoot && pane.dataset.pfFacetShadowPolling !== '1') {
-        pane.dataset.pfFacetShadowPolling = '1';
-        let n = 0;
-        const poll = () => {
-          attach();
-          if (!facetPaneObserved.has(pane) && n++ < 150) {
-            requestAnimationFrame(poll);
-          }
-        };
-        poll();
+      const root = filterPaneRoot(pane);
+      if (!root) {
+        return;
       }
+      facetPaneObserved.add(pane);
+      const observer = new MutationObserver(() => {
+        scheduleRefreshFacetPanes();
+      });
+      observer.observe(root, { childList: true, subtree: true });
+      scheduleRefreshFacetPanes();
     });
   }
 
@@ -911,10 +906,8 @@
         seen.add(el);
       }
     };
+    // Results render in light DOM under pagefind-results / the document.
     document.querySelectorAll('li.pf-result').forEach(addLi);
-    document.querySelectorAll('pagefind-results').forEach((host) => {
-      host.shadowRoot?.querySelectorAll('li.pf-result').forEach(addLi);
-    });
     return seen;
   }
 
@@ -924,39 +917,20 @@
     });
   }
 
-  function bindShadowObserversForTarget(scopeEl) {
+  function bindResultObserversForTarget(scopeEl) {
     if (!(scopeEl instanceof Element)) {
       return;
     }
     scopeEl.querySelectorAll('pagefind-results').forEach((host) => {
-      if (!(host instanceof HTMLElement)) {
+      if (!(host instanceof HTMLElement) || shadowMetaObservedHosts.has(host)) {
         return;
       }
-      const attach = () => {
-        const sr = host.shadowRoot;
-        if (!sr || shadowMetaObservedHosts.has(host)) {
-          return;
-        }
-        shadowMetaObservedHosts.add(host);
-        const smo = new MutationObserver(() => {
-          scheduleRefreshResultMetadata();
-        });
-        smo.observe(sr, { childList: true, subtree: true });
+      shadowMetaObservedHosts.add(host);
+      const smo = new MutationObserver(() => {
         scheduleRefreshResultMetadata();
-      };
-
-      attach();
-      if (!host.shadowRoot && host.dataset.pfMetaShadowPolling !== '1') {
-        host.dataset.pfMetaShadowPolling = '1';
-        let n = 0;
-        const poll = () => {
-          attach();
-          if (!shadowMetaObservedHosts.has(host) && n++ < 150) {
-            requestAnimationFrame(poll);
-          }
-        };
-        poll();
-      }
+      });
+      smo.observe(host, { childList: true, subtree: true });
+      scheduleRefreshResultMetadata();
     });
   }
 
@@ -973,13 +947,21 @@
 
     const href = link.getAttribute('href');
     const existingBlock = resultItem.querySelector('.pf-result-meta-block');
-    if (!metadataDecorationInFlight.has(resultItem) && (!existingBlock || metadataBlockNeedsReplace(existingBlock))) {
+    const hasGoodBlock =
+      existingBlock && !metadataBlockNeedsReplace(existingBlock);
+    // Skip retry storms when a page has no facet meta; still refresh stale blocks.
+    const skipEmptyRetry =
+      resultItem.dataset.rosMetaAttempted === '1' && !existingBlock;
+    if (!hasGoodBlock && !skipEmptyRetry && !metadataDecorationInFlight.has(resultItem)) {
       metadataDecorationInFlight.add(resultItem);
       try {
         const block = await buildMetadataBlockForHref(href);
         if (block) {
           existingBlock?.remove();
           insertMetadataBlock(content, block);
+          delete resultItem.dataset.rosMetaAttempted;
+        } else {
+          resultItem.dataset.rosMetaAttempted = '1';
         }
       } finally {
         metadataDecorationInFlight.delete(resultItem);
@@ -1022,11 +1004,11 @@
       }
       target.dataset.metaEnhanced = '1';
 
-      bindShadowObserversForTarget(target);
+      bindResultObserversForTarget(target);
       bindFacetPaneObservers(target);
 
       const observer = new MutationObserver(() => {
-        bindShadowObserversForTarget(target);
+        bindResultObserversForTarget(target);
         bindFacetPaneObservers(target);
         scheduleRefreshResultMetadata();
         scheduleRefreshFacetPanes();
