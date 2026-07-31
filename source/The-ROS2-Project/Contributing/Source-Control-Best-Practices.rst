@@ -115,7 +115,14 @@ Developing on shared robots
 
 When developing on a shared robot or other remote system, an SSH agent can cache your unlocked SSH key for the current session.
 This avoids repeatedly entering your SSH key passphrase when interacting with Git repositories over SSH.
-Refer to the official GitHub SSH documentation for setup instructions.
+When developing on a shared robot or other remote system, never copy your private SSH keys there and never run a remote SSH agent or credential helper that could cache your keys and make them available to others.
+Instead, use a local SSH agent on your private machine and use `ssh -A` to temporarily forward this agent to the remote end.
+Using a forwarded SSH agent makes your SSH keys available on the remote machine and it also relieves you from repeatedly entering your SSH key passphrase.
+If all developers log in as the same user, there is a risk that someone else could reuse your forwarded agent, so try to limit the amount of time spent in an `ssh -A` shell to the very minimum.
+Refer to the official Git SSH documentation for setup instructions.
+
+If the remote machine is trusted, you can also set up a (read-only) deploy key or deploy token so that it has access to your private repos.
+If you need to push from this machine, use the SSH agent forwarding described above.
 
 Additional resources
 --------------------
