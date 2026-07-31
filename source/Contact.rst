@@ -33,6 +33,7 @@ If you see an issue on `Robotics Stack Exchange <https://robotics.stackexchange.
 Don't worry if you aren't sure if your response is correct.
 Simply say so, and other community members will jump in if necessary.
 
+<<<<<<< HEAD
 Issues
 ------
 
@@ -78,6 +79,8 @@ As appropriate, also include your:
 * Bag files and code samples that can reproduce the problem
 * Gifs or movies to demonstrate the problem
 
+=======
+>>>>>>> bf9db74 (3di | Triaging and reporting an issue (#6901))
 .. _Using ROS Discourse:
 
 Discussion
