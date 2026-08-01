@@ -220,7 +220,7 @@ A Committer can merge pull requests, while a PMC Member helps guide the overall 
 **Ready to contribute?**
 
 Each core repository in the ROS project has Committers who are responsible for that repository.
-Becoming a committer of one or more of those repositories is a process based on mentorship.
+Becoming a new Committer of one or more of those repositories is a process based on mentorship.
 The process begins with an existing PMC Member inviting you to be mentored, or you volunteering and finding a PMC Member willing to mentor you.
 For full and current details of the process, please see the `ROS Project Charter <https://github.com/openrobotics/osra-policies-and-procedures/blob/main/ros_project_charter.md#article-7-committer>`_
 Generally, you will need to have demonstrated a sustained period of making contributions such as reviewing PRs and submitting PRs before someone is likely to invest time into mentoring you.
