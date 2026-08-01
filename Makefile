@@ -8,7 +8,10 @@ ifeq ($(OS),Windows_NT)
     PYTHON := python
 endif
 BUILD      = $(PYTHON) -m sphinx
-OPTS       =-c . -W # Treat warnings as errors
+JOBS       ?= auto
+# Attached form (-j<JOBS>, no space) so sphinx-multiversion forwards it to sphinx-build
+# instead of mistaking the value for a positional argument.
+OPTS       =-c . -W -j$(JOBS) # Treat warnings as errors, build in parallel ($(JOBS) workers)
 LIVE_HOST  ?= 0.0.0.0
 LIVE_PORT  ?= 2022
 
