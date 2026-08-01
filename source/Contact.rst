@@ -24,7 +24,7 @@ You can contact the ROS community in the following ways:
 
 * `Email <mailto:ros@openrobotics.org>`_: Contact us directly if you have a private or sensitive issue
 
-* `Email <mailto:security@openrobotics.org>`_: Contact us directly if you have a security concern
+* `Email (security) <mailto:security@openrobotics.org>`_: Contact us directly if you have a security concern
 
 .. _asking-for-support:
 
