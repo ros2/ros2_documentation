@@ -89,6 +89,7 @@ extensions = [
     'sphinx_adopters',
     'sphinxcontrib.googleanalytics',
     'sphinxcontrib.mermaid',
+    'sphinxext.opengraph',
 ]
 
 # Intersphinx mapping
@@ -207,6 +208,14 @@ html_js_files = ['adopters.js']
 htmlhelp_basename = 'ros2_docsdoc'
 
 html_baseurl = 'https://docs.ros.org/en'
+
+# -- Options for Open Graph (sphinxext-opengraph) -------------------------
+
+# Default settings for fallback/local builds
+ogp_site_url = 'https://docs.ros.org/en/rolling/'
+ogp_site_name = 'ROS 2 Documentation'
+ogp_image = '_static/rolling-small.png'
+
 
 # The sitemap_url_scheme is used by the sitemap generator to figure out how
 # to generate links.  Essentially, the sitemap generator uses the following:
@@ -327,9 +336,12 @@ def smv_rewrite_configs(app, config):
     # to rewrite the various configuration items with the current version.
     if app.config.smv_current_version != '':
         app.config.html_baseurl = app.config.html_baseurl + '/' + app.config.smv_current_version
+        app.config.ogp_site_url = app.config.html_baseurl + '/'
         app.config.project = 'ROS 2 Documentation: ' + app.config.smv_current_version.title()
 
-        app.config.html_logo = 'source/Releases/' + app.config.smv_current_version + '-small.png'
+        app.config.html_logo = 'source/Get-Started/Releases/' + app.config.smv_current_version + '-small.png'
+        app.config.ogp_image = '_static/' + app.config.smv_current_version + '-small.png'
+
 
         # Override default values
         distro = app.config.smv_current_version
