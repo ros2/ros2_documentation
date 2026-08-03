@@ -42,6 +42,8 @@ from ensure_enhancements import (  # noqa: E402
     ensure_enhancements_in_file,
     load_enhance_config,
     main,
+    _annotation_line_for_after_title,
+    _annotation_line_for_meta,
 )
 from rst_utils import get_meta_fields_from_content, inject_metadata_to_content  # noqa: E402
 
@@ -157,6 +159,47 @@ class TestCanSuggestInline(unittest.TestCase):
         ).lstrip()
         self.assertTrue(can_suggest_after_title_inline(content, {4}, paragraph_span=(4, 4)))
         self.assertFalse(can_suggest_after_title_inline(content, {8}, paragraph_span=(4, 4)))
+
+
+class TestAnnotationLines(unittest.TestCase):
+    def test_after_title_line_uses_paragraph_when_meta_is_at_top(self) -> None:
+        content = textwrap.dedent(
+            """
+            .. meta::
+               :product: x
+
+            Title
+            =====
+
+            Opening paragraph beneath the title.
+
+            More body.
+            """
+        ).lstrip()
+        self.assertEqual(_annotation_line_for_meta(content), 1)
+        self.assertEqual(_annotation_line_for_after_title(content), 7)
+
+    def test_result_includes_separate_after_title_line(self) -> None:
+        config = EnhanceConfig(meta={}, after_title=AFTER_TITLE_RULES)
+        content = textwrap.dedent(
+            """
+            .. meta::
+               :product: x
+
+            Title
+            =====
+
+            Opening paragraph beneath the title.
+            """
+        ).lstrip()
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "page.rst"
+            path.write_text(content, encoding="utf-8")
+            result = ensure_enhancements_in_file(path, config)
+            self.assertIsNotNone(result)
+            assert result is not None
+            self.assertEqual(result["line"], 1)
+            self.assertEqual(result["after_title_line"], 7)
 
 
 class TestUnresolvedFields(unittest.TestCase):

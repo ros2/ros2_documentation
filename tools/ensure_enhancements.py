@@ -600,17 +600,30 @@ def _span_overlaps(span: tuple[int, int] | None, pr_lines: set[int]) -> bool:
     return any(line in pr_lines for line in range(start, end + 1))
 
 
-def _annotation_line_for_content(content: str) -> int:
+def _annotation_line_for_meta(content: str) -> int:
     """
-    Select a line for a GitHub annotation on RST content.
-
-    Args:
-            content: RST source to inspect.
+    Select a line for a GitHub annotation on ``.. meta::`` issues.
 
     Returns:
-            The first line of an existing meta block, the after-title area, or line 1.
+            The first line of an existing meta block, or line 1 if none exists.
     """
     span = meta_block_line_span(content)
+    if span is not None:
+        return span[0]
+    return 1
+
+
+def _annotation_line_for_after_title(content: str) -> int:
+    """
+    Select a line for a GitHub annotation on after-title directive issues.
+
+    Prefers the first prose paragraph after the title when present, otherwise
+    the post-title directive area or the line after the document title.
+
+    Returns:
+            A 1-based source line appropriate for after-title annotations.
+    """
+    _paragraph, span = extract_first_paragraph_after_title(content)
     if span is not None:
         return span[0]
     after_title = after_title_directives_line_span(content)
@@ -935,7 +948,8 @@ def ensure_enhancements_in_file(
         logger.info("%s: all configured enhancements present", path)
         return None
 
-    annotation_line = _annotation_line_for_content(content)
+    annotation_line = _annotation_line_for_meta(content)
+    after_title_line = _annotation_line_for_after_title(content)
     auto_fields = [name for name in unresolved if rules[name].has_configured_value]
     auto_metadata = {name: rules[name].value for name in auto_fields}
 
@@ -997,6 +1011,7 @@ def ensure_enhancements_in_file(
     return {
         "path": path_str,
         "line": annotation_line,
+        "after_title_line": after_title_line,
         "mode": mode,
         "snippet": snippet,
         "auto_fields": auto_fields,
@@ -1320,20 +1335,21 @@ def main(argv: list[str] | None = None) -> int:
 
     for result in results:
         path = str(result["path"])
-        line = int(result["line"])
-        emit_github_warning(path, list(result["warning_fields"]), line)
-        emit_github_error(path, list(result["error_fields"]), line)
+        meta_line = int(result["line"])
+        after_title_line = int(result.get("after_title_line") or meta_line)
+        emit_github_warning(path, list(result["warning_fields"]), meta_line)
+        emit_github_error(path, list(result["error_fields"]), meta_line)
         _emit_after_title_annotation(
             "warning",
             path,
             list(result.get("after_title_warning") or []),
-            line,
+            after_title_line,
         )
         _emit_after_title_annotation(
             "error",
             path,
             list(result.get("after_title_error") or []),
-            line,
+            after_title_line,
         )
 
     has_errors = any(

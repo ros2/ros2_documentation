@@ -500,8 +500,9 @@ def extract_first_paragraph_after_title(
         content: RST source to search.
 
     Returns:
-        Normalised paragraph text and its inclusive 1-based line span, or
-        ``(None, None)`` when no prose paragraph is found.
+        Paragraph text with each source prose line separated by a newline, and
+        its inclusive 1-based line span, or ``(None, None)`` when no prose
+        paragraph is found.
     """
     lines = content.splitlines(keepends=True)
     stripped_lines = [line.rstrip("\n") for line in lines]
@@ -552,7 +553,7 @@ def extract_first_paragraph_after_title(
 
     start_line = prose_start + 1
     end_line = prose_start + len(prose_lines)
-    return " ".join(prose_lines), (start_line, end_line)
+    return "\n".join(prose_lines), (start_line, end_line)
 
 
 def wrap_first_paragraph_as_short_description(content: str) -> tuple[str, bool]:

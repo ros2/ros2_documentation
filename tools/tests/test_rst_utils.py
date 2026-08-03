@@ -83,6 +83,35 @@ class TestExtractFirstParagraph(unittest.TestCase):
 
 
 class TestWrapShortDescription(unittest.TestCase):
+    def test_preserves_one_sentence_per_line(self) -> None:
+        content = textwrap.dedent(
+            """
+            First steps with ROS - learning path
+            ====================================
+
+            ROS (Robot Operating System) is an open-source ecosystem that provides framework, tools, and libraries for building, deploying, running, and maintaining robotic applications.
+            This page presents a set of articles and hands-on activities to introduce the main concepts behind the ROS framework.
+            Working through these will give you the essential knowledge needed to start developing applications with ROS.
+
+            More content.
+            """
+        ).lstrip()
+        paragraph, span = extract_first_paragraph_after_title(content)
+        self.assertEqual(span, (4, 6))
+        self.assertIn("\n", paragraph or "")
+        updated, changed = wrap_first_paragraph_as_short_description(content)
+        self.assertTrue(changed)
+        expected_block = textwrap.dedent(
+            """
+            .. short-description::
+               ROS (Robot Operating System) is an open-source ecosystem that provides framework, tools, and libraries for building, deploying, running, and maintaining robotic applications.
+               This page presents a set of articles and hands-on activities to introduce the main concepts behind the ROS framework.
+               Working through these will give you the essential knowledge needed to start developing applications with ROS.
+            """
+        ).strip()
+        self.assertIn(expected_block, updated)
+        self.assertIn("More content.", updated)
+
     def test_wraps_first_paragraph_after_equals_title(self) -> None:
         content = textwrap.dedent(
             """
