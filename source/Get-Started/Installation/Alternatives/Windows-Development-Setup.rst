@@ -83,7 +83,8 @@ Once you are able to verify the installation path existence with the following c
 
    $ "%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe" -products * -version "[17.0,18.0)" -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath
 
-If you see a installation path (``C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools``), you can continue to the next installation steps. If not, you'll just need to wait a bit longer and try checking the path again.
+If you see a installation path (``C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools``), you can continue to the next installation steps.
+If not, you'll just need to wait a bit longer and try checking the path again.
 
 Install pixi
 ^^^^^^^^^^^^
