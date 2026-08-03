@@ -61,7 +61,7 @@ after_title:
 
 The `:order:` value lists `.. meta::` field names and must match the `meta` section (e.g. `content-type`, not `contentType`).
 
-For `short-description`, the tool wraps the first prose paragraph after the title into the directive (removing it from the body). For `showmeta`, it inserts the directive with the configured `:order:` option when missing.
+For `short-description`, the tool wraps the first prose paragraph after the title into the directive (removing it from the body). Each source line in that paragraph is preserved as its own indented body line (one sentence per line is kept when the source uses that layout). For `showmeta`, it inserts the directive with the configured `:order:` option when missing.
 
 #### Severity behaviour
 
@@ -294,7 +294,14 @@ When enhancements are missing:
 - **Warning** severity → `::warning file=...,line=N::Missing meta fields: ...` or `Missing after-title directives: ...`
 - **Error** severity → `::error file=...,line=N::Missing meta fields: ...` or `Missing after-title directives: ...`
 
-`N` is the start line of an existing `.. meta::` block, the after-title area, or `1` when a new block would be inserted at the top of the file.
+Line anchors differ by issue type:
+
+| Issue | Line `N` |
+|-------|----------|
+| Missing `.. meta::` fields | Start of the existing `.. meta::` block, or `1` when a new block would be inserted at the top of the file |
+| Missing after-title directives | Start of the first prose paragraph after the title (the text being wrapped into `.. short-description::`), or the post-title directive area when no paragraph is available |
+
+Meta and after-title annotations therefore appear on different lines when a file has `.. meta::` at the top and prose beneath the heading.
 
 Annotations describe the pull request **as pushed**, so fields with a configured `value` are listed even when the same run offers them as an inline suggestion. Auto-injected values only exist in the CI working tree; they disappear from the annotations once the suggestion is committed and the workflow re-runs.
 
