@@ -18,19 +18,18 @@ Build tools in ROS enable you to work with multiple packages in a single project
 
 Core ROS packages:
 
-* `colcon <https://docs.ros.org/en/lyrical/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html>`_: Tool for creating and building a ROS workspace.
+* `colcon <https://docs.ros.org/en/lyrical/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html>`_: A tool for building packages in a ROS workspace.
 
-* `ament_cmake <https://docs.ros.org/en/lyrical/How-To-Guides/Ament-CMake-Documentation.html>`_: Build system for CMake-based packages in ROS.
+* `CMake <https://cmake.org/>`_: A supported tool for building complex C++ projects.
 
-* `rosdoc2 <https://docs.ros.org/en/rolling/How-To-Guides/Documenting-a-ROS-2-Package.html>`_: Tool for documenting a ROS package.
-QUESTION FOR THE REVIEWER: IN THE SPREADSHEET THERE IS A QUESTION MARK NEXT TO THIS ENTRY.
-DO WE NEED TO INCLUDE ros2doc IN THIS LIST?
-
-QUESTION FOR THE REVIEWER: ARE THERE ANY OTHER CORE ROS PACKAGES THAT WE CAN LIST HERE?
+* `ament_cmake <https://docs.ros.org/en/lyrical/How-To-Guides/Ament-CMake-Documentation.html>`_: A CMake library to facilitate inter package dependencies in ROS.
 
 Community-contributed packages:
 
-QUESTION FOR THE REVIEWER: ARE THERE ANY COMMUNITY-CONTRIBUTED PACKAGES THAT WE CAN LIST HERE?
+* `Cargo <https://github.com/rust-lang/cargo>`_: A build and package management tool for Rust-based robotics software.
+
+* `Rust <https://github.com/rust-lang>`_: Programming language used to develop high-performance, reliable robotics software and tools.
+
 
 ROS build farm location
 -----------------------
@@ -42,18 +41,18 @@ It supports the building of source and binary packages, as well as continuous in
 
 Read more about ROS build farms: `ROS Build Farms — ROS 2 Documentation: Lyrical  documentation <https://docs.ros.org/en/lyrical/The-ROS2-Project/Contributing/Build-Farms.html>`_
 
-Related content (placeholder)
------------------------------
+.. Related content (placeholder)
+   -----------------------------
 
-More articles about builds:
+   More articles about builds:
 
-* Example
+   * Example
 
-* Example
+   * Example
 
-FAQs (placeholder)
-------------------
+   FAQs (placeholder)
+   ------------------
 
-* Example
+   * Example
 
-* Example
+   * Example

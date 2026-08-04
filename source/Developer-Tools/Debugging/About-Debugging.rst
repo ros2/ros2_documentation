@@ -23,12 +23,20 @@ Core ROS packages:
 * `tracetools <https://docs.ros.org/en/kilted/p/tracetools/>`_: Trace points for creating and debugging execution traces.
 
 * `rosbag2 <https://docs.ros.org/en/kilted/p/rosbag2/>`_: Record and play back data moving across topics, services and actions in a ROS application, for later visualization and debugging.
-QUESTION FOR THE REVIEWER: ARE THERE ANY OTHER CORE ROS PACKAGES THAT WE CAN LIST HERE?
+
+* `ros2cli <https://github.com/ros2/ros2cli>`_: ROS command line interface tools for debugging such as ros2action, ros2node, ros2param, ros2pkg,  ros2service, and so on.
+
+* `rviz <https://github.com/ros2/rviz>`_ and `rviz default plugins <https://github.com/ros2/rviz/tree/rolling/rviz_default_plugins>`_: 3D robot visualization tool for the ROS framework
+
+* `rqt_gui and dependent packages <https://index.ros.org/p/rqt_gui/#rolling-deps>`_: Tool for starting an instance of the ROS integrated graphical user interface.
 
 Community-contributed packages:
 
 * `PlotJuggler <https://docs.ros.org/en/kilted/p/plotjuggler/>`_: A tool for visualizing and analyzing data from ROS applications.
-QUESTION FOR THE REVIEWER: ARE THERE ANY OTHER COMMUNITY-CONTRIBUTED PACKAGES THAT WE CAN LIST HERE?
+
+* `Foxglove <https://foxglove.dev/>`_: A collection of tools visualizing and debugging robot data throughout the development lifecycle.
+
+* `Rerun <https://github.com/rerun-io/rerun>`_: Tool to visualize, query, and debug data from robotics, computer vision, and physical AI systems.
 
 Related content
 ---------------
@@ -40,9 +48,9 @@ More articles about debugging:
  * `Using ros2doctor to identify issues - how-to <https://docs.ros.org/en/kilted/t/ros2doctor.html>`_
  * `Building ROS 2 with tracing - how-to <https://docs.ros.org/en/kilted/t/tracetools.html>`_
 
-FAQs  (placeholder)
--------------------
+.. FAQs  (placeholder)
+   -------------------
 
-* Example
+   * Example
 
-* Example
+   * Example
