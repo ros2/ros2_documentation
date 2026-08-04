@@ -82,7 +82,7 @@ The terminal returns the node name:
 
   /turtlesim
 
-To see how the list changes when another node starts, in another new terminal, start the teleoperation node:
+To see how the list changes when another node starts, in another new terminal, start a teleoperation node:
 
 .. code-block:: console
 
