@@ -43,7 +43,7 @@ Steps
 1 Setup
 ^^^^^^^
 
-Start up the two Turtlesim nodes, ``/turtlesim`` and ``/teleop_turtle``.
+For this tutorial, you need to run two Turtlesim nodes: ``/turtlesim`` and ``/teleop_turtle``.
 
 Open a new terminal and run:
 
@@ -78,7 +78,7 @@ For example, the :kbd:`E` key will rotate the turtle's orientation to the upper 
 .. image:: images/turtlesim_orientation_mapping.png
 
 The figure shows those orientation keys on a QWERTY layout.
-Teleoperation uses the letter keys themselves, so if you use a different layout such as Dvorak, press the same letters, even if they do not surround the :kbd:`F` key on your keyboard.
+Teleoperation uses the letters themselves, so if you use a different layout such as Dvorak, press the same letters, even if they do not surround the :kbd:`F` key on your keyboard.
 
 The results are displayed in the terminal where the ``/turtlesim`` node is running.
 Each time you press one of these keys, you send a goal to an action server that is part of the ``/turtlesim`` node.
@@ -108,9 +108,10 @@ In the terminal where the ``/turtlesim`` node is running, you should see the mes
 
   [WARN] [turtlesim]: Rotation goal received before a previous goal finished. Aborting previous goal
 
-When a new goal arrives while another is still running, the action server decides whether to accept or reject it.
-Turtlesim accepts the new goal and aborts the one that was already running.
-Other servers may handle this differently.
+When a new goal arrives while another is still running, what happens next depends on the action server implementation.
+ROS does not define a single policy for this case.
+The server's goal callback can accept or reject the new goal, and then decides what to do with any goal that is already running.
+In Turtlesim, the callback accepts the new goal and aborts the previous one, but a different server might reject the new goal, or keep both.
 
 For more information, see :doc:`About actions <../../../About-Actions>` and the `Actions design article <https://design.ros2.org/articles/actions.html>`_.
 
@@ -308,6 +309,10 @@ To send an action goal from the command line, use:
   $ ros2 action send_goal <action_name> <action_type> <values>
 
 ``<values>`` need to be in YAML format.
+
+The goal field ``theta`` is the desired orientation in radians.
+The value is absolute, not a relative turn amount.
+A value of ``1.57`` is about :math:`\pi/2` radians, so the turtle turns to face roughly a quarter turn from the default rightward orientation.
 
 Keep an eye on the Turtlesim window, then run:
 
