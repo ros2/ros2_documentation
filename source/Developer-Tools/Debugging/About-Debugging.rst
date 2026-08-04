@@ -1,7 +1,8 @@
 Debugging
 =========
 
-Sometimes your robot won't behave as you expected. This article summarizes the ROS developer tools and guidance available to help with debugging.
+Sometimes your robot won't behave as you expected.
+This article summarizes the ROS developer tools and guidance available to help with debugging.
 
 .. contents:: Table of Contents
    :local:

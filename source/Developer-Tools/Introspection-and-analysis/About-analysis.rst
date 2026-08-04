@@ -35,7 +35,7 @@ Community-contributed packages:
 
 * `Foxglove <https://foxglove.dev/>`_: A collection of tools visualizing and debugging robot data throughout the development lifecycle.
 
-* `Rerun <https://github.com/rerun-io/rerun>`_: Tool to visualize, query, and debug data from robotics, computer vision, and physical AI 
+* `Rerun <https://github.com/rerun-io/rerun>`_: Tool to visualize, query, and debug data from robotics, computer vision, and physical AI.
 
 .. Related content (placeholder)
    -----------------------------
