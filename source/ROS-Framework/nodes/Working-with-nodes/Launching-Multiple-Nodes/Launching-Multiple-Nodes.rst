@@ -9,7 +9,7 @@ Launching multiple nodes - how-to
 =================================
 
 A launch file lets you start multiple nodes simultaneously with a single command, without opening a separate terminal for each.
-This article shows you how to run an existing launch file using ``ros2 launch``.
+This article shows you how to run an existing launch file with ``ros2 launch``.
 
 **Area: Framework | Content-type: how-to | Experience: beginner**
 
@@ -21,6 +21,10 @@ Summary
 -------
 
 Use ``ros2 launch <package> <launch_file>`` to run multiple nodes at once from a single launch file.
+
+You can run a launch file that already comes with a package, or create a new one.
+
+To learn how to write your own launch file, see :doc:`Creating a launch file <../../../../Developer-Tools/Launch/Creating-Launch-Files>`.
 
 Steps
 -----
@@ -38,11 +42,14 @@ To run a launch file, use:
 
    $ ros2 launch <package_name> <launch_file_name>
 
-For example, to run the ``multisim.launch.py`` file from the ``turtlesim`` package, use:
+For example, to run the ``multisim.launch.py`` file, which is included in the ``turtlesim`` package, use:
 
 .. code-block:: console
 
    $ ros2 launch turtlesim multisim.launch.py
+
+You do not need to create this file yourself.
+It is installed with ``turtlesim``, so any machine with that package can run this command.
 
 This runs the following launch file:
 
@@ -51,7 +58,7 @@ This runs the following launch file:
 
 .. note::
 
-   The launch file above is written in Python, but you can also use XML and YAML to create launch files.
+   The ``multisim.launch.py`` launch file is written in Python, but you can also use XML and YAML to create launch files.
    You can see a comparison of these different launch formats in :doc:`../../../../Developer-Tools/Launch/Launch-file-different-formats`.
 
 Two Turtlesim windows open, one for each node defined in the launch file:
@@ -61,6 +68,7 @@ Two Turtlesim windows open, one for each node defined in the launch file:
 Related content
 ---------------
 
+* :doc:`Creating a launch file <../../../../Developer-Tools/Launch/Creating-Launch-Files>`
 * :doc:`ROS launch tutorials <../../../../Developer-Tools/Launch/Launch-Main>`
 * :doc:`Launch file formats <../../../../Developer-Tools/Launch/Launch-file-different-formats>`
 
@@ -72,7 +80,8 @@ Can I write a launch file in a language other than Python?
    For a comparison of these formats, see :doc:`../../../../Developer-Tools/Launch/Launch-file-different-formats`.
 
 How do I write my own launch file?
-   For a full guide on writing launch files, see the :doc:`ROS launch tutorials <../../../../Developer-Tools/Launch/Launch-Main>`.
+   See :doc:`Creating a launch file <../../../../Developer-Tools/Launch/Creating-Launch-Files>` for a step-by-step guide.
+   The :doc:`ROS launch tutorials <../../../../Developer-Tools/Launch/Launch-Main>` index lists further launch topics.
 
 Can I pass arguments to a launch file?
    Yes. Use ``ros2 launch <package> <launch_file> <arg>:=<value>`` to pass arguments at the command line.
