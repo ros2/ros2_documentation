@@ -416,7 +416,7 @@ c. **Use auto-complete**:
 
   The final auto-completed string should look like this:
 
-  .. code-block:: console
+  .. code-block:: text
 
     $ ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist 'linear:
       x: 0.0
