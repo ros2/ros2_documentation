@@ -197,7 +197,7 @@ For example, to get verbose information about the ``/clear`` service:
 
 Besides the basic type and client/server counts, the verbose result also shows which node provides the service and the low-level connection details from the ROS middleware (RMW).
 You mainly need those details when troubleshooting connection problems with a service.
-The ``Endpoint count`` value is ``2`` for DDS-based RMW implementations (``connextdds``, ``cyclone``, ``fastrtps``) because DDS creates two endpoints per service server: one for request and one for response.
+The ``Endpoint count`` value is ``2`` for DDS-based RMW implementations (``rmw_connextdds``, ``rmw_cyclonedds``, ``rmw_fastrtps``) because DDS creates two endpoints per service server: one for request and one for response.
 
 .. code-block:: console
 
