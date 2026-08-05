@@ -1,12 +1,22 @@
+.. meta::
+   :contentType: reference
+   :experience: beginner, intermediate, expert
+   :area: ROS-community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _DocsGuidelines:
 
 Documentation guidelines
 ========================
 
-The ROS documentation uses reStructuredText (RST) to create consistent, reviewable articles for the documentation site.
-This article describes the main RST formatting patterns, directives, and roles used in the ROS documentation.
+.. short-description::
+   The ROS documentation uses reStructuredText (RST) to create consistent, reviewable articles for the documentation site.
+   This article describes the main RST formatting patterns, directives, and roles used in the ROS documentation.
 
-**Area: ROS-community | Content-type: reference | Experience: beginner, intermediate, expert**
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2
