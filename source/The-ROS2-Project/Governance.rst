@@ -4,7 +4,7 @@
 
 .. _Governance:
 
-Project Governance
+Project governance
 ==================
 
 .. contents:: Table of Contents

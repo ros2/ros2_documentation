@@ -12,11 +12,11 @@ ROS 2 Documentation
 
    Get-Started
    ROS-Framework
-   Capabilities
    Developer-Tools
-   Migration-and-Upgrades
-   Integrations-and-related
+   Capabilities
    The-ROS2-Project
+   Integrations-and-related
+   Migration-and-Upgrades
    Contact
    Glossary
    Citations
