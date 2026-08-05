@@ -19,8 +19,6 @@ Installation
    Installing ROS correctly ensures your development environment matches your platform, permissions, and intended use.
    This article outlines the supported installation options, compares binary packages with source builds, and helps you choose the best approach for getting started.
 
-Options for installing ROS 2 {DISTRO_TITLE_FULL}:
-
 .. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level

@@ -13,7 +13,7 @@ Non-DDS-Implementations
 =======================
 
 .. short-description::
-   Non-DDS implementations provide alternative middleware options for ROS communication when a non-DDS vendor better suits your system requirements.
+   Non-Data-Distribution-Service (non-DDS) implementations provide alternative middleware options for ROS communication when a non-DDS vendor better suits your system requirements.
    This article links to supported non-DDS guidance and explains how installed RMW vendors can be selected at runtime.
 
 .. showmeta::

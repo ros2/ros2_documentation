@@ -13,7 +13,7 @@ DDS implementations
 ===================
 
 .. short-description::
-   DDS implementations provide middleware options for ROS communication, allowing you to select a vendor that suits your platform and deployment needs.
+   Data Distribution Service (DDS) implementations provide middleware options for ROS communication, allowing you to select a vendor that suits your platform and deployment needs.
    This article lists the supported DDS vendors and links to setup guidance for using each implementation with ROS.
 
 .. showmeta::

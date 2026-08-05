@@ -14,7 +14,7 @@ Working with GurumNetworks GurumDDS - how-to
 ============================================
 
 .. short-description::
-   GurumNetworks GurumDDS is an alternative middleware implementation for ROS systems that need a supported DDS backend.
+   GurumNetworks GurumDDS is an alternative middleware implementation for ROS systems that need a supported Data Distribution Service (DDS) backend.
    This article describes how to install ``rmw_gurumdds``, select it as your active RMW implementation, and verify that it is working.
    After you follow these steps, you can run ROS nodes using GurumDDS.
 

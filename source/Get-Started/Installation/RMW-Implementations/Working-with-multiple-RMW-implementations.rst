@@ -16,7 +16,7 @@ Working with multiple ROS 2 middleware implementations - how-to
 ===============================================================
 
 .. short-description::
-   ROS can use different middleware implementations depending on the DDS options installed in your workspace.
+   ROS can use different middleware implementations depending on the Data Distribution Service (DDS) options installed in your workspace.
    This article explains how to select an RMW implementation, add new implementations to a workspace, and resolve common configuration issues.
    After you follow these steps, you can switch between supported middleware implementations reliably.
 

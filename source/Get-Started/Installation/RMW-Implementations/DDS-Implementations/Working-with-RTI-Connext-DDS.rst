@@ -13,7 +13,7 @@ Working with RTI Connext DDS - how-to
 =====================================
 
 .. short-description::
-   RTI Connext DDS is a commercial-grade DDS implementation for ROS systems that need high performance, reliability, and security.
+   RTI Connext DDS is a commercial-grade Data Distribution Service (DDS) implementation for ROS systems that need high performance, reliability, and security.
    This article describes how to install ``rmw_connextdds``, select it as your active RMW implementation, and verify that it is working.
    After you follow these steps, you can run ROS nodes using RTI Connext DDS.
 
