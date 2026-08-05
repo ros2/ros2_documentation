@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: about
+   :experience: intermediate
+   :area: motion-planning, capabilities
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Motion planning
 ===============
 

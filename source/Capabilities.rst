@@ -1,4 +1,9 @@
-
+.. meta::
+   :contentType: about
+   :experience: intermediate
+   :area: capabilities
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
 
 Capabilities
 ============

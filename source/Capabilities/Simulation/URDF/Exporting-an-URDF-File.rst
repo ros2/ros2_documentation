@@ -1,9 +1,25 @@
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: simulation, capabilities
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Intermediate/URDF/Exporting-an-URDF-File
 
-Generating an URDF File
-=======================
+Generating an URDF File — tutorial
+==================================
+
+.. short-description::
+   Robot models often begin in CAD or 3D modelling tools before they are used in simulation or visualisation.
+   This article lists URDF export, conversion, and viewing tools for common design workflows.
+   After reading it, you can choose a suitable tool for generating or inspecting an URDF file.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Learn how to Export an URDF File
 
