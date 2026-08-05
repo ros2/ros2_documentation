@@ -80,7 +80,7 @@ Offering help
 
 If you are in a position to support others, share your knowledge and help fellow users work through challenges.
 
-<Placeholder link to new "Contributing to ROS" article>
+More information is in :doc: `Contributing to ROS <Contributing-To-ROS>`
 
 Contacting us privately
 -----------------------
