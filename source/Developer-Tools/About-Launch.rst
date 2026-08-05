@@ -2,8 +2,9 @@
 
     Concepts/Basic/About-Launch
 
-Launch
-======
+Node management
+===============
+
 .. toctree::
    :maxdepth: 1
    :hidden:
@@ -12,20 +13,39 @@ Launch
    Launch/Launching-composable-nodes
    Launch/Launch-file-different-formats
 
+Sometimes you need to manage many interconnected nodes at once to reliably start, configure, and shut down your system.
+Managing multiple interconnected nodes is essential for complex robotic systems effective runtime node management.
+This article summarizes the ROS developer tools and guidance available to help with node management, also referred to as launch or runtime node management.
+
+**Area: node management, tools | Content-type: about | Experience: beginner, intermediate, expert**
+
 .. contents:: Table of Contents
    :local:
 
-A ROS 2 system typically consists of many nodes running across many different processes (and even different machines).
-While it is possible to manually start each of these nodes, it gets cumbersome quite quickly.
+Summary
+-------
 
-The launch system in ROS 2 is meant to automate the running of many nodes with a single command.
-It helps the user describe the configuration of their system and then executes it as described.
-The configuration of the system includes what programs to run, where to run them, what arguments to pass them, and ROS-specific conventions which make it easy to reuse components throughout the system by giving them each a different configuration.
-It is also responsible for monitoring the state of the processes launched, and reporting and/or reacting to changes in the state of those processes.
+Complex robotic systems can include many interconnected nodes, each with different settings and interfaces.
+Runtime node management tools in ROS help you start, configure, and stop multiple nodes together using launch files.
 
-All of the above is specified in a "launch file", which can be written in XML, YAML, or Python.
-This launch file can then be run using the ``ros2 launch`` command, and all of the nodes specified will be run.
+Core ROS packages:
 
-To get started writing and using launch files, see `the launch tutorials <Launch/Launch-Main>`.
+* `ros2launch <https://github.com/ros2/launch>`_:  Command line tool for launching multiple processes and for writing tests involving multiple processes.
 
-For more detailed information, see `the launch documentation <https://docs.ros.org/en/{DISTRO}/p/launch>`__.
+.. Community-contributed packages:
+
+.. Related content (placeholder)
+   -----------------------------
+
+   More articles about node management:
+
+   * Example
+
+   * Example
+
+   FAQs (placeholder)
+   ------------------
+
+   * Example
+
+   * Example
