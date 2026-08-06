@@ -356,3 +356,42 @@ Making a PR
 ^^^^^^^^^^^
 
 When you've finished your documentation changes, submit them by :ref:`making a pull request <DeveloperGuidePullRequests>`.
+
+Marking a distribution EOL and freezing its documentation
+----------------------------------------------------------
+
+.. note::
+
+   This is a maintainer task.
+   Regular contributors do not need to follow this section.
+
+Each distribution's documentation goes through three stages:
+
+#. **Active**: the distribution branch is rebuilt by every documentation build and its pages carry no special markings.
+#. **EOL**: the distribution has reached its end-of-life date (see `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__), and its pages are stamped with an EOL banner and an ``(EOL)`` label in the version menu.
+   An EOL distribution is still rebuilt, so that one final build publishes those EOL markings.
+#. **Frozen**: the distribution branch is dropped from the build set and is never rebuilt again.
+   Its already-published, EOL-stamped pages stay served on `docs.ros.org <https://docs.ros.org/>`__, and the version menu keeps linking to them.
+
+Freezing matters because the multiversion build promotes warnings to errors across all branches it builds.
+A stale external link or a tooling change can make an old, unmaintained branch fail, which blocks deployment of every active distribution (see `issue #6964 <https://github.com/ros2/ros2_documentation/issues/6964>`__).
+Dropping EOL branches from the build set removes that risk.
+
+A distribution must be built at least once while marked EOL before it is frozen, otherwise its published pages would never receive the EOL banner.
+This ordering is enforced by assertions in `conf.py <https://github.com/ros2/ros2_documentation/blob/rolling/conf.py>`_: the frozen list must always be a subset of the EOL list.
+The steps are therefore done in two separate pull requests:
+
+#. **Mark the distribution EOL.**
+   When the distribution reaches its end-of-life date, open a pull request against the ``rolling`` branch that adds the distribution to ``smv_eol_versions`` in ``conf.py``.
+
+#. **Verify the published EOL markings.**
+   After the pull request is merged, wait for the next nightly deployment and confirm on `docs.ros.org <https://docs.ros.org/>`__ that the distribution's pages show the EOL banner and that the version menu labels it ``(EOL)``.
+
+#. **Freeze the distribution.**
+   Open a second pull request against the ``rolling`` branch that adds the distribution to ``smv_frozen_versions`` in ``conf.py``.
+   The build set (``smv_active_versions``) and the version menu entries for frozen distributions are both derived from this list, so no other changes are needed.
+   Aim to complete the freeze within about a month of the end-of-life date: EOL documentation rarely changes, and every build that still includes the branch is a chance for it to break the whole site.
+
+After the freeze is merged, verify that the next nightly deployment still lists the distribution in the version menu (linking to its preserved pages) and that the multiversion build no longer checks out its branch.
+
+If documentation for a frozen distribution ever needs to be corrected, remove the distribution from ``smv_frozen_versions``, merge the fix into the distribution branch, let a build publish it, and then freeze it again.

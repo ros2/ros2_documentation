@@ -173,7 +173,10 @@ smv_eol_versions = ['crystal', 'dashing', 'eloquent', 'foxy', 'galactic', 'iron'
 # A distro must be built at least once while EOL before it is frozen, so the
 # freeze workflow is: add to smv_eol_versions -> one nightly build stamps the
 # EOL banner/label -> verify -> add to smv_frozen_versions. Freezing must
-# therefore only ever be a subset of EOL (asserted below).
+# therefore only ever be a subset of EOL (asserted below). The full procedure is
+# documented in source/The-ROS2-Project/Contributing/Documentation/
+# Creating-or-updating-documentation.rst ("Marking a distribution EOL and
+# freezing its documentation").
 smv_frozen_versions = ['crystal', 'dashing', 'eloquent', 'foxy', 'galactic', 'iron']
 
 # Only build branches for distros that are not frozen. Derived so that freezing a
