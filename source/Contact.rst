@@ -16,7 +16,7 @@ You can contact the ROS community in the following ways:
 
 * `Stack Exchange <https://robotics.stackexchange.com/>`__: Ask for support or discuss a problem
 
-* Issue tracker: Submit an issue or suggest an enhancement: <Placeholder link to new "Submitting an issue" article>
+* Issue tracker: Report an issue or suggest and enhancement. More information is in :doc:`Reporting an issue — how to <../The-ROS2-Project/Contributing/Contributing-to-code/Reporting-an-issue>`
 
 * :ref:`Discourse discussion boards <discussion-boards>`: Share ideas or discuss best practices
 
@@ -43,7 +43,9 @@ The community can't benefit from private answers and questions.
 Keep your questions out in the public to help others with solving their problems.
 Open Source development works best when the entire community participates in discussions and helps to answer questions.
 
-.. note:: If you can provide support to others, please do: <Placeholder link to new Contributing to ROS article>
+.. note:: 
+
+   If you can provide support to others, please do. More information is in :ref:`Contributing to ROS <provide-support>`.
 
 .. _reporting-an-issue:
 
@@ -52,7 +54,7 @@ Reporting an issue or suggesting an enhancement
 
 If you identify issues, have suggestions for enhancements, or have a question specific to one package, you can report an issue on GitHub.
 
-<Placeholder link to new "Reporting an issue" article>
+More information is in :doc:`Reporting an issue — how-to <../The-ROS2-Project/Contributing/Contributing-to-code/Reporting-an-issue>`.
 
 .. note::
 
@@ -80,7 +82,7 @@ Offering help
 
 If you are in a position to support others, share your knowledge and help fellow users work through challenges.
 
-More information is in :doc: `Contributing to ROS <Contributing-To-ROS>`
+More information is in :ref:`Contributing to ROS <provide-support>`.
 
 Contacting us privately
 -----------------------
