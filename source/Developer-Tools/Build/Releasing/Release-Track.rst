@@ -13,7 +13,7 @@ Creating release track prompts - how-to
 =======================================
 
 .. short-description::
-   Bloom release tracks store reusable configuration for releasing packages into different ROS distributions.
+   Release tracks are used to store configuration information which can be reused by Bloom when releasing packages into different ROS distributions.
    This article describes each release track prompt and the recommended values to enter.
    After you follow it, you can create a track that matches your target ROS distribution and release workflow.
 

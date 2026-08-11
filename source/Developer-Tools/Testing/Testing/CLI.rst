@@ -3,7 +3,7 @@
     Tutorials/Intermediate/Testing/CLI
 
 .. meta::
-   :contentType: tutorial
+   :contentType: how-to
    :experience: intermediate
    :area: debugging, builds, tools
    :distribution: {DISTRO}
@@ -11,12 +11,13 @@
 
 .. _TestingCLI:
 
-Running Tests in ROS 2 from the Command Line - tutorial
-=======================================================
+Running Tests in ROS 2 from the Command Line - how-to
+=====================================================
 
 .. short-description::
    Running tests from the command line helps verify that ROS packages build correctly and behave as expected.
    This article explains how to run package tests with ``colcon``, examine test results, and find guidance for debugging failing tests.
+   After following these steps, you will be able to run tests, filter packages, view failures, and find debugging guidance.
 
 .. showmeta::
    :order: area, contentType, experience

@@ -15,7 +15,7 @@ Addressing common DDS tuning issues - how-to
 ============================================
 
 .. short-description::
-   DDS tuning can improve communication reliability and performance in systems that send large messages or use lossy networks.
+   Data Distribution Service (DDS) tuning can improve communication reliability and performance in systems that send large messages or use lossy networks.
    This article describes Linux kernel, QoS, and vendor-specific parameters for common DDS issues.
    After you read it, you can choose starting values for tuning Fast RTPS, Cyclone DDS, and RTI Connext.
 

@@ -13,11 +13,11 @@
 
 .. _ROS2Bag-QoS-Override:
 
-rosbag2: Overriding QoS Policies - how-to
+rosbag2: Overriding Quality of Service (QoS) Policies - how-to
 =========================================
 
 .. short-description::
-   QoS compatibility can affect whether Ros2Bag records or plays back data from ROS topics correctly.
+   Quality of Service (QoS) compatibility can affect whether Ros2Bag records or plays back data from ROS topics correctly.
    This article shows how to override Ros2Bag QoS profile settings with a YAML file.
    After you follow these steps, you can apply topic-specific QoS policies for recording and playback.
 
