@@ -15,37 +15,35 @@ Summary
 Every robot needs to interact with its environment.
 Manipulation capabilities include analysis of the environment around a manipulator, planning the motion of the manipulator to get the end effector where it needs to be, and controlling end effects to do things like pick and place objects.
 
-Core ROS packages
+.. Core ROS packages
+   * Placeholder
 
-QUESTION FOR THE REVIEWER: Are there any core ROS packages that should be listed here?
-If so, please provide them.
+   * Placeholder
 
-* Placeholder
-
-* Placeholder
-
-* Placeholder
+   * Placeholder
 
 Community-contributed packages
 
-QUESTION FOR THE REVIEWER: Are there any other community-contributed packages that should be listed here?
-If so, please provide them.
-
 * `Move it <https://moveit.ai/>`_: A motion planning, manipulation, and kinematics framework for ROS.
 
-* Placeholder
+* `Tesseract <https://github.com/tesseract-ocr/tesseract>`_: An optical Character Recognition (OCR) engine used to extract text from images.
 
-* Placeholder
+* `OMPL <https://ompl.kavrakilab.org>`_: A C++ library providing sampling-based algorithms for motion planning in robotics and automated systems.
 
-Related content (placeholder)
------------------------------
+* `SBPL <https://github.com/sbpl/sbpl>`_: A C++ library providing search-based motion planning algorithms for robotics and automated systems.
 
-* Example
+* `RoboPlan <https://github.com/open-planning/roboplan>`_: A Rust and C++ library providing a planning framework for robotics and automated systems.
 
-* Example
+* `PyRoboPlan <https://pyroboplan.readthedocs.io/en/latest/>`_: A Python library for modeling robot kinematics and dynamics.
 
-FAQs (placeholder)
-------------------
-* Example
+.. Related content (placeholder)
+   ------------------------------
+   * Example
 
-* Example
+   * Example
+
+   FAQs (placeholder)
+   ------------------
+   * Example
+
+   * Example
