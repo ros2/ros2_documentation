@@ -24,14 +24,7 @@ This includes sensor fusion (combining data from multiple sensors into a unified
 
 Core ROS packages
 
-QUESTION FOR THE REVIEWER: Are there any core ROS packages that should be listed here?
-If so, please provide them.
-
-* Placeholder
-
-* Placeholder
-
-* Placeholder
+There are no core packages for this area.
 
 Community-contributed packages
 

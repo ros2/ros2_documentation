@@ -21,16 +21,11 @@ Summary
 Navigation capabilities enable a mobile robot to map its environment, plan a path to a new destination, and then control movement along that path including handling unexpected events that happen as it moves.
 
 ROS also includes motion planning capabilities.
-:doc:`See About motion planning <About-motion-planning>`
+:doc:`See About motion planning <About-Motion-planning>`
 
 Core ROS packages
 
-QUESTION FOR THE REVIEWER: Are there any core ROS packages that should be listed here?
-If so, please provide them.
-
-* Placeholder
-
-* Placeholder
+There are no core packages for this area.
 
 Community-contributed packages
 

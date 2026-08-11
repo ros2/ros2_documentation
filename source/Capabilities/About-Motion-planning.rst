@@ -21,18 +21,11 @@ This can involve controlling complex chains of actuators and links, such as thos
 ROS motion planning capabilities let you focus on where you want the end effector to be, rather than focusing on controlling every actuator individually.
 
 For mobile robots, ROS also supports navigation capabilities.
-See :doc:`About navigation <About-navigation>`
+See :doc:`About navigation <About-Navigation>`
 
 Core ROS packages
 
-QUESTION FOR THE REVIEWER: Are there any core ROS packages that should be listed here?
-If so, please provide them.
-
-* Placeholder
-
-* Placeholder
-
-* Placeholder
+There are no core packages for this area.
 
 Community-contributed packages
 
