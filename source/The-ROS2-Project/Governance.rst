@@ -74,7 +74,7 @@ The ROS PMC currently consists of the following constituents:
      - Member
      - CET (UTC+1)/CEST (UTC+2)
    * - Tomoya Fujita
-     - `Sony <https://www.sony.com/>`_
+     - `TriOrb Inc. <https://triorb.co.jp/>`_
      - `fujitatomoya <https://github.com/fujitatomoya>`_
      - Member
      - JST (UTC+9)
@@ -114,7 +114,7 @@ The ROS PMC currently consists of the following constituents:
      - Member
      - CST (UTC-6)/CDT (UTC-5)
    * - Michael Orlov
-     - `Apex.AI <https://www.apex.ai/>`_
+     - Independent
      - `MichaelOrlov <https://github.com/MichaelOrlov>`_
      - Member
      - PST (UTC-8)/PDT (UTC-7)
@@ -295,6 +295,7 @@ The following repositories are managed by the ROS PMC:
    * - https://github.com/ros2/mimick_vendor
    * - https://github.com/ros2/orocos_kdl_vendor
    * - https://github.com/ros2/performance_test_fixture
+   * - https://github.com/ros2/pmc_scripts
    * - https://github.com/ros2/pybind11_vendor
    * - https://github.com/ros2/rcl
    * - https://github.com/ros2/rcl_interfaces
