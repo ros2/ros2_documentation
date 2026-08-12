@@ -27,25 +27,17 @@ if str(_TOOLS_DIR) not in sys.path:
 
 from ensure_enhancements import (  # noqa: E402
     REVIEW_MARKER,
-    SECTION_COPY_PASTE_AFTER_TITLE,
-    SECTION_INLINE_SUGGESTIONS,
-    SECTION_NON_EMPTY_VALUES,
     SUMMARY_REVIEW_TITLE,
     AfterTitleRule,
     EnhanceConfig,
     MetaRule,
     _unresolved_fields,
     build_review_comment,
-    can_suggest_after_title_inline,
-    can_suggest_inline,
     changed_rst_paths,
     ensure_enhancements_in_file,
     load_enhance_config,
     main,
-    _annotation_line_for_after_title,
-    _annotation_line_for_meta,
 )
-from rst_utils import get_meta_fields_from_content, inject_metadata_to_content  # noqa: E402
 
 SAMPLE_CONFIG = textwrap.dedent(
     """
@@ -133,75 +125,6 @@ class TestEnhanceConfig(unittest.TestCase):
         )
 
 
-class TestCanSuggestInline(unittest.TestCase):
-    def test_meta_block_overlap_uses_inclusive_span_only(self) -> None:
-        content = textwrap.dedent(
-            """
-            .. meta::
-               :product: x
-
-            Title
-            =====
-            """
-        ).lstrip()
-        # Meta block is lines 1-2; line 3 is blank after the block.
-        self.assertFalse(can_suggest_inline(content, {3}))
-        self.assertTrue(can_suggest_inline(content, {2}))
-
-    def test_after_title_overlap_uses_paragraph_span(self) -> None:
-        content = textwrap.dedent(
-            """
-            Title
-            =====
-
-            Opening paragraph.
-            """
-        ).lstrip()
-        self.assertTrue(can_suggest_after_title_inline(content, {4}, paragraph_span=(4, 4)))
-        self.assertFalse(can_suggest_after_title_inline(content, {8}, paragraph_span=(4, 4)))
-
-
-class TestAnnotationLines(unittest.TestCase):
-    def test_after_title_line_uses_paragraph_when_meta_is_at_top(self) -> None:
-        content = textwrap.dedent(
-            """
-            .. meta::
-               :product: x
-
-            Title
-            =====
-
-            Opening paragraph beneath the title.
-
-            More body.
-            """
-        ).lstrip()
-        self.assertEqual(_annotation_line_for_meta(content), 1)
-        self.assertEqual(_annotation_line_for_after_title(content), 7)
-
-    def test_result_includes_separate_after_title_line(self) -> None:
-        config = EnhanceConfig(meta={}, after_title=AFTER_TITLE_RULES)
-        content = textwrap.dedent(
-            """
-            .. meta::
-               :product: x
-
-            Title
-            =====
-
-            Opening paragraph beneath the title.
-            """
-        ).lstrip()
-        with tempfile.TemporaryDirectory() as tmp:
-            path = Path(tmp) / "page.rst"
-            path.write_text(content, encoding="utf-8")
-            result = ensure_enhancements_in_file(path, config)
-            self.assertIsNotNone(result)
-            assert result is not None
-            self.assertEqual(result["line"], 1)
-            self.assertEqual(result["after_title_line"], 7)
-
-
 class TestUnresolvedFields(unittest.TestCase):
     def test_missing_and_blank_count_as_unresolved(self) -> None:
         rules = {
@@ -219,65 +142,32 @@ class TestUnresolvedFields(unittest.TestCase):
         )
         self.assertEqual(_unresolved_fields(content, rules), ["product", "area"])
 
-    def test_inject_fills_blank_configured_value(self) -> None:
-        content = textwrap.dedent(
-            """
-            .. meta::
-               :product:
-
-            Title
-            =====
-            """
-        )
-        updated, changed = inject_metadata_to_content(content, {"product": "{PRODUCT}"})
-        self.assertTrue(changed)
-        fields = get_meta_fields_from_content(updated)
-        self.assertEqual(fields["product"], "{PRODUCT}")
-
 
 class TestEnsureEnhancementsInFile(unittest.TestCase):
-    def test_local_auto_inject_clears_configured_fields(self) -> None:
-        rules = {
-            "product": MetaRule("warning", "{PRODUCT}"),
-            "area": MetaRule("error", ""),
-        }
+    def test_reports_missing_meta_fields(self) -> None:
+        config = EnhanceConfig(
+            meta={
+                "product": MetaRule("warning", "{PRODUCT}"),
+                "area": MetaRule("error", ""),
+            },
+            after_title={},
+        )
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "page.rst"
             path.write_text("Title\n=====\n", encoding="utf-8")
-            result = ensure_enhancements_in_file(path, rules)
+            result = ensure_enhancements_in_file(path, config)
             self.assertIsNotNone(result)
-            self.assertEqual(result["mode"], "suggestable")
-            self.assertIn("area", result["manual_fields"])
-            self.assertIn("area", result["error_fields"])
-            fields = get_meta_fields_from_content(path.read_text(encoding="utf-8"))
-            self.assertEqual(fields["product"], "{PRODUCT}")
-
-    def test_auto_injected_fields_are_still_annotated(self) -> None:
-        rules = {
-            "product": MetaRule("warning", "{PRODUCT}"),
-            "area": MetaRule("error", ""),
-        }
-        with tempfile.TemporaryDirectory() as tmp:
-            path = Path(tmp) / "page.rst"
-            path.write_text("Title\n=====\n", encoding="utf-8")
-            result = ensure_enhancements_in_file(path, rules)
-            self.assertIsNotNone(result)
-            self.assertIn("product", result["warning_fields"])
-            self.assertNotIn("product", result["manual_fields"])
-
-    def test_result_returned_when_only_configured_fields_missing(self) -> None:
-        rules = {"product": MetaRule("warning", "{PRODUCT}")}
-        with tempfile.TemporaryDirectory() as tmp:
-            path = Path(tmp) / "page.rst"
-            path.write_text("Title\n=====\n", encoding="utf-8")
-            result = ensure_enhancements_in_file(path, rules)
-            self.assertIsNotNone(result)
-            self.assertEqual(result["mode"], "suggestable")
-            self.assertEqual(result["warning_fields"], ["product"])
-            self.assertEqual(result["manual_fields"], [])
+            assert result is not None
+            self.assertIn("product", result["meta_optional"])
+            self.assertIn("area", result["meta_required"])
+            self.assertEqual(result["after_title_optional"], [])
+            self.assertEqual(result["after_title_required"], [])
 
     def test_no_result_when_all_fields_present(self) -> None:
-        rules = {"product": MetaRule("warning", "{PRODUCT}")}
+        config = EnhanceConfig(
+            meta={"product": MetaRule("warning", "{PRODUCT}")},
+            after_title={},
+        )
         content = textwrap.dedent(
             """
             .. meta::
@@ -290,50 +180,30 @@ class TestEnsureEnhancementsInFile(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "page.rst"
             path.write_text(content, encoding="utf-8")
-            self.assertIsNone(ensure_enhancements_in_file(path, rules))
+            self.assertIsNone(ensure_enhancements_in_file(path, config))
+
+    def test_does_not_modify_files(self) -> None:
+        config = EnhanceConfig(
+            meta={"product": MetaRule("warning", "{PRODUCT}")},
+            after_title={},
+        )
+        original = "Title\n=====\n"
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "page.rst"
+            path.write_text(original, encoding="utf-8")
+            ensure_enhancements_in_file(path, config)
+            self.assertEqual(path.read_text(encoding="utf-8"), original)
 
 
 class TestAfterTitleEnhancements(unittest.TestCase):
-    def test_inserts_short_description_and_showmeta(self) -> None:
-        config = EnhanceConfig(
-            meta={"product": MetaRule("warning", "{PRODUCT}")},
-            after_title=AFTER_TITLE_RULES,
-        )
-        content = textwrap.dedent(
-            """
-            Title
-            =====
-
-            Opening paragraph for the page.
-
-            More content.
-            """
-        ).lstrip()
-        with tempfile.TemporaryDirectory() as tmp:
-            path = Path(tmp) / "page.rst"
-            path.write_text(content, encoding="utf-8")
-            result = ensure_enhancements_in_file(path, config)
-            self.assertIsNotNone(result)
-            updated = path.read_text(encoding="utf-8")
-            self.assertIn(".. short-description::", updated)
-            self.assertIn(".. showmeta::", updated)
-            self.assertIn(":order: area, content-type, experience", updated)
-            self.assertIn("Opening paragraph for the page.", updated)
-            self.assertIn("More content.", updated)
-
-    def test_toctree_before_paragraph_wraps_correct_paragraph(self) -> None:
+    def test_reports_missing_after_title_directives(self) -> None:
         config = EnhanceConfig(meta={}, after_title=AFTER_TITLE_RULES)
         content = textwrap.dedent(
             """
             Title
             =====
 
-            .. toctree::
-               Page
-
-            First paragraph here.
-
-            Second paragraph.
+            Opening paragraph for the page.
             """
         ).lstrip()
         with tempfile.TemporaryDirectory() as tmp:
@@ -341,90 +211,39 @@ class TestAfterTitleEnhancements(unittest.TestCase):
             path.write_text(content, encoding="utf-8")
             result = ensure_enhancements_in_file(path, config)
             self.assertIsNotNone(result)
-            updated = path.read_text(encoding="utf-8")
-            self.assertIn("First paragraph here.", updated)
-            self.assertIn(".. showmeta::", updated)
-            toctree_pos = updated.index(".. toctree::")
-            showmeta_pos = updated.index(".. showmeta::")
-            self.assertLess(showmeta_pos, toctree_pos)
-
-    def test_build_review_comment_includes_after_title_snippets(self) -> None:
-        rules = {"area": MetaRule("error", "")}
-        results = [
-            {
-                "path": "source/Page.rst",
-                "mode": "snippet",
-                "snippet": "",
-                "auto_fields": [],
-                "manual_fields": [],
-                "warning_fields": ["short-description"],
-                "error_fields": [],
-                "line": 1,
-                "after_title_auto": [],
-                "after_title_manual": [],
-                "after_title_warning": ["short-description"],
-                "after_title_error": [],
-                "after_title_snippets": [
-                    {
-                        "directive": "showmeta",
-                        "snippet": ".. showmeta::\n   :order: area\n",
-                    },
-                ],
-            },
-        ]
-        body = build_review_comment(results, rules)
-        self.assertIn(SECTION_COPY_PASTE_AFTER_TITLE, body)
-        self.assertIn(".. showmeta::", body)
+            assert result is not None
+            self.assertIn("short-description", result["after_title_optional"])
+            self.assertIn("showmeta", result["after_title_optional"])
 
 
 class TestReviewAndExit(unittest.TestCase):
-    def test_build_review_comment_lists_manual_fields(self) -> None:
-        rules = {
-            "area": MetaRule("error", ""),
-            "experience": MetaRule("warning", ""),
-        }
+    def test_build_review_comment_lists_missing_items(self) -> None:
+        config = EnhanceConfig(
+            meta={
+                "product": MetaRule("warning", "{PRODUCT}"),
+                "area": MetaRule("error", ""),
+                "experience": MetaRule("warning", ""),
+            },
+            after_title=AFTER_TITLE_RULES,
+        )
         results = [
             {
                 "path": "source/Page.rst",
-                "mode": "manual_fields",
-                "snippet": "",
-                "auto_fields": [],
-                "manual_fields": ["area", "experience"],
-                "warning_fields": ["experience"],
-                "error_fields": ["area"],
-                "line": 1,
+                "meta_required": ["area"],
+                "meta_optional": ["product", "experience"],
+                "after_title_required": [],
+                "after_title_optional": ["short-description", "showmeta"],
             },
         ]
-        body = build_review_comment(results, rules)
+        body = build_review_comment(results, config=config)
         self.assertIn(SUMMARY_REVIEW_TITLE, body)
-        self.assertIn(SECTION_NON_EMPTY_VALUES, body)
-        self.assertIn("area", body)
+        self.assertIn("source/Page.rst", body)
+        self.assertIn("Missing `.. meta::` fields", body)
+        self.assertIn("Missing after-title directives", body)
         self.assertIn("required", body)
-        self.assertIn("experience", body)
-
-    def test_build_review_comment_lists_inline_suggestion_fields(self) -> None:
-        rules = {
-            "product": MetaRule("warning", "{PRODUCT}"),
-            "experience": MetaRule("warning", ""),
-        }
-        results = [
-            {
-                "path": "source/Page.rst",
-                "mode": "suggestable",
-                "snippet": "",
-                "auto_fields": ["product"],
-                "manual_fields": ["experience"],
-                "warning_fields": ["product", "experience"],
-                "error_fields": [],
-                "line": 1,
-            },
-        ]
-        body = build_review_comment(results, rules)
-        self.assertIn(SUMMARY_REVIEW_TITLE, body)
-        self.assertIn(SECTION_INLINE_SUGGESTIONS, body)
-        self.assertIn(SECTION_NON_EMPTY_VALUES, body)
-        self.assertIn("- **`source/Page.rst`**: `product`", body)
-        self.assertIn("`experience` (optional)", body)
+        self.assertIn("{PRODUCT}", body)
+        self.assertIn(":order: area, content-type, experience", body)
+        self.assertIn(REVIEW_MARKER, body)
 
     def test_local_exit_nonzero_only_for_error_severity(self) -> None:
         warning_config = textwrap.dedent(
@@ -498,35 +317,16 @@ class TestCiStatusOutputs(unittest.TestCase):
             )
             return status_path.read_text(encoding="utf-8")
 
-    def test_suggestion_note_written_with_inline_suggestions(self) -> None:
+    def test_status_file_writes_comment_when_issues_remain(self) -> None:
         status = self._run_with_status_file("Title\n=====\n")
-        self.assertIn("inline_suggestions=true", status)
-        self.assertIn("suggestion_note<<", status)
-        suggestion_note = _extract_multiline_output(status, "suggestion_note")
+        self.assertIn("has_results=true", status)
+        self.assertIn("has_errors=true", status)
         comment = _extract_multiline_output(status, "comment")
-        self.assertIsNotNone(suggestion_note)
         self.assertIsNotNone(comment)
-        self.assertIn("## Inline documentation suggestions", suggestion_note or "")
-        self.assertNotIn(REVIEW_MARKER, suggestion_note or "")
         self.assertIn(SUMMARY_REVIEW_TITLE, comment or "")
         self.assertIn(REVIEW_MARKER, comment or "")
 
-    def test_no_suggestion_note_without_inline_suggestions(self) -> None:
-        content = textwrap.dedent(
-            """
-            .. meta::
-               :product: ROS 2
-
-            Title
-            =====
-            """
-        ).lstrip()
-        status = self._run_with_status_file(content)
-        self.assertIn("inline_suggestions=false", status)
-        self.assertNotIn("suggestion_note<<", status)
-        self.assertIn("comment<<", status)
-
-    def test_clean_file_writes_no_review_bodies(self) -> None:
+    def test_clean_file_writes_no_review_body(self) -> None:
         content = textwrap.dedent(
             """
             .. meta::
@@ -548,7 +348,6 @@ class TestCiStatusOutputs(unittest.TestCase):
         self.assertIn("has_results=false", status)
         self.assertIn("has_errors=false", status)
         self.assertNotIn("comment<<", status)
-        self.assertNotIn("suggestion_note<<", status)
 
 
 class TestChangedRstPaths(unittest.TestCase):

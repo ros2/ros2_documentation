@@ -43,7 +43,7 @@ test:
 	doc8 --ignore D001  --ignore-path $(OUT) -- $(SOURCE)
 
 test-tools:
-	$(PYTHON) -m pytest test/
+	$(PYTHON) -m pytest test/ tools/tests/
 
 spellcheck:
 	git ls-files '*.md' '*.rst' | xargs codespell --config codespell.cfg

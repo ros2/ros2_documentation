@@ -70,20 +70,8 @@ jobs:
           make -f .trusted-base/Makefile supersede-enhancement-reviews \
             TOOLS_DIR=.trusted-base/tools
 
-      # File-level "Commit suggestion" comments. suggestion_note is intentionally
-      # unstamped so supersede does not collapse this review; Conversation then
-      # keeps showing live suggestions until GitHub marks each comment outdated.
-      - name: Suggest documentation enhancements
-        if: >-
-          ${{ !cancelled()
-          && steps.ensure.outputs.inline_suggestions == 'true' }}
-        uses: parkerbxyz/suggest-changes@v3
-        with:
-          comment: ${{ steps.ensure.outputs.suggestion_note }}
-          event: COMMENT
-
-      # Always posts the summary so the Conversation view has a current review
-      # after the stale ones are minimised, whatever suggest-changes did.
+      # Posts the summary so the Conversation view has a current review after
+      # the stale ones are minimised.
       - name: Post enhancement review comment
         if: >-
           ${{ !cancelled()

@@ -24,115 +24,35 @@ if str(_TOOLS_DIR) not in sys.path:
     sys.path.insert(0, str(_TOOLS_DIR))
 
 from rst_utils import (  # noqa: E402
-    extract_first_paragraph_after_title,
-    format_showmeta_block,
+    get_meta_fields_from_content,
     has_short_description_content,
     has_showmeta_with_order,
-    inject_showmeta_to_content,
-    wrap_first_paragraph_as_short_description,
 )
 
 
-class TestExtractFirstParagraph(unittest.TestCase):
-    def test_skips_directives_before_prose(self) -> None:
+class TestMetaFields(unittest.TestCase):
+    def test_get_meta_fields_from_content(self) -> None:
         content = textwrap.dedent(
             """
+            .. meta::
+               :product: ROS 2
+               :area: docs
+
             Title
             =====
-
-            .. toctree::
-               :maxdepth: 1
-
-               Page
-
-            First paragraph here.
-
-            Second paragraph.
             """
         ).lstrip()
-        paragraph, span = extract_first_paragraph_after_title(content)
-        self.assertEqual(paragraph, "First paragraph here.")
-        self.assertEqual(span, (9, 9))
+        fields = get_meta_fields_from_content(content)
+        self.assertEqual(fields["product"], "ROS 2")
+        self.assertEqual(fields["area"], "docs")
 
-    def test_finds_paragraph_after_dash_title(self) -> None:
-        content = textwrap.dedent(
-            """
-            Summary
-            -------
-
-            Opening prose for the page.
-            """
-        ).lstrip()
-        paragraph, span = extract_first_paragraph_after_title(content)
-        self.assertEqual(paragraph, "Opening prose for the page.")
-        self.assertEqual(span, (4, 4))
-
-    def test_returns_none_when_no_prose(self) -> None:
-        content = textwrap.dedent(
-            """
-            Title
-            =====
-
-            .. toctree::
-               Page
-            """
-        ).lstrip()
-        paragraph, span = extract_first_paragraph_after_title(content)
-        self.assertIsNone(paragraph)
-        self.assertIsNone(span)
+    def test_returns_empty_when_no_meta_block(self) -> None:
+        content = "Title\n=====\n"
+        self.assertEqual(get_meta_fields_from_content(content), {})
 
 
-class TestWrapShortDescription(unittest.TestCase):
-    def test_preserves_one_sentence_per_line(self) -> None:
-        content = textwrap.dedent(
-            """
-            First steps with ROS - learning path
-            ====================================
-
-            ROS (Robot Operating System) is an open-source ecosystem that provides framework, tools, and libraries for building, deploying, running, and maintaining robotic applications.
-            This page presents a set of articles and hands-on activities to introduce the main concepts behind the ROS framework.
-            Working through these will give you the essential knowledge needed to start developing applications with ROS.
-
-            More content.
-            """
-        ).lstrip()
-        paragraph, span = extract_first_paragraph_after_title(content)
-        self.assertEqual(span, (4, 6))
-        self.assertIn("\n", paragraph or "")
-        updated, changed = wrap_first_paragraph_as_short_description(content)
-        self.assertTrue(changed)
-        expected_block = textwrap.dedent(
-            """
-            .. short-description::
-               ROS (Robot Operating System) is an open-source ecosystem that provides framework, tools, and libraries for building, deploying, running, and maintaining robotic applications.
-               This page presents a set of articles and hands-on activities to introduce the main concepts behind the ROS framework.
-               Working through these will give you the essential knowledge needed to start developing applications with ROS.
-            """
-        ).strip()
-        self.assertIn(expected_block, updated)
-        self.assertIn("More content.", updated)
-
-    def test_wraps_first_paragraph_after_equals_title(self) -> None:
-        content = textwrap.dedent(
-            """
-            Title
-            =====
-
-            Opening paragraph for the article.
-
-            More content.
-            """
-        ).lstrip()
-        updated, changed = wrap_first_paragraph_as_short_description(content)
-        self.assertTrue(changed)
-        self.assertTrue(has_short_description_content(updated))
-        self.assertIn(".. short-description::", updated)
-        self.assertIn("Opening paragraph for the article.", updated)
-        self.assertIn("More content.", updated)
-        body_after_directive = updated.split(".. short-description::", 1)[1]
-        self.assertNotIn("Opening paragraph for the article.", body_after_directive.split("More content.", 1)[1])
-
-    def test_does_not_replace_existing_short_description(self) -> None:
+class TestShortDescription(unittest.TestCase):
+    def test_has_short_description_content(self) -> None:
         content = textwrap.dedent(
             """
             Title
@@ -144,11 +64,9 @@ class TestWrapShortDescription(unittest.TestCase):
             Body paragraph.
             """
         ).lstrip()
-        updated, changed = wrap_first_paragraph_as_short_description(content)
-        self.assertFalse(changed)
-        self.assertEqual(updated, content)
+        self.assertTrue(has_short_description_content(content))
 
-    def test_fills_empty_short_description_from_first_paragraph(self) -> None:
+    def test_empty_short_description_is_not_present(self) -> None:
         content = textwrap.dedent(
             """
             Title
@@ -156,41 +74,32 @@ class TestWrapShortDescription(unittest.TestCase):
 
             .. short-description::
 
-            Body paragraph here.
+            Body paragraph.
             """
         ).lstrip()
-        updated, changed = wrap_first_paragraph_as_short_description(content)
-        self.assertTrue(changed)
-        self.assertTrue(has_short_description_content(updated))
-        self.assertEqual(updated.count("Body paragraph here."), 1)
+        self.assertFalse(has_short_description_content(content))
+
+    def test_missing_short_description(self) -> None:
+        content = "Title\n=====\n\nBody paragraph.\n"
+        self.assertFalse(has_short_description_content(content))
 
 
-class TestShowmetaHelpers(unittest.TestCase):
-    def test_inject_showmeta_after_short_description(self) -> None:
+class TestShowmeta(unittest.TestCase):
+    def test_has_showmeta_with_order(self) -> None:
         content = textwrap.dedent(
             """
             Title
             =====
 
-            .. short-description::
-               Summary text.
+            .. showmeta::
+               :order: area, content-type, experience
 
             Body content.
             """
         ).lstrip()
-        updated, changed = inject_showmeta_to_content(
-            content,
-            {"order": "area, content-type, experience"},
-        )
-        self.assertTrue(changed)
-        self.assertTrue(has_showmeta_with_order(updated))
-        short_desc_pos = updated.index(".. short-description::")
-        showmeta_pos = updated.index(".. showmeta::")
-        body_pos = updated.index("Body content.")
-        self.assertLess(short_desc_pos, showmeta_pos)
-        self.assertLess(showmeta_pos, body_pos)
+        self.assertTrue(has_showmeta_with_order(content))
 
-    def test_fills_missing_order_on_existing_showmeta(self) -> None:
+    def test_blank_order_is_not_present(self) -> None:
         content = textwrap.dedent(
             """
             Title
@@ -202,33 +111,11 @@ class TestShowmetaHelpers(unittest.TestCase):
             Body content.
             """
         ).lstrip()
-        updated, changed = inject_showmeta_to_content(content, {"order": "area"})
-        self.assertTrue(changed)
-        self.assertIn(":order: area", updated)
+        self.assertFalse(has_showmeta_with_order(content))
 
-    def test_does_not_overwrite_existing_order(self) -> None:
-        content = textwrap.dedent(
-            """
-            Title
-            =====
-
-            .. showmeta::
-               :order: area, experience
-
-            Body content.
-            """
-        ).lstrip()
-        updated, changed = inject_showmeta_to_content(
-            content,
-            {"order": "area, content-type, experience"},
-        )
-        self.assertFalse(changed)
-        self.assertEqual(updated, content)
-
-    def test_format_showmeta_block(self) -> None:
-        block = format_showmeta_block({"order": "area, content-type, experience"})
-        self.assertIn(".. showmeta::", block)
-        self.assertIn(":order: area, content-type, experience", block)
+    def test_missing_showmeta(self) -> None:
+        content = "Title\n=====\n\nBody content.\n"
+        self.assertFalse(has_showmeta_with_order(content))
 
 
 if __name__ == "__main__":

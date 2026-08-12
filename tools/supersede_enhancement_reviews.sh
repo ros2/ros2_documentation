@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
-# Minimise prior stamped summary reviews from ensure_enhancements.py. Suggestion-carrying
-# reviews (unstamped suggest-changes bodies) are left visible so Conversation keeps
-# live inline suggestions until they are actioned.
+# Minimise prior stamped summary reviews from ensure_enhancements.py so each
+# workflow run replaces the last Documentation enhancements review comment.
 set -euo pipefail
 
 : "${GH_TOKEN:?GH_TOKEN is required}"
