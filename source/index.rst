@@ -11,6 +11,7 @@ ROS 2 Documentation
    :hidden:
 
    Get-Started
+   Releases
    ROS-Framework
    Capabilities
    Developer-Tools
@@ -73,7 +74,7 @@ If you're interested in the advancement of the ROS 2 project:
 
   - Best practices and methodology for contributing code, documentation, and other improvements to ROS 2, as well as instructions for migrating existing ROS 1 documentation to ROS 2
 
-* :doc:`Distributions <Get-Started/Releases>`
+* :doc:`Distributions <Releases>`
 
   - Past, present and future ROS 2 distributions
 
