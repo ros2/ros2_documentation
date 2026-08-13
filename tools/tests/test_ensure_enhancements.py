@@ -14,28 +14,25 @@
 
 from __future__ import annotations
 
-import sys
 import tempfile
 import textwrap
 import unittest
 from pathlib import Path
 from unittest import mock
 
-_TOOLS_DIR = Path(__file__).resolve().parent.parent
-if str(_TOOLS_DIR) not in sys.path:
-    sys.path.insert(0, str(_TOOLS_DIR))
-
-from ensure_enhancements import (  # noqa: E402
-    REVIEW_MARKER,
-    SUMMARY_REVIEW_TITLE,
+from enhance_config import (
     AfterTitleRule,
     EnhanceConfig,
     MetaRule,
+    load_enhance_config,
+)
+from ensure_enhancements import (
+    REVIEW_MARKER,
+    SUMMARY_REVIEW_TITLE,
     _unresolved_fields,
     build_review_comment,
     changed_rst_paths,
     ensure_enhancements_in_file,
-    load_enhance_config,
     main,
 )
 

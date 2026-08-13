@@ -132,12 +132,20 @@ Information for maintainers and developers working on or extending the enhanceme
 | File | Purpose |
 |------|---------|
 | [`rst_utils.py`](rst_utils.py) | Read-only detection of `.. meta::`, `.. short-description::`, and `.. showmeta::` directives |
+| [`enhance_config.py`](enhance_config.py) | Load and validate rules from [`enhance.yaml`](enhance.yaml) |
 | [`enhance.yaml`](enhance.yaml) | Enhancement rules (`meta` fields and `after_title` directives) |
-| [`ensure_enhancements.py`](ensure_enhancements.py) | CLI that checks enhancements from the config and builds the review comment |
+| [`ensure_enhancements.py`](ensure_enhancements.py) | CLI, per-file checks, review comments, and CI outputs |
 | [`supersede_enhancement_reviews.sh`](supersede_enhancement_reviews.sh) | Minimise outdated bot PR reviews |
 | [`tests/`](tests/) | Unit tests for the tools in this directory |
 
 ### Code modules
+
+#### `enhance_config.py`
+
+Loads and validates [`enhance.yaml`](enhance.yaml):
+
+- **`MetaRule`**, **`AfterTitleRule`**, **`EnhanceConfig`** — configuration schema
+- **`load_enhance_config`** — parse and validate a config file
 
 #### `rst_utils.py`
 
@@ -149,13 +157,13 @@ Read-only utilities for locating Sphinx directives in RST source:
 
 #### Extending configuration
 
-Add a new key under `meta` in [`enhance.yaml`](enhance.yaml) to extend metadata coverage without changing Python code. `_parse_meta_rules` accepts any key with `severity` and `value`, and the rest of the pipeline (unresolved-field detection and review hints) is driven entirely by that mapping.
+Add a new key under `meta` in [`enhance.yaml`](enhance.yaml) to extend metadata coverage without changing Python code. `_parse_meta_rules` in [`enhance_config.py`](enhance_config.py) accepts any key with `severity` and `value`, and the rest of the pipeline (unresolved-field detection and review hints) is driven entirely by that mapping.
 
-`after_title` is only partly config-driven. Its mapping shape lets you reorder or retune the two existing directives (`short-description`, `showmeta`) from YAML alone — but `_parse_after_title_rules` whitelists `supported_directives = {"short-description", "showmeta"}`, so adding a *new* after-title directive needs Python changes:
+`after_title` is only partly config-driven. Its mapping shape lets you reorder or retune the two existing directives (`short-description`, `showmeta`) from YAML alone — but `_parse_after_title_rules` in [`enhance_config.py`](enhance_config.py) whitelists `supported_directives = {"short-description", "showmeta"}`, so adding a *new* after-title directive needs Python changes:
 
-1. Add the name to `supported_directives` and its directive-specific validation in `_parse_after_title_rules`.
-2. Extend `_after_title_rule_satisfied` with an "already present" check for the new directive.
-3. Extend `_after_title_hint` with review text for the new directive.
+1. Add the name to `supported_directives` and its directive-specific validation in `_parse_after_title_rules` ([`enhance_config.py`](enhance_config.py)).
+2. Extend `_after_title_rule_satisfied` in [`ensure_enhancements.py`](ensure_enhancements.py) with an "already present" check for the new directive.
+3. Extend `_after_title_hint` in [`ensure_enhancements.py`](ensure_enhancements.py) with review text for the new directive.
 4. Add matching read-only detection helpers to [`rst_utils.py`](rst_utils.py) — see `has_showmeta_with_order` for the `showmeta` example.
 
 ### CLI options & Makefile targets
@@ -233,7 +241,7 @@ The workflow uses [`pull_request_target`](https://docs.github.com/en/actions/usi
 Unit tests for this directory live in [`tests/`](tests/). From the repository root (with PyYAML installed):
 
 ```bash
-python3 -m pytest tools/tests/
+PYTHONPATH=tools python3 -m pytest tools/tests/
 ```
 
 The [`test-tools`](../Makefile) target (run in [`.github/workflows/test.yml`](../.github/workflows/test.yml)) runs `pytest` on the top-level [`test/`](../test/) tree and `tools/tests/`.

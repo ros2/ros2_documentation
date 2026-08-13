@@ -43,7 +43,8 @@ test:
 	doc8 --ignore D001  --ignore-path $(OUT) -- $(SOURCE)
 
 test-tools:
-	$(PYTHON) -m pytest test/ tools/tests/
+	$(PYTHON) -m pytest test/
+	PYTHONPATH=$(TOOLS_DIR) $(PYTHON) -m pytest $(TOOLS_DIR)/tests/
 
 spellcheck:
 	git ls-files '*.md' '*.rst' | xargs codespell --config codespell.cfg

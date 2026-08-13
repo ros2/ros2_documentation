@@ -14,16 +14,10 @@
 
 from __future__ import annotations
 
-import sys
 import textwrap
 import unittest
-from pathlib import Path
 
-_TOOLS_DIR = Path(__file__).resolve().parent.parent
-if str(_TOOLS_DIR) not in sys.path:
-    sys.path.insert(0, str(_TOOLS_DIR))
-
-from rst_utils import (  # noqa: E402
+from rst_utils import (
     get_meta_fields_from_content,
     has_short_description_content,
     has_showmeta_with_order,
