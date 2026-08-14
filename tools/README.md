@@ -8,6 +8,35 @@ Helpers for ensuring reStructuredText (`.rst`) documentation enhancements on pul
 
 Information for documentation contributors creating or updating `.rst` files.
 
+When you open or update a pull request, the **Enhance** GitHub Actions workflow runs automatically. If your changes include `.rst` files, those files are checked for standard metadata and after-title directives defined in [`enhance.yaml`](enhance.yaml). The tooling is read-only: it never edits your files or posts inline commit suggestions. If anything is missing, you receive a single **Documentation enhancements** review on the pull request and fix the RST yourself.
+
+### What gets checked
+
+| Scope | Detail |
+|-------|--------|
+| **When** | Each time a pull request is opened, updated (`synchronize`), or reopened |
+| **Which files** | Only `.rst` files **added, copied, modified, or renamed** in that pull request (not the whole repository) |
+| **How deeply** | The entire content of each in-scope file is checked against [`enhance.yaml`](enhance.yaml) |
+| **When skipped** | Pull requests that do not touch any `.rst` files — no check runs and no review is posted |
+
+Locally, you can check specific files before pushing, or use `--diff-base` to mimic the same PR-scoped discovery (see [Checking enhancements locally](#checking-enhancements-locally)).
+
+### Which pull requests
+
+The Enhance workflow runs on **every** pull request — any target branch, including from forks — once [`.github/workflows/enhance.yml`](../.github/workflows/enhance.yml) has been merged to the repository default branch (`rolling`).
+
+GitHub Actions treats `pull_request_target` workflows specially:
+
+| Source | What it provides |
+|--------|------------------|
+| **Default branch** (`rolling`) | The workflow definition (when the job runs, permissions, step order) |
+| **Pull request base branch** | The check scripts and rules (`ensure_enhancements.py`, `enhance.yaml`, Makefile targets) |
+| **Pull request head branch** | The `.rst` file content to inspect |
+
+So the job is defined centrally on `rolling`, but the rules applied are those on whichever branch your pull request targets. Until the workflow is on `rolling`, the Enhance check will not run on any pull request.
+
+See [Continuous integration architecture](#continuous-integration-architecture) below for the full job flow and security rationale.
+
 ### Prerequisites
 
 | Component | Used by |
@@ -106,20 +135,42 @@ make ensure-enhancements DIFF_BASE=origin/rolling STATUS_FILE=/tmp/enhance-out.t
 
 With `--status-file` (CI), exit `1` when any issues remain. Locally, exit `1` only when **error**-severity issues are still unresolved; warning-only issues exit `0`.
 
-### Contributor CI experience
+### When you open or update a pull request
 
-When you open or update a pull request, CI automatically checks enhancements on all modified `.rst` files.
+The [Enhance workflow](../.github/workflows/enhance.yml) runs automatically on every pull request (any target branch, including from forks). From a contributor’s perspective:
 
-| Situation | Ensure step | Pull request review | Job result |
-|-----------|-------------|---------------------|------------|
-| All enhancements resolved | Green | None (stale bot reviews cleared) | Success |
-| Warning-only gaps | Soft warning | Summary review comment | Success |
-| Error gaps (e.g. missing `area`) | Soft warning | Summary review comment | **Failure** after enforce step |
-| No changed `.rst` files in the PR | No check; `enhancements_checked=false` | Supersede/review steps skipped | Success |
+1. **No `.rst` changes** — The workflow succeeds immediately. Nothing is posted and no enhancement check runs.
+2. **One or more `.rst` files changed** — CI discovers those files and checks each against [`enhance.yaml`](enhance.yaml).
+3. **Everything present** — The workflow succeeds. Any earlier **Documentation enhancements** review from a previous push is marked outdated; no new review is posted.
+4. **Something missing** — CI posts a **Documentation enhancements** review on the pull request **Conversation** tab. The review lists each affected file and what is still missing:
+   - `.. meta::` fields labelled **required** (error severity) or **optional** (warning severity), with suggested default values where configured
+   - After-title directives (`.. short-description::`, `.. showmeta::`) with brief guidance
+5. **Warning-only gaps** — The workflow job still **succeeds**; treat the review as advisory and fix when you can.
+6. **Required gaps** (for example a missing `area` meta field) — The review is posted first, then the workflow job **fails** so the pull request cannot merge until you fix the error-severity items.
+7. **Further pushes** — Each update re-runs the check. Previous bot reviews are minimised as outdated and, if issues remain, a fresh summary review replaces them.
 
-The **Documentation enhancements** review comment (`## Documentation enhancements`) lists every affected file and what is missing. Each file section names missing `.. meta::` fields (with required/optional labels and suggested values where configured) and missing after-title directives (with brief guidance).
+#### Outcomes at a glance
 
-When you push new commits, the workflow minimises the previous summary review as outdated and posts a fresh one reflecting the current state.
+| Situation | Pull request review | Can merge? |
+|-----------|---------------------|------------|
+| No changed `.rst` files | None | Yes |
+| All enhancements present | None (stale reviews cleared) | Yes |
+| Warning-only gaps | Summary review comment | Yes |
+| Required gaps (e.g. missing `area`) | Summary review comment | **No** until fixed |
+
+#### How to fix issues
+
+1. Open the **Documentation enhancements** review on your pull request.
+2. Edit the listed `.rst` files: add or complete the missing `.. meta::` fields and after-title directives (see [Enhancement configuration](#enhancement-configuration) above).
+3. Optionally verify locally before pushing:
+
+   ```bash
+   python3 tools/ensure_enhancements.py path/to/your/file.rst
+   ```
+
+4. Push new commits. CI re-runs the workflow; when all required items are resolved, the check passes and stale reviews are cleared.
+
+The tool does not apply fixes for you — all changes are manual edits in your branch.
 
 ---
 
@@ -189,7 +240,9 @@ Environment for `supersede-enhancement-reviews` (set by the workflow or locally)
 
 ### Continuous integration architecture
 
-The workflow [`.github/workflows/enhance.yml`](../.github/workflows/enhance.yml) runs on **`pull_request_target`** when a pull request is **opened**, **synchronised**, or **reopened** (including from forks). That event type allows the default `GITHUB_TOKEN` to post review comments on fork PRs; the workflow file on the repository **default branch** defines the job, while trusted tooling comes from the PR **base** branch (see [Security](#security) below).
+The workflow [`.github/workflows/enhance.yml`](../.github/workflows/enhance.yml) runs on **`pull_request_target`** when a pull request is **opened**, **synchronised**, or **reopened**. It triggers for pull requests targeting **any** branch (there is no `branches:` filter). That event type allows the default `GITHUB_TOKEN` to post review comments on fork PRs.
+
+GitHub always executes the workflow **as defined on the repository default branch** (`rolling`), not from the pull request head. The check scripts and [`enhance.yaml`](enhance.yaml) come from the pull request **base** branch (checked out into `.trusted-base/`). See [Which pull requests](#which-pull-requests) in the user guide and [Security](#security) below.
 
 The Enhance workflow installs PyYAML in the job; it does not install the full documentation `requirements.txt` for enhancement checks.
 
@@ -244,4 +297,4 @@ Unit tests for this directory live in [`tests/`](tests/). From the repository ro
 PYTHONPATH=tools python3 -m pytest tools/tests/
 ```
 
-The [`test-tools`](../Makefile) target (run in [`.github/workflows/test.yml`](../.github/workflows/test.yml)) runs `pytest` on the top-level [`test/`](../test/) tree and `tools/tests/`.
+The [`test-tools`](../Makefile) target (run in [`.github/workflows/test.yml`](../.github/workflows/test.yml)) runs `pytest` on the top-level [`test/`](../test/) tree and, with `PYTHONPATH=tools`, on [`tests/`](tests/) in this directory.
