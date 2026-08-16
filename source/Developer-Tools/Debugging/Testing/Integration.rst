@@ -42,7 +42,9 @@ The main tool in use here is the `launch_testing <https://docs.ros.org/en/{DISTR
 (`launch_testing repository <https://github.com/ros2/launch/tree/{REPOS_FILE_BRANCH}/launch_testing>`_).
 This ROS-agnostic functionality can extend a Python launch file with both active tests (that run while the nodes are also running) and post-shutdown tests (which run once after all nodes have exited).
 ``launch_testing`` relies on the Python standard module `unittest <https://docs.python.org/3/library/unittest.html>`_ for the actual testing.
-To get our integration tests run as part of ``colcon test``, we register the launch file in the ``CMakeLists.txt``.
+To get our integration tests run as part of ``colcon test``, we register the launch file in the ``CMakeLists.txt`` or `setup.py` file.`
+
+For waiting on topics and triggering actions based on publisher availability, the `launch_testing_ros <https://docs.ros.org/en/{DISTRO}/p/launch_testing_ros/index.html>`_ package provides the `WaitForTopics <https://docs.ros.org/en/{DISTRO}/p/launch_testing_ros/launch_testing_ros.wait_for_topics.html>`_ utility, which simplifies topic subscription and waiting logic in integration tests.
 
 Steps
 -----
@@ -57,117 +59,171 @@ There are two common types of tests in integration testing: active tests, which 
 We will cover both in this tutorial.
 
 1.1 Imports
-~~~~~~~~~~~
+^^^^^^^^^^^
 
-We first start by importing the Python modules we will be using.
-Only two modules are specific to testing: the general-purpose ``unittest``, and ``launch_testing``.
+We first start by importing the Python modules we will be using. Key modules for testing include the general-purpose ``unittest``, ``launch_testing``, and the ``WaitForTopics`` utility from ``launch_testing_ros`` for convenient topic subscription and waiting logic.
 
 .. code-block:: python
 
-  import os
-  import sys
-  import time
-  import unittest
+   import math
+   import threading
+   import unittest
+   from typing import Any
 
-  import launch
-  import launch_ros
-  import launch_testing.actions
-  import rclpy
-  from turtlesim_msgs.msg import Pose
+   import launch
+   import launch_ros.actions
+   import launch_testing
+   import launch_testing.actions
+   import launch_testing.markers
+   import pytest
+   from geometry_msgs.msg import Twist
+   from launch_testing_ros import WaitForTopics
+   from launch_testing_ros.actions import EnableRmwIsolation
+   from rclpy.node import Node
+   from rclpy.publisher import PublisherEventCallbacks
+   from turtlesim_msgs.msg import Pose
 
 1.2 Generate the test description
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The function ``generate_test_description`` describes what to launch, similar to ``generate_launch_description`` in a ROS 2 Python launch file.
-In the example below, we launch the turtlesim node and half a second later our tests.
+The function ``generate_test_description`` describes what to launch, similar to ``generate_launch_description`` in a ROS 2 Python launch file. In the example below, we launch the turtlesim node with immediate test execution (no arbitrary delays).
+
+The ``EnableRmwIsolation`` action ensures that ROS communication is isolated using ``rmw_test_fixture``, preventing test interference. The ``ReadyToTest`` action signals the test framework that the tests should begin.
+
+.. code-block:: python
+
+   @pytest.mark.launch_test
+   @launch_testing.markers.keep_alive
+   def generate_test_description() -> launch.LaunchDescription:
+       """Create the launch description for turtlesim integration tests.
+
+       Returns:
+           launch.LaunchDescription: Launch actions that start turtlesim and
+               signal when tests can begin.
+       """
+       return launch.LaunchDescription(
+           [
+               # Action which enables isolation of ROS communication using rmw_test_fixture
+               EnableRmwIsolation(),
+               # Node under test: turtlesim_node
+               launch_ros.actions.Node(
+                   package="turtlesim",
+                   namespace="",
+                   executable="turtlesim_node",
+                   name="turtle1",
+                   output="screen",
+               ),
+               launch_testing.actions.ReadyToTest(),
+           ]
+       )
 
 In more complex integration test setups, you will probably want to launch a system of several nodes, together with additional nodes that perform mocking or must otherwise interact with the nodes under test.
 
-.. code-block:: python
+1.3 Active tests using WaitForTopics
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-  def generate_test_description():
-      return (
-          launch.LaunchDescription(
-              [
-                  # Nodes under test
-                  launch_ros.actions.Node(
-                      package='turtlesim',
-                      namespace='',
-                      executable='turtlesim_node',
-                      name='turtle1',
-                  ),
-                  # Launch tests 0.5 s later
-                  launch.actions.TimerAction(
-                      period=0.5, actions=[launch_testing.actions.ReadyToTest()]),
-              ]
-          ), {},
-      )
+The active tests interact with the running nodes. The ``WaitForTopics`` utility from ``launch_testing_ros`` provides a convenient way to:
 
-1.3 Active tests
-~~~~~~~~~~~~~~~~
+* Subscribe to topics and wait for them to become available
+* Receive messages published on those topics
+* Optionally trigger actions (like publishing control messages)
 
-The active tests interact with the running nodes.
-In this tutorial, we will check whether the turtlesim node publishes pose messages (by listening to the node's 'turtle1/pose' topic) and whether it logs that it spawned the turtle (by listening to stderr).
+1.3.1 Basic topic subscription test
+"""""""""""""""""""""""""""""""""""
 
-The active tests are defined as methods of a class inheriting from `unittest.TestCase <https://docs.python.org/3/library/unittest.html#unittest.TestCase>`_.
-The child class, here ``TestTurtleSim``, contains the following methods:
-
-- ``test_*``: the test methods, each performing some ROS communication with the nodes under test and/or listening to the process output (passed in through ``proc_output``).
-  They are executed sequentially.
-- ``setUp``, ``tearDown``: respectively run before (to prepare the test fixture) and after executing each test method.
-  By creating the node in the ``setUp`` method, we use a different node instance for each test to reduce the risk of tests communicating with each other.
-- ``setUpClass``, ``tearDownClass``: these class methods respectively run once before and after executing all the test methods.
-
-It's highly recommended to go through `launch_testing's detailed documentation on this topic <https://docs.ros.org/en/{DISTRO}/p/launch_testing/index.html>`_.
+The simplest test verifies that a topic is published and messages are received:
 
 .. code-block:: python
 
-  # Active tests
-  class TestTurtleSim(unittest.TestCase):
-      @classmethod
-      def setUpClass(cls):
-          rclpy.init()
+   class TestTurtleSimWithWaitForTopics(unittest.TestCase):
+       def test_publishes_pose_with_wait_for_topics(self) -> None:
+           """Verify pose messages are received for turtlesim."""
+           with WaitForTopics([("turtle1/pose", Pose)]) as waiter:
+               assert waiter.topics_received() == {"turtle1/pose"}
+               assert len(waiter.received_messages("turtle1/pose")) >= 1
 
-      @classmethod
-      def tearDownClass(cls):
-          rclpy.shutdown()
+This test creates a waiter that subscribes to the ``turtle1/pose`` topic expecting ``Pose`` messages. The `WaitForTopics` class automatically handles subscription and cleanup. The test asserts that the topic was received and at least one message was captured.
 
-      def setUp(self):
-          self.node = rclpy.create_node('test_turtlesim')
+1.3.2 Topic subscription with triggered action
+"""""""""""""""""""""""""""""""""""""""""""""""
 
-      def tearDown(self):
-          self.node.destroy_node()
+For more complex tests, you can trigger actions (such as publishing control messages) using the ``trigger`` parameter. This allows you to verify that nodes respond appropriately to a stimulus.
 
-      def test_publishes_pose(self, proc_output):
-          """Check whether pose messages published"""
-          msgs_rx = []
-          sub = self.node.create_subscription(
-              Pose, 'turtle1/pose',
-              lambda msg: msgs_rx.append(msg), 100)
-          try:
-              # Listen to the pose topic for 10 s
-              end_time = time.time() + 10
-              while time.time() < end_time:
-                  # spin to get subscriber callback executed
-                  rclpy.spin_once(self.node, timeout_sec=1)
-              # There should have been 100 messages received
-              assert len(msgs_rx) > 100
-          finally:
-              self.node.destroy_subscription(sub)
+First, define a trigger function that will be called once publishers are available:
 
-      def test_logs_spawning(self, proc_output):
-          """Check whether logging properly"""
-          proc_output.assertWaitFor(
-              'Spawning turtle [turtle1] at x=',
-              timeout=5, stream='stderr')
+.. code-block:: python
 
-Note that the way we listen to the 'turtle1/pose' topic in ``test_publishes_pose`` differs from :doc:`the usual approach <../../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber>`.
-Instead of calling the blocking ``rclpy.spin``, we trigger the ``spin_once`` method - which executes the first available callback (our subscriber callback if a message arrived within 1 second) - until we have gathered all messages published over the last 10 seconds.
-The package `launch_testing_ros <https://docs.ros.org/en/{DISTRO}/p/launch_testing_ros/index.html>`_ provides some convenience functions to achieve similar behavior,
-such as `WaitForTopics <https://docs.ros.org/en/{DISTRO}/p/launch_testing_ros/launch_testing_ros.wait_for_topics.html>`_.
+   def trigger_publish_twist(node: Node, linear_x: float, angular_z: float) -> None:
+       """Publish Twist commands to trigger turtlesim pose updates.
 
-`If you want to go further, you can implement a third test that publishes a twist message, asking the turtle to move, and subsequently checks that it moved by asserting that the pose message changed.
-This effectively automates part of the :doc:`Turtlesim introduction tutorial <../../../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>`.
+       Args:
+           node: rclpy node used to create and reuse the cmd_vel publisher.
+           linear_x: Linear x velocity in m/s
+           angular_z: Angular z velocity in rad/s
+
+       Returns:
+           None: Publishes messages as a side effect.
+       """
+       matched_event = threading.Event()
+
+       def on_subscriber_matched(info: Any) -> None:
+           if info.current_count > 0:
+               matched_event.set()
+
+       if hasattr(node, "cmd_vel_publisher"):
+           node.destroy_publisher(node.cmd_vel_publisher)
+
+       node.cmd_vel_publisher = node.create_publisher(
+           Twist,
+           "turtle1/cmd_vel",
+           10,
+           event_callbacks=PublisherEventCallbacks(matched=on_subscriber_matched),
+       )
+
+       if not matched_event.wait(timeout=5.0):
+           raise RuntimeError("Timed out waiting for turtlesim cmd_vel subscriber")
+
+       # Publish a Twist message to move the turtle
+       msg = Twist()
+       msg.linear.x = float(linear_x)
+       msg.angular.z = float(angular_z)
+       node.cmd_vel_publisher.publish(msg)
+
+Then use this trigger function in your test:
+
+.. code-block:: python
+
+   def test_moves_with_triggered_twist(self) -> None:
+       """Verify turtle motion after triggering Twist publication."""
+       waiter = WaitForTopics([("turtle1/pose", Pose)], trigger=trigger_publish_twist)
+       try:
+           while True:
+               # Wait for the turtle to move by publishing a Twist message with arguments
+               # linear_x = 10 m/s and angular_z = 2*pi rad/s
+               assert waiter.wait(linear_x=10, angular_z=2 * math.pi)
+               assert waiter.topics_received() == {"turtle1/pose"}
+               poses = waiter.received_messages("turtle1/pose")
+               assert len(poses) >= 1
+               # Check that at least one of the received poses indicates motion compatible with the
+               # published Twist command
+               if any(
+                   math.isclose(p.linear_velocity, 10.0, rel_tol=1e-2)
+                   and math.isclose(p.angular_velocity, 2 * math.pi, rel_tol=1e-2)
+                   for p in poses
+               ):
+                   break
+       finally:
+           waiter.shutdown()
+
+This test demonstrates:
+
+* Creating a publisher and waiting for subscribers to be available
+* Using ``WaitForTopics`` with a trigger function to publish messages and wait for responses
+* Verifying that received messages match expected values
+
+The while loop is necessary because the `turtlesim` node is constantly publishing pose messages, and
+we want to wait until we receive a pose that reflects the motion commanded by our published `Twist`
+message.
 
 1.4 Post-shutdown tests
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -219,7 +275,7 @@ To ease adding several integration tests, we define the CMake function ``add_ros
   endif()
 
 3 Dependencies and package organization
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Finally, add the following dependencies to your ``package.xml``:
 
@@ -248,7 +304,28 @@ Integration tests can be part of any ROS package.
 One can dedicate one or more packages to just integration testing, or alternatively add them to the package of which they test the functionality.
 In this tutorial, we go with the first option as we will test the existing turtlesim node.
 
-4 Running tests and report generation
+4 Register the test in setup.py
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For Python-based packages, tests are automatically discovered when placed in a ``test`` directory.
+
+Configure pytest discovery in ``setup.cfg``:
+
+.. code-block:: ini
+
+   [tool:pytest]
+   testpaths = test
+   python_files = test_*.py
+   markers =
+       launch_test: launch testing integration tests
+
+To run the tests, you can use the command:
+.. code-block:: bash
+    colcon test --packages-select <your_package_name> --python-testing pytest
+
+
+
+5 Running tests and report generation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For running the integration test and examining the results, see the tutorial :doc:`Running Tests in ROS 2 from the Command Line <CLI>`.
@@ -260,9 +337,10 @@ In this tutorial, we explored the process of creating and running integration te
 We discussed the integration test launch file and covered writing active tests and post-shutdown tests.
 To recap, the four key elements of the integration test launch file are:
 
-* The function ``generate_test_description``: This launches our nodes under tests as well as our tests.
-* ``launch_testing.actions.ReadyToTest()``: This alerts the test framework that the tests should be run, and ensures that the active tests and the nodes are run together.
-* An undecorated class inheriting from ``unittest.TestCase``: This houses the active tests, including set up and teardown, and gives access to ROS logging through ``proc_output``.
+* The function ``generate_test_description``: This launches our nodes under test as well as our tests.
+* ``launch_testing.actions.ReadyToTest()``: This alerts the test framework that the tests should be run, without arbitrary delays.
+* The ``WaitForTopics`` utility: This provides a convenient way to subscribe to topics, wait for messages, and optionally trigger actions like publishing control messages based on publisher availability.
+* An undecorated class inheriting from ``unittest.TestCase``: This houses the active tests, and gives access to ROS logging through ``proc_output``.
 * A second class inheriting from ``unittest.TestCase`` decorated with ``@launch_testing.post_shutdown_test()``: These are tests that run after all nodes have shutdown; it is common to assert that the nodes exited cleanly.
 
 The launch test is subsequently registered in the ``CMakeLists.txt`` using the custom cmake macro ``add_ros_isolated_launch_test`` which ensures that each launch test runs with a unique ``ROS_DOMAIN_ID``,
@@ -276,3 +354,4 @@ Related content
   and :doc:`Python unit testing with Pytest <Python>`
 * `launch_pytest documentation <https://docs.ros.org/en/{DISTRO}/p/launch_pytest/index.html>`_,
   an alternative launch integration testing package to ``launch_testing``
+* `WaitForTopics documentation <https://docs.ros.org/en/{DISTRO}/p/launch_testing_ros/launch_testing_ros.wait_for_topics.html>`_ for more advanced usage patterns
