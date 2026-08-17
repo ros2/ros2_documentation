@@ -5,6 +5,13 @@
    How-To-Guides/Launch-files-migration-guide
    How-To-Guides/Migrating-from-ROS1/Migrating-Launch-Files
 
+.. meta::
+   :contentType:
+   :experience:
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _MigratingLaunch:
 
 Migrating Launch Files
