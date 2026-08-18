@@ -20,6 +20,7 @@ ROS 2 Documentation
    Contact
    Glossary
    Citations
+   Contributing-To-ROS
 
 **The Robot Operating System (ROS) is a set of software libraries and tools for building robot applications.**
 From drivers and state-of-the-art algorithms to powerful developer tools, ROS has the open source tools you need for your next robotics project.
@@ -40,39 +41,39 @@ If you use ROS 2 in your work, please see :doc:`Citations <Citations>` to cite R
 Getting started
 ---------------
 
-* :doc:`Installation <Installation>`
+* :doc:`Installation <Get-Started/Installation>`
 
   - Instructions to set up ROS 2 for the first time
 
-* :doc:`Tutorials <Tutorials>`
+* :doc:`First-Steps`
 
   - The best place to start for new users!
   - Hands-on sample projects that help you build a progression of necessary skills
 
-* :doc:`How-To-Guides`
+* :doc:`Developer-Tools`
 
   - Quick answers to your "How do I...?"
-    questions without working through the :doc:`Tutorials <Tutorials>`
+    questions without working through the tutorials
 
-* :doc:`Concepts <Concepts>`
+* :doc:`Capabilities <Capabilities>`
 
-  - High-level explanations of core ROS 2 concepts covered in the :doc:`Tutorials <Tutorials>`
+  - High-level explanations of core ROS 2 concepts
 
 * :doc:`Contact <Contact>`
 
   - Answers to your questions or a forum to start a discussion
 
 
-The ROS 2 project
------------------
+The ROS 2 Community
+-------------------
 
 If you're interested in the advancement of the ROS 2 project:
 
 * :doc:`Contributing <The-ROS2-Project/Contributing>`
 
-  - Best practices and methodology for contributing to ROS 2, as well as instructions for migrating existing ROS 1 content to ROS 2
+  - Best practices and methodology for contributing code, documentation, and other improvements to ROS 2, as well as instructions for migrating existing ROS 1 documentation to ROS 2
 
-* :doc:`Distributions <Releases>`
+* :doc:`Distributions <Get-Started/Releases>`
 
   - Past, present and future ROS 2 distributions
 
@@ -114,12 +115,12 @@ If you need help, have an idea, or would like to contribute to the project, plea
 
 * `Robotics Stack Exchange - community Q&A website <https://robotics.stackexchange.com/>`__ (ROS 1, ROS 2)
 
-  - See :ref:`Contact Page <Using Robotics Stack Exchange>` for more information
+  - See the :doc:`Contact Page <Contact>` for more information
 
 * `Open Robotics Discourse <https://discourse.openrobotics.org/>`__ (ROS 1, ROS 2)
 
   - Forum for general discussions and announcements for the ROS community
-  - See the :ref:`Contact Page <Using ROS Discourse>` for more information
+  - See the :doc:`Contact Page <Contact>` for more information
 
 * `ROS Index <https://index.ros.org/>`__ (ROS 1, ROS 2)
 
