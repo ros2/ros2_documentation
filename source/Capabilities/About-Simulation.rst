@@ -22,9 +22,7 @@ Summary
 It's not always feasible to build, train, and test robotic applications in their real-world environments.
 Simulation capabilities support development by making it possible to use the same ROS software in virtual environments that accurately represent the physical world.
 
-Core ROS packages
-
-There are no core packages for this area.
+ROS capabilities are enabled by community-contributed packages.
 
 Community-contributed packages
 

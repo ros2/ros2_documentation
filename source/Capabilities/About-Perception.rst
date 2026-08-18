@@ -22,31 +22,22 @@ Perception capabilities are how your robot sees the world.
 They enable your robot to process data from a range of sensors, such as cameras, bump sensors, and LIDAR sensors, and turn that into information the robot can use to plan and control its actions.
 This includes sensor fusion (combining data from multiple sensors into a unified view of the world).
 
-Core ROS packages
-
-There are no core packages for this area.
+ROS capabilities are enabled by community-contributed packages.
 
 Community-contributed packages
 
-QUESTION FOR THE REVIEWER: Are there any community-contributed packages that should be listed here?
-If so, please provide them.
+Coming soon
 
-* Placeholder
+.. Related content (placeholder)
+   -----------------------------
 
-* Placeholder
+   * Example
 
-* Placeholder
+   * Example
 
-Related content (placeholder)
------------------------------
+   FAQs (placeholder)
+   ------------------
 
-* Example
+   * Example
 
-* Example
-
-FAQs (placeholder)
-------------------
-
-* Example
-
-* Example
+   * Example
