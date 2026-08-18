@@ -36,6 +36,7 @@ Interfaces (topics, services, actions)
    interfaces/About-Services
    interfaces/About-Actions
    interfaces/Working-with-interfaces
+   interfaces/Working-with-interfaces
 
 Interfaces in ROS define how nodes exchange data.
 This article explains the different types of ROS interface and the differences between them.
@@ -44,7 +45,7 @@ With this information, you'll be able to select the right interfaces for your pu
 Summary
 -------
 When designing a system there are three primary styles of interfaces.
-The specifications for the content is in the :doc:`Interfaces Overview <interfaces/Working-with-interfaces/Interface-specifications>`.
+The specifications for the content is in the :doc:`Interfaces Overview <interfaces/Interface-specifications>`.
 This is written to provide the reader with guidelines about when to use each type of interface.
 
 ROS nodes typically communicate through the following three types of interfaces:
