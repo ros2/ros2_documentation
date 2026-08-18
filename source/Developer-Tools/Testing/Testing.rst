@@ -113,7 +113,7 @@ These packaging jobs produce archives with pre-built binaries that can be downlo
 
 1. Make sure you have all dependencies installed according to the :doc:`latest development setup <../../Get-Started/Installation/Alternatives/Latest-Development-Setup>` for your platform.
 
-2. Go to https://ci.ros2.org/view/packaging/ and select a packaging job from the list corresponding to your platform.
+2. Go to https://github.com/ros2/ros2/releases/tag/release-rolling-nightlies and select a packaging job from the list corresponding to your platform.
 
 3. Under the heading "Last Successful Artifacts" you should see a download link (e.g. for Windows, ``ros2-package-windows-AMD64.zip``).
 
