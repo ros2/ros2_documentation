@@ -7,7 +7,6 @@ Node management
 
 .. toctree::
    :maxdepth: 1
-   :hidden:
 
    Launch/Launch-Main
    Launch/Launching-composable-nodes
