@@ -165,7 +165,7 @@ Finally, you can see that "Published message..." and "Received message ..." line
 This shows that the address of the message being received is the same as the one that was published and that it is not a copy.
 This is because we're publishing and subscribing with ``std::unique_ptr``\ s which allow ownership of a message to be moved around the system safely.
 You can also subscribe using a ``const std::shared_ptr<const T> &`` (``ConstSharedPtr``) callback, which shares immutable ownership of the message and achieves zero-copy even with multiple subscribers.
-Subscribing with a mutable ``std::shared_ptr<T>`` will not achieve zero-copy.
+Subscribing with a plain ``const T &`` or a mutable ``std::shared_ptr<T>`` will not achieve zero-copy.
 
 The cyclic pipeline demo
 ^^^^^^^^^^^^^^^^^^^^^^^^
