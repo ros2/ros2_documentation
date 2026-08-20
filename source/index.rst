@@ -11,7 +11,6 @@ ROS 2 Documentation
    :hidden:
 
    Get-Started
-   Glossary
    ROS-Framework
    Capabilities
    Developer-Tools
