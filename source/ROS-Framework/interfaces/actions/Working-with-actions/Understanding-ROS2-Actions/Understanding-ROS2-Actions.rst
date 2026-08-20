@@ -110,7 +110,7 @@ In the terminal where the ``/turtlesim`` node is running, you should see the mes
 
 When a new goal arrives while another is still running, what happens next depends on the action server implementation.
 ROS does not define a single policy for this case.
-The server's goal callback can accept or reject the new goal, and then decides what to do with any goal that is already running.
+The goal callback of the server can accept or reject the new goal, and then decides what to do with any goal that is already running.
 In Turtlesim, the callback accepts the new goal and aborts the previous one, but a different server might reject the new goal, or keep both.
 
 For more information, see :doc:`About actions <../../../About-Actions>` and the `Actions design article <https://design.ros2.org/articles/actions.html>`_.
@@ -163,7 +163,8 @@ Notice that the ``/turtle1/rotate_absolute`` action for ``/turtlesim`` is under 
 This means ``/turtlesim`` responds to and provides feedback for the ``/turtle1/rotate_absolute`` action.
 
 The ``/teleop_turtle`` node has the name ``/turtle1/rotate_absolute`` under ``Action Clients``, meaning that it sends goals for that action.
-To see that, run:
+
+To see the list, run:
 
 .. code-block:: console
 
@@ -216,7 +217,8 @@ From the ``ros2 node info`` output, there is one action client (part of ``/teleo
 4.1 List all actions and their types
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Actions have types, similar to topics and services.
+Like topics and services, actions have types.
+
 To list every active action with its type, run:
 
 .. code-block:: console
