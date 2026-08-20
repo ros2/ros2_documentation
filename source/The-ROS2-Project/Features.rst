@@ -4,7 +4,7 @@
 
 .. _Features:
 
-Features Status
+Features status
 ===============
 
 The features listed below are available in the current ROS 2 release.

@@ -1,5 +1,21 @@
+<<<<<<< HEAD:source/Concepts/Basic/About-Launch.rst
 Launch
 ======
+=======
+.. redirect-from::
+
+    Concepts/Basic/About-Launch
+
+Node management
+===============
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+
+   Launch/Launch-Main
+   Launch/Launching-composable-nodes
+   Launch/Launch-file-different-formats
+>>>>>>> d4643457 (3di | TOC update - align main toc titles with About ROS article (#7074)):source/Developer-Tools/About-Launch.rst
 
 .. contents:: Table of Contents
    :local:
