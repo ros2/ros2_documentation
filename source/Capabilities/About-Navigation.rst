@@ -27,7 +27,7 @@ ROS capabilities are enabled by community-contributed packages.
 
 Community-contributed packages
 
-* `Navigation 2 <https://nav2.org/>`_: An industry-standard mobile robot navigation system for mobile and surface robotics.
+* `Nav2 <https://nav2.org/>`_: An industry-standard mobile robot navigation system for mobile and surface robotics.
 
 .. Related content (placeholder)
    -----------------------------

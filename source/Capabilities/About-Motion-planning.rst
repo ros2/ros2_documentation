@@ -5,6 +5,8 @@ Motion planning and manipulation
    :maxdepth: 1
    :hidden:
 
+   Motion-planning/Real-Time-Programming
+
 Motion planning enables you to control a robot's movements to achieve an intended goal.
 Manipulation capabilities enable robots to analyze their environment and perform tasks like picking and placing objects.
 This article summarizes ROS developer tools and guidance available to help with motion planning and manipulation.
@@ -30,17 +32,17 @@ ROS capabilities are enabled by community-contributed packages.
 
 Community-contributed packages
 
-* `Move it <https://moveit.ai/>`_: A motion planning, manipulation, and kinematics framework for ROS.
+* `MoveIt <https://moveit.ai/>`_: A motion planning, manipulation, and kinematics framework for ROS.
 
 * `Tesseract <https://github.com/tesseract-ocr/tesseract>`_: An optical Character Recognition (OCR) engine used to extract text from images.
 
-* `OMPL <https://ompl.kavrakilab.org>`_: A C++ library providing sampling-based algorithms for motion planning in robotics and automated systems.
+* `Open Motion Planning Library (OMPL) <https://ompl.kavrakilab.org>`_: A C++ library providing sampling-based algorithms for motion planning in robotics and automated systems.
 
-* `SBPL <https://github.com/sbpl/sbpl>`_: A C++ library providing search-based motion planning algorithms for robotics and automated systems.
+* `Search Based Planning Library (SBPL) <https://github.com/sbpl/sbpl>`_: A C++ library providing search-based motion planning algorithms for robotics and automated systems.
 
 * `RoboPlan <https://github.com/open-planning/roboplan>`_: A Rust and C++ library providing a planning framework for robotics and automated systems.
 
-* `PyRoboPlan <https://pyroboplan.readthedocs.io/en/latest/>`_: A Python library for modeling robot kinematics and dynamics.
+* `pyroboplan <https://pyroboplan.readthedocs.io/en/latest/>`_: A Python library for modeling robot kinematics and dynamics.
 
 .. Related content (placeholder)
    ------------------------------
