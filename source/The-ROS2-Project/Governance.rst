@@ -4,7 +4,7 @@
 
 .. _Governance:
 
-Project Governance
+Project governance
 ==================
 
 .. contents:: Table of Contents
@@ -129,7 +129,7 @@ The ROS PMC currently consists of the following constituents:
      - Member
      - CET (UTC+1)/CEST (UTC+2)
    * - Yadunund Vijay
-     - `Intrinsic <https://www.intrinsic.ai/>`_
+     - `FieldAI <https://www.fieldai.com/>`_
      - `Yadunund <https://github.com/Yadunund>`_
      - Member
      - PST (UTC-8)/PDT (UTC-7)
