@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 The ROS 2 Project
 =================
+=======
+Community
+=========
+>>>>>>> d464345 (3di | TOC update - align main toc titles with About ROS article (#7074))
 
 Check out the resources below to learn more about the advancement of the ROS 2 project.
 

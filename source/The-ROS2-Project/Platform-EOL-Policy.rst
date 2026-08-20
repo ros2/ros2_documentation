@@ -1,6 +1,6 @@
 .. _PlatformEOLPolicy:
 
-Platform EOL Policy
+Platform EOL policy
 ===================
 
 .. contents:: Table of Contents

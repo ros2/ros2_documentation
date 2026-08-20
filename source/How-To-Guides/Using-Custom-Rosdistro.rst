@@ -1,4 +1,12 @@
+<<<<<<< HEAD:source/How-To-Guides/Using-Custom-Rosdistro.rst
 Using Custom Rosdistro Version
+=======
+.. redirect-from::
+
+    How-To-Guides/Using-Custom-Rosdistro
+
+Using custom rosdistro version
+>>>>>>> d464345 (3di | TOC update - align main toc titles with About ROS article (#7074)):source/Migration-and-Upgrades/Using-Custom-Rosdistro.rst
 ==============================
 
 

@@ -10,12 +10,22 @@ ROS 2 Documentation
    :maxdepth: 1
    :hidden:
 
+<<<<<<< HEAD
    About-ROS
    Installation
    Releases
    Tutorials
    How-To-Guides
    Concepts
+=======
+   Get-Started
+   ROS-Framework
+   Developer-Tools
+   Capabilities
+   Integrations-and-related
+   Migration-and-Upgrades
+   The-ROS2-Project
+>>>>>>> d464345 (3di | TOC update - align main toc titles with About ROS article (#7074))
    Contact
    The-ROS2-Project
    Package-Docs

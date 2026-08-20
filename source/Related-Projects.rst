@@ -1,5 +1,5 @@
 
-Related Projects
+Related projects
 ================
 
 Gazebo
