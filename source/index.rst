@@ -18,6 +18,7 @@ ROS 2 Documentation
    Integrations-and-related
    The-ROS2-Project
    Contact
+   Glossary
    Citations
    Contributing-To-ROS
 
