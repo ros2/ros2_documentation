@@ -76,7 +76,8 @@ FAQs
 ----
 
 Can I write a launch file in a language other than Python?
-   Yes. ROS supports launch files written in Python, XML, and YAML.
+   Yes.
+   ROS supports launch files written in Python, XML, and YAML.
    For a comparison of these formats, see :doc:`../../../../Developer-Tools/Launch/Launch-file-different-formats`.
 
 How do I write my own launch file?
@@ -84,5 +85,6 @@ How do I write my own launch file?
    The :doc:`ROS launch tutorials <../../../../Developer-Tools/Launch/Launch-Main>` index lists further launch topics.
 
 Can I pass arguments to a launch file?
-   Yes. Use ``ros2 launch <package> <launch_file> <arg>:=<value>`` to pass arguments at the command line.
+   Yes.
+   Use ``ros2 launch <package> <launch_file> <arg>:=<value>`` to pass arguments at the command line.
    Arguments must be declared within the launch file itself.
