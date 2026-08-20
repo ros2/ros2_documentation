@@ -1,4 +1,4 @@
-Migration and Upgrades
+Migration and upgrades
 ======================
 
 Coming Soon
