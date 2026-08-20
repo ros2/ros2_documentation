@@ -2,8 +2,8 @@
 
     Concepts/Basic/About-Launch
 
-Launch
-======
+Node management
+===============
 .. toctree::
    :maxdepth: 1
    :hidden:
