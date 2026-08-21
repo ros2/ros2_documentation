@@ -379,8 +379,7 @@ It can be, however, delivered to one of them.
 Which one would get the original pointer is not defined, but instead is simply the last to be delivered.
 And so one of the images being viewed is the original, with all the pointers the same, and the other is a copy of the original image, made between the ``watermark_node`` and one of the ``image_view_node`` instances, which will have a different pointer for the third line of text.
 
-To avoid this copy in a one-to-many pipeline, subscribers can use ``ConstSharedPtr``
-(i.e. ``const std::shared_ptr<const T> &``) callbacks instead of ``UniquePtr``.
+To avoid this copy in a one-to-many pipeline, subscribers can use ``ConstSharedPtr`` (i.e. ``const std::shared_ptr<const T> &``) callbacks instead of ``UniquePtr``.
 The message is promoted from the published ``UniquePtr`` to a ``ConstSharedPtr``, which is delivered to all intra-process subscribers as a single immutable shared object, without copying.
 
 Pipeline with inter-process viewer
