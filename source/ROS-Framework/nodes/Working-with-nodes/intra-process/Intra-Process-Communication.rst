@@ -164,7 +164,7 @@ In this case, since they only come once per second, usually only the first messa
 Finally, you can see that "Published message..." and "Received message ..." lines with the same value also have the same address.
 This shows that the address of the message being received is the same as the one that was published and that it is not a copy.
 This is because we're publishing and subscribing with ``std::unique_ptr``\ s which allow ownership of a message to be moved around the system safely.
-You can also subscribe using a ``const std::shared_ptr<const T> &`` (``ConstSharedPtr``) callback, which shares immutable ownership of the message and achieves zero-copy even with multiple subscribers.
+You can also subscribe using a ``const std::shared_ptr<const T> &`` (``ConstSharedPtr``) callback, which shares immutable ownership of the message and achieves zero-copy even with multiple subscribers, so long as a ``std::unique_ptr`` was passed to the publisher.
 Subscribing with a plain ``const T &`` or a mutable ``std::shared_ptr<T>`` will not achieve zero-copy.
 
 The cyclic pipeline demo
@@ -381,9 +381,7 @@ And so one of the images being viewed is the original, with all the pointers the
 
 To avoid this copy in a one-to-many pipeline, subscribers can use ``ConstSharedPtr``
 (i.e. ``const std::shared_ptr<const T> &``) callbacks instead of ``UniquePtr``.
-The publisher retains a single immutable shared object and delivers it to all intra-process
-subscribers without copying, at the cost of no longer being able to mutate the message after
-publishing.
+The message is promoted from the published ``UniquePtr`` to a ``ConstSharedPtr``, which is delivered to all intra-process subscribers as a single immutable shared object, without copying.
 
 Pipeline with inter-process viewer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
