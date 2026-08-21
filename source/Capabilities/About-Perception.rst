@@ -25,6 +25,7 @@ This includes sensor fusion (combining data from multiple sensors into a unified
 ROS capabilities are enabled by community-contributed packages.
 
 Community-contributed packages
+------------------------------
 
 Coming soon
 

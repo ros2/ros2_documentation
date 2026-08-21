@@ -26,11 +26,12 @@ ROS motion planning capabilities let you focus on where you want the end effecto
 Manipulation capabilities include analysis of the environment around a manipulator, planning the motion of the manipulator to get the end effector where it needs to be, and controlling end effects to do things like pick and place objects.
 
 For mobile robots, ROS also supports navigation capabilities.
-See :doc:`About navigation <About-Navigation>`
+See :doc:`About-Navigation`.
 
 ROS capabilities are enabled by community-contributed packages.
 
 Community-contributed packages
+------------------------------
 
 * `MoveIt <https://moveit.ai/>`_: A motion planning, manipulation, and kinematics framework for ROS.
 

@@ -25,6 +25,7 @@ Simulation capabilities support development by making it possible to use the sam
 ROS capabilities are enabled by community-contributed packages.
 
 Community-contributed packages
+------------------------------
 
 * `Gazebo <https://docs.ros.org/en/lyrical/Tutorials/Advanced/Simulators/Gazebo/Simulation-Gazebo.html>`_: A toolbox of development libraries and cloud services for simulation.
 
