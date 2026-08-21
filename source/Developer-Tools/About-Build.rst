@@ -3,6 +3,7 @@ Builds
 
 .. toctree::
    :maxdepth: 1
+   :hidden:
 
    Build/About-Cross-Compilation
    Build/About-Build-System
@@ -37,6 +38,7 @@ This article summarizes the ROS developer tools and guidance available to help w
 
 .. contents:: Table of Contents
    :local:
+   :depth: 2
 
 Summary
 -------
@@ -44,15 +46,17 @@ Summary
 Most ROS systems use multiple packages working together.
 Build tools in ROS enable you to work with multiple packages in a single project and to share your packages with other members of the ROS community.
 
-Core ROS packages:
+Core ROS packages
+-----------------
 
-* `colcon <https://docs.ros.org/en/lyrical/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html>`_: A tool for building packages in a ROS workspace.
+* :doc:`colcon <../ROS-Framework/client-libraries/Working-with-Client-Libraries/Colcon-Tutorial>`: A tool for building packages in a ROS workspace.
 
 * `CMake <https://cmake.org/>`_: A supported tool for building complex C++ projects.
 
-* `ament_cmake <https://docs.ros.org/en/lyrical/How-To-Guides/Ament-CMake-Documentation.html>`_: A CMake library to facilitate inter package dependencies in ROS.
+* :doc:`ament_cmake <Build/Ament-CMake-Documentation>`: A CMake library to facilitate inter package dependencies in ROS.
 
-Community-contributed packages:
+Community-contributed packages
+------------------------------
 
 * `Cargo <https://github.com/rust-lang/cargo>`_: A build and package management tool for Rust-based robotics software.
 
@@ -65,9 +69,9 @@ ROS build farm location
 The ROS build farm is critical infrastructure maintained by Open Robotics.
 It supports the building of source and binary packages, as well as continuous integration, testing, and analysis for ROS packages:
 
-* `<https://build.ros2.org/>`_
+`<https://build.ros2.org/>`_
 
-Read more about ROS build farms: `ROS Build Farms — ROS 2 Documentation: Lyrical  documentation <https://docs.ros.org/en/lyrical/The-ROS2-Project/Contributing/Build-Farms.html>`_
+Read more about ROS build farms: :doc:`../The-ROS2-Project/Contributing/Build-Farms`
 
 .. Related content (placeholder)
    -----------------------------

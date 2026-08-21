@@ -3,6 +3,7 @@ Visualization
 
 .. toctree::
    :maxdepth: 1
+   :hidden:
 
    Visualization/RViz/RViz-Main
    Visualization/About-RQt
@@ -16,6 +17,7 @@ This article summarizes the ROS developer tools and guidance available to help w
 
 .. contents:: Table of Contents
    :local:
+   :depth: 2
 
 Summary
 -------
@@ -23,9 +25,10 @@ Summary
 Understanding what a robot is sensing, experiencing, and planning makes development and debugging much easier.
 Visualization tools in ROS help you convert raw robot data into clear, human-readable visual formats.
 
-Core ROS packages:
+Core ROS packages
+-----------------
 
-* `RViz <https://docs.ros.org/en/kilted/Tutorials/Intermediate/RViz/RViz-User-Guide/RViz-User-Guide.html>`_: Provides a 3D visualization of the robot's perspective, including sensor data and intentions.
+* :doc:`RViz <Visualization/RViz/RViz-User-Guide/RViz-User-Guide>`: Provides a 3D visualization of the robot's perspective, including sensor data and intentions.
 
 * `ros2cli <https://github.com/ros2/ros2cli>`_: ROS command line interface tools for debugging such as ros2action, ros2node, ros2param, ros2pkg,  ros2service, and so on.
 
@@ -33,7 +36,8 @@ Core ROS packages:
 
 * `rqt_gui and dependent packages <https://index.ros.org/p/rqt_gui/#rolling-deps>`_: Tool for starting an instance of the ROS integrated graphical user interface.
 
-Community-contributed packages:
+Community-contributed packages
+------------------------------
 
 * `Foxglove <https://foxglove.dev/>`_: A collection of tools visualizing and debugging robot data throughout the development lifecycle.
 

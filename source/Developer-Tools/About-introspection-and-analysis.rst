@@ -3,6 +3,7 @@ Introspection and analysis
 
 .. toctree::
    :maxdepth: 1
+   :hidden:
 
    Introspection-and-analysis/About-Command-Line-Tools
    Introspection-and-analysis/About-Security
@@ -24,6 +25,7 @@ This article summarizes the ROS developer tools and guidance available to help w
 
 .. contents:: Table of Contents
    :local:
+   :depth: 2
 
 Summary
 -------
@@ -32,7 +34,8 @@ Understanding what is happening inside your robot's software is key to understan
 Introspection tools in ROS allow you to understand and modify, at run-time, node state, parameters, flowing data, and more.
 ROS analysis tools build further on this ability by enabling you to analyze the data gathered by introspection.
 
-Core ROS packages:
+Core ROS packages
+-----------------
 
 * `ros2 <https://github.com/ros2>`_: A set of software libraries and tools for building robot applications.
 
@@ -44,11 +47,12 @@ Core ROS packages:
 
 * `tracetools <https://docs.ros.org/en/kilted/p/tracetools/>`_: Trace points for creating and debugging execution traces.
 
-Community-contributed packages:
+Community-contributed packages
+------------------------------
 
-* `colcon <https://docs.ros.org/en/lyrical/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html>`_: Tool for creating and building a ROS workspace.
+* :doc:`colcon <../ROS-Framework/client-libraries/Working-with-Client-Libraries/Colcon-Tutorial>`: Tool for creating and building a ROS workspace.
 
-* `ament_cmake <https://docs.ros.org/en/lyrical/How-To-Guides/Ament-CMake-Documentation.html>`_: Build system for CMake-based packages in ROS.
+* :doc:`ament_cmake <Build/Ament-CMake-Documentation>`: Build system for CMake-based packages in ROS.
 
 * `tracetools <https://docs.ros.org/en/kilted/p/tracetools/>`_: Trace points for creating and debugging execution traces.
 

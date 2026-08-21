@@ -3,6 +3,7 @@ Package documentation
 
 .. toctree::
    :maxdepth: 1
+   :hidden:
 
    Package-documentation/Documenting-a-ROS-2-Package
 
@@ -13,6 +14,7 @@ This article summarizes the tools and guidance available to help with creating d
 
 .. contents:: Table of Contents
    :local:
+   :depth: 2
 
 Summary
 --------
@@ -20,9 +22,10 @@ Summary
 When creating a new package, clear documentation is essential for others who may use it.
 Package documentation tools in ROS make it easy to write, maintain, and generate web-browsable documentation from your source code.
 
-Core ROS packages:
+Core ROS packages
+-----------------
 
-* `rosdoc2 <https://docs.ros.org/en/rolling/How-To-Guides/Documenting-a-ROS-2-Package.html>`_: Tool for documenting a ROS package.
+* :doc:`rosdoc2 <Package-documentation/Documenting-a-ROS-2-Package>`: Tool for documenting a ROS package.
 
 .. Community-contributed packages:
 
@@ -36,13 +39,12 @@ Here is a brief list of where to look for specific ROS package documentation.
 
 * All ROS package documentation is hosted alongside its information on the `ROS Index <https://index.ros.org/>`_.
 
-Searching for packages on ROS Index will yield their information such as released distributions, README.md files, URLs, and other important metadata.
+Searching for packages on ROS Index will yield details such as released distributions, README.md files, URLs, and other important metadata.
 
 Larger packages
----------------
+^^^^^^^^^^^^^^^
 
-Larger packages like MoveIt, Nav2, and microROS, are given their own domain or subdomain on ros.org.
-Here is a short list.
+Larger packages like MoveIt, Nav2, and microROS, are given their own domain or subdomain on `ros.org <https://www.ros.org>`_:
 
 * `MoveIt <https://moveit.ros.org/>`_
 
@@ -53,7 +55,7 @@ Here is a short list.
 * `microROS (embedded systems) <https://micro.vulcanexus.org/>`_
 
 API documentation
------------------
+^^^^^^^^^^^^^^^^^
 
 You can find the API level documentation for the ROS client libraries in the Lyrical distribution using the links below:
 
@@ -68,9 +70,9 @@ You can find the API level documentation for the ROS client libraries in the Lyr
 Guidelines for adding your package documentation
 ------------------------------------------------
 
-All released ROS packages are automatically added to docs.ros.org and `ROS Index <https://index.ros.org/>`_.
-If you would like to enable or configure your own package, see `Documenting a ROS package <https://docs.ros.org/en/lyrical/How-To-Guides/
-Documenting-a-ROS-2-Package.html>`_.
+All released ROS packages are automatically added to `docs.ros.org <https://docs.ros.org>`_ and `ROS Index <https://index.ros.org/>`_.
+
+If you would like to enable or configure your own package, see :doc:`Package-documentation/Documenting-a-ROS-2-Package`.
 
 .. Related content (placeholder)
    -----------------------------

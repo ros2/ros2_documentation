@@ -3,6 +3,7 @@ Debugging
 
 .. toctree::
    :maxdepth: 1
+   :hidden:
 
    Debugging/Debugging-Tf2-Problems/Debugging-Tf2-Problems
    Debugging/ROS-2-IDEs
@@ -14,6 +15,7 @@ This article summarizes the ROS developer tools and guidance available to help w
 
 .. contents:: Table of Contents
    :local:
+   :depth: 2
 
 **Area: debugging, tools | Content-type: about | Experience: beginner, intermediate, expert**
 
@@ -25,7 +27,8 @@ Debugging is an essential part of development, and many of these tools can be us
 Some of the tools are also useful for other aspects of robotic system development.
 For example, debugging overlaps with introspection, analysis, node management, visualization, and simulation, as these activities are often used to investigate and diagnose issues in a system.
 
-Core ROS packages:
+Core ROS packages
+-----------------
 
 * `ros2doctor <https://docs.ros.org/en/kilted/p/ros2doctor/>`_: Command line tool to check for common misconfigurations in a ROS system.
 
@@ -39,7 +42,8 @@ Core ROS packages:
 
 * `rqt_gui and dependent packages <https://index.ros.org/p/rqt_gui/#rolling-deps>`_: Tool for starting an instance of the ROS integrated graphical user interface.
 
-Community-contributed packages:
+Community-contributed packages
+------------------------------
 
 * `PlotJuggler <https://docs.ros.org/en/kilted/p/plotjuggler/>`_: A tool for visualizing and analyzing data from ROS applications.
 
@@ -47,10 +51,10 @@ Community-contributed packages:
 
 * `Rerun <https://github.com/rerun-io/rerun>`_: Tool to visualize, query, and debug data from robotics, computer vision, and physical AI systems.
 
-Related content
----------------
+.. Related content
+   ---------------
 
-More articles about debugging:
+   More articles about debugging:
 
 ..
  * `Debugging a ROS application - overview  <https://docs.google.com/document/d/1fz0O2xkaS8u3aoW7eEnA79DThredxxm7O6Cw_UggYu8/edit?usp=sharing>`_

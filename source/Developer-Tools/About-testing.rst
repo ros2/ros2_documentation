@@ -5,6 +5,7 @@ Coming Soon
 
 .. toctree::
    :maxdepth: 3
+   :hidden:
 
    Testing/Testing/Testing-Main
    Testing/Testing

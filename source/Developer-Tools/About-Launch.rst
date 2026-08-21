@@ -7,6 +7,7 @@ Node management
 
 .. toctree::
    :maxdepth: 1
+   :hidden:
 
    Launch/Launch-Main
    Launch/Launching-composable-nodes
@@ -20,6 +21,7 @@ This article summarizes the ROS developer tools and guidance available to help w
 
 .. contents:: Table of Contents
    :local:
+   :depth: 2
 
 Summary
 -------
@@ -27,7 +29,8 @@ Summary
 Complex robotic systems can include many interconnected nodes, each with different settings and interfaces.
 Runtime node management tools in ROS help you start, configure, and stop multiple nodes together using launch files.
 
-Core ROS packages:
+Core ROS packages
+-----------------
 
 * `ros2launch <https://github.com/ros2/launch>`_:  Command line tool for launching multiple processes and for writing tests involving multiple processes.
 
