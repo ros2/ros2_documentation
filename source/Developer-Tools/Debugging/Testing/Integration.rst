@@ -42,7 +42,7 @@ The main tool in use here is the `launch_testing <https://docs.ros.org/en/{DISTR
 (`launch_testing repository <https://github.com/ros2/launch/tree/{REPOS_FILE_BRANCH}/launch_testing>`_).
 This ROS-agnostic functionality can extend a Python launch file with both active tests (that run while the nodes are also running) and post-shutdown tests (which run once after all nodes have exited).
 ``launch_testing`` relies on the Python standard module `unittest <https://docs.python.org/3/library/unittest.html>`_ for the actual testing.
-To get our integration tests run as part of ``colcon test``, we register the launch file in the ``CMakeLists.txt`` or `setup.py` file.`
+To get our integration tests run as part of ``colcon test``, we register the launch file in the ``CMakeLists.txt`` or `setup.py` file.
 
 For waiting on topics and triggering actions based on publisher availability, the `launch_testing_ros <https://docs.ros.org/en/{DISTRO}/p/launch_testing_ros/index.html>`_ package provides the `WaitForTopics <https://docs.ros.org/en/{DISTRO}/p/launch_testing_ros/launch_testing_ros.wait_for_topics.html>`_ utility, which simplifies topic subscription and waiting logic in integration tests.
 
@@ -61,7 +61,8 @@ We will cover both in this tutorial.
 1.1 Imports
 ^^^^^^^^^^^
 
-We first start by importing the Python modules we will be using. Key modules for testing include the general-purpose ``unittest``, ``launch_testing``, and the ``WaitForTopics`` utility from ``launch_testing_ros`` for convenient topic subscription and waiting logic.
+We first start by importing the Python modules we will be using.
+Key modules for testing include the general-purpose ``unittest``, ``launch_testing``, and the ``WaitForTopics`` utility from ``launch_testing_ros`` for convenient topic subscription and waiting logic.
 
 .. code-block:: python
 
@@ -86,9 +87,11 @@ We first start by importing the Python modules we will be using. Key modules for
 1.2 Generate the test description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The function ``generate_test_description`` describes what to launch, similar to ``generate_launch_description`` in a ROS 2 Python launch file. In the example below, we launch the turtlesim node with immediate test execution (no arbitrary delays).
+The function ``generate_test_description`` describes what to launch, similar to ``generate_launch_description`` in a ROS 2 Python launch file.
+In the example below, we launch the turtlesim node with immediate test execution (no arbitrary delays).
 
-The ``EnableRmwIsolation`` action ensures that ROS communication is isolated using ``rmw_test_fixture``, preventing test interference. The ``ReadyToTest`` action signals the test framework that the tests should begin.
+The ``EnableRmwIsolation`` action ensures that ROS communication is isolated using ``rmw_test_fixture``, preventing test interference.
+The ``ReadyToTest`` action signals the test framework that the tests should begin.
 
 .. code-block:: python
 
@@ -122,7 +125,8 @@ In more complex integration test setups, you will probably want to launch a syst
 1.3 Active tests using WaitForTopics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The active tests interact with the running nodes. The ``WaitForTopics`` utility from ``launch_testing_ros`` provides a convenient way to:
+The active tests interact with the running nodes.
+The ``WaitForTopics`` utility from ``launch_testing_ros`` provides a convenient way to:
 
 * Subscribe to topics and wait for them to become available
 * Receive messages published on those topics
@@ -142,12 +146,15 @@ The simplest test verifies that a topic is published and messages are received:
                assert waiter.topics_received() == {"turtle1/pose"}
                assert len(waiter.received_messages("turtle1/pose")) >= 1
 
-This test creates a waiter that subscribes to the ``turtle1/pose`` topic expecting ``Pose`` messages. The `WaitForTopics` class automatically handles subscription and cleanup. The test asserts that the topic was received and at least one message was captured.
+This test creates a waiter that subscribes to the ``turtle1/pose`` topic expecting ``Pose`` messages.
+The `WaitForTopics` class automatically handles subscription and cleanup.
+The test asserts that the topic was received and at least one message was captured.
 
 1.3.2 Topic subscription with triggered action
 """""""""""""""""""""""""""""""""""""""""""""""
 
-For more complex tests, you can trigger actions (such as publishing control messages) using the ``trigger`` parameter. This allows you to verify that nodes respond appropriately to a stimulus.
+For more complex tests, you can trigger actions (such as publishing control messages) using the ``trigger`` parameter.
+This allows you to verify that nodes respond appropriately to a stimulus.
 
 First, define a trigger function that will be called once publishers are available:
 
@@ -320,8 +327,10 @@ Configure pytest discovery in ``setup.cfg``:
        launch_test: launch testing integration tests
 
 To run the tests, you can use the command:
+
 .. code-block:: bash
-    colcon test --packages-select <your_package_name> --python-testing pytest
+
+    colcon test --packages-select your_package_name --python-testing pytest
 
 
 
