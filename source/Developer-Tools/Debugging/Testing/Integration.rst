@@ -42,7 +42,7 @@ The main tool in use here is the `launch_testing <https://docs.ros.org/en/{DISTR
 (`launch_testing repository <https://github.com/ros2/launch/tree/{REPOS_FILE_BRANCH}/launch_testing>`_).
 This ROS-agnostic functionality can extend a Python launch file with both active tests (that run while the nodes are also running) and post-shutdown tests (which run once after all nodes have exited).
 ``launch_testing`` relies on the Python standard module `unittest <https://docs.python.org/3/library/unittest.html>`_ for the actual testing.
-To get our integration tests run as part of ``colcon test``, we register the launch file in the ``CMakeLists.txt`` or `setup.py` file.
+To get our integration tests run as part of ``colcon test``, we register the launch file in the ``CMakeLists.txt`` or ``setup.py`` file.
 
 For waiting on topics and triggering actions based on publisher availability, the `launch_testing_ros <https://docs.ros.org/en/{DISTRO}/p/launch_testing_ros/index.html>`_ package provides the `WaitForTopics <https://docs.ros.org/en/{DISTRO}/p/launch_testing_ros/launch_testing_ros.wait_for_topics.html>`_ utility, which simplifies topic subscription and waiting logic in integration tests.
 
@@ -147,7 +147,7 @@ The simplest test verifies that a topic is published and messages are received:
                assert len(waiter.received_messages("turtle1/pose")) >= 1
 
 This test creates a waiter that subscribes to the ``turtle1/pose`` topic expecting ``Pose`` messages.
-The `WaitForTopics` class automatically handles subscription and cleanup.
+The ``WaitForTopics`` class automatically handles subscription and cleanup.
 The test asserts that the topic was received and at least one message was captured.
 
 1.3.2 Topic subscription with triggered action
@@ -228,8 +228,8 @@ This test demonstrates:
 * Using ``WaitForTopics`` with a trigger function to publish messages and wait for responses
 * Verifying that received messages match expected values
 
-The while loop is necessary because the `turtlesim` node is constantly publishing pose messages, and
-we want to wait until we receive a pose that reflects the motion commanded by our published `Twist`
+The while loop is necessary because the ``turtlesim`` node is constantly publishing pose messages, and
+we want to wait until we receive a pose that reflects the motion commanded by our published ``Twist``
 message.
 
 1.4 Post-shutdown tests
