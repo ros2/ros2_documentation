@@ -59,12 +59,14 @@ Once ``pixi`` has been installed, close the Command Prompt session and start it 
 Install ROS 2
 -------------
 
-Binary releases of {DISTRO_TITLE_FULL} are not provided.
-Instead you may download nightly :ref:`prerelease binaries <Prerelease_binaries>`.
+* Go to the releases page: https://github.com/ros2/ros2/releases
+* Download the latest package for Windows, e.g., ``ros2-{DISTRO}-*-windows-release-amd64.zip``.
 
-* Download the latest package for Windows, e.g., ``ros2-package-windows-AMD64.zip``.
-* Unpack the zip file somewhere on your system (we'll assume ``C:\dev\``).
-* Change the name of the extracted folder to match the distro (we'll assume ``C:\dev\{DISTRO}``)
+.. note::
+
+   There may be more than one binary download option which might cause the file name to differ.
+
+* Unpack the zip file somewhere (we'll assume ``C:\pixi_ws\ros2-windows``).
 
 
 Install Pixi dependencies
