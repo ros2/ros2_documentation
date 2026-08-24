@@ -208,6 +208,18 @@ To build the site for just the current active branch:
 
 #. In your browser, open ``build/html/index.html`` to see the output.
 
+.. note::
+
+   The build runs Sphinx in parallel by default, using one worker per CPU core.
+   This is handled inside Sphinx (its ``-j auto`` option), so it behaves the same
+   on Linux, macOS, and Windows; a plain ``make -j`` does not help, because each
+   build is a single Sphinx invocation.
+   To pin the number of workers instead of auto-detecting, set ``JOBS``:
+
+   .. code-block:: console
+
+      $ make html JOBS=8
+
 6 Building the site for all branches
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -223,6 +235,7 @@ This has two drawbacks:
 
 * The multiversion plugin doesn't understand how to do incremental builds, so it always rebuilds everything.
   This can be slow.
+  Parallel builds still apply within each branch (``make multiversion JOBS=8``), but the branches themselves are built one after another.
 
 * The build process will always check out exactly the branches listed in the ``conf.py`` file.
   This means that local changes will not be shown.
