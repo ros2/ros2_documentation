@@ -33,7 +33,7 @@ ROSDISTRO_CACHE_TEMPLATE = (
     'https://repo.ros2.org/rosdistro_cache/{distro}-cache.yaml.gz'
 )
 
-DEFAULT_RELATED_PACKAGES_MAX = 25
+DEFAULT_RELATED_PACKAGES_MAX = 0  # 0 = no cap (show the full related list)
 DEFAULT_RELATED_PACKAGES_VISIBLE_MAX = 7
 
 
@@ -112,42 +112,47 @@ def _positive_int_option(argument: str) -> int:
 class RosRelatedPackagesDirective(SphinxDirective):
     """Emit a placeholder ``div`` filled at runtime by ``related_packages.js``.
 
-    Write the section intro (e.g. ``Packages/reference:``) in the RST source
-    before this directive. Optional bullet items immediately before or after
-    the directive are merged into the same list at runtime.
-    Auto-generated entries that duplicate a manual package link are omitted.
+    Write the section intro (e.g. ``Related packages:``) in the RST source
+    before this directive. At page load that intro is promoted to an ``h3``
+    (trailing colon removed). Optional bullet items immediately before or
+    after the directive are merged at runtime:
 
-    By default up to 25 packages are loaded (alphabetical); the first 7 are
-    shown with a control to reveal the rest.
+    * If a manual package also matches by ``area``, it is absorbed into
+      **Core ROS packages** or **Community-contributed packages** (with its
+      description) and removed from the plain manual list.
+    * If it does not match, it stays under the author-written
+      ``Related packages`` heading.
+    * Either way a package appears at most once.
+
+    Matching packages are listed under ``h4`` subheadings **Core ROS
+    packages** and **Community-contributed packages**.
+
+    By default the full match set is loaded (alphabetical within Core and
+    Community); the first 7 of each group are shown with a control to reveal
+    the rest. Pass ``:max:`` to cap each group.
 
     Matching rules
     --------------
     The page declares ``area`` via ``.. meta::`` (the same field the related
-    article lists use, so one value drives both lists). A package is listed when
-    the first value of its ``<area>`` export in ``package.xml`` equals the first
-    value of the page's ``area``. Order ``area`` so that the most specific value
-    comes first (for example ``nodes, framework``); matching keys on that first
-    value and does not pull in packages that only share a broader parent.
+    article lists use). A package is listed when the page's primary (first)
+    ``area`` value appears **anywhere** in the package's ``<area>`` export.
+    Order ``area`` so that the most specific value comes first on the page
+    (for example ``nodes, framework`` / ``debugging, introspection, tools,
+    framework``). Matching keys on that primary value and does not pull in
+    packages that only share a broader parent.
 
-    Package metadata comes from the rosdistro cache: each package embeds its
-    ``package.xml``, and the browser reads the ``<area>`` export::
+    Results are split into **Core ROS packages** and **Community-contributed
+    packages**, using ``<related_scope>core</related_scope>`` or
+    ``community`` inside the package ``<export>`` (packages without the tag
+    are treated as community). Each group is ordered alphabetically.
+
+    Package metadata comes from the rosdistro cache::
 
         <export>
           <build_type>ament_cmake</build_type>
           <area>nodes, framework</area>
+          <related_scope>core</related_scope>
         </export>
-
-    Several values may be given either as one ``<area>`` with values separated
-    by commas, or as repeated ``<area>`` elements, ordered so the most specific
-    value comes first. Only the first value is used for matching.
-
-    Declare the page area like this::
-
-        .. meta::
-           :area: nodes, framework
-
-    Fallbacks: Sphinx ``env.metadata`` / a visible RST field list ``:area:``.
-    Optional ``:area:`` on this directive overrides document metadata.
     """
 
     has_content = False

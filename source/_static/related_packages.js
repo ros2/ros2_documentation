@@ -212,8 +212,7 @@
    * Ordered, lowercased ``area`` tokens from a package's package.xml.
    *
    * Accepts either one ``<area>`` with values separated by commas or several
-   * ``<area>`` elements. Duplicates are dropped and order is preserved, so the
-   * first token is the package's primary (most specific) area.
+   * ``<area>`` elements. Duplicates are dropped and order is preserved.
    *
    * @param {string} xmlStr
    * @returns {string[]}
@@ -258,7 +257,8 @@
   }
 
   /**
-   * A package matches when its primary area equals the page's primary area.
+   * A package matches when the page's primary area appears anywhere in the
+   * package's ``<area>`` values.
    *
    * @param {string} xmlStr
    * @param {string} wantPrimary the page's primary (first) area value
@@ -269,7 +269,26 @@
       return false;
     }
     var tokens = extractAreaTokens(xmlStr);
-    return tokens.length > 0 && tokens[0] === wantPrimary;
+    return tokens.indexOf(wantPrimary) !== -1;
+  }
+
+  /**
+   * Core vs community scope from ``<related_scope>`` in package.xml export.
+   * Defaults to community when the tag is absent (unknown upstream packages).
+   *
+   * @param {string} xmlStr
+   * @returns {'core'|'community'}
+   */
+  function extractRelatedScope(xmlStr) {
+    var match = /<related_scope\b[^>]*>([^<]+)<\/related_scope>/i.exec(xmlStr || '');
+    if (!match) {
+      return 'community';
+    }
+    var value = match[1].trim().toLowerCase();
+    if (value === 'core' || value === 'community') {
+      return value;
+    }
+    return 'community';
   }
 
   /**
@@ -357,32 +376,61 @@
   }
 
   /**
+   * Collect adjacent manual package bullets (name + list item).
+   *
    * @param {HTMLUListElement|null} prevList
    * @param {HTMLUListElement|null} nextList
-   * @returns {Record<string, boolean>}
+   * @returns {{ name: string, li: HTMLLIElement }[]}
    */
-  function manualPackageNames(prevList, nextList) {
-    var names = Object.create(null);
+  function collectManualEntries(prevList, nextList) {
+    var entries = [];
 
     function scan(ul) {
-      var links;
+      var items;
       var i;
+      var li;
+      var anchor;
       var pkg;
       if (!ul) {
         return;
       }
-      links = ul.querySelectorAll('li a[href]');
-      for (i = 0; i < links.length; i += 1) {
-        pkg = packageNameFromManualLink(links[i]);
+      items = ul.children;
+      for (i = 0; i < items.length; i += 1) {
+        li = items[i];
+        if (!li || li.tagName !== 'LI') {
+          continue;
+        }
+        anchor = li.querySelector('a[href]');
+        if (!anchor) {
+          continue;
+        }
+        pkg = packageNameFromManualLink(anchor);
         if (pkg) {
-          names[pkg] = true;
+          entries.push({ name: pkg, li: li });
         }
       }
     }
 
     scan(prevList);
     scan(nextList);
-    return names;
+    return entries;
+  }
+
+  /**
+   * Drop empty sibling manual lists left after absorption.
+   *
+   * @param {HTMLUListElement|null} ul
+   * @returns {HTMLUListElement|null}
+   */
+  function pruneEmptyManualList(ul) {
+    if (!ul) {
+      return null;
+    }
+    if (!ul.querySelector('li')) {
+      ul.remove();
+      return null;
+    }
+    return ul;
   }
 
   /**
@@ -458,93 +506,216 @@
   }
 
   /**
+   * Strip a trailing colon used in author-written intro labels.
+   *
+   * @param {string} text
+   * @returns {string}
+   */
+  function stripTrailingColon(text) {
+    return String(text || '')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .replace(/:+\s*$/, '');
+  }
+
+  /**
+   * Promote the author-written ``Related packages:`` paragraph to ``<h3>``.
+   * Skips an optional adjacent manual ``<ul>`` between the intro and the widget.
+   *
+   * @param {HTMLElement} el the ``.js-related-packages`` widget
+   */
+  function promoteRelatedPackagesIntro(el) {
+    var node = el.previousElementSibling;
+    var h3;
+    while (node && node.tagName === 'UL') {
+      node = node.previousElementSibling;
+    }
+    if (!node || node.tagName !== 'P') {
+      return;
+    }
+    if (stripTrailingColon(node.textContent).toLowerCase() !== 'related packages') {
+      return;
+    }
+    h3 = document.createElement('h3');
+    h3.className = 'related-packages__heading';
+    h3.textContent = 'Related packages';
+    node.parentNode.replaceChild(h3, node);
+  }
+
+  /**
+   * @param {string} title
+   * @returns {HTMLHeadingElement}
+   */
+  function createScopeHeading(title) {
+    var h = document.createElement('h4');
+    h.className = 'related-packages__scope-heading';
+    h.textContent = stripTrailingColon(title);
+    return h;
+  }
+
+  /**
+   * Build one Core or Community list (alphabetical) with optional expand.
+   *
+   * @param {ParentNode} parent
+   * @param {string} heading
+   * @param {string[]} names
+   * @param {Record<string, string>} xmls
+   * @param {string} distro
+   * @param {number} max
+   * @param {number} visibleMax
+   * @param {HTMLElement|null} insertBeforeEl
+   */
+  function appendScopedPackageList(
+    parent,
+    heading,
+    names,
+    xmls,
+    distro,
+    max,
+    visibleMax,
+    insertBeforeEl
+  ) {
+    var picked;
+    var listEl;
+    var j;
+    var hiddenCount;
+    if (!names.length) {
+      return;
+    }
+    names = names.slice().sort(function (a, b) {
+      return a.localeCompare(b);
+    });
+    picked = names.slice(0, max > 0 ? max : names.length);
+    hiddenCount = picked.length > visibleMax ? picked.length - visibleMax : 0;
+
+    parent.insertBefore(createScopeHeading(heading), insertBeforeEl);
+    listEl = document.createElement('ul');
+    listEl.className = 'related-packages__list';
+    for (j = 0; j < picked.length; j += 1) {
+      listEl.appendChild(
+        createPackageListItem(picked[j], xmls, distro, j >= visibleMax)
+      );
+    }
+    parent.insertBefore(listEl, insertBeforeEl);
+    if (hiddenCount > 0) {
+      attachExpandControl(listEl, hiddenCount, insertBeforeEl);
+    }
+  }
+
+  /**
    * @param {HTMLElement} el
    * @param {Record<string, string>} xmls
    */
   function fillWidget(el, xmls) {
     var wantPrimary = primaryAreaFromString(el.getAttribute('data-area') || '');
-    var max = parseInt(el.getAttribute('data-max') || '25', 10);
+    var max = parseInt(el.getAttribute('data-max') || '0', 10);
     var visibleMax = parseInt(el.getAttribute('data-visible-max') || '7', 10);
     var distro = el.getAttribute('data-distro') || 'rolling';
     var prevList = el.previousElementSibling;
     prevList = prevList && prevList.tagName === 'UL' ? prevList : null;
     var nextList = el.nextElementSibling;
     nextList = nextList && nextList.tagName === 'UL' ? nextList : null;
-    var excluded = manualPackageNames(prevList, nextList);
+    var manuals = collectManualEntries(prevList, nextList);
+    var matchedNames = Object.create(null);
+    var parent = el.parentNode;
+    var coreNames = [];
+    var communityNames = [];
+    var name;
+    var xmlStr;
+    var names;
+    var i;
+    var entry;
 
-    var names = Object.keys(xmls).filter(function (name) {
-      var xmlStr = xmls[name];
+    // Area-matching packages (including any also listed manually).
+    names = Object.keys(xmls).filter(function (pkgName) {
+      xmlStr = xmls[pkgName];
       if (typeof xmlStr !== 'string') {
-        return false;
-      }
-      if (excluded[name]) {
         return false;
       }
       return matchesArea(xmlStr, wantPrimary);
     });
-    names.sort(function (a, b) {
-      return a.localeCompare(b);
-    });
-    var picked = names.slice(0, max);
-    var hiddenCount = picked.length > visibleMax ? picked.length - visibleMax : 0;
-    var mergeList;
 
-    if (prevList) {
-      mergeList = prevList;
-    } else {
-      mergeList = document.createElement('ul');
-      mergeList.className = 'related-packages__list';
+    for (i = 0; i < names.length; i += 1) {
+      name = names[i];
+      matchedNames[name] = true;
+      if (extractRelatedScope(xmls[name]) === 'core') {
+        coreNames.push(name);
+      } else {
+        communityNames.push(name);
+      }
     }
 
-    var j;
-    for (j = 0; j < picked.length; j += 1) {
-      mergeList.appendChild(
-        createPackageListItem(picked[j], xmls, distro, j >= visibleMax)
-      );
+    // Manuals that match land in Core/Community (with description); remove
+    // their plain bullets so they are not duplicated under "Related packages:".
+    // Manuals that do not match stay under the author-written list.
+    for (i = 0; i < manuals.length; i += 1) {
+      entry = manuals[i];
+      if (matchedNames[entry.name] && entry.li.parentNode) {
+        entry.li.parentNode.removeChild(entry.li);
+      }
     }
 
     el.classList.remove('related-packages--loading');
 
-    if (picked.length === 0) {
-      el.innerHTML = '';
-      if (prevList && nextList) {
+    prevList = pruneEmptyManualList(prevList);
+    nextList = pruneEmptyManualList(nextList);
+
+    if (prevList) {
+      prevList.classList.add('related-packages__list');
+    }
+    if (nextList) {
+      if (prevList) {
         while (nextList.firstChild) {
           prevList.appendChild(nextList.firstChild);
         }
         nextList.remove();
-        prevList.classList.add('related-packages__list');
+      } else {
+        nextList.classList.add('related-packages__list');
+        prevList = nextList;
+        nextList = null;
       }
-      if (prevList || nextList) {
+    }
+
+    // Promote before inserting Core/Community so the intro is still adjacent.
+    promoteRelatedPackagesIntro(el);
+
+    if (!coreNames.length && !communityNames.length) {
+      if (prevList) {
         el.remove();
         return;
       }
-      var p = document.createElement('p');
-      p.className = 'related-packages__empty';
-      p.textContent = 'No packages matched this filter.';
-      el.appendChild(p);
+      el.innerHTML = '';
+      var empty = document.createElement('p');
+      empty.className = 'related-packages__empty';
+      empty.textContent = 'No packages matched this filter.';
+      el.appendChild(empty);
       return;
     }
 
-    if (nextList) {
-      while (nextList.firstChild) {
-        mergeList.appendChild(nextList.firstChild);
-      }
-      nextList.remove();
-    }
-
-    if (prevList) {
-      mergeList.classList.add('related-packages__list');
-      if (hiddenCount > 0) {
-        attachExpandControl(mergeList, hiddenCount, el);
-      }
-      el.remove();
+    if (!parent) {
       return;
     }
 
-    el.parentNode.insertBefore(mergeList, el);
-    if (hiddenCount > 0) {
-      attachExpandControl(mergeList, hiddenCount, el);
-    }
+    appendScopedPackageList(
+      parent,
+      'Core ROS packages',
+      coreNames,
+      xmls,
+      distro,
+      max,
+      visibleMax,
+      el
+    );
+    appendScopedPackageList(
+      parent,
+      'Community-contributed packages',
+      communityNames,
+      xmls,
+      distro,
+      max,
+      visibleMax,
+      el
+    );
     el.remove();
   }
 
