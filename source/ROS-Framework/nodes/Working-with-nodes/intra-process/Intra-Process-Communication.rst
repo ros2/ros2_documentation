@@ -165,7 +165,8 @@ Finally, you can see that "Published message..." and "Received message ..." line
 This shows that the address of the message being received is the same as the one that was published and that it is not a copy.
 This is because we're publishing and subscribing with ``std::unique_ptr``\ s which allow ownership of a message to be moved around the system safely.
 You can also subscribe using a ``const std::shared_ptr<const T> &`` (``ConstSharedPtr``) callback, which shares immutable ownership of the message and achieves zero-copy even with multiple subscribers, so long as a ``std::unique_ptr`` was passed to the publisher.
-Subscribing with a plain ``const T &`` or a mutable ``std::shared_ptr<T>`` will not achieve zero-copy.
+A ``const T &`` callback behaves identically, as it is delivered from that same shared, immutable message; the only difference is that the reference is not valid once the callback returns, so such a subscriber cannot retain the message.
+A mutable ``std::shared_ptr<T>`` callback (which is deprecated) instead takes ownership of the message: it is zero-copy when it is the only subscriber, but forces a copy for all but one subscriber once there is more than one.
 
 The cyclic pipeline demo
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -379,7 +380,7 @@ It can be, however, delivered to one of them.
 Which one would get the original pointer is not defined, but instead is simply the last to be delivered.
 And so one of the images being viewed is the original, with all the pointers the same, and the other is a copy of the original image, made between the ``watermark_node`` and one of the ``image_view_node`` instances, which will have a different pointer for the third line of text.
 
-To avoid this copy in a one-to-many pipeline, subscribers can use ``ConstSharedPtr`` (i.e. ``const std::shared_ptr<const T> &``) callbacks instead of ``UniquePtr``.
+To avoid this copy in a one-to-many pipeline, subscribers can use a ``ConstSharedPtr`` (i.e. ``const std::shared_ptr<const T> &``) or a ``const T &`` callback instead of ``UniquePtr``.
 The message is promoted from the published ``UniquePtr`` to a ``ConstSharedPtr``, which is delivered to all intra-process subscribers as a single immutable shared object, without copying.
 
 Pipeline with inter-process viewer
