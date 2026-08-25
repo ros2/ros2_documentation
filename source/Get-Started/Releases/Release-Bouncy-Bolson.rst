@@ -121,8 +121,8 @@ New features in this ROS 2 release
 
 
 * `New launch system </Developer-Tools/Launch/Launch-system>` featuring a much more capable and flexible Python API.
-* Parameters can be passed as `command line arguments </Developer-Tools/Introspection-and-analysis/Node-arguments>` to C++ executables.
-* Static remapping via `command line arguments </Developer-Tools/Introspection-and-analysis/Node-arguments>`.
+* Parameters can be passed as `command line arguments </Developer-Tools/Launch/Node-arguments>` to C++ executables.
+* Static remapping via `command line arguments </Developer-Tools/Launch/Node-arguments>`.
 * Various improvements to the Python client library.
 * Support for publishing and subscribing to serialized data.
   This is the foundation for the upcoming work towards a native rosbag implementation.

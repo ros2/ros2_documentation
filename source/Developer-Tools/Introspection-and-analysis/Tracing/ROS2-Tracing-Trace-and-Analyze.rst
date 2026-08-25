@@ -20,7 +20,7 @@ Prerequisites
 -------------
 
 This tutorial is aimed at real-time Linux systems.
-See the :doc:`real-time system setup tutorial <../../../Build/Building-Realtime-rt_preempt-kernel-for-ROS-2/Building-Realtime-rt_preempt-kernel-for-ROS-2>`.
+See the :doc:`real-time system setup tutorial <../../Build/Building-Realtime-rt_preempt-kernel-for-ROS-2/Building-Realtime-rt_preempt-kernel-for-ROS-2>`.
 However, the tutorial will work if you are using a non-real-time Linux system.
 
 Installing and building
@@ -183,7 +183,7 @@ Running the cell that does the trace processing might take a few minutes on the 
 
 You should get a plot that looks similar to this:
 
-.. image:: ./images/ros2_tracing_guide_result_plot.png
+.. image:: ../images/ros2_tracing_guide_result_plot.png
   :alt: callback durations result plot
   :align: center
 

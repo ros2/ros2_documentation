@@ -70,7 +70,7 @@ Logger configuration
 
 The per-node logging level can be specified using the ``--log-level`` command line argument.
 The executable log file name prefix, which includes all nodes in the executable, can be specified using ``--log-file-name`` command line argument.
-For more information please see :doc:`the logging page <../Introspection-and-analysis/Introspection/Logging-and-logger-configuration>`.
+For more information please see :doc:`the logging page <../Introspection-and-analysis/Logging-and-logger-configuration>`.
 
 Parameters
 ----------

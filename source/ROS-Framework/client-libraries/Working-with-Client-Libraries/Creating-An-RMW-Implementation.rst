@@ -268,7 +268,7 @@ Some of these events could be triggered on relevant changes to the graph cache.
 Security
 ^^^^^^^^
 
-:doc:`Security <../../../Developer-Tools/Introspection-and-analysis/About-Security>` is not well-specified by the ``rmw`` interface; most of it is specified by :doc:`SROS2 <../../../Developer-Tools/Introspection-and-analysis/Security/Introducing-ros2-security>`.
+:doc:`Security <../../../../Developer-Tools/Launch/Security/About-Security>` is not well-specified by the ``rmw`` interface; most of it is specified by :doc:`SROS2 <../../../Developer-Tools/Introspection-and-analysis/Security/Introducing-ros2-security>`.
 The interface only defines a few security options as part of the context initialization options, ``rmw_init_options_t``:
 
 #. ``rmw_security_options_t``, which includes a security policy (enforce/permissive) and a path to a directory containing security artifacts, i.e., a keystore.
@@ -276,7 +276,7 @@ The interface only defines a few security options as part of the context initial
 #. The name of a security enclave from the keystore to use for the given process.
    This is set, for example, through the ``--enclave`` option when running a node with ``ros2 run``.
 
-However, in practice, the structure of the :doc:`keystore <../../../Developer-Tools/Build/The-Keystore>` directory and its security enclaves is based on the DDS Security specification.
+However, in practice, the structure of the :doc:`keystore <../../../../Developer-Tools/Build/The-Keystore>` directory and its security enclaves is based on the DDS Security specification.
 Therefore, :doc:`security artifacts generated <../../../Developer-Tools/Introspection-and-analysis/Security/Introducing-ros2-security>` with the ``sros2`` package can only be directly used by DDS-based ``rmw`` implementations.
 For ``rmw_zenoh_cpp``, `Zenoh-specific security configuration files can be generated <https://github.com/ros2/rmw_zenoh/tree/{DISTRO}/zenoh_security_tools>`_ from ``sros2``-generated artifacts using the ``zenoh_security_tools`` package and provided through the ``ZENOH_SESSION_CONFIG_URI`` environment variable, bypassing the ``ROS_SECURITY_*`` environment variables.
 
