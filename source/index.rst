@@ -11,11 +11,21 @@ ROS 2 Documentation
    :hidden:
 
    About-ROS
+<<<<<<< HEAD
    Installation
    Releases
    Tutorials
    How-To-Guides
    Concepts
+=======
+   Get-Started
+   ROS-Framework
+   Developer-Tools
+   Capabilities
+   Integrations-and-related
+   Migration-and-Upgrades
+   The-ROS2-Project
+>>>>>>> af985a0 (Move about ros to own toc node (#7071))
    Contact
    The-ROS2-Project
    Package-Docs
