@@ -17,10 +17,13 @@ ROS 2 Documentation
    How-To-Guides
    Concepts
    Contact
+<<<<<<< HEAD
    The-ROS2-Project
    Package-Docs
    Related-Projects
    Glossary
+=======
+>>>>>>> 0a11fd7 (3d | TOC update - move "Glossary" inside the "Get started" section (#7079))
    Citations
 
 
