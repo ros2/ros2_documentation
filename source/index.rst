@@ -10,12 +10,13 @@ ROS 2 Documentation
    :maxdepth: 1
    :hidden:
 
+   About-ROS
    Get-Started
    ROS-Framework
-   Capabilities
    Developer-Tools
-   Migration-and-Upgrades
+   Capabilities
    Integrations-and-related
+   Migration-and-Upgrades
    The-ROS2-Project
    Contact
    Glossary

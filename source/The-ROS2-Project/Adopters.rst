@@ -2,7 +2,7 @@
 
   The-ROS2-Project/Adopters/Adopters
 
-ROS 2 Adopters
+ROS 2 adopters
 ==============
 
 This page showcases organizations and projects using ROS in any capacity.
