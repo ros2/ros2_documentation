@@ -3,7 +3,7 @@
     Related-Projects
 
 
-Related Projects
+Related projects
 ================
 
 Gazebo
