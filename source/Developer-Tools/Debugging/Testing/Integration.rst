@@ -21,7 +21,7 @@ Prerequisites
 Before starting this tutorial, it is recommended to have completed the following tutorials on launching nodes:
 
 * :doc:`Launching Multiple Nodes <../../../../ROS-Framework/nodes/Working-with-nodes/Launching-Multiple-Nodes/Launching-Multiple-Nodes>`
-* :doc:`Creating Launch files <../../../Launch/Creating-Launch-Files>`
+* :doc:`Creating Launch files <../../Launch/Creating-Launch-Files>`
 
 Background
 ----------
@@ -271,7 +271,7 @@ avoiding undesired cross communication.
 Related content
 ---------------
 
-* :doc:`Why automatic tests? <Testing-Main>`
+* :doc:`Why automatic tests? <../About-testing>`
 * :doc:`C++ unit testing with GTest <Cpp>`
   and :doc:`Python unit testing with Pytest <Python>`
 * `launch_pytest documentation <https://docs.ros.org/en/{DISTRO}/p/launch_pytest/index.html>`_,

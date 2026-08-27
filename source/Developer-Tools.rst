@@ -13,5 +13,3 @@ Coming Soon
    Developer-Tools/About-Build
    Developer-Tools/About-visualization
    Developer-Tools/About-package-documentation
-   Developer-Tools/About-Launch
-   Developer-Tools/About-testing
