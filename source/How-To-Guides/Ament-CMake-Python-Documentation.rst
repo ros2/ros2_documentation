@@ -121,4 +121,8 @@ The ``CMakeLists.txt`` should contain:
 Compared to the usage of ament_python, which supports automatic test discovery, ament_cmake_pytest must be called with the path to each test file.
 The timeout can be reduced as needed.
 
+<<<<<<< HEAD:source/How-To-Guides/Ament-CMake-Python-Documentation.rst
 Now, you can invoke your tests with the :doc:`standard colcon testing commands <../Tutorials/Intermediate/Testing/CLI>`.
+=======
+Now, you can invoke your tests with the :doc:`standard colcon testing commands <../Debugging/Testing/CLI>`.
+>>>>>>> 778d34f (3di | TOC update - move Testing articles into Debugging section (#7075)):source/Developer-Tools/Build/Ament-CMake-Python-Documentation.rst

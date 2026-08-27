@@ -7,7 +7,11 @@ This will give you the latest bug fixes and features.
 Testing binaries
 ----------------
 
+<<<<<<< HEAD:source/Installation/Alternatives/Latest-Development-Setup.rst
 See :doc:`Testing <../Testing>`.
+=======
+See :doc:`Testing <../../../Developer-Tools/Debugging/Testing/Testing>`.
+>>>>>>> 778d34f (3di | TOC update - move Testing articles into Debugging section (#7075)):source/Get-Started/Installation/Alternatives/Latest-Development-Setup.rst
 
 Build from source
 -----------------
