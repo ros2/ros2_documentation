@@ -4,7 +4,6 @@
 
 Node management
 ===============
-
 .. toctree::
    :maxdepth: 1
    :hidden:
