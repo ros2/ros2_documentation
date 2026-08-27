@@ -268,7 +268,7 @@ Some of these events could be triggered on relevant changes to the graph cache.
 Security
 ^^^^^^^^
 
-:doc:`Security <../../../Developer-Tools/Introspection-and-analysis/About-Security>` is not well-specified by the ``rmw`` interface; most of it is specified by :doc:`SROS2 <../../../Developer-Tools/Introspection-and-analysis/Security/Introducing-ros2-security>`.
+:doc:`Security <../../../Developer-Tools/Introspection-and-analysis/Security/About-Security>` is not well-specified by the ``rmw`` interface; most of it is specified by :doc:`SROS2 <../../../Developer-Tools/Introspection-and-analysis/Security/Introducing-ros2-security>`.
 The interface only defines a few security options as part of the context initialization options, ``rmw_init_options_t``:
 
 #. ``rmw_security_options_t``, which includes a security policy (enforce/permissive) and a path to a directory containing security artifacts, i.e., a keystore.
