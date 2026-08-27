@@ -1,0 +1,158 @@
+.. redirect-from::
+
+   Installation/Linux-Install-Binary
+   Installation/Alternatives/Ubuntu-Install-Binary
+
+Ubuntu (binary)
+===============
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
+
+This page explains how to install ROS 2 on Ubuntu Linux from a pre-built binary package.
+
+.. note::
+
+    The pre-built binary does not include all ROS 2 packages.
+    All packages in the `ROS base variant <https://reps.openrobotics.org/rep-2001/#ros-base>`_ are included, and only a subset of packages in the `ROS desktop variant <https://reps.openrobotics.org/rep-2001/#desktop-variants>`_ are included.
+    The exact list of packages are described by the repositories listed in `this ros2.repos file <https://github.com/ros2/ros2/blob/{REPOS_FILE_BRANCH}/ros2.repos>`_.
+
+There are also :doc:`deb packages <../Ubuntu-Install-Debs>` available.
+
+System requirements
+-------------------
+
+We currently support Ubuntu Resolute (26.04) 64-bit x86 and 64-bit ARM.
+The Rolling Ridley distribution will change target platforms from time to time as new platforms are selected for development.
+Most people will want to use a stable ROS distribution.
+
+System setup
+------------
+
+Set locale
+^^^^^^^^^^
+
+.. include:: ../_Ubuntu-Set-Locale.rst
+
+Enable required repositories
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. include:: ../_Apt-Repositories.rst
+
+Install prerequisites
+^^^^^^^^^^^^^^^^^^^^^
+
+There are a few packages that must be installed in order to get and unpack the binary release.
+
+.. code-block:: console
+
+   $ sudo apt install tar bzip2 wget -y
+
+Install development tools (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you are going to build ROS packages or otherwise do development, you can also install the development tools:
+
+.. code-block:: console
+
+   $ sudo apt update && sudo apt install ros-dev-tools
+
+Install ROS 2
+-------------
+
+Binary releases of Rolling Ridley are not provided.
+Instead you may download nightly :ref:`prerelease binaries <Prerelease_binaries>`.
+
+* Download the latest package for Ubuntu; let's assume that it ends up at ``~/Downloads/ros2-package-linux-x86_64.tar.bz2``.
+
+  * Note: there may be more than one binary download option which might cause the file name to differ.
+
+*
+  Unpack it:
+
+  .. code-block:: console
+
+     $ mkdir -p ~/ros2_{DISTRO}
+     $ cd ~/ros2_{DISTRO}
+     $ tar xf ~/Downloads/ros2-package-linux-x86_64.tar.bz2
+
+.. _linux-install-binary-install-missing-dependencies:
+
+Install dependencies using rosdep
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. include:: ../_Apt-Upgrade-Admonition.rst
+
+.. code-block:: console
+
+   $ sudo apt update
+   $ sudo apt install -y python3-rosdep
+   $ sudo rosdep init
+   $ rosdep update
+   $ rosdep install --from-paths ~/ros2_{DISTRO}/ros2-linux/share --ignore-src -y --skip-keys "cyclonedds fastcdr fastdds iceoryx_binding_c rmw_connextdds rti-connext-dds-7.7.0 urdfdom_headers"
+
+.. include:: ../_rosdep_Linux_Mint.rst
+
+Install additional RMW implementations (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
+See the :doc:`guide <../RMW-Implementations/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
+
+Setup environment
+-----------------
+
+Set up your environment by sourcing the following file.
+
+.. code-block:: console
+
+   $ . ~/ros2_{DISTRO}/ros2-linux/setup.bash
+
+.. note::
+
+   Replace ``.bash`` with your shell if you're not using bash.
+   Possible values are: ``setup.bash``, ``setup.sh``, ``setup.zsh``.
+
+Try some examples
+-----------------
+
+In one terminal, source the setup file and then run a C++ ``talker``:
+
+.. code-block:: console
+
+   $ . ~/ros2_{DISTRO}/ros2-linux/setup.bash
+   $ ros2 run demo_nodes_cpp talker
+
+In another terminal source the setup file and then run a Python ``listener``:
+
+.. code-block:: console
+
+   $ . ~/ros2_{DISTRO}/ros2-linux/setup.bash
+   $ ros2 run demo_nodes_py listener
+
+You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
+This verifies both the C++ and Python APIs are working properly.
+Hooray!
+
+Next steps
+----------
+
+Continue with the tutorials to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
+
+Troubleshoot
+------------
+
+Troubleshooting techniques can be found :doc:`here <../Installation-Troubleshooting>`.
+
+Uninstall
+---------
+
+1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
+   This way, your environment will behave as though there is no {DISTRO_TITLE} install on your system.
+
+2. If you're also trying to free up space, you can delete the entire workspace directory with:
+
+   .. code-block:: console
+
+      $ rm -rf ~/ros2_{DISTRO}

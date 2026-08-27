@@ -1,0 +1,246 @@
+.. redirect-from::
+
+    Tutorials/Tf2/Quaternion-Fundamentals
+    Tutorials/Intermediate/Tf2/Quaternion-Fundamentals
+
+.. _QuaternionFundamentals:
+
+Quaternion fundamentals
+=======================
+
+**Goal:** Learn the basics of quaternion usage in ROS 2.
+
+**Tutorial level:** Intermediate
+
+**Time:** 10 minutes
+
+.. contents:: Contents
+   :depth: 2
+   :local:
+
+Background
+----------
+
+A quaternion is a 4-tuple representation of orientation, which is more concise than a rotation matrix.
+Quaternions are very efficient for analyzing situations where rotations in three dimensions are involved.
+Quaternions are used widely in robotics, quantum mechanics, computer vision, and 3D animation.
+
+You can learn more about the underlying mathematical concept on `Wikipedia <https://en.wikipedia.org/wiki/Quaternion>`_.
+You can also take a look at an explorable video series `Visualizing quaternions <https://eater.net/quaternions>`_ made by `3blue1brown <https://www.youtube.com/3blue1brown>`_.
+
+In this tutorial, you will learn how quaternions and conversion methods work in ROS 2.
+
+Prerequisites
+-------------
+
+You can take a look at libraries like `transforms3d <https://github.com/matthew-brett/transforms3d>`_, `scipy.spatial.transform <https://github.com/scipy/scipy/tree/master/scipy/spatial/transform>`_, `pytransform3d <https://github.com/rock-learning/pytransform3d>`_, `numpy-quaternion <https://github.com/moble/quaternion>`_ or `blender.mathutils <https://docs.blender.org/api/master/mathutils.html>`_.
+
+However, this is not a hard requirement and you can stick to any other geometric transformation library that suit you best.
+
+Components of a quaternion
+--------------------------
+
+ROS 2 uses quaternions to track and apply rotations.
+A quaternion has 4 components ``(x, y, z, w)``.
+In ROS 2, ``w`` is last, but in some libraries like Eigen, ``w`` can be placed at the first position.
+The commonly-used unit quaternion that yields no rotation about the x/y/z axes is ``(0, 0, 0, 1)``, and can be created in a following way:
+
+.. code-block:: C++
+
+   #include <tf2/LinearMath/Quaternion.hpp>
+   ...
+
+   tf2::Quaternion q;
+   // Create a quaternion from roll/pitch/yaw in radians (0, 0, 0)
+   q.setRPY(0, 0, 0);
+   // Print the quaternion components (0, 0, 0, 1)
+   RCLCPP_INFO(this->get_logger(), "%f %f %f %f",
+               q.x(), q.y(), q.z(), q.w());
+
+The magnitude of a quaternion should always be one.
+If numerical errors cause a quaternion magnitude other than one, ROS 2 will print warnings.
+To avoid these warnings, normalize the quaternion:
+
+.. code-block:: C++
+
+   q.normalize();
+
+Quaternion types in ROS 2
+-------------------------
+
+ROS 2 uses two quaternion datatypes: ``tf2::Quaternion`` and its equivalent ``geometry_msgs::msg::Quaternion``.
+To convert between them in C++, use the methods of ``tf2_geometry_msgs``.
+
+.. code-block:: C++
+
+   #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
+   ...
+
+   tf2::Quaternion tf2_quat, tf2_quat_from_msg;
+   tf2_quat.setRPY(roll, pitch, yaw);
+   // Convert tf2::Quaternion to geometry_msgs::msg::Quaternion
+   geometry_msgs::msg::Quaternion msg_quat = tf2::toMsg(tf2_quat);
+
+   // Convert geometry_msgs::msg::Quaternion to tf2::Quaternion
+   tf2::convert(msg_quat, tf2_quat_from_msg);
+   // or
+   tf2::fromMsg(msg_quat, tf2_quat_from_msg);
+
+There is no ``tf2::Quaternion`` equivalent in Python.
+Instead, the builtin ``list`` is used.
+
+.. code-block:: python
+
+   from geometry_msgs.msg import Quaternion
+   ...
+
+   # Create a list of floats, which is compatible with tf2
+   # Quaternion methods
+   quat_tf = [0.0, 1.0, 0.0, 0.0]
+
+   # Convert a list to geometry_msgs.msg.Quaternion
+   msg_quat = Quaternion(x=quat_tf[0], y=quat_tf[1], z=quat_tf[2], w=quat_tf[3])
+
+Quaternion operations
+---------------------
+
+1 Think in RPY then convert to quaternion
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+It's easy for us to think of rotations about axes, but hard to think in terms of quaternions.
+A suggestion is to calculate target rotations in terms of the three individual rotations *roll* (about an X-axis), *pitch* (about the Y-axis), and *yaw* (about the Z-axis), and then convert to a quaternion.
+
+.. code-block:: python
+
+   # quaternion_from_euler method is available in turtle_tf2_py/turtle_tf2_py/turtle_tf2_broadcaster.py
+   q = quaternion_from_euler(1.5707, 0, -1.5707)
+   print(f'The quaternion representation is x: {q[0]} y: {q[1]} z: {q[2]} w: {q[3]}.')
+
+This method relates to `Euler angles <https://en.wikipedia.org/wiki/Euler_angles>`_.
+There are several ways of applying Euler angles.
+The one described above, which ROS 2 adopts, is called *fixed (or static) frame* RPY.
+This means that the three individual rotations are applied to the original, unmoving coordinate axes.
+This is contrary to *relative frame*, where rotations are applied to the coordinate axes that get transformed by preceding rotations.
+
+
+2 Applying a quaternion rotation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To apply the rotation of one quaternion to a pose, simply multiply the previous quaternion of the pose by the quaternion representing the desired rotation.
+The order of this multiplication matters.
+
+C++
+
+.. code-block:: C++
+
+   #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
+   ...
+
+   tf2::Quaternion q_orig, q_rot, q_new;
+
+   q_orig.setRPY(0.0, 0.0, 0.0);
+   // Rotate the previous pose by 180* about X
+   q_rot.setRPY(3.14159, 0.0, 0.0);
+   q_new = q_rot * q_orig;
+   q_new.normalize();
+
+Python
+
+.. code-block:: python
+
+   q_orig = quaternion_from_euler(0, 0, 0)
+   # Rotate the previous pose by 180* about X
+   q_rot = quaternion_from_euler(3.14159, 0, 0)
+   q_new = quaternion_multiply(q_rot, q_orig)
+
+
+3 Inverting a quaternion
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+An easy way to invert a quaternion is to negate the x-, y-, and z-components:
+
+.. code-block:: python
+
+   q[0] = -q[0]
+   q[1] = -q[1]
+   q[2] = -q[2]
+
+.. note::
+
+   This should not be confused with negating *all* elements of the quaternion.
+
+4 Relative rotations
+^^^^^^^^^^^^^^^^^^^^
+
+Say you have two quaternions from the same frame, ``q_1`` and ``q_2``.
+You want to find the relative rotation, ``q_r``, that converts ``q_1`` to ``q_2`` in a following manner:
+
+.. code-block:: C++
+
+   q_2 = q_r * q_1
+
+You can solve for ``q_r`` similarly to solving a matrix equation.
+Invert ``q_1`` and right-multiply both sides.
+Again, the order of multiplication is important:
+
+.. code-block:: C++
+
+   q_r = q_2 * q_1_inverse
+
+Here's an example to get the relative rotation from the previous robot pose to the current robot pose in python:
+
+.. code-block:: python
+
+  def quaternion_multiply(q0, q1):
+      """
+      Multiplies two quaternions.
+
+      Input
+      :param q0: A 4 element array containing the first quaternion (q01, q11, q21, q31)
+      :param q1: A 4 element array containing the second quaternion (q02, q12, q22, q32)
+
+      Output
+      :return: A 4 element array containing the final quaternion (q03,q13,q23,q33) in (w, x, y, z) order
+
+      """
+      # Extract the values from q0
+      x0 = q0[0]
+      y0 = q0[1]
+      z0 = q0[2]
+      w0 = q0[3]
+
+      # Extract the values from q1
+      x1 = q1[0]
+      y1 = q1[1]
+      z1 = q1[2]
+      w1 = q1[3]
+
+      # Compute the product of the two quaternions, term by term
+      q0q1_w = w0 * w1 - x0 * x1 - y0 * y1 - z0 * z1
+      q0q1_x = w0 * x1 + x0 * w1 + y0 * z1 - z0 * y1
+      q0q1_y = w0 * y1 - x0 * z1 + y0 * w1 + z0 * x1
+      q0q1_z = w0 * z1 + x0 * y1 - y0 * x1 + z0 * w1
+
+      # Create a 4 element array containing the final quaternion
+      final_quaternion = np.array([q0q1_w, q0q1_x, q0q1_y, q0q1_z])
+
+      # Return a 4 element array containing the final quaternion (q02,q12,q22,q32)
+      return final_quaternion
+
+  q1_inv[0] = -prev_pose.pose.orientation.x   # Negate for inverse
+  q1_inv[1] = -prev_pose.pose.orientation.y   # Negate for inverse
+  q1_inv[2] = -prev_pose.pose.orientation.z   # Negate for inverse
+  q1_inv[3] = prev_pose.pose.orientation.w
+
+  q2[0] = current_pose.pose.orientation.x
+  q2[1] = current_pose.pose.orientation.y
+  q2[2] = current_pose.pose.orientation.z
+  q2[3] = current_pose.pose.orientation.w
+
+  qr = quaternion_multiply(q2, q1_inv)
+
+Summary
+-------
+
+In this tutorial, you learned about the fundamental concepts of a quaternion and its related mathematical operations, like inversion and rotation.
+You also learned about its usage examples in ROS 2 and conversion methods between two separate Quaternion classes.

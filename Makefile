@@ -33,7 +33,7 @@ lint:
 	./sphinx-lint-with-ros source
 
 test:
-	doc8 --ignore D001 --ignore-path build
+	doc8 --ignore D001  --ignore-path $(OUT) -- $(SOURCE)
 
 test-tools:
 	$(PYTHON) -m pytest test/
