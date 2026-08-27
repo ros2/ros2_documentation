@@ -24,12 +24,12 @@ Summary
 Each node in the ROS graph stores its own set of configuration values, called parameters.
 Use the ``ros2 param`` commands to get, set, save, and reload parameter values at runtime.
 
-For more information, see :doc:`About parameters <../../../Concepts/Basic/About-Parameters>`.
+For more information, see :doc:`About parameters <../../../About-Parameters>`.
 
 Prerequisites
 -------------
 
-You will need the :doc:`turtlesim package <../Introducing-Turtlesim/Introducing-Turtlesim>`.
+You will need the :doc:`turtlesim package <../../../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>`.
 
 Steps
 -----
@@ -37,7 +37,7 @@ Steps
 .. note::
     Do not forget to source ROS in every new terminal you open.
 
-    For more information, see :doc:`Configuring environment <../Configuring-ROS2-Environment>`.
+    For more information, see :doc:`Configuring environment <../../../../Get-Started/Configuring-ROS2-Environment>`.
 
 1 Setup
 ^^^^^^^
@@ -272,9 +272,9 @@ Related content
 
 More articles:
 
-* :doc:`Learning about nodes <../Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>`
-* :doc:`Learning about services <../Understanding-ROS2-Services/Understanding-ROS2-Services>`
-* :doc:`About parameters <../../../Concepts/Basic/About-Parameters>`
+* :doc:`Learning about nodes <../../../nodes/Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>`
+* :doc:`Learning about services <../../../interfaces/services/Working-with-services/Understanding-ROS2-Services/Understanding-ROS2-Services>`
+* :doc:`About parameters <../../../About-Parameters>`
 
 FAQs
 ----
