@@ -7,7 +7,7 @@ Testing with pre-release binaries
 =================================
 
 Many ROS packages are provided as pre-built binaries.
-Usually, you will get the released version of binaries when following :doc:`../../Get-Started/Installation`.
+Usually, you will get the released version of binaries when following :doc:`../../../Get-Started/Installation`.
 There are also pre-released versions of binaries that are useful for testing before making an official release.
 This article describes several options if you would like to try out pre-released versions of ROS binaries.
 
@@ -22,7 +22,7 @@ deb testing repository
 
 For Debian-based operating systems, you can install binary packages from the **ros-testing** repository.
 
-1. Make sure you have a working ROS 2 installation from deb packages (see :doc:`../../Get-Started/Installation`).
+1. Make sure you have a working ROS 2 installation from deb packages (see :doc:`../../../Get-Started/Installation`).
 
 2. Install the ros2-testing-apt-source package.
    This will automatically uninstall the ros2-apt-source package since only one repository may be enabled at a time.
@@ -68,7 +68,7 @@ RHEL testing repository
 
 For RHEL you can install binary packages from the **ros-testing** repository, by enabling the testing repository on the source configuration:
 
-1. Make sure you have a working ROS 2 installation for rpm packages (see the :doc:`RHEL installation instructions <../../Get-Started/Installation/RHEL-Install-RPMs>`).
+1. Make sure you have a working ROS 2 installation for rpm packages (see the :doc:`RHEL installation instructions <../../../Get-Started/Installation/RHEL-Install-RPMs>`).
 
 2. Enable testing and disable main repository:
 
@@ -111,7 +111,7 @@ Binary archives
 For core packages, we run nightly packaging jobs for Ubuntu Linux, RHEL, and Windows.
 These packaging jobs produce archives with pre-built binaries that can be downloaded and extracted to your filesystem.
 
-1. Make sure you have all dependencies installed according to the :doc:`latest development setup <../../Get-Started/Installation/Alternatives/Latest-Development-Setup>` for your platform.
+1. Make sure you have all dependencies installed according to the :doc:`latest development setup <../../../Get-Started/Installation/Alternatives/Latest-Development-Setup>` for your platform.
 
 2. Go to https://github.com/ros2/ros2/releases/tag/release-rolling-nightlies and select a packaging job from the list corresponding to your platform.
 
