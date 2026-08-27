@@ -234,9 +234,9 @@ Controls:
 * **Right mouse button**: Click and drag to zoom the image.
 * **Scrollwheel**: Zoom the image.
 
-Same as the orbital camera, with the focus point restricted to the XY plane.
 XYOrbit
 ^^^^^^^
+Same as the orbital camera, with the focus point restricted to the XY plane.
 
 Controls:
 
