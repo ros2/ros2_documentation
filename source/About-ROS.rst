@@ -33,7 +33,7 @@ The ecosystem
 
 Despite its name, ROS is actually not an operating system in the traditional sense, but a set of tools and libraries that help developers create robots using various platforms and programming languages.
 
-.. image:: images/ROS-ecosystem.gif
+.. image:: About-ROS/images/ROS-ecosystem.gif
   :alt: Animated high level diagram of the ROS ecosystem
 
 Framework
