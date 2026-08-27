@@ -19,7 +19,6 @@ ROS 2 Documentation
    Migration-and-Upgrades
    The-ROS2-Project
    Contact
-   Glossary
    Citations
    Contributing-To-ROS
 
