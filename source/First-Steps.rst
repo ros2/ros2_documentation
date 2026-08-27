@@ -35,10 +35,17 @@ Steps
 1 Learn about fundamental concepts behind ROS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+<<<<<<< HEAD
 * :doc:`About ROS </About-ROS>`
 * :doc:`/Concepts/Basic/About-Nodes`
 * :doc:`/Concepts/Basic/Interfaces-Topics-Services-Actions`
 * :doc:`/Concepts/Basic/About-Parameters`
+=======
+* :doc:`About ROS <About-ROS>`
+* :doc:`ROS-Framework/About-Nodes`
+* Interfaces-Topics-Services-Actions`
+* :doc:`ROS-Framework/About-Parameters`
+>>>>>>> af985a0 (Move about ros to own toc node (#7071))
 
 2 Install ROS and turtlesim
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
