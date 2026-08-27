@@ -2,7 +2,7 @@
 
     How-To-Guides/Using-Custom-Rosdistro
 
-Using Custom Rosdistro Version
+Using custom rosdistro version
 ==============================
 
 
