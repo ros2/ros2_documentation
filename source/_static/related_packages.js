@@ -273,22 +273,22 @@
   }
 
   /**
-   * Core vs community scope from ``<related_scope>`` in package.xml export.
-   * Defaults to community when the tag is absent (unknown upstream packages).
+   * Core vs federation scope from ``<related_scope>`` in package.xml export.
+   * Defaults to federation when the tag is absent (unknown upstream packages).
    *
    * @param {string} xmlStr
-   * @returns {'core'|'community'}
+   * @returns {'core'|'federation'}
    */
   function extractRelatedScope(xmlStr) {
     var match = /<related_scope\b[^>]*>([^<]+)<\/related_scope>/i.exec(xmlStr || '');
     if (!match) {
-      return 'community';
+      return 'federation';
     }
     var value = match[1].trim().toLowerCase();
-    if (value === 'core' || value === 'community') {
+    if (value === 'core' || value === 'federation') {
       return value;
     }
-    return 'community';
+    return 'federation';
   }
 
   /**
@@ -554,7 +554,7 @@
   }
 
   /**
-   * Build one Core or Community list (alphabetical) with optional expand.
+   * Build one Core or Federation list (alphabetical) with optional expand.
    *
    * @param {ParentNode} parent
    * @param {string} heading
@@ -619,7 +619,7 @@
     var matchedNames = Object.create(null);
     var parent = el.parentNode;
     var coreNames = [];
-    var communityNames = [];
+    var federationNames = [];
     var name;
     var xmlStr;
     var names;
@@ -641,11 +641,11 @@
       if (extractRelatedScope(xmls[name]) === 'core') {
         coreNames.push(name);
       } else {
-        communityNames.push(name);
+        federationNames.push(name);
       }
     }
 
-    // Manuals that match land in Core/Community (with description); remove
+    // Manuals that match land in Core/Federation (with description); remove
     // their plain bullets so they are not duplicated under "Related packages:".
     // Manuals that do not match stay under the author-written list.
     for (i = 0; i < manuals.length; i += 1) {
@@ -676,10 +676,10 @@
       }
     }
 
-    // Promote before inserting Core/Community so the intro is still adjacent.
+    // Promote before inserting Core/Federation so the intro is still adjacent.
     promoteRelatedPackagesIntro(el);
 
-    if (!coreNames.length && !communityNames.length) {
+    if (!coreNames.length && !federationNames.length) {
       if (prevList) {
         el.remove();
         return;
@@ -708,8 +708,8 @@
     );
     appendScopedPackageList(
       parent,
-      'Community-contributed packages',
-      communityNames,
+      'Community packages',
+      federationNames,
       xmls,
       distro,
       max,

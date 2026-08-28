@@ -118,17 +118,17 @@ class RosRelatedPackagesDirective(SphinxDirective):
     after the directive are merged at runtime:
 
     * If a manual package also matches by ``area``, it is absorbed into
-      **Core ROS packages** or **Community-contributed packages** (with its
+      **Core ROS packages** or **Community packages** (with its
       description) and removed from the plain manual list.
     * If it does not match, it stays under the author-written
       ``Related packages`` heading.
     * Either way a package appears at most once.
 
     Matching packages are listed under ``h4`` subheadings **Core ROS
-    packages** and **Community-contributed packages**.
+    packages** and **Community packages**.
 
-    By default the full match set is loaded (alphabetical within Core and
-    Community); the first 7 of each group are shown with a control to reveal
+    By default the full match set is loaded (alphabetical within each
+    group); the first 7 of each group are shown with a control to reveal
     the rest. Pass ``:max:`` to cap each group.
 
     Matching rules
@@ -141,10 +141,10 @@ class RosRelatedPackagesDirective(SphinxDirective):
     framework``). Matching keys on that primary value and does not pull in
     packages that only share a broader parent.
 
-    Results are split into **Core ROS packages** and **Community-contributed
+    Results are split into **Core ROS packages** and **Community
     packages**, using ``<related_scope>core</related_scope>`` or
-    ``community`` inside the package ``<export>`` (packages without the tag
-    are treated as community). Each group is ordered alphabetically.
+    ``federation`` inside the package ``<export>`` (packages without the tag
+    are treated as ``federation``). Each group is ordered alphabetically.
 
     Package metadata comes from the rosdistro cache::
 
