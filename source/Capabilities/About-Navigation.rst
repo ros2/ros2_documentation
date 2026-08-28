@@ -18,7 +18,7 @@ This article summarizes ROS developer tools and guidance available to help with 
 Summary
 -------
 
-Navigation capabilities enable a mobile robot to map its environment, plan a path to a new destination, and then control movement along that path including handling unexpected events that happen as it moves.
+Navigation capabilities enable a mobile robot to map its environment, plan a path to a new destination, and then control movement along that path including handling unexpected interruptions, such as an unforeseen obstacle, that happen as it moves.
 
 ROS also includes motion planning capabilities.
 See :doc:`About-Motion-planning`.
