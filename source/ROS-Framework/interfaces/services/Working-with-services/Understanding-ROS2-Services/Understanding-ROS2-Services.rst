@@ -24,7 +24,7 @@ Summary
 Services use a call-and-response model: a client sends a request to a server, which processes it and returns a response.
 Unlike topics, services only provide data when specifically called, so they are not suited for continuous data streams.
 
-For more information, see :doc:`How ROS works <../../../../How-ROS-Works>`.
+For more information, see :doc:`About services <../../../About-Services>`.
 
 Prerequisites
 -------------
