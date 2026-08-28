@@ -189,6 +189,8 @@ In ``more_interfaces/src`` create a file called ``publish_address_book.cpp`` and
     return 0;
   }
 
+.. include:: ../../../_Rclcpp-Convenience-Header-Note.rst
+
 3.1 The code explained
 ~~~~~~~~~~~~~~~~~~~~~~
 
