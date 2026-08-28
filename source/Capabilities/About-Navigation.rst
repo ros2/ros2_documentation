@@ -30,6 +30,8 @@ Community-contributed packages
 
 * `Nav2 <https://nav2.org/>`_: An industry-standard mobile robot navigation system for mobile and surface robotics.
 
+* `EasyNav <https://github.com/EasyNavigation/>`_: A flexible, extensible navigation system for mobile robots.
+
 .. Related content (placeholder)
    -----------------------------
 
