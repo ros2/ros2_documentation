@@ -30,7 +30,11 @@ Improvements since Alpha 8 release
 Selected features from previous Alpha releases
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+<<<<<<< HEAD
 For the complete list, see `earlier release notes <../index>`.
+=======
+For the complete list, see `earlier release notes </Releases>`.
+>>>>>>> ae1a63d (3di | TOC update - move 'Distributions' section to own toc node (#7070))
 
 
 * C++ and Python implementations of ROS 2 client libraries including APIs for:

@@ -34,7 +34,11 @@ Tier 3 platforms:
 Installation
 ------------
 
+<<<<<<< HEAD
 `Install Rolling Ridley <../../Installation>`
+=======
+`Install Rolling Ridley <../Get-Started/Installation>`
+>>>>>>> ae1a63d (3di | TOC update - move 'Distributions' section to own toc node (#7070))
 
 New features and changes in this release
 ----------------------------------------

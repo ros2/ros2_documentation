@@ -13,7 +13,11 @@ Supported Platforms
 -------------------
 
 We support ROS 2 Beta 3 on three platforms: Ubuntu 16.04 (Xenial), macOS 10.12 (Sierra), and Windows 10.
+<<<<<<< HEAD
 We provide both binary packages and instructions for how to compile from source for all 3 platforms (see `install instructions <../../Installation>` as well as `documentation <https://docs.ros2.org/beta3/>`__).
+=======
+We provide both binary packages and instructions for how to compile from source for all 3 platforms (see `install instructions <../Get-Started/Installation>` as well as `documentation <https://docs.ros2.org/beta3/>`__).
+>>>>>>> ae1a63d (3di | TOC update - move 'Distributions' section to own toc node (#7070))
 
 Features
 --------
@@ -41,7 +45,11 @@ New demo application
 Selected features from previous Alpha/Beta releases
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+<<<<<<< HEAD
 For the complete list, see `earlier release notes <../index>`.
+=======
+For the complete list, see `earlier release notes <Releases>`.
+>>>>>>> ae1a63d (3di | TOC update - move 'Distributions' section to own toc node (#7070))
 
 * C++ and Python implementations of ROS 2 client libraries including APIs for:
 
