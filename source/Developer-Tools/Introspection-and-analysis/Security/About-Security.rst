@@ -2,9 +2,18 @@
 
    Concepts/About-Security
    Concepts/Intermediate/About-Security
+   Tutorials/Advanced/Security/Security-Main
 
 ROS 2 Security
 ==============
+
+.. toctree::
+   :hidden:
+
+   Introducing-ros2-security
+   Security-on-Two
+   Examine-Traffic
+   Access-Controls
 
 .. contents:: Table of Contents
    :local:
@@ -92,4 +101,4 @@ These variables generally assist ROS in managing enclaves and locating the secur
 Learn More
 ----------
 
-For more information and hands-on exercises enabling ROS 2 communications security, see the :doc:`Security/Introducing-ros2-security`.
+For more information and hands-on exercises enabling ROS 2 communications security, see the :doc:`Introducing-ros2-security`.
