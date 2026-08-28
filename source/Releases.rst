@@ -21,7 +21,7 @@ Below is a list of current and historic ROS 2 distributions.
 Rows in the table marked in blue are the currently supported distributions.
 
 .. toctree::
-   :hidden:
+   :maxdepth: 3
 
    Releases/Release-Lyrical-Luth
    Releases/Release-Kilted-Kaiju
