@@ -142,22 +142,6 @@ If a change can be backported without breaking API or ABI, then a new pull reque
 The new pull request should be added to the appropriate distributions project board at https://github.com/orgs/ros2/projects.
 The new pull request should have all of the steps run as before, but making sure to target the distribution in question for CI, etc.
 
-Responding to issues
---------------------
-
-Package maintainers should also look at incoming issues on the repository and triage the problems that users are having.
-
-For issues that look like questions, the issue should be closed and the user redirected to `Robotics Stack Exchange <https://robotics.stackexchange.com/>`__ .
-
-If an issue looks like a problem, but is not relevant to this particular repository, it should be moved to the appropriate repository with the GitHub "Transfer issue" button.
-
-If the reporter has not provided enough information to determine the cause of the problem, more information should be requested from the reporter.
-
-If this is a new feature, tag the issue with "help-wanted".
-
-Any remaining issues should be reproduced, and determined if they are truly a bug.
-If it is a bug, fixes are highly appreciated.
-
 Getting help
 ------------
 
