@@ -241,7 +241,7 @@ The ``:doc:`` directive is used to create in-text links to other pages.
 
 .. code-block:: rst
 
-   :doc:`Quality of Service <../Tutorials/Quality-of-Service>`
+   :doc:`Quality of Service <../../../ROS-Framework/interfaces/topics/Working-with-topics/Quality-of-Service>`
 
 Note that the relative path to the file is used.
 

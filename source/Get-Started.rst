@@ -13,3 +13,4 @@ Coming Soon
    First-Steps
    Get-Started/Configuring-ROS2-Environment
    Get-Started/Introducing-Turtlesim/Introducing-Turtlesim
+   Get-Started/Glossary
