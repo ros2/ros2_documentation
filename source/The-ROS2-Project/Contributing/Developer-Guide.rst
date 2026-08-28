@@ -331,6 +331,11 @@ For example: Development commits targeting ``foxy`` are made to the ``foxy`` bra
 **What about** ``main`` **and** ``rolling`` **?**
 
 ``main`` typically targets :doc:`Rolling <../../Releases/Release-Rolling-Ridley>` (and so, the next unreleased ROS distribution), though the maintainers may decide to develop and release from a ``rolling`` branch instead.
+<<<<<<< HEAD
+=======
+
+.. _DeveloperGuidePullRequests:
+>>>>>>> ae1a63d (3di | TOC update - move 'Distributions' section to own toc node (#7070))
 
 Library versioning
 ^^^^^^^^^^^^^^^^^^
