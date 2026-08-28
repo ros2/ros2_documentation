@@ -33,7 +33,7 @@ The ecosystem
 
 Despite its name, ROS is actually not an operating system in the traditional sense, but a set of tools and libraries that help developers create robots using various platforms and programming languages.
 
-.. image:: images/ROS-ecosystem.gif
+.. image:: About-ROS/images/ROS-ecosystem.gif
   :alt: Animated high level diagram of the ROS ecosystem
 
 Framework
@@ -141,4 +141,4 @@ ROS on macOS is supported by the community, and we do not recommended it for new
 Ubuntu support depends on the ROS distribution, with each distribution requiring a specific Ubuntu LTS (long-term support) release.
 Other platforms may require building from source or using containers.
 
-:doc:`See full details of currently supported platforms and support tiers <../Releases/Release-Rolling-Ridley>`
+:doc:`See full details of currently supported platforms and support tiers <../../Releases/Release-Rolling-Ridley>`
