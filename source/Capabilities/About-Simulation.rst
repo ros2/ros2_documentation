@@ -8,7 +8,7 @@ Simulation
    Simulation/URDF/URDF-Main
    Simulation/dummy-robot/dummy-robot-demo
 
-Simulation capabilities allow you to test your robot's software in physically accurate virtual environments.
+Simulation capabilities allow you to test your robot's software in virtual environments, often with physical accuracy.
 This article summarizes ROS developer tools and guidance available to enable simulation.
 
 **Area: simulation, capabilities | Content-type: about | Experience: beginner, intermediate, expert**
