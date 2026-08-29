@@ -35,7 +35,7 @@ Community-contributed packages
 
 * `MoveIt <https://moveit.ai/>`_: A motion planning, manipulation, and kinematics framework for ROS.
 
-* `Tesseract <https://github.com/tesseract-robotics>`_: A lightweight motion planning framework designed with the needs of industrial workcells.
+* `Tesseract <https://github.com/tesseract-robotics>`_: A lightweight motion planning framework designed for the needs of industrial workcells.
 
 * `Open Motion Planning Library (OMPL) <https://ompl.kavrakilab.org>`_: A C++ library providing sampling-based algorithms for motion planning in robotics and automated systems.
 
