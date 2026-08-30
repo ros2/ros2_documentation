@@ -224,6 +224,58 @@ ogp_image = '_static/rolling-small.png'
 
 sitemap_url_scheme = '{version}/{link}'
 
+# -- Options for linkcheck output ---------------------------------------------
+
+# A list of Toples of regular expressions that match the URLs for which should 
+# not check the validity of anchors.
+linkcheck_anchors_ignore_for_url = [
+    r"https://github\.com/.*",
+    r"https://cloud\.ibm\.com/.*",
+    r"https://cyberbotics\.com/.*",
+    r"https://gitlab\.com/.*",
+    r"https://vimeo\.com.*",
+    r"https://docs\.fedoraproject\.org/.*",
+    r"https://index\.ros\.org.*",
+    r"https://ros\.org.*",
+    r"https://www\.ros\.org.*",
+    r"https://semver\.org.*",
+    r"https://foxglove\.dev/.*",
+]
+
+# Ignore local links for linkcheck.
+linkcheck_ignore = [
+    r"../../iron/Installation.html",
+    r"../../foxy/Installation.html",
+    r"../../jazzy/Installation.html",
+    r"../../rolling/Installation/Maintaining-a-Source-Checkout.html",
+    r"../../humble/Installation/Ubuntu-Install-Debians.html",
+    r"../../humble/Installation.html",
+    r"../../galactic/Installation.html",
+    r"../../eloquent/Installation.html",
+    r"../../dashing/Installation.html",
+]
+
+# Add custom headers to requests made by linkcheck.
+# This helps mitigate issues with some sites that block requests without a 
+# user agent.
+# It is not perfect as some websites may block requests based on other factors
+# and not all User-Agent strings will work for all websites but it reduces
+# the amount of false broken messages considerably.
+linkcheck_request_headers = {
+    "*": { # Default headers for all URLs
+        'User-Agent': 
+            'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36',
+        'Accept': 
+            'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+    },
+    "https://www.intel.com/": {
+        'User-Agent': 
+            'Mozilla/5.0 (Windows NT 10.0; Microsoft Windows 10.0.15063; en-US) PowerShell/6.0.0',
+        'Accept':
+            'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+    },
+}
+
 class RedirectFrom(Directive):
 
     has_content = True
