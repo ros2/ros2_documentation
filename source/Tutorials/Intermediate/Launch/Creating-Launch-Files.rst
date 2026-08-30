@@ -161,6 +161,17 @@ In other words, ``turtlesim2`` will mimic ``turtlesim1``'s movements.
 
 3 ros2 launch
 ^^^^^^^^^^^^^
+To include your launch file in the build, you must instruct `setup.py` to copy it. When you run `colcon build` the .xml will be copied to the `share` dir.
+Edit `setup.py` and add your launch file to the `data_files` variable:
+
+.. code-block:: python
+
+  # excerpt from setup.py    
+    data_files=[
+    # ...
+        ('share/' + package_name, ['package.xml', 'launch/turtlesim_mimic_launch.xml']),  # add your launch file here
+    # ... ]
+
 
 To run the launch file created above, enter into the directory you created earlier and run the following command:
 
