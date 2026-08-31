@@ -165,6 +165,8 @@ Open the file using your preferred text editor.
       return 0;
     }
 
+.. include:: ../../../../_internal/Rclcpp-Convenience-Header-Note.rst
+
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
 

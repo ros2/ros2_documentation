@@ -120,6 +120,8 @@ Inside the ``ros2_ws/src/cpp_parameter_event_handler/src`` directory, create a n
 The first statement, ``#include <memory>`` is included so that the code can utilize the std::make_shared template.
 The next, ``#include "rclcpp/rclcpp.hpp"`` is included to allow the code to reference the various functionality provided by the rclcpp interface, including the ParameterEventHandler class.
 
+.. include:: ../../../_internal/Rclcpp-Convenience-Header-Note.rst
+
 After the class declaration, the code defines a class, ``SampleNodeWithParameters``.
 The constructor for the class declares an integer parameter ``an_int_param``, with a default value of 0.
 Next, the code creates a ``ParameterEventHandler`` that will be used to monitor changes to parameters.
