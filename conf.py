@@ -70,7 +70,9 @@ language = 'en'
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This patterns also effect to html_static_path and html_extra_path
-exclude_patterns = ['**/_*.rst']
+# source/_internal holds reusable snippets that are pulled into pages with the
+# ".. include::" directive; they are never rendered as standalone pages.
+exclude_patterns = ['**/_*.rst', '_internal/**']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
