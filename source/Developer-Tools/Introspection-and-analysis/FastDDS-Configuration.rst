@@ -166,7 +166,7 @@ Note that the synchronous publisher will be publishing on topic ``sync_topic``, 
         return 0;
     }
 
-.. include:: ../../_Rclcpp-Convenience-Header-Note.rst
+.. include:: ../../_internal/Rclcpp-Convenience-Header-Note.rst
 
 Now open the ``CMakeLists.txt`` file and add a new executable and name it ``SyncAsyncWriter`` so you can run your node using ``ros2 run``:
 

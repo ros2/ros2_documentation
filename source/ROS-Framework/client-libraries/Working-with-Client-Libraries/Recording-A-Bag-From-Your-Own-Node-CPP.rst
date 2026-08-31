@@ -119,7 +119,7 @@ Inside the ``ros2_ws/src/bag_recorder_nodes/src`` directory, create a new file c
       return 0;
     }
 
-.. include:: ../../../_Rclcpp-Convenience-Header-Note.rst
+.. include:: ../../../_internal/Rclcpp-Convenience-Header-Note.rst
 
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
