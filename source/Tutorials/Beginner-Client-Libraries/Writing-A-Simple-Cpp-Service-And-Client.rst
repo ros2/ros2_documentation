@@ -112,6 +112,8 @@ Inside the ``ros2_ws/src/cpp_srvcli/src`` directory, create a new file called ``
         rclcpp::shutdown();
       }
 
+.. include:: ../../../_internal/Rclcpp-Convenience-Header-Note.rst
+
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
 
