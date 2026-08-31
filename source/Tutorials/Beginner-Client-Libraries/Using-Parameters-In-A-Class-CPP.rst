@@ -113,7 +113,7 @@ Inside the ``ros2_ws/src/cpp_parameters/src`` directory, create a new file calle
       return 0;
     }
 
-.. include:: ../../../_internal/Rclcpp-Convenience-Header-Note.rst
+.. include:: ../../_internal/Rclcpp-Convenience-Header-Note.rst
 
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~

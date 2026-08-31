@@ -138,7 +138,7 @@ Inside your package's ``src`` directory, create a new file called ``simple_bag_r
       return 0;
     }
 
-.. include:: ../../../_internal/Rclcpp-Convenience-Header-Note.rst
+.. include:: ../../_internal/Rclcpp-Convenience-Header-Note.rst
 
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
