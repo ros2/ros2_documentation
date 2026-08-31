@@ -36,9 +36,19 @@ Prerequisites
 * :doc:`ROS 2 installation <../../../Installation>`
 * :doc:`colcon installation <../Colcon-Tutorial>`
 * `git installation <https://git-scm.com/book/en/v2/Getting-Started-Installing-Git>`__
+<<<<<<< HEAD:source/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.rst
 * :doc:`turtlesim installation <../../Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim>`
 * Have :doc:`rosdep installed <../../Intermediate/Rosdep>`
 * Understanding of basic terminal commands (`here's a guide for Linux <https://www2.cs.sfu.ca/~ggbaker/reference/unix/>`__)
+=======
+* :doc:`turtlesim installation <../../../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>`
+* Have :doc:`rosdep installed <../Rosdep>`
+* Understanding of basic terminal commands
+
+  * `SFU guide for Linux/Unix <https://www2.cs.sfu.ca/~ggbaker/reference/unix/>`__
+  * `Ubuntu Linux command-line guide for beginners <https://ubuntu.com/desktop/docs/en/latest/tutorial/the-linux-command-line-for-beginners/>`__
+
+>>>>>>> ebe356a (Add alternative Linux command-line guide (#6929)):source/ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.rst
 * Text editor of your choice
 
 Tasks
