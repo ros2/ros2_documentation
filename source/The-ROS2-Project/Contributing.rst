@@ -153,7 +153,7 @@ Report security vulnerabilities
 
 Reporting security vulnerabilities involves responsibly identifying and disclosing potential security issues so they can be safely addressed and resolved.
 
-If you spot a security vulnerability, contact security@openrobotics.org
+If you spot a security vulnerability, contact security@openrobotics.org.
 
 Contribute to future design
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
