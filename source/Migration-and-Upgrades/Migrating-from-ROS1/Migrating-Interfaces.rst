@@ -2,6 +2,13 @@
 
     How-To-Guides/Migrating-from-ROS1/Migrating-Interfaces
 
+.. meta::
+   :contentType:
+   :experience:
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Migrating Interfaces
 ====================
 

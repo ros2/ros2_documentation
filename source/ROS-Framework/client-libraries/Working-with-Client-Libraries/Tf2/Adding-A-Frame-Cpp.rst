@@ -136,6 +136,8 @@ Now open the file called ``fixed_frame_tf2_broadcaster.cpp``.
 
 The code is very similar to the tf2 broadcaster tutorial example and the only difference is that the transform here does not change over time.
 
+.. include:: ../../../../_internal/Rclcpp-Convenience-Header-Note.rst
+
 1.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
 

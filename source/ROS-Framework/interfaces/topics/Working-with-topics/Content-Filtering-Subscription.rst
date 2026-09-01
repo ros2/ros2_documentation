@@ -129,6 +129,8 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics
 
     }  // namespace demo_nodes_cpp
 
+.. include:: ../../../../_internal/Rclcpp-Convenience-Header-Note.rst
+
 The content filter is defined in the subscription side, publishers don't need to be configured in any special way to allow content filtering.
 The ``ContentFilteringPublisher`` node publishes simulated temperature data starting from -100.0 and ending at 150.0 with a step size of 10.0 every second.
 

@@ -6,7 +6,7 @@
 #include "webots_ros2_driver/WebotsNode.hpp"
 
 #include "geometry_msgs/msg/twist.hpp"
-#include "rclcpp/rclcpp.hpp"
+#include "rclcpp/subscription.hpp"
 
 namespace my_robot_driver {
 class MyRobotDriver : public webots_ros2_driver::PluginInterface {

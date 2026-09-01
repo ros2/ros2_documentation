@@ -11,7 +11,7 @@ This will give you the latest bug fixes and features.
 Testing binaries
 ----------------
 
-See :doc:`Testing <../../../Developer-Tools/Testing/Testing>`.
+See :doc:`Testing <../../../Developer-Tools/Debugging/Testing/Testing>`.
 
 Build from source
 -----------------

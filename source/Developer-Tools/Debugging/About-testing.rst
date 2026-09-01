@@ -7,6 +7,17 @@
 Testing
 =======
 
+.. toctree::
+   :maxdepth: 1
+
+   Testing/CLI
+   Testing/Cpp
+   Testing/Python
+   Testing/Integration
+   Testing/BuildFarmTesting
+   Testing/Overriding-QoS-Policies-For-Recording-And-Playback
+   Testing/Testing
+
 Why automatic tests?
 --------------------
 

@@ -54,6 +54,8 @@ We start with the headers used by the node, including ``cmath`` for the helix an
    #include "geometry_msgs/msg/point.hpp"
    #include "visualization_msgs/msg/marker.hpp"
 
+.. include:: ../../../../_internal/Rclcpp-Convenience-Header-Note.rst
+
 This should look familiar.
 We initialize ROS 2, create a node, create a publisher on the ``visualization_marker`` topic, and set the loop rate.
 

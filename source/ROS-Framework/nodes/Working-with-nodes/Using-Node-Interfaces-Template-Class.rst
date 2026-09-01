@@ -66,6 +66,8 @@ Output:
 
     [INFO] [Simple_Node]: Node name: Simple_Node
 
+.. include:: ../../../_internal/Rclcpp-Convenience-Header-Note.rst
+
 While this approach works well for arguments of type ``rclcpp::Node``, it does not work for other node types like ``rclcpp_lifecycle::LifecycleNode``.
 
 2 Explicitly pass ``rclcpp::node_interfaces``

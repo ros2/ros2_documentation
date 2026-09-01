@@ -274,6 +274,8 @@ Since you'll be changing the standard string msg to a numerical one, the output 
         return 0;
       }
 
+    .. include:: ../../../_internal/Rclcpp-Convenience-Header-Note.rst
+
   .. group-tab:: Python
 
     .. code-block:: python

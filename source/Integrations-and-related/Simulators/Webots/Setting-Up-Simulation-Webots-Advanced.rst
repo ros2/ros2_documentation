@@ -105,6 +105,8 @@ In addition to your custom plugin, the ``webots_ros2_driver`` will parse the ``<
 
         In the ``my_package/src`` folder, create a source file named ``ObstacleAvoider.cpp`` with this code:
 
+        .. include:: ../../../_internal/Rclcpp-Convenience-Header-Note.rst
+
         .. literalinclude:: Code/ObstacleAvoider.cpp
             :language: cpp
 

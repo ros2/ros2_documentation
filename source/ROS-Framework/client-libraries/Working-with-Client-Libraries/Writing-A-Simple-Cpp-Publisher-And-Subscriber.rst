@@ -144,6 +144,8 @@ The top of the code includes the standard C++ headers you will be using.
 After the standard C++ headers is the ``rclcpp/rclcpp.hpp`` include which allows you to use the most common pieces of the ROS 2 system.
 Last is ``std_msgs/msg/string.hpp``, which includes the built-in message type you will use to publish data.
 
+.. include:: ../../../_internal/Rclcpp-Convenience-Header-Note.rst
+
 .. code-block:: C++
 
     #include <chrono>

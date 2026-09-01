@@ -2,6 +2,13 @@
 
     How-To-Guides/Migrating-from-ROS1/Migrating-Packages
 
+.. meta::
+   :contentType:
+   :experience:
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Migrating Packages
 ==================
 

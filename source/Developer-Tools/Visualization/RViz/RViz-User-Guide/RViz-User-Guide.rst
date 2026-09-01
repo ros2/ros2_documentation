@@ -236,11 +236,17 @@ Controls:
 
 XYOrbit
 ^^^^^^^
-Same as the orbital camera, with the focus point restricted to the XY plane.
+Same as the orbital camera, except that translation operations occur along the XY plane and Z axis of the fixed frame instead of those of the camera frame.
 
 Controls:
 
-See orbital camera.
+* **Left mouse button**: Click and drag to rotate around the focal point.
+* **Left mouse button + Shift** or **Middle mouse button**: Click and drag to move the focal point in the fixed frame XY plane.
+* **Right mouse button**: Click and drag to zoom in/out of the focal point.
+  Dragging up zooms in, down zooms out.
+* **Right mouse button + Shift**: Click and drag to translate along the fixed frame Z axis.
+* **Scrollwheel**: Zoom in/out of the focal point.
+* **Scrollwheel + Shift**: Translate along the fixed frame Z axis.
 
 ThirdPersonFollower
 ^^^^^^^^^^^^^^^^^^^
@@ -250,7 +256,7 @@ This could be handy if you are doing 3D mapping of a hallway with corners for ex
 
 Controls:
 
-See orbital camera.
+See XYOrbit camera.
 
 
 Custom Views

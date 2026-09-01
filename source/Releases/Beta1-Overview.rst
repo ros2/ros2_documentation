@@ -31,7 +31,7 @@ Improvements since Alpha 8 release
 Selected features from previous Alpha releases
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-For the complete list, see `earlier release notes </Get-Started/Releases>`.
+For the complete list, see `earlier release notes </Releases>`.
 
 
 * C++ and Python implementations of ROS 2 client libraries including APIs for:

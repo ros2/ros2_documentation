@@ -5,102 +5,86 @@
 
 .. _ROS2Launch:
 
-Launching nodes
-===============
+Launching multiple nodes - how-to
+=================================
 
-**Goal:** Use a command line tool to launch multiple nodes at once.
+A launch file lets you start multiple nodes simultaneously with a single command, without opening a separate terminal for each.
+This article shows you how to run an existing launch file with ``ros2 launch``.
 
-**Tutorial Level:** Beginner
-
-**Time:** 5 minutes
+**Area: Framework | Content-type: how-to | Experience: beginner**
 
 .. contents:: Contents
    :depth: 2
    :local:
 
-Background
-----------
+Summary
+-------
 
-In most of the introductory tutorials, you have been opening new terminals for every new node you run.
-As you create more complex systems with more and more nodes running simultaneously, opening terminals and reentering configuration details becomes tedious.
+Use ``ros2 launch <package> <launch_file>`` to run multiple nodes at once from a single launch file.
 
-Launch files allow you to start up and configure a number of executables containing ROS 2 nodes simultaneously.
+You can run a launch file that already comes with a package, or create a new one.
 
-Running a single launch file with the ``ros2 launch`` command will start up your entire system - all nodes and their configurations - at once.
+To learn how to write your own launch file, see :doc:`Creating a launch file <../../../../Developer-Tools/Launch/Creating-Launch-Files>`.
 
-Prerequisites
--------------
-
-Before starting these tutorials, install ROS 2 by following the instructions on the ROS 2 :doc:`../../../../Get-Started/Installation` page.
-
-The commands used in this tutorial assume you followed the binary packages installation guide for your operating system (deb packages for Linux).
-You can still follow along if you built from source, but the path to your setup files will likely be different.
-You also won't be able to use the ``sudo apt install ros-<distro>-<package>`` command (used frequently in the beginner level tutorials) if you install from source.
-
-If you are using Linux and are not already familiar with the shell, `this tutorial <https://www.linux.com/training-tutorials/bash-101-working-cli/>`__ will help.
-
-As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../../../../Get-Started/Configuring-ROS2-Environment>`.
-
-Tasks
+Steps
 -----
 
-Running a Launch File
-^^^^^^^^^^^^^^^^^^^^^
+.. note::
+   Source ROS in every new terminal you open.
+   See :doc:`Configuring environment <../../../../Get-Started/Configuring-ROS2-Environment>`.
 
-Open a new terminal and run:
+1 Run a launch file
+^^^^^^^^^^^^^^^^^^^
+
+To run a launch file, use:
+
+.. code-block:: console
+
+   $ ros2 launch <package_name> <launch_file_name>
+
+For example, to run the ``multisim.launch.py`` file, which is included in the ``turtlesim`` package, use:
 
 .. code-block:: console
 
    $ ros2 launch turtlesim multisim.launch.py
 
-This command will run the following launch file:
+You do not need to create this file yourself.
+It is installed with ``turtlesim``, so any machine with that package can run this command.
+
+This runs the following launch file:
 
 .. literalinclude:: launch/multisim.launch.py
    :language: python
 
 .. note::
 
-  The launch file above is written in Python, but you can also use XML and YAML to create launch files.
-  You can see a comparison of these different ROS 2 launch formats in :doc:`../../../../Developer-Tools/Launch/Launch-file-different-formats`.
+   The ``multisim.launch.py`` launch file is written in Python, but you can also use XML and YAML to create launch files.
+   You can see a comparison of these different launch formats in :doc:`../../../../Developer-Tools/Launch/Launch-file-different-formats`.
 
-This will run two turtlesim nodes:
+Two Turtlesim windows open, one for each node defined in the launch file:
 
 .. image:: images/turtlesim_multisim.png
 
-For now, don't worry about the contents of this launch file.
-You can find more information on ROS 2 launch in the :doc:`ROS 2 launch tutorials <../../../../Developer-Tools/Launch/Launch-Main>`.
+Related content
+---------------
 
-(Optional) Control the Turtlesim Nodes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+* :doc:`Creating a launch file <../../../../Developer-Tools/Launch/Creating-Launch-Files>`
+* :doc:`ROS launch tutorials <../../../../Developer-Tools/Launch/Launch-Main>`
+* :doc:`Launch file formats <../../../../Developer-Tools/Launch/Launch-file-different-formats>`
 
-Now that these nodes are running, you can control them like any other ROS 2 nodes.
-For example, you can make the turtles drive in opposite directions by opening up two additional terminals and running the following commands:
+FAQs
+----
 
-In the second terminal:
+Can I write a launch file in a language other than Python?
+   Yes.
+   ROS supports launch files written in Python, XML, and YAML.
+   For a comparison of these formats, see :doc:`../../../../Developer-Tools/Launch/Launch-file-different-formats`.
 
-.. code-block:: console
+How do I write my own launch file?
+   See :doc:`Creating a launch file <../../../../Developer-Tools/Launch/Creating-Launch-Files>` for a step-by-step guide.
+   The :doc:`ROS launch tutorials <../../../../Developer-Tools/Launch/Launch-Main>` index lists further launch topics.
 
-   $ ros2 topic pub  /turtlesim1/turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
-
-In the third terminal:
-
-.. code-block:: console
-
-   $ ros2 topic pub  /turtlesim2/turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -1.8}}"
-
-After running these commands, you should see something like the following:
-
-.. image:: images/turtlesim_multisim_spin.png
-
-Summary
--------
-
-The significance of what you've done so far is that you've run two turtlesim nodes with one command.
-Once you learn to write your own launch files, you'll be able to run multiple nodes - and set up their configuration - in a similar way, with the ``ros2 launch`` command.
-
-For more tutorials on ROS 2 launch files, see the :doc:`main launch file tutorial page <../../../../Developer-Tools/Launch/Launch-Main>`.
-
-Next steps
-----------
-
-In the next tutorial, :doc:`../../../interfaces/Working-with-interfaces/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data`, you'll learn about another helpful tool, ``ros2 bag``.
+Can I pass arguments to a launch file?
+   Yes.
+   Use ``ros2 launch <package> <launch_file> <arg>:=<value>`` to pass arguments at the command line.
+   Arguments must be declared within the launch file itself.
