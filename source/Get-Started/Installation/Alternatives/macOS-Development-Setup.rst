@@ -19,9 +19,9 @@ System requirements
 Disable System Integrity Protection (SIP)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-macOS has System Integrity Protection enabled by default, 
-which prevents processes from inheriting dynamic linker environment variables, such as ``DYLD_LIBRARY_PATH``. 
-You can disable it in the `macOS Recovery <https://support.apple.com/en-gb/102518>`__. 
+macOS has System Integrity Protection enabled by default,
+which prevents processes from inheriting dynamic linker environment variables, such as ``DYLD_LIBRARY_PATH``.
+You can disable it in the `macOS Recovery <https://support.apple.com/en-gb/102518>`__.
 After entering macOS Recovery, run the following command in terminal:
 
 .. code-block:: console
@@ -166,7 +166,7 @@ PyPI:
      rosdep \
      rosdistro \
      setuptools \
-     vcstool 
+     vcstool
 
 Build ROS 2
 -----------
@@ -201,7 +201,7 @@ Since Homebrew installs Eigen in a different directory, create a symbolic link t
 
    $ sudo ln -sfn /opt/homebrew/opt/eigen@3/include/eigen3 /opt/homebrew/include/eigen3
 
-If you are using Xcode 26 or later, 
+If you are using Xcode 26 or later,
 apply the following Git patch to ensure the correct flags are set when building ``rviz_ogre_vendor``:
 
 .. code-block:: console
@@ -231,7 +231,7 @@ Build the code in the workspace
 
 .. note::
 
-   The ``python_orocos_kdl_vendor`` package requires the exact version of ``orocos-kdl`` specified in the package. 
+   The ``python_orocos_kdl_vendor`` package requires the exact version of ``orocos-kdl`` specified in the package.
    If Homebrew ships a different version, you can ignore this package to allow the build to succeed.
 
 Setup environment
