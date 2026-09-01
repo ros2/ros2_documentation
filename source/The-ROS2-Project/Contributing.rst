@@ -139,7 +139,7 @@ Report an issue
 
 Reporting issues involves identifying and describing problems in the software so they can be understood and fixed.
 You can report any issues you encounter with information to help developers quickly diagnose and resolve the issue.
-If you are a beginner following a tutorial, for example, you can include the steps needed to reproduce the problem.
+If you are a beginner following a tutorial and experience a problem, for example, you can include the steps needed to reproduce the problem.
 If you are a more experienced contributor, you can also provide relevant technical details.
 
 **Ready to contribute?**
