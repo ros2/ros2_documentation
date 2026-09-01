@@ -40,7 +40,8 @@ Install prerequisites
 Install Xcode
 ^^^^^^^^^^^^^
 
-In order to compile the ROS 2 code, the Xcode must be installed. You can download it from the `App Store <https://apps.apple.com/app/xcode/id497799835/>`_.
+In order to compile the ROS 2 code, the Xcode must be installed.
+You can download it from the `App Store <https://apps.apple.com/app/xcode/id497799835/>`_.
 
 Also, use the following command to install the Command Line Tools:
 
@@ -61,7 +62,8 @@ Also, use the following command to install the Command Line Tools:
 Install Homebrew
 ^^^^^^^^^^^^^^^^
 
-Homebrew is a package manager for macOS, and some dependencies are shipped with it. Use the instructions on `http://brew.sh/ <http://brew.sh/>`_ to install it.
+Homebrew is a package manager for macOS, and some dependencies are shipped with it.
+Use the instructions on `http://brew.sh/ <http://brew.sh/>`_ to install it.
 
 *Optional*: Check that ``brew`` is happy with your system configuration by running the command below and fixing any identified problems:
 
@@ -174,6 +176,8 @@ Build ROS 2
 Get ROS 2 code
 ^^^^^^^^^^^^^^
 
+Create a workspace and clone all repos:
+
 .. code-block:: console
 
    $ mkdir -p ~/ros2_{DISTRO}/src
@@ -237,7 +241,7 @@ Build the code in the workspace
 Setup environment
 -----------------
 
-Set up your environment by sourcing the following file.:
+Set up your environment by sourcing the following file.
 
 .. code-block:: console
 
