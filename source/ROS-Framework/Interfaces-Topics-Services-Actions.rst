@@ -114,11 +114,11 @@ This interface type has the following main characteristics:
 .. mermaid::
 
    sequenceDiagram
-    participant Action client
-    participant Action server
-    Action client->>Action server: Sends a goal
-    Action server-->>Action client: Provides feedback (periodic)
-    Action server-->>Action client: Sends a result
+    participant c as Action client
+    participant s as Action server
+    c->>s: Sends a goal
+    s-->>c: Provides feedback (periodic)
+    s-->>c: Sends a result
 
 Key differences between ROS interfaces
 --------------------------------------
