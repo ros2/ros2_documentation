@@ -2,6 +2,13 @@
 
     How-To-Guides/Migrating-from-ROS1/Migrating-CPP-Package-Example
 
+.. meta::
+   :contentType:
+   :experience:
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Migrating a C++ Package Example
 ===============================
 

@@ -138,6 +138,8 @@ Open up ``custom_action_cpp/src/fibonacci_action_server.cpp``, and put the follo
 
 The first few lines include all of the headers we need to compile.
 
+.. include:: ../../../../../_internal/Rclcpp-Convenience-Header-Note.rst
+
 Next we create a class that is a derived class of ``rclcpp::Node``:
 
 .. literalinclude:: scripts/server.cpp
