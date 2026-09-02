@@ -15,6 +15,8 @@ You may need to increase or decrease values while debugging relative to factors 
 It is important to recognize that tuning parameters can come at a cost to resources, and may affect parts of your system beyond the scope of the desired improvements.
 The benefits of improving reliability should be weighed against any detriments for each individual case.
 
+**Note:** If you are seeing issues with the default FastDDS middleware, the easiest thing too try may be to switch to another, such as CycloneDDS. Try this by exporting ``export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp``.
+
 .. _cross-vendor-tuning:
 
 Cross-vendor tuning
@@ -91,6 +93,10 @@ Instead, define ``FooArray`` as:
 
 Fast RTPS tuning
 ----------------
+
+**Issue:** Sending messages larger than 0.5MB is very laggy, particularly to rclpy subscribers.
+
+**Workaround:** Switch to another DDS backend, such as Cyclone DDS. Or, if that is for some reason not an option, [increase the shared memory segment allocation through the XML configuration](https://github.com/ros2/ros2/issues/1289#issuecomment-2154807669).
 
 **Issue:** Fast RTPS floods the network with large pieces of data or fast-published data when operating over WiFi.
 
