@@ -22,17 +22,12 @@ Rolling Ridley supports the following platforms according to `the platform suppo
 
 Tier 1 platforms:
 
-<<<<<<< HEAD
-* Ubuntu 22.04 (Jammy): ``amd64`` and ``arm64``
-* Windows 10 (Visual Studio 2019)
-=======
 * Ubuntu 24.04 (Noble): ``amd64`` and ``arm64``
 * Windows 11 (Visual Studio 2022): ``amd64``
 
 Tier 2 platforms:
 
 * RHEL 10: ``amd64``
->>>>>>> e0bcf94 (Fix Rolling Ridley supported platforms (#7147))
 
 Tier 3 platforms:
 
