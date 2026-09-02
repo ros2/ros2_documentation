@@ -23,13 +23,17 @@ Rolling Ridley supports the following platforms according to `the platform suppo
 Tier 1 platforms:
 
 * Ubuntu 24.04 (Noble): ``amd64`` and ``arm64``
-* Windows 10 (Visual Studio 2019)
+* Windows 11 (Visual Studio 2022): ``amd64``
+
+Tier 2 platforms:
+
+* RHEL 10: ``amd64``
 
 Tier 3 platforms:
 
-* Debian Buster (10): ``amd64``, ``arm64`` and ``arm32``
-* Mac macOS 10.14 (Mojave)
-* OpenEmbedded Thud (2.6) / webOS OSE: ``arm32`` and ``x86``
+* macOS: ``amd64``
+* Debian Trixie (13): ``amd64``
+* OpenEmbedded / Yocto Project: ``amd64``, ``arm64`` and ``arm32``
 
 Installation
 ------------
