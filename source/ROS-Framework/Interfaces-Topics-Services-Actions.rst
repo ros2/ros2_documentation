@@ -32,10 +32,10 @@ Interfaces (topics, services, actions)
    :maxdepth: 1
    :hidden:
 
-   interfaces/About-Interfaces
    interfaces/About-Topics
    interfaces/About-Services
    interfaces/About-Actions
+   interfaces/Working-with-interfaces
 
 Interfaces in ROS define how nodes exchange data.
 This article explains the different types of ROS interface and the differences between them.
@@ -43,6 +43,9 @@ With this information, you'll be able to select the right interfaces for your pu
 
 Summary
 -------
+When designing a system there are three primary styles of interfaces.
+The specifications for the content is in the :doc:`Interfaces Overview <interfaces/Working-with-interfaces/Interface-specifications>`.
+This is written to provide the reader with guidelines about when to use each type of interface.
 
 ROS nodes typically communicate through the following three types of interfaces:
 
@@ -76,6 +79,34 @@ This interface type has the following main characteristics:
 Topic keys identify individual publishers on a topic so nodes and tools can distinguish where messages come from.
 Each topic key makes it easier to track data sources when several publishers share the same topic.
 
+* Should be used for continuous data streams (sensor data, robot state, ...)
+* Are for continuous data flow.
+  Data might be published and subscribed at any time independent of any senders/receivers.
+  Many to many connection.
+  Callbacks receive data once it is available.
+  The publisher decides when data is sent.
+
+Topic statistics
+^^^^^^^^^^^^^^^^
+
+Topic statistics are built-in measurements that help you understand how messages behave when a subscription receives them.
+When enabled, they automatically track two things:
+
+:Message age: How old a message is when it arrives, based on its timestamp.
+:Message period: The time between incoming messages.
+
+For both message age and period, ROS calculates the average, minimum, maximum, standard deviation, and the number of samples, using a moving window that updates every time a new message arrives.
+These calculations run in constant time and memory using the dedicated utilities.
+When you enable topic statistics for a subscription, ROS publishes the collected data at regular intervals as a ``MetricsMessage`` on a statistics topic.
+This gives you a clear view of timing patterns, delays, and irregularities, making it easier to assess system performance or diagnose problems related to the message flow.
+
+.. tip::
+
+   The default interval is 1 second.
+   The default statistics topic is ``/statistics``.
+
+:doc:`Learn how to enable topic statistics <../Developer-Tools/Introspection-and-analysis/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial>`
+
 Services
 --------
 
@@ -96,6 +127,10 @@ This interface type has the following main characteristics:
     Service client->>Service server: Request
     Service server-->>Service client: Response
 
+
+* Should be used for remote procedure calls that terminate quickly, e.g. for querying the state of a node or doing a quick calculation such as IK.
+  They should never be used for longer running processes, in particular processes that might be required to preempt if exceptional situations occur and they should never change or depend on state to avoid unwanted side effects for other nodes.
+
 Actions
 -------
 
@@ -115,6 +150,15 @@ This interface type has the following main characteristics:
     c->>s: Sends a goal
     s-->>c: Provides feedback (periodic)
     s-->>c: Sends a result
+
+* Should be used for any discrete behavior that moves a robot or that runs for a longer time but provides feedback during execution.
+* The most important property of actions is that they can be preempted and preemption should always be implemented cleanly by action servers.
+* Actions can keep state for the lifetime of a goal, i.e. if executing two action goals in parallel on the same server, for each client a separate state instance can be kept since the goal is uniquely identified by its id.
+* Slow perception routines which take several seconds to terminate or initiating a lower-level control mode are good use cases for actions.
+* More complex non-blocking background processing.
+  Used for longer tasks like execution of robot actions.
+  Semantically for real-world actions.
+
 
 Key differences between ROS interfaces
 --------------------------------------
