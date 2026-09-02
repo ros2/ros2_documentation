@@ -116,7 +116,7 @@ This interface type has the following main characteristics:
    sequenceDiagram
     participant Action client
     participant Action server
-    Action client->>Action Server: Sends a goal
+    Action client->>Action server: Sends a goal
     Action server-->>Action client: Provides feedback (periodic)
     Action server-->>Action client: Sends a result
 
