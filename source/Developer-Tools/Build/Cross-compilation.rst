@@ -1,9 +1,3 @@
-.. redirect-from::
-
-  Guides/Cross-compilation
-  Tutorials/Cross-compilation
-  How-To-Guides/Cross-compilation
-
 .. meta::
    :contentType:
    :experience:
