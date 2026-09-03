@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: release-note
+   :experience: intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Releases/Release-Galactic-Geochelone
@@ -12,7 +19,11 @@ Galactic Geochelone (``galactic``)
 
    Galactic-Geochelone-Complete-Changelog
 
-.. contents:: Table of Contents
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -53,7 +64,6 @@ Targeted platforms:
 +--------------+------------------+--------------+------------------+-----------+-----------------+-----------------+
 | arm32        | Tier 3 [s]       |              |                  |           | Tier 3 [s]      | Tier 3 [s]      |
 +--------------+------------------+--------------+------------------+-----------+-----------------+-----------------+
-
 
 The following indicators show what delivery mechanisms are available for
 each platform.
@@ -465,13 +475,11 @@ Terminal 1:
 
   $ ros2 run examples_rclcpp_minimal_publisher publisher_member_function_with_unique_network_flow_endpoints
 
-
 Terminal 2:
 
 .. code-block:: console
 
   $ ros2 run examples_rclcpp_minimal_subscriber subscriber_member_function_with_unique_network_flow_endpoints
-
 
 See the `Unique Network Flows design document <https://github.com/ros2/design/pull/304>`_ for further reference.
 
@@ -502,14 +510,12 @@ This new command lists installed plugins of various types that rosbag2 uses.
   $ ros2 bag list converter
   rosbag_v2_converter
 
-
 Compression implementation is a plugin
 """"""""""""""""""""""""""""""""""""""
 
 In Foxy, rosbag2 compression was hardcoded with a Zstd library implementation.
 This has been rearchitected so that compression implementations are a plugin, and can be swapped out without modifying the core rosbag2 codebase.
 The default plugin that ships with ``ros-galactic-rosbag2`` is still the Zstd plugin - but now more can be released and used, and by selectively installing packages Zstd could be excluded from an installation.
-
 
 Compress per-message
 """"""""""""""""""""
@@ -520,14 +526,12 @@ In Foxy, you could automatically compress each rosbag file as it was split (per-
 
   $ ros2 bag record --all --compression-format zstd --compression-mode message
 
-
 Rosbag2 Python API
 """""""""""""""""""""
 
 A new package ``rosbag2_py`` has been released in Galactic, which provides a Python API.
 This package is a ``pybind11`` binding around the C++ API.
 As of the initial Galactic release, it does not yet expose all functionality available via the ``rosbag2_cpp`` API, but it is the sole connection for the ``ros2 bag`` CLI tool, so a good deal of functionality is available.
-
 
 performance testing package and performance improvements
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -557,7 +561,6 @@ The following command will record all topics except for ones in ``/my_namespace/
 .. code-block:: console
 
   $ ros2 bag record --all --exclude "/my_namespace/*"
-
 
 ``ros2 bag reindex``
 """"""""""""""""""""
@@ -632,7 +635,6 @@ To play a single next message (only works while paused):
 
   $ ros2 service call /rosbag2_player/play_next rosbag2_interfaces/PlayNext
 
-
 Playback publishes /clock
 """""""""""""""""""""""""
 
@@ -644,7 +646,6 @@ To publish at the default rate of 40Hz:
 .. code-block:: console
 
   $ ros2 bag play my_bag --clock
-
 
 To publish at a specific rate, e.g., 100Hz:
 
@@ -767,7 +768,6 @@ If not, this is an example diff:
    -executor.spin_until_future_complete<MyResultT>(future);
    +executor.spin_until_future_complete<std::shared_future<MyResultT>>(future);
 
-
 For more details, see `ros2/rclcpp#1160 <https://github.com/ros2/rclcpp/pull/1160>`_.
 For an example of the needed changes in user code, see `ros-visualization/interactive_markers#72 <https://github.com/ros-visualization/interactive_markers/pull/72>`_.
 
@@ -809,9 +809,7 @@ or:
 
   RCLCPP_DEBUG(get_logger(), "Foo");
 
-
 This change removes some convenience from the logging macros, as ``std::string``\s are no longer accepted as the format argument.
-
 
 If you previously had code with no format arguments like:
 
@@ -885,17 +883,14 @@ Here is some example code using it.
     from rcl_interfaces.msg import ParameterType
     from rcl_interfaces.msg import SetParametersResult
 
-
     rclpy.init()
     node = rclpy.node.Node('callback_example')
     node.declare_parameter('my_param', 'initial value')
-
 
     def on_parameter_event(parameter_list):
         for parameter in parameter_list:
             node.get_logger().info(f'Got {parameter.name}={parameter.value}')
         return SetParametersResult(successful=True)
-
 
     node.add_on_set_parameters_callback(on_parameter_event)
     rclpy.spin(node)
@@ -1048,8 +1043,6 @@ rcl_lifecycle and rclcpp_lifecycle
 Recording - Split by time
 """""""""""""""""""""""""""""""""""""""""""""""
 
-
-
 Known Issues
 ------------
 
@@ -1064,7 +1057,6 @@ As a workaround, CLI commands may be used without a daemon e.g.:
 .. code-block:: console
 
   $ ros2 topic list --no-daemon
-
 
 Issue is tracked by `ros2/ros2cli#637 <https://github.com/ros2/ros2cli/issues/637>`_.
 

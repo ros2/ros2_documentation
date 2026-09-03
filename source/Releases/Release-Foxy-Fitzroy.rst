@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: release-note
+   :experience: intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Releases/Release-Foxy-Fitzroy
@@ -5,7 +12,11 @@
 Foxy Fitzroy (``foxy``)
 =======================
 
-.. contents:: Table of Contents
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -69,7 +80,6 @@ Middleware Implementation Support:
 | rmw_gurumdds_cpp         | GurumNetworks         | Tier 3        | Ubuntu and Windows      | All Architectures except arm32    |
 |                          | GurumDDS              |               |                         |                                   |
 +--------------------------+-----------------------+---------------+-------------------------+-----------------------------------+
-
 
 \" \* \" means default RMW implementation.
 
@@ -191,7 +201,6 @@ For example, consider the following launch files,
          from launch.actions import GroupAction
          from launch_ros.actions import Node
 
-
          def generate_launch_description():
              return launch.LaunchDescription([
                  SetEnvironmentVariable(name='my_env_var', value='1'),
@@ -218,7 +227,6 @@ Before patch release 8, the node ``foo`` will start with ``my_env_var=2``, but n
 To opt-out of the new behavior, you can set the argument ``scoped=False`` on the ``GroupAction``.
 
 Related tickets:
-
 
 * `ros2#1244 <https://github.com/ros2/ros2/issues/1244>`_
 * `launch#630 <https://github.com/ros2/launch/pull/630>`_
@@ -571,7 +579,6 @@ Renaming of the environment variables
    * - ROS_SECURITY_NODE_DIRECTORY
      - ROS_SECURITY_ENCLAVE_OVERRIDE
 
-
 Known Issues
 ------------
 
@@ -579,7 +586,6 @@ Known Issues
   Specifically, service clients sometimes do not receive the response from servers.
 
 * `[ros2/rclcpp#1212] <https://github.com/ros2/rclcpp/issues/1212>`_ Ready reentrant Waitable objects can attempt to execute multiple times.
-
 
 Timeline before the release
 ---------------------------

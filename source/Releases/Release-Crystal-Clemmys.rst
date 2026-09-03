@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: release-note
+   :experience: intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
   Release-Crystal-Clemmys
@@ -6,7 +13,11 @@
 Crystal Clemmys (``crystal``)
 =============================
 
-.. contents:: Table of Contents
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -162,7 +173,6 @@ New features in this ROS 2 release
 * Laid the groundwork for `file-based logging and /rosout publishing <https://github.com/ros2/rcl/pull/327>`__
 * `Time and Duration API in Python <https://github.com/ros2/rclpy/issues/186>`__
 * `Parameters work with Python nodes <https://github.com/ros2/rclpy/issues/202>`__
-
 
 Changes since the Bouncy release
 --------------------------------

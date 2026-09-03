@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: release-note
+   :experience: intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Releases/Release-Kilted-Kaiju
@@ -12,7 +19,11 @@ Kilted Kaiju (codename 'kilted'; May, 2025)
 
    Kilted-Kaiju-Complete-Changelog
 
-.. contents:: Table of Contents
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -468,7 +479,6 @@ You will know if you need to remove the keyword because CMake will emit an error
    All uses of target_link_libraries with a target must be either all-keyword or all-plain.
 
 For more information, see `ament/ament_cmake#580 <https://github.com/ament/ament_cmake/issues/580>`__.
-
 
 ``launch``
 ^^^^^^^^^^

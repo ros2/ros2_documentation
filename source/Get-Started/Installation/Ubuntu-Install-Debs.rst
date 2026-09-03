@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: how-to
+   :experience: beginner, intermediate
+   :area: installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
    Installation/Linux-Install-Debians
@@ -7,8 +14,17 @@
 Installing on Ubuntu - how-to
 =============================
 
+.. short-description::
+   ROS is supported on a range of Ubuntu platforms through deb packages.
+   This article describes how to configure the required repositories and install ROS on Ubuntu.
+   After you follow these steps, you will have a working ROS installation on Ubuntu.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
 .. contents:: Contents
-   :depth: 3
+   :depth: 2
    :local:
 
 Summary

@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: release-note
+   :experience: intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Releases/Release-Eloquent-Elusor
@@ -5,7 +12,11 @@
 Eloquent Elusor (``eloquent``)
 ==============================
 
-.. contents:: Table of Contents
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -43,7 +54,6 @@ Targeted platforms:
 +--------------+----------------------+----------------------+----------------------+-------------------+----------------+
 | arm32        | Tier 2 [a][s]        |                      |                      | Tier 3 [s]        | Tier 3 [s]     |
 +--------------+----------------------+----------------------+----------------------+-------------------+----------------+
-
 
 The following indicators show what delivery mechanisms are available for
 each platform.
@@ -125,7 +135,6 @@ Dependency Requirements:
 | OpenSplice   | 6.9.190705OSS                                                        | N/A                   |
 +--------------+-------------------+----------------+----------------+----------------+-----------------------+
 
-
 \" \* \" means that this is not the upstream version (available on the
 official Operating System repositories) but a package distributed by
 OSRF or the community (package built and distributed on custom
@@ -194,7 +203,6 @@ A few features and improvements we would like to highlight:
 * Environment variable `ROS_LOCALHOST_ONLY <https://github.com/ros2/ros2/issues/798>`__ to limit communication to localhost
 * MacOS Mojave Support
 * `Tracing instrumentation <https://github.com/ros2/ros2/pull/748>`__ for rcl and rclcpp
-
 
 During the development the `Eloquent meta ticket <https://github.com/ros2/ros2/issues/734>`__ on GitHub contains an up-to-date state of the ongoing high level tasks as well as references specific tickets with more details.
 
