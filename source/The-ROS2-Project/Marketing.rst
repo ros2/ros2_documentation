@@ -2,10 +2,29 @@
 
   Marketing
 
+.. meta::
+   :contentType: about
+   :experience: beginner, intermediate, expert
+   :area: community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _Marketing:
 
 Marketing
 =========
+
+.. short-description::
+   Marketing materials help ROS contributors and advocates share consistent branding, artwork, and promotional resources with their communities.
+   This article provides links to approved ROS artwork, merchandise, and brochure materials for use in outreach, events, and adoption efforts. 
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
 
 General Use ROS Artwork
 -----------------------

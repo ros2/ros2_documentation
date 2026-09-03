@@ -2,10 +2,25 @@
 
   Roadmap
 
+  .. meta::
+   :contentType: about
+   :experience: beginner, intermediate, expert
+   :area: community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _Roadmap:
 
 Roadmap
 =======
+
+.. short-description::
+   ROS development roadmaps help users and contributors understand which features and improvements are planned for upcoming distributions.
+   This article describes current roadmap items, planned releases, and contribution resources so you can track future work or get involved in ROS development.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2
