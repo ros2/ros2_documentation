@@ -202,6 +202,15 @@ In the bottom of the class is the declaration of the timer, publisher, and count
 
 Following the ``MinimalPublisher`` class is ``main``, where the node actually executes.
 ``rclcpp::init`` initializes ROS 2, and ``rclcpp::spin`` starts processing data from the node, including callbacks from the timer.
+The ``main()`` function begins by calling ``rclcpp::init(argc, argv);`` which initializes the ROS 2 client library.
+This step prepares the system to handle communication and parses any command-line arguments for remapping, parameters, or logging configuration.
+It is important to call this function before creating any nodes.
+
+Next, the node is executed using ``rclcpp::spin(std::make_shared<MinimalPublisher>());`` which creates a shared instance of the node and enters an event loop that keeps it active.
+The ``spin()`` function processes all incoming callbacks, including those from timers, subscriptions, and services, and continues running until the node is explicitly shut down (for example, when ``Ctrl+C`` is pressed).
+
+Finally, ``rclcpp::shutdown();`` is called to stop all ROS 2 activity, clean up allocated resources, and ensure that the program exits gracefully.
+
 
 .. code-block:: C++
 
