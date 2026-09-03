@@ -45,7 +45,7 @@ Add two nodes:
 * ``listener``, which subscribes to the same topic and prints each received message.
 
 Declare the ``{package(rclpy)}`` and ``{package(std_msgs)}`` dependencies in package.xml.
-Add both entry points in `setup.py`, build with ``colcon``, source the workspace setup file, and run the nodes with ``ros2 run``.
+Add both entry points in ``setup.py``, build with ``colcon``, source the workspace setup file, and run the nodes with ``ros2 run``.
 
 
 Background

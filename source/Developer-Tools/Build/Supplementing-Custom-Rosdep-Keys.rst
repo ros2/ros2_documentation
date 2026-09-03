@@ -9,8 +9,8 @@
    :distribution: {DISTRO}
    :product: {PRODUCT}
 
-Supplementing custom `rosdep` keys - tutorial
-=============================================
+Supplementing custom ``rosdep`` keys - tutorial
+===============================================
 
 .. short-description::
    Custom rosdep keys let ``rosdep`` resolve dependencies that are not suitable for the shared ``ros/rosdistro`` rules.

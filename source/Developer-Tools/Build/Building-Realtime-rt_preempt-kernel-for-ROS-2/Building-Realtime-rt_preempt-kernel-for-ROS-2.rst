@@ -11,7 +11,7 @@
    :product: {PRODUCT}
 
 Building a real-time Linux kernel [community-contributed] - tutorial
-==================================================================
+====================================================================
 
 .. short-description::
    A real-time Linux kernel can improve scheduling behavior for latency-sensitive ROS systems.

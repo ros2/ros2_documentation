@@ -14,7 +14,7 @@ Documenting a ROS 2 package - how-to
 
 .. short-description::
    Package documentation helps users find API references, tutorials, and project-specific guidance for released ROS packages.
-   This article explains how `rosdoc` builds package documentation and how to configure Sphinx, Doxygen, and hosted documentation.
+   This article explains how ``rosdoc`` builds package documentation and how to configure Sphinx, Doxygen, and hosted documentation.
    After you follow it, you can build package docs locally and prepare them for publication on docs.ros.org.
 
 .. showmeta::

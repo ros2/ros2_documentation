@@ -38,12 +38,13 @@ Generate and clean up the changelog with:
    $ catkin_generate_changelog
 
 Bump the package version, then run Bloom with your repository name:
-This guide explains how to release new versions of ROS packages that have already been released before.
 
-.. code-block:: console _$ bloom-release --rosdistro {DISTRO} my_repo
+.. code-block:: console
 
-Bloom creates a pull request against `rosdistro`.
-To exclude packages for a distribution, add `{DISTRO}.ignored` files to the master branch of the release repository.
+   $ bloom-release --rosdistro {DISTRO} my_repo
+
+Bloom creates a pull request against ``rosdistro``.
+To exclude packages for a distribution, add ``{DISTRO}.ignored`` files to the master branch of the release repository.
 
 
 Be part of the release team

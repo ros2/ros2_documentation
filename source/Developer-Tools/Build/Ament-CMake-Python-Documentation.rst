@@ -16,7 +16,7 @@ Using ament_cmake_python - how-to
 .. short-description::
    ``ament_cmake_python`` lets ``ament_cmake`` packages install and use Python code alongside C or C++ code.
    This article explains when to use ``ament_cmake_python`` and how to configure Python modules and tests.
-   After you read it, you can enable `ament_cmake` packages to install and use Python code alongside C or C++ code.
+   After you read it, you can enable ``ament_cmake`` packages to install and use Python code alongside C or C++ code.
 
 .. showmeta::
    :order: area, contentType, experience

@@ -14,7 +14,7 @@
 .. _ROS2Bag-QoS-Override:
 
 rosbag2: Overriding Quality of Service (QoS) Policies - how-to
-=========================================
+==============================================================
 
 .. short-description::
    Quality of Service (QoS) compatibility can affect whether Ros2Bag records or plays back data from ROS topics correctly.

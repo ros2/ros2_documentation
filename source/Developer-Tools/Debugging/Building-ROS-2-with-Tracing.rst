@@ -18,7 +18,7 @@ Building ROS 2 with tracing - how-to
    This article describes how to rebuild ROS components with tracing tracepoints excluded or tracing instrumentation disabled.
    After following these steps, you will be able to validate the tracing configuration for your workspace.
 
-   .. showmeta::
+.. showmeta::
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 

@@ -10,7 +10,7 @@ Using Marker Points and Lines (C++) - tutorial
 
 .. short-description::
    Point and line markers let ROS nodes visualize paths, vertices, and simple connected geometry in RViz.
-   This article explains how to publish `POINTS`, `LINE_STRIP`, and `LINE_LIST` marker types.
+   This article explains how to publish ``POINTS``, ``LINE_STRIP``, and ``LINE_LIST`` marker types.
    After you follow it, you can display an animated helix made from points and line segments.
 
 .. showmeta::

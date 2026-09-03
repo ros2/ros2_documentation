@@ -16,7 +16,7 @@ Topic statistics
 
 .. short-description::
    Topic statistics in ROS help you understand subscription performance by measuring the timing and age of received messages.
-This article describes the statistics that are collected, how they are calculated, and how topic statistics behave when enabled for a subscription.
+   This article describes the statistics that are collected, how they are calculated, and how topic statistics behave when enabled for a subscription.
 
 .. showmeta::
    :order: area, contentType, experience

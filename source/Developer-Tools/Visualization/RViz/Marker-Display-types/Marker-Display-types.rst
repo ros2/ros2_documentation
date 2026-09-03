@@ -11,9 +11,10 @@
 
 Using Marker Display Types - tutorial
 =====================================
+
 .. short-description::
    Marker display types let ROS nodes visualize shapes, lines, text, meshes, and point-based geometry in RViz.
-   This article explains the `visualization_msgs/msg/Marker` fields and the available marker object types.
+   This article explains the ``visualization_msgs/msg/Marker`` fields and the available marker object types.
    After you read it, you can choose the right marker type and set its key rendering parameters.
 
 .. showmeta::

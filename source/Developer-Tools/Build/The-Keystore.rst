@@ -41,11 +41,11 @@ ROS uses the directory set by ROS_SECURITY_KEYSTORE as the security keystore.
 
 The keystore separates security artifacts into key areas:
 
-* ``public `` contains CA certificates used to establish trust.
+* ``public`` contains CA certificates used to establish trust.
 
-* ``private `` contains CA private keys that must be protected and backed up.
+* ``private`` contains CA private keys that must be protected and backed up.
 
-* ``enclaves `` contains signed governance and permissions files for secure processes.
+* ``enclaves`` contains signed governance and permissions files for secure processes.
 
 Each enclave requires ``key.pem``, ``cert.pem``, ``permissions.p7s``, ``governance.p7s``, ``identity_ca.cert.pem``, and ``permissions_ca.cert.pem``.
 Use ``openssl smime -verify`` to validate signed policy files.

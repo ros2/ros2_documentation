@@ -2,7 +2,7 @@
 
   Roadmap
 
-  .. meta::
+.. meta::
    :contentType: about
    :experience: beginner, intermediate, expert
    :area: community
