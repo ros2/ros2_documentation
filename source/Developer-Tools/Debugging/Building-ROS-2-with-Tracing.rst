@@ -3,12 +3,43 @@
     How-To-Guides/Building-ROS-2-with-Tracing-Instrumentation
     How-To-Guides/Building-ROS-2-with-Tracing
 
-Building ROS 2 with tracing
-===========================
+.. meta::
+   :contentType: how-to
+   :experience: intermediate
+   :area: debugging, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Building ROS 2 with tracing - how-to
+====================================
+
+.. short-description::
+   Tracing instrumentation is included in ROS by default on Linux, but some systems need builds without tracepoint overhead or instrumentation.
+   This article describes how to rebuild ROS components with tracing tracepoints excluded or tracing instrumentation disabled.
+   After following these steps, you will be able to validate the tracing configuration for your workspace.
+
+   .. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2
    :local:
+
+Summary
+-------
+
+Linux ROS installations include tracing support and can be traced out-of-the-box.
+
+Tracing can be removed at two levels:
+
+* To remove tracepoints, rebuild ``tracetools`` with ``-DTRACETOOLS_TRACEPOINTS_EXCLUDED=ON``.
+
+* For binary installations, clone ``ros2_tracing`` into the workspace before rebuilding ``tracetools``.
+
+* To remove both tracepoints and instrumentation function calls, build ROS from source with ``-DTRACETOOLS_DISABLED=ON``.
+
+Validate the result with ``ros2 run tracetools status``.
 
 Tracing instrumentation is included in the ROS 2 source code, and Linux installations of ROS 2 include the LTTng tracer as a dependency.
 Therefore, ROS 2 can be traced out-of-the-box on Linux.

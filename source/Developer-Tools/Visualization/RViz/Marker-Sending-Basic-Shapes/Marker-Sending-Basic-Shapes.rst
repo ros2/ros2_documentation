@@ -1,5 +1,21 @@
-Marker: Sending Basic Shapes (C++)
-==================================
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: visualization, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Marker: Sending Basic Shapes (C++) - tutorial
+=============================================
+
+.. short-description::
+   Markers let a ROS node display simple geometry in RViz without creating a custom display plugin.
+   This article explains how to publish visualization_msgs/msg/Marker messages for basic shapes.
+   After you follow it, you can show cubes, spheres, arrows, and cylinders in RViz.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Show how to use ``visualization_msgs/msg/Marker`` messages to send basic shapes to RViz.
 
@@ -7,8 +23,8 @@ Marker: Sending Basic Shapes (C++)
 
 **Time:** 15 Minutes
 
-.. contents:: Contents
-   :depth: 3
+.. contents:: Table of Contents
+   :depth: 2
    :local:
 
 .. note::

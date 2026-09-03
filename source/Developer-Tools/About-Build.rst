@@ -1,6 +1,18 @@
+.. meta::
+   :contentType:
+   :experience: intermediate
+   :area: visualization
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Builds
 ========
 
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+PLACEHOLDER
 Coming Soon
 
 .. toctree::

@@ -3,8 +3,28 @@
   Guides/Ament-CMake-Python-Documentation
   How-To-Guides/Ament-CMake-Python-Documentation
 
-ament_cmake_python user documentation
-=====================================
+.. meta::
+   :contentType: how-to
+   :experience: intermediate
+   :area: builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Using ament_cmake_python - how-to
+=================================
+
+.. short-description::
+   ``ament_cmake_python`` lets ``ament_cmake`` packages install and use Python code alongside C or C++ code.
+   This article explains when to use ``ament_cmake_python`` and how to configure Python modules and tests.
+   After you read it, you can enable `ament_cmake` packages to install and use Python code alongside C or C++ code.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
 
 ``ament_cmake_python`` is a package that provides CMake functions for packages of the ``ament_cmake`` build type that contain Python code.
 See the :doc:`ament_cmake user documentation <Ament-CMake-Documentation>` for more information.
@@ -14,11 +34,6 @@ See the :doc:`ament_cmake user documentation <Ament-CMake-Documentation>` for mo
    Pure Python packages should use the ``ament_python`` build type in most cases.
    To create an ``ament_python`` package, see :doc:`Creating your first ROS 2 package <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-Your-First-ROS2-Package>`.
    ``ament_cmake_python`` should only be used in cases where that is not possible, like when mixing C/C++ and Python code.
-
-
-.. contents:: Table of Contents
-   :depth: 2
-   :local:
 
 Basics
 ------
