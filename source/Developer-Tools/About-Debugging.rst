@@ -5,6 +5,7 @@ Debugging
    :maxdepth: 1
    :hidden:
 
+   Debugging/About-testing
    Debugging/Debugging-Tf2-Problems/Debugging-Tf2-Problems
    Debugging/ROS-2-IDEs
    Debugging/Getting-Backtraces-in-ROS-2
