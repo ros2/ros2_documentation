@@ -11,121 +11,164 @@ macOS (source)
    :depth: 2
    :local:
 
+This page explains how to setup a development environment for ROS 2 on macOS.
+
 System requirements
 -------------------
-
-We currently support macOS Mojave (10.14).
-The Rolling Ridley distribution will change target platforms from time to time as new platforms become available.
-Most people will want to use a stable ROS distribution.
-
-System setup
-------------
-
-Install prerequisites
-^^^^^^^^^^^^^^^^^^^^^
-
-You need the following things installed to build ROS 2:
-
-
-#.
-   **Xcode**
-
-   * If you don't already have it installed, install `Xcode <https://apps.apple.com/app/xcode/id497799835>`_.
-   * Note: Versions of Xcode later than 11.3.1 can no longer be installed on macOS Mojave, so you will need to install an older version manually, see: https://stackoverflow.com/a/61046761
-   * Also, if you don't already have it installed, install the Command Line Tools:
-
-     .. code-block:: console
-
-        $ xcode-select --install
-        $ sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
-
-   .. note::
-
-      If you installed Xcode.app manually, you need to accept the Xcode.app license.
-      You can do this by opening Xcode.app or running:
-
-      .. code-block:: console
-
-         $ sudo xcodebuild -license
-
-#.
-   **brew** *(needed to install more stuff; you probably already have this)*:
-
-
-   * Follow installation instructions at http://brew.sh/
-   *
-     *Optional*: Check that ``brew`` is happy with your system configuration by running:
-
-     .. code-block:: console
-
-        $ brew doctor
-
-     Fix any problems that it identifies.
-
-#.
-   Use ``brew`` to install more stuff:
-
-   .. code-block:: console
-
-      $ brew install asio assimp bison bullet cmake console_bridge cppcheck \
-        cunit eigen freetype graphviz opencv openssl orocos-kdl pcre poco \
-        pyqt@5 python qt@5 sip spdlog tinyxml2
-
-#.
-   Setup some environment variables:
-
-   .. code-block:: console
-
-      ~ Add the openssl dir for DDS-Security
-      ~ if you are using BASH, then replace '.zshrc' with '.bashrc'
-      $ echo "export OPENSSL_ROOT_DIR=$(brew --prefix openssl)" >> ~/.zshrc
-
-      ~ Add the Qt directory to the PATH and CMAKE_PREFIX_PATH
-      $ export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:$(brew --prefix qt@5)
-      $ export PATH=$PATH:$(brew --prefix qt@5)/bin
-
-#.
-   Use ``python3 -m pip`` (just ``pip`` may install Python3 or Python2) to install more stuff:
-
-   .. code-block:: console
-
-      $ python3 -m pip install --upgrade pip
-
-      $ python3 -m pip install -U \
-        --config-settings="--global-option=build_ext" \
-        --config-settings="--global-option=-I$(brew --prefix graphviz)/include/" \
-        --config-settings="--global-option=-L$(brew --prefix graphviz)/lib/" \
-        argcomplete catkin_pkg colcon-common-extensions coverage \
-        cryptography empy flake8 flake8-blind-except==0.1.1 flake8-builtins \
-        flake8-class-newline flake8-comprehensions flake8-deprecated \
-        flake8-import-order flake8-quotes \
-        importlib-metadata jsonschema lark==1.1.1 lxml matplotlib mock mypy==0.931 netifaces \
-        psutil pydot pygraphviz pyparsing==2.4.7 \
-        pytest-mock rosdep rosdistro setuptools==59.6.0 vcstool
-
-   Please ensure that the ``$PATH`` environment variable contains the install location of the binaries (``$(brew --prefix)/bin``)
-
-#.
-   *Optional*: if you want to build the ROS 1<->2 bridge, then you must also install ROS 1:
-
-
-   * Start with the normal install instructions: http://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source
-   *
-     When you get to the step where you call ``rosinstall_generator`` to get the source code, here's an alternate invocation that brings in just the minimum required to produce a useful bridge:
-
-     .. code-block:: console
-
-        $ rosinstall_generator catkin common_msgs roscpp rosmsg --rosdistro kinetic --deps --wet-only --tar > kinetic-ros2-bridge-deps.rosinstall
-        $ wstool init -j8 src kinetic-ros2-bridge-deps.rosinstall
-
-
-     Otherwise, just follow the normal instructions, then source the resulting ``install_isolated/setup.bash`` before proceeding here to build ROS 2.
 
 Disable System Integrity Protection (SIP)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-macOS/OS X versions >=10.11 have System Integrity Protection enabled by default.
-So that SIP doesn't prevent processes from inheriting dynamic linker environment variables, such as ``DYLD_LIBRARY_PATH``, you'll need to disable it `following these instructions <https://developer.apple.com/library/content/documentation/Security/Conceptual/System_Integrity_Protection_Guide/ConfiguringSystemIntegrityProtection/ConfiguringSystemIntegrityProtection.html>`__.
+macOS has System Integrity Protection enabled by default,
+which prevents processes from inheriting dynamic linker environment variables, such as ``DYLD_LIBRARY_PATH``.
+You can disable it in the `macOS Recovery <https://support.apple.com/en-gb/102518>`__.
+After entering macOS Recovery, run the following command in terminal:
+
+.. code-block:: console
+
+   $ csrutil disable
+
+*Optional*: Check the status of SIP:
+
+.. code-block:: console
+
+   $ csrutil status
+
+Install prerequisites
+---------------------
+
+Install Xcode
+^^^^^^^^^^^^^
+
+In order to compile the ROS 2 code, the Xcode must be installed.
+You can download it from the `App Store <https://apps.apple.com/app/xcode/id497799835/>`_.
+
+Also, use the following command to install the Command Line Tools:
+
+.. code-block:: console
+
+   $ xcode-select --install
+   $ sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
+
+.. note::
+
+      If you installed Xcode manually, you need to accept the license.
+      You can do this by opening Xcode or running:
+
+      .. code-block:: console
+
+         $ sudo xcodebuild -license accept
+
+Install Homebrew
+^^^^^^^^^^^^^^^^
+
+Homebrew is a package manager for macOS, and some dependencies are shipped with it.
+Use the instructions on `http://brew.sh/ <http://brew.sh/>`_ to install it.
+
+*Optional*: Check that ``brew`` is happy with your system configuration by running the command below and fixing any identified problems:
+
+.. code-block:: console
+
+   $ brew doctor
+
+Install Python
+^^^^^^^^^^^^^^
+
+Download and install Python 3.14 from the `Python website <https://www.python.org/downloads/latest/python3.14/>`_.
+
+Also, install the certificates:
+
+.. code-block:: console
+
+   $ cd "/Applications/Python 3.14"
+   $ "./Install Certificates.command"
+
+Install CMake
+^^^^^^^^^^^^^
+
+Since Homebrew no longer ships CMake 3, you can download it from the Legacy Releases section on the `CMake website <https://cmake.org/download/>`_.
+
+Also, run this command to enable CMake from the command line:
+
+.. code-block:: console
+
+   $ sudo "/Applications/CMake.app/Contents/bin/cmake-gui" --install
+
+Install dependencies
+^^^^^^^^^^^^^^^^^^^^
+
+Homebrew:
+
+.. code-block:: console
+
+   $ brew install \
+     asio \
+     assimp \
+     bison \
+     bullet \
+     console_bridge \
+     cppcheck \
+     cunit \
+     eigen@3 \
+     freetype \
+     graphviz \
+     googletest \
+     libyaml \
+     opencv \
+     openssl \
+     orocos-kdl \
+     pcre \
+     pybind11 \
+     pyqt@6 \
+     qt@6 \
+     rust \
+     sip \
+     spdlog \
+     tinyxml2 \
+     yaml-cpp
+
+Unlink Python in Homebrew to ensure the correct Python version is used:
+
+.. code-block:: console
+
+   $ brew unlink python
+
+Check the Python version being used:
+
+.. code-block:: console
+
+   $ which python3
+
+PyPI:
+
+.. code-block:: console
+
+   $ python3 -m pip install --upgrade pip
+   $ python3 -m pip install -U \
+     argcomplete \
+     catkin_pkg \
+     colcon-common-extensions \
+     cryptography \
+     flake8 \
+     flake8-blind-except \
+     flake8-builtins \
+     flake8-class-newline \
+     flake8-comprehensions \
+     flake8-deprecated \
+     flake8-docstrings \
+     flake8-import-order \
+     flake8-quotes \
+     lark \
+     lxml \
+     matplotlib \
+     mock \
+     mypy \
+     psutil \
+     PySide6 \
+     rosdep \
+     rosdistro \
+     setuptools \
+     vcstool
 
 Build ROS 2
 -----------
@@ -141,6 +184,36 @@ Create a workspace and clone all repos:
    $ cd ~/ros2_{DISTRO}
    $ vcs import --input https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos src
 
+Configure system
+^^^^^^^^^^^^^^^^
+
+Setup environment variables:
+
+.. code-block:: console
+
+   ~ Add the openssl dir for DDS-Security
+   ~ if you are using BASH, then replace '.zshrc' with '.bashrc'
+   $ echo "export OPENSSL_ROOT_DIR=$(brew --prefix openssl)" >> ~/.zshrc
+
+   ~ Add the Qt directory to the PATH and CMAKE_PREFIX_PATH
+   $ export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:$(brew --prefix qt@6)
+   $ export PATH=$PATH:$(brew --prefix qt@6)/bin
+
+Since Homebrew installs Eigen in a different directory, create a symbolic link to the folder expected by ROS 2:
+
+.. code-block:: console
+
+   $ sudo ln -sfn /opt/homebrew/opt/eigen@3/include/eigen3 /opt/homebrew/include/eigen3
+
+If you are using Xcode 26 or later,
+apply the following Git patch to ensure the correct flags are set when building ``rviz_ogre_vendor``:
+
+.. code-block:: console
+
+   $ cd ~/ros2_{DISTRO}/src/ros2/rviz/rviz_ogre_vendor
+   $ git apply patches/0007-fix-xcodebuild-n-xcode26.patch
+
+
 Install additional RMW implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -150,40 +223,45 @@ See the :doc:`guide <../RMW-Implementations/Working-with-multiple-RMW-implementa
 Build the code in the workspace
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Run the ``colcon`` tool to build everything (more on using ``colcon`` in :doc:`this tutorial <../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Colcon-Tutorial>`):
-
 .. code-block:: console
 
    $ cd ~/ros2_{DISTRO}/
-   $ colcon build --symlink-install --packages-skip-by-dep python_qt_binding
+   $ python3 -m colcon build --symlink-install --packages-ignore qt_gui_cpp rqt_gui_cpp
 
-Note: due to an unresolved issue with SIP, Qt@5, and PyQt5, we need to disable ``python_qt_binding`` to have the build succeed.
-This will be removed when the issue is resolved, see: https://github.com/ros-visualization/python_qt_binding/issues/103
+.. note::
+
+   Due to an unresolved issue with Qt and PyQt, we need to ignore ``qt_gui_cpp`` and ``rqt_gui_cpp`` to have the build succeed.
+   This will be removed when the issue is resolved, see: https://github.com/ros-visualization/python_qt_binding/issues/103
+
+.. note::
+
+   The ``python_orocos_kdl_vendor`` package requires the exact version of ``orocos-kdl`` specified in the package.
+   If Homebrew ships a different version, you can ignore this package to allow the build to succeed.
 
 Setup environment
 -----------------
 
-Source the ROS 2 setup file:
+Set up your environment by sourcing the following file.
 
 .. code-block:: console
 
    $ . ~/ros2_{DISTRO}/install/setup.zsh
 
-This will automatically set up the environment for any DDS vendors that support was built for.
-
 Try some examples
 -----------------
 
-In one terminal, set up the ROS 2 environment as described above and then run a C++ ``talker``:
+In one terminal, source the setup file and then run a C++ ``talker``:
 
 .. code-block:: console
 
+   $ . ~/ros2_{DISTRO}/install/setup.zsh
    $ ros2 run demo_nodes_cpp talker
 
 In another terminal source the setup file and then run a Python ``listener``:
 
 .. code-block:: console
 
+   $ . ~/ros2_{DISTRO}/install/setup.zsh
    $ ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
