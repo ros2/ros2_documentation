@@ -1,4 +1,9 @@
-.. _SinglePkgInterface:
+.. meta::
+   :contentType: tutorial
+   :experience: beginner
+   :area: client-libraries, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}.. _SinglePkgInterface:
 
 .. redirect-from::
 
@@ -6,8 +11,17 @@
     Tutorials/Single-Package-Define-And-Use-Interface
     Tutorials/Beginner-Client-Libraries/Single-Package-Define-And-Use-Interface
 
-Implementing custom interfaces
-==============================
+Implementing custom interfaces — tutorial
+=========================================
+
+.. short-description::
+   Defining custom interfaces in the same package as your nodes can simplify small ROS projects and examples.
+   This article shows how to create an AddressBook.msg interface, generate code for it, and use it from a C++ publisher in the same package.
+   After following these steps, you can build, run, and inspect a node that publishes your custom message.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Learn more ways to implement custom interfaces in ROS 2.
 
@@ -18,6 +32,20 @@ Implementing custom interfaces
 .. contents:: Contents
    :depth: 2
    :local:
+
+Summary
+-------
+
+Define ``AddressBook.msg`` in the ``more_interfaces/msg`` directory and list it in ``CMakeLists.txt`` with ``rosidl_generate_interfaces``.
+Add ``rosidl_default_generators``, ``rosidl_default_runtime``, and ``rosidl_interface_packages`` entries to ``package.xml``.
+
+To use the generated interface from the same package:
+
+* Add a C++ publisher target for ``publish_address_book.cpp``.
+* Link it with the generated C++ typesupport using ``rosidl_get_typesupport_target``.
+* Build the package, run the publisher, and inspect ``/address_book`` with ``ros2 topic echo``.
+
+Existing interfaces can also be used as fields by adding package dependencies and listing them in ``DEPENDENCIES``.
 
 Background
 ----------

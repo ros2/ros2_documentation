@@ -3,8 +3,23 @@
    Concepts/About-Composition
    Concepts/Intermediate/About-Composition
 
+.. meta::
+   :contentType: about
+   :experience: intermediate
+   :area: nodes, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Composition
 ===========
+
+.. short-description::
+   Composition lets you decide how ROS nodes are arranged into processes when an application is deployed.
+   This article explains ROS components, component containers, and the main ways to write, register, and use composable nodes.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :local:

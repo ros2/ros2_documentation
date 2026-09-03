@@ -3,10 +3,26 @@
     Tutorials/Rqt-Console/Using-Rqt-Console
     Tutorials/Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console
 
+.. meta::
+   :contentType: tutorial
+   :experience: beginner
+   :area: nodes, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _rqt_console:
 
-Using ``rqt_console`` to view logs
-==================================
+Using ``rqt_console`` to view logs - tutorial
+=============================================
+
+.. short-description::
+   ``rqt_console`` provides a graphical way to inspect log messages from ROS nodes.
+   This tutorial explains how to start the tool, generate log output, filter messages, and understand logger severity levels.
+   After completing it, you will know how to use logs to investigate events and issues in a running system.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Get to know ``rqt_console``, a tool for introspecting log messages.
 

@@ -1,9 +1,24 @@
+.. meta::
+   :contentType: about
+   :experience: beginner
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+   
 .. redirect-from::
 
     Concepts/Basic/About-Actions
 
 Actions
 =======
+
+.. short-description::
+   Actions in ROS support long-running tasks where a node sends a goal, receives progress feedback, and can cancel the request before it completes.
+   This article explains when to use actions and describes how action clients and action servers work together.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. toctree::
    :maxdepth: 1
