@@ -26,7 +26,7 @@ However, the tutorial will work if you are using a non-real-time Linux system.
 Installing and building
 -----------------------
 
-Install ROS 2 on Linux by following the :doc:`installation instructions <../../../Get-Started/Installation>`.
+Install ROS 2 on Linux by following the :doc:`installation instructions <../../../../Get-Started/Installation>`.
 
 .. note::
 
@@ -183,7 +183,7 @@ Running the cell that does the trace processing might take a few minutes on the 
 
 You should get a plot that looks similar to this:
 
-.. image:: ./images/ros2_tracing_guide_result_plot.png
+.. image:: ../images/ros2_tracing_guide_result_plot.png
   :alt: callback durations result plot
   :align: center
 
