@@ -4,8 +4,24 @@
     Tutorials/Topics/Topic-Statistics-Tutorial
     Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial
 
-Enabling topic statistics (C++)
-===============================
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: introspection
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Enabling topic statistics (C++) - tutorial
+==========================================
+
+.. short-description::
+   Topic Statistics let you measure message performance for ROS subscriptions and inspect the results from the command line.
+   This article shows how to enable topic statistics in a C++ subscriber node.
+   After you follow these steps, you can publish, build, run, and view subscription statistics data.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Enable ROS 2 Topic Statistics and view the output statistics data.
 
@@ -14,6 +30,7 @@ Enabling topic statistics (C++)
 **Time:** 10 minutes
 
 .. contents:: Table of Contents
+   :depth: 2
    :local:
 
 Background

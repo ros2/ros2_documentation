@@ -1,11 +1,21 @@
+.. meta::
+   :contentType: how-to
+   :experience: beginner, intermediate, expert
+   :area: contributing, community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Making a pull request (PR) — how-to
 ===================================
 
-Pull requests are used to contribute code and documentation changes to ROS projects.
-This article explains how to prepare and create a pull request from your fork of a ROS repository.
-With this information, you'll be able to submit focused changes in a pull request, ready for review.
+.. short-description::
+   Pull requests are used to contribute code and documentation changes to ROS projects.
+   This article explains how to prepare and create a pull request from your fork of a ROS repository.
+   With this information, you'll be able to submit focused changes in a pull request, ready for review.
 
-**Area: contributing, community | Content-type: how-to | Experience: beginner, intermediate, expert**
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2

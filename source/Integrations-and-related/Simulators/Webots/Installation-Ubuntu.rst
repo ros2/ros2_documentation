@@ -1,9 +1,25 @@
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: simulation, capabilities, installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu
 
-Installation (Ubuntu)
-=====================
+Installing Webots on Ubuntu - tutorial
+======================================
+
+.. short-description::
+   The ``webots_ros2`` package connects Webots simulations with ROS nodes, topics, and launch files.
+   This tutorial shows how to install the package on Ubuntu from binaries or source and run an example.
+   After following it, you will be ready to use Webots in the remaining simulator tutorials.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Install the ``webots_ros2`` package and run simulation examples on Ubuntu.
 

@@ -1,14 +1,33 @@
+.. meta::
+   :contentType: how-to
+   :experience: intermediate, expert
+   :area: installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Installation/RMW-Implementations/DDS-Implementations/Working-with-RTI-Connext-DDS
 
-RTI Connext DDS
-===============
+Working with RTI Connext DDS - how-to
+=====================================
+
+.. short-description::
+   RTI Connext DDS is a commercial-grade Data Distribution Service (DDS) implementation for ROS systems that need high performance, reliability, and security.
+   This article describes how to install ``rmw_connextdds``, select it as your active RMW implementation, and verify that it is working.
+   After you follow these steps, you can run ROS nodes using RTI Connext DDS.
 
 RTI Connext DDS is trusted in over 2000 of the world's most demanding system designs, distributing critical real-time data with the highest levels of performance, reliability, and security.
 It is free-of-charge for prototyping, research, non-commercial and academic use.
 Visit the `RTI website <https://www.rti.com/ros>`__ for more information and to learn about options for support and commercial licenses.
 
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 Prerequisites
 -------------
@@ -64,7 +83,6 @@ It is free for prototype development, research, non-commercial and academic use.
 
 Detailed instructions for building and tuning the RMW and ROS 2 applications for a variety of platforms, and enabling DDS Security are available on the `RTI ROS Community <https://community.rti.com/ros>`__ pages.
 
-
 Install rmw_connextdds binary packages
 --------------------------------------
 
@@ -73,7 +91,6 @@ To install the binary packages for ``rmw_connextdds`` and the Connext libraries 
 .. code-block:: console
 
    $ sudo apt update && sudo apt install -q -y ros-{DISTRO}-rmw-connextdds
-
 
 Building rmw_connextdds from source code
 ----------------------------------------
@@ -133,7 +150,6 @@ After the build completes successfully, be sure to source the setup file for the
 .. code-block:: console
 
    $ source install/setup.bash
-
 
 Use the resulting rmw_connextdds
 --------------------------------

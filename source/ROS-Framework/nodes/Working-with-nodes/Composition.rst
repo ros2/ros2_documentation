@@ -4,8 +4,24 @@
     Tutorials/Composition
     Tutorials/Intermediate/Composition
 
-Composing multiple nodes in a single process
-============================================
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: nodes, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Composing multiple nodes in a single process — tutorial
+=======================================================
+
+.. short-description::
+   Composing nodes in a single process can reduce overhead and simplify deployment for systems made from reusable components.
+   This tutorial shows how to discover, load, configure, and unload composable nodes.
+   After completing it, you can choose and run the composition approach that fits your application.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2

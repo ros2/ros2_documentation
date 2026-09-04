@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: about
+   :experience: intermediate
+   :area: client-libraries, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     DDS-and-ROS-middleware-implementations
@@ -6,6 +13,14 @@
 
 Different ROS 2 middleware vendors
 ==================================
+
+.. short-description::
+   ROS supports different middleware implementations to help robotic applications communicate across varied networks, platforms, and deployment needs.
+   This article describes the available middleware vendors and explains the key considerations for choosing an implementation for your ROS system.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :local:

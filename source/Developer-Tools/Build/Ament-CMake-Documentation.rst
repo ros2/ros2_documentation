@@ -4,17 +4,33 @@
   Tutorials/Ament-CMake-Documentation
   How-To-Guides/Ament-CMake-Documentation
 
-ament_cmake user documentation
-==============================
+.. meta::
+   :contentType: how-to
+   :experience: intermediate
+   :area: builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Building ROS packages with ament_cmake - how-to
+===============================================
+
+.. short-description::
+  ``ament_cmake`` provides CMake build-system support for ROS packages, especially C and C++ projects.
+   This article explains the main ``CMakeLists.txt`` patterns for dependencies, targets, installation, testing, resources, environment hooks, and version headers.
+   After you read it, you can structure and extend an ``ament_cmake`` package correctly.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
 
 ``ament_cmake`` is the build system for CMake based packages in ROS 2 (in particular, it will be used for most C/C++ projects).
 It is a set of scripts enhancing CMake and adding convenience functionality for package authors.
 Before using ``ament_cmake``, it is very helpful to know the basics of `CMake <https://cmake.org/cmake/help/v3.8/>`__.
 An official tutorial can be found `here <https://cmake.org/cmake/help/latest/guide/tutorial/index.html>`__.
-
-.. contents:: Table of Contents
-   :depth: 2
-   :local:
 
 Basics
 ------

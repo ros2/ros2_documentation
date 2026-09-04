@@ -1,14 +1,26 @@
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: client-libraries, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Rosdep
     Tutorials/Intermediate/Rosdep
 
-Managing Dependencies with rosdep
-=================================
+Managing Dependencies with rosdep — tutorial
+============================================
 
-.. contents:: Table of Contents
-   :depth: 2
-   :local:
+.. short-description::
+   Managing package dependencies is essential when building or sharing ROS workspaces across different platforms.
+   This article explains how ``rosdep`` resolves dependencies from ``package.xml`` files and installs the correct system packages.
+   After you follow these steps, you will be able to initialise ``rosdep`` and install workspace dependencies.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Manage external dependencies using ``rosdep``.
 
@@ -16,12 +28,32 @@ Managing Dependencies with rosdep
 
 **Time:** 5 minutes
 
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
+
 This tutorial will explain how to manage external dependencies using ``rosdep``.
 
 .. warning::
 
-   Currently rosdep only works on Linux and macOS; Windows is not supported.
+   Currently ``rosdep`` only works on Linux and macOS; Windows is not supported.
    There are long-term plans to add support for Windows to https://github.com/ros-infrastructure/rosdep.
+
+Summary
+-------
+
+``rosdep`` is a command-line dependency management utility that resolves rosdep keys from ``package.xml`` files.
+It compares those keys with the ``rosdistro`` index and installs matching packages through the system package manager.
+
+Common dependency tags include:
+
+* ``<depend>`` for build-time and run-time dependencies.
+* ``<build_depend>`` and ``<build_export_depend>`` for build requirements.
+* ``<exec_depend>`` for run-time files.
+* ``<test_depend>`` for tests.
+
+Initialise ``rosdep`` with ``sudo rosdep init`` and ``rosdep update``.
+Install workspace dependencies with ``rosdep install --from-paths src -y --ignore-src``.
 
 What is rosdep?
 ---------------

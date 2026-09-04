@@ -2,8 +2,24 @@
 
     Tutorials/Advanced/Security/Deployment-Guidelines
 
-Deployment Guidelines
-=====================
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Understanding security-enabled deployments - tutorial
+=====================================================
+
+.. short-description::
+   Security-enabled ROS deployments require careful handling of certificates, keys, and enclave files.
+   This article explains how to organize keystore material and deploy only the required files to production devices.
+   After you follow it, you can run a secure Docker-based talker and listener example with minimal deployed security artifacts.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Understand the best practices when deploying security artifacts into production systems.
 
@@ -11,10 +27,9 @@ Deployment Guidelines
 
 **Time:** 20 minutes
 
-.. contents:: Contents
+.. contents:: Table of Contents
    :depth: 2
    :local:
-
 
 Background
 ----------

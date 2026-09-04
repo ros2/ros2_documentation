@@ -3,10 +3,26 @@
     Tutorials/Understanding-ROS2-Nodes
     Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes
 
+.. meta::
+   :contentType: tutorial
+   :experience: beginner
+   :area: nodes, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _ROS2Nodes:
 
 Learning about nodes - tutorial
 ===============================
+
+.. short-description::
+   Nodes are core components that perform specific functions within a robotic system.
+   This tutorial explains how nodes fit into the ROS graph and how to inspect them with command-line tools.
+   After completing it, you will be able to run nodes, list active nodes, and view their connections.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 Nodes are the fundamental building blocks of a robotic system, where each node is responsible for a single task.
 This article walks you through how to run nodes with the ``ros2`` command-line tools and inspect how they are shown on the ROS graph.
@@ -20,14 +36,12 @@ A hands-on exercise gives you practice listing active nodes and examining their 
 
 Summary
 -------
-
 Each node in ROS serves a single, modular purpose in a robotics system.
 For more information, see :doc:`About nodes <../../../About-Nodes>`.
 
-Nodes communicate with other nodes through :doc:`topics, services, actions, and parameters <../../../Interfaces-Topics-Services-Actions>`.
-A single executable can contain one or more nodes.
-
-For more information, see :doc:`How ROS works <../../../How-ROS-Works>`.
+* To run turtlesim, use the command ``ros2 run turtlesim turtlesim_node``.
+* To display the names of all running nodes, use the command ``ros2 node list``.
+* To reassign the name of the ``/turtlesim`` node using remapping, use the command ``ros2 run turtlesim turtlesim_node --ros-args --remap __node:=my_turtle``.
 
 Prerequisites
 -------------

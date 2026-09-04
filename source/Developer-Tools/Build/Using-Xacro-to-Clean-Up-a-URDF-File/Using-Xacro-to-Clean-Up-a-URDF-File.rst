@@ -3,10 +3,26 @@
     Tutorials/URDF/Using-Xacro-to-Clean-Up-a-URDF-File
     Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File
 
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _URDFXacro:
 
-Using Xacro to clean up your code
-=================================
+Using Xacro to clean up your code - tutorial
+============================================
+
+.. short-description::
+   Xacro helps keep robot description files concise, readable, and easier to maintain.
+   This article explains how to use xacro properties, math, macros, and launch integration to simplify URDF files.
+   After you follow it, you can generate cleaner robot models with less repeated XML.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Learn some tricks to reduce the amount of code in a URDF file using Xacro
 
@@ -14,7 +30,7 @@ Using Xacro to clean up your code
 
 **Time:** 20 minutes
 
-.. contents:: Contents
+.. contents:: Table of Contents
    :depth: 2
    :local:
 

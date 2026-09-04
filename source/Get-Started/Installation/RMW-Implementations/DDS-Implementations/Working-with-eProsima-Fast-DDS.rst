@@ -1,13 +1,32 @@
+.. meta::
+   :contentType: how-to
+   :experience: intermediate, expert
+   :area: installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Installation/RMW-Implementations/DDS-Implementations/Working-with-eProsima-Fast-DDS
 
-eProsima Fast DDS
-=================
+Working with eProsima Fast DDS - how-to
+=======================================
+
+.. short-description::
+   eProsima Fast DDS is a complete open-source Data Distribution Service (DDS) implementation for real-time embedded architectures and operating systems.
+   This article describes how to install ``rmw_fastrtps_cpp``, select it as your active RMW implementation, and verify that it is working.
+   After you follow these steps, you can run ROS nodes using eProsima Fast DDS.
 
 eProsima Fast DDS is a complete open-source DDS implementation for real time embedded architectures and operating systems.
 See also: https://www.eprosima.com/index.php/products-all/eprosima-fast-dds
 
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 Prerequisites
 -------------

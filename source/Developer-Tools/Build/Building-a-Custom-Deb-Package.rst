@@ -4,14 +4,31 @@
   How-To-Guides/Building-a-Custom-Debian-Package
   How-To-Guides/Building-a-Custom-Deb-Package
 
-Building a custom deb package
-=============================
+.. meta::
+   :contentType: how-to
+   :experience: intermediate
+   :area: builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Building a custom deb package - how-to
+======================================
+
+.. short-description::
+   Many Ubuntu users install ROS by using pre-built Debian packages.
+   This article gives a short workflow for building a local custom deb package from a ROS package source directory.
+   After you follow it, you can generate Debian packaging files and build a package for local installation.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
 
 Many Ubuntu users install ROS 2 on their system by installing :doc:`deb packages <../../Get-Started/Installation/Ubuntu-Install-Debs>`.
 This guide gives a short set of instructions to build local, custom deb packages.
-
-.. contents:: Table of Contents
-   :local:
 
 Prerequisites
 -------------

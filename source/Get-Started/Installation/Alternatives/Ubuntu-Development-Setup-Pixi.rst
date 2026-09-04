@@ -1,10 +1,25 @@
-Ubuntu (source Pixi)
-====================
+.. meta::
+   :contentType: how-to
+   :experience: expert
+   :area: installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
 
-.. contents:: Table of Contents
+Installing on Ubuntu (source Pixi) - how-to
+===========================================
+
+.. short-description::
+   Building ROS from source on Ubuntu gives you direct access to the development workspace and package sources.
+   This article describes how to set up a Pixi-based source installation.
+   After you follow these steps, you will be able to build, source, test, and run ROS examples.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
-
 
 System requirements
 -------------------
@@ -81,7 +96,6 @@ Get ROS 2 code
 Now that we have the development tools we can get the ROS 2 source code.
 
 Setup a development folder, for example ``~/ros_ws_pixi/src``:
-
 
 .. code-block:: console
 
