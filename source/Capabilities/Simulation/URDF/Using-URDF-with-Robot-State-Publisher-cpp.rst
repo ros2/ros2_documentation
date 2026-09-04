@@ -199,6 +199,8 @@ This node does two things:
 - Publishes ``JointState`` message to the ``/joint_states`` topic so that ``robot_state_publisher`` can compute all the per-joint transforms and broadcasts them via ``/tf``.
 - Broadcasts a single root transform that places the robot model (``axis`` frame) in the world (``odom`` frame), making the whole robot walk in a circle.
 
+.. include:: ../../../_internal/Rclcpp-Convenience-Header-Note.rst
+
 4 Create a launch file
 ^^^^^^^^^^^^^^^^^^^^^^
 

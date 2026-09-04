@@ -75,9 +75,17 @@ Now install MSVC 2022:
 
    $ .\vs_buildtools_2022.exe --quiet --wait --norestart --add Microsoft.Component.MSBuild --add Microsoft.Net.Component.4.6.1.TargetingPack --add Microsoft.Net.Component.4.8.SDK --add Microsoft.VisualStudio.Component.CoreBuildTools --add Microsoft.VisualStudio.Component.Roslyn.Compiler --add Microsoft.VisualStudio.Component.TextTemplating --add Microsoft.VisualStudio.Component.VC.CLI.Support --add Microsoft.VisualStudio.Component.VC.CoreBuildTools --add Microsoft.VisualStudio.Component.VC.CoreIde --add Microsoft.VisualStudio.Component.VC.Redist.14.Latest --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --add Microsoft.VisualStudio.Component.Windows11SDK --add Microsoft.VisualStudio.Component.Windows11SDK.22621 --add Microsoft.VisualStudio.ComponentGroup.NativeDesktop.Core --add Microsoft.VisualStudio.Workload.MSBuildTools --add Microsoft.VisualStudio.Workload.VCTools
 
-.. note::
+.. important::
+  Now wait for a few minutes as the installation of MSVC can take a long time, and there is no feedback while it is progressing.
 
-   The installation of MSVC can take a long time, and there is no feedback while it is progressing.
+Once you are able to verify the installation path existence with the following check:
+
+.. code-block:: console
+
+   $ "%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe" -products * -version "[17.0,18.0)" -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath
+
+If you see a installation path (``C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools``), you can continue to the next installation steps.
+If not, you'll just need to wait a bit longer and try checking the path again.
 
 Install pixi
 ^^^^^^^^^^^^
