@@ -342,6 +342,22 @@ The following repositories are managed by the ROS PMC:
    * - https://github.com/ros2/urdf
    * - https://github.com/ros2/yaml_cpp_vendor
 
+Working Groups (WGs)
+-------------------
+
+The following are the official working groups (WGs) that report to the ROS PMC.
+
+Client Library
+^^^^^^^^^^^^^^^^
+
+* Lead(s): Alberto Soragna
+* Resources:
+
+ * Meeting invite group: `ros-client-library-wg <https://groups.google.com/g/ros-2-client-library-wg>`_
+ * `Meeting minutes and agendas <https://docs.google.com/document/d/1-tU2AKoHKLCVHPBz0QchYownmZZvYjHmVUQXT2WBMOw/edit?usp=sharing>`_
+ * Working group charter: :doc:`Client Library WG Charter <./Working-Groups/charters/client-library-wg>`
+ * Discourse tag: `wg-client-libraries <https://discourse.ros.org/tags/wg-client-libraries>`_
+
 Upcoming ROS Events
 -------------------
 
