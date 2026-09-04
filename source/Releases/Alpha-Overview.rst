@@ -8,7 +8,7 @@
 .. redirect-from::
 
    Alpha-Overview
-   Releases/Alpha-Overview
+   Get-Started/Releases/Alpha-Overview
 
 Alphas
 ======

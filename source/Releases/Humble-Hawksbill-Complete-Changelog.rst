@@ -7,7 +7,7 @@
 
 .. redirect-from::
 
-    Releases/Humble-Hawksbill-Complete-Changelog
+    Get-Started/Releases/Humble-Hawksbill-Complete-Changelog
 
 Humble Hawksbill changelog
 ==========================

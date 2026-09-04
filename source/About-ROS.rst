@@ -5,6 +5,11 @@
    :distribution: {DISTRO}
    :product: {PRODUCT}
 
+.. redirect-from::
+
+    Get-Started/About-ROS
+    Get-Started/About-ROS/About-ROS
+
 .. _AboutROS:
 
 About ROS

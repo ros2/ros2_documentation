@@ -7,7 +7,7 @@
 
 .. redirect-from::
 
-    Releases/Release-Humble-Hawksbill
+    Get-Started/Releases/Release-Humble-Hawksbill
 
 .. _humble-release:
 

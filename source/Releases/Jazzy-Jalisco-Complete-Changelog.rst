@@ -7,7 +7,7 @@
 
 .. redirect-from::
 
-    Releases/Jazzy-Jalisco-Complete-Changelog
+    Get-Started/Releases/Jazzy-Jalisco-Complete-Changelog
 
 Jazzy Jalisco changelog
 =======================

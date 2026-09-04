@@ -5,6 +5,10 @@
    :distribution: {DISTRO}
    :product: {PRODUCT}
 
+.. redirect-from::
+
+    Get-Started/Releases
+
 .. _Releases:
 
 Distributions

@@ -8,7 +8,7 @@
 .. redirect-from::
 
   Release-Bouncy-Bolson
-  Releases/Release-Bouncy-Bolson
+  Get-Started/Releases/Release-Bouncy-Bolson
 
 Bouncy Bolson (``bouncy``)
 ==========================

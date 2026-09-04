@@ -7,7 +7,7 @@
 
 .. redirect-from::
 
-    Releases/Iron-Irwini-Complete-Changelog
+    Get-Started/Releases/Iron-Irwini-Complete-Changelog
 
 Iron Irwini Changelog
 =====================

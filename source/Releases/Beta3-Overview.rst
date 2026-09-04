@@ -8,7 +8,7 @@
 .. redirect-from::
 
   Beta3-Overview
-  Releases/Beta3-Overview
+  Get-Started/Releases/Beta3-Overview
 
 Beta 3 (``r2b3``)
 =================

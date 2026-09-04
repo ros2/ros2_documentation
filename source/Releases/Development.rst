@@ -7,7 +7,7 @@
 
 .. redirect-from::
 
-    Releases/Development
+    Get-Started/Releases/Development
 
 Development Distribution
 ========================

@@ -7,7 +7,7 @@
 
 .. redirect-from::
 
-    Releases/Release-Galactic-Geochelone
+    Get-Started/Releases/Release-Galactic-Geochelone
 
 .. _galactic-release:
 

@@ -7,7 +7,7 @@
 
 .. redirect-from::
 
-    Releases/Release-Process
+    Get-Started/Releases/Release-Process
 
 Development process for a release
 =================================
