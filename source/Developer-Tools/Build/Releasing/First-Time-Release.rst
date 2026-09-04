@@ -28,7 +28,8 @@ Releasing first-time packages - how-to
 Summary
 -------
 
-This guide explains how to release ROS 2 packages that you have not released before. Due to numerous options available when releasing ROS packages, this guide intends to cover the most common scenario and does not cover every corner-case.
+This guide explains how to release ROS 2 packages that you have not released before.
+Due to numerous options available when releasing ROS packages, this guide intends to cover the most common scenario and does not cover every corner-case.
 
 Be part of a release team
 -------------------------

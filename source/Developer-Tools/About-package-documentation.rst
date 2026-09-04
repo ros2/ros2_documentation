@@ -1,6 +1,6 @@
 .. meta::
    :contentType:
-   :experience: 
+   :experience:
    :area: package, tools
    :distribution: {DISTRO}
    :product: {PRODUCT}

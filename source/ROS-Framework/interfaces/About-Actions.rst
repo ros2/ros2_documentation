@@ -4,7 +4,7 @@
    :area: interfaces, framework
    :distribution: {DISTRO}
    :product: {PRODUCT}
-   
+
 .. redirect-from::
 
     Concepts/Basic/About-Actions
