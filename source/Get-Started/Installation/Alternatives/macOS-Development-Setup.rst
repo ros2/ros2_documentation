@@ -59,8 +59,8 @@ Also, use the following command to install the Command Line Tools:
 
          $ sudo xcodebuild -license accept
 
-Install Homebrew
-^^^^^^^^^^^^^^^^
+Install Homebrew and dependencies
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Homebrew is a package manager for macOS, and some dependencies are shipped with it.
 Use the instructions on `http://brew.sh/ <http://brew.sh/>`_ to install it.
@@ -71,33 +71,7 @@ Use the instructions on `http://brew.sh/ <http://brew.sh/>`_ to install it.
 
    $ brew doctor
 
-Install Python
-^^^^^^^^^^^^^^
-
-Download and install Python 3.14 from the `Python website <https://www.python.org/downloads/latest/python3.14/>`_.
-
-Also, install the certificates:
-
-.. code-block:: console
-
-   $ cd "/Applications/Python 3.14"
-   $ "./Install Certificates.command"
-
-Install CMake
-^^^^^^^^^^^^^
-
-Since Homebrew no longer ships CMake 3, you can download it from the Legacy Releases section on the `CMake website <https://cmake.org/download/>`_.
-
-Also, run this command to enable CMake from the command line:
-
-.. code-block:: console
-
-   $ sudo "/Applications/CMake.app/Contents/bin/cmake-gui" --install
-
-Install dependencies
-^^^^^^^^^^^^^^^^^^^^
-
-Homebrew:
+Then, install the dependencies:
 
 .. code-block:: console
 
@@ -127,19 +101,31 @@ Homebrew:
      tinyxml2 \
      yaml-cpp
 
-Unlink Python in Homebrew to ensure the correct Python version is used:
+Install Python and dependencies
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Download and install Python 3.14 from the `Python website <https://www.python.org/downloads/latest/python3.14/>`_.
+
+Also, install the certificates:
+
+.. code-block:: console
+
+   $ cd "/Applications/Python 3.14"
+   $ "./Install Certificates.command"
+
+Before installing the dependencies, we need to unlink Python installed by Homebrew to ensure the correct Python version is used.
 
 .. code-block:: console
 
    $ brew unlink python
 
-Check the Python version being used:
+We can check the current Python version with the following command:
 
 .. code-block:: console
 
    $ which python3
 
-PyPI:
+Then, install the dependencies:
 
 .. code-block:: console
 
@@ -169,6 +155,17 @@ PyPI:
      rosdistro \
      setuptools \
      vcstool
+
+Install CMake
+^^^^^^^^^^^^^
+
+Since Homebrew no longer ships CMake 3, you can download it from the Legacy Releases section on the `CMake website <https://cmake.org/download/>`_.
+
+Also, run this command to enable CMake from the command line:
+
+.. code-block:: console
+
+   $ sudo "/Applications/CMake.app/Contents/bin/cmake-gui" --install
 
 Build ROS 2
 -----------
