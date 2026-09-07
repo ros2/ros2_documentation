@@ -26,16 +26,15 @@ This article describes what nodes do and how they interconnect.
 Summary
 -------
 
-A node is an independent processes that handles a specific task, such as reading sensor data, processing an algorithm, or driving a motor.
-The behavior of nodes is configured using parameters.
+A node is an independent processes that handles a specific task.
+The behaviour of nodes is configured using parameters.
 Nodes advertise their presence and establish connections with other compatible nodes through the discovery process.
 Nodes communicate with each other using interfaces.  
 
 Nodes
 -----
-A node is a unit of computation in a ROS graph. 
-Nodes are the fundamental building blocks of a ROS system.
-Each node is an independent processes that handles a specific task, such as reading sensor data, processing an algorithm, or driving a motor.
+Nodes are the fundamental building blocks of a ROS system and represent units of computation in a ROS graph. 
+Each node is an independent process that handles a specific task, such as reading sensor data, processing an algorithm, or driving a motor.
 Nodes can function as:
 
 * A publisher to deliver data to other nodes. 
@@ -45,12 +44,12 @@ Nodes can function as:
 * An action client to have another node perform a long-running computation on their behalf.
 * An action server to provide long-running functionality to other nodes. 
 
-In a ROS system, there is typically a complex combination of nodes as publishers, subscribers, service servers, service clients, action servers, and action clients, each acting with a different role simultaneously.
-See :doc:`How-ROS-Works`.
+In a ROS system, there is typically a complex network of nodes as publishers, subscribers, service servers, service clients, action servers, and action clients, each acting with a different role simultaneously.
+This network is known as the ROS graph. See :doc:`How-ROS-Works`.
 
 ROS is based on object-oriented programming principles.
 Individual nodes are written as subclasses of the Node class, inheriting properties from it as defined by ROS.
-Configurable parameters enable you to control node behavior during runtime.
+Configurable parameters enable you to control node behaviour during runtime.
 Learn more: :doc:`parameters <About-Parameters>`.
 
 Communication between nodes
@@ -76,7 +75,8 @@ The discovery process can be summarized as follows:
 #. Nodes periodically advertise their presence so that connections can be made with new-found entities, even after the initial discovery period.
 #. Nodes advertise to other nodes when they go offline.
 
-Nodes will only establish connections with other nodes if they have compatible :doc:`Quality of Service <interfaces/topics/Working-with-topics/Quality-of-Service>` settings.
+Nodes will only establish connections with other nodes if they have compatible *quality of service* settings. 
+See :doc:`interfaces/topics/Working-with-topics/Quality-of-Service`.
 
 Node management
 ---------------
