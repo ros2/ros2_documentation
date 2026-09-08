@@ -31,10 +31,15 @@ class MetaRule:
         severity: Advisory ``warning`` or blocking ``error`` in CI.
         value: Suggested default text when missing or blank; empty when the
             contributor must supply a non-empty value.
+        allowed: Canonical values this field may use; empty when any
+            non-blank value is accepted. Comparison is case-insensitive.
+        allow_multiple: Whether a comma-separated list of values is allowed.
     """
 
     severity: Severity
     value: str
+    allowed: tuple[str, ...] = ()
+    allow_multiple: bool = False
 
     @property
     def has_configured_value(self) -> bool:
@@ -114,7 +119,43 @@ def _parse_meta_rules(meta: dict, config_path: Path) -> dict[str, MetaRule]:
                 type(raw_value).__name__,
             )
             raise SystemExit(1)
-        validated[key] = MetaRule(severity=severity, value=value)
+        raw_allowed = entry.get("allowed")
+        allowed: tuple[str, ...] = ()
+        if raw_allowed is not None:
+            if not isinstance(raw_allowed, list) or not raw_allowed:
+                logger.error(
+                    "Config %s: meta entry %r allowed must be a non-empty list",
+                    config_path,
+                    key,
+                )
+                raise SystemExit(1)
+            parsed_allowed: list[str] = []
+            for item in raw_allowed:
+                if not isinstance(item, str) or not item.strip():
+                    logger.error(
+                        "Config %s: meta entry %r allowed values must be non-empty strings",
+                        config_path,
+                        key,
+                    )
+                    raise SystemExit(1)
+                parsed_allowed.append(item.strip())
+            allowed = tuple(parsed_allowed)
+
+        raw_multiple = entry.get("allow_multiple", False)
+        if not isinstance(raw_multiple, bool):
+            logger.error(
+                "Config %s: meta entry %r allow_multiple must be a boolean",
+                config_path,
+                key,
+            )
+            raise SystemExit(1)
+
+        validated[key] = MetaRule(
+            severity=severity,
+            value=value,
+            allowed=allowed,
+            allow_multiple=raw_multiple,
+        )
     return validated
 
 
