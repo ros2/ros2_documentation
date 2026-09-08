@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Concepts/Basic/About-Nodes
+    Concepts/Basic/About-Discovery
 
 Nodes
 =====
@@ -9,24 +10,130 @@ Nodes
    :maxdepth: 1
    :hidden:
 
-   nodes/About-Discovery
    nodes/About-Domain-ID
    nodes/About-Logging/About-Logging
    nodes/About-Composition
    nodes/Working-with-nodes
 
+A node is a single process that performs computation and can communicate with other nodes via interfaces.
+This article describes what nodes do and how they interconnect.
+
+**[Area: Framework | Content-type: concept | Experience: beginner]**
+
 .. contents:: Table of Contents
    :local:
 
-A node is a participant in the ROS 2 graph, which uses a :doc:`client library <About-Client-Libraries>` to communicate with other nodes.
+Summary
+-------
+
+A node is an independent process that handles a specific task.
+The behaviour of nodes is configured using parameters.
+Nodes advertise their presence and establish connections with other compatible nodes through the discovery process.
+Nodes communicate with each other using interfaces.
+
+About nodes
+-----------
+
+Nodes are the fundamental building blocks of a ROS system and represent units of computation in a ROS graph.
+Each node is an independent process that handles a specific task, such as reading sensor data, processing an algorithm, or driving a motor.
+Nodes can function as any of the following:
+
+* A publisher to deliver data to other nodes.
+* A subscriber to get data from other nodes.
+* A service client to have another node perform a computation on its behalf.
+* A service server to provide functionality to other nodes.
+* An action client to have another node perform a long-running computation on its behalf.
+* An action server to provide long-running functionality to other nodes.
+
+In a ROS system, there is typically a complex network of nodes as publishers, subscribers, service servers, service clients, action servers, and action clients, each acting with a different role simultaneously.
+This network is known as the ROS graph. See :doc:`How-ROS-Works`.
+
+ROS is based on object-oriented programming principles.
+Individual nodes are written as subclasses of the Node class, inheriting properties from it as defined by ROS.
+Configurable parameters enable you to control node behaviour during runtime.
+See :doc:`parameters <About-Parameters>`.
+
+Communication between nodes
+---------------------------
+
+Each node runs separately in its own runtime environment.
 Nodes can communicate with other nodes within the same process, in a different process, or on a different machine.
-Nodes are typically the unit of computation in a ROS graph; each node should do one logical thing.
 
-Nodes can :doc:`publish <interfaces/About-Topics>` to named topics to deliver data to other nodes, or :doc:`subscribe <interfaces/About-Topics>` to named topics to get data from other nodes.
-They can also act as a :doc:`service client <interfaces/About-Services>` to have another node perform a computation on their behalf, or as a :doc:`service server <interfaces/About-Services>` to provide functionality to other nodes.
-For long-running computations, a node can act as an :doc:`action client <interfaces/About-Actions>` to have another node perform it on their behalf, or as an :doc:`action server <interfaces/About-Actions>` to provide functionality to other nodes.
-Nodes can provide configurable :doc:`parameters <About-Parameters>` to change behavior during run-time.
+:doc:`Client libraries <About-Client-Libraries>` provide APIs that allow the node to communicate with other nodes, even if other nodes are not written in the same language.
 
-Nodes are often a complex combination of publishers, subscribers, service servers, service clients, action servers, and action clients, all at the same time.
+ROS nodes communicate through interfaces.
+See :doc:`Interfaces-Topics-Services-Actions`.
 
-Connections between nodes are established through a distributed :doc:`discovery <nodes/About-Discovery>` process.
+Discovery
+^^^^^^^^^
+
+Connections between nodes are established through a distributed discovery process.
+Discovery of nodes happens automatically through the underlying middleware of ROS.
+The discovery process can be summarized as follows:
+
+#. When a node is started, it advertises its presence to other nodes on the network with the same ROS domain (set with the ROS_DOMAIN_ID environment variable).
+   Nodes respond to this advertisement with information about themselves so that the appropriate connections can be made and the nodes can communicate.
+#. Nodes periodically advertise their presence so that connections can be made with new-found entities, even after the initial discovery period.
+#. Nodes advertise to other nodes when they go offline.
+
+Nodes only establish connections with other nodes if they have compatible *quality of service* settings.
+See :doc:`interfaces/topics/Working-with-topics/Quality-of-Service`.
+
+Node management
+---------------
+
+You can launch individual nodes by command line.
+ROS launch files allow you to start up and configure a number of executables containing ROS nodes simultaneously.
+
+See :doc:`../Developer-Tools/About-Launch`.
+
+Log messages
+------------
+
+Each node has an associated logger. By default, log messages go out to targets including the console (on stderr), log files on disk, and the ``/rosout`` topic.
+All of the targets can be individually enabled or disabled on a per-node basis.
+
+See :doc:`nodes/About-Logging/About-Logging`.
+
+Special types of nodes
+----------------------
+
+* Composable nodes
+   A composable node contains separate components with shared memory.
+   Learn more about how to write a composable node: :doc:`nodes/Working-with-nodes/Writing-a-Composable-Node`
+* Managed nodes, also known as lifecycle nodes
+   These nodes can be used to ensure that resources are correctly initialised, activated, deactivated, and cleaned up as the node moves between lifecycle states.
+   A common use case is nodes that control hardware, where devices such as cameras, lidars, motor drivers, and other sensors and actuators must be started, configured, and shut down in a controlled order.
+   See :doc:`nodes/Working-with-nodes/Managed-Nodes`.
+
+Related content
+---------------
+* :doc:`About-Client-Libraries`
+* :doc:`About-Parameters`
+* :doc:`Interfaces-Topics-Services-Actions`
+* :doc:`nodes/Working-with-nodes`
+
+FAQs
+----
+
+What is the difference between a node and an executable?
+   A node is a participant on the ROS graph.
+   An executable is the process you start, for example with ``ros2 run``.
+   One executable can contain one or more nodes.
+
+How do nodes find each other?
+   Through discovery.
+   When a node starts, it advertises its presence to other nodes on the same ROS domain.
+   Compatible nodes can then form connections automatically.
+
+Do all nodes in a system need to use the same programming language?
+   No.
+   Client libraries provide a common way to communicate, so a C++ node can talk to a Python node over the same interfaces.
+
+Why might two nodes fail to connect?
+   They must be on the same ROS domain, and their quality of service settings must be compatible.
+   If either of those conditions is not met, the nodes do not establish a connection.
+
+What is the difference between composable nodes and managed nodes?
+   Composable nodes are components that can share a process and memory.
+   Managed nodes, also called lifecycle nodes, move through defined states so resources are started and shut down in a controlled order.
