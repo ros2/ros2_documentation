@@ -108,6 +108,11 @@ The ROS PMC currently consists of the following constituents:
      - `sloretz <https://github.com/sloretz>`_
      - Member
      - PST (UTC-8)/PDT (UTC-7)
+   * - Skyler Medeiros
+     - `Polymath Robotics <https://www.polymathrobotics.com/>`_
+     - `skyegalaxy <https://github.com/skyegalaxy>`_
+     - Member
+     - PST (UTC-8)/PDT (UTC-7)
    * - Audrow Nash
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `Audrow <https://github.com/audrow>`_
@@ -178,10 +183,6 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
    * - Michael (Robert) Carlstrom
      - `CivRobotics <https://www.civrobotics.com/>`_
      - `InvincibleRMC <https://github.com/InvincibleRMC>`_
-     - PST (UTC-8)/PDT (UTC-7)
-   * - Skyler Medeiros
-     - `Polymath Robotics <https://www.polymathrobotics.com/>`_
-     - `skyegalaxy <https://github.com/skyegalaxy>`_
      - PST (UTC-8)/PDT (UTC-7)
    * - Steve Peters
      - `Intrinsic <https://www.intrinsic.ai/>`_
