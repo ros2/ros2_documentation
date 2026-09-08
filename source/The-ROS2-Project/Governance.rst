@@ -108,6 +108,11 @@ The ROS PMC currently consists of the following constituents:
      - `sloretz <https://github.com/sloretz>`_
      - Member
      - PST (UTC-8)/PDT (UTC-7)
+   * - Janosch Machowinski
+     - `cellumation <https://cellumation.com/>`_
+     - `jmachowinski <https://github.com/jmachowinski>`_
+     - CET (UTC+1)
+     - Member
    * - Skyler Medeiros
      - `Polymath Robotics <https://www.polymathrobotics.com/>`_
      - `skyegalaxy <https://github.com/skyegalaxy>`_
