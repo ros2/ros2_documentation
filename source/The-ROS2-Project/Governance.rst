@@ -138,6 +138,11 @@ The ROS PMC currently consists of the following constituents:
      - `alsora <https://github.com/alsora>`_
      - Member
      - CET (UTC+1)/CEST (UTC+2)
+   * - Andrew Symington
+     - `Intrinsic <https://www.intrinsic.ai/>`_
+     - `asymingt <https://github.com/asymingt>`_
+     - PST (UTC-8)/PDT (UTC-7)
+     - Member
    * - Yadunund Vijay
      - `FieldAI <https://www.fieldai.com/>`_
      - `Yadunund <https://github.com/Yadunund>`_
