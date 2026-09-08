@@ -111,8 +111,8 @@ The ROS PMC currently consists of the following constituents:
    * - Janosch Machowinski
      - `cellumation <https://cellumation.com/>`_
      - `jmachowinski <https://github.com/jmachowinski>`_
-     - CET (UTC+1)
      - Member
+     - CET (UTC+1)
    * - Skyler Medeiros
      - `Polymath Robotics <https://www.polymathrobotics.com/>`_
      - `skyegalaxy <https://github.com/skyegalaxy>`_
@@ -141,8 +141,8 @@ The ROS PMC currently consists of the following constituents:
    * - Andrew Symington
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `asymingt <https://github.com/asymingt>`_
-     - PST (UTC-8)/PDT (UTC-7)
      - Member
+     - PST (UTC-8)/PDT (UTC-7)
    * - Yadunund Vijay
      - `FieldAI <https://www.fieldai.com/>`_
      - `Yadunund <https://github.com/Yadunund>`_
