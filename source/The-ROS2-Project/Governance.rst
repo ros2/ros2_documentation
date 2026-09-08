@@ -108,6 +108,16 @@ The ROS PMC currently consists of the following constituents:
      - `sloretz <https://github.com/sloretz>`_
      - Member
      - PST (UTC-8)/PDT (UTC-7)
+   * - Janosch Machowinski
+     - `cellumation <https://cellumation.com/>`_
+     - `jmachowinski <https://github.com/jmachowinski>`_
+     - Member
+     - CET (UTC+1)
+   * - Skyler Medeiros
+     - `Polymath Robotics <https://www.polymathrobotics.com/>`_
+     - `skyegalaxy <https://github.com/skyegalaxy>`_
+     - Member
+     - PST (UTC-8)/PDT (UTC-7)
    * - Audrow Nash
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `Audrow <https://github.com/audrow>`_
@@ -128,6 +138,11 @@ The ROS PMC currently consists of the following constituents:
      - `alsora <https://github.com/alsora>`_
      - Member
      - CET (UTC+1)/CEST (UTC+2)
+   * - Andrew Symington
+     - `Intrinsic <https://www.intrinsic.ai/>`_
+     - `asymingt <https://github.com/asymingt>`_
+     - Member
+     - PST (UTC-8)/PDT (UTC-7)
    * - Yadunund Vijay
      - `FieldAI <https://www.fieldai.com/>`_
      - `Yadunund <https://github.com/Yadunund>`_
@@ -163,10 +178,6 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `quarkytale <https://github.com/quarkytale>`_
      - PST (UTC-8)/PDT (UTC-7)
-   * - Janosch Machowinski
-     - `cellumation <https://cellumation.com/>`_
-     - `jmachowinski <https://github.com/jmachowinski>`_
-     - CET (UTC+1)
    * - Julien Enoch
      - `Zettascale <https://www.zettascale.tech/>`_
      - `JEnoch <https://github.com/JEnoch>`_
@@ -179,10 +190,6 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
      - `CivRobotics <https://www.civrobotics.com/>`_
      - `InvincibleRMC <https://github.com/InvincibleRMC>`_
      - PST (UTC-8)/PDT (UTC-7)
-   * - Skyler Medeiros
-     - `Polymath Robotics <https://www.polymathrobotics.com/>`_
-     - `skyegalaxy <https://github.com/skyegalaxy>`_
-     - PST (UTC-8)/PDT (UTC-7)
    * - Steve Peters
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `scpeters <https://github.com/scpeters>`_
@@ -190,10 +197,6 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
    * - Tully Foote
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `tfoote <https://github.com/tfoote>`_
-     - PST (UTC-8)/PDT (UTC-7)
-   * - Andrew Symington
-     - `Intrinsic <https://www.intrinsic.ai/>`_
-     - `asymingt <https://github.com/asymingt>`_
      - PST (UTC-8)/PDT (UTC-7)
    * - Yuyuan Yuan
      - `Zettascale <https://www.zettascale.tech/>`_
