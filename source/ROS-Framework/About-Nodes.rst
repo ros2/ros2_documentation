@@ -26,22 +26,23 @@ This article describes what nodes do and how they interconnect.
 Summary
 -------
 
-A node is an independent processes that handles a specific task.
+A node is an independent process that handles a specific task.
 The behaviour of nodes is configured using parameters.
 Nodes advertise their presence and establish connections with other compatible nodes through the discovery process.
 Nodes communicate with each other using interfaces.
 
-Nodes
------
+About nodes
+-----------
+
 Nodes are the fundamental building blocks of a ROS system and represent units of computation in a ROS graph.
 Each node is an independent process that handles a specific task, such as reading sensor data, processing an algorithm, or driving a motor.
-Nodes can function as:
+Nodes can function as any of the following:
 
 * A publisher to deliver data to other nodes.
 * A subscriber to get data from other nodes.
-* A service client to have another node perform a computation on their behalf.
+* A service client to have another node perform a computation on its behalf.
 * A service server to provide functionality to other nodes.
-* An action client to have another node perform a long-running computation on their behalf.
+* An action client to have another node perform a long-running computation on its behalf.
 * An action server to provide long-running functionality to other nodes.
 
 In a ROS system, there is typically a complex network of nodes as publishers, subscribers, service servers, service clients, action servers, and action clients, each acting with a different role simultaneously.
@@ -50,7 +51,7 @@ This network is known as the ROS graph. See :doc:`How-ROS-Works`.
 ROS is based on object-oriented programming principles.
 Individual nodes are written as subclasses of the Node class, inheriting properties from it as defined by ROS.
 Configurable parameters enable you to control node behaviour during runtime.
-Learn more: :doc:`parameters <About-Parameters>`.
+See :doc:`parameters <About-Parameters>`.
 
 Communication between nodes
 ---------------------------
@@ -58,10 +59,10 @@ Communication between nodes
 Each node runs separately in its own runtime environment.
 Nodes can communicate with other nodes within the same process, in a different process, or on a different machine.
 
-:doc:`Client libraries <About-Client-Libraries>` provide APIs that allow the node to interface with other nodes, even if other nodes are not written in the same language.
+:doc:`Client libraries <About-Client-Libraries>` provide APIs that allow the node to communicate with other nodes, even if other nodes are not written in the same language.
 
 ROS nodes communicate through interfaces.
-Learn more: :doc:`Interfaces-Topics-Services-Actions`
+See :doc:`Interfaces-Topics-Services-Actions`.
 
 Discovery
 ^^^^^^^^^
@@ -75,34 +76,35 @@ The discovery process can be summarized as follows:
 #. Nodes periodically advertise their presence so that connections can be made with new-found entities, even after the initial discovery period.
 #. Nodes advertise to other nodes when they go offline.
 
-Nodes will only establish connections with other nodes if they have compatible *quality of service* settings.
+Nodes only establish connections with other nodes if they have compatible *quality of service* settings.
 See :doc:`interfaces/topics/Working-with-topics/Quality-of-Service`.
 
 Node management
 ---------------
 
-Individual nodes can be launched by command line.
+You can launch individual nodes by command line.
 ROS launch files allow you to start up and configure a number of executables containing ROS nodes simultaneously.
 
-Learn more about the launch service: :doc:`../Developer-Tools/About-Launch`
+See :doc:`../Developer-Tools/About-Launch`.
 
 Log messages
 ------------
 
-Each node has a logger associated with it and, by default, log messages go out to targets including the console (on stderr), log files on disk, and the ``/rosout`` topic.
+Each node has an associated logger. By default, log messages go out to targets including the console (on stderr), log files on disk, and the ``/rosout`` topic.
 All of the targets can be individually enabled or disabled on a per-node basis.
 
-Learn more about logging: :doc:`nodes/About-Logging/About-Logging`
+See :doc:`nodes/About-Logging/About-Logging`.
 
 Special types of nodes
 ----------------------
+
 * Composable nodes
    A composable node contains separate components with shared memory.
    Learn more about how to write a composable node: :doc:`nodes/Working-with-nodes/Writing-a-Composable-Node`
 * Managed nodes, also known as lifecycle nodes
    These nodes can be used to ensure that resources are correctly initialised, activated, deactivated, and cleaned up as the node moves between lifecycle states.
    A common use case is nodes that control hardware, where devices such as cameras, lidars, motor drivers, and other sensors and actuators must be started, configured, and shut down in a controlled order.
-   Learn more about managed nodes: :doc:`nodes/Working-with-nodes/Managed-Nodes`
+   See :doc:`nodes/Working-with-nodes/Managed-Nodes`.
 
 Related content
 ---------------
