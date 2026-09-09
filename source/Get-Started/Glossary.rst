@@ -20,7 +20,6 @@ Glossary
    :depth: 2
    :local:
 
-.. include:: ../global_substitutions.txt
 .. include:: ../../global_substitutions.txt
 
 Glossary of terms used throughout this documentation:
