@@ -5,6 +5,13 @@
    The-ROS2-Project/Contributing/Migration-Guide
    How-To-Guides/Migrating-from-ROS1/Migrating-CPP-Packages
 
+.. meta::
+   :contentType:
+   :experience:
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Migrating C++ Packages Reference
 ================================
 

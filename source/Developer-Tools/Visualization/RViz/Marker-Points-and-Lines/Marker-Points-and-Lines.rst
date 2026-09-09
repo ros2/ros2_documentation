@@ -1,5 +1,21 @@
-Marker: Points and Lines (C++)
-==============================
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: visualization, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Using Marker Points and Lines (C++) - tutorial
+==============================================
+
+.. short-description::
+   Point and line markers let ROS nodes visualize paths, vertices, and simple connected geometry in RViz.
+   This article explains how to publish ``POINTS``, ``LINE_STRIP``, and ``LINE_LIST`` marker types.
+   After you follow it, you can display an animated helix made from points and line segments.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Show how to use ``visualization_msgs/msg/Marker`` messages to send points and lines to RViz.
 
@@ -8,7 +24,7 @@ Marker: Points and Lines (C++)
 **Time:** 15 Minutes
 
 .. contents:: Contents
-   :depth: 3
+   :depth: 2
    :local:
 
 .. note::
@@ -53,6 +69,8 @@ We start with the headers used by the node, including ``cmath`` for the helix an
    #include "rclcpp/rclcpp.hpp"
    #include "geometry_msgs/msg/point.hpp"
    #include "visualization_msgs/msg/marker.hpp"
+
+.. include:: ../../../../_internal/Rclcpp-Convenience-Header-Note.rst
 
 This should look familiar.
 We initialize ROS 2, create a node, create a publisher on the ``visualization_marker`` topic, and set the loop rate.

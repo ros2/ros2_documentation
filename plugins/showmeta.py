@@ -14,7 +14,7 @@ from docutils import nodes
 from docutils.parsers.rst import directives
 from sphinx.util.docutils import SphinxDirective
 
-from .meta_util import all_doctree_meta, expand_all_meta_values
+from meta_util import all_doctree_meta, expand_all_meta_values
 
 
 def _macros_flat(app) -> dict[str, str]:

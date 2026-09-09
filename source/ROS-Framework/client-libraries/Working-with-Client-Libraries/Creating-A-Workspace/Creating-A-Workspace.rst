@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: tutorial
+   :experience: beginner
+   :area: client-libraries, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Workspace/Creating-A-Workspace
@@ -5,8 +12,17 @@
 
 .. _ROS2Workspace:
 
-Creating a workspace
-====================
+Creating a workspace — tutorial
+===============================
+
+.. short-description::
+   ROS workspaces let you develop and test packages without changing your main ROS installation.
+   This tutorial describes how to create, build, source, and modify an overlay workspace.
+   After following these steps, you will be able to use overlays for iterative package development.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Create a workspace and learn how to set up an overlay for development and testing.
 
@@ -39,7 +55,11 @@ Prerequisites
 * `git installation <https://git-scm.com/book/en/v2/Getting-Started-Installing-Git>`__
 * :doc:`turtlesim installation <../../../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>`
 * Have :doc:`rosdep installed <../Rosdep>`
-* Understanding of basic terminal commands (`here's a guide for Linux <https://www2.cs.sfu.ca/~ggbaker/reference/unix/>`__)
+* Understanding of basic terminal commands
+
+  * `SFU guide for Linux/Unix <https://www2.cs.sfu.ca/~ggbaker/reference/unix/>`__
+  * `Ubuntu Linux command-line guide for beginners <https://ubuntu.com/desktop/docs/en/latest/tutorial/the-linux-command-line-for-beginners/>`__
+
 * Text editor of your choice
 
 Tasks

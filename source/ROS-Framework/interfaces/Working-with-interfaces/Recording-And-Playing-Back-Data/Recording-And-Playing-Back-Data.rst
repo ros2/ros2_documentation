@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: tutorial
+   :experience: beginner
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Ros2bag/Recording-And-Playing-Back-Data
@@ -5,8 +12,17 @@
 
 .. _ROS2Bag:
 
-Recording and playing back data
-===============================
+Recording and playing back data — tutorial
+==========================================
+
+.. short-description::
+   ``ros2 bag`` records data from your ROS system so you can inspect, share, and replay it later.
+   This article shows how to record and play back topic, service, and action data.
+   After following these steps, you can create bag files, examine their contents, and replay them for debugging or analysis.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Record data published on a topic, a service and an action so you can replay and examine it any time.
 
@@ -736,4 +752,4 @@ Related content
 A more thorough explanation of ``ros2 bag`` can be found in the README `here <https://github.com/ros2/rosbag2>`__.
 For more information on service recording and playback can be found in the design document `here <https://github.com/ros2/rosbag2/blob/{DISTRO}/docs/design/rosbag2_record_replay_service.md>`__.
 For more information on action recording and playback can be found in the design document `here <https://github.com/ros2/rosbag2/blob/{DISTRO}/docs/design/rosbag2_record_replay_action.md>`__.
-For more information on QoS compatibility and ``ros2 bag``, see :doc:`../../../../Developer-Tools/Testing/Overriding-QoS-Policies-For-Recording-And-Playback`.
+For more information on QoS compatibility and ``ros2 bag``, see :doc:`../../../../Developer-Tools/Debugging/Testing/Overriding-QoS-Policies-For-Recording-And-Playback`.

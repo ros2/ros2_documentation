@@ -8,4 +8,4 @@ sentence_scan:
     - (\s|^)(\.)(idl|msg|srv|action|NET|rviz)
     - (\s|^)(\.)(tgz|exe|zip|so|repo)
     ignorable_prefixes:
-    - Get-Started/Releases/
+    - Releases/

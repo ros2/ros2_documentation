@@ -1,9 +1,25 @@
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: client-libraries, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Advanced/Creating-An-RMW-Implementation
 
-Creating an ``rmw`` implementation
-==================================
+Creating an ``rmw`` implementation — tutorial
+=============================================
+
+.. short-description::
+   The ``rmw`` interface lets ROS communicate through different middleware implementations.
+   This article describes the features a middleware must support and the main steps for creating a new ``rmw`` implementation.
+   After reading it, you will understand how to structure the package, implement the interface, and test middleware-specific behaviour.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Learn how to create a new ``rmw`` implementation, from the features required from the underlying middleware to the ``rmw`` implementation details.
 
@@ -13,6 +29,19 @@ Creating an ``rmw`` implementation
 
 .. contents:: Table of Contents
    :local:
+
+Summary
+-------
+
+A new rmw implementation must provide middleware support for ROS concepts such as topics, services, nodes, wait sets, type support, QoS, graph introspection, events, and security.
+Some unsupported features can return ``RMW_RET_UNSUPPORTED`` or be reported through ``rmw_feature_supported()``.
+
+Key implementation requirements include:
+
+* Create a shared library package named after the implementation.
+* Declare dependencies and membership of ``rmw_implementation_packages``.
+* Register the implementation for selection with ``RMW_IMPLEMENTATION``.
+* Run interface tests through ``test_rmw_implementation``.
 
 Introduction
 ------------
@@ -268,7 +297,7 @@ Some of these events could be triggered on relevant changes to the graph cache.
 Security
 ^^^^^^^^
 
-:doc:`Security <../../../Developer-Tools/Introspection-and-analysis/About-Security>` is not well-specified by the ``rmw`` interface; most of it is specified by :doc:`SROS2 <../../../Developer-Tools/Introspection-and-analysis/Security/Introducing-ros2-security>`.
+:doc:`Security <../../../Developer-Tools/Introspection-and-analysis/Security/About-Security>` is not well-specified by the ``rmw`` interface; most of it is specified by :doc:`SROS2 <../../../Developer-Tools/Introspection-and-analysis/Security/Introducing-ros2-security>`.
 The interface only defines a few security options as part of the context initialization options, ``rmw_init_options_t``:
 
 #. ``rmw_security_options_t``, which includes a security policy (enforce/permissive) and a path to a directory containing security artifacts, i.e., a keystore.

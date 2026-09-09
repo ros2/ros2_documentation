@@ -2,8 +2,24 @@
 
     How-To-Guides/Releasing/Release-Team-Repository
 
-Release Team / Repository
-=========================
+.. meta::
+   :contentType: how-to
+   :experience: intermediate
+   :area: builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Release Team / Repository - how-to
+==================================
+
+.. short-description::
+   Release repositories must be hosted and maintained with the correct team access before packages can be released.
+   This article explains how ``ros2-gbp`` organizes release teams and release repositories, and which issue templates to use.
+   After you follow it, you can request team membership, create a release team, or set up a release repository.
+
+.. showmeta::
+    :order: area, contentType, experience
+    :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2

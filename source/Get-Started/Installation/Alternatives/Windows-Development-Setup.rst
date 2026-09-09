@@ -1,12 +1,28 @@
+.. meta::
+   :contentType: how-to
+   :experience: expert
+   :area: installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
    Installation/Windows-Development-Setup
    Installation/Alternatives/Windows-Development-Setup
 
-Windows (source)
-================
+Installing on Windows (source) - how-to
+=======================================
 
-.. contents:: Table of Contents
+.. short-description::
+   Building ROS from source on Windows lets you use a development checkout with the tools and dependencies needed for compilation.
+   In this article, you will learn how to prepare Windows, install prerequisites, fetch the source code, build the workspace, and run examples.
+   After you follow these steps, you will have a working ROS source installation on Windows.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -75,9 +91,17 @@ Now install MSVC 2022:
 
    $ .\vs_buildtools_2022.exe --quiet --wait --norestart --add Microsoft.Component.MSBuild --add Microsoft.Net.Component.4.6.1.TargetingPack --add Microsoft.Net.Component.4.8.SDK --add Microsoft.VisualStudio.Component.CoreBuildTools --add Microsoft.VisualStudio.Component.Roslyn.Compiler --add Microsoft.VisualStudio.Component.TextTemplating --add Microsoft.VisualStudio.Component.VC.CLI.Support --add Microsoft.VisualStudio.Component.VC.CoreBuildTools --add Microsoft.VisualStudio.Component.VC.CoreIde --add Microsoft.VisualStudio.Component.VC.Redist.14.Latest --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --add Microsoft.VisualStudio.Component.Windows11SDK --add Microsoft.VisualStudio.Component.Windows11SDK.22621 --add Microsoft.VisualStudio.ComponentGroup.NativeDesktop.Core --add Microsoft.VisualStudio.Workload.MSBuildTools --add Microsoft.VisualStudio.Workload.VCTools
 
-.. note::
+.. important::
+  Now wait for a few minutes as the installation of MSVC can take a long time, and there is no feedback while it is progressing.
 
-   The installation of MSVC can take a long time, and there is no feedback while it is progressing.
+Once you are able to verify the installation path existence with the following check:
+
+.. code-block:: console
+
+   $ "%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe" -products * -version "[17.0,18.0)" -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath
+
+If you see a installation path (``C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools``), you can continue to the next installation steps.
+If not, you'll just need to wait a bit longer and try checking the path again.
 
 Install pixi
 ^^^^^^^^^^^^
@@ -107,7 +131,6 @@ Install dependencies:
 .. code-block:: console
 
    $ pixi install
-
 
 Build ROS 2
 -----------

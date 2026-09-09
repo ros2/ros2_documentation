@@ -1,6 +1,18 @@
-Building
+.. meta::
+   :contentType:
+   :experience: intermediate
+   :area: visualization
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Builds
 ========
 
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+PLACEHOLDER
 Coming Soon
 
 .. toctree::
@@ -17,7 +29,6 @@ Coming Soon
    Build/Ament-CMake-Documentation
    Build/Ament-CMake-Python-Documentation
    Build/Building-a-Custom-Deb-Package
-   Build/Cross-compilation
    Build/Run-2-nodes-in-single-or-separate-docker-containers
    Build/Setup-ROS-2-with-VSCode-and-Docker-Container
    Build/Core-maintainer-guide

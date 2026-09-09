@@ -51,6 +51,10 @@ See [Continuous integration architecture](#continuous-integration-architecture) 
 
 - **`severity`**: `warning` (advisory; soft-fails the ensure step in CI) or `error` (fails the workflow after the review is posted).
 - **`value`**: suggested default text when the field is missing or blank. Leave empty when the contributor must supply a non-empty value.
+- **`allowed`** (optional): canonical vocabulary for that field. When set, every value must match an entry. Comparison is **case-insensitive** (`builds`, `Builds`, and `BUILDS` are the same). Hyphens are kept (`motion-planning` is not the same as `motion planning`).
+- **`allow_multiple`** (optional, default `false`): when `true`, the field may be a comma-separated list. When `false`, only the first value is accepted.
+
+Field **names** also match after normalizing case and separators, so `:contentType:` on a page satisfies the `content-type` rule.
 
 ```yaml
 meta:
@@ -63,15 +67,29 @@ meta:
   area:
     severity: error
     value:
+    allow_multiple: true
+    allowed:
+      - community
+      - framework
+      - builds
   experience:
     severity: warning
     value:
+    allow_multiple: true
+    allowed:
+      - beginner
+      - intermediate
+      - expert
   content-type:
     severity: warning
     value:
+    allowed:
+      - about
+      - how-to
+      - tutorial
 ```
 
-`{PRODUCT}` and `{DISTRO}` are Sphinx substitution macros expanded at build time from [`conf.py`](../conf.py).
+`{PRODUCT}` and `{DISTRO}` are Sphinx substitution macros expanded at build time from [`conf.py`](../conf.py). The `area`, `experience`, and `content-type` lists in the real file are the ROS content taxonomy (parent and child values). Edit that file when the vocabulary changes — do not hard-code the list in Python.
 
 The `after_title` section maps directive names to rules, in the order they should appear after the first document title:
 
@@ -88,20 +106,20 @@ after_title:
       - order
 ```
 
-The `:order:` value lists `.. meta::` field names and must match the `meta` section (e.g. `content-type`, not `contentType`).
+The `:order:` value lists `.. meta::` field names. The checker treats `content-type` and `contentType` as the same field; pages in this repository typically use `contentType` in both `.. meta::` and `.. showmeta::`.
 
 For `short-description`, the contributor should wrap the first prose paragraph after the title into the directive. For `showmeta`, the contributor should add the directive with the configured `:order:` option when missing.
 
 #### Severity behaviour
 
-| Severity | Missing or blank field | CI ensure step | Workflow job |
-|----------|------------------------|----------------|--------------|
+| Severity | Missing, blank, or disallowed value | CI ensure step | Workflow job |
+|----------|-------------------------------------|----------------|--------------|
 | `warning` | Listed in review | Soft warning (`continue-on-error`) | Succeeds |
 | `error` | Listed in review | Soft warning (same step) | **Fails** on final enforce step |
 
 ### Checking enhancements locally
 
-[`ensure_enhancements.py`](ensure_enhancements.py) checks `.rst` files against [`enhance.yaml`](enhance.yaml). It reports missing meta fields and after-title directives; it does not modify files.
+[`ensure_enhancements.py`](ensure_enhancements.py) checks `.rst` files against [`enhance.yaml`](enhance.yaml). It reports missing meta fields, values outside `allowed`, and missing after-title directives; it does not modify files.
 
 #### Usage
 
@@ -203,12 +221,14 @@ Loads and validates [`enhance.yaml`](enhance.yaml):
 Read-only utilities for locating Sphinx directives in RST source:
 
 - **`get_meta_fields_from_content`** — field names and values in the first `.. meta::` block
+- **`lookup_meta_value`** / **`normalize_meta_key`** — resolve `contentType` vs `content-type`
+- **`split_meta_tokens`** / **`normalize_meta_token`** — comma-separated values, case-insensitive
 - **`has_short_description_content`** — whether a non-empty `.. short-description::` body exists
 - **`has_showmeta_with_order`** — whether `.. showmeta::` exists with a non-empty `:order:` option
 
 #### Extending configuration
 
-Add a new key under `meta` in [`enhance.yaml`](enhance.yaml) to extend metadata coverage without changing Python code. `_parse_meta_rules` in [`enhance_config.py`](enhance_config.py) accepts any key with `severity` and `value`, and the rest of the pipeline (unresolved-field detection and review hints) is driven entirely by that mapping.
+Add a new key under `meta` in [`enhance.yaml`](enhance.yaml) to extend metadata coverage without changing Python code. `_parse_meta_rules` in [`enhance_config.py`](enhance_config.py) accepts any key with `severity` and `value` (and optional `allowed` / `allow_multiple`), and the rest of the pipeline (unresolved-field detection, vocabulary checks, and review hints) is driven entirely by that mapping.
 
 `after_title` is only partly config-driven. Its mapping shape lets you reorder or retune the two existing directives (`short-description`, `showmeta`) from YAML alone — but `_parse_after_title_rules` in [`enhance_config.py`](enhance_config.py) whitelists `supported_directives = {"short-description", "showmeta"}`, so adding a *new* after-title directive needs Python changes:
 

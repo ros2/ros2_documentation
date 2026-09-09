@@ -31,6 +31,9 @@ from rst_utils import (
     get_meta_fields_from_content,
     has_short_description_content,
     has_showmeta_with_order,
+    lookup_meta_value,
+    normalize_meta_token,
+    split_meta_tokens,
 )
 
 logger = logging.getLogger(__name__)
@@ -49,6 +52,9 @@ def _unresolved_fields(content: str, rules: dict[str, MetaRule]) -> list[str]:
     """
     Find configured meta fields that are absent or blank in RST content.
 
+    Field names match after normalizing case and separators, so a page that
+    uses ``:contentType:`` satisfies a ``content-type`` rule.
+
     Args:
         content: RST source to inspect.
         rules: Configured metadata rules.
@@ -59,8 +65,52 @@ def _unresolved_fields(content: str, rules: dict[str, MetaRule]) -> list[str]:
     present = get_meta_fields_from_content(content)
     return [
         name for name in rules
-        if name not in present or not present[name].strip()
+        if not (lookup_meta_value(present, name) or "").strip()
     ]
+
+
+def _invalid_field_values(
+    content: str,
+    rules: dict[str, MetaRule],
+) -> dict[str, list[str]]:
+    """
+    Find configured meta fields whose values are not in the allowed vocabulary.
+
+    Comparison is case-insensitive. When ``allow_multiple`` is false, only the
+    first token is checked and further comma-separated tokens are reported as
+    invalid.
+
+    Args:
+        content: RST source to inspect.
+        rules: Configured metadata rules.
+
+    Returns:
+        Mapping of field name to unrecognized raw tokens, in configuration
+        order. Fields that are missing, blank, or have no ``allowed`` list are
+        omitted.
+    """
+    present = get_meta_fields_from_content(content)
+    invalid: dict[str, list[str]] = {}
+    for name, rule in rules.items():
+        if not rule.allowed:
+            continue
+        raw = lookup_meta_value(present, name)
+        if raw is None or not raw.strip():
+            continue
+        allowed = {normalize_meta_token(item) for item in rule.allowed}
+        parts = [part.strip() for part in raw.split(',') if part.strip()]
+        tokens = split_meta_tokens(raw)
+        bad: list[str] = []
+        if not rule.allow_multiple and len(tokens) > 1:
+            bad.extend(parts[1:])
+            parts = parts[:1]
+            tokens = tokens[:1]
+        for part, token in zip(parts, tokens):
+            if token not in allowed:
+                bad.append(part)
+        if bad:
+            invalid[name] = bad
+    return invalid
 
 
 def changed_rst_paths(diff_base: str) -> list[Path]:
@@ -213,13 +263,14 @@ def ensure_enhancements_in_file(
     path_str = str(path).replace("\\", "/")
 
     unresolved = _unresolved_fields(content, config.meta)
+    invalid = _invalid_field_values(content, config.meta)
     after_title_unresolved = [
         directive
         for directive in config.after_title
         if not _after_title_rule_satisfied(content, directive)
     ]
 
-    if not unresolved and not after_title_unresolved:
+    if not unresolved and not invalid and not after_title_unresolved:
         logger.info("%s: all configured enhancements present", path)
         return None
 
@@ -227,6 +278,7 @@ def ensure_enhancements_in_file(
         "path": path_str,
         "meta_required": _severity_fields(unresolved, config.meta, "error"),
         "meta_optional": _severity_fields(unresolved, config.meta, "warning"),
+        "meta_invalid": invalid,
         "after_title_required": _severity_fields(
             after_title_unresolved,
             config.after_title,
@@ -271,6 +323,17 @@ def _meta_field_hint(name: str, rule: MetaRule) -> str:
     return f"`{name}` ({severity})"
 
 
+def _meta_invalid_hint(name: str, tokens: list[str], rule: MetaRule) -> str:
+    """Format one field with values outside the allowed vocabulary."""
+    severity = "required" if rule.severity == "error" else "optional"
+    unknown = ", ".join(f"`{token}`" for token in tokens)
+    allowed = ", ".join(f"`{item}`" for item in rule.allowed)
+    return (
+        f"`{name}` ({severity}, unknown {unknown}; "
+        f"allowed: {allowed}; capitalisation is ignored)"
+    )
+
+
 def _after_title_hint(name: str, rule: AfterTitleRule) -> str:
     """Format one missing after-title directive for the review comment."""
     severity = "required" if rule.severity == "error" else "optional"
@@ -301,6 +364,7 @@ def build_review_comment(
         SUMMARY_REVIEW_TITLE,
         "",
         "This pull request is missing configured documentation enhancements "
+        "or uses values outside the configured vocabulary "
         "(see `tools/enhance.yaml`).",
         "",
     ]
@@ -317,6 +381,14 @@ def build_review_comment(
                 for name in meta_required + meta_optional
             ]
             lines.append(f"- Missing `.. meta::` fields: {', '.join(hints)}")
+
+        meta_invalid = dict(result.get("meta_invalid") or {})
+        if meta_invalid:
+            hints = [
+                _meta_invalid_hint(name, tokens, config.meta[name])
+                for name, tokens in meta_invalid.items()
+            ]
+            lines.append(f"- Invalid `.. meta::` values: {', '.join(hints)}")
 
         after_title_required = list(result.get("after_title_required") or [])
         after_title_optional = list(result.get("after_title_optional") or [])
@@ -443,7 +515,12 @@ def main(argv: list[str] | None = None) -> int:
         )
 
     has_errors = any(
-        result["meta_required"] or result.get("after_title_required")
+        result["meta_required"]
+        or result.get("after_title_required")
+        or any(
+            config.meta[name].severity == "error"
+            for name in (result.get("meta_invalid") or {})
+        )
         for result in results
     )
 

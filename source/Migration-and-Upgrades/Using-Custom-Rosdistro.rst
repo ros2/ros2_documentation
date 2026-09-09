@@ -1,14 +1,25 @@
+.. meta::
+   :contentType: how-to
+   :experience: TBD
+   :area: installation, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     How-To-Guides/Using-Custom-Rosdistro
 
-Using Custom Rosdistro Version
-==============================
+Using a custom rosdistro version - how-to
+=========================================
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 
 .. contents:: Contents
-    :depth: 2
-    :local:
+   :depth: 2
+   :local:
 
 
 Overview

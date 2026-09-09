@@ -3,8 +3,23 @@
     Developer-Guide
     Contributing/Developer-Guide
 
+.. meta::
+   :contentType: reference
+   :experience: beginner, intermediate, expert
+   :area: contributing, community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 ROS 2 developer guide
 =====================
+
+.. short-description::
+   Consistent development practices help ROS contributors maintain stable, high-quality packages across the ecosystem.
+   This article describes the core development principles, quality expectations, versioning rules, platform support policies, and review practices used when developing ROS.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2
@@ -169,7 +184,7 @@ Guidelines for backporting PRs
 When changing an older version of ROS:
 
 * Make sure the features or fixes are accepted and merged in the rolling branch before opening a PR to backport the changes to older versions.
-* When backporting to older versions, also consider backporting to any other :doc:`still supported versions <../../Get-Started/Releases>`, even non-LTS versions.
+* When backporting to older versions, also consider backporting to any other :doc:`still supported versions <../../Releases>`, even non-LTS versions.
 * If you are backporting a single PR in its entirety, title the backport PR "[Distro] <name of original PR>".
 * Link to all PRs whose changes you're backporting from the description of your backport PR.
 * Package maintainers typically use `Mergifyio <https://mergify.com/>`_ to automatically backport PRs to downstream distributions when needed, however developers can still perform manual backporting operations as described above when necessary.
@@ -297,7 +312,7 @@ For example: Development commits targeting ``foxy`` are made to the ``foxy`` bra
 
 **What about** ``main`` **and** ``rolling`` **?**
 
-``main`` typically targets :doc:`Rolling <../../Get-Started/Releases/Release-Rolling-Ridley>` (and so, the next unreleased ROS distribution), though the maintainers may decide to develop and release from a ``rolling`` branch instead.
+``main`` typically targets :doc:`Rolling <../../Releases/Release-Rolling-Ridley>` (and so, the next unreleased ROS distribution), though the maintainers may decide to develop and release from a ``rolling`` branch instead.
 
 .. _DeveloperGuidePullRequests:
 
@@ -472,7 +487,7 @@ The original ROS packages have been modified to follow Debian guidelines, which 
 
 In addition several of the bootstrap dependencies such as command line tools like ``vcstool`` and ``colcon`` as well as some libraries like ``osrf-pycommon`` and ``ament`` are also packaged upstream.
 
-Unlike the OSRF-provided ROS packages from http://packages.ros.org, the packages in the upstream repositories are not attached to a specific :doc:`ROS distribution <../../Get-Started/Releases>`.
+Unlike the OSRF-provided ROS packages from http://packages.ros.org, the packages in the upstream repositories are not attached to a specific :doc:`ROS distribution <../../Releases>`.
 Rather, they represent a snapshot in time that will be updated periodically within Debian unstable and then latched at various points into downstream Debian and Ubuntu distributions.
 
 Don't mix the streams

@@ -1,12 +1,26 @@
+.. meta::
+   :contentType: about
+   :experience: beginner, intermediate, expert
+   :area: community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _Metrics:
 
 Metrics
 =======
 
+.. short-description::
+   ROS community metrics help track project activity, ecosystem health, and the impact of ongoing development work.
+   This article provides links to live project dashboards, package download data, citation information, and historical metrics reports so you can explore how the ROS community is measured over time.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
 .. contents:: Table of Contents
    :depth: 2
    :local:
-
 
 While we do not track ROS users, we do measure various aspects of the ROS community to understand and track the impact of our work and identify areas for improvement.
 

@@ -29,6 +29,7 @@ from enhance_config import (
 from ensure_enhancements import (
     REVIEW_MARKER,
     SUMMARY_REVIEW_TITLE,
+    _invalid_field_values,
     _unresolved_fields,
     build_review_comment,
     changed_rst_paths,
@@ -104,6 +105,31 @@ class TestEnhanceConfig(unittest.TestCase):
         self.assertTrue(rules["product"].has_configured_value)
         self.assertFalse(rules["area"].has_configured_value)
         self.assertEqual(rules["area"].severity, "error")
+        self.assertEqual(rules["area"].allowed, ())
+        self.assertFalse(rules["area"].allow_multiple)
+
+    def test_load_enhance_config_parses_allowed_values(self) -> None:
+        config_text = textwrap.dedent(
+            """
+            meta:
+              area:
+                severity: error
+                value:
+                allow_multiple: true
+                allowed:
+                  - builds
+                  - framework
+            """
+        ).strip()
+        with tempfile.NamedTemporaryFile("w", suffix=".yaml", delete=False) as handle:
+            handle.write(config_text)
+            path = Path(handle.name)
+        try:
+            config = load_enhance_config(path)
+        finally:
+            path.unlink()
+        self.assertEqual(config.meta["area"].allowed, ("builds", "framework"))
+        self.assertTrue(config.meta["area"].allow_multiple)
 
     def test_load_enhance_config_parses_after_title(self) -> None:
         with tempfile.NamedTemporaryFile("w", suffix=".yaml", delete=False) as handle:
@@ -139,6 +165,60 @@ class TestUnresolvedFields(unittest.TestCase):
         )
         self.assertEqual(_unresolved_fields(content, rules), ["product", "area"])
 
+    def test_content_type_alias_counts_as_present(self) -> None:
+        rules = {"content-type": MetaRule("warning", "")}
+        content = textwrap.dedent(
+            """
+            .. meta::
+               :contentType: about
+
+            Title
+            =====
+            """
+        )
+        self.assertEqual(_unresolved_fields(content, rules), [])
+
+
+class TestInvalidFieldValues(unittest.TestCase):
+    def test_case_variants_are_accepted(self) -> None:
+        rules = {
+            "area": MetaRule("error", "", allowed=("builds", "framework"), allow_multiple=True),
+        }
+        content = textwrap.dedent(
+            """
+            .. meta::
+               :area: Builds, FRAMEWORK
+            """
+        )
+        self.assertEqual(_invalid_field_values(content, rules), {})
+
+    def test_unknown_token_is_reported(self) -> None:
+        rules = {
+            "area": MetaRule("error", "", allowed=("builds",), allow_multiple=True),
+        }
+        content = textwrap.dedent(
+            """
+            .. meta::
+               :area: builds, bananas
+            """
+        )
+        self.assertEqual(_invalid_field_values(content, rules), {"area": ["bananas"]})
+
+    def test_extra_values_rejected_when_not_multiple(self) -> None:
+        rules = {
+            "content-type": MetaRule("warning", "", allowed=("about", "how-to")),
+        }
+        content = textwrap.dedent(
+            """
+            .. meta::
+               :contentType: about, tutorial
+            """
+        )
+        self.assertEqual(
+            _invalid_field_values(content, rules),
+            {"content-type": ["tutorial"]},
+        )
+
 
 class TestEnsureEnhancementsInFile(unittest.TestCase):
     def test_reports_missing_meta_fields(self) -> None:
@@ -159,6 +239,7 @@ class TestEnsureEnhancementsInFile(unittest.TestCase):
             self.assertIn("area", result["meta_required"])
             self.assertEqual(result["after_title_optional"], [])
             self.assertEqual(result["after_title_required"], [])
+            self.assertEqual(result["meta_invalid"], {})
 
     def test_no_result_when_all_fields_present(self) -> None:
         config = EnhanceConfig(
@@ -178,6 +259,32 @@ class TestEnsureEnhancementsInFile(unittest.TestCase):
             path = Path(tmp) / "page.rst"
             path.write_text(content, encoding="utf-8")
             self.assertIsNone(ensure_enhancements_in_file(path, config))
+
+    def test_reports_disallowed_area_as_error(self) -> None:
+        config = EnhanceConfig(
+            meta={
+                "area": MetaRule(
+                    "error",
+                    "",
+                    allowed=("framework",),
+                    allow_multiple=True,
+                ),
+            },
+            after_title={},
+        )
+        content = textwrap.dedent(
+            """
+            .. meta::
+               :area: bananas
+            """
+        ).lstrip()
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "page.rst"
+            path.write_text(content, encoding="utf-8")
+            result = ensure_enhancements_in_file(path, config)
+            self.assertIsNotNone(result)
+            assert result is not None
+            self.assertEqual(result["meta_invalid"], {"area": ["bananas"]})
 
     def test_does_not_modify_files(self) -> None:
         config = EnhanceConfig(
@@ -230,12 +337,15 @@ class TestReviewAndExit(unittest.TestCase):
                 "meta_optional": ["product", "experience"],
                 "after_title_required": [],
                 "after_title_optional": ["short-description", "showmeta"],
+                "meta_invalid": {"area": ["bananas"]},
             },
         ]
         body = build_review_comment(results, config=config)
         self.assertIn(SUMMARY_REVIEW_TITLE, body)
         self.assertIn("source/Page.rst", body)
         self.assertIn("Missing `.. meta::` fields", body)
+        self.assertIn("Invalid `.. meta::` values", body)
+        self.assertIn("bananas", body)
         self.assertIn("Missing after-title directives", body)
         self.assertIn("required", body)
         self.assertIn("{PRODUCT}", body)

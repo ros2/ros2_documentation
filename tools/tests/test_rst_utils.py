@@ -21,6 +21,10 @@ from rst_utils import (
     get_meta_fields_from_content,
     has_short_description_content,
     has_showmeta_with_order,
+    lookup_meta_value,
+    normalize_meta_key,
+    normalize_meta_token,
+    split_meta_tokens,
 )
 
 
@@ -43,6 +47,16 @@ class TestMetaFields(unittest.TestCase):
     def test_returns_empty_when_no_meta_block(self) -> None:
         content = "Title\n=====\n"
         self.assertEqual(get_meta_fields_from_content(content), {})
+
+    def test_lookup_accepts_content_type_aliases(self) -> None:
+        fields = {"contentType": "about"}
+        self.assertEqual(lookup_meta_value(fields, "content-type"), "about")
+        self.assertEqual(normalize_meta_key("contentType"), normalize_meta_key("content-type"))
+
+    def test_tokens_ignore_case_and_keep_hyphens(self) -> None:
+        self.assertEqual(normalize_meta_token("Builds"), normalize_meta_token("BUILDS"))
+        self.assertEqual(split_meta_tokens("Builds, framework"), ["builds", "framework"])
+        self.assertNotEqual(normalize_meta_token("motion-planning"), normalize_meta_token("motion planning"))
 
 
 class TestShortDescription(unittest.TestCase):

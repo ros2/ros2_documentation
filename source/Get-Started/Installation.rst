@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: about
+   :experience: beginner, intermediate
+   :area: installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Installation
@@ -8,7 +15,17 @@
 Installation
 ============
 
-Options for installing ROS 2 {DISTRO_TITLE_FULL}:
+.. short-description::
+   Installing ROS correctly ensures your development environment matches your platform, permissions, and intended use.
+   This article outlines the supported installation options, compares binary packages with source builds, and helps you choose the best approach for getting started.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 .. toctree::
    :maxdepth: 1
@@ -27,7 +44,7 @@ Options for installing ROS 2 {DISTRO_TITLE_FULL}:
 Binary packages
 ---------------
 
-Binaries are only created for the Tier 1 operating systems listed in :doc:`Lyrical Luth release docs <Releases/Release-Lyrical-Luth>`.
+Binaries are only created for the Tier 1 operating systems listed in :doc:`Lyrical Luth release docs <../../Releases/Release-Lyrical-Luth>`.
 If you are not running any of the following operating systems you may need to build from source or use a :doc:`container solution <../Developer-Tools/Build/Run-2-nodes-in-single-or-separate-docker-containers>` to run ROS 2 on your platform.
 
 We provide ROS 2 binary packages for the following platforms:

@@ -2,6 +2,10 @@
 # meta: .. meta:: field rules (severity and optional default values).
 # after_title: mapping of directive name → rules for post-title insertion (YAML key order).
 # Sphinx expands {PRODUCT} and {DISTRO} at build time (see conf.py).
+#
+# allowed: canonical vocabulary (case-insensitive). allow_multiple: comma-separated
+# values. Field names match after normalizing case, hyphens, and camelCase
+# (content-type and contentType are the same field).
 meta:
   product:
     severity: warning
@@ -12,12 +16,50 @@ meta:
   area:
     severity: error
     value:
+    allow_multiple: true
+    allowed:
+      - community
+      - contributing
+      - installation
+      - framework
+      - nodes
+      - interfaces
+      - parameters
+      - client-libraries
+      - tools
+      - introspection
+      - analysis
+      - node-management
+      - debugging
+      - builds
+      - visualization
+      - package-documentation
+      - capabilities
+      - simulation
+      - motion-planning
+      - navigation
+      - manipulation
+      - perception
   experience:
     severity: warning
     value:
+    allow_multiple: true
+    allowed:
+      - beginner
+      - intermediate
+      - expert
   content-type:
     severity: warning
     value:
+    allowed:
+      - about
+      - how-to
+      - tutorial
+      - reference
+      - example
+      - learning-path
+      - process-overview
+      - release-note
 
 after_title:
   short-description:

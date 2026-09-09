@@ -2,8 +2,28 @@
 
     Tutorials/Advanced/Create-An-Rqtbag-Plugin
 
-Create an rqt_bag Plugin
-========================
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: visualization, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Creating an rqt_bag Plugin - tutorial
+=====================================
+
+.. short-description::
+   ``rqt_bag`` plugins provide custom visualizations for recorded message data.
+   This article explains how to create a Python plugin with a message view panel and timeline renderer.
+   After you follow it, you can display selected messages and draw custom timeline markers for supported message types.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
 
 Let's say you have bag files and you want to be able to create a custom visualization of some data.
 ``rqt_bag`` gives you the ability to scroll through the recorded messages and visualize the raw message values.

@@ -1,5 +1,12 @@
-ROS Community
-=============
+.. meta::
+  :contentType:
+  :experience: beginner, intermediate, expert
+  :area: community
+  :distribution: {DISTRO}
+  :product: {PRODUCT}
+
+Community
+=========
 
 Check out the resources below to learn more about the advancement of the ROS 2 project.
 

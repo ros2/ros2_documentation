@@ -2,8 +2,24 @@
 
     Tutorials/Intermediate/Writing-a-Composable-Node
 
-Writing a Composable Node (C++)
-===============================
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: nodes, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Writing a Composable Node (C++) — tutorial
+==========================================
+
+.. short-description::
+   Composable nodes let you run multiple ROS nodes in a single process for more efficient communication.
+   This tutorial explains how to convert a regular ``rclcpp::Node`` executable into a component.
+   After completing it, you will be able to update the node code, build configuration, and launch file needed to run the node in a component container.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2

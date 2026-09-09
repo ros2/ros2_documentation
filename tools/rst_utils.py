@@ -72,6 +72,77 @@ def _extract_field_values(block_inner: str) -> dict[str, str]:
     return fields
 
 
+def normalize_meta_key(raw: str) -> str:
+    """
+    Normalize a metadata field name for comparison.
+
+    Case, spaces, hyphens, and underscores are ignored, so ``contentType``,
+    ``content-type``, and ``Content-Type`` compare equal.
+
+    Args:
+        raw: Field name from RST or configuration.
+
+    Returns:
+        A compact lowercase key with separators removed.
+    """
+    name = raw.strip().lower().rstrip(':')
+    name = name.replace('_', '-').replace(' ', '-')
+    return name.replace('-', '')
+
+
+def lookup_meta_value(fields: dict[str, str], name: str) -> str | None:
+    """
+    Return the first field body whose name matches ``name`` after normalization.
+
+    Args:
+        fields: Mapping from raw ``.. meta::`` field names to values.
+        name: Configured field name to look up.
+
+    Returns:
+        The matching field body, or ``None`` when no key matches.
+    """
+    wanted = normalize_meta_key(name)
+    for key, value in fields.items():
+        if normalize_meta_key(key) == wanted:
+            return value
+    return None
+
+
+def normalize_meta_token(raw: str) -> str:
+    """
+    Normalize one metadata value token for comparison.
+
+    Case is ignored and inner whitespace is collapsed, so ``Builds``,
+    ``builds``, and ``BUILDS`` compare equal. Hyphens are kept, so
+    ``motion-planning`` and ``motion planning`` remain distinct.
+
+    Args:
+        raw: A single value or comma-separated part.
+
+    Returns:
+        The normalized token, which may be empty.
+    """
+    return ' '.join(raw.strip().lower().split())
+
+
+def split_meta_tokens(value: str) -> list[str]:
+    """
+    Split a comma-separated metadata value into normalized unique tokens.
+
+    Args:
+        value: Raw field body, possibly containing several values.
+
+    Returns:
+        Normalized tokens in first-seen order.
+    """
+    tokens: list[str] = []
+    for part in value.split(','):
+        token = normalize_meta_token(part)
+        if token and token not in tokens:
+            tokens.append(token)
+    return tokens
+
+
 def get_meta_fields_from_content(content: str) -> dict[str, str]:
     """
     Return field names and values from the first ``.. meta::`` block.
