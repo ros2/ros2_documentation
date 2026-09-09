@@ -1,7 +1,25 @@
-
+.. meta::
+   :contentType: how-to
+   :experience: beginner, intermediate, expert
+   :area: parameters, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
 
 Working with parameters
 =======================
+
+.. short-description::
+   Parameters are configuration values that let you adapt node behavior without changing code.
+   This article describes how parameters are declared, typed, set, queried, and updated in ROS.
+   After reading it, you will understand how to configure nodes with parameters and react to parameter changes.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Table of Contents
+   :depth: 2
+   :hidden:
 
 Coming Soon
 

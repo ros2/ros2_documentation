@@ -3,10 +3,26 @@
     Tutorials/Topics/Understanding-ROS2-Topics
     Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics
 
+.. meta::
+   :contentType: tutorial
+   :experience: beginner
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _ROS2Topics:
 
 Understanding topics
 ====================
+
+.. short-description::
+   Topics are one of the main ways nodes exchange data in a ROS system.
+   In this article, you will use ``rqt_graph`` and command-line tools to inspect topic connections, message types, published data, rates, and bandwidth.
+   After you follow these steps, you will be able to understand and test how data moves between nodes.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Use rqt_graph and command line tools to introspect ROS 2 topics.
 

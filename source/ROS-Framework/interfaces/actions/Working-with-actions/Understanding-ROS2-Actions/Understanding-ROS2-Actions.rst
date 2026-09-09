@@ -3,10 +3,26 @@
     Tutorials/Understanding-ROS2-Actions
     Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions
 
+.. meta::
+   :contentType: tutorial
+   :experience: beginner
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _ROS2Actions:
 
 Understanding actions
 =====================
+
+.. short-description::
+   Actions are useful when a robot needs to run a task that takes time and may need feedback or cancellation.
+   In this article, you will use turtlesim and command-line tools to inspect and send ROS action goals.
+   After you follow these steps, you will understand how action clients, servers, goals, feedback, and results work.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Introspect actions in ROS 2.
 
