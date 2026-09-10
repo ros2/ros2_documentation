@@ -1,12 +1,24 @@
 .. meta::
-   :contentType:
-   :experience:
-   :area: introspection, analysis
+   :contentType: about
+   :experience: beginner, intermediate, expert
+   :area: introspection, analysis, tools
    :distribution: {DISTRO}
    :product: {PRODUCT}
 
 Introspection and analysis
 ==========================
+
+.. short-description::
+   Understanding what is happening inside your robot's software is essential for debugging, optimization, and system maintenance.
+   This article summarizes the ROS tools and guidance available for introspection and analysis, including ways to inspect runtime behavior, monitor data, and analyze system performance.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
 
 Coming Soon
 

@@ -10,10 +10,27 @@
     Tutorials/Parameters/Understanding-ROS2-Parameters
     Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters
 
+
+.. meta::
+   :contentType: tutorial
+   :experience: beginner
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _ROS2Params:
 
 Learning about parameters - tutorial
 =====================================
+
+.. short-description::
+   Parameters are configuration values that let nodes change behavior without changing code.
+   In this article, you will use Turtlesim and command-line tools to inspect, set, save, and reload ROS parameters.
+   After you follow these steps, you will be able to configure node behavior at runtime and from a YAML file.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 Parameters are configuration values stored by each node in the ROS graph.
 This article walks you through using the ``ros2 param`` command-line tools to inspect, change, save, and reload parameters.

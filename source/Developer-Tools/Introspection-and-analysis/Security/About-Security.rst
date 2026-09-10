@@ -10,6 +10,13 @@
    Concepts/About-Security
    Concepts/Intermediate/About-Security
 
+.. meta::
+   :contentType: about
+   :experience: intermediate
+   :area: tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 ROS 2 Security
 ==============
 

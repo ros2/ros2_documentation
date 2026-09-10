@@ -9,8 +9,23 @@
 
     Concepts/Basic/About-Interfaces
 
+.. meta::
+   :contentType: about
+   :experience: beginner, intermediate, expert
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Interfaces
 ==========
+
+.. short-description::
+   Interfaces in ROS define the structured data used by nodes to exchange messages, make requests, and coordinate long-running tasks.
+   This article explains how message, service, and action interface files are written, organized, and used to generate code across supported programming languages.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. toctree::
    :maxdepth: 1
@@ -21,6 +36,7 @@ Interfaces
    Working-with-interfaces
 
 .. contents:: Table of Contents
+   :depth: 2
    :local:
 
 Background

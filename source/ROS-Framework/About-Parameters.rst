@@ -11,8 +11,23 @@
     Concepts/About-ROS-2-Parameters
     Concepts/Basic/About-Parameters
 
+.. meta::
+   :contentType: about
+   :experience: beginner
+   :area: parameters, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Parameters
 ==========
+
+.. short-description::
+   Parameters in ROS configure node behavior without requiring changes to the node's source code.
+   This article explains how parameters are structured, declared, typed, updated, and monitored, helping you understand how to manage configuration across a ROS system.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level   
 
 .. toctree::
    :maxdepth: 1
@@ -21,6 +36,7 @@ Parameters
    parameters/Working-with-parameters
 
 .. contents:: Table of Contents
+   :depth: 2
    :local:
 
 Overview
