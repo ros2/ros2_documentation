@@ -1,3 +1,9 @@
+.. meta::
+   :contentType:
+   :experience:
+   :area: nodes, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
 
 
 Working with nodes

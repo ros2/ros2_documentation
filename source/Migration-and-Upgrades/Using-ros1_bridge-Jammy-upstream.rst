@@ -1,3 +1,10 @@
+.. meta::
+   :contentType:
+   :experience:
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     How-To-Guides/Using-ros1_bridge-Jammy-upstream

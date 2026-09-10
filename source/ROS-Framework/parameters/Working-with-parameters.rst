@@ -1,3 +1,9 @@
+.. meta::
+   :contentType:
+   :experience:
+   :area: parameters, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
 
 
 Working with parameters

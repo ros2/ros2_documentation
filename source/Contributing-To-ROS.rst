@@ -1,3 +1,10 @@
+.. meta::
+   :contentType:
+   :experience:
+   :area: contributing, community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Contributing to ROS
 ===================
 

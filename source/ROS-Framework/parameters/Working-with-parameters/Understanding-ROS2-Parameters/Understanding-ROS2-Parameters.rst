@@ -1,3 +1,10 @@
+.. meta::
+   :contentType:
+   :experience:
+   :area: parameters, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Parameters/Understanding-ROS2-Parameters

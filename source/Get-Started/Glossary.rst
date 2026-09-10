@@ -1,3 +1,10 @@
+.. meta::
+   :contentType:
+   :experience:
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Glossary
 ========
 

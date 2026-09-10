@@ -1,3 +1,10 @@
+.. meta::
+   :contentType:
+   :experience:
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
    How-To-Guides/Implementing-custom-interfaces

@@ -1,3 +1,9 @@
+.. meta::
+   :contentType:
+   :experience:
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
 
 
 Working with services

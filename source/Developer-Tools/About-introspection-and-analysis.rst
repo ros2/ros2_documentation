@@ -1,3 +1,10 @@
+.. meta::
+   :contentType:
+   :experience:
+   :area: introspection, analysis
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Introspection and analysis
 ==========================
 

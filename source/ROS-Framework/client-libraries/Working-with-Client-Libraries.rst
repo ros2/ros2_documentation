@@ -1,3 +1,10 @@
+.. meta::
+   :contentType:
+   :experience:
+   :area: client-libraries, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Working with Client libraries
 =============================
 
