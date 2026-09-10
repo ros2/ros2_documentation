@@ -1,10 +1,3 @@
-.. meta::
-   :contentType:
-   :experience:
-   :area: interfaces, framework
-   :distribution: {DISTRO}
-   :product: {PRODUCT}
-
 .. redirect-from::
 
     Tutorials/Topics/Understanding-ROS2-Topics

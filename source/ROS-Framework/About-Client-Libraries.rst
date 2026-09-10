@@ -1,10 +1,3 @@
-.. meta::
-   :contentType:
-   :experience:
-   :area: client-libraries, framework
-   :distribution: {DISTRO}
-   :product: {PRODUCT}
-
 .. redirect-from::
 
    Concepts/About-Client-Interfaces

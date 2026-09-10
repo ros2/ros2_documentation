@@ -1,10 +1,3 @@
-.. meta::
-   :contentType:
-   :experience:
-   :area: contributing, community
-   :distribution: {DISTRO}
-   :product: {PRODUCT}
-
 .. redirect-from::
 
     Source-Control-Best-Practices

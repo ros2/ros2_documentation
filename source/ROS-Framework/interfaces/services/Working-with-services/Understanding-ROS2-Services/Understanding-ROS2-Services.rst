@@ -1,10 +1,3 @@
-.. meta::
-   :contentType:
-   :experience:
-   :area: interfaces, framework
-   :distribution: {DISTRO}
-   :product: {PRODUCT}
-
 .. redirect-from::
 
     Tutorials/Services/Understanding-ROS2-Services

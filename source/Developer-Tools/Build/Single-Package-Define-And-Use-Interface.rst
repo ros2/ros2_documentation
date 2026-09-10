@@ -1,10 +1,3 @@
-.. meta::
-   :contentType:
-   :experience:
-   :area: interfaces, framework
-   :distribution: {DISTRO}
-   :product: {PRODUCT}
-
 .. redirect-from::
 
    How-To-Guides/Implementing-custom-interfaces
@@ -14,7 +7,7 @@
    :experience: beginner, intermediate
    :area: builds, tools
    :distribution: {DISTRO}
-   :product: {PRODUCT}  
+   :product: {PRODUCT}
 
 Implementing custom interfaces - how-to
 =======================================

@@ -14,7 +14,7 @@ Contributing to ROS
 
 .. showmeta::
    :order: area, contentType, experience
-   :labels: area=Area, contentType=Content type, experience=Level  
+   :labels: area=Area, contentType=Content type, experience=Level
 
 ROS (Robot Operating System) is an open-source ecosystem.
 We rely on contributions from our community to help us grow and improve.

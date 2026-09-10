@@ -1,10 +1,3 @@
-.. meta::
-   :contentType:
-   :experience:
-   :area: parameters, framework
-   :distribution: {DISTRO}
-   :product: {PRODUCT}
-
 .. redirect-from::
 
     About-ROS-2-Parameters
@@ -27,7 +20,7 @@ Parameters
 
 .. showmeta::
    :order: area, contentType, experience
-   :labels: area=Area, contentType=Content type, experience=Level   
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. toctree::
    :maxdepth: 1

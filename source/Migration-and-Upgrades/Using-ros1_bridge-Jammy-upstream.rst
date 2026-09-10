@@ -1,10 +1,3 @@
-.. meta::
-   :contentType:
-   :experience:
-   :area: framework
-   :distribution: {DISTRO}
-   :product: {PRODUCT}
-
 .. redirect-from::
 
     How-To-Guides/Using-ros1_bridge-Jammy-upstream
@@ -26,7 +19,7 @@ Using ``ros1_bridge`` with upstream ROS on Ubuntu 22.04 - how-to
 
 .. showmeta::
    :order: area, contentType, experience
-   :labels: area=Area, contentType=Content type, experience=Level   
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2

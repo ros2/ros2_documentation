@@ -1,10 +1,3 @@
-.. meta::
-   :contentType:
-   :experience:
-   :area: node-management
-   :distribution: {DISTRO}
-   :product: {PRODUCT}
-
 .. redirect-from::
 
    Concepts/About-Security
