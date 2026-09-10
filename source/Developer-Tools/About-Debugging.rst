@@ -31,7 +31,7 @@ For example, debugging overlaps with introspection, analysis, node management, v
 Core ROS packages
 -----------------
 
-* `ros2doctor <https://docs.ros.org/en/kilted/p/ros2doctor/>`_: Command line tool to check for common misconfigurations in a ROS system.
+* `ros2doctor <{package_link(ros2doctor)}>`__: Command line tool to check for common misconfigurations in a ROS system.
 
 * `tracetools <https://docs.ros.org/en/kilted/p/tracetools/>`_: Trace points for creating and debugging execution traces.
 
