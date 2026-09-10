@@ -14,11 +14,12 @@ Debugging
 Sometimes your robot won't behave as you expected.
 This article summarizes the ROS developer tools and guidance available to help with debugging.
 
+**Area: debugging, tools | Content-type: about | Experience: beginner, intermediate, expert**
+
 .. contents:: Table of Contents
    :local:
    :depth: 2
 
-**Area: debugging, tools | Content-type: about | Experience: beginner, intermediate, expert**
 
 Summary
 -------
