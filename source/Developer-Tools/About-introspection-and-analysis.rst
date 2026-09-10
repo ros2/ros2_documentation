@@ -40,7 +40,7 @@ Core ROS packages
 
 * `rqt <https://github.com/ros-visualization/rqt>`_: A set of graphical tools for visualizing and interacting with ROS data.
 
-* `rosbag2 <https://docs.ros.org/en/kilted/p/ros2bag/>`_: Tool for recording and playing back data moving across topics, services and actions in a ROS application.
+* `rosbag2 <{package_link(rosbag2)}>`_: Tool for recording and playing back data moving across topics, services and actions in a ROS application.
 
 * `rosconsole <https://github.com/ros/rosconsole/>`_: A logging tool for monitoring, debugging, and diagnosing running applications.
 
