@@ -16,6 +16,10 @@ This page explains how to setup a development environment for ROS 2 on macOS.
 System requirements
 -------------------
 
+This page was tested on macOS 26.
+The Rolling Ridley distribution will change target platforms from time to time as new platforms become available.
+Most people will want to use a stable ROS distribution.
+
 Disable System Integrity Protection (SIP)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -201,15 +205,6 @@ Since Homebrew installs Eigen in a different directory, create a symbolic link t
 .. code-block:: console
 
    $ sudo ln -sfn /opt/homebrew/opt/eigen@3/include/eigen3 /opt/homebrew/include/eigen3
-
-If you are using Xcode 26 or later,
-apply the following Git patch to ensure the correct flags are set when building ``rviz_ogre_vendor``:
-
-.. code-block:: console
-
-   $ cd ~/ros2_{DISTRO}/src/ros2/rviz/rviz_ogre_vendor
-   $ git apply patches/0007-fix-xcodebuild-n-xcode26.patch
-
 
 Install additional RMW implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
