@@ -50,9 +50,9 @@ Larger packages like MoveIt, Nav2, and microROS, are given their own domain or s
 
 * `Navigation2 <https://nav2.org/>`_
 
-* `Control <https://control.ros.org/rolling/index.html>`_
+* `ros2_control <https://control.ros.org/{DISTRO}/index.html>`_
 
-* `microROS (embedded systems) <https://micro.vulcanexus.org/>`_
+* `micro-ROS (embedded systems) <https://micro.ros.org/>`_
 
 API documentation
 ^^^^^^^^^^^^^^^^^
