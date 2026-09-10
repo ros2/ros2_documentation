@@ -17,7 +17,7 @@ When you open or update a pull request, the **Enhance** GitHub Actions workflow 
 | **When** | Each time a pull request is opened, updated (`synchronize`), or reopened |
 | **Which files** | Only `.rst` files **added, copied, modified, or renamed** in that pull request (not the whole repository) |
 | **How deeply** | The entire content of each in-scope file is checked against [`enhance.yaml`](enhance.yaml) |
-| **When skipped** | Pull requests that do not touch any `.rst` files — no check runs and no review is posted |
+| **When skipped** | Pull requests that do not touch any `.rst` files — no check runs and no review is posted. Include snippets are also skipped: filenames starting with `_` and anything under `source/_internal/` (same rule as Sphinx `exclude_patterns`). Those fragments are pulled into a parent page that owns the metadata. |
 
 Locally, you can check specific files before pushing, or use `--diff-base` to mimic the same PR-scoped discovery (see [Checking enhancements locally](#checking-enhancements-locally)).
 
@@ -119,7 +119,7 @@ For `short-description`, the contributor should wrap the first prose paragraph a
 
 ### Checking enhancements locally
 
-[`ensure_enhancements.py`](ensure_enhancements.py) checks `.rst` files against [`enhance.yaml`](enhance.yaml). It reports missing meta fields, values outside `allowed`, and missing after-title directives; it does not modify files.
+[`ensure_enhancements.py`](ensure_enhancements.py) checks `.rst` files against [`enhance.yaml`](enhance.yaml). It reports missing meta fields, values outside `allowed`, and missing after-title directives; it does not modify files. Include snippets (`_*.rst` and `source/_internal/`) are skipped even if you pass them on the command line.
 
 #### Usage
 
@@ -203,7 +203,7 @@ Information for maintainers and developers working on or extending the enhanceme
 | [`rst_utils.py`](rst_utils.py) | Read-only detection of `.. meta::`, `.. short-description::`, and `.. showmeta::` directives |
 | [`enhance_config.py`](enhance_config.py) | Load and validate rules from [`enhance.yaml`](enhance.yaml) |
 | [`enhance.yaml`](enhance.yaml) | Enhancement rules (`meta` fields and `after_title` directives) |
-| [`ensure_enhancements.py`](ensure_enhancements.py) | CLI, per-file checks, review comments, and CI outputs |
+| [`ensure_enhancements.py`](ensure_enhancements.py) | CLI, per-file checks (skips `_internal/` and `_*.rst` snippets), review comments, and CI outputs |
 | [`supersede_enhancement_reviews.sh`](supersede_enhancement_reviews.sh) | Minimise outdated bot PR reviews |
 | [`tests/`](tests/) | Unit tests for the tools in this directory |
 

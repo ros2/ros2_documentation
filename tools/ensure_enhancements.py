@@ -241,6 +241,26 @@ def _severity_fields(
     return [name for name in field_names if rules[name].severity == severity]
 
 
+def is_enhancement_exempt(path: Path) -> bool:
+    """
+    Return whether ``path`` is a snippet that must not require metadata.
+
+    Matches Sphinx ``exclude_patterns`` in ``conf.py``: files under
+    ``_internal/`` and RST filenames that start with ``_`` (``.. include::``
+    fragments). The parent article owns the metadata.
+
+    Args:
+        path: Candidate RST path.
+
+    Returns:
+        ``True`` when the enhancement check should skip this file.
+    """
+    parts = path.as_posix().split("/")
+    if "_internal" in parts:
+        return True
+    return path.name.startswith("_") and path.suffix.lower() == RST_EXTENSION
+
+
 def ensure_enhancements_in_file(
     path: Path,
     config: EnhanceConfig,
@@ -259,6 +279,10 @@ def ensure_enhancements_in_file(
         OSError: If the RST file cannot be read.
         UnicodeError: If the RST file cannot be decoded as UTF-8.
     """
+    if is_enhancement_exempt(path):
+        logger.info("%s: skipped (include snippet or _internal)", path)
+        return None
+
     content = path.read_text(encoding="utf-8")
     path_str = str(path).replace("\\", "/")
 
@@ -310,6 +334,9 @@ def _collect_rst_paths(paths: list[str]) -> list[Path]:
             continue
         if not path.is_file():
             logger.warning("Skipping missing file: %s", raw)
+            continue
+        if is_enhancement_exempt(path):
+            logger.info("Skipping include snippet or _internal file: %s", raw)
             continue
         rst_paths.append(path)
     return rst_paths

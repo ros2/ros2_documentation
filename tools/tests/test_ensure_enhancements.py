@@ -34,6 +34,7 @@ from ensure_enhancements import (
     build_review_comment,
     changed_rst_paths,
     ensure_enhancements_in_file,
+    is_enhancement_exempt,
     main,
 )
 
@@ -218,6 +219,23 @@ class TestInvalidFieldValues(unittest.TestCase):
             _invalid_field_values(content, rules),
             {"content-type": ["tutorial"]},
         )
+
+
+class TestEnhancementExemptPaths(unittest.TestCase):
+    def test_skips_underscore_snippets_and_internal(self) -> None:
+        self.assertTrue(is_enhancement_exempt(Path("source/_internal/Note.rst")))
+        self.assertTrue(is_enhancement_exempt(Path("source/Get-Started/Installation/_Apt-Repositories.rst")))
+        self.assertFalse(is_enhancement_exempt(Path("source/ROS-Framework/About-Parameters.rst")))
+
+    def test_exempt_file_is_not_reported(self) -> None:
+        config = EnhanceConfig(
+            meta={"area": MetaRule("error", "")},
+            after_title={},
+        )
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "_snippet.rst"
+            path.write_text("Title\n=====\n", encoding="utf-8")
+            self.assertIsNone(ensure_enhancements_in_file(path, config))
 
 
 class TestEnsureEnhancementsInFile(unittest.TestCase):
