@@ -57,15 +57,17 @@ Larger packages like MoveIt, Nav2, and microROS, are given their own domain or s
 API documentation
 ^^^^^^^^^^^^^^^^^
 
-You can find the API level documentation for the ROS client libraries in the Lyrical distribution using the links below:
+You can find the API level documentation for the ROS client libraries in the {DISTRO_TITLE} distribution using the links below:
 
-* `rclcpp - C++ client library <https://docs.ros.org/en/lyrical/p/rclcpp/generated/index.html>`_
+* `rclcpp - C++ client library <{package_link(rclcpp)}generated/index.html>`_
 
-* `rclcpp_lifecycle - C++ lifecycle library <https://docs.ros.org/en/lyrical/p/rclcpp_lifecycle/generated/index.html>`_
+* `rclpy - Python client library <{package_link(rclpy)}>`_
 
-* `rclcpp_components - C++ components library <https://docs.ros.org/en/lyrical/p/rclcpp_components/generated/index.html>`_
+* `rclcpp_lifecycle - C++ lifecycle library <{package_link(rclcpp_lifecycle)}generated/index.html>`_
 
-* `rclcpp_action - C++ actions library <https://docs.ros.org/en/lyrical/p/rclcpp_action/generated/index.html>`_
+* `rclcpp_components - C++ components library <{package_link(rclcpp_components)}generated/index.html>`_
+
+* `rclcpp_action - C++ actions library <{package_link(rclcpp_action)}generated/index.html>`_
 
 Guidelines for adding your package documentation
 ------------------------------------------------
