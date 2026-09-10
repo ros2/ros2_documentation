@@ -44,7 +44,7 @@ Searching for packages on ROS Index will yield details such as released distribu
 Larger packages
 ^^^^^^^^^^^^^^^
 
-Larger packages like MoveIt, Nav2, and microROS, are given their own domain or subdomain on `ros.org <https://www.ros.org>`_:
+Larger projects like MoveIt, Nav2, ros2_control, and micro-ROS host their documentation on their own domain or subdomain:
 
 * `MoveIt <https://moveit.ros.org/>`_
 
