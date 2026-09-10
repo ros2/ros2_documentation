@@ -14,7 +14,7 @@ Working with Client libraries
 
 .. contents:: Table of Contents
    :depth: 2
-   :hidden:
+   :local:
 
 .. toctree::
    :maxdepth: 1

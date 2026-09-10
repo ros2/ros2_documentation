@@ -14,7 +14,7 @@ Working with services
 
 .. contents:: Table of Contents
    :depth: 2
-   :hidden:
+   :local:
 
 Coming Soon
 

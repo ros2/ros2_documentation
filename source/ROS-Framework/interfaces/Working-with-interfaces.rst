@@ -14,7 +14,7 @@ Working with interfaces
 
 .. contents:: Table of Contents
    :depth: 2
-   :hidden:
+   :local:
 
 Coming Soon
 

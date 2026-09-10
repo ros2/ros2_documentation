@@ -14,7 +14,7 @@ Working with nodes
 
 .. contents:: Table of Contents
    :depth: 2
-   :hidden:
+   :local:
 
 Coming Soon
 

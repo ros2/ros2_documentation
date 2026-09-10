@@ -19,7 +19,7 @@ Working with parameters
 
 .. contents:: Table of Contents
    :depth: 2
-   :hidden:
+   :local:
 
 Coming Soon
 
