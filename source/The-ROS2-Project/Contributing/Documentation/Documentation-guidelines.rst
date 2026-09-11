@@ -1,7 +1,7 @@
 .. meta::
    :contentType: reference
    :experience: beginner, intermediate, expert
-   :area: ROS-community
+   :area: contributing
    :distribution: {DISTRO}
    :product: {PRODUCT}
 
