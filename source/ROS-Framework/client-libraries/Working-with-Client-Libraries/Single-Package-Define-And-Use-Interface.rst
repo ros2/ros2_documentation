@@ -4,7 +4,7 @@
    :area: client-libraries, framework
    :distribution: {DISTRO}
    :product: {PRODUCT}
-   
+
 .. _SinglePkgInterface:
 
 .. redirect-from::
