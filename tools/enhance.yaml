@@ -68,6 +68,7 @@ after_title:
   showmeta:
     severity: warning
     options:
-      order: area, content-type, experience
+      order: area, contentType, experience
+      labels: area=Area, contentType=Content type, experience=Level
     required_options:
       - order
