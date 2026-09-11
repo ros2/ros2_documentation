@@ -40,6 +40,12 @@ Summary
 Each node in ROS serves a single, modular purpose in a robotics system.
 For more information, see :doc:`About nodes <../../../About-Nodes>`.
 
+Nodes communicate with other nodes through :doc:`topics, services, actions, and parameters <../../../Interfaces-Topics-Services-Actions>`.
+A single executable can contain one or more nodes.
+For more information, see :doc:`How ROS works <../../../How-ROS-Works>`.
+
+The commands used in this tutorial were:
+
 * To run turtlesim, use the command ``ros2 run turtlesim turtlesim_node``.
 * To display the names of all running nodes, use the command ``ros2 node list``.
 * To reassign the name of the ``/turtlesim`` node using remapping, use the command ``ros2 run turtlesim turtlesim_node --ros-args --remap __node:=my_turtle``.
