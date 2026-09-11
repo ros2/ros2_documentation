@@ -5,7 +5,7 @@
 .. meta::
    :contentType: about
    :experience: beginner
-   :area: builds, tools
+   :area: node-management, tools
    :distribution: {DISTRO}
    :product: {PRODUCT}
 
