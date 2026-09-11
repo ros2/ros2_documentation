@@ -22,9 +22,6 @@ Configuring service introspection - tutorial
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. showmeta::
-   :order: area, contentType, experience
-   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Configure service introspection for a service client and a server.
 
