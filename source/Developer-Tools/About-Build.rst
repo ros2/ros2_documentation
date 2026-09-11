@@ -1,7 +1,7 @@
 .. meta::
    :contentType:
    :experience: intermediate
-   :area: visualization
+   :area: builds, tools
    :distribution: {DISTRO}
    :product: {PRODUCT}
 
