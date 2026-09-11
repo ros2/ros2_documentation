@@ -1,5 +1,21 @@
-GPU buffer transport with ``rosidl::Buffer``
-============================================
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Transporting GPU buffers with ``rosidl::Buffer`` - tutorial
+===========================================================
+
+.. short-description::
+   High-bandwidth perception and tensor workloads can benefit from keeping large payloads in GPU memory.
+   This tutorial builds and runs a CUDA-backed ``rosidl::Buffer`` demo that compares zero-copy GPU transport with CPU serialization.
+   After following it, you will understand how to run the demo and interpret its throughput results.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2

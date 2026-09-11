@@ -2,8 +2,28 @@
 
     Tutorials/Intermediate/RViz/RViz-Custom-Display/RViz-Custom-Display
 
-Building a Custom RViz Display
-==============================
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: visualization, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Building a Custom RViz Display - tutorial
+=========================================
+
+.. short-description::
+   Custom RViz displays let developers visualize message types that do not already have built-in RViz support.
+   This article explains how to create a display plugin, render incoming messages, and expose user-configurable properties.
+   After you follow it, you can add a custom display to RViz and visualize supported topic data.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
 
 Background
 ----------

@@ -3,10 +3,26 @@
     Tutorials/Security/Examine-Traffic
     Tutorials/Advanced/Security/Examine-Traffic
 
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: analysis, introspection
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _Examine-Traffic:
 
-Examining network traffic
-=========================
+Examining network traffic - tutorial
+====================================
+
+.. short-description::
+   Network traffic inspection helps confirm whether ROS communications are being sent in clear text or encrypted.
+   This article shows how to use ``tcpdump`` to compare unsecured and secured talker and listener traffic.
+   After you follow these steps, you can identify discovery packets, data packets, and encrypted RTPS traffic.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Capture and examine raw ROS 2 network traffic.
 
@@ -14,10 +30,9 @@ Examining network traffic
 
 **Time:** 20 minutes
 
-.. contents:: Contents
+.. contents:: Table of Contents
   :depth: 2
   :local:
-
 
 Overview
 --------

@@ -3,10 +3,26 @@
     Tutorials/Launch/CLI-Intro
     Tutorials/Beginner-CLI-Tools/Launching-Multiple-Nodes/Launching-Multiple-Nodes
 
+.. meta::
+   :contentType: tutorial
+   :experience: beginner
+   :area: nodes, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _ROS2Launch:
 
-Launching multiple nodes - how-to
-=================================
+Launching multiple nodes — tutorial - how-to
+============================================
+
+.. short-description::
+   As robotic systems become more complex, starting each node in a separate terminal becomes difficult to manage.
+   This tutorial explains how to use a launch file to start multiple ROS nodes with one command.
+   After completing it, you will be able to run and control multiple nodes at the same time.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 A launch file lets you start multiple nodes simultaneously with a single command, without opening a separate terminal for each.
 This article shows you how to run an existing launch file with ``ros2 launch``.

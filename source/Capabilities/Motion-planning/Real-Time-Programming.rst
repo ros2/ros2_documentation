@@ -1,11 +1,27 @@
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: motion-planning, capabilities
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Real-Time-Programming
     Tutorials/Real-Time-Programming
     Tutorials/Demos/Real-Time-Programming
 
-Understanding real-time programming
-===================================
+Understanding real-time programming — tutorial
+==============================================
+
+.. short-description::
+   Real-time computing helps robotics systems meet strict timing deadlines in safety- and mission-critical applications.
+   This article explains real-time programming concepts and demonstrates them with a ROS pendulum control example.
+   After you follow these steps, you will be able to run the demo, inspect latency, and plot runtime results.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2

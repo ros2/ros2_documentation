@@ -5,8 +5,28 @@
     Guides/Run-2-nodes-in-two-separate-docker-containers
     How-To-Guides/Run-2-nodes-in-single-or-separate-docker-containers
 
-Running ROS 2 nodes in Docker [community-contributed]
-=====================================================
+.. meta::
+   :contentType: how-to
+   :experience: intermediate
+   :area: builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Running ROS 2 nodes in Docker [community-contributed] - how-to
+==============================================================
+
+.. short-description::
+   Docker containers provide a repeatable environment for trying ROS command line tools and demo nodes.
+   This article explains how to run the ``talker`` and ``listener`` demo nodes in one container or in separate containers.
+   After you follow it, you can test basic ROS communication using Docker or Docker Compose.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
 
 Run two nodes in a single docker container
 ------------------------------------------

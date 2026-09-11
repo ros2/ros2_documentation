@@ -1,10 +1,26 @@
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: client-libraries, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Tf2/Writing-A-Tf2-Broadcaster-Cpp
     Tutorials/Intermediate/Tf2/Writing-A-Tf2-Broadcaster-Cpp
 
-Writing a broadcaster (C++)
-===========================
+Writing a broadcaster (C++) — tutorial
+======================================
+
+.. short-description::
+   tf2 lets you track the position and orientation of robot frames over time.
+   This tutorial describes how to write a C++ broadcaster node and launch file for a turtlesim demo.
+   After following these steps, you can broadcast a turtle pose to tf2 and inspect the transform.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Learn how to broadcast the state of a robot to tf2.
 

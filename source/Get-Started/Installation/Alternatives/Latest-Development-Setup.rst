@@ -1,11 +1,31 @@
+.. meta::
+   :contentType: how-to
+   :experience: expert
+   :area: installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Installation/Alternatives/Latest-Development-Setup
 
-Latest development (source)
-===========================
+Installing latest development (source) - how-to
+===============================================
 
-If you plan to contribute directly to the latest ROS 2 development, you can install ROS 2 by building it from source or installing testing binaries.
+.. short-description::
+   Latest ROS development builds provide access to recent fixes and features before they are available in a stable distribution.
+   In this article, you will learn when to use testing binaries or source builds, and where to find platform-specific setup instructions.
+   After you follow these links, you will be ready to install the latest ROS development version.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
+
+If you plan to contribute directly to the latest ROS development, you can install ROS by building it from source or installing testing binaries.
 This will give you the latest bug fixes and features.
 
 Testing binaries

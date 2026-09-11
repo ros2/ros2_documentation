@@ -1,10 +1,26 @@
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: client-libraries, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Tf2/Writing-A-Tf2-Listener-Py
     Tutorials/Intermediate/Tf2/Writing-A-Tf2-Listener-Py
 
-Writing a listener (Python)
-===========================
+Writing a listener (Python) — tutorial
+======================================
+
+.. short-description::
+   tf2 listeners let ROS nodes receive and use frame transformations published by broadcasters.
+   This article shows how to write a Python listener node, update the launch file, build the package, and run the ``turtlesim`` demo.
+   After following these steps, you will be able to make one turtle follow another using tf2 transformations.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Learn how to use tf2 to get access to frame transformations.
 

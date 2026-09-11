@@ -1,11 +1,21 @@
+.. meta::
+   :contentType: how-to
+   :experience: beginner, intermediate, expert
+   :area: community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Triaging an issue — how-to
 ==========================
 
-Issue triage helps ROS contributors turn incoming bug reports and enhancement requests into clear, actionable work.
-This article explains how to find, check, reproduce, assign, and label issues in ROS repositories.
-With this information, you'll be able to route issues to the right place, with correct information, and prepare them for work by developers.
+.. short-description::
+   Issue triage helps ROS contributors turn incoming bug reports and enhancement requests into clear, actionable work.
+   This article explains how to find, check, reproduce, assign, and label issues in ROS repositories.
+   With this information, you'll be able to route issues to the right place, with correct information, and prepare them for work by developers.
 
-**Area: community | Content-type: how-to | Experience: beginner, intermediate, expert**
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2

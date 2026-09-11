@@ -2,13 +2,28 @@
 
   Contributing
 
+.. meta::
+   :contentType: about
+   :experience: beginner, intermediate, expert
+   :area: contributing, community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _Contributing:
 
 Contributing
 ============
 
+.. short-description::
+   Contributing to ROS helps improve the ecosystem for developers building robots with different goals, platforms, and constraints.
+   This article describes the main contribution principles, community discussion routes, code contribution process, and path to becoming a maintainer.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
 .. contents:: Table of Contents
-   :depth: 1
+   :depth: 2
    :local:
 
 A few things to remember before you start contributing to the ROS 2 project.

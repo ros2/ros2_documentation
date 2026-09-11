@@ -1,9 +1,21 @@
+.. meta::
+   :contentType: how-to
+   :experience: intermediate, expert
+   :area: installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     How-To-Guides/Installing-on-Raspberry-Pi
 
-ROS 2 on Raspberry Pi
-=====================
+Installing ROS 2 on Raspberry Pi - how-to
+=========================================
+
+.. short-description::
+    ROS is supported on Raspberry Pi with both 32-bit and 64-bit ARM processors, but support levels differ.
+    This article describes the supported installation options for Raspberry Pi.
+    After you follow these steps, you can choose between a binary Ubuntu install or a Docker-based Raspberry Pi OS install.
 
 ROS 2 is supported on both 32 bit (arm32) and 64 bit (arm64) ARM processors.
 However, you can see `here <https://reps.openrobotics.org/rep-2000/>`__ that arm64 receives Tier 1 support, while arm32 is Tier 3.
@@ -12,6 +24,14 @@ Tier 1 support means distribution specific packages and binary archives are avai
 The fastest and simplest way to use ROS 2 is to use a Tier 1 supported configuration.
 
 This would mean either installing 64 bit Ubuntu on to the Raspberry Pi, or using the 64 bit version of Raspberry Pi OS and running ROS 2 in Docker.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 Ubuntu Linux on Raspberry Pi with binary ROS 2 install
 ------------------------------------------------------

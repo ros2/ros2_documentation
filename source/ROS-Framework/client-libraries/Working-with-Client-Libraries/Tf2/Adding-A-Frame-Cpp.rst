@@ -1,10 +1,26 @@
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: client-libraries, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Tf2/Adding-A-Frame-Cpp
     Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp
 
-Adding a frame (C++)
-====================
+Adding a frame (C++) — tutorial
+===============================
+
+.. short-description::
+   Local coordinate frames make it easier to model sensors, links, joints, and goals in a robot system.
+   This tutorial describes how to add fixed and dynamic frames to a tf2 transformation tree in C++.
+   After following the steps, you will be able to publish extra frames and use them as targets in a turtle demo.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Learn how to to add an extra frame to tf2.
 
