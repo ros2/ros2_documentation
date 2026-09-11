@@ -6,7 +6,7 @@
 .. meta::
    :contentType: tutorial
    :experience: expert
-   :area: node management
+   :area: node-management
    :distribution: {DISTRO}
    :product: {PRODUCT}
 
