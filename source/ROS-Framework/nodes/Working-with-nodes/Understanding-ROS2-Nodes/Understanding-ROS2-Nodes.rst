@@ -36,6 +36,7 @@ A hands-on exercise gives you practice listing active nodes and examining their 
 
 Summary
 -------
+
 Each node in ROS serves a single, modular purpose in a robotics system.
 For more information, see :doc:`About nodes <../../../About-Nodes>`.
 
