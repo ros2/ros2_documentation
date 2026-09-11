@@ -3,7 +3,9 @@
    :experience: beginner
    :area: client-libraries, framework
    :distribution: {DISTRO}
-   :product: {PRODUCT}.. _SinglePkgInterface:
+   :product: {PRODUCT}
+   
+.. _SinglePkgInterface:
 
 .. redirect-from::
 
