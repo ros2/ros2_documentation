@@ -10,6 +10,13 @@
    :distribution: {DISTRO}
    :product: {PRODUCT}
 
+.. meta::
+   :contentType: about
+   :experience: expert
+   :area: node-management
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 ROS 2 Security
 ==============
 
