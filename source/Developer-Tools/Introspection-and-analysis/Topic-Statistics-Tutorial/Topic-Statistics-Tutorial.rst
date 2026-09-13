@@ -233,7 +233,7 @@ then you will see that name instead of ``/statistics``.
 The subscriber node you created is publishing statistics, for the topic ``topic``, to the output topic
 ``/statistics``.
 
-We can visualize this using :doc:`RQt <../../Visualization/About-RQt>`
+We can visualize this using `rqt_graph <https://docs.ros.org/en/rolling/ROS-Framework/interfaces/topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html#visualize-the-nodes-with-rqt-graph>`__.
 
 .. image:: images/topic_stats_rqt.png
 
