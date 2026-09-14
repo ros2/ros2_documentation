@@ -106,11 +106,12 @@ See :doc:`nodes/About-Logging/About-Logging`.
 Special types of nodes
 ----------------------
 
-* Composable nodes
-   A composable node contains separate components with shared memory.
-   Learn more about how to write a composable node: :doc:`nodes/Working-with-nodes/Writing-a-Composable-Node`
-* Managed nodes, also known as lifecycle nodes
-   These nodes can be used to ensure that resources are correctly initialised, activated, deactivated, and cleaned up as the node moves between lifecycle states.
+Composable nodes
+   A composable node is written as a component, which is loaded at runtime into a container process that can host several components at once, letting them share a process and memory.
+   See :doc:`nodes/About-Composition`, and :doc:`nodes/Working-with-nodes/Writing-a-Composable-Node` for how to write one.
+Managed nodes, also known as lifecycle nodes
+   These nodes can be used to ensure that resources are correctly initialized, activated, deactivated, and cleaned up as the node moves between lifecycle states.
+
    A common use case is nodes that control hardware, where devices such as cameras, lidars, motor drivers, and other sensors and actuators must be started, configured, and shut down in a controlled order.
    See :doc:`nodes/Working-with-nodes/Managed-Nodes`.
 
