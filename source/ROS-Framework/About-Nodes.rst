@@ -92,7 +92,8 @@ See :doc:`../Developer-Tools/About-Launch`.
 Log messages
 ------------
 
-Each node has an associated logger. By default, log messages go out to targets including the console (on stderr), log files on disk, and the ``/rosout`` topic.
+Each node has an associated logger.
+By default, log messages go out to targets including the console (on stderr), log files on disk, and the ``/rosout`` topic.
 All of the targets can be individually enabled or disabled on a per-node basis.
 
 See :doc:`nodes/About-Logging/About-Logging`.
