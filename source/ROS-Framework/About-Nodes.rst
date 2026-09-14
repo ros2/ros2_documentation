@@ -92,7 +92,7 @@ Node management
 You can start individual nodes from the command line with ``ros2 run``.
 ROS launch files allow you to start up and configure a number of executables containing ROS nodes simultaneously.
 
-See :doc:`../Developer-Tools/About-Launch`.
+See :doc:`launch files <../Developer-Tools/About-Launch>`.
 
 Log messages
 ------------
