@@ -28,8 +28,6 @@ Summary
 
 A node is a participant in the ROS graph that handles a specific task.
 The behavior of nodes is configured using parameters.
-The behaviour of nodes is configured using parameters 
-For example, a node controlling a motor may have a parameter that controls the motor's maximum speed, while a topic might be used to set a robot's current speed. 
 Nodes advertise their presence and establish connections with other compatible nodes through the discovery process.
 Nodes communicate with each other using interfaces, like topics, services, and actions.
 
@@ -54,6 +52,7 @@ See :doc:`How-ROS-Works`.
 ROS is based on object-oriented programming principles.
 Individual nodes are written as subclasses of the Node class, inheriting properties from it as defined by ROS.
 Configurable parameters enable you to control node behaviour during runtime.
+For example, a node controlling a motor may have a parameter that controls the motor's maximum speed, while a topic might be used to set a robot's current speed.
 See :doc:`parameters <About-Parameters>`.
 
 Communication between nodes
@@ -62,7 +61,8 @@ Communication between nodes
 Each node runs separately in its own runtime environment.
 Nodes can communicate with other nodes within the same process, in a different process, or on a different machine.
 
-The ROS :doc:`Client libraries <About-Client-Libraries>` provides an API that allows you to write nodes in multiple programming languages which can communicate with other nodes, even if those nodes are not written in the same language.
+The ROS client libraries provides an API that allows you to write nodes in multiple programming languages which can communicate with other nodes, even if those nodes are not written in the same language.
+See :doc:`About-Client-Libraries`.
 
 ROS nodes communicate through interfaces.
 See :doc:`Interfaces-Topics-Services-Actions`.
@@ -79,12 +79,15 @@ The discovery process can be summarized as follows:
 #. Nodes periodically advertise their presence so that connections can be made with new-found entities, even after the initial discovery period.
 #. Nodes advertise to other nodes when they go offline.
 
-Nodes must also share a :doc:`ROS domain ID <nodes/About-Domain-ID>` to discover each other.
-
-Take the :ref:`talker-listener demo <talker-listener>` for example.
-Running the C++ talker node in one terminal publishes messages on a topic, and the Python listener node running in another terminal subscribes to messages on the same topic.
-You should see that these nodes discover each other automatically, and begin to exchange messages.
+Nodes only establish connections with other nodes if they have compatible *quality of service* settings.
 See :doc:`interfaces/topics/Working-with-topics/Quality-of-Service`.
+Nodes must also share a ROS domain ID to discover each other.
+See :doc:` nodes/About-Domain-ID`.
+
+The :ref:`talker-listener demo <talker-listener>` provides an example of node discovery.
+The C++ talker node in one terminal publishes messages on a topic, and the Python listener node running in another terminal subscribes to messages on the same topic.
+These nodes discover each other automatically, and begin to exchange messages.
+
 
 Node management
 ---------------
@@ -107,9 +110,10 @@ Special types of nodes
 ----------------------
 
 Composable nodes
-   A composable node is written as a component, which is loaded at runtime into a container process that can host several components at once, letting them share a process and memory.
-   See :doc:`nodes/About-Composition`, and :doc:`nodes/Working-with-nodes/Writing-a-Composable-Node` for how to write one.
-Managed nodes, also known as lifecycle nodes
+   A composable node is written as a component which, at runtime, is loaded into a container process that can host several components at once.
+   Because multiple components share the container, they can also share a process and memory.
+   To learn more about how to write a composable node, see :doc:`nodes/About-Composition`, and :doc:`nodes/Working-with-nodes/Writing-a-Composable-Node`.
+Lifecycle nodes, also known as managed nodes
    These nodes can be used to ensure that resources are correctly initialized, activated, deactivated, and cleaned up as the node moves between lifecycle states.
 
    A common use case is nodes that control hardware, where devices such as cameras, lidars, motor drivers, and other sensors and actuators must be started, configured, and shut down in a controlled order.
@@ -146,6 +150,6 @@ Why might two nodes fail to connect?
    They must be on the same ROS domain, and their quality of service settings must be compatible.
    If either of those conditions is not met, the nodes do not establish a connection.
 
-What is the difference between composable nodes and managed nodes?
+What is the difference between composable nodes and lifecycle nodes?
    Composable nodes are components that can share a process and memory.
-   Managed nodes, also called lifecycle nodes, move through defined states so resources are started and shut down in a controlled order.
+   Lifecycle nodes move through defined states so resources are started and shut down in a controlled order.
