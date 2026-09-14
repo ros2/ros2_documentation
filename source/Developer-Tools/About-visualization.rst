@@ -29,11 +29,9 @@ Core ROS packages
 
 * :doc:`RViz <Visualization/RViz/RViz-User-Guide/RViz-User-Guide>`: Provides a 3D visualization of the robot's perspective, including sensor data and intentions.
 
-* `ros2cli <https://github.com/ros2/ros2cli>`_: ROS command line interface tools for debugging such as ros2action, ros2node, ros2param, ros2pkg,  ros2service, and so on.
+  See `rviz <https://github.com/ros2/rviz>`_ and `rviz default plugins <https://github.com/ros2/rviz/tree/{REPOS_FILE_BRANCH}/rviz_default_plugins>`_.
 
-* `rviz <https://github.com/ros2/rviz>`_ and `rviz default plugins <https://github.com/ros2/rviz/tree/rolling/rviz_default_plugins>`_: 3D robot visualization tool for the ROS framework
-
-* `rqt_gui and dependent packages <https://index.ros.org/p/rqt_gui/#rolling-deps>`_: Tool for starting an instance of the ROS integrated graphical user interface.
+* :doc:`rqt <Visualization/About-RQt>` and `rqt_gui and dependent packages <https://index.ros.org/p/rqt_gui/#{DISTRO}-deps>`_: Plugin-based framework for the ROS integrated graphical user interface.
 
 Community-contributed packages
 ------------------------------
