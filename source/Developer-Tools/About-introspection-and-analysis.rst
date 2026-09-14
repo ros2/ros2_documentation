@@ -44,7 +44,7 @@ Core ROS packages
 
 * `rosconsole <https://github.com/ros/rosconsole/>`_: A logging tool for monitoring, debugging, and diagnosing running applications.
 
-* `tracetools <https://docs.ros.org/en/kilted/p/tracetools/>`_: Trace points for creating and debugging execution traces.
+* `tracetools <{package_link(tracetools)}>`_: Trace points for creating and debugging execution traces.
 
 Community-contributed packages
 ------------------------------
@@ -53,7 +53,7 @@ Community-contributed packages
 
 * :doc:`ament_cmake <Build/Ament-CMake-Documentation>`: Build system for CMake-based packages in ROS.
 
-* `tracetools <https://docs.ros.org/en/kilted/p/tracetools/>`_: Trace points for creating and debugging execution traces.
+* `tracetools <{package_link(tracetools)}>`_: Trace points for creating and debugging execution traces.
 
 * `Plotjugler <https://index.ros.org/p/plotjuggler/>`_: Visualization and analysis tool for inspecting, monitoring, and interpreting time-series data.
 

@@ -20,7 +20,6 @@ This article summarizes the ROS developer tools and guidance available to help w
    :local:
    :depth: 2
 
-
 Summary
 -------
 
@@ -34,9 +33,9 @@ Core ROS packages
 
 * `ros2doctor <{package_link(ros2doctor)}>`__: Command line tool to check for common misconfigurations in a ROS system.
 
-* `tracetools <https://docs.ros.org/en/kilted/p/tracetools/>`_: Trace points for creating and debugging execution traces.
+* `tracetools <{package_link(tracetools)}>`_: Trace points for creating and debugging execution traces.
 
-* `rosbag2 <https://docs.ros.org/en/kilted/p/rosbag2/>`_: Record and play back data moving across topics, services and actions in a ROS application, for later visualization and debugging.
+* `rosbag2 <{package_link(rosbag2)}>`_: Record and play back data moving across topics, services and actions in a ROS application, for later visualization and debugging.
 
 * `ros2cli <https://github.com/ros2/ros2cli>`_: ROS command line interface tools for debugging such as ros2action, ros2node, ros2param, ros2pkg,  ros2service, and so on.
 
@@ -47,7 +46,7 @@ Core ROS packages
 Community-contributed packages
 ------------------------------
 
-* `PlotJuggler <https://docs.ros.org/en/kilted/p/plotjuggler/>`_: A tool for visualizing and analyzing data from ROS applications.
+* `PlotJuggler <{package_link(plotjuggler)}>`_: A tool for visualizing and analyzing data from ROS applications.
 
 * `Foxglove <https://foxglove.dev/>`_: A collection of tools visualizing and debugging robot data throughout the development lifecycle.
 

@@ -17,7 +17,7 @@ This article summarizes the tools and guidance available to help with creating d
    :depth: 2
 
 Summary
---------
+-------
 
 When creating a new package, clear documentation is essential for others who may use it.
 Package documentation tools in ROS make it easy to write, maintain, and generate web-browsable documentation from your source code.
@@ -35,7 +35,7 @@ Package documentation locations
 ROS package documentation can be found in multiple places.
 Here is a brief list of where to look for specific ROS package documentation.
 
-* Most ROS packages have their package level documentation `included in this index page <https://docs.ros.org/en/lyrical/p/>`_.
+* Most ROS packages have their package level documentation `included in this index page <https://docs.ros.org/en/{DISTRO}/p/>`_.
 
 * All ROS package documentation is hosted alongside its information on the `ROS Index <https://index.ros.org/>`_.
 

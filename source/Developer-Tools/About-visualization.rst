@@ -31,7 +31,9 @@ Core ROS packages
 
   See `rviz <https://github.com/ros2/rviz>`_ and `rviz default plugins <https://github.com/ros2/rviz/tree/{REPOS_FILE_BRANCH}/rviz_default_plugins>`_.
 
-* :doc:`rqt <Visualization/About-RQt>` and `rqt_gui and dependent packages <https://index.ros.org/p/rqt_gui/#{DISTRO}-deps>`_: Plugin-based framework for the ROS integrated graphical user interface.
+*  `rviz <https://github.com/ros2/rviz>`_ and `rviz default plugins <https://github.com/ros2/rviz/tree/{REPOS_FILE_BRANCH}/rviz_default_plugins>`_: 3D robot visualization tool for the ROS framework
+
+* `rqt <Visualization/About-RQt>`_ and `rqt_gui and dependent packages <https://index.ros.org/p/rqt_gui/#{DISTRO}-deps>`_: Plugin-based framework for the ROS integrated graphical user interface.
 
 Community-contributed packages
 ------------------------------
