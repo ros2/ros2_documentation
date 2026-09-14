@@ -31,7 +31,11 @@ Runtime node management tools in ROS help you start, configure, and stop multipl
 Core ROS packages
 -----------------
 
-* `ros2launch <https://github.com/ros2/launch>`_:  Command line tool for launching multiple processes and for writing tests involving multiple processes.
+* `ros2launch <https://github.com/ros2/launch_ros/tree/{REPOS_FILE_BRANCH}/ros2launch>`_: Command line tool for launching multiple processes and for writing tests involving multiple processes.
+
+* `launch <{package_link(launch)}>`_: The launch system itself, which describes a system configuration and then executes and monitors it.
+
+* `launch_ros <{package_link(launch_ros)}>`_: ROS-specific extensions to the launch system, such as launching nodes and composable nodes.
 
 .. Community-contributed packages:
 
