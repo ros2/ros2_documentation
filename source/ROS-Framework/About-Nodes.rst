@@ -26,7 +26,8 @@ This article describes what nodes do and how they interconnect.
 Summary
 -------
 
-A node is an independent process that handles a specific task.
+A node is a participant in the ROS graph that handles a specific task.
+The behavior of nodes is configured using parameters.
 The behaviour of nodes is configured using parameters.
 Nodes advertise their presence and establish connections with other compatible nodes through the discovery process.
 Nodes communicate with each other using interfaces, like topics, services, and actions.
