@@ -73,6 +73,7 @@ Open another terminal and run:
 
 Names of these nodes are ``/turtlesim`` and ``/teleop_turtle`` by default.
 
+.. _ROS2Topics_visualize-rqt-graph:
 
 2 Visualize the nodes with rqt_graph
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
