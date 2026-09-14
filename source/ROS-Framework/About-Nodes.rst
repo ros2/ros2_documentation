@@ -47,7 +47,8 @@ Nodes can function as any of the following:
 * An action server to provide long-running functionality to other nodes.
 
 In a ROS system, there is typically a complex network of nodes as publishers, subscribers, service servers, service clients, action servers, and action clients, each acting with a different role simultaneously.
-This network is known as the ROS graph. See :doc:`How-ROS-Works`.
+This network of nodes and the connections between them is known as the ROS graph.
+See :doc:`How-ROS-Works`.
 
 ROS is based on object-oriented programming principles.
 Individual nodes are written as subclasses of the Node class, inheriting properties from it as defined by ROS.
