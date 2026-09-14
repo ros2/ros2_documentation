@@ -79,7 +79,11 @@ The discovery process can be summarized as follows:
 #. Nodes periodically advertise their presence so that connections can be made with new-found entities, even after the initial discovery period.
 #. Nodes advertise to other nodes when they go offline.
 
-Nodes only establish connections with other nodes if they have compatible *quality of service* settings.
+Nodes must also share a :doc:`ROS domain ID <nodes/About-Domain-ID>` to discover each other.
+
+Take the :ref:`talker-listener demo <talker-listener>` for example.
+Running the C++ talker node in one terminal publishes messages on a topic, and the Python listener node running in another terminal subscribes to messages on the same topic.
+You should see that these nodes discover each other automatically, and begin to exchange messages.
 See :doc:`interfaces/topics/Working-with-topics/Quality-of-Service`.
 
 Node management
