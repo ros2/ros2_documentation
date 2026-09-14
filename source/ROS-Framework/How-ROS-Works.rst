@@ -22,7 +22,6 @@ ROS Graph
 
 Related content
 ---------------
-* :doc:`nodes/About-Discovery`
 * :doc:`About-Client-Libraries`
 * :doc:`About-Parameters`
 * :doc:`Interfaces-Topics-Services-Actions`
