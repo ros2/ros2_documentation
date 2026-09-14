@@ -18,7 +18,7 @@ Nodes
 A node is a single process that performs computation and can communicate with other nodes via interfaces.
 This article describes what nodes do and how they interconnect.
 
-**[Area: Framework | Content-type: concept | Experience: beginner]**
+**Area: ROS-framework | Content-type: concept | Experience: beginner**
 
 .. contents:: Table of Contents
    :local:
