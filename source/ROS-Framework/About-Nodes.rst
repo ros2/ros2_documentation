@@ -28,7 +28,8 @@ Summary
 
 A node is a participant in the ROS graph that handles a specific task.
 The behavior of nodes is configured using parameters.
-The behaviour of nodes is configured using parameters.
+The behaviour of nodes is configured using parameters 
+For example, a node controlling a motor may have a parameter that controls the motor's maximum speed, while a topic might be used to set a robot's current speed. 
 Nodes advertise their presence and establish connections with other compatible nodes through the discovery process.
 Nodes communicate with each other using interfaces, like topics, services, and actions.
 
