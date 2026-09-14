@@ -1,21 +1,12 @@
-.. redirect-from::
-
-    About-ROS-Interfaces
-    How-To-Guides/Topics-Services-Actions
-    Concepts/Basic/About-Interfaces
-
 .. meta::
-   :contentType: about
-   :experience: beginner, intermediate, expert
-   :area: interfaces, framework
+   :contentType: reference
+   :experience: intermediate
+   :area: framework
    :distribution: {DISTRO}
    :product: {PRODUCT}
 
-.. _interfaces-topics-services-actions:
-.. _TopicsServicesActions:
-
-Interfaces (topics, services, actions)
-======================================
+Interface specifications
+========================
 
 .. short-description::
    Interfaces in ROS define the structured data used by nodes to exchange messages, make requests, and coordinate long-running tasks.
@@ -25,92 +16,8 @@ Interfaces (topics, services, actions)
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. toctree::
-   :maxdepth: 2
-   :hidden:
-
-   interfaces/About-Topics
-   interfaces/About-Services
-   interfaces/About-Actions
-   interfaces/Working-with-interfaces
-
-
-Interfaces in ROS define how nodes exchange data.
-This article explains the different types of ROS interface and the differences between them.
-With this information, you'll be able to select the right interfaces for your purposes.
-
-Summary
--------
-When designing a system there are three primary styles of interfaces.
-The specifications for the content is in the :doc:`Interfaces Overview <interfaces/Working-with-interfaces/Interface-specifications>`.
-This is written to provide the reader with guidelines about when to use each type of interface.
-
-ROS nodes typically communicate through the following three types of interfaces:
-
-* :doc:`Topics <interfaces/About-Topics>`: For continuous data streams.
-* :doc:`Services <interfaces/About-Services>`: For synchronous request/response interactions (short tasks which happen immediately).
-* :doc:`Actions <interfaces/About-Actions>`: For long-running tasks with feedback (tasks that may take some time to complete).
-
-For consistent communication, each interface uses definitions provided in ``.msg``, ``.srv``, or ``.action`` files.
-
-:doc:`Learn more about nodes <About-Nodes>`
-
-Topics
-------
-
-The topic interface is meant for continuous data streams, for example, streaming sensor data or the status of your robot.
-Topic definitions are stored in ``.msg`` files.
-Topics implement a publish/subscribe pattern.
-A node publishes data to a topic, and other nodes subscribe to receive that data.
-This interface type has the following main characteristics:
-
-* Asynchronous, one-way communication
-* Multiple publishers and subscribers can share the same topic
-
-.. mermaid::
-
-   flowchart LR
-    P[Publisher node] -->|Publishes messages| T[Topic]
-    T -->|Delivers messages| S1[Subscriber node]
-    T -->|Delivers messages| S2[Subscriber node]
-
-Topic keys identify individual publishers on a topic so nodes and tools can distinguish where messages come from.
-Each topic key makes it easier to track data sources when several publishers share the same topic.
-
-
-* Should be used for continuous data streams (sensor data, robot state, ...)
-* Are for continuous data flow.
-  Data might be published and subscribed at any time independent of any senders/receivers.
-  Many to many connection.
-  Callbacks receive data once it is available.
-  The publisher decides when data is sent.
-
-Topic statistics
-^^^^^^^^^^^^^^^^
-
-Topic statistics are built-in measurements that help you understand how messages behave when a subscription receives them.
-When enabled, they automatically track two things:
-
-:Message age: How old a message is when it arrives, based on its timestamp.
-:Message period: The time between incoming messages.
-
-For both message age and period, ROS calculates the average, minimum, maximum, standard deviation, and the number of samples, using a moving window that updates every time a new message arrives.
-These calculations run in constant time and memory using the dedicated utilities.
-When you enable topic statistics for a subscription, ROS publishes the collected data at regular intervals as a ``MetricsMessage`` on a statistics topic.
-This gives you a clear view of timing patterns, delays, and irregularities, making it easier to assess system performance or diagnose problems related to the message flow.
-
-.. tip::
-
-   The default interval is 1 second.
-   The default statistics topic is ``/statistics``.
-
-:doc:`Learn how to enable topic statistics <../Developer-Tools/Introspection-and-analysis/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial>`
-    Concepts/Basic/About-Interfaces
-
-Interface specifications
-========================
-
 .. contents:: Table of Contents
+   :depth: 2
    :local:
 
 Background
@@ -338,68 +245,74 @@ For example:
 Services
 --------
 
-The service interface is meant for synchronous request/response interactions, for example, when you want to send a query requesting the configuration of a specific robot.
-Service definitions are stored in ``.srv`` files.
-Services implement a request/response pattern.
-A client sends a request, and a server replies with a response.
-This interface type has the following main characteristics:
+Services are a request/response communication, where the client (requester) is waiting for the server (responder) to make a short computation and return a result.
 
-* Synchronous communication
-* Ideal for short-lived operations that require confirmation, or provide a result in response to a request
+Services are described and defined in ``.srv`` files in the ``srv/`` directory of a ROS package.
 
-.. mermaid::
+A service description file consists of a request and a response msg type, separated by ``---``.
+Any two ``.msg`` files concatenated with a ``---`` are a legal service description.
 
-   sequenceDiagram
-    participant Service client
-    participant Service server
-    Service client->>Service server: Request
-    Service server-->>Service client: Response
+Here is a very simple example of a service that takes in a string and returns a string:
 
+.. code-block:: bash
 
-* Should be used for remote procedure calls that terminate quickly, e.g. for querying the state of a node or doing a quick calculation such as IK.
-  They should never be used for longer running processes, in particular processes that might be required to preempt if exceptional situations occur and they should never change or depend on state to avoid unwanted side effects for other nodes.
+   string str
+   ---
+   string str
+
+We can of course get much more complicated (if you want to refer to a message from the same package you must not mention the package name):
+
+.. code-block:: bash
+
+   # request constants
+   int8 FOO=1
+   int8 BAR=2
+   # request fields
+   int8 foobar
+   another_pkg/AnotherMessage msg
+   ---
+   # response constants
+   uint32 SECRET=123456
+   # response fields
+   another_pkg/YetAnotherMessage val
+   CustomMessageDefinedInThisPackage value
+   uint32 an_integer
+
+You cannot embed another service inside of a service.
 
 Actions
 -------
 
-The action interface is meant for long-running tasks with feedback, for example, moving a robot to a specific position, or asking the robot to perform a complex motion.
-Action definitions are stored in ``.action`` files.
-Actions allow clients to send goals, receive feedback during the execution, cancel if needed, and return a result if available.
-This interface type has the following main characteristics:
+Actions are a long-running request/response communication, where the action client (requester) is waiting for the action server (the responder) to take some action and return a result.
+In contrast to services, actions can be long-running (many seconds or minutes), provide feedback while they are happening, and can be interrupted.
 
-* Asynchronous, with feedback and result
-* Suitable for operations that take time
+Action definitions have the following form:
 
-.. mermaid::
+.. code::
 
-   sequenceDiagram
-    participant Action client
-    participant Action server
-    Client->>Action Server: Sends a goal
-    Action server-->>Action client: Provides feedback (periodic)
-    Action server-->>Action client: Sends a result
+   <request_type> <request_fieldname>
+   ---
+   <response_type> <response_fieldname>
+   ---
+   <feedback_type> <feedback_fieldname>
 
-* Should be used for any discrete behavior that moves a robot or that runs for a longer time but provides feedback during execution.
-* The most important property of actions is that they can be preempted and preemption should always be implemented cleanly by action servers.
-* Actions can keep state for the lifetime of a goal, i.e. if executing two action goals in parallel on the same server, for each client a separate state instance can be kept since the goal is uniquely identified by its id.
-* Slow perception routines which take several seconds to terminate or initiating a lower-level control mode are good use cases for actions.
-* More complex non-blocking background processing.
-  Used for longer tasks like execution of robot actions.
-  Semantically for real-world actions.
+Like services, the request fields are before and the response fields are after the first triple-dash (``---``), respectively.
+There is also a third set of fields after the second triple-dash, which is the fields to be sent when sending feedback.
 
+There can be arbitrary numbers of request fields (including zero), arbitrary numbers of response fields (including zero), and arbitrary numbers of feedback fields (including zero).
 
-Key differences between ROS interfaces
---------------------------------------
+The ``<request_type>``, ``<response_type>``, and ``<feedback_type>`` follow all of the same rules as the ``<type>`` for a message.
+The ``<request_fieldname>``, ``<response_fieldname>``, and ``<feedback_fieldname>`` follow all of the same rules as the ``<fieldname>`` for a message.
 
-All three interfaces enable communication between nodes, but each serves a different purpose.
-The table below summarizes the differences between ROS interface types:
+For instance, the ``Fibonacci`` action definition contains the following:
 
-+--------------+----------------------+-----------------------+-----------------+--------------------+---------------+
-|              | Pattern              | Direction             | Provided result | Typical use case   | Cancellation  |
-+==============+======================+=======================+=================+====================+===============+
-| **Topics**   | Publish/Subscribe    | One-way               | No              | Continuous data    | Not supported |
-+--------------+----------------------+-----------------------+-----------------+--------------------+---------------+
-| **Services** | Request/Response     | Two-way               | Yes             | Quick queries      | Not supported |
-+--------------+----------------------+-----------------------+-----------------+--------------------+---------------+
-| **Actions**  | Goal/Feedback/Result | Two-way with feedback | Yes             | Long-running tasks | Supported     |
-+--------------+----------------------+-----------------------+-----------------+--------------------+---------------+
+.. code::
+
+   int32 order
+   ---
+   int32[] sequence
+   ---
+   int32[] sequence
+
+This is an action definition where the action client is sending a single ``int32`` field representing the number of Fibonacci steps to take, and expecting the action server to produce an array of ``int32`` containing the complete steps.
+Along the way, the action server may also provide an intermediate array of ``int32`` containing the steps accomplished up until a certain point.

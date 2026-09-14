@@ -1,6 +1,7 @@
 .. redirect-from::
 
     About-ROS-Interfaces
+    Concepts/Basic/About-Interfaces
     How-To-Guides/Topics-Services-Actions
 
 .. meta::
@@ -12,6 +13,13 @@
 
 .. _interfaces-topics-services-actions:
 .. _TopicsServicesActions:
+
+.. meta::
+   :contentType: about
+   :experience: beginner
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
 
 Interfaces (topics, services, actions)
 ======================================
@@ -36,7 +44,6 @@ Interfaces (topics, services, actions)
    interfaces/About-Services
    interfaces/About-Actions
    interfaces/Working-with-interfaces
-   interfaces/Working-with-interfaces
 
 Interfaces in ROS define how nodes exchange data.
 This article explains the different types of ROS interface and the differences between them.
@@ -45,7 +52,7 @@ With this information, you'll be able to select the right interfaces for your pu
 Summary
 -------
 When designing a system there are three primary styles of interfaces.
-The specifications for the content is in the :doc:`Interfaces Overview <interfaces/Interface-specifications>`.
+The specifications for the content is in the :doc:`Interfaces Overview <interfaces/Working-with-interfaces/Interface-specifications>`.
 This is written to provide the reader with guidelines about when to use each type of interface.
 
 ROS nodes typically communicate through the following three types of interfaces:
@@ -55,6 +62,7 @@ ROS nodes typically communicate through the following three types of interfaces:
 * :doc:`Actions <interfaces/About-Actions>`: For long-running tasks with feedback (tasks that may take some time to complete).
 
 For consistent communication, each interface uses definitions provided in ``.msg``, ``.srv``, or ``.action`` files.
+To learn more about the interface definitions, see :doc:`interfaces/Working-with-interfaces/Interface-specifications`
 
 :doc:`Learn more about nodes <About-Nodes>`
 
@@ -176,3 +184,11 @@ The table below summarizes the differences between ROS interface types:
 +--------------+----------------------+-----------------------+-----------------+--------------------+---------------+
 | **Actions**  | Goal/Feedback/Result | Two-way with feedback | Yes             | Long-running tasks | Supported     |
 +--------------+----------------------+-----------------------+-----------------+--------------------+---------------+
+
+Related content
+---------------
+
+* :doc:`interfaces/Working-with-interfaces/Interface-specifications`
+* :doc:`interfaces/About-Topics`
+* :doc:`interfaces/About-Services`
+* :doc:`interfaces/About-Actions`
