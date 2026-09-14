@@ -15,7 +15,7 @@ Nodes
    nodes/About-Composition
    nodes/Working-with-nodes
 
-A node is a single process that performs computation and can communicate with other nodes via interfaces.
+A node is a participant in the ROS graph that performs computation and communicates with other nodes via interfaces.
 This article describes what nodes do and how they interconnect.
 
 **Area: ROS-framework | Content-type: concept | Experience: beginner**
