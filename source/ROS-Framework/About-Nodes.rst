@@ -61,7 +61,7 @@ Communication between nodes
 Each node runs separately in its own runtime environment.
 Nodes can communicate with other nodes within the same process, in a different process, or on a different machine.
 
-:doc:`Client libraries <About-Client-Libraries>` provide APIs that allow the node to communicate with other nodes, even if other nodes are not written in the same language.
+The ROS :doc:`Client libraries <About-Client-Libraries>` provides an API that allows you to write nodes in multiple programming languages which can communicate with other nodes, even if those nodes are not written in the same language.
 
 ROS nodes communicate through interfaces.
 See :doc:`Interfaces-Topics-Services-Actions`.
