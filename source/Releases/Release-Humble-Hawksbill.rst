@@ -463,7 +463,7 @@ Content Filtered Topics can be used to request content-based subscriptions when 
 To learn more, see the `content_filtering <https://github.com/ros2/examples/blob/humble/rclcpp/topics/minimal_subscriber/content_filtering.cpp>`_ examples.
 
 Related design PR: `ros2/design#282 <https://github.com/ros2/design/pull/282>`_.
-
+clear
 ros2cli
 ^^^^^^^
 
