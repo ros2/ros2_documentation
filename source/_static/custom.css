@@ -1,3 +1,10 @@
 .wy-nav-content {
     max-width: 64rem;
 }
+
+.short-description p{
+    font-size: 1.25rem;
+    line-height: 1.5;
+    color: #777777;
+    margin-bottom: 1.5rem;
+}

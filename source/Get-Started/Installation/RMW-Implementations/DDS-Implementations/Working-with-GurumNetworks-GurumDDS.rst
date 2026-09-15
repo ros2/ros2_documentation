@@ -1,13 +1,33 @@
+.. meta::
+   :contentType: how-to
+   :experience: intermediate, expert
+   :area: installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
    Working-with-GurumNetworks-GurumDDS
    Installation/RMW-Implementations/DDS-Implementations/Working-with-GurumNetworks-GurumDDS
 
-GurumNetworks GurumDDS
-======================
+Working with GurumNetworks GurumDDS - how-to
+============================================
+
+.. short-description::
+   GurumNetworks GurumDDS is an alternative middleware implementation for ROS systems that need a supported Data Distribution Service (DDS) backend.
+   This article describes how to install ``rmw_gurumdds``, select it as your active RMW implementation, and verify that it is working.
+   After you follow these steps, you can run ROS nodes using GurumDDS.
+
 ``rmw_gurumdds`` is an implementation of the ROS middleware interface using GurumNetworks GurumDDS.
 For more information about GurumDDS, visit the `GurumNetworks website <https://gurum.cc/index_eng>`_.
 
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 Prerequisites
 -------------
@@ -31,7 +51,6 @@ Windows binary installer of GurumDDS will be available soon.
 You can obtain a free trial license from the `GurumDDS Free Trial page <https://gurum.cc/free_trial_eng.html>`_.
 
 After acquiring a license, place it in the following location: ``/etc/gurumnet``
-
 
 Installation
 ------------
@@ -65,7 +84,6 @@ Option 2: Build from source code
 .. code-block:: console
 
    $ colcon build --symlink-install
-
 
 Switch to rmw_gurumdds
 ----------------------

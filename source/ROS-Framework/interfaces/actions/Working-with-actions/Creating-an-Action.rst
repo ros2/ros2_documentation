@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Actions/Creating-an-Action
@@ -5,8 +12,17 @@
 
 .. _ActionCreate:
 
-Creating an action
-==================
+Creating an action — tutorial
+=============================
+
+.. short-description::
+   Actions provide a structured way for ROS nodes to handle long-running tasks with feedback.
+   This tutorial describes how to define and build a custom action interface in a package.
+   After following these steps, you will be able to create and verify a reusable action definition.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Define an action in a ROS 2 package.
 

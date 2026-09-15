@@ -2,6 +2,13 @@
 
     Tutorials/Intermediate/RViz/RViz-Main
 
+.. meta::
+   :contentType:
+   :experience: intermediate
+   :area: visualization, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 RViz
 ====
 

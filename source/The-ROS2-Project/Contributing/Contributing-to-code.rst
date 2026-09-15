@@ -1,3 +1,10 @@
+.. meta::
+   :contentType:
+   :experience: beginner, intermediate, expert
+   :area: contributing, community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Contributing to code
 ====================
 

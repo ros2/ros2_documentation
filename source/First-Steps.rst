@@ -1,17 +1,31 @@
+.. meta::
+   :contentType: learning-path
+   :experience: beginner
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _First-steps-with-ROS-learning-path:
 
-First steps with ROS - learning path
-====================================
+Taking first steps with ROS - learning path
+===========================================
+
+.. short-description::
+   ROS provides the framework, tools, and libraries for building robotic applications.
+   This learning path introduces installation, turtlesim, core communication concepts, introspection, launch files, and data playback.
+   After completing it, you will be ready to start working with ROS client libraries and tutorials.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 ROS (Robot Operating System) is an open-source ecosystem that provides framework, tools, and libraries for building, deploying, running, and maintaining robotic applications.
 This page presents a set of articles and hands-on activities to introduce the main concepts behind the ROS framework.
 Working through these will give you the essential knowledge needed to start developing applications with ROS.
 
-**Area: ROS-framework | Content-type: learning-path | Experience: beginner**
-
 .. contents:: Contents
-    :depth: 2
-    :local:
+   :depth: 2
+   :local:
 
 Summary
 -------

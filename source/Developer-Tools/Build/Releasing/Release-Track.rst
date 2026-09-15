@@ -2,8 +2,24 @@
 
     How-To-Guides/Releasing/Release-Track
 
-Release Track
-=============
+.. meta::
+   :contentType: how-to
+   :experience: intermediate
+   :area: builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Creating release track prompts - how-to
+=======================================
+
+.. short-description::
+   Release tracks are used to store configuration information which can be reused by Bloom when releasing packages into different ROS distributions.
+   This article describes each release track prompt and the recommended values to enter.
+   After you follow it, you can create a track that matches your target ROS distribution and release workflow.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2

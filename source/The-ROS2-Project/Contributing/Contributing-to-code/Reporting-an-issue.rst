@@ -1,11 +1,21 @@
+.. meta::
+   :contentType: how-to
+   :experience: beginner, intermediate, expert
+   :area: community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Reporting an issue — how-to
 ===========================
 
-Issue reports help the ROS community identify bugs, suggest enhancements, improve documentation, and resolve package-specific problems.
-This article explains how to check whether an issue has already been reported and what information to provide in a new issue.
-With this information, you can provide clear, complete issue details in the right ROS repository.
+.. short-description::
+   Issue reports help the ROS community identify bugs, suggest enhancements, improve documentation, and resolve package-specific problems.
+   This article explains how to check whether an issue has already been reported and what information to provide in a new issue.
+   With this information, you can provide clear, complete issue details in the right ROS repository.
 
-**Area: community | Content-type: how-to | Experience: beginner, intermediate, expert**
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2

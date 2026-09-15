@@ -2,14 +2,28 @@
 
   Contributing/Build-Farms
 
-.. _BuildFarms:
+.. meta::
+   :contentType: reference
+   :experience: beginner, intermediate, expert
+   :area: contributing, community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
 
+.. _BuildFarms:
 
 ROS Build Farms
 ===============
 
+.. short-description::
+   ROS build farms provide shared infrastructure for building, testing, and distributing packages across the ROS ecosystem.
+   This article explains the hosted build farm services, the job types they run, and where to find related deployment, status, and troubleshooting information.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
 .. contents:: Table of Contents
-   :depth: 1
+   :depth: 2
    :local:
 
 The ROS build farms are an important infrastructure to support the ROS ecosystem, provided and

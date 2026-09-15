@@ -3,10 +3,31 @@
     Tutorials/Tf2/Debugging-Tf2-Problems
     Tutorials/Intermediate/Tf2/Debugging-Tf2-Problems
 
+.. meta::
+  :contentType: tutorial
+  :experience: intermediate
+  :area: debugging, tools
+  :distribution: {DISTRO}
+  :product: {PRODUCT}
+
 .. _DebuggingTf2Problems:
 
-Debugging
-=========
+Debugging - tutorial
+====================
+
+.. short-description::
+
+   Tf2 problems can prevent robot frames from transforming correctly, even when the rest of your application is running.
+   This article shows a systematic approach to debugging tf2 frame and timestamp errors with command-line tools.
+   After following these steps, you will be able to identify missing frames, inspect transform timing, and choose an appropriate fix.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 **Goal:** Learn how to use a systematic approach for debugging tf2 related problems.
 
@@ -14,9 +35,20 @@ Debugging
 
 **Time:** 10 minutes
 
-.. contents:: Contents
-   :depth: 2
-   :local:
+Summary
+-------
+
+A tf2 debugging workflow starts by identifying the exact transform request in your code.
+You can use the following tools to inspect the problem:
+
+* ``tf2_echo``: Checks if a transform between two frames is available.
+
+* ``view_frames``: Generates a frame graph to show which frames exist.
+
+* ``tf2_monitor``: Reports timing delays between frames.
+
+If a frame such as ``turtle3`` does not exist, correct the frame name.
+If the request uses now and causes extrapolation errors, request the latest available transform or use an appropriate timeout.
 
 Background
 ----------

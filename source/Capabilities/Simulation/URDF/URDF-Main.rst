@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: about
+   :experience: intermediate
+   :area: simulation, capabilities
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/URDF/URDF-Main
@@ -7,6 +14,14 @@
 
 URDF
 ====
+
+.. short-description::
+   URDF (Unified Robot Description Format) is used to describe a robot's structure, geometry, and physical properties for use in ROS.
+   This article introduces URDF and provides a set of tutorials for building, extending, and using robot description files.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 URDF (Unified Robot Description Format) is a file format for specifying the geometry and organization of robots in ROS.
 A URDF file follows the XML format as described on `here <https://wiki.ros.org/urdf/XML>`_.

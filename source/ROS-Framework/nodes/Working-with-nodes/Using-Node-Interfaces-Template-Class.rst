@@ -2,8 +2,25 @@
 
     Tutorials/Intermediate/Using-Node-Interfaces-Template-Class
 
-Using the Node Interfaces Template Class (C++)
-==============================================
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: nodes, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+
+Using the Node Interfaces Template Class (C++) — tutorial
+=========================================================
+
+.. short-description::
+   Different ROS node types can expose the same capabilities through different C++ classes.
+   This tutorial explains how to use ``rclcpp::node_interfaces::NodeInterfaces<>`` to write functions that accept both standard and lifecycle nodes.
+   After completing it, you can pass node interfaces compactly and retrieve node information reliably.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Learn how to access ``Node`` information using ``rclcpp::NodeInterfaces<>``
 
@@ -14,6 +31,15 @@ Using the Node Interfaces Template Class (C++)
 .. contents:: Table of Contents
    :depth: 2
    :local:
+
+Summary
+=======
+
+* ``rclcpp`` includes the ``rclcpp::NodeInterfaces<>`` template type, which is the preferred method for passing both conventional and lifecycle nodes to functions.
+* `ROSCon 2023 lightning talk <https://vimeo.com/879001243#t=16m0s>`_ summarizes the ``rclcpp::NodeInterfaces<>`` issue and remedy.
+* You can create a simple ``Node`` using ``rclcpp::Node``, but this approach does not work for other node types like ``rclcpp_lifecycle::LifecycleNode``.
+* Another approach, applicable to all node types, is to explicitly pass ``rclcpp::node_interfaces`` as function arguments.
+* To make your code flexible and compatible with different node types, use ``rclcpp::NodeInterfaces<>``, which also allows you to access a ``Node`` type's information.
 
 
 Overview

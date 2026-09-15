@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Actions/Writing-a-Py-Action-Server-Client
@@ -5,8 +12,17 @@
 
 .. _ActionsPy:
 
-Writing an action server and client (Python)
-============================================
+Writing an action server and client (Python) — tutorial
+=======================================================
+
+.. short-description::
+   Actions let ROS nodes communicate asynchronously when a task needs time to complete.
+   In this tutorial, you will write a Python action server and action client that use a Fibonacci action interface.
+   After you follow these steps, you will be able to send goals and receive feedback and results.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Implement an action server and client in Python.
 

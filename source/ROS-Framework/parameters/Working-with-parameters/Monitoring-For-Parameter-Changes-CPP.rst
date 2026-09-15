@@ -1,10 +1,26 @@
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: parameters, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Monitoring-For-Parameter-Changes-CPP
     Tutorials/Intermediate/Monitoring-For-Parameter-Changes-CPP
 
-Monitoring for parameter changes (C++)
-======================================
+Monitoring for parameter changes (C++) — tutorial
+=================================================
+
+.. short-description::
+   Parameters let nodes adapt their behaviour while a system is running.
+   This article shows how to use the C++ ParameterEventHandler class to monitor local and remote parameter changes.
+   After following the steps, you can trigger callbacks when selected parameters, or any parameter events, are updated.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Learn to use the ParameterEventHandler class to monitor and respond to parameter changes.
 
@@ -15,6 +31,19 @@ Monitoring for parameter changes (C++)
 .. contents:: Contents
    :depth: 2
    :local:
+
+Summary
+-------
+
+A C++ node can use ``rclcpp::ParameterEventHandler`` to respond when parameters change.
+
+Register callbacks for specific parameters with ``add_parameter_callback``:
+
+* ``add_parameter_callback("an_int_param", cb)`` monitors a local parameter.
+* ``add_parameter_callback(remote_param_name, cb2, remote_node_name)`` monitors a parameter on another node.
+* Keep the returned ``ParameterCallbackHandle`` in scope, or the callback will not remain registered.
+
+Use ``add_parameter_event_callback`` to run one callback when any node publishes a parameter event.
 
 Background
 ----------

@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: about
+   :experience: beginner, intermediate
+   :area: installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Installation
@@ -8,7 +15,17 @@
 Installation
 ============
 
-Options for installing ROS 2 {DISTRO_TITLE_FULL}:
+.. short-description::
+   Installing ROS correctly ensures your development environment matches your platform, permissions, and intended use.
+   This article outlines the supported installation options, compares binary packages with source builds, and helps you choose the best approach for getting started.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 .. toctree::
    :maxdepth: 1

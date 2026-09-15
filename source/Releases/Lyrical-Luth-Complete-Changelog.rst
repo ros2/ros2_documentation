@@ -1,9 +1,21 @@
+.. meta::
+   :contentType: release-note
+   :experience: intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 ROS 2 Lyrical Luth Complete Changelog
 =====================================
 
 This page is a list of the complete changes in all ROS 2 core packages since the previous release.
 
-.. contents:: Table of Contents
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
    :local:
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -13,7 +25,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix cmake deprecation (`#180 <https://github.com/ros2/rcl_interfaces/issues/180>`__)
 * Contributors: mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `action_tutorials_cpp <https://github.com/ros2/demos/tree/lyrical/action_tutorials/action_tutorials_cpp/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -22,7 +33,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Uniform CMAKE min VERSION (`#714 <https://github.com/ros2/demos/issues/714>`__) demo_nodes_cpp/CMakeLists.txt require cmake min version 3.12 other modules cmake 3.5. It is proposed to standardize with version 3.12. This also fixes cmake <3.10 deprecation warnings
 * Update action cpp demos to support setting introspection (`#709 <https://github.com/ros2/demos/issues/709>`__) * Update action cpp demos to support setting introspection * Add the missing header file declaration ---------
 * Contributors: Barry Xu, Emerson Knapp, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `action_tutorials_py <https://github.com/ros2/demos/tree/lyrical/action_tutorials/action_tutorials_py/CHANGELOG.rst>`__
@@ -34,7 +44,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update action python demos to support setting introspection (`#708 <https://github.com/ros2/demos/issues/708>`__) * Update action python demos to support setting introspection * Correct the errors in the document ---------
 * Contributors: Barry Xu, Tomoya Fujita, mohit, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_clang_format <https://github.com/ament/ament_lint/tree/lyrical/ament_clang_format/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -44,7 +53,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Export typing information for ament linters (`#553 <https://github.com/ament/ament_lint/issues/553>`__)
 * fix setuptools deprecations (`#547 <https://github.com/ament/ament_lint/issues/547>`__)
 * Contributors: Jochen Sprickerhof, Michael Carlstrom, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_clang_tidy <https://github.com/ament/ament_lint/tree/lyrical/ament_clang_tidy/CHANGELOG.rst>`__
@@ -56,7 +64,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix setuptools deprecations (`#547 <https://github.com/ament/ament_lint/issues/547>`__)
 * Contributors: Jochen Sprickerhof, Michael Carlstrom, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake <https://github.com/ament/ament_cmake/tree/lyrical/ament_cmake/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -64,14 +71,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Removed deprecated ament_cmake_export_interfaces package (`#581 <https://github.com/ament/ament_cmake/issues/581>`__)
 * Contributors: Alejandro Hernández Cordero
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_auto <https://github.com/ament/ament_cmake/tree/lyrical/ament_cmake_auto/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Do not error on USE_SCOPED_HEADER_INSTALL_DIR (`#596 <https://github.com/ament/ament_cmake/issues/596>`__)
 * Contributors: Tim Clephas
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_clang_format <https://github.com/ament/ament_lint/tree/lyrical/ament_cmake_clang_format/CHANGELOG.rst>`__
@@ -81,7 +86,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Allow overriding clang-format version via CMake (`#536 <https://github.com/ament/ament_lint/issues/536>`__)
 * Contributors: Nathan Wiebe Neufeldt, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_clang_tidy <https://github.com/ament/ament_lint/tree/lyrical/ament_cmake_clang_tidy/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -89,14 +93,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix cmake deprecation (`#539 <https://github.com/ament/ament_lint/issues/539>`__)
 * Contributors: mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_copyright <https://github.com/ament/ament_lint/tree/lyrical/ament_cmake_copyright/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Fix cmake deprecation (`#539 <https://github.com/ament/ament_lint/issues/539>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_core <https://github.com/ament/ament_cmake/tree/lyrical/ament_cmake_core/CHANGELOG.rst>`__
@@ -108,14 +110,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * perf: faster normalize_path implementation using cmake_path (`#586 <https://github.com/ament/ament_cmake/issues/586>`__)
 * Contributors: Nathan Boisard, Scott K Logan, Shane Loretz
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_cppcheck <https://github.com/ament/ament_lint/tree/lyrical/ament_cmake_cppcheck/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Fix cmake deprecation (`#539 <https://github.com/ament/ament_lint/issues/539>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_cpplint <https://github.com/ament/ament_lint/tree/lyrical/ament_cmake_cpplint/CHANGELOG.rst>`__
@@ -126,14 +126,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix cmake deprecation (`#539 <https://github.com/ament/ament_lint/issues/539>`__)
 * Contributors: Romain Reignier, Tom Moore, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_export_targets <https://github.com/ament/ament_cmake/tree/lyrical/ament_cmake_export_targets/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Address ament_lint_cmake regressions (`#604 <https://github.com/ament/ament_cmake/issues/604>`__)
 * Contributors: Scott K Logan
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_flake8 <https://github.com/ament/ament_lint/tree/lyrical/ament_cmake_flake8/CHANGELOG.rst>`__
@@ -142,7 +140,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fixing EXCLUDE consistency (`#481 <https://github.com/ament/ament_lint/issues/481>`__)
 * Fix cmake deprecation (`#539 <https://github.com/ament/ament_lint/issues/539>`__)
 * Contributors: Tom Moore, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_gen_version_h <https://github.com/ament/ament_cmake/tree/lyrical/ament_cmake_gen_version_h/CHANGELOG.rst>`__
@@ -153,14 +150,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Removed deprecated function ament_cmake_gen_version_h (`#582 <https://github.com/ament/ament_cmake/issues/582>`__)
 * Contributors: Alejandro Hernández Cordero, Scott K Logan, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_gmock <https://github.com/ament/ament_cmake/tree/lyrical/ament_cmake_gmock/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Use libgtest-dev and libgmock-dev (`#622 <https://github.com/ament/ament_cmake//issues/622>`__)
 * Contributors: Shane Loretz
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_gtest <https://github.com/ament/ament_cmake/tree/lyrical/ament_cmake_gtest/CHANGELOG.rst>`__
@@ -169,7 +164,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Use libgtest-dev and libgmock-dev (`#622 <https://github.com/ament/ament_cmake//issues/622>`__)
 * Contributors: Shane Loretz
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_libraries <https://github.com/ament/ament_cmake/tree/lyrical/ament_cmake_libraries/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -177,14 +171,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Address ament_lint_cmake regressions (`#604 <https://github.com/ament/ament_cmake/issues/604>`__)
 * Contributors: Scott K Logan
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_lint_cmake <https://github.com/ament/ament_lint/tree/lyrical/ament_cmake_lint_cmake/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Fix cmake deprecation (`#539 <https://github.com/ament/ament_lint/issues/539>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_mypy <https://github.com/ament/ament_lint/tree/lyrical/ament_cmake_mypy/CHANGELOG.rst>`__
@@ -194,14 +186,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix cmake deprecation (`#539 <https://github.com/ament/ament_lint/issues/539>`__)
 * Contributors: Michael Carlstrom, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_pclint <https://github.com/ament/ament_lint/tree/lyrical/ament_cmake_pclint/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Fix cmake deprecation (`#539 <https://github.com/ament/ament_lint/issues/539>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_pep257 <https://github.com/ament/ament_lint/tree/lyrical/ament_cmake_pep257/CHANGELOG.rst>`__
@@ -210,7 +200,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix cmake deprecation (`#539 <https://github.com/ament/ament_lint/issues/539>`__)
 * Contributors: mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_pycodestyle <https://github.com/ament/ament_lint/tree/lyrical/ament_cmake_pycodestyle/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -218,14 +207,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix cmake deprecation (`#539 <https://github.com/ament/ament_lint/issues/539>`__)
 * Contributors: mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_pyflakes <https://github.com/ament/ament_lint/tree/lyrical/ament_cmake_pyflakes/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Fix cmake deprecation (`#539 <https://github.com/ament/ament_lint/issues/539>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_python <https://github.com/ament/ament_cmake/tree/lyrical/ament_cmake_python/CHANGELOG.rst>`__
@@ -235,14 +222,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add missing dependency (`#617 <https://github.com/ament/ament_cmake/issues/617>`__)
 * Contributors: Nadav Elkabets, Robert Haschke
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_python_test <https://github.com/ament/ament_cmake/tree/lyrical/ament_cmake_python_test/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * feature: allow extending a python package in ``ament_python_install_package`` (`#587 <https://github.com/ament/ament_cmake//issues/587>`__)
 * Contributors: Nadav Elkabets
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_ros <https://github.com/ros2/ament_cmake_ros/tree/lyrical/ament_cmake_ros/CHANGELOG.rst>`__
@@ -251,7 +236,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix cmake deprecation (`#47 <https://github.com/ros2/ament_cmake_ros/issues/47>`__)
 * Contributors: mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_ros_core <https://github.com/ros2/ament_cmake_ros/tree/lyrical/ament_cmake_ros_core/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -259,7 +243,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add ``ament_ros_defaults`` target (`#62 <https://github.com/ros2/ament_cmake_ros/issues/62>`__)
 * fix cmake deprecation (`#47 <https://github.com/ros2/ament_cmake_ros/issues/47>`__)
 * Contributors: Michael Carlstrom, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_target_dependencies <https://github.com/ament/ament_cmake/tree/lyrical/ament_cmake_target_dependencies/CHANGELOG.rst>`__
@@ -270,7 +253,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Removed deprecated function ament_cmake_target_dependencies (`#583 <https://github.com/ament/ament_cmake/issues/583>`__)
 * Contributors: Alejandro Hernández Cordero, Shane Loretz
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_uncrustify <https://github.com/ament/ament_lint/tree/lyrical/ament_cmake_uncrustify/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -279,7 +261,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix cmake deprecation (`#539 <https://github.com/ament/ament_lint/issues/539>`__)
 * Contributors: Abrar Rahman Protyasha, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_vendor_package <https://github.com/ament/ament_cmake/tree/lyrical/ament_cmake_vendor_package/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -287,14 +268,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * ament_vendor: Propagate additional variables to ExternalProject (`#593 <https://github.com/ament/ament_cmake/issues/593>`__)
 * Contributors: Silvio Traversaro
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_xmllint <https://github.com/ament/ament_lint/tree/lyrical/ament_cmake_xmllint/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Fix cmake deprecation (`#539 <https://github.com/ament/ament_lint/issues/539>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_copyright <https://github.com/ament/ament_lint/tree/lyrical/ament_copyright/CHANGELOG.rst>`__
@@ -308,7 +287,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix setuptools deprecations (`#547 <https://github.com/ament/ament_lint/issues/547>`__)
 * Contributors: Jochen Sprickerhof, Michael Carlstrom, Tully Foote, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cppcheck <https://github.com/ament/ament_lint/tree/lyrical/ament_cppcheck/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -318,7 +296,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Export typing information for ament linters (`#553 <https://github.com/ament/ament_lint/issues/553>`__)
 * fix setuptools deprecations (`#547 <https://github.com/ament/ament_lint/issues/547>`__)
 * Contributors: Jochen Sprickerhof, Michael Carlstrom, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cpplint <https://github.com/ament/ament_lint/tree/lyrical/ament_cpplint/CHANGELOG.rst>`__
@@ -331,7 +308,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * cpplint: update link to upstream cpplint repo (`#538 <https://github.com/ament/ament_lint/issues/538>`__)
 * Contributors: Jochen Sprickerhof, Michael Carlstrom, Romain Reignier, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_flake8 <https://github.com/ament/ament_lint/tree/lyrical/ament_flake8/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -342,7 +318,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Export typing information for ament linters (`#553 <https://github.com/ament/ament_lint/issues/553>`__)
 * fix setuptools deprecations (`#547 <https://github.com/ament/ament_lint/issues/547>`__)
 * Contributors: Jochen Sprickerhof, Michael Carlstrom, Scott K Logan, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_index_cpp <https://github.com/ament/ament_index/tree/lyrical/ament_index_cpp/CHANGELOG.rst>`__
@@ -355,7 +330,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix CMake deprecation (`#102 <https://github.com/ament/ament_index/issues/102>`__)
 * Contributors: Alejandro Hernández Cordero, Eric Lujan, Tim Clephas, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_index_python <https://github.com/ament/ament_index/tree/lyrical/ament_index_python/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -363,7 +337,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Cleanups ament_index_python (`#115 <https://github.com/ament/ament_index/issues/115>`__)
 * fix setuptools deprecations (`#101 <https://github.com/ament/ament_index/issues/101>`__)
 * Contributors: Alejandro Hernández Cordero, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_lint <https://github.com/ament/ament_lint/tree/lyrical/ament_lint/CHANGELOG.rst>`__
@@ -374,14 +347,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix setuptools deprecations (`#547 <https://github.com/ament/ament_lint/issues/547>`__)
 * Contributors: Jochen Sprickerhof, Michael Carlstrom, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_lint_auto <https://github.com/ament/ament_lint/tree/lyrical/ament_lint_auto/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Fix cmake deprecation (`#539 <https://github.com/ament/ament_lint/issues/539>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_lint_cmake <https://github.com/ament/ament_lint/tree/lyrical/ament_lint_cmake/CHANGELOG.rst>`__
@@ -392,14 +363,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix setuptools deprecations (`#547 <https://github.com/ament/ament_lint/issues/547>`__)
 * Contributors: Jochen Sprickerhof, Michael Carlstrom, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_lint_common <https://github.com/ament/ament_lint/tree/lyrical/ament_lint_common/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Fix cmake deprecation (`#539 <https://github.com/ament/ament_lint/issues/539>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_mypy <https://github.com/ament/ament_lint/tree/lyrical/ament_mypy/CHANGELOG.rst>`__
@@ -413,7 +382,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix setuptools deprecations (`#547 <https://github.com/ament/ament_lint/issues/547>`__)
 * Contributors: Jochen Sprickerhof, Michael Carlstrom, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_package <https://github.com/ament/ament_package/tree/lyrical/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -423,7 +391,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Remove unneeded deps (`#161 <https://github.com/ament/ament_package/issues/161>`__)
 * fix setuptools deprecations (`#156 <https://github.com/ament/ament_package/issues/156>`__)
 * Contributors: Michael Carlstrom, SPeak, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_pclint <https://github.com/ament/ament_lint/tree/lyrical/ament_pclint/CHANGELOG.rst>`__
@@ -437,7 +404,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix setuptools deprecations (`#547 <https://github.com/ament/ament_lint/issues/547>`__)
 * Contributors: Jochen Sprickerhof, Michael Carlstrom, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_pep257 <https://github.com/ament/ament_lint/tree/lyrical/ament_pep257/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -449,7 +415,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix setuptools deprecations (`#547 <https://github.com/ament/ament_lint/issues/547>`__)
 * Contributors: Jochen Sprickerhof, Michael Carlstrom, Scott K Logan, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_pycodestyle <https://github.com/ament/ament_lint/tree/lyrical/ament_pycodestyle/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -460,7 +425,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix setuptools deprecations (`#547 <https://github.com/ament/ament_lint/issues/547>`__)
 * Contributors: Jochen Sprickerhof, Michael Carlstrom, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_pyflakes <https://github.com/ament/ament_lint/tree/lyrical/ament_pyflakes/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -470,7 +434,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Export typing information for ament linters (`#553 <https://github.com/ament/ament_lint/issues/553>`__)
 * fix setuptools deprecations (`#547 <https://github.com/ament/ament_lint/issues/547>`__)
 * Contributors: Jochen Sprickerhof, Michael Carlstrom, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_uncrustify <https://github.com/ament/ament_lint/tree/lyrical/ament_uncrustify/CHANGELOG.rst>`__
@@ -484,7 +447,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix setuptools deprecations (`#547 <https://github.com/ament/ament_lint/issues/547>`__)
 * Contributors: Alejandro Hernández Cordero, Jochen Sprickerhof, Michael Carlstrom, Michael Orlov, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_xmllint <https://github.com/ament/ament_lint/tree/lyrical/ament_xmllint/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -496,7 +458,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix setuptools deprecations (`#547 <https://github.com/ament/ament_lint/issues/547>`__)
 * Contributors: Jochen Sprickerhof, Michael Carlstrom, Michael Carroll, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `builtin_interfaces <https://github.com/ros2/rcl_interfaces/tree/lyrical/builtin_interfaces/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -504,7 +465,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix cmake deprecation (`#180 <https://github.com/ros2/rcl_interfaces/issues/180>`__)
 * Add info to duration message and time message comments (`#176 <https://github.com/ros2/rcl_interfaces/issues/176>`__)
 * Contributors: Jimmy McElwain, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `camera_calibration_parsers <https://github.com/ros-perception/image_common/tree/lyrical/camera_calibration_parsers/CHANGELOG.rst>`__
@@ -516,7 +476,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix cmake deprecation (`#367 <https://github.com/ros-perception/image_common/issues/367>`__)
 * Use target_link_libraries instead of ament_target_dependencies (`#345 <https://github.com/ros-perception/image_common/issues/345>`__)
 * Contributors: Emerson Knapp, Garrett Brown, Michael Carlstrom, Shane Loretz, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `camera_info_manager <https://github.com/ros-perception/image_common/tree/lyrical/camera_info_manager/CHANGELOG.rst>`__
@@ -533,7 +492,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix cmake deprecation (`#367 <https://github.com/ros-perception/image_common/issues/367>`__)
 * Contributors: Alejandro Hernández Cordero, Emerson Knapp, Garrett Brown, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `camera_info_manager_py <https://github.com/ros-perception/image_common/tree/lyrical/camera_info_manager_py/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -543,7 +501,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix setuptools deprecation (`#366 <https://github.com/ros-perception/image_common/issues/366>`__)
 * Fix CameraInfo distortion coefficients and logger (`#360 <https://github.com/ros-perception/image_common/issues/360>`__)
 * Contributors: Alejandro Hernández Cordero, Garrett Brown, Rick-v-E, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `class_loader <https://github.com/ros/class_loader/tree/lyrical/CHANGELOG.rst>`__
@@ -559,7 +516,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Remove CODEOWNERS and mirror-rolling-to-main workflow (`#215 <https://github.com/ros/class_loader/issues/215>`__)
 * Contributors: Alejandro Hernández Cordero, CY Chen, Tyler Weaver, mosfet80, pum1k
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `common_interfaces <https://github.com/ros2/common_interfaces/tree/lyrical/common_interfaces/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -567,7 +523,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix CMAKE deprecation (`#288 <https://github.com/ros2/common_interfaces/issues/288>`__)
 * Removed deprecated actionlib_msgs (`#280 <https://github.com/ros2/common_interfaces/issues/280>`__)
 * Contributors: Alejandro Hernández Cordero, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `composition <https://github.com/ros2/demos/tree/lyrical/composition/CHANGELOG.rst>`__
@@ -584,14 +539,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Use target_link_libraries instead of ament_target_dependencies (`#707 <https://github.com/ros2/demos/issues/707>`__)
 * Contributors: Alejandro Hernández Cordero, Emerson Knapp, Julien Enoch, Lucas Wendland, Scott K Logan, Shane Loretz, mergify[bot], mosfet80, yadunund
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `composition_interfaces <https://github.com/ros2/rcl_interfaces/tree/lyrical/composition_interfaces/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Fix cmake deprecation (`#180 <https://github.com/ros2/rcl_interfaces/issues/180>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `console_bridge_vendor <https://github.com/ros2/console_bridge_vendor/tree/lyrical/CHANGELOG.rst>`__
@@ -600,7 +553,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update CMake version here and console_bridge (`#44 <https://github.com/ros2/console_bridge_vendor/issues/44>`__)
 * Remove CODEOWNERS and mirror-rolling-to-master workflow. (`#42 <https://github.com/ros2/console_bridge_vendor/issues/42>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `demo_nodes_cpp <https://github.com/ros2/demos/tree/lyrical/demo_nodes_cpp/CHANGELOG.rst>`__
@@ -616,7 +568,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Set envars to run tests with rmw_zenoh_cpp with multicast discovery (`#711 <https://github.com/ros2/demos/issues/711>`__)
 * Contributors: Alejandro Hernández Cordero, Emerson Knapp, Khaled Gabr, Lucas Wendland, Scott K Logan, Tomoya Fujita, mini-1235, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `demo_nodes_cpp_native <https://github.com/ros2/demos/tree/lyrical/demo_nodes_cpp_native/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -627,7 +578,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Uniform CMAKE min VERSION (`#714 <https://github.com/ros2/demos/issues/714>`__)
 * Use target_link_libraries instead of ament_target_dependencies (`#707 <https://github.com/ros2/demos/issues/707>`__)
 * Contributors: Alejandro Hernández Cordero, Emerson Knapp, Lucas Wendland, Shane Loretz, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `demo_nodes_py <https://github.com/ros2/demos/tree/lyrical/demo_nodes_py/CHANGELOG.rst>`__
@@ -641,7 +591,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Revert "Revert "fix loading parameter behavior from yaml file. (`#656 <https://github.com/ros2/demos/issues/656>`__)" (`#660 <https://github.com/ros2/demos/issues/660>`__)" (`#661 <https://github.com/ros2/demos/issues/661>`__)
 * Contributors: Barry Xu, Lucas Wendland, Michael Carlstrom, Tomoya Fujita, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `diagnostic_msgs <https://github.com/ros2/common_interfaces/tree/lyrical/diagnostic_msgs/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -649,14 +598,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix CMAKE deprecation (`#288 <https://github.com/ros2/common_interfaces/issues/288>`__)
 * Contributors: mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `domain_coordinator <https://github.com/ros2/ament_cmake_ros/tree/lyrical/domain_coordinator/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * fix setuptools deprecations (`#49 <https://github.com/ros2/ament_cmake_ros/issues/49>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `dummy_map_server <https://github.com/ros2/demos/tree/lyrical/dummy_robot/dummy_map_server/CHANGELOG.rst>`__
@@ -668,7 +615,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Use target_link_libraries instead of ament_target_dependencies (`#707 <https://github.com/ros2/demos/issues/707>`__)
 * Contributors: Emerson Knapp, Shane Loretz, Tomoya Fujita, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `dummy_robot_bringup <https://github.com/ros2/demos/tree/lyrical/dummy_robot/dummy_robot_bringup/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -677,7 +623,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Added README.md for dummy_robot_bringup. (`#574 <https://github.com/ros2/demos/issues/574>`__)
 * Uniform CMAKE min VERSION (`#714 <https://github.com/ros2/demos/issues/714>`__) demo_nodes_cpp/CMakeLists.txt require cmake min version 3.12 other modules cmake 3.5. It is proposed to standardize with version 3.12. This also fixes cmake <3.10 deprecation warnings
 * Contributors: Alejandro Hernández Cordero, Gary Bey, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `dummy_sensors <https://github.com/ros2/demos/tree/lyrical/dummy_robot/dummy_sensors/CHANGELOG.rst>`__
@@ -689,7 +634,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Use target_link_libraries instead of ament_target_dependencies (`#707 <https://github.com/ros2/demos/issues/707>`__)
 * Contributors: Emerson Knapp, Shane Loretz, Tomoya Fujita, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `eigen3_cmake_module <https://github.com/ros2/eigen3_cmake_module/tree/lyrical/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -697,7 +641,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix cmake deprecation (`#10 <https://github.com/ros2/eigen3_cmake_module/issues/10>`__)
 * Remove CODEOWNERS and mirror-rolling-to-master workflow. (`#8 <https://github.com/ros2/eigen3_cmake_module/issues/8>`__)
 * Contributors: Chris Lalancette, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `example_interfaces <https://github.com/ros2/example_interfaces/tree/lyrical/CHANGELOG.rst>`__
@@ -708,7 +651,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Remove CODEOWNERS and mirror-rolling-to-master workflow. (`#19 <https://github.com/ros2/example_interfaces/issues/19>`__)
 * Contributors: Chris Lalancette, Tomoya Fujita, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclcpp_async_client <https://github.com/ros2/examples/tree/lyrical/rclcpp/services/async_client/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -718,7 +660,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Use target_link_libraries instead of ament_target_dependencies (`#404 <https://github.com/ros2/examples/issues/404>`__)
 * Contributors: Emerson Knapp, Shane Loretz, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclcpp_cbg_executor <https://github.com/ros2/examples/tree/lyrical/rclcpp/executors/cbg_executor/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -727,7 +668,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix CMAKE deprecation (`#419 <https://github.com/ros2/examples/issues/419>`__)
 * Use target_link_libraries instead of ament_target_dependencies (`#404 <https://github.com/ros2/examples/issues/404>`__)
 * Contributors: Emerson Knapp, Shane Loretz, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclcpp_minimal_action_client <https://github.com/ros2/examples/tree/lyrical/rclcpp/actions/minimal_action_client/CHANGELOG.rst>`__
@@ -739,7 +679,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Use target_link_libraries instead of ament_target_dependencies (`#404 <https://github.com/ros2/examples/issues/404>`__)
 * Contributors: Emerson Knapp, Shane Loretz, Tomoya Fujita, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclcpp_minimal_action_server <https://github.com/ros2/examples/tree/lyrical/rclcpp/actions/minimal_action_server/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -750,7 +689,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Use target_link_libraries instead of ament_target_dependencies (`#404 <https://github.com/ros2/examples/issues/404>`__)
 * Contributors: Emerson Knapp, Shane Loretz, Taiga Arai, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclcpp_minimal_client <https://github.com/ros2/examples/tree/lyrical/rclcpp/services/minimal_client/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -760,7 +698,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Use target_link_libraries instead of ament_target_dependencies (`#404 <https://github.com/ros2/examples/issues/404>`__)
 * Contributors: Emerson Knapp, Shane Loretz, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclcpp_minimal_composition <https://github.com/ros2/examples/tree/lyrical/rclcpp/composition/minimal_composition/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -769,7 +706,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix CMAKE deprecation (`#419 <https://github.com/ros2/examples/issues/419>`__)
 * Use target_link_libraries instead of ament_target_dependencies (`#404 <https://github.com/ros2/examples/issues/404>`__)
 * Contributors: Emerson Knapp, Shane Loretz, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclcpp_minimal_publisher <https://github.com/ros2/examples/tree/lyrical/rclcpp/topics/minimal_publisher/CHANGELOG.rst>`__
@@ -783,7 +719,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Use target_link_libraries instead of ament_target_dependencies (`#404 <https://github.com/ros2/examples/issues/404>`__)
 * Contributors: Emerson Knapp, Shane Loretz, Tomoya Fujita, Yadnyeshwar Amol Sakhare, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclcpp_minimal_service <https://github.com/ros2/examples/tree/lyrical/rclcpp/services/minimal_service/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -792,7 +727,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix CMAKE deprecation (`#419 <https://github.com/ros2/examples/issues/419>`__)
 * Use target_link_libraries instead of ament_target_dependencies (`#404 <https://github.com/ros2/examples/issues/404>`__)
 * Contributors: Emerson Knapp, Shane Loretz, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclcpp_minimal_subscriber <https://github.com/ros2/examples/tree/lyrical/rclcpp/topics/minimal_subscriber/CHANGELOG.rst>`__
@@ -803,7 +737,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Use target_link_libraries instead of ament_target_dependencies (`#404 <https://github.com/ros2/examples/issues/404>`__)
 * Contributors: Emerson Knapp, Shane Loretz, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclcpp_minimal_timer <https://github.com/ros2/examples/tree/lyrical/rclcpp/timers/minimal_timer/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -811,7 +744,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix CMAKE deprecation (`#419 <https://github.com/ros2/examples/issues/419>`__)
 * Use target_link_libraries instead of ament_target_dependencies (`#404 <https://github.com/ros2/examples/issues/404>`__)
 * Contributors: Shane Loretz, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclcpp_multithreaded_executor <https://github.com/ros2/examples/tree/lyrical/rclcpp/executors/multithreaded_executor/CHANGELOG.rst>`__
@@ -823,7 +755,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Use target_link_libraries instead of ament_target_dependencies (`#404 <https://github.com/ros2/examples/issues/404>`__)
 * Contributors: Emerson Knapp, José Faria, Shane Loretz, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclcpp_wait_set <https://github.com/ros2/examples/tree/lyrical/rclcpp/wait_set/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -833,14 +764,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Use target_link_libraries instead of ament_target_dependencies (`#404 <https://github.com/ros2/examples/issues/404>`__)
 * Contributors: Emerson Knapp, Shane Loretz, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclpy_executors <https://github.com/ros2/examples/tree/lyrical/rclpy/executors/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Fix setuptools deprecations (`#421 <https://github.com/ros2/examples/issues/421>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclpy_guard_conditions <https://github.com/ros2/examples/tree/lyrical/rclpy/guard_conditions/CHANGELOG.rst>`__
@@ -849,14 +778,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix setuptools deprecations (`#421 <https://github.com/ros2/examples/issues/421>`__)
 * Contributors: mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclpy_minimal_action_client <https://github.com/ros2/examples/tree/lyrical/rclpy/actions/minimal_action_client/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Fix setuptools deprecations (`#421 <https://github.com/ros2/examples/issues/421>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclpy_minimal_action_server <https://github.com/ros2/examples/tree/lyrical/rclpy/actions/minimal_action_server/CHANGELOG.rst>`__
@@ -865,7 +792,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix setuptools deprecations (`#421 <https://github.com/ros2/examples/issues/421>`__)
 * Contributors: mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclpy_minimal_client <https://github.com/ros2/examples/tree/lyrical/rclpy/services/minimal_client/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -873,7 +799,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * flake8 fixes (`#445 <https://github.com/ros2/examples/issues/445>`__)
 * Fix setuptools deprecations (`#421 <https://github.com/ros2/examples/issues/421>`__)
 * Contributors: Michael Carlstrom, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclpy_minimal_publisher <https://github.com/ros2/examples/tree/lyrical/rclpy/topics/minimal_publisher/CHANGELOG.rst>`__
@@ -884,7 +809,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add publisher_member_function_with_wait_for_all_acked.py (`#407 <https://github.com/ros2/examples/issues/407>`__)
 * Contributors: Tomoya Fujita, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclpy_minimal_service <https://github.com/ros2/examples/tree/lyrical/rclpy/services/minimal_service/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -892,7 +816,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * flake8 fixes (`#445 <https://github.com/ros2/examples/issues/445>`__)
 * Fix setuptools deprecations (`#421 <https://github.com/ros2/examples/issues/421>`__)
 * Contributors: Michael Carlstrom, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclpy_minimal_subscriber <https://github.com/ros2/examples/tree/lyrical/rclpy/topics/minimal_subscriber/CHANGELOG.rst>`__
@@ -902,14 +825,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix setuptools deprecations (`#421 <https://github.com/ros2/examples/issues/421>`__)
 * Contributors: Michael Carlstrom, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclpy_pointcloud_publisher <https://github.com/ros2/examples/tree/lyrical/rclpy/topics/pointcloud_publisher/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Fix setuptools deprecations (`#421 <https://github.com/ros2/examples/issues/421>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_tf2_py <https://github.com/ros2/geometry2/tree/lyrical/examples_tf2_py/CHANGELOG.rst>`__
@@ -919,7 +840,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Modernize conf.py files to only include modified Copyright, eliminati… (`#865 <https://github.com/ros2/geometry2/issues/865>`__)
 * Fix Setuptools deprecations (`#809 <https://github.com/ros2/geometry2/issues/809>`__)
 * Contributors: Auguste Lalande, R Kent James, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `foonathan_memory_vendor <https://github.com/eProsima/foonathan_memory_vendor/tree/master/CHANGELOG.rst>`__
@@ -934,14 +854,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add FORCE_BUILD option to cmake (#69)
 * Shorten new option description (#70)
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `geometry2 <https://github.com/ros2/geometry2/tree/lyrical/geometry2/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Uniform cmake min version (`#764 <https://github.com/ros2/geometry2/issues/764>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `geometry_msgs <https://github.com/ros2/common_interfaces/tree/lyrical/geometry_msgs/CHANGELOG.rst>`__
@@ -952,7 +870,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Removed deprecated geometry_msgs/Pose2d (`#283 <https://github.com/ros2/common_interfaces/issues/283>`__)
 * Contributors: Alejandro Hernández Cordero, Andrew Symington, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `gmock_vendor <https://github.com/ament/googletest/tree/lyrical/googlemock/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -960,14 +877,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Deprecate gtest_vendor and gmock_vendor (`#41 <https://github.com/ament/googletest/issues/41>`__)
 * Contributors: Shane Loretz
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `gtest_vendor <https://github.com/ament/googletest/tree/lyrical/googletest/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Deprecate gtest_vendor and gmock_vendor (`#41 <https://github.com/ament/googletest/issues/41>`__)
 * Contributors: Shane Loretz
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `gz_cmake_vendor <https://github.com/gazebo-release/gz_cmake_vendor/tree/lyrical/CHANGELOG.rst>`__
@@ -981,7 +896,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Bump version to 4.2.0 (`#15 <https://github.com/gazebo-release/gz_cmake_vendor/issues/15>`__)
 * Contributors: Addisu Z. Taddese, Jose Luis Rivero, Steve Peters
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `gz_math_vendor <https://github.com/gazebo-release/gz_math_vendor/tree/lyrical/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -994,7 +908,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Bump version to 8.2.0 (`#11 <https://github.com/gazebo-release/gz_math_vendor/issues/11>`__)
 * Contributors: Addisu Z. Taddese, Ian Chen, Jose Luis Rivero, Steve Peters
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `gz_utils_vendor <https://github.com/gazebo-release/gz_utils_vendor/tree/lyrical/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1004,7 +917,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Jetty support: bump to 4.0.0, fix package names (`#11 <https://github.com/gazebo-release/gz_utils_vendor/issues/11>`__) * Jetty support: bump to 4.0.0, fix package names Major version numbers have been removed from package names in Gazebo Jetty, so extra cmake config files are no longer needed. * Add option VENDOR_FROM_LIB_VCS_REF This allows vendoring from a specified vcs ref instead of the hard-coded tag. When this option is set to true, a branch, tag, or commit can be specified in the LIB_VCS_REF variable. If LIB_VCS_REF is unspecified, vendoring will use main. * remove unused cmake config file * use lowercase to fix linter complaint * Add dependency on cli11 * 4.0.0~pre1 * Use vendored version of CLI11 --------- Co-authored-by: Addisu Z. Taddese <addisu@openrobotics.org>
 * Contributors: Addisu Z. Taddese, Steve Peters
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `image_common <https://github.com/ros-perception/image_common/tree/lyrical/image_common/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1012,7 +924,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update BSD licenses to SPDX identifier (`#389 <https://github.com/ros-perception/image_common/issues/389>`__) Co-authored-by: Alejandro Hernandez Cordero <ahcorde@gmail.com>
 * Fix cmake deprecation (`#367 <https://github.com/ros-perception/image_common/issues/367>`__)
 * Contributors: Garrett Brown, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `image_tools <https://github.com/ros2/demos/tree/lyrical/image_tools/CHANGELOG.rst>`__
@@ -1026,7 +937,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Lint image_tools/CMakeLists.txt (`#712 <https://github.com/ros2/demos/issues/712>`__)
 * Set envars to run tests with rmw_zenoh_cpp with multicast discovery (`#711 <https://github.com/ros2/demos/issues/711>`__)
 * Contributors: Alejandro Hernández Cordero, Emerson Knapp, Lucas Wendland, Michael Carlstrom, Scott K Logan, mosfet80, yadunund
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `image_transport <https://github.com/ros-perception/image_common/tree/lyrical/image_transport/CHANGELOG.rst>`__
@@ -1052,7 +962,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Use target_link_libraries instead of ament_target_dependencies (`#345 <https://github.com/ros-perception/image_common/issues/345>`__)
 * Contributors: Alejandro Hernández Cordero, Alex Tyshka, Emerson Knapp, Garrett Brown, Shane Loretz, Tomoya Fujita, Yuyuan Yuan, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `image_transport_py <https://github.com/ros-perception/image_common/tree/lyrical/image_transport_py/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1062,7 +971,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Use pybind11 from deb or pixi (`#374 <https://github.com/ros-perception/image_common/issues/374>`__)
 * Support lifecycle node - NodeInterfaces (`#352 <https://github.com/ros-perception/image_common/issues/352>`__)
 * Contributors: Alejandro Hernández Cordero, Emerson Knapp, Garrett Brown
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `interactive_markers <https://github.com/ros-visualization/interactive_markers/tree/lyrical/CHANGELOG.rst>`__
@@ -1074,7 +982,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Explicit Time comparissons (`#105 <https://github.com/ros-visualization/interactive_markers/issues/105>`__)
 * fix cmake deprecation (`#113 <https://github.com/ros-visualization/interactive_markers/issues/113>`__)
 * Contributors: AiVerisimilitude, Alejandro Hernández Cordero, Emerson Knapp, Janosch Machowinski, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `intra_process_demo <https://github.com/ros2/demos/tree/lyrical/intra_process_demo/CHANGELOG.rst>`__
@@ -1089,7 +996,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Set envars to run tests with rmw_zenoh_cpp with multicast discovery (`#711 <https://github.com/ros2/demos/issues/711>`__)
 * Contributors: Alejandro Hernández Cordero, Emerson Knapp, Lucas Wendland, Michael Carlstrom, Scott K Logan, William Woodall, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `kdl_parser <https://github.com/ros/kdl_parser/tree/lyrical/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1099,14 +1005,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Remove kdl_parser_py. (`#89 <https://github.com/ros/kdl_parser/issues/89>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `keyboard_handler <https://github.com/ros-tooling/keyboard_handler/tree/lyrical/keyboard_handler/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * fix cmake deprecation (`#55 <https://github.com/ros-tooling/keyboard_handler/issues/55>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `laser_geometry <https://github.com/ros-perception/laser_geometry/tree/lyrical/CHANGELOG.rst>`__
@@ -1118,7 +1022,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix cmake deprecation (`#105 <https://github.com/ros-perception/laser_geometry/issues/105>`__)
 * Remove hard-coded eigen3 header path for linux hosts (`#95 <https://github.com/ros-perception/laser_geometry/issues/95>`__) Co-authored-by: Alejandro Hernandez Cordero <ahcorde@gmail.com>
 * Contributors: AiVerisimilitude, Alejandro Hernández Cordero, Emerson Knapp, Lukas Schäper, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `launch <https://github.com/ros2/launch/tree/lyrical/launch/CHANGELOG.rst>`__
@@ -1154,7 +1057,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add Other Logging Implementations (`#858 <https://github.com/ros2/launch/issues/858>`__)
 * Contributors: Auguste Lalande, Christian Ruf, Christophe Bedard, David V. Lu!!, Emerson Knapp, Harrison Chen, Jonas Otto, Kenji Brameld (TRACLabs), Matthijs van der Burgh, Michael Carlstrom, Scott K Logan, Sebastian Javier D'Alessandro Szymanowski, Tanishq Chaudhary, Will, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `launch_pytest <https://github.com/ros2/launch/tree/lyrical/launch_pytest/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1168,7 +1070,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Allow Path in substitutions, instead of requiring cast to str (`#873 <https://github.com/ros2/launch/issues/873>`__)
 * fix(launch_pytest): prevent re-wrapping test funtions on re-run (`#855 <https://github.com/ros2/launch/issues/855>`__)
 * Contributors: Christophe Bedard, Daisuke Nishimatsu, David Revay, Emerson Knapp, Michael Carlstrom, Scott K Logan, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `launch_ros <https://github.com/ros2/launch_ros/tree/lyrical/launch_ros/CHANGELOG.rst>`__
@@ -1190,7 +1091,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix: LoadComposableNodes fails to parse wildcard param files correctly (`#460 <https://github.com/ros2/launch_ros/issues/460>`__) (`#465 <https://github.com/ros2/launch_ros/issues/465>`__)
 * Contributors: Auguste Lalande, Christophe Bedard, Emerson Knapp, Emre Kuru, Jasper van Brakel, Kenji Brameld, Michael Carlstrom, Scott K Logan, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `launch_testing <https://github.com/ros2/launch/tree/lyrical/launch_testing/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1205,14 +1105,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Updated ``launch`` typings (`#831 <https://github.com/ros2/launch/issues/831>`__)
 * Contributors: Auguste Lalande, Christophe Bedard, Michael Carlstrom, Scott K Logan, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `launch_testing_ament_cmake <https://github.com/ros2/launch/tree/lyrical/launch_testing_ament_cmake/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Fix CMake deprecation (`#899 <https://github.com/ros2/launch/issues/899>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `launch_testing_examples <https://github.com/ros2/examples/tree/lyrical/launch_testing/launch_testing_examples/CHANGELOG.rst>`__
@@ -1221,7 +1119,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * improve test integrity with rmw_cyclonedds_cpp. (`#440 <https://github.com/ros2/examples/issues/440>`__)
 * Fix setuptools deprecations (`#421 <https://github.com/ros2/examples/issues/421>`__)
 * Contributors: Tomoya Fujita, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `launch_testing_ros <https://github.com/ros2/launch_ros/tree/lyrical/launch_testing_ros/CHANGELOG.rst>`__
@@ -1235,7 +1132,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix setuptools deprecations (`#475 <https://github.com/ros2/launch_ros/issues/475>`__)
 * ``WaitForTopics``: wait for publisher-subscriber connection to be established (`#474 <https://github.com/ros2/launch_ros/issues/474>`__)
 * Contributors: Auguste Lalande, Giorgio Pintaudi, Julien Enoch, Michael Carroll, Tomoya Fujita, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `launch_xml <https://github.com/ros2/launch/tree/lyrical/launch_xml/CHANGELOG.rst>`__
@@ -1257,7 +1153,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add Other Logging Implementations (`#858 <https://github.com/ros2/launch/issues/858>`__)
 * Contributors: Auguste Lalande, Christian Ruf, Christophe Bedard, Emerson Knapp, Matthijs van der Burgh, Michael Carlstrom, Sebastian Javier D'Alessandro Szymanowski, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `launch_yaml <https://github.com/ros2/launch/tree/lyrical/launch_yaml/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1277,7 +1172,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add Other Logging Implementations (`#858 <https://github.com/ros2/launch/issues/858>`__)
 * Contributors: Auguste Lalande, Christian Ruf, Christophe Bedard, Matthijs van der Burgh, Michael Carlstrom, Sebastian Javier D'Alessandro Szymanowski, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `libstatistics_collector <https://github.com/ros-tooling/libstatistics_collector/tree/lyrical/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1291,7 +1185,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Bump codecov/codecov-action from 4.6.0 to 5.0.7
 * Contributors: Alexis Tsogias, dependabot[bot], mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `libyaml_vendor <https://github.com/ros2/libyaml_vendor/tree/lyrical/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1299,7 +1192,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Replace ament_vendor with cmake module (`#67 <https://github.com/ros2/libyaml_vendor/issues/67>`__)
 * Remove CODEOWNERS and mirror-rolling-to-master workflow. (`#65 <https://github.com/ros2/libyaml_vendor/issues/65>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `lifecycle <https://github.com/ros2/demos/tree/lyrical/lifecycle/CHANGELOG.rst>`__
@@ -1312,7 +1204,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Use target_link_libraries instead of ament_target_dependencies (`#707 <https://github.com/ros2/demos/issues/707>`__)
 * Contributors: Emerson Knapp, Lucas Wendland, Shane Loretz, mosfet80, r-simonelli
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `lifecycle_msgs <https://github.com/ros2/rcl_interfaces/tree/lyrical/lifecycle_msgs/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1320,7 +1211,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Use builtin_interfaces/Time for TransitionEvent stamp (`#185 <https://github.com/ros2/rcl_interfaces/issues/185>`__)
 * Fix cmake deprecation (`#180 <https://github.com/ros2/rcl_interfaces/issues/180>`__)
 * Contributors: Jasper van Brakel, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `lifecycle_py <https://github.com/ros2/demos/tree/lyrical/lifecycle_py/CHANGELOG.rst>`__
@@ -1332,7 +1222,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Switching to example_interfaces (`#674 <https://github.com/ros2/demos/issues/674>`__)
 * fix setuptools deprecations (`#733 <https://github.com/ros2/demos/issues/733>`__)
 * Contributors: Lucas Wendland, Mohit Kumaresan, mohit, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `logging_demo <https://github.com/ros2/demos/tree/lyrical/logging_demo/CHANGELOG.rst>`__
@@ -1346,7 +1235,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Use target_link_libraries instead of ament_target_dependencies (`#707 <https://github.com/ros2/demos/issues/707>`__)
 * Contributors: Alejandro Hernández Cordero, Emerson Knapp, Lucas Wendland, Scott K Logan, Shane Loretz, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `lttngpy <https://github.com/ros2/ros2_tracing/tree/lyrical/lttngpy/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1358,7 +1246,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add support for starting tracing at runtime (`#191 <https://github.com/ros2/ros2_tracing/issues/191>`__)
 * Contributors: Alejandro Hernández Cordero, RHolland, Shravan Deva, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `map_msgs <https://github.com/ros-planning/navigation_msgs/tree/lyrical/map_msgs/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1366,7 +1253,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Change email address associated with maintainer
 * fix cmake deprecation
 * Contributors: David V. Lu, Steve Macenski, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `mcap_vendor <https://github.com/ros2/rosbag2/tree/lyrical/mcap_vendor/CHANGELOG.rst>`__
@@ -1378,7 +1264,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix CMAKE deprecation (`#2067 <https://github.com/ros2/rosbag2/issues/2067>`__)
 * Backport missing ``cstdint`` include (`#2008 <https://github.com/ros2/rosbag2/issues/2008>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, David Anthony, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `message_filters <https://github.com/ros2/message_filters/tree/lyrical/CHANGELOG.rst>`__
@@ -1427,14 +1312,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Docs - Remove C++ implementation limit of 9 channels (`#174 <https://github.com/ros2/message_filters/issues/174>`__)
 * Contributors: Alejandro Hernandez Cordero, Alejandro Hernández Cordero, Alex Spitzer, Emerson Knapp, Erwin L., EsipovPA, Johannes Böhm, Michael Carlstrom, Patrick Roncagliolo, Pavel Esipov, Samuel Foo Enze, Tomoya Fujita, mergify[bot], mini-1235, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `mimick_vendor <https://github.com/ros2/mimick_vendor/tree/lyrical/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Remove CODEOWNERS and mirror-rolling-to-master workflow. (`#40 <https://github.com/ros2/mimick_vendor/issues/40>`__)
 * Contributors: Chris Lalancette
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `nav_msgs <https://github.com/ros2/common_interfaces/tree/lyrical/nav_msgs/CHANGELOG.rst>`__
@@ -1444,7 +1327,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix CMAKE deprecation (`#288 <https://github.com/ros2/common_interfaces/issues/288>`__)
 * Contributors: Steve Macenski, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `osrf_testing_tools_cpp <https://github.com/osrf/osrf_testing_tools_cpp/tree/lyrical/osrf_testing_tools_cpp/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1452,7 +1334,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix cmake min version (`#96 <https://github.com/osrf/osrf_testing_tools_cpp/issues/96>`__)
 * fix cmake deprecation  (`#94 <https://github.com/osrf/osrf_testing_tools_cpp/issues/94>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `pendulum_control <https://github.com/ros2/demos/tree/lyrical/pendulum_control/CHANGELOG.rst>`__
@@ -1467,14 +1348,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Use target_link_libraries instead of ament_target_dependencies (`#707 <https://github.com/ros2/demos/issues/707>`__)
 * Contributors: Alejandro Hernández Cordero, Emerson Knapp, Scott K Logan, Shane Loretz, Tomoya Fujita, mini-1235, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `pendulum_msgs <https://github.com/ros2/demos/tree/lyrical/pendulum_msgs/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Uniform CMAKE min VERSION (`#714 <https://github.com/ros2/demos/issues/714>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `performance_test_fixture <https://github.com/ros2/performance_test_fixture/tree/lyrical/CHANGELOG.rst>`__
@@ -1483,7 +1362,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix cmake deprecation (`#31 <https://github.com/ros2/performance_test_fixture/issues/31>`__)
 * Remove CODEOWNERS and mirror-rolling-to-main workflow. (`#28 <https://github.com/ros2/performance_test_fixture/issues/28>`__)
 * Contributors: Chris Lalancette, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `pluginlib <https://github.com/ros/pluginlib/tree/lyrical/pluginlib/CHANGELOG.rst>`__
@@ -1497,7 +1375,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Removed tinyxml2_vendor dependency (`#274 <https://github.com/ros/pluginlib/issues/274>`__)
 * Add ros2plugin (`#165 <https://github.com/ros/pluginlib/issues/165>`__)
 * Contributors: Alejandro Hernández Cordero, Jeremie Deray, ipa-fez, pum1k
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `point_cloud_transport <https://github.com/ros-perception/point_cloud_transport/tree/lyrical/point_cloud_transport/CHANGELOG.rst>`__
@@ -1519,7 +1396,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add ``rclcpp::shutdown`` (`#110 <https://github.com/ros-perception/point_cloud_transport/issues/110>`__)
 * Contributors: Alejandro Hernández Cordero, Alexis Tsogias, ElSayed ElSheikh, Michael Carroll, Silvio Traversaro, Yuyuan Yuan, mergify[bot], mini-1235
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `point_cloud_transport_py <https://github.com/ros-perception/point_cloud_transport/tree/lyrical/point_cloud_transport_py/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1530,7 +1406,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Simplify NodeInterface API mehotd call (`#129 <https://github.com/ros-perception/point_cloud_transport/issues/129>`__)
 * Feat/Add LifecycleNode Support (`#109 <https://github.com/ros-perception/point_cloud_transport/issues/109>`__)
 * Contributors: Alejandro Hernández Cordero, Alexis Tsogias, ElSayed ElSheikh
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `python_qt_binding <https://github.com/ros-visualization/python_qt_binding/tree/lyrical/CHANGELOG.rst>`__
@@ -1547,7 +1422,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Remove CODEOWNERS (`#144 <https://github.com/ros-visualization/python_qt_binding/issues/144>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Shane Loretz, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `qt_dotgraph <https://github.com/ros-visualization/qt_gui_core/tree/lyrical/qt_dotgraph/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1557,7 +1431,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Ignore case when asserting snippet presence in tests (`#314 <https://github.com/ros-visualization/qt_gui_core/issues/314>`__)
 * Fix setupTools deprecations (`#308 <https://github.com/ros-visualization/qt_gui_core/issues/308>`__)
 * Contributors: Alejandro Hernández Cordero, Scott K Logan, mergify[bot], mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `qt_gui <https://github.com/ros-visualization/qt_gui_core/tree/lyrical/qt_gui/CHANGELOG.rst>`__
@@ -1569,14 +1442,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix cmake deprecations (`#307 <https://github.com/ros-visualization/qt_gui_core/issues/307>`__)
 * Contributors: Alejandro Hernández Cordero, Matthijs van der Burgh, mergify[bot], mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `qt_gui_app <https://github.com/ros-visualization/qt_gui_core/tree/lyrical/qt_gui_app/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Fix cmake deprecations (`#307 <https://github.com/ros-visualization/qt_gui_core/issues/307>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `qt_gui_core <https://github.com/ros-visualization/qt_gui_core/tree/lyrical/qt_gui_core/CHANGELOG.rst>`__
@@ -1585,7 +1456,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update qt_gui_core to package.xml version 2. (`#319 <https://github.com/ros-visualization/qt_gui_core/issues/319>`__)
 * Fix cmake deprecations (`#307 <https://github.com/ros-visualization/qt_gui_core/issues/307>`__)
 * Contributors: Chris Lalancette, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `qt_gui_cpp <https://github.com/ros-visualization/qt_gui_core/tree/lyrical/qt_gui_cpp/CHANGELOG.rst>`__
@@ -1604,7 +1474,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Use target_link_libraries instead of ament_target_dependencies (`#302 <https://github.com/ros-visualization/qt_gui_core/issues/302>`__)
 * Contributors: Alejandro Hernández Cordero, Alexis Tsogias, Michael Carlstrom, Shane Loretz, mergify[bot], mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `qt_gui_py_common <https://github.com/ros-visualization/qt_gui_core/tree/lyrical/qt_gui_py_common/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1615,7 +1484,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix cmake deprecations (`#307 <https://github.com/ros-visualization/qt_gui_core/issues/307>`__)
 * Contributors: Alejandro Hernández Cordero, Michael Carlstrom, mergify[bot], mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `quality_of_service_demo_cpp <https://github.com/ros2/demos/tree/lyrical/quality_of_service_demo/rclcpp/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1625,7 +1493,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Uniform CMAKE min VERSION (`#714 <https://github.com/ros2/demos/issues/714>`__) demo_nodes_cpp/CMakeLists.txt require cmake min version 3.12 other modules cmake 3.5. It is proposed to standardize with version 3.12. This also fixes cmake <3.10 deprecation warnings
 * Contributors: Emerson Knapp, Lucas Wendland, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `quality_of_service_demo_py <https://github.com/ros2/demos/tree/lyrical/quality_of_service_demo/rclpy/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1633,7 +1500,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Switching to example_interfaces (`#674 <https://github.com/ros2/demos/issues/674>`__)
 * fix setuptools deprecations (`#731 <https://github.com/ros2/demos/issues/731>`__)
 * Contributors: Lucas Wendland, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rcl <https://github.com/ros2/rcl/tree/lyrical/rcl/CHANGELOG.rst>`__
@@ -1672,7 +1538,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix a dangling pointer discovered by a fresh Clang (`#1222 <https://github.com/ros2/rcl/issues/1222>`__)
 * Contributors: Akihiko Komada, Alejandro Hernández Cordero, Alexander Kornienko, Alexis Tsogias, Barry Xu, CY Chen, Christophe Bedard, Emerson Knapp, Janosch Machowinski, Lee, Mario Domínguez López, Michael Orlov, Minju, Oren Bell PhD, Rushhaank Sahay, Sai Kishor Kothakota, Shane Loretz, Skyler Medeiros, Tim Clephas, Tomoya Fujita, mosfet80, yadunund
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rcl_action <https://github.com/ros2/rcl/tree/lyrical/rcl_action/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1689,14 +1554,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix Cmake deprecation (`#1249 <https://github.com/ros2/rcl/issues/1249>`__)
 * Contributors: Alexis Tsogias, Barry Xu, Janosch Machowinski, Skyler Medeiros, Tim Clephas, Tomoya Fujita, William Woodall, Yuyuan Yuan, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rcl_interfaces <https://github.com/ros2/rcl_interfaces/tree/lyrical/rcl_interfaces/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Fix cmake deprecation (`#180 <https://github.com/ros2/rcl_interfaces/issues/180>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rcl_lifecycle <https://github.com/ros2/rcl/tree/lyrical/rcl_lifecycle/CHANGELOG.rst>`__
@@ -1709,7 +1572,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * introduce rcl_lifecycle_get_transition_label_by_id(). (`#1229 <https://github.com/ros2/rcl/issues/1229>`__)
 * Contributors: Alexis Tsogias, Jasper van Brakel, Tim Clephas, Tomoya Fujita, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rcl_logging_implementation <https://github.com/ros2/rcl_logging/tree/lyrical/rcl_logging_implementation/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1718,14 +1580,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * rcl logging implementation (`#135 <https://github.com/ros2/rcl_logging/issues/135>`__) * 1st draft bring-up for rcl_logging_implementation package. * add test_logging_implementation to check dynamic loading. * address Copilot review comments. * fix: correct visibility macro for DLL export in CMakeLists.txt * add visibility control with RCL_LOGGING_IMPLEMENTATION_DEFAULT_VISIBILITY. * load the all symbols at the initialization. * Use goto pattern to eliminate the cleanup duplication. * Add basic design doc of rmw_logging_implementation. * use RCPPUTILS_SCOPE_EXIT instead of goto statement. * logging visibility macro was incorrect. * logging symbols stay until the peocess actually exits. --------- Co-authored-by: Barry Xu <barry.xu@sony.com>
 * Contributors: Tomoya Fujita
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rcl_logging_interface <https://github.com/ros2/rcl_logging/tree/lyrical/rcl_logging_interface/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Fix cmake deprecation (`#133 <https://github.com/ros2/rcl_logging/issues/133>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rcl_logging_noop <https://github.com/ros2/rcl_logging/tree/lyrical/rcl_logging_noop/CHANGELOG.rst>`__
@@ -1735,7 +1595,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Cleanup rcl_logging_noop dependencies. (`#132 <https://github.com/ros2/rcl_logging/issues/132>`__) It shouldn't build_export_depend anything (as nothing downstream should link against it), and all of its dependencies can be private.
 * Contributors: Chris Lalancette, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rcl_logging_spdlog <https://github.com/ros2/rcl_logging/tree/lyrical/rcl_logging_spdlog/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1744,7 +1603,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix cmake deprecation (`#133 <https://github.com/ros2/rcl_logging/issues/133>`__)
 * Cleanup overwritten warning messages on error. (`#128 <https://github.com/ros2/rcl_logging/issues/128>`__)
 * Contributors: Achille Verheye, Chris Lalancette, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rcl_yaml_param_parser <https://github.com/ros2/rcl/tree/lyrical/rcl_yaml_param_parser/CHANGELOG.rst>`__
@@ -1763,7 +1621,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix param file parsing failure with wildcards due to ordering (`#1253 <https://github.com/ros2/rcl/issues/1253>`__)
 * Fix Cmake deprecation (`#1249 <https://github.com/ros2/rcl/issues/1249>`__)
 * Contributors: Alejandro Hernández Cordero, Barry Xu, Hugal31, Michael Carlstrom, Romain Reignier, Tim Clephas, Tomoya Fujita, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rclcpp <https://github.com/ros2/rclcpp/tree/lyrical/rclcpp/CHANGELOG.rst>`__
@@ -1860,7 +1717,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Removed clang warnings (`#2823 <https://github.com/ros2/rclcpp/issues/2823>`__)
 * Contributors: Alberto Soragna, Alejandro Hernández Cordero, Alex Youngs, Alexis Tsogias, Andrianov Roman, Barry Xu, CY Chen, Chris Lalancette, Christophe Bedard, Danil, Emerson Knapp, Ilario A. Azzollini, Ivo Ivanov, Janosch Machowinski, Julien Enoch, Lee, Lucas Wendland, Maurice Alexander Purnawan, Michael Carlstrom, Michael Carroll, Michael Orlov, Michiel Leegwater, Minju, Oren Bell, Patrick Roncagliolo, Peng Wang, Rahat Dhande, Skyler Medeiros, Sriharsha Ghanta, Tim Clephas, Tomoya Fujita, Yadnyeshwar Amol Sakhare, Yuchen966, fabianhirmann, jay, yadunund
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rclcpp_action <https://github.com/ros2/rclcpp/tree/lyrical/rclcpp_action/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1880,7 +1736,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Replace std::default_random_engine with std::mt19937 (rolling) (`#2843 <https://github.com/ros2/rclcpp/issues/2843>`__)
 * Added missing chrono includes (`#2854 <https://github.com/ros2/rclcpp/issues/2854>`__)
 * Contributors: Alberto Soragna, Alejandro Hernández Cordero, Andrei Costinescu, Barry Xu, Emerson Knapp, Janosch Machowinski, Skyler Medeiros, Tim Clephas, Tomoya Fujita, keeponoiro, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rclcpp_components <https://github.com/ros2/rclcpp/tree/lyrical/rclcpp_components/CHANGELOG.rst>`__
@@ -1902,7 +1757,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Added missing chrono includes (`#2854 <https://github.com/ros2/rclcpp/issues/2854>`__)
 * Contributors: Adam Aposhian, Alejandro Hernández Cordero, Chris Lalancette, Emerson Knapp, Mihir Rao, Peng Wang, Skyler Medeiros, Tim Clephas, Tomoya Fujita, YuJin Hong, mosfet80, pum1k, solo
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rclcpp_lifecycle <https://github.com/ros2/rclcpp/tree/lyrical/rclcpp_lifecycle/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1918,7 +1772,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Added missing chrono includes (`#2854 <https://github.com/ros2/rclcpp/issues/2854>`__)
 * introduce rcl_lifecycle_get_transition_label_by_id(). (`#2827 <https://github.com/ros2/rclcpp/issues/2827>`__)
 * Contributors: Alberto Soragna, Alejandro Hernández Cordero, Emerson Knapp, Jasper van Brakel, Lee, Minju, Peter Mitrano (AR), Tim Clephas, Tomoya Fujita, Zheng Qu, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rclpy <https://github.com/ros2/rclpy/tree/lyrical/rclpy/CHANGELOG.rst>`__
@@ -1997,7 +1850,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * [rclpy] Fix spin() incorrectly removing node from executor if already attached (`#1446 <https://github.com/ros2/rclpy/issues/1446>`__)
 * Contributors: Alejandro Hernández Cordero, Alon Borenshtein, Auguste Lalande, Barry Xu, Brad Martin, Brennan Miller-Klugman, Błażej Sowa, CY Chen, Chris Lalancette, Christian Rauch, Clara Berendsen, Emerson Knapp, Florian Vahl, Jasper van Brakel, Jean Paul, Jonathan, Lee, Michael Carlstrom, Michael Tandy, Minju, Nadav Elkabets, Nathan Wiebe Neufeldt, Tim Clephas, Tomoya Fujita, Yuyuan Yuan, mhidalgo-rai
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rcpputils <https://github.com/ros2/rcpputils/tree/lyrical/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2012,7 +1864,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * add thread naming utilities (`#213 <https://github.com/ros2/rcpputils/issues/213>`__)
 * Removed deprecated path (`#212 <https://github.com/ros2/rcpputils/issues/212>`__)
 * Contributors: Adam Aposhian, Alejandro Hernández Cordero, Chris Lalancette, Tully Foote, William Woodall, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rcutils <https://github.com/ros2/rcutils/tree/lyrical/CHANGELOG.rst>`__
@@ -2044,7 +1895,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Clean memory in test_process.cpp (`#495 <https://github.com/ros2/rcutils/issues/495>`__)
 * Contributors: Alejandro Hernández Cordero, Andrei Kholodnyi, Barry Xu, Chris Lalancette, EddyGharib, Miguel Company, Sai Kishor Kothakota, Shane Loretz, Tomoya Fujita, Tony Najjar
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `resource_retriever <https://github.com/ros/resource_retriever/tree/lyrical/resource_retriever/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2061,14 +1911,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * uniform  MinCMakeVersion (`#108 <https://github.com/ros/resource_retriever/issues/108>`__)
 * Contributors: Alejandro Hernández Cordero, Michael Carlstrom, Michael Carroll, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `resource_retriever_interfaces <https://github.com/ros2/resource_retriever_service/tree/lyrical/resource_retriever_interfaces/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Update the plugin license (`#17 <https://github.com/ros2/resource_retriever_service/issues/17>`__)
 * Contributors: Stoyan Gaydarov
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `resource_retriever_service <https://github.com/ros2/resource_retriever_service/tree/lyrical/resource_retriever_service/CHANGELOG.rst>`__
@@ -2077,14 +1925,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update the plugin license (`#17 <https://github.com/ros2/resource_retriever_service/issues/17>`__)
 * Contributors: Stoyan Gaydarov
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `resource_retriever_service_plugin <https://github.com/ros2/resource_retriever_service/tree/lyrical/resource_retriever_service_plugin/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Update the plugin license (`#17 <https://github.com/ros2/resource_retriever_service/issues/17>`__)
 * Contributors: Stoyan Gaydarov
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rmw <https://github.com/ros2/rmw/tree/lyrical/rmw/CHANGELOG.rst>`__
@@ -2100,7 +1946,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Don't assume a DDS-based implementation in function docs (`#402 <https://github.com/ros2/rmw//issues/402>`__)
 * Contributors: Barry Xu, CY Chen, Christophe Bedard, Lee, Minju, Shane Loretz, Tim Clephas, Tomoya Fujita
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rmw_connextdds <https://github.com/ros2/rmw_connextdds/tree/lyrical/rmw_connextdds/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2111,7 +1956,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix: remove superflous ``buildtool_export_depend`` (`#206 <https://github.com/ros2/rmw_connextdds/issues/206>`__)
 * Fix cmake deprecation (`#198 <https://github.com/ros2/rmw_connextdds/issues/198>`__)
 * Contributors: Bas Zalmstra, Janosch Machowinski, Lee, Minju, Tomoya Fujita, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rmw_connextdds_common <https://github.com/ros2/rmw_connextdds/tree/lyrical/rmw_connextdds_common/CHANGELOG.rst>`__
@@ -2135,7 +1979,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Removed warning (`#187 <https://github.com/ros2/rmw_connextdds/issues/187>`__)
 * Contributors: Alejandro Hernández Cordero, Barry Xu, Chris Lalancette, Francisco Gallego Salido, Janosch Machowinski, Lee, Minju, Tomoya Fujita, mergify[bot], mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rmw_connextddsmicro <https://github.com/ros2/rmw_connextdds/tree/lyrical/rmw_connextddsmicro/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2146,7 +1989,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * add : get clients,servers info (`#154 <https://github.com/ros2/rmw_connextdds/issues/154>`__)
 * Fix cmake deprecation (`#198 <https://github.com/ros2/rmw_connextdds/issues/198>`__)
 * Contributors: Janosch Machowinski, Lee, Minju, Tomoya Fujita, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rmw_cyclonedds_cpp <https://github.com/ros2/rmw_cyclonedds/tree/lyrical/rmw_cyclonedds_cpp/CHANGELOG.rst>`__
@@ -2165,7 +2007,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update CMake requirement (`#539 <https://github.com/ros2/rmw_cyclonedds/issues/539>`__)
 * Contributors: Brandon Simoncic, Christophe Bedard, Janosch Machowinski, Lee, Minju, Oren Bell PhD, Shane Loretz, Tomoya Fujita, eboasson, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rmw_dds_common <https://github.com/ros2/rmw_dds_common/tree/lyrical/rmw_dds_common/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2176,7 +2017,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update cmake requirements (`#80 <https://github.com/ros2/rmw_dds_common/issues/80>`__)
 * Remove deprecated security utilities (`#79 <https://github.com/ros2/rmw_dds_common/issues/79>`__)
 * Contributors: Alejandro Hernández Cordero, Christophe Bedard, Lee, Minju, Tomoya Fujita, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rmw_fastrtps_cpp <https://github.com/ros2/rmw_fastrtps/tree/lyrical/rmw_fastrtps_cpp/CHANGELOG.rst>`__
@@ -2195,7 +2035,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix cmake deprecation (`#831 <https://github.com/ros2/rmw_fastrtps/issues/831>`__)
 * Contributors: Alejandro Hernández Cordero, Alexis Tsogias, Barry Xu, CY Chen, Christophe Bedard, Lee, Minju, Tomoya Fujita, mergify[bot], mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rmw_fastrtps_dynamic_cpp <https://github.com/ros2/rmw_fastrtps/tree/lyrical/rmw_fastrtps_dynamic_cpp/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2209,7 +2048,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Check remaining size before resizing sequences (`#827 <https://github.com/ros2/rmw_fastrtps/issues/827>`__)
 * fix cmake deprecation (`#831 <https://github.com/ros2/rmw_fastrtps/issues/831>`__)
 * Contributors: Alexis Tsogias, CY Chen, Christophe Bedard, Lee, Miguel Company, Minju, Tomoya Fujita, mergify[bot], mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rmw_fastrtps_shared_cpp <https://github.com/ros2/rmw_fastrtps/tree/lyrical/rmw_fastrtps_shared_cpp/CHANGELOG.rst>`__
@@ -2228,7 +2066,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * check a local publication to ignore with serialized message. (`#823 <https://github.com/ros2/rmw_fastrtps/issues/823>`__)
 * Contributors: CY Chen, Daisuke Nishimatsu, Lee, Mario Domínguez López, Miguel Company, Minju, Oren Bell, Oren Bell PhD, Tomoya Fujita, mergify[bot], mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rmw_implementation <https://github.com/ros2/rmw_implementation/tree/lyrical/rmw_implementation/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2241,7 +2078,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fixed windows warning (`#254 <https://github.com/ros2/rmw_implementation/issues/254>`__)
 * Contributors: Alejandro Hernández Cordero, Christophe Bedard, Lee, Minju, Tony Najjar, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rmw_test_fixture <https://github.com/ros2/ament_cmake_ros/tree/lyrical/rmw_test_fixture/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2250,7 +2086,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * add find_package call (`#50 <https://github.com/ros2/ament_cmake_ros/issues/50>`__)
 * fix cmake deprecation (`#47 <https://github.com/ros2/ament_cmake_ros/issues/47>`__)
 * Contributors: Matt Condino, Scott K Logan, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rmw_test_fixture_implementation <https://github.com/ros2/ament_cmake_ros/tree/lyrical/rmw_test_fixture_implementation/CHANGELOG.rst>`__
@@ -2270,7 +2105,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Split the generator expression for each library (`#36 <https://github.com/ros2/ament_cmake_ros/issues/36>`__)
 * Removed clang warnings (`#34 <https://github.com/ros2/ament_cmake_ros/issues/34>`__)
 * Contributors: Alejandro Hernández Cordero, Michael Carlstrom, Michael Carroll, Scott K Logan, Tanishq Chaudhary, William Woodall, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rmw_zenoh_cpp <https://github.com/ros2/rmw_zenoh/tree/lyrical/rmw_zenoh_cpp/CHANGELOG.rst>`__
@@ -2324,7 +2158,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update CMakeLists.txt (`#617 <https://github.com/ros2/rmw_zenoh/issues/617>`__)
 * Contributors: Alejandro Hernandez Cordero, Alejandro Hernández Cordero, ChenYing Kuo (CY), Chris Lalancette, Christophe Bedard, Faseel Chemmadan, Filip, Hervé Audren, Jan Vermaete, Julien Enoch, Lee, Mahmoud Mazouz, Minju, Nikola Banović, Scott K Logan, Shane Loretz, Skyler Medeiros, Steven Palma, Tim Clephas, Tomoya Fujita, Yadunund, Yuyuan Yuan, jordanburklund, milidam, mosfet80, yadunund, yellowhatter, Øystein Sture
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `robot_state_publisher <https://github.com/ros/robot_state_publisher/tree/lyrical/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2341,7 +2174,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Replace deprecated tf2_ros headers (`#235 <https://github.com/ros/robot_state_publisher/issues/235>`__)
 * Removed deprecated command-line argument (`#233 <https://github.com/ros/robot_state_publisher/issues/233>`__)
 * Contributors: Alejandro Hernández Cordero, Emerson Knapp, Kenji Brameld (TRACLabs), Maurice Alexander Purnawan, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2action <https://github.com/ros2/ros2cli/tree/lyrical/ros2action/CHANGELOG.rst>`__
@@ -2367,7 +2199,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Correct the license content (`#979 <https://github.com/ros2/ros2cli/issues/979>`__)
 * Contributors: Barry Xu, Christophe Bedard, Michael Carlstrom, Michael Carroll, Scott K Logan, Tomoya Fujita, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2bag <https://github.com/ros2/rosbag2/tree/lyrical/ros2bag/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2388,7 +2219,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Refactor Python player and recorder APIs into classes (`#2047 <https://github.com/ros2/rosbag2/issues/2047>`__)
 * Upstream quality changes from Apex.AI part-2 (`#1924 <https://github.com/ros2/rosbag2/issues/1924>`__)
 * Contributors: Christophe Bedard, Luke Sy, Michael Orlov, Tomoya Fujita, Tony Najjar, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2cli <https://github.com/ros2/ros2cli/tree/lyrical/ros2cli/CHANGELOG.rst>`__
@@ -2419,7 +2249,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Allow zenoh tests to run with multicast (`#992 <https://github.com/ros2/ros2cli/issues/992>`__)
 * Contributors: Christophe Bedard, David V. Lu!!, Kaju-Bubanja, Lee, Mario Domínguez López, Michael Carlstrom, Michael Carroll, Minju, SPeak, Scott K Logan, Tomoya Fujita, Tony Najjar, Yuyuan Yuan, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2cli_common_extensions <https://github.com/ros2/ros2cli_common_extensions/tree/lyrical/ros2cli_common_extensions/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2428,14 +2257,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update CMakeLists.txt (`#11 <https://github.com/ros2/ros2cli_common_extensions/issues/11>`__)
 * Contributors: Maurice Alexander Purnawan, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2cli_test_interfaces <https://github.com/ros2/ros2cli/tree/lyrical/ros2cli_test_interfaces/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * fix cmake deprecation (`#1082 <https://github.com/ros2/ros2cli/issues/1082>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2component <https://github.com/ros2/ros2cli/tree/lyrical/ros2component/CHANGELOG.rst>`__
@@ -2448,7 +2275,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Make sure to install py.typed files (`#1058 <https://github.com/ros2/ros2cli/issues/1058>`__)
 * Export Typing information (`#1041 <https://github.com/ros2/ros2cli/issues/1041>`__)
 * Contributors: Christophe Bedard, Michael Carlstrom, Tomoya Fujita, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2doctor <https://github.com/ros2/ros2cli/tree/lyrical/ros2doctor/CHANGELOG.rst>`__
@@ -2473,7 +2299,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Skip QoS compatibility test on Zenoh (`#985 <https://github.com/ros2/ros2cli/issues/985>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Christophe Bedard, Michael Carlstrom, Michael Carroll, Scott K Logan, Tomoya Fujita, mini-1235, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2interface <https://github.com/ros2/ros2cli/tree/lyrical/ros2interface/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2484,7 +2309,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Export Typing information (`#1041 <https://github.com/ros2/ros2cli/issues/1041>`__)
 * Contributors: Christophe Bedard, Michael Carlstrom, Tony Najjar, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2launch <https://github.com/ros2/launch_ros/tree/lyrical/ros2launch/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2493,7 +2317,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix setuptools deprecations (`#475 <https://github.com/ros2/launch_ros/issues/475>`__)
 * user control of log file base names, in ros2 launch (`#461 <https://github.com/ros2/launch_ros/issues/461>`__) Co-authored-by: Katherine Scott <katherineAScott@gmail.com>
 * Contributors: Auguste Lalande, Tanishq Chaudhary, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2lifecycle <https://github.com/ros2/ros2cli/tree/lyrical/ros2lifecycle/CHANGELOG.rst>`__
@@ -2511,7 +2334,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Allow zenoh tests to run with multicast (`#992 <https://github.com/ros2/ros2cli/issues/992>`__)
 * Contributors: Christophe Bedard, Michael Carlstrom, Michael Carroll, Scott K Logan, Tomoya Fujita, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2lifecycle_test_fixtures <https://github.com/ros2/ros2cli/tree/lyrical/ros2lifecycle_test_fixtures/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2519,7 +2341,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix cmake deprecation (`#1082 <https://github.com/ros2/ros2cli/issues/1082>`__)
 * Use target_link_libraries instead of ament_target_dependencies (`#973 <https://github.com/ros2/ros2cli/issues/973>`__)
 * Contributors: Shane Loretz, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2multicast <https://github.com/ros2/ros2cli/tree/lyrical/ros2multicast/CHANGELOG.rst>`__
@@ -2529,7 +2350,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Make sure to install py.typed files (`#1058 <https://github.com/ros2/ros2cli/issues/1058>`__)
 * Export Typing information (`#1041 <https://github.com/ros2/ros2cli/issues/1041>`__)
 * Contributors: Christophe Bedard, Michael Carlstrom, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2node <https://github.com/ros2/ros2cli/tree/lyrical/ros2node/CHANGELOG.rst>`__
@@ -2544,7 +2364,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Export Typing information (`#1041 <https://github.com/ros2/ros2cli/issues/1041>`__)
 * Allow zenoh tests to run with multicast (`#992 <https://github.com/ros2/ros2cli/issues/992>`__)
 * Contributors: Christophe Bedard, Michael Carlstrom, Michael Carroll, Scott K Logan, Tomoya Fujita, Tony Najjar, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2param <https://github.com/ros2/ros2cli/tree/lyrical/ros2param/CHANGELOG.rst>`__
@@ -2574,7 +2393,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Allow zenoh tests to run with multicast (`#992 <https://github.com/ros2/ros2cli/issues/992>`__)
 * Contributors: Barry Xu, Christophe Bedard, Michael Carlstrom, Michael Carroll, Scott K Logan, Taiga Arai, Tomoya Fujita, Tony Najjar, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2pkg <https://github.com/ros2/ros2cli/tree/lyrical/ros2pkg/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2595,7 +2413,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update minimum CMake version CMakeLists.txt.em (`#969 <https://github.com/ros2/ros2cli/issues/969>`__)
 * Contributors: Bartlomiej Styczen, Christophe Bedard, Larry Gezelius, Michael Carlstrom, Parth Patel, Sebastian Castro, Shane Loretz, Shynur, Silvio Traversaro, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2plugin <https://github.com/ros/pluginlib/tree/lyrical/ros2plugin/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2604,7 +2421,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Improve logging when unable to parse the plugin (`#285 <https://github.com/ros/pluginlib/issues/285>`__)
 * Add ros2plugin (`#165 <https://github.com/ros/pluginlib/issues/165>`__)
 * Contributors: Alejandro Hernández Cordero, Jeremie Deray, mini-1235
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2run <https://github.com/ros2/ros2cli/tree/lyrical/ros2run/CHANGELOG.rst>`__
@@ -2617,7 +2433,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Export Typing information (`#1041 <https://github.com/ros2/ros2cli/issues/1041>`__)
 * Add signal handler SIGIN/SIGTERM to ros2run (`#899 <https://github.com/ros2/ros2cli/issues/899>`__)
 * Contributors: Christophe Bedard, Michael Carlstrom, Tomoya Fujita, Tony Najjar, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2service <https://github.com/ros2/ros2cli/tree/lyrical/ros2service/CHANGELOG.rst>`__
@@ -2641,14 +2456,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Support QoS options for ``ros2 service call`` (`#966 <https://github.com/ros2/ros2cli/issues/966>`__)
 * Contributors: Christophe Bedard, Lee, Michael Carlstrom, Michael Carroll, Minju, Scott K Logan, Tomoya Fujita, Tony Najjar, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2test <https://github.com/ros2/ros_testing/tree/lyrical/ros2test/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * fix setuptools deprecations (`#16 <https://github.com/ros2/ros_testing/issues/16>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2topic <https://github.com/ros2/ros2cli/tree/lyrical/ros2topic/CHANGELOG.rst>`__
@@ -2682,7 +2495,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Support ros2 topic pub yaml file input (`#925 <https://github.com/ros2/ros2cli/issues/925>`__)
 * Contributors: Alejandro Hernández Cordero, Anthony Welte, Christophe Bedard, Fabian Thomsen, Florencia, Kostubh Khandelwal, Leander Stephen D'Souza, Martin Pecka, Michael Carlstrom, Michael Carroll, Scott K Logan, Tomoya Fujita, Tony Najjar, mosfet80, nomumu
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2trace <https://github.com/ros2/ros2_tracing/tree/lyrical/ros2trace/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2695,7 +2507,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Address typing issues reported by mypy in tracetools_launch (`#184 <https://github.com/ros2/ros2_tracing/issues/184>`__)
 * Contributors: Christophe Bedard, Michael Carlstrom, Shravan Deva, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros_environment <https://github.com/ros/ros_environment/tree/lyrical/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2705,7 +2516,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Remove CODEOWNERS. (`#40 <https://github.com/ros/ros_environment/issues/40>`__)
 * Contributors: Chris Lalancette, Shane Loretz, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros_testing <https://github.com/ros2/ros_testing/tree/lyrical/ros_testing/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2713,14 +2523,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix cmake deprecation (`#17 <https://github.com/ros2/ros_testing/issues/17>`__)
 * Contributors: mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosbag2 <https://github.com/ros2/rosbag2/tree/lyrical/rosbag2/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Fix CMAKE deprecation (`#2067 <https://github.com/ros2/rosbag2/issues/2067>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosbag2_compression <https://github.com/ros2/rosbag2/tree/lyrical/rosbag2_compression/CHANGELOG.rst>`__
@@ -2738,7 +2546,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Bugfix: ``ros2 bag convert`` dropping messages with compression mode message (`#1975 <https://github.com/ros2/rosbag2/issues/1975>`__)
 * Contributors: Daisuke Sato, DangitBen, Luke Sy, Michael Orlov, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosbag2_compression_zstd <https://github.com/ros2/rosbag2/tree/lyrical/rosbag2_compression_zstd/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2746,7 +2553,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Replace ``zstd_vendor`` with ``zstd_cmake_module`` (`#2166 <https://github.com/ros2/rosbag2/issues/2166>`__)
 * Fix CMAKE deprecation (`#2067 <https://github.com/ros2/rosbag2/issues/2067>`__)
 * Contributors: Alejandro Hernández Cordero, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosbag2_cpp <https://github.com/ros2/rosbag2/tree/lyrical/rosbag2_cpp/CHANGELOG.rst>`__
@@ -2786,7 +2592,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Address clang warning in the ``TimeControllerClock::wakeup()`` (`#1962 <https://github.com/ros2/rosbag2/issues/1962>`__)
 * Contributors: Alejandro Hernández Cordero, Barry Xu, Christophe Bedard, Chui Vanfleet, Daisuke Sato, Emerson Knapp, Hunter L. Allen, José Faria, Luke Sy, Michael Orlov, Tomoya Fujita, Tony Najjar, YuJin Hong, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosbag2_examples_cpp <https://github.com/ros2/rosbag2/tree/lyrical/rosbag2_examples/rosbag2_examples_cpp/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2797,7 +2602,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add examples for compressing bag files (`#1956 <https://github.com/ros2/rosbag2/issues/1956>`__)
 * Contributors: Emerson Knapp, Maxime Fleury, mini-1235, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosbag2_examples_py <https://github.com/ros2/rosbag2/tree/lyrical/rosbag2_examples/rosbag2_examples_py/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2807,7 +2611,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Upstream quality changes from Apex.AI part-2 (`#1924 <https://github.com/ros2/rosbag2/issues/1924>`__)
 * Add a simple example showing how to convert bags to the csv file (`#1974 <https://github.com/ros2/rosbag2/issues/1974>`__)
 * Contributors: Christophe Bedard, Maxime Fleury, Michael Orlov, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosbag2_interfaces <https://github.com/ros2/rosbag2/tree/lyrical/rosbag2_interfaces/CHANGELOG.rst>`__
@@ -2821,7 +2624,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Publish messages lost statistics to 'events/messages_lost' topic (`#2150 <https://github.com/ros2/rosbag2/issues/2150>`__)
 * Fix CMAKE deprecation (`#2067 <https://github.com/ros2/rosbag2/issues/2067>`__)
 * Contributors: Michael Orlov, carlos-apex, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosbag2_performance_benchmarking <https://github.com/ros2/rosbag2/tree/lyrical/rosbag2_performance/rosbag2_performance_benchmarking/CHANGELOG.rst>`__
@@ -2838,7 +2640,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Upstream quality changes from Apex.AI part-2 (`#1924 <https://github.com/ros2/rosbag2/issues/1924>`__)
 * Contributors: Chris Lalancette, Christophe Bedard, Cristóbal Arroyo, Emerson Knapp, Michael Orlov, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosbag2_performance_benchmarking_msgs <https://github.com/ros2/rosbag2/tree/lyrical/rosbag2_performance/rosbag2_performance_benchmarking_msgs/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2846,7 +2647,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Enable ``rosbag2_performance_benchmarking`` package to be built by default (`#2093 <https://github.com/ros2/rosbag2/issues/2093>`__)
 * Fix CMAKE deprecation (`#2067 <https://github.com/ros2/rosbag2/issues/2067>`__)
 * Contributors: Michael Orlov, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosbag2_py <https://github.com/ros2/rosbag2/tree/lyrical/rosbag2_py/CHANGELOG.rst>`__
@@ -2874,7 +2674,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Bugfix: ``ros2 bag convert`` dropping messages with compression mode message (`#1975 <https://github.com/ros2/rosbag2/issues/1975>`__)
 * Contributors: Alejandro Hernández Cordero, Barry Xu, Christophe Bedard, DangitBen, Luke Sy, Michael Carlstrom, Michael Orlov, Om Shivam Verma, Tony Najjar
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosbag2_storage <https://github.com/ros2/rosbag2/tree/lyrical/rosbag2_storage/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2894,14 +2693,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Use DDS queue depth for subscriptions as a maximum value across publishers (`#1960 <https://github.com/ros2/rosbag2/issues/1960>`__)
 * Contributors: Luke Sy, Michael Orlov, Tomoya Fujita, Tony Najjar, carlos-apex, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosbag2_storage_default_plugins <https://github.com/ros2/rosbag2/tree/lyrical/rosbag2_storage_default_plugins/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Fix CMAKE deprecation (`#2067 <https://github.com/ros2/rosbag2/issues/2067>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosbag2_storage_mcap <https://github.com/ros2/rosbag2/tree/lyrical/rosbag2_storage_mcap/CHANGELOG.rst>`__
@@ -2914,7 +2711,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Introduce new ``BaseWriteInterface`` methods ``write_messages`` and ``write_message`` to provide operation status, deprecating old write APIs (`#2030 <https://github.com/ros2/rosbag2/issues/2030>`__)
 * Update ``index.ros.org/p/`` links for ``rosbag2_storage_mcap`` (`#2034 <https://github.com/ros2/rosbag2/issues/2034>`__)
 * Contributors: Chris Lalancette, Christophe Bedard, Emerson Knapp, Michael Orlov, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosbag2_storage_sqlite3 <https://github.com/ros2/rosbag2/tree/lyrical/rosbag2_storage_sqlite3/CHANGELOG.rst>`__
@@ -2931,7 +2727,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Upstream quality changes from Apex.AI part-2 (`#1924 <https://github.com/ros2/rosbag2/issues/1924>`__)
 * Contributors: Alejandro Hernández Cordero, Christophe Bedard, Emerson Knapp, Luke Sy, Michael Orlov, Tomoya Fujita, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosbag2_test_common <https://github.com/ros2/rosbag2/tree/lyrical/rosbag2_test_common/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2946,7 +2741,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Use DDS queue depth for subscriptions as a maximum value across publishers (`#1960 <https://github.com/ros2/rosbag2/issues/1960>`__)
 * Contributors: Christophe Bedard, Daisuke Sato, Emerson Knapp, Michael Orlov, mini-1235, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosbag2_test_msgdefs <https://github.com/ros2/rosbag2/tree/lyrical/rosbag2_test_msgdefs/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2955,7 +2749,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix CMAKE deprecation (`#2067 <https://github.com/ros2/rosbag2/issues/2067>`__)
 * Add support for searching message definitions in nested subdirectories (`#2055 <https://github.com/ros2/rosbag2/issues/2055>`__)
 * Contributors: Hunter L. Allen, Michael Orlov, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosbag2_tests <https://github.com/ros2/rosbag2/tree/lyrical/rosbag2_tests/CHANGELOG.rst>`__
@@ -2976,7 +2769,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Address test flakiness by waiting for executor spin (`#2001 <https://github.com/ros2/rosbag2/issues/2001>`__)
 * Upstream quality changes from Apex.AI part-2 (`#1924 <https://github.com/ros2/rosbag2/issues/1924>`__)
 * Contributors: Christophe Bedard, Daisuke Sato, Emerson Knapp, Michael Orlov, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosbag2_transport <https://github.com/ros2/rosbag2/tree/lyrical/rosbag2_transport/CHANGELOG.rst>`__
@@ -3050,7 +2842,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Use DDS queue depth for subscriptions as a maximum value across publishers (`#1960 <https://github.com/ros2/rosbag2/issues/1960>`__)
 * Contributors: Barry Xu, Chris Lalancette, Christophe Bedard, Daisuke Sato, DangitBen, Dhruv Patel, Emerson Knapp, Janosch Machowinski, Luke Sy, Michael Carroll, Michael Orlov, Sahil Lakhmani, Scott K Logan, Shane Loretz, Tomoya Fujita, Tony Najjar, baranbologur, carlos-apex, mergify[bot], mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosgraph_msgs <https://github.com/ros2/rcl_interfaces/tree/lyrical/rosgraph_msgs/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3059,7 +2850,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add Graph description messages to ``rosgraph_msgs`` (`#188 <https://github.com/ros2/rcl_interfaces/issues/188>`__)
 * Fix cmake deprecation (`#180 <https://github.com/ros2/rcl_interfaces/issues/180>`__)
 * Contributors: Emerson Knapp, mergify[bot], mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_adapter <https://github.com/ros2/rosidl/tree/lyrical/rosidl_adapter/CHANGELOG.rst>`__
@@ -3072,7 +2862,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Uniform cmake minVersion (`#849 <https://github.com/ros2/rosidl/issues/849>`__)
 * Contributors: Michael Carlstrom, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_buffer <https://github.com/ros2/rosidl/tree/lyrical/rosidl_buffer/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3084,7 +2873,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add rosidl_buffer and rosidl_buffer_backend for native Buffer type support (`#941 <https://github.com/ros2/rosidl/issues/941>`__)
 * Contributors: CY Chen, Shane Loretz, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_buffer_backend <https://github.com/ros2/rosidl/tree/lyrical/rosidl_buffer_backend/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3093,7 +2881,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Bump rosidl_buffer min CMake version (`#956 <https://github.com/ros2/rosidl/issues/956>`__)
 * Add rosidl_buffer and rosidl_buffer_backend for native Buffer type support (`#941 <https://github.com/ros2/rosidl/issues/941>`__)
 * Contributors: CY Chen, Shane Loretz
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_buffer_backend_registry <https://github.com/ros2/rosidl/tree/lyrical/rosidl_buffer_backend_registry/CHANGELOG.rst>`__
@@ -3104,7 +2891,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add rosidl_buffer_backend_registry (`#944 <https://github.com/ros2/rosidl/issues/944>`__)
 * Contributors: CY Chen, Scott K Logan, Shane Loretz
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_buffer_py <https://github.com/ros2/rosidl/tree/lyrical/rosidl_buffer_py/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3113,7 +2899,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix pybind11 rosdep key (`#955 <https://github.com/ros2/rosidl/issues/955>`__)
 * Update rosidl cpp path to emit rosidl::Buffer for uint8[] type (`#942 <https://github.com/ros2/rosidl/issues/942>`__)
 * Contributors: CY Chen, Christoph Fröhlich, Shane Loretz
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_cli <https://github.com/ros2/rosidl/tree/lyrical/rosidl_cli/CHANGELOG.rst>`__
@@ -3125,7 +2910,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix setuptools deprecations (`#877 <https://github.com/ros2/rosidl/issues/877>`__)
 * rosidl_cli: Add type description support (`#857 <https://github.com/ros2/rosidl/issues/857>`__)
 * Contributors: Francisco Rossi, Michael Carlstrom, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_cmake <https://github.com/ros2/rosidl/tree/lyrical/rosidl_cmake/CHANGELOG.rst>`__
@@ -3139,7 +2923,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix cmake <3.10 deprecation (`#875 <https://github.com/ros2/rosidl/issues/875>`__)
 * Contributors: Emerson Knapp, Kotaro Yoshimoto, Michael Carlstrom, Tim Wendt, Tomoya Fujita, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_core_generators <https://github.com/ros2/rosidl_core/tree/lyrical/rosidl_core_generators/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3147,7 +2930,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Revert "Revert "Added rosidl_generator_rs (`#7 <https://github.com/ros2/rosidl_core/issues/7>`__)" (`#8 <https://github.com/ros2/rosidl_core/issues/8>`__)" (`#9 <https://github.com/ros2/rosidl_core/issues/9>`__)
 * fix cmake deprecation (`#10 <https://github.com/ros2/rosidl_core/issues/10>`__)
 * Contributors: Esteve Fernandez, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_core_runtime <https://github.com/ros2/rosidl_core/tree/lyrical/rosidl_core_runtime/CHANGELOG.rst>`__
@@ -3157,14 +2939,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix cmake deprecation (`#10 <https://github.com/ros2/rosidl_core/issues/10>`__)
 * Contributors: CY Chen, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_default_generators <https://github.com/ros2/rosidl_defaults/tree/lyrical/rosidl_default_generators/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * fix cmake deprecation (`#31 <https://github.com/ros2/rosidl_defaults/issues/31>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_default_runtime <https://github.com/ros2/rosidl_defaults/tree/lyrical/rosidl_default_runtime/CHANGELOG.rst>`__
@@ -3173,14 +2953,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix cmake deprecation (`#31 <https://github.com/ros2/rosidl_defaults/issues/31>`__)
 * Contributors: mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_dynamic_typesupport <https://github.com/ros2/rosidl_dynamic_typesupport/tree/lyrical/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Don't automatically enable verbose makefiles (`#17 <https://github.com/ros2/rosidl_dynamic_typesupport/issues/17>`__)
 * Contributors: Chris Lalancette
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_dynamic_typesupport_fastrtps <https://github.com/ros2/rosidl_dynamic_typesupport_fastrtps/tree/lyrical/CHANGELOG.rst>`__
@@ -3190,7 +2968,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Don't automatically enable verbose makefiles. (`#9 <https://github.com/ros2/rosidl_dynamic_typesupport_fastrtps/issues/9>`__)
 * Contributors: Chris Lalancette, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_generator_c <https://github.com/ros2/rosidl/tree/lyrical/rosidl_generator_c/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3199,7 +2976,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Uniform cmake minVersion (`#849 <https://github.com/ros2/rosidl/issues/849>`__)
 * rosidl_cli: Add type description support (`#857 <https://github.com/ros2/rosidl/issues/857>`__)
 * Contributors: Francisco Rossi, Michael Carlstrom, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_generator_cpp <https://github.com/ros2/rosidl/tree/lyrical/rosidl_generator_cpp/CHANGELOG.rst>`__
@@ -3217,14 +2993,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Removed deprecated methods (`#863 <https://github.com/ros2/rosidl/issues/863>`__)
 * Contributors: Adam Leeper, Alejandro Hernández Cordero, CY Chen, Francisco Rossi, Michael Carlstrom, mosfet80, Øystein Sture
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_generator_dds_idl <https://github.com/ros2/rosidl_dds/tree/lyrical/rosidl_generator_dds_idl/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Update cmake version requirements (`#64 <https://github.com/ros2/rosidl_dds/issues/64>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_generator_py <https://github.com/ros2/rosidl_python/tree/lyrical/rosidl_generator_py/CHANGELOG.rst>`__
@@ -3243,7 +3017,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Remove NoReturn for now (`#229 <https://github.com/ros2/rosidl_python/issues/229>`__)
 * Static typing for Message, Services, and Actions (`#206 <https://github.com/ros2/rosidl_python/issues/206>`__)
 * Contributors: Anthony Welte, CY Chen, Michael Carlstrom, Nadav Elkabets
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_generator_rs <https://github.com/ros2-rust/rosidl_rust/tree/main/rosidl_generator_rs/CHANGELOG.rst>`__
@@ -3266,7 +3039,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * set python executable var to custom cmake commands (`#3 <https://github.com/ros2-rust/rosidl_rust/issues/3>`__)
 * Contributors: Esteve Fernandez, Grey, Kimberly N. McGuire, Sam Privett, Shane Loretz, Silvio Traversaro, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_generator_tests <https://github.com/ros2/rosidl/tree/lyrical/rosidl_generator_tests/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3276,7 +3048,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Make ``data_type`` and ``name`` traits constexpr (`#929 <https://github.com/ros2/rosidl//issues/929>`__)
 * fix cmake <3.10 deprecation (`#875 <https://github.com/ros2/rosidl/issues/875>`__)
 * Contributors: Alexis Tsogias, Michael Carlstrom, mosfet80, Øystein Sture
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_generator_type_description <https://github.com/ros2/rosidl/tree/lyrical/rosidl_generator_type_description/CHANGELOG.rst>`__
@@ -3289,7 +3060,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * rosidl_cli: Add type description support (`#857 <https://github.com/ros2/rosidl/issues/857>`__)
 * Contributors: Anthony Welte, Francisco Rossi, Michael Carlstrom, Scott K Logan, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_parser <https://github.com/ros2/rosidl/tree/lyrical/rosidl_parser/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3298,7 +3068,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add Optional Parsing (`#883 <https://github.com/ros2/rosidl/issues/883>`__)
 * fix cmake <3.10 deprecation (`#875 <https://github.com/ros2/rosidl/issues/875>`__)
 * Contributors: Michael Carlstrom, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_pycommon <https://github.com/ros2/rosidl/tree/lyrical/rosidl_pycommon/CHANGELOG.rst>`__
@@ -3312,7 +3081,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix setuptools deprecation (`#880 <https://github.com/ros2/rosidl/issues/880>`__)
 * Contributors: Michael Carlstrom, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_runtime_c <https://github.com/ros2/rosidl/tree/lyrical/rosidl_runtime_c/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3322,7 +3090,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix cmake <3.10 deprecation (`#875 <https://github.com/ros2/rosidl/issues/875>`__)
 * Add an ament_cmake_gtest dependency to rosidl_runtime_c. (`#865 <https://github.com/ros2/rosidl/issues/865>`__)
 * Contributors: CY Chen, Chris Lalancette, Christophe Bedard, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_runtime_cpp <https://github.com/ros2/rosidl/tree/lyrical/rosidl_runtime_cpp/CHANGELOG.rst>`__
@@ -3335,7 +3102,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add missing cstdint include (`#864 <https://github.com/ros2/rosidl/issues/864>`__)
 * Contributors: CY Chen, Michael Carlstrom, mosfet80, Øystein Sture
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_runtime_py <https://github.com/ros2/rosidl_runtime_py/tree/lyrical/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3346,14 +3112,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix setuptools deprecations (`#35 <https://github.com/ros2/rosidl_runtime_py/issues/35>`__)
 * Contributors: CY Chen, Michael Carlstrom, Vladimir Gerts, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_typesupport_c <https://github.com/ros2/rosidl_typesupport/tree/lyrical/rosidl_typesupport_c/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Add DEPENDS_EXPLICIT_ONLY to remove implicit dependencies (`#168 <https://github.com/ros2/rosidl_typesupport/issues/168>`__)
 * Contributors: Anthony Welte
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_typesupport_cpp <https://github.com/ros2/rosidl_typesupport/tree/lyrical/rosidl_typesupport_cpp/CHANGELOG.rst>`__
@@ -3363,7 +3127,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Remove deprecated rosidl_typesupport_cpp/type_support_map.h (`#167 <https://github.com/ros2/rosidl_typesupport/issues/167>`__)
 * De-duplicate type_support_map.h header (`#81 <https://github.com/ros2/rosidl_typesupport/issues/81>`__)
 * Contributors: Anthony Welte, Christophe Bedard
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_typesupport_fastrtps_c <https://github.com/ros2/rosidl_typesupport_fastrtps/tree/lyrical/rosidl_typesupport_fastrtps_c/CHANGELOG.rst>`__
@@ -3377,7 +3140,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix cmake deprecation (`#134 <https://github.com/ros2/rosidl_typesupport_fastrtps/issues/134>`__)
 * Check remaining size before resizing sequences (`#130 <https://github.com/ros2/rosidl_typesupport_fastrtps/issues/130>`__)
 * Contributors: Alejandro Hernández Cordero, Anthony Welte, CY Chen, Chris Lalancette, Jay Sridharan, Miguel Company, mergify[bot], mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_typesupport_fastrtps_cpp <https://github.com/ros2/rosidl_typesupport_fastrtps/tree/lyrical/rosidl_typesupport_fastrtps_cpp/CHANGELOG.rst>`__
@@ -3395,14 +3157,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Check remaining size before resizing sequences (`#130 <https://github.com/ros2/rosidl_typesupport_fastrtps/issues/130>`__)
 * Contributors: Alejandro Hernández Cordero, Anthony Welte, CY Chen, Chris Lalancette, Jay Sridharan, Miguel Company, Scott K Logan, mergify[bot], mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_typesupport_interface <https://github.com/ros2/rosidl/tree/lyrical/rosidl_typesupport_interface/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * fix cmake <3.10 deprecation (`#875 <https://github.com/ros2/rosidl/issues/875>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_typesupport_introspection_c <https://github.com/ros2/rosidl/tree/lyrical/rosidl_typesupport_introspection_c/CHANGELOG.rst>`__
@@ -3415,7 +3175,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * rosidl_cli: Add type description support (`#857 <https://github.com/ros2/rosidl/issues/857>`__)
 * Contributors: Anthony Welte, CY Chen, Francisco Rossi, Michael Carlstrom, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_typesupport_introspection_cpp <https://github.com/ros2/rosidl/tree/lyrical/rosidl_typesupport_introspection_cpp/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3427,7 +3186,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * rosidl_cli: Add type description support (`#857 <https://github.com/ros2/rosidl/issues/857>`__)
 * Contributors: Anthony Welte, CY Chen, Francisco Rossi, Michael Carlstrom, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_typesupport_introspection_tests <https://github.com/ros2/rosidl/tree/lyrical/rosidl_typesupport_introspection_tests/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3437,14 +3195,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Disable test failing in coverage jobs, see `#812 <https://github.com/ros2/rosidl/issues/812>`__ (`#853 <https://github.com/ros2/rosidl/issues/853>`__)
 * Contributors: CY Chen, Jorge J. Perez, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_typesupport_tests <https://github.com/ros2/rosidl_typesupport/tree/lyrical/rosidl_typesupport_tests/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * pass all tests for rmw_cyclonedds_cpp. (`#171 <https://github.com/ros2/rosidl_typesupport/issues/171>`__)
 * Contributors: Tomoya Fujita
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rpyutils <https://github.com/ros2/rpyutils/tree/lyrical/CHANGELOG.rst>`__
@@ -3454,7 +3210,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix setuptools deprecations (`#17 <https://github.com/ros2/rpyutils/issues/17>`__)
 * Contributors: Michael Carlstrom, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt <https://github.com/ros-visualization/rqt/tree/lyrical/rqt/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3463,7 +3218,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix setuptools deprecations (`#329 <https://github.com/ros-visualization/rqt/issues/329>`__)
 * Contributors: mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_action <https://github.com/ros-visualization/rqt_action/tree/lyrical/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3471,7 +3225,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix setuptools deprecations (`#19 <https://github.com/ros-visualization/rqt_action/issues/19>`__)
 * Remove CODEOWNERS and mirror-rolling-to-main workflow (`#16 <https://github.com/ros-visualization/rqt_action/issues/16>`__)
 * Contributors: Alejandro Hernández Cordero, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_bag <https://github.com/ros-visualization/rqt_bag/tree/lyrical/rqt_bag/CHANGELOG.rst>`__
@@ -3489,7 +3242,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fixed timeline resolution (`#175 <https://github.com/ros-visualization/rqt_bag/issues/175>`__)
 * Contributors: Alejandro Hernández Cordero, Martin Pecka, Michael Carlstrom, mergify[bot], mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_bag_plugins <https://github.com/ros-visualization/rqt_bag/tree/lyrical/rqt_bag_plugins/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3502,7 +3254,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * plot_view: Fixed display of initial message (`#180 <https://github.com/ros-visualization/rqt_bag/issues/180>`__)
 * fix setuptools deprecations (`#185 <https://github.com/ros-visualization/rqt_bag/issues/185>`__)
 * Contributors: Alejandro Hernández Cordero, Martin Pecka, Michael Carlstrom, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_console <https://github.com/ros-visualization/rqt_console/tree/lyrical/CHANGELOG.rst>`__
@@ -3523,7 +3274,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix setuptools deprecations (`#50 <https://github.com/ros-visualization/rqt_console/issues/50>`__)
 * Contributors: Alejandro Hernández Cordero, Arne Hitzmann, Peter, mosfet80, peter
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_graph <https://github.com/ros-visualization/rqt_graph/tree/lyrical/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3536,14 +3286,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix setuptools deprecations (`#107 <https://github.com/ros-visualization/rqt_graph/issues/107>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Jonas Otto, Matthew Foran, mergify[bot], mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_gui <https://github.com/ros-visualization/rqt/tree/lyrical/rqt_gui/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Fix setupTools deprecations (`#322 <https://github.com/ros-visualization/rqt/issues/322>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_gui_cpp <https://github.com/ros-visualization/rqt/tree/lyrical/rqt_gui_cpp/CHANGELOG.rst>`__
@@ -3558,7 +3306,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix compile with qt6 (`#321 <https://github.com/ros-visualization/rqt/issues/321>`__)
 * Contributors: Alejandro Hernández Cordero, Daisuke Nishimatsu, Shane Loretz, mergify[bot], mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_gui_py <https://github.com/ros-visualization/rqt/tree/lyrical/rqt_gui_py/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3566,7 +3313,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Support Qt6 (`#339 <https://github.com/ros-visualization/rqt/issues/339>`__)
 * Fix setupTools deprecations (`#322 <https://github.com/ros-visualization/rqt/issues/322>`__)
 * Contributors: Alejandro Hernández Cordero, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_msg <https://github.com/ros-visualization/rqt_msg/tree/lyrical/CHANGELOG.rst>`__
@@ -3576,7 +3322,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix setuptools deprecations (`#23 <https://github.com/ros-visualization/rqt_msg/issues/23>`__)
 * Remove CODEOWNERS (`#20 <https://github.com/ros-visualization/rqt_msg/issues/20>`__)
 * Contributors: Alejandro Hernández Cordero, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_plot <https://github.com/ros-visualization/rqt_plot/tree/lyrical/CHANGELOG.rst>`__
@@ -3589,7 +3334,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix for displaying constant curves (`#114 <https://github.com/ros-visualization/rqt_plot/issues/114>`__)
 * Contributors: Alejandro Hernández Cordero, Martin Pecka, Shane Loretz, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_publisher <https://github.com/ros-visualization/rqt_publisher/tree/lyrical/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3598,7 +3342,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Support Qt6 (`#56 <https://github.com/ros-visualization/rqt_publisher/issues/56>`__)
 * fix setuptools deprecations (`#52 <https://github.com/ros-visualization/rqt_publisher/issues/52>`__)
 * Contributors: Alejandro Hernández Cordero, mergify[bot], mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_py_common <https://github.com/ros-visualization/rqt/tree/lyrical/rqt_py_common/CHANGELOG.rst>`__
@@ -3610,7 +3353,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix compile with qt6 (`#321 <https://github.com/ros-visualization/rqt/issues/321>`__)
 * Contributors: Alejandro Hernández Cordero, Shane Loretz, mergify[bot], mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_py_console <https://github.com/ros-visualization/rqt_py_console/tree/lyrical/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3618,7 +3360,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add Qt6 compatibility (`#25 <https://github.com/ros-visualization/rqt_py_console/issues/25>`__) Co-authored-by: Alejandro Hernandez Cordero <ahcorde@gmail.com>
 * fix setuptools deprecations (`#21 <https://github.com/ros-visualization/rqt_py_console/issues/21>`__)
 * Contributors: Shane Loretz, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_reconfigure <https://github.com/ros-visualization/rqt_reconfigure/tree/lyrical/CHANGELOG.rst>`__
@@ -3634,7 +3375,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Remove CODEOWNERS (`#147 <https://github.com/ros-visualization/rqt_reconfigure/issues/147>`__)
 * Contributors: Alejandro Hernández Cordero, Christoph Fröhlich, Jonathan Selling, Michael Carlstrom, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_service_caller <https://github.com/ros-visualization/rqt_service_caller/tree/lyrical/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3642,7 +3382,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Support Qt6 (`#38 <https://github.com/ros-visualization/rqt_service_caller/issues/38>`__)
 * fix setuptools deprecations (`#33 <https://github.com/ros-visualization/rqt_service_caller/issues/33>`__)
 * Contributors: Alejandro Hernández Cordero, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_shell <https://github.com/ros-visualization/rqt_shell/tree/lyrical/CHANGELOG.rst>`__
@@ -3652,7 +3391,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix setuptools deprecation (`#26 <https://github.com/ros-visualization/rqt_shell/issues/26>`__)
 * Contributors: Alejandro Hernandez Cordero, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_srv <https://github.com/ros-visualization/rqt_srv/tree/lyrical/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3660,7 +3398,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix setuptools deprecations (`#16 <https://github.com/ros-visualization/rqt_srv/issues/16>`__)
 * Remove CODEOWNERS (`#13 <https://github.com/ros-visualization/rqt_srv/issues/13>`__)
 * Contributors: Alejandro Hernández Cordero, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_topic <https://github.com/ros-visualization/rqt_topic/tree/lyrical/CHANGELOG.rst>`__
@@ -3675,7 +3412,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix setuptools deprecations (`#57 <https://github.com/ros-visualization/rqt_topic/issues/57>`__)
 * Contributors: Alejandro Hernández Cordero, Evan Flynn, Romain Reignier, Scott K Logan, Shane Loretz, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rti_connext_dds_cmake_module <https://github.com/ros2/rmw_connextdds/tree/lyrical/rti_connext_dds_cmake_module/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3684,7 +3420,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix cmake deprecation (`#198 <https://github.com/ros2/rmw_connextdds/issues/198>`__)
 * Contributors: Francisco Gallego Salido, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rttest <https://github.com/ros2/realtime_support/tree/lyrical/rttest/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3692,7 +3427,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * cleanups and removed dead code (`#141 <https://github.com/ros2/realtime_support/issues/141>`__) (`#144 <https://github.com/ros2/realtime_support/issues/144>`__)
 * Fix cmake deprecation (`#134 <https://github.com/ros2/realtime_support/issues/134>`__)
 * Contributors: mergify[bot], mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rviz2 <https://github.com/ros2/rviz/tree/lyrical/rviz2/CHANGELOG.rst>`__
@@ -3705,7 +3439,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * get rid of deprecated rclcpp::spin_some() (`#1567 <https://github.com/ros2/rviz/issues/1567>`__)
 * feat: support both qt5 and qt6 (`#1187 <https://github.com/ros2/rviz/issues/1187>`__)
 * Contributors: Alejandro Hernández Cordero, Daisuke Nishimatsu, Emerson Knapp, Nathan Brooks, Shane Loretz
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rviz_common <https://github.com/ros2/rviz/tree/lyrical/rviz_common/CHANGELOG.rst>`__
@@ -3764,7 +3497,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Extend support for type adaptation (REP 2007) in rviz_common for TF-filtered displays (`#1346 <https://github.com/ros2/rviz/issues/1346>`__)
 * Contributors: Alejandro Hernández Cordero, Daisuke Nishimatsu, David V. Lu!!, Emerson Knapp, Janosch Machowinski, Joshua Supratman, Mark Johnson, Mateusz Żak, Matteo Princisgh, Matthew Foran, Michael Carroll, Nathan Brooks, Oscmoar07, Patrick Roncagliolo, Shane Loretz, mini-1235, nelson, t0k0shi
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rviz_default_plugins <https://github.com/ros2/rviz/tree/lyrical/rviz_default_plugins/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3819,7 +3551,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Include chrono (`#1353 <https://github.com/ros2/rviz/issues/1353>`__)
 * Contributors: Alejandro Hernández Cordero, Alexis Tsogias, Antonio Brandi, Daisuke Nishimatsu, Eesha Kumar, Emerson Knapp, Felix Exner (fexner), Georg Flick, Guillaume Doisy, Harrison Chen, Kenji Brameld (TRACLabs), Kosuke Takeuchi, Lennart Reiher, Mark Johnson, Matthew Foran, Michael Carroll, Nathan Brooks, Shane Loretz, Silvio Traversaro, Stefan Fabian, Stoyan Gaydarov, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rviz_ogre_vendor <https://github.com/ros2/rviz/tree/lyrical/rviz_ogre_vendor/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3830,7 +3561,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add RVIZ_OGRE_VENDOR_MANGLE_NAME_OF_LIBRARIES_USED_BY_RVIZ option to further mangle ogre libraries used by rviz (`#1493 <https://github.com/ros2/rviz/issues/1493>`__)
 * Add missing glew dependency for ogre vendor package (`#1350 <https://github.com/ros2/rviz/issues/1350>`__)
 * Contributors: Dhruv Patel, Michael Carroll, Shane Loretz, Silvio Traversaro, Stefan Fabian
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rviz_rendering <https://github.com/ros2/rviz/tree/lyrical/rviz_rendering/CHANGELOG.rst>`__
@@ -3865,7 +3595,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Work in progress using the new resource retriever apis (`#1262 <https://github.com/ros2/rviz/issues/1262>`__)
 * Contributors: Alejandro Hernández Cordero, Daisuke Nishimatsu, John TGZ, Michael Carlstrom, Michael Carroll, Michel Hidalgo, Nathan Brooks, Shane Loretz, matthias88, mergify[bot], mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rviz_rendering_tests <https://github.com/ros2/rviz/tree/lyrical/rviz_rendering_tests/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3877,7 +3606,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * feat: support both qt5 and qt6 (`#1187 <https://github.com/ros2/rviz/issues/1187>`__)
 * Work in progress using the new resource retriever apis (`#1262 <https://github.com/ros2/rviz/issues/1262>`__)
 * Contributors: Alejandro Hernández Cordero, Daisuke Nishimatsu, Michael Carroll, Nathan Brooks, Shane Loretz
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rviz_visual_testing_framework <https://github.com/ros2/rviz/tree/lyrical/rviz_visual_testing_framework/CHANGELOG.rst>`__
@@ -3894,7 +3622,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * feat: support both qt5 and qt6 (`#1187 <https://github.com/ros2/rviz/issues/1187>`__)
 * Contributors: Alejandro Hernández Cordero, Daisuke Nishimatsu, Emerson Knapp, Nathan Brooks, Shane Loretz
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `sensor_msgs <https://github.com/ros2/common_interfaces/tree/lyrical/sensor_msgs/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3905,7 +3632,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Enhance NV12 and NV21 Support in sensor_msgs::image_encodings (`#264 <https://github.com/ros2/common_interfaces/issues/264>`__)
 * Contributors: Adam Leeper, Zhaoyuan Cheng, mosfet80, wodtko
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `sensor_msgs_py <https://github.com/ros2/common_interfaces/tree/lyrical/sensor_msgs_py/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3914,14 +3640,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix setuptools deprecation (`#293 <https://github.com/ros2/common_interfaces/issues/293>`__)
 * Contributors: mosfet80, xndcn
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `service_msgs <https://github.com/ros2/rcl_interfaces/tree/lyrical/service_msgs/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Fix cmake deprecation (`#180 <https://github.com/ros2/rcl_interfaces/issues/180>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `shape_msgs <https://github.com/ros2/common_interfaces/tree/lyrical/shape_msgs/CHANGELOG.rst>`__
@@ -3930,14 +3654,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix CMAKE deprecation (`#288 <https://github.com/ros2/common_interfaces/issues/288>`__)
 * Contributors: mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `spdlog_vendor <https://github.com/ros2/spdlog_vendor/tree/lyrical/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Remove CODEOWNERS and mirror-rolling-to-master. (`#38 <https://github.com/ros2/spdlog_vendor/issues/38>`__)
 * Contributors: Chris Lalancette
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `sros2 <https://github.com/ros2/sros2/tree/lyrical/sros2/CHANGELOG.rst>`__
@@ -3956,14 +3678,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix github-workflow mypy error (`#336 <https://github.com/ros2/sros2/issues/336>`__)
 * Contributors: Michael Carlstrom, Mikael Arguedas, Scott K Logan, Tomoya Fujita, cdisco, mergify[bot], mosfet80, yadunund
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `sros2_cmake <https://github.com/ros2/sros2/tree/lyrical/sros2_cmake/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Update CMakeLists.txt (`#344 <https://github.com/ros2/sros2/issues/344>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `statistics_msgs <https://github.com/ros2/rcl_interfaces/tree/lyrical/statistics_msgs/CHANGELOG.rst>`__
@@ -3972,14 +3692,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix cmake deprecation (`#180 <https://github.com/ros2/rcl_interfaces/issues/180>`__)
 * Contributors: mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `std_msgs <https://github.com/ros2/common_interfaces/tree/lyrical/std_msgs/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Fix CMAKE deprecation (`#288 <https://github.com/ros2/common_interfaces/issues/288>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `std_srvs <https://github.com/ros2/common_interfaces/tree/lyrical/std_srvs/CHANGELOG.rst>`__
@@ -3988,14 +3706,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix CMAKE deprecation (`#288 <https://github.com/ros2/common_interfaces/issues/288>`__)
 * Contributors: mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `stereo_msgs <https://github.com/ros2/common_interfaces/tree/lyrical/stereo_msgs/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Fix CMAKE deprecation (`#288 <https://github.com/ros2/common_interfaces/issues/288>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tango_icons_vendor <https://github.com/ros-visualization/tango_icons_vendor/tree/lyrical/CHANGELOG.rst>`__
@@ -4006,14 +3722,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Remove CODEOWNERS (`#11 <https://github.com/ros-visualization/tango_icons_vendor/issues/11>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `test_cli <https://github.com/ros2/system_tests/tree/lyrical/test_cli/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * fix CMAKE deprecation (`#572 <https://github.com/ros2/system_tests/issues/572>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `test_cli_remapping <https://github.com/ros2/system_tests/tree/lyrical/test_cli_remapping/CHANGELOG.rst>`__
@@ -4022,7 +3736,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Use new ROSIDL aggregate CMake target (`#587 <https://github.com/ros2/system_tests/issues/587>`__)
 * fix CMAKE deprecation (`#572 <https://github.com/ros2/system_tests/issues/572>`__)
 * Contributors: Emerson Knapp, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `test_communication <https://github.com/ros2/system_tests/tree/lyrical/test_communication/CHANGELOG.rst>`__
@@ -4041,7 +3754,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Skip all multi-vendor pub/sub tests with zenoh (`#560 <https://github.com/ros2/system_tests/issues/560>`__)
 * Contributors: Alejandro Hernández Cordero, Emerson Knapp, Francisco Gallego Salido, Janosch Machowinski, Michael Carlstrom, Scott K Logan, Shane Loretz, Tomoya Fujita, mini-1235, mosfet80, yadunund
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `test_interface_files <https://github.com/ros2/test_interface_files/tree/lyrical/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4049,7 +3761,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update CMakeLists.txt (`#26 <https://github.com/ros2/test_interface_files/issues/26>`__)
 * Remove CODEOWNERS and mirror-rolling-to-master workflow. (`#23 <https://github.com/ros2/test_interface_files/issues/23>`__)
 * Contributors: Chris Lalancette, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `test_launch_ros <https://github.com/ros2/launch_ros/tree/lyrical/test_launch_ros/CHANGELOG.rst>`__
@@ -4067,7 +3778,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix: LoadComposableNodes fails to parse wildcard param files correctly (`#460 <https://github.com/ros2/launch_ros/issues/460>`__) (`#465 <https://github.com/ros2/launch_ros/issues/465>`__)
 * Contributors: Auguste Lalande, Christophe Bedard, Clara Berendsen, Emerson Knapp, Emre Kuru, Jasper van Brakel, Scott K Logan, Skyler Medeiros, Tomoya Fujita, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `test_launch_testing <https://github.com/ros2/launch/tree/lyrical/test_launch_testing/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4075,7 +3785,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix CMake deprecation (`#899 <https://github.com/ros2/launch/issues/899>`__)
 * Allow Path in substitutions, instead of requiring cast to str (`#873 <https://github.com/ros2/launch/issues/873>`__)
 * Contributors: Emerson Knapp, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `test_msgs <https://github.com/ros2/rcl_interfaces/tree/lyrical/test_msgs/CHANGELOG.rst>`__
@@ -4085,14 +3794,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix cmake deprecation (`#180 <https://github.com/ros2/rcl_interfaces/issues/180>`__)
 * Contributors: Michael Carlstrom, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `test_osrf_testing_tools_cpp <https://github.com/osrf/osrf_testing_tools_cpp/tree/lyrical/test_osrf_testing_tools_cpp/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * fix cmake deprecation  (`#94 <https://github.com/osrf/osrf_testing_tools_cpp/issues/94>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `test_quality_of_service <https://github.com/ros2/system_tests/tree/lyrical/test_quality_of_service/CHANGELOG.rst>`__
@@ -4103,7 +3810,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Switch to isolated test fixture macros (`#571 <https://github.com/ros2/system_tests/issues/571>`__)
 * Use rmw_event_type_is_supported to skip tests (`#563 <https://github.com/ros2/system_tests/issues/563>`__)
 * Contributors: Alejandro Hernández Cordero, Emerson Knapp, Scott K Logan, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `test_rclcpp <https://github.com/ros2/system_tests/tree/lyrical/test_rclcpp/CHANGELOG.rst>`__
@@ -4117,7 +3823,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Ensure test verifies the existence of all spawning nodes (`#558 <https://github.com/ros2/system_tests/issues/558>`__)
 * Contributors: Alejandro Hernández Cordero, Julien Enoch, Scott K Logan, Tomoya Fujita, Yuyuan Yuan, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `test_rmw_implementation <https://github.com/ros2/rmw_implementation/tree/lyrical/test_rmw_implementation/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4129,7 +3834,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Test failing deserialization of invalid sequence length (`#261 <https://github.com/ros2/rmw_implementation/issues/261>`__)
 * add ignore_local_publications_serialized test. (`#255 <https://github.com/ros2/rmw_implementation/issues/255>`__)
 * Contributors: Alexis Tsogias, Julien Enoch, Lee, Miguel Company, Minju, Tomoya Fujita, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `test_ros2trace <https://github.com/ros2/ros2_tracing/tree/lyrical/test_ros2trace/CHANGELOG.rst>`__
@@ -4143,7 +3847,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Use timeout for everything in test_ros2trace tests (`#174 <https://github.com/ros2/ros2_tracing/issues/174>`__)
 * Contributors: Christophe Bedard, Michel Hidalgo, Shravan Deva, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `test_security <https://github.com/ros2/system_tests/tree/lyrical/test_security/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4151,7 +3854,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Use new ROSIDL aggregate CMake target (`#587 <https://github.com/ros2/system_tests/issues/587>`__)
 * fix CMAKE deprecation (`#572 <https://github.com/ros2/system_tests/issues/572>`__)
 * Contributors: Emerson Knapp, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `test_tf2 <https://github.com/ros2/geometry2/tree/lyrical/test_tf2/CHANGELOG.rst>`__
@@ -4168,7 +3870,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add ``rclcpp::shutdown`` (`#762 <https://github.com/ros2/geometry2/issues/762>`__)
 * Contributors: Alireza Moayyedi, Auguste Lalande, Emerson Knapp, Gary Servin, Lucas Wendland, R Kent James, Yuyuan Yuan, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `test_tracetools <https://github.com/ros2/ros2_tracing/tree/lyrical/test_tracetools/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4181,7 +3882,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update CMakeLists.txt (`#176 <https://github.com/ros2/ros2_tracing/issues/176>`__)
 * Contributors: Emerson Knapp, Janosch Machowinski, Michel Hidalgo, Raphael van Kempen, mini-1235, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `test_tracetools_launch <https://github.com/ros2/ros2_tracing/tree/lyrical/test_tracetools_launch/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4192,7 +3892,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Make trace action parameters substitutable (`#187 <https://github.com/ros2/ros2_tracing/issues/187>`__)
 * Address typing issues reported by mypy in tracetools_launch (`#184 <https://github.com/ros2/ros2_tracing/issues/184>`__)
 * Contributors: Christophe Bedard, Shravan Deva, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tf2 <https://github.com/ros2/geometry2/tree/lyrical/tf2/CHANGELOG.rst>`__
@@ -4226,7 +3925,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Uniform cmake min version (`#764 <https://github.com/ros2/geometry2/issues/764>`__)
 * Contributors: Alejandro Hernández Cordero, Alireza Moayyedi, Andreas, Auguste Lalande, Chris Lalancette, Emerson Knapp, Markus Bader, Michael Carlstrom, Pavel Guzenfeld, R Kent James, Selim Ağırman, Simon Jusner, Tim Clephas, Timo Röhling, cramke, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tf2_bullet <https://github.com/ros2/geometry2/tree/lyrical/tf2_bullet/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4239,7 +3937,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Change tf2_ros C to C++ headers (`#805 <https://github.com/ros2/geometry2/issues/805>`__)
 * Uniform cmake min version (`#764 <https://github.com/ros2/geometry2/issues/764>`__)
 * Contributors: Cristóbal Arroyo, Emerson Knapp, Gary Servin, R Kent James, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tf2_eigen <https://github.com/ros2/geometry2/tree/lyrical/tf2_eigen/CHANGELOG.rst>`__
@@ -4256,7 +3953,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Uniform cmake min version (`#764 <https://github.com/ros2/geometry2/issues/764>`__)
 * Contributors: Alireza Moayyedi, Auguste Lalande, Emerson Knapp, Gary Servin, R Kent James, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tf2_eigen_kdl <https://github.com/ros2/geometry2/tree/lyrical/tf2_eigen_kdl/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4267,7 +3963,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Removed orocos kdl vendor dependency (`#826 <https://github.com/ros2/geometry2/issues/826>`__)
 * Uniform cmake min version (`#764 <https://github.com/ros2/geometry2/issues/764>`__)
 * Contributors: Alejandro Hernández Cordero, R Kent James, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tf2_geometry_msgs <https://github.com/ros2/geometry2/tree/lyrical/tf2_geometry_msgs/CHANGELOG.rst>`__
@@ -4282,7 +3977,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Removed orocos kdl vendor dependency (`#826 <https://github.com/ros2/geometry2/issues/826>`__)
 * Change tf2_ros C to C++ headers (`#805 <https://github.com/ros2/geometry2/issues/805>`__)
 * Contributors: Alejandro Hernández Cordero, Auguste Lalande, Emerson Knapp, Gary Servin, R Kent James, Yannik Meinken, cramke
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tf2_kdl <https://github.com/ros2/geometry2/tree/lyrical/tf2_kdl/CHANGELOG.rst>`__
@@ -4299,7 +3993,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix external docs mappings (`#757 <https://github.com/ros2/geometry2/issues/757>`__)
 * Contributors: Alejandro Hernández Cordero, Emerson Knapp, Emmanuel, Gary Servin, R Kent James, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tf2_msgs <https://github.com/ros2/geometry2/tree/lyrical/tf2_msgs/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4308,7 +4001,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Modernize conf.py files to only include modified Copyright, eliminati… (`#865 <https://github.com/ros2/geometry2/issues/865>`__)
 * Uniform cmake min version (`#764 <https://github.com/ros2/geometry2/issues/764>`__)
 * Contributors: Auguste Lalande, R Kent James, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tf2_py <https://github.com/ros2/geometry2/tree/lyrical/tf2_py/CHANGELOG.rst>`__
@@ -4319,7 +4011,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Modernize conf.py files to only include modified Copyright, eliminati… (`#865 <https://github.com/ros2/geometry2/issues/865>`__)
 * Cleanup TF2 dependencies (`#843 <https://github.com/ros2/geometry2/issues/843>`__)
 * Contributors: Auguste Lalande, Chris Lalancette, Emerson Knapp, R Kent James
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tf2_ros <https://github.com/ros2/geometry2/tree/lyrical/tf2_ros/CHANGELOG.rst>`__
@@ -4345,7 +4036,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix external docs mappings (`#757 <https://github.com/ros2/geometry2/issues/757>`__)
 * Contributors: Alejandro Hernández Cordero, Auguste Lalande, Emerson Knapp, Emmanuel, Gary Servin, Lucas Wendland, Mirko Ferrati, R Kent James, Sergei Zobov, Tomoya Fujita, Yuyuan Yuan, mergify[bot], mini-1235, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tf2_ros_py <https://github.com/ros2/geometry2/tree/lyrical/tf2_ros_py/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4364,7 +4054,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix external docs mappings (`#757 <https://github.com/ros2/geometry2/issues/757>`__)
 * Contributors: Alejandro Hernández Cordero, Auguste Lalande, Chris Lalancette, Dominik, Emmanuel, Michael Carlstrom, Michael Carroll, R Kent James, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tf2_sensor_msgs <https://github.com/ros2/geometry2/tree/lyrical/tf2_sensor_msgs/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4379,7 +4068,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add normals rotation in ``PointCloud2`` ``doTransform`` (`#792 <https://github.com/ros2/geometry2/issues/792>`__)
 * Contributors: Alejandro Hernández Cordero, Auguste Lalande, Emerson Knapp, Gary Servin, Patrick Roncagliolo, R Kent James
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tf2_tools <https://github.com/ros2/geometry2/tree/lyrical/tf2_tools/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4388,14 +4076,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix Setuptools deprecations (`#809 <https://github.com/ros2/geometry2/issues/809>`__)
 * Contributors: R Kent James, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tlsf <https://github.com/ros2/tlsf/tree/lyrical/tlsf/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * update cmake requirements (`#18 <https://github.com/ros2/tlsf/issues/18>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tlsf_cpp <https://github.com/ros2/realtime_support/tree/lyrical/tlsf_cpp/CHANGELOG.rst>`__
@@ -4411,7 +4097,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Explicitly shutdown context before test exits (`#129 <https://github.com/ros2/realtime_support/issues/129>`__)
 * Contributors: Alejandro Hernández Cordero, Emerson Knapp, Julien Enoch, mergify[bot], mini-1235, mosfet80, yadunund
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `topic_monitor <https://github.com/ros2/demos/tree/lyrical/topic_monitor/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4422,7 +4107,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update README.md (`#718 <https://github.com/ros2/demos/issues/718>`__) (`#719 <https://github.com/ros2/demos/issues/719>`__)
 * Contributors: Dan Mascarenhas, Lucas Wendland, mergify[bot], mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `topic_statistics_demo <https://github.com/ros2/demos/tree/lyrical/topic_statistics_demo/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4431,7 +4115,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Switching to example_interfaces (`#674 <https://github.com/ros2/demos/issues/674>`__)
 * Uniform CMAKE min VERSION (`#714 <https://github.com/ros2/demos/issues/714>`__)
 * Contributors: Emerson Knapp, Lucas Wendland, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tracetools <https://github.com/ros2/ros2_tracing/tree/lyrical/tracetools/CHANGELOG.rst>`__
@@ -4444,7 +4127,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update CMakeLists.txt (`#176 <https://github.com/ros2/ros2_tracing/issues/176>`__)
 * Removed clang warning (`#168 <https://github.com/ros2/ros2_tracing/issues/168>`__)
 * Contributors: Alejandro Hernández Cordero, Michel Hidalgo, Raphael van Kempen, Shravan Deva, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tracetools_launch <https://github.com/ros2/ros2_tracing/tree/lyrical/tracetools_launch/CHANGELOG.rst>`__
@@ -4461,7 +4143,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Address typing issues reported by mypy in tracetools_launch (`#184 <https://github.com/ros2/ros2_tracing/issues/184>`__)
 * Contributors: Christophe Bedard, Sarthak Bagga, Shravan Deva, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tracetools_read <https://github.com/ros2/ros2_tracing/tree/lyrical/tracetools_read/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4472,7 +4153,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Address typing issues reported by mypy in tracetools_launch (`#184 <https://github.com/ros2/ros2_tracing/issues/184>`__)
 * Contributors: Christophe Bedard, Michael Carlstrom, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tracetools_test <https://github.com/ros2/ros2_tracing/tree/lyrical/tracetools_test/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4482,7 +4162,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix setuptools deprecation (`#189 <https://github.com/ros2/ros2_tracing/issues/189>`__)
 * Address typing issues reported by mypy in tracetools_launch (`#184 <https://github.com/ros2/ros2_tracing/issues/184>`__)
 * Contributors: Christophe Bedard, Clara Berendsen, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tracetools_trace <https://github.com/ros2/ros2_tracing/tree/lyrical/tracetools_trace/CHANGELOG.rst>`__
@@ -4501,14 +4180,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix pluralization in ros2 trace output (`#169 <https://github.com/ros2/ros2_tracing/issues/169>`__)
 * Contributors: Christophe Bedard, Michael Carlstrom, Raphael van Kempen, Shravan Deva, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `trajectory_msgs <https://github.com/ros2/common_interfaces/tree/lyrical/trajectory_msgs/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Fix CMAKE deprecation (`#288 <https://github.com/ros2/common_interfaces/issues/288>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `turtlesim <https://github.com/ros/ros_tutorials/tree/lyrical/turtlesim/CHANGELOG.rst>`__
@@ -4526,7 +4203,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add icon for Kilted Kaiju (`#180 <https://github.com/ros/ros_tutorials/issues/180>`__)
 * Contributors: Alejandro Hernández Cordero, Emerson Knapp, Scott K Logan, Shane Loretz, dcconner, mergify[bot]
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `turtlesim_msgs <https://github.com/ros/ros_tutorials/tree/lyrical/turtlesim_msgs/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4535,14 +4211,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix cmake deprecation (`#182 <https://github.com/ros/ros_tutorials/issues/182>`__)
 * Contributors: mergify[bot], mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `type_description_interfaces <https://github.com/ros2/rcl_interfaces/tree/lyrical/type_description_interfaces/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Fix cmake deprecation (`#180 <https://github.com/ros2/rcl_interfaces/issues/180>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `uncrustify_vendor <https://github.com/ament/uncrustify_vendor/tree/lyrical/CHANGELOG.rst>`__
@@ -4551,7 +4225,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Remove CODEOWNERS and mirror-rolling-to-master workflow. (`#38 <https://github.com/ament/uncrustify_vendor/issues/38>`__)
 * Contributors: Chris Lalancette
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `unique_identifier_msgs <https://github.com/ros2/unique_identifier_msgs/tree/lyrical/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4559,7 +4232,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix cmake deprecation (`#33 <https://github.com/ros2/unique_identifier_msgs/issues/33>`__)
 * Remove CODEOWNERS and mirror-rolling-to-master workflow. (`#31 <https://github.com/ros2/unique_identifier_msgs/issues/31>`__)
 * Contributors: Chris Lalancette, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `urdf <https://github.com/ros2/urdf/tree/lyrical/urdf/CHANGELOG.rst>`__
@@ -4570,7 +4242,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Removed tinyxml2_vendor dependency (`#47 <https://github.com/ros2/urdf/issues/47>`__)
 * Contributors: Alejandro Hernández Cordero, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `urdf_parser_plugin <https://github.com/ros2/urdf/tree/lyrical/urdf_parser_plugin/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4578,7 +4249,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Remove ``urdf_world/types.h`` deprecation (`#54 <https://github.com/ros2/urdf/issues/54>`__)
 * Fix CMAKE deprecation (`#48 <https://github.com/ros2/urdf/issues/48>`__) cmake version < then 3.10 is deprecated
 * Contributors: Alejandro Hernández Cordero, mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `urdfdom <https://github.com/ros/urdfdom/tree/lyrical/CHANGELOG.rst>`__
@@ -4608,7 +4278,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix: missing header (`#216 <https://github.com/ros/urdfdom/issues/216>`__)
 * Contributors: Alejandro Hernández Cordero, Amin Ya, Chris Lalancette, Florencia, Guillaume Doisy, Jose Luis Rivero, Pierre Ballif, Sai Kishor Kothakota, Steve Peters, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `urdfdom_headers <https://github.com/ros/urdfdom_headers/tree/lyrical/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4636,14 +4305,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Remove CODEOWNERS. (`#81 <https://github.com/ros/urdfdom_headers/issues/81>`__) It is outdated and no longer serving its intended purpose.
 * Contributors: Aarav Gupta, Alejandro Hernández Cordero, Chris Lalancette, Guillaume Doisy, Jorge J. Perez, Lucien Morey, Michal Sojka, Robert Haschke, Sai Kishor Kothakota, Steve Peters, mosfet80
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `visualization_msgs <https://github.com/ros2/common_interfaces/tree/lyrical/visualization_msgs/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Fix CMAKE deprecation (`#288 <https://github.com/ros2/common_interfaces/issues/288>`__)
 * Contributors: mosfet80
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `yaml_cpp_vendor <https://github.com/ros2/yaml_cpp_vendor/tree/lyrical/CHANGELOG.rst>`__
@@ -4652,7 +4319,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Replace ament_vendor with cmake modules (`#56 <https://github.com/ros2/yaml_cpp_vendor/issues/56>`__)
 * Remove CODEOWNERS and mirror-rolling-to-master workflow. (`#52 <https://github.com/ros2/yaml_cpp_vendor/issues/52>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `zenoh_cpp_vendor <https://github.com/ros2/rmw_zenoh/tree/lyrical/zenoh_cpp_vendor/CHANGELOG.rst>`__
@@ -4676,7 +4342,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix: pin rust toolchain to v1.75.0 (`#602 <https://github.com/ros2/rmw_zenoh/issues/602>`__)
 * fix: use the right commit to bump zenoh to v1.3.2 (`#607 <https://github.com/ros2/rmw_zenoh/issues/607>`__)
 * Contributors: ChenYing Kuo (CY), Julien Enoch, Shane Loretz, Tim Clephas, Yadunund, Yuyuan Yuan, Øystein Sture
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `zenoh_security_tools <https://github.com/ros2/rmw_zenoh/tree/lyrical/zenoh_security_tools/CHANGELOG.rst>`__

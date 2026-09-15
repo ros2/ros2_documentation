@@ -3,8 +3,29 @@
    Installation/Prerelease-Testing
    Installation/Testing
 
+.. meta::
+   :contentType: about
+   :experience: intermediate
+   :area: debugging, builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Testing with pre-release binaries
 =================================
+
+.. short-description::
+   Many ROS packages are available as pre-built binaries, including pre-release versions for testing.
+   This article describes how to use testing repositories, binary archives, and nightly Docker images.
+   After you follow these steps, you can test ROS binaries before they are synchronized into the main repository.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
+
 
 Many ROS packages are provided as pre-built binaries.
 Usually, you will get the released version of binaries when following :doc:`../../../Get-Started/Installation`.
