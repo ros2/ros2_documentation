@@ -471,7 +471,7 @@ ros2cli
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
 This allows passing a prefix to all executables in a launch file, which is useful in many debugging situations.
-See the associated `pull request <https://github.com/ros2/launch_ros/pull/254>`__, as well as the :ref:`tutorial <launch-prefix-example>` for more information.
+See the associated `pull request <https://github.com/ros2/launch_ros/pull/254>`__ for more information.
 
 Relatedly, the ``--launch-prefix-filter`` command-line option was added to selectively add the prefix from ``--launch-prefix`` to executables.
 See the `pull request <https://github.com/ros2/launch_ros/pull/261>`__ for more information.
