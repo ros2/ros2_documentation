@@ -16,7 +16,6 @@ ROS 2 Security
    Introducing-ros2-security
    Security-on-Two
    Access-Controls
-   
 
 Overview
 --------
