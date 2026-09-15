@@ -2,6 +2,7 @@
 
    Concepts/About-Security
    Concepts/Intermediate/About-Security
+   Tutorials/Advanced/Security/Security-Main
 
 ROS 2 Security
 ==============
@@ -13,8 +14,9 @@ ROS 2 Security
    :maxdepth: 3
 
    Introducing-ros2-security
-   Access-Controls
    Security-on-Two
+   Access-Controls
+   
 
 Overview
 --------
