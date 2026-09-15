@@ -9,6 +9,7 @@ Contributing to ROS
    :titlesonly:
    :maxdepth: 1
 
+   Contributing/Source-Control-Best-Practices
    Contributing/Developer-Guide
    Contributing/Code-Style-Language-Versions
    Contributing/Quality-Guide
@@ -243,7 +244,7 @@ Approximately every 3 months, the ROS team will review the contributions in all 
 Once the invitation is accepted, the new maintainer will be asked to go through a short training process on the mechanisms and policies of the ROS repositories.
 After that training process is completed, the new maintainer will be given write access to the appropriate repositories.
 
-* Guidance for maintainers: `ROS Core Maintainer Guide <https://docs.ros.org/en/rolling/How-To-Guides/Core-maintainer-guide.html>`_.
+* Guidance for maintainers: :doc:`ROS Core Maintainer Guide <../Developer-Tools/Build/Core-maintainer-guide>`
 
 Contribute to documentation
 ---------------------------
@@ -325,14 +326,13 @@ Here are some ways you can join in:
    * Community organized events: `View the calendar <https://calendar.google.com/calendar/u/0/newembed?
      src=c_3fc5c4d6ece9d80d49f136c1dcd54d7f44e1acefdbe87228c92ff268e85e2ea0@group.calendar.google.com&ctz=Etc/UTC/>`__.
 
-   * Official Open Robotics events: `View the calendar <https://calendar.google.com/calendar/u/0/embed?src=agf3kajirket8khktupm9go748@group.calendar.google.com&
-     ctz=Etc%2FUTC/>`__.
+   * Official Open Robotics events: `View the calendar <https://calendar.google.com/calendar/u/0/embed?src=agf3kajirket8khktupm9go748@group.calendar.google.com&ctz=Etc%2FUTC/>`__.
 
-* Host an online community group event: `Fill in the form to add your event to the calendar <https://bit.ly/OSRFCalendarForm/>`_.
+* Host an online community group event: `Fill in the form to add your event to the calendar <https://docs.google.com/forms/d/e/1FAIpQLSdIhzm7-DnAlBIUSsU6lITnV6SHpl1Oo8otnhUKp3pUqUAhSA/viewform>`_.
 
   You can also ask for help with hosting an event on `Zulip <https://openrobotics.zulipchat.com/#narrow/channel/526027-ROS-General>`_ or `Discourse <https://discourse.openrobotics.org/>`_.
 
-* Host a local meet-up: `Fill in the form to add your event to the calendar <https://bit.ly/OSRFCalendarForm/>`_.
+* Host a local meet-up: `Fill in the form to add your meet-up to the calendar <https://docs.google.com/forms/d/e/1FAIpQLSdIhzm7-DnAlBIUSsU6lITnV6SHpl1Oo8otnhUKp3pUqUAhSA/viewform>`_.
 
  .. (Help with hosting local meet-up link to be provided)
 
@@ -349,7 +349,7 @@ If you want to get involved in promoting ROS, why not train or mentor others, or
 
 **Ready to contribute?**
 
-* Support people with working through the tutorials, starting with `First steps with ROS <https://docs.ros.org/en/rolling/First-Steps.html>`_.
+* Support people with working through the tutorials, starting with :doc:`First steps with ROS <../First-Steps>`.
 
 .. * Be part of our community on social media: <Placeholder: LINK TO LIST OF SOCIALS TO BE PROVIDED>
 
