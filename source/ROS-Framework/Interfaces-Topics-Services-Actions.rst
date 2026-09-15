@@ -192,3 +192,26 @@ Related content
 * :doc:`interfaces/About-Topics`
 * :doc:`interfaces/About-Services`
 * :doc:`interfaces/About-Actions`
+
+FAQs
+----
+
+What are the three primary ROS interface types?
+   Topics, services, and actions.
+   Topics suit continuous data streams, services suit short request/response interactions, and actions suit long-running tasks that provide feedback.
+
+When should I use a topic?
+   Use a topic for continuous, asynchronous data streams such as sensor data or robot state.
+   Topics use a publish/subscribe pattern, and multiple publishers and subscribers can share the same topic.
+
+When should I use a service?
+   Use a service for a short, synchronous request/response interaction that returns a result quickly, such as querying configuration or running a quick calculation.
+   Do not use services for long-running processes that might need to be cancelled.
+
+When should I use an action?
+   Use an action for a longer-running task that may need feedback during execution, such as moving a robot to a pose.
+   Actions let a client send a goal, receive feedback, cancel if needed, and get a final result.
+
+Which interface types support cancellation?
+   Only actions support cancellation.
+   Topics and services do not.
