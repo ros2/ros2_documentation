@@ -19,7 +19,7 @@ Working with parameters - how-to
 
 Parameters are configuration values stored by each node in the ROS graph.
 This article describes how to interact with ROS parameters.
-After reading this article you will be able to understand how to use parameters. 
+After reading this article you will be able to understand how to use parameters.
 
 **[Area: Parameters, Framework | Content-type: Concept | Experience: Beginner]**
 
@@ -46,7 +46,7 @@ Setting parameter types
 -----------------------
 
 Supported parameter types are:
-  * ``bool`` 
+  * ``bool``
   * ``int64``
   * ``float64``
   * ``string``
@@ -85,11 +85,11 @@ The parameter services that are created by default are:
 +------------------------------------------+------------------------------------------------+------------------------------------+-------------------------------------------------------------------------------------------------------------------------+
 | ``/node_name/set_parameters``            | ``rcl_interfaces/srv/SetParameters``           | List of parameter names and values | Attempts to set the parameters on the node.                                                                             |
 |                                          |                                                |                                    |                                                                                                                         |
-|                                          |                                                |                                    | Returns a list of results from trying to set each parameter; some of them may have succeeded and some may have failed.  |                                                                                                                       
+|                                          |                                                |                                    | Returns a list of results from trying to set each parameter; some of them may have succeeded and some may have failed.  |
 +------------------------------------------+------------------------------------------------+------------------------------------+-------------------------------------------------------------------------------------------------------------------------+
 | ``/node_name/set_parameters_atomically`` | ``rcl_interfaces/srv/SetParametersAtomically`` | List of parameter names and values | Attempts to set the parameters on the node.                                                                             |
 |                                          |                                                |                                    |                                                                                                                         |
-|                                          |                                                |                                    | Returns a single result from trying to set all parameters, so if one failed, all of them failed.                        |                                                                                                 
+|                                          |                                                |                                    | Returns a single result from trying to set all parameters, so if one failed, all of them failed.                        |
 +------------------------------------------+------------------------------------------------+------------------------------------+-------------------------------------------------------------------------------------------------------------------------+
 
 Setting initial parameter values when launching nodes
