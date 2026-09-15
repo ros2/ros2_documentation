@@ -42,7 +42,7 @@ Client libraries
 Client libraries are maintained in a variety of programming languages so that users can write ROS code in the language that is best-suited for their application.
 For example, you might prefer to write visualization tools in Python because it makes prototyping iterations faster, while for parts of your system that are concerned with efficiency, the nodes might be better implemented in C++.
 All client libraries implement code generators which give users the capability to interact with ROS interface files in a number of supported languages.
-These interface files allow nodes written using different client libraries to share messages with each other. 
+These interface files allow nodes written using different client libraries to share messages with each other.
 
 In addition to the language-specific communication tools, client libraries expose to users the core functionality of ROS.
 For example, the following functionality can typically be accessed through a client library:
@@ -85,3 +85,23 @@ Related content
 
 FAQs
 ----
+
+What is a client library?
+   A client library is the API you use to write ROS code in a given programming language.
+   It gives you access to core ROS concepts such as nodes, topics, services, parameters, and logging.
+
+Can nodes written with different client libraries communicate?
+   Yes.
+   Client libraries generate language bindings for ROS interface files, so nodes can share messages even when they use different languages, for example ``rclcpp`` and ``rclpy``.
+
+What is the ROS Client Library (``rcl``)?
+   ``rcl`` is the common C core that implements language-independent ROS behaviour, such as parameters and namespaces.
+   Language-specific client libraries wrap ``rcl`` instead of reimplementing that shared logic.
+
+Why does ROS use a common ``rcl`` core?
+   Shared behaviour stays consistent across languages, and bug fixes or behaviour changes in ``rcl`` apply to every client library that uses it.
+   That also keeps the language-specific libraries thinner and easier to maintain.
+
+Is all client library behaviour implemented in ``rcl``?
+   No.
+   Features that depend on the programming language, such as the threading model used by spin functions, are implemented in each client library rather than in ``rcl``.
