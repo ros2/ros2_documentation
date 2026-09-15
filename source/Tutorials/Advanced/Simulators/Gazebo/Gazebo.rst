@@ -197,7 +197,7 @@ This topic will be available under the topic ``/lidar_scan``:
       .. code-block:: console
 
         $ source /opt/ros/{DISTRO}/setup.bash
-        $ ros2 run ros_gz_bridge parameter_bridge /lidar2@sensor_msgs/msg/LaserScan[ignition.msgs.LaserScan --ros-args -r /lidar2:=/laser_scan
+        $ ros2 run ros_gz_bridge parameter_bridge /lidar2@sensor_msgs/msg/LaserScan@ignition.msgs.LaserScan --ros-args -r /lidar2:=/laser_scan
 
 To visualize the data from the lidar in ROS 2 you can use Rviz2:
 
