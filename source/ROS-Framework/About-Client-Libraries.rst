@@ -19,8 +19,9 @@ Client libraries
    client-libraries/About-Middleware-Implementations
    client-libraries/Working-with-Client-Libraries
 
-Client libraries are the APIs that allow users to implement their ROS code.
-Using client libraries, users gain access to ROS concepts such as nodes, topics, services, and so on.
+Client libraries are the APIs you can use to write ROS code.
+This article explains ``rcl``, the shared core library, and the main C++ and Python client libraries.
+With this information, you can understand how nodes written in different languages work together and choose the right library for your language.
 
 **[Area: Framework | Content-type: concept | Experience: beginner]**
 
@@ -30,25 +31,23 @@ Using client libraries, users gain access to ROS concepts such as nodes, topics,
 Summary
 -------
 
-Client libraries are the APIs that allow users to implement their ROS code.
+Client libraries are the APIs that allow you to implement your ROS code.
 
 The common core library is the ROS Client Library (`RCL <{package_link(rcl)}api/index.html>`_).
 
 The main language-specific libraries are:
 
-* C++ client library (`rclcpp <{package_link(rclcpp)}>`_)
-* Python client library (`rclpy <{package_link(rclpy)}>`_)
+* C++ client library (`rclcpp <{package_link(rclcpp)}>`__)
+* Python client library (`rclpy <{package_link(rclpy)}>`__)
 
 Client libraries in ROS
 -----------------------
 
 Client libraries are maintained in a variety of programming languages so that you can write ROS code in the language that is best-suited for your application.
 For example, you might prefer to write visualization tools in Python because it makes prototyping iterations faster, while for parts of your system that are concerned with efficiency, the nodes might be better implemented in C++.
-All client libraries implement code generators which allow you to interact with ROS interface files in a number of supported languages.
-These interface files allow nodes written using different client libraries to share messages with each other.
 
-Client libraries also expose to users the core functionality of ROS.
-For example, the following functionality can typically be accessed through a client library:
+Client libraries expose the core functionality of ROS.
+For example, through a client library, you can access the following:
 
 * Names and namespaces
 * Time (real or simulated)
@@ -57,88 +56,79 @@ For example, the following functionality can typically be accessed through a cli
 * Threading model
 * Intra-process communication
 
+All client libraries implement code generators which allow you to interact with ROS interface files.
+These interface files then allow nodes written with different client libraries to exchange messages.
+For a walkthrough of the message exchange between a publisher using the Python library and a subscription using the C++ library , we encourage you to watch `this ROSCon talk <https://vimeo.com/187696091>`__ starting at 17:25 (`see the slides here <https://roscon.ros.org/2016/presentations/ROSCon%202016%20-%20ROS%202%20Update.pdf>`__).
+
 ROS Client Library (``rcl``)
------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Most of the functionality found in a client library is not specific to the programming language of the client library.
-For example, the behavior of parameters and the logic of namespaces should ideally be the same across all programming languages.
-Client libraries make use of a common core ROS Client Library (RCL) interface that implements logic and behavior of ROS concepts that is not language-specific.
-This keeps client libraries thinner and easier to develop.
-For this reason, the common RCL functionality is exposed with C interfaces as the C language is typically the easiest language for client libraries to wrap.
+Most of the functionality of a client library is not specific to its programming language.
+For example, the behaviour of parameters and the logic of namespaces should be the same across all programming languages.
+Client libraries in ROS use a common core ROS Client Library (``rcl``) interface that implements logic and behaviour of ROS concepts.
 
-In addition to making the client libraries lightweight, an advantage of having the common core is that the behavior between languages is more consistent.
-If any changes are made to the logic/behavior of the functionality in the core RCL, such as namespaces, all client libraries that use the RCL will have these changes reflected.
-Furthermore, having the common core means that maintaining multiple client libraries becomes less work when it comes to bug fixes.
+Each language-specific library only wraps ``rcl`` rather than re-implementing the logic.
+As a result, a change made to logic or behaviour in ``rcl``, such as namespaces, applies to every library that wraps it.
 
-The API documentation for ``rcl`` can be found at {package_link(rcl)}.
+The C++ client library (``rclcpp``) and the Python client library (``rclpy``) are both core client libraries which use common functionality in ``rcl``.
+By using the ``rcl`` |API| in the implementation of a language-specific client library, it remains with the other client libraries that also use ``rcl`` in terms of feature parity and behaviour.
 
-Language-specific functionality
--------------------------------
-
-Client library concepts that require language-specific features/properties are not implemented in the RCL but instead are implemented in each client library.
+Client library concepts that require language-specific features or properties are not implemented in the ``rcl`` but instead are implemented in the language-specific client libraries.
 For example, threading models used by "spin" functions will have implementations that are specific to the language of the client library.
 
-The C++ client library (``rclcpp``) and the Python client library (``rclpy``) are both client libraries which utilize common functionality in ``rcl``.
 
 The ``rclcpp`` package
 ~~~~~~~~~~~~~~~~~~~~~~
 
-The ROS Client Library for C++ (``rclcpp``) is the user facing, C++ idiomatic interface which provides all of the ROS client functionality such as creating nodes, publishers, and subscriptions.
-``rclcpp`` builds on top of ``rcl`` and the ``rosidl`` |API|, and it is designed to be used with the C++ messages generated by ``rosidl_generator_cpp``.
+The ROS Client Library for C++ (``rclcpp``) is the user-facing, C++ idiomatic interface which provides all of the ROS client functionality such as creating nodes, publishers, and subscriptions.
+``rclcpp`` builds on top of ``rcl`` and the ``rosidl`` |API|, and is designed to be used with the C++ messages generated by ``rosidl_generator_cpp``.
 
-``rclcpp`` makes use of all the features of C++ and C++20 to make the interface as easy to use as possible, but since it reuses the implementation in ``rcl`` it is able maintain a consistent behavior with the other client libraries that use the ``rcl`` |API|.
-
-The ``rclcpp`` repository is located on GitHub at `ros2/rclcpp <https://github.com/ros2/rclcpp>`_ and contains the |package| ``rclcpp``.
-The generated |API| documentation is at {package_link(rclcpp)}.
+``rclcpp`` uses C++ and C++20 features to make the interface as easy for you to use as possible but, because it reuses the implementation in ``rcl``, it maintains consistent behaviour with the other client libraries that use the ``rcl`` |API|.
 
 The ``rclpy`` package
 ~~~~~~~~~~~~~~~~~~~~~
 
-The ROS Client Library for Python (``rclpy``) provides an idiomatic Python experience that uses native Python types and patterns like lists and context objects.
+The ROS Client Library for Python (``rclpy``) provides an idiomatic Python experience that uses native Python types and patterns, such as lists and context objects.
 
-Like the C++ client library, ``rclpy`` also builds on top of the ``rcl`` C API for its implementation.
-By using the ``rcl`` |API| in the implementation, it stays consistent with the other client libraries in terms of feature parity and behavior.
-In addition to providing Python idiomatic bindings around the ``rcl`` |API| and Python classes for each message, the Python client library takes care of the execution model, using ``threading.Thread`` or similar to run the functions in the ``rcl`` |API|.
+Like the C++ client library, ``rclpy`` builds on top of the ``rcl`` C API for its implementation, to maintain a consistent behaviour with the other client libraries that use the ``rcl`` |API|.
+In addition to providing Python idiomatic bindings around the ``rcl`` |API| and Python classes for each message, the ``rclpy`` takes care of the execution model, using ``threading.Thread`` or similar to run the functions in the ``rcl`` |API|.
 
-Like C++, it generates custom Python code for each ROS message that you interact with but, unlike C++, it eventually converts the native Python message object into the C version of the message.
-All operations happen on the Python version of the messages until they need to be passed into the ``rcl`` layer, at which point they are converted into the plain C version of the message so it can be passed into the ``rcl`` C |API|.
-This is avoided if possible when communicating between publishers and subscriptions in the same process to cut down on the conversion into and out of Python.
-
-The ``rclpy`` repository is located on GitHub at `ros2/rclpy <https://github.com/ros2/rclpy>`_ and contains the |package| ``rclpy``.
-The generated |API| documentation is at {package_link(rclpy)}.
-
-Community-maintained client libraries
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-While the C++ and Python client libraries are maintained by the core ROS team, members of the ROS community maintain additional client libraries:
-
-* `Ada <https://github.com/ada-ros/ada4ros2>`__  This is a set of packages (binding to ``rcl``, message generator, binding to ``tf2``, examples and tutorials) that allows the writing of Ada applications for ROS.
-* `C <https://github.com/ros2/rclc>`__  ``rclc`` does not put a layer on top of rcl but complements rcl to make rcl+rclc a feature-complete client library in C. See `micro.ros.org <https://micro.ros.org/>`__ for tutorials.
-* `JVM and Android <https://github.com/ros2-java>`__ Java and Android bindings for ROS.
-* `.NET Core, UWP and C# <https://github.com/esteve/ros2_dotnet>`__ This is a collection of projects (bindings, code generator, examples and more) for writing ROS applications for .NET Core and .NET Standard.
-* `Node.js <https://www.npmjs.com/package/rclnodejs>`__ rclnodejs is a Node.js client for ROS.
-  It provides a simple and easy JavaScript API for ROS programming.
-* `Rust <https://github.com/ros2-rust/ros2_rust>`__ This is a set of projects (the rclrs client library, code generator, examples and more) that enables developers to write ROS applications in Rust.
-* `Flutter and Dart <https://github.com/rcldart>`__ Flutter and Dart bindings for ROS.
-
-Older, unmaintained client libraries are:
-
-* `C# <https://github.com/firesurfer/rclcs>`__
-* `Objective C and iOS <https://github.com/esteve/ros2_objc>`__
-* `Zig <https://github.com/jacobperron/rclzig>`__
-
-Example
--------
-
-For a walkthrough of the message exchange between a publisher using ``rclpy`` and a subscription using ``rclcpp``\ , we encourage you to watch `this ROSCon talk <https://vimeo.com/187696091>`__ starting at 17:25 (`see the slides here <https://roscon.ros.org/2016/presentations/ROSCon%202016%20-%20ROS%202%20Update.pdf>`__).
-
+.. note::
+   ``rclpy`` generates custom Python code for each ROS message that you interact with.
+   Unlike ``rclcpp``, it eventually converts the native Python message object into the C version of the message.
+   All operations happen on the Python version of the message until it needs to be passed into the ``rcl`` layer, at which point it is converted into the C version for the ``rcl`` C |API|.
+   For publishers and subscriptions in the same process, ``rclpy`` avoids this conversion where possible, to cut down on converting into and out of Python.
 
 Related content
 ---------------
+
+More articles:
+
 * :doc:`How-ROS-Works`
 * :doc:`About-Nodes`
 * :doc:`About-Parameters`
 * :doc:`Interfaces-Topics-Services-Actions`
+
+
+Core ROS packages:
+
+* `ROS client library (rcl) <https://github.com/ros2/rcl>`__: Library to support implementation of languagesspecific ROS Client Libraries.
+  The API documentation for ``rcl`` is at {package_link(rcl)}.
+* `ROS Client Library for C++ (rclcpp) <https://github.com/ros2/rclcpp>`__: ``rclcpp`` provides the canonical C++ API for interacting with ROS.
+  The generated |API| documentation is at {package_link(rclcpp)}.
+* `ROS CLient Library for Python (rclpy) <https://github.com/ros2/rclpy>`__: ``rclp`` provides the canonical Python API for interacting with ROS.
+  The generated |API| documentation is at {package_link(rclpy)}.
+
+Community-maintained packages:
+
+* `Ada <https://github.com/ada-ros/ada4ros2>`__: This is a set of packages (binding to ``rcl``, message generator, binding to ``tf2``, examples and tutorials) that allows the writing of Ada applications for ROS.
+* `C <https://github.com/ros2/rclc>`__: ``rclc`` does not put a layer on top of rcl but complements rcl to make rcl+rclc a feature-complete client library in C. See `micro.ros.org <https://micro.ros.org/>`__ for tutorials.
+* `JVM and Android <https://github.com/ros2-java>`__: Java and Android bindings for ROS.
+* `.NET Core, UWP and C# <https://github.com/esteve/ros2_dotnet>`__: This is a collection of projects (bindings, code generator, examples and more) for writing ROS applications for .NET Core and .NET Standard.
+* `Node.js <https://www.npmjs.com/package/rclnodejs>`__: rclnodejs is a Node.js client for ROS.
+  It provides a simple and easy JavaScript API for ROS programming.
+* `Rust <https://github.com/ros2-rust/ros2_rust>`__: This is a set of projects (the rclrs client library, code generator, examples and more) that enables developers to write ROS applications in Rust.
+* `Flutter and Dart <https://github.com/rcldart>`__: Flutter and Dart bindings for ROS.
 
 FAQs
 ----
