@@ -47,7 +47,7 @@ Each parameter consists of the following:
 
 * Key: A string which is the parameter name.
 
-* Value: The value of the parameter. 
+* Value: The value of the parameter.
   One of the following types: ``bool``, ``int64``, ``float64``, ``string``, ``byte[]``, ``bool[]``, ``int64[]``, ``float64[]`` or ``string[]``.
 
 * Descriptor: Optional string that allows you to specify a text description of the parameter and its constraints, such as making it read-only, specifying a range, and so on.
@@ -80,7 +80,7 @@ In ROS, you can use multiple methods to set and change parameters:
       * **rclpy**: Python client library for ROS.
          To learn more, see :doc:`client-libraries/Working-with-Client-Libraries/Using-Parameters-In-A-Class-Python` and :doc:`parameters/Working-with-parameters/Monitoring-For-Parameter-Changes-Python`.
 
-To learn more about working with parameters, see :doc:`parameters/Working-with-parameters`. 
+To learn more about working with parameters, see :doc:`parameters/Working-with-parameters`.
 For a hands-on tutorial with ROS parameters see :doc:`parameters/Working-with-parameters/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters`.
 
 Parameter callbacks
