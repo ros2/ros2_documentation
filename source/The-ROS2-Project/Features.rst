@@ -66,7 +66,7 @@ For planned future development, see the :doc:`Roadmap <Roadmap>`.
      - `Article <https://design.ros2.org/articles/topic_and_service_names.html>`__
      -
    * - Static remapping of ROS names
-     - :doc:`How-to Guide <../Developer-Tools/Introspection-and-analysis/Node-arguments>`
+     - :doc:`How-to Guide <../Developer-Tools/Launch/Node-arguments>`
      -
    * - Demos of an all-ROS 2 mobile robot
      - `Demo <https://github.com/ros2/turtlebot2_demo>`__
