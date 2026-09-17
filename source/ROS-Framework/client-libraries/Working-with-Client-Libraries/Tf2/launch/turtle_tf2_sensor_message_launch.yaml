@@ -25,7 +25,7 @@ launch:
       - name: "turtlename"
         value: "turtle3"
   - node:
-      pkg: "turtle_tf2_py"
+      pkg: "learning_tf2_py"
       exec: "turtle_tf2_message_broadcaster"
       name: "message_broadcaster"
 
