@@ -7,8 +7,8 @@
 
 .. _First-steps-with-ROS-learning-path:
 
-Taking first steps with ROS - learning path
-===========================================
+First steps with ROS - learning path
+====================================
 
 .. short-description::
    ROS provides the framework, tools, and libraries for building robotic applications.
