@@ -194,3 +194,6 @@ Can I use a snapshot on a production robot?
    Snapshots receive no bug fixes and no security updates.
    If you use one, treat moving to a newer snapshot or distro as part of your regular maintenance.
    Note that ABI compatibility between snapshots is not tested or guaranteed, so when switching a system to a new snapshot, updating all ROS packages is recommended.
+
+How can I get a snapshot of Debian packages from Ubuntu, e.g., ROS dependencies?
+   `Ubuntu has its own snapshot service <https://snapshot.ubuntu.com/>`__.
