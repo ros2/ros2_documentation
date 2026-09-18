@@ -4,8 +4,24 @@
   Tutorials/Launch/Creating-Launch-Files
   Tutorials/Intermediate/Launch/Creating-Launch-Files
 
-Creating a launch file
-======================
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: node-management, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Creating a launch file - tutorial
+=================================
+
+.. short-description::
+   Launch files make it easier to start ROS systems that contain multiple nodes and configuration details.
+   This article shows how to create and run a launch file for a turtlesim mimic system.
+   After you follow these steps, you can launch multiple configured nodes with a single ``ros launch`` command
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Create a launch file to run a complex ROS 2 system.
 
@@ -13,7 +29,7 @@ Creating a launch file
 
 **Time:** 10 minutes
 
-.. contents:: Contents
+.. contents:: Table of Contents
    :depth: 2
    :local:
 

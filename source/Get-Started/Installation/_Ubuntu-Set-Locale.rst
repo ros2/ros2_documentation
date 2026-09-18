@@ -1,7 +1,3 @@
-.. redirect-from::
-
-    Installation/_Ubuntu-Set-Locale
-
 Make sure you have a locale which supports ``UTF-8``.
 If you are in a minimal environment (such as a docker container), the locale may be something minimal like ``POSIX``.
 We test with the following settings.

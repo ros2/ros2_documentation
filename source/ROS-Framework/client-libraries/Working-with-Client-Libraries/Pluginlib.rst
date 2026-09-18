@@ -1,10 +1,26 @@
+.. meta::
+   :contentType: tutorial
+   :experience: beginner
+   :area: client-libraries, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Pluginlib
     Tutorials/Beginner-Client-Libraries/Pluginlib
 
-Creating and using plugins (C++)
-================================
+Creating and using plugins (C++) — tutorial
+===========================================
+
+.. short-description::
+   ``pluginlib`` lets ROS packages load classes at runtime without directly linking against their implementations.
+   This tutorial shows how to define a C++ base class, export plugin implementations, and load them with ``pluginlib``.
+   After completing it, you can build, register, inspect, and run a simple plugin-based application.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Learn to create and load a simple plugin using ``pluginlib``.
 

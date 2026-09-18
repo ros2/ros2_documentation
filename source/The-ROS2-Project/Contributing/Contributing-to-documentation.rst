@@ -2,10 +2,24 @@
 
     Contributing/Contributing-To-ROS-2-Documentation
 
+.. meta::
+   :contentType: about
+   :experience: beginner, intermediate, expert
+   :area: contributing, community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _ContributingToDocumentation:
 
 Contributing to documentation
 =============================
+
+.. short-description::
+   ROS documentation is maintained by the community and helps users learn concepts, complete tasks, and contribute improvements to the wider ecosystem.
+   This article describes where the documentation source is hosted, how the content is structured, and how contributors create, check, and submit changes.
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 ROS documentation is maintained by the community and helps users learn, build, and contribute effectively.
 This article describes where the documentation source lives, how it is structured, and how contributors submit changes.

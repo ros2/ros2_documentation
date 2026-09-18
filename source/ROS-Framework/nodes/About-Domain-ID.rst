@@ -3,8 +3,23 @@
    Concepts/About-Domain-ID
    Concepts/Intermediate/About-Domain-ID
 
+.. meta::
+   :contentType: about
+   :experience: intermediate
+   :area: nodes, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 The ROS_DOMAIN_ID
 =================
+
+.. short-description::
+   ROS Domain IDs separate groups of nodes that share the same physical network.
+   This article explains how Domain IDs affect discovery, communication, UDP port selection, and platform-specific constraints.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :local:

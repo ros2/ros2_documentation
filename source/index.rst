@@ -1,9 +1,20 @@
+.. meta::
+   :contentType:
+   :experience:
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
   Docs-Guide
 
 ROS 2 Documentation
 ===================
+
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 .. toctree::
    :titlesonly:

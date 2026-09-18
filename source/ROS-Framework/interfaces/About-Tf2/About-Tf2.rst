@@ -3,10 +3,26 @@
    Concepts/About-Tf2
    Concepts/Intermediate/About-Tf2
 
+.. meta::
+   :contentType: about
+   :experience: intermediate
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Tf2
 ===
 
+.. short-description::
+   tf2 in ROS tracks coordinate frames over time, making it possible to understand where robot parts, sensors, and objects are relative to one another.
+   This article explains how tf2 represents transforms, publishes frame relationships, and supports coordinate conversions for position, velocity, and sensor data.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
 .. contents:: Table of Contents
+   :depth: 2
    :local:
 
 Overview

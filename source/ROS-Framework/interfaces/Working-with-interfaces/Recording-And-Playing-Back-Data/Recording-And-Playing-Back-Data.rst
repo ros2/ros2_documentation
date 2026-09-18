@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: tutorial
+   :experience: beginner
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Ros2bag/Recording-And-Playing-Back-Data
@@ -5,8 +12,17 @@
 
 .. _ROS2Bag:
 
-Recording and playing back data
-===============================
+Recording and playing back data — tutorial
+==========================================
+
+.. short-description::
+   ``ros2 bag`` records data from your ROS system so you can inspect, share, and replay it later.
+   This article shows how to record and play back topic, service, and action data.
+   After following these steps, you can create bag files, examine their contents, and replay them for debugging or analysis.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Record data published on a topic, a service and an action so you can replay and examine it any time.
 
