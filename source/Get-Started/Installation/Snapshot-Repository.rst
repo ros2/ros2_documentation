@@ -119,8 +119,20 @@ Syncs are tagged in ``rosdistro`` using the same ``<distribution>/<date>`` namin
 .. code-block:: console
 
    $ sed -i "s|ros\/rosdistro\/master|ros\/rosdistro\/${ROS_DISTRO}\/${SNAPSHOT}|" /etc/ros/rosdep/sources.list.d/20-default.list
-   $ export ROSDISTRO_INDEX_URL=https://raw.githubusercontent.com/ros/rosdistro/${ROS_DISTRO}/${SNAPSHOT}/index-v4.yaml
+   $ mkdir -p ~/.config/rosdistro
+   $ echo "index_url: https://raw.githubusercontent.com/ros/rosdistro/${ROS_DISTRO}/${SNAPSHOT}/index-v4.yaml" > ~/.config/rosdistro/config.yaml
    $ rosdep update
+
+.. note::
+
+   We use ``~/.config/rosdistro/config.yaml`` as a more permanent ``rosdistro`` index pin here.
+   However, the ``ROSDISTRO_INDEX_URL`` environment variable takes precedence over this configuration file.
+   If it is set, unset it, otherwise the index is not pinned to your snapshot.
+   To check which index is used:
+
+   .. code-block:: console
+
+      $ python3 -c "from rosdistro import get_index_url; print(get_index_url())"
 
 5 Install ROS
 ^^^^^^^^^^^^^
@@ -163,7 +175,7 @@ Reset the rosdistro index:
 
 .. code-block:: console
 
-   $ unset ROSDISTRO_INDEX_URL
+   $ rm ~/.config/rosdistro/config.yaml
    $ rm /etc/ros/rosdep/sources.list.d/20-default.list
    $ sudo rosdep init
    $ rosdep update
