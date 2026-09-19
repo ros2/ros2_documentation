@@ -69,7 +69,7 @@ Instead you may download nightly `prerelease binaries <https://github.com/ros2/r
 .. note::
 
    These binaries are built using the Release build configuration.
-   On Windows (MSVC), this means downstream binaries (e.g., your own nodes) also need to be built using the Release configuration for ABI compatibility.
+   On Windows (MSVC), this means downstream binaries (e.g., your own nodes) also need to be built using the Release or RelWithDebInfo configuration for ABI compatibility.
    To build downstream packages using another build configuration, :doc:`build ROS 2 from source <Alternatives/Windows-Development-Setup>`.
    For example, using Debug:
 
