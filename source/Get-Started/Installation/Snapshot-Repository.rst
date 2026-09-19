@@ -8,7 +8,7 @@ This article describes how to install ROS from a snapshot of the ROS apt reposit
 
 .. note::
 
-   Snapshots are only available for released (non-Rolling) ROS 2 distributions on Ubuntu.
+   Snapshots are only available for :ref:`Long Term Support (LTS) releases <list_of_distributions>` on Ubuntu.
 
 .. contents:: Contents
    :depth: 2
