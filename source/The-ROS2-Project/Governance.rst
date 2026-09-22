@@ -177,6 +177,7 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
    * - CY Chen
      - `NVIDIA <https://www.nvidia.com/>`_
      - `https://github.com/nvcyc`_
+     - N/A
    * - Dharini Dutia
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `quarkytale <https://github.com/quarkytale>`_
@@ -190,15 +191,21 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
      - `kscottz <https://github.com/kscottz>`_
      - PST (UTC-8)/PDT (UTC-7)
    * - Kimberly McGuire
+     - `McGuire Robotics <https://www.mcguirerobotics.com/>`
      - `knmcguire <https://github.com/knmcguire>`_
+     - N/A
    * - Martin Pecka
      - `peci1 <https://github.com/peci1>`_
+     - `Czech Technical University in Prague <https://cmp.felk.cvut.cz/~peckama2/>`_
+     - N/A
    * - Michael (Robert) Carlstrom
      - `CivRobotics <https://www.civrobotics.com/>`_
      - `InvincibleRMC <https://github.com/InvincibleRMC>`_
      - PST (UTC-8)/PDT (UTC-7)
    * - Nadav Elkabets
      - `nadavelkabets <https://github.com/nadavelkabets/>`_
+     - Stealth Startup
+     - N/A
    * - Steve Peters
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `scpeters <https://github.com/scpeters>`_
@@ -206,6 +213,7 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
    * - Tim Celphas
      - `Nobleo <https://www.nobleo-manufacturing.com/>`_
      - `timple <https://github.com/Timple>`_
+     - N/A
    * - Tully Foote
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `tfoote <https://github.com/tfoote>`_
