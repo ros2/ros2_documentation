@@ -38,6 +38,12 @@ After entering macOS Recovery, run the following command in terminal:
 
    $ csrutil status
 
+.. note::
+
+   By changing the SIP status, Apple Pay might be disabled because this modifies the system security settings.
+   If you want to use Apple Pay, you can enter `Startup Security Utility <https://support.apple.com/en-gb/102522/>`__ and choose **Full Security**.
+   This option re-enables SIP, so you may need to disable it again when you compile ROS 2 code.
+
 Install prerequisites
 ---------------------
 
