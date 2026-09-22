@@ -176,7 +176,7 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
      - PST (UTC-8)/PDT (UTC-7)
    * - CY Chen
      - `NVIDIA <https://www.nvidia.com/>`_
-     - `https://github.com/nvcyc`_
+     - `nvcyc <https://github.com/nvcyc>`_
      - N/A
    * - Dharini Dutia
      - `Intrinsic <https://www.intrinsic.ai/>`_
