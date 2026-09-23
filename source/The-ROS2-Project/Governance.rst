@@ -22,7 +22,7 @@ The Technical Governance Committee (TGC)
 
 The Technical Governance Committee is responsible for the oversight of all projects within the OSRA.
 The TGC is made up of a combination of paid members, project management leaders, OSRF leaders, and members based on merits.
-For more details about the TGC, please see `the Charter for the OSRA <https://osralliance.org/staging/wp-content/uploads/2024/03/OSRA-Program-Charter.pdf>`__.
+For more details about the TGC, please see `the Charter for the OSRA <https://osralliance.org/wp-content/uploads/2024/03/OSRA-Program-Charter.pdf>`__.
 One of the projects that the TGC oversees is ROS 2, which is managed by the ROS Project Management Committee.
 
 The ROS Project Management Committee (ROS PMC)
@@ -35,7 +35,7 @@ The Project Leader, all PMC Members, and all Committers are chosen on a meritocr
 
 The day-to-day operations of the ROS PMC include managing the members and committers, managing the repositories that make up ROS 2, reviewing and merging code from the ROS community, maintaining the repositories, and making technical decisions that decide the direction of the project.
 
-For more details about the ROS PMC, please see the `Charter for the ROS Project <https://osralliance.org/staging/wp-content/uploads/2024/03/ros_project_charter.pdf>`__.
+For more details about the ROS PMC, please see the `Charter for the ROS Project <https://osralliance.org/wp-content/uploads/2024/03/ros_project_charter.pdf>`__.
 
 ROS Project Management Committee (PMC) Meetings
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
