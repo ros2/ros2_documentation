@@ -191,7 +191,7 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
      - `kscottz <https://github.com/kscottz>`_
      - PST (UTC-8)/PDT (UTC-7)
    * - Kimberly McGuire
-     - `McGuire Robotics <https://www.mcguirerobotics.com/>`
+     - `McGuire Robotics <https://www.mcguirerobotics.com/>`_
      - `knmcguire <https://github.com/knmcguire>`_
      - N/A
    * - Martin Pecka
