@@ -100,24 +100,29 @@ In addition to providing Python idiomatic bindings around the ``rcl`` |API| and 
 Related content
 ---------------
 
-More articles:
+Related articles
+~~~~~~~~~~~~~~~~
 
 * :doc:`How-ROS-Works`
 * :doc:`About-Nodes`
 * :doc:`About-Parameters`
 * :doc:`Interfaces-Topics-Services-Actions`
 
+Related packages
+~~~~~~~~~~~~~~~~
 
-Core ROS packages:
+Core ROS packages
+^^^^^^^^^^^^^^^^^
 
-* `ROS client library (rcl) <https://github.com/ros2/rcl>`__: Library to support implementation of languagesspecific ROS Client Libraries.
+* `ROS client library (rcl) <https://github.com/ros2/rcl>`__: Library to support implementation of language-specific ROS Client Libraries.
   The API documentation for ``rcl`` is at {package_link(rcl)}.
 * `ROS Client Library for C++ (rclcpp) <https://github.com/ros2/rclcpp>`__: ``rclcpp`` provides the canonical C++ API for interacting with ROS.
   The generated |API| documentation is at {package_link(rclcpp)}.
-* `ROS CLient Library for Python (rclpy) <https://github.com/ros2/rclpy>`__: ``rclp`` provides the canonical Python API for interacting with ROS.
+* `ROS Client Library for Python (rclpy) <https://github.com/ros2/rclpy>`__: ``rclpy`` provides the canonical Python API for interacting with ROS.
   The generated |API| documentation is at {package_link(rclpy)}.
 
-Community-maintained packages:
+Community packages
+^^^^^^^^^^^^^^^^^^
 
 * `Ada <https://github.com/ada-ros/ada4ros2>`__: This is a set of packages (binding to ``rcl``, message generator, binding to ``tf2``, examples and tutorials) that allows the writing of Ada applications for ROS.
 * `C <https://github.com/ros2/rclc>`__: ``rclc`` does not put a layer on top of rcl but complements rcl to make rcl+rclc a feature-complete client library in C. See `micro.ros.org <https://micro.ros.org/>`__ for tutorials.
