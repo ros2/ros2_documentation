@@ -18,7 +18,11 @@ Your ``setup.py`` must have a test dependency on ``pytest`` within the call to `
 
 .. code-block:: python
 
-    tests_require=['pytest'],
+    extras_require={
+        'test': [
+            'pytest',
+        ],
+    },
 
 Test Files and Folders
 ^^^^^^^^^^^^^^^^^^^^^^
