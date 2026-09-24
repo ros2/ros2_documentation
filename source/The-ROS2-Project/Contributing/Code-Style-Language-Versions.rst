@@ -167,6 +167,74 @@ Comments and Doc Comments
   * rationale: mixing ``/* */`` and ``//`` is convenient for block commenting out code which contains comments
   * Descriptions of how the code works or notes within classes and functions should use ``//`` style comments
 
+Doxygen Comments
+~~~~~~~~~~~~~~~~
+
+* While it is allowed to use ``/** */`` style comments for documentation, we prefer ``///`` style
+  comments for Doxygen.
+
+  * rationale: ``///`` is more consistent with the rest of the C++ code.
+  * rationale: ``///`` is easier to type and read in most editors.
+  * rationale: The Doxygen comments with ``///`` is easier to read in the code itself, as it is
+    more compact versus ``/** */`` which takes up more space and requires more lines.
+  * Note that using ``/** */`` Doxygen comments is useful in cases when C++ header files could
+    participate in compilation with a C compiler, for instance, in C++/C mixed packages,
+    when exposed API is written to comply with the C standard.
+
+* Need to keep consistency and adhere to the one style of Doxygen comments at least in the scope of
+  the one file, i.e. either use ``///`` or ``/** */`` style comments.
+
+* `Special commands <https://www.doxygen.nl/manual/commands.html>`__ like ``\brief``, and ``@param``
+  are the core annotation tools of Doxygen.
+  Doxygen recognizes words that begin with either backslashes ``(\)`` or at symbols ``(@)`` as
+  special commands.
+  For example, ``\param`` and ``@param`` are synonyms.
+  It is allowed to use both of them, but please keep consistency of usage at least in the scope
+  of one file.
+  Note: backslashes ``(\)`` are more C++ like style, while at symbols ``(@)`` are more Java/C style.
+
+* Always use ``\brief`` or ``@brief`` explicitly before the brief description, and ``\details`` or
+  ``@details`` explicitly before the detailed description of a function or class.
+  Start the explanation with upper case and end the line with a dot.
+
+  * rationale: This is the standard way to document functions and classes in Doxygen.
+  * rationale: To avoid misinterpreting of the sections by the documentation generation tools like
+    Doxygen and Sphinx.
+  * rationale: It makes it easier to read the documentation and understand the structure of the
+    comments.
+
+* Use ``\param[in]`` or ``@param[in]`` to describe input parameters of a function, ``\param[out]``
+  or ``@param[out]`` for output parameters, and ``\param[in,out]`` or ``@param[in,out]`` for
+  parameters that are both input and output.
+
+* Use ``\return`` or ``@return`` to describe the return value of a function, ``\note`` or
+  ``@note`` to add a note, ``\warning`` or ``@warning`` to add a warning and ``\throws`` or
+  ``@throws`` to describe exceptions that can be thrown by a function.
+
+Example:
+
+This is OK:
+
+.. code-block:: c++
+
+    /// \brief Brief description of the function.
+    /// \details Detailed description of the function.
+    /// \param[in] param1 Description of the first parameter.
+    /// \param[out] param2 Description of the second parameter.
+    void my_function(int param1, int &param2);
+
+This is **not** OK:
+
+.. code-block:: c++
+
+    /// Brief description of the function
+    /**
+    * Detailed description of the function.
+    * \param param1 Description of the first parameter.
+    * \param param2 Description of the second parameter.
+    */
+    void my_function(int param1, int &param2);
+
 Pointer Syntax Alignment
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
