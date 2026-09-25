@@ -17,7 +17,7 @@ This article describes how to install ROS from a snapshot of the ROS apt reposit
 Summary
 -------
 
-Packages are synced from the ``ros-testing`` :doc:`apt repository </Developer-Tools/Debugging/Testing/Testing>` into the main ROS apt repository periodically for each active distribution.
+Packages are synced from the ``ros-testing`` :doc:`apt repository </Installation/Testing>` into the main ROS apt repository periodically for each active distribution.
 When a sync happens, the older versions of the updated packages are removed from the main repository and can no longer be installed.
 Also, while maintainers and ROS Bosses strive to avoid regressions, packages failing to build are removed when syncing.
 This is disruptive if your build or deployment depends on a specific set of package versions.
@@ -114,7 +114,7 @@ Then update the apt caches:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The rosdistro index is versioned separately from the apt repositories, so ``rosdep`` may resolve keys against a newer state of `rosdistro <https://github.com/ros/rosdistro>`__ than the snapshot you installed.
-Syncs are tagged in ``rosdistro`` using the same ``<distribution>/<date>`` naming as snapshots, so you can :doc:`pin the index </Migration-and-Upgrades/Using-Custom-Rosdistro>` to the tag matching your snapshot.
+Syncs are tagged in ``rosdistro`` using the same ``<distribution>/<date>`` naming as snapshots, so you can :doc:`pin the index </How-To-Guides/Using-Custom-Rosdistro>` to the tag matching your snapshot.
 
 .. code-block:: console
 
@@ -200,7 +200,7 @@ How is this different from the ``ros-testing`` repository?
    The two point in opposite directions.
    The ``ros-testing`` repository holds packages that have *not yet* been synced into the main repository, so you can test them before a release.
    A snapshot holds packages exactly as they were at a *past* sync, so you can keep installing the versions you already tested.
-   See :doc:`Testing with pre-release binaries </Developer-Tools/Debugging/Testing/Testing>`.
+   See :doc:`Testing with pre-release binaries </Installation/Testing>`.
 
 Can I use a snapshot on a production robot?
    Snapshots receive no bug fixes and no security updates.
