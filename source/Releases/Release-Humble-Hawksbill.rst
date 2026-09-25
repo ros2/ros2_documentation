@@ -463,7 +463,7 @@ Content Filtered Topics can be used to request content-based subscriptions when 
 To learn more, see the `content_filtering <https://github.com/ros2/examples/blob/humble/rclcpp/topics/minimal_subscriber/content_filtering.cpp>`_ examples.
 
 Related design PR: `ros2/design#282 <https://github.com/ros2/design/pull/282>`_.
-
+clear
 ros2cli
 ^^^^^^^
 
@@ -471,7 +471,7 @@ ros2cli
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
 This allows passing a prefix to all executables in a launch file, which is useful in many debugging situations.
-See the associated `pull request <https://github.com/ros2/launch_ros/pull/254>`__, as well as the :ref:`tutorial <launch-prefix-example>` for more information.
+See the associated `pull request <https://github.com/ros2/launch_ros/pull/254>`__ for more information.
 
 Relatedly, the ``--launch-prefix-filter`` command-line option was added to selectively add the prefix from ``--launch-prefix`` to executables.
 See the `pull request <https://github.com/ros2/launch_ros/pull/261>`__ for more information.

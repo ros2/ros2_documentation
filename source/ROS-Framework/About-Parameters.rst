@@ -130,10 +130,3 @@ All client libraries provide APIs to get, set, and react to parameter changes wh
 Client library support includes:
  * **C++ (rclcpp)**: see :doc:`client-libraries/Working-with-Client-Libraries/Using-Parameters-In-A-Class-CPP` and :doc:`parameters/Working-with-parameters/Monitoring-For-Parameter-Changes-CPP`.
  * **Python (rclpy)**: see :doc:`client-libraries/Working-with-Client-Libraries/Using-Parameters-In-A-Class-Python` and :doc:`parameters/Working-with-parameters/Monitoring-For-Parameter-Changes-Python`.
-
-Migrating from ROS 1
---------------------
-
-The :doc:`Launch file migration guide <../Migration-and-Upgrades/Migrating-from-ROS1/Migrating-Launch-Files>` explains how to migrate ``param`` and ``rosparam`` launch tags from ROS 1 to ROS 2.
-
-The :doc:`Migration guide <../Migration-and-Upgrades/Migrating-from-ROS1/Migrating-Parameters>` explains how to migrate parameter from ROS 1 to ROS 2.
