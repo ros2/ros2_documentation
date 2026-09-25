@@ -18,6 +18,7 @@ Options for installing ROS 2 {DISTRO_TITLE_FULL}:
    Installation/Testing
    Installation/RMW-Implementations
    Installation/ROS-2-Mirrors
+   Installation/Snapshot-Repository
 
 .. _binary-package-platforms:
 
