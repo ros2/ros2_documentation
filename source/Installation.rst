@@ -18,12 +18,7 @@ Options for installing ROS 2 {DISTRO_TITLE_FULL}:
    Installation/Testing
    Installation/RMW-Implementations
    Installation/ROS-2-Mirrors
-<<<<<<< HEAD:source/Installation.rst
-=======
    Installation/Snapshot-Repository
-   Installation/Installing-on-Raspberry-Pi
-   Installation/Installation-Troubleshooting
->>>>>>> 617ded6 (Add page for the snapshot repository (#7191)):source/Get-Started/Installation.rst
 
 .. _binary-package-platforms:
 
