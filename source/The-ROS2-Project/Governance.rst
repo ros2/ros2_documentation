@@ -195,9 +195,9 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
      - `knmcguire <https://github.com/knmcguire>`_
      - N/A
    * - Martin Pecka
+     - `Czech Technical University in Prague <https://cvut.cz/>`_
      - `peci1 <https://github.com/peci1>`_
-     - `Czech Technical University in Prague <https://cmp.felk.cvut.cz/~peckama2/>`_
-     - N/A
+     - CET (UTC+1) / CEST (UTC+2)
    * - Michael (Robert) Carlstrom
      - `CivRobotics <https://www.civrobotics.com/>`_
      - `InvincibleRMC <https://github.com/InvincibleRMC>`_
