@@ -33,7 +33,7 @@ All ROS 2 packages begin by running the command
 
    $ ros2 pkg create --license Apache-2.0 <pkg-name> --dependencies [deps]
 
-in your workspace (usually ``~/ros2_ws/src``).
+in your workspace (usually `<workspace-name>/src`, for example `nav2_ws/src` or `my_robot_ws/src`). 
 
 To create a package for a specific client library:
 
