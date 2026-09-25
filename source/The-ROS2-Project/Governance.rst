@@ -210,10 +210,10 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `scpeters <https://github.com/scpeters>`_
      - PST (UTC-8)/PDT (UTC-7)
-   * - Tim Celphas
-     - `Nobleo <https://www.nobleo-manufacturing.com/>`_
-     - `timple <https://github.com/Timple>`_
-     - N/A
+   * - Tim Clephas
+     - `Nobleo <https://nobleo-technology.nl/autonomousrobotsolutions/>`_
+     - `Timple <https://github.com/Timple>`_
+     - CET (UTC+1)/CEST (UTC+2)
    * - Tully Foote
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `tfoote <https://github.com/tfoote>`_
