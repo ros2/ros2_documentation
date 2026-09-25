@@ -193,7 +193,7 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
    * - Kimberly McGuire
      - `McGuire Robotics <https://www.mcguirerobotics.com/>`_
      - `knmcguire <https://github.com/knmcguire>`_
-     - N/A
+     - CET (UTC+1) / CEST (UTC+2)
    * - Martin Pecka
      - `Czech Technical University in Prague <https://cvut.cz/>`_
      - `peci1 <https://github.com/peci1>`_
