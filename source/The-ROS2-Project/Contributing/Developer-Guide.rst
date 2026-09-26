@@ -6,6 +6,12 @@
 ROS 2 developer guide
 =====================
 
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+
+   Source-Control-Best-Practices
+
 .. contents:: Table of Contents
    :depth: 2
    :local:
