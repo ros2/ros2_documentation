@@ -59,7 +59,7 @@ There are two common types of tests in integration testing: active tests, which 
 We will cover both in this tutorial.
 
 1.1 Imports
-^^^^^^^^^^^
+~~~~~~~~~~~
 
 We first start by importing the Python modules we will be using.
 Key modules for testing include the general-purpose ``unittest``, ``launch_testing``, and the ``WaitForTopics`` utility from ``launch_testing_ros`` for convenient topic subscription and waiting logic.
@@ -85,7 +85,7 @@ Key modules for testing include the general-purpose ``unittest``, ``launch_testi
    from turtlesim_msgs.msg import Pose
 
 1.2 Generate the test description
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The function ``generate_test_description`` describes what to launch, similar to ``generate_launch_description`` in a ROS 2 Python launch file.
 In the example below, we launch the turtlesim node with immediate test execution (no arbitrary delays).
@@ -123,7 +123,7 @@ The ``ReadyToTest`` action signals the test framework that the tests should begi
 In more complex integration test setups, you will probably want to launch a system of several nodes, together with additional nodes that perform mocking or must otherwise interact with the nodes under test.
 
 1.3 Active tests using WaitForTopics
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The active tests interact with the running nodes.
 The ``WaitForTopics`` utility from ``launch_testing_ros`` provides a convenient way to:
