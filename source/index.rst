@@ -96,7 +96,7 @@ If you're interested in the advancement of the ROS 2 project:
 
 * :doc:`Project Governance <The-ROS2-Project/Governance>`
 
-  - Information about the ROS Technical Steering Committee, Working Groups, and upcoming events
+  - Information about the Open Source Robotics Alliance, the ROS Project Management Committee, official Working Groups, and upcoming events
 
 * :doc:`Marketing <The-ROS2-Project/Marketing>`
 
