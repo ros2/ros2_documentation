@@ -8,6 +8,6 @@
   <node pkg="turtle_tf2_py" exec="turtle_tf2_broadcaster" name="broadcaster2">
     <param name="turtlename" value="turtle3" />
   </node>
-  <node pkg="turtle_tf2_py" exec="turtle_tf2_message_broadcaster" name="message_broadcaster" />
+  <node pkg="learning_tf2_py" exec="turtle_tf2_message_broadcaster" name="message_broadcaster" />
 </launch>
 

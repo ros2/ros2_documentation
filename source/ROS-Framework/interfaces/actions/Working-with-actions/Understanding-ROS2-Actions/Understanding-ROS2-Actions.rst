@@ -265,12 +265,172 @@ The terminal returns:
 .. code-block:: console
 
   Action: /turtle1/rotate_absolute
+  Type: turtlesim_msgs/action/RotateAbsolute
   Action clients: 1
       /teleop_turtle
   Action servers: 1
       /turtlesim
 
 This confirms what ``ros2 node info`` showed: the ``/teleop_turtle`` node has an action client and the ``/turtlesim`` node has an action server for the ``/turtle1/rotate_absolute`` action.
+
+6.1 View detailed action information
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To get more detailed information about an action, use the ``--verbose`` (or ``-v``) option:
+
+.. code-block:: console
+
+  $ ros2 action info /turtle1/rotate_absolute --verbose
+
+Besides the action type and the number of clients and servers, the verbose result shows the node name, namespace, endpoint type, type hash, globally unique identifier (GID), and quality of service (QoS) profile for each action client and server.
+It groups this information by the five services and topics that implement an action: the goal, cancel, and result services, and the feedback and status topics.
+
+The terminal returns:
+
+.. code-block:: console
+
+  Action: /turtle1/rotate_absolute
+  Type: turtlesim_msgs/action/RotateAbsolute
+  Action clients: 1
+  Node name: teleop_turtle
+  Node namespace: /
+  Action type: turtlesim_msgs/action/RotateAbsolute
+  Endpoint type: CLIENT
+  Goal service:
+    Service type: turtlesim_msgs/action/RotateAbsolute_SendGoal
+    Service type hash: RIHS01_3d5d3cfcbb721f88038eaedcd4af95565360a82b36f1983e3a6c7448d2d18fbe
+    Endpoint count: 1
+    GID: 58.a3.b2.bb.0f.71.4b.00.86.21.74.db.f8.50.6d.f1
+    QoS profile:
+      Reliability: RELIABLE
+      History (Depth): KEEP_LAST (10)
+      Durability: VOLATILE
+      Lifespan: Infinite
+      Deadline: Infinite
+      Liveliness: AUTOMATIC
+      Liveliness lease duration: Infinite
+  Cancel service:
+    Service type: action_msgs/srv/CancelGoal
+    Service type hash: RIHS01_573d8b0a534451d7bc2ac8c5ffde8ac14b8593b7001175d0cd6516dcbeb8689a
+    Endpoint count: 1
+    GID: f5.b6.de.83.ef.5d.5e.b4.bf.4e.7e.09.a0.a1.f1.e6
+    QoS profile:
+      Reliability: RELIABLE
+      History (Depth): KEEP_LAST (10)
+      Durability: VOLATILE
+      Lifespan: Infinite
+      Deadline: Infinite
+      Liveliness: AUTOMATIC
+      Liveliness lease duration: Infinite
+  Result service:
+    Service type: turtlesim_msgs/action/RotateAbsolute_GetResult
+    Service type hash: RIHS01_f96fd02477be2a47122fca142e960d407b24850c6eac72047872ba764473c4ef
+    Endpoint count: 1
+    GID: 9d.3a.ec.00.16.b4.74.1a.cc.72.c5.0a.b9.f7.50.3a
+    QoS profile:
+      Reliability: RELIABLE
+      History (Depth): KEEP_LAST (10)
+      Durability: VOLATILE
+      Lifespan: Infinite
+      Deadline: Infinite
+      Liveliness: AUTOMATIC
+      Liveliness lease duration: Infinite
+  Feedback topic:
+    Topic type: turtlesim_msgs/action/RotateAbsolute_FeedbackMessage
+    Topic type hash: RIHS01_bef10993e1ee82b35f99f7e390bac1e6cc64e2a3090536887832e122aa71f1b5
+    GID: 33.cd.0e.59.6a.da.e8.00.86.48.aa.84.0a.94.98.cd
+    QoS profile:
+      Reliability: RELIABLE
+      History (Depth): KEEP_LAST (10)
+      Durability: VOLATILE
+      Lifespan: Infinite
+      Deadline: Infinite
+      Liveliness: AUTOMATIC
+      Liveliness lease duration: Infinite
+  Status topic:
+    Topic type: action_msgs/msg/GoalStatusArray
+    Topic type hash: RIHS01_6c1684b00f177d37438febe6e709fc4e2b0d4248dca4854946f9ed8b30cda83e
+    GID: 26.36.ed.69.7c.5d.a9.77.c5.7a.b0.5e.13.49.b5.77
+    QoS profile:
+      Reliability: RELIABLE
+      History (Depth): KEEP_LAST (1)
+      Durability: TRANSIENT_LOCAL
+      Lifespan: Infinite
+      Deadline: Infinite
+      Liveliness: AUTOMATIC
+      Liveliness lease duration: Infinite
+
+  Action servers: 1
+  Node name: turtlesim
+  Node namespace: /
+  Action type: turtlesim_msgs/action/RotateAbsolute
+  Endpoint type: SERVER
+  Goal service:
+    Service type: turtlesim_msgs/action/RotateAbsolute_SendGoal
+    Service type hash: RIHS01_3d5d3cfcbb721f88038eaedcd4af95565360a82b36f1983e3a6c7448d2d18fbe
+    Endpoint count: 1
+    GID: ea.d4.17.fc.c4.af.65.09.b7.e4.60.96.b8.4f.04.d9
+    QoS profile:
+      Reliability: RELIABLE
+      History (Depth): KEEP_LAST (10)
+      Durability: VOLATILE
+      Lifespan: Infinite
+      Deadline: Infinite
+      Liveliness: AUTOMATIC
+      Liveliness lease duration: Infinite
+  Cancel service:
+    Service type: action_msgs/srv/CancelGoal
+    Service type hash: RIHS01_573d8b0a534451d7bc2ac8c5ffde8ac14b8593b7001175d0cd6516dcbeb8689a
+    Endpoint count: 1
+    GID: 13.30.8c.df.fc.73.3e.61.5e.9c.c6.36.ce.05.30.3e
+    QoS profile:
+      Reliability: RELIABLE
+      History (Depth): KEEP_LAST (10)
+      Durability: VOLATILE
+      Lifespan: Infinite
+      Deadline: Infinite
+      Liveliness: AUTOMATIC
+      Liveliness lease duration: Infinite
+  Result service:
+    Service type: turtlesim_msgs/action/RotateAbsolute_GetResult
+    Service type hash: RIHS01_f96fd02477be2a47122fca142e960d407b24850c6eac72047872ba764473c4ef
+    Endpoint count: 1
+    GID: 56.e0.d1.76.92.06.62.9d.cc.b6.55.3e.84.84.a5.31
+    QoS profile:
+      Reliability: RELIABLE
+      History (Depth): KEEP_LAST (10)
+      Durability: VOLATILE
+      Lifespan: Infinite
+      Deadline: Infinite
+      Liveliness: AUTOMATIC
+      Liveliness lease duration: Infinite
+  Feedback topic:
+    Topic type: turtlesim_msgs/action/RotateAbsolute_FeedbackMessage
+    Topic type hash: RIHS01_bef10993e1ee82b35f99f7e390bac1e6cc64e2a3090536887832e122aa71f1b5
+    GID: 44.ea.b3.79.f7.ba.2a.08.c4.1a.9b.3b.57.f8.7a.e5
+    QoS profile:
+      Reliability: RELIABLE
+      History (Depth): KEEP_LAST (10)
+      Durability: VOLATILE
+      Lifespan: Infinite
+      Deadline: Infinite
+      Liveliness: AUTOMATIC
+      Liveliness lease duration: Infinite
+  Status topic:
+    Topic type: action_msgs/msg/GoalStatusArray
+    Topic type hash: RIHS01_6c1684b00f177d37438febe6e709fc4e2b0d4248dca4854946f9ed8b30cda83e
+    GID: 64.f6.5d.c4.68.8c.06.a4.f8.07.ef.f7.78.a7.57.30
+    QoS profile:
+      Reliability: RELIABLE
+      History (Depth): KEEP_LAST (1)
+      Durability: TRANSIENT_LOCAL
+      Lifespan: Infinite
+      Deadline: Infinite
+      Liveliness: AUTOMATIC
+      Liveliness lease duration: Infinite
+
+The GIDs in your output will differ because they uniquely identify endpoints in the running ROS graph.
+Endpoint counts and QoS settings can also differ depending on the RMW implementation and runtime configuration.
 
 7 View the structure of the action type
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
