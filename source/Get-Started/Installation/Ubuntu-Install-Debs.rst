@@ -223,3 +223,6 @@ How do I uninstall ROS?
       $ sudo apt update
       $ sudo apt autoremove
       $ sudo apt upgrade # Consider upgrading for packages previously shadowed.
+
+How to I install an older version of a distro?
+   Use the :doc:`snapshot repository <Snapshot-Repository>`.

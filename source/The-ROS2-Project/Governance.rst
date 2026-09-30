@@ -22,7 +22,7 @@ The Technical Governance Committee (TGC)
 
 The Technical Governance Committee is responsible for the oversight of all projects within the OSRA.
 The TGC is made up of a combination of paid members, project management leaders, OSRF leaders, and members based on merits.
-For more details about the TGC, please see `the Charter for the OSRA <https://osralliance.org/staging/wp-content/uploads/2024/03/OSRA-Program-Charter.pdf>`__.
+For more details about the TGC, please see `the Charter for the OSRA <https://osralliance.org/wp-content/uploads/2024/03/OSRA-Program-Charter.pdf>`__.
 One of the projects that the TGC oversees is ROS 2, which is managed by the ROS Project Management Committee.
 
 The ROS Project Management Committee (ROS PMC)
@@ -35,7 +35,7 @@ The Project Leader, all PMC Members, and all Committers are chosen on a meritocr
 
 The day-to-day operations of the ROS PMC include managing the members and committers, managing the repositories that make up ROS 2, reviewing and merging code from the ROS community, maintaining the repositories, and making technical decisions that decide the direction of the project.
 
-For more details about the ROS PMC, please see the `Charter for the ROS Project <https://osralliance.org/staging/wp-content/uploads/2024/03/ros_project_charter.pdf>`__.
+For more details about the ROS PMC, please see the `Charter for the ROS Project <https://osralliance.org/wp-content/uploads/2024/03/ros_project_charter.pdf>`__.
 
 ROS Project Management Committee (PMC) Meetings
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -108,6 +108,16 @@ The ROS PMC currently consists of the following constituents:
      - `sloretz <https://github.com/sloretz>`_
      - Member
      - PST (UTC-8)/PDT (UTC-7)
+   * - Janosch Machowinski
+     - `cellumation <https://cellumation.com/>`_
+     - `jmachowinski <https://github.com/jmachowinski>`_
+     - Member
+     - CET (UTC+1)
+   * - Skyler Medeiros
+     - `Polymath Robotics <https://www.polymathrobotics.com/>`_
+     - `skyegalaxy <https://github.com/skyegalaxy>`_
+     - Member
+     - PST (UTC-8)/PDT (UTC-7)
    * - Audrow Nash
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `Audrow <https://github.com/audrow>`_
@@ -128,6 +138,11 @@ The ROS PMC currently consists of the following constituents:
      - `alsora <https://github.com/alsora>`_
      - Member
      - CET (UTC+1)/CEST (UTC+2)
+   * - Andrew Symington
+     - `Intrinsic <https://www.intrinsic.ai/>`_
+     - `asymingt <https://github.com/asymingt>`_
+     - Member
+     - PST (UTC-8)/PDT (UTC-7)
    * - Yadunund Vijay
      - `FieldAI <https://www.fieldai.com/>`_
      - `Yadunund <https://github.com/Yadunund>`_
@@ -159,14 +174,14 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `methylDragon <https://github.com/methylDragon>`_
      - PST (UTC-8)/PDT (UTC-7)
+   * - CY Chen
+     - `NVIDIA <https://www.nvidia.com/>`_
+     - `nvcyc <https://github.com/nvcyc>`_
+     - N/A
    * - Dharini Dutia
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `quarkytale <https://github.com/quarkytale>`_
      - PST (UTC-8)/PDT (UTC-7)
-   * - Janosch Machowinski
-     - `cellumation <https://cellumation.com/>`_
-     - `jmachowinski <https://github.com/jmachowinski>`_
-     - CET (UTC+1)
    * - Julien Enoch
      - `Zettascale <https://www.zettascale.tech/>`_
      - `JEnoch <https://github.com/JEnoch>`_
@@ -175,25 +190,33 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `kscottz <https://github.com/kscottz>`_
      - PST (UTC-8)/PDT (UTC-7)
+   * - Kimberly McGuire
+     - `McGuire Robotics <https://www.mcguirerobotics.com/>`_
+     - `knmcguire <https://github.com/knmcguire>`_
+     - CET (UTC+1) / CEST (UTC+2)
+   * - Martin Pecka
+     - `Czech Technical University in Prague <https://cvut.cz/>`_
+     - `peci1 <https://github.com/peci1>`_
+     - CET (UTC+1) / CEST (UTC+2)
    * - Michael (Robert) Carlstrom
      - `CivRobotics <https://www.civrobotics.com/>`_
      - `InvincibleRMC <https://github.com/InvincibleRMC>`_
      - PST (UTC-8)/PDT (UTC-7)
-   * - Skyler Medeiros
-     - `Polymath Robotics <https://www.polymathrobotics.com/>`_
-     - `skyegalaxy <https://github.com/skyegalaxy>`_
-     - PST (UTC-8)/PDT (UTC-7)
+   * - Nadav Elkabets
+     - Stealth Startup
+     - `nadavelkabets <https://github.com/nadavelkabets/>`_
+     - N/A
    * - Steve Peters
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `scpeters <https://github.com/scpeters>`_
      - PST (UTC-8)/PDT (UTC-7)
+   * - Tim Clephas
+     - `Nobleo <https://nobleo-technology.nl/autonomousrobotsolutions/>`_
+     - `Timple <https://github.com/Timple>`_
+     - CET (UTC+1)/CEST (UTC+2)
    * - Tully Foote
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `tfoote <https://github.com/tfoote>`_
-     - PST (UTC-8)/PDT (UTC-7)
-   * - Andrew Symington
-     - `Intrinsic <https://www.intrinsic.ai/>`_
-     - `asymingt <https://github.com/asymingt>`_
      - PST (UTC-8)/PDT (UTC-7)
    * - Yuyuan Yuan
      - `Zettascale <https://www.zettascale.tech/>`_

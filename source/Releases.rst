@@ -25,7 +25,7 @@ Below is a list of current and historic ROS 2 distributions.
 Rows in the table marked in blue are the currently supported distributions.
 
 .. toctree::
-   :maxdepth: 3
+   :hidden:
 
    Releases/Release-Process
    Releases/Release-Lyrical-Luth
