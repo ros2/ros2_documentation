@@ -228,9 +228,7 @@ This test demonstrates:
 * Using ``WaitForTopics`` with a trigger function to publish messages and wait for responses
 * Verifying that received messages match expected values
 
-The while loop is necessary because the ``turtlesim`` node is constantly publishing pose messages, and
-we want to wait until we receive a pose that reflects the motion commanded by our published ``Twist``
-message.
+The while loop is necessary because the ``turtlesim`` node is constantly publishing pose messages, and we want to wait until we receive a pose that reflects the motion commanded by our published ``Twist`` message.
 
 1.4 Post-shutdown tests
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -282,7 +280,7 @@ To ease adding several integration tests, we define the CMake function ``add_ros
   endif()
 
 3 Dependencies and package organization
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Finally, add the following dependencies to your ``package.xml``:
 
@@ -312,7 +310,7 @@ One can dedicate one or more packages to just integration testing, or alternativ
 In this tutorial, we go with the first option as we will test the existing turtlesim node.
 
 4 Register the test in setup.py
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For Python-based packages, tests are automatically discovered when placed in a ``test`` directory.
 
@@ -331,8 +329,6 @@ To run the tests, you can use the command:
 .. code-block:: bash
 
     colcon test --packages-select your_package_name --python-testing pytest
-
-
 
 5 Running tests and report generation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
