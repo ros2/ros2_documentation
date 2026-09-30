@@ -44,7 +44,7 @@ This ROS-agnostic functionality can extend a Python launch file with both active
 ``launch_testing`` relies on the Python standard module `unittest <https://docs.python.org/3/library/unittest.html>`_ for the actual testing.
 To get our integration tests run as part of ``colcon test``, we register the launch file in the ``CMakeLists.txt`` or ``setup.py`` file.
 
-For waiting on topics and triggering actions based on publisher availability, the `launch_testing_ros <https://docs.ros.org/en/{DISTRO}/p/launch_testing_ros/index.html>`_ package provides the `WaitForTopics <https://docs.ros.org/en/{DISTRO}/p/launch_testing_ros/launch_testing_ros.wait_for_topics.html>`_ utility, which simplifies topic subscription and waiting logic in integration tests.
+For waiting on topics and triggering actions based on publisher availability, the {package(launch_testing_ros)} package provides the `WaitForTopics <https://docs.ros.org/en/{DISTRO}/p/launch_testing_ros/launch_testing_ros.wait_for_topics.html>`_ utility, which simplifies topic subscription and waiting logic in integration tests.
 
 Steps
 -----
