@@ -174,6 +174,10 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `methylDragon <https://github.com/methylDragon>`_
      - PST (UTC-8)/PDT (UTC-7)
+   * - CY Chen
+     - `NVIDIA <https://www.nvidia.com/>`_
+     - `nvcyc <https://github.com/nvcyc>`_
+     - N/A
    * - Dharini Dutia
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `quarkytale <https://github.com/quarkytale>`_
@@ -186,14 +190,30 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `kscottz <https://github.com/kscottz>`_
      - PST (UTC-8)/PDT (UTC-7)
+   * - Kimberly McGuire
+     - `McGuire Robotics <https://www.mcguirerobotics.com/>`_
+     - `knmcguire <https://github.com/knmcguire>`_
+     - CET (UTC+1) / CEST (UTC+2)
+   * - Martin Pecka
+     - `Czech Technical University in Prague <https://cvut.cz/>`_
+     - `peci1 <https://github.com/peci1>`_
+     - CET (UTC+1) / CEST (UTC+2)
    * - Michael (Robert) Carlstrom
      - `CivRobotics <https://www.civrobotics.com/>`_
      - `InvincibleRMC <https://github.com/InvincibleRMC>`_
      - PST (UTC-8)/PDT (UTC-7)
+   * - Nadav Elkabets
+     - Stealth Startup
+     - `nadavelkabets <https://github.com/nadavelkabets/>`_
+     - N/A
    * - Steve Peters
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `scpeters <https://github.com/scpeters>`_
      - PST (UTC-8)/PDT (UTC-7)
+   * - Tim Clephas
+     - `Nobleo <https://nobleo-technology.nl/autonomousrobotsolutions/>`_
+     - `Timple <https://github.com/Timple>`_
+     - CET (UTC+1)/CEST (UTC+2)
    * - Tully Foote
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `tfoote <https://github.com/tfoote>`_
