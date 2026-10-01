@@ -6,7 +6,7 @@
 Adding a frame (C++)
 ====================
 
-**Goal:** Learn how to to add an extra frame to tf2.
+**Goal:** Learn how to add an extra frame to tf2.
 
 **Tutorial level:** Intermediate
 
@@ -84,15 +84,17 @@ Now open the file called ``fixed_frame_tf2_broadcaster.cpp``.
 
 .. code-block:: C++
 
-    #include <chrono>
-    #include <functional>
     #include <memory>
 
     #include "geometry_msgs/msg/transform_stamped.hpp"
     #include "rclcpp/rclcpp.hpp"
+<<<<<<< HEAD:source/ROS-Framework/client-libraries/Working-with-Client-Libraries/Tf2/Adding-A-Frame-Cpp.rst
     #include "tf2_ros/transform_broadcaster.h"
 
     using namespace std::chrono_literals;
+=======
+    #include "tf2_ros/static_transform_broadcaster.hpp"
+>>>>>>> 6e2d985 (docs(tf2): use StaticTransformBroadcaster for fixed frame (#7202)):source/Tutorials/Intermediate/Tf2/Adding-A-Frame-Cpp.rst
 
     class FixedFrameBroadcaster : public rclcpp::Node
     {
@@ -100,30 +102,26 @@ Now open the file called ``fixed_frame_tf2_broadcaster.cpp``.
       FixedFrameBroadcaster()
       : Node("fixed_frame_tf2_broadcaster")
       {
-        tf_broadcaster_ = std::make_shared<tf2_ros::TransformBroadcaster>(this);
+        tf_static_broadcaster_ = std::make_shared<tf2_ros::StaticTransformBroadcaster>(this);
 
-        auto broadcast_timer_callback = [this](){
-            geometry_msgs::msg::TransformStamped t;
+        geometry_msgs::msg::TransformStamped t;
 
-            t.header.stamp = this->get_clock()->now();
-            t.header.frame_id = "turtle1";
-            t.child_frame_id = "carrot1";
-            t.transform.translation.x = 0.0;
-            t.transform.translation.y = 2.0;
-            t.transform.translation.z = 0.0;
-            t.transform.rotation.x = 0.0;
-            t.transform.rotation.y = 0.0;
-            t.transform.rotation.z = 0.0;
-            t.transform.rotation.w = 1.0;
+        t.header.stamp = this->get_clock()->now();
+        t.header.frame_id = "turtle1";
+        t.child_frame_id = "carrot1";
+        t.transform.translation.x = 0.0;
+        t.transform.translation.y = 2.0;
+        t.transform.translation.z = 0.0;
+        t.transform.rotation.x = 0.0;
+        t.transform.rotation.y = 0.0;
+        t.transform.rotation.z = 0.0;
+        t.transform.rotation.w = 1.0;
 
-            tf_broadcaster_->sendTransform(t);
-        };
-        timer_ = this->create_wall_timer(100ms, broadcast_timer_callback);
+        tf_static_broadcaster_->sendTransform(t);
       }
 
     private:
-      rclcpp::TimerBase::SharedPtr timer_;
-      std::shared_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
+      std::shared_ptr<tf2_ros::StaticTransformBroadcaster> tf_static_broadcaster_;
     };
 
     int main(int argc, char * argv[])
@@ -134,7 +132,9 @@ Now open the file called ``fixed_frame_tf2_broadcaster.cpp``.
       return 0;
     }
 
-The code is very similar to the tf2 broadcaster tutorial example and the only difference is that the transform here does not change over time.
+This fixed frame uses ``tf2_ros::StaticTransformBroadcaster`` and publishes the transform once in the constructor.
+Use a static broadcaster for frames whose pose relative to the parent does not change.
+For frames that move over time, use ``tf2_ros::TransformBroadcaster`` and publish periodically, as in the dynamic frame example below.
 
 .. include:: ../../../../_internal/Rclcpp-Convenience-Header-Note.rst
 
