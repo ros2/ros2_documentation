@@ -33,10 +33,10 @@ For more detailed information, see `the launch documentation <https://docs.ros.o
 Shutting down
 -------------
 
-When ``ros2 launch`` gets ``SIGINT`` (e.g. from ctrl-c) or ``SIGTERM``, it shuts down all of the processes it started.
+When ``ros2 launch`` gets ``SIGINT`` (e.g. from ``Ctrl+C``) or ``SIGTERM``, it shuts down all of the processes it started.
 It does this by sending them ``SIGINT``, then ``SIGTERM``, and finally ``SIGKILL``, each time waiting a few seconds for them to exit.
 
-When you press ctrl-c in a terminal, the terminal sends ``SIGINT`` to ``ros2 launch`` and to all of its processes at the same time, so ``ros2 launch`` does not send them another one.
+When you press ``Ctrl+C`` in a terminal, the terminal sends ``SIGINT`` to ``ros2 launch`` and to all of its processes at the same time, so ``ros2 launch`` does not send them another one.
 This means that if something sends ``SIGINT`` to only the ``ros2 launch`` process, e.g. ``kill -INT <pid>`` from a script, then its processes will not start to shut down until they get ``SIGTERM`` a few seconds later.
 To avoid this, send ``SIGTERM`` to ``ros2 launch`` instead, or pass ``--noninteractive`` to ``ros2 launch``, which makes it always send ``SIGINT`` to its processes.
 ``--noninteractive`` is the default when stdin is not a terminal.
