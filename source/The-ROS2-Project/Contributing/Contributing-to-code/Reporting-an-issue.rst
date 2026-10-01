@@ -38,7 +38,7 @@ This is generally the last file listed in the stack trace.
 You can search for ROS packages in the following locations:
 
 * Core ROS 2 packages, found in the `ROS organisation <https://github.com/ros2>`__
-* ROS binary packages, found on the `ROS Index <index.ros.org>`__, which point to the appropriate GitHub repository.
+* ROS binary packages, found on the `ROS Index <https://index.ros.org>`__, which point to the appropriate GitHub repository.
 * Source ROS packages which are located elsewhere on GitHub.
 
 If it's not clear which issue tracker to use for a particular issue, report the issue in the `top-level ROS repository <https://github.com/ros2/ros2/issues>`__ and we'll have a look at it.
