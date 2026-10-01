@@ -136,14 +136,8 @@ templates_path = [
 
 # smv_tag_whitelist = None
 
-smv_branch_whitelist = r'^(rolling|lyrical|kilted|jazzy|iron|humble|galactic|foxy|eloquent|dashing|crystal)$'
-
-
-smv_released_pattern = r'^refs/(heads|remotes/[^/]+)/(lyrical|kilted|jazzy|iron|humble|galactic|foxy|eloquent|dashing|crystal).*$'
-smv_remote_whitelist = r'^(origin)$'
-smv_latest_version = 'lyrical'
-smv_eol_versions = ['crystal', 'dashing', 'eloquent', 'foxy', 'galactic', 'iron']
-
+# All ROS 2 distributions, in release order. This dict is the single source of
+# truth for the set and ordering of distros used throughout this file.
 distro_full_names = {
     'crystal': 'Crystal Clemmys',
     'dashing': 'Dashing Diademata',
@@ -157,6 +151,65 @@ distro_full_names = {
     'lyrical': 'Lyrical Luth',
     'rolling': 'Rolling Ridley',
 }
+
+# Every distro that has a documentation branch, in release order (dict preserves
+# insertion order).
+smv_all_versions = list(distro_full_names)
+
+smv_latest_version = 'lyrical'
+
+# Distributions that have reached end-of-life (EOL). Being EOL is purely
+# presentational: it drives the "(EOL)" label in the version menu and the banner
+# stamped onto the distro's pages (see the eol_versions uses below). An EOL
+# distro is *still built*, so that it receives one final "clean freeze" build
+# that stamps those EOL markers into its published pages.
+smv_eol_versions = ['crystal', 'dashing', 'eloquent', 'foxy', 'galactic', 'iron']
+
+# Distributions whose documentation is frozen: dropped from the build set so the
+# branch is no longer rebuilt, while its already-published (and EOL-stamped) docs
+# stay served on docs.ros.org. Freezing prevents a warning in a frozen branch
+# from being promoted to an error and breaking the whole multiversion build (and
+# thus blocking deployment of the active distros).
+# See https://github.com/ros2/ros2_documentation/issues/6964
+#
+# A distro must be built at least once while EOL before it is frozen, so the
+# freeze workflow is: add to smv_eol_versions -> one nightly build stamps the
+# EOL banner/label -> verify -> add to smv_frozen_versions. Freezing must
+# therefore only ever be a subset of EOL (asserted below). The full procedure is
+# documented in source/The-ROS2-Project/Contributing/Documentation/
+# Creating-or-updating-documentation.rst ("Marking a distribution EOL and
+# freezing its documentation").
+smv_frozen_versions = ['crystal', 'dashing', 'eloquent', 'foxy', 'galactic', 'iron']
+
+# Only build branches for distros that are not frozen. Derived so that freezing a
+# distro (adding it to smv_frozen_versions) automatically stops it from being
+# rebuilt.
+smv_active_versions = [v for v in smv_all_versions if v not in smv_frozen_versions]
+smv_branch_whitelist = r'^(' + '|'.join(smv_active_versions) + r')$'
+
+# Frozen distros in version-menu display order (newest first).
+smv_frozen_versions_ordered = [
+    v for v in reversed(smv_all_versions) if v in smv_frozen_versions
+]
+
+# Everything except the development branch (rolling) is a released version.
+smv_released_versions = [v for v in smv_all_versions if v != 'rolling']
+smv_released_pattern = (
+    r'^refs/(heads|remotes/[^/]+)/('
+    + '|'.join(smv_released_versions)
+    + r').*$'
+)
+smv_remote_whitelist = r'^(origin)$'
+
+# Fail the build loudly if the lists above are inconsistent, rather than
+# silently dropping the latest distro (or the whole site) from the build set.
+assert set(smv_frozen_versions) <= set(smv_eol_versions), \
+    'smv_frozen_versions must be a subset of smv_eol_versions'
+assert smv_active_versions, 'smv_active_versions must not be empty'
+assert smv_latest_version in smv_active_versions, \
+    'smv_latest_version must be an actively built (non-frozen) distro'
+assert 'rolling' in smv_active_versions, \
+    'the rolling development branch must always be built'
 
 # Tier 1 Ubuntu platform for binary deb installs (see the release page for each distro)
 distro_ubuntu_deb_platform = {
@@ -362,6 +415,14 @@ def github_link_rewrite_branch(app, pagename, templatename, context, doctree):
     if app.config.smv_current_version != '':
         context['github_version'] = app.config.smv_current_version + '/source/'
         context['eol_versions'] = app.config.smv_eol_versions
+        # Frozen distros are no longer rebuilt, so sphinx-multiversion does not
+        # add them to the version menu. Provide the list (newest first) and the
+        # base URL of their published docs so the menu can still link to them.
+        # Use the module-level html_baseurl, which is the un-rewritten base
+        # ('https://docs.ros.org/en'); app.config.html_baseurl has by now been
+        # rewritten per-version by smv_rewrite_configs.
+        context['frozen_versions'] = smv_frozen_versions_ordered
+        context['frozen_base_url'] = html_baseurl
 
 def expand_macros(app, docname, source):
     result = source[0]
