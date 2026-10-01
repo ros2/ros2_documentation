@@ -91,6 +91,73 @@ For example, the following declaration for a custom memory resource fulfills the
 
 To learn about the full capabilities of ``std::pmr::memory_resource``, see https://en.cppreference.com/w/cpp/memory/memory_resource.
 
+Providing an allocator for rcl
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+rclcpp is built on top of the C library rcl, which also allocates memory, for example for the publishers and subscriptions it creates.
+To route those allocations to your custom allocator too, rclcpp needs a C-style ``rcl_allocator_t``, a set of ``allocate``, ``deallocate``, ``reallocate`` and ``zero_allocate`` callbacks.
+Your allocator provides it through a ``get_rcl_allocator()`` member function.
+
+The callbacks cannot simply forward to the C++ allocator.
+rcl's ``deallocate`` does not pass the size of the block, but ``std::pmr::memory_resource::deallocate`` must receive the size and alignment that were used to allocate it.
+The callbacks are also called from C code, so they must not throw: like ``malloc``, they return ``nullptr`` on failure.
+
+.. note::
+
+   If your allocator has no ``get_rcl_allocator()`` member, rclcpp falls back to a generic conversion which passes a wrong size to ``deallocate``.
+   This fallback is deprecated, and using it results in a ``-Wdeprecated-declarations`` warning.
+
+For ``std::pmr``, a small wrapper around ``std::pmr::polymorphic_allocator`` can store the size of each block in a header in front of it:
+
+.. code-block:: c++
+
+    template<typename T = void>
+    struct PmrAllocator : std::pmr::polymorphic_allocator<T>
+    {
+      using std::pmr::polymorphic_allocator<T>::polymorphic_allocator;
+
+      template<typename U>
+      PmrAllocator(const PmrAllocator<U> & other) noexcept
+      : std::pmr::polymorphic_allocator<T>(other.resource()) {}
+
+      template<typename U>
+      struct rebind
+      {
+        using other = PmrAllocator<U>;
+      };
+
+      rcl_allocator_t get_rcl_allocator() const
+      {
+        rcl_allocator_t rcl_allocator = rcl_get_default_allocator();
+        rcl_allocator.allocate = &allocate_block;
+        rcl_allocator.deallocate = &deallocate_block;
+        rcl_allocator.reallocate = &reallocate_block;
+        rcl_allocator.zero_allocate = &zero_allocate_block;
+        rcl_allocator.state = this->resource();
+        return rcl_allocator;
+      }
+
+    private:
+      static constexpr size_t header = alignof(std::max_align_t);
+
+      static void * allocate_block(size_t size, void * state) noexcept
+      {
+        // Allocate room for the size in front of the block, and store it there.
+        // ...
+      }
+
+      static void deallocate_block(void * pointer, void * state) noexcept
+      {
+        // Read the size back from the header, and pass it to the memory resource.
+        // ...
+      }
+
+      // reallocate_block() and zero_allocate_block() are implemented on top of these two.
+    };
+
+If your allocator already has C-style functions that do not need the size, its ``get_rcl_allocator()`` can forward to them directly.
+The TLSF allocator described at the end of this tutorial does this.
+
 The full implementation of the custom allocator for this tutorial is in https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics/allocator_tutorial_pmr.cpp.
 
 Writing an example main
@@ -101,7 +168,7 @@ But first, we'll declare a few aliases to shorten the names.
 
 .. code-block:: c++
 
-     using Alloc = std::pmr::polymorphic_allocator<void>;
+     using Alloc = PmrAllocator<void>;
      using MessageAllocTraits =
        rclcpp::allocator::AllocRebind<std_msgs::msg::UInt32, Alloc>;
      using MessageAlloc = MessageAllocTraits::allocator_type;
