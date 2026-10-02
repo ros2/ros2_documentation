@@ -1,15 +1,16 @@
 .. redirect-from::
 
     Installation/RHEL-Install-RPMs
+    Installation/Fedora-Install-RPMs
 
-RHEL (RPM packages)
-===================
+RHEL / Fedora (RPM packages)
+============================
 
 .. contents:: Table of Contents
    :depth: 2
    :local:
 
-RPM packages for ROS 2 {DISTRO_TITLE_FULL} are currently available for RHEL 10.
+RPM packages for ROS 2 {DISTRO_TITLE_FULL} are currently available for RHEL 10 and supported Fedora releases.
 The Rolling Ridley distribution will change target platforms from time to time as new platforms are selected for development.
 The target platforms are defined in `REP 2000 <https://reps.openrobotics.org/rep-2000/>`__.
 Most people will want to use a stable ROS distribution.
@@ -34,23 +35,37 @@ Set locale
 Enable required repositories
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You will need to enable the EPEL repositories and the PowerTools repository:
+.. tabs::
 
-.. code-block:: console
+  .. group-tab:: RHEL
 
-   $ sudo dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -E %rhel).noarch.rpm
-   $ sudo env FORCE_DNF=1 crb enable
+    You will need to enable the EPEL repositories and the CodeReady Builder (CRB) repository:
 
-.. note:: This step may be slightly different depending on the distribution you are using.
-          `Check the EPEL documentation <https://docs.fedoraproject.org/en-US/epel/getting-started/>`_
+    .. code-block:: console
 
-Next, download the ``ros2-release`` package and install it:
+       $ sudo dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -E %rhel).noarch.rpm
+       $ sudo env FORCE_DNF=1 crb enable
 
-.. code-block:: console
+    .. note:: This step may be slightly different depending on the distribution you are using.
+              `Check the EPEL documentation <https://docs.fedoraproject.org/en-US/epel/getting-started/>`_
 
-   $ sudo dnf install curl
-   $ export ROS_APT_SOURCE_VERSION=$(curl -s https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | grep -F "tag_name" | awk -F'"' '{print $4}')
-   $ sudo dnf install "https://github.com/ros-infrastructure/ros-apt-source/releases/download/${ROS_APT_SOURCE_VERSION}/ros2-release-${ROS_APT_SOURCE_VERSION}-1.noarch.rpm"
+    Next, download the ``ros2-release`` package and install it:
+
+    .. code-block:: console
+
+       $ sudo dnf install curl
+       $ export ROS_APT_SOURCE_VERSION=$(curl -s https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | grep -F "tag_name" | awk -F'"' '{print $4}')
+       $ sudo dnf install "https://github.com/ros-infrastructure/ros-apt-source/releases/download/${ROS_APT_SOURCE_VERSION}/ros2-release-${ROS_APT_SOURCE_VERSION}-1.el.noarch.rpm"
+
+  .. group-tab:: Fedora
+
+    Download the ``ros2-release`` package and install it:
+
+    .. code-block:: console
+
+       $ sudo dnf install curl
+       $ export ROS_APT_SOURCE_VERSION=$(curl -s https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | grep -F "tag_name" | awk -F'"' '{print $4}')
+       $ sudo dnf install "https://github.com/ros-infrastructure/ros-apt-source/releases/download/${ROS_APT_SOURCE_VERSION}/ros2-release-${ROS_APT_SOURCE_VERSION}-1.fc.noarch.rpm"
 
 The `ros2-release <https://github.com/ros-infrastructure/ros-apt-source/>`_ package provides keys and repo configuration for the various ROS repositories.
 Updates to repository configuration will occur automatically when new versions of this package are released to the ROS repositories.
