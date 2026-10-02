@@ -1,13 +1,13 @@
 .. _PlatformEOLPolicy:
 
-Platform EOL Policy
+Platform EOL policy
 ===================
 
 .. contents:: Table of Contents
    :depth: 1
    :local:
 
-:doc:`ROS distributions <../Get-Started/Releases>` do not support end-of-life (EOL) platforms, even if the ROS distribution is still active.
+:doc:`ROS distributions <../Releases>` do not support end-of-life (EOL) platforms, even if the ROS distribution is still active.
 This page explains:
 
 * What users of EOL platforms should expect

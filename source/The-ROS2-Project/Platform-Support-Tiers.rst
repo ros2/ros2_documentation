@@ -1,4 +1,4 @@
-Platform Support Tiers
+Platform support tiers
 ======================
 
 Platforms are defined as a combination of the OS, the architecture, and the RMW implementation.

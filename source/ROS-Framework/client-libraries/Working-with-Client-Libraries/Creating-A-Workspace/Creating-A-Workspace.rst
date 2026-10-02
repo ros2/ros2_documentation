@@ -39,7 +39,11 @@ Prerequisites
 * `git installation <https://git-scm.com/book/en/v2/Getting-Started-Installing-Git>`__
 * :doc:`turtlesim installation <../../../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>`
 * Have :doc:`rosdep installed <../Rosdep>`
-* Understanding of basic terminal commands (`here's a guide for Linux <https://www2.cs.sfu.ca/~ggbaker/reference/unix/>`__)
+* Understanding of basic terminal commands
+
+  * `SFU guide for Linux/Unix <https://www2.cs.sfu.ca/~ggbaker/reference/unix/>`__
+  * `Ubuntu Linux command-line guide for beginners <https://ubuntu.com/desktop/docs/en/latest/tutorial/the-linux-command-line-for-beginners/>`__
+
 * Text editor of your choice
 
 Tasks

@@ -35,6 +35,7 @@ However, we figured it would be helpful to produce a list of available URDF expo
  * `FusionSDF: Fusion 360 to SDF exporter <https://github.com/andreasBihlmaier/FusionSDF>`_
  * `OnShape URDF Exporter <https://github.com/Rhoban/onshape-to-robot>`_
  * `SolidWorks URDF Exporter <https://github.com/ros/solidworks_urdf_exporter>`_
+ * `sw2robot (SolidWorks mate-based exporter + cross-platform URDF editor) <https://github.com/jsk-ros-pkg/solidworks_urdf_exporter2>`_
  * `ExportURDF Library (Fusion360, OnShape, Solidworks) <https://github.com/daviddorf2023/ExportURDF>`_
 
 **Other URDF Export and Conversion Tools**

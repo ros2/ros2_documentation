@@ -2,7 +2,7 @@
 
     How-To-Guides/Using-Custom-Rosdistro
 
-Using Custom Rosdistro Version
+Using custom rosdistro version
 ==============================
 
 
@@ -24,6 +24,8 @@ This guide walks through how to set a version of rosdistro to use on your system
 The motivating example that this guide will use is a desire to use a previous version of Rolling due to a breakage on your development computer or Continuous Integration.
 It is possible that during transition periods from one operating system to another, Rolling on the older operating system may become unusable due to support shifting to a new OS (i.e. moving from Ubuntu 22.04 to 24.04).
 Thus, we wish to set a prior version of rosdistro that aligns with a working Rolling distribution on a given operating system to keep our systems functioning before upgrading to the new operating system.
+
+To achieve this with package binaries, take a look at the :doc:`snapshot repository </Get-Started/Installation/Snapshot-Repository>`.
 
 Important Preliminaries
 -----------------------

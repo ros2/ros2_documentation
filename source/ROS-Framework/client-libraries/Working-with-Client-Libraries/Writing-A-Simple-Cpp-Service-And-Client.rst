@@ -116,6 +116,8 @@ Inside the ``ros2_ws/src/cpp_srvcli/src`` directory, create a new file called ``
     return 0;
   }
 
+.. include:: ../../../_internal/Rclcpp-Convenience-Header-Note.rst
+
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
 

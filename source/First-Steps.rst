@@ -35,7 +35,7 @@ Steps
 1 Learn about fundamental concepts behind ROS
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* :doc:`About ROS <Get-Started/About-ROS/About-ROS>`
+* :doc:`About ROS <About-ROS>`
 * :doc:`ROS-Framework/About-Nodes`
 * Interfaces-Topics-Services-Actions`
 * :doc:`ROS-Framework/About-Parameters`

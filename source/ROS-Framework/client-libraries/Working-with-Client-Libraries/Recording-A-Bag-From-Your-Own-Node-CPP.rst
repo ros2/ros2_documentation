@@ -119,6 +119,8 @@ Inside the ``ros2_ws/src/bag_recorder_nodes/src`` directory, create a new file c
       return 0;
     }
 
+.. include:: ../../../_internal/Rclcpp-Convenience-Header-Note.rst
+
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
 
@@ -526,7 +528,9 @@ Inside the ``ros2_ws/src/bag_recorder_nodes/src`` directory, create a new file c
 
     #include <chrono>
 
-    #include <rclcpp/rclcpp.hpp>  // For rclcpp::Clock, rclcpp::Duration and rclcpp::Time
+    #include <rclcpp/clock.hpp>
+    #include <rclcpp/duration.hpp>
+    #include <rclcpp/time.hpp>
     #include <example_interfaces/msg/int32.hpp>
 
     #include <rosbag2_cpp/writer.hpp>

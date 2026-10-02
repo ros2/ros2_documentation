@@ -65,6 +65,7 @@ Development Guides
    :maxdepth: 1
 
    Contributing/Developer-Guide
+   Contributing/Source-Control-Best-Practices
    Contributing/Code-Style-Language-Versions
    Contributing/Quality-Guide
    Contributing/Build-Farms

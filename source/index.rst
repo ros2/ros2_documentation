@@ -10,17 +10,18 @@ ROS 2 Documentation
    :maxdepth: 1
    :hidden:
 
+   About-ROS
    Get-Started
+   Releases
    ROS-Framework
-   Capabilities
    Developer-Tools
-   Migration-and-Upgrades
+   Capabilities
    Integrations-and-related
+   Migration-and-Upgrades
    The-ROS2-Project
    Contact
-   Glossary
    Citations
-
+   Contributing-To-ROS
 
 **The Robot Operating System (ROS) is a set of software libraries and tools for building robot applications.**
 From drivers and state-of-the-art algorithms to powerful developer tools, ROS has the open source tools you need for your next robotics project.
@@ -73,7 +74,7 @@ If you're interested in the advancement of the ROS 2 project:
 
   - Best practices and methodology for contributing code, documentation, and other improvements to ROS 2, as well as instructions for migrating existing ROS 1 documentation to ROS 2
 
-* :doc:`Distributions <Get-Started/Releases>`
+* :doc:`Distributions <Releases>`
 
   - Past, present and future ROS 2 distributions
 
@@ -115,12 +116,12 @@ If you need help, have an idea, or would like to contribute to the project, plea
 
 * `Robotics Stack Exchange - community Q&A website <https://robotics.stackexchange.com/>`__ (ROS 1, ROS 2)
 
-  - See :ref:`Contact Page <Using Robotics Stack Exchange>` for more information
+  - See the :doc:`Contact Page <Contact>` for more information
 
 * `Open Robotics Discourse <https://discourse.openrobotics.org/>`__ (ROS 1, ROS 2)
 
   - Forum for general discussions and announcements for the ROS community
-  - See the :ref:`Contact Page <Using ROS Discourse>` for more information
+  - See the :doc:`Contact Page <Contact>` for more information
 
 * `ROS Index <https://index.ros.org/>`__ (ROS 1, ROS 2)
 

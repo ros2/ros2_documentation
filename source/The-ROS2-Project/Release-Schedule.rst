@@ -1,4 +1,4 @@
-Release Schedule
+Release schedule
 ================
 
 Frequency

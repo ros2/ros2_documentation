@@ -54,6 +54,8 @@ We start by including the headers used by the node, including ``rclcpp`` and the
    #include "rclcpp/rclcpp.hpp"
    #include "visualization_msgs/msg/marker.hpp"
 
+.. include:: ../../../../_internal/Rclcpp-Convenience-Header-Note.rst
+
 This should look familiar.
 We initialize ROS 2, create a node, and create a publisher on the ``visualization_marker`` topic.
 
