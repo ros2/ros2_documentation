@@ -5,17 +5,12 @@
  * earlier via html_js_files in conf.py.
  *
  * Data is loaded from up to three sources, tried in order:
- *   1. Proxy: an /api/rosdistro-cache/{distro}-cache.yaml.gz endpoint served
- *      from the same origin as the docs, for the freshest data. The path is
- *      baked in from conf.py. It is currently an assumption, because it exists
- *      only in local testing (tools/serve_docs_with_proxy.py). In production the
- *      hosting layer must provide this path. Alternatively, add a CORS header on
- *      repo.ros2.org so source 3 works and the proxy can be removed.
- *   2. Bundled fallback: the gzip snapshot downloaded into _static at build
- *      time. It is always on the same origin, so if the proxy is absent the list
- *      still renders, but only as fresh as the last docs build.
- *   3. Direct repo.ros2.org URL: a last resort that browsers usually block today
- *      because of CORS.
+ *   1. Same-origin proxy endpoint, path baked in from conf.py. Freshest data.
+ *   2. Gzip snapshot bundled into _static at build time, so as fresh as that
+ *      build. Always same-origin, so this is the working fallback.
+ *   3. repo.ros2.org directly, which browsers normally block.
+ *
+ * See plugins/ros_related_packages.md for what each source requires.
  */
 (function () {
   'use strict';

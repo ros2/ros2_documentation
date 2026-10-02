@@ -210,19 +210,10 @@ html_js_files = [
 ]
 
 # Endpoint the browser tries first for the freshest rosdistro cache data, served
-# from the same origin as the docs. The default path,
-# /api/rosdistro-cache/{distro}-cache.yaml.gz, is an assumption. Today it is
-# provided only for local testing by tools/serve_docs_with_proxy.py. In
-# production this path does not exist yet, so the hosting layer must provide it.
-# For example, add a rewrite on the docs host that maps /api/rosdistro-cache/ to
-# repo.ros2.org/rosdistro_cache/, or add a CORS header on repo.ros2.org so the
-# browser can read that origin directly, in which case the proxy can be dropped
-# entirely. Until one of those exists, requests to this path fail and the page
-# falls back to the gzip snapshot bundled into _static at build time. Package
-# lists still work in that case, but the data is only as fresh as the last docs
-# build.
-# Override with ROS_RELATED_PACKAGES_PROXY_URL. Set it to an empty string to
-# serve the bundled _static snapshot only, with no proxy attempt.
+# from the same origin as the docs. This path is not provided in production yet,
+# so the page falls back to the gzip snapshot bundled into _static at build time.
+# Override with ROS_RELATED_PACKAGES_PROXY_URL, or set that to an empty string to
+# use the bundled snapshot only. See plugins/ros_related_packages.md.
 def _normalize_ros_related_packages_proxy_url(raw: str) -> str:
     """Return a browser-safe proxy template.
 
