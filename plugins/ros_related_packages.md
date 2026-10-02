@@ -166,7 +166,18 @@ The browser tries three sources in order:
 | 2 | Bundled snapshot in `_static/rosdistro_cache/` | Last docs build | Always same-origin, so this is what actually serves today |
 | 3 | `repo.ros2.org` directly | Live | Normally blocked by CORS |
 
-Source 1 is currently an assumption. It is provided locally by [`serve_docs_with_proxy.py`](../tools/serve_docs_with_proxy.py), but in production the hosting layer would need to map `/api/rosdistro-cache/` to `repo.ros2.org/rosdistro_cache/`. The alternative is a CORS header on `repo.ros2.org`, which would make source 3 work and let the proxy be dropped entirely. Until one of those exists the lists render from source 2, which is correct but only as fresh as the last build.
+Source 1 is currently an assumption. It is provided locally by [`serve_docs_with_proxy.py`](../tools/serve_docs_with_proxy.py), but nothing serves it in production, so today every reader is served by source 2. That is correct, just only as fresh as the last docs build.
+
+#### Enabling live data
+
+Live updates between builds need one piece of infrastructure that this PR cannot provide, because it sits outside the repository. Either option makes source 1 or source 3 succeed, after which no documentation change is required:
+
+| Option | What is needed | Effect |
+|--------|----------------|--------|
+| Same-origin route | A rewrite or reverse proxy on the docs host mapping `/api/rosdistro-cache/{distro}-cache.yaml.gz` to `https://repo.ros2.org/rosdistro_cache/{distro}-cache.yaml.gz`, passing the gzip through unmodified | Source 1 starts answering. The path is already configurable via `ros_related_packages_proxy_url`, so a different path only needs a `conf.py` change |
+| CORS header | `Access-Control-Allow-Origin` for the docs origin on `repo.ros2.org/rosdistro_cache/` | Source 3 starts working and the proxy can be dropped entirely |
+
+Whichever is chosen should keep a short cache lifetime in front of it. The file is a few hundred kilobytes and changes only when the build farm republishes, so caching it for minutes rather than seconds keeps load off `repo.ros2.org`; both local tools cache for five minutes for the same reason.
 
 No upstream `package.xml` carries `<area>` or `<related_scope>` yet, so against the real cache these lists match nothing. Both exports have to be adopted upstream before the feature does anything in production.
 
