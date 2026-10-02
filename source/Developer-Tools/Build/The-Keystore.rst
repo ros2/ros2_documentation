@@ -22,7 +22,7 @@ Understanding the security keystore
 Background
 ----------
 
-Before proceeding ensure you have completed the :doc:`../Introspection-and-analysis/Security/Introducing-ros2-security` tutorial.
+Before proceeding ensure you have completed the :doc:`../Launch/Security/Introducing-ros2-security` tutorial.
 
 The ``sros2`` package can be used to create keys, certificates and policies necessary to enable ROS 2 security.
 However, the security configuration is extremely flexible.

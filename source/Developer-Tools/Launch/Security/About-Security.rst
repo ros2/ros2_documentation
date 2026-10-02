@@ -7,16 +7,15 @@
 ROS 2 Security
 ==============
 
+.. contents:: Table of Contents
+   :local:
+
 .. toctree::
-   :hidden:
+   :maxdepth: 3
 
    Introducing-ros2-security
    Security-on-Two
-   Examine-Traffic
    Access-Controls
-
-.. contents:: Table of Contents
-   :local:
 
 Overview
 --------
