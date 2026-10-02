@@ -35,11 +35,7 @@ Set locale
 Enable required repositories
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-<<<<<<< HEAD
-You will need to enable the EPEL repositories and the PowerTools repository:
-=======
 .. tabs::
->>>>>>> 9721a27 (Update RPM installation instructions to support Fedora (#7230))
 
   .. group-tab:: RHEL
 
