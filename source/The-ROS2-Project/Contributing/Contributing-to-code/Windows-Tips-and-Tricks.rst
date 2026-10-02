@@ -2,7 +2,7 @@
 
     Contributing/Windows-Tips-and-Tricks
 
-Windows Tips and Tricks
+Windows tips and tricks
 =======================
 
 .. contents:: Table of Contents
