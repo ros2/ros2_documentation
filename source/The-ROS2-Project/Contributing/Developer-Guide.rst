@@ -3,8 +3,17 @@
     Developer-Guide
     Contributing/Developer-Guide
 
-ROS 2 developer guide
-=====================
+Contributing to code
+====================
+
+.. toctree::
+   :maxdepth: 2
+
+   Contributing-to-code/Source-Control-Best-Practices
+   Contributing-to-code/Build-Farms
+   Contributing-to-code/Code-Style-Language-Versions
+   Contributing-to-code/Quality-Guide
+   Contributing-to-code/Windows-Tips-and-Tricks
 
 .. contents:: Table of Contents
    :depth: 2
@@ -38,7 +47,7 @@ The categories are differentiated by their policies on versioning, testing, docu
 The following sections are the specific development rules we follow to ensure core packages are of the highest quality ('Level 1').
 We recommend all ROS developers strive to adhere to the following policies to ensure quality across the ROS ecosystem.
 
-For more specific code recommendations please see :doc:`the Quality Guide <Quality-Guide>`.
+For more specific code recommendations please see :doc:`the Quality Guide <Contributing-to-code/Quality-Guide>`.
 
 Use of generative AI
 ^^^^^^^^^^^^^^^^^^^^
@@ -259,7 +268,7 @@ We will also require justification for merging a change or making a release that
 Linters and static analysis
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We will use :doc:`ROS code style <Code-Style-Language-Versions>` and enforce it with linters from `ament_lint_common <https://github.com/ament/ament_lint/tree/{REPOS_FILE_BRANCH}/ament_lint_common/doc/index.rst>`_.
+We will use :doc:`ROS code style <Contributing-to-code/Code-Style-Language-Versions>` and enforce it with linters from `ament_lint_common <https://github.com/ament/ament_lint/tree/{REPOS_FILE_BRANCH}/ament_lint_common/doc/index.rst>`_.
 All linters/static analysis that are part of ``ament_lint_common`` must be used.
 
 The `ament_lint_auto <https://github.com/ament/ament_lint/blob/{REPOS_FILE_BRANCH}/ament_lint_auto/doc/index.rst>`_ documentation provides information on running ``ament_lint_common``.
@@ -652,7 +661,7 @@ maintainers of all impacted packages (as defined by ``package.xml`` maintainer f
 Implementation
 ~~~~~~~~~~~~~~
 
-Before starting, look at :doc:`Contributing-to-code/Making-a-PR` for best practices in pull requests.
+Before starting, look at :doc:`Making a PR <Making-a-PR>` for best practices in pull requests.
 
 * For each repo to be modified:
 
@@ -730,7 +739,7 @@ There are several categories of jobs on the buildfarm:
 Two additional build farms support the ROS / ROS 2 ecosystem by providing building of source and
 binary packages, continuous integration, testing, and analysis.
 
-For details, frequently asked questions, and troubleshooting see :doc:`build farms <Build-Farms>`.
+For details, frequently asked questions, and troubleshooting see :doc:`build farms <Contributing-to-code/Build-Farms>`.
 
 Note on Coverage runs
 ^^^^^^^^^^^^^^^^^^^^^

@@ -3,7 +3,7 @@
     Source-Control-Best-Practices
     Contributing/Source-Control-Best-Practices
 
-Source Control Best Practices
+Source control best practices
 =============================
 
 .. contents:: Table of Contents
