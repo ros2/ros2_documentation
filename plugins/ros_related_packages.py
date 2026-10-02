@@ -38,9 +38,14 @@ DEFAULT_RELATED_PACKAGES_VISIBLE_MAX = 7
 
 
 def _normalize_field_name(raw: str) -> str:
-    """Normalize a docinfo field label for comparison (e.g. ``Area`` → ``area``)."""
+    """Normalize a metadata key for comparison.
+
+    Case, spaces, hyphens, and underscores are ignored, so ``contentType``,
+    ``content-type``, and ``Content-Type`` compare equal.
+    """
     name = raw.strip().lower().rstrip(':')
-    return name.replace(' ', '-')
+    name = name.replace('_', '-').replace(' ', '-')
+    return name.replace('-', '')
 
 
 def _field_value_from_doctree(document: nodes.document, wanted: str) -> str | None:
@@ -69,12 +74,13 @@ def _meta_get(metadata: dict, *names: str) -> str | None:
 
 
 def _meta_content_from_docutils(document: nodes.document, meta_name: str) -> str | None:
-    """Read ``docutils.nodes.meta`` emitted by ``.. meta::`` (typically ``<head>`` HTML meta tags).
+    """Read ``docutils.nodes.meta`` emitted by ``.. meta::``.
 
     Field names work in RST as ``.. meta::`` fields, e.g. ``:area: nodes, framework``.
     """
+    wanted = _normalize_field_name(meta_name)
     for node in document.traverse(nodes.meta):
-        if node.get('name') != meta_name:
+        if _normalize_field_name(str(node.get('name') or '')) != wanted:
             continue
         raw = node.get('content')
         if raw:

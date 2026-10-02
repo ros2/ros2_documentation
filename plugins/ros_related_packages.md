@@ -73,7 +73,7 @@ The package's `<description>` is shown after the package name, so its quality is
 
 ### How packages are matched
 
-The **primary area** is the first value in the page's `area`. A package is listed when that value appears **anywhere** in its `<area>` export. Matching on the primary value rather than the whole list is deliberate: it stops a page tagged `nodes, framework` from listing every package that merely shares `framework`.
+The **primary area** is the first value in the page's `area`. A package is listed when that value appears **anywhere** in its `<area>` export. Matching on the primary value stops a page tagged `nodes, framework` from listing every package that merely shares `framework`.
 
 ### The two groups
 
