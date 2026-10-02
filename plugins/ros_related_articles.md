@@ -35,7 +35,7 @@ The `.. ros-related-articles::` directive is replaced **during the Sphinx build*
 ```rst
 .. meta::
    :area: nodes, framework
-   :content-type: about
+   :contentType: about
 
 Understanding nodes
 ===================
@@ -49,6 +49,8 @@ Write the `Related articles:` intro yourself in the source. At page load it is p
 
 `area` holds one or more comma-separated values ordered **most specific first**, for example `nodes, framework` or `debugging, introspection, tools, framework`.
 
+Field names match after normalizing case and separators, so `:contentType:` and `:content-type:` are the same field.
+
 ### Options
 
 | Option | Values | Default | Purpose |
@@ -60,7 +62,7 @@ Write the `Related articles:` intro yourself in the source. At page load it is p
 
 The **primary area** is the first value in this page's `area`. Another page is related when that primary value appears **anywhere** in its own `area` list.
 
-Matching on the primary value rather than the whole list is deliberate: it stops a page tagged `nodes, framework` from pulling in every page that merely shares the broad `framework` parent.
+Matching on the primary value rather than the whole list stops a page tagged `nodes, framework` from pulling in every page that merely shares the broad `framework` parent.
 
 The page itself is always excluded, as is any page already linked from an adjacent hand-written list (see [Mixing in hand-written links](#mixing-in-hand-written-links)).
 
@@ -77,6 +79,7 @@ Results sort by `content-type` first, then alphabetically by title. Pages with n
 | 5 | Tutorial | `tutorial` |
 | 6 | Example | `example` |
 | 7 | Reference | `reference` |
+| 8 | Release note | `release-note`, `release note` |
 
 ### Layouts
 
@@ -127,7 +130,7 @@ From an author's perspective:
 |-----------|----------------------|
 | No directive | Nothing |
 | Matches found | `Related articles` heading, then one or more related-article lists |
-| Warning-free empty match set | Nothing (or only the author's hand-written list) |
+| No matches | Nothing (or only the author's hand-written list) |
 | Missing `area` | **Build fails** |
 
 ### Troubleshooting
@@ -151,7 +154,7 @@ Information for maintainers and developers working on or extending the related-a
 | File | Purpose |
 |------|---------|
 | [`ros_related_articles.py`](ros_related_articles.py) | Sphinx extension: directive, index build, and doctree resolution |
-| [`../source/_static/related_articles.js`](../source/_static/related_articles.js) | Expand/collapse control for long lists |
+| [`../source/_static/related_articles.js`](../source/_static/related_articles.js) | Promotes the intro heading and expand/collapse for long lists |
 | [`../source/_static/custom.css`](../source/_static/custom.css) | Styling for the heading, lists and the expand button |
 | [`../conf.py`](../conf.py) | Registers the extension in `extensions` and the script in `html_js_files` |
 
@@ -191,13 +194,13 @@ Read-only against the built HTML. It finds every `ul.related-articles`, promotes
 | New layout | Branch in `resolve_related_articles`; add the name to `_layout_option` if authors should be able to select it |
 | Start matching on `experience` | `_filter_by_area_containment` (or a new filter). `experience` is already indexed |
 
-`experience` is carried through the index but unused. Remove it or start using it rather than leaving it ambiguous if the taxonomy settles.
+`experience` is indexed but unused for matching and ordering.
 
 ### Tunable constants
 
 | Constant | Current | Effect |
 |----------|---------|--------|
-| `CONTENT_TYPE_ORDER` | 7 types plus spelling variants | Sort order; unknown types rank last |
+| `CONTENT_TYPE_ORDER` | 8 types plus spelling variants | Sort order; unknown types rank last |
 | `DEFAULT_RELATED_ARTICLES_VISIBLE_MAX` | `10` | Items visible before the expand control appears |
 
 ### Generated markup

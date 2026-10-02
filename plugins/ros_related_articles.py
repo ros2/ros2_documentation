@@ -37,13 +37,11 @@ Matching rules
 - ``experience`` is not used for matching. ``area`` is required.
 - The page itself is excluded. Adjacent manual lists are merged with
   duplicates removed. ``:max:`` limits each generated list (default: no cap).
-  When a list has more than 7 items, extras are collapsed behind a
+  When a list has more than 10 items, extras are collapsed behind a
   ``Show N more articles`` control (same pattern as related packages).
 
 Build flow: all documents are indexed on ``env-updated``, then each directive
-is resolved into static bullet lists on ``doctree-resolved``. See the
-community guide on the related directives for usage aimed at authors.
-[TODO: link once published]
+is resolved into static bullet lists on ``doctree-resolved``.
 """
 
 from __future__ import annotations
@@ -67,6 +65,8 @@ CONTENT_TYPE_ORDER = (
     'tutorial',
     'example',
     'reference',
+    'release-note',
+    'release note',
 )
 
 _CONTENT_TYPE_RANK = {name: index for index, name in enumerate(CONTENT_TYPE_ORDER)}
@@ -76,9 +76,14 @@ DEFAULT_RELATED_ARTICLES_VISIBLE_MAX = 10
 
 
 def _normalize_field_name(raw: str) -> str:
-    """Normalize a metadata key for comparison (e.g. ``Experience`` -> ``experience``)."""
+    """Normalize a metadata key for comparison.
+
+    Case, spaces, hyphens, and underscores are ignored, so ``contentType``,
+    ``content-type``, and ``Content-Type`` compare equal.
+    """
     name = raw.strip().lower().rstrip(':')
-    return name.replace(' ', '-')
+    name = name.replace('_', '-').replace(' ', '-')
+    return name.replace('-', '')
 
 
 def _field_value_from_doctree(document: nodes.document, wanted: str) -> str | None:
@@ -108,8 +113,9 @@ def _meta_get(metadata: dict, *names: str) -> str | None:
 
 def _meta_content_from_docutils(document: nodes.document, meta_name: str) -> str | None:
     """Read ``docutils.nodes.meta`` emitted by ``.. meta::``."""
+    wanted = _normalize_field_name(meta_name)
     for node in document.traverse(nodes.meta):
-        if node.get('name') != meta_name:
+        if _normalize_field_name(str(node.get('name') or '')) != wanted:
             continue
         raw = node.get('content')
         if raw:
@@ -427,7 +433,7 @@ class RosRelatedArticlesDirective(SphinxDirective):
 
        .. meta::
           :area: nodes, framework
-          :content-type: about
+          :contentType: about
     """
 
     has_content = False
