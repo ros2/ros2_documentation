@@ -68,7 +68,7 @@ After you've confirmed the issue is a genuine issue, and reproduced it, assign a
 Related content
 ---------------
 
-* :doc:`../../Contributing`
+* :doc:`../Contributing`
 * :doc:`Reporting-an-issue`
 
 FAQs
