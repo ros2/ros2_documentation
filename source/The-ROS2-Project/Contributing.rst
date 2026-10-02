@@ -7,6 +7,17 @@
 Contributing
 ============
 
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+
+   Contributing/Developer-Guide
+   Contributing/Contributing-to-documentation
+   Contributing/Reviewing-a-PR
+   Contributing/Making-a-PR
+   Contributing/Triaging-an-issue
+   Contributing/Reporting-an-issue
+
 .. contents:: Table of Contents
    :depth: 1
    :local:
@@ -60,18 +71,12 @@ To get started, you'll want to install from source; follow :ref:`the source inst
 Development Guides
 ^^^^^^^^^^^^^^^^^^
 
-.. toctree::
-   :titlesonly:
-   :maxdepth: 1
-
-   Contributing/Developer-Guide
-   Contributing/Source-Control-Best-Practices
-   Contributing/Code-Style-Language-Versions
-   Contributing/Quality-Guide
-   Contributing/Build-Farms
-   Contributing/Windows-Tips-and-Tricks
-   Contributing/Contributing-to-code
-   Contributing/Contributing-to-documentation
+* :doc:`Contributing/Developer-Guide`
+* :doc:`Contributing/Contributing-to-documentation`
+* :doc:`Contributing/Reviewing-a-PR`
+* :doc:`Contributing/Making-a-PR`
+* :doc:`Contributing/Triaging-an-issue`
+* :doc:`Contributing/Reporting-an-issue`
 
 What to work on
 ^^^^^^^^^^^^^^^
