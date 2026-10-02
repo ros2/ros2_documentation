@@ -10,8 +10,8 @@
    :distribution: {DISTRO}
    :product: {PRODUCT}
 
-Quality guide: ensuring code quality
-====================================
+Code quality guidelines
+=======================
 
 .. short-description::
    Code quality practices help ROS package maintainers build software that is reliable, secure, maintainable, and easier to validate.
@@ -24,7 +24,7 @@ Quality guide: ensuring code quality
    :depth: 2
    :local:
 
-This page gives guidance about how to improve the software quality of ROS 2 packages, focusing on more specific areas than the Quality Practices section of the :doc:`Developer Guide <Developer-Guide>`.
+This page gives guidance about how to improve the software quality of ROS 2 packages, focusing on more specific areas than the Quality Practices section of the :doc:`Developer Guide <../Developer-Guide>`.
 
 The sections below intend to address ROS 2 core, application and ecosystem packages and the core client libraries, C++ and Python.
 The solutions presented are motivated by design and implementation considerations to improve quality attributes like "Reliability", "Security", "Maintainability", "Determinism", etc. which relate to non-functional requirements.

@@ -112,7 +112,7 @@ Additional information
 Related content
 ---------------
 
-* :doc:`../../Contributing`
+* :doc:`../Contributing`
 * :doc:`Triaging-an-issue`
 
 FAQs

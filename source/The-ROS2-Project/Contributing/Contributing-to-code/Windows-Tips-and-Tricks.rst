@@ -9,8 +9,8 @@
    :distribution: {DISTRO}
    :product: {PRODUCT}
 
-Working with Windows Tips and Tricks - how to
-=============================================
+Working with Windows - how to
+=============================
 
 .. short-description::
    ROS supports Windows as a Tier 1 platform, but Windows development differs from Linux and other Unix-like environments.

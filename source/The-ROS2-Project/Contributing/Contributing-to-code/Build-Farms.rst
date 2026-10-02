@@ -11,7 +11,7 @@
 
 .. _BuildFarms:
 
-ROS Build Farms
+ROS build farms
 ===============
 
 .. short-description::
