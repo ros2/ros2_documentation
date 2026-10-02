@@ -3,6 +3,13 @@
     Developer-Guide
     Contributing/Developer-Guide
 
+.. meta::
+   :contentType: reference
+   :experience: beginner, intermediate, expert
+   :area: contributing, community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Contributing to code
 ====================
 
@@ -14,6 +21,14 @@ Contributing to code
    Contributing-to-code/Code-Style-Language-Versions
    Contributing-to-code/Quality-Guide
    Contributing-to-code/Windows-Tips-and-Tricks
+
+.. short-description::
+   Consistent development practices help ROS contributors maintain stable, high-quality packages across the ecosystem.
+   This article describes the core development principles, quality expectations, versioning rules, platform support policies, and review practices used when developing ROS.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2

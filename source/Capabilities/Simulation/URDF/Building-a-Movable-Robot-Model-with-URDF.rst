@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: simulation, capabilities
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/URDF/Building-a-Movable-Robot-Model-with-URDF
@@ -5,8 +12,17 @@
 
 .. _MoveableURDF:
 
-Building a movable robot model
-==============================
+Building a movable robot model — tutorial
+=========================================
+
+.. short-description::
+   URDF models can describe how robot links move, not only how they look.
+   This article explains how to update an R2D2 model with continuous, revolute, and prismatic joints.
+   After following it, you will be able to define joint axes, limits, and movable poses for a robot model.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Learn how to define movable joints in URDF.
 

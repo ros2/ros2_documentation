@@ -1,13 +1,33 @@
+.. meta::
+   :contentType: how-to
+   :experience: intermediate, expert
+   :area: installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Installation/RMW-Implementations/Non-DDS-Implementations/Working-with-Zenoh
 
-Zenoh
-=====
+Working with Zenoh - how-to
+===========================
+
+.. short-description::
+   Zenoh is an open source communication protocol and middleware for efficient data distribution across heterogeneous ROS systems.
+   This article describes how to install ``rmw_zenoh_cpp``, select it as your active RMW implementation, and verify communication with a Zenoh router.
+   After you follow these steps, you can run ROS nodes using Zenoh.
 
 Zenoh is an open source communication protocol and middleware designed to facilitate efficient data distribution across heterogeneous systems.
 It provides location-transparent abstractions for high performance pub/sub and distributed queries.
 See also: https://zenoh.io/docs/getting-started/first-app/
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 Prerequisites
 -------------
@@ -57,7 +77,6 @@ See `zenoh_cpp_vendor/CMakeLists.txt <https://github.com/ros2/rmw_zenoh/blob/{DI
 
     source /opt/ros/{DISTRO}/setup.bash
     colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release
-
 
 Switch to rmw_zenoh_cpp
 ------------------------

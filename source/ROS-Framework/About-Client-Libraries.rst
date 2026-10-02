@@ -6,8 +6,23 @@
 
 .. include:: ../../global_substitutions.txt
 
+.. meta::
+   :contentType: about
+   :experience: beginner
+   :area: client-libraries, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Client libraries
 ================
+
+.. short-description::
+   Client libraries in ROS provide the APIs that developers use to create nodes, communicate between processes, and access core system functionality.
+   This article explains the supported client libraries, how they relate to lower-level ROS interfaces, and how they enable development in different programming languages.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. toctree::
    :maxdepth: 1
@@ -23,10 +38,9 @@ Client libraries are the APIs that allow you to implement your ROS code.
 This article explains ``rcl``, the shared core library, and the main C++ and Python client libraries.
 With this information, you can choose the right library for your language and understand how nodes written in different languages work together.
 
-**[Area: Framework | Content-type: concept | Experience: beginner]**
-
-.. contents:: Table of Contents
-   :local:
+.. contents:: Contents
+    :depth: 2
+    :local:
 
 Summary
 -------
