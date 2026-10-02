@@ -60,12 +60,22 @@ Install ROS 2
 -------------
 
 Binary releases of {DISTRO_TITLE_FULL} are not provided.
-Instead you may download nightly :ref:`prerelease binaries <Prerelease_binaries>`.
+Instead you may download nightly `prerelease binaries <https://github.com/ros2/ros2/releases/tag/release-rolling-nightlies>`_.
 
 * Download the latest package for Windows, e.g., ``ros2-package-windows-AMD64.zip``.
 * Unpack the zip file somewhere on your system (we'll assume ``C:\dev\``).
 * Change the name of the extracted folder to match the distro (we'll assume ``C:\dev\{DISTRO}``)
 
+.. note::
+
+   These binaries are built using the Release build configuration.
+   On Windows (MSVC), this means downstream binaries (e.g., your own nodes) also need to be built using the Release or RelWithDebInfo configuration for ABI compatibility.
+   To build downstream packages using another build configuration, :doc:`build ROS 2 from source <Alternatives/Windows-Development-Setup>`.
+   For example, using Debug:
+
+   .. code-block:: console
+
+      $ colcon build --cmake-args -DCMAKE_BUILD_TYPE=Debug
 
 Install Pixi dependencies
 ^^^^^^^^^^^^^^^^^^^^^^^^^

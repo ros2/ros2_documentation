@@ -207,6 +207,8 @@ Open the file using your preferred text editor.
       return 0;
     }
 
+.. include:: ../../../../_internal/Rclcpp-Convenience-Header-Note.rst
+
 1.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
 
@@ -226,6 +228,19 @@ Once the listener is created, it starts receiving tf2 transformations over the w
 
     tf_listener_ =
       std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
+
+.. note::
+
+   The constructor above (``TransformListener(*tf_buffer_)``) is a simplified constructor that creates a separate internal node under the hood to manage the subscriptions.
+
+   If you are writing a **Composable Node** (component) or need the transform listener to honor node-specific options and topic remappings (such as namespace or topic remapping for ``/tf``), pass ``this`` (or your node's ``NodeInterfaces``) to the constructor instead:
+
+   .. code-block:: C++
+
+      tf_listener_ =
+        std::make_shared<tf2_ros::TransformListener>(*tf_buffer_, this);
+
+   This ensures the subscriptions are created on the existing node and inherit all parameter and topic configurations.
 
 Finally, we query the listener for a specific transformation.
 We call ``lookup_transform`` method with following arguments:

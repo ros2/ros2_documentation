@@ -62,6 +62,7 @@ For each ROS distribution you want to release into:
 
 1. fill out the following template
 2. put the filled-out template into the ``distribution.yaml`` file in the corresponding ROS distribution's folder
+3. make sure the MY-REPO-NAME stands on the right place in the alphabetical ordering in the yaml file
 
 .. code-block:: yaml
 

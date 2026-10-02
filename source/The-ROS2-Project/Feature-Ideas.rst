@@ -4,7 +4,7 @@
 
 .. _FeatureIdeas:
 
-Feature Ideas
+Feature ideas
 =============
 
 .. contents:: Table of Contents

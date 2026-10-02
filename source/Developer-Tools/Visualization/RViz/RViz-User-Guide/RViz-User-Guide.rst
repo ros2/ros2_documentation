@@ -185,8 +185,8 @@ There are a number of different camera types available in the visualizer.
 
 Camera types consist both of different ways of controlling the camera and different types of projection (Orthographic vs. Perspective).
 
-Orbital Camera (default)
-^^^^^^^^^^^^^^^^^^^^^^^^
+Orbit (default)
+^^^^^^^^^^^^^^^
 The orbital camera simply rotates around a focal point, while always looking at that point.
 The focal point is visualized as a small disc while you're moving the camera:
 
@@ -195,54 +195,68 @@ The focal point is visualized as a small disc while you're moving the camera:
 Controls:
 
 * **Left mouse button**: Click and drag to rotate around the focal point.
-* **Middle mouse button**: Click and drag to move the focal point in the plane formed by the camera's up and right vectors.
+* **Left mouse button + Shift** or **Middle mouse button**: Click and drag to move the focal point in the plane formed by the camera's up and right vectors.
   The distance moved depends on the focal point -- if there is an object on the focal point, and you click on top of it, it will stay under your mouse.
 * **Right mouse button**: Click and drag to zoom in/out of the focal point.
   Dragging up zooms in, down zooms out.
-* **Scrollwheel**: Zoom in/out of the focal point
+* **Right mouse button + Shift**: Click and drag to translate in/out of the focal point.
+  Dragging up dollies in, down dollies out.
+* **Scrollwheel**: Zoom in/out of the focal point.
+* **Scrollwheel + Shift**: Dolly in/out of the focal point.
 
-FPS (first-person) Camera
-^^^^^^^^^^^^^^^^^^^^^^^^^
+In general:
+
+* The left and right mouse buttons, as well as the scrollwheel, leave the focal point as-is and change the camera's pose and zoom.
+* The middle mouse button and anything with Shift pressed moves the focal point (and leaves the camera to focal point relation as-is).
+
+FPS (first-person)
+^^^^^^^^^^^^^^^^^^
 The FPS camera is a first-person camera, so it rotates as if you're looking with your head.
 
 Controls:
 
 * **Left mouse button**: Click and drag to rotate.
   Control-click to pick the object under the mouse and look directly at it.
-* **Middle mouse button**: Click and drag to move along the plane formed by the camera's up and right vectors.
+* **Left mouse button + Shift** or **Middle mouse button**: Click and drag to move along the plane formed by the camera's up and right vectors.
 * **Right mouse button**: Click and drag to move along the camera's forward vector.
   Dragging up moves forward, down moves backward.
 * **Scrollwheel**: Move forward/backward.
 
-Top-down Orthographic
-^^^^^^^^^^^^^^^^^^^^^
-The top-down orthographic camera always looks down along the Z axis (in the robot frame),
+TopDownOrtho
+^^^^^^^^^^^^
+The top-down orthographic camera always looks down along the fixed frame Z axis,
 and is an orthographic view which means things do not get smaller as they get farther away.
 
 Controls:
 
 * **Left mouse button**: Click and drag to rotate around the Z axis.
-* **Middle mouse button**: Click and drag to move the camera along the XY plane.
+* **Left mouse button + Shift** or **Middle mouse button**: Click and drag to move the camera along the XY plane.
 * **Right mouse button**: Click and drag to zoom the image.
 * **Scrollwheel**: Zoom the image.
 
-XY Orbit
-^^^^^^^^
-Same as the orbital camera, with the focus point restricted to the XY plane.
+XYOrbit
+^^^^^^^
+Same as the orbital camera, except that translation operations occur along the XY plane and Z axis of the fixed frame instead of those of the camera frame.
 
 Controls:
 
-See orbital camera.
+* **Left mouse button**: Click and drag to rotate around the focal point.
+* **Left mouse button + Shift** or **Middle mouse button**: Click and drag to move the focal point in the fixed frame XY plane.
+* **Right mouse button**: Click and drag to zoom in/out of the focal point.
+  Dragging up zooms in, down zooms out.
+* **Right mouse button + Shift**: Click and drag to translate along the fixed frame Z axis.
+* **Scrollwheel**: Zoom in/out of the focal point.
+* **Scrollwheel + Shift**: Translate along the fixed frame Z axis.
 
-Third Person Follower
-^^^^^^^^^^^^^^^^^^^^^
+ThirdPersonFollower
+^^^^^^^^^^^^^^^^^^^
 The camera maintains a constant viewing angle towards the target frame.
 In contrast to XY Orbit the camera turns if the target frame yaws.
 This could be handy if you are doing 3D mapping of a hallway with corners for example.
 
 Controls:
 
-See orbital camera.
+See XYOrbit camera.
 
 
 Custom Views

@@ -2,6 +2,13 @@
 
     How-To-Guides/Migrating-from-ROS1/Migrating-Scripts
 
+.. meta::
+   :contentType:
+   :experience:
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Migrating Scripts
 =================
 
