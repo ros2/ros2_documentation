@@ -47,6 +47,10 @@ We provide ROS 2 binary packages for the following platforms:
 
   * :doc:`Windows Binary (VS 2019) <Installation/Windows-Install-Binary>`
 
+* Fedora Linux (amd64)
+
+  * :doc:`RPM packages <Installation/RHEL-Install-RPMs>` (recommended)
+
 .. _building-from-source:
 
 Building from source
