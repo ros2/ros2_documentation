@@ -26,10 +26,6 @@ Tier 1 platforms:
 * Ubuntu 24.04 (Noble): ``amd64`` and ``arm64``
 * Windows 11 (Visual Studio 2022): ``amd64``
 
-Tier 2 platforms:
-
-* RHEL 10: ``amd64``
-
 Tier 3 platforms:
 
 * Debian Trixie (13): ``amd64``
