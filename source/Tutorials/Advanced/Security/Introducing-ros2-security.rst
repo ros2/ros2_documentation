@@ -71,7 +71,11 @@ Fast DDS requires an additional CMake flag to build the security plugins, so the
 
 .. code-block:: console
 
+<<<<<<< HEAD:source/Tutorials/Advanced/Security/Introducing-ros2-security.rst
   $ colcon build --symlink-install --cmake-args -DSECURITY=ON --packages-select fastrtps rmw_fastrtps_cpp rmw_fastrtps_dynamic_cpp rmw_fastrtps_shared_cpp
+=======
+  $ colcon build --symlink-install --cmake-args -DSECURITY=ON --packages-select fastdds rmw_fastrtps_cpp
+>>>>>>> 88573f7 (Remove references to removed packages from rmw_fastrtps (#7223)):source/Developer-Tools/Introspection-and-analysis/Security/Introducing-ros2-security.rst
 
 
 Selecting an alternate middleware
