@@ -23,13 +23,13 @@ sensor configurations, terrain types, human actors, articulated vehicles and env
 You can run these demos either as a standalone application using the ``mvsim`` CLI,
 or as a ROS 2 node that publishes sensor data and accepts velocity commands through standard ROS 2 topics.
 
-.. image:: Image/mvsim_demos_screenshot.png
+.. image:: Image/mvsim_demos_screenshot.jpg
    :alt: MVSim demo screenshots
 
 Prerequisites
 -------------
 
-You should have MVSim installed following the :doc:`../Webots/Installation-Ubuntu` tutorial.
+You should have MVSim installed following the :doc:`Installation-Ubuntu` tutorial.
 
 Tasks
 -----
@@ -124,8 +124,8 @@ Some launch files include an ``use_rviz`` option:
 
 Alternatively, open RViz2 manually and add displays for the topics of interest (e.g., ``LaserScan``, ``PointCloud2``, ``Image``, ``Odometry``).
 
-.. image:: Image/mvsim_depth_camera_demo.png
-   :alt: MVSim depth camera visualization
+.. image:: Image/mvsim_rviz_warehouse.jpg
+   :alt: MVSim warehouse demo sensors visualized in RViz2
 
 6 Headless mode
 ^^^^^^^^^^^^^^^
