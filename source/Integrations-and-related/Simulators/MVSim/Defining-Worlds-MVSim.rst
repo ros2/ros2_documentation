@@ -306,7 +306,9 @@ World files support ``<include>`` directives, variable substitution, mathematica
 Besides the sun (a directional light casting shadows), worlds can define point and spot lights,
 for example for indoor lamps, together with hemisphere ambient lighting and skyboxes.
 3D models can be loaded from common formats (glTF, COLLADA, OBJ, FBX, and others).
+Textures with transparent parts, such as foliage or fences, are rendered as cutouts that also cast correct shadows.
 These settings affect both the GUI and the simulated cameras.
+Camera sensors use a cheaper shadow quality than the GUI by default (``<sensor_shadow_cascades>``), to keep simulation fast.
 See `Light and shadows configuration <https://mvsimulator.readthedocs.io/en/latest/world_lighting.html>`__.
 
 **Headless and faster-than-real-time:**
