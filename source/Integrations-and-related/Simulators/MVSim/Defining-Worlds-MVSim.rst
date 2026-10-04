@@ -77,11 +77,6 @@ Here is a minimal world file that creates an empty environment with one robot:
                 <V>0.0</V><W>0</W>
             </controller>
         </dynamics>
-
-        <!-- Motor controller: accept twist commands, PID controller -->
-        <controller class="twist_pid">
-          <KP>100</KP> <KI>5</KI> <max_torque>50</max_torque>
-        </controller>
       </vehicle>
     </mvsim_world>
 
@@ -214,10 +209,10 @@ MVSim supports several types of environment elements:
 
 .. code-block:: xml
 
-    <block class="obstacle1">
+    <block name="box1">
       <shape_from_visual/>
       <visual>
-        <model_uri>package://mvsim/models/box.dae</model_uri>
+        <model_uri>https://mrpt.github.io/mvsim-models/cardboard_box_01.zip/cardboard_box_01/cardboard_box_01.gltf</model_uri>
       </visual>
       <init_pose>3.0 2.0 0</init_pose>
       <mass>20</mass>
@@ -242,8 +237,11 @@ Each vehicle can use different motor controllers:
 - ``twist_pid``: Accepts ``geometry_msgs/msg/Twist`` commands with PID velocity tracking.
   This is the most common choice for ROS 2 integration.
 - ``twist_ideal``: Instantaneous velocity commands (no dynamics delay).
-- ``twist_front_steer_pid``: For Ackermann vehicles controlled via linear velocity and steering angle.
+- ``twist_front_steer_pid``: For Ackermann vehicles, accepts ``geometry_msgs/msg/Twist`` commands.
+- ``front_steer_pid``: For Ackermann vehicles controlled via linear velocity and steering angle.
 - ``raw``: Direct wheel torque control.
+- ``trajectory``: Follows a predefined list of timed waypoints given in the world file,
+  useful for reproducible experiments and dataset generation without any external node.
 
 5 Sensor noise and configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -254,22 +252,16 @@ For example, an IMU sensor with noise parameters:
 .. code-block:: xml
 
     <sensor class="imu" name="imu1">
-      <pose>0 0 0.5 0 0 0</pose>  <!-- x y z roll pitch yaw -->
-      <rate_hz>100</rate_hz>
+      <pose_3d>0 0 0.5 0 0 0</pose_3d>  <!-- x y z yaw pitch roll -->
+      <sensor_period>0.01</sensor_period>  <!-- seconds (100 Hz) -->
 
-      <!-- Gyroscope noise -->
-      <gyroscope_noise>
-        <noise_std>1e-3</noise_std>           <!-- rad/s -->
-        <bias_initial_std>1e-4</bias_initial_std>
-        <bias_drift>1e-6</bias_drift>
-      </gyroscope_noise>
+      <!-- White noise (std. dev.): gyroscope [rad/s], accelerometer [m/s^2] -->
+      <angular_velocity_white_noise_std_noise>2e-4</angular_velocity_white_noise_std_noise>
+      <linear_acceleration_white_noise_std_noise>0.017</linear_acceleration_white_noise_std_noise>
 
-      <!-- Accelerometer noise -->
-      <accelerometer_noise>
-        <noise_std>1e-2</noise_std>           <!-- m/s^2 -->
-        <bias_initial_std>1e-3</bias_initial_std>
-        <bias_drift>1e-5</bias_drift>
-      </accelerometer_noise>
+      <!-- Bias random walk (0 = no bias drift) -->
+      <angular_velocity_random_walk_std_noise>1e-5</angular_velocity_random_walk_std_noise>
+      <linear_acceleration_random_walk_std_noise>1e-4</linear_acceleration_random_walk_std_noise>
     </sensor>
 
 LiDAR sensors support parameters for range, angular resolution, and noise:
@@ -277,11 +269,11 @@ LiDAR sensors support parameters for range, angular resolution, and noise:
 .. code-block:: xml
 
     <sensor class="laser" name="laser1">
-      <pose>0.15 0 0.3 0 0 0</pose>
-      <rate_hz>10</rate_hz>
-      <ray_count>360</ray_count>
+      <pose_3d>0.15 0 0.3 0 0 0</pose_3d>  <!-- x y z yaw pitch roll -->
+      <sensor_period>0.1</sensor_period>  <!-- seconds (10 Hz) -->
+      <nrays>360</nrays>
       <fov_degrees>360</fov_degrees>
-      <range_max>20.0</range_max>
+      <max_range>20.0</max_range>
       <range_std_noise>0.01</range_std_noise>  <!-- meters -->
       <raytrace_3d>true</raytrace_3d>  <!-- use 3D collision for 2D scans -->
     </sensor>
@@ -310,6 +302,13 @@ enabling simulation of trailers, tow ropes, and articulated systems.
 World files support ``<include>`` directives, variable substitution, mathematical expressions,
 ``<for>`` loops, and ``<if>`` conditionals, making it possible to procedurally generate complex environments.
 
+**Lighting and shadows:**
+Besides the sun (a directional light casting shadows), worlds can define point and spot lights,
+for example for indoor lamps, together with hemisphere ambient lighting and skyboxes.
+3D models can be loaded from common formats (glTF, COLLADA, OBJ, FBX, and others).
+These settings affect both the GUI and the simulated cameras.
+See `Light and shadows configuration <https://mvsimulator.readthedocs.io/en/latest/world_lighting.html>`__.
+
 **Headless and faster-than-real-time:**
 MVSim can run without a GUI and at configurable simulation speed,
 which is useful for automated testing and reinforcement learning workflows.
@@ -333,8 +332,8 @@ MVSim occupies a different niche compared to other simulators:
 - Physics is 2D (Box2D): no full 3D rigid body dynamics.
   Objects do not tip over or fly.
   Elevation maps add terrain height but the physics remains fundamentally 2D.
-- Sensor simulation is less detailed than full 3D simulators: camera rendering and LiDAR models
-  are functional but not photorealistic.
+- Cameras and LiDARs are simulated with real-time OpenGL rendering (with shadows and multiple lights),
+  which is fast but less photorealistic than game-engine based simulators.
 - Smaller ecosystem of pre-built models and environments compared to Gazebo.
 - Focused on wheeled mobile robots.
 
