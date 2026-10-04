@@ -8,7 +8,6 @@ Coming Soon
 
    Introspection-and-analysis/About-Command-Line-Tools
    Introspection-and-analysis/Publishing-Messages-Using-YAML-Files
-   Introspection-and-analysis/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial
    Introspection-and-analysis/Discovery-Server/Discovery-Server
    Introspection-and-analysis/FastDDS-Configuration
    Introspection-and-analysis/Improved-Dynamic-Discovery
