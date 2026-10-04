@@ -46,7 +46,7 @@ Depending on your skills and experience, you can review and update the ROS docum
 
 * Review code submitted by others, to help improvements and bug fixes get merged faster for the benefit of everyone.
 
-  :ref:'`See Review a code pull request <review-code>`
+  :ref:`See Review a code pull request <review-code>`
 
 Contribute to ROS development
 -----------------------------
