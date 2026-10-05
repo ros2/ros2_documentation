@@ -41,7 +41,7 @@ The review is looking for:
 * Conforms to developer guidelines:
 
     * :doc:`Developer Guide <../../The-ROS2-Project/Contributing/Developer-Guide>`
-    * :doc:`Code Style Guide <../../The-ROS2-Project/Contributing/Code-Style-Language-Versions>`
+    * :doc:`Code Style Guide <../../The-ROS2-Project/Contributing/Contributing-to-code/Code-Style-Language-Versions>`
 
 * Adds tests for the bug/feature
 * Adds documentation for new features
