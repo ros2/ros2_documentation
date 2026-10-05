@@ -1,5 +1,20 @@
+.. meta::
+   :contentType: about
+   :experience: beginner
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Topics vs Services vs Actions
 =============================
+
+.. short-description::
+   ROS interfaces support different communication patterns for exchanging data between nodes.
+   This article explains when to use topics, services, and actions so you can choose the right interface type for your system design.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Contents
    :depth: 1
