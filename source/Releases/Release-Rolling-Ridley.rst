@@ -1,11 +1,22 @@
+.. meta::
+   :contentType: release-note
+   :experience: intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
-    Releases/Release-Rolling-Ridley
+    Get-Started/Releases/Release-Rolling-Ridley
 
 Rolling Ridley (``rolling``)
 ============================
 
-.. contents:: Table of Contents
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -29,10 +40,6 @@ Tier 1 platforms:
 * Red Hat Enterprise Linux 10: ``amd64``
 * Ubuntu 24.04 (Noble): ``amd64`` and ``arm64``
 * Windows 11 (Visual Studio 2022): ``amd64``
-
-Tier 2 platforms:
-
-* RHEL 10: ``amd64``
 
 Tier 3 platforms:
 

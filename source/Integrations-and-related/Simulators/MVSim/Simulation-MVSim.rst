@@ -1,9 +1,25 @@
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: simulation, capabilities
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Advanced/Simulators/MVSim/Simulation-MVSim
 
-MVSim
-=====
+Configuring MVSim with ROS 2 - tutorial
+=======================================
+
+.. short-description::
+   MVSim is useful for fast mobile robot simulation, navigation testing, and multi-robot scenarios.
+   This tutorial set introduces installation, demo launch, and world-definition tasks for MVSim.
+   After using it, you will know which MVSim tutorial to follow for setup or custom scenario work.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 This set of tutorials will teach you how to configure the `MVSim <https://mvsimulator.readthedocs.io/>`__ simulator with ROS 2.
 

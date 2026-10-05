@@ -2,7 +2,20 @@
 
    Concepts/About-Security
    Concepts/Intermediate/About-Security
-   Tutorials/Advanced/Security/Security-Main
+
+.. meta::
+   :contentType: about
+   :experience: intermediate
+   :area: tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+.. meta::
+   :contentType: about
+   :experience: expert
+   :area: node-management
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
 
 ROS 2 Security
 ==============

@@ -2,8 +2,24 @@
 
     Concepts/Basic/About-Launch
 
+.. meta::
+   :contentType: about
+   :experience: beginner
+   :area: node-management, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Node management
 ===============
+
+.. short-description::
+   Launch files help you start and configure multiple nodes in a ROS system without running each process manually.
+   This article introduces the ROS launch system and explains how it uses launch files to describe, run, and manage system processes.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
 .. toctree::
    :maxdepth: 2
    :hidden:
@@ -23,6 +39,7 @@ Node management
    Launch/Security/About-Security
 
 .. contents:: Table of Contents
+   :depth: 2
    :local:
 
 A ROS 2 system typically consists of many nodes running across many different processes (and even different machines).
