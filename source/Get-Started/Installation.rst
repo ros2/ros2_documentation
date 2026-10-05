@@ -19,6 +19,7 @@ Options for installing ROS 2 {DISTRO_TITLE_FULL}:
    Installation/Alternatives
    Installation/RMW-Implementations
    Installation/ROS-2-Mirrors
+   Installation/Snapshot-Repository
    Installation/Installing-on-Raspberry-Pi
    Installation/Installation-Troubleshooting
 
@@ -45,6 +46,10 @@ We provide ROS 2 binary packages for the following platforms:
 * Windows 11 (amd64)
 
   * :doc:`Windows Binary (VS 2019) <Installation/Windows-Install-Binary>`
+
+* Fedora Linux (amd64)
+
+  * :doc:`RPM packages <Installation/RHEL-Install-RPMs>` (recommended)
 
 .. _building-from-source:
 

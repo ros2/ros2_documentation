@@ -5,7 +5,7 @@
 .. _BuildFarms:
 
 
-ROS Build Farms
+ROS build farms
 ===============
 
 .. contents:: Table of Contents

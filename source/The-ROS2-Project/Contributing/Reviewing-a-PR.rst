@@ -17,12 +17,12 @@ Summary
 Reviewing a pull request (PR) from a contributor allows you to check that their changes meet the appropriate guidelines and standards.
 Anyone is welcome to review and approve a pull request.
 Changes are ready to merge after they have been approved.
-Only a :doc:`Committer </The-ROS2-Project/Governance>` for the target repository can merge a pull request into that repository, and they will not do so until it has been approved.
+Only a :doc:`Committer <../Governance>` for the target repository can merge a pull request into that repository, and they will not do so until it has been approved.
 
 Prerequisites
 -------------
 
-A code or documentation contributor has :doc:`made a pull request </The-ROS2-Project/Contributing/Contributing-to-code/Making-a-PR>` to merge their changes into one of `the ROS repositories <https://github.com/ros2>`__.
+A code or documentation contributor has :doc:`made a pull request <Making-a-PR>` to merge their changes into one of `the ROS repositories <https://github.com/ros2>`__.
 
 Steps
 -----
@@ -53,8 +53,8 @@ Steps
    * If the changes are based on a design document, such as a `REP <https://reps.openrobotics.org/>`__, verify that the changes are consistent with the design.
    * For code changes, ensure that the changes:
 
-     * Follow the :doc:`Developer guide <../Developer-Guide>`.
-     * Follow the :doc:`Code style guide <../Code-Style-Language-Versions>`.
+     * Follow the :doc:`Developer guide <Developer-Guide>`.
+     * Follow the :doc:`Code style guide <Contributing-to-code/Code-Style-Language-Versions>`.
      * Include tests for the new feature or bug fix.
 
    * For documentation changes, ensure the changes follow the :doc:`documentation guidance </The-ROS2-Project/Contributing/Contributing-to-documentation>`.
