@@ -3,8 +3,24 @@
     Intra-Process-Communication
     Tutorials/Intra-Process-Communication
 
-Setting up efficient intra-process communication
-================================================
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: nodes, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Setting up efficient intra-process communication — tutorial
+===========================================================
+
+.. short-description::
+   Intra-process communication can improve performance when multiple ROS nodes run in the same process.
+   This article shows how to install and run the intra-process demos, and how to interpret message addresses to confirm when zero-copy transport is being used.
+   After following it, you can evaluate common pipeline layouts and identify when copies are avoided.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2

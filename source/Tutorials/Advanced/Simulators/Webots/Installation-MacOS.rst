@@ -1,5 +1,30 @@
+<<<<<<< HEAD:source/Tutorials/Advanced/Simulators/Webots/Installation-MacOS.rst
 Installation (macOS)
 ====================
+=======
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: simulation, capabilities, installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+.. redirect-from::
+
+    Tutorials/Advanced/Simulators/Webots/Installation-MacOS
+
+Installing Webots on macOS - tutorial
+=====================================
+
+.. short-description::
+   Webots can run natively on macOS while ROS components run inside a Linux virtual machine.
+   This tutorial shows how to prepare the VM, install ``webots_ros2``, and run a simulation example.
+   After following it, you will have a macOS setup that connects Webots to ROS nodes in the VM.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/Integrations-and-related/Simulators/Webots/Installation-MacOS.rst
 
 **Goal:** Install the ``webots_ros2`` package and run simulation examples on macOS.
 

@@ -1,10 +1,30 @@
+<<<<<<< HEAD:source/How-To-Guides/Using-Custom-Rosdistro.rst
 Using Custom Rosdistro Version
 ==============================
+=======
+.. meta::
+   :contentType: how-to
+   :experience: TBD
+   :area: installation, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+.. redirect-from::
+
+    How-To-Guides/Using-Custom-Rosdistro
+
+Using a custom rosdistro version - how-to
+=========================================
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/Migration-and-Upgrades/Using-Custom-Rosdistro.rst
 
 
 .. contents:: Contents
-    :depth: 2
-    :local:
+   :depth: 2
+   :local:
 
 
 Overview

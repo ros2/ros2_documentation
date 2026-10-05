@@ -1,16 +1,31 @@
+.. meta::
+   :contentType: how-to
+   :experience: expert
+   :area: installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
   Installation/RHEL-Development-Setup
 
 .. _rhel-latest:
 
-RHEL (source)
-=============
+Installing on RHEL (source) - how-to
+====================================
 
-.. contents:: Table of Contents
+.. short-description::
+   Building ROS from source on RHEL gives you direct access to the development workspace and package sources.
+   This article describes how to set up system dependencies, import the source repositories, and build ROS.
+   After you follow these steps, you will be able to source the workspace and run ROS examples.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
-
 
 System requirements
 -------------------
@@ -42,9 +57,14 @@ They can be enabled by running:
 .. note:: This step may be slightly different depending on the distribution you are using.
           `Check the EPEL documentation <https://docs.fedoraproject.org/en-US/epel/#_quickstart>`_
 
+<<<<<<< HEAD:source/Installation/Alternatives/RHEL-Development-Setup.rst
 
 Install development tools and ROS tools
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+=======
+Install development tools
+^^^^^^^^^^^^^^^^^^^^^^^^^
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/Get-Started/Installation/Alternatives/RHEL-Development-Setup.rst
 
 .. code-block:: console
 

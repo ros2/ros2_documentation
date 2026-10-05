@@ -2,8 +2,29 @@
 
     Contributing/Windows-Tips-and-Tricks
 
+<<<<<<< HEAD:source/The-ROS2-Project/Contributing/Windows-Tips-and-Tricks.rst
 Windows Tips and Tricks
 =======================
+=======
+.. meta::
+   :contentType: how-to
+   :experience: beginner, intermediate, expert
+   :area: contributing, community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Working with Windows - how to
+=============================
+
+.. short-description::
+   ROS supports Windows as a Tier 1 platform, but Windows development differs from Linux and other Unix-like environments.
+   This article describes practical issues around path lengths, DLL symbol visibility, path separators, timing, and shells.
+   After reading, you can make Windows-friendly choices when building, testing, and troubleshooting ROS packages.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/The-ROS2-Project/Contributing/Contributing-to-code/Windows-Tips-and-Tricks.rst
 
 .. contents:: Table of Contents
    :depth: 2

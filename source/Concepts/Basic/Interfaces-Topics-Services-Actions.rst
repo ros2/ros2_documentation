@@ -2,15 +2,47 @@
 
   How-To-Guides/Topics-Services-Actions
 
+.. meta::
+   :contentType: about
+   :experience: beginner
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _interfaces-topics-services-actions:
 
 Interfaces (topics, services, actions)
 ======================================
 
+<<<<<<< HEAD:source/Concepts/Basic/Interfaces-Topics-Services-Actions.rst
+=======
+.. short-description::
+   Interfaces in ROS define how nodes exchange data, helping you design communication between different parts of a robotic application.
+   This article explains topics, services, and actions, and helps you choose the right interface type for different communication patterns.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+
+   interfaces/About-Interfaces
+   interfaces/About-Topics
+   interfaces/About-Services
+   interfaces/About-Actions
+
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/ROS-Framework/Interfaces-Topics-Services-Actions.rst
 Interfaces in ROS define how nodes exchange data.
 This article explains the different types of ROS interface and the differences between them.
 With this information, you'll be able to select the right interfaces for your purposes.
 
+<<<<<<< HEAD:source/Concepts/Basic/Interfaces-Topics-Services-Actions.rst
 **Area: ROS-framework | Content-type: concept | Experience: beginner**
 
 .. contents:: Table of Contents
@@ -25,6 +57,8 @@ With this information, you'll be able to select the right interfaces for your pu
    About-Services
    About-Actions
 
+=======
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/ROS-Framework/Interfaces-Topics-Services-Actions.rst
 Summary
 -------
 

@@ -1,3 +1,17 @@
+<<<<<<< HEAD:source/Tutorials/Intermediate/RViz/RViz-Main.rst
+=======
+.. redirect-from::
+
+    Tutorials/Intermediate/RViz/RViz-Main
+
+.. meta::
+   :contentType:
+   :experience: intermediate
+   :area: visualization, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/Developer-Tools/Visualization/RViz/RViz-Main.rst
 RViz
 ====
 

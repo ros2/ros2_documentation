@@ -1,3 +1,17 @@
+<<<<<<< HEAD
+=======
+.. meta::
+   :contentType: release-note
+   :experience: intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+.. redirect-from::
+
+    Get-Started/Releases/Release-Kilted-Kaiju
+
+>>>>>>> dfb668f (3di | Enhance metadata (#6981))
 .. _kilted-release:
 
 Kilted Kaiju (codename 'kilted'; May, 2025)
@@ -8,7 +22,11 @@ Kilted Kaiju (codename 'kilted'; May, 2025)
 
    Kilted-Kaiju-Complete-Changelog
 
-.. contents:: Table of Contents
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -453,6 +471,20 @@ Try replacing the ``ament_target_dependencies()`` call with the  ``target_link_l
 
 For more information see `ament/ament_cmake#572 <https://github.com/ament/ament_cmake/pull/572>`__ and `ament/ament_cmake#292 <https://github.com/ament/ament_cmake/issues/292>`__.
 
+<<<<<<< HEAD
+=======
+Note that the deprecation warning suggests a call to ``target_link_libraries`` with a scope keyword like ``PUBLIC``, ``PRIVATE``, or ``INTERFACE``.
+If you have already used ``target_link_libraries()`` on this target without a scope keyword, then you must remove the scope keyword from the suggested call.
+This can happen when using some ``ament_cmake`` macros, like ``ament_add_gtest``, which use the plain version of ``target_link_libraries`` internally.
+You will know if you need to remove the keyword because CMake will emit an error saying:
+
+.. code-block::
+
+   All uses of target_link_libraries with a target must be either all-keyword or all-plain.
+
+For more information, see `ament/ament_cmake#580 <https://github.com/ament/ament_cmake/issues/580>`__.
+
+>>>>>>> dfb668f (3di | Enhance metadata (#6981))
 ``launch``
 ^^^^^^^^^^
 

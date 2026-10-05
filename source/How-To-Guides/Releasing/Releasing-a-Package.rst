@@ -5,6 +5,13 @@
     Tutorials/Releasing-a-ROS-2-package-with-bloom
     How-To-Guides/Releasing-a-ROS-2-package-with-bloom
 
+.. meta::
+   :contentType: about
+   :experience: intermediate
+   :area: builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Releasing a Package
 ===================
 

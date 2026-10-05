@@ -1,5 +1,34 @@
+<<<<<<< HEAD:source/Tutorials/Advanced/ROS2-Tracing-Trace-and-Analyze.rst
 How to use ros2_tracing to trace and analyze an application
 ===========================================================
+=======
+.. redirect-from::
+
+    Tutorials/Advanced/ROS2-Tracing-Trace-and-Analyze
+
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: analysis, introspection
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Using ros2_tracing to trace and analyze an application - tutorial
+=================================================================
+
+.. short-description::
+   Tracing helps you inspect the runtime behaviour and timing of ROS applications.
+   This article shows how to use ``ros2_tracing`` to trace a performance_test experiment and analyze the resulting data.
+   After you follow these steps, you can validate trace output and plot subscription callback durations in Jupyter Notebook.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/Developer-Tools/Introspection-and-analysis/Tracing/ROS2-Tracing-Trace-and-Analyze.rst
 
 This tutorial shows how to use `ros2_tracing <https://github.com/ros2/ros2_tracing>`_ to trace and analyze a ROS 2 application.
 For this tutorial, the application will be `performance_test <https://gitlab.com/ApexAI/performance_test>`_.

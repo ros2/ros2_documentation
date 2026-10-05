@@ -1,11 +1,49 @@
 .. redirect-from::
 
    Concepts/About-Security
+<<<<<<< HEAD:source/Concepts/Intermediate/About-Security.rst
+=======
+   Concepts/Intermediate/About-Security
+
+.. meta::
+   :contentType: about
+   :experience: intermediate
+   :area: tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+.. meta::
+   :contentType: about
+   :experience: expert
+   :area: node-management
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/Developer-Tools/Introspection-and-analysis/Security/About-Security.rst
 
 ROS 2 Security
 ==============
 
+<<<<<<< HEAD:source/Concepts/Intermediate/About-Security.rst
+=======
+.. short-description::
+   Security in ROS helps protect communications between nodes through authentication, encryption, data integrity, and access control.
+   This article explains the core security concepts, files, enclaves, and environment variables used to configure secure ROS systems.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. toctree::
+   :hidden:
+
+   Introducing-ros2-security
+   Security-on-Two
+   Examine-Traffic
+   Access-Controls
+
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/Developer-Tools/Introspection-and-analysis/Security/About-Security.rst
 .. contents:: Table of Contents
+   :depth: 2
    :local:
 
 Overview

@@ -1,5 +1,30 @@
+<<<<<<< HEAD:source/Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst
 Setting up a robot simulation (Advanced)
 ========================================
+=======
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: simulation, capabilities
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+.. redirect-from::
+
+    Tutorials/Advanced/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced
+
+Setting up a robot simulation (Advanced) - tutorial
+===================================================
+
+.. short-description::
+   Robot simulations often need custom behavior that reacts to sensor data in the simulated world.
+   This tutorial extends a Webots project with distance sensors and an obstacle avoidance node.
+   After following it, you will be able to add device interfaces and control logic to a simulated robot.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/Integrations-and-related/Simulators/Webots/Setting-Up-Simulation-Webots-Advanced.rst
 
 **Goal:** Extend a robot simulation with an obstacle avoider node.
 

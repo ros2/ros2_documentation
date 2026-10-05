@@ -1,3 +1,17 @@
+<<<<<<< HEAD
+=======
+.. meta::
+   :contentType: release-note
+   :experience: intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+.. redirect-from::
+
+    Get-Started/Releases/Release-Iron-Irwini
+
+>>>>>>> dfb668f (3di | Enhance metadata (#6981))
 .. _iron-release:
 
 Iron Irwini (``iron``)
@@ -8,7 +22,11 @@ Iron Irwini (``iron``)
 
    Iron-Irwini-Complete-Changelog
 
-.. contents:: Table of Contents
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -842,7 +860,6 @@ the ability to deserialize rosbag2 files without having the correct version of a
 
 See https://github.com/ros2/rosbag2/issues/782 and https://github.com/ros2/rosbag2/pull/1293 for
 more information.
-
 
 New playback and recording controls
 """""""""""""""""""""""""""""""""""

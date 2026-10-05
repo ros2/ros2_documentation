@@ -1,7 +1,35 @@
+<<<<<<< HEAD:source/Tutorials/Intermediate/Testing/CLI.rst
 .. TestingCLI:
+=======
+.. redirect-from::
 
-Running Tests in ROS 2 from the Command Line
-============================================
+    Tutorials/Intermediate/Testing/CLI
+
+.. meta::
+   :contentType: how-to
+   :experience: intermediate
+   :area: debugging, builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/Developer-Tools/Debugging/Testing/CLI.rst
+
+.. _TestingCLI:
+
+Running Tests in ROS 2 from the Command Line - how-to
+=====================================================
+
+.. short-description::
+   Running tests from the command line helps verify that ROS packages build correctly and behave as expected.
+   This article explains how to run package tests with ``colcon``, examine test results, and find guidance for debugging failing tests.
+   After following these steps, you will be able to run tests, filter packages, view failures, and find debugging guidance.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 Prerequisites
 ^^^^^^^^^^^^^

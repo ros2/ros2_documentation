@@ -1,17 +1,34 @@
+<<<<<<< HEAD:source/Installation/Alternatives/Ubuntu-Development-Setup.rst
 .. _linux-latest:
+=======
+.. meta::
+   :contentType: how-to
+   :experience: expert
+   :area: installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/Get-Started/Installation/Alternatives/Ubuntu-Development-Setup.rst
 
 .. redirect-from::
 
    Installation/Linux-Development-Setup
    Installation/Ubuntu-Development-Setup
 
-Ubuntu (source)
-===============
+Installing on Ubuntu (source) - how-to
+======================================
 
-.. contents:: Table of Contents
+.. short-description::
+   Building ROS from source on Ubuntu lets you use a development checkout for testing, contribution, or custom builds.
+   In this article, you will learn how to prepare the system, fetch the source code, install dependencies, build the workspace, and run examples.
+   After you follow these steps, you will have a working ROS source installation on Ubuntu.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
-
 
 System requirements
 -------------------

@@ -1,11 +1,26 @@
+.. meta::
+   :contentType: release-note
+   :experience: intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
   Release-Bouncy-Bolson
+<<<<<<< HEAD
+=======
+  Get-Started/Releases/Release-Bouncy-Bolson
+>>>>>>> dfb668f (3di | Enhance metadata (#6981))
 
 Bouncy Bolson (``bouncy``)
 ==========================
 
-.. contents:: Table of Contents
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -15,7 +30,6 @@ Supported Platforms
 -------------------
 
 This version of ROS 2 is supported on four platforms (see `REP 2000 <https://reps.openrobotics.org/rep-2000/#bouncy-bolson-june-2018-june-2019>`__ for full details):
-
 
 * Ubuntu 18.04 (Bionic)
 
@@ -118,10 +132,16 @@ Features
 New features in this ROS 2 release
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+<<<<<<< HEAD
 
 * `New launch system <../Tutorials/Intermediate/Launch/Launch-system>` featuring a much more capable and flexible Python API.
 * Parameters can be passed as `command line arguments <../How-To-Guides/Node-arguments>` to C++ executables.
 * Static remapping via `command line arguments <../How-To-Guides/Node-arguments>`.
+=======
+* `New launch system </Developer-Tools/Launch/Launch-system>` featuring a much more capable and flexible Python API.
+* Parameters can be passed as `command line arguments </Developer-Tools/Introspection-and-analysis/Node-arguments>` to C++ executables.
+* Static remapping via `command line arguments </Developer-Tools/Introspection-and-analysis/Node-arguments>`.
+>>>>>>> dfb668f (3di | Enhance metadata (#6981))
 * Various improvements to the Python client library.
 * Support for publishing and subscribing to serialized data.
   This is the foundation for the upcoming work towards a native rosbag implementation.
@@ -139,7 +159,6 @@ Changes since the Ardent release
 
 Changes since the `Ardent Apalone <Release-Ardent-Apalone>` release:
 
-
 * The Python package ``launch`` has been redesigned.
   The previous Python API has been moved into a submodule ``launch.legacy``.
   You can update existing launch files to continue to use the legacy API if a transition to the new Python API is not desired.
@@ -152,7 +171,6 @@ Changes since the `Ardent Apalone <Release-Ardent-Apalone>` release:
 
 Known Issues
 ------------
-
 
 * New-style launch files `may hang on shutdown <https://github.com/ros2/launch/issues/89>`__ for some combinations of platform and RMW implementation.
 * Static remapping of namespaces `not working correctly <https://github.com/ros2/rcl/issues/262>`__ when addressed to a particular node.

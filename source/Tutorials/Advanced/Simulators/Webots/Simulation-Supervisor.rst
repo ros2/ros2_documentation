@@ -1,5 +1,30 @@
+<<<<<<< HEAD:source/Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor.rst
 The Ros2Supervisor Node
 =======================
+=======
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: simulation, capabilities
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+.. redirect-from::
+
+    Tutorials/Advanced/Simulators/Webots/Simulation-Supervisor
+
+Extending the interface with the Ros2Supervisor node - tutorial
+===============================================================
+
+.. short-description::
+   The ``Ros2Supervisor`` node adds services and topics for interacting with a running Webots simulation.
+   This tutorial shows how to enable the supervisor, use simulation time, import nodes, and record animations.
+   After following it, you will be able to extend Webots simulations with supervisor-level control.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/Integrations-and-related/Simulators/Webots/Simulation-Supervisor.rst
 
 **Goal:** Extend the interface with a default Supervisor robot, named ``Ros2Supervisor``.
 

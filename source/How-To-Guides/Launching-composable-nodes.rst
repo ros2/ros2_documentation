@@ -1,8 +1,33 @@
+<<<<<<< HEAD:source/How-To-Guides/Launching-composable-nodes.rst
 Using ROS 2 launch to launch composable nodes
 =============================================
+=======
+.. redirect-from::
+
+    How-To-Guides/Launching-composable-nodes
+
+.. meta::
+   :contentType: how-to
+   :experience: intermediate
+   :area: node-management, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Using ROS launch to launch composable nodes - how to
+======================================================
+
+.. short-description::
+   Composable nodes let you combine multiple ROS components into a single process and manage them with launch files.
+   This article describes how to launch composable nodes using XML, YAML, and Python launch files.
+   After you follow these steps, you can load components into new or existing containers.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/Developer-Tools/Launch/Launching-composable-nodes.rst
 
 .. contents:: Table of Contents
-   :depth: 1
+   :depth: 2
    :local:
 
 In the :doc:`Composition tutorial <../Tutorials/Intermediate/Composition>`, you learned about composable nodes and how to use them from the command-line.
