@@ -1,9 +1,36 @@
+<<<<<<< HEAD
+=======
+.. meta::
+   :contentType: about
+   :experience: beginner, intermediate, expert
+   :area: community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+>>>>>>> dfb668f (3di | Enhance metadata (#6981))
 .. _Help:
 
 Contact
 =======
 
+<<<<<<< HEAD
 .. _Using Robotics Stack Exchange:
+=======
+.. short-description::
+   ROS users need clear routes for troubleshooting, reporting bugs, and taking part in community discussion.
+   This article explains the main support and contact channels, including Robotics Stack Exchange and GitHub issues.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
+
+Contact the ROS community to ask for support, offer help, or suggest ways we can improve.
+This article introduces the ways in which you can contact us.
+>>>>>>> dfb668f (3di | Enhance metadata (#6981))
 
 Support
 -------

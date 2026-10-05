@@ -1,7 +1,25 @@
+<<<<<<< HEAD
+=======
+.. meta::
+   :contentType: release-note
+   :experience: intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+.. redirect-from::
+
+    Get-Started/Releases/Release-Dashing-Diademata
+
+>>>>>>> dfb668f (3di | Enhance metadata (#6981))
 Dashing Diademata (``dashing``)
 ===============================
 
-.. contents:: Table of Contents
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -39,7 +57,6 @@ Targeted platforms:
 +--------------+----------------------+----------------------+--------------------+--------------------+----------------+
 | arm32        | Tier 2 [a][s]        |                      |                    | Tier 3 [s]         | Tier 3 [s]     |
 +--------------+----------------------+----------------------+--------------------+--------------------+----------------+
-
 
 The following indicators show what delivery mechanisms are available for
 each platform.
@@ -179,7 +196,6 @@ A few features and improvements we would like to highlight:
 * MoveIt 2 `alpha release <https://github.com/AcutronicRobotics/moveit2/releases/tag/moveit_2_alpha>`__.
 
 Please see the `Dashing meta ticket <https://github.com/ros2/ros2/issues/607>`__ on GitHub, which contains more information as well as references to specific tickets with additional details.
-
 
 Changes since the Crystal release
 ---------------------------------
@@ -475,7 +491,6 @@ See the pull request (and connected pull requests) that introduced the QoS chang
   - https://github.com/ros2/robot_state_publisher/pull/19
   - and others...
 
-
 Changes Due to Declare Parameter Change
 """""""""""""""""""""""""""""""""""""""
 
@@ -697,7 +712,6 @@ See the issue and pull request related to introducing this change for more detai
 
 - https://github.com/ros2/rclpy/issues/342
 - https://github.com/ros2/rclpy/pull/344
-
 
 Changes Due to Declare Parameter Change
 """""""""""""""""""""""""""""""""""""""

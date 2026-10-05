@@ -1,9 +1,32 @@
+<<<<<<< HEAD:source/Installation/ROS-2-Mirrors.rst
 =======
+=======
+.. meta::
+   :contentType: reference
+   :experience: intermediate, expert
+   :area: framework, community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+.. redirect-from::
+
+    Installation/ROS-2-Mirrors
+
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/Get-Started/Installation/ROS-2-Mirrors.rst
 Mirrors
 =======
 
-.. contents:: Table of Contents
-   :depth: 3
+.. short-description::
+  Mirrors can provide backup access to ROS documentation and repositories when official services are unavailable or slow to reach.
+  This reference lists available ROS Docs and Debian/Ubuntu repository mirrors, so you can choose an appropriate mirror for your location or installation needs.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 Docs Mirrors
 ------------

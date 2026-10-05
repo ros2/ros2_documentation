@@ -1,5 +1,35 @@
+<<<<<<< HEAD:source/Concepts/Basic/About-Services.rst
 Services
 ========
+=======
+.. meta::
+   :contentType: about
+   :experience: beginner
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+.. redirect-from::
+
+    Concepts/Basic/About-Services
+
+Services
+========
+
+.. short-description::
+   Services in ROS let nodes send requests and receive responses for short computations or interactions.
+   This article explains how services work, including service definitions, service servers, service clients, and when to use services instead of actions.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+
+   services/Working-with-services
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/ROS-Framework/interfaces/About-Services.rst
 
 .. contents:: Table of Contents
    :local:

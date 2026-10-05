@@ -1,16 +1,31 @@
+.. meta::
+   :contentType: how-to
+   :experience: expert
+   :area: installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
   Installation/Alternatives/Fedora-Development-Setup
   Installation/Fedora-Development-Setup
   Installation/RHEL-Development-Setup
 
-RHEL (source)
-=============
+Installing on RHEL (source) - how-to
+====================================
 
-.. contents:: Table of Contents
+.. short-description::
+   Building ROS from source on RHEL gives you direct access to the development workspace and package sources.
+   This article describes how to set up system dependencies, import the source repositories, and build ROS.
+   After you follow these steps, you will be able to source the workspace and run ROS examples.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
-
 
 System requirements
 -------------------
@@ -49,7 +64,6 @@ Enable required repositories
   .. group-tab:: Fedora
 
     No additional setup required.
-
 
 Install development tools
 ^^^^^^^^^^^^^^^^^^^^^^^^^

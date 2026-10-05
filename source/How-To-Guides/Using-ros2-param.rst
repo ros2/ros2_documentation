@@ -1,5 +1,30 @@
+<<<<<<< HEAD:source/How-To-Guides/Using-ros2-param.rst
 Using the ``ros2 param`` command-line tool
 ==========================================
+=======
+.. meta::
+   :contentType: how-to
+   :experience: intermediate
+   :area: parameters, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+.. redirect-from::
+
+    How-To-Guides/Using-ros2-param
+
+Using the ``ros2 param`` command-line tool — how-to
+===================================================
+
+.. short-description::
+   Parameters let you inspect and adjust node configuration while a ROS system is running.
+   This article describes how to use the ``ros2 param`` command-line tool to list, get, set, delete, describe, dump, and load parameters.
+   After you follow these steps, you will be able to manage node parameters from the command line.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/ROS-Framework/parameters/Working-with-parameters/Using-ros2-param.rst
 
 .. contents:: Table of Contents
    :depth: 1
@@ -7,6 +32,20 @@ Using the ``ros2 param`` command-line tool
 
 Parameters in ROS 2 can be get, set, listed, and described through a set of services as described in :doc:`the concept document <../Concepts/Basic/About-Parameters>`.
 The ``ros2 param`` command-line tool is a wrapper around these service calls that makes it easy to manipulate parameters from the command-line.
+
+Summary
+-------
+
+The ``ros2 param`` command-line tool wraps parameter service calls so you can manage node parameters without writing code.
+
+Use it to:
+
+* List parameters on one node or all discoverable nodes with ``ros2 param list``.
+* Get or set values with ``ros2 param get`` and ``ros2 param set``.
+* Delete only dynamic parameters with ``ros2 param`` delete.
+* Describe, dump, and load parameters with ``ros2 param describe``, ``ros2 param dump``, and ``ros2 param load``.
+
+Values passed to ``ros2 param set`` use YAML syntax, so explicitly mark strings such as ``!!str off`` when needed.
 
 ``ros2 param list``
 -------------------

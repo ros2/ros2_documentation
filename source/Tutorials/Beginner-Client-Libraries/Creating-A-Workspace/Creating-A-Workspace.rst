@@ -1,11 +1,27 @@
+.. meta::
+   :contentType: tutorial
+   :experience: beginner
+   :area: client-libraries, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Workspace/Creating-A-Workspace
 
 .. _ROS2Workspace:
 
-Creating a workspace
-====================
+Creating a workspace — tutorial
+===============================
+
+.. short-description::
+   ROS workspaces let you develop and test packages without changing your main ROS installation.
+   This tutorial describes how to create, build, source, and modify an overlay workspace.
+   After following these steps, you will be able to use overlays for iterative package development.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Create a workspace and learn how to set up an overlay for development and testing.
 

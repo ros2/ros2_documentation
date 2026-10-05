@@ -1,5 +1,30 @@
+<<<<<<< HEAD:source/Tutorials/Demos/Wait-for-Acknowledgment.rst
 Wait for acknowledgment
 =======================
+=======
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+.. redirect-from::
+
+    Tutorials/Demos/Wait-for-Acknowledgment
+
+Wait for acknowledgment — tutorial
+==================================
+
+.. short-description::
+   Publisher-subscriber communication does not confirm message receipt by default.
+   This article shows how to use wait for acknowledgment so a publisher can check whether subscriptions have received sent messages.
+   After following this tutorial, you can run the demo and interpret the acknowledgment result before publisher shutdown.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/ROS-Framework/interfaces/topics/Working-with-topics/Wait-for-Acknowledgment.rst
 
 **Goal:** Wait for acknowledgment of messages sent by a publisher.
 

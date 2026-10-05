@@ -1,5 +1,27 @@
+<<<<<<< HEAD:source/Related-Projects/Nvidia-ROS2-Projects.rst
+=======
+.. meta::
+   :contentType: reference
+   :experience: intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+.. redirect-from::
+
+    Related-Projects/Nvidia-ROS2-Projects
+
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/Integrations-and-related/Related-Projects/Nvidia-ROS2-Projects.rst
 NVIDIA ROS 2 Projects
 =====================
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 NVIDIA Jetson is working towards developing ROS 2 packages to ease the development of AI applications for robotics.
 

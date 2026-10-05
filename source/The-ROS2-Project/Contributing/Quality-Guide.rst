@@ -3,8 +3,27 @@
     Quality-Guide
     Contributing/Quality-Guide
 
+<<<<<<< HEAD:source/The-ROS2-Project/Contributing/Quality-Guide.rst
 Quality guide: ensuring code quality
 ====================================
+=======
+.. meta::
+   :contentType: reference
+   :experience: beginner, intermediate, expert
+   :area: contributing, community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Code quality guidelines
+=======================
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/The-ROS2-Project/Contributing/Contributing-to-code/Quality-Guide.rst
+
+.. short-description::
+   Code quality practices help ROS package maintainers build software that is reliable, secure, maintainable, and easier to validate.
+   This article provides guidance for improving package quality through analysis, testing, implementation patterns, and other practices that support robust ROS development.
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2

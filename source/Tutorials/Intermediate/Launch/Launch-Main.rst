@@ -3,10 +3,35 @@
     Tutorials/Launch-Files/Launch-Main
     Tutorials/Launch/Launch-Main
 
+.. meta::
+   :contentType: learning-path
+   :experience: intermediate
+   :area: node-management, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _LaunchFilesMain:
 
+<<<<<<< HEAD:source/Tutorials/Intermediate/Launch/Launch-Main.rst
 Launch
 ======
+=======
+Working with launch files - tutorial
+====================================
+
+.. short-description::
+   Launch files allow you to start and configure several executables containing ROS nodes at the same time.
+   This article introduces the launch file tutorials and the main tools used to build reusable launch systems.
+   After reading it, you can choose the right launch tutorial for creating, extending, and organizing launch files.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/Developer-Tools/Launch/Launch-Main.rst
 
 ROS 2 Launch files allow you to start up and configure a number of executables containing ROS 2 nodes simultaneously.
 

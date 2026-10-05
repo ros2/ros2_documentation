@@ -1,5 +1,27 @@
+<<<<<<< HEAD:source/Related-Projects/Visualizing-Data-And-Teleoperating-With-Phantom-Bridge.rst
+=======
+.. meta::
+   :contentType: reference
+   :experience: intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+.. redirect-from::
+
+    Related-Projects/Visualizing-Data-And-Teleoperating-With-Phantom-Bridge
+
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/Integrations-and-related/Related-Projects/Visualizing-Data-And-Teleoperating-With-Phantom-Bridge.rst
 Visualizing Data and Teleoperating with Phantom Bridge
 ======================================================
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 Redirecting to `https://docs.phntm.io/bridge <https://docs.phntm.io/bridge>`_...
 

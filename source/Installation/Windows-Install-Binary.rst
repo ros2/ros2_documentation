@@ -1,7 +1,27 @@
+<<<<<<< HEAD:source/Installation/Windows-Install-Binary.rst
 Windows (binary)
 ================
+=======
+.. meta::
+   :contentType: how-to
+   :experience: beginner, intermediate, expert
+   :area: installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
 
-.. contents:: Table of Contents
+.. redirect-from::
+
+    Installation/Windows-Install-Binary
+
+Installing on Windows (binary) - how-to
+=======================================
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/Get-Started/Installation/Windows-Install-Binary.rst
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -58,6 +78,7 @@ Once ``pixi`` has been installed, close the powershell session and start it agai
 Install dependencies
 ^^^^^^^^^^^^^^^^^^^^
 
+<<<<<<< HEAD:source/Installation/Windows-Install-Binary.rst
 Download the pixi configuration file in the existing powershell session:
 
 .. code-block:: console
@@ -71,6 +92,8 @@ Install dependencies:
 
    $ pixi install
 
+=======
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/Get-Started/Installation/Windows-Install-Binary.rst
 Install ROS 2
 -------------
 
@@ -94,6 +117,28 @@ Install ROS 2
 
       $ colcon build --cmake-args -DCMAKE_BUILD_TYPE=Debug
 
+<<<<<<< HEAD:source/Installation/Windows-Install-Binary.rst
+=======
+Install Pixi dependencies
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Go to the folder where you unzipped the ROS 2 prereleased binaries and install the dependencies
+
+.. code-block:: console
+
+   $ cd C:\dev\{DISTRO}
+   $ pixi install
+
+Run preinstall installation script
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Run the preinstall installation setup script to make sure that the zipped file are able to run in the current folder the ROS 2 binaries have been exctrated to:
+
+.. code-block:: console
+
+   $ pixi run python preinstall_setup_windows.py
+
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/Get-Started/Installation/Windows-Install-Binary.rst
 Install additional RMW implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -145,7 +190,6 @@ Start another command shell and run a Python ``listener``\ :
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
 This verifies both the C++ and Python APIs are working properly.
 Hooray!
-
 
 Next steps
 ----------

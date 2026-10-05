@@ -1,5 +1,30 @@
+<<<<<<< HEAD:source/Tutorials/Intermediate/RViz/RViz-User-Guide/RViz-User-Guide.rst
 RViz User Guide
 ===============
+=======
+.. redirect-from::
+
+    Tutorials/Intermediate/RViz/RViz-User-Guide/RViz-User-Guide
+
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: visualization, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Using RViz - tutorial
+=====================
+
+.. short-description::
+   RViz provides a 3D visualization interface for inspecting robot data, transforms, and navigation state.
+   This article explains the main RViz panels, displays, views, coordinate frames, tools, and time controls.
+   After you read it, you can configure RViz to visualize common ROS messages and interact with robot data.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/Developer-Tools/Visualization/RViz/RViz-User-Guide/RViz-User-Guide.rst
 
 **Goal:** Understanding RViz
 
@@ -10,7 +35,6 @@ RViz User Guide
 .. contents:: Contents
    :depth: 2
    :local:
-
 
 Background
 ----------
