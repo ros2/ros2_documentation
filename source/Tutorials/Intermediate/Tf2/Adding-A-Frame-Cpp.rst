@@ -87,13 +87,7 @@ Now open the file called ``fixed_frame_tf2_broadcaster.cpp``.
 
     #include "geometry_msgs/msg/transform_stamped.hpp"
     #include "rclcpp/rclcpp.hpp"
-<<<<<<< HEAD
-    #include "tf2_ros/transform_broadcaster.h"
-
-    using namespace std::chrono_literals;
-=======
     #include "tf2_ros/static_transform_broadcaster.hpp"
->>>>>>> 6e2d985 (docs(tf2): use StaticTransformBroadcaster for fixed frame (#7202))
 
     class FixedFrameBroadcaster : public rclcpp::Node
     {
