@@ -1,5 +1,31 @@
+<<<<<<< HEAD:source/Tutorials/Intermediate/Publishing-Messages-Using-YAML-Files.rst
 Publishing messages using YAML files
 ====================================
+=======
+.. redirect-from::
+
+    Tutorials/Intermediate/Publishing-Messages-Using-YAML-Files
+
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: introspection, analysis
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Publishing messages using YAML files - tutorial
+===============================================
+
+.. short-description::
+   Publishing complex ROS messages from the command line can be easier when the message data is stored in a YAML file.
+   This article shows how to record, edit, and replay topic data using ``ros2 topic echo`` and ``ros2 topic pub``.
+   After you follow these steps, you can publish one or more messages from a YAML file.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/Developer-Tools/Introspection-and-analysis/Publishing-Messages-Using-YAML-Files.rst
 
 **Goal:** Record and replay topics using YAML files.
 

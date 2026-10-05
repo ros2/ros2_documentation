@@ -2,10 +2,25 @@
 
   Contributing/Code-Style-Language-Versions
 
+.. meta::
+   :contentType: reference
+   :experience: beginner, intermediate, expert
+   :area: contributing, community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _CodeStyle:
 
 Code style and language versions
 ================================
+
+.. short-description::
+   Consistent code style and language version choices make ROS packages easier to read, review, maintain, and integrate.
+   This article describes the coding standards, naming conventions, formatting expectations, and recommended tooling for C, C++, Python, and related ROS development workflows.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2

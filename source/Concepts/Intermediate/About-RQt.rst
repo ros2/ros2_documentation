@@ -4,10 +4,26 @@
    Tutorials/RQt-Overview-Usage
    Concepts/About-RQt
 
-Overview and usage of RQt
-=========================
+.. meta::
+   :contentType: about
+   :experience: intermediate
+   :area: visualization, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Overview and using RQt
+======================
+
+.. short-description::
+   RQt provides a flexible graphical framework for running ROS tools and plugins in a shared, dockable interface.
+   This article introduces RQt, explains how to run available plugins, and describes the main components and advantages of using the RQt framework.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
+   :depth: 2
    :local:
 
 Overview

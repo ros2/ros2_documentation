@@ -1,10 +1,34 @@
+<<<<<<< HEAD:source/How-To-Guides/Documenting-a-ROS-2-Package.rst
 Documenting a ROS 2 package
 ###########################
+=======
+.. redirect-from::
+
+    How-To-Guides/Documenting-a-ROS-2-Package
+
+.. meta::
+   :contentType: how-to
+   :experience:
+   :area: visualization, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Documenting a ROS 2 package - how-to
+====================================
+
+.. short-description::
+   Package documentation helps users find API references, tutorials, and project-specific guidance for released ROS packages.
+   This article explains how ``rosdoc`` builds package documentation and how to configure Sphinx, Doxygen, and hosted documentation.
+   After you follow it, you can build package docs locally and prepare them for publication on docs.ros.org.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/Developer-Tools/Package-documentation/Documenting-a-ROS-2-Package.rst
 
 .. contents:: Table of Contents
    :depth: 2
    :local:
-
 
 This guide introduces the standard way to create documentation for ROS 2 packages.
 For packages with binary releases this also results in the docs being hosted at ``docs.ros.org/en/<distro>/p/<package>/``.

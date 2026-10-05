@@ -1,5 +1,38 @@
+<<<<<<< HEAD:source/Concepts/Basic/About-Topics.rst
 Topics
 ======
+=======
+.. meta::
+   :contentType: about
+   :experience: beginner
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+.. redirect-from::
+
+    Concepts/Basic/About-Topics
+
+Topics
+======
+
+.. short-description::
+   Topics in ROS provide a publish/subscribe interface for sharing continuous data streams between nodes.
+   This article explains how topics connect publishers and subscribers, and describes the anonymous, strongly typed communication model that makes topic-based systems flexible and reliable.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+
+   topics/Understanding-ROS2-Topics/Understanding-ROS2-Topics
+   topics/About-Quality-of-Service-Settings
+   topics/About-Topic-Statistics
+   topics/Working-with-topics
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/ROS-Framework/interfaces/About-Topics.rst
 
 .. contents:: Table of Contents
    :local:

@@ -1,12 +1,40 @@
+<<<<<<< HEAD:source/How-To-Guides/Releasing/First-Time-Release.rst
 First Time Release
 ==================
+=======
+.. redirect-from::
+
+    How-To-Guides/Releasing/First-Time-Release
+
+.. meta::
+   :contentType: how-to
+   :experience: intermediate
+   :area: builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Releasing first-time packages - how-to
+======================================
+
+.. short-description::
+   A first release prepares a package repository, release repository, and Bloom configuration for a target ROS distribution.
+   This article describes the standard first-time release workflow for a common GitHub-hosted project.
+   After you follow it, Bloom can create the ``rosdistro`` pull request for your initial release.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
+
+Summary
+-------
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/Developer-Tools/Build/Releasing/First-Time-Release.rst
 
 This guide explains how to release ROS 2 packages that you have not released before.
 Due to numerous options available when releasing ROS packages, this guide intends to cover the most common scenario and does not cover every corner-case.
-
-.. contents:: Table of Contents
-   :depth: 1
-   :local:
 
 Be part of a release team
 -------------------------

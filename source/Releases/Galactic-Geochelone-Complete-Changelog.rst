@@ -1,9 +1,28 @@
+<<<<<<< HEAD
+=======
+.. meta::
+   :contentType: release-note
+   :experience: intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+.. redirect-from::
+
+    Get-Started/Releases/Galactic-Geochelone-Complete-Changelog
+
+>>>>>>> dfb668f (3di | Enhance metadata (#6981))
 Galactic Geochelone changelog
 =============================
 
 This page is a list of the complete changes in all ROS 2 core packages since the previous release.
 
-.. contents:: Table of Contents
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
    :local:
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -19,7 +38,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Updating QD to reflect package versions (`#107 <https://github.com/ros2/rcl_interfaces/issues/107>`__)
 * Contributors: Chris Lalancette, Michel Hidalgo, Stephen Brawner, brawner, shonigmann
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `action_tutorials_cpp <https://github.com/ros2/demos/tree/galactic/action_tutorials/action_tutorials_cpp/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -29,14 +47,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update goal response callback signature (`#463 <https://github.com/ros2/demos/issues/463>`__)
 * Contributors: Audrow Nash, Jacob Perron, Michael Jeronimo
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `action_tutorials_interfaces <https://github.com/ros2/demos/tree/galactic/action_tutorials/action_tutorials_interfaces/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Update the package.xml files with the latest Open Robotics maintainers (`#466 <https://github.com/ros2/demos/issues/466>`__)
 * Contributors: Michael Jeronimo
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `action_tutorials_py <https://github.com/ros2/demos/tree/galactic/action_tutorials/action_tutorials_py/CHANGELOG.rst>`__
@@ -46,14 +62,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update the package.xml files with the latest Open Robotics maintainers (`#466 <https://github.com/ros2/demos/issues/466>`__)
 * Contributors: Ivan Santiago Paunovic, Michael Jeronimo
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `actionlib_msgs <https://github.com/ros2/common_interfaces/tree/galactic/actionlib_msgs/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Update package maintainers. (`#132 <https://github.com/ros2/common_interfaces/issues/132>`__)
 * Contributors: Michel Hidalgo
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_clang_format <https://github.com/ament/ament_lint/tree/galactic/ament_clang_format/CHANGELOG.rst>`__
@@ -68,7 +82,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add pytest.ini so local tests don't display warning. (`#259 <https://github.com/ament/ament_lint/issues/259>`__)
 * Contributors: Audrow Nash, Chris Lalancette, Claire Wang, Scott K Logan, Tyler Weaver
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_clang_tidy <https://github.com/ament/ament_lint/tree/galactic/ament_clang_tidy/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -82,7 +95,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add pytest.ini so local tests don't display warning. (`#259 <https://github.com/ament/ament_lint/issues/259>`__)
 * Contributors: Audrow Nash, Chris Lalancette, Claire Wang, M. Mei, Tyler Weaver
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake <https://github.com/ament/ament_cmake/tree/galactic/ament_cmake/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -90,14 +102,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update package maintainers. (`#286 <https://github.com/ament/ament_cmake/issues/286>`__)
 * Contributors: Michel Hidalgo
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_auto <https://github.com/ament/ament_cmake/tree/galactic/ament_cmake_auto/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Update package maintainers. (`#286 <https://github.com/ament/ament_cmake/issues/286>`__)
 * Contributors: Michel Hidalgo
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_clang_format <https://github.com/ament/ament_lint/tree/galactic/ament_cmake_clang_format/CHANGELOG.rst>`__
@@ -109,7 +119,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Drop trailing tab from package manifests (`#291 <https://github.com/ament/ament_lint/issues/291>`__) Follow-up to 8bf194aa1ac282db5483dd0d3fefff8f325b0db8
 * Update maintainer (`#274 <https://github.com/ament/ament_lint/issues/274>`__) * update maintainer * add authors
 * Contributors: Audrow Nash, Chris Lalancette, Claire Wang, Scott K Logan
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_clang_tidy <https://github.com/ament/ament_lint/tree/galactic/ament_cmake_clang_tidy/CHANGELOG.rst>`__
@@ -123,7 +132,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainer (`#274 <https://github.com/ament/ament_lint/issues/274>`__) * update maintainer * add authors
 * Contributors: Audrow Nash, Chris Lalancette, Claire Wang, M. Mei, Tyler Weaver
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_copyright <https://github.com/ament/ament_lint/tree/galactic/ament_cmake_copyright/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -136,7 +144,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * increase default timeout for CMake copyright linter to 120s (`#261 <https://github.com/ament/ament_lint/issues/261>`__)
 * Contributors: Audrow Nash, Chris Lalancette, Claire Wang, Dirk Thomas, Scott K Logan
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_core <https://github.com/ament/ament_cmake/tree/galactic/ament_cmake_core/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -146,7 +153,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Check condition attr in package.xml dependencies The condition attribute was already parsed when reading the XML file. Just needed to check the condition when adding dependencies to the list for a particular key/target. Fixes `#266 <https://github.com/ament/ament_cmake/issues/266>`__
 * Update package maintainers. (`#286 <https://github.com/ament/ament_cmake/issues/286>`__)
 * Contributors: Michael Jeronimo, Michel Hidalgo
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_cppcheck <https://github.com/ament/ament_lint/tree/galactic/ament_cmake_cppcheck/CHANGELOG.rst>`__
@@ -161,7 +167,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * parse LANGUAGE argument case insensitive (`#255 <https://github.com/ament/ament_lint/issues/255>`__)
 * Contributors: Audrow Nash, Chris Lalancette, Claire Wang, Karsten Knese, Scott K Logan
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_cpplint <https://github.com/ament/ament_lint/tree/galactic/ament_cmake_cpplint/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -173,14 +178,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainer (`#274 <https://github.com/ament/ament_lint/issues/274>`__) * update maintainer * add authors
 * Contributors: Audrow Nash, Chris Lalancette, Claire Wang, Scott K Logan
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_export_definitions <https://github.com/ament/ament_cmake/tree/galactic/ament_cmake_export_definitions/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Update package maintainers. (`#286 <https://github.com/ament/ament_cmake/issues/286>`__)
 * Contributors: Michel Hidalgo
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_export_dependencies <https://github.com/ament/ament_cmake/tree/galactic/ament_cmake_export_dependencies/CHANGELOG.rst>`__
@@ -191,7 +194,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update package maintainers. (`#286 <https://github.com/ament/ament_cmake/issues/286>`__)
 * Contributors: Michel Hidalgo, siposcsaba89
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_export_include_directories <https://github.com/ament/ament_cmake/tree/galactic/ament_cmake_export_include_directories/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -199,14 +201,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update package maintainers. (`#286 <https://github.com/ament/ament_cmake/issues/286>`__)
 * Contributors: Michel Hidalgo
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_export_interfaces <https://github.com/ament/ament_cmake/tree/galactic/ament_cmake_export_interfaces/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Update package maintainers. (`#286 <https://github.com/ament/ament_cmake/issues/286>`__)
 * Contributors: Michel Hidalgo
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_export_libraries <https://github.com/ament/ament_cmake/tree/galactic/ament_cmake_export_libraries/CHANGELOG.rst>`__
@@ -216,7 +216,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update package maintainers. (`#286 <https://github.com/ament/ament_cmake/issues/286>`__)
 * Contributors: Alejandro Hernández Cordero, Michel Hidalgo
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_export_link_flags <https://github.com/ament/ament_cmake/tree/galactic/ament_cmake_export_link_flags/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -224,14 +223,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update package maintainers. (`#286 <https://github.com/ament/ament_cmake/issues/286>`__)
 * Contributors: Michel Hidalgo
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_export_targets <https://github.com/ament/ament_cmake/tree/galactic/ament_cmake_export_targets/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Update package maintainers. (`#286 <https://github.com/ament/ament_cmake/issues/286>`__)
 * Contributors: Michel Hidalgo
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_flake8 <https://github.com/ament/ament_lint/tree/galactic/ament_cmake_flake8/CHANGELOG.rst>`__
@@ -243,14 +240,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainer (`#274 <https://github.com/ament/ament_lint/issues/274>`__) * update maintainer * add authors
 * Contributors: Audrow Nash, Chris Lalancette, Claire Wang
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_gmock <https://github.com/ament/ament_cmake/tree/galactic/ament_cmake_gmock/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Update package maintainers. (`#286 <https://github.com/ament/ament_cmake/issues/286>`__)
 * Contributors: Michel Hidalgo
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_google_benchmark <https://github.com/ament/ament_cmake/tree/galactic/ament_cmake_google_benchmark/CHANGELOG.rst>`__
@@ -270,7 +265,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Initial ament_cmake_google_benchmark package (`#261 <https://github.com/ament/ament_cmake/issues/261>`__)
 * Contributors: Michel Hidalgo, Scott K Logan, brawner
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_gtest <https://github.com/ament/ament_cmake/tree/galactic/ament_cmake_gtest/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -280,7 +274,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * [ament_cmake_gtest] ensure gtest to consume the correct headers. (`#267 <https://github.com/ament/ament_cmake/issues/267>`__) * ensure gtest to consume the correct headers. * add another patch.
 * Contributors: Michel Hidalgo, Sean Yen, Victor Lopez
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_include_directories <https://github.com/ament/ament_cmake/tree/galactic/ament_cmake_include_directories/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -288,14 +281,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update package maintainers. (`#286 <https://github.com/ament/ament_cmake/issues/286>`__)
 * Contributors: Michel Hidalgo
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_libraries <https://github.com/ament/ament_cmake/tree/galactic/ament_cmake_libraries/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Update package maintainers. (`#286 <https://github.com/ament/ament_cmake/issues/286>`__)
 * Contributors: Michel Hidalgo
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_lint_cmake <https://github.com/ament/ament_lint/tree/galactic/ament_cmake_lint_cmake/CHANGELOG.rst>`__
@@ -311,7 +302,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainer (`#274 <https://github.com/ament/ament_lint/issues/274>`__) * update maintainer * add authors
 * Contributors: Audrow Nash, Chris Lalancette, Claire Wang, Emerson Knapp, Scott K Logan
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_mypy <https://github.com/ament/ament_lint/tree/galactic/ament_cmake_mypy/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -322,14 +312,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainer (`#274 <https://github.com/ament/ament_lint/issues/274>`__) * update maintainer * add authors
 * Contributors: Audrow Nash, Chris Lalancette, Claire Wang
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_nose <https://github.com/ament/ament_cmake/tree/galactic/ament_cmake_nose/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Update package maintainers. (`#286 <https://github.com/ament/ament_cmake/issues/286>`__)
 * Contributors: Michel Hidalgo
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_pclint <https://github.com/ament/ament_lint/tree/galactic/ament_cmake_pclint/CHANGELOG.rst>`__
@@ -342,7 +330,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainer (`#274 <https://github.com/ament/ament_lint/issues/274>`__) * update maintainer * add authors
 * Contributors: Audrow Nash, Chris Lalancette, Claire Wang, Scott K Logan
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_pep257 <https://github.com/ament/ament_lint/tree/galactic/ament_cmake_pep257/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -353,7 +340,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Drop trailing tab from package manifests (`#291 <https://github.com/ament/ament_lint/issues/291>`__) Follow-up to 8bf194aa1ac282db5483dd0d3fefff8f325b0db8
 * Update maintainer (`#274 <https://github.com/ament/ament_lint/issues/274>`__) * update maintainer * add authors
 * Contributors: Audrow Nash, Chris Lalancette, Claire Wang, Scott K Logan
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_pycodestyle <https://github.com/ament/ament_lint/tree/galactic/ament_cmake_pycodestyle/CHANGELOG.rst>`__
@@ -366,7 +352,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainer (`#274 <https://github.com/ament/ament_lint/issues/274>`__) * update maintainer * add authors
 * Contributors: Audrow Nash, Chris Lalancette, Claire Wang, Scott K Logan
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_pyflakes <https://github.com/ament/ament_lint/tree/galactic/ament_cmake_pyflakes/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -378,7 +363,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainer (`#274 <https://github.com/ament/ament_lint/issues/274>`__) * update maintainer * add authors
 * Contributors: Audrow Nash, Chris Lalancette, Claire Wang, Scott K Logan
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_pytest <https://github.com/ament/ament_cmake/tree/galactic/ament_cmake_pytest/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -386,7 +370,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix ament_get_pytest_cov_version for newer versions of pytest (`#315 <https://github.com/ament/ament_cmake/issues/315>`__)
 * Update package maintainers. (`#286 <https://github.com/ament/ament_cmake/issues/286>`__)
 * Contributors: Christophe Bedard, Michel Hidalgo
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_python <https://github.com/ament/ament_cmake/tree/galactic/ament_cmake_python/CHANGELOG.rst>`__
@@ -401,14 +384,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update package maintainers. (`#286 <https://github.com/ament/ament_cmake/issues/286>`__)
 * Contributors: Michel Hidalgo, Naveau
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_ros <https://github.com/ros2/ament_cmake_ros/tree/galactic/ament_cmake_ros/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Update package maintainers. (`#11 <https://github.com/ros2/ament_cmake_ros/issues/11>`__)
 * Contributors: Michel Hidalgo
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_target_dependencies <https://github.com/ament/ament_cmake/tree/galactic/ament_cmake_target_dependencies/CHANGELOG.rst>`__
@@ -420,7 +401,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * ordered interface include dirs and use privately to ensure workspace order (`#260 <https://github.com/ament/ament_cmake/issues/260>`__)
 * Contributors: Andre Nguyen, Dirk Thomas, Michel Hidalgo
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_test <https://github.com/ament/ament_cmake/tree/galactic/ament_cmake_test/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -431,7 +411,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add actual test time to xUnit result files (`#270 <https://github.com/ament/ament_cmake/issues/270>`__) * Add actual test time to xUnit result files Fixes `#269 <https://github.com/ament/ament_cmake/issues/269>`__ * Report test_time even with skipped test * Set time attribute for testcase element
 * Add SKIP_RETURN_CODE argument to ament_add_test (`#264 <https://github.com/ament/ament_cmake/issues/264>`__) This makes the ``run_test.py`` wrapper aware of the ``SKIP_RETURN_CODE`` property on CTest tests. In the existing implementation, the wrapper detects that no result file was generated and overrides the special return code coming from the test, making the the CTest feature fail completely. This change makes the wrapper script aware of the special return code, and when detected, will write a 'skipped' result file instead of a 'failed' result file, and pass along the special return code as-is. Now the gtest result and the ctest results both show the test as 'skipped' when the special return flag is used. Note that none of this behavior is enabled by default, which is important because we wouldn't want a test to fail and return a code which we've decided is the special 'skip' return code. Only tests which are aware of this feature should use it.
 * Contributors: Dirk Thomas, Michel Hidalgo, Ruffin, Scott K Logan
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_uncrustify <https://github.com/ament/ament_lint/tree/galactic/ament_cmake_uncrustify/CHANGELOG.rst>`__
@@ -445,14 +424,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * parse LANGUAGE argument case insensitive (`#255 <https://github.com/ament/ament_lint/issues/255>`__)
 * Contributors: Audrow Nash, Chris Lalancette, Claire Wang, Karsten Knese, Scott K Logan
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_version <https://github.com/ament/ament_cmake/tree/galactic/ament_cmake_version/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Update package maintainers. (`#286 <https://github.com/ament/ament_cmake/issues/286>`__)
 * Contributors: Michel Hidalgo
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_xmllint <https://github.com/ament/ament_lint/tree/galactic/ament_cmake_xmllint/CHANGELOG.rst>`__
@@ -464,7 +441,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Drop trailing tab from package manifests (`#291 <https://github.com/ament/ament_lint/issues/291>`__) Follow-up to 8bf194aa1ac282db5483dd0d3fefff8f325b0db8
 * Update maintainer (`#274 <https://github.com/ament/ament_lint/issues/274>`__) * update maintainer * add authors
 * Contributors: Audrow Nash, Chris Lalancette, Claire Wang, Scott K Logan
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_copyright <https://github.com/ament/ament_lint/tree/galactic/ament_copyright/CHANGELOG.rst>`__
@@ -484,7 +460,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add pytest.ini so local tests don't display warning. (`#259 <https://github.com/ament/ament_lint/issues/259>`__)
 * Contributors: Alfi Maulana, Audrow Nash, Chris Lalancette, Christophe Bedard, Claire Wang, Evan Flynn, M. Mei, Scott K Logan
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cppcheck <https://github.com/ament/ament_lint/tree/galactic/ament_cppcheck/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -499,7 +474,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add pytest.ini so local tests don't display warning. (`#259 <https://github.com/ament/ament_lint/issues/259>`__)
 * Contributors: Audrow Nash, Chris Lalancette, Claire Wang, Dan Rose, M. Mei, Scott K Logan
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cpplint <https://github.com/ament/ament_lint/tree/galactic/ament_cpplint/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -513,7 +487,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add pytest.ini so local tests don't display warning. (`#259 <https://github.com/ament/ament_lint/issues/259>`__)
 * Contributors: Audrow Nash, Chris Lalancette, Claire Wang, M. Mei, Scott K Logan
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_flake8 <https://github.com/ament/ament_lint/tree/galactic/ament_flake8/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -524,7 +497,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainer (`#274 <https://github.com/ament/ament_lint/issues/274>`__) * update maintainer * add authors
 * Add pytest.ini so local tests don't display warning. (`#259 <https://github.com/ament/ament_lint/issues/259>`__)
 * Contributors: Audrow Nash, Chris Lalancette, Claire Wang
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_index_cpp <https://github.com/ament/ament_index/tree/galactic/ament_index_cpp/CHANGELOG.rst>`__
@@ -543,7 +515,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * [Quality Declaration] Update Version Stability to stable version (`#58 <https://github.com/ament/ament_index/issues/58>`__)
 * Contributors: Alejandro Hernández Cordero, Audrow Nash, Chris Lalancette, Claire Wang, Dirk Thomas, brawner
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_index_python <https://github.com/ament/ament_index/tree/galactic/ament_index_python/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -558,7 +529,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * [Quality Declaration] Update Version Stability to stable version (`#58 <https://github.com/ament/ament_index/issues/58>`__)
 * Contributors: Alejandro Hernández Cordero, Audrow Nash, Chris Lalancette, Claire Wang, Dirk Thomas, Matthijs van der Burgh
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_lint <https://github.com/ament/ament_lint/tree/galactic/ament_lint/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -571,7 +541,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add pytest.ini so local tests don't display warning. (`#259 <https://github.com/ament/ament_lint/issues/259>`__)
 * Contributors: Audrow Nash, Chris Lalancette, Claire Wang, Scott K Logan
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_lint_auto <https://github.com/ament/ament_lint/tree/galactic/ament_lint_auto/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -583,7 +552,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Use correct lint package dependencies (`#278 <https://github.com/ament/ament_lint/issues/278>`__)
 * Update maintainer (`#274 <https://github.com/ament/ament_lint/issues/274>`__) * update maintainer * add authors
 * Contributors: Audrow Nash, Chris Lalancette, Claire Wang, Esteve Fernandez, Scott K Logan
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_lint_cmake <https://github.com/ament/ament_lint/tree/galactic/ament_lint_cmake/CHANGELOG.rst>`__
@@ -600,7 +568,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add pytest.ini so local tests don't display warning. (`#259 <https://github.com/ament/ament_lint/issues/259>`__)
 * Contributors: Audrow Nash, Chris Lalancette, Claire Wang, Emerson Knapp, Scott K Logan
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_lint_common <https://github.com/ament/ament_lint/tree/galactic/ament_lint_common/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -612,7 +579,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainer (`#274 <https://github.com/ament/ament_lint/issues/274>`__) * update maintainer * add authors
 * Contributors: Audrow Nash, Chris Lalancette, Claire Wang, Scott K Logan
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_mypy <https://github.com/ament/ament_lint/tree/galactic/ament_mypy/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -623,7 +589,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainer (`#274 <https://github.com/ament/ament_lint/issues/274>`__) * update maintainer * add authors
 * Add pytest.ini so local tests don't display warning. (`#259 <https://github.com/ament/ament_lint/issues/259>`__)
 * Contributors: Audrow Nash, Chris Lalancette, Claire Wang
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_package <https://github.com/ament/ament_package/tree/galactic/CHANGELOG.rst>`__
@@ -641,7 +606,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * add configure-time flag to skip parent_prefix_path (`#115 <https://github.com/ament/ament_package/issues/115>`__)
 * Contributors: Audrow Nash, Chris Lalancette, David V. Lu!!, Dirk Thomas, Mabel Zhang, Scott K Logan
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_pclint <https://github.com/ament/ament_lint/tree/galactic/ament_pclint/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -654,7 +618,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainer (`#274 <https://github.com/ament/ament_lint/issues/274>`__) * update maintainer * add authors
 * Add pytest.ini so local tests don't display warning. (`#259 <https://github.com/ament/ament_lint/issues/259>`__)
 * Contributors: Audrow Nash, Chris Lalancette, Claire Wang, Scott K Logan, Steven! Ragnarök
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_pep257 <https://github.com/ament/ament_lint/tree/galactic/ament_pep257/CHANGELOG.rst>`__
@@ -671,7 +634,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * remove match args to allow pydocstyle defaults (`#243 <https://github.com/ament/ament_lint/issues/243>`__)
 * Contributors: Audrow Nash, Chris Lalancette, Claire Wang, Scott K Logan, Ted Kern
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_pycodestyle <https://github.com/ament/ament_lint/tree/galactic/ament_pycodestyle/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -684,7 +646,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add pytest.ini so local tests don't display warning. (`#259 <https://github.com/ament/ament_lint/issues/259>`__)
 * Contributors: Audrow Nash, Chris Lalancette, Claire Wang, Scott K Logan
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_pyflakes <https://github.com/ament/ament_lint/tree/galactic/ament_pyflakes/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -696,7 +657,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainer (`#274 <https://github.com/ament/ament_lint/issues/274>`__) * update maintainer * add authors
 * Add pytest.ini so local tests don't display warning. (`#259 <https://github.com/ament/ament_lint/issues/259>`__)
 * Contributors: Audrow Nash, Chris Lalancette, Claire Wang, Scott K Logan
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_uncrustify <https://github.com/ament/ament_lint/tree/galactic/ament_uncrustify/CHANGELOG.rst>`__
@@ -712,7 +672,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add pytest.ini so local tests don't display warning. (`#259 <https://github.com/ament/ament_lint/issues/259>`__)
 * Contributors: Audrow Nash, Chris Lalancette, Claire Wang, Miguel Company, Scott K Logan
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_xmllint <https://github.com/ament/ament_lint/tree/galactic/ament_xmllint/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -724,7 +683,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainer (`#274 <https://github.com/ament/ament_lint/issues/274>`__) * update maintainer * add authors
 * Add pytest.ini so local tests don't display warning. (`#259 <https://github.com/ament/ament_lint/issues/259>`__)
 * Contributors: Audrow Nash, Chris Lalancette, Claire Wang, Scott K Logan
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `builtin_interfaces <https://github.com/ros2/rcl_interfaces/tree/galactic/builtin_interfaces/CHANGELOG.rst>`__
@@ -739,7 +697,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add Security Vulnerability Policy pointing to REP-2006. (`#106 <https://github.com/ros2/rcl_interfaces/issues/106>`__)
 * Updating QD to reflect package versions (`#107 <https://github.com/ros2/rcl_interfaces/issues/107>`__)
 * Contributors: Chris Lalancette, Michel Hidalgo, Stephen Brawner, Tully Foote, brawner, shonigmann
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `camera_calibration_parsers <https://github.com/ros-perception/image_common/tree/ros2/camera_calibration_parsers/CHANGELOG.rst>`__
@@ -773,7 +730,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * add a dependency on pkg-config to have it work on Indigo
 * fix YAML CPP 0.5.x compatibility
 * Contributors: Andreas Klintberg, Gary Servin, Helen Oleynikova, Isaac IY Saito, Jochen Sprickerhof, Kartik Mohta, Markus Roth, Martin Idel, Michael Carroll, Sean Yen, Vincent Rabaud, Yifei Zhang
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `camera_info_manager <https://github.com/ros-perception/image_common/tree/ros2/camera_info_manager/CHANGELOG.rst>`__
@@ -832,7 +788,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Moved image_common from camera_drivers.
 * Contributors: Aaron Blasdel, Enrique Fernandez, Jack O'Quin, Jonathan Bohren, Joseph Schornak, Lukas Bulwahn, Martin Idel, Max Schettler, Michael Carroll, Sean Yen, Vincent Rabaud, blaise, mihelich, mirzashah
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `class_loader <https://github.com/ros/class_loader/tree/galactic/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -850,14 +805,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Clean up and improve documentation (`#156 <https://github.com/ros/class_loader/issues/156>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Dirk Thomas, Michel Hidalgo, Stephen Brawner, ahcorde, brawner
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `common_interfaces <https://github.com/ros2/common_interfaces/tree/galactic/common_interfaces/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Update package maintainers. (`#132 <https://github.com/ros2/common_interfaces/issues/132>`__)
 * Contributors: Michel Hidalgo
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `composition <https://github.com/ros2/demos/tree/galactic/composition/CHANGELOG.rst>`__
@@ -866,7 +819,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix leak(`#480 <https://github.com/ros2/demos/issues/480>`__) (`#481 <https://github.com/ros2/demos/issues/481>`__)
 * Update the package.xml files with the latest Open Robotics maintainers (`#466 <https://github.com/ros2/demos/issues/466>`__)
 * Contributors: Michael Jeronimo, y-okumura-isp
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `composition_interfaces <https://github.com/ros2/rcl_interfaces/tree/galactic/composition_interfaces/CHANGELOG.rst>`__
@@ -881,7 +833,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Updating QD to reflect package versions (`#107 <https://github.com/ros2/rcl_interfaces/issues/107>`__)
 * Contributors: Chris Lalancette, Michel Hidalgo, Stephen Brawner, brawner, shonigmann
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `cyclonedds <https://github.com/eclipse-cyclonedds/cyclonedds/tree/iceoryx/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -895,7 +846,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix a crash when doing an instance lookup on a built-in topic using the key value;
 * No longer auto-dispose instances as soon as some registered writer disappears, instead do it only when all of them have unregistered it;
 * Fix performance of read_instance and take_instance by performing a proper instance lookup.
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `demo_nodes_cpp <https://github.com/ros2/demos/tree/galactic/demo_nodes_cpp/CHANGELOG.rst>`__
@@ -913,7 +863,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update the package.xml files with the latest Open Robotics maintainers (`#466 <https://github.com/ros2/demos/issues/466>`__)
 * Contributors: Audrow Nash, Chris Lalancette, Ivan Santiago Paunovic, Michael Jeronimo, William Woodall
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `demo_nodes_cpp_native <https://github.com/ros2/demos/tree/galactic/demo_nodes_cpp_native/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -921,7 +870,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update demo_nodes_cpp_native to new Fast DDS API (`#493 <https://github.com/ros2/demos/issues/493>`__)
 * Update the package.xml files with the latest Open Robotics maintainers (`#466 <https://github.com/ros2/demos/issues/466>`__)
 * Contributors: Michael Jeronimo, Miguel Company
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `demo_nodes_py <https://github.com/ros2/demos/tree/galactic/demo_nodes_py/CHANGELOG.rst>`__
@@ -931,7 +879,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update deprecated qos policy value names (`#468 <https://github.com/ros2/demos/issues/468>`__)
 * Update the package.xml files with the latest Open Robotics maintainers (`#466 <https://github.com/ros2/demos/issues/466>`__)
 * Contributors: Ivan Santiago Paunovic, Michael Jeronimo
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `diagnostic_msgs <https://github.com/ros2/common_interfaces/tree/galactic/diagnostic_msgs/CHANGELOG.rst>`__
@@ -946,7 +893,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add Security Vulnerability Policy pointing to REP-2006. (`#120 <https://github.com/ros2/common_interfaces/issues/120>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Michel Hidalgo, Stephen Brawner, brawner, shonigmann
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `domain_coordinator <https://github.com/ros2/ament_cmake_ros/tree/galactic/domain_coordinator/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -955,14 +901,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add pytest.ini to suppress warning output locally. (`#8 <https://github.com/ros2/ament_cmake_ros/issues/8>`__)
 * Contributors: Chris Lalancette, Michel Hidalgo
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `dummy_map_server <https://github.com/ros2/demos/tree/galactic/dummy_robot/dummy_map_server/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Update the package.xml files with the latest Open Robotics maintainers (`#466 <https://github.com/ros2/demos/issues/466>`__)
 * Contributors: Michael Jeronimo
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `dummy_robot_bringup <https://github.com/ros2/demos/tree/galactic/dummy_robot/dummy_robot_bringup/CHANGELOG.rst>`__
@@ -971,14 +915,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update the package.xml files with the latest Open Robotics maintainers (`#466 <https://github.com/ros2/demos/issues/466>`__)
 * Contributors: Michael Jeronimo
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `dummy_sensors <https://github.com/ros2/demos/tree/galactic/dummy_robot/dummy_sensors/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Update the package.xml files with the latest Open Robotics maintainers (`#466 <https://github.com/ros2/demos/issues/466>`__)
 * Contributors: Michael Jeronimo
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `example_interfaces <https://github.com/ros2/example_interfaces/tree/galactic/CHANGELOG.rst>`__
@@ -988,7 +930,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainer. (`#12 <https://github.com/ros2/example_interfaces/issues/12>`__)
 * Contributors: Chris Lalancette, Jacob Perron
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclcpp_cbg_executor <https://github.com/ros2/examples/tree/galactic/rclcpp/executors/cbg_executor/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -997,7 +938,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Support for cbg_executor package on QNX (`#305 <https://github.com/ros2/examples/issues/305>`__)
 * Demo for callback-group-level executor concept. (`#302 <https://github.com/ros2/examples/issues/302>`__)
 * Contributors: Chris Lalancette, Ralph Lange, joshua-qnx
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclcpp_minimal_action_client <https://github.com/ros2/examples/tree/galactic/rclcpp/actions/minimal_action_client/CHANGELOG.rst>`__
@@ -1009,7 +949,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Added common linters (`#265 <https://github.com/ros2/examples/issues/265>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Jacob Perron, Shane Loretz
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclcpp_minimal_action_server <https://github.com/ros2/examples/tree/galactic/rclcpp/actions/minimal_action_server/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1018,7 +957,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Make sure to include what you use in all examples. (`#284 <https://github.com/ros2/examples/issues/284>`__)
 * Added common linters (`#265 <https://github.com/ros2/examples/issues/265>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Shane Loretz
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclcpp_minimal_client <https://github.com/ros2/examples/tree/galactic/rclcpp/services/minimal_client/CHANGELOG.rst>`__
@@ -1029,7 +967,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Added common linters (`#265 <https://github.com/ros2/examples/issues/265>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Shane Loretz
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclcpp_minimal_composition <https://github.com/ros2/examples/tree/galactic/rclcpp/composition/minimal_composition/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1037,7 +974,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainers (`#292 <https://github.com/ros2/examples/issues/292>`__)
 * Added common linters (`#265 <https://github.com/ros2/examples/issues/265>`__)
 * Contributors: Alejandro Hernández Cordero, Shane Loretz
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclcpp_minimal_publisher <https://github.com/ros2/examples/tree/galactic/rclcpp/topics/minimal_publisher/CHANGELOG.rst>`__
@@ -1049,7 +985,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Added common linters (`#265 <https://github.com/ros2/examples/issues/265>`__)
 * Contributors: Alejandro Hernández Cordero, Ananya Muddukrishna, Chris Lalancette, Shane Loretz
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclcpp_minimal_service <https://github.com/ros2/examples/tree/galactic/rclcpp/services/minimal_service/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1058,7 +993,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Make sure to include what you use in all examples. (`#284 <https://github.com/ros2/examples/issues/284>`__)
 * Added common linters (`#265 <https://github.com/ros2/examples/issues/265>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Shane Loretz
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclcpp_minimal_subscriber <https://github.com/ros2/examples/tree/galactic/rclcpp/topics/minimal_subscriber/CHANGELOG.rst>`__
@@ -1072,7 +1006,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Added common linters (`#265 <https://github.com/ros2/examples/issues/265>`__)
 * Contributors: Alejandro Hernández Cordero, Ananya Muddukrishna, Chris Lalancette, Devin Bonnie, Shane Loretz
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclcpp_minimal_timer <https://github.com/ros2/examples/tree/galactic/rclcpp/timers/minimal_timer/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1080,7 +1013,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainers (`#292 <https://github.com/ros2/examples/issues/292>`__)
 * Added common linters (`#265 <https://github.com/ros2/examples/issues/265>`__)
 * Contributors: Alejandro Hernández Cordero, Shane Loretz
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclcpp_multithreaded_executor <https://github.com/ros2/examples/tree/galactic/rclcpp/executors/multithreaded_executor/CHANGELOG.rst>`__
@@ -1091,7 +1023,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Added common linters (`#265 <https://github.com/ros2/examples/issues/265>`__)
 * Contributors: Alejandro Hernández Cordero, Audrow Nash, Shane Loretz
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclpy_executors <https://github.com/ros2/examples/tree/galactic/rclpy/executors/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1099,7 +1030,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Use underscores instead of dashes in setup.cfg (`#310 <https://github.com/ros2/examples/issues/310>`__)
 * Update maintainers (`#292 <https://github.com/ros2/examples/issues/292>`__)
 * Contributors: Ivan Santiago Paunovic, Shane Loretz
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclpy_guard_conditions <https://github.com/ros2/examples/tree/galactic/rclpy/guard_conditions/CHANGELOG.rst>`__
@@ -1109,7 +1039,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainers (`#292 <https://github.com/ros2/examples/issues/292>`__)
 * [rclpy] Create a package with an example showing how guard conditions work (`#283 <https://github.com/ros2/examples/issues/283>`__)
 * Contributors: Audrow Nash, Ivan Santiago Paunovic, Shane Loretz
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclpy_minimal_action_client <https://github.com/ros2/examples/tree/galactic/rclpy/actions/minimal_action_client/CHANGELOG.rst>`__
@@ -1121,7 +1050,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Added missing linting tests (`#287 <https://github.com/ros2/examples/issues/287>`__)
 * Contributors: Allison Thackston, Ivan Santiago Paunovic, Shane Loretz, alemme
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclpy_minimal_action_server <https://github.com/ros2/examples/tree/galactic/rclpy/actions/minimal_action_server/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1130,7 +1058,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainers (`#292 <https://github.com/ros2/examples/issues/292>`__)
 * Added missing linting tests (`#287 <https://github.com/ros2/examples/issues/287>`__)
 * Contributors: Allison Thackston, Ivan Santiago Paunovic, Shane Loretz
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclpy_minimal_client <https://github.com/ros2/examples/tree/galactic/rclpy/services/minimal_client/CHANGELOG.rst>`__
@@ -1141,7 +1068,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainers (`#292 <https://github.com/ros2/examples/issues/292>`__)
 * Contributors: Ivan Santiago Paunovic, Shane Loretz
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclpy_minimal_publisher <https://github.com/ros2/examples/tree/galactic/rclpy/topics/minimal_publisher/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1149,7 +1075,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Use underscores instead of dashes in setup.cfg (`#310 <https://github.com/ros2/examples/issues/310>`__)
 * Update maintainers (`#292 <https://github.com/ros2/examples/issues/292>`__)
 * Contributors: Ivan Santiago Paunovic, Shane Loretz
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclpy_minimal_service <https://github.com/ros2/examples/tree/galactic/rclpy/services/minimal_service/CHANGELOG.rst>`__
@@ -1159,7 +1084,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainers (`#292 <https://github.com/ros2/examples/issues/292>`__)
 * Contributors: Ivan Santiago Paunovic, Shane Loretz
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclpy_minimal_subscriber <https://github.com/ros2/examples/tree/galactic/rclpy/topics/minimal_subscriber/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1168,7 +1092,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainers (`#292 <https://github.com/ros2/examples/issues/292>`__)
 * Contributors: Ivan Santiago Paunovic, Shane Loretz
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclpy_pointcloud_publisher <https://github.com/ros2/examples/tree/galactic/rclpy/topics/pointcloud_publisher/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1176,7 +1099,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Use underscores instead of dashes in setup.cfg (`#310 <https://github.com/ros2/examples/issues/310>`__)
 * add pointcloud publisher example (`#276 <https://github.com/ros2/examples/issues/276>`__)
 * Contributors: Evan Flynn, Ivan Santiago Paunovic
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_tf2_py <https://github.com/ros2/geometry2/tree/galactic/examples_tf2_py/CHANGELOG.rst>`__
@@ -1188,7 +1110,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Split tf2_ros in tf2_ros and tf2_ros_py (`#210 <https://github.com/ros2/geometry2/issues/210>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `fastrtps_cmake_module <https://github.com/ros2/rosidl_typesupport_fastrtps/tree/galactic/fastrtps_cmake_module/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1199,7 +1120,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * QD Update Version Stability to stable version (`#46 <https://github.com/ros2/rosidl_typesupport_fastrtps/issues/46>`__)
 * Contributors: Alejandro Hernández Cordero, Dirk Thomas, Michel Hidalgo, shonigmann
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `geometry2 <https://github.com/ros2/geometry2/tree/galactic/geometry2/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1207,7 +1127,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Port eigen_kdl.h/cpp to ROS2 (`#311 <https://github.com/ros2/geometry2/issues/311>`__)
 * Update maintainers of the ros2/geometry2 fork. (`#328 <https://github.com/ros2/geometry2/issues/328>`__)
 * Contributors: Chris Lalancette, Jafar Abdi
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `geometry_msgs <https://github.com/ros2/common_interfaces/tree/galactic/geometry_msgs/CHANGELOG.rst>`__
@@ -1222,7 +1141,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Finish up API documentation (`#123 <https://github.com/ros2/common_interfaces/issues/123>`__)
 * Add Security Vulnerability Policy pointing to REP-2006. (`#120 <https://github.com/ros2/common_interfaces/issues/120>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Michel Hidalgo, Stephen Brawner, brawner, shonigmann
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `google_benchmark_vendor <https://github.com/ament/google_benchmark_vendor/tree/main/CHANGELOG.rst>`__
@@ -1240,7 +1158,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Initial commit.
 * Contributors: Ahmed Sobhy, Chris Lalancette, Michel Hidalgo, Scott K Logan
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `image_common <https://github.com/ros-perception/image_common/tree/ros2/image_common/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1254,7 +1171,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * define metapackage
 * Contributors: Vincent Rabaud, chapulina
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `image_tools <https://github.com/ros2/demos/tree/galactic/image_tools/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1263,7 +1179,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update the package.xml files with the latest Open Robotics maintainers (`#466 <https://github.com/ros2/demos/issues/466>`__)
 * Added more parameters for camera topic examples (`#465 <https://github.com/ros2/demos/issues/465>`__)
 * Contributors: Jacob Perron, Michael Jeronimo
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `image_transport <https://github.com/ros-perception/image_common/tree/ros2/image_transport/CHANGELOG.rst>`__
@@ -1322,7 +1237,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Initial image_common stack check-in, containing image_transport.
 * Contributors: Aaditya Saraiya, Aaron Blasdel, Carl Delsey, Gary Servin, Jacob Perron, Jochen Sprickerhof, Karsten Knese, Lucas Walter, Martin Guenther, Martin Idel, Max Schwarz, Michael Carroll, Mikael Arguedas, Mirza Shah, Thibaud Chupin, Vincent Rabaud, William Woodall, gerkey, kwc, mihelich, mirzashah, pmihelich, straszheim, vrabaud
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `interactive_markers <https://github.com/ros-visualization/interactive_markers/tree/galactic/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1335,14 +1249,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Remove explicit template parameter in ``spin_until_future_complete`` (`#72 <https://github.com/ros-visualization/interactive_markers/issues/72>`__)
 * Contributors: Bjar Ne, Dirk Thomas, Jacob Perron, Sarthak Mittal, Tully Foote
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `intra_process_demo <https://github.com/ros2/demos/tree/galactic/intra_process_demo/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Update the package.xml files with the latest Open Robotics maintainers (`#466 <https://github.com/ros2/demos/issues/466>`__)
 * Contributors: Michael Jeronimo
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `kdl_parser <https://github.com/ros/kdl_parser/tree/galactic/kdl_parser/CHANGELOG.rst>`__
@@ -1352,7 +1264,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Remove unused find_library call (`#40 <https://github.com/ros/kdl_parser/issues/40>`__)
 * Contributors: Chris Lalancette, Michael Carroll
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `laser_geometry <https://github.com/ros-perception/laser_geometry/tree/galactic/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1361,7 +1272,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * update maintainers
 * increase test timeout
 * Contributors: Dirk Thomas, Ivan Santiago Paunovic, Jonathan Binney, Mabel Zhang
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `launch <https://github.com/ros2/launch/tree/galactic/launch/CHANGELOG.rst>`__
@@ -1400,7 +1310,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix up parser.py (`#414 <https://github.com/ros2/launch/issues/414>`__)
 * Contributors: CHEN, Chris Lalancette, Christophe Bedard, Dan Rose, Dirk Thomas, Ivan Santiago Paunovic, Jacob Perron, Jorge Perez, Michel Hidalgo, Scott K Logan, Takamasa Horibe, Victor Lopez
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `launch_ros <https://github.com/ros2/launch_ros/tree/galactic/launch_ros/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1435,7 +1344,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add pytest.ini so local tests don't display warning (`#152 <https://github.com/ros2/launch_ros/issues/152>`__)
 * Contributors: Chris Lalancette, Dereck Wonnacott, Geoffrey Biggs, Ivan Santiago Paunovic, Jacob Perron, Michael Jeronimo, Scott K Logan
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `launch_testing <https://github.com/ros2/launch/tree/galactic/launch_testing/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1449,7 +1357,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Claim ownership (`#433 <https://github.com/ros2/launch/issues/433>`__)
 * Contributors: Dirk Thomas, Michel Hidalgo, Scott K Logan, William Woodall
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `launch_testing_ament_cmake <https://github.com/ros2/launch/tree/galactic/launch_testing_ament_cmake/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1459,7 +1366,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Use launch_test CMake target as output file basename (`#448 <https://github.com/ros2/launch/issues/448>`__)
 * Find Python debug interpreter on Windows (`#437 <https://github.com/ros2/launch/issues/437>`__)
 * Contributors: Dirk Thomas, Michel Hidalgo, William Woodall
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `launch_testing_ros <https://github.com/ros2/launch_ros/tree/galactic/launch_testing_ros/CHANGELOG.rst>`__
@@ -1471,7 +1377,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update the package.xml files with the latest Open Robotics maintainers
 * Add pytest.ini so local tests don't display warning (`#152 <https://github.com/ros2/launch_ros/issues/152>`__)
 * Contributors: Chris Lalancette, Michael Jeronimo, Mike Purvis
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `launch_xml <https://github.com/ros2/launch/tree/galactic/launch_xml/CHANGELOG.rst>`__
@@ -1485,7 +1390,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add pytest.ini so local tests don't display warning (`#428 <https://github.com/ros2/launch/issues/428>`__)
 * Contributors: Chris Lalancette, Ivan Santiago Paunovic, Jacob Perron, Michel Hidalgo
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `launch_yaml <https://github.com/ros2/launch/tree/galactic/launch_yaml/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1498,7 +1402,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add pytest.ini so local tests don't display warning (`#428 <https://github.com/ros2/launch/issues/428>`__)
 * Contributors: Chris Lalancette, Dan Rose, Ivan Santiago Paunovic, Jacob Perron, Michel Hidalgo
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `libcurl_vendor <https://github.com/ros/resource_retriever/tree/galactic/libcurl_vendor/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1508,7 +1411,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainers (`#53 <https://github.com/ros/resource_retriever/issues/53>`__)
 * bump curl version to 7.68 (`#47 <https://github.com/ros/resource_retriever/issues/47>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Dirk Thomas, Scott K Logan
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `libstatistics_collector <https://github.com/ros-tooling/libstatistics_collector/tree/galactic/CHANGELOG.rst>`__
@@ -1532,7 +1434,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add Security Vulnerability Policy pointing to REP-2006. (`#24 <https://github.com/ros-tooling/libstatistics_collector/issues/24>`__) Co-authored-by: Emerson Knapp <537409+emersonknapp@users.noreply.github.com>
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Devin Bonnie, Emerson Knapp, Lucas Han, Prajakta Gokhale, Stephen Brawner, hsgwa
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `libyaml_vendor <https://github.com/ros2/libyaml_vendor/tree/galactic/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1550,7 +1451,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add quality declaration libyaml_vendor (`#12 <https://github.com/ros2/libyaml_vendor/issues/12>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Jorge Perez, Michel Hidalgo, Scott K Logan, shonigmann
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `lifecycle <https://github.com/ros2/demos/tree/galactic/lifecycle/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1560,7 +1460,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update the package.xml files with the latest Open Robotics maintainers (`#466 <https://github.com/ros2/demos/issues/466>`__)
 * Add missing required parameter in LifecycleNode launch action (`#456 <https://github.com/ros2/demos/issues/456>`__)
 * Contributors: Chris Lalancette, Ivan Santiago Paunovic, Michael Jeronimo, William Woodall
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `lifecycle_msgs <https://github.com/ros2/rcl_interfaces/tree/galactic/lifecycle_msgs/CHANGELOG.rst>`__
@@ -1575,7 +1474,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Updating QD to reflect package versions (`#107 <https://github.com/ros2/rcl_interfaces/issues/107>`__)
 * Contributors: Chris Lalancette, Michel Hidalgo, Stephen Brawner, brawner, shonigmann
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `logging_demo <https://github.com/ros2/demos/tree/galactic/logging_demo/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1584,14 +1482,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update the package.xml files with the latest Open Robotics maintainers (`#466 <https://github.com/ros2/demos/issues/466>`__)
 * Contributors: Audrow Nash, Michael Jeronimo
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `map_msgs <https://github.com/ros-planning/navigation_msgs/tree/galactic/map_msgs/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * update maintainers
 * Contributors: Mabel Zhang, Steve Macenski
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `message_filters <https://github.com/ros2/message_filters/tree/galactic/CHANGELOG.rst>`__
@@ -1600,7 +1496,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Find and export dependencies properly (`#54 <https://github.com/ros2/message_filters/issues/54>`__)
 * Add pytest.ini so local tests don't display warning (`#47 <https://github.com/ros2/message_filters/issues/47>`__)
 * Contributors: Chris Lalancette, Michel Hidalgo
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `mimick_vendor <https://github.com/ros2/mimick_vendor/tree/galactic/CHANGELOG.rst>`__
@@ -1625,7 +1520,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * First iteration vendor for Mimick library
 * Contributors: Jorge Perez, Michel Hidalgo, Scott K Logan, Stephen Brawner, brawner
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `nav_msgs <https://github.com/ros2/common_interfaces/tree/galactic/nav_msgs/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1641,7 +1535,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add Security Vulnerability Policy pointing to REP-2006. (`#120 <https://github.com/ros2/common_interfaces/issues/120>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Michel Hidalgo, Stephen Brawner, Steve Macenski, brawner, shonigmann
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `osrf_pycommon <https://github.com/osrf/osrf_pycommon/tree/master/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1652,7 +1545,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Remove deprecated use of asyncio.coroutine decorator. (`#64 <https://github.com/osrf/osrf_pycommon/issues/64>`__)
 * Fix the __str_\_ method for windows terminal_color. (`#65 <https://github.com/osrf/osrf_pycommon/issues/65>`__)
 * Contributors: Chris Lalancette, Jochen Sprickerhof, Michel Hidalgo, William Woodall
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `osrf_testing_tools_cpp <https://github.com/osrf/osrf_testing_tools_cpp/tree/master/osrf_testing_tools_cpp/CHANGELOG.rst>`__
@@ -1666,7 +1558,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix execinfo.h not found for QNX (`#50 <https://github.com/osrf/osrf_testing_tools_cpp/issues/50>`__)
 * Contributors: Ahmed Sobhy, Audrow Nash, Dan Rose, Jacob Perron, Stephen Brawner
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `pendulum_control <https://github.com/ros2/demos/tree/galactic/pendulum_control/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1678,14 +1569,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Follow API/file name changes (`ros2/realtime_support#94 <https://github.com/ros2/realtime_support/issues/94>`__) (`#451 <https://github.com/ros2/demos/issues/451>`__)
 * Contributors: Anas Abou Allaban, Andrea Sorbini, Michael Jeronimo, y-okumura-isp
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `pendulum_msgs <https://github.com/ros2/demos/tree/galactic/pendulum_msgs/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Update the package.xml files with the latest Open Robotics maintainers (`#466 <https://github.com/ros2/demos/issues/466>`__)
 * Contributors: Michael Jeronimo
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `performance_test_fixture <https://github.com/ros2/performance_test_fixture/tree/main/CHANGELOG.rst>`__
@@ -1707,7 +1596,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Initial commit
 * Contributors: Alejandro Hernández Cordero, Scott K Logan, brawner
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `pluginlib <https://github.com/ros/pluginlib/tree/galactic/pluginlib/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1723,7 +1611,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add function for same-package pluginlib tests (`#201 <https://github.com/ros/pluginlib/issues/201>`__)
 * Remove deprecated boost functions (`#199 <https://github.com/ros/pluginlib/issues/199>`__)
 * Contributors: Ahmed Sobhy, Chris Lalancette, Jeremie Deray, Karsten Knese, Shane Loretz
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `pybind11_vendor <https://github.com/ros2/pybind11_vendor/tree/foxy/CHANGELOG.rst>`__
@@ -1742,14 +1629,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Create pybind11 vendor package. Signed-off-by: Michael Carroll <michael@openrobotics.org>
 * Contributors: Karsten Knese, Mabel Zhang, Michael Carroll, Shane Loretz
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `python_cmake_module <https://github.com/ros2/python_cmake_module/tree/galactic/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Update maintainers (`#2 <https://github.com/ros2/python_cmake_module/issues/2>`__)
 * Contributors: Shane Loretz
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `python_qt_binding <https://github.com/ros-visualization/python_qt_binding/tree/main/CHANGELOG.rst>`__
@@ -1761,13 +1646,11 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add pytest.ini so local tests don't display warning (`#93 <https://github.com/ros-visualization/python_qt_binding/issues/93>`__)
 * Contributors: Chris Lalancette, Scott K Logan, Shane Loretz
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `qt_dotgraph <https://github.com/ros-visualization/qt_gui_core/tree/galactic-devel/qt_dotgraph/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * add API to set edge tooltip (`#237 <https://github.com/ros-visualization/qt_gui_core/issues/237>`__)
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `qt_gui <https://github.com/ros-visualization/qt_gui_core/tree/galactic-devel/qt_gui/CHANGELOG.rst>`__
@@ -1781,7 +1664,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * remove tango-icon-theme dependency (`#224 <https://github.com/ros-visualization/qt_gui_core/issues/224>`__)
 * Contributors: Michael Jeronimo, Scott K Logan
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `qt_gui_cpp <https://github.com/ros-visualization/qt_gui_core/tree/galactic-devel/qt_gui_cpp/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1791,7 +1673,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * avoid a warning about C++ plugins on Windows (`#232 <https://github.com/ros-visualization/qt_gui_core/issues/232>`__)
 * qt_gui_cpp_sip: declare private assignment operator for SIP (`#226 <https://github.com/ros-visualization/qt_gui_core/issues/226>`__)
 * Contributors: Chris Lalancette, Homalozoa X
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `quality_of_service_demo_cpp <https://github.com/ros2/demos/tree/galactic/quality_of_service_demo/rclcpp/CHANGELOG.rst>`__
@@ -1803,7 +1684,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add message lost status event demo using rclcpp (`#453 <https://github.com/ros2/demos/issues/453>`__)
 * Contributors: Ivan Santiago Paunovic, Michael Jeronimo
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `quality_of_service_demo_py <https://github.com/ros2/demos/tree/galactic/quality_of_service_demo/rclpy/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1814,7 +1694,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update the package.xml files with the latest Open Robotics maintainers (`#466 <https://github.com/ros2/demos/issues/466>`__)
 * Add rclpy message lost status event demo (`#457 <https://github.com/ros2/demos/issues/457>`__)
 * Contributors: Ivan Santiago Paunovic, Michael Jeronimo
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rcl <https://github.com/ros2/rcl/tree/galactic/rcl/CHANGELOG.rst>`__
@@ -1937,7 +1816,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Print RCL_LOCALHOST_ENV_VAR if error happens via rcutils_get_env. (`#672 <https://github.com/ros2/rcl/issues/672>`__)
 * Contributors: Ada-King, Alejandro Hernández Cordero, Ananya Muddukrishna, Andrea Sorbini, Audrow Nash, Barry Xu, Chen Lihui, Chris Lalancette, Christophe Bedard, Dan Rose, Dirk Thomas, Geoffrey Biggs, Ivan Santiago Paunovic, Jacob Perron, Jorge Perez, Lei Liu, Michel Hidalgo, Nikolai Morin, Scott K Logan, Stephen Brawner, Thijs Raymakers, brawner, shonigmann, tomoya
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rcl_action <https://github.com/ros2/rcl/tree/galactic/rcl_action/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1963,7 +1841,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fixed doxygen warnings (`#677 <https://github.com/ros2/rcl/issues/677>`__)
 * Contributors: Alejandro Hernández Cordero, Andrea Sorbini, Audrow Nash, Chen Lihui, Chris Lalancette, Ivan Santiago Paunovic, Shane Loretz, Stephen Brawner, brawner, shonigmann
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rcl_interfaces <https://github.com/ros2/rcl_interfaces/tree/galactic/rcl_interfaces/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1977,7 +1854,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add Security Vulnerability Policy pointing to REP-2006. (`#106 <https://github.com/ros2/rcl_interfaces/issues/106>`__)
 * Updating QD to reflect package versions (`#107 <https://github.com/ros2/rcl_interfaces/issues/107>`__)
 * Contributors: Chris Lalancette, Ivan Santiago Paunovic, Michel Hidalgo, Stephen Brawner, brawner, shonigmann
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rcl_lifecycle <https://github.com/ros2/rcl/tree/galactic/rcl_lifecycle/CHANGELOG.rst>`__
@@ -2003,7 +1879,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update quality declaration and coverage (`#674 <https://github.com/ros2/rcl/issues/674>`__)
 * Contributors: Alejandro Hernández Cordero, Audrow Nash, Barry Xu, Chris Lalancette, Christophe Bedard, Ivan Santiago Paunovic, Karsten Knese, Lei Liu, Stephen Brawner, brawner, shonigmann
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rcl_logging_interface <https://github.com/ros2/rcl_logging/tree/galactic/rcl_logging_interface/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2015,7 +1890,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add new package with rcl logging interface (`#41 <https://github.com/ros2/rcl_logging/issues/41>`__)
 * Contributors: Chris Lalancette, Christophe Bedard, Stephen Brawner
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rcl_logging_log4cxx <https://github.com/ros2/rcl_logging/tree/galactic/rcl_logging_log4cxx/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2026,7 +1900,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Use new package with rcl logging interface (`#41 <https://github.com/ros2/rcl_logging/issues/41>`__)
 * Contributors: Chris Lalancette, Christophe Bedard
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rcl_logging_noop <https://github.com/ros2/rcl_logging/tree/galactic/rcl_logging_noop/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2036,7 +1909,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Remove unused pytest dependency. (`#43 <https://github.com/ros2/rcl_logging/issues/43>`__)
 * Use new package with rcl logging interface (`#41 <https://github.com/ros2/rcl_logging/issues/41>`__)
 * Contributors: Chris Lalancette, Shane Loretz
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rcl_logging_spdlog <https://github.com/ros2/rcl_logging/tree/galactic/rcl_logging_spdlog/CHANGELOG.rst>`__
@@ -2063,7 +1935,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add Security Vulnerability Policy pointing to REP-2006.
 * Rename Quality_Declaration.md -> QUALITY_DECLARATION.md
 * Contributors: Alejandro Hernández Cordero, Audrow Nash, Chris Lalancette, Christophe Bedard, Ivan Santiago Paunovic, Scott K Logan, Shane Loretz, Stephen Brawner, ahcorde, brawner, shonigmann
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rcl_yaml_param_parser <https://github.com/ros2/rcl/tree/galactic/rcl_yaml_param_parser/CHANGELOG.rst>`__
@@ -2096,7 +1967,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Removed doxygen warnings (`#712 <https://github.com/ros2/rcl/issues/712>`__)
 * Update quality declaration and coverage (`#674 <https://github.com/ros2/rcl/issues/674>`__)
 * Contributors: Alejandro Hernández Cordero, Audrow Nash, Chen Lihui, Chris Lalancette, Ivan Santiago Paunovic, Michel Hidalgo, Scott K Logan, Stephen Brawner, brawner, shonigmann, tomoya
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rclcpp <https://github.com/ros2/rclcpp/tree/galactic/rclcpp/CHANGELOG.rst>`__
@@ -2324,7 +2194,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Allow spin_until_future_complete to accept any future like object (`#1113 <https://github.com/ros2/rclcpp/issues/1113>`__)
 * Contributors: Ada-King, Alejandro Hernández Cordero, Ananya Muddukrishna, Andrea Sorbini, Audrow Nash, Barry Xu, BriceRenaudeau, Chen Lihui, Chris Lalancette, Christophe Bedard, Claire Wang, Colin MacKenzie, Daisuke Sato, Devin Bonnie, Dirk Thomas, DongheeYe, Ivan Santiago Paunovic, Jacob Perron, Jannik Abbenseth, Johannes Meyer, Jorge Perez, Karsten Knese, Louise Poubel, Miaofei Mei, Michel Hidalgo, Miguel Company, Morgan Quigley, Nikolai Morin, Pedro Pena, Sarthak Mittal, Scott K Logan, Shane Loretz, Stephen Brawner, Steven! Ragnarök, Tomoya Fujita, William Woodall, anaelle-sw, bpwilcox, brawner, eboasson, hsgwa, mauropasse, shonigmann, suab321321, tomoya
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rclcpp_action <https://github.com/ros2/rclcpp/tree/galactic/rclcpp_action/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2358,7 +2227,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Increase rclcpp_action test coverage (`#1153 <https://github.com/ros2/rclcpp/issues/1153>`__)
 * Contributors: Alejandro Hernández Cordero, Andrea Sorbini, Audrow Nash, Chris Lalancette, Daisuke Sato, Dirk Thomas, Ivan Santiago Paunovic, Jacob Perron, Kaven Yau, Louise Poubel, Michel Hidalgo, Stephen Brawner, Tomoya Fujita, William Woodall, brawner, shonigmann, tomoya, y-okumura-isp
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rclcpp_components <https://github.com/ros2/rclcpp/tree/galactic/rclcpp_components/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2374,7 +2242,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Bump to QD to level 3 and fixed links (`#1158 <https://github.com/ros2/rclcpp/issues/1158>`__)
 * Include original exception in ComponentManagerException (`#1157 <https://github.com/ros2/rclcpp/issues/1157>`__)
 * Contributors: Alejandro Hernández Cordero, Audrow Nash, Ivan Santiago Paunovic, Josh Langsfeld, Louise Poubel, Martijn Buijs, Scott K Logan, Stephen Brawner, Tomoya Fujita, shonigmann
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rclcpp_lifecycle <https://github.com/ros2/rclcpp/tree/galactic/rclcpp_lifecycle/CHANGELOG.rst>`__
@@ -2410,7 +2277,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix race in test_lifecycle_service_client (`#1204 <https://github.com/ros2/rclcpp/issues/1204>`__)
 * Fix doxygen warnings (`#1163 <https://github.com/ros2/rclcpp/issues/1163>`__)
 * Contributors: Alejandro Hernández Cordero, Andrea Sorbini, BriceRenaudeau, Claire Wang, Colin MacKenzie, Dirk Thomas, Ivan Santiago Paunovic, Jacob Perron, Karsten Knese, Louise Poubel, Nikolai Morin, Stephen Brawner, anaelle-sw, brawner, shonigmann, tomoya
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rclpy <https://github.com/ros2/rclpy/tree/galactic/rclpy/CHANGELOG.rst>`__
@@ -2543,7 +2409,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix docstrings (`#566 <https://github.com/ros2/rclpy/issues/566>`__)
 * Contributors: Addisu Z. Taddese, Alejandro Hernández Cordero, Andrea Sorbini, Audrow, Audrow Nash, Barry Xu, Chris Lalancette, Claire Wang, Dereck Wonnacott, Dirk Thomas, Emerson Knapp, Greg Balke, Gökçe Aydos, Ivan Santiago Paunovic, Jacob Perron, Loy, Michel Hidalgo, Scott K Logan, Shane Loretz, Tomoya Fujita, Tully Foote, Zhen Ju, ksuszka, ssumoo, tomoya
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rcpputils <https://github.com/ros2/rcpputils/tree/galactic/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2584,7 +2449,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Align path combine behavior with C++17 (`#68 <https://github.com/ros2/rcpputils/issues/68>`__)
 * Update quality declaration to QL 2 (`#71 <https://github.com/ros2/rcpputils/issues/71>`__)
 * Contributors: Alejandro Hernández Cordero, Chen Lihui, Chris Lalancette, Christophe Bedard, Devin Bonnie, Dirk Thomas, Emerson Knapp, Hunter L. Allen, Ivan Santiago Paunovic, Jacob Perron, Karsten Knese, Louise Poubel, Michael Jeronimo, Michel Hidalgo, Nikolai Morin, Scott K Logan, Simon Honigmann, Stephen Brawner, Tully Foote, Victor Lopez, William Woodall, tomoya
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rcutils <https://github.com/ros2/rcutils/tree/galactic/CHANGELOG.rst>`__
@@ -2647,7 +2511,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update version stability section of quality declaration for 1.0 (`#256 <https://github.com/ros2/rcutils/issues/256>`__)
 * Contributors: Ahmed Sobhy, Alejandro Hernández Cordero, Barry Xu, Chen Lihui, Chris Lalancette, Christophe Bedard, Dirk Thomas, Felix Endres, Homalozoa X, Ivan Santiago Paunovic, Johannes Meyer, Jorge Perez, Karsten Knese, Michel Hidalgo, Scott K Logan, Stephen Brawner, Steven! Ragnarök, brawner, shonigmann, tomoya
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `resource_retriever <https://github.com/ros/resource_retriever/tree/galactic/resource_retriever/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2657,7 +2520,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add .hpp header and deprecate .h (`#51 <https://github.com/ros/resource_retriever/issues/51>`__)
 * Add pytest.ini so local tests don't display warning (`#48 <https://github.com/ros/resource_retriever/issues/48>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Jacob Perron, Shane Loretz
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rmw <https://github.com/ros2/rmw/tree/galactic/rmw/CHANGELOG.rst>`__
@@ -2708,7 +2570,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add Security Vulnerability Policy pointing to REP-2006. (`#230 <https://github.com/ros2/rmw/issues/230>`__)
 * Contributors: Alejandro Hernández Cordero, Ananya Muddukrishna, Chris Lalancette, Emerson Knapp, Geoffrey Biggs, Ivan Santiago Paunovic, Jacob Perron, Karsten Knese, Michel Hidalgo, Scott K Logan, Stephen Brawner, brawner, shonigmann
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rmw_connextdds <https://github.com/ros2/rmw_connextdds/tree/galactic/rmw_connextdds/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2737,7 +2598,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Support a list of initial peers via ``RMW_CONNEXT_INITIAL_PEERS``.
 * Initial release.
 * Contributors: Ananya Muddukrishna, Andrea Sorbini, Ivan Santiago Paunovic, William Woodall
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rmw_connextdds_common <https://github.com/ros2/rmw_connextdds/tree/galactic/rmw_connextdds_common/CHANGELOG.rst>`__
@@ -2778,7 +2638,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Initial release.
 * Contributors: Ananya Muddukrishna, Andrea Sorbini, Ivan Santiago Paunovic, William Woodall
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rmw_connextddsmicro <https://github.com/ros2/rmw_connextdds/tree/galactic/rmw_connextddsmicro/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2799,7 +2658,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add ``<buildtool_export_depend>`` for ``ament_cmake``.
 * Initial release.
 * Contributors: Ananya Muddukrishna, Andrea Sorbini, Ivan Santiago Paunovic, William Woodall
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rmw_cyclonedds_cpp <https://github.com/ros2/rmw_cyclonedds/tree/galactic/rmw_cyclonedds_cpp/CHANGELOG.rst>`__
@@ -2861,7 +2719,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Mitigate lost service responses discovery issue (`#187 <https://github.com/ros2/rmw_cyclonedds/issues/187>`__)
 * Contributors: Alejandro Hernández Cordero, Ananya Muddukrishna, Chen Lihui, Chris Lalancette, Christophe Bedard, Dan Rose, Emerson Knapp, Erik Boasson, Ivan Santiago Paunovic, Jacob Perron, Joe Speed, Jose Tomas Lorente, Lobotuerk, Michel Hidalgo, Scott K Logan, Stephen Brawner, Sumanth Nirmal, Sven Brinkmann, eboasson, pluris
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rmw_dds_common <https://github.com/ros2/rmw_dds_common/tree/galactic/rmw_dds_common/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2883,7 +2740,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update Quality Declaration to QL3 (`#24 <https://github.com/ros2/rmw_dds_common/issues/24>`__)
 * Update QD and documentation (`#23 <https://github.com/ros2/rmw_dds_common/issues/23>`__)
 * Contributors: Alejandro Hernández Cordero, Chen Lihui, Chris Lalancette, Ivan Santiago Paunovic, Jacob Perron, Michael Jeronimo, Michel Hidalgo, Scott K Logan, Stephen Brawner, shonigmann, y-okumura-isp
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rmw_fastrtps_cpp <https://github.com/ros2/rmw_fastrtps/tree/galactic/rmw_fastrtps_cpp/CHANGELOG.rst>`__
@@ -2928,7 +2784,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Make service wait for response reader (`#390 <https://github.com/ros2/rmw_fastrtps/issues/390>`__)
 * Contributors: Alejandro Hernández Cordero, Barry Xu, Eduardo Ponz Segrelles, Ignacio Montesino Valle, Ivan Santiago Paunovic, JLBuenoLopez-eProsima, Jacob Perron, Jaime Martin Losa, José Luis Bueno López, Michael Jeronimo, Michel Hidalgo, Miguel Company, shonigmann
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rmw_fastrtps_dynamic_cpp <https://github.com/ros2/rmw_fastrtps/tree/galactic/rmw_fastrtps_dynamic_cpp/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2969,7 +2824,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Finalize context iff shutdown. (`#396 <https://github.com/ros2/rmw_fastrtps/issues/396>`__)
 * Make service wait for response reader (`#390 <https://github.com/ros2/rmw_fastrtps/issues/390>`__)
 * Contributors: Alejandro Hernández Cordero, Barry Xu, Eduardo Ponz Segrelles, Ignacio Montesino Valle, Ivan Santiago Paunovic, JLBuenoLopez-eProsima, Jacob Perron, Jaime Martin Losa, José Luis Bueno López, Michael Jeronimo, Michel Hidalgo, Miguel Company, shonigmann
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rmw_fastrtps_shared_cpp <https://github.com/ros2/rmw_fastrtps/tree/galactic/rmw_fastrtps_shared_cpp/CHANGELOG.rst>`__
@@ -3028,7 +2882,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Make service wait for response reader (`#390 <https://github.com/ros2/rmw_fastrtps/issues/390>`__)
 * Contributors: Alejandro Hernández Cordero, Chen Lihui, Chris Lalancette, Emerson Knapp, Ivan Santiago Paunovic, JLBuenoLopez-eProsima, Jacob Perron, Jaime Martin Losa, Jose Luis Rivero, Jose Tomas Lorente, José Luis Bueno López, Lobotuerk, Michael Jeronimo, Michel Hidalgo, Miguel Company, Stephen Brawner, shonigmann
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rmw_implementation <https://github.com/ros2/rmw_implementation/tree/galactic/rmw_implementation/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3055,7 +2908,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Move the quality declaration into the rmw_implementation subdirectory. (`#111 <https://github.com/ros2/rmw_implementation/issues/111>`__)
 * Contributors: Alejandro Hernández Cordero, Ananya Muddukrishna, Andrea Sorbini, Chris Lalancette, Ivan Santiago Paunovic, Jacob Perron, Michel Hidalgo, Scott K Logan, Stephen Brawner, shonigmann
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rmw_implementation_cmake <https://github.com/ros2/rmw/tree/galactic/rmw_implementation_cmake/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3065,7 +2917,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update rmw QD to QL 1 (`#289 <https://github.com/ros2/rmw/issues/289>`__)
 * Update maintainers (`#282 <https://github.com/ros2/rmw/issues/282>`__)
 * Contributors: Chris Lalancette, Ivan Santiago Paunovic, Scott K Logan, Stephen Brawner
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `robot_state_publisher <https://github.com/ros/robot_state_publisher/tree/galactic/CHANGELOG.rst>`__
@@ -3078,7 +2929,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Make sure not to crash on an invalid URDF. (`#141 <https://github.com/ros/robot_state_publisher/issues/141>`__)
 * Don't export exe as library (`#25 <https://github.com/ros2/robot_state_publisher/issues/25>`__) (`ros2 #28 <https://github.com/ros2/robot_state_publisher/issues/28>`__)
 * Contributors: Chris Lalancette, Dirk Thomas, Tully Foote
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros1_bridge <https://github.com/ros2/ros1_bridge/tree/galactic/CHANGELOG.rst>`__
@@ -3093,7 +2943,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix multiple definition if message with same name as service exists (`#272 <https://github.com/ros2/ros1_bridge/issues/272>`__)
 * Contributors: Dirk Thomas, Jacob Perron, Michael Carroll, Vicidel, William Woodall
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2action <https://github.com/ros2/ros2cli/tree/galactic/ros2action/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3103,7 +2952,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add Audrow as a maintainer. (`#591 <https://github.com/ros2/ros2cli/issues/591>`__)
 * Update maintainers. (`#568 <https://github.com/ros2/ros2cli/issues/568>`__)
 * Contributors: Audrow Nash, Claire Wang, Ivan Santiago Paunovic
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2bag <https://github.com/ros2/rosbag2/tree/galactic/ros2bag/CHANGELOG.rst>`__
@@ -3145,7 +2993,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add pytest.ini so local tests don't display warning (`#446 <https://github.com/ros2/rosbag2/issues/446>`__)
 * Contributors: Adam Dąbrowski, Barry Xu, Chris Lalancette, Dirk Thomas, Emerson Knapp, Ivan Santiago Paunovic, Jacob Perron, Jaison Titus, Jesse Ikawa, Karsten Knese, Marwan Taher, Michael Jeronimo, P. J. Reed, jhdcs
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2cli <https://github.com/ros2/ros2cli/tree/galactic/ros2cli/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3162,7 +3009,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Remove use of pkg_resources from ros2cli. (`#537 <https://github.com/ros2/ros2cli/pull/537>`__)
 * Contributors: Audrow Nash, Chris Lalancette, Claire Wang, Daisuke Sato, Ivan Santiago Paunovic, Michel Hidalgo, Scott K Logan, Tomoya Fujita, Yoan Mollard
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2cli_common_extensions <https://github.com/ros2/ros2cli_common_extensions/tree/galactic/ros2cli_common_extensions/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3171,7 +3017,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * update maintainer (`#4 <https://github.com/ros2/ros2cli_common_extensions/issues/4>`__)
 * First implementation (`#2 <https://github.com/ros2/ros2cli_common_extensions/issues/2>`__)
 * Contributors: Bo Sun, Claire Wang
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2cli_test_interfaces <https://github.com/ros2/ros2cli/tree/galactic/ros2cli_test_interfaces/CHANGELOG.rst>`__
@@ -3184,7 +3029,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Remove ros2interface test dependencies on builtin interface. (`#579 <https://github.com/ros2/ros2cli/issues/579>`__)
 * Contributors: Audrow Nash, Chris Lalancette, Claire Wang, Ivan Santiago Paunovic
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2component <https://github.com/ros2/ros2cli/tree/galactic/ros2component/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3195,7 +3039,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainers. (`#568 <https://github.com/ros2/ros2cli/issues/568>`__)
 * Ensure consistent timeout in ros2component list. (`#526 <https://github.com/ros2/ros2cli/issues/526>`__)
 * Contributors: Audrow Nash, Claire Wang, Ivan Santiago Paunovic, Michel Hidalgo
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2doctor <https://github.com/ros2/ros2cli/tree/galactic/ros2doctor/CHANGELOG.rst>`__
@@ -3213,7 +3056,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Refactor ros2doctor hello verb. (`#521 <https://github.com/ros2/ros2cli/issues/521>`__)
 * Contributors: Alberto Soragna, Audrow Nash, Chris Lalancette, Claire Wang, Ivan Santiago Paunovic, Michel Hidalgo, Scott K Logan, mergify[bot]
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2interface <https://github.com/ros2/ros2cli/tree/galactic/ros2interface/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3229,7 +3071,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Show "expanded" message definition. (`#524 <https://github.com/ros2/ros2cli/issues/524>`__)
 * Contributors: Audrow, Audrow Nash, Claire Wang, Ivan Santiago Paunovic, Tully Foote
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2launch <https://github.com/ros2/launch_ros/tree/galactic/ros2launch/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3242,7 +3083,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add pytest.ini so local tests don't display warning (`#152 <https://github.com/ros2/launch_ros/issues/152>`__)
 * Contributors: Chris Lalancette, Geoffrey Biggs, Michael Jeronimo, Michel Hidalgo
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2lifecycle <https://github.com/ros2/ros2cli/tree/galactic/ros2lifecycle/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3252,7 +3092,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add Audrow as a maintainer. (`#591 <https://github.com/ros2/ros2cli/issues/591>`__)
 * Update maintainers. (`#568 <https://github.com/ros2/ros2cli/issues/568>`__)
 * Contributors: Audrow Nash, Claire Wang, Ivan Santiago Paunovic
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2lifecycle_test_fixtures <https://github.com/ros2/ros2cli/tree/galactic/ros2lifecycle_test_fixtures/CHANGELOG.rst>`__
@@ -3265,7 +3104,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainers. (`#568 <https://github.com/ros2/ros2cli/issues/568>`__)
 * Contributors: Audrow Nash, Claire Wang, Ivan Santiago Paunovic
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2multicast <https://github.com/ros2/ros2cli/tree/galactic/ros2multicast/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3276,7 +3114,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainers. (`#568 <https://github.com/ros2/ros2cli/issues/568>`__)
 * Contributors: Audrow Nash, Claire Wang, Ivan Santiago Paunovic
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2node <https://github.com/ros2/ros2cli/tree/galactic/ros2node/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3286,7 +3123,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add Audrow as a maintainer. (`#591 <https://github.com/ros2/ros2cli/issues/591>`__)
 * Update maintainers. (`#568 <https://github.com/ros2/ros2cli/issues/568>`__)
 * Contributors: Audrow Nash, Claire Wang, Ivan Santiago Paunovic
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2param <https://github.com/ros2/ros2cli/tree/galactic/ros2param/CHANGELOG.rst>`__
@@ -3304,7 +3140,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainers. (`#568 <https://github.com/ros2/ros2cli/issues/568>`__)
 * Contributors: Audrow Nash, Claire Wang, Ivan Santiago Paunovic, Victor Lopez, tomoya
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2pkg <https://github.com/ros2/ros2cli/tree/galactic/ros2pkg/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3321,7 +3156,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Switch ros2pkg to using importlib.
 * Contributors: Audrow Nash, Chris Lalancette, Claire Wang, Dirk Thomas, Ivan Santiago Paunovic, Scott K Logan, Shane Loretz
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2run <https://github.com/ros2/ros2cli/tree/galactic/ros2run/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3331,7 +3165,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add Audrow as a maintainer. (`#591 <https://github.com/ros2/ros2cli/issues/591>`__)
 * Update maintainers. (`#568 <https://github.com/ros2/ros2cli/issues/568>`__)
 * Contributors: Audrow Nash, Claire Wang, Ivan Santiago Paunovic
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2service <https://github.com/ros2/ros2cli/tree/galactic/ros2service/CHANGELOG.rst>`__
@@ -3344,14 +3177,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Check that passed type is actually a service. (`#559 <https://github.com/ros2/ros2cli/issues/559>`__)
 * Contributors: Audrow Nash, Claire Wang, Dirk Thomas, Ivan Santiago Paunovic
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2test <https://github.com/ros2/ros_testing/tree/galactic/ros2test/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Add pytest.ini so local tests don't display warning (`#8 <https://github.com/ros2/ros_testing/issues/8>`__)
 * Contributors: Chris Lalancette
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros2topic <https://github.com/ros2/ros2cli/tree/galactic/ros2topic/CHANGELOG.rst>`__
@@ -3376,14 +3207,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Support QoS Depth and History via ros2 topic pub/echo. (`#528 <https://github.com/ros2/ros2cli/issues/528>`__)
 * Contributors: Audrow Nash, ChenYing Kuo, Chris Lalancette, Claire Wang, Dereck Wonnacott, Dirk Thomas, Ivan Santiago Paunovic, Jacob Perron, Scott K Logan, Tomoya Fujita, tomoya
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ros_testing <https://github.com/ros2/ros_testing/tree/galactic/ros_testing/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Use rostest CMake target as output file basename. (`#9 <https://github.com/ros2/ros_testing/issues/9>`__)
 * Contributors: Michel Hidalgo
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosbag2 <https://github.com/ros2/rosbag2/tree/galactic/rosbag2/CHANGELOG.rst>`__
@@ -3397,7 +3226,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * AMENT_IGNORE rosbag2_py for now (`#509 <https://github.com/ros2/rosbag2/issues/509>`__)
 * rosbag2_py reader and writer (`#308 <https://github.com/ros2/rosbag2/issues/308>`__)
 * Contributors: Emerson Knapp, Karsten Knese, Mabel Zhang, Michael Jeronimo
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosbag2_compression <https://github.com/ros2/rosbag2/tree/galactic/rosbag2_compression/CHANGELOG.rst>`__
@@ -3426,7 +3254,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add per-message ZSTD compression (`#418 <https://github.com/ros2/rosbag2/issues/418>`__)
 * Contributors: Adam Dąbrowski, Christophe Bedard, Devin Bonnie, Emerson Knapp, Jaison Titus, Karsten Knese, Marwan Taher, Michael Jeronimo, P. J. Reed, jhdcs
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosbag2_compression_zstd <https://github.com/ros2/rosbag2/tree/galactic/rosbag2_compression_zstd/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3434,7 +3261,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add test_depend ament_cmake_gmock (`#639 <https://github.com/ros2/rosbag2/issues/639>`__)
 * Move zstd compressor to its own package (`#636 <https://github.com/ros2/rosbag2/issues/636>`__)
 * Contributors: Emerson Knapp, Shane Loretz
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosbag2_cpp <https://github.com/ros2/rosbag2/tree/galactic/rosbag2_cpp/CHANGELOG.rst>`__
@@ -3478,14 +3304,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add split by time to recording (`#409 <https://github.com/ros2/rosbag2/issues/409>`__)
 * Contributors: Adam Dąbrowski, Alexander, Chris Lalancette, Dirk Thomas, Emerson Knapp, Ivan Santiago Paunovic, Jacob Perron, Jaison Titus, Karsten Knese, Marwan Taher, Michael Jeronimo, P. J. Reed, Patrick Spieler, Tomoya Fujita, jhdcs
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosbag2_interfaces <https://github.com/ros2/rosbag2/tree/galactic/rosbag2_interfaces/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Add rosbag2_interfaces package with playback service definitions (`#728 <https://github.com/ros2/rosbag2/issues/728>`__)
 * Contributors: Emerson Knapp
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosbag2_performance_benchmarking <https://github.com/ros2/rosbag2/tree/galactic/rosbag2_performance/rosbag2_performance_benchmarking/CHANGELOG.rst>`__
@@ -3501,7 +3325,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update the package.xml files with the latest Open Robotics maintainers (`#535 <https://github.com/ros2/rosbag2/issues/535>`__)
 * performance testing packages (`#442 <https://github.com/ros2/rosbag2/issues/442>`__)
 * Contributors: Adam Dąbrowski, Karsten Knese, Michael Jeronimo, Piotr Jaroszek
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosbag2_py <https://github.com/ros2/rosbag2/tree/galactic/rosbag2_py/CHANGELOG.rst>`__
@@ -3529,7 +3352,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * rosbag2_py reader and writer (`#308 <https://github.com/ros2/rosbag2/issues/308>`__)
 * Contributors: Emerson Knapp, Ivan Santiago Paunovic, Karsten Knese, Mabel Zhang, Michael Jeronimo, P. J. Reed, jhdcs
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosbag2_storage <https://github.com/ros2/rosbag2/tree/galactic/rosbag2_storage/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3549,7 +3371,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add split by time to recording (`#409 <https://github.com/ros2/rosbag2/issues/409>`__)
 * Contributors: Adam Dąbrowski, Barry Xu, Emerson Knapp, Josh Langsfeld, Karsten Knese, Michael Jeronimo, Scott K Logan, jhdcs
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosbag2_storage_default_plugins <https://github.com/ros2/rosbag2/tree/galactic/rosbag2_storage_default_plugins/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3565,7 +3386,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update the package.xml files with the latest Open Robotics maintainers (`#535 <https://github.com/ros2/rosbag2/issues/535>`__)
 * Contributors: Adam Dąbrowski, Emerson Knapp, Karsten Knese, Michael Jeronimo, P. J. Reed, jhdcs
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosbag2_test_common <https://github.com/ros2/rosbag2/tree/galactic/rosbag2_test_common/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3577,7 +3397,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Stabilize test_record by reducing copies of executors and messages (`#576 <https://github.com/ros2/rosbag2/issues/576>`__)
 * Update the package.xml files with the latest Open Robotics maintainers (`#535 <https://github.com/ros2/rosbag2/issues/535>`__)
 * Contributors: Emerson Knapp, Michael Jeronimo
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosbag2_tests <https://github.com/ros2/rosbag2/tree/galactic/rosbag2_tests/CHANGELOG.rst>`__
@@ -3606,7 +3425,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * minimal c++ API test (`#451 <https://github.com/ros2/rosbag2/issues/451>`__)
 * Add split by time to recording (`#409 <https://github.com/ros2/rosbag2/issues/409>`__)
 * Contributors: Adam Dąbrowski, Alexander, Emerson Knapp, Jaison Titus, Karsten Knese, Marwan Taher, Michael Jeronimo, jhdcs
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosbag2_transport <https://github.com/ros2/rosbag2/tree/galactic/rosbag2_transport/CHANGELOG.rst>`__
@@ -3647,7 +3465,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * export shared_queues_vendor (`#434 <https://github.com/ros2/rosbag2/issues/434>`__)
 * Contributors: Adam Dąbrowski, Andrea Sorbini, Chen Lihui, Dirk Thomas, Emerson Knapp, Karsten Knese, Michael Jeronimo, P. J. Reed, Piotr Jaroszek, jhdcs
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosgraph_msgs <https://github.com/ros2/rcl_interfaces/tree/galactic/rosgraph_msgs/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3662,7 +3479,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Updating QD to reflect package versions (`#107 <https://github.com/ros2/rcl_interfaces/issues/107>`__)
 * Contributors: Chris Lalancette, Michel Hidalgo, Stephen Brawner, brawner, shonigmann
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_adapter <https://github.com/ros2/rosidl/tree/galactic/rosidl_adapter/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3675,7 +3491,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add pytest.ini so tests succeed locally (`#502 <https://github.com/ros2/rosidl/issues/502>`__)
 * Contributors: Chris Lalancette, Dereck Wonnacott, Dirk Thomas, Michel Hidalgo
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_cli <https://github.com/ros2/rosidl/tree/galactic/rosidl_cli/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3686,7 +3501,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add rosidl generate CLI. (`#567 <https://github.com/ros2/rosidl/issues/567>`__)
 * Contributors: Michel Hidalgo, Shane Loretz
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_cmake <https://github.com/ros2/rosidl/tree/galactic/rosidl_cmake/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3696,14 +3510,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Modifications to python generator lib to return generated files (`#511 <https://github.com/ros2/rosidl/issues/511>`__)
 * Contributors: Alex Tyshka, Chris Lalancette, Scott K Logan
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_default_generators <https://github.com/ros2/rosidl_defaults/tree/galactic/rosidl_default_generators/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Update maintainers (`#13 <https://github.com/ros2/rosidl_defaults/issues/13>`__)
 * Contributors: Shane Loretz
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_default_runtime <https://github.com/ros2/rosidl_defaults/tree/galactic/rosidl_default_runtime/CHANGELOG.rst>`__
@@ -3718,7 +3530,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add Security Vulnerability Policy pointing to REP-2006. (`#9 <https://github.com/ros2/rosidl_defaults/issues/9>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Michel Hidalgo, Shane Loretz, Stephen Brawner, shonigmann
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_generator_c <https://github.com/ros2/rosidl/tree/galactic/rosidl_generator_c/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3729,7 +3540,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix the declared language for a few packages (`#530 <https://github.com/ros2/rosidl/issues/530>`__)
 * Do not depend on rosidl_runtime_c when tests are disabled (`#503 <https://github.com/ros2/rosidl/issues/503>`__)
 * Contributors: Ben Wolsieffer, Chris Lalancette, Jacob Perron, Michel Hidalgo, Scott K Logan
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_generator_cpp <https://github.com/ros2/rosidl/tree/galactic/rosidl_generator_cpp/CHANGELOG.rst>`__
@@ -3745,7 +3555,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Declaring is_message in namespace rosidl_generator_traits (`#512 <https://github.com/ros2/rosidl/issues/512>`__)
 * Contributors: Chris Lalancette, Devin Bonnie, Dirk Thomas, Jacob Perron, Michel Hidalgo, Sebastian Höffner, Stephen Brawner
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_generator_dds_idl <https://github.com/ros2/rosidl_dds/tree/galactic/rosidl_generator_dds_idl/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3753,7 +3562,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Expose .idl to DDS .idl conversion via rosidl translate CLI. (`#55 <https://github.com/ros2/rosidl_dds/issues/55>`__)
 * Update maintainers. (`#54 <https://github.com/ros2/rosidl_dds/issues/54>`__)
 * Contributors: Michel Hidalgo, Shane Loretz
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_generator_py <https://github.com/ros2/rosidl_python/tree/galactic/rosidl_generator_py/CHANGELOG.rst>`__
@@ -3767,7 +3575,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add pytest.ini so tests succeed locally. (`#116 <https://github.com/ros2/rosidl_python/issues/116>`__)
 * Contributors: Andrea Sorbini, Chris Lalancette, Claire Wang, Dirk Thomas, Michel Hidalgo
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_parser <https://github.com/ros2/rosidl/tree/galactic/rosidl_parser/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3779,7 +3586,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Allow zero length string constants (`#507 <https://github.com/ros2/rosidl/issues/507>`__)
 * Add pytest.ini so tests succeed locally (`#502 <https://github.com/ros2/rosidl/issues/502>`__)
 * Contributors: Chris Lalancette, Dirk Thomas, Shane Loretz
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_runtime_c <https://github.com/ros2/rosidl/tree/galactic/rosidl_runtime_c/CHANGELOG.rst>`__
@@ -3799,7 +3605,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update rosidl_runtime_c QD to QL 2 (`#500 <https://github.com/ros2/rosidl/issues/500>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Louise Poubel, Scott K Logan, Shane Loretz, Stephen Brawner, brawner, shonigmann
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_runtime_cpp <https://github.com/ros2/rosidl/tree/galactic/rosidl_runtime_cpp/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3818,14 +3623,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update QD to reflect QL 2 statuses (`#499 <https://github.com/ros2/rosidl/issues/499>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Devin Bonnie, Dirk Thomas, Jacob Perron, Jonathan Wakely, Louise Poubel, Scott K Logan, Shane Loretz, Stephen Brawner, Tully Foote, shonigmann
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_runtime_py <https://github.com/ros2/rosidl_runtime_py/tree/galactic/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Add pytest.ini so local tests don't display warning (`#12 <https://github.com/ros2/rosidl_runtime_py/issues/12>`__)
 * Contributors: Chris Lalancette
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_typesupport_c <https://github.com/ros2/rosidl_typesupport/tree/galactic/rosidl_typesupport_c/CHANGELOG.rst>`__
@@ -3850,7 +3653,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add Security Vulnerability Policy pointing to REP-2006 (`#76 <https://github.com/ros2/rosidl_typesupport/issues/76>`__)
 * Contributors: Alejandro Hernández Cordero, Andrea Sorbini, Chris Lalancette, Jose Luis Rivero, Jose Tomas Lorente, Louise Poubel, Michel Hidalgo, Shane Loretz, Stephen Brawner, shonigmann
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_typesupport_cpp <https://github.com/ros2/rosidl_typesupport/tree/galactic/rosidl_typesupport_cpp/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3871,7 +3673,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add Security Vulnerability Policy pointing to REP-2006 (`#76 <https://github.com/ros2/rosidl_typesupport/issues/76>`__)
 * Contributors: Alejandro Hernández Cordero, Andrea Sorbini, Chris Lalancette, Jose Luis Rivero, Louise Poubel, Michel Hidalgo, Stephen Brawner, shonigmann
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_typesupport_fastrtps_c <https://github.com/ros2/rosidl_typesupport_fastrtps/tree/galactic/rosidl_typesupport_fastrtps_c/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3890,7 +3691,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * QD Update Version Stability to stable version (`#46 <https://github.com/ros2/rosidl_typesupport_fastrtps/issues/46>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Jorge Perez, Louise Poubel, Michel Hidalgo, Stephen Brawner, shonigmann, sung-goo-kim
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_typesupport_fastrtps_cpp <https://github.com/ros2/rosidl_typesupport_fastrtps/tree/galactic/rosidl_typesupport_fastrtps_cpp/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3908,7 +3708,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * QD Update Version Stability to stable version (`#46 <https://github.com/ros2/rosidl_typesupport_fastrtps/issues/46>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Jorge Perez, Louise Poubel, Michel Hidalgo, Stephen Brawner, shonigmann
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_typesupport_interface <https://github.com/ros2/rosidl/tree/galactic/rosidl_typesupport_interface/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3921,7 +3720,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update QD to reflect QL 2 statuses (`#499 <https://github.com/ros2/rosidl/issues/499>`__)
 * Contributors: Chris Lalancette, Louise Poubel, Stephen Brawner, brawner, shonigmann
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_typesupport_introspection_c <https://github.com/ros2/rosidl/tree/galactic/rosidl_typesupport_introspection_c/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3932,7 +3730,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix the declared language for a few packages (`#530 <https://github.com/ros2/rosidl/issues/530>`__)
 * Contributors: Chris Lalancette, Ivan Santiago Paunovic, Michel Hidalgo, Scott K Logan
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_typesupport_introspection_cpp <https://github.com/ros2/rosidl/tree/galactic/rosidl_typesupport_introspection_cpp/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3941,7 +3738,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update the maintainers of this repository. (`#536 <https://github.com/ros2/rosidl/issues/536>`__)
 * Contributors: Chris Lalancette, Michel Hidalgo
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rpyutils <https://github.com/ros2/rpyutils/tree/galactic/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3949,7 +3745,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Create a shared function for importing c libraries (`#4 <https://github.com/ros2/rpyutils/issues/4>`__)
 * Add pytest.ini so local tests don't display warning (`#3 <https://github.com/ros2/rpyutils/issues/3>`__)
 * Contributors: Chris Lalancette, Emerson Knapp
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt <https://github.com/ros-visualization/rqt/tree/crystal-devel/rqt/CHANGELOG.rst>`__
@@ -3960,7 +3755,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainers for the crystal-devel branch (`#234 <https://github.com/ros-visualization/rqt/issues/234>`__)
 * Contributors: Michael Jeronimo, Scott K Logan
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_action <https://github.com/ros-visualization/rqt_action/tree/ros2/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3968,7 +3762,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Updated Open Robotics maintainer
 * Fixed package to run with ros2 run (`#8 <https://github.com/ros-visualization/rqt_action/issues/8>`__)
 * Contributors: Alejandro Hernández Cordero, Mabel Zhang
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_bag <https://github.com/ros-visualization/rqt_bag/tree/ros2/rqt_bag/CHANGELOG.rst>`__
@@ -4053,7 +3846,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * first release of this package into Groovy
 * Contributors: Aaron Blasdel, Chris Lalancette, Michael Grupp, Michael Jeronimo, lsouchet, sambrose
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_bag_plugins <https://github.com/ros-visualization/rqt_bag/tree/ros2/rqt_bag_plugins/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4090,7 +3882,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * first release of this package into Groovy
 * Contributors: John Stechschulte, Michael Jeronimo
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_console <https://github.com/ros-visualization/rqt_console/tree/ros2/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4099,7 +3890,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix regression introduced in `#21 <https://github.com/ros-visualization/rqt_console/issues/21>`__ (`#28 <https://github.com/ros-visualization/rqt_console/issues/28>`__)
 * Changed the build type to ament_python and added setup.cfg (`#21 <https://github.com/ros-visualization/rqt_console/issues/21>`__)
 * Contributors: Alejandro Hernández Cordero, Michel Hidalgo
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_graph <https://github.com/ros-visualization/rqt_graph/tree/galactic-devel/CHANGELOG.rst>`__
@@ -4114,14 +3904,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * add pytest.ini so local tests don't display warning (`#48 <https://github.com/ros-visualization/rqt_graph/issues/48>`__)
 * Contributors: Ivan Santiago Paunovic, Michael Jeronimo
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_gui <https://github.com/ros-visualization/rqt/tree/crystal-devel/rqt_gui/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * getiterator() renamed to iter() in Python 3.9 (`#239 <https://github.com/ros-visualization/rqt/issues/239>`__)
 * Contributors: goekce
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_gui_cpp <https://github.com/ros-visualization/rqt/tree/crystal-devel/rqt_gui_cpp/CHANGELOG.rst>`__
@@ -4130,14 +3918,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * use tgt compile features (`#247 <https://github.com/ros-visualization/rqt/issues/247>`__)
 * Contributors: Audrow Nash
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_gui_py <https://github.com/ros-visualization/rqt/tree/crystal-devel/rqt_gui_py/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Fix a crash at shutdown (`#248 <https://github.com/ros-visualization/rqt/issues/248>`__)
 * Contributors: Michael Jeronimo
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_msg <https://github.com/ros-visualization/rqt_msg/tree/foxy-devel/CHANGELOG.rst>`__
@@ -4147,7 +3933,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Use rosidl_runtype_py instead of message_helpers where possible (`#11 <https://github.com/ros-visualization/rqt_msg/issues/11>`__)
 * Contributors: Alejandro Hernández Cordero, Ivan Santiago Paunovic
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_plot <https://github.com/ros-visualization/rqt_plot/tree/foxy-devel/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4156,7 +3941,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix plots of array items (`#71 <https://github.com/ros-visualization/rqt_plot/issues/71>`__)
 * Update maintainers
 * Contributors: Alejandro Hernández Cordero, Ivan Santiago Paunovic, Mabel Zhang
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_publisher <https://github.com/ros-visualization/rqt_publisher/tree/foxy-devel/CHANGELOG.rst>`__
@@ -4169,7 +3953,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix setting expressions on sequence items (`#16 <https://github.com/ros-visualization/rqt_publisher/issues/16>`__)
 * Contributors: Alejandro Hernández Cordero, Ivan Santiago Paunovic, Michel Hidalgo, Yossi Ovcharik
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_py_common <https://github.com/ros-visualization/rqt/tree/crystal-devel/rqt_py_common/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4177,14 +3960,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Avoid installing test interfaces  (`#228 <https://github.com/ros-visualization/rqt/issues/228>`__)
 * Contributors: Dirk Thomas
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_py_console <https://github.com/ros-visualization/rqt_py_console/tree/crystal-devel/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Changed the build type to ament_python and fixed package to run with ros2 run (`#8 <https://github.com/ros-visualization/rqt_py_console/issues/8>`__)
 * Contributors: Alejandro Hernández Cordero
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_reconfigure <https://github.com/ros-visualization/rqt_reconfigure/tree/dashing/CHANGELOG.rst>`__
@@ -4203,7 +3984,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fixed package to run with ros2 run (`#81 <https://github.com/ros-visualization/rqt_reconfigure/issues/81>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Michael Jeronimo, Scott K Logan
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_service_caller <https://github.com/ros-visualization/rqt_service_caller/tree/crystal-devel/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4212,14 +3992,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * ignore services that don't use the SRV_MODE ('srv') (`#20 <https://github.com/ros-visualization/rqt_service_caller/issues/20>`__)
 * Contributors: Alejandro Hernández Cordero, William Woodall
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_shell <https://github.com/ros-visualization/rqt_shell/tree/crystal-devel/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Changed the build type to ament_python and fixed package to run with ros2 run (`#11 <https://github.com/ros-visualization/rqt_shell/issues/11>`__)
 * Contributors: Alejandro Hernández Cordero
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_srv <https://github.com/ros-visualization/rqt_srv/tree/crystal-devel/CHANGELOG.rst>`__
@@ -4228,14 +4006,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Changed the build type to ament_python and fixed package to run with ros2 run (`#4 <https://github.com/ros-visualization/rqt_srv/issues/4>`__)
 * Contributors: Alejandro Hernández Cordero
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_top <https://github.com/ros-visualization/rqt_top/tree/crystal-devel/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Changed the build type to ament_python and fixed package to run with ros2 run (`#8 <https://github.com/ros-visualization/rqt_top/issues/8>`__)
 * Contributors: Alejandro Hernández Cordero
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rqt_topic <https://github.com/ros-visualization/rqt_topic/tree/dashing-devel/CHANGELOG.rst>`__
@@ -4252,7 +4028,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Updated version package and license in setup.py (`#17 <https://github.com/ros-visualization/rqt_topic/issues/17>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Dirk Thomas, Scott K Logan
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rti_connext_dds_cmake_module <https://github.com/ros2/rmw_connextdds/tree/galactic/rti_connext_dds_cmake_module/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4263,7 +4038,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add ``<depend>`` for ``rti-connext-dds-5.3.1``
 * Add dependency from rti-connext-dds-5.3.1.
 * Initial release.
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rttest <https://github.com/ros2/realtime_support/tree/galactic/rttest/CHANGELOG.rst>`__
@@ -4279,7 +4053,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix standard deviation overflow(`#95 <https://github.com/ros2/realtime_support/issues/95>`__) (`#97 <https://github.com/ros2/realtime_support/issues/97>`__)
 * Contributors: Audrow Nash, Chris Lalancette, y-okumura-isp
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rviz2 <https://github.com/ros2/rviz/tree/galactic/rviz2/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4289,7 +4062,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainers (`#607 <https://github.com/ros2/rviz/issues/607>`__)
 * Move and update documentation for ROS 2 (`#600 <https://github.com/ros2/rviz/issues/600>`__)
 * Contributors: Audrow Nash, Chris Lalancette, Jacob Perron
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rviz_assimp_vendor <https://github.com/ros2/rviz/tree/galactic/rviz_assimp_vendor/CHANGELOG.rst>`__
@@ -4301,7 +4073,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainers (`#607 <https://github.com/ros2/rviz/issues/607>`__)
 * Updated a hack to avoid CMake warning with assimp 5.0.1 and older, applying it cross platforms (`#565 <https://github.com/ros2/rviz/issues/565>`__)
 * Contributors: Dirk Thomas, Jacob Perron, Scott K Logan
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rviz_common <https://github.com/ros2/rviz/tree/galactic/rviz_common/CHANGELOG.rst>`__
@@ -4335,7 +4106,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Changed to avoid trying to moc generate ``env_config.hpp`` file. (`#550 <https://github.com/ros2/rviz/issues/550>`__)
 * Contributors: Audrow Nash, Chen Lihui, Chris Lalancette, Jacob Perron, Jafar Abdi, Joseph Schornak, Karsten Knese, Martin Idel, Michael Ferguson, Michael Jeronimo, Michel Hidalgo, Nico Neumann, Rich Mattes, Shane Loretz, ipa-fez, spiralray
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rviz_default_plugins <https://github.com/ros2/rviz/tree/galactic/rviz_default_plugins/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4360,7 +4130,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Restored compatibility with older Qt versions (`#561 <https://github.com/ros2/rviz/issues/561>`__)
 * Contributors: Chen Lihui, Chris Lalancette, Dirk Thomas, Jacob Perron, Joseph Schornak, Martin Idel, Matthijs den Toom, Michel Hidalgo, Nico Neumann, Shane Loretz, Victor Lamoine, ymd-stella
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rviz_ogre_vendor <https://github.com/ros2/rviz/tree/galactic/rviz_ogre_vendor/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4370,7 +4139,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainers (`#607 <https://github.com/ros2/rviz/issues/607>`__)
 * Pass through CMAKE\_{C,CXX}_FLAGS to OGRE build (`#587 <https://github.com/ros2/rviz/issues/587>`__)
 * Contributors: Jacob Perron, Scott K Logan
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rviz_rendering <https://github.com/ros2/rviz/tree/galactic/rviz_rendering/CHANGELOG.rst>`__
@@ -4390,7 +4158,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Changed to not install test header files in rviz_rendering. (`#564 <https://github.com/ros2/rviz/issues/564>`__)
 * Contributors: Chris Lalancette, Ivan Santiago Paunovic, Jacob Perron, Michel Hidalgo, Shane Loretz, ipa-fez
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rviz_rendering_tests <https://github.com/ros2/rviz/tree/galactic/rviz_rendering_tests/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4401,7 +4168,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Changed to not install test header files in rviz_rendering. (`#564 <https://github.com/ros2/rviz/issues/564>`__)
 * Contributors: Chris Lalancette, Jacob Perron, Shane Loretz
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rviz_visual_testing_framework <https://github.com/ros2/rviz/tree/galactic/rviz_visual_testing_framework/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4411,7 +4177,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add linters and use ament_lint_auto (`#608 <https://github.com/ros2/rviz/issues/608>`__)
 * Update maintainers (`#607 <https://github.com/ros2/rviz/issues/607>`__)
 * Contributors: Chris Lalancette, Jacob Perron, tomoya
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `sensor_msgs <https://github.com/ros2/common_interfaces/tree/galactic/sensor_msgs/CHANGELOG.rst>`__
@@ -4429,7 +4194,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add Security Vulnerability Policy pointing to REP-2006. (`#120 <https://github.com/ros2/common_interfaces/issues/120>`__)
 * Contributors: Alejandro Hernández Cordero, Andre Nguyen, Chris Lalancette, Jose Luis Rivero, Michel Hidalgo, Stephen Brawner, brawner, shonigmann
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `sensor_msgs_py <https://github.com/ros2/common_interfaces/tree/galactic/sensor_msgs_py/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4437,7 +4201,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Use underscores instead of dashes in setup.cfg (`#150 <https://github.com/ros2/common_interfaces/issues/150>`__)
 * Port of point_cloud2.py from ROS1 to ROS2. As seperate pkg. (`#128 <https://github.com/ros2/common_interfaces/issues/128>`__)
 * Contributors: Ivan Santiago Paunovic, Sebastian Grans
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `shape_msgs <https://github.com/ros2/common_interfaces/tree/galactic/shape_msgs/CHANGELOG.rst>`__
@@ -4452,7 +4215,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add Security Vulnerability Policy pointing to REP-2006. (`#120 <https://github.com/ros2/common_interfaces/issues/120>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Michel Hidalgo, Stephen Brawner, brawner, shonigmann
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `shared_queues_vendor <https://github.com/ros2/rosbag2/tree/galactic/shared_queues_vendor/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4460,7 +4222,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Explicitly add emersonknapp as maintainer (`#692 <https://github.com/ros2/rosbag2/issues/692>`__)
 * Update the package.xml files with the latest Open Robotics maintainers (`#535 <https://github.com/ros2/rosbag2/issues/535>`__)
 * Contributors: Emerson Knapp, Michael Jeronimo
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `spdlog_vendor <https://github.com/ros2/spdlog_vendor/tree/galactic/CHANGELOG.rst>`__
@@ -4477,7 +4238,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add Security Vulnerability Policy pointing to REP-2006. (`#13 <https://github.com/ros2/spdlog_vendor/issues/13>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Dirk Thomas, Scott K Logan, shonigmann
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `sqlite3_vendor <https://github.com/ros2/rosbag2/tree/galactic/sqlite3_vendor/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4487,7 +4247,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update the package.xml files with the latest Open Robotics maintainers (`#535 <https://github.com/ros2/rosbag2/issues/535>`__)
 * use interface_include_directories (`#426 <https://github.com/ros2/rosbag2/issues/426>`__)
 * Contributors: Emerson Knapp, Karsten Knese, Michael Jeronimo, Scott K Logan
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `sros2 <https://github.com/ros2/sros2/tree/galactic/sros2/CHANGELOG.rst>`__
@@ -4508,7 +4267,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix list keys verb (`#219 <https://github.com/ros2/sros2/issues/219>`__)
 * Contributors: Andrea Sorbini, Chris Lalancette, Jacob Perron, Jose Luis Rivero, Kyle Fazzari, Michel Hidalgo, Mikael Arguedas, Scott K Logan
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `statistics_msgs <https://github.com/ros2/rcl_interfaces/tree/galactic/statistics_msgs/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4520,7 +4278,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add Security Vulnerability Policy pointing to REP-2006. (`#106 <https://github.com/ros2/rcl_interfaces/issues/106>`__)
 * Updating QD to reflect package versions (`#107 <https://github.com/ros2/rcl_interfaces/issues/107>`__)
 * Contributors: Chris Lalancette, Michel Hidalgo, Stephen Brawner, brawner, shonigmann
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `std_msgs <https://github.com/ros2/common_interfaces/tree/galactic/std_msgs/CHANGELOG.rst>`__
@@ -4535,7 +4292,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add Security Vulnerability Policy pointing to REP-2006. (`#120 <https://github.com/ros2/common_interfaces/issues/120>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Michel Hidalgo, Stephen Brawner, brawner, shonigmann
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `std_srvs <https://github.com/ros2/common_interfaces/tree/galactic/std_srvs/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4549,7 +4305,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add Security Vulnerability Policy pointing to REP-2006. (`#120 <https://github.com/ros2/common_interfaces/issues/120>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Michel Hidalgo, Stephen Brawner, brawner, shonigmann
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `stereo_msgs <https://github.com/ros2/common_interfaces/tree/galactic/stereo_msgs/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4562,7 +4317,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update Quality levels to level 3 (`#124 <https://github.com/ros2/common_interfaces/issues/124>`__)
 * Add Security Vulnerability Policy pointing to REP-2006. (`#120 <https://github.com/ros2/common_interfaces/issues/120>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Michel Hidalgo, Stephen Brawner, brawner, shonigmann
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tango_icons_vendor <https://github.com/ros-visualization/tango_icons_vendor/tree/galactic/CHANGELOG.rst>`__
@@ -4581,7 +4335,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Install tango icons
 * Contributors: Alejandro Hernández Cordero, Scott K Logan, Stephen, Stephen Brawner
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `test_cli <https://github.com/ros2/system_tests/tree/galactic/test_cli/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4589,7 +4342,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainers. (`#450 <https://github.com/ros2/system_tests/issues/450>`__)
 * Enable -Wall, -Wextra, and -Wpedantic. (`#447 <https://github.com/ros2/system_tests/issues/447>`__)
 * Contributors: Audrow Nash, Jacob Perron
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `test_cli_remapping <https://github.com/ros2/system_tests/tree/galactic/test_cli_remapping/CHANGELOG.rst>`__
@@ -4599,7 +4351,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainers. (`#450 <https://github.com/ros2/system_tests/issues/450>`__)
 * Enable -Wall, -Wextra, and -Wpedantic. (`#448 <https://github.com/ros2/system_tests/issues/448>`__)
 * Contributors: Audrow Nash, Jacob Perron, Shane Loretz
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `test_communication <https://github.com/ros2/system_tests/tree/galactic/test_communication/CHANGELOG.rst>`__
@@ -4613,14 +4364,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainers. (`#450 <https://github.com/ros2/system_tests/issues/450>`__)
 * Contributors: Andrea Sorbini, Chris Lalancette, Jacob Perron, Stephen Brawner
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `test_interface_files <https://github.com/ros2/test_interface_files/tree/galactic/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Update maintainer (`#13 <https://github.com/ros2/test_interface_files/issues/13>`__)
 * Contributors: Jacob Perron
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `test_launch_ros <https://github.com/ros2/launch_ros/tree/galactic/test_launch_ros/CHANGELOG.rst>`__
@@ -4653,7 +4402,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add pytest.ini so local tests don't display warning (`#152 <https://github.com/ros2/launch_ros/issues/152>`__)
 * Contributors: Chris Lalancette, Dan Rose, Ivan Santiago Paunovic, Jacob Perron, Michael Jeronimo, Michel Hidalgo, Scott K Logan, Víctor Mayoral Vilches
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `test_launch_testing <https://github.com/ros2/launch/tree/galactic/test_launch_testing/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4662,14 +4410,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add pytest.ini to test_launch_testing so tests succeed locally. (`#431 <https://github.com/ros2/launch/issues/431>`__)
 * Contributors: Chris Lalancette, Michel Hidalgo
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `test_msgs <https://github.com/ros2/rcl_interfaces/tree/galactic/test_msgs/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Update package maintainers. (`#112 <https://github.com/ros2/rcl_interfaces/issues/112>`__)
 * Contributors: Chris Lalancette
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `test_quality_of_service <https://github.com/ros2/system_tests/tree/galactic/test_quality_of_service/CHANGELOG.rst>`__
@@ -4679,7 +4425,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Run QoS tests. (`#441 <https://github.com/ros2/system_tests/issues/441>`__)
 * Update maintainers. (`#450 <https://github.com/ros2/system_tests/issues/450>`__)
 * Contributors: Andrea Sorbini, Jacob Perron, Michel Hidalgo
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `test_rclcpp <https://github.com/ros2/system_tests/tree/galactic/test_rclcpp/CHANGELOG.rst>`__
@@ -4699,7 +4444,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Show numbers of nanseconds in EXPECT with durations. (`#438 <https://github.com/ros2/system_tests/issues/438>`__) * Show numbers of nanseconds in expect with durations * Fix syntax
 * Remove ament_pytest dependency from test_rclcpp. (`#437 <https://github.com/ros2/system_tests/issues/437>`__) It is not used in test_rclcpp anywhere.
 * Contributors: Audrow Nash, Chris Lalancette, Dirk Thomas, Ivan Santiago Paunovic, Jacob Perron, Michel Hidalgo, Shane Loretz, Stephen Brawner, Tomoya Fujita, tomoya
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `test_rmw_implementation <https://github.com/ros2/rmw_implementation/tree/galactic/test_rmw_implementation/CHANGELOG.rst>`__
@@ -4752,7 +4496,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add test_rmw_implementation package. (`#106 <https://github.com/ros2/rmw_implementation/issues/106>`__)
 * Contributors: Alejandro Hernández Cordero, Andrea Sorbini, Chris Lalancette, Geoffrey Biggs, Ivan Santiago Paunovic, Jacob Perron, Jose Tomas Lorente, José Luis Bueno López, Michel Hidalgo, Miguel Company, Shane Loretz
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `test_security <https://github.com/ros2/system_tests/tree/galactic/test_security/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4763,7 +4506,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Run test_security on CycloneDDS as well. (`#408 <https://github.com/ros2/system_tests/issues/408>`__)
 * Remove invalid cert folder to force regeneration of certificates. (`#434 <https://github.com/ros2/system_tests/issues/434>`__)
 * Contributors: Andrea Sorbini, Audrow Nash, Jacob Perron, Mikael Arguedas
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `test_tf2 <https://github.com/ros2/geometry2/tree/galactic/test_tf2/CHANGELOG.rst>`__
@@ -4781,7 +4523,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Split tf2_ros in tf2_ros and tf2_ros_py (`#210 <https://github.com/ros2/geometry2/issues/210>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Dirk Thomas, Ivan Santiago Paunovic, Martin Ganeff, Michael Carroll, ymd-stella
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tf2 <https://github.com/ros2/geometry2/tree/galactic/tf2/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4797,7 +4538,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Provide more available error messaging for nonexistent and invalid frames in canTransform (`ros2 #187 <https://github.com/ros2/geometry2/issues/187>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Ivan Santiago Paunovic, Joshua Whitley, Martin Ganeff
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tf2_bullet <https://github.com/ros2/geometry2/tree/galactic/tf2_bullet/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4806,7 +4546,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Activate usual compiler warnings and fix errors (`#270 <https://github.com/ros2/geometry2/issues/270>`__)
 * Suppress compiler warning on Centos (`#290 <https://github.com/ros2/geometry2/issues/290>`__)
 * Contributors: Chris Lalancette, Ivan Santiago Paunovic, Michael Carroll
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tf2_eigen <https://github.com/ros2/geometry2/tree/galactic/tf2_eigen/CHANGELOG.rst>`__
@@ -4819,7 +4558,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Activate usual compiler warnings and fix errors (`#270 <https://github.com/ros2/geometry2/issues/270>`__)
 * Contributors: Audrow Nash, Bjar Ne, Chris Lalancette, Ivan Santiago Paunovic
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tf2_eigen_kdl <https://github.com/ros2/geometry2/tree/galactic/tf2_eigen_kdl/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4828,7 +4566,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update package.xml (`#333 <https://github.com/ros2/geometry2/issues/333>`__)
 * Port eigen_kdl.h/cpp to ROS2 (`#311 <https://github.com/ros2/geometry2/issues/311>`__)
 * Contributors: Ahmed Sobhy, Jafar Abdi
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tf2_geometry_msgs <https://github.com/ros2/geometry2/tree/galactic/tf2_geometry_msgs/CHANGELOG.rst>`__
@@ -4842,7 +4579,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Split tf2_ros in tf2_ros and tf2_ros_py (`#210 <https://github.com/ros2/geometry2/issues/210>`__) * Split tf2_ros in tf2_ros and tf2_ros_py
 * Contributors: Alejandro Hernández Cordero, Bjar Ne, Chris Lalancette, Ivan Santiago Paunovic, Joshua Whitley, Shane Loretz
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tf2_kdl <https://github.com/ros2/geometry2/tree/galactic/tf2_kdl/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4852,7 +4588,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Split tf2_ros in tf2_ros and tf2_ros_py (`#210 <https://github.com/ros2/geometry2/issues/210>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Ivan Santiago Paunovic
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tf2_msgs <https://github.com/ros2/geometry2/tree/galactic/tf2_msgs/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4860,7 +4595,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainers of the ros2/geometry2 fork. (`#328 <https://github.com/ros2/geometry2/issues/328>`__)
 * Activate usual compiler warnings and fix errors (`#270 <https://github.com/ros2/geometry2/issues/270>`__)
 * Contributors: Chris Lalancette, Ivan Santiago Paunovic
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tf2_py <https://github.com/ros2/geometry2/tree/galactic/tf2_py/CHANGELOG.rst>`__
@@ -4870,7 +4604,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update maintainers of the ros2/geometry2 fork. (`#328 <https://github.com/ros2/geometry2/issues/328>`__)
 * Add in pytest.ini so tests succeed locally. (`#280 <https://github.com/ros2/geometry2/issues/280>`__)
 * Contributors: Chris Lalancette, Homalozoa X
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tf2_ros <https://github.com/ros2/geometry2/tree/galactic/tf2_ros/CHANGELOG.rst>`__
@@ -4903,7 +4636,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Split tf2_ros in tf2_ros and tf2_ros_py (`#210 <https://github.com/ros2/geometry2/issues/210>`__)
 * Contributors: Alejandro Hernández Cordero, Audrow Nash, Chris Lalancette, Dirk Thomas, Hunter L. Allen, Ivan Santiago Paunovic, Jacob Perron, Kazunari Tanaka, Martin Ganeff, Michael Carroll, Vikas Dhiman, ymd-stella
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tf2_ros_py <https://github.com/ros2/geometry2/tree/galactic/tf2_ros_py/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4922,7 +4654,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Split tf2_ros in tf2_ros and tf2_ros_py (`#210 <https://github.com/ros2/geometry2/issues/210>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Jacob Perron, Matthijs den Toom, ScottMcMichael, surfertas
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tf2_sensor_msgs <https://github.com/ros2/geometry2/tree/galactic/tf2_sensor_msgs/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4931,7 +4662,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Activate usual compiler warnings and fix errors (`#270 <https://github.com/ros2/geometry2/issues/270>`__)
 * Split tf2_ros in tf2_ros and tf2_ros_py (`#210 <https://github.com/ros2/geometry2/issues/210>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Ivan Santiago Paunovic
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tf2_tools <https://github.com/ros2/geometry2/tree/galactic/tf2_tools/CHANGELOG.rst>`__
@@ -4945,7 +4675,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Split tf2_ros in tf2_ros and tf2_ros_py (`#210 <https://github.com/ros2/geometry2/issues/210>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Jacob Perron, Víctor Mayoral Vilches
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tlsf <https://github.com/ros2/tlsf/tree/galactic/tlsf/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4954,14 +4683,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Enable basic warnings (`#8 <https://github.com/ros2/tlsf/issues/8>`__)
 * Contributors: Audrow Nash, Chris Lalancette
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tlsf_cpp <https://github.com/ros2/realtime_support/tree/galactic/tlsf_cpp/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Add in the Apache license to tlsf_cpp. (`#108 <https://github.com/ros2/realtime_support/issues/108>`__)
 * Contributors: Chris Lalancette
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `topic_monitor <https://github.com/ros2/demos/tree/galactic/topic_monitor/CHANGELOG.rst>`__
@@ -4974,7 +4701,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update the package.xml files with the latest Open Robotics maintainers (`#466 <https://github.com/ros2/demos/issues/466>`__)
 * Contributors: Chris Lalancette, Ivan Santiago Paunovic, Michael Jeronimo
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `topic_statistics_demo <https://github.com/ros2/demos/tree/galactic/topic_statistics_demo/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4984,7 +4710,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update the package.xml files with the latest Open Robotics maintainers (`#466 <https://github.com/ros2/demos/issues/466>`__)
 * Create new topic statistics demo package (`#454 <https://github.com/ros2/demos/issues/454>`__)
 * Contributors: Audrow Nash, Chris Lalancette, Michael Jeronimo, Prajakta Gokhale
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tracetools <https://gitlab.com/ros-tracing/ros2_tracing/-/blob/galactic/tracetools/CHANGELOG.rst>`__
@@ -5000,14 +4725,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Allow disabling tracetools status app
 * Contributors: Christophe Bedard, Ingo Lütkebohle, José Antonio Moral
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tracetools_launch <https://gitlab.com/ros-tracing/ros2_tracing/-/blob/galactic/tracetools_launch/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Allow configuring tracing directory through environment variables
 * Contributors: Christophe Bedard
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tracetools_test <https://gitlab.com/ros-tracing/ros2_tracing/-/blob/galactic/tracetools_test/CHANGELOG.rst>`__
@@ -5022,7 +4745,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add lifecycle node state transition instrumentation test
 * Contributors: Alejandro Hernández Cordero, Christophe Bedard, Ingo Lütkebohle
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `tracetools_trace <https://gitlab.com/ros-tracing/ros2_tracing/-/blob/galactic/tracetools_trace/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -5034,7 +4756,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add instrumentation support for linking a timer to a node
 * Add lifecycle node state transition instrumentation
 * Contributors: Christophe Bedard, Ingo Lütkebohle
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `trajectory_msgs <https://github.com/ros2/common_interfaces/tree/galactic/trajectory_msgs/CHANGELOG.rst>`__
@@ -5050,7 +4771,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add Security Vulnerability Policy pointing to REP-2006. (`#120 <https://github.com/ros2/common_interfaces/issues/120>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Michel Hidalgo, Stephen Brawner, brawner, shonigmann
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `turtlesim <https://github.com/ros/ros_tutorials/tree/galactic-devel/turtlesim/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -5063,7 +4783,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * update Foxy turtle (`#90 <https://github.com/ros/ros_tutorials/issues/90>`__)
 * Contributors: Jacob Perron, Michel Hidalgo, Shane Loretz
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `unique_identifier_msgs <https://github.com/ros2/unique_identifier_msgs/tree/galactic/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -5074,7 +4793,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update Quality level to level 3 (`#13 <https://github.com/ros2/unique_identifier_msgs/issues/13>`__)
 * Add Security Vulnerability Policy pointing to REP-2006. (`#11 <https://github.com/ros2/unique_identifier_msgs/issues/11>`__)
 * Contributors: Chris Lalancette, Michel Hidalgo, Stephen Brawner, brawner
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `urdf <https://github.com/ros2/urdf/tree/galactic/urdf/CHANGELOG.rst>`__
@@ -5087,7 +4805,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Make urdf plugable and revive urdf_parser_plugin (`#13 <https://github.com/ros2/urdf/issues/13>`__)
 * Contributors: Audrow Nash, Chris Lalancette, Shane Loretz
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `urdf_parser_plugin <https://github.com/ros2/urdf/tree/galactic/urdf_parser_plugin/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -5095,7 +4812,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Export urdfdom_headers as urdf_parser_plugin dependency. (`#25 <https://github.com/ros2/urdf/issues/25>`__)
 * Make urdf plugable and revive urdf_parser_plugin (`#13 <https://github.com/ros2/urdf/issues/13>`__)
 * Contributors: Michel Hidalgo, Shane Loretz
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `visualization_msgs <https://github.com/ros2/common_interfaces/tree/galactic/visualization_msgs/CHANGELOG.rst>`__
@@ -5110,7 +4826,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add Security Vulnerability Policy pointing to REP-2006. (`#120 <https://github.com/ros2/common_interfaces/issues/120>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Michel Hidalgo, Stephen Brawner, brawner, shonigmann
 
-
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `yaml_cpp_vendor <https://github.com/ros2/yaml_cpp_vendor/tree/galactic/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -5121,7 +4836,6 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Revert "Use system installed yaml-cpp 0.6 if available (`#8 <https://github.com/ros2/yaml_cpp_vendor/issues/8>`__)" (`#15 <https://github.com/ros2/yaml_cpp_vendor/issues/15>`__)
 * Use system installed yaml-cpp 0.6 if available (`#8 <https://github.com/ros2/yaml_cpp_vendor/issues/8>`__)
 * Contributors: Ivan Santiago Paunovic, Scott K Logan, Sean Yen
-
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `zstd_vendor <https://github.com/ros2/rosbag2/tree/galactic/zstd_vendor/CHANGELOG.rst>`__

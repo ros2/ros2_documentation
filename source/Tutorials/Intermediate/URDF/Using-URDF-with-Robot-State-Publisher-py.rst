@@ -1,11 +1,27 @@
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: simulation, capabilities
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/URDF/Using-URDF-with-Robot-State-Publisher
 
 .. _URDFPlusRSPPYTHON:
 
-Using URDF with ``robot_state_publisher`` (Python)
-==================================================
+Using URDF with ``robot_state_publisher`` (Python) — tutorial
+=============================================================
+
+.. short-description::
+   URDF lets you describe a robot model that can be visualised and animated in ROS tools.
+   This tutorial shows how to create a Python package that publishes joint states and transforms for a walking robot.
+   After completing it, you can view the simulated robot motion in Rviz.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Simulate a walking robot modeled in URDF and view it in Rviz.
 

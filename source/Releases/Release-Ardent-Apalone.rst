@@ -1,11 +1,26 @@
+.. meta::
+   :contentType: release-note
+   :experience: intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
   Release-Ardent-Apalone
+<<<<<<< HEAD
+=======
+  Get-Started/Releases/Release-Ardent-Apalone
+>>>>>>> dfb668f (3di | Enhance metadata (#6981))
 
 Ardent Apalone (``ardent``)
 ===========================
 
-.. contents:: Table of Contents
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -15,7 +30,6 @@ Supported Platforms
 -------------------
 
 This version of ROS 2 is supported on three platforms:
-
 
 * Ubuntu 16.04 (Xenial)
 * Mac macOS 10.12 (Sierra)
@@ -102,7 +116,6 @@ Features
 New features in this ROS 2 release
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-
 * Distributed discovery, publish / subscribe, request / response communication
 
   * Provided by a C API
@@ -138,7 +151,6 @@ Changes since Beta 3 release
 
 Improvements since the Beta 3 release:
 
-
 * ``rviz``
 * Different initialization options for message data structures in C++ (see `design doc <https://design.ros2.org/articles/generated_interfaces_cpp.html#constructors>`__)
 * Logging API improvements, now also used in the demos
@@ -148,7 +160,6 @@ Improvements since the Beta 3 release:
 
 Known Issues
 ------------
-
 
 * Fast RTPS performance with larger data like the image demo
 * Using Connext it is currently not allowed for two topics with the same base name but different namespaces to have a different type (see `issue <https://github.com/ros2/rmw_connext/issues/234>`__).

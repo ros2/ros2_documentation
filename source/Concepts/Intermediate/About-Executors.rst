@@ -1,9 +1,24 @@
+.. meta::
+   :contentType: about
+   :experience: intermediate
+   :area: client-libraries, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
    Concepts/About-Executors
 
 Executors
 =========
+
+.. short-description::
+   Executors in ROS determine how nodes process incoming messages, timers, services, actions, and other events.
+   This article explains how Executors work, the different Executor types available, and how callback groups help control scheduling and concurrency.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :local:

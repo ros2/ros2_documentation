@@ -1,5 +1,30 @@
+<<<<<<< HEAD:source/Tutorials/Advanced/Reading-From-A-Bag-File-CPP.rst
 Reading from a bag file (C++)
 =============================
+=======
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: client-libraries, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+.. redirect-from::
+
+    Tutorials/Advanced/Reading-From-A-Bag-File-CPP
+
+Reading from a bag file (C++) — tutorial
+========================================
+
+.. short-description::
+   Bag files let you inspect and reuse recorded ROS data from your own applications.
+   This article shows how to create a C++ node that reads messages from a bag file, deserialises them, and republishes selected data.
+   After following these steps, you will be able to build and run a C++ bag reader.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/ROS-Framework/client-libraries/Working-with-Client-Libraries/Reading-From-A-Bag-File-CPP.rst
 
 **Goal:** Read data from a bag file to your own C++ node.
 

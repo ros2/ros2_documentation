@@ -1,0 +1,93 @@
+name: Enhance
+
+# pull_request_target grants GITHUB_TOKEN write access on fork PRs.
+# PR code is checked out as data only; scripts run from the trusted base checkout.
+on:
+  pull_request_target:
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  ensure-enhancements:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout PR code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          fetch-depth: 0
+
+      - name: Checkout trusted base scripts
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: .trusted-base
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install PyYAML
+        run: pip install --no-warn-script-location pyyaml
+
+      - name: Ensure documentation enhancements
+        id: ensure
+        continue-on-error: true
+        env:
+          DIFF_BASE: ${{ github.event.pull_request.base.sha }}
+        run: |
+          set -euo pipefail
+          git fetch origin "$DIFF_BASE"
+          make -f .trusted-base/Makefile ensure-enhancements \
+            TOOLS_DIR=.trusted-base/tools \
+            DIFF_BASE="$DIFF_BASE" \
+            STATUS_FILE="$GITHUB_OUTPUT"
+
+      # The ensure step soft-fails whenever enhancements are missing, so an empty
+      # enhancements_checked is the only signal that the check itself never ran.
+      - name: Verify enhancement check ran
+        if: steps.ensure.outputs.enhancements_checked == ''
+        run: |
+          echo "The enhancement check produced no outputs; see the ensure step log."
+          exit 1
+
+      - name: Supersede stale enhancement reviews
+        if: steps.ensure.outputs.enhancements_checked == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          make -f .trusted-base/Makefile supersede-enhancement-reviews \
+            TOOLS_DIR=.trusted-base/tools
+
+      # Posts the summary so the Conversation view has a current review after
+      # the stale ones are minimised.
+      - name: Post enhancement review comment
+        if: >-
+          ${{ !cancelled()
+          && steps.ensure.outputs.has_results == 'true' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REVIEW_COMMENT: ${{ steps.ensure.outputs.comment }}
+        run: |
+          set -euo pipefail
+          gh pr review "$PR_NUMBER" \
+            --comment \
+            --body "$REVIEW_COMMENT"
+
+      - name: Enforce required enhancements
+        if: always() && steps.ensure.outputs.has_errors == 'true'
+        run: |
+          echo "Required enhancements (error level) are still missing."
+          exit 1

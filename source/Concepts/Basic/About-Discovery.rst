@@ -1,5 +1,27 @@
+<<<<<<< HEAD:source/Concepts/Basic/About-Discovery.rst
+=======
+.. redirect-from::
+
+    Concepts/Basic/About-Discovery
+
+.. meta::
+   :contentType: about
+   :experience: beginner
+   :area: nodes, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/ROS-Framework/nodes/About-Discovery.rst
 Discovery
 =========
+
+.. short-description::
+   Discovery lets ROS nodes find each other so they can communicate without manual connection setup.
+   This article describes how nodes advertise their presence, respond to matching nodes, and maintain connections within a shared ROS domain.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :local:

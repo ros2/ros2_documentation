@@ -1,11 +1,31 @@
+<<<<<<< HEAD:source/Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher-cpp.rst
 .. Redirect-from::
+=======
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: simulation, capabilities
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+.. redirect-from::
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/Capabilities/Simulation/URDF/Using-URDF-with-Robot-State-Publisher-cpp.rst
 
     Tutorials/Intermediate/URDF/Using-URDF-with-Robot-State-Publisher
 
 .. _URDFPlusRSPCPP:
 
-Using URDF with ``robot_state_publisher`` (C++)
-===============================================
+Using URDF with ``robot_state_publisher`` (C++) — tutorial
+==========================================================
+
+.. short-description::
+   URDF models describe robot structure and joint relationships for simulation and visualisation.
+   This article shows how to create a C++ package that publishes joint states and uses robot_state_publisher with a URDF model.
+   After following these steps, you can launch a walking robot simulation and view it in Rviz.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Simulate a walking robot modeled in URDF and view it in Rviz.
 

@@ -1,5 +1,30 @@
+<<<<<<< HEAD:source/Tutorials/Demos/Action-Introspection.rst
 Configure action introspection
 ==============================
+=======
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+.. redirect-from::
+
+    Tutorials/Demos/Action-Introspection
+
+Configure action introspection — tutorial
+=========================================
+
+.. short-description::
+   Actions help ROS applications coordinate long-running procedures across nodes.
+   This tutorial describes how to configure action introspection for a Fibonacci action client and server.
+   After following the steps, you will be able to monitor action communication with ``ros2 action echo``.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/ROS-Framework/interfaces/actions/Working-with-actions/Action-Introspection.rst
 
 **Goal:** Configure action introspection for an action client and an action server.
 

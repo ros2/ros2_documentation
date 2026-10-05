@@ -1,5 +1,31 @@
+<<<<<<< HEAD:source/Installation/RMW-Implementations/DDS-Implementations.rst
+=======
+.. meta::
+   :contentType: about
+   :experience: intermediate, expert
+   :area: installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+.. redirect-from::
+
+    Installation/RMW-Implementations/DDS-Implementations
+
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/Get-Started/Installation/RMW-Implementations/DDS-Implementations.rst
 DDS implementations
 ===================
+
+.. short-description::
+   Data Distribution Service (DDS) implementations provide middleware options for ROS communication, allowing you to select a vendor that suits your platform and deployment needs.
+   This article lists the supported DDS vendors and links to setup guidance for using each implementation with ROS.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 These are the available DDS implementations:
 

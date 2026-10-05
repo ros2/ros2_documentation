@@ -2,10 +2,25 @@
 
   Feature-Ideas
 
+.. meta::
+   :contentType: reference
+   :experience: beginner, intermediate, expert
+   :area: community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _FeatureIdeas:
 
 Feature Ideas
 =============
+
+.. short-description::
+   Feature ideas help contributors find areas where their work can improve the ROS ecosystem.
+   This article lists potential design, infrastructure, tooling, and documentation improvements, and explains how to get guidance before starting a new contribution.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2

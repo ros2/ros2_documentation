@@ -1,5 +1,34 @@
+<<<<<<< HEAD:source/Tutorials/Intermediate/RViz/RViz-Custom-Panel/RViz-Custom-Panel.rst
 Building a Custom RViz Panel
 ============================
+=======
+.. redirect-from::
+
+    Tutorials/Intermediate/RViz/RViz-Custom-Panel/RViz-Custom-Panel
+
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: visualization, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Building a Custom RViz Panel - tutorial
+=======================================
+
+.. short-description::
+   Custom RViz panels let developers display data and trigger ROS actions from inside the RViz interface.
+   This article explains how to create a Qt-based panel plugin with topic subscription and publication support.
+   After you follow it, you can add, test, and polish a custom panel in RViz.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/Developer-Tools/Visualization/RViz/RViz-Custom-Panel/RViz-Custom-Panel.rst
 
 This tutorial is for people who would like to work within the RViz environment to either display or interact with some data in a two-dimensional environment.
 

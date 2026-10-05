@@ -1,7 +1,33 @@
+<<<<<<< HEAD:source/Installation/RHEL-Install-RPMs.rst
 RHEL (RPM packages)
 ===================
+=======
+.. meta::
+   :contentType: how-to
+   :experience: intermediate, expert
+   :area: installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
 
-.. contents:: Table of Contents
+.. redirect-from::
+
+    Installation/RHEL-Install-RPMs
+    Installation/Fedora-Install-RPMs
+
+Installing on RHEL / Fedora (RPM packages) - how-to
+===================================================
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/Get-Started/Installation/RHEL-Install-RPMs.rst
+
+.. short-description::
+   Installing ROS from RPM packages on RHEL provides a supported binary setup path for development, demos, and command-line workflows.
+   In this article, you will learn how to configure repositories, install ROS packages, set up your environment, verify the installation, and uninstall ROS.
+   After you follow these steps, you will have a working ROS installation on RHEL.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
 

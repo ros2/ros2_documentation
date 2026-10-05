@@ -1,13 +1,29 @@
+.. meta::
+   :contentType: how-to
+   :experience: intermediate, expert
+   :area: installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Working-with-multiple-RMW-implementations
     Guides/Working-with-multiple-RMW-implementations
     Tutorials/Working-with-multiple-RMW-implementations
 
-Working with multiple ROS 2 middleware implementations
-======================================================
+Working with multiple ROS 2 middleware implementations - how-to
+===============================================================
 
-.. contents:: Table of Contents
+.. short-description::
+   ROS can use different middleware implementations depending on the Data Distribution Service (DDS) options installed in your workspace.
+   This article explains how to select an RMW implementation, add new implementations to a workspace, and resolve common configuration issues.
+   After you follow these steps, you can switch between supported middleware implementations reliably.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -35,7 +51,6 @@ For example, to run the talker demo using the C++ talker and Python listener wit
 .. tabs::
 
   .. group-tab:: Linux
-
 
     Run in one terminal:
 

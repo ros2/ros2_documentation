@@ -1,7 +1,34 @@
+<<<<<<< HEAD:source/Tutorials/Intermediate/Testing/Testing-Main.rst
+=======
+.. redirect-from::
+
+    Tutorials/Intermediate/Testing/Testing-Main
+
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: debugging, builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+>>>>>>> dfb668f (3di | Enhance metadata (#6981)):source/Developer-Tools/Debugging/About-testing.rst
 .. _TestingMain:
 
-Testing
-=======
+Testing - tutorial
+==================
+
+.. short-description::
+   Automated tests help ROS developers change, refactor, and maintain code with greater confidence.
+   This article explains why tests are important for package quality, regression prevention, documentation, contribution, and Continuous Integration.
+   After reading it, you can decide where testing adds value and what maintenance costs to expect.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
 
 Why automatic tests?
 --------------------
