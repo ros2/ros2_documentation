@@ -82,7 +82,7 @@ Note that there are different `support tiers, which are defined by REP 2000 <htt
 
 #. DDS:
 
-    #. ``rmw_fastrtps_cpp``, ``rmw_fastrtps_dynamic_cpp``: `ros2/rmw_fastrtps <https://github.com/ros2/rmw_fastrtps>`_
+    #. ``rmw_fastrtps_cpp``: `ros2/rmw_fastrtps <https://github.com/ros2/rmw_fastrtps>`_
     #. ``rmw_cyclonedds_cpp``: `ros2/rmw_cyclonedds <https://github.com/ros2/rmw_cyclonedds>`_
     #. ``rmw_connextdds``: `ros2/rmw_connextdds <https://github.com/ros2/rmw_connextdds>`_
     #. ``rmw_gurumdds_cpp``: `ros2/rmw_gurumdds <https://github.com/ros2/rmw_gurumdds>`_
@@ -233,7 +233,7 @@ On the other hand, dynamic type support involves generating a bit of middleware-
 [#fn_ts_dynamic]_
 
 This information can be used at runtime by any ``rmw`` implementation to interpret a type-erased pointer to data: names & types of fields, functions to read from/write to fields depending on their type, functions to get the size of an array field, etc.
-For C++, this is ``rosidl_typesupport_introspection_cpp``, which is used by ``rmw_fastrtps_dynamic_cpp`` (hence the "dynamic" part), for example.
+For C++, this is ``rosidl_typesupport_introspection_cpp``, which is used by some DDS ``rmw`` implementations to provide on-the-wire type information for introspection, for example.
 
 Dynamic type support is generally slower than static type support at runtime because it has to iterate over each message field, figure out what type it is, and then process it, e.g., serialize it.
 Static type support knows exactly how to process the message thanks to the code it generated for each interface type.
