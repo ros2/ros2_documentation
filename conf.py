@@ -339,17 +339,14 @@ def smv_rewrite_configs(app, config):
     # external defines are setup, and environment variables aren't passed through to
     # conf.py).  Instead, hook into the 'config-inited' event which is late enough
     # to rewrite the various configuration items with the current version.
-    if app.config.smv_current_version != '':
-        app.config.html_baseurl = app.config.html_baseurl + '/' + app.config.smv_current_version
-        app.config.ogp_site_url = app.config.html_baseurl + '/'
-        app.config.project = 'ROS 2 Documentation: ' + app.config.smv_current_version.title()
+    if getattr(app.config, 'smv_current_version', '') != '':
+        distro = app.config.smv_current_version
+        app.config.project = 'ROS 2 Documentation: ' + distro.title()
 
-        app.config.html_logo = 'source/Releases/' + app.config.smv_current_version + '-small.png'
-        app.config.ogp_image = '_static/' + app.config.smv_current_version + '-small.png'
-
+        app.config.html_logo = 'source/Releases/' + distro + '-small.png'
+        app.config.ogp_image = '_static/' + distro + '-small.png'
 
         # Override default values
-        distro = app.config.smv_current_version
         app.config.macros = {
             'DISTRO': distro,
             'DISTRO_TITLE': distro.title(),
@@ -360,11 +357,17 @@ def smv_rewrite_configs(app, config):
             'DISTRO_ARM_STATUS_SUFFIX': distro_arm_status_suffix.get(distro, 'unv8'),
             'REPOS_FILE_BRANCH' : distro,
         }
+    else:
+        distro = getattr(app.config, 'macros', {}).get('DISTRO', 'rolling')
+
+    if not app.config.html_baseurl.endswith('/' + distro):
+        app.config.html_baseurl = app.config.html_baseurl.rstrip('/') + '/' + distro
+    app.config.ogp_site_url = app.config.html_baseurl + '/'
 
 def github_link_rewrite_branch(app, pagename, templatename, context, doctree):
-    if app.config.smv_current_version != '':
+    if getattr(app.config, 'smv_current_version', '') != '':
         context['github_version'] = app.config.smv_current_version + '/source/'
-        context['eol_versions'] = app.config.smv_eol_versions
+        context['eol_versions'] = getattr(app.config, 'smv_eol_versions', [])
 
 def expand_macros(app, docname, source):
     result = source[0]
