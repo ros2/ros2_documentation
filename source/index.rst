@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-=======
-.. meta::
-   :contentType: about
-   :experience: beginner
-   :area: framework
-   :distribution: {DISTRO}
-   :product: {PRODUCT}
-
->>>>>>> a2f0aa7 (add Officla Working Group in Governance page. (#7173))
 .. redirect-from::
 
   Docs-Guide
@@ -15,21 +5,6 @@
 ROS 2 Documentation
 ===================
 
-<<<<<<< HEAD
-=======
-.. short-description::
-   The Robot Operating System (ROS) is a set of software libraries and tools for building robot applications.
-   From drivers and state-of-the-art algorithms to powerful developer tools, ROS has the open source tools you need for your next robotics project.
-
-.. showmeta::
-   :order: area, contentType, experience
-   :labels: area=Area, contentType=Content type, experience=Level
-
-.. contents:: Contents
-   :depth: 2
-   :local:
-
->>>>>>> a2f0aa7 (add Officla Working Group in Governance page. (#7173))
 .. toctree::
    :titlesonly:
    :maxdepth: 1
@@ -48,6 +23,9 @@ ROS 2 Documentation
    Glossary
    Citations
 
+
+**The Robot Operating System (ROS) is a set of software libraries and tools for building robot applications.**
+From drivers and state-of-the-art algorithms to powerful developer tools, ROS has the open source tools you need for your next robotics project.
 
 :ref:`Learn more about ROS <AboutROS>`
 
