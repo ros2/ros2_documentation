@@ -1,11 +1,22 @@
+.. meta::
+   :contentType: reference
+   :experience: intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
-    Releases/Release-Process
+    Get-Started/Releases/Release-Process
 
 Development process for a release
 =================================
 
-.. contents:: Table of Contents
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
 

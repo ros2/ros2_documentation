@@ -1,11 +1,21 @@
+.. meta::
+   :contentType: how-to
+   :experience: beginner, intermediate, expert
+   :area: contributing, community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Reviewing a pull request (PR) — how-to
 ======================================
 
-All incoming code and documentation to ROS projects must be reviewed in a pull request.
-This article explains how to prepare for and review a pull request submitted by a contributor.
-After reading this article, you'll be able to ensure changes in a pull request meet the required standards.
+.. short-description::
+   All incoming code and documentation to ROS projects must be reviewed in a pull request.
+   This article explains how to prepare for and review a pull request submitted by a contributor.
+   After reading this article, you'll be able to ensure changes in a pull request meet the required standards.
 
-**Area: contributing, community | Content-type: how-to | Experience: beginner, intermediate, expert**
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2

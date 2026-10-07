@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Tf2/Introduction-To-Tf2
@@ -5,8 +12,17 @@
 
 .. _IntroToTf2:
 
-Introducing ``tf2``
-===================
+Introducing ``tf2`` — tutorial
+==============================
+
+.. short-description::
+   Coordinate frames are essential for describing how robot parts, sensors, and environments relate to each other.
+   This article introduces ``tf2`` by running a turtlesim demo and inspecting the transforms between two turtles.
+   After you follow these steps, you can view frame relationships with ``tf2`` tools and ``rviz2``.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Run a turtlesim demo and see some of the power of tf2 in a multi-robot example using turtlesim.
 

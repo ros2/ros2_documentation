@@ -1,11 +1,27 @@
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: simulation, capabilities
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     dummy-robot-demo
     Tutorials/dummy-robot-demo
     Tutorials/Demos/dummy-robot-demo
 
-Experimenting with a dummy robot
-================================
+Experimenting with a dummy robot — tutorial
+===========================================
+
+.. short-description::
+   The dummy robot demo provides a simple way to explore several ROS components working together in simulation.
+   This article describes how to launch the demo, view the robot in RViz, and inspect the nodes that publish map, laser, joint state, and transform data.
+   After you follow these steps, you will be able to run and understand the dummy robot bringup.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 In this demo, we present a simple demo robot with all components from publishing joint states over publishing fake laser data until visualizing the robot model on a map in RViz.
 
