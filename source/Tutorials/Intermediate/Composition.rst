@@ -373,10 +373,6 @@ The following extra arguments are supported.
      - Boolean
      - False
      - Enable intra-process communication in the component node.
-   * - ``enable_topic_statistics``
-     - Boolean
-     - False
-     - Enable a topic statistics publisher in the component node.
    * - ``start_parameter_services``
      - Boolean
      - True
