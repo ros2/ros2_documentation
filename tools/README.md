@@ -23,7 +23,7 @@ Locally, you can check specific files before pushing, or use `--diff-base` to mi
 
 ### Which pull requests
 
-The Enhance workflow runs on **every** pull request — any target branch, including from forks — once [`.github/workflows/enhance.yml`](../.github/workflows/enhance.yml) has been merged to the repository default branch (`rolling`).
+The Enhance workflow runs on every pull request that **targets `rolling`**, including from forks, once [`.github/workflows/enhance.yml`](../.github/workflows/enhance.yml) has been merged to the repository default branch (`rolling`). Pull requests targeting a distribution branch (for example backports to `lyrical`, `kilted`, `jazzy`, or `humble`) are not checked.
 
 GitHub Actions treats `pull_request_target` workflows specially:
 
@@ -33,7 +33,7 @@ GitHub Actions treats `pull_request_target` workflows specially:
 | **Pull request base branch** | The check scripts and rules (`ensure_enhancements.py`, `enhance.yaml`, Makefile targets) |
 | **Pull request head branch** | The `.rst` file content to inspect |
 
-So the job is defined centrally on `rolling`, but the rules applied are those on whichever branch your pull request targets. Until the workflow is on `rolling`, the Enhance check will not run on any pull request.
+So the job is defined centrally on `rolling`, and the rules applied are those on the pull request base branch. Because the workflow definition comes from the default branch, it would otherwise also trigger for pull requests against distribution branches that do not carry the check scripts, so the trigger carries a `branches: [rolling]` filter. Until the workflow is on `rolling`, the Enhance check will not run on any pull request.
 
 See [Continuous integration architecture](#continuous-integration-architecture) below for the full job flow and security rationale.
 
@@ -260,7 +260,7 @@ Environment for `supersede-enhancement-reviews` (set by the workflow or locally)
 
 ### Continuous integration architecture
 
-The workflow [`.github/workflows/enhance.yml`](../.github/workflows/enhance.yml) runs on **`pull_request_target`** when a pull request is **opened**, **synchronised**, or **reopened**. It triggers for pull requests targeting **any** branch (there is no `branches:` filter). That event type allows the default `GITHUB_TOKEN` to post review comments on fork PRs.
+The workflow [`.github/workflows/enhance.yml`](../.github/workflows/enhance.yml) runs on **`pull_request_target`** when a pull request is **opened**, **synchronised**, or **reopened**. It triggers only for pull requests targeting **`rolling`** (a `branches: [rolling]` filter), because distribution branches do not carry the check scripts and Makefile targets. That event type allows the default `GITHUB_TOKEN` to post review comments on fork PRs.
 
 GitHub always executes the workflow **as defined on the repository default branch** (`rolling`), not from the pull request head. The check scripts and [`enhance.yaml`](enhance.yaml) come from the pull request **base** branch (checked out into `.trusted-base/`). See [Which pull requests](#which-pull-requests) in the user guide and [Security](#security) below.
 

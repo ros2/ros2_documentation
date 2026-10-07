@@ -2,12 +2,19 @@ name: Enhance
 
 # pull_request_target grants GITHUB_TOKEN write access on fork PRs.
 # PR code is checked out as data only; scripts run from the trusted base checkout.
+#
+# Only run for pull requests targeting rolling. pull_request_target workflows
+# are evaluated from the default branch, so without this filter the job also
+# runs for backport PRs against distro branches, whose Makefile has no
+# ensure-enhancements target.
 on:
   pull_request_target:
     types:
       - opened
       - synchronize
       - reopened
+    branches:
+      - rolling
 
 permissions:
   contents: read
