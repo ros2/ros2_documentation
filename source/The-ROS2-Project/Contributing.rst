@@ -27,7 +27,7 @@ Contributing
    :hidden:
 
    Contributing/Developer-Guide
-   Contributing/Contributing-To-ROS-2-Documentation
+   Contributing/Contributing-to-documentation
    Contributing/Reviewing-a-PR
    Contributing/Making-a-PR
    Contributing/Triaging-an-issue
@@ -87,7 +87,7 @@ Development Guides
 ^^^^^^^^^^^^^^^^^^
 
 * :doc:`Contributing/Developer-Guide`
-* :doc:`Contributing/Contributing-To-ROS-2-Documentation`
+* :doc:`Contributing/Contributing-to-documentation`
 * :doc:`Contributing/Reviewing-a-PR`
 * :doc:`Contributing/Making-a-PR`
 * :doc:`Contributing/Triaging-an-issue`
