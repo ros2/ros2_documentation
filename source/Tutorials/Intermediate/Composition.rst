@@ -369,6 +369,25 @@ The following extra arguments are supported.
      - Boolean
      - False
      - Enable intra-process communication in the component node.
+<<<<<<< HEAD:source/Tutorials/Intermediate/Composition.rst
+=======
+   * - ``start_parameter_services``
+     - Boolean
+     - True
+     - Enable services to manage parameters in the component node.
+   * - ``start_parameter_event_publisher``
+     - Boolean
+     - True
+     - Enable the parameter event publisher in the component node.
+   * - ``use_clock_thread``
+     - Boolean
+     - True
+     - Enable a dedicated clock thread in the component node.
+   * - ``enable_logger_service``
+     - Boolean
+     - False
+     - Enable logger level management service in the component node.
+>>>>>>> d28dfa2 (remove topic statistics. (#7245)):source/ROS-Framework/nodes/Working-with-nodes/Composition.rst
 
 
 Composable nodes as shared libraries

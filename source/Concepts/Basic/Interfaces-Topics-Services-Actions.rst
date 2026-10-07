@@ -60,6 +60,7 @@ This interface type has the following main characteristics:
 Topic keys identify individual publishers on a topic so nodes and tools can distinguish where messages come from.
 Each topic key makes it easier to track data sources when several publishers share the same topic.
 
+<<<<<<< HEAD:source/Concepts/Basic/Interfaces-Topics-Services-Actions.rst
 Topic statistics
 ----------------
 Topic statistics are built-in measurements that help you understand how messages behave when a subscription receives them.
@@ -80,6 +81,8 @@ This gives you a clear view of timing patterns, delays, and irregularities, maki
 
 :doc:`Learn how to enable topic statistics </Tutorials/Advanced/Topic-Statistics-Tutorial/Topic-Statistics-Tutorial>`
 
+=======
+>>>>>>> d28dfa2 (remove topic statistics. (#7245)):source/ROS-Framework/Interfaces-Topics-Services-Actions.rst
 Services
 --------
 
