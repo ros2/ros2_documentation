@@ -52,9 +52,9 @@ Prerequisites
 * (Recommended) Previous security tutorials completion.
   In particular:
 
-    * :doc:`../../Introspection-and-analysis/Security/Introducing-ros2-security`
+    * :doc:`../../Launch/Security/Introducing-ros2-security`
     * :doc:`../The-Keystore`
-    * :doc:`../../Introspection-and-analysis/Security/Access-Controls`
+    * :doc:`../../Launch/Security/Access-Controls`
 
 General Guidelines
 ------------------

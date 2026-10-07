@@ -21,12 +21,22 @@ Node management
    :labels: area=Area, contentType=Content type, experience=Level
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :hidden:
 
-   Launch/Launch-Main
    Launch/Launching-composable-nodes
+   Launch/Creating-Launch-Files
+   Launch/Launch-Main
+   Launch/Using-Event-Handlers
+   Launch/Using-ROS2-Launch-For-Large-Projects
+   Launch/Using-Substitutions
    Launch/Launch-file-different-formats
+   Launch/Launch-system
+   Launch/FastDDS-Configuration
+   Launch/Improved-Dynamic-Discovery
+   Launch/Node-arguments
+   Launch/Discovery-Server/Discovery-Server
+   Launch/Security/About-Security
 
 .. contents:: Table of Contents
    :depth: 2

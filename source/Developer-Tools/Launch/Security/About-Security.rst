@@ -20,25 +20,15 @@
 ROS 2 Security
 ==============
 
-.. short-description::
-   Security in ROS helps protect communications between nodes through authentication, encryption, data integrity, and access control.
-   This article explains the core security concepts, files, enclaves, and environment variables used to configure secure ROS systems.
-
-.. showmeta::
-   :order: area, contentType, experience
-   :labels: area=Area, contentType=Content type, experience=Level
+.. contents:: Table of Contents
+   :local:
 
 .. toctree::
-   :hidden:
+   :maxdepth: 3
 
    Introducing-ros2-security
    Security-on-Two
-   Examine-Traffic
    Access-Controls
-
-.. contents:: Table of Contents
-   :depth: 2
-   :local:
 
 Overview
 --------
