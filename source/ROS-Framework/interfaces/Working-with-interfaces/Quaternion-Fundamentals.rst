@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Tf2/Quaternion-Fundamentals
@@ -5,8 +12,17 @@
 
 .. _QuaternionFundamentals:
 
-Quaternion fundamentals
-=======================
+Quaternion fundamentals — tutorial
+==================================
+
+.. short-description::
+   Quaternions are a compact way to represent orientation and rotation in three dimensions.
+   This tutorial explains how ROS uses quaternions, how to convert between common quaternion types, and how to apply basic quaternion operations.
+   After reading it, you will be able to create, normalise, invert, and combine quaternions.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Learn the basics of quaternion usage in ROS 2.
 

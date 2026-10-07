@@ -3,16 +3,32 @@
     Tutorials/Services/Understanding-ROS2-Services
     Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services
 
+.. meta::
+   :contentType: tutorial
+   :experience: beginner
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _ROS2Services:
 
 Learning about services - tutorial
 ===================================
 
+.. short-description::
+   Services let nodes request data or trigger behavior only when needed.
+   In this article, you will use turtlesim and command-line tools to list, inspect, call, and echo ROS services.
+   After you follow these steps, you will understand how service clients, servers, request types, and response types work.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+**Goal:** Learn about services in ROS 2 using command line tools.
+
 Services are one of the communication types used to exchange data in a ROS system.
 This article walks you through using command-line tools to examine and call services between nodes.
 A hands-on exercise with Turtlesim helps you understand how the call-and-response model works in the ROS graph.
-
-**Area: Framework | Content-type: tutorial | Experience: beginner**
 
 .. contents:: Contents
    :depth: 2

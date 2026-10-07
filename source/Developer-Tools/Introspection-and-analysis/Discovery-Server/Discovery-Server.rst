@@ -4,8 +4,24 @@
     Tutorials/Discovery-Server/Discovery-Server
     Tutorials/Advanced/Discovery-Server/Discovery-Server
 
-Using Fast DDS Discovery Server as discovery protocol [community-contributed]
-=============================================================================
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: node-management
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Using Fast DDS Discovery Server as discovery protocol [community-contributed] - tutorial
+========================================================================================
+
+.. short-description::
+   Fast DDS Discovery Server provides centralized discovery for ROS systems that need to reduce discovery traffic or avoid multicast.
+   This article shows how to run talker and listener nodes through a discovery server and configure expert discovery patterns.
+   After you follow these steps, you can use redundant servers, backup servers, partitions, and Super Client introspection.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** This tutorial will show how to launch ROS 2 Nodes using the **Fast DDS Discovery Server** discovery protocol.
 
@@ -726,7 +742,7 @@ The configuration file is mandatory in order to avoid using intraprocess mode.
     These scripts are only supported on Linux, and require a discovery server closure feature that is only available from versions newer than the version provided in ROS 2 Foxy.
     In order to use this functionality, compile ROS 2 with Fast DDS v2.1.0 or higher.
 
-These scripts' features are references for advanced purposes and their study is left to the user.
+These scripts' features are references for expert purposes and their study is left to the user.
 
 * :download:`bash network traffic generator <scripts/generate_discovery_packages.bash>`
 

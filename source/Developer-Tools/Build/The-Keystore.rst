@@ -3,10 +3,30 @@
     Tutorials/Security/The-Keystore
     Tutorials/Advanced/Security/The-Keystore
 
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _The-Keystore:
 
-Understanding the security keystore
-===================================
+Understanding the security keystore - tutorial
+==============================================
+
+.. short-description::
+   The ROS security keystore contains the certificates, keys, and policy files that enable secure communication between nodes.
+   This article describes the public, private, governance, and enclave files created by the ``sros2`` utilities.
+   After reading it, you will understand which files must be protected, shared, validated, or restored.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
 
 **Goal:** Explore files located in the ROS 2 security keystore.
 
@@ -14,10 +34,21 @@ Understanding the security keystore
 
 **Time:** 15 minutes
 
-.. contents:: Contents
-   :depth: 2
-   :local:
+Summary
+-------
 
+ROS uses the directory set by ROS_SECURITY_KEYSTORE as the security keystore.
+
+The keystore separates security artifacts into key areas:
+
+* ``public`` contains CA certificates used to establish trust.
+
+* ``private`` contains CA private keys that must be protected and backed up.
+
+* ``enclaves`` contains signed governance and permissions files for secure processes.
+
+Each enclave requires ``key.pem``, ``cert.pem``, ``permissions.p7s``, ``governance.p7s``, ``identity_ca.cert.pem``, and ``permissions_ca.cert.pem``.
+Use ``openssl smime -verify`` to validate signed policy files.
 
 Background
 ----------
