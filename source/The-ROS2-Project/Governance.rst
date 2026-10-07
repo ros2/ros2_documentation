@@ -282,7 +282,6 @@ The following repositories are managed by the ROS PMC:
    * - https://github.com/ros-perception/pointcloud_to_laserscan
    * - https://github.com/ros-planning/navigation_msgs
    * - https://github.com/ros-tooling/keyboard_handler
-   * - https://github.com/ros-tooling/libstatistics_collector
    * - https://github.com/ros-visualization/interactive_markers
    * - https://github.com/ros-visualization/python_qt_binding
    * - https://github.com/ros-visualization/qt_gui_core
