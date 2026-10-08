@@ -448,3 +448,15 @@ adopters:
     country:
       - JP
     description: "Ball-Driven Omnidirectional Mobility Platform. Powered by three spheres and three motors, enabling seamless movement in any direction. It solves challenges beyond the reach of conventional robots—navigating steps, irregular floors, millimeter-precise positioning and heavy load transport."
+      - organization: "OSTIRION SLU"
+    organization_url: "https://ostirion.net/"
+    project: "Multi-mission industrial mobile platform"
+    domain:
+      - Construction
+      - Defense/Government
+      - Logistics/Warehouse
+      - Manufacturing
+    date_added: "2026-10-08"
+    country:
+      - ES
+    description: "OSTIRION uses ROS 2 as the core software framework of our industrial mobile robot platform and the integration of mission systems such as inspection cameras, RFID antennas and manipulator systems. We use it to integrate navigation, localisation, sensors, payloads and robot control through a modular architecture. ROS 2 allows us to reuse widely supported components, develop application-specific modules and integrate the robot with external systems without relying on multiple software stacks. This openness and modularity are central to our goal of making industrial robotics more flexible, maintainable and affordable."
