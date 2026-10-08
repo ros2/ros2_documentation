@@ -704,19 +704,27 @@
         group.style.display = 'none';
         return;
       }
-      group.dataset.rosPfFilterKey = key;
+      if (group.dataset.rosPfFilterKey !== key) {
+        group.dataset.rosPfFilterKey = key;
+      }
       const show =
         isConfiguredFacetKey(key) &&
         (filterKeyInTotalFilters(key, totalFilters) || isAlwaysShowFilterKey(key));
-      group.style.display = show ? '' : 'none';
+      const nextDisplay = show ? '' : 'none';
+      if (group.style.display !== nextDisplay) {
+        group.style.display = nextDisplay;
+      }
       if (!show) {
         return;
       }
       // Keep Pagefind's uppercase key titles (do not replace with friendly labels).
+      // Assigning textContent when the text is unchanged still replaces the text
+      // node, which retriggers the pane observer and rebuilds the checkboxes.
       const summary = group.querySelector('summary, button');
       const nameEl = summary?.querySelector('.pf-filter-group-name');
-      if (nameEl) {
-        nameEl.textContent = facetGroupTitle(key);
+      const title = facetGroupTitle(key);
+      if (nameEl && nameEl.textContent !== title) {
+        nameEl.textContent = title;
       }
       matched.push({ key, el: group });
     });
@@ -724,14 +732,21 @@
     if (!container) {
       return;
     }
+    const ordered = [];
     resultMetaFields.forEach((field) => {
       const entry = matched.find(
         (m) => m.key.toLowerCase() === field.key.toLowerCase(),
       );
       if (entry) {
-        container.appendChild(entry.el);
+        ordered.push(entry.el);
       }
     });
+    const alreadyOrdered = ordered.every((el, index) => container.children[index] === el);
+    if (!alreadyOrdered) {
+      ordered.forEach((el) => {
+        container.appendChild(el);
+      });
+    }
   }
 
   function ensureAlwaysShowPlaceholders(scopeEl, totalFilters) {
@@ -809,20 +824,56 @@
           host.appendChild(details);
         } else {
           const summary = details.querySelector('summary');
-          if (summary) {
+          if (summary && summary.textContent !== title) {
             summary.textContent = title;
           }
         }
       });
 
-      missingFields.forEach((field) => {
-        const el = host.querySelector(
+      const placeholderOrder = missingFields
+        .map((field) => host.querySelector(
           `[data-ros-facet-placeholder="${CSS.escape(field.key)}"]`,
-        );
-        if (el) {
+        ))
+        .filter(Boolean);
+      const placeholdersOrdered = placeholderOrder.every(
+        (el, index) => host.children[index] === el,
+      );
+      if (!placeholdersOrdered) {
+        placeholderOrder.forEach((el) => {
           host.appendChild(el);
-        }
-      });
+        });
+      }
+    });
+  }
+
+  // Pagefind's component shows totalFilters for a checked value and the
+  // available count otherwise. A filter-only search (empty query) returns
+  // totalFilters as all zeros, while the available count for the checked
+  // value matches the result list. Keep the component's total when it is
+  // non-zero, and fall back to the available count when it is not.
+  function correctSelectedFilterCounts(pane) {
+    if (!(pane instanceof HTMLElement) || !pane.availableFilters) {
+      return;
+    }
+    const available = pane.availableFilters;
+    const totals = pane.totalFilters;
+    pane.querySelectorAll('input.pf-checkbox-input:checked').forEach((input) => {
+      if (!(input instanceof HTMLInputElement)) {
+        return;
+      }
+      const totalCount = totals?.[input.name]?.[input.value] ?? 0;
+      const availableCount = available?.[input.name]?.[input.value];
+      if (totalCount > 0 || typeof availableCount !== 'number') {
+        return;
+      }
+      const span = input.parentElement?.querySelector('.pf-filter-checkbox-count');
+      if (!span) {
+        return;
+      }
+      const next = String(availableCount);
+      if (span.textContent !== next) {
+        span.textContent = next;
+      }
     });
   }
 
@@ -834,6 +885,7 @@
       .forEach((scope) => {
         scope.querySelectorAll('pagefind-filter-pane').forEach((pane) => {
           customizeFilterPane(pane, totalFilters);
+          correctSelectedFilterCounts(pane);
         });
         ensureAlwaysShowPlaceholders(scope, totalFilters);
       });
@@ -1089,7 +1141,22 @@
     }
   }
 
+  function liftSearchModalOutOfSidebar() {
+    // The trigger lives in .wy-nav-side (fixed, z-index 200, overflow hidden).
+    // A modal dialog kept inside that sidebar paints over the page, but the
+    // filter column still overlaps the sidebar layer, so clicks miss the checkboxes.
+    const host = document.querySelector('.ros2-pagefind-search pagefind-modal');
+    if (!(host instanceof HTMLElement) || host.closest('.ros2-pagefind-search--portal')) {
+      return;
+    }
+    const portal = document.createElement('div');
+    portal.className = 'ros2-pagefind-search ros2-pagefind-search--portal';
+    document.body.appendChild(portal);
+    portal.appendChild(host);
+  }
+
   try {
+    liftSearchModalOutOfSidebar();
     await import(new URL(js, document.baseURI).href);
     const instance = getPagefindInstance();
     if (instance && Array.isArray(mergeIndex) && mergeIndex.length) {

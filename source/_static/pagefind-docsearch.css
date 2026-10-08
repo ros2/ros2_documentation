@@ -3,6 +3,38 @@
   margin: 0.5rem 0 1rem;
 }
 
+/*
+  The modal is moved to document.body so it is not a descendant of
+  .wy-nav-side. That sidebar is position:fixed, z-index:200, and
+  overflow:hidden; while the dialog stays inside it, the filter column
+  (which overlaps the sidebar) is a different hit-test layer from the
+  painted dialog.
+*/
+.ros2-pagefind-search.ros2-pagefind-search--portal {
+  margin: 0;
+  width: 0;
+  height: 0;
+  overflow: visible;
+  contain: none;
+  position: static;
+  pointer-events: none;
+}
+
+.ros2-pagefind-search--portal pagefind-modal {
+  contain: none !important;
+  display: block;
+  width: 0;
+  height: 0;
+  margin: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.ros2-pagefind-search--portal dialog.pf-modal,
+.ros2-pagefind-search--portal dialog.pf-modal::backdrop {
+  pointer-events: auto;
+}
+
 .ros2-pagefind-search pagefind-modal-trigger {
   display: block;
   width: 100%;
