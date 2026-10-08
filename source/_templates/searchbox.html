@@ -846,34 +846,124 @@
     });
   }
 
-  // Pagefind's component shows totalFilters for a checked value and the
-  // available count otherwise. A filter-only search (empty query) returns
-  // totalFilters as all zeros, while the available count for the checked
-  // value matches the result list. Keep the component's total when it is
-  // non-zero, and fall back to the available count when it is not.
-  function correctSelectedFilterCounts(pane) {
-    if (!(pane instanceof HTMLElement) || !pane.availableFilters) {
+  // Counts beside filters ignore the search words. They always describe the
+  // pages that match the selected filters alone. The result summary still
+  // counts the list, which includes the search words.
+  let filterOnlyCounts = null;
+  let filterOnlyCountsKey = '';
+  let filterOnlyRequest = 0;
+
+  function filterCountsKey(filters) {
+    const normalized = normalizeSearchFilters(filters);
+    return JSON.stringify(
+      Object.keys(normalized)
+        .sort()
+        .map((key) => [key, [...normalized[key]].sort()]),
+    );
+  }
+
+  function countInFilterMap(map, name, value) {
+    if (!map || typeof map !== 'object') {
+      return undefined;
+    }
+    const groupKey = Object.keys(map).find(
+      (key) => key.toLowerCase() === String(name).toLowerCase(),
+    );
+    const group = groupKey ? map[groupKey] : null;
+    if (!group || typeof group !== 'object') {
+      return undefined;
+    }
+    const valueKey = Object.keys(group).find(
+      (key) => key.toLowerCase() === String(value).toLowerCase(),
+    );
+    const count = valueKey ? group[valueKey] : undefined;
+    return typeof count === 'number' ? count : undefined;
+  }
+
+  function setFilterCount(input, count) {
+    const label = input.closest('label');
+    const span = label?.querySelector('.pf-filter-checkbox-count');
+    if (!label || !span) {
       return;
     }
-    const available = pane.availableFilters;
-    const totals = pane.totalFilters;
+    const next = String(count);
+    if (span.textContent !== next) {
+      span.textContent = next;
+    }
+    const show = count > 0 || input.checked;
+    if (label.hasAttribute('data-pf-hidden') === show) {
+      label.toggleAttribute('data-pf-hidden', !show);
+    }
+    const group = input.closest('details');
+    if (group instanceof HTMLElement && show && group.hasAttribute('data-pf-hidden')) {
+      group.removeAttribute('data-pf-hidden');
+    }
+  }
+
+  function scheduleFilterOnlyCounts() {
+    const instance = getPagefindInstance();
+    const term = (instance?.searchTerm || '').trim();
+    if (!instance || !term) {
+      if (filterOnlyCounts) {
+        filterOnlyCounts = null;
+        filterOnlyCountsKey = '';
+        scheduleRefreshFacetPanes();
+      }
+      return;
+    }
+    const key = filterCountsKey(instance.searchFilters);
+    if (key === filterOnlyCountsKey && filterOnlyCounts) {
+      scheduleRefreshFacetPanes();
+      return;
+    }
+    const pagefind = instance.__pagefind__;
+    if (!pagefind || typeof pagefind.search !== 'function') {
+      return;
+    }
+    const request = ++filterOnlyRequest;
+    const filters = normalizeSearchFilters(instance.searchFilters);
+    pagefind.search(null, { filters }).then((result) => {
+      if (request !== filterOnlyRequest) {
+        return;
+      }
+      filterOnlyCounts = result?.filters || {};
+      filterOnlyCountsKey = key;
+      scheduleRefreshFacetPanes();
+    }).catch(() => {});
+  }
+
+  function correctSelectedFilterCounts(pane) {
+    if (!(pane instanceof HTMLElement)) {
+      return;
+    }
+    const instance = getPagefindInstance();
+    const term = (instance?.searchTerm || '').trim();
+    const countsMatchFilters = filterCountsKey(instance?.searchFilters) === filterOnlyCountsKey;
+    if (term && filterOnlyCounts && countsMatchFilters) {
+      pane.querySelectorAll('input.pf-checkbox-input').forEach((input) => {
+        if (!(input instanceof HTMLInputElement)) {
+          return;
+        }
+        const count = countInFilterMap(filterOnlyCounts, input.name, input.value) ?? 0;
+        setFilterCount(input, count);
+      });
+      return;
+    }
+    if (!pane.availableFilters) {
+      return;
+    }
+    // An empty query reports totalFilters as zeros. Checked rows would show 0
+    // unless we copy the available count, which is the filter-only count.
     pane.querySelectorAll('input.pf-checkbox-input:checked').forEach((input) => {
       if (!(input instanceof HTMLInputElement)) {
         return;
       }
-      const totalCount = totals?.[input.name]?.[input.value] ?? 0;
-      const availableCount = available?.[input.name]?.[input.value];
+      const totalCount = countInFilterMap(pane.totalFilters, input.name, input.value) ?? 0;
+      const availableCount = countInFilterMap(pane.availableFilters, input.name, input.value);
       if (totalCount > 0 || typeof availableCount !== 'number') {
         return;
       }
-      const span = input.parentElement?.querySelector('.pf-filter-checkbox-count');
-      if (!span) {
-        return;
-      }
-      const next = String(availableCount);
-      if (span.textContent !== next) {
-        span.textContent = next;
-      }
+      setFilterCount(input, availableCount);
     });
   }
 
@@ -930,6 +1020,7 @@
     if (!facetPaneListenerRegistered) {
       facetPaneListenerRegistered = true;
       instance.on('filters', () => {
+        scheduleFilterOnlyCounts();
         scheduleRefreshFacetPanes();
       });
     }
@@ -1269,6 +1360,7 @@
     applyDefaultDistributionFilter();
     if (instance?.on) {
       instance.on('search', (term) => {
+        scheduleFilterOnlyCounts();
         applyDefaultDistributionFilter();
         if (userEditedPageSearchTerm || restoringUrlTerm || !urlSearchTerm()) {
           return;
