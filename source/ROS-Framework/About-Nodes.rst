@@ -3,8 +3,23 @@
     Concepts/Basic/About-Nodes
     Concepts/Basic/About-Discovery
 
+.. meta::
+   :contentType: about
+   :experience: beginner
+   :area: nodes, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Nodes
 =====
+
+.. short-description::
+   Nodes are the main units of computation in a ROS graph.
+   This article explains what nodes are, how they communicate, and how they provide functionality to other parts of a ROS system.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. toctree::
    :maxdepth: 1
@@ -14,11 +29,6 @@ Nodes
    nodes/About-Logging/About-Logging
    nodes/About-Composition
    nodes/Working-with-nodes
-
-A node is a participant in the ROS graph that performs computation and communicates with other nodes via interfaces.
-This article describes what nodes do and how they interconnect.
-
-**Area: ROS-framework | Content-type: concept | Experience: beginner**
 
 .. contents:: Table of Contents
    :local:

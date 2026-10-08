@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: simulation, capabilities
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/URDF/Adding-Physical-and-Collision-Properties-to-a-URDF-Model
@@ -5,8 +12,17 @@
 
 .. _URDFProperties:
 
-Adding physical and collision properties
-========================================
+Adding physical and collision properties — tutorial
+===================================================
+
+.. short-description::
+   URDF models need physical and collision properties before they can be used reliably in simulation.
+   This article describes how to add ``collision`` and ``inertial`` elements to links, and how to define contact coefficients and joint dynamics.
+   After you follow these steps, your model will be ready for collision checking and basic physics simulation.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Learn how to add collision and inertial properties to links, and how to add joint dynamics to joints.
 

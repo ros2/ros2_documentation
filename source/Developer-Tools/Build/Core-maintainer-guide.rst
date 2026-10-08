@@ -4,14 +4,50 @@
   How-To-Guides/Package-maintainer-guide
   How-To-Guides/Core-maintainer-guide
 
-ROS 2 Core Maintainer Guide
-===========================
+.. meta::
+   :contentType: how-to
+   :experience: intermediate
+   :area: builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Maintaining ROS Core Packages - how-to
+======================================
+
+.. short-description::
+   Core package maintainers are responsible for reviews, releases, CI health, backports, and issue triage.
+   This article describes the main responsibilities and decision points for maintaining ROS core repositories.
+   After you read it, you can review pull requests, run CI, make releases, and handle issues consistently.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
 
 Each package in the ROS 2 core has one or more maintainers that are responsible for the general health of the package.
 This guide gives some information about the responsibilities of a ROS 2 core package maintainer.
 
-.. contents:: Table of Contents
-   :local:
+Reviews
+-------
+
+All incoming code to ROS 2 core repositories must be reviewed.
+The review is looking for:
+
+* Suitability in the package
+* Correct code
+* Conforms to developer guidelines:
+
+    * :doc:`Developer Guide <../../The-ROS2-Project/Contributing/Developer-Guide>`
+    * :doc:`Code Style Guide <../../The-ROS2-Project/Contributing/Contributing-to-code/Code-Style-Language-Versions>`
+
+* Adds tests for the bug/feature
+* Adds documentation for new features
+* Clean Continuous Integration run
+* Targets default branch (usually "rolling")
+* Has at least one approval from a maintainer that is not the author
 
 Continuous Integration
 ----------------------
@@ -55,7 +91,7 @@ A pull request can be merged if all of the following are true:
 * The CI build reports a passing result on all platforms
 * The PR has been reviewed and approved by at least one maintainer
 
-For more information about what happens when a PR is reviewed, see :doc:`/The-ROS2-Project/Contributing/Contributing-to-code/Reviewing-a-PR`.
+For more information about what happens when a PR is reviewed, see :doc:`/The-ROS2-Project/Contributing/Reviewing-a-PR`.
 
 After a PR is merged, it will automatically get built with the next `nightlies <https://ci.ros2.org/view/nightly>`__.
 It is highly recommended to check the nightlies after merging pull requests to ensure no regressions have occurred.

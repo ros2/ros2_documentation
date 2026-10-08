@@ -1,5 +1,24 @@
+.. meta::
+   :contentType: reference
+   :experience: beginner, intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Glossary
 ========
+
+.. short-description::
+   ROS documentation uses specific terminology to describe its tools, concepts, software structure, and community processes.
+   This article provides a glossary of commonly used ROS terms, helping you understand key definitions and follow related documentation more easily.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
 
 .. include:: ../../global_substitutions.txt
 
