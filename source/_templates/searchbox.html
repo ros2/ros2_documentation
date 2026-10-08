@@ -1150,6 +1150,63 @@
     }
   }
 
+  // The search page autofocuses its input. Pagefind will not write a search
+  // event's term into a focused field, and its startup empty search can clear
+  // the field after we set it. Keep the q= param visible until the user edits.
+  let userEditedPageSearchTerm = false;
+  let restoringUrlTerm = false;
+
+  function urlSearchTerm() {
+    return (new URLSearchParams(window.location.search).get('q') || '').trim();
+  }
+
+  function reflectSearchTermOnPage(term) {
+    const host = document.querySelector('#ros-search-page pagefind-input');
+    const input = host?.querySelector('input');
+    if (!(input instanceof HTMLInputElement)) {
+      return false;
+    }
+    if (!input.dataset.rosTermWatch) {
+      input.dataset.rosTermWatch = '1';
+      input.addEventListener('input', () => {
+        userEditedPageSearchTerm = true;
+      });
+    }
+    if (input.value !== term) {
+      input.value = term;
+    }
+    if (typeof host.updateState === 'function') {
+      host.updateState(term);
+    }
+    return true;
+  }
+
+  function restoreUrlSearchTerm() {
+    if (userEditedPageSearchTerm || restoringUrlTerm) {
+      return;
+    }
+    if (!document.querySelector('#ros-search-page')) {
+      return;
+    }
+    const term = urlSearchTerm();
+    const instance = getPagefindInstance();
+    if (!term || !instance) {
+      return;
+    }
+    if ((instance.searchTerm || '').trim() !== term) {
+      restoringUrlTerm = true;
+      try {
+        instance.triggerSearchWithFilters(
+          term,
+          mergeDefaultDistributionFilter(parseFiltersFromUrl()),
+        );
+      } finally {
+        restoringUrlTerm = false;
+      }
+    }
+    reflectSearchTermOnPage(term);
+  }
+
   function applySearchQueryFromUrl() {
     const root = document.querySelector('#ros-search-page');
     if (!root) {
@@ -1169,6 +1226,10 @@
     }
     if (term) {
       instance.triggerSearchWithFilters(term, filters);
+      reflectSearchTermOnPage(term);
+      queueMicrotask(() => {
+        restoreUrlSearchTerm();
+      });
       return;
     }
     // Filter-only URL with no query: still run a search so result cards appear.
@@ -1207,8 +1268,18 @@
     applySearchQueryFromUrl();
     applyDefaultDistributionFilter();
     if (instance?.on) {
-      instance.on('search', () => {
+      instance.on('search', (term) => {
         applyDefaultDistributionFilter();
+        if (userEditedPageSearchTerm || restoringUrlTerm || !urlSearchTerm()) {
+          return;
+        }
+        if ((term || '') !== urlSearchTerm()) {
+          queueMicrotask(() => {
+            restoreUrlSearchTerm();
+          });
+          return;
+        }
+        reflectSearchTermOnPage(urlSearchTerm());
       });
       instance.on('filters', () => {
         applyDefaultDistributionFilter();
