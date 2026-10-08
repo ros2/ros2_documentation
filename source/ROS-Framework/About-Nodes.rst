@@ -80,19 +80,22 @@ See :doc:`Interfaces-Topics-Services-Actions`.
 Discovery
 ^^^^^^^^^
 
-Connections between nodes are established through a distributed discovery process.
 Discovery of nodes happens automatically through the underlying middleware of ROS.
-The discovery process can be summarized as follows:
+Connections between nodes are typically established through a distributed discovery process.
+Depending on how the middleware is configured, though, it is possible to configure server-client discovery.
 
-#. When a node is started, it advertises its presence to other nodes on the network with the same ROS domain (set with the ROS_DOMAIN_ID environment variable).
-   Nodes respond to this advertisement with information about themselves so that the appropriate connections can be made and the nodes can communicate.
-#. Nodes periodically advertise their presence so that connections can be made with new-found entities, even after the initial discovery period.
-#. Nodes advertise to other nodes when they go offline.
+.. note::
+   The discovery process can be summarized as follows:
+
+   #. When a node is started, it advertises its presence to other nodes on the network with the same ROS domain (set with the ``ROS_DOMAIN_ID`` environment variable).
+      Nodes respond to this advertisement with information about themselves so that the appropriate connections can be made and the nodes can communicate.
+   #. Nodes periodically advertise their presence so that connections can be made with new-found entities, even after the initial discovery period.
+   #. Nodes advertise to other nodes when they go offline.
 
 Nodes only establish connections with other nodes if they have compatible *quality of service* settings.
 See :doc:`interfaces/topics/Working-with-topics/Quality-of-Service`.
 Nodes must also share a ROS domain ID to discover each other.
-See :doc:` nodes/About-Domain-ID`.
+See :doc:`nodes/About-Domain-ID`.
 
 The :ref:`talker-listener demo <talker-listener>` provides an example of node discovery.
 The C++ talker node in one terminal publishes messages on a topic, and the Python listener node running in another terminal subscribes to messages on the same topic.
@@ -103,8 +106,9 @@ Node management
 ---------------
 
 You can start individual nodes from the command line with ``ros2 run``.
-ROS launch files allow you to start up and configure a number of executables containing ROS nodes simultaneously.
+``ros2 run`` initiates the executable binary which can launch one or more notes.
 
+ROS launch files allow you to start up and configure a number of executables containing ROS nodes simultaneously.
 See :doc:`launch files <../Developer-Tools/About-Launch>`.
 
 Log messages
