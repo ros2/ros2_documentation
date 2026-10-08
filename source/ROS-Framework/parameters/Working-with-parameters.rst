@@ -1,12 +1,21 @@
 .. meta::
    :contentType: about
    :experience: beginner
-   :area: framework
+   :area: parameters, framework
    :distribution: {DISTRO}
    :product: {PRODUCT}
 
 Working with parameters - how-to
 ================================
+
+.. short-description::
+   Parameters are configuration values that let you adapt node behavior without changing code.
+   This article describes how parameters are declared, typed, set, queried, and updated in ROS.
+   After reading it, you will understand how to configure nodes with parameters and react to parameter changes.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. toctree::
   :maxdepth: 2
@@ -16,12 +25,6 @@ Working with parameters - how-to
   Working-with-parameters/Using-ros2-param
   Working-with-parameters/Monitoring-For-Parameter-Changes-Python
   Working-with-parameters/Monitoring-For-Parameter-Changes-CPP
-
-Parameters are configuration values stored by each node in the ROS graph.
-This article describes how to interact with ROS parameters.
-After reading this article you will be able to understand how to use parameters.
-
-**[Area: Parameters, Framework | Content-type: Concept | Experience: Beginner]**
 
 .. contents:: Table of Contents
    :depth: 2

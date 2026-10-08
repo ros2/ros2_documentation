@@ -2,10 +2,25 @@
 
   Governance
 
+.. meta::
+   :contentType: about
+   :experience: beginner, intermediate, expert
+   :area: community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _Governance:
 
 Project governance
 ==================
+
+.. short-description::
+   ROS governance defines how technical decisions are made and how community members can participate in project oversight.
+   This article introduces the OSRA, the Technical Governance Committee, the ROS Project Management Committee, and the meeting process used to coordinate ROS development.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2
@@ -44,6 +59,8 @@ Community members are encouraged to observe the ROS 2 PMC meetings and submit ag
 To add an item to the ROS PMC agenda please contact one of the ROS PMC constituents list below.
 ROS PMC meetings are conducted using Zoom and presently occur every Tuesday at 17:00 UTC (09:00 PST / 12:00 EST / 18:00 CET / +1 02:00 JST).
 To join the ROS PMC meeting please use the `link available in our official OSRA Google calendar <https://calendar.google.com/calendar/u/0/embed?src=agf3kajirket8khktupm9go748@group.calendar.google.com&ctz=Etc%2FUTC>`__.
+
+.. _ROS PMC Constituents:
 
 Current ROS PMC Constituents
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -159,6 +176,10 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `methylDragon <https://github.com/methylDragon>`_
      - PST (UTC-8)/PDT (UTC-7)
+   * - CY Chen
+     - `NVIDIA <https://www.nvidia.com/>`_
+     - `nvcyc <https://github.com/nvcyc>`_
+     - N/A
    * - Dharini Dutia
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `quarkytale <https://github.com/quarkytale>`_
@@ -175,18 +196,30 @@ The ROS committers (who are not also part of the ROS PMC) consists of the follow
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `kscottz <https://github.com/kscottz>`_
      - PST (UTC-8)/PDT (UTC-7)
+   * - Kimberly McGuire
+     - `McGuire Robotics <https://www.mcguirerobotics.com/>`_
+     - `knmcguire <https://github.com/knmcguire>`_
+     - CET (UTC+1) / CEST (UTC+2)
+   * - Martin Pecka
+     - `Czech Technical University in Prague <https://cvut.cz/>`_
+     - `peci1 <https://github.com/peci1>`_
+     - CET (UTC+1) / CEST (UTC+2)
    * - Michael (Robert) Carlstrom
      - `CivRobotics <https://www.civrobotics.com/>`_
      - `InvincibleRMC <https://github.com/InvincibleRMC>`_
      - PST (UTC-8)/PDT (UTC-7)
-   * - Skyler Medeiros
-     - `Polymath Robotics <https://www.polymathrobotics.com/>`_
-     - `skyegalaxy <https://github.com/skyegalaxy>`_
-     - PST (UTC-8)/PDT (UTC-7)
+   * - Nadav Elkabets
+     - Stealth Startup
+     - `nadavelkabets <https://github.com/nadavelkabets/>`_
+     - N/A
    * - Steve Peters
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `scpeters <https://github.com/scpeters>`_
      - PST (UTC-8)/PDT (UTC-7)
+   * - Tim Clephas
+     - `Nobleo <https://nobleo-technology.nl/autonomousrobotsolutions/>`_
+     - `Timple <https://github.com/Timple>`_
+     - CET (UTC+1)/CEST (UTC+2)
    * - Tully Foote
      - `Intrinsic <https://www.intrinsic.ai/>`_
      - `tfoote <https://github.com/tfoote>`_
@@ -244,7 +277,6 @@ The following repositories are managed by the ROS PMC:
    * - https://github.com/ros-perception/pointcloud_to_laserscan
    * - https://github.com/ros-planning/navigation_msgs
    * - https://github.com/ros-tooling/keyboard_handler
-   * - https://github.com/ros-tooling/libstatistics_collector
    * - https://github.com/ros-visualization/interactive_markers
    * - https://github.com/ros-visualization/python_qt_binding
    * - https://github.com/ros-visualization/qt_gui_core
@@ -341,6 +373,50 @@ The following repositories are managed by the ROS PMC:
    * - https://github.com/ros2/unique_identifier_msgs
    * - https://github.com/ros2/urdf
    * - https://github.com/ros2/yaml_cpp_vendor
+
+.. _Working Groups:
+
+Working Groups (WGs)
+^^^^^^^^^^^^^^^^^^^^
+
+The ROS PMC establishes official Working Groups to make progress on specific topics, as described in Article 9 of the `Charter for the ROS Project <https://github.com/openrobotics/osra-policies-and-procedures/blob/main/ros_project_charter.md>`__.
+Each official Working Group has a charter, ratified by the ROS PMC, that defines its purpose, tasks, expected outputs, meeting frequency, and completion date.
+The ratified charters are published in the `OSRA Policies and Procedures repository <https://github.com/openrobotics/osra-policies-and-procedures>`__.
+
+Working Group meetings are held in the open, and anyone is welcome to participate.
+Meetings are announced on `Open Robotics Discourse <https://discourse.openrobotics.org/>`__ and listed on the `official OSRA Google calendar <https://calendar.google.com/calendar/u/0/embed?src=agf3kajirket8khktupm9go748@group.calendar.google.com&ctz=Etc%2FUTC>`__.
+To receive meeting invites automatically, join the Google Group associated with the Working Group.
+The Chair of each Working Group reports on its activities at the ROS PMC meetings.
+
+The following Working Groups are currently chartered by the ROS PMC:
+
+.. list-table::
+   :header-rows: 1
+
+   * - Working Group
+     - Chair
+     - Charter
+     - Resources
+   * - Client Libraries
+     - `Alberto Soragna <https://github.com/alsora>`_
+     - `Charter <https://github.com/openrobotics/osra-policies-and-procedures/blob/main/ros_project_working_group_charter_client_libraries.md>`__ (expires 2027-09-04)
+     - * Meeting invite group: `ros-2-client-library-wg <https://groups.google.com/g/ros-2-client-library-wg>`__
+       * `Meeting agendas and minutes <https://docs.google.com/document/d/1-tU2AKoHKLCVHPBz0QchYownmZZvYjHmVUQXT2WBMOw/edit>`__
+       * Discourse tag: `wg-client-libraries <https://discourse.openrobotics.org/tag/wg-client-libraries>`__
+   * - ROSGraph
+     - `Emerson Knapp <https://github.com/emersonknapp>`_
+     - `Charter <https://github.com/openrobotics/osra-policies-and-procedures/blob/main/ros_project_working_group_charter_rosgraph.md>`__ (expires 2026-11-03)
+     - * Meeting invite group: `rosgraph-wg <https://groups.google.com/g/rosgraph-wg>`__
+       * `Meeting agendas and minutes <https://docs.google.com/document/d/1xFqQECOKVCR3sZIUHGCPUi2huXw6nvgMxu6G3qBuQDU/edit>`__
+       * `Kickoff announcement on Discourse <https://discourse.openrobotics.org/t/rosgraph-working-group-kickoff/50846>`__
+       * `Project board <https://github.com/orgs/ros-tooling/projects/2>`__
+
+If you would like to join an existing Working Group, join its meeting invite group or contact its Chair directly.
+If you would like to propose a new Working Group, draft a charter using the `Working Group charter template <https://github.com/openrobotics/osra-policies-and-procedures/blob/main/templates/PROJECT_project_working_group_charter_WORKING_GROUP_NAME.md>`__, open a pull request against the OSRA Policies and Procedures repository, and ask one of the :ref:`ROS PMC constituents <ROS PMC Constituents>` to bring it to a ROS PMC meeting for ratification.
+Note that the Chair of an official Working Group must be a ROS PMC Member.
+
+Community groups that are organized by and for the ROS community, but are not chartered by the ROS PMC, are not listed here.
+Their meetings can be found on the `Discourse working-group tag <https://discourse.openrobotics.org/tag/working-group>`__ and on the unofficial ROS community calendar below.
 
 Upcoming ROS Events
 -------------------
