@@ -1,13 +1,29 @@
+.. meta::
+   :contentType: how-to
+   :experience: expert
+   :area: installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
   Installation/Rolling/OSX-Development-Setup
   Installation/macOS-Development-Setup
   Installation/Alternatives/macOS-Development-Setup
 
-macOS (source)
-==============
+Installing on macOS (source) - how-to
+=====================================
 
-.. contents:: Table of Contents
+.. short-description::
+   Building ROS from source on macOS lets you use a development checkout when binary packages are not the right fit.
+   In this article, you will learn how to prepare macOS, install dependencies, fetch the source code, build the workspace, and run examples.
+   After you follow these steps, you will have a working ROS source installation on macOS.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -25,7 +41,6 @@ Install prerequisites
 ^^^^^^^^^^^^^^^^^^^^^
 
 You need the following things installed to build ROS 2:
-
 
 #.
    **Xcode**
@@ -50,7 +65,6 @@ You need the following things installed to build ROS 2:
 
 #.
    **brew** *(needed to install more stuff; you probably already have this)*:
-
 
    * Follow installation instructions at http://brew.sh/
    *
@@ -108,7 +122,6 @@ You need the following things installed to build ROS 2:
 #.
    *Optional*: if you want to build the ROS 1<->2 bridge, then you must also install ROS 1:
 
-
    * Start with the normal install instructions: http://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source
    *
      When you get to the step where you call ``rosinstall_generator`` to get the source code, here's an alternate invocation that brings in just the minimum required to produce a useful bridge:
@@ -117,7 +130,6 @@ You need the following things installed to build ROS 2:
 
         $ rosinstall_generator catkin common_msgs roscpp rosmsg --rosdistro kinetic --deps --wet-only --tar > kinetic-ros2-bridge-deps.rosinstall
         $ wstool init -j8 src kinetic-ros2-bridge-deps.rosinstall
-
 
      Otherwise, just follow the normal instructions, then source the resulting ``install_isolated/setup.bash`` before proceeding here to build ROS 2.
 

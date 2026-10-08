@@ -1,5 +1,26 @@
+.. meta::
+   :contentType: about
+   :experience: beginner, intermediate, expert
+   :area: community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+.. _Help:
+
 Contact
 =======
+
+.. short-description::
+   ROS users need clear routes for troubleshooting, reporting bugs, and taking part in community discussion.
+   This article explains the main support and contact channels, including Robotics Stack Exchange and GitHub issues.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 Contact the ROS community to ask for support, offer help, or suggest ways we can improve.
 This article introduces the ways in which you can contact us.
@@ -17,7 +38,7 @@ You can contact the ROS community in the following ways:
 * `Stack Exchange <https://robotics.stackexchange.com/>`__: Ask for support or discuss a problem
 
 * Issue tracker: Report an issue or suggest and enhancement.
-  More information is in :doc:`Reporting an issue — how to <../The-ROS2-Project/Contributing/Contributing-to-code/Reporting-an-issue>`
+  More information is in :doc:`Reporting an issue — how to <The-ROS2-Project/Contributing/Reporting-an-issue>`
 
 * :ref:`Discourse discussion boards <discussion-boards>`: Share ideas or discuss best practices
 
@@ -56,7 +77,7 @@ Reporting an issue or suggesting an enhancement
 
 If you identify issues, have suggestions for enhancements, or have a question specific to one package, you can report an issue on GitHub.
 
-More information is in :doc:`Reporting an issue — how-to <../The-ROS2-Project/Contributing/Contributing-to-code/Reporting-an-issue>`.
+More information is in :doc:`Reporting an issue — how-to <The-ROS2-Project/Contributing/Reporting-an-issue>`.
 
 .. note::
 

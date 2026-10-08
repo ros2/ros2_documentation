@@ -1,11 +1,27 @@
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Quality-of-Service
     Tutorials/Quality-of-Service
     Tutorials/Demos/Quality-of-Service
 
-Using quality-of-service settings for lossy networks
-====================================================
+Using quality-of-service settings for lossy networks — tutorial
+===============================================================
+
+.. short-description::
+   Quality-of-service settings can help ROS applications cope with unreliable network conditions.
+   This tutorial demonstrates image publishing and subscribing over a simulated lossy connection.
+   After following these steps, you will be able to compare reliable and best-effort communication for streaming data.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2
@@ -14,7 +30,7 @@ Using quality-of-service settings for lossy networks
 Background
 ----------
 
-Please read the documentation page :doc:`about QoS settings </ROS-Framework/interfaces/topics/About-Quality-of-Service-Settings>` for background information on available support in ROS 2.
+Please read the documentation page :doc:`about QoS settings <../About-Quality-of-Service-Settings>` for background information on available support in ROS 2.
 
 In this demo, we will spawn a node that publishes a camera image and another that subscribes to the image and shows it on the screen.
 We will then simulate a lossy network connection between them and show how different quality of service settings handle the bad link.

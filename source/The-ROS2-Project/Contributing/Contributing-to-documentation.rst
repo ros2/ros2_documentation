@@ -2,10 +2,24 @@
 
     Contributing/Contributing-To-ROS-2-Documentation
 
+.. meta::
+   :contentType: about
+   :experience: beginner, intermediate, expert
+   :area: contributing, community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _ContributingToDocumentation:
 
 Contributing to documentation
 =============================
+
+.. short-description::
+   ROS documentation is maintained by the community and helps users learn concepts, complete tasks, and contribute improvements to the wider ecosystem.
+   This article describes where the documentation source is hosted, how the content is structured, and how contributors create, check, and submit changes.
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 ROS documentation is maintained by the community and helps users learn, build, and contribute effectively.
 This article describes where the documentation source lives, how it is structured, and how contributors submit changes.
@@ -32,7 +46,7 @@ You can find the documentation source code on `GitHub <https://github.com/ros2/r
 Use the standard GitHub fork and pull request (PR) workflow when making your docs contributions.
 
 This article relates to contributing to the ROS documentation site.
-For more information about creating or updating package documentation, see :doc:`/Developer-Tools/Package-documentation/Documenting-a-ROS-2-Package`.
+For more information about creating or updating package documentation, see :doc:`../../Developer-Tools/Package-documentation/Documenting-a-ROS-2-Package`.
 
 Tools
 -----
@@ -78,6 +92,6 @@ More articles and information about the ROS docs:
 
 * :doc:`Documentation/Creating-or-updating-documentation`
 * :doc:`Documentation/Documentation-guidelines`
-* :doc:`/The-ROS2-Project/Contributing`
-* :doc:`/Developer-Tools/Package-documentation/Documenting-a-ROS-2-Package`
+* :doc:`../Contributing`
+* :doc:`../../Developer-Tools/Package-documentation/Documenting-a-ROS-2-Package`
 * `Documentation issue list <https://github.com/ros2/ros2_documentation/issues>`__

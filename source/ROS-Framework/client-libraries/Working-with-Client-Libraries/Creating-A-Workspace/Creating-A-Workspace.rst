@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: tutorial
+   :experience: beginner
+   :area: client-libraries, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Workspace/Creating-A-Workspace
@@ -5,8 +12,17 @@
 
 .. _ROS2Workspace:
 
-Creating a workspace
-====================
+Creating a workspace — tutorial
+===============================
+
+.. short-description::
+   ROS workspaces let you develop and test packages without changing your main ROS installation.
+   This tutorial describes how to create, build, source, and modify an overlay workspace.
+   After following these steps, you will be able to use overlays for iterative package development.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Create a workspace and learn how to set up an overlay for development and testing.
 
@@ -125,7 +141,7 @@ Ensure you're still in the ``ros2_ws/src`` directory before you clone.
 
 In the rest of the beginner developer tutorials, you will create your own packages, but for now you will practice putting a workspace together using existing packages.
 
-If you went through the beginner tutorials such as :doc:`Using TurtleSim </Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>`, you'll be familiar with ``turtlesim``, one of the packages in `ros_tutorials <https://github.com/ros/ros_tutorials/>`__.
+If you went through the beginner tutorials such as :doc:`Using TurtleSim <../../../../Get-Started/Introducing-Turtlesim/Introducing-Turtlesim>`, you'll be familiar with ``turtlesim``, one of the packages in `ros_tutorials <https://github.com/ros/ros_tutorials/>`__.
 
 A repo can have multiple branches.
 You need to check out the one that targets your installed ROS 2 distro.

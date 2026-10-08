@@ -1,6 +1,13 @@
+.. meta::
+   :contentType: release-note
+   :experience: intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
-    Releases/Release-Humble-Hawksbill
+    Get-Started/Releases/Release-Humble-Hawksbill
 
 .. _humble-release:
 
@@ -12,7 +19,11 @@ Humble Hawksbill (``humble``)
 
    Humble-Hawksbill-Complete-Changelog
 
-.. contents:: Table of Contents
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -78,7 +89,6 @@ Middleware Implementation Support:
 +--------------------------+-------------------------+---------------+----------------------------+-------------------------------+
 | rmw_gurumdds_cpp         | GurumNetworks GurumDDS  | Tier 3        | Ubuntu and Windows         | All Architectures except arm32|
 +--------------------------+-------------------------+---------------+----------------------------+-------------------------------+
-
 
 \" \* \" means default RMW implementation.
 
@@ -522,7 +532,6 @@ For instance, using the following argument will only print out string messages t
 
 See the `pull request <https://github.com/ros2/ros2cli/pull/654>`__ for more information.
 
-
 rviz2
 ^^^^^
 
@@ -580,7 +589,6 @@ For instance, in Galactic, the directory structure looks like this (reduced for 
     │   ├── node.h
     ├── rclcpp
     │   ├── node.hpp
-
 
 This structure can cause serious problems when trying to use overlays.
 That is, it is very possible to get the wrong set of header files due to include directory order.
@@ -690,7 +698,7 @@ ROS_DISABLE_LOANED_MESSAGES environment variable added
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
 This environment variable can be used to disable loaned messages support, independently if the rmw supports them or not.
-For more details, see the guide :doc:`Configure Zero Copy Loaned Messages <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Configure-ZeroCopy-loaned-messages>`.
+For more details, see the guide :doc:`Configure Zero Copy Loaned Messages <../ROS-Framework/client-libraries/Working-with-Client-Libraries/Configure-ZeroCopy-loaned-messages>`.
 
 rclcpp
 ^^^^^^
@@ -867,7 +875,7 @@ ros1_bridge
 ^^^^^^^^^^^
 
 Since there is no official ROS 1 distribution on Ubuntu Jammy and forward, ``ros1_bridge`` is now compatible with the Ubuntu-packaged versions of ROS 1.
-More details about using ``ros1_bridge`` with Jammy packages are available in :doc:`the how-to guides <../../Migration-and-Upgrades/Using-ros1_bridge-Jammy-upstream>`.
+More details about using ``ros1_bridge`` with Jammy packages are available in :doc:`the how-to guides <../Migration-and-Upgrades/Using-ros1_bridge-Jammy-upstream>`.
 
 ros2cli
 ^^^^^^^
@@ -957,7 +965,6 @@ This means that static transforms are unconditionally published to the ``/tf_sta
 This was the default behavior, and the behavior which the ``tf2_ros::TransformListener`` class expected before, so most code will not have to be changed.
 Any code that was relying on ``robot_state_publisher`` to periodically publish static transforms to ``/tf`` will have to be updated to subscribe to ``/tf_static`` as a ``transient_local`` subscription instead.
 
-
 rosidl_cmake
 ^^^^^^^^^^^^
 
@@ -968,13 +975,11 @@ The CMake function ``rosidl_target_interfaces()`` has been deprecated, and now i
 Users wanting to use messages/services/actions in the same ROS package that generated them should instead call ``rosidl_get_typesupport_target()`` and then ``target_link_libraries()`` to make their targets depend on the returned typesupport target.
 See https://github.com/ros2/rosidl/pull/606 for more details, and https://github.com/ros2/demos/pull/529 for an example of using the new function.
 
-
 rviz2
 ^^^^^
 
 * `improved the efficiency of 3-bytes pixel formats <https://github.com/ros2/rviz/pull/743>`__
 * `changed the way inertias are computed to use ignition math rather than Ogre's math libraries <https://github.com/ros2/rviz/pull/751>`__.
-
 
 geometry2
 ^^^^^^^^^
@@ -1078,7 +1083,7 @@ Known Issues
   It is *particularly* important to make sure that ``systemd`` and ``udev`` are updated to the latest available version otherwise installing ``ros-humble-desktop``, which depends on ``libudev1``, could cause the removal of system critical packages.
   Details can be found in `ros2/ros2#1272 <https://github.com/ros2/ros2/issues/1272>`_ and `Launchpad #1974196 <https://bugs.launchpad.net/ubuntu/+source/systemd/+bug/1974196>`_
 
-* When ROS 2 apt repositories are available, ROS 1 packages in Ubuntu are not installable.  See the :doc:`ros1_bridge on Ubuntu Jammy <../../Migration-and-Upgrades/Using-ros1_bridge-Jammy-upstream>` document for more information.
+* When ROS 2 apt repositories are available, ROS 1 packages in Ubuntu are not installable.  See the :doc:`ros1_bridge on Ubuntu Jammy <../Migration-and-Upgrades/Using-ros1_bridge-Jammy-upstream>` document for more information.
 
 * Some major Linux distributions have started patching Python to install packages to ``/usr/local``, which is breaking some parts of ``ament_package`` and builds with ``colcon``.
   In particular, using Ubuntu Jammy with ``setuptools`` installed from pip will manifest this misbehavior, and is therefore not recommended.

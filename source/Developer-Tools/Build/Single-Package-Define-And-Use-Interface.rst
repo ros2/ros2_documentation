@@ -2,14 +2,28 @@
 
    How-To-Guides/Implementing-custom-interfaces
 
+.. meta::
+   :contentType: how-to
+   :experience: beginner, intermediate
+   :area: builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Implementing custom interfaces - how-to
 =======================================
+
+.. short-description::
+   When predefined interface definitions are not enough, you can create custom interfaces for your nodes.
+   In this article, you will learn how to define, build, and use an interface in a single ROS package.
+   After you follow these steps, you will be able to publish and inspect data using your custom interface.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 When predefined interface definitions are not enough, you need to create custom interfaces.
 In this article, you will learn how to define and build interfaces with different field types.
 This will help you implement custom interfaces in ROS to suit your needs.
-
-**Area: Framework | Content-type: how-to | Experience: beginner, intermediate**
 
 .. contents:: Contents
    :depth: 2
@@ -25,7 +39,7 @@ ROS offers three main interface types:
 * Services (``.srv`` files)
 * Actions (``.action`` files)
 
-`Learn more about interfaces <https://docs.ros.org/en/{DISTRO}/Concepts/Basic/Interfaces-Topics-Services-Actions.html>`__
+:doc:`Learn more about interfaces <../../ROS-Framework/Interfaces-Topics-Services-Actions>`
 
 Before creating a custom interface, do the following:
 
@@ -46,8 +60,8 @@ Using custom interfaces involves configuring a node to include the interfaces in
 Prerequisites
 -------------
 
-#. :doc:`Install ROS </Get-Started/Installation>`, and create your :doc:`workspace </ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>`.
-#. Make sure you understand how to :doc:`create packages </ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-Your-First-ROS2-Package>`.
+#. :doc:`Install ROS <../../Get-Started/Installation>`, and create your :doc:`workspace <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>`.
+#. Make sure you understand how to :doc:`create packages <../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-Your-First-ROS2-Package>`.
 
 Steps
 -----

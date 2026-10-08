@@ -1,11 +1,27 @@
+.. meta::
+   :contentType: how-to
+   :experience: expert
+   :area: installation
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Installation/Alternatives/RHEL-Install-Binary
 
-RHEL (binary)
-=============
+Installing on RHEL (binary) - how-to
+====================================
 
-.. contents:: Table of Contents
+.. short-description::
+   Binary packages provide a quick way to install ROS on RHEL without building from source.
+   This article describes how to download, unpack, configure, and verify a pre-built binary package.
+   After you follow these steps, you will be able to run ROS examples using the installed C++ and Python APIs.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
 

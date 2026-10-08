@@ -1,13 +1,23 @@
+.. meta::
+   :contentType: how-to
+   :experience: beginner, intermediate, expert
+   :area: contributing, community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _CreatingOrUpdatingDocs:
 
 Creating or updating documentation — how-to
 ===========================================
 
-Contributing to ROS documentation helps keep guidance accurate, useful, and consistent.
-This article explains how to plan documentation changes, build the site, run checks, and preview your updates.
-With this information, you can prepare documentation updates that are ready to review and publish.
+.. short-description::
+   Contributing to ROS documentation helps keep guidance accurate, useful, and consistent.
+   This article explains how to plan documentation changes, build the site, run checks, and preview your updates.
+   With this information, you can prepare documentation updates that are ready to review and publish.
 
-**Area: contributing, community | Content-type: how-to | Experience: beginner, intermediate, expert**
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2
@@ -22,7 +32,7 @@ We recommend that you do this locally, using the available tools in the reposito
 Alternatively, you can also build and test in GitHub Codespaces, or by using a Devcontainer.
 
 This article relates to contributing to the ROS documentation site.
-For more information about creating or updating package documentation, see :doc:`/Developer-Tools/Package-documentation/Documenting-a-ROS-2-Package`.
+For more information about creating or updating package documentation, see :doc:`../../../Developer-Tools/Package-documentation/Documenting-a-ROS-2-Package`.
 
 Prerequisites
 -------------
@@ -326,7 +336,7 @@ Building the site with Devcontainer
 The `ROS Documentation GitHub repository <https://github.com/ros2/ros2_documentation>`__ also supports a ``Devcontainer`` development environment with Visual Studio Code.
 This enables you to build the documentation without changing your operating system.
 
-See :doc:`/Developer-Tools/Build/Setup-ROS-2-with-VSCode-and-Docker-Container` to install VS Code and Docker before the following procedure.
+See :doc:`../../../Developer-Tools/Build/Setup-ROS-2-with-VSCode-and-Docker-Container` to install VS Code and Docker before the following procedure.
 
 #. Clone repository and start VS Code:
 

@@ -1,9 +1,25 @@
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: simulation, capabilities
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Advanced/Simulators/Webots/Simulation-Reset-Handler
 
-Setting up a Reset Handler
-==========================
+Setting up a Reset Handler - tutorial
+=====================================
+
+.. short-description::
+   Resetting a Webots world can stop controller nodes unless your launch setup restarts them correctly.
+   This tutorial shows how to add reset handling for simple controllers and multi-node simulations.
+   After following it, you will be able to keep selected ROS nodes running after a Webots reset.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Extend a robot simulation with a reset handler to restart nodes when the reset button of Webots is pressed.
 

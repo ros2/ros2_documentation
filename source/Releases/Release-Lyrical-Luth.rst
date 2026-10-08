@@ -1,6 +1,13 @@
+.. meta::
+   :contentType: release-note
+   :experience: intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
-    Releases/Release-Lyrical-Luth
+    Get-Started/Releases/Release-Lyrical-Luth
 
 .. _latest-release:
 
@@ -29,8 +36,12 @@ New Features in Lyrical
 This section highlights some of the new features in ROS Lyrical.
 For all changes, see the :doc:`full ROS Lyrical changelog <Lyrical-Luth-Complete-Changelog>`.
 
-.. contents:: Table of Contents
-   :depth: 1
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
    :local:
 
 Callback Group Events executor (``rclcpp``)
@@ -132,7 +143,7 @@ This class uses significantly less CPU compared to the default ``SingleThreadedE
     if __name__ == '__main__':
         asyncio.run(_main())
 
-See :doc:`../../ROS-Framework/nodes/Working-with-nodes/Writing-An-Async-Node-With-Asyncio-Python` and `ros2/rclpy#1620 <https://github.com/ros2/rclpy/pull/1620>`_ for more details.
+See :doc:`../ROS-Framework/nodes/Working-with-nodes/Writing-An-Async-Node-With-Asyncio-Python` and `ros2/rclpy#1620 <https://github.com/ros2/rclpy/pull/1620>`_ for more details.
 
 Publish messages without copying data using ``rosidl::Buffer``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -143,13 +154,13 @@ Use ``rosidl::Buffer`` to publish and subscribe ROS messages without moving data
 
 All ``uint8[]`` fields now have the type ``rosidl::Buffer<uint8_t>`` in C++ instead of ``std::vector<uint8_t>``.
 Define your ROS messages with ``uint8[]`` fields and install an appropriate ``rosidl::BufferBackend`` implementation.
-Note that only publishers and subscribers using ``rmw_fastrtps_cpp`` may use this feature for now, but `support in Zenoh is coming <https://github.com/ros2/rmw_zenoh/pull/930>`_.
+Note that publishers and subscribers using ``rmw_fastrtps_cpp`` or ``rmw_zenoh_cpp`` may use this feature.
 
 Using a custom hardware accelerator or machine learning library?
 You can benefit from this too.
-See :doc:`../../ROS-Framework/interfaces/Working-with-interfaces/Buffer-Backends/Writing-a-Buffer-Backend` to learn how to implement your own ``rosidl::BufferBackend``.
+See :doc:`../ROS-Framework/interfaces/Working-with-interfaces/Buffer-Backends/Writing-a-Buffer-Backend` to learn how to implement your own ``rosidl::BufferBackend``.
 
-See :doc:`../../ROS-Framework/interfaces/Working-with-interfaces/Buffer-Backends/About-Buffer-Backends` and :doc:`../../ROS-Framework/interfaces/Working-with-interfaces/Buffer-Backends/Using-Buffer-Backends` for more details.
+See :doc:`../ROS-Framework/interfaces/Working-with-interfaces/Buffer-Backends/About-Buffer-Backends` and :doc:`../ROS-Framework/interfaces/Working-with-interfaces/Buffer-Backends/Using-Buffer-Backends` for more details.
 
 Annotate types in YAML Parameter Files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -190,14 +201,13 @@ Alternatively, use the new ``log_debug``, ``log_info``, ``log_warning``, or ``lo
       <log_error message="Hello world error!" />
     </launch>
 
-
 For more info see `ros2/launch#866 <https://github.com/ros2/launch/pull/866>`_.
 
 New substitutions in XML and YAML launch files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Use XML or YAML launch files?
-:doc:`Substitutions <../../Developer-Tools/Launch/Using-Substitutions>` make your launch files evaluate variables at launch time.
+:doc:`Substitutions <../Developer-Tools/Launch/Using-Substitutions>` make your launch files evaluate variables at launch time.
 Launch frontends (the things that make it possible to use XML and YAML launch files) may now use ``string-join`` and ``path-join`` substitutions.
 
 .. code-block:: xml
@@ -207,7 +217,6 @@ Launch frontends (the things that make it possible to use XML and YAML launch fi
       <log_info message="Check out $(string-join . https://docs ros org)"/>
       <log_info message="Don't forget to source /$(path-join opt ros lyrical $(string-join . setup bash))"/>
     </launch>
-
 
 See `ros2/launch#857 <https://github.com/ros2/launch/pull/857>`_ and `ros2/launch#943 <https://github.com/ros2/launch/pull/943>`_ for more info.
 
@@ -248,7 +257,6 @@ Use ``rosbag2``'s new services to:
     ros2 service call /rosbag2_recorder/stop rosbag2_interfaces/srv/Stop "{}"
     # Start recording again at a new location
     ros2 service call /rosbag2_recorder/record rosbag2_interfaces/srv/Record "{uri: 'file:///tmp/my_awesome_bag_2'}"
-
 
 See `ros2/rosbag2#2248 <https://github.com/ros2/rosbag2/pull/2248>`_ for more details.
 
@@ -377,7 +385,6 @@ Control the publishing rate using ``--stats_max_publishing_rate``.
 
 See `ros2/rosbag2#2039 <https://github.com/ros2/rosbag2/pull/2039>`_, `ros2/rosbag2#2144 <https://github.com/ros2/rosbag2/pull/2144>`_, and `ros2/rosbag2#2150 <https://github.com/ros2/rosbag2/pull/2150>`_ for more details.
 
-
 ``fish`` shell support
 ^^^^^^^^^^^^^^^^^^^^^^
 
@@ -429,7 +436,6 @@ Use ``ros2 param set <node name> <param1> <value1> <param2> <value2> ...`` to se
     ignore_timestamp: Set parameter successful
     publish_frequency: Set parameter successful
 
-
 See `ros2/ros2cli#1203 <https://github.com/ros2/ros2cli/pull/1203>`_ and `ros2/ros2cli#1204 <https://github.com/ros2/ros2cli/pull/1204>`_ for more details.
 
 ``ros2 doctor --report`` now reports Actions, Services, and Environment variables
@@ -461,7 +467,6 @@ Include this report in your GitHub issues or AI prompts to debug problems faster
     service count    : 1
     client count     : 0
     # ...
-
 
 For more information see `ros2/ros2cli#1059 <https://github.com/ros2/ros2cli/pull/1059>`_, `ros2/ros2cli#1076 <https://github.com/ros2/ros2cli/pull/1076>`_, and `ros2/ros2cli#1045 <https://github.com/ros2/ros2cli/pull/1045>`_.
 
@@ -659,7 +664,6 @@ This makes it easier to identify threads in debuggers like ``gdb``.
         std::cout << rcpputils::get_thread_name() << "\n";
     }
 
-
 See `ros2/rcpputils#213 <https://github.com/ros2/rcpputils/pull/213>`_ for more details.
 
 New ``rcutils`` APIs
@@ -787,7 +791,6 @@ All you need to do is specialize ``class_loader::InterfaceTraits<>`` in your plu
       using constructor_parameters = class_loader::ConstructorParameters<std::string,
           std::unique_ptr<int>>;
     };
-
 
 For more information see `ros/class_loader#223 <https://github.com/ros/class_loader/pull/223>`_.
 

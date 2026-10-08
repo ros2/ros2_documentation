@@ -1,12 +1,22 @@
+.. meta::
+   :contentType: reference
+   :experience: beginner, intermediate, expert
+   :area: contributing
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. _DocsGuidelines:
 
 Documentation guidelines
 ========================
 
-The ROS documentation uses reStructuredText (RST) to create consistent, reviewable articles for the documentation site.
-This article describes the main RST formatting patterns, directives, and roles used in the ROS documentation.
+.. short-description::
+   The ROS documentation uses reStructuredText (RST) to create consistent, reviewable articles for the documentation site.
+   This article describes the main RST formatting patterns, directives, and roles used in the ROS documentation.
 
-**Area: ROS-community | Content-type: reference | Experience: beginner, intermediate, expert**
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Table of Contents
    :depth: 2
@@ -30,7 +40,7 @@ We recommend that you enable automatic white space highlighting and cleanup if y
 You can refer to `reStructuredText User Documentation <https://docutils.sourceforge.io/rst.html>`_ for a detailed technical specification.
 
 This article relates to contributing to the ROS documentation site.
-For more information about creating or updating package documentation, see :doc:`/Developer-Tools/Package-documentation/Documenting-a-ROS-2-Package`.
+For more information about creating or updating package documentation, see :doc:`../../../Developer-Tools/Package-documentation/Documenting-a-ROS-2-Package`.
 
 Table of contents
 -----------------

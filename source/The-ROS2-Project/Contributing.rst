@@ -2,27 +2,37 @@
 
   Contributing
 
+.. meta::
+   :contentType: about
+   :experience: beginner, intermediate, expert
+   :area: contributing, community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+.. _Contributing:
+
 Contributing to ROS
 ===================
 
+.. short-description::
+   ROS (Robot Operating System) is an open-source ecosystem.
+   We rely on contributions from our community to help us grow and improve.
+   This article introduces the ways in which you can contribute to ROS.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
 .. toctree::
-   :titlesonly:
-   :maxdepth: 1
+   :maxdepth: 2
+   :hidden:
 
-   Contributing/Source-Control-Best-Practices
    Contributing/Developer-Guide
-   Contributing/Code-Style-Language-Versions
-   Contributing/Quality-Guide
-   Contributing/Build-Farms
-   Contributing/Windows-Tips-and-Tricks
-   Contributing/Contributing-to-code
    Contributing/Contributing-to-documentation
-
-ROS (Robot Operating System) is an open-source ecosystem.
-We rely on contributions from our community to help us grow and improve.
-This article introduces the ways in which you can contribute to ROS.
-
-**Area: contributing, community | Content-type: about | Experience: beginner, intermediate, expert**
+   Contributing/Reviewing-a-PR
+   Contributing/Making-a-PR
+   Contributing/Triaging-an-issue
+   Contributing/Reporting-an-issue
 
 .. contents:: Table of Contents
    :local:
@@ -103,13 +113,13 @@ Contributing to our open source code involves reviewing an existing project and 
 
 3. Fix the issue and submit the pull request.
 
-   More information is in :doc:`Making a pull request — how-to </The-ROS2-Project/Contributing/Contributing-to-code/Making-a-PR>`.
+   More information is in :doc:`Making a pull request — how-to <Contributing/Making-a-PR>`.
 
 **Ready to contribute?**
 
 1. Familiarize yourself with how to review a pull request.
 
-   More information is in :doc:`Reviewing a pull request (PR) — how-to </The-ROS2-Project/Contributing/Contributing-to-code/Reviewing-a-PR>`.
+   More information is in :doc:`Reviewing a pull request (PR) — how-to <Contributing/Reviewing-a-PR>`.
 
 2. Pick an issue from the pull request list: `Pull request list <https://github.com/ros2/ros2_documentation/pulls>`_.
 
@@ -133,7 +143,7 @@ If you are a more experienced contributor, you can prioritize issues, identify r
 
 2. Triage the issue.
 
-   More information is in :doc:`Triaging an issue — how-to </The-ROS2-Project/Contributing/Contributing-to-code/Triaging-an-issue>`.
+   More information is in :doc:`Triaging an issue — how-to <Contributing/Triaging-an-issue>`.
 
 Report an issue
 ^^^^^^^^^^^^^^^
@@ -147,7 +157,7 @@ If you are a more experienced contributor, you can also provide relevant technic
 
 * Report your first issue.
 
-More information is in :doc:`Reporting an issue — how-to </The-ROS2-Project/Contributing/Contributing-to-code/Reporting-an-issue>`.
+More information is in :doc:`Reporting an issue — how-to <Contributing/Reporting-an-issue>`.
 
 Report security vulnerabilities
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -195,7 +205,7 @@ Don't forget to check the existing list of requests first!
 
 3. Submit an enhancement suggestion as an issue on the appropriate repository, or, for more significant ideas (and when recommended to do so in discussion about your idea), `submit a new REP <https://reps.openrobotics.org/rep-0001-2025/>`_.
 
-   More information is in :doc:`Reporting an issue — how-to </The-ROS2-Project/Contributing/Contributing-to-code/Reporting-an-issue>`.
+   More information is in :doc:`Reporting an issue — how-to <Contributing/Reporting-an-issue>`.
 
 Improve graphical interfaces
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -208,7 +218,7 @@ This helps to shape a more intuitive and user-friendly design.
 
 * Submit a UI improvement, for example, your suggestion or your design work.
 
-   More information is in :doc:`Reporting an issue — how-to </The-ROS2-Project/Contributing/Contributing-to-code/Reporting-an-issue>`.
+   More information is in :doc:`Reporting an issue — how-to <Contributing/Reporting-an-issue>`.
 
 * Implement a UI improvement.
 
@@ -270,13 +280,13 @@ More experienced contributors can improve and expand documentation.
 
 **Ready to contribute?**
 
-1. Read our documentation contribution guidelines: :doc:`Documentation guidelines </The-ROS2-Project/Contributing/Documentation/Documentation-guidelines>`.
+1. Read our documentation contribution guidelines: :doc:`Documentation guidelines <Contributing/Documentation/Documentation-guidelines>`.
 
 2. Browse the documentation issue list, and choose an issue to fix: `ROS documentation issue tracker <https://github.com/ros2/ros2_documentation/issues>`_.
 
 3. Update the documentation to fix the issue.
 
-   More information is in :doc:`Creating or updating documentation — how-to </The-ROS2-Project/Contributing/Documentation/Creating-or-updating-documentation>`.
+   More information is in :doc:`Creating or updating documentation — how-to <Contributing/Documentation/Creating-or-updating-documentation>`.
 
 .. _test-and-review-documentation:
 
@@ -293,7 +303,7 @@ If you are a more experienced contributor, you can validate technical accuracy, 
 * Follow a tutorial, how-to guide, or other documentation.
   If you spot something inaccurate or unclear, provide your feedback.
 
-  More information is in :doc:`Reporting an issue — how-to </The-ROS2-Project/Contributing/Contributing-to-code/Reporting-an-issue>`.
+  More information is in :doc:`Reporting an issue — how-to <Contributing/Reporting-an-issue>`.
 
 .. _provide-support:
 

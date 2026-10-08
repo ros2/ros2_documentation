@@ -1,7 +1,22 @@
+.. meta::
+   :contentType: reference
+   :experience: intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Lyrical Luth Supported Platforms
 ================================
 
-ROS Lyrical supports the following platforms according to :doc:`the platform support tiers <../../../The-ROS2-Project/Platform-Support-Tiers>`:
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
+
+ROS Lyrical supports the following platforms according to :doc:`the platform support tiers <../../The-ROS2-Project/Platform-Support-Tiers>`:
 
 +--------------+-------------------+-------------------+---------------+-------------------+-----------+-----------------+----------------+
 | Architecture | Ubuntu Resolute   | Ubuntu Noble*     | Windows 11    | RHEL 10           | macOS     | Debian Trixie*  | OpenEmbedded / |
@@ -14,7 +29,7 @@ ROS Lyrical supports the following platforms according to :doc:`the platform sup
 | arm32        | Tier 3            | Tier 3            |               |                   |           | Tier 3          | Tier 3         |
 +--------------+-------------------+-------------------+---------------+-------------------+-----------+-----------------+----------------+
 
-* ``*`` Early EOL per :doc:`the platform EOL policy <../../../The-ROS2-Project/Platform-EOL-Policy>`
+* ``*`` Early EOL per :doc:`the platform EOL policy <../../The-ROS2-Project/Platform-EOL-Policy>`
     * Ubuntu Noble is supported until ``2029-06-01``
     * Debian Trixie is supported until ``2028-08-09``
 * ``[d]`` You may install ROS Lyrical on this platform using Distribution-specific packaegs (Debian, RPM, etc.).
@@ -87,7 +102,6 @@ The default middleware in ROS Lyrical is **rmw_fastrtps_cpp**.
 +---------------+---------------------------------------------------------------------------------------------------------------+
 | Zenoh         | 1.8.0                                                                                                         |
 +---------------+---------------------------------------------------------------------------------------------------------------+
-
 
 +---------------------------+-------------------------+---------------+-------------------------------+
 | Middleware Library        | Middleware Provider     | Support Level | Architectures                 |

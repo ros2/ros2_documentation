@@ -1,11 +1,30 @@
+.. meta::
+   :contentType: about
+   :experience: beginner, intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
-    Releases
+    Get-Started/Releases
 
 .. _Releases:
 
 Distributions
 =============
+
+.. short-description::
+   ROS distributions provide stable, versioned sets of packages that help developers choose a supported platform for building and maintaining robotic applications.
+   This article explains what distributions are, lists current and historic releases, and links to release, development, and end-of-life information.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 What is a Distribution?
 -----------------------
@@ -203,7 +222,7 @@ Rows in the table marked in blue are the currently supported distributions.
 Future Distributions
 --------------------
 
-For details on upcoming features see the :doc:`roadmap <../The-ROS2-Project/Roadmap>`.
+For details on upcoming features see the :doc:`roadmap <The-ROS2-Project/Roadmap>`.
 
 There is a new ROS 2 distribution released yearly on May 23rd (`World Turtle Day <https://www.worldturtleday.org/>`_).
 
@@ -220,7 +239,6 @@ There is a new ROS 2 distribution released yearly on May 23rd (`World Turtle Day
      - May 2027
      - TBD
      - Dec 2028
-
 
 .. _rolling_distribution:
 
@@ -239,7 +257,7 @@ As the name implies, Rolling is continuously updated and **can have in-place upd
 We recommend that most people use the most recent stable distribution instead (see :ref:`list_of_distributions`).
 
 Packages released into the Rolling distribution will be automatically released into future stable distributions of ROS 2.
-:doc:`Releasing a ROS 2 package <../Developer-Tools/Build/Releasing/Releasing-a-Package>` into the Rolling distribution follows the same procedures as all other ROS 2 distributions.
+:doc:`Releasing a ROS 2 package <Developer-Tools/Build/Releasing/Releasing-a-Package>` into the Rolling distribution follows the same procedures as all other ROS 2 distributions.
 
 Cross-Distribution Communications
 ---------------------------------

@@ -1,11 +1,22 @@
+.. meta::
+   :contentType: release-note
+   :experience: intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
-    Releases/Release-Dashing-Diademata
+    Get-Started/Releases/Release-Dashing-Diademata
 
 Dashing Diademata (``dashing``)
 ===============================
 
-.. contents:: Table of Contents
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -43,7 +54,6 @@ Targeted platforms:
 +--------------+----------------------+----------------------+--------------------+--------------------+----------------+
 | arm32        | Tier 2 [a][s]        |                      |                    | Tier 3 [s]         | Tier 3 [s]     |
 +--------------+----------------------+----------------------+--------------------+--------------------+----------------+
-
 
 The following indicators show what delivery mechanisms are available for
 each platform.
@@ -171,9 +181,9 @@ New features in this ROS 2 release
 
 A few features and improvements we would like to highlight:
 
-* :doc:`Components <../../ROS-Framework/nodes/Working-with-nodes/Composition>` are now the recommended way to write your node.
+* :doc:`Components <../ROS-Framework/nodes/Working-with-nodes/Composition>` are now the recommended way to write your node.
   They can be used standalone as well as being composed within a process and both ways are fully support from ``launch`` files.
-* The :doc:`intra-process communication <../../ROS-Framework/nodes/Working-with-nodes/intra-process/Intra-Process-Communication>` (C++ only) has been improved - both in terms of latency as well as minimizing copies.
+* The :doc:`intra-process communication <../ROS-Framework/nodes/Working-with-nodes/intra-process/Intra-Process-Communication>` (C++ only) has been improved - both in terms of latency as well as minimizing copies.
 * The Python client library has been updated to match most of the C++ equivalent and some important bug fixes and improvements have landed related to memory usage and performance.
 * Parameters are now a complete alternative to ``dynamic_reconfigure`` from ROS 1 including constraints like ranges or being read-only.
 * By relying on (a subset of) `IDL 4.2 <https://www.omg.org/spec/IDL/4.2>`__ for the message generation pipeline it is now possible to use ``.idl`` files (beside ``.msg`` / ``.srv`` / ``.action`` files).
@@ -183,7 +193,6 @@ A few features and improvements we would like to highlight:
 * MoveIt 2 `alpha release <https://github.com/AcutronicRobotics/moveit2/releases/tag/moveit_2_alpha>`__.
 
 Please see the `Dashing meta ticket <https://github.com/ros2/ros2/issues/607>`__ on GitHub, which contains more information as well as references to specific tickets with additional details.
-
 
 Changes since the Crystal release
 ---------------------------------
@@ -479,7 +488,6 @@ See the pull request (and connected pull requests) that introduced the QoS chang
   - https://github.com/ros2/robot_state_publisher/pull/19
   - and others...
 
-
 Changes Due to Declare Parameter Change
 """""""""""""""""""""""""""""""""""""""
 
@@ -701,7 +709,6 @@ See the issue and pull request related to introducing this change for more detai
 
 - https://github.com/ros2/rclpy/issues/342
 - https://github.com/ros2/rclpy/pull/344
-
 
 Changes Due to Declare Parameter Change
 """""""""""""""""""""""""""""""""""""""

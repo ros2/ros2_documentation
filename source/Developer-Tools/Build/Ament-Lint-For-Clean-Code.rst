@@ -2,8 +2,24 @@
 
     Tutorials/Advanced/Ament-Lint-For-Clean-Code
 
-Ament Lint CLI Utilities
-========================
+.. meta::
+   :contentType: tutorial
+   :experience: expert
+   :area: builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Using ament Lint CLI Utilities - tutorial
+=========================================
+
+.. short-description::
+   Linting tools help you keep ROS code consistent, maintainable, and ready for review.
+   This article describes how to use ``ament_lint`` CLI utilities to check copyright notices, C++ code, Python code, XML, CMake files, and formatting.
+   After you follow these steps, you can identify and fix common code quality issues.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Learn how to use ``ament_lint`` and related tools to identify and fix code quality issues.
 
@@ -15,13 +31,33 @@ Ament Lint CLI Utilities
    :depth: 2
    :local:
 
+Summary
+-------
+
+All ``ament_lint`` tools accept files or directories, analyse them, and generate reports.
+Use ``--help`` for the most accurate options.
+
+Common tools include:
+
+* ``ament_copyright`` to check or add copyright and license notices.
+
+* ``ament_cppcheck`` for C++ static analysis.
+
+* ``ament_cpplint`` for C++ style checks.
+
+* ``ament_flake8`` for Python linting.
+
+* ``ament_uncrustify`` to check and reformat C++ code with --reformat.
+
+Other useful tools include ``ament_lint_cmake``, ``ament_xmllint``, and ``ament_pep257``.
+
 Background
 ----------
 
 The ``ament`` family of CLI tools are Python tools used for software development with ROS 2.
 Ament tools can be used from any build system, but a subset of these tools, the ``ament_cmake`` tools, are designed specifically to CMake-based development easier.
 Ament ships with a collection of CLI programs that can help users write code that meet the ROS 2 coding standards.
-Using these tools can greatly increase development velocity and help users write ROS applications and core code that meet `the ROS project's coding standards <../../The-ROS2-Project/Contributing/Code-Style-Language-Versions>`.
+Using these tools can greatly increase development velocity and help users write ROS applications and core code that meet `the ROS project's coding standards <../../The-ROS2-Project/Contributing/Contributing-to-code/Code-Style-Language-Versions>`.
 We recommend that ROS developers familiarize themselves with these tools and use them before submitting their pull requests.
 
 Prerequisites

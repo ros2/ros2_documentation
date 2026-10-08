@@ -1,6 +1,13 @@
+.. meta::
+   :contentType: release-note
+   :experience: intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
-    Releases/Release-Iron-Irwini
+    Get-Started/Releases/Release-Iron-Irwini
 
 .. _iron-release:
 
@@ -12,7 +19,11 @@ Iron Irwini (``iron``)
 
    Iron-Irwini-Complete-Changelog
 
-.. contents:: Table of Contents
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -847,7 +858,6 @@ the ability to deserialize rosbag2 files without having the correct version of a
 See https://github.com/ros2/rosbag2/issues/782 and https://github.com/ros2/rosbag2/pull/1293 for
 more information.
 
-
 New playback and recording controls
 """""""""""""""""""""""""""""""""""
 
@@ -953,7 +963,7 @@ In Iron, the tracing instrumentation and tracepoints are included by default; th
 Note that this only applies to Linux.
 
 See https://github.com/ros2/ros2_tracing/pull/31 and https://github.com/ros2/ros2/issues/1177 for more information.
-See :doc:`this how-to guide to remove the instrumentation (or add the instrumentation with Humble and older) <../../Developer-Tools/Debugging/Building-ROS-2-with-Tracing>`.
+See :doc:`this how-to guide to remove the instrumentation (or add the instrumentation with Humble and older) <../Developer-Tools/Debugging/Building-ROS-2-with-Tracing>`.
 
 New tracepoints for ``rclcpp`` intra-process are added
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
