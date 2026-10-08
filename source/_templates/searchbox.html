@@ -1072,17 +1072,30 @@
   }
 
   function distributionFacetAvailable() {
-    if (!currentDistro) {
+    if (!currentDistro || !isConfiguredFacetKey('distribution')) {
       return false;
     }
-    if (!isConfiguredFacetKey('distribution')) {
+    const instance = getPagefindInstance();
+    if (!instance) {
       return false;
     }
-    // Only auto-apply when the index actually has distribution values.
-    return filterKeyInTotalFilters(
-      'distribution',
-      getPagefindInstance()?.totalFilters,
-    );
+    // Only auto-select a distro the index actually lists. Older branches can be
+    // in the same index without a distribution value of their own.
+    const wanted = String(currentDistro).toLowerCase();
+    for (const map of [instance.availableFilters, instance.totalFilters]) {
+      if (!map || typeof map !== 'object') {
+        continue;
+      }
+      const key = Object.keys(map).find((name) => name.toLowerCase() === 'distribution');
+      const values = key ? map[key] : null;
+      if (!values || typeof values !== 'object') {
+        continue;
+      }
+      if (Object.keys(values).some((value) => String(value).toLowerCase() === wanted)) {
+        return true;
+      }
+    }
+    return false;
   }
 
   function mergeDefaultDistributionFilter(filters) {
@@ -1093,25 +1106,48 @@
     return merged;
   }
 
+  // Pin once per dialog open so a later uncheck is not immediately put back.
+  let defaultDistributionPinned = false;
+
   function applyDefaultDistributionFilter() {
+    if (defaultDistributionPinned) {
+      return;
+    }
     const instance = getPagefindInstance();
     if (!instance || !distributionFacetAvailable()) {
       return;
     }
     if (document.querySelector('#ros-search-page') && urlHasFacetParams()) {
-      return;
-    }
-    // Applying a filter with an empty search term leaves the results pane blank
-    // in Pagefind Component UI. Only auto-filter once the user has a query.
-    const term = (instance.searchTerm || '').trim();
-    if (!term) {
+      defaultDistributionPinned = true;
       return;
     }
     const existing = normalizeSearchFilters(instance.searchFilters);
     if (existing.distribution?.length) {
+      defaultDistributionPinned = true;
       return;
     }
+    // Faceted mode searches with an empty query, so the current distro can be
+    // selected as soon as the dialog opens.
+    defaultDistributionPinned = true;
     instance.triggerFilter('distribution', [currentDistro]);
+  }
+
+  function bindDefaultDistributionToModal() {
+    const trigger = document.querySelector('pagefind-modal-trigger');
+    if (trigger instanceof HTMLElement && !trigger.dataset.rosDistroDefaultBound) {
+      trigger.dataset.rosDistroDefaultBound = '1';
+      trigger.addEventListener('click', () => {
+        defaultDistributionPinned = false;
+        applyDefaultDistributionFilter();
+      });
+    }
+    const dialog = document.querySelector('pagefind-modal dialog');
+    if (dialog instanceof HTMLDialogElement && !dialog.dataset.rosDistroDefaultBound) {
+      dialog.dataset.rosDistroDefaultBound = '1';
+      dialog.addEventListener('close', () => {
+        defaultDistributionPinned = false;
+      });
+    }
   }
 
   function applySearchQueryFromUrl() {
@@ -1167,10 +1203,14 @@
     }
     setupFacetPaneCustomization();
     setupResultMetadataRendering();
+    bindDefaultDistributionToModal();
     applySearchQueryFromUrl();
-    // After the user types a query, optionally pin the current distro filter.
+    applyDefaultDistributionFilter();
     if (instance?.on) {
       instance.on('search', () => {
+        applyDefaultDistributionFilter();
+      });
+      instance.on('filters', () => {
         applyDefaultDistributionFilter();
       });
     }
