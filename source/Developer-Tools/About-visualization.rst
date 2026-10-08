@@ -11,7 +11,7 @@ Visualization
 Coming Soon
 
 .. toctree::
-   :maxdepth: 3
+   :hidden:
 
    Visualization/RViz/RViz-Main
    Visualization/About-RQt

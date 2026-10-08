@@ -15,7 +15,7 @@ Framework
 Coming Soon
 
 .. toctree::
-   :maxdepth: 3
+   :hidden:
 
    ROS-Framework/How-ROS-Works
    ROS-Framework/About-Nodes

@@ -19,7 +19,7 @@ Working with actions
 Coming Soon
 
 .. toctree::
-   :maxdepth: 1
+   :hidden:
 
    Working-with-actions/Understanding-ROS2-Actions/Understanding-ROS2-Actions
    Working-with-actions/Action-Introspection

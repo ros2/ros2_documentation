@@ -9,7 +9,6 @@ Simulation
 ==========
 
 .. toctree::
-   :maxdepth: 1
    :hidden:
 
    Simulation/URDF/URDF-Main

@@ -24,7 +24,7 @@ Working with parameters
 Coming Soon
 
 .. toctree::
-   :maxdepth: 1
+   :hidden:
 
    Working-with-parameters/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters
    Working-with-parameters/Using-ros2-param

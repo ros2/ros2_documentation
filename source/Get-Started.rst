@@ -15,7 +15,7 @@ Get started
 Coming Soon
 
 .. toctree::
-   :maxdepth: 3
+   :hidden:
 
    Get-Started/Installation
    First-Steps

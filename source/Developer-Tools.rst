@@ -12,7 +12,7 @@ Tools
 Coming Soon
 
 .. toctree::
-   :maxdepth: 3
+   :hidden:
 
    Developer-Tools/About-introspection-and-analysis
    Developer-Tools/About-Launch

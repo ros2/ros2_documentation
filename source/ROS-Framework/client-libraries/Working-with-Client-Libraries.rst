@@ -20,7 +20,6 @@ Using client libraries, users gain access to ROS 2 concepts such as nodes, topic
    :local:
 
 .. toctree::
-   :maxdepth: 1
    :hidden:
 
    Working-with-Client-Libraries/Colcon-Tutorial

@@ -21,7 +21,6 @@ Actions
    :labels: area=Area, contentType=Content type, experience=Level
 
 .. toctree::
-   :maxdepth: 1
    :hidden:
 
    actions/Working-with-actions

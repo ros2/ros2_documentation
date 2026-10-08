@@ -17,7 +17,6 @@ How ROS works
    :labels: area=Area, contentType=Content type, experience=Level
 
 .. toctree::
-   :maxdepth: 1
    :hidden:
 
 Coming Soon

@@ -9,7 +9,6 @@ Motion planning and manipulation
 ================================
 
 .. toctree::
-   :maxdepth: 1
    :hidden:
 
    Motion-planning/Real-Time-Programming

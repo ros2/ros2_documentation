@@ -16,7 +16,7 @@ PLACEHOLDER
 Coming Soon
 
 .. toctree::
-   :maxdepth: 3
+   :hidden:
 
    Build/About-Cross-Compilation
    Build/About-Build-System

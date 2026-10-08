@@ -11,7 +11,7 @@ Debugging
 Coming Soon
 
 .. toctree::
-   :maxdepth: 3
+   :hidden:
 
    Debugging/Debugging-Tf2-Problems/Debugging-Tf2-Problems
    Debugging/ROS-2-IDEs

@@ -19,7 +19,7 @@ Working with nodes
 Coming Soon
 
 .. toctree::
-   :maxdepth: 1
+   :hidden:
 
    Working-with-nodes/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes
    Working-with-nodes/Using-Rqt-Console/Using-Rqt-Console

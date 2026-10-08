@@ -31,7 +31,7 @@ A URDF file follows the XML format as described on `here <https://wiki.ros.org/u
    :local:
 
 .. toctree::
-   :maxdepth: 1
+   :hidden:
 
    Building-a-Visual-Robot-Model-with-URDF-from-Scratch
    Building-a-Movable-Robot-Model-with-URDF

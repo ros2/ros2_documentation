@@ -11,7 +11,7 @@ Community
 Check out the resources below to learn more about the advancement of the ROS 2 project.
 
 .. toctree::
-   :maxdepth: 1
+   :hidden:
 
    The-ROS2-Project/Contributing
    The-ROS2-Project/Features

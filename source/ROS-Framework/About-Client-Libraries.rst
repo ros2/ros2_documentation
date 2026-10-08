@@ -25,7 +25,6 @@ Client libraries
    :labels: area=Area, contentType=Content type, experience=Level
 
 .. toctree::
-   :maxdepth: 1
    :hidden:
 
    client-libraries/About-Different-Middleware-Vendors
