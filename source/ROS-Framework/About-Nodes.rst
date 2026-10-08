@@ -45,7 +45,7 @@ About nodes
 -----------
 
 Nodes are the fundamental building blocks of a ROS system and represent units of computation in a ROS graph.
-Each node is an independent process that handles one or more specific tasks, such as reading sensor data, processing an algorithm, or driving a motor.
+Each node is an independent participant that handles one or more specific tasks, such as reading sensor data, processing an algorithm, or driving a motor.
 Nodes can function as any combination of the following:
 
 * A publisher to deliver data to other nodes.
