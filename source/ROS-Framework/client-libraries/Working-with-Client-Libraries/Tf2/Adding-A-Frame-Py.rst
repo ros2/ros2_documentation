@@ -22,7 +22,7 @@ Adding a frame (Python) — tutorial
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-**Goal:** Learn how to to add an extra frame to tf2.
+**Goal:** Learn how to add an extra frame to tf2.
 
 **Tutorial level:** Intermediate
 
