@@ -17,6 +17,15 @@
         <dd><a href="{{ item.url }}">{{ item.name|title }}</a></dd>
         {%- endif %}
       {%- endfor %}
+      {#- Frozen distros are no longer built, so they are absent from
+          versions.releases (an EOL-but-not-yet-frozen distro is still built and
+          is handled by the (EOL) branch above). List the frozen ones here,
+          already in newest-first order, linking to their published docs. #}
+      {%- if frozen_base_url %}
+      {%- for name in frozen_versions %}
+        <dd><a href="{{ frozen_base_url }}/{{ name }}/">{{ name|title }} (EOL)</a></dd>
+      {%- endfor %}
+      {%- endif %}
     </dl>
     <dl>
       <dt>In Development</dt>
