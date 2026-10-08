@@ -447,8 +447,7 @@ adopters:
     date_added: "2026-07-16"
     country:
       - JP
-    description: "Ball-Driven Omnidirectional Mobility Platform. Powered by three spheres and three motors, enabling seamless movement in any direction. It solves challenges beyond the reach of conventional robots—navigating steps, irregular floors, millimeter-precise positioning and heavy load transport."
-
+description: "Ball-Driven Omnidirectional Mobility Platform. Powered by three spheres and three motors, enabling seamless movement in any direction. It solves challenges beyond the reach of conventional robots—navigating steps, irregular floors, millimeter-precise positioning and heavy load transport."
 
   - organization: "Agroecology Lab"
     project: "Sowbot"
@@ -458,6 +457,4 @@ adopters:
     date_added: "2026-10-08"
     country:
       - GB
-    description: "Our mission is to bridge the gap between sustainability and scale by providing researchers and farmers with reproducible, lightweight robotics that reduce labour and environmental impact without proprietary dependencies.
-
-The Sowbot Open AgBot is designed to bridge the “prototype gap” in agricultural robotics. It provides a Reference Hardware Design that is accessible to startups and is developing a Production-Ready Software Stack that satisfies the rigorous requirements of research."
+    description: "Our mission is to bridge the gap between sustainability and scale by providing researchers and farmers with reproducible, lightweight robotics that reduce labour and environmental impact without proprietary dependencies. The Sowbot Open AgBot is designed to bridge the “prototype gap” in agricultural robotics. It provides a Reference Hardware Design that is accessible to startups and is developing a Production-Ready Software Stack that satisfies the rigorous requirements of research."
