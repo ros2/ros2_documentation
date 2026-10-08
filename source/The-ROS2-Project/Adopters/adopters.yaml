@@ -448,7 +448,7 @@ adopters:
     country:
       - JP
     description: "Ball-Driven Omnidirectional Mobility Platform. Powered by three spheres and three motors, enabling seamless movement in any direction. It solves challenges beyond the reach of conventional robots—navigating steps, irregular floors, millimeter-precise positioning and heavy load transport."
-    - organization: "OSTIRION SLU"
+  - organization: "OSTIRION SLU"
     organization_url: "https://ostirion.net/"
     project: "Multi-mission industrial mobile platform"
     domain:
