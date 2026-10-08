@@ -12,7 +12,6 @@ Coming Soon
 
 .. toctree::
    :hidden:
-   :glob:
 
    Capabilities/About-Simulation
    Capabilities/About-Motion-planning
