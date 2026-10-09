@@ -45,4 +45,10 @@ ul.related-articles.is-expanded > li.related-articles__item--extra {
 .related-articles__expand:hover,
 .related-articles__expand:focus {
     text-decoration: underline;
+
+.short-description p{
+    font-size: 1.25rem;
+    line-height: 1.5;
+    color: #777777;
+    margin-bottom: 1.5rem;
 }

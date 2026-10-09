@@ -1,11 +1,27 @@
+.. meta::
+   :contentType: tutorial
+   :experience: advanced
+   :area: interfaces, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
     Tutorials/Advanced/Topic-Keys/Filtered-Topic-Keys-Tutorial
 
 .. _filtered_topic_keys_tutorial:
 
-Topic Keys Subscription Filtering Tutorial
-==========================================
+Topic Keys Subscription Filtering — tutorial
+============================================
+
+.. short-description::
+   Keyed topics and content filtering help ROS applications exchange only the data each subscriber needs.
+   This tutorial shows how to build and run a filtered keyed topic demo.
+   After you follow these steps, you will be able to filter topic instances by key and message content.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 This tutorial aims to demonstrate how to receive data only from certain topic instances by combining the use of topic keys and topic content filtering.
 

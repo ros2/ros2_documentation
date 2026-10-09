@@ -2,8 +2,24 @@
 
     Tutorials/Intermediate/Testing/Integration
 
-Writing Basic Integration Tests with launch_testing
-===================================================
+.. meta::
+   :contentType: tutorial
+   :experience: intermediate
+   :area: debugging, builds, tools
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Writing Basic Integration Tests with ``launch_testing`` - tutorial
+==================================================================
+
+.. short-description::
+   Integration tests help validate how multiple ROS nodes and processes behave together.
+   This article shows how to write a ``launch_testing`` test for the ``turtlesim`` node using active and post-shutdown tests.
+   After you follow these steps, you can register an isolated launch test and run it through the standard test workflow.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 **Goal:** Create and run integration tests on the ROS 2 turtlesim node.
 
