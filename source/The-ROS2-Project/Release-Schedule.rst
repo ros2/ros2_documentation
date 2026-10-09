@@ -1,5 +1,24 @@
-Release schedule
+.. meta::
+   :contentType: reference
+   :experience: beginner, intermediate, expert
+   :area: community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
+Release Schedule
 ================
+
+.. short-description::
+   ROS distributions follow a regular release schedule to balance access to new features with long-term platform stability.
+   This article describes release frequency, target platforms, support lifetimes, and version numbering so you can understand how ROS releases are planned and maintained.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
 
 Frequency
 ---------

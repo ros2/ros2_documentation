@@ -1,3 +1,10 @@
+.. meta::
+  :contentType:
+  :experience: beginner, intermediate, expert
+  :area: community
+  :distribution: {DISTRO}
+  :product: {PRODUCT}
+
 Community
 =========
 
