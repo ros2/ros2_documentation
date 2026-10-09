@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: release-note
+   :experience: intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
   Beta2-Overview
@@ -6,7 +13,11 @@
 Beta 2 (``r2b2``)
 =================
 
-.. contents:: Table of Contents
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -54,7 +65,6 @@ Selected features from previous Alpha/Beta releases
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For the complete list, see `earlier release notes <../Releases>`.
-
 
 * C++ and Python implementations of ROS 2 client libraries including APIs for:
 

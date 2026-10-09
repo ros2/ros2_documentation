@@ -1,13 +1,27 @@
+.. meta::
+   :contentType: about
+   :experience: beginner, intermediate, expert
+   :area: contributing, community
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 Contributing to ROS
 ===================
+
+.. short-description::
+   ROS is an open-source ecosystem built and improved through contributions from its community.
+   This article introduces the main ways you can contribute to ROS and helps you identify an appropriate first contribution based on your skills and experience.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 ROS (Robot Operating System) is an open-source ecosystem.
 We rely on contributions from our community to help us grow and improve.
 This article introduces the ways in which you can contribute to ROS.
 
-**Area: contributing, community | Content-type: about | Experience: beginner, intermediate, expert**
-
 .. contents:: Table of Contents
+   :depth: 2
    :local:
 
 Summary
@@ -46,7 +60,7 @@ Depending on your skills and experience, you can review and update the ROS docum
 
 * Review code submitted by others, to help improvements and bug fixes get merged faster for the benefit of everyone.
 
-  :ref:'`See Review a code pull request <review-code>`
+  :ref:`See Review a code pull request <review-code>`
 
 Contribute to ROS development
 -----------------------------

@@ -1,3 +1,10 @@
+.. meta::
+   :contentType: release-note
+   :experience: intermediate, expert
+   :area: framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
    Alpha-Overview
@@ -6,7 +13,11 @@
 Alphas
 ======
 
-.. contents:: Table of Contents
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
+
+.. contents:: Contents
    :depth: 2
    :local:
 
@@ -33,7 +44,6 @@ Rather, you should expect to try out some demos, explore the code, and perhaps w
 
 The improvements included in this release are:
 
-
 * Several improvements to Fast RTPS and its rmw implementation
 
   * Support for large (image) messages in Fast RTPS
@@ -49,7 +59,8 @@ The next steps are described in the `Roadmap <../../The-ROS2-Project/Roadmap>`.
 ROS 2 alpha7 release (code name *Glue Gun*\ ; July 2016)
 --------------------------------------------------------
 
-.. contents:: Table of Contents
+.. contents:: Contents
+   :depth: 2
    :local:
 
 New version of Ubuntu required
@@ -66,7 +77,6 @@ Rather, you should expect to try out some demos, explore the code, and perhaps w
 
 The major features included in this release are:
 
-
 * Graph API functionality: wait_for_service
 
   * Added interfaces in rclcpp and make use of them in examples, demos, and tests
@@ -82,7 +92,8 @@ The next steps are described in the `Roadmap <../../The-ROS2-Project/Roadmap>`.
 ROS 2 alpha6 release (code name *Fastener*; June 2016)
 ------------------------------------------------------
 
-.. contents:: Table of Contents
+.. contents:: Contents
+   :depth: 2
    :local:
 
 Scope
@@ -97,7 +108,6 @@ should expect to try out some demos, explore the code, and perhaps write
 your own demos.
 
 The major features included in this release are:
-
 
 * Graph API functionality: wait_for_service
 
@@ -117,9 +127,9 @@ The next steps are described in the `Roadmap <../../The-ROS2-Project/Roadmap>`.
 ROS 2 alpha5 release (code name *Epoxy*; April 2016)
 ------------------------------------------------------
 
-.. contents:: Table of Contents
+.. contents:: Contents
+   :depth: 2
    :local:
-
 
 Scope
 ^^^^^
@@ -134,7 +144,6 @@ your own demos.
 
 The major features included in this release are:
 
-
 * Support for C data structures in Fast RTPS and Connext Dynamic rmw implementations.
 * Support services in C.
 * Added 32-bit and 64-bit ARM as experimentally supported platforms.
@@ -145,7 +154,8 @@ The next steps are described in the `Roadmap <../../The-ROS2-Project/Roadmap>`.
 ROS 2 alpha4 release (code name *Duct tape*; February 2016)
 -----------------------------------------------------------
 
-.. contents:: Table of Contents
+.. contents:: Contents
+   :depth: 2
    :local:
 
 Background
@@ -193,7 +203,6 @@ your own demos.
 
 The major features included in this release are:
 
-
 * Improved type support infrastructure, including support for C
 * Preliminary Python client library, only publishers and subscriptions are supported. Beware, the API is subject to change and is far from complete!
 * Added structures for ROS time in C API (still needs C++ API)
@@ -206,9 +215,9 @@ The next steps are described in the `Roadmap <../../The-ROS2-Project/Roadmap>`.
 ROS 2 alpha3 release (code name *Cement*; December 2015)
 ----------------------------------------------------------
 
-.. contents:: Table of Contents
+.. contents:: Contents
+   :depth: 2
    :local:
-
 
 Background
 ^^^^^^^^^^
@@ -255,7 +264,6 @@ your own demos.
 
 The major features included in this release are:
 
-
 * Updated ``rcl`` interface.
 
   * This interface will be wrapped in order to create language bindings, e.g. ``rclpy``.
@@ -277,7 +285,8 @@ The next steps are described in the `Roadmap <../../The-ROS2-Project/Roadmap>`.
 ROS 2 alpha2 release (code name *Baling wire*; October 2015)
 --------------------------------------------------------------
 
-.. contents:: Table of Contents
+.. contents:: Contents
+   :depth: 2
    :local:
 
 Background
@@ -293,7 +302,6 @@ some of the core APIs.
 For a deeper treatment of those changes and their
 rationale, consult the other `ROS 2 design
 articles <https://design.ros2.org>`__.
-
 
 Status
 ^^^^^^
@@ -309,13 +317,11 @@ feedback <../../Contact>`.
 We're especially interested to know how well (or
 poorly) we're addressing use cases that are important to you.
 
-
 Intended audience
 ^^^^^^^^^^^^^^^^^
 
 While everyone is welcome to try out the demos and look through the code, we're aiming this release at people who are already experienced with ROS 1 development.
 At this point, the ROS 2 documentation is pretty sparse and much of the system is explained by way of how it compares to ROS 1.
-
 
 Scope
 ^^^^^
@@ -330,7 +336,6 @@ your own demos.
 
 The major features included in this release are:
 
-
 * Support for custom allocators in rclcpp, useful for real-time messaging
 * Feature parity of Windows with Linux/OSX, including workspace management, services and parameters
 * rclcpp API improvements
@@ -342,7 +347,8 @@ The next steps are described in the `Roadmap <../../The-ROS2-Project/Roadmap>`.
 ROS 2 alpha1 release (code name *Anchor*; August 2015)
 --------------------------------------------------------
 
-.. contents:: Table of Contents
+.. contents:: Contents
+   :depth: 2
    :local:
 
 Background
@@ -358,7 +364,6 @@ some of the core APIs.
 For a deeper treatment of those changes and their
 rationale, consult the other `ROS 2 design
 articles <https://design.ros2.org>`__.
-
 
 Status
 ^^^^^^
@@ -376,13 +381,11 @@ feedback <../../Contact>`.
 We're especially interested to know how well (or
 poorly) we're addressing use cases that are important to you.
 
-
 Intended audience
 ^^^^^^^^^^^^^^^^^
 
 While everyone is welcome to try out the demos and look through the code, we're aiming this release at people who are already experienced with ROS 1 development.
 At this point, the ROS 2 documentation is pretty sparse and much of the system is explained by way of how it compares to ROS 1.
-
 
 Scope
 ^^^^^
@@ -396,7 +399,6 @@ should expect to try out some demos, explore the code, and perhaps write
 your own demos.
 
 The major features included in this release are:
-
 
 * Discovery, transport, and serialization `use DDS <https://design.ros2.org/articles/ros_on_dds.html>`__
 * Support `multiple DDS vendors <https://design.ros2.org/articles/ros_on_dds.html#vendors-and-licensing>`__
