@@ -478,4 +478,9 @@ adopters:
     date_added: "2026-10-09"
     country:
       - US
+      - CN
+      - IN
+      - CH
+      - DE
+      - CA
     description: "NVIDIA Isaac™ ROS is an agent-friendly, open source software foundation for building AI-powered robots with ROS 2. Built on NVIDIA’s upstream contributions to the ROS ecosystem, it combines accelerated computing, optimized robotics software, AI models, workflows, and deployment tools to help developers build, deploy, and scale production-ready robots faster."
