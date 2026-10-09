@@ -1,7 +1,3 @@
-.. redirect-from::
-
-    Installation/_RHEL-Set-Locale
-
 Make sure you have a locale which supports ``UTF-8``.
 If you are in a minimal environment (such as a docker container), the locale may be something minimal like ``C``.
 We test with the following settings.

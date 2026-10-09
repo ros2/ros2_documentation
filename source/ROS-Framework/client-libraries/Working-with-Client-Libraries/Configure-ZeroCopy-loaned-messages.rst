@@ -1,10 +1,26 @@
+.. meta::
+   :contentType: how-to
+   :experience: intermediate
+   :area: client-libraries, framework
+   :distribution: {DISTRO}
+   :product: {PRODUCT}
+
 .. redirect-from::
 
   How-To-Guides/Disabling-ZeroCopy-loaned-messages
   How-To-Guides/Configure-ZeroCopy-loaned-messages
 
-Configure Zero Copy Loaned Messages
-===================================
+Configure Zero Copy Loaned Messages — how-to
+============================================
+
+.. short-description::
+   Loaned messages and zero copy data sharing can reduce allocation and copying overhead in high-performance ROS systems.
+   This article describes RMW support, the demo publisher, and environment variables for controlling loaned message behaviour.
+   After following it, you can run the demo and enable or disable loaned messages when required.
+
+.. showmeta::
+   :order: area, contentType, experience
+   :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Contents
    :depth: 2
