@@ -469,3 +469,13 @@ adopters:
     country:
       - ES
     description: "OSTIRION uses ROS 2 as the core software framework of our industrial mobile robot platform and the integration of mission systems such as inspection cameras, RFID antennas and manipulator systems. We use it to integrate navigation, localisation, sensors, payloads and robot control through a modular architecture. ROS 2 allows us to reuse widely supported components, develop application-specific modules and integrate the robot with external systems without relying on multiple software stacks. This openness and modularity are central to our goal of making industrial robotics more flexible, maintainable and affordable."
+  - organization: "NVIDIA"
+    organization_url: "https://www.nvidia.com"
+    project: "Isaac ROS"
+    project_url: "https://developer.nvidia.com/isaac/ros"
+    domain:
+      - Components
+    date_added: "2026-10-09"
+    country:
+      - US
+    description: "NVIDIA Isaac™ ROS is an agent-friendly, open source software foundation for building AI-powered robots with ROS 2. Built on NVIDIA’s upstream contributions to the ROS ecosystem, it combines accelerated computing, optimized robotics software, AI models, workflows, and deployment tools to help developers build, deploy, and scale production-ready robots faster."
