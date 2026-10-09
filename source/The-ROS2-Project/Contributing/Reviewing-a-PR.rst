@@ -67,7 +67,7 @@ Steps
      * Follow the :doc:`Code style guide <Contributing-to-code/Code-Style-Language-Versions>`.
      * Include tests for the new feature or bug fix.
 
-   * For documentation changes, ensure the changes follow the :doc:`documentation guidance </The-ROS2-Project/Contributing/Contributing-to-documentation>`.
+   * For documentation changes, ensure the changes follow the :doc:`documentation guidance <Contributing-to-documentation>`.
    * Confirm that the Continuous Integration (CI) run for the pull request passes cleanly.
 
 #. Provide your review comments.
@@ -127,7 +127,7 @@ When you are satisfied with the changes and they are ready to be merged, approve
 * A pull request must have at least one approval, and in most cases, two approvals, from a developer (other than the author) before it can be merged to the target branch.
 * Only a Committer for the target repository can merge an approved pull request.
 
-  * See the :doc:`current ROS Committers </The-ROS2-Project/Governance>` for the list of people with merge permissions for the target repository.
+  * See the :doc:`current ROS Committers <../Governance>` for the list of people with merge permissions for the target repository.
 
 * If the pull request has any dependencies, ensure that dependent pull requests are merged in the correct order.
 
