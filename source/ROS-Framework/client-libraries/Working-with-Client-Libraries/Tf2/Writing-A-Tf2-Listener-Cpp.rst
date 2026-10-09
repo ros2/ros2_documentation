@@ -278,7 +278,7 @@ All this is wrapped in a try-catch block to handle possible exceptions.
 
 The resulting transformation represents the position and orientation of the target turtle relative to ``turtle2``.
 The angle between the turtles is then used to calculate a velocity command to follow the target turtle.
-For more general information about tf2 see also the :doc:`tf2 page in the Concepts section <../../../interfaces/About-Tf2/About-Tf2>`.
+For more general information about tf2 see also the :doc:`tf2 page in the Concepts section <../../../interfaces/Working-with-interfaces/About-Tf2/About-Tf2>`.
 
 1.2 CMakeLists.txt
 ~~~~~~~~~~~~~~~~~~
