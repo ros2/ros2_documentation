@@ -36,7 +36,7 @@ Prerequisites
 
 Before starting this tutorial, it is recommended to have completed the following tutorials on launching nodes:
 
-* :doc:`Launching Multiple Nodes <../../../../ROS-Framework/nodes/Working-with-nodes/Launching-Multiple-Nodes/Launching-Multiple-Nodes>`
+* :doc:`Launching Multiple Nodes <../../../ROS-Framework/nodes/Working-with-nodes/Launching-Multiple-Nodes/Launching-Multiple-Nodes>`
 * :doc:`Creating Launch files <../../Launch/Creating-Launch-Files>`
 
 Background
@@ -47,7 +47,7 @@ In ROS 2 this is often accomplished by launching a system of one or several node
 As a result, these tests are more complex both to set up and to run.
 
 A key aspect of ROS 2 integration testing is that nodes that are part of different tests shouldn't communicate with each other, even when run in parallel.
-This will be achieved here using a specific test runner that picks unique :doc:`ROS domain IDs <../../../../ROS-Framework/nodes/About-Domain-ID>`.
+This will be achieved here using a specific test runner that picks unique :doc:`ROS domain IDs <../../../ROS-Framework/nodes/About-Domain-ID>`.
 In addition, integration tests have to fit in the overall testing workflow.
 A standardized approach is to ensure each test outputs an XUnit file, which are easily parsed using common test tooling.
 
