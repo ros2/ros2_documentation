@@ -212,7 +212,10 @@ html_js_files = ['adopters.js']
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'ros2_docsdoc'
 
-html_baseurl = 'https://docs.ros.org/en'
+docs_root_url = 'https://docs.ros.org/en'
+
+# Default to rolling; overridden per distro in smv_rewrite_configs.
+html_baseurl = docs_root_url + '/rolling'
 
 # -- Options for Open Graph (sphinxext-opengraph) -------------------------
 
@@ -248,7 +251,7 @@ class RedirectFrom(Directive):
             return
 
         redirect_html_fragment = """
-            <link rel="canonical" href="{base_url}/{url}" />
+            <link rel="canonical" href="{base_url}/{canonical_uri}" />
             <meta http-equiv="refresh" content="0; url={url}" />
             <script>
                 window.location.href = '{url}';
@@ -299,6 +302,7 @@ class RedirectFrom(Directive):
                     'title': os.path.basename(redirect_url),
                     'metatags': redirect_html_fragment.format(
                         base_url=app.config.html_baseurl,
+                        canonical_uri=app.builder.get_target_uri(canonical_url),
                         url=app.builder.get_relative_uri(
                             redirect_url, canonical_url
                         )
@@ -340,7 +344,7 @@ def smv_rewrite_configs(app, config):
     # conf.py).  Instead, hook into the 'config-inited' event which is late enough
     # to rewrite the various configuration items with the current version.
     if app.config.smv_current_version != '':
-        app.config.html_baseurl = app.config.html_baseurl + '/' + app.config.smv_current_version
+        app.config.html_baseurl = docs_root_url + '/' + app.config.smv_current_version
         app.config.ogp_site_url = app.config.html_baseurl + '/'
         app.config.project = 'ROS 2 Documentation: ' + app.config.smv_current_version.title()
 
