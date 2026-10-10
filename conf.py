@@ -93,9 +93,9 @@ extensions = [
     'sphinxcontrib.mermaid',
     'sphinxext.opengraph',
     'short_description',
-    'showmeta'
+    'showmeta',
+    'ros_related_articles',
 ]
-extensions.append('ros_related_articles')
 
 # Intersphinx mapping
 
