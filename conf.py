@@ -233,13 +233,29 @@ class RedirectFrom(Directive):
 
     has_content = True
     template_name = 'layout.html'
-    redirections = {}
+
+    # Redirections are stored on the build environment rather than on this
+    # class so that they survive parallel reads, where each reader process
+    # has its own copy of the class.
 
     @classmethod
     def register(cls, app):
         app.connect('html-collect-pages', cls.generate)
+        app.connect('env-purge-doc', cls.purge)
+        app.connect('env-merge-info', cls.merge)
         app.add_directive('redirect-from', cls)
         return app
+
+    @staticmethod
+    def purge(app, env, docname):
+        if hasattr(env, 'redirections'):
+            env.redirections.pop(str(env.doc2path(docname)), None)
+
+    @staticmethod
+    def merge(app, env, docnames, other):
+        if not hasattr(env, 'redirections'):
+            env.redirections = {}
+        env.redirections.update(getattr(other, 'redirections', {}))
 
     @classmethod
     def generate(cls, app):
@@ -258,7 +274,7 @@ class RedirectFrom(Directive):
             os.path.splitext(os.path.relpath(
                 document_path, app.srcdir
             ))[0]: redirect_urls
-            for document_path, redirect_urls in cls.redirections.items()
+            for document_path, redirect_urls in getattr(app.env, 'redirections', {}).items()
         }
         redirection_conflict = next((
             (canon_1, canon_2, redirs_1.intersection(redirs_2))
@@ -307,10 +323,11 @@ class RedirectFrom(Directive):
                 yield (redirect_url, context, cls.template_name)
 
     def run(self):
+        env = self.state.document.settings.env
+        if not hasattr(env, 'redirections'):
+            env.redirections = {}
         document_path = self.state.document.current_source
-        if document_path not in RedirectFrom.redirections:
-            RedirectFrom.redirections[document_path] = set()
-        RedirectFrom.redirections[document_path].update(self.content)
+        env.redirections.setdefault(document_path, set()).update(self.content)
         return []
 
 
