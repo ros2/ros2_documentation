@@ -52,9 +52,11 @@ jobs:
         continue-on-error: true
         env:
           DIFF_BASE: ${{ github.event.pull_request.base.sha }}
+          BASE_REPO: ${{ github.repository }}
         run: |
           set -euo pipefail
-          git fetch origin "$DIFF_BASE"
+          # origin is the PR head repo (often a fork). Fetch the base SHA from the trusted repository.
+          git fetch --no-tags "https://github.com/${BASE_REPO}.git" "$DIFF_BASE"
           make -f .trusted-base/Makefile ensure-enhancements \
             TOOLS_DIR=.trusted-base/tools \
             DIFF_BASE="$DIFF_BASE" \
@@ -85,15 +87,23 @@ jobs:
         if: >-
           ${{ !cancelled()
           && steps.ensure.outputs.has_results == 'true' }}
+        # The comment is advisory, so a posting failure should not fail the job.
+        # The required-enhancements gate still enforces error-level issues.
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
           REVIEW_COMMENT: ${{ steps.ensure.outputs.comment }}
         run: |
           set -euo pipefail
+          review_body="${RUNNER_TEMP}/enhance-review.md"
+          printf '%s\n' "$REVIEW_COMMENT" > "$review_body"
+          # Working copy is the fork checkout, so point gh at the base repository.
           gh pr review "$PR_NUMBER" \
+            --repo "$GH_REPO" \
             --comment \
-            --body "$REVIEW_COMMENT"
+            --body-file "$review_body"
 
       - name: Enforce required enhancements
         if: always() && steps.ensure.outputs.has_errors == 'true'
