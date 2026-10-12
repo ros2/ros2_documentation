@@ -36,6 +36,7 @@ A common use case is nodes that control hardware, where devices such as cameras,
 
 Using lifecycle nodes helps ensure hardware is only initialised when it is ready, and is safely released during shutdown or error recovery.
 The following packages enable you to implement these managed nodes: `rclcpp_lifecycle <https://index.ros.org/p/rclcpp_lifecycle/>`__ (implementation library) and `lifecycle_msgs <https://index.ros.org/p/lifecycle_msgs/>`__ (interface definitions).
+For a step-by-step tutorial on implementing a lifecycle node in C++, see :doc:`Writing a Lifecycle Node (C++) <Writing-a-Lifecycle-Node>`.
 
 Prerequisites
 -------------
@@ -58,8 +59,14 @@ For more information about how to run it and what's happening, see: `lifecycle R
 Related content
 ---------------
 
-Packages/reference:
+Tutorials
+^^^^^^^^^
 
-* `rclcpp_lifecycle <https://index.ros.org/p/rclcpp_lifecycle/>`_ (implementation library): Package containing a prototype for lifecycle implementation.
-* `lifecycle_msgs <https://index.ros.org/p/lifecycle_msgs/>`_ (interface definitions): Package containing some lifecycle related message and service definitions.
-* `lifecycle <https://docs.ros.org/en/{DISTRO}/p/lifecycle/>`_: Package containing demos for lifecycle implementation.
+* :doc:`Writing a Lifecycle Node (C++) <Writing-a-Lifecycle-Node>`: Step-by-step tutorial on implementing a lifecycle node, managing states with the CLI, and automating transitions using launch files.
+
+Packages and references
+^^^^^^^^^^^^^^^^^^^^^^^
+
+* `rclcpp_lifecycle <https://index.ros.org/p/rclcpp_lifecycle/>`__: Package containing the lifecycle node implementation.
+* `lifecycle_msgs <https://index.ros.org/p/lifecycle_msgs/>`__: Package containing lifecycle message and service definitions.
+* `lifecycle <https://docs.ros.org/en/{DISTRO}/p/lifecycle/>`__: Package containing demos for lifecycle implementation.
