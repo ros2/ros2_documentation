@@ -153,6 +153,82 @@ This means that if the process is overloaded and starts slowing down, the number
 In the above example, ``st_cbg_exec`` will use one thread for processing all of ``node1`` and ``node2``'s ready events, while ``mt_cbg_exec`` will use the maximum threads available on the system to process ``node3`` and ``node4``'s ready events.
 Like the Multi-Threaded Executor, the actual parallelism depends on the callback groups when using the CBG Executor with more than one thread.
 
+.. _TheEventsExecutor:
+
+The Events Executor (experimental)
+----------------------------------
+
+In addition to the standard Executors, ROS 2 provides an event-driven executor called the ``EventsExecutor`` in both C++ and Python under experimental namespaces.
+Unlike traditional executors that periodically construct a wait-set and poll all entities on every spin iteration, the Events Executor inverts execution flow.
+Entities push event notifications into an internal *events queue* only when new work is ready (for example, when a message arrives or a client requests a service).
+
+This event-driven design decouples event signaling from callback execution.
+Because the executor only inspects entities with pending events in the queue, scheduling scales with the rate of active events rather than the total number of registered entities.
+This significantly reduces CPU overhead, eliminates redundant wait-set reconstructions, and lowers callback dispatch latency in systems with large node graphs.
+
+Key features of the Events Executor include:
+
+* **Queue-based scheduling:** Ready events are pushed into a FIFO events queue and dispatched in the order they occur.
+* **Pluggable events queue:** In C++, the default ``SimpleEventsQueue`` can be replaced with custom queue implementations (such as bounded or prioritized queues) to satisfy determinism or real-time constraints.
+* **Optional dedicated timer thread:** In C++, passing ``execute_timers_separate_thread=true`` runs a separate thread for the timers manager, ensuring timer callbacks are not delayed by long-running message callbacks.
+* **Weak ownership model:** The executor does not maintain strong ownership of entities, locking them only during event execution to reduce lock contention.
+
+.. note::
+
+   The ``EventsExecutor`` is currently experimental and may undergo API modifications across distributions.
+   In C++, it is located in the ``rclcpp::experimental::executors`` namespace.
+   In Python (available starting in Kilted Kaiju), it is located in ``rclpy.experimental.events_executor``.
+   For production systems targeting ROS 2 Lyrical onward that require event-driven performance with callback group parallelism, consider :ref:`The Callback Group Events Executor <TheCallbackGroupEventsExecutor>`.
+
+The following examples show how to instantiate and run the Events Executor:
+
+.. tabs::
+
+   .. group-tab:: C++
+
+      .. code-block:: cpp
+
+         #include <memory>
+         #include "rclcpp/rclcpp.hpp"
+         #include "rclcpp/experimental/executors/events_executor/events_executor.hpp"
+
+         int main(int argc, char * argv[])
+         {
+           rclcpp::init(argc, argv);
+           auto node = std::make_shared<rclcpp::Node>("my_node");
+
+           // Create an EventsExecutor with the default SimpleEventsQueue
+           rclcpp::experimental::executors::EventsExecutor executor;
+           executor.add_node(node);
+           executor.spin();
+
+           rclcpp::shutdown();
+           return 0;
+         }
+
+   .. group-tab:: Python
+
+      .. code-block:: python
+
+         import rclpy
+         from rclpy.node import Node
+         from rclpy.experimental.events_executor import EventsExecutor
+
+         def main():
+             rclpy.init()
+             node = Node('my_node')
+
+             # Create an experimental EventsExecutor
+             executor = EventsExecutor()
+             executor.add_node(node)
+             executor.spin()
+
+             node.destroy_node()
+             rclpy.shutdown()
+
+         if __name__ == '__main__':
+             main()
+
 Callback groups
 ---------------
 
@@ -240,6 +316,7 @@ These issues have been partially addressed by the following developments:
   The `examples_rclcpp_wait_set package <https://github.com/ros2/examples/tree/{REPOS_FILE_BRANCH}/rclcpp/wait_set>`_ provides several examples for the use of this user-level wait set mechanism.
 * `rclc Executor <https://github.com/ros2/rclc/blob/master/rclc/include/rclc/executor.h>`_: This Executor from the C Client Library *rclc*, developed for micro-ROS, gives the user fine-grained control over the execution order of callbacks and allows for custom trigger conditions to activate callbacks.
   Furthermore, it implements ideas of the Logical Execution Time (LET) semantics.
+* :ref:`The Events Executor <TheEventsExecutor>` provides an event-driven execution model with push notifications from entities into an events queue, available experimentally in both C++ and Python.
 * :ref:`The Callback Group Events Executor <TheCallbackGroupEventsExecutor>` utilizes between 10 and 15% less CPU compared to the single and multi-threaded executors, and makes use of a FIFO queue to handle events.
 
 Further information
