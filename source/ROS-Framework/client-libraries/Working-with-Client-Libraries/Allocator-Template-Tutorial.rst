@@ -102,14 +102,15 @@ The callbacks cannot simply forward to the C++ allocator.
 rcl's ``deallocate`` does not pass the size of the block, but ``std::pmr::memory_resource::deallocate`` must receive the size and alignment that were used to allocate it.
 The callbacks are also called from C code, so they must not throw: like ``malloc``, they return ``nullptr`` on failure.
 
-.. note::
-
-   If your allocator has no ``get_rcl_allocator()`` member, rclcpp falls back to a generic conversion which passes a wrong size to ``deallocate``.
-   This fallback is deprecated, and using it results in a ``-Wdeprecated-declarations`` warning.
-
 For ``std::pmr``, a small wrapper around ``std::pmr::polymorphic_allocator`` can store the size of each block in a header in front of it:
 
 .. code-block:: c++
+
+    #include <cstring>
+    #include <limits>
+    #include <memory_resource>
+
+    #include "rcl/allocator.h"
 
     template<typename T = void>
     struct PmrAllocator : std::pmr::polymorphic_allocator<T>
@@ -140,19 +141,60 @@ For ``std::pmr``, a small wrapper around ``std::pmr::polymorphic_allocator`` can
     private:
       static constexpr size_t header = alignof(std::max_align_t);
 
+      // Called from C, so like malloc they return nullptr instead of throwing.
       static void * allocate_block(size_t size, void * state) noexcept
       {
-        // Allocate room for the size in front of the block, and store it there.
-        // ...
+        if (size > (std::numeric_limits<size_t>::max)() - header) {
+          return nullptr;
+        }
+        try {
+          auto resource = static_cast<std::pmr::memory_resource *>(state);
+          auto base = static_cast<char *>(resource->allocate(header + size, header));
+          std::memcpy(base, &size, sizeof(size));
+          return base + header;
+        } catch (...) {
+          return nullptr;
+        }
       }
 
       static void deallocate_block(void * pointer, void * state) noexcept
       {
-        // Read the size back from the header, and pass it to the memory resource.
-        // ...
+        if (pointer == nullptr) {
+          return;
+        }
+        auto base = static_cast<char *>(pointer) - header;
+        size_t size;
+        std::memcpy(&size, base, sizeof(size));
+        static_cast<std::pmr::memory_resource *>(state)->deallocate(base, header + size, header);
       }
 
-      // reallocate_block() and zero_allocate_block() are implemented on top of these two.
+      static void * reallocate_block(void * pointer, size_t size, void * state) noexcept
+      {
+        void * new_pointer = allocate_block(size, state);
+        if (new_pointer == nullptr) {
+          // like realloc: on failure the original block is left untouched
+          return nullptr;
+        }
+        if (pointer != nullptr) {
+          size_t old_size;
+          std::memcpy(&old_size, static_cast<char *>(pointer) - header, sizeof(old_size));
+          std::memcpy(new_pointer, pointer, old_size < size ? old_size : size);
+          deallocate_block(pointer, state);
+        }
+        return new_pointer;
+      }
+
+      static void * zero_allocate_block(size_t count, size_t size, void * state) noexcept
+      {
+        if (size != 0 && count > (std::numeric_limits<size_t>::max)() / size) {
+          return nullptr;
+        }
+        void * pointer = allocate_block(count * size, state);
+        if (pointer != nullptr) {
+          std::memset(pointer, 0, count * size);
+        }
+        return pointer;
+      }
     };
 
 If your allocator already has C-style functions that do not need the size, its ``get_rcl_allocator()`` can forward to them directly.
