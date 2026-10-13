@@ -189,15 +189,16 @@ def _html_page_context(
     ui = _search_config(app)
     fields = _parse_result_meta_fields(ui.result_meta)
     current_distro = _current_distro_from_config(app)
+    css_href, js_href = _pagefind_component_urls(app, pagename)
     context.update({
         'pagefind_seo_filter_metas': '',
-        'pagefind_bundle_prefix': './pagefind/',
-        'pagefind_component_css': './pagefind/pagefind-component-ui.css',
-        'pagefind_component_js': './pagefind/pagefind-component-ui.js',
+        'pagefind_bundle_prefix': _pagefind_bundle_prefix(app, pagename),
+        'pagefind_component_css': css_href,
+        'pagefind_component_js': js_href,
         'pagefind_filter_keys_csv': ','.join(_facet_filter_keys(fields)),
         'pagefind_result_meta_fields': fields,
         'pagefind_always_show_filters': list(ui.always_show_filters),
-        'pagefind_search_results_href': 'search.html',
+        'pagefind_search_results_href': _search_results_href(app, pagename),
         'pagefind_current_distro': current_distro,
         'pagefind_show_breadcrumb': ui.show_breadcrumb,
         'pagefind_show_metadata': ui.show_metadata,
@@ -210,7 +211,6 @@ def _html_page_context(
         return
 
     values = _resolved_page_meta(app, doctree)
-    css_href, js_href = _pagefind_component_urls(app, pagename)
     meta_html = _seo_and_filter_metas(fields, values)
     if ui.show_breadcrumb:
         crumb = _breadcrumb_from_parents(context.get('parents'))
@@ -218,10 +218,6 @@ def _html_page_context(
             crumb_tag = _breadcrumb_meta_tag(crumb)
             meta_html = f'{meta_html}\n    {crumb_tag}' if meta_html else crumb_tag
     context['pagefind_seo_filter_metas'] = meta_html
-    context['pagefind_bundle_prefix'] = _pagefind_bundle_prefix(app, pagename)
-    context['pagefind_component_css'] = css_href
-    context['pagefind_component_js'] = js_href
-    context['pagefind_search_results_href'] = _search_results_href(app, pagename)
 
 
 def setup(app) -> Dict[str, Any]:

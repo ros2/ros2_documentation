@@ -13,6 +13,7 @@ from pagefind_meta import (  # noqa: E402
     _breadcrumb_meta_tag,
     _current_distro_from_config,
     _facet_filter_keys,
+    _html_page_context,
     _parse_result_meta_fields,
     _seo_and_filter_metas,
 )
@@ -123,6 +124,42 @@ def test_breadcrumb_from_parents_skips_empty_and_non_dict() -> None:
     assert _breadcrumb_from_parents([]) == ''
     assert _breadcrumb_from_parents(None) == ''
     assert _breadcrumb_from_parents([{'title': ''}, 'x', {'title': 'Tools'}]) == 'Tools'
+
+
+def _app_for_context(fmt: str) -> SimpleNamespace:
+    def get_target_uri(pagename: str, typ: str | None = None) -> str:
+        del typ
+        return f'{pagename}.html'
+
+    def get_relative_uri(pagename: str, other: str) -> str:
+        del pagename
+        return f'../{other}.html'
+
+    return SimpleNamespace(
+        confdir='/nonexistent/path',
+        config=SimpleNamespace(macros={}, smv_current_version=''),
+        builder=SimpleNamespace(
+            format=fmt,
+            get_target_uri=get_target_uri,
+            get_relative_uri=get_relative_uri,
+        ),
+    )
+
+
+def test_non_html_builder_still_gets_page_relative_pagefind_paths() -> None:
+    context: dict = {}
+    _html_page_context(
+        _app_for_context('epub'),
+        'Guides/Example',
+        'page.tex',
+        context,
+        None,
+    )
+    assert context['pagefind_bundle_prefix'] == '../pagefind/'
+    assert context['pagefind_component_css'] == '../pagefind/pagefind-component-ui.css'
+    assert context['pagefind_component_js'] == '../pagefind/pagefind-component-ui.js'
+    assert context['pagefind_search_results_href'] == '../search.html'
+    assert context['pagefind_seo_filter_metas'] == ''
 
 
 def test_breadcrumb_meta_tag_is_meta_not_filter() -> None:
