@@ -99,6 +99,22 @@
   padding-right: 0.5rem;
 }
 
+.ros-search-ui .pf-result-breadcrumb {
+  margin: 0.15rem 0 0.35rem !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  color: var(--pf-text-secondary, rgba(0, 0, 0, 0.55)) !important;
+  font-size: 0.8rem !important;
+  font-weight: 400 !important;
+  line-height: 1.35 !important;
+}
+
+.ros-search-ui .pf-result-breadcrumb-label {
+  color: #495057 !important;
+  font-weight: 600 !important;
+}
+
 .ros-page-meta-summary,
 .ros-search-ui .pf-result-meta-block {
   margin: -0.25rem 0 1rem !important;
@@ -325,11 +341,15 @@ pagefind-filter-pane[hidden] {
 }
 
 .ros-search-ui .pf-result-meta-block {
-  margin-top: 0.35rem !important;
+  margin-top: 0.25rem !important;
   margin-bottom: 0.45rem !important;
   border-radius: 0 !important;
   display: block !important;
   line-height: 1.35 !important;
+}
+
+.ros-search-ui .pf-result-breadcrumb + .pf-result-meta-block {
+  margin-top: 0.2rem !important;
 }
 
 .ros-search-ui .pf-result-meta-block b,

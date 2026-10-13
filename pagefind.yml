@@ -33,3 +33,7 @@ always_show_filters:
   - area
   - contentType
   - experience
+
+# When true, show Sphinx toctree parents under each result title
+# (excludes current page title; plain text, no links).
+search_result_breadcrumb: true

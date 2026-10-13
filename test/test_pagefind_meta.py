@@ -9,6 +9,8 @@ from types import SimpleNamespace
 sys.path.insert(0, 'plugins')
 
 from pagefind_meta import (  # noqa: E402
+    _breadcrumb_from_parents,
+    _breadcrumb_meta_tag,
     _current_distro_from_config,
     _facet_filter_keys,
     _parse_result_meta_fields,
@@ -107,3 +109,25 @@ def test_current_distro_from_config_uses_macros_distro() -> None:
 def test_current_distro_from_config_defaults_to_rolling() -> None:
     app = SimpleNamespace(config=SimpleNamespace(macros={}))
     assert _current_distro_from_config(app) == 'rolling'
+
+
+def test_breadcrumb_from_parents_joins_titles() -> None:
+    parents = [
+        {'link': 'Get-Started.html', 'title': 'Get started'},
+        {'link': 'Installation.html', 'title': 'Installation'},
+    ]
+    assert _breadcrumb_from_parents(parents) == 'Get started › Installation'
+
+
+def test_breadcrumb_from_parents_skips_empty_and_non_dict() -> None:
+    assert _breadcrumb_from_parents([]) == ''
+    assert _breadcrumb_from_parents(None) == ''
+    assert _breadcrumb_from_parents([{'title': ''}, 'x', {'title': 'Tools'}]) == 'Tools'
+
+
+def test_breadcrumb_meta_tag_is_meta_not_filter() -> None:
+    tag = _breadcrumb_meta_tag('Get started › Installation')
+    assert 'name="breadcrumb"' in tag
+    assert 'content="Get started › Installation"' in tag
+    assert 'data-pagefind-meta="breadcrumb[content]"' in tag
+    assert 'data-pagefind-filter' not in tag
