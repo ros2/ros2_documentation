@@ -26,6 +26,7 @@ const searchResultsUrl = String(config?.searchResultsUrl || 'search.html');
 const bundlePrefix = String(config?.bundlePrefix || './pagefind/');
 const componentJs = String(config?.componentJs || '');
 const showBreadcrumb = Boolean(config?.showBreadcrumb);
+const showMetadata = Boolean(config?.showMetadata);
 
 function getPagefindInstance() {
   return window.PagefindComponents?.getInstanceManager?.()?.getInstance?.('default') ?? null;
@@ -197,6 +198,9 @@ function valuesForField(data, key) {
 }
 
 function entriesFromRecord(data) {
+  if (!showMetadata) {
+    return [];
+  }
   const entries = [];
   resultMetaFields.forEach((field) => {
     const key = field.key;
@@ -274,7 +278,7 @@ function buildBreadcrumbEl(text) {
   el.dataset.rosBreadcrumbBuilt = '1';
   const label = document.createElement('span');
   label.className = 'pf-result-breadcrumb-label';
-  label.textContent = 'In';
+  label.textContent = 'In:';
   el.appendChild(label);
   el.appendChild(document.createTextNode(` ${text}`));
   return el;
