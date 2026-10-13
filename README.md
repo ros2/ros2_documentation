@@ -132,7 +132,7 @@ Pagefind uses an opt-in body marker (`data-pagefind-body` on the article body in
 
 - Real documentation pages (content inside `articleBody`)
 - Page titles and body text used for matching and result excerpts
-- `.. meta::` fields listed under **`search_result_meta`** in [`pagefind.yml`](pagefind.yml): used as facet filters, and shown on result cards from the Pagefind index (Sphinx emits `data-pagefind-filter` / `data-pagefind-meta` via `plugins/pagefind_meta.py`). Result excerpts are Pagefind's own excerpts. The browser UI is [`source/_static/pagefind-search.js`](source/_static/pagefind-search.js).
+- `.. meta::` fields listed under **`search_result_meta`** in [`pagefind.yml`](pagefind.yml): used as facet filters (Sphinx emits `data-pagefind-filter` / `data-pagefind-meta` via `plugins/pagefind_meta.py`). Result cards show those fields only when **`search_result_metadata`** is true. Filters still use `search_result_meta` when that flag is false. Result excerpts are Pagefind's own excerpts. The browser UI is [`source/_static/pagefind-search.js`](source/_static/pagefind-search.js).
 
 **Excluded**
 
@@ -141,7 +141,7 @@ Pagefind uses an opt-in body marker (`data-pagefind-body` on the article body in
 - `p.topic-title` (“Table of Contents” labels) from the indexed lead-in; contents lists themselves remain searchable
 - In-page `.. showmeta::` summaries (`data-pagefind-ignore`), so metadata is not double-indexed as body text
 
-CLI indexing options live in [`pagefind.yml`](pagefind.yml). Sphinx also reads that file for **`search_result_meta`** (ordered field → label map) and **`always_show_filters`** (facet keys that always appear in the sidebar). The Pagefind CLI ignores keys it does not recognize.
+CLI indexing options live in [`pagefind.yml`](pagefind.yml). Sphinx also reads that file for **`search_result_meta`** (ordered field → label map), **`always_show_filters`** (facet keys that always appear in the sidebar), and the result-card flags **`search_result_metadata`** and **`search_result_breadcrumb`**. The Pagefind CLI ignores keys it does not recognize.
 
 The production [Jenkins doc job](https://build.ros.org/job/doc_ros2doc) should run the same `pagefind` step on `build/html` after Sphinx so deployed pages include the search bundle.
 

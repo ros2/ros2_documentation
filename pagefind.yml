@@ -37,3 +37,7 @@ always_show_filters:
 # When true, show Sphinx toctree parents under each result title
 # (excludes current page title; plain text, no links).
 search_result_breadcrumb: true
+
+# When true, show search_result_meta fields on each result card.
+# Facet filters still use those fields when this is false.
+search_result_metadata: false

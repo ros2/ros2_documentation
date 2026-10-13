@@ -64,6 +64,12 @@ def load_search_result_breadcrumb(confdir: str) -> bool:
     return bool(raw)
 
 
+def load_search_result_metadata(confdir: str) -> bool:
+    """Return ``search_result_metadata`` from ``pagefind.yml`` (default False)."""
+    raw = load_pagefind_yml(confdir).get('search_result_metadata', False)
+    return bool(raw)
+
+
 def note_pagefind_yml_dependency(app) -> None:
     """Register ``pagefind.yml`` so edits invalidate the build."""
     env = getattr(app, 'env', None)
