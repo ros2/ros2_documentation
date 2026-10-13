@@ -25,6 +25,7 @@ const currentDistro = String(config?.currentDistro || '');
 const searchResultsUrl = String(config?.searchResultsUrl || 'search.html');
 const bundlePrefix = String(config?.bundlePrefix || './pagefind/');
 const componentJs = String(config?.componentJs || '');
+const showBreadcrumb = Boolean(config?.showBreadcrumb);
 
 function getPagefindInstance() {
   return window.PagefindComponents?.getInstanceManager?.()?.getInstance?.('default') ?? null;
@@ -211,6 +212,20 @@ function entriesFromRecord(data) {
   return entries;
 }
 
+function breadcrumbFromRecord(data) {
+  if (!showBreadcrumb) {
+    return '';
+  }
+  const raw = lookupNamed(data?.meta, 'breadcrumb');
+  if (raw == null) {
+    return '';
+  }
+  if (Array.isArray(raw)) {
+    return raw.map((value) => String(value).trim()).filter(Boolean).join(' › ');
+  }
+  return String(raw).trim();
+}
+
 function resultPathKeys(href) {
   const keys = new Set();
   const add = (url) => {
@@ -253,13 +268,50 @@ function buildMetadataBlock(entries) {
   return block;
 }
 
-function insertMetadataBlock(content, block) {
-  const title = content.querySelector('.pf-result-title');
-  if (title && title.parentNode === content) {
-    title.insertAdjacentElement('afterend', block);
+function buildBreadcrumbEl(text) {
+  const el = document.createElement('p');
+  el.className = 'pf-result-breadcrumb';
+  el.dataset.rosBreadcrumbBuilt = '1';
+  const label = document.createElement('span');
+  label.className = 'pf-result-breadcrumb-label';
+  label.textContent = 'In';
+  el.appendChild(label);
+  el.appendChild(document.createTextNode(` ${text}`));
+  return el;
+}
+
+function clearResultChrome(resultItem) {
+  resultItem.querySelectorAll('.pf-result-meta-block, .pf-result-breadcrumb').forEach((el) => {
+    el.remove();
+  });
+}
+
+function insertResultChrome(content, { breadcrumb, entries }) {
+  content.querySelectorAll('.pf-result-meta-block, .pf-result-breadcrumb').forEach((el) => {
+    el.remove();
+  });
+  const nodes = [];
+  if (breadcrumb) {
+    nodes.push(buildBreadcrumbEl(breadcrumb));
+  }
+  if (entries?.length) {
+    nodes.push(buildMetadataBlock(entries));
+  }
+  if (!nodes.length) {
     return;
   }
-  content.prepend(block);
+  const title = content.querySelector('.pf-result-title');
+  if (title && title.parentNode === content) {
+    let anchor = title;
+    nodes.forEach((node) => {
+      anchor.insertAdjacentElement('afterend', node);
+      anchor = node;
+    });
+    return;
+  }
+  nodes.reverse().forEach((node) => {
+    content.prepend(node);
+  });
 }
 
 let resultMetaKey = '';
@@ -290,7 +342,7 @@ function resetResultMetaCache() {
   resultHandleCursor = 0;
   collectAllPfResultLis().forEach((item) => {
     delete item.dataset.rosMetaAttempted;
-    item.querySelectorAll('.pf-result-meta-block').forEach((block) => block.remove());
+    clearResultChrome(item);
   });
 }
 
@@ -332,9 +384,12 @@ function cachedEntriesForHref(href) {
 }
 
 function storeRecord(data) {
-  const entries = entriesFromRecord(data);
+  const record = {
+    entries: entriesFromRecord(data),
+    breadcrumb: breadcrumbFromRecord(data),
+  };
   resultPathKeys(data?.url).forEach((key) => {
-    resultMetaByPath.set(key, entries);
+    resultMetaByPath.set(key, record);
   });
 }
 
@@ -384,25 +439,29 @@ async function decorateResultItem(resultItem) {
     return;
   }
   const existingBlock = resultItem.querySelector('.pf-result-meta-block');
+  const existingCrumb = resultItem.querySelector('.pf-result-breadcrumb');
   const hasGoodBlock = existingBlock instanceof HTMLElement && existingBlock.dataset.rosMetaBuilt === '1';
-  const skipEmptyRetry = resultItem.dataset.rosMetaAttempted === '1' && !existingBlock;
-  if (hasGoodBlock || skipEmptyRetry || metadataDecorationInFlight.has(resultItem)) {
+  const hasGoodCrumb = existingCrumb instanceof HTMLElement && existingCrumb.dataset.rosBreadcrumbBuilt === '1';
+  const hasChrome = hasGoodBlock || hasGoodCrumb;
+  const skipEmptyRetry = resultItem.dataset.rosMetaAttempted === '1' && !existingBlock && !existingCrumb;
+  if (hasChrome || skipEmptyRetry || metadataDecorationInFlight.has(resultItem)) {
     return;
   }
   metadataDecorationInFlight.add(resultItem);
   try {
     const href = link.getAttribute('href');
     await ensureMetaForHrefs([href]);
-    const entries = cachedEntriesForHref(href);
-    if (entries === undefined) {
+    const record = cachedEntriesForHref(href);
+    if (record === undefined) {
       if (resultMetaKey && resultHandleCursor >= resultHandles.length) {
         resultItem.dataset.rosMetaAttempted = '1';
       }
       return;
     }
-    if (entries.length) {
-      existingBlock?.remove();
-      insertMetadataBlock(content, buildMetadataBlock(entries));
+    const entries = record.entries || [];
+    const breadcrumb = record.breadcrumb || '';
+    if (entries.length || breadcrumb) {
+      insertResultChrome(content, { breadcrumb, entries });
       delete resultItem.dataset.rosMetaAttempted;
     } else {
       resultItem.dataset.rosMetaAttempted = '1';

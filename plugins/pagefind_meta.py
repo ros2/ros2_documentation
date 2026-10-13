@@ -18,7 +18,12 @@ from typing import Any, Dict, List, Optional, Tuple
 from docutils import nodes
 
 from meta_util import all_doctree_meta, expand_all_meta_values, split_meta_values
-from pagefind_config import load_always_show_filters, load_search_result_meta_order
+from pagefind_config import load_always_show_filters
+from pagefind_config import load_search_result_breadcrumb
+from pagefind_config import load_search_result_meta_order
+
+# Separator for Sphinx toctree parent titles on search result cards.
+_BREADCRUMB_SEPARATOR = ' › '
 
 
 def _macros_flat(app) -> Dict[str, str]:
@@ -64,16 +69,40 @@ def _current_distro_from_config(app) -> str:
     return str((getattr(app.config, 'macros', {}) or {}).get('DISTRO', 'rolling'))
 
 
-def _search_config(app) -> Tuple[List[Dict[str, str]], List[str]]:
-    """``(result meta fields, always-show filter keys)`` from ``pagefind.yml``."""
+def _search_config(app) -> Tuple[List[Dict[str, str]], List[str], bool]:
+    """``(result meta fields, always-show filters, show breadcrumb)`` from ``pagefind.yml``."""
     cached = getattr(app, '_ros_pagefind_search_config', None)
     if cached is not None:
         return cached
     fields = _parse_result_meta_fields(load_search_result_meta_order(app.confdir))
     always = load_always_show_filters(app.confdir)
-    cached = (fields, always)
+    show_breadcrumb = load_search_result_breadcrumb(app.confdir)
+    cached = (fields, always, show_breadcrumb)
     app._ros_pagefind_search_config = cached
     return cached
+
+
+def _breadcrumb_from_parents(parents: Any) -> str:
+    """Join Sphinx ``parents`` titles (no Home, no current page) with `` › ``."""
+    if not isinstance(parents, (list, tuple)):
+        return ''
+    titles: List[str] = []
+    for parent in parents:
+        if not isinstance(parent, dict):
+            continue
+        title = str(parent.get('title') or '').strip()
+        if title:
+            titles.append(title)
+    return _BREADCRUMB_SEPARATOR.join(titles)
+
+
+def _breadcrumb_meta_tag(crumb: str) -> str:
+    """Pagefind meta tag for the result-card breadcrumb (not a facet filter)."""
+    esc_val = html.escape(crumb, quote=True)
+    return (
+        f'<meta name="breadcrumb" content="{esc_val}" '
+        f'data-pagefind-meta="breadcrumb[content]">'
+    )
 
 
 def _seo_and_filter_metas(fields: List[Dict[str, str]], values: Dict[str, str]) -> str:
@@ -161,7 +190,7 @@ def _html_page_context(
     context: Dict[str, Any],
     doctree,
 ) -> None:
-    fields, always_show = _search_config(app)
+    fields, always_show, show_breadcrumb = _search_config(app)
     current_distro = _current_distro_from_config(app)
     context.update({
         'pagefind_seo_filter_metas': '',
@@ -173,6 +202,7 @@ def _html_page_context(
         'pagefind_always_show_filters': always_show,
         'pagefind_search_results_href': 'search.html',
         'pagefind_current_distro': current_distro,
+        'pagefind_show_breadcrumb': show_breadcrumb,
     })
 
     if app.builder.format != 'html' or templatename is None:
@@ -182,7 +212,13 @@ def _html_page_context(
 
     values = _resolved_page_meta(app, doctree)
     css_href, js_href = _pagefind_component_urls(app, pagename)
-    context['pagefind_seo_filter_metas'] = _seo_and_filter_metas(fields, values)
+    meta_html = _seo_and_filter_metas(fields, values)
+    if show_breadcrumb:
+        crumb = _breadcrumb_from_parents(context.get('parents'))
+        if crumb:
+            crumb_tag = _breadcrumb_meta_tag(crumb)
+            meta_html = f'{meta_html}\n    {crumb_tag}' if meta_html else crumb_tag
+    context['pagefind_seo_filter_metas'] = meta_html
     context['pagefind_bundle_prefix'] = _pagefind_bundle_prefix(app, pagename)
     context['pagefind_component_css'] = css_href
     context['pagefind_component_js'] = js_href

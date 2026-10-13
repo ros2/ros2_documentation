@@ -9,6 +9,7 @@ from pathlib import Path
 sys.path.insert(0, 'plugins')
 
 from pagefind_config import load_always_show_filters  # noqa: E402
+from pagefind_config import load_search_result_breadcrumb  # noqa: E402
 from pagefind_config import load_search_result_meta_order  # noqa: E402
 
 
@@ -36,3 +37,12 @@ def test_load_always_show_filters_from_repo_pagefind_yml() -> None:
 
 def test_load_always_show_filters_missing_file_returns_empty() -> None:
     assert load_always_show_filters('/nonexistent/path') == []
+
+
+def test_load_search_result_breadcrumb_from_repo_pagefind_yml() -> None:
+    confdir = str(Path(__file__).resolve().parent.parent)
+    assert load_search_result_breadcrumb(confdir) is True
+
+
+def test_load_search_result_breadcrumb_missing_file_defaults_false() -> None:
+    assert load_search_result_breadcrumb('/nonexistent/path') is False

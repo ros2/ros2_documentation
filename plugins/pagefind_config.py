@@ -58,6 +58,12 @@ def load_always_show_filters(confdir: str) -> List[str]:
     return out
 
 
+def load_search_result_breadcrumb(confdir: str) -> bool:
+    """Return ``search_result_breadcrumb`` from ``pagefind.yml`` (default False)."""
+    raw = load_pagefind_yml(confdir).get('search_result_breadcrumb', False)
+    return bool(raw)
+
+
 def note_pagefind_yml_dependency(app) -> None:
     """Register ``pagefind.yml`` so edits invalidate the build."""
     env = getattr(app, 'env', None)
