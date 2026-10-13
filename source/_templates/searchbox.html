@@ -1323,10 +1323,18 @@
       });
       return;
     }
-    // Filter-only URL with no query: still run a search so result cards appear.
+    // Filter-only URL: apply the filters for the sidebar, but keep the result
+    // list hidden until a search term is present.
     if (hasFilters) {
       instance.triggerSearchWithFilters('', filters);
     }
+  }
+
+  function syncResultListVisibility(term) {
+    const hasTerm = Boolean(String(term ?? getPagefindInstance()?.searchTerm ?? '').trim());
+    document.querySelectorAll('pagefind-modal, #ros-search-page').forEach((el) => {
+      el.classList.toggle('ros-search-awaiting-term', !hasTerm);
+    });
   }
 
   function liftSearchModalOutOfSidebar() {
@@ -1358,8 +1366,10 @@
     bindDefaultDistributionToModal();
     applySearchQueryFromUrl();
     applyDefaultDistributionFilter();
+    syncResultListVisibility();
     if (instance?.on) {
       instance.on('search', (term) => {
+        syncResultListVisibility(term);
         scheduleFilterOnlyCounts();
         applyDefaultDistributionFilter();
         if (userEditedPageSearchTerm || restoringUrlTerm || !urlSearchTerm()) {
@@ -1387,7 +1397,7 @@
     shortcut="mod+k"
     placeholder="Enter search...">
   </pagefind-modal-trigger>
-  <pagefind-modal reset-on-close="true">
+  <pagefind-modal class="ros-search-awaiting-term" reset-on-close="true">
     <pagefind-modal-header>
       <pagefind-input></pagefind-input>
     </pagefind-modal-header>

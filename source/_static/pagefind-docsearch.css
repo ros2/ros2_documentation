@@ -168,6 +168,12 @@ dialog.pf-modal .pf-result-meta-block {
   display: block;
 }
 
+/* Filters stay available, but the result list waits for a search term. */
+.ros-search-awaiting-term pagefind-summary,
+.ros-search-awaiting-term pagefind-results {
+  display: none !important;
+}
+
 /* Placeholder facet groups — mirror .pf-filter-group / .pf-filter-group-title */
 .ros-facet-placeholders {
   display: flex;

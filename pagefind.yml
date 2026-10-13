@@ -15,7 +15,6 @@ exclude_selectors:
 # Sphinx-only: order + labels for search result metadata and facet sidebar.
 # Keys must match .. meta:: field names on each page.
 search_result_meta:
-  product: Product
   distribution: Distribution
   area: Area
   capability: Capability
