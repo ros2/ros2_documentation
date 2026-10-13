@@ -10,12 +10,12 @@
   "currentDistro": pagefind_current_distro,
   "showBreadcrumb": pagefind_show_breadcrumb,
   "showMetadata": pagefind_show_metadata,
+  "excerptLength": pagefind_excerpt_length,
 }|tojson }}
 </script>
 <script type="module" src="{{ pathto('_static/pagefind-search.js', 1) }}"></script>
 
 <div class="ros2-pagefind-search ros-search-ui">
-  <pagefind-config excerpt-length="{{ pagefind_excerpt_length }}"></pagefind-config>
   <pagefind-modal-trigger
     shortcut="mod+k"
     placeholder="Enter search...">
