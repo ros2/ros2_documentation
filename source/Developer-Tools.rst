@@ -8,8 +8,11 @@
 Tools
 =====
 
+In this section:
 
-Coming Soon
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 .. toctree::
    :hidden:

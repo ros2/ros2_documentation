@@ -8,7 +8,11 @@
 Capabilities
 ============
 
-Coming Soon
+In this section:
+
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 .. toctree::
    :hidden:

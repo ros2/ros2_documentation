@@ -8,11 +8,11 @@
 Get started
 ===========
 
+In this section:
+
 .. contents:: Contents
    :depth: 2
    :local:
-
-Coming Soon
 
 .. toctree::
    :hidden:
