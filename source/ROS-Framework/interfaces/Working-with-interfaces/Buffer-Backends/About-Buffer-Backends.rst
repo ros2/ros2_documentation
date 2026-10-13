@@ -25,7 +25,7 @@ About ``rosidl::Buffer`` backends
    Writing-a-Buffer-Compatible-Conversions-Package
 
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

@@ -27,7 +27,7 @@ Interfaces
    About-Tf2/About-Tf2
    Working-with-interfaces
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

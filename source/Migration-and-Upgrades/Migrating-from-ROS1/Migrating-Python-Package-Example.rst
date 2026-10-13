@@ -14,7 +14,7 @@ Migrating a Python Package Example
 
 This guide shows how to migrate an example Python package from ROS 1 to ROS 2.
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

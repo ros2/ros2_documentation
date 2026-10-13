@@ -29,7 +29,7 @@ Creating and using plugins (C++) — tutorial
 **Time:** 20 minutes
 
 .. contents:: Contents
-   :depth: 3
+   :depth: 2
    :local:
 
 Background

@@ -19,7 +19,8 @@ This article summarizes ROS developer tools and guidance available to help with 
 
 **Area: motion-planning, manipulation, capabilities | Content-type: about | Experience: beginner, intermediate, expert**
 
-.. contents:: Table of Contents
+.. contents:: Contents
+   :depth: 2
    :local:
 
 Summary

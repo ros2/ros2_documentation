@@ -32,7 +32,7 @@ Contributing
    Contributing/Triaging-an-issue
    Contributing/Reporting-an-issue
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

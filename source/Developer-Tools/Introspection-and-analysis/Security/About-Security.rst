@@ -36,7 +36,7 @@ ROS 2 Security
    Examine-Traffic
    Access-Controls
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

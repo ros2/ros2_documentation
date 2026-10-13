@@ -15,7 +15,7 @@ Using client libraries, users gain access to ROS 2 concepts such as nodes, topic
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

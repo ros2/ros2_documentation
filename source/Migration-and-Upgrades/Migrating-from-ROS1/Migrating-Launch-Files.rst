@@ -17,7 +17,7 @@
 Migrating Launch Files
 ======================
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

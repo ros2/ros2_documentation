@@ -12,7 +12,7 @@
 Migrating your package.xml to format 2
 ======================================
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

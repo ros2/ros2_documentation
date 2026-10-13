@@ -27,7 +27,7 @@ URDF (Unified Robot Description Format) is a file format for specifying the geom
 A URDF file follows the XML format as described on `here <https://wiki.ros.org/urdf/XML>`_.
 
 .. contents:: Contents
-   :depth: 0
+   :depth: 2
    :local:
 
 .. toctree::

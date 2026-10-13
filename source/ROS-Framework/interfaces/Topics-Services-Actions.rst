@@ -17,7 +17,7 @@ Topics vs Services vs Actions
    :labels: area=Area, contentType=Content type, experience=Level
 
 .. contents:: Contents
-   :depth: 1
+   :depth: 2
    :local:
 
 When designing a system there are three primary styles of interfaces.

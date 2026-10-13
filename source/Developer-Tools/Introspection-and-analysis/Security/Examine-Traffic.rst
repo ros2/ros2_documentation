@@ -30,9 +30,9 @@ Examining network traffic - tutorial
 
 **Time:** 20 minutes
 
-.. contents:: Table of Contents
-  :depth: 2
-  :local:
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 Overview
 --------

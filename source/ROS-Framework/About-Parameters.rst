@@ -27,7 +27,7 @@ Parameters
 
    parameters/Working-with-parameters
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

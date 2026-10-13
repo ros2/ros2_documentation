@@ -27,7 +27,7 @@ Node management
    Launch/Launching-composable-nodes
    Launch/Launch-file-different-formats
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

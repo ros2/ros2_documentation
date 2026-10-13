@@ -27,9 +27,9 @@ Using Python Packages with ROS 2 - how-to
 
 **Goal:** Explain how to interoperate with other Python packages from the ROS 2 ecosystem.
 
-.. contents:: Table of Contents
-    :depth: 2
-    :local:
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 Summary
 -------

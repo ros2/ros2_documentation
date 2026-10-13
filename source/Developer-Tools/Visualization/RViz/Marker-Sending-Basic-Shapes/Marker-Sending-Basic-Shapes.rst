@@ -23,7 +23,7 @@ Marker: Sending Basic Shapes (C++) - tutorial
 
 **Time:** 15 Minutes
 
-.. contents:: Table of Contents
+.. contents:: Contents
    :depth: 2
    :local:
 

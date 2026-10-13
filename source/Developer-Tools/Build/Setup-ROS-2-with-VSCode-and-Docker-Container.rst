@@ -21,9 +21,9 @@ Setting up ROS with VSCode and Docker [community-contributed] - how-to
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-.. contents:: Table of Contents
-    :depth: 2
-    :local:
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 Summary
 -------
