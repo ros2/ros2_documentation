@@ -10,6 +10,7 @@ sys.path.insert(0, 'plugins')
 
 from pagefind_config import load_always_show_filters  # noqa: E402
 from pagefind_config import load_search_result_breadcrumb  # noqa: E402
+from pagefind_config import load_search_result_excerpt_length  # noqa: E402
 from pagefind_config import load_search_result_meta_order  # noqa: E402
 from pagefind_config import load_search_result_metadata  # noqa: E402
 
@@ -56,3 +57,12 @@ def test_load_search_result_metadata_from_repo_pagefind_yml() -> None:
 
 def test_load_search_result_metadata_missing_file_defaults_false() -> None:
     assert load_search_result_metadata('/nonexistent/path') is False
+
+
+def test_load_search_result_excerpt_length_from_repo_pagefind_yml() -> None:
+    confdir = str(Path(__file__).resolve().parent.parent)
+    assert load_search_result_excerpt_length(confdir) == 50
+
+
+def test_load_search_result_excerpt_length_missing_file_defaults_30() -> None:
+    assert load_search_result_excerpt_length('/nonexistent/path') == 30

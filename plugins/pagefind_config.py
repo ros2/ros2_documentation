@@ -70,6 +70,23 @@ def load_search_result_metadata(confdir: str) -> bool:
     return bool(raw)
 
 
+# Pagefind's built-in excerpt window when ``search_result_excerpt_length`` is absent.
+_DEFAULT_EXCERPT_LENGTH = 30
+
+
+def load_search_result_excerpt_length(confdir: str) -> int:
+    """Return ``search_result_excerpt_length`` from ``pagefind.yml`` (default 30)."""
+    raw = load_pagefind_yml(confdir).get(
+        'search_result_excerpt_length', _DEFAULT_EXCERPT_LENGTH)
+    try:
+        length = int(raw)
+    except (TypeError, ValueError):
+        return _DEFAULT_EXCERPT_LENGTH
+    if length < 1:
+        return _DEFAULT_EXCERPT_LENGTH
+    return length
+
+
 def note_pagefind_yml_dependency(app) -> None:
     """Register ``pagefind.yml`` so edits invalidate the build."""
     env = getattr(app, 'env', None)
