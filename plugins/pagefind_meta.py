@@ -20,6 +20,7 @@ from docutils import nodes
 from meta_util import all_doctree_meta, expand_all_meta_values, split_meta_values
 from pagefind_config import load_always_show_filters
 from pagefind_config import load_search_result_breadcrumb
+from pagefind_config import load_search_result_excerpt_length
 from pagefind_config import load_search_result_meta_order
 from pagefind_config import load_search_result_metadata
 
@@ -70,8 +71,8 @@ def _current_distro_from_config(app) -> str:
     return str((getattr(app.config, 'macros', {}) or {}).get('DISTRO', 'rolling'))
 
 
-def _search_config(app) -> Tuple[List[Dict[str, str]], List[str], bool, bool]:
-    """``(result meta fields, always-show filters, show breadcrumb, show metadata)``."""
+def _search_config(app) -> Tuple[List[Dict[str, str]], List[str], bool, bool, int]:
+    """``(meta fields, always-show filters, breadcrumb, metadata, excerpt length)``."""
     cached = getattr(app, '_ros_pagefind_search_config', None)
     if cached is not None:
         return cached
@@ -79,7 +80,8 @@ def _search_config(app) -> Tuple[List[Dict[str, str]], List[str], bool, bool]:
     always = load_always_show_filters(app.confdir)
     show_breadcrumb = load_search_result_breadcrumb(app.confdir)
     show_metadata = load_search_result_metadata(app.confdir)
-    cached = (fields, always, show_breadcrumb, show_metadata)
+    excerpt_length = load_search_result_excerpt_length(app.confdir)
+    cached = (fields, always, show_breadcrumb, show_metadata, excerpt_length)
     app._ros_pagefind_search_config = cached
     return cached
 
@@ -192,7 +194,7 @@ def _html_page_context(
     context: Dict[str, Any],
     doctree,
 ) -> None:
-    fields, always_show, show_breadcrumb, show_metadata = _search_config(app)
+    fields, always_show, show_breadcrumb, show_metadata, excerpt_length = _search_config(app)
     current_distro = _current_distro_from_config(app)
     context.update({
         'pagefind_seo_filter_metas': '',
@@ -206,6 +208,7 @@ def _html_page_context(
         'pagefind_current_distro': current_distro,
         'pagefind_show_breadcrumb': show_breadcrumb,
         'pagefind_show_metadata': show_metadata,
+        'pagefind_excerpt_length': excerpt_length,
     })
 
     if app.builder.format != 'html' or templatename is None:
