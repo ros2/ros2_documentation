@@ -23,10 +23,6 @@ Learning about data visualization - tutorial
    :order: area, contentType, experience
    :labels: area=Area, contentType=Content type, experience=Level
 
-RViz is a 3D visualizer for ROS.
-This article walks you through starting RViz, showing simple shapes from a marker publisher, and controlling the 3D view.
-A hands-on exercise with sample marker shapes gives you practice viewing 3D data in RViz.
-
 .. contents:: Contents
    :depth: 3
    :local:
@@ -34,26 +30,24 @@ A hands-on exercise with sample marker shapes gives you practice viewing 3D data
 Summary
 -------
 
+Data visualization can be achieved by using RViz, which is a 3D visualizer for ROS.
 RViz renders 3D data from your ROS system, such as robot models, sensor readings, and primitive shapes.
 A display is an RViz plugin that renders one kind of data in the 3D view.
 
-The Marker display can show shapes that a node publishes as ``visualization_msgs/msg/Marker`` messages.
-RViz does not need to know the meaning of marker data ahead of time.
-
-This tutorial uses a small publisher that cycles through a cube, sphere, arrow, and cylinder.
-Its markers give you sample data for setup, viewing, and camera control in RViz.
-
-For more information, see :doc:`RViz User Guide <../RViz-User-Guide/RViz-User-Guide>`.
+For more information, see :doc:`Visualization <../../../About-visualization>`.
 
 Prerequisites
 -------------
 
 #. :doc:`Install ROS <../../../../Get-Started/Installation>` and :doc:`set up your environment <../../../../Get-Started/Configuring-ROS2-Environment>`.
 #. :doc:`Create a workspace <../../../../ROS-Framework/client-libraries/Working-with-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>`.
-#. Familiarise yourself with the :doc:`RViz User Guide <../RViz-User-Guide/RViz-User-Guide>`.
+#. Familiarize yourself with the :doc:`RViz User Guide <../RViz-User-Guide/RViz-User-Guide>`.
 
 Steps
 -----
+
+This tutorial uses a small publisher that cycles through a cube, sphere, arrow, and cylinder.
+Its markers give you sample data for setup, viewing, and camera control in RViz.
 
 .. note::
    Source ROS in every new terminal you open.
@@ -139,6 +133,9 @@ If **Fixed Frame** stays at ``map``, the marker will not show in the 3D view.
 
 5 Add a Marker display
 ^^^^^^^^^^^^^^^^^^^^^^
+
+The Marker display can show shapes that a node publishes as ``visualization_msgs/msg/Marker`` messages.
+RViz does not need to know the meaning of marker data ahead of time.
 
 The **Displays** list in RViz defines which different elements are included in the visualization. You need to subscribe to the marker messages to include them in the 3D view.
 
